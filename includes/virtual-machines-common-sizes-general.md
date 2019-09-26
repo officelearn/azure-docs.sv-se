@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: a47589728bdbe3842790a7c13fe35d04dbbe6883
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5d89feaa5225aea56af86aa7f70d3666994fdaec
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881623"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266899"
 ---
 Generella storlekar för virtuella datorer ger balanserade förhållandet mellan processor och minne. Utmärkt för tester och utveckling, små till mellanstora databaser och webbservrar med låg till medelhög trafik. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde för storlekar i den här grupperingen.
 
@@ -80,13 +80,15 @@ Dsv3-seriens storlekar baseras på 2,4 GHz Intel Xeon® E5-2673 v3-processorn (H
 
 <sup>1</sup> Dsv3 för virtuell dator i serien Intel® Hyper-Threading-teknik
 
-## <a name="dasv3-series"></a>Dasv3-serien
+## <a name="dasv3-series-preview"></a>Dasv3-serien (för hands version)
 
 Premium-lagring: Stöds
 
 Premium Storage cachelagring: Stöds
 
-Dasv3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452V-processorn som kan uppnå en högre Fmax på 3.35 GHz och använda Premium Storage. Storlekarna i Dasv3-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar.
+Dasv3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en förstärkt Fmax på 3.35 GHz och använda Premium Storage. Storlekarna i Dasv3-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar.
+
+[Klicka här för att registrera dig för för hands versionen](http://aka.ms/azureamdpreview).
 
 | Size | Virtuell processor | Minne: GiB | Temp-lagring (SSD): GiB |
 |---|---|---|---|
@@ -123,13 +125,15 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 
 <sup>1</sup> dv3 för virtuell dator i serien Intel® Hyper-Threading-teknik
 
-## <a name="dav3-series"></a>Dav3-serien
+## <a name="dav3-series-preview"></a>Dav3-serien (för hands version)
 
 Premium-lagring: Stöds inte
 
 Premium Storage cachelagring: Stöds inte
 
-Dav3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452V-processorn som kan uppnå en förstärkt Fmax på 3.35 GHz. Storlekarna i Dav3-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar. Datadisklagring faktureras separat från virtuella datorer. Använd Dasv3-storlekarna om du vill använda Premium Storage-diskar. Pris-och debiterings mätare för Dasv3-storlekar är samma som för Dav3-serien.
+Dav3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en förstärkt Fmax på 3.35 GHz. Storlekarna i Dav3-serien erbjuder en kombination av vCPU, minne och tillfällig lagring för de flesta produktions arbets belastningar. Datadisklagring faktureras separat från virtuella datorer. Använd Dasv3-storlekarna om du vill använda Premium Storage-diskar. Pris-och debiterings mätare för Dasv3-storlekar är samma som för Dav3-serien.
+
+[Klicka här för att registrera dig för för hands versionen](http://aka.ms/azureamdpreview).
 
 | Size | Virtuell processor | Minne: GiB | Temp-lagring (SSD): GiB |
 |---|---|---|---|

@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 06/11/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 1792cf2359caef3211b4ce1ac86928eeb85d682b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6605aa268a7ee7fe75254df5dbe96e9dfbc71d79
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67053157"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272421"
 ---
-# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Använd bot med QnA Maker och LUIS för att distribuera din kunskapsbas
+# <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Använd bot med QnA Maker-och LUIS för att distribuera kunskaps basen
 När kunskapsbasen QnA Maker växer stora, blir det svårt att underhålla den som en enda monolitisk ange och det finns en behöver delas upp i knowledge base i mindre logiska segment.
 
 Det är enkelt att skapa flera kunskapsbaser i QnA Maker, behöver du vissa logik för att dirigera inkommande frågan till rätt kunskapsbas. Du kan göra detta med hjälp av LUIS.
@@ -27,7 +27,7 @@ Den här artikeln använder Bot Framework v3-SDK. Finns i denna [Bot Framework a
 
 ## <a name="architecture"></a>Arkitektur
 
-![QnA Maker med Language Understanding-arkitektur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker med Language Understanding arkitektur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
 I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan från en LUIS-modell och sedan använda den för att dirigera till rätt kunskapsbas för QnA Maker.
 
@@ -51,7 +51,7 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
 
 ## <a name="web-app-bot"></a>Web app-robot
 
-1. [Skapa en ”grundläggande” Web App-robot](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) som automatiskt lägger till en LUIS-app. Välj 4.x SDK och C# programmeringsspråket.
+1. [Skapa en "grundläggande" webbapp för webb program](https://docs.microsoft.com/azure/bot-service/bot-service-quickstart?view=azure-bot-service-4.0) som automatiskt innehåller en Luis-app. Välj C# programmeringsspråk.
 
 1. När web app-robot skapas i Azure-portalen väljer du web app-robot.
 1. Välj **programinställningar** i Web app bot service navigering, rulla ned till **programinställningar** under tillgängliga inställningar.

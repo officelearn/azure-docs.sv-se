@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 07/31/2019
+ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eba7dbb934bbc19ed7dc7452c15cbf22a9429bc3
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: 9ce9fa29a29559a1eaaff6173737159f11aa83d8
+ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68706753"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71268899"
 ---
 1. På vänstra sidan i portalen klickar du på **+Skapa en resurs** och skriver ”Virtuell nätverksgateway” i sökningen. Hitta **Virtuell nätverksgateway** bland sökresultaten och klicka på det. På sidan **virtuell nätverksgateway** klickar du på **skapa**. Då öppnas sidan **Skapa virtuell nätverksgateway**.
 
@@ -39,7 +39,7 @@ ms.locfileid: "68706753"
 
       **Adress intervall för Gateway-under nätet**: Det här fältet visas bara om det virtuella nätverk som du har valt inte har något Gateway-undernät. Fyll i intervallet om du inte redan har ett Gateway-undernät. Om möjligt, gör du intervallet/27 eller större (/26,/25 osv.)
 
-    **Offentlig IP-adress**: Den här inställningen anger det offentliga IP-adressprefixet som associeras med VPN-gatewayen. Den offentliga IP-adressen tilldelas dynamiskt till detta objekt när en VPN-gateway skapas. VPN Gateway stöder för närvarande endast *dynamisk* offentlig IP-adressallokering. Det innebär emellertid inte att IP-adressen ändras när den har tilldelats din VPN-gateway. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
+   **Offentlig IP-adress**: Den här inställningen anger det offentliga IP-adressprefixet som associeras med VPN-gatewayen. Den offentliga IP-adressen tilldelas dynamiskt till detta objekt när en VPN-gateway skapas. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
 
      - **Offentlig IP-adress**: Lämna alternativet **Skapa nytt** markerat.
      - **Namn på offentlig IP-adress**: I text rutan anger du ett namn för din offentliga IP-tjänstinstans.

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 08/08/2019
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: dce7cc2cd8e97eef81023eb803cace3f6d011171
-ms.sourcegitcommit: 71db032bd5680c9287a7867b923bf6471ba8f6be
+ms.openlocfilehash: 18a19f5f853206b06c617307c761a99033c9f92a
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/16/2019
-ms.locfileid: "70174667"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266933"
 ---
 Minnesoptimerade VM-storlekar erbjuder ett högt förhållande mellan minne och processor som är bra för Relations databas servrar, medel stora och stora cacheminnen och minnes intern analys. Den här artikeln innehåller information om antalet virtuella processorer, data diskar och nätverkskort samt lagrings data flöde och nätverks bandbredd för varje storlek i den här gruppen.
 
 * Ev3-serien har en-processor (E5-2673 v4 2,3 GHz) i en Hyper-threadd konfiguration, vilket ger ett bättre värde för de flesta allmänna arbets belastningar och gör att Ev3 kan justeras med generella virtuella datorer i de flesta andra moln.  Minnet har utökats (från 7 GiB/vCPU till 8 GiB/vCPU) medan disk-och nätverks gränser har justerats per kärna för att justeras med flytten till hyperthreading.  Ev3 är en uppföljning av de virtuella datorerna med hög minnes storlek för D/Dv2-familjer.
 
-* Eav3-serien och Easv3-serien använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452V-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache, vilket ökar alternativen för att köra de flesta minnesoptimerade arbets belastningar.  Eav3-serien och Easv3-serien har samma minnes-och diskkonfigurationer som Ev3 & Esv3-serien.
+* Förhands gransknings storlekarna för Eav3-serien och Easv3-serien använder AMD: s 2.35 GHz EPYC<sup>TM</sup> 7452-processor i en multi-threadd konfiguration med upp till 256 MB L3-cache, vilket ökar alternativen för att köra de flesta minnesoptimerade arbets belastningar.  Eav3-serien och Easv3-serien har samma minnes-och diskkonfigurationer som Ev3 & Esv3-serien.
 
 * Mv2-serien erbjuder det högsta antalet vCPU (upp till 208 virtuella processorer) och störst minne (upp till 5,7 TiB) för virtuella datorer i molnet. Serien är det perfekta valet för mycket stora databaser eller andra program som har nytta av många virtuella processorer och stora mängder minne.
 
@@ -61,13 +61,15 @@ Instanserna i ESv3-serien baseras på 2,3 GHz Intel XEON® E5-2673 v4-processorn
 
 <sup>3</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.
 
-## <a name="easv3-series"></a>Easv3-serien
+## <a name="easv3-series-preview"></a>Easv3-serien (för hands version)
 
 Premium-lagring: Stöds
 
 Premium Storage cachelagring: Stöds
 
-Easv3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452V-processorn som kan uppnå en högre Fmax på 3.35 GHz och använda Premium Storage. Easv3-seriens storlek är idealiska för minnes intensiva företags program.
+Easv3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en förstärkt Fmax på 3.35 GHz och använda Premium Storage. Easv3-seriens storlek är idealiska för minnes intensiva företags program.
+
+[Klicka här för att registrera dig för för hands versionen](http://aka.ms/azureamdpreview).
 
 | Size | Virtuell processor | Minne: GiB | Temp-lagring (SSD): GiB |
 |---|---|---|---|
@@ -110,23 +112,25 @@ Datadisklagring faktureras separat från virtuella datorer. Om du vill använda 
 
 <sup>3</sup> -instansen är isolerad till maskin vara som är dedikerad till en enda kund.
 
-## <a name="eav3-series"></a>Eav3-serien
+## <a name="eav3-series-preview"></a>Eav3-serien (för hands version)
 
 Premium-lagring: Stöds inte
 
 Premium Storage cachelagring: Stöds inte
 
-Eav3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452V-processorn som kan uppnå en högre Fmax på 3.35 GHz och använda Premium Storage. Eav3-seriens storlek är idealiska för minnes intensiva företags program. Datadisklagring faktureras separat från virtuella datorer. Om du vill använda Premium Storage-diskar använder du Easv3-seriens storlekar. Pris-och debiterings mätare för Easv3-storlekar är samma som för Eav3-serien.
+Eav3-seriens storlekar baseras på 2.35 GHz AMD EPYC<sup>TM</sup> 7452-processorn som kan uppnå en förstärkt Fmax på 3.35 GHz och använda Premium Storage. Eav3-seriens storlek är idealiska för minnes intensiva företags program. Datadisklagring faktureras separat från virtuella datorer. Om du vill använda Premium Storage-diskar använder du Easv3-seriens storlekar. Pris-och debiterings mätare för Easv3-storlekar är samma som för Eav3-serien.
 
-| Size | Virtuell processor | Minne: GiB | Temp-lagring (SSD): GiB |
-|---|---|---|---|---|---|
-| Standard_E2a_v3  | 2  | 16  | 50   |
-| Standard_E4a_v3  | 4  | 32  | 100  |
-| Standard_E8a_v3  | 8  | 64  | 200  |
-| Standard_E16a_v3 | 16 | 128 | 400  |
-| Standard_E32a_v3 | 32 | 256 | 800  |
-| Standard_E48a_v3 | 48 | 384 | 1200 |
-| Standard_E64a_v3 | 64 | 432 | 1600 |
+[Klicka här för att registrera dig för för hands versionen](http://aka.ms/azureamdpreview).
+
+| Size             | Virtuell processor | Minne: GiB | Temp-lagring (SSD): GiB |
+|------------------|------|-------------|-------------------------|
+| Standard_E2a_v3  | 2    | 16          | 50                      |
+| Standard_E4a_v3  | 4    | 32          | 100                     |
+| Standard_E8a_v3  | 8    | 64          | 200                     |
+| Standard_E16a_v3 | 16   | 128         | 400                     |
+| Standard_E32a_v3 | 32   | 256         | 800                     |
+| Standard_E48a_v3 | 48   | 384         | 1200                    |
+| Standard_E64a_v3 | 64   | 432         | 1600                    |
 
 ## <a name="mv2-series"></a>Mv2-serien
 

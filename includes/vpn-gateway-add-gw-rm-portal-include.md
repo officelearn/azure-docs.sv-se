@@ -5,50 +5,50 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 11/30/2018
+ms.date: 09/24/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 72e61a36b58c0bc666f3e19b71fb1abe842208f5
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 12d3f06ca349413231d69fc9de7b9d2f36645b23
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187188"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71273745"
 ---
-1. Logga in på Azure portal och väljer **skapa en resurs**. Den **New** öppnas.
+1. På vänstra sidan i portalen klickar du på **+Skapa en resurs** och skriver ”Virtuell nätverksgateway” i sökningen. Hitta **Virtuell nätverksgateway** bland sökresultaten och klicka på det. På sidan **virtuell nätverksgateway** klickar du på **skapa**. Då öppnas sidan **Skapa virtuell nätverksgateway**.
 
-2. I den **sökfält marketplace**, ange *virtuell nätverksgateway*, och välj **virtuell nätverksgateway** i listan. 
+   ![Fält på sidan Skapa en virtuell nätverksgateway](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw.png "Fält på sidan Skapa en virtuell nätverksgateway")
 
-3. På den **virtuell nätverksgateway** väljer **skapa** att öppna den **Skapa virtuell nätverksgateway** sidan.
+   ![Fält på sidan Skapa en virtuell nätverksgateway](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw2.png "Fält på sidan Skapa en virtuell nätverksgateway")
+2. På sidan **Skapa en virtuell nätverksgateway** fyller du i värdena för din virtuella nätverksgateway.
 
-   ![Fält på sidan Skapa en virtuell nätverksgateway](./media/vpn-gateway-add-gw-rm-portal-include/gw.png "Fält på sidan Skapa en virtuell nätverksgateway")
+   **Projekt information**
 
-4. På den **Skapa virtuell nätverksgateway** fyller du i värdena för din virtuella nätverksgateway:
+   - **Prenumeration**: Välj den prenumeration som du vill använda i list rutan.
+   - **Resursgrupp**: Den här inställningen fylls i när du väljer ditt virtuella nätverk på den här sidan.
 
-   - **Namn på**: Ange ett namn för gateway-objekt som du skapar. Det här namnet skiljer sig från namnet på gateway-undernätet. 
+   **Instans information**
 
-   - **Gateway-typ**: Välj **VPN** för VPN-gatewayer. 
+   - **Namn på**: Namnge din gateway. Att namnge din gateway är inte samma sak som att namnge ett Gateway-undernät. Det här är namnet på det gatewayobjekt som du skapar.
+   - **Region**: Välj den region där du vill skapa den här resursen. Regionen för gatewayen måste vara samma som det virtuella nätverket.
+   - **Gateway-typ**: Välj **VPN**. En VPN-gateway använder **VPN** som virtuell nätverksgateway. 
+   - **VPN-typ**: Välj den VPN-typ som har angetts för din konfiguration. De flesta konfigurationer kräver en ruttbaserad VPN-typ.
+   - **SKU**: Välj Gateway-SKU: n i list rutan. SKU:erna som visas i listrutan beror på vilken VPN-typ du har valt. Se [Gateway-SKU:er](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er.
 
-   - **VPN-typ**: Välj den VPN-typ som har angetts för din konfiguration. De flesta konfigurationer kräver en **routningsbaserad** VPN-typ.
+      **Virtuellt nätverk**: Välj i vilket virtuellt nätverk du vill lägga till denna gateway.
 
-   - **SKU**: Välj gatewayen-SKU i listrutan. SKU:erna som visas i listrutan beror på vilken VPN-typ du har valt. Se [Gateway-SKU:er](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) för information om gateway-SKU:er.
+      **Adress intervall för Gateway-under nätet**: Det här fältet visas bara om det virtuella nätverk som du har valt inte har något Gateway-undernät. Fyll i intervallet om du inte redan har ett Gateway-undernät. Om möjligt, gör du intervallet/27 eller större (/26,/25 osv.)
 
-      Välj bara **aktivera aktivt-aktivt läge** om du skapar en aktiv-aktiv gatewaykonfiguration. Annars lämnar du den inställningen omarkerad.
-  
-   - **Plats**: Du kan behöva rulla för att se **plats**. Ange **plats** till den plats där det virtuella nätverket finns. Till exempel **västra USA**. Om du inte anger platsen till den region där ditt virtuella nätverk finns, visas den inte i den nedrullningsbara listan när du väljer ett virtuellt nätverk.
+   **Offentlig IP-adress**: Den här inställningen anger det offentliga IP-adressprefixet som associeras med VPN-gatewayen. Den offentliga IP-adressen tilldelas dynamiskt till detta objekt när en VPN-gateway skapas. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
 
-   - **Virtuellt nätverk**: Välj i vilket virtuellt nätverk du vill lägga till denna gateway. Välj **virtuellt nätverk** att öppna den **Välj ett virtuellt nätverk** och välj det virtuella nätverket. Om du inte ser ditt VNet, kontrollera att den **plats** anges till den region där det virtuella nätverket finns.
+     - **Offentlig IP-adress**: Lämna alternativet **Skapa nytt** markerat.
+     - **Namn på offentlig IP-adress**: I text rutan anger du ett namn för din offentliga IP-tjänstinstans.
+     - **Tilldelning**: VPN gateway stöder bara dynamisk.
 
-   - **Adressintervall för gatewayundernät**: Den här inställningen visas bara om du inte tidigare skapade ett gatewayundernät för det virtuella nätverket. Den här inställningen visas inte om du tidigare har skapat ett giltigt gatewayundernät.
+   **Aktivt-aktivt läge**: Välj bara alternativet för att **aktivera läget aktiv-aktiv** om du skapar en gatewaykonfiguration som är aktiv-aktiv. Annars lämnar du den inställningen omarkerad.
 
-   - **Offentlig IP-adress**: Den här inställningen anger den offentliga IP-adressobjekt som är associerat med VPN-gatewayen. Den offentliga IP-adressen tilldelas dynamiskt till detta objekt när en VPN-gateway skapas. VPN-gateway stöder för närvarande endast *dynamisk* offentliga IP-adressallokering. Men innebär dynamisk allokering inte att IP-adressen ändras när den har tilldelats till din VPN-gateway. Den enda gången de offentliga IP-adressändringarna är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
-    
-      - Lämna alternativet **Skapa nytt** markerat.
+   Lämna **Konfigurera BGP ASN** omarkerat, om inte inställningen krävs specifikt för konfigurationen. Om du behöver inställningen så är standard-ASN 65515, men detta kan ändras.
 
-      - I textrutan anger du ett namn för din offentliga IP-adress.
+3. Klicka på **Granska + skapa** för att köra verifiering. När verifieringen är klar klickar du på **skapa** för att distribuera VPN-gatewayen. Det kan ta upp till 45 minuter för en gateway att skapa och distribuera fullständigt. Du kan se distributions status på översikts sidan för din gateway.
 
-   - **Konfigurera BGP ASN**: Lämna den här inställningen inte markerar alternativet om inte din konfiguration kräver specifikt. Om du behöver den här inställningen kan ASN är standardvärdet *65515*, som du kan ändra.
-     
-5. Kontrollera inställningarna och välj **skapa** att börja skapa VPN-gatewayen. Inställningarna verifieras och du ser den **distribuera virtuell nätverksgateway** panelen på instrumentpanelen. Det kan ta upp till 45 minuter att skapa en gateway. Det är möjligt att du behöver uppdatera din portalsida för att se statusen som slutförd.
-
-6. När du har skapat gatewayen, kontrollera IP-adressen som har tilldelats till den genom att visa det virtuella nätverket i portalen. Gatewayen visas som en ansluten enhet. Du kan välja den anslutna enheten (din virtuella nätverksgateway) om du vill visa mer information.
+När gatewayen är skapad, kan du se IP-adressen som har tilldelats den genom att se på det virtuella nätverket i portalen. Gatewayen visas som en ansluten enhet.

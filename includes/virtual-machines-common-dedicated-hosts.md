@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: a627592bdfcbebc3c7fcda911e31c0ae6f4a630f
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976619"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266865"
 ---
 ## <a name="benefits"></a>Fördelar 
 
@@ -69,7 +69,7 @@ Den infrastruktur som stöder dina virtuella datorer kan ibland uppdateras för 
 Med **underhålls kontrollen** får kunderna möjlighet att hoppa över regelbundna plattforms uppdateringar som är schemalagda på sina dedikerade värdar, och sedan använda dem vid den tidpunkt som de väljer i ett rullande 35-dagars fönster.
 
 > [!NOTE]
->  Underhålls kontrollen är för närvarande i ett begränsat för hands versions steg och kräver en onboarding-process. Använd för den här för hands versionen genom att skicka en betecknings [undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
+>  Underhålls kontrollen är för närvarande i ett begränsat för hands versions steg och kräver en onboarding-process. Använd för den här för hands versionen genom att skicka en [betecknings undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
 
 ## <a name="capacity-considerations"></a>Överväganden för kapacitet
 
@@ -113,6 +113,6 @@ Azure övervakar och hanterar dina värdars hälso status. Följande tillstånd 
 |----------|----------------|
 | Värd tillgänglig     | Det finns inga kända problem med värden.   |
 | Värd under undersökning  | Vi har problem med värden som vi tittar på. Detta är ett över gångs tillstånd som krävs för att Azure ska kunna testa och identifiera omfattningen och rotor saken för det problem som identifierats. Virtuella datorer som körs på värden kan påverkas. |
-| Väntande värd tilldelning   | Azure kan inte återställa värden till felfritt tillstånd och be dig att distribuera om de virtuella datorerna från den här värden. Om `autoHealingOnFailure` är aktive rad, är de virtuella datorerna *tjänsten* reservad för maskin vara som är felfri. Annars kanske den virtuella datorn körs på en värd som inte fungerar.|
-| Värd friallokerad  | Alla virtuella datorer har tagits bort från värden. Du debiteras inte längre för den här värden eftersom maskin varan togs bort från rotationen.   |
+| Väntande värd tilldelning   | Azure kan inte återställa värden till felfritt tillstånd och be dig att distribuera om de virtuella datorerna från den här värden. Om `autoReplaceOnFailure` är aktive rad, är de virtuella datorerna *tjänsten reservad* för maskin vara som är felfri. Annars kanske den virtuella datorn körs på en värd som inte fungerar.|
+| Värden har frigjorts  | Alla virtuella datorer har tagits bort från värden. Du debiteras inte längre för den här värden eftersom maskin varan togs bort från rotationen.   |
 

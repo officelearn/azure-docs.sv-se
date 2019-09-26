@@ -8,16 +8,16 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/11/2019
+ms.date: 09/24/2019
 ms.author: diberry
-ms.openlocfilehash: b5528d8cd23893248170bdb15588925f3c92c02b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ab4447c8c07f8e8315c0258cc3254e5272ab7582
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934694"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71272440"
 ---
-# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använd aktiv inlärning för att förbättra din kunskaps bas
+# <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
 Med aktiv inlärning kan du förbättra kvaliteten på din kunskaps bas genom att föreslå alternativa frågor, baserat på användar-och användar sändningar, till din fråga och svar-paret. Du kan granska dessa förslag, antingen lägga till dem i befintliga frågor eller avvisa dem. 
 
@@ -79,6 +79,8 @@ Aktiv inlärning är inaktiverat som standard. Aktivera det om du vill se föres
     När **aktiv inlärning** har Aktiver ATS föreslår kunskaps basen nya frågor med jämna mellanrum baserat på frågor som skickats av användaren. Du kan inaktivera **aktiv inlärning** genom att växla inställningen igen.
 
 ## <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>Acceptera ett aktivt utbildnings förslag i kunskaps basen
+
+Active Learning ändrar kunskaps basen eller Search Service när du har godkänt förslaget och sedan sparar och tränar. Om du godkänner förslaget kommer det att läggas till som en alternativ fråga.
 
 1. Om du vill se de föreslagna frågorna går du till sidan **Redigera** kunskaps bas och väljer **visnings alternativ**. Välj sedan **Visa aktiva utbildnings förslag**. 
 
@@ -387,7 +389,14 @@ Kolumnen är ett JSON-objekt med information om implicit, `autosuggested`och exp
 ]
 ```
 
+Du kan också använda nedladdnings-API: et för att granska dessa ändringar, med hjälp av REST eller någon av de språkbaserade SDK: erna:
+* [REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
+
+
 När du importerar om den här appen fortsätter den aktiva inlärningen att samla in information och rekommendera förslag för din kunskaps bas. 
+
+
 
 ## <a name="best-practices"></a>Bästa praxis
 

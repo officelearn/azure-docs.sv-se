@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: c3201ec64ee7a3471b7d93b83664c62c2e7e0435
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
+ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69541547"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71266882"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS VM-diskar och hanterade och ohanterade Premium-diskar
 
@@ -183,8 +183,26 @@ Nej, Azure Backup support är inte tillgängligt ännu.
 **Kan jag ansluta en Ultra disk till en virtuell dator som körs i en tillgänglighets uppsättning?**
 Nej, detta stöds inte ännu.
 
-**Kan jag aktivera Azure Site Recovery (ASR) för virtuella datorer med hjälp av Ultra disks?**
-Nej, ASR stöds inte ännu för Ultra disks.
+**Kan jag aktivera Azure Site Recovery för virtuella datorer med hjälp av Ultra disks?**
+Nej, Azure Site Recovery stöds ännu inte för Ultra disks.
+
+## <a name="uploading-to-a-managed-disk"></a>Laddar upp till en hanterad disk
+
+**Kan jag ladda upp data till en befintlig hanterad disk?**
+
+Nej, uppladdning kan bara användas när en ny tom disk skapas med **ReadyToUpload** -tillstånd.
+
+**Hur gör jag för att ladda upp till en hanterad disk?**
+
+Skapa en hanterad disk med egenskapen [createOption](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#diskcreateoption) för [creationData](https://docs.microsoft.com/rest/api/compute/disks/createorupdate#creationdata) inställt på "Ladda upp". sedan kan du ladda upp data till den.
+
+**Kan jag ansluta en disk till en virtuell dator när den är i ett överförings tillstånd?**
+
+Nej.
+
+**Kan jag ta en ögonblicks bild av en hanterade-disk i ett uppladdnings tillstånd?**
+
+Nej.
 
 ## <a name="standard-ssd-disks"></a>Standard SSD diskar
 

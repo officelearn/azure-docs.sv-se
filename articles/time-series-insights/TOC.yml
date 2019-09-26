@@ -61,7 +61,7 @@
           href: time-series-insights-update-use-cases.md
         - name: Time Series-modell
           href: time-series-insights-update-tsm.md
-        - name: Fråga data
+        - name: Time Series-fråga
           href: time-series-insights-update-tsq.md
         - name: Visualisera data i utforskaren (förhandsversion)
           href: time-series-insights-update-explorer.md

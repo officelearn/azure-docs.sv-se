@@ -5,15 +5,15 @@ author: jonels-msft
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 09/12/2019
 ms.author: jonels
 ms.custom: include file
-ms.openlocfilehash: c07e352288d7dc1d0bf198fd74c8baaded3a2d23
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: fadbcf04f1cd474cf2d23963e88016d240272263
+ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187586"
+ms.lasthandoff: 09/25/2019
+ms.locfileid: "71279895"
 ---
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
@@ -21,65 +21,58 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 Logga in på [Azure Portal](https://portal.azure.com).
 
-## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Skapa en Azure Database för PostgreSQL – hyperskala (Citus)
+## <a name="create-an-azure-database-for-postgresql---hyperscale-citus"></a>Skapa en Azure Database for PostgreSQL-storskalig (citus)
 
 Följ de här stegen för att skapa en Azure Database för PostgreSQL-server:
 1. Klicka på **Skapa en resurs** längst upp till vänster i Azure-portalen.
 2. Välj **databaser** från sidan **Nytt** och välj **Azure Database för PostgreSQL** från sidan **databaser**.
-3. För alternativ för distribution, klickar du på den **skapa** knappen **hyperskala (Citus) servergrupp - FÖRHANDSVERSION.**
+3. För distributions alternativet klickar du på knappen **skapa** under **citus) Server grupp – för hands version.**
 4. Fyll i formuläret om den nya servern och uppge följande information:
-   - Resursgrupp: Klicka på den **Skapa nytt** länken under textrutan för det här fältet. Ange ett namn som **myresourcegroup**.
-   - Servergruppnamn: Ange ett unikt namn för den nya servergruppen som också används för en server underdomän.
-   - Användarnamn för administratör: för närvarande måste vara värdet **citus**, och kan inte ändras.
-   - Lösenord: måste vara minst åtta tecken långt och innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #, % osv.)
-   - Plats: Använd den plats som är närmast dina användare att ge dem snabbast åtkomst till data.
+   - Resurs grupp: Klicka på länken **Skapa ny** under text rutan för det här fältet. Ange ett namn, till exempel **myresourcegroup**.
+   - Server grupp namn: Ange ett unikt namn för den nya server gruppen som också ska användas för en server under domän.
+   - Administratörens användar namn: krävs för att vara värdet **citus**och kan inte ändras.
+   - Lösen ord: måste innehålla minst åtta tecken och innehålla tecken från tre av följande kategorier: engelska versala bokstäver, engelska gemena bokstäver, siffror (0-9) och icke-alfanumeriska tecken (!, $, #,% osv.)
+   - Plats: Använd den plats som är närmast användarna för att ge dem snabbast åtkomst till data.
 
    > [!IMPORTANT]
-   > Lösenordet för serveradministratören som du anger här krävs för att logga in på servern och databaserna. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare.
+   > Det Server administratörs lösen ord som du anger här krävs för att logga in på servern och databaserna. Kom ihåg eller skriv ned den här informationen så att du kan använda den senare.
 
-5. Klicka på **konfigurera servergrupp**. Lämna inställningarna i den avsnittet oförändrade och klicka på **spara**.
-6. Klicka på **granska + skapa** och sedan **skapa** att etablera servern. Etableringen tar några minuter.
-7. Sidan omdirigerar för att övervaka distributionen. Då live status ändras från **distributionen pågår** till **distributionen är klar**, klickar du på den **utdata** menyalternativ till vänster på sidan.
-8. Sidan utdata innehåller ett coordinator värdnamn med en knapp bredvid den att kopiera värdet till Urklipp. Registrera den här informationen för senare användning.
+5. Klicka på **Konfigurera Server grupp**. Lämna inställningarna i avsnittet oförändrade och klicka på **Spara**.
+6. Klicka på **Nästa: Nätverks >** längst ned på skärmen.
 
-## <a name="configure-a-server-level-firewall-rule"></a>Konfigurera en brandväggsregel på servernivå
-
-Azure Database för PostgreSQL – hyperskala (Citus) (förhandsgranskning)-tjänsten använder en brandvägg på servernivå. Som standard förhindrar brandväggen alla externa program och verktyg ansluter till koordinatornoden eller databaser i. Vi måste lägga till en regel som öppnar brandväggen för ett specifikt IP-adressintervall.
-
-1. Från den **utdata** avsnitt där du tidigare kopierade coordinator noden värdnamn, klickar du på tillbaka till den **översikt** menyalternativ.
-
-2. Hitta namnet på servern distributionsgruppen och klicka på den. (Namnet på servern kommer *inte* ha ett suffix. Objekt med namn som slutar på, till exempel ”-c” ”,-w0”, eller ”-w1” är inte servergruppen.)
-
-3. Klicka på **brandväggen** under **Security** på den vänstra menyn.
-
-4. Klicka på länken **+ Lägg till brandväggsregel för aktuella klientens IP-adress**.
-
-5. Klicka slutligen på den **spara** knappen.
+7. På fliken **nätverk** klickar du på alternativ knappen **offentlig slut punkt** .
+   ![Offentlig slut punkt vald](./media/azure-postgresql-hyperscale-create-db/network-public-endpoint.png)
+8. Klicka på länken **+ Lägg till aktuell klient-IP-adress**.
+   ![Klientens IP-adress har lagts till](./media/azure-postgresql-hyperscale-create-db/network-add-client-ip.png)
 
    > [!NOTE]
    > Azure PostgreSQL-servern kommunicerar via port 5432. Om du försöker ansluta inifrån ett företagsnätverk, kan utgående trafik via port 5432 bli nekad av nätverkets brandvägg. I så fall kommer du inte att kunna ansluta till din Azure SQL Database-server om inte din IT-avdelning öppnar port 5432.
    >
 
-## <a name="connect-to-the-database-using-psql"></a>Ansluta till databasen med psql
+9. Klicka på **Granska + skapa** och sedan på **skapa** för att etablera servern. Etableringen tar några minuter.
+10. Sidan omdirigeras för att övervaka distributionen. När Live-statusen ändras från **distributionen sker** till att **distributionen är klar**klickar du på meny alternativet **utdata** till vänster på sidan.
+11. Sidan utdata kommer att innehålla ett koordinator värd namn med en knapp bredvid den för att kopiera värdet till Urklipp. Registrera den här informationen för senare användning.
 
-När du skapar din Azure Database for PostgreSQL-server, en standarddatabas med namnet **citus** har skapats. För att ansluta till din databasserver, behöver du en anslutningssträng och lösenordet för serveradministratören.
+## <a name="connect-to-the-database-using-psql"></a>Anslut till databasen med psql
 
-1. Hämta anslutningssträngen. I gruppsidan klickar du på den **anslutningssträngar** menyalternativ. (Det är **inställningar**.) Hitta den sträng som markerats  **C++ (libpq)** . Det ska vara i formatet:
+När du skapar din Azure Database for PostgreSQL-server skapas en standard databas som heter **citus** . Du behöver en anslutnings sträng och administratörs lösen ordet för att ansluta till databas servern.
+
+1. Hämta anslutnings strängen. På sidan Server grupp klickar du på meny alternativet **anslutnings strängar** . (Det är under **Inställningar**.) Hitta den sträng som marker ATS  **C++ (libpq)** . Formatet är:
 
    ```
    host=hostname.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require
    ```
 
-   Kopiera strängen. Du måste ersätta ”{ditt\_lösenord}” med det administrativa lösenordet som du valde tidigare. Systemet lagrar inte dina lösenord i klartext och så det går inte att visa det åt dig i anslutningssträngen.
+   Kopiera strängen. Du måste ersätta "{ditt\_lösen ord}" med det administrativa lösen ord som du valde tidigare. Systemet lagrar inte lösen ordet i klartext och kan därför inte Visa det åt dig i anslutnings strängen.
 
-2. Öppna ett terminalfönster på din lokala dator.
+2. Öppna ett terminalfönster på den lokala datorn.
 
-3. I prompten, ansluter du till din Azure Database for PostgreSQL-server med den [psql](https://www.postgresql.org/docs/current/app-psql.html) verktyget. Skicka din anslutningssträng i citattecken, som att den innehåller ditt lösenord:
+3. I prompten ansluter du till Azure Database for PostgreSQL-servern med verktyget [psql](https://www.postgresql.org/docs/current/app-psql.html) . Skicka din anslutnings sträng i citat tecken och se till att den innehåller ditt lösen ord:
    ```bash
    psql "{connection_string}"
    ```
 
-   Till exempel följande kommando ansluter till koordinatornoden på servergruppen **mydemoserver**:
+   Följande kommando ansluter till exempel noden koordinator för Server gruppen **mydemoserver**:
 
    ```bash
    psql "host=mydemoserver-c.postgres.database.azure.com port=5432 dbname=citus user=citus password={your_password} sslmode=require"

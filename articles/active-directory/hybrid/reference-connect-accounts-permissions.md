@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 04/29/2019
+ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5460033902b71174dc3a10615811f657081f0e4
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186295"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290973"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -48,10 +48,15 @@ Förutom dessa tre konton som används för att köra Azure AD Connect behöver 
 
 - **SQL sa-konto (valfritt)** : används för att skapa ADSync-databasen när du använder den fullständiga versionen av SQL Server.  Den här SQL Server kan vara lokal eller fjärran sluten till den Azure AD Connect installationen.  Kontot kan vara samma konto som företags administratören.  Etableringen av databasen kan nu utföras out-of-band av SQL-administratören och sedan installeras av Azure AD Connect administratör med databas ägar rättigheter.  Information om detta finns i [installera Azure AD Connect med hjälp av SQL-delegerad administratörs behörighet](how-to-connect-install-sql-delegation.md)
 
+<<<<<<< HEAD
+>[!IMPORTANT]
+> Från och med build 1.4. # # #. # stöds det inte längre att använda ett företags administratörs konto eller ett domän administratörs konto som AD DS-konto.  Om du försöker ange ett konto som är företags administratör eller domän administratör när du anger **Använd befintligt konto**visas ett fel meddelande.
+=======
 > [!NOTE]
 > Det finns stöd för att hantera de administrativa konton som används i Azure AD Connect från en ESAE-administrativ skog (även kallad "Red skog").
 > Dedikerade administrativa skogar gör det möjligt för organisationer att vara värdar för administrativa konton, arbets stationer och grupper i en miljö som har starkare säkerhets kontroller än produktions miljön.
 > Mer information om dedikerade administrativa skogar finns i [ESAE administrativ skog design metod](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
+>>>>>>> e683a61b0ed62ae739941410f658a127534e2481
 
 ## <a name="installing-azure-ad-connect"></a>Installerar Azure AD Connect
 Installations guiden för Azure AD Connect har två olika sökvägar:
@@ -80,7 +85,7 @@ AD DS-anslutningsprogrammet skapas för läsning och skrivning till Windows Serv
 
 | Behörighet | Används för |
 | --- | --- |
-| <li>Replikera katalog ändringar</li><li>Replikera katalog ändringar alla |Hash-synkronisering av lösen ord |
+| <li>Replikera katalog ändringar</li><li>Replikera katalog ändringar alla |Synkronisering av lösenordshash |
 | Läsa/skriva alla egenskaper användare |Importera och Exchange hybrid |
 | Läsa/skriva alla egenskaper iNetOrgPerson |Importera och Exchange hybrid |
 | Läsa/skriva alla egenskaps grupper |Importera och Exchange hybrid |
@@ -132,12 +137,12 @@ Det konto som du anger på sidan **Anslut dina kataloger** måste finnas i Activ
 
 Den måste också ha de behörigheter som krävs. Installations guiden kontrollerar inte behörigheterna och eventuella problem hittas bara under synkroniseringen.
 
-Vilka behörigheter du behöver beror på vilka valfria funktioner du aktiverar. Om du har flera domäner måste behörigheterna beviljas för alla domäner i skogen. Om du inte aktiverar någon av dessa funktioner räcker standard domänens **användar** behörigheter.
+Vilka behörigheter du behöver beror på vilka valfria funktioner du aktiverar. Om du har flera domäner måste behörigheterna beviljas för alla domäner i skogen. Om du inte aktiverar någon av dessa funktioner räcker standard **domänens användar** behörigheter.
 
 | Funktion | Behörigheter |
 | --- | --- |
 | ms-DS-ConsistencyGuid-funktion |Skriv behörigheter till attributet ms-DS-ConsistencyGuid dokumenterat i [design koncept – med MS-DS-ConsistencyGuid som sourceAnchor](plan-connect-design-concepts.md#using-ms-ds-consistencyguid-as-sourceanchor). | 
-| Hash-synkronisering av lösen ord |<li>Replikera katalog ändringar</li>  <li>Replikera katalog ändringar alla |
+| Synkronisering av lösenordshash |<li>Replikera katalog ändringar</li>  <li>Replikera katalog ändringar alla |
 | Exchange-hybridinstallation |Skriv behörigheter till de attribut som dokumenteras i [Exchange hybrid tillbakaskrivning](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) för användare, grupper och kontakter. |
 | Offentlig Exchange-e-postmapp |Läs behörighet till attributen som dokumenteras i den [offentliga Exchange-e-postmappen](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) för offentliga mappar. | 
 | Tillbakaskrivning av lösenord |Skriv behörigheter till de attribut som dokumenteras i [komma igång med lösen ords hantering](../authentication/howto-sspr-writeback.md) för användare. |
@@ -193,7 +198,7 @@ Mönstret
 - sMSA- [fristående hanterat tjänst konto](https://technet.microsoft.com/library/dd548356.aspx)
 - gMSA- [grupphanterat tjänst konto](https://technet.microsoft.com/library/hh831782.aspx)
 
-| | LocalDB</br>Express | LocalDB/LocalSQL</br>Anpassat | Fjärr-SQL</br>Anpassat |
+| | LocalDB</br>Snabbt | LocalDB/LocalSQL</br>Anpassat | Fjärr-SQL</br>Anpassat |
 | --- | --- | --- | --- |
 | **fristående/arbets grupps dator** | Stöds inte | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto |  Stöds inte |
 | **domänansluten dator** | **VSA**</br>Lokalt konto (2008) | **VSA**</br>Lokalt konto (2008)</br>Lokalt konto</br>Domänkonto</br>sMSA,gMSA | **gMSA**</br>Domänkonto |
@@ -209,7 +214,7 @@ VSA är avsedd att användas med scenarier där Synkroniseringsmotorn och SQL fi
 Den här funktionen kräver Windows Server 2008 R2 eller senare. Om du installerar Azure AD Connect på Windows Server 2008 återgår installationen till att använda ett [användar konto](#user-account) i stället.
 
 #### <a name="group-managed-service-account"></a>Grupphanterat tjänst konto
-Om du använder en fjärran sluten SQL Server rekommenderar vi att du använder ett grupphanterat **tjänst konto**. Mer information om hur du förbereder din Active Directory för grupphanterade tjänst konton finns i [Översikt över grupphanterade tjänst konton](https://technet.microsoft.com/library/hh831782.aspx).
+Om du använder en fjärran sluten SQL Server rekommenderar vi att du använder ett **grupphanterat tjänst konto**. Mer information om hur du förbereder din Active Directory för grupphanterade tjänst konton finns i [Översikt över grupphanterade tjänst konton](https://technet.microsoft.com/library/hh831782.aspx).
 
 Om du vill använda det här alternativet väljer du **Använd ett befintligt tjänst konto**på sidan [installera nödvändiga komponenter](how-to-connect-install-custom.md#install-required-components) och väljer **hanterat tjänst konto**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  

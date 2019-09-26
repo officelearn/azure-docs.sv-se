@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 03/15/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: d97326430eebcaea64770e99c26ab593b51d5847
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 55da4e3dc9c7f1c1f86a649a654ce41ef59ad839
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68476756"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310106"
 ---
 # <a name="designing-tables-in-azure-sql-data-warehouse"></a>Designa tabeller i Azure SQL Data Warehouse
 
@@ -68,7 +68,7 @@ En extern tabell pekar på data som finns i Azure Storage BLOB eller Azure Data 
 SQL Data Warehouse stöder de vanligaste data typerna. En lista över data typer som stöds finns i [data typer i CREATE TABLE referens](/sql/t-sql/statements/create-table-azure-sql-data-warehouse#DataTypes) i CREATE TABLE-instruktionen. Vägledning om hur du använder data typer finns i [data typer](sql-data-warehouse-tables-data-types.md).
 
 ## <a name="distributed-tables"></a>Distribuerade tabeller
-En grundläggande funktion i SQL Data Warehouse är hur den kan lagra och använda tabeller över distributioner [](massively-parallel-processing-mpp-architecture.md#distributions).  SQL Data Warehouse stöder tre metoder för att distribuera data, Round-Robin (standard), hash och replikeras.
+En grundläggande funktion i SQL Data Warehouse är hur den kan lagra och använda tabeller över [distributioner](massively-parallel-processing-mpp-architecture.md#distributions).  SQL Data Warehouse stöder tre metoder för att distribuera data, Round-Robin (standard), hash och replikeras.
 
 ### <a name="hash-distributed-tables"></a>Hash-distribuerade tabeller
 En hash-distribuerad tabell distribuerar rader baserat på värdet i kolumnen distribution. En hash-distribuerad tabell är utformad för att uppnå höga prestanda för frågor i stora tabeller. Det finns flera faktorer att tänka på när du väljer en distributions kolumn. 
@@ -95,7 +95,7 @@ Tabell kategorin bestämmer ofta vilka alternativ som ska väljas för att distr
 | Mellanlagring        | Använd Round Robin för mellanlagrings tabellen. Belastningen med CTAS är snabbt. När data finns i mellanlagringsdatabasen använder du infoga... Välj om du vill flytta data till produktions tabeller. |
 
 ## <a name="table-partitions"></a>Tabellpartitioner
-En partitionerad tabell lagrar och utför åtgärder på tabell rader enligt data intervall. En tabell kan till exempel partitioneras per dag, månad eller år. Du kan förbättra frågans prestanda via partition Eli minering, vilket begränsar en sökning till data i en partition. Du kan också underhålla data genom att byta partition. Eftersom data i SQL Data Warehouse redan har distribuerats kan det ta lång tid att köra för många partitioner. Mer information finns i [rikt linjer](sql-data-warehouse-tables-partition.md)för partitionering.  När partitionen växlar till diskpartitioner som inte är tomma bör du överväga att använda alternativet TRUNCATE_TARGET i [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) -instruktionen om befintliga data ska trunkeras. Koden nedan växlar i de transformerade dagliga data till SalesFact för att skriva över befintliga data. 
+En partitionerad tabell lagrar och utför åtgärder på tabell rader enligt data intervall. En tabell kan till exempel partitioneras per dag, månad eller år. Du kan förbättra frågans prestanda via partition Eli minering, vilket begränsar en sökning till data i en partition. Du kan också underhålla data genom att byta partition. Eftersom data i SQL Data Warehouse redan har distribuerats kan det ta lång tid att köra för många partitioner. Mer information finns i [rikt linjer för partitionering](sql-data-warehouse-tables-partition.md).  När partitionen växlar till diskpartitioner som inte är tomma bör du överväga att använda alternativet TRUNCATE_TARGET i [Alter Table](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql) -instruktionen om befintliga data ska trunkeras. Koden nedan växlar i de transformerade dagliga data till SalesFact för att skriva över befintliga data. 
 
 ```sql
 ALTER TABLE SalesFact_DailyFinalLoad SWITCH PARTITION 256 TO SalesFact PARTITION 256 WITH (TRUNCATE_TARGET = ON);  
@@ -108,6 +108,9 @@ En lista över columnstore-funktioner finns i [Vad är nytt för columnstore-ind
 
 ## <a name="statistics"></a>Statistik
 I frågans optimering används statistik på kolumn nivå när planen för att köra en fråga skapas. För att förbättra prestanda för frågor, är det viktigt att ha statistik för enskilda kolumner, särskilt kolumner som används i frågor till kopplingar. Att [skapa statistik](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics#automatic-creation-of-statistic) sker automatiskt.  Uppdaterings statistik sker dock inte automatiskt. Uppdatera statistik när ett stort antal rader har lagts till eller ändrats. Uppdatera till exempel statistik efter en belastning. Mer information finns i [statistik vägledning](sql-data-warehouse-tables-statistics.md).
+
+## <a name="primary-key-and-unique-key"></a>Primär nyckel och unik nyckel
+PRIMÄR nyckel stöds bara om både icke-KLUSTRad och inte framtvingad används.  En unik begränsning stöds endast med inte TVINGAd användning.  Kontrol lera [SQL Data Warehouse tabell begränsningar](sql-data-warehouse-table-constraints.md).
 
 ## <a name="commands-for-creating-tables"></a>Kommandon för att skapa tabeller
 Du kan skapa en tabell som en ny tom tabell. Du kan också skapa och fylla i en tabell med resultatet av en SELECT-instruktion. Följande är T-SQL-kommandon för att skapa en tabell.
@@ -128,8 +131,7 @@ Om data kommer från flera data lager kan du hämta data till data lagret och la
 ## <a name="unsupported-table-features"></a>Tabell funktioner som inte stöds
 SQL Data Warehouse stöder många, men inte alla, tabell funktioner som erbjuds av andra databaser.  I följande lista visas några av tabell funktionerna som inte stöds i SQL Data Warehouse.
 
-- Primär nyckel, sekundär nycklar, unik, kontrol lera [tabell begränsningar](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
-
+- Sekundär nyckel, kontrol lera [tabell begränsningar](/sql/t-sql/statements/alter-table-table-constraint-transact-sql)
 - [Beräknade kolumner](/sql/t-sql/statements/alter-table-computed-column-definition-transact-sql)
 - [Indexerade vyer](/sql/relational-databases/views/create-indexed-views)
 - [Serier](/sql/t-sql/statements/create-sequence-transact-sql)
@@ -340,4 +342,4 @@ ORDER BY    distribution_id
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-När du har skapat tabellerna för ditt informations lager är nästa steg att läsa in data i tabellen.  En inläsnings kurs finns i inläsning av [data till SQL Data Warehouse](load-data-wideworldimportersdw.md).
+När du har skapat tabellerna för ditt informations lager är nästa steg att läsa in data i tabellen.  En inläsnings kurs finns i [inläsning av data till SQL Data Warehouse](load-data-wideworldimportersdw.md).

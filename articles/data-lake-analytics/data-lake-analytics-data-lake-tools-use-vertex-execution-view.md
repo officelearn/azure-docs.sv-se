@@ -1,56 +1,55 @@
 ---
-title: Använda Körningsvy i Data Lake Tools för Visual Studio
-description: Den här artikeln beskriver hur du kan använda Körningsvy för examen Data Lake Analytics-jobb.
+title: Körnings visare för hörn i Data Lake verktyg för Visual Studio
+description: Den här artikeln beskriver hur du använder körnings vyn för hörn för att se om det finns en examen Data Lake Analytics jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
-author: mumian
-ms.author: jgao
-ms.reviewer: jasonwhowell
+author: jasonwhowell
+ms.author: jasonh
 ms.assetid: 5366d852-e7d6-44cf-a88c-e9f52f15f7df
 ms.topic: conceptual
 ms.date: 10/13/2016
-ms.openlocfilehash: 73314c5864e3036d102deee2792021345b80bf2e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f5adbb75e6852551976aa040a1a1c723d2e3f59b
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60687840"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309716"
 ---
-# <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Använda Körningsvy i Data Lake Tools för Visual Studio
-Lär dig mer om att använda Körningsvy för examen Data Lake Analytics-jobb.
+# <a name="use-the-vertex-execution-view-in-data-lake-tools-for-visual-studio"></a>Använd vyn hörn körning i Data Lake verktyg för Visual Studio
+Lär dig hur du använder körnings vyn för hörn för att få en examen Data Lake Analytics jobb.
 
 
-## <a name="open-the-vertex-execution-view"></a>Öppna Körningsvy
-Öppna ett U-SQL-jobb i Data Lake Tools för Visual Studio. Klicka på **Körningsvy** i det nedre vänstra hörnet. Du kan uppmanas att först läsa in profiler och det kan ta lite tid beroende på din nätverksanslutning.
+## <a name="open-the-vertex-execution-view"></a>Öppna körnings vyn hörn
+Öppna ett U-SQL-jobb i Data Lake verktyg för Visual Studio. Klicka på **vyn för körning av hörn** i det nedre vänstra hörnet. Du kan uppmanas att först läsa in profiler och det kan ta lite tid beroende på din nätverks anslutning.
 
-![Data Lake Analytics Tools Körningsvy](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
+![Data Lake Analytics verktyg hörn körnings vy](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-open-vertex-execution-view.png)
 
-## <a name="understand-vertex-execution-view"></a>Förstå Körningsvy
-Den Körningsvy består av tre delar:
+## <a name="understand-vertex-execution-view"></a>Förstå körnings vy för hörn
+Vyn hörn körning har tre delar:
 
-![Data Lake Analytics Tools Körningsvy](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
+![Data Lake Analytics verktyg hörn körnings vy](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view.png)
 
-Den **hörn väljare** på de vänstra kan du välja hörn genom funktioner (t.ex. de främsta 10 datanoder läsa, eller välj per steg). En av de mest använda filter är att se den **hörn på kritiska**. Den **kritiska vägen** är den längsta kedjan av formhörnen i ett U-SQL-jobb. Det är användbart för att optimera dina jobb genom att kontrollera vilken brytpunkt tar längst tid att förstå den kritiska vägen.
+Med **hörn väljaren** till vänster kan du välja formhörn efter funktioner (till exempel de översta 10 lästa data eller välja efter steg). Ett av de oftast använda filtren är att se **hörnen på den kritiska linjen**. Den **kritiska linjen** är den längsta kedjan av hörn i ett U-SQL-jobb. Att förstå den kritiska vägen är användbart för att optimera dina jobb genom att kontrol lera vilket hörn som tar längst tid.
   
-![Data Lake Analytics Tools Körningsvy](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
+![Data Lake Analytics verktyg hörn körnings vy](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane2.png)
 
-Överst i mitten fönstret visar den **Körningsstatus för alla hörn**.
+Det övre fönstret i mitten visar **körnings status för alla hörnen**.
   
-![Data Lake Analytics Tools Körningsvy](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
+![Data Lake Analytics verktyg hörn körnings vy](./media/data-lake-analytics-data-lake-tools-use-vertex-execution-view/data-lake-tools-vertex-execution-view-pane3.png)
 
-Center längst ned i fönstret visar information om varje brytpunkt:
-* Processnamn: Namnet på instansen hörn. Den består av olika delar i StageName | VertexName | VertexRunInstance. Till exempel SV7_Split [62] .v1 hörn står för den andra instansen som körs (.v1, index som börjar från 0) för hörn tal 62 i steget SV7_Split.
-* Totala Data lästa/skrivna: Data har lästs/skrivits av det här hörn.
-* Status/Avsluts Status: Den slutgiltiga statusen när hörnet är avslutad.
-* Avsluta kod/feltyp: Fel vid hörnet misslyckades.
-* Skapa en orsak: Varför hörnet skapades.
-* Resursen svarstid/bearbeta svarstid/PN kö svarstid: den tid det tar för hörnet att vänta på resurser, att bearbeta data och för att stanna kvar i kön.
-* Processen/skapare GUID: GUID för det aktuella körs hörnet eller dess skapare.
-* Version: N: te-instansen körs hörnet (systemet kan schemalägga nya instanser av ett hörn för att få många orsaker, till exempel redundans, redundans, osv.)
-* Version skapas en gång.
-* Bearbeta skapa Start tid/bearbeta i kö tid/bearbeta Start tid/bearbeta slutförd tid: när vertex-processen börjar skapa; När hörn processen startar till kön; När vissa hörn processen startar; När vissa hörnet är slutförd.
+I det nedre fönstret i mitten visas information om varje hörn:
+* Process namn: Namnet på hörn instansen. Den består av olika delar i StageName | VertexName | VertexRunInstance. Till exempel, SV7_Split [62]. v1-hörn står för den andra aktiva instansen (. v1, index som börjar från 0) av vertex Number 62 i steg SV7_Split.
+* Totalt antal lästa/skrivna data: Data lästes/skrevs av den här Bryt punkten.
+* Status för tillstånd/slut: Slut status när hörnen avslutas.
+* Slutkod/feltyp: Felet när hörnen misslyckades.
+* Orsak till skapande: Varför hörnen skapades.
+* Resurs latens/process svars tid/PN svars tid för kö: den tid det tar för vertex att vänta på resurser, bearbeta data och stanna kvar i kön.
+* GUID för process/skapare: GUID för den aktuella aktiva hörnet eller dess skapare.
+* Version: den N-instansen av den aktiva Bryt punkten (systemet kan schemalägga nya instanser av ett hörn av många skäl, till exempel redundans, Compute-redundans osv.)
+* Tid för version skapades.
+* Process för att skapa start tid/process köade tid/process start tid/process slut tid: När hörn processen börjar skapas; När hörn processen börjar i kö; När en viss vertex-process startar; När ett visst formhörn har slutförts.
 
 ## <a name="next-steps"></a>Nästa steg
 * Information om hur du loggar diagnostikinformation finns i [Åtkomst till diagnostikloggar för Azure Data Lake Analytics](data-lake-analytics-diagnostic-logs.md)
 * Om du vill se en mer komplex fråga, se [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).
-* Om du vill visa jobbinformation Se [Använd Jobbwebbläsare och Jobbvy för Azure Data lake Analytics-jobb](data-lake-analytics-data-lake-tools-view-jobs.md)
+* Information om hur du visar jobb information finns i [använda jobb webbläsare och jobb visning för Azure Data Lake Analytics-jobb](data-lake-analytics-data-lake-tools-view-jobs.md)

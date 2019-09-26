@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bd79b9a6fa8aedd45f41b64f8f81a908feab71f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: f0f2d3f8d8d2298ec00532205e359ed6f8dbc87a
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70882993"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315683"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets för Azure Active Directory (Azure AD) för att skapa och uppdatera grupper. Det här innehållet gäller endast för Office 365-grupper (kallas ibland enhetliga grupper). 
@@ -123,7 +123,7 @@ Här är inställningarna som definierats i gruppen. Unified SettingsTemplate. O
 |  <ul><li>AllowGuestsToBeGroupOwner<li>Ange: Boolesk<li>Objekt False | Booleskt värde som anger om en gäst användare kan vara ägare till grupper. |
 |  <ul><li>AllowGuestsToAccessGroups<li>Ange: Boolesk<li>Objekt Sant | Booleskt värde som anger om en gäst användare får åtkomst till Office 365-grupp innehåll.  Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
 |  <ul><li>GuestUsageGuidelinesUrl<li>Ange: Sträng<li>Standard: "" | URL-adressen till en länk till gäst användnings rikt linjerna. |
-|  <ul><li>AllowToAddGuests<li>Ange: Boolesk<li>Objekt Sant | Ett booleskt värde som anger om gäster ska läggas till i katalogen eller inte.|
+|  <ul><li>AllowAddGuests<li>Ange: Boolesk<li>Objekt Sant | Ett booleskt värde som anger om gäster ska läggas till i katalogen eller inte.|
 |  <ul><li>ClassificationList<li>Ange: Sträng<li>Standard: "" |En kommaavgränsad lista över giltiga klassificerings värden som kan tillämpas på Office 365-grupper. |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exempel: Konfigurera gäst princip för grupper på katalog nivå
@@ -140,9 +140,9 @@ Här är inställningarna som definierats i gruppen. Unified SettingsTemplate. O
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. Uppdatera AllowToAddGuests-inställningen
+4. Uppdatera AllowAddGuests-inställningen
    ```powershell
-   $Setting["AllowToAddGuests"] = $False
+   $Setting["AllowAddGuests"] = $False
    ```  
 5. Använd sedan inställningen:
   
@@ -196,7 +196,7 @@ De här stegen läser inställningar på katalog nivå, som gäller för alla Of
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowToAddGuests              True
+   AllowAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -233,7 +233,7 @@ Det här steget tar bort inställningar på katalog nivå, som gäller för alla
 
 4. Ställ in inställningen på det obligatoriska värdet:
    ```powershell
-   $SettingCopy["AllowToAddGuests"]=$False
+   $SettingCopy["AllowAddGuests"]=$False
    ```
 5. Hämta ID: t för den grupp som du vill använda den här inställningen för:
    ```powershell
@@ -259,7 +259,7 @@ Det här steget tar bort inställningar på katalog nivå, som gäller för alla
    ```
 3. Uppdatera inställningen för gruppen efter behov, t. ex.
    ```powershell
-   $Setting["AllowToAddGuests"] = $True
+   $Setting["AllowAddGuests"] = $True
    ```
 4. Hämta sedan ID: t för inställningen för den här gruppen:
    ```powershell

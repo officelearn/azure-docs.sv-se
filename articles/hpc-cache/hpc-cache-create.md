@@ -4,14 +4,14 @@ description: Så här skapar du en Azure HPC cache-instans
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: tutorial
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 1cc77b24c96514f40c86115f7d611076facd406b
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: a0590c14032595bea685c69962ef27dca14d1d69
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181035"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300020"
 ---
 # <a name="create-an-azure-hpc-cache-preview"></a>Skapa en Azure HPC-cache (för hands version)
 
@@ -23,18 +23,20 @@ Använd Azure Portal för att skapa din cache.
 
 ![skärm bild av sidan projekt information i Azure Portal](media/hpc-cache-create-basics.png)
 
-I **projekt information**väljer du den prenumeration och resurs grupp som ska vara värd för Azure HPC-cachen. Se till att prenumerationen finns i listan över för [hands version](hpc-cache-prereqs.md#azure-subscription) .
+I **projekt information**väljer du den prenumeration och resurs grupp som ska vara värd för cachen. Se till att prenumerationen finns i listan över för [hands version](hpc-cache-prereqs.md#azure-subscription) .
 
 I **tjänst information**anger du cache-namn och följande attribut:
 
 * Plats – Välj en av de [regioner som stöds](hpc-cache-overview.md#region-availability).
 * Virtuellt nätverk – du kan välja ett befintligt namn eller skapa ett nytt virtuellt nätverk.
-* Undernät – Välj eller skapa ett undernät med minst 64 IP-adresser (/24) som endast ska användas för Azure HPC-cache.
+* Undernät – Välj eller skapa ett undernät med minst 64 IP-adresser (/24) som endast ska användas för den här Azure HPC cache-instansen.
 
 ## <a name="set-cache-capacity"></a>Ange cache-kapacitet
 <!-- referenced from GUI - update aka.ms link if you change this header text -->
 
-På sidan **cache** måste du ange kapaciteten för Azure HPC-cachen. Det här värdet avgör hur mycket data ditt cacheminne kan innehålla och hur snabbt det kan betjäna klient begär Anden. Efter den offentliga för hands perioden kommer kapaciteten också att påverka cachens kostnad.
+På sidan **cache** måste du ange kapaciteten för din cache. Det här värdet avgör hur mycket data ditt cacheminne kan innehålla och hur snabbt det kan betjäna klient begär Anden. 
+
+Efter den offentliga för hands versionen kommer kapaciteten också att påverka cachens kostnad.
 
 Cache-kapaciteten mäts i in-/utdata-åtgärder per sekund (IOPS). Välj kapacitet genom att ange följande två värden:
 
@@ -43,13 +45,13 @@ Cache-kapaciteten mäts i in-/utdata-åtgärder per sekund (IOPS). Välj kapacit
 
 Välj något av de tillgängliga data flödes värdena och cache Storage-storlekarna. IOPS-kapaciteten beräknas och visas under värde markeringarna.
 
-Tänk på att den faktiska data överförings hastigheten är beroende av arbets belastning, nätverks hastigheter och typen av lagrings mål. Om en fil inte finns i cacheminnet, eller om den har marker ATS som inaktuell, kommer tjänsten att använda viss genom strömning för att hämta den från Server dels lagringen. Värdet du väljer ställer in maximalt data flöde för hela cacheminnet och inte alla är tillgängligt för klient begär Anden.
+Tänk på att den faktiska data överförings hastigheten är beroende av arbets belastning, nätverks hastigheter och typen av lagrings mål. Värdet du väljer ställer in maximalt data flöde för hela cacheminnet och inte alla är tillgängligt för klient begär Anden. Om till exempel en klient begär en fil som inte redan finns lagrad i cacheminnet, eller om filen har marker ATS som inaktuell, använder cacheminnet en del av dess data flöde för att hämta den från Server dels lagringen.
 
-I cache-lagring hanterar Azure HPC cache vilka filer som cachelagras och förinstalleras för att maximera träffar i cacheträffar. Innehållet i cachen utvärderas kontinuerligt och filer flyttas till långsiktig lagring när de används mindre ofta. Välj en lagrings storlek för cachen som enkelt kan lagra den aktiva uppsättningen arbetsfiler med ytterligare utrymme för metadata och andra kostnader.
+Azure HPC cache hanterar vilka filer som cachelagras och förinstalleras för att maximera träffar i cacheträffar. Innehållet i cachen utvärderas kontinuerligt och filer flyttas till långsiktig lagring när de används mindre ofta. Välj en lagrings storlek för cachen som enkelt kan lagra den aktiva uppsättningen arbetsfiler med ytterligare utrymme för metadata och andra kostnader.
 
 ![skärm bild av sidan cache-storlek](media/hpc-cache-create-iops.png)
 
-## <a name="add-storage-targets"></a>Lägg till lagrings mål
+## <a name="add-storage-targets"></a>Lägga till lagringsmål
 
 Lagrings mål är Server delen och långsiktig lagring för innehållet i din cache.
 
@@ -63,7 +65,7 @@ Du kan definiera upp till tio olika lagrings mål.
 
 Steg för steg-instruktioner för att lägga till ett lagrings mål ingår i [Lägg till lagrings mål](hpc-cache-add-storage.md). Proceduren skiljer sig för Blob Storage eller för NFS-export.
 
-Här följer några tips: 
+Här följer några tips:
 
 * För båda typerna av lagrings utrymme måste du ange hur du vill hitta server dels lagrings systemet (antingen en NFS-adress eller ett BLOB-behållarobjekt) och sökvägen till den klient-motstående namn rymden.
 
@@ -73,7 +75,7 @@ Här följer några tips:
 
 ## <a name="add-resource-tags-optional"></a>Lägg till resurs koder (valfritt)
 
-På sidan **taggar** kan du lägga till [resurs Taggar](https://go.microsoft.com/fwlink/?linkid=873112) i Azure HPC-cachen. 
+På sidan **taggar** kan du lägga till [resurs Taggar](https://go.microsoft.com/fwlink/?linkid=873112) till Azure HPC-instansen.
 
 ## <a name="finish-creating-the-cache"></a>Slutför skapandet av cacheminnet
 

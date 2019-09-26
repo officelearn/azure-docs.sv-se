@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-accelerators
 services: iot-accelerators
 manager: timlt
-ms.openlocfilehash: d9dd3ff2f24660404a1ab0440668c4d4da1e7319
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1a27d748e16f892a748cf18569c13ca3f9ead1dd
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67080520"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309518"
 ---
 # <a name="what-are-azure-iot-solution-accelerators"></a>Vad är Azure IoT-lösningsacceleratorer?
 
@@ -48,7 +48,7 @@ Du kan använda instrumentpanelen för ansluten fabrik för att övervaka och ha
 
 [![Instrumentpanelen för lösningen för ansluten fabrik](./media/about-iot-accelerators/cf-dashboard-inline.png)](./media/about-iot-accelerators/cf-dashboard-expanded.png#lightbox)
 
-### <a name="predictive-maintenance"></a>Förutsägande underhåll
+### <a name="predictive-maintenance"></a>Förebyggande underhåll
 
 Använd [Lösningsacceleratorn för förutsägande underhåll](iot-accelerators-predictive-walkthrough.md) för att förutsäga när en det förväntas bli fel på enheten så att du kan utföra underhåll innan enheten kraschar. Den här lösningsacceleratorn använder maskininlärningsalgoritmer för att förutse fel utifrån enhetstelemetri. Exempel på enheter kan vara flygplansmotorer eller hissar.
 
@@ -81,11 +81,11 @@ De ursprungliga lösningsacceleratorerna skrevs med .NET med hjälp av en MVC-ar
 | Lösningsaccelerator   | Arkitektur  | Språk     |
 | ---------------------- | ------------- | ------------- |
 | Fjärrövervakning      | Mikrotjänster | [Java](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java) och [.NET](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet) |
-| Förutsägande underhåll | MVC           | [NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
+| Förebyggande underhåll | MVC           | [NET](https://github.com/Azure/azure-iot-predictive-maintenance)          |
 | Ansluten fabrik      | MVC           | [NET](https://github.com/Azure/azure-iot-connected-factory)          |
 | Enhetssimulering      | Mikrotjänster | [NET](https://github.com/Azure/device-simulation-dotnet)          |
 
-Läs mer om arkitektur för mikrotjänster i [Introduktion till Azure IoT-referensarkitektur](iot-accelerators-architecture-overview.md).
+Läs mer om arkitektur för mikrotjänster i [Introduktion till Azure IoT-referensarkitektur](https://docs.microsoft.com/azure/architecture/reference-architectures/iot/).
 
 ## <a name="deployment-options"></a>Distributionsalternativ
 

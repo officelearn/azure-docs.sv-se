@@ -8,12 +8,12 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4d03e5ee5faf39425e1bf927a3c0557b0ad01b82
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e629cbdce55f236e095f606f56adec453b0b17c7
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68840102"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299869"
 ---
 # <a name="tutorial-create-and-deploy-custom-iot-edge-modules"></a>Självstudier: Skapa och distribuera anpassade IoT Edge-moduler
 
@@ -27,7 +27,7 @@ IoT Edge hubb underlättar modulen kommunikation. Om du använder IoT Edge hubbe
 Vi vill att IoT Edge-enheten ska utföra fyra saker för oss:
 
 * Ta emot data från löv enheter
-* Förutse RUL för enheten som skickade data
+* Förutsäg återstående användbar livs längd (RUL) för enheten som skickade data
 * Skicka ett meddelande med endast RUL för enheten till IoT Hub (den här funktionen kan ändras för att endast skicka data om RUL sjunker under en viss nivå)
 * Spara löv enhets data till en lokal fil på den IoT Edge enheten. Den här data filen laddas regelbundet upp till IoT Hub via fil uppladdning för att förfina träningen av Machine Learning-modellen. Att använda fil uppladdning i stället för konstant strömning av meddelanden är mer kostnads effektivt.
 
@@ -56,7 +56,7 @@ Stegen i den här artikeln utförs vanligt vis av en molnbaserad utvecklare.
 
 ## <a name="create-a-new-iot-edge-solution"></a>Skapa en ny IoT Edge-lösning
 
-Under körningen av den andra av våra två Azure Notebooks har vi skapat och publicerat en behållar avbildning som innehåller vår RUL-modell. Azure Machine Learning som en del av processen för att skapa avbildningar, skapade i bitarna för att göra avbildningen att distribueras som en Azure IoT Edge modul. I det här steget ska vi skapa en Azure IoT Edge-lösning med hjälp av modulen "Azure Machine Learning" och peka modulen till den avbildning som vi publicerade med Azure Notebooks.
+Under körningen av den andra av våra två Azure Notebooks har vi skapat och publicerat en behållar avbildning som innehåller vår RUL-modell. Azure Machine Learning som en del av processen för att skapa avbildningar paketeras modellen så att avbildningen kan distribueras som en Azure IoT Edge modul. I det här steget ska vi skapa en Azure IoT Edge-lösning med hjälp av modulen "Azure Machine Learning" och peka modulen till den avbildning som vi publicerade med Azure Notebooks.
 
 1. Öppna en fjärrskrivbordssession till utvecklings datorn.
 
@@ -602,7 +602,7 @@ Med routern och klassificeraren på plats förväntar vi dig att ta emot vanliga
 
 1. I Azure Portal navigerar du till IoT Hub.
 
-2. Välj meddelanderoutning i det vänstra navigeringsfältet.
+2. **Välj meddelanderoutning**i det vänstra navigerings fältet.
 
 3. Välj **Lägg till**.
 
@@ -645,7 +645,7 @@ Med routern och klassificeraren på plats förväntar vi dig att ta emot vanliga
 
 Vi vill inte dirigera de nya förutsägelse data till vår gamla lagrings plats, så uppdatera vägen för att förhindra det.
 
-1. På sidan IoT Hub meddelanderoutning väljer du fliken **vägar** .
+1. På **sidan IoT Hub meddelanderoutning väljer** du fliken **vägar** .
 
 2. Välj **turbofanDeviceDataToStorage**, eller det namn du gav till din första enhets data väg.
 

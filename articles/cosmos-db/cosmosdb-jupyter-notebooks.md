@@ -6,16 +6,18 @@ ms.topic: overview
 ms.date: 09/22/2019
 author: rimman
 ms.author: rimman
-ms.openlocfilehash: 57df9e0bd6f359a45333fcde51c51f49321fec9e
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8389cd4d73c5c5d881dcc32c688a59b86895a3e2
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213882"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309544"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db"></a>Inbyggt stöd för Jupyter Notebooks i Azure Cosmos DB
 
 Jupyter Notebook är ett webb program med öppen källkod som gör att du kan skapa och dela dokument som innehåller Live-kod, ekvationer, visualiseringar och text. Azure Cosmos DB stöder inbyggda Jupyter-anteckningsböcker för alla API: er som Cassandra, MongoDB, SQL, Gremlin och Table. Med det inbyggda Notebook-stödet för alla Azure Cosmos DB-API: er och data modeller kan du interaktivt köra frågor. Jupyter-anteckningsbokarna körs i Azure Cosmos-kontona och de gör det möjligt för utvecklare att utföra data utforskning, data rensning, data transformationer, numeriska simuleringar, statistisk modellering, data visualisering och maskin inlärning.
+
+![Jupyter Notebooks-visualiseringar i Azure Cosmos DB](./media/cosmosdb-jupyter-notebooks/cosmos-notebooks-overview.png)
 
 Antecknings böckerna för Jupyter har stöd för Magic Functions som utökar funktionerna i kärnan genom att stödja ytterligare kommandon. Cosmos Magic är ett kommando som utökar funktionerna i python-kärnan i Jupyter Notebook så att du kan köra Azure Cosmos SQL API-frågor förutom Apache Spark. Du kan enkelt kombinera python-och SQL API-frågor för att fråga och visualisera data med hjälp av omfattande visualiserings bibliotek som är integrerade med Render-kommandon.
 Azure Portal integrerar Jupyter Notebook-upplevelse i Azure Cosmos-konton på det sätt som visas i följande bild:
@@ -56,9 +58,8 @@ Jupyter-anteckningsböcker kan innehålla flera typer av komponenter, som var oc
 
 Om du vill komma igång med inbyggda Jupyter-anteckningsböcker i Azure Cosmos DB kan du läsa följande artiklar:
 
-* [Så här skapar du en bärbar dator]()
-* [Så här installerar du beroenden i en bärbar dator]()
-* [Så här använder du ett Notebook-och Cosmos Magic-tillägg för att analysera data]()
+* [Aktivera antecknings böcker i ett Azure Cosmos-konto](enable-notebooks.md)
+* [Använda Notebook-funktioner och-kommandon](use-notebook-features-and-commands.md)
 
 
 

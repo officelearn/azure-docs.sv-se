@@ -1,54 +1,54 @@
 ---
 title: Om databaser och avbildningar i Azure Container Registry
-description: Introduktion till viktiga begrepp för Azure-behållarregister, databaser och behållaravbildningar.
+description: Introduktion till viktiga begrepp för Azure Container register,-databaser och behållar avbildningar.
 services: container-registry
 author: dlepow
 ms.service: container-registry
 ms.topic: article
-ms.date: 07/01/2019
+ms.date: 09/10/2019
 ms.author: danlep
-ms.openlocfilehash: a14f0a2a86c5e4922fcddf3c92d48c6dfb1497a3
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 9a3d4a7d9c3fd4a0465d4e780024559a71372d9d
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67800333"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300209"
 ---
-# <a name="about-registries-repositories-and-images"></a>Om register, databaser och bilder
+# <a name="about-registries-repositories-and-images"></a>Om register, databaser och avbildningar
 
-Den här artikeln introducerar nyckelbegreppen för behållarregister, databaser, och behållaravbildningar och relaterade artefakter. 
+Den här artikeln beskriver viktiga begrepp för behållar register, lagrings platser och behållar avbildningar och relaterade artefakter. 
 
-## <a name="registry"></a>Registret
+## <a name="registry"></a>Register
 
-En behållare *registret* är en tjänst som lagrar och distribuerar behållaravbildningar. Docker Hub är en offentlig behållarregister som stöder communityn för öppen källkod och fungerar som en allmän katalog med bilder. Azure Container Registry ger användarna direkt kontroll av deras bilder med integrerad autentisering [georeplikering](container-registry-geo-replication.md) support global distribution och tillförlitlighet för nätverksnära distributioner, [ konfiguration av virtuell nätverks- och brandväggsinställningar](container-registry-vnet.md), [taggen låsning](container-registry-image-lock.md), och många andra förbättrad funktioner. 
+Ett behållar *register* är en tjänst som lagrar och distribuerar behållar avbildningar. Docker Hub är ett offentligt behållar register som stöder communityn för öppen källkod och fungerar som en allmän katalog med avbildningar. Azure Container Registry ger användare direkt kontroll över sina avbildningar, med integrerad autentisering, [geo-replikering](container-registry-geo-replication.md) stöder global distribution och tillförlitlighet för nätverks nära distributioner, [virtuella nätverk och brand väggar konfiguration](container-registry-vnet.md), [tagg låsning](container-registry-image-lock.md)och många andra förbättrade funktioner. 
 
-Förutom att Docker-behållaravbildningar, har stöd för Azure Container Registry relaterade [innehåll artefakter](container-registry-image-formats.md) inklusive öppna behållare initiativ OCI ()-bildformat.
+Förutom Docker-behållar avbildningar stöder Azure Container Registry relaterade [innehålls artefakter](container-registry-image-formats.md) , inklusive OCI-bildformat (Open container Initiative).
 
-## <a name="content-addressable-elements-of-an-artifact"></a>Adresserbara innehållselement av en artefakt
+## <a name="content-addressable-elements-of-an-artifact"></a>Innehålls adresser bara element i en artefakt
 
-Adressen för en artefakt i ett Azure container registry innehåller följande element. 
+Adressen till en artefakt i ett Azure Container Registry innehåller följande element. 
 
 ```
 [loginUrl]/[namespace]/[artifact:][tag]
 ```
 
-* **loginUrl** -fullständigt kvalificerade namnet på registret-värden. Register-värden i ett Azure container registry är i formatet *myregistry*. azurecr.io (endast gemener). Du måste ange loginUrl när du använder Docker eller andra artefakter för pull- eller push-klientverktyg till ett Azure container registry. 
-* **namnområdet** - avgränsade med snedstreck logisk gruppering av relaterade bilder eller artefakter – till exempel för en arbetsgrupp eller en app
-* **artefakten** -namnet på en lagringsplats för en viss avbildning eller en artefakt
-* **taggen** – en viss version av en bild eller en artefakt som lagras i en databas
+* **loginUrl** – det fullständigt kvalificerade namnet på register värden. Register värden i ett Azure Container Registry har formatet *register*. azurecr.IO (alla gemener). Du måste ange loginUrl när du använder Docker eller andra klient verktyg för att hämta eller push-artefakter till ett Azure Container Registry. 
+* **namnrymd** -avgränsad logisk gruppering av relaterade bilder eller artefakter – till exempel för en arbets grupp eller app
+* **artefakt** – namnet på en lagrings plats för en viss bild eller artefakt
+* **tagga** – en angiven version av en bild eller artefakt som lagras i en lagrings plats
 
 
-Det fullständiga namnet på en bild i en Azure container registry kan till exempel se ut:
+Till exempel kan det fullständiga namnet på en avbildning i ett Azure Container Registry se ut så här:
 
 ```
 myregistry.azurecr.io/marketing/campaign10-18/email-sender:v2
 ```
 
-Se följande avsnitt för information om de här elementen.
+I följande avsnitt finns mer information om de här elementen.
 
-## <a name="repository-name"></a>Databasnamn
+## <a name="repository-name"></a>Namn på databas
 
-Hantera behållarregister *databaser*, samlingar av behållaravbildningar eller andra artefakter med samma namn men olika taggar. Till exempel finns följande tre avbildningar i databasen ”acr-helloworld”:
+Behållar register hanterar *databaser*, samlingar med behållar avbildningar eller andra artefakter med samma namn, men olika taggar. Följande tre avbildningar finns till exempel i databasen "ACR-HelloWorld":
 
 ```
 acr-helloworld:latest
@@ -56,7 +56,7 @@ acr-helloworld:v1
 acr-helloworld:v2
 ```
 
-Databasnamn kan även inkludera [namnområden](container-registry-best-practices.md#repository-namespaces). Namnområden kan du till gruppen avbildningar med vanlig avgränsade med snedstreck databasnamn, till exempel:
+Namn på databaser kan även innehålla [namn områden](container-registry-best-practices.md#repository-namespaces). Med namn rymder kan du gruppera bilder med hjälp av snedstreck-avgränsade lagrings namn, till exempel:
 
 ```
 marketing/campaign10-18/web:v2
@@ -68,33 +68,33 @@ product-returns/legacy-integrator:20180715
 
 ## <a name="image"></a>Image
 
-En behållaravbildning eller andra artefakter i ett register är associerad med en eller flera taggar, har ett eller flera lager och identifieras med ett manifest. Förstå hur dessa komponenter är relaterade till varandra kan hjälpa dig att effektivt hantera ditt register.
+En behållar avbildning eller en annan artefakt i ett register är kopplad till en eller flera taggar, har ett eller flera skikt, och identifieras av ett manifest. Att förstå hur dessa komponenter är relaterade till varandra kan hjälpa dig att hantera registret effektivt.
 
 ### <a name="tag"></a>Tagga
 
-Den *taggen* för en avbildning eller andra artefakter anger dess version. En enda artefakt i en databas kan du tilldela en eller flera taggar och kan även vara ”ej taggade”. Det vill säga kan du ta bort alla taggar från en avbildning, medan avbildningsdata (lager) är i registret.
+*Taggen* för en bild eller en annan artefakt anger dess version. En enda artefakt i en lagrings plats kan tilldelas en eller flera taggar, och kan också vara "omärkt". Det innebär att du kan ta bort alla Taggar från en bild, medan bildens data (dess lager) finns kvar i registret.
 
-Databasen (eller databasen och namnområde) plus en tagg definierar en avbildningens namn. Du kan skicka och hämta en avbildning genom att ange dess namn i sändning eller hämtning igen.
+Lagrings platsen (eller lagrings platsen och namn området) plus en tagg definierar namnet på en avbildning. Du kan push-överföra och hämta en avbildning genom att ange dess namn i push-eller pull-åtgärden.
 
-Hur du tagga behållaravbildningar leds av dina scenarier för att utveckla eller distribuera dem. Till exempel rekommenderas stabil taggar för att underhålla dina Källavbildningen och unika taggar för distribution av avbildningar. Mer information finns i [rekommendationer för taggning och versionshantering behållaravbildningar](container-registry-image-tag-version.md).
+Hur du taggar behållar avbildningar vägleds av dina scenarier för att utveckla eller distribuera dem. Till exempel rekommenderas stabila taggar för att underhålla dina bas avbildningar och unika taggar för att distribuera avbildningar. Mer information finns i [rekommendationer för taggning och versions behållar avbildningar](container-registry-image-tag-version.md).
 
 ### <a name="layer"></a>Lager
 
-Behållaravbildningar består av en eller flera *lager*, varje motsvarar en rad i den Dockerfile som definierar avbildningen. Bilder i ett register dela vanliga lager, öka lagringseffektiviteten. Till exempel flera bilder i olika databaser kan dela samma grundläggande Alpine Linux lager, men bara en kopia av skiktet lagras i registret.
+Behållar avbildningar består av ett eller flera *lager*, var och en som motsvarar en linje i Dockerfile som definierar bilden. Avbildningar i ett register delar gemensamma lager, vilket ökar lagrings effektiviteten. Till exempel kan flera avbildningar i olika lagrings platser dela samma Alpine Linux-basadress, men endast en kopia av det lagret lagras i registret.
 
-Layer delning optimerar dessutom layer-distribution till noder med flera avbildningar som delar vanliga lager. Om en avbildning som redan finns på en nod innehåller Alpine Linux-lagret som bas, överföra inte den efterföljande pull av en annan avbildning som refererar till samma lager till exempel lagret till noden. I stället den refererar till det lagret som redan finns på noden.
+Lager delning optimerar också lager distribution till noder med flera bilder som delar gemensamma lager. Om en avbildning som redan finns på en nod t. ex. inkluderar Alpine Linux-lagret som bas, överförs inte lagret till noden när den efterföljande hämtningen av en annan bild som refererar till samma lager. I stället refererar den till det lager som redan finns på noden.
 
-För att ge säker isolering och skydd mot potentiella layer manipulering, delas inte lager mellan register.
+För att tillhandahålla säker isolering och skydd från potentiell lager hantering delas inte lagren mellan register.
 
 ### <a name="manifest"></a>Manifest
 
-Varje behållaravbildning eller artefakt som skickas till ett behållarregister är associerad med en *manifest*. Manifestet, som genereras av registret när avbildningen skickas, identifierar bilden och anger dess lager. Du kan visa manifest för en databas med Azure CLI-kommando [az acr databasen show-manifest][az-acr-repository-show-manifests]:
+Varje behållar avbildning eller artefakt som flyttas till ett behållar register är associerad med ett *manifest*. Manifestet, som genereras av registret när avbildningen skickas, identifierar avbildningen unikt och anger dess lager. Du kan visa manifesten för en lagrings plats med Azure CLI [-kommandot AZ ACR-lagringsplats show-manifest][az-acr-repository-show-manifests]:
 
 ```azurecli
 az acr repository show-manifests --name <acrName> --repository <repositoryName>
 ```
 
-Till exempel lista manifestet Överför sammanfattningar för ”acr-helloworld”-lagringsplatsen:
+Ange till exempel manifesten för databasen "ACR-HelloWorld":
 
 ```console
 $ az acr repository show-manifests --name myregistry --repository acr-helloworld
@@ -124,25 +124,24 @@ $ az acr repository show-manifests --name myregistry --repository acr-helloworld
 ]
 ```
 
-### <a name="manifest-digest"></a>Manifest sammanfattad
+### <a name="manifest-digest"></a>Manifest Sammanfattning
 
-Manifest identifieras med en unik SHA-256-hash eller *manifest sammanfattad*. Varje avbildning eller en artefakt--identifieras om taggade eller inte – med dess sammanfattad. Sammanfattad värdet är unikt, även om bildens lagerdata är identisk med en annan bild. Den här mekanismen är vad låter dig upprepade gånger identiskt taggade bilder till ett register. Exempel: du kan skicka flera gånger `myimage:latest` till registret felfritt eftersom varje avbildning har identifierats av dess unika sammanfattad.
+Manifest identifieras av en unik SHA-256-hash eller *manifest sammandrag*. Varje bild eller artefakt – om Taggad eller inte--har identifierats av sammanfattningen. Digest-värdet är unikt även om avbildningens lager data är identiska med en annan bild. Den här metoden gör det möjligt att upprepade gånger skicka identiska märkta bilder till ett register. Du kan t. ex. skicka `myimage:latest` flera gånger till registret utan fel eftersom varje avbildning identifieras med en unik Sammanfattning.
 
-Du kan hämta en avbildning från ett register genom att ange dess sammanfattad i pull-åtgärd. Vissa system kan konfigureras för att hämta av sammanfattad eftersom det garanterar versionsnumret för avbildningen som hämtas, även om ett identiskt taggade avbildningen skickas sedan till registret.
+Du kan hämta en avbildning från ett register genom att ange dess Digest i pull-åtgärden. Vissa system kan konfigureras att hämta genom sammandrag eftersom det garanterar att avbildnings versionen hämtas, även om en identiskt taggad bild sedan skickas till registret.
 
-Exempel: hämta en avbildning från lagringsplatsen ”acr-helloworld” av manifest sammanfattad:
+Hämta till exempel en bild från lagrings platsen "ACR-HelloWorld" genom manifest sammandrag:
 
 ```console
 $ docker pull myregistry.azurecr.io/acr-helloworld@sha256:0a2e01852872580b2c2fea9380ff8d7b637d3928783c55beb3f21a6e58d5d108
 ```
 
 > [!IMPORTANT]
-> Om du överför flera gånger ändrade avbildningar med identiska taggar, kan du skapa överblivna bilder--bilder som är ej taggade, men fortfarande förbruka utrymme i registret. Ej taggade bilder visas inte i Azure CLI eller i Azure-portalen när du listar eller visa bilder efter tagg. Men lagren fortfarande finns och förbruka utrymme i registret. Information om hur du frigör utrymme som används av otaggade avbildningar finns i [ta bort avbildningar i Azure Container Registry](container-registry-delete.md).
-
+> Om du ofta skickar ändrade bilder med identiska taggar kan du skapa överblivna bilder – bilder som är otaggade, men som fortfarande använder utrymme i registret. Otaggade bilder visas inte i Azure CLI eller i Azure Portal när du listar eller visar bilder efter tagg. Men deras lager finns fortfarande kvar och tar upp utrymme i registret. När du tar bort en otaggade bild frigörs register utrymmet när manifestet är det enda, eller det sista, som pekar på ett visst lager. Information om hur du frigör utrymme som används av otaggade bilder finns i [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om [bildlagring](container-registry-storage.md) och [stöds format](container-registry-image-formats.md) i Azure Container Registry.
+Läs mer om [bild lagring](container-registry-storage.md) och [innehålls format som stöds](container-registry-image-formats.md) i Azure Container Registry.
 
 <!-- LINKS - Internal -->
 [az-acr-repository-show-manifests]: /cli/azure/acr/repository#az-acr-repository-show-manifests

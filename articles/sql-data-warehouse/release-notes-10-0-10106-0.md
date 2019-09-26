@@ -10,12 +10,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
-ms.openlocfilehash: b9058313886484e84000b2b27986280eb1ff30eb
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f4ee3f78159cb5d9b677f0d43492325754065841
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145630"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300827"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Viktig information om Azure SQL Data Warehouse
 
@@ -38,6 +38,7 @@ Använd det datum som identifierats för att bekräfta vilken version som har ti
 |**Azure Private-länk (för hands version)**|Med [Azures privata länk](https://azure.microsoft.com/blog/announcing-azure-private-link/)kan du skapa en privat slut punkt i din Virtual Network (VNet) och mappa den till din Azure SQL DW. De här resurserna är sedan tillgängliga över en privat IP-adress i ditt VNet, vilket möjliggör anslutning från lokalt via Azure ExpressRoute privat peering och/eller VPN-gateway. Detta fören klar nätverks konfigurationen genom att inte kräva att du öppnar den till offentliga IP-adresser. Detta möjliggör även skydd mot data exfiltrering-risker. Mer information finns i [Översikt](/azure/private-link/private-link-overview) och [SQL DW-dokumentation](/azure/sql-database/sql-database-private-endpoint-overview).|
 |**Data identifiering & klassificering (GA)**|Funktionen [data identifiering och klassificering](/azure/sql-database/sql-database-data-discovery-and-classification?toc=/azure/sql-data-warehouse/toc.json) är nu allmänt tillgänglig. Den här funktionen ger avancerade funktioner för att **upptäcka, klassificera och märka & skydda** känsliga data i dina databaser.|
 |**Azure Advisor integration med ett klick**|SQL Data Warehouse nu integreras direkt med Azure Advisor rekommendationer i översikts bladet och ger en enkel klickning. Nu kan du identifiera rekommendationer på bladet översikt i stället för att gå till Azure Advisor-bladet. Lär dig mer om rekommendationer [här](sql-data-warehouse-concept-recommendations.md).|
+|**Läs isolering av dedikerade ögonblicks bilder (för hands version)**|Du kan använda ALTER databasen för att aktivera eller inaktivera ögonblicks bild isolering för en användar databas.  Om du vill undvika påverkan på din aktuella arbets belastning kan du ange det här alternativet under databas underhålls fönstret eller vänta tills det inte finns någon annan aktiv anslutning till databasen. Mer information finns i [ändra databas uppsättnings alternativ](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest).|
 |**Kör som (Transact-SQL)**| [Kör som](/sql/t-sql/statements/execute-as-transact-sql?view=azure-sqldw-latest) T-SQL-support är nu tillgängligt i SQL Data Warehouse gör det möjligt för kunderna att ställa in körnings kontexten för en session till den angivna användaren.|
 |**Ytterligare T-SQL-support**|Området T-SQL-språk för SQL Data Warehouse har utökats för att omfatta stöd för: </br> - [FORMAT (Transact-SQL)](/sql/t-sql/functions/format-transact-sql?view=azure-sqldw-latest)</br> - [TRY_PARSE (Transact-SQL)](/sql/t-sql/functions/try-parse-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CAST (Transact-SQL)](/sql/t-sql/functions/try-cast-transact-sql?view=azure-sqldw-latest)</br> - [TRY_CONVERT (Transact-SQL)](/sql/t-sql/functions/try-convert-transact-sql?view=azure-sqldw-latest)</br> - [sys. user_token (Transact-SQL)](/sql//relational-databases/system-catalog-views/sys-user-token-transact-sql?view=azure-sqldw-latest)|
 

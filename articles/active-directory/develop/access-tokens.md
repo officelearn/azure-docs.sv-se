@@ -16,12 +16,12 @@ ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d89d861b48b0c198b06a45613db668adcf551b39
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 780ec85438990959b7b0ac686e05ad5db3f9eedf
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70074311"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291091"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Åtkomsttoken för Microsoft Identity Platform
 
@@ -34,7 +34,7 @@ Om ditt program är en resurs (webb-API) som klienter kan begära åtkomst till,
 I följande avsnitt får du lära dig hur en resurs kan verifiera och använda anspråk i en åtkomsttoken.
 
 > [!IMPORTANT]
-> Åtkomsttoken skapas baserat på token för token, vilket innebär det program som äger omfattningarna i token.  Det här är en resurs inställning `accessTokenAcceptedVersion` i [appens manifest](reference-app-manifest.md#manifest-reference) så `2` att en klient som anropar en v 1.0-slutpunkt kan ta emot en v 2.0-åtkomsttoken.  På samma sätt är det anledningen till att ändra de [valfria](active-directory-optional-claims.md) anspråken för åtkomsttoken för din klient ändrar inte den åtkomsttoken som tas emot när en `user.read`token begärs för, som ägs av MS Graph-resursen.  
+> Åtkomsttoken skapas baserat på token för token, vilket *innebär det program* som äger omfattningarna i token.  Det här är en resurs inställning `accessTokenAcceptedVersion` i [appens manifest](reference-app-manifest.md#manifest-reference) så `2` att en klient som anropar en v 1.0-slutpunkt kan ta emot en v 2.0-åtkomsttoken.  På samma sätt är det anledningen till att ändra de [valfria anspråken](active-directory-optional-claims.md) för åtkomsttoken för din klient ändrar inte den åtkomsttoken som tas emot när en `user.read`token begärs för, som ägs av MS Graph-resursen.  
 > Av samma anledning kan du, när du testar ditt klient program med ett personligt konto (t. ex. hotmail.com eller outlook.com), se till att åtkomsttoken som tas emot av klienten är en ogenomskinlig sträng. Detta beror på att den resurs som används har begärt att äldre MSA-biljetter (Microsoft-konto) ska vara krypterade och inte kan tolkas av klienten.
 
 ## <a name="sample-tokens"></a>Exempel-token
@@ -101,9 +101,9 @@ Anspråk finns bara om det finns ett värde för att fylla det. Därför bör ap
 | `azpacr` | "0", "1" eller "2" | Finns bara i v 2.0-token, ersättning för `appidacr`. Anger hur klienten autentiserades. För en offentlig klient är värdet "0". Om klient-ID och klient hemlighet används är värdet "1". Om ett klient certifikat användes för autentisering är värdet "2". |
 | `preferred_username` | Sträng | Det primära användar namnet som representerar användaren. Det kan vara en e-postadress, ett telefonnummer eller ett generiskt användar namn utan angivet format. Värdet är föränderligt och kan ändras med tiden. Eftersom det är föränderligt får inte det här värdet användas för att fatta auktoriseringsbeslut.  Den kan användas för användar tipsen. `profile` Omfånget krävs för att kunna ta emot detta anspråk. |
 | `name` | Sträng | Ger ett läsligt värde som identifierar ämnet för token. Värdet är inte garanterat unikt, det är föränderligt och har utformats för att endast användas i visnings syfte. `profile` Omfånget krävs för att kunna ta emot detta anspråk. |
-| `scp` | Sträng, en blankstegsavgränsad lista över omfång | Den uppsättning omfång som exponeras av ditt program för vilket klient programmet har begärt (och fått) medgivande. Din app bör kontrol lera att dessa omfattningar är giltiga för de som exponeras av din app och fatta auktoriseringsbeslut baserat på värdet för dessa omfång. Ingår endast för [](#user-and-application-tokens)användartoken. |
-| `roles` | Sträng mat ris, en lista med behörigheter | Den uppsättning behörigheter som exponeras av ditt program som det begär ande programmet eller användaren har fått behörighet att anropa. För [Application](#user-and-application-tokens)-token används detta under flödet för [klient-autentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md) i stället för användar omfattningar.  För [användar-tokens](#user-and-application-tokens) fylls detta med de roller som användaren har tilldelats på mål programmet. |
-| `wids` | Matris med [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) -GUID | Anger de roller för klient organisationen som tilldelats den här användaren, från avsnittet av roller som finns på [sidan administratörs roller](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Detta anspråk har kon figurer ATS per program, via `groupMembershipClaims` egenskapen för applikations [manifestet](reference-app-manifest.md).  Inställningen "alla" eller "DirectoryRole" krävs.  Kanske inte finns i token som erhållits via det implicita flödet på grund av frågor om token-längd. |
+| `scp` | Sträng, en blankstegsavgränsad lista över omfång | Den uppsättning omfång som exponeras av ditt program för vilket klient programmet har begärt (och fått) medgivande. Din app bör kontrol lera att dessa omfattningar är giltiga för de som exponeras av din app och fatta auktoriseringsbeslut baserat på värdet för dessa omfång. Ingår [endast för användartoken](#user-and-application-tokens). |
+| `roles` | Sträng mat ris, en lista med behörigheter | Den uppsättning behörigheter som exponeras av ditt program som det begär ande programmet eller användaren har fått behörighet att anropa. För [Application-token](#user-and-application-tokens)används detta under flödet för [klient-autentiseringsuppgifter](v1-oauth2-client-creds-grant-flow.md) i stället för användar omfattningar.  För [användar-tokens](#user-and-application-tokens) fylls detta med de roller som användaren har tilldelats på mål programmet. |
+| `wids` | Matris med [RoleTemplateID](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids) -GUID | Anger de roller för klient organisationen som tilldelats den här användaren, från avsnittet av roller som finns på [sidan administratörs roller](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#role-template-ids).  Detta anspråk har kon figurer ATS per program, via `groupMembershipClaims` egenskapen för [applikations manifestet](reference-app-manifest.md).  Inställningen "alla" eller "DirectoryRole" krävs.  Kanske inte finns i token som erhållits via det implicita flödet på grund av frågor om token-längd. |
 | `groups` | JSON-matris med GUID | Tillhandahåller objekt-ID: n som representerar ämnets grupp medlemskap. Dessa värden är unika (se objekt-ID) och kan användas på ett säkert sätt för att hantera åtkomst, t. ex. för att tvinga behörighet att få åtkomst till en resurs. Grupperna som ingår i gruppen grupper har kon figurer ATS per tillämpning via `groupMembershipClaims` [program Manifestets](reference-app-manifest.md)egenskap. Värdet null utesluter alla grupper, värdet "SecurityGroup" kommer bara att innehålla Active Directory medlemskap i säkerhets grupper och värdet "alla" omfattar både säkerhets grupper och distributions listor för Office 365. <br><br>I anspråket nedan finns mer information om `groups` hur du använder anspråk med implicit beviljande. `hasgroups` <br>För andra flöden, om antalet grupper som användaren betjänar över en gräns (150 för SAML, 200 för JWT), så läggs ett överbelastnings anspråk till i anspråks källorna som pekar på AAD-diagrammets slut punkt med listan över grupper för användaren. |
 | `hasgroups` | Boolesk | Om det finns en `true`sådan måste användaren vara i minst en grupp. Används i stället för `groups` anspråket för JWTs i implicita bidrags flöden om det fullständiga grupp kravet skulle utöka URI-fragmentet över gränserna för URL-längd (för närvarande 6 eller flera grupper). Anger att klienten ska använda grafen för att fastställa användarens grupper (`https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects`). |
 | `groups:src1` | JSON-objekt | För Tokenbegäran som inte är begränsade (se `hasgroups` ovan) men fortfarande är för stora för token kommer en länk till listan över fullständiga grupper för användaren att inkluderas. För JWTs som ett distribuerat anspråk för SAML som ett nytt anspråk i stället för `groups` anspråket. <br><br>**Exempel-JWT-värde**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.windows.net/{tenantID}/users/{userID}/getMemberObjects" }` |
@@ -114,6 +114,11 @@ Anspråk finns bara om det finns ett värde för att fylla det. Därför bör ap
 | `uti` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure för att omverifiera token. Resurserna bör inte använda det här anspråket. |
 | `rh` | Ogenomskinlig sträng | Ett internt anspråk som används av Azure för att omverifiera token. Resurserna bör inte använda detta påstående. |
 | `ver` | Sträng, antingen `1.0` eller`2.0` | Anger versionen för åtkomsttoken. |
+
+
+> [! Grupper överförbruknings anspråk] för att säkerställa att token-storleken inte överskrider storleks gränsen för HTTP-huvudet, begränsar Azure AD antalet objekt-ID: n som ingår i grupp anspråket. Om en användare är medlem i fler grupper än överkvoten (150 för SAML-tokens, 200 för JWT-token), genererar inte Azure AD grupp anspråket i token. I stället innehåller den ett överanvändning-anspråk i token som indikerar att programmet ska fråga Graph API för att hämta användarens grupp medlemskap.
+> { ... "_claim_names": {"grupper": "src1"}, {"_claim_sources": {"src1": {"slut punkt": "[graf URL för att hämta användarens grupp medlemskap från]"}}    
+    ... } Du kan använda den `BulkCreateGroups.ps1` som finns i mappen skript för att [Skapa appar](https://github.com/Azure-Samples/active-directory-dotnet-webapp-groupclaims/blob/master/AppCreationScripts/) för att testa överanvändnings scenarier.
 
 #### <a name="v10-basic-claims"></a>v 1.0 Basic-anspråk
 
@@ -193,7 +198,7 @@ Detta dokument för metadata:
 
 Verifieringen av signaturen är utanför det här dokumentets omfång – det finns många bibliotek med öppen källkod som hjälper dig att göra det om det behövs.  Men Microsoft Identity Platform har ett tillägg för Token-signering till standard-anpassade signerings nycklar.  
 
-Om din app har anpassade signerings nycklar som ett resultat av funktionen för anspråks [mappning](active-directory-claims-mapping.md) måste du lägga till `appid` en frågeparameter som innehåller app-ID: t `jwks_uri` för att få ett peka på appens signerings nyckel information som ska användas för signaturverifiering. Exempel: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` innehåller en `jwks_uri` av `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
+Om din app har anpassade signerings nycklar som ett resultat av funktionen för [anspråks mappning](active-directory-claims-mapping.md) måste du lägga till `appid` en frågeparameter som innehåller app-ID: t `jwks_uri` för att få ett peka på appens signerings nyckel information som ska användas för signaturverifiering. Exempel: `https://login.microsoftonline.com/{tenant}/.well-known/openid-configuration?appid=6731de76-14a6-49ae-97bc-6eba6914391e` innehåller en `jwks_uri` av `https://login.microsoftonline.com/{tenant}/discovery/keys?appid=6731de76-14a6-49ae-97bc-6eba6914391e`.
 
 ### <a name="claims-based-authorization"></a>Anspråksbaserad auktorisering
 

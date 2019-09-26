@@ -6,19 +6,21 @@ author: dlepow
 manager: gwallace
 ms.service: container-instances
 ms.topic: article
-ms.date: 04/25/2019
+ms.date: 09/25/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 4b41a3862341ef39c1288985d86d86667fbc5866
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: 7c4812a63137dc2efc5eab2cb3b9e136a5465e78
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68325589"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300466"
 ---
 # <a name="troubleshoot-common-issues-in-azure-container-instances"></a>Felsök vanliga problem i Azure Container Instances
 
-Den här artikeln visar hur du felsöker vanliga problem med att hantera eller distribuera behållare till Azure Container Instances. Se även [vanliga frågor och svar](container-instances-faq.md).
+Den här artikeln visar hur du felsöker vanliga problem med att hantera eller distribuera behållare till Azure Container Instances. Se även [vanliga frågor och svar](container-instances-faq.md). 
+
+Om du behöver ytterligare support, se tillgängliga **Hjälp + Support** alternativ i [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
 ## <a name="naming-conventions"></a>Namngivningskonventioner
 
@@ -26,12 +28,12 @@ När du definierar din behållar specifikation kräver vissa parametrar att namn
 
 | Omfång | Längd | Skiftläge | Giltiga tecken | Föreslaget mönster | Exempel |
 | --- | --- | --- | --- | --- | --- |
-| Namn på behållar grupp | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>-<role>-CG<number>` |`web-batch-CG1` |
-| Containerns namn | 1-64 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Namn på behållar grupp | 1-64 |Skiftlägeskänslig |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>-<role>-CG<number>` |`web-batch-CG1` |
+| Behållarnamn | 1-64 |Skiftlägeskänslig |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>-<role>-CG<number>` |`web-batch-CG1` |
 | Container portar | Mellan 1 och 65535 |Integer |Heltal mellan 1 och 65535 |`<port-number>` |`443` |
-| DNS-namn etikett | 5-63 |Skiftlägesokänsligt |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>` |`frontend-site1` |
-| Miljövariabel | 1-63 |Skiftlägesokänsligt |Alfanumeriskt och under streck (_) var som helst förutom det första eller sista tecknet |`<name>` |`MY_VARIABLE` |
-| Volym namn | 5-63 |Skiftlägesokänsligt |Små bokstäver och siffror, och bindestreck var som helst utom det första eller sista. Får inte innehålla två bindestreck i följd. |`<name>` |`batch-output-volume` |
+| DNS-namnetikett | 5-63 |Skiftlägeskänslig |Alfanumeriskt och bindestreck var som helst förutom det första eller sista tecken |`<name>` |`frontend-site1` |
+| Miljövariabel | 1-63 |Skiftlägeskänslig |Alfanumeriskt och under streck (_) var som helst förutom det första eller sista tecknet |`<name>` |`MY_VARIABLE` |
+| Volymnamn | 5-63 |Skiftlägeskänslig |Små bokstäver och siffror, och bindestreck var som helst utom det första eller sista. Får inte innehålla två bindestreck i följd. |`<name>` |`batch-output-volume` |
 
 ## <a name="os-version-of-image-not-supported"></a>OS-versionen av avbildningen stöds inte
 
@@ -200,9 +202,28 @@ Det här felet indikerar att på grund av en kraftig belastning i den region dä
 
 Azure Container Instances visar inte direkt åtkomst till den underliggande infrastrukturen som är värd för behållar grupper. Detta inkluderar åtkomst till Docker-API som körs på behållarens värd och kör privilegierade behållare. Om du behöver Docker-interaktion, kontrollerar du [dokumentationen om rest](https://aka.ms/aci/rest) -referensen för att se vad ACI-API: et stöder. Om något saknas kan du skicka en begäran i [ACI feedback-forumet](https://aka.ms/aci/feedback).
 
-## <a name="ips-may-not-be-accessible-due-to-mismatched-ports"></a>IP-adresser kanske inte kan nås på grund av felmatchade portar
+## <a name="container-group-ip-address-may-not-be-accessible-due-to-mismatched-ports"></a>Det går inte att komma åt behållar gruppens IP-adress på grund av felmatchade portar
 
-Azure Container Instances stöder för närvarande inte port mappning som med vanlig Docker-konfiguration, men den här korrigerings filen finns i översikten. Om du hittar IP-adresser som inte är tillgängliga när du tror att det bör vara, se till att du har konfigurerat behållar avbildningen så att den lyssnar på samma `ports` portar som du exponerar i behållar gruppen med egenskapen.
+Azure Container Instances har ännu inte stöd för port mappning som med vanlig Docker-konfiguration. Om du hittar en behållar grupps IP-adress inte är tillgänglig när du tror att den bör vara, se till att du har konfigurerat behållar avbildningen så att den lyssnar på samma `ports` portar som du exponerar i behållar gruppen med egenskapen.
+
+Om du vill bekräfta att Azure Container instances kan lyssna på den port som du konfigurerade i behållar avbildningen testar du en distribution `aci-helloworld` av avbildningen som exponerar porten. Kör `aci-helloworld` även appen så att den lyssnar på porten. `aci-helloworld`accepterar en valfri miljö variabel `PORT` som åsidosätter standard porten 80 den lyssnar på. Om du till exempel vill testa port 9000:
+
+1. Konfigurera behållar gruppen för att exponera port 9000 och skicka port numret som värde för miljövariabeln:
+    ```azurecli
+    az container create --resource-group myResourceGroup \
+    --name mycontainer --image mcr.microsoft.com/azuredocs/aci-helloworld \
+    --ip-address Public --ports 9000 \
+    --environment-variables 'PORT'='9000'
+    ```
+1. Hitta IP-adressen för behållar gruppen i kommandots utdata `az container create`från. Leta efter **IP-** värdet. 
+1. När behållaren har skapats kan du bläddra till IP-adressen och porten för behållar appen i webbläsaren, till exempel: `192.0.2.0:9000`. 
+
+    Du bör se "Välkommen till Azure Container Instances!" meddelande som visas av webbappen.
+1. När du är klar med behållaren tar du bort den med `az container delete` kommandot:
+
+    ```azurecli
+    az container delete --resource-group myResourceGroup --name mycontainer
+    ```
 
 ## <a name="next-steps"></a>Nästa steg
 

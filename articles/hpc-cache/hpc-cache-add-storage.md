@@ -4,16 +4,16 @@ description: Definiera lagrings mål så att Azure HPC-cachen kan använda ditt 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: a17952e193f3e03becaab044f55637372bac7b0d
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181002"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300030"
 ---
-# <a name="add-storage-targets"></a>Lägg till lagrings mål
+# <a name="add-storage-targets"></a>Lägga till lagringsmål
 
 *Lagrings målen* är Server dels lagring för filer som nås via en Azure HPC-instans. Du kan lägga till NFS-lagring, till exempel ett lokalt maskin varu system eller lagra data i Azure blob.
 
@@ -21,11 +21,11 @@ Du kan definiera upp till tio olika lagrings mål för ett cacheminne. Cachen vi
 
 Kom ihåg att lagrings exporten måste vara tillgänglig från cachens virtuella nätverk. För lokal maskin varu lagring kan du behöva konfigurera en DNS-server som kan matcha värdnamn för NFS-lagrings åtkomst. Läs mer i [DNS-åtkomst](hpc-cache-prereqs.md#dns-access).
 
-Du kan lägga till lagrings mål när du skapar din Azure HPC-cache eller efteråt. Proceduren skiljer sig något beroende på om du lägger till Azure Blob Storage eller en NFS-export. Information om var och en finns nedan.
+Du kan lägga till lagrings mål när du skapar din cache eller efteråt. Proceduren skiljer sig något beroende på om du lägger till Azure Blob Storage eller en NFS-export. Information om var och en finns nedan.
 
 ## <a name="add-storage-targets-while-creating-the-cache"></a>Lägg till lagrings mål när du skapar cachen
 
-Använd fliken **lagrings mål** i guiden Skapa cache för att definiera lagring på samma gång som du skapar en cache-instans.
+Använd fliken **lagrings mål** i guiden Skapa Azure HPC-cache för att definiera lagring på samma gång som du skapar en cache-instans.
 
 ![skärm bild av sidan lagrings mål](media/hpc-cache-storage-targets-pop.png)
 
@@ -39,11 +39,13 @@ Klicka på länken **Lägg till lagrings mål** för att lägga till lagring.
 
 ## <a name="add-a-new-azure-blob-storage-target"></a>Lägg till ett nytt Azure Blob Storage-mål
 
-Ett nytt Blob Storage-mål måste ha en tom BLOB-behållare eller en behållare som är ifylld med data i Azure HPC-cachen i moln fil formatet. Läs mer om att för hands läsa in en BLOB-behållare i [Flytta data till Azure Blob Storage](hpc-cache-ingest.md).
+Ett nytt Blob Storage-mål måste ha en tom BLOB-behållare eller en behållare som är ifylld med data i Azure HPC-cachens moln fil system format. Läs mer om att för hands läsa in en BLOB-behållare i [Flytta data till Azure Blob Storage](hpc-cache-ingest.md).
 
 Ange den här informationen för att definiera en Azure Blob-behållare.
 
 ![skärm bild av sidan Lägg till lagrings mål, ifylld med information för ett nytt Azure Blob Storage-mål](media/hpc-cache-add-blob.png)
+
+<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
 
 * **Lagrings mål namn** – ange ett namn som identifierar det här lagrings målet i Azure HPC-cachen.
 * **Måltyp** – Välj **BLOB**.
@@ -52,13 +54,13 @@ Ange den här informationen för att definiera en Azure Blob-behållare.
   Du måste auktorisera cache-instansen för att komma åt lagrings kontot enligt beskrivningen i [Lägg till åtkomst roller](#add-the-access-control-roles-to-your-account).
 * **Lagrings behållare** – Välj BLOB-behållaren för målet.
 
-* **Sökväg till virtuellt namn område** – ange klient Sök vägen för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
+* **Sökväg till virtuellt namn område** – ange sökvägen till klientens fil för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
 När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
 ### <a name="add-the-access-control-roles-to-your-account"></a>Lägg till roller för åtkomst kontroll i ditt konto
 
-Azure HPC-cachen använder [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) för att ge cache-programmet åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
+Azure HPC cache använder [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) för att ge cache-programmet åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
 
 Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) och [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) för användaren "StorageCache Resource Provider".
 
@@ -98,11 +100,16 @@ Ange den här informationen för ett NFS-baserat lagrings mål:
 
 * **Användnings modell** – Välj en av profilerna för Datacachen baserat på ditt arbets flöde, som beskrivs i [Välj en användnings modell nedan](#choose-a-usage-model).
 
-Du kan skapa flera namn områdes Sök vägar för att representera olika exporter i samma NFS-lagringssystem, men du måste skapa dem från ett lagrings mål.
+### <a name="nfs-namespace-paths"></a>Sökväg till NFS-namnrymd
 
-Fyll i följande värden för varje export:
+Ett NFS-lagrings mål kan ha flera virtuella sökvägar, så länge varje sökväg representerar en annan export-eller under katalog på samma lagrings system.
 
-* **Sökväg till virtuellt namn område** – ange klient Sök vägen för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
+Skapa alla sökvägar från ett lagrings mål.
+<!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
+
+Fyll i följande värden för varje namn områdes Sök väg: 
+
+* **Sökväg till virtuellt namn område** – ange sökvägen till klientens fil för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
 <!--  The virtual path should start with a slash ``/``. -->
 

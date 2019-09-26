@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: barclayn
-ms.openlocfilehash: b574f7c4f30c3bce8bd7d0e234cb523c965772e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 3d6b1ed2a3800058acba9fe5df2137811afed74a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727588"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300775"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Säkerhets rekommendationer för Azure Marketplace-avbildningar
 
@@ -56,7 +56,7 @@ Dessa rekommendationer kan också vara till hjälp för organisationer som inte 
 | Säkerhet                                                         | Använd en säker OS-avbildning. Den virtuella hård disk som används för källan till alla avbildningar som baseras på Windows Server måste vara från Windows Server OS-avbildningarna som tillhandahålls via Microsoft Azure. |
 | Säkerhet                                                         | Installera alla de senaste säkerhets uppdateringarna.                                                                                                                                     |
 | Säkerhet                                                         | Program ska inte vara beroende av begränsade användar namn som administratör, rot och administratör.                                                                |
-| Säkerhet                                                         | BitLocker-diskkryptering stöds inte på hård disken för operativ systemet. BitLocker kan användas på data diskar.                                                            |
+| Säkerhet                                                         | BitLocker-diskkryptering aktive ras för både OS-hårddiskar och data hård diskar.                                                             |
 | Säkerhet                                                         | Begränsa angrepps ytan genom att behålla minimalt utrymme med endast nödvändiga Windows Server roller, funktioner, tjänster och nätverks portar aktiverade.                         |
 | Säkerhet                                                         | Skanna käll koden och den resulterande VM-avbildningen för skadlig kod.                                                                                                                     |
 | Säkerhet                                                         | Ange Windows Server-avbildningar säkerhets uppdatering för automatisk uppdatering.                                                                                                                |

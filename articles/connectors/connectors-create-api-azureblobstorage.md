@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: d57ea1a881980203b1c8f216239b27b64f0d71cd
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 8160cd2cb77a56f3d9b13f3c43929cc4ab7565b0
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051050"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309589"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Skapa och hantera blobbar i Azure Blob Storage med Azure Logic Apps
 
@@ -25,7 +25,7 @@ Den här artikeln visar hur du kan komma åt och hantera filer som lagras som bl
 Anta att du har ett verktyg som uppdateras på en Azure-webbplats. Detta fungerar som utlösare för din Logic app. När den här händelsen inträffar kan du låta din Logic app uppdatera en fil i din Blob Storage-behållare, som är en åtgärd i din Logic app.
 
 > [!NOTE]
-> Logic Apps stöder inte direkt anslutning till Azure Storage-konton via brand väggar. Använd något av alternativen här för att komma åt dessa lagrings konton:
+> Logic Apps kan inte komma åt Azure Storage-konton som har [brand Väggs regler](../storage/common/storage-network-security.md) och finns i samma region. Logic Apps kan dock komma åt Azure Storage-konton som finns i en annan region eftersom en offentlig IP-adress används för att kommunicera mellan regioner. Eller så kan du använda något av alternativen här:
 >
 > * Skapa en [integrerings tjänst miljö](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)som kan ansluta till resurser i ett virtuellt Azure-nätverk.
 >
@@ -87,7 +87,7 @@ Det här exemplet visar hur du kan starta ett Logic app-arbetsflöde med **när 
 
 ## <a name="add-blob-storage-action"></a>Lägg till Blob Storage-åtgärd
 
-I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) ett steg i arbets flödet som följer en utlösare eller en annan åtgärd. I det här exemplet börjar Logic-appen med [upprepnings](../connectors/connectors-native-recurrence.md)utlösaren.
+I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-concepts) ett steg i arbets flödet som följer en utlösare eller en annan åtgärd. I det här exemplet börjar Logic-appen med [upprepnings utlösaren](../connectors/connectors-native-recurrence.md).
 
 1. Öppna din Logic app i Logic App Designer i [Azure Portal](https://portal.azure.com) eller Visual Studio. I det här exemplet används Azure Portal.
 

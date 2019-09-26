@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 04/08/2019
 ms.author: helohr
-ms.openlocfilehash: 4f325d9fc512fd9f6776fcd799b720aaf60ce472
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: c6c7a57a2093445d3922f9349242c9a902df7370
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876765"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300708"
 ---
 # <a name="remote-desktop-client-connections"></a>Anslutningar för fjärrskrivbordsklienten
 
@@ -152,6 +152,11 @@ Följ dessa allmänna fel söknings anvisningar för fel koder för klient anslu
 **Orsak** Virtuella datorer som användaren försöker ansluta till är inte domänanslutna.
 
 **Fix:** Anslut alla virtuella datorer som ingår i en adresspool till domänkontrollanten.
+
+### <a name="error-connectionfailedusersidinformationmismatch"></a>Fel: ConnectionFailedUserSIDInformationMismatch
+**Orsak** SID från användarens Azure Active Directory (AD)-token matchar inte SID som returnerades av domänkontrollanten vid försök att aktivera användaren för fjärran sluten inloggning. Det här felet uppstår vanligt vis när du försöker logga in på en Azure Active Directory Domain Services (Azure AD DS)-miljö med en användare som ursprungligen har varit källad från en Windows Server AD.
+
+**Fix:** Det här scenariot stöds inte för tillfället. Endast användare som har ursprung i Azure Active Directory kan logga in på virtuella Windows-datorer med virtuella skriv bord som är anslutna till Azure AD DS.
 
 ## <a name="user-connects-but-nothing-is-displayed-no-feed"></a>Användaren ansluter men inget visas (ingen feed)
 

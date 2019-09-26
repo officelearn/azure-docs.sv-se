@@ -344,6 +344,8 @@
               href: v2-permissions-and-consent.md
             - name: Ramverk för medgivande
               href: consent-framework.md
+            - name: Administratörsmedgivande
+              href: v2-admin-consent.md
             - name: Upplevelse för programmedgivande
               href: application-consent-experience.md
         - name: Nationella moln

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 7f97348999f2cab6509afeb44bc704d5109ee0f7
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: f50702688b9a261ed98c2eb3a5892d1bdbe8d11b
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181105"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308087"
 ---
 # <a name="information-about-using-hdinsight-on-linux"></a>Information om hur du använder HDInsight på Linux
 
@@ -88,7 +88,7 @@ Mer information finns i [portarna som används av Apache Hadoop Services i HDIns
 
 Hadoop-relaterade filer hittar du på klusternoderna på `/usr/hdp`. Den här katalogen innehåller följande under kataloger:
 
-* **2.6.5.3006-29**: Katalog namnet är den version av Hortonworks Data Platform som används av HDInsight. Antalet på klustret kan vara ett annat än det som anges här.
+* **2.6.5.3006-29**: Katalog namnet är den version av Hadoop-plattformen som används av HDInsight. Antalet på klustret kan vara ett annat än det som anges här.
 * **aktuell**: Den här katalogen innehåller länkar till under kataloger i **2.6.5.3006-29-** katalogen. Katalogen finns så att du inte behöver komma ihåg versions numret.
 
 Du hittar exempel data och jar-filer på Hadoop Distributed File System `/example` på och. `/HdiSamples`

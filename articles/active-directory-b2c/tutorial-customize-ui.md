@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69279da93197bcaaf1bf600bc9406287253d74bb
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 08edf6e841dc7d389573d5e5b5ea7e043f750e76
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063285"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291096"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>Självstudier: Anpassa gränssnittet för användar upplevelser i Azure Active Directory B2C
 
@@ -63,7 +63,7 @@ Du skapar ett Azure Storage-konto och en behållare och placerar sedan grundläg
 
 1. I menyn väljer du **CORS**.
 2. För **tillåtna ursprung**anger `https://your-tenant-name.b2clogin.com`du. Ersätt `your-tenant-name` med namnet på din Azure AD B2C-klient. Till exempel `https://fabrikam.b2clogin.com`. Du måste använda små bokstäver när du anger ditt klient namn.
-3. För **tillåtna metoder**väljer du både `GET` och `OPTIONS`.
+3. För **tillåtna metoder**väljer `GET`du,`PUT`och `OPTIONS`.
 4. För **tillåtna huvuden**anger du en asterisk (*).
 5. För **exponerade rubriker**anger du en asterisk (*).
 6. Ange 200 för **högsta ålder**.

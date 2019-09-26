@@ -16,12 +16,12 @@ ms.date: 07/23/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 17c85d53d05193313f9e166b88beb2a0f82eb197
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618367"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71291017"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Redigera och hantera ett befintligt Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -34,7 +34,7 @@ Med ett Access-paket kan du utföra en enstaka konfiguration av resurser och pri
 
 I den här artikeln beskrivs hur du redigerar och hanterar befintliga åtkomst paket.
 
-## <a name="add-resource-roles"></a>Lägg till resurs roller
+## <a name="add-resource-roles"></a>Lägg till resursroller
 
 En resurs roll är en samling behörigheter som är kopplade till en resurs. Hur du gör resurser som är tillgängliga för användare att begära är att lägga till resurs roller till ditt åtkomst paket. Du kan lägga till resurs roller för grupper, program och SharePoint-webbplatser.
 
@@ -87,7 +87,7 @@ Du kan välja valfri Office 365-grupp eller Azure AD-säkerhetsgrupp.  Administr
 
 Du kan låta Azure AD automatiskt tilldela användare åtkomst till ett Azure AD Enterprise-program, inklusive både SaaS-program och din organisations program federerade till Azure AD, när en användare tilldelas ett Access-paket. För program som integreras med Azure AD via federerad enkel inloggning utfärdar Azure AD federationsmetadata för användare som är tilldelade till programmet.
 
-Program kan ha flera roller. När du lägger till ett program i ett Access-paket, om det programmet har fler än en roll, måste du ange rätt roll för dessa användare.  Om du utvecklar program kan du läsa mer om hur dessa roller tillhandahålls för dina program i artikeln om hur du [konfigurerar det roll anspråk som utfärdats i SAML](../develop/active-directory-enterprise-app-role-management.md)-token.
+Program kan ha flera roller. När du lägger till ett program i ett Access-paket, om det programmet har fler än en roll, måste du ange rätt roll för dessa användare.  Om du utvecklar program kan du läsa mer om hur dessa roller tillhandahålls för dina program i artikeln om hur du [konfigurerar det roll anspråk som utfärdats i SAML-token](../develop/active-directory-enterprise-app-role-management.md).
 
 När en program roll är en del av ett Access-paket:
 
@@ -206,7 +206,7 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 
 1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på tilldelningar på denvänstra menyn.
+1. Klicka på **tilldelningar**på den vänstra menyn.
 
 1. Klicka på **ny tilldelning** för att öppna Lägg till användare för att komma åt paketet.
 
@@ -234,7 +234,7 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 
 1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på tilldelningar för att visa en lista över aktiva tilldelningar.
+1. Klicka på **tilldelningar** för att visa en lista över aktiva tilldelningar.
 
 1. Klicka på en uppgift om du vill visa mer information.
 
@@ -270,7 +270,7 @@ I vissa fall kanske du vill tilldela vissa användare direkt till ett Access-pak
 
 1. Välj den begäran som du vill visa.
 
-    Om begäran har några leverans fel kommer status för begäran inte att levereras **och** del statusen kommer att **levereras delvis**.
+    Om begäran har några leverans fel kommer status för begäran **inte att levereras och** del statusen kommer att **levereras delvis**.
 
     Om det finns några leverans fel i förfrågningens informations fönster, finns det ett antal leverans fel.
 
@@ -294,7 +294,15 @@ Du kan bara avbryta en väntande begäran som ännu inte har levererats.
 
 ## <a name="copy-my-access-portal-link"></a>Kopiera min åtkomst Portal länk
 
-De flesta användare i din katalog kan logga in på portalen My Access och automatiskt se en lista över de åtkomst paket som de kan begära. Men för externa affärs partner användare som ännu inte finns i din katalog måste du skicka dem en länk som de kan använda för att begära ett Access-paket. Så länge åtkomst paketet är aktiverat för externa användare och du har en princip för den externa användarens katalog, kan den externa användaren använda länken My Access Portal för att begära åtkomst paketet.
+De flesta användare i din katalog kan logga in på portalen My Access och automatiskt se en lista över de åtkomst paket som de kan begära. Men för externa affärs partner användare som ännu inte finns i din katalog måste du skicka dem en länk som de kan använda för att begära ett Access-paket. 
+
+Det är viktigt att du kopierar hela min åtkomst Portal-länken när du skickar den till en intern affärs partner. Detta säkerställer att partnern får åtkomst till din katalogs Portal för att göra sin begäran. 
+
+Länken börjar med "åtkomst till", innehåller ett katalog tips och slutar med ett Access-paket-ID. Se till att länken innehåller följande:
+
+ `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
+
+Så länge åtkomst paketet är aktiverat för externa användare och du har en princip för den externa användarens katalog, kan den externa användaren använda länken My Access Portal för att begära åtkomst paketet.
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
@@ -336,7 +344,7 @@ Ett Access-paket kan bara tas bort om det inte har några aktiva användar tilld
 
 1. I den vänstra menyn klickar du på **åtkomst paket** och öppnar sedan Access-paketet.
 
-1. Klicka på tilldelningar på den vänstra menyn och ta bort åtkomsten för alla användare.
+1. Klicka på **tilldelningar** på den vänstra menyn och ta bort åtkomsten för alla användare.
 
 1. I den vänstra menyn klickar du på **Översikt** och sedan på **ta bort**.
 

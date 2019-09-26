@@ -4,18 +4,18 @@ description: Så här fyller du i Azure Blob Storage för användning med Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: v-erkell
-ms.openlocfilehash: 103470861383ff411cfaa670d70412086045a418
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: c18e1c9afab211a8ac076307eefc9074ae7c99d6
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180718"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300000"
 ---
-# <a name="move-data-to-azure-blob-storage-for-azure-hpc-cache-preview"></a>Flytta data till Azure Blob Storage för Azure HPC cache (för hands version)
+# <a name="move-data-to-azure-blob-storage"></a>Flytta data till Azure Blob Storage
 
-Om arbets flödet innefattar att flytta data till Azure Blob Storage, se till att du använder en effektiv strategi för att kopiera dina data via Azure HPC-cachen.
+Om arbets flödet innefattar att flytta data till Azure Blob Storage bör du se till att du använder en effektiv strategi. Du kan antingen förinstallera data i en ny BLOB-behållare innan du definierar den som ett lagrings mål, eller lägga till behållaren och sedan kopiera dina data med Azure HPC cache.
 
 Den här artikeln beskriver de bästa sätten att flytta data till Blob Storage för användning med Azure HPC-cache.
 
@@ -23,7 +23,7 @@ Tänk på följande saker:
 
 * Azure HPC cache använder ett specialiserat lagrings format för att organisera data i blob-lagring. Detta är anledningen till att ett Blob Storage-mål antingen måste vara en ny, tom behållare eller en BLOB-behållare som tidigare använts för Azure HPC cache-data. ([Aver vFXT för Azure](https://azure.microsoft.com/services/storage/avere-vfxt/) använder också det här moln fil systemet.)
 
-* Att kopiera data via Azure HPC cache är bäst när du använder flera klienter och parallella åtgärder. Ett enkelt kopierings kommando från en klient kommer att flytta data långsamt.
+* Att kopiera data via Azure HPC-cache till ett Server dels lagrings mål är mer effektivt när du använder flera klienter och parallella åtgärder. Ett enkelt kopierings kommando från en klient kommer att flytta data långsamt.
 
 Det finns ett python-baserat verktyg för att läsa in innehåll i en Blob Storage-behållare. Läs för [inläsning av data i Blob Storage](#pre-load-data-in-blob-storage-with-clfsload) för mer information.
 
@@ -41,7 +41,7 @@ Detaljerad information finns i CLFSLoad-distributionen för AVERT, som är tillg
 
 En allmän översikt över processen:
 
-1. Förbered ett Linux-system (VM eller fysisk) med python version 3,6 eller senare. (Python 3,7 rekommenderas för bättre prestanda.)
+1. Förbered ett Linux-system (VM eller fysisk) med python version 3,6 eller senare. Python 3,7 rekommenderas för bättre prestanda.
 1. Installera AVERT-CLFSLoad-programvaran på Linux-systemet.
 1. Kör överföringen från Linux-kommandoraden.
 
@@ -50,7 +50,7 @@ Verktyget aver CLFSLoad behöver följande information:
 * Det lagrings konto-ID som innehåller din Blob Storage-behållare
 * Namnet på den tomma Blob storage-behållaren
 * En signatur för signatur för delad åtkomst (SAS) som tillåter att verktyget skriver till behållaren
-* En lokal sökväg till data källan – antingen en lokal katalog som innehåller de data som ska kopieras eller en lokal sökväg till ett monterat fjärrsystem med data.
+* En lokal sökväg till data källan – antingen en lokal katalog som innehåller de data som ska kopieras eller en lokal sökväg till ett monterat fjärrsystem med data
 
 <!-- The requirements are explained in detail in the [Avere CLFSLoad readme](https://aka.ms/avere-clfsload). -->
 

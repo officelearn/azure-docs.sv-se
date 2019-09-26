@@ -16,12 +16,12 @@ ms.date: 04/15/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c7199cd8e5dbde1f6ff2f5cea56a4191211c853
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 0d21bf0f2ba7c93a35952d2eb2dd4df49bb3260b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779088"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290763"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory direktautentisering: Vanliga frågor och svar
 
@@ -44,8 +44,7 @@ Nej. Direkt autentisering är bara tillgängligt i den globala instansen av Azur
 Ja. Alla funktioner för villkorlig åtkomst, inklusive Azure Multi-Factor Authentication, fungerar med direktautentisering.
 
 ## <a name="does-pass-through-authentication-support-alternate-id-as-the-username-instead-of-userprincipalname"></a>Stöder direkt autentisering "alternativ-ID" som användar namn, i stället för "userPrincipalName"?
-
-Ja, direktautentisering stöder `Alternate ID` som användar namn när de konfigureras i Azure AD Connect. Som en förutsättning måste Azure AD Connect synkronisera det lokala Active Directory `UserPrincipalName` -attributet till Azure AD. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md). Inte alla stöd `Alternate ID`för Office 365-program. Läs det specifika programmets dokumentations stöd.
+I begränsad utsträckning stöder direktautentisering autentisering ett alternativt ID som användar namn när det konfigureras i Azure AD Connect. Som en förutsättning måste Azure AD Connect synkronisera det lokala Active Directory `UserPrincipalName` -attributet till Azure AD. Detta gör att `UserPrincipalName` den lokala AD-platsen och Azure AD blir identiska. Om du vill använda ett annat attribut för att synkronisera från lokal AD som UPN till Azure AD måste du antingen använda Password hash Sync eller AD FS. Mer information finns i [anpassad installation av Azure AD Connect](how-to-connect-install-custom.md). Inte alla stöd `Alternate ID`för Office 365-program. Läs det specifika programmets dokumentations stöd.
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Fungerar hash-synkronisering av lösen ord som reserv för direktautentisering?
 
@@ -86,7 +85,7 @@ Om du inte har konfigurerat tillbakaskrivning av lösen ord för en särskild an
 Ja. Om Web Proxy Auto-Discovery (WPAD) är aktiverat i din lokala miljö försöker Authentication-agenter automatiskt att hitta och använda en webbproxyserver i nätverket.
 
 Om du inte har WPAD i din miljö kan du lägga till proxyinformation (enligt nedan) så att en direktautentisering kan kommunicera med Azure AD:
-- Konfigurera proxyinformation i Internet Explorer innan du installerar agenten för direkt autentisering på servern. Detta gör att du kan slutföra installationen av Autentiseringstjänsten, men den visas fortfarande som inaktiv på administrations portalen.
+- Konfigurera proxyinformation i Internet Explorer innan du installerar agenten för direkt autentisering på servern. Detta gör att du kan slutföra installationen av Autentiseringstjänsten, men den visas fortfarande som **inaktiv** på administrations portalen.
 - På-servern navigerar du till "C:\Program\Microsoft Azure AD Connect Authentication agent".
 - Redigera konfigurations filen "AzureADConnectAuthenticationAgentService" och Lägg till följande rader (Ersätt "http\://contosoproxy.com:8080" med din faktiska proxyadress):
 
@@ -114,7 +113,7 @@ Kommunikationen mellan varje direktautentisering och Azure AD skyddas med certif
 
 Så länge en direktautentisering körs förblir den aktiv och hanterar ständigt användar inloggnings begär Anden. Om du vill avinstallera en autentiseringsnyckel går du till **kontroll panelen-> program-> program och funktioner** och avinstallerar både **Microsoft Azure AD Connect Authentication agent** och **Microsoft Azure AD Connect agent updateer** tilläggs.
 
-Om du markerar bladet direkt autentisering i [Azure Active Directory administrations Center](https://aad.portal.azure.com) när du har slutfört föregående steg, ser du att Autentiseringstjänsten visas som inaktiv. Detta ärförväntat. Autentiseringstjänsten tas automatiskt bort från listan efter några dagar.
+Om du markerar bladet direkt autentisering i [Azure Active Directory administrations Center](https://aad.portal.azure.com) när du har slutfört föregående steg, ser du att Autentiseringstjänsten visas som **inaktiv**. Detta är _förväntat_. Autentiseringstjänsten tas automatiskt bort från listan efter några dagar.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Jag använder redan AD FS för att logga in på Azure AD. Hur gör jag för att växlar det till genom strömning?
 
@@ -149,7 +148,7 @@ Nej, det här scenariot stöds _inte_ .
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Varför behöver jag ett globalt administratörs konto med enbart moln för att möjliggöra direktautentisering?
 
-Vi rekommenderar att du aktiverar eller inaktiverar direkt autentisering med hjälp av ett globalt administratörs konto för molnet. Lär dig mer om [att lägga till ett globalt administratörs konto](../active-directory-users-create-azure-portal.md)för molnet. På så sätt ser du till att du inte blir utelåst från din klient.
+Vi rekommenderar att du aktiverar eller inaktiverar direkt autentisering med hjälp av ett globalt administratörs konto för molnet. Lär dig mer om [att lägga till ett globalt administratörs konto för molnet](../active-directory-users-create-azure-portal.md). På så sätt ser du till att du inte blir utelåst från din klient.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Hur gör jag för att inaktivera direkt autentisering?
 

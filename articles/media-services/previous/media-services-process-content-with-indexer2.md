@@ -11,35 +11,34 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 03/19/2019
+ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 8aa3082b15886234905edaebbbc9e1458bd7e3f8
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d03c3a15d9bccf93b73d36302f986dffd95c6428
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "69015022"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309248"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Indexera mediefiler med Azure Media Indexer 2 för hands version
-## <a name="overview"></a>Översikt
-Med den **Azure Media Indexer 2** -förhands gransknings medie processorn (MP) kan du göra mediefiler och innehåll sökbara, samt generera dold textning spår. Jämfört med den tidigare versionen av [Azure Media Indexer](media-services-index-content.md)utför **Azure Media Indexer 2 för hands** versionen snabbare indexering och erbjuder bredare språk stöd. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (mandariner, förenklad), portugisiska, arabiska, ryska och japanska.
+
+> [!NOTE]
+> [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) medie processorn tas ur bruk den 1 januari 2020. [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter denna äldre medie processor. Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
+
+Med den **Azure Media Indexer 2-förhands gransknings** medie processorn (MP) kan du göra mediefiler och innehåll sökbara, samt generera dold textning spår. Jämfört med den tidigare versionen av [Azure Media Indexer](media-services-index-content.md)utför **Azure Media Indexer 2 för hands** versionen snabbare indexering och erbjuder bredare språk stöd. Språk som stöds är engelska, spanska, franska, tyska, italienska, kinesiska (mandariner, förenklad), portugisiska, arabiska, ryska och japanska.
 
 **Azure Media Indexer 2 för hands versions** hantering är för närvarande en för hands version.
 
 Den här artikeln visar hur du skapar indexerings jobb med **Azure Media Indexer 2 Preview**.
 
-> [!NOTE]
-> Följande gäller:
-> 
-> Indexerare 2 stöds inte i Azure Kina och Azure Government.
-> 
-> När du indexerar innehåll måste du se till att använda mediefiler som har mycket tydliga tal (utan Bakgrunds musik, brus, effekter eller mikrofon hiss). Några exempel på lämpligt innehåll är: registrerade möten, föreläsningar eller presentationer. Följande innehåll kanske inte är lämpligt för indexering: filmer, TV-program, allt med blandad ljud-och ljud effekter, dåligt inspelat innehåll med bakgrunds brus (hiss).
-> 
-> 
+## <a name="considerations"></a>Överväganden
 
-Den här artikeln innehåller information om för **hands versionen av Azure Media Indexer 2** och visar hur du använder den med Media Services SDK för .net
-
+Följande gäller:
+ 
+* Indexerare 2 stöds inte i Azure Kina 21Vianet och Azure Government.
+* När du indexerar innehåll måste du se till att använda mediefiler som har mycket tydliga tal (utan Bakgrunds musik, brus, effekter eller mikrofon hiss). Några exempel på lämpligt innehåll är: registrerade möten, föreläsningar eller presentationer. Följande innehåll kanske inte är lämpligt för indexering: filmer, TV-program, allt med blandad ljud-och ljud effekter, dåligt inspelat innehåll med bakgrunds brus (hiss).
+ 
 ## <a name="input-and-output-files"></a>In-och utdatafiler
 ### <a name="input-files"></a>Indatafiler
 Ljud-eller videofiler

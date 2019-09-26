@@ -10,17 +10,17 @@ ms.reviewer: klam
 ms.assetid: 3ef16fab-d18a-48ba-8e56-3f3e0a1bcb92
 ms.topic: conceptual
 ms.date: 08/18/2016
-ms.openlocfilehash: d701fba39685d781d1a4c2d8a6cf194ca7eb2908
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7e31f891cfd758b888e4045566ad2cd2d9ab6fb8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60530928"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300957"
 ---
 # <a name="concepts-terminology-and-entities-in-azure-scheduler"></a>Begrepp, terminologi och entiteter i Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras tillbaka. Om du vill schemalägga jobb kan du [testa Azure Logic Apps istället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
 
 ## <a name="entity-hierarchy"></a>Entitetshierarki
 
@@ -39,7 +39,7 @@ Vid en hög nivå exponerar Scheduler REST API de här åtgärderna för hanteri
 
 ### <a name="job-management"></a>Jobbhantering
 
-Stöder åtgärder för att skapa och redigera jobb. Alla jobb måste tillhöra en befintlig jobbsamling. Ingen implicit generering utförs. Mer information finns i [Scheduler REST API – jobb](https://docs.microsoft.com/rest/api/scheduler/jobs). Här är den URI-adressen för det här:
+Stöder åtgärder för att skapa och redigera jobb. Alla jobb måste tillhöra en befintlig jobbsamling. Ingen implicit generering utförs. Mer information finns i [Scheduler REST API – jobb](https://docs.microsoft.com/rest/api/scheduler/jobs). Här är URI-adressen för de här åtgärderna:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}
@@ -47,7 +47,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-collection-management"></a>Hantering av jobbsamlingar
 
-Stöder åtgärder för att skapa och redigera jobb och jobbsamlingar, som mappar till kvoter och delade inställningar. Till exempel kvoter som anger maximalt antal jobb och minsta upprepningsintervall. Mer information finns i [Scheduler REST API – jobbsamlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Här är den URI-adressen för det här:
+Stöder åtgärder för att skapa och redigera jobb och jobbsamlingar, som mappar till kvoter och delade inställningar. Till exempel kvoter som anger maximalt antal jobb och minsta upprepningsintervall. Mer information finns i [Scheduler REST API – jobbsamlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections). Här är URI-adressen för de här åtgärderna:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}
@@ -55,7 +55,7 @@ https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{reso
 
 ### <a name="job-history-management"></a>Hantering av jobbhistorik
 
-Stöder GET-åtgärden för att hämta 60 dagars jobbkörningshistorik, till exempel förfluten tid och jobbkörningsresultat. Inkluderar parameterstöd för frågesträngar för filtrering baserat på tillstånd och status. Mer information finns i [Scheduler REST API – Jobb – Lista jobbhistorik](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Här är den URI-adressen för den här åtgärden:
+Stöder GET-åtgärden för att hämta 60 dagars jobbkörningshistorik, till exempel förfluten tid och jobbkörningsresultat. Inkluderar parameterstöd för frågesträngar för filtrering baserat på tillstånd och status. Mer information finns i [Scheduler REST API – Jobb – Lista jobbhistorik](https://docs.microsoft.com/rest/api/scheduler/jobs/listjobhistory). Här är URI-adressen för den här åtgärden:
 
 ```
 https://management.azure.com/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Scheduler/jobCollections/{jobCollectionName}/jobs/{jobName}/history
@@ -75,13 +75,13 @@ Azure Scheduler stöder flera jobbtyper:
 På hög nivå har ett Scheduler-jobb de här grundläggande delarna:
 
 * Åtgärden som körs när jobbets timer utlöses
-* Valfritt: Den tid som jobbet ska köras
+* Valfritt: Tiden då jobbet ska köras
 * Valfritt: När och hur ofta jobbet ska upprepas
-* Valfritt: En felåtgärd som körs om den primära åtgärden misslyckas
+* Valfritt: En fel åtgärd som körs om den primära åtgärden Miss lyckas
 
 Jobbet innehåller även systemangivna data, till exempel jobbets nästa schemalagda körning. Jobbets koddefinition är ett objekt i JavaScript Object Notation (JSON)-format, vilket har dessa element:
 
-| Element | Obligatoriskt | Beskrivning | 
+| Element | Obligatorisk | Beskrivning | 
 |---------|----------|-------------| 
 | [**startTime**](#start-time) | Nej | Starttid för jobbet med en tidszonsförskjutning i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) | 
 | [**åtgärd**](#action) | Ja | Information om den primära åtgärden, vilket kan inkludera ett **errorAction**-objekt | 
@@ -227,7 +227,7 @@ Precis som den primärra **åtgärden** så kan du låta felåtgärden använda 
 
 <a name="recurrence"></a>
 
-## <a name="recurrence"></a>recurrence
+## <a name="recurrence"></a>upprepning
 
 Ett jobb återkommer om jobbets JSON-definition innehåller objektet **upprepning**, till exempel:
 
@@ -245,7 +245,7 @@ Ett jobb återkommer om jobbets JSON-definition innehåller objektet **upprepnin
 },
 ```
 
-| Egenskap | Krävs | Value | Beskrivning | 
+| Egenskap | Obligatorisk | Value | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **frequency** | Ja, när **upprepning** används | Minut, timme, dag, vecka, månad, år | Tidsenheten mellan förekomster | 
 | **interval** | Nej | 1 till och med 1 000 | Ett positivt heltal som anger antalet tidsenheter mellan varje förekomst utifrån **frekvens** | 
@@ -275,7 +275,7 @@ För fallet när ett Scheduler-jobb misslyckas, kan du ställa in en återförs�
 },
 ```
 
-| Egenskap | Krävs | Value | Beskrivning | 
+| Egenskap | Obligatorisk | Value | Beskrivning | 
 |----------|----------|-------|-------------| 
 | **retryType** | Ja | **Fast**, **Ingen** | Avgör om du anger en återförsöksprincip (**fast**) eller inte (**ingen**). | 
 | **retryInterval** | Nej | PT30S | Anger intervall och frekvens mellan omförsök i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations). Minimivärdet är 15 sekunder medan det högsta värdet är 18 månader. | 

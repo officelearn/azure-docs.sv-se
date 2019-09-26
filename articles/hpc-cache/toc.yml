@@ -23,12 +23,15 @@
             - name: Förhandsladda ny bloblagring
               href: hpc-cache-ingest.md
             - name: Alternativa data inmatningsmetoder
-            - name: Fylla i cachen med parallellkopia
-              href: hpc-cache-ingest-parallelcp.md
-            - name: Fylla i cachen med msrsync
-              href: hpc-cache-ingest-msrsync.md
-            - name: Fylla i cachen med manuell filkopia
-              href: hpc-cache-ingest-manual.md
+              items:
+                - name: Fylla i cachen med parallellkopia
+                  href: hpc-cache-ingest-parallelcp.md
+                - name: Fylla i cachen med msrsync
+                  href: hpc-cache-ingest-msrsync.md
+                - name: Fylla i cachen med manuell filkopia
+                  href: hpc-cache-ingest-manual.md
+    - name: Ansluta till cachen
+      href: hpc-cache-mount.md
 - name: Resurser
   items:
     - name: Öppna en supportbegäran

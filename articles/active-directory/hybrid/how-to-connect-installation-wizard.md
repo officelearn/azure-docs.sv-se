@@ -1,7 +1,7 @@
 ---
-title: Köra Azure AD Connect installerar guiden | Microsoft Docs
-description: Förklarar hur du installationsguiden av andra gången du kör den.
-keywords: Installationsguiden för Azure AD Connect kan du konfigurera inställningar för underhåll den andra gången du kör den
+title: Kör installations guiden för Azure AD Connect | igen | Microsoft Docs
+description: Förklarar hur installations guiden fungerar den andra gången du kör den.
+keywords: I installations guiden för Azure AD Connect kan du konfigurera underhålls inställningar den andra gången du kör det
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -13,83 +13,86 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/13/2017
+ms.date: 07/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ff2caae7cb387f4f0d88cf059d01ad28861b9ad
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5440c54b01f62b3ad61b355f4c622a31910a65c1
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60348458"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71290921"
 ---
-# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect-synkronisering: Köra installationsguiden en andra gång
-Första gången du kör installationsguiden för Azure AD Connect, går vi igenom hur du konfigurerar din installation. Om du kör installationsguiden igen erbjuder alternativ för underhåll.
+# <a name="azure-ad-connect-sync-running-the-installation-wizard-a-second-time"></a>Azure AD Connect synkronisering: Köra installationsguiden en andra gång
+Första gången du kör installations guiden för Azure AD Connect får du stegvisa anvisningar om hur du konfigurerar installationen. Om du kör installations guiden igen får du alternativ för underhåll.
 
-Du hittar guiden Installera i start-menyn med namnet **Azure AD Connect**.
+>[!IMPORTANT]
+>Tänk på att du inte kan köra installations guiden medan en synkronisering pågår.  Kontrol lera att ingen synkronisering körs innan du startar guiden.
+
+Du hittar installations guiden på Start-menyn med namnet **Azure AD Connect**.
 
 ![Start-menyn](./media/how-to-connect-installation-wizard/startmenu.png)
 
-När du startar installationsguiden kan se du en sida med dessa alternativ:
+När du startar installations guiden visas en sida med följande alternativ:
 
-![Sida med en lista över ytterligare uppgifter](./media/how-to-connect-installation-wizard/additionaltasks.png)
+![Sida med en lista över ytterligare aktiviteter](./media/how-to-connect-installation-wizard/additionaltasks.png)
 
-Om du har installerat AD FS med Azure AD Connect måste ha du ännu fler alternativ. Ytterligare alternativ som du har för AD FS finns dokumenterade i [AD FS management](how-to-connect-fed-management.md#manage-ad-fs).
+Om du har installerat ADFS med Azure AD Connect har du ännu fler alternativ. De ytterligare alternativ som du har för ADFS dokumenteras i [ADFS-hantering](how-to-connect-fed-management.md#manage-ad-fs).
 
-Välj en av uppgifterna och klicka på **nästa** att fortsätta.
+Välj en av uppgifterna och klicka på **Nästa** för att fortsätta.
 
 > [!IMPORTANT]
-> När du har installationsguiden öppna pausas alla åtgärder i Synkroniseringsmotorn. Kontrollera att du stänger guiden när du har slutfört konfigurationsändringarna.
+> När du har installerat guiden pausas alla åtgärder i Synkroniseringsmotorn. Se till att stänga installations guiden så snart du har slutfört konfigurations ändringarna.
 >
 >
 
 ## <a name="view-current-configuration"></a>Visa aktuell konfiguration
-Det här alternativet ger en snabb överblick över dina för tillfället konfigurerade alternativ.
+Med det här alternativet får du en snabb överblick över dina för tillfället konfigurerade alternativ.
 
-![Sida med en lista över alla alternativ och deras tillstånd](./media/how-to-connect-installation-wizard/viewconfig.png)
+![Sida med en lista över alla alternativ och deras status](./media/how-to-connect-installation-wizard/viewconfig.png)
 
-Klicka på **föregående** gå tillbaka. Om du väljer **avsluta**, du stänger guiden.
+Klicka på **föregående** för att gå tillbaka. Om du väljer **Avsluta**stänger du installations guiden.
 
 ## <a name="customize-synchronization-options"></a>Anpassa synkroniseringsalternativ
-Det här alternativet används för att göra ändringar i synkroniseringskonfigurationen. Du ser en delmängd av alternativ från installationssökvägen för anpassad konfiguration. Det visas här alternativet även om du ursprungligen använde expressinstallationsfiler.
+Det här alternativet används för att göra ändringar i Sync-konfigurationen. Du ser en delmängd av alternativen i installations Sök vägen för anpassad konfiguration. Du ser det här alternativet även om du använde Express installation från början.
 
-* [Lägg till flera kataloger](how-to-connect-install-custom.md#connect-your-directories). För att ta bort en katalog, se [ta bort en koppling](how-to-connect-sync-service-manager-ui-connectors.md#delete).
-* [Ändra domän och Organisationsenhet filtrering](how-to-connect-install-custom.md#domain-and-ou-filtering).
-* Ta bort gruppfiltrering.
+* [Lägg till fler kataloger](how-to-connect-install-custom.md#connect-your-directories). Information om hur du tar bort en katalog finns i [ta bort en anslutning](how-to-connect-sync-service-manager-ui-connectors.md#delete).
+* [Ändra domän-och OU-filtrering](how-to-connect-install-custom.md#domain-and-ou-filtering).
+* Ta bort grupp filtrering.
 * [Ändra valfria funktioner](how-to-connect-install-custom.md#optional-features).
 
-De andra alternativen från den första installationen kan inte ändras och är inte tillgängliga. Dessa alternativ är:
+De andra alternativen från den första installationen kan inte ändras och är inte tillgängliga. De här alternativen är:
 
 * Ändra attributet som ska användas för userPrincipalName och sourceAnchor.
-* Ändra sammanbinder metod för objekt från en annan skog.
+* Ändra metoden för att ansluta för objekt från olika skogar.
 * Aktivera gruppbaserad filtrering.
 
 ## <a name="refresh-directory-schema"></a>Uppdatera katalogschema
-Det här alternativet används om du har ändrat schemat i någon av dina lokala AD DS-skogar. Du kan till exempel har installerat Exchange eller uppgraderat till en Windows Server 2012-schemat med enhetsobjekt. I det här fallet måste du instruera Azure AD Connect för att läsa schemat igen från AD DS och uppdatera sin cache. Den här åtgärden genererar även om Synkroniseringsregler. Om du lägger till Exchange-schemat som exempel Synkroniseringsregler för Exchange har lagts till i konfigurationen.
+Det här alternativet används om du har ändrat schemat i någon av dina lokala AD DS-skogar. Du kan till exempel ha installerat Exchange eller uppgraderat till ett Windows Server 2012-schema med enhets objekt. I så fall måste du instruera Azure AD Connect att läsa schemat igen från AD DS och uppdatera dess cacheminne. Den här åtgärden återskapar också reglerna för synkronisering. Om du lägger till Exchange-schemat läggs notifieringsregler för Exchange till i konfigurationen.
 
-När du väljer det här alternativet visas alla kataloger i konfigurationen. Du kan behålla standardinställningen och uppdatera alla skogar eller avmarkera vissa av dem.
+När du väljer det här alternativet visas alla kataloger i konfigurationen. Du kan behålla standardinställningen och uppdatera alla skogar eller avmarkera några av dem.
 
 ![Sida med en lista över alla kataloger i miljön](./media/how-to-connect-installation-wizard/refreshschema.png)
 
 ## <a name="configure-staging-mode"></a>Konfigurera mellanlagringsläge
-Det här alternativet kan du aktivera och inaktivera mellanlagringsläge på servern. Mer information om mellanlagrade läge och hur de används finns i [Operations](how-to-connect-sync-staging-server.md).
+Med det här alternativet kan du aktivera och inaktivera mellanlagrings läge på servern. Mer information om mellanlagrings läge och hur det kan användas finns i [åtgärder](how-to-connect-sync-staging-server.md).
 
-Alternativet visar om mellanlagring är aktiverat eller inaktiverat:  
-![Alternativ som visar också det aktuella tillståndet för mellanlagringsläge](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
+Alternativet visar om mellanlagring för närvarande är aktiverat eller inaktiverat:  
+![Alternativ som också visar det aktuella läget för mellanlagrings läge](./media/how-to-connect-installation-wizard/stagingmodecurrentstate.png)
 
-Välj det här alternativet om du vill ändra tillståndet och markerar eller avmarkerar kryssrutan.  
-![Alternativ som visar också det aktuella tillståndet för mellanlagringsläge](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
+Om du vill ändra tillstånd väljer du det här alternativet och markerar eller avmarkerar kryss rutan.  
+![Alternativ som också visar det aktuella läget för mellanlagrings läge](./media/how-to-connect-installation-wizard/stagingmodeenable.png)
 
-## <a name="change-user-sign-in"></a>Ändra användarinloggning
-Det här alternativet kan du ändra användarens inloggningsmetod till och från hash-synkronisering av lösenord, direktautentisering eller federation. Du kan inte ändra till **inte konfigurerar**.
+## <a name="change-user-sign-in"></a>Ändra användar inloggning
+Med det här alternativet kan du ändra användar inloggnings metoden till och från hash-synkronisering av lösen ord, direktautentisering eller Federation. Du kan inte ändra till **Konfigurera inte**.
 
-Mer information om det här alternativet finns i [användarinloggning](plan-connect-user-signin.md#changing-the-user-sign-in-method).
+Mer information om det här alternativet finns i [användar inloggning](plan-connect-user-signin.md#changing-the-user-sign-in-method).
 
 ## <a name="next-steps"></a>Nästa steg
-* Mer information om av konfigurationsmodellen som används av Azure AD Connect-synkronisering i [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
+* Lär dig mer om konfigurations modellen som används av Azure AD Connect Sync i att [förstå deklarativ etablering](concept-azure-ad-connect-sync-declarative-provisioning.md).
 
-**Översiktsavsnitt**
+**Översikts avsnitt**
 
 * [Azure AD Connect-synkronisering: Förstå och anpassa synkronisering](how-to-connect-sync-whatis.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](whatis-hybrid-identity.md)

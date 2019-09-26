@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/23/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: e39f294f7902eabef401d4c8145f4f19a07f267f
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: ee8a711a867f8abdc831b0d1d9d0b504b1104955
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71224572"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310113"
 ---
 # <a name="creating-an-incremental-snapshot-preview-for-managed-disks"></a>Skapa en stegvis ögonblicks bild (för hands version) för hanterade diskar
 
@@ -23,10 +23,11 @@ Det finns några skillnader mellan en stegvis ögonblicks bild och en vanlig ög
 
 Stegvisa ögonblicks bilder erbjuder också en differentiell funktion som är unikt tillgänglig för hanterade diskar. De gör att du kan hämta ändringarna mellan två stegvisa ögonblicks bilder av samma hanterade diskar, ned till block nivån. Du kan använda den här funktionen för att minska dina data när du kopierar ögonblicks bilder över flera regioner.
 
-Om du ännu inte har registrerat dig för för hands versionen och du vill börja använda stegvisa ögonblicks bilder kan du skicka ett AzureDisks@microsoft.com e-postmeddelande till oss till för att få åtkomst till den offentliga för hands versionen.
+Om du ännu inte har registrerat dig för för hands versionen och du vill börja använda stegvisa ögonblicks bilder kan du skicka AzureDisks@microsoft.com ett e-postmeddelande till oss på för att få åtkomst till den offentliga för hands versionen.
 
 ## <a name="restrictions"></a>Begränsningar
 
+- Stegvisa ögonblicks bilder är för närvarande endast tillgängliga i USA, västra centrala.
 - Det går för närvarande inte att skapa stegvisa ögonblicks bilder när du har ändrat storleken på en disk.
 - Det går för närvarande inte att flytta stegvisa ögonblicks bilder mellan prenumerationer.
 - För närvarande kan du bara skapa SAS-URI: er på upp till fem ögonblicks bilder av en viss ögonblicks bild serie vid en given tidpunkt.
@@ -36,7 +37,7 @@ Om du ännu inte har registrerat dig för för hands versionen och du vill börj
 
 ## <a name="powershell"></a>PowerShell
 
-Du kan använda Azure PowerShell för att skapa en stegvis ögonblicks bild. Du kan installera den senaste versionen av PowerShell lokalt. Du behöver den senaste versionen av Azure PowerShell, följande kommando kommer antingen att installera den eller uppdatera den befintliga installationen till senaste:
+Du kan använda Azure PowerShell för att skapa en stegvis ögonblicks bild. Du behöver den senaste versionen av Azure PowerShell, följande kommando kommer antingen att installera den eller uppdatera den befintliga installationen till senaste:
 
 ```PowerShell
 Install-Module -Name Az -AllowClobber -Scope CurrentUser
@@ -44,22 +45,24 @@ Install-Module -Name Az -AllowClobber -Scope CurrentUser
 
 När den är installerad loggar du in på PowerShell-sessionen `az login`med.
 
+Om du vill skapa en stegvis ögonblicks bild med Azure PowerShell anger du konfigurationen med [New-AzSnapShotConfig](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshotconfig?view=azps-2.7.0) med `-Incremental` parametern och skickar den som en variabel till `-Snapshot` [New-AzSnapshot](https://docs.microsoft.com/en-us/powershell/module/az.compute/new-azsnapshot?view=azps-2.7.0) via parametern.
+
 Ersätt `<yourDiskNameHere>`, `<yourResourceGroupNameHere>` och`<yourDesiredSnapShotNameHere>` med dina värden, kan du använda följande skript för att skapa en stegvis ögonblicks bild:
 
 ```PowerShell
 # Get the disk that you need to backup by creating an incremental snapshot
 $yourDisk = Get-AzDisk -DiskName <yourDiskNameHere> -ResourceGroupName <yourResourceGroupNameHere>
 
-# Create an incremental snapshot by setting:
-# 1. Incremental property
-# 2. SourceUri property with the value of the Id property of the disk
+# Create an incremental snapshot by setting the SourceUri property with the value of the Id property of the disk
 $snapshotConfig=New-AzSnapshotConfig -SourceUri $yourDisk.Id -Location $yourDisk.Location -CreateOption Copy -Incremental 
 New-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere> -SnapshotName <yourDesiredSnapshotNameHere> -Snapshot $snapshotConfig 
+```
 
-# You can identify incremental snapshots of the same disk by using the SourceResourceId and SourceUniqueId properties of snapshots. 
-# SourceResourceId is the Azure Resource Manager resource ID of the parent disk. 
-# SourceUniqueId is the value inherited from the UniqueId property of the disk. If you delete a disk and then create a disk with the same name, the value of the UniqueId property will change. 
-# Following script shows how to get all the incremental snapshots in a resource group of same disk
+Du kan identifiera stegvisa ögonblicks bilder från samma disk med `SourceResourceId` `SourceUniqueId` egenskaperna och för ögonblicks bilder. `SourceResourceId`är Azure Resource Manager resurs-ID för den överordnade disken. `SourceUniqueId`är värdet som ärvs från `UniqueId` diskens egenskap. Om du skulle ta bort en disk och sedan skapa en ny disk med samma namn, ändras `UniqueId` egenskapens värde.
+
+Du kan använda `SourceResourceId` och `SourceUniqueId` för att skapa en lista över alla ögonblicks bilder som är associerade med en viss disk. Ersätt `<yourResourceGroupNameHere>` med ditt värde och Använd sedan följande exempel för att visa en lista över dina befintliga stegvisa ögonblicks bilder:
+
+```PowerShell
 $snapshots = Get-AzSnapshot -ResourceGroupName <yourResourceGroupNameHere>
 
 $incrementalSnapshots = New-Object System.Collections.ArrayList
@@ -73,6 +76,46 @@ foreach ($snapshot in $snapshots)
 }
 
 $incrementalSnapshots
+```
+
+## <a name="cli"></a>CLI
+
+Du kan skapa en stegvis ögonblicks bild med Azure CLI, du behöver den senaste versionen av Azure CLI. Följande kommando installerar eller uppdaterar den befintliga installationen till den senaste versionen:
+
+```PowerShell
+Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile .\AzureCLI.msi; Start-Process msiexec.exe -Wait -ArgumentList '/I AzureCLI.msi /quiet'
+```
+
+Om du vill skapa en stegvis ögonblicks bild använder du [AZ Snapshot Create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create) med `--incremental` parametern.
+
+I följande exempel skapas en stegvis ögonblicks bild, `<yourDesiredSnapShotNameHere>`ersätter `<yourResourceGroupNameHere>``<exampleDiskName>`,, och `<exampleLocation>` med dina egna värden, och sedan körs exemplet:
+
+```bash
+sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
+
+az snapshot create -g <yourResourceGroupNameHere> \
+-n <yourDesiredSnapShotNameHere> \
+-l <exampleLocation> \
+--source "$sourceResourceId" \
+--incremental
+```
+
+Du kan identifiera stegvisa ögonblicks bilder från samma disk med `SourceResourceId` `SourceUniqueId` egenskaperna och för ögonblicks bilder. `SourceResourceId`är Azure Resource Manager resurs-ID för den överordnade disken. `SourceUniqueId`är värdet som ärvs från `UniqueId` diskens egenskap. Om du skulle ta bort en disk och sedan skapa en ny disk med samma namn, ändras `UniqueId` egenskapens värde.
+
+Du kan använda `SourceResourceId` och `SourceUniqueId` för att skapa en lista över alla ögonblicks bilder som är associerade med en viss disk. I följande exempel visas en lista över alla stegvisa ögonblicks bilder som är associerade med en viss disk, men den kräver vissa inställningar.
+
+I det här exemplet används JQ för att fråga efter data. Du måste [Installera JQ](https://stedolan.github.io/jq/download/)för att kunna köra exemplet.
+
+Ersätt `<yourResourceGroupNameHere>` och`<exampleDiskName>` med dina värden kan du använda följande exempel för att visa en lista över dina befintliga stegvisa ögonblicks bilder, förutsatt att du även har installerat JQ:
+
+```bash
+sourceUniqueId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[uniqueId]' -o tsv)
+
+ 
+sourceResourceId=$(az disk show -g <yourResourceGroupNameHere> -n <exampleDiskName> --query '[id]' -o tsv)
+
+az snapshot list -g <yourResourceGroupNameHere> -o json \
+| jq -cr --arg SUID "$sourceUniqueId" --arg SRID "$sourceResourceId" '.[] | select(.incremental==true and .creationData.sourceUniqueId==$SUID and .creationData.sourceResourceId==$SRID)'
 ```
 
 ## <a name="resource-manager-template"></a>Resource Manager-mall
@@ -111,32 +154,6 @@ Du kan också använda Azure Resource Manager mallar för att skapa en stegvis �
 }
 ```
 
-## <a name="cli"></a>CLI
-
-Du kan skapa en stegvis ögonblicks bild med Azure CLI med [AZ Snapshot Create](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-create). Ett exempel kommando skulle se ut så här:
-
-```bash
-az snapshot create -g <exampleResourceGroup> \
--n <exampleSnapshotName> \
--l <exampleLocation> \
---source <exampleVMId> \
---incremental
-```
-
-Du kan också identifiera vilka ögonblicks bilder som är stegvisa ögonblicks bilder i CLI med med `--query` hjälp av parametern på [AZ Snapshot show](https://docs.microsoft.com/cli/azure/snapshot?view=azure-cli-latest#az-snapshot-show). Du kan använda den parametern för att direkt fråga egenskaperna **SourceResourceId** och **SourceUniqueId** för ögonblicks bilder. SourceResourceId är Azure Resource Manager resurs-ID för den överordnade disken. **SourceUniqueId** är värdet som ärvs från diskens egenskap **UniqueID** . Om du tar bort en disk och sedan skapar en disk med samma namn kommer värdet för egenskapen **UniqueID** att ändras.
-
-Exempel på båda frågorna ser ut så här:
-
-```bash
-az snapshot show -g <exampleResourceGroup> \
--n <yourSnapShotName> \
---query [creationData.sourceResourceId] -o tsv
-
-az snapshot show -g <exampleResourceGroup> \
--n <yourSnapShotName> \
---query [creationData.sourceUniqueId] -o tsv
-```
-
 ## <a name="next-steps"></a>Nästa steg
 
-Om du ännu inte har registrerat dig för för hands versionen och du vill börja använda stegvisa ögonblicks bilder kan du skicka ett AzureDisks@microsoft.com e-postmeddelande till oss till för att få åtkomst till den offentliga för hands versionen.
+Om du ännu inte har registrerat dig för för hands versionen och du vill börja använda stegvisa ögonblicks bilder kan du skicka AzureDisks@microsoft.com ett e-postmeddelande till oss på för att få åtkomst till den offentliga för hands versionen.

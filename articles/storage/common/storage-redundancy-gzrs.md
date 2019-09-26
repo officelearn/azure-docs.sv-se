@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 9019e6f72944823d7c256fa5f6b99b0aca84c845
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036325"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300654"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -29,7 +29,11 @@ Endast General-Purpose v2-lagrings konton stöder GZRS och RA-GZRS. Mer informat
 
 GZRS och RA-GZRS är för närvarande tillgängliga för förhands granskning i följande regioner:
 
+- Nordeuropa
+- Västeuropa
 - USA, östra
+- USA, östra 2
+- USA, centrala
 
 Microsoft fortsätter att aktivera GZRS och RA-GZRS i ytterligare Azure-regioner. På sidan [uppdateringar för Azure-tjänsten](https://azure.microsoft.com/updates/)regelbundet hittar du information om regioner som stöds.
 
@@ -97,7 +101,7 @@ Det finns två alternativ för att migrera till GZRS eller RA-GZRS från ett kon
 
 #### <a name="perform-a-manual-migration"></a>Utföra en manuell migrering
 
-Om du vill att migreringen ska slutföras vid ett visst datum kan du överväga att utföra en manuell migrering. En manuell migrering ger större flexibilitet än en direktmigrering. Med en manuell migrering har du kontroll över tids inställningen.
+Om du vill att migreringen ska slutföras vid ett visst datum kan du överväga att utföra en manuell migrering. Manuell migrering ger större flexibilitet än direktmigrering. Med en manuell migrering har du kontroll över tidsaspekten.
 
 Om du vill migrera data manuellt från ett befintligt konto till ett GZRS-eller RA-GZRS-konto, använder du ett verktyg som kan kopiera data på ett effektivt sätt. Några exempel är:
 
@@ -107,7 +111,7 @@ Om du vill migrera data manuellt från ett befintligt konto till ett GZRS-eller 
 
 #### <a name="perform-a-live-migration"></a>Utför en Direktmigrering
 
-En manuell migrering kan resultera i avbrott i programmet. Om ditt program kräver hög tillgänglighet tillhandahåller Microsoft också ett alternativ för direktmigrering. En direktmigrering är en migrering på plats utan drift avbrott.
+En manuell migrering kan resultera i avbrott i programmet. Om ditt program kräver hög tillgänglighet tillhandahåller Microsoft även ett alternativ för direktmigrering. Direktmigrering är migrering på plats utan driftavbrott.
 
 Under en direktmigrering kan du använda ditt lagrings konto medan dina data migreras mellan käll-och mål lagrings konton. Under direktmigreringen fortsätter ditt konto att uppfylla sitt service avtal för hållbarhet och tillgänglighet. Det finns ingen stillestånds tid eller data förlust som orsakas av direktmigrering.
 
@@ -130,7 +134,7 @@ Tänk på följande begränsningar för direktmigrering:
 Om du vill begära en Direktmigrering använder du [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Från portalen väljer du det lagrings konto som ska migreras till GZRS eller RA-GZRS och följer dessa anvisningar:
 
 1. Välj **ny supportbegäran**.
-2. Slutför **grunderna** baserat på din konto information. I avsnittet **tjänst** väljer du **hantering** av lagrings konto och anger det konto som ska migreras.
+2. Slutför **grunderna** baserat på din konto information. I avsnittet **tjänst** väljer du  **hantering av lagrings konto**och anger det konto som ska migreras.
 3. Välj **Nästa**.
 4. Ange följande värden i avsnittet **problem** :
     - **Allvarlighets grad**: Låt standardvärdet vara kvar.

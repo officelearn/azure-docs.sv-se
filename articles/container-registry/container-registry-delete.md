@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: danlep
-ms.openlocfilehash: d652c511a3f54fd0b756a95fbe183b4678416a10
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: d415bef80ed8c96ff6e5df81ae9281ae681a4879
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873212"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300189"
 ---
 # <a name="delete-container-images-in-azure-container-registry-using-the-azure-cli"></a>Ta bort behållar avbildningar i Azure Container Registry med Azure CLI
 
@@ -259,9 +259,12 @@ if ($enableDelete) {
 }
 ```
 
+
 ## <a name="automatically-purge-tags-and-manifests-preview"></a>Rensa automatiskt taggar och manifest (förhandsversion)
 
 Som ett alternativ till skript för Azure CLI-kommandon kör du en aktivitet på begäran eller en schemalagd ACR för att ta bort alla Taggar som är äldre än en viss varaktighet eller matchar ett angivet namn filter. Mer information finns i [Rensa avbildningar automatiskt från ett Azure Container Registry](container-registry-auto-purge.md).
+
+Du kan också ange en [bevarande princip](container-registry-retention-policy.md) för varje register för att hantera otaggade manifest. När du aktiverar en bevarande princip, kommer avbildnings manifest i registret som inte har några associerade taggar, och underliggande skikt data, tas bort automatiskt efter en angiven period.
 
 ## <a name="next-steps"></a>Nästa steg
 

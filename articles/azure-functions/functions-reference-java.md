@@ -11,24 +11,52 @@ ms.devlang: java
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: aea1434acdbfd97bcc9096dddd497ef031a74b94
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: e3ab825fbf5b5dba74b67eaa894a38c74ed0b62a
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70170551"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299382"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java Developer Guide
 
 Azure Functions runtime stöder [Java se 8 LTS (Zulu 8.31.0.2-JRE 8.0.181-win_x64)](https://repos.azul.com/azure-only/zulu/packages/zulu-8/8u181/). Den här guiden innehåller information om erna för att skriva Azure Functions med Java.
 
-En Java-funktion är `public` en metod, dekorerad med `@FunctionName`anteckningen. Den här metoden definierar posten för en Java-funktion och måste vara unik i ett visst paket. 
+När det sker på andra språk kan en Funktionsapp ha en eller flera funktioner. En Java-funktion är `public` en metod, dekorerad med `@FunctionName`anteckningen. Den här metoden definierar posten för en Java-funktion och måste vara unik i ett visst paket. En Funktionsapp som skrivits i Java kan ha flera klasser med flera offentliga metoder som är `@FunctionName`kommenterade med.
 
-Den här artikeln förutsätter att du redan har läst [Azure Functions Developer](functions-reference.md)-referensen. Du bör också slutföra snabb starten för funktioner för att skapa din första funktion med hjälp av [Visual Studio Code](functions-create-first-function-vs-code.md) eller [maven](functions-create-first-java-maven.md).
+Den här artikeln förutsätter att du redan har läst [Azure Functions Developer-referensen](functions-reference.md). Du bör också slutföra snabb starten för funktioner för att skapa din första funktion med hjälp av [Visual Studio Code](functions-create-first-function-vs-code.md) eller [maven](functions-create-first-java-maven.md).
 
 ## <a name="programming-model"></a>Programmeringsmodell 
 
-Begreppen utlösare [och bindningar](functions-triggers-bindings.md) är grundläggande för Azure Functions. Utlösare startar körningen av koden. Bindningar ger dig ett sätt att skicka data till och returnera data från en funktion utan att behöva skriva anpassad kod för data åtkomst.
+Begreppen [utlösare och bindningar](functions-triggers-bindings.md) är grundläggande för Azure Functions. Utlösare startar körningen av koden. Bindningar ger dig ett sätt att skicka data till och returnera data från en funktion utan att behöva skriva anpassad kod för data åtkomst.
+
+## <a name="project-scaffolding"></a>Project-ramverk
+
+Det enklaste sättet att Autogenerera ett Java-baserat Azure Function-projekt är att `Apache Maven` använda archetypes. Du kan också hitta guider för projekt skapande i Visual Studio Code och Azure-verktygen för Sol förmörkelse och IntelliJ.
+
+Det finns för närvarande två Azure Functions archetypes för maven:
+
+### <a name="java-archetype"></a>Java-archetype
+
+Den här archetype publiceras i följande artifactId [com. Microsoft. Azure: Azure-Functions-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-archetype 
+```
+
+### <a name="kotlin-archetype-preview"></a>Kotlin archetype (för hands version)
+
+Den här archetype publiceras i följande artifactId [com. Microsoft. Azure: Azure-Functions-Kotlin-archetype](https://search.maven.org/artifact/com.microsoft.azure/azure-functions-kotlin-archetype/).
+
+```
+mvn archetype:generate \
+    -DarchetypeGroupId=com.microsoft.azure \
+    -DarchetypeArtifactId=azure-functions-kotlin-archetype
+```
+
+Du hittar käll koden för dessa archetypes i [Azure maven archetypes GitHub-lagringsplatsen](https://github.com/microsoft/azure-maven-archetypes).
 
 ## <a name="folder-structure"></a>Mappstruktur
 
@@ -55,6 +83,8 @@ FunctionsProject
  | | | | - lib
  | - pom.xml
 ```
+
+_* Kotlin-projektet ser likadant ut eftersom det fortfarande är maven_
 
 Du kan använda en delad [Host. JSON](functions-host-json.md) -fil för att konfigurera Function-appen. Varje funktion har sin egen kod fil (. Java) och bindnings konfigurations fil (Function. JSON).
 

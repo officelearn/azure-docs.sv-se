@@ -1,6 +1,6 @@
 ---
-title: Med hjälp av U-SQL kognitiva funktioner i Azure Data Lake Analytics
-description: Lär dig hur du använder tillgångsinformation kognitiva funktioner i U-SQL
+title: Funktioner i U-SQL kognitivt i Azure Data Lake Analytics
+description: Lär dig hur du använder funktionerna för kognitiva funktioner i U-SQL
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,29 +9,29 @@ ms.assetid: 019c1d53-4e61-4cad-9b2c-7a60307cbe19
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: b8d43188c337e0c12db60b51dee053ef7259701a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb64f08fae3a211b3ec26177ab2604edc20a8fdd
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812909"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315671"
 ---
-# <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Kom igång med kognitiva funktioner för U-SQL
+# <a name="get-started-with-the-cognitive-capabilities-of-u-sql"></a>Kom igång med kognitiva funktioner i U-SQL
 
 ## <a name="overview"></a>Översikt
-Kognitiva funktioner för U-SQL att utvecklare kan använda put intelligence i deras stordata-program. 
+Kognitiva funktioner för U-SQL gör det möjligt för utvecklare att använda Spara information i sina Big data-program. 
 
-I följande exempel som använder kognitiva funktioner är tillgängliga:
-* Avbildning: [Identifiera ansikten](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Avbildning: [Identifiera känslor](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
-* Avbildning: [Identifiera objekt (taggar)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
-* Avbildning: [OCR (optisk teckenläsning)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
-* Text: [Extrahering av diskussionsämne & Attitydanalys](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
+Följande exempel med kognitiva funktioner är tillgängliga:
+* Avbildning [Identifiera ansikten](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* Avbildning [Identifiera Känslo](https://github.com/Azure-Samples/usql-cognitive-imaging-emotion-detection-hello-world)
+* Avbildning [Identifiera objekt (taggning)](https://github.com/Azure-Samples/usql-cognitive-imaging-object-tagging-hello-world)
+* Avbildning [OCR (optisk teckenläsning)](https://github.com/Azure-Samples/usql-cognitive-imaging-ocr-hello-world)
+* information [Extrahering av diskussionsämne & Attitydanalys](https://github.com/Azure-Samples/usql-cognitive-text-hello-world)
 
 ## <a name="registering-cognitive-extensions-in-u-sql"></a>Registrera kognitiva tillägg i U-SQL
-Innan du börjar, följer du stegen i den här artikeln om du vill registrera kognitiva tillägg i U-SQL: [Registrera kognitiva tillägg i U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
+Innan du börjar följer du stegen i den här artikeln för att registrera kognitiva tillägg i U-SQL: [Registrera kognitiva tillägg i U-SQL](/u-sql/objects-and-extensions/cognitive-capabilities-in#registeringExtensions).
 
 ## <a name="next-steps"></a>Nästa steg
-* [U-SQL/Cognitive-exempel](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
+* [U-SQL/kognitiva exempel](https://github.com/Azure-Samples?utf8=✓&q=usql%20cognitive)
 * [Utveckla U-SQL-skript med hjälp av Data Lake-verktyg för Visual Studio](data-lake-analytics-data-lake-tools-get-started.md)
-* [Med hjälp av U-SQL-fönstrets funktioner för Azure Data Lake Analytics-jobb](data-lake-analytics-use-window-functions.md)
+* [Använda U-SQL-fönstrets funktioner för Azure Data Lake Analytics jobb](data-lake-analytics-use-window-functions.md)

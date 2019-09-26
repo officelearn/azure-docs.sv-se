@@ -1,5 +1,5 @@
 ---
-title: Programmeringsguide för – Azure Event Hubs | Microsoft Docs
+title: Programmerings guide för .NET – Azure Event Hubs | Microsoft Docs
 description: Den här artikeln innehåller information om hur du skriva kod för Azure Event Hubs med med Azure .NET SDK.
 services: event-hubs
 documentationcenter: na
@@ -7,16 +7,16 @@ author: ShubhaVijayasarathy
 ms.service: event-hubs
 ms.custom: seodec18
 ms.topic: article
-ms.date: 12/06/2018
+ms.date: 09/25/2019
 ms.author: shvija
-ms.openlocfilehash: 28b5c2db0f347b27beb31d427c7f189d74903dff
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: c2e23c38abbec5fd0e6010bdfc0feca882a6180d
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70913983"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309819"
 ---
-# <a name="programming-guide-for-azure-event-hubs"></a>Programmeringsguide för Händelsehubbar i Azure
+# <a name="net-programming-guide-for-azure-event-hubs"></a>Programmerings guide för .NET för Azure Event Hubs
 Den här artikeln beskriver några vanliga scenarier i skriva kod med Azure Event Hubs. Den förutsätter att du har en grundläggande förståelse av händelsehubbar. En konceptuell översikt av händelsehubbar finns på [Översikt av händelsehubbar](event-hubs-what-is-event-hubs.md).
 
 ## <a name="event-publishers"></a>Händelseutfärdare

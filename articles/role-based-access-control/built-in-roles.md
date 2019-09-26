@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 5f273f2eb36b0bd1d6757eb1ffb2403641cd461f
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801373"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71289599"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -38,7 +38,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Ägare](#owner) | Låter dig hantera allt, inklusive åtkomst till resurser. |
 | [Deltagare](#contributor) | Låter dig hantera allt, förutom att bevilja åtkomst till resurser. |
 | [Läsare](#reader) | Gör att du kan visa allt, men inte göra några ändringar. |
-| [AcrDelete](#acrdelete) | ta bort ACR |
+| [AcrDelete](#acrdelete) | acr-borttagning |
 | [AcrImageSigner](#acrimagesigner) | acr-bildsignerare |
 | [AcrPull](#acrpull) | ACR-pull |
 | [AcrPush](#acrpush) | ACR-push |
@@ -48,7 +48,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Rollen API Management tjänst operatör](#api-management-service-operator-role) | Kan hantera tjänsten men inte API: erna |
 | [Rollen API Management tjänst läsare](#api-management-service-reader-role) | Skrivskyddad åtkomst till tjänster och API: er |
 | [Application Insights komponent deltagare](#application-insights-component-contributor) | Kan hantera Application Insights-komponenter |
-| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Ger användaren behörighet att visa och hämta fel söknings ögonblicks bilder som samlats in med Application Insights Snapshot Debugger. Observera att dessa behörigheter inte ingår i [ägaren](#owner) eller [deltagar](#contributor) rollerna. |
+| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Ger användaren behörighet att visa och hämta fel söknings ögonblicks bilder som samlats in med Application Insights Snapshot Debugger. Observera att dessa behörigheter inte ingår i [ägaren](#owner) eller deltagar [](#contributor) rollerna. |
 | [Automatiserings jobb operatör](#automation-job-operator) | Skapa och hantera jobb med hjälp av Automation-runbooks. |
 | [Automation-operatör](#automation-operator) | Automation-operatörer kan starta, stoppa, pausa och återuppta jobb |
 | [Automation Runbook-operator](#automation-runbook-operator) | Läs Runbook-egenskaperna – för att kunna skapa jobb för runbooken. |
@@ -183,8 +183,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Åtgärder** |  |
 > | * | Skapa och hantera resurser av alla typer |
 > | **NotActions** |  |
-> | Microsoft. Authorization/*/Delete | Ta bort roller och roll tilldelningar |
-> | Microsoft. Authorization/*/Write | Skapa roller och roll tilldelningar |
+> | Microsoft. Authorization/*/Delete | Ta bort roller, princip tilldelningar, princip definitioner och princip uppsättnings definitioner |
+> | Microsoft. Authorization/*/Write | Skapa roller, roll tilldelningar, princip tilldelningar, princip definitioner och princip uppsättnings definitioner |
 > | Microsoft.Authorization/elevateAccess/Action | Beviljar åtkomst administratörs åtkomst till anroparens användare i klient omfånget |
 > | Microsoft. skiss/blueprintAssignments/Write | Skapa eller uppdatera eventuella skiss artefakter |
 > | Microsoft. skiss/blueprintAssignments/Delete | Ta bort eventuella skissartefakter |
@@ -212,7 +212,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | ta bort ACR |
+> | **Beskrivning** | acr-borttagning |
 > | **Id** | c2f4ef07-c644-48eb-af81-4b1b4947fb11 |
 > | **Åtgärder** |  |
 > | Microsoft. ContainerRegistry/register/artefakter/ta bort | Ta bort artefakt i ett behållar register. |
@@ -398,7 +398,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Ger användaren behörighet att visa och hämta fel söknings ögonblicks bilder som samlats in med Application Insights Snapshot Debugger. Observera att dessa behörigheter inte ingår i [ägaren](#owner) eller [deltagar](#contributor) rollerna. |
+> | **Beskrivning** | Ger användaren behörighet att visa och hämta fel söknings ögonblicks bilder som samlats in med Application Insights Snapshot Debugger. Observera att dessa behörigheter inte ingår i [ägaren](#owner) eller deltagar [](#contributor) rollerna. |
 > | **Id** | 08954f03-6346-4c2e-81c0-ec3a5cfae23b |
 > | **Åtgärder** |  |
 > | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
@@ -496,7 +496,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="avere-contributor"></a>Aver deltagare
+## <a name="avere-contributor"></a>Avere-deltagare
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -531,7 +531,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="avere-operator"></a>Aver operator
+## <a name="avere-operator"></a>Avere-operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -726,7 +726,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/locations/* |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/operationResults/* | Hantera åtgärds resultat för säkerhets kopierings hantering |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/* | Skapa och hantera säkerhets kopierings behållare i säkerhets kopierings infrastrukturer i Recovery Services Vault |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållar listan |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar containerlistan |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Skapa och hantera säkerhets kopierings jobb |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportera jobb |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/* | Skapa och hantera metadata relaterade till säkerhets kopierings hantering |
@@ -754,14 +754,14 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Returnerar säkerhets kopierings åtgärdens status för Recovery Services valv. |
 > | Microsoft. RecoveryServices/valv/backupEngines/läsa | Returnerar alla säkerhetskopieringshanteringsservrar registrerade i valvet. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Hämta alla skydds bara behållare |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Hämta alla containrar som kan skyddas |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Kontrol lera säkerhets kopierings status för Recovery Services valv |
 > | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validera funktioner |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Verifiera funktioner |
 > | Microsoft. RecoveryServices/valv/monitoringAlerts/Write | Löser aviseringen. |
 > | Microsoft. RecoveryServices/Operations/Read | Åtgärd returnerar listan över åtgärder för en resurs leverantör |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Hämtar åtgärds status för en specifik åtgärd |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista alla säkerhets avsikter för säkerhets kopiering |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Visa en lista över alla säkerhetskopierade skyddsavsikter |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
 > | **NotActions** |  |
 > | *alternativet* |  |
@@ -790,14 +790,14 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Återskapa återställningspunkter för skyddade objekt. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Återkalla direkt objekt återställning för skyddat objekt |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Skapa ett säkerhetskopierat skyddat objekt |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Returnerar alla registrerade behållare |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar behållar listan |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Returnerar alla registrerade containrar |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/refreshContainers/action | Uppdaterar containerlistan |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/* | Skapa och hantera säkerhets kopierings jobb |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportera jobb |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/* | Skapa och hantera resultat av säkerhets kopierings hanterings åtgärder |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämtar resultat från principåtgärd. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skydds principer |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skyddsprinciper |
 > | Microsoft.RecoveryServices/Vaults/backupProtectableItems/* | Skapa och hantera objekt som kan säkerhets kopie ras |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Returnerar listan över alla skyddade objekt. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Returnerar alla behållare som hör till prenumerationen |
@@ -819,20 +819,20 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupValidateOperation/action | Verifiera åtgärd på skyddat objekt |
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Returnerar säkerhets kopierings åtgärdens status för Recovery Services valv. |
 > | Microsoft. RecoveryServices/valv/backupPolicies/åtgärder/Läs | Hämta status för princip åtgärd. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Skapar en registrerad behållare |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/write | Skapar en registrerad container |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/inquire/action | Gör förfrågan om arbets belastningar inom en behållare |
 > | Microsoft. RecoveryServices/valv/backupEngines/läsa | Returnerar alla säkerhetskopieringshanteringsservrar registrerade i valvet. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Skapa en säkerhets kopia av skydds avsikt |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Få en säkerhets kopie rad skydds avsikt |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Hämta alla skydds bara behållare |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Skapa en säkerhetskopia för avsiktsskydd |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Hämta en säkerhetskopierad skyddsavsikt |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectableContainers/read | Hämta alla containrar som kan skyddas |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Hämta alla objekt i en behållare |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Kontrol lera säkerhets kopierings status för Recovery Services valv |
 > | Microsoft.RecoveryServices/locations/backupPreValidateProtection/action |  |
-> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Validera funktioner |
+> | Microsoft.RecoveryServices/locations/backupValidateFeatures/action | Verifiera funktioner |
 > | Microsoft. RecoveryServices/valv/monitoringAlerts/Write | Löser aviseringen. |
 > | Microsoft. RecoveryServices/Operations/Read | Åtgärd returnerar listan över åtgärder för en resurs leverantör |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Hämtar åtgärds status för en specifik åtgärd |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista alla säkerhets avsikter för säkerhets kopiering |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Visa en lista över alla säkerhetskopierade skyddsavsikter |
 > | Microsoft.Support/* | Skapa och hantera support biljetter |
 > | **NotActions** |  |
 > | *alternativet* |  |
@@ -856,14 +856,14 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/operationsStatus/read | Returnerar status för utförd åtgärd på skyddade objekt. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returnerar objekt information om det skyddade objektet |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Hämta återställningspunkter för skyddade objekt. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Returnerar alla registrerade behållare |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/read | Returnerar alla registrerade containrar |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/operationResults/read | Returnerar resultat från jobbåtgärd. |
-> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returnerar alla jobb objekt |
+> | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returnerar alla jobbobjekt |
 > | Microsoft.RecoveryServices/Vaults/backupJobsExport/action | Exportera jobb |
 > | Microsoft.RecoveryServices/Vaults/backupManagementMetaData/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupOperationResults/read | Returnerar resultat från säkerhetskopiering för Recovery Services-valvet. |
 > | Microsoft.RecoveryServices/Vaults/backupPolicies/operationResults/read | Hämtar resultat från principåtgärd. |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skydds principer |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skyddsprinciper |
 > | Microsoft.RecoveryServices/Vaults/backupProtectedItems/read | Returnerar listan över alla skyddade objekt. |
 > | Microsoft.RecoveryServices/Vaults/backupProtectionContainers/read | Returnerar alla behållare som hör till prenumerationen |
 > | Microsoft.RecoveryServices/Vaults/backupUsageSummaries/read | Returnerar sammanfattningar för skyddade objekt och skyddade servrar för en Recovery Services. |
@@ -877,14 +877,14 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/Vaults/backupOperations/read | Returnerar säkerhets kopierings åtgärdens status för Recovery Services valv. |
 > | Microsoft. RecoveryServices/valv/backupPolicies/åtgärder/Läs | Hämta status för princip åtgärd. |
 > | Microsoft. RecoveryServices/valv/backupEngines/läsa | Returnerar alla säkerhetskopieringshanteringsservrar registrerade i valvet. |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Få en säkerhets kopie rad skydds avsikt |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/read | Hämta en säkerhetskopierad skyddsavsikt |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/items/read | Hämta alla objekt i en behållare |
 > | Microsoft.RecoveryServices/locations/backupStatus/action | Kontrol lera säkerhets kopierings status för Recovery Services valv |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/* |  |
 > | Microsoft. RecoveryServices/valv/monitoringAlerts/Write | Löser aviseringen. |
 > | Microsoft. RecoveryServices/Operations/Read | Åtgärd returnerar listan över åtgärder för en resurs leverantör |
 > | Microsoft.RecoveryServices/locations/operationStatus/read | Hämtar åtgärds status för en specifik åtgärd |
-> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Lista alla säkerhets avsikter för säkerhets kopiering |
+> | Microsoft.RecoveryServices/Vaults/backupProtectionIntents/read | Visa en lista över alla säkerhetskopierade skyddsavsikter |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returnerar användningsinformation om Recovery Services-valvet. |
 > | **NotActions** |  |
 > | *alternativet* |  |
@@ -1178,7 +1178,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. features/providers/features/Read | Hämtar funktionen för en prenumeration i en specifik resurs leverantör. |
 > | Microsoft.Insights/alertRules/* | Skapa och hantera insikter aviserings regler |
 > | Microsoft.Insights/diagnosticSettings/* | Skapar, uppdaterar eller läser in diagnostikinställningar för Analysis Server |
-> | Microsoft.Insights/logDefinitions/read | Läs loggdefinitioner |
+> | Microsoft.Insights/logDefinitions/read | Läs logg definitioner |
 > | Microsoft.Insights/metricdefinitions/read | Läs måttdefinitioner |
 > | Microsoft. Insights/Metrics/Read | Läs mått |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighets status för alla resurser i det angivna omfånget |
@@ -1219,10 +1219,10 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **Id** | a97b65f3-24c7-4388-baec-2e87135dc908 |
 > | **Åtgärder** |  |
 > | Microsoft. CognitiveServices/*/Read |  |
-> | Microsoft. CognitiveServices/Accounts/listnycklar/Action | Visa nyckellista |
+> | Microsoft. CognitiveServices/Accounts/listnycklar/Action | Lista nycklar |
 > | Microsoft.Insights/alertRules/read | Läs en klassisk måttavisering |
 > | Microsoft. Insights/diagnosticSettings/Read | Läs en resursdiagnostikinställning |
-> | Microsoft.Insights/logDefinitions/read | Läs loggdefinitioner |
+> | Microsoft.Insights/logDefinitions/read | Läs logg definitioner |
 > | Microsoft.Insights/metricdefinitions/read | Läs måttdefinitioner |
 > | Microsoft. Insights/Metrics/Read | Läs mått |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | Hämtar tillgänglighets status för alla resurser i det angivna omfånget |
@@ -1259,7 +1259,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="cosmos-db-operator"></a>Cosmos DB operatör
+## <a name="cosmos-db-operator"></a>Cosmos DB-operator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -1593,7 +1593,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="hdinsight-cluster-operator"></a>HDInsight-kluster operator
+## <a name="hdinsight-cluster-operator"></a>HDInsight-klusteroperator
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2265,14 +2265,14 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/vaults/replicationEvents/read | Läs eventuella händelser |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/checkConsistency/action | Kontrollerar infrastrukturens enhetlighet |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/read | Läs eventuella infrastruktur resurser |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Associera gatewayen igen |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Förnya certifikat för infrastruktur resurser |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/reassociateGateway/action | Skapa ny koppling för gateway |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/renewcertificate/action | Förnya certifikat för infrastruktur |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/read | Läs alla nätverk |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationNetworks/replicationNetworkMappings/read | Läs eventuella nätverks mappningar |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/read | Läs eventuella skydds behållare |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectableItems/read | Läs alla objekt som ska skyddas |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Tillämpa återställnings punkt |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Genomför redundans |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/applyRecoveryPoint/action | Använda återställningspunkt |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/failoverCommit/action | Redundansåtgärd |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/plannedFailover/action | Planerad redundans |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/read | Läs alla skyddade objekt |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Läs alla återställnings punkter för replikering |
@@ -2281,22 +2281,22 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Testa redundans |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Rensning av redundanstest |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Redundans |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Uppdatera mobilitets tjänsten |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/updateMobilityService/action | Uppdatera mobilitetstjänsten |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Läs alla skydds behållar mappningar |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/read | Läs eventuella Recovery Services-leverantörer |
-> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Uppdatera Provider |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationRecoveryServicesProviders/refreshProvider/action | Uppdatera provider |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/read | Läs alla lagrings klassificeringar |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationStorageClassifications/replicationStorageClassificationMappings/read | Läs alla mappningar för lagrings klassificering |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationvCenters/read | Läs eventuella vCenter |
 > | Microsoft.RecoveryServices/vaults/replicationJobs/* | Skapa och hantera jobb för replikering |
 > | Microsoft.RecoveryServices/vaults/replicationPolicies/read | Läs eventuella principer |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Återställnings plan för redundans |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | Återställnings plan för planerad redundansväxling |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/failoverCommit/action | Återställningsplan för redundansåtgärd |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/plannedFailover/action | Återställningsplan för planerad redundans |
 > | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/read | Läs eventuella återställnings planer |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Skydda återställnings plan |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Återställnings plan för redundanstest |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Återställnings plan för rensning av redundanstest |
-> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action | Återställnings plan för redundans |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/reProtect/action | Återställningsplan för återskydd |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailover/action | Återställningsplan för att testa redundans |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/testFailoverCleanup/action | Återställningsplan för rensning av redundanstest |
+> | Microsoft.RecoveryServices/vaults/replicationRecoveryPlans/unplannedFailover/action | Återställningsplan för redundans |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/* | Läs aviseringar för Recovery Services-valvet |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/notificationConfiguration/read |  |
 > | Microsoft.RecoveryServices/Vaults/storageConfig/read |  |
@@ -2467,7 +2467,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
-## <a name="sql-managed-instance-contributor"></a>SQL-hanterad instans deltagare
+## <a name="sql-managed-instance-contributor"></a>Deltagare för hanterad SQL-instans
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -2928,12 +2928,12 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Network/virtualNetworks/read | Hämta definition av virtuellt nätverk |
 > | Microsoft. Network/virtualNetworks/subnets/Join/Action | Ansluter till ett virtuellt nätverk. Det går inte att avisera. |
 > | Microsoft.RecoveryServices/locations/* |  |
-> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Skapa en säkerhets kopia av skydds avsikt |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/backupProtectionIntent/write | Skapa en säkerhetskopia för avsiktsskydd |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/*/read |  |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/read | Returnerar objekt information om det skyddade objektet |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/write | Skapa ett säkerhetskopierat skyddat objekt |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skydds principer |
-> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Skapar skydds princip |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/read | Returnerar alla skyddsprinciper |
+> | Microsoft.RecoveryServices/Vaults/backupPolicies/write | Skapar en skyddsprincip |
 > | Microsoft.RecoveryServices/Vaults/read | Med åtgärden Hämta valv hämtas ett objekt som representerar Azure-resursen av typen valv |
 > | Microsoft.RecoveryServices/Vaults/usages/read | Returnerar användningsinformation om Recovery Services-valvet. |
 > | Microsoft.RecoveryServices/Vaults/write | Med skapa valv så skapas en Azure-resurs av typen valv |

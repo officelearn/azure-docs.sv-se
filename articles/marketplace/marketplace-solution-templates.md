@@ -6,14 +6,14 @@ author: ellacroi
 manager: nunoc
 ms.service: marketplace
 ms.topic: article
-ms.date: 11/15/2018
+ms.date: 9/25/2019
 ms.author: ellacroi
-ms.openlocfilehash: 8d02d942fce7bd51a116cc4c19eac9faca0060ef
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 725be2ee239a879be8200d33acaf566b1d42d446
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561493"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300345"
 ---
 # <a name="azure-applications-solution-template-offer-publishing-guide"></a>Azure-program: Lösnings mal len tillhandahåller publicerings guide
 
@@ -21,12 +21,12 @@ Solution templates är ett av de viktigaste sätten att publicera en lösning p�
 
 Använd typ av lösnings mal len Azure app: för lösnings mal len när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enskild virtuell dator. Du kan automatisera etableringen av en eller flera virtuella datorer med hjälp av Azure Apps: Solution templates. Du kan också etablera nätverks-och lagrings resurser. Azure Apps: erbjudande typ för Solution templates ger Automation-förmåner för enskilda virtuella datorer och hela IaaS-baserade lösningar.
 
-Dessa Solution templates är transaktions erbjudanden som distribueras och faktureras via Marketplace. Anropet till åtgärden som en användare ser är "Hämta nu".
+Dessa Solution templates är inte transaktions erbjudanden, men kan användas för att distribuera betalda VM-erbjudanden debiteras via Microsofts kommersiella marknads plats. Anropet till åtgärden som en användare ser är "Hämta nu".
 
 
 ## <a name="requirements-for-solution-templates"></a>Krav för Solution templates
 
-| **Signaturkrav** | **Detaljer**  |
+| **Krav** | **Detaljer**  |
 | ---------------  | -----------  |
 |Fakturering och mätning    |  Resurserna kommer att tillhandahållas i kundens Azure-prenumeration. De virtuella datorerna betala per användning (PAYGO) kommer att meddelas med kunden via Microsoft, debiteras via kundens Azure-prenumeration (PAYGO).  <br/> I händelse av att du har en egen licens (BYOL), medan Microsoft fakturerar infrastruktur kostnader i kund prenumerationen, kommer du att licensiera dina licens avgifter till kunden direkt.   |
 |Azure-kompatibel virtuell hård disk (VHD)  |   Virtuella datorer måste byggas på Windows eller Linux.  Mer information [finns i skapa en Azure-kompatibel virtuell hård disk](./cloud-partner-portal/virtual-machine/cpp-create-vhd.md). |

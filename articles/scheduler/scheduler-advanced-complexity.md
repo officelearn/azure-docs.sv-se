@@ -1,6 +1,6 @@
 ---
-title: Skapa avancerade scheman för datalagerjobb och upprepningar – Azure Scheduler
-description: Lär dig att skapa avancerade scheman och upprepningar för jobb i Azure Scheduler
+title: Bygg avancerade jobb scheman och upprepningar – Azure Scheduler
+description: Lär dig hur du skapar avancerade scheman och upprepningar för jobb i Azure Scheduler
 services: scheduler
 ms.service: scheduler
 author: derek1ee
@@ -10,71 +10,71 @@ ms.suite: infrastructure-services
 ms.assetid: 5c124986-9f29-4cbc-ad5a-c667b37fbe5a
 ms.topic: article
 ms.date: 11/14/2018
-ms.openlocfilehash: a413261d251c8dfc1de9209168ee8137b85009f1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 386284543cd8fb00cc49fea9a29d9eaee4ca4963
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60531813"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300971"
 ---
-# <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Skapa avancerade scheman och upprepningar för jobb i Azure Scheduler
+# <a name="build-advanced-schedules-and-recurrences-for-jobs-in-azure-scheduler"></a>Bygg avancerade scheman och upprepningar för jobb i Azure Scheduler
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras tillbaka. Om du vill schemalägga jobb kan du [testa Azure Logic Apps istället](../scheduler/migrate-from-scheduler-to-logic-apps.md). 
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date). Om du vill fortsätta arbeta med de jobb som du konfigurerar i Scheduler, [migrera till Azure Logic Apps](../scheduler/migrate-from-scheduler-to-logic-apps.md) så snart som möjligt.
 
-Inom en [Azure Scheduler](../scheduler/scheduler-intro.md) jobb, schemat är kärnan i som bestämmer när och hur tjänsten Schemaläggaren körs jobbet. Du kan ange flera enstaka och återkommande scheman för ett jobb med Schemaläggaren. Enstaka scheman kör bara en gång vid en viss tidpunkt och är i princip återkommande scheman som bara körs en gång. Återkommande scheman körs på en angiven frekvens. Med den här flexibiliteten, kan du använda Scheduler för olika affärsscenarier, till exempel:
+I ett [Azure Scheduler](../scheduler/scheduler-intro.md) -jobb är schemat den kärna som avgör när och hur tjänsten Scheduler kör jobbet. Du kan konfigurera flera engångs-och återkommande scheman för ett jobb med Scheduler. Ett engångs schema körs bara en gång vid en angiven tidpunkt och är i princip återkommande scheman som bara körs en gång. Återkommande scheman körs enligt en angiven frekvens. Med den här flexibiliteten kan du använda Scheduler för olika affärs scenarier, till exempel:
 
-* **Rensa data regelbundet**: Skapa ett dagliga jobb som tar bort alla tweets som är äldre än tre månader.
+* **Rensa data regelbundet**: Skapa ett dagligt jobb som tar bort alla Tweets som är äldre än tre månader.
 
-* **Arkivera data**: Skapa ett månatligt jobb att push-meddelanden fakturera historiken till en tjänst för säkerhetskopiering.
+* **Arkivera data**: Skapa ett månatligt jobb som skickar faktura historiken till en säkerhets kopierings tjänst.
 
-* **Begär externa data**: Skapa ett jobb som körs varje kvart och tar emot en ny väderleksrapport från amerikanska NOAA.
+* **Begär externa data**: Skapa ett jobb som körs var 15: e minut och hämtar en ny väderleks rapport från NOAA.
 
-* **Behandla bilder**: Skapa en veckodag jobb som körs vid låg belastning och använder molnbaserad databehandling för komprimering av bilder som laddats upp under dagen.
+* **Bearbeta bilder**: Skapa ett vardags jobb som körs under låg belastnings tider och använder molnbaserad data behandling för att komprimera avbildningar som laddats upp under dagen.
 
-Den här artikeln beskriver exempel-jobb som du kan skapa med hjälp av Scheduler och [Azure Scheduler REST API](/rest/api/scheduler), och innehåller definitionen JavaScript Object Notation (JSON) för varje schema. 
+I den här artikeln beskrivs exempel jobb som du kan skapa med hjälp av Scheduler och [Azure scheduler REST API](/rest/api/scheduler)och inkluderar JavaScript Object Notation (JSON)-definitionen för varje schema. 
 
 ## <a name="supported-scenarios"></a>Scenarier som stöds
 
-De här exemplen visar vilka scenarier som har stöd för Azure Scheduler och skapa scheman för olika beteendemönster, till exempel:
+I de här exemplen visas ett intervall med scenarier som Azure Scheduler stöder och hur du skapar scheman för olika beteende mönster, till exempel:
 
-* Kör en gång vid ett specifikt datum och tid.
-* Kör och utför ett visst antal gånger.
-* Kör omedelbart och upprepas.
-* Kör och upprepas varje *n* minuter, timmar, dagar, veckor eller månader, med början vid en viss tidpunkt.
-* Kör och upprepas varje vecka eller varje månad, men endast på specifika dagar i veckan eller särskilda dagar i månaden.
-* Kör och upprepas mer än en gång för en viss tidsperiod. Till exempel varje månad på den sista fredagen och måndag, eller varje dag kl 5:15 och 17:15:00.
+* Kör en gång vid ett visst datum och en angiven tidpunkt.
+* Kör och upprepa ett angivet antal gånger.
+* Kör omedelbart och upprepa.
+* Kör och upprepa var *n:te* minut, timmar, dagar, veckor eller månader med början vid en angiven tidpunkt.
+* Kör och upprepa varje vecka eller månad, men endast på vissa dagar i veckan eller på vissa dagar i månaden.
+* Kör och upprepa mer än en gång under en viss period. Till exempel varje månad den senaste fredagen och måndagen, eller varje dag kl. 5:15 och 5:15 PM.
 
-Den här artikeln beskrivs senare dessa scenarier mer utförligt.
+Den här artikeln beskriver senare de här scenarierna mer detaljerat.
 
 <a name="create-scedule"></a>
 
-## <a name="create-schedule-with-rest-api"></a>Skapa schema med REST API
+## <a name="create-schedule-with-rest-api"></a>Skapa ett schema med REST API
 
-Skapa ett grundläggande schema med den [Azure Scheduler REST API](/rest/api/scheduler), Följ dessa steg:
+Följ dessa steg om du vill skapa ett grundläggande schema med [Azure scheduler REST API](/rest/api/scheduler):
 
-1. Registrera din Azure-prenumeration med en resursprovider genom att använda den [registrera igen – Resource Manager REST API](https://docs.microsoft.com/rest/api/resources/providers). Leverantörens namn för tjänsten Azure Scheduler är **Microsoft.Scheduler**. 
+1. Registrera din Azure-prenumeration med en resurs leverantör genom att använda [REST API för register åtgärd – Resource Manager](https://docs.microsoft.com/rest/api/resources/providers). Leverantörs namnet för tjänsten Azure Scheduler är **Microsoft. Scheduler**. 
 
-1. Skapa en jobbsamling med hjälp av den [skapa eller uppdatera åtgärden för jobbsamlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections) i Scheduler REST API. 
+1. Skapa en jobb samling med hjälp av [åtgärden Skapa eller uppdatera för jobb samlingar](https://docs.microsoft.com/rest/api/scheduler/jobcollections) i Scheduler REST API. 
 
-1. Skapa ett jobb med hjälp av den [skapa eller uppdatera åtgärden för jobb](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
+1. Skapa ett jobb med hjälp av [åtgärden Skapa eller uppdatera för jobb](https://docs.microsoft.com/rest/api/scheduler/jobs/createorupdate). 
 
-## <a name="job-schema-elements"></a>Schemaelement för jobbet
+## <a name="job-schema-elements"></a>Jobb schema element
 
-Den här tabellen innehåller en översikt för större JSON-element som du kan använda när du konfigurerar upprepningar och scheman för jobb. 
+Den här tabellen ger en översikt på hög nivå för de viktigaste JSON-element som du kan använda när du ställer in upprepningar och scheman för jobb. 
 
-| Element | Obligatoriskt | Beskrivning | 
+| Element | Obligatorisk | Beskrivning | 
 |---------|----------|-------------|
-| **startTime** | Nej | Ett DateTime-strängvärde i [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet startas första gången i ett grundläggande schema. <p>För komplexa scheman startar jobbet tidigast **startTime**. | 
-| **recurrence** | Nej | Upprepningen regler för när jobbet körs. Den **upprepning** objektet stöder dessa element: **frekvens**, **intervall**, **schema**, **antal**, och **endTime**. <p>Om du använder den **upprepning** element, måste du också använda den **frekvens** element, medan andra **upprepning** element är valfria. |
-| **frequency** | Ja, när du använder **upprepning** | Tidsenhet mellan förekomster och har stöd för dessa värden: ”Minute”, ”Hour”, ”Day”, ”Week”, ”Month” och ”år” | 
-| **interval** | Nej | Ett positivt heltal som anger antalet tidsenheter mellan förekomster utifrån **frekvens**. <p>Till exempel om **intervall** är 10 och **frekvens** är ”Week” jobbet återkommer var 10 vecka. <p>Här är de mest antalet intervall för varje frekvens: <p>– 18 månader <br>-78 veckor <br>-548 dagar <br>– Intervallet är 1 för många timmar och minuter, < = <*intervall*>< = 1000. | 
-| **schedule** | Nej | Definierar ändringar för upprepningen som baseras på de angivna minut-märkena, timme-märken, dagar i veckan och dagar i månaden | 
-| **antal** | Nej | Ett positivt heltal som anger antalet gånger som jobbet körs innan du avslutar. <p>Till exempel när dagliga jobb har **antal** inställd på 7 och startdatum är måndag, jobbet har slutförts körs på söndag. Om startdatum har redan passerat, beräknas den första körningen från tiden för skapandet. <p>Utan **endTime** eller **antal**, körs jobbet oändligt. Du kan inte använda båda **antal** och **endTime** i samma jobb, men regeln att slutförs först är hanteras. | 
-| **endTime** | Nej | Ett datum eller datum/tid-strängvärde i [ISO 8601-formatet](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet avslutades som körs. Du kan ange ett värde för **endTime** som är i förflutna. <p>Utan **endTime** eller **antal**, körs jobbet oändligt. Du kan inte använda båda **antal** och **endTime** i samma jobb, men regeln att slutförs först är hanteras. |
+| **startTime** | Nej | Ett DateTime-sträng värde i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet först startar i ett Basic-schema. <p>För komplexa scheman startar jobbet ingen tidigare än **StartTime**. | 
+| **recurrence** | Nej | Reglerna för upprepning för när jobbet körs. Objektet **upprepning** stöder följande element: **frekvens**, **intervall**, **schema**, **antal**och slut tid **.** <p>Om du använder **upprepnings** elementet måste du också använda **frekvens** elementet, medan andra **upprepnings** element är valfria. |
+| **frequency** | Ja, när du använder **upprepning** | Tidsenheten mellan förekomster och stöder dessa värden: "Minut", "timme", "dag", "vecka", "månad" och "år" | 
+| **interval** | Nej | Ett positivt heltal som fastställer antalet tidsenheter mellan förekomster baserat på **frekvens**. <p>Om **intervallet** till exempel är 10 och **frekvensen** är "vecka", upprepas jobbet var 10: e vecka. <p>Här är det mest antal intervallen för varje frekvens: <p>– 18 månader <br>– 78 veckor <br>– 548 dagar <br>– I timmar och minuter är intervallet 1 < = <*intervall*> < = 1000. | 
+| **schedule** | Nej | Definierar ändringar i upprepningen baserat på angivna minuter, timmar, vecko dagar och dagar i månaden | 
+| **antal** | Nej | Ett positivt heltal som anger antalet gånger som jobbet körs innan det slutförs. <p>Om till exempel ett dagligt **jobb har värdet** 7 och start datumet är måndag, slutförs jobbet på söndag. Om start datumet redan har passerat beräknas den första körningen från skapande tiden. <p>Utan **slut** tid eller **antal**körs jobbet oändligt. Du kan inte använda både **antal** och slut **tid i samma** jobb, men regeln som slutförs först. | 
+| **endTime** | Nej | Ett datum-eller DateTime-sträng-värde i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601) som anger när jobbet slutar köras. Du kan ange ett **värde för slut** tid som redan har infallit. <p>Utan **slut** tid eller **antal**körs jobbet oändligt. Du kan inte använda både **antal** och slut **tid i samma** jobb, men regeln som slutförs först. |
 |||| 
 
-Exempelvis beskriver det här JSON-schemat en grundläggande schema- och upprepningsinformation för ett jobb: 
+Detta JSON-schema beskriver till exempel ett grundläggande schema och upprepning för ett jobb: 
 
 ```json
 "properties": {
@@ -92,28 +92,28 @@ Exempelvis beskriver det här JSON-schemat en grundläggande schema- och upprepn
 },
 ``` 
 
-*Datum- och DateTime-värden*
+*Datum-och DateTime-värden*
 
-* Datum i Scheduler-jobb omfattar bara datumet och följ de [ISO 8601-specifikationen](https://en.wikipedia.org/wiki/ISO_8601).
+* Datum i Scheduler-jobb inkluderar endast datumet och följer [ISO 8601-specifikationen](https://en.wikipedia.org/wiki/ISO_8601).
 
-* Datum / tid i Scheduler-jobb som innehåller både datum och tid, följ den [ISO 8601-specifikationen](https://en.wikipedia.org/wiki/ISO_8601), och antas vara UTC när ingen UTC-förskjutning har angetts. 
+* Datum-och tids angivelser i Scheduler-jobb inkluderar både datum och tid, enligt [ISO 8601-specifikationen](https://en.wikipedia.org/wiki/ISO_8601)och antas vara UTC när ingen UTC-förskjutning anges. 
 
 Mer information finns i [begrepp, terminologi och entiteter](../scheduler/scheduler-concepts-terms.md).
 
 <a name="start-time"></a>
 
-## <a name="details-starttime"></a>Information: startTime
+## <a name="details-starttime"></a>Information: StartTime
 
-Den här tabellen beskriver hur **startTime** styr hur ett jobb körs:
+I den här tabellen beskrivs hur **StartTime** styr hur ett jobb körs:
 
-| startTime | Ingen upprepning | Upprepning utan schema | Upprepning med schema |
+| startTime | Ingen upprepning | Upprepning, inget schema | Upprepning med schema |
 |-----------|---------------|-------------------------|--------------------------|
-| **Inga starttid** | Kör en gång direkt. | Kör en gång direkt. Kör senare körningar som beräknas från senaste körningstid. | Kör en gång direkt. Kör senare körningar baserat på ett upprepningsschema. | 
-| **Starttid tidigare** | Kör en gång direkt. | Beräkna första framtida körningstid efter starttiden och köra vid den tiden. <p>Kör senare körningar som beräknas från senaste körningstid. <p>Se exemplet efter den här tabellen. | Starta jobbet *tidigast* den angivna starttiden. Den första förekomsten baseras på schemat som beräknas från starttiden. <p>Kör senare körningar baserat på ett upprepningsschema. | 
-| **Starttid i framtiden eller aktuell tid** | Kör en gång vid den angivna starttiden. | Kör en gång vid den angivna starttiden. <p>Kör senare körningar som beräknas från senaste körningstid. | Starta jobbet *tidigast* den angivna starttiden. Den första förekomsten baseras på schemat som beräknas från starttiden. <p>Kör senare körningar baserat på ett upprepningsschema. |
+| **Ingen start tid** | Kör en gång direkt. | Kör en gång direkt. Kör senare körningar beräknat från den senaste körnings tiden. | Kör en gång direkt. Kör senare körningar baserat på ett upprepnings schema. | 
+| **Start tid tidigare** | Kör en gång direkt. | Beräkna den första framtida körnings tiden efter start tiden och kör vid den tiden. <p>Kör senare körningar beräknat från den senaste körnings tiden. <p>Se exemplet efter den här tabellen. | Starta jobb *ingen tidigare än* den angivna start tiden. Den första förekomsten baseras på schemat som beräknas från starttiden. <p>Kör senare körningar baserat på ett upprepnings schema. | 
+| **Start tid i framtiden eller aktuell tid** | Kör en gång vid den angivna start tiden. | Kör en gång vid den angivna start tiden. <p>Kör senare körningar beräknat från den senaste körnings tiden. | Starta jobb *ingen tidigare än* den angivna start tiden. Den första förekomsten baseras på schemat som beräknas från starttiden. <p>Kör senare körningar baserat på ett upprepnings schema. |
 ||||| 
 
-Anta att du det här exemplet med dessa villkor: en starttid tidigare med upprepning men utan schema.
+Anta att du har det här exemplet med följande villkor: en start tid tidigare med en upprepning, men inget schema.
 
 ```json
 "properties": {
@@ -125,85 +125,85 @@ Anta att du det här exemplet med dessa villkor: en starttid tidigare med upprep
 }
 ```
 
-* Aktuellt datum och tid är 08 April 2015 klockan 13:00.
+* Aktuellt datum och tid är den 08 april 2015 vid 1:00 PM.
 
-* Startdatum och starttid är 07 April 2015 kl 2:00, som är före aktuellt datum och tid.
+* Start datumet och start tiden är april 07 2015 kl. 2:00 PM, som är före aktuellt datum och tid.
 
 * Upprepningen är varannan dag.
 
-1. Under dessa villkor är den första körningen 09 April 2015 kl 2:00. 
+1. Under dessa villkor är den första körningen den 9 april 2015 vid 2:00 PM. 
 
-   Scheduler beräknar körningsförekomster baserat på starttid och ignorerar alla instanser i förflutna och använder nästa förekomst i framtiden. 
-   I det här fallet **startTime** var 07 April 2015 2:00 PM, så nästa instans är två dagar från den tiden, vilket är 09 April 2015 kl 2:00.
+   Scheduler beräknar körnings förekomsterna baserat på Start tiden, tar bort alla instanser tidigare och använder nästa instans i framtiden. 
+   I det här fallet är **StartTime** den 7 april 2015 vid 2:00 PM, så nästa instans är två dagar från den tiden, vilket är 09, 2015 vid 2:00 PM.
 
-   Den första körningen är samma oavsett om **startTime** är 2015-04-05 14:00 eller 2015-04-01 14:00. Efter den första körningen beräknas senare körningar baserat på schemat. 
+   Den första körningen är densamma om **StartTime** är 2015-04-05 14:00 eller 2015-04-01 14:00. Efter den första körningen beräknas senare körningar baserat på schemat. 
    
-1. Körningar följer sedan i den här ordningen: 
+1. Körningarna följer sedan i följande ordning: 
    
-   1. 2015-04-11 kl 14:00:00
-   1. 2015-04-13 kl 14:00:00 
-   1. 2015-04-15 kl 14:00:00
+   1. 2015-04-11 vid 2:00 PM
+   1. 2015-04-13 vid 2:00 PM 
+   1. 2015-04-15 vid 2:00 PM
    1. och så vidare...
 
-1. Slutligen, när ett jobb har ett schema, men inga angivna timmar och minuter, dessa värden som standard timmar och minuter i den första körningen respektive.
+1. Slutligen, när ett jobb har ett schema men inte har några angivna timmar och minuter, används dessa värden som standard för timmar och minuter i den första körningen.
 
 <a name="schedule"></a>
 
 ## <a name="details-schedule"></a>Information: schema
 
-Du kan använda **schema** till *gränsen* antalet jobbkörningar. Exempel: om ett jobb med en **frekvens** ”Month” har ett schema som bara körs på dag 31, jobbet körs bara i månader som har en 31: a dag.
+Du kan använda **Schedule** för att *begränsa* antalet jobb körningar. Om till exempel ett jobb med en **frekvens** på "månad" har ett schema som bara körs dag 31, körs jobbet bara i månader som har en 31: a dag.
 
-Du kan också använda **schema** till *Expandera* antalet jobbkörningar. Exempel: om ett jobb med en **frekvens** ”Month” har ett schema som körs på dag 1 och 2, jobbet körs på första och andra dagen i månaden istället för bara en gång i månaden.
+Du kan också använda **Schedule** för att *expandera* antalet jobb körningar. Till exempel, om ett jobb med en **frekvens** på "månad" har ett schema som körs på månads dagar 1 och 2, körs jobbet på den första och andra dagen i månaden istället för bara en gång i månaden.
 
-Om du anger fler än ett schema-element, den utvärderas de från största till minsta: veckonummer, dag i månaden, veckodag, timme och minut.
+Om du anger fler än ett schema element är utvärderings ordningen från störst till minsta: vecko nummer, månads dag, veckodag, timme och minut.
 
 I följande tabell beskrivs schemaelement i detalj:
 
 | JSON-namn | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |
-| **minutes** |Minuter för den timme då jobbet körs. |En matris med heltal. |
+| **minutes** |Minuter i timmen då jobbet körs. |En matris med heltal. |
 | **hours** |Timmar på dagen då jobbet körs. |En matris med heltal. |
-| **weekDays** |Dagar i veckan jobbet körs. Kan anges endast med en veckofrekvens. |En matris med något av följande värden (maximal matrisstorlek är 7):<br />-”Måndag”<br />-”Tisdag”<br />-”Onsdag”<br />-”Torsdag”<br />-”Fredag”<br />-”Lördag”<br />-”Sunday”<br /><br />Inte skiftlägeskänslig. |
-| **monthlyOccurrences** |Anger vilka dagar i månaden jobbet körs. Kan anges endast med månatlig frekvens. |En matris med **monthlyOccurrences** objekt:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dag** är den veckodag som jobbet körs. Till exempel *{söndag}* varje söndag i månaden. Krävs.<br /><br />**förekomst** är förekomsten av dag under månaden. Till exempel *{söndag, -1}* är den sista söndagen i månaden. Valfri. |
-| **monthDays** |Dag i månaden jobbet körs. Kan anges endast med månatlig frekvens. |En matris med följande värden:<br />– Ett värde <= -1 och >= -31<br />– Ett värde > = 1 och < = 31|
+| **weekDays** |Vecko dagar som jobbet körs. Kan bara anges med en vecko frekvens. |En matris med något av följande värden (maximal mat ris storlek är 7):<br />– "Måndag"<br />– "Tisdag"<br />– "Onsdag"<br />– "Torsdag"<br />– "Fredag"<br />– "Lördag"<br />– "Söndag"<br /><br />Inte Skift läges känsligt. |
+| **monthlyOccurrences** |Anger vilka dagar i månaden som jobbet körs. Kan bara anges med en månads frekvens. |En matris med **monthlyOccurrences** -objekt:<br /> `{ "day": day, "occurrence": occurrence}`<br /><br /> **dag** är den veckodag som jobbet körs. Till exempel är *{söndag}* varje söndag i månaden. Obligatoriskt.<br /><br />**förekomst** är förekomsten av dagen under månaden. Till exempel är *{söndag,-1}* den sista söndagen i månaden. Valfritt. |
+| **monthDays** |Dag i månaden då jobbet körs. Kan bara anges med en månads frekvens. |En matris med följande värden:<br />– Ett värde <= -1 och >= -31<br />– Ett värde > = 1 och < = 31|
 
-## <a name="examples-recurrence-schedules"></a>Exempel: Återkommande scheman
+## <a name="examples-recurrence-schedules"></a>Exempel: Upprepnings scheman
 
-I följande exempel visas olika återkommande scheman. Exempel fokus på schemaobjektet och dess underelement.
+I följande exempel visas olika scheman för upprepning. Exemplen fokuserar på schemaobjektet och dess under element.
 
-Dessa scheman förutsätts att **intervall** har angetts till 1\. I exemplen antar vi rätt **frekvens** värden för värdena i **schema**. Exempel: du kan inte använda en **frekvens** ”Day” och har en **monthDays** ändringen i **schema**. Beskriver vi dessa begränsningar tidigare i artikeln.
+Dessa scheman förutsätter att **intervallet** är inställt på 1\. I exemplen förutsätts även de korrekta **frekvens** värdena för värdena i **schemat**. Du kan till exempel inte använda en **frekvens** på "dag" och ha en **monthDays** modifiering i **Schedule**. Vi beskriver de här begränsningarna tidigare i artikeln.
 
 | Exempel | Beskrivning |
 |:--- |:--- |
-| `{"hours":[5]}` |Körs 05: 00 varje dag.<br /><br />Scheduler matchar upp varje värde i ”timmar” med varje värde i ”minuter”, ett i taget, att skapa en lista med tidpunkter då jobbet körs. |
+| `{"hours":[5]}` |Kör kl. 5 varje dag.<br /><br />Scheduler matchar upp varje värde i timmar med varje värde i minuter, ett i taget, för att skapa en lista över alla tider då jobbet körs. |
 | `{"minutes":[15], "hours":[5]}` |Kör kl. 05.15 varje dag. |
 | `{"minutes":[15], "hours":[5,17]}` |Kör kl. 05.15 och 17.15 varje dag |
 | `{"minutes":[15,45], "hours":[5,17]}` |Kör kl. 05.15, 5.45, 17.15 och 17.45 varje dag. |
 | `{"minutes":[0,15,30,45]}` |Kör var 15:e minut. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Kör varje timme.<br /><br />Det här jobbet körs varje timme. Minut styrs av värdet för **startTime**, om det har angetts. Om ingen **startTime** värde har angetts, minut styrs av tiden för skapandet. Exempel: om starttiden eller skapandetiden (beroende på vilken som gäller) är 12:25 PM, körs jobbet 00.25, 01.25, 02.25, …, 23:25.<br /><br />Schemat är samma som ett jobb med en **frekvens** ”HOUR”, en **intervall** 1 och inget **schema** värde. Skillnaden är att du kan använda det här schemat med annan **frekvens** och **intervall** värden för att skapa andra jobb. Till exempel om **frekvens** är ”month” körs schemat bara en gång i månaden istället för varje dag (om **frekvens** är ”day”). |
-| `{minutes:[0]}` |Körs varje hel timme.<br /><br />Det här jobbet körs även varje timme, men på timmen (kl. 12, 1 AM, 2 AM och så vidare). Det här schemat är samma som ett jobb med en **frekvens** ”HOUR”, en **startTime** värdet noll minuter och inget **schema**om frekvensen är ”day”. Men om den **frekvens** är ”week” eller ”month” körs schemat bara en gång i veckan eller en gång i månaden respektive. |
-| `{"minutes":[15]}` |Körs 15 minuter efter timmen varje timme.<br /><br />Körs varje timme, kl. 00:15:00, 13:15:00, 14:15:00 och så vidare. Det slutar kl 23:15. |
-| `{"hours":[17], "weekDays":["saturday"]}` |Körs 17: 00 på lördagar varje vecka. |
-| `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Körs 17: 00 på måndag, onsdag och fredag varje vecka. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` |Kör varje timme.<br /><br />Jobbet körs varje timme. Minuten styrs av värdet för **StartTime**, om det har angetts. Om inget **StartTime** -värde har angetts styrs minuten av skapande tiden. Till exempel, om start tiden eller skapande tiden (beroende på vad som gäller) är 12:25 PM, körs jobbet vid 00:25, 01:25, 02:25,..., 23:25.<br /><br />Schemat är detsamma som ett jobb med en **frekvens** på "timme", ett **intervall** på 1 och inget **schema** värde. Skillnaden är att du kan använda det här schemat med olika **frekvens** -och **intervall** värden för att skapa andra jobb. Om t. ex. **frekvens** är "månad" körs schemat bara en gång i månaden i stället för varje dag (om **frekvens** är "dag"). |
+| `{minutes:[0]}` |Körs varje hel timme.<br /><br />Det här jobbet körs också varje timme, men på timmen (12, 1 AM, 2 och så vidare). Det här schemat är detsamma som ett jobb med **frekvensen** "timme", ett **StartTime** -värde på noll minuter, och inget **schema**, om frekvensen är "dag". Men om **frekvensen** är "vecka" eller "månad" körs schemat bara en dag i veckan eller en dag i månaden. |
+| `{"minutes":[15]}` |Kör vid 15 minuter efter timmen varje timma.<br /><br />Körs varje timme, med början kl. 00:15, 1:15, 2:15 AM, och så vidare. Den avslutas med 11:15 PM. |
+| `{"hours":[17], "weekDays":["saturday"]}` |Kör 5 EM på lördag varje vecka. |
+| `{hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Kör 5 PM på måndag, onsdag och fredag varje vecka. |
 | `{"minutes":[15,45], "hours":[17], "weekDays":["monday", "wednesday", "friday"]}` |Körs 17.15 och 17.45 varje måndag, onsdag och fredag. |
-| `{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}` |Körs 05: 00 och 17: 00 på måndag, onsdag och fredag varje vecka. |
-| `{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}` |Kör kl 5:15, 05:45:00, 17:15:00 och 17:45 på måndag, onsdag och fredag varje vecka. |
+| `{"hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}` |Kör kl. 5 och 17:00 på måndag, onsdag och fredag varje vecka. |
+| `{"minutes":[15,45], "hours":[5,17], "weekDays":["monday", "wednesday", "friday"]}` |Kör kl. 5:15, 5:45 AM, 5:15 PM och 5:45 PM på måndag, onsdag och fredag varje vecka. |
 | `{"minutes":[0,15,30,45], "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Körs var 15:e minut på vardagar. |
-| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Kör var 15: e minut på vardagar mellan 09: 00 och 4:45 PM. |
-| `{"weekDays":["sunday"]}` |Kör på söndagar vid start. |
-| `{"weekDays":["tuesday", "thursday"]}` |Körs varje tisdag och torsdag på starttiden. |
-| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Körs 06: 00 den 28: e dagen varje månad (förutsatt att en **frekvens** ”Month”). |
-| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |Körs 06: 00 den sista dagen i månaden.<br /><br />Om du vill köra ett jobb på den sista dagen i månaden, kan du använda -1 istället för dag 28, 29, 30 eller 31. |
-| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |Körs 06: 00 på första och sista dagen i varje månad. |
-| `{monthDays":[1,-1]}` |Kör den första och sista dagen i varje månad på starttiden. |
-| `{monthDays":[1,14]}` |Kör den första och 14 dagen i varje månad på starttiden. |
-| `{monthDays":[2]}` |Kör den andra dagen i månaden på starttiden. |
-| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Kör den första fredagen i varje månad 05: 00. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Kör den första fredagen i varje månad på starttiden. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` |Kör den tredje fredagen från slutet av månaden, varje månad på starttiden. |
+| `{"minutes":[0,15,30,45], "hours": [9, 10, 11, 12, 13, 14, 15, 16] "weekDays":["monday", "tuesday", "wednesday", "thursday", "friday"]}` |Kör var 15: e minut på vardagar, mellan 9 AM och 4:45 PM. |
+| `{"weekDays":["sunday"]}` |Kör på söndagar vid start tiden. |
+| `{"weekDays":["tuesday", "thursday"]}` |Kör på tisdagar och torsdag vid start tiden. |
+| `{"minutes":[0], "hours":[6], "monthDays":[28]}` |Kör kl. 6 den 28 dagen i varje månad (förutsatt att månads **frekvensen** är "månad"). |
+| `{"minutes":[0], "hours":[6], "monthDays":[-1]}` |Kör kl. 6 den sista dagen i månaden.<br /><br />Om du vill köra ett jobb den sista dagen i månaden använder du-1 istället för dag 28, 29, 30 eller 31. |
+| `{"minutes":[0], "hours":[6], "monthDays":[1,-1]}` |Kör kl. 6 den första och sista dagen i varje månad. |
+| `{monthDays":[1,-1]}` |Kör den första och sista dagen i varje månad vid start tiden. |
+| `{monthDays":[1,14]}` |Kör den första och 14 dagen i varje månad vid start tiden. |
+| `{monthDays":[2]}` |Kör den andra dagen i månaden vid start tiden. |
+| `{"minutes":[0], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Kör den första fredagen i varje månad kl. 5. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1}]}` |Kör den första fredagen i varje månad vid start tiden. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":-3}]}` |Kör den tredje fredagen från slutet av månaden, varje månad, vid start tiden. |
 | `{"minutes":[15], "hours":[5], "monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Körs den första och sista fredagen i varje månad 05.15. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Kör först och sista fredagen i varje månad på starttiden. |
-| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` |Kör den femte fredagen i varje månad på starttiden.<br /><br />Om det finns någon femte fredag i en månad körs inte jobbet. Du kan överväga att använda -1 istället för 5 som förekomst om du vill köra jobbet på den senaste inträffar fredagen i månaden. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":1},{"day":"friday", "occurrence":-1}]}` |Kör den första och sista fredagen i varje månad vid start tiden. |
+| `{"monthlyOccurrences":[{"day":"friday", "occurrence":5}]}` |Kör den femte fredagen i varje månad vid start tiden.<br /><br />Om det inte finns någon femte fredag i månaden körs inte jobbet. Du kan överväga att använda-1 istället för 5 för att köra jobbet på den senaste fredagen i månaden. |
 | `{"minutes":[0,15,30,45], "monthlyOccurrences":[{"day":"friday", "occurrence":-1}]}` |Körs var 15:e minut den sista fredagen i månaden. |
 | `{"minutes":[15,45], "hours":[5,17], "monthlyOccurrences":[{"day":"wednesday", "occurrence":3}]}` |Körs 05.15, 05.45, 17.15 och 17.45 den tredje onsdagen varje månad. |
 

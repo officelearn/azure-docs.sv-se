@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1cb4d3e35ae743dbae4c049f515d61b3042e7efe
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 690d49a94ff4f516e24494622ca378eb0794fee9
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68952805"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314936"
 ---
 # <a name="azure-ad-password-protection-troubleshooting"></a>Fel sökning av lösen ords skydd i Azure AD
 
@@ -56,17 +56,23 @@ Huvud symptomet för det här problemet är 30018 händelser i händelse loggen 
 
 ## <a name="dc-agent-is-unable-to-encrypt-or-decrypt-password-policy-files"></a>DC-agenten kan inte kryptera eller dekryptera lösen ords princip filen
 
-Det här problemet kan uppstå i manifestet med en rad olika symptom, men det finns vanligt vis en gemensam rotorsak.
+Azure AD Password Protection är ett kritiskt beroende av de krypterings-och dekrypterings funktioner som tillhandahålls av Microsoft Key Distribution Service. Krypterings-eller dekrypterings fel kan manifesta med en rad olika symtom och ha flera möjliga orsaker.
 
-Azure AD Password Protection är ett kritiskt beroende av krypterings-och dekrypteringsnyckeln som tillhandahålls av Microsoft Key Distribution Service, som är tillgänglig på domänkontrollanter som kör Windows Server 2012 och senare. KDS-tjänsten måste vara aktive rad och fungera på alla domänkontrollanter med Windows Server 2012 och senare i en domän.
+1. Kontrol lera att KDS-tjänsten är aktive rad och fungerar på alla domänkontrollanter med Windows Server 2012 och senare i en domän.
 
-Som standard är tjänstens start läge för KDS-tjänsten konfigurerad som manuell (utlösare start). Den här konfigurationen innebär att första gången en klient försöker använda tjänsten startas den på begäran. Standard läget för tjänst start är acceptabelt för att Azure AD-lösenord ska fungera.
+   Som standard är tjänstens start läge för KDS-tjänsten konfigurerad som manuell (utlösare start). Den här konfigurationen innebär att första gången en klient försöker använda tjänsten startas den på begäran. Standard läget för tjänst start är acceptabelt för att Azure AD-lösenord ska fungera.
 
-Om KDS-tjänstens start läge har kon figurer ATS att inaktive ras måste den här konfigurationen åtgärdas innan lösen ords skyddet i Azure AD fungerar korrekt.
+   Om KDS-tjänstens start läge har kon figurer ATS att inaktive ras måste den här konfigurationen åtgärdas innan lösen ords skyddet i Azure AD fungerar korrekt.
 
-Ett enkelt test för det här problemet är att manuellt starta KDS-tjänsten, antingen via MMC-konsolen för service hantering eller med andra hanterings verktyg (t. ex. köra "net start kdssvc" från en kommando tolks konsol). KDS-tjänsten förväntas starta korrekt och fortsätter att köras.
+   Ett enkelt test för det här problemet är att manuellt starta KDS-tjänsten, antingen via MMC-konsolen för service hantering eller med andra hanterings verktyg (t. ex. köra "net start kdssvc" från en kommando tolks konsol). KDS-tjänsten förväntas starta korrekt och fortsätter att köras.
 
-Den vanligaste rotor saken som KDS-tjänsten inte kan starta är att objektet Active Directory domänkontrollant finns utanför standarddomänkontrollantens ORGANISATIONSENHET. Den här konfigurationen stöds inte av KDS-tjänsten och är inte en begränsning som angetts av Azure AD Password Protection. Korrigeringen för det här tillståndet är att flytta objektet domänkontrollant till en plats under standarddomänkontrollantens ORGANISATIONSENHET.
+   Den vanligaste rotor saken som KDS-tjänsten inte kan starta är att objektet Active Directory domänkontrollant finns utanför standarddomänkontrollantens ORGANISATIONSENHET. Den här konfigurationen stöds inte av KDS-tjänsten och är inte en begränsning som angetts av Azure AD Password Protection. Korrigeringen för det här tillståndet är att flytta objektet domänkontrollant till en plats under standarddomänkontrollantens ORGANISATIONSENHET.
+
+1. Inkompatibel KDS-krypterad buffertstorlek ändring från Windows Server 2012 R2 till Windows Server 2016
+
+   En säkerhets korrigering för KDS introducerades i Windows Server 2016 som ändrar formatet på KDS-krypterade buffertar. Dessa buffertar kan ibland inte dekrypteras på Windows Server 2012 och Windows Server 2012 R2. Den motsatta riktningen är OK-buffertar som är KDS-krypterade på Windows Server 2012 och Windows Server 2012 R2 kommer alltid att kunna dekryptera på Windows Server 2016 och senare. Om domän kontrol Lanterna i Active Directory domäner kör en blandning av dessa operativ system kan tillfälliga Azure AD-dekryptering av lösen ords skydd rapporteras. Det går inte att förutsäga tiden eller symtomen på dessa problem på ett korrekt sätt med hjälp av säkerhets korrigeringens typ, och eftersom den är icke-deterministisk som DC-agenten för lösen ords skydd för Azure AD som domänkontrollanten kommer att kryptera data vid en specifik tidpunkt.
+
+   Microsoft undersöker en korrigering för det här problemet, men det finns ingen tillgänglig i ännu. Under tiden finns det ingen lösning på det här problemet än att inte köra en blandning av dessa inkompatibla operativ system i Active Directory-domänerna. Med andra ord bör du bara köra domänkontrollanter som kör Windows Server 2012 och Windows Server 2012 R2, eller så bör du bara köra Windows Server 2016 och senare domänkontrollanter.
 
 ## <a name="weak-passwords-are-being-accepted-but-should-not-be"></a>Svaga lösen ord godkänns men bör inte
 
@@ -80,7 +86,7 @@ Det här problemet kan ha flera orsaker.
 
 1. Lösen ords principen har inaktiverats. Om den här konfigurationen gäller konfigurerar du om den så att den aktive ras med Azure AD-portalen för lösen ords skydd. Se [Aktivera lösen ords skydd](howto-password-ban-bad-on-premises-operations.md#enable-password-protection).
 
-1. Du har inte installerat DC-agentens program vara på alla domänkontrollanter i domänen. I den här situationen är det svårt att se till att fjärranslutna Windows-klienter är riktade mot en viss domänkontrollant under en ändring av lösen ord. Om du tror att du har rätt mål för en viss DOMÄNKONTROLLANT där DC-agenten är installerad, kan du kontrol lera genom att dubbelklicka på händelse loggen för DC-agentens administratör: oavsett resultatet, finns det minst en händelse för att dokumentera resultatet av lösen ordet signaturverifiering. Om det inte finns någon händelse för den användare vars lösen ord har ändrats, bearbetades förmodligen lösen ords ändringen av en annan domänkontrollant.
+1. Du har inte installerat DC-agentens program vara på alla domänkontrollanter i domänen. I den här situationen är det svårt att se till att fjärranslutna Windows-klienter är riktade mot en viss domänkontrollant under en ändring av lösen ord. Om du tror att du har en viss DOMÄNKONTROLLANT där DC-agenten är installerad, kan du kontrol lera genom att dubbelklicka på händelse loggen för DC-agentens administratör: oavsett resultatet måste det finnas minst en händelse för att dokumentera resultatet av lösen ordet signaturverifiering. Om det inte finns någon händelse för den användare vars lösen ord har ändrats, bearbetades förmodligen lösen ords ändringen av en annan domänkontrollant.
 
    Som ett alternativt test kan du testa setting\changing-lösenord när du är inloggad direkt på en DOMÄNKONTROLLANT där DC-agentens program vara är installerad. Den här tekniken rekommenderas inte för produktions Active Directorys domäner.
 
@@ -183,7 +189,7 @@ PS C:\> Get-AzureADPasswordProtectionDCAgent | Where-Object {$_.SoftwareVersion 
 
 Azure AD-proxyn för lösen ords skydd är inte tidsbegränsad i någon version. Microsoft rekommenderar fortfarande att både DC-och proxy-agenter uppgraderas till de senaste versionerna när de släpps. `Get-AzureADPasswordProtectionProxy` Cmdleten kan användas för att hitta proxy-agenter som kräver uppgraderingar, ungefär som i exemplet ovan för DC-agenter.
 
-Se [Uppgradera DC](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) -agenten och [Uppgradera proxyagenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) för mer information om de olika uppgraderings procedurerna.
+Se [Uppgradera DC-agenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-dc-agent) och [Uppgradera proxyagenten](howto-password-ban-bad-on-premises-deploy.md#upgrading-the-proxy-agent) för mer information om de olika uppgraderings procedurerna.
 
 ## <a name="emergency-remediation"></a>Nöd reparation
 

@@ -4,14 +4,14 @@ description: Beskriver hur du använder Azure Resource Manager mallar för att d
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/25/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6d0d162f0f6f3024f6b4b63b8df1df9fd413afc8
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: 96f140cfa5e6151ad53ca242d1fc87ba3397316e
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70965299"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300158"
 ---
 # <a name="azure-resource-manager-templates"></a>Azure Resource Manager-mallar
 
@@ -47,9 +47,11 @@ Om du försöker bestämma mellan att använda Resource Manager-mallar och en an
 
 * **Distributions ritningar**: Du kan dra nytta av [skisser](../governance/blueprints/overview.md) som tillhandahålls av Microsoft för att uppfylla regler och efterlevnad. Dessa ritningar innehåller färdiga mallar för olika arkitekturer.
 
+* **CI/CD-integrering**: Du kan integrera mallar i de verktyg för kontinuerlig integrering och distribution (CI/CD) som kan automatisera dina lanserings pipelines för snabba och tillförlitliga program-och infrastruktur uppdateringar. Genom att använda Azure-DevOps och Resource Manager-postmall kan du använda Azure-pipelines för att kontinuerligt bygga och Distribuera Azure Resource Manager mal Lav projekt. Läs mer i [vs Project med pipelines](./vs-resource-groups-project-devops-pipelines.md) och [kontinuerlig integrering med Azure-pipelines](./resource-manager-tutorial-use-azure-pipelines.md).
+
 * **Kod**som kan exporteras: Du kan hämta en mall för en befintlig resurs grupp genom att antingen exportera det aktuella läget för resurs gruppen eller Visa den mall som används för en viss distribution. Att granska den [exporterade mallen](export-template-portal.md) är ett bra sätt att lära sig mer om mallsyntaxen.
 
-* **Redigerings verktyg**: Du kan skapa mallar med [Visual Studio Code](resource-manager-tools-vs-code.md) och verktyget Mallguiden. Du får IntelliSense, syntaxkontroll, direkt hjälp och många andra språk funktioner.
+* **Redigerings verktyg**: Du kan skapa mallar med [Visual Studio Code](resource-manager-tools-vs-code.md) och verktyget Mallguiden. Du får IntelliSense, syntaxkontroll, direkt hjälp och många andra språk funktioner. Förutom Visual Studio Code kan du också använda [Visual Studio](./vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
 
 ## <a name="template-file"></a>Mallfil
 
@@ -124,7 +126,4 @@ Mer information om kapslade mallar finns i [Använda länkade mallar med Azure R
 ## <a name="next-steps"></a>Nästa steg
 
 * Information om egenskaperna i mallfiler finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](resource-group-authoring-templates.md).
-* Om du uttryckligen vill ange beroenden så att en resurs distribueras före en annan resurs, se [definiera beroenden i Azure Resource Manager mallar](resource-group-define-dependencies.md).
-* Du kan lägga till en resurs i mallen och även distribuera den. Mer information finns i [villkorlig distribution i Resource Manager-mallar](conditional-resource-deployment.md).
-* I stället för upprepade block med JSON många gånger i din mall, kan du ange mer än en instans av en variabel, egenskap eller resurs. Mer information finns i [resurs, egenskap eller variabel iteration i Azure Resource Manager mallar](resource-group-create-multiple.md).
 * Information om hur du exporterar mallar finns [i snabb start: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](./resource-manager-quickstart-create-templates-use-the-portal.md).

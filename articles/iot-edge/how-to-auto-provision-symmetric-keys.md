@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 3c21c0bdce6f6a5cd3c8f634bf400600b30a8ead
-ms.sourcegitcommit: c556477e031f8f82022a8638ca2aec32e79f6fd9
+ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68414586"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299853"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering
 
@@ -100,11 +100,14 @@ När du skapar en registrering i DPS har möjlighet att deklarera en **starttill
 
    1. Välj **Spara**.
 
-Nu när en registrering finns för den här enheten kan IoT Edge runtime automatiskt etablera enheten under installationen. Se till att kopiera din registrerings **primär nyckel** värde som ska användas när du skapar din enhets nyckel.
+Nu när en registrering finns för den här enheten kan IoT Edge runtime automatiskt etablera enheten under installationen. Se till att kopiera din registrerings **primär nyckel** värde som ska användas när du installerar IoT Edge runtime, eller om du ska skapa enhets nycklar för användning med en grupp registrering.
 
 ## <a name="derive-a-device-key"></a>Härled en enhets nyckel
 
-Enheten använder den härledda enhets nyckeln med ditt unika registrerings-ID för att utföra symmetrisk nyckel attestering med registreringen under etableringen. Om du vill generera enhets nyckeln använder du nyckeln som du kopierade från din DPS-registrering för att beräkna en [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) av det unika registrerings-ID: t för enheten och konvertera resultatet till base64-format.
+> [!NOTE]
+> Det här avsnittet krävs endast om du använder en grupp registrering.
+
+Varje enhet använder den härledda enhets nyckeln med ditt unika registrerings-ID för att utföra symmetrisk nyckel attestering med registreringen under etableringen. Om du vill generera enhets nyckeln använder du nyckeln som du kopierade från din DPS-registrering för att beräkna en [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) av det unika registrerings-ID: t för enheten och konvertera resultatet till base64-format.
 
 Ta inte med din registrerings primära eller sekundära nyckel i enhets koden.
 
@@ -159,7 +162,10 @@ Du behöver följande information när du konfigurerar din enhet:
 
 * DPS **-ID** omfångs värde
 * ID för enhets **registrering** som du har skapat
-* Enhetens härledda enhets nyckel för symmetrisk nyckel attestering
+* Den **primära nyckeln** som du kopierade från DPS-registreringen
+
+> [!TIP]
+> För grupp registreringar behöver du varje enhets [härledda nyckel](#derive-a-device-key) snarare än DPS-registrerings nyckeln.
 
 ### <a name="linux-device"></a>Linux-enhet
 
@@ -233,7 +239,7 @@ Lista med moduler.
 iotedge list
 ```
 
-Du kan kontrol lera att den enskilda registrering som du skapade i enhets etablerings tjänsten användes. Navigera till din enhets etablerings tjänst instans i Azure Portal. Öppna registrerings informationen för den enskilda registrering som du har skapat. Observera att statusen för registreringen är tilldelad och  att enhets-ID visas.
+Du kan kontrol lera att den enskilda registrering som du skapade i enhets etablerings tjänsten användes. Navigera till din enhets etablerings tjänst instans i Azure Portal. Öppna registrerings informationen för den enskilda registrering som du har skapat. Observera att statusen för registreringen är tilldelad och att enhets-ID visas.
 
 ## <a name="next-steps"></a>Nästa steg
 

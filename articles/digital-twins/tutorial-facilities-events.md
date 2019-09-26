@@ -8,12 +8,12 @@ ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/23/2019
 ms.author: alinast
-ms.openlocfilehash: f598eecca2623c888e44f6171f12681f8e9c017b
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: fe2eb357ef89d70512e85db24d22f95cac1bd0ac
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219304"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300080"
 ---
 # <a name="tutorial-receive-notifications-from-your-azure-digital-twins-spaces-by-using-logic-apps"></a>Självstudier: Ta emot meddelanden från dina Azure Digital Twins-utrymmen med hjälp av Logic Apps
 
@@ -58,13 +58,13 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
 
 1. Ange ett **namn** för Event Grid-ämnet och välj **prenumeration**. Välj den **resursgrupp** som du använde eller skapade för din Digital Twins-instans samt **plats**. Välj **Skapa**. 
 
-    ![Skapa ett Event Grid-ämne](./media/tutorial-facilities-events/create-event-grid-topic.png)
+    [![Skapa ett event Grid-ämne](./media/tutorial-facilities-events/create-event-grid-topic.png)](./media/tutorial-facilities-events/create-event-grid-topic.png#lightbox)
 
 1. Gå till Event Grid-ämnet från resursgruppen, välj **Översikt** och kopiera värdet för **Ämnesslutpunkt** till en temporär fil. Du behöver webbadressen i nästa avsnitt. 
 
 1. Välj **Åtkomstnycklar** och kopiera **YOUR_KEY_1** och **YOUR_KEY_2** (nyckel 1 och nyckel 2) till en temporär fil. Du behöver dessa värden för att skapa slutpunkten i nästa avsnitt.
 
-    ![Event Grid-nycklar](./media/tutorial-facilities-events/event-grid-keys.png)
+    [![Event Grid nycklar](./media/tutorial-facilities-events/event-grid-keys.png)](./media/tutorial-facilities-events/event-grid-keys.png#lightbox)
 
 ### <a name="create-an-endpoint-for-the-event-grid-topic"></a>Skapa en slutpunkt för Event Grid-ämnet
 
@@ -101,7 +101,7 @@ I det här avsnittet konfigurerar du en [Event Grid](../event-grid/overview.md) 
 
    Det här kommandot skapar slutpunkten för Event Grid. 
 
-   ![Slutpunkter för Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)
+   [![Slut punkter för Event Grid](./media/tutorial-facilities-events/dotnet-create-endpoints.png)](./media/tutorial-facilities-events/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="notify-events-with-logic-apps"></a>Meddela händelser med Logic Apps
 
@@ -113,7 +113,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
 1. Ange ett **namn** för logikappresursen och välj sedan din **prenumeration**, din **resursgrupp** samt **plats**. Välj **Skapa**.
 
-    ![Skapa en resurs för en logikapp](./media/tutorial-facilities-events/create-logic-app.png)
+    [![Skapa en Logic Apps resurs](./media/tutorial-facilities-events/create-logic-app.png)](./media/tutorial-facilities-events/create-logic-app.png#lightbox)
 
 1. Öppna logikappresursen när den har distribuerats och öppna sedan fönsterrutan **Logic App Designer**. 
 
@@ -127,7 +127,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    c. Välj din Event Grid-resurs från listrutan för **Resursnamn**.
 
-   ![Fönstret Logic App Designer](./media/tutorial-facilities-events/logic-app-resource-event.png)
+   [![Fönstret Logic App Designer](./media/tutorial-facilities-events/logic-app-resource-event.png)](./media/tutorial-facilities-events/logic-app-resource-event.png#lightbox)
 
 1. Välj knappen **Nytt steg**.
 
@@ -159,7 +159,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
     Den här nyttolasten har fiktiva värden. Logic App använder den här exempelnyttolasten för att generera ett *schema*.
 
-    ![Logic Apps Parsa JSON-fönstret för Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)
+    [![Logic Apps parsa JSON-fönstret för Event Grid](./media/tutorial-facilities-events/logic-app-parse-json.png)](./media/tutorial-facilities-events/logic-app-parse-json.png#lightbox)
 
 1. Välj knappen **Nytt steg**.
 
@@ -171,7 +171,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    c. I den textrutan med **Välj ett värde** anger du `UdfCustom`.
 
-   ![Valda villkor](./media/tutorial-facilities-events/logic-app-condition.png)
+   [![Valda villkor](./media/tutorial-facilities-events/logic-app-condition.png)](./media/tutorial-facilities-events/logic-app-condition.png#lightbox)
 
 1. I fönstret **If true** (Om sant):
 
@@ -183,7 +183,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
    d. Under **Brödtext** i samma fönster anger du text som liknar detta: **Dålig luftkvalitet har identifierats i ett rum, och temperaturen behöver justeras**. Du kan utveckla detta med element från listan **Dynamiskt innehåll**.
 
-   ![Logic Apps-val för ”Skicka ett e-postmeddelande”](./media/tutorial-facilities-events/logic-app-send-email.png)
+   [![Logic Apps "Skicka ett e-postmeddelande"](./media/tutorial-facilities-events/logic-app-send-email.png)](./media/tutorial-facilities-events/logic-app-send-email.png#lightbox)
 
 1. Välj knappen **Spara** längst upp på fönsterrutan **Logic App Designer**.
 
@@ -191,7 +191,7 @@ Du kan använda [Azure Logic Apps](../logic-apps/logic-apps-overview.md)-tjänst
 
 Om några minuter bör du börja få e-postmeddelanden från den här Logic Apps-resursen. 
 
-   ![E-postmeddelande](./media/tutorial-facilities-events/logic-app-notification.png)
+   [![E-postavisering](./media/tutorial-facilities-events/logic-app-notification.png)](./media/tutorial-facilities-events/logic-app-notification.png#lightbox)
 
 Om du vill sluta få dessa e-postmeddelanden går du till din logikappresurs i portalen och väljer fönsterrutan **Översikt**. Välj **inaktivera**.
 

@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: 308eb90e7ae244442a603491044e90dc3b8d052a
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c2d4cae1689701704c866833c99ca616bbd01ec5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141153"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300667"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänst begränsningar i Azure Search
 De maximala gränserna för lagring, arbets belastningar och kvantiteter av index, dokument och andra objekt är beroende av om du [etablerar Azure Search](search-create-service-portal.md) på kostnads nivåer som är **kostnads fria**, **Basic**, **standard**eller **Storage** .
@@ -62,11 +62,13 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 ## <a name="document-limits"></a>Dokument gränser 
 
-Från och med oktober 2018 finns det inte längre några dokument gränser för nya tjänster som skapats på någon fakturerbar nivå (Basic, S1, S2, S3, S3 HD) i vilken region som helst. Även om de flesta regioner har haft obegränsade dokument antal sedan november/december 2017 var det fem regioner som fortsatte att införa dokument gränser. Beroende på när och var du skapade en Sök tjänst kanske du kör en tjänst som fortfarande omfattas av dokument gränser.
+Från och med oktober 2018 finns det inte längre några dokument gränser<sup>1</sup> för nya tjänster som skapats på någon fakturerbar nivå (Basic, S1, S2, S3, S3 HD) i vilken region som helst. Även om de flesta regioner har haft obegränsade dokument antal sedan november/december 2017 var det fem regioner som fortsatte att införa dokument gränser. Beroende på när och var du skapade en Sök tjänst kanske du kör en tjänst som fortfarande omfattas av dokument gränser.
 
 För att avgöra om din tjänst har dokument gränser, se användnings panelen på sidan Översikt för din tjänst. Antalet dokument är antingen obegränsat eller kan omfattas av en gräns som baseras på nivån.
 
   ![Användningsikonen](media/search-limits-quotas-capacity/portal-usage-tile.png)
+
+<sup>1</sup> även om det inte finns några begränsningar för vissa SKU-dokument, omfattas varje index fortfarande av en högsta säker gräns för att säkerställa stabiliteten för tjänsten. Den här gränsen kommer från Lucene. Varje Azure Search-dokument indexeras internt som ett eller flera Lucene-dokument. Antalet Lucene-dokument per Azure Search-dokument beror på det totala antalet element i komplexa samlings fält. Varje element indexeras som ett separat Lucene-dokument. Ett dokument med 3 element i ett komplext samlings fält indexeras till exempel som 4 Lucene-dokument-1 för själva dokumentet och 3 för elementen. Det maximala antalet Lucene-dokument är ungefär 25 000 000 000 per index.
 
 ### <a name="regions-previously-having-document-limits"></a>Regioner som tidigare hade dokument gränser
 

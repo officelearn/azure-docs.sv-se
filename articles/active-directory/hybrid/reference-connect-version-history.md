@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a875e028a38c085d45d062984764cd840983fc3
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 66e53298625e2388e102b5a4e835fe22a9c81a21
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212323"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314965"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -46,13 +46,8 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 ## <a name="14x0"></a>1.4. X. 0
 
 >[!IMPORTANT]
->Windows-datorer som registrerats som hybrid Azure AD-anslutna representeras i Azure AD som enhets objekt. Dessa enhets objekt kan användas för villkorlig åtkomst. Windows 10-datorer synkroniseras till molnet via Azure AD Connect och Windows-datorer på nivån i Windows registreras direkt med antingen AD FS eller sömlös enkel inloggning.
->
->Endast Windows 10-datorer med ett angivet userCertificate som kon figurer ATS av hybrid Azure AD Join kommer att synkroniseras med molnet genom att Azure AD Connect.  I tidigare versioner av Azure AD Connect det här kravet inte rigoröst tvingande, vilket resulterar i onödiga enhets objekt i Azure AD. Sådana enheter i Azure AD är alltid i vänte läge eftersom dessa datorer inte var avsedda att registreras med Azure AD.
->
->Den här versionen av Azure AD Connect synkroniserar bara Windows 10-datorer som är korrekt konfigurerade för att vara hybrid Azure AD-anslutna. Azure AD Connect bör aldrig synkronisera [Windows-enheter på detalj nivå](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices).  Alla enheter i Azure AD som synkroniserades tidigare kommer nu att tas bort från Azure AD.  Den här ändringen tar dock inte bort några Windows-enheter som har registrerats korrekt med Azure AD för Hybrid Azure AD-anslutning. 
->
->Vissa kunder kan se vissa eller alla sina Windows-enheter försvinner från Azure AD. Detta är inte en orsak till betänkligheter eftersom dessa enhets identiteter inte används av Azure AD under auktoriseringen för villkorlig åtkomst. Vissa kunder kan behöva [gå tillbaka till: Planera implementeringen](../../active-directory/devices/hybrid-azuread-join-plan.md) av hybrid Azure Active Directory för att få sina Windows-datorer registrerade korrekt och se till att sådana enheter helt kan delta i enhets-baserad villkorlig åtkomst. Om Azure AD Connect försöker ta bort [Windows-enheter på äldre nivå](../../active-directory/devices/hybrid-azuread-join-plan.md#windows-down-level-devices) är enheten inte den som skapades av [Microsoft-Workplace Join för MSI-versioner som inte är Windows 10-datorer](https://www.microsoft.com/download/details.aspx?id=53554) och som inte kan användas av någon annan Azure AD-funktion.  Om du ser borttagningen av dator-/enhets objekt i Azure AD som överskrider tröskelvärdet för export borttagning, rekommenderar vi att kunden tillåter dessa borttagningar att gå igenom.
+>Med den här versionen av Azure AD Connect kan vissa kunder se vissa eller alla sina Windows-enheter försvinner från Azure AD. Detta är inte en orsak till betänkligheter eftersom dessa enhets identiteter inte används av Azure AD under auktoriseringen för villkorlig åtkomst. Mer information finns i [förstå Azure AD Connect 1.4. xx. x enhets disappearnce](reference-connect-device-disappearance.md)
+
 
 ### <a name="release-status"></a>Versions status
 9/10/2019: Endast publicerat för automatisk uppgradering
@@ -63,7 +58,7 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 - Kunderna bör informeras om att de föråldrade WMI-slutpunkterna för MIIS_Service har tagits bort. Alla WMI-åtgärder bör nu utföras via PS-cmdletar.
 - Säkerhets förbättring genom återställning av begränsad delegering för AZUREADSSOACC-objekt
 - När du lägger till/redigerar en Synkroniseringsregel, om det finns attribut som används i regeln som finns i kopplings schemat men som inte har lagts till i anslutningen, så läggs attributen automatiskt till i anslutningen. Samma sak gäller för objekt typen som regeln påverkar. Om något läggs till i anslutningen markeras kopplingen för fullständig import vid nästa synkronisering.
-- Det finns inte längre stöd för att använda en företags administratör eller domän administratör som kopplings konto.
+- Det finns inte längre stöd för att använda en företags-eller domän administratör som anslutnings konto i nya AAD Connect-distributioner. Nuvarande AAD Connect-distributioner som använder en företags-eller domän administratör eftersom anslutnings kontot inte påverkas av den här versionen.
 - I Synkroniseringshanteraren körs en fullständig synkronisering vid skapande av regel/redigera/ta bort. En popup visas för alla regel ändringar som meddelar användaren om en fullständig import eller fullständig synkronisering kommer att köras.
 - Ytterligare åtgärder för att minska fel vid lösen ords fel till sidan anslutningar > Egenskaper > anslutning
 - En varning om utfasning har lagts till för Sync Service Manager på anslutnings egenskaper sidan. Den här varningen meddelar användaren att ändringar ska göras via guiden AADC.

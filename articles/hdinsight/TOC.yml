@@ -219,7 +219,7 @@
               href: ./hdinsight-release-notes.md
             - name: Fullständig versionsinformation för HDInsight 3.6
               href: ./hdinsight-release-notes-archive.md
-        - name: VANLIGA FRÅGOR OCH SVAR
+        - name: Vanliga frågor och svar (FAQ)
           href: ./hdinsight-faq.md
         - name: Migrera till detaljerad rollbaserad åtkomst för klusterkonfigurationer
           href: ./hdinsight-migrate-granular-access-cluster-configurations.md

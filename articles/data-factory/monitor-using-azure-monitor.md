@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 9aa8cda7d65d97d831a218be393581d0e5bf3a4a
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910192"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300566"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Varna och övervaka data fabriker med hjälp av Azure Monitor
 
@@ -407,7 +407,7 @@ Log Analytics ärver schemat från övervakaren med följande undantag:
     | $. Properties. Anteckningar | Anteckningar | Dynamisk |
     | $. Properties. Inleveranstransport | Indata | Dynamisk |
     | $. Properties. Utdataparametrar | Output | Dynamisk |
-    | $. Properties. Fel. felkod | ErrorCode | int |
+    | $. Properties. Fel. felkod | Felkod | int |
     | $. Properties. Fel. meddelande | ErrorMessage | sträng |
     | $. Properties. Fels | Fel | Dynamisk |
     | $. Properties. Föregångarna | Föregångarna | Dynamisk |
@@ -504,8 +504,6 @@ När du installerar Azure Data Factory Analytics skapas en standard uppsättning
 - ADF-statistik-3) maximal pipeline kör varaktighet
 
 ![Fönster med "arbets böcker (förhands granskning)" och "AzureDataFactoryAnalytics" markerat](media/data-factory-monitor-oms/monitor-oms-image6.png)
-
-![Grafisk representation av körningar och fel](media/data-factory-monitor-oms/monitor-oms-image7.png)
 
 Du kan visualisera föregående mått, titta på frågorna bakom dessa mått, redigera frågorna, skapa aviseringar och vidta andra åtgärder.
 

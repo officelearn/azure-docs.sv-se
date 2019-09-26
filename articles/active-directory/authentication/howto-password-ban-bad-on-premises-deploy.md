@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5ad8f24c9d23e9412a4f6e4e5f97692bba2c0c39
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: cfa8e8c570b47eb6437ed6ca6a53f6c8188e18a2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268674"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314982"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Distribuera Azure AD-lösenordsskydd
 
@@ -50,7 +50,7 @@ När funktionen har körts i gransknings läge under en rimlig period, kan du v�
    > Det krävs ett obligatoriskt krav för att distribuera Azure AD-lösenord även om domänkontrollanten kan ha utgående direkt Internet anslutning. 
    >
 * Alla datorer där Azure AD Password Protection-proxytjänsten ska installeras måste ha .NET 4,7 installerat.
-  .NET 4,7 bör redan vara installerat på en helt uppdaterad Windows Server. Om detta inte är fallet kan du hämta och köra installations programmet som finns i [.NET Framework 4,7 Offline Installer för Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
+  .NET 4,7 bör redan vara installerat på en helt uppdaterad Windows Server. Vid behov kan du hämta och köra installations programmet som finns i [.NET Framework 4,7 Offline Installer för Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Alla datorer, inklusive domänkontrollanter, som har Azure AD Password Protection-komponenter installerade måste ha Universal C-körningsmiljön installerat. Du kan få körnings miljön genom att se till att du har alla uppdateringar från Windows Update. Eller så kan du hämta det i ett OS-enskilt uppdaterings paket. Mer information finns i [Uppdatera för Universal C runtime i Windows](https://support.microsoft.com/help/2999226/update-for-uniersal-c-runtime-in-windows).
 * Nätverks anslutningen måste finnas mellan minst en domänkontrollant i varje domän och minst en server som är värd för-proxyservern för lösen ords skydd. Den här anslutningen måste tillåta att domänkontrollanten får åtkomst till RPC Endpoint Mapper port 135 och RPC-serverport på proxyservern. Som standard är RPC-Server porten en dynamisk RPC-port, men den kan konfigureras att [använda en statisk port](#static).
 * Alla datorer där Azure AD Password Protection-proxytjänsten ska installeras måste ha nätverks åtkomst till följande slut punkter:
@@ -59,9 +59,19 @@ När funktionen har körts i gransknings läge under en rimlig period, kan du v�
     | --- | --- |
     |`https://login.microsoftonline.com`|Autentiseringsbegäranden|
     |`https://enterpriseregistration.windows.net`|Funktioner för lösen ords skydd i Azure AD|
+ 
+* Krav för Microsoft Azure AD Connect agent Updater
 
-  Du måste också aktivera nätverks åtkomst för den uppsättning portar och URL: er som anges i [installations procedurerna för programproxy-miljön](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment). De här konfigurations stegen krävs för att Microsoft Azure AD Connect agent Updater-tjänsten ska kunna fungera (den här tjänsten installeras sida vid sida med proxy-tjänsten). Vi rekommenderar inte att du installerar Azure AD-proxy för lösen ords skydd och programproxy sida vid sida på samma dator, på grund av inkompatibiliteter mellan versionerna av Microsoft Azure AD Connect agent Updateer-programvaran.
-* Alla datorer som är värdar för proxyservern för lösen ords skydd måste konfigureras för att ge domänkontrollanter möjlighet att logga in på proxy-tjänsten. Detta styrs via privilegie tilldelningen "åtkomst till den här datorn från nätverket".
+  Uppdaterings tjänsten för Microsoft Azure AD Connect Agent installeras sida vid sida med Azure AD-proxyn för lösen ords skydd. Ytterligare konfiguration krävs för att Microsoft Azure AD Connect agent Updater-tjänsten ska kunna fungera:
+
+  Om din miljö använder en HTTP-proxyserver måste du följa rikt linjerna som anges i [arbeta med befintliga lokala proxyservrar](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-configure-connectors-with-proxy-servers).
+
+  Nätverks åtkomst måste vara aktiverat för den uppsättning portar och URL: er som anges i [installations procedurerna för programproxy-miljön](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#prepare-your-on-premises-environment).
+
+  > [!WARNING]
+  > Azure AD-proxy för lösen ords skydd och programproxy installera olika versioner av tjänsten Microsoft Azure AD Connect agent Updater, vilket är orsaken till innehållet i programproxyn. Dessa olika versioner är inkompatibla när de installeras sida vid sida, så vi rekommenderar att du inte installerar Azure AD Password Protection proxy och Application Proxy sida vid sida på samma dator.
+
+* Alla datorer som är värdar för proxyservern för lösen ords skydd måste konfigureras för att ge domänkontrollanter möjlighet att logga in på proxy-tjänsten. Den här funktionen styrs via privilegie tilldelningen "åtkomst till den här datorn från nätverket".
 * Alla datorer som är värdar för proxy-tjänsten för lösen ords skydd måste konfigureras för att tillåta utgående TLS 1,2 HTTP-trafik.
 * Ett globalt administratörs konto för att registrera-proxyservern för lösen ords skydd och-skogar med Azure AD.
 * Ett konto som har Active Directory domän administratörs behörighet i skogs rots domänen för att registrera Windows Server Active Directory-skogen med Azure AD.
@@ -211,7 +221,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
 
    Registrering av Active Directorys skogen krävs bara en gång i skogens livs längd. Därefter utför domänkontrollantens agenter i skogen automatiskt alla andra nödvändiga underhåll. När `Register-AzureADPasswordProtectionForest` körningen har lyckats för en skog lyckades ytterligare anrop av cmdleten men är onödigt.
 
-   För `Register-AzureADPasswordProtectionForest` att lyckas måste minst en domänkontrollant som kör Windows Server 2012 eller senare vara tillgänglig i proxy serverns domän. Men DC-agenten behöver inte installeras på några domänkontrollanter innan det här steget.
+   För `Register-AzureADPasswordProtectionForest` att lyckas måste minst en domänkontrollant som kör Windows Server 2012 eller senare vara tillgänglig i proxy serverns domän. Program varan för DC-agenten behöver inte installeras på några domänkontrollanter innan det här steget.
 
 1. Konfigurera proxy-tjänsten för lösen ords skydd för att kommunicera via en HTTP-proxy.
 
@@ -286,7 +296,7 @@ Det finns två installations program som krävs för lösen ords skydd i Azure A
 
    Installera DC-agenttjänsten för lösen ords skydd med hjälp `AzureADPasswordProtectionDCAgentSetup.msi` av paketet.
 
-   Program varu installationen eller avinstallationen kräver en omstart. Detta beror på att lösen ords filter-DLL: er bara läses in eller tas bort av en omstart.
+   Program varu installationen eller avinstallationen kräver en omstart. Detta krav beror på att lösen ords filter-DLL: er bara läses in eller tas bort av en omstart.
 
    Du kan installera DC-agenttjänsten på en dator som ännu inte är en domänkontrollant. I det här fallet startar och körs tjänsten men förblir inaktiv tills datorn uppgraderas till en domänkontrollant.
 
@@ -304,7 +314,7 @@ Om det finns en nyare version av proxy-programvaran för lösen ords skydd i Azu
 
 Du behöver inte avinstallera den aktuella versionen av proxy-programvaran. installations programmet kommer att utföra en uppgradering på plats. Ingen omstart krävs vid uppgradering av proxy-programvaran. Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, `AzureADPasswordProtectionProxySetup.exe /quiet`till exempel:.
 
-Proxyagenten stöder automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard och kan aktive ras eller inaktive `Set-AzureADPasswordProtectionProxyConfiguration` ras med cmdleten. Den aktuella inställningen kan frågas med hjälp `Get-AzureADPasswordProtectionProxyConfiguration` av cmdleten. Microsoft rekommenderar att den automatiska uppgraderingen lämnas aktive rad.
+Proxyagenten stöder automatisk uppgradering. Vid automatisk uppgradering används tjänsten Microsoft Azure AD Connect agent Updateer, som installeras sida vid sida med proxy-tjänsten. Automatisk uppgradering är aktiverat som standard och kan aktive ras eller inaktive `Set-AzureADPasswordProtectionProxyConfiguration` ras med cmdleten. Den aktuella inställningen kan frågas med hjälp `Get-AzureADPasswordProtectionProxyConfiguration` av cmdleten. Microsoft rekommenderar att inställningen för automatisk uppgradering alltid är aktive rad.
 
 `Get-AzureADPasswordProtectionProxy` Cmdleten kan användas för att fråga program varu versionen för alla installerade proxy-agenter i en skog.
 
@@ -312,7 +322,7 @@ Proxyagenten stöder automatisk uppgradering. Vid automatisk uppgradering använ
 
 När en nyare version av Azure AD Password Protection DC Agent-programvaran är tillgänglig utförs uppgraderingen genom att den senaste versionen av `AzureADPasswordProtectionDCAgentSetup.msi` program varu paketet körs. Den senaste versionen av program varan finns på [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=57071).
 
-Du behöver inte avinstallera den aktuella versionen av program varan för DC-agenten. installations programmet kommer att utföra en uppgradering på plats. En omstart krävs alltid vid uppgradering av DC Agent-programvaran – Detta orsakas av kärnan i Windows. 
+Du behöver inte avinstallera den aktuella versionen av program varan för DC-agenten. installations programmet kommer att utföra en uppgradering på plats. En omstart krävs alltid vid uppgradering av DC Agent-programvaran – detta krav orsakas av Windows-funktioner. 
 
 Program uppgraderingen kan automatiseras med hjälp av standard-MSI-procedurer, `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`till exempel:.
 

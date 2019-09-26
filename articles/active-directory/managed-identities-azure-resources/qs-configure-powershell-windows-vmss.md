@@ -1,6 +1,6 @@
 ---
-title: Hur du konfigurerar hanterade identiteter för Azure-resurser på en virtuell datorskalning Sets med PowerShell
-description: Anvisningar för att konfigurera ett system och användartilldelade hanterade identiteter på en virtuell datorskalning ange steg för steg med hjälp av PowerShell.
+title: Konfigurera hanterade identiteter för Azure-resurser på en skalnings uppsättning för virtuella datorer med hjälp av PowerShell
+description: Stegvisa instruktioner för hur du konfigurerar ett system och användare som tilldelats hanterade identiteter på en virtuell dators skalnings uppsättning med hjälp av PowerShell.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,83 +12,81 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/27/2017
+ms.date: 09/26/2019
 ms.author: markvi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4917720af2396b68ccd36cc0410c9acbbba2d9b2
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 5fa3100cae9b1a2c9ca320776cc357f3720b3473
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60304595"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310002"
 ---
-# <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Konfigurera hanterade identiteter för Azure-resurser på VM-skalningsuppsättningar med hjälp av PowerShell
+# <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Konfigurera hanterade identiteter för Azure-resurser i skalnings uppsättningar för virtuella datorer med hjälp av PowerShell
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering utan autentiseringsuppgifter i din kod. 
+Hanterade identiteter för Azure-resurser tillhandahåller Azure-tjänster med en automatiskt hanterad identitet i Azure Active Directory. Du kan använda den här identiteten för att autentisera till en tjänst som stöder Azure AD-autentisering, utan att ha autentiseringsuppgifter i din kod. 
 
-I den här artikeln med hjälp av PowerShell, du lära dig hur du utför de hanterade identiteterna för Azure-resurser på en VM-skalningsuppsättning:
-- Aktivera och inaktivera systemtilldelade hanterad identitet på en VM-skalningsuppsättning
-- Lägga till och ta bort en Användartilldelad hanterad identitet på en VM-skalningsuppsättning
+I den här artikeln använder du PowerShell för att lära dig hur du utför de hanterade identiteterna för Azure-resurser på en skalnings uppsättning för virtuella datorer:
+- Aktivera och inaktivera den systemtilldelade hanterade identiteten på en skal uppsättning för virtuell dator
+- Lägga till och ta bort en användardefinierad hanterad identitet på en virtuell dators skalnings uppsättning
 
 [!INCLUDE [az-powershell-update](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-- Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska den [skillnaden mellan en systemtilldelade och hanteras av användare Användartilldelad identitet](overview.md#how-does-it-work)** .
+- Om du är bekant med hanterade identiteter för Azure-resurser kan du kolla den [översiktsavsnittet](overview.md). **Se till att granska [skillnaden mellan en systemtilldelad och användare hanterad identitet](overview.md#how-does-it-work)** .
 - Om du inte redan har ett Azure-konto [registrerar du dig för ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du fortsätter.
-- Ditt konto måste följande Azure rollbaserad åtkomstkontroll tilldelningar för att utföra vilka hanteringsåtgärder i den här artikeln:
+- För att utföra hanterings åtgärderna i den här artikeln måste ditt konto ha följande Azure Role-baserade åtkomst kontroll tilldelningar:
 
     > [!NOTE]
-    > Inga ytterligare Azure AD directory rolltilldelningar krävs.
+    > Inga ytterligare Azure AD Directory-roll tilldelningar krävs.
 
-    - [Virtuell Datordeltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) att skapa en virtuell datorskalning och aktivera och ta bort systemtilldelade hanteras och/eller användartilldelade hanterad identitet från en skalningsuppsättning för virtuell dator.
-    - [Hanterad Identitetsdeltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) roll för att skapa en Användartilldelad hanterad identitet.
-    - [Hanterade Identitetsoperatör](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll att tilldela och ta bort en Användartilldelad hanterad identitet från och till en VM-skalningsuppsättning.
+    - [Virtuell dator deltagare](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) för att skapa en skalnings uppsättning för virtuella datorer och aktivera och ta bort systemtilldelad hanterad och/eller användardefinierad hanterad identitet från en virtuell dators skalnings uppsättning.
+    - Rollen [hanterad identitets deltagare](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) för att skapa en användardefinierad hanterad identitet.
+    - [Hanterad identitet operatörs](/azure/role-based-access-control/built-in-roles#managed-identity-operator) roll för att tilldela och ta bort en användardefinierad hanterad identitet från och till en skalnings uppsättning för virtuella datorer.
 - Installera [den senaste versionen av Azure PowerShell](/powershell/azure/install-az-ps) om du inte redan har gjort. 
 
-## <a name="system-assigned-managed-identity"></a>Systemtilldelade hanterad identitet
+## <a name="system-assigned-managed-identity"></a>Systemtilldelad hanterad identitet
 
-I det här avsnittet får du lära dig hur du aktiverar och ta bort en automatiskt genererad hanterad identitet med hjälp av Azure PowerShell.
+I det här avsnittet får du lära dig hur du aktiverar och tar bort en systemtilldelad hanterad identitet med hjälp av Azure PowerShell.
 
-### <a name="enable-system-assigned-managed-identity-during-the-creation-of-an-azure-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet när du skapar en Azure VM-skalningsuppsättning
+### <a name="enable-system-assigned-managed-identity-during-the-creation-of-an-azure-virtual-machine-scale-set"></a>Aktivera systemtilldelad hanterad identitet under skapandet av en skalnings uppsättning för virtuella Azure-datorer
 
-Skapa en VM-skalningsuppsättning med systemtilldelade hanterade identiteten aktiverat:
+Så här skapar du en skalnings uppsättning för virtuella datorer med den systemtilldelade hanterade identiteten aktive rad:
 
-1. Referera till *exempel 1* i den [New AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet referensartikeln om du skapar en VM-skalningsuppsättning som anges med en automatiskt genererad hanterad identitet.  Lägg till parameter `-IdentityType SystemAssigned` till den `New-AzVmssConfig` cmdlet:
+1. Se *exempel 1* i referens artikeln [New-AzVmssConfig-](/powershell/module/az.compute/new-azvmssconfig) cmdlet för att skapa en skalnings uppsättning för virtuella datorer med en systemtilldelad hanterad identitet.  Lägg till parametern `-IdentityType SystemAssigned` `New-AzVmssConfig` i cmdleten:
 
     ```powershell
     $VMSS = New-AzVmssConfig -Location $Loc -SkuCapacity 2 -SkuName "Standard_A0" -UpgradePolicyMode "Automatic" -NetworkInterfaceConfiguration $NetCfg -IdentityType SystemAssigned`
     ```
-> [!NOTE]
-> Du kan etablera hanterade identiteter för Azure-resurser VM-skalningsuppsättningen tillägget, men snart upphör att gälla. Vi rekommenderar att du använder Azure Instance Metadata identitet slutpunkten för autentisering. Mer information finns i [sluta använda VM-tillägget och börja använda Azure IMDS slutpunkten för autentisering](howto-migrate-vm-extension.md).
 
 
-## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Aktivera systemtilldelade hanterad identitet på en befintlig Azure VM-skalningsuppsättning
 
-Om du vill aktivera en automatiskt genererad hanterad identitet på en befintlig Azure VM-skalningsuppsättning:
+## <a name="enable-system-assigned-managed-identity-on-an-existing-azure-virtual-machine-scale-set"></a>Aktivera systemtilldelad hanterad identitet på en befintlig skalnings uppsättning för virtuella Azure-datorer
 
-1. Logga in på Azure med `Connect-AzAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på virtuella datorns skalningsuppsättning, till exempel ”virtuell Datordeltagare”:
+Om du behöver aktivera en systemtilldelad hanterad identitet på en befintlig skalnings uppsättning för virtuella Azure-datorer:
+
+1. Logga in på Azure med `Connect-AzAccount`. Använd ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorns skalnings uppsättning. Kontrol lera också att ditt konto tillhör en roll som ger dig Skriv behörighet för den virtuella datorns skalnings uppsättning, till exempel "virtuell dator deltagare":
 
    ```powershell
    Connect-AzAccount
    ```
 
-2. Första hämta VM-skalningsuppsättningen egenskaper med hjälp av den [ `Get-AzVmss` ](/powershell/module/az.compute/get-azvmss) cmdlet. Om du vill aktivera en automatiskt genererad hanterad identitet, Använd den `-IdentityType` växla den [uppdatering AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet:
+2. Hämta först egenskaperna för skalnings uppsättningen för den virtuella [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) datorn med cmdleten. Om du vill aktivera en systemtilldelad hanterad identitet använder `-IdentityType` du växeln på cmdleten [Update-AzVmss](/powershell/module/az.compute/update-azvmss) :
 
    ```powershell
    Update-AzVmss -ResourceGroupName myResourceGroup -Name -myVmss -IdentityType "SystemAssigned"
    ```
 
-> [!NOTE]
-> Du kan etablera hanterade identiteter för Azure-resurser VM-skalningsuppsättningen tillägget, men snart upphör att gälla. Vi rekommenderar att du använder Azure Instance Metadata identitet slutpunkten för autentisering. Mer information finns i [migrera från VM-tillägget till Azure IMDS slutpunkten för autentisering](howto-migrate-vm-extension.md).
 
-### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Inaktivera systemtilldelade hanterad identitet från en Azure VM-skalningsuppsättning
 
-Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver systemtilldelade hanterad identitet, men fortfarande ha användartilldelade hanterade identiteter, använder du följande cmdlet:
+### <a name="disable-the-system-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Inaktivera den systemtilldelade hanterade identiteten från en skalnings uppsättning för virtuella Azure-datorer
 
-1. Logga in på Azure med `Connect-AzAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller den virtuella datorn. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på virtuella datorns skalningsuppsättning, till exempel ”virtuell Datordeltagare”:
+Om du har en skalnings uppsättning för virtuella datorer som inte längre behöver den systemtilldelade hanterade identiteten men fortfarande behöver användare tilldelade hanterade identiteter, använder du följande cmdlet:
+
+1. Logga in på Azure med `Connect-AzAccount`. Använd ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorn. Kontrol lera också att ditt konto tillhör en roll som ger dig Skriv behörighet för den virtuella datorns skalnings uppsättning, till exempel "virtuell dator deltagare":
 
 2. Kör följande cmdlet:
 
@@ -96,7 +94,7 @@ Om du har en skalningsuppsättning för virtuella datorer som inte längre behö
    Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "UserAssigned"
    ```
 
-Om du har en skalningsuppsättning för virtuella datorer som inte längre behöver systemtilldelade hanterad identitet och har inga hanterade användartilldelade identiteter, använder du följande kommandon:
+Om du har en skalnings uppsättning för virtuella datorer som inte längre behöver systemtilldelad hanterad identitet och den inte har några användarspecifika hanterade identiteter, använder du följande kommandon:
 
 ```powershell
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
@@ -104,23 +102,23 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
 
 ## <a name="user-assigned-managed-identity"></a>Användartilldelad hanterad identitet
 
-Du lär dig hur du lägger till och ta bort en hanterad Användartilldelad identitet från en VM-skalningsuppsättning med Azure PowerShell i det här avsnittet.
+I det här avsnittet får du lära dig hur du lägger till och tar bort en användardefinierad hanterad identitet från en skalnings uppsättning för virtuella datorer med hjälp av Azure PowerShell.
 
-### <a name="assign-a-user-assigned-managed-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Tilldela en hanterad Användartilldelad identitet under skapandet av en Azure VM-skalningsuppsättning
+### <a name="assign-a-user-assigned-managed-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Tilldela en användardefinierad hanterad identitet när en skalnings uppsättning för virtuella Azure-datorer skapas
 
-Skapa en ny VM-skalningsuppsättning med en Användartilldelad hanterad identitet stöds inte för närvarande via PowerShell. Se nästa avsnitt om hur du lägger till en hanterad Användartilldelad identitet i en befintlig VM-skalningsuppsättning. Kom tillbaka om för att få uppdateringar.
+Det finns för närvarande inte stöd för att skapa en ny skalnings uppsättning för virtuella datorer med en användardefinierad hanterad identitet via PowerShell. Se nästa avsnitt om hur du lägger till en användardefinierad hanterad identitet i en befintlig skalnings uppsättning för virtuella datorer. Kom tillbaka om för att få uppdateringar.
 
-### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-virtual-machine-scale-set"></a>Tilldela en hanterad Användartilldelad identitet till en befintlig Azure VM-skalningsuppsättning
+### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-virtual-machine-scale-set"></a>Tilldela en användardefinierad hanterad identitet till en befintlig skalnings uppsättning för virtuella Azure-datorer
 
-Så här tilldelar du en hanterad Användartilldelad identitet till en befintlig Azure VM-skalningsuppsättning:
+Så här tilldelar du en användardefinierad hanterad identitet till en befintlig skalnings uppsättning för virtuella Azure-datorer:
 
-1. Logga in på Azure med `Connect-AzAccount`. Använd ett konto som är associerad med Azure-prenumerationen som innehåller virtuella datorns skalningsuppsättning. Kontrollera också att ditt konto tillhör en roll som ger dig skrivbehörighet på virtuella datorns skalningsuppsättning, till exempel ”virtuell Datordeltagare”:
+1. Logga in på Azure med `Connect-AzAccount`. Använd ett konto som är associerat med den Azure-prenumeration som innehåller den virtuella datorns skalnings uppsättning. Kontrol lera också att ditt konto tillhör en roll som ger dig Skriv behörighet för den virtuella datorns skalnings uppsättning, till exempel "virtuell dator deltagare":
 
    ```powershell
    Connect-AzAccount
    ```
 
-2. Första hämta VM-skalningsuppsättningen egenskaper med hjälp av den `Get-AzVM` cmdlet. Om du vill tilldela en hanterad Användartilldelad identitet till virtuella datorns skalningsuppsättning, använder du sedan den `-IdentityType` och `-IdentityID` växla den [uppdatering AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet. Ersätt `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` med dina egna värden.
+2. Hämta först egenskaperna för skalnings uppsättningen för den virtuella `Get-AzVM` datorn med cmdleten. Tilldela sedan en användardefinierad hanterad identitet till den virtuella datorns skal uppsättning genom att använda `-IdentityType` och `-IdentityID` -växeln i cmdleten [Update-AzVmss](/powershell/module/az.compute/update-azvmss) . Ersätt `<VM NAME>` ,`<SUBSCRIPTION ID>`, ,`USER ASSIGNED ID2`,med dina egna värden. `<USER ASSIGNED ID1>` `<RESROURCE GROUP>`
 
    [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
@@ -128,19 +126,19 @@ Så här tilldelar du en hanterad Användartilldelad identitet till en befintlig
    Update-AzVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"
    ```
 
-### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort en hanterad Användartilldelad identitet från en Azure VM-skalningsuppsättning
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Ta bort en användardefinierad hanterad identitet från en skalnings uppsättning för virtuella Azure-datorer
 
-Om din skalningsuppsättning för virtuell dator har flera användartilldelade hanterade identiteter, kan du ta bort alla utom den sista som använder följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VIRTUAL MACHINE SCALE SET NAME>` med dina egna värden. Den `<USER ASSIGNED IDENTITY NAME>` är användartilldelade hanterade identitetens namnegenskapen som fortfarande på virtuella datorns skalningsuppsättning. Den här informationen finns i identitetsavsnittet i VM-skaluppsättning som anges med `az vmss show`:
+Om den virtuella datorns skalnings uppsättning har flera användarspecifika hanterade identiteter kan du ta bort alla utom den sista med hjälp av följande kommandon. Ersätt parametervärdena `<RESOURCE GROUP>` och `<VIRTUAL MACHINE SCALE SET NAME>` med dina egna värden. `<USER ASSIGNED IDENTITY NAME>` Är egenskapen namn för den användare som tilldelats den hanterade identitet som ska finnas kvar på den virtuella datorns skal uppsättning. Den här informationen finns i avsnittet identitet i skalnings uppsättningen för den virtuella datorn med `az vmss show`hjälp av:
 
 ```powershell
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType UserAssigned -IdentityID "<USER ASSIGNED IDENTITY NAME>"
 ```
-Om din skalningsuppsättning för virtuell dator inte har en automatiskt genererad hanterad vill identitet och du ta bort alla användartilldelade hanterade identiteter från den, använder du följande kommando:
+Om din skalnings uppsättning för den virtuella datorn inte har en systemtilldelad hanterad identitet och du vill ta bort alla tilldelade hanterade identiteter från den, använder du följande kommando:
 
 ```powershell
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType None
 ```
-Om din VM-skalningsuppsättningen har båda systemtilldelade och användartilldelade hanterade identiteter kan du ta bort alla användartilldelade hanterade identiteter genom att växla mellan att använda endast systemtilldelade hanterad identitet.
+Om den virtuella datorns skalnings uppsättning har både systemtilldelade och användarspecifika hanterade identiteter, kan du ta bort alla användare tilldelade hanterade identiteter genom att växla till Använd endast systemtilldelad hanterad identitet.
 
 ```powershell 
 Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "SystemAssigned"
@@ -149,10 +147,10 @@ Update-AzVmss -ResourceGroupName myResourceGroup -Name myVmss -IdentityType "Sys
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hanterade identiteter för översikt över Azure-resurser](overview.md)
-- Fullständig Azure skapandet virtuella datorn Snabbstarter, finns här:
+- De fullständiga snabb starterna för att skapa virtuella Azure-datorer finns i:
   
-  - [Skapa en Windows-dator med PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
-  - [Skapa en Linux-dator med PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
+  - [Skapa en virtuell Windows-dator med PowerShell](../../virtual-machines/windows/quick-create-powershell.md) 
+  - [Skapa en virtuell Linux-dator med PowerShell](../../virtual-machines/linux/quick-create-powershell.md) 
 
 
 

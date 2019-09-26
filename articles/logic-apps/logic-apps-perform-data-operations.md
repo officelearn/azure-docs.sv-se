@@ -10,12 +10,12 @@ manager: carmonm
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 1b0a7473f1cdfb6aa3533b261979da7c18605a16
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 9271a659e18ab969e801fd8974b05984e11e783c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71179620"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309397"
 ---
 # <a name="perform-data-operations-in-azure-logic-apps"></a>Utföra data åtgärder i Azure Logic Apps
 
@@ -175,55 +175,93 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **Skapa CSV-tabell**
 
 ### <a name="customize-table-format"></a>Anpassa tabell format
 
-Som standard är egenskapen **columns** inställd på att automatiskt skapa tabell kolumner baserat på mat ris objekt. 
-
-Följ dessa steg om du vill ange anpassade rubriker och värden:
+Som standard är egenskapen **columns** inställd på att automatiskt skapa tabell kolumner baserat på mat ris objekt. Följ dessa steg om du vill ange anpassade rubriker och värden:
 
 1. Öppna listan **kolumner** och välj **anpassad**.
 
 1. I egenskapen **rubrik** anger du den anpassade rubrik text som ska användas i stället.
 
-1. I egenskapen **Key** anger du det anpassade värde som ska användas i stället.
+1. I egenskapen **Value** anger du det anpassade värde som ska användas i stället.
 
-Om du vill referera till och redigera värdena från matrisen kan du använda `@item()` funktionen i åtgärds-JSON-definitionen **Skapa CSV-tabell** .
+Om du vill returnera värden från matrisen kan du använda [ `item()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **Skapa CSV-tabell** . Du kan `For_each` [ användafunktionenienslinga.`items()` ](../logic-apps/workflow-definition-language-functions-reference.md#items)
 
-1. I verktygsfältet designer väljer du **kodvyn**. 
-
-1. Redigera åtgärds `inputs` avsnittet i kod redigeraren för att anpassa den tabell som du vill ha.
-
-Det här exemplet returnerar bara kolumnvärdena och inte rubrikerna från `columns` matrisen genom att `header` ange egenskapen till ett tomt värde och avreferera varje `value` egenskap:
-
-```json
-"Create_CSV_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "CSV",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Här är resultatet som det här exemplet returnerar:
+Anta till exempel att du vill att tabell kolumner som bara har egenskaps värden och inte egenskaps namnen från en matris. Om du bara vill returnera dessa värden följer du de här stegen för att arbeta i design läge eller i kodvyn. Här är resultatet som det här exemplet returnerar:
 
 ```text
-Results from Create CSV table action:
-
 Apples,1
 Oranges,2
 ```
 
-I designern visas åtgärden **Skapa CSV-tabell** nu på det här sättet:
+#### <a name="work-in-designer-view"></a>Arbeta i design läge
 
-!["Skapa CSV-tabell" utan kolumn rubriker](./media/logic-apps-perform-data-operations/create-csv-table-no-column-headers.png)
+Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde** kan du referera till varje mat ris egenskap som du vill ha. Varje rad under **värde** returnerar alla värden för den angivna mat ris egenskapen och blir en kolumn i tabellen.
+
+1. Under **värde**, på varje rad som du vill ha, klickar du i redigerings rutan så att listan med dynamiskt innehåll visas.
+
+1. I listan med dynamiskt innehåll väljer du **uttryck**.
+
+1. I uttrycks redigeraren anger du det här uttrycket som anger det värde för mat ris egenskapen som du vill ha och väljer **OK**.
+
+   `item()?['<array-property-name>']`
+
+   Exempel:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Uttryck för att referera till egenskap](./media/logic-apps-perform-data-operations/csv-table-expression.png)
+
+1. Upprepa föregående steg för varje mat ris egenskap som du vill ha. När du är klar ser din åtgärd ut som i det här exemplet:
+
+   ![Färdiga uttryck](./media/logic-apps-perform-data-operations/finished-csv-expression.png)
+
+1. Du löser uttryck i fler beskrivande versioner genom att växla till kodvyn och tillbaka till design läge och sedan öppna den minimerade åtgärden igen:
+
+   Åtgärden **Skapa CSV-tabell** visas nu som i det här exemplet:
+
+   ![Åtgärden "Skapa CSV-tabell" med matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
+
+#### <a name="work-in-code-view"></a>Arbeta i kodvyn
+
+I åtgärdens JSON-definition, i `columns` matrisen, `header` anger du egenskapen till en tom sträng. Referera till `value` varje mat ris egenskap som du vill använda för varje egenskap.
+
+1. I verktygsfältet designer väljer du **kodvyn**.
+
+1. I kod redigeraren i åtgärdens `columns` matris lägger du till egenskapen tom `header` och det här `value` uttrycket för varje kolumn med mat ris värden som du vill ha:
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   Exempel:
+
+   ```json
+   "Create_CSV_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "CSV",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Växla tillbaka till designvyn och öppna den minimerade åtgärden igen.
+
+   Åtgärden **Skapa CSV-tabell** visas nu som i det här exemplet, och uttrycken har matchats till fler beskrivande versioner:
+
+   ![Åtgärden "Skapa CSV-tabell" med matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-csv-expression.png)
 
 Mer information om den här åtgärden i den underliggande arbets flödes definitionen finns i [tabell åtgärden](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 
@@ -288,55 +326,93 @@ Om du föredrar att arbeta i kodvyn kan du Kopiera exemplet **skapa HTML-tabell*
 
 ### <a name="customize-table-format"></a>Anpassa tabell format
 
-Som standard är egenskapen **columns** inställd på att automatiskt skapa tabell kolumner baserat på mat ris objekt. 
-
-Följ dessa steg om du vill ange anpassade rubriker och värden:
+Som standard är egenskapen **columns** inställd på att automatiskt skapa tabell kolumner baserat på mat ris objekt. Följ dessa steg om du vill ange anpassade rubriker och värden:
 
 1. Öppna listan **kolumner** och välj **anpassad**.
 
 1. I egenskapen **rubrik** anger du den anpassade rubrik text som ska användas i stället.
 
-1. I egenskapen **Key** anger du det anpassade värde som ska användas i stället.
+1. I egenskapen **Value** anger du det anpassade värde som ska användas i stället.
 
-Om du vill referera till och redigera värdena från matrisen kan du använda `@item()` funktionen i instruktionen för att **skapa HTML-tabellens JSON-** definition.
+Om du vill returnera värden från matrisen kan du använda [ `item()` funktionen](../logic-apps/workflow-definition-language-functions-reference.md#item) med åtgärden **skapa HTML-tabell** . Du kan `For_each` [ användafunktionenienslinga.`items()` ](../logic-apps/workflow-definition-language-functions-reference.md#items)
 
-1. I verktygsfältet designer väljer du **kodvyn**. 
-
-1. Redigera åtgärds `inputs` avsnittet i kod redigeraren för att anpassa den tabell som du vill ha.
-
-Det här exemplet returnerar bara kolumnvärdena och inte rubrikerna från `columns` matrisen genom att `header` ange egenskapen till ett tomt värde och avreferera varje `value` egenskap:
-
-```json
-"Create_HTML_table": {
-   "inputs": {
-      "columns": [
-         { 
-            "header": "",
-            "value": "@item()?['Description']"
-         },
-         { 
-            "header": "",
-            "value": "@item()?['Product_ID']"
-         }
-      ],
-      "format": "HTML",
-      "from": "@variables('myJSONArray')"
-   }
-}
-```
-
-Här är resultatet som det här exemplet returnerar:
+Anta till exempel att du vill att tabell kolumner som bara har egenskaps värden och inte egenskaps namnen från en matris. Om du bara vill returnera dessa värden följer du de här stegen för att arbeta i design läge eller i kodvyn. Här är resultatet som det här exemplet returnerar:
 
 ```text
-Results from Create HTML table action:
-
-Apples    1
-Oranges   2
+Apples,1
+Oranges,2
 ```
 
-I designern visas åtgärden **skapa HTML-tabell** nu på det här sättet:
+#### <a name="work-in-designer-view"></a>Arbeta i design läge
 
-!["Skapa HTML-tabell" utan kolumn rubriker](./media/logic-apps-perform-data-operations/create-html-table-no-column-headers.png)
+Behåll kolumnen **rubrik** tom i åtgärden. På varje rad i kolumnen **värde** kan du referera till varje mat ris egenskap som du vill ha. Varje rad under **värde** returnerar alla värden för den angivna egenskapen och blir en kolumn i tabellen.
+
+1. Under **värde**, på varje rad som du vill ha, klickar du i redigerings rutan så att listan med dynamiskt innehåll visas.
+
+1. I listan med dynamiskt innehåll väljer du **uttryck**.
+
+1. I uttrycks redigeraren anger du det här uttrycket som anger det värde för mat ris egenskapen som du vill ha och väljer **OK**.
+
+   `item()?['<array-property-name>']`
+
+   Exempel:
+
+   * `item()?['Description']`
+   * `item()?['Product_ID']`
+
+   ![Uttryck för att referera till egenskap](./media/logic-apps-perform-data-operations/html-table-expression.png)
+
+1. Upprepa föregående steg för varje mat ris egenskap som du vill ha. När du är klar ser din åtgärd ut som i det här exemplet:
+
+   ![Färdiga uttryck](./media/logic-apps-perform-data-operations/finished-html-expression.png)
+
+1. Du löser uttryck i fler beskrivande versioner genom att växla till kodvyn och tillbaka till design läge och sedan öppna den minimerade åtgärden igen:
+
+   Åtgärden **skapa HTML-tabell** visas nu som i det här exemplet:
+
+   ![Åtgärden "skapa HTML-tabell" med matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
+
+#### <a name="work-in-code-view"></a>Arbeta i kodvyn
+
+I åtgärdens JSON-definition, i `columns` matrisen, `header` anger du egenskapen till en tom sträng. Referera till `value` varje mat ris egenskap som du vill använda för varje egenskap.
+
+1. I verktygsfältet designer väljer du **kodvyn**.
+
+1. I kod redigeraren i åtgärdens `columns` matris lägger du till egenskapen tom `header` och det här `value` uttrycket för varje kolumn med mat ris värden som du vill ha:
+
+   ```json
+   {
+      "header": "",
+      "value": "@item()?['<array-property-name>']"
+   }
+   ```
+
+   Exempel:
+
+   ```json
+   "Create_HTML_table": {
+      "inputs": {
+         "columns": [
+            { 
+               "header": "",
+               "value": "@item()?['Description']"
+            },
+            { 
+               "header": "",
+               "value": "@item()?['Product_ID']"
+            }
+         ],
+         "format": "HTML",
+         "from": "@variables('myJSONArray')"
+      }
+   }
+   ```
+
+1. Växla tillbaka till designvyn och öppna den minimerade åtgärden igen.
+
+   Åtgärden **skapa HTML-tabell** visas nu som i det här exemplet, och uttrycken har matchats till fler beskrivande versioner:
+
+   ![Åtgärden "skapa HTML-tabell" med matchade uttryck och inga rubriker](./media/logic-apps-perform-data-operations/resolved-html-expression.png)
 
 Mer information om den här åtgärden i den underliggande arbets flödes definitionen finns i [tabell åtgärden](../logic-apps/logic-apps-workflow-actions-triggers.md#table-action).
 

@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: d6c5d881c5ca6eee14835ab0ec10bff2749299dc
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b0c6d80bfa7a7ae27e5dc6565b0d15b94eb7cdd3
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68502335"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71310607"
 ---
 I följande tabell visas kvot information som är speciell för Azure Service Bus meddelande tjänster. För information om priser och andra kvoter för Service Bus, se [Service Bus prissättning](https://azure.microsoft.com/pricing/details/service-bus/).
 
 | Kvotnamn | Omfång | Anteckningar | Value |
 | --- | --- | --- | --- |
 | Maximalt antal Basic-eller standard-namnområden per Azure-prenumeration |Namnrymd |Efterföljande förfrågningar om fler Basic-eller standard-namnområden avvisas av Azure Portal. |100|
-| Maximalt antal Premium-namnområden per Azure-prenumeration |Namnrymd |Efterföljande begär Anden om ytterligare Premium-namnområden avvisas av portalen. |50 |
+| Maximalt antal Premium-namnområden per Azure-prenumeration |Namnrymd |Efterföljande begär Anden om ytterligare Premium-namnområden avvisas av portalen. |100 |
 | Köns-eller ämnes storlek |Entitet |Definieras när kön eller ämnet skapas. <br/><br/> Efterföljande inkommande meddelanden avvisas och ett undantag tas emot av den anropande koden. |1, 2, 3, 4 GB eller 5 GB.<br /><br />I Premium-SKU: n och standard-SKU: n med [partitionering](/azure/service-bus-messaging/service-bus-partitioning) aktive rad är den maximala kön eller ämnes storleken 80 GB. |
 | Antalet samtidiga anslutningar i ett namn område |Namnrymd |Efterföljande begär Anden om ytterligare anslutningar avvisas och ett undantag tas emot av den anropande koden. REST-åtgärder räknas inte mot samtidiga TCP-anslutningar. |NetMessaging 1 000.<br /><br />AMQP: 5 000. |
 | Antal samtidiga mottagnings begär Anden för en kö, ett ämne eller en prenumerations enhet |Entitet |Efterföljande mottagnings begär Anden avvisas och ett undantag tas emot av den anropande koden. Den här kvoten gäller för det kombinerade antalet samtidiga mottagnings åtgärder för alla prenumerationer på ett ämne. |5,000 |

@@ -15,12 +15,12 @@ ms.date: 04/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba51e10503a3aab7afa2e9639453448d03b91852
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 26b00670ad93cceab8f570d3a5f56bd095fa80b5
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170469"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315260"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Hantera användar konto etablering för företags program i Azure Portal
 
@@ -88,7 +88,6 @@ Om etableringen aktive ras för första gången för ett program aktiverar du tj
 Markera kryss rutan **Rensa aktuell status och starta om synkronisering** och välj **Spara** till:
 
 * Stoppa etablerings tjänsten
-* Dumpa cachelagrade data om vilka konton som Azure AD hanterar
 * Starta om tjänsterna och kör den första cykeln igen
 
 Med det här alternativet kan administratörer starta distributions processen för etablering igen.

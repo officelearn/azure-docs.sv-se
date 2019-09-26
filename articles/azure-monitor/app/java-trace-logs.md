@@ -1,6 +1,6 @@
 ---
-title: Utforska Java spårningsloggar i Azure Application Insights | Microsoft Docs
-description: Sök Log4J eller Logback spårningar i Application Insights
+title: Utforska Java trace-loggar i Azure Application Insights | Microsoft Docs
+description: Sök Log4J-eller logback-spårningar i Application Insights
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -12,27 +12,45 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: 2703c97dc78983ef294b3aa50f7ace879c96f66d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ac9bd6021b5fcec36e3aadfdf4c30020971f3be5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061231"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299255"
 ---
-# <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java spårningsloggar i Application Insights
-Om du använder Logback eller Log4J (version 1.2 eller v2.0) för att analysera och du kan ha spårningsloggarna skickas automatiskt till Application Insights kan du utforska och söka i dem.
+# <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java trace-loggar i Application Insights
+Om du använder logback eller Log4J (v 1.2 eller v 2.0) för spårning kan du låta spårnings loggarna skickas automatiskt till Application Insights där du kan utforska och söka efter dem.
+
+## <a name="using-the-application-insights-java-agent"></a>Använda Application Insights Java-agenten
+
+Du kan konfigurera Application Insights Java-agenten att automatiskt avbilda dina loggar genom att aktivera funktionen i `AI-Agent.xml` filen:
+
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<ApplicationInsightsAgent>
+   <Instrumentation>
+      <BuiltIn enabled="true">
+         <Logging enabled="true" />
+      </BuiltIn>
+   </Instrumentation>
+   <AgentLogger />
+</ApplicationInsightsAgent>
+```
+
+Alternativt kan du följa anvisningarna nedan.
 
 ## <a name="install-the-java-sdk"></a>Installera Java SDK
 
-Följ anvisningarna för att installera [Application Insights SDK för Java][java], om du inte redan har gjort som.
+Följ anvisningarna för att installera [Application Insights SDK för Java][java], om du inte redan har gjort det.
 
-## <a name="add-logging-libraries-to-your-project"></a>Lägg till loggning bibliotek i projektet
+## <a name="add-logging-libraries-to-your-project"></a>Lägg till logg bibliotek i projektet
 *Välj lämplig metod för ditt projekt.*
 
 #### <a name="if-youre-using-maven"></a>Om du använder Maven …
-Om ditt projekt redan har konfigurerats att använda Maven för bygg sammanfogar du något av följande kodfragment kod i pom.xml-filen.
+Om ditt projekt redan har kon figurer ATS för att använda Maven för build, sammanfoga ett av följande kod avsnitt i din Pom. XML-fil.
 
-Uppdatera sedan projektberoenden för att få de binärfiler som hämtats.
+Uppdatera sedan projekt beroendena för att få de hämtade binärfilerna.
 
 *Logback*
 
@@ -47,7 +65,7 @@ Uppdatera sedan projektberoenden för att få de binärfiler som hämtats.
     </dependencies>
 ```
 
-*Log4J v2.0*
+*Log4J v 2.0*
 
 ```XML
 
@@ -60,7 +78,7 @@ Uppdatera sedan projektberoenden för att få de binärfiler som hämtats.
     </dependencies>
 ```
 
-*Log4J v1.2*
+*Log4J v 1.2*
 
 ```XML
 
@@ -74,9 +92,9 @@ Uppdatera sedan projektberoenden för att få de binärfiler som hämtats.
 ```
 
 #### <a name="if-youre-using-gradle"></a>Om du använder Gradle …
-Om projektet har redan ställts in till med Gradle, lägger du till något av följande rader till den `dependencies` i build.gradle-filen:
+Om ditt projekt redan har kon figurer ATS för att använda Gradle för Build lägger du till någon av följande rader `dependencies` i gruppen i filen build. Gradle:
 
-Uppdatera sedan projektberoenden för att få de binärfiler som hämtats.
+Uppdatera sedan projekt beroendena för att få de hämtade binärfilerna.
 
 **Logback**
 
@@ -85,30 +103,30 @@ Uppdatera sedan projektberoenden för att få de binärfiler som hämtats.
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-logback', version: '2.0.+'
 ```
 
-**Log4J v2.0**
+**Log4J v 2.0**
 
 ```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j2', version: '2.0.+'
 ```
 
-**Log4J v1.2**
+**Log4J v 1.2**
 
 ```
     compile group: 'com.microsoft.azure', name: 'applicationinsights-logging-log4j1_2', version: '2.0.+'
 ```
 
 #### <a name="otherwise-"></a>Eller …
-Följ riktlinjerna för att manuellt installera Application Insights Java SDK, ladda ned den JAR-filen (efter anländer till Maven Central klickar du på ”jar-länken i nedladdningar) för lämpliga loggbilaga och Lägg till hämtade loggbilaga JAR-filen i projektet.
+Följ rikt linjerna för att installera Application Insights Java SDK manuellt, Hämta burken (när du har tillkommer till Central sidan i maven klickar du på länken ' jar ' i nedladdnings avsnittet) för lämplig tillägg och lägger till den nedladdade tilläggs jar i projektet.
 
-| loggaren | Ladda ned | Bibliotek |
+| Loggare | Ladda ned | Bibliotek |
 | --- | --- | --- |
-| Logback |[Logback loggbilaga Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
-| Log4J v2.0 |[Log4J v2 loggbilaga Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
-| Log4j v1.2 |[Log4J v1.2 loggbilaga Jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
+| Logback |[Logback tilläggsprogram-jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
+| Log4J v 2.0 |[Log4J v2-tilläggsprogram](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |
+| Log4j v 1.2 |[Log4J v 1.2 tillfogar jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j1_2%22) |applicationinsights-logging-log4j1_2 |
 
 
-## <a name="add-the-appender-to-your-logging-framework"></a>Lägg till loggbilaga i ditt loggningsramverk
-Om du vill börja hämta spårningar, sammanfoga det relevanta kodavsnittet till konfigurationsfilen Log4J eller Logback: 
+## <a name="add-the-appender-to-your-logging-framework"></a>Lägg till tillägget i loggnings ramverket
+Du börjar hämta spår genom att slå samman det relevanta kodfragmentet till Log4J-eller logback-konfigurations filen: 
 
 *Logback*
 
@@ -123,7 +141,7 @@ Om du vill börja hämta spårningar, sammanfoga det relevanta kodavsnittet till
     </root>
 ```
 
-*Log4J v2.0*
+*Log4J v 2.0*
 
 ```XML
 
@@ -139,7 +157,7 @@ Om du vill börja hämta spårningar, sammanfoga det relevanta kodavsnittet till
     </Configuration>
 ```
 
-*Log4J v1.2*
+*Log4J v 1.2*
 
 ```XML
 
@@ -153,17 +171,17 @@ Om du vill börja hämta spårningar, sammanfoga det relevanta kodavsnittet till
     </root>
 ```
 
-Application Insights-appenders kan refereras genom alla konfigurerad loggare och inte nödvändigtvis rot-loggaren (som visas i kodexemplen ovan).
+Application Insights tillägg kan refereras till av en konfigurerad loggare och inte nödvändigt vis av rot loggaren (som visas i kod exemplen ovan).
 
-## <a name="explore-your-traces-in-the-application-insights-portal"></a>Utforska dina spårningar i Application Insights-portalen
-Nu när du har konfigurerat ditt projekt för att skicka loggspårningar till Application Insights kan du visa och söka efter dessa spår i Application Insights-portalen i den [Search] [ diagnostic] bladet.
+## <a name="explore-your-traces-in-the-application-insights-portal"></a>Utforska spårningarna i Application Insightss portalen
+Nu när du har konfigurerat projektet för att skicka spår till Application Insights kan du Visa och söka igenom dessa spårningar i Application Insights portalen på [Sök][diagnostic] bladet.
 
-Undantag som skickats via tangenttryckningar visas på portalen som Undantagstelemetri.
+Undantag som skickas via loggar visas i portalen som telemetri för undantag.
 
-![Öppna sökning i Application Insights-portalen](./media/java-trace-logs/01-diagnostics.png)
+![Öppna Sök i Application Insights-portalen](./media/java-trace-logs/01-diagnostics.png)
 
 ## <a name="next-steps"></a>Nästa steg
-[Diagnostiksökning][diagnostic]
+[Diagnostisk sökning][diagnostic]
 
 <!--Link references-->
 

@@ -12,19 +12,19 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: lagayhar
-ms.openlocfilehash: 1074495f5ac9112b6ce4f67ad2d81ee57b28e720
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 5bef5a6037c6eb29d0dc48e313958e2d243904eb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012701"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299575"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Använda micrometer med Azure Application Insights Java SDK
 Micrometer program övervakning mäter mått för JVM program kod och låter dig exportera data till dina favorit övervaknings system. I den här artikeln får du lära dig hur du använder micrometer med Application Insights för både våren boot-och non-våren Boot-program.
 
 ## <a name="using-spring-boot-15x"></a>Använda våren Boot 1.5 x
 Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil: 
-* [Application Insights fjäder-start-starter](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter)1.1.0-beta eller senare
+* [Application Insights fjäder-start-](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/azure-application-insights-spring-boot-starter) starter 2.5.0 eller senare
 * Micrometer Azure Registry 1.1.0 eller senare
 * [Micrometer våren Legacy](https://micrometer.io/docs/ref/spring/1.5) 1.1.0 eller senare (den här backports koden för AutoConfig i våren-ramverket).
 * [ApplicationInsights-resurs](../../azure-monitor/app/create-new-resource.md )
@@ -37,7 +37,7 @@ Steg
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
-        <version>1.1.0-BETA</version>
+        <version>2.5.0</version>
     </dependency>
 
     <dependency>
@@ -64,7 +64,7 @@ Steg
 Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil:
 
 * Application Insights fjäder-start-starter 2.1.2 eller senare
-* Azure-våren-Boot-Metrics-starter 2.1.5 eller högre  
+* Azure-våren-Boot-Metrics-starter 2.0.7 eller senare
 * [Application Insights resurs](../../azure-monitor/app/create-new-resource.md )
 
 Steg:
@@ -75,21 +75,21 @@ Steg:
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
-          <version>2.1.6</version>
+          <version>2.0.7</version>
     </dependency>
     ```
 1. Uppdatera program. properties-eller YML-filen med Application Insights Instrumentation-nyckeln med hjälp av följande egenskap:
 
-     `management.metrics.export.azuremonitor.instrumentation-key=<your-instrumentation-key-here>`
+     `azure.application-insights.instrumentation-key=<your-instrumentation-key-here>`
 3. Skapa ditt program och kör
 4. Ovanstående bör få dig att köra med föraggregerade mått som samlas in automatiskt till Azure Monitor. Mer information om hur du finjusterar Application Insights våren Boot starter finns i [README på GitHub](https://github.com/Microsoft/azure-spring-boot/releases/latest).
 
 Standard mått:
 
 *    Automatiskt konfigurerade mått för Tomcat, JVM, logback-mått, Log4J-mått, drift tids mått, processor mått och FileDescriptorMetrics.
-*    Om t. ex. Netflix-hystrix finns på klass Sök väg får du även dessa mått. 
+*    Om t. ex. Netflix hystrix finns på klass Sök väg får du även dessa mått. 
 *    Följande mått kan vara tillgängliga genom att lägga till respektive bönor. 
-        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcaseCache, Jcache)     
+        - CacheMetrics (CaffeineCache, EhCache2, GuavaCache, HazelcastCache, JCache)     
         - DataBaseTableMetrics 
         - HibernateMetrics 
         - JettyMetrics 
@@ -121,10 +121,8 @@ Så här stänger du av automatisk insamling av mått:
 ## <a name="use-micrometer-with-non-spring-boot-web-applications"></a>Använda micrometer med icke-våren start webb program
 
 Lägg till följande beroenden i din Pom. XML-eller build. gradle-fil:
- 
-* [Program Insight Core 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights/2.2.0) eller senare
-* [Application Insights webb 2.2.0](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web/2.2.0) eller senare
-* [Registrera webb filter](https://docs.microsoft.com/azure/application-insights/app-insights-java-get-started)
+
+* Application Insights Web Auto 2.5.0 eller senare
 * Micrometer Azure Registry 1.1.0 eller senare
 * [Application Insights resurs](../../azure-monitor/app/create-new-resource.md )
 
@@ -141,14 +139,41 @@ Steg:
         
         <dependency>
             <groupId>com.microsoft.azure</groupId>
-            <artifactId>applicationinsights-web</artifactId>
-            <version>2.2.0</version>
-        </dependency
+            <artifactId>applicationinsights-web-auto</artifactId>
+            <version>2.5.0</version>
+        </dependency>
      ```
 
-2. Lägg Application Insights. xml i mappen resurser
+2. Lägg `ApplicationInsights.xml` till fil i mappen resurser:
 
-    Exempel på servlet-klass (genererar ett timer-mått):
+    ```XML
+    <?xml version="1.0" encoding="utf-8"?>
+    <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
+    
+       <!-- The key from the portal: -->
+       <InstrumentationKey>** Your instrumentation key **</InstrumentationKey>
+    
+       <!-- HTTP request component (not required for bare API) -->
+       <TelemetryModules>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebRequestTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebSessionTrackingTelemetryModule"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.modules.WebUserTrackingTelemetryModule"/>
+       </TelemetryModules>
+    
+       <!-- Events correlation (not required for bare API) -->
+       <!-- These initializers add context data to each event -->
+       <TelemetryInitializers>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationIdTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebOperationNameTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebSessionTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserTelemetryInitializer"/>
+          <Add type="com.microsoft.applicationinsights.web.extensibility.initializers.WebUserAgentTelemetryInitializer"/>
+       </TelemetryInitializers>
+    
+    </ApplicationInsights>
+    ```
+
+3. Exempel på servlet-klass (genererar ett timer-mått):
 
     ```Java
         @WebServlet("/hello")
@@ -187,7 +212,7 @@ Steg:
     
     ```
 
-      Exempel på konfigurations klass:
+4. Exempel på konfigurations klass:
 
     ```Java
          @WebListener
@@ -252,5 +277,5 @@ Lägg till följande bindnings kod i konfigurations filen:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om micrometer hittar du i den officiella [micrometer-dokumentationen](https://micrometer.io/docs).
-* Mer information om våren på Azure hittar du i den officiella [vår dokumentation om Azure](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).
+* Mer information om micrometer finns i den officiella [micrometer-dokumentationen](https://micrometer.io/docs).
+* Mer information om våren på Azure finns i den officiella [vår dokumentation om Azure](https://docs.microsoft.com/java/azure/spring-framework/?view=azure-java-stable).

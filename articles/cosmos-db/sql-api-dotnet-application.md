@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: tutorial
-ms.date: 06/24/2019
+ms.date: 09/24/2019
 ms.author: sngun
-ms.openlocfilehash: 9824e1468604763834e37abe94290d68d81077ab
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.openlocfilehash: abff58be25a23c783f476dc849e0d6fa97e9eed2
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020114"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299360"
 ---
-# <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudier: Utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK 
+# <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Självstudier: Utveckla ett ASP.NET Core MVC-webbprogram med Azure Cosmos DB med hjälp av .NET SDK
 
 > [!div class="op_single_selector"]
 > * [NET](sql-api-dotnet-application.md)
@@ -24,9 +24,8 @@ ms.locfileid: "70020114"
 > * [Python](sql-api-python-application.md)
 > * [Xamarin](mobile-apps-with-xamarin.md)
 
+Den här självstudien beskriver hur du använder Azure Cosmos DB för lagring av och åtkomst till data från ett ASP.NET MVC-program som hanteras på Azure. I den här självstudien använder du .NET SDK v3. Följande bild visar den webb sida som du skapar med hjälp av exemplet i den här artikeln:
 
-Den här självstudien beskriver hur du använder Azure Cosmos DB för lagring av och åtkomst till data från ett ASP.NET MVC-program som hanteras på Azure. I den här självstudien använder du .NET SDK v3. Följande bild visar den webbplats som du kommer att skapa med hjälp av exemplet i den här artikeln:
- 
 ![Skärm bild av MVC-webbappen för att göra-listan som skapats i den här självstudien – guiden för ASP NET Core MVC-steg](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-image01.png)
 
 Om du inte har tid att slutföra självstudien kan du ladda ned det fullständiga exempelprojektet från [GitHub][GitHub].
@@ -34,194 +33,195 @@ Om du inte har tid att slutföra självstudien kan du ladda ned det fullständig
 Den här självstudiekursen omfattar:
 
 > [!div class="checklist"]
+>
 > * Skapa ett Azure Cosmos-konto
 > * Skapa en ASP.NET Core MVC-app
-> * Ansluta appen till Azure Cosmos DB 
-> * Utföra CRUD-åtgärder på data
+> * Ansluta appen till Azure Cosmos DB
+> * Utföra åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) för data
 
 > [!TIP]
 > Den här självstudien förutsätter att du har tidigare erfarenhet av att använda ASP.NET Core MVC och Azure App Service. Om du är nybörjare på ASP.NET Core eller de [verktyg](#prerequisites)som krävs, rekommenderar vi att du hämtar det fullständiga exempelprojektet från [GitHub][GitHub], lägger till de nödvändiga NuGet-paketen och kör det. När du skapar projektet kan du läsa den här artikeln för att få information om koden i projektets sammanhang.
 
-## <a name="prerequisites"></a>Förhandskrav 
+## <a name="prerequisites"></a>Förhandskrav
 
-Innan du följer anvisningarna i den här artikeln bör du se till att du har följande resurser:
+Se till att du har följande resurser innan du följer anvisningarna i den här artikeln:
 
-* **Ett aktivt Azure-konto:** Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
+* Ett aktivt Azure-konto. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
   [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-* [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
+* Visual Studio 2019. [!INCLUDE [cosmos-db-emulator-vs](../../includes/cosmos-db-emulator-vs.md)]  
 
-Alla skärm dum par i den här artikeln har gjorts med Microsoft Visual Studio Community 2019. Om ditt system är konfigurerat med en annan version kan det hända att skärmbilder och alternativ inte ser riktigt likadana ut, men om ovanstående krav är uppfyllda ska lösningen fungera.
+Alla skärm dum par i den här artikeln är från Microsoft Visual Studio Community 2019. Om du använder en annan version kanske dina skärmar och alternativ inte matchar helt. Lösningen bör fungera om du uppfyller kraven.
 
 ## <a name="create-an-azure-cosmos-account"></a>Steg 1: Skapa ett Azure Cosmos-konto
 
-Vi börjar med att skapa ett Azure Cosmos-konto. Om du redan har ett Azure Cosmos DB SQL API-konto eller använder Azure Cosmos DB-emulatorn för den här självstudien kan du hoppa över och gå vidare till avsnittet [Skapa ett nytt ASP.NET MVC-program](#create-a-new-mvc-application).
+Vi börjar med att skapa ett Azure Cosmos-konto. Om du redan har ett Azure Cosmos DB SQL API-konto eller om du använder Azure Cosmos DB-emulatorn går du [vidare till steg 2: Skapa ett nytt ASP.NET MVC-](#create-a-new-mvc-application)program.
 
 [!INCLUDE [create-dbaccount](../../includes/cosmos-db-create-dbaccount.md)]
 
 [!INCLUDE [keys](../../includes/cosmos-db-keys.md)]
 
-I nästa avsnitt skapar du ett nytt ASP.NET Core MVC-program. 
+I nästa avsnitt skapar du ett nytt ASP.NET Core MVC-program.
 
 ## <a name="create-a-new-mvc-application"></a>Steg 2: Skapa ett nytt ASP.NET Core MVC-program
 
-1. I Visual Studio öppnar du menyn **Arkiv**, väljer **Nytt** och sedan **Projekt**. Dialogrutan **Nytt projekt** visas.
+1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
 
-2. I fönstret **nytt projekt** använder du kryss rutan **Sök efter mallar** för att söka efter "webb" och väljer sedan **ASP.net Core webb program**. 
+1. I **skapa ett nytt projekt**, leta upp och välj **ASP.net Core webb program** för C#. Välj **Nästa** för att fortsätta.
 
    ![Skapa ett nytt ASP.NET Core webb program projekt](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-new-project-dialog.png)
 
-3. I rutan **Namn** skriver du namnet på projektet. I den här självstudiekursen används namnet ”todo”. Om du väljer att använda något annat än det här namnet kan du, när den här kursen pratar om att göra-namnområdet, justera de angivna kod exemplen så att du använder det som du har namngett ditt program. 
+1. I **Konfigurera ditt nya projekt**namnger du *projektet och väljer* **skapa**.
 
-4. Välj **Bläddra** för att navigera till mappen där du vill skapa projektet. Välj **Skapa**. 
+1. I **skapa en ny ASP.net Core webb program**väljer du **webb program (modell-Visa-kontrollant)** . Fortsätt genom att välja **skapa** .
 
-5. Dialog rutan **skapa en ny ASP.net Core webb program** visas. I listan Mallar väljer du **webb program (modell-Visa-kontrollant)** .
+   Visual Studio skapar ett tomt MVC-program.
 
-6. Välj **skapa** och låt Visual Studio göra ramverk runt den tomma ASP.net Core MVC-mallen. 
-
-7. När Visual Studio har skapat det formaterade MVC-programmet har du ett tomt ASP.NET-program som du kan köra lokalt.
+1. Välj **Felsök** > **Starta fel sökning** eller F5 för att köra ASP.net-programmet lokalt.
 
 ## <a name="add-nuget-packages"></a>Steg 3: Lägg till Azure Cosmos DB NuGet-paketet i projektet
 
 Nu när vi har flest den ASP.NET Core MVC Framework-kod som vi behöver för den här lösningen ska vi lägga till de NuGet-paket som krävs för att ansluta till Azure Cosmos DB.
 
-1. Azure Cosmos DB .NET SDK paketeras och distribueras som ett NuGet-paket. Hämta NuGet-paketet i Visual Studio med hjälp av NuGet-pakethanteraren i Visual Studio genom att högerklicka på projektet i **Solution Explorer** och sedan välja **Hantera NuGet-paket**.
-   
-   ![Skärm bild av de högerklickna alternativen för webb program projektet i Solution Explorer, med hantera NuGet-paket markerade.](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-manage-nuget.png)
-   
-2. Dialogrutan **Hantera NuGet-paket** öppnas. I rutan för att **Bläddra** för NuGet skriver du **Microsoft.Azure.Cosmos**. Installera paketet **Microsoft. Azure. Cosmos** från resultatet. Den hämtar och installerar Azure Cosmos DB-paketet och dess beroenden. Välj **Jag accepterar** i fönstret **licens godkännande** för att slutföra installationen.
-   
-   Du kan även installera NuGet-paketet med hjälp av Package Manager-konsolen. Om du vill göra det går du till menyn **Verktyg**, väljer **NuGet-pakethanteraren** och därefter **Packet Manager-konsolen**. Skriv följande kommando i prompten:
-   
-   ```bash
-   Install-Package Microsoft.Azure.Cosmos
-   ```        
+1. I **Solution Explorer**högerklickar du på projektet och väljer **Hantera NuGet-paket**.
 
-3. När paketet har installerats ska ditt Visual Studio-projekt innehålla biblioteks referensen till Microsoft. Azure. Cosmos.
+1. I **NuGet Package Manager**söker du efter och väljer **Microsoft. Azure. Cosmos**. Välj **Installera**.
+
+   ![Installera NuGet-paket](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-nuget.png)
+
+   Visual Studio laddar ned och installerar Azure Cosmos DB-paketet och dess beroenden.
+
+   Du kan också använda **Package Manager-konsolen** för att installera NuGet-paketet. Det gör du genom att välja **verktyg** > **NuGet Package Manager** > Package Manager-**konsolen**. Skriv följande kommando i prompten:
+
+   ```ps
+   Install-Package Microsoft.Azure.Cosmos
+   ```
   
 ## <a name="set-up-the-mvc-application"></a>Steg 4: Konfigurera ASP.NET Core MVC-appen
 
-Nu lägger vi till modellerna, vyerna och styrenheterna till det här MVC-programmet:
-
-* [Lägga till en modell](#add-a-model).
-* [Lägga till en styrenhet](#add-a-controller).
-* [Lägga till vyer](#add-views).
+Nu ska vi lägga till modeller, vyer och styrenheter för det här MVC-programmet.
 
 ### <a name="add-a-model"></a> Lägga till en modell
 
-1. I **Solution Explorer** högerklickar du på mappen **Modeller**, väljer **Lägg till** och sedan **Klass**. Dialogrutan **Lägg till nytt objekt** visas.
+1. I **Solution Explorer**högerklickar du på mappen **modeller** , väljer **Lägg till** > **klass**.
 
-1. Namnge din nya klass **Item.cs** och välj **Lägg till**. 
+1. I **Lägg till nytt objekt**namnger du den nya klassen *Item.cs* och väljer **Lägg till**.
 
-1. Ersätt sedan koden i klassen "Item.cs" med följande kod:
+1. Ersätt innehållet i *Item.cs* -klassen med följande kod:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
-   
-   De data som lagras i Azure Cosmos DB skickas via anslutningen och lagras som JSON. Om du vill styra hur objekten serialiseras/deserialiseras av JSON.NET kan du använda attributet **JsonProperty** som visas i **objekt** klassen som du skapade. Du kan inte bara styra formatet på egenskaps namnet som går in i JSON. du kan också byta namn på .NET-egenskaperna som du gjorde med egenskapen slutförd. 
+
+Azure Cosmos DB använder JSON för att flytta och lagra data. Du kan använda `JsonProperty` attributet för att styra hur JSON ska serialisera och deserialisera objekt. `Item` Klassen`JsonProperty` visar attributet. Den här koden styr formatet på egenskaps namnet som går till JSON. Den byter också namn på .NET-egenskapen `Completed`.
 
 ### <a name="add-views"></a>Lägg till vyer
 
-Nu skapar vi följande tre vyer: 
+Nu ska vi skapa följande tre vyer.
 
-* [Lägg till en listobjektvy](#AddItemIndexView).
-* [Lägg till en ny objektsvy](#AddNewIndexView).
-* [Lägg till en objektredigeringsvy](#AddEditIndexView).
+* Lägg till en vy för List objekt
+* Lägg till en ny objekts vy
+* Lägga till vyn Redigera objekt
 
 #### <a name="AddItemIndexView"></a>Lägg till en listobjektvy
 
-1. I **Solution Explorer** expanderar du mappen **Vyer** och högerklickar på den tomma **objektmapp** som Visual Studio skapade när du lade till **ItemController** tidigare. Klicka på **Lägg till** och sedan på **Vy**.
-   
-   ![Skärm bild av Solution Explorer som visar objekt-mappen som Visual Studio skapade med kommandot Lägg till vy markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view.png)
+1. I **Solution Explorer**högerklickar du på mappen **vyer** och väljer **Lägg till** > **ny mapp**. Namnge *objektet*Folder.
 
-2. I dialogrutan **Lägg till vy** uppdaterar du följande värden:
-   
-   * I rutan **Vynamn** skriver du ***Index***.
-   * I rutan**Mall** väljer du ***Lista***.
-   * I rutan **Modellklass** väljer du ***Objekt (todo.Models)***.
-   * Skriv ***~/Views/Shared/_Layout.cshtml*** i rutan på layoutsidan.
-     
-   ![Skärm bild som visar dialog rutan Lägg till vy](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-view-dialog.png)
+1. Högerklicka på mappen tomt **objekt** och välj sedan **Lägg till** > **vy**.
 
-3. När du har lagt till de här värdena väljer du **Lägg till** och låter Visual Studio skapa en ny mallvy. När det är klart öppnas den cshtml-fil som har skapats. Du kan stänga den filen i Visual Studio eftersom du återkommer till den senare.
+1. I **Lägg till MVC-vy**anger du följande värden:
+
+   * I **visnings namn**anger du *index*.
+   * I **mall**väljer du **lista**.
+   * I **modell klass**väljer du **objekt (att göra. Modeller)** .
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout.cshtml*.
+
+   ![Skärm bild som visar dialog rutan Lägg till MVC-vy](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png)
+
+1. När du har lagt till de här värdena väljer du **Lägg till** och låter Visual Studio skapa en ny mallvy.
+
+När du är färdig öppnar Visual Studio den *cshtml* -fil som skapas. Du kan stänga filen i Visual Studio. Vi kommer tillbaka till den senare.
 
 #### <a name="AddNewIndexView"></a>Lägg till en ny objektsvy
 
 På ett liknande sätt som du skapade en vy för listobjekt skapar du en ny vy för att skapa objekt med hjälp av följande steg:
 
-1. I **Solution Explorer** högerklickar du på mappen **Item** igen, väljer **Lägg till** och sedan **Vy**.
+1. I **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till** > **vy**.
 
-1. I dialogrutan **Lägg till vy** uppdaterar du följande värden:
-   
-   * I rutan **Vynamn** skriver du ***Skapa***.
-   * I rutan**Mall** väljer du ***Skapa***.
-   * I rutan **Modellklass** väljer du ***Objekt (todo.Models)***.
-   * Skriv ***~/Views/Shared/_Layout.cshtml*** i rutan på layoutsidan.
+1. I **Lägg till MVC-vy**gör du följande ändringar:
+
+   * Skriv *skapa*i **vynamn**.
+   * I **mall**väljer du **skapa**.
+   * I **modell klass**väljer du **objekt (att göra. Modeller)** .
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout.cshtml*.
    * Välj **Lägg till**.
-   
+
 #### <a name="AddEditIndexView"></a>Lägg till en objektredigeringsvy
 
 Och slutligen lägger du till en vy för att redigera ett objekt med följande steg:
 
-1. I **Solution Explorer** högerklickar du på mappen **Item** igen, väljer **Lägg till** och sedan **Vy**.
+1. Från **Solution Explorer**högerklickar du på mappen **objekt** igen och väljer **Lägg till** > **vy**.
 
-1. Gör följande i dialogrutan **Lägg till vy**:
-   
-   * I rutan **Vynamn** skriver du ***Redigera***.
-   * I rutan**Mall** väljer du ***Redigera***.
-   * I rutan **Modellklass** väljer du ***Objekt (todo.Models)***.
-   * Skriv ***~/Views/Shared/_Layout.cshtml*** i rutan på layoutsidan.
+1. I **Lägg till MVC-vy**gör du följande ändringar:
+
+   * I rutan **Vynamn** skriver du *Redigera*.
+   * I rutan**Mall** väljer du **Redigera**.
+   * I rutan **Modellklass** väljer du **Objekt (todo.Models)** .
+   * Välj **Använd en layout-sida** och ange *~/views/Shared/_Layout.cshtml*.
    * Välj **Lägg till**.
 
-När det är klart stänger du alla cshtml-dokument i Visual Studio eftersom du återkommer till de här vyerna senare.
+När du har slutfört de här stegen stänger du alla *cshtml* -dokument i Visual Studio när du går tillbaka till dessa vyer senare.
 
 ### <a name="add-a-controller"></a>Lägg till en controller
 
-1. I **Solution Explorer** högerklickar du på mappen **Styrenheter**. Välj sedan **Lägg till** och sedan **Styrenhet**. Dialogrutan **Lägg till kodskelett** visas.
+1. I **Solution Explorer**högerklickar du på mappen **kontrollanter** och väljer **Lägg till** > **kontrollant**.
 
-1. Välj **MVC-kontrollant-tom** och välj **Lägg till**.
+1. I **Lägg till Autogenerera**väljer du **MVC-kontrollant-tom** och väljer **Lägg till**.
 
-   ![Skärm bild av dialog rutan Lägg till Autogenerera med alternativet MVC Controller-tomt markerat](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
+   ![Välj MVC-kontrollant-tom i Lägg till Autogenerera](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-controller-add-scaffold.png)
 
-1. Namnge din nya kontrollant, **ItemController**och Ersätt koden i filen med följande kod:
+1. Namnge din nya kontrollants *ItemController*.
+
+1. Ersätt innehållet i *ItemController.cs* med följande kod:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
 
-   Attributet **ValidateAntiForgeryToken** används här för att skydda programmet mot attacker med förfalskning av begäran mellan webbplatser. Det finns mer att göra än att bara lägga till det här attributet. Även dina vyer bör fungera med den här antiförfalskningstoken. Mer information om ämnet och exempel på hur du implementerar detta korrekt finns i [förhindra förfalskning av begäran mellan webbplatser][Preventing Cross-Site Request Forgery]. Källkoden på [GitHub][GitHub] har detta fullständigt implementerat.
+Attributet **ValidateAntiForgeryToken** används här för att skydda programmet mot attacker med förfalskning av begäran mellan webbplatser. Dina vyer bör fungera med den här antismidta token. Mer information och exempel finns i [förhindra förfalskning av CSRF-attacker (Cross-Site Request) i ASP.NET MVC-program][Preventing Cross-Site Request Forgery]. Källkoden på [GitHub][GitHub] har detta fullständigt implementerat.
 
-   Vi använder även attributet **Bind** på metodparametern för att skydda mot overposting-attacker. Mer information finns i [grundläggande CRUD-åtgärder i ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
+Vi använder även attributet **Bind** på metodparametern för att skydda mot overposting-attacker. Mer information finns i [Självstudie: Implementera CRUD-funktioner med Entity Framework i ASP.NET MVC][Basic CRUD Operations in ASP.NET MVC].
 
-## <a name="connect-to-cosmosdb"></a>Steg 5: Ansluta till Azure Cosmos DB 
+## <a name="connect-to-cosmosdb"></a>Steg 5: Ansluta till Azure Cosmos DB
 
-Nu när standarddelarna i MVC är klara är det dags att lägga till koden för att ansluta till Azure Cosmos DB och genomföra CRUD-åtgärderna. 
+Nu när standard MVC-saker tas i drift är det dags att lägga till koden för att ansluta till Azure Cosmos DB och utföra CRUD-åtgärder.
 
-### <a name="perform-crud-operations"></a> Utföra CRUD-åtgärder på data
+### <a name="perform-crud-operations"></a>Utför CRUD-åtgärder på data
 
-Det första du gör här är att lägga till en klass som innehåller logiken för att ansluta till och använda Azure Cosmos DB. I den här självstudien kommer vi att kapsla in den här logiken i en klass `ICosmosDBService`som kallas `CosmosDBService` och ett gränssnitt som kallas. Den här tjänsten utför CRUD och Läs flödes åtgärder, till exempel för att Visa ofullständiga objekt, skapa, redigera och ta bort objekt. 
+Först lägger vi till en klass som innehåller logiken för att ansluta till och använda Azure Cosmos DB. I den här självstudien kommer vi att kapsla in den här logiken i en klass `ICosmosDBService`som kallas `CosmosDBService` och ett gränssnitt som kallas. Den här tjänsten utför CRUD-åtgärderna. Den läser också feed-åtgärder, till exempel att inte Visa ofullständiga objekt, skapa, redigera och ta bort objekt.
 
-1. I **Solution Explorer** skapar du en ny mapp under projektet med namnet **Services** (Tjänster).
+1. I **Solution Explorer**högerklickar du på projektet och väljer **Lägg till** > **ny mapp**. Namnge mappen *Services*.
 
-1. Högerklicka på mappen **Services** (Tjänster), välj **Lägg till** och sedan **Klass**. Ge den nya klassen namnet **CosmosDBService** och välj **Lägg till**.
+1. Högerklicka på mappen **tjänster** , Välj **Lägg till** > **klass**. Ge den nya klassen namnet *CosmosDBService* och välj **Lägg till**.
 
-1. Lägg till följande kod i **CosmosDBService** -klassen och Ersätt koden i filen med följande kod:
+1. Ersätt innehållet i *CosmosDBService.cs* med följande kod:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs)]
 
-1. Upprepa steg 2-3, men den här gången för en klass med namnet **ICosmosDBService**och Lägg till följande kod:
+1. Upprepa föregående två steg, men den här gången använder du namnet *ICosmosDBService*och använder följande kod:
 
    [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
- 
-1. Föregående kod får en `CosmosClient` som del av konstruktorn. Efter ASP.NET Core pipeline måste vi gå till projektets **startup.cs** och initiera klienten baserat på konfigurationen som en singleton-instans som ska matas in via [beroende inmatning](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection). I **ConfigureServices** -hanteraren definierar vi:
+
+1. I **ConfigureServices** -hanteraren lägger du till följande rad:
 
     ```csharp
     services.AddSingleton<ICosmosDbService>(InitializeCosmosClientInstanceAsync(Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
     ```
 
-1. I samma fil definierar vi vår hjälp metod **InitializeCosmosClientInstanceAsync**, som kommer att läsa konfigurationen och initiera klienten.
+    Koden i föregående steg tar emot en `CosmosClient` som del av konstruktorn. Följande ASP.NET Core pipeline måste gå till projektets *startup.cs* -fil. Koden i det här steget initierar klienten baserat på konfigurationen som en singleton-instans som ska matas [in via beroende insprutning i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/dependency-injection).
 
-    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)] 
+1. I samma fil lägger du till följande metod **InitializeCosmosClientInstanceAsync**, som läser konfigurationen och initierar klienten.
 
-1. Konfigurationen definieras i projektets **appSettings. JSON** -fil. Öppna den och Lägg till ett avsnitt som heter **CosmosDb**:
+    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+
+1. Definiera konfigurationen i projektets *appSettings. JSON* -fil. Öppna filen och Lägg till ett avsnitt som heter **CosmosDb**:
 
    ```csharp
      "CosmosDb": {
@@ -231,63 +231,75 @@ Det första du gör här är att lägga till en klass som innehåller logiken f�
         "ContainerName": "Items"
       }
    ```
- 
-Nu när du kör programmet kommer ASP.NET Core pipelinen att instansiera **CosmosDbService** och underhålla en enda instans som singleton. När **ItemController** används för att bearbeta begär Anden på klient sidan, kommer den att få den här enskilda instansen och kunna använda den för att utföra CRUD-åtgärder.
+
+Om du kör programmet instansierar ASP.NET Coreens pipeline **CosmosDbService** och underhåller en enda instans som singleton. När **ItemController** bearbetar begär Anden på klient sidan får den en enda instans och kan använda den för CRUD-åtgärder.
 
 Om du skapar och kör det här projektet nu bör du nu se något som ser ut så här:
 
 ![Skärm bild av webb programmet att göra-lista som skapats av den här databas guiden](./media/sql-api-dotnet-application/build-and-run-the-project-now.png)
 
-
 ## <a name="run-the-application"></a>Steg 6: Kör programmet lokalt
 
-Testa programmet på din lokala dator med följande steg:
+Gör så här om du vill testa programmet på den lokala datorn:
 
-1. Tryck på F5 i Visual Studio för att bygga appen i felsökningsläge. Den ska bygga appen och starta en webbläsare med den tomma rutnätssidan vi såg tidigare:
-   
+1. Välj F5 i Visual Studio för att bygga programmet i fel söknings läge. Den ska bygga appen och starta en webbläsare med den tomma rutnätssidan vi såg tidigare:
+
    ![Skärm bild av webb programmet att göra-listan som skapats i den här självstudien](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item-a.png)
-       
-2. Klicka på länken **Skapa nytt** och lägg till värden i fälten **Namn** och **Beskrivning**. Låt kryssrutan **Slutförd** vara avmarkerad. Annars läggs det nya objektet till i slutfört tillstånd och visas inte i den inledande listan.
-   
-3. Klicka på **Skapa**, så omdirigeras du tillbaka till vyn **Index** och objektet visas i listan. Du kan lägga till några fler objekt i att göra-listan.
+
+1. Välj länken **Skapa ny** och Lägg till värden i fälten **namn** och **Beskrivning** . Lämna kryss rutan **slutförd** omarkerad. Om du väljer den lägger appen till det nya objektet i ett slutfört tillstånd. Objektet visas inte längre i den inledande listan.
+
+1. Välj **Skapa**. Appen skickar tillbaka till vyn **index** och ditt objekt visas i listan. Du kan lägga till fler objekt i din **att göra-** lista.
 
     ![Skärm bild av vyn index](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-an-item.png)
   
-4. Klicka på **Redigera** bredvid ett **objekt** på listan så kommer du till vyn **Redigera**, där du kan uppdatera alla egenskaper för objektet, inklusive flaggan **Slutförd**. Om du markerar flaggan **fullständig** och klickar på **Spara**, kommer **objektet** att visas som slutfört i listan.
-   
+1. Välj **Redigera** bredvid ett **objekt** i listan. Appen öppnar vyn **Redigera** där du kan uppdatera alla egenskaper för ditt objekt, inklusive flaggan **slutförd** . Om du väljer **slutförd** och väljer **Spara**, visar appen **objektet** som slutfört i listan.
+
    ![Skärm bild av vyn index med rutan slutförd markerad](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-completed-item.png)
 
-5. Du kan när som helst kontrol lera statusen för data i Azure Cosmos DB tjänsten med hjälp av [Cosmos Explorer](https://cosmos.azure.com) eller Azure Cosmos DB emulatorns datautforskaren.
+1. Kontrol lera statusen för data i Azure Cosmos DB tjänsten med hjälp av [Cosmos Explorer](https://cosmos.azure.com) eller Azure Cosmos DB emulatorns datautforskaren.
 
-6. När du har testat appen trycker du på Ctrl + F5 för att avsluta felsökningen. Nu är du redo att distribuera!
+1. När du har testat appen väljer du Ctrl + F5 för att stoppa fel sökningen av appen. Nu är du redo att distribuera!
 
-## <a name="deploy-the-application-to-azure"></a>Steg 7: Distribuera programmet 
+## <a name="deploy-the-application-to-azure"></a>Steg 7: Distribuera programmet
+
 När hela programmet fungerar som det ska med Azure Cosmos DB är det dags att distribuera webbappen till Azure App Service.  
 
-1. Om du vill publicera det här programmet högerklickar du på projektet i **Solution Explorer** och väljer **Publicera**.
-   
-2. I dialog rutan **publicera** väljer du **App Service**, väljer **Skapa ny** för att skapa en App Service profil eller väljer **Välj befintlig** om du vill använda en befintlig profil.
+1. Om du vill publicera det här programmet högerklickar du på projektet i **Solution Explorer** och väljer **publicera**.
 
-3. Om du har en befintlig Azure App Service-profil väljer du **Prenumeration** på den nedrullningsbara menyn. Använd filtret **Visa** om du vill sortera efter resursgrupp eller resurstyp. Sök sedan efter den Azure App Service som krävs och välj **OK**.
-   
-   ![Dialogrutan App Service i Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service.png)
+1. I Välj **ett publicerings mål**väljer du **App Service**.
 
-4. Om du vill skapa en ny Azure App Service-profil klickar du på **Skapa ny** i dialogrutan **Publicera**. I dialogrutan **Skapa App Service** anger du namnet på din webbapp och lämplig prenumeration, resursgrupp och App Service-plan. Välj sedan **Skapa**.
+1. Om du vill använda en befintlig App Service profil väljer du **Välj befintlig**och sedan **publicera**.
 
-   ![Dialogrutan Create App Service (Skapa apptjänst) i Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service.png)
+1. I **App Service**väljer du en **prenumeration**. Använd filtret **Visa** om du vill sortera efter resursgrupp eller resurstyp.
+
+1. Hitta din profil och välj sedan **OK**. Sök sedan efter den Azure App Service som krävs och välj **OK**.
+
+   ![Dialogrutan App Service i Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-app-service-2019.png)
+
+Ett annat alternativ är att skapa en ny profil:
+
+1. Som i föregående procedur högerklickar du på projektet i **Solution Explorer** och väljer **publicera**.
+  
+1. I Välj **ett publicerings mål**väljer du **App Service**.
+
+1. I **Välj ett publicerings mål**väljer du **Skapa nytt** och sedan **publicera**.
+
+1. I **App Service**anger du namnet på din webbapp och lämplig prenumeration, resurs grupp och värd plan och väljer sedan **skapa**.
+
+   ![Dialogrutan Create App Service (Skapa apptjänst) i Visual Studio](./media/sql-api-dotnet-application/asp-net-mvc-tutorial-create-app-service-2019.png)
 
 Under några sekunder publicerar Visual Studio ditt webb program och öppnar en webbläsare där du kan se projektet som körs i Azure!
 
 ## <a name="next-steps"></a>Nästa steg
-I den här självstudien har du lärt dig hur du skapar ett ASP.NET Core MVC-webbprogram som kan komma åt data som lagras i Azure Cosmos DB. Nu kan du fortsätta till nästa artikel:
 
-* [Lär dig mer om att partitionera data i Azure Cosmos DB](./partitioning-overview.md)
-* [Lär dig mer om hur du utför mer avancerade frågor i Azure Cosmos DB](./how-to-sql-query.md)
-* [Lär dig mer om att modellera dina data i ett mer avancerat scenario](./how-to-model-partition-example.md)
+I den här självstudien har du lärt dig hur du skapar ett ASP.NET Core MVC-webbprogram. Ditt program kan komma åt data som lagras i Azure Cosmos DB. Nu kan du fortsätta med de här resurserna:
 
+* [Partitionering i Azure Cosmos DB](./partitioning-overview.md)
+* [Komma igång med SQL-frågor](./how-to-sql-query.md)
+* [Så här modellerar och partitionerar du data i Azure Cosmos DB med ett verkligt exempel](./how-to-model-partition-example.md)
 
 [Visual Studio Express]: https://www.visualstudio.com/products/visual-studio-express-vs.aspx
 [Microsoft Web Platform Installer]: https://www.microsoft.com/web/downloads/platform.aspx
-[Preventing Cross-Site Request Forgery]: https://go.microsoft.com/fwlink/?LinkID=517254
+[Preventing Cross-Site Request Forgery]: https://docs.microsoft.com/aspnet/web-api/overview/security/preventing-cross-site-request-forgery-csrf-attacks
 [Basic CRUD Operations in ASP.NET MVC]: https://go.microsoft.com/fwlink/?LinkId=317598
 [GitHub]: https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app

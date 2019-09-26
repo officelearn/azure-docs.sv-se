@@ -1,6 +1,6 @@
 ---
-title: Lösa datasnedställning problem med hjälp av Azure Data Lake Tools för Visual Studio
-description: Felsökning av möjliga lösningar för datasnedställning problem med hjälp av Azure Data Lake Tools för Visual Studio.
+title: Lösa data förvrängning – Azure Data Lake verktyg för Visual Studio
+description: Felsöka potentiella lösningar för data sneda problem med hjälp av Azure Data Lake verktyg för Visual Studio.
 services: data-lake-analytics
 author: yanancai
 ms.author: yanacai
@@ -8,62 +8,62 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: 611439802c200b30586b73b82d0a4bbbc857e114
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 440a36d00334840688f66d0027152d7581b7158c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65606707"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309910"
 ---
-# <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Lösa datasnedställning problem med hjälp av Azure Data Lake Tools för Visual Studio
+# <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Lös data sneda problem med hjälp av Azure Data Lake verktyg för Visual Studio
 
-## <a name="what-is-data-skew"></a>Vad är data förskjuta?
+## <a name="what-is-data-skew"></a>Vad är data skevning?
 
-Datasnedställning är kort anges, ett felaktigt representeras värde. Anta att du har tilldelat 50 skatt granskarna att granska skattedeklarationer, en förarprövaren för respektive tillstånd i USA. Granskaren Wyoming har eftersom det populationen är liten, lite eller göra. I Kalifornien dock sparas granskaren hårt belastad på grund av stora regionbefolkning.
-    ![Problem med datasnedställning exempel](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
+En kortfattad uppgift är ett övergivet värde. Tänk dig att du har tilldelat 50 skatte granskare för att granska moms returer, en granskare för varje AMERIKANSKt tillstånd. Wyoming-granskaren, eftersom populationen där är liten, har lite att göra. I Kalifornien förvaras dock granskaren mycket upptagen på grund av tillståndets stora befolkning.
+    ![Exempel på data sneda problem](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/data-skew-problem.png)
 
-I vårt scenario, är data ojämnt fördelade mellan alla skatt granskare, vilket innebär att vissa granskare måste arbetar mer än andra. Situationer som skatt förarprövaren exemplet här uppstår ofta i dina egna jobb. Mer teknisk uttryckt ett hörn får mycket mer data än dess peer-datorer, en situation som gör hörnet arbeta mer än de andra och att så småningom saktar ned en hela jobbet. Vad är sämre, kan jobbet misslyckas, eftersom hörn kanske till exempel en 5 timmar runtime-begränsning och en begränsning med 6 GB minne.
+I vårt scenario fördelas data inte jämnt över alla skatte granskningar, vilket innebär att vissa granskningar måste arbeta mer än andra. I ditt eget jobb får du ofta situationer som till exempel för skatte granskning här. Med fler tekniska villkor får ett hörn mycket mer data än dess motparter, en situation som gör att form hörnet fungerar mer än de andra och som slutligen saktar ned ett helt jobb. Vad som är värre kan det hända att jobbet Miss söker, eftersom hörnen kan ha, till exempel en begränsning på 5 timmar och en minnes begränsning på 6 GB.
 
-## <a name="resolving-data-skew-problems"></a>Lösa datasnedställning problem
+## <a name="resolving-data-skew-problems"></a>Lösa problem med data förvrängning
 
-Azure Data Lake Tools för Visual Studio kan hjälpa dig att identifiera om jobbet har ett datasnedställning problem. Om det finns ett problem, kan du lösa det genom att testa lösningar i det här avsnittet.
+Azure Data Lake verktyg för Visual Studio kan hjälpa dig att identifiera om ditt jobb har ett problem med data skevningen. Om det finns ett problem kan du lösa det genom att testa lösningarna i det här avsnittet.
 
-## <a name="solution-1-improve-table-partitioning"></a>Lösning 1: Förbättra Tabellpartitionering
+## <a name="solution-1-improve-table-partitioning"></a>Lösning 1: Förbättra tabell partitionering
 
-### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Alternativ 1: Filtrera skeva nyckelvärdet i förväg
+### <a name="option-1-filter-the-skewed-key-value-in-advance"></a>Alternativ 1: Filtrera värdet för skevad nyckel i förväg
 
-Om den inte påverkar din affärslogik, kan du filtrera högre frekvens värdena i förväg. Till exempel om det finns en massa 000 000 000 i kolumnen GUID kan kanske du inte vill aggregera detta värde. Innan du aggregera, du kan skriva ”var GUID! =” 000 – 000 000 ”” till filtervärde hög frekvens.
+Om den inte påverkar affärs logiken kan du filtrera de högre frekvens värdena i förväg. Om det till exempel finns många 000-000-000 i kolumn-GUID kanske du inte vill sätta samman det värdet. Innan du sammanställer kan du skriva "där GUID! =" 000-000-000 "" för att filtrera värdet för hög frekvens.
 
-### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Alternativ 2: Välj en annan partition eller distribution nyckel
+### <a name="option-2-pick-a-different-partition-or-distribution-key"></a>Alternativ 2: Välj en annan partition eller distributions nyckel
 
-I föregående exempel, om du vill bara kontrollera skatt granskning arbetsbelastningen över hela landet/regionen, kan du förbättra Datadistribution genom att välja ID-numret som din nyckel. Välja en annan partition eller distributionsnyckeln kan ibland distribuera data jämnare, men du måste se till att det här valet inte påverkar din affärslogik. Till exempel för att beräkna moms summan för respektive tillstånd, kanske du vill ange _tillstånd_ som partitionsnyckel. Om du fortsätter att det här problemet uppstår kan du använda alternativ 3.
+I föregående exempel kan du, om du vill att du bara vill kontrol lera arbets belastningen för skatte granskning alla över landet/regionen, förbättra data distributionen genom att välja ID-numret som nyckel. Om du väljer en annan partition eller distributions nyckel kan du ibland distribuera data jämnt, men du måste se till att det här alternativet inte påverkar din affärs logik. Om du till exempel vill beräkna skatte summan för varje tillstånd kan du välja att ange ett _tillstånd_ som partitionsnyckel. Om du fortsätter att uppleva det här problemet kan du prova att använda alternativ 3.
 
-### <a name="option-3-add-more-partition-or-distribution-keys"></a>Alternativ 3: Lägg till flera nycklar för partition eller distribution
+### <a name="option-3-add-more-partition-or-distribution-keys"></a>Alternativ 3: Lägg till fler partitioner eller distributions nycklar
 
-I stället för att endast använda _tillstånd_ som en partitionsnyckel, kan du använda fler än en nyckel för partitionering. Exempel: Överväg att lägga till _postnummer_ som en ytterligare partitionsnyckel för att minska data partitionsstorlekarna och distribuera data jämnare.
+I stället för att endast använda _tillstånd_ som partitionsnyckel kan du använda mer än en nyckel för partitionering. Överväg till exempel att lägga till _zip-kod_ som en ytterligare partitionsnyckel för att minska storleken på datapartitioner och distribuera data jämnt.
 
-### <a name="option-4-use-round-robin-distribution"></a>Alternativ 4: Använd resursallokering
+### <a name="option-4-use-round-robin-distribution"></a>Alternativ 4: Använd Round-Robin-distribution
 
-Om du inte hittar en lämplig nyckel för partition och distribution, kan du försöka använda resursallokering. Resursallokering behandlas alla rader som likvärdiga och placerar slumpmässigt dem i motsvarande buckets. Data fördelas jämnt, men det förlorar även information, en nackdel som kan också minska jobbet prestanda för vissa åtgärder. Om du genomför aggregering för nyckeln skeva ändå, behålls dessutom datasnedställning problemet. Mer information om tekniken finns i avsnittet distributioner för U-SQL-tabell i [CREATE TABLE (U-SQL): Skapa en tabell med schemat](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
+Om du inte hittar en lämplig nyckel för partition och distribution kan du försöka använda resursallokering (Round-Robin). Resursallokeringen för resursallokering behandlar alla rader jämnt och placerar dem slumpmässigt i motsvarande buckets. Data blir jämnt distribuerade, men det förlorar information om den lokala informationen, en nackdel som också kan minska jobbets prestanda för vissa åtgärder. Om du gör agg regering för den skevade nyckeln ändå behålls problemet med data skevningen. Mer information om resursallokering finns i avsnittet om distributioner i U-SQL-tabellen i [CREATE TABLE (U-SQL): Skapar en tabell med schema](/u-sql/ddl/tables/create/managed/create-table-u-sql-creating-a-table-with-schema#dis_sch).
 
-## <a name="solution-2-improve-the-query-plan"></a>Lösning 2: Förbättra frågeplanen
+## <a name="solution-2-improve-the-query-plan"></a>Lösning 2: Förbättra planen för frågor
 
-### <a name="option-1-use-the-create-statistics-statement"></a>Alternativ 1: Använd instruktionen CREATE STATISTICS
+### <a name="option-1-use-the-create-statistics-statement"></a>Alternativ 1: Använd instruktionen skapa statistik
 
-U-SQL innehåller instruktionen CREATE STATISTICS för tabeller. Den här instruktionen ger mer information till Frågeoptimeringen om, dataegenskaper, till exempel värdedistribution, som lagras i en tabell. För de flesta frågor genererar Frågeoptimeringen redan nödvändig statistik för en frågeplan med hög kvalitet. Ibland kan behöva du förbättra frågeprestanda genom att skapa ytterligare statistik med CREATE STATISTICS eller genom att ändra frågans design. Mer information finns i den [CREATE STATISTICS (U-SQL)](/u-sql/ddl/statistics/create-statistics) sidan.
+U-SQL tillhandahåller instruktionen skapa statistik för tabeller. Den här instruktionen ger mer information om frågans optimering om data egenskaper, till exempel värde distribution, som lagras i en tabell. För de flesta frågor genererar fråge optimering redan nödvändig statistik för en plan med hög kvalitet. Ibland kan du behöva förbättra frågans prestanda genom att skapa ytterligare statistik med skapa statistik eller genom att ändra frågans design. Mer information finns på sidan [skapa statistik (U-SQL)](/u-sql/ddl/statistics/create-statistics) .
 
 Kodexempel:
 
     CREATE STATISTICS IF NOT EXISTS stats_SampleTable_date ON SampleDB.dbo.SampleTable(date) WITH FULLSCAN;
 
 >[!NOTE]
->Statistikinformationen uppdateras inte automatiskt. Om du uppdaterar data i en tabell utan att återskapa statistik, skulle kunna minska prestanda för frågor.
+>Statistik information uppdateras inte automatiskt. Om du uppdaterar data i en tabell utan att skapa statistiken igen kan frågans prestanda nekas.
 
 ### <a name="option-2-use-skewfactor"></a>Alternativ 2: Använd SKEWFACTOR
 
-Om du vill beräkna moms för respektive tillstånd måste du använda GROUP BY tillstånd, en metod som inte undviker datasnedställning problem. Du kan dock ange en ledtråd för data i din fråga för att identifiera datasnedställning i nycklar så att optimering kan förbereda en Körningsplan för dig.
+Om du vill summera skatten för varje tillstånd måste du använda GROUP BY State, en metod som inte undviker problemet med data skevningen. Du kan dock ange ett data tips i din fråga för att identifiera data skevning i nycklar så att optimeringen kan förbereda en körnings plan åt dig.
 
-Vanligtvis kan du ange parametern som 0,5 och 1, med 0,5 vilket innebär inte mycket skeva och 1 betydelse tung skeva. Eftersom tipset påverkar Körningsplan optimering för den aktuella instruktionen och alla underordnade instruktioner, måste du lägga till tipset innan potentialen förvrängd key-wise aggregering.
+Vanligt vis kan du ange parametern som 0,5 och 1, med 0,5 vilket innebär inte mycket snedhet och 1 betyder tung skevning. Eftersom tipset påverkar optimeringen av körnings planer för den aktuella instruktionen och alla underordnade instruktioner, måste du lägga till tipset innan du kan använda den nedrullningsbara nyckel-och sammansättnings metoden.
 
     SKEWFACTOR (columns) = x
 
@@ -98,7 +98,7 @@ Kodexempel:
         ;   
 
 ### <a name="option-3-use-rowcount"></a>Alternativ 3: Använd ROWCOUNT  
-Förutom SKEWFACTOR berätta specifika förvrängd nyckel join fall, om du vet att den andra uppsättningen av domänanslutna raden är liten, optimeraren beror genom att lägga till ett RADANTAL tips i U-SQL-instruktionen före sammanfogning. På så sätt kan optimering kan välja en broadcast join-strategi för att förbättra prestanda. Tänk på att ROWCOUNT löses inte problemet datasnedställning, men den kan erbjuda ytterligare hjälp.
+Förutom SKEWFACTOR, för vissa sneda nyckel kopplingar, om du vet att den andra sammanfogade rad uppsättningen är liten, kan du se optimeringen genom att lägga till ett radantal-tips i U-SQL-instruktionen före koppling. På så sätt kan optimeringen välja en sändnings strategi för att få bättre prestanda. Tänk på att ROWCOUNT inte löser problemet med data snedheten, men det kan ge ytterligare hjälp.
 
     OPTION(ROWCOUNT = n)
 
@@ -122,19 +122,19 @@ Kodexempel:
                 INNER JOIN @Small ON Sessions.Client == @Small.Client
                 ;
 
-## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Lösning 3: Förbättra användardefinierade reducer och combiner
+## <a name="solution-3-improve-the-user-defined-reducer-and-combiner"></a>Lösning 3: Förbättra den användardefinierade reduceraren och kombinations fönstret
 
-Ibland kan du skriva en användardefinierad operator utan komplicerad logik och en välskriven reducer och combiner kan minska datasnedställning problem i vissa fall.
+Ibland kan du skriva en användardefinierad operator för att hantera komplex process logik och en välskriven minsknings process och kombinerare kan minimera ett data skevs problem i vissa fall.
 
-### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Alternativ 1: Använda en rekursiv reducer om möjligt
+### <a name="option-1-use-a-recursive-reducer-if-possible"></a>Alternativ 1: Använd en rekursiv minskning, om möjligt
 
-Som standard körs en användardefinierad reducer i icke-rekursiva läge, vilket innebär att minskar arbetet för en nyckel som ska distribueras till en enskild brytpunkt. Men om dina data är förvrängd enorma datauppsättningar kan bearbetas i en enskild brytpunkt och kör under en längre tid.
+Som standard körs en användardefinierad minskning i icke-rekursivt läge, vilket innebär att det minskar arbetet för en nyckel distribueras till ett enda hörn. Men om dina data är sneda kan de enorma data uppsättningarna bearbetas i ett enda hörn och köras under en längre tid.
 
-Du kan lägga till ett attribut i din kod för att definiera reducer körs med rekursiv för att förbättra prestanda. Stora datamängder kan sedan distribueras till flera hörn och köra parallellt, vilket påskyndar arbetet.
+Du kan förbättra prestanda genom att lägga till ett attribut i koden för att definiera att dereduceraren ska köras i rekursivt läge. Sedan kan de enorma data uppsättningarna distribueras till flera hörn och köras parallellt, vilket påskyndar ditt jobb.
 
-Om du vill ändra en icke-rekursiva reducer till rekursiv, måste du se till att din algoritmen är kopplat. Summan är kopplat till exempel och medianvärdet är inte. Du måste också kontrollera att indata och utdata för reducer behåller samma schema.
+Om du vill ändra en icke-rekursiv minskning till rekursivt måste du kontrol lera att algoritmen är associativ. Summan är till exempel associativ och median värdet. Du måste också kontrol lera att indata och utdata för reduceraren behåller samma schema.
 
-Attributet för rekursiv reducer:
+Attribut för rekursiv minskning:
 
     [SqlUserDefinedReducer(IsRecursive = true)]
 
@@ -150,28 +150,28 @@ Kodexempel:
         }
     }
 
-### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Alternativ 2: Använd om möjligt på radnivå combiner läge
+### <a name="option-2-use-row-level-combiner-mode-if-possible"></a>Alternativ 2: Använd kombinations läget på radnivå om möjligt
 
-Liknar ROWCOUNT tips för specifika förvrängd nyckel join fall, combiner läge försöker distribuera stora förvrängd nyckel-värde anger att flera hörn så att arbetet som kan köras samtidigt. Combiner läge inte kan lösa datasnedställning problem, men den kan erbjuda ytterligare hjälp för stor påverkas av nyckel-värde.
+På samma sätt som för rad räknings tips för vissa sneda nyckel kopplings fall försöker kombinerat läge distribuera enorma skevade nyckel värden till flera hörn så att arbetet kan köras samtidigt. Det går inte att lösa problem med data skevning i kombinations läge, men det kan ge ytterligare hjälp med enorma skevade nyckel värden.
 
-Som standard är fullständig, vilket innebär att den vänstra raden och högra raden inte kan separeras i combiner-läge. Anger läget som vänster/höger/inre kan på radnivå join. Systemet skiljer motsvarande rad uppsättningar och distribuerar dem till flera hörn som körs parallellt. Men innan du konfigurerar combiner-läge kan vara noga med att se till att motsvarande rad uppsättningarna kan delas upp.
+Som standard är sammanslagnings läget full, vilket innebär att den vänstra rad uppsättningen och den högra rad uppsättningen inte kan skiljas. Att ställa in läget som vänster/höger/inre aktiverar rad nivå koppling. Systemet separerar motsvarande rad uppsättningar och distribuerar dem till flera hörn som körs parallellt. Men innan du konfigurerar kombinations läget måste du vara noga med att se till att motsvarande rad uppsättningar kan separeras.
 
-Följande exempel visar en uppsättning avgränsas vänstra raden. Varje rad i utdata beror på en rad från vänster som indata och det beror potentiellt på alla rader från höger med samma nyckelvärde. Om du ställer in combiner-läge som vänster systemet skiljer stor vänster-raden i små och tilldelar dem till flera hörn.
+Exemplet nedan visar en separerad vänster rad uppsättning. Varje utgående rad är beroende av en enda inmatnings rad från vänster, och den kan vara beroende av alla rader från höger med samma nyckel värde. Om du ställer in sammanslagnings läget som Left separerar systemet den enorma vänstra rad uppsättningen till små och tilldelar dem till flera hörn.
 
-![Combiner läge bild](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/combiner-mode-illustration.png)
+![Bild av kombinations läge](./media/data-lake-analytics-data-lake-tools-data-skew-solutions/combiner-mode-illustration.png)
 
 >[!NOTE]
->Om du har angett fel combiner läget kombinationen är mindre effektivt och resultaten kan vara fel.
+>Om du ställer in fel kombinations läge är kombinationen mindre effektiv och resultatet kan vara fel.
 
-Attribut för combiner läge:
+Attribut för kombinations läge:
 
 - [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Varje rad i utdata är beroende av en rad från vänster (och eventuellt alla rader från höger med samma nyckelvärde) som indata.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Left): Varje utgående rad är beroende av en enda inmatnings rad från vänster (och alla rader från höger till höger med samma nyckel värde).
 
-- qlUserDefinedCombiner(Mode=CombinerMode.Right): Varje rad i utdata är beroende av en rad från höger (och eventuellt alla rader från vänster med samma nyckelvärde) som indata.
+- qlUserDefinedCombiner(Mode=CombinerMode.Right): Alla utdatakolumner är beroende av en enda inmatnings rad från höger (och eventuella rader från vänster med samma nyckel värde).
 
-- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Varje rad i utdata är beroende av en rad från vänster och höger med samma värde som indata.
+- SqlUserDefinedCombiner(Mode=CombinerMode.Inner): Varje utgående rad är beroende av en enda inmatnings rad från vänster och höger med samma värde.
 
 Kodexempel:
 

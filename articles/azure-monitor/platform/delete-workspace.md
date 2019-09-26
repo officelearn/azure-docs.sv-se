@@ -1,6 +1,6 @@
 ---
-title: Ta bort en Azure Log Analytics-arbetsyta | Microsoft Docs
-description: Lär dig hur du tar bort logganalys-arbetsytan om du har skapat en i en personlig prenumeration eller omstrukturera din arbetsyta-modell.
+title: Ta bort och återställa Azure Log Analytics-arbetsytan | Microsoft Docs
+description: Lär dig hur du tar bort din Log Analytics arbets yta om du skapade en i en personlig prenumeration eller omstrukturering av arbets ytans modell.
 services: log-analytics
 documentationcenter: log-analytics
 author: mgoedtel
@@ -13,33 +13,52 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: magoedte
-ms.openlocfilehash: a6542838acba3143123dc90d96746179a2b4469b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: f8dcab1a7a46d518b752e48f9886b60a37d8ec4c
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60236100"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299548"
 ---
-# <a name="delete-an-azure-log-analytics-workspace-with-the-azure-portal"></a>Ta bort en Azure Log Analytics-arbetsyta med Azure portal
-Den här artikeln visar hur du använder Azure-portalen för att ta bort en Log Analytics-arbetsyta som du kan inte längre behöver. 
+# <a name="delete-and-restore-azure-log-analytics-workspace"></a>Ta bort och återställa Azure Log Analytics-arbetsytan
+Den här artikeln förklarar begreppet Azure Log Analytics arbets yta mjuk borttagning och hur du återställer den borttagna arbets ytan. 
 
-## <a name="to-delete-a-workspace"></a>Så här tar du bort en arbetsyta 
-När du tar bort en Log Analytics-arbetsyta raderas alla data som är relaterade till arbetsytan från tjänsten inom 30 dagar.  Vill du vara försiktig när du tar bort en arbetsyta, eftersom det kan vara viktiga data och konfigurationer som kan påverka din tjänståtgärder. Överväg andra Azure-tjänster och källor som lagrar data i Log Analytics, till exempel:
+## <a name="considerations-when-deleting-a-workspace"></a>Att tänka på när du tar bort en arbets yta
+När du tar bort en Log Analytics arbets yta utförs en mjuk borttagnings åtgärd för att tillåta återställning av arbets ytan, inklusive data och anslutna agenter inom 14 dagar, oavsett om borttagningen var oavsiktligt eller avsiktligt. Efter borttagnings perioden är arbets ytan och dess data inte återställnings bara och placeras i kö för permanent borttagning inom 30 dagar.
 
-* Application Insights
-* Azure Security Center
+Du bör vara försiktig när du tar bort en arbets yta eftersom det kan finnas viktiga data och konfiguration som kan påverka din tjänst åtgärd negativt. Granska vilka agenter, lösningar och andra Azure-tjänster och källor som lagrar data i Log Analytics, till exempel:
+* Hanteringslösningar
 * Azure Automation
-* Agenter som körs på Windows och Linux-datorer
-* Agenter som körs på Windows och Linux datorer i din miljö
+* Agenter som körs på virtuella Windows-och Linux-datorer
+* Agenter som körs på Windows-och Linux-datorer i din miljö
 * System Center Operations Manager
-* Hanteringslösningar 
 
-Alla agenter och System Center Operations Manager-hanteringsgrupper som konfigurerats för att rapportera till arbetsytan kan du fortsätta att i ett överblivna tillstånd.  Inventera vilka agenter, lösningar, och andra Azure-tjänster som är integrerade med arbetsytan innan du fortsätter.   
- 
-Om du är administratör och det finns flera användare som är kopplade till arbetsytan bryts kopplingen mellan användare och arbetsytan. Om användarna är associerade med andra arbetsytor kan de fortsätta använda Log Analytics med de andra arbetsytorna. Men om de inte är associerade med andra arbetsytor behöver sedan de skapa en arbetsyta om du vill använda Log Analytics. 
+Åtgärden mjuk borttagning tar bort arbets ytans resurs och alla tillhör ande användares behörighet är bruten. Om användarna är associerade med andra arbets ytor kan de fortsätta att använda Log Analytics med de andra arbets ytorna.
 
-1. Logga in på [Azure-portalen](https://portal.azure.com). 
-2. I Azure Portal klickar du på knappen **Fler tjänster** längst upp till vänster. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics-arbetsytor**.
-3. Välj en arbetsyta i fönstret Log Analytics-prenumerationer och klicka sedan på **ta bort** högst upp på den mellersta rutan.<br><br> ![Ta bort alternativet från fönstret med arbetsytans egenskaper](media/delete-workspace/log-analytics-delete-workspace.png)<br>  
-4. När fönstret bekräftelse meddelande visas där du uppmanas att bekräfta borttagningen i arbetsytan, klickar du på **Ja**.<br><br> ![Bekräfta borttagning av arbetsyta](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+## <a name="soft-delete-behavior"></a>Beteende vid mjuk borttagning
+Borttagnings åtgärden för arbets ytan tar bort resurs hanterarens Resource Manager-resurs, men konfigurationen och data sparas i 14 dagar, samtidigt som arbets ytans utseende tas bort. Alla agenter och System Center Operations Manager hanterings grupper som kon figurer ATS att rapportera till arbets ytan behålls i ett överblivna tillstånd under den mjuka borttagnings perioden. Tjänsten tillhandahåller ytterligare en mekanism för att återställa den borttagna arbets ytan, inklusive dess data och anslutna resurser, vilket i princip tar bort borttagningen.
 
+> [!NOTE] 
+> Installerade lösningar och länkade tjänster som Automation-konto tas permanent bort från arbets ytan vid borttagnings tillfället och kan inte återställas. Dessa bör konfigureras om efter återställnings åtgärden för att flytta arbets ytan till den tidigare funktionen. 
+
+Du kan ta bort en arbets yta med [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)eller i [Azure Portal](https://portal.azure.com).
+
+### <a name="delete-workspace-in-azure-portal"></a>Ta bort arbets yta i Azure Portal
+1. Logga in genom att gå till [Azure Portal](https://portal.azure.com). 
+2. Välj **Alla tjänster** i Azure-portalen. I listan över resurser skriver du **Log Analytics**. När du börjar skriva filtreras listan baserat på det du skriver. Välj **Log Analytics arbets ytor**.
+3. I listan över Log Analytics arbets ytor väljer du en arbets yta och klickar sedan på **ta bort** längst upp i mitten av fönstret.
+   ![Ta bort alternativ från fönstret Egenskaper för arbets yta](media/delete-workspace/log-analytics-delete-workspace.png)
+4. När fönstret bekräftelse meddelande visas och du uppmanas att bekräfta borttagningen av arbets ytan klickar du på **Ja**.
+   ![Bekräfta borttagning av arbets yta](media/delete-workspace/log-analytics-delete-workspace-confirm.png)
+
+## <a name="recover-workspace"></a>Återställ arbets yta
+Om du har deltagar behörighet till prenumerationen och resurs gruppen till den plats där arbets ytan var kopplad innan du utför åtgärden mjuk borttagning, kan du återställa den under den mjuka borttagnings perioden, inklusive dess data, konfiguration och anslutna agenter. Efter den mjuka borttagnings perioden är arbets ytan inte återställnings bar och tilldelad för permanent borttagning.
+
+Du kan återställa en arbets yta genom att skapa arbets ytan på nytt med någon av de skapande metoder som stöds: PowerShell, Azure CLI eller från Azure Portal så länge egenskaperna är ifyllda med den borttagna arbets ytans information, inklusive:
+1.  Prenumerations-ID:t
+2.  Resurs grupps namn
+3.  Namn på arbetsyta
+4.  Region
+
+> [!NOTE]
+> Namnen på borttagna arbets ytor behålls under perioden för mjuk borttagning och kan inte användas när du skapar en ny arbets yta. Namnen på arbets ytorna *släpps* och kan användas för att skapa nya arbets ytor när den mjuka borttagnings perioden har upphört att gälla.

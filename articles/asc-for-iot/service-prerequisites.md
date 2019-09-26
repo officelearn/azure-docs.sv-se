@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/28/2019
+ms.date: 09/25/2019
 ms.author: mlottner
-ms.openlocfilehash: cc2dc3a190e3ad06bdc048f2a5770eae2a6990ec
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 4440fec98d1f561da6375bcaadba4282076cc53b
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596827"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299467"
 ---
 # <a name="azure-security-center-for-iot-prerequisites"></a>Azure Security Center för IoT-krav
 
-Den här artikeln innehåller en förklaring av de olika bygg stenarna i Azure Security Center (ASC) för IoT-tjänsten, vad du behöver för att börja och beskriver de grundläggande begreppen för att hjälpa till att förstå tjänsten. 
+Den här artikeln innehåller en förklaring av de olika bygg stenarna i Azure Security Center för IoT-tjänsten, vad du behöver för att börja och beskriver de grundläggande begreppen för att hjälpa till att förstå tjänsten. 
 
 ## <a name="minimum-requirements"></a>Minimi krav
 
@@ -34,13 +34,13 @@ Den här artikeln innehåller en förklaring av de olika bygg stenarna i Azure S
 - Azure Security Center (rekommenderas)
     - Användning av Azure Security Center är en rekommendation och inte ett krav. Utan Azure Security Center kan du inte Visa dina andra Azure-resurser i IoT Hub. 
  
-## <a name="working-with-asc-for-iot-service"></a>Arbeta med ASC för IoT-tjänsten
+## <a name="working-with-azure-security-center-for-iot-service"></a>Arbeta med Azure Security Center för IoT-tjänsten
 
-ASC för IoT Insights och rapportering är tillgängligt med Azure IoT Hub och Azure Security Center. Om du vill aktivera ASC för IoT på din Azure-IoT Hub, krävs ett konto med behörighet som **ägare** nivå. När du har aktiverat ASC för IoT i din IoT Hub visas ASC för IoT Insights som **säkerhetsfunktionen** i Azure IoT Hub och som **IoT** i Azure Security Center. 
+Azure Security Center för IoT Insights och rapportering finns i Azure IoT Hub och Azure Security Center. För att aktivera Azure Security Center för IoT på din Azure-IoT Hub krävs ett konto med behörighet som **ägares** nivå. När du har aktiverat ASC för IoT i din IoT Hub visas Azure Security Center för IoT Insights som **säkerhetsfunktionen** i Azure IoT Hub och som **IoT** i Azure Security Center. 
 
 ## <a name="supported-service-regions"></a>Service regioner som stöds 
 
-ASC för IoT stöds för närvarande för IoT-hubbar i följande Azure-regioner:
+Azure Security Center for IoT stöds för närvarande för IoT Hub i följande Azure-regioner:
   - Centrala USA  
   - East US 
   - USA, östra 2
@@ -68,6 +68,8 @@ ASC för IoT stöds för närvarande för IoT-hubbar i följande Azure-regioner:
   - Sydkorea, södra 
   - Indien, centrala
   - Indien, södra
+
+Azure Security Center for IoT dirigerar all trafik från alla europeiska regioner till regionala Data Center i västra Europa och alla återstående regioner till det centrala amerikanska regionala data centret.  
   
 ## <a name="wheres-my-iot-hub"></a>Var finns mina IoT Hub?
 
@@ -80,10 +82,10 @@ Kontrol lera din IoT Hub plats för att kontrol lera tjänstens tillgänglighet 
 
 ## <a name="supported-platforms-for-agents"></a>Plattformar som stöds för agenter 
 
-ASC för IoT-agenter har stöd för en växande lista över enheter och plattformar. Se [listan över plattformar som stöds](how-to-deploy-agent.md) för att kontrol lera det befintliga eller planerade enhets biblioteket.  
+Azure Security Center för IoT-agenter har stöd för en växande lista med enheter och plattformar. Se [listan över plattformar som stöds](how-to-deploy-agent.md) för att kontrol lera det befintliga eller planerade enhets biblioteket.  
 
 ## <a name="next-steps"></a>Nästa steg
 - Läs [översikten över](overview.md) Azure IoT-säkerhet
 - Lär dig hur du [aktiverar tjänsten](quickstart-onboard-iot-hub.md)
 - Läs [vanliga frågor och svar om Azure Security Center for IoT](resources-frequently-asked-questions.md)
-- Utforska hur du [förstår Azure Security Center för IoT](concept-security-alerts.md) -aviseringar
+- Utforska hur du [förstår Azure Security Center för IoT-aviseringar](concept-security-alerts.md)

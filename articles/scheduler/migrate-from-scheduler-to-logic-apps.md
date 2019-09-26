@@ -8,40 +8,40 @@ author: derek1ee
 ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
-ms.date: 09/20/2018
-ms.openlocfilehash: 0225a9f34e016a4b1de51c06ba982d384e41007c
-ms.sourcegitcommit: af58483a9c574a10edc546f2737939a93af87b73
+ms.date: 09/23/2019
+ms.openlocfilehash: 6b80cbd16ac78f7f347bef9ab8e22c4d67d31058
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68302075"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71301031"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrera Azure Scheduler-jobb till Azure Logic Apps
 
 > [!IMPORTANT]
-> Azure Logic Apps ersätter Azure Scheduler, som dras tillbaka. Följ den här artikeln för att flytta till Azure Logic Apps i stället för att schemalägga jobb.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](#retire-date). Om du vill fortsätta arbeta med de jobb som du har konfigurerat i Scheduler kan du gå vidare till Azure Logic Apps så snart som möjligt genom att följa den här artikeln.
 
 Den här artikeln visar hur du kan schemalägga engångs-och återkommande jobb genom att skapa automatiserade arbets flöden med Azure Logic Apps, i stället för med Azure Scheduler. När du skapar schemalagda jobb med Logic Apps får du följande fördelar:
 
-* Du behöver inte oroa dig för begreppet *jobb samling* eftersom varje Logic app är en separat Azure-resurs.
+* Bygg jobbet med hjälp av en Visual designer och [färdiga anslutningar](../connectors/apis-list.md) från hundratals tjänster, till exempel Azure Blob Storage, Azure Service Bus, Office 365 Outlook och SAP.
 
-* Du kan köra flera engångs jobb genom att använda en enda Logic-app.
+* Hantera alla schemalagda arbets flöden som en första klass Azure-resurs. Du behöver inte oroa dig för begreppet *jobb samling* eftersom varje Logic app är en enskild Azure-resurs.
 
-* Tjänsten Azure Logic Apps stöder Time Zone och sommar tid (sommar tid).
+* Köra flera engångs jobb genom att använda en enda Logic-app.
+
+* Ange scheman som stöder tids zoner och justera automatiskt till sommar tid (sommar tid).
 
 Mer information finns i [Vad är Azure Logic Apps?](../logic-apps/logic-apps-overview.md) eller prova att skapa din första Logic-app i den här snabb starten: [Skapa din första Logic-app](../logic-apps/quickstart-create-first-logic-app-workflow.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du <a href="https://azure.microsoft.com/free/" target="_blank">registrera ett kostnadsfritt Azure-konto</a>.
+* En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Om du vill utlösa din Logi Kap par genom att skicka HTTP-begäranden använder du ett verktyg som t. ex. [Postman Desktop-appen](https://www.getpostman.com/apps).
 
 ## <a name="schedule-one-time-jobs"></a>Schemalägga engångs jobb
 
 Du kan köra flera engångs jobb genom att skapa bara en enda Logic-app. 
-
-### <a name="create-your-logic-app"></a>Skapa en logikapp
 
 1. I [Azure Portal](https://portal.azure.com)skapar du en tom Logic-app i Logic App Designer. 
 
@@ -102,10 +102,10 @@ Om du vill köra eller utlösa ett engångs jobb manuellt skickar du ett anrop t
 
 Med Postman-appen kan du till exempel skapa en POST-begäran med inställningarna som liknar det här exemplet och sedan välja **Skicka** för att göra begäran.
 
-| Metod för begäran | URL | Innehåll | Rubriker |
-|----------------|-----|------|---------| 
-| **POST** | <*slut punkt-URL*> | **outspädd** <p>**JSON (Application/JSON)** <p>I rutan **RAW** anger du den nytto last som du vill skicka i begäran. <p>**Obs!** Den här inställningen konfigurerar automatiskt **rubrik** värden. | **Nyckel**: Content-Type <br>**Värde**: Application/JSON
- |||| 
+| Frågemetod | URL | Body | Huvuden |
+|----------------|-----|------|---------|
+| **POST** | <*slut punkt-URL*> | **outspädd** <p>**JSON (Application/JSON)** <p>I rutan **RAW** anger du den nytto last som du vill skicka i begäran. <p>**Obs!** Den här inställningen konfigurerar automatiskt **rubrik** värden. | **Nyckel**: Content-Type <br>**Värde**: Application/JSON |
+|||||
 
 ![Skicka begäran om att utlösa din Logic app manuellt](./media/migrate-from-scheduler-to-logic-apps/postman-send-post-request.png)
 
@@ -125,8 +125,6 @@ I Logic Apps körs varje engångs jobb som en enda körnings instans för Logic 
 
 ## <a name="schedule-recurring-jobs"></a>Schemalägg återkommande jobb
 
-### <a name="create-your-logic-app"></a>Skapa en logikapp
-
 1. I [Azure Portal](https://portal.azure.com)skapar du en tom Logic-app i Logic App Designer. 
 
    De grundläggande stegen följer [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
@@ -139,7 +137,7 @@ I Logic Apps körs varje engångs jobb som en enda körnings instans för Logic 
 
    ![Avancerat schema](./media/migrate-from-scheduler-to-logic-apps/recurrence-advanced-schedule.png)
 
-   Mer information om avancerade alternativ för schemaläggning finns i [skapa och köra återkommande aktiviteter och arbets flöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md)
+   Mer information om avancerade alternativ för schemaläggning finns i [skapa och köra återkommande aktiviteter och arbets flöden med Azure Logic Apps](../connectors/connectors-native-recurrence.md).
 
 1. Lägg till andra åtgärder genom att välja bland [hundratals färdiga att använda](../connectors/apis-list.md). Under utlösaren väljer du **Nästa steg**. Sök efter och välj de åtgärder som du vill använda.
 
@@ -159,7 +157,7 @@ Här följer andra sätt att anpassa dina jobb.
 
 Om du vill styra hur en åtgärd försöker köra igen i din Logic-app när tillfälliga fel inträffar kan du ange principen för [återförsök](../logic-apps/logic-apps-exception-handling.md#retry-policies) i varje åtgärds inställningar, till exempel:
 
-1. Öppna åtgärdens ( **...** ) meny och välj **Inställningar**.
+1. Öppna åtgärdens ellipser-menyn ( **...** ) och välj **Inställningar**.
 
    ![Öppna åtgärds inställningar](./media/migrate-from-scheduler-to-logic-apps/action-settings.png)
 
@@ -171,7 +169,7 @@ Om du vill styra hur en åtgärd försöker köra igen i din Logic-app när till
 
 Om standard åtgärden inte kan köras i Azure Scheduler kan du köra en alterative-åtgärd som åtgärdar fel tillståndet. I Azure Logic Apps kan du också utföra samma uppgift.
 
-1. I Logic App Designer, ovanför den åtgärd som du vill hantera, flyttar du pekaren över pilen mellan stegen och väljer och **lägger till en parallell gren**. 
+1. I Logic App Designer, ovanför den åtgärd som du vill hantera, flyttar du pekaren över pilen mellan stegen och väljer **Lägg till en parallell gren**. 
 
    ![Lägg till parallell gren](./media/migrate-from-scheduler-to-logic-apps/add-parallel-branch.png)
 
@@ -179,7 +177,7 @@ Om standard åtgärden inte kan köras i Azure Scheduler kan du köra en alterat
 
    ![Lägg till parallell åtgärd](./media/migrate-from-scheduler-to-logic-apps/add-parallel-action.png)
 
-1. Öppna menyn ( **...** ) på den alternativa åtgärden och välj **Konfigurera kör efter**.
+1. Öppna menyn ellipser ( **...** ) på den alternativa åtgärden och välj **Konfigurera kör efter**.
 
    ![Konfigurera kör efter](./media/migrate-from-scheduler-to-logic-apps/configure-run-after.png)
 
@@ -193,13 +191,13 @@ Mer information om undantags hantering finns i avsnittet [hantera fel och undant
 
 ## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
 
-<a name="retire-date"></a> 
+<a name="retire-date"></a>
 
 **F**: När tas Azure Scheduler ur bruk? <br>
-**S**: Azure Scheduler har schemalagts att ta ur bruk den 30 september 2019.
+**S**: Azure Scheduler är schemalagt för att helt dra tillbaka den 31 december 2019. Viktiga steg som du bör vidta innan det här datumet och en detaljerad tids linje finns i [förlänga tiden för indragningen för Scheduler till 31 December 2019](https://azure.microsoft.com/en-us/updates/extending-retirement-date-of-scheduler/). Allmänna uppdateringar finns i [Azure updates-Scheduler](https://azure.microsoft.com/updates/?product=scheduler).
 
-**F**: Vad händer med mina jobb samlingar och jobb i Schemaläggaren när tjänsten dras tillbaka? <br>
-**S**: Alla jobb samlingar och jobb i Scheduler tas bort från systemet.
+**F**: Vad händer med mina jobb samlingar och jobb när tjänsten dras om? <br>
+**S**: Alla jobb samlingar och jobb i Schemaläggaren slutar att köras och tas bort från systemet.
 
 **F**: Måste jag säkerhetskopiera eller utföra andra uppgifter innan du migrerar mina jobb i Schemaläggaren till Logic Apps? <br>
 **S**: Vi rekommenderar att du alltid säkerhetskopierar ditt arbete. Kontrol lera att de Logic Apps som du har skapat körs som förväntat innan du tar bort eller inaktiverar dina jobb i Schemaläggaren. 
@@ -216,13 +214,13 @@ Om din Azure-prenumeration har en avgiftsbelagd Support plan kan du skapa en tek
 
 1. På [Azure Portal](https://portal.azure.com) huvud menyn väljer du **Hjälp + Support**.
 
-1. Under **support**väljer du **ny supportbegäran**. Ange den här informationen för din begäran:
+1. På **support** -menyn väljer du **ny supportbegäran**. Ange den här informationen om för din begäran:
 
-   | Inställning | Value |
+   | Egenskap | Value |
    |---------|-------|
-   | **Typ av problem** | **Produkt** | 
-   | **Prenumeration** | <*your-Azure-subscription*> | 
-   | **Tjänst** | Välj **Scheduler**Under **övervakning & hantering**. | 
+   | **Typ av problem** | **Produkt** |
+   | **Prenumeration** | <*your-Azure-subscription*> |
+   | **Tjänst** | Välj **Scheduler**Under **övervakning & hantering**. Om du inte hittar **Scheduler**väljer du **alla tjänster** först. |
    ||| 
 
 1. Välj det support alternativ som du vill använda. Om du har en avgiftsbelagd Support plan väljer du **Nästa**.

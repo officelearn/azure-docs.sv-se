@@ -1,6 +1,6 @@
 ---
-title: Skicka enhetsdata via transparent gateway – Machine Learning på Azure IoT Edge | Microsoft Docs
-description: Använd en utvecklingsdator som en simulerad IoT Edge-enhet för att skicka data till IoT Hub enheten genom att gå via en enhet som har konfigurerats som en transparent gateway.
+title: Skicka enhets data via transparent Gateway – Machine Learning på Azure IoT Edge | Microsoft Docs
+description: Använd din utvecklings dator som en simulerad IoT Edge enhet för att skicka data till IoT Hub genom att gå igenom en enhet som kon figurer ATS som en transparent Gateway.
 author: kgremban
 manager: philmea
 ms.author: kgremban
@@ -8,66 +8,66 @@ ms.date: 06/13/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 12793ff28bf13f26bc2cc3d436b644601fc48ac8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 0fe05131268b8a6a6c61323289d3017231e49706
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67081387"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299809"
 ---
-# <a name="tutorial-send-data-via-transparent-gateway"></a>Självstudier: Skicka data via en transparent gateway
+# <a name="tutorial-send-data-via-transparent-gateway"></a>Självstudier: Skicka data via transparent Gateway
 
 > [!NOTE]
-> Den här artikeln ingår i en serie med en självstudiekurs om hur du använder Azure Machine Learning på IoT Edge. Om du har hamnat på den här artikeln direkt, rekommenderar vi att du börja med den [först artikel](tutorial-machine-learning-edge-01-intro.md) i serien för bästa resultat.
+> Den här artikeln ingår i en serie för självstudier om hur du använder Azure Machine Learning på IoT Edge. Om du har kommit till den här artikeln direkt rekommenderar vi att du börjar med den [första artikeln](tutorial-machine-learning-edge-01-intro.md) i serien för bästa möjliga resultat.
 
-Vi använder utvecklingsdator igen som en simulerad enhet i den här artikeln, men i stället för att skicka data direkt till IoT-hubben som enheten skickar data till IoT Edge-enhet som har konfigurerats som en transparent gateway.
+I den här artikeln använder vi utvecklings datorn igen som en simulerad enhet, men istället för att skicka data direkt till den IoT Hub enheten skickar data till den IoT Edge-enhet som kon figurer ATS som en transparent Gateway.
 
-Vi kan övervaka hur IoT Edge-enhet medan den simulerade enheten skickar data. När enheten är klar kör kan vi titta på data i våra storage-konto för att verifiera allt fungerade som förväntat.
+Vi övervakar IoT Edge enhetens funktion medan den simulerade enheten skickar data. När enheten har körts klart tittar vi på data i vårt lagrings konto för att kontrol lera att allt fungerade som förväntat.
 
-Det här steget utförs normalt av en utvecklare i molnet eller enhet.
+Det här steget utförs vanligt vis av en moln-eller enhets utvecklare.
 
-## <a name="review-device-harness"></a>Granska enheten skydd
+## <a name="review-device-harness"></a>Granska enhetens nät
 
-Återanvända den [DeviceHarness projekt](tutorial-machine-learning-edge-03-generate-data.md) att simulera det underordnade (eller blad) enheten. Ansluta till en transparent gateway kräver två ytterligare saker:
+Återanvänd [DeviceHarness-projektet](tutorial-machine-learning-edge-03-generate-data.md) för att simulera den underordnade enheten (eller löv). För att ansluta till den transparenta gatewayen krävs ytterligare två saker:
 
-* Registrera certifikat för att göra underordnad enhet (i det här fallet vår utvecklingsdator) lita på certifikat som används av IoT Edge-körningen.
-* Lägg till det edge gateway fullständigt kvalificerade domännamnet (FQDN) till enhetens anslutningssträng.
+* Registrera certifikatet för att göra den underordnade enheten (i det här fallet vår utvecklings dator) förtroende för den certifikat utfärdare som används av den IoT Edge körningen.
+* Lägg till det fullständigt kvalificerade domän namnet (FQDN) för Edge gateway i enhets anslutnings strängen.
 
-Titta på koden och se hur dessa två objekt implementeras.
+Titta på koden för att se hur dessa två objekt implementeras.
 
-1. Öppna Visual Studio Code på utvecklingsdatorn.
+1. Öppna Visual Studio Code på din utvecklings dator.
 
-2. Använd **filen** > **Öppna mapp...**  att öppna C:\\källa\\IoTEdgeAndMlSample\\DeviceHarness.
+2. Använd öppna **fil** > -**mapp...** för att öppna\\C\\:\\source IoTEdgeAndMlSample DeviceHarness.
 
-3. Titta på InstallCertificate()-metod i Program.cs.
+3. Titta på metoden InstallCertificate () i Program.cs.
 
-4. Observera att om koden hittar certifieringssökvägen, anropar metoden CertificateManager.InstallCACert för att installera certifikatet på datorn.
+4. Observera att om koden hittar certifikat Sök vägen anropas metoden CertificateManager. InstallCACert för att installera certifikatet på datorn.
 
-5. Nu vill titta på GetIotHubDevice-metoden i klassen TurbofanDevice.
+5. Titta nu på GetIotHubDevice-metoden i TurbofanDevice-klassen.
 
-6. När användaren anger FQDN för en gateway med hjälp av den ”-g” alternativ är att värdet skickas till den här metoden som gatewayFqdn som kommer att läggas till enhetens anslutningssträng.
+6. När användaren anger det fullständiga domän namnet för gatewayen med alternativet "-g" skickas värdet till den här metoden som gatewayFqdn, som läggs till i enhets anslutnings strängen.
 
    ```csharp
    connectionString = $"{connectionString};GatewayHostName={gatewayFqdn.ToLower()}";
    ```
 
-## <a name="build-and-run-leaf-device"></a>Skapa och köra löv-enhet
+## <a name="build-and-run-leaf-device"></a>Skapa och kör löv enhet
 
-1. Skapa projektet med det DeviceHarness projektet i Visual Studio Code (Ctrl + Skift + B eller **Terminal** > **kör Skapa uppgift...** ) och välj **skapa** från dialogrutan.
+1. När projektet DeviceHarness fortfarande är öppet i Visual Studio Code skapar du projektet (CTRL + SHIFT + B eller**Kör build-aktivitet**för **terminalfönstret** > ) och väljer **skapa** i dialog rutan.
 
-2. Hitta det fullständigt kvalificerade domännamnet (FQDN) för din edge-gateway genom att gå till din IoT Edge-enhet virtuell dator i portalen och kopiera värdet för **DNS-namnet** från en översikt.
+2. Hitta det fullständigt kvalificerade domän namnet (FQDN) för din Edge-Gateway genom att gå till din IoT Edge enhets virtuella dator på portalen och kopiera värdet för **DNS-namn** från översikten.
 
-3. Öppna Visual Studio Code-terminalen (**Terminal** > **ny terminal**) och kör följande kommando, ersätta `<edge_device_fqdn>` med DNS-namnet som du kopierade från den virtuella datorn:
+3. Öppna Visual Studio Code Terminal (**Terminal** > -**ny terminal**) och kör följande kommando och Ersätt `<edge_device_fqdn>` med det DNS-namn som du kopierade från den virtuella datorn:
 
    ```cmd
    dotnet run -- --gateway-host-name "<edge_device_fqdn>" --certificate C:\edgecertificates\certs\azure-iot-test-only.root.ca.cert.pem --max-devices 1
    ```
 
-4. Programmet försöker att installera certifikatet till din utvecklingsdator. När detta sker kan du acceptera säkerhetsvarningen.
+4. Programmet försöker installera certifikatet på din utvecklings dator. När det gör det accepterar du säkerhets varningen.
 
-5. När du tillfrågas om IoT Hub anslutning sträng Klicka på ellipsen ( **...** ) på Azure IoT Hub-enheter panelen och välj **kopia IoT Hub-anslutningssträngen**. Klistra in värdet i terminalen.
+5. När du uppmanas att ange IoT Hub anslutnings sträng klickar du på ellipsen ( **...** ) på panelen Azure IoT Hub enheter och väljer **Kopiera IoT Hub anslutnings sträng**. Klistra in värdet i terminalen.
 
-6. Du ser utdata som liknar:
+6. Utdata visas som:
 
    ```output
    Found existing device: Client_001
@@ -79,59 +79,59 @@ Titta på koden och se hur dessa två objekt implementeras.
    Device: 1 Message count: 250
    ```
 
-   Observera att lägga till ”GatewayHostName” till enhetens anslutningssträng, vilket gör att enheten att kommunicera via IoT Hub via transparent IoT Edge-gateway.
+   Observera att tillägget "GatewayHostName" läggs till i enhets anslutnings strängen, vilket gör att enheten kommunicerar via IoT Hub via den IoT Edge transparenta gatewayen.
 
-## <a name="check-output"></a>Kontrollera utdata
+## <a name="check-output"></a>Kontrol lera utdata
 
-### <a name="iot-edge-device-output"></a>IoT Edge-enheter
+### <a name="iot-edge-device-output"></a>IoT Edge enhets utdata
 
-Utdata från modulen avroFileWriter kan lätt uppfattas genom att titta på IoT Edge-enhet.
+Utdata från avroFileWriter-modulen kan observeras enkelt genom att titta på den IoT Edge enheten.
 
-1. SSH till din IoT Edge-dator.
+1. SSH i din IoT Edge virtuella dator.
 
-2. Leta efter filerna som skrivits till disk.
+2. Sök efter filer som skrivs till disk.
 
    ```bash
    find /data/avrofiles -type f
    ```
 
-3. Resultatet av kommandot ska se ut som i följande exempel:
+3. Kommandots utdata ser ut som i följande exempel:
 
    ```output
    /data/avrofiles/2019/4/18/22/10.avro
    ```
 
-   Du kan ha fler än en enda fil beroende på tidpunkten för körningen.
+   Du kan ha fler än en fil beroende på tidpunkten för körningen.
 
-4. Uppmärksam på tidsstämplarna. Modulen avroFileWriter Överför filer till molnet när den senaste ändringstiden är mer än 10 minuter tidigare (se ändrade\_filen\_TIDSGRÄNS i uploader.py i modulen avroFileWriter).
+4. Var uppmärksam på tidsstämplar. AvroFileWriter-modulen överför filerna till molnet när den senaste ändrings tiden är mer än 10 minuter tidigare (se modifierad\_fil\_-timeout i Uploader.py i avroFileWriter-modulen).
 
-5. När de 10 minuterna har förflutit modulen ska ladda upp filerna. Om överföringen lyckas tar bort filer från disken.
+5. När 10 minuter har förflutit ska modulen Ladda upp filerna. Om överföringen lyckas tas filerna bort från disken.
 
 ### <a name="azure-storage"></a>Azure-lagring
 
-Vi kan se resultatet av vår löv-enhet som skickar data genom att titta på storage-konton där vi förväntar oss data ska dirigeras.
+Vi kan se resultatet av vår löv enhet som skickar data genom att titta på de lagrings konton där vi förväntar sig att data ska vidarebefordras.
 
-1. Öppna Visual Studio Code på utvecklingsdator.
+1. Öppna Visual Studio Code på utvecklings datorn.
 
-2. Navigera i trädet för att hitta ditt storage-konto på panelen ”AZURE STORAGE” i fönstret utforska.
+2. I panelen "AZURE STORAGE" i fönstret utforska navigerar du i trädet för att hitta ditt lagrings konto.
 
-3. Expandera den **Blobbehållare** noden.
+3. Expandera noden **BLOB-behållare** .
 
-4. Från det arbetet som vi gjorde i föregående del av självstudiekursen vi förväntar oss som den **ruldata** behållare ska innehålla meddelanden med RUL. Expandera den **ruldata** noden.
+4. Från arbetet som vi gjorde i föregående del av själv studie kursen förväntar vi dig att **ruldata** -behållaren ska innehålla meddelanden med RUL. Expandera noden **ruldata** .
 
-5. En eller flera blob-filer med namnet som visas: `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>`.
+5. Du kommer att se en eller flera BLOB-filer som `<IoT Hub Name>/<partition>/<year>/<month>/<day>/<hour>/<minute>`heter:.
 
-6. Högerklicka på en av filerna och välj **hämta Blob** att spara filen till din utvecklingsdator.
+6. Högerklicka på en av filerna och välj **Ladda ned BLOB** för att spara filen på din utvecklings dator.
 
-7. Expandera sedan den **uploadturbofanfiles** noden. I föregående artikel vi anger den här platsen som mål för filer som laddats upp av modulen avroFileWriter.
+7. Expandera sedan **uploadturbofanfiles** -noden. I föregående artikel anger vi den här platsen som mål för filer som laddats upp av avroFileWriter-modulen.
 
-8. Högerklicka på filerna och välj **hämta Blob** att spara den till din utvecklingsdator.
+8. Högerklicka på filerna och välj **Hämta BLOB** för att spara den på din utvecklings dator.
 
-### <a name="read-avro-file-contents"></a>Läs Avro-filens innehåll
+### <a name="read-avro-file-contents"></a>Läsa innehållet i Avro-filen
 
-Vi ingår ett enkelt kommandoradsverktyg för att läsa en Avro-fil och returnerar en JSON-sträng av meddelanden i filen. I det här avsnittet ska vi installera och köra den.
+Vi har inkluderat ett enkelt kommando rads verktyg för att läsa en Avro-fil och returnera en JSON-sträng för meddelandena i filen. I det här avsnittet ska vi installera och köra det.
 
-1. Öppna en terminal i Visual Studio Code (**Terminal** > **ny terminal**).
+1. Öppna en Terminal i Visual Studio Code (**Terminal** > -**ny terminal**).
 
 2. Installera hubavroreader:
 
@@ -139,13 +139,13 @@ Vi ingår ett enkelt kommandoradsverktyg för att läsa en Avro-fil och returner
    pip install c:\source\IoTEdgeAndMlSample\HubAvroReader
    ```
 
-3. Använda hubavroreader för att läsa Avro-filen som du hämtade från **ruldata**.
+3. Använd hubavroreader för att läsa Avro-filen som du laddade ned från **ruldata**.
 
    ```cmd
    hubavroreader <avro file with ath> | more
    ```
 
-4. Observera att brödtexten i meddelandet ser ut när vi förväntade med enhets-ID och förväntad RUL.
+4. Observera att bröd texten i meddelandet ser ut som förväntat med enhets-ID och förutsägande RUL.
 
    ```json
    {
@@ -176,9 +176,9 @@ Vi ingår ett enkelt kommandoradsverktyg för att läsa en Avro-fil och returner
    }
    ```
 
-5. Kör samma kommando skicka Avro-filen som du hämtade från **uploadturbofanfiles**.
+5. Kör samma kommando och skicka Avro-filen som du laddade ned från **uploadturbofanfiles**.
 
-6. Som förväntat, innehåller dessa meddelanden alla sensordata och driftinställningar från det ursprungliga meddelandet. Dessa data kan användas för att förbättra RUL-modellen på vår edge-enhet.
+6. Som förväntat innehåller dessa meddelanden alla sensor data och drift inställningar från det ursprungliga meddelandet. Dessa data kan användas för att förbättra RUL-modellen på vår gräns enhet.
 
    ```json
    {
@@ -219,21 +219,21 @@ Vi ingår ett enkelt kommandoradsverktyg för att läsa en Avro-fil och returner
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du planerar att utforska de resurser som används av den här självstudien för slutpunkt till slutpunkt, vänta tills du är klar för att rensa de resurser som du skapade. Om du inte tänker fortsätta kan du använda följande steg för att ta bort dem:
+Om du planerar att utforska de resurser som används av den här självstudien väntar du tills du är klar för att rensa de resurser som du har skapat. Om du inte planerar att fortsätta använder du följande steg för att ta bort dem:
 
-1. Ta bort resursgrupperna som skapats för att innehålla Dev VM, IoT Edge-VM, IoT Hub, storage-konto, machine learning-arbetsyta-tjänsten (och skapade resurser: behållarregister, programinsikter, nyckelvalvet, storage-konto).
+1. Ta bort de resurs grupper som har skapats för att lagra den virtuella dev-datorn, IoT Edge VM, IoT Hub, lagrings konto, Machine Learning-arbetsyta (och skapade resurser: container Registry, Application Insights, Key Vault, lagrings konto).
 
-2. Ta bort machine learning-projekt i [Azure anteckningsböcker](https://notebooks.azure.com).
+2. Ta bort Machine Learning-projektet i [Azure Notebooks](https://notebooks.azure.com).
 
-3. Om du har klonat lagringsplatsen lokalt, Stäng alla fönster för PowerShell eller i VS Code som refererar till den lokala lagringsplatsen, och ta sedan bort lagringsplatskatalogen.
+3. Om du har klonat lagrings platsen lokalt, Stäng alla PowerShell-eller VS Code-fönster som refererar till den lokala lagrings platsen och ta sedan bort lagrings platsen-katalogen.
 
-4. Om du har skapat certifikat lokalt kan du ta bort mappen c:\\edgeCertificates.
+4. Om du har skapat certifikat lokalt, tar du bort mappen\\c: edgeCertificates.
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln används vi vår utvecklingsdator för att simulera en löv enheten skickar sensor- och användningsdata till vår edge-enhet. Vi har verifierat att moduler på enheten dirigeras, klassificeras, sparas och överfört data först genom att undersöka i realtid driften av edge-enhet och sedan genom att titta på de filer som överförts till lagringskontot.
+I den här artikeln använde vi utvecklings datorn för att simulera en löv enhet som skickar sensor-och drift data till vår gräns enhet. Vi validerade att modulerna på enheten dirigerade, klassificerade, sparade och laddade upp data först genom att undersöka real tids åtgärden för gräns enheten och sedan titta på filerna som överförts till lagrings kontot.
 
 Mer information finns på följande sidor:
 
-* [En underordnad ansluts till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md)
-* [Store data på gränsen med Azure Blob Storage på IoT Edge (förhandsversion)](how-to-store-data-blob.md)
+* [Ansluta en underordnad enhet till en Azure IoT Edge-gateway](how-to-connect-downstream-device.md)
+* [Lagra data på gränsen med Azure Blob Storage på IoT Edge (förhands granskning)](how-to-store-data-blob.md)

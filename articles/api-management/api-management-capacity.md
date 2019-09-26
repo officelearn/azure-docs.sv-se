@@ -1,6 +1,6 @@
 ---
 title: Kapacitet för en Azure API Management-instans | Microsoft Docs
-description: Den här artikeln förklarar vad kapacitet mått är och hur du fatta välgrundade beslut om du vill skala en Azure API Management-instans.
+description: I den här artikeln förklaras hur kapacitets måttet är och hur du fattar välgrundade beslut om att skala en Azure API Management-instans.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -11,28 +11,32 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
-ms.openlocfilehash: c39c585d9947422260868734ec89814d8a510089
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.custom: fasttrack-edit
+ms.openlocfilehash: a585ab059319b15be1f2a86bf10b7dc58da72494
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67836957"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299451"
 ---
-# <a name="capacity-of-an-azure-api-management-instance"></a>Kapaciteten för en Azure API Management-instans
+# <a name="capacity-of-an-azure-api-management-instance"></a>Kapacitet för en Azure API Management-instans
 
-**Kapacitet** är det viktigaste [Azure Monitor-mått](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) för att göra välgrundade beslut om du vill skala en API Management-instans för att hantera högre belastning. Dess konstruktion är komplex och inför vissa beteende.
+**Kapaciteten** är det viktigaste [Azure Monitor måttet](api-management-howto-use-azure-monitor.md#view-metrics-of-your-apis) för att fatta välgrundade beslut om att skala en API Management-instans för att få plats med mer belastning. Dess konstruktion är komplex och medför vissa beteenden.
 
-Den här artikeln förklarar vad det **kapacitet** är och hur den fungerar. Den visar hur du kommer åt **kapacitet** mått i Azure-portalen och ger förslag på när du ska du överväga att skala eller uppgraderar din API Management-instans.
+Den här artikeln förklarar vad **kapaciteten** är och hur den beter sig. Den visar hur du får åtkomst till **kapacitets** mått i Azure Portal och föreslår när du ska överväga att skala eller uppgradera API Management-instansen.
+
+> [!IMPORTANT]
+> Den här artikeln beskriver hur du kan övervaka och skala Azure API Management-instansen baserat på dess kapacitets mått. Det är dock lika viktigt att förstå vad som händer när en enskild API Management instans faktiskt har *nått* sin kapacitet. Azure API Management tillämpar inte någon begränsning på service nivå för att förhindra en fysisk överbelastning av instanserna. När en instans når sin fysiska kapacitet kommer den att fungera på samma sätt som alla överbelastade webb servrar som inte kan bearbeta inkommande begär Anden: fördröjningen ökar, anslutningar tas bort, timeout-fel uppstår osv. Det innebär att API-klienterna bör förberedas för att hantera den här risken på samma sätt som med andra externa tjänster (t. ex. genom att tillämpa principer för återförsök).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du vill följa stegen från den här artikeln, måste du ha:
+För att följa stegen i den här artikeln måste du ha:
 
 + En aktiv Azure-prenumeration.
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ En APIM-instansen. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
++ En APIM-instans. Mer information finns i [skapa en Azure API Management-instans](get-started-create-service-instance.md).
 
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
@@ -40,65 +44,66 @@ Om du vill följa stegen från den här artikeln, måste du ha:
 
 ![Kapacitetsmått](./media/api-management-capacity/capacity-ingredients.png)
 
-**Kapacitet** är en indikator för belastningen på en API Management-instans. Visas Resursanvändning (processor, minne) och kölängder för nätverket. CPU och minnesanvändning visar resurser förbrukning av:
+**Kapacitet** är en indikator för belastningen på en API Management-instans. Den visar resursernas användning (processor, minne) och Kölängd-nätverk. PROCESSOR-och minnes användningen visar resurser förbrukningen genom att:
 
-+ API Management-tjänster, till exempel hantering åtgärder eller begäran om bearbetning, vilket kan innefatta vidarebefordrar begäranden eller köra en Grupprincip
-+ valda operativsystemprocesser, inklusive processer som inbegriper kostnaden för SSL-handskakningar på nya anslutningar.
++ API Management data Plans tjänster, t. ex. bearbetning av begär Anden, som kan omfatta vidarebefordrande begär Anden eller köra en princip.
++ API Management Management plan-tjänster, till exempel hanterings åtgärder som tillämpas via Azure Portal eller ARM, eller belastning som kommer från [Developer-portalen](api-management-howto-developer-portal.md).
++ Valda operativ system processer, inklusive processer som inkluderar kostnaden för SSL-handskakning på nya anslutningar.
 
-Totalt antal **kapacitet** värdet ett medelvärde av värdena från varje enhet av en API Management-instans.
+Total **kapacitet** är ett genomsnitt av sina egna värden från varje enhet i en API Management instans.
 
-Även om den **kapacitet mått** är utformat för att visa problem med din API Management-instans, det finns fall när problem inte visas i ändringar i den **kapacitet mått**.
+Även om **kapacitets måttet** är utformat för att visa problem med API Management-instansen, finns det fall när problem inte återspeglas i förändringar i **kapacitets måttet**.
 
-## <a name="capacity-metric-behavior"></a>Kapacitet måttbeteende
+## <a name="capacity-metric-behavior"></a>Beteende för kapacitets mått
 
-På grund av dess konstruktion i verkligheten **kapacitet** kan påverkas av många faktorer, till exempel:
+På grund av sin konstruktion kan i Real livs **kapacitet** påverkas av många variabler, till exempel:
 
-+ mönster för anslutningen (ny anslutning på en begäran vs återanvända den befintliga anslutningen)
-+ storleken på en begäran och svar
-+ principer som konfigureras i varje API- eller antal klienter skickar begäranden.
++ anslutnings mönster (ny anslutning på en begäran jämfört med den befintliga anslutningen)
++ storlek på en begäran och ett svar
++ principer som kon figurer ATS på varje API eller antal klienter som skickar begär Anden.
 
-Mer avancerade åtgärder i begäranden är, desto högre den **kapacitet** kommer att vara i användning. Exempelvis förbruka komplexa omvandlingsprinciper mycket mer Processorkraft än en enkel begäran-vidarebefordran. Långsamma backend-svar för tjänsten kommer att öka det för.
+Ju mer komplexa åtgärder som begärs, desto högre är **kapacitets** förbrukningen. Till exempel använder komplexa omvandlings principer mycket mer processor än en enkel vidarebefordring av förfrågningar. Svar på långsamma Server dels tjänster ökar också.
 
 > [!IMPORTANT]
-> **Kapacitet** är inte ett direkt mått på hur många begäranden som bearbetas.
+> **Kapaciteten** är inte ett direkt mått på antalet begär Anden som bearbetas.
 
-![Kapacitet mått toppar](./media/api-management-capacity/capacity-spikes.png)
+![Toppar i kapacitets mått](./media/api-management-capacity/capacity-spikes.png)
 
-**Kapacitet** kan också utnyttja periodvis eller vara större än noll, även om det finns inga förfrågningar som bearbetas. Det inträffar på grund av system - eller plattformsspecifika åtgärder och bör inte beaktas när du bestämmer om du vill skala en instans.
+**Kapaciteten** kan också överföras med jämna mellanrum eller vara större än noll, även om det inte finns några begär Anden som bearbetas. Det inträffar på grund av system-eller plattformsspecifika åtgärder och bör inte beaktas när du bestämmer om du vill skala en instans.
 
-Låg **kapacitet mått** innebär inte nödvändigtvis att API Management-instansen inte har stött på problem.
+Låg **kapacitets mått** innebär inte nödvändigt vis att API Management instansen inte drabbas av några problem.
   
-## <a name="use-the-azure-portal-to-examine-capacity"></a>Använda Azure Portal för att granska kapacitet
+## <a name="use-the-azure-portal-to-examine-capacity"></a>Använd Azure Portal för att undersöka kapaciteten
   
 ![Kapacitetsmått](./media/api-management-capacity/capacity-metric.png)  
 
-1. Navigera till APIM-instansen i den [Azure-portalen](https://portal.azure.com/).
-2. Välj **mått (förhandsgranskning)** .
-3. Välj avsnittet lila **kapacitet** mått från tillgängliga mått och lämna standardvärdet **genomsn** aggregering.
+1. Navigera till din APIM-instans i [Azure Portal](https://portal.azure.com/).
+2. Välj **Mått**.
+3. I det lila avsnittet väljer du **kapacitets** mått från tillgängliga mått och **lämnar standard agg** regeringen.
 
     > [!TIP]
-    > Du bör alltid visas i en **kapacitet** mått uppdelade efter plats för att undvika fel tolkningar.
+    > Du bör alltid titta på en **kapacitets** mått analys per plats för att undvika fel tolkning.
 
-4. Från avsnittet grön Välj **plats** för att dela måttet per dimension.
-5. Välj ett önskat tidsintervall från det översta fältet i avsnittet.
+4. I avsnittet grönt väljer du **plats** för att dela måttet efter dimension.
+5. Välj önskat tidsintervall från det översta fältet i avsnittet.
 
-    Du kan ange en metrisk varning så att du vet när något oväntat sker. Till exempel få meddelanden när APIM-instansen har tagits överskrider sin förväntad maximal kapacitet för över 20 minuter.
+    Du kan ange en mått varning för att meddela dig när något oväntade inträffar. Du kan till exempel få meddelanden när APIM-instansen har överskridit den förväntade högsta kapaciteten under mer än 20 minuter.
 
     >[!TIP]
-    > Du kan konfigurera aviseringar så att du vet när tjänsten har brist på kapacitet eller använda Azure Monitor-funktion för automatisk skalning att automatiskt lägga till en Azure API Management-enhet. Skala åtgärden kan ta upp till 30 minuter, så du bör planera dina regler på lämpligt sätt.  
-    > Endast skalning master plats tillåts.
+    > Du kan konfigurera aviseringar så att du vet när tjänsten håller på att få slut på kapacitet eller använder Azure Monitor automatisk skalnings funktion för att automatiskt lägga till en Azure API Management-enhet. Skalnings åtgärden kan ta cirka 30 minuter, så du bör planera reglerna på motsvarande sätt.  
+    > Det går bara att skala huvud platsen.
 
-## <a name="use-capacity-for-scaling-decisions"></a>Använd kapacitet för att skala beslut
+## <a name="use-capacity-for-scaling-decisions"></a>Använd kapacitet för skalnings beslut
 
-**Kapacitet** är mått för att fatta beslut om du vill skala en API Management-instans för att hantera högre belastning. Överväg att:
+**Kapacitet** är måttet för att fatta beslut om att skala en API Management-instans för att hantera mer belastning. Skaffa
 
-+ Titta på en långsiktig trend och genomsnitt.
-+ Ignorerar plötsliga toppar som mest sannolikt inte relaterade till alla belastningsökningar (se avsnittet ”kapacitet måttbeteende” förklaring).
-+ Uppgradera eller skala din instans när **kapacitet**'s värdet överskrider 60% eller 70% under en längre tid (till exempel 30 minuter). Olika värden fungera bättre för din tjänst eller scenario.
++ Titta på långsiktiga trender och genomsnitt.
++ Ignorera plötsliga toppar som troligen inte är relaterade till någon ökning i belastningen (se avsnittet "kapacitets måttets beteende" för förklaring).
++ Att uppgradera eller skala din instans när **kapacitet**svärdet överstiger 60% eller 70% under en längre tid (till exempel 30 minuter). Olika värden kan fungera bättre för din tjänst eller ditt scenario.
 
 >[!TIP]  
-> Om du kan beräkna din trafik i förväg, testa APIM-instansen på arbetsbelastningar som du förväntar dig. Du kan öka belastningen på din klient gradvis och övervaka vilka värdet kapacitet måttet motsvarar hög belastning. Följ stegen i föregående avsnitt du använder Azure-portalen för att förstå hur mycket kapacitet används vid en given tidpunkt.
+> Om du kan beräkna din trafik i förväg testar du APIM-instansen på de arbets belastningar du förväntar dig. Du kan öka belastningen på begäran på din klient gradvis och övervaka vilket värde som kapacitets måttet motsvarar din högsta belastning. Följ stegen i föregående avsnitt för att använda Azure Portal för att förstå hur mycket kapacitet som används vid en specifik tidpunkt.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hur skala eller uppgradera en Azure API Management-tjänstinstans](upgrade-and-scale.md)
+[Skala eller uppgradera en Azure API Management-tjänstinstans](upgrade-and-scale.md)

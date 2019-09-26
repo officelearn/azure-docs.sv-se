@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 4865a2b3b02a1e7a6db19418122b66aeb79dd332
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d6cc87947ab861e8de4dbdf754164e195f0f458c
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099457"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309324"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
@@ -44,18 +44,19 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
-* Ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du läsa om hur du [skapar ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md).
+* Ett [virtuellt Azure-nätverk](../virtual-network/virtual-networks-overview.md). Om du inte har ett virtuellt nätverk kan du läsa om hur du [skapar ett virtuellt Azure-nätverk](../virtual-network/quick-create-portal.md). 
 
   * Ditt virtuella nätverk måste ha fyra *tomma* undernät för att skapa och distribuera resurser i din ISE. Du kan skapa dessa undernät i förväg eller vänta tills du har skapat din ISE där du kan skapa undernät på samma tid. Läs mer om [krav för undernät](#create-subnet).
-  
-    > [!NOTE]
-    > Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), som tillhandahåller en privat anslutning till Microsofts moln tjänster, måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell som har följande väg och länka tabellen till varje undernät som används av din ISE:
-    > 
-    > **Namn**: <*Route-Name*><br>
-    > Adressprefix: 0.0.0.0/0<br>
-    > **Nästa hopp**: Internet
+
+  * Under näts namn måste börja med antingen ett alfabetiskt tecken eller ett under streck och får inte använda dessa tecken `<`: `>`, `%`, `&` `\\` `?`,,, `/`,. 
 
   * Kontrol lera att det virtuella nätverket [gör dessa portar tillgängliga](#ports) så att din ISE fungerar som den ska och är tillgänglig.
+
+  * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md), som tillhandahåller en privat anslutning till Microsofts moln tjänster, måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell som har följande väg och länka tabellen till varje undernät som används av din ISE:
+
+    **Namn**: <*Route-Name*><br>
+    Adressprefix: 0.0.0.0/0<br>
+    **Nästa hopp**: Internet
 
 * Om du vill använda anpassade DNS-servrar för ditt virtuella Azure-nätverk [konfigurerar du dessa servrar genom att följa de här stegen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) innan du distribuerar din ISE till ditt virtuella nätverk. Annars måste du, varje gång du ändrar DNS-servern, också starta om ISE, som är en funktion som är tillgänglig med ISE offentlig för hands version.
 
@@ -134,13 +135,17 @@ I rutan Sök anger du "integration service Environment" som filter.
 
    **Skapa undernät**
 
-   För att skapa och distribuera resurser i din miljö behöver din ISE fyra *tomma* undernät som inte har delegerats till någon tjänst. Du *kan inte* ändra dessa under näts adresser när du har skapat din miljö. Varje undernät måste uppfylla följande kriterier:
-
-   * Har ett namn som börjar med ett alfabetiskt tecken eller ett under streck, och som inte har följande tecken `<`: `>`, `%`, `&` `\\` `?`,,,,`/`
+   För att skapa och distribuera resurser i din miljö behöver din ISE fyra *tomma* undernät som inte har delegerats till någon tjänst. Du *kan inte* ändra dessa under näts adresser när du har skapat din miljö.
+   
+   > [!IMPORTANT]
+   > 
+   > Under näts namn måste börja med antingen ett alfabetiskt tecken eller ett under streck (inga siffror) och använder inte dessa tecken: `<`, `>`, `%` `?` `&` `\\`,,,, `/`.
+   
+   Dessutom måste varje undernät uppfylla följande krav:
 
    * Använder [CIDR-format (Classless Inter-Domain routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) och ett klass B-adressutrymme.
 
-   * Använder minst ett `/27` i adress utrymmet eftersom varje undernät måste ha *minst* 32 adresser som minst. Exempel:
+   * Använder minst ett `/27` i adress utrymmet eftersom varje undernät måste ha *minst* 32 adresser som *minst.* Exempel:
 
      * `10.0.0.0/27`har 32 adresser eftersom 2<sup>(32-27)</sup> är 2<sup>5</sup> eller 32.
 
@@ -150,7 +155,7 @@ I rutan Sök anger du "integration service Environment" som filter.
 
      Mer information om hur du beräknar adresser finns i [IPv4 CIDR-block](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks).
 
-   * Kom ihåg att [skapa en](../virtual-network/manage-route-table.md) routningstabell som har följande väg och länka tabellen till varje undernät som används av din ISE, om du använder [ExpressRoute](../expressroute/expressroute-introduction.md):
+   * Om du använder [ExpressRoute](../expressroute/expressroute-introduction.md)måste du [skapa en](../virtual-network/manage-route-table.md) routningstabell med följande väg och länka tabellen till varje undernät som används av din ISE:
 
      **Namn**: <*Route-Name*><br>
      Adressprefix: 0.0.0.0/0<br>

@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/20/2019
+ms.date: 9/25/2019
 ms.author: b-juche
-ms.openlocfilehash: a2cfd7937bff10dae4601cb9727cfe43e4d61ca0
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178272"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71299653"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -95,6 +95,9 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     * **Sökväg till organisationsenhet**  
         Det här är LDAP-sökvägen för organisationsenheten (OU) där SMB-serverns dator konton kommer att skapas. Det vill säga OU = den andra nivån, OU = första nivån. 
+
+        Om du använder Azure NetApp Files med Azure Active Directory Domain Services är `OU=AADDC Computers` organisationsenhetens sökväg när du konfigurerar Active Directory för ditt NetApp-konto.
+        
     * Autentiseringsuppgifter, inklusive ditt **användar namn** och **lösen ord**
 
     ![Anslut Active Directory](../media/azure-netapp-files/azure-netapp-files-join-active-directory.png)

@@ -1,5 +1,5 @@
 ---
-title: Kom igång med U-SQL-katalogen i Azure Data Lake Analytics
+title: Använd U-SQL-katalogen i Azure Data Lake Analytics
 description: Lär dig hur du använder U-SQL-katalogen för att dela kod och data.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,20 +9,20 @@ ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: a6faa7037ccbacc0547401dd52bb3b19abd1c474
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: afd3ca24f2f8232084523e1356d63abce1684b8d
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813361"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71309883"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Kom igång med U-SQL-katalogen i Azure Data Lake Analytics
 
-## <a name="create-a-tvf"></a>Skapa en Tabellvärdesfunktion
+## <a name="create-a-tvf"></a>Skapa en TVF
 
-I föregående U-SQL-skript upprepas användningen av EXTRAHERA att läsa från samma källfil. Du kan använda den U-SQL Tabellvärdesfunktionen (TVF), för att kapsla in data för senare användning.  
+I föregående U-SQL-skript, upprepas användningen av EXTRACT för att läsa från samma källfil. Med U-SQL tabell värdes funktionen (TVF) kan du kapsla in data för framtida åter användning.  
 
-Följande skript skapar en Tabellvärdesfunktion kallas `Searchlog()` i standarddatabas och schema:
+Följande skript skapar en TVF som anropas `Searchlog()` i standard databasen och schemat:
 
 ```
 DROP FUNCTION IF EXISTS Searchlog;
@@ -53,7 +53,7 @@ RETURN;
 END;
 ```
 
-Följande skript visar hur du använder Tabellvärdesfunktionen som definierades i föregående skript:
+Följande skript visar hur du använder TVF som definierades i föregående skript:
 
 ```
 @res =
@@ -72,9 +72,9 @@ OUTPUT @res
 
 ## <a name="create-views"></a>Skapa vyer
 
-Om du har ett enda frågeuttryck, i stället för en Tabellvärdesfunktion kan du använda en U-SQL-vy att kapsla in uttrycket.
+Om du har ett enda frågeuttryck i stället för en TVF kan du använda en U-SQL-vy för att kapsla in uttrycket.
 
-Följande skript skapar en vy som heter `SearchlogView` i standarddatabas och schema:
+Följande skript skapar en vy som anropas `SearchlogView` i standard databasen och schemat:
 
 ```
 DROP VIEW IF EXISTS SearchlogView;
@@ -91,7 +91,7 @@ CREATE VIEW SearchlogView AS
 USING Extractors.Tsv();
 ```
 
-Följande skript visar hur du använder den definierade vy:
+Följande skript visar hur den definierade vyn används:
 
 ```
 @res =
@@ -109,9 +109,9 @@ OUTPUT @res
 ```
 
 ## <a name="create-tables"></a>Skapa tabeller
-Som med relationsdatabas tabeller med U-SQL kan du skapa en tabell med ett fördefinierat schema eller skapa en tabell som härleder scheman från frågan infogas som i tabell (även kallat CREATE TABLE AS SELECT eller CTAS).
+Precis som med relations databas tabeller, med U-SQL, kan du skapa en tabell med ett fördefinierat schema eller skapa en tabell som härleder schemat från frågan som fyller tabellen (kallas även CREATE TABLE som SELECT eller CTAS).
 
-Skapa en databas och två tabeller genom att använda följande skript:
+Skapa en databas och två tabeller med hjälp av följande skript:
 
 ```
 DROP DATABASE IF EXISTS SearchLogDb;
@@ -143,9 +143,9 @@ CREATE TABLE SearchLog2(
 ```
 
 ## <a name="query-tables"></a>Frågetabeller
-Du kan fråga tabeller, till exempel de som används i föregående skript på samma sätt som du fråga datafilerna. Istället för att skapa en raduppsättning med hjälp av EXTRAHERA nu ser du tabellnamnet.
+Du kan fråga tabeller, till exempel de som skapats i föregående skript, på samma sätt som du frågar datafilerna. I stället för att skapa en rad uppsättning med EXTRAHERA kan du nu referera till tabell namnet.
 
-Ändra transform-skriptet som du använde tidigare för att läsa från tabeller:
+Om du vill läsa från tabellerna ändrar du det omvandlings skript som du använde tidigare:
 
 ```
 @rs1 =
@@ -168,7 +168,7 @@ OUTPUT @res
 ```
 
  >[!NOTE]
- >Du kan inte för närvarande kan köra en väljer på en tabell i samma skript som den där du skapade tabellen.
+ >För närvarande kan du inte köra en markering i en tabell i samma skript som den plats där du skapade tabellen.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Översikt över Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.author: iainfou
-ms.openlocfilehash: e18f990885a25b7e130dfeb5a0a3425530ee11e6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 81d20a973454db600d8be9ce036f001dd41784e7
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086588"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71314994"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Design överväganden för virtuellt nätverk och konfigurations alternativ för Azure AD Domain Services
 
@@ -46,7 +46,7 @@ En Azure AD DS-hanterad domän ansluter till ett undernät i ett virtuellt Azure
 * Azure AD DS måste distribueras i sitt eget undernät. Använd inte ett befintligt undernät eller ett Gateway-undernät.
 * En nätverks säkerhets grupp skapas under distributionen av en Azure AD DS-hanterad domän. Den här nätverks säkerhets gruppen innehåller de regler som krävs för korrekt tjänst kommunikation.
     * Skapa eller Använd inte en befintlig nätverks säkerhets grupp med dina egna anpassade regler.
-* Azure AD DS kräver mellan fem och sju IP-adresser. Kontrol lera att IP-adressintervallet för ditt undernät kan ange det här antalet adresser.
+* Azure AD DS kräver 3-5 IP-adresser. Kontrol lera att IP-adressintervallet för ditt undernät kan ange det här antalet adresser.
     * Att begränsa de tillgängliga IP-adresserna kan förhindra Azure AD Domain Services från att underhålla två domänkontrollanter.
 
 I följande exempel diagram visas en giltig design där Azure AD DS har sitt eget undernät, det finns ett Gateway-undernät för extern anslutning och program arbets belastningar finns i ett anslutet undernät i det virtuella nätverket:

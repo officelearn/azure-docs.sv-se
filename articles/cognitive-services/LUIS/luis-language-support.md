@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 3b1b31da68d821ff27fa30e75ec1522b9d4875c8
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307439"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316357"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -34,18 +34,18 @@ LUIS förstår yttranden på följande språk:
 |--|--|:--:|:--:|:--:|:--:|
 | Amerikansk engelska |`en-US` | ✔ | ✔  |✔|✔|
 | *[Kinesiska](#chinese-support-notes) |`zh-CN` | ✔ | ✔ |✔|-|
-| Nederländska |`nl-NL` |-|  -   |-|✔|
-| Franska (Frankrike) |`fr-FR` |-| ✔ |✔ |✔|
+| Nederländska |`nl-NL` |✔|  -   |-|✔|
+| Franska (Frankrike) |`fr-FR` |✔| ✔ |✔ |✔|
 | Franska (Kanada) |`fr-CA` |-|   -   |-|✔|
-| Tyska |`de-DE` |-| ✔ |✔ |✔|
+| Tyska |`de-DE` |✔| ✔ |✔ |✔|
 | Hindi | `hi-IN`|-|-|-|-|
-| Italienska |`it-IT` |-| ✔ |✔|✔|
-| *[Japanska](#japanese-support-notes) |`ja-JP` |-| ✔ |✔|Endast diskussionsämne|
-| Koreanska |`ko-KR` |-|   -   |-|Endast diskussionsämne|
-| Portugisiska (Brasilien) |`pt-BR` |-| ✔ |✔ |inte alla underordnade kulturer|
-| Spanska (Spanien) |`es-ES` |-| ✔ |✔|✔|
+| Italienska |`it-IT` |✔| ✔ |✔|✔|
+| *[Japanska](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|Endast diskussionsämne|
+| Koreanska |`ko-KR` |✔|   -   |-|Endast diskussionsämne|
+| Portugisiska (Brasilien) |`pt-BR` |✔| ✔ |✔ |inte alla underordnade kulturer|
+| Spanska (Spanien) |`es-ES` |✔| ✔ |✔|✔|
 | Spanska (Mexiko)|`es-MX` |-|  -   |✔|✔|
-| Turkiska | `tr-TR` |-|-|-|Endast sentiment|
+| Turkiska | `tr-TR` |✔|-|-|Endast sentiment|
 
 
 Språkstöd varierar för [förskapade entiteter](luis-reference-prebuilt-entities.md) och [fördefinierade domäner](luis-reference-prebuilt-domains.md).

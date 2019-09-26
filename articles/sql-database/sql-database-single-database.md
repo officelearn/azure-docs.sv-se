@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 04/08/2019
-ms.openlocfilehash: 1dc1d2780dcaf27e0c60cfffe84581c0278491dd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c5de4277915e71763f034596d372554e4f88e204
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566531"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316666"
 ---
 # <a name="what-is-a-single-database-in-azure-sql-database"></a>Vad är en enskild databas i Azure SQL Database
 
@@ -59,6 +59,6 @@ SQL Database innehåller en uppsättning inbyggda funktioner för [säkerhet och
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du snabbt vill komma igång med en enda databas börjar du med snabb starten för [enkel databas guide.MD](sql-database-single-database-quickstart-guide.md).
+- Om du snabbt vill komma igång med en enda databas börjar du med snabb starts [guiden för databas](sql-database-single-database-quickstart-guide.md).
 - Information om hur du migrerar en SQL Server-databas till Azure finns i [migrera till Azure SQL Database](sql-database-single-database-migrate.md).
 - Information om vilka funktioner som stöds finns i avsnittet [Funktioner](sql-database-features.md).

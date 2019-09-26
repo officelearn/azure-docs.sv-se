@@ -1,416 +1,333 @@
 ---
 title: Uppgifter för teamet leda i Team Data Science Process-teamet
-description: En översikt över de uppgifter som ett team på ett team för datavetenskapsprojekt förväntas att slutföra för sina datavetenskapliga team.
+description: En detaljerad genom gång av aktiviteterna för ett Teams lead i en team data vetenskap process-grupp
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/23/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 45be3d7f865c7b72ae62efbf99dbbb4594b1846f
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 84cca255d8cf768d44e01c8f3a892e3c9830184e
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812447"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316717"
 ---
-# <a name="tasks-for-the-team-lead-in-the-team-data-science-process-team"></a>Uppgifter för teamet leda i Team Data Science Process-teamet
+# <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Uppgifter för team ledare i en team data vetenskap process-grupp
 
-Det här avsnittet beskrivs de uppgifter som är en gruppledare väntat att slutföra sina data science-teamet. Målet är att upprätta samarbetsteam miljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). TDSP är en flexibel, iterativ datavetenskapsmetod att leverera prediktiva Analyslösningar och intelligenta program effektivt. Det är utformat för att förbättra samarbete och team learning. Processen är en destillation av metodtipsen och strukturerna från både Microsoft och från branschen, behövs för lyckade implementeringen av data science-åtgärder för att hjälpa företag att fullständigt nytta av fördelarna med sina analytics-program. En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
+I den här artikeln beskrivs de uppgifter som en *grupp ledare* har slutfört för sitt data vetenskaps team. Teamets ledar mål är att upprätta en samarbets grupp miljö som är standardiserad på [team data science-processen](overview.md) (TDSP). TDSP är utformad för att hjälpa till att förbättra samarbetet och team inlärningen. 
 
-En **gruppledare** hanterar ett team för data science-enheten på ett företag. Ett team består av flera dataexperter. För data science-enhet med endast ett litet antal dataexperter, den **Gruppansvarig** och **gruppledare** kan vara samma person eller de kan delegera uppgiften till en surrogate. Men själva aktiviteterna ändras inte. Arbetsflödet för aktiviteter som ska slutföras av gruppledare att ställa in den här miljön illustreras i följande bild:
+TDSP är en flexibel, iterativ data vetenskaps metod för att effektivt leverera lösningar för förutsägelse analys och intelligenta program. Processen är en destillering av bästa praxis och strukturer från Microsoft och branschen, som behövs för att kunna genomföra data vetenskaps initiativ för att hjälpa företag att helt inse fördelarna med sina analys program. En översikt över personal roller och associerade uppgifter för ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md).
 
-![1](./media/team-lead-tasks/team-leads-1-creating-teams.png)
+En grupp ledare hanterar ett team som består av flera data experter på data vetenskaps enheten i ett företag. Beroende på data vetenskaps enhetens storlek och struktur kan [grupp chefen](group-manager-tasks.md) och teamets lead vara samma person, eller så kan de delegera sina uppgifter till surrogat. Men själva aktiviteterna ändras inte. 
 
->[AZURE.NOTE] Uppgifter i block om 1 och 2 i bilden krävs om du använder Azure DevOps som värdplattform för kod och du vill ha en separat Azure DevOps-projekt för ditt team. När uppgifterna har slutförts, kan alla databaser i ditt team skapas under det här projektet. 
+Följande diagram visar arbets flödet för de uppgifter som team ledare har slutfört för att konfigurera en team miljö:
 
-När du har flera förutsättningar uppgifter som anges i följande avsnitt är uppfyllda av hanteraren för gruppen, det är de fem främsta uppgifterna (vissa valfria) som du har slutfört i den här självstudien. Dessa uppgifter motsvara den huvudsakliga numrerade i detta avsnitt:
+![Arbets flöde för grupp ledar uppgift](./media/team-lead-tasks/team-leads-1-creating-teams.png)
 
-1. Skapa en **projekt** på gruppens Azure DevOps-tjänsterna i gruppen och två team databaserna i projektet:
-    - **ProjectTemplate lagringsplats** 
-    - **TeamUtilities lagringsplats**
-2. Dirigera teamet **ProjectTemplate** databasen från den **GroupProjectTemplate** databasen som har ställts in av hanteraren för gruppen. 
-3. Skapa team och analys resurser:
-    - Lägg till team-specifika verktyg till den **TeamUtilities** lagringsplats. 
-    - (Valfritt) Skapa en **Azure-fillagring** som används för att lagra datatillgångar som kan vara användbara för hela gruppen. 
-4. (Valfritt) Montera Azure file storage för att den **Data Science Virtual Machine** (DSVM) för teamet leda och Lägg till datatillgångar på den.
-5. Konfigurera den **säkerhetskontroll** genom att lägga till gruppmedlemmar och konfigurera sina privilegier.
+1. Skapa ett **team projekt** i gruppens organisation i Azure DevOps. 
+  
+1. Byt namn på standard team-lagringsplatsen till **TeamUtilities**.
+  
+1. Skapa en ny **TeamTemplate** -lagringsplats i team projektet. 
+  
+1. Importera innehållet i gruppens **GroupUtilities** -och **GroupProjectTemplate** -databaser till **TeamUtilities** -och **TeamTemplate** -databaserna. 
+  
+1. Konfigurera **säkerhets kontroll** genom att lägga till team medlemmar och konfigurera deras behörigheter.
+  
+1. Om det behövs skapar du team data och analys resurser:
+   - Lägg till Team-/regionsspecifika verktyg i **TeamUtilities** -lagringsplatsen. 
+   - Skapa **Azure File Storage** för att lagra data till gångar som kan vara användbara för hela teamet. 
+   - Montera Azure File Storage i teamets lead **data science Virtual Machine** (DSVM) och Lägg till data till gångar till den.
 
->[AZURE.NOTE] Vi beskriver de steg som krävs för att ställa in en TDSP teammiljö med Azure DevOps i följande anvisningar. Vi anger du hur du utför dessa uppgifter med Azure DevOps eftersom det är hur vi implementerar TDSP på Microsoft. Om du använder en annan kod som är värd för plattformen för din grupp, ändra inte de uppgifter som måste slutföras av gruppledare Allmänt. Men sättet att utföra dessa uppgifter kommer att vara olika.
+I följande självstudie går vi igenom stegen i detalj.
 
-## <a name="repositories-and-directories"></a>Databaser och kataloger
+> [!NOTE] 
+> I den här artikeln används Azure DevOps och en DSVM för att skapa en TDSP-grupp miljö, eftersom det är hur du implementerar TDSP på Microsoft. Om ditt team använder andra kod värdar eller utvecklings plattformar, är grupp ledar aktiviteterna samma, men det kan vara olika att slutföra dem.
 
-Det här avsnittet använder förkortade namnen för databaser och kataloger. Dessa namn gör det lättare att följa åtgärderna mellan databaser och kataloger. Den här notationen (**R** för Git-lagringsplatser och **D** för lokala kataloger på din DSVM) används i följande avsnitt:
+## <a name="prerequisites"></a>Förutsättningar
 
-- **R1**: Den **GroupProjectTemplate** databasen på Git som din gruppansvarig ställts in på din server för Azure DevOps-gruppen.
-- **R3**: Teamet **ProjectTemplate** databasen på Git som du har konfigurerat.
-- **R4**: Den **TeamUtilities** databasen på Git som du har konfigurerat.
-- **D1**: Den lokala katalogen klonas från R1 och kopieras till D3.
-- **D3**: Den lokala katalogen klonas från R3, anpassa och kopieras till R3.
-- **D4**: Den lokala katalogen klonas från R4, anpassa och kopieras till R4.
+Den här självstudien förutsätter att följande resurser och behörigheter har skapats av din [grupp hanterare](group-manager-tasks.md):
 
-Namnen på har angetts för databaser och kataloger i den här självstudien har angetts på antagandet att målet är att upprätta en separat projekt för ditt team i en större grupp för data science. Men det finns andra alternativ som är öppna för dig som gruppledare:
+- Azure DevOps- **organisationen** för din data enhet
+- **GroupProjectTemplate** och **GroupUtilities** -lagringsplatser, ifyllda med innehållet i Microsoft TDSP-teamets **ProjectTemplate** -och **Utilities** -databaser
+- Behörigheter för ditt organisations konto så att du kan skapa projekt och databaser för ditt team
 
-- Hela gruppen kan du skapa ett enda projekt. Sedan är alla projekt från alla data science-team under den här enda projekt. Du kan ange en git-administratör att följa dessa instruktioner för att skapa ett projekt för att uppnå detta. Det här scenariot kan vara giltig, till exempel för:
-    -  en små data science-grupp som inte har flera data science-team 
-    -  en större data science grupp med flera data datavetenskapsteam som ändå vill optimera samarbete mellan team med aktiviteter, till exempel gruppnivå sprint planera. 
-- Teamen kan välja att ha team-specifika projektmallar eller team-specifika verktyg under det enda projektet för hela gruppen. I detta fall bör gruppledare skapa projekt mall databaser och/eller team verktyg databaser under samma projekt. Namnge dessa databaser *< TeamName\>ProjectTemplate* och *< TeamName\>verktyg*, till exempel *TeamJohnProjectTemplate*och *TeamJohnUtilities*. 
+För att kunna klona lagrings utrymmen och ändra innehållet på din lokala dator eller DSVM, eller konfigurera Azure File Storage och montera den på din DSVM, behöver du följande:
 
-I båda fallen måste gruppledare så att deras teammedlemmar vet som mall och hjälpmedel lagringsplatser att införa när de konfigurerar och klona lagringsplatser för projektet och verktyg. Projektet leads bör följa den [projektbeskrivning uppgifter för team data science](project-lead-tasks.md) att skapa projektet lagringsplatser enligt separata projekt eller under ett enda projekt. 
+- En Azure-prenumeration.
+- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
+- Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
+- För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
+- För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
 
+## <a name="create-a-team-project-and-repositories"></a>Skapa ett grup projekt och databaser
 
-## <a name="0-prerequisites"></a>0. Förutsättningar
+I det här avsnittet skapar du följande resurser i din grupps Azure DevOps-organisation:
 
-Kraven är uppfyllda genom att slutföra de uppgifter som tilldelats till din gruppchef som beskrivs i [Gruppansvarig uppgifter för team data science](group-manager-tasks.md). Följande krav måste uppfylla innan du börjar lead gruppaktiviteter för att sammanfatta här: 
+- Mitt **team** -projektet i Azure DevOps
+- **TeamTemplate** -lagringsplatsen
+- **TeamUtilities** -lagringsplatsen
 
-- Din **gruppen Azure DevOps-tjänsterna** (eller gruppkonto på andra kod som är värd för plattform) har ställts in av hanteraren för gruppen.
-- Din **GroupProjectTemplate databasen** (R1) har ställts in på ditt gruppkonto med din gruppchef på koden som är värd för plattform som du tänker använda.
-- Du har **behörighet** på din gruppkonto för att skapa databaser för ditt team.
-- Git måste installeras på din dator. Om du använder en virtuell dator på datavetenskap (DSVM) Git har installerats i förväg och du är redo att börja. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).  
-- Om du använder en **Windows DSVM**, måste du ha [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerat på datorn. README.md-filen, rulla ned till den **ladda ned och installera** och klicka på *senaste installationsprogrammet*. Detta tar dig till den senaste sidan för installationsprogrammet. Ladda ned installationsprogrammet .exe här och kör den. 
-- Om du använder **Linux DSVM**, skapa en offentlig SSH-nyckel för din DSVM och lägga till den i din grupp Azure DevOps-tjänsterna. Mer information om SSH finns i den **offentlig skapa SSH-nyckel** i avsnittet den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix). 
-    
-## <a name="1-create-a-project-and-repositories"></a>1. Skapa ett projekt och databaser
+Namnen som anges för databaserna och katalogerna i den här självstudien förutsätter att du vill skapa ett separat projekt för ditt eget team i din större data vetenskaps organisation. Hela gruppen kan dock välja att arbeta under ett enskilt projekt som skapats av grupp chefen eller organisationens administratör. Sedan skapar alla data vetenskaps team databaser under det här projektet. Det här scenariot kan vara giltigt för:
+- En liten data vetenskaps grupp som inte har flera data vetenskaps team. 
+- En större data vetenskaps grupp med flera data vetenskaps team som ändå vill optimera samarbetet mellan grupper med aktiviteter som till exempel på grupp-nivå – Sprint planering. 
 
-Slutför det här steget om du använder Azure DevOps som koden som är värd för plattformen för versionshantering och samarbete. Det här avsnittet har du skapa tre artefakter i Azure DevOps-tjänsterna i din grupp:
+Om teamen väljer att ha sina teambaserade databaser under ett enda grupp projekt, bör teamet skapa lagrings platser med namn som  *\<TeamName > mall* och  *\<TeamName-verktyg för >* . Exempel: *TeamATemplate* och *TeamAUtilities*. 
 
-- **MyTeam** projekt i Azure DevOps
-- **MyProjectTemplate** lagringsplats (**R3**) på Git
-- **MyTeamUtilities** lagringsplats (**R4**) på Git
+I alla fall måste grupp ledare låta sina team medlemmar veta vilka mallar för mallar och verktyg som ska ställas in och klonas. Projekt leads bör följa [projektets ledar aktiviteter för ett data vetenskaps team](project-lead-tasks.md) för att skapa projekt databaser, oavsett om de finns under separata projekt eller i ett enda projekt. 
 
 ### <a name="create-the-myteam-project"></a>Skapa MyTeam-projekt
 
-- Gå till startsidan för din grupp Azure DevOps-tjänsterna på URL: en `https://<Azure DevOps Services Name\>.visualstudio.com`. 
-- Klicka på **New** att skapa ett projekt. 
-
-    ![2](./media/team-lead-tasks/team-leads-2-create-new-team.png)
-
-- Ett fönster för skapa projektet ber dig att ange projektnamnet (**MyTeam** i det här exemplet). Kontrollera att du väljer **Agile** som den **processmall** och **Git** som den **versionskontroll**. 
-
-    ![3](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
-
-- Klicka på **skapa projekt**. Ditt projekt **MyTeam** skapas i mindre än 1 minut. 
-
-- När projektet **MyTeam** är skapat, klickar du på **navigera till projektet** knapp, så att de dirigeras till startsidan i ditt projekt. 
-
-    ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
-
-- Om du ser en **Grattis!** popup-fönstret klickar du på den **lägger du till kod** (knapp med röd ram). Annars klickar du på **kod** (i gul ruta). Detta leder till sidan Git-lagringsplatsen i ditt projekt. 
-
-    ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
-
-### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Skapa MyProjectTemplate databasen (R3) på Git
-
-- På sidan för Git-lagringsplatsen i ditt projekt klickar du på nedpilen bredvid namnet på lagringsplatsen **MyTeam**, och välj **hantera databaser...** .
-
-    ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
-
-- På den **versionskontroll** fliken i Kontrollpanelen på ditt projekt, klickar du på **MyTeam**och välj sedan **Byt namn på databasen...** . 
-
-    ![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
-
-- Ange ett nytt namn i databasen i den **Byt namn på databasen MyTeam** fönster. I det här exemplet *MyTeamProjectTemplate*. Du kan välja något som liknar *< ditt Lagnamn\>ProjectTemplate*. Klicka på **Byt namn på** att fortsätta.
-
-    ![8](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
-
-### <a name="create-the-myteamutilities-repository-r4-on-git"></a>Skapa MyTeamUtilities databasen (R4) på Git
-
-- Att skapa en ny lagringsplats *< ditt Lagnamn\>verktyg* under ditt projekt klickar du på **nya databasen...**  på den **versionskontroll** fliken i ditt projekt på Kontrollpanelen.  
-
-    ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
-
-- I den **skapar en ny lagringsplats** fönstret som visas, ange ett namn för den här databasen. I det här exemplet vi ger den namnet *MyTeamUtilities*, vilket är **R4** i vår notation. Välj något som liknar *< ditt Lagnamn\>verktyg*. Kontrollera att du väljer **Git** för **typ**. Klicka sedan på **skapa** att fortsätta.
-
-    ![10](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
-
-- Kontrollera att du ser de två nya Git lagringsplatser som har skapats under ditt projekt **MyTeam**. I det här exemplet: 
-
-- **MyTeamProjectTemplate** (R3) 
-- **MyTeamUtilities** (R4).
-
-    ![11](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
-
-
-## <a name="2-seed-your-projecttemplate-and-teamutilities-repositories"></a>2. Dirigera dina ProjectTemplate och TeamUtilities lagringsplatser
-
-Seeding proceduren använder katalogerna på din lokala DSVM som mellanliggande mellanlagring platser. Om du vill anpassa din **ProjectTemplate** och **TeamUtilities** databaser att uppfylla vissa specifika team behöver, gör du det i det näst sista steget i följande procedur. Här är en sammanfattning av de steg som används till att dirigera innehållet i den **MyTeamProjectTemplate** och **MyTeamUtilities** lagringsplatser för team data science. De enskilda stegen motsvarar underavsnitt i seeding procedur:
-
-- Klonade grupp lagringsplats till lokal katalog: team R1 - klonas för att lokala D1 ->
-- Klona team-databaser till lokala kataloger: team R3 & R4 - klonas för att lokal D3 och D4 ->
-- Kopiera gruppinnehåll för mallen i projektet till mappen lokala team:  D1 - innehållet kopieras till D3 ->
-- (Valfritt) anpassning av lokal D3 och D4
-- Skicka lokala katalogens innehåll till teamet databaser: D3 & D4 - contents add to -> team R3 & R4
-
-
-### <a name="initialize-the-team-repositories"></a>Initiera team-databaser
-
-I det här steget kan du initiera dina projekt mallagret från malldatabasen grupp projekt:
-
-- **MyTeamProjectTemplate** lagringsplats (**R3**) från din **GroupProjectTemplate** (**R1**) databasen
-
-
-### <a name="clone-group-repositories-into-local-directories"></a>Klona grupp databaser till lokala kataloger
-
-Att starta den här proceduren:
-
-- Skapa kataloger på den lokala datorn:
-    - För **Windows**: **C:\GitRepos\GroupCommon** och **C:\GitRepos\MyTeam**
-    - För **Linux**: **GitRepos\GroupCommon** och **GitRepos\MyTeam** på din hemkatalog 
-- Ändra till katalogen **GitRepos\GroupCommon**.
-- Kör följande kommando, efter behov, på operativsystemet på den lokala datorn.
-
-**Windows**
-
-    git clone https://<Your Azure DevOps Services name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
-    
-
-![12](./media/team-lead-tasks/team-leads-12-create-two-group-repos.png)
-
-**Linux**
-    
-    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
-    
-    
-![13](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
-
-Dessa kommandon klona din **GroupProjectTemplate** (R1) databasen på din grupp Azure DevOps-tjänsterna till lokal katalog i **GitRepos\GroupCommon** på den lokala datorn. Efter kloning av directory **GroupProjectTemplate** (D1) skapas i katalogen **GitRepos\GroupCommon**. Här kan vi antar att din gruppansvarig skapat ett projekt **GroupCommon**, och **GroupProjectTemplate** databasen är under det här projektet. 
-
-
-### <a name="clone-your-team-repositories-into-local-directories"></a>Klona team-databaser till lokala kataloger
-
-Dessa kommandon klona din **MyTeamProjectTemplate** (R3) och **MyTeamUtilities** (R4) databaser under projektet **MyTeam** på gruppen Azure DevOps-tjänster till den **MyTeamProjectTemplate** (D3) och **MyTeamUtilities** (D4) kataloger i **GitRepos\MyTeam** på den lokala datorn. 
-
-- Ändra till katalogen **GitRepos\MyTeam**
-- Kör följande kommandon och efter behov, på operativsystemet på den lokala datorn. 
-
-**Windows**
-
-    git clone https://<Your Azure DevOps Services name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
-    git clone https://<Your Azure DevOps Services name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
-
-![14](./media/team-lead-tasks/team-leads-14-clone_two_empty_team_repos.png)
-        
-**Linux**
-    
-    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
-    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
-    
-![15](./media/team-lead-tasks/team-leads-15-clone_two_empty_team_repos_linux.png)
-
-Efter kloning av två kataloger **MyTeamProjectTemplate** (D3) och **MyTeamUtilities** (D4) skapas i katalogen **GitRepos\MyTeam**. Vi har antas här du gav ditt projekt mall och hjälpmedel databaser **MyTeamProjectTemplate** och **MyTeamUtilities**. 
-
-### <a name="copy-the-group-project-template-content-to-the-local-project-template-directory"></a>Kopiera grupp projekt mallinnehållet till den lokala projektkatalogen för mallen
-
-Kopiera innehållet i lokalt **GroupProjectTemplate** (D1) mappen till lokalt **MyTeamProjectTemplate** (D3) kör något av följande kommandoskript: 
-
-#### <a name="from-the-powershell-command-line-for-windows"></a>Från kommandoraden för Windows PowerShell       
-
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
-    .\tdsp_local_copy_win.ps1 2
-
-    
-![16](./media/team-lead-tasks/team-leads-16-local_copy_team_lead_new.png)
-
-#### <a name="from-the-linux-shell-for-the-linux-dsvm"></a>Från Linux-gränssnittet för den **Linux DSVM**
-    
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
-    bash tdsp_local_copy_linux.sh 2
-    
-![17](./media/team-lead-tasks/team-leads-17-local-copy-team-lead-linux-new.png)
-
-Skripten exkludera innehållet i katalogen .git. Skripten uppmanas att ange den **slutföra sökvägar** källkatalogen D1 och målkatalogen D3.
-        
-
-### <a name="customize-your-project-template-or-team-utilities-optional"></a>Anpassa ditt projekt mall eller team verktyg (valfritt)
-
-Anpassa din **MyTeamProjectTemplate** (D3) och **MyTeamUtilities** (D4), om det behövs i det här skedet av installationen. 
-
-- Om du vill anpassa innehållet i D3 att uppfylla de specifika behoven i ditt team kan du ändra mallen dokument eller ändra katalogstrukturen.
-
-- Om ditt team har utvecklat vissa verktyg som du vill dela med hela arbetsgruppen kan kopiera och klistra in verktygen i katalogen D4. 
-
-
-### <a name="push-local-directory-content-to-team-repositories"></a>Skicka innehåll för lokal katalog som team-lagringsplatser
-
-För att lägga till innehållet i (du kan också anpassade) lokala kataloger D3 och D4 team lagringsplatser R3 och R4, kör följande git bash-kommandon från en Windows PowerShell-konsolen eller från Linux-gränssnittet. Kör kommandon från den **GitRepos\MyTeam\MyTeamProjectTemplate** directory.
-
-    git status
-    git add .
-    git commit -m"push from DSVM"
-    git push
-    
-![18](./media/team-lead-tasks/team-leads-18-push-to-group-server-2.png)
-
-Filerna i MyTeamProjectTemplate lagringsplatsen för din grupp Azure DevOps-tjänsterna synkroniseras nästan direkt när det här skriptet körs.
-
-![19](./media/team-lead-tasks/team-leads-19-push-to-group-server-showed-up.png)
-
-Kör nu samma uppsättning fyra git-kommandon från den **GitRepos\MyTeam\MyTeamUtilities** directory. 
-
-> [AZURE.NOTE]Om det här är första gången du skickar till en Git-lagringsplats, måste du konfigurera globala parametrar *user.name* och *user.email* innan du kör den `git commit` kommando. Kör följande två kommandon:
-        
-    git config --global user.name <your name>
-    git config --global user.email <your email address>
- 
-> Om du checkar in till flera Git-lagringsplatser, Använd samma namn och e-postadress när du skickar dem. Med samma namn och e-postadress bevisar praktiskt vid ett senare tillfälle när du skapar Power BI-instrumentpaneler för att spåra dina Git-aktiviteter i flera databaser.
-
-![20](./media/team-lead-tasks/team-leads-20-git-config-name.png)
-
-
-## <a name="3-create-team-data-and-analytics-resources-optional"></a>3. Skapa team och analys resurser (valfritt)
-
-Delning av data och analyser resurser med hela arbetsgruppen har fördelar för prestanda och kostnad: teammedlemmar kan köra sina projekt på delade resurser, spara på budgetar och samarbeta mer effektivt. Det här avsnittet innehåller anvisningar om hur du skapar Azure-fillagring. Nästa avsnitt innehåller anvisningar om hur du montera Azure file storage till den lokala datorn. Läs mer om hur du delar andra resurser, till exempel Azure Data Science Virtual Machines, Azure HDInsight Spark-kluster i [plattformar och verktyg](platforms-and-tools.md). Det här avsnittet ger dig vägledning från ett data science perspektiv för att välja resurser som passar dina behov och länkar till produktsidor och andra relevanta och användbara självstudiekurser som vi har publicerat.
-
->[AZURE.NOTE] Kontrollera att resursgruppen, lagringskontot och den virtuella Azure-datorn (t.ex. DSVM) är i samma Azure-Datacenter för att undvika att data som skickas mellan datacenter, vilket kan vara långsam och kostsamt. 
-
-Kör följande skript för att skapa Azure file storage för ditt team. Azure file storage för ditt team kan användas för att lagra datatillgångar som är användbara för hela gruppen. Skripten uppmanar dig om ditt Azure-konto och prenumeration, så har de här autentiseringsuppgifterna som är redo att ange. 
-
-### <a name="create-azure-file-storage-with-powershell-from-windows"></a>Skapa Azure-fillagring med PowerShell från Windows
-
-Kör det här skriptet från PowerShell-kommandorad:
-
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.ps1" -outfile "CreateFileShare.ps1"
-    .\CreateFileShare.ps1
-
-![21](./media/team-lead-tasks/team-leads-21-create-fileshare-win.png)   
-
-Logga in på Microsoft Azure-kontot när du uppmanas till detta:
-
-![22](./media/team-lead-tasks/team-leads-22-file-create-s1.png)
-
-Ange den prenumeration du vill använda:
-
-![23](./media/team-lead-tasks/team-leads-23-file-create-s2.png)
-
-Välj vilket lagringskonto som ska användas eller skapa ett nytt lösenord i din valda prenumeration:
-
-![24](./media/team-lead-tasks/team-leads-24-file-create-s3.png)
-
-Ange namnet på Azure file storage för att skapa. Endast lägre fall tecken, siffror och - godkänns:
-
-![25](./media/team-lead-tasks/team-leads-25-file-create-s4.png)
-
-För att underlätta montera och dela den här lagringen när den har skapats, spara Azure file storage-information i en textfil och anteckna sökvägen till platsen. I synnerhet måste den här filen för att montera din Azure file storage till Azure-datorer i nästa avsnitt. 
-
-Det är en bra idé att checka in den här filen till din ProjectTemplate lagringsplats. Vi rekommenderar att du placerar i katalogen **Docs\DataDictionaries**. Den här datatillgången kan därför användas av alla projekt i ditt team. 
-
-![26](./media/team-lead-tasks/team-leads-26-file-create-s5.png)
-
-
-### <a name="create-azure-file-storage-with-a-linux-script"></a>Skapa Azure-fillagring med Linux-skript
-
-Kör det här skriptet från Linux-gränssnittet:
-
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.sh"
-    bash CreateFileShare.sh
-
-Logga in på Microsoft Azure-kontot följa anvisningarna i den här skärmen:
-
-![27](./media/team-lead-tasks/team-leads-27-file-create-linux-s1.png)
-
-Välj den prenumeration som du vill använda:
-
-![28](./media/team-lead-tasks/team-leads-28-file-create-linux-s2.png)
-
-Välj vilket lagringskonto som ska användas eller skapa ett nytt lösenord i din valda prenumeration:
-
-![29](./media/team-lead-tasks/team-leads-29-file-create-linux-s3.png)
-
-Ange namnet på Azure med fillagring för att skapa, endast gemener, siffror och - godkänns:
-
-![30](./media/team-lead-tasks/team-leads-30-file-create-linux-s4.png)
-
-För att underlätta åtkomst till den här lagringen när den har skapats, spara Azure file storage-information i en textfil och anteckna sökvägen till platsen. I synnerhet måste den här filen för att montera din Azure file storage till Azure-datorer i nästa avsnitt.
-
-Det är en bra idé att checka in den här filen till din ProjectTemplate lagringsplats. Vi rekommenderar att du placerar i katalogen **Docs\DataDictionaries**. Den här datatillgången kan därför användas av alla projekt i ditt team. 
-
-![31](./media/team-lead-tasks/team-leads-31-file-create-linux-s5.png)
-
-
-## <a name="4-mount-azure-file-storage-optional"></a>4. Montera Azure file storage (valfritt)
-
-När Azure file storage har skapats, kan den monteras till den lokala datorn använder du någon av följande PowerShell- eller Linux-skript.
-
-### <a name="mount-azure-file-storage-with-powershell-from-windows"></a>Montera Azure file storage med PowerShell från Windows
-
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.ps1" -outfile "AttachFileShare.ps1"
-    .\AttachFileShare.ps1
-    
-Du uppmanas att logga in först om du inte har loggat in. 
-
-Klicka på **RETUR** eller **y** att fortsätta när du tillfrågas om du har ett Azure storage filinformation fil och sedan ange den ***slutföra sökvägen och namnet** av filen som du skapar i föregående steg. Information att montera en Azure-fillagring läses direkt från att fil- och du är redo att gå till nästa steg.
-
-![32](./media/team-lead-tasks/team-leads-32-attach-s1.png)
-
-> [AZURE.NOTE] Om du inte har en fil med information för Azure file storage finns stegen för att mata in informationen från tangentbord i slutet av det här avsnittet.
-
-Du uppmanas sedan att ange namnet på enheten som ska läggas till den virtuella datorn. En lista över den befintliga enhetsnamn skrivs ut på skärmen. Du bör ange ett enhetsnamn som inte redan finns i listan.
-
-![33](./media/team-lead-tasks/team-leads-33-attach-s2.png)
-
-Bekräfta att en ny F-enhet har monterats på din dator.
-
-![34](./media/team-lead-tasks/team-leads-34-attach-s3.png)
-
-**Så här anger du Azure file storage information manuellt:** Om du inte har din Azure file storage information på en textfil, kan du följa instruktionerna på följande skärm att skriva in den nödvändiga prenumeration, lagringskontot och information om Azure storage:
-
-![35](./media/team-lead-tasks/team-leads-35-attach-s4.png)
-
-Skriv namnet på ditt Azure-prenumeration, Välj lagringskontot där Azure file storage skapas, och skriver in namnet för Azure file storage:
-
-![36](./media/team-lead-tasks/team-leads-36-attach-s5.png)
-
-### <a name="mount-azure-file-storage-with-a-linux-script"></a>Montera Azure file storage med en Linux-skript
-
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.sh"
-    bash AttachFileShare.sh
-
-![37](./media/team-lead-tasks/team-leads-37-attach-s1-linux.png)
-
-Du uppmanas att logga in först om du inte har loggat in. 
-
-Klicka på **RETUR** eller **y** att fortsätta när du tillfrågas om du har ett Azure storage filinformation fil och sedan ange den ***slutföra sökvägen och namnet** av filen som du skapar i föregående steg. Information att montera en Azure-fillagring läses direkt från att fil- och du är redo att gå till nästa steg.
-
-![38](./media/team-lead-tasks/team-leads-38-attach-s2-linux.png)
-
-Du uppmanas sedan att ange namnet på enheten som ska läggas till den virtuella datorn. En lista över den befintliga enhetsnamn skrivs ut på skärmen. Du bör ange ett enhetsnamn som inte redan finns i listan.
-
-![39](./media/team-lead-tasks/team-leads-39-attach-s3-linux.png)
-
-Bekräfta att en ny F-enhet har monterats på din dator.
-
-![40](./media/team-lead-tasks/team-leads-40-attach-s4-linux.png)
-
-**Så här anger du Azure file storage information manuellt:** Om du inte har din Azure file storage information på en textfil, kan du följa instruktionerna på följande skärm att skriva in den nödvändiga prenumeration, lagringskontot och information om Azure storage:
-
-- Indata **n**.
-- Välj indexet som namnet på prenumerationen där Azure file storage har skapats i föregående steg:
-
-    ![41](./media/team-lead-tasks/team-leads-41-attach-s5-linux.png)
-
-- Välj lagringskontot under din prenumeration och typ i Azure storage filnamnet:
-
-    ![42](./media/team-lead-tasks/team-leads-42-attach-s6-linux.png)
-
-- Ange namnet på enheten som ska läggas till din dator, vilket ska vara skiljer sig från alla befintliga:
-
-    ![43](./media/team-lead-tasks/team-leads-43-attach-s7-linux.png)
-
-
-## <a name="5-set-up-security-control-policy"></a>5. Konfigurera principer för åtkomstkontroll av säkerhet 
-
-På startsidan för din grupp Azure DevOps Services, klickar du på den **kugghjulsikonen** bredvid ditt användarnamn i det övre högra hörnet, väljer den **Security** fliken. Du kan lägga till medlemmar till ditt team med olika behörigheter.
-
-![44](./media/team-lead-tasks/team-leads-44-add-team-members.png)
+Så här skapar du ett separat projekt för ditt team:
+
+1. I webbläsaren går du till din grupps Azure DevOps-organisations start sida på URL *https:\//\<Server namn >/\<organisations namn >* och välj **nytt projekt**. 
+   
+   ![Välj nytt projekt](./media/team-lead-tasks/team-leads-2-create-new-team.png)
+   
+1. I dialog rutan **skapa projekt** anger du ditt grupp namn, till exempel min *team*, under **projekt namn**och väljer sedan **Avancerat**. 
+   
+1. Under **versions kontroll**väljer du **git**och under **arbets objekts process**väljer du **Agile**. Välj sedan **Skapa**. 
+   
+   ![Skapa projekt](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
+   
+Sidan projekt **Sammanfattning** öppnas med sidans URL *https\/:/\<Server namn >/\<organisations namn >/\<grupp namn >* .
+
+### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Byt namn på standard lagrings platsen för min team till TeamUtilities
+
+1. På sidan **Sammanfattning** av **projekt projekt under** **vilken tjänst vill du börja med? väljer du** **databaser**. 
+   
+   ![Välj databaser](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
+   
+1. På sidan lagrings platsen för mina **team** väljer du arbets platsen för min **team** överst på sidan och väljer sedan **Hantera databaser** i list rutan. 
+   
+   ![Välj Hantera databaser](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
+1. På sidan **projekt inställningar** väljer du **...** bredvid min **team** -lagringsplats och väljer sedan **Byt namn på lagrings plats**. 
+   
+   ![Välj Byt namn på lagrings plats](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
+   
+1. I popup-fönstret för **att byta namn på min team-lagringsplats anger du** *TeamUtilities*och väljer sedan **Byt namn**. 
+
+### <a name="create-the-teamtemplate-repository"></a>Skapa TeamTemplate-lagringsplatsen
+
+1. På sidan **projekt inställningar** väljer du **ny lagrings plats.** 
+   
+   ![Välj ny lagrings plats](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
+   
+   Eller Välj **databaser** i det vänstra navigerings fönstret på sidan projekt **Sammanfattning** för min **grupp** , Välj en lagrings plats överst på sidan och välj sedan **ny lagrings plats** i list rutan.
+   
+1. I dialog rutan **skapa en ny lagrings plats** kontrollerar du att **git** är markerat under **typ**. Skriv *TeamTemplate* under **databas namn**och välj sedan **skapa**.
+   
+   ![Skapa lagrings plats](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
+   
+1. Bekräfta att du kan se de två databaserna **TeamUtilities** och **TeamTemplate** på sidan projekt inställningar. 
+   
+   ![Två team databaser](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
+
+### <a name="import-the-contents-of-the-group-common-repositories"></a>Importera innehållet i gruppen delade databaser
+
+För att fylla i dina team databaser med innehållet i gruppen gemensamma databaser som har kon figurer ATS av din grupp hanterare:
+
+1. Välj **databaser** i det vänstra navigerings fönstret på Start sidan för ditt **team** -projekt. Om du får ett meddelande om att mallen för min **team** inte hittas väljer du länken i **annat fall, navigerar till standard lagrings platsen för TeamTemplate.** 
+   
+   Standard- **TeamTemplate** -lagringsplatsen öppnas. 
+   
+1. På sidan **TeamTemplate är tom** väljer du **Importera**. 
+   
+   ![Välj Importera](./media/team-lead-tasks/import-repo.png)
+   
+1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger URL: en för din grupps gemensamma mall lagrings plats under **klon-URL**. URL: en *är https\/:/\<Server namn >\</organisations namn\<>/_git/-lagringsplatsens namn >* . Till exempel: *https:\//dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+   
+1. Välj **Importera**. Innehållet i din gruppmalls lagrings plats importeras till lagrings platsen för din grupp. 
+   
+   ![Importera grupp common Template-lagringsplats](./media/team-lead-tasks/import-repo-2.png)
+   
+1. Längst upp på projektets **databaser** -sida, list rutan och välj **TeamUtilities** -lagringsplatsen.
+   
+1. Upprepa import processen för att importera innehållet i din grupp vanliga verktyg-lagringsplats, till exempel *GroupUtilities*, till din **TeamUtilities** -lagringsplats. 
+   
+Var och en av dina två team-databaser innehåller nu filerna från motsvarande grupps gemensamma lagrings plats. 
+
+### <a name="customize-the-contents-of-the-team-repositories"></a>Anpassa innehållet i team databaserna
+
+Om du vill anpassa innehållet i teamets databaser så att det passar ditt teams behov kan du göra det nu. Du kan ändra filer, ändra katalog strukturen eller lägga till filer och mappar.
+
+Ändra, ladda upp eller skapa filer eller mappar direkt i Azure DevOps:
+
+1. På sidan projekt **Sammanfattning** för min **team** väljer du **databaser**. 
+   
+1. Välj den lagrings plats som du vill anpassa längst upp på sidan.
+
+1. I katalog strukturen lagrings platsen navigerar du till den mapp eller fil som du vill ändra. 
+   
+   - Om du vill skapa nya mappar eller filer väljer du pilen bredvid **ny**. 
+     
+     ![Skapa ny fil](./media/team-lead-tasks/new-file.png)
+     
+   - Om du vill ladda upp filer väljer du **Ladda upp fil (er)** . 
+     
+     ![Överföra filer](./media/team-lead-tasks/upload-files.png)
+     
+   - Om du vill redigera befintliga filer navigerar du till filen och väljer sedan **Redigera**. 
+     
+     ![Redigera en fil](./media/team-lead-tasks/edit-file.png)
+     
+1. När du har lagt till eller redigerat filer väljer du **genomför**.
+   
+   ![Genomför ändringar](./media/team-lead-tasks/commit.png)
+
+Om du vill arbeta med databaser på din lokala dator eller DSVM kopierar du eller *klonar* lagrings platsen till den lokala datorn och bekräftar och skickar sedan dina ändringar till de delade team databaserna. 
+
+Klona databaser:
+
+1. På sidan projekt **Sammanfattning** för min **team** väljer du **databaser**och väljer den lagrings plats som du vill klona längst upp på sidan.
+   
+1. På sidan lagrings platsen väljer du **klona** längst upp till höger.
+   
+1. I dialog rutan **klona databas** väljer du **https** för en HTTP-anslutning eller **SSH** för en SSH-anslutning under **kommando rad**och kopierar klon-URL: en till Urklipp.
+   
+   ![Kopiera klon-URL](./media/team-lead-tasks/clone.png)
+   
+1. Skapa följande kataloger på den lokala datorn:
+   
+   - För Windows: **C:\GitRepos\MyTeam**
+   - För Linux, **$Home/gitrepos/myTeam** 
+   
+1. Ändra till den katalog som du har skapat.
+   
+1. I git-bash kör du kommandot `git clone <clone URL>`, där \<klon-URL > är den URL som du kopierade från dialog rutan **klon** .
+   
+   Du kan till exempel använda ett av följande kommandon för att klona **TeamUtilities** -lagringsplatsen till min *team* -katalogen på den lokala datorn. 
+   
+   **HTTPS-anslutning:**
+   
+   ```bash
+   git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/MyTeam/_git/TeamUtilities
+   ```
+   
+   **SSH-anslutning:**
+   
+   ```bash
+   git clone git@ssh.dev.azure.com:v3/DataScienceUnit/MyTeam/TeamUtilities
+   ```
+
+När du har gjort de ändringar som du vill ha i den lokala lagringen av din lagrings plats ska du spara och push-överföra ändringarna till delade team-databaser. 
+
+Kör följande git bash-kommandon från din lokala **GitRepos\MyTeam\TeamTemplate** -eller **GitRepos\MyTeam\TeamUtilities** -katalog.
+
+```bash
+git add .
+git commit -m "push from local"
+git push
+```
+
+> [!NOTE]
+> Om det här är första gången du genomför till en git-lagringsplats kan du behöva konfigurera globala parametrar *User.name* och *User. email* innan `git commit` du kör kommandot. Kör följande två kommandon:
+> 
+> `git config --global user.name <your name>`
+> 
+> `git config --global user.email \<your email address>`
+> 
+> Om du använder flera git-databaser använder du samma namn och e-postadress för alla. Det är praktiskt att använda samma namn och e-postadress när du skapar Power BI instrument paneler för att spåra git-aktiviteter i flera databaser.
+
+## <a name="add-team-members-and-configure-permissions"></a>Lägg till team medlemmar och konfigurera behörigheter
+
+Så här lägger du till medlemmar i teamet:
+
+1. I Azure DevOps väljer du **projekt inställningar** från den vänstra navigeringen på Start sidan för mitt **team** projekt. 
+   
+1. I det vänstra navigerings fältet i **Project** väljer du **team**och på sidan **team** väljer **du teamet team.** 
+   
+   ![Konfigurera team](./media/team-lead-tasks/teams.png)
+   
+1. På sidan **team profil** väljer du **Lägg till**.
+   
+   ![Lägg till i teamet](./media/team-lead-tasks/add-to-team.png)
+   
+1. I dialog rutan **Lägg till användare och grupper** söker du efter och väljer medlemmar som ska läggas till i gruppen. Välj sedan **Spara ändringar**. 
+   
+   ![Lägg till användare och grupper](./media/team-lead-tasks/add-users.png)
+   
+
+Så här konfigurerar du behörigheter för grupp medlemmar:
+
+1. Välj **behörigheter**från det vänstra navigerings fältet i **Project** . 
+   
+1. På sidan **behörigheter** väljer du den grupp som du vill lägga till medlemmar i. 
+   
+1. Välj **medlemmar**på sidan för gruppen och välj sedan **Lägg till**. 
+   
+1. I popup-fönstret **Bjud in medlemmar** söker du efter och väljer medlemmar som ska läggas till i gruppen. Välj sedan **Spara**. 
+   
+   ![Bevilja behörigheter till medlemmar](./media/team-lead-tasks/grant-permissions.png)
+
+## <a name="create-team-data-and-analytics-resources"></a>Skapa team data och analys resurser
+
+Det här steget är valfritt, men delning av data och analys resurser med hela teamet har prestanda-och kostnads besparingar. Grupp medlemmar kan köra sina projekt på delade resurser, Spara på budgetar och samar beta effektivare. Du kan skapa Azure File Storage och montera den på din DSVM för att dela med grupp medlemmar. 
+
+Information om hur du delar andra resurser med ditt team, till exempel Azure HDInsight Spark kluster, finns i [plattformar och verktyg](platforms-and-tools.md). Det här avsnittet innehåller vägledning från ett data vetenskaps perspektiv för att välja resurser som är lämpliga för dina behov och länkar till produkt sidor och andra relevanta och användbara självstudier.
+
+>[!NOTE]
+> För att undvika att överföra data över data Center, vilket kan vara långsamt och dyrt, se till att din Azure-resurs, ditt lagrings konto och DSVM alla finns i samma Azure-region. 
+
+### <a name="create-azure-file-storage"></a>Skapa Azure File Storage
+
+1. Kör följande skript för att skapa Azure File Storage för data till gångar som är användbara för hela teamet. I skriptet uppmanas du att ange din Azure-prenumerations information så att du kan ange den. 
+
+   - Kör skriptet från PowerShell-Kommandotolken på en Windows-dator:
+     
+     ```powershell
+     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.ps1" -outfile "CreateFileShare.ps1"
+     .\CreateFileShare.ps1
+     ```
+     
+   - Kör skriptet från Linux-gränssnittet på en Linux-dator:
+     
+     ```shell
+     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/CreateFileShare.sh"
+     bash CreateFileShare.sh
+     ```
+   
+1. Logga in på ditt Microsoft Azure-konto när du uppmanas till det och välj den prenumeration som du vill använda.
+   
+1. Välj det lagrings konto som du vill använda, eller skapa ett nytt under den valda prenumerationen. Du kan använda gemener, siffror och bindestreck för Azure File Storage-namnet.
+   
+1. För att under lätta montering och delning av lagringen, tryck på RETUR eller ange *Y* för att spara informationen om Azure File Storage i en textfil i den aktuella katalogen. Du kan kontrol lera text filen i **TeamTemplate** -lagringsplatsen, helst under **Docs\DataDictionaries**, så att alla projekt i teamet kan komma åt den. Du behöver också fil informationen för att montera Azure File Storage i Azure-DSVM i nästa avsnitt. 
+   
+### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>Montera Azure File Storage på din lokala dator eller DSVM
+
+1. Använd följande skript för att montera Azure File Storage till din lokala dator eller DSVM.
+   
+   - Kör skriptet från PowerShell-Kommandotolken på en Windows-dator:
+     
+     ```powershell
+     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.ps1" -outfile "AttachFileShare.ps1"
+     .\AttachFileShare.ps1
+     ```
+     
+   - Kör skriptet från Linux-gränssnittet på en Linux-dator:
+     
+     ```shell
+     wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/AttachFileShare.sh"
+     bash AttachFileShare.sh
+     ```
+   
+1. Fortsätt genom att trycka på RETUR eller ange *Y* om du sparade en informations fil för Azure File Storage i föregående steg. Ange den fullständiga sökvägen till och namnet på den fil som du har skapat. 
+   
+   Om du inte har en fil lagrings informations fil för Azure anger du *n*och följer anvisningarna för att ange din prenumeration, ditt Azure Storage-konto och information om Azure File Storage.
+   
+1. Ange namnet på en lokal eller TDSP enhet för att montera fil resursen på. På skärmen visas en lista över befintliga enhets namn. Ange ett enhets namn som inte redan finns.
+   
+1. Bekräfta att den nya enheten och lagringen har monterats på datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här finns länkar till mer detaljerade beskrivningar av de roller och uppgifter som definieras av Team Data Science Process:
+Här följer länkar till detaljerade beskrivningar av de andra rollerna och uppgifterna som definieras av team data science-processen:
 
 - [Gruppansvarig uppgifter för team data science](group-manager-tasks.md)
-- [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
 - [Lead projektaktiviteter för team data science](project-lead-tasks.md)
-- [Projektet enskilda deltagare för team data science](project-ic-tasks.md)
+- [Projicera enskilda deltagar uppgifter för ett data vetenskaps team](project-ic-tasks.md)

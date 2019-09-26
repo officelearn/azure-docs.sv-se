@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/05/2019
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 43cb2f0c3ef0f845afcd309dccb35bc632ffd324
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 3bde609c83425d660c867939e034247d7e6898c5
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390955"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300277"
 ---
 # <a name="correct-misspelled-words-with-bing-spell-check"></a>Rätta felstavade ord med stavningskontroll i Bing
 
@@ -89,7 +89,13 @@ Slutpunkten URL: en har flera värden som ska skickas på rätt sätt. Stavnings
 ```
 
 ## <a name="ignore-spelling-mistakes"></a>Ignorera stavfel
-Om du inte vill använda tjänsten stavningskontroll i Bing v7 kan du märka yttranden som innehåller stavfel, så att LUIS kan lära dig rätt stavning samt stavfel. Det här alternativet kräver mer etikettering av dig än att använda en stavningskontroll.
+
+Om du inte vill använda tjänsten API för stavningskontroll i Bing v7 måste du lägga till korrekt och felaktig stavning. 
+
+Två lösningar:
+
+* Label-exempel yttranden som har alla olika stavningar så att LUIS kan lära sig korrekt stavning och skrivfel. Det här alternativet kräver mer etikettering av dig än att använda en stavningskontroll.
+* Skapa en fras lista med alla varianter av ordet. Med den här lösningen behöver du inte märka ord variationerna i exemplet yttranden. 
 
 ## <a name="publishing-page"></a>Publiceringssida
 Den [publishing](luis-how-to-publish-app.md) sidan har en **Aktivera Bing-stavningskontroll** kryssrutan. Det här är att underlätta för att skapa nyckeln och förstå hur slutpunkts-URL ändras. Du måste använda rätt slutpunkt-parametrar för att få stavning korrigerad för varje uttryck. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 03/20/2018
 ms.author: magoedte
-ms.openlocfilehash: 46045664e9ddeebc45c2dae7c1f0a9f6a0d6b004
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: ad61743751ace9ca0c7eba12ffcea5f15e1157d5
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265171"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316190"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>Samla in information om DNS-infrastrukturen med förhandsversionen av DNS Analytics-lösning
 
@@ -180,9 +180,9 @@ På sidan Log Search kan du skapa en fråga. Du kan filtrera sökresultaten geno
 
     ![DnsInventory loggsökning](./media/dns-analytics/log-search-dnsinventory.png)
     
-### <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsökning
 
-Commopn fel söknings steg:
+Vanliga fel söknings steg:
 
 1. DNS-sökningar saknas – för att felsöka det här problemet kan du försöka med att återställa konfigurationen eller läsa in konfigurations sidan en gång i portalen. För att återställa, ändra bara en inställning till ett annat värde och ändra sedan tillbaka till det ursprungliga värdet och spara konfigurationen.
 

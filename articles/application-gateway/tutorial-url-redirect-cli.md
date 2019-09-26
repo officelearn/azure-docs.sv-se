@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 7/30/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8453c236f83c4501587789e96545599f1e976eea
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: b2a06e47eec52d860aecdd2d9b57310cce5aeb27
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68608053"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315942"
 ---
 # <a name="tutorial-create-an-application-gateway-with-url-path-based-redirection-using-the-azure-cli"></a>Självstudier: Skapa en programgateway med webbadressbaserad omdirigering i Azure CLI
 
-Du kan använda Azure CLI till att konfigurera [webbadressbaserade routningsregler](application-gateway-url-route-overview.md) när du skapar en [programgateway](application-gateway-introduction.md). I den här självstudien skapar du serverdelspooler med [VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Sedan skapar du routningsregler som ser till att webbtrafiken dirigeras till rätt serverdelspool.
+Du kan använda Azure CLI till att konfigurera [webbadressbaserade routningsregler](tutorial-url-route-cli.md) när du skapar en [programgateway](application-gateway-introduction.md). I den här självstudien skapar du serverdelspooler med [VM-skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Sedan skapar du routningsregler som ser till att webbtrafiken dirigeras till rätt serverdelspool.
 
 I den här guiden får du lära dig att:
 

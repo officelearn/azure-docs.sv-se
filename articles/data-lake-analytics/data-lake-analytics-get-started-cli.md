@@ -1,30 +1,29 @@
 ---
-title: Kom igång med Azure Data Lake Analytics med hjälp av Azure CLI
-description: Lär dig hur du använder Azure-kommandoradsgränssnittet för att skapa ett Azure Data Lake Analytics-konto och skicka ett U-SQL-jobb.
+title: Skapa & fråga Azure Data Lake Analytics – Azure CLI
+description: Lär dig hur du använder Azures kommando rads gränssnitt för att skapa ett Azure Data Lake Analytics-konto och skicka ett U-SQL-jobb.
 ms.service: data-lake-analytics
-services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
 ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 2af6d499bafb0e00b31d0379baac6a390bd6ca3f
-ms.sourcegitcommit: c0419208061b2b5579f6e16f78d9d45513bb7bbc
+ms.openlocfilehash: 94399490453c6a2774f71ef527fd24d543e2a7e2
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67626241"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316577"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-azure-cli"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure CLI
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
-Den här artikeln beskriver hur du använder kommandoradsgränssnittet för Azure CLI för att skapa Azure Data Lake Analytics-konton, skicka USQL jobb och kataloger. Jobbet läser en fil med tabbavgränsade värden (TVS) och konverterar den till en fil med kommaavgränsade värden (CSV). 
+Den här artikeln beskriver hur du använder kommando rads gränssnittet i Azure CLI för att skapa Azure Data Lake Analytics-konton, skicka USQL-jobb och kataloger. Jobbet läser en fil med tabbavgränsade värden (TVS) och konverterar den till en fil med kommaavgränsade värden (CSV). 
 
 ## <a name="prerequisites"></a>Förutsättningar
 Innan du börjar behöver du följande:
 
 * **En Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Den här artikeln kräver att du kör Azure CLI version 2.0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
+* Den här artikeln kräver att du kör Azure CLI version 2,0 eller senare. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
 
 
@@ -66,7 +65,7 @@ az group create --name "<Resource Group Name>" --location "<Azure Location>"
 
 * **Data Lake Analytics-kontonamn**. Varje Data Lake Analytics-konto har ett namn.
 * **Plats**. Använd ett av de Azure-datacenter som stöder Data Lake Analytics.
-* **Standard Data Lake Store-konto**: Varje Data Lake Analytics-konto har ett Data Lake Store-standardkonto.
+* **Standard data Lake Stores konto**: Varje Data Lake Analytics konto har ett standard Data Lake Store-konto.
 
 Om du vill skapa en lista över befintliga Data Lake Store-konton:
 
@@ -98,7 +97,7 @@ I den här självstudien bearbetar du vissa sökloggar.  Sökloggen kan lagras i
 
 Azure Portal innehåller ett användargränssnitt för att kopiera vissa exempeldatafiler till Data Lake Store-standardkontot, bland annat en sökloggfil. Se [Förbereda källdata](data-lake-analytics-get-started-portal.md) för att ladda upp data till Data Lake Store-standardkontot.
 
-Om du vill överföra filer med hjälp av Azure CLI, använder du följande kommandon:
+Använd följande kommandon för att ladda upp filer med Azure CLI:
 
 ```
 az dls fs upload --account "<Data Lake Store Account Name>" --source-path "<Source File Path>" --destination-path "<Destination File Path>"
@@ -195,6 +194,6 @@ az dls fs download --account "myadlsaccount" --source-path "/Output/SearchLog-fr
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om du vill visa Data Lake Analytics Azure CLI-referensdokumentet, se [Datasjöanalys](/cli/azure/dla).
-* Om du vill visa Data Lake Store Azure CLI-referensdokumentet, se [Data Lake Store](/cli/azure/dls).
+* Om du vill se Data Lake Analytics Azure CLI-referens dokumentet, se [data Lake Analytics](/cli/azure/dla).
+* Om du vill se Data Lake Store Azure CLI-referens dokumentet, se [data Lake Store](/cli/azure/dls).
 * Om du vill se en mer komplex fråga, se [Analysera webbplatsloggar med hjälp av Azure Data Lake Analytics](data-lake-analytics-analyze-weblogs.md).

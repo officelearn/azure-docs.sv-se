@@ -1,7 +1,6 @@
 ---
-title: Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
+title: Skapa & fråga Azure Data Lake Analytics-Azure Portal
 description: Använd Azure Portal till att skapa ett Azure Data Lake Analytics-konto och skicka ett U-SQL-jobb.
-services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,41 +8,41 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 25d58bdc5791de868c6302b4d2763fa34e98af17
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 46da3750e4d0ac78c5fd9df91ae37670e541302d
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615047"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315763"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Kom igång med Azure Data Lake Analytics med hjälp av Azure Portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
 
 Den här artikeln beskriver hur du använder Azure Portal till att skapa Azure Data Lake Analytics-konton, definiera jobb i [U-SQL](data-lake-analytics-u-sql-get-started.md) och skicka jobb till Data Lake Analytics-tjänsten.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
 Innan du börjar följa de här självstudierna måste du ha en **Azure-prenumeration**. Se [Hämta en kostnadsfri utvärderingsversion av Azure](https://azure.microsoft.com/pricing/free-trial/).
 
 ## <a name="create-a-data-lake-analytics-account"></a>Skapa ett Data Lake Analytics-konto
 
-Nu, ska du skapa ett Data Lake Analytics och ett konto för Azure Data Lake Storage Gen1 på samma gång.  Det här steget är enkelt och tar bara ungefär 60 sekunder att slutföra.
+Nu ska du skapa en Data Lake Analytics och ett Azure Data Lake Storage Gen1 konto på samma gång.  Det här steget är enkelt och tar bara ungefär 60 sekunder att slutföra.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Klicka på **Skapa en resurs** >  **Data och analys** > **Data Lake Analytics**.
 3. Välj värden för följande objekt:
-   * **Namn på**: Namnge ditt Data Lake Analytics-konto (endast gemena bokstäver och siffror tillåts).
-   * **Prenumeration**: Välj den Azure-prenumeration används för Analytics-kontot.
+   * **Namn på**: Namnge ditt Data Lake Analytics konto (endast gemener och siffror tillåts).
+   * **Prenumeration**: Välj den Azure-prenumeration som används för Analytics-kontot.
    * **Resursgrupp**. Välj en befintlig Azure-resursgrupp eller skapa en ny.
    * **Plats**. Välj ett Azure-datacenter för Data Lake Analytics-kontot.
-   * **Data Lake Storage Gen1**: Följ anvisningarna för att skapa ett nytt Data Lake Storage Gen1-konto eller välj en befintlig. 
+   * **Data Lake Storage gen1**: Följ instruktionerna för att skapa ett nytt Data Lake Storage Gen1 konto eller Välj ett befintligt. 
 4. Alternativt,kan du välja en prisnivå för ditt Data Lake Analytics-konto.
 5. Klicka på **Skapa**. 
 
 
 ## <a name="your-first-u-sql-script"></a>Skriv ditt första U-SQL-skript
 
-Följande text är ett enkelt U-SQL-skript. Allt den gör är att definiera en liten datamängd i skriptet och sedan skriva datauppsättningen till Data Lake Storage Gen1 standardkontot som en fil med namnet `/data.csv`.
+Följande text är ett enkelt U-SQL-skript. Allt det är att definiera en liten data mängd i skriptet och sedan skriva den data uppsättningen till standard Data Lake Storage Gen1s kontot som en fil med `/data.csv`namnet.
 
 ```
 @a  = 

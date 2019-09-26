@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 08/30/2019
+ms.date: 09/25/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 95b4978b66accce0182e58493cb9d600dbe5e35f
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: c0ceea5c86af8d733c838e19f77eaeadc8a12dbb
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70277491"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300244"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -42,13 +42,15 @@ QnAMaker service värdnamn är användbart för felsökning när du kontaktar su
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Använd hjälp roboten i QnA Maker Portal
 
-QnA Maker ger en **Hjälp** robot på QNA Maker portal som hjälp. Hjälp roboten är tillgänglig på alla webb sidor. Roboten använder QNA Maker för att ge svar och ger [ C# bot Framework-kodfragmentet](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) till roboten så att du snabbt kan komma igång med din egen svars robot. 
+QnA Maker ger en **Hjälp** robot på QNA Maker portal som hjälp. Hjälp roboten är tillgänglig på alla webb sidor. Roboten använder QNA Maker för att ge svar och ger [ C# bot Framework](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) -kodfragmentet till roboten så att du snabbt kan komma igång med din egen svars robot. 
 
 ![! [QnA Maker innehåller en * *-hjälp * * bot i QnA Maker portalen som hjälp.] (./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>Hantera kunskapsbasen
 
 ### <a name="i-accidentally-deleted-a-part-of-my-qna-maker-what-should-i-do"></a>Jag råkade ta bort en del av mitt QnA Maker, vad ska jag göra? 
+
+Ta inte bort någon av de Azure-tjänster som skapats tillsammans med QnA Maker-resursen, till exempel search eller Web App. Detta är nödvändigt för att QnA Maker ska fungera om du tar bort ett QnA Maker slutar fungera korrekt.
 
 Alla borttagningar är permanent, inklusive frågor och svar-par, filer, URL: er, anpassade frågor och svar, kunskapsbaser eller Azure-resurser. Kontrollera att du exporterar kunskapsbasen från den **inställningar** sidan innan du tar bort någon del av kunskapsbasen. 
 

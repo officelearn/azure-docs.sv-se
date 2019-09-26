@@ -1,5 +1,5 @@
 ---
-title: Utveckla U-SQL-användardefinierade operatörer (UDO) i Azure Data Lake Analytics
+title: Utveckla användardefinierade U-SQL-operatörer – Azure Data Lake Analytics
 description: Lär dig hur du utvecklar användardefinierade operatörer som ska användas och återanvändas i Azure Data Lake Analytics-jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
@@ -9,22 +9,22 @@ ms.reviewer: jasonwhowell
 ms.assetid: e5189e4e-9438-46d1-8686-ed4836bf3356
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 122a4b6af78a22f74d5057da75767077f8d9b978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: b2d1293b06b4d8791138ed666bc3cb4abe3adf40
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813790"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316546"
 ---
-# <a name="develop-u-sql-user-defined-operators-udos"></a>Utveckla U-SQL-användardefinierade operatörer (UDO)
-Den här artikeln beskriver hur du utvecklar användardefinierade operatörer för att bearbeta data i ett U-SQL-jobb.
+# <a name="develop-u-sql-user-defined-operators-udos"></a>Utveckla användardefinierade U-SQL-operatörer (Katalogentiteter)
+Den här artikeln beskriver hur du utvecklar användardefinierade operatorer för att bearbeta data i ett U-SQL-jobb.
 
-## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definiera och Använd en användardefinierad operator i U-SQL
+## <a name="define-and-use-a-user-defined-operator-in-u-sql"></a>Definiera och använda en användardefinierad operator i U-SQL
 **Skapa och skicka ett U-SQL-jobb**
 
-1. Visual Studio väljer **fil > Nytt > Projekt > U-SQL-projekt**.
-2. Klicka på **OK**. Visual Studio skapar en lösning med en Script.usql-fil.
-3. Från **Solution Explorer**, expandera Script.usql och dubbelklicka sedan på **Script.usql.cs**.
+1. Från Visual Studio väljer du **fil > nytt > projekt > U-SQL-projekt**.
+2. Klicka på **OK**. Visual Studio skapar en lösning med en script. usql-fil.
+3. Från **Solution Explorer**expanderar du script. usql och dubbelklickar sedan på **script.usql.cs**.
 4. Klistra in följande kod i filen:
 
         using Microsoft.Analytics.Interfaces;
@@ -82,7 +82,7 @@ Den här artikeln beskriver hur du utvecklar användardefinierade operatörer f�
                 }
             }
         }
-6. Öppna **Script.usql**, och klistra in följande U-SQL-skript:
+6. Öppna **script. usql**och klistra in följande U-SQL-skript:
 
         @drivers =
             EXTRACT UserID      string,
@@ -114,15 +114,15 @@ Den här artikeln beskriver hur du utvecklar användardefinierade operatörer f�
 7. Ange Data Lake Analytics-kontot, databas och schema.
 8. Från **Solution Explorer**, högerklicka på **Script.usql** och klicka sedan på **Skapa skript**.
 9. Från **Solution Explorer**, högerklicka på **Script.usql** och klicka sedan på **Skicka skript**.
-10. Om du inte har anslutit till din Azure-prenumeration, uppmanas du att ange dina autentiseringsuppgifter för Azure-konto.
-11. Klicka på **Skicka**. Resultat för skicka och jobblänk är tillgängliga i resultatfönstret när överföringen är klar.
-12. Klicka på den **uppdatera** för att se senaste jobbstatus och uppdatera skärmen.
+10. Om du inte har anslutit till din Azure-prenumeration uppmanas du att ange dina autentiseringsuppgifter för Azure-kontot.
+11. Klicka på **Skicka**. Resultatet av överföringen och jobb länken är tillgängliga i resultat fönstret när överföringen är klar.
+12. Klicka på **Uppdatera** om du vill se senaste jobb status och uppdatera skärmen.
 
-**Att se utdata**
+**Visa utdata**
 
-1. Från **Server Explorer**, expandera **Azure**, expandera **Datasjöanalys**, expandera Data Lake Analytics-kontot, expandera **Lagringskonton**, högerklicka på standard-lagring och klicka sedan på **Explorer**.
-2. Expandera exempel utdata, och dubbelklicka sedan på **Drivers.csv**.
+1. Från **Server Explorer**, expandera **Azure**, expandera **data Lake Analytics**, expandera ditt data Lake Analytics-konto, expandera **lagrings konton**, högerklicka på standard lagringen och klicka sedan på **Utforskaren**.
+2. Expandera exempel, expandera utdata och dubbelklicka sedan på **driv rutiner. csv**.
 
 ## <a name="see-also"></a>Se också
-* [Utöka U-SQL-uttryck med användar-kod](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
-* [Använda Data Lake Tools för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)
+* [Utöka U-SQL-uttryck med användar kod](/u-sql/concepts/extending-u-sql-expressions-with-user-code)
+* [Använd Data Lake verktyg för Visual Studio för att utveckla U-SQL-program](data-lake-analytics-data-lake-tools-get-started.md)

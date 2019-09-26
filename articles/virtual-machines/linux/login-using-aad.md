@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
 ms.author: cynthn
-ms.openlocfilehash: 0e3996c28750639b227475bf4e0196f3a0c3ab0d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e30adf8b694d744e64fb7528b75b85d4a772a723
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163221"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316762"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Förhandsversion: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
@@ -87,6 +87,9 @@ Det tar några minuter att skapa den virtuella datorn och stödresurser.
 
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installera tillägget Azure AD login VM
 
+> [!NOTE]
+> Om du distribuerar den här exention till en tidigare skapad virtuell dator måste datorn ha minst 1 GB minne, annars går det inte att installera tillägget
+
 Om du vill logga in på en virtuell Linux-dator med Azure AD-autentiseringsuppgifter installerar du Azure Active Directory-inloggningens VM-tillägg. VM-tillägg är små program som tillhandahåller konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. Använd [AZ VM Extension set](/cli/azure/vm/extension#az-vm-extension-set) för att installera *AADLoginForLinux* -tillägget på den virtuella datorn med namnet *myVM* i *myResourceGroup* -resurs gruppen:
 
 ```azurecli-interactive
@@ -109,7 +112,7 @@ Princip för Azure rollbaserad Access Control (RBAC) bestämmer vem som kan logg
 > [!NOTE]
 > Om du vill tillåta att en användare loggar in på den virtuella datorn via SSH måste du tilldela antingen rollen *Administratörs inloggning för virtuell dator* eller *användar inloggning för virtuell dator* . En Azure-användare med rollen *ägare* eller *deltagare* som har tilldelats en virtuell dator har inte automatiskt behörighet att logga in på den virtuella datorn via SSH.
 
-I följande exempel används [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den *virtuella datorns administratörs inloggnings* roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](/cli/azure/account#az-account-show), och omfånget ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå, och normala behörigheter för RBAC-arv gäller. Mer information finns i [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md)
+I följande exempel används [AZ roll tilldelning skapa](/cli/azure/role/assignment#az-role-assignment-create) för att tilldela den *virtuella datorns administratörs inloggnings* roll till den virtuella datorn för din aktuella Azure-användare. Användar namnet för ditt aktiva Azure-konto hämtas med [AZ-kontot show](/cli/azure/account#az-account-show), och *omfånget* ställs in på den virtuella datorn som skapades i ett föregående steg med [AZ VM show](/cli/azure/vm#az-vm-show). Omfattningen kan också tilldelas till en resurs grupp eller prenumerations nivå, och normala behörigheter för RBAC-arv gäller. Mer information finns i [rollbaserade åtkomst kontroller](../../role-based-access-control/overview.md)
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
@@ -150,7 +153,7 @@ Följande meddelande visas i webbläsaren när du har autentiserats:`You have si
 
 Stäng webbläsarfönstret, gå tillbaka till SSH-prompten och tryck på **RETUR** -tangenten. 
 
-Du är nu inloggad på den virtuella Azure Linux-datorn med roll behörigheter som tilldelade, till exempel *VM-användare* eller VM- *administratör*. Om ditt användar konto har tilldelats inloggnings rollen *administratör för virtuell dator* kan du använda `sudo` för att köra kommandon som kräver rot privilegier.
+Du är nu inloggad på den virtuella Azure Linux-datorn med roll behörigheter som tilldelade, till exempel *VM-användare* eller VM- *administratör*. Om ditt användar konto har tilldelats *inloggnings rollen administratör för virtuell dator* kan du använda `sudo` för att köra kommandon som kräver rot privilegier.
 
 ## <a name="sudo-and-aad-login"></a>Sudo och AAD-inloggning
 
@@ -159,7 +162,7 @@ Första gången du kör sudo blir du ombedd att autentisera en andra gång. Om d
 ```bash
 %aad_admins ALL=(ALL) ALL
 ```
-Med den här raden:
+med den här raden:
 
 ```bash
 %aad_admins ALL=(ALL) NOPASSWD:ALL
@@ -172,7 +175,7 @@ Några vanliga fel när du försöker använda SSH med Azure AD-autentiseringsup
 
 ### <a name="access-denied-rbac-role-not-assigned"></a>Åtkomst nekad: RBAC-rollen har inte tilldelats
 
-Om du ser följande fel i SSH-prompten kontrollerar du att du har konfigurerat RBAC-principer för den virtuella datorn som beviljar användaren antingen Administratörs inloggning för den *virtuella datorn* eller användar inloggnings rollen för den *virtuella datorn* :
+Om du ser följande fel i SSH-prompten kontrollerar du att du har konfigurerat RBAC-principer för den virtuella datorn som beviljar användaren antingen *Administratörs inloggning för den virtuella datorn* eller *användar inloggnings* rollen för den virtuella datorn:
 
 ```bash
 login as: azureuser@contoso.onmicrosoft.com

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 6e3045ba8363965fcfc198356ed68447a187308d
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 886dd9b0f3c72fc7649b1e2fc3927cfa87f65312
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123436"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316508"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -91,6 +91,8 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 
 Dynamics 365-och Common Data Service-miljöer (CD) är värdbaserade på Azure och därför drar kunderna nytta av det underliggande ExpressRoute-stödet för Azure-resurser. Du kan ansluta till dess tjänst slut punkter om ditt router-filter innehåller Azure-regionerna som dina Dynamics 365/CD-miljöer finns i.
 
+> [!NOTE]
+> [ExpressRoute Premium](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-faqs#expressroute-premium) krävs **inte** för Dynamics 365-anslutning via Azure ExpressRoute.
 
 ## <a name="data-and-connections"></a>Data och anslutningar
 

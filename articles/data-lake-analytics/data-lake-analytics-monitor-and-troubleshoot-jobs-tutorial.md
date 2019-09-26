@@ -1,7 +1,6 @@
 ---
-title: Övervaka jobb i Azure Data Lake Analytics med hjälp av Azure portal
-description: Den här artikeln beskriver hur du använder Azure-portalen för att felsöka Azure Data Lake Analytics-jobb.
-services: data-lake-analytics
+title: Övervaka Azure Data Lake Analytics – Azure Portal
+description: Den här artikeln beskriver hur du använder Azure Portal för att felsöka Azure Data Lake Analytics-jobb.
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
@@ -9,43 +8,43 @@ ms.reviewer: jasonwhowell
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 40864bab068659be016161f7dc40243ebbd45174
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7fb85f179f1e1e1ac873fc7d6d937b34c1d48ada
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60812568"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316594"
 ---
-# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Övervaka jobb i Azure Data Lake Analytics med hjälp av Azure-portalen
+# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Övervaka jobb i Azure Data Lake Analytics med Azure Portal
 
-**Se alla jobb**
+**Visa alla jobb**
 
-1. Azure-portalen klickar du på **Microsoft Azure** i det övre vänstra hörnet.
-2. Klicka på ikonen med Data Lake Analytics-kontonamnet.  Jobbsammanfattningen visas på den **jobbhantering** panelen.
+1. Klicka på **Microsoft Azure** i det övre vänstra hörnet i Azure Portal.
+2. Klicka på ikonen med Data Lake Analytics-kontonamnet.  Jobb sammanfattningen visas på panelen **jobb hantering** .
 
-    ![Hantering av Azure Data Lake Analytics-jobb](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
+    ![Azure Data Lake Analytics jobb hantering](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
-    Jobbet Management ger dig en snabb överblick över för jobbets status. Observera att det är ett jobb som misslyckades.
-3. Klicka på den **jobbhantering** ikonen för att visa jobb. Jobben har kategoriserats i **kör**, **i kö**, och **avslutat**. Du bör se misslyckade jobbet i den **avslutat** avsnittet. Det bör vara första certifikatet i listan. När du har en massa jobb kan du klicka **Filter** som hjälper dig att hitta jobb.
+    Jobb hanteringen ger dig en överblick över jobb statusen. Observera att det finns ett misslyckat jobb.
+3. Klicka på panelen **jobb hantering** om du vill se jobben. Jobben kategoriseras i **Kör**, **köade**och **avslutade**. Du får se det misslyckade jobbet i avsnittet **Avsluta** . Den måste först vara en i listan. När du har många jobb kan du klicka på **filter** för att få hjälp att hitta jobb.
 
     ![Azure Data Lake Analytics filtrera jobb](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
-4. Klicka på det misslyckade jobbet från listan för att öppna Jobbinformationen:
+4. Klicka på det misslyckade jobbet i listan för att öppna jobb informationen:
 
-    ![Azure Data Lake Analytics misslyckades jobb](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
+    ![Azure Data Lake Analytics misslyckade jobbet](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
-    Observera den **skicka** knappen. När du löser problemet, kan du skicka jobbet.
-5. Klicka på markerade del från föregående skärmbild att öppna felinformationen.  Du bör se något som liknar:
+    Lägg märke till knappen **Skicka igen** . När du har åtgärdat problemet kan du skicka jobbet igen.
+5. Öppna fel informationen genom att klicka på den markerade delen från föregående skärm bild.  Du ser något som liknar:
 
-    ![Azure Data Lake Analytics misslyckades jobbinformation](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
+    ![Azure Data Lake Analytics information om misslyckade jobb](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
 
-    Du kan ta reda källmappen inte finns.
-6. Klicka på **duplicera skriptet**.
-7. Uppdatera den **FROM** sökvägen till:
+    Det visar att källmappen inte kan hittas.
+6. Klicka på **duplicera skript**.
+7. Uppdatera **från** sökväg till:
 
-    "/Samples/Data/SearchLog.tsv"
+    /Samples/data/SearchLog.tsv
 8. Klicka på **Skicka jobb**.
 
 ## <a name="see-also"></a>Se också
 * [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Kom igång med Azure Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-get-started-powershell.md)
+* [Komma igång med Azure Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Hantera Azure Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-manage-use-portal.md)

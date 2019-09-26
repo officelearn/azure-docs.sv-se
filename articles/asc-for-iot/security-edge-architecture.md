@@ -1,5 +1,5 @@
 ---
-title: Förstå Azure Security Center för IoT-säkerhetsmodulen för IoT Edge för hands version | Microsoft Docs
+title: Förstå Azure Security Center för IoT-säkerhetsmodulen för IoT Edge | Microsoft Docs
 description: Förstå arkitekturen och funktionerna i Azure Security Center för IoT Security-modulen för IoT Edge.
 services: asc-for-iot
 ms.service: asc-for-iot
@@ -15,18 +15,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/23/2019
 ms.author: mlottner
-ms.openlocfilehash: 6114fc768ad04ef812f6093d006ec9ad91b17af3
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 148c68234a937efde554ef00a6014cdc1a350f34
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596849"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315893"
 ---
 # <a name="azure-iot-edge-security-module"></a>Azure IoT Edge säkerhetsmodulen
-
-> [!IMPORTANT]
-> Azure Security Center för IoT-tjänsten för IoT Edge finns för närvarande i offentlig för hands version.
-> Den här för hands versionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 [Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/) tillhandahåller kraftfulla funktioner för att hantera och utföra affärs arbets flöden i gränsen.
 Den nyckel del som IoT Edge spelar i IoT-miljöer gör det särskilt attraktivt för skadliga aktörer.

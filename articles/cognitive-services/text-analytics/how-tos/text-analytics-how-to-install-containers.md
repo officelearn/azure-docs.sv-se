@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: 893beb479ee42f5de39d6e2e52251ab4113e3e43
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 69fc955bbd9fc584e0d95e02087b778624def11b
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105077"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316479"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installera och kör Textanalys behållare
 
@@ -152,6 +152,8 @@ Använd värden, `http://localhost:5000`för behållar-API: er.
 ## <a name="troubleshooting"></a>Felsökning
 
 Om du kör behållaren med en utgående [montering](../text-analytics-resource-container-config.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
+
+[!INCLUDE [Cognitive Services FAQ note](../../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Fakturering
 

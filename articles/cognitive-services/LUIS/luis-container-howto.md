@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/20/2019
+ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: b15ab7be5467d35b774dce643d6bb3910560ae01
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 7de529c9478b78ff9dd042df90a061f0a96f5427
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172320"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316406"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS Docker-behållare
  
@@ -309,7 +309,9 @@ Om du vill stänga av behållaren trycker du på **CTRL + C**i den kommando rads
 
 ## <a name="troubleshooting"></a>Felsökning
 
-Om du kör behållaren med en utgående [montering](luis-container-configuration.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren. 
+Om du kör behållaren med en utgående [montering](luis-container-configuration.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Fakturering
 

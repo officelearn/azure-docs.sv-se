@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: barclayn
-ms.openlocfilehash: b506c6f6101e8c5ce71231a8178f70fa5a0914d8
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3b60a6da1e7961c7709bb0b19e91dc6f15a51a1c
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262812"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316782"
 ---
 # <a name="azure-data-encryption-at-rest"></a>Azure Data Encryption – i vila
 
@@ -178,7 +178,7 @@ För att få en nyckel som används vid kryptering eller dekryptering av data i 
 - Kunden har fullt ansvar för hantering av nyckel livs cykeln
 - Ytterligare konfiguration & konfigurations omkostnader
 
-#### <a name="server-side-encryption-using-service-managed-keys-in-customer-controlled-hardware"></a>Kryptering på Server sidan med tjänst hanterade nycklar i kundkontrollerad maskin vara
+#### <a name="server-side-encryption-using-customer-managed-keys-in-customer-controlled-hardware"></a>Kryptering på Server sidan med Kundhanterade nycklar i kundkontrollerad maskin vara
 
 Vissa Azure-tjänster aktiverar nyckel hanterings modellen värd för din egen nyckel (HYOK). Det här hanterings läget är användbart i scenarier där det finns behov av att kryptera data i vila och hantera nycklarna i en egen lagrings plats utanför Microsofts kontroll. I den här modellen måste tjänsten hämta nyckeln från en extern plats. Prestanda-och tillgänglighets garantier påverkas och konfigurationen är mer komplex. Eftersom tjänsten har åtkomst till DEK under kryptering och dekryptering, liknar de övergripande säkerhets garantirna för den här modellen när nycklarna är kund hanterade i Azure Key Vault.  Därför är den här modellen inte lämplig för de flesta organisationer om de inte har särskilda krav på nyckel hantering. På grund av dessa begränsningar stöder de flesta Azure-tjänster inte kryptering på Server sidan med hjälp av Server-hanterade nycklar i kundkontrollerad maskin vara.
 
@@ -273,7 +273,7 @@ Kryptering på klient sidan av Azure SQL Database data stöds via funktionen [Al
 | Azure Data Catalog               | Ja                | -                  | -                  |
 | Apache Kafka på Azure HDInsight  | Ja                | Alla RSA-längder.   | -                  |
 | Azure Data Explorer              | Ja                | -                  | -                  |
-| Azure Data Factory               | Ja                | -                  | -                  |
+| Azure Data Factory               | Ja                | Ja                | -                  |
 | Azure Data Lake Store            | Ja                | Ja, RSA 2048-bitars  | -                  |
 | **Containrar**                   |                    |                    |                    |
 | Azure Kubernetes Service         | Ja                | -                  | -                  |

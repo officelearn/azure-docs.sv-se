@@ -13,14 +13,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 09/26/2019
 ms.author: rkarlin
-ms.openlocfilehash: b31196887f900153c0dd213913eda2f8b74f4a20
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0bf95b499a7366dad1e7b78fa4298aa6a42bb5fe
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240459"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316790"
 ---
 # <a name="permissions-in-azure-sentinel"></a>Behörigheter i Azure Sentinel
 
@@ -60,7 +60,6 @@ I följande tabell visas roller och tillåtna åtgärder i Azure Sentinel. Ett X
 |--- |---|---|---|---|
 | Azure Sentinel-läsare | -- | -- | -- | X |
 | Azure Sentinel-svarare|--|--| X | X |
-| Azure Sentinel incident Manager | -- | X | X | X |
 | Azure Sentinel-deltagare | -- | X | X | X |
 | Azure Sentinel Contributor + Logic app-deltagare | X | X | X | X |
 

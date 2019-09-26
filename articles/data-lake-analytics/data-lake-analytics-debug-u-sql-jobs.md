@@ -1,6 +1,6 @@
 ---
-title: Felsöka en användardefinierad C#-kod för misslyckade Azure Data Lake U-SQL-jobb
-description: Den här artikeln beskriver hur du felsöker ett misslyckade U-SQL-hörn med Azure Data Lake Tools för Visual Studio.
+title: Fel C# söknings kod för Azure Data Lake U-SQL-jobb
+description: I den här artikeln beskrivs hur du felsöker ett U-SQL-felaktigt hörn med Azure Data Lake verktyg för Visual Studio.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: yanancai
@@ -9,105 +9,105 @@ ms.reviewer: jasonwhowell
 ms.assetid: bcd0b01e-1755-4112-8e8a-a5cabdca4df2
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: 5417f66696191cebadc2af9c6d634419a0eb8e5b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 72239fc1679d2ebbfd9c9b5be6b79b58efb760cb
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60615278"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71315803"
 ---
-# <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Felsöka en användardefinierad C#-kod för misslyckade U-SQL-jobb
+# <a name="debug-user-defined-c-code-for-failed-u-sql-jobs"></a>Felsök användardefinierad C# kod för misslyckade U-SQL-jobb
 
-U-SQL ger en modell för utökningsbarhet med C#. I U-SQL-skript är det enkelt att anropa C#-funktioner och utför analysfunktioner som inte stöder SQL-liknande deklarativa språk. Mer information för utökningsbarhet i U-SQL finns [U-SQL-Programmeringsguide](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
+U-SQL tillhandahåller en utöknings C#modell som använder. I U-SQL-skript är det enkelt att anropa C# funktioner och utföra analys funktioner som SQL-liknande deklarativ språk inte stöder. Mer information om hur du utökningen av U-SQL finns i [programmerings guide för u-SQL](https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-u-sql-programmability-guide#use-user-defined-functions-udf). 
 
-I praktiken kod kan behöva felsökning, men det är svårt att felsöka ett distribuerat jobb med anpassad kod i molnet med begränsad loggfiler. [Azure Data Lake Tools för Visual Studio](https://aka.ms/adltoolsvs) innehåller en funktion som kallas **misslyckades hörn felsöka**, som hjälper dig att du enkelt felsöka fel som inträffar i din anpassade kod. Om U-SQL-jobb misslyckas håller feltillstånd och verktyget hjälper dig att hämta fel molnmiljön till den lokala datorn för felsökning. Lokala nedladdningen fångar hela cloud-miljön, inklusive alla indata och användarkod.
+I praktiken kan all kod behöva fel sökning, men det är svårt att felsöka ett distribuerat jobb med anpassad kod i molnet med begränsade loggfiler. [Azure Data Lake Tools för Visual Studio](https://aka.ms/adltoolsvs) innehåller en funktion som kallas **fel söknings fel hörn**, som hjälper dig att enkelt Felsöka fel som uppstår i din anpassade kod. När U-SQL-jobbet Miss lyckas, behåller tjänsten fel tillstånd och verktyget hjälper dig att ladda ned moln fel miljön till den lokala datorn för fel sökning. Den lokala hämtningen fångar hela moln miljön, inklusive indata och användar kod.
 
-Följande videoklipp visar misslyckades hörn felsökning i Azure Data Lake Tools för Visual Studio.
+Följande video visar felaktig fel sökning av hörn i Azure Data Lake verktyg för Visual Studio.
 
 > [!VIDEO https://www.youtube.com/embed/3enkNvprfm4]
 >
 
 > [!IMPORTANT]
-> Visual Studio krävs följande två uppdateringar för att använda den här funktionen: [Microsoft Visual C++ 2015 Redistributable uppdatering 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) och [Universal C Runtime för Windows](https://www.microsoft.com/download/details.aspx?id=50410).
+> Visual Studio kräver följande två uppdateringar för att använda den här funktionen: [Microsoft Visual C++ 2015 Redistributable Update 3](https://www.microsoft.com/en-us/download/details.aspx?id=53840) och [Universal C runtime för Windows](https://www.microsoft.com/download/details.aspx?id=50410).
 >
 
-## <a name="download-failed-vertex-to-local-machine"></a>Hämtning misslyckades hörn till lokal dator
+## <a name="download-failed-vertex-to-local-machine"></a>Ladda ned misslyckad hörn till lokal dator
 
-När du öppnar ett misslyckat jobb i Azure Data Lake Tools för Visual Studio kan se du ett gult fält med detaljerade felmeddelanden på fliken fel.
+När du öppnar ett misslyckat jobb i Azure Data Lake verktyg för Visual Studio visas ett gult aviserings fält med detaljerade fel meddelanden på fliken fel.
 
-1. Klicka på **hämta** att hämta alla nödvändiga resurser och indataströmmar. Om nedladdningen inte Slutför, klickar du på **försök**.
+1. Klicka på **Ladda ned** för att ladda ned alla nödvändiga resurser och indata strömmar. Om hämtningen inte är klar klickar du på **försök igen**.
 
-2. Klicka på **öppna** När nedladdningen är klar för att generera en lokal felsökningsmiljö. Öppnas en ny lösning för felsökning och om du har befintlig lösning öppnas i Visual Studio se till att spara och Stäng den innan du felsökning.
+2. Klicka på **Öppna** när hämtningen är klar för att generera en lokal fel söknings miljö. En ny fel söknings lösning öppnas, och om du har en befintlig lösning som öppnats i Visual Studio, måste du spara och stänga den innan du felsöker.
 
-![Hörn download visual studio för felsökning för Azure Data Lake Analytics U-SQL](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
+![Azure Data Lake Analytics U-SQL fel sökning Visual Studio Hämta hörn](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-download-vertex.png)
 
-## <a name="configure-the-debugging-environment"></a>Konfigurera miljön för felsökning
-
-> [!NOTE]
-> Innan felsökning, bör du kontrollera **Common Language Runtime undantag** i fönstret Undantagsinställningar (**Ctrl + Alt + E**).
-
-![Azure Data Lake Analytics U-SQL debug visual studio-inställning](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
-
-I den nya startade Visual Studio-instansen du kanske eller kanske inte att hitta den användardefinierade C#-källkoden:
-
-1. [Jag kan hitta mitt källkoden i lösningen](#source-code-is-included-in-debugging-solution)
-
-2. [Jag kan inte hitta mitt källkoden i lösningen](#source-code-is-not-included-in-debugging-solution)
-
-### <a name="source-code-is-included-in-debugging-solution"></a>Källkoden ingår i lösningen-felsökning
-
-Det finns två fall att C#-källkod hämtas:
-
-1. Användarkod anges i koden bakom filen (vanligtvis namnet `Script.usql.cs` i ett U-SQL-projekt).
-
-2. Användarkoden definieras i C# klassbiblioteksprojektet för U-SQL-program och registreras som sammansättning med **felsöka info**.
-
-Om källkoden importeras till lösningen kan du använda felsökningsverktyg för Visual Studio (titta på, variabler, etc.) för att felsöka problemet:
-
-1. Starta felsökningen genom att trycka på **F5**. Koden körs tills den har stoppats av ett undantag.
-
-2. Öppna källfilen koden och ange brytpunkter, tryck på **F5** felsöka kod steg för steg.
-
-    ![Azure Data Lake Analytics U-SQL-debug-undantag](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
-
-### <a name="source-code-is-not-included-in-debugging-solution"></a>Källkoden ingår inte i lösningen-felsökning
-
-Om användarkoden ingår inte i koden bakom filen eller registrerades inte sammansättningen med **felsöka info**, och sedan källkoden inte ingår automatiskt i Felsökning lösningen. I det här fallet behöver du ytterligare åtgärder för att lägga till källkoden:
-
-1. Högerklicka på **lösning ”VertexDebug” > Lägg till > befintliga projekt...**  att hitta sammansättningen källkoden och lägga till projektet i Felsökning lösningen.
-
-    ![Azure Data Lake Analytics U-SQL-debug lägger du till projekt](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
-
-2. Hämta projektet mappsökvägen för **FailedVertexDebugHost** projekt. 
-
-3. Högerklicka på **har lagts till sammansättningen kod projekt > Egenskaper**väljer den **skapa** fliken till vänster och klistra in den kopierade sökvägen som slutar med \bin\debug som **utdata > Utdatasökvägen**. Sökvägen för slutgiltiga utdata som liknar `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`.
-
-    ![Azure Data Lake Analytics U-SQL-debug ange pdb-sökväg](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
-
-Efter de här inställningarna, starta felsökning med **F5** och brytpunkter. Du kan också använda Visual Studio felsökningsverktyg (titta på, variabler, etc.) för att felsöka problemet.
+## <a name="configure-the-debugging-environment"></a>Konfigurera fel söknings miljön
 
 > [!NOTE]
-> Återskapa sammansättningen kod projekt varje gång när du har ändrat koden för att generera uppdaterade .pdb filer.
+> Innan du felsöker måste du kontrol lera **vanliga språk körnings undantag** i fönstret undantags inställningar (**CTRL + ALT + E**).
 
-## <a name="resubmit-the-job"></a>Skicka jobbet
+![Inställningar för Azure Data Lake Analytics U-SQL debug Visual Studio](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-clr-exception-setting.png)
 
-När du felsöker visar utdatafönstret följande meddelande om projektet är klar:
+I den nya startade Visual Studio-instansen kan du kanske inte hitta den användardefinierade C# käll koden:
+
+1. [Jag kan hitta min käll kod i lösningen](#source-code-is-included-in-debugging-solution)
+
+2. [Jag kan inte hitta min käll kod i lösningen](#source-code-is-not-included-in-debugging-solution)
+
+### <a name="source-code-is-included-in-debugging-solution"></a>Käll koden ingår i fel söknings lösningen
+
+Käll koden samlas in i C# två fall:
+
+1. Användar koden definieras i filen bakomliggande kod (kallas `Script.usql.cs` vanligt vis i ett U-SQL-projekt).
+
+2. Användar koden definieras i C# klass biblioteks projekt för U-SQL-program och registreras som sammansättning med **felsöknings information**.
+
+Om käll koden importeras till lösningen kan du använda Visual Studios fel söknings verktyg (se, variabler osv.) för att felsöka problemet:
+
+1. Starta felsökningen genom att trycka på **F5**. Koden körs tills den stoppas av ett undantag.
+
+2. Öppna käll kods filen och ange Bryt punkter och tryck sedan på **F5** för att felsöka koden steg för steg.
+
+    ![Azure Data Lake Analytics U-SQL debug-undantag](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-exception.png)
+
+### <a name="source-code-is-not-included-in-debugging-solution"></a>Käll koden ingår inte i fel söknings lösningen
+
+Om användar koden inte ingår i filen med bakomliggande kod eller om du inte registrerade sammansättningen med **fel söknings information**, inkluderas inte käll koden automatiskt i fel söknings lösningen. I det här fallet behöver du ytterligare steg för att lägga till din Källkod:
+
+1. Högerklicka på **lösning "VertexDebug" > Lägg till > befintligt projekt...** för att hitta sammansättnings käll koden och lägga till projektet i fel söknings lösningen.
+
+    ![Azure Data Lake Analytics U-SQL-felsökning Lägg till projekt](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-add-project-to-debug-solution.png)
+
+2. Hämta sökvägen till projektmappen för **FailedVertexDebugHost** -projektet. 
+
+3. Högerklicka på **det tillagda käll kods projektet för sammansättningen > egenskaper**, Välj fliken **Bygg** till vänster och klistra in den kopierade sökvägen som slutar med \Bin\Debug som **utdata > sökväg för utdata**. Den slutgiltiga sökvägen till utdata fungerar `<DataLakeTemp path>\fd91dd21-776e-4729-a78b-81ad85a4fba6\loiu0t1y.mfo\FailedVertexDebug\FailedVertexDebugHost\bin\Debug\`som.
+
+    ![Azure Data Lake Analytics U-SQL-felsökning ange PDB-sökväg](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-set-pdb-path.png)
+
+Börja felsöka med **F5** och Bryt punkter efter dessa inställningar. Du kan också använda Visual Studios fel söknings verktyg (se, variabler osv.) för att felsöka problemet.
+
+> [!NOTE]
+> Återskapa paketets käll kods projekt varje tillfälle när du har ändrat koden för att generera uppdaterade. PDB-filer.
+
+## <a name="resubmit-the-job"></a>Skicka jobbet igen
+
+Efter fel sökningen visas följande meddelande om projektet har slutförts:
 
     The Program 'LocalVertexHost.exe' has exited with code 0 (0x0).
 
-![Azure Data Lake Analytics U-SQL-debug lyckas](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
+![Azure Data Lake Analytics U-SQL-felsökning lyckades](./media/data-lake-analytics-debug-u-sql-jobs/data-lake-analytics-debug-succeed.png)
 
-Att skicka det misslyckade jobbet:
+Så här skickar du om det misslyckade jobbet:
 
-1. Kopiera C#-kod för jobb med bakomliggande kod lösningar till källfilen bakomliggande kod (vanligtvis `Script.usql.cs`).
+1. För jobb med koder för bakomliggande lösningar kopierar du C# koden till käll filen bakomliggande kod (vanligt vis `Script.usql.cs`).
 
-2. Högerklicka på projektet sammansättningen källa kod i Felsökning lösning för jobb med sammansättningar och registrera uppdaterade .dll-sammansättningar i din Azure Data Lake-katalog.
+2. För jobb med sammansättningar högerklickar du på käll kods projektet för sammansättningen i fel söknings lösning och registrerar de uppdaterade. dll-sammansättningarna i Azure Data Lake katalogen.
 
-3. Skicka U-SQL-jobb.
+3. Skicka U-SQL-jobbet igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [U-SQL-Programmeringsguide](data-lake-analytics-u-sql-programmability-guide.md)
-- [Utveckla U-SQL-användardefinierade operatörer för Azure Data Lake Analytics-jobb](data-lake-analytics-u-sql-develop-user-defined-operators.md)
+- [Programmerings guide för U-SQL](data-lake-analytics-u-sql-programmability-guide.md)
+- [Utveckla användardefinierade U-SQL-operatörer för Azure Data Lake Analytics jobb](data-lake-analytics-u-sql-develop-user-defined-operators.md)
 - [Testa och felsöka U-SQL-jobb med lokal körning och Azure Data Lake U-SQL SDK](data-lake-analytics-data-lake-tools-local-run.md)
-- [Så här felsöker du ett avvikande, återkommande jobb](data-lake-analytics-data-lake-tools-debug-recurring-job.md)
+- [Så här felsöker du ett onormalt återkommande jobb](data-lake-analytics-data-lake-tools-debug-recurring-job.md)

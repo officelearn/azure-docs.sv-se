@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: c58f8ae0605f99952507a5f308316f784b3d8de1
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: eced3415db27562ea60b67f5c23ca7fafe09ccc0
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105148"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316635"
 ---
 # <a name="install-and-run-form-recognizer-containers"></a>Installera och kör formulär igenkännings behållare
 
@@ -303,7 +303,9 @@ Behållaren innehåller API: er för REST-slutpunkt, som du hittar på sidan [AP
 
 ## <a name="troubleshooting"></a>Felsökning
 
-När du kör behållaren använder behållaren **STDOUT** och **stderr** för att spara information som är till hjälp vid fel sökning av problem som uppstår när du startar eller kör behållaren.
+Om du kör behållaren med en utgående [montering](form-recognizer-container-configuration.md#mount-settings) och loggning aktive rad genererar behållaren loggfiler som är till hjälp vid fel sökning av problem som inträffar när du startar eller kör behållaren.
+
+[!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
 ## <a name="billing"></a>Fakturering
 

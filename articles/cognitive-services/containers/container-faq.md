@@ -1,0 +1,195 @@
+---
+title: Vanliga frågor och svar om Cognitive Services behållare
+titleSuffix: Azure Cognitive Services
+description: Vanliga frågor och svar.
+services: cognitive-services
+author: IEvangelist
+manager: nitinme
+ms.service: cognitive-services
+ms.topic: conceptual
+ms.date: 09/24/2019
+ms.author: dapine
+ms.openlocfilehash: 6e218f33bdc33708cef0c94eb85298abf2b8927c
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316631"
+---
+# <a name="azure-cognitive-services-containers-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Cognitive Services containers
+
+## <a name="general-questions"></a>Allmänna frågor
+
+**F: Vad är tillgängligt?**
+
+**S:** Med [stöd för behållare i azure Cognitive Services](../cognitive-services-container-support.md) kan utvecklare använda samma intelligenta API: er som är tillgängliga i Azure, men med [fördelarna](../cognitive-services-container-support.md#features-and-benefits) med skapa behållare. Container support finns för närvarande i för hands version för en delmängd av Azure Cognitive Services, inklusive delar av:
+
+> [!div class="checklist"]
+> * [Avvikelse detektor][ad-containers]
+> * [Visuellt innehåll][cv-containers]
+> * [Ansikte][fa-containers]
+> * [Formulär igenkänning][fr-containers]
+> * [Språkförståelse (LUIS)][lu-containers]
+> * [Speech Service API][sp-containers]
+> * [Textanalys][ta-containers]
+<!-- > * [Translator Text][tt-containers] -->
+
+**F: Finns det någon skillnad mellan Cognitive Services molnet och behållarna?**
+
+**S:** Cognitive Services behållare är ett alternativ till Cognitive Services molnet. Behållare erbjuder samma funktioner som motsvarande moln tjänster. Kunder kan distribuera behållare lokalt eller i Azure. Kärn tekniken för AI, pris nivåer, API-nycklar och API-signatur är samma som för behållaren och motsvarande moln tjänster. Här är [funktionerna och fördelarna](../cognitive-services-container-support.md#features-and-benefits) med att välja behållare över deras moln tjänst motsvarande.
+
+**F: Kommer behållare vara tillgängliga för alla Cognitive Services och vilka är nästa uppsättning behållare som vi ska förvänta sig?**
+
+**S:** Vi vill göra fler Cognitive Services tillgängliga som container erbjudanden. Kontakta din lokala Microsoft-konto Manager för att få uppdateringar om nya behållar versioner och andra Cognitive Servicess meddelanden.
+
+**F: Vad är service nivå avtalet (SLA) för Cognitive Services behållare?**
+
+**S:** Cognitive Services behållare har inget service avtal (SLA).
+
+Cognitive Services behållar konfiguration av resurser styrs av kunder, så Microsoft erbjuder inte något service avtal för allmän tillgänglighet (GA). Kunderna är kostnads fria att distribuera behållare lokalt, vilket innebär att de definierar värd miljöerna.
+
+> [!IMPORTANT]
+> Mer information om Cognitive Services service nivå avtal [finns på vår SLA-sida](https://azure.microsoft.com/support/legal/sla/cognitive-services/v1_1/).
+
+**F: Är de här behållarna tillgängliga i suveräna moln?**
+
+**S:** Alla är inte bekanta med termen "suveräna moln", så vi börjar med att definiera:
+
+> Det "suveräna molnet" består av [Azure Government](../../azure-government/documentation-government-welcome.md), [Azure Germany](../../germany/germany-welcome.md)och [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/overview-operations) -moln.
+
+Tyvärr stöds *inte* Cognitive Services-behållare internt i de suveräna molnen. Behållarna kan köras i dessa moln, men de kommer att hämtas från det offentliga molnet och måste skicka användnings data till den offentliga slut punkten.
+
+### <a name="versioning"></a>Versionshantering
+
+**F: Hur uppdateras behållare till den senaste versionen?**
+
+**S:** Kunderna kan välja när de behållare som de har distribuerat ska uppdateras. Behållare kommer att markeras med standard [Docker](https://docs.docker.com/engine/reference/commandline/tag/) -Taggar `latest` , till exempel för att ange den senaste versionen. Vi uppmuntrar kunderna att hämta den senaste versionen av behållare när de släpps, check [Azure Container Registry Webhooks](../../container-registry/container-registry-webhook.md) för att få information om hur du får ett meddelande när en avbildning uppdateras.
+ 
+**F: Vilka versioner kommer att stödjas?**
+
+**S:** Den aktuella och sista huvud versionen av behållaren kommer att stödjas. Vi uppmuntrar dock kunderna att hålla sig uppdaterade för att få den senaste tekniken.
+ 
+**F: Hur skapas versioner av uppdateringar?**
+
+**S:** Huvud versions ändringar indikerar att det finns en brytande ändring i API-signaturen. Vi förväntar dig att detta kommer att sammanfalla med större versions ändringar av motsvarande kognitiva tjänst moln erbjudande. Lägre versions ändringar indikerar fel korrigeringar, modell uppdateringar eller nya funktioner som inte gör en större ändring i API-signaturen.
+
+## <a name="technical-questions"></a>Tekniska frågor
+
+**F: Hur ska jag köra Cognitive Services-behållare på IoT-enheter?**
+
+Om du inte har en tillförlitlig Internet anslutning eller om du vill spara pengar på bandbredd. Eller om du har krav på låg latens eller hanterar känsliga data som behöver analyseras på plats, [Azure IoT Edge med Cognitive Services-containrar](https://azure.microsoft.com/blog/running-cognitive-services-on-iot-edge/) ger dig konsekvens med molnet.
+
+**F: Hur gör jag för att ger du feedback om produkter och funktions rekommendationer?**
+
+**S:** Kunderna uppmuntras att vara indelade [offentligt och att rösta på andra](https://cognitive.uservoice.com/) som har gjort samma där potentiella problem överlappar varandra. Användar röst verktyget kan användas för både produkt feedback och funktions rekommendationer.
+
+**F: Vem kontaktar jag för support?**
+
+**S:** Kund support kanaler är desamma som Cognitive Services Cloud-erbjudandet. Alla Cognitive Services-behållare innehåller loggnings funktioner som hjälper oss och community Support-kunder. Mer support finns i följande alternativ.
+
+### <a name="customer-support-plan"></a>Kund support avtal
+
+Kunderna bör hänvisa till support [avtalet för Azure](https://azure.microsoft.com/support/plans/) för att se vem som ska kontaktas.
+
+### <a name="azure-knowledge-center"></a>Azures kunskaps Center
+
+Kunden är kostnads fri att utforska [Azures kunskaps Center](https://azure.microsoft.com/resources/knowledge-center/) för att få svar på frågor och support ärenden.
+
+### <a name="stack-overflow"></a>Stack Overflow
+
+> [Stack Overflow](https://en.wikipedia.org/wiki/Stack_Overflow) är en fråge-och svars plats för professionella och amatör programmerare.
+
+Utforska följande taggar för potentiella frågor och svar som passar dina behov.
+
+* [Azure Cognitive Services](https://stackoverflow.com/questions/tagged/azure-cognitive-services)
+* [Microsoft kognitivt](https://stackoverflow.com/questions/tagged/microsoft-cognitive)
+
+**F: Hur fungerar faktureringen?**
+
+**S:** Kunderna debiteras baserat på förbrukning, som liknar Cognitive Services molnet. Behållarna måste konfigureras för att skicka Mät data till Azure, och transaktioner faktureras därefter. Resurser som används i värdbaserade och lokala tjänster kommer att läggas till i en enda kvot med utgångs punkt i priser och beräknas mot båda användningarna. Mer information finns på sidan med priser för motsvarande erbjudande.
+
+* [Avvikelse detektor][ad-containers-billing]
+* [Visuellt innehåll][cv-containers-billing]
+* [Ansikte][fa-containers-billing]
+* [Formulär igenkänning][fr-containers-billing]
+* [Språkförståelse (LUIS)][lu-containers-billing]
+* [Speech Service API][sp-containers-billing]
+* [Textanalys][ta-containers-billing]
+<!-- * [Translator Text][tt-containers-billing] -->
+
+> [!IMPORTANT]
+> Cognitive Services-behållare är inte licensierad för att köra inte är ansluten till Azure för att mäta. Kunder måste du aktivera behållarna för att kommunicera faktureringsinformation med tjänsten Avläsning av programvara vid alla tidpunkter. Cognitive Services behållare skickar inte kund information till Microsoft.
+ 
+**F: Vad är den aktuella support garantin för behållare?**
+
+**S:** Det finns ingen garanti för för hands versionerna. Microsofts standard garanti för företags program vara gäller när behållare är formellt presenterade som allmän tillgänglighet (GA).
+ 
+**F: Vad händer Cognitive Services behållare när Internet anslutningen förloras?**
+
+**S:** Cognitive Services behållare är *inte licensierade* att köras utan att vara anslutna till Azure för mätning. Kunder måste göra det möjligt för behållarna att kommunicera med mätnings tjänsten hela tiden.
+
+**F: Hur lång tid kan behållaren använda utan att vara ansluten till Azure?**
+
+**S:** Cognitive Services behållare är *inte licensierade* att köras utan att vara anslutna till Azure för mätning. Kunder måste göra det möjligt för behållarna att kommunicera med mätnings tjänsten hela tiden.
+ 
+**F: Vad krävs den aktuella maskin varan för att köra dessa behållare?**
+
+**S:** Cognitive Services behållare är x64-baserade behållare som kan köra valfri kompatibel Linux-nod, virtuell dator och Edge-enhet som stöder x64 Linux Docker-behållare. Alla kräver processor processorer. De minsta och rekommenderade konfigurationerna för varje behållar erbjudande är tillgängliga nedan:
+
+* [Avvikelse detektor][ad-containers-recommendations]
+* [Visuellt innehåll][cv-containers-recommendations]
+* [Ansikte][fa-containers-recommendations]
+* [Formulär igenkänning][fr-containers-recommendations]
+* [Språkförståelse (LUIS)][lu-containers-recommendations]
+* [Speech Service API][sp-containers-recommendations]
+* [Textanalys][ta-containers-recommendations]
+<!-- * [Translator Text][tt-containers-recommendations] -->
+ 
+**F: Stöds de här behållarna för närvarande i Windows?**
+
+**S:** Cognitive Services behållare är Linux-behållare, men det finns vissa stöd för Linux-behållare i Windows. Mer information om Linux-behållare i Windows finns i [Docker-dokumentationen](https://blog.docker.com/2017/09/preview-linux-containers-on-windows/).
+ 
+**F: Hur gör jag för att identifiera behållarna?**
+
+**S:** Cognitive Services behållare finns på olika platser, till exempel Azure Portal, Docker Hub och Azure Container Registration. De senaste behållar platserna finns i [behållar databaser och avbildningar](../cognitive-services-container-support.md#container-repositories-and-images).
+
+**F: Hur jämför Cognitive Services-behållare med AWS och Google-erbjudanden?**
+
+**S:** Microsoft är den första moln leverantören att flytta sina förtränade AI-modeller i behållare med enkel fakturering per transaktion som även om kunderna använder en moln tjänst. Microsoft anser att ett hybrid moln ger kunderna mer valmöjligheter.
+
+**F: Vilka certifieringar för regelefterlevnad har behållare?**
+
+**S:** Kognitiva tjänst behållare har inga certifieringar för regelefterlevnad
+
+**F: Vilka regioner finns Cognitive Services behållare i?**
+
+**S:** Behållare kan köras var som helst i vilken region som helst, men de behöver en nyckel och för att kunna ringa tillbaka till Azure för mätning. Alla regioner som stöds för moln tjänsten stöds för container mätar anropet.
+
+[!INCLUDE [Containers next steps](includes/containers-next-steps.md)]
+
+[ad-containers]: ../anomaly-Detector/anomaly-detector-container-howto.md
+[cv-containers]: ../computer-vision/computer-vision-how-to-install-containers.md
+[fa-containers]: ../face/face-how-to-install-containers.md
+[fr-containers]: ../form-recognizer/form-recognizer-container-howto.md
+[lu-containers]: ../luis/luis-container-howto.md
+[sp-containers]: ../speech-service/speech-container-howto.md
+[ta-containers]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md
+<!-- [tt-containers]: ../translator/how-to-install-containers.md -->
+
+[ad-containers-billing]: ../anomaly-Detector/anomaly-detector-container-howto.md#billing
+[cv-containers-billing]: ../computer-vision/computer-vision-how-to-install-containers.md#billing
+[fa-containers-billing]: ../face/face-how-to-install-containers.md#billing
+[fr-containers-billing]: ../form-recognizer/form-recognizer-container-howto.md#billing
+[lu-containers-billing]: ../luis/luis-container-howto.md#billing
+[sp-containers-billing]: ../speech-service/speech-container-howto.md#billing
+[ta-containers-billing]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#billing
+<!-- [tt-containers-billing]: ../translator/how-to-install-containers.md#billing -->
+
+[ad-containers-recommendations]: ../anomaly-Detector/anomaly-detector-container-howto.md#container-requirements-and-recommendations
+[cv-containers-recommendations]: ../computer-vision/computer-vision-how-to-install-containers.md#container-requirements-and-recommendations
+[fa-containers-recommendations]: ../face/face-how-to-install-containers.md#container-requirements-and-recommendations
+[fr-containers-recommendations]: ../form-recognizer/form-recognizer-container-howto.md#container-requirements-and-recommendations
+[lu-containers-recommendations]: ../luis/luis-container-howto.md#container-requirements-and-recommendations
+[sp-containers-recommendations]: ../speech-service/speech-container-howto.md#container-requirements-and-recommendations
+[ta-containers-recommendations]: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md#container-requirements-and-recommendations
+<!-- [tt-containers-recommendations]: ../translator/how-to-install-containers.md#container-requirements-and-recommendations -->

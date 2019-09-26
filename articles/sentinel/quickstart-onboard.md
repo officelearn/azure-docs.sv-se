@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 7f209ef8bb8c492245b59374c33187dbbe763aa5
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7f042cfe10bd8ca57d9a2dae511a13a82f053a67
+ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240483"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71316815"
 ---
 # <a name="on-board-azure-sentinel"></a>Fordonsbaserad Azure Sentinel
 
@@ -37,7 +37,7 @@ När du har anslutit dina data källor väljer du från ett galleri med arbets b
 
 - Aktiv Azure-prenumeration, om du inte har en, kan du skapa ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-- Log Analytics arbets yta. Lär dig hur du [skapar en arbets yta för Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md)
+- Log Analytics arbets yta. Lär dig hur du [skapar en arbets yta för Log Analytics](../log-analytics/log-analytics-quick-create-workspace.md). Mer information om Log Analytics-arbetsytor finns i [utforma distributioner av Azure Monitors loggar](../azure-monitor/platform/design-logs-deployment.md).
 
 -  Om du vill aktivera Azure Sentinel måste du ha deltagar behörighet till den prenumeration där Azure Sentinel-arbetsytan finns. 
 - Om du vill använda Azure Sentinel behöver du antingen deltagar-eller läsar behörighet för resurs gruppen som arbets ytan tillhör.

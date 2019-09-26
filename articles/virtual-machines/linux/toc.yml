@@ -472,6 +472,8 @@
         - name: Distribuera diskar med mall
           displayName: 'Azure Resource Manager, ARM'
           href: using-managed-disks-template-deployments.md
+        - name: Ladda upp en virtuell hårddisk till en disk – CLI
+          href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Ändra storlek på en disk
           href: expand-disks.md
         - name: Ögonblicksbild av en disk

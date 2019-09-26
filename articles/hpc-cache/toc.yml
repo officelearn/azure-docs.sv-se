@@ -18,7 +18,7 @@
       items:
         - name: Lägga till lagringsmål
           href: hpc-cache-add-storage.md
-        - name: Flytta data till cachelagring
+        - name: Flytta data till lagringsmål (om det behövs)
           items:
             - name: Förhandsladda ny bloblagring
               href: hpc-cache-ingest.md

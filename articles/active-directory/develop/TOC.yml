@@ -9,7 +9,7 @@
       href: v2-overview.md
     - name: Snabbstarter
       items:
-        - name: Konfigurera en utvecklingsmiljö
+        - name: Konfigurera en klient
           href: quickstart-create-new-tenant.md
         - name: Konfigurera ett program
           items:
@@ -49,7 +49,7 @@
           items:
             - name: Android
               href: quickstart-v2-android.md
-            - name: iOS
+            - name: iOS och macOS
               href: quickstart-v2-ios.md
             - name: Universell Windows-plattform
               href: quickstart-v2-uwp.md
@@ -75,7 +75,7 @@
           items:
             - name: Android
               href: tutorial-v2-android.md
-            - name: iOS
+            - name: iOS och macOS
               href: tutorial-v2-ios.md
             - name: Universell Windows-plattform
               href: tutorial-v2-windows-uwp.md
@@ -223,12 +223,14 @@
           items:
             - name: Översikt
               href: msal-overview.md
-            - name: Migrering
+            - name: Migrering från ADAL
               items:
                 - name: Migrera till MSAL.NET
                   href: msal-net-migration.md
                 - name: Migrera till MSAL.js
                   href: msal-compare-msal-js-and-adal-js.md
+                - name: Migrera till MSAL för iOS och MacOS
+                  href: migrate-objc-adal-msal.md
                 - name: Migrera Xamarin-appar med hjälp av asynkrona meddelandeköer från ADAL.NET till MSAL.NET
                   href: msal-net-migration-ios-broker.md
             - name: Autentiseringsflöden som stöds
@@ -239,8 +241,6 @@
                   href: msal-acquire-cache-tokens.md
                 - name: Omfång för v1.0-appar
                   href: msal-v1-app-scopes.md
-                - name: Cache-serialisering för token (.NET)
-                  href: msal-net-token-cache-serialization.md
             - name: Klientprogram
               items:
                 - name: Klientprogram
@@ -257,18 +257,28 @@
               href: msal-handling-exceptions.md
             - name: Loggning
               href: msal-logging.md
-            - name: Enkel inloggning (JS)
-              href: msal-js-sso.md
-            - name: Beteende vid fråga (JS)
-              href: msal-js-prompt-behavior.md
-            - name: Stöd för ADFS (.NET)
-              href: msal-net-adfs-support.md
+            - name: Enkel inloggning
+              items:
+                - name: Enkel inloggning med MSAL.js
+                  href: msal-js-sso.md
+                - name: Enkel inloggning med MSAL för iOS och macOS
+                  items:
+                    - name: Enkel inloggning mellan MSAL-appar
+                      href: single-sign-on-macos-ios.md
+                    - name: Enkel inloggning mellan ADAL- och MSAL-appar
+                      href: sso-between-adal-msal-apps-macos-ios.md
+            - name: Integrera med ADFS
+              items:
+                - name: ADFS-stöd i MSAL.NET
+                  href: msal-net-adfs-support.md
             - name: Integrera med Azure AD B2C
               items:
                 - name: JavaScript
                   href: msal-b2c-overview.md
                 - name: .NET
                   href: msal-net-aad-b2c-considerations.md
+                - name: iOS och macOS
+                  href: 'config-authority.md#b2c'
             - name: Överväganden och kända problem
               items:
                 - name: MSAL.NET
@@ -283,6 +293,10 @@
                       href: msal-js-known-issues-ie-edge-browsers.md
                     - name: Kända problem – Safari
                       href: msal-js-known-issues-safari-browser.md
+                - name: MSAL för iOS och macOS
+                  items:
+                    - name: SSL-problem
+                      href: ssl-issues.md
         - name: Autentiseringsprotokoll
           items:
             - name: Programtyper och OAuth2.0
@@ -378,6 +392,8 @@
               items:
                 - name: Hämta en token från cache
                   href: msal-net-acquire-token-silently.md
+                - name: Serialisering för tokencache
+                  href: msal-net-token-cache-serialization.md
                 - name: Rensa tokencache
                   href: msal-net-clear-token-cache.md
                 - name: Skapa en instans av en offentlig klient med alternativ
@@ -394,6 +410,20 @@
                   href: msal-js-avoid-page-reloads.md
                 - name: Skicka anpassat tillstånd i autentiseringsbegäranden
                   href: msal-js-pass-custom-state-authentication-request.md
+                - name: Beteende vid fråga
+                  href: msal-js-prompt-behavior.md
+            - name: MSAL för iOS och macOS
+              items:
+                - name: Skillnader mellan Microsoft Authentication Library för iOS och macOS
+                  href: msal-differences-ios-macos.md
+                - name: Konfigurera nyckelring
+                  href: howto-v2-keychain-objc.md
+                - name: Anpassa webbläsare och webbvyer
+                  href: customize-webviews.md
+                - name: Begära anpassade anspråk
+                  href: request-custom-claims.md
+                - name: Konfiguration av omdirigerings-URI
+                  href: redirect-uris-ios.md
         - name: Arbeta med Visual Studio
           items:
             - name: Använda den Active Directory-anslutna tjänsten
@@ -428,7 +458,7 @@
       href: v1-overview.md
     - name: Snabbstarter
       items:
-        - name: Konfigurera en utvecklingsmiljö
+        - name: Konfigurera en klient
           href: quickstart-create-new-tenant.md
         - name: Konfigurera ett program
           items:
@@ -468,7 +498,7 @@
           items:
             - name: Android
               href: quickstart-v1-android.md
-            - name: iOS
+            - name: iOS och macOS
               href: quickstart-v1-ios.md
             - name: .NET för Windows-skrivbordet
               href: quickstart-v1-dotnet.md

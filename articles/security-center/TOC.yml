@@ -47,7 +47,7 @@
           href: security-center-incident.md
         - name: Hotidentifiering för virtuella datorer och servrar
           href: security-center-alerts-iaas.md
-        - name: Hotidentifiering för intern molnberäkning
+        - name: Hotidentifiering för molnappar och containers
           href: security-center-alerts-compute.md
         - name: Hotidentifiering för datatjänster
           href: security-center-alerts-data-services.md
@@ -71,7 +71,7 @@
       href: security-center-wdatp.md
     - name: Avancerad datasäkerhet för SQL på virtuella Azure-datorer (allmänt tillgänglig förhandsversion)
       href: security-center-iaas-advanced-data.md
-    - name: Skydda App Service
+    - name: Skydda dina program med App Service
       href: security-center-app-services.md
     - name: Arbeta med säkerhetsprinciper
       href: tutorial-security-policy.md
@@ -91,7 +91,7 @@
       href: security-center-policy-definitions.md
     - name: E-postmeddelanden
       href: security-center-provide-security-contact-details.md
-    - name: Prisnivå
+    - name: Prissättning
       href: security-center-pricing.md
     - name: Synlighet i hela klientorganisationen
       href: security-center-management-groups.md
@@ -147,8 +147,6 @@
   items:
     - name: 'REST API:er'
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Tillbakadragande av funktioner och API (juli 2019)
       href: security-center-features-retirement-july2019.md
     - name: Utvärdering av slutpunktsskydd och rekommendationer
@@ -159,25 +157,25 @@
       href: /learn/browse/?term=securityS
     - name: Hantera användardata
       href: security-center-privacy.md
-    - name: Hantera IoT
+    - name: Dokumentation om Azure Security Center for IoT
       href: 'https://docs.microsoft.com/en-us/azure/asc-for-iot/'
     - name: VANLIGA FRÅGOR OCH SVAR
       href: security-center-faq.md
-    - name: Säkerhet i Azure
+    - name: Dokumentation om Azure-säkerhet
       href: /azure/security/
-    - name: Azure-översikt
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: Azure-uppdateringar
+      href: 'https://azure.microsoft.com/updates/?category=security-identity'
     - name: Beredskapsöversikt
       href: security-center-readiness-roadmap.md
     - name: 'Blogg om säkerhet, sekretess och efterlevnad i Azure'
       href: 'https://blogs.msdn.com/b/azuresecurity/'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/search?q=security-center'
+    - name: Azure Security Center på Stack Overflow
+      href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: Videoklipp
       href: 'https://azure.microsoft.com/documentation/videos/index/?services=security-center'
     - name: Prissättning
       href: 'https://azure.microsoft.com/pricing/details/security-center/'
     - name: Regional tillgänglighet
       href: 'https://azure.microsoft.com/regions/services/'
-    - name: Felsöka
+    - name: Felsökningsguide
       href: security-center-troubleshooting-guide.md

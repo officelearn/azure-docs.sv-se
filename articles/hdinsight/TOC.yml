@@ -19,6 +19,8 @@
           href: ./hdinsight-administer-use-powershell.md
     - name: Exempel
       items:
+        - name: Azure CLI-exempel
+          href: ./azure-cli-samples.md
         - name: .NET-exempel
           href: ./hdinsight-sdk-dotnet-samples.md
         - name: Java-exempel
@@ -613,6 +615,8 @@
               href: ./hbase/apache-hbase-provision-vnet.md
         - name: Felsöka
           items:
+            - name: Felsöka problem med Apache HBase-prestanda
+              href: ./hbase/troubleshoot-hbase-performance-issues.md
             - name: hbase hbck returnerar inkonsekvenser
               href: ./hbase/hbase-troubleshoot-hbase-hbck-inconsistencies.md
             - name: Lagringsundantag efter anslutningsåterställning

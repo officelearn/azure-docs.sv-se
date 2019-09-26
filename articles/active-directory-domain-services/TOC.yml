@@ -95,22 +95,22 @@
       items:
         - name: Vanliga fel
           href: troubleshoot.md
-        - name: Vanliga aviseringar
-          items:
-            - name: Vanliga aviseringar
-              href: troubleshoot-alerts.md
-            - name: Åtgärda en bruten nätverkskonfiguration
-              href: alert-nsg.md
-            - name: Återställa tjänstens huvudnamn som saknas
-              href: alert-service-principal.md
-            - name: Aviseringar om säkert LDAP
-              href: alert-ldaps.md
         - name: Matchningsfel för klient
           href: mismatched-tenant-error.md
         - name: Inaktiverade domäner
           href: suspension.md
         - name: Säkert LDAP
           href: tshoot-ldaps.md
+        - name: Kända problem
+          items:
+            - name: Vanliga aviseringar
+              href: troubleshoot-alerts.md
+            - name: Nätverksaviseringar
+              href: alert-nsg.md
+            - name: Aviseringar om tjänstens huvudnamn
+              href: alert-service-principal.md
+            - name: Aviseringar om säkert LDAP
+              href: alert-ldaps.md
 - name: Resurser
   items:
     - name: Vanliga frågor och svar

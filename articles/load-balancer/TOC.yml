@@ -84,7 +84,11 @@
     - name: Belastningsutjämna virtuella datorer inom en zon (CLI)
       href: load-balancer-standard-public-zonal-cli.md
     - name: Konfigurera regler för utgående trafik
-      href: configure-load-balancer-outbound-cli.md
+      items:
+        - name: Konfigurera regler för utgående trafik – CLI
+          href: configure-load-balancer-outbound-cli.md
+        - name: Konfigurera regler för utgående trafik – PowerShell
+          href: configure-load-balancer-outbound-powershell.md
     - name: Skapa en Azure Load Balancer med REST API
       href: create-load-balancer-rest-api.md
     - name: Skapa en Basic Load Balancer (mall)

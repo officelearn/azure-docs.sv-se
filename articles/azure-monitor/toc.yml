@@ -431,6 +431,8 @@
                   href: app/asp-net-trace-logs.md
                 - name: Prestandaräknare
                   href: app/performance-counters.md
+                - name: EventCounters
+                  href: app/eventcounters.md
                 - name: Beroenden
                   href: app/asp-net-dependencies.md
                 - name: ApplicationInsights.config
@@ -519,6 +521,8 @@
                   items:
                     - name: Översikt
                       href: platform/diagnostics-extension-overview.md
+                    - name: Samla in loggar
+                      href: platform/azure-storage-iis-table.md
                     - name: Windows
                       items:
                         - name: Versionshistorik
@@ -644,22 +648,20 @@
               href: insights/service-map.md
             - name: Datorgrupper
               href: platform/computer-groups.md
-        - name: Azure-resurser
+        - name: Azure-plattformen
           items:
-            - name: Diagnostikloggar
+            - name: Översikt över plattformsloggar
+              href: platform/platform-logs-overview.md
+            - name: Resursloggar
               items:
                 - name: Översikt
-                  href: platform/diagnostic-logs-overview.md
-                - name: Samla in loggar
-                  href: platform/diagnostic-logs-stream-log-store.md
-                - name: Samla in från Azure Storage
-                  href: platform/azure-storage-iis-table.md
+                  href: platform/resource-logs-overview.md
+                - name: Samla in i Azure Monitor-loggar
+                  href: platform/resource-logs-collect-workspace.md
                 - name: Arkivera till lagring
-                  href: platform/archive-diagnostic-logs.md
-                - name: Aktivera med Resource Manager-mallar
-                  href: platform/diagnostic-logs-stream-template.md
-        - name: Azure-prenumeration
-          items:
+                  href: platform/resource-logs-collect-storage.md
+                - name: Strömma till Event Hubs
+                  href: platform/resource-logs-stream-event-hubs.md
             - name: Aktivitetslogg
               items:
                 - name: Översikt
@@ -674,6 +676,14 @@
                   href: platform/activity-log-export.md
                 - name: Schema
                   href: platform/activity-log-schema.md
+            - name: Diagnostikinställningar
+              items:
+                - name: Skapa diagnostiskinställning
+                  href: platform/diagnostic-settings.md
+                - name: Skapa diagnostiskinställning med Resource Manager
+                  href: platform/diagnostic-settings-template.md
+                - name: Ändra till bloblagringsformat
+                  href: platform/resource-logs-blob-format.md
             - name: Strömma data till Event Hubs
               href: platform/stream-monitoring-data-event-hubs.md
             - name: Key Vault-analys
@@ -685,6 +695,7 @@
         - name: Storage
           items:
             - name: Azure Monitor för lagring
+              displayname: 'storage, monitor, insights, storage accounts, azure storage'
               href: insights/storage-insights-overview.md
         - name: Databaser
           items:
@@ -747,7 +758,7 @@
             - name: Ansluta Configuration Manager
               href: platform/collect-sccm.md
         - name: Strömma data till Event Hubs
-          href: platform/diagnostic-logs-stream-event-hubs.md
+          href: platform/resource-logs-stream-event-hubs.md
     - name: Analysera data
       items:
         - name: Mått

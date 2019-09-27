@@ -691,6 +691,8 @@
       items:
         - name: Aktivera notebook-filer
           href: enable-notebooks.md
+        - name: Använda inbyggda kommandon för notebook-filer
+          href: use-notebook-features-and-commands.md
     - name: Programmering på serversidan
       items:
         - name: 'Skriva lagrade procedurer, utlösare och UDF:er'

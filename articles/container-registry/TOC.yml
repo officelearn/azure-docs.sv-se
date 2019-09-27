@@ -71,6 +71,8 @@
           items:
             - name: Ta bort avbildningsdata – CLI
               href: container-registry-delete.md
+            - name: Kvarhållningsprincip för otaggade manifest (förhandsversion)
+              href: container-registry-retention-policy.md
             - name: Rensa automatiskt taggar och manifest (förhandsversion)
               href: container-registry-auto-purge.md
         - name: Uppgradera ett klassiskt register

@@ -4,7 +4,7 @@ description: Beskriver hur du betalar om din Azure-prenumeration har ett förfal
 services: ''
 documentationcenter: ''
 author: genlin
-manager: jureid
+manager: dcscontentpm
 editor: ''
 tags: billing
 ms.assetid: d0b88c92-fb9d-4d12-931b-c26104ad63e9
@@ -15,14 +15,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
-ms.openlocfilehash: f58969b167b6c0f0a66d46731ad76c1f6e9acc41
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: cd3c29c4b65f45863647599ae2447584845f27c8
+ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491460"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71300288"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Lösa förfallet belopp för din Azure-prenumeration
+
+Den här artikeln gäller för kunder med ett Microsoft Online Services-programkonto.
 
 Om din betalning inte tas emot eller om vi inte kan behandla betalningen kan det hända att du får ett e-postmeddelande eller ser en avisering i Azure-portalen eller Kontocenter.
 Om du är [kontoadministratör](billing-subscription-transfer.md#whoisaa) kan du kvitta utestående avgifter i [Azure-portalen](https://portal.azure.com). Om du betalar med faktura skickar du betalningen till den plats som anges längst ned på fakturan.
@@ -43,6 +45,13 @@ Om du är [kontoadministratör](billing-subscription-transfer.md#whoisaa) kan du
 1. Om den valda betalningsmetoden också har utestående avgifter för Microsoft-tjänster visas detta i det totala utestående beloppet. Du måste även betala dessa utestående avgifter.
 1. Klicka på **Betala**.
 
+## <a name="troubleshoot-declined-credit-card"></a>Felsök nekade kreditkort
+
+Om din betalning med ett kreditkort nekades av ditt finansinstitut kontaktar du finansinstitutet för att lösa problemet. Kontrollera med din bank för att se till att:
+- Internationella transaktioner är aktiverade.
+- Kortet har en tillräckligt hög kreditgräns eller tillräckligt med pengar på kontot för att genomföra betalningen.
+- Återkommande betalningar är aktiverat på kortet.
+
 ## <a name="not-getting-billing-email-notifications"></a>Får du inte e-postaviseringar om fakturering?
 
 Om du är kontoadministratör [kontrollerar du vilken e-postadress som används för meddelanden](billing-how-to-change-azure-account-profile.md). Vi rekommenderar att du använder en e-postadress som du kontrollerar regelbundet. Om e-postadressen är korrekt kontrollerar du skräppostmappen.
@@ -52,6 +61,7 @@ Om du är kontoadministratör [kontrollerar du vilken e-postadress som används 
 Tjänsten avbryts och dina resurser slutar vara tillgängliga. Dina Azure-data tas bort 90 dagar efter att tjänsten har avbrutits. Mer information finns i [Microsoft Trust Center – Så hanterar vi dina data](https://go.microsoft.com/fwLink/p/?LinkID=822930&clcid=0x409).
 
 Om du vet att din betalning har behandlats men din prenumeration fortfarande är inaktiverad kontaktar du [Azure-supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+
 
 ## <a name="need-help-contact-us"></a>Behöver du hjälp? Kontakta oss.
 

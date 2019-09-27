@@ -1,78 +1,127 @@
-### YamlMime:YamlDocument
-documentType: LandingData
-title: Dokumentation om Resource Manager på Azure
+### YamlMime:Landing
+title: Dokumentation om Azure Resource Manager
+summary: En Resource Manager-mall är en JSON-fil (JavaScript Object Notation) som definierar infrastrukturen och konfigurationen för ditt projekt.
 metadata:
-  title: 'Dokumentation om Resource Manager på Azure – självstudier, exempel, referenser och resurser'
-  description: Lär dig hur du använder Resource Manager för att distribuera och hantera lösningsresurser som en grupp och hur du skapar mallar för konsekvent och repeterbar resursdistribution.
+  title: Dokumentation om Azure Resource Manager
+  description: Lär dig hur du utvecklar Azure Resource Manager-mallar och använder dem för att distribuera Azure-resurser
   services: azure-resource-manager
   ms.service: azure-resource-manager
-  keywords: 'Resource Manager, azure, devops, tutorials, samples, reference, documentation'
-  author: mumian
-  manager: dougeby
-  ms.author: jgao
+  ms.subservice: na
   ms.topic: landing-page
-  ms.date: 12/10/2018
-abstract:
-  description: 'Lär dig hur du använder Resource Manager för att distribuera, övervaka och hantera lösningsresurser som en grupp. Självstudiekurser, API-referenser och annan dokumentation visar hur du konfigurerar resursgrupper och skapar mallar för konsekvent och repeterbar resursdistribution.'
-sections:
-  - title: Snabbstarter
-    items:
-      - type: paragraph
-        text: Använd olika verktyg för att skapa Azure Resource Manager-mallar för distribution av Azure-resurser.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Generera en mall med hjälp av Microsoft Azure-portalen
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_vs-code.svg'
-            text: Skapa en mall med hjälp av Visual Studio Code
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code'
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_visual-studio.svg'
-            text: Skapa en mall med hjälp av Visual Studio
-            href: 'https://docs.microsoft.com/azure/azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy'
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig att skapa Azure Resource Manager-mallar för distribution av Azure-resurser.
-      - type: list
-        style: unordered
-        items:
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-encrypted-storage-accounts">Använda Resource Manager-mallreferensen</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-multiple-instances">Skapa flera instanser av en Azure-resurs</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-templates-with-dependent-resources">Ange resursdistributionsordning</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-conditions">Använda villkor</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-use-key-vault">Integrera Azure Key Vault</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-create-linked-templates">Skapa länkade mallar</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-vm-extensions">Distribuera tillägg för virtuell dator</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-deploy-sql-extensions-bacpac">Distribuera SQL-tillägg</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-secure-artifacts">Skydda mallartefakter</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/deployment-manager-tutorial">Använda säkra distributionsmetoder</a>.'
-          - html: '<a href="https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-tutorial-troubleshoot">Felsöka malldistributioner</a>.'
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Exempelkonfigurationsmallar för vanliga distributionsuppgifter.
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: '<a href="https://azure.microsoft.com/resources/templates/">Azure-snabbstartmallar</a>'
-          - html: '<a href="https://resources.azure.com/">Azure Resource Explorer (Förhandsversion)</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Mallar
-            html: <p><a href="/azure/templates/">Mallreferens</a></p><p><a href="/azure/resource-group-template-functions">Mallfunktioner</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-functions">Funktioner för användargränssnittsdefinition</a></p><p><a href="/azure/azure-resource-manager/managed-application-createuidefinition-elements">Definitionselement för användargränssnitt</a></p>
-          - title: Kommandorad
-            html: <p><a href="/cli/azure/resource">Azure CLI</a></p><p><a href="/powershell/module/az.resources">Azure PowerShell</a></p>
-          - title: Språk
-            html: <p><a href="/dotnet/api/microsoft.azure.management.resourcemanager">NET</a></p><p><a href="/java/api/com.microsoft.azure.management.resources">Java</a></p><p><a href="/python/api/overview/azure/resources?view=azure-python">Python</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/resources/">REST-API</a></p>
+  ms.collection: na
+  author: mumian
+  ms.author: jgao
+  ms.date: 09/25/2019
+  ms.openlocfilehash: 4981000d942bfa49503a63ce2a82ec994efc3c6e
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71299511"
+landingContent:
+- title: Om Resource Manager
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Resource Manager?
+      url: resource-group-overview.md
+    - text: Vad är en Resource Manager-mall?
+      url: template-deployment-overview.md
+  - linkListType: concept
+    links:
+    - text: Bästa praxis
+      url: template-best-practices.md
+    - text: Distributionsmodeller
+      url: deployment-modes.md
+    - text: Länkade mallar
+      url: resource-group-linked-templates.md
+    - text: Distribution på prenumerationsnivå
+      url: deploy-to-subscription.md
+    - text: Distributionshanteraren
+      url: deployment-manager-overview.md
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa mallar – portal
+      url: resource-manager-quickstart-create-templates-use-the-portal.md
+    - text: skapa mallar – VS Code
+      url: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - text: skapa mallar – Visual Studio
+      url: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+  - linkListType: tutorial
+    links:
+    - text: Distribuera flera instanser
+      url: resource-manager-tutorial-create-multiple-instances.md
+    - text: Ange distributionsordning
+      url: resource-manager-tutorial-create-templates-with-dependent-resources.md
+    - text: Integrera nyckelvalv
+      url: resource-manager-tutorial-use-key-vault.md
+- title: Utveckla mallar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Använda VS-kod
+      url: resource-manager-tools-vs-code.md
+    - text: Använda funktioner
+      url: resource-group-template-functions.md
+    - text: Definiera parametrar
+      url: template-parameters.md
+    - text: Definiera variabler
+      url: template-variables.md
+    - text: Definiera resurser
+      url: child-resource-name-type.md
+    - text: Definiera utmatningar
+      url: template-outputs.md
+  - linkListType: reference
+    links:
+    - text: Azure-snabbstartsmallar
+      url: /resources/templates/
+- title: Distribuera mallar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Med PowerShell
+      url: resource-group-template-deploy.md
+    - text: Med CLI
+      url: resource-group-template-deploy-cli.md
+    - text: Med portalen
+      url: resource-group-template-deploy-portal.md
+    - text: Med REST API
+      url: resource-group-template-deploy-rest.md
+- title: Hantera mallar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Exportera mallar
+      url: export-template-portal.md
+    - text: CI/CD
+      url: vs-resource-groups-project-devops-pipelines.md
+- title: Hantera resurser
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Flytta resurser
+      url: resource-group-move-resources.md
+    - text: Tagga resurser
+      url: resource-group-using-tags.md
+    - text: Lås resurser
+      url: resource-group-lock-resources.md
+- title: Övervaka och felsök
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Visa aktivitetsloggar
+      url: resource-group-audit.md
+    - text: Visa distributionsåtgärd
+      url: resource-manager-deployment-operations.md
+    - text: Felsöka vanliga distributionsfel
+      url: resource-manager-common-deployment-errors.md
+- title: Utforska referensinnehåll
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Resursprovidrar och resurstyper
+      url: resource-manager-supported-services.md
+    - text: Mallreferens
+      url: /azure/templates/

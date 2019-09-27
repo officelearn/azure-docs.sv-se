@@ -1,63 +1,91 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Sentinel
+summary: Den här artikeln beskriver användningsfall för att komma igång med Azure Sentinel. Se och stoppa hot innan de gör någon skada med hjälp av SIEM som uppdaterats för en modern värld. Azure Sentinel ger dig en överblick över hela företaget.
 metadata:
-  title: 'Dokumentation om Azure Sentinel – självstudier, snabbstarter | Microsoft Docs'
-  meta.description: Azure Sentinel is a cloud-native SIEM that provides intelligent security analytics for your entire enterprise at cloud scale.
+  title: Dokumentation om Azure Sentinel
+  description: 'Den här artikeln beskriver användningsfall och scenarier för att komma igång med Azure Sentinel. Se och stoppa hot innan de gör någon skada med hjälp av SIEM som uppdaterats för en modern värld. Azure Sentinel ger dig en överblick över hela företaget. #Krävs: beskrivning av artikeln som visas i sökresultaten. < 160 tecken.'
   services: sentinel
-  author: cmcclister
-  manager: carolz
-  ms.service: azure-sentinel
+  ms.service: sentinel
   ms.subservice: azure-sentinel
-  ms.tgt_pltfrm: na
-  ms.devlang: na
   ms.topic: landing-page
-  ms.date: 02/28/19
-  ms.author: cmcclister
-abstract:
-  description: 'Azure Sentinel är ett molnbaserat program för säkerhetsinformation och händelsehantering som tillhandahåller intelligenta säkerhetsanalyser för hela din organisation i molnskala. Få obegränsad hastighet och skala i molnet och fokusera på det som verkligen är viktigt. Samla enkelt in data från alla dina molnbaserade eller lokala resurser, till exempel Office 365, Azure-resurser och andra moln. Identifiera hot på ett effektivt sätt med inbyggd maskininlärning som utvecklats av Microsofts säkerhetsanalysexperter. Automatisera svar på hot med hjälp av inbyggda spelböcker för orkestrering och automatisering.'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig hur du publicerar dina data till Azure Sentinel och få insyn i dina data och potentiella hot.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/deploy.svg
-            text: Registrera Azure Sentinel
-            href: /azure/sentinel/quickstart-onboard
-          - image:
-              src: media/index/get-started.svg
-            text: Komma igång med Azure Sentinel
-            href: /azure/sentinel/quickstart-get-visibility
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig att definiera säkerhetsprinciper, skydda dina resurser mot skadliga aktiviteter och åtgärda säkerhetsaviseringar och incidenter.'
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/sentinel/tutorial-detect-threats">Identifiera hot med Azure Sentinel</a>
-          - html: <a href="/azure/sentinel/tutorial-respond-threats-playbook">Konfigurera automatiserade svar på hot</a>
-  - title: Utveckla dina färdigheter med Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Introduktion till säkerhet i Azure
-            href: 'https://docs.microsoft.com/learn/azure'
-            image:
-              src: media/index/tutorial.svg
-              href: 'https://docs.microsoft.com/learn/azure'
-      - type: paragraph
-        text: <a href="/learn/browse/?term=security">Mer interaktiv inlärning...</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - html: '<a href="https://azure.microsoft.com/updates/?product=sentinel">Tjänstuppdateringar</a>'
+  ms.collection: collection
+  author: rkarlin
+  ms.author: rkarlin
+  ms.date: 25/09/2019
+  ms.openlocfilehash: 8f8815645b7dfcdcc5e1ed5212ecd1ec298f8644
+  ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71316490"
+landingContent:
+- title: Om Azure Sentinel
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Sentinel?
+      url: overview.md
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Registrera Azure Sentinel
+      url: quickstart-onboard.md
+    - text: Få insyn i aviseringar
+      url: quickstart-get-visibility.md
+  - linkListType: how-to-guide
+    links:
+    - text: Ansluta data till Azure Sentinel
+      url: connect-data-sources.md
+- title: Ansluta till ytterligare datakällor
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ansluta till Azure Active Directory
+      url: connect-azure-active-directory.md
+    - text: Ansluta till Azure Information Protection
+      url: connect-azure-information-protection.md
+    - text: Ansluta AWS
+      url: connect-aws.md
+    - text: Ansluta Palo Alto Networks
+      url: connect-paloalto.md
+    - text: Ansluta till hotinformation
+      url: connect-threat-intelligence.md
+- title: Arbeta med flera klientorganisationer
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Så här aktiverar du stöd för flera klienter i Azure Sentinel
+      url: multiple-tenants-service-providers.md
+- title: Förstå vad som händer i din miljö
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Övervaka dina data
+      url: tutorial-monitor-your-data.md
+    - text: Undersöka incidenter
+      url: tutorial-investigate-cases.md
+- title: Identifiera hot
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Använda inbyggda analyser för att identifiera hot
+      url: tutorial-detect-threats-built-in.md
+    - text: Skapa anpassade regler för identifiering
+      url: tutorial-detect-threats-custom.md
+- title: Automatisera skydd mot hot
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Svara på hot automatiskt
+      url: tutorial-respond-threats-playbook.md
+    - text: Använda Jupyter Notebooks för att söka efter säkerhetshot
+      url: notebooks.md
+- title: Var proaktiv om identifiering av hot
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Ansluta till hotinformation
+      url: connect-threat-intelligence.md
+    - text: Sök efter hot
+      url: hunting.md

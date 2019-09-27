@@ -28,6 +28,10 @@
           href: connect-windows-7-and-10.md
         - name: Ansluta från en webbläsare
           href: connect-web.md
+        - name: Ansluta med macOS-klienten
+          href: connect-macos.md
+        - name: Ansluta med iOS-klienten
+          href: connect-ios.md
     - name: Skapa en värdpool med en Azure Resource Manager-mall
       href: create-host-pools-arm-template.md
     - name: Skapa en värdpool med PowerShell

@@ -58,6 +58,8 @@
         - name: Migrera från Windows Azure Media Encoder
           href: migrate-windows-azure-media-encoder.md
           displayName: WAME
+        - name: Migrera från Indexer v1 och v2
+          href: migrate-indexer-v1-v2.md
     - name: Hantera
       items:
         - name: Konton

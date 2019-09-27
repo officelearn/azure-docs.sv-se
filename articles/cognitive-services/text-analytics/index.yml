@@ -1,89 +1,149 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om API för textanalys
+summary: 'API:et för textanalys är en molnbaserad tjänst som ger avancerad och naturlig språkbearbetning för texter och som innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, identifiering av teckenentitet och språkidentifiering.'
 metadata:
-  title: 'Dokumentation om API för textanalys – Självstudier, API-referens – Azure Cognitive Services | Microsoft Docs'
-  description: 'API:et för textanalys är en molnbaserad tjänst som ger avancerad och naturlig språkbearbetning för texter och som innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, identifiering av teckenentitet och språkidentifiering.'
+  title: Dokumentation om API för textanalys – Självstudier, API-referens – Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: nitinme
+  description: 'API:et för textanalys är en molnbaserad tjänst som ger avancerad och naturlig språkbearbetning för texter och som innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, identifiering av teckenentitet och språkidentifiering. Lär dig hur du analyserar innehåll på olika sätt med våra snabbstarter, självstudier och exempel.'
+  author: aahill
   manager: nitinme
   layout: LandingPage
   ms.service: cognitive-services
   ms.subservice: text-analytics
   ms.topic: landing-page
   ms.date: 07/29/2019
-  ms.author: nitinme
-abstract:
-  description: 'API:et för textanalys är en molnbaserad tjänst som ger avancerad och naturlig språkbearbetning för texter och som innehåller fyra huvudfunktioner: attitydanalys, extrahering av diskussionsämne, identifiering av teckenentitet och språkidentifiering. Lär dig hur du analyserar innehåll på olika sätt med våra snabbstarter, självstudier och exempel.'
-sections:
-  - items:
-      - type: list
-        style: cards
-        className: cardsM
-        columns: 3
-        items:
-          - href: /azure/cognitive-services/text-analytics/overview
-            html: <p>Lär dig mer om API för textanalys.</p>
-            image:
-              src: ../media/index/i_overview.svg
-            title: Vad är textanalys?
-          - href: /azure/cognitive-services/cognitive-services-apis-create-account
-            html: <p>Så registrerar du dig för API för textanalys.</p>
-            image:
-              src: ../media/index/i_get-started.svg
-            title: 'Registrera dig för API:et för textanalys'
-          - href: /azure/cognitive-services/text-analytics/whats-new
-            html: '<p>Håll dig uppdaterad med den senaste utvecklingen i API:et för textanalys.</p>'
-            image:
-              src: ../media/index/i_tasks.svg
-            title: 'Vad är nytt i API:et för textanalys?'
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Kom igång med API:et för textanalys genom att identifiera språk, analysera attityd, extrahera diskussionsämnen och identifiera entiteter:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/logo_csharp.svg
-            text: 'C&#35;'
-            href: quickstarts/csharp
-          - image:
-              src: media/index/logo_java.svg
-            text: Java
-            href: quickstarts/java
-          - image:
-              src: media/index/logo_nodejs.svg
-            text: Node.js
-            href: quickstarts/nodejs-sdk
-          - image:
-              src: media/index/logo_python.svg
-            text: Python
-            href: quickstarts/python-sdk
-          - image:
-              src: media/index/logo_go.svg
-            text: Go
-            href: quickstarts/go-sdk
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig att utveckla program med hjälp av API:et för textanalys:'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorials/tutorial-power-bi-key-phrases.md">Textanalys med Power BI</a>
-          - html: '<a href="https://powerapps.microsoft.com/tutorials/cognitive-services-api/">Textanalys i PowerApps</a>'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: REST
-            html: '<p><a href="https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7">API-referens</a></p>'
-          - title: 'SDK:er'
-            html: '<p><a href="https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet">NET</a></p> <p><a href="https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics?view=azure-node-latest">Node.js</a></p> <p><a href="https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python">Python</a></p> <p><a href="https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable>Java</a></p> <p><a href="https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics">Go</a></p>'
-          - title: PowerShell
-            html: '<p><a href=https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services">Azure PowerShell</a></p>'
-          - title: CLI
-            html: '<p><a href="https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest">Azure CLI</a></p>'
+  ms.author: aahi
+  ms.openlocfilehash: 3a95cedb76c25b8e22e0d93c60221015e5836506
+  ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71300477"
+landingContent:
+- title: Om API för textanalys
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är API för textanalys?
+      url: overview.md
+    - text: Exempel på användarscenarier
+      url: text-analytics-user-scenarios.md
+  - linkListType: video
+    links:
+    - text: Förstå text med hjälp av Cognitive Services
+      url: https://channel9.msdn.com/Shows/AI-Show/Understanding-Text-using-Cognitive-Services/player
+  - linkListType: whats-new
+    links:
+    - text: Nyheter
+      url: whats-new.md
+- title: Sentimentanalys
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använd C#
+      url: quickstarts/csharp.md#sentiment-analysis
+    - text: Använda Python
+      url: quickstarts/python-sdk.md#sentiment-analysis
+    - text: Använda Node.js
+      url: quickstarts/nodejs-sdk.md#sentiment-analysis
+    - text: Använda Go
+      url: quickstarts/go-sdk.md#sentiment-analysis
+    - text: Använda Ruby
+      url: quickstarts/ruby-sdk.md#sentiment-analysis
+  - linkListType: tutorial
+    links:
+    - text: Integrera Power BI för att analysera kundsentiment
+      url: tutorials/tutorial-power-bi-key-phrases.md
+    - text: Använda Flask till att översätta text, analysera sentiment och syntetisera tal
+      url: https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fcognitive-services%2Ftext-analytics%2Ftoc.json&bc=https%3A%2F%2Fdocs.microsoft.com%2Fen-us%2Fazure%2Fbread%2Ftoc.json
+  - linkListType: how-to-guide
+    links:
+    - text: Sentimentanalys
+      url: how-tos/text-analytics-how-to-sentiment-analysis.md
+- title: Språkidentifiering
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använd C#
+      url: quickstarts/csharp.md#language-detection
+    - text: Använda Python
+      url: quickstarts/python-sdk.md#language-detection
+    - text: Använda Node.js
+      url: quickstarts/nodejs-sdk.md#language-detection
+    - text: Använda Go
+      url: quickstarts/go-sdk.md#language-detection
+    - text: Använda Ruby
+      url: quickstarts/ruby-sdk.md#language-detection
+  - linkListType: how-to-guide
+    links:
+    - text: Språkidentifiering
+      url: how-tos/text-analytics-how-to-language-detection.md
+- title: Extrahering av nyckelfraser
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använd C#
+      url: quickstarts/csharp.md#key-phrase-extraction
+    - text: Använda Python
+      url: quickstarts/python-sdk.md#key-phrase-extraction
+    - text: Använda Node.js
+      url: quickstarts/nodejs-sdk.md#key-phrase-extraction
+    - text: Använda Go
+      url: quickstarts/go-sdk.md#key-phrase-extraction
+    - text: Använda Ruby
+      url: quickstarts/ruby-sdk.md#key-phrase-extraction
+  - linkListType: how-to-guide
+    links:
+    - text: Nyckelordsextrahering
+      url: how-tos/text-analytics-how-to-keyword-extraction.md
+- title: Enhetsidentifiering
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Använd C#
+      url: quickstarts/csharp.md#entity-recognition
+    - text: Använda Python
+      url: quickstarts/python-sdk.md#entity-recognition
+    - text: Använda Node.js
+      url: quickstarts/nodejs-sdk.md#entity-recognition
+    - text: Använda Go
+      url: quickstarts/go-sdk.md#entity-recognition
+    - text: Använda Ruby
+      url: quickstarts/ruby-sdk.md#entity-recognition
+  - linkListType: how-to-guide
+    links:
+    - text: Enhetsidentifiering
+      url: how-tos/text-analytics-how-to-entity-linking.md
+- title: Referens
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: REST-API
+      url: https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c7
+    - text: .NET-klientbibliotek
+      url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-dotnet
+    - text: Python-klientbibliotek
+      url: https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/textanalytics?view=azure-python
+    - text: Node.js-klientbibliotek
+      url: https://docs.microsoft.com/javascript/api/azure-cognitiveservices-textanalytics?view=azure-node-latest
+    - text: Java-klientbibliotek
+      url: https://docs.microsoft.com/java/api/overview/azure/cognitiveservices/client/textanalytics?view=azure-java-stable
+    - text: Go-klientbibliotek
+      url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/textanalytics
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.cognitiveservices/#cognitive_services"
+    - text: Azure CLI
+      url: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest
+- title: Använda Docker-containrar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Installera och kör Textanalys-containrar
+      url: how-tos/text-analytics-how-to-install-containers.md
+    - text: Konfigurera Textanalys-containrar
+      url: text-analytics-resource-container-config.md
+    - text: Distribuera en containerinstans till Azure
+      url: how-tos/text-analytics-how-to-use-container-instances.md
+    - text: Distribuera en container till Azure Kubernetes Service (AKS)
+      url: how-tos/text-analytics-how-to-use-kubernetes-service.md

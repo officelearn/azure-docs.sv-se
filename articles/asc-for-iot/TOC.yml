@@ -21,7 +21,7 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Aktivera Azure Security Center for IoT i IoT Hub
+    - name: Registrera Azure Security Center for IoT i IoT Hub
       href: quickstart-onboard-iot-hub.md
     - name: Konfigurera lösningen
       href: quickstart-configure-your-solution.md
@@ -73,6 +73,8 @@
       href: how-to-security-data-access.md
     - name: Undersöka en enhet
       href: how-to-investigate-device.md
+    - name: Anpassa din lösning
+      href: how-to-customize-solution.md
 - name: Resurser
   items:
     - name: Vanliga frågor och svar

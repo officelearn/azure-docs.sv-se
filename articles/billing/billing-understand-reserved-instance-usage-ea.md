@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 507ad62a917120689bee3f1e293e23c9ab8b0f66
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f2f5b2ecf096d7dc8babb79a38d00158a2120688
+ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68598093"
+ms.lasthandoff: 09/24/2019
+ms.locfileid: "71218070"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>Hämta data om reservationskostnader och reservationsanvändning för Enterprise-avtal (EA)
 
@@ -57,18 +57,20 @@ Annan information som är tillgänglig i Azures användningsdata har ändrats:
 - Term – 12 månader eller 36 månader.
 - RINormalizationRatio – Tillgängligt under AdditionalInfo. Detta anger i vilken grad reservationen tillämpas på användningsposten. Om flexibilitet för instansstorlek är aktiverat för din reservation kan det gälla andra storlekar. Värdet visar i vilken grad reservationen tillämpades på användningsposten.
 
+[Se definition för fält](https://docs.microsoft.com/rest/api/consumption/usagedetails/list#definitions)
+
 ## <a name="get-azure-consumption-and-reservation-usage-data-using-api"></a>Hämta data om användning och reservationer i Azure med hjälp av API:er
 
 Du kan hämta data med hjälp av API:et eller ladda ned det från Azure-portalen.
 
-Du anropar [API:et för användningsinformation](/rest/api/consumption/usagedetails/list) med API-version &quot;2019-04-01-preview&quot; för att hämta nya data. Mer information om terminologi finns i [användningsvillkoren](billing-understand-your-usage.md). Anroparen måste vara en företagsadministratör för Enterprise-avtalet och använda [EA-portalen](https://ea.azure.com). Företagsadministratörer som har skrivskyddad behörighet kan också hämta data.
+Du anropar [API:et för användningsinformation](/rest/api/consumption/usagedetails/list) för att hämta nya data. Mer information om terminologi finns i [användningsvillkoren](billing-understand-your-usage.md). Anroparen måste vara en företagsadministratör för Enterprise-avtalet och använda [EA-portalen](https://ea.azure.com). Företagsadministratörer som har skrivskyddad behörighet kan också hämta data.
 
 Data är inte tillgängliga i [rapporterings-API:er för företagskunder – användningsinformation](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail).
 
 Här är ett exempel på ett anrop till API:et:
 
 ```
-https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-04-01-preview&amp;$filter={filter}
+https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
 ```
 
 Mer information om {enrollmentId} och {billingPeriodId} finns i artikeln om [API:et för användningsinformation – lista](https://docs.microsoft.com/rest/api/consumption/usagedetails/list).
@@ -156,7 +158,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 
 Du kan läsa mer om Azure-reservationer i följande artiklar:
 
-- [Vad är Azure Reservations?](billing-save-compute-costs-reservations.md)
+- [Vad är Azure-reservationer?](billing-save-compute-costs-reservations.md)
 - [Förskottsbetala för Virtual Machines med Azure Reserved VM Instances](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Förskottsbetala för SQL Database-beräkningsresurser med reserverad kapacitet för Azure SQL Database](../sql-database/sql-database-reserved-capacity.md)
 - [Hantera Azure Reservations](billing-manage-reserved-vm-instance.md)

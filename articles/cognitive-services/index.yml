@@ -11,12 +11,12 @@ metadata:
   ms.author: nitinme
   manager: nitinme
   ms.date: 09/16/2019
-  ms.openlocfilehash: f762586bf04ceab8cd0c81880a86df7d43507038
-  ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+  ms.openlocfilehash: 9071de52e97a041c9769f6c93fa36f39aff4e4fe
+  ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/18/2019
-  ms.locfileid: "71087555"
+  ms.lasthandoff: 09/26/2019
+  ms.locfileid: "71316423"
 highlightedContent:
   items:
   - title: Vad är Cognitive Services?
@@ -139,23 +139,26 @@ conceptualContent:
       itemType: overview
       text: Webbsökning
   - title: Containrar för Cognitive Services
-    summary: Med stöd för containrar i Azure Cognitive Services kan utvecklare använda samma omfattande API:er som är tillgängliga i Azure och möjliggör flexibilitet i var de ska distribueras och vara värd för de tjänster som levereras med Docker-containrar...
+    summary: Med stöd för containrar i Azure Cognitive Services kan utvecklare använda samma omfattande API:er som är tillgängliga i Azure. Det ger dem även flexibilitet att bestämma var de tjänster som levereras med Docker-containrar ska distribueras och lagras.
     links:
     - url: ./cognitive-services-container-support.md
       itemType: overview
       text: Containrar för Cognitive Services
     - url: ./containers/container-reuse-recipe.md
-      itemType: overview
+      itemType: learn
       text: Skapa containrar för återanvändning
     - url: ./containers/azure-container-instance-recipe.md
       itemType: how-to-guide
       text: Distribuera och köra container på Azure Container-instans
     - url: ./containers/azure-kubernetes-recipe.md
-      itemType: how-to-guide
+      itemType: deploy
       text: Distribuera till Azure Kubernetes Service
     - url: ./containers/docker-compose-recipe.md
-      itemType: how-to-guide
+      itemType: get-started
       text: Använda Docker Compose för att distribuera flera containrar
+    - url: ./containers/container-faq.md
+      itemType: reference
+      text: Vanliga frågor och svar om containrar för Cognitive Services
 additionalContent:
   sections:
   - items:
@@ -171,7 +174,7 @@ additionalContent:
         url: https://docs.microsoft.com/rest/api/cognitiveservices/
     - title: SDK:er
       links:
-      - text: .Net
+      - text: .NET
         url: https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client?view=azure-dotnet
       - text: Go
         url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices

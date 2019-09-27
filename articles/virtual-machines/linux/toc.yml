@@ -476,6 +476,8 @@
           href: disks-upload-vhd-to-managed-disk-cli.md
         - name: Ändra storlek på en disk
           href: expand-disks.md
+        - name: Använda Storage Explorer för att hantera diskar
+          href: disks-use-storage-explorer-managed-disks.md
         - name: Ögonblicksbild av en disk
           href: snapshot-copy-managed-disk.md
         - name: Skapa en inkrementell ögonblicksbild

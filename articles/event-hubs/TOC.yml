@@ -114,7 +114,7 @@
           href: event-hubs-get-connection-string.md
         - name: Utbyta händelser mellan program med olika protokoll
           href: event-hubs-exchange-events-different-protocols.md
-        - name: Programmeringsguide
+        - name: .NET-programmeringsguide
           href: event-hubs-programming-guide.md
         - name: 'Skicka, ta emot och samla in händelser med hjälp av Python'
           href: event-hubs-python.md

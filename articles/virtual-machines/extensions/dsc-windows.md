@@ -100,9 +100,9 @@ Följande JSON visar schemat för inställnings delen av DSC-tillägget i en Azu
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2018-10-01 | date |
-| publisher | Microsoft.Powershell.DSC | sträng |
-| type | DSC | sträng |
-| typeHandlerVersion | 2,77 | int |
+| publisher | Microsoft.Powershell.DSC | string |
+| type | DSC | string |
+| typeHandlerVersion | 2.77 | int |
 
 ### <a name="settings-property-values"></a>Egenskaps värden för inställningar
 

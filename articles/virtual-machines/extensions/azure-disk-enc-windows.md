@@ -143,20 +143,20 @@ Använda `AADClientCertificate`:
 | Namn | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Azure.Security | sträng |
-| type | AzureDiskEncryptionForLinux | sträng |
+| publisher | Microsoft.Azure.Security | string |
+| type | AzureDiskEncryptionForLinux | string |
 | typeHandlerVersion | 0,1, 1,1 | int |
-| (0,1-schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | LED | 
-| (0,1-schema) AADClientSecret | password | sträng |
-| (0,1-schema) AADClientCertificate | begäran | sträng |
+| (0,1-schema) AADClientID | xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx | guid | 
+| (0,1-schema) AADClientSecret | password | string |
+| (0,1-schema) AADClientCertificate | begäran | string |
 | DiskFormatQuery | {"dev_path":"","name":"","file_system":""} | JSON-ordlista |
-| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | sträng | 
-| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | sträng |
-| KeyEncryptionKeyURL | url | sträng |
-| KeyVaultURL | url | sträng |
-| (valfritt) Passphrase | password | sträng | 
-| SequenceVersion | uniqueidentifier | sträng |
-| VolumeType | OS, Data, All | sträng |
+| EncryptionOperation | EnableEncryption, EnableEncryptionFormatAll | string | 
+| KeyEncryptionAlgorithm | 'RSA-OAEP', 'RSA-OAEP-256', 'RSA1_5' | string |
+| KeyEncryptionKeyURL | url | string |
+| KeyVaultURL | url | string |
+| (valfritt) Passphrase | password | string | 
+| SequenceVersion | uniqueidentifier | string |
+| VolumeType | OS, Data, All | string |
 
 ## <a name="template-deployment"></a>Malldistribution
 Ett exempel på en mall distribution finns i [skapa en ny krypterad virtuell Windows-dator från Galleri avbildningen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image).

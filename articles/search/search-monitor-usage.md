@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.openlocfilehash: e83e84cc8627be468ce0074b35549d5ea7def4f5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: d0c93d941047413c5056b3718f57b360357affbd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640535"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327143"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resursförbrukning och fråga-aktivitet i Azure Search
 
@@ -30,8 +30,8 @@ Avsnitt om **användning** och **övervakning** som är inbyggda på översikts 
 
 På fliken **användning** visas resurs tillgänglighet i förhållande till aktuella [gränser](search-limits-quotas-capacity.md). Följande bild är avsedd för den kostnads fria tjänsten som är ett tak på 3 objekt av varje typ och 50 MB lagrings utrymme. En Basic-eller standard-tjänst har högre gränser, och om du ökar antalet partitioner, hamnar det maximala lagrings utrymmet proportionellt.
 
-![Användnings status relativt mot gällande gränser](./media/search-monitor-usage/usage-tab.png
- "användnings status i förhållande till effektiva gränser")
+![Användnings status i förhållande till effektiva gränser](./media/search-monitor-usage/usage-tab.png
+ "Usage status relativt till gällande gränser @ no__t-2
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Frågor per sekund (frågor per sekund) och andra mått
 
@@ -40,7 +40,7 @@ Fliken **övervakning** visar glidande medelvärden för mått som Sök *frågor
 
 Dessa tal är ungefärliga och är avsedda att ge dig en allmän uppfattning om hur väl systemet hanterar begär Anden. Det faktiska frågor per sekund kan vara högre eller lägre än det antal som rapporteras i portalen.
 
-![Frågor per sekund aktivitet](./media/search-monitor-usage/monitoring-tab.png "Frågor per sekund aktivitet")
+![Frågor per sekund]aktivitet(./media/search-monitor-usage/monitoring-tab.png "frågor per sekund aktivitet")
 
 ## <a name="activity-logs"></a>Aktivitetsloggar
 
@@ -63,7 +63,7 @@ I följande tabell jämförs alternativen för att lagra loggar och lägga till 
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Loggade händelser och fråga mått baserat på scheman nedan. Händelser loggas till en BLOB-behållare och lagras i JSON-filer. Använd en JSON-redigerare för att visa fil innehåll.|
 | [Händelsehubb](https://docs.microsoft.com/azure/event-hubs/) | Loggade händelser och fråga om mått baserat på de scheman som dokumenteras i den här artikeln. Välj det här som en alternativ data insamlings tjänst för mycket stora loggar. |
 
-Både Azure Monitor loggar och Blob Storage är tillgängliga som en kostnads fri delad tjänst så att du kan testa den utan kostnad för Azure-prenumerationens livs längd. Application Insights är kostnads fri att registrera dig och använda så länge program data storleken är under vissa gränser (se [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) för mer information).
+Både Azure Monitor-loggar och blob-lagring är tillgängliga som en kostnads fri tjänst så att du kan testa den utan kostnad för Azure-prenumerationens livs längd. Application Insights är kostnads fri att registrera dig och använda så länge program data storleken är under vissa gränser (se [sidan med priser](https://azure.microsoft.com/pricing/details/monitor/) för mer information).
 
 I nästa avsnitt får du stegvisa anvisningar om hur du aktiverar och använder Azure Blob Storage för att samla in och få åtkomst till loggdata som skapats av Azure Search åtgärder.
 
@@ -79,13 +79,13 @@ I det här avsnittet får du lära dig hur du använder Blob Storage för att la
 
 2. Öppna översikts sidan för Sök tjänsten. Rulla ned till **övervakning** i det vänstra navigerings fönstret och klicka på **Aktivera övervakning**.
 
-   ![Aktivera övervakning](./media/search-monitor-usage/enable-monitoring.png "Aktivera övervakning")
+   ![Aktivera]övervakning(./media/search-monitor-usage/enable-monitoring.png "Aktivera övervakning")
 
 3. Välj de data som du vill exportera: Loggar, mått eller båda. Du kan kopiera det till ett lagrings konto, skicka det till en Event Hub eller exportera det till Azure Monitor loggar.
 
    Endast lagrings kontot måste finnas för arkivering till blob-lagring. Behållare och blobbar skapas som nödvändiga när loggdata exporteras.
 
-   ![Konfigurera Blob Storage-Arkiv](./media/search-monitor-usage/configure-blob-storage-archive.png "Konfigurera Blob Storage-Arkiv")
+   ![Konfigurera Arkiv för Blob Storage](./media/search-monitor-usage/configure-blob-storage-archive.png "Konfigurera Blob Storage-Arkiv")
 
 4. Spara profilen.
 
@@ -96,7 +96,7 @@ Loggning aktive ras när du sparar profilen. Behållare skapas endast när det f
 * Insights-logs-operationlogs: för search trafikloggar
 * Insights-mått-pt1m: för mått
 
-**Det tar en timme innan behållarna visas i Blob Storage. Det finns en BLOB, per timme, per behållare.**
+**It tar en timme innan behållarna visas i Blob Storage. Det finns en BLOB, per timme, per behållare.**
 
 Du kan använda [Visual Studio Code](#download-and-open-in-visual-studio-code) eller en annan JSON-redigerare för att visa filerna. 
 

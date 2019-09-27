@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 275cf20329be04e86c2e7c2a613f657733e652df
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213447"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338756"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -214,3 +214,24 @@ kubectl get secret/azuremlfessl -o yaml
 
 >[!Note]
 >Kubernetes lagrar hemligheterna i Base-64-kodat format. Du behöver Base-64-avkoda `cert.pem` -och `key.pem` -komponenterna i hemligheterna `attach_config.enable_ssl`innan du ger dem. 
+
+## <a name="recommendations-for-error-fix"></a>Rekommendationer för fel korrigering
+Här följer Azure ML-rekommendationer för att åtgärda några av de vanliga felen i Azure ML, baserat på allmän observation.
+
+### <a name="moduleerrors-no-module-named"></a>ModuleErrors (ingen modul med namnet)
+Om du kör i ModuleErrors när du skickar experiment i Azure ML, innebär det att utbildnings skriptet förväntar sig att ett paket ska installeras men inte läggs till. När du har angett paket namnet kommer Azure ML att installera paketet i den miljö som används för din utbildning. 
+
+Om du använder [uppskattningar](https://docs.microsoft.com/en-us/azure/machine-learning/service/concept-azure-machine-learning-architecture#estimators) för att skicka experiment kan du ange ett paket namn via `pip_packages` eller `conda_packages`-parametern i uppskattningen baserat på från vilken källa du vill installera paketet. Du kan också ange en YML-fil med alla dina beroenden med `conda_dependencies_file`or för att visa alla dina pip-krav i en txt-fil med hjälp av `pip_requirements_file`-parameter.
+
+Azure ML tillhandahåller också Ramverks uppskattningar för Tensorflow, PyTorch, Kedjorer och SKLearn. Genom att använda dessa uppskattningar ser du till att Ramverks beroenden är installerade på din räkning i miljön som används för utbildning. Du kan välja att ange extra beroenden enligt beskrivningen ovan. 
+ 
+ Azure ML-underhållna Docker-avbildningar och deras innehåll kan visas i [azureml-behållare](https://github.com/Azure/AzureML-Containers).
+Ramverks beroenden visas i respektive ramverk dokumentation – [kedjor](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/en-us/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+
+>[OBS!] Om du tror att ett visst paket är tillräckligt vanligt för att läggas till i Azure ML-underhållna bilder och miljöer kan du generera ett GitHub-problem i [azureml-behållare](https://github.com/Azure/AzureML-Containers). 
+ 
+ ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (namn har inte definierats), AttributeError (objektet har inget attribut)
+Detta undantag bör komma från dina utbildnings skript. Du kan titta på loggfilerna från Azure Portal för att få mer information om det angivna namnet inte är definierat eller ett attributvärde. Från SDK kan du använda `run.get_details()` för att titta på fel meddelandet. Detta visar även alla loggfiler som genererats för din körning. Se till att ta en titt på ditt utbildnings skript och åtgärda felet innan du försöker igen. 
+
+### <a name="horovod-is-shutdown"></a>Horovod är avstängd
+I de flesta fall innebär detta undantag att det uppstod ett underliggande undantag i en av de processer som orsakade att horovod stängdes av. Varje rang i MPI-jobbet hämtar den egna dedikerade logg filen i Azure ML. De här loggarna heter `70_driver_logs`. I händelse av distribuerad utbildning suffixs logg namnen med `_rank` för att göra det enkelt att skilja loggarna åt. Om du vill hitta det exakta fel som orsakade horovod avstängning går du igenom alla loggfiler och letar efter `Traceback` i slutet av driver_log-filerna. Med en av de här filerna får du det faktiska underliggande undantaget. 

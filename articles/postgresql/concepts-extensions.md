@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/10/2019
-ms.openlocfilehash: 383f5acb9f106bb4697433be99c53bb78d00b396
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.date: 09/26/2019
+ms.openlocfilehash: 467a8b1de3f6c234d9dfdfaf6132025688757997
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091133"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327120"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL-enskild server
 PostgreSQL ger möjlighet att utöka funktionerna i databasen med hjälp av tillägg. Tillägg buntar samman flera relaterade SQL-objekt i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Efter att ha lästs in i databasen, fungerar utöknings funktionen som inbyggda funktioner.
@@ -62,6 +62,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.5.1           | Spatiala typer och funktioner för PostGIS-topologi|
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
+> |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Möjliggör skalbara infogningar och komplexa frågor för Time Series-data|
 > |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generera globalt unika identifierare (UUID)|
 
@@ -206,7 +207,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 Pg_stat_statements-tillägget är förinstallerat på alla Azure Database for PostgreSQL Server för att ge dig möjlighet att spåra körnings statistik för SQL-uttryck.
 Inställningen `pg_stat_statements.track`, som styr vilka instruktioner som räknas av tillägget, är standardvärdet, `top`vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna `none` är `all`och. Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
-Det finns en kompromiss mellan information om pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du ställer in `pg_stat_statements.track` på. `none` Observera att vissa övervaknings tjänster från tredje part kan förlita sig på pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
+Det finns en kompromiss mellan information om pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du anger `pg_stat_statements.track` till `none`. Observera att vissa övervaknings tjänster från tredje part kan förlita sig på pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
 
 ## <a name="dblink-and-postgres_fdw"></a>dbLink och postgres_fdw
 med dbLink och postgres_fdw kan du ansluta från en PostgreSQL-server till en annan, eller till en annan databas på samma server. Den mottagande servern måste tillåta anslutningar från den sändande servern via brand väggen. När du använder dessa tillägg för att ansluta mellan Azure Database for PostgreSQL-servrar kan du göra detta genom att ange "Tillåt åtkomst till Azure-tjänster" till på. Detta behövs även om du vill använda tilläggen för att återgå till samma server. Inställningen "Tillåt åtkomst till Azure-tjänster" finns på Azure Portal sidan för postgres-servern under anslutnings säkerhet. Att aktivera "Tillåt åtkomst till Azure-tjänster" på placerar alla Azure IP-adresser i listan över tillåtna.
@@ -227,9 +228,6 @@ TimescaleDB är en databas för tids serier som är paketerad som ett tillägg f
 
 ### <a name="installing-timescaledb"></a>Installerar TimescaleDB
 Om du vill installera TimescaleDB måste du ta med den i serverns delade preload-bibliotek. En ändring av postgres `shared_preload_libraries` -parametern kräver att en omstart av **servern** börjar gälla. Du kan ändra parametrar med hjälp av [Azure Portal](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).
-
-> [!NOTE]
-> TimescaleDB kan aktive ras på Azure Database for PostgreSQL version 9,6 och 10
 
 Använda [Azure Portal](https://portal.azure.com/):
 

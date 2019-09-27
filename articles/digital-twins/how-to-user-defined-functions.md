@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 6853ebf16c1a9d6b0d363277b22c7dd2583d37e5
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 8a39a79f4b3aeacd267a0c4b9351d2400f11d1ff
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013979"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336896"
 ---
 # <a name="how-to-create-user-defined-functions-in-azure-digital-twins"></a>Så här skapar du användardefinierade funktioner i Azure Digitals dubbla
 
@@ -44,7 +44,7 @@ Motsvarigheter är graf-objekt som avgör vilka användardefinierade funktioner 
   - `SensorDevice`
   - `SensorSpace`
 
-Följande exempel matchning utvärderar till true för eventuella sensorer för telemetri med `"Temperature"` som värde för data typen. Du kan skapa flera motsvarigheter i en användardefinierad funktion genom att göra en autentiserad HTTP POST-begäran till:
+Följande exempel matchning utvärderar till sant för valfri sensor för telemetri-telemetri med `"Temperature"` som värde för data typen. Du kan skapa flera motsvarigheter i en användardefinierad funktion genom att göra en autentiserad HTTP POST-begäran till:
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/matchers
@@ -113,14 +113,14 @@ function process(telemetry, executionContext) {
 | YOUR_SPACE_IDENTIFIER | Utrymmes identifieraren  |
 | YOUR_MATCHER_IDENTIFIER | ID: t för den matchning som du vill använda |
 
-1. Kontrol lera att rubrikerna är `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`:.
+1. Kontrol lera att rubrikerna är: `Content-Type: multipart/form-data; boundary="USER_DEFINED_BOUNDARY"`.
 1. Kontrol lera att texten är multipart:
 
    - Den första delen innehåller de användardefinierade metadata som krävs av användaren.
    - Den andra delen innehåller beräknings logiken för Java Script.
 
-1. I avsnittet **USER_DEFINED_BOUNDARY** ersätter du värdena **spaceId** `YOUR_SPACE_IDENTIFIER`() och **matchers** (`YOUR_MATCHER_IDENTIFIER`).
-1. Kontrol lera att funktionen för användardefinierad JavaScript-funktion anges som `Content-Type: text/javascript`.
+1. I avsnittet **USER_DEFINED_BOUNDARY** ersätter du värdena **spaceId** (`YOUR_SPACE_IDENTIFIER`) och **matchers** (`YOUR_MATCHER_IDENTIFIER`).
+1. Kontrol lera att den användardefinierade JavaScript-funktionen anges som `Content-Type: text/javascript`.
 
 ### <a name="example-functions"></a>Exempel funktioner
 
@@ -197,16 +197,16 @@ Ett mer komplext användardefinierat funktions kod exempel finns i [snabb start]
 
 Skapa en roll tilldelning för den användardefinierade funktionen som ska köras under. Om det inte finns någon roll tilldelning för den användardefinierade funktionen har den inte tillräckliga behörigheter för att samverka med hanterings-API: et eller ha åtkomst för att utföra åtgärder på diagram objekt. Åtgärder som en användardefinierad funktion kan utföra anges och definieras via rollbaserad åtkomst kontroll i Azure Digitals hanterings-API: er. Användardefinierade funktioner kan till exempel begränsas i omfånget genom att ange vissa roller eller vissa Sök vägar för åtkomst kontroll. Mer information finns i dokumentationen för [rollbaserad åtkomst kontroll](./security-role-based-access-control.md) .
 
-1. [Fråga system-API: et](./security-create-manage-role-assignments.md#all) för alla roller för att hämta det roll-ID som du vill tilldela till din användardefinierade funktion. Gör detta genom att göra en autentiserad HTTP GET-begäran till:
+1. [Fråga system-API: et](./security-create-manage-role-assignments.md#retrieve-all-roles) för alla roller för att hämta det roll-ID som du vill tilldela till din användardefinierade funktion. Gör detta genom att göra en autentiserad HTTP GET-begäran till:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/system/roles
     ```
    Behåll det önskade roll-ID: t. Den kommer att skickas som JSON Body-attributet **roleId** (`YOUR_DESIRED_ROLE_IDENTIFIER`) nedan.
 
-1. **ObjectID** (`YOUR_USER_DEFINED_FUNCTION_ID`) blir det användardefinierade funktions-ID som skapades tidigare.
-1. Hitta värdet för **sökväg** (`YOUR_ACCESS_CONTROL_PATH`) genom att fråga dina Spaces med `fullpath`.
-1. Kopiera det returnerade `spacePaths` värdet. Du kommer att använda det nedan. Gör en autentiserad HTTP GET-begäran till:
+1. **ObjectID** (`YOUR_USER_DEFINED_FUNCTION_ID`) är det användardefinierade funktions-ID som skapades tidigare.
+1. Hitta värdet för **Path** (`YOUR_ACCESS_CONTROL_PATH`) genom att fråga dina Spaces med `fullpath`.
+1. Kopiera det returnerade `spacePaths`-värdet. Du kommer att använda det nedan. Gör en autentiserad HTTP GET-begäran till:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/spaces?name=YOUR_SPACE_NAME&includes=fullpath
@@ -216,7 +216,7 @@ Skapa en roll tilldelning för den användardefinierade funktionen som ska köra
     | --- | --- |
     | YOUR_SPACE_NAME | Namnet på det utrymme som du vill använda |
 
-1. Klistra in det `spacePaths` returnerade värdet i **sökvägen** för att skapa en användardefinierad funktions roll tilldelning genom att göra en autentiserad http post-begäran till:
+1. Klistra in det returnerade `spacePaths`-värdet i **sökvägen** för att skapa en användardefinierad funktions roll tilldelning genom att göra en AUTENTISERAD http post-begäran till:
 
     ```plaintext
     YOUR_MANAGEMENT_API_URL/roleassignments
@@ -252,7 +252,7 @@ Sensorn som definieras i spatial Intelligence-diagrammet skickar telemetri. I si
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du [skapar Azure Digitals](./how-to-egress-endpoints.md) -slutpunkter för att skicka händelser till.
+- Lär dig hur du [skapar Azure Digitals-slutpunkter](./how-to-egress-endpoints.md) för att skicka händelser till.
 
 - Om du vill ha mer information om routning i digitala Azure- [meddelanden läser du dirigera händelser och meddelanden](./concepts-events-routing.md).
 

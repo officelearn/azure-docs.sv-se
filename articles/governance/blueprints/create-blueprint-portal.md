@@ -7,12 +7,12 @@ ms.date: 03/11/2019
 ms.topic: quickstart
 ms.service: blueprints
 manager: carmonm
-ms.openlocfilehash: 473e16c610e7dee0b2838cb1a54ef7cd98958889
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 225f5cfe36daaafb7f6ab5d64e77c626e52edaac
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232981"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338201"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Snabbstart: Definiera och tilldela en skiss i portalen
 
@@ -42,9 +42,9 @@ Det första steget när du definierar ett standardmönster för efterlevnad är 
 
 1. Ange ett **skiss namn** , till exempel min **skiss**. (Använd upp till 48 bokstäver och siffror, men inga blank steg eller specialtecken). Lämna **skiss beskrivningen** tom för tillfället.
 
-1. I rutan **definitions plats** väljer du ellipsen till höger, väljer hanterings [gruppen](../management-groups/overview.md) eller prenumerationen där du vill spara skissen och väljer **Välj**.
+1. I rutan **definitions plats** väljer du ellipsen till höger, väljer [hanterings gruppen](../management-groups/overview.md) eller prenumerationen där du vill spara skissen och väljer **Välj**.
 
-1. Kontrol lera att informationen är korrekt. Fälten **skiss namn** och **definitions plats** kan inte ändras senare. Välj **sedan Nästa: Artefakter** längst ned på sidan eller på fliken **Artefakter** högst upp på sidan.
+1. Kontrol lera att informationen är korrekt. Fälten **skiss namn** och **definitions plats** kan inte ändras senare. Välj sedan **Next: Artefakter** längst ned på sidan eller på fliken **Artefakter** högst upp på sidan.
 
 1. Lägg till en roll tilldelning på prenumerations nivån:
 
@@ -186,7 +186,7 @@ I [skapa en skiss](#create-a-blueprint)angav du inte någon beskrivning eller l�
 
    ![Andra roll tilldelningen för skiss artefakten](./media/create-blueprint-portal/add-role-assignment-2.png)
 
-1. Din färdiga skiss bör se ut som i det följande. Observera att den nyligen tillagda roll tilldelningen visar **1 av 1 parametrar**har fyllts i. Det innebär att det är en statisk parameter.
+1. Din färdiga skiss bör se ut som i det följande. Observera att den nyligen tillagda roll tilldelningen visar **1 av 1 parametrar har fyllts**i. Det innebär att det är en statisk parameter.
 
    ![Andra definitionen för den färdiga skissen](./media/create-blueprint-portal/completed-blueprint-2.png)
 
@@ -223,7 +223,7 @@ När en skiss har publicerats kan den tilldelas en prenumeration. Tilldela skiss
 
    1. Välj det tillgängliga **erbjudandet** i list rutan.
 
-   1. Använd ellipsen för att välja den [hanterings grupp](../management-groups/index.md) som prenumerationen ska vara underordnad.
+   1. Använd ellipsen för att välja den [hanterings grupp](../management-groups/overview.md) som prenumerationen ska vara underordnad.
 
    1. Välj **Skapa** längst ned på sidan.
 
@@ -284,7 +284,7 @@ Om du inte längre behöver en skiss tilldelning tar du bort den från en prenum
 
 1. Välj **Tilldelade skisser** på sidan till vänster.
 
-1. I listan över ritningar väljer du den skiss som du vill ta bort tilldelningen för. Välj sedan knappen **ta bort tilldelning** av skisser högst upp på sidan.
+1. I listan över ritningar väljer du den skiss som du vill ta bort tilldelningen för. Välj sedan knappen **ta bort tilldelning av skisser** högst upp på sidan.
 
 1. Läs bekräftelse meddelandet och välj sedan **OK**.
 
@@ -300,7 +300,7 @@ Om du inte längre behöver en skiss tilldelning tar du bort den från en prenum
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [skiss livs cykeln](./concepts/lifecycle.md).
+- Mer information om [livscykeln för en skiss](./concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](./concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](./concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](./concepts/resource-locking.md).

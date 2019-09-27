@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 29add1cff184e234cd5dcc5050b94cdd50593731
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: adb1b840fd733353e449224c9ac752e94329bde6
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315917"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326734"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>Vi presenterar Azure Security Center for IoT
 
@@ -30,7 +30,7 @@ Förena säkerhets hanteringen och aktivera hot identifiering och analys från s
 
 Välj någon av våra sömlösa lösningar för att lösa problemet eller dra nytta av agentbaserade omfattande säkerhet, Azure Security Center för IoT, som ger skydd mot hot och analys för varje enhet, IoT Edge och IoT Hub, på dina IoT-tillgångar.
 
-Eftersom miljarder nya enheter är anslutna till Internet och integreras i våra dagliga liv och våra företag, dina säkerhets åtgärder måste vara säkra på att deras säkerhets strategier utvecklas tillräckligt snabbt för att se dessa nya attack ytor. Precis som andra system behöver du skydda IoT-lösningen i varje steg i din implementering. 
+Eftersom miljard tals nya enheter är anslutna till Internet och integreras i våra dagliga liv och våra företag, måste dina säkerhets strategier se till att deras säkerhets strategier utvecklas tillräckligt snabbt för att kunna avse varje ny attack yta. Precis som andra system, för att på ett omfattande sätt skydda din IoT-lösning, krävs skydd i varje steg i implementeringen. 
 
 Azure Security Center för IoT fören klar hybrid arbets belastnings skyddet genom att leverera enhetlig synlighet och kontroll, anpassningsbart hot skydd och intelligent hot identifiering och-svar mellan arbets belastningar som körs på Edge, lokalt, i Azure och i andra moln. 
 

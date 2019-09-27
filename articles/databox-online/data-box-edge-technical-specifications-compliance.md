@@ -6,18 +6,37 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/11/2019
+ms.date: 09/26/2019
 ms.author: alkohli
-ms.openlocfilehash: f1199748782c40b2527a8778417588891b84f9fc
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 365507f482217bd804bbd5017d4dbbaf8c187ad2
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910127"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326883"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge tekniska specifikationer
 
 Maskin varu komponenterna i din Microsoft Azure Data Box Edge-enhet följer de tekniska specifikationer och regler som beskrivs i den här artikeln. De tekniska specifikationerna beskriver strömförsörjnings enheter (PSUs), lagrings kapacitet, höljen och miljö standarder. 
+
+## <a name="compute-memory-specifications"></a>Beräkning, minnes krav
+
+Den Data Box Edge enheten har följande specifikationer för beräkning och minne:
+
+| Transaktionsspecifikationen           | Value                  |
+|-------------------------|----------------------------|
+| Processor    | 2 X 10 kärnor                     |
+| Minne              | 128 GB RAM-minne                  |
+
+
+## <a name="fpga-specifications"></a>FPGA-specifikationer
+
+En fält programmerbar grind mat ris (FPGA) ingår på varje Data Box Edge enhet som möjliggör Machine Learning-scenarier (ML). 
+
+| Transaktionsspecifikationen           | Value                  |
+|-------------------------|----------------------------|
+| FPGA   | Intel Arria 10 <br> Tillgängliga DNN-modeller (djup neurala Network) är desamma som de som [stöds av moln FPGA instanser](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-fpga-web-service#whats-supported-on-azure).| 
+
 
 ## <a name="power-supply-unit-specifications"></a>Specifikationer för strömförsörjnings enhet
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b291e2392f0756cb2d3ec294db37206d32216959
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: af775a57356af304aa27453baffa518788d0f5e7
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315932"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326553"
 ---
 # <a name="send-security-messages-sdk"></a>Skicka Security-meddelanden SDK
 
@@ -99,7 +99,7 @@ Alla data som skickas, även om de markeras med rätt sidhuvud, måste också f�
 
 ### <a name="send-security-message-api"></a>Skicka API för säkerhets meddelande 
 
-API för att **Skicka Security-meddelanden** är för närvarande tillgängligt C#i C och python, Node. js och Java.  
+API för att **Skicka Security-meddelanden** är för närvarande tillgängligt C#i C och, python, Node. js och Java.  
 
 #### <a name="c-api"></a>C-API
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 98c0316a3fa513f98031b79eefcedea5a1111539
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: cd8c5b174d92edcf69801edaeabd0c0730985654
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266632"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326928"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Ladda upp en virtuell hård disk till Azure med Azure PowerShell
 
@@ -39,6 +39,8 @@ Den här typen av hanterade diskar har två unika tillstånd:
 - ActiveUpload, vilket innebär att disken är redo att ta emot en uppladdning och att SAS har genererats.
 
 I något av dessa tillstånd debiteras den hanterade disken med [standard priset för hård](https://azure.microsoft.com/pricing/details/managed-disks/)diskar, oavsett vilken typ av disk som används. Till exempel kommer en P10 att faktureras som en S10. Detta är sant tills `revoke-access` anropas på den hanterade disken, vilket krävs för att ansluta disken till en virtuell dator.
+
+Innan du skapar en tom standard hård disk för uppladdning behöver du fil storleken i byte på den virtuella hård disk som du vill ladda upp. Exempel koden kommer att ge dig, men för att göra det själv kan du använda: `$vhdSizeBytes = (Get-Item "<fullFilePathHere>").length`. Det här värdet används när du anger parametern **-UploadSizeInBytes** .
 
 I det lokala gränssnittet skapar du en tom standard hård disk för uppladdning genom att ange **uppladdnings** inställningen i parametern **-CreateOption** och parametern **-UploadSizeInBytes** i cmdleten [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig?view=azps-1.8.0) . Anropa sedan [New-AzDisk](https://docs.microsoft.com/powershell/module/az.compute/new-azdisk?view=azps-1.8.0) för att skapa disken:
 

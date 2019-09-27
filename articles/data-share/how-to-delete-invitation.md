@@ -1,17 +1,17 @@
 ---
 title: Ta bort en inbjudan i för hands versionen av Azure Data reshare
 description: Ta bort en inbjudan
-author: madams0013
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
-ms.openlocfilehash: 49fd3da721f3a9ef5d9810e88fa15a92709ee2e6
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: eacc4e5edb196d512d3b27b2a0acc72a82e8f0b9
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258661"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327199"
 ---
 # <a name="how-to-delete-an-invitation-to-a-recipient-in-azure-data-share-preview"></a>Så här tar du bort en inbjudan till en mottagare i för hands versionen av Azure Data reshare
 
@@ -19,7 +19,7 @@ Den här artikeln förklarar hur du tar bort en inbjudan till en mottagare innan
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navigera till en data resurs som skickats
 
-I för hands versionen av Azure Data Share navigerar du till den skickade resursen och väljer fliken **inbjudningar** . Här visas alla mottagare av inbjudningar till den här data resursen. Klicka på rutorna bredvid mottagarna vars inbjudningar du vill ta bort och klicka sedan på **ta bort**.
+I för hands versionen av Azure Data Share navigerar du till den skickade resursen och väljer fliken inbjudningar. Här visas alla mottagare av inbjudningar till den här data resursen. Klicka på rutorna bredvid mottagarna vars inbjudningar du vill ta bort och klicka sedan på **ta bort**.
 
 ![Ta bort inbjudan](./media/how-to/how-to-delete-invitation/delete-invitation.png)
 

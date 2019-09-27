@@ -1,41 +1,41 @@
 ---
-title: Självstudie – acceptera och ta emot data med hjälp av Azure Data resurs Preview
-description: Självstudie – acceptera och ta emot data med hjälp av Azure Data resurs Preview
+title: 'Självstudier: Acceptera & ta emot data – för hands version av Azure Data-resurs'
+description: Självstudie – acceptera och ta emot data med Azure Data repreview
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: fc63c1a0b3b496de8e5ecea58f79f1db9d872e80
-ms.sourcegitcommit: 64798b4f722623ea2bb53b374fb95e8d2b679318
+ms.openlocfilehash: 235ef25b2d655c4388dee5bdcf88d179f3373697
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67838429"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327401"
 ---
-# <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Självstudier: Acceptera och ta emot data med hjälp av Azure Data resurs Preview
+# <a name="tutorial-accept-and-receive-data-using-azure-data-share-preview"></a>Självstudier: Godkänn och ta emot data med hjälp av Azure Data Share Preview
 
-I den här självstudien får du lära dig hur du accepterar en inbjudan för resursen av data med hjälp av Azure Data dela Preview. Du kommer lära dig hur du tar emot data som delas med dig, samt hur du aktiverar en vanlig uppdateringsintervall så att du alltid har den senaste ögonblicksbilden av data som delas med dig. 
+I den här självstudien får du lära dig hur du accepterar en data delnings-inbjudan med Azure Data repreview. Du får lära dig hur du tar emot data som delas med dig, samt hur du aktiverar ett vanligt uppdaterings intervall för att säkerställa att du alltid har den senaste ögonblicks bilden av de data som delas med dig. 
 
 > [!div class="checklist"]
-> * Hur du accepterar en förhandsversion av Azure Data resurs inbjudan
-> * Skapa ett konto för förhandsversionen av Azure Data resurs
+> * Så här godkänner du en Azure Data repreview-inbjudan
+> * Skapa ett konto för för hands version av Azure Data-resurs
 > * Ange ett mål för dina data
-> * Skapa en prenumeration till din data filresurs för schemalagd uppdatering
+> * Skapa en prenumeration på din data resurs för schemalagd uppdatering
 
 ## <a name="prerequisites"></a>Förutsättningar
-Innan du kan godkänna en inbjudan till dela data, måste du etablera ett antal Azure-resurser, som visas nedan. 
+Innan du kan acceptera en inbjudan till en data resurs måste du etablera ett antal Azure-resurser som visas nedan. 
 
-Se till att alla förutsättningar är uppfyllda innan du godkänner en inbjudan till dela data. 
+Se till att alla krav är uppfyllda innan du accepterar en inbjudan om data delning. 
 
 * Azure-prenumeration: Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-* Ett Azure Storage-konto: Om du inte redan har ett kan du skapa en [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
-* En inbjudan Dataresurs: En inbjudan från Microsoft Azure med ett ämne som heter ”Azure Dataresurs inbjudan från **<yourdataprovider@domain.com>** ”.
-* Behörighet att lägga till rolltilldelning till lagringskontot, som finns i den *Microsoft.Authorization/role tilldelningar/skrivning* behörighet. Den här behörigheten finns i rollen ägare. 
-* Registreringen av Resursprovidern för Microsoft.DataShare. Se den [Azure Resursprovidrar](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) finns information om hur du gör detta. 
+* Ett Azure Storage konto: Om du inte redan har en, kan du skapa ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account). 
+* En inbjudan till data resursen: En inbjudan från Microsoft Azure med ett ämne med rubriken "Azure Data Share-inbjudan från **<yourdataprovider@domain.com>** ".
+* Behörighet att lägga till roll tilldelning till lagrings kontot, som finns i *Microsoft. auktorisering/roll tilldelningar/Skriv* behörighet. Den här behörigheten finns i ägar rollen. 
+* Registrering av resurs leverantör för Microsoft. DataShare. Mer information om hur du gör detta finns i dokumentationen för [Azure Resource providers](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) . 
 
 > [!IMPORTANT]
-> För att acceptera och ta emot en Azure-filresurs för Data, måste du först registrera resursprovidern Microsoft.DataShare och du måste vara ägare till det lagringskonto som du godkänner data till. Följ anvisningarna som beskrivs i [felsöka Azure dela Dataförhandsgranskning](data-share-troubleshoot.md) att registrera resursprovidern för resursen data samt lägga till dig själv som ägare av storage-konto. 
+> Om du vill godkänna och ta emot en Azure-Dataresurs måste du först registrera resurs leverantören Microsoft. DataShare och du måste vara ägare till det lagrings konto som du accepterar data till. Följ anvisningarna som beskrivs i [Felsöka för hands versionen av Azure Data](data-share-troubleshoot.md) Resource för att registrera resurs leverantören för data resursen samt lägga till dig själv som ägare av lagrings kontot. 
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
@@ -43,60 +43,60 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="open-invitation"></a>Öppna inbjudan
 
-Kontrollera Inkorgen för en inbjudan från din dataprovidern. Inbjudan är från Microsoft Azure, med rubriken **Azure Dataresurs inbjudan från <yourdataprovider@domain.com>** . Ta del av resursnamnet att se till att du tar emot rätt resurs om det finns flera inbjudningar. 
+Kontrol lera Inkorgen för en inbjudan från din data leverantör. Inbjudan är från Microsoft Azure, med titeln **Azure Data Share-inbjudan från <yourdataprovider@domain.com>** . Anteckna resurs namnet så att du vet att du accepterar rätt resurs om det finns flera inbjudningar. 
 
-Välj på **visa inbjudan** att se din inbjudan i Azure. Då kommer du till vyn emot resurser.
+Välj på **Visa inbjudan** för att se din inbjudan i Azure. Då går du till vyn mottagna resurser.
 
-![Inbjudningar](./media/invitations.png "lista över inbjudningar") 
+![Inbjudnings](./media/invitations.png "lista över inbjudningar") 
 
-Markera resursen som du vill visa. 
+Välj den resurs som du vill visa. 
 
 ## <a name="accept-invitation"></a>Acceptera inbjudan
-Kontrollera att alla fält granskas, inklusive den **användningsvillkor**. Om du samtycker till villkoren kommer du att behöva markera kryssrutan för att ange godkänner. 
+Se till att alla fält har granskats, inklusive **användnings villkoren**. Om du samtycker till användnings villkoren måste du markera kryss rutan för att ange att du godkänner. 
 
 ![Användningsvillkor](./media/terms-of-use.png "användningsvillkor") 
 
-Under *målkonto Data resursen*, Välj prenumeration och resursgrupp som du kommer att distribuera din Data filresurs i. 
+Under *konto för mål data resurs*väljer du den prenumeration och resurs grupp som du ska distribuera data resursen till. 
 
-För den **Data resurs konto** väljer **Skapa nytt** om du inte har ett befintligt Dataresurs-konto. Annars väljer du ett befintligt Data dela konto som du vill godkänna din data filresurs i. 
+För fältet **data resurs konto** väljer du **Skapa nytt** om du inte har ett befintligt data resurs konto. Annars väljer du ett befintligt data resurs konto som du vill acceptera data resursen till. 
 
-För den *emot resursnamn* fältet, du kan lämna standardnamnet som anges av Data ge eller ange ett nytt namn för mottagna resursen. 
+I fältet *mottaget resurs namn* kan du lämna standardvärdet som anges av data ange eller ange ett nytt namn för den mottagna resursen. 
 
-![Peka på data resurs konto](./media/target-data-share.png "måldata dela konto") 
+Mål ![data]resurs konto(./media/target-data-share.png "mål data resurs konto") 
 
-När du har accepterat användningsvillkoren och anges en plats för din resurs, Välj på *acceptera och konfigurera*. Om du väljer det här alternativet skapas en prenumeration för resursen och nästa skärm blir du ombedd att välja ett mållagringskonto där data ska kopieras till. 
+När du har samtyckt till användnings villkoren och angett en plats för din resurs väljer du *Godkänn och konfigurera*. Om du väljer det här alternativet skapas en resurs prenumeration och nästa skärm uppmanar dig att välja ett mål lagrings konto för dina data som ska kopieras till. 
 
-![Acceptera alternativ](./media/accept-options.png "acceptera alternativ") 
+Godkänn alternativ för(./media/accept-options.png "godkännande") av ![alternativ] 
 
-Om du föredrar att acceptera inbjudan nu men konfigurera din lagring vid ett senare tillfälle, Välj *accepterar och konfigurera senare*. Det här alternativet kan du konfigurera din mål-lagringskontot senare. Om du vill konfigurera lagringen senare [så här konfigurerar du ditt lagringskonto](how-to-configure-mapping.md) sidan för detaljerade anvisningar om hur du återupptar dina data delar konfiguration. 
+Om du vill acceptera inbjudan nu men konfigurera lagringen vid ett senare tillfälle väljer du *Godkänn och konfigurera senare*. Med det här alternativet kan du konfigurera ditt mål lagrings konto senare. Om du vill fortsätta att konfigurera lagringen senare kan du läsa mer i så här [konfigurerar du lagrings konto](how-to-configure-mapping.md) sidan för detaljerade anvisningar om hur du återupptar konfigurationen av data resurser. 
 
-Om du inte vill att tacka ja till inbjudan, Välj *avvisa*. 
+Om du inte vill acceptera inbjudan väljer du *avvisa*. 
 
 ## <a name="configure-storage"></a>Konfigurera lagring
-Under *Storage Målinställningar*, Välj prenumerationen, resursgrupp och storage-konto som du vill få dina data till. 
+Under *mål lagrings inställningar*väljer du den prenumeration, resurs grupp och det lagrings konto som du vill att data ska skickas till. 
 
-![Rikta in Lagringsinställningar](./media/target-storage-settings.png "Mållagringskontot") 
+Mål(./media/target-storage-settings.png "lagring") för ![mål lagrings inställningar] 
 
-Kontrollera att du aktiverar snapshot-inställningarna om du vill få regelbundna uppdateringar av dina data. Observera att du bara ser ett schema för inställning av ögonblicksbilder om DataProvider har inkluderat i dataresursen. 
+Se till att aktivera inställningarna för ögonblicks bilder för att få regelbundna uppdateringar av dina data. Observera att du bara ser ett schema för ögonblicks bilds inställningar om data leverantören har inkluderat den i data resursen. 
 
-![Ta en ögonblicksbild inställningar](./media/snapshot-settings.png "ögonblicksbild inställningar") 
+![](./media/snapshot-settings.png "Inställningar") för ögonblicks bild inställningar 
 
 Välj *Spara*. 
 
-## <a name="trigger-a-snapshot"></a>Utlösa en ögonblicksbild
+## <a name="trigger-a-snapshot"></a>Utlös en ögonblicks bild
 
-Du kan utlösa en ögonblicksbild i resurserna tas emot -> fliken information genom att välja **utlösaren ögonblicksbild**. Här kan du utlösa en fullständig eller inkrementell ögonblicksbild av dina data. Om det är första gången du tar emot data från din DataProvider väljer du fullständig kopia. 
+Du kan utlösa en ögonblicks bild på fliken mottagna resurser – > information genom att välja **Utlös ögonblicks bild**. Här kan du utlösa en fullständig eller stegvis ögonblicks bild av dina data. Om det är första gången du tar emot data från din dataprovider väljer du fullständig kopia. 
 
-![Utlösaren ögonblicksbild](./media/trigger-snapshot.png "utlösaren ögonblicksbild") 
+Utlös(./media/trigger-snapshot.png "ögonblicks bild") av ![ögonblicks bild] 
 
-När den senaste körningsstatusen är *lyckade*, öppna storage-konto om du vill visa den mottagna data. 
+När den senaste körnings statusen har *slutförts*kan du öppna lagrings kontot för att Visa mottagna data. 
 
-Om du vill kontrollera vilket lagringskonto som du använde, väljer du på **datauppsättningar**. 
+Du kan kontrol lera vilket lagrings konto du använt genom att välja på **data uppsättningar**. 
 
-![Konsumenten datauppsättningar](./media/consumer-datasets.png "konsument datauppsättning mappning") 
+![](./media/consumer-datasets.png "Mappning av konsument") data uppsättningar för konsument data uppsättningar 
 
 ## <a name="view-history"></a>Visa historik
-Du visar en historik över din ögonblicksbilder, gå till emot resurser -> Historik. Här hittar du en historik över alla ögonblicksbilder som har genererats under de senaste 60 dagarna. 
+Om du vill visa en historik över dina ögonblicks bilder navigerar du till mottagna resurser-> Historik. Här hittar du en historik över alla ögonblicks bilder som har genererats under de senaste 60 dagarna. 
 
 ## <a name="next-steps"></a>Nästa steg
-I de här självstudierna erfarenheter så här godkänner och mottagning av en Azure-filresurs för Data. Om du vill veta mer om Azure Data filresurs begrepp, även i fortsättningen [begrepp: Azure Data dela terminologi](terminology.md).
+I den här självstudien får du lära dig hur du godkänner och tar emot en Azure-Dataresurs. Om du vill veta mer om Azure Data Share-koncept fortsätter du till [Concepts: Azure Data Share-terminologi @ no__t-0.

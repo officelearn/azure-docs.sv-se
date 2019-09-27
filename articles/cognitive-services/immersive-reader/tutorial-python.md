@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: tutorial
 ms.date: 08/02/2019
 ms.author: dylankil
-ms.openlocfilehash: 5e33108c9fc674abaf980a1272cca31aa21cffff
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6404a5d49bd7af1ed5d74299f03eda8d0bb14b89
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68991066"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326401"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>Självstudier: Starta den fördjupade läsaren med python-exempelprojektet
 
@@ -68,7 +68,7 @@ Se till att du inte utför den här filen i käll kontrollen eftersom den inneh�
 
 ## <a name="create-a-python-web-app-on-windows"></a>Skapa en python-webbapp i Windows
 
-Skapa en python-webbapp med `flask` på Windows.
+Skapa en python-webbapp med `flask` i Windows.
 
 Installera [Git](https://git-scm.com/).
 
@@ -88,11 +88,11 @@ Lägg till valfria funktioner genom att markera kryss rutorna och klicka sedan p
 
 ![Dialog rutan python Windows-installation steg 2](./media/pythoninstalltwo.jpg)
 
-Välj anpassad installation och ange installations Sök vägen som rotmapp, t. ex. `C:\Python37-32\` Klicka på knappen Installera.
+Välj anpassad installation och ange installations Sök vägen som rotmapp, t. ex. `C:\Python37-32\` och klicka sedan på knappen Installera.
 
 ![Dialog rutan python Windows-installation steg 3](./media/pythoninstallthree.jpg)
 
-När python-installationen är klar öppnar du en kommando tolk `cd` och till mappen Python-skript.
+När python-installationen är klar öppnar du en kommando tolk och `cd` i mappen Python-skript.
 
 ```cmd
 cd C:\Python37-32\Scripts
@@ -113,7 +113,7 @@ pip install jinja2
 Installera virtuell miljö. Ett verktyg för att skapa isolerade python-miljöer.
 
 ```cmd
-pip install pip install virtualenv
+pip install virtualenv
 ```
 
 Installera virtualenvwrapper – Win. Idén bakom virtualenvwrapper är att under lätta användningen av virtuell miljö.
@@ -128,13 +128,19 @@ Installera modulen begär Anden. Begär Anden är ett apache2 licensierat HTTP-b
 pip install requests
 ```
 
+Installera python-dotenv-modulen. Den här modulen läser nyckel/värde-paret från. miljö filen och lägger till dem i en miljö variabel.
+
+```cmd
+pip install python-dotenv
+```
+
 Skapa en virtuell miljö
 
 ```cmd
 mkvirtualenv advanced-python
 ```
 
-`cd`till rotmappen för exempel projekt.
+`cd` till rotmappen för exempel projekt.
 
 ```cmd
 cd C:\immersive-reader-sdk\js\samples\advanced-python
@@ -160,9 +166,9 @@ Inaktivera miljön.
 deactivate
 ```
 
-`(advanced-python)` Prefixet bör nu vara borta eftersom miljön nu är inaktive rad.
+Prefixet `(advanced-python)` bör nu vara borta eftersom miljön nu är inaktive rad.
 
-Så här återaktiverar du `workon advanced-python` miljön från rotmappen för exempelprojektet.
+Om du vill återaktivera miljön kör `workon advanced-python` från rotmappen för ett exempel projekt.
 
 ```cmd
 workon advanced-python
@@ -170,7 +176,7 @@ workon advanced-python
 
 ### <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för exempel projekt.
+När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för ett exempel projekt.
 
 ```cmd
 flask run
@@ -192,9 +198,9 @@ git clone https://github.com/microsoft/immersive-reader-sdk.git
 
 Installera [Python](https://www.python.org/downloads/).
 
-Mappen python rotmapp t. ex `Python37-32` . bör nu finnas i mappen program.
+Mappen python rotmapp, t. ex. `Python37-32` bör nu finnas i mappen program.
 
-När python-installationen är klar öppnar du Terminal `cd` och mappen Python-skript.
+När python-installationen är klar öppnar du Terminal och `cd` i mappen Python-skript.
 
 ```bash
 cd immersive-reader-sdk/js/samples/advanced-python
@@ -220,7 +226,7 @@ sudo nano /etc/paths
 - Lägg till sökvägen till din pip-installation till din PATH-variabel.
 - Gå till slutet av filen och ange den sökväg som du vill lägga till som sista objekt i listan, t. ex. `PATH=$PATH:/usr/local/bin`.
 - Tryck på CTRL-x för att avsluta.
-- Ange `Y` för att spara den ändrade bufferten.
+- Ange `Y` om du vill spara den ändrade bufferten.
 - Klart! Testa det genom att skriva följande i nytt terminalfönster: `echo $PATH`.
 
 Installations flaska.
@@ -253,13 +259,19 @@ Installera modulen begär Anden. Begär Anden är ett apache2 licensierat HTTP-b
 pip install requests --user
 ```
 
+Installera python-dotenv-modulen. Den här modulen läser nyckel/värde-paret från. miljö filen och lägger till dem i en miljö variabel.
+
+```bash
+pip install python-dotenv --user
+```
+
 Välj en mapp där du vill behålla dina virtuella miljöer och kör det här kommandot
 
 ```bash
 mkdir ~/.virtualenvs
 ```
 
-`cd`till mappen avancerad Reader-SDK python-exempel.
+`cd` till mappen avancerad Reader-SDK python-exempel.
 
 ```bash
 cd immersive-reader-sdk/js/samples/advanced-python
@@ -291,9 +303,9 @@ Inaktivera miljön.
 deactivate
 ```
 
-`(advanced-python)` Prefixet bör nu vara borta eftersom miljön nu är inaktive rad.
+Prefixet `(advanced-python)` bör nu vara borta eftersom miljön nu är inaktive rad.
 
-Så här återaktiverar du `workon advanced-python` miljön från rotmappen för exempelprojektet.
+Om du vill återaktivera miljön kör `workon advanced-python` från rotmappen för ett exempel projekt.
 
 ```bash
 workon advanced-python
@@ -301,7 +313,7 @@ workon advanced-python
 
 ## <a name="launch-the-immersive-reader-with-sample-content"></a>Starta den fördjupade läsaren med exempel innehåll
 
-När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för exempel projekt.
+När miljön är aktiv kan du köra exempelprojektet genom att ange `flask run` från rotmappen för ett exempel projekt.
 
 ```bash
 flask run

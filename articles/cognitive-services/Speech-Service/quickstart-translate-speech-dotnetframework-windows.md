@@ -1,27 +1,27 @@
 ---
 title: 'Snabbstart: Översätt tal, C# (.NET Framework Windows) – tal service'
 titleSuffix: Azure Cognitive Services
-description: I den här snabbstarten skapar du ett enkelt .NET Framework-program för att registrera användarens tal, översätta det till ett annat språk och mata ut texten till kommandoraden. Den här guiden är utformad för Windows-användare.
+description: I den här snabb starten skapar du ett .NET Framework-program för att avbilda användar tal, översätter det till ett annat språk och skriva ut texten på kommando raden. Den här guiden är utformad för Windows-användare.
 services: cognitive-services
 author: wolfma61
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 07/05/2019
+ms.date: 08/28/2019
 ms.author: erhopf
-ms.openlocfilehash: e62756ab428135ca3d5d9107f37e61813097d21f
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: bb710a3e3adb13aa3999c13043c8bb93f6b885f1
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553461"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327348"
 ---
-# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework"></a>Snabbstart: Översätta tal med Speech SDK för .NET Framework
+# <a name="quickstart-translate-speech-with-the-speech-sdk-for-net-framework-windows"></a>Snabbstart: Översätt tal med talet SDK för .NET Framework (Windows)
 
-Snabb Starter är också tillgängliga för [tal till text](quickstart-csharp-dotnet-windows.md) och [text till tal](quickstart-text-to-speech-dotnet-windows.md).
+Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-csharp-dotnet-windows.md) och [tal syntes](quickstart-text-to-speech-dotnet-windows.md).
 
-I den här snabbstarten skapar du ett enkelt .NET Framework-program som registrerar användarens tal från datorns mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet är utformat för att köras på 64-bitars Windows och är skapat med [Speech SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2017.
+I den här snabb starten skapar du ett .NET Framework-program som fångar upp användar tal från datorns mikrofon, översätter talet och omvandlar den översatta texten till kommando raden i real tid. Det här programmet kan köras på 32-bitars eller 64-bitars Windows, och det har skapats med [NuGet-paketet för tal-SDK](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2019.
 
 En fullständig lista över språk som är tillgängliga för talöversättning finns i [språkstöd](language-support.md).
 
@@ -29,38 +29,34 @@ En fullständig lista över språk som är tillgängliga för talöversättning 
 
 För den här snabbstarten krävs:
 
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
 * En Azure-prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
 [!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-create-speech-project-vs-csharp.md)]
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Öppna `Program.cs` och ersätt all kod i den med följande.
+1. Öppna **program.cs**och ersätt all kod i den med följande.
 
-    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-dotnet-windows/helloworld/Program.cs#code)]
+   [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/speech-translation/csharp-dotnet-windows/helloworld/Program.cs#code)]
 
-1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
+1. Hitta strängen `YourSubscriptionKey` och ersätt den med din prenumerations nyckel.
 
-1. Ersätt även strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
+1. Hitta strängen `YourServiceRegion` och ersätt den med den [region](regions.md) som är associerad med din prenumeration. Om du till exempel använder den kostnads fria utvärderings prenumerationen är regionen `westus`.
 
-1. Spara ändringarna i projektet.
+1. Välj **arkiv** > **Spara alla**på Meny raden.
 
-## <a name="build-and-run-the-app"></a>Skapa och kör appen
+## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
-1. Skapa programmet. I menyraden väljer du **Skapa** > **Skapa lösning**. Koden ska kompileras utan fel.
+1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-    ![Skärmbild av Visual Studio-programmet med Skapa lösning markerat](media/sdk/qs-csharp-dotnetcore-windows-05-build.png "Skapandet lyckades")
+1. Starta programmet **HelloWorld** genom att välja **Felsök** > **Starta fel sökning** (eller Välj **F5**).
 
-1. Starta programmet. I menyraden väljer du **Felsök** > **Starta felsökning**, eller tryck på **F5**.
+1. Tala om en engelsk fras eller mening i enhetens mikrofon. Programmet skickar din röst till tal tjänsten som översätter talet till text på ett annat språk (i det här fallet tyska). Tal tjänsten skickar den översatta texten tillbaka till programmet, som visar översättningen i fönstret.
 
-    ![Skärmbild av Visual Studio-programmet, med Starta felsökning markerat](media/sdk/qs-csharp-dotnetcore-windows-06-start-debugging.png "Starta appen i felsökningsläge")
-
-1. Ett konsolfönster öppnas där du uppmanas att säga något. Säg en engelsk fras eller en mening. Ditt tal överförs till Speech-tjänsten, översätts och transkriberas till text som visas i samma fönster.
-
-    ![Skärmbild av konsolens utdata efter en lyckad översättning](media/sdk/qs-translate-csharp-dotnetcore-windows-output.png "Konsolens utdata efter lyckad översättning")
+   ![Användar gränssnitt för tal Översättning](media/sdk/qs-translate-csharp-dotnetcore-windows-output.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -71,5 +67,4 @@ Ytterligare exempel, till exempel att läsa tal från en ljudfil och mata ut öv
 
 ## <a name="see-also"></a>Se också
 
-- [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
-- [Anpassa språkmodeller](how-to-customize-language-model.md)
+- [Träna en modell för Custom Speech](how-to-custom-speech-train-model.md)

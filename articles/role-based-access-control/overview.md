@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/11/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: e7113508ff7fe5d3471b193bb8dadb7cdab5a7ca
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: ff539311139d7e9823a2d7db2f5d8ee56f9231b6
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995285"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338650"
 ---
 # <a name="what-is-role-based-access-control-rbac-for-azure-resources"></a>Vad är rollbaserad åtkomstkontroll (RBAC) för Azure-resurser?
 
@@ -80,7 +80,7 @@ Azure har data åtgärder som gör att du kan bevilja åtkomst till data i ett o
 
 *Omfång* är den uppsättning resurser som åtkomsten som gäller för. När du tilldelar en roll kan du ytterligare begränsa de åtgärder som tillåts genom att definiera ett omfång. Det här är användbart om du vill göra någon till en [Webbplatsdeltagare](built-in-roles.md#website-contributor) men endast för en resursgrupp.
 
-I Azure kan du ange ett omfång på flera nivåer: [hanteringsgrupp](../governance/management-groups/index.md), prenumeration, resursgrupp eller resurs. Omfång är strukturerade i en överordnad/underordnad-relation.
+I Azure kan du ange ett omfång på flera nivåer: [hanteringsgrupp](../governance/management-groups/overview.md), prenumeration, resursgrupp eller resurs. Omfång är strukturerade i en överordnad/underordnad-relation.
 
 ![Omfång för en rolltilldelning](./media/overview/rbac-scope.png)
 

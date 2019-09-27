@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
 ms.topic: conceptual
 ms.date: 07/14/2017
-ms.openlocfilehash: 2d78523f776c909845057aaf8660a7c6fba3ef6a
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 7c425ee8c9fd99420bbcbba31c7a74c360938aef
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309890"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338252"
 ---
 # <a name="run-u-sql-and-debug-locally-in-visual-studio-code"></a>Kör U-SQL och Felsök lokalt i Visual Studio Code
 I den här artikeln beskrivs hur du kör U-SQL-jobb på en lokal utvecklings dator för att påskynda kod fasen eller för att felsöka kod lokalt i Visual Studio Code. Instruktioner för Azure Data Lake verktyg för Visual Studio Code finns i [använda Azure Data Lake Tools för Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
@@ -51,7 +51,7 @@ Använd **ADL för första gången användaren: Hämta lokala kör paket** fö
 2. Välj **acceptera** för att godkänna licens villkoren för program vara från Microsoft för första gången. 
 
    ![Godkänn licens villkoren för program vara från Microsoft](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/AcceptEULA.png)   
-3. CMD-konsolen öppnas. För första användare måste du ange **3**och sedan hitta sökvägen till den lokala mappen för dina data indata och utdata. Du kan använda standardvärdena för andra alternativ. 
+3. CMD-konsolen öppnas. För första användare måste du ange **3**och sedan hitta sökvägen till den lokala mappen för dina data indata och utdata. Om du inte lyckas definiera sökvägen med omvända snedstreck, kan du försöka med att vidarebefordra snedstreck. Du kan använda standardvärdena för andra alternativ.
 
    ![Data Lake verktyg för Visual Studio Code Local Run cmd](./media/data-lake-analytics-data-lake-tools-for-vscode-local-run-and-debug/data-lake-tools-for-vscode-local-run-cmd.png)
 4. Välj Ctrl + Shift + P för att öppna kommando-paletten **, ange ADL: Skicka jobbet**och välj sedan **lokal** för att skicka jobbet till ditt lokala konto.

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 9a3c11c7303d467a1a993c49d983131639683239
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3740a032db6ca9fd0fb88ce348610684d9f895bc
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064878"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326331"
 ---
 # <a name="tutorial-enable-authentication-in-a-native-client-application-using-azure-active-directory-b2c"></a>Självstudier: Aktivera autentisering i ett internt klientprogram med hjälp av Azure Active Directory B2C
 
@@ -37,20 +37,9 @@ I den här guiden får du lära dig att:
 
 ## <a name="add-the-native-client-application"></a>Lägga till det interna klientprogrammet
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **Program** och därefter **Lägg till**.
-5. Ange ett namn på programmet. Till exempel *nativeapp1*.
-6. För **Ta med webbapp/webb-API** väljer du **Nej**.
-7. För **Ta med intern klient** väljer du **Ja**.
-8. För **Omdirigerings-URI** anger du en giltig omdirigerings-URI med ett anpassat schema. Det finns två viktiga saker att tänka på när du väljer omdirigerings-URI:
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-    - **Unicitet** – schemat för omdirigerings-URI:n måste vara unikt för varje program. I det här exemplet är `com.onmicrosoft.contoso.appname://redirect/path`, `com.onmicrosoft.contoso.appname` schemat. Du måste följa det här mönstret. Om två program delar samma schema får användaren välja program. Inloggningen misslyckas om användaren väljer fel.
-    - **Fullständighet** – omdirigerings-URI:n måste ha ett schema och en sökväg. Sökvägen måste innehålla minst ett snedstreck efter domänen. Exempelvis så fungerar `//contoso/` medan `//contoso` misslyckas. Se till att omdirigerings-URI:n inte innehåller några specialtecken, som understreck.
-
-9. Klicka på **Skapa**.
-10. På egenskapssidan antecknar du det program-ID som du kommer att använda när du konfigurerar exemplet.
+Registrera **program-ID** för användning i ett senare steg.
 
 ## <a name="configure-the-sample"></a>Konfigurera exemplet
 

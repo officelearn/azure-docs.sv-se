@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 440ebfffec9378e0dad1fd04e0880c90571bb0f1
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 7d312f54da91c8bc8b3f659ff92f531136cdecb3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301003"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338594"
 ---
 # <a name="what-is-windows-virtual-desktop-preview"></a>Vad är för hands versionen av Windows Virtual Desktop? 
 
@@ -87,6 +87,17 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste v
 
 >[!NOTE]
 >Om du behöver en Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version av en månad](https://azure.microsoft.com/free/). Om du använder den kostnads fria utvärderings versionen av Azure bör du använda Azure AD Domain Services för att hålla Windows Server-Active Directory synkroniserad med Azure Active Directory.
+
+De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha utgående TCP 443-åtkomst till följande URL: er:
+* *. wvd.microsoft.com
+* *.blob.core.windows.net
+* *.core.windows.net
+* *.servicebus.windows.net
+* prod.warmpath.msftcloudes.com
+* catalogartifact.azureedge.net
+
+>[!NOTE]
+>Att öppna dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure AD.
 
 Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Under den offentliga för hands versionen kan Station ära datorer och appar distribueras på virtuella datorer i valfri Azure-region, och hanterings lösningen och data för dessa virtuella datorer finns i USA (USA, östra 2). Detta kan leda till att data överförs till USA medan du testar tjänsten under en offentlig för hands version. Vi börjar skala ut hanterings lösningen och data lokaliseringen till alla Azure-regioner som börjar med allmän tillgänglighet.
 

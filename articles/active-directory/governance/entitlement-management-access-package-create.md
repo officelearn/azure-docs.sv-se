@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f033cf57c5a285e94372728677c91e021065fa9
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 1283549ce78535757b7ba42eaf7054538f0c9784
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678204"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326347"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Skapa ett nytt Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -79,7 +79,7 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
 
 På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkomst paketet.  Användare som begär och tar emot åtkomst paketet får alla resurs roller i åtkomst paketet.
 
-1. Klicka på den resurs typ som du vill lägga till (**grupper**, **program**eller **SharePoint-platser**).
+1. Klicka på den resurs typ som du vill lägga till (**grupper och team**, **program**eller **SharePoint-platser**).
 
 1. I fönstret Välj som visas väljer du en eller flera resurser i listan.
 

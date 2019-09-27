@@ -1,6 +1,6 @@
 ---
-title: Förstå Azure Security Center för händelse agg regering för IoT-lösningar | Microsoft Docs
-description: Lär dig mer om hur händelser sammanställs i Azure Security Center för IoT-tjänsten.
+title: Förstå Azure Security Center för insamling av IoT-händelser | Microsoft Docs
+description: Lär dig mer om Azure Security Center för agg regering av IoT-händelser.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/21/2019
+ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: b8100fc78eced9aa26fe185a8d68244d8f665ff2
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: b1a14cf4c8aec2f3dbfa7bc4fd0800d9fd1fb0aa
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933907"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327305"
 ---
-# <a name="security-agent-event-aggregation"></a>Händelse agg regering för säkerhets agent
+# <a name="azure-security-center-for-iot-event-aggregation"></a>Azure Security Center för insamling av IoT-händelser
 
-Azure Security Center för IoT-säkerhetsagenter samla in data-och system händelser från din lokala enhet och skicka dessa data till Azure-molnet för bearbetning och analys. Säkerhets agenten samlar in många typer av enhets händelser, inklusive nya processer och nya anslutnings händelser. Både nya processer och nya anslutnings händelser kan på ett legitimt sätt ske ofta på en enhet inom en sekund, och även om det är viktigt för robust och omfattande säkerhet, kan mängden meddelanden som detta tvingar säkerhets agenterna att skicka snabbt komma åt eller överskrida din IoT Hub kvot-och kostnads gränser. Dessa händelser innehåller dock mycket värdefulla säkerhets uppgifter som är viktiga för att skydda enheten.
+Azure Security Center för IoT-säkerhetsagenter samlar in data-och system händelser från den lokala enheten och skickar dessa data till Azure-molnet för bearbetning och analys. Säkerhets agenten samlar in många typer av enhets händelser, inklusive nya processer och nya anslutnings händelser. Både nya processer och nya anslutnings händelser kan på ett legitimt sätt ske ofta på en enhet inom en sekund, och även om det är viktigt för robust och omfattande säkerhet, framtvingas antalet meddelanden som säkerhets agenter skickar för att snabbt komma åt eller överskrida din IoT Hub kvot-och kostnads gränser. Dessa händelser innehåller dock mycket värdefull säkerhets information som är viktig för att skydda enheten.
 
 För att minska den ytterligare kvoten och kostnaderna samtidigt som dina enheter skyddas kan Azure Security Center för IoT-agenter samla dessa typer av händelser.
 
@@ -44,8 +44,8 @@ När agenten samlar in en identisk händelse till en som redan finns i minnet, �
 
 Händelser anses vara identiska endast när följande villkor uppfylls: 
 
-* ProcessCreate-händelser – när **kommando raden**, **körbara filer**och **användar** - **ID** är identiska
-* ConnectionCreate-händelser – **när kommandorad**, **userId**, **Direction**, **lokal adress**, **Fjärradress**, **protokoll** och **mål Port** är identiska
+* ProcessCreate-händelser – när **kommando raden**, **körbara filer**, * * username och **UserID** är identiska
+* ConnectionCreate-händelser – när **kommando raden**, **userId**, **Direction**, **Local Address**, **Remote Address**, * * Protocol och **målport** är identiska
 * ProcessTerminate-händelser – när den **körbara filen** och **avslutnings statusen** är identiska
 
 ### <a name="working-with-aggregated-events"></a>Arbeta med sammanställda händelser
@@ -57,14 +57,14 @@ Under agg regering ignoreras händelse egenskaper som inte aggregeras och visas 
 ## <a name="event-aggregation-based-alerts"></a>Händelse agg regering baserade aviseringar 
 Efter analysen skapar Azure Security Center för IoT säkerhets aviseringar för misstänkta sammanställda händelser. Aviseringar som skapas från sammanställda händelser visas bara en gång för varje sammanställd händelse.
 
-Samlingens start tid, slut tid och antal träffar för varje händelse loggas i fältet Event **ExtraDetails** i Log Analytics för användning under undersökningar. 
+Samlingens start tid, slut tid och antal träffar för varje händelse loggas i fältet Event **ExtraDetails** i Log Analytics som används vid undersökningar. 
 
 Varje sammanställd händelse representerar en 24-timmarsperiod med insamlade aviseringar. Med hjälp av menyn händelse alternativ längst upp till vänster i varje händelse kan du **stänga** av varje enskild sammanställd händelse.    
 
 ## <a name="event-aggregation-twin-configuration"></a>Dubbel konfiguration av händelse sammansättning
 Ändra konfigurationen av Azure Security Center för IoT Event-aggregering i [agent konfigurations objekt](how-to-agent-configuration.md) för modulens dubbla identitet för **azureiotsecurity** -modulen.
 
-| Konfigurations namn | Möjliga värden | Information | Kommentarer |
+| Konfigurationsnamn | Möjliga värden | Information | Kommentarer |
 |:-----------|:---------------|:--------|:--------|
 | aggregationEnabledProcessCreate | boolean | Aktivera/inaktivera händelse agg regering för process-skapa händelser |
 | aggregationIntervalProcessCreate | ISO8601 TimeSpan-sträng | Samlings intervall för process skapande av händelser |
@@ -76,7 +76,7 @@ Varje sammanställd händelse representerar en 24-timmarsperiod med insamlade av
 
 ## <a name="default-configurations-settings"></a>Standardinställningar för konfigurering
 
-| Konfigurations namn | Standardvärden |
+| Konfigurationsnamn | Standardvärden |
 |:-----------|:---------------|
 | aggregationEnabledProcessCreate | true |
 | aggregationIntervalProcessCreate | PT1H|

@@ -1,6 +1,6 @@
 ---
-title: Profilera program i produktion i Azure med Application Insights Profiler | Microsoft Docs
-description: Identifiera den heta sökvägen i serverkoden web med en låg fotavtryck profiler.
+title: Profilera produktions program i Azure med Application Insights Profiler | Microsoft Docs
+description: Identifiera den frekventa sökvägen i din webb server kod med en lågnivå profiler.
 services: application-insights
 documentationcenter: ''
 author: cweining
@@ -12,125 +12,125 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 08/06/2018
 ms.author: cweining
-ms.openlocfilehash: c07b325f3de6cd2cf3aaa436736786d2cdc42881
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: debc30a368a0f9ef7be9b0cda0b1238f8e2bc2e3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60306333"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338083"
 ---
-# <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilen produktionsprogram i Azure med Application Insights
+# <a name="profile-production-applications-in-azure-with-application-insights"></a>Profilera produktions program i Azure med Application Insights
 ## <a name="enable-application-insights-profiler-for-your-application"></a>Aktivera Application Insights Profiler för ditt program
 
-Azure Application Insights Profiler tillhandahåller prestandaspårningar för program som körs i produktion i Azure. Profiler samlar in data automatiskt i stor skala utan att negativt påverka dina användare. Profiler kan du identifiera den ”heta” sökväg som tar längst tid när den hanterar en viss begäran. 
+Azure Application Insights profiler tillhandahåller prestanda spårningar för program som körs i produktion i Azure. Profileraren fångar data automatiskt i skala utan att påverka användarna negativt. Profiler hjälper dig att identifiera den "frekvent" kod Sök väg som tar den längsta tid när den hanterar en viss webbegäran. 
 
-Profiler fungerar med .NET-program som distribueras på följande Azure-tjänster. Specifika anvisningar för att aktivera Profiler för varje typ av tjänst finns i länkarna nedan.
+Profiler fungerar med .NET-program som distribueras på följande Azure-tjänster. I länkarna nedan finns mer information om hur du aktiverar profiler för varje tjänst typ.
 
 * [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure virtuella datorer och VM-skalningsuppsättningar](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
-* [**FÖRHANDSGRANSKA** ASP.NET Core Azure Linux Web Apps](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
+* [Azure Virtual Machines och skalnings uppsättningar för virtuella datorer](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [För **hands version** ASP.NET Core Azure Linux Web Apps](profiler-aspnetcore-linux.md?toc=/azure/azure-monitor/toc.json) 
 
-Om du har aktiverat Profiler men inte ser spårningar, kontrollera våra [felsökningsguide för](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
+Om du har aktiverat profiler men inte ser spår, se vår [fel söknings guide](profiler-troubleshooting.md?toc=/azure/azure-monitor/toc.json).
 
-## <a name="view-profiler-data"></a>Visa Profiler data
+## <a name="view-profiler-data"></a>Visa profiler-data
 
-För Profiler att ladda upp spårningar ditt program måste vara aktivt hantering av begäranden. Om du gör ett experiment, du kan generera begäranden till webbappen med hjälp av [Application Insights prestandatestning](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Om du har nyligen aktiverat Profiler, kan du köra ett kort belastningstest. När belastningstestet körs, Välj den **profil nu** knappen på den [ **Profiler inställningar** fönstret](profiler-settings.md#profiler-settings-pane). När Profiler körs Profileringen slumpmässigt ungefär en gång i timmen och under en period på två minuter. Om ditt program hanterar en stadig ström av begäranden, överför Profiler spårningar varje timme.
+För att profiler ska kunna överföra spår måste ditt program aktivt hantera förfrågningar. Om du gör ett experiment kan du generera förfrågningar till din webbapp genom att använda [Application Insights prestanda testning](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test). Om du nyligen har aktiverat profiler kan du köra ett kort belastnings test. När belastnings testet körs väljer du knappen **profil nu** i fönstret Profiler [ **Inställningar** ](profiler-settings.md). När profiler körs slumpmässigt en gång per timme och under en varaktighet på två minuter. Om ditt program hanterar en stadig ström med begär Anden, laddar profileringen spår varje timme.
 
-När ditt program tar emot en del trafik och Profiler har fått tid att ladda upp spårningarna, bör du ha spårningarna för att se. Den här processen kan ta 5 – 10 minuter. Visa spårningar, i den **prestanda** väljer **vidta åtgärder**, och välj sedan den **Profiler-spårningar** knappen.
+När programmet har tagit emot viss trafik och profileraren har tid att ladda upp spårningarna bör du ha spår att visa. Den här processen kan ta 5 till 10 minuter. Om du vill visa spårningar väljer du **vidta åtgärder**i fönstret **prestanda** och väljer sedan **spårnings** knappen för profiler.
 
-![Förhandsversion av Application Insights prestanda fönstret Profiler-spårningar][performance-blade]
+![Förhands granskning av profiler i Application Insights prestanda fönstret][performance-blade]
 
-Välj ett exempel för att visa en kod på servernivå uppdelning av tid kör på begäran.
+Välj ett exempel för att visa en analys på kod nivå av tids åtgång för att köra begäran.
 
-![Application Insights trace-Utforskaren][trace-explorer]
+![Application Insights spårnings Utforskaren][trace-explorer]
 
-Spårningen explorer visar följande information:
+Spårnings Utforskaren visar följande information:
 
-* **Visa frekvent sökväg**: Öppnar det största löv noden eller Stäng minst något. I de flesta fall kan är den här noden nära en flaskhals för prestanda.
-* **Etiketten**: Namnet på funktionen eller händelse. Trädet visar en blandning av kod och händelser som inträffat, till exempel SQL och HTTP-händelser. Översta händelsen representerar varaktighet för begäran.
-* **Förfluten tid**: Tidsintervallet mellan början av åtgärden och den igen.
-* **När**: Den tid när funktionen eller händelse kördes i förhållande till andra funktioner.
+* **Visa snabb sökväg**: Öppnar den största löv-noden eller minst något nära. I de flesta fall är den här noden nära en prestanda Flask hals.
+* **Etikett**: Namnet på funktionen eller händelsen. Trädet visar en blandning av kod och händelser som har inträffat, till exempel SQL-och HTTP-händelser. Den översta händelsen representerar den övergripande varaktigheten för begäran.
+* **Förfluten tid**: Tidsintervallet mellan åtgärdens start och slut.
+* **När**: Tiden då funktionen eller händelsen kördes i förhållande till andra funktioner.
 
-## <a name="how-to-read-performance-data"></a>Läsa prestandadata
+## <a name="how-to-read-performance-data"></a>Läsa prestanda data
 
-Profiler för Microsoft-tjänst använder en kombination av sampling metoder och instrumentation för att analysera prestanda för ditt program. När detaljerad samling pågår samplar service profiler instruktion pekare på varje dator CPU varje millisekund. Varje exempel samlar in fullständiga anropsstacken för tråden som körs för tillfället. Det ger detaljerad information om vad den tråden gjorde, på både hög och låg abstraktionsnivå. Tjänsten profileraren samlar även in andra händelser för att spåra aktivitet korrelation och orsakssamband, inklusive vilket sammanhang växlar händelser, uppgift parallella bibliotek (TPL) händelser och tråd pool händelser.
+Microsoft Service profiler använder en kombination av provtagnings metoder och instrumentering för att analysera programmets prestanda. När detaljerad insamling pågår, exempel på instruktions pekaren för varje maskin-CPU var millisekund. Varje exempel fångar upp den fullständiga anrops stacken för den tråd som körs för tillfället. Den ger detaljerad information om vad tråden gjorde, på både en hög nivå och en låg abstraktions nivå. Tjänst profiler samlar också in andra händelser för att spåra aktivitets korrelation och orsakssamband, inklusive kontext växlings händelser, TPL-händelser (Task Parallel Library) och Thread pool-händelser.
 
-Anropsstacken som visas i tidslinjevyn är resultatet av sampling och instrumentering. Eftersom varje exempel samlar in fullständiga anropsstacken för tråden, innehåller koden från Microsoft .NET Framework och andra ramverk som du hänvisar till.
+Anrops stacken som visas i vyn tids linje är resultatet av sampling och Instrumentation. Eftersom varje exempel fångar upp den kompletta anrops stacken i tråden, innehåller den kod från Microsoft .NET Framework och från andra ramverk som du refererar till.
 
-### <a id="jitnewobj"></a>Objektet allokering (clr! JIT\_New eller clr! JIT\_Newarr1)
+### <a id="jitnewobj"></a>Objekt tilldelning (CLR! JIT @ no__t-1New eller CLR! JIT @ no__t-2Newarr1)
 
-**CLR! JIT\_New** och **clr! JIT\_Newarr1** är hjälpfunktioner i .NET Framework som en hanterad heap för att allokera minne. **CLR! JIT\_New** anropas när ett objekt har allokerats. **CLR! JIT\_Newarr1** anropas när en objektmatris som har allokerats. De här två funktionerna är vanligtvis snabba och ta relativt lite tid. Om **clr! JIT\_New** eller **clr! JIT\_Newarr1** tar mycket tid på din tidslinje koden kan allokera många objekt och förbrukar stora mängder minne.
+**CLR! JIT @ no__t-1New** och **CLR! JIT @ no__t-3Newarr1** är hjälp funktioner i .NET Framework som allokerar minne från en hanterad heap. **CLR! JIT @ no__t-1New** anropas när ett objekt tilldelas. **CLR! JIT @ no__t-1Newarr1** anropas när en objekt mat ris allokeras. De här två funktionerna är vanligt vis snabba och tar relativt små mängder tid. Om **CLR! JIT @ no__t-1New** eller **CLR! JIT @ no__t-3Newarr1** tar lång tid på din tids linje, koden kan allokeras många objekt och använda betydande mängd minne.
 
-### <a id="theprestub"></a>Läser in koden (clr! ThePreStub)
+### <a id="theprestub"></a>Läser in kod (CLR! ThePreStub)
 
-**CLR! ThePreStub** är en hjälpfunktionen i .NET Framework som förbereder koden som körs för första gången. Den här körningen vanligtvis inkluderar, men inte begränsat till, kompilering för just-in-time-(åtkomst JIT). För varje C# metoden **clr! ThePreStub** ska anropas en gång under en process.
+**CLR! ThePreStub** är en hjälp funktion i .NET Framework som förbereder koden som ska köras för första gången. Den här körningen inkluderar vanligt vis, men är inte begränsad till JIT-kompilering (just-in-Time). För varje C# Metod, **CLR! ThePreStub** bör anropas högst en gång under en process.
 
-Om **clr! ThePreStub** tar lång tid en begäran begäran är den första att köra metoden. Tiden för körningen av .NET Framework att läsa in den första metoden är betydande. Du kan använda en värma upp processen som kör den delen av koden innan dina användare åtkomst till den eller Överväg att köra Native Image Generator (ngen.exe) på dina sammansättningar.
+Om **CLR! ThePreStub** tar lång tid för en begäran är begäran den första för att köra metoden. Tiden för .NET Framework körning för att läsa in den första metoden är signifikant. Du kan överväga att använda en uppvärmnings-process som kör den delen av koden innan användarna får åtkomst till den eller fundera på att köra Native Image Generator (ngen. exe) på dina sammansättningar.
 
-### <a id="lockcontention"></a>Låskonkurrens (clr! JITutil\_MonContention eller clr! JITutil\_MonEnterWorker)
+### <a id="lockcontention"></a>Lås konkurrens (CLR! JITutil @ no__t-1MonContention eller CLR! JITutil\_MonEnterWorker)
 
-**CLR! JITutil\_MonContention** eller **clr! JITutil\_MonEnterWorker** anger att den aktuella tråden väntar en låsas upp. Den här texten visas ofta när du kör en C# **Lås** -instruktionen, anropa den **Monitor.Enter** metoden eller anropa en metod med den **MethodImplOptions.Synchronized**attribut. Låskonkurrens uppstår vanligen när tråden _A_ skaffar en lock och tråd _B_ försöker hämta samma Lås innan tråd _A_ släpper den.
+**CLR! JITutil @ no__t-1MonContention** eller **CLR! JITutil @ no__t-3MonEnterWorker** anger att den aktuella tråden väntar på att ett lås ska släppas. Den här texten visas ofta när du kör en C# **lock** -instruktion, anropa metoden **Monitor. Enter** eller anropa en metod med attributet **MethodImplOptions. Synchronized** . Lås konkurrens uppstår vanligt vis när tråd _a_ skaffar ett lås och tråd _B_ försöker hämta samma lås innan tråd _a_ släpper det.
 
-### <a id="ngencold"></a>Läser in koden ([kall])
+### <a id="ngencold"></a>Läser in kod ([kall])
 
-Om metodnamnet innehåller **[KALLA]** , till exempel **mscorlib.ni! [ COLD]system.Reflection.CustomAttribute.IsDefined**, körningen av .NET Framework kod körs för första gången som inte är optimerad med [profil guidad optimering](/cpp/build/profile-guided-optimizations). För varje metod ska det visas högst en gång under processen.
+Om metod namnet innehåller **[kall]** , till exempel **mscorlib.ni! [ KALL] system. Reflection. CustomAttribute. IsDefined**, .NET Framework runtime kör kod för första gången som inte är optimerad för den [guidade optimeringen av profilen](/cpp/build/profile-guided-optimizations). För varje metod bör den visas högst en gång under processen.
 
-Om du läser in koden tar lång tid för en begäran, är den första att köra icke-optimerad delen av metoden i begäran. Överväg att använda en värma upp processen som kör den delen av koden innan dina användare åtkomst till den.
+Om inläsning av kod tar lång tid för en begäran, är begäran den första för att köra den icke-optimerade delen av metoden. Överväg att använda en uppvärmnings-process som kör den delen av koden innan användarna får åtkomst till den.
 
 ### <a id="httpclientsend"></a>Skicka HTTP-begäran
 
-Metoder som **HttpClient.Send** tyda på att koden väntar en HTTP-begäran att slutföra.
+Metoder som **httpclient. send** anger att koden väntar på att en http-begäran ska slutföras.
 
-### <a id="sqlcommand"></a>Databasåtgärden
+### <a id="sqlcommand"></a>Databas åtgärd
 
-Metoder som **SqlCommand.Execute** tyda på att koden väntar en databasåtgärd ska slutföras.
+Metoder som **SqlCommand. Execute** anger att koden väntar på att en databas åtgärd ska slutföras.
 
-### <a id="await"></a>Väntar på (AWAIT\_tid)
+### <a id="await"></a>Väntar (AWAIT @ no__t-1TIME)
 
-**AWAIT\_tid** anger att koden är att en annan aktivitet ska slutföras. Den här fördröjningen händer vanligtvis med den C# **AWAIT** instruktionen. När koden har en C# **AWAIT**tråden unwinds och returnerar kontrollen till trådpoolen och det finns ingen tråd som har blockerats väntar på den **AWAIT** ska slutföras. Dock logiskt tråden som gjorde den **AWAIT** är ”blockerad” och det väntar på att åtgärden slutförs. Den **AWAIT\_tid** instruktionen anger blockerade tiden att vänta tills åtgärden har slutförts.
+**AWAIT @ no__t-1TIME** anger att koden väntar på att en annan aktivitet ska slutföras. Den här fördröjningen sker vanligt C# vis med instruktionen **AWAIT** . När koden har C# **inväntat**, tar tråden över och returnerar kontrollen till trådpoolen och det finns ingen tråd som är blockerad **och väntar på att** slutföras. Den tråd som gjorde **AWAIT** är dock "blockerad" och väntar på att åtgärden ska slutföras. Instruktionen **AWAIT @ no__t-1TIME** anger den blockerade tid som väntar på att aktiviteten ska slutföras.
 
-### <a id="block"></a>Blockerade tid
+### <a id="block"></a>Blockerad tid
 
-**BLOCKED_TIME** anger att koden väntar på en annan resurs ska vara tillgängliga. Det kan till exempel vänta för ett synkroniseringsobjekt, för en tråd ska vara tillgängliga eller för att slutföra en begäran.
+**BLOCKED_TIME** anger att koden väntar på att en annan resurs ska vara tillgänglig. Det kan till exempel vara en väntan på ett synkroniseringsobjekt, för att en tråd ska vara tillgänglig eller för att en begäran ska slutföras.
 
-### <a name="unmanaged-async"></a>Ohanterade Async
+### <a name="unmanaged-async"></a>Ohanterad asynkron
 
-.NET framework genererar ETW-händelser och skickar ett aktivitets-ID mellan trådar så att asynkrona anrop kan spåras i trådar. Ohanterad kod (intern kod) och vissa äldre format asynkron kod saknar dessa händelser och ett aktivitets-ID, så profiler inte kan avgöra vilken tråd och funktioner som körs i tråden. Detta är märkt ”ohanterade Async' i anropsstacken. Om du har hämtat ETW-fil kan du använda [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) att få överblick över vad som händer.
+.NET Framework genererar ETW-händelser och skickar aktivitets-ID: n mellan trådar så att asynkrona anrop kan spåras över trådar. Ohanterad kod (inbyggd kod) och vissa äldre format för asynkron kod saknar dessa händelser och aktivitets-ID: t, så att profileraren inte kan avgöra vilken tråd och vilka funktioner som körs på tråden. Det här heter "ohanterad asynkron" i anrops stacken. Om du hämtar ETW-filen kan du kanske använda [PerfView](https://github.com/Microsoft/perfview/blob/master/documentation/Downloading.md) för att få bättre insikt i vad som händer.
 
 ### <a id="cpu"></a>CPU-tid
 
-Processorn är upptagen med att köra instruktionerna.
+PROCESSORN är upptagen med att köra anvisningarna.
 
-### <a id="disk"></a>Disktid i procent
+### <a id="disk"></a>Disk tid
 
-Programmet utför diskåtgärder.
+Programmet utför disk åtgärder.
 
-### <a id="network"></a>Nätverkstid
+### <a id="network"></a>Nätverks tid
 
-Programmet utför nätverksåtgärder.
+Programmet utför nätverks åtgärder.
 
-### <a id="when"></a>När kolumnen
+### <a id="when"></a>När kolumn
 
-Den **när** kolumnen är en visualisering av hur INKLUDERANDE exemplen som samlats in för en nod kan variera över tid. Det totala intervallet för begäran är uppdelad i 32 tid buckets. Inkluderande exemplen för noden ackumuleras i dessa 32 buckets. Varje bucket representeras som en stapel. Höjden på fältet representerar ett skalade värde. För noder som är markerade **CPU_TIME** eller **BLOCKED_TIME**, eller där det finns en uppenbar relation som förbrukar en resurs (till exempel CPU, disk eller tråd), i fältet representerar användningen av en av resurser under en bucket. Det är möjligt att hämta ett värde är större än 100 procent av det förbrukande flera resurser för de här måtten. Om du använder, i genomsnitt två processorer under ett intervall får du till exempel 200 procent.
+Kolumnen **när** är en visualisering av hur inkluderade exempel som samlas in för en nod varierar över tid. Det totala intervallet för begäran är indelat i 32 tids buckets. Inkluderade exempel för noden samlas i dessa 32-buckets. Varje Bucket visas som en stapel. Stapelns höjd representerar ett skalat värde. För noder som har marker ATS som **CPU_TIME** eller **BLOCKED_TIME**, eller om det finns en uppenbar relation för att konsumera en resurs (till exempel en processor, disk eller tråd), representerar stapeln en av resurserna i Bucket. För dessa mått är det möjligt att få ett värde som är större än 100 procent genom att förbruka flera resurser. Om du till exempel använder, i genomsnitt, två processorer under ett intervall, får du 200 procent.
 
 ## <a name="limitations"></a>Begränsningar
 
-Standardkvarhållningsperioden för data är fem dagar. Den maximala data som matas in per dag är 10 GB.
+Standardvärdet för kvarhållning av data är fem dagar. De maximala data som matas in per dag är 10 GB.
 
-Det kostar inget att använda Profiler-tjänsten. Om du vill använda den måste din webbapp måste vara finns i basic-nivån av funktionen Web Apps i Azure App Service.
+Det kostar inget att använda profilerings tjänsten. För att du ska kunna använda den måste din webbapp finnas på minst nivån Basic i Web Apps-funktionen i Azure App Service.
 
-## <a name="overhead-and-sampling-algorithm"></a>Omkostnader och samplingsalgoritmen
+## <a name="overhead-and-sampling-algorithm"></a>Algoritm för omkostnader och sampling
 
-Profiler körs slumpmässigt två minuter varje timme på varje virtuell dator som är värd för programmet som har aktiverat för att samla in spårningar Profiler. När Profiler körs läggs från 5 till 15 procent processoråtgång till servern.
+Profileraren kör slumpmässigt två minuter varje timme på varje virtuell dator som är värd för det program där profileraren har Aktiver ATS för att samla in spår. När profiler körs lägger den till mellan 5 och 15 procents processor belastning på servern.
 
 ## <a name="next-steps"></a>Nästa steg
-Aktivera Application Insights Profiler för dina Azure-program. Se även:
+Aktivera Application Insights Profiler för ditt Azure-program. Se även:
 * [App Services](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Cloud Services](profiler-cloudservice.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
-* [Azure virtuella datorer och VM-skalningsuppsättningar](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
+* [Azure Virtual Machines och skalnings uppsättningar för virtuella datorer](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
 
 
 [performance-blade]: ./media/profiler-overview/performance-blade-v2-examples.png

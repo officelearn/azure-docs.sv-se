@@ -1,19 +1,19 @@
 ---
-title: Lär dig mer om rollbaserad åtkomst kontroll i Azure Digitals Microsoft Docs
-description: Lär dig mer om autentisering i digitala dubbla med rollbaserad åtkomst kontroll.
+title: Förstå rollbaserad åtkomst kontroll – Azure Digitals flätar | Microsoft Docs
+description: Lär dig mer om rollbaserad åtkomst kontroll och hantering av behörigheter i Azure Digitals dubbla.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 09/17/2019
 ms.author: lyhughes
-ms.openlocfilehash: 6602a4df2c6e313156010102780240ba19fbac95
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 4e29cb488c9b491ec551ead1873e8cfd2d33a93b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815562"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336736"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Rollbaserad åtkomst kontroll i Azure Digitals dubbla
 
@@ -49,20 +49,20 @@ En utvecklare kan använda RBAC för att:
 
 ### <a name="role-definitions"></a>Roll definitioner
 
-En roll definition är en samling behörigheter och andra attribut som utgör en roll. En roll definition visar en lista över tillåtna åtgärder, bland annat *skapa*, *läsa*, *Uppdatera*och *ta bort* som alla objekt med den rollen kan utföra. Den anger också vilka objekt typs behörigheter som ska gälla för.
+En roll definition är en samling behörigheter och andra attribut som utgör en roll. En roll definition visar en lista över tillåtna åtgärder, bland annat *skapa*, *läsa*, *Uppdatera*och *ta bort* som alla objekt med den rollen kan utföra. Den anger också vilka objekt typer behörigheterna gäller för.
 
 [!INCLUDE [digital-twins-roles](../../includes/digital-twins-roles.md)]
 
 >[!NOTE]
 > Om du vill hämta de fullständiga definitionerna för de tidigare rollerna frågar du system/roles-API.
-> Läs mer om att [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md#all).
+> Läs mer om att [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md#retrieve-all-roles).
 
 ### <a name="object-identifier-types"></a>Objekt identifierare typer
 
 [!INCLUDE [digital-twins-object-types](../../includes/digital-twins-object-id-types.md)]
 
 >[!TIP]
-> Lär dig hur du beviljar behörigheter till tjänstens huvud namn genom att läsa [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md#grant).
+> Lär dig hur du beviljar behörigheter till tjänstens huvud namn genom att läsa [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md#grant-permissions-to-your-service-principal).
 
 I följande artiklar i referens dokumentation beskrivs:
 

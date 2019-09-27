@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/14/2019
 ms.author: iainfou
-ms.openlocfilehash: 8c346b75b30737645721d8b39a655a85ed446fae
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 536ada668db724ca50d7db820aff173f7222bab2
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229530"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336845"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance"></a>Självstudier: Skapa och konfigurera en Azure Active Directory Domain Services instans
 
@@ -42,7 +42,8 @@ För att slutföra den här självstudien behöver du följande resurser och beh
     * Om det behövs kan du [skapa en Azure Active Directory klient][create-azure-ad-tenant] eller [associera en Azure-prenumeration med ditt konto][associate-azure-ad-tenant].
 * Du behöver *Global administratörs* behörighet i Azure AD-klienten för att aktivera Azure AD DS.
 * Du behöver *deltagar* behörighet i din Azure-prenumeration för att skapa de nödvändiga Azure AD DS-resurserna.
-* Azure AD-klienten måste [konfigureras för lösen ords återställning][configure-sspr]via självbetjäning.
+
+Även om det inte krävs för Azure AD DS rekommenderar vi att du [konfigurerar återställning av lösen ord för självbetjäning (SSPR)][configure-sspr] för Azure AD-klienten. Användare kan ändra sina lösen ord utan SSPR, men SSPR hjälper om de glömmer bort sitt lösen ord och behöver återställa det.
 
 > [!IMPORTANT]
 > När du har skapat en Azure AD DS-hanterad domän kan du inte flytta instansen till en annan resurs grupp, ett virtuellt nätverk, en prenumeration osv. Var noga med att välja den lämpligaste prenumerationen, resurs gruppen, regionen och det virtuella nätverket när du distribuerar Azure AD DS-instansen.

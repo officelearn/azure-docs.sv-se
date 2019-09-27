@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 569bc021d978714472bf40bcf39f7134fec95970
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: b3f809a21dab86ac50fcf7c194c886b05977e15e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130336"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327110"
 ---
 # <a name="create-a-private-endpoint-using-azure-powershell"></a>Skapa en privat slut punkt med hjälp av Azure PowerShell
 En privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. Virtual Machines (VM), att kommunicera privat med privata länk resurser. 

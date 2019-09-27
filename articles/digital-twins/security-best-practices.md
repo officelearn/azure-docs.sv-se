@@ -1,19 +1,19 @@
 ---
-title: Förstå Azure Digitals dubbla säkerhets rekommendationer | Microsoft Docs
-description: Azure Digitals dubblare säkerhets metod tips.
+title: Förstå rekommenderade säkerhets metoder – Azure Digitals flätar | Microsoft Docs
+description: Lär dig mer om rekommenderade säkerhets metoder för Azure Digital-och Sakernas Internet.
 author: kingdomofends
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 09/17/2019
 ms.author: v-adgera
-ms.openlocfilehash: f211206bc2408fe55f6742622b5b0e56d1ab4d90
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 181176e00595daa307504d4dea7494aefa7f1942
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69656528"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336691"
 ---
 # <a name="security-best-practices"></a>Metodtips för säkerhet
 
@@ -46,7 +46,7 @@ Några viktiga metoder för att säkert skydda ett IoT-utrymme är:
 > [!div class="checklist"]
 > * Kryptera sparade, lagrade eller beständiga data.
 > * Kräv lösen ord eller nycklar som ska ändras regelbundet eller uppdateras.
-> * Begränsa åtkomsten och behörigheten noggrant efter roll. Se metod tipsen för den [rollbaserade åtkomst kontrollen](#rbac) nedan.
+> * Begränsa åtkomsten och behörigheten noggrant efter roll. Se metod tipsen för den [rollbaserade åtkomst kontrollen](#role-based-access-control-best-practices) nedan.
 > * Överväg en delad nätverkstopologi så att enheterna i varje nätverk isoleras från de andra.
 > * Använd kraftfull kryptering. Kräv långa lösen ord och Använd säkra protokoll och tvåfaktorautentisering.
 
@@ -66,8 +66,6 @@ Azure Digitals dubblare använder Azure Active Directory för att autentisera an
 > * Verifiera hur lång tid en token är giltig och om en token fortfarande är giltig.
 > * Ange lämpliga tids längder som token är giltiga för.
 > * Uppdatera utgångna token.
-
-<div id="rbac"></div>
 
 ## <a name="role-based-access-control-best-practices"></a>Metod tips för rollbaserad åtkomst kontroll
 

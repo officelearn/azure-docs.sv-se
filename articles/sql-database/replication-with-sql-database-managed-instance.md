@@ -11,12 +11,12 @@ author: allenwux
 ms.author: xiwu
 ms.reviewer: mathoma
 ms.date: 02/07/2019
-ms.openlocfilehash: 3b76dc546b46718378d9b22ad80e17849eaf532d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: b940be1d1b68e4e2a41e3f8353cb54fdb51bb886
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68884067"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338741"
 ---
 # <a name="configure-replication-in-an-azure-sql-database-managed-instance-database"></a>Konfigurera replikering i en Azure SQL Database Hanterad instans databas
 
@@ -28,7 +28,7 @@ Du kan också använda Transaktionsreplikering för att skicka ändringar som gj
 - En enda databas i Azure SQL Database.
 - En databas i poolen i en Azure SQL Database elastisk pool.
  
-Transaktionsreplikering är i offentlig för hands version på [Azure SQL Database hanterade](sql-database-managed-instance.md)instansen. En hanterad instans kan vara värd för utgivare, distributör och prenumerant databaser. Se [konfigurationer för transaktionell replikering](sql-database-managed-instance-transactional-replication.md#common-configurations) för tillgängliga konfigurationer.
+Transaktionsreplikering är i offentlig för hands version på [Azure SQL Database hanterade instansen](sql-database-managed-instance.md). En hanterad instans kan vara värd för utgivare, distributör och prenumerant databaser. Se [konfigurationer för transaktionell replikering](sql-database-managed-instance-transactional-replication.md#common-configurations) för tillgängliga konfigurationer.
 
   > [!NOTE]
   > Den här artikeln är avsedd att hjälpa användaren att konfigurera replikering med en hanterad Azure Database-instans från slut punkt till slut punkt, från och med att skapa resurs gruppen. Om du redan har distribuerat hanterade instanser kan du gå vidare till [steg 4](#4---create-a-publisher-database) för att skapa en utgivar databas, eller [steg 6](#6---configure-distribution) om du redan har en utgivare och prenumerations databas och är redo att börja konfigurera replikering.  
@@ -38,10 +38,10 @@ Transaktionsreplikering är i offentlig för hands version på [Azure SQL Databa
 Att konfigurera en hanterad instans så att den fungerar som en utgivare och/eller en distributör kräver:
 
 - Att den hanterade instansen inte deltar i en geo-replikeringsrelation-relation.
-- Att utgivarens hanterade instans finns i samma virtuella nätverk som distributören och prenumeranten eller att [vNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) -peering har upprättats mellan de virtuella nätverken i alla tre entiteter. 
+- Att utgivarens hanterade instans finns i samma virtuella nätverk som distributören och prenumeranten eller att [vNet-peering](../virtual-network/tutorial-connect-virtual-networks-powershell.md) har upprättats mellan de virtuella nätverken i alla tre entiteter. 
 - Anslutningen använder SQL-autentisering mellan replikeringsdeltagare.
 - En Azure Storage konto resurs för replikeringens arbets katalog.
-- Port 445 (TCP utgående) är öppen i säkerhets reglerna för NSG för de hanterade instanserna för åtkomst till Azure-filresursen. 
+- Port 445 (TCP utgående) är öppen i säkerhets reglerna för NSG för de hanterade instanserna för åtkomst till Azure-filresursen.  Om felet "Det gick inte att ansluta till Azure Storage \<storage konto namn > med OS-fel 53", måste du lägga till en utgående regel i NSG för det aktuella SQL Managed instance-undernätet.
 
 
  > [!NOTE]
@@ -50,7 +50,7 @@ Att konfigurera en hanterad instans så att den fungerar som en utgivare och/ell
 
 ## <a name="features"></a>Funktioner
 
-Stöder:
+Uppfyller
 
 - Replikering och ögonblicks bilder av replikering av SQL Server lokala och hanterade instanser i Azure SQL Database.
 - Prenumeranter kan finnas i lokala SQL Server databaser, enskilda databaser/hanterade instanser i Azure SQL Database, eller i pooler databaser i Azure SQL Database elastiska pooler.
@@ -78,15 +78,15 @@ Du måste också [Konfigurera en virtuell Azure-dator för att ansluta](sql-data
 
 [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) för arbets katalogen och skapa sedan en [fil resurs](../storage/files/storage-how-to-create-file-share.md) i lagrings kontot. 
 
-Kopiera sökvägen till fil resursen i formatet:`\\storage-account-name.file.core.windows.net\file-share-name`
+Kopiera sökvägen till fil resursen i formatet: `\\storage-account-name.file.core.windows.net\file-share-name`
 
-Kopiera lagrings åtkomst nycklarna i formatet:`DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
+Kopiera lagrings åtkomst nycklarna i formatet: `DefaultEndpointsProtocol=https;AccountName=<Storage-Account-Name>;AccountKey=****;EndpointSuffix=core.windows.net`
 
  Mer information finns i [Visa och kopiera åtkomstnycklar för lagring](../storage/common/storage-account-manage.md#access-keys). 
 
 ## <a name="4---create-a-publisher-database"></a>4 – skapa en utgivar databas
 
-Anslut till din `sql-mi-pub` hanterade instans med hjälp av SQL Server Management Studio och kör följande Transact-SQL-kod (T-SQL) för att skapa en utgivar databas:
+Anslut till din `sql-mi-pub` hanterade instans med SQL Server Management Studio och kör följande Transact-SQL-kod (T-SQL) för att skapa utgivar databasen:
 
 ```sql
 USE [master]
@@ -120,7 +120,7 @@ GO
 
 ## <a name="5---create-a-subscriber-database"></a>5 – skapa en prenumerations databas
 
-Anslut till din `sql-mi-sub` hanterade instans med hjälp av SQL Server Management Studio och kör följande T-SQL-kod för att skapa din tomma prenumerations databas:
+Anslut till din `sql-mi-sub` hanterade instans med SQL Server Management Studio och kör följande T-SQL-kod för att skapa din tomma prenumerant databas:
 
 ```sql
 USE [master]
@@ -141,7 +141,7 @@ GO
 
 ## <a name="6---configure-distribution"></a>6 – Konfigurera distribution
 
-Anslut till din `sql-mi-pub` hanterade instans med hjälp av SQL Server Management Studio och kör följande T-SQL-kod för att konfigurera distributions databasen. 
+Anslut till din `sql-mi-pub` hanterade instans med SQL Server Management Studio och kör följande T-SQL-kod för att konfigurera distributions databasen. 
 
 ```sql
 USE [master]
@@ -154,7 +154,7 @@ GO
 
 ## <a name="7---configure-publisher-to-use-distributor"></a>7 – Konfigurera utgivare att använda distributör 
 
-På din utgivar instans `sql-mi-pub`av Publisher ändrar du frågekörningen till [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) -läge och kör följande kod för att registrera den nya distributören hos utgivaren. 
+På din Publisher-hanterade instans `sql-mi-pub` ändrar du frågekörningen till [SQLCMD](/sql/ssms/scripting/edit-sqlcmd-scripts-with-query-editor) -läge och kör följande kod för att registrera den nya distributören hos utgivaren. 
 
 ```sql
 :setvar username loginUsedToAccessSourceManagedInstance
@@ -322,7 +322,7 @@ EXEC sp_dropdistributor @no_checks = 1
 GO
 ```
 
-Du kan rensa dina Azure-resurser genom [att ta bort de hanterade instans resurserna från resurs gruppen](../azure-resource-manager/manage-resources-portal.md#delete-resources) och sedan ta bort `SQLMI-Repl`resurs gruppen. 
+Du kan rensa dina Azure-resurser genom [att ta bort de hanterade instans resurserna från resurs gruppen](../azure-resource-manager/manage-resources-portal.md#delete-resources) och sedan ta bort resurs gruppen `SQLMI-Repl`. 
 
    
 ## <a name="see-also"></a>Se även

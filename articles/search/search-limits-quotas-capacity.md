@@ -8,19 +8,19 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: heidist
-ms.openlocfilehash: c2d4cae1689701704c866833c99ca616bbd01ec5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300667"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327153"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänst begränsningar i Azure Search
 De maximala gränserna för lagring, arbets belastningar och kvantiteter av index, dokument och andra objekt är beroende av om du [etablerar Azure Search](search-create-service-portal.md) på kostnads nivåer som är **kostnads fria**, **Basic**, **standard**eller **Storage** .
 
-+ **Kostnads fri** är en delad tjänst för flera innehavare som medföljer din Azure-prenumeration.
++ **Kostnads fri** är en delad tjänst för flera innehavare som medföljer din Azure-prenumeration. Indexerings-och fråge förfrågningar körs på repliker och partitioner som används av andra klienter.
 
-+ **Basic** tillhandahåller dedikerade data bearbetnings resurser för produktions arbets belastningar i en mindre skala.
++ **Basic** tillhandahåller dedikerade data bearbetnings resurser för produktions arbets belastningar i en mindre skala, men delar en nätverks infrastruktur med andra klienter.
 
 + **Standard** körs på dedikerade datorer med mer lagrings-och bearbetnings kapacitet på alla nivåer. Standard finns på fyra nivåer: S1, S2, S3 och S3 HD.
 

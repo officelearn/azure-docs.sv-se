@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: f34efbbca1616c75c13ee3a8bf73bbee1e66dc92
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 7b5ee5bfe4b7498bc13ff0c8582b49fed8478e0a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241166"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337786"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanterings grupper för resurs organisation och hantering
 
@@ -39,7 +39,7 @@ Du kan skapa hanterings gruppen med hjälp av portalen, PowerShell eller Azure C
 
 1. Fyll i fältet hanterings grupp-ID.
 
-   - **Hanterings gruppens ID** är katalogens unika identifierare som används för att skicka kommandon i den här hanterings gruppen. Den här identifieraren kan inte redige ras när den används i hela Azure-systemet för att identifiera den här gruppen. [Rot hanterings gruppen](index.md#root-management-group-for-each-directory) skapas automatiskt med ett ID som är Azure Active Directory-ID: t. Tilldela ett unikt ID för alla andra hanterings grupper.
+   - **Hanterings gruppens ID** är katalogens unika identifierare som används för att skicka kommandon i den här hanterings gruppen. Den här identifieraren kan inte redige ras när den används i hela Azure-systemet för att identifiera den här gruppen. [Rot hanterings gruppen](overview.md#root-management-group-for-each-directory) skapas automatiskt med ett ID som är Azure Active Directory-ID: t. Tilldela ett unikt ID för alla andra hanterings grupper.
    - Fältet visnings namn är det namn som visas i Azure Portal. Ett separat visnings namn är ett valfritt fält när du skapar hanterings gruppen och kan ändras när som helst.  
 
    ![Alternativ fönster för att skapa en ny hanterings grupp](./media/create_context_menu.png)  

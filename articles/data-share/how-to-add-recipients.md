@@ -1,17 +1,17 @@
 ---
-title: Lägga till mottagare till en befintlig data resurs i Azure Data repreview
+title: Lägg till mottagare i för hands versionen av Azure Data reresurs
 description: Lägga till mottagare till en befintlig data resurs
-author: madams0013
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
-ms.openlocfilehash: 7df0e92bd6dba988e7a8241f7076410c3cafca37
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: e496f67616f7ebcf4c086c8d01680b95f9cafcf8
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258742"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320307"
 ---
 # <a name="how-to-add-a-recipient-to-an-existing-data-share-in-azure-data-share-preview"></a>Så här lägger du till en mottagare i en befintlig data resurs i Azure Data Share Preview
 
@@ -21,7 +21,7 @@ Information om hur du lägger till mottagare när du skapar en resurs finns i sj
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navigera till en data resurs som skickats
 
-I för hands versionen av Azure Data Share navigerar du till den skickade resursen och väljer fliken **inbjudningar** . Här visas alla mottagare av inbjudningar till den här data resursen. Klicka på **Lägg till mottagare**om du vill lägga till en ny.
+I för hands versionen av Azure Data Share navigerar du till den skickade resursen och väljer fliken inbjudningar. Här visas alla mottagare av inbjudningar till den här data resursen. Klicka på **Lägg till mottagare**om du vill lägga till en ny.
 
 ![Lägg till mottagare](./media/how-to/how-to-add-recipients/add-recipient.png)
 

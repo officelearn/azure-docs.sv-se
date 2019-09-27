@@ -9,12 +9,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/09/2019
 ms.author: sagupt
-ms.openlocfilehash: a67034752b4c43533a5735b857186ee83934717a
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d641008a7caf4a006344d886aec945a6e8da2568
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935643"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326622"
 ---
 # <a name="create-azure-advisor-alerts-on-new-recommendations"></a>Skapa Azure Advisor aviseringar om nya rekommendationer 
 
@@ -25,7 +25,7 @@ När Azure Advisor identifierar en ny rekommendation för en av dina resurser la
 Du kan också bestämma rekommendationernas typer genom att använda följande egenskaper:
 
 * Category
-* Effekt nivå
+* Påverkansnivå
 * Rekommendations typ
 
 Du kan också konfigurera den åtgärd som ska vidtas när en avisering utlöses av:  
@@ -33,7 +33,7 @@ Du kan också konfigurera den åtgärd som ska vidtas när en avisering utlöses
 * Välja en befintlig åtgärds grupp
 * Skapa en ny åtgärds grupp
 
-Mer information om åtgärds grupper finns i [skapa och hantera åtgärds grupper] (.. /azure-monitor/platform/action-groups.md.
+Läs mer om åtgärdsgrupper i [Skapa och hantera åtgärdsgrupper](../azure-monitor/platform/action-groups.md).
 
 > [!NOTE] 
 > Advisor-aviseringar är för närvarande endast tillgängliga för hög tillgänglighet, prestanda och kostnads rekommendationer. Säkerhets rekommendationer stöds inte. 

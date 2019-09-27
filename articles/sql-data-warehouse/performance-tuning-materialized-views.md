@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 6ed6e21f16287148c8764dd98bda378451440e58
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 593841ac95c4c6f17f33a8d35d6b3f83a6db1124
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172783"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338906"
 ---
 # <a name="performance-tuning-with-materialized-views"></a>Prestanda justering med materialiserade vyer 
 De materialiserade vyerna i Azure SQL Data Warehouse ger en låg underhålls metod för komplexa analytiska frågor för att få snabba prestanda utan att någon fråga ändras. Den här artikeln beskriver den allmänna vägledningen om hur du använder materialiserade vyer.
@@ -49,7 +49,7 @@ En korrekt utformad materialiserad vy kan ge följande fördelar:
 
 - Optimeringen i Azure SQL Data Warehouse kan automatiskt använda distribuerade materialiserade vyer för att förbättra fråge körnings planer.  Den här processen är transparent för användare som tillhandahåller snabbare frågeresultat och kräver inte frågor för att hänvisa till de materialiserade vyerna. 
 
-- Kräv lite underhåll i vyerna.  En materialiserad vy lagrar data på två platser, ett grupperat columnstore-index för inledande data i vyn skapande tid och ett delta-Arkiv för de stegvisa data ändringarna.  Alla data ändringar från bas tabellerna läggs automatiskt till i delta-arkivet på ett synkront sätt.  En bakgrunds process (tuple-flytta) flyttar regelbundet data från delta arkivet till vyns columnstore-index.  Med den här designen kan du skicka frågor till materialiserade vyer för att returnera samma data som direkt efter fråga bas tabellerna. 
+- Kräv lite underhåll i vyerna.  Alla stegvisa data ändringar från bas tabellerna läggs automatiskt till i de materialiserade vyerna på ett synkront sätt.  Med den här designen kan du skicka frågor till materialiserade vyer för att returnera samma data som direkt efter fråga bas tabellerna. 
 - Data i en materialiserad vy kan distribueras annorlunda än bas tabellerna.  
 - Data i materialiserade vyer får samma hög tillgänglighet och återhämtnings förmåner som data i vanliga tabeller.  
  
@@ -90,7 +90,7 @@ Användare kan köra förklaring WITH_RECOMMENDATIONS < > SQL_statement för de 
 
 **Var medveten om kompromissen mellan snabbare frågor och kostnaden** 
 
-För varje materialiserad vy finns det en kostnad för data lagring och en kostnad för att underhålla vyn.  När data ändras i bas tabeller, ökar storleken på den materialiserade vyn och dess fysiska struktur ändras också.  För att undvika att köra prestanda försämringen underhålls varje materialiserad vy separat av data lager motorn, inklusive att flytta rader från delta-lagring till columnstore-indexets segment och konsolidera data ändringar.  Underhålls arbets belastningen blir högre när antalet materialiserade vyer och bas tabell ändringar ökar.   Användarna bör kontrol lera om kostnaden som uppstår från alla materialiserade vyer kan förskjutas med prestanda ökningen för frågan.  
+För varje materialiserad vy finns det en kostnad för data lagring och en kostnad för att underhålla vyn.  När data ändras i bas tabeller, ökar storleken på den materialiserade vyn och dess fysiska struktur ändras också.  För att undvika att fråga prestanda försämringen underhålls varje materialiserad vy separat av data lager motorn.  Underhålls arbets belastningen blir högre när antalet materialiserade vyer och bas tabell ändringar ökar.   Användarna bör kontrol lera om kostnaden som uppstår från alla materialiserade vyer kan förskjutas med prestanda ökningen för frågan.  
 
 Du kan köra den här frågan för listan över materialiserad vy i en databas: 
 
@@ -136,7 +136,7 @@ Data lager optimeringen kan automatiskt använda distribuerade materialiserade v
 
 **Övervaka materialiserade vyer** 
 
-En materialiserad vy lagras i informations lagret, precis som en tabell med grupperat columnstore-index (CCI).  Om du läser data från en materialiserad vy, så genomsöker indexet och tillämpar ändringarna från delta Store.  När antalet rader i delta-lagret är för högt kan det ta längre tid än att fråga bas tabellerna när du löser en fråga från en materialiserad vy.  För att undvika prestanda försämring av frågor, är det en bra idé att köra [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) för att övervaka vyns overhead_ratio (total_rows/base_view_row).  Om overhead_ratio är för hög, bör du överväga att återskapa den materialiserade vyn så att alla rader i delta-arkivet flyttas till columnstore-indexet.  
+En materialiserad vy lagras i informations lagret, precis som en tabell med grupperat columnstore-index (CCI).  När du läser data från en materialiserad vy genomsöks de CCI-index segmenten och alla eventuella stegvisa ändringar av bas tabellerna tillämpas. När antalet stegvisa ändringar är för högt kan det ta längre tid att lösa en fråga från en materialiserad vy än att direkt fråga bas tabellerna.  För att undvika prestanda försämring av frågor, är det en bra idé att köra [DBCC PDW_SHOWMATERIALIZEDVIEWOVERHEAD](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-pdw-showmaterializedviewoverhead-transact-sql?view=azure-sqldw-latest) för att övervaka vyns overhead_ratio (total_rows/Max (1, base_view_row)).  Användarna bör återskapa den materialiserade vyn om dess overhead_ratio är för hög. 
 
 **Materialiserad vy och resultat uppsättnings-cachelagring**
 

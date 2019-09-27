@@ -151,6 +151,8 @@
           href: azure-files-volume.md
         - name: NFS-server – statisk
           href: azure-nfs-volume.md
+        - name: Azure NetApp Files
+          href: azure-netapp-files.md
     - name: Konfigurera nätverk
       items:
         - name: Skapa eller använda ett befintligt virtuellt nätverk

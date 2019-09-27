@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: tutorial
-ms.date: 08/31/2019
+ms.date: 09/27/2019
 ms.author: victorh
-ms.openlocfilehash: b558384fe6bc86cd7b0ebd640407557e23f68ddd
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 53a4fca0c05cd54bae6d01d07e72e1033a247a05
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194578"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327369"
 ---
 # <a name="tutorial-configure-an-application-gateway-with-ssl-termination-using-the-azure-portal"></a>Självstudier: Konfigurera en Application Gateway med SSL-avslutning med hjälp av Azure Portal
 
@@ -82,7 +82,7 @@ Export-PfxCertificate `
    - **Resursgrupp**: Välj **myResourceGroupAG** som resursgrupp. Om den inte finns väljer du **Skapa ny** för att skapa den.
    - **Namn på Application Gateway**: Ange *myAppGateway* som namn på programgatewayen.
 
-     ![Skapa ny Application Gateway: Grundinställningar](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
+        ![Skapa ny Application Gateway: Grundinställningar](./media/application-gateway-create-gateway-portal/application-gateway-create-basics.png)
 
 2.  För att Azure ska kunna kommunicera mellan resurserna som du skapar krävs ett virtuellt nätverk. Du kan antingen skapa ett nytt virtuellt nätverk eller använda ett befintligt. I det här exemplet ska du skapa ett nytt virtuellt nätverk på samma tidpunkt som du skapar programgatewayen. Application Gateway instanser skapas i separata undernät. Du skapar två undernät i det här exemplet: ett för programgatewayen och ett för backend-servrarna.
 
@@ -98,7 +98,7 @@ Export-PfxCertificate `
 
     Välj **OK** för att stänga fönstret **Skapa virtuellt nätverk** och spara inställningarna för det virtuella nätverket.
 
-     ![Skapa ny Application Gateway: virtuellt nätverk](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
+    ![Skapa ny Application Gateway: virtuellt nätverk](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
     
 3. På fliken **grundläggande** accepterar du standardvärdena för de andra inställningarna och väljer **sedan Nästa: Frontend-klienter.**
 
@@ -110,7 +110,7 @@ Export-PfxCertificate `
 
 2. Välj **Skapa ny** för den **offentliga IP-adressen** och ange *myAGPublicIPAddress* för den offentliga IP-adressen och välj sedan **OK**. 
 
-     ![Skapa ny Application Gateway: klient delar](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
+   ![Skapa ny Application Gateway: klient delar](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
 3. Välj **Nästa: Server delar**.
 
@@ -118,7 +118,7 @@ Export-PfxCertificate `
 
 Backend-poolen används för att dirigera begär anden till backend-servrar som hanterar begäran. Backend-pooler kan bestå av nätverkskort, skalnings uppsättningar för virtuella datorer, offentliga IP-adresser, interna IP-adresser, fullständigt kvalificerade domän namn (FQDN) och backend-ändar för flera klienter som Azure App Service. I det här exemplet ska du skapa en tom backend-pool med din Application Gateway och sedan lägga till Server dels mål i backend-poolen.
 
-1. På fliken Server delar väljer du **+ Lägg till en backend-pool**.
+1. På fliken **Server** delar väljer du **+ Lägg till en backend-pool**.
 
 2. I fönstret **Lägg till en server dels grupp** som öppnas anger du följande värden för att skapa en tom backend-pool:
 
@@ -127,9 +127,9 @@ Backend-poolen används för att dirigera begär anden till backend-servrar som 
 
 3. I fönstret **Lägg till en server dels grupp** väljer du **Lägg till** för att spara konfigurationen av backend-poolen och återgår till fliken back **ändar** .
 
-     ![Skapa ny Application Gateway: Server delar](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
+   ![Skapa ny Application Gateway: Server delar](./media/application-gateway-create-gateway-portal/application-gateway-create-backends.png)
 
-4. På fliken Server delar väljer **du nästa: Konfiguration**.
+4. På fliken **Server** delar väljer **du nästa: Konfiguration**.
 
 ### <a name="configuration-tab"></a>Fliken konfiguration
 
@@ -152,19 +152,19 @@ På fliken **konfiguration** ansluter du klient dels-och backend-poolen som du s
    - **Certifikat namn** – Skriv *mycert1* som namn på certifikatet.
    - **Lösen ords** typ *Azure123456!* som lösenord.
   
-      Acceptera standardvärdena för de andra inställningarna på fliken **lyssnare** och välj sedan fliken **backend-mål** för att konfigurera resten av regeln.
+        Acceptera standardvärdena för de andra inställningarna på fliken **lyssnare** och välj sedan fliken **backend-mål** för att konfigurera resten av regeln.
 
-   ![Skapa ny Application Gateway: lyssnare](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-listener.png)
+   ![Skapa ny Application Gateway: lyssnare](./media/create-ssl-portal/application-gateway-create-rule-listener.png)
 
 4. På fliken **backend-mål** väljer du **MyBackendPool** för **Server dels målet**.
 
 5. För **http-inställningen**väljer du **Skapa ny** för att skapa en ny http-inställning. HTTP-inställningen avgör hur routningsregler fungerar. I fönstret **Lägg till en HTTP-inställning** som öppnas anger du *myHTTPSetting* som **namn på http-inställningen**. Acceptera standardvärdena för de andra inställningarna i fönstret **Lägg till en HTTP-inställning** och välj sedan **Lägg till** för att återgå till fönstret **Lägg till regel för routning** . 
 
-     ![Skapa ny Application Gateway: HTTP-inställning](./media/application-gateway-create-gateway-portal/application-gateway-create-httpsetting.png)
+   ![Skapa ny Application Gateway: HTTP-inställning](./media/create-ssl-portal/application-gateway-create-httpsetting.png)
 
 6. I fönstret **Lägg till regel för routning** väljer du **Lägg till** för att spara regeln för Routning och återgå till fliken **konfiguration** .
 
-     ![Skapa ny Application Gateway: regel för routning](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
+   ![Skapa ny Application Gateway: regel för routning](./media/application-gateway-create-gateway-portal/application-gateway-create-rule-backends.png)
 
 7. Välj **Nästa:**  Taggar**och nästa: Granska + skapa**.
 
@@ -214,17 +214,17 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
 2. Kör följande kommando för att installera IIS på den virtuella datorn: 
 
-    ```azurepowershell-interactive
-    Set-AzVMExtension `
-      -ResourceGroupName myResourceGroupAG `
-      -ExtensionName IIS `
-      -VMName myVM `
-      -Publisher Microsoft.Compute `
-      -ExtensionType CustomScriptExtension `
-      -TypeHandlerVersion 1.4 `
-      -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
-      -Location EastUS
-    ```
+   ```azurepowershell-interactive
+          Set-AzVMExtension `
+            -ResourceGroupName myResourceGroupAG `
+            -ExtensionName IIS `
+            -VMName myVM `
+            -Publisher Microsoft.Compute `
+            -ExtensionType CustomScriptExtension `
+            -TypeHandlerVersion 1.4 `
+            -SettingString '{"commandToExecute":"powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"}' `
+            -Location EastUS
+   ```
 
 3. Skapa en andra virtuell dator och installera IIS genom att följa stegen som du utförde tidigare. Använd *myVM2* för det virtuella dator namnet och **VMName** -inställningen för cmdleten **set-AzVMExtension** .
 
@@ -252,7 +252,7 @@ I det här exemplet installerar du bara IIS på de virtuella datorerna för att 
 
     ![Registrera programgatewayens offentliga IP-adress](./media/create-ssl-portal/application-gateway-ag-address.png)
 
-2. Skriv *https://\<din Application Gateway\>-IP-adress*i webbläsarens Adress fält.
+2. I adress fältet i webbläsaren skriver du *https://\<your Application Gateway IP Address @ no__t-2*.
 
    Om du vill acceptera säkerhets varningen om du använde ett självsignerat certifikat väljer du **information** (eller **Avancerat** på krom) och går sedan till webb sidan:
 

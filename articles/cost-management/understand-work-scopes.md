@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 66bad9c9c647fe87fdcf6b99a8d17f319b1ef9fc
-ms.sourcegitcommit: 75a56915dce1c538dc7a921beb4a5305e79d3c7a
+ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68479987"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338637"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
@@ -37,7 +37,7 @@ Cost Management fungerar i alla omfattningar över resurser så att organisation
 
 Azure stöder tre områden för resurs hantering. Varje omfattning stöder hantering av åtkomst och styrning, inklusive men inte begränsat till, kostnads hantering.
 
-- [**Hanterings grupper**](../governance/management-groups/index.md) – hierarkiska behållare, upp till åtta nivåer, för att organisera Azure-prenumerationer.
+- [**Hanterings grupper**](../governance/management-groups/overview.md) – hierarkiska behållare, upp till åtta nivåer, för att organisera Azure-prenumerationer.
 
     Resurs typ: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
 
@@ -67,7 +67,7 @@ Cost Management Contributor är den rekommenderade rollen för minsta behörighe
 
 - **Agera när budgetar överskrids** – Cost Management deltagare måste också ha åtkomst till skapa och/eller hantera åtgärds grupper för att automatiskt reagera på överförbrukning. Överväg att bevilja [övervaknings deltagare](../role-based-access-control/built-in-roles.md#monitoring-contributor) till en resurs grupp som innehåller den åtgärds grupp som ska användas när budget trösklar överskrids. Att automatisera vissa åtgärder kräver ytterligare roller för de tjänster som används, till exempel Automation och Azure Functions.
 - **Schema för kostnads data export** – Cost Management deltagare måste också ha åtkomst till hantera lagrings konton för att schemalägga en export för att kopiera data till ett lagrings konto. Överväg att bevilja [lagrings konto deltagare](../role-based-access-control/built-in-roles.md#storage-account-contributor) till en resurs grupp som innehåller det lagrings konto där kostnads data exporteras.
-- **Visa kostnads besparingar** – Cost Management läsare och Cost Management deltagare har till gång *till kostnads rekommendationer* som standard. Åtkomst till att agera på kostnads rekommendationer kräver dock åtkomst till enskilda resurser. Överväg att bevilja en [tjänstebestämd roll](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) om du vill agera med en kostnads baserad rekommendation.
+- **Visa kostnads besparingar** – Cost Management läsare och Cost Management deltagare *har till gång till kostnads rekommendationer* som standard. Åtkomst till att agera på kostnads rekommendationer kräver dock åtkomst till enskilda resurser. Överväg att bevilja en [tjänstebestämd roll](../role-based-access-control/built-in-roles.md#built-in-role-descriptions) om du vill agera med en kostnads baserad rekommendation.
 
 ## <a name="enterprise-agreement-scopes"></a>Enterprise-avtal omfattningar
 
@@ -75,14 +75,14 @@ Enterprise-avtal (EA) fakturerings konton, som även kallas registreringar, har 
 
 - [**Fakturerings konto**](../billing/billing-view-all-accounts.md) – representerar EA-registrering. Fakturor skapas i det här omfånget. Köp som inte används, till exempel Marketplace och reservationer, är bara tillgängliga i det här omfånget. De representeras inte på avdelningar eller registrerings konton.
 
-    Resurs typ:`Microsoft.Billing/billingAccounts (accountType = Enrollment)`
+    Resurs typ: `Microsoft.Billing/billingAccounts (accountType = Enrollment)`
 - **Avdelning** – valfri gruppering av registrerings konton.
 
-    Resurs typ:`Billing/billingAccounts/departments`
+    Resurs typ: `Billing/billingAccounts/departments`
 
 - **Registrerings konto** – representerar en enda konto ägare. Har inte stöd för att bevilja åtkomst till flera personer.
 
-    Resurs typ:`Microsoft.Billing/billingAccounts/enrollmentAccounts`
+    Resurs typ: `Microsoft.Billing/billingAccounts/enrollmentAccounts`
 
 Även om styrnings omfattningar är bundna till en enda katalog är EA-fakturerings omfattningar inte. Ett EA-fakturerings konto kan ha prenumerationer i valfritt antal Azure AD-kataloger.
 
@@ -118,15 +118,15 @@ Fakturerings konton för Microsofts kund avtal har följande omfång:
 
 - **Fakturerings konto** – representerar ett kund avtal för flera produkter och tjänster från Microsoft. Fakturerings konton för kund avtal fungerar inte på samma sätt som EA-registreringar. EA-registreringar är mer noggrant justerade för fakturerings profiler.
 
-    Resurs typ:`Microsoft.Billing/billingAccounts (accountType = Organization)`
+    Resurs typ: `Microsoft.Billing/billingAccounts (accountType = Organization)`
 
 - **Fakturerings profil** – definierar de prenumerationer som ingår i en faktura. Fakturerings profiler är den funktionella motsvarigheten till en EA-registrering, eftersom det är det omfång som fakturor genereras på. På samma sätt är inköp som inte används (till exempel Marketplace och reservationer) bara tillgängliga i det här omfånget. De ingår inte i faktura avsnitten.
 
-    Resurs typ:`Microsoft.Billing/billingAccounts/billingProfiles`
+    Resurs typ: `Microsoft.Billing/billingAccounts/billingProfiles`
 
 - **Avsnittet faktura** – representerar en grupp prenumerationer i en faktura eller fakturerings profil. Faktura avsnitt är som avdelningar – flera personer kan ha åtkomst till avsnittet faktura.
 
-    Resurs typ:`Microsoft.Billing/billingAccounts/invoiceSections`
+    Resurs typ: `Microsoft.Billing/billingAccounts/invoiceSections`
 
 Till skillnad från EA-fakturerings omfattningar _är_ kund avtals fakturerings konton kopplade till en enda katalog och kan inte ha prenumerationer i flera Azure AD-kataloger.
 
@@ -148,11 +148,11 @@ När AWS-integreringen är klar kan du läsa mer i [Konfigurera och konfigurera 
 
 - **Externt fakturerings konto** – representerar ett kund avtal med en tredjepartsleverantör. Det liknar fakturerings kontot för EA.
 
-    Resurs typ:`Microsoft.CostManagement/externalBillingAccounts`
+    Resurs typ: `Microsoft.CostManagement/externalBillingAccounts`
     
 - **Extern prenumeration** – representerar ett kund drifts konto med en tredjepartsleverantör. Det liknar en Azure-prenumeration.
 
-    Resurs typ:`Microsoft.CostManagement/externalSubscriptions`
+    Resurs typ: `Microsoft.CostManagement/externalSubscriptions`
 
 ## <a name="cloud-solution-provider-csp-scopes"></a>Omfattningar för Cloud Solution Provider (CSP)
 
@@ -160,7 +160,7 @@ Leverantörer av moln lösningar (CSP) stöds inte i Cost Management idag. I st�
 
 ## <a name="switch-between-scopes-in-cost-management"></a>Växla mellan omfattningar i Cost Management
 
-Alla Cost Management vyer i Azure Portal innehåller en **omfattnings** markerings Pill längst upp till vänster i vyn. Använd den för att snabbt ändra omfattningen. Öppna omfattnings väljaren genom att klicka på **området** Pill. Det visar fakturerings konton, rot hanterings gruppen och eventuella prenumerationer som inte är kapslade under rot hanterings gruppen. Om du vill välja ett omfång klickar du på bakgrunden för att markera den och klickar sedan på **Välj** längst ned. Om du vill öka detalj nivån till kapslade omfattningar, t. ex. resurs grupper i en prenumeration, klickar du på länken omfångs namn. Om du vill välja ett överordnat omfång på en kapslad nivå klickar du på **Välj det här &lt;&gt; området** överst i omfattnings väljaren.
+Alla Cost Management vyer i Azure Portal innehåller en **omfattnings** markerings Pill längst upp till vänster i vyn. Använd den för att snabbt ändra omfattningen. Öppna omfattnings väljaren genom att klicka på **området** Pill. Det visar fakturerings konton, rot hanterings gruppen och eventuella prenumerationer som inte är kapslade under rot hanterings gruppen. Om du vill välja ett omfång klickar du på bakgrunden för att markera den och klickar sedan på **Välj** längst ned. Om du vill öka detalj nivån till kapslade omfattningar, t. ex. resurs grupper i en prenumeration, klickar du på länken omfångs namn. Om du vill välja överordnat omfång på valfri kapslad nivå klickar du på **Välj den här &lt;scope @ no__t-2** överst i omfattnings väljaren.
 
 ## <a name="identify-the-resource-id-for-a-scope"></a>Identifiera resurs-ID för ett omfång
 
@@ -171,7 +171,7 @@ När du arbetar med Cost Management-API: er är det viktigt att känna till omfa
 1. Öppna Azure Portal och gå sedan till **Cost Management + fakturering** i listan över tjänster.
 2. Välj **Egenskaper** på menyn fakturerings konto.
 3. Kopiera ID för fakturerings konto.
-4. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
+4. Ditt omfång är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}"`
 
 ### <a name="billing-profiles"></a>Faktureringsprofiler
 
@@ -180,7 +180,7 @@ När du arbetar med Cost Management-API: er är det viktigt att känna till omfa
 3. Klicka på namnet på önskad fakturerings profil.
 4. Välj **Egenskaper** på menyn fakturerings profil.
 5. Kopiera ID för fakturerings konto och fakturerings profil.
-6. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
+6. Ditt omfång är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}"`
 
 ### <a name="invoice-sections"></a>Fakturaavsnitt
 
@@ -189,7 +189,7 @@ När du arbetar med Cost Management-API: er är det viktigt att känna till omfa
 3. Klicka på namnet på det önskade faktura avsnittet.
 4. Välj **Egenskaper** på menyn faktura avsnitt.
 5. Kopiera ID för fakturerings konto och faktura avsnitt.
-6. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
+6. Ditt omfång är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}"`
 
 ### <a name="ea-departments"></a>EA-avdelningar
 
@@ -198,7 +198,7 @@ När du arbetar med Cost Management-API: er är det viktigt att känna till omfa
 3. Klicka på namnet på den önskade avdelningen.
 4. Välj **Egenskaper** på avdelnings menyn.
 5. Kopiera fakturerings kontot och avdelnings-ID: n.
-6. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
+6. Ditt omfång är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}"`
 
 ### <a name="ea-enrollment-account"></a>EA-registrerings konto
 
@@ -207,20 +207,20 @@ När du arbetar med Cost Management-API: er är det viktigt att känna till omfa
 3. Klicka på namnet på det önskade registrerings kontot.
 4. Välj **Egenskaper** på menyn registrerings konto.
 5. Kopiera fakturerings kontot och ID för registrerings kontot.
-6. Ditt omfång är:`"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
+6. Ditt omfång är: `"/providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}"`
 
 ### <a name="management-group"></a>Hanteringsgrupp
 
 1. Öppna Azure Portal och gå till **hanterings grupper** i listan över tjänster.
 2. Navigera till önskad hanterings grupp.
 3. Kopiera hanterings gruppens ID från tabellen.
-4. Ditt omfång är:`"/providers/Microsoft.Management/managementGroups/{id}"`
+4. Ditt omfång är: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
 ### <a name="subscription"></a>Subscription
 
 1. Öppna Azure Portal och navigera till **prenumerationer** i listan över tjänster.
 2. Kopiera prenumerations-ID: t från tabellen.
-3. Ditt omfång är:`"/subscriptions/{id}"`
+3. Ditt omfång är: `"/subscriptions/{id}"`
 
 ### <a name="resource-groups"></a>Resursgrupper
 
@@ -228,9 +228,9 @@ När du arbetar med Cost Management-API: er är det viktigt att känna till omfa
 2. Klicka på namnet på den önskade resurs gruppen.
 3. Välj **Egenskaper** på menyn resurs grupp.
 4. Kopiera värdet för resurs-ID-fältet.
-5. Ditt omfång är:`"/subscriptions/{id}/resourceGroups/{name}"`
+5. Ditt omfång är: `"/subscriptions/{id}/resourceGroups/{name}"`
 
-Cost Management stöds för närvarande i [Azure Global](https://management.azure.com) och [Azure Government](https://management.usgovcloudapi.net). Mer information om Azure Government finns i [Azures globala och offentliga API](../azure-government/documentation-government-developer-guide.md#endpoint-mapping)-slutpunkter _._
+Cost Management stöds för närvarande i [Azure Global](https://management.azure.com) och [Azure Government](https://management.usgovcloudapi.net). Mer information om Azure Government finns i [Azures globala och offentliga API-slutpunkter](../azure-government/documentation-government-developer-guide.md#endpoint-mapping) _._
 
 ## <a name="next-steps"></a>Nästa steg
 

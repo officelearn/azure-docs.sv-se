@@ -1,19 +1,19 @@
 ---
 title: Installera Jupyter lokalt och ansluta till Spark i Azure HDInsight
 description: Lär dig hur du installerar Jupyter Notebook lokalt på din dator och ansluter den till ett Apache Spark-kluster.
-ms.service: hdinsight
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/06/2019
-ms.author: hrasheed
-ms.openlocfilehash: 6ce3ff8e00bc92911a7405de1bb0bb7286fb5c15
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 46164cfc0c2baff919808a831a67180b65a23ff7
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993766"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337659"
 ---
 # <a name="install-jupyter-notebook-on-your-computer-and-connect-to-apache-spark-on-hdinsight"></a>Installera Jupyter Notebook på din dator och Anslut till Apache Spark på HDInsight
 
@@ -146,7 +146,7 @@ I det här avsnittet konfigurerar du Spark Magic som du installerade tidigare f�
 
     a. Skapa en ny anteckningsbok. Välj **ny**i det högra hörnet. Du bör se standard kerneln **python 2** eller **python 3** och de kerneler som du har installerat. De faktiska värdena kan variera beroende på dina installations val.  Välj **PySpark**.
 
-    ![Kärnor i Jupyter Notebook](./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "Kärnor i Jupyter Notebook")
+    ![Tillgängliga kärnor i Jupyter Notebook]-(./media/apache-spark-jupyter-notebook-install-locally/jupyter-kernels-notebook.png "kärnor i Jupyter Notebook")
 
     > [!IMPORTANT]  
     > När du har valt **ny** granska ditt gränssnitt för fel.  Om du ser felet `TypeError: __init__() got an unexpected keyword argument 'io_loop'` kan du råka ut för ett känt problem med vissa versioner av storm.  Stoppa i så fall kerneln och nedgradera sedan Storm-installationen med följande kommando: `pip install tornado==4.5.3`.

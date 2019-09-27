@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/25/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: a928640aa6d56f0a39011a2cabcf979b4d907a46
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 1d95d14398bc6b5acdec89428ebe22a672551a8a
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561467"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338791"
 ---
 # <a name="protect-your-content-by-using-media-services-dynamic-encryption"></a>Skydda ditt innehåll med Media Services dynamisk kryptering
 
@@ -35,7 +35,7 @@ Följande bild illustrerar arbets flödet för Media Services innehålls skydd:
 
 ![Arbets flöde för Media Services innehålls skydd](./media/content-protection/content-protection.svg)
   
-&#42;*Dynamisk kryptering stöder AES-128 Clear Key, CBCS och Cenc. Mer information finns i [support mat ris](#streaming-protocols-and-encryption-types).*
+&#42;*Dynamic-kryptering stöder AES-128 Clear Key, CBCS och CENC. Mer information finns i [support mat ris](#streaming-protocols-and-encryption-types).*
 
 Den här artikeln förklarar begrepp och terminologi som hjälper dig att förstå innehålls skydd med Media Services.
 
@@ -68,17 +68,17 @@ I exempel visas hur du:
      ```
 2. Skapa en [strömmande lokalisering](streaming-locators-concept.md) som är konfigurerad för att strömma den krypterade till gången. 
   
-   Den strömmande lokaliseraren måste kopplas till en [strömmande princip](streaming-policy-concept.md). I det här exemplet har vi `StreamingLocator.StreamingPolicyName` angett till principen "Predefined_MultiDrmCencStreaming". 
+   Den strömmande lokaliseraren måste kopplas till en [strömmande princip](streaming-policy-concept.md). I exemplet anger vi `StreamingLocator.StreamingPolicyName` till "Predefined_MultiDrmCencStreaming"-principen. 
       
    PlayReady-och Widevine-krypteringarna tillämpas och nyckeln levereras till uppspelnings klienten baserat på de konfigurerade DRM-licenserna. Om du även vill kryptera din ström med CBCS (FairPlay) använder du principen "Predefined_MultiDrmStreaming".
 
    Den strömmande lokaliseraren är också kopplad till den innehålls nyckel princip som du har definierat.
 3. Skapa en test-token.
 
-   `GetTokenAsync` Metoden visar hur du skapar en testtoken.
+   Metoden `GetTokenAsync` visar hur du skapar en testtoken.
 4. Skapa strömnings-URL.
 
-   `GetDASHStreamingUrlAsync` Metoden visar hur du skapar strömnings-URL: en. I det här fallet strömmar URL-innehållet.
+   Metoden `GetDASHStreamingUrlAsync` visar hur du skapar strömnings-URL: en. I det här fallet strömmar URL-innehållet.
 
 ### <a name="player-with-an-aes-or-drm-client"></a>Spelare med en AES-eller DRM-klient 
 
@@ -172,7 +172,7 @@ En princip med öppen begränsad innehålls nyckel kan användas när du vill ut
 
 Med en princip för en token-begränsad innehålls nyckel skickas innehålls nyckeln endast till en klient som presenterar en giltig JWT-token eller en enkel webbtoken (SWT) i licens-/Key-begäran. Denna token måste utfärdas av en STS. 
 
-Du kan använda Azure AD som STS eller distribuera en anpassad STS. STS måste konfigureras för att skapa en token som signerats med de angivna nyckeln och problemet anspråk som du angav i tokenbegränsningar konfigurationen. Media Services licens-/nyckel leverans tjänst returnerar den begärda licensen eller nyckeln till klienten om båda dessa villkor föreligger:
+Du kan använda Azure AD som STS eller distribuera en [anpassad STS](#using-a-custom-sts). STS måste konfigureras för att skapa en token som signerats med de angivna nyckeln och problemet anspråk som du angav i tokenbegränsningar konfigurationen. Media Services licens-/nyckel leverans tjänst returnerar den begärda licensen eller nyckeln till klienten om båda dessa villkor föreligger:
 
 * Token är giltig. 
 * Anspråk i token matchar de som har kon figurer ATS för licensen eller nyckeln.
@@ -238,13 +238,13 @@ Exempel:
 streamingPolicy.EnvelopEncryption.customKeyAcquisitionUrlTemplate = "https://mykeyserver.hostname.com/envelopekey/{AlternativeMediaId}/{ContentKeyId}";
 ```
 
-`ContentKeyId`har ett värde för den begärda nyckeln. Du kan använda `AlternativeMediaId` om du vill mappa begäran till en entitet på din sida. `AlternativeMediaId` Kan till exempel användas för att söka efter behörigheter.
+`ContentKeyId` har ett värde för den begärda nyckeln. Du kan använda `AlternativeMediaId` om du vill mappa begäran till en entitet på din sida. @No__t-0 kan till exempel användas för att söka efter behörigheter.
 
  För REST-exempel som använder anpassade URL: er för licens-/nyckel hämtning, se [strömmande principer-skapa](https://docs.microsoft.com/rest/api/media/streamingpolicies/create).
 
 ## <a name="troubleshoot"></a>Felsöka
 
-Om du får `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY` felet kontrollerar du att du anger lämplig strömmande princip.
+Om du får fel meddelandet `MPE_ENC_ENCRYPTION_NOT_SET_IN_DELIVERY_POLICY`, se till att du anger lämplig strömmande princip.
 
 Om du får fel som slutar med `_NOT_SPECIFIED_IN_URL`ser du till att du anger krypterings formatet i URL: en. Ett exempel är `…/manifest(format=m3u8-cmaf,encryption=cbcs-aapl)`. Se [strömmande protokoll och krypterings typer](#streaming-protocols-and-encryption-types).
 
@@ -259,4 +259,4 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 * [Designa multi-DRM innehålls skydds system med åtkomst kontroll](design-multi-drm-system-with-access-control.md)
 * [Kryptering på lagrings Sidan](storage-account-concept.md#storage-side-encryption)
 * [Vanliga frågor och svar](frequently-asked-questions.md)
-
+* [JSON Web Token hanterare](https://docs.microsoft.com/dotnet/framework/security/json-web-token-handler)

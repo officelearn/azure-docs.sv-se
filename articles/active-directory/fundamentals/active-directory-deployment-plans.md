@@ -12,12 +12,12 @@ ms.date: 08/20/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a335bcbb45b1aac48a3aaea282ffeffe1696f4c
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: b7c851c2d865a7b553be2cd0f619ad09985115a3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900070"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71336865"
 ---
 # <a name="azure-active-directory-deployment-plans"></a>Azure Active Directory-distributionsplaner
 Letar du efter slut punkt till slut punkt om hur du distribuerar Azure Active Directory (Azure AD)-funktioner? Distributions planer för Azure AD vägleder dig genom affärs värde, planerings överväganden och operativa procedurer som krävs för att distribuera vanliga funktioner i Azure AD.
@@ -47,6 +47,14 @@ Roller kan innehålla följande
 - **C**-ontributor till projekt plan och resultat 
 
 - **I**nformed för projekt plan och resultat
+
+
+## <a name="best-practices-for-a-pilot"></a>Metod tips för en pilot
+Med en pilot kan du testa med en liten grupp innan du aktiverar en funktion för alla. Se till att varje användnings fall i din organisation testas grundligt under testningen. Det är bäst att rikta in sig på en bestämd grupp pilot användare innan du går över till din organisation som helhet.
+
+I din första Wave, rikta in dig på den, användbarhet och andra lämpliga användare som kan testa och ge feedback. Den här feedbacken bör användas för att ytterligare utveckla kommunikationen och anvisningarna som du skickar till användarna och ger insikter om vilka typer av problem som support Personalen kan se. 
+
+Att utöka distributionen till större grupper av användare bör utföras genom att utöka omfånget för de grupper som är riktade till varandra. Detta kan göras via [dynamiskt grupp medlemskap](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)eller genom att manuellt lägga till användare till mål grupperna.
 
 
 ## <a name="deploy-authentication"></a>Distribuera autentisering

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh; cynthn
 ms.custom: include file
-ms.openlocfilehash: 529a8b6136a5d9c69b044df2614644bdbd4fd4f4
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: d86976ad191ffffa343ad7a94b8171759ad102c3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012288"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338342"
 ---
 Delade avbildnings galleri är en tjänst som hjälper dig att bygga struktur och organisation runt dina hanterade avbildningar. Delade avbildnings gallerier ger:
 
@@ -52,15 +52,15 @@ Det finns tre parametrar för varje avbildnings definition som används i kombin
 
 |Bilddefinition|Utgivare|Erbjudande|SKU|
 |---|---|---|---|
-|myImage1|Contoso|Finans|Serverdel|
-|myImage2|Contoso|Finans|Klientdel|
-|myImage3|Testning|Finans|Klientdel|
+|myImage1|Contoso|Ekonomi|Serverdel|
+|myImage2|Contoso|Ekonomi|Delen|
+|myImage3|Testning|Ekonomi|Delen|
 
-Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace](../articles/virtual-machines/windows/cli-ps-findimage.md) -avbildningar i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
+Alla tre av dessa har unika uppsättningar med värden. Formatet liknar hur du för närvarande kan ange utgivare, erbjudande och SKU för [Azure Marketplace-avbildningar](../articles/virtual-machines/windows/cli-ps-findimage.md) i Azure PowerShell för att hämta den senaste versionen av en Marketplace-avbildning. Varje bild definition måste ha en unik uppsättning av dessa värden.
 
 Följande är andra parametrar som kan ställas in på din avbildnings definition så att du enkelt kan spåra dina resurser:
 
-* Operativ system tillstånd – du kan ange operativ systemets tillstånd till generaliserad eller specialiserad, men endast generaliserad stöds för närvarande. Avbildningar måste skapas från virtuella datorer som har generaliserats med hjälp av Sysprep för `waagent -deprovision` Windows eller Linux.
+* Operativ system tillstånd – du kan ange operativ systemets tillstånd till generaliserad eller specialiserad, men endast generaliserad stöds för närvarande. Avbildningar måste skapas från virtuella datorer som har generaliserats med hjälp av Sysprep för Windows eller `waagent -deprovision` för Linux.
 * Operativ system – kan vara antingen Windows eller Linux.
 * Beskrivning – Använd beskrivning för att ge mer detaljerad information om varför avbildnings definitionen finns. Du kan till exempel ha en avbildnings definition för din klient server som har programmet förinstallerat.
 * EULA – kan användas för att peka på ett licens avtal för slutanvändare som är speciellt för avbildnings definitionen.
@@ -83,10 +83,10 @@ Käll regionerna visas i tabellen nedan. Alla offentliga regioner kan vara mål 
 | Östra Australien      | East US         | Norra centrala USA | Indien, västra      |
 | Sydöstra Australien | USA, östra 2       | Norra Europa     | Västra USA         |
 | Södra Brasilien        | USA, östra 2 – EUAP  | Södra centrala USA | Västra USA 2       |
-| Centrala Kanada      | Frankrike, centrala  | Indien, södra      |                 |
-| Östra Kanada         | Frankrike, södra    | Sydostasien   |                 |
-| Indien, centrala       | Östra Japan      | Storbritannien, södra         |                 |
-| Centrala USA          | Västra Japan      | Storbritannien, västra          |                 |
+| Centrala Kanada      | Frankrike, centrala  | Indien, södra      | Kina, östra      |
+| Östra Kanada         | Frankrike, södra    | Sydostasien   | Kina, östra 2    |
+| Indien, centrala       | Östra Japan      | Storbritannien, södra         | Kina, norra     |
+| Centrala USA          | Västra Japan      | Storbritannien, västra          | Kina, norra 2   |
 
 
 
@@ -106,8 +106,8 @@ Med det delade bild galleriet kan du ange antalet repliker som du vill att Azure
 
 Med delade avbildnings galleriet kan du nu distribuera upp till en 1 000 VM-instanser i en skalnings uppsättning för virtuella datorer (upp till 600 med hanterade avbildningar). Avbildnings repliker ger bättre distributions prestanda, tillförlitlighet och konsekvens.  Du kan ange ett annat antal repliker i varje mål region, baserat på skalnings behoven för regionen. Eftersom varje replik är en djupgående kopia av din avbildning hjälper det att skala dina distributioner linjärt med varje extra replik. Vi förstår att inga två bilder eller regioner är desamma, här är vår allmänna rikt linje om hur du använder repliker i en region:
 
-- För varje 20 virtuella datorer som du skapar samtidigt rekommenderar vi att du behåller en replik. Om du till exempel skapar 120 virtuella datorer samtidigt med samma avbildning i en region, rekommenderar vi att du behåller minst 6 repliker av avbildningen. 
-- För varje skalnings uppsättnings distribution med upp till 600 instanser rekommenderar vi att du behåller minst en replik. Om du till exempel skapar 5 skalnings uppsättningar samtidigt, var och en med 600 VM-instanser med samma avbildning i en enda region, rekommenderar vi att du behåller minst 5 repliker av avbildningen. 
+- För VMSS-distributioner för icke-virtuella datorer, rekommenderar vi att du behåller en replik för varje 20 virtuella datorer som du skapar samtidigt. Om du till exempel skapar 120 virtuella datorer samtidigt med samma avbildning i en region, rekommenderar vi att du behåller minst 6 repliker av avbildningen. 
+- För VMSS-distributioner (Virtual Machine Scale set) – för varje skalnings uppsättnings distribution med upp till 600 instanser rekommenderar vi att du behåller minst en replik. Om du till exempel skapar 5 skalnings uppsättningar samtidigt, var och en med 600 VM-instanser med samma avbildning i en enda region, rekommenderar vi att du behåller minst 5 repliker av avbildningen. 
 
 Vi rekommenderar alltid att du överetablerar antalet repliker på grund av faktorer som bild storlek, innehåll och OS-typ.
 
@@ -137,9 +137,9 @@ De regioner som en delad avbildnings version replikeras till kan uppdateras efte
 
 När galleriet för delad avbildning, bild definition och avbildnings version är alla resurser kan de delas med de inbyggda inbyggda Azure RBAC-kontrollerna. Med RBAC kan du dela dessa resurser till andra användare, tjänstens huvud namn och grupper. Du kan även dela åtkomst till personer utanför den klient organisation de skapades i. När en användare har åtkomst till den delade avbildnings versionen kan de distribuera en virtuell dator eller en skalnings uppsättning för virtuella datorer.  Här är en delnings mat ris som hjälper dig att förstå vad användaren får åtkomst till:
 
-| Delat med användare     | Delat avbildningsgalleri | Bilddefinition | Bildversion |
+| Delat med användare     | Shared Image Gallery | Bilddefinition | Bildversion |
 |----------------------|----------------------|--------------|----------------------|
-| Delat avbildningsgalleri | Ja                  | Ja          | Ja                  |
+| Shared Image Gallery | Ja                  | Ja          | Ja                  |
 | Bilddefinition     | Nej                   | Ja          | Ja                  |
 
 Vi rekommenderar att du delar på Galleri nivå för bästa möjliga upplevelse. Vi rekommenderar inte att du delar enskilda avbildnings versioner. Mer information om RBAC finns i [Hantera åtkomst till Azure-resurser med RBAC](../articles/role-based-access-control/role-assignments-portal.md).
@@ -271,7 +271,7 @@ Ange det regionala replik antalet genom att skicka platsen tillsammans med antal
 
 Om det regionala replik antalet inte anges med varje plats, blir standard antalet repliker det vanliga antalet repliker som du har angett. 
 
-Om du vill ange vanliga replik antal i CLI använder du argumentet **--Replica-Count** i `az sig image-version create` kommandot.
+Om du vill ange vanliga replik antal i CLI använder du argumentet **--Replica-Count** i kommandot `az sig image-version create`.
 
 
 **F.** Kan jag skapa galleriet för delade avbildningar på en annan plats än den där jag vill skapa bild definitions-och bild versionen?

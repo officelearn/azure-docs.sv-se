@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: beb9e1344f5dd3bf4b3c3d293e38a7a28170771c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212005"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327673"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
@@ -96,6 +96,8 @@ För närvarande kan du inte direkt konvertera mellan en standard fil resurs och
 
 > [!IMPORTANT]
 > Premium-filresurser är tillgängliga med LRS i de flesta regioner som erbjuder lagrings konton och med ZRS i en mindre delmängd regioner. För att ta reda på om Premium-filresurser är tillgängliga i din region, se sidan [produkter som är tillgängliga per region](https://azure.microsoft.com/global-infrastructure/services/?products=storage) för Azure. För att ta reda på vilka regioner som stöder ZRS, se [support täckning och regional tillgänglighet](../common/storage-redundancy-zrs.md#support-coverage-and-regional-availability).
+>
+> För att hjälpa oss att prioritera nya regioner och funktioner på Premium-nivå kan du fylla i den här [undersökningen](https://aka.ms/pfsfeedback).
 
 #### <a name="provisioned-shares"></a>Etablerade resurser
 

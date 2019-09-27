@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 04/08/2019
 ms.author: dacurwin
-ms.openlocfilehash: 960ddcc2a082b247951b0f79d0c990acc5e557e1
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 6e95c012aed9fdcfda2b64c310458425df2b9f9e
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210379"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71337895"
 ---
 # <a name="move-a-recovery-services-vault-across-azure-subscriptions-and-resource-groups"></a>Flytta ett Recovery Services valv över Azure-prenumerationer och resurs grupper
 
@@ -38,7 +38,7 @@ Flytt av resurser för Recovery Services Vault stöds i östra Australien, östr
 - Alternativen för att flytta resurser som distribueras via den klassiska modellen varierar beroende på om du flyttar resurserna i en prenumeration eller till en ny prenumeration. Mer information finns i den här [artikeln](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - Säkerhets kopierings principer som definierats för valvet behålls när valvet flyttas över prenumerationer eller till en ny resurs grupp.
 - Det går inte att flytta valvet med Azure Files, Azure File Sync eller SQL i IaaS VM: ar över prenumerationer och resurs grupper.
-- Om du flyttar ett valv som innehåller data för säkerhets kopiering av virtuella datorer i prenumerationer måste du flytta dina virtuella datorer till samma prenumeration och använda samma mål resurs grupp för att fortsätta med säkerhets kopieringen.<br>
+- Om du flyttar ett valv som innehåller data för säkerhets kopiering av virtuella datorer, mellan prenumerationer, måste du flytta dina virtuella datorer till samma prenumeration och använda samma mål resurs grupp namn för virtuell dator (som i den gamla prenumerationen) för att fortsätta med säkerhets kopieringen.<br>
 
 > [!NOTE]
 >

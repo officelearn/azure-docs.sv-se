@@ -1,20 +1,20 @@
 ---
 title: Ansluta till Windows Virtual Desktop från macOS – Azure
-description: Så här ansluter du till det virtuella Windows-skrivbordet från macOS.
+description: Ansluta till virtuella Windows-datorer med macOS-klienten.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: bf6bfb52bd763eabd88f23701c3d1f240cdf4844
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: fa61d69ae7aa650b6011696fd45d05ba20d2ac8b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310196"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338709"
 ---
-# <a name="connect-from-macos"></a>Anslut från macOS
+# <a name="connect-with-the-macos-client"></a>Ansluta med macOS-klienten
 
 > Gäller för: macOS 10,12 eller senare
 
@@ -44,6 +44,6 @@ När du har loggat in bör du se en lista över tillgängliga resurser.
 
 När du prenumererar på en feed uppdateras innehållet i feeden automatiskt regelbundet. Resurser kan läggas till, ändras eller tas bort utifrån ändringar som gjorts av administratören.
 
-## <a name="client-documentation"></a>Klient dokumentation
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om macOS-klienten finns i [Kom igång med MacOS-klientens](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) dokumentation.

@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 64f16c2ad6fdeeb47b747eab24587b43f3df5130
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 4a3f37c232fcd7a0fcbdac051ed36916ef5c2868
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68355953"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326669"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp avC#
 
@@ -22,6 +22,7 @@ ms.locfileid: "68355953"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
+> * [ARM-mall](create-cluster-database-resource-manager.md)
 
 Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här artikeln skapar du ett kluster och en databas med hjälp C#av.
 

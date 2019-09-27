@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: mbullwin
-ms.openlocfilehash: af157204ad1e1b28639ae2d8f192b3122afa8147
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ff9d4bb98a79c379fda2c1a0a0ab9d5e0ec212ce
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299230"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338092"
 ---
 # <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Övervaka beroenden, fångade undantag och metod körnings tider i Java-webbappar
 
@@ -122,7 +122,7 @@ Lägg till följande i AI-Agent. XML:
 
 Vi rekommenderar att detta är fallet när alla dina tjänster har uppdaterats till en nyare version av SDK: er som stöder W3C-protokollet. Vi rekommenderar starkt att du flyttar till en nyare version av SDK: er med stöd för W3C så snart som möjligt.
 
-Se till att **både [inkommande](correlation.md#w3c-distributed-tracing) och utgående (agent) konfigurationer** är exakt samma.
+Se till att **både [inkommande](correlation.md#enable-w3c-distributed-tracing-support-for-java-apps) och utgående (agent) konfigurationer** är exakt samma.
 
 ## <a name="view-the-data"></a>Visa data
 I Application Insights-resursen visas sammanställda fjärrberoende och metod körnings tider [under prestanda panelen][metrics].

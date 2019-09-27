@@ -8,12 +8,12 @@ ms.service: advisor
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: kasparks
-ms.openlocfilehash: 96e939f8e3da58a123d9a6733b71b74c2ff0ba87
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 144b63131be68c9209835a1b8b3a01062245cfdd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311900"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326582"
 ---
 # <a name="reduce-service-costs-using-azure-advisor"></a>Minska tjänste kostnaderna med Azure Advisor
 
@@ -21,9 +21,9 @@ Advisor hjälper dig att optimera och minska dina totala Azure-utgifter genom at
 
 ## <a name="optimize-virtual-machine-spend-by-resizing-or-shutting-down-underutilized-instances"></a>Optimera den virtuella datorn genom att ändra storlek på eller stänga av underutnyttjade instanser 
 
-Även om vissa program scenarier kan resultera i låg användning genom design, kan du ofta Spara pengar genom att hantera storleken och antalet virtuella datorer. Advisor övervakar din användning av virtuella datorer i 7 dagar och identifierar virtuella datorer med låg användning. Virtuella datorer betraktas som en låg belastning om processor användningen är 5% eller mindre och användningen av nätverket är mindre än 2% eller om den aktuella arbets belastningen kan hanteras av en mindre virtuell dator storlek.
+Även om vissa program scenarier kan resultera i låg användning genom design, kan du ofta Spara pengar genom att hantera storleken och antalet virtuella datorer. Advisor övervakar din användning av virtuella datorer i 7 dagar och identifierar virtuella datorer med låg användning.  Virtuella datorer betraktas som en låg belastning om deras processor användning är 5% eller mindre och deras nätverks användning är mindre än 2% och har tröskeln för minnes tryck eller om den aktuella arbets belastningen kan hanteras av en mindre virtuell dator storlek.
 
-Advisor visar den beräknade kostnaden för att fortsätta att köra den virtuella datorn, så att du kan välja att stänga av den eller ändra storlek på den.
+De rekommenderade åtgärderna är avstängda eller ändra storlek, vad gäller resurs som rekommenderas för. Advisor visar de uppskattade kostnaderna för antingen rekommenderade åtgärder – ändra storlek eller stänga av. För att ändra storlek på Rekommenderad åtgärd tillhandahåller Advisor den aktuella och riktade SKU-informationen. 
 
 Om du vill vara mer aggressiv vid identifiering av underutnyttjade virtuella datorer kan du justera processor användnings regeln per prenumeration.
 

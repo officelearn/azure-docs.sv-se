@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/23/2019
+ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a575d9f90d166ba69b14e4507d9ed7a54fac574
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 4a79cf166025ced6cb08d2f9e24801ea498fdc1c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291017"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326384"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Redigera och hantera ett befintligt Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -36,7 +36,7 @@ I den här artikeln beskrivs hur du redigerar och hanterar befintliga åtkomst p
 
 ## <a name="add-resource-roles"></a>Lägg till resursroller
 
-En resurs roll är en samling behörigheter som är kopplade till en resurs. Hur du gör resurser som är tillgängliga för användare att begära är att lägga till resurs roller till ditt åtkomst paket. Du kan lägga till resurs roller för grupper, program och SharePoint-webbplatser.
+En resurs roll är en samling behörigheter som är kopplade till en resurs. Hur du gör resurser som är tillgängliga för användare att begära är att lägga till resurs roller till ditt åtkomst paket. Du kan lägga till resurs roller för grupper, team, program och SharePoint-webbplatser.
 
 **Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
@@ -50,38 +50,49 @@ En resurs roll är en samling behörigheter som är kopplade till en resurs. Hur
 
     ![Åtkomst paket – Lägg till resurs roller](./media/entitlement-management-access-package-edit/resource-roles-add.png)
 
-1. Beroende på om du vill lägga till en grupp, ett program eller en SharePoint-webbplats utför du stegen i någon av följande resurs Rolls avsnitt.
+1. Beroende på om du vill lägga till en grupp, ett team, ett program eller en SharePoint-webbplats, utför du stegen i någon av följande resurs Rolls avsnitt.
 
-### <a name="add-a-group-resource-role"></a>Lägg till en grupp resurs roll
+### <a name="add-a-group-or-team-resource-role"></a>Lägg till en grupp-eller team resurs roll
 
-Du kan låta rättighets hantering automatiskt lägga till användare till en grupp när de tilldelas ett åtkomst paket. 
+Du kan låta rättighets hantering automatiskt lägga till användare i en grupp eller ett Microsoft-team när de tilldelas ett åtkomst paket. 
 
-- När en grupp ingår i ett Access-paket och en användare tilldelas till det åtkomst paketet, läggs användaren till i gruppen om den inte redan finns.
-- När en användares åtkomst paket tilldelning upphör tas de bort från gruppen, om de inte har en tilldelning till ett annat Access-paket som innehåller samma grupp.
+- När en grupp eller ett team ingår i ett Access-paket och en användare tilldelas till det åtkomst paketet, läggs användaren till i gruppen eller teamet, om det inte redan finns.
+- När en användares åtkomst paket tilldelning går ut tas de bort från gruppen eller teamet, om de inte har en tilldelning till ett annat Access-paket som innehåller samma grupp eller team.
 
-Du kan välja valfri Office 365-grupp eller Azure AD-säkerhetsgrupp.  Administratörer kan lägga till valfri grupp i en katalog. Katalog ägare kan lägga till valfri grupp till katalogen om de är ägare till gruppen. Behåll följande Azure AD-begränsningar i åtanke när du väljer en grupp:
+Du kan välja valfri [Azure AD-säkerhetsgrupp eller Office 365-grupp](../fundamentals/active-directory-groups-create-azure-portal.md).  Administratörer kan lägga till valfri grupp i en katalog. Katalog ägare kan lägga till valfri grupp till katalogen om de är ägare till gruppen. Behåll följande Azure AD-begränsningar i åtanke när du väljer en grupp:
 
-- När en användare, inklusive en gäst, läggs till som en medlem i en grupp kan de Se alla andra medlemmar i gruppen.
+- När en användare, inklusive en gäst, läggs till som en medlem i en grupp eller ett team kan de Se alla andra medlemmar i gruppen eller teamet.
 - Azure AD kan inte ändra medlemskap för en grupp som har synkroniserats från Windows Server Active Directory att använda Azure AD Connect eller som skapades i Exchange Online som en distributions grupp.  
 - Det går inte att uppdatera medlemskapet i dynamiska grupper genom att lägga till eller ta bort en medlem, så dynamiska grupp medlemskap är inte lämpliga för användning med hantering av rättigheter.
 
-1. Öppna fönstret Välj grupper genom att klicka på **grupper** på sidan **Lägg till resurs roller för åtkomst till paket** .
+Mer information finns i [Jämför grupper](/office365/admin/create-groups/compare-groups) och [Office 365-grupper och Microsoft Teams](/microsoftteams/office-365-groups).
 
-1. Välj de grupper som du vill ta med i åtkomst paketet.
+1. Öppna fönstret Välj grupper genom att klicka på **grupper och team** på sidan **Lägg till resurs roller för åtkomst till paket** .
+
+1. Välj de grupper och team som du vill ta med i åtkomst paketet.
 
     ![Åtkomst paket – Lägg till resurs roller – Välj grupper](./media/entitlement-management-access-package-edit/group-select.png)
 
 1. Klicka på **Välj**.
 
+    När du har valt gruppen eller teamet visas en av följande under typer i kolumnen **under** typ:
+
+    |  |  |
+    | --- | --- |
+    | Säkerhet | Används för att bevilja åtkomst till resurser. |
+    | Distribution | Används för att skicka aviseringar till en grupp med personer. |
+    | O365 | Office 365-grupp som inte är team aktive rad. Används för samarbete mellan användare, både inom och utanför företaget. |
+    | Team | Office 365-grupp som är team aktiverade. Används för samarbete mellan användare, både inom och utanför företaget. |
+
 1. Välj **ägare** eller **medlem**i listan **roll** .
 
     Vanligt vis väljer du medlems rollen. Om du väljer ägar rollen så att användarna kan lägga till eller ta bort andra medlemmar eller ägare.
 
-    ![Åtkomst paket – Lägg till resurs roll för en grupp](./media/entitlement-management-access-package-edit/group-role.png)
+    ![Åtkomst paket – Lägg till resurs roll för en grupp eller ett team](./media/entitlement-management-access-package-edit/group-role.png)
 
 1. Klicka på **Lägg till**.
 
-    Alla användare med befintliga tilldelningar till åtkomst paketet blir automatiskt medlemmar i den här gruppen när de läggs till.
+    Alla användare med befintliga tilldelningar till åtkomst paketet blir automatiskt medlemmar i den här gruppen eller teamet när de läggs till.
 
 ### <a name="add-an-application-resource-role"></a>Lägg till en program resurs roll
 

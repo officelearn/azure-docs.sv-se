@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: memildin
-ms.openlocfilehash: 11e1c837e416a5d2105f494c43823298edfd4355
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 488210e4f2c5d3a8a978079d0c7293ce091d998b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200495"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338779"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
@@ -42,7 +42,7 @@ När du aktiverar Security Center avspeglas säkerhets principen som är inbyggd
 Om din organisation har många prenumerationer kan det behövas ett effektivt sätt att hantera åtkomst, principer och efterlevnad för prenumerationerna. Med Azures hanteringsgrupper får du en hanteringsnivå över prenumerationsnivån. Du kan ordna prenumerationerna i containrar som kallas hanteringsgrupper och tillämpa styrningsprinciper på hanteringsgrupperna. Alla prenumerationer i en hanteringsgrupp ärver automatiskt de principer som tillämpas på hanteringsgruppen. Varje katalog tilldelas en hanteringsgrupp på översta nivån som kallas rothanteringsgruppen. Rothanteringsgruppen är inbyggd i hierarkin så att alla hanteringsgrupper och prenumerationer är dess underordnade element. Med hjälp av rothanteringsgruppen kan globala principer och RBAC-tilldelningar tillämpas på katalognivå. Om du vill konfigurera hanterings grupper som ska användas med Azure Security Center följer du anvisningarna i [få insyn i hela klienten för Azure Security Center](security-center-management-groups.md).
 
 > [!NOTE]
-> Det är viktigt att du är införstådd med hierarkin för hanteringsgrupper och prenumerationer. Du kan läsa mer om hanteringsgrupper, rothantering och hanteringsgruppåtkomst i artikeln om att [organisera dina resurser med Azures hanteringsgrupper](../governance/management-groups/index.md#root-management-group-for-each-directory).
+> Det är viktigt att du är införstådd med hierarkin för hanteringsgrupper och prenumerationer. Du kan läsa mer om hanteringsgrupper, rothantering och hanteringsgruppåtkomst i artikeln om att [organisera dina resurser med Azures hanteringsgrupper](../governance/management-groups/overview.md#root-management-group-for-each-directory).
 >
 
 ## <a name="how-security-policies-work"></a>Hur fungerar säkerhetsprinciper?

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 4/24/2019
 ms.author: atsenthi
-ms.openlocfilehash: 6563d6e7c454f44e1a70d725191e56d3f90315c2
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 91e85f762e05c836fe32f5743cc48afed30ae983
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67052596"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327301"
 ---
 # <a name="service-fabric-application-scenarios"></a>Service Fabric program scenarier
 Azure Service Fabric erbjuder en tillförlitlig och flexibel plattform där du kan skriva och köra många typer av affärs program och tjänster. Dessa program och mikrotjänster kan vara tillstånds lösa eller tillstånds känsliga och de är resurs Utjämnings bara på virtuella datorer för att maximera effektiviteten. 
@@ -55,7 +55,7 @@ Design rikt linjer för att skapa program finns [i arkitekturen för mikrotjäns
 * **Skalbara tjänster**: Enskilda tjänster kan partitioneras, så att tillstånd kan skalas ut över klustret. Enskilda tjänster kan också skapas och tas bort i farten. Du kan skala ut tjänster från några få instanser på flera noder till tusentals instanser på många noder och sedan skala dem igen om det behövs. Du kan använda Service Fabric för att bygga dessa tjänster och hantera hela livs cykeln.
 
 ## <a name="application-design-case-studies"></a>Fallstudier för program design
-Fallstudier som visar hur Service Fabric används för att utforma program publiceras i kundernas [berättelser](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=0&so=story_publish_date%20desc/) och [mikrotjänster på Azure](https://azure.microsoft.com/solutions/microservice-applications/) -platser.
+Fallstudier som visar hur Service Fabric används för att utforma program publiceras i [kundernas berättelser](https://customers.microsoft.com/search?sq=%22Azure%20Service%20Fabric%22&ff=&p=0&so=story_publish_date%20desc/) och [mikrotjänster på Azure](https://azure.microsoft.com/solutions/microservice-applications/) -platser.
 
 ## <a name="designing-applications-composed-of-stateless-and-stateful-microservices"></a>Utforma program som består av tillstånds lösa och tillstånds känsliga mikrotjänster
 Att skapa program med Azure Cloud Services Worker-roller är ett exempel på en tillstånds lös tjänst. Tillstånds känsliga mikrotjänster upprätthåller däremot sitt auktoritativa tillstånd bortom begäran och dess svar. Den här funktionen ger hög tillgänglighet och konsekvens för tillstånd via enkla API: er som tillhandahåller transaktionella garantier som backas upp av replikeringen. 
@@ -68,9 +68,9 @@ Tillstånds känsliga mikrotjänster fören klar programdesignerna eftersom de t
 
 Följande diagram illustrerar skillnaderna mellan att utforma ett program som är tillstånds löst och ett tillstånds känsligt. Genom att dra nytta av [Reliable Services](service-fabric-reliable-services-introduction.md) och [Reliable Actors](service-fabric-reliable-actors-introduction.md) programmerings modeller, minskar tillstånds känsliga tjänster program komplexiteten och ger stora data flöden och låg latens.
 
-Här är ett exempel program som använder tillstånds lösa tjänster: ![Program som använder tillstånds lösa tjänster][Image1]
+Här är ett exempel program som använder tillstånds lösa tjänster: ![Application som använder tillstånds lösa tjänster @ no__t-1
 
-Här är ett exempel program som använder tillstånds känsliga tjänster: ![Program som använder tillstånds lösa tjänster][Image2]
+Här är ett exempel program som använder tillstånds känsliga tjänster: ![Application som använder tillstånds lösa tjänster @ no__t-1
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -87,5 +87,5 @@ Här är ett exempel program som använder tillstånds känsliga tjänster: ![Pr
   * [Skala Service Fabric tjänster](service-fabric-concepts-scalability.md)
   * [Partitionera Service Fabric tjänster](service-fabric-concepts-partitioning.md)
 
-[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.jpg
-[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.jpg
+[Image1]: media/service-fabric-application-scenarios/AppwithStatelessServices.png
+[Image2]: media/service-fabric-application-scenarios/AppwithStatefulServices.png

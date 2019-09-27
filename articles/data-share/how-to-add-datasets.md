@@ -1,17 +1,17 @@
 ---
-title: Lägga till data uppsättningar till en befintlig data resurs i Azure Data Share Preview
+title: Lägga till data uppsättningar i en befintlig Azure Data repreview-förhandsgranskning
 description: Lägga till data uppsättningar till en befintlig data resurs
-author: madams0013
+author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: jasonh
-ms.openlocfilehash: 75ac837491927881fd8b7547b0f49a069c3f2d47
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: bd8cd7af72c349060eb035dc32e9ddd1a7f9920e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257229"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327513"
 ---
 # <a name="how-to-add-datasets-to-an-existing-share-in-azure-data-share-preview"></a>Så här lägger du till data uppsättningar till en befintlig resurs i för hands versionen av Azure Data Share
 
@@ -23,11 +23,11 @@ Information om hur du lägger till data uppsättningar när du skapar en resurs 
 
 I för hands versionen av Azure Data Share navigerar du till den skickade resursen och väljer fliken **data uppsättningar** . Lägg till fler data uppsättningar genom att klicka på **+ Lägg till data uppsättningar** .
 
-![Lägg till data uppsättningar](./media/how-to/how-to-add-datasets/add-datasets.png)
+![Lägg till datamängder](./media/how-to/how-to-add-datasets/add-datasets.png)
 
 I panelen till höger väljer du den data uppsättnings typ som du vill lägga till och klickar sedan på **Nästa**. Välj prenumerationen och resurs gruppen för de data som du vill lägga till. Använd de nedrullningsbara pilarna och leta upp och markera kryss rutan bredvid de data som ska läggas till.
 
-![Lägg till data uppsättningar](./media/how-to/how-to-add-datasets/add-datasets-side.png)
+![Lägg till datamängder](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
 När du klickar på **Lägg till data uppsättningar**kommer data uppsättningarna att läggas till i din resurs. Obs! En ögonblicks bild måste utlösas av dina konsumenter för att de ska kunna se de nya data uppsättningarna. Om inställningarna för ögonblicks bilder har kon figurer ATS ser användarna de nya data uppsättningarna när nästa schemalagda ögonblicks bild har slutförts. Om inte inställningarna för ögonblicks bilder har kon figurer ATS måste konsumenten manuellt utlösa en fullständig eller stegvis kopia av data för att ta emot uppdateringarna. Mer information om ögonblicks bilder finns i [ögonblicks bilder](terminology.md).
 

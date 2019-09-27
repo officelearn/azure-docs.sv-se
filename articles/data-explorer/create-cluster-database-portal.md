@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: quickstart
 ms.date: 07/22/2019
-ms.openlocfilehash: 079f87dec67f98d502d135fc012b5523211d5957
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 10030cf69009c59fa607ad68c3b7ab19c7a22860
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70381796"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326717"
 ---
 # <a name="quickstart-create-an-azure-data-explorer-cluster-and-database"></a>Snabbstart: Skapa ett Azure Data Explorer-kluster och en databas
 
@@ -22,7 +22,7 @@ ms.locfileid: "70381796"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->  
+> * [ARM-mall](create-cluster-database-resource-manager.md)
 
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här snabbstarten skapar du ett kluster och en databas.
@@ -56,7 +56,7 @@ Skapa ett Azure Data Explorer-kluster med en definierad uppsättning beräknings
     | Klusternamn | Ett unikt klusternamn | Välj ett unikt namn som identifierar klustret. Domännamnet *[region]. kusto.windows .net* läggs till i klusternamnet som du anger. Namnet får bara innehålla gemena bokstäver och siffror. Det måste innehålla mellan 4 och 22 tecken.
     | Region | USA, *västra* eller *västra USA 2* | Välj *västra USA* eller *västra USA 2* (om du använder tillgänglighets zoner) för den här snabb starten. Välj den region som bäst uppfyller dina behov för ett produktionssystem.
     | Tillgänglighetszoner | *1*, *2*och/eller *3* | Placera kluster instanserna i olika tillgänglighets zoner i samma region (valfritt). [Azure-tillgänglighetszoner](/azure/availability-zones/az-overview) är unika fysiska platser inom samma Azure-region. De skyddar ett Azure Datautforskaren-kluster och data från delvis regions fel. Klusternoderna skapas som standard i samma data Center. Genom att välja flera tillgänglighets zoner kan du eliminera en enskild felpunkt och garantera hög tillgänglighet. Det går bara att distribuera till tillgänglighets zoner när klustret skapas och kan inte ändras vid ett senare tillfälle.
-    | Beräkningsspecifikationer | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
+    | Specifikationer för databearbetning | *D13_v2* | Välj den lägsta prisspecifikationen för den här snabbstarten. För ett produktionssystem väljer du den specifikation som bäst uppfyller dina behov.
     | | | |
 
 1. Välj **Granska + skapa** för att granska din klusterinformation och **Skapa** för att etablera klustret. Etableringen tar normalt cirka 10 minuter.

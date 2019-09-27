@@ -1,77 +1,60 @@
 ---
-title: Ansluta till Windows virtuella skrivbord förhandsversion från Windows 10 eller Windows 7 - Azure
-description: Hur du ansluter till Windows-Preview för virtuella skrivbord från Windows 10 eller Windows 7.
+title: Ansluta till för hands versionen av Windows Virtual Desktop från Windows 10 eller Windows 7 – Azure
+description: Hur du ansluter till virtuella Windows-datorer med hjälp av Windows Skriv bords klienten.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/24/2019
+ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 66b423ea27cc0f9112349964fcfd0d75f08c12bd
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 49431f75fb801c683a167e1809724eeeef208561
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620122"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338455"
 ---
-# <a name="connect-from-windows-10-or-windows-7"></a>Ansluta från Windows 10 eller Windows 7
+# <a name="connect-with-the-windows-desktop-client"></a>Ansluta till Windows Desktop-klienten
 
-> Gäller för: Windows 7 och Windows 10.
+> Gäller för: Windows 7 och Windows 10
 
-En nedladdningsbar klient är tillgängliga som ger tillgång till Windows Virtual Desktop resurser från enheter som kör Windows 7 och Windows 10.
+Du kan komma åt Windows-resurser för virtuella skriv bord på enheter med Windows 7 eller Windows 10 med hjälp av Windows Skriv bords klienten.
 
 > [!IMPORTANT]
-> Använd inte **RemoteApp- och Desktop-anslutningar (RADC)** eller **anslutning till fjärrskrivbord (MSTSC)** åtkomst till virtuella Windows-skrivbordet resurser eftersom antingen klienten inte stöd för virtuella Windows-skrivbordet.
+> Windows Virtual Desktop stöder inte RADC-klienten (RemoteApp-och Desktop Connections) eller Anslutning till fjärrskrivbord-klienten (MSTSC).
 
-## <a name="install-the-client"></a>Installera klienten
+## <a name="install-the-windows-desktop-client"></a>Installera Windows Desktop-klienten
 
-[Ladda ned](https://go.microsoft.com/fwlink/?linkid=2068602) och installera klienten på din lokala dator. Installationen kräver administratörsrättigheter.
+Det här är de klienter som du kan ladda ned för tillfället:
+
+- [Windows 64-bitars](https://go.microsoft.com/fwlink/?linkid=2068602)
+
+Vi uppdaterar den här listan när klienten blir tillgänglig för fler versioner av Windows.
+
+Du kan installera klienten för den aktuella användaren, som inte kräver administratörs rättigheter, eller så kan administratören installera och konfigurera klienten så att alla användare på enheten kan komma åt den.
+
+När du har installerat kan klienten startas från Start-menyn genom att söka efter **fjärr skrivbord**.
 
 ## <a name="subscribe-to-a-feed"></a>Prenumerera på en feed
 
-Hämta listan över hanterade resurser som är tillgängliga för dig genom att prenumerera på den feed som tillhandahålls av din administratör. Prenumerera gör resurser tillgängliga på din lokala dator.
+Hämta listan över hanterade resurser som är tillgängliga för dig genom att prenumerera på den feed som administratören har fått. När du prenumererar blir resurserna tillgängliga på din lokala dator.
 
-Prenumerera på en feed:
+Så här prenumererar du på en feed:
 
-1. Starta klienten från listan alla appar, leta upp för **Remote Desktop**.
-1. Välj **prenumerera** på huvudsidan för att ansluta till tjänsten och hämta dina resurser.
-1. **Logga in** med ditt användarkonto när du tillfrågas.
+1. Öppna Windows Desktop-klienten.
+2. Välj **Prenumerera** på huvud sidan för att ansluta till tjänsten och hämta dina resurser.
+3. Logga in med ditt användar konto när du uppmanas till det.
 
-Efter autentisering, bör du nu se en lista över resurser som är tillgängliga för dig.
+När du har loggat in bör du se en lista över de resurser som du har åtkomst till.
 
-Du kan starta resurser genom någon av två metoder.
+Du kan starta resurser på en av två sätt.
 
-- Dubbelklicka på en resurs för att starta den klientens huvudsidan.
-- Starta en resurs som du vanligtvis använder andra appar från Start-menyn.
-  - Du kan också söka efter appar i sökfältet.
+- Från klientens huvud sida dubbelklickar du på en resurs för att starta den.
+- Starta en resurs som vanligt vis andra appar från Start-menyn.
+  - Du kan också söka efter apparna i Sök fältet.
 
-När du prenumererar på en feed uppdateras innehållet i flödet automatiskt med jämna mellanrum. Resurser kan läggas till, ändras eller tas bort baserat på ändringar som gjorts av administratören.
+När du prenumererar på en feed uppdateras innehållet i flödet automatiskt med jämna mellanrum. Resurser kan läggas till, ändras eller tas bort utifrån ändringar som gjorts av administratören.
 
-## <a name="view-the-details-of-a-feed"></a>Visa information om en feed
+## <a name="next-steps"></a>Nästa steg
 
-När du prenumererar kan du visa mer information om flödet genom att öppna informationspanelen.
-
-1. Från klientens huvudsidan, Välj ellipsen ( **...** ) till höger om namnet på feed.
-1. Välj den nedrullningsbara menyn **information**.
-1. Panelen information som visas på höger sida av klienten.
-
-Informationspanelen innehåller användbar information om flödet:
-
-- URL: en och användarnamn som används för att prenumerera på
-- Antalet appar och stationära datorer
-- Datum och tid för den senaste uppdateringen
-- Status för den senaste uppdateringen
-
-Om det behövs kan du starta en manuell uppdatering genom att välja på **Uppdatera nu**.
-
-## <a name="unsubscribe-from-a-feed"></a>Slutar prenumerera på en feed
-
-Det här avsnittet får du lära dig att avbryta prenumerationen på en feed. Du kan avbryta prenumerationen för att prenumerera på igen med ett annat konto eller ta bort dina resurser från systemet.
-
-1. Från klientens huvudsidan, Välj ellipsen ( **...** ) till höger om namnet på feed.
-1. Välj den nedrullningsbara menyn **Unsubscribe**.
-1. Granska och välj **Fortsätt** från dialogrutan.
-
-## <a name="update-the-client"></a>Uppdatera klienten
-
-När en ny version av klienten är tillgänglig, kommer du att meddelas av klienten och Windows Åtgärdscenter. Välj meddelandet för att starta uppdateringen.
+Om du vill veta mer om hur du använder Windows-skrivbordet kan du läsa [komma igång med Windows Skriv bords klienten](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/windowsdesktop).

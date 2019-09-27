@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c2d877a1dc611e02e9fbc245df230ca669a2ae4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: b94607691b662dcfcf0e166cd5c339b00ed0573d
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70171433"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326686"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-slack"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med slack
 
@@ -87,7 +87,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** anger du värden för följande fält:
 
-    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<companyname>.slack.com`
+    a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://<your Slack company>.slack.com`
 
     b. I textrutan **Identifierare (entitets-ID)** anger du en URL: `https://slack.com`
 
@@ -136,7 +136,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Logga in på ditt slack-företags webbplats som administratör i ett annat webbläsarfönster.
 
-2. Gå till **Microsoft Azure AD** och sedan till **Teaminställningar**.
+2. Gå till ditt slack-företags namn till vänster som, i vårt fall, har kon figurer ATS som **Microsoft Azure AD** och gå sedan till **team inställningar** som visas i följande skärm bild.
 
      ![Konfigurera enkel inloggning på App-sida](./media/slack-tutorial/tutorial_slack_001.png)
 

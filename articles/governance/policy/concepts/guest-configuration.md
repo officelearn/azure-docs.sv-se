@@ -7,12 +7,12 @@ ms.date: 09/20/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: 733b7fd8ef5b302df754fc7299b420739baff153
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 51129f89f45d65007f8a7f37df0353121ebdbdd8
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172476"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338390"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Förstå Azure Policy gäst-konfiguration
 
@@ -122,7 +122,7 @@ Azure Policy använder resursen gäst konfigurationstjänst **complianceStatus**
 > [!NOTE]
 > **DeployIfNotExists** -principen krävs för att **AuditIfNotExists** -principen ska returnera resultat. Utan **DeployIfNotExists**visar **AuditIfNotExists** -principen "0 av 0" resurser som status.
 
-Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet *[för hands version]: Granska lösen ords säkerhets inställningar i Linux-och* Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
+Alla inbyggda principer för gästen konfiguration ingår i ett initiativ till gruppen definitioner för modulen tilldelningar. Det inbyggda initiativet med namnet  *[för hands version]: Granska lösen ords säkerhets inställningar i Linux-och* Windows-datorer innehåller 18 principer. Det finns sex **DeployIfNotExists** och **AuditIfNotExists** par för Windows och tre par för Linux. [Princip definitions](definition-structure.md#policy-rule) logiken verifierar att endast mål operativ systemet utvärderas.
 
 ### <a name="multiple-assignments"></a>Flera tilldelningar
 
@@ -185,4 +185,4 @@ Exempel på gäst konfiguration av principer finns på följande platser:
 - Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).
 - Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/getting-compliance-data.md).
 - Lär dig hur du [åtgärdar icke-kompatibla resurser](../how-to/remediate-resources.md).
-- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/index.md).
+- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

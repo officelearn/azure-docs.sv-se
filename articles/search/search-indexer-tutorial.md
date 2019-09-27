@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: d0f0abade5d1eea952c5abde293ae90745ee9b04
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 1ba0a965de356cfbe7d9a1cfc8d6d2e8da092934
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640657"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327183"
 ---
 # <a name="c-tutorial-crawl-an-azure-sql-database-using-azure-search-indexers"></a>C#Gång Crawla en Azure SQL-databas med hjälp av Azure Search-indexerare
 
@@ -67,7 +67,7 @@ Anslutningsinformationen för nödvändiga tjänster anges i filen **appsettings
 
 1. I Solution Explorer öppnar du **appSettings. JSON** så att du kan fylla i varje inställning.  
 
-De första två posterna du kan fylla i just nu, med URL-adress och administratörs nycklar för din Azure Search-tjänst. Med en slut punkt `https://mydemo.search.windows.net`av, är `mydemo`tjänst namnet som ska tillhandahållas.
+De första två posterna du kan fylla i just nu, med URL-adress och administratörs nycklar för din Azure Search-tjänst. En slut punkt `https://mydemo.search.windows.net`, tjänst namnet som ska tillhandahållas är `mydemo`.
 
 ```json
 {
@@ -230,7 +230,7 @@ Koden körs lokalt i Visual Studio, ansluter till din söktjänst på Azure, vil
 
 + Informationen för databasanslutningen i **appsettings.json**. Den bör vara den ADO.NET-anslutningssträng som du fick från portalen och ha ändrats så att den innehåller ett användarnamn och ett lösenord som är giltiga för din databas. Användarkontot måste ha behörighet att hämta data.
 
-+ Resursbegränsningar. Tänk på att delade (gratis) tjänster har en gräns på tre index, indexerare och datakällor. När maxgränsen har uppnåtts för en tjänst går det inte att skapa nya objekt.
++ Resursbegränsningar. Kom ihåg att den kostnads fria nivån har en gräns på 3 index, indexerare och data källor. När maxgränsen har uppnåtts för en tjänst går det inte att skapa nya objekt.
 
 ## <a name="search-the-index"></a>Söka i indexet 
 
@@ -254,7 +254,7 @@ På översiktssidan för söktjänsten i Azure Portal klickar du på **Sökutfor
 
 Alla indexerare, inklusive den som du just har skapat programmässigt, visas i portalen. Du kan öppna en indexerardefinition och visa dess datakälla, eller konfigurera ett uppdateringsschema för att hämta nya och ändrade rader.
 
-1. [Logga](https://portal.azure.com/)in på Azure Portal och klicka på länkarna för **index**, indexerare och **data källor**på sidan **Översikt** för Söktjänsten.
+1. [Logga](https://portal.azure.com/)in på Azure Portal och klicka på länkarna för **index**, **indexerare**och **data källor**på sidan **Översikt** för Sök tjänsten.
 3. Välj enskilda objekt om du vill visa eller ändra konfigurations inställningar.
 
    ![Paneler för indexerare och datakällor](./media/search-indexer-tutorial/tiles-portal.png)

@@ -1,6 +1,6 @@
 ---
-title: Med AppAuth i ett iOS-program i Azure Active Directory B2C | Microsoft Docs
-description: Den här artikeln visar hur du skapar en iOS-app som använder AppAuth med Azure Active Directory B2C för att hantera användaridentiteter och autentiserar användare.
+title: Använda AppAuth i ett iOS-program i Azure Active Directory B2C | Microsoft Docs
+description: Den här artikeln visar hur du skapar en iOS-app som använder AppAuth med Azure Active Directory B2C för att hantera användar identiteter och autentisera användare.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
@@ -10,90 +10,92 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1f7c864102a4985aa1b2c66e12b42cbe3bc19bca
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 96221ffc8249f722268ea5778bee4b4389ded26e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66510085"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326605"
 ---
 # <a name="azure-ad-b2c-sign-in-using-an-ios-application"></a>Azure AD B2C: Logga in med ett iOS-program
 
-Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID Connect. Med hjälp av ett öppet standardprotokoll erbjuder flera utvecklare val när du väljer ett bibliotek för att integrera med våra tjänster. Vi tillhandahåller den här genomgången och andra som den för att hjälpa utvecklare med att skriva program som ansluter till Microsoft Identity-plattformen. De flesta bibliotek som implementerar [RFC6749 OAuth2-specifikationen](https://tools.ietf.org/html/rfc6749) kan ansluta till Microsoft Identity-plattformen.
+Microsofts identitetsplattform använder öppna standarder som OAuth2 och OpenID Connect. Med ett öppet standard protokoll får fler utvecklare möjlighet att välja ett bibliotek som ska integreras med våra tjänster. Vi har angett den här genom gången och andra som kan hjälpa utvecklare att skriva program som ansluter till Microsoft Identity Platform. De flesta bibliotek som implementerar [RFC6749 OAuth2-specifikationen](https://tools.ietf.org/html/rfc6749) kan ansluta till Microsoft Identity Platform.
 
 > [!WARNING]
-> Microsoft inte tillhandahåller korrigeringar av bibliotek från tredje part och inte har gjort en genomgång av dessa bibliotek. Det här exemplet använder en tredjeparts-library, även kallat AppAuth som har testats för kompatibilitet i grundläggande scenarier med Azure AD B2C. Problem och funktionsförfrågningar ska dirigeras till biblioteksprojekt öppen källkod. Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
+> Microsoft tillhandahåller inte korrigeringar för bibliotek från tredje part och har inte utfört en granskning av dessa bibliotek. Det här exemplet använder ett bibliotek från tredje part med namnet AppAuth som har testats för kompatibilitet i grundläggande scenarier med Azure AD B2C. Problem och funktions begär Anden ska dirigeras till bibliotekets projekt med öppen källkod. Mer information finns i [den här artikeln](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-libraries).
 >
 >
 
-Om du inte har använt OAuth2 eller OpenID Connect eventuellt mycket av den här exempelkonfigurationen ingen vits mycket till dig. Vi rekommenderar att du läser en kort [översikt över protokollet som vi har dokumenterat här](active-directory-b2c-reference-protocols.md).
+Om du inte har använt OAuth2 eller OpenID Connect kan det hända att mycket av den här exempel konfigurationen inte passar dig. Vi rekommenderar att du läser en kort [översikt över protokollet som vi har dokumenterat här](active-directory-b2c-reference-protocols.md).
 
 ## <a name="get-an-azure-ad-b2c-directory"></a>Skaffa en Azure AD B2C-katalog
 Innan du kan använda Azure AD B2C måste du skapa en katalog eller klient. En katalog är en behållare för alla användare, appar, grupper och mer. Om du inte redan har en [skapar du en B2C-katalog](tutorial-create-tenant.md) innan du fortsätter.
 
 ## <a name="create-an-application"></a>Skapa ett program
-Därefter måste du skapa en app i B2C-katalogen. Registreringen ger Azure AD den information som krävs för att kommunicera säkert med din app. Så här skapar du en mobil app [instruktionerna](active-directory-b2c-app-registration.md). Se till att:
 
-* Inkludera en **Native client** i programmet.
-* Kopiera **program-ID:t** som har tilldelats din app. Du behöver detta GUID senare.
-* Konfigurera en **omdirigerings-URI** med ett anpassat schema (till exempel com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect). Du behöver den här URI: N senare.
+Registrera sedan ett program i Azure AD B2C klient organisationen. Det ger Azure AD den information som krävs för att kommunicera säkert med din app.
 
-## <a name="create-your-user-flows"></a>Skapa dina användarflöden
-I Azure AD B2C definieras varje användarupplevelse av en [användarflödet](active-directory-b2c-reference-policies.md). Det här programmet innehåller en identitetslösning: en kombinerad inloggning och registrering. När du skapar användarflödet, måste du kontrollera att:
+[!INCLUDE [active-directory-b2c-appreg-native](../../includes/active-directory-b2c-appreg-native.md)]
 
-* Under **registreringsattribut**, väljer du attributet **visningsnamn**.  Du kan välja samt andra attribut.
-* Under **Programanspråk**, Välj anspråk **visningsnamn** och **användarobjekt-ID**. Du kan välja andra anspråk också.
-* Kopiera den **namn** av varje användarflöde när du har skapat. Ditt flödesnamn har prefixet `b2c_1_` när du sparar användarflödet.  Userjourney-namnet som du behöver senare.
+Registrera **program-ID** för användning i ett senare steg. Välj sedan programmet i listan och registrera den **anpassade omdirigerings-URI: n**, även för användning i ett senare steg. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
 
-När du har skapat din användarflöden, är du redo att skapa din app.
+## <a name="create-your-user-flows"></a>Skapa dina användar flöden
+I Azure AD B2C definieras varje användar upplevelse av ett [användar flöde](active-directory-b2c-reference-policies.md). Det här programmet innehåller en identitets upplevelse: en kombinerad inloggning och registrering. När du skapar användar flödet måste du se till att:
 
-## <a name="download-the-sample-code"></a>Hämta exempelkoden
-Vi har lagt till ett fungerande exempel som använder AppAuth med Azure AD B2C [på GitHub](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Du kan ladda ned koden och kör den. Om du vill använda en egen Azure AD B2C-klient, följer du anvisningarna i den [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md).
+* Under **registrerings attribut**väljer du attributets **visnings namn**.  Du kan också välja andra attribut.
+* Under **program anspråk**väljer du **visnings namn** för anspråk och **användarens objekt-ID**. Du kan även välja andra anspråk.
+* Kopiera **namnet** på varje användar flöde efter att du har skapat det. Ditt användar flödes namn föregås av `b2c_1_` när du sparar användar flödet.  Du behöver användar flödes namnet senare.
 
-Det här exemplet har skapats genom att följa anvisningarna README genom den [iOS AppAuth projektet på GitHub](https://github.com/openid/AppAuth-iOS). Mer information om hur exemplet och biblioteket fungerar referera till AppAuth README på GitHub.
+När du har skapat dina användar flöden är du redo att skapa din app.
 
-## <a name="modifying-your-app-to-use-azure-ad-b2c-with-appauth"></a>Ändra din app för att använda Azure AD B2C med AppAuth
+## <a name="download-the-sample-code"></a>Hämta exempel koden
+Vi har tillhandahållit ett fungerande exempel som använder AppAuth med Azure AD B2C [på GitHub](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Du kan ladda ned koden och köra den. Följ anvisningarna i [Readme.MD](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md)om du vill använda en egen Azure AD B2C klient.
+
+Det här exemplet skapades genom att följa README-instruktionerna i [iOS AppAuth-projektet på GitHub](https://github.com/openid/AppAuth-iOS). För mer information om hur exemplet och biblioteket fungerar, referera till README-AppAuth för GitHub.
+
+## <a name="modifying-your-app-to-use-azure-ad-b2c-with-appauth"></a>Ändra appen så att den använder Azure AD B2C med AppAuth
 
 > [!NOTE]
-> AppAuth har stöd för iOS 7 och senare.  Men för att stödja sociala inloggningar på Google, SFSafariViewController krävs som kräver iOS 9 eller högre.
+> AppAuth stöder iOS 7 och senare.  Men för att stödja sociala inloggningar på Google krävs SFSafariViewController som kräver iOS 9 eller senare.
 >
 
 ### <a name="configuration"></a>Konfiguration
 
-Du kan konfigurera kommunikation med Azure AD B2C genom att ange både auktoriseringsslutpunkt och tokenslutpunkten URI: er.  För att generera dessa URI: er, behöver du följande information:
-* Klient-ID (exempel: contoso.onmicrosoft.com)
-* Userjourney-namnet (till exempel B2C\_1\_SignUpIn)
+Du kan konfigurera kommunikation med Azure AD B2C genom att ange både behörighets slut punkten och URI för token-slut punkt.  Om du vill generera dessa URI: er behöver du följande information:
+* Klient-ID (till exempel contoso.onmicrosoft.com)
+* Användar flödes namn (till exempel B2C @ no__t-01 @ no__t-1SignUpIn)
 
-Tokenslutpunkten URI kan genereras genom att ersätta klienten\_-ID och principen\_namn i följande URL:
+URI: n för token-slutpunkt kan genereras genom att ersätta klienten @ no__t-0ID och principen @ no__t-1Name i följande URL:
 
 ```objc
 static NSString *const tokenEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/token";
 ```
 
-Auktoriseringsslutpunkten URI kan genereras genom att ersätta klienten\_-ID och principen\_namn i följande URL:
+URI: n för auktoriserings slut punkt kan genereras genom att ersätta klienten @ no__t-0ID och principen @ no__t-1Name i följande URL:
 
 ```objc
 static NSString *const authorizationEndpoint = @"https://<Tenant_name>.b2clogin.com/te/<Tenant_ID>/<Policy_Name>/oauth2/v2.0/authorize";
 ```
 
-Kör följande kod för att skapa AuthorizationServiceConfiguration-objekt:
+Kör följande kod för att skapa AuthorizationServiceConfiguration-objektet:
 
 ```objc
-OIDServiceConfiguration *configuration = 
+OIDServiceConfiguration *configuration =
     [[OIDServiceConfiguration alloc] initWithAuthorizationEndpoint:authorizationEndpoint tokenEndpoint:tokenEndpoint];
 // now we are ready to perform the auth request...
 ```
 
-### <a name="authorizing"></a>Auktorisering
+### <a name="authorizing"></a>Auktoriserar
 
-En begäran om godkännande kan skapas när du konfigurerar eller hämtar en tjänstkonfiguration för auktorisering. För att skapa begäran, behöver du följande information:  
-* Klient-ID (till exempel 00000000-0000-0000-0000-000000000000)
-* Omdirigerings-URI med ett anpassat schema (till exempel com.onmicrosoft.fabrikamb2c.exampleapp://oauth/redirect)
+När du har konfigurerat eller hämtat en Authorization service-konfiguration kan en auktoriseringsbegäran konstrueras. Om du vill skapa begäran behöver du följande information:
 
-Båda objekten ska har sparats när du var [registrera din app](#create-an-application).
+* Klient-ID (program-ID) som du registrerade tidigare. Till exempel `00000000-0000-0000-0000-000000000000`.
+* Anpassad omdirigerings-URI som du registrerade tidigare. Till exempel `com.onmicrosoft.contosob2c.exampleapp://oauth/redirect`.
+
+Båda objekten bör ha sparats när du [registrerade appen](#create-an-application).
 
 ```objc
-OIDAuthorizationRequest *request = 
+OIDAuthorizationRequest *request =
     [[OIDAuthorizationRequest alloc] initWithConfiguration:configuration
                                                   clientId:kClientId
                                                     scopes:@[OIDScopeOpenID, OIDScopeProfile]
@@ -102,7 +104,7 @@ OIDAuthorizationRequest *request =
                                       additionalParameters:nil];
 
 AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-appDelegate.currentAuthorizationFlow = 
+appDelegate.currentAuthorizationFlow =
     [OIDAuthState authStateByPresentingAuthorizationRequest:request
                                    presentingViewController:self
                                                    callback:^(OIDAuthState *_Nullable authState, NSError *_Nullable error) {
@@ -116,16 +118,16 @@ appDelegate.currentAuthorizationFlow =
     }];
 ```
 
-Om du vill konfigurera ditt program för att hantera omdirigering till URI: N med det anpassa schemat måste du uppdatera listan över URL: en scheman i din Info.pList:
-* Öppna filen Info.pList.
-* Hovra över en rad som ”paket OS-typ Code” och klicka på den \+ symbolen.
-* Byt namn på den nya raden URL-typer.
-* Klicka på pilen till vänster om URL-typer att öppna trädet.
-* Klicka på pilen till vänster om ”objektet 0' om du vill öppna i trädet.
-* Byt namn på första objektet under objektet 0 till URL-scheman.
-* Klicka på pilen till vänster om ”URL-scheman” öppna i trädet.
-* I kolumnen 'Value' är ett tomt fält till vänster om ”objektet 0' under URL-scheman.  Ange värdet till ditt programs unika schema.  Värdet måste matcha det schema som används i RedirectUrl anges när du skapar OIDAuthorizationRequest-objekt.  I det här exemplet används schemat 'com.onmicrosoft.fabrikamb2c.exampleapp'.
+Om du vill konfigurera ditt program för att hantera omdirigeringen till URI: n med det anpassade schemat måste du uppdatera listan med URL-scheman i info. pList:
+* Öppna info. pList.
+* Hovra över en rad som "paketera OS-typ kod" och klicka på \+-symbolen.
+* Byt namn på den nya raden "URL types".
+* Öppna trädet genom att klicka på pilen till vänster om "URL-typer".
+* Klicka på pilen till vänster om "objekt 0" för att öppna trädet.
+* Byt namn på det första objektet under objekt 0 till URL-scheman.
+* Klicka på pilen till vänster om "URL-scheman" för att öppna trädet.
+* I kolumnen "värde" finns ett tomt fält till vänster om "Item 0" under "URL-scheman".  Ange värdet för programmets unika schema.  Värdet måste matcha det schema som används i redirectURL när du skapar OIDAuthorizationRequest-objektet.  I exemplet används schemat com. onmicrosoft. fabrikamb2c. ExampleApp.
 
-Referera till den [AppAuth guide](https://openid.github.io/AppAuth-iOS/) om hur du Slutför resten av processen. Om du behöver snabbt komma igång med en fungerande app kan du kolla [exemplet](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Följ stegen i den [README.md](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) att ange din egen Azure AD B2C-konfiguration.
+Läs AppAuth- [guiden](https://openid.github.io/AppAuth-iOS/) om hur du Slutför resten av processen. Om du snabbt behöver komma igång med en fungerande app kan du kolla [in exemplet](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c). Följ stegen i [Readme.MD](https://github.com/Azure-Samples/active-directory-ios-native-appauth-b2c/blob/master/README.md) för att ange din egen Azure AD B2C konfiguration.
 
-Vi är alltid öppna för återkoppling och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskattar din feedback längst ned på sidan. För förfrågningar om ny funktionalitet, vänligen lägg till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).
+Vi är alltid öppna för återkoppling och förslag! Om du har problem med den här artikeln eller har rekommendationer för att förbättra det här innehållet, skulle vi uppskatta din feedback längst ned på sidan. För förfrågningar om ny funktionalitet, vänligen lägg till dem i [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160596-b2c).

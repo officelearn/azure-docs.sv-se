@@ -1,20 +1,20 @@
 ---
 title: Ansluta till virtuella Windows-datorer från iOS – Azure
-description: Så här ansluter du till det virtuella Windows-skrivbordet från iOS.
+description: Ansluta till virtuella Windows-datorer med iOS-klienten.
 services: virtual-desktop
 author: heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: helohr
-ms.openlocfilehash: 3e77a77dfa2de003722419f861e957d4cb011b71
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 764ed4fefd1a3aba1f0b7812fa2965505aa34161
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310326"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338694"
 ---
-# <a name="connect-from-ios"></a>Anslut från iOS
+# <a name="connect-with-the-ios-client"></a>Ansluta med iOS-klienten
 
 > Gäller för: iOS 8,0 eller senare. Kompatibel med iPhone, iPad och iPod touch.
 
@@ -52,6 +52,6 @@ Därefter bör anslutnings centret Visa fjär resurserna.
 
 När du prenumererar på en feed uppdateras feedens innehåll automatiskt regelbundet. Resurser kan läggas till, ändras eller tas bort utifrån ändringar som gjorts av administratören.
 
-## <a name="client-documentation"></a>Klient dokumentation
+## <a name="next-steps"></a>Nästa steg
 
 Mer information om hur du använder iOS beta-klienten finns i [komma igång med klient](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) dokumentationen för iOS.

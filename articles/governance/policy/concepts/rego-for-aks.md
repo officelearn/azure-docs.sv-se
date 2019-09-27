@@ -1,55 +1,55 @@
 ---
-title: Lär dig att granska innehållet i en virtuell dator
-description: Lär dig hur Azure Policy använder Rego och öppna principagent för att hantera kluster i Azure Kubernetes Service.
+title: Förstå hur du granskar innehållet i en virtuell dator
+description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster i Azure Kubernetes-tjänsten.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
 manager: carmonm
-ms.openlocfilehash: fdb392533e28df1d50e90c842d0117385afb254b
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: e16c40c6a4f3539aa286c4c2d0859459ca18a91c
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453910"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338370"
 ---
-# <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Förstå Azure Policy för Azure Kubernetes Service
+# <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Förstå Azure Policy för Azure Kubernetes-tjänsten
 
-Azure Policy kan integreras med den [Azure Kubernetes Service](../../../aks/intro-kubernetes.md) (AKS) för att använda i skala enforcements och säkerhetsåtgärder på ditt kluster på ett centraliserat och konsekvent sätt.
-Genom att utöka användningen av [GateKeeper](https://github.com/open-policy-agent/gatekeeper), en _åtkomst controller webhook_ för [öppna Principagent](https://www.openpolicyagent.org/) (OPA), Azure Policy gör det möjligt att hantera och rapportera om kompatibilitet tillståndet för dina Azure-resurser och AKS-kluster från ett och samma ställe.
+Azure Policy integreras med [Azure Kubernetes service](../../../aks/intro-kubernetes.md) (AKS) för att tillämpa skalningar och skydd i klustren på ett centraliserat, konsekvent sätt.
+Genom att utöka användningen av [Gatekeeper](https://github.com/open-policy-agent/gatekeeper), en OPA- _webhook_ för [Open Policy Agent](https://www.openpolicyagent.org/) (), gör Azure policy det möjligt att hantera och rapportera efterlevnaden av dina Azure-resurser och AKS-kluster från en och samma plats.
 
 > [!NOTE]
-> Azure Policy för AKS är i en begränsad förhandsversion och endast stöd för inbyggda principdefinitioner.
+> Azure Policy för AKS är i begränsad för hands version och stöder bara inbyggda princip definitioner.
 
 ## <a name="overview"></a>Översikt
 
-Vidta följande åtgärder för att aktivera och använda Azure Policy för AKS med AKS-klustret:
+Utför följande åtgärder för att aktivera och använda Azure Policy för AKS med ditt AKS-kluster:
 
-- [Anmäl dig till förhandsversionsfunktioner](#opt-in-for-preview)
-- [Installera tillägget Azure Policy](#installation-steps)
-- [Tilldela en principdefinition för AKS](#built-in-policies)
+- [Anmäl dig till för hands versions funktioner](#opt-in-for-preview)
+- [Installera Azure Policy-tillägget](#installation-steps)
+- [Tilldela en princip definition för AKS](#built-in-policies)
 - [Vänta på verifiering](#validation-and-reporting-frequency)
 
-## <a name="opt-in-for-preview"></a>Anmäl dig till förhandsversionen
+## <a name="opt-in-for-preview"></a>Anmäl dig till för hands version
 
-Innan du installerar tillägget för Azure-princip eller om du använder något av service-funktioner, din prenumeration måste aktivera den **Microsoft.ContainerService** resursprovidern och **Microsoft.PolicyInsights**resursprovidern, och sedan godkännas för att ta del av förhandsversionen. Följ dessa steg i Azure portal eller med Azure CLI för att använda förhandsgranskningen:
+Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst funktionerna måste prenumerationen aktivera **Microsoft. container service** Resource Provider och **Microsoft. PolicyInsights** Resource Provider och sedan godkännas till delta i förhands granskningen. Om du vill delta i förhands granskningen följer du de här stegen i antingen Azure Portal eller med Azure CLI:
 
 - Azure-portalen:
 
-  1. Registrera den **Microsoft.ContainerService** och **Microsoft.PolicyInsights** resursprovidrar. Anvisningar finns i [resursproviders och resurstyper](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
+  1. Registrera resurs leverantörerna **Microsoft. container service** och **Microsoft. PolicyInsights** . Anvisningar finns i [resurs leverantörer och typer](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
   1. Starta Azure Policy-tjänsten i Azure Portal genom att klicka på **Alla tjänster** och sedan söka efter och välja **Princip**.
 
      ![Sök efter princip i alla tjänster](../media/rego-for-aks/search-policy.png)
 
-  1. Välj **delta förhandsversion** till vänster på sidan för Azure Policy.
+  1. Välj **koppla förhands granskning** till vänster på sidan Azure policy.
 
-     ![Anslut princip för AKS förhandsgranskning](../media/rego-for-aks/join-aks-preview.png)
+     ![Delta i principen för för hands versionen av AKS](../media/rego-for-aks/join-aks-preview.png)
 
-  1. Välj raden i den prenumeration som ska läggas till förhandsversionen.
+  1. Välj den rad i prenumerationen som du vill lägga till i förhands granskningen.
 
-  1. Välj den **valbar** knappen överst i listan över prenumerationer.
+  1. Välj knappen **för att välja högst** upp i listan över prenumerationer.
 
 - Azure CLI:
 
@@ -69,24 +69,24 @@ Innan du installerar tillägget för Azure-princip eller om du använder något 
   az feature register --namespace Microsoft.PolicyInsights --name AKS-DataplaneAutoApprove
   ```
 
-## <a name="azure-policy-add-on"></a>Azure Policy-tillägg
+## <a name="azure-policy-add-on"></a>Azure Policy tillägg
 
-Den _Azure princip tillägget_ för Kubernetes ansluter Azure Policy-tjänsten till kontrollanten GateKeeper åtkomst. Tillägg, som är installerad i den _azure-policy_ namnområdet, utfärdar följande funktioner:
+_Azure policy-tillägget_ för Kubernetes ansluter tjänsten Azure policy till Gatekeeper-åtkomstkontroll. Tillägget, som installeras i _Azure-principens_ namnrymd, agerar i följande funktioner:
 
-- Kontroller med Azure Policy för tilldelningar till AKS-kluster
-- Hämtar och cachelagrar principinformation, inklusive den _rego_ principdefinition som **configmaps**
-- Kör en fullständig genomsökning kompatibilitetskontrollen på AKS-kluster
-- Rapporter granskning och information om kompatibilitet tillbaka till Azure Policy
+- Söker med Azure Policy för tilldelningar till AKS-klustret
+- Hämtar och cachelagrar princip information, inklusive _Rego_ princip definition som **configmaps**
+- Kör en fullständig kompatibilitetskontroll i AKS-klustret
+- Rapporterar gransknings-och kompatibilitetsinformation tillbaka till Azure Policy
 
-### <a name="installing-the-add-on"></a>Installera tillägget
+### <a name="installing-the-add-on"></a>Installerar tillägget
 
 #### <a name="prerequisites"></a>Förutsättningar
 
-Innan du installerar tillägget AKS-klustret måste vara installerat tillägget förhandsversion. Detta görs med Azure CLI:
+Innan du installerar tillägget i ditt AKS-kluster måste du installera för hands versions tillägget. Det här steget görs med Azure CLI:
 
-1. Du behöver Azure CLI version 2.0.62 eller senare installerat och konfigurerat. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
+1. Du behöver Azure CLI-versionen 2.0.62 eller senare installerad och konfigurerad. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-1. AKS-klustret måste vara version _1.10_ eller högre. Använd följande skript för att verifiera ditt AKS-kluster av version:
+1. AKS-klustret måste vara version _1,10_ eller högre. Använd följande skript för att verifiera din AKS-kluster version:
 
    ```azurecli-interactive
    # Log in first with az login if you're not using Cloud Shell
@@ -95,7 +95,7 @@ Innan du installerar tillägget AKS-klustret måste vara installerat tillägget 
    az aks list
    ```
 
-1. Installera version _0.4.0_ av Azure CLI Förhandsgranska tillägg för AKS, `aks-preview`:
+1. Installera version _0.4.0_ av Azure CLI Preview-tillägget för AKS, `aks-preview`:
 
    ```azurecli-interactive
    # Log in first with az login if you're not using Cloud Shell
@@ -108,28 +108,28 @@ Innan du installerar tillägget AKS-klustret måste vara installerat tillägget 
    ```
 
    > [!NOTE]
-   > Om du tidigare har installerat den _förhandsversionen av aks_ tillägg, installera alla uppdateringar med hjälp av den `az extension update --name aks-preview` kommando.
+   > Om du tidigare har installerat _AKS-Preview-_ tillägget installerar du eventuella uppdateringar med kommandot `az extension update --name aks-preview`.
 
-#### <a name="installation-steps"></a>Installationssteg
+#### <a name="installation-steps"></a>Installations steg
 
-När kraven har slutförts, kan du installera tillägget Azure Policy i AKS-kluster som du vill hantera.
+När förutsättningarna har slutförts installerar du Azure Policy-tillägget i det AKS-kluster som du vill hantera.
 
 - Azure Portal
 
-  1. Starta AKS-tjänsten i Azure portal genom att klicka på **alla tjänster**, söka efter och välja **Kubernetes-tjänster**.
+  1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 
-  1. Välj en av dina AKS-kluster.
+  1. Välj ett av dina AKS-kluster.
 
-  1. Välj **principer (förhandsversion)** på vänster sida av Kubernetes service-sidan.
+  1. Välj **principer (förhands granskning)** på vänster sida av Kubernetes-tjänst sidan.
 
-     ![Principer för AKS-kluster](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
+     ![Principer från AKS-klustret](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
 
-  1. På huvudsidan, Välj den **aktivera tillägg** knappen.
+  1. På huvud sidan väljer du knappen **aktivera tillägg** .
 
-     ![Aktivera princip för Azure för AKS-tillägg](../media/rego-for-aks/enable-policy-add-on.png)
+     ![Aktivera Azure Policy för AKS-tillägg](../media/rego-for-aks/enable-policy-add-on.png)
 
      > [!NOTE]
-     > Om den **aktivera tillägg** knappen är nedtonad, prenumerationen har ännu inte lagts till förhandsversionen. Se [valbar för förhandsversionen](#opt-in-for-preview) för steg som krävs.
+     > Om knappen **aktivera tillägg** är nedtonad, har prenumerationen ännu inte lagts till i för hands versionen. Se [opt-in för för hands version](#opt-in-for-preview) för de steg som krävs.
 
 - Azure CLI
 
@@ -139,48 +139,48 @@ När kraven har slutförts, kan du installera tillägget Azure Policy i AKS-klus
   az aks enable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
   ```
 
-### <a name="validation-and-reporting-frequency"></a>Validering och telemetrirapportering
+### <a name="validation-and-reporting-frequency"></a>Validering och rapporterings frekvens
 
-Tillägget checkar in med Azure Policy för ändringar i principtilldelningar var femte minut. Under den här uppdateringscykeln tillägget tar bort alla _configmaps_ i den _azure-policy_ namnområde återskapas den _configmaps_ för GateKeeper-användning.
+Tillägget checkar in med Azure Policy för ändringar i princip tilldelningarna var 5: e minut. Under den här uppdaterings cykeln tar tillägget bort alla _configmaps_ i namn området för _Azure-principer_ och återskapar sedan _configmaps_ för användning av gatekeeper.
 
 > [!NOTE]
-> När en _kluster admin_ kanske har behörighet att den _azure-policy_ namnområdet, det är inte rekommenderas eller stöds om du vill göra ändringar i namnområdet. Alla manuella ändringar går förlorade vid uppdateringsprocess.
+> En _kluster administratör_ kan ha behörighet till namn området för _Azure-principer_ , men det rekommenderas inte eller stöds inte för att göra ändringar i namn området. Eventuella manuella ändringar som gjorts går förlorade under uppdaterings cykeln.
 
-Var femte minut, anropar tillägg för en fullständig skanning av klustret. När du samlar in information om av en fullständig genomsökning och eventuella i realtid utvärderingar av GateKeeper försök har gjorts ändringar i klustret, tillägg rapporterar resultaten tillbaka till Azure Policy för inkludering i [efterlevnadsinformation](../how-to/get-compliance-data.md) som alla Azure-Policy tilldelningen. Endast returneras för aktiv principtilldelningar under granskning cykel.
+Var 5: e minut anropar tillägget för en fullständig genomsökning av klustret. Efter att ha samlat in information om den fullständiga genomsökningen och eventuella utvärderingar i real tid i samband med ändringar i klustret, rapporterar tillägget tillbaka resultatet till Azure Policy för att inkludera [information om kompatibilitet](../how-to/get-compliance-data.md) , t. ex. Azure policy tilldelning. Endast resultat för aktiva princip tilldelningar returneras under gransknings cykeln.
 
-## <a name="policy-language"></a>Principspråket
+## <a name="policy-language"></a>Princip språk
 
-Struktur för Azure Policy-språk för att hantera AKS följer som befintliga principer. Effekten _EnforceRegoPolicy_ används för att hantera dina AKS-kluster och tar _information_ egenskaper som är specifika för att arbeta med OPA och GateKeeper. Mer information och exempel, i den [EnforceRegoPolicy](effects.md#enforceregopolicy) effekt.
+Azure Policy språk strukturen för att hantera AKS följer de befintliga principerna. _EnforceRegoPolicy_ används för att hantera dina AKS-kluster och har _information om information_ som är speciell för att arbeta med OPA och gatekeeper. Mer information och exempel finns i [EnforceRegoPolicy](effects.md#enforceregopolicy) -effekter.
 
-Som en del av den _details.policy_ -egenskapen i principdefinitionen Azure Policy skickar URI för en princip för rego till tillägget. Rego är det språk som OPA och GateKeeper stöd för att verifiera eller mutera en begäran till Kubernetes-klustret. Genom att stödja en befintlig standard för hantering av Kubernetes, gör Azure Policy det möjligt att återanvända befintliga regler och koppla ihop dem med Azure Policy för en enhetlig molnet kompatibilitet rapporteringsfunktioner. Mer information finns i [vad är Rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
+Som en del av egenskapen _information. policy_ i princip definitionen, Azure policy skickar en URI för en Rego-princip till tillägget. Rego är det språk som OPA och GateKeeper stöder för att verifiera eller undersöka en begäran till Kubernetes-klustret. Genom att stödja en befintlig standard för Kubernetes-hantering gör Azure Policy att du kan återanvända befintliga regler och koppla dem till Azure Policy för en enhetlig rapporterings upplevelse för moln efterlevnad. Mer information finns i [Vad är Rego?](https://www.openpolicyagent.org/docs/how-do-i-write-policies.html#what-is-rego).
 
 ## <a name="built-in-policies"></a>Inbyggda principer
 
-Följ dessa steg för att hitta de inbyggda principerna för att hantera AKS med Azure portal:
+Följ dessa steg om du vill hitta de inbyggda principerna för att hantera AKS med hjälp av Azure Portal:
 
-1. Starta Azure Policy-tjänsten i Azure-portalen. Välj **alla tjänster** i vänstra fönstret och Sök efter och välj **princip**.
+1. Starta tjänsten Azure Policy i Azure Portal. Välj **alla tjänster** i den vänstra rutan och Sök sedan efter och välj **princip**.
 
-1. I den vänstra rutan på sidan för Azure Policy, Välj **definitioner**.
+1. I den vänstra rutan på sidan Azure Policy väljer du **definitioner**.
 
-1. Använd från rutan kategori listrutan **Markera alla** att ta bort filtret och välj sedan **Kubernetes-tjänst**.
+1. I list rutan Kategori använder du **Markera alla** för att rensa filtret och sedan välja **Kubernetes-tjänst**.
 
-1. Välj principdefinitionen och välj sedan den **tilldela** knappen.
+1. Välj princip definitionen och välj sedan knappen **tilldela** .
 
 > [!NOTE]
-> När du tilldelar Azure-principen för AKS-definition, den **omfång** måste innehålla AKS-klusterresursen.
+> När du tilldelar en Azure Policy för AKS-definitionen måste **omfånget** innehålla kluster resursen AKS.
 
-Alternativt kan använda den [och tilldela en princip – Portal](../assign-policy-portal.md) Snabbstart för att hitta och tilldela en princip för AKS. Sök efter en principdefinition för Kubernetes i stället för på exemplet ”granska virtuella datorer”.
+Du kan också använda snabb start för att [tilldela en princip-Portal](../assign-policy-portal.md) för att hitta och tilldela en AKS-princip. Sök efter en Kubernetes-princip definition i stället för exemplet på granska virtuella datorer.
 
 ## <a name="logging"></a>Loggning
 
-### <a name="azure-policy-add-on-logs"></a>Azure loggar för tillägg
+### <a name="azure-policy-add-on-logs"></a>Azure Policy tilläggs loggar
 
-Som behållare/Kubernetes controller behåller Azure Policy-tillägget loggar i AKS-kluster. Loggarna visas i den **Insights** för AKS-klustret. Mer information finns i [förstå AKS kluster prestanda med Azure Monitor för behållare](../../../azure-monitor/insights/container-insights-analyze.md).
+Som en Kubernetes kontrollant/container behåller Azure Policy-tillägget loggar i AKS-klustret. Loggarna visas på sidan **Insights** i AKS-klustret. Mer information finns i [förstå AKS kluster prestanda med Azure Monitor for containers](../../../azure-monitor/insights/container-insights-analyze.md).
 
 ### <a name="gatekeeper-logs"></a>GateKeeper-loggar
 
-Om du vill aktivera GateKeeper loggar för den nya resursen förfrågningar, följer du stegen i [aktivera och granska Kubernetes huvudnoden loggar i AKS](../../../aks/view-master-logs.md).
-Här är en exempelfråga visa nekade aktiviteter i den nya resursbegäranden:
+Om du vill aktivera GateKeeper-loggar för nya resurs begär Anden följer du stegen i [Aktivera och granska Kubernetes huvud Node-loggar i AKS](../../../aks/view-master-logs.md).
+Här är en exempel fråga som visar nekade händelser på nya resurs begär Anden:
 
 ```kusto
 | where Category == "kube-audit"
@@ -188,25 +188,25 @@ Här är en exempelfråga visa nekade aktiviteter i den nya resursbegäranden:
 | limit 100
 ```
 
-Om du vill visa loggar från behållare GateKeeper, följer du stegen i [aktivera och granska Kubernetes huvudnoden loggar i AKS](../../../aks/view-master-logs.md) och kontrollera den _kube apiserver_ alternativet i den **diagnostikinställningar** fönstret.
+Om du vill visa loggar från GateKeeper-behållare följer du stegen i [Aktivera och granska Kubernetes huvud Node-loggar i AKS](../../../aks/view-master-logs.md) och markerar alternativet _Kube-Apiserver_ i fönstret **diagnostiska inställningar** .
 
 ## <a name="remove-the-add-on"></a>Ta bort tillägget
 
-Ta bort Azure Policy-tillägget från ditt AKS-kluster med Azure portal eller Azure CLI:
+Om du vill ta bort Azure Policy-tillägget från AKS-klustret använder du antingen Azure Portal eller Azure CLI:
 
 - Azure Portal
 
-  1. Starta AKS-tjänsten i Azure portal genom att klicka på **alla tjänster**, söka efter och välja **Kubernetes-tjänster**.
+  1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 
-  1. Välj AKS-klustret där du vill inaktivera tillägget för Azure Policy.
+  1. Välj ditt AKS-kluster där du vill inaktivera Azure Policy-tillägget.
 
-  1. Välj **principer (förhandsversion)** på vänster sida av Kubernetes service-sidan.
+  1. Välj **principer (förhands granskning)** på vänster sida av Kubernetes-tjänst sidan.
 
-     ![Principer för AKS-kluster](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
+     ![Principer från AKS-klustret](../media/rego-for-aks/policies-preview-from-aks-cluster.png)
 
-  1. På huvudsidan, Välj den **inaktivera tillägget** knappen.
+  1. På huvud sidan väljer du knappen **Inaktivera tillägg** .
 
-     ![Inaktivera Azure-principen för AKS-tillägg](../media/rego-for-aks/disable-policy-add-on.png)
+     ![Inaktivera Azure Policy för AKS-tillägg](../media/rego-for-aks/disable-policy-add-on.png)
 
 - Azure CLI
 
@@ -218,10 +218,10 @@ Ta bort Azure Policy-tillägget från ditt AKS-kluster med Azure portal eller Az
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se exempel på [Azure Policy-exempel](../samples/index.md).
+- Granska exempel i [Azure policy exempel](../samples/index.md).
 - Granska [Policy-definitionsstrukturen](definition-structure.md).
 - Granska [Förstå policy-effekter](effects.md).
-- Förstå hur du [skapa principer programmässigt](../how-to/programmatically-create.md).
-- Lär dig hur du [hämta kompatibilitetsdata](../how-to/getting-compliance-data.md).
-- Lär dig hur du [åtgärda icke-kompatibla resurser](../how-to/remediate-resources.md).
-- Granska vilka en hanteringsgrupp är med [organisera dina resurser med Azure-hanteringsgrupper](../../management-groups/index.md).
+- Lär dig att [program mässigt skapa principer](../how-to/programmatically-create.md).
+- Lär dig hur du [hämtar efterlevnadsprinciper](../how-to/getting-compliance-data.md).
+- Lär dig hur du [åtgärdar icke-kompatibla resurser](../how-to/remediate-resources.md).
+- Granska en hanterings grupp med [organisera dina resurser med Azures hanterings grupper](../../management-groups/overview.md).

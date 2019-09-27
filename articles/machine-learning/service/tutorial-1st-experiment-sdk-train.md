@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: b5d3a687adc8ecefcf581f7eda3b9e13d1973c62
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 6287f51d4fa0a1e4c2fb27b7cde873262ad6b3fe
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004028"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327233"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudier: Träna din första ML-modell
 
@@ -50,6 +50,9 @@ I den här delen av självstudien kör du koden i exempel Jupyter Notebook `tuto
    Den här mappen finns i [lagrings kontot](concept-workspace.md#resources) för arbets ytan i stället för på själva Notebook-datorn.  Om du tar bort den virtuella Notebook-datorn behåller du fortfarande allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
 
 1. Öppna under katalogen och öppna Jupyter-anteckningsboken `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **inte** `.yml` filen med samma namn. `samples-*` 
+
+> [!Warning]
+> Skapa **inte** en *ny* antecknings bok i Jupyter-gränssnittet! Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` inkluderar **all kod och alla data som behövs** för den här självstudien.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Anslut arbets ytan och skapa experiment
 

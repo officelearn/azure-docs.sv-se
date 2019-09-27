@@ -1,5 +1,5 @@
 ---
-title: Skapa ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI
+title: Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av Azure CLI
 description: Lär dig hur du skapar ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI
 author: radennis
 ms.author: radennis
@@ -7,14 +7,14 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: e771def95db00b5de8c27011641a628560952970
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd53a8e29254af617b6cfa68935a191a50fc526c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66494790"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326773"
 ---
-# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Skapa ett Azure Data Explorer-kluster och en databas med hjälp av Azure CLI
+# <a name="create-an-azure-data-explorer-cluster-and-database-by-using-azure-cli"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av Azure CLI
 
 > [!div class="op_single_selector"]
 > * [Portal](create-cluster-database-portal.md)
@@ -22,17 +22,17 @@ ms.locfileid: "66494790"
 > * [PowerShell](create-cluster-database-powershell.md)
 > * [C#](create-cluster-database-csharp.md)
 > * [Python](create-cluster-database-python.md)
->
+> * [ARM-mall](create-cluster-database-resource-manager.md)
 
 Azure Data Explorer är en snabb, fullständigt hanterad dataanalystjänst för realtidsanalys av stora mängder data som strömmar från program, webbplatser, IoT-enheter med mera. För att använda Azure Data Explorer skapar du först ett kluster och skapar en eller flera databaser i klustret. Sedan matar du in (läser in) data i databasen så att du kan köra frågor mot den. I den här artikeln skapar du ett kluster och en databas med hjälp av Azure CLI.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Du behöver en Azure-prenumeration för att slutföra den här artikeln. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
+Du behöver en Azure-prenumeration för att kunna slutföra den här artikeln. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Om du väljer att installera och använda Azure CLI lokalt måste du ha Azure CLI version 2.0.4 eller senare. Kör `az --version` för att kontrollera vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
+Om du väljer att installera och använda Azure CLI lokalt, kräver den här artikeln Azure CLI version 2.0.4 eller senare. Kör `az --version` för att kontrollera vilken version du har. Om du behöver installera eller uppgradera kan du läsa informationen i [Installera Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="configure-the-cli-parameters"></a>Konfigurera CLI-parametrarna
 
@@ -87,8 +87,8 @@ Om resultatet innehåller `provisioningState` med värdet `Succeeded` har klustr
    | cluster-name | *azureclitest* | Namnet på det kluster där databasen ska skapas.|
    | name | *clidatabase* | Namn på databasen.|
    | resource-group | *testrg* | Namnet på resursgruppen där klustret kommer att skapas. |
-   | soft-delete-period | *P365D* | Anger hur lång tid som data förblir tillgängliga för frågor. Se [bevarandeprincip](/azure/kusto/concepts/retentionpolicy) för mer information. |
-   | hot-cache-period | *P31D* | Anger hur lång tid som data sparas i cacheminnet. Se [cachelagra princip](/azure/kusto/concepts/cachepolicy) för mer information. |
+   | soft-delete-period | *P365D* | Indikerar hur lång tid det tar för data att behållas för frågor. Se [bevarande princip](/azure/kusto/concepts/retentionpolicy) för mer information. |
+   | hot-cache-period | *P31D* | Indikerar hur lång tid data lagras i cacheminnet. Mer information finns i [cache-principen](/azure/kusto/concepts/cachepolicy) . |
 
 1. Kör följande kommando för att se den databas som du skapade:
 
@@ -100,7 +100,7 @@ Nu har du ett kluster och en databas.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-* Om du planerar att följa våra andra artiklar, bevara alla resurser som du skapade.
+* Behåll de resurser du har skapat om du planerar att följa våra andra artiklar.
 * Ta bort klustret om du vill rensa resurser. När du tar bort ett kluster, raderas också alla databaser i den. Använd följande kommando för att ta bort klustret:
 
     ```azurecli-interactive
@@ -109,4 +109,4 @@ Nu har du ett kluster och en databas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Mata in data med hjälp av Azure Data Explorer Python-bibliotek](python-ingest-data.md)
+* [Mata in data med Azure Datautforskaren python-biblioteket](python-ingest-data.md)

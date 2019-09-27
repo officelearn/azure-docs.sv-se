@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 07/05/2019
+ms.date: 08/28/2019
 ms.author: wolfma
-ms.openlocfilehash: d61141a0955f916b1d4bfeabb22454ec38415cea
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: cf5bf3dfd7b6a408179bb267156433168e562a8e
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67603239"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326839"
 ---
 # <a name="tutorial-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Självstudier: Identifiera avsikter från tal med hjälp av Speech SDK för C#
 
-Cognitive Services [Speech SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) kan integreras med [Language Understanding-tjänsten (LUIS)](https://www.luis.ai/home) för att tillhandahålla **avsiktsigenkänning**. En avsikt är något som användaren vill göra: boka en flygning, titta på vädret eller ringa ett samtal. Användaren kan använda de termer som känns naturliga. Med maskininlärning mappar LUIS användarbegäranden till de avsikter som du har definierat.
+Cognitive Services [Speech SDK](speech-sdk.md) integreras med [language Understanding-tjänsten (Luis)](https://www.luis.ai/home) för att ge **avsikts igenkänning**. En avsikt är något som användaren vill göra: boka en flygning, titta på vädret eller ringa ett samtal. Användaren kan använda de termer som känns naturliga. Med Machine Learning kan LUIS mappa användar förfrågningar till de avsikter som du har definierat.
 
 > [!NOTE]
 > Ett LUIS-programmet definierar avsikter och entiteter som du vill identifiera. Det är separat från det C#-program som använder Speech-tjänsten. I den här artikeln betyder ”app” LUIS-appen medan ”program” innebär C#-koden.
@@ -28,7 +28,7 @@ I den här självstudien använder du Speech SDK för att utveckla ett C#-konsol
 
 > [!div class="checklist"]
 > * Skapa ett Visual Studio-projekt som refererar till Speech SDK NuGet-paketet
-> * Skapa en talkonfiguration och få en avsiktsigenkännare
+> * Skapa en tal konfiguration och få en avsikts igenkänning
 > * Hämta modellen för LUIS-appen och lägga till de avsikter som du behöver
 > * Ange språk för taligenkänning
 > * Identifiera tal från en fil
@@ -36,40 +36,42 @@ I den här självstudien använder du Speech SDK för att utveckla ett C#-konsol
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Se till att du har följande innan du börjar den här självstudiekursen.
+Se till att du har följande saker innan du påbörjar den här självstudien:
 
 * Ett LUIS-konto. Du kan skaffa ett kostnadsfritt via [LUIS-portalen](https://www.luis.ai/home).
-* Visual Studio 2017 (vilken version som helst).
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (vilken utgåva som helst).
 
 ## <a name="luis-and-speech"></a>LUIS och tal
 
-LUIS integreras med Taltjänster ska kunna identifiera avsikter från tal. Du behöver inte en Speech Services-prenumeration, precis LUIS.
+LUIS integreras med tal tjänsterna för att identifiera avsikter från tal. Du behöver inte en prenumerations tjänst prenumeration, bara LUIS.
 
 LUIS använder två typer av nycklar:
 
 |Nyckeltyp|Syfte|
 |--------|-------|
-|redigering|gör att du kan skapa och ändra LUIS-appar programmatiskt|
-|endpoint |auktoriserar åtkomst till en viss LUIS-app|
+|Redigering|Gör att du kan skapa och ändra LUIS-appar program mässigt|
+|Slutpunkt |Auktoriserar åtkomst till en viss LUIS-app|
 
-Slutpunktsnyckeln är den LUIS-nyckel som behövs för den här självstudien. Den här kursen använder LUIS-exempelappen Home Automation, som du kan skapa genom att följa [Använda en färdig hemautomatiseringsapp](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app). Om du har skapat en LUIS-app på egen hand kan du använda den i stället.
+För den här självstudien behöver du slut punkts nyckel typen. I självstudien används exempel programmet Home Automation LUIS, som du kan skapa genom att följa snabb starten för [välbyggda hem automatiserings program](https://docs.microsoft.com/azure/cognitive-services/luis/luis-get-started-create-app) . Om du har skapat en LUIS app som du själv har skapat kan du använda den i stället.
 
-När du skapar en LUIS-app skapas automatiskt en startnyckel så att du kan testa appen med hjälp av textfrågor. Den här nyckeln Aktivera inte Speech Services-integrering och fungerar inte med den här självstudien. Du måste skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnadsfria prenumerationsnivån för den här självstudiekursen.
+När du skapar en LUIS-app genererar LUIS automatiskt en start nyckel så att du kan testa appen med hjälp av text frågor. Den här nyckeln aktiverar inte integrering av tal tjänster och fungerar inte med den här självstudien. Skapa en LUIS-resurs på Azure-instrumentpanelen och tilldela den till LUIS-appen. Du kan använda den kostnadsfria prenumerationsnivån för den här självstudiekursen.
 
-När du har skapat LUIS-resursen på Azure-instrumentpanelen loggar du in på [LUIS-portalen](https://www.luis.ai/home), väljer ditt program på sidan Mina appar och växlar till appens hanteringssida. Klicka slutligen på **Nycklar och slutpunkter** i sidopanelen.
+När du har skapat LUIS-resursen på Azure-instrumentpanelen loggar du in på [Luis-portalen](https://www.luis.ai/home), väljer ditt program på sidan **Mina appar** och växlar sedan till appens **hanterings** sida. Slutligen väljer du **nycklar och slut punkter** i sido panelen.
 
 ![LUIS-portalens inställningar för nycklar och slutpunkter](media/sdk/luis-keys-endpoints-page.png)
 
-På sidan med inställningar för nycklar och slutpunkter:
+På sidan **nycklar och inställningar för slut punkt** :
 
-1. Rulla ned till avsnittet Resurser och nycklar och klicka på **Tilldela resurs**.
-1. I dialogrutan **Assign a key to your app** (tilldela en nyckel till appen) väljer du följande:
+1. Rulla ned till avsnittet **resurser och nycklar** och välj **tilldela resurs**.
+1. Gör följande ändringar i dialog rutan **tilldela en nyckel till din app** :
 
-    * Välj Microsoft som klientorganisation.
-    * Under Prenumerationsnamn väljer du den Azure-prenumeration som innehåller den LUIS-resurs du vill använda.
-    * Under Nyckel väljer du den LUIS-resurs som du vill använda med appen.
+   * Under **klient**väljer du **Microsoft**.
+   * Under **prenumerations namn**väljer du den Azure-prenumeration som innehåller den Luis-resurs som du vill använda.
+   * Under **nyckel**väljer du den Luis-resurs som du vill använda med appen.
 
-Om en stund visas den nya prenumerationen i tabellen längst ned på sidan. Klicka på ikonen intill en nyckel för att kopiera den till Urklipp. (Du kan använda valfri nyckel.)
+   Om en stund visas den nya prenumerationen i tabellen längst ned på sidan. 
+
+1. Välj ikonen bredvid en tangent för att kopiera den till Urklipp. (Du kan använda valfri nyckel.)
 
 ![Prenumerationsnycklar för LUIS-app](media/sdk/luis-keys-assigned.png)
 
@@ -79,71 +81,74 @@ Om en stund visas den nya prenumerationen i tabellen längst ned på sidan. Klic
 
 ## <a name="add-the-code"></a>Lägga till koden
 
-Öppna filen `Program.cs` i Visual Studio-projektet och ersätt blocket med `using`-instruktioner i början av filen med följande deklarationer.
+Sedan lägger du till kod i projektet.
 
-[!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
+1. Öppna filen **program.cs**från **Solution Explorer**.
 
-I den angivna `Main()`-metoden lägger du till följande kod.
+1. Ersätt blocket med `using`-instruktioner i början av filen med följande deklarationer:
 
-```csharp
-RecognizeIntentAsync().Wait();
-Console.WriteLine("Please press Enter to continue.");
-Console.ReadLine();
-```
+   [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-Skapa en tom asynkron `RecognizeIntentAsync()`-metod enligt det som visas här.
+1. I den angivna `Main()`-metoden lägger du till följande kod:
 
-```csharp
-static async Task RecognizeIntentAsync()
-{
-}
-```
+   ```csharp
+   RecognizeIntentAsync().Wait();
+   Console.WriteLine("Please press Enter to continue.");
+   Console.ReadLine();
+   ```
 
-Lägg till den här koden i brödtexten i den här nya metoden.
+1. Skapa en tom asynkron metod `RecognizeIntentAsync()`, som du ser här:
 
-[!code-csharp[Intent recognition by using a microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
+   ```csharp
+   static async Task RecognizeIntentAsync()
+   {
+   }
+   ```
 
-Ersätt platshållarna i den här metoden med din LUIS-prenumerationsnyckel, region och app-ID på följande sätt.
+1. I den här nya metodens brödtext lägger du till följande kod:
 
-|Platshållare|Ersätt med|
-|-----------|------------|
-|`YourLanguageUnderstandingSubscriptionKey`|Din LUIS-slutpunktsnyckel. Som vi nämnde tidigare måste det här vara en nyckel som hämtats från Azure-instrumentpanelen, inte en ”startnyckel”. Du hittar den på appens sida Nycklar och slutpunkter (under Hantera) i [LUIS-portalen](https://www.luis.ai/home).|
-|`YourLanguageUnderstandingServiceRegion`|Den korta identifieraren för den region som din LUIS-prenumeration är i, till exempel `westus` för USA, västra. Se [regioner](regions.md).|
-|`YourLanguageUnderstandingAppId`|LUIS-app-ID. Du hittar det på appens sida Inställningar i [LUIS-portalen](https://www.luis.ai/home).|
+   [!code-csharp[Intent recognition by using a microphone](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentRecognitionWithMicrophone)]
 
-När dessa ändringar har gjorts kan du skapa (Ctrl-Skift-B) och köra (F5) självstudieprogrammet. När du uppmanas försöker du säga ”stäng av lamporna” i datorns mikrofon. Resultatet visas i konsolfönstret.
+1. Ersätt platshållarna i den här metoden med din LUIS-prenumerationsnyckel, region och app-ID på följande sätt.
+
+   |Platshållare|Ersätt med|
+   |-----------|------------|
+   |`YourLanguageUnderstandingSubscriptionKey`|Din LUIS-slutpunktsnyckel. Återigen måste du hämta det här objektet från Azure-instrumentpanelen, inte en "Start nyckel". Du hittar den på sidan **nycklar och slut punkter** för appen (under **Hantera**) i [Luis-portalen](https://www.luis.ai/home).|
+   |`YourLanguageUnderstandingServiceRegion`|Den korta identifieraren för den region som din LUIS-prenumeration är i, till exempel `westus` för USA, västra. Se [regioner](regions.md).|
+   |`YourLanguageUnderstandingAppId`|LUIS-app-ID. Du hittar den på appens **inställnings** sida på Luis- [portalen](https://www.luis.ai/home).|
+
+När dessa ändringar har gjorts kan du skapa (**CTRL + SHIFT + B**) och köra (**F5**) själv studie programmet. När du uppmanas kan du prova att säga "Stäng av ljuset" i DATORns mikrofon. Programmet visar resultatet i konsol fönstret.
 
 Följande avsnitt innehåller en beskrivning av koden.
 
-
 ## <a name="create-an-intent-recognizer"></a>Skapa en avsiktsigenkännare
 
-Det första steget i att identifiera avsikter är att skapa en talkonfiguration från din LUIS-slutpunktsnyckel och region. Talkonfigurationer kan användas för att skapa igenkännare för de olika funktionerna i Speech SDK. Talkonfigurationen har flera sätt att ange den prenumeration som du vill använda. Här använder vi `FromSubscription`, som tar prenumerationsnyckeln och regionen.
+Först måste du skapa en tal konfiguration från LUIS slut punkts nyckel och region. Du kan använda tal konfigurationer för att skapa igenkänningar för de olika funktionerna i tal-SDK: n. Tal konfigurationen har flera olika sätt att ange den prenumeration som du vill använda. här använder vi `FromSubscription`, som tar prenumerations nyckeln och regionen.
 
 > [!NOTE]
-> Använd nyckeln och region av prenumerationen THOMAS, inte av en Speech Services-prenumeration.
+> Använd nyckel och region för din LUIS-prenumeration, inte en prenumeration på tal tjänster.
 
-Nästa steg är att skapa en avsiktsigenkännare med hjälp av `new IntentRecognizer(config)`. Eftersom konfigurationen redan vet vilken prenumeration du ska använda behöver du inte ange prenumerationsnyckeln och slutpunkten igen när du skapar igenkännaren.
+Nästa steg är att skapa en avsiktsigenkännare med hjälp av `new IntentRecognizer(config)`. Eftersom konfigurationen redan vet vilken prenumeration som ska användas, behöver du inte ange prenumerations nyckeln och slut punkten igen när du skapar tolken.
 
 ## <a name="import-a-luis-model-and-add-intents"></a>Importera en LUIS-modell och lägga till avsikter
 
-Nu importerar du modellen från LUIS-appen med hjälp av `LanguageUnderstandingModel.FromAppId()` och lägger till de LUIS-avsikter som du vill känna igen igenkännarens `AddIntent()`-metod. De här två stegen förbättrar taligenkänningens noggrannhet genom att ange ord som det är troligt att användaren använder i sina begäranden. Du behöver inte lägga till alla appens avsikter om du inte behöver identifiera dem alla i ditt program.
+Nu importerar du modellen från LUIS-appen med hjälp av `LanguageUnderstandingModel.FromAppId()` och lägger till de LUIS-avsikter som du vill känna igen igenkännarens `AddIntent()`-metod. De här två stegen förbättrar taligenkänningens noggrannhet genom att ange ord som det är troligt att användaren använder i sina begäranden. Du behöver inte lägga till alla appens avsikter om du inte behöver känna igen dem i ditt program.
 
-Att lägga till avsikter kräver tre argument: LUIS-modell (som har skapats och heter `model`), avsiktlig namn och en avsiktlig-ID. Skillnaden mellan ID och namnet är som följer.
+Om du vill lägga till avsikter måste du ange tre argument: LUIS-modellen (som har skapats och heter `model`), namnet på avsikten och ett avsikts-ID. Skillnaden mellan ID och namnet är som följer.
 
-|`AddIntent()`-argument|Syfte|
+|`AddIntent()` @ no__t-1argument|Syfte|
 |--------|-------|
-|intentName |Namnet på avsikten enligt vad som definierats i LUIS-appen. Måste matcha LUIS-avsiktsnamnet exakt.|
-|intentID    |Ett ID som tilldelas till en igenkänd avsikt av Speech SDK. Kan vara vad som helst; det behöver inte motsvara avsiktsnamnet enligt vad som definierats i LUIS-appen. Om flera avsikter till exempel hanteras av samma kod kan du använda samma ID för dem.|
+|intentName|Namnet på avsikten enligt vad som definierats i LUIS-appen. Det här värdet måste matcha namnet på LUIS-avsikten exakt.|
+|intentID|Ett ID som tilldelas till en igenkänd avsikt av Speech SDK. Det här värdet kan vara vad du vill. Det behöver inte motsvara det namn på avsikten som definierats i LUIS-appen. Om flera avsikter till exempel hanteras av samma kod kan du använda samma ID för dem.|
 
-Start Automation LUIS-app har två avsikter: en för att aktivera en enhet och en annan för att inaktivera en enhet. Raderna nedan lägger till dessa avsikter till igenkännaren. Ersätt de tre `AddIntent`-raderna i metoden `RecognizeIntentAsync()` med den här koden.
+LUIS-appen för hem automatisering har två avsikter: en för att aktivera en enhet och en annan för att stänga av en enhet. Raderna nedan lägger till dessa avsikter till igenkännaren. Ersätt de tre `AddIntent`-raderna i metoden `RecognizeIntentAsync()` med den här koden.
 
 ```csharp
 recognizer.AddIntent(model, "HomeAutomation.TurnOff", "off");
 recognizer.AddIntent(model, "HomeAutomation.TurnOn", "on");
 ```
 
-I stället för att lägga till enskilda avsikter, du kan också använda den `AddAllIntents` metod för att lägga till alla avsikter i en modell till identifieraren.
+I stället för att lägga till enskilda avsikter kan du också använda metoden `AddAllIntents` för att lägga till alla syften i en modell i igenkännings verktyget.
 
 ## <a name="start-recognition"></a>Starta igenkänning
 
@@ -152,38 +157,42 @@ När igenkännaren har skapats och avsikterna lagts till kan igenkänningen bör
 |Igenkänningsläge|Metoder att anropa|Resultat|
 |----------------|-----------------|---------|
 |Engångsigenkänning|`RecognizeOnceAsync()`|Returnerar den igenkända avsikten, om sådan finns, efter ett yttrande.|
-|Kontinuerlig igenkänning|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Identifierar flera yttranden. Genererar händelser (t.ex. `IntermediateResultReceived`) när resultat är tillgängliga.|
+|Kontinuerlig|`StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()`|Känner igen flera yttranden; genererar händelser (till exempel `IntermediateResultReceived`) när det finns tillgängliga resultat.|
 
-Självstudieprogrammet använder engångsigenkänning och anropar därför `RecognizeOnceAsync()` för att påbörja igenkänning. Resultatet är ett `IntentRecognitionResult`-objekt som innehåller information om den igenkända avsikten. JSON-svaret från LUIS extraheras av följande uttryck:
+Självstudieprogrammet använder engångsigenkänning och anropar därför `RecognizeOnceAsync()` för att påbörja igenkänning. Resultatet är ett `IntentRecognitionResult`-objekt som innehåller information om den igenkända avsikten. Du extraherar LUIS JSON-svaret med hjälp av följande uttryck:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
 ```
 
-Självstudieprogrammet parsar inte JSON-resultatet, utan visar det endast i konsolfönstret.
+Själv studie kursen går inte att parsa JSON-resultatet. Den visar bara JSON-texten i konsol fönstret.
 
-![LUIS-igenkänningsresultat](media/sdk/luis-results.png)
+![Resultat för enkel LUIS-igenkänning](media/sdk/luis-results.png)
 
 ## <a name="specify-recognition-language"></a>Ange igenkänningsspråk
 
-Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Lägg exempelvis till `config.SpeechRecognitionLanguage = "de-de";` i självstudieprogrammet innan du skapar igenkännaren om du vill känna igen avsikter på tyska. Se [Språk som stöds](language-support.md#speech-to-text).
+Som standard känner LUIS igen avsikter på amerikansk engelska (`en-us`). Genom att tilldela en kod för nationella inställningar till egenskapen `SpeechRecognitionLanguage` i talkonfigurationen kan du känna igen avsikter på andra språk. Lägg exempelvis till `config.SpeechRecognitionLanguage = "de-de";` i självstudieprogrammet innan du skapar igenkännaren om du vill känna igen avsikter på tyska. Mer information finns i [språk som stöds](language-support.md#speech-to-text).
 
 ## <a name="continuous-recognition-from-a-file"></a>Kontinuerlig igenkänning från en fil
 
-Följande kod illustrerar två ytterligare funktioner för avsiktsigenkänning med hjälp av Speech SDK. Den första, som nämnts tidigare, är kontinuerlig igenkänning, där igenkännaren genererar händelser när resultat finns tillgängliga. Dessa händelser kan sedan bearbetas av händelsehanterare som du anger. Med kontinuerlig igenkänning anropar du igenkännarens `StartContinuousRecognitionAsync()` för att starta igenkänning i stället för `RecognizeOnceAsync()`.
+Följande kod illustrerar två ytterligare funktioner för avsiktsigenkänning med hjälp av Speech SDK. Den första, som nämnts tidigare, är kontinuerlig igenkänning, där igenkännaren genererar händelser när resultat finns tillgängliga. Dessa händelser kan sedan bearbetas av händelsehanterare som du anger. Med kontinuerlig igenkänning anropar du tolkens `StartContinuousRecognitionAsync()`-metod för att starta igenkänning i stället för `RecognizeOnceAsync()`.
 
-Den andra funktionen är att läsa det ljud som innehåller det tal som ska bearbetas från en WAV-fil. Detta inbegriper att skapa en ljudkonfiguration som kan användas vid skapandet av avsiktsigenkännaren. Filen måste vara enkanalig (mono) med en samplingsfrekvens på 16 kHz.
+Den andra funktionen är att läsa det ljud som innehåller det tal som ska bearbetas från en WAV-fil. Implementeringen innebär att skapa en ljud konfiguration som kan användas när du skapar typen av avsikts igenkänning. Filen måste vara enkanalig (mono) med en samplingsfrekvens på 16 kHz.
 
-Om du vill prova dessa funktioner ersätter du innehållet i metoden `RecognizeIntentAsync()` med följande kod.
+Om du vill testa dessa funktioner tar du bort eller kommenterar innehållet i metoden `RecognizeIntentAsync()` och lägger till följande kod i sitt ställe.
 
 [!code-csharp[Intent recognition by using events from a file](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#intentContinuousRecognitionWithFile)]
 
-Ändra koden så att den innehåller din LUIS-slutpunktsnyckel, region och app-ID för att lägga till Home Automation-avsikterna som tidigare. Ändra `whatstheweatherlike.wav` till namnet på din ljudfil. Skapa sedan och kör.
+Ändra koden så att den innehåller din LUIS-slutpunktsnyckel, region och app-ID för att lägga till Home Automation-avsikterna som tidigare. Ändra `whatstheweatherlike.wav` till namnet på den inspelade ljud filen. Sedan kan du skapa, kopiera ljud filen till build-katalogen och köra programmet.
+
+Om du t. ex. säger att "Stäng av ljuset", pausar och sedan "slå på lamporna" i din inspelade ljud fil, kan konsolens utdata som liknar följande visas:
+
+![LUIS igenkännings resultat för ljud filen](media/sdk/luis-results-2.png)
 
 [!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
-Leta upp koden från den här artikeln i mappen samples/csharp/sharedcontent/console.
+Sök efter koden från den här artikeln i mappen **samples/csharp/sharedcontent/Console** .
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Så identifierar du tal](how-to-recognize-speech-csharp.md)
+> [Så identifierar du tal](quickstart-csharp-dotnetcore-windows.md)

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/24/2019
 ms.author: lagayhar
-ms.openlocfilehash: 351247041d4e2f857bcb38b38a490c1a160a6a70
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: a6e8187a085d637ad3abc650daf15d92b96755a3
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299598"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338116"
 ---
 # <a name="get-started-with-application-insights-in-a-java-web-project"></a>Komma igång med Application Insights i ett Java-webbprojekt
 
@@ -225,7 +225,7 @@ Och för automatisk namngivning av åtgärder.
 
 Application Insights Java SDK stöder nu [distribuerad W3C-spårning](https://w3c.github.io/trace-context/).
 
-Den inkommande SDK-konfigurationen förklaras ytterligare i vår artikel om [korrelation](correlation.md#w3c-distributed-tracing).
+Den inkommande SDK-konfigurationen förklaras ytterligare i vår artikel om [korrelation](correlation.md#telemetry-correlation-in-the-java-sdk).
 
 Den utgående SDK-konfigurationen definieras i filen [AI-agent. XML](java-agent.md) .
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 6767644e037c6abb3e3044c8707e923a9137a01c
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 772f6cdde575a9ac669c73ecca039914357ffe2f
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019549"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338884"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Hantera AWS-kostnader och användning i Azure
 
@@ -23,7 +23,7 @@ När du har konfigurerat och konfigurerat AWS-integrering för kostnads-och anv�
 
 Om du inte redan har konfigurerat integrationen kan du läsa Konfigurera [och konfigurera AWS användnings rapport integrering](aws-integration-set-up-configure.md).
 
-_Innan du börjar_: Om du inte är bekant med kostnads analyser kan du läsa snabb starten för att [utforska och analysera kostnader med kostnads analys](quick-acm-cost-analysis.md) . Och om du inte är bekant med budgetar i Azure kan du läsa själv studie kursen [skapa och hantera Azure](tutorial-acm-create-budgets.md) -budgetar.
+_Innan du börjar_: Om du inte är bekant med kostnads analyser kan du läsa snabb starten för att [utforska och analysera kostnader med kostnads analys](quick-acm-cost-analysis.md) . Och om du inte är bekant med budgetar i Azure kan du läsa själv studie kursen [skapa och hantera Azure-budgetar](tutorial-acm-create-budgets.md) .
 
 ## <a name="view-aws-costs-in-cost-analysis"></a>Visa AWS-kostnader i kostnads analys
 
@@ -183,4 +183,4 @@ Det här felet relaterar till definitionen av AWS-kostnad och användnings rappo
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte redan har konfigurerat Azure-miljön med hanterings grupper kan du läsa den [första installationen av hanterings grupper](../governance/management-groups/index.md#initial-setup-of-management-groups).
+- Om du inte redan har konfigurerat Azure-miljön med hanterings grupper kan du läsa den [första installationen av hanterings grupper](../governance/management-groups/overview.md#initial-setup-of-management-groups).

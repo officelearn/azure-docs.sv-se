@@ -1,323 +1,263 @@
 ---
 title: Team Data Science Process manager gruppaktiviteter
-description: En översikt över aktiviteter för gruppchef i ett team för datavetenskapsprojekt.
+description: En detaljerad genom gång av aktiviteterna för en grupp ansvarig i ett data vetenskaps team projekt.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/24/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 85a4aca0c4b80eaab1f43bcbec33dc9cf37aa655
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f95bb30f547e863fc7a796e69fffe1e2334e489c
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65950095"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326797"
 ---
-# <a name="tasks-for-a-group-manager-on-a-data-science-team-project"></a>Uppgifter för gruppchef i ett team för datavetenskapsprojekt
+# <a name="team-data-science-process-group-manager-tasks"></a>Team Data Science Process manager gruppaktiviteter
 
-Det här avsnittet beskrivs de uppgifter som gruppchef är väntat att slutföra för organisationen data science. Målet är att upprätta samarbetsfunktioner gruppmiljö som standardiserar på den [Team Data Science Process](overview.md) (TDSP). En översikt över rollerna som personal och förknippade aktiviteter som hanteras av en datavetenskapliga team standardisera om den här processen finns i [roller för Team Data Science Process och uppgifter](roles-tasks.md).
+I den här artikeln beskrivs de uppgifter som en *grupp hanterare* har slutfört för en data vetenskaps organisation. Grupp hanteraren hanterar hela data vetenskaps enheten i ett företag. En data vetenskaps enhet kan ha flera team, som var och en arbetar med många data vetenskaps projekt i olika affärs lodräta. Grupp hanterarens mål är att upprätta en samarbets grupp miljö som är standardiserad på [team data science-processen](overview.md) (TDSP). En översikt över alla personal roller och tillhör ande uppgifter som hanteras av ett data vetenskaps team som är standardiserade på TDSP finns i [process roller och uppgifter för team data vetenskap](roles-tasks.md).
 
-Den **Gruppansvarig** projektledaren för hela data science-enhet i ett företag. En data science-enhet kan ha flera team som arbetar med flera dataforskningsprojekt i olika företag branscher. Gruppchef kan delegera sina uppgifter till en surrogate, men de uppgifter som är associerade med rollen är desamma. Det finns sex viktigaste uppgifterna som du ser i följande diagram:
+Följande diagram visar de sex huvudsakliga grupp hanterarens installations uppgifter. Grupp chefer kan delegera sina uppgifter till surrogat, men de uppgifter som är associerade med rollen ändras inte.
 
-![0](./media/group-manager-tasks/tdsp-group-manager.png)
+![Grupp hanterings uppgifter](./media/group-manager-tasks/tdsp-group-manager.png)
 
+1. Konfigurera en **Azure DevOps-organisation** för gruppen.
+2. Skapa standard **projektet för GroupCommon** i Azure DevOps-organisationen.
+3. Skapa **GroupProjectTemplate** -lagringsplatsen i Azure databaser.
+4. Skapa **GroupUtilities** -lagringsplatsen i Azure databaser.
+5. Importera innehållet i Microsoft TDSP-teamets **ProjectTemplate** -och **Utilities** -databaser till de gemensamma gruppernas delade databaser.
+6. Konfigurera **medlemskap** och **behörigheter** för grupp medlemmar för åtkomst till gruppen.
 
-> [!NOTE] 
-> Vi beskriver de steg som krävs för att ställa in en TDSP grupp-miljö med Azure DevOps-tjänsterna i instruktionerna som följer. Vi anger hur du utför dessa uppgifter med Azure DevOps Services eftersom det är hur vi implementerar TDSP på Microsoft. Om du använder en annan kod som är värd för plattformen för din grupp, ändra inte de uppgifter som måste utföras av hanteraren för gruppen Allmänt. Men sättet att utföra dessa uppgifter kommer att vara olika.
-
-1. Konfigurera **Azure DevOps-tjänsterna** för gruppen.
-2. Skapa en **projekt** på Azure DevOps-tjänsterna (för Azure DevOps-tjänsterna användare)
-3. Skapa den **GroupProjectTemplate** lagringsplats
-4. Skapa den **GroupUtilities** lagringsplats
-5. Startvärdesklassen den **GroupProjectTemplate** och **GroupUtilities** lagringsplatser för Azure DevOps-tjänster med innehåll från TDSP-databaser.
-6. Konfigurera den **säkerhetskontroller** för gruppmedlemmar att komma åt databaser GroupProjectTemplate och GroupUtilities.
-
-Var och en av de föregående stegen beskrivs i detalj. Men först måste vi bekanta dig med förkortningarna och diskutera förutsättningar för att arbeta med databaser.
-
-### <a name="abbreviations-for-repositories-and-directories"></a>Förkortningar för databaser och kataloger
-
-Den här självstudien använder förkortade namnen för databaser och kataloger. Dessa definitioner gör det lättare att följa åtgärderna mellan databaser och kataloger. Den här notationen används i följande avsnitt:
-
-- **G1**: Malldatabasen projekt har utvecklats och hanteras av TDSP team med Microsoft.
-- **G2**: Hjälpmedel databasen utvecklas och hanteras av TDSP team med Microsoft.
-- **R1**: GroupProjectTemplate-databasen på Git som du har konfigurerat på din server för Azure DevOps-gruppen.
-- **R2**: GroupUtilities-databasen på Git som du har konfigurerat på din server för Azure DevOps-gruppen.
-- **LG1** och **LG2**: De lokala katalogerna på datorn att du klonar G1 och G2, respektive.
-- **LR1** och **LR2**: De lokala katalogerna på datorn att du klonar R1 och R2 till respektive.
-
-### <a name="pre-requisites-for-cloning-repositories-and-checking-code-in-and-out"></a>Förutsättningar för kloning av databaser och checka in och ut koden
-
-- Git måste installeras på din dator. Om du använder en virtuell dator på datavetenskap (DSVM) Git har installerats i förväg och du är redo att börja. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
-- Om du använder en **Windows DSVM**, måste du ha [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerat på datorn. README.md-filen, rulla ned till den **ladda ned och installera** och klicka på *senaste installationsprogrammet*. Det här steget kommer du till den senaste sidan för installationsprogrammet. Ladda ned installationsprogrammet .exe här och kör den.
-- Om du använder **Linux DSVM**, skapa en offentlig SSH-nyckel för din DSVM och lägga till den i din grupp Azure DevOps-tjänsterna. Mer information om SSH finns i den **offentlig skapa SSH-nyckel** i avsnittet den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
-
-
-## <a name="1-create-account-on-azure-devops-services"></a>1. Skapa konto på Azure DevOps-tjänsterna
-
-Azure DevOps-tjänsterna är värd för följande databaser:
-
-- **Gruppera vanliga lagringsplatser**: Allmänna databaser som kan vidtas flera team inom en grupp med flera dataforskningsprojekt. Till exempel den *GroupProjectTemplate* och *GroupUtilities* databaser.
-- **team databaser**:  Lagringsplatser för specifika team i en grupp. Dessa databaser är specifika för ett team och kan vara antagen av flera projekt som körs av teamet, men inte allmänna nog för att vara praktiskt att flera team i en data science-grupp.
-- **projektet databaser**: Databaser som finns tillgängliga för särskilda projekt. Sådana databaser kanske inte är allmän vara användbart att flera projekt som utförs av ett team och flera team i en data science-grupp.
-
-
-### <a name="setting-up-the-azure-devops-services-sign-into-your-microsoft-account"></a>Ställa in den Azure DevOps tjänster logga in på ditt Microsoft-konto
-
-Gå till [Visual Studio online](https://www.visualstudio.com/), klickar du på **logga in** i övre högra hörnet och logga in på ditt Microsoft-konto.
-
-![1](./media/group-manager-tasks/login.PNG)
-
-Om du inte har ett Microsoft-konto, klickar du på **registrera dig nu** att skapa ett Microsoft-konto och logga sedan in med det här kontot.
-
-Om din organisation har en Visual Studio/MSDN-prenumeration, klickar du på gröna **logga in med ditt arbets- eller skolkonto** box och logga in med autentiseringsuppgifterna som associeras med den här prenumerationen.
-
-![2](./media/group-manager-tasks/signin.PNG)
-
-
-
-När du har loggat in klickar du på **Skapa nytt konto** i det övre högra hörnet som visas i följande bild:
-
-![3](./media/group-manager-tasks/create-account-1.PNG)
-
-Fyll i information för Azure DevOps-tjänster som du vill skapa i den **skapa ditt konto** guiden med följande värden:
-
-- **Serveradress**: Ersätt *mysamplegroup* med dina egna *servernamn*. URL: en för din server ska vara: *https://\<servername\>. visualstudio.com*.
-- **Hantera kod med:** Välj  **_Git_** .
-- **Namn:** Ange *GroupCommon*.
-- **Organisera arbete med hjälp av:** Välj *flexibel*.
-- **Vara värd för dina projekt i:** Välj en geoplats. I det här exemplet väljer vi *södra centrala USA*.
-
-![4](./media/group-manager-tasks/fill-in-account-information.png)
+I följande självstudie går vi igenom stegen i detalj. 
 
 > [!NOTE] 
-> Om du ser följande popup-fönstret när du klickar på **Skapa nytt konto**, måste du klicka på **ändringsinformation** att visa alla fält som uppdelat.
-
-![5](./media/group-manager-tasks/create-account-2.png)
-
-
-Klicka på **Fortsätt**.
-
-## <a name="2-groupcommon-project"></a>2. GroupCommon projekt
-
-Den **GroupCommon** sidan (*https://\<servername\>.visualstudio.com/GroupCommon*) öppnas när din Azure DevOps-tjänsterna har skapats.
-
-![6](./media/group-manager-tasks/server-created-2.PNG)
-
-## <a name="3-create-the-grouputilities-r2-repository"></a>3. Skapa databasen GroupUtilities (R2)
-
-Att skapa den **GroupUtilities** (R2) databasen under Azure DevOps-tjänsterna:
-
-- Öppna den **skapar en ny lagringsplats** guiden klickar du på **ny lagringsplats** på den **versionskontroll** fliken i ditt projekt.
-
-  ![7](./media/group-manager-tasks/create-grouputilities-repo-1.png)
-
-- Välj *Git* som den **typ**, och ange *GroupUtilities* som den **namn**, och klicka sedan på **skapa**.
-
-  ![8](./media/group-manager-tasks/create-grouputilities-repo-2.png)
-
-Nu bör du se två Git-lagringsplatser **GroupProjectTemplate** och **GroupUtilities** i den vänstra kolumnen i den **versionskontroll** sidan:
-
-![9](./media/group-manager-tasks/two-repo-under-groupCommon.PNG)
-
-
-## <a name="4-create-the-groupprojecttemplate-r1-repository"></a>4. Skapa GroupProjectTemplate (R1) databasen
-
-Installationen av databaser för servern för Azure DevOps-gruppen består av två saker:
-
-- Byt namn på standard **GroupCommon** databasen***GroupProjectTemplate***.
-- Skapa den **GroupUtilities** lagringsplatsen för Azure DevOps-tjänsterna under projektet **GroupCommon**.
-
-Anvisningar om hur den första aktiviteten finns i det här avsnittet när du Anmärkning på namnkonventioner eller våra databaser och kataloger. Anvisningarna för den andra aktiviteten finns i följande avsnitt innehåller steg 4.
-
-### <a name="rename-the-default-groupcommon-repository"></a>Byt namn på GroupCommon standarddatabas
-
-Att byta namn på standard **GroupCommon** lagringsplatsen som *GroupProjectTemplate* (kallas **R1** i den här självstudien):
-
-- Klicka på **samarbeta på kod** på den **GroupCommon** projektsida. Detta tar dig till standardsidan för Git-lagringsplats för projektet **GroupCommon**. Git-lagringsplatsen är för närvarande är tom.
-
-  ![10](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
-
-- Klicka på **GroupCommon** i det övre vänstra hörnet (markerat med en röd ruta i följande bild) på sidan för Git-lagringsplats i **GroupCommon** och välj **hantera databaser**(markerat med en grön ruta i följande bild). Den här proceduren öppnas den **KONTROLLPANELEN**.
-- Välj den **versionskontroll** fliken i ditt projekt.
-
-  ![11](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
-
-- Klicka på den **...**  till höger om den **GroupCommon** databasen på den vänstra panelen och välj **Byt namn på databasen**.
-
-  ![12](./media/group-manager-tasks/rename-groupcommon-repo-5.png)
-
-- I den **Byt namn på databasen GroupCommon** guiden POP, ange *GroupProjectTemplate* i den **lagringsplatsnamn** rutan och klicka sedan på **Byt namn på** .
-
-  ![13](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
-
-
-
-## <a name="5-seed-the-r1--r2-repositories-on-the-azure-devops-services"></a>5. Dirigera R1 & R2 databaser på Azure DevOps-tjänster
-
-I den här fasen av proceduren du initiera den *GroupProjectTemplate* (R1) och *GroupUtilities* (R2)-databaser som du skapade i föregående avsnitt. Dessa databaser har angetts med den ***ProjectTemplate*** (**G1**) och ***verktyg*** (**G2**) databaser som hanteras av Microsoft för Team Data Science Process. När den här seeding är slutförd:
-
-- R1 databasen kommer att ha samma uppsättning kataloger och mallar som gör G1
-- din R2 lagringsplats kommer att innehålla en uppsättning data science utilities har utvecklats av Microsoft.
-
-Seeding proceduren använder katalogerna på din lokala DSVM som mellanliggande mellanlagring platser. Här följer de åtgärder som vidtas i det här avsnittet:
-
-- G1 & G2 - klonas till -> LG1 & LG2
-- R1 & R2 – klonas till -> LR1 & LR2
-- LG1 & LG2 - filer som kopieras till -> LR1 & LR2
-- (Valfritt) anpassning av LR1 & LR2
-- LR1 & LR2 - innehållet Lägg till -> R1 & R2
-
-
-### <a name="clone-g1--g2-repositories-to-your-local-dsvm"></a>Klona G1 & G2 lagringsplatser för din lokala DSVM
-
-I det här steget ska klona du lagringsplatsen för Team Data Science Process (TDSP) ProjectTemplate (G1) och verktyg (G2) från TDSP GitHub-databaser till mappar i din lokala DSVM som LG1 och LG2:
-
-- Skapa en katalog som fungerar som rotkatalog som värd för din kloner databaser.
-  -  Skapa en katalog i Windows-DSVM *C:\GitRepos\TDSPCommon*.
-  -  Skapa en katalog i Linux-DSVM *GitRepos\TDSPCommon* i din arbetskatalog.
-
-- Kör följande kommandon från den *GitRepos\TDSPCommon* directory.
-
-  `git clone https://github.com/Azure/Azure-TDSP-ProjectTemplate`<br>
-  `git clone https://github.com/Azure/Azure-TDSP-Utilities`
-
-  ![14](./media/group-manager-tasks/two-folder-cloned-from-TDSP-windows.PNG)
-
-- Med hjälp av vår förkortade databasnamn, är det här vad dessa skript har uppnått:
-    - G1 - klonas till -> LG1
-    - G2 - klonas till -> LG2
-- När Kloningen har slutförts kan du ska kunna se två kataloger _ProjectTemplate_ och _verktyg_under **GitRepos\TDSPCommon** directory.
-
-### <a name="clone-r1--r2-repositories-to-your-local-dsvm"></a>Klona R1 & R2 lagringsplatser för din lokala DSVM
-
-I det här steget ska du klona GroupProjectTemplate lagringsplatsen (R1) och GroupUtilities databasen (R2) på lokala kataloger (kallas LR1 och LR2, respektive) under **GitRepos\GroupCommon** på din DSVM.
-
-- URL: er R1 och R2 databaser, gå till din **GroupCommon** startsidan på Azure DevOps-tjänsterna. Detta har vanligtvis URL: en *https://\<Your Azure DevOps-tjänstnamn\>.visualstudio.com/GroupCommon*.
-- Klicka på **kod**.
-- Välj den **GroupProjectTemplate** och **GroupUtilities** databaser. Kopiera och spara vart och ett av de URL: er (HTTPS för Windows; SSH för Linux) från den **URL-klonen** element i tur och ordning för användning i följande skript:
-
-  ![15](./media/group-manager-tasks/find_https_ssh_2.PNG)
-
-- Ändra till den **GitRepos\GroupCommon** på din Windows eller Linux DSVM och kör en av följande uppsättningar kommandon för att klona R1 och R2 till katalogen.
-
-Här är de Windows- och Linux-skript:
-
-    # Windows DSVM
-
-    git clone <the HTTPS URL of the GroupProjectTemplate repository>
-    git clone <the HTTPS URL of the GroupUtilities repository>
-
-![16](./media/group-manager-tasks/clone-two-empty-group-reo-windows-2.PNG)
-
-    # Linux DSVM
-
-    git clone <the SSH URL of the GroupProjectTemplate repository>
-    git clone <the SSH URL of the GroupUtilities repository>
-
-![17](./media/group-manager-tasks/clone-two-empty-group-reo-linux-2.PNG)
-
-> [!NOTE] 
-> Förvänta dig att ta emot varningsmeddelanden att LR1 och LR2 är tom.
-
-- Med hjälp av vår förkortade databasnamn, är det här vad dessa skript har uppnått:
-    - R1 - klonas till -> LR1
-    - R2 - klonas till -> LR2   
-
-
-### <a name="seed-your-groupprojecttemplate-lr1-and-grouputilities-lr2"></a>Dirigera dina GroupProjectTemplate (LR1) och GroupUtilities (LR2)
-
-I den lokala datorn Kopiera innehållet i ProjectTemplate och hjälpmedel kataloger (förutom metadata i .git kataloger) under GitRepos\TDSPCommon till katalogerna GroupProjectTemplate och GroupUtilities under **GitRepos\ GroupCommon**. Här följer två uppgifterna har slutförts i det här steget:
-
-- Kopiera filerna i GitRepos\TDSPCommon\ProjectTemplate (**LG1**) till GitRepos\GroupCommon\GroupProjectTemplate (**LR1**)
-- Kopiera filerna i GitRepos\TDSPCommon\Utilities (**LG2** till GitRepos\GroupCommon\Utilities (**LR2**).
-
-Kör följande skript i PowerShell-konsolen (Windows) eller Shell-skript (Linux) för att uppnå dessa två aktiviteter. Du uppmanas att ange de fullständiga sökvägarna till LG1, LR1, LG2 och LR2. Sökvägar som du anger verifieras. Om du anger en katalog som inte finns uppmanas du att ange den igen.
-
-    # Windows DSVM
-    
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_win.ps1" -outfile "tdsp_local_copy_win.ps1"
-    .\tdsp_local_copy_win.ps1 1
-
-![18](./media/group-manager-tasks/copy-two-folder-to-group-folder-windows-2.PNG)
-
-Nu kan du se att filer i kataloger LG1 och LG1 (utom filer i katalogen .git) har kopierats till LR1 och LR2, respektive.
-
-![19](./media/group-manager-tasks/copy-two-folder-to-group-folder-windows.PNG)
-
-    # Linux DSVM
-
-    wget "https://raw.githubusercontent.com/Azure/Azure-MachineLearning-DataScience/master/Misc/TDSP/tdsp_local_copy_linux.sh"
-    bash tdsp_local_copy_linux.sh 1
-
-![20](./media/group-manager-tasks/copy-two-folder-to-group-folder-linux-2.PNG)
-
-Du ser nu att filerna i två mappar (utom filer i katalogen .git) kopieras till GroupProjectTemplate och GroupUtilities respektive.
-
-![21](./media/group-manager-tasks/copy-two-folder-to-group-folder-linux.PNG)
-
-- Med hjälp av vår förkortade databasnamn, är det här vad dessa skript har uppnått:
-    - LG1 - filer som kopieras till -> LR1
-    - LG2 - filer som kopieras till -> LR2
-
-### <a name="option-to-customize-the-contents-of-lr1--lr2"></a>Möjlighet att anpassa innehållet i LR1 & LR2
-    
-Om du vill anpassa innehållet i LR1 och LR2 för att uppfylla de specifika behoven i din grupp, är detta steget i proceduren om så är lämpligt. Du kan ändra mallen dokument, ändra katalogstrukturen och lägga till befintliga verktyg som gruppen har utvecklat eller som är användbara för hela hanteringsgruppen.
-
-### <a name="add-the-contents-in-lr1--lr2-to-r1--r2-on-group-server"></a>Lägg till innehåll i LR1 & LR2 till R1 & R2 på en server
-
-Nu kan behöva du lägga till innehållet i LR1 och LR2 databaser R1 och R2. Här är git bash-kommandon som du kan köra i Windows PowerShell- eller Linux.
-
-Kör följande kommandon från katalogen GitRepos\GroupCommon\GroupProjectTemplate:
-
-    git status
-    git add .
-    git commit -m"push from DSVM"
-    git push
-
--M-alternativet kan du ange ett meddelande för git-incheckning.
-
-![22](./media/group-manager-tasks/push-to-group-server-2.PNG)
-
-Du kan se att i din grupp Azure DevOps-tjänster, i databasen GroupProjectTemplate filerna synkroniseras omedelbart.
-
-![23](./media/group-manager-tasks/push-to-group-server-showed-up-2.PNG)
-
-Slutligen ändra till den **GitRepos\GroupCommon\GroupUtilities** och kör samma uppsättning git bash-kommandon:
-
-    git status
-    git add .
-    git commit -m"push from DSVM"
-    git push
-
-> [!NOTE] 
-> Om det här är första gången du skickar till en Git-lagringsplats, måste du konfigurera globala parametrar *user.name* och *user.email* innan du kör den `git commit` kommando. Kör följande två kommandon:
->
->  `git config --global user.name <your name>`  
->  `git config --global user.email <your email address>`
->
-> Om du checkar in till flera Git-lagringsplatser, Använd samma namn och e-postadress när du skickar dem. Med samma namn och e-postadress bevisar praktiskt vid ett senare tillfälle när du skapar Power BI-instrumentpaneler för att spåra dina Git-aktiviteter i flera databaser.
-
-
-- Med hjälp av vår förkortade databasnamn, är det här vad dessa skript har uppnått:
-    - LR1 - innehållet Lägg till -> R1
-    - LR2 - innehållet Lägg till R2 ->
-
-## <a name="6-add-group-members-to-the-group-server"></a>6. Lägg till medlemmar i gruppen på grupp-servern
-
-På startsidan för din grupp Azure DevOps Services, klickar du på den **kugghjulsikonen** bredvid ditt användarnamn i det övre högra hörnet, väljer den **Security** fliken. Du kan lägga till medlemmar i gruppen med olika behörigheter.
-
-![24](./media/group-manager-tasks/add_member_to_group.PNG)
-
+> I den här artikeln används Azure DevOps för att konfigurera en TDSP-grupp miljö, eftersom det är så här implementerar du TDSP på Microsoft. Om din grupp använder andra kod värdbaserade eller utvecklings plattformar, är grupp hanterarens aktiviteter samma, men sättet att slutföra dem kan vara olika.
+
+## <a name="create-an-organization-and-project-in-azure-devops"></a>Skapa en organisation och ett projekt i Azure DevOps
+
+1. Gå till [VisualStudio.Microsoft.com](https://visualstudio.microsoft.com), Välj **Logga in** längst upp till höger och logga in på din Microsoft-konto. 
+   
+   ![Logga in på din Microsoft-konto](./media/group-manager-tasks/signinvs.png)
+   
+   Om du inte har någon Microsoft-konto väljer du **Registrera dig nu**, skapar en Microsoft-konto och loggar in med det här kontot. Om din organisation har en Visual Studio-prenumeration loggar du in med autentiseringsuppgifterna för den prenumerationen.
+   
+1. När du har loggat in, längst upp till höger på sidan Azure-DevOps, väljer du **Skapa ny organisation**.
+   
+   ![Skapa ny organisation](./media/group-manager-tasks/create-organization.png)
+   
+1. Om du uppmanas att godkänna villkoren för tjänsten, sekretess policyn och uppföranderegler väljer du **Fortsätt**.
+   
+1. I dialog rutan för registrering namnger du din Azure DevOps-organisation och godkänner tilldelningen av värd området, eller så väljer du en annan region. Välj sedan **Fortsätt**. 
+
+1. Under **skapa ett projekt för att komma igång skriver du** *GroupCommon*och väljer sedan **skapa projekt**. 
+   
+   ![Skapa projekt](./media/group-manager-tasks/create-project.png)
+
+Sidan **GroupCommon** Project **Summary** öppnas. Sidans URL är *https: \/ @ no__t-2 @ no__t-3servername >/\<organization-name >/GroupCommon*.
+
+![Sidan projekt Sammanfattning](./media/group-manager-tasks/project-summary.png)
+
+## <a name="set-up-the-group-common-repositories"></a>Konfigurera gruppens gemensamma databaser
+
+Azure-databaser är värd för följande typer av databaser för din grupp:
+
+- **Gruppera gemensamma databaser**: Generella databaser som flera team inom en data vetenskaps enhet kan använda för många data vetenskaps projekt. 
+- **Team-databaser**:  Databaser för vissa team inom en data vetenskaps enhet. De här databaserna är speciella för ett grupp behov och kan användas för flera projekt i teamet, men de är inte allmänt nog att användas i flera team inom en data vetenskaps enhet.
+- **Projekt databaser**: Databaser för vissa projekt. Sådana databaser får inte vara generella för flera projekt i ett team, eller för andra team i en data vetenskaps enhet.
+
+Om du vill ställa in gemensamma grupper för gruppen i projektet kan du: 
+- Byt namn på standard lagrings platsen för **GroupCommon** till **GroupProjectTemplate**
+- Skapa en ny **GroupUtilities** -lagringsplats
+
+### <a name="rename-the-default-project-repository-to-groupprojecttemplate"></a>Byt namn på Standard projekt lagrings platsen till GroupProjectTemplate
+
+Så här byter du namn på standard **GroupCommon** Project-lagringsplats till **GroupProjectTemplate**:
+
+1. På sidan **GroupCommon** Project **Summary** väljer du **databaser**. Den här åtgärden tar dig till standard **GroupCommon** -lagringsplatsen för GroupCommon-projektet, som är tom för tillfället.
+   
+1. Klicka på pilen bredvid **GroupCommon** överst på sidan och välj **Hantera databaser**.
+   
+   ![Hantera databaser](./media/group-manager-tasks/rename-groupcommon-repo-3.png)
+   
+1. På sidan **projekt inställningar** väljer du **...** bredvid **GroupCommon**och väljer sedan **Byt namn på lagrings plats**. 
+   
+   ![Välj... och välj sedan Byt namn på lagrings plats](./media/group-manager-tasks/rename-groupcommon-repo-4.png)
+   
+1. I popup-fönstret för **att byta namn på GroupCommon-lagringsplatsen anger du** *GroupProjectTemplate*och väljer sedan **Byt namn**. 
+   
+   ![Byt namn på lagrings plats](./media/group-manager-tasks/rename-groupcommon-repo-6.png)
+
+### <a name="create-the-grouputilities-repository"></a>Skapa GroupUtilities-lagringsplatsen
+
+Så här skapar du **GroupUtilities** -lagringsplatsen:
+
+1. På sidan **GroupCommon** Project **Summary** väljer du **databaser**. 
+   
+1. Längst upp på sidan, nedrullningsbar pilen bredvid **GroupProjectTemplate** och välj **ny lagrings plats**.
+   
+   ![Välj ny lagrings plats](./media/group-manager-tasks/create-grouputilities-repo-1.png)
+   
+1. I dialog rutan **skapa en ny lagrings plats** väljer du **git** som **typ**, anger *GroupUtilities* som **namn på databasen**och väljer sedan **skapa**.
+   
+   ![Skapa GroupUtilities-lagringsplats](./media/group-manager-tasks/create-grouputilities-repo-2.png)
+   
+1. På sidan **projekt inställningar** väljer du **databaser** under **databaser** i det vänstra navigerings fältet för att se de två grupp databaserna: **GroupProjectTemplate** och **GroupUtilities**.
+   
+   ![Två grupp databaser](./media/group-manager-tasks/two-repositories.png)
+
+## <a name="import-the-microsoft-tdsp-team-repositories"></a>Importera Microsoft TDSP team-databaser
+
+I den här delen av självstudien importerar du innehållet i databaserna **ProjectTemplate** och **Utilities** som hanteras av Microsoft TDSP-teamet till dina **GroupProjectTemplate** -och **GroupUtilities** -databaser. 
+
+Så här importerar du TDSP team-databaser:
+
+1. Från start sidan för **GroupCommon** -projektet väljer du **databaser** i det vänstra navigerings fältet. Standard **GroupProjectTemplate** -lagrings platsen öppnas. 
+   
+1. På sidan **GroupProjectTemplate är tom** väljer du **Importera**. 
+   
+   ![Välj Importera](./media/group-manager-tasks/import-repo.png)
+   
+1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger *https: \//GitHub. com/Azure/Azure-TDSP-ProjectTemplate. git* för klon- **URL: en**. Välj sedan **Importera**. Innehållet i Microsoft TDSP team ProjectTemplate-lagringsplatsen importeras till GroupProjectTemplate-lagringsplatsen. 
+   
+   ![Importera Microsoft TDSP team-lagringsplats](./media/group-manager-tasks/import-repo-2.png)
+   
+1. Längst upp på sidan **databaser** , väljer du den **GroupUtilities** databasen.
+   
+1. Upprepa import processen för att importera innehållet i Microsoft TDSP team **Utilities** -lagringsplatsen, *https: \//GitHub. com/Azure/Azure-TDSP-Utilities. git*till din **GroupUtilities** -lagringsplats. 
+   
+Var och en av dina två grupp databaser innehåller nu alla filer, förutom de i katalogen *. git* , från Microsoft TDSP-teamets motsvarande lagrings plats. 
+
+## <a name="customize-the-contents-of-the-group-repositories"></a>Anpassa innehållet i grupp databaserna
+
+Om du vill anpassa innehållet i dina grupp databaser för att uppfylla de speciella behoven i din grupp kan du göra det nu. Du kan ändra filerna, ändra katalog strukturen eller lägga till filer som gruppen har utvecklat eller som är användbara för din grupp.
+
+### <a name="make-changes-in-azure-repos"></a>Gör ändringar i Azure-databaser
+
+Så här anpassar du lagrings innehållet:
+
+1. På sidan **GroupCommon** Project **Summary** väljer du **databaser**. 
+   
+1. Välj den lagrings plats som du vill anpassa längst upp på sidan.
+
+1. I katalog strukturen lagrings platsen navigerar du till den mapp eller fil som du vill ändra. 
+   
+   - Om du vill skapa nya mappar eller filer väljer du pilen bredvid **ny**. 
+     
+     ![Skapa ny fil](./media/group-manager-tasks/new-file.png)
+     
+   - Om du vill ladda upp filer väljer du **Ladda upp fil (er)** . 
+     
+     ![Överföra filer](./media/group-manager-tasks/upload-files.png)
+     
+   - Om du vill redigera befintliga filer navigerar du till filen och väljer sedan **Redigera**. 
+     
+     ![Redigera en fil](./media/group-manager-tasks/edit-file.png)
+     
+1. När du har lagt till eller redigerat filer väljer du **genomför**.
+   
+   ![Genomför ändringar](./media/group-manager-tasks/commit.png)
+
+### <a name="make-changes-using-your-local-machine-or-dsvm"></a>Gör ändringar med hjälp av den lokala datorn eller DSVM
+
+Om du vill göra ändringar med hjälp av din lokala dator eller DSVM och skicka ändringarna till grupp databaserna, kontrollerar du att du har förutsättningarna för att arbeta med git och Dsvm:
+
+- En Azure-prenumeration, om du vill skapa en DSVM.
+- Git installerat på datorn. Om du använder en DSVM är git förinstallerat. Annars läser den [plattformar och verktyg bilaga](platforms-and-tools.md#appendix).
+- Om du vill använda en DSVM skapas och konfigureras Windows-eller Linux-DSVM i Azure. Mer information och anvisningar finns i Data Science Virtual Machine- [dokumentationen](/azure/machine-learning/data-science-virtual-machine/).
+- För en Windows-DSVM är [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) installerad på datorn. Rulla ned till avsnittet **Ladda ned och installera** i *Readme.MD* -filen och välj det **senaste installations programmet**. Hämta *exe* -installationsprogrammet från installations sidan och kör det. 
+- För en Linux-DSVM, konfigureras en offentlig SSH-nyckel på din DSVM och läggs till i Azure DevOps. Mer information och instruktioner finns i avsnittet **skapa offentlig SSH-nyckel** i [tillägget plattformar och verktyg](platforms-and-tools.md#appendix). 
+
+Först kopierar eller *klonar* du lagrings platsen till din lokala dator. 
+   
+1. På sidan **GroupCommon** Project **Summary** väljer du **databaser**. längst upp på sidan väljer du den lagrings plats som du vill klona.
+   
+1. På sidan lagrings platsen väljer du **klona** längst upp till höger.
+   
+1. I dialog rutan **klona lagrings plats** väljer du **https** för en HTTP-anslutning eller **SSH** för en SSH-anslutning och kopierar klon-URL: en under **kommando raden** till Urklipp.
+   
+   ![Klona lagrings platsen](./media/group-manager-tasks/clone.png)
+   
+1. Skapa följande kataloger på den lokala datorn:
+   
+   - För Windows: **C:\GitRepos\GroupCommon**
+   - För Linux, **$/GitRepos/GroupCommon** i din arbets katalog 
+   
+1. Ändra till den katalog som du har skapat.
+   
+1. Kör kommandot `git clone <clone URL>.` i git-bash
+   
+   Något av följande kommandon klonar till exempel **GroupUtilities** -lagringsplatsen till *GroupCommon* -katalogen på den lokala datorn. 
+   
+   **HTTPS-anslutning:**
+   
+   ```bash
+   git clone https://DataScienceUnit@dev.azure.com/DataScienceUnit/GroupCommon/_git/GroupUtilities
+   ```
+   
+   **SSH-anslutning:**
+   
+   ```bash
+   git clone git@ssh.dev.azure.com:v3/DataScienceUnit/GroupCommon/GroupUtilities
+   ```
+
+När du har gjort de ändringar som du vill ha i den lokala klonen av lagrings platsen kan du skicka ändringarna till delade grupper i delade grupper. 
+
+Kör följande git bash-kommandon från din lokala **GroupProjectTemplate** -eller **GroupUtilities** -katalog.
+
+```bash
+git add .
+git commit -m "push from local"
+git push
+```
+
+> [!NOTE]
+> Om det här är första gången du genomför till en git-lagringsplats kan du behöva konfigurera globala parametrar *User.name* och *User. email* innan `git commit` du kör kommandot. Kör följande två kommandon:
+> 
+> `git config --global user.name <your name>`
+> 
+> `git config --global user.email <your email address>`
+> 
+> Om du använder flera git-databaser använder du samma namn och e-postadress för alla. Det är praktiskt att använda samma namn och e-postadress när du skapar Power BI instrument paneler för att spåra git-aktiviteter i flera databaser.
+
+## <a name="add-group-members-and-configure-permissions"></a>Lägg till grupp medlemmar och konfigurera behörigheter
+
+Så här lägger du till medlemmar i gruppen:
+
+1. I Azure DevOps väljer du **projekt inställningar** i det vänstra navigerings fönstret på **GroupCommon** -projektets start sida. 
+   
+1. I det vänstra navigerings fältet i **Project** väljer du **team**och på sidan **team** väljer du sedan **GroupCommon-teamet**. 
+   
+   ![Konfigurera team](./media/group-manager-tasks/teams.png)
+   
+1. På sidan **team profil** väljer du **Lägg till**.
+   
+   ![Lägg till i GroupCommon-teamet](./media/group-manager-tasks/add-to-team.png)
+   
+1. I dialog rutan **Lägg till användare och grupper** söker du efter och väljer medlemmar som ska läggas till i gruppen. Välj sedan **Spara ändringar**. 
+   
+   ![Lägg till användare och grupper](./media/group-manager-tasks/add-users.png)
+   
+
+Konfigurera behörigheter för medlemmar:
+
+1. Välj **behörigheter**från det vänstra navigerings fältet i **Project** . 
+   
+1. På sidan **behörigheter** väljer du den grupp som du vill lägga till medlemmar i. 
+   
+1. Välj **medlemmar**på sidan för gruppen och välj sedan **Lägg till**. 
+   
+1. I popup-fönstret **Bjud in medlemmar** söker du efter och väljer medlemmar som ska läggas till i gruppen. Välj sedan **Spara**. 
+   
+   ![Bevilja behörigheter till medlemmar](./media/group-manager-tasks/grant-permissions.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Här finns länkar till mer detaljerade beskrivningar av de roller och uppgifter som definieras av Team Data Science Process:
+Här följer länkar till detaljerade beskrivningar av de andra rollerna och uppgifterna i team data science-processen:
 
-- [Gruppansvarig uppgifter för team data science](group-manager-tasks.md)
 - [Lead gruppaktiviteter för team data science](team-lead-tasks.md)
 - [Lead projektaktiviteter för team data science](project-lead-tasks.md)
-- [Projektet enskilda deltagare för team data science](project-ic-tasks.md)
+- [Projicera enskilda deltagar uppgifter för ett data vetenskaps team](project-ic-tasks.md)

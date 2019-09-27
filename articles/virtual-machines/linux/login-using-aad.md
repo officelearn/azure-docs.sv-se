@@ -3,7 +3,7 @@ title: Logga in på en virtuell Linux-dator med Azure Active Directory autentise
 description: Lär dig hur du skapar och konfigurerar en virtuell Linux-dator för att logga in med Azure Active Directory autentisering.
 services: virtual-machines-linux
 documentationcenter: ''
-author: cynthn
+author: iainfoulds
 manager: gwallace
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/29/2019
-ms.author: cynthn
-ms.openlocfilehash: e30adf8b694d744e64fb7528b75b85d4a772a723
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.author: iainfou
+ms.openlocfilehash: b473844f1507285e0052ca1f8de00f6ca3207e6f
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316762"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327098"
 ---
 # <a name="preview-log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication"></a>Förhandsversion: Logga in på en virtuell Linux-dator i Azure med Azure Active Directory autentisering
 
@@ -88,7 +88,7 @@ Det tar några minuter att skapa den virtuella datorn och stödresurser.
 ## <a name="install-the-azure-ad-login-vm-extension"></a>Installera tillägget Azure AD login VM
 
 > [!NOTE]
-> Om du distribuerar den här exention till en tidigare skapad virtuell dator måste datorn ha minst 1 GB minne, annars går det inte att installera tillägget
+> Om du distribuerar det här tillägget till en tidigare skapad virtuell dator måste datorn ha minst 1 GB minne, annars går det inte att installera tillägget
 
 Om du vill logga in på en virtuell Linux-dator med Azure AD-autentiseringsuppgifter installerar du Azure Active Directory-inloggningens VM-tillägg. VM-tillägg är små program som tillhandahåller konfigurations-och automatiserings åtgärder efter distributionen på virtuella Azure-datorer. Använd [AZ VM Extension set](/cli/azure/vm/extension#az-vm-extension-set) för att installera *AADLoginForLinux* -tillägget på den virtuella datorn med namnet *myVM* i *myResourceGroup* -resurs gruppen:
 

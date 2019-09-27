@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 09/23/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 84cca255d8cf768d44e01c8f3a892e3c9830184e
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 9c6d0fcc20afc613094f10e9f3fb7c917ec6fa73
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316717"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327238"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Uppgifter för team ledare i en team data vetenskap process-grupp
 
@@ -140,7 +140,7 @@ För att fylla i dina team databaser med innehållet i gruppen gemensamma databa
    
    ![Välj Importera](./media/team-lead-tasks/import-repo.png)
    
-1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger URL: en för din grupps gemensamma mall lagrings plats under **klon-URL**. URL: en *är https\/:/\<Server namn >\</organisations namn\<>/_git/-lagringsplatsens namn >* . Till exempel: *https:\//dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. I dialog rutan **Importera en git-lagringsplats** väljer du **git** som **käll typ**och anger URL: en för din grupps gemensamma mall lagrings plats under **klon-URL**. URL: en är *https: \/ @ no__t-2 @ no__t-3server name >/\<organization namn >/_git/\<repository name >* . Exempel: *https: \//dev. Azure. com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Välj **Importera**. Innehållet i din gruppmalls lagrings plats importeras till lagrings platsen för din grupp. 
    
@@ -230,7 +230,7 @@ git push
 > 
 > `git config --global user.name <your name>`
 > 
-> `git config --global user.email \<your email address>`
+> `git config --global user.email <your email address>`
 > 
 > Om du använder flera git-databaser använder du samma namn och e-postadress för alla. Det är praktiskt att använda samma namn och e-postadress när du skapar Power BI instrument paneler för att spåra git-aktiviteter i flera databaser.
 

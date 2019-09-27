@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: bd4d3b9b34f951896e838d5f6f50ca204d329568
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: bc8932a9904a3e4e671edc3e624ff15e7253e1ed
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266606"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326824"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Ladda upp en virtuell hård disk till Azure med Azure CLI
 
@@ -40,6 +40,8 @@ Den här typen av hanterade diskar har två unika tillstånd:
 - ActiveUpload, vilket innebär att disken är redo att ta emot en uppladdning och att SAS har genererats.
 
 I något av dessa tillstånd debiteras den hanterade disken med [standard priset för hård](https://azure.microsoft.com/pricing/details/managed-disks/)diskar, oavsett vilken typ av disk som används. Till exempel kommer en P10 att faktureras som en S10. Detta är sant tills `revoke-access` anropas på den hanterade disken, vilket krävs för att ansluta disken till en virtuell dator.
+
+Innan du kan skapa en tom standard hård disk för uppladdning måste du ha fil storleken på den virtuella hård disk som du vill ladda upp, i byte. För att få det kan du använda antingen `wc -c <yourFileName>.vhd` eller `ls -al <yourFileName>.vhd`. Det här värdet används när du anger parametern **--upload-size-bytes** .
 
 Skapa en tom standard hård disk för uppladdning genom att ange både parametrarna **-– för-upload** och parametern **--upload-size-byte** i en [disk Create](/cli/azure/disk#az-disk-create) -cmdlet:
 

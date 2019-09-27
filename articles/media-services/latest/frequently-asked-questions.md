@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 06/21/2019
 ms.author: juliako
-ms.openlocfilehash: 28b9c8f343437c20e277d2f3ba53767afa45a5c2
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 6e52a51c82529a98ef679dd747b9c8b7d177b660
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68501255"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338822"
 ---
 # <a name="media-services-v3-frequently-asked-questions"></a>Vanliga frågor och svar om Media Services v3
 
@@ -65,6 +65,14 @@ Du kan använda en [aktiv lokal kodare](recommended-on-premises-live-encoders.md
 Kunder undrar ofta om de ska använda AES-kryptering eller ett DRM-system. Den största skillnaden mellan de två systemen är att med AES-kryptering överförs innehålls nyckeln till klienten via TLS så att nyckeln krypteras under överföringen men utan ytterligare kryptering ("i klartext"). Det innebär att den nyckel som används för att dekryptera innehållet är tillgänglig för klient spelaren och kan visas i ett nätverks spår på klienten i klartext. En AES-128-kryptering är lämplig för användnings fall där visnings programmet är en betrodd part (till exempel kryptering av företags videor som distribueras i ett företag som kan ses av anställda).
 
 DRM-system som PlayReady, Widevine och FairPlay innehåller en ytterligare krypterings nivå för den nyckel som används för att dekryptera innehållet jämfört med en AES-128-rensa-nyckel. Innehålls nyckeln krypteras till en nyckel som skyddas av DRM-körningen i tillägg till all kryptering på transport nivå som tillhandahålls av TLS. Dessutom hanteras dekrypteringen i en säker miljö på nivån operativsystemet där det är svårare för en obehörig användare för angrepp. DRM rekommenderas för användningsfall där visningsprogrammet inte kanske är en betrodd part och du behöver högsta säkerhetsnivån.
+
+### <a name="how-to-show-a-video-only-to-users-who-have-a-specific-permission-without-using-azure-ad"></a>Så här visar du en video endast för användare som har en särskild behörighet, utan att använda Azure AD?
+
+Du behöver inte använda någon speciell token-Provider (till exempel Azure AD). Du kan skapa en egen [JWT](https://jwt.io/) -Provider (så kallade STS, Secure token service) med hjälp av asymmetrisk nyckel kryptering. I din anpassade STS kan du lägga till anspråk baserat på din affärs logik.
+
+Se till att utfärdaren, mål gruppen och alla anspråk matchar exakt mellan vad som är i JWT och ContentKeyPolicyRestriction som används i ContentKeyPolicy.
+
+Mer information finns i [skydda ditt innehåll med hjälp av Media Services dynamisk kryptering](content-protection-overview.md).
 
 ### <a name="how-and-where-to-get-jwt-token-before-using-it-to-request-license-or-key"></a>Hur och var du vill hämta JWT-token innan det att begäran licens eller nyckel?
 

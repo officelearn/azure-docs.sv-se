@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: d6cc87947ab861e8de4dbdf754164e195f0f458c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 0b04ca5c4bea00221d5a823432b6fc1934badb1a
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309324"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71320523"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
@@ -58,7 +58,10 @@ Den här artikeln visar hur du utför dessa uppgifter:
     Adressprefix: 0.0.0.0/0<br>
     **Nästa hopp**: Internet
 
-* Om du vill använda anpassade DNS-servrar för ditt virtuella Azure-nätverk [konfigurerar du dessa servrar genom att följa de här stegen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) innan du distribuerar din ISE till ditt virtuella nätverk. Annars måste du, varje gång du ändrar DNS-servern, också starta om ISE, som är en funktion som är tillgänglig med ISE offentlig för hands version.
+* Om du vill använda anpassade DNS-servrar för ditt virtuella Azure-nätverk [konfigurerar du dessa servrar genom att följa de här stegen](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) innan du distribuerar din ISE till ditt virtuella nätverk. Annars måste du starta om ISE varje gången du ändrar DNS-servern.
+
+  > [!IMPORTANT]
+  > Om du ändrar inställningarna för DNS-servern efter att du har skapat en ISE måste du starta om ISE. Mer information om hur du hanterar DNS-serverinställningar finns i [skapa, ändra eller ta bort ett virtuellt nätverk](../virtual-network/manage-virtual-network.md#change-dns-servers).
 
 <a name="ports"></a>
 

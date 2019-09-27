@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management
 manager: ormaoz
 ms.custom: ''
-ms.openlocfilehash: 9664beca514abcbad4eca7c8f9dc1b494018802e
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: deb13b833707849bcbce8bcae7b05aeb5e0bce3b
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69535186"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338880"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Konfigurera och konfigurera AWS-integrering för kostnads-och användnings rapporter
 
@@ -42,8 +42,8 @@ Använd sidan **kostnads & användnings rapporter** i fakturerings-och Cost Mana
     2. Ange ett Bucket-namn och den region där du vill skapa en ny Bucket och välj **Nästa**.
 10. Välj **Jag har bekräftat att den här principen är korrekt**och klicka sedan på **Spara**.
 11. Valfritt För prefixet för rapport Sök väg anger du det prefix för rapport Sök väg som du vill anpassningsprefix till namnet på rapporten.
-Om du inte anger något prefix är standardprefixet det namn som du har angett för rapporten. Datum intervallet har `/report-name/date-range/` formatet.
-12. Välj **varje timme**för tidsenhet.
+Om du inte anger något prefix är standardprefixet det namn som du har angett för rapporten. Datum intervallet har formatet `/report-name/date-range/`.
+12. Välj **varje timme**för **tidsenhet**.
 13. För **rapport versions hantering**väljer du om du vill att varje version av rapporten ska skriva över den tidigare versionen, eller om du vill ha fler nya rapporter.
 14. Ingen val krävs för **att aktivera data integrering för**.
 15. För **komprimering**väljer du **gzip**.
@@ -79,15 +79,15 @@ Använd guiden skapa en ny roll:
 Konfigurera behörighet för rapporten kostnad och användning:
 
 1. Ange **rapporten kostnad och användning**.
-2. Välj**Läs** > -DescribeReportDefinitions > för åtkomst nivå. I det här steget kan Cost Management läsa vilka aktuella rapporter som definieras och avgöra om de matchar rapport definitionens krav.
+2. Välj **åtkomst nivå** > **Läs** > -**DescribeReportDefinitions**. I det här steget kan Cost Management läsa vilka aktuella rapporter som definieras och avgöra om de matchar rapport definitionens krav.
 3. Välj **Lägg till ytterligare behörigheter**.
 
 Konfigurera behörighet för S3-Bucket och-objekt:
 
 1. Välj **Välj en tjänst**.
 2. Ange **S3**.
-3. Välj **åtkomst nivå** > **lista** > **ListBucket**. Den här åtgärden hämtar listan över objekt i S3-Bucket.
-4. Välj **åtkomst nivå** > för att**läsa** > **GetObject**. Med den här åtgärden kan du ladda ned fakturerings filer.
+3. Välj **åtkomst nivå** > **list** > **ListBucket**. Den här åtgärden hämtar listan över objekt i S3-Bucket.
+4. Välj **åtkomst nivå** > **Läs** > **GetObject**. Med den här åtgärden kan du ladda ned fakturerings filer.
 5. Välj **resurser**.
 6. Välj **Bucket – Lägg till ARN**.
 7. I **Bucket-namn**anger du den Bucket som används för att lagra de akt filerna.
@@ -100,13 +100,13 @@ Konfigurera behörighet för Cost Explorer:
 
 1. Välj **Välj en tjänst**.
 2. Ange **tjänsten Cost Explorer**.
-3. Välj **alla tjänst åtgärder i Cost Explorer (CE\*:)** . Den här åtgärden kontrollerar att samlingen är korrekt.
+3. Välj **alla tjänst åtgärder i Cost Explorer (CE: \*)** . Den här åtgärden kontrollerar att samlingen är korrekt.
 4. Välj **Lägg till ytterligare behörigheter**.
 
 Lägg till behörighet för AWS-organisationer:
 
 1. Ange **organisationer**.
-2. Välj **åtkomst nivå** > **lista** > **ListAccounts**. Den här åtgärden hämtar namnen på kontona.
+2. Välj **åtkomst nivå** > **list** > **ListAccounts**. Den här åtgärden hämtar namnen på kontona.
 3. I **Granska princip**anger du ett namn för den nya principen. Kontrol lera att du har angett rätt information och välj sedan **Skapa princip**.
 4. Gå tillbaka till föregående flik och uppdatera webbläsarens webb sida. Sök efter din nya princip i Sök fältet.
 5. Välj **Nästa: Granskning**.
@@ -151,12 +151,12 @@ Princip-JSON bör likna följande exempel. Ersätt _bucketname_ med namnet på d
 Använd följande information för att skapa en AWS-koppling och börja övervaka dina AWS-kostnader:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Gå till **Cost Management + fakturerings** > **Cost Management**.
+2. Gå till **Cost Management + fakturering** > **Cost Management**.
 3. Under **Inställningar**väljer du **moln anslutningar (förhands granskning)** .  
-    ![Exempel som visar inställningen för moln anslutningar (för hands](./media/aws-integration-setup-configure/cloud-connectors-preview01.png)version)).
+    ![Example som visar inställningen för moln anslutningar (förhands granskning) ](./media/aws-integration-setup-configure/cloud-connectors-preview01.png).
 4. Välj **+ Lägg till** överst på sidan för att skapa en koppling.
 5. På sidan **skapa en AWS-koppling** , i **visnings namn**, anger du ett namn för din anslutning.  
-    ![Exempel på sidan för att skapa en AWS-koppling](./media/aws-integration-setup-configure/create-aws-connector01.png)
+    ![Example på sidan för att skapa en AWS-koppling @ no__t-1
 6. Du kan också välja standard hanterings gruppen. Alla identifierade länkade konton sparas. Du kan ställa in det senare.
 7. I **fakturerings** avsnittet väljer du **automatiskt debitera 1% vid allmän tillgänglighet** om du vill säkerställa kontinuerlig drift när förhands granskningen går ut. Om du väljer alternativet automatisk måste du välja en fakturerings prenumeration.
 8. För **roll ARN**anger du det värde som du använde när du konfigurerade rollen i AWS.
@@ -172,7 +172,7 @@ Tilldela anslutnings behörigheter till användare efter identifieringen ger int
 
 ## <a name="take-additional-steps"></a>Vidta ytterligare åtgärder
 
-- [Konfigurera hanterings grupper](../governance/management-groups/index.md#initial-setup-of-management-groups), om du inte redan gjort det.
+- [Konfigurera hanterings grupper](../governance/management-groups/overview.md#initial-setup-of-management-groups), om du inte redan gjort det.
 - Kontrol lera att nya omfattningar läggs till i din omfattnings väljare. Välj **Uppdatera** för att visa den senaste informationen.
 - På sidan **moln anslutningar** väljer du din anslutning och väljer **gå till fakturerings konto** för att tilldela det länkade kontot till hanterings grupper.
 
@@ -189,7 +189,7 @@ När du väljer en koppling på sidan **moln anslutningar** kan du:
 
 ## <a name="set-up-azure-management-groups"></a>Konfigurera hanterings grupper för Azure
 
-Placera dina Azure-prenumerationer och AWS-länkade konton i samma hanterings grupp för att skapa en enda plats där du kan se information om flera moln leverantörer. Om du inte redan har konfigurerat Azure-miljön med hanterings grupper kan du läsa den [första installationen av hanterings grupper](../governance/management-groups/index.md#initial-setup-of-management-groups).
+Placera dina Azure-prenumerationer och AWS-länkade konton i samma hanterings grupp för att skapa en enda plats där du kan se information om flera moln leverantörer. Om du inte redan har konfigurerat Azure-miljön med hanterings grupper kan du läsa den [första installationen av hanterings grupper](../governance/management-groups/overview.md#initial-setup-of-management-groups).
 
 Om du vill särskilja kostnader kan du skapa en hanterings grupp som bara innehåller AWS länkade konton.
 
@@ -231,4 +231,4 @@ AWS-länkade konton ärver alltid behörigheter från den hanterings grupp som d
 
 - Nu när du har konfigurerat och konfigurerat AWS för kostnads-och användnings rapporter fortsätter du med att [Hantera AWS-kostnader och användning](aws-integration-manage.md).
 - Om du inte är bekant med kostnads analys läser du [utforska och analysera kostnader med snabb start för kostnads analys](quick-acm-cost-analysis.md) .
-- Om du inte är bekant med budgetar i Azure kan du läsa [skapa och hantera Azure](tutorial-acm-create-budgets.md)-budgetar.
+- Om du inte är bekant med budgetar i Azure kan du läsa [skapa och hantera Azure-budgetar](tutorial-acm-create-budgets.md).

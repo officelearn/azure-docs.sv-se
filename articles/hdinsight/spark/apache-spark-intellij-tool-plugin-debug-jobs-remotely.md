@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: 404f96e91db8df0dd4246b7d744e463ce0e457a1
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: a558c0e767610f1fefdf29ca461a476c7bfcee59
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70994163"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327325"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-apache-spark-applications-remotely-in-hdinsight-through-vpn"></a>Använd Azure Toolkit for IntelliJ för att felsöka Apache Spark program via fjärr anslutning i HDInsight via VPN
 
@@ -53,19 +53,19 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
 1. Hämta IP-adressen för Head-noden. Öppna Ambari-ANVÄNDARGRÄNSSNITTET för klustret. Välj **instrument panel**på kluster bladet.
 
-    ![Välj instrument panel i Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-apache-ambari.png)
+    ![Välj instrument panel i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/launch-apache-ambari.png)
 
 1. Välj **värdar**i AMBARI-användargränssnittet.
 
-    ![Välj värdar i Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
+    ![Välj värdar i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/apache-ambari-hosts1.png)
 
 1. Du ser en lista över Head-noder, arbetsnoder och Zookeeper-noder. Huvudnoderna har ett **HN***-prefix. Välj den första Head-noden.
 
-    ![Hitta Head-noden i Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
+    ![Hitta Head-noden i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/ambari-cluster-headnodes.png)
 
 1. I fönstret **Sammanfattning** längst ned på sidan som öppnas kopierar du **IP-adressen** för Head-noden och **värd namnet**.
 
-    ![Hitta IP-adressen i Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png)
+    ![Hitta IP-adressen i Apache Ambari](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/headnode-ip-address1.png)
 
 1. Lägg till IP-adressen och värd namnet för Head-noden i **värd** filen på den dator där du vill köra och fjärrfelsöka Spark-jobbet. Detta gör att du kan kommunicera med Head-noden genom att använda IP-adressen, samt värd namnet.
 
@@ -117,16 +117,15 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
     b. I dialog rutan **projekt struktur** väljer du **artefakter** för att Visa standard artefakten som skapas. Du kan också skapa en egen artefakt genom att välja plus tecknet ( **+** ).
 
-   ![Skapa JAR-fil](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
-
+   ![IntelliJ idé artefakter skapa jar](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-default-artifact.png)
 
 1. Lägg till bibliotek i projektet. Gör följande om du vill lägga till ett bibliotek:
 
-    a. Högerklicka på projekt namnet i projekt trädet och välj sedan **Öppna inställningar för modul**. 
+    a. Högerklicka på projekt namnet i projekt trädet och välj sedan **Öppna inställningar för modul**.
 
     b. I dialog rutan **projekt struktur** väljer du **bibliotek**, väljer symbolen ( **+** ) och väljer sedan **från maven**.
 
-    ![Lägg till ett bibliotek](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
+    ![Bibliotek för IntelliJ idé hämtning](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-add-library.png)
 
     c. I dialog rutan **Ladda ned bibliotek från maven-lagringsplats** söker du efter och lägger till följande bibliotek:
 
@@ -182,11 +181,11 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
 1. Lägg till huvud klassen för ditt program. I **Project Explorer**högerklickar du på **src**, pekar på **ny**och väljer sedan Scala- **klass**.
 
-    ![Välj huvud klass](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
+    ![IntelliJ idé Välj huvud klass](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code.png)
 
 1. I dialog rutan **Skapa ny Scala-klass** anger du ett namn, väljer **objekt** i rutan **typ** och väljer sedan **OK**.
 
-    ![Skapa ny Scala-klass](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
+    ![IntelliJ idé skapa ny Scala-klass](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/hdi-spark-scala-code-object.png)
 
 1. `MyClusterAppMain.scala` I filen klistrar du in följande kod. Den här koden skapar Spark-kontexten och `executeJob` öppnar en metod `SparkSample` från objektet.
 
@@ -258,47 +257,47 @@ Vi rekommenderar att du även skapar ett Apache Spark kluster i Azure HDInsight 
 
 1. I- `test` klassen högerklickar du på nyckelordet och väljer sedan **skapa RemoteClusterDebugging-konfiguration.** `*RemoteClusterDebugging`
 
-    ![Skapa en fjärran sluten konfiguration](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
+    ![IntelliJ idé att skapa en fjärran sluten konfiguration](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/create-remote-config.png)
 
 1. I dialog rutan **skapa RemoteClusterDebugging konfiguration** anger du ett namn för konfigurationen och väljer sedan **test typ** som **testnamn**. Lämna alla andra värden som standardinställningar. Tryck på **Tillämpa** och välj sedan **OK**.
 
-    ![Lägg till konfigurations informationen](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
+    ![Skapa RemoteClusterDebugging-konfiguration](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/provide-config-value.png)
 
 1. Nu bör du se en nedrullningsbar listruta för **fjärrkörning** i meny raden.
 
-    ![List rutan fjärrkörning](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-config-remote-run.png)
+    ![IntelliJ den nedrullningsbara listan fjärrkörning](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-config-remote-run.png)
 
 ## <a name="step-5-run-the-application-in-debug-mode"></a>Steg 5: Kör programmet i fel söknings läge
 
 1. Öppna `SparkSample.scala` och skapa en Bryt punkt `val rdd1`bredvid i ditt IntelliJ-idé projekt. På popup-menyn **skapa Bryt punkt för** väljer du **rad i funktionen executeJob**.
 
-    ![Lägga till en brytpunkt](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-create-breakpoint.png)
+    ![IntelliJ idé Lägg till en Bryt punkt](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-create-breakpoint.png)
 
 1. Om du vill köra programmet väljer du knappen **Felsök körning** bredvid List rutan **fjärrkörnings** konfiguration.
 
-    ![Välj knappen Felsök körning](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode-button.png)
+    ![IntelliJ idé Välj knappen Felsök körning](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-run-mode-button.png)
 
 1. När program körningen når Bryt punkten visas fliken **fel sökare** i det nedre fönstret.
 
-    ![Visa fliken fel sökare](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-debugger-tab.png)
+    ![IntelliJ idé Visa fliken fel sökare](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/intellij-debugger-tab.png)
 
 1. Om du vill lägga till en Watch väljer **+** du ikonen ().
 
-    ![Välj ikonen +](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
+    ![IntelliJ-felsökning – Lägg till Watch-variabel](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable.png)
 
     I det här exemplet skapades programmet innan variabeln `rdd1` skapades. Med den här klockan kan vi se de fem första raderna i variabeln `rdd`. Välj **Retur**.
 
-    ![Kör programmet i fel söknings läge](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
+    ![IntelliJ köra programmet i fel söknings läge](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-add-watch-variable-value.png)
 
     Det du ser i föregående bild är att vid körning kan du fråga terabyte med data och felsöka hur ditt program fortskrider. I de utdata som visas i föregående bild kan du till exempel se att den första raden i utdata är en rubrik. Baserat på dessa utdata kan du ändra program koden för att hoppa över rubrik raden, om det behövs.
 
 1. Nu kan du välja ikonen för att **fortsätta** med att köra programmet.
 
-    ![Välj återuppta program](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-remote-run.png)
+    ![IntelliJ idé Välj återuppta program](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-continue-remote-run.png)
 
 1. Om programmet har slutförts bör du se utdata som liknar följande:
 
-    ![Konsolutdata](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png)
+    ![IntelliJ idé fel söknings konsolens utdata](./media/apache-spark-intellij-tool-plugin-debug-jobs-remotely/debug-complete-window.png)
 
 ## <a name="seealso"></a>Nästa steg
 

@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/26/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9e44207429abb5aa03f4850861d49de8c5dcfdf7
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: aa63b1343fcc981629dd96e2209bf26ec2cc2bd5
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310378"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326226"
 ---
 # <a name="admin-consent-on-the-microsoft-identity-platform"></a>Administrativt medgivande på Microsoft Identity Platform
 
@@ -95,3 +95,4 @@ Om du lägger till parametrarna som visas i ett lyckat svar visas fel parametrar
 - Se så [här konverterar du en app till flera innehavare](howto-convert-app-to-be-multi-tenant.md)
 - Lär dig hur [medgivande stöds i OAuth 2,0-protokoll skiktet under den utfärdande flödes koden för auktoriseringskod](v2-oauth2-auth-code-flow.md#request-an-authorization-code).
 - Lär dig [hur ett program med flera klienter kan använda medgivande ramverket](active-directory-devhowto-multi-tenant-overview.md) för att implementera användar-och administratörs medgivande, stöd för mer avancerade program mönster på flera nivåer.
+- Förstå [Azure AD Application medgivande-upplevelser](application-consent-experience.md)

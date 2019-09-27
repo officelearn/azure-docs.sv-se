@@ -1,18 +1,18 @@
 ---
 title: Skapa ett nytt Dynamics 365 Business Central-erbjudande på den kommersiella Marketplace
 description: Så här skapar du ett nytt Dynamics 365 Business Central-erbjudande för att visa eller sälja på Azure Marketplace, AppSource eller via program varan för Cloud Solution Provider (CSP) med hjälp av den kommersiella Marketplace-portalen på Microsoft Partner Center.
-author: JnHs
+author: ChJenk
 manager: evansma
-ms.author: jenhayes
+ms.author: v-chjen
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: e127d937dfaeb8afaad6b9a95383f0008f5ea898
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.date: 09/26/2019
+ms.openlocfilehash: 8c57fd2a2c9c5c059480f3d6ad48454724e5cc61
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70033266"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71327629"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>Skapa ett nytt Dynamics 365 Business Central-erbjudande
 
@@ -28,7 +28,7 @@ Välj knappen **+ ny erbjudande** och välj sedan **Dynamics 365 Business Centra
 
 ### <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
 
-- **Erbjudande-ID**: Unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet och Azure Resource Manager mallar (om tillämpligt). Erbjudande-ID: t måste bestå av gemena alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg), begränsat till 50 tecken och kan inte ändras när du har valt **skapa**.  Om du till exempel anger *test-erbjudandet-1* här, är erbjudande-URL: en `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- **Erbjudande-ID**: Unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet och Azure Resource Manager mallar (om tillämpligt). Erbjudande-ID: t måste bestå av gemena alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg), begränsat till 50 tecken och kan inte ändras när du har valt **skapa**.  Om du till exempel anger *test-erbjudandet-1* här, kommer URL: en för erbjudandet att `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
 
 - **Erbjud alias**: Namnet som används för att referera till erbjudandet i Partner Center. Det här namnet används inte på Marketplace och skiljer sig från namnet på erbjudandet och andra värden som ska visas för kunderna. Det går inte att ändra det här värdet när du har valt **skapa**.
 
@@ -84,7 +84,7 @@ Välj bland följande alternativ:
 
 [!INCLUDE [Test drive content](./includes/connect-lead-management.md)]
 
-Mer information finns i [Översikt över hantering](./commercial-marketplace-get-customer-leads.md)av leads.
+Mer information finns i [Översikt över hantering av leads](./commercial-marketplace-get-customer-leads.md).
 
 Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
 
@@ -162,7 +162,7 @@ Om du vill låta kunderna veta att appen fungerar med vissa produkter anger du u
 
 I det här avsnittet kan du ange länkar som hjälper kunderna att förstå mer om ditt erbjudande.
 
-#### <a name="help-link"></a>Hjälplänk
+#### <a name="help-link"></a>Hjälp länk
 
 Ange URL: en där kunderna kan lära sig mer om ditt erbjudande.
 
@@ -194,11 +194,11 @@ Hjälte avbildningen är valfri. Om du anger ett värde måste du mäta 815 x 29
 
 #### <a name="screenshots"></a>Skärmbilder
 
-Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst en skärm bild krävs, och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
+Lägg till skärm bilder som visar hur ditt erbjudande fungerar. Minst tre skärm bilder krävs och du kan lägga till upp till fem. Alla skärm dum par måste vara 1280 x 720 bild punkter.
 
 #### <a name="videos"></a>Videor
 
-Du kan också lägga till upp till fyra videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
+Du kan också lägga till upp till fem videor som demonstrerar ditt erbjudande. Dessa videor bör finnas på YouTube och/eller Vimeo. För var och en, anger du videons namn, URL och en miniatyr bild av videon (1280 x 720 bild punkter)
 
 #### <a name="additional-marketplace-listing-resources"></a>Ytterligare platser för Marketplace-lista
 
@@ -223,7 +223,7 @@ Tänk på att även om du väljer alla marknader, lokala lagar och restriktioner
 
 ### <a name="preview-audience"></a>Förhandsgranska mål grupp
 
-Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet måste du först göra det tillgängligt för en begränsad förhands **gransknings publik**. Ange en **Dölj nyckel** (valfri sträng med endast gemener och/eller siffror) här. Medlemmar i din förhands visnings publik kan använda denna Dölj-nyckel som en token för att visa en förhands granskning av ditt erbjudande i Marketplace.
+Innan du publicerar erbjudandet Live på det bredare Marketplace-erbjudandet måste du först göra det tillgängligt för en begränsad **förhands gransknings publik**. Ange en **Dölj nyckel** (valfri sträng med endast gemener och/eller siffror) här. Medlemmar i din förhands visnings publik kan använda denna Dölj-nyckel som en token för att visa en förhands granskning av ditt erbjudande i Marketplace.
 
 När du är redo att göra ditt erbjudande tillgängligt och ta bort begränsningen för för hands versionen måste du ta bort **Dölj-tangenten** och publicera igen.
 
@@ -252,7 +252,7 @@ Krävs om ditt erbjudande måste installeras tillsammans med ett annat tillägg 
 
 #### <a name="dependency-package-file"></a>Beroende paket fil
 
-Krävs om ditt erbjudande måste installeras tillsammans med ett annat tillägg som redan har publicerats på Marketplace. I så fall, laddar `.app` du `.zip` upp dess eller-filen här.
+Krävs om ditt erbjudande måste installeras tillsammans med ett annat tillägg som redan har publicerats på Marketplace. I så fall, laddar du upp dess `.app`-eller `.zip`-fil här.
 
 ### <a name="url-to-app-installation"></a>URL till app-installation
 
@@ -262,7 +262,7 @@ Om du har valt **Anslut** ovan anger du URL: en för din app-installation här.
 
 Om du har valt **Aktivera en testen het** på sidan [erbjudande konfiguration](#offer-setup) måste du ange information här för att kunderna ska kunna uppleva en test enhet för ditt erbjudande.
 
-På sidan testenhet kan du konfigurera en demonstration (eller "testenhet") som gör det möjligt för kunder att prova ditt erbjudande innan de genomför köpet. Läs mer i artikeln [Vad är Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Om du inte längre vill ange en testen het för ditt erbjudande går du tillbaka till sidan **[erbjudande konfiguration](#offer-setup)** och avmarkerar **Aktivera test enhet**.
+På sidan **testenhet** kan du konfigurera en demonstration (eller "testenhet") som gör det möjligt för kunder att prova ditt erbjudande innan de genomför köpet. Läs mer i artikeln [Vad är Test Drive?](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive). Om du inte längre vill ange en testen het för ditt erbjudande går du tillbaka till sidan **[erbjudande konfiguration](#offer-setup)** och avmarkerar **Aktivera test enhet**.
 
 Följande typer av test enheter är tillgängliga, var och en med sina egna tekniska konfigurations krav.
 
@@ -295,9 +295,9 @@ Microsoft kan ta bort komplexiteten för att konfigurera en testen het genom att
 
 - **Test enhetens varaktighet** (krävs): Ange hur lång tid test enheten ska vara aktiv genom att definiera antalet timmar. Efter så här många timmar avslutas sessionen och använder inte längre någon av dina licenser. Vi rekommenderar ett värde på 2-24 timmar beroende på hur komplex ditt erbjudande är. Den här varaktigheten kan bara anges med ett heltal (till exempel "2" timmar, "1,5" är inte giltigt).  Användaren kan begära en ny session om de får slut på tid och vill komma åt test enheten igen.
 
-- **Instans-URL** (krävs): URL: en där kunden kommer att påbörja sin test-enhet. Normalt är URL: en för din Dynamics 365-instans som kör appen med exempel data installerat ( https://testdrive.crm.dynamics.com) till exempel.
+- **Instans-URL** (krävs): URL: en där kunden kommer att påbörja sin test-enhet. Normalt är URL: en för din Dynamics 365-instans som kör appen med exempel data installerat (till exempel https://testdrive.crm.dynamics.com).
 
-- **URL för instans webb-API** (krävs): Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **Inställningar** \&gt; **Anpassning** \&gt; **Resurser för utvecklare** \&gt; **Instans webb-API (tjänstens rot-URL)** , kopiera URL: en som finns https://testdrive.crm.dynamics.com/api/data/v9.0) här (till exempel.
+- **URL för instans webb-API** (krävs): Hämta URL: en för webb-API för din Dynamics 365-instans genom att logga in på ditt Microsoft 365-konto och navigera till **inställningarna** \&gt; **Anpassnings** \&GT; **Utvecklings resurser** \&GT; **Instans webb-API (tjänstens rot-URL)** , kopiera URL-adressen som finns här (till exempel https://testdrive.crm.dynamics.com/api/data/v9.0).
 
 - **Roll namn** (krävs): Ange namnet på den säkerhets roll som du har definierat i din anpassade Dynamics 365-testenhet, som ska tilldelas användaren under sin test-enhet (till exempel Test-Drive-roll).
 
@@ -339,7 +339,7 @@ Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
 
 ### <a name="test-drive-marketplace-listings"></a>Marketplace-platser för enhets kontroll
 
-Alternativet **Marketplace-lista** på fliken testenhet visar de språk som test enheten är tillgänglig på. För närvarande är **engelska (USA)** den enda platsen som är tillgänglig. Välj språk namnet för att ange information som beskriver test enhets upplevelsen.
+Alternativet **Marketplace-lista** på fliken **testenhet** visar de språk som test enheten är tillgänglig på. För närvarande är **engelska (USA)** den enda platsen som är tillgänglig. Välj språk namnet för att ange information som beskriver test enhets upplevelsen.
 
 - **Beskrivning** (krävs): Beskriv din test enhet, vad som visas, mål för användaren att experimentera med, vilka funktioner som ska utforskas och all relevant information som hjälper användaren att avgöra om ditt erbjudande ska erhållas. Upp till 3 000 tecken text kan anges i det här fältet. 
 
@@ -366,7 +366,7 @@ Om ditt erbjudande kräver Premium-versionen av Microsoft Dynamics 365 Business 
 
 ### <a name="key-usage-scenario"></a>Scenario för nyckel användning
 
-Du måste erför en `.pdf` fil som visar ditt erbjudandes scenarier för nyckel användning som visas i ett dokument (. pdf-format). Alla scenarier som listas här kan kontrol leras av vårt validerings team innan vi godkänner ditt erbjudande för Marketplace.
+Du måste erför en `.pdf`-fil som visar ditt erbjudandes nyckel användnings scenarier som visas i ett dokument (. pdf-format). Alla scenarier som listas här kan kontrol leras av vårt validerings team innan vi godkänner ditt erbjudande för Marketplace.
 
 ### <a name="app-tests-automation"></a>Automatisering av app-test
 

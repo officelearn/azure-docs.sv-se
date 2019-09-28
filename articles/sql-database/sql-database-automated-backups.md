@@ -9,15 +9,15 @@ ms.devlang: ''
 ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
-ms.reviewer: mathoma, carlrab
+ms.reviewer: mathoma, carlrab, danil
 manager: craigg
-ms.date: 08/22/2019
-ms.openlocfilehash: 551c2c02af7b996a34a138586fd91a77a0455d92
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.date: 09/26/2019
+ms.openlocfilehash: cc6041a228545ffef158e3d627de983a154513a5
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904325"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350939"
 ---
 # <a name="automated-backups"></a>Automatiserade säkerhetskopieringar
 
@@ -46,10 +46,10 @@ Du kan prova några av de här åtgärderna med hjälp av följande exempel:
 
 | | Azure Portal | Azure PowerShell |
 |---|---|---|
-| Ändra kvarhållning av säkerhets kopior | [Enkel databas](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-the-azure-portal) <br/> [Hanterad instans](sql-database-automated-backups.md#change-pitr-for-a-managed-instance) | [Enkel databas](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
+| Ändra kvarhållning av säkerhets kopior | [Enkel databas](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-azure-portal) <br/> [Hanterad instans](sql-database-automated-backups.md#managed-instance-database) | [Enkel databas](sql-database-automated-backups.md#change-pitr-backup-retention-period-using-powershell) <br/>[Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstancedatabasebackupshorttermretentionpolicy) |
 | Ändra långsiktig kvarhållning av säkerhets kopior | [Enkel databas](sql-database-long-term-backup-retention-configure.md#configure-long-term-retention-policies)<br/>Hanterad instans-saknas  | [Enkel databas](sql-database-long-term-backup-retention-configure.md#use-powershell-to-manage-long-term-backups)<br/>Hanterad instans-saknas  |
 | Återställ databas från tidpunkt | [Enkel databas](sql-database-recovery-using-backups.md#point-in-time-restore) | [Enkel databas](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase) |
-| Återställa borttagen databas | [Enkel databas](sql-database-recovery-using-backups.md#deleted-database-restore-using-the-azure-portal) | [Enkel databas](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
+| Återställa borttagen databas | [Enkel databas](sql-database-recovery-using-backups.md#deleted-database-restore-using-azure-portal) | [Enkel databas](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup) <br/> [Hanterad instans](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeletedinstancedatabasebackup)|
 | Återställa databasen från Azure Blob Storage | Enkel databas-ej tillämpligt <br/>Hanterad instans-saknas  | Enkel databas-ej tillämpligt <br/>[Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) |
 
 ## <a name="how-long-are-backups-kept"></a>Hur länge säkerhets kopiorna sparas
@@ -114,15 +114,19 @@ Du kan ändra standardinställningen för kvarhållning av PITR med hjälp av Az
 > [!NOTE]
 > Dessa API: er påverkar endast PITR bevarande period. Om du har konfigurerat LTR för databasen påverkas den inte. Mer information om hur du ändrar kvarhållning av LTR-perioder finns i [långsiktig kvarhållning](sql-database-long-term-retention.md).
 
-### <a name="change-pitr-backup-retention-period-using-the-azure-portal"></a>Ändra kvarhållning av PITR för säkerhets kopior med hjälp av Azure Portal
+### <a name="change-pitr-backup-retention-period-using-azure-portal"></a>Ändra PITR för säkerhets kopiering med Azure Portal
 
 Om du vill ändra kvarhållningsperioden för PITR med hjälp av Azure Portal navigerar du till det Server objekt vars kvarhållningsperiod du vill ändra i portalen och väljer sedan lämpligt alternativ baserat på vilket Server objekt du ändrar.
 
-#### <a name="change-pitr-for-a-sql-database-server"></a>Ändra PITR för en SQL Database Server
+#### <a name="single-azure-sql-database"></a>Enstaka Azure SQL Database
+
+Ändring av PITR-kvarhållning av säkerhets kopior för enskilda Azure SQL-databaser utförs på server nivå. Ändringar som görs på server nivå gäller för databaser på den servern. Om du vill ändra PITR för Azure SQL Database Server från Azure Portal navigerar du till bladet Server översikt, klickar på hantera säkerhets kopior på navigerings menyn och klickar sedan på Konfigurera kvarhållning i navigerings fältet.
 
 ![Ändra PITR Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="change-pitr-for-a-managed-instance"></a>Ändra PITR för en hanterad instans
+#### <a name="managed-instance-database"></a>Hanterad instans databas
+
+Ändring av PITR-kvarhållning av säkerhets kopior för SQL Database Hanterad instans utförs på en enskild databas nivå. Om du vill ändra PITR för en instans databas från Azure Portal navigerar du till bladet individuell databas översikt och klickar sedan på Konfigurera kvarhållning av säkerhets kopior i navigerings fältet.
 
 ![Ändra PITR Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqlmi.png)
 

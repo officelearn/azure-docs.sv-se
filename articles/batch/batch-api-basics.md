@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 08/29/2019
 ms.author: lahugh
 ms.custom: seodec18
-ms.openlocfilehash: bd630fec16ddfb269ead5f1f62af882f52501a86
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 364861e57f37192a3ae454e27fedf732ee8d513e
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390483"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350183"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Utveckla storskaliga parallella beräkningslösningar med Batch
 
@@ -36,7 +36,7 @@ Oavsett om du utvecklar ett distribuerat beräknings program eller en tjänst so
 
 Följande allmänna arbetsflöde är typiskt i praktiskt taget alla program och tjänster som använder Batch-tjänsten för att bearbeta parallella arbetsbelastningar:
 
-1. Ladda upp **datafilerna** som du vill bearbeta till ett [Azure Storage][azure_storage] -konto. Batch innehåller inbyggt stöd för åtkomst till Azure Blob Storage, och dina aktiviteter kan hämta dessa filer till [beräkningsnoder](#compute-node) när aktiviteterna körs.
+1. Ladda upp datafilerna som du vill bearbeta till ett [Azure Storage][azure_storage] -konto. Batch innehåller inbyggt stöd för åtkomst till Azure Blob Storage, och dina aktiviteter kan hämta dessa filer till [beräkningsnoder](#compute-node) när aktiviteterna körs.
 2. Ladda upp **programfilerna** som dina aktiviteter ska köra. Dessa filer kan vara binärfiler eller skript och deras beroenden, och körs av aktiviteterna i dina jobb. Dina aktiviteter kan hämta dessa filer från ditt lagringskonto, eller så kan du använda funktionen för [programpaket](#application-packages) i Batch för att hantera och distribuera program.
 3. Skapa en [pool](#pool) med beräkningsnoder. När du skapar en pool anger du antalet beräkningsnoder för poolen, deras storlek och operativsystemet. När varje aktivitet i jobbet körs tilldelas det och körs på en av noderna i poolen.
 4. Skapa ett [jobb](#job). Ett jobb hanterar en samling aktiviteter. Du associerar varje jobb med en specifik pool där jobbets aktiviteter ska köras.
@@ -149,9 +149,9 @@ När du skapar en pool måste du välja lämplig **nodeAgentSkuId**, beroende p�
 
 #### <a name="custom-images-for-virtual-machine-pools"></a>Anpassade avbildningar för virtuell datorpooler
 
-Om du vill använda en anpassad avbildning måste du förbereda avbildningen genom att generalisera den. Information om hur man förbereder anpassade Linux-avbildningar från virtuella Azure-datorer finns i [Så här skapar du en avbildning av en virtuell dator eller VHD](../virtual-machines/linux/capture-image.md). Information om att förbereda anpassade Windows-avbildningar från virtuella Azure-datorer finns i [Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../virtual-machines/windows/capture-image-resource.md). 
+Information om hur du skapar en pool med anpassade avbildningar finns i [använda galleriet för delade avbildningar för att skapa en anpassad pool](batch-sig-images.md).
 
-Detaljerade krav och steg finns i [Use a custom image to create a pool of virtual machines](batch-custom-images.md) (Använda en anpassad avbildning för att skapa en pool med virtuella datorer).
+Du kan också skapa en anpassad pool av virtuella datorer med hjälp av en [hanterad avbildnings](batch-custom-images.md) resurs. Information om hur man förbereder anpassade Linux-avbildningar från virtuella Azure-datorer finns i [Så här skapar du en avbildning av en virtuell dator eller VHD](../virtual-machines/linux/capture-image.md). Information om att förbereda anpassade Windows-avbildningar från virtuella Azure-datorer finns i [Skapa en hanterad avbildning av en generaliserad virtuell dator i Azure](../virtual-machines/windows/capture-image-resource.md).
 
 #### <a name="container-support-in-virtual-machine-pools"></a>Stöd för containrar i pooler med virtuella datorer
 
@@ -355,7 +355,7 @@ Du kan ange anpassade miljövariabler på aktivitets- eller jobbnivå genom att 
 
 Ditt klient program eller din tjänst kan erhålla en aktivitets miljövariabler, både tjänstedefinierade och anpassade, genom att använda [Hämta information om en aktivitets][rest_get_task_info] åtgärd (batch rest) eller genom att komma åt egenskapen [CloudTask. EnvironmentSettings][net_cloudtask_env] ( Batch .NET). Processer som körs på en beräkningsnod kan komma åt dessa och andra miljövariabler på noden, till exempel genom att använda vanlig `%VARIABLE_NAME%`- (Windows) eller `$VARIABLE_NAME`-syntax (Linux).
 
-Du hittar en fullständig lista över alla tjänstedefinierade miljövariabler i [Compute Node-miljövariabler][msdn_env_vars].
+Du hittar en fullständig lista över alla tjänstedefinierade miljövariabler i [Compute Node][msdn_env_vars]-miljövariabler.
 
 ## <a name="files-and-directories"></a>Filer och kataloger
 
@@ -530,7 +530,7 @@ Om vissa av dina aktiviteter misslyckas kan Batch-klientprogrammet eller Batch-t
     Ibland är det nödvändigt att helt ta bort noden från poolen.
 * **Inaktivera schemaläggning på noden** ([rest][rest_offline] | [.net][net_offline])
 
-    Den här åtgärden kopplar effektivt bort noden så att den inte tilldelas några ytterligare aktiviteter, samtidigt som den kan fortsätta köras och finnas kvar i poolen. På så sätt kan du fortsätta att undersöka orsaken till felen utan att den misslyckade aktivitetens data går förlorade, och utan att noden orsakar ytterligare aktivitetsfel. Du kan till exempel inaktivera schemaläggning på noden och sedan [logga in via en fjärranslutning](#connecting-to-compute-nodes) för att granska nodens händelseloggar eller utföra annan felsökning. När du är klar med din undersökning kan du sedan ta tillbaka noden online genom att aktivera schemaläggning ([rest][rest_online] | [.net][net_online]) eller utföra någon av de andra åtgärderna som beskrivs ovan.
+    Den här åtgärden kopplar effektivt bort noden så att den inte tilldelas några ytterligare aktiviteter, samtidigt som den kan fortsätta köras och finnas kvar i poolen. På så sätt kan du fortsätta att undersöka orsaken till felen utan att den misslyckade aktivitetens data går förlorade, och utan att noden orsakar ytterligare aktivitetsfel. Du kan till exempel inaktivera schemaläggning på noden och sedan [logga in via en fjärranslutning](#connecting-to-compute-nodes) för att granska nodens händelseloggar eller utföra annan felsökning. När du är klar med din undersökning kan du sedan ta tillbaka noden online genom att aktivera schemaläggning ([REST][rest_online] | [.net][net_online]) eller utföra någon av de andra åtgärderna som beskrivs ovan.
 
 > [!IMPORTANT]
 > Med varje åtgärd ovan – Starta om, Återställ avbildning, Ta bort, Inaktivera aktivitetsschemaläggning – kan du ange hur aktiviteter som körs på noden hanteras när du utför åtgärden. Om du t. ex. inaktiverar schemaläggning av aktiviteter på en nod med hjälp av batch .NET-klient biblioteket, kan du ange ett [DisableComputeNodeSchedulingOption][net_offline_option] Enum-värde för att ange om du vill **Avsluta** pågående aktiviteter, **köa** om dem i schemaläggning på andra noder eller Tillåt att körning av aktiviteter slutförs innan åtgärden utförs (**TaskCompletion**).

@@ -17,12 +17,12 @@ ms.author: twhitney
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b8637bb1a1ba397750bd04c88c6535fa3d1caa0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: bdb1ae92b17bef281e3b82a8c1a21344fa37f0da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309638"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345531"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>Snabbstart: Logga in användare och anropa Microsoft Graph-API: et från en iOS-eller macOS-app
 
@@ -94,11 +94,11 @@ I ett terminalfönster navigerar du till mappen med det nedladdade kod exemplet 
 > 1. Extrahera zip-filen och öppna projektet i XCode.
 > 1. Redigera **ViewController. SWIFT** och ersätt raden som börjar med "Låt kClientID" med följande kodfragment. Kom ihåg att uppdatera värdet för `kClientID` med det klient-ID som du sparade när du registrerade din app i portalen tidigare i snabb starten:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Öppna projekt inställningarna. I avsnittet **identitet** anger du det **paket-ID** som du angav i portalen.
 > 1. För endast iOS högerklickar du på **info. plist** och väljer **öppna som** > **källkod**.
-> 1. Endast för iOS, under noden dict-rotnod, ersätter `Enter_the_bundle_Id_Here`du med det ***paket-ID*** som du angav i portalen.
+> 1. För endast iOS, under noden dict-rotnod, ersätter du `CFBundleURLSchemes` med det ***paket-ID*** som du angav i portalen.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>
@@ -120,11 +120,11 @@ I ett terminalfönster navigerar du till mappen med det nedladdade kod exemplet 
 > 1. Extrahera zip-filen och öppna projektet i XCode.
 > 1. Redigera **ViewController. SWIFT** och ersätt raden som börjar med "Låt kClientID" med följande kodfragment. Kom ihåg att uppdatera värdet för `kClientID` med clientID som du sparade när du registrerade din app i portalen tidigare i den här snabb starten:
 >    ```swift
->    let kClientID = "<ENTER_YOUR_APPLICATION/CLIENT_ID>"
+>    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
 > 1. Öppna projekt inställningarna. I avsnittet **identitet** anger du det **paket-ID** som du angav i portalen.
 > 1. För endast iOS högerklickar du på **info. plist** och väljer **öppna som** > **källkod**.
-> 1. Endast för iOS, under noden dict-rotnod, ersätter `Enter_the_bundle_Id_Here`du med det ***paket-ID*** som du använde i portalen.
+> 1. För endast iOS, under noden dict-rotnod, ersätter du `Enter_the_bundle_Id_Here` med det ***paket-ID*** som du använde i portalen.
 >
 >    ```xml
 >    <key>CFBundleURLTypes</key>

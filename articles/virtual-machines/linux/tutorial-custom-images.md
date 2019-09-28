@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 83e378b9349bc3cec90bc0c80a801d452f2bf3db
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 58d751628bf667949487832c9352aeb6a972faf8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081745"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348829"
 ---
 # <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Självstudier: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure CLI
 
@@ -110,6 +110,8 @@ az vm create \
     --admin-username azureuser \
     --generate-ssh-keys
 ```
+
+Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda avbildning. Om du planerar storskaliga, samtidiga distributioner av fler än 20 virtuella datorer från samma anpassade avbildning, bör du använda ett [delat avbildnings Galleri](shared-image-galleries.md) med flera avbildnings repliker. 
 
 ## <a name="image-management"></a>Avbildningshantering 
 

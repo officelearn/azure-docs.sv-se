@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 11a7556954ff40183811d8e824011b818e4645df
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 890a9701615a05186b34883f4e953bbc045e906f
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327564"
+ms.locfileid: "71350079"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Återställa en Azure SQL-databas med hjälp av automatisk säkerhets kopiering av databasen
 
@@ -81,30 +81,60 @@ Du återställer vanligt vis en databas till en tidigare tidpunkt för återstä
 - **Data återställning**
 
   Om du planerar att hämta data från den återställda databasen för att återställa från ett användar-eller program fel måste du skriva och köra ett data återställnings skript som extraherar data från den återställda databasen och gäller för den ursprungliga databasen. Även om återställnings åtgärden kan ta lång tid att slutföra, visas återställnings databasen i databas listan under hela återställnings processen. Om du tar bort databasen under återställningen avbryts återställnings åtgärden och du debiteras inte för den databas som inte slutförde återställningen.
+  
+### <a name="point-in-time-restore-using-azure-portal"></a>Återställning av tidpunkt med hjälp av Azure Portal
 
-Om du vill återställa en enskild, fristående eller instans databas till en tidpunkt med hjälp av Azure Portal öppnar du sidan för din databas och klickar på **Återställ** i verktygsfältet. Välj säkerhets kopierings källa och välj den tidpunkt då en ny databas ska skapas.
+Återställning av en enskild SQL-databas eller instans databas till en tidpunkt utförs från översikts bladet för den databas som du vill återställa i Azure Portal.
 
-![återställning av tidpunkt](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
+#### <a name="single-azure-sql-database"></a>Enstaka Azure SQL Database
 
-> [!IMPORTANT]
+Om du vill återställa en enskild databas eller en databas i poolen till en tidpunkt med hjälp av Azure Portal öppnar du sidan databas översikt och klickar på **Återställ** i verktygsfältet. Välj säkerhets kopierings källa och välj den tidpunkt då en ny databas ska skapas. 
+
+  ![tidpunkt för återställning-en-SQL-databas](./media/sql-database-recovery-using-backups/pitr-backup-sql-database-annotated.png)
+
+#### <a name="managed-instance-database"></a>Hanterad instans databas
+
+Om du vill återställa den hanterade instans databasen till en tidpunkt med hjälp av Azure Portal öppnar du sidan databas översikt och klickar på **Återställ** i verktygsfältet. Välj den tidpunkt då den säkerhets kopierings punkt som en ny databas ska skapas från. 
+
+  ![Point-in-Time-Restore-hanterad instans-databas](./media/sql-database-recovery-using-backups/pitr-backup-managed-instance-annotated.png)
+
+> [!TIP]
 > För att program mässigt återställa en databas från en säkerhets kopia, se [program mässigt utföra återställning med automatiska säkerhets kopieringar](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## <a name="deleted-database-restore"></a>Återställning av borttagen databas
 
-Du kan återställa en borttagen databas till borttagnings tiden eller en tidigare tidpunkt på samma SQL Database Server med Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)eller [rest (CreateMode = Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Du kan [återställa den borttagna databasen på den hanterade instansen med PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
+Du kan återställa en borttagen databas till borttagnings tiden eller en tidigare tidpunkt på samma SQL Database Server eller samma hanterade instans genom Azure Portal, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase)eller [rest (CreateMode = Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate). Att återställa en borttagen databas utförs genom att skapa en ny databas från säkerhets kopian.
+
+> [!IMPORTANT]
+> Om du tar bort en Azure SQL Database Server eller en hanterad instans, tas alla dess databaser också bort och kan inte återställas. Det finns för närvarande inget stöd för att återställa en borttagen Server eller återställa en borttagen hanterad instans.
+
+### <a name="deleted-database-restore-using-azure-portal"></a>Återställningen av databasen har tagits bort med Azure Portal
+
+Återställning av borttagna databaser från Azure Portal utförs från servern och instans resursen.
+
+#### <a name="single-azure-sql-database"></a>Enstaka Azure SQL Database
+
+Om du vill återställa en enskild eller pool borttagen databas med hjälp av Azure Portal, öppnar du sidan Server översikt och klickar på **borttagna databaser** på navigerings menyn. Välj en borttagen databas som du vill återställa och skriv namnet på den nya databasen som ska skapas med data som återställs från säkerhets kopian.
+
+  ![borttagen – databas-Återställ](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
+
+#### <a name="managed-instance-database"></a>Hanterad instans databas
+
+För tillfället går det inte att återställa borttagna databaser för den hanterade instansen på Azure Portal. Du kan använda PowerShell för att återställa borttagna databaser på en hanterad instans, se [återställa borttagna databaser på den hanterade instansen med PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance).
+
+### <a name="deleted-database-restore-using-powershell"></a>Borttagen databas återställning med PowerShell
+
+Använd de exempel skript som anges nedan för att återställa borttagna databaser för Azure SQL Database och hanterad instans med hjälp av PowerShell.
+
+#### <a name="single-azure-sql-database"></a>Enstaka Azure SQL Database
+
+Ett exempel på PowerShell-skript som visar hur du återställer en borttagen Azure SQL-databas finns i [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
+
+#### <a name="managed-instance-database"></a>Hanterad instans databas
+
+Ett exempel på PowerShell-skript som visar hur du återställer en borttagen instans databas finns i [återställa borttagna databaser på den hanterade instansen med PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance). 
 
 > [!TIP]
-> Ett exempel på PowerShell-skript som visar hur du återställer en borttagen databas finns i [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
-> [!IMPORTANT]
-> Om du tar bort en Azure SQL Database-serverinstans, tas alla dess databaser också bort och kan inte återställas. Det finns för närvarande inget stöd för att återställa en borttagen server.
-
-### <a name="deleted-database-restore-using-the-azure-portal"></a>Återställningen av databasen har tagits bort med hjälp av Azure Portal
-
-Om du vill återställa en borttagen databas med hjälp av Azure Portal öppnar du sidan Server översikt och klickar på **borttagna databaser** på navigerings menyn.
-
-![borttagen – databas-Återställ](./media/sql-database-recovery-using-backups/restore-deleted-sql-database-annotated.png)
-
-> [!IMPORTANT]
 > För att program mässigt återställa en borttagen databas, se [program mässigt utföra återställning med automatiska säkerhets kopieringar](sql-database-recovery-using-backups.md#programmatically-performing-recovery-using-automated-backups)
 
 ## <a name="geo-restore"></a>Geo-återställning
@@ -128,7 +158,7 @@ Följ dessa steg om du vill använda geo-återställning för enskilda Azure SQL
 3. Under Använd befintliga data klickar du på **säkerhets kopiering**
 4. Välj en säkerhets kopia i list rutan med tillgängliga säkerhets kopior för geo-återställning
 
-![Geo-Återställ enstaka Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
+    ![Geo-Återställ enstaka Azure SQL Database](./media/sql-database-recovery-using-backups/geo-restore-azure-sql-database-list-annotated.png)
 
 Slutför processen med att skapa en ny databas. När den enskilda Azure SQL Database skapas kommer den att innehålla en återställd säkerhets kopia för geo-återställning.
 
@@ -141,7 +171,7 @@ Om du vill använda geo-återställning av hanterade instans databaser från Azu
 3. Under Använd befintliga data Välj alternativ **säkerhets kopiering**
 4. Välj en säkerhets kopia i list rutan med tillgängliga säkerhets kopior för geo-återställning
 
-![Geo-Återställ hanterad instans databas](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
+    ![Geo-Återställ hanterad instans databas](./media/sql-database-recovery-using-backups/geo-restore-sql-managed-instance-list-annotated.png)
 
 Slutför processen med att skapa en ny databas. När instans databasen har skapats kommer den att innehålla en återställd säkerhets kopia för geo-återställning.
 
@@ -172,6 +202,8 @@ Som tidigare diskuterats kan databas återställningen, förutom Azure Portal, u
 > [!IMPORTANT]
 > PowerShell Azure Resource Manager-modulen stöds fortfarande av Azure SQL Database, men all framtida utveckling gäller AZ. SQL-modulen. De här cmdletarna finns i [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Argumenten för kommandona i AZ-modulen och i AzureRm-modulerna är i gott grad identiska.
 
+#### <a name="single-azure-sql-database"></a>Enstaka Azure SQL Database
+
 - Information om hur du återställer en fristående databas eller en databas finns i [restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase).
 
   | Cmdlet: | Beskrivning |
@@ -183,6 +215,8 @@ Som tidigare diskuterats kan databas återställningen, förutom Azure Portal, u
 
   > [!TIP]
   > Ett exempel på PowerShell-skript som visar hur du utför en tidpunkts återställning av en databas finns i [återställa en SQL-databas med hjälp av PowerShell](scripts/sql-database-restore-database-powershell.md).
+
+#### <a name="managed-instance-database"></a>Hanterad instans databas
 
 - Information om hur du återställer en hanterad instans databas finns i [restore-AzSqlInstanceDatabase](/powershell/module/az.sql/restore-azsqlinstancedatabase).
 
@@ -203,8 +237,13 @@ Så här återställer du en databas med en eller flera databaser med hjälp av 
 
 ### <a name="azure-cli"></a>Azure CLI
 
-- Information om hur du återställer en enskild databas eller en pool med Azure CLI finns i [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
-- Information om hur du återställer en hanterad instans med hjälp av Azure CLI finns i [AZ SQL EXTEXTB Restore](/cli/azure/sql/midb#az-sql-midb-restore)
+#### <a name="single-azure-sql-database"></a>Enstaka Azure SQL Database
+
+Information om hur du återställer en enskild databas eller en pool med Azure CLI finns i [AZ SQL DB Restore](/cli/azure/sql/db#az-sql-db-restore).
+
+#### <a name="managed-instance-database"></a>Hanterad instans databas
+
+Information om hur du återställer en hanterad instans databas med Azure CLI finns i [AZ SQL EXTEXTB Restore](/cli/azure/sql/midb#az-sql-midb-restore)
 
 ## <a name="summary"></a>Sammanfattning
 

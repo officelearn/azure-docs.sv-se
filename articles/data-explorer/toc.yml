@@ -90,6 +90,8 @@
       items:
         - name: Power BI
           items:
+            - name: Bästa praxis
+              href: power-bi-best-practices.md
             - name: anslutningsapp
               href: power-bi-connector.md
             - name: importerad fråga

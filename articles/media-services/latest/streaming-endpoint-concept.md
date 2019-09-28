@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/11/2019
 ms.author: juliako
-ms.openlocfilehash: 831ba217e99d1610383320ddf5706c6acfcdf48a
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: cd1dc7b55060e8262b300022f5ffd1b4da5f7922
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67848910"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350358"
 ---
 # <a name="streaming-endpoints"></a>Slutpunkter för direktuppspelning 
 
@@ -31,11 +31,16 @@ När du skapar ett Media Services konto skapas en **standard** slut punkt för d
 
 ## <a name="naming-convention"></a>Namngivnings konvention
 
-För standard slut punkten:`{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+Värd namn formatet för strömnings-URL: en är: `{servicename}-{accountname}-{regionname}.streaming.media.azure.net`, där `servicename` = strömmande slut punkts namn eller Live-händelseloggen. 
 
-För ytterligare slut punkter:`{EndpointName}-{AccountName}-{DatacenterAbbreviation}.streaming.media.azure.net`
+När du använder standard slut punkten för direkt uppspelning `servicename` utelämnas så att URL: en är: `{accountname}-{regionname}.streaming.azure.net`. 
 
-## <a name="types"></a>Nodtyper  
+### <a name="limitations"></a>Begränsningar
+
+* Slut punktens namn för direkt uppspelning har ett max värde på 24 tecken.
+* Namnet ska följa detta [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönster: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+
+## <a name="types"></a>Typer  
 
 Det finns två typer av **slutpunkter för direktuppspelning**: **Standard** (för hands version) och **Premium**. Typen definieras av antalet skalnings enheter (`scaleUnits`) som du allokerar för slut punkten för direkt uppspelning. 
 
@@ -128,7 +133,7 @@ I de flesta fall bör du ha CDN aktiverat. Men om du förväntar dig en maximal 
 
 ### <a name="considerations"></a>Överväganden
 
-* Slut punkten `hostname` för direkt uppspelning och strömnings-URL är oförändrade oavsett om du aktiverar CDN eller inte.
+* Slut punkten för direkt uppspelning `hostname` och direkt uppspelnings-URL: en är oförändrad oavsett om du aktiverar CDN eller inte.
 * Om du behöver kunna testa ditt innehåll med eller utan CDN kan du skapa en annan slut punkt för direkt uppspelning som inte är CDN-aktiverad.
 
 ### <a name="detailed-explanation-of-how-caching-works"></a>Detaljerad förklaring av hur cachelagring fungerar

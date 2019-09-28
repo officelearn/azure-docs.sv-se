@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e6cfc18f01bb23d0b318ac1b924cf8cbb9f7a2b6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 5a0f2922763f8fccb9f3eec8bab4d6eddee7e446
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259980"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350607"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Konfigurera automatiserade ML-experiment i python
 
@@ -328,7 +328,7 @@ Du kan visa dina utbildnings resultat i en widget eller infogad om du befinner d
 
 Alla modeller som skapas med automatiserad ML innehåller följande steg:
 + Automatiserad funktions teknik (om preprocess = sant)
-+ Skalning/normalisering och algoritm med värden för ommätare
++ Skalning/normalisering och algoritm med värden för en parameter
 
 Vi gör det transparent för att hämta den här informationen från fitted_model-utdata från automatisk ML.
 
@@ -410,7 +410,7 @@ Använd de här två API: erna i det första steget i den monterade modellen fö
    |EngineeringFeatureCount|Antal funktioner som genererats via automatiserad funktion teknik Transforms.|
    |Transformationer|Lista över omvandlingar som används för inmatade funktioner för att generera funktioner som har utvecklats.|
 
-### <a name="scalingnormalization-and-algorithm-with-hypermeter-values"></a>Skalning/normalisering och algoritm med värden för ommätare:
+### <a name="scalingnormalization-and-algorithm-with-hyperparameter-values"></a>Skalning/normalisering och algoritm med värden för en valfri parameter:
 
 Om du vill förstå värdena för skalning/normalisering och algoritm/för en pipeline använder du fitted_model. steg. [Läs mer om skalning/normalisering](concept-automated-ml.md#preprocess). Här är exempel på utdata:
 

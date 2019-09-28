@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/22/2019
-ms.openlocfilehash: 56d8dff7d158cedb4ab33e811cf5134cdbc475ab
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b0024bc12f29a76da02c9f7e62af7727b9af7249
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999434"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350640"
 ---
 # <a name="understand-automated-machine-learning-results"></a>Förstå automatiserade maskin inlärnings resultat
 
@@ -30,7 +30,7 @@ Läs mer om:
 
 * En Azure-prenumeration. Om du inte har en Azure-prenumeration kan du skapa ett kostnadsfritt konto innan du börjar. Prova den [kostnads fria eller betalda versionen av Azure Machine Learning](https://aka.ms/AMLFree) idag.
 
-* Skapa ett automatiserat maskin inlärnings experiment, antingen med SDK, i Azure Portal eller i landnings sidan för arbets ytan (för hands version).
+* Skapa ett experiment för din automatiserade Machine Learning-körning, antingen med SDK, i Azure Portal eller i landnings sidan för din arbets yta (för hands version).
 
     * Använd SDK: n för att bygga en [klassificerings modell](how-to-auto-train-remote.md) eller [Regressions modell](tutorial-auto-train-models.md)
     * Använd [Azure Portal eller din landnings sida för arbets ytan (för hands version)](how-to-create-portal-experiments.md) för att skapa en klassificerings-eller Regressions modell genom att ladda upp aktuella data.
@@ -117,7 +117,7 @@ Termen Precision representerar den möjligheten för en klassificerare att märk
 
 Exempel 1: En klassificerings modell med låg precision och låg ![återkallning av en klassificerings modell med låg precision och låg återkallning](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall1.png)
 
-Exempel 2: En klassificerings modell med ~ 100% precision och ~ 100% återkalla (idealisk ![) en klassificerings modell med hög precision och återkallande](./media/how-to-understand-automated-ml/azure-machine-learning-auto-ml-precision-recall2.png)
+Exempel 2: En klassificerings modell med ~ 100% precision och ~ 100% återkalla (idealisk) ![A klassificerings modell hög precision och återkalla @ no__t-1
 
 ### <a name="roc"></a>ROC
 

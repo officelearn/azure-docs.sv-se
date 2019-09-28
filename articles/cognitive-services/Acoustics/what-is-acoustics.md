@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 03/20/2019
 ms.author: noelc
 ROBOTS: NOINDEX
-ms.openlocfilehash: 51bfcc47961e870fb7fb87b26a78aea0f1564d46
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 65678f08399f378b8580eed79e49197dd4d84c64
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390312"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351144"
 ---
 # <a name="what-is-project-acoustics"></a>Vad är Project Acoustics?
 Project-Akustisker är en våg akustisk motor för interaktiva 3D-upplevelser. Den modellerar våg effekter som ocklusion, hinder, Portal-och Reverberation-effekter i komplexa scener utan att kräva manuell zon markering eller processor intensiv raytracing. Den omfattar också integrering av spel motor och ljud mellan mellanprogram. Project-Akustisker-filosofi liknar statisk belysning: bageri detaljerad fysik offline för att tillhandahålla en fysisk bas linje och Använd en förenklad körning med lättfattliga programspecifika design kontroller för att möta dina konstnärliga mål för de akustiska datorerna i din virtuella värld.
@@ -31,7 +31,7 @@ Project-akustiska nyckel innovationer är att skapa en Real Sound Wave-baserad a
 ![Animering som visar ett vågrätt 2D-segment av våg-spridningen via en scen](media/wave-simulation.gif)
 
 ## <a name="video-presentation-from-gdc-2019-30-min"></a>Video presentation från GDC 2019 (~ 30 min)
-Video(https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "om att spela upp video i") Project [ ![]
+[Video om ![Project akustiskt](https://img.youtube.com/vi/uY4G-GUAQIE/0.jpg)](https://www.youtube.com/watch?v=uY4G-GUAQIE "Klicka för att spela upp video")
 
 ## <a name="setup"></a>Konfiguration
 [Project Akustiske Uniting-integrering](unity-integration.md) är dra och släpp och innehåller ett enhets ljud motor plugin-program. Utöka enhetens bild käll kontroller genom att koppla ett projekt akustiskt C# kontroll komponent till varje ljud objekt.
@@ -58,11 +58,10 @@ Plugin-programmet för Project Akustiske Editor är tillgängligt för följande
 ## <a name="download"></a>Ladda ned
 * [Plugin-program och exempel för Project Akustiske Uniting](https://www.microsoft.com/en-us/download/details.aspx?id=57346)
 * [Projekt akustiska Unreal & Wwise-plugin-program och exempel](https://www.microsoft.com/download/details.aspx?id=58090)
-  * För stöd för Xbox-binärfiler och support, kontakta oss via registrerings formuläret nedan
+  * Kontakta oss via [forumet](https://github.com/microsoft/ProjectAcoustics/issues)för binärfiler i Xbox och annan support.
 
 ## <a name="contact-us"></a>Kontakta oss
 * [Projekt-akustiskt diskussion och ärende rapportering](https://github.com/microsoft/ProjectAcoustics/issues)
-* [Registrera dig för att ta emot uppdateringar om projekt akustiskt](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRwMoAEhDCLJNqtVIPwQN6rpUOFRZREJRR0NIQllDOTQ1U0JMNVc4OFNFSy4u)
 
 ## <a name="next-steps"></a>Nästa steg
 * Prova ett [projekt akustiskt snabb start för](unity-quickstart.md) enhets-eller [Unreal](unreal-quickstart.md)

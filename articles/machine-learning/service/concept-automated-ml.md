@@ -11,16 +11,16 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 32ff1ba599f4f95cc413bc2bb2c3bbc442405022
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71035710"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350629"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
-Automatisk maskin inlärning, som även kallas autoML, är en process för att automatisera tids krävande, repetitiva uppgifter om utveckling av maskin inlärnings modeller. Det gör det möjligt för data experter, analytiker och utvecklare att bygga ML-modeller med hög skalbarhet, effektivitet och produktivitet samtidigt som modell kvaliteten försämras. Automatisk ML baseras på en Ban brytande från vår [Microsoft Research-avdelning](https://arxiv.org/abs/1705.05355).
+Automatisk maskin inlärning, som även kallas automatiserad ML, är en process för att automatisera tids krävande, repetitiva uppgifter om utveckling av Machine Learning-modeller. Det gör det möjligt för data experter, analytiker och utvecklare att bygga ML-modeller med hög skalbarhet, effektivitet och produktivitet samtidigt som modell kvaliteten försämras. Automatisk ML baseras på en Ban brytande från vår [Microsoft Research-avdelning](https://arxiv.org/abs/1705.05355).
 
 Traditionell miljö utveckling för maskin inlärning är resurs intensiv, vilket kräver betydande domän kunskap och tid för att producera och jämföra dussin tals modeller. Använd automatisk ML när du vill Azure Machine Learning för att träna och finjustera en modell för att använda det målmått du anger. Tjänsten itererar sedan igenom ML-algoritmer med funktions val där varje iteration genererar en modell med en utbildnings poäng. Ju högre poäng, desto bättre blir modellen att "passa" dina data.
 
@@ -115,6 +115,36 @@ Automatisk Machine Learning stöder Ensemble-modeller som är aktiverade som sta
 [Caruana Ensemble-algoritmen](http://www.niculescu-mizil.org/papers/shotgun.icml04.revised.rev2.pdf) med sorterad Ensemble-initiering används för att bestämma vilka modeller som ska användas i ensemblen. På hög nivå initierar den här algoritmen ensemblen med upp till fem modeller med de bästa enskilda poängen och kontrollerar att dessa modeller är inom tröskelvärdet på 5% av det bästa resultatet för att undvika en dåligt inledande ensemble. För varje Ensemble-iteration läggs en ny modell till i den befintliga ensemblen och den resulterande poängen beräknas. Om en ny modell förbättrar den befintliga Ensemble-poängen uppdateras ensemblen för att inkludera den nya modellen.
 
 Se [hur du](how-to-configure-auto-train.md#ensemble) ändrar standardinställningar för ensemble i automatiserad maskin inlärning.
+
+## <a name="imbalance"></a>Obalanserade data
+
+Obalanserade data finns vanligt vis i data om klassificerings scenarier för maskin inlärning och refererar till data som innehåller ett oproportionerligt förhållande mellan observationerna i varje klass. Den här obalansen kan leda till en felaktigt uppfattad positiv effekt av en modells exakthet, eftersom indatan har en förskjutning mot en klass, vilket resulterar i att den tränade modellen imiterar den bias. 
+
+Som en del av målet att förenkla arbets flödet för Machine Learning har automatiserad ML byggts med funktioner som hjälper dig att hantera obalanserade data, till exempel 
+
+- En **Vikt kolumn**: automatisk ml stöder en viktad kolumn som indata, vilket gör att rader i data kan viktas upp eller ned, vilket kan göra en klass mer eller mindre viktig. Se det här [anteckningsbok-exemplet](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/sample-weight/auto-ml-sample-weight.ipynb) 
+
+- Algoritmerna som används av automatiserad ML kan hantera obalans på upp till 20:1 korrekt, vilket innebär att den vanligaste klassen kan ha 20 gånger fler rader i data än den minsta gemensamma klassen.
+
+### <a name="identify-models-with-imbalanced-data"></a>Identifiera modeller med obalanserade data
+
+Eftersom klassificerings algoritmer ofta utvärderas efter precision, är det ett bra sätt att kontrol lera om en modells precisions Poäng är ett bra sätt att identifiera om den har påverkats av obalanserade data. Har den verkligen hög exakthet eller verkligen låg precision för vissa klasser?
+
+Dessutom genererar automatiserade ML-körningar följande diagram automatiskt, som kan hjälpa dig att förstå rätthet i klassificeringen av din modell och identifiera modeller som kan påverkas av data som är fördelade.
+
+Diagram| Beskrivning
+---|---
+[Förvirring mat ris](how-to-understand-automated-ml.md#confusion-matrix)| Utvärderar de korrekt klassificerade etiketterna mot de faktiska etiketterna i data. 
+[Precision – återkalla](how-to-understand-automated-ml.md#precision-recall-chart)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet mellan hittade etikett instanser av data 
+[ROC kurvor](how-to-understand-automated-ml.md#roc)| Utvärderar förhållandet mellan korrekta etiketter mot förhållandet falskt positiva etiketter.
+
+### <a name="handle-imbalanced-data"></a>Hantera förbalanserade data 
+
+Följande tekniker är ytterligare alternativ för att hantera sambalanserade data utanför automatiserad ML. 
+
+- Omsampling till till och med klassen obalans, antingen genom att ta sampling av de mindre klasserna eller nedåt, och samtidigt ta bort de större klasserna. Dessa metoder kräver expertis för att bearbeta och analysera.
+
+- Använd ett prestanda mått som fungerar bättre med obalanserade data. Till exempel är F1-poängen ett viktat medelvärde för precision och åter kallelse. Precision mäter en klassificerares exakta värde – låg precision visar ett stort antal falska positiva identifieringar--, samtidigt som åtgärdar mått för en klassificerares komplettahet – låg återkallning anger ett stort antal falska negativa värden. 
 
 ## <a name="use-with-onnx-in-c-apps"></a>Använda med ONNX i C# appar
 

@@ -11,12 +11,12 @@ author: aliceku
 ms.author: aliceku
 ms.reviewer: vanto
 ms.date: 07/18/2019
-ms.openlocfilehash: 6b1b706e68b090090ed4268b70b7c9d254f8b629
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 095ecc360e5639a5d47dff4bc4675fc237cf81da
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68596712"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348920"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-keys-in-azure-key-vault-bring-your-own-key-support"></a>Azure SQL transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Bring Your Own Key support
 
@@ -60,7 +60,7 @@ När TDE först konfigureras för att använda ett TDE-skydd från Key Vault, sk
 - Se till att Azure Key Vault och Azure SQL Database/hanterade instansen kommer att finnas i samma klient organisation.  Nyckel valv för flera klienter och Server interaktioner **stöds inte**.
 - Om du planerar att en klient ska flyttas måste TDE med AKV konfigureras om, lära dig mer om att [Flytta resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 - När du konfigurerar TDE med Azure Key Vault är det viktigt att tänka på belastningen i nyckel valvet genom upprepade omslutning/unwrap-åtgärder. Eftersom alla databaser som är kopplade till en SQL Database-Server använder samma TDE-skydd, utlöses till exempel en redundansväxling av servern som många viktiga åtgärder mot valvet eftersom det finns databaser på servern. Vi rekommenderar att du kopplar högst 500 standard-/Generell användning [-](https://docs.microsoft.com/azure/key-vault/key-vault-service-limits)eller 200 Premium/affärskritisk-databaser med en Azure Key Vault i en enda prenumeration för att säkerställa en konsekvent hög tillgänglighet vid åtkomst till TDE-skyddskomponenten i valvet.
-- Rekommenderas Behåll en kopia av TDE-skyddskomponenten lokalt.  Detta kräver en HSM-enhet för att skapa ett TDE-skydd lokalt och ett nyckel depositions-system för att lagra en lokal kopia av TDE-skyddskomponenten.  Lär dig [hur du överför en nyckel från en lokal HSM till Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
+- Rekommenderat: Behåll en kopia av TDE-skyddskomponenten lokalt.  Detta kräver en HSM-enhet för att skapa ett TDE-skydd lokalt och ett nyckel depositions-system för att lagra en lokal kopia av TDE-skyddskomponenten.  Lär dig [hur du överför en nyckel från en lokal HSM till Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys).
 
 
 ### <a name="guidelines-for-configuring-azure-key-vault"></a>Rikt linjer för att konfigurera Azure Key Vault
@@ -149,7 +149,7 @@ Följande avsnitt går igenom konfigurations-och konfigurations stegen i detalj.
 - Skapa två Azure Key Vault i två olika regioner med [PowerShell för att aktivera egenskapen "mjuk borttagning"](https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell) i nyckel valven (det här alternativet är inte tillgängligt från AKV-portalen ännu – men krävs av SQL).
 - Både Azure Key Vault måste finnas i de två regionerna i samma Azure geo för att säkerhets kopiering och återställning av nycklar ska fungera.  Om du behöver de två nyckel valven som ska finnas i olika geografiska områden för att uppfylla SQL geo-DR-krav, följer du [BYOK-processen](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys) som tillåter att nycklar importeras från en lokal HSM.
 - Skapa en ny nyckel i det första nyckel valvet:  
-  - RSA/RSA – HSA 2048-nyckel
+  - RSA/RSA-HSM 2048-nyckel
   - Inga förfallo datum
   - Nyckeln är aktive rad och har behörighet att utföra get-, wrap-och unwrap Key-åtgärder
 - Säkerhetskopiera primär nyckeln och Återställ nyckeln till det andra nyckel valvet.  Se [BackupAzureKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/backup-azkeyvaultkey) och [restore-AzKeyVaultKey](https://docs.microsoft.com/powershell/module/az.keyvault/restore-azkeyvaultkey).

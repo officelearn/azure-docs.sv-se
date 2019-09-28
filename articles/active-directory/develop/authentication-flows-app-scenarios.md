@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/25/2019
+ms.date: 09/27/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb2e3e45da0a072eadb0eac9f8a0266f9e14cda2
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 5330111e5ae56471d26ebc39dca1a036246945e1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69031964"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348640"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>Autentiserings flöden och program scenarier
 
@@ -104,7 +104,7 @@ Mer information hittar du i [webbapp som loggar in användare](scenario-web-app-
 
 ![Webb program anropar webb-API: er](media/scenarios/web-app.svg)
 
-Använd MSAL `ConfidentialClientApplication`i webbappen för att **anropa webb-API: et** för användarens räkning. Du använder Flow-flödet för att lagra den hämtade token i token-cachen. Sedan kommer kontrollanten att hämta token tyst från cachen vid behov. MSAL uppdaterar token vid behov.
+Använd MSAL `ConfidentialClientApplication` från webbappen för att **anropa webb-API: et** för användarens räkning. Du använder Flow-flödet för att lagra den hämtade token i token-cachen. Sedan kommer kontrollanten att hämta token tyst från cachen vid behov. MSAL uppdaterar token vid behov.
 
 Mer information hittar du i [webb-API: er för webb program](scenario-web-app-call-api-overview.md).
 
@@ -169,33 +169,97 @@ Mer information finns i [daemon-programmet som anropar webb-API: er](scenario-da
 
 Scenarier som innefattar att förvärva token mappas också till OAuth 2,0-autentiserings flöden som beskrivs i information i [Microsoft Identity Platform-protokoll](active-directory-v2-protocols.md)
 
-|Scenario | Detaljerad genom gång av scenario | OAuth 2,0-flöde/-beviljande | Målgrupp |
-|--|--|--|--|
-| [![App med en sida](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | [Enkelsidig app](scenario-spa-overview.md) | [Uttrycklig](v2-oauth2-implicit-grant-flow.md) | Arbets-eller skol konton och personliga konton, B2C
-| [![Webbapp som loggar in användare](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | [Webbapp som loggar in användare](scenario-web-app-sign-user-overview.md) | [Auktoriseringskod](v2-oauth2-auth-code-flow.md) | Arbets-eller skol konton och personliga konton, B2C |
-| [![Webbapp som anropar webb-API: er](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | [Webbapp som anropar webb-API: er](scenario-web-app-call-api-overview.md) | [Auktoriseringskod](v2-oauth2-auth-code-flow.md) | Arbets-eller skol konton och personliga konton, B2C |
-| [![Stationär app som anropar webb-API: er](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) | [Datorprogram som anropar webb-API:er](scenario-desktop-overview.md)| Interaktiv ([auktoriseringskod](v2-oauth2-auth-code-flow.md) med PKCE) | Arbets-eller skol konton och personliga konton, B2C |
-| | | Integrerade Windows | Arbets-eller skol konton |
-| | | [Resurs ägar lösen ord](v2-oauth-ropc.md)  | Arbets-eller skol konton, B2C |
-| ![Enhetskodflöde](media/scenarios/device-code-flow-app.svg)| [Datorprogram som anropar webb-API:er](scenario-desktop-overview.md) | [Enhets kod](v2-oauth2-device-code.md)  | Arbets-eller skol konton * |
-| [![Mobilapp som anropar webb-API: er](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | [Mobilapp som anropar webb-API: er](scenario-mobile-overview.md) | Interaktiv ([auktoriseringskod](v2-oauth2-auth-code-flow.md) med PKCE)  |   Arbets-eller skol konton och personliga konton, B2C
-| | | Resurs ägar lösen ord  | Arbets-eller skol konton, B2C |
-| [![Daemon-app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | [Daemon-app](scenario-daemon-overview.md) | [Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md)  |   Endast app-behörigheter (ingen användare) i AAD-organisationer
-| [![Webb-API som anropar webb-API: er](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | [Webb-API som anropar webb-API: er](scenario-web-api-call-api-overview.md)| [På uppdrag av](v2-oauth2-on-behalf-of-flow.md) | Arbets-eller skol konton och personliga konton |
+<table>
+ <thead>
+  <tr><th>Scenario</th> <th>Detaljerad genom gång av scenario</th> <th>OAuth 2,0-flöde/-beviljande</th> <th>Målgrupp</th></tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><a href="scenario-spa-overview.md"><img alt="Single Page App" src="media/scenarios/spa-app.svg"></a></td>
+   <td><a href="scenario-spa-overview.md">Enkelsidig app</a></td>
+   <td><a href="v2-oauth2-implicit-grant-flow.md">Uttrycklig</a></td>
+   <td>Arbets-eller skol konton och personliga konton, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-web-app-sign-user-overview.md"><img alt="Web App that signs in users" src="media/scenarios/scenario-webapp-signs-in-users.svg"></a></td>
+   <td><a href="scenario-web-app-sign-user-overview.md">Webbapp som loggar in användare</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">Auktoriseringskod</a></td>
+   <td>Arbets-eller skol konton och personliga konton, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-web-app-call-api-overview.md"><img alt="Web App that signs in users" src="media/scenarios/web-app.svg"></a></td>
+   <td><a href="scenario-web-app-call-api-overview.md">Webbapp som anropar webb-API: er</a></td>
+   <td><a href="v2-oauth2-auth-code-flow.md">Auktoriseringskod</a></td>
+   <td>Arbets-eller skol konton och personliga konton, B2C</td>
+ </tr>
+
+  <tr>
+   <td rowspan="3"><a href="scenario-desktop-overview.md"><img alt=Desktop app that calls web APIs" src="media/scenarios/desktop-app.svg"></a></td>
+   <td rowspan="4"><a href="scenario-desktop-overview.md">Datorprogram som anropar webb-API:er</a></td>
+   <td>Interaktiv (<a href="v2-oauth2-auth-code-flow.md">auktoriseringskod</a> med PKCE)</td>
+   <td>Arbets-eller skol konton och personliga konton, B2C</td>
+ </tr>
+
+  <tr>
+   <td>Integrerad Windows-autentisering</td>
+   <td>Arbets-eller skol konton</td>
+ </tr>
+
+  <tr>
+   <td><a href="v2-oauth-ropc.md">Resurs ägar lösen ord</a></td>
+   <td>Arbets-eller skol konton, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-desktop-acquire-token.md#command-line-tool-without-web-browser"><img alt="Browserless application" src="media/scenarios/device-code-flow-app.svg"></a></td>
+   <td><a href="v2-oauth2-device-code.md">Enhets kod</a></td>
+   <td>Arbets-eller skol konton *</td>
+ </tr>
+
+ <tr>
+   <td rowspan="2"><a href="scenario-mobile-overview.md"><img alt="Mobile app that calls web APIs" src="media/scenarios/mobile-app.svg"></a></td>
+   <td rowspan="2"><a href="scenario-mobile-overview.md">Mobilapp som anropar webb-API: er</a></td>
+   <td>Interaktiv (<a href="v2-oauth2-auth-code-flow.md">auktoriseringskod</a> med PKCE)</td>
+   <td>Arbets-eller skol konton och personliga konton, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="v2-oauth-ropc.md">Resurs ägar lösen ord</a></td>
+   <td>Arbets-eller skol konton, B2C</td>
+ </tr>
+
+  <tr>
+   <td><a href="scenario-daemon-overview.md"><img alt="Daemon app that calls Web APIs" src="media/scenarios/daemon-app.svg"></a></td>
+   <td><a href=scenario-daemon-overview.md">Daemon-app som anropar webb-API: er</a></td>
+   <td><a href="v2-oauth2-client-creds-grant-flow.md">Klientautentiseringsuppgifter</a></td>
+   <td>Endast app-behörigheter (ingen användare) i AAD-organisationer</td>
+ </tr>
+
+  <tr>
+   <td><a href=scenario-web-api-call-api-overview.md"><img alt="Web API that calls web APIs" src="media/scenarios/web-api.svg"></a></td>
+   <td><a href=scenario-web-api-call-api-overview.md">Webb-API som anropar webb-API: er</a></td>
+   <td><a href="v2-oauth2-on-behalf-of-flow.md">På uppdrag av</a></td>
+   <td>Arbets-eller skol konton och personliga konton</td>
+ </tr>
+
+ </tbody>
+</table>
 
 ## <a name="scenarios-and-supported-platforms-and-languages"></a>Scenarier och plattformar och språk som stöds
 
-Alla program typer är inte tillgängliga på alla plattformar. Du kan också använda olika språk för att bygga dina program. Microsoft Authentication libraries stöder ett antal **plattformar** (java script, .NET Framework, .net Core, Windows 10/UWP, Xamarin. iOS, Xamarin. Android, Native iOS, Native Android, Java, python)
+Alla program typer är inte tillgängliga på alla plattformar. Du kan också använda olika språk för att bygga dina program. Microsoft Authentication libraries stöder ett antal **plattformar** (java script, .NET Framework, .net Core, Windows 10/UWP, Xamarin. iOS, Xamarin. Android, Native iOS, Mac OS, ursprunglig Android, Java, python). I tabellen nedan, i Windows, är det också möjligt att .NET Framework varje tid i .NET Core.
 
 |Scenario  | Windows | Linux | Mac | iOS | Android
 |--|--|--|--|--|--|--|
-| [Enkelsidig app](scenario-spa-overview.md) <br/>[![App med en sida](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/logo_js.png) MSAL.js
-| [Webbapp som loggar in användare](scenario-web-app-sign-user-overview.md) <br/>[![Webbapp som loggar in användare](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET](media/sample-v2-code/logo_NET.png)</br> ASP.NET ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core
-| [Webbapp som anropar webb-API: er](scenario-web-app-call-api-overview.md) <br/> [![Webbapp som anropar webb-API: er](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET](media/sample-v2-code/logo_NET.png) </br> ASP.NET + MSAL.NET </br> ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) Kolv + MSAL python| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) Kolv + MSAL python| ![ASP.NET Core](media/sample-v2-code/logo_NETcore.png)ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) Kolv + MSAL python
-| [Datorprogram som anropar webb-API:er](scenario-desktop-overview.md) <br/> ![ [ Skrivbordsappsomanroparwebb-API:![er](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) enhets kod flöde](media/scenarios/device-code-flow-app.svg) | ![MSAL.NET](media/sample-v2-code/logo_NET.png)  MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python
-| [Mobilapp som anropar webb-API: er](scenario-mobile-overview.md) <br/> [![Mobilapp som anropar webb-API: er](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/logo_xamarin.png) MSAL.NET | | | ![iOS/mål C eller Swift](media/sample-v2-code/logo_iOS.png) MSAL. iOS | ![Android](media/sample-v2-code/logo_Android.png) MSAL. Android
-| [Daemon-app](scenario-daemon-overview.md) <br/> [![Daemon-app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python
-| [Webb-API som anropar webb-API: er](scenario-web-api-call-api-overview.md) <br/> [![Webb-API som anropar webb-API: er](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![.NET](media/sample-v2-code/logo_NET.png) MSAL.NET ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python| ![.NET Core](media/sample-v2-code/logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/logo_java.png) msal4j ![MSAL python](media/sample-v2-code/logo_python.png) MSAL python
+| [Enkelsidig app](scenario-spa-overview.md) <br/>[![App med en sida](media/scenarios/spa-app.svg)](scenario-spa-overview.md) | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png) MSAL.js | ![MSAL.js](media/sample-v2-code/small_logo_js.png)<br/>MSAL.js
+| [Webbapp som loggar in användare](scenario-web-app-sign-user-overview.md) <br/>[![Webbapp som loggar in användare](media/scenarios/scenario-webapp-signs-in-users.svg)](scenario-web-app-sign-user-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core
+| [Webbapp som anropar webb-API: er](scenario-web-app-call-api-overview.md) <br/> <br/>[![Webbapp som anropar webb-API: er](media/scenarios/web-app.svg)](scenario-web-app-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png) <br/>msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>Kolv + MSAL python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>Kolv + MSAL python| ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/> ![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>Kolv + MSAL python
+| [Datorprogram som anropar webb-API:er](scenario-desktop-overview.md) <br/> <br/>![ [ Skrivbordsappsomanroparwebb-API:![er](media/scenarios/desktop-app.svg)](scenario-desktop-overview.md) enhets kod flöde](media/scenarios/device-code-flow-app.svg) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/> ![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python <br/> MSAL. objc |
+| [Mobilapp som anropar webb-API: er](scenario-mobile-overview.md) <br/> [![Mobilapp som anropar webb-API: er](media/scenarios/mobile-app.svg)](scenario-mobile-overview.md) | ![UWP](media/sample-v2-code/small_logo_windows.png) MSAL.NET ![Xamarin](media/sample-v2-code/small_logo_xamarin.png) MSAL.NET | | | ![iOS/mål C eller Swift](media/sample-v2-code/small_logo_iOS.png) MSAL. objc | ![Android](media/sample-v2-code/small_logo_Android.png) MSAL. Android
+| [Daemon-app](scenario-daemon-overview.md) <br/> [![Daemon-app](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python
+| [Webb-API som anropar webb-API: er](scenario-web-api-call-api-overview.md) <br/><br/> [![Webb-API som anropar webb-API: er](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>msal4j<br/>![MSAL python](media/sample-v2-code/small_logo_python.png)<br/>MSAL python
 
 Se även [Microsoft-bibliotek som stöds av OS/språk](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language)
 

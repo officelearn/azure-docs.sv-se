@@ -6,12 +6,12 @@ author: SnehaGunda
 ms.author: sngun
 ms.topic: conceptual
 ms.date: 09/25/2019
-ms.openlocfilehash: ea7880d051303afad01ad8ba4a2d68d7331c6a89
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 9676642e96d437965fef041930b8223241cadeaa
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71291150"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349021"
 ---
 # <a name="working-with-dates-in-azure-cosmos-db"></a>Arbeta med datum i Azure Cosmos DB
 Azure Cosmos DB ger schemaflexibilitet och omfattande indexering via ett ursprungligt [JSON](https://www.json.org) datamodellen. Alla Azure Cosmos DB-resurser, inklusive databaser, behållare, dokument och lagrade procedurer modelleras och lagras som JSON-dokument. Som ett krav för portabelt stöder JSON (och Azure Cosmos DB) bara en liten uppsättning grundläggande typer: Sträng, tal, boolesk, matris, objekt och null. JSON är flexibel och tillåta utvecklare och ramverk för att representera mer komplexa typer med hjälp av dessa primitiver och skriva dem som objekt eller matriser. 
@@ -20,7 +20,9 @@ Förutom de grundläggande typerna behöver många program DateTime-typen för a
 
 ## <a name="storing-datetimes"></a>Lagra datum och tid
 
-Azure Cosmos DB är begränsad till JSON-typerna som inte innehåller en DateTime-typ. I Azure Cosmos DB måste datumen lagras som strängar. För närvarande stöder Azure Cosmos DB inte lokalisering av datum. Det rekommenderade formatet för datetime-strängar i Azure Cosmos DB `YYYY-MM-DDThh:mm:ss.sssZ` är som följer ISO 8601 UTC-standarden. Om du formaterar strängarna i det här formatet kan sorterings datumen lexicographically. Logiken för att hantera icke-UTC-datum måste definieras av klienten. De flesta program kan använda standard-strängrepresentation för DateTime av följande skäl:
+Azure Cosmos DB stöder JSON-typer som-String, Number, Boolean, null, matris, Object. Det stöder inte direkt en DateTime-typ. För närvarande stöder Azure Cosmos DB inte lokalisering av datum. Så du måste lagra datum och tid som strängar. Det rekommenderade formatet för datetime-strängar i Azure Cosmos DB `YYYY-MM-DDThh:mm:ss.sssZ` är som följer ISO 8601 UTC-standarden. Vi rekommenderar att du lagrar alla datum i Azure Cosmos DB som UTC. Om du konverterar datum strängarna till det här formatet kan sorterings datumen lexicographically. Om icke-UTC-datum lagras måste logiken hanteras på klient sidan. Om du vill konvertera en lokal datum-DateTime till UTC måste förskjutningen vara känd/lagrad som en egenskap i JSON och klienten kan använda offset för att beräkna UTC-slutdatum svärdet.
+
+De flesta program kan använda standard-strängrepresentation för DateTime av följande skäl:
 
 * Strängar kan jämföras och relativa ordning av datum/tid-värden bevaras när de omvandlas till strängar. 
 * Den här metoden kräver inte någon anpassad kod eller ett attribut för JSON-konvertering.

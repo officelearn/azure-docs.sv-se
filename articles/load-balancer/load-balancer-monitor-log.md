@@ -11,23 +11,23 @@ ms.topic: article
 ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 1995ad5e8179fdee11e960c2ad0e7c03602ebd31
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: df35168d0fab0b01ff11c4105a1fcc5b16e21f30
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68274804"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350719"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>Azure Monitor loggar för offentliga grundläggande Load Balancer
 
 >[!IMPORTANT] 
 >Azure Load Balancer stöder två olika typer: Basic och Standard. Den här artikeln beskriver den grundläggande lastbalanseraren. Mer information om Standard Load Balancer finns i [standard Load Balancer översikt](load-balancer-standard-overview.md) som visar telemetri via flerdimensionella mått i Azure Monitor.
 
-Du kan använda olika typer av loggar i Azure för att hantera och felsöka grundläggande belastnings utjämning. Vissa av dessa loggar kan nås via portalen. Alla loggar kan extraheras från Azure Blob Storage och visas i olika verktyg, till exempel Excel och PowerBI. Du kan lära dig mer om de olika typerna av loggar i listan nedan.
+Du kan använda olika typer av loggar i Azure för att hantera och felsöka grundläggande belastnings utjämning. Vissa av dessa loggar kan nås via portalen. Loggar kan strömmas till en händelsehubben eller en arbets yta för Log Analytics. Alla loggar kan extraheras från Azure Blob Storage och visas i olika verktyg, till exempel Excel och Power BI.  Du kan lära dig mer om de olika typerna av loggar i listan nedan.
 
-* **Gransknings loggar:** Du kan använda [Azures gransknings loggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare kallade drift loggar) om du vill visa alla åtgärder som skickas till din Azure-prenumeration (er) och deras status. Gransknings loggar är aktiverade som standard och kan visas i Azure Portal.
+* **Aktivitets loggar:** Du kan använda [Visa aktivitets loggar för att övervaka åtgärder på resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) för att visa all aktivitet som skickas till din Azure-prenumeration (er) och deras status. Aktivitets loggar är aktiverade som standard och kan visas i Azure Portal.
 * **Aviserings händelse loggar:** Du kan använda den här loggen för att visa aviseringar som aktive ras av belastningsutjämnaren. Status för belastningsutjämnaren samlas in var femte minut. Den här loggen skrivs bara om en belastnings Utjämnings aviserings händelse höjs.
 * **Hälso avsöknings loggar:** Du kan använda den här loggen för att visa problem som upptäckts av din hälso avsökning, till exempel antalet instanser i din backend-pool som inte tar emot begär Anden från belastningsutjämnaren på grund av hälso avsöknings fel. Loggen skrivs till när statusen för hälso avsökningen ändras.
 
@@ -36,39 +36,66 @@ Du kan använda olika typer av loggar i Azure för att hantera och felsöka grun
 
 ## <a name="enable-logging"></a>Aktivera loggning
 
-Gransknings loggning aktive ras automatiskt för varje Resource Manager-resurs. Du måste aktivera loggning av händelse-och hälso avsökning för att börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning.
+Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Aktivera loggning av händelse-och hälso avsökning för att börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning.
 
-Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](load-balancer-get-started-internet-arm-ps.md) innan du fortsätter.
+Logga in på [Azure Portal](https://portal.azure.com). Om du inte redan har en belastningsutjämnare måste du [skapa en belastningsutjämnare](https://docs.microsoft.com/azure/load-balancer/quickstart-create-basic-load-balancer-portal) innan du fortsätter.
 
-1. I portalen klickar du på **Bläddra**.
-2. Välj **belastnings utjämning**.
+1. I portalen klickar du på **resurs grupper**.
+2. Välj **\<resource-Group-name >** där belastningsutjämnaren är.
+3. Välj belastningsutjämnaren.
+4. Välj **övervaknings** > **diagnostiska inställningar**.
+5. I fönstret **diagnostikinställningar** , under **diagnostikinställningar**, väljer du **+ Lägg till diagnostisk inställning**.
+6. I fönstret Skapa **diagnostikinställningar** anger du **MyLBDiagnostics** i fältet **namn** .
+7. Det finns tre alternativ för **diagnostikinställningar**.  Du kan välja en, två eller alla tre och konfigurera var och en för dina behov:
+   * **Arkivera till ett lagrings konto**
+   * **Strömma till en Event Hub**
+   * **Skicka till Log Analytics**
 
-    ![Portal – belastnings utjämning](./media/load-balancer-monitor-log/load-balancer-browse.png)
+    ### <a name="archive-to-a-storage-account"></a>Arkivera till ett lagringskonto
+    Du behöver ett lagrings konto som redan har skapats för den här processen.  Information om hur du skapar ett lagrings konto finns i [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 
-3. Välj en befintlig belastnings Utjämnings > > **alla inställningar**.
-4. Gå till den högra sidan i dialog rutan under namnet på belastningsutjämnaren, bläddra till **övervakning**och klicka på **diagnostik**.
+    1. Markera kryss rutan bredvid **arkivera till ett lagrings konto**.
+    2. Välj **Konfigurera** för att öppna fönstret **Välj ett lagrings konto** .
+    3. Välj den **prenumeration** där ditt lagrings konto skapades i den nedrullningsbara rutan.
+    4. Välj namnet på ditt lagrings konto under **lagrings konto** i den nedrullningsbara List rutan. 
+    5. Välj OK.
 
-    ![Portal – belastnings utjämning – inställningar](./media/load-balancer-monitor-log/load-balancer-settings.png)
+    ### <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
+    Du behöver en Event Hub som redan har skapats för den här processen.  Information om hur du skapar en Event Hub finns i [Quickstart: Skapa en Event Hub med Azure Portal @ no__t-0
 
-5. I fönstret **diagnostik** under **status**väljer du **på**.
-6. Klicka på **lagrings konto**.
-7. Under **loggar**väljer du ett befintligt lagrings konto eller skapar ett nytt. Använd skjutreglaget för att avgöra hur många dagars händelse data som ska lagras i händelse loggarna. 
-8. Klicka på **Spara**.
+    1. Markera kryss rutan bredvid **strömma till en Event Hub**
+    2. Välj **Konfigurera** för att öppna fönstret **Välj händelsehubben** .
+    3. Välj den **prenumeration** där händelsehubben skapades i den nedrullningsbara rutan.
+    4. **Välj namn område för Event Hub** i den nedrullningsbara rutan.
+    5. **Välj princip namn för Event Hub** i den nedrullningsbara rutan.
+    6. Välj OK.
 
-Diagnostiken kommer att sparas i Table Storage i det angivna lagrings kontot. Om loggarna inte sparas beror det på att inga relevanta loggar skapas.
+    ### <a name="send-to-log-analytics"></a>Skicka till Log Analytics
+    Du behöver redan ha en Log Analytics-arbetsyta skapad och konfigurerad för den här processen.  Om du vill skapa en Log Analytics arbets yta, se [skapa en Log Analytics arbets yta i Azure Portal](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-![Portal – diagnostikloggar](./media/load-balancer-monitor-log/load-balancer-diagnostics.png)
+    1. Markera kryss rutan bredvid **Skicka till Log Analytics**.
+    2. Välj den **prenumeration** där Log Analytics arbets ytan finns i den nedrullningsbara rutan.
+    3. Välj **arbets ytan Log Analytics** i list rutan.
 
-> [!NOTE]
-> Gransknings loggar kräver inget separat lagrings konto. Användningen av lagring för loggning av händelse-och hälso avsökning debiteras service avgifter.
 
-## <a name="audit-log"></a>Gransknings logg
+8. Under avsnittet **logg** i fönstret **diagnostikinställningar** väljer du kryss rutan bredvid båda:
+   * **LoadBalancerAlertEvent**
+   * **LoadBalancerProbeHealthStatus**
 
-Gransknings loggen skapas som standard. Loggarna bevaras för 90 dagar i Azures händelse logg arkiv. Läs mer om dessa loggar genom att läsa artikeln [Visa händelser och gransknings loggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) .
+9.  Under avsnittet **mått** i fönstret **diagnostikinställningar** väljer du kryss rutan bredvid:
+   * **AllMetrics**
 
-## <a name="alert-event-log"></a>Aviserings händelse logg
+11. Kontrol lera att allting ser korrekt ut och klicka sedan på **Spara** högst upp i fönstret Skapa **diagnostiska inställningar** .
 
-Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare. Händelserna är inloggade i JSON-format och lagras i det lagrings konto du angav när du aktiverade loggningen. Följande är ett exempel på en händelse.
+## <a name="activity-log"></a>Aktivitetslogg
+
+Aktivitets loggen skapas som standard. Loggarna bevaras för 90 dagar i Azures händelse logg arkiv. Läs mer om dessa loggar genom att läsa artikeln [Visa aktivitets loggar för att övervaka åtgärder i resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit) .
+
+## <a name="archive-to-storage-account-logs"></a>Arkivera till lagrings konto loggar
+
+### <a name="alert-event-log"></a>Aviserings händelse logg
+
+Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare. Händelserna är inloggade i JSON-format och lagras i det lagrings konto du angav när du aktiverade loggningen. Följande exempel är en händelse.
 
 ```json
 {
@@ -87,9 +114,9 @@ Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare.
 }
 ```
 
-JSON-utdata visar egenskapen *EventName* som beskriver orsaken till att belastningsutjämnaren skapade en avisering. I det här fallet orsakade den genererade aviseringen på grund av att TCP-portens överbelastning orsakade av NAT-gränser (käll-IP NAT).
+JSON-utdata visar egenskapen *EventName* , som beskriver orsaken till att belastningsutjämnaren skapade en avisering. I det här fallet orsakade den genererade aviseringen på grund av att TCP-portens belastning orsakade av NAT-gränser (SNAT).
 
-## <a name="health-probe-log"></a>Hälso avsöknings logg
+### <a name="health-probe-log"></a>Hälso avsöknings logg
 
 Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare enligt beskrivningen ovan. Data lagras i det lagrings konto du angav när du aktiverade loggningen. En behållare med namnet Insights-logs-loadbalancerprobehealthstatus skapas och följande data loggas:
 
@@ -127,26 +154,27 @@ Den här loggen skapas endast om du har aktiverat den per belastningsutjämnare 
 }
 ```
 
-JSON-utdata visas i fältet egenskaper grundläggande information om avsökningens hälso status. Egenskapen *dipDownCount* visar det totala antalet instanser på backend-sidan som inte tar emot nätverks trafik på grund av misslyckade avsöknings svar.
+JSON-utdata visas i fältet egenskaper grundläggande information om avsökningens hälso status. Egenskapen *dipDownCount* visar det totala antalet instanser på Server delen, som inte tar emot nätverks trafik på grund av misslyckade avsöknings svar.
 
-## <a name="view-and-analyze-the-audit-log"></a>Visa och analysera gransknings loggen
+### <a name="view-and-analyze-the-audit-log"></a>Visa och analysera gransknings loggen
 
 Du kan visa och analysera Gransknings logg data med någon av följande metoder:
 
-* **Azure-verktyg:** Hämta information från gransknings loggarna via Azure PowerShell, Azure Command Line Interface (CLI), Azure-REST API eller Azure Preview Portal. Stegvisa instruktioner för varje metod beskrivs i artikeln [Granska åtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md) .
-* **Power BI:** Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing) konto kan du prova det kostnads fritt. Med [innehålls paketet för Azure audit-loggar för Power BI](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs)kan du analysera dina data med förkonfigurerade instrument paneler, eller så kan du anpassa vyer så att de passar dina behov.
+* **Azure-verktyg:** Hämta information från gransknings loggarna via Azure PowerShell, kommando rads gränssnittet för Azure (CLI), Azure-REST API eller Azure Portal. Stegvisa instruktioner för varje metod beskrivs i artikeln [Granska åtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md) .
+* **Power BI:** Om du inte redan har ett [Power BI](https:// .microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [innehålls paketet för Azure audit-loggar för Power BI](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)kan du analysera dina data med förkonfigurerade instrument paneler, eller så kan du anpassa vyer så att de passar dina behov.
 
-## <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visa och analysera hälso avsökningen och händelse loggen
+### <a name="view-and-analyze-the-health-probe-and-event-log"></a>Visa och analysera hälso avsökningen och händelse loggen
 
-Du måste ansluta till ditt lagrings konto och hämta JSON-logg poster för händelse-och hälso avsöknings loggar. När du har hämtat JSON-filerna kan du konvertera dem till CSV och Visa i Excel, PowerBI eller något annat verktyg för data visualisering.
+Anslut till ditt lagrings konto och hämta JSON-logg poster för händelse-och hälso avsöknings loggar. När du har hämtat JSON-filerna kan du konvertera dem till CSV och Visa i Excel, Power BI eller något annat verktyg för data visualisering.
 
 > [!TIP]
 > Om du är bekant med Visual Studio och kan grunderna i att ändra värden för konstanter och variabler i C# så kan du använda [verktygen för loggkonvertering](https://github.com/Azure-Samples/networking-dotnet-log-converter) från GitHub.
 
-## <a name="additional-resources"></a>Ytterligare resurser
+## <a name="stream-to-an-event-hub"></a>Strömma till en händelsehubb
+När diagnostikinformation strömmas till en Event Hub, kan den användas för centraliserad logg analys i ett SIEM-verktyg från tredje part med Azure Monitor-integrering. Mer information finns i [Stream Azure Monitoring data to Event Hub](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#tools-with-azure-monitor-integration)
 
-* [Visualisera dina Azure audit-loggar med Power BI](https://blogs.msdn.com/b/powerbi/archive/2015/09/30/monitor-azure-audit-logs-with-power-bi.aspx) blogg inlägg.
-* [Visa och analysera Azure audit-loggar i Power BI och fler](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/) blogg inlägg.
+## <a name="send-to-log-analytics"></a>Skicka till Log Analytics
+Resurser i Azure kan få sin diagnostikinformation att skickas direkt till en Log Analytics arbets yta där komplexa frågor kan köras mot informationen för fel sökning och analys.  Mer information finns i [samla in Azure-resursposter i Log Analytics arbets yta i Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace)
 
 ## <a name="next-steps"></a>Nästa steg
 

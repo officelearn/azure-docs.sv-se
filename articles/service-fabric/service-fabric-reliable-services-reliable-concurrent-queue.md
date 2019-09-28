@@ -1,6 +1,6 @@
 ---
 title: ReliableConcurrentQueue i Azure Service Fabric
-description: ReliableConcurrentQueue är en kö med hög genom strömning som tillåter parallella köer och köer.
+description: ReliableConcurrentQueue är en kö med hög data flöde som tillåter parallella köer och köer.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 5/1/2017
 ms.author: atsenthi
-ms.openlocfilehash: 8cb35d6265bafe2b259774a55119d33f8ae94fe9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 776d330e36e6bcafe610bbab54e13ff6c41e2edf
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599252"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350290"
 ---
 # <a name="introduction-to-reliableconcurrentqueue-in-azure-service-fabric"></a>Introduktion till ReliableConcurrentQueue i Azure Service Fabric
 Reliable samtidig kö är en asynkron, transaktionell och replikerad kö som innehåller hög samtidighet för att köa och ta bort åtgärder. Den är utformad för att leverera högt data flöde och låg latens genom att slappa den strikta FIFO-ordningen som tillhandahålls av en [tillförlitlig kö](https://msdn.microsoft.com/library/azure/dn971527.aspx) och i stället tillhandahålla en ordning för bästa ansträngningar.
@@ -45,17 +45,24 @@ Ett exempel på användnings fall för ReliableConcurrentQueue är [meddelande k
 * Kön garanterar inte strikt FIFO-ordning.
 * Kön läser inte egna skrivningar. Om ett objekt är placerat i kö i en transaktion, kommer det inte att vara synligt för en avköhanteraren i samma transaktion.
 * Köerna är inte isolerade från varandra. Om objekt *a* tas ur kö i transaktions *txnA*, även om *txnA* inte är dedikerat, visas inte objekt *a* i en samtidig transaktion *txnB*.  Om *txnA* avbryter visas *en* *txnB* omedelbart.
-* *TryPeekAsync* beteende kan implementeras med hjälp av en *TryDequeueAsync* och sedan avbryta transaktionen. Ett exempel på detta finns i avsnittet programmerings mönster.
+* *TryPeekAsync* beteende kan implementeras med hjälp av en *TryDequeueAsync* och sedan avbryta transaktionen. Ett exempel på det här beteendet finns i avsnittet programmerings mönster.
 * Count är icke-transaktionell. Det kan användas för att få en uppfattning om antalet element i kön, men representerar en tidpunkt och kan inte förlitas på.
 * Dyrbar bearbetning av de köade objekten bör inte utföras medan transaktionen är aktiv, för att undvika långvariga transaktioner som kan påverka systemets prestanda.
 
 ## <a name="code-snippets"></a>Kodfragment
 Låt oss titta på några kodfragment och deras förväntade utdata. Undantags hanteringen ignoreras i det här avsnittet.
 
+### <a name="instantiation"></a>Tillgodosetts
+Att skapa en instans av en tillförlitlig gemensam kö liknar en annan tillförlitlig samling.
+
+```csharp
+IReliableConcurrentQueue<int> queue = await this.StateManager.GetOrAddAsync<IReliableConcurrentQueue<int>>("myQueue");
+```
+
 ### <a name="enqueueasync"></a>EnqueueAsync
 Här följer några kodfragment för att använda EnqueueAsync följt av förväntade utdata.
 
-- *Fall 1: Uppgift för enskild kö*
+- *Case 1: Uppgift för enskild kö @ no__t-0
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -74,7 +81,7 @@ Anta att aktiviteten har slutförts och att det inte fanns några samtidiga tran
 > 20, 10
 
 
-- *Fall 2: Parallell köa uppgift*
+- *Case 2: Parallell köa uppgift @ no__t-0
 
 ```
 // Parallel Task 1
@@ -103,7 +110,7 @@ Anta att aktiviteterna har slutförts, att aktiviteterna kördes parallellt och 
 Här följer några kodfragment för att använda TryDequeueAsync följt av förväntade utdata. Anta att kön redan är ifylld med följande objekt i kön:
 > 10, 20, 30, 40, 50, 60
 
-- *Fall 1: Uppgift för enskild avkö*
+- *Case 1: Uppgift för enkel deekö @ no__t-0
 
 ```
 using (var txn = this.StateManager.CreateTransaction())
@@ -118,7 +125,7 @@ using (var txn = this.StateManager.CreateTransaction())
 
 Anta att aktiviteten har slutförts och att det inte fanns några samtidiga transaktioner att ändra kön. Eftersom ingen härledning kan göras om ordningen för objekten i kön kan alla tre objekten vara i kö, i vilken ordning som helst. Kön försöker behålla objekten i den ursprungliga (köade) ordningen, men kan tvingas att ändra ordning på dem på grund av samtidiga åtgärder eller fel.  
 
-- *Fall 2: Parallell avköad uppgift*
+- *Case 2: Parallell deekö-aktivitet @ no__t-0
 
 ```
 // Parallel Task 1
@@ -146,7 +153,7 @@ Anta att aktiviteterna har slutförts, att aktiviteterna kördes parallellt och 
 
 Samma objekt visas *inte* i båda listorna. Om dequeue1 har *10*, *30*skulle dequeue2 därför ha *20*, *40*.
 
-- *Fall 3: Beställning av ur kö med transaktions avbrott*
+- *Case 3: Beställning av ur kö med transaktions avbrott @ no__t-0
 
 Om du avbryter en transaktion med flygbaserade köer placeras objekten tillbaka i köns huvud. Det går inte att garantera i vilken ordning objekten placeras i köns huvud. Låt oss titta på följande kod:
 
@@ -168,13 +175,13 @@ När vi avbryter transaktionen, läggs objekten tillbaka till huvud kön i kön 
 > 
 > 20, 10
 
-Samma sak gäller för alla fall där transaktionen inte genomfördes *.*
+Samma sak gäller för alla fall där transaktionen *inte genomfördes.*
 
 ## <a name="programming-patterns"></a>Programmerings mönster
 I det här avsnittet ska vi titta på några programmerings mönster som kan vara till hjälp när du använder ReliableConcurrentQueue.
 
 ### <a name="batch-dequeues"></a>Batch-avköer
-Ett rekommenderat programmerings mönster är att klientens avköer ska grupperas i stället för att en ur kö utförs i taget. Användaren kan välja att begränsa fördröjningar mellan varje batch eller batchstorleken. I följande kodfragment visas den här programmerings modellen.  Observera att i det här exemplet sker bearbetningen efter att transaktionen har genomförts, så om ett fel skulle inträffa under bearbetningen går de obearbetade objekten förlorade utan att de har bearbetats.  Du kan också utföra bearbetningen inom transaktionens omfång, men detta kan ha en negativ inverkan på prestanda och kräver hantering av de objekt som redan har bearbetats.
+Ett rekommenderat programmerings mönster är att klientens avköer ska grupperas i stället för att en ur kö utförs i taget. Användaren kan välja att begränsa fördröjningar mellan varje batch eller batchstorleken. I följande kodfragment visas den här programmerings modellen. I det här exemplet är bearbetningen klar när transaktionen har genomförts, så om ett fel skulle inträffa under bearbetningen går de obearbetade objekten förlorade utan att bearbetas.  Du kan också utföra bearbetningen inom transaktions omfattningen, men den kan ha en negativ inverkan på prestanda och måste hantera de objekt som redan har bearbetats.
 
 ```
 int batchSize = 5;
@@ -268,7 +275,7 @@ while(!cancellationToken.IsCancellationRequested)
 ```
 
 ### <a name="best-effort-drain"></a>Dränering med bästa ansträngning
-En dränering av kön kan inte garanteras på grund av data strukturens samtidighet.  Det är möjligt att även om ingen användar åtgärd i kön är i flygning, kan ett visst anrop till TryDequeueAsync inte returnera ett objekt som tidigare har placerats i kö och bekräftats.  Det köade objektet *kan komma att* bli synligt för att ta del av kön, men utan en out-of-band-kommunikations mekanism kan en oberoende konsument inte veta att kön har nått ett stabilt tillstånd även om alla tillverkare har stoppats och inga nya åtgärder för att köa är tillåtna. Därför är tömnings åtgärden det bästa arbetet som implementeras nedan.
+En dränering av kön kan inte garanteras på grund av data strukturens samtidighet.  Det är möjligt att även om ingen användar åtgärd i kön är i flygning, kan ett visst anrop till TryDequeueAsync inte returnera ett objekt som tidigare har placerats i kö och bekräftats.  Det köade objektet kan komma att bli synligt *för att ta* del av kön, men utan en out-of-band-kommunikations mekanism kan en oberoende konsument inte veta att kön har nått ett stabilt tillstånd även om alla tillverkare har stoppats och inga nya åtgärder för att köa är tillåtna. Därför är tömnings åtgärden det bästa arbetet som implementeras nedan.
 
 Användaren bör stoppa alla ytterligare producent-och konsument uppgifter och vänta på att eventuella pågående transaktioner ska genomföras eller avbrytas innan du försöker tömma kön.  Om användaren känner till det förväntade antalet objekt i kön kan de ställa in ett meddelande som signalerar att alla objekt har avplacerats i kö.
 
@@ -337,7 +344,7 @@ using (var txn = this.StateManager.CreateTransaction())
 ```
 
 ## <a name="must-read"></a>Måste läsa
-* [Reliable Services Snabbstart](service-fabric-reliable-services-quick-start.md)
+* [Reliable Services snabb start](service-fabric-reliable-services-quick-start.md)
 * [Arbeta med Reliable Collections](service-fabric-work-with-reliable-collections.md)
 * [Reliable Services meddelanden](service-fabric-reliable-services-notifications.md)
 * [Reliable Services säkerhets kopiering och återställning (haveri beredskap)](service-fabric-reliable-services-backup-restore.md)

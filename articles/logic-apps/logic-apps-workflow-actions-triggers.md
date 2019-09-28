@@ -9,12 +9,12 @@ ms.reviewer: klam, LADocs
 ms.suite: integration
 ms.topic: reference
 ms.date: 06/19/2019
-ms.openlocfilehash: df1b03d5fbb5b8ef8cda9407e4a595bc2de8ce54
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 3311ca3665083ec8c71f48b28e7195aa8c14f13d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70918957"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350668"
 ---
 # <a name="reference-for-trigger-and-action-types-in-workflow-definition-language-for-azure-logic-apps"></a>Referens för utlösare och åtgärds typer i språk för arbets flödes definition för Azure Logic Apps
 
@@ -156,8 +156,8 @@ Den här utlösaren kontrollerar eller *avsöker* en slut punkt med hjälp av [M
  
 | Element | type | Beskrivning |
 |---------|------|-------------|
-| Sidhuvud | JSON-objekt | Rubrikerna från svaret |
-| brödtext | JSON-objekt | Texten från svaret |
+| rubriker | JSON-objekt | Rubrikerna från svaret |
+| Brödtext | JSON-objekt | Texten från svaret |
 | Status kod | Integer | Status koden från svaret |
 |||| 
 
@@ -329,8 +329,8 @@ Den här utlösaren kontrollerar eller avsöker den angivna slut punkten baserat
 
 | Element | type | Beskrivning |
 |---------|------|-------------| 
-| Sidhuvud | JSON-objekt | Rubrikerna från svaret | 
-| brödtext | JSON-objekt | Texten från svaret | 
+| rubriker | JSON-objekt | Rubrikerna från svaret | 
+| Brödtext | JSON-objekt | Texten från svaret | 
 | Status kod | Integer | Status koden från svaret | 
 |||| 
 
@@ -424,8 +424,8 @@ Vissa värden, till exempel <*metod-typ*>, är tillgängliga för både `"subscr
 
 | Element | type | Beskrivning |
 |---------|------|-------------| 
-| Sidhuvud | JSON-objekt | Rubrikerna från svaret | 
-| brödtext | JSON-objekt | Texten från svaret | 
+| rubriker | JSON-objekt | Rubrikerna från svaret | 
+| Brödtext | JSON-objekt | Texten från svaret | 
 | Status kod | Integer | Status koden från svaret | 
 |||| 
 
@@ -656,7 +656,7 @@ Den här utlösaren anger att en inkommande begäran måste använda HTTP POST-m
 
 <a name="trigger-conditions"></a>
 
-## <a name="trigger-conditions"></a>Utlösnings villkor
+## <a name="trigger-conditions"></a>Utlösarvillkor
 
 För alla utlösare och endast utlösare kan du inkludera en matris som innehåller ett eller flera uttryck för villkor som avgör om arbets flödet ska köras. Om du vill `conditions` lägga till egenskapen i en utlösare i arbets flödet öppnar du din Logic app i kodvyn.
 
@@ -1538,7 +1538,7 @@ Den här åtgärden skapar en matris med JSON-objekt genom att transformera obje
 |-------|------|-------------| 
 | <*lagringsmatriser*> | Array | Matrisen eller uttrycket som innehåller käll objekt. Se till att du omger ett uttryck med dubbla citat tecken. <p>**Obs!** Om käll mat ris är tom skapar åtgärden en tom matris. | 
 | <*nyckel namn*> | String | Egenskaps namnet som tilldelats resultatet från <-*uttryck*> <p>Om du vill lägga till en ny egenskap över alla objekt i den utgående matrisen, anger du ett <*nyckel namn*> för egenskapen och ett <*uttryck*> för egenskap svärdet. <p>Om du vill ta bort en egenskap från alla objekt i matrisen utelämnar du <*nyckel namnet*> för den egenskapen. | 
-| <*uttryck*> | String | Det uttryck som transformerar objektet i käll mat ris och tilldelar resultatet till <*nyckel namn*> | 
+| <*uttryck*> | Sträng | Det uttryck som transformerar objektet i käll mat ris och tilldelar resultatet till <*nyckel namn*> | 
 |||| 
 
 Åtgärden **Välj** skapar en matris som utdata, så alla åtgärder som vill använda dessa utdata måste antingen acceptera en matris, eller så måste du konvertera matrisen till den typ som konsument åtgärden accepterar. Om du till exempel vill konvertera utmatnings mat ris till en sträng kan du skicka matrisen till åtgärden **Skriv** och sedan referera till utdata från åtgärden **Skriv** i dina andra åtgärder.
@@ -2402,12 +2402,38 @@ Du kan ändra standard beteendet för utlösare och åtgärder `operationOptions
 
 ### <a name="change-trigger-concurrency"></a>Ändra utlösare samtidighet
 
-Som standard körs Logic App-instanser på samma tidpunkt, samtidigt eller parallellt med [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varje Utlös ande instans utlöses innan den tidigare arbets flödes instansen har körts. Den här gränsen hjälper till att styra antalet förfrågningar som backend-system tar emot. 
+Som standard körs Logic App-instanser på samma tidpunkt (samtidigt eller parallellt) upp till [standard gränsen](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits). Varje Utlös ande instans utlöses innan den tidigare arbets flödes instansen har körts. Den här gränsen hjälper till att styra antalet förfrågningar som backend-system tar emot. 
 
-Om du vill ändra standard gränsen kan du använda antingen kodvyn eller Logic Apps designer eftersom du ändrar samtidighets inställningen via design verktyget lägger till eller uppdaterar `runtimeConfiguration.concurrency.runs` egenskapen i den underliggande utlösaren och vice versa. Den här egenskapen styr det maximala antalet arbets flödes instanser som kan köras parallellt. 
+Om du vill ändra standard gränsen kan du använda antingen kodvyn eller Logic Apps designer eftersom du ändrar samtidighets inställningen via design verktyget lägger till eller uppdaterar `runtimeConfiguration.concurrency.runs` egenskapen i den underliggande utlösaren och vice versa. Den här egenskapen styr det maximala antalet arbets flödes instanser som kan köras parallellt. Här följer några saker att tänka på när du använder samtidighets kontrollen:
 
-> [!NOTE] 
-> Om du ställer in utlösaren att köras sekventiellt antingen med hjälp av designern eller kodvyn, ska du inte ange utlösarens `operationOptions` egenskap till `SingleInstance` i kodvyn. Annars får du ett verifierings fel. Mer information finns i avsnittet om [Utlös ande instanser i tur och ordning](#sequential-trigger).
+* Medan samtidighets funktionen är aktive rad kan en tids krävande Logic App-instans orsaka att nya Logic App-instanser anger ett vänte läge. Detta tillstånd förhindrar Azure Logic Apps från att skapa nya instanser och inträffar även om antalet samtidiga körningar är mindre än det angivna maximala antalet samtidiga körningar.
+
+  * Om du vill avbryta det här läget avbryter du de tidigaste instanserna som *fortfarande körs*.
+
+    1. På din Logic Apps-meny väljer du **Översikt**.
+
+    1. I avsnittet **körnings historik** väljer du den tidigaste instans som fortfarande körs, till exempel:
+
+       ![Välj tidigaste aktiva instans](./media/logic-apps-workflow-actions-triggers/waiting-runs.png)
+
+       > [!TIP]
+       > Om du bara vill visa instanser som fortfarande körs, öppnar du listan **alla** och väljer **Kör**.    
+
+    1. Under **Logic app-körning**väljer du **Avbryt körning**.
+
+       ![Hitta tidigaste aktiva instans](./media/logic-apps-workflow-actions-triggers/cancel-run.png)
+
+  * Undvik den här möjligheten genom att lägga till en tids gräns för alla åtgärder som kan innehålla de här körningarna. Om du arbetar i kod redigeraren, se [ändra asynkron varaktighet](#asynchronous-limits). Annars, om du använder designern, följer du dessa steg:
+
+    1. Välj ellipserna ( **...** ) i det övre högra hörnet på den åtgärd där du vill lägga till en tids gräns i din Logic app och välj sedan **Inställningar**.
+
+       ![Öppna åtgärds inställningar](./media/logic-apps-workflow-actions-triggers/action-settings.png)
+
+    1. Under **tids gräns**anger du varaktigheten för timeout i [ISO 8601-format](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations).
+
+       ![Ange varaktighet för timeout](./media/logic-apps-workflow-actions-triggers/timeout.png)
+
+* Om du vill köra din Logic app sekventiellt kan du ställa in utlösarens samtidighet till `1` antingen med hjälp av kodvyn eller designern. Men ange inte också utlösarens `operationOptions`-egenskap till `SingleInstance` i kodvyn. Annars får du ett verifierings fel. Mer information finns i avsnittet om [Utlös ande instanser i tur och ordning](#sequential-trigger).
 
 #### <a name="edit-in-code-view"></a>Redigera i kodvyn 
 

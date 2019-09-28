@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: lahugh
-ms.openlocfilehash: c3c54b003017f7512cd40c7798fc351e4e4a3f69
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c8fa96e41b98cfa227fd25dc4b3bd66a171ff3c8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094921"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350129"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Använd RDMA-eller GPU-instanser i batch-pooler
 
@@ -86,7 +86,7 @@ Om du vill konfigurera en specialiserad VM-storlek för batch-poolen har du fler
 
     * [Ubuntu Server (med GPU-och RDMA-drivrutiner) för Azure Batch behållar pooler](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-batch.ubuntu-server-container-rdma?tab=Overview)
 
-* Skapa en [anpassad Windows-eller Linux VM-avbildning](batch-custom-images.md) där du har installerat driv rutiner, program eller andra inställningar som krävs för den virtuella dator storleken. 
+* Skapa en [anpassad Windows-eller Linux VM-avbildning](batch-sig-images.md) där du har installerat driv rutiner, program eller andra inställningar som krävs för den virtuella dator storleken. 
 
 * Skapa ett batch [](batch-application-packages.md) -programpaket från en zippad driv rutin eller ett installations program och konfigurera batch för att distribuera paketet till pool-noder och installera en gång när varje nod skapas. Om programpaketet till exempel är ett installations program skapar du en kommando rad för [Start uppgift](batch-api-basics.md#start-task) för att tyst installera appen på alla noder i poolen. Överväg att använda ett programpaket och en uppgift för att starta en pool om din arbets belastning är beroende av en viss driv rutins version.
 
@@ -123,9 +123,9 @@ Om du vill köra CUDA-program på en pool med Linux NC-noder måste du installer
 1. Distribuera en virtuell dator med Azure NC-serien som kör Ubuntu 16,04 LTS. Skapa till exempel den virtuella datorn i regionen USA, södra centrala. 
 2. Lägg till tillägget](../virtual-machines/extensions/hpccompute-gpu-linux.md
 ) nVidiaGPU-drivrutinerpådenvirtuelladatornmedhjälpavAzurePortal,enklientdatorsomanslutertillAzure-prenumerationenellerAzureCloudShell.[ Du kan också följa stegen för att ansluta till den virtuella datorn och [Installera CUDA-drivrutiner](../virtual-machines/linux/n-series-driver-setup.md) manuellt.
-3. Följ stegen för att skapa en ögonblicks bild av [och den anpassade virtuella Linux](batch-custom-images.md) -avbildningen för batch.
+3. Följ stegen för att skapa en [bild för ett delat bild galleri](batch-sig-images.md) för batch.
 4. Skapa ett batch-konto i en region som stöder NC-VM: ar.
-5. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool [med hjälp av den anpassade avbildningen](batch-custom-images.md) och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna för avbildningen:
+5. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool [med hjälp av den anpassade avbildningen](batch-sig-images.md) och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna för avbildningen:
 
 | Inställning | Value |
 | ---- | ---- |
@@ -143,8 +143,8 @@ Om du vill köra Windows MPI-program på en pool med virtuella Azure H16r-noder 
 ) ett Azure PowerShell kommando från en klient dator som ansluter till din Azure-prenumeration eller med Azure Cloud Shell. 
 1. Upprätta en fjärr skrivbords anslutning till den virtuella datorn.
 1. Hämta [installations paketet](https://www.microsoft.com/download/details.aspx?id=57467) (MSMpiSetup. exe) för den senaste versionen av Microsoft MPI och installera Microsoft MPI.
-1. Följ stegen för att skapa en [ögonblicks bild och anpassad avbildning av virtuella Windows-datorer](batch-custom-images.md) för batch.
-1. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool [med hjälp av den anpassade avbildningen](batch-custom-images.md) och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna för avbildningen:
+1. Följ stegen för att skapa en [bild för ett delat bild galleri](batch-sig-images.md) för batch.
+1. Med hjälp av batch-API: erna eller Azure Portal skapar du en pool [med hjälp av det delade avbildnings galleriet](batch-sig-images.md) och med önskat antal noder och skalning. I följande tabell visas exempel på poolinställningarna för avbildningen:
 
 | Inställning | Value |
 | ---- | ---- |

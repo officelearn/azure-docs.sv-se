@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2019
+ms.date: 09/27/2019
 ms.author: mlottner
-ms.openlocfilehash: e742848df56e4e2be1b9edf42586e642f0c938cb
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: dc9dcbfd00b5205fa5c66e334b30c76d549d8a42
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70933793"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348516"
 ---
 # <a name="pricing-and-associated-costs"></a>Prissättning och associerade kostnader
 
@@ -34,20 +34,17 @@ Azure Security Center för IoT-prismodellen består av två delar och faktureras
 
 - Kostnad per meddelande – utökade säkerhetsfunktioner baserat på säkerhets meddelanden från IoT Edge eller löv enheter.
 
-  >[!Note]
-  > Säkerhets meddelanden kommer också att ha kvot förbrukning på IoT Hub.
 
 Mer information finns i [Security Center prissättning](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## <a name="associated-costs"></a>Tillhör ande kostnader
 
-Azure Security Center for IoT har två typer av associerade kostnader som inte ingår i direkt prissättningen:
+Azure Security Center for IoT har associerade kostnader som inte ingår i direkt prissättningen:
 
-- IoT Hub kvot förbrukning
 
 - Log Analytics lagrings kostnader
 
-Du kan minska kostnaderna genom att väljer bort från vissa funktioner genom att ändra dina inställningar.
+Du kan minska de associerade kostnaderna genom att väljer ut ur vissa lösnings funktioner. Avanmäla dig genom att ändra inställningarna.
 
 Ändra inställningarna:
 
@@ -61,8 +58,6 @@ Följande tabell innehåller en sammanfattning av de associerade kostnaderna och
 
 |     | Användning | Kommentar |
 | --- | --- | --- |
-| **IoT Hub kvot förbrukning** |  |
-| [Exportera enhets](https://docs.microsoft.com/azure/iot-hub/iot-hub-bulk-identity-mgmt#export-devices) jobb (dubbel export) | En gång om dagen | Inaktivera _insamling av dubbla metadata_ |
 | **Log Analytics lagring** |  |
 | Enhets rekommendation och aviseringar| Säkerhets rekommendationer och aviseringar som genererats av tjänsten | Inte valfritt |
 | Rå säkerhets data| Rå säkerhets data från IoT-enheter som samlas in av säkerhets agenter | Inaktivera _säkerhets händelser för lagring av rå enheter_ |

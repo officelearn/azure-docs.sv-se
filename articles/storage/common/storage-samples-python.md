@@ -7,16 +7,16 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 5d823059842bf539f00ad372127fc8b636c74b65
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 3fc18646270bbec3836845bcf317afc2c1d3a6df
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70746043"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351157"
 ---
 # <a name="azure-storage-samples-using-python"></a>Azure Storage exempel med python
 
-Följande tabell innehåller en översikt över våra exempel lager och scenarier som beskrivs i varje exempel. Klicka på länkarna om du vill visa motsvarande exempel kod i GitHub.
+Följande tabeller ger en översikt över våra exempel lager och scenarier som beskrivs i varje exempel. Klicka på länkarna om du vill visa motsvarande exempel kod i GitHub.
 
 ## <a name="blob-samples"></a>BLOB-exempel
 
@@ -99,4 +99,5 @@ Information om exempel för andra språk:
 
 * .NET: [Azure Storage-exempel med .NET](storage-samples-dotnet.md)
 * Java: [Azure Storage-exempel med Java](storage-samples-java.md)
+* Java Script/Node. js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * Alla andra språk: [Azure Storage exempel](storage-samples.md)

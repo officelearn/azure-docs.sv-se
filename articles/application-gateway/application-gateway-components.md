@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 02/20/2019
 ms.author: absha
-ms.openlocfilehash: d6d7b4cda4bd3b3246b9bc5573246546d8020b38
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 73b5c86030d9e106cb3ea24d3100faa56e323815
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68597378"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71348942"
 ---
 # <a name="application-gateway-components"></a>Komponenter för Application Gateway
 
@@ -28,17 +28,17 @@ En IP-adress för klient delen är den IP-adress som är associerad med en Appli
 
 Azure Application Gateway v2-SKU: n kan konfigureras för att stödja både statisk, statisk IP-adress och statisk offentlig IP-adress, eller endast en statisk offentlig IP-adress. Den kan inte konfigureras så att den endast stöder statisk intern IP-adress.
 
-V1-SKU: n kan konfigureras för att stödja statisk intern IP-adress och dynamisk offentlig IP-adress, endast statisk intern IP-adress eller endast dynamisk offentlig IP-adress eller enbart dynamisk privat IP-adress eller dynamisk offentlig IP-adress. Den dynamiska IP-adressen för Application Gateway ändras inte på en gateway som körs. Den kan bara ändras när du stoppar eller startar gatewayen. Den ändras inte vid systemfel, uppdateringar, Azure Host-uppdateringar osv. 
+V1-SKU: n kan konfigureras för att stödja statisk eller dynamisk intern IP-adress och dynamisk offentlig IP-adress. Den dynamiska IP-adressen för Application Gateway ändras inte på en gateway som körs. Den kan bara ändras när du stoppar eller startar gatewayen. Den ändras inte vid systemfel, uppdateringar, Azure Host-uppdateringar osv. 
 
 Det DNS-namn som är associerat med en Programgateway ändras inte över gatewayens livs längd. Därför bör du använda ett CNAME-alias och peka det mot DNS-adressen för programgatewayen.
 
 ## <a name="listeners"></a>Lyssnare
 
-En lyssnare är en logisk entitet som söker efter inkommande anslutnings begär Anden. En lyssnare accepterar en begäran om protokollet, porten, värden och IP-adressen som är kopplade till begäran matchar samma element som är associerade med lyssnar konfigurationen.
+En lyssnare är en logisk entitet som söker efter inkommande anslutnings begär Anden. En lyssnare accepterar en begäran om protokollet, porten, värd namnet och IP-adressen som är kopplade till begäran matchar samma element som är associerade med lyssnar konfigurationen.
 
 Innan du använder en Application Gateway måste du lägga till minst en lyssnare. Det kan finnas flera lyssnare kopplade till en Programgateway och de kan användas för samma protokoll.
 
-När en lyssnare identifierar inkommande begär Anden från klienter dirigerar Application Gateway dessa förfrågningar till medlemmar i backend-poolen. Programgatewayen använder reglerna för routning av begäran som definierats för den lyssnare som tog emot den inkommande begäran.
+När en lyssnare identifierar inkommande begär Anden från klienter dirigerar programgatewayen dessa förfrågningar till medlemmar i backend-poolen som kon figurer ATS i regeln.
 
 Lyssnare stöder följande portar och protokoll.
 
@@ -49,12 +49,13 @@ En port är den plats där en lyssnare lyssnar efter klient förfrågan. Du kan 
 ### <a name="protocols"></a>Protokoll
 
 Application Gateway stöder fyra protokoll: HTTP, HTTPS, HTTP/2 och WebSocket:
+>[!NOTE]
+>Protokoll stöd för HTTP/2 är endast tillgängligt för klienter som ansluter till Application Gateway-lyssnare. Kommunikationen till backend-serverns pooler är alltid över HTTP/1.1. Stöd för HTTP/2 är inaktiverat som standard. Du kan välja att aktivera det.
 
 - Ange mellan HTTP-och HTTPS-protokollen i lyssnar konfigurationen.
-- Stöd för [WebSockets-och http/2-protokoll](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) anges internt och WebSocket- [stöd](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) är aktiverat som standard. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Använd WebSockets med både HTTP-och HTTPS-lyssnare.
-- Protokoll stöd för HTTP/2 är endast tillgängligt för klienter som ansluter till Application Gateway-lyssnare. Kommunikationen till backend-serverns pooler är över HTTP/1.1. Stöd för HTTP/2 är inaktiverat som standard. Du kan välja att aktivera det.
+- Stöd för [WebSockets-och http/2-protokoll](https://docs.microsoft.com/azure/application-gateway/overview#websocket-and-http2-traffic) anges internt och [WebSocket-stöd](https://docs.microsoft.com/azure/application-gateway/application-gateway-websocket) är aktiverat som standard. Det finns inga inställningar som kan konfigureras av användaren för att selektivt aktivera eller inaktivera WebSocket-stöd. Använd WebSockets med både HTTP-och HTTPS-lyssnare.
 
-Använd en HTTPS-lyssnare för SSL-avslutning. En HTTPS-lyssnare avlastar krypterings-och dekrypteringen till din Application Gateway, så dina webb servrar är inte inaktuella efter omkostnader. Dina appar är sedan tillgängliga för att fokusera på affärs logik.
+Använd en HTTPS-lyssnare för SSL-avslutning. En HTTPS-lyssnare avlastar krypterings-och dekrypterings arbetet till din Application Gateway, så dina webb servrar är inte inaktuella vid omkostnaderna.
 
 ### <a name="custom-error-pages"></a>Anpassade felsidor
 
@@ -80,7 +81,7 @@ Application Gateway bearbetar lyssnare i den ordning som visas. Om Basic Listene
 
 En regel för routning av förfrågningar är en viktig komponent i en Programgateway eftersom den avgör hur trafiken ska dirigeras i lyssnaren. Regeln binder lyssnaren, backend-serverpoolen och Server delens HTTP-inställningar.
 
-När en lyssnare accepterar en begäran vidarebefordrar regeln för routning av förfrågningar begäran till Server delen eller dirigerar om den någon annan stans. Om begäran vidarebefordras till Server delen definierar regeln för routning av förfrågningar vilken backend-server pool som vidarebefordrar den till. Regeln för routning av förfrågningar bestämmer också om huvudena i begäran ska skrivas om. En lyssnare kan kopplas till en regel.
+När en lyssnare accepterar en begäran vidarebefordrar regeln för routning av förfrågningar begäran till Server delen eller dirigerar om den någon annan stans. Om begäran vidarebefordras till Server delen definierar regeln för routning av förfrågningar vilken backend-server pool som vidarebefordrar den till. Regeln för routning av förfrågningar avgör också om huvudena i begäran ska skrivas om. En lyssnare kan kopplas till en regel.
 
 Det finns två typer av regler för routning av förfrågningar:
 
@@ -133,7 +134,7 @@ En backend-pool dirigerar begäran till backend-servrar, som servar begäran. Ba
 
 Application Gateway medlemmar i Server delen inte är knutna till en tillgänglighets uppsättning. En Application Gateway kan kommunicera med instanser utanför det virtuella nätverk där den finns. Därför kan medlemmarna i backend-pooler vara mellan kluster, i flera data Center eller utanför Azure, så länge det finns en IP-anslutning.
 
-Om du använder interna IP-adresser som medlemmar i backend-poolen måste du använda peering för [virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) eller en [VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Peering av virtuella nätverk stöds och är ett bra alternativ för belastnings Utjämnings trafik i andra virtuella nätverk.
+Om du använder interna IP-adresser som medlemmar i backend-poolen måste du använda [peering för virtuella nätverk](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview) eller en [VPN-gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways). Peering av virtuella nätverk stöds och är ett bra alternativ för belastnings Utjämnings trafik i andra virtuella nätverk.
 
 En Programgateway kan också kommunicera med lokala servrar när de är anslutna via Azure ExpressRoute eller VPN-tunnlar om trafik tillåts.
 

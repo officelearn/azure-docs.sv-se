@@ -1,72 +1,72 @@
 ---
-title: Konfigurera och komma åt granskningsloggarna för Azure Database för MySQL i Azure-portalen
-description: Den här artikeln beskriver hur du konfigurerar och få åtkomst till granskningsloggarna i Azure Database for MySQL från Azure-portalen.
+title: Konfigurera och få åtkomst till gransknings loggar – Azure Database for MySQL
+description: I den här artikeln beskrivs hur du konfigurerar och får åtkomst till gransknings loggarna i Azure Database for MySQL från Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: a2f44b52c6d34adb1bebf666ff8453b17f7778a5
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 2a2d2a697f0e41fb296c61c01909a814678f8277
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67448489"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350403"
 ---
-# <a name="configure-and-access-audit-logs-in-the-azure-portal"></a>Konfigurera och komma åt granskningsloggar i Azure portal
+# <a name="configure-and-access-audit-logs-for-azure-database-for-mysql-in-the-azure-portal"></a>Konfigurera och få åtkomst till gransknings loggar för Azure Database for MySQL i Azure Portal
 
-Du kan konfigurera den [Azure Database for MySQL-granskningsloggar](concepts-audit-logs.md) och diagnostikinställningar från Azure-portalen.
+Du kan konfigurera [Azure Database for MySQL gransknings loggar](concepts-audit-logs.md) och diagnostikinställningar från Azure Portal.
 
 > [!IMPORTANT]
-> Granska loggen funktionen finns för närvarande i förhandsversion.
+> Gransknings logg funktionen är för närvarande en för hands version.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-För att gå igenom den här guiden, måste du:
+För att gå igenom den här instruktions guiden behöver du:
 
-- [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md)
+- [Azure Database for MySQL Server](quickstart-create-mysql-server-database-using-azure-portal.md)
 
-## <a name="configure-audit-logging"></a>Konfigurera granskningsloggning
+## <a name="configure-audit-logging"></a>Konfigurera gransknings loggning
 
-Aktivera och konfigurera granskningsloggning.
+Aktivera och konfigurera gransknings loggning.
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 1. Välj din Azure Database for MySQL-server.
 
-1. Under den **inställningar** avsnittet i sidopanelen, Välj **serverparametrar**.
+1. Under avsnittet **Inställningar** på sid panelen väljer du **Server parametrar**.
     ![Serverparametrar](./media/howto-configure-audit-logs-portal/server-parameters.png)
 
-1. Uppdatera den **audit_log_enabled** parametern on.
-    ![Aktivera granskningsloggar](./media/howto-configure-audit-logs-portal/audit-log-enabled.png)
+1. Uppdatera **audit_log_enabled** -parametern till på.
+    ![Enable gransknings loggar @ no__t-1
 
-1. Välj den [händelsetyper](concepts-audit-logs.md#configure-audit-logging) som loggas genom att uppdatera den **audit_log_events** parametern.
-    ![Logga granskningshändelser](./media/howto-configure-audit-logs-portal/audit-log-events.png)
+1. Välj de [händelse typer](concepts-audit-logs.md#configure-audit-logging) som ska loggas genom att uppdatera **audit_log_events** -parametern.
+    ![Audit log Events @ no__t-1
 
-1. Lägg till de MySQL-användarna som ska undantas från att logga in genom att uppdatera den **audit_log_exclude_users** parametern. Ange användare genom att ange deras användarnamn för MySQL.
-    ![Granska loggen undanta användare](./media/howto-configure-audit-logs-portal/audit-log-exclude-users.png)
+1. Lägg till alla MySQL-användare som ska undantas från loggning genom att uppdatera **audit_log_exclude_users** -parametern. Ange användare genom att ange sitt användar namn för MySQL.
+    ![Audit log exclude Users @ no__t-1
 
-1. När du har ändrat parametrarna kan du klicka på **spara**. Eller så kan du **Ignorera** dina ändringar.
-    ![Spara](./media/howto-configure-audit-logs-portal/save-parameters.png)
+1. När du har ändrat parametrarna kan du klicka på **Spara**. Eller så kan du **Ignorera** dina ändringar.
+    ![Save @ no__t-1
 
 ## <a name="set-up-diagnostic-logs"></a>Konfigurera diagnostikloggar
 
-1. Under den **övervakning** avsnittet i sidopanelen, Välj **diagnostikinställningar**.
+1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostikinställningar**.
 
-1. Klicka på ”+ Lägg till diagnostikinställning” ![Lägg till diagnostikinställning](./media/howto-configure-audit-logs-portal/add-diagnostic-setting.png)
+1. Klicka på "+ Lägg till diagnostisk inställning" ![Add diagnostisk inställning @ no__t-1
 
-1. Ange ett namn för diagnostikinställningar.
+1. Ange ett namn på en diagnostisk inställning.
 
-1. Ange vilka data egenskaperna för att skicka granskningsloggarna (storage-konto, händelsehubb och/eller Log Analytics-arbetsytan).
+1. Ange vilka data mottagare som ska skicka gransknings loggarna (lagrings konto, händelsehubben och/eller Log Analytics arbets yta).
 
-1. Välj ”MySqlAuditLogs” som loggtyp av.
-![Konfigurera diagnostikinställningar](./media/howto-configure-audit-logs-portal/configure-diagnostic-setting.png)
+1. Välj "MySqlAuditLogs" som logg typ.
+@no__t 0Configure-diagnostik @ no__t-1
 
-1. När du har konfigurerat datamottagare för att skicka vidare granskningsloggar för att du kan klicka på **spara**.
-![Spara diagnostikinställning](./media/howto-configure-audit-logs-portal/save-diagnostic-setting.png)
+1. När du har konfigurerat data Sinks att skicka in gransknings loggarna till kan du klicka på **Spara**.
+@no__t 0Save-diagnostik @ no__t-1
 
-1. Få åtkomst till granskningsloggarna genom att utforska dem i datamottagare som du har konfigurerat. Det kan ta upp till 10 minuter innan loggarna visas.
+1. Få åtkomst till gransknings loggarna genom att utforska dem i de data mottagare du konfigurerade. Det kan ta upp till 10 minuter innan loggarna visas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [granskningsloggar](concepts-audit-logs.md) i Azure Database för MySQL.
+- Läs mer om [gransknings loggar](concepts-audit-logs.md) i Azure Database for MySQL.

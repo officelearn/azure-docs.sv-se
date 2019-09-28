@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 38c319fb89e8c763f8231c18cbb59bef099193e2
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259318"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350496"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudier: Skapa din första klassificerings modell med automatisk maskin inlärning
 
@@ -50,7 +50,7 @@ Du skapar en arbets yta via Azure Portal, en webbaserad konsol för att hantera 
 
 ## <a name="create-and-run-the-experiment"></a>Skapa och kör experimentet
 
-Du har slutfört följande experiment konfiguration och kör steg på sidan landnings sidan för arbets ytan, ett konsoliderat gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap.
+Du har slutfört följande experiment konfiguration och kör steg på sidan landnings sidan för arbets ytan, ett konsoliderat gränssnitt som innehåller maskin inlärnings verktyg för att utföra data vetenskaps scenarier för utbildnings nivåer för data vetenskap. Landnings sidan för arbets ytan stöds inte i Internet Explorer-webbläsare.
 
 1. Logga in på [sidan med landnings sidan för arbets ytan](https://ml.azure.com/workspaceportal/).
 
@@ -58,7 +58,7 @@ Du har slutfört följande experiment konfiguration och kör steg på sidan land
 
 1. Välj **Kom igång**.
 
-1. I det vänstra fönstret väljer du **Automatisk ml** under avsnittet **redigering** .
+1. I det vänstra fönstret väljer du **Automatisk ml** under avsnittet **författare** .
 
    Eftersom det här är ditt första automatiserade ML experiment visas skärmen kom igång.
 
@@ -99,23 +99,21 @@ Du har slutfört följande experiment konfiguration och kör steg på sidan land
        
     1. Kontrol lera att **inställningarna och förhands gransknings** formuläret är ifyllt enligt följande och välj **Nästa**.
         
-        Fält|Värde för självstudier
-        ---|---
-        Filformat| Avgränsad
-        Avgränsare| Komma
-        Kodning| UTF-8
-        Kolumnrubriker| Alla filer har samma rubriker
-        Hoppa över rader | Inga
+        Fält|Beskrivning| Värde för självstudier
+        ---|---|---
+        Filformat|Definierar layout och typ av data som lagras i en fil.| Avgränsad
+        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan @ no__t-0 separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
+        Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
+        Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
+        Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inga
     
-    1. Med hjälp av **schema** formuläret kan du ytterligare konfigurera dina data för det här experimentet. I det här exemplet väljer du växlings växeln för **day_of_week** -funktionen, så att den inte inkluderas för det här experimentet. Välj **klar**för att slutföra fil uppladdning och skapa data uppsättningen för experimentet.
-
         ![Konfiguration av fliken för hands version](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
 
 1. Välj **klassificering** som förutsägelse uppgift.
 
 1. Välj **y** som mål kolumn, vad du vill förutsäga. Den här kolumnen visar om klienten prenumererar på en term insättning eller inte.
 
-1. Expandera **Avancerade inställningar** och fyll i fälten enligt följande.
+1. Expandera **Avancerade inställningar** och fyll i fälten enligt följande. De här inställningarna är för att bättre styra utbildnings jobbet. Annars tillämpas standardvärdena utifrån experiment val och data.
 
    >[!NOTE]
    > I den här självstudien får du inte ange mått poäng eller Max kärnor per upprepnings tröskel. Du kan inte heller blockera algoritmer från att testas.
@@ -138,10 +136,10 @@ Du har slutfört följande experiment konfiguration och kör steg på sidan land
 
 ##  <a name="explore-iteration-results"></a>Utforska upprepnings resultat
 
-När experimentet uppdateras, uppdaterar skärmen **upprepnings diagrammet** och **upprepnings listan** med de olika iterationer (modeller) som skapas när de slutförs och sorterar dem efter metriska poäng. Som standard är modellen som visar högsta baserat på det valda **AUC_weighted** -måttet överst i listan.
+När experimentet uppdateras, uppdaterar skärmen **upprepnings diagrammet** och **upprepnings listan** med olika iterationer (modeller) som skapats när de är klara. Som standard sorteras iterationerna efter mått poäng. I den här självstudien visas modellen som visar den högsta baserat på det valda **AUC_weighted** -måttet överst i listan.
 
 Medan du väntar på att alla experiment iterationer ska slutföras, väljer du **namnet** på en slutförd iteration för att utforska dess prestanda information. 
-   
+
 Följande visar de diagram och körnings mått som genereras för varje iteration, till exempel en precisions återställnings kurva, en Förväxlings mat ris, viktade noggrannhets resultat osv. 
 
 ![Kör upprepnings information](media/tutorial-1st-experiment-automated-ml/run-detail.gif)
@@ -199,6 +197,7 @@ I den här automatiska självstudien för maskin inlärning använde du sidan f�
 + Läs mer om för [bearbetning](how-to-create-portal-experiments.md#preprocess).
 + Läs mer om [data profilering](how-to-create-portal-experiments.md#profile).
 + Lär dig mer om [Automatisk maskin inlärning](concept-automated-ml.md).
++ Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
 
 >[!NOTE]
 > Den här data uppsättningen för bank marknadsföring görs tillgänglig [under Creative Commons (CCO: Offentlig domän) licens](https://creativecommons.org/publicdomain/zero/1.0/). Alla rättigheter i det enskilda innehållet i databasen licensieras enligt [licensen för databas innehåll](https://creativecommons.org/publicdomain/zero/1.0/) och är tillgängliga på [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Den här data uppsättningen var ursprungligen tillgänglig i den [Machine Learning databasen](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>

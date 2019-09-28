@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 03a036ce5381130af4bbcea88c87d77cd93cf6a9
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e2816d8e6fdd900473cceebb20c96794f3f9f0f9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743894"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350870"
 ---
 # <a name="azure-storage-samples"></a>Azure Storage-exempel
 
@@ -40,13 +40,7 @@ Om du vill utforska python-exemplen kan du hämta [klient biblioteket python Sto
 ## <a name="nodejs-samples"></a>Node.js-exempel
 Om du vill utforska Node. js-exempel laddar du ned [Node. js-lagrings klient biblioteket](https://github.com/Azure/azure-storage-node).
 
-* [BLOB-uppladdning](https://github.com/Azure/azure-storage-node/tree/master/examples/blobuploader)
-* [Ladda upp och ladda ned BLOB](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/blobuploaddownloadsample.js)
-* [Fortsättnings-token](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/continuationsample.js)
-* [Återförsöksprincip](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/retrypolicysample.js)
-* [Signatur för delad åtkomst](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/sassample.js)
-* [Ögonblicks bild](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/snapshotsample.js)
-* [Tabell fråga](https://github.com/Azure/azure-storage-node/blob/master/examples/samples/tablequerysample.js)
+* [Azure Storage exempel med Java Script/Node. js](storage-samples-javascript.md)
 
 ## <a name="c-samples"></a>C++stickprov
 C++ [Hämta C++ lagrings klient biblioteket](https://www.nuget.org/packages/wastorage/) från NuGet för att utforska exemplen.
@@ -71,4 +65,5 @@ Följande artiklar indexerar varje exempel efter tjänst (BLOB, fil, kö, tabell
 
 * [Azure Storage-exempel med .NET](storage-samples-dotnet.md)
 * [Azure Storage-exempel med Java](storage-samples-java.md)
+* [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * [Azure Storage exempel med python](storage-samples-python.md)

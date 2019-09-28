@@ -1,0 +1,111 @@
+---
+title: StringToObject i Azure Cosmos DB frågespråk
+description: Lär dig mer om SQL system Function StringToObject i Azure Cosmos DB.
+author: ginamr
+ms.service: cosmos-db
+ms.topic: conceptual
+ms.date: 09/13/2019
+ms.author: girobins
+ms.custom: query-reference
+ms.openlocfilehash: f09c27458a630386664f3f6579cfeee0721d8be9
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71349214"
+---
+# <a name="stringtoobject-azure-cosmos-db"></a>StringToObject (Azure Cosmos DB)
+ Returnerar uttryck översatt till ett objekt. Om uttrycket inte kan översättas returneras undefined.  
+  
+## <a name="syntax"></a>Syntax
+  
+```sql
+StringToObject(<str_expr>)  
+```  
+  
+## <a name="arguments"></a>Argument
+  
+*str_expr*  
+   Är ett sträng uttryck som ska tolkas som ett JSON-objekt uttryck. Observera att kapslade sträng värden måste skrivas med dubbla citat tecken för att vara giltiga. Mer information om JSON-formatet finns i [JSON.org](https://json.org/)  
+  
+## <a name="return-types"></a>Retur typer
+  
+  Returnerar ett objekt uttryck eller ett odefinierat objekt.  
+  
+## <a name="examples"></a>Exempel
+  
+  I följande exempel visas hur `StringToObject` beter sig mellan olika typer. 
+  
+ Följande är exempel på giltiga indatatyper.
+
+```sql
+SELECT 
+    StringToObject("{}") AS obj1, 
+    StringToObject('{"A":[1,2,3]}') AS obj2,
+    StringToObject('{"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]}') AS obj3, 
+    StringToObject("{\"C\":[{\"c1\":[5,6,7]},{\"c2\":8},{\"c3\":9}]}") AS obj4
+``` 
+
+Här är resultatuppsättningen.
+
+```json
+[{"obj1": {}, 
+  "obj2": {"A": [1,2,3]}, 
+  "obj3": {"B":[{"b1":[5,6,7]},{"b2":8},{"b3":9}]},
+  "obj4": {"C":[{"c1":[5,6,7]},{"c2":8},{"c3":9}]}}]
+```
+
+ Följande är exempel på ogiltiga indatatyper.
+Även om de är giltiga i en fråga, kommer de inte att parsas till giltiga objekt. Strängar inom en objekt sträng måste antingen föregås av "{\\" a @ no__t-1 ": \\" Str @ no__t-3 "}" eller det omgivande citatet måste vara Single {"a": "Str"}.
+
+Enkla citat tecken som omger egenskaps namnen är inte giltiga JSON.
+
+```sql
+SELECT 
+    StringToObject("{'a':[1,2,3]}")
+```
+
+Här är resultatuppsättningen.
+
+```json
+[{}]
+```  
+
+Egenskaps namn utan omgivande citat tecken är inte giltiga JSON.
+
+```sql
+SELECT 
+    StringToObject("{a:[1,2,3]}")
+```
+
+Här är resultatuppsättningen.
+
+```json
+[{}]
+``` 
+
+Följande är exempel på ogiltiga indatatyper.
+
+ Det överförda uttrycket kommer att parsas som ett JSON-objekt. dessa indata utvärderas inte till Type-objekt och returneras därför inte.
+
+```sql
+SELECT 
+    StringToObject("}"),
+    StringToObject("{"),
+    StringToObject("1"),
+    StringToObject(NaN), 
+    StringToObject(false), 
+    StringToObject(undefined)
+``` 
+ 
+ Här är resultatuppsättningen.
+
+```json
+[{}]
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+- [Sträng funktioner Azure Cosmos DB](sql-query-string-functions.md)
+- [System funktioner Azure Cosmos DB](sql-query-system-functions.md)
+- [Introduktion till Azure Cosmos DB](introduction.md)

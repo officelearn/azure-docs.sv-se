@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/25/2019
 ms.author: juliako
-ms.openlocfilehash: 7cb158490bd8a8520e101dbe321b8594cad059f9
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: efe0aaf7c7d5516401f8c72721121a5dff247b95
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309674"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350369"
 ---
 # <a name="live-events-and-live-outputs"></a>Livehändelser och liveresultat
 
@@ -35,7 +35,7 @@ Med Azure Media Services kan du leverera Live-händelser till dina kunder i Azur
 
 En [Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents) kan vara en av två typer: direkt kodning och Live-kodning. Typerna anges när du skapar med [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType. None** – en lokal Live-kodare skickar en data ström med flera bit hastigheter. De inmatade strömmarna passerar genom Live-händelsen utan ytterligare bearbetning. 
+* **LiveEventEncodingType. None** – en lokal Live-kodare skickar en data ström med flera bit hastigheter. Den inmatade strömmen passerar genom Live-händelsen utan ytterligare bearbetning. 
 * **LiveEventEncodingType. standard** – en lokal Live-kodare skickar en data ström med en bit hastighet till Live-händelsen och Media Services skapar flera bit hastighets strömmar. Om bidrags flödet är av 720p eller högre, kommer **Default720p** att koda en uppsättning med 6 lösnings-/bit hastighets par.
 * **LiveEventEncodingType. Premium1080p** – en lokal Live-kodare skickar en data ström med en bit hastighet till Live-händelsen och Media Services skapar flera bit hastighets strömmar. Default1080p för för inställning anger utdata för paren resolution/bit hastighet. 
 
@@ -66,7 +66,9 @@ Lösningarna och bit hastigheterna i utdata från Live-kodaren bestäms av för 
 > [!NOTE]
 > Om du behöver anpassa för hands kodning av direktsänd kodning öppnar du ett support ärende via Azure Portal. Du bör ange den önskade tabellen med upplösning och bithastigheter. Kontrol lera att det bara finns ett lager vid 720p (om du begär en för inställning för en vanlig Live-kodare) eller på 1080p (om du begär en för inställning för en Premium1080p Live-kodare) och högst 6 lager.
 
-## <a name="live-event-creation-options"></a>Alternativ för att skapa Live-händelse
+## <a name="creating-live-events"></a>Skapa Live-händelser 
+
+### <a name="options"></a>Alternativ
 
 När du skapar en Live-händelse kan du ange följande alternativ:
 
@@ -77,7 +79,14 @@ När du skapar en Live-händelse kan du ange följande alternativ:
 * IP-begränsningar på infogning och förhandsgranskning. Du kan definiera de IP-adresser som får mata in en video till den här livehändelsen. Tillåtna IP-adresser kan anges som en enskild IP-adress (till exempel 10.0.0.1), ett IP-intervall med IP-adress och en CIDR-nätmask (till exempel 10.0.0.1/22) eller ett IP-intervall med en IP-adress och en prickad decimalnätmask (till exempel 10.0.0.1(255.255.252.0)).<br/>Om inga IP-adresser har angetts och det saknas regeldefinitioner, kommer ingen IP-adress att tillåtas. Skapa en regel för att tillåta IP-adresser och ange 0.0.0.0/0.<br/>IP-adresserna måste vara i något av följande format: IpV4-adress med 4 siffror, CIDR-adressintervall.
 
     Om du vill aktivera vissa IP-adresser i dina egna brand väggar eller vill begränsa indata till dina Live-händelser till Azure IP-adresser, laddar du ned en JSON-fil från [Azure datacenter-IP-adressintervall](https://www.microsoft.com/download/details.aspx?id=41653). Om du vill ha mer information om den här filen klickar du på avsnittet **information** på sidan.
-    
+        
+### <a name="naming-rules"></a>Namngivningsregler
+
+* Max namnet för Live-händelser är 32 tecken.
+* Namnet ska följa detta [regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) -mönster: `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`.
+
+Se även [namn konventioner för strömnings slut punkter](streaming-endpoint-concept.md#naming-convention).
+
 ## <a name="live-event-ingest-urls"></a>Hämtnings webb adresser för live event
 
 När livehändelsen har skapats kan du få infognings-URL:er som du tillhandahåller till den lokala livekodaren. Livekodaren använder dessa URL:er för att mata in en direktsänd dataström. Mer information finns i [rekommenderade lokala direkt kodare](recommended-on-premises-live-encoders.md). 

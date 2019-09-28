@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/09/2019
-ms.openlocfilehash: 3a47977f2589227347582dc6fcaff25120e380d7
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 45207eb1cdc62f2468d8b0c052723337c18d5021
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034834"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350563"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learnings-workspace-landing-page-preview"></a>Skapa, utforska och distribuera automatiserade Machine Learning-experiment med Azure Machine Learning s landnings sida för arbets ytan (för hands version)
 
@@ -32,12 +32,11 @@ ms.locfileid: "71034834"
 
 ## <a name="get-started"></a>Kom igång
 
-
 1. Logga in på [sidan med landnings sidan för arbets ytan](https://ml.azure.com/workspaceportal/). 
 
 1. Välj din prenumeration och arbets yta. 
 
-1. Navigera till den vänstra rutan. Välj **Automatisk ml** under avsnittet **redigering** .
+1. Navigera till den vänstra rutan. Välj **Automatisk ml** under avsnittet **författare** .
 
 [![Azure Portal navigerings fönster](media/how-to-create-portal-experiments/nav-pane.png)](media/how-to-create-portal-experiments/nav-pane-expanded.png)
 
@@ -59,7 +58,7 @@ Annars ser du din automatiserade instrument panel för **maskin inlärning** med
     ---|---
     Namn på Machine Learning-beräkning| Ange ett unikt namn som identifierar din beräknings kontext.
     Storlek på virtuell dator| Välj storlek på den virtuella datorn för din beräkning.
-    Ytterligare inställningar| *Min nod*: Ange det minsta antalet noder för din beräkning. Det minsta antalet noder för AML-beräkning är 0. Om du vill aktivera data profilering måste du ha 1 eller flera noder. <br> *Högsta nod*: Ange det maximala antalet noder för din beräkning. Standardvärdet är 6 noder för en AML-beräkning.
+    Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data. Ange det maximala antalet noder för din beräkning. Standardvärdet är 6 noder för en AML-beräkning.
     
     Välj **Skapa**. Det kan ta några minuter att skapa en ny beräkning.
 
@@ -83,7 +82,7 @@ Annars ser du din automatiserade instrument panel för **maskin inlärning** med
 
         Fält| Beskrivning
         ----|----
-        Fil format| Definierar layout och typ av data som lagras i en fil.
+        Filformat| Definierar layout och typ av data som lagras i en fil.
         Avgränsare| Ett eller flera tecken för att ange avgränsningen mellan separata, oberoende regioner i oformaterad text eller andra data strömmar.
         Kodning| Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.
         Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.
@@ -109,9 +108,9 @@ Annars ser du din automatiserade instrument panel för **maskin inlärning** med
     Avancerade inställningar|Beskrivning
     ------|------
     Primärt mått| Främsta mått som används för att värdera din modell. [Lär dig mer om modell mått](how-to-configure-auto-train.md#explore-model-metrics).
-    Avslutnings villkor| När något av dessa villkor uppfylls avslutas utbildnings jobbet innan det slutförs fullständigt. <br> *Utbildnings jobb tid (minuter)* : Hur lång tid det tar för utbildnings jobbet att köras.  <br> *Max antal iterationer*: Maximalt antal pipeliner (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer. <br> *Mät*värdes tröskel:  Lägsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
+    Avslutnings villkor| När något av dessa villkor uppfylls stoppas utbildnings jobbet. <br> *Utbildnings jobb tid (minuter)* : Hur lång tid det tar för utbildnings jobbet att köras.  <br> *Max antal iterationer*: Maximalt antal pipeliner (iterationer) som ska testas i utbildnings jobbet. Jobbet kan inte köra fler än det angivna antalet iterationer. <br> *Mät*värdes tröskel:  Lägsta mått Poäng för alla pipeliner. Detta säkerställer att om du har ett definierat målmått som du vill nå, ägnar du inte mer tid åt övnings jobbet än nödvändigt.
     Förbearbeta| Välj det här alternativet om du vill aktivera eller inaktivera förbearbetningen som gjorts genom automatisk maskin inlärning. För bearbetning inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner. [Läs mer om för bearbetning](#preprocess).
-    Validering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. [Läs mer om kors validering](how-to-configure-auto-train.md).
+    Verifiering| Välj ett av de kors validerings alternativ som ska användas i övnings jobbet. [Läs mer om kors validering](how-to-configure-auto-train.md).
     Samtidighet| Välj de gränser för flera kärnor som du vill använda när du använder data bearbetning i flera kärnor.
     Blockerad algoritm| Välj algoritmer som du vill undanta från utbildnings jobbet.
 
@@ -134,12 +133,12 @@ Min| Minsta värde för kolumnen. Tomma poster visas för funktioner vars typ in
 Max| Max värde för kolumnen. 
 Count| Totalt antal saknade och icke-saknade poster i kolumnen.
 Antal saknas inte| Antal poster i kolumnen som inte saknas. Tomma strängar och fel behandlas som värden, så de kommer inte att bidra till det antal som saknas.
-Quantiles| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
+Kvantiler| Ungefärligt värde vid varje quantile för att ge en uppfattning om data fördelningen.
 Medelvärde| Aritmetiskt medelvärde eller genomsnitt för kolumnen.
 Standardavvikelse| Mått på mängden spridning eller variation för den här kolumnens data.
-Varians| Mått på hur långt spridning av den här kolumnens data är från det genomsnittliga värdet. 
+Avvikelse| Mått på hur långt spridning av den här kolumnens data är från det genomsnittliga värdet. 
 Snedhet| Mått på hur olika data från den här kolumnen kommer från en normal distribution.
-Toppighet| Mått på hur mycket data som har staplats i den här kolumnens data jämförs med en normal distribution.
+Kurtosis| Mått på hur mycket data som har staplats i den här kolumnens data jämförs med en normal distribution.
 
 <a name="preprocess"></a>
 

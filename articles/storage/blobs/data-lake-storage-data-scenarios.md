@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 68e1bcfeaa998b0698554fd93fd7ed2e88a29739
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 9eb10260573978355a3b6996a6f06c0c612abe4c
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70143002"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350023"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen2 för Big data-krav
 
@@ -31,7 +31,7 @@ Börja med att skapa ett lagrings konto och en behållare. Ge sedan åtkomst til
 
 Ett Data Lake Storage Gen2 konto är ett lagrings konto som har ett hierarkiskt namn område. 
 
-Information om hur du skapar [en finns i snabb start: Skapa ett Azure Data Lake Storage Gen2 lagrings](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)konto.
+Information om hur du skapar ett finns i [Quickstart: Skapa ett Azure Data Lake Storage Gen2 lagrings](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)konto.
 
 ## <a name="create-a-container"></a>Skapa en container
 
@@ -77,7 +77,7 @@ Den här tabellen visar hur du beviljar åtkomst för varje Azure-tjänst eller-
 
 Information om hur du beviljar åtkomst till vissa filer och mappar finns i de här artiklarna.
 
-* [Ange behörigheter för fil-och katalog nivå med Azure Storage Explorer med Azure Data Lake Storage Gen2](https://review.docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
+* [Ange behörigheter för fil-och katalog nivå med Azure Storage Explorer med Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)
 
 * [Åtkomst kontrol listor på filer och kataloger](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control#access-control-lists-on-files-and-directories)
 
@@ -163,20 +163,20 @@ Med Azure ExpressRoute kan du skapa privata anslutningar mellan Azures Data Cent
 
 När data är tillgängliga i Data Lake Storage Gen2 kan du köra analyser av dessa data med hjälp av Big data-program som stöds. 
 
-![Analysera data i data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "Analysera data i data Lake Storage Gen2")
+![Analysera data i data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/analyze-data.png "analysera data i data Lake Storage Gen2")
 
 Här är en lista med verktyg som du kan använda för att köra data analys jobb på data som lagras i Data Lake Storage Gen2.
 
 |Verktyg | Riktlinjer |
 |---|--|
 |Azure HDInsight | [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Snabbstart: Analysera data i Azure Data Lake Storage Gen2 med Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Snabbstart: Analysera data i Azure Data Lake Storage Gen2 med Azure Databricks @ no__t-0<br><br>[Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks @ no__t-0|
 
 ## <a name="visualize-the-data"></a>Visualisera datan
 
 Du kan använda en blandning av tjänster för att skapa visuella representationer av data som lagras i Data Lake Storage Gen2.
 
-![Visualisera data i data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "Visualisera data i data Lake Storage Gen2")
+![Visualisera data i data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/visualize-data.png "visualisera data i data Lake Storage Gen2")
 
 * Du kan börja med att använda [Azure Data Factory för att flytta data från data Lake Storage Gen2 till Azure SQL Data Warehouse](../../data-factory/copy-activity-overview.md)
 * Därefter kan du [integrera Power BI med Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) för att skapa visuell representation av data.
@@ -189,7 +189,7 @@ Du kanske också vill hämta eller flytta data från Azure Data Lake Storage Gen
 
 * Ladda ned data till den lokala datorn för bearbetning i IDE-miljöer när du skapar program prototyper.
 
-![Utgående data från data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "Utgående data från data Lake Storage Gen2")
+![Utgående data från data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/egress-data.png "utgående data från data Lake Storage Gen2")
 
 Här är en lista med verktyg som du kan använda för att hämta data från Data Lake Storage Gen2.
 

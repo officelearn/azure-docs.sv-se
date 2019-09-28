@@ -7,12 +7,12 @@ ms.date: 09/06/2019
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
-ms.openlocfilehash: 57249bd2fa4d3c8aefe19a85ec9a2b6b584b00d2
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 9d6e441adeb7025e09b8d73764d2defab439dd90
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743961"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350902"
 ---
 # <a name="azure-storage-samples-using-net"></a>Azure Storage exempel med .NET
 
@@ -22,8 +22,8 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 
 | **Scenario** | **Exempel kod** |
 |--------------|-----------------|
-| Lägg till BLOB | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144) |
-| Blockera BLOB | [Webb programmet Azure Blob Storage foto galleri](https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs) |
+| Bifoga blob | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs#L1144) |
+| Blockblob | [Webb programmet Azure Blob Storage foto galleri](https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs) |
 | Kryptering av klientsidan | [Exempel på BLOB-kryptering](https://github.com/Azure/azure-storage-net/blob/master/Samples/GettingStarted/EncryptionSamples/BlobGettingStarted/Program.cs) |
 | Kopiera Blob | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Skapa behållare | [Webb programmet Azure Blob Storage foto galleri](https://github.com/Azure-Samples/storage-blobs-dotnet-webapp/blob/master/WebApp-Storage-DotNet/Controllers/HomeController.cs) |
@@ -34,7 +34,7 @@ Följande tabell innehåller en översikt över våra exempel lager och scenarie
 | Hämta sid intervall | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Lease BLOB/container | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Lista BLOB/container | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs) |
-| Sid-BLOB | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs) |
+| Sidblob | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/GettingStarted.cs) |
 | SAS | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Tjänstegenskaper | [Komma igång med blobbar](https://github.com/Azure-Samples/storage-blob-dotnet-getting-started/blob/master/BlobStorage/Advanced.cs) |
 | Ögonblicks bilds-BLOB | [Säkerhetskopiera virtuella Azure-datorer med stegvisa ögonblicks bilder](https://github.com/Azure-Samples/storage-blob-dotnet-back-up-with-incremental-snapshots/blob/master/Program.cs) |
@@ -98,5 +98,6 @@ Kolla in följande guider om du behöver instruktioner om hur du installerar och
 Information om exempel för andra språk:
 
 * Java: [Azure Storage-exempel med Java](storage-samples-java.md)
+* Java Script/Node. js: [Azure Storage exempel med hjälp av Java Script](storage-samples-javascript.md)
 * Python: [Azure Storage exempel med python](storage-samples-python.md)
 * Alla andra språk: [Azure Storage exempel](../storage-samples.md)

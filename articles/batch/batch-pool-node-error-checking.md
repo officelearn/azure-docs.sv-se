@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: d115b7d56609b95f2ea10b3fee2f8900102b94e4
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 3c8e189e84e0a467125995b3e2d633c285eb7367
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012475"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350060"
 ---
 # <a name="check-for-pool-and-node-errors"></a>Sök efter fel i pooler och noder
 
@@ -42,7 +42,7 @@ Vanliga orsaker till fel storleks ändringar är:
 - Otillräckliga resurser när en [pool finns i ett virtuellt nätverk](https://docs.microsoft.com/azure/batch/batch-virtual-network)
   - Du kan skapa resurser som belastningsutjämnare, offentliga IP-adresser och nätverks säkerhets grupper i samma prenumeration som batch-kontot. Kontrol lera att prenumerations kvoterna räcker för dessa resurser.
 - Stora pooler med anpassade VM-avbildningar
-  - Det kan ta längre tid att tilldela stora pooler som använder anpassade VM-avbildningar och ändra storlek på tids gränser.  Se [använda en anpassad avbildning för att skapa en pool med virtuella datorer](https://docs.microsoft.com/azure/batch/batch-custom-images) för rekommendationer om gränser och konfiguration.
+  - Det kan ta längre tid att tilldela stora pooler som använder anpassade VM-avbildningar och ändra storlek på tids gränser.  Se [skapa en pool med det delade avbildnings galleriet](batch-sig-images.md) för rekommendationer om gränser och konfiguration.
 
 ### <a name="automatic-scaling-failures"></a>Automatiska skalnings problem
 
@@ -54,7 +54,7 @@ Du kan också ange Azure Batch för att automatiskt skala antalet noder i en poo
 
 Du kan få information om den senaste automatiska skalnings utvärderingen med hjälp av egenskapen [autoScaleRun](https://docs.microsoft.com/rest/api/batchservice/pool/get#autoscalerun) . Den här egenskapen rapporterar utvärderings tiden, värdena och resultatet samt eventuella prestanda fel.
 
-Loggen för [storleks ändring av pooler](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) samlar in information om alla utvärderingar.
+[Loggen för storleks ändring av pooler](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event) samlar in information om alla utvärderingar.
 
 ### <a name="delete"></a>Ta bort
 
@@ -92,7 +92,7 @@ Du kan ange en eller flera behållar referenser i en pool. Batch hämtar de angi
 
 ### <a name="node-in-unusable-state"></a>Noden är oanvändbar
 
-Azure Batch kan ange att [nodens tillstånd](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) inte kan **användas** av många skäl. När Node State är oanvändbartkan aktiviteter inte schemaläggas till noden, men de debiteras ändå.
+Azure Batch kan ange att [nodens tillstånd](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) inte kan **användas** av många skäl. När Node State är **oanvändbart**kan aktiviteter inte schemaläggas till noden, men de debiteras ändå.
 
 Noder i ett **oanvändbart** tillstånd, men utan [fel](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodeerror) innebär att batchen inte kan kommunicera med den virtuella datorn. I det här fallet försöker batch alltid återställa den virtuella datorn. Batch försöker inte automatiskt att återställa virtuella datorer som inte kunde installera programpaket eller behållare trots att deras tillstånd är **oanvändbart**.
 

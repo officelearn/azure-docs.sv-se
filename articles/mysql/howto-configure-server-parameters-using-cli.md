@@ -1,55 +1,55 @@
 ---
-title: Konfigurera parametrar för tjänsten i Azure Database för MySQL
-description: Den här artikeln beskriver hur du konfigurerar parametrar för tjänsten i Azure Database for MySQL med kommandoradsverktyget Azure CLI.
+title: Konfigurera tjänst parametrarna – Azure Database for MySQL
+description: I den här artikeln beskrivs hur du konfigurerar tjänst parametrarna i Azure Database for MySQL med hjälp av kommando rads verktyget för Azure CLI.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.devlang: azurecli
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: b0d7bbdc3e1dcad6f6cecb57b15e2e5df6b3fd28
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a107c5130968ca960036d7e0f948cf6ea5d209a8
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60525444"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350326"
 ---
-# <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Anpassa konfigurationsparametrar för server med hjälp av Azure CLI
-Du kan visa, visa och uppdatera konfigurationsparametrar för en Azure Database for MySQL-server med hjälp av Azure CLI, Azure kommandoradsverktyget. En delmängd av motorkonfigurationer är exponerad på servernivå och kan ändras. 
+# <a name="customize-server-configuration-parameters-by-using-azure-cli"></a>Anpassa Server konfigurations parametrar med hjälp av Azure CLI
+Du kan visa, Visa och uppdatera konfigurations parametrar för en Azure Database for MySQL-server med hjälp av Azure CLI, kommando rads verktyget för Azure. En del av motor konfigurationerna exponeras på server nivå och kan ändras. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För att gå igenom den här guiden, måste du:
-- [En Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-cli.md)
-- [Azure CLI](/cli/azure/install-azure-cli) -kommandoradsverktyget eller Använd Azure Cloud Shell i webbläsaren.
+## <a name="prerequisites"></a>Förutsättningar
+För att gå igenom den här instruktions guiden behöver du:
+- [En Azure Database for MySQL-Server](quickstart-create-mysql-server-database-using-azure-cli.md)
+- Kommando rads verktyget för [Azure CLI](/cli/azure/install-azure-cli) eller Använd Azure Cloud Shell i webbläsaren.
 
-## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Lista konfigurationsparametrar för server för Azure Database för MySQL-server
-Om du vill visa alla ändringsbar parametrar i en server och deras värden, kör den [az mysql server configuration list](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) kommando.
+## <a name="list-server-configuration-parameters-for-azure-database-for-mysql-server"></a>Visa lista med Server konfigurations parametrar för Azure Database for MySQL Server
+Om du vill visa alla ändrings bara parametrar på en server och deras värden kör du kommandot [AZ MySQL Server Configuration List](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-list) .
 
-Du kan visa konfigurationsparametrar för server för servern **mydemoserver.mysql.database.azure.com** under resursgruppen **myresourcegroup**.
+Du kan ange serverns konfigurations parametrar för servern **mydemoserver.mysql.Database.Azure.com** under resurs grupp **myresourcegroup**.
 ```azurecli-interactive
 az mysql server configuration list --resource-group myresourcegroup --server mydemoserver
 ```
-Definitionen av var och en av parametrarna i listan, finns i referensavsnittet MySQL på [Server systemvariabler](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
+För definitionen av var och en av de angivna parametrarna, se referens avsnittet MySQL på [Server system-variabler](https://dev.mysql.com/doc/refman/5.7/en/server-system-variables.html).
 
-## <a name="show-server-configuration-parameter-details"></a>Visa serverkonfiguration parameterinformation
-För att visa information om en specifik konfigurationsparameter för en server, kör den [az mysql server configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) kommando.
+## <a name="show-server-configuration-parameter-details"></a>Visa information om Server konfigurations parameter
+Om du vill visa information om en viss konfigurations parameter för en server kör du kommandot [AZ MySQL Server Configuration show](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-show) .
 
-Det här exemplet visar information om den **långsam\_fråga\_log** server konfigurationsparametrar för server **mydemoserver.mysql.database.azure.com** under resursgruppen **myresourcegroup.**
+Det här exemplet visar information om konfigurations parametern **långsam @ no__t-1query @ no__t-2log** för Server **mydemoserver.mysql.Database.Azure.com** under resurs grupp **myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration show --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
-## <a name="modify-a-server-configuration-parameter-value"></a>Ändra ett parametervärde för server-konfiguration
-Du kan också ändra värdet för en viss server konfigurationsparameter, som uppdaterar underliggande Konfigurationsvärdet för MySQL server-motorn. Uppdatera konfigurationen med den [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) kommando. 
+## <a name="modify-a-server-configuration-parameter-value"></a>Ändra ett parameter värde för Server konfiguration
+Du kan också ändra värdet för en viss server konfigurations parameter, som uppdaterar det underliggande konfiguration svärdet för MySQL Server-motorn. Om du vill uppdatera konfigurationen använder du kommandot [AZ MySQL Server Configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) . 
 
-Att uppdatera den **långsam\_fråga\_log** Serverparametern configuration Server **mydemoserver.mysql.database.azure.com** under resursgruppen  **myresourcegroup.**
+Uppdatera Server konfigurations parametern **långsam @ no__t-1query @ no__t-2log** för Server **mydemoserver.mysql.Database.Azure.com** under resurs grupp **myresourcegroup.**
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver --value ON
 ```
-Om du vill återställa värdet för en konfigurationsparameter utelämna det valfria `--value` parametern och tjänsten används standardvärdet. För exemplet ovan ser ut som:
+Om du vill återställa värdet för en konfigurations parameter utelämnar du den valfria parametern `--value` och tjänsten använder standardvärdet. I exemplet ovan skulle det se ut så här:
 ```azurecli-interactive
 az mysql server configuration set --name slow_query_log --resource-group myresourcegroup --server mydemoserver
 ```
-Den här koden återställer den **långsam\_fråga\_log** konfiguration till standardvärdet **OFF**. 
+Den här koden återställer den **långsamma @ no__t-1query @ no__t-2log-** konfigurationen till standardvärdet **.** 
 
 ## <a name="working-with-the-time-zone-parameter"></a>Arbeta med parametern tidszon
 
@@ -72,9 +72,9 @@ SELECT name FROM mysql.time_zone_name;
 
 ### <a name="setting-the-global-level-time-zone"></a>Tidszonen global nivå
 
-Den globala nivån tidszonen kan anges med hjälp av den [az mysql server configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) kommando.
+Du kan ange tids zonen för global nivå med hjälp av kommandot [AZ MySQL Server Configuration set](/cli/azure/mysql/server/configuration#az-mysql-server-configuration-set) .
 
-Sedan följande kommando för uppdateringar i **tid\_zon** Serverparametern configuration Server **mydemoserver.mysql.database.azure.com** under resursgruppen  **myresourcegroup** till **USA / Stillahavsområdet**.
+Följande kommando uppdaterar **Time @ no__t-1zone-** serverns konfigurations parameter för Server **mydemoserver.mysql.Database.Azure.com** under resurs grupp **myresourcegroup** till **US/Pacific**.
 
 ```azurecli-interactive
 az mysql server configuration set --name time_zone --resource-group myresourcegroup --server mydemoserver --value "US/Pacific"
@@ -93,4 +93,4 @@ MySQL-dokumentationen för [datum- och tidsfunktioner](https://dev.mysql.com/doc
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Så här konfigurerar du [serverparametrar i Azure-portalen](howto-server-parameters.md)
+- Konfigurera [Server parametrar i Azure Portal](howto-server-parameters.md)

@@ -1,26 +1,26 @@
 ---
-title: Vanliga frågor och svar om Azure Marketplace
-description: Svar på vanliga frågor om Microsoft Azure Marketplace
+title: Vanliga frågor och svar om Microsoft Marketplace
+description: Svar på vanliga frågor om Azure Marketplace och Microsoft AppSource
 services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/24/2019
+ms.date: 9/26/2019
 ms.author: ellacroi
-ms.openlocfilehash: 6b9cc80dfb397d5bf330d0be947f468e9b802139
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259947"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350379"
 ---
-# <a name="marketplace-faqs"></a>Vanliga frågor om Marketplace
+# <a name="microsoft-commercial-marketplace-faqs"></a>Vanliga frågor och svar om Microsoft Marketplace
 
-Svar på vanliga frågor om Microsoft Azure Marketplace.
+Svar på vanliga frågor om Azure Marketplace och Microsoft AppSource.
 
 ## <a name="faq-for-customers"></a>Vanliga frågor och svar om kunder
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Vad du behöver veta om Azure Marketplace
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Vad du behöver veta om Azure Marketplace och Microsoft AppSource
 
 **Vad är Azure Marketplace?**
 
@@ -253,9 +253,26 @@ Licenser som läggs till en befintlig prenumeration beräknas proportionellt fö
 
 Licenser som har avbrutits omfattas av den bidrags policy som finns i dessa vanliga frågor och svar.  Alla licenser som avbryts tas omedelbart bort från ditt konto och kommer inte längre att vara tillgängliga för användning.
 
+**Stöds bidrag för förbruknings baserade erbjudanden?**
+
+Avgifter som baseras på förbrukning – oavsett om den är virtuell timme eller anpassade mätare – kan inte återbetalas genom annullering. När förbrukningen har skett bearbetas avgifterna av Microsofts handels plattform och alla kvalitets tvister för tjänster där en åter betalning begärs skulle hanteras utanför Microsofts system mellan utgivaren och kunden direkt. Erbjudanden som har stöd för en fast taxa plus avgiftsbelagda debiteringar följer standard åter betalnings principen för de fasta avgifterna.
+
+**Är det möjligt att ändra planer på medel lång sikt?**
+
+Nej, det går inte att övergå mellan varje månad och år.
+
+**Kan en kund köpa två abonnemang från samma erbjudande?**
+
+Ja, det är möjligt för en kund att äga två planer från samma erbjudande samtidigt.
+
+**Skiljer sig bidrags-och ändrings principerna för butik?**
+
+Nej, affärs principerna är konsekventa i Azure Marketplace och Microsoft AppSource. Om den säljs av en partner i moln lösningen tillhandahåller program, kan partnern tillämpa en annan princip för sina kunder.
+
+
 ## <a name="faq-for-publishers"></a>Vanliga frågor och svar om utgivare
 
-### <a name="what-you-need-to-know-about-azure-marketplace"></a>Vad du behöver veta om Azure Marketplace
+### <a name="what-you-need-to-know-about-azure-marketplace-and-microsoft-appsource"></a>Vad du behöver veta om Azure Marketplace och Microsoft AppSource
 
 **Vad är Azure Marketplace?**
 

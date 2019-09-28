@@ -15,19 +15,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 249380b5bd9d95e969a9c7a812102b694b9d1e3b
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e273d913d07d8d7b77289695a4a28a478a64123a
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726548"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350297"
 ---
 # <a name="azure-storage-security-overview"></a>Översikt över Azure Storage säkerhet
 
 Den här artikeln innehåller en översikt över de Azure-säkerhetsfunktioner som du kan använda med Azure Storage. Azure Storage är molnlagringslösningen för moderna program som kräver hållbarhet, tillgänglighet och skalbarhet för att uppfylla kundernas behov. Azure Storage innehåller en omfattande uppsättning säkerhetsfunktioner. Du kan:
 
 * Skydda lagrings kontot med hjälp av rollbaserad Access Control (RBAC) och Azure Active Directory.
-* Skydda data i överföring mellan ett program och Azure med hjälp av kryptering på klient sidan, HTTPS eller SMB 3,0.
+* Skydda data i överföring mellan ett program och Azure med hjälp av kryptering på klientsidan, HTTPS eller SMB 3.0.
 * Ange att data ska krypteras automatiskt när de skrivs till Azure Storage med hjälp av Kryptering för lagringstjänst.
 * Ange operativ system och data diskar som används av virtuella datorer (VM) som ska krypteras med hjälp av Azure Disk Encryption.
 * Bevilja delegerad åtkomst till data objekt i Azure Storage med hjälp av signaturer för delad åtkomst (SASs).
@@ -65,7 +65,7 @@ Kryptering under överföring är en mekanism för att skydda data när de över
 Läs mer om kryptering på klient sidan:
 
 * [Kryptering på klient sidan för Microsoft Azure Storage](https://blogs.msdn.microsoft.com/windowsazurestorage/2015/04/28/client-side-encryption-for-microsoft-azure-storage-preview/)
-* [Serie med moln säkerhets kontroller: Kryptera data under överföring](https://cloudblogs.microsoft.com/microsoftsecure/2015/08/10/cloud-security-controls-series-encrypting-data-in-transit/)
+* [Cloud Security Controls-serien: Kryptera data i överföring @ no__t-0
 
 ## <a name="encryption-at-rest"></a>Vilande kryptering
 
@@ -88,7 +88,7 @@ Disk kryptering för virtuella datorer fungerar för Linux-och Windows-operativs
 
 Lär dig mer
 
-* [Azure Disk Encryption för Windows-och Linux-IaaS Virtual Machines](https://gallery.technet.microsoft.com/Azure-Disk-Encryption-for-a0018eb0)
+* [Översikt över Azure Disk Encryption](https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview)
 
 ## <a name="firewalls-and-virtual-networks"></a>Brand väggar och virtuella nätverk
 

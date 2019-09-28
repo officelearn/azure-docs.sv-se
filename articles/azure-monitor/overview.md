@@ -12,23 +12,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 01/26/2019
 ms.author: bwren
-ms.openlocfilehash: 1bc4a7634e864f0e3feb0d33cef3b967e5b6741f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 140a5cba6926e8711f0b70896ade55c11d332e0d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262216"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345307"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
-Azure Monitor maximerar programmens tillgänglighet och prestanda genom att leverera en heltäckande lösning för att samla in, analysera och arbeta med telemetri från dina molnmiljöer och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de förlitar sig på.
+Azure Monitor maximerar tillgängligheten och prestandan för dina program och tjänster genom att leverera en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de förlitar sig på.
 
-> [!VIDEO https://www.youtube.com/embed/_hGff5bVtkM]
+Några exempel på vad du kan göra med Azure Monitor är:
+
+- Identifiera och diagnostisera problem mellan program och beroenden med [Application Insights](app/app-insights-overview.md).
+- Korrelera infrastruktur problem med [Azure Monitor for VMS](insights/vminsights-overview.md) och [Azure Monitor för behållare](insights/container-insights-overview.md).
+- Öka detalj nivån i dina övervaknings data med [Log Analytics](log-query/log-query-overview.md) för fel sökning och djup diagnostik.
+- Stöd åtgärder i stor skala med [smarta aviseringar](platform/alerts-smartgroups-overview.md) och [automatiserade åtgärder](platform/alerts-action-rules.md).
+- Skapa visualiseringar med Azure- [instrumentpaneler](learn/tutorial-logs-dashboards.md) och [arbets böcker](app/usage-workbooks.md).
 
 ## <a name="overview"></a>Översikt
 Följande diagram ger en överblick på hög nivå av Azure Monitor. I diagrammets centrum finns data lager för mått och loggar, som är de två grundläggande data typerna som används av Azure Monitor. Till vänster visas [källorna till de övervaknings data](platform/data-sources.md) som finns i dessa [data lager](platform/data-platform.md). Till höger finns olika funktioner som Azure Monitor utför med dessa insamlade data, till exempel analys, aviseringar och strömning i externa system.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
 ![Översikt över Azure Monitor](media/overview/overview.png)
 

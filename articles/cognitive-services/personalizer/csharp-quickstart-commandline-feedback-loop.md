@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 2289c21fcc172c8dffd7d6b3f9c0e2e11736e71a
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 174f0f3d8984e102e098b4c981d3784f50c7d7c6
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265992"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345230"
 ---
 # <a name="quickstart-personalize-client-library-for-net"></a>Snabbstart: Anpassa klient bibliotek för .NET
 
@@ -33,9 +33,17 @@ Kom igång med personanpassa klient biblioteket för .NET. Följ de här stegen 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 
-## <a name="setting-up"></a>Konfigurera
+## <a name="using-this-quickstart"></a>Använd den här snabb starten
 
-### <a name="create-a-personalizer-azure-resource"></a>Skapa en personanpassa Azure-resurs
+Det finns flera steg för att använda den här snabb starten:
+
+* I Azure Portal skapar du en personanpassar-resurs
+* I Azure Portal, för personanpassa resursen, på sidan **Inställningar** ändrar du modell uppdaterings frekvensen
+* Skapa en kod fil i en kod redigerare och redigera kod filen
+* På kommando raden eller terminalen installerar du SDK från kommando raden
+* Kör kod filen i kommando raden eller terminalen
+
+## <a name="create-a-personalizer-azure-resource"></a>Skapa en personanpassa Azure-resurs
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Personanpassare med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
 
@@ -50,15 +58,15 @@ När du har skaffat en nyckel från din utvärderings prenumeration eller resurs
 
 I Azure Portal är både nyckel-och slut punkts värden tillgängliga på sidan **snabb start** .
 
-### <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
+## <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
 
-Ändra **uppdaterings frekvensen för modellen** till 10 sekunder i den personliga resursen i Azure Portal. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
+I Azure Portal i gruppen personanpassa på sidan **Inställningar** ändrar du **modell uppdaterings frekvensen** till 10 sekunder. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
 
 ![Ändra modell uppdaterings frekvens](./media/settings/configure-model-update-frequency-settings.png)
 
 När en säkerhetsslinga först instansieras finns det ingen modell eftersom det inte har skett några belönings-API-anrop att träna från. Ranknings anrop returnerar lika många sannolikheter för varje objekt. Ditt program borde fortfarande alltid rangordna innehåll med hjälp av utdata från RewardActionId.
 
-### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
+## <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
 
 Skapa ett nytt .NET Core-program i önskat redigerings program eller IDE. 
 
@@ -84,7 +92,7 @@ Build succeeded.
 ...
 ```
 
-### <a name="install-the-sdk"></a>Installera SDK:n
+## <a name="install-the-sdk"></a>Installera SDK:n
 
 I program katalogen installerar du ett installations program för personanpassa klient bibliotek för .NET med följande kommando:
 

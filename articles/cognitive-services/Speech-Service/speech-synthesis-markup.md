@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 12d556fd9c37b83a919b830d155250e9eaa64128
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 3791b2d60b84299fc3b646f7e6585002078b607f
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624243"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350160"
 ---
 # <a name="speech-synthesis-markup-language-ssml"></a>Speech Synthesis Markup Language (SSML)
 
@@ -34,7 +34,7 @@ Mer information om standard-, neurala-och anpassade röster finns i [text till t
 
 ## <a name="special-characters"></a>Specialtecken
 
-När du använder SSML för att konvertera text till syntetiskt tal bör du tänka på att det är precis som med XML, specialtecken, t. ex. citat tecken, apostrofer och hakparenteser, måste vara undantagna. Mer information finns i [Extensible Markup Language (XML) 1,0: Bilaga D](https://www.w3.org/TR/xml/#sec-entexpand).
+När du använder SSML för att konvertera text till syntetiskt tal bör du tänka på att det är precis som med XML, specialtecken, t. ex. citat tecken, apostrofer och hakparenteser, måste vara undantagna. Mer information finns i [Extensible Markup Language (XML) 1,0: Bilaga D @ no__t-0.
 
 ## <a name="supported-ssml-elements"></a>SSML-element som stöds
 
@@ -185,7 +185,7 @@ Det här SSML-kodfragmentet illustrerar hur `<mstts:express-as>` elementet anvä
 | styrka | Anger den relativa varaktigheten för en paus med något av följande värden:<ul><li>inga</li><li>x-svaga</li><li>låg</li><li>medel (standard)</li><li>stark</li><li>x-strong</li></ul> | Valfritt |
 | time | Anger den absoluta varaktigheten för en paus på några sekunder eller millisekunder. Exempel på giltiga värden är 2s och 500 | Valfritt |
 
-| Styrka | Beskrivning |
+| styrka | Beskrivning |
 |----------|-------------|
 | Ingen, eller om inget värde anges | 0 MS |
 | x-svaga | 250 MS |
@@ -290,7 +290,7 @@ Eftersom prosodic-attributvärden kan variera över ett brett intervall, tolkar 
 
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
-| röst | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Till exempel 600Hz.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: + 80Hz eller-2st. "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>börjar</li><li>medel</li><li>högt</li><li>x – hög</li><li>standard</li></ul></li></ul>. | Valfritt |
+| röst | Anger textens bas linje bredd. Du kan uttrycka bredden som:<ul><li>Ett absolut värde, uttryckt som ett tal följt av "Hz" (Hertz). Till exempel 600Hz.</li><li>Ett relativt värde, uttryckt som ett tal som föregås av "+" eller "-" och följt av "Hz" eller "St", som anger ett belopp för att ändra bredden. Till exempel: + 80Hz eller-2st. "St" anger att ändrings enheten är semitone, som är hälften av en ton (ett halv steg) i standard skalan för diatonic.</li><li>Ett konstant värde:<ul><li>x-låg</li><li>låg</li><li>medel</li><li>Högt</li><li>x – hög</li><li>standard</li></ul></li></ul>. | Valfritt |
 | höjd | Kontur stöds inte för neurala-röster. Kontur representerar ändringar i bredden för tal innehåll som en matris med mål vid angivna tids positioner i tal utmatningen. Varje mål definieras av uppsättningar av parameter par. Exempel: <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>Det första värdet i varje parameter uppsättning anger platsen för bredd ändringen som en procent andel av längden på texten. Det andra värdet anger hur mycket du vill höja eller sänka avståndet med ett relativt värde eller ett uppräknings värde för färgdjup (se `pitch`). | Valfritt |
 | intervall  | Ett värde som representerar text områdets avstånd. Du kan uttrycka `range` använda samma absoluta värden, relativa värden eller uppräknings värden som används för att `pitch`beskriva. | Valfritt |
 | antal  | Anger textens tal hastighet. Du kan uttrycka `rate` som:<ul><li>Ett relativt värde, uttryckt som ett tal som fungerar som en multiplikator för standardvärdet. Värdet *1* resulterar till exempel i ingen ändring av hastigheten. Värdet *0,5* resulterar i en halving av hastigheten. Värdet *3* resulterar i en rese frekvens.</li><li>Ett konstant värde:<ul><li>x – långsam</li><li>långsam</li><li>medel</li><li>snabbväxande</li><li>x-fast</li><li>standard</li></ul></li></ul> | Valfritt |
@@ -359,10 +359,62 @@ Du kan ändra bredden på standard-röster på ord-eller menings nivå. Föränd
     </voice>
 </speak>
 ```
+## <a name="say-as-element"></a>Säg som-element  
+
+`say-as` är ett valfritt element som anger innehålls typen (t. ex. antal eller datum) för elementets text. Detta ger vägledning till tal syntes motorn om hur du uttalar texten. 
+
+**Syntax**
+
+```XML
+<say-as interpret-as="string" format="digit string" detail="string"> <say-as>
+```
+
+**Dokumentattribut**
+
+| Attribut | Beskrivning | Obligatoriskt / valfritt |
+|-----------|-------------|---------------------|
+| tolka som | Anger innehålls typen för elementets text. En lista med typer finns i tabellen nedan. | Obligatorisk |
+| format | Innehåller ytterligare information om den exakta formateringen av elementets text för innehålls typer som kan ha tvetydiga format. SSML definierar format för innehålls typer som använder dem (se tabellen nedan). | Valfritt |
+| Noggrant | Anger detalj nivån som ska läsas. Det här attributet kan till exempel begära att tal syntes motorn uttalar skiljetecken. Det finns inga standard värden definierade för `detail`. | Valfritt |
+
+<!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
+
+Följande är de innehålls typer som stöds för attributen `interpret-as` och `format`. Inkludera endast attributet `format` om `interpret-as` har angetts till datum och tid.
+
+| tolka som | format | Tolkning |
+|--------------|--------|----------------|
+| Adress | | Texten talas som en adress. Tal syntes motorn uttalar:<br /><br />`I'm at <say-as interpret-as="address">150th CT NE, Redmond, WA</say-as>`<br /><br />Som "Jag är på 150th-domstolen norra östra Redmond Washington". |
+| Cardinal, tal | | Texten talas som ett kardinal nummer. Tal syntes motorn uttalar:<br /><br />`There are <say-as interpret-as="cardinal">3</say-as> alternatives`<br /><br />Det finns tre alternativ. " |
+| tecken, bokstavera | | Texten talas som enskilda bokstäver (rättstavade). Tal syntes motorn uttalar:<br /><br />`<say-as interpret-as="characters">test</say-as>`<br /><br />T. ex. "T E S." |
+| date  | DMY, MDÅ, YMD, ådm, YM, My, MD, DM, d, m, y | Texten talas som ett datum. Attributet `format` anger datumets format (*d = dag, m = månad och y = år*). Tal syntes motorn uttalar:<br /><br />`Today is <say-as interpret-as="date" format="mdy">10-19-2016</say-as>`<br /><br />Som "idag är den Nineteenth oktober 2016". |
+| siffror, number_digit | | Texten talas som en sekvens med enskilda siffror. Tal syntes motorn uttalar:<br /><br />`<say-as interpret-as="number_digit">123456789</say-as>`<br /><br />Som "1 2 3 4 5 6 7 8 9". |
+| del | | Texten talas som ett bråk tals tal. Tal syntes motorn uttalar:<br /><br /> `<say-as interpret-as="fraction">3/8</say-as> of an inch`<br /><br />Som "tre åttondelar av en tum". |
+| numret  | | Texten talas som ett ordnings tal. Tal syntes motorn uttalar:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />Som "Välj det tredje alternativet". |
+| samtal  | | Texten talas som ett telefonnummer. Attributet `format` får innehålla siffror som representerar en landskod. Till exempel "1" för USA eller "39" för Italien. Tal syntes motorn kan använda den här informationen för att vägleda sitt uttal av ett telefonnummer. Telefonnumret kan också innehålla lands koden, och i så fall prioriteras lands koden i `format`. Tal syntes motorn uttalar:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />As "My Number är rikt nummer 8 8 8 5 5 5 1 2 1 2". |
+| time | hms12, hms24 | Texten talas som en tid. Attributet `format` anger om tiden anges med en 12-timmarsformat (hms12) eller en 24-timmarsklocka (hms24). Använd kolon för att avgränsa tal som representerar timmar, minuter och sekunder. Följande är giltiga tids exempel: 12:35, 1:14:32, 08:15 och 02:50:45. Tal syntes motorn uttalar:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />Som "tåget är i en del av fyra A M." |
+
+**Användning**
+
+Elementet `say-as` får bara innehålla text.
+
+**Exempel**
+
+Tal syntes motorn läser följande exempel som "din första förfrågan var för ett rum den Nineteenth oktober 20 10 med tidig ankomst vid 12 35 P M."
+ 
+```XML
+<speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
+    <voice  name="en-US-Jessa24kRUS">
+    <p>
+    Your <say-as interpret-as="ordinal"> 1st </say-as> request was for <say-as interpret-as="cardinal"> 1 </say-as> room
+    on <say-as interpret-as="date" format="mdy"> 10/19/2010 </say-as>, with early arrival at <say-as interpret-as="time" format="hms12"> 12:35pm </say-as>.
+    </p>
+</speak>
+```
+
 
 ## <a name="add-recorded-audio"></a>Lägg till inspelat ljud
 
-`audio`är ett valfritt element som gör att du kan infoga MP3-ljud i ett SSML-dokument. Bröd texten i ljud elementet kan innehålla oformaterad text eller SSML som talas om ljud filen inte är tillgänglig eller kan spelas upp. `p` `s` `audio` `break` `phoneme` Dessutomkanelementetinnehålla`prosody`text och följande element:,, `sub`,,, ,och.`say-as` `audio`
+`audio` är ett valfritt element som gör att du kan infoga MP3-ljud i ett SSML-dokument. Bröd texten i ljud elementet kan innehålla oformaterad text eller SSML som talas om ljud filen inte är tillgänglig eller kan spelas upp. Dessutom kan `audio`-elementet innehålla text och följande element: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as` och `sub`.
 
 Alla ljud som ingår i SSML-dokumentet måste uppfylla följande krav:
 
@@ -400,11 +452,11 @@ Alla ljud som ingår i SSML-dokumentet måste uppfylla följande krav:
 
 ## <a name="add-background-audio"></a>Lägg till bakgrunds ljud
 
-Med `mstts:backgroundaudio` -elementet kan du lägga till bakgrunds ljud till dina SSML-dokument (eller blanda en ljudfil med text till tal). Med `mstts:backgroundaudio` kan du repetera en ljudfil i bakgrunden, tona in i början av text till tal och tona ut i slutet av text till tal.
+Med elementet `mstts:backgroundaudio` kan du lägga till bakgrunds ljud till dina SSML-dokument (eller blanda en ljudfil med text till tal). Med `mstts:backgroundaudio` kan du loopa en ljudfil i bakgrunden, tona in i början av text till tal och tona ut i slutet av text till tal.
 
 Om bakgrunds ljudet som tillhandahålls är kortare än text-till-tal-eller övertoningen, kommer den att upprepas. Om det är längre än text till tal, stoppas det när toningen är färdig.
 
-Endast en bakgrunds ljud fil tillåts per SSML-dokument. Du kan dock blanda `audio` Taggar `voice` i elementet för att lägga till ytterligare ljud till ditt SSML-dokument.
+Endast en bakgrunds ljud fil tillåts per SSML-dokument. Du kan dock blanda `audio`-Taggar i elementet `voice` för att lägga till ytterligare ljud till ditt SSML-dokument.
 
 **Syntax**
 
@@ -417,9 +469,9 @@ Endast en bakgrunds ljud fil tillåts per SSML-dokument. Du kan dock blanda `aud
 | Attribut | Beskrivning | Obligatoriskt / valfritt |
 |-----------|-------------|---------------------|
 | src | Anger plats/URL för bakgrunds ljud filen. | Krävs om du använder bakgrunds ljud i ditt SSML-dokument. |
-| volym | Anger bakgrunds ljud filens volym. **Godkända värden**: `0` till `100` inklusiv. Standardvärdet är `1`. | Valfritt |
-| tona in | Anger varaktigheten för bakgrunds ljudet tonar in i millisekunder. Standardvärdet är `0`, vilket motsvarar ingen toning i. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
-| tona bort | Anger bakgrunds ljudets varaktighet tonar ut i millisekunder. Standardvärdet är `0`, vilket motsvarar ingen toning. **Godkända värden**: `0` till `10000` inklusiv.  | Valfritt |
+| volym | Anger bakgrunds ljud filens volym. **Godkända värden**: `0` till `100`. Standardvärdet är `1`. | Valfritt |
+| tona in | Anger varaktigheten för bakgrunds ljudet tonar in i millisekunder. Standardvärdet är `0`, vilket motsvarar ingen toning i. **Godkända värden**: `0` till `10000`.  | Valfritt |
+| tona bort | Anger bakgrunds ljudets varaktighet tonar ut i millisekunder. Standardvärdet är `0`, vilket motsvarar ingen toning. **Godkända värden**: `0` till `10000`.  | Valfritt |
 
 **Exempel**
 

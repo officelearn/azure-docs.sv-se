@@ -11,24 +11,24 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: diberry
-ms.openlocfilehash: 585dc03503a61ff6666d3da3374586287e24283f
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 318df27ebb822f49c1f8881d0bf68ac7167dea36
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68966705"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71351299"
 ---
-# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljnings anvisningarna för att skapa flera av en konversation
+# <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljande frågor för att skapa en längre konversation
 
 Använd uppföljnings-och kontext hantering för att hantera flera _sätt_, så kallade flera varv, för din robot från en fråga till en annan.
 
 Se följande demonstrations video om du vill se hur multi-turn fungerar:
 
-[![Flera inaktiverade konversationer i QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
+[![Multi-turn konversation i QnA Maker](../media/conversational-context/youtube-video.png)](https://aka.ms/multiturnexample)
 
 ## <a name="what-is-a-multi-turn-conversation"></a>Vad är en konversation med flera varv?
 
-Vissa frågor kan inte besvaras i en enda tur. När du utformar dina klient program (Chat robot)-konversationer kan en användare ställa en fråga som behöver filtreras eller finjusteras för att fastställa rätt svar. Du gör det här flödet genom de frågor som är möjliga genom attpresentera användaren med uppföljnings anvisningarna.
+Vissa frågor kan inte besvaras i en enda tur. När du utformar dina klient program (Chat robot)-konversationer kan en användare ställa en fråga som behöver filtreras eller finjusteras för att fastställa rätt svar. Du gör det här flödet genom de frågor som är möjliga genom att presentera användaren med *uppföljnings*anvisningarna.
 
 När en användare ställer en fråga returnerar QnA Maker svaret _och_ eventuella uppföljnings frågor. Med det här svaret kan du Visa uppföljnings frågorna som alternativ. 
 
@@ -67,7 +67,7 @@ När du importerar PDF-dokumentet anger QnA Maker uppföljnings anvisningarna fr
 1. Skapa eller Använd en befintlig QnA Maker-tjänst. I föregående exempel på Microsoft-arbetsytan, eftersom PDF-filen är för stor för en mindre nivå, använder du en QnA Maker tjänst med en **Sök tjänst** på **B** (15 index) eller mer.
 1. Ange ett namn för din kunskaps bas, till exempel **Surface manual**.
 1. Markera kryss rutan **Aktivera extrahering av flera turn från URL: er,. PDF eller. docx-filer** . 
-1. Välj ytans manuella URL **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
+1. Välj ytans manuella URL, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
 
 1. Välj knappen **skapa din KB** . 
 
@@ -195,7 +195,7 @@ Om du inte aktiverar flera varv returneras svaret men uppföljnings anvisningarn
 
 ## <a name="a-json-request-to-return-an-initial-answer-and-follow-up-prompts"></a>En JSON-begäran för att returnera ett första svar och Uppföljnings frågor
 
-Använd det tomma `context` objektet för att begära svar på användarens fråga och inkludera uppföljnings frågor. 
+Använd det tomma `context`-objektet för att begära svar på användarens fråga och inkludera uppföljnings frågor. 
 
 ```JSON
 {
@@ -274,7 +274,7 @@ Föregående avsnitt begärde ett svar och eventuella uppföljnings frågor till
 }
 ```
 
-Matrisen innehåller text `displayText` i egenskapen och `qnaId` värdet. `prompts` Du kan visa svaren som nästa alternativ i konversations flödet och sedan skicka `qnaId` tillbaka tillbaka till QNA Maker i följande begäran. 
+Matrisen `prompts` innehåller text i egenskapen `displayText` och värdet för @no__t 2. Du kan visa svaren som nästa alternativ i konversations flödet och sedan skicka det valda `qnaId` tillbaka till QnA Maker i följande förfrågan. 
 
 <!--
 
@@ -284,7 +284,7 @@ The `promptsToDelete` array provides the ...
 
 ## <a name="a-json-request-to-return-a-non-initial-answer-and-follow-up-prompts"></a>En JSON-begäran om att returnera ett svar som inte är första gången och Uppföljnings frågor
 
-Fyll i `context` objektet så att föregående kontext tas med.
+Fyll `context`-objektet så att det innehåller föregående kontext.
 
 I följande JSON-begäran använder den aktuella frågan *Windows Hello för att logga in* och föregående fråga var *konton och loggade in*. 
 
@@ -304,7 +304,7 @@ I följande JSON-begäran använder den aktuella frågan *Windows Hello för att
 
 ##  <a name="a-json-response-to-return-a-non-initial-answer-and-follow-up-prompts"></a>Ett JSON-svar för att returnera ett icke-initialt svar och Uppföljnings frågor
 
-_GenerateAnswer_ JSON-svaret innehåller följande prompter i `context` egenskapen för det `answers` första objektet i objektet: QNA Maker
+_GenerateAnswer_ JSON-svaret innehåller uppföljnings anvisningarna i egenskapen `context` för det första objektet i `answers`-objektet: QNA Maker
 
 ```JSON
 {
@@ -364,7 +364,7 @@ _GenerateAnswer_ JSON-svaret innehåller följande prompter i `context` egenskap
 
 ## <a name="query-the-knowledge-base-with-the-qna-maker-id"></a>Fråga kunskaps basen med QnA Maker-ID
 
-Vid den första frågans svar returneras eventuella uppföljnings frågor och dess associerade `qnaId` . Nu när du har ID: t kan du skicka detta i begär ande texten för uppföljnings frågan. Om texten i begäran innehåller `qnaId`, och objektet context (som innehåller föregående QNA Maker egenskaper), returnerar GenerateAnswer den exakta frågan efter ID, i stället för att använda rangordnings algoritmen för att hitta svaret från frågetexten. 
+Vid den första frågans svar returneras eventuella uppföljnings frågor och tillhör ande `qnaId`. Nu när du har ID: t kan du skicka detta i begär ande texten för uppföljnings frågan. Om texten i begäran innehåller `qnaId` och objektet context (som innehåller föregående QnA Maker egenskaper) returnerar GenerateAnswer den exakta frågan efter ID, i stället för att använda rangordnings algoritmen för att hitta svaret från frågetexten. 
 
 ## <a name="display-prompts-and-send-context-in-the-client-application"></a>Visa prompter och skicka kontext i klient programmet 
 
@@ -372,7 +372,7 @@ Du har lagt till prompter i din kunskaps bas och testat flödet i test fönstret
 
 ## <a name="display-order-is-supported-in-the-update-api"></a>Visnings ordningen stöds i uppdaterings-API: et
 
-[Visnings texten och visnings ordningen](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), som returneras i JSON-svaret, stöds för redigering av uppdaterings- [API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
+[Visnings texten och visnings ordningen](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), som returneras i JSON-svaret, stöds för redigering av [uppdaterings-API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
 <!--
 
@@ -382,12 +382,12 @@ FIX - Need to go to parent, then answer column, then edit answer.
 
 ## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Skapa kunskaps bas med flera turn-prompter med Create API
 
-Du kan skapa ett kunskaps ärende med flera turn-prompter med hjälp av [QNA Maker skapa API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Prompterna läggs till i `context` `prompts` egenskaps mat ris. 
+Du kan skapa en kunskaps bas med flera turn-prompter med hjälp av [QNA Maker skapa API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Prompterna läggs till i `context`-egenskapens `prompts`-matris. 
 
 
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Lägg till eller ta bort prompter med uppdaterings-API: et
 
-Du kan lägga till eller ta bort prompter med flera turn-meddelanden med hjälp av [API: et QNA Maker Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Prompterna läggs till i `context` `promptsToAdd` egenskaps mat ris och `promptsToDelete` matrisen. 
+Du kan lägga till eller ta bort prompter med flera turn-meddelanden med hjälp av [API: et QNA Maker Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Prompterna läggs till i `context`-egenskapens `promptsToAdd`-matris och `promptsToDelete`-matrisen. 
 
 
 ## <a name="next-steps"></a>Nästa steg

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: ca9f8b570ee28b1913c8ec81c66a5b70827c04d6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2a9e3d16f745e8f51d1d375a774d7c687e987efe
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559965"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71350818"
 ---
 # <a name="list-entity"></a>Lista entitet 
 
@@ -61,6 +61,10 @@ I den föregående uttryck ordet `paris` mappas till paris-objektet som en del a
 ]
 ```
 
+|Dataobjekt|Entitetsnamn|Value|
+|--|--|--|
+|Lista entitet|`Cities`|`paris`|
+
 Ett annat exempel uttryck med en synonym för Paris:
 
 `book 2 tickets to roissy`
@@ -81,10 +85,10 @@ Ett annat exempel uttryck med en synonym för Paris:
 ]
 ```
 
-|Dataobjekt|Entitetsnamn|Värde|
+|Dataobjekt|Entitetsnamn|Value|
 |--|--|--|
-|Enkel enhet|`Customer`|`bob jones`|
+|Lista entitet|`Cities`|`roissy`|
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den [](luis-quickstart-intent-and-list-entity.md)här självstudien får du lära dig hur du använder en **list-entitet** för att extrahera exakta matchningar av text från en lista över kända objekt. 
+I den här [självstudien](luis-quickstart-intent-and-list-entity.md)får du lära dig hur du använder en **list-entitet** för att extrahera exakta matchningar av text från en lista över kända objekt. 

@@ -10,12 +10,12 @@ ms.service: billing
 ms.topic: article
 ms.date: 05/30/2019
 ms.author: byvinyal
-ms.openlocfilehash: 0f036462eb9b37b4ec783bcf8957d307cc55f7ac
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: ccddd13ddd8c10daba84f959b1cc1f8a4a80deb1
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71018516"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345549"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure-prenumeration och tjänstbegränsningar, kvoter och krav
 Det här dokumentet innehåller några av de vanligaste Microsoft Azures gränserna, som ibland kallas kvoter. Det här dokumentet avser för närvarande inte alla Azure-tjänster. Med tiden kommer listan att expanderas och uppdateras för att avse fler tjänster.
@@ -94,6 +94,7 @@ I följande lista över gränser visar en ny tabell eventuella skillnader i grä
   * [Privat länk](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
+  * [Virtuellt WAN](#virtual-wan-limits)
 * [Notification Hubs](#notification-hubs-limits)
 * [Resursgrupp](#resource-group-limits)
 * [Rollbaserad åtkomstkontroll](#role-based-access-control-limits)
@@ -161,6 +162,9 @@ Du hittar de senaste värdena för Azure Machine Learning Compute-kvoter på sid
 
 #### <a name="expressroute-limits"></a>ExpressRoute-gränser
 [!INCLUDE [expressroute-limits](../includes/expressroute-limits.md)]
+
+#### <a name="virtual-wan-limits"></a>Virtuella WAN-gränser
+[!INCLUDE [virtual-wan-limits](../includes/virtual-wan-limits.md)]
 
 #### <a name="application-gateway-limits"></a>Application Gateway gränser
 

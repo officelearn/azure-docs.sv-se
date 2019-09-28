@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 014a5f264b9beed666f718cda52d197381d58876
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 877a28e5f672bbd61bad2b4c5c9175c7dafa71ab
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266259"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345331"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Snabbstart: Anpassa klient bibliotek för python
 
@@ -33,9 +33,19 @@ Kom igång med personanpassa klient biblioteket för python. Följ de här stege
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * [Python 3.x](https://www.python.org/)
 
-## <a name="setting-up"></a>Konfigurera
+## <a name="using-this-quickstart"></a>Använd den här snabb starten
 
-### <a name="create-a-personalizer-azure-resource"></a>Skapa en personanpassa Azure-resurs
+
+Det finns flera steg för att använda den här snabb starten:
+
+* I Azure Portal skapar du en personanpassar-resurs
+* I Azure Portal, för personanpassa resursen, på sidan **Inställningar** ändrar du modell uppdaterings frekvensen
+* Skapa en kod fil i en kod redigerare och redigera kod filen
+* På kommando raden eller terminalen installerar du SDK från kommando raden
+* Kör kod filen i kommando raden eller terminalen
+
+
+## <a name="create-a-personalizer-azure-resource"></a>Skapa en personanpassa Azure-resurs
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Personanpassare med hjälp av [Azure Portal](https://portal.azure.com/) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Mer information finns i så här [skapar du en Cognitive Services resurs med hjälp av Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) . Du kan också:
 
@@ -50,7 +60,7 @@ När du har skaffat en nyckel från din utvärderings prenumeration eller resurs
 I Azure Portal är både nyckel-och slut punkts värden tillgängliga på sidan **snabb start** .
 
 
-### <a name="install-the-python-library-for-personalizer"></a>Installera python-biblioteket för Personanpassare
+## <a name="install-the-python-library-for-personalizer"></a>Installera python-biblioteket för Personanpassare
 
 Installera det personliga klient biblioteket för python med följande kommando:
 
@@ -60,9 +70,9 @@ pip install azure-cognitiveservices-personalizer
 
 Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
 
-### <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
+## <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
 
-Ändra **uppdaterings frekvensen för modellen** till 10 sekunder i den personliga resursen i Azure Portal. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
+I Azure Portal i gruppen personanpassa på sidan **Inställningar** ändrar du **modell uppdaterings frekvensen** till 10 sekunder. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
 
 ![Ändra modell uppdaterings frekvens](./media/settings/configure-model-update-frequency-settings.png)
 
@@ -92,7 +102,7 @@ Skapa ett nytt python-program i önskat redigerings program eller IDE `sample.py
 
 ## <a name="add-the-dependencies"></a>Lägg till beroenden
 
-Från projekt katalogen öppnar du **program.cs** -filen i önskat redigerings program eller IDE. Ersätt den befintliga `using` koden med följande `using` direktiv:
+Från projekt katalogen öppnar du **Sample.py** -filen i önskat redigerings program eller IDE. Lägg till följande:
 
 [!code-python[Add module dependencies](~/samples-personalizer/quickstarts/python/sample.py?name=Dependencies)]
 

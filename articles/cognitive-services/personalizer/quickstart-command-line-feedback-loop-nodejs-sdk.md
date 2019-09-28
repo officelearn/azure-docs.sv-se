@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
-ms.date: 09/12/2019
+ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: ab593ae33f11fe3e39846c50e9f43f73f80894ba
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: b7ea28f98340d3c3547b0ed66771b3982a03143d
+ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265966"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71345241"
 ---
 # <a name="quickstart-personalize-client-library-for-nodejs"></a>Snabbstart: Anpassa klient bibliotek för Node. js
 
@@ -31,11 +31,21 @@ Kom igång med personanpassa klient biblioteket för Node. js. Följ de här ste
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
-* Den aktuella versionen av [Node. js](https://nodejs.org).
+* Den aktuella versionen av [Node. js](https://nodejs.org) och NPM.
 
-## <a name="setting-up"></a>Konfigurera
+## <a name="using-this-quickstart"></a>Använd den här snabb starten
 
-### <a name="create-a-personalizer-azure-resource"></a>Skapa en personanpassa Azure-resurs
+
+Det finns flera steg för att använda den här snabb starten:
+
+* I Azure Portal skapar du en personanpassar-resurs
+* I Azure Portal, för personanpassa resursen, på sidan **Inställningar** ändrar du modell uppdaterings frekvensen
+* Skapa en kod fil i en kod redigerare och redigera kod filen
+* På kommando raden eller terminalen installerar du SDK från kommando raden
+* Kör kod filen i kommando raden eller terminalen
+
+
+## <a name="create-a-personalizer-azure-resource"></a>Skapa en personanpassa Azure-resurs
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för Personanpassare med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. Du kan också:
 
@@ -50,7 +60,7 @@ När du har skaffat en nyckel från din utvärderings prenumeration eller resurs
 I Azure Portal är både nyckel-och slut punkts värden tillgängliga på sidan **snabb start** .
 
 
-### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
+## <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
 I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny katalog för din app och navigerar till den. 
 
@@ -64,7 +74,7 @@ Kör kommandot för att skapa en `package.json` fil. `npm init -y`
 npm init -y
 ```
 
-### <a name="install-the-nodejs-library-for-personalizer"></a>Installera Node. js-biblioteket för Personanpassare
+## <a name="install-the-nodejs-library-for-personalizer"></a>Installera Node. js-biblioteket för Personanpassare
 
 Installera det personliga klient biblioteket för Node. js med följande kommando:
 
@@ -78,9 +88,9 @@ Installera de återstående NPM-paketen för den här snabb starten:
 npm install @azure/ms-rest-azure-js @azure/ms-rest-js readline-sync uuid --save
 ```
 
-### <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
+## <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
 
-Ändra **uppdaterings frekvensen för modellen** till 10 sekunder i den personliga resursen i Azure Portal. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
+I Azure Portal i gruppen personanpassa på sidan **Inställningar** ändrar du **modell uppdaterings frekvensen** till 10 sekunder. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
 
 ![Ändra modell uppdaterings frekvens](./media/settings/configure-model-update-frequency-settings.png)
 

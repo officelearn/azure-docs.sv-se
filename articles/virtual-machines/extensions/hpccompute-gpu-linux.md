@@ -38,9 +38,9 @@ Det här tillägget har stöd för följande OS-distributioner, beroende på dri
 
 | Distribution | Version |
 |---|---|
-| Linux: Ubuntu | 16,04 LTS 18,04 LTS |
-| Linux: Red Hat Enterprise Linux | 7,3, 7,4, 7,5, 7,6 |
-| Linux: CentOS | 7,3, 7,4, 7,5, 7,6 |
+| Linux: Ubuntu | 16.04 LTS 18.04 LTS |
+| Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6 |
+| Linux: CentOS | 7.3, 7.4, 7.5, 7.6 |
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
@@ -75,8 +75,8 @@ Följande JSON visar schemat för tillägget.
 | Name | Värdet / exempel | Datatyp |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft. HpcCompute | string |
-| type | NvidiaGpuDriverLinux | sträng |
+| publisher | Microsoft.HpcCompute | string |
+| type | NvidiaGpuDriverLinux | string |
 | typeHandlerVersion | 1.2 | int |
 
 ### <a name="settings"></a>Inställningar
@@ -85,8 +85,8 @@ Alla inställningar är valfria. Standard beteendet är att inte uppdatera kerne
 
 | Name | Beskrivning | Default Value | Giltiga värden | Datatyp |
 | ---- | ---- | ---- | ---- | ---- |
-| Uppdatering | Uppdatera kärnan även om det inte krävs för att installera driv rutiner | false | true, false | boolean |
-| driverVersion | INGET Version av RUTNÄTs driv rutin<br> NC/ND: CUDA Toolkit-version. De senaste driv rutinerna för de valda CUDA installeras automatiskt. | latest | STÖDRASTRET "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA "10.0.130", "9.2.88", "9.1.85" | sträng |
+| updateOS | Uppdatera kärnan även om det inte krävs för att installera driv rutiner | false | true, false | boolean |
+| driverVersion | INGET Version av RUTNÄTs driv rutin<br> NC/ND: CUDA Toolkit-version. De senaste driv rutinerna för de valda CUDA installeras automatiskt. | latest | STÖDRASTRET "430,30", "418,70", "410,92", "410,71", "390,75", "390,57", "390,42"<br> CUDA "10.0.130", "9.2.88", "9.1.85" | string |
 | installCUDA | Installera CUDA Toolkit. Endast relevant för virtuella datorer i NC/ND-serien. | true | true, false | boolean |
 
 

@@ -4,17 +4,17 @@ description: Konfigurera överlappande nätverkssäkerhet för ditt lagringskont
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 00e69d9222444e3b700fca10e3f15b4b110e0c60
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b474e090db48b792ade81e8d0f5be0b69f6f109c
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241730"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673167"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Konfigurera Azure Storage-brandväggar och virtuella nätverk
 
@@ -370,7 +370,7 @@ Om du aktiverar den **Tillåt att betrodda Microsoft-tjänster...**  undantag, f
 | Azure Event Hubs         | Microsoft.EventHub         | Arkivera data med Event Hubs Capture. [Läs mer](/azure/event-hubs/event-hubs-capture-overview).                                                                                                                                                                                                                           |
 | Azure File Sync          | Microsoft.StorageSync      | Gör att du kan omvandla din lokal fil server till ett cacheminne för Azure-filresurser. Tillåter synkronisering av flera platser, snabb katastrof återställning och säkerhets kopiering på moln sidan. [Läs mer](../files/storage-sync-files-planning.md)                                                                                                       |
 | Azure HDInsight          | Microsoft.HDInsight        | Etablera det inledande innehållet i standard fil systemet för ett nytt HDInsight-kluster. [Läs mer](https://azure.microsoft.com/blog/enhance-hdinsight-security-with-service-endpoints/).                                                                                                                                    |
-| Azure Machine Learning Service | Microsoft.MachineLearningServices | Auktoriserade Azure Machine Learning arbets ytor Skriv experiment, modeller och loggar till Blob Storage. [Läs mer](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace).                                                               
+| Azure Machine Learning-tjänsten | Microsoft.MachineLearningServices | Auktoriserade Azure Machine Learning arbets ytor Skriv experiment, modeller och loggar till Blob Storage. [Läs mer](/azure/machine-learning/service/how-to-enable-virtual-network#use-a-storage-account-for-your-workspace).                                                               
 | Azure Monitor            | Microsoft.Insights         | Tillåter skrivning av övervakning av data till en säker lagringskonto [mer](/azure/monitoring-and-diagnostics/monitoring-roles-permissions-security).                                                                                                                                                                        |
 | Azure-nätverk         | Microsoft.Network          | Store och analysera loggar med webbtrafik. [Läs mer](/azure/network-watcher/network-watcher-packet-capture-overview).                                                                                                                                                                                                        |
 | Azure Site Recovery      | Microsoft.SiteRecovery     | Konfigurera haveriberedskap genom att aktivera replikering för Azure IaaS-datorer. Detta krävs om du använder brandvägg är aktiverad cachelagringskontot eller källagringskontot eller mållagringskontot.  [Läs mer](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication). |

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
 ms.author: mlearned
-ms.openlocfilehash: 6120eee5bbd2f385fa8e76da093f7fadccb4904e
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3792eed170d3e3e1cdd267c0c88d2d2d6c520733
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348971"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672817"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Kubernetes Core-koncept för Azure Kubernetes service (AKS)
 
@@ -76,39 +76,34 @@ Om du behöver använda ett annat värd operativ system, container runtime eller
 
 ### <a name="resource-reservations"></a>Resurs reservationer
 
-Node-resurser används av AKS för att göra Node-funktionen som en del av klustret. Detta kan skapa en discrepency mellan nodens totala resurser och de resurser allocatable som används i AKS. Detta är viktigt att notera när du ställer in förfrågningar och begränsningar för dina distribuerade poddar.
+Node-resurser används av AKS för att göra Node-funktionen som en del av klustret. Detta kan skapa en discrepency mellan nodens totala resurser och de resurser allocatable som används i AKS. Detta är viktigt att notera när du ställer in förfrågningar och begränsningar för användare som har distribuerat poddar.
 
 Så här söker du efter en nods allocatable resurser:
 ```kubectl
-kubectl describe node [NODE_NAME] | grep Allocatable -B 4 -A 3
+kubectl describe node [NODE_NAME]
 
 ```
 
-Följande beräknings resurser reserveras på varje nod för att underhålla prestanda och funktioner för noden. När en nod växer större i resurser växer resurs reservationen på grund av en högre mängd användar distribuerade poddar som behöver hanteras.
+För att upprätthålla prestanda och funktioner för noden reserveras resurser på varje nod av AKS. När en nod växer större i resurser växer resurs reservationen på grund av en högre mängd användar distribuerade poddar som behöver hanteras.
 
 >[!NOTE]
 > Att använda tillägg som OMS använder ytterligare resurs resurser.
 
-- **Processor** beroende av nodtyp
+- **CPU** -reserverad CPU är beroende av nodtypen och kluster konfigurationen vilket kan orsaka mindre allocatable CPU på grund av att ytterligare funktioner körs
 
 | PROCESSOR kärnor på värd | 1 | 2 | 4 | 8 | 16 | 32|64|
 |---|---|---|---|---|---|---|---|
-|Kubelet (millicores)|60|100|140|180|260|420|740|
+|Kube-reserverade (millicores)|60|100|140|180|260|420|740|
 
-- **Minne** – 20% ledigt minne, upp till 4 GiB Max
+- **Minne** – reservation av minne följer en progressiv hastighet
+  - 25% av de första 4 GB minne
+  - 20% av nästa 4 GB minne (upp till 8 GB)
+  - 10% av nästa 8 GB minne (upp till 16 GB)
+  - 6% av nästa 112 GB minne (upp till 128 GB)
+  - 2% av ett minne över 128 GB
 
 Dessa reservationer innebär att mängden tillgängligt CPU och minne för dina program kan verka mindre än själva noden innehåller. Om det finns resurs begränsningar på grund av antalet program som du kör, garanterar dessa reservationer att CPU och minne är tillgängligt för kärn Kubernetes-komponenterna. Resurs reservationerna kan inte ändras.
 
-Exempel:
-
-- **Standard DS2 v2** -Node-storleken innehåller 2 vCPU och 7 GIB-minne
-    - 20% av 7 GiB-minne = 1,4 GiB
-    - Totalt *(7-1,4) = 5,6 GIB-* minne är tillgängligt för noden
-    
-- **Standard E4s v3** -Node-storleken innehåller 4 vCPU och 32 GIB-minne
-    - 20% av 32 GiB-minne = 6,4 GiB, men AKS reserverar högst 4 GiB
-    - Totalt *(32-4) = 28 GIB* är tillgängligt för noden
-    
 Den underliggande noden kräver också viss mängd processor-och minnes resurser för att slutföra sina egna kärn funktioner.
 
 För associerade metod tips, se [metod tips för grundläggande funktioner i Schemaläggaren i AKS][operator-best-practices-scheduler].

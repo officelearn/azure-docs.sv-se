@@ -1,6 +1,6 @@
 ---
-title: Lägga till användare i ett Azure Data Lake Analytics-konto
-description: Lär dig hur du ska lägga till användare i ditt Data Lake Analytics-konto
+title: Lägga till användare till ett Azure Data Lake Analytics konto
+description: Lär dig hur du lägger till användare i ditt Data Lake Analytics konto på rätt sätt med hjälp av guiden Lägg till användare och Azure PowerShell.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,44 +9,44 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 8323c4e1b236444f55dab826d2567491f5f0f736
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 16c503fe2d584d5f8256c65bfc49825b300f6a36
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629330"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672733"
 ---
-# <a name="adding-a-user-in-the-azure-portal"></a>Om du lägger till en användare i Azure portal
+# <a name="adding-a-user-in-the-azure-portal"></a>Lägga till en användare i Azure-portalen
 
-## <a name="start-the-add-user-wizard"></a>Starta i guiden Lägg till användare
+## <a name="start-the-add-user-wizard"></a>Starta guiden Lägg till användare
 1. Öppna din Azure Data Lake Analytics via https://portal.azure.com.
 2. Klicka på **guiden Lägg till användare**.
-3. I den **Välj användare** steg, hitta den användare som du vill lägga till. Klicka på **Välj**.
-4. den **Välj roll** steg, Välj **Data Lake Analytics-utvecklare**. Den här rollen har den minsta uppsättningen behörigheter som krävs för att skicka/övervaka/hantera U-SQL-jobb. Tilldela rollen om gruppen inte är avsedd för att hantera Azure-tjänster.
-5. I den **Välj katalog-behörigheter** steg, välj eventuella ytterligare databaserna som användaren behöver åtkomst till. Läs- och skrivåtkomst till master-databasen krävs för att skicka jobb. Klicka på **OK** när du är klar.
-6. I det sista steget kallas **tilldela valda behörigheter** granska ändringarna kommer att göra i guiden. Klicka på **OK**.
+3. Leta upp den användare som du vill lägga till i steget **Välj användare** . Klicka på **Välj**.
+4. steget **Välj roll** , Välj **data Lake Analytics utvecklare**. Den här rollen har den lägsta uppsättning behörigheter som krävs för att skicka/övervaka/hantera U-SQL-jobb. Tilldela den här rollen om gruppen inte är avsedd för hantering av Azure-tjänster.
+5. I steget **Välj katalog behörigheter** väljer du ytterligare databaser som användaren behöver åtkomst till. Läs-och Skriv behörighet till huvud databasen krävs för att skicka jobb. Klicka på **OK** när du är klar.
+6. I det sista steget som kallas **Tilldela markerade behörigheter** granskar du de ändringar som görs i guiden. Klicka på **OK**.
 
 
-## <a name="configure-acls-for-data-folders"></a>Konfigurera åtkomstkontrollistor för mappar
-Ge ”R-X” eller ”RWX” på mappar som innehåller indata och utdata.
+## <a name="configure-acls-for-data-folders"></a>Konfigurera ACL: er för datamappar
+Bevilja "R-X" eller "RWX", om det behövs, i mappar som innehåller indata och utdata.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Du kan också lägga till användaren till rollen Azure Data Lake Storage Gen1 **läsare** roll.
-1.  Hitta din Azure Data Lake Storage Gen1-konto.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>Du kan också lägga till användaren i rollen Azure Data Lake Storage Gen1 roll **läsare** .
+1.  Hitta ditt Azure Data Lake Storage Gen1-konto.
 2.  Klicka på **användare**.
 3. Klicka på **Lägg till**.
-4.  Välj en Azure RBAC-roll att tilldela den här gruppen.
-5.  Tilldela rollen läsare. Den här rollen har den minsta uppsättningen behörigheter som krävs för att bläddra/hantera data som lagras i ADLSGen1. Tilldela rollen om gruppen inte är avsedd för att hantera Azure-tjänster.
-6.  Ange namnet på gruppen.
+4.  Välj en Azure RBAC-roll för att tilldela den här gruppen.
+5.  Tilldela till läsar roll. Den här rollen har den minsta uppsättning behörigheter som krävs för att bläddra/hantera data som lagras i ADLSGen1. Tilldela den här rollen om gruppen inte är avsedd för hantering av Azure-tjänster.
+6.  Skriv in namnet på gruppen.
 7.  Klicka på **OK**.
 
-## <a name="adding-a-user-using-powershell"></a>Att lägga till en användare med hjälp av PowerShell
+## <a name="adding-a-user-using-powershell"></a>Lägga till en användare med hjälp av PowerShell
 
-1. Följ instruktionerna i den här guiden: [Hur du installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
-2. Ladda ned den [Lägg till AdlaJobUser.ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) PowerShell-skript.
-3. Kör PowerShell-skript. 
+1. Följ anvisningarna i den här guiden: [Så här installerar och konfigurerar du Azure PowerShell](https://azure.microsoft.com/documentation/articles/powershell-install-configure/).
+2. Hämta PowerShell-skriptet [Add-AdlaJobUser. ps1](https://github.com/Azure/AzureDataLake/blob/master/Samples/PowerShell/ADLAUsers/Add-AdlaJobUser.ps1) .
+3. Kör PowerShell-skriptet. 
 
-Exempelkommando för att ge användaråtkomst till att skicka jobb, visa nya jobbmetadata och visa gamla metadata är:
+Exempel kommandot för att ge användarna åtkomst till att skicka jobb, Visa nya metadata för jobb och Visa gamla metadata:
 
 `Add-AdlaJobUser.ps1 -Account myadlsaccount -EntityToAdd 546e153e-0ecf-417b-ab7f-aa01ce4a7bff -EntityType User -FullReplication`
 
@@ -54,6 +54,6 @@ Exempelkommando för att ge användaråtkomst till att skicka jobb, visa nya job
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Kom igång med Data Lake Analytics med hjälp av Azure portal](data-lake-analytics-get-started-portal.md)
-* [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+* [Kom igång med Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md)
+* [Hantera Azure Data Lake Analytics med Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 

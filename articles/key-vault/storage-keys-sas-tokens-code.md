@@ -7,18 +7,18 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: a20f5b16b90b9bac7e6bc3ff808cf443b252fb44
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 75561c643c2b8881e4b390be885b77f2fff4971d
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204554"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673455"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Hämta token för signaturer för delad åtkomst i kod
 
 Du kan hantera ditt lagrings konto med [signatur-token för delad åtkomst](../storage/common/storage-dotnet-shared-access-signature-part-1.md) i ditt nyckel valv. Den här artikeln innehåller exempel C# på kod som hämtar en SAS-token och utför åtgärder med den.  Information om hur du skapar och lagrar SAS-token finns i [Hantera lagrings konto nycklar med Key Vault och Azure CLI](key-vault-ovw-storage-keys.md) eller [Hantera lagrings konto nycklar med Key Vault och Azure PowerShell](key-vault-overview-storage-keys-powershell.md).
 
-# <a name="code-samples"></a>Kodexempel
+## <a name="code-samples"></a>Kodexempel
 
 I det här exemplet hämtar koden en SAS-token från ditt nyckel valv, använder den för att skapa ett nytt lagrings konto och skapar en ny Blob Service-klient.  
 

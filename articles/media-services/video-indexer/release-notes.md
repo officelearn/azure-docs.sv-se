@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/29/2019
+ms.date: 09/26/2019
 ms.author: juliako
-ms.openlocfilehash: a7d178972a8c8b413e3c6336c403348f1eb78abb
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 4953160a30e45b9be1ff249b6cd1f74e01bb14f3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232609"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672663"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Viktig information om Azure Media Services Video Indexer
 
@@ -27,6 +27,26 @@ Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den h
 * Kända problem
 * Felkorrigeringar
 * Inaktuell funktion
+
+## <a name="september-2019"></a>September 2019
+ 
+Flera framsteg lanseras i IBC 2019:
+ 
+* Animerad typsnitts igenkänning (offentlig för hands version)
+
+    Möjlighet att identifiera grup AD identifiera tecken i animerat innehåll via integrering med anpassad vision. Mer information finns i [animerat teckensnitts identifiering](animated-characters-recognition.md).
+* Identifiering på flera språk (offentlig för hands version)
+
+    Identifiera segment i flera språk i ljud spåret och skapa en flerspråkig avskrifts enhet baserat på dem. Första support: Engelska, spanska, tyska och franska. Mer information finns i [identifiera och automatisk identifiering av innehåll på flera språk](multi-language-identification-transcription.md).
+* Extraktion av namngiven enhet för personer och plats
+
+    Extraherar varumärken, platser och personer från tal och visuell text via naturlig språk bearbetning (NLP).
+* Klassificering av redigerings typ
+
+    Märkning av dum par med redaktionella typer som att stänga, medels Tor, två bilder, inomhus, Utomhus osv. Mer information finns i [identifiering av redaktionella typer av tagningar](scenes-shots-keyframes.md#editorial-shot-type-detection).
+* Ämne inferencing-förbättring – nu täcker nivå 2
+    
+    Avsnittet inferencing-modellen har nu stöd för djupare granularitet i IPTC-taxonomin. Läs fullständig information på [Azure Media Services nya AI-baserade innovationer](https://azure.microsoft.com/blog/azure-media-services-new-ai-powered-innovation/).
 
 ## <a name="august-2019"></a>2019 augusti
  
@@ -103,7 +123,7 @@ Nu kan du se en förhands granskning av alla insikter som valts till följd av a
 
 [Skapa anpassad språk modell](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Create-Language-Model?&groupBy=tag) och [uppdatera anpassade språk](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Language-Model?&groupBy=tag) modells-API: er stöder nu VTT-, SRT-och ttml-filformat som indata för språk modeller.
 
-När du anropar uppdaterings video avskrifts- [API: t](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript)läggs avskriften till automatiskt. Den utbildnings modell som är associerad med videon uppdateras också automatiskt. Information om hur du anpassar och tränar dina språk modeller finns i [Anpassa en språk modell med video Indexer](customize-language-model-overview.md).
+När du anropar [uppdaterings video avskrifts-API: t](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Update-Video-Transcript?&pattern=transcript)läggs avskriften till automatiskt. Den utbildnings modell som är associerad med videon uppdateras också automatiskt. Information om hur du anpassar och tränar dina språk modeller finns i [Anpassa en språk modell med video Indexer](customize-language-model-overview.md).
 
 ### <a name="new-download-transcript-formats--txt-and-csv"></a>Nya format för att ladda ned avskrifter – TXT och CSV
 

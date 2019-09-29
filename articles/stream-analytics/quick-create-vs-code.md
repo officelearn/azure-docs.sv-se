@@ -1,22 +1,22 @@
 ---
-title: Skapa cloud Azure Stream Analytics-jobb i Visual Studio Code (förhandsversion)
-description: Den här snabbstarten visar hur du kommer igång genom att skapa ett Stream Analytics-jobb, konfigurera indata och utdata, och definiera en fråga med Visual Studio Code.
+title: Skapa ett Azure Stream Analytics moln jobb i Visual Studio Code (för hands version)
+description: Den här snabb starten visar hur du kommer igång genom att skapa ett Stream Analytics jobb, konfigurera indata, utdata och definiera en fråga med Visual Studio Code.
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/06/2019
+ms.date: 09/16/2019
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 894f43a7da0abd129123d5c4ddf2bb95347c42c5
-ms.sourcegitcommit: be9fcaace62709cea55beb49a5bebf4f9701f7c6
+ms.openlocfilehash: 3301be3a067982cb90e663fe3782319eb0b90ba0
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/17/2019
-ms.locfileid: "65825382"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673136"
 ---
-# <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Snabbstart: Skapa cloud Azure Stream Analytics-jobb i Visual Studio Code (förhandsversion)
+# <a name="quickstart-create-an-azure-stream-analytics-cloud-job-in-visual-studio-code-preview"></a>Snabbstart: Skapa ett Azure Stream Analytics moln jobb i Visual Studio Code (för hands version)
 
-Den här snabbstarten visar hur du skapar och kör ett Stream Analytics-jobb med hjälp av Azure Stream Analytics-tillägget för Visual Studio Code. Exempeljobbet läser strömmande data från en IoT Hub-enhet. Du definierar ett jobb som beräknar medeltemperaturen när den överstiger 27° och skriver utdatahändelser till en ny fil i Blob Storage.
+Den här snabb starten visar hur du skapar och kör ett Stream Analytics jobb med hjälp av Azure Stream Analytics tillägget för Visual Studio Code. Exempeljobbet läser strömmande data från en IoT Hub-enhet. Du definierar ett jobb som beräknar medeltemperaturen när den överstiger 27° och skriver utdatahändelser till en ny fil i Blob Storage.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -26,27 +26,27 @@ Den här snabbstarten visar hur du skapar och kör ett Stream Analytics-jobb med
 
 * Installera [Visual Studio Code](https://code.visualstudio.com/).
 
-## <a name="install-the-azure-stream-analytics-extension"></a>Installera tillägget Azure Stream Analytics
+## <a name="install-the-azure-stream-analytics-extension"></a>Installera Azure Stream Analytics-tillägget
 
 1. Öppna Visual Studio Code.
 
-2. Från **tillägg** på den vänstra rutan Sök efter **Stream Analytics** och välj **installera** på den **Azure Stream Analytics** tillägget.
+2. Från **tillägg** i den vänstra rutan söker du efter **Stream Analytics** och väljer **Installera** i **Azure Stream Analytics** tillägget.
 
-3. När tillägget har installerats kan du kontrollera att **Azure Stream Analytics Tools** visas i din **aktiverat tillägg**.
+3. När tillägget har installerats kontrollerar du att **Azure Stream Analytics verktyg** är synligt i dina **aktiverade tillägg**.
 
-   ![Azure Stream Analytics-verktyg under aktiverat tillägg i Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
+   ![Azure Stream Analytics verktyg under aktiverade tillägg i Visual Studio Code](./media/quick-create-vs-code/enabled-extensions.png)
 
-## <a name="activate-the-azure-stream-analytics-extension"></a>Aktivera tillägget Azure Stream Analytics
+## <a name="activate-the-azure-stream-analytics-extension"></a>Aktivera Azure Stream Analytics-tillägget
 
-1. Välj den **Azure** -ikonen i Aktivitetsfältet VS Code. **Stream Analytics** kommer att visas i fältet på klientsidan. Under **Stream Analytics**väljer **logga in på Azure**. 
+1. Välj **Azure** -ikonen i AKTIVITETS fältet vs-kod. **Stream Analytics** visas i sido fältet. Under **Stream Analytics**väljer **du logga in på Azure**. 
 
    ![Logga in på Azure i Visual Studio Code](./media/quick-create-vs-code/azure-sign-in.png)
 
-2. När du har loggat in visas namnet på ditt Azure i statusfältet i det nedre vänstra hörnet i VS Code-fönstret.
+2. När du är inloggad visas namnet på ditt Azure-konto i statusfältet i det nedre vänstra hörnet i VS Code-fönstret.
 
 > [!NOTE]
-> Azure Stream Analytics-verktyg kommer automatiskt att logga in vid nästa om du inte loggar. Om ditt konto har tvåfaktorsautentisering, rekommenderas att du använder phone autentisering i stället för en PIN-kod.
-> Om du har problem med lista över resurser, hjälper logga ut och logga in igen vanligtvis. Ange kommandot för att logga ut `Azure: Sign Out`.
+> Azure Stream Analytics verktyg loggas automatiskt in nästa gången om du inte loggar ut. Om ditt konto har tvåfaktorautentisering, rekommenderar vi att du använder autentisering i stället för att använda en PIN-kod.
+> Om du har problem med att lista resurser kan du logga ut och logga in igen i allmänhet. Logga ut genom att ange kommandot `Azure: Sign Out`.
 
 ## <a name="prepare-the-input-data"></a>Förbereda indata
 
@@ -60,8 +60,8 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
    
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
-   |Prenumeration  | \<Din prenumeration\> |  Ange den prenumeration som du vill använda. |
-   |Resursgrupp   |   asaquickstart-resourcegroup  |   Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto. |
+   |Subscription  | \<Din prenumeration\> |  Ange den prenumeration som du vill använda. |
+   |Resource group   |   asaquickstart-resourcegroup  |   Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto. |
    |Region  |  \<Välj den region som är närmast dina användare\> | Välj en geografisk plats där du kan hantera din IoT-hubb. Använd den plats som är närmast dina användare. |
    |IoT-hubbnamn  | MyASAIoTHub  |   Välj ett namn för din IoT-hubb.   |
 
@@ -97,78 +97,32 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
 
 4. Från sidan **Blob Service** väljer du **Container** och anger ett namn för containern, till exempel *container1*. Låt **Offentlig åtkomstnivå** vara **Privat (ingen anonym åtkomst)** och välj **OK**.
 
-   ![Skapa blobcontainer](./media/quick-create-vs-code/create-blob-container.png)
+   ![Skapa blobbcontainern](./media/quick-create-vs-code/create-blob-container.png)
 
 ## <a name="create-a-stream-analytics-project"></a>Skapa ett Stream Analytics-projekt
 
-1. I Visual Studio Code trycker du på **Ctrl + Skift + P** att öppna kommandopaletten. Skriv sedan **ASA** och välj **ASA: Skapa nytt projekt**.
+1. Tryck på **CTRL + SKIFT + P** i Visual Studio Code för att öppna kommando paletten. Skriv sedan **ASA** och välj **ASA: Skapa ett nytt projekt @ no__t-0.
 
    ![Skapa ett nytt projekt](./media/quick-create-vs-code/create-new-project.png)
 
-2. Ange ditt projektnamn som **myASAproj** och välj en mapp för ditt projekt.
+2. Ange ditt projekt namn som **myASAproj** och välj en mapp för projektet.
 
-    ![Skapa projektnamn](./media/quick-create-vs-code/create-project-name.png)
+    ![Skapa projekt namn](./media/quick-create-vs-code/create-project-name.png)
 
-3. Det nya projektet läggs till din arbetsyta. En ASA-projektet består av Frågeskript **(*.asaql)**, ett **JobConfig.json** -fil och en **asaproj.json** konfigurationsfilen.
+3. Det nya projektet kommer att läggas till i din arbets yta. Ett ASA-projekt består av frågans skript **(*. asaql)** , en **JobConfig. JSON** -fil och en **asaproj. JSON** -konfigurationsfil.
 
-   ![Stream Analytics-projektfiler i VS Code](./media/quick-create-vs-code/asa-project-files.png)
+   ![Stream Analytics projektfiler i VS Code](./media/quick-create-vs-code/asa-project-files.png)
 
-4. Den **asaproj.json** konfigurationsfilen innehåller indata, utdata och jobbet filen konfigurationsinformation som behövs för att skicka ett Stream Analytics-jobb till Azure.
+4. Konfigurations filen **asaproj. JSON** innehåller indata, utdata och information om jobb konfigurations filen som krävs för att skicka Stream Analytics jobb till Azure.
 
-   ![Konfigurationsfilen för Stream Analytics-jobb i VS Code](./media/quick-create-vs-code/job-configuration.png)
+   ![Stream Analytics jobb konfigurations fil i VS Code](./media/quick-create-vs-code/job-configuration.png)
 
 > [!Note]
-> När du lägger till indata och utdata från kommandopaletten motsvarande sökvägar ska läggas till i **asaproj.json** automatiskt. Om du lägger till eller ta bort indata eller utdata på disken direkt, måste du manuellt lägga till eller ta bort dem från **asaproj.json**. Du kan välja att placera indata och utdata i en placera sedan referera till dem i olika jobb genom att ange sökvägarna i varje **asaproj.json**.
-
-## <a name="define-an-input"></a>Definiera indata
-
-1. Välj **Ctrl + Skift + P** öppna kommandopaletten och ange **ASA: Lägg till indata**.
-
-   ![Lägg till indata för Stream Analytics i VS Code](./media/quick-create-vs-code/add-input.png)
-
-2. Välj **IoT Hub** för indatatyp.
-
-   ![Välj IoT Hub som alternativ](./media/quick-create-vs-code/iot-hub.png)
-
-3. Välj fråga ASA-skriptet som ska använda indata. Det bör automatiskt fylla i med sökväg till **myASAproj.asaql**.
-
-   ![Välj en ASA-skriptet i Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
-
-4. Ange indatafilnamn som **IotHub.json**.
-
-5. Redigera **IoTHub.json** med följande värden. Behåll standardvärdena för fält som inte nämns nedan. Du kan använda CodeLens för att hjälpa dig att ange en sträng, Välj från en listruta eller ändra texten direkt i filen.
-
-   |Inställning|Föreslaget värde|Beskrivning|
-   |-------|---------------|-----------|
-   |Namn|Indata|Ange ett namn som identifierar jobbets indata.|
-   |IotHubNamespace|MyASAIoTHub|Välj eller ange namnet på IoT-hubben. IoT-hubbnamn identifieras automatiskt om de skapas i samma prenumeration.|
-   |Slutpunkt|Meddelanden| |
-   |SharedAccessPolicyName|iothubowner| |
-
-## <a name="define-an-output"></a>Definiera utdata
-
-1. Välj **Ctrl + Skift + P** att öppna kommandopaletten. Ange sedan **ASA: Lägg till utdata**.
-
-   ![Lägg till Stream Analytics-utdata i VS Code](./media/quick-create-vs-code/add-output.png)
-
-2. Välj **Blob Storage** för mottagartyp.
-
-3. Välj fråga ASA-skriptet som ska använda denna indata.
-
-4. Ange namnet på utdatafilen som **BlobStorage.json**.
-
-5. Redigera **BlobStorage.json** med följande värden. Behåll standardvärdena för fält som inte nämns nedan. Använd CodeLens för att ange en sträng eller välj en listruta.
-
-   |Inställning|Föreslaget värde|Beskrivning|
-   |-------|---------------|-----------|
-   |Namn|Utdata| Ange ett namn som identifierar jobbets utdata.|
-   |Lagringskonto|asaquickstartstorage|Välj eller ange namnet på ditt lagringskonto. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.|
-   |Container|container1|Välj en befintlig container som du skapade i ditt lagringskonto.|
-   |Sökvägsmönster|utdata|Ange namnet för en sökväg som ska skapas i containern.|
+> När du lägger till indata och utdata från paletten kommando, läggs motsvarande sökvägar till i **asaproj. JSON** automatiskt. Om du lägger till eller tar bort indata eller utdata på disken direkt måste du manuellt lägga till eller ta bort dem från **asaproj. JSON**. Du kan välja att placera indata och utdata på en plats och sedan referera till dem i olika jobb genom att ange Sök vägarna i varje **asaproj. JSON**.
 
 ## <a name="define-the-transformation-query"></a>Definiera transformationsfrågan
 
-1. Öppna **myASAproj.asaql** i projektmappen.
+1. Öppna **myASAproj. asaql** från projektmappen.
 
 2. Lägg till följande fråga:
 
@@ -178,40 +132,100 @@ Innan du definierar Stream Analytics-jobbet bör du förbereda de data som senar
    FROM Input
    HAVING Temperature > 27
    ```
+## <a name="test-with-sample-data"></a>Testa med exempeldata
+Innan du kör frågan i molnet kan du testa din fråga med lokala exempel data för att verifiera fråge logiken.
+
+Följ anvisningarna i [testa med exempel data](vscode-local-run.md) för mer information. 
+
+ ![Testa med exempel data i VS Code](./media/quick-create-vs-code/vscode-localrun.gif)
+
+## <a name="define-an-input"></a>Definiera indata
+
+1. Välj **Ctrl + Shift + P** för att öppna kommando-paletten och ange **ASA: Lägg till inmatade @ no__t-0.
+
+   ![Lägg till Stream Analytics in VS Code](./media/quick-create-vs-code/add-input.png)
+
+2. Välj **IoT Hub** för indatatypen.
+
+   ![Välj IoT Hub som indatamängds alternativ](./media/quick-create-vs-code/iot-hub.png)
+
+3. Välj det ASA-frågeuttryck som ska använda indatamängden. Den ska automatiskt fylla i med sökvägen till filen **myASAproj. asaql**.
+
+   ![Välj ett ASA-skript i Visual Studio Code](./media/quick-create-vs-code/asa-script.png)
+
+4. Ange indatafilens namn som **IotHub**.
+
+5. Redigera **IoTHub. JSON** med följande värden. Behåll standardvärdena för fält som inte nämns nedan. Du kan använda CodeLens för att ange en sträng, välja från en listruta eller ändra texten direkt i filen.
+
+   |Inställning|Föreslaget värde|Beskrivning|
+   |-------|---------------|-----------|
+   |Name|Indata|Ange ett namn som identifierar jobbets indata.|
+   |IotHubNamespace|MyASAIoTHub|Välj eller ange namnet på IoT-hubben. IoT-hubbnamn identifieras automatiskt om de skapas i samma prenumeration.|
+   |SharedAccessPolicyName|iothubowner| |
+
+   ![Konfigurera indatatyper i Visual Studio Code](./media/quick-create-vs-code/configure-input.png)
+
+
+
+## <a name="define-an-output"></a>Definiera utdata
+
+1. Välj **Ctrl + Shift + P** för att öppna kommando paletten. Ange sedan **ASA: Lägg till utdata @ no__t-0.
+
+   ![Lägg till Stream Analytics utdata i VS Code](./media/quick-create-vs-code/add-output.png)
+
+2. Välj **Blob Storage** för typ av mottagare.
+
+3. Välj det ASA-frågeuttryck som ska använda den här indatamängden.
+
+4. Ange namnet på utdatafilen som **BlobStorage**.
+
+5. Redigera **BlobStorage** med följande värden. Behåll standardvärdena för fält som inte nämns nedan. Använd CodeLens för att hjälpa dig att välja i en listruta eller ange en sträng. 
+
+   |Inställning|Föreslaget värde|Beskrivning|
+   |-------|---------------|-----------|
+   |Name|Output| Ange ett namn för att identifiera jobbets utdata.|
+   |Lagringskonto|asaquickstartstorage|Välj eller ange namnet på ditt lagrings konto. Lagringskontonamn identifieras automatiskt om de skapas i samma prenumeration.|
+   |Container|container1|Välj en befintlig container som du skapade i ditt lagringskonto.|
+   |Sökvägsmönster|utdata|Ange namnet för en sökväg som ska skapas i containern.|
+
+ ![Konfigurera utdata i Visual Studio Code](./media/quick-create-vs-code/configure-output.png)
 
 ## <a name="compile-the-script"></a>Kompilera skriptet
 
-Kompilering av skriptet gör två saker: Kontrollera syntax och skapa Azure Resource Manager-mallar för autodeployment.
+Skript kompileringen gör två saker: kontrol lera syntaxen och generera Azure Resource Manager mallar för Autodistribution.
 
-Det finns två sätt att utlösa kompilering av skriptet:
+Det finns två sätt att utlösa skript kompilering:
 
-1. Väljer du skriptet från arbetsytan och sedan sätts kompilera från kommandopaletten. 
+1. Välj skriptet från arbets ytan och Utlös sedan kompilering från kommando-paletten. 
 
-   ![Använda VS Code kommandopaletten för att kompilera skriptet](./media/quick-create-vs-code/compile-script1.png)
+   ![Använd kommando paletten VS Code för att kompilera skriptet](./media/quick-create-vs-code/compile-script1.png)
 
-2. Högerklicka på skriptet och välj **ASA: kompilera skriptet**.
+2. Högerklicka på skriptet och välj **ASA: kompilera skript**.
 
-    ![Högerklicka på ASA-skriptet för att kompilera](./media/quick-create-vs-code/compile-script2.png)
+    ![Högerklicka på det ASA-skript som ska kompileras](./media/quick-create-vs-code/compile-script2.png)
 
-3. Efter kompilering, du kan hitta de två genererade Azure Resource Manager-mallarna i **distribuera** mapp i ditt projekt. Dessa två filer används för autodeployment.
+3. Efter kompileringen kan du hitta de två genererade Azure Resource Manager mallar i **Deploy** -mappen i projektet. De här två filerna används för Autodistribution.
 
-    ![Stream Analytics-distributionsmallar i Utforskaren](./media/quick-create-vs-code/deployment-templates.png)
+    ![Mallar för Stream Analytics distribution i Utforskaren](./media/quick-create-vs-code/deployment-templates.png)
 
-## <a name="submit-a-stream-analytics-job-to-azure"></a>Skicka ett Stream Analytics-jobb till Azure
+## <a name="submit-a-stream-analytics-job-to-azure"></a>Skicka ett Stream Analytics jobb till Azure
 
-1. I skriptet redigeraren fönstret i Visual Studio Code, väljer **Välj från dina prenumerationer**.
+1. I fönstret skript redigeraren i Visual Studio Code väljer du **Välj bland dina prenumerationer**.
 
-   ![Välj från dina prenumerationer text i Skriptredigeraren](./media/quick-create-vs-code/select-subscription.png)
+   ![Välj från din prenumerations text i skript redigeraren](./media/quick-create-vs-code/select-subscription.png)
 
-2. Välj din prenumeration från listan över popup-fönstret.
+2. Välj din prenumeration i popup-listan.
 
-3. Välj jobb **. Välj sedan skapa ett nytt jobb.
+3. Välj ett jobb * *. Välj sedan skapa ett nytt jobb.
 
-4. Ange Jobbnamnet på din **myASAjob** och följ sedan anvisningarna för att välja den resursgrupp och plats.
+4. Ange ditt jobb namn, **myASAjob** och följ sedan anvisningarna för att välja resurs grupp och plats.
 
-5. Välj **skicka till Azure**. Loggarna finns i utdatafönstret. 
+5. Välj **Skicka till Azure**. Loggarna finns i fönstret utdata. 
 
-6. När jobbet har skapats kan se du den i Stream Analytics Explorer.
+6. När jobbet har skapats kan du se det i **Stream Analytics Explorer**.
+
+![List jobb i Stream Analytics Explorer](./media/quick-create-vs-code/list-job.png)
+
 
 ## <a name="run-the-iot-simulator"></a>Köra IoT-simulatorn
 
@@ -225,17 +239,17 @@ Det finns två sätt att utlösa kompilering av skriptet:
 
 ## <a name="start-the-stream-analytics-job-and-check-output"></a>Starta Stream Analytics-jobbet och kontrollera utdata
 
-1. Öppna **Stream Analytics Explorer** i Visual Studio Code och Sök efter ditt jobb **myASAJob**.
+1. Öppna **Stream Analytics Explorer** i Visual Studio Code och hitta jobbet, **myASAJob**.
 
-2. Högerklicka på jobbnamnet. Välj **starta** på snabbmenyn.
+2. Högerklicka på jobb namnet. Välj sedan **Starta** från snabb menyn.
 
-   ![Starta Stream Analytics-jobbet i VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
+   ![Starta Stream Analytics jobb i VS Code](./media/quick-create-vs-code/start-asa-job-vs-code.png)
 
-3. Välj **nu** i popup-fönster för att starta jobbet.
+3. Välj **nu** i popup-fönstret för att starta jobbet.
 
-4. Obs jobbet har statusen har ändrats till **kör**. Högerklicka på jobbnamnet och välj **öppna Jobbvy i portalen** att se indata och utdata händelse mått. Den här åtgärden kan ta några minuter.
+4. Observera att jobb statusen har ändrats till att **köras**. Högerklicka på jobb namnet och välj **Öppna jobb visning i portalen** för att se händelse mått för indata och utdata. Den här åtgärden kan ta några minuter.
 
-5. Om du vill visa resultatet genom att öppna blob-lagringen i Visual Studio Code-tillägget eller i Azure-portalen.
+5. Om du vill visa resultaten öppnar du blob-lagringen i Visual Studio Code-tillägget eller i Azure Portal.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -247,7 +261,7 @@ Ta bort resursgruppen, strömningsjobbet och alla relaterade resurser när de in
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabbstarten har distribuerat du ett enkelt Stream Analytics-jobb med hjälp av Visual Studio Code. Du kan också distribuera Stream Analytics-jobb med den [Azure-portalen](stream-analytics-quick-create-portal.md), [PowerShell](stream-analytics-quick-create-powershell.md), och Visual Studio (stream-analytics-Snabbstart – skapa – vs.md). 
+I den här snabb starten har du distribuerat ett enkelt Stream Analytics-jobb med Visual Studio Code. Du kan också distribuera Stream Analytics jobb med hjälp av [Azure Portal](stream-analytics-quick-create-portal.md), [PowerShell](stream-analytics-quick-create-powershell.md)och Visual Studio (Stream-Analytics-Quick-Create-vs.MD). 
 
 Fortsätt till följande artikel om du vill veta mer om Azure Stream Analytics-verktyg för Visual Studio:
 

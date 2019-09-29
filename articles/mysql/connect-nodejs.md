@@ -4,18 +4,18 @@ description: I den här snabbstarten finns flera kodexempel i Node.js som du kan
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, seo-javascript-september2019
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/21/2018
-ms.openlocfilehash: ad022f6ac9cebbe92cdca3a4b368524d828a9cbb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 5ad6fecc3cc06d2c4e2962640201ffcd6f96d87e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931565"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672497"
 ---
-# <a name="azure-database-for-mysql-use-nodejs-to-connect-and-query-data"></a>Azure Database for MySQL: Använd Node.js för att ansluta och skicka frågor till data
+# <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-mysql"></a>Snabbstart: Använd Node. js för att ansluta och fråga efter data i Azure Database for MySQL
 Den här snabbstarten visar hur du ansluter till en Azure Database för MySQL med hjälp av ett [Node.js](https://nodejs.org/)-program från plattformar med Windows, Ubuntu Linux och Mac. Den visar hur du använder SQL-instruktioner för att fråga, infoga, uppdatera och ta bort data i databasen. Det här avsnittet förutsätter att du är van att utveckla i Node.js och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -33,7 +33,7 @@ Följ instruktionerna för att installera Node.js beroende på din plattform. An
 ### <a name="windows"></a>**Windows**
 1. Besök [hämtningssidan för Node.js](https://nodejs.org/en/download/) och välj sedan önskat alternativ för Windows installeringsverktyg.
 2. Skapa en lokal projektmapp som till exempel `nodejsmysql`. 
-3. Öppna kommando tolken och ändra katalogen till projektmappen, till exempel`cd c:\nodejsmysql\`
+3. Öppna kommando tolken och ändra katalogen till projektmappen, till exempel `cd c:\nodejsmysql\`
 4. Kör NPM-verktyget för att installera mysql-biblioteket i projektmappen.
 
    ```cmd
@@ -90,7 +90,7 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
 
 ## <a name="running-the-javascript-code-in-nodejs"></a>Kör JavaScript-kod i Node.js
 1. Klistra in JavaScript-koden i en textfil och spara sedan filen till en projektmapp med filnamnstillägget .js (till exempel C:\nodejsmysql\createtable.js eller /home/username/nodejsmysql/createtable.js).
-2. Öppna kommando tolken eller bash-gränssnittet och ändra sedan katalogen i projektmappen `cd nodejsmysql`.
+2. Öppna kommando tolken eller bash-gränssnittet och ändra sedan katalogen till projektmappen `cd nodejsmysql`.
 3. Kör programmet genom att ange Node-kommandot följt av fil namnet, till exempel `node createtable.js`.
 4. I Windows, om node-programmet inte finns på sökvägen för miljövariabeln, kan du behöva använda den fullständiga sökvägen för att starta nodprogrammet, till exempel `"C:\Program Files\nodejs\node.exe" createtable.js`
 

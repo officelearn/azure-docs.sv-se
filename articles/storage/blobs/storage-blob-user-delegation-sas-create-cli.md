@@ -4,17 +4,17 @@ description: Lär dig hur du skapar en användar Delegerings-SAS med Azure Activ
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 6ea4dbf07c8ef99c43dbe7add1ae9270056f708c
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 077fe69d80ec433d8e37f18e04120102fc8ca390
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164326"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673327"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-the-azure-cli-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med Azure CLI (för hands version)
 
@@ -57,13 +57,13 @@ När du skapar en användar Delegerings-SAS med Azure CLI skapas den användar D
 
 Eftersom det maximala intervallet med vilken användar Delegerings nyckeln är giltigt är 7 dagar från start datumet, bör du ange en förfallo tid för SAS som ligger inom 7 dagar från start tiden. SAS är ogiltig när användar Delegerings nyckeln upphör att gälla, så en SAS med en förfallo tid på mer än 7 dagar är fortfarande bara giltig i 7 dagar.
 
-När du `--auth-mode login` skapar en användar Delegerings- `--as-user parameters` SAS krävs och. Ange *inloggning* för `--auth-mode` parametern så att begär Anden som görs till Azure Storage auktoriseras med dina autentiseringsuppgifter för Azure AD. `--as-user` Ange parametern för att indikera att den returnerade SAS: en är en användar Delegerings-SAS.
+När du skapar en användar Delegerings-SAS krävs `--auth-mode login` och `--as-user parameters`. Ange *inloggning* för parametern `--auth-mode` så att förfrågningar som görs till Azure Storage auktoriseras med dina autentiseringsuppgifter för Azure AD. Ange parametern `--as-user` för att ange att den SAS som returneras ska vara en användar Delegerings-SAS.
 
 ### <a name="create-a-user-delegation-sas-for-a-container"></a>Skapa en användar Delegerings-SAS för en behållare
 
 Om du vill skapa en användar Delegerings-SAS för en behållare med Azure CLI anropar du kommandot [AZ Storage container generate-SAS](/cli/azure/storage/container#az-storage-container-generate-sas) .
 
-Behörigheter som stöds för en användar Delegerings-SAS i en behållare inkluderar Lägg till, skapa, ta bort, lista, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar](/rest/api/storageservices/create-user-delegation-sas)Delegerings-SAS.
+Behörigheter som stöds för en användar Delegerings-SAS i en behållare inkluderar Lägg till, skapa, ta bort, lista, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar Delegerings-SAS](/rest/api/storageservices/create-user-delegation-sas).
 
 I följande exempel returneras en användar Delegerings-SAS-token för en behållare. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
@@ -87,9 +87,9 @@ se=2019-07-27&sp=r&sv=2018-11-09&sr=c&skoid=<skoid>&sktid=<sktid>&skt=2019-07-26
 
 Om du vill skapa en användar Delegerings-SAS för en blob med Azure CLI anropar du kommandot [AZ Storage BLOB generate-SAS](/cli/azure/storage/blob#az-storage-blob-generate-sas) .
 
-Behörigheter som stöds för en användar Delegerings-SAS på en BLOB inkluderar Lägg till, skapa, ta bort, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar](/rest/api/storageservices/create-user-delegation-sas)Delegerings-SAS.
+Behörigheter som stöds för en användar Delegerings-SAS på en BLOB inkluderar Lägg till, skapa, ta bort, läsa och skriva. Behörigheter kan anges med enkel eller kombinerad. Mer information om dessa behörigheter finns i [skapa en användar Delegerings-SAS](/rest/api/storageservices/create-user-delegation-sas).
 
-Följande syntax returnerar en användar Delegerings-SAS för en blob. I exemplet anges `--full-uri` parametern, som returnerar BLOB-URI: n med den SAS-token som lagts till. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
+Följande syntax returnerar en användar Delegerings-SAS för en blob. I exemplet anges parametern `--full-uri`, som returnerar BLOB-URI: n med den SAS-token som lagts till. Kom ihåg att ersätta plats hållarnas värden inom hakparenteser med dina egna värden:
 
 ```azurecli-interactive
 az storage blob generate-sas \

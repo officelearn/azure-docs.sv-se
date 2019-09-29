@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 67bddea31a4bb375657b0df5e21fab1ab3d732f5
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: cad8e3e4f32a8773fe914362b637d39765a23c21
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265561"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672522"
 ---
 # <a name="what-is-azure-private-link-service"></a>Vad är Azure Private Link service?
 
@@ -100,6 +100,7 @@ Konsumenter som har exponering (styrs av Synlighets inställningen) till din pri
 Följande är de kända begränsningarna när du använder den privata länk tjänsten:
 - Stöds endast på Standard Load Balancer 
 - Stöder endast IPv4-trafik
+- Stöder endast TCP-trafik
 - Kan endast kommas åt från privata slut punkter i samma region
 - Det finns inte stöd för att skapa och hantera erfarenhet från Azure Portal
 - Anslutnings information för klienter som använder proxy-protokollet är inte tillgänglig för tjänst leverantören

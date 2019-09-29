@@ -4,17 +4,17 @@ description: Använd Azure PowerShell för att tilldela åtkomst till behållare
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: f34e82a0011260ace4ffeed095903b033529a58d
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 967e1754ec4be504669e176a5643186d08efb9d4
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68514985"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673180"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-powershell"></a>Bevilja åtkomst till Azure blob-och Queue-data med RBAC med hjälp av PowerShell
 
@@ -60,7 +60,7 @@ Använd kommandot [New-AzRoleAssignment](/powershell/module/az.resources/new-azr
 
 ### <a name="container-scope"></a>Container omfång
 
-Om du vill tilldela en roll begränsad till en behållare anger du en sträng som innehåller omfånget för `--scope` parametern. Omfånget för en behållare är i formatet:
+Om du vill tilldela en roll begränsad till en behållare anger du en sträng som innehåller omfånget för behållaren för parametern `--scope`. Omfånget för en behållare är i formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container-name>
@@ -76,7 +76,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="queue-scope"></a>Köa omfång
 
-Om du vill tilldela en roll som är begränsad till en kö anger du en sträng som innehåller omfånget `--scope` för-parametern. Omfattningen för en kö är i formatet:
+Om du vill tilldela en roll som är begränsad till en kö anger du en sträng som innehåller omfånget för kön för parametern `--scope`. Omfattningen för en kö är i formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue-name>
@@ -92,7 +92,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="storage-account-scope"></a>Lagrings konto omfång
 
-Om du vill tilldela en roll som är begränsad till lagrings kontot anger du omfånget för lagrings `--scope` konto resursen för parametern. Omfånget för ett lagrings konto har formatet:
+Om du vill tilldela en roll som är begränsad till lagrings kontot anger du omfånget för lagrings konto resursen för parametern `--scope`. Omfånget för ett lagrings konto har formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -108,7 +108,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="resource-group-scope"></a>Definitions område för resurs grupp
 
-Om du vill tilldela en roll som är begränsad till resurs gruppen anger du resurs gruppens namn eller ID `--resource-group` för parametern. I följande exempel tilldelas rollen **data läsare för lagrings köer** till en användare på nivån i resurs gruppen. Ersätt värdena för exempel värden och plats hållare inom hak paren tes med dina egna värden: 
+Om du vill tilldela en roll som är begränsad till resurs gruppen anger du resurs gruppens namn eller ID för parametern `--resource-group`. I följande exempel tilldelas rollen **data läsare för lagrings köer** till en användare på nivån i resurs gruppen. Ersätt värdena för exempel värden och plats hållare inom hak paren tes med dina egna värden: 
 
 ```powershell
 New-AzRoleAssignment -SignInName <email> `
@@ -118,7 +118,7 @@ New-AzRoleAssignment -SignInName <email> `
 
 ### <a name="subscription-scope"></a>Prenumerations omfång
 
-Om du vill tilldela en roll som är begränsad till prenumerationen anger du omfånget för `--scope` parameterns prenumeration. Omfånget för en prenumeration är i formatet:
+Om du vill tilldela en roll som är begränsad till prenumerationen anger du omfånget för prenumerationen för parametern `--scope`. Omfånget för en prenumeration är i formatet:
 
 ```
 /subscriptions/<subscription>

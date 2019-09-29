@@ -1,7 +1,7 @@
 ---
-title: Begärandebegränsningar – Translator Text API
+title: Begär ande gränser – Translator Text API
 titleSuffix: Azure Cognitive Services
-description: Den här artikeln visar begäran gränser för Translator Text API. Debitering baserat på antal tecken, inte begäran frekvens med en gräns på 5 000 tecken per begäran. Tecknet gränserna är prenumerationsbaserade med F0 begränsat till 2 miljoner tecken per timme.
+description: I den här artikeln visas begränsningar för begäran för Translator Text API. Avgifter debiteras baserat på antal tecken, inte begär ande frekvens med en gräns på 5 000 tecken per begäran. Tecken begränsningar är prenumerationer baserat, med F0 begränsad till 2 000 000 tecken per timme.
 services: cognitive-services
 author: swmachan
 manager: nitinme
@@ -10,61 +10,61 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: swmachan
-ms.openlocfilehash: f9620cc5f135dd7b10da5528e5dec0f5baa70350
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 79cf87cef4e58cf4e5a2039f30289d55038c8b92
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226255"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671953"
 ---
-# <a name="request-limits-for-translator-text"></a>Gränser för begäran för textöversättning
+# <a name="request-limits-for-translator-text"></a>Begär ande gränser för Translator Text
 
-Den här artikeln innehåller begränsningar gränser för Translator Text API. Tjänsterna omfattar översättning, transkriberingsspråk, mening längd identifiering, språkidentifiering och alternativa översättningar.
+Den här artikeln innehåller begränsnings gränser för Translator Text API. Tjänsterna omfattar översättning, transkriberingsspråk, identifiering av menings längd, språk identifiering och alternativa översättningar.
 
-## <a name="character-and-array-limits-per-request"></a>Tecken och matrisen gränserna per begäran
+## <a name="character-and-array-limits-per-request"></a>Begränsningar för tecknen och matrisen per begäran
 
-Varje Översätt-begäran är begränsad till 5 000 tecken. Du debiteras per tecken, inte av antalet begäranden. Vi rekommenderar att du skickar kortare begäranden.
+Varje översättnings förfrågan är begränsad till 5 000 tecken. Du debiteras per steg, inte av antalet begär Anden. Vi rekommenderar att du skickar kortare begär Anden.
 
-Följande tabell visar matris element och tecknet begränsningar för varje åtgärd av Translator Text API.
+I följande tabell visas mat ris element och Character-gränser för varje åtgärd i Translator Text API.
 
-| Åtgärd | Maximal storlek för matriselement |   Maxantalet matriselement |  Begär maxstorleken (tecken) |
+| Åtgärd | Maximal storlek för mat ris element |   Maximalt antal mat ris element |  Maximal begär ande storlek (tecken) |
 |:----|:----|:----|:----|
 | Translate | 5,000 | 100   | 5,000 |
 | Transliterate | 5,000 | 10    | 5,000 |
 | Detect | 10 000 | 100 |   50,000 |
-| BreakSentence | 10 000    | 100 | 5,0000 |
+| BreakSentence | 10 000    | 100 | 50,000 |
 | Slå upp i ordlista| 100 |  10  | 1,000 |
-| Ordlisteexempel | 100 för text och 100 för översättning (200 totalt)| 10|   2,000 |
+| Ordlisteexempel | 100 för text och 100 för översättning (totalt 200)| 10|   2,000 |
 
-## <a name="character-limits-per-hour"></a>Tecknet gränserna per timme
+## <a name="character-limits-per-hour"></a>Character-gränser per timme
 
-Din teckengränsen per timme baserat på textöversättning prenumeration nivå. 
+Din tecken gräns per timme baseras på din Translator Text prenumerations nivå. 
 
-Timvis kvot ska förbrukas jämnt under hela timmen. Till exempel på F0 nivå högst 2 miljoner tecken per timme, ska tecken förbrukas snabbare än ungefär 33,300 tecken per minut skjutfönster (2 miljoner tecken dividerat med 60 minuter).
+Tim kvoten bör förbrukas jämnt under hela timmen. Till exempel, på F0-nivå gränsen på 2 000 000 tecken per timme, ska tecken förbrukas inte snabbare än med ungefär 33 300 tecken per minut i glidande fönster (2 000 000-tecken dividerat med 60 minuter).
 
-Om du når eller överskrider gränserna eller skicka för stor del av en del av kvoten i en kort tidsperiod, får du sannolikt en out of kvot svar. Det finns ingen gräns för samtidiga förfrågningar.
+Om du når eller överskrider de här gränserna eller skickar för stor del av kvoten under en kort tids period får du troligt vis ett kvot svar. Det finns inga begränsningar för samtidiga begär Anden.
 
-| Nivå | Maximalt antal tillåtna tecken |
+| Nivå | Tecken gräns |
 |------|-----------------|
-| F0 | 2 miljoner tecken per timme |
-| S1 | 40 miljoner tecken per timme |
-| S2 / C2 | 40 miljoner tecken per timme |
-| S3 / C3 | 120 miljoner tecken per timme |
-| S4 / C4 | 200 miljoner tecken per timme |
+| F0 | 2 000 000 tecken per timme |
+| S1 | 40 000 000 tecken per timme |
+| S2/C2 | 40 000 000 tecken per timme |
+| S3/C3 | 120 000 000 tecken per timme |
+| S4/C4 | 200 000 000 tecken per timme |
 
-Nätverksgränser [flera tjänster prenumerationer](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) är samma som på nivån S1.
+Begränsningar för [prenumerationer med flera tjänster](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication) är samma som i S1-nivån.
 
-Dessa gränser är begränsade till Microsofts standard översättningsmodeller. Anpassade översättningsmodeller som använder anpassade Translator är begränsade till 1 800 tecken per sekund.
+Dessa gränser är begränsade till Microsofts standard översättnings modeller. Anpassade översättnings modeller som använder anpassad översättare är begränsade till 1 800 tecken per sekund.
 
 ## <a name="latency"></a>Svarstid
 
-Translator Text API har en maximal fördröjning på 15 sekunder med hjälp av standard-modeller. Översättning med hjälp av anpassade modeller har en maximal fördröjning på 25 sekunder. Vid den tidpunkten kommer du har fått ett resultat eller ett timeout-svar. Normalt returneras svar i 150 millisekunder till 300 millisekunder. Svarstider kan variera beroende på storleken på begäran och språk-par. Om du inte får en översättning eller ett [felsvar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) inom den tidsramen bör du kontrollera nätverksanslutningen och försök igen.
+Translator Text API har en maximal fördröjning på 15 sekunder med standard modeller. Översättning med anpassade modeller har en maximal fördröjning på 25 sekunder. Vid den här tidpunkten har du fått ett resultat eller ett timeout-svar. Normalt returneras svar i 150 millisekunder till 300 millisekunder. Svars tiderna varierar beroende på storleken på begäran och språk paret. Om du inte får någon översättning eller ett [fel svar](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors) inom den tids ramen bör du kontrol lera nätverks anslutningen och försöka igen.
 
-## <a name="sentence-length-limits"></a>Längdbegränsningar för meningen
+## <a name="sentence-length-limits"></a>Längd begränsningar för mening
 
-När du använder den [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) funktion, mening längden är begränsad till 275 tecken. Det finns undantag för följande språk:
+När du använder funktionen [BreakSentence](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-break-sentence) är menings längden begränsad till 275 tecken. Det finns undantag för följande språk:
 
-| Språk | Kod | Maximalt antal tillåtna tecken |
+| Språk | Kod | Tecken gräns |
 |----------|------|-----------------|
 | Kinesiska | zh | 132 |
 | Tyska | de | 290 |
@@ -73,13 +73,13 @@ När du använder den [BreakSentence](https://docs.microsoft.com/azure/cognitive
 | Portugisiska | pt | 290 |
 | Spanska | es | 280 |
 | Italienska | it | 280 |
-| Thai | TH | 258 |
+| Thai | i:te | 258 |
 
 > [!NOTE]
-> Den här gränsen gäller inte för översättningar.
+> Den här begränsningen gäller inte för översättningar.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/translator-text-api/)
 * [Regional tillgänglighet](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services)
-* [Referens för Translator Text API v3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)
+* [v3 Translator Text API referens](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference)

@@ -4,17 +4,17 @@ description: Azure Storage stöder redundans av konton (för hands version) för
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b2cd7232bce674dfa5aa2c6f4b6d9386fa7a189b
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: 4a621f8976efe395014c073a6bd7c5d09d19d915
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376456"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671085"
 ---
 # <a name="disaster-recovery-and-storage-account-failover-preview-in-azure-storage"></a>Haveri beredskap och lagrings konto redundans (för hands version) i Azure Storage
 
@@ -50,7 +50,7 @@ Det är viktigt att utforma ditt program för hög tillgänglighet från start. 
 * [Utforma elastiska program för Azure](https://docs.microsoft.com/azure/architecture/resiliency/): En översikt över viktiga begrepp för att utforma program med hög tillgänglighet i Azure.
 * [Tillgänglighets check lista](https://docs.microsoft.com/azure/architecture/checklist/availability): En check lista för att kontrol lera att ditt program implementerar bästa design praxis för hög tillgänglighet.
 * [Utforma hög tillgängliga program med RA-GRS](storage-designing-ha-apps-with-ragrs.md): Design Guide för att skapa program för att dra nytta av RA-GRS.
-* [Självstudier: Bygg ett program med hög tillgänglighet med BLOB](../blobs/storage-create-geo-redundant-storage.md)Storage: En själv studie kurs som visar hur du skapar ett program med hög tillgänglighet som automatiskt växlar mellan slut punkter som fel och återställningar simuleras. 
+* [Självstudier: Bygg ett program med hög tillgänglighet med Blob Storage @ no__t-0: En själv studie kurs som visar hur du skapar ett program med hög tillgänglighet som automatiskt växlar mellan slut punkter som fel och återställningar simuleras. 
 
 Tänk också på följande rekommendationer för att upprätthålla hög tillgänglighet för dina Azure Storage data:
 

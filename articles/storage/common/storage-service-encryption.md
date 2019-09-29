@@ -1,66 +1,66 @@
 ---
-title: Azure Storage-kryptering av vilande data | Microsoft Docs
-description: Azure Storage skyddar dina data genom att automatiskt kryptera det före beständig lagring till molnet. Alla data i Azure Storage krypteras och dekrypteras transparent med 256-bitars AES-kryptering och är FIPS 140-2-kompatibel.
+title: Azure Storage kryptering för vilande data | Microsoft Docs
+description: Azure Storage skyddar dina data genom att automatiskt kryptera dem innan du sparar dem i molnet. Alla data i en Azure Storage krypteras och dekrypteras transparent med 256-bitars AES-kryptering och är FIPS 140-2-kompatibel.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 1e95adbd1a564fb34d3f0506ac1cc25bc5a63c62
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2abaa994bf507c3ffb65199af9ac609ece138ea4
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65790057"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673051"
 ---
-# <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage-kryptering av vilande data
+# <a name="azure-storage-encryption-for-data-at-rest"></a>Azure Storage kryptering för vilande data
 
-Azure Storage krypterar dina data automatiskt när spara till molnet. Kryptering skyddar dina data och hjälper dig att uppfyller organisationens säkerhet och efterlevnad. Data i Azure Storage krypteras och dekrypteras transparent med 256-bitars [AES-kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), ett av de starkaste blockchiffer som finns och är FIPS 140-2-kompatibel. Azure Storage kryptering liknar BitLocker-kryptering på Windows.
+Azure Storage krypterar dina data automatiskt när de behålls i molnet. Kryptering skyddar dina data och hjälper dig att uppfylla organisationens säkerhets-och efterlevnads åtaganden. Data i Azure Storage krypteras och dekrypteras transparent med 256-bitars AES- [kryptering](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), en av de starkaste block chiffer som är tillgängliga och är FIPS 140-2-kompatibel. Azure Storage kryptering liknar BitLocker-kryptering på Windows.
 
-Azure Storage-kryptering är aktiverat för alla nya och befintliga lagringskonton och kan inte inaktiveras. Eftersom dina data är skyddade som standard, behöver du inte ändra din kod eller att dra nytta av Azure Storage kryptering. 
+Azure Storage kryptering har Aktiver ATS för alla nya och befintliga lagrings konton och kan inte inaktive ras. Eftersom dina data är säkra som standard behöver du inte ändra koden eller programmen för att dra nytta av Azure Storage kryptering. 
 
-Storage-konton är krypterade oavsett prestandanivå (standard eller premium) eller distributionsmodellen (Azure Resource Manager eller klassisk). Redundansalternativ för alla Azure Storage stöder kryptering, och alla kopior av ett lagringskonto är krypterade. Alla resurser i Azure Storage krypteras, inklusive blobar, diskar, filer, köer och tabeller. Metadata för alla objekt är också krypterade.
+Lagrings konton är krypterade oavsett prestanda nivå (standard eller Premium) eller distributions modell (Azure Resource Manager eller klassisk). Alla Azure Storage alternativ för redundans stöder kryptering och alla kopior av ett lagrings konto krypteras. Alla Azure Storage-resurser krypteras, inklusive blobbar, diskar, filer, köer och tabeller. Alla metadata för objekt krypteras också.
 
-Azure Storage-prestanda påverkas inte av kryptering. Det finns ingen extra kostnad för Azure Storage kryptering.
+Kryptering påverkar inte Azure Storage prestanda. Det kostar inget extra att Azure Storage kryptering.
 
-Mer information om kryptografiska moduler som underliggande encryption för Azure Storage finns i [Cryptography API: Nästa generations](https://docs.microsoft.com/windows/desktop/seccng/cng-portal).
+Mer information om de kryptografiska modulerna underliggande Azure Storage kryptering finns i [Cryptography API: Nästa generation @ no__t-0.
 
 ## <a name="key-management"></a>Nyckelhantering
 
-Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av ditt storage-konto eller du kan hantera kryptering med dina egna nycklar, tillsammans med Azure Key Vault.
+Du kan förlita dig på Microsoft-hanterade nycklar för kryptering av ditt lagrings konto, eller så kan du hantera kryptering med dina egna nycklar, tillsammans med Azure Key Vault.
 
 ### <a name="microsoft-managed-keys"></a>Microsoft-hanterade nycklar
 
-Som standard använder Microsoft-hanterade krypteringsnycklarna i ditt storage-konto. Du kan se krypteringsinställningarna för ditt lagringskonto i den **kryptering** delen av den [Azure-portalen](https://portal.azure.com), enligt följande bild.
+Som standard använder ditt lagrings konto Microsoft-hanterade krypterings nycklar. Du kan se krypterings inställningarna för ditt lagrings konto i avsnittet **kryptering** i [Azure Portal](https://portal.azure.com), som du ser i följande bild.
 
-![Visa konto som är krypterade med Microsoft-hanterade nycklar](media/storage-service-encryption/encryption-microsoft-managed-keys.png)
+![Visa kontot krypterat med Microsoft-hanterade nycklar](media/storage-service-encryption/encryption-microsoft-managed-keys.png)
 
 ### <a name="customer-managed-keys"></a>Kundhanterade nycklar
 
-Du kan hantera Azure Storage kryptering med Kundhanterade nycklar. Kundhanterade nycklar ger mer flexibilitet för att skapa, rotera, inaktivera och återkalla åtkomstkontroller. Du kan också granska krypteringsnycklarna som används för att skydda dina data. 
+Du kan hantera Azure Storage kryptering med Kundhanterade nycklar. Kundhanterade nycklar ger dig större flexibilitet när du skapar, roterar, inaktiverar och återkallar åtkomst kontroller. Du kan också granska de krypterings nycklar som används för att skydda dina data. 
 
-Använda Azure Key Vault för att hantera dina nycklar och granska din nyckelanvändning. Du kan skapa dina egna nycklar och lagra dem i ett nyckelvalv, eller du kan använda Azure Key Vault-API: er för att generera nycklar. Storage-konto och nyckelvalvet måste vara i samma region, men de kan vara i olika prenumerationer. Läs mer om Azure Key Vault, [vad är Azure Key Vault?](../../key-vault/key-vault-overview.md).
+Använd Azure Key Vault för att hantera dina nycklar och granska din nyckel användning. Du kan antingen skapa egna nycklar och lagra dem i ett nyckel valv, eller så kan du använda Azure Key Vault API: er för att generera nycklar. Lagrings kontot och nyckel valvet måste finnas i samma region, men de kan finnas i olika prenumerationer. Mer information om Azure Key Vault finns i [Azure Key Vault?](../../key-vault/key-vault-overview.md).
 
-Om du vill återkalla åtkomst till Kundhanterade nycklar finns i [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Återkalla åtkomst effektivt blockerar åtkomsten till alla data i storage-kontot eftersom krypteringsnyckeln är otillgänglig av Azure Storage.
+Information om hur du återkallar åtkomst till Kundhanterade nycklar finns i [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/azurerm.keyvault/) och [Azure Key Vault CLI](https://docs.microsoft.com/cli/azure/keyvault). Att återkalla åtkomsten på ett effektivt sätt blockerar åtkomsten till alla data i lagrings kontot, eftersom krypterings nyckeln inte är tillgänglig via Azure Storage.
 
-Läs hur du använder Kundhanterade nycklar med Azure Storage i någon av följande artiklar:
+Information om hur du använder Kundhanterade nycklar med Azure Storage finns i någon av följande artiklar:
 
-- [Konfigurera Kundhanterade nycklar för kryptering av Azure Storage från Azure portal](storage-encryption-keys-portal.md)
-- [Konfigurera Kundhanterade nycklar för kryptering av Azure Storage från PowerShell](storage-encryption-keys-powershell.md)
+- [Konfigurera kundhanterade nycklar för Azure Storage-kryptering från Azure-portalen](storage-encryption-keys-portal.md)
+- [Konfigurera kundhanterade nycklar för Azure Storage-kryptering från PowerShell](storage-encryption-keys-powershell.md)
 - [Använda Kundhanterade nycklar med Azure Storage kryptering från Azure CLI](storage-encryption-keys-cli.md)
 
 > [!IMPORTANT]
-> Kundhanterade nycklar beroende av hanterade identiteter för Azure-resurser, en funktion i Azure Active Directory (AD Azure). När du överför en prenumeration från en Azure AD-katalog till en annan, hanterade identiteter uppdateras inte och fungerar kanske inte längre Kundhanterade nycklar. Mer information finns i **överföra en prenumeration mellan Azure AD-kataloger** i [vanliga frågor och kända problem med hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
+> Kundhanterade nycklar är beroende av hanterade identiteter för Azure-resurser, en funktion i Azure Active Directory (Azure AD). När du överför en prenumeration från en Azure AD-katalog till en annan, uppdateras inte hanterade identiteter och Kundhanterade nycklar kanske inte fungerar längre. Mer information finns i **överföra en prenumeration mellan Azure AD-kataloger** i [vanliga frågor och svar och kända problem med hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories).  
 
 > [!NOTE]  
-> Kundhanterade nycklar stöds inte för [Azure hanterade diskar](../../virtual-machines/windows/managed-disks-overview.md).
+> Kundhanterade nycklar stöds inte för [Azure Managed disks](../../virtual-machines/windows/managed-disks-overview.md).
 
-## <a name="azure-storage-encryption-versus-disk-encryption"></a>Azure Storage kryptering jämfört med diskkryptering
+## <a name="azure-storage-encryption-versus-disk-encryption"></a>Azure Storage kryptering jämfört med disk kryptering
 
-Med Azure Storage kryptering alla Azure Storage-konton och resurser som de innehåller krypteras, inklusive sidblobar som stöder Azure-datordiskar. Dessutom Azure-datordiskar kan krypteras med [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption används vanliga [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) på Windows och [DM-Crypt](https://en.wikipedia.org/wiki/Dm-crypt) på Linux för att tillhandahålla systembaserad krypteringslösningar som är integrerade med Azure Key Vault.
+Med Azure Storage kryptering krypteras alla Azure Storage-konton och de resurser som de innehåller, inklusive de sid-blobbar som backar upp Azure Virtual Machine-diskar. Dessutom kan diskar för virtuella Azure-datorer krypteras med [Azure Disk Encryption](../../security/azure-security-disk-encryption-overview.md). Azure Disk Encryption använder branschstandardiserade [BitLocker](https://docs.microsoft.com/windows/security/information-protection/bitlocker/bitlocker-overview) på Windows och [dm-crypt](https://en.wikipedia.org/wiki/Dm-crypt) i Linux för att tillhandahålla operativ systembaserade krypterings lösningar som är integrerade med Azure Key Vault.
 
 ## <a name="next-steps"></a>Nästa steg
 

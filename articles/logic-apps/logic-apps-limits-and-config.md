@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 9d89bc2318049f068b2bab8c0345605458678b41
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 463cd350eb3c878a7d080cdfa7c8e0fabffd1a93
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350692"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672674"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -264,21 +264,27 @@ När du tar bort en logikapp instantieras inga nya körningar. Alla pågående o
 
 ## <a name="firewall-configuration-ip-addresses"></a>Brandväggskonfiguration: IP-adresser
 
-Alla Logic Apps i samma region använder samma IP-adressintervall. För att stödja de anrop som dina Logi Kap par direkt gör med [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)och andra HTTP-begäranden konfigurerar du brand väggarna med *alla* [inkommande](#inbound) *och* [utgående](#outbound) IP-adresser som används av Logic Apps tjänsten, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under de **inkommande** och **utgående** rubrikerna i det här avsnittet och sorteras efter region.
+De IP-adresser som Azure Logic Apps använder för inkommande och utgående samtal beror på den region där din Logic app finns. *Alla* Logic-appar som finns i samma region använder samma IP-adressintervall.
 
-För att stödja anrop som [Microsoft-hanterade anslutningar](../connectors/apis-list.md) gör ställer du in brand väggen med alla [utgående](#outbound) IP-adresser som används av de här anslutningarna, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under den **utgående** rubriken i det här avsnittet och sorteras efter region. För logi Kap par som körs i en integrerings tjänst miljö (ISE) ser du till att du [öppnar dessa portar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+> [!NOTE]
+> Vissa Microsoft Flow-anrop, till exempel **http-** och **http + openapi** -begäranden, går direkt genom Azure Logic Apps-tjänsten och kommer från de IP-adresser som anges här. Mer information om IP-adresser som används av Microsoft Flow finns [i gränser och konfiguration i Microsoft Flow](https://docs.microsoft.com/flow/limits-and-config#ip-address-configuration).
 
-För anpassade anslutningar, [Azure Government](../azure-government/documentation-government-overview.md)och [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/)är fasta eller reserverade IP-adresser inte tillgängliga.
+* För att stödja anrop som dina Logi Kap par direkt gör med [http](../connectors/connectors-native-http.md), [http + Swagger](../connectors/connectors-native-http-swagger.md)och andra HTTP-förfrågningar, ställer du in brand väggen med *alla* [inkommande](#inbound) *och* [utgående](#outbound) IP-adresser som används av Logic Apps tjänsten, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under de **inkommande** och **utgående** rubrikerna i det här avsnittet och sorteras efter region.
+
+* För att stödja anrop som [Microsoft-hanterade anslutningar](../connectors/apis-list.md) gör ställer du in brand väggen med alla [utgående](#outbound) IP-adresser som används av de här anslutningarna, baserat på de regioner där dina Logic Apps finns. De här adresserna visas under den **utgående** rubriken i det här avsnittet och sorteras efter region. 
+
+* För logi Kap par som körs i en integrerings tjänst miljö (ISE) ser du till att du [öppnar dessa portar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
+
+* Logic Apps kan inte komma åt Azure Storage-konton som har [brand Väggs regler](https://docs.microsoft.com/azure/storage/common/storage-network-security) och finns i samma region. Logic Apps kan dock komma åt Azure Storage-konton som finns i en annan region eftersom en offentlig IP-adress används för att kommunicera mellan regioner. Eller så kan du använda något av alternativen här:
+
+  * Skapa en [integrerings tjänst miljö](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)som kan ansluta till resurser i ett virtuellt Azure-nätverk.
+
+  * Om du redan använder API Management kan du använda den här tjänsten för det här scenariot. Mer information finns i [enkel arkitektur för företags integrering](https://aka.ms/aisarch).
+
+* För anpassade anslutningar, [Azure Government](../azure-government/documentation-government-overview.md)och [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/)är fasta eller reserverade IP-adresser inte tillgängliga.
 
 > [!IMPORTANT]
->
-> Om du har befintliga konfigurationer kan du uppdatera dem så **snart som möjligt före den 1 September 2018,** så att de inkluderar och matchar IP-adresserna i dessa listor för de regioner där dina Logic Apps finns.
-
-Logic Apps stöder inte direkt anslutning till Azure Storage-konton via brand väggar. Använd något av alternativen här för att komma åt dessa lagrings konton:
-
-* Skapa en [integrerings tjänst miljö](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)som kan ansluta till resurser i ett virtuellt Azure-nätverk.
-
-* Om du redan använder API Management kan du använda den här tjänsten för det här scenariot. Mer information finns i [enkel arkitektur för företags integrering](https://aka.ms/aisarch).
+> Om du har brand Väggs konfigurationer som du ställer in före den 1 september 2018 kontrollerar du att de stämmer överens med de aktuella IP-adresserna i listorna för de regioner där dina Logic Apps finns.
 
 <a name="inbound"></a>
 

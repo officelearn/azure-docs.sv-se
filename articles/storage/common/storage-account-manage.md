@@ -1,68 +1,68 @@
 ---
-title: Hantera inställningar för lagringskonto i Azure portal – Azure Storage | Microsoft Docs
-description: Lär dig mer om att hantera inställningarna för lagringskontot i Azure-portalen, inklusive hur du konfigurerar inställningar för åtkomstkontroll, återskapar åtkomstnycklar, ändring av åtkomstnivå eller ändra typ av replikering som används av kontot. Lär dig också att ta bort ett lagringskonto i portal.
+title: Hantera inställningar för lagrings konton i Azure Portal-Azure Storage | Microsoft Docs
+description: Lär dig hur du hanterar inställningar för lagrings konton i Azure Portal, inklusive hur du konfigurerar inställningar för åtkomst kontroll, återskapar konto åtkomst nycklar, ändrar åtkomst nivå eller ändrar den typ av replikering som används av kontot. Lär dig också hur du tar bort ett lagrings konto i portalen.
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: tamram
-ms.openlocfilehash: 66bdc4bd1e17347419a6eccd7c9532db17b33001
-ms.sourcegitcommit: 82efacfaffbb051ab6dc73d9fe78c74f96f549c2
+ms.openlocfilehash: 60104496006e790887dd9c4b3e4c3196e0ef6444
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67303481"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671358"
 ---
-# <a name="manage-storage-account-settings-in-the-azure-portal"></a>Hantera inställningar för lagringskonto i Azure portal
+# <a name="manage-storage-account-settings-in-the-azure-portal"></a>Hantera inställningar för lagrings kontot i Azure Portal
 
-Det finns många olika inställningar för ditt lagringskonto i den [Azure-portalen](https://portal.azure.com). Den här artikeln beskriver några av de här inställningarna och hur de används.
+Det finns flera olika inställningar för ditt lagrings konto i [Azure Portal](https://portal.azure.com). I den här artikeln beskrivs några av de här inställningarna och hur de används.
 
 ## <a name="access-control"></a>Åtkomstkontroll
 
-Azure Storage stöder auktorisering med Azure Active Directory för Blob storage och Queue storage via rollbaserad åtkomstkontroll (RBAC). Mer information om auktorisering med Azure AD finns i [auktorisera åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
+Azure Storage stöder auktorisering med Azure Active Directory för Blob Storage och Queue Storage via rollbaserad åtkomst kontroll (RBAC). Mer information om auktorisering med Azure AD finns i [bevilja åtkomst till Azure-blobbar och köer med hjälp av Azure Active Directory](storage-auth-aad.md).
 
-Den **åtkomstkontroll** inställningar i Azure-portalen erbjuder ett enkelt sätt att tilldela RBAC-roller till användare, grupper, tjänstens huvudnamn och hanterade identiteter. Mer information om att tilldela RBAC-roller finns i [hantera åtkomsträttigheter till blob och kö data med RBAC](storage-auth-aad-rbac.md).
+Inställningarna för **åtkomst kontroll** i Azure Portal ger ett enkelt sätt att tilldela RBAC-roller till användare, grupper, tjänstens huvud namn och hanterade identiteter. Mer information om hur du tilldelar RBAC-roller finns i [Hantera åtkomst rättigheter till blob-och Queue-data med RBAC](storage-auth-aad-rbac.md).
 
 ## <a name="tags"></a>Tags
 
-Azure Storage stöder Azure Resource Manager-taggar för att ordna dina Azure-resurser med en anpassad taxonomi. Du kan lägga till taggar till storage-konton så att du kan gruppera dem i din prenumeration på ett logiskt sätt.
+Azure Storage stöder Azure Resource Manager taggar för att organisera dina Azure-resurser med en anpassad taxonomi. Du kan använda taggar för dina lagrings konton så att du kan gruppera dem i prenumerationen på ett logiskt sätt.
 
-En taggnamnet är begränsat till 128 tecken för storage-konton, och en Taggvärdet är begränsat till 256 tecken.
+För lagrings konton är ett taggnamn begränsat till 128 tecken och ett taggvärde är begränsat till 256 tecken.
 
-Mer information finns i [använda taggar för att organisera Azure-resurser](../../azure-resource-manager/resource-group-using-tags.md).
+Mer information finns i [använda taggar för att ordna dina Azure-resurser](../../azure-resource-manager/resource-group-using-tags.md).
 
 ## <a name="access-keys"></a>Åtkomstnycklar
 
-När du skapar ett lagringskonto genererar Azure två 512-bitars lagringskontots åtkomstnycklar. De här nycklarna kan användas för att bevilja åtkomst till ditt storage-konto via delad nyckel. Du kan rotera och återskapa nycklar utan avbrott för dina program och Microsoft rekommenderar att du gör det. regelbundet.
+När du skapar ett lagrings konto genererar Azure åtkomst nycklar för 2 512-bitars lagrings konto. Dessa nycklar kan användas för att ge åtkomst till ditt lagrings konto via en delad nyckel. Du kan rotera och återskapa nycklarna utan avbrott i dina program, och Microsoft rekommenderar att du gör det regelbundet.
 
 [!INCLUDE [storage-account-key-note-include](../../../includes/storage-account-key-note-include.md)]
 
 [!INCLUDE [storage-recommend-azure-ad-include](../../../includes/storage-recommend-azure-ad-include.md)]
 
-### <a name="view-account-keys-and-connection-string"></a>Visa nycklar och anslutningssträngen
+### <a name="view-account-keys-and-connection-string"></a>Visa konto nycklar och anslutnings sträng
 
 [!INCLUDE [storage-view-keys-include](../../../includes/storage-view-keys-include.md)]
 
 ### <a name="regenerate-access-keys"></a>Återskapa åtkomstnycklar
 
-Microsoft rekommenderar att du återskapar åtkomstnycklarna regelbundet för att skydda ditt lagringskonto. Två åtkomstnycklar tilldelas så att du kan rotera nycklarna. När du roterar nycklar du se till att ditt program har åtkomst till Azure Storage under hela processen. 
+Microsoft rekommenderar att du återskapar dina åtkomst nycklar regelbundet så att du kan skydda ditt lagrings konto. Två åtkomst nycklar tilldelas så att du kan rotera dina nycklar. När du roterar dina nycklar ser du till att ditt program behåller åtkomsten till Azure Storage under hela processen. 
 
 > [!WARNING]
-> Återskapar åtkomstnycklarna kan påverka program eller Azure-tjänster som är beroende av lagringskontonyckeln. Alla klienter som använder nyckeln till att komma åt lagringskontot måste uppdateras för att använda den nya nyckeln, inklusive medietjänster, molnet, skrivbordet och mobilprogram och grafiska gränssnittet program för Azure Storage, som [Azure Lagringsutforskaren](https://azure.microsoft.com/features/storage-explorer/).
+> Återskapande av åtkomst nycklar kan påverka alla program eller Azure-tjänster som är beroende av lagrings konto nyckeln. Alla klienter som använder konto nyckeln för att komma åt lagrings kontot måste uppdateras för att använda den nya nyckeln, inklusive Media Services, moln, skriv bords-och mobil program och grafiska användar gränssnitts program för Azure Storage, till exempel [Azure Storage Explorer ](https://azure.microsoft.com/features/storage-explorer/).
 
-Följ den här processen för att rotera nycklar för ditt lagringskonto:
+Följ den här processen för att rotera dina lagrings konto nycklar:
 
-1. Uppdatera anslutningssträngarna i programkoden för att använda den sekundära nyckeln.
-2. Återskapa lagringskontots primära åtkomstnyckel. På den **åtkomstnycklar** bladet i Azure-portalen klickar du på **återskapa Nyckel1**, och klicka sedan på **Ja** att bekräfta att du vill skapa en ny nyckel.
+1. Uppdatera anslutnings strängarna i program koden för att använda den sekundära nyckeln.
+2. Återskapa lagringskontots primära åtkomstnyckel. Klicka på **Återskapa KEY1**på bladet **åtkomst nycklar** i Azure Portal och klicka sedan på **Ja** för att bekräfta att du vill generera en ny nyckel.
 3. Uppdatera anslutningssträngarna i koden så att de refererar till den nya primärnyckeln.
 4. Återskapa den sekundära åtkomstnyckeln på samma sätt.
 
-## <a name="account-configuration"></a>Kontokonfigurationen
+## <a name="account-configuration"></a>Kontokonfiguration
 
-När du har skapat ett lagringskonto kan du ändra dess konfiguration. Du kan till exempel ändra hur dina data replikeras eller ändra kontots åtkomstnivå från frekvent till lågfrekvent. I den [Azure-portalen](https://portal.azure.com), navigera till ditt lagringskonto, hitta och klicka på **Configuration** under **inställningar** att visa och/eller ändra kontokonfigurationen.
+När du har skapat ett lagrings konto kan du ändra dess konfiguration. Du kan till exempel ändra hur dina data replikeras eller ändra kontots åtkomst nivå från frekvent till låg frekvent. I [Azure Portal](https://portal.azure.com)navigerar du till ditt lagrings konto och letar upp och klickar på **konfiguration** under **Inställningar** för att visa och/eller ändra konto konfigurationen.
 
-Ändra kontokonfigurationen lagring kan resultera i kostnaderna. Mer information finns i den [priser för Azure Storage](https://azure.microsoft.com/pricing/details/storage/) sidan.
+Att ändra lagrings kontots konfiguration kan leda till kostnader som har lagts till. Mer information finns på sidan med [Azure Storage priser](https://azure.microsoft.com/pricing/details/storage/) .
 
 ## <a name="delete-a-storage-account"></a>Ta bort ett lagringskonto
 
@@ -76,5 +76,5 @@ Om du försöker ta bort ett lagringskonto som är kopplat till en virtuell Azur
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Azure storage-konto](storage-account-overview.md)
+- [Översikt över Azure Storage-kontot](storage-account-overview.md)
 - [Skapa ett lagringskonto](storage-quickstart-create-account.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
 ms.author: sedusch
-ms.openlocfilehash: 4e12ad64ef277396a101aab6d1bb8f3cc6079cf9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 954ff23997e56249859dd8d35f124324432f2b22
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099600"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673006"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Konfigurera pacemaker på Red Hat Enterprise Linux i Azure
 
@@ -62,6 +62,7 @@ Läs följande SAP-anteckningar och dokument först:
   * [Översikt över hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_overview/index)
   * [Administrations tillägg med hög tillgänglighet](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_administration/index)
   * [Referens för hög tillgänglighets tillägg](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/high_availability_add-on_reference/index)
+  * [Support principer för RHEL-kluster med hög tillgänglighet – SBD och fence_sbd](https://access.redhat.com/articles/2800691)
 * Azure-speciell RHEL-dokumentation:
   * [Support principer för RHEL-kluster med hög tillgänglighet – Microsoft Azure Virtual Machines som kluster medlemmar](https://access.redhat.com/articles/3131341)
   * [Installera och konfigurera ett kluster med hög tillgänglighet för Red Hat Enterprise Linux 7,4 (och senare) på Microsoft Azure](https://access.redhat.com/articles/3252491)
@@ -70,6 +71,10 @@ Läs följande SAP-anteckningar och dokument först:
 ## <a name="cluster-installation"></a>Klusterinstallationen
 
 ![Pacemaker på RHEL-översikt](./media/high-availability-guide-rhel-pacemaker/pacemaker-rhel.png)
+
+> [!NOTE]
+> Red Hat stöder inte programemulerad övervaknings enhet. Red Hat stöder inte SBD på moln plattformar. Mer information finns i [support policys för RHEL-kluster med hög tillgänglighet – SBD och fence_sbd](https://access.redhat.com/articles/2800691).
+> Den enda inhägnad mekanism som stöds för pacemaker Red Hat Enterprise Linux kluster i Azure är Azure-stängsel-agent.  
 
 Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1]** – gäller endast för nod 1 eller **[2]** – gäller endast för nod 2.
 
@@ -115,7 +120,7 @@ Följande objekt har prefixet antingen **[A]** – gäller för alla noder, **[1
    </code></pre>
 
    > [!IMPORTANT]
-   > Om du behöver uppdatera Azure-stängsel-agenten och om du använder en anpassad roll, måste du uppdatera den anpassade rollen för att inkludera åtgärden **avstängnings läge**. Mer information finns i [skapa en anpassad roll för stängsel](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent)-agenten.  
+   > Om du behöver uppdatera Azure-stängsel-agenten och om du använder en anpassad roll, måste du uppdatera den anpassade rollen för att inkludera åtgärden **avstängnings läge**. Mer information finns i [skapa en anpassad roll för stängsel-agenten](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker#1-create-a-custom-role-for-the-fence-agent).  
 
 1. **[A]**  Konfigurera matcha värdnamn
 

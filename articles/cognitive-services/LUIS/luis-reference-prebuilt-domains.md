@@ -11,19 +11,19 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: f5810a813b6c54f190d95061e79914457f51d19c
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 7e2b5c5c5d2ca4c0d6ab820866341c5f30082c5f
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067590"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672778"
 ---
 # <a name="prebuilt-domain-reference-for-your-luis-app"></a>Fördefinierad domän referens för din LUIS-app
 Den här referensen innehåller information om den [fördefinierade domäner](luis-how-to-use-prebuilt-domains.md), som är färdiga samlingar med avsikter och entiteter som LUIS erbjuder.
 
 [Anpassade domäner](luis-how-to-start-new-app.md), däremot starta utan avsikter och modeller. Du kan lägga till några fördefinierade domän avsikter och entiteter till en anpassad modell.
 
-# <a name="supported-domains-across-cultures"></a>Domäner som stöds över kulturer
+## <a name="supported-domains-across-cultures"></a>Domäner som stöds över kulturer
 
 Tabellen nedan sammanfattar de domäner som stöds för närvarande. Stöd för engelska är vanligt vis mer komplett än andra. 
 
@@ -47,7 +47,7 @@ Fördefinierade domäner **stöds inte** i:
 * Hindi
 * Spanska mexikanska
 
-# <a name="description-for-luis-prebuilt-domains"></a>Beskrivning av LUIS fördefinierade domäner
+## <a name="description-for-luis-prebuilt-domains"></a>Beskrivning av LUIS fördefinierade domäner
 ## <a name="calendar"></a>**Månad**
 Kalender är allt om personliga möten och möten, inte offentlig händelse (till exempel världs omfattande scheman, händelse kalender i Seattle) eller en allmän kalender (till exempel vilken dag är den idag, vad som är dags att börja, när är arbets dag).
 ### <a name="intents"></a>**Avsikter**
@@ -76,7 +76,7 @@ ShowNext | Kontrol lera nästa händelse. <br> _**Meddelande**: Se **verktyg** -
  TimeRemaining | Kontrol lera den återstående tiden till nästa händelse. | Visar hur lång tid det tar innan mina möten visas. <br> Visa hur lång tid det får innan nästa möte börjar.
  
 ### <a name="entities"></a>**Poster**
-Entitetsnamn | Entitetstyp | Beskrivning | Exempel | Fack
+Entitetsnamn | Entitetstyp | Beskrivning | Exempel | Platser
 -------|-----------------------|-------------|---------|--------
 Kontaktnamn | personName | Namnet på en kontakt eller en Mötes deltagare. | Uppfyller **Betsy**. <br>  Möte med **Aubrey** den tredje juli på 7 p.m. | Betsy <br> Aubrey <br> Amy 
 DestinationCalendar | gång | Mål kalenderns namn. | lunch med MOM tisdag 12 **personal** <br> Använd min **Google** Calendar som min standard kalender. <br> Uppdatera yoga-klassen till Mon ons på 14:00 lista i **personlig** kalender. | Google <br> Egna <br> verksamheten <br> Huvudtillg
@@ -129,7 +129,7 @@ Ignorera | Ignorera ett inkommande samtal. | Inte svara <br>   Ignorera anrop
 IgnoreWithMessage | Ignorera ett inkommande samtal och svara med text i stället. | Inte besvara anropet men skicka ett meddelande i stället. <br>   Ignorera och skicka ett SMS igen.
 Uppringning | Ringa ett telefonsamtal. | Anropa Jim <br>   Ring upp 311.
 FindSpeedDial | Hitta den speedial nummer ett telefonnummer anges till och vice versa. | Vad är mitt telefonnummer 5? <br>   Måste jag hastighet reglera set? <br>   Vad är telefonnummer för 941-5555-333?
-Framåt | Vidarebefordra ett e-postmeddelande | Vidarebefordra det här e-postmeddelandet till Greg.
+Vidarebefordra | Vidarebefordra ett e-postmeddelande | Vidarebefordra det här e-postmeddelandet till Greg.
 ReadAloud | Läsa ett meddelande eller e-post till användaren. | Läs text. <br>   Vad hon säga i meddelandet?
 PressKey | Tryck på en knapp eller en siffra på tangentbordet. | Uppringning star. <br>   Tryck på 1 2-3.
 QueryLastText | Fråga efter den sista texten eller meddelandet. | Vem har loggat mig? <br>   Vem har nyligen meddelandet mig?
@@ -147,12 +147,12 @@ TurnSpeakerOff | Inaktivera talare telefonen. | Ta mig av talare. <br>   Inaktiv
 TurnSpeakerOn | Aktivera talare telefonen. | Högtalartelefon läge. <br>   Placera högtalartelefon på.
 
 ### <a name="entities"></a>**Poster**
-Entitetsnamn | Entitetstyp | Beskrivning | Exempel | Fack
+Entitetsnamn | Entitetstyp | Beskrivning | Exempel | Platser
 ------|-------|----------|--------------|---------------
 Attachment | gång | Bilagan som användaren vill skicka med text eller e-post. | Skicka en **fil** via e-post från OneNote. <br> Skicka mitt underhåll- **dokument** till Katie. | file <br> inköpsdok
 AudioDeviceType | gång | Typ av ljuden het (talare, headset, mikrofon osv.). | Svar med hjälp av **praktiska**. <br> Ring upp på **högtalar telefon**. | högtalar <br> hands fria <br> Seriell
 Category | gång | Kategorin för ett meddelande eller e-postmeddelande. kategorin måste ha en tydlig definition i e-postsystemet, t. ex. "oläst", "flagga". Beskrivning med Rensa definition, till exempel "ny" och "senaste", är inte kategorier. | Markera alla e-postmeddelanden som **lästa**  <br> Nytt e-postmeddelande med **hög prioritet** för Paul | viktigt <br> hög prioritet <br> läsa
-ContactAttribute | gång | Ett attribut för att kontakta användaren med frågor om.| Alla **födelsedagar** nästa månad jag bör känna till? | födelsedagar <br> adress <br> Telefonnummer
+ContactAttribute | gång | Ett attribut för att kontakta användaren med frågor om.| Alla **födelsedagar** nästa månad jag bör känna till? | födelsedagar <br> Adress <br> Telefonnummer
 Kontaktnamn | personName  | Namnet på en kontakt eller ett meddelande mottagare. | Skicka e-postmeddelandet till **Stevens** | Stevens
 Date/Time | datetime | Datetime för ett e-postmeddelande som mottagits. | Läs **dagens**e-post <br> Vem har e-posta mig **idag**? <br> Vem har ringt på **7**? | i dag <br> imorgon
 DestinationPhone | gång | Mål användaren vill anropa eller skicka en text till. | Ring till **hus** <br> Skicka ett textmeddelande till **Start sidan** | egen <br> hem
@@ -186,13 +186,13 @@ SearchMessages | Sök i meddelandena efter vissa omständigheter, inklusive avs�
 SendEmail | Skicka ett e-postmeddelande. | E-posta till Mike: Mike, att middag förra veckan var Splendid. <br> Skicka ett e-postmeddelande till Bob.
 ShowNext | Se nästa objekt i en lista med SMS eller e-postmeddelanden. <br> ***Meddelande**: Se **verktyg** -domänen för mer ShowNext General yttranden. * | Visa nästa. <br> Gå till nästa sida.
 ShowPrevious | Visa föregående objekt i en lista med SMS eller e-postmeddelanden. <br> ***Meddelande**: Se **verktyg** -domänen för mer ShowPrevious General yttranden. * | Visa föregående. <br> Ursprungliga. <br> Gå till föregående.
-Framåt | Vidarebefordra ett e-postmeddelande. | Vidarebefordra det här e-postmeddelandet till Greg.
+Vidarebefordra | Vidarebefordra ett e-postmeddelande. | Vidarebefordra det här e-postmeddelandet till Greg.
 AddFlag | Lägg till flagga i ett e-postmeddelande. | Flagga det här e-postmeddelandet <br> Lägg till en flagga i det här e-postmeddelandet.
 QueryLastText | Fråga efter senaste e-post. | Vem skickade e-post till mig? <br> Vem har nyligen e-posta mig?
 
 
 ### <a name="entities"></a>**Poster**
-Entitetsnamn | Entitetstyp | Beskrivning | Exempel | Fack
+Entitetsnamn | Entitetstyp | Beskrivning | Exempel | Platser
 ------|-------|----------|--------------|---------------
 Attachment | gång | Bilagan som användaren vill skicka med text eller e-post. | Skicka en **fil** via e-post från OneNote. <br> Skicka mitt underhåll- **dokument** till Katie. | file <br> inköpsdok
 Kontaktnamn | personName  | Namnet på en kontakt eller ett meddelande mottagare. | Skicka e-postmeddelandet till **Stevens** | Stevens
@@ -409,7 +409,7 @@ Historiska | gång | Beskrivning av ord för historisk väder status, inklusive 
 PrecipitationUnit | dimension | Fällningen för snö eller regn. | 5 tum<br>6 cm
 SuitableFor | gång | Beskrivningen av en mänsklig aktivitet under ett väderleks tillstånd, som är vanligt när användarna frågar aktivitets råd som är beroende av väder villkoret. | mantel<br>avses<br>simmar
 TemperatureUnit |temperatur | temperatur | 18 Celsius<br>7 Kelvin-grader
-WeatherRange | gång | Det speciella villkoret för temperatur, vind och andra väder förhållanden mellan en viss tids period | max<br>Högt<br>Börjar<br>Genomsnittligt högt<br>Högsta
+WeatherRange | gång | Det speciella villkoret för temperatur, vind och andra väder förhållanden mellan en viss tids period | max<br>Högt<br>låg<br>Genomsnittligt högt<br>Högsta
 WeatherCondition | gång | Beskrivning av väder villkor | solig<br>lilla<br>regn<br>temperatur<br>snö<br>hot
 WindDirectionUnit | list | Riktnings orden för vind | rakt<br>ifrån<br>östasiatisk<br>rubriken<br>nordöstra
 

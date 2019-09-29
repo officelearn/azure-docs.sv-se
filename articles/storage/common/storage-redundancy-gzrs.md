@@ -3,17 +3,17 @@ title: Bygga Azure Storage program med hög tillgänglighet med geo-Zone-redunda
 description: Geo-Zone-redundant lagring (GZRS) Marries hög tillgänglighet för ZRS (Zone-redundant lagring) med skydd från regionala avbrott som tillhandahålls av Geo-redundant lagring (GRS). Data i ett GZRS lagrings konto replikeras mellan Azures tillgänglighets zoner i den primära regionen och replikeras också till en sekundär geografisk region för skydd mot regionala haverier.
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 321866279e076bfa77d1892e64deaf4b16c08366
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 737bad504519a2ec7eee9764593245e0fee28cc3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300654"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673058"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -55,7 +55,7 @@ När du skapar ett lagrings konto anger du hur data i det kontot ska replikeras 
 
 När du aktiverar RA-GZRS för ditt lagrings konto kan dina data läsas från den sekundära slut punkten och från den primära slut punkten för ditt lagrings konto. Den sekundära slut punkten lägger till suffixet *– sekundärt* till konto namnet. Till exempel, om den primära slut punkten för BLOB service är `myaccount.blob.core.windows.net`, är `myaccount-secondary.blob.core.windows.net`den sekundära slut punkten. Åtkomst nycklarna för ditt lagrings konto är desamma för både den primära och den sekundära slut punkten.
 
-Om du vill dra nytta av RA-GZRS i händelse av ett regionalt avbrott måste du utforma ditt program i förväg för att hantera det här scenariot. Ditt program bör läsa från och skriva till den primära slut punkten, men växla till att använda den sekundära slut punkten i händelse av att den primära regionen blir otillgänglig. Vägledning om hur du utformar för hög tillgänglighet med RA-GZRS finns i [utforma hög tillgängliga program med hjälp av ra-GZRS eller RA-GRS](https://docs.microsoft.com/en-us/azure/storage/common/storage-designing-ha-apps-with-ragrs).
+Om du vill dra nytta av RA-GZRS i händelse av ett regionalt avbrott måste du utforma ditt program i förväg för att hantera det här scenariot. Ditt program bör läsa från och skriva till den primära slut punkten, men växla till att använda den sekundära slut punkten i händelse av att den primära regionen blir otillgänglig. Vägledning om hur du utformar för hög tillgänglighet med RA-GZRS finns i [utforma hög tillgängliga program med hjälp av ra-GZRS eller RA-GRS](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
 Eftersom data replikeras till den sekundära regionen asynkront är den sekundära regionen ofta bakom den primära regionen. För att avgöra vilka Skriv åtgärder som har repliker ATS till den sekundära regionen kontrollerar programmet den senaste synkroniseringen för ditt lagrings konto. Alla Skriv åtgärder som skrivs till den primära regionen före den senaste synkroniseringstid-tiden har repliker ATS till den sekundära regionen, vilket innebär att de är tillgängliga för läsning från den sekundära. Eventuella Skriv åtgärder som skrivs till den primära regionen efter den senaste synkroniseringen kanske inte har repliker ATS till den sekundära regionen, vilket innebär att de inte är tillgängliga för Läs åtgärder.
 
@@ -141,7 +141,7 @@ Om du vill begära en Direktmigrering använder du [Azure Portal](https://ms.po
     - **Problem typ**: Välj **datamigrering**.
     - **Kategori**: Välj **migrera till (RA-) GZRS i en region**.
     - **Rubrik**: Ange en beskrivande rubrik, till exempel **(RA-) GZRS för konto migrering**.
-    - **Information**: Skriv ytterligare information i rutan **information** , till exempel "Jag vill migrera till GZRS från [LRS, \_ \_ GRS] i regionen." eller "Jag vill migrera till ra-GZRS från [LRS, RA-GRS] i \_ \_ regionen."
+    - **Information**: Skriv **Mer information i @no__t-** 1box, till exempel "Jag vill MIGRERA till GZRS från [LRS, GRS] i \_ @ no__t-3-regionen." eller "Jag vill migrera till RA-GZRS från [LRS, RA-GRS] i regionen \_ @ no__t-1."
 5. Välj **Nästa**.
 6. Kontrol lera att kontakt informationen är korrekt på bladet med **kontakt information** .
 7. Välj  **Skapa**.

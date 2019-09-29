@@ -1,54 +1,58 @@
 ---
-title: Testa Azure Stream Analytics-frågor lokalt med Visual Studio Code (förhandsversion)
-description: Den här artikeln beskriver hur du testar lokalt med Azure Stream Analytics Tools för Visual Studio Code.
+title: Testa Azure Stream Analytics frågor lokalt med Visual Studio Code (för hands version)
+description: Den här artikeln beskriver hur du testar frågor lokalt med Azure Stream Analytics verktyg för Visual Studio Code.
 ms.service: stream-analytics
 author: su-jie
 ms.author: sujie
 ms.date: 05/15/2019
 ms.topic: conceptual
-ms.openlocfilehash: f477a0f99c3eaa82568d8188bfaae03818fb72dc
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 751cdf50fccc654dfab06b4d18428531312d08e6
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65827957"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673031"
 ---
-# <a name="test-stream-analytics-queries-locally-with-visual-studio-code"></a>Testa Stream Analytics-frågor lokalt med Visual Studio Code
+# <a name="test-stream-analytics-queries-locally-with-visual-studio-code"></a>Testa Stream Analytics frågor lokalt med Visual Studio Code
 
-Du kan använda Azure Stream Analytics-verktyg för Visual Studio Code för att testa din Stream Analytics-jobb lokalt med exempeldata.
+Du kan använda Azure Stream Analytics verktyg för Visual Studio Code för att testa dina Stream Analytics-jobb lokalt med exempel data.
 
-Använd det här [snabbstarten](quick-create-vs-code.md) och lär dig att skapa ett Stream Analytics-jobb med hjälp av Visual Studio Code.
+Använd den här [snabb](quick-create-vs-code.md) starten för att lära dig hur du skapar ett Stream Analytics jobb med Visual Studio Code.
 
-## <a name="run-queries-locally"></a>Köra frågor lokalt
+## <a name="prerequisites"></a>Förutsättningar
+* Installera [.net Core SDK](https://dotnet.microsoft.com/download).
+* Starta om Visual Studio Code.
+ 
+## <a name="run-queries-locally"></a>Kör frågor lokalt
 
-Du kan använda Azure Stream Analytics-tillägget för Visual Studio Code för att testa din Stream Analytics-jobb lokalt med exempeldata.
+Du kan använda Azure Stream Analytics tillägget för Visual Studio Code för att testa dina Stream Analytics-jobb lokalt med exempel data.
 
-1. När du har skapat ditt Stream Analytics-jobb kan du använda **Ctrl + Skift + P** att öppna kommandopaletten. Skriv sedan och välj **ASA: Lägg till indata**.
+1. När du har skapat ditt Stream Analytics jobb använder du **Ctrl + Shift + P** för att öppna kommando paletten. Skriv och välj **ASA: Lägg till inmatade @ no__t-0.
 
-    ![Lägg till ASA indata i Visual Studio code](./media/vscode-local-run/add-input.png)
+    ![Lägg till ASA-ininformation i Visual Studio Code](./media/vscode-local-run/add-input.png)
 
-2. Välj **lokala indata**.
+2. Välj **lokal indatamängd**.
 
-    ![Lägg till ASA lokala indata i Visual Studio code](./media/vscode-local-run/add-local-input.png)
+    ![Lägg till en lokal indatatyp i ASA i Visual Studio Code](./media/vscode-local-run/add-local-input.png)
 
-3. Välj **+ nya lokala indata**.
+3. Välj **+ ny lokal indatamängd**.
 
-    ![Lägg till ett nytt ASA som lokala indata i Visual Studio code](./media/vscode-local-run/add-new-local-input.png)
+    ![Lägga till en ny information lokalt i Visual Studio Code](./media/vscode-local-run/add-new-local-input.png)
 
-4. Ange samma inmatat alias som du använde i din fråga.
+4. Ange samma kolumnalias som du använde i frågan.
 
-    ![Lägg till en ny lokal inmatat alias för ASA](./media/vscode-local-run/new-local-input-alias.png)
+    ![Lägg till ett nytt lokalt indataports-alias](./media/vscode-local-run/new-local-input-alias.png)
 
-5. I den **LocalInput_DefaultLocalStream.json** fil, ange sökvägen till filen där dina lokala data-filen finns.
+5. I filen **LocalInput_DefaultLocalStream. JSON** anger du sökvägen till filen där den lokala data filen finns.
 
-    ![Ange lokal filsökväg i Visual Studio](./media/vscode-local-run/local-file-path.png)
+    ![Ange lokal fil Sök väg i Visual Studio](./media/vscode-local-run/local-file-path.png)
 
-6. Gå tillbaka till din frågeredigeraren och välj **kör lokalt**.
+6. Återgå till Frågeredigeraren och välj **Kör lokalt**.
 
-    ![Välj Kör lokalt i frågeredigeraren](./media/vscode-local-run/run-locally.png)
+    ![Välj Kör lokalt i Frågeredigeraren](./media/vscode-local-run/run-locally.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Skapa cloud Azure Stream Analytics-jobb i Visual Studio Code (förhandsversion)](quick-create-vs-code.md)
+* [Skapa ett Azure Stream Analytics moln jobb i Visual Studio Code (för hands version)](quick-create-vs-code.md)
 
-* [Utforska Azure Stream Analytics-jobb med Visual Studio Code (förhandsversion)](vscode-explore-jobs.md)
+* [Utforska Azure Stream Analytics-jobb med Visual Studio Code (för hands version)](vscode-explore-jobs.md)

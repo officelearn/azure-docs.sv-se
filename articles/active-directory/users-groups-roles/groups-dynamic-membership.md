@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 59450fc93052a1e169d13fab5b80cbc57c169e0f
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: dafc78e49cb0118181bae4522d4cb456509ea2cb
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70909773"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673428"
 ---
 # <a name="dynamic-membership-rules-for-groups-in-azure-active-directory"></a>Regler för dynamiskt medlemskap för grupper i Azure Active Directory
 
@@ -64,7 +64,7 @@ user.department -eq "Sales"
 
 Parenteser är valfria för ett enda uttryck. Den totala längden för bröd texten i medlemskaps regeln får inte överstiga 2048 tecken.
 
-# <a name="constructing-the-body-of-a-membership-rule"></a>Skapa bröd texten i en medlemskaps regel
+## <a name="constructing-the-body-of-a-membership-rule"></a>Skapa bröd texten i en medlemskaps regel
 
 En medlemskaps regel som automatiskt fyller i en grupp med användare eller enheter är ett binärt uttryck som resulterar i ett sant eller falskt resultat. De tre delarna i en enkel regel är:
 

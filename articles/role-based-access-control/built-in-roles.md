@@ -15,12 +15,12 @@ ms.date: 08/27/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c9a156c4cc6e334e04f5a604b91b7b05d9aed390
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71289599"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672635"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -186,8 +186,8 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft. Authorization/*/Delete | Ta bort roller, princip tilldelningar, princip definitioner och princip uppsättnings definitioner |
 > | Microsoft. Authorization/*/Write | Skapa roller, roll tilldelningar, princip tilldelningar, princip definitioner och princip uppsättnings definitioner |
 > | Microsoft.Authorization/elevateAccess/Action | Beviljar åtkomst administratörs åtkomst till anroparens användare i klient omfånget |
-> | Microsoft. skiss/blueprintAssignments/Write | Skapa eller uppdatera eventuella skiss artefakter |
-> | Microsoft. skiss/blueprintAssignments/Delete | Ta bort eventuella skissartefakter |
+> | Microsoft. skiss/blueprintAssignments/Write | Skapa eller uppdatera alla skiss uppgifter |
+> | Microsoft. skiss/blueprintAssignments/Delete | Ta bort alla skiss uppgifter |
 > | **DataActions** |  |
 > | *alternativet* |  |
 > | **NotDataActions** |  |

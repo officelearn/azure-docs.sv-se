@@ -4,17 +4,17 @@ description: Lär dig mer om de olika sätten att ge åtkomst till Azure Storage
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 3cdbb6587871b970c0188c0b8f510cc9f1f4fe07
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: c20f699a2d2270d11935b0216b1655390ece211c
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68985187"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671066"
 ---
 # <a name="authorizing-access-to-azure-storage"></a>Auktorisera åtkomst till Azure Storage
 
@@ -27,7 +27,7 @@ I följande tabell beskrivs de alternativ som Azure Storage erbjudanden för att
 |Azure-blobbar     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Stöds](storage-sas-overview.md)         |[Stöds](storage-auth-aad.md)         |[Stöds](../blobs/storage-manage-access-to-resources.md)         |
 |Azure Files (SMB)     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |Stöds inte         |[Stöds endast med AAD Domain Services](../files/storage-files-active-directory-overview.md)         |Stöds inte         |
 |Azure Files (REST)     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Stöds](storage-sas-overview.md)         |Stöds inte         |Stöds inte         |
-|Azure-köer     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Stöds](storage-sas-overview.md)         |[Stöds](storage-auth-aad.md)         |Stöds inte         |
+|Azure Queues     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Stöds](storage-sas-overview.md)         |[Stöds](storage-auth-aad.md)         |Stöds inte         |
 |Azure-tabeller     |[Stöds](https://docs.microsoft.com/rest/api/storageservices/authenticate-with-shared-key/)         |[Stöds](storage-sas-overview.md)         |Stöds inte         |Stöds inte         |
 
 Varje Authorization-alternativ beskrivs kortfattat nedan:

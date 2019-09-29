@@ -2,18 +2,18 @@
 title: Övervakning, mått och aviseringar – Azure ExpressRoute | Microsoft Docs
 description: Den här sidan innehåller information om ExpressRoute-övervakning
 services: expressroute
-author: cherylmc
+author: mialdrid
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: dbe03ef29bd28d465fa671abc915d63d4b038cb2
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 40e5561c9a55595340568ec660cbc6dd6e1eab51
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154770"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672077"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Övervakning, mått och aviseringar i ExpressRoute
 
@@ -72,9 +72,41 @@ Du kan visa nära real tids tillgänglighet för [ARP](https://docs.microsoft.co
 
 ![ARP-tillgänglighet per peer](./media/expressroute-monitoring-metrics-alerts/erArpAvailabilityMetrics.jpg) 
 
+## <a name="expressroute-direct-metrics"></a>ExpressRoute direkt mått
+
+### <a name="admin-state---split-by-link"></a>Admin-tillstånd – dela med länk
+Du kan visa admin-tillstånd för varje länk i ExpressRoute Direct-port paret.
+
+![status för er Direct-administratör](./media/expressroute-monitoring-metrics-alerts/adminstate-per-link.jpg)
+
+### <a name="bits-in-per-second---split-by-link"></a>Bitar i per sekund – dela med länk
+Du kan visa bitarna i per sekund över båda länkarna i ExpressRoute Direct-port paret. 
+
+![er direkt bitar per sekund](./media/expressroute-monitoring-metrics-alerts/bits-in-per-second-per-link.jpg)
+
+### <a name="bits-out-per-second---split-by-link"></a>Bitar ut per sekund – dela med länk
+Du kan också Visa bitarna per sekund över båda länkarna i ExpressRoute Direct-port paret. 
+
+![antal återställnings direkt bitar per sekund](./media/expressroute-monitoring-metrics-alerts/bits-out-per-second-per-link.jpg)
+
+### <a name="line-protocol---split-by-link"></a>Rad protokoll – dela med länk
+Du kan visa rad protokollet för varje länk i ExpressRoute Direct-port paret.
+
+![direkt anslutnings protokoll för er](./media/expressroute-monitoring-metrics-alerts/line-protocol-per-link.jpg)
+
+### <a name="rx-light-level---split-by-link"></a>RX ljus nivå – dela med länk
+Du kan visa mottagnings ljus nivån (den ljus nivå som ExpressRoute Direct-porten **tar emot**) för varje port. Friska mottagnings ljus nivåer ligger vanligt vis inom intervallet-10 till 0 dBm
+
+![återställnings ljus nivå för er direkt linje](./media/expressroute-monitoring-metrics-alerts/rxlight-level-per-link.jpg)
+
+### <a name="tx-light-level---split-by-link"></a>TX ljus nivå – dela med länk
+Du kan visa avsändnings ljus nivån (den ljus nivå som ExpressRoute Direct-porten **överför**) för varje port. Felfria TX-ljusnivå ligger vanligt vis inom intervallet-10 till 0 dBm
+
+![återställnings ljus nivå för er direkt linje](./media/expressroute-monitoring-metrics-alerts/txlight-level-per-link.jpg)
+
 ## <a name="expressroute-gateway-connections-in-bitsseconds"></a>ExpressRoute-gateway-anslutningar i bitar/sekunder
 
-![gateway-anslutningar](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg ) 
+![gateway-anslutningar](./media/expressroute-monitoring-metrics-alerts/erconnections.jpg )
 
 ## <a name="alerts-for-expressroute-gateway-connections"></a>Aviseringar för ExpressRoute-gateway-anslutningar
 

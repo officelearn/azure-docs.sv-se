@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/12/2019
 ms.author: apimpm
-ms.openlocfilehash: da75ca43a2576e3214d4b67f9eb61c7bad3bd5cc
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: c015b1afbc61e1501e656aaa480ee2a4e19ba094
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70073523"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672795"
 ---
 # <a name="access-and-customize-the-new-developer-portal-in-azure-api-management"></a>Få åtkomst till och anpassa den nya Developer-portalen i Azure API Management
 
@@ -39,7 +39,7 @@ Den här artikeln visar hur du kommer åt den nya Azure API Management Developer
 
 Du kan bygga din utvecklings Portal på två sätt:
 
-- **Hanterad version** – genom att redigera och anpassa portalen, som är inbyggd i API Management-instansen och är tillgänglig `<your-api-management-instance-name>.developer.azure-api.net`via URL: en.
+- **Hanterad version** – genom att redigera och anpassa portalen, som är inbyggd i API Management-instansen och kan nås via URL: en `<your-api-management-instance-name>.developer.azure-api.net`.
 - **Egen värd version** – genom att distribuera och självbetjäning av portalen utanför en API Management-instans. Med den här metoden kan du redigera portalens kodbas och utöka de angivna kärn funktionerna. Mer information och anvisningar finns i GitHub- [lagringsplatsen med käll koden för portalen][1].
 
 ## <a name="managed-access"></a>Få åtkomst till den hanterade versionen av portalen
@@ -57,7 +57,7 @@ I videon nedan visar vi hur du redigerar innehållet i portalen, anpassar webbpl
 
 ## <a name="faq"></a>Vanliga frågor och svar
 
-I det här avsnittet besvarar vi vanliga frågor om den nya Developer-portalen, som är av allmän natur. För frågor som är speciella för den självbetjänings versionen, se [wiki-avsnittet i GitHub](https://github.com/Azure/api-management-developer-portal/wiki)-lagringsplatsen.
+I det här avsnittet besvarar vi vanliga frågor om den nya Developer-portalen, som är av allmän natur. För frågor som är speciella för den självbetjänings versionen, se [wiki-avsnittet i GitHub-lagringsplatsen](https://github.com/Azure/api-management-developer-portal/wiki).
 
 ### <a name="how-can-i-migrate-content-from-the-old-developer-portal-to-the-new-one"></a>Hur kan jag Migrera innehåll från den gamla Developer-portalen till den nya?
 
@@ -79,21 +79,29 @@ Undantag är *program* och *problem* från den gamla portalen, som inte är till
 
 ### <a name="ive-found-bugs-andor-id-like-to-request-a-feature"></a>Jag har hittat buggar och/eller jag vill begära en funktion.
 
-Bra! Du kan ge oss feedback, skicka in en funktions förfrågan eller en fel rapport via [GitHub-databasens problem](https://github.com/Azure/api-management-developer-portal/issues). Även om du är där kommer vi också att uppskatta din feedback om problemen som har marker `community` ATS med etiketten.
+Bra! Du kan ge oss feedback, skicka in en funktions förfrågan eller en fel rapport via [GitHub-databasens problem](https://github.com/Azure/api-management-developer-portal/issues). Även om du är där kommer vi också att uppskatta din feedback om problemen som har marker ATS med etiketten `community`.
 
 ### <a name="i-want-to-move-the-content-of-the-new-portal-between-environments-how-can-i-do-that-and-do-i-need-to-go-with-the-self-hosted-version"></a>Jag vill flytta innehållet i den nya portalen mellan miljöer. Hur kan jag göra det och jag måste använda den själv värdbaserade versionen?
 
-Du kan göra det i både hanterade Portal versioner och egen värd. Den nya Developer-portalen stöder extrahering av innehåll via hanterings-API: et för din API Management-tjänst. API: erna dokumenteras [i wiki-avsnittet i GitHub](https://github.com/Azure/api-management-developer-portal/wiki/)-lagringsplatsen. Vi har också skrivit [ett skript](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat)som kan hjälpa dig att komma igång.
+Du kan göra det i både hanterade Portal versioner och egen värd. Den nya Developer-portalen stöder extrahering av innehåll via hanterings-API: et för din API Management-tjänst. API: erna dokumenteras [i wiki-avsnittet i GitHub-lagringsplatsen](https://github.com/Azure/api-management-developer-portal/wiki/). Vi har också skrivit [ett skript](https://github.com/Azure/api-management-developer-portal/blob/master/scripts/migrate.bat)som kan hjälpa dig att komma igång.
 
 Vi arbetar fortfarande med att justera den här processen med API Management DevOps Resource Kit.
 
+### <a name="what-do-i-need-to-configure-for-the-new-portal-to-work-in-my-api-management-service-in-vnet"></a>Vad måste jag konfigurera för att den nya portalen ska fungera i API Management tjänsten i VNET?
+
+Även om den nya Developer-portalen är i för hands version måste du tillåta anslutning till Azure Storage-tjänster i regionen Västra USA för att göra den hanterade portalen att fungera i en API Management tjänst i VNET. Mer information finns i [lagrings dokumentationen](../storage/common/storage-network-security.md#available-virtual-network-regions).
+
+Ovanstående konfiguration kommer inte längre att vara nödvändig när den nya portalen blir allmänt tillgänglig.
+
+Den själv värdbaserade versionen av portalen kan kräva ytterligare anslutnings konfiguration, beroende på din konfiguration.
+
 ### <a name="how-can-i-select-a-layout-when-creating-a-new-page"></a>Hur kan jag välja en *layout* när jag skapar en ny *sida*?
 
-En *layout* tillämpas på en sida genom att matcha dess URL-mall till *sidans* URL. Till `/wiki/*` exempel kommer *layout* med en URL-mall att tillämpas på `/wiki/` varje *sida* med segmentet: `/wiki/getting-started`, `/wiki/styles`och så vidare.
+En *layout* tillämpas på en sida genom att matcha dess URL-mall till *sidans* URL. Till exempel används *layout* med en URL-mall för `/wiki/*` på varje *sida* med `/wiki/`-segmentet: `/wiki/getting-started`, `/wiki/styles` och så vidare.
 
 ### <a name="why-doesnt-the-interactive-developer-console-work"></a>Varför fungerar inte den interaktiva Developer-konsolen?
 
-Den är förmodligen relaterad till CORS. Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsaren. Du kan lösa CORS-problemet genom att lägga till [en CORS-princip](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) på dina API: er. Du kan antingen ange alla parametrar manuellt (till exempel ursprung som https://contoso.com) eller använda ett jokertecken. `*`
+Den är förmodligen relaterad till CORS. Den interaktiva konsolen gör en API-begäran på klient sidan från webbläsaren. Du kan lösa CORS-problemet genom att lägga till [en CORS-princip](https://docs.microsoft.com/azure/api-management/api-management-cross-domain-policies#CORS) på dina API: er. Du kan antingen ange alla parametrar manuellt (till exempel ursprung som https://contoso.com) eller använda ett jokertecken `*` -värde.
 
 ## <a name="next-steps"></a>Nästa steg
 

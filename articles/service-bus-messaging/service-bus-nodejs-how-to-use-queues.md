@@ -15,14 +15,14 @@ ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
 ms.custom: seo-javascript-september2019
-ms.openlocfilehash: df3f5a3773265249751352ce8d9c966c54bf197d
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 5c539570e4127a6715ea63fe8ec617d3cfa83ba1
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091797"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671995"
 ---
-# <a name="how-to-use-service-bus-queues-with-nodejs-and-the-azure-sb-package"></a>Använda Service Bus köer med Node. js och Azure-SB-paketet
+# <a name="use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>Använda Service Bus köer i Azure med Node. js och Azure-SB-paketet
 > [!div class="op_multi_selector" title1="Programmeringsspråk" title2="Node. js-paket"]
 > - [(Node. js | Azure-SB)](service-bus-nodejs-how-to-use-queues.md)
 > - [(Node. js | @azure/service-bus)](service-bus-nodejs-how-to-use-queues-new-package.md)

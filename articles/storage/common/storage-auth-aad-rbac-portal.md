@@ -4,17 +4,17 @@ description: Använd rollbaserad åtkomst kontroll (RBAC) från Azure Portal fö
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 4c558da6b0a9267c03b26ca1b5f57eb5e7444881
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: ad88066ebf19bdcc9bcdb77309ce76828c09ce47
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515013"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671131"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-in-the-azure-portal"></a>Bevilja åtkomst till Azure blob-och Queue-data med RBAC i Azure Portal
 

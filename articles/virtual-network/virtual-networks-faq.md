@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: 836a9fd0b441ff9669c224dc41537e3c177d7dde
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: a6ba401d9d10e900fef5e2d296e74a07f84162cd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70389696"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71670758"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
@@ -200,9 +200,9 @@ Ja. Du måste ansluta en skalnings uppsättning för virtuell dator till ett VNe
 ### <a name="is-there-a-complete-list-of-azure-services-that-can-i-deploy-resources-from-into-a-vnet"></a>Finns det en fullständig lista över Azure-tjänster som kan jag distribuera resurser från i ett virtuellt nätverk?
 Ja, mer information finns i [integrering av virtuella nätverk för Azure-tjänster](virtual-network-for-azure-services.md).
 
-### <a name="which-azure-paas-resources-can-i-restrict-access-to-from-a-vnet"></a>Vilka Azure PaaS-resurser kan jag begränsa åtkomsten till från ett VNet?
+### <a name="how-can-i-restrict-access-to-azure-paas-resources-from-a-vnet"></a>Hur kan jag begränsa åtkomsten till Azure PaaS-resurser från ett virtuellt nätverk?
 
-Resurser som distribueras via vissa Azure PaaS-tjänster (till exempel Azure Storage och Azure SQL Database) kan begränsa nätverks åtkomsten till endast resurser i ett VNet via användning av tjänst slut punkter för virtuella nätverk. Mer information finns i [Översikt över tjänst slut punkter för virtuella nätverk](virtual-network-service-endpoints-overview.md).
+Resurser som distribueras via vissa Azure PaaS-tjänster (till exempel Azure Storage och Azure SQL Database) kan begränsa nätverks åtkomsten till VNet genom att använda tjänst slut punkter för virtuella nätverk eller Azures privata länk. Mer information finns i Översikt [över tjänst slut punkter för virtuella nätverk](virtual-network-service-endpoints-overview.md), [Översikt över Azure privat länk](../private-link/private-link-overview.md)
 
 ### <a name="can-i-move-my-services-in-and-out-of-vnets"></a>Kan jag flytta mina tjänster in och ut ur virtuella nätverk?
 Nej. Du kan inte flytta tjänster in och ut ur virtuella nätverk. Om du vill flytta en resurs till ett annat VNet måste du ta bort och distribuera om resursen.
@@ -245,7 +245,7 @@ Om de två virtuella nätverken finns i olika regioner (global VNet-peering) kan
 Följande resurser använder grundläggande belastnings utjämning, vilket innebär att du inte kan kommunicera med dem i global VNet-peering:
 - Virtuella datorer bakom Basic Load Balancer
 - Skalnings uppsättningar för virtuella datorer med Basic Load Balancer 
-- Redis-cache 
+- Redis Cache 
 - SKU för Application Gateway (v1)
 - Service Fabric
 - SQL MI

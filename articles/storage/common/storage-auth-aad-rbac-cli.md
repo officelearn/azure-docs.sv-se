@@ -4,17 +4,17 @@ description: Använd Azure CLI för att tilldela åtkomst till behållare och k�
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 2e29dfde651addb58b767d04bd34e8e5441d54c8
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 606dd88fbad8cbd5c7e24d47dcf71199a25b49a2
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986747"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673196"
 ---
 # <a name="grant-access-to-azure-blob-and-queue-data-with-rbac-using-azure-cli"></a>Bevilja åtkomst till Azure blob-och Queue-data med RBAC med hjälp av Azure CLI
 
@@ -58,7 +58,7 @@ Om du vill tilldela en RBAC-roll till ett säkerhets objekt, använder du komman
 
 ### <a name="container-scope"></a>Container omfång
 
-Om du vill tilldela en roll begränsad till en behållare anger du en sträng som innehåller omfånget för `--scope` parametern. Omfånget för en behållare är i formatet:
+Om du vill tilldela en roll begränsad till en behållare anger du en sträng som innehåller omfånget för behållaren för parametern `--scope`. Omfånget för en behållare är i formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/blobServices/default/containers/<container>
@@ -75,7 +75,7 @@ az role assignment create \
 
 ### <a name="queue-scope"></a>Köa omfång
 
-Om du vill tilldela en roll som är begränsad till en kö anger du en sträng som innehåller omfånget `--scope` för-parametern. Omfattningen för en kö är i formatet:
+Om du vill tilldela en roll som är begränsad till en kö anger du en sträng som innehåller omfånget för kön för parametern `--scope`. Omfattningen för en kö är i formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>/queueServices/default/queues/<queue>
@@ -92,7 +92,7 @@ az role assignment create \
 
 ### <a name="storage-account-scope"></a>Lagrings konto omfång
 
-Om du vill tilldela en roll som är begränsad till lagrings kontot anger du omfånget för lagrings `--scope` konto resursen för parametern. Omfånget för ett lagrings konto har formatet:
+Om du vill tilldela en roll som är begränsad till lagrings kontot anger du omfånget för lagrings konto resursen för parametern `--scope`. Omfånget för ett lagrings konto har formatet:
 
 ```
 /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
@@ -109,7 +109,7 @@ az role assignment create \
 
 ### <a name="resource-group-scope"></a>Definitions område för resurs grupp
 
-Om du vill tilldela en roll som är begränsad till resurs gruppen anger du resurs gruppens namn eller ID `--resource-group` för parametern. I följande exempel tilldelas rollen **data läsare för lagrings köer** till en användare på nivån i resurs gruppen. Ersätt värdena för exempel värden och plats hållare inom hak paren tes med dina egna värden:
+Om du vill tilldela en roll som är begränsad till resurs gruppen anger du resurs gruppens namn eller ID för parametern `--resource-group`. I följande exempel tilldelas rollen **data läsare för lagrings köer** till en användare på nivån i resurs gruppen. Ersätt värdena för exempel värden och plats hållare inom hak paren tes med dina egna värden:
 
 ```azurecli-interactive
 az role assignment create \
@@ -120,7 +120,7 @@ az role assignment create \
 
 ### <a name="subscription-scope"></a>Prenumerations omfång
 
-Om du vill tilldela en roll som är begränsad till prenumerationen anger du omfånget för `--scope` parameterns prenumeration. Omfånget för en prenumeration är i formatet:
+Om du vill tilldela en roll som är begränsad till prenumerationen anger du omfånget för prenumerationen för parametern `--scope`. Omfånget för en prenumeration är i formatet:
 
 ```
 /subscriptions/<subscription>

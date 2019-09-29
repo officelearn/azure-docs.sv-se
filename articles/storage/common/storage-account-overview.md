@@ -4,16 +4,16 @@ description: Förstå alternativen för att skapa och använda ett Azure Storage
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/07/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 49e15964ba370cc6dc18491507b906764f1f882c
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 67022c6bd9e237ce24d8e63285f7ebabadca87c6
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640113"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671317"
 ---
 # <a name="azure-storage-account-overview"></a>Översikt över Azure Storage-kontot
 
@@ -96,8 +96,8 @@ Azure Storage tillhandahåller olika alternativ för åtkomst till block BLOB-da
 
 Tillgängliga åtkomst nivåer är:
 
-* Frekvent åtkomst nivå, som är optimerad för frekvent åtkomst av objekt i lagrings kontot. Att komma åt data på frekvent nivå är mest kostnads effektivt, medan lagrings kostnaderna är högre. Nya lagrings konton skapas som standard på frekvent nivå.
-* Den låg frekventa åtkomst nivån, som är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Att lagra data i den låg frekventa nivån är mer kostnads effektivt, men att komma åt dessa data kan vara dyrare än att komma åt data på frekvent nivå.
+* Frekvent **åtkomst nivå** , som är optimerad för frekvent åtkomst av objekt i lagrings kontot. Att komma åt data på frekvent nivå är mest kostnads effektivt, medan lagrings kostnaderna är högre. Nya lagrings konton skapas som standard på frekvent nivå.
+* Den **låg** frekventa åtkomst nivån, som är optimerad för att lagra stora mängder data som används sällan och som lagras i minst 30 dagar. Att lagra data i den låg frekventa nivån är mer kostnads effektivt, men att komma åt dessa data kan vara dyrare än att komma åt data på frekvent nivå.
 * **Arkiv** nivån, som endast är tillgänglig för enskilda block blobbar. Arkiv nivån är optimerad för data som kan tolerera flera timmars svars tid för hämtning och kommer att finnas kvar på Arkiv nivån i minst 180 dagar. Arkiv lag rings nivån är det mest kostnads effektiva alternativet för att lagra data, men att komma åt dessa data är dyrare än att komma åt data på frekventa eller låg frekventa nivåer.
 
 Om det finns en ändring i användnings mönstret för dina data kan du när som helst växla mellan dessa åtkomst nivåer. Mer information om åtkomst nivåer finns i [Azure Blob Storage: frekvent åtkomst, låg frekvent åtkomst och Arkiv](../blobs/storage-blob-storage-tiers.md)lag rings nivåer.
@@ -115,7 +115,7 @@ Mer information om Storage Replication finns [Azure Storage replikering](storage
 
 Alla data i ditt lagrings konto krypteras på tjänst sidan. Mer information om kryptering finns i [Azure Storage tjänst kryptering för vilande data](storage-service-encryption.md).
 
-## <a name="storage-account-endpoints"></a>Slutpunkter för lagringskonto
+## <a name="storage-account-endpoints"></a>Lagringskontoslutpunkter
 
 På ett lagringskonto finns ett unikt namnområde i Azure för dina data. Alla objekt som du lagrar i Azure Storage har en adress som innehåller ditt unika kontonamn. Kombinationen av kontonamnet och Azure Storage-tjänstens slutpunkt bildar slutpunkterna för ditt lagringskonto.
 

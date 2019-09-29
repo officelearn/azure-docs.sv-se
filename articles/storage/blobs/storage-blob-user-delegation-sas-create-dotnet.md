@@ -4,17 +4,17 @@ description: Lär dig hur du skapar en användar Delegerings-SAS med Azure Activ
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/12/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: blobs
-ms.openlocfilehash: 98ab93bbec8da17dde93c9c343703838b0279994
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 59de768e75a88d7cfa5b68fa306d0e83f1aa0ba3
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900432"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71671332"
 ---
 # <a name="create-a-user-delegation-sas-for-a-container-or-blob-with-net-preview"></a>Skapa en användar Delegerings-SAS för en behållare eller BLOB med .NET (för hands version)
 
@@ -57,7 +57,7 @@ az ad sp create-for-rbac \
     --scopes /subscriptions/<subscription>/resourceGroups/<resource-group>/providers/Microsoft.Storage/storageAccounts/<storage-account>
 ```
 
-`az ad sp create-for-rbac` Kommandot returnerar en lista över egenskaper för tjänstens huvud namn i JSON-format. Kopiera värdena så att du kan använda dem för att skapa de miljövariabler som krävs i nästa steg.
+Kommandot `az ad sp create-for-rbac` returnerar en lista över egenskaper för tjänstens huvud namn i JSON-format. Kopiera värdena så att du kan använda dem för att skapa de miljövariabler som krävs i nästa steg.
 
 ```json
 {
@@ -87,7 +87,7 @@ Klient biblioteket för Azure Identity läser värden från tre miljövariabler 
 
 ## <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
 
-Lägg till följande `using` direktiv i koden för att använda för hands versionerna av Azure-identiteten och Azure Storage klient biblioteken.
+Lägg till följande `using`-direktiv i koden för att använda för hands versionerna av Azure Identity och Azure Storage klient bibliotek.
 
 ```csharp
 using System;
@@ -102,7 +102,7 @@ using Azure.Storage.Blobs.Models;
 
 ## <a name="authenticate-the-service-principal"></a>Autentisera tjänstens huvud namn
 
-Om du vill autentisera tjänstens huvud namn skapar du en instans av klassen [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . `DefaultAzureCredential` Konstruktorn läser de miljövariabler som du skapade tidigare.
+Om du vill autentisera tjänstens huvud namn skapar du en instans av klassen [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) . Konstruktorn `DefaultAzureCredential` läser de miljövariabler som du skapade tidigare.
 
 Följande kodfragment visar hur du hämtar autentiserade autentiseringsuppgifter och använder den för att skapa en tjänst klient för Blob Storage
 

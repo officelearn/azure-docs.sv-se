@@ -4,17 +4,17 @@ description: Zone-redundant lagring (ZRS) erbjuder ett enkelt sätt att bygga pr
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: f7639eb2807654aab38a4e849c2e58d77f15bc31
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a343601ec126549926cfd4035d901862c0a585a8
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036256"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673098"
 ---
 # <a name="zone-redundant-storage-zrs-for-building-highly-available-azure-storage-applications"></a>Zone-redundant lagring (ZRS) för att skapa hög tillgängliga Azure Storage program
 
@@ -67,25 +67,25 @@ Att migrera data till ZRS kräver en annan strategi. ZRS-migreringen innebär fy
 Det finns två primära alternativ för migrering till ZRS: 
 
 - Kopiera eller flytta data manuellt till ett nytt ZRS-konto från ett befintligt konto.
-- Begär en direktmigrering.
+- Begära en direktmigrering.
 
 > [!IMPORTANT]
 > Direktmigrering stöds för närvarande inte för Premium-filresurser. Det finns för närvarande endast stöd för att kopiera eller flytta data manuellt.
 
-Om du vill att migreringen ska slutföras vid ett visst datum kan du utföra en manuell migrering. En manuell migrering ger större flexibilitet än en direktmigrering. Med en manuell migrering har du kontroll över tids inställningen.
+Om du vill att migreringen ska slutföras vid ett visst datum kan du utföra en manuell migrering. Manuell migrering ger större flexibilitet än direktmigrering. Med en manuell migrering har du kontroll över tidsaspekten.
 
 Om du vill utföra en manuell migrering har du följande alternativ:
 - Använd befintligt verktyg som AzCopy, en av Azure Storage klient bibliotek eller pålitliga verktyg från tredje part.
 - Om du är bekant med Hadoop eller HDInsight ansluter du både käll-och mål kontot (ZRS) till klustret. Parallellisera sedan data kopierings processen med ett verktyg som DistCp.
 - Bygg ditt eget verktyg med ett av de Azure Storage klient biblioteken.
 
-En manuell migrering kan resultera i avbrott i programmet. Om ditt program kräver hög tillgänglighet tillhandahåller Microsoft också ett alternativ för direktmigrering. En direktmigrering är en migrering på plats utan drift avbrott. 
+En manuell migrering kan resultera i avbrott i programmet. Om ditt program kräver hög tillgänglighet tillhandahåller Microsoft även ett alternativ för direktmigrering. Direktmigrering är migrering på plats utan driftavbrott. 
 
-Under en direktmigrering kan du använda ditt lagrings konto medan dina data migreras mellan käll-och mål lagrings märken. Under migreringsprocessen har du samma nivå av SLA och tillgänglighets-SLA som vanligt.
+Under direktmigrering kan du använda ditt lagringskonto medan dina data migreras mellan käll- och mållagringsstämplarna. Under migreringsprocessen har du ett serviceavtal med samma nivå av hållbarhet och tillgänglighet som vanligt.
 
 Tänk på följande begränsningar för direktmigrering:
 
-- Microsoft hanterar din begäran om direktmigrering utan dröjsmål, men det finns inte någon garanti om när den slutförs. Om du behöver migrera dina data till ZRS med ett visst datum rekommenderar Microsoft att du utför en manuell migrering i stället. Ju mer data du har på ditt konto, desto längre tid tar det vanligtvis att migrera dina data. 
+- Microsoft hanterar din begäran om direktmigrering utan dröjsmål, men det finns inte någon garanti om när den slutförs. Om dina data måste migreras till ZRS före ett visst datum rekommenderar Microsoft att du utför en manuell migrering i stället. Ju mer data du har på ditt konto, desto längre tid tar det vanligtvis att migrera dina data. 
 - Direktmigrering stöds endast för lagrings konton som använder LRS eller GRS-replikering. Om ditt konto använder RA-GRS måste du först ändra ditt kontos replikeringstyp till antingen LRS eller GRS innan du fortsätter. Detta mellanliggande steg tar bort den sekundära skrivskyddade slut punkten som tillhandahålls av RA-GRS innan migreringen.
 - Ditt konto måste innehålla data.
 - Du kan bara migrera data inom samma region. Om du vill migrera dina data till ett ZRS-konto som finns i en annan region än käll kontot, måste du utföra en manuell migrering.
@@ -103,7 +103,7 @@ Du kan begära en Direktmigrering via [Azure-support portalen](https://ms.portal
     - **Problem typ**: Välj **datamigrering**.
     - **Kategori**: Välj **migrera till ZRS**.
     - **Rubrik**: Ange en beskrivande rubrik, till exempel **ZRS-kontots migrering**.
-    - **Information**: Skriv ytterligare information i rutan **information** , till exempel om jag vill migrera till ZRS från [LRS, GRS] i \_ \_ regionen. 
+    - **Information**: Skriv mer information i **informations** rutan, till exempel vill du MIGRERA till ZRS från [LRS, GRS] i regionen \_ @ no__t-2. 
 5. Välj **Nästa**.
 6. Kontrol lera att kontakt informationen är korrekt på bladet med **kontakt information** .
 7. Välj **Skapa**.
@@ -114,11 +114,11 @@ En support person kommer att kontakta dig och tillhandahålla den hjälp du beh�
 
 **Bör jag planera för eventuell stillestånds tid under migreringen?**
 
-Det finns ingen nedtid som orsakas av migreringen. Under en direktmigrering kan du fortsätta att använda ditt lagrings konto medan dina data migreras mellan käll-och mål lagrings märken. Under migreringsprocessen har du samma nivå av SLA och tillgänglighets-SLA som vanligt.
+Det finns ingen nedtid som orsakas av migreringen. Under en direktmigrering kan du fortsätta att använda ditt lagrings konto medan dina data migreras mellan käll-och mål lagrings märken. Under migreringsprocessen har du ett serviceavtal med samma nivå av hållbarhet och tillgänglighet som vanligt.
 
 **Finns det någon data förlust som är associerad med migreringen?**
 
-Ingen data förlust är associerad med migreringen. Under migreringsprocessen har du samma nivå av SLA och tillgänglighets-SLA som vanligt.
+Ingen data förlust är associerad med migreringen. Under migreringsprocessen har du ett serviceavtal med samma nivå av hållbarhet och tillgänglighet som vanligt.
 
 **Krävs det några uppdateringar för programmen när migreringen är klar?**
 

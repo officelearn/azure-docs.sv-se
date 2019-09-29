@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: jeconnoc
-ms.openlocfilehash: 40a912a94dc61342c04528e902bb0e084546904d
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 63065c918a6f78510b4908c5e2ae80df67665b40
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68592804"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672607"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta funktioner till Azure Storage med Visual Studio Code
 
@@ -21,7 +21,7 @@ Med Azure Functions kan du ansluta funktioner till Azure-tjänster och andra res
 
 Den här artikeln visar hur du använder Visual Studio Code för att ansluta den funktion som du skapade i [föregående snabb starts artikel](functions-create-first-function-vs-code.md) till Azure Storage. Den utgående bindning som du lägger till i den här funktionen skriver data från HTTP-begäran till ett meddelande i en kö för Azure Queue Storage. 
 
-De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app- `AzureWebJobsStorage`inställning med namnet.  
+De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot finns redan i en app-inställning med namnet `AzureWebJobsStorage`.  
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -32,13 +32,13 @@ Innan du startar den här artikeln måste du uppfylla följande krav:
 * Installera [.net Core CLI verktyg](https://docs.microsoft.com/dotnet/core/tools/?tabs=netcore2x) (C# endast projekt).
 * Slutför stegen i [del 1 av snabb starten för Visual Studio Code](functions-create-first-function-vs-code.md). 
 
-Den här artikeln förutsätter att du redan har loggat in på Azure-prenumerationen från Visual Studio Code. Du kan logga in genom att `Azure: Sign In` köra från kommando paletten. 
+Den här artikeln förutsätter att du redan har loggat in på Azure-prenumerationen från Visual Studio Code. Du kan logga in genom att köra `Azure: Sign In` från kommando paletten. 
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
 I [föregående snabb starts artikel](functions-create-first-function-vs-code.md)skapade du en Function-app i Azure tillsammans med det lagrings konto som krävs. Anslutnings strängen för det här kontot lagras på ett säkert sätt i appinställningar i Azure. I den här artikeln skriver du meddelanden till en lagrings kö i samma konto. För att ansluta till ditt lagrings konto när funktionen körs lokalt måste du hämta appinställningar till filen Local. Settings. JSON. 
 
-1. Tryck på F1-tangenten för att öppna kommando paletten och Sök sedan efter och kör `Azure Functions: Download Remote Settings....`kommandot. 
+1. Tryck på F1-tangenten för att öppna kommando paletten och Sök sedan efter och kör kommandot `Azure Functions: Download Remote Settings....`. 
 
 1. Välj den Function-app som du skapade i föregående artikel. Välj **Ja om** du vill skriva över de befintliga lokala inställningarna. 
 
@@ -51,39 +51,39 @@ I [föregående snabb starts artikel](functions-create-first-function-vs-code.md
 
 Eftersom du använder en kö för lagring av utdata måste du ha installerat tillägget för lagrings bindningar innan du kör projektet. 
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-### <a name="c-class-library"></a>C\# -klass bibliotek
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Med undantag för HTTP-och timer-utlösare implementeras bindningar som tilläggs paket. Kör följande [dotNet Lägg till paket](/dotnet/core/tools/dotnet-add-package) kommando i terminalfönstret för att lägga till lagrings tilläggs paketet i projektet.
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
-
+---
 Nu kan du lägga till bindningen för Storage-utdata i projektet.
 
 ## <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
-I functions kräver varje typ av bindning en `direction`, `type`, och en unik `name` för att definieras i function. JSON-filen. Hur du definierar dessa attribut beror på språket i din Function-app.
+I funktioner kräver varje typ av bindning en `direction`, `type` och en unik `name` som ska definieras i function. JSON-filen. Hur du definierar dessa attribut beror på språket i din Function-app.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 Binding-attribut definieras direkt i function. JSON-filen. Beroende på bindnings typen kan ytterligare egenskaper krävas. I [kös Ekö konfigurationen](functions-bindings-storage-queue.md#output---configuration) beskrivs de fält som krävs för en Azure Storage Queue-bindning. Tillägget gör det enkelt att lägga till bindningar i function. JSON-filen. 
 
-Om du vill skapa en bindning högerklickar du på (Ctrl + klicka på MacOS `function.json` ) filen i mappen HttpTrigger och väljer **Lägg till bindning...** . Följ anvisningarna för att definiera följande bindnings egenskaper för den nya bindningen:
+Om du vill skapa en bindning högerklickar du på (Ctrl + klicka på macOS) `function.json`-filen i mappen HttpTrigger och väljer **Lägg till bindning...** . Följ anvisningarna för att definiera följande bindnings egenskaper för den nya bindningen:
 
-| Uppmaning | Värde | Beskrivning |
+| Uppmaning | Value | Beskrivning |
 | -------- | ----- | ----------- |
 | **Välj bindnings riktning** | `out` | Bindningen är en utgående bindning. |
 | **Välj bindning med riktning...** | `Azure Queue Storage` | Bindningen är en Azure Storage Queue-bindning. |
 | **Namnet som används för att identifiera den här bindningen i din kod** | `msg` | Namn som identifierar den bindnings parameter som refereras till i din kod. |
 | **Kön som meddelandet ska skickas till** | `outqueue` | Namnet på kön som bindningen skriver till. När *queueName* inte finns skapar bindningen den när den används första gången. |
-| **Välj inställning från "lokal. Setting. JSON"** | `AzureWebJobsStorage` | Namnet på en program inställning som innehåller anslutnings strängen för lagrings kontot. `AzureWebJobsStorage` Inställningen innehåller anslutnings strängen för det lagrings konto som du skapade med Function-appen. |
+| **Välj inställning från "lokal. Setting. JSON"** | `AzureWebJobsStorage` | Namnet på en program inställning som innehåller anslutnings strängen för lagrings kontot. Inställningen `AzureWebJobsStorage` innehåller anslutnings strängen för det lagrings konto som du skapade med Function-appen. |
 
-En bindning läggs till `bindings` i matrisen i function. JSON-filen, som nu bör se ut som i följande exempel:
+En bindning läggs till i `bindings`-matrisen i function. JSON-filen, som nu bör se ut som i följande exempel:
 
 ```json
 {
@@ -116,17 +116,19 @@ En bindning läggs till `bindings` i matrisen i function. JSON-filen, som nu bö
 }
 ```
 
-### <a name="c-class-library"></a>C\# -klass bibliotek
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
 
+---
+
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
-När bindningen har definierats kan du använda `name` bindningen för att komma åt den som ett attribut i Function-signaturen. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
+När bindningen har definierats kan du använda `name` för bindningen för att komma åt den som ett attribut i funktions under skriften. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
 
-### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-Lägg till kod som använder `msg` objektet utgående bindning på `context.bindings` för att skapa ett köat meddelande. Lägg till den här koden före `context.res`-instruktionen.
+Lägg till kod som använder objektet `msg` utgående bindning på `context.bindings` för att skapa ett Queue-meddelande. Lägg till den här koden före `context.res`-instruktionen.
 
 ```javascript
 // Add a message to the Storage queue.
@@ -158,9 +160,11 @@ module.exports = async function (context, req) {
 };
 ```
 
-### <a name="c"></a>C\#
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
+---
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
@@ -182,7 +186,7 @@ När du har loggat in på ditt konto visas alla Azure-prenumerationer som är ko
 
 ### <a name="examine-the-output-queue"></a>Granska utdatakö
 
-1. I Visual Studio Code trycker du på F1-tangenten för att öppna kommando-paletten, sedan söker du efter `Azure Storage: Open in Storage Explorer` och kör kommandot och väljer ditt lagrings konto namn. Ditt lagrings konto öppnas i Azure Storage Explorer.  
+1. I Visual Studio Code trycker du på F1-tangenten för att öppna kommando paletten, sedan söker du efter och kör kommandot `Azure Storage: Open in Storage Explorer` och väljer ditt lagrings konto namn. Ditt lagrings konto öppnas i Azure Storage Explorer.  
 
 1. Expandera noden **Köer** och välj sedan kön med namnet **outqueue**. 
 
@@ -200,7 +204,7 @@ Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 1. Välj den Function-app som du skapade i den första artikeln. Eftersom du omdistribuerar projektet till samma app väljer du **distribuera** för att ignorera varningen om att skriva över filer.
 
-1. När distributionen är klar kan du använda svängen igen eller en webbläsare för att testa den omdistribuerade funktionen. Som tidigare lägger du till frågesträngen `&name=<yourname>` i URL: en, som i följande exempel:
+1. När distributionen är klar kan du använda svängen igen eller en webbläsare för att testa den omdistribuerade funktionen. Som tidigare lägger du till frågesträngen `&name=<yourname>` till URL: en, som i följande exempel:
 
     ```bash
     curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>

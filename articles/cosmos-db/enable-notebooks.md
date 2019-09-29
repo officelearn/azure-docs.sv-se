@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 34e1d9fe937118a2eafcdd85c153653eb28752d4
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 824a562cb5f0562a235d903fbd4e575bc9c22572
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219254"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672735"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Aktivera antecknings böcker för Azure Cosmos DB-konton
 
@@ -67,3 +67,4 @@ Du kan också välja **ny Notebook** för att skapa en ny antecknings bok eller 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om fördelarna med att [Azure Cosmos DB Jupyter Notebooks](cosmosdb-jupyter-notebooks.md)
+- Lär dig mer om [hur du använder Notebook-funktioner och-kommandon](use-notebook-features-and-commands.md)

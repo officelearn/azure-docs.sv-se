@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fe49a57e74822c0b4349b2919ea8aa89cbfb458d
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 0303f8c7e18a5c229bc5a8c5e9b90d95cdaccbe7
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69622301"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672906"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Konfigurera registrering och inloggning med OpenID Connect med Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ ms.locfileid: "69622301"
 
 ## <a name="configure-the-identity-provider"></a>Konfigurera identitets leverantören
 
-Varje OpenID Connect Identity Provider beskriver ett Metadatadokumentet som innehåller merparten av den information som krävs för att utföra inloggning. Detta omfattar information som webb adresserna som ska användas och platsen för tjänstens offentliga signerings nycklar. OpenID Connect-Metadatadokumentet finns alltid i en slut punkt som slutar med `.well-known\openid-configuration`. För den OpenID Connect Identity-Provider som du vill lägga till anger du dess URL för metadata.
+Varje OpenID Connect Identity Provider beskriver ett Metadatadokumentet som innehåller merparten av den information som krävs för att utföra inloggning. Detta omfattar information som webb adresserna som ska användas och platsen för tjänstens offentliga signerings nycklar. OpenID Connect-Metadatadokumentet finns alltid i en slut punkt som slutar i `.well-known\openid-configuration`. För den OpenID Connect Identity-Provider som du vill lägga till anger du dess URL för metadata.
 
 ## <a name="client-id-and-secret"></a>Klient-ID och hemlighet
 
@@ -41,26 +41,25 @@ För att användarna ska kunna logga in kräver identitets leverantören utveckl
 
 ## <a name="scope"></a>Omfång
 
-Omfattning definierar den information och de behörigheter som du vill samla in från den anpassade identitets leverantören. OpenID Connect-begäranden måste innehålla `openid` omfattnings värde för att ta emot ID-token från identitets leverantören. Utan ID-token kan användarna inte logga in på Azure AD B2C med hjälp av den anpassade identitets leverantören. Andra omfattningar kan läggas till åtskilda med blank steg. Se den anpassade identitets leverantörens dokumentation för att se vilka andra omfattningar som kan vara tillgängliga.
+Omfattning definierar den information och de behörigheter som du vill samla in från den anpassade identitets leverantören. OpenID Connect-begäranden måste innehålla värdet för värdet `openid` för att kunna ta emot ID-token från identitets leverantören. Utan ID-token kan användarna inte logga in på Azure AD B2C med hjälp av den anpassade identitets leverantören. Andra omfattningar kan läggas till åtskilda med blank steg. Se den anpassade identitets leverantörens dokumentation för att se vilka andra omfattningar som kan vara tillgängliga.
 
 ## <a name="response-type"></a>Svarstyp
 
-Svars typen beskriver vilken typ av information som skickas tillbaka i det första anropet till `authorization_endpoint` den anpassade identitets leverantören. Följande svars typer kan användas:
+Svars typen beskriver vilken typ av information som skickas tillbaka i det första anropet till `authorization_endpoint` för den anpassade identitets leverantören. Följande svars typer kan användas:
 
 * `code`: Som enligt [koden för auktoriseringskod](https://openid.net/specs/openid-connect-core-1_0.html#CodeFlowAuth)returneras en kod tillbaka till Azure AD B2C. Azure AD B2C fortsätter att anropa `token_endpoint` för att skicka koden för token.
-* `token`: En åtkomsttoken returneras tillbaka till Azure AD B2C från den anpassade identitets leverantören.
 * `id_token`: En ID-token returneras tillbaka till Azure AD B2C från den anpassade identitets leverantören.
 
 ## <a name="response-mode"></a>Svarsläge
 
 Svars läget definierar metoden som ska användas för att skicka tillbaka data från den anpassade identitets leverantören till Azure AD B2C. Följande svars lägen kan användas:
 
-* `form_post`: Det här svars läget rekommenderas för bästa säkerhet. Svaret överförs via http- `POST` metoden, med koden eller token som kodas i texten `application/x-www-form-urlencoded` med formatet.
+* `form_post`: Det här svars läget rekommenderas för bästa säkerhet. Svaret överförs via HTTP-`POST`-metoden, med koden eller token som kodas i texten med formatet `application/x-www-form-urlencoded`.
 * `query`: Koden eller token returneras som en frågeparameter.
 
-## <a name="domain-hint"></a>Domän-tips
+## <a name="domain-hint"></a>Tips för domänen
 
-Du kan använda domän tipset för att hoppa direkt till inloggnings sidan för den angivna identitets leverantören, i stället för att låta användaren göra ett val bland listan över tillgängliga identitets leverantörer. Ange ett värde för domän tipset för att tillåta den här typen av beteende. Om du vill gå till den anpassade identitets leverantören lägger du `domain_hint=<domain hint value>` till parametern i slutet av din begäran när du anropar Azure AD B2C för inloggning.
+Du kan använda domän tipset för att hoppa direkt till inloggnings sidan för den angivna identitets leverantören, i stället för att låta användaren göra ett val bland listan över tillgängliga identitets leverantörer. Ange ett värde för domän tipset för att tillåta den här typen av beteende. Om du vill gå till den anpassade identitets leverantören lägger du till parametern `domain_hint=<domain hint value>` i slutet av din begäran när du anropar Azure AD B2C för inloggning.
 
 ## <a name="claims-mapping"></a>Anspråks mappning
 

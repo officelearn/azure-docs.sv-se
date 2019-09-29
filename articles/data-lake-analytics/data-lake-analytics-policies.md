@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Data Lake Analytics-principer
-description: Lär dig hur du använder principer för att styra användningen av ett Data Lake Analytics-konto.
+description: Lär dig hur du använder principer för att styra användningen av ett Data Lake Analytics konto, till exempel maximalt antal och maximalt antal jobb.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
@@ -9,103 +9,103 @@ ms.reviewer: jasonwhowell
 ms.assetid: 0a6102d1-7554-4df2-b487-4dae9a7287b6
 ms.topic: conceptual
 ms.date: 04/30/2018
-ms.openlocfilehash: 64095f6706bb978cd33b8fe7833fe4e65fc3b0f8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 97b736d854661600a847b1d698af8f15ae58d237
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60813426"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672865"
 ---
 # <a name="manage-azure-data-lake-analytics-using-policies"></a>Hantera Azure Data Lake Analytics med hjälp av principer
 
-Med hjälp av principer för konton, kan du styra hur resurser ett Azure Data Lake Analytics-konto är används. Dessa principer kan du kontrollera kostnaden för att använda Azure Data Lake Analytics. Med dessa principer kan du förhindra oväntade toppar genom att begränsa hur många analysenheter samtidigt använda kontot.
+Med hjälp av konto principer kan du styra hur resurser ett Azure Data Lake Analytics konto används. Med dessa principer kan du kontrol lera kostnaden för att använda Azure Data Lake Analytics. Med dessa principer kan du till exempel förhindra oväntade kostnads toppar genom att begränsa hur många centrala enheter som kontot kan använda samtidigt.
 
-## <a name="account-level-policies"></a>Kontonivå principer
+## <a name="account-level-policies"></a>Principer på konto nivå
 
 Dessa principer gäller för alla jobb i ett Data Lake Analytics-konto.
 
-### <a name="maximum-number-of-aus-in-a-data-lake-analytics-account"></a>Maximalt antal AU: er i ett Data Lake Analytics-konto
-En princip styr det totala antalet analysenheter (AU) kan använda Data Lake Analytics-kontot. Värdet är som standard är 250. Exempel: om det här värdet är inställt på 250 analysenheter, kan du ha ett jobb körs med 250 analysenheter som tilldelats eller 10 jobb som körs med 25 analysenheter varje. Ytterligare jobb som skickas köas tills jobb som körs är klar. När jobb som körs är slutförda frigörs AU: er för att köra köade jobb.
+### <a name="maximum-number-of-aus-in-a-data-lake-analytics-account"></a>Maximalt antal Australien i ett Data Lake Analytics konto
+En princip styr det totala antalet analys enheter (Australien) som ditt Data Lake Analyticss konto kan använda. Som standard anges värdet till 250. Om det här värdet till exempel är inställt på 250 Australien, kan du ha ett jobb som körs med 250-appen tilldelad eller 10 jobb som körs med 25 Australien. Ytterligare jobb som skickas placeras i kö tills de pågående jobben har avslut ATS. När jobben har körts klart frigörs mappen för de köade jobben som ska köras.
 
-Ändra antalet analysenheter för ditt Data Lake Analytics-konto:
+Så här ändrar du antalet Australien för ditt Data Lake Analytics-konto:
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **Egenskaper**.
-3. Under **maximala AU: er**, flytta skjutreglaget för att välja ett värde eller ange värdet i textrutan. 
+3. Under **maximal Australien**flyttar du skjutreglaget för att välja ett värde eller anger värdet i text rutan. 
 4. Klicka på **Spara**.
 
 > [!NOTE]
-> Om du behöver mer än standardvärdet (250) analysenheter, i portalen klickar du på **hjälp + Support** att skicka en supportförfrågan. Antalet AU som är tillgängliga i ditt Data Lake Analytics-konto kan ökas.
+> Om du behöver mer än standard-Australien (250) klickar du på **Hjälp + Support** för att skicka en supportbegäran i portalen. Det går att öka antalet tillgängliga Australien i ditt Data Lake Analytics konto.
 >
 
 ### <a name="maximum-number-of-jobs-that-can-run-simultaneously"></a>Maximalt antal jobb som kan köras samtidigt
-En princip styr hur många jobb kan köras samtidigt. Det här värdet anges som standard till 20. Om Data Lake Analytics har analysenheter som är tillgängliga, är nya jobb schemalagda att köras direkt till det totala antalet jobb som körs uppnår värdet för den här principen. När du når det maximala antalet jobb som kan köras samtidigt kan köas efterföljande jobb i prioritetsordning tills en eller flera jobb som körs har slutförts (beroende på tillgänglighet i Australien).
+En princip styr hur många jobb som kan köras samtidigt. Som standard är det här värdet inställt på 20. Om din Data Lake Analytics har tillgänglig Australien, kommer nya jobb att köras omedelbart tills det totala antalet jobb som körs når värdet för den här principen. När du når det maximala antalet jobb som kan köras samtidigt placeras efterföljande jobb i prioritetsordning tills ett eller flera pågående jobb slutförs (beroende på AU-tillgänglighet).
 
 Ändra antalet jobb som kan köras samtidigt:
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **Egenskaper**.
-3. Under **maximalt antal av kör jobb**, flytta skjutreglaget för att välja ett värde eller ange värdet i textrutan. 
+3. Under **maximalt antal jobb som körs**flyttar du skjutreglaget för att välja ett värde eller anger värdet i text rutan. 
 4. Klicka på **Spara**.
 
 > [!NOTE]
-> Om du behöver köra mer än (20) standardantalet jobb i portalen klickar du på **hjälp + Support** att skicka en supportförfrågan. Antalet jobb som kan köras samtidigt i ditt Data Lake Analytics-konto kan ökas.
+> Om du behöver köra fler än standard antalet jobb, klickar du på **Hjälp + Support** för att skicka en supportbegäran i portalen. Det går att öka antalet jobb som kan köras samtidigt i ditt Data Lake Analytics konto.
 >
 
-### <a name="how-long-to-keep-job-metadata-and-resources"></a>Hur lång tid att hålla jobbmetadata och resurser 
-När användarna kör U-SQL-jobb, behåller alla relaterade filer i Data Lake Analytics-tjänsten. Relaterade filer inkluderar U-SQL-skript, DLL-filer som refereras i U-SQL-skript, kompilerade resurser och statistik. Filerna som finns i mappen/System / i Azure Data Lake Storage-kontot. Den här principen styr hur länge resurserna ska sparas innan de tas automatiskt bort (standardvärdet är 30 dagar). Du kan använda dessa filer för felsökning och för prestandajustering för jobb som du ska köra igen i framtiden.
+### <a name="how-long-to-keep-job-metadata-and-resources"></a>Hur lång tid det tar att bevara jobbets metadata och resurser 
+När användarna kör U-SQL-jobb behåller Data Lake Analytics tjänsten alla relaterade filer. Relaterade filer inkluderar U-SQL-skriptet, DLL-filerna som refereras i U-SQL-skriptet, kompilerade resurser och statistik. Filerna finns i mappen/system/för standard Azure Data Lake Storage-kontot. Den här principen styr hur länge dessa resurser lagras innan de tas bort automatiskt (Standardvärdet är 30 dagar). Du kan använda dessa filer för fel sökning och för prestanda justering av jobb som du kommer att köra igen i framtiden.
 
-Ändra hur lång tid för att behålla jobbmetadata och resurser:
+Ändra hur lång tid det tar att behålla jobbets metadata och resurser:
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **Egenskaper**.
-3. Under **dagar att behålla Jobbfrågor**, flytta skjutreglaget för att välja ett värde eller ange värdet i textrutan.  
+3. Under **dagar för att behålla jobb frågor**, flytta skjutreglaget för att välja ett värde eller ange värdet i text rutan.  
 4. Klicka på **Spara**.
 
-## <a name="job-level-policies"></a>Jobbnivå principer
+## <a name="job-level-policies"></a>Principer för jobb nivå
 
-Du kan styra de maximala AU: er och den högsta prioritet som enskilda användare (eller medlemmar i specifika säkerhetsgrupper) kan ställa in på jobb som de skickar med jobbnivå principer. Den här principen kan du styra kostnader användare. Du kan även kontroll att schemalagda jobb kan ha på hög prioritet produktionsjobb som körs i samma Data Lake Analytics-konto.
+Med principer för jobbnivå kan du kontrol lera den maximala Australien och den högsta prioritet som enskilda användare (eller medlemmar i specifika säkerhets grupper) kan ange för jobb som de skickar. Med den här principen kan du kontrol lera de kostnader som användarna har ådragit sig. Du kan också styra vilken inverkan schemalagda jobb kan ha på hög prioriterade produktions jobb som körs i samma Data Lake Analytics konto.
 
-Data Lake Analytics har två principer som du kan ange på jobbnivån:
+Data Lake Analytics har två principer som du kan ange på jobb nivå:
 
-* **AU-gräns per jobb**: Användare kan bara skicka jobb som kan har upp till det här antalet AU. Som standard är den här gränsen samma som den maximala AU-gränsen för kontot.
-* **Prioritet**: Användare kan bara skicka jobb som har en prioritet lägre än eller lika med det här värdet. En hög siffra anger lägre prioritet. Den här gränsen är som standard till 1, vilket är den högsta möjliga prioriteten.
+* **Au-gräns per jobb**: Användare kan bara skicka jobb som har upp till det här antalet Australien. Som standard är den här gränsen densamma som den maximala AU-gränsen för kontot.
+* **Prioritet**: Användare kan bara skicka jobb som har en prioritet som är lägre än eller lika med det här värdet. En högre siffra anger en lägre prioritet. Som standard är den här gränsen inställd på 1, vilket är den högsta möjliga prioriteten.
 
-Det finns en standardprincip som på varje konto. Standardprincipen gäller för alla användare på kontot. Du kan ange ytterligare principer för specifika användare och grupper. 
+Det finns en standard princip uppsättning för varje konto. Standard principen gäller för alla användare av kontot. Du kan ange ytterligare principer för vissa användare och grupper. 
 
 > [!NOTE]
-> Kontonivå och jobbnivå principer gäller samtidigt.
+> Principer på konto nivå och principer för jobbnivå gäller samtidigt.
 >
 
-### <a name="add-a-policy-for-a-specific-user-or-group"></a>Lägg till en princip för en viss användare eller grupp
+### <a name="add-a-policy-for-a-specific-user-or-group"></a>Lägga till en princip för en speciell användare eller grupp
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **Egenskaper**.
-3. Under **begränsningar för Jobbinlämning**, klickar du på den **Lägg till princip** knappen. Sedan, Välj eller ange följande inställningar:
-    1. **Compute principnamn**: Ange ett namn på principen, som påminner dig om syftet med principen.
-    2. **Välj användare eller grupp**: Välj användaren eller gruppen som principen gäller.
-    3. **Ställ in gräns för Australien i jobbet**: Ange AU-gräns som gäller för den valda användare eller grupp.
-    4. **Ställ in gräns för prioritet**: Ställ in gräns för den priority som gäller för den valda användare eller grupp.
+3. Under **jobb överförings gränser**klickar du på knappen **Lägg till princip** . Välj eller ange följande inställningar:
+    1. **Namn på beräknings princip**: Ange ett princip namn för att påminna dig om syftet med principen.
+    2. **Välj användare eller grupp**: Välj den användare eller grupp som den här principen gäller för.
+    3. **Ange tröskelvärde för jobbets au**: Ange den AU-gräns som gäller för den valda användaren eller gruppen.
+    4. **Ange prioritets gräns**: Ange den prioritets gräns som gäller för den valda användaren eller gruppen.
 
 4. Klicka på **OK**.
 
-5. Den nya principen visas i den **standard** princip tabellen under **begränsningar för Jobbinlämning**. 
+5. Den nya principen visas i **standard** princip tabellen under **jobb överförings gränser**. 
 
 ### <a name="delete-or-edit-an-existing-policy"></a>Ta bort eller redigera en befintlig princip
 
-1. Gå till ditt Data Lake Analytics-konto i Azure-portalen.
+1. I Azure Portal går du till ditt Data Lake Analytics-konto.
 2. Klicka på **Egenskaper**.
-3. Under **begränsningar för Jobbinlämning**, hitta den princip som du vill redigera.
-4.  Se den **ta bort** och **redigera** i kolumnen längst till höger i tabellen, klicka på `...`.
+3. Under **jobb överförings gränser**söker du efter den princip som du vill redigera.
+4.  Om du vill se alternativen för att **ta bort** och **Redigera** i kolumnen längst till höger i tabellen klickar du på `...`.
 
-## <a name="additional-resources-for-job-policies"></a>Ytterligare resurser för principer för jobbet
-* [Blogginlägg för princip-översikt](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)
-* [Principer för kontonivå blogginlägget](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
-* [Principer jobb på blogginlägget](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
+## <a name="additional-resources-for-job-policies"></a>Ytterligare resurser för jobb principer
+* [Blogg inlägg för princip översikt](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-overview/)
+* [Blogg inlägg på konto nivå principer](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-account-level-policy/)
+* [Blogg inlägg på jobb nivå principer](https://blogs.msdn.microsoft.com/azuredatalake/2017/06/08/managing-your-azure-data-lake-analytics-compute-resources-job-level-policy/)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * [Översikt över Azure Data Lake Analytics](data-lake-analytics-overview.md)
-* [Kom igång med Data Lake Analytics med hjälp av Azure portal](data-lake-analytics-get-started-portal.md)
-* [Hantera Azure Data Lake Analytics med hjälp av Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
+* [Kom igång med Data Lake Analytics med hjälp av Azure Portal](data-lake-analytics-get-started-portal.md)
+* [Hantera Azure Data Lake Analytics med Azure PowerShell](data-lake-analytics-manage-use-powershell.md)
 

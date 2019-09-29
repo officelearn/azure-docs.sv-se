@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: dc1c6e4bf2e67d8945cf754aa47461b4ce8364a9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 81deaaffa301c4453842875f9cfd6b63bb6bbfd7
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066829"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672973"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -120,7 +120,8 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändringslogg
-- 09/17/2019: Ändring i planerings-och distributions guiden i NetWeaver för att förena villkoren runt VM-tillägget för SAP
+- 09/28/2019: Ändra i [ställa in pacemaker på Red Hat Enterprise Linux i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att klargöra SBD som en avgränsnings funktion stöds inte på RHEL-kluster  
+- 09/17/2019: Ändring i planerings-och distributions guiden i NetWeaver för att förena villkoren runt VM-tillägget för SAP  
 - 08/22/2019: Ändringar i [ställa in pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att uppdatera URL: erna för att skapa en anpassad roll  
 - 08/16/2019: Ändringar i [ställa in pacemaker på Red Hat Enterprise Linux i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att påminna kunder om att uppdatera åtgärderna i den anpassade rollen, om de uppdateras till den nya versionen av Azure stängsel-agenten  
 - 08/15/2019: Ändringar i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) för att avspegla allmän tillgänglighet för Ultra disk (tidigare Ultra SSD)

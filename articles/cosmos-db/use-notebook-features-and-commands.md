@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: dech
-ms.openlocfilehash: 1eda8271a3b8aa2c9e247252bd755279d23b6e10
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 4a9bd554e0858024d656dbf35d6fb00995e6f4bd
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310352"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71672489"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db"></a>Använd inbyggda antecknings boks kommandon och funktioner i Azure Cosmos DB
 
@@ -25,7 +25,10 @@ Infoga och kör följande kod i en ny Code-cell och Ersätt ``PackageToBeInstall
 import sys
 !{sys.executable} -m pip install PackageToBeInstalled –user
 ```
-Det här paketet kommer att vara tillgängligt för användning från alla antecknings böcker i Azure Cosmos-kontot. 
+Det här paketet kommer att vara tillgängligt för användning från alla antecknings böcker i Azure Cosmos Account-arbetsytan. 
+
+> [!TIP]
+> Om din bärbara dator kräver ett anpassat paket, rekommenderar vi att du lägger till en cell i din bärbara dator för att installera paketet, eftersom paket tas bort om du [återställer arbets ytan](#reset-notebooks-workspace).  
 
 ## <a name="run-a-sql-query"></a>Kör en SQL-fråga
 
@@ -150,6 +153,11 @@ primary_key = os.environ["COSMOS_KEY"]
 ```
 > [!IMPORTANT]
 > Variablerna ``COSMOS_KEY`` och kan bara användas för SQL API. ``COSMOS_ENDPOINT`` För andra API: er hittar du slut punkten och nyckeln i bladet **anslutnings strängar** eller **nycklar** i ditt Cosmos-konto.  
+
+## <a name="reset-notebooks-workspace"></a>Återställ arbets ytan för antecknings böcker
+Om du vill återställa arbets ytan för antecknings böcker till standardinställningarna väljer du **Återställ arbets yta** i kommando fältet. Detta tar bort alla anpassade installerade paket och startar om Jupyter-servern. Dina antecknings böcker, filer och Cosmos-resurser kommer inte att påverkas.  
+
+![Återställ arbets ytan för antecknings böcker](media/use-notebook-features-and-commands/reset-workspace.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -4,17 +4,17 @@ description: Så här använder du Azure RA-GZRS eller RA-GRS-lagring för att s
 services: storage
 author: tamram
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 1a5d80d6cd31621f8c3931b1845050f0a212ef08
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: a6d724f834fb8a4c54cd613c61ca90a77a36bdea
+ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69036616"
+ms.lasthandoff: 09/29/2019
+ms.locfileid: "71673115"
 ---
 # <a name="designing-highly-available-applications-using-read-access-geo-redundant-storage"></a>Utforma hög tillgängliga program med hjälp av Geo-redundant lagring med Läs behörighet
 
@@ -27,7 +27,7 @@ Lagrings konton som kon figurer ATS för Geo-redundant replikering replikeras sy
 
 Den här artikeln visar hur du utformar ditt program för att hantera ett avbrott i den primära regionen. Om den primära regionen blir otillgänglig kan programmet anpassas för att utföra Läs åtgärder mot den sekundära regionen i stället. Kontrol lera att ditt lagrings konto har kon figurer ATS för RA-GRS eller RA-GZRS innan du börjar.
 
-Information om vilka primära regioner som är kopplade till vilka sekundära regioner finns i [verksamhets kontinuitet och haveri beredskap (BCDR): Länkade Azure-regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
+Information om vilka primära regioner som är kopplade till vilka sekundära regioner finns i [Business kontinuitet och haveri beredskap (BCDR): Länkade Azure-regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
 Det finns kodfragment som ingår i den här artikeln och en länk till ett fullständigt exempel i slutet som du kan hämta och köra.
 
@@ -197,19 +197,19 @@ För det tredje scenariot kan du aktivera växla tillbaka till **PrimaryOnly** o
 
 Geo-redundant lagring fungerar genom att replikera transaktioner från den primära till den sekundära regionen. Den här replikeringsprincipen garanterar att data i den sekundära regionen är *konsekventa*. Det innebär att alla transaktioner i den primära regionen slutligen kommer att visas i den sekundära regionen, men att det kan finnas en fördröjning innan de visas, och att det inte finns någon garanti för att transaktionerna tas emot i den sekundära regionen i samma ordning som de tillämpades ursprungligen i den primära regionen. Om dina transaktioner kommer in i den sekundära regionen i rätt ordning *kan* du överväga att dina data i den sekundära regionen ska vara i ett inkonsekvent tillstånd tills tjänsten har fångats upp.
 
-I följande tabell visas ett exempel på vad som kan hända när du uppdaterar information om en medarbetare så att de blir medlem i rollen *Administratörer* . För det här exemplet kräver detta att du uppdaterar den anställdas entitet och uppdaterar en **Administratörs roll** -entitet med ett antal av det totala antalet administratörer. Observera hur uppdateringarna tillämpas i rätt ordning i den sekundära regionen.
+I följande tabell visas ett exempel på vad som kan hända när du uppdaterar information om en medarbetare så att de blir medlem i rollen *Administratörer* . För det här exemplet kräver detta att du uppdaterar den **anställdas** entitet och uppdaterar en **Administratörs roll** -entitet med ett antal av det totala antalet administratörer. Observera hur uppdateringarna tillämpas i rätt ordning i den sekundära regionen.
 
 | **Tid** | **Transaktionen**                                            | **Replikering**                       | **Tid för senaste synkronisering** | **Medför** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transaktion A: <br> Infoga medarbetare <br> entitet i primär |                                   |                    | Transaktion A infogad till primär,<br> ännu inte repliker ATS. |
-| T1       |                                                            | Transaktion A <br> replikeras till<br> Sekundär | T1 | Transaktion A replikerad till sekundär. <br>Tid för senaste synkronisering uppdaterades.    |
-| T2       | Transaktion B:<br>Uppdatera<br> anställd entitet<br> i primär  |                                | T1                 | Transaktion B skriven till primär,<br> ännu inte repliker ATS.  |
+| T1       |                                                            | Transaktion A <br> replikeras till<br> sekundär | T1 | Transaktion A replikerad till sekundär. <br>Tid för senaste synkronisering uppdaterades.    |
+| T2       | Transaktion B:<br>Uppdatera<br> Anställd entitet<br> i primär  |                                | T1                 | Transaktion B skriven till primär,<br> ännu inte repliker ATS.  |
 | T3       | Transaktion C:<br> Uppdatera <br>administratör<br>roll entitet i<br>primär |                    | T1                 | Transaktion C skriven till primär,<br> ännu inte repliker ATS.  |
-| *T4*     |                                                       | Transaktion C <br>replikeras till<br> Sekundär | T1         | Transaktion C replikerad till sekundär.<br>LastSyncTime har inte uppdaterats eftersom <br>transaktion B har ännu inte repliker ATS.|
+| *T4*     |                                                       | Transaktion C <br>replikeras till<br> sekundär | T1         | Transaktion C replikerad till sekundär.<br>LastSyncTime har inte uppdaterats eftersom <br>transaktion B har ännu inte repliker ATS.|
 | *T*     | Läs entiteter <br>från sekundär                           |                                  | T1                 | Du får det inaktuella värdet för anställda <br> entitet eftersom transaktion B inte har <br> har repliker ATS än. Du får det nya värdet för<br> administratörs roll entitet eftersom C har<br> replikeras. Tiden för senaste synkroniseringen är fortfarande inte<br> uppdaterats eftersom transaktion B<br> har inte repliker ATS. Du kan se att<br>administratörs rollens entitet är inkonsekvent <br>eftersom entitetens datum/tid är efter <br>Tid för senaste synkronisering. |
-| *T6*     |                                                      | Transaktion B<br> replikeras till<br> Sekundär | T6                 | *T6* – alla transaktioner via C har <br>replikerad, tid för senaste synkronisering<br> har uppdaterats. |
+| *T6*     |                                                      | Transaktion B<br> replikeras till<br> sekundär | T6                 | *T6* – alla transaktioner via C har <br>replikerad, tid för senaste synkronisering<br> har uppdaterats. |
 
-I det här exemplet antar du att klienten växlar till att läsa från den sekundära regionen på T5. Det går att läsa entiteten **Administratörs roll** just nu, men entiteten innehåller ett värde för antalet administratörer som inte är konsekvent med antalet anställdas enheter som har marker ATS som administratörer i den sekundära region för tillfället. Klienten kan enkelt visa det här värdet, med risken att det är inkonsekvent information. Alternativt kan klienten försöka fastställa att **Administratörs rollen** är i ett potentiellt inkonsekvent tillstånd eftersom uppdateringarna har inträffat i rätt ordning och sedan informerar användaren om detta faktum.
+I det här exemplet antar du att klienten växlar till att läsa från den sekundära regionen på T5. Det går att läsa entiteten **Administratörs roll** just nu, men entiteten innehåller ett värde för antalet administratörer som inte är konsekvent med antalet **anställdas** enheter som har marker ATS som administratörer i den sekundära region för tillfället. Klienten kan enkelt visa det här värdet, med risken att det är inkonsekvent information. Alternativt kan klienten försöka fastställa att **Administratörs rollen** är i ett potentiellt inkonsekvent tillstånd eftersom uppdateringarna har inträffat i rätt ordning och sedan informerar användaren om detta faktum.
 
 För att identifiera att den har potentiellt inkonsekventa data kan klienten använda värdet för den *senaste synkroniseringstid* som du kan hämta när som helst genom att skicka en fråga till en lagrings tjänst. Detta anger den tid då data i den sekundära regionen senast var konsekventa och när tjänsten hade tillämpat alla transaktioner innan den tidpunkten. I exemplet ovan har den senaste synkroniseringstid angetts till *T1*när tjänsten infogar entiteten **anställda** i den sekundära regionen. Den finns kvar i *T1* tills tjänsten uppdaterar den **anställdas** entitet i den sekundära regionen när den är inställd på *T6*. Om klienten hämtar den senaste synkroniseringen när den läser entiteten *T5*, kan den jämföra den med tidsstämpeln för entiteten. Om tidsstämpeln i entiteten är senare än den senaste synkroniseringen, är entiteten i ett potentiellt inkonsekvent tillstånd och du kan vidta det som är lämplig åtgärd för ditt program. Om du använder det här fältet måste du känna till när den senaste uppdateringen till den primära uppdateringen slutfördes.
 
@@ -235,7 +235,7 @@ $lastSyncTime = $(Get-AzStorageAccount -ResourceGroupName <resource-group> `
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill hämta den senaste synkroniseringen för lagrings kontot med hjälp av Azure CLI kontrollerar du lagrings kontots **geoReplicationStats. lastSyncTime** -egenskap. Använd parametern för att returnera värden för egenskaperna som är kapslade under **geoReplicationStats.** `--expand` Kom ihåg att ersätta plats hållarnas värden med dina egna värden:
+Om du vill hämta den senaste synkroniseringen för lagrings kontot med hjälp av Azure CLI kontrollerar du lagrings kontots **geoReplicationStats. lastSyncTime** -egenskap. Använd parametern `--expand` för att returnera värden för egenskaperna som är kapslade under **geoReplicationStats**. Kom ihåg att ersätta plats hållarnas värden med dina egna värden:
 
 ```azurecli
 $lastSyncTime=$(az storage account show \

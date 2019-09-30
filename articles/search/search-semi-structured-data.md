@@ -18,7 +18,7 @@ ms.locfileid: "69647859"
 ---
 # <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-search"></a>REST-självstudie: Indexera och Sök i semikolonavgränsade data (JSON-blobbar) i Azure Search
 
-Azure Search kan indexera JSON-dokument och matriser i Azure Blob Storage med [](search-indexer-overview.md) hjälp av en indexerare som vet hur man kan läsa semi-strukturerade data. Halvstrukturerade data innehåller taggar eller märkord som separerar innehållet i data. Den delar skillnaden mellan ostrukturerade data som måste vara fullständigt indexerad och formellt strukturerade data som följer en data modell, till exempel ett Relations databas schema, som kan indexeras per fält.
+Azure Search kan indexera JSON-dokument och matriser i Azure Blob Storage med hjälp av en [indexerare](search-indexer-overview.md) som vet hur man kan läsa semi-strukturerade data. Halvstrukturerade data innehåller taggar eller märkord som separerar innehållet i data. Den delar skillnaden mellan ostrukturerade data som måste vara fullständigt indexerad och formellt strukturerade data som följer en data modell, till exempel ett Relations databas schema, som kan indexeras per fält.
 
 I den här självstudien använder du [Azure Search REST-API: er](https://docs.microsoft.com/rest/api/searchservice/) och en rest-klient för att utföra följande uppgifter:
 

@@ -1,0 +1,39 @@
+### YamlMime:Landing
+title: Dokumentation om Azure-hanteringsgrupper
+summary: Med Azure-hanteringsgrupper kan du organisera dina resurser och prenumerationer.
+metadata:
+  title: Dokumentation om Azure-hanteringsgrupper
+  description: Med Azure-hanteringsgrupper kan du organisera dina resurser och prenumerationer.
+  ms.service: governance
+  ms.topic: landing-page
+  ms.collection: collection
+  author: DCtheGeek
+  ms.author: dacoulte
+  ms.date: 09/26/2019
+  ms.openlocfilehash: 9d91baaec7f1bd0e365f86ea07174d6f9e32725c
+  ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71341053"
+landingContent:
+- title: Om Azure Governance
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Översikt av hanteringstjänster i Azure
+      url: ../azure-management.md
+- title: Om Azure-hanteringsgrupper
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure-hanteringsgrupper
+      url: ./overview.md
+- title: Organisera dina resurser
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa hanteringsgrupper
+      url: ./create.md
+    - text: Hantera dina resurser
+      url: ./manage.md

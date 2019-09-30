@@ -78,7 +78,7 @@
         - name: Autentisering
           items:
             - name: Översikt
-              href: sql-data-warehouse-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+              href: sql-data-warehouse-authentication.md
             - name: Azure Active Directory
               href: ../sql-database/sql-database-aad-authentication.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
             - name: Inloggningar och användare
@@ -92,7 +92,7 @@
             - name: Säkerhet på kolumnnivå
               href: column-level-security.md
             - name: Säkerhet på radnivå
-              href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc
+              href: /sql/relational-databases/security/row-level-security?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Dataskydd
           items:
             - name: Översikt över transparent datakryptering (TDE)
@@ -155,7 +155,7 @@
               href: sql-data-warehouse-tables-data-types.md
             - name: Distribuerade tabeller
               href: sql-data-warehouse-tables-distribute.md
-            - name: tabellbegränsningar
+            - name: Tabellbegränsningar
               href: sql-data-warehouse-table-constraints.md
             - name: Index
               href: sql-data-warehouse-tables-index.md
@@ -234,9 +234,9 @@
     - name: Skydda
       items:
         - name: Konfigurera Azure AD-autentisering
-          href: ../sql-database/sql-database-aad-authentication-configure.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: ../sql-database/sql-database-aad-authentication-configure.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Villkorlig åtkomst
-          href: ../sql-database/sql-database-conditional-access.md??toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+          href: ../sql-database/sql-database-conditional-access.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Regler för virtuellt nätverk av PowerShell
           href: ../sql-database/sql-database-vnet-service-endpoint-rule-powershell.md?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Aktivera kryptering – portalen
@@ -338,7 +338,7 @@
     - name: T-SQL
       items:
         - name: Fullständig referens
-          href: /sql/t-sql/language-reference
+          href: /sql/t-sql/language-reference?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
         - name: Språkelement för SQL DW
           href: sql-data-warehouse-reference-tsql-language-elements.md
         - name: Instruktioner för SQL DW

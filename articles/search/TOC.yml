@@ -249,6 +249,8 @@
               href: knowledge-store-view-storage-explorer.md
             - name: Anslut med Power BI
               href: knowledge-store-connect-power-bi.md
+        - name: Felsöka problem med berikning
+          href: cognitive-search-common-errors-warnings.md
     - name: Köra frågor mot dokument
       items:
         - name: Frågetyper och sammansättning

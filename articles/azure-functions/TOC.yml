@@ -8,47 +8,29 @@
       href: durable/durable-functions-overview.md
     - name: Jämförelse utan server
       href: functions-compare-logic-apps-ms-flow-webjobs.md
+    - name: Alternativ för värdplan
+      href: functions-scale.md
 - name: Snabbstarter
   expanded: true
   items:
-    - name: Skapa funktion – Visual Studio-kod
-      href: functions-create-first-function-vs-code.md
-    - name: Skapa funktion – Visual Studio
+    - name: 'Skapa funktion – C#'
       href: functions-create-your-first-function-visual-studio.md
     - name: Skapa funktion – Java/Maven
       href: functions-create-first-java-maven.md
-    - name: Skapa funktion – Python
-      href: functions-create-first-function-python.md
+    - name: Skapa funktion – JavaScript
+      href: functions-create-first-function-vs-code.md
     - name: Skapa funktion – PowerShell
       href: functions-create-first-function-powershell.md
-    - name: 'Skapa funktion: Azure CLI'
-      href: functions-create-first-azure-function-azure-cli.md
-    - name: 'Skapa funktion: portal'
-      href: functions-create-first-azure-function.md
-    - name: Skapa funktion – Linux
-      href: functions-create-first-azure-function-azure-cli-linux.md
-    - name: Utlösare
+    - name: Skapa funktion – Python
+      href: functions-create-first-function-python.md
+    - name: Ansluta till tjänster
       items:
-        - name: Azure Cosmos DB
-          href: functions-create-cosmos-db-triggered-function.md
-        - name: Blob Storage
-          href: functions-create-storage-blob-triggered-function.md
-        - name: Queue Storage
-          href: functions-create-storage-queue-triggered-function.md
-        - name: Timer
-          href: functions-create-scheduled-function.md
-    - name: Integrera
-      items:
-        - name: Azure Cosmos DB
-          href: functions-integrate-store-unstructured-data-cosmosdb.md
+        - name: 'Storage – C#'
+          href: functions-add-output-binding-storage-queue-vs.md
+        - name: Storage – JavaScript
+          href: functions-add-output-binding-storage-queue-vs-code.md
         - name: Storage – Python
           href: functions-add-output-binding-storage-queue-python.md
-        - name: Storage – portalen
-          href: functions-integrate-storage-queue-output-binding.md
-        - name: Lagring – Visual Studio Code
-          href: functions-add-output-binding-storage-queue-vs-code.md
-        - name: Lagring – Visual Studio
-          href: functions-add-output-binding-storage-queue-vs.md
 - name: Självstudier
   items:
     - name: Funktioner med Logic Apps
@@ -77,10 +59,12 @@
       items:
         - name: 'C#'
           href: /samples/browse/?products=azure-functions&languages=csharp
-        - name: JavaScript
-          href: /samples/browse/?products=azure-functions&languages=javascript
         - name: Java
           href: /samples/browse/?products=azure-functions&languages=java
+        - name: JavaScript
+          href: /samples/browse/?products=azure-functions&languages=javascript
+        - name: PowerShell
+          href: /samples/browse/?products=azure-functions&languages=azurepowershell
         - name: Python
           href: /samples/browse/?products=azure-functions&languages=python
         - name: TypeScript
@@ -92,8 +76,6 @@
     - name: Jämför version 1.x and 2.x
       href: functions-versions.md
       displayName: 'migrate, migration'
-    - name: Skalning och värdtjänster
-      href: functions-scale.md
     - name: Premiumplan
       href: functions-premium-plan.md
     - name: Distributioner
@@ -142,6 +124,7 @@
       href: functions-consumption-costs.md
     - name: Saker att tänka på gällande prestanda
       href: functions-best-practices.md
+      displayName: best practice
     - name: Functions-proxyservrar
       href: functions-proxies.md
     - name: Nätverksalternativ
@@ -156,36 +139,75 @@
       items:
         - name: Utvecklarguide
           href: functions-reference.md
-        - name: Testa funktioner
-          href: functions-test-a-function.md
-        - name: Utveckla och felsöka lokalt
-          href: functions-develop-local.md
-        - name: Visual Studio Code-utveckling
-          href: functions-develop-vs-code.md
-        - name: Visual Studio-utveckling
-          href: functions-develop-vs.md
-        - name: Utvecklingsverktyg
-          href: functions-run-local.md
-        - name: IntelliJ IDEA-utveckling
-          href: functions-create-maven-intellij.md
-        - name: Eclipse-utveckling
-          href: functions-create-maven-eclipse.md
-        - name: Skapa en Linux-funktionsapp
-          href: create-function-app-linux-app-service-plan.md
-        - name: Felsöka lokala PowerShell-funktioner
-          href: functions-debug-powershell-local.md
+        - name: Lokal utveckling
+          items:
+            - name: Utveckla och felsöka lokalt
+              href: functions-develop-local.md
+            - name: Visual Studio Code-utveckling
+              href: functions-develop-vs-code.md
+            - name: Visual Studio-utveckling
+              href: functions-develop-vs.md
+            - name: Utvecklingsverktyg
+              href: functions-run-local.md
+        - name: Skapa funktioner
+          items:
+            - name: HTTP-utlösare
+              items:
+                - name: Azure Portal
+                  href: functions-create-first-azure-function.md
+                - name: Kommandorad
+                  href: functions-create-first-azure-function-azure-cli.md
+                - name: Visual Studio
+                  href: create-visual-studio.md
+                - name: Visual Studio-koden
+                  href: create-visual-studio-code.md
+                - name: Java med hjälp av Eclipse
+                  href: functions-create-maven-eclipse.md
+                - name: Java med hjälp av IntelliJ IDEA
+                  href: functions-create-maven-intellij.md
+                - name: Linux App Service-plan
+                  href: create-function-app-linux-app-service-plan.md
+                - name: Linux-förbrukningsplan
+                  href: functions-create-first-azure-function-azure-cli-linux.md
+                - name: Microsoft Azure for Students Starter
+                  href: functions-create-student-starter.md
+            - name: Azure Cosmos DB-utlösare
+              href: functions-create-cosmos-db-triggered-function.md
+            - name: Bloblagringsutlösare
+              href: functions-create-storage-blob-triggered-function.md
+            - name: Kölagringsutlösare
+              href: functions-create-storage-queue-triggered-function.md
+            - name: Timerutlösare
+              href: functions-create-scheduled-function.md
+        - name: Lägga till bindningar
+          items:
+            - name: Azure Cosmos DB – portalen
+              href: functions-integrate-store-unstructured-data-cosmosdb.md
+            - name: Storage – Python
+              href: add-output-binding-storage-queue-python.md
+            - name: Storage – portalen
+              href: functions-integrate-storage-queue-output-binding.md
+            - name: Lagring – Visual Studio Code
+              href: add-output-binding-storage-queue-vs-code.md
+            - name: Lagring – Visual Studio
+              href: add-output-binding-storage-queue-vs.md
+        - name: Felsöka och testa
+          items:
+            - name: Textfunktioner
+              href: functions-test-a-function.md
+            - name: Felsöka lokala PowerShell-funktioner
+              href: functions-debug-powershell-local.md
+            - name: Felsöka Event Grid-utlösare lokalt
+              href: functions-debug-event-grid-trigger-local.md
         - name: Beroendeinmatning
           href: functions-dotnet-dependency-injection.md
         - name: Hantera anslutningar
           href: manage-connections.md
+          displayName: best practice
         - name: Felhantering
           href: functions-bindings-error-pages.md
         - name: Köra en funktion som inte utlösts av HTTP manuellt
           href: functions-manually-run-non-http.md
-        - name: Felsöka Event Grid-utlösare lokalt
-          href: functions-debug-event-grid-trigger-local.md
-        - name: Microsoft Azure for Students Starter
-          href: functions-create-student-starter.md
     - name: Distribuera
       items:
         - name: Kontinuerlig distribution
@@ -249,6 +271,18 @@
           href: functions-geo-disaster-recovery.md
     - name: Integrera
       items:
+        - name: Lägga till bindningar
+          items:
+            - name: Azure Cosmos DB – portalen
+              href: functions-integrate-store-unstructured-data-cosmosdb.md
+            - name: Storage – Python
+              href: functions-add-output-binding-storage-queue-python.md
+            - name: Storage – portalen
+              href: functions-integrate-storage-queue-output-binding.md
+            - name: Lagring – Visual Studio Code
+              href: functions-add-output-binding-storage-queue-vs-code.md
+            - name: Lagring – Visual Studio
+              href: functions-add-output-binding-storage-queue-vs.md
         - name: Ansluta SQL Database
           href: functions-scenario-database-table-cleanup.md
         - name: Ansluta till ett virtuellt nätverk

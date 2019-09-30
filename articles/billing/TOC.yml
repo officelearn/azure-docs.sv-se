@@ -165,6 +165,8 @@
       href: billing-use-existing-azure-account-for-office-365-subscription.md
 - name: Hantera prenumeration
   items:
+    - name: Prenumerationstillstånd
+      href: billing-azure-subscription-states.md
     - name: Återaktivera prenumeration
       href: billing-subscription-become-disable.md
     - name: Överför ägarskap

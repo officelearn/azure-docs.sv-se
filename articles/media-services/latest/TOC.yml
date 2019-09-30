@@ -128,8 +128,8 @@
           displayName: 'vanity, ingest'
         - name: Rekommenderade livekodare
           href: recommended-on-premises-live-encoders.md
-        - name: Använda en moln-DVR
-          displayName: archive
+        - name: Tidsväxling och live-till-VOD
+          displayName: 'archive, dvr'
           href: live-event-cloud-dvr.md
         - name: Jämför funktioner
           href: live-event-types-comparison.md

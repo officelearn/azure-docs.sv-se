@@ -1,0 +1,16 @@
+- name: Dokumentation om Azure-hanteringsgrupper
+  href: ./index.yml
+- name: Översikt
+  expanded: true
+  items:
+    - name: Azure-hantering
+      href: ../azure-management.md
+    - name: Hanteringsgrupper
+      href: ./overview.md
+- name: Instruktionsguider
+  expanded: true
+  items:
+    - name: Skapa hanteringsgrupper
+      href: ./create.md
+    - name: Hantera dina resurser
+      href: ./manage.md

@@ -1,69 +1,80 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Container Instances
+summary: Kör Docker-containrar på begäran i en hanterad serverlös Azure-miljö. Azure Container Instances är en lösning för alla scenarier som kan användas i isolerade containrar, utan orkestrering. Kör händelsedrivna program, distribuera snabbt från pipelines för containerutveckling och kör databehandlings- och byggjobb.
 metadata:
-  title: Dokumentation om Azure Container Instances – självstudier | Microsoft Docs
-  description: 'Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå.'
-  services: container-instances
-  author: georgewallace
-  manager: gwallace
+  title: Dokumentation för Azure Container Instances – serverlösa containrar på begäran
+  description: Kör Docker-containrar i en hanterad serverlös Azure-miljö.
+  services: 
   ms.service: container-instances
   ms.topic: landing-page
-  ms.date: 07/26/2017
-  ms.author: gwallace
-abstract:
-  description: 'Azure Container Instances erbjuder det snabbaste och enklaste sättet att köra en behållare i Azure, utan att behöva etablera några virtuella datorer och utan att behöva använda en tjänst på högre nivå. Lär dig hur du skapar och hanterar containerinstanser med våra snabbstarter, självstudier och exempel.<p>Om du behöver en fullständig lösning för containerinitiering kan du läsa <a href="/azure/aks/">dokumentationen om Azure Kubernetes Service (AKS)</a>.</p>'
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: Lär dig att distribuera behållaravbildningar med Azure Container Instances.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_cligeneric.svg'
-            text: Azure CLI
-            href: /azure/container-instances/container-instances-quickstart
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: /azure/container-instances/container-instances-quickstart-portal
-          - image:
-              src: 'https://docs.microsoft.com/media/logos/logo_powershell.svg'
-            text: Azure PowerShell
-            href: /azure/container-instances/container-instances-quickstart-powershell
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig hur du paketerar kod i en containeravbildning och kör den i en Azure-containerinstans.
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-app">Paketera ett program i en containeravbildning</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-prepare-acr">Skapa ett register med Azure Container Registry och ladda upp behållaravbildningen</a>
-          - html: <a href="/azure/container-instances/container-instances-tutorial-deploy-app">Distribuera containeravbildningen till en Azure-containerinstans</a>
-  - title: Utveckla dina färdigheter med Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Kör Docker-behållare i Azure Container Instances
-            href: /learn/modules/run-docker-with-azure-container-instances/
-            image:
-              src: /learn/achievements/run-docker-with-azure-container-instances.svg
-      - type: paragraph
-        text: <a href="/learn/browse/?products=azure-container-instances">Mer interaktiv inlärning...</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/cli/azure/container">Azure CLI</a></p><p><a href="/powershell/module/az.containerinstance">PowerShell</a></p>
-          - title: Språk
-            html: <p><a href="/dotnet/api/overview/azure/containerinstance">NET</a></p><p><a href="/python/api/overview/azure/containerinstance">Python</a></p><p><a href="/java/api/overview/azure/containerinstance">Java</a></p><p><a href="/javascript/api/overview/azure/containerinstances">Node.js</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/container-instances">REST API-referens</a></p><p><a href="/azure/templates/microsoft.containerinstance/containergroups">Resource Manager-mall</a></p>
+  ms.collection: collection
+  author: dlepow
+  ms.author: danlep
+  ms.date: 09/25/2019
+  ms.openlocfilehash: a031f70cfaad9369f79a0e18f3527250eb82bfeb
+  ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71326959"
+landingContent:
+- title: Om Azure Container Instances
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Container Instances?
+      url: container-instances-overview.md
+    - text: Containergrupper
+      url: container-instances-container-groups.md
+    - text: VANLIGA FRÅGOR OCH SVAR
+      url: container-instances-faq.md
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Distribuera containerinstans – CLI
+      url: container-instances-quickstart.md
+    - text: Distribuera containerinstans – portalen
+      url: container-instances-quickstart-portal.md
+  - linkListType: learn
+    links:
+    - text: Kör Docker-behållare i Azure Container Instances
+      url: /learn/modules/run-docker-with-azure-container-instances/
+- title: Skapa grupper med flera containrar
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Distribuera containergrupp – YAML
+      url: container-instances-multi-container-yaml.md
+    - text: Distribuera containergrupp – mall
+      url: container-instances-multi-container-group.md
+- title: Distributionsscenarier
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Skapa ett virtuellt nätverk
+      url: container-instances-vnet.md
+    - text: Konfigurera princip för omstart
+      url: container-instances-restart-policy.md
+    - text: Ange miljövariabler
+      url: container-instances-environment-variables.md
+- title: Hantera containerappar
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Stoppa och starta containrar
+      url: container-instances-stop-start.md
+    - text: Uppdatera containrar som körs
+      url: container-instances-update.md
+    - text: Dela data mellan containrar
+      url: container-instances-volume-emptydir.md
+- title: Integrera med Azure
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Distribuera avbildning från Azure Container Registry
+      url: container-instances-using-azure-container-registry.md
+    - text: Använda hanterad identitet
+      url: container-instances-managed-identity.md
+    - text: Montera en Azure-filresurs
+      url: container-instances-volume-azure-files.md

@@ -24,10 +24,12 @@
   items:
     - name: Ansluta till Windows Virtual Desktop-resurser
       items:
-        - name: Ansluta från Windows 10 eller Windows 7
+        - name: Ansluta med Windows-skrivbordsklienten
           href: connect-windows-7-and-10.md
-        - name: Ansluta från en webbläsare
+        - name: Ansluta med webbklienten
           href: connect-web.md
+        - name: Ansluta med Android-klienten
+          href: connect-android.md
         - name: Ansluta med macOS-klienten
           href: connect-macos.md
         - name: Ansluta med iOS-klienten
@@ -72,6 +74,8 @@
       href: partners.md
     - name: Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise
       href: windows-10-multisession-faq.md
+    - name: Dataplatser
+      href: data-locations.md
 - name: Felsöka
   items:
     - name: 'Översikt, feedback och support för felsökning'

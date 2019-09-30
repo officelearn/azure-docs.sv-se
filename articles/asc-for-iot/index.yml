@@ -1,75 +1,105 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Security Center for IoT
+summary: Azure Security Center for IoT är en Azure-baserad molnsäkerhetstjänst som tillhandahåller ett omfattande hotskydd för IoT-enheter.
 metadata:
-  title: 'Dokumentation om Azure Security Center for IoT – självstudier, snabbstarter | Microsoft Docs'
-  meta.description: Azure Security Center for IoT unifies your device security management and enables advanced threat detection and security posture management across your IoT solution.
-  services: asc-for-iot
-  author: mlottner
-  manager: rkarlin
+  title: Dokumentation om Azure Security Center for IoT
+  description: Azure Security Center for IoT är en Azure-baserad molnsäkerhetstjänst som tillhandahåller ett omfattande hotskydd för IoT-enheter.
+  services: service
   ms.service: asc-for-iot
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  ms.subservice: subservice
   ms.topic: landing-page
-  ms.date: 07/23/19
-  ms.author: rkarlin
-abstract:
-  description: "Använd Azure Security Center for IoT för att utöka din befintliga cybersäkerhet till hela IoT-lösningen. Få en verklig panoramavy över säkerheten för alla dina Azure-relaterade resurser. Alternativ för snabb distribution och fullständig integrering med IoT Hub-modultvillingar ger dig en mängd olika anpassningsalternativ och enkel integrering med dina nuvarande hanteringsverktyg.\_"
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du aktiverar IoT Hub för Azure Security Center for IoT, installerar säkerhetsagenter och får överblick över potentiella hot.'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: media/index/deploy.svg
-            text: Aktivera Azure Security Center for IoT
-            href: /azure/asc-for-iot/quickstart-onboard-iot-hub
-          - image:
-              src: media/index/get-started.svg
-            text: Kom igång med Azure Security for IoT
-            href: /azure/asc-for-iot/getting-started
-  - title: Instruktionsguider
-    items:
-      - type: paragraph
-        text: 'Lär dig att definiera säkerhetsprinciper, skydda dina enheter mot skadliga aktiviteter och åtgärda säkerhetsaviseringar och incidenter.'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="/azure/asc-for-iot/how-to-investigate-device">Identifiera hot med Azure Security Center for IoT</a>
-  - title: Utveckla dina färdigheter med Microsoft Learn
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Introduktion till säkerhet i Azure
-            href: 'https://docs.microsoft.com/learn/azure'
-            image:
-              src: media/index/tutorial.svg
-              href: 'https://docs.microsoft.com/learn/azure'
-  - title: Videor om Azure Security Center for IoT
-    items:
-      - type: list
-        style: cards
-        className: cardsFTitle
-        items:
-          - title: Microsoft Azure Security Center for IoT – översikt
-            href: 'https://youtu.be/pq5uSp9u_x0'
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_video.svg'
-              href: 'https://youtu.be/pq5uSp9u_x0'
-          - title: Microsoft Azure Security Center for IoT – lösning
-            href: 'https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek'
-            image:
-              src: 'https://docs.microsoft.com/media/common/i_video.svg'
-              href: 'https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek'
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - html: '<a href="https://azure.microsoft.com/updates/?product=iotsecurity">Tjänstuppdateringar</a>'
+  ms.collection: M365-security-compliance
+  author: mlottner
+  ms.author: mlottner
+  ms.date: 09/23/2019
+  ms.openlocfilehash: 5eb0d39d1dbe748b34dd8f5a72ae7796125eae44
+  ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 09/27/2019
+  ms.locfileid: "71348531"
+landingContent:
+- title: Om Azure Security Center for IoT
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Security Center for IoT?
+      url: overview.md
+    - text: Planera din lösning
+      url: service-prerequisites.md
+  - linkListType: architecture
+    links:
+    - text: Förstå arkitekturen för Azure Security Center for IoT
+      url: architecture.md
+    - text: Azure Security Center for IoT-agenter
+      url: security-agent-architecture.md
+    - text: Edge-säkerhetsmodul
+      url: security-edge-architecture.md
+- title: Registrera Azure Security Center for IoT till IoT Hub
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Komma igång med Azure Security Center for IoT
+      url: getting-started.md
+    - text: IoT Hub
+      url: iot-hub-integration.md
+    - text: Säkerhetsagenter
+      url: security-agents.md
+- title: Konfigurera lösningen
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Aktivera Azure Security Center for IoT i IoT Hub
+      url: quickstart-onboard-iot-hub.md
+    - text: Konfigurera lösningen
+      url: quickstart-configure-your-solution.md
+    - text: Skapa en Azure Security Center for IoT-modultvilling
+      url: quickstart-create-security-twin.md
+    - text: Skapa anpassade säkerhetsaviseringar
+      url: quickstart-create-custom-alerts.md
+- title: Anpassa din lösning
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Välja en agent
+      url: how-to-deploy-agent.md
+    - text: Distribuera en Azure Security Center for IoT C#-baserad säkerhetsagent för Windows
+      url: how-to-deploy-windows-cs.md
+    - text: Distribuera Azure Security Center for IoT C#-baserad säkerhetsagent för Linux
+      url: how-to-deploy-linux-cs.md
+    - text: Distribuera Azure Security Center for IoT C-baserad säkerhetsagent för Linux
+      url: how-to-deploy-linux-c.md
+    - text: Distribuera Edge-säkerhetsmodul
+      url: how-to-deploy-edge.md
+    - text: Konfigurera säkerhetsagenter
+      url: how-to-agent-configuration.md
+    - text: Skicka dina egna säkerhetsmeddelanden
+      url: how-to-send-security-messages.md
+    - text: Få åtkomst till råsäkerhetsdata
+      url: how-to-security-data-access.md
+    - text: Undersöka en enhet
+      url: how-to-investigate-device.md
+- title: Felsöka en säkerhetsagent
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Felsöknings guide för säkerhetsagent (Linux)
+      url: troubleshoot-agent.md
+    - text: Förstå filen LocalConfiguration.json – C-agent
+      url: azure-iot-security-local-configuration-c.md
+    - text: Förstå den lokala konfigurationsfilen – C#-agent
+      url: azure-iot-security-local-configuration-csharp.md
+- title: Lösningsresurser för Azure Security Center for IoT
+  linkLists:
+  - linkListType: video
+    links:
+    - text: Vad är Azure Security Center for IoT?
+      url: https://youtu.be/pq5uSp9u_x0
+    - text: Förstå Azure Security Center for IoT
+      url: https://www.youtube.com/watch?time_continue=5&v=YOqkahQsKek
+  - linkListType: reference
+    links:
+    - text: Vanliga frågor och svar
+      url: resources-frequently-asked-questions.md
+    - text: Prissättning och associerade kostnader
+      url: concept-pricing.md

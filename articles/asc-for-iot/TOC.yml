@@ -39,6 +39,8 @@
       href: concept-security-alerts.md
     - name: Säkerhetsrekommendationer
       href: concept-recommendations.md
+    - name: Baslinje
+      href: concept-baseline.md
     - name: Händelsesammansättning
       href: event-aggregation.md
     - name: Prissättning och associerade kostnader

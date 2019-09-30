@@ -7,12 +7,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/10/2019
-ms.openlocfilehash: e08287fec79ec634d6e2353328854e19565533ca
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: fcd115b672e4e2677cb7ad48fc94905747d66781
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204059"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675114"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Snabbstart: Konfigurera Data Science Virtual Machine för Windows
 
@@ -21,6 +21,7 @@ Kom igång med en Windows-Data Science Virtual Machine.
 ## <a name="prerequisite"></a>Krav
 
 Om du vill skapa en Windows-Data Science Virtual Machine måste du ha en Azure-prenumeration. [Prova Azure kostnads fritt](https://azure.com/free).
+Observera att de kostnads fria Azure-kontona inte stöder GPU-aktiverade virtuella datorer SKU: er.
 
 ## <a name="create-your-dsvm"></a>Skapa din DSVM
 

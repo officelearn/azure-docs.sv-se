@@ -3,18 +3,18 @@ title: 'Snabbstart: Apache Hadoop och Apache Hive i HDInsight med hjälp av Azur
 description: I den här snabb starten använder du Azure Portal för att skapa ett HDInsight Hadoop-kluster
 keywords: hadoop komma igång, hadoop linux, hadoop Snabbstart, komma igång, hive hive-Snabbstart
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
-ms.date: 07/02/2019
-ms.author: hrasheed
-ms.openlocfilehash: 33f70ba33168190577baf1757e9be0ece5d315ba
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.date: 09/25/2019
+ms.openlocfilehash: 5d87cc7fdcd9c8065c2a9886b970b406df0d8fc8
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066894"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677919"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabbstart: Skapa Apache Hadoop kluster i Azure HDInsight med Azure Portal
 
@@ -36,58 +36,51 @@ I det här avsnittet skapar du ett Hadoop-kluster i HDInsight med hjälp av Azur
 
     ![Skapa ett resurs-HDInsight-kluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/create-hdinsight-cluster.png "Skapa ett resurs-HDInsight-kluster")
 
-1. Ange eller Välj följande värden under **HDInsight** > **Quick Create** > **Basics**:
+1. Under **grunderna**anger eller väljer du följande värden:
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
-    |Klusternamn   | Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
     |Subscription    |  Välj din Azure-prenumeration. |
-    |Klustertyp     | Hoppa över detta nu. Du kan ange dessa indata i nästa steg i den här proceduren.|
+    |Resource group     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
+    |Klusternamn   | Ange ett namn för Hadoop-klustret. Eftersom alla kluster i HDInsight delar samma DNS-namnområde måste namnet vara unikt. Namnet kan bestå av upp till 59 tecken, inklusive bokstäver, siffror och bindestreck. De första och sista tecknen i namnet får inte vara bindestreck. |
+    |Location    | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
+    |Klustertyp| Välj **Välj kluster typ**. Välj sedan **Hadoop** som kluster typ.|
+    |Version|Standard versionen för kluster typen anges. Välj i list rutan om du vill ange en annan version.|
     |Användar namn och lösen ord för kluster inloggning    | Standardinloggningsnamnet är **admin**. Lösenordet måste bestå av minst 10 tecken och måste innehålla åtminstone en siffra, en versal, en gemen, ett alfanumeriskt tecken (förutom tecknen ' " ` \). Se till att du **inte anger** vanliga lösenord som Pass@word1.|
     |Secure Shell (SSH)-användarnamn | Standardanvändarnamnet är **sshuser**.  Du kan ange ett annat namn som SSH-användarnamn. |
     |Använd lösen ord för kluster inloggning för SSH| Markera den här kryss rutan om du vill använda samma lösen ord för SSH-användare som det du angav för kluster inloggnings användaren.|
-    |Resource group     | Skapa en resursgrupp eller välj en befintlig resursgrupp.  En resursgrupp är en container med Azure-komponenter.  I det här fallet innehåller resursgruppen HDInsight-klustret och det beroende Azure Storage-kontot. |
-    |Location    | Välj en Azure-plats där du vill skapa klustret.  Välj en plats närmare så får du bättre prestanda. |
 
-    ![Komma igång med HDInsight Linux ger grundläggande klustervärden](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-basics1.png "Ange grundläggande värden för att skapa ett HDInsight-kluster")
+    ![Komma igång med HDInsight Linux ger grundläggande klustervärden](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-basics-blank.png "Ange grundläggande värden för att skapa ett HDInsight-kluster")
 
-1. Välj **kluster typ** för att öppna sidan **kluster konfiguration** och ange sedan följande värden:
-
-    |Egenskap  |Beskrivning  |
-    |---------|---------|
-    |Klustertyp     | Välj **Hadoop** |
-    |Version     | Välj **Hadoop 2.7.3 (HDI 3.6)**|
-
-    ![Konfiguration av HDInsight Linux kom igång-kluster](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-configuration-hadoop.png "Konfiguration av HDInsight Linux kom igång-kluster")
-
-    Välj **Välj** och välj sedan **Nästa** för att gå vidare till lagrings inställningarna.
+    Välj **Next: Lagrings > >**  för att gå vidare till lagrings inställningarna.
 
 1. Ange följande värden på fliken **lagring** :
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
-    |Primär lagringstyp    | I den här artikeln väljer du Azure Storage för att använda Azure Storage Blob som standard lagrings konto. Du kan även använda Azure Data Lake Storage som standardlagringsutrymme. |
-    |Urvalsmetod     |  Använd ett lagringskonto från din Azure-prenumeration för den här artikeln genom att välja **Mina prenumerationer**. Om du vill använda ett lagringskonto från någon annan prenumeration väljer du **Åtkomstnyckel** och anger sedan kontots åtkomstnyckel. |
-    |Välj ett lagringskonto   | Välj **Välj ett lagrings konto** för att välja ett befintligt lagrings konto eller Välj **Skapa nytt**. Om du skapar ett nytt konto måste namnet vara mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener.|
+    |Primär lagringstyp|Använd standardvärdet **Azure Storage**.|
+    |Urvalsmetod|Använd standardvärdet **Select i list**.|
+    |Primärt lagringskonto|Använd List rutan för att välja ett befintligt lagrings konto eller Välj **Skapa nytt**. Om du skapar ett nytt konto måste namnet vara mellan 3 och 24 tecken långt och får bara innehålla siffror och gemener|
+    |Container|Använd det automatiskt ifyllda värdet.|
 
-    Acceptera alla andra standardvärden och välj sedan **Nästa** för att gå till sidan Sammanfattning.
+    ![Komma igång med HDInsight Linux ger klusterlagringsvärden](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage-blank.png "Ange lagringsvärden för att skapa ett HDInsight-kluster")
 
-    ![Komma igång med HDInsight Linux ger klusterlagringsvärden](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-storage.png "Ange lagringsvärden för att skapa ett HDInsight-kluster")
+    Välj fliken **Granska + skapa** .
 
-1. På fliken **Sammanfattning** kontrollerar du de värden som du valde i de föregående stegen.
+1. På fliken **Granska och skapa** kontrollerar du de värden som du valde i de föregående stegen.
 
-    ![Komma igång med HDInsight Linux – klustersammanfattning](./media/apache-hadoop-linux-create-cluster-get-started-portal/quick-create-summary.png "Komma igång med HDInsight Linux – klustersammanfattning")
+    ![Komma igång med HDInsight Linux – klustersammanfattning](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-review-create-hadoop.png "Komma igång med HDInsight Linux – klustersammanfattning")
 
 1. Välj **Skapa**. Det tar cirka 20 minuter att skapa ett kluster.
 
-1. När klustret har skapats visas en klusteröversiktssida i Azure Portal.
+När klustret har skapats visas en klusteröversiktssida i Azure Portal.
 
-    ![HDInsight Linux komma igång klusterinställningar](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png "HDInsight-klusteregenskaper")    
+![HDInsight Linux komma igång klusterinställningar](./media/apache-hadoop-linux-create-cluster-get-started-portal/cluster-settings-overview.png "HDInsight-klusteregenskaper")
 
-    Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-kluster och dess standard lagrings konto måste samplaceras i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
+Varje kluster är beroende av ett [Azure Storage-konto](../hdinsight-hadoop-use-blob-storage.md) eller ett [Azure Data Lake-konto](../hdinsight-hadoop-use-data-lake-store.md). Det kallas Storage-konto av standardtyp. HDInsight-kluster och dess standard lagrings konto måste samplaceras i samma Azure-region. Lagringskontot tas inte bort om du tar bort kluster.
 
-    > [!NOTE]  
-    > För andra metoder för att skapa kluster och förstå de egenskaper som används i den här snabb starten, se [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
+> [!NOTE]  
+> För andra metoder för att skapa kluster och förstå de egenskaper som används i den här snabb starten, se [skapa HDInsight-kluster](../hdinsight-hadoop-provision-linux-clusters.md).
 
 ## <a name="run-apache-hive-queries"></a>Köra Apache Hive-frågor
 
@@ -151,4 +144,4 @@ När du har slutfört snabb starten kanske du vill ta bort klustret. Med HDInsig
 I den här snabb starten har du lärt dig hur du skapar ett Linux-baserat HDInsight-kluster med hjälp av en Resource Manager-mall och hur du utför grundläggande Hive-frågor. I nästa artikel får du lära dig hur du utför en extraktions-, transformations- eller inläsningsåtgärd (ETL) med Hadoop på HDInsight.
 
 > [!div class="nextstepaction"]
->[Extrahera, transformera och läsa in data med interaktiv fråga på HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)
+> [Extrahera, transformera och läsa in data med interaktiv fråga på HDInsight](../interactive-query/interactive-query-tutorial-analyze-flight-data.md)

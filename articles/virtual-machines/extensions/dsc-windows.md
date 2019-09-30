@@ -108,13 +108,13 @@ Följande JSON visar schemat för inställnings delen av DSC-tillägget i en Azu
 
 | Name | Datatyp | Beskrivning
 | ---- | ---- | ---- |
-| Settings. wmfVersion | sträng | Anger den version av Windows Management Framework som ska installeras på den virtuella datorn. Om du anger den här egenskapen till "senaste" installeras den uppdaterade versionen av WMF. De enda aktuella möjliga värdena för den här egenskapen är "4,0", "5,0" och "senaste". Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är "senaste". |
-| settings.configuration.url | sträng | Anger den URL-plats från vilken du vill ladda ned ZIP-filen för DSC-konfigurationen. Om den angivna webb adressen kräver en SAS-token för åtkomst måste du ange värdet för SAS-token för egenskapen protectedSettings. configurationUrlSasToken. Den här egenskapen krävs om Settings. Configuration. script och/eller Settings. Configuration. Function har definierats.
-| settings.configuration.script | sträng | Anger fil namnet på skriptet som innehåller definitionen av din DSC-konfiguration. Det här skriptet måste finnas i rotmappen för den zip-fil som hämtats från den URL som anges av egenskapen Configuration. URL. Den här egenskapen krävs om Settings. Configuration. URL och/eller Settings. Configuration. script har definierats.
-| settings.configuration.function | sträng | Anger namnet på din DSC-konfiguration. Konfigurationen med namnet måste finnas i skriptet som definieras av Configuration. script. Den här egenskapen krävs om Settings. Configuration. URL och/eller Settings. Configuration. Function definieras.
+| Settings. wmfVersion | string | Anger den version av Windows Management Framework som ska installeras på den virtuella datorn. Om du anger den här egenskapen till "senaste" installeras den uppdaterade versionen av WMF. De enda aktuella möjliga värdena för den här egenskapen är "4,0", "5,0" och "senaste". Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är "senaste". |
+| settings.configuration.url | string | Anger den URL-plats från vilken du vill ladda ned ZIP-filen för DSC-konfigurationen. Om den angivna webb adressen kräver en SAS-token för åtkomst måste du ange värdet för SAS-token för egenskapen protectedSettings. configurationUrlSasToken. Den här egenskapen krävs om Settings. Configuration. script och/eller Settings. Configuration. Function har definierats.
+| settings.configuration.script | string | Anger fil namnet på skriptet som innehåller definitionen av din DSC-konfiguration. Det här skriptet måste finnas i rotmappen för den zip-fil som hämtats från den URL som anges av egenskapen Configuration. URL. Den här egenskapen krävs om Settings. Configuration. URL och/eller Settings. Configuration. script har definierats.
+| settings.configuration.function | string | Anger namnet på din DSC-konfiguration. Konfigurationen med namnet måste finnas i skriptet som definieras av Configuration. script. Den här egenskapen krävs om Settings. Configuration. URL och/eller Settings. Configuration. Function definieras.
 | settings.configurationArguments | Collection | Definierar de parametrar som du vill skicka till din DSC-konfiguration. Den här egenskapen kommer inte att krypteras.
-| settings.configurationData.url | sträng | Anger den URL från vilken du vill ladda ned konfigurations data filen (. pds1) som ska användas som indata för din DSC-konfiguration. Om den angivna webb adressen kräver en SAS-token för åtkomst måste du ange värdet för SAS-token för egenskapen protectedSettings. configurationDataUrlSasToken.
-| settings.privacy.dataEnabled | sträng | Aktiverar eller inaktiverar telemetri-samling. De enda möjliga värdena för den här egenskapen är Enable, Disable, eller $null. Om du lämnar den här egenskapen tom eller null aktive ras telemetri
+| settings.configurationData.url | string | Anger den URL från vilken du vill ladda ned konfigurations data filen (. pds1) som ska användas som indata för din DSC-konfiguration. Om den angivna webb adressen kräver en SAS-token för åtkomst måste du ange värdet för SAS-token för egenskapen protectedSettings. configurationDataUrlSasToken.
+| settings.privacy.dataEnabled | string | Aktiverar eller inaktiverar telemetri-samling. De enda möjliga värdena för den här egenskapen är Enable, Disable, eller $null. Om du lämnar den här egenskapen tom eller null aktive ras telemetri
 | settings.advancedOptions.forcePullAndApply | Bool | Den här inställningen är utformad för att förbättra upplevelsen av att arbeta med tillägget för att registrera noder med Azure Automation DSC.  Om värdet är `$true`kommer tillägget att vänta på den första körningen av konfigurationen som hämtas från tjänsten innan den returnerar ett lyckat/misslyckat försök.  Om värdet är inställt på $false, kommer statusen som returneras av tillägget bara att referera till om noden registrerades med Azure Automation tillstånds konfiguration och nodens konfiguration inte ska köras under registreringen.
 | settings.advancedOptions.downloadMappings | Collection | Definierar alternativa platser för nedladdning av beroenden, till exempel WMF och .NET
 
@@ -122,9 +122,9 @@ Följande JSON visar schemat för inställnings delen av DSC-tillägget i en Azu
 
 | Name | Datatyp | Beskrivning
 | ---- | ---- | ---- |
-| protectedSettings.configurationArguments | sträng | Definierar de parametrar som du vill skicka till din DSC-konfiguration. Den här egenskapen kommer att krypteras. |
-| protectedSettings.configurationUrlSasToken | sträng | Anger SAS-token för åtkomst till den URL som definieras av Configuration. URL. Den här egenskapen kommer att krypteras. |
-| protectedSettings.configurationDataUrlSasToken | sträng | Anger SAS-token för åtkomst till den URL som definieras av configurationData. URL. Den här egenskapen kommer att krypteras. |
+| protectedSettings.configurationArguments | string | Definierar de parametrar som du vill skicka till din DSC-konfiguration. Den här egenskapen kommer att krypteras. |
+| protectedSettings.configurationUrlSasToken | string | Anger SAS-token för åtkomst till den URL som definieras av Configuration. URL. Den här egenskapen kommer att krypteras. |
+| protectedSettings.configurationDataUrlSasToken | string | Anger SAS-token för åtkomst till den URL som definieras av configurationData. URL. Den här egenskapen kommer att krypteras. |
 
 
 ## <a name="template-deployment"></a>Malldistribution

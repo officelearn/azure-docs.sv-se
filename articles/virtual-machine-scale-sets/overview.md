@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.custom: mvc
-ms.date: 05/21/2018
+ms.date: 09/26/2019
 ms.author: manayar
-ms.openlocfilehash: 98c183d65a18c186b515df8ec02ba26b8c2c4143
-ms.sourcegitcommit: 25a60179840b30706429c397991157f27de9e886
+ms.openlocfilehash: 73580814dcfe8f967684aca4ce433a40e7bbedc0
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/28/2019
-ms.locfileid: "66258310"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679391"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Vad är VM-skalningsuppsättningar?
 Med VM-skalningsuppsättningar i Azure kan du skapa och hantera grupper med identiska och belastningsutjämnade virtuella datorer. Antal VM-instanser kan automatiskt öka eller minska som svar på efterfrågan eller ett definierat schema. Skalningsuppsättningar tillhandahåller hög tillgänglighet för dina program, och låter dig centralt hantera, konfigurera och uppdatera ett stort antal virtuella datorer. Med VM-skalningsuppsättningar kan du skapa storskaliga tjänster för områden som beräkning, stordata och arbetsbelastningar i containrar.
@@ -46,14 +46,14 @@ VM-skalningsuppsättningar i Azure ger hanteringsmöjligheter för program som k
     - Autoskalning minskar också antalet onödiga VM-instanser som kör programmet när efterfrågan är låg, samtidigt som kunderna ändå kan åtnjuta en godtagbar prestandanivå när efterfrågan växer och ytterligare VM-instanser läggs till automatiskt. Den här möjligheten bidrar till att sänka kostnaderna och på ett effektivt sätt skapa de Azure-resurser som krävs.
 
 - **Fungerar i stor skala**
-    - En skalningsuppsättning har stöd för upp till 1 000 instanser av virtuella datorer. Om du skapar och överför dina egna anpassade VM-avbildningar är är gränsen 600 VM-instanser.
+    - En skalningsuppsättning har stöd för upp till 1 000 instanser av virtuella datorer. Om du skapar och laddar upp dina egna anpassade VM-avbildningar är gränsen 600 VM-instanser.
     - För att få bästa prestanda med produktionsarbetsbelastningar använder du [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Skillnader mellan virtuella datorer och skalningsuppsättningar
 Skalningsuppsättningar skapas från virtuella datorer. Med skalningsuppsättningar tillhandahålls hantering och automatiseringsnivåer för körning och skalning av dina program. Du kan även skapa och hantera enskilda virtuella datorer manuellt eller integrera befintliga verktyg för att skapa en liknande automatiseringsnivå. I följande tabell beskrivs fördelarna med skalningsuppsättningar jämfört med att manuellt hantera flera VM-instanser.
 
-| Scenario                           | Manuell grupp av virtuella datorer                                                                    | Skaluppsättning för virtuella datorer |
+| Scenario                           | Manuell grupp av virtuella datorer                                                                    | Skaluppsättning för den virtuella datorn |
 |------------------------------------|----------------------------------------------------------------------------------------|---------------------------|
 | Lägg till ytterligare VM-instanser        | Bearbeta manuellt för att skapa, konfigurera och säkerställa efterlevnad                             | Skapa automatiskt från central konfiguration |
 | Trafikbalansering och distribution | Bearbeta manuellt för att skapa och konfigurera Azure Load Balancer eller Application Gateway      | Kan automatiskt skapa och integrera med Azure Load Balancer eller Application Gateway |
@@ -62,6 +62,11 @@ Skalningsuppsättningar skapas från virtuella datorer. Med skalningsuppsättnin
 
 Det tillkommer ingen extra kostnad för skalningsuppsättningar. Du betalar bara för de underliggande beräkningsresurserna som VM-instanser, lastbalanserare eller hanterad disklagring. Hanteringen och automatiseringen av funktioner, t.ex. autoskalning och redundans, medför inga ytterligare avgifter vid användningen av virtuella datorer.
 
+## <a name="how-to-monitor-your-scale-sets"></a>Så här övervakar du dina skalnings uppsättningar
+
+Använd [Azure Monitor for VMS](../azure-monitor/insights/vminsights-overview.md), som har en enkel onboarding-process och automatiserar samlingen av viktiga prestanda räknare för processor, minne, disk och nätverk från de virtuella datorerna i din skalnings uppsättning. Den innehåller också ytterligare övervakningsfunktioner och fördefinierade visualiseringar som hjälper dig att fokusera på tillgänglighet och prestanda för dina skalnings uppsättningar.
+
+Aktivera övervakning av den [virtuella datorns skalnings uppsättnings program](../azure-monitor/app/azure-vm-vmss-apps.md) med Application Insights för att samla in detaljerad information om ditt program, till exempel sidvyer, program begär Anden och undantag. Kontrol lera att programmet är tillgängligt genom att konfigurera ett [tillgänglighets test](../azure-monitor/app/monitor-web-app-availability.md) för att simulera användar trafik.
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång genom att skapa din första VM-skalningsuppsättning i Azure Portal.

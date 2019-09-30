@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: 138d3fd74b95fe8d51593fcbb2cedda017e35d80
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 689949b2b6fea1dcd06741fd3fc19c9371a96784
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202166"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676381"
 ---
 # <a name="quickstart-onboard-your-azure-subscription-to-security-center-standard"></a>Snabbstart: Publicera din Azure-prenumeration till Security Center Standard
 Azure Security Center erbjuder enhetlig säkerhetshantering och skydd mot hot i olika hybridmolnarbetsbelastningar. På den kostnadsfria nivån erbjuds endast begränsad säkerhet för dina Azure-resurser, medan Standard-nivån utökar funktionerna till lokala resurser och andra moln. Med Security Center Standard kan du hitta och åtgärda säkerhetsproblem, tillämpa åtkomst- och programkontroller för att blockera skadlig aktivitet, upptäcka hot med analys och intelligens och svara snabbt under attacker. Du kan prova Security Center Standard utan kostnad. Mer information finns på [prissidan](https://azure.microsoft.com/pricing/details/security-center/).
@@ -72,8 +72,8 @@ När automatisk etablering är aktiverat installerar Security Center Microsoft M
 
 Så här aktiverar du automatisk försörjning för Microsoft Monitoring Agent:
 
-1. På huvudmenyn i Security Center väljer du **Säkerhetsprincip**.
-2. Välj **Redigera inställningar>** på prenumerationens rad.
+1. Under Security Center huvud menyn väljer du **pris & inställningar**.
+2. På prenumerations raden klickar du på den prenumeration som du vill ändra inställningarna för.
 3. På fliken **Datainsamling** anger du **Automatisk etablering** till **På**.
 4. Välj **Spara**.
 ---
@@ -86,15 +86,15 @@ Med de här nya kunskaperna om dina virtuella datorer i Azure kan Security Cente
 ## <a name="clean-up-resources"></a>Rensa resurser
 De andra snabbstarterna och självstudierna i den här samlingen bygger på den här snabbstarten. Om du tänker fortsätta med att arbeta med efterföljande snabbstarter och självstudier ska du fortsätta att köra Standard-nivån och ha automatisk etablering aktiverad. Om du inte tänker fortsätta eller vill återgå till den kostnadsfria nivån:
 
-1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
-2. På raden för prenumerationen som du vill ska bli kostnadsfri igen väljer du **Redigera inställningar>** .
+1. Gå tillbaka till Security Center huvud menyn och välj **pris & inställningar**.
+2. Klicka på den prenumeration som du vill ändra till den kostnads fria nivån.
 3. Välj **Prisnivå** och välj **Kostnadsfri** om du vill byta prenumeration från Standard-nivån till den kostnadsfria nivån.
 5. Välj **Spara**.
 
 Om du vill avaktivera automatisk etablering:
 
-1. Återgå till huvudmenyn i Security Center och välj **Säkerhetsprincip**.
-2. Välj **Redigera inställningar>** på raden för prenumerationen som du vill inaktivera automatisk etablering för.
+1. Gå tillbaka till Security Center huvud menyn och välj **pris & inställningar**.
+2. Rensa den prenumeration som du vill inaktivera automatisk etablering på.
 3. På fliken **Datainsamling** anger du **Automatisk etablering** till **Av**.
 4. Välj **Spara**.
 

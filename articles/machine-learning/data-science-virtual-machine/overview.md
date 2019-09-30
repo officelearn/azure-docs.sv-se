@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 02/22/2019
-ms.openlocfilehash: 3295a59ee4496d332f0d886c89ca900ab6b4bcd1
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: f40ad01d74df26e5a6d90c348a706e8a3c666f2f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191905"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675083"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Vad är Azure-Data Science Virtual Machine för Linux och Windows?
 
@@ -63,8 +63,8 @@ Du kan använda DSVM för att utvärdera eller lära dig verktyg som dessa, med 
 
 Eftersom du kan konfigurera DSVM snabbt kan du använda den i andra kortsiktiga användnings scenarier. I dessa scenarier ingår att replikera publicerade experiment, köra demonstrationer och följa genom gångar i online-sessioner och konferens självstudier.
 
-### <a name="deep-learning"></a>Deep learning
-I DSVM kan dina utbildnings modeller använda djup inlärnings-algoritmer på maskin vara som baseras på GPU: er (Graphics Processing units). Genom att dra nytta av funktionerna för skalning av virtuella datorer i Azure-plattformen kan DSVM hjälpa dig att använda GPU-baserad maskin vara i molnet efter behov. Du kan växla till en GPU-baserad virtuell dator när du tränar stora modeller eller när du behöver snabba beräkningar samtidigt som du behåller samma OS-disk.  
+### <a name="deep-learning-with-gpus"></a>Djup inlärning med GPU: er
+I DSVM kan dina utbildnings modeller använda djup inlärnings-algoritmer på maskin vara som baseras på GPU: er (Graphics Processing units). Genom att dra nytta av funktionerna för skalning av virtuella datorer i Azure-plattformen kan DSVM hjälpa dig att använda GPU-baserad maskin vara i molnet efter behov. Du kan växla till en GPU-baserad virtuell dator när du tränar stora modeller eller när du behöver snabba beräkningar samtidigt som du behåller samma OS-disk. Du kan välja någon av de N-seriens GPU-aktiverade virtuella datorer SKU: er med DSVM. Observera att de kostnads fria Azure-kontona inte stöder GPU-aktiverade virtuella datorer SKU: er.
 
 Windows Server 2016-versionen av DSVM levereras i förväg med GPU-drivrutiner, ramverk och GPU-versioner av djup inlärnings ramverk. I Linux-versionen har djup inlärning på GPU: er Aktiver ATS på både CentOS-och Ubuntu-Dsvm. 
 
@@ -97,72 +97,72 @@ I följande tabell specificeras och jämförs huvudkomponenterna som ingår i Wi
 | **Verktyg**                                                           | **Windows-utgåva** | **Linux-utgåva** |
 | :------------------------------------------------------------------ |:-------------------:|:------------------:|
 | [Microsoft R Open](https://mran.microsoft.com/open/) med populära paket förinstallerade   |J                      | J             |
-| [Microsoft Machine Learning Server (R, python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition innehåller: <br />  &nbsp;&nbsp;&nbsp;&nbsp;[RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) -parallellt och distribuerat ramverk för hög prestanda (R och python)<br />  &nbsp;&nbsp;&nbsp;&nbsp;[MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package), nya modern Machine Learning-algoritmer från Microsoft <br />  &nbsp;&nbsp;&nbsp;&nbsp;[R-och python-driftsättning](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |J                      | J |
+| [Microsoft Machine Learning Server (R, python)](https://docs.microsoft.com/machine-learning-server/) Developer Edition innehåller: <br />  &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RevoScaleR/revoscalepy](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-revoscaler) Parallel and Distributed High-Performance Framework (R och python)<br />  &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [MicrosoftML](https://docs.microsoft.com/machine-learning-server/r/concept-what-is-the-microsoftml-package), nya modern Machine Learning-algoritmer från Microsoft <br />  &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [R och python driftsättning](https://docs.microsoft.com/machine-learning-server/what-is-operationalization)                                            |J                      | J |
 | [Microsoft Office](https://products.office.com/business/office-365-proplus-business-software) ProPlus med delad aktivering: Excel, Word och PowerPoint   |J                      |N              |
 | [Anaconda Python](https://www.continuum.io/) 2,7 och 3,5 med populära paket förinstallerade    |J                      |J              |
 | [JuliaPro](https://juliacomputing.com/products/juliapro.html) med populära paket för Julia-språket förinstallerade                         |J                      |J              |
 | Relationsdatabaser                                                            | [SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition| [PostgreSQL](https://www.postgresql.org/) (CentOS),<br/>[SQL Server 2017](https://www.microsoft.com/sql-server/sql-server-2017) <br/> Developer Edition (Ubuntu) |
-| Databasverktyg                                                       |  SQL Server Management Studio <br/> SQL Server Integration Services<br/> [BCP, SQLCMD](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br />  ODBC/JDBC-drivrutiner|  [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/) (fråge verktyg), <br />  BCP, SQLCMD <br />  ODBC/JDBC-drivrutiner|
+| Databasverktyg                                                       |  SQL Server Management Studio <br/> SQL Server Integration Services<br/> [BCP, SQLCMD](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br />  ODBC/JDBC-drivrutiner|  [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/) (frågeverktyg), <br />  BCP, SQLCMD <br />  ODBC/JDBC-drivrutiner|
 | Skalbar databas analys med SQL Server Machine Learning-tjänster (R, python) | J     |N              |
 | [Jupyter Notebook Server](https://jupyter.org/) med följande kernels:                                  | J     | J |
-|     &nbsp;&nbsp;&nbsp;&nbsp;R | J | J |
-|     &nbsp;&nbsp;&nbsp;&nbsp;Python | J | J |
-|     &nbsp;&nbsp;&nbsp;&nbsp;Julia | J | J |
-|     &nbsp;&nbsp;&nbsp;&nbsp;PySpark | J | J |
-|     &nbsp;&nbsp;&nbsp;&nbsp;[Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | N | J (endast Ubuntu) |
-|     &nbsp;&nbsp;&nbsp;&nbsp;SparkR     | N | J |
+|     &nbsp; @ NO__T-1 @ NO__T-2 @ NO__T-3 R | J | J |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 python | J | J |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Julia | J | J |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 PySpark | J | J |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) | N | J (endast Ubuntu) |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 sparker     | N | J |
 | JupyterHub (Server för flera datorer)| N | J |
 | JupyterLab (Server för flera datorer) | N | J (endast Ubuntu) |
 | Utvecklings verktyg, IDE: er och kod redigerare:| | |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Visual studio 2019 (Community Edition)](https://www.visualstudio.com/community/) med git-plugin-program, Azure HDInsight (Hadoop), Azure Data Lake, SQL Server Data Tools, [Node. js](https://github.com/Microsoft/nodejstools), [python](https://aka.ms/ptvs)och [R Tools för Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | J | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Visual Studio-kod](https://code.visualstudio.com/) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[RStudio-Server](https://www.rstudio.com/products/rstudio/#Server) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Pycharm med community-utgåva](https://www.jetbrains.com/pycharm/) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Atom](https://atom.io/) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Juno (Julia IDE)](https://junolab.org/)| J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;Vim och emacs | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;Git-och git-bash | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;OpenJDK | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;.NET Framework | J | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Visual Studio 2019 (Community Edition)](https://www.visualstudio.com/community/) med git-plugin, Azure HDInsight (Hadoop), Azure Data Lake, SQL Server Data Tools, [Node. js](https://github.com/Microsoft/nodejstools), [python](https://aka.ms/ptvs)och [R Tools för Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) | J | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Visual Studio Code](https://code.visualstudio.com/) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio-Server](https://www.rstudio.com/products/rstudio/#Server) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [pycharm med Community Edition](https://www.jetbrains.com/pycharm/) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Atom](https://atom.io/) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Juno (Julia IDE)](https://junolab.org/)| J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 vim och emacs | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 git och git bash | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 OpenJDK | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 .NET Framework | J | N |
 | Power BI Desktop | J | N |
 | SDK:er för åtkomst till Azure och Cortana Intelligence Suite med tjänster | J | J |
 | Data förflyttning och hanterings verktyg: | | |
-| &nbsp;&nbsp;&nbsp;&nbsp;Azure Storage Explorer | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Azure CLI](https://docs.microsoft.com/cli/azure) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;Azure PowerShell | J | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | J | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[BLOB-säkring av driv rutin](https://github.com/Azure/azure-storage-fuse) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[AdlCopy (Azure Data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | J | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Verktyget Azure Cosmos DB datamigrering](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | J | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Microsoft Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx): flytta data mellan lokala platser och molnet | J | N |
-| &nbsp;&nbsp;&nbsp;&nbsp;Kommando rads verktyg för UNIX/Linux | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Azure Storage Explorer | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Azure CLI](https://docs.microsoft.com/cli/azure) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Azure PowerShell | J | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) | J | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [BLOB-säkrings driv rutin](https://github.com/Azure/azure-storage-fuse) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [AdlCopy (Azure Data Lake Storage)](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob) | J | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Azure Cosmos DB Data Migration Tool](https://docs.microsoft.com/azure/documentdb/documentdb-import-data) | J | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Microsoft Data Management Gateway](https://msdn.microsoft.com/library/dn879362.aspx): flytta data mellan lokala platser och molnet | J | N |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 UNIX/Linux kommando rads verktyg | J | J |
 | [Apache-granskning](https://drill.apache.org) för data utforskning | J | J |
 | Machine Learning-verktyg: |||
-| &nbsp;&nbsp;&nbsp;&nbsp;Integrering med [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, python) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[XGBoost](https://github.com/dmlc/xgboost) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Wekas](https://www.cs.waikato.ac.nz/ml/weka/) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Rattle](https://togaware.com/rattle/) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[LightGBM](https://github.com/Microsoft/LightGBM) | N | J (endast Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;[CatBoost](https://tech.yandex.com/catboost/) | N | J (endast Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;[H2O](https://www.h2o.ai/h2o/), [mousserande vatten](https://www.h2o.ai/sparkling-water/) | N | J (endast Ubuntu) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3-integration med [Azure Machine Learning](https://azure.microsoft.com/services/machine-learning/) (R, python) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [XGBoost](https://github.com/dmlc/xgboost) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [wekas](https://www.cs.waikato.ac.nz/ml/weka/) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Rattle](https://togaware.com/rattle/) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [LightGBM](https://github.com/Microsoft/LightGBM) | N | J (endast Ubuntu) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [CatBoost](https://tech.yandex.com/catboost/) | N | J (endast Ubuntu) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [H2O](https://www.h2o.ai/h2o/), [mousserande vatten](https://www.h2o.ai/sparkling-water/) | N | J (endast Ubuntu) |
 | Djup inlärnings verktyg som fungerar på en GPU eller CPU: |  |  |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | J | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[TensorFlow](https://www.tensorflow.org/) | J (Windows 2016) | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Horovod](https://github.com/uber/horovod) | N | J (Ubuntu) |
-| &nbsp;&nbsp;&nbsp;&nbsp;[MXNet](https://mxnet.io/) | J (Windows 2016) | J|
-| &nbsp;&nbsp;&nbsp;&nbsp;[Caffe och Caffe2](https://github.com/caffe2/caffe2) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Kedjor](https://chainer.org/) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Torch](http://torch.ch/) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Theano](https://github.com/Theano/Theano) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[Keras](https://keras.io/)| N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[PyTorch](https://pytorch.org/)| N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[NVIDIA-siffror](https://github.com/NVIDIA/DIGITS) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[MXNet-modell Server](https://github.com/awslabs/mxnet-model-server) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[TensorFlow-servar](https://www.tensorflow.org/serving/) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[TensorRT](https://developer.nvidia.com/tensorrt) | N | J |
-| &nbsp;&nbsp;&nbsp;&nbsp;[CUDA, cuDNN, NVIDIA-drivrutin](https://developer.nvidia.com/cuda-toolkit) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/) (Windows 2016) | J | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [TensorFlow](https://www.tensorflow.org/) | J (Windows 2016) | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Horovod](https://github.com/uber/horovod) | N | J (Ubuntu) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [MXNet](https://mxnet.io/) | J (Windows 2016) | J|
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Caffe och Caffe2](https://github.com/caffe2/caffe2) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3- [kedjor](https://chainer.org/) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Torch](http://torch.ch/) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Theano](https://github.com/Theano/Theano) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [keras](https://keras.io/)| N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [PyTorch](https://pytorch.org/)| N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [NVIDIA-siffror](https://github.com/NVIDIA/DIGITS) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [MXNet-modell Server](https://github.com/awslabs/mxnet-model-server) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [TensorFlow betjäna](https://www.tensorflow.org/serving/) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [TensorRT](https://developer.nvidia.com/tensorrt) | N | J |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [CUDA, cuDNN, NVIDIA-drivrutin](https://developer.nvidia.com/cuda-toolkit) | J | J |
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,22 +1,22 @@
 ---
-title: Vad är för hands versionen av Windows Virtual Desktop?  – Azure
-description: En översikt över för hands versionen av Windows Virtual Desktop.
+title: Vad är Windows Virtual Desktop?  – Azure
+description: En översikt över virtuella Windows-datorer.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7d312f54da91c8bc8b3f659ff92f531136cdecb3
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 97087b7fdc6e4cdaccf922a1c72f35284c7a7040
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338594"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676556"
 ---
-# <a name="what-is-windows-virtual-desktop-preview"></a>Vad är för hands versionen av Windows Virtual Desktop? 
+# <a name="what-is-windows-virtual-desktop"></a>Vad är Windows Virtual Desktop? 
 
-För hands versionen av Windows Virtual Desktop är tillgänglig i den offentliga för hands versionen är en stationär dator och app Virtualization-tjänst som körs i molnet.
+Windows Virtual Desktop är en Skriv bords-och app Virtualization-tjänst som körs i molnet.
 
 Det här kan du göra när du kör Windows Virtual Desktop på Azure:
 
@@ -89,6 +89,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste v
 >Om du behöver en Azure-prenumeration kan du [Registrera dig för en kostnads fri utvärderings version av en månad](https://azure.microsoft.com/free/). Om du använder den kostnads fria utvärderings versionen av Azure bör du använda Azure AD Domain Services för att hålla Windows Server-Active Directory synkroniserad med Azure Active Directory.
 
 De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste ha utgående TCP 443-åtkomst till följande URL: er:
+
 * *. wvd.microsoft.com
 * *.blob.core.windows.net
 * *.core.windows.net
@@ -99,7 +100,7 @@ De virtuella Azure-datorer som du skapar för virtuella Windows-datorer måste h
 >[!NOTE]
 >Att öppna dessa URL: er är viktigt för en tillförlitlig Windows-distribution av virtuella skriv bord. Det finns inte stöd för att blockera åtkomst till dessa URL: er och det påverkar service funktionerna. Dessa URL: er motsvarar bara Windows virtuella Skriv bords platser och resurser och inkluderar inte URL: er för andra tjänster som Azure AD.
 
-Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Under den offentliga för hands versionen kan Station ära datorer och appar distribueras på virtuella datorer i valfri Azure-region, och hanterings lösningen och data för dessa virtuella datorer finns i USA (USA, östra 2). Detta kan leda till att data överförs till USA medan du testar tjänsten under en offentlig för hands version. Vi börjar skala ut hanterings lösningen och data lokaliseringen till alla Azure-regioner som börjar med allmän tillgänglighet.
+Windows Virtual Desktop består av Windows-datorer och appar som du levererar till användare och hanterings lösningen, som är värdbaserad som en tjänst på Azure av Microsoft. Station ära datorer och appar kan distribueras på virtuella datorer i valfri Azure-region, och hanterings lösningen och data för dessa virtuella datorer finns i USA (region i USA, östra 2). Detta kan leda till att data överförs till USA.
 
 För bästa prestanda bör du kontrol lera att nätverket uppfyller följande krav:
 
@@ -119,11 +120,28 @@ Följande fjärr skrivbords klienter stöder virtuellt skriv bord i Windows:
 Windows Virtual Desktop stöder följande OS-avbildningar:
 
 * Windows 10 Enterprise multi-session
+* Windows 10 Enterprise
+* Windows 7 Enterprise
+* Windows Server 2019
 * Windows Server 2016
+* Windows Server 2012 R2
+
+Tillgängliga alternativ för Automation och distribution beror på vilket operativ system och vilken version du väljer, som du ser i följande tabell: 
+
+|Operativsystem|Azures avbildnings Galleri|Manuell distribution av virtuella datorer|Azure Resource Manager mall-integrering|Etablera värdbaserade pooler på Azure Marketplace|Uppdateringar av Windows Virtual Desktop agent|
+|--------------------------------------|:------:|:------:|:------:|:------:|:------:|
+|Windows 10 multi-session, version 1903|Ja|Ja|Ja|Ja|Automatisk|
+|Windows 10 multi-session, version 1809|Ja|Ja|Nej|Nej|Automatisk|
+|Windows 10 Enterprise, version 1903|Ja|Ja|Ja|Ja|Automatisk|
+|Windows 10 Enterprise, version 1809|Ja|Ja|Nej|Nej|Automatisk|
+|Windows 7 Enterprise|Ja|Ja|Nej|Nej|Manuellt|
+|Windows Server 2019|Ja|Ja|Nej|Nej|Automatisk|
+|Windows Server 2016|Ja|Ja|Ja|Ja|Automatisk|
+|Windows Server 2012 R2|Ja|Ja|Nej|Nej|Automatisk|
 
 ## <a name="next-steps"></a>Nästa steg
 
 För att komma igång måste du skapa en klient. Om du vill veta mer om hur du skapar en klient fortsätter du till självstudien för skapande av innehavare.
 
 > [!div class="nextstepaction"]
-> [Skapa en klient i för hands versionen av Windows Virtual Desktop](tenant-setup-azure-active-directory.md)
+> [Skapa en klientorganisation i Windows Virtual Desktop](tenant-setup-azure-active-directory.md)

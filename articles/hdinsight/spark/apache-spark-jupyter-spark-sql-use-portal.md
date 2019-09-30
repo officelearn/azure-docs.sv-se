@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
-ms.date: 06/12/2019
+ms.date: 09/27/2019
 ms.custom: mvc
-ms.openlocfilehash: e4d6013692e12b64247a0f3553c0b2b3ad4f06ac
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: a4c7fe0d01bc9e5045cfe585c3f235636aa3dd22
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337705"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676973"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>Snabbstart: Skapa Apache Spark kluster i Azure HDInsight med Azure Portal
 
@@ -32,37 +32,38 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
     ![Azure Portal skapa en resurs HDInsight](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster.png "HDInsight på Azure Portal")
 
-2. Under **Grunder**, ange följande värden:
+1. Under **Grunder**, ange följande värden:
 
     |Egenskap  |Beskrivning  |
     |---------|---------|
-    |**Klusternamn**     | Namnge ett HDInsight Spark-kluster. Klusternamnet som används för den här snabbstarten är **myspark20180403**.|
-    |**Prenumeration**     | I listrutan, Välj en Azure-prenumeration som används för det här klustret. Prenumerationen som används för den här snabbstarten är **&lt;Azure-prenumeration**. |
-    |**Typ av kluster**| Utöka objektet och välj sedan **Spark** som klustertyp och ange Spark-klusterversionen. <br/> <img src="./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-type.png" alt = "Azure portal select HDInsight cluster type" /> |
-    |**Användarnamn för klusterinloggning**| Ange användarnamnet för kluster-inloggningen.  Standardnamnet är *admin*. Du kan använda det här kontot för att logga in i Jupyter Notebook senare i snabbstarten. |
-    |**Lösenord för klusterinloggning**| Ange lösenordet för klusterinloggningen: |
-    |**Secure Shell (SSH)-användarnamn**| Ange SSH-användarnamnet. SSH-användarnamnet som användes för den här snabbstarten är **sshuser**. Som standard delar här kontot samma lösenord som kontot *användarnamn för klusterinloggning*. |
-    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Resursgruppens namn som används för den här snabbstarten är **myspark20180403rg**. |
-    |**Location**     | Välj en plats för resursgruppen. Mallen använder den här platsen för att skapa klustret samt standardklusterlagringen. Den plats som används för den här snabbstarten **USA, östra 2**. |
+    |Subscription  | I listrutan, Välj en Azure-prenumeration som används för det här klustret. Prenumerationen som används för den här snabb starten är **Azure**. |
+    |Resource group | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Resurs grupps namnet som används för den här snabb starten är **myResourceGroup**. |
+    |Klusternamn | Namnge ett HDInsight Spark-kluster. Kluster namnet som används för den här snabb starten är **myspark2019**.|
+    |Location   | Välj en plats för resursgruppen. Mallen använder den här platsen för att skapa klustret samt standardklusterlagringen. Den plats som används för den här snabb starten är **östra USA**. |
+    |Klustertyp| Välj **Spark** som kluster typ.|
+    |Klusterversion|Det här fältet fylls i automatiskt med standard versionen när kluster typen har valts.|
+    |Användarnamn för klusterinloggning| Ange användarnamnet för kluster-inloggningen.  Standardnamnet är *admin*. Du kan använda det här kontot för att logga in i Jupyter Notebook senare i snabbstarten. |
+    |Lösenord för klusterinloggning| Ange lösenordet för klusterinloggningen: |
+    |Secure Shell (SSH)-användarnamn| Ange SSH-användarnamnet. SSH-användarnamnet som användes för den här snabbstarten är **sshuser**. Som standard delar här kontot samma lösenord som kontot *användarnamn för klusterinloggning*. |
 
-    ![Skapa grundläggande konfigurationer för HDInsight Spark-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-basic2.png "Skapa grundläggande konfigurationer för Spark-kluster i HDInsight")
+    ![Skapa grundläggande konfigurationer för HDInsight Spark-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-basics-spark.png "Skapa grundläggande konfigurationer för Spark-kluster i HDInsight")
 
-    Välj **Nästa** för att fortsätta till sidan **Lagring**.
+    Välj **Nästa: Lagrings > >**  för att fortsätta till **lagrings** sidan.
 
-3. Under **Lagring**, ange följande värden:
+1. Under **Lagring**, ange följande värden:
 
-   - **Välj ett lagringskonto**: Välj **Skapa nytt** och ge ett namn till det nya lagringskontot. Lagringskontots namn som används för den här snabbstarten är **myspark20180403store**.
+    |Egenskap  |Beskrivning  |
+    |---------|---------|
+    |Primär lagringstyp|Använd standardvärdet **Azure Storage**.|
+    |Urvalsmetod|Använd standardvärdet **Select i list**.|
+    |Primärt lagringskonto|Använd det automatiskt ifyllda värdet.|
+    |Container|Använd det automatiskt ifyllda värdet.|
 
-     ![Skapa lagringskonfigurationer för HDInsight Spark-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-create-hdinsight-spark-cluster-storage.png "Skapa lagringskonfigurationer för Spark-kluster i HDInsight")
+    ![Skapa grundläggande konfigurationer för HDInsight Spark-kluster](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage-spark.png "Skapa grundläggande konfigurationer för Spark-kluster i HDInsight")
 
-     > [!NOTE]  
-     > På skärmbilden, visas **Välj befintlig**. Länken växlar mellan **Skapa nytt** och **Välj befintlig**.
+    Välj **Granska + skapa** för att fortsätta.
 
-     **Standardbehållaren** har ett standardnamn.  Du kan ändra namnet om du vill.
-
-     Välj **Nästa** för att fortsätta till sidan **Sammanfattning**.
-
-4. På **Sammanfattning** väljer du **Skapa**. Det tar cirka 20 minuter att skapa klustret. Klustret måste skapas innan du kan fortsätta till nästa session.
+1. Under **Granska + skapa**väljer du **skapa**. Det tar cirka 20 minuter att skapa klustret. Klustret måste skapas innan du kan fortsätta till nästa session.
 
 Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på att du inte har rätt behörighet för att göra det. Mer information finns i [åtkomstkravkontrollen](../hdinsight-hadoop-create-linux-clusters-portal.md).
 
@@ -71,15 +72,16 @@ Om du stöter på ett problem med att skapa HDInsight-kluster kan det bero på a
 Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar.
 
 1. Öppna [Azure-portalen](https://portal.azure.com).
-2. Välj **HDInsight-kluster** och välj sedan det kluster som du skapade.
+
+1. Välj **HDInsight-kluster** och välj sedan det kluster som du skapade.
 
     ![öppna HDInsight-kluster i Azure Portal](./media/apache-spark-jupyter-spark-sql/azure-portal-open-hdinsight-cluster.png)
 
-3. I portalen väljer du **Kluster-instrumentpaneler** och sedan **Jupyter Notebook**. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
+1. I portalen väljer du **Kluster-instrumentpaneler** och sedan **Jupyter Notebook**. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
    ![Öppna en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-open-jupyter-interactive-spark-sql-query.png "Öppna en Jupyter-anteckningsbok för att köra interaktiv Spark SQL-fråga")
 
-4. Skapa en anteckningsbok genom att välja **Ny** > **PySpark**. 
+1. Skapa en anteckningsbok genom att välja **Ny** > **PySpark**.
 
    ![Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga](./media/apache-spark-jupyter-spark-sql/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga")
 
@@ -136,4 +138,4 @@ Du kan också välja det resursgruppnamn som ska öppna resursgruppsidan och sed
 I den här snabbstarten har du lärt dig skapa ett HDInsight Spark-kluster och köra grundläggande Spark SQL-frågor. Gå vidare till nästa självstudier om du vill lära dig använda ett HDInsight Spark-kluster för att köra interaktiva frågor på exempeldata.
 
 > [!div class="nextstepaction"]
->[Köra interaktiva frågor i Apache Spark](./apache-spark-load-data-run-query.md)
+> [Köra interaktiva frågor i Apache Spark](./apache-spark-load-data-run-query.md)

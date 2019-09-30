@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab
 ms.date: 07/16/2019
-ms.openlocfilehash: 9bc6cfdcbc67761e99150c730adeb23602232632
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8b2147ead7c1a6226b68588b9d0dab53da954bf2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70032948"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676946"
 ---
 # <a name="sql-database-managed-instance-frequently-asked-questions-faq"></a>Vanliga frågor och svar om SQL Database Managed instance
 
@@ -38,12 +38,19 @@ För tillgängliga tjänst nivåer och deras egenskaper, se [tekniska skillnader
 
 Information om buggar och kända problem finns i [kända problem](sql-database-managed-instance-transact-sql-information.md#Issues).
 
+## <a name="where-can-i-find-latest-features-and-the-features-in-public-preview"></a>Var hittar jag de senaste funktionerna och funktionerna i den offentliga för hands versionen?
+
+För nya och förhands gransknings funktioner, se [viktig information](/azure/sql-database/sql-database-release-notes?tabs=managed-instance).
+
+## <a name="how-much-time-takes-to-create-or-update-instance-or-to-restore-a-database"></a>Hur lång tid tar att skapa eller uppdatera instanser eller för att återställa en databas?
+
+Förväntad tid för att skapa en ny hanterad instans eller ändra tjänst nivå (virtuella kärnor, Storage) är beroende av flera faktorer. Ta en titt på [hanterings åtgärderna](/azure/sql-database/sql-database-managed-instance#managed-instance-management-operations) 
+
 ## <a name="can-a-managed-instance-have-the-same-name-as-on-premises-sql-server"></a>Kan en hanterad instans ha samma namn som lokalt SQL Server?
 
 Den hanterade instansen måste ha ett namn som slutar med *Database.Windows.net*. Om du vill använda en annan DNS-zon i stället för standard, t. ex. **mi-en-Name**. contoso.com: 
 - Använd CliConfig för att definiera ett alias. Verktyget är bara ett gränssnitt för register inställningar, så det kan göras med hjälp av en grup princip eller skript.
 - Använd *CNAME* med alternativet *TrustServerCertificate = True* .
-
 
 ## <a name="how-can-i-move-database-from-managed-instance-back-to-sql-server-or-azure-sql-database"></a>Hur kan jag flytta databasen från hanterad instans tillbaka till SQL Server eller Azure SQL Database?
 
@@ -55,7 +62,7 @@ Det `COPY_ONLY` går inte att återställa inbyggda säkerhets kopior från hant
 
 ## <a name="how-can-i-migrate-my-instance-database-to-a-single-azure-sql-database"></a>Hur kan jag migrera min instans databas till en enda Azure SQL Database?
 
-Ett alternativ är att [Exportera databasen till en BACPAC](sql-database-export.md) och sedan [Importera BACPAC-filen]( sql-database-import.md). 
+Ett alternativ är att [Exportera databasen till en BACPAC](sql-database-export.md) och sedan [Importera BACPAC-filen](sql-database-import.md). 
 
 Detta är den rekommenderade metoden om databasen är mindre än 100 GB. Transaktionsreplikering kan användas om alla tabeller i databasen har primära nycklar.
 
@@ -125,7 +132,8 @@ För att minimera eventuella nätverks risker rekommenderar vi kunderna att till
 Fallstudier av hanterade instanser:
 
 - [Komatsu](https://customers.microsoft.com/story/komatsu-australia-manufacturing-azure)
-- [powerdetails](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
+- [KMD](https://customers.microsoft.com/en-ca/story/kmd-professional-services-azure-sql-database)
+- [PowerDETAILS](https://customers.microsoft.com/story/powerdetails-partner-professional-services-azure-sql-database-managed-instance)
 - [Allscripts](https://customers.microsoft.com/story/allscripts-partner-professional-services-azure)  
 För att få en bättre förståelse för de fördelar, kostnader och risker som är kopplade till distribution av Azure SQL Database hanterade instansen, finns det också en Forrester-undersökning: [Den totala ekonomiska effekten av mi](https://azure.microsoft.com/resources/forrester-tei-sql-database-managed-instance).
 

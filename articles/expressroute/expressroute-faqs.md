@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: jaredro
 ms.custom: seodec18
-ms.openlocfilehash: 886dd9b0f3c72fc7649b1e2fc3927cfa87f65312
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 4fd27acc58f5aaeb9b7680062ad97aaba22dec51
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316508"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686993"
 ---
 # <a name="expressroute-faq"></a>Vanliga frågor och svar för ExpressRoute
 
@@ -70,7 +70,7 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
 * De flesta av de Azure-tjänsterna stöds. Kontrollera direkt med den tjänst som du vill använda för att verifiera support.<br><br>**Följande tjänster stöds inte**:
     * CDN
     * Azure Front Door
-    * Multifaktorautentisering
+    * Multi-Factor Authentication-Server (bakåtkompatibelt)
     * Traffic Manager
 
 ### <a name="public-peering"></a>Offentlig peering
@@ -84,7 +84,7 @@ ExpressRoute stöder [tre routningsdomäner](expressroute-circuit-peerings.md) f
   **Följande tjänster stöds inte**:
     * CDN
     * Azure Front Door
-    * Multifaktorautentisering
+    * Multi-Factor Authentication-Server (bakåtkompatibelt)
     * Traffic Manager
 
 ### <a name="is-dynamics-365-supported-on-expressroute"></a>Stöds Dynamics 365 på ExpressRoute?

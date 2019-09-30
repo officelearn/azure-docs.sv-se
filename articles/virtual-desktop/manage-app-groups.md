@@ -1,22 +1,22 @@
 ---
-title: Hantera app-grupper för för hands versionen av Windows Virtual Desktop – Azure
-description: Beskriver hur du konfigurerar Windows för hands versioner av virtuella skriv bord i Azure Active Directory.
+title: Hantera app-grupper för Windows Virtual Desktop – Azure
+description: Beskriver hur du konfigurerar Windows virtuella Skriv bords klienter i Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 2bec7e490443727fa294e7be9412bb20ae66e691
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: e158c0a6090493bec0169c144f030300de921516
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163258"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679461"
 ---
-# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop-preview"></a>Självstudier: Hantera app-grupper för för hands versionen av Windows Virtual Desktop
+# <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>Självstudier: Hantera app-grupper för virtuellt Windows-skrivbord
 
-Standard-app-gruppen som skapas för en ny Windows-pool för virtuella Skriv bords datorer publicerar också hela Skriv bordet. Dessutom kan du skapa en eller flera RemoteApp-programgrupper för poolen. Följ den här självstudien för att skapa en RemoteApp-app-grupp och publicera enskilda **Start** meny-appar.
+Standard-app-gruppen som skapas för en ny Windows-pool för virtuella skriv bord publicerar också hela Skriv bordet. Dessutom kan du skapa en eller flera RemoteApp-programgrupper för poolen. Följ den här självstudien för att skapa en RemoteApp-app-grupp och publicera enskilda **Start** meny-appar.
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -50,7 +50,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
    Get-RdsStartMenuApp <tenantname> <hostpoolname> <appgroupname>
    ```
    
-4. Kör följande cmdlet för att installera programmet baserat på `AppAlias`. `AppAlias`blir synlig när du kör utdata från steg 3.
+4. Kör följande cmdlet för att installera programmet baserat på `AppAlias`. `AppAlias` blir synliga när du kör utdata från steg 3.
 
    ```powershell
    New-RdsRemoteApp <tenantname> <hostpoolname> <appgroupname> -Name <remoteappname> -AppAlias <appalias>

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 06/25/2019
 ms.author: wesmc
-ms.openlocfilehash: e4379c38d90f444102a9bbddbae64a8018defcf8
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e8a186fbcb04dc29fcf57a2353adcf89ce46b119
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844563"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677938"
 ---
 # <a name="connect-iot-devkit-az3166-to-azure-iot-hub"></a>Ansluta IoT DevKit-AZ3166 till Azure IoT Hub
 
@@ -31,7 +31,7 @@ Du kan använda [MXChip IoT-DevKit](https://microsoft.github.io/azure-iot-develo
 
 Har du inte någon DevKit än? Prova [DevKit-simulatorn](https://azure-samples.github.io/iot-devkit-web-simulator/) eller [Köp en DevKit](https://aka.ms/iot-devkit-purchase).
 
-Du hittar käll koden för alla DevKit-självstudier i [IoTDevEnvExamples](https://github.com/IoTDevEnvExamples) -lagringsplatsen.
+Du hittar käll koden för alla DevKit-självstudier från [galleriet kod exempel](https://docs.microsoft.com/samples/browse/?term=mxchip).
 
 ## <a name="what-you-need"></a>Vad du behöver
 
@@ -355,7 +355,7 @@ Du kan använda [Azure IoT-verktyg](https://marketplace.visualstudio.com/items?i
 
 Om du vill se hur enhetens telemetri skickas till Azure-IoT Hub öppnar `utility.cpp` du filen i samma mapp. Visa [API-referens](https://microsoft.github.io/azure-iot-developer-kit/docs/apis/arduino-language-reference/) för att lära dig hur du använder sensorer och kring utrustning på IoT DevKit.
 
-Används är en omslutning av **iothub_client** från [Microsoft Azure IoT SDK: er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) för att interagera med Azure IoT Hub. `DevKitMQTTClient`
+Den `DevKitMQTTClient` som används är en omslutning av **iothub_client** från [Microsoft Azure IoT SDK: er och bibliotek för C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client) för att interagera med Azure-IoT Hub.
 
 ## <a name="problems-and-feedback"></a>Problem och feedback
 

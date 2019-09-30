@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/25/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: e9be7ef5c4f37c66f7cbf2c6226936438b367108
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 357cc23c9dedb49dfd19dc897102762066ffd1b2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515156"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679348"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudier: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
@@ -53,7 +53,7 @@ I den här guiden får du lära dig att:
 
 Skapa så många platser som du behöver för att motsvara de fysiska platserna. Om du till exempel har ett avdelningskontor i New York, ett i London och ett i LA kan du skapa tre separata platser. Platserna innehåller de lokala VPN-enhetsslutpunkterna. Du kan för närvarande endast specificera ett privat adressutrymme per plats.
 
-1. Klicka på det WAN som du skapade. På WAN-sidan går du till **WAN-arkitektur** klickar du på **VPN-platser** för att öppna sidan med VPN-platser.
+1. Klicka på det WAN som du skapade. På WAN-sidan, under **virtuell WAN-arkitektur**, klickar du på **VPN-platser** för att öppna sidan VPN-platser.
 2. På sidan **VPN-platser** klickar du på **+ Skapa webbplats**.
 3. Fyll i följande fält på sidan **Skapa webbplats**:
 

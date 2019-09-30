@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: de849701365438b21244d1e46ae657495d16c307
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: b6a78fbf2fcb12962b42537965deea6c7912315d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816399"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676532"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>Diagnostisera problem med grafik prestanda i fjärr skrivbord
 
@@ -101,6 +101,6 @@ Om klient resurserna orsakar Flask halsen kan du prova någon av följande metod
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du skapar en GPU-optimerad virtuell Azure-dator finns i [Konfigurera GPU-acceleration (Graphics Processing Unit) för för hands versionen av Windows Virtual Desktop](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
+- Information om hur du skapar en GPU-optimerad virtuell Azure-dator finns i [Konfigurera GPU-acceleration (Graphics Processing Unit) för Windows Virtual Desktop-miljö](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu).
 - En översikt över fel sökning och eskalerade spår finns i [fel söknings översikt, feedback och support](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview).
-- Mer information om för hands versions tjänsten finns i [Windows Desktop Preview-miljö](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).
+- Mer information om tjänsten finns i [Skriv bords miljö i Windows](https://docs.microsoft.com/azure/virtual-desktop/environment-setup).

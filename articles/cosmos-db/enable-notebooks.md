@@ -6,14 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 824a562cb5f0562a235d903fbd4e575bc9c22572
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 22bad3b31b8cbe54900b96bd4b327f18916e81a3
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672735"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677151"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts"></a>Aktivera antecknings böcker för Azure Cosmos DB-konton
+
+> [!IMPORTANT]
+> Inbyggda antecknings böcker för Azure Cosmos DB är för närvarande tillgängliga i följande Azure-regioner: Östra Australien, östra USA, östra USA 2, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Västeuropa och västra USA 2. Om du vill använda antecknings böcker [skapar du ett nytt konto med antecknings böcker](#enable-notebooks-in-a-new-cosmos-account) eller [aktiverar antecknings böcker på ett befintligt konto](#enable-notebooks-in-an-existing-cosmos-account) i någon av dessa regioner.
 
 Inbyggda Jupyter Notebook i Azure Cosmos DB gör att du kan analysera och visualisera dina data från Azure Portal. I den här artikeln beskrivs hur du aktiverar den här funktionen för ditt Azure Cosmos DB-konto.
 
@@ -67,4 +70,3 @@ Du kan också välja **ny Notebook** för att skapa en ny antecknings bok eller 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om fördelarna med att [Azure Cosmos DB Jupyter Notebooks](cosmosdb-jupyter-notebooks.md)
-- Lär dig mer om [hur du använder Notebook-funktioner och-kommandon](use-notebook-features-and-commands.md)

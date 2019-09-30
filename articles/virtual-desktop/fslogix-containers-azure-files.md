@@ -7,18 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: fe45adc3eb65631c0b127872240f8d76400f9102
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 5e52275cc7215f6c54c2ff6a11faf82114c414b4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899665"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676604"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
-I förhands gransknings tjänsten för Windows Virtual Desktop rekommenderas FSLogix profil behållare som en användar profil lösning. FSLogix är utformad för centrala profiler i fjärrdatorer, till exempel Windows Virtual Desktop. Den lagrar en fullständig användar profil i en enda behållare. Vid inloggningen är den här behållaren dynamiskt kopplad till dator miljön med inbyggd virtuell hård disk (VHD) och virtuell Hyper-V-hårddisk (VHDX) som stöds. Användar profilen är omedelbart tillgänglig och visas i systemet precis som en inbyggd användar profil.
-
-I den här artikeln beskriver vi FSLogix profil behållare som används med Azure Files. Informationen finns i kontexten för det virtuella Windows-skrivbordet, som har [annonser ATS den 3/21](https://www.microsoft.com/microsoft-365/blog/2019/03/21/windows-virtual-desktop-public-preview/).
+Tjänsten Windows Virtual Desktop rekommenderar FSLogix profil behållare som en användar profil lösning. FSLogix är utformad för centrala profiler i fjärrdatorer, till exempel Windows Virtual Desktop. Den lagrar en fullständig användar profil i en enda behållare. Vid inloggningen är den här behållaren dynamiskt kopplad till dator miljön med inbyggd virtuell hård disk (VHD) och virtuell Hyper-V-hårddisk (VHDX) som stöds. Användar profilen är omedelbart tillgänglig och visas i systemet precis som en inbyggd användar profil. I den här artikeln beskrivs hur FSLogix profil behållare används med Azure Files-funktionen i det virtuella Windows-skrivbordet.
 
 ## <a name="user-profiles"></a>Användarprofiler
 
@@ -55,7 +53,7 @@ I följande tabell visas fördelarna och begränsningarna för tidigare använda
 
 #### <a name="performance"></a>Prestanda
 
-UPD kräver [Lagringsdirigering (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) för att uppfylla prestanda kraven. UPD använder SMB-protokoll (Server Message Block). Profilen kopieras till den virtuella dator där användaren loggas. UPD med S2D var lösningen för RDS-teamet som rekommenderas för Windows Virtual Desktop under för hands versionen av tjänsten.  
+UPD kräver [Lagringsdirigering (S2D)](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) för att uppfylla prestanda kraven. UPD använder SMB-protokoll (Server Message Block). Profilen kopieras till den virtuella dator där användaren loggas. UPD med S2D är den lösning som vi rekommenderar för Windows Virtual Desktop.  
 
 #### <a name="cost"></a>Kostnad
 
@@ -81,7 +79,7 @@ FSLogix profil behållares prestanda och funktioner utnyttjar molnet. Den 7 augu
 
 ## <a name="best-practices-for-windows-virtual-desktop"></a>Metod tips för virtuella Windows-datorer
 
-Virtuella Windows-datorer ger fullständig kontroll över storlek, typ och antal virtuella datorer som används av kunderna. Mer information finns i [Vad är för hands versionen av Windows Virtual Desktop?](overview.md).
+Virtuella Windows-datorer ger fullständig kontroll över storlek, typ och antal virtuella datorer som används av kunderna. Mer information finns i [Vad är Windows Virtual Desktop?](overview.md).
 
 För att se till att din Windows Virtual Desktop-miljö följer bästa praxis:
 

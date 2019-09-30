@@ -4,14 +4,14 @@ description: Visar en lista över de Azure-resurs typer som kan flyttas till en 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 09/06/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 9dc86fe7876a050fe67ec73a665be6141a4b98da
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: b34c244708c52ec7324c766286aff8ee9340db0b
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801363"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687126"
 ---
 # <a name="move-operation-support-for-resources"></a>Åtgärds stöd för flytt av resurser
 Den här artikeln visar om en Azure-resurs har stöd för flytt åtgärden. Den innehåller också information om särskilda villkor att tänka på när du flyttar en resurs.
@@ -72,7 +72,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.Devices](#microsoftdevices)
 > - [Microsoft.DevSpaces](#microsoftdevspaces)
 > - [Microsoft.DevTestLab](#microsoftdevtestlab)
-> - [microsoft.dns](#microsoftdns)
 > - [Microsoft.DocumentDB](#microsoftdocumentdb)
 > - [Microsoft.DomainRegistration](#microsoftdomainregistration)
 > - [Microsoft.EnterpriseKnowledgeGraph](#microsoftenterpriseknowledgegraph)
@@ -389,7 +388,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | gallerier/avbildningar/versioner | Nej | Nej |
 > | hostgroups | Nej | Nej |
 > | hostgroups/värdar | Nej | Nej |
-> | bilder | Ja | Ja |
+> | avbildningar | Ja | Ja |
 > | proximityplacementgroups | Nej | Nej |
 > | restorepointcollections | Nej | Nej |
 > | sharedvmimages | Nej | Nej |
@@ -462,7 +461,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | NAV | Ja | Ja |
+> | hubbar | Ja | Ja |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
 
@@ -506,7 +505,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | paket | Nej | Nej |
-> | utgå | Nej | Nej |
+> | planer | Nej | Nej |
 
 ## <a name="microsoftdatafactory"></a>Microsoft.DataFactory
 
@@ -542,7 +541,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | services | Nej | Nej |
+> | tjänster | Nej | Nej |
 > | tjänster/projekt | Nej | Nej |
 > | lots | Nej | Nej |
 
@@ -596,7 +595,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | domänkontrollanter | Ja | Ja |
+> | Domänkontrollanter | Ja | Ja |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -609,21 +608,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | labb/servicerunners | Ja | Ja |
 > | labb/virtualmachines | Ja | Nej |
 > | scheman | Ja | Ja |
-
-## <a name="microsoftdns"></a>microsoft.dns
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Resource group | Subscription |
-> | ------------- | ----------- | ---------- |
-> | dnszones | Nej | Nej |
-> | dnszones/a | Nej | Nej |
-> | dnszones/AAAA | Nej | Nej |
-> | dnszones/CNAME | Nej | Nej |
-> | dnszones/MX | Nej | Nej |
-> | dnszones/PTR | Nej | Nej |
-> | dnszones/SRV | Nej | Nej |
-> | dnszones/txt | Nej | Nej |
-> | trafficmanagerprofiles | Nej | Nej |
 
 ## <a name="microsoftdocumentdb"></a>Microsoft.DocumentDB
 
@@ -644,7 +628,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | services | Ja | Ja |
+> | tjänster | Ja | Ja |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -652,7 +636,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domäner | Ja | Ja |
-> | avsnitt | Ja | Ja |
+> | Avsnitt | Ja | Ja |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
@@ -694,7 +678,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | services | Ja | Ja |
+> | tjänster | Ja | Ja |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -727,7 +711,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | activitylogalerts | Nej | Nej |
 > | alertrules | Ja | Ja |
 > | autoscalesettings | Ja | Ja |
-> | delarna | Ja | Ja |
+> | Delarna | Ja | Ja |
 > | guestdiagnosticsettings | Nej | Nej |
 > | metricalerts | Nej | Nej |
 > | notificationgroups | Nej | Nej |
@@ -765,7 +749,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!IMPORTANT]
 > Nyckel valv som används för disk kryptering kan inte flyttas till en resurs grupp i samma prenumeration eller mellan prenumerationer.
 
-## <a name="microsoftkusto"></a>Microsoft. Kusto
+## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resource group | Subscription |
@@ -1004,7 +988,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | instrument paneler | Ja | Ja |
+> | Instrument paneler | Ja | Ja |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 

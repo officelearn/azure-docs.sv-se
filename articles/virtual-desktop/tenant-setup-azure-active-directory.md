@@ -1,22 +1,22 @@
 ---
-title: Skapa en klient i för hands versionen av Windows Virtual Desktop – Azure
-description: Beskriver hur du konfigurerar Windows för hands versioner av virtuella skriv bord i Azure Active Directory.
+title: Skapa en klient i Windows Virtual Desktop – Azure
+description: Beskriver hur du konfigurerar Windows virtuella Skriv bords klienter i Azure Active Directory.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: helohr
-ms.openlocfilehash: 66441e852ebe0a391a5807b90eeadae230130815
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: 04a65442e86168239f08fb71303b8d9e9e152e72
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70734454"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679476"
 ---
-# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop-preview"></a>Självstudier: Skapa en klient i för hands versionen av Windows Virtual Desktop
+# <a name="tutorial-create-a-tenant-in-windows-virtual-desktop"></a>Självstudier: Skapa en klientorganisation i Windows Virtual Desktop
 
-Att skapa en klient i för hands versionen av Windows Virtual Desktop är det första steget för att skapa din lösning för Skriv bords virtualisering. En klient organisation är en grupp med en eller flera värdar. Varje adresspool består av flera sessionsbaserade värdar, som körs som virtuella datorer i Azure och som är registrerade på Windows Virtual Desktop-tjänsten. Varje adresspool består också av en eller flera grupp grupper som används för att publicera fjärr skrivbord och fjärranslutna program resurser till användare. Med en klient kan du skapa värdar för pooler, skapa program grupper, tilldela användare och upprätta anslutningar via tjänsten.
+Att skapa en klient i Windows Virtual Desktop är det första steget för att skapa din lösning för Skriv bords virtualisering. En klient organisation är en grupp med en eller flera värdar. Varje adresspool består av flera sessionsbaserade värdar, som körs som virtuella datorer i Azure och som är registrerade på Windows Virtual Desktop-tjänsten. Varje adresspool består också av en eller flera grupp grupper som används för att publicera fjärr skrivbord och fjärranslutna program resurser till användare. Med en klient kan du skapa värdar för pooler, skapa program grupper, tilldela användare och upprätta anslutningar via tjänsten.
 
 I den här självstudiekursen får du lära du dig att:
 
@@ -73,9 +73,9 @@ Så här tilldelar du program rollen TenantCreator:
    Om du arbetar med flera Azure Active Directory klienter, är det en bra idé att öppna en privat webbläsarsession och kopiera och klistra in URL: erna i adress fältet.
 2. I Sök fältet i Azure Portal söker du efter **företags program** och väljer den post som visas under kategorin **tjänster** .
 3. Sök efter **Windows Virtual Desktop**i **företags program**. Du ser de två program som du tillhandahöll medgivande för i föregående avsnitt. Av dessa två appar väljer du **virtuellt Windows-skrivbord**.
-   ![En skärm bild av Sök resultaten vid sökning efter "Windows Virtual Desktop" i "företags program". Appen med namnet "Windows Virtual Desktop" är markerad.](media/tenant-enterprise-app.png)
+   @no__t skärm bild av Sök resultatet när du söker efter "Windows Virtual Desktop" i "företags program". Appen med namnet "Windows Virtual Desktop" är markerad. ](media/tenant-enterprise-app.png)
 4. Välj **Användare och grupper**. Du kan se att administratören som beviljade medgivande till programmet redan visas i listan med **standard åtkomst** rollen som tilldelats. Detta är inte tillräckligt för att skapa en Windows-klient för virtuella skriv bord. Fortsätt följa dessa instruktioner för att lägga till **TenantCreator** -rollen till en användare.
-   ![En skärm bild av de användare och grupper som har tilldelats för att hantera företags programmet "Windows Virtual Desktop". Skärm bilden visar bara en tilldelning, vilket är för "standard åtkomst".](media/tenant-default-access.png)
+   ![A skärm bild av de användare och grupper som har tilldelats för att hantera företags programmet "Windows Virtual Desktop". Skärm bilden visar bara en tilldelning, vilket är för "standard åtkomst". ](media/tenant-default-access.png)
 5. Välj **Lägg till användare**och välj sedan **användare och grupper** på bladet **Lägg till tilldelning** .
 6. Sök efter ett användar konto som ska skapa din Windows-klient för virtuella skriv bord. För enkelhetens skull kan detta vara det globala administratörs kontot.
    - Om du använder en Microsoft Identity-Provider som contosoadmin@live.com eller contosoadmin@outlook.com, kanske du inte kan logga in på det virtuella Windows-skrivbordet. Vi rekommenderar att du använder ett domänbaserat konto som admin@contoso.com eller admin@contoso.onmicrosoft.com i stället.
@@ -87,7 +87,7 @@ Så här tilldelar du program rollen TenantCreator:
 
 7. Välj användar kontot, klicka på knappen **Välj** och välj sedan **tilldela**.
 8. På sidan **Windows Virtual Desktop – användare och grupper** kontrollerar du att du ser en ny post med rollen **TenantCreator** tilldelad till den användare som ska skapa Windows-klienten för virtuella skriv bord.
-   ![En skärm bild av de användare och grupper som har tilldelats för att hantera företags programmet "Windows Virtual Desktop". Skärm bilden innehåller nu en andra post för en användare som tilldelats rollen "TenantCreator".](media/tenant-tenant-creator-added.png)
+   ![A skärm bild av de användare och grupper som har tilldelats för att hantera företags programmet "Windows Virtual Desktop". Skärm bilden innehåller nu en andra post för en användare som tilldelats rollen "TenantCreator". ](media/tenant-tenant-creator-added.png)
 
 Innan du fortsätter med att skapa en Windows-klient för virtuella skriv bord behöver du två uppgifter:
 - Ditt Azure Active Directory klient-ID (eller **katalog-ID**)
@@ -95,19 +95,19 @@ Innan du fortsätter med att skapa en Windows-klient för virtuella skriv bord b
 
 Så här hittar du Azure Active Directory klient-ID (eller **katalog-ID**):
 1. I samma Azure Portal-session söker du efter **Azure Active Directory** i Sök fältet och väljer den post som visas under kategorin **tjänster** .
-   ![En skärm bild av Sök resultaten för "Azure Active Directory" i Azure Portal. Sök resultatet under "tjänster" är markerat.](media/tenant-search-azure-active-directory.png)
+   ![A skärm bild av Sök resultatet för "Azure Active Directory" i Azure Portal. Sök resultatet under "tjänster" är markerat. ](media/tenant-search-azure-active-directory.png)
 2. Rulla nedåt tills du hittar **Egenskaper**och markera den.
 3. Leta efter **katalog-ID**och välj sedan ikonen Urklipp. Klistra in det på en praktisk plats så att du kan använda det senare som **AadTenantId** -värde.
-   ![En skärm bild av Azure Active Directory egenskaper. Musen hovrar över urklipps ikonen för "katalog-ID" för att kopiera och klistra in.](media/tenant-directory-id.png)
+   ![En skärm bild av Azure Active Directory egenskaper. Musen hovrar över urklipps ikonen för "katalog-ID" för att kopiera och klistra in. ](media/tenant-directory-id.png)
 
 Så här hittar du ditt Azure-prenumerations-ID:
 1. I samma Azure Portal-session söker du efter **prenumerationer** i Sök fältet och väljer den post som visas under kategorin **tjänster** .
-   ![En skärm bild av Sök resultaten för "Azure Active Directory" i Azure Portal. Sök resultatet under "tjänster" är markerat.](media/tenant-search-subscription.png)
+   ![A skärm bild av Sök resultatet för "Azure Active Directory" i Azure Portal. Sök resultatet under "tjänster" är markerat. ](media/tenant-search-subscription.png)
 2. Välj den Azure-prenumeration som du vill använda för att ta emot Windows-aviseringar för virtuella skriv bord.
 3. Leta efter **prenumerations-ID**och hovra sedan över värdet tills en urklipps ikon visas. Välj urklipps ikonen och klistra in den på en praktisk plats så att du kan använda den senare som **AzureSubscriptionId** -värde.
-   ![En skärm bild av egenskaperna för Azure-prenumerationen. Musen hovrar över urklipps ikonen för "prenumerations-ID" för att kopiera och klistra in.](media/tenant-subscription-id.png)
+   ![En skärm bild av egenskaperna för Azure-prenumerationen. Musen hovrar över urklipps ikonen för "prenumerations-ID" för att kopiera och klistra in. ](media/tenant-subscription-id.png)
 
-## <a name="create-a-windows-virtual-desktop-preview-tenant"></a>Skapa en Windows Virtual Desktop Preview-klient
+## <a name="create-a-windows-virtual-desktop-tenant"></a>Skapa en Windows-klient för virtuella skriv bord
 
 Nu när du har beviljat Windows Virtual Desktop-tjänsten behörighet att fråga Azure Active Directory och tilldelat TenantCreator-rollen till ett användar konto, kan du skapa en Windows-klient för virtuella skriv bord.
 

@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure konfiguration? | Microsoft Docs
+title: Vad är Azure App konfiguration? | Microsoft Docs
 description: En översikt över tjänsten Azure App Configuration.
 services: azure-app-configuration
 documentationcenter: ''
@@ -13,65 +13,66 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 985845197f8a1ece76fe0a620f05194109f51bd6
-ms.sourcegitcommit: 6f043a4da4454d5cb673377bb6c4ddd0ed30672d
+ms.openlocfilehash: 1db46e8562006e1b60e4f51ca88220aeca5fb2a8
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65408664"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687032"
 ---
-# <a name="what-is-azure-app-configuration"></a>Vad är Azure konfiguration?
+# <a name="what-is-azure-app-configuration"></a>Vad är Azure App konfiguration?
 
-Konfiguration av Azure är en tjänst för att centralt hantera programinställningar och funktionen flaggor. Moderna program, särskilt de program som körs i ett moln generellt sett ha många komponenter som distribueras till sin natur. Om konfigurationsinställningar sprids mellan dessa komponenter kan det ge upphov till fel som är svåra att felsöka under en programdistribution. Använd konfiguration av lagra alla inställningar för ditt program och skydda sina åtkomst på samma ställe.
+Azure App-konfigurationen tillhandahåller en tjänst för att centralt hantera program inställningar och funktions flaggor. Moderna program, särskilt program som körs i ett moln, har vanligt vis många komponenter som är fördelade i natur. Om konfigurationsinställningar sprids mellan dessa komponenter kan det ge upphov till fel som är svåra att felsöka under en programdistribution. Använd app-konfiguration för att lagra alla inställningar för ditt program och skydda deras åtkomst på en och samma plats.
 
-Konfiguration av är för närvarande i offentlig förhandsversion. Det är kostnadsfritt under förhandsperioden. Du kan registrera dig för den i den [Azure-portalen](https://portal.azure.com).
+App-konfigurationen är för närvarande en offentlig för hands version. Det är kostnads fritt att använda under för hands perioden. Du kan registrera dig för den i [Azure Portal](https://portal.azure.com).
 
-## <a name="why-use-app-configuration"></a>Varför använda konfiguration?
+## <a name="why-use-app-configuration"></a>Varför ska jag använda app-konfiguration?
 
-Molnbaserade program körs ofta på flera virtuella datorer eller containrar i flera regioner och använder flera externa tjänster. Skapa ett distribuerat program som är stabila och skalbara är en utmaning.
+Molnbaserade program körs ofta på flera virtuella datorer eller containrar i flera regioner och använder flera externa tjänster. Att skapa ett sådant distribuerat program som är robust och skalbart är en utmaning.
 
-Olika programmeringsspråk metodik hjälpa utvecklare att hantera ökar komplexiteten i att skapa program. Exempelvis beskriver appen 12-faktortjänster många väl testade arkitektoniska mönstren och bästa praxis för användning med molnprogram. En viktig rekommendation från den här guiden är att avgränsa konfigurationen från koden. I det här fallet bör konfigurationsinställningar för ett program förvaras utanför den körbara filen och har lästs in från dess körningsmiljö eller en extern källa.
+Olika programmerings metoder hjälper utvecklare att hantera den ökande komplexiteten med att skapa program. 12-Factor-appen beskriver till exempel många välbeprövade arkitektur mönster och bästa praxis för användning med moln program. En viktig rekommendation från den här guiden är att avgränsa konfigurationen från koden. I det här fallet ska ett programs konfigurations inställningar lagras utanför den körbara filen och läsas in från körnings miljön eller en extern källa.
 
-Alla program kan utnyttja Appkonfiguration, är i följande exempel de typer av program som har nytta av användningen av det:
+Även om ett program kan använda appens konfiguration, är följande exempel de typer av program som drar nytta av att använda det:
 
-* Mikrotjänster baserat på Azure Kubernetes Service, Azure Service Fabric eller andra behållarbaserade appar som distribueras i en eller flera geografiska områden
-* Serverlösa appar, bland annat Azure Functions eller andra aktivitetsdriven tillståndslösa databearbetning-appar
+* Mikrotjänster som baseras på Azure Kubernetes service, Azure Service Fabric eller andra behållare som distribuerats i en eller flera geografiska områden
+* Appar utan server, som innehåller Azure Functions eller andra händelse drivna tillstånds lösa Compute-appar
 * Pipeline för kontinuerlig distribution
 
 App Configuration ger följande fördelar:
 
-* En helt hanterad tjänst som kan ställas in på några minuter
-* Flexibla viktiga uppgifter och mappningar
+* En fullständigt hanterad tjänst som kan konfigureras på några minuter
+* Flexibla nyckel representationer och mappningar
 * Tagga med etiketter
-* Point-in-time-återuppspelning av inställningar
-* Speciellt användargränssnitt för hantering av funktionen flagga
-* Jämförelse av två uppsättningar konfigurationer på egendefinierat dimensioner
+* Omuppspelning av inställningarna för tidpunkt
+* Dedikerat gränssnitt för hantering av funktions flagga
+* Jämförelse av två uppsättningar konfigurationer i anpassade dimensioner
 * Förbättrad säkerhet via Azure-hanterade identiteter
-* Kompletta data krypteringar vilande eller överförs
-* Intern integrering med populära ramverk
+* Fullständig data kryptering, i vila eller under överföring
+* Inbyggd integrering med populära ramverk
 
-Konfiguration av kompletterar [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), som används för att lagra programhemligheter. Konfiguration av gör det enklare att implementera följande scenarier:
+Konfiguration av appar kompletterar [Azure Key Vault](https://azure.microsoft.com/services/key-vault/), som används för att lagra program hemligheter. Med app-konfigurationen blir det enklare att implementera följande scenarier:
 
-* Centralisera hantering och distribution av hierarkiska konfigurationsdata för olika miljöer och områden
-* Dynamiskt ändra programinställningarna utan att behöva distribuera om eller starta om ett program
-* Kontrollen funktionstillgänglighet i realtid
+* Centralisera hantering och distribution av hierarkiska konfigurations data för olika miljöer och geografiska områden
+* Ändra program inställningarna dynamiskt utan att behöva distribuera om eller starta om ett program
+* Kontroll funktionens tillgänglighet i real tid
 
-## <a name="use-app-configuration"></a>Använd App-konfiguration
+## <a name="use-app-configuration"></a>Använd app-konfiguration
 
-Det enklaste sättet att lägga till ett appkonfigurationsarkiv för ditt program är via ett klientbibliotek som Microsoft tillhandahåller. Utifrån programmeringsspråk och ramverk, är följande bästa metoder tillgängliga för dig.
+Det enklaste sättet att lägga till ett appkonfigurationsarkiv för ditt program är via ett klientbibliotek som Microsoft tillhandahåller. Baserat på programmeringsspråk och ramverk är följande bästa metoder tillgängliga för dig.
 
 | Programmeringsspråk och ramverk | Ansluta |
 |---|---|
-| .NET core och ASP.NET Core | App-konfigurationsprovider för .NET Core |
-| .NET och ASP.NET | Konfiguration av apputvecklare för .NET |
-| Java Spring | Klienten för Spring Cloud-konfiguration |
-| Andra | Konfiguration av REST-API |
+| .NET Core och ASP.NET Core | App Configuration Provider för .NET Core |
+| .NET och ASP.NET | Konfigurations verktyg för app för .NET |
+| Java Spring | App Configuration-klient för våren Cloud |
+| Övrigt | App-konfiguration REST API |
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart för ASP.NET Core](./quickstart-aspnet-core-app.md)
-* [Snabbstart för .NET core](./quickstart-dotnet-core-app.md)
-* [Snabbstart för .NET framework](./quickstart-dotnet-app.md)
-* [Azure Function quickstart](./quickstart-azure-function-csharp.md)
-* [Java Spring-Snabbstart](./quickstart-java-spring-app.md)
-* [Snabbstart för ASP.NET Core funktionen flagga](./quickstart-feature-flag-aspnet-core.md)
+* [ASP.NET Core snabb start](./quickstart-aspnet-core-app.md)
+* [Snabb start för .NET Core](./quickstart-dotnet-core-app.md)
+* [.NET Framework snabb start](./quickstart-dotnet-app.md)
+* [Snabb start för Azure Function](./quickstart-azure-function-csharp.md)
+* [Snabb start för Java våren](./quickstart-java-spring-app.md)
+* [Snabb start för ASP.NET Core funktions flagga](./quickstart-feature-flag-aspnet-core.md)
+* [Start funktions flagga snabb start](./quickstart-feature-flag-spring-boot.md)

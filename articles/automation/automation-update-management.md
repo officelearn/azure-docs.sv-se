@@ -9,18 +9,18 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 253e01b6bfa6609b4ec41d69a3c4b1bbe405ba5a
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 253fc940cfb42aa9bf7e93dd631d2ca596f7db6f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240293"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677873"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
 Du kan använda Uppdateringshantering lösning i Azure Automation för att hantera operativ system uppdateringar för dina Windows-och Linux-datorer i Azure, i lokala miljöer eller i andra moln leverantörer. Du kan snabbt bedöma status för tillgängliga uppdateringar på alla agentdatorer och hantera installationsprocessen för nödvändiga uppdateringar för servrar.
 
-Du kan aktivera Uppdateringshantering för virtuella datorer direkt från ditt Azure Automation-konto. Information om hur du aktiverar Uppdateringshantering för virtuella datorer från ditt Automation-konto finns i [Hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera Uppdateringshantering för en virtuell dator från sidan virtuell dator i Azure Portal. Det här scenariot är tillgängligt för virtuella [Linux](../virtual-machines/linux/tutorial-monitoring.md#enable-update-management) -och [Windows](../virtual-machines/windows/tutorial-monitoring.md#enable-update-management) -datorer.
+Du kan aktivera Uppdateringshantering för virtuella datorer direkt från ditt Azure Automation-konto. Information om hur du aktiverar Uppdateringshantering för virtuella datorer från ditt Automation-konto finns i [Hantera uppdateringar för flera virtuella datorer](manage-update-multi.md). Du kan också aktivera Uppdateringshantering för en virtuell dator från sidan virtuell dator i Azure Portal. Det här scenariot är tillgängligt för virtuella [Linux](../virtual-machines/linux/tutorial-config-management.md#enable-update-management) -och [Windows](../virtual-machines/windows/tutorial-config-management.md#enable-update-management) -datorer.
 
 > [!NOTE]
 > Uppdateringshantering-lösningen kräver att du länkar en Log Analytics arbets yta till ditt Automation-konto. En slutgiltig lista över regioner som stöds finns i [mappningar för Azure-arbetsytor](./how-to/region-mappings.md). Region mappningarna påverkar inte möjligheten att hantera virtuella datorer i en separat region än ditt Automation-konto.
@@ -222,7 +222,7 @@ Om du vill köra en loggs ökning som returnerar information om datorn, uppdater
 
 ## <a name="install-updates"></a>Installera uppdateringar
 
-När uppdateringar har utvärderats för alla Linux-och Windows-datorer i din arbets yta kan du installera nödvändiga uppdateringar genom att skapa en *uppdaterings distribution*. Om du vill skapa en uppdaterings distribution måste du ha Skriv behörighet till Automation-kontot och skriv åtkomst till de virtuella Azure-datorer som är mål i distributionen. En uppdaterings distribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du anger datum och tid för distributionen och en dator eller grupp av datorer som ska inkluderas i omfånget för en distribution. Mer information om dator grupper finns [i dator grupper i Azure Monitor loggar](../azure-monitor/platform/computer-groups.md).
+När uppdateringar har utvärderats för alla Linux-och Windows-datorer i din arbets yta kan du installera nödvändiga uppdateringar genom att skapa en *uppdaterings distribution*. Om du vill skapa en uppdaterings distribution måste du ha Skriv behörighet till Automation-kontot och skriv åtkomst till alla virtuella Azure-datorer som är riktade i distributionen. En uppdaterings distribution är en schemalagd installation av nödvändiga uppdateringar för en eller flera datorer. Du anger datum och tid för distributionen och en dator eller grupp av datorer som ska inkluderas i omfånget för en distribution. Mer information om dator grupper finns [i dator grupper i Azure Monitor loggar](../azure-monitor/platform/computer-groups.md).
 
 När du inkluderar dator grupper i din uppdaterings distribution utvärderas grupp medlemskap bara en gång, vid tidpunkten för skapandet av schemat. Efterföljande ändringar i en grupp visas inte. För att komma runt detta använda [dynamiska grupper](#using-dynamic-groups)löses dessa grupper vid distributions tiden och definieras av en fråga för virtuella Azure-datorer eller en sparad sökning för virtuella datorer som inte är Azure-datorer.
 

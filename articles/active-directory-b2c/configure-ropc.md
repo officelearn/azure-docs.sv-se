@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69924674fba44595e4f5a9702607579d8c7a8bc8
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064470"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679305"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure AD B2C
 
@@ -53,17 +53,13 @@ Följande flöden stöds inte:
 
 ## <a name="register-an-application"></a>Registrera ett program
 
-1. I B2C-inställningarna väljer du **program**och väljer sedan **Lägg till**.
-2. Ange ett namn för programmet, till exempel *ROPC_Auth_app*.
-3. Välj **Nej** för **webb program/webb-API**och välj sedan **Ja** för **ursprunglig klient**.
-4. Lämna alla andra värden som de är och välj sedan **skapa**.
-5. Välj det nya programmet och notera program-ID: t för senare användning.
+[!INCLUDE [active-directory-b2c-appreg-ropc](../../includes/active-directory-b2c-appreg-ropc.md)]
 
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
 Använd ditt favorit-API utvecklings program för att generera ett API-anrop och granska svaret för att felsöka ditt användar flöde. Skapa ett anrop som detta med informationen i följande tabell som brödtext i POST-begäran:
 - *Ersätt\<yourtenant. onmicrosoft. com >* med namnet på din B2C-klient.
-- *Ersätt\<B2C_1A_ROPC_Auth >* med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
+- Ersätt *\<B2C_1A_ROPC_Auth >* med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
 - *Ersätt\<bef2222d56-552f-4a5b-b90a-1988a7d634c3->* med program-ID: t från registreringen.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`

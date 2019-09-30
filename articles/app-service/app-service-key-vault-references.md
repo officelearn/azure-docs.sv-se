@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 9c7f920c6b66995d53ef742a9faf574286a51d69
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: cf4eade598de24e323a8c8647a64921f8797e3a2
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390452"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686743"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använda Key Vault referenser för App Service och Azure Functions (förhands granskning)
 
@@ -36,7 +36,7 @@ För att kunna läsa hemligheter från Key Vault måste ett valv skapas och ge d
    > [!NOTE] 
    > Key Vault referenser stöder för närvarande endast systemtilldelade hanterade identiteter. Användare som tilldelats identiteter kan inte användas.
 
-1. Skapa en [åtkomst princip i Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för den program identitet som du skapade tidigare. Aktivera hemliga behörigheten "Get" för den här principen. Konfigurera inte det "auktoriserade programmet" eller `applicationId` inställningar, eftersom detta inte är kompatibelt med en hanterad identitet.
+1. Skapa en [åtkomst princip i Key Vault](../key-vault/key-vault-secure-your-key-vault.md#key-vault-access-policies) för den program identitet som du skapade tidigare. Aktivera hemliga behörigheten "Get" för den här principen. Konfigurera inte inställningarna "auktoriserat program" eller `applicationId` eftersom detta inte är kompatibelt med en hanterad identitet.
 
     > [!NOTE]
     > Key Vault referenser kan för närvarande inte lösa hemligheter som lagras i ett nyckel valv med [nätverks begränsningar](../key-vault/key-vault-overview-vnet-service-endpoints.md).
@@ -197,7 +197,7 @@ Om syntaxen är korrekt kan du Visa andra orsaker till felet genom att kontrol l
 ### <a name="using-the-detector-for-app-service"></a>Använda detektorn för App Service
 
 1. I portalen navigerar du till din app.
-2. Välj **diagnostisera och lös prolems**.
+2. Välj **diagnostisera och lös problem**.
 3. Välj **tillgänglighet och prestanda** och välj sedan **webbapp.**
 4. Hitta **Key Vault diagnostik för program inställningar** och klicka på **Mer information**.
 
@@ -206,6 +206,6 @@ Om syntaxen är korrekt kan du Visa andra orsaker till felet genom att kontrol l
 
 1. I portalen navigerar du till din app.
 2. Navigera till **plattforms funktioner.**
-3. Välj **diagnostisera och lös prolems**.
+3. Välj **diagnostisera och lös problem**.
 4. Välj **tillgänglighet och prestanda** och välj **Function app-Down eller rapportera fel.**
 5. Klicka på **Key Vault diagnostik för program inställningar.**

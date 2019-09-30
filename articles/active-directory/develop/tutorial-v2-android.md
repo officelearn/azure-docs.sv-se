@@ -16,12 +16,12 @@ ms.author: jmprieur
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a53a0d5ea8405c116d0286d3b67b1640f98ed96d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 0a26a7fc27fa13d86eb3b82fd4be70e5b371581f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68852447"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677969"
 ---
 # <a name="sign-in-users-and-call-the-microsoft-graph-from-an-android-app"></a>Logga in användare och anropa Microsoft Graph från en Android-app
 
@@ -49,7 +49,7 @@ I det här exemplet används Microsoft Authentication Library för Android (MSAL
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Den här självstudien kräver Android Studio version 16 eller senare (19 + rekommenderas).
+* Den här självstudien kräver Android Studio version 3,5.
 
 ## <a name="create-a-project"></a>Skapa ett projekt
 
@@ -59,15 +59,16 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
 2. Välj **grundläggande aktivitet** och välj **Nästa**.
 3. Namnge ditt program.
 4. Spara paket namnet. Du kommer att ange den senare i Azure Portal.
-5. Ange **lägsta API-nivå** till **API 19** eller högre och klicka på **Slutför**.
-6. I projektvyn väljer du **projekt** i list rutan för att Visa käll-och icke-källfiler, öppna **app/build. gradle** och Ställ in `targetSdkVersion` på `27`.
+5. Ändra språket från **Kotlin** till **Java**.
+6. Ange **lägsta API-nivå** till **API 19** eller högre och klicka på **Slutför**.
+7. I projektvyn väljer du **projekt** i list rutan för att Visa käll-och icke-källfiler, öppna **app/build. gradle** och Ställ in `targetSdkVersion` på `28`.
 
 ## <a name="register-your-application"></a>Registrera ditt program
 
 1. Gå till [Azure-portalen](https://aka.ms/MobileAppReg).
 2. Öppna [bladet Appregistreringar](https://ms.portal.azure.com/?feature.broker=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) och klicka på **+ ny registrering**.
 3. Ange ett **namn** för din app och klicka sedan på **Registrera**utan att ange en omdirigerings-URI.
-4. I avsnittet **Hantera** i fönstret som visas väljer du **autentisering** >  **+ Lägg till en plattforms** > -**Android**.
+4. I avsnittet **Hantera** i fönstret som visas väljer du **autentisering** >  **+ Lägg till en plattforms** > -**Android**. (Du kanske måste välja "växla till den nya upplevelsen" nära överst på bladet för att se det här avsnittet)
 5. Ange ditt projekts paket namn. Om du har hämtat koden är `com.azuresamples.msalandroidapp`det här värdet.
 6. I avsnittet **Signature hash** på sidan **Konfigurera din Android-app** klickar du på **skapa en hash för utvecklings signaturen.** och kopiera det kommando kommando som ska användas för din plattform.
 
@@ -83,8 +84,8 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
 
 1. I Android Studio projekt fönstret navigerar du till **app\src\main\res**.
 2. Högerklicka på **res** och välj **ny** > **katalog**. Ange `raw` som det nya katalog namnet och klicka på **OK**.
-3. I **app** >  `auth_config.json` **src** **res** **RAW**skapar du en ny JSON-fil med namnet och klistrar in den MSAL-konfiguration som du sparade tidigare. >  >  [Mer information](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)finns i MSAL-konfigurationen.
-4. Lägg >  > till > aktiviteten nedan i appens src main AndroidManifest. xml. `BrowserTabActivity` Med den här posten kan Microsoft anropa programmet igen när autentiseringen är klar:
+3. I **app** > **src** > **main** > **res** > **RAW**, skapar du en ny JSON-fil med namnet `auth_config.json` och klistrar in MSAL-konfigurationen som du sparade tidigare. [Mer information](https://github.com/AzureAD/microsoft-authentication-library-for-android/wiki/Configuring-your-app)finns i MSAL-konfigurationen.
+4. I **app** > **src** > **main** > **AndroidManifest. XML**lägger du till aktiviteten `BrowserTabActivity` nedan i program texten. Med den här posten kan Microsoft anropa programmet igen när autentiseringen är klar:
 
     ```xml
     <!--Intent filter to capture System Browser or Authenticator calling back to our app after sign-in-->
@@ -113,8 +114,8 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
 
 ### <a name="create-the-apps-ui"></a>Skapa appens användar gränssnitt
 
-1. I fönstret Android Studio projekt navigerar du till **app** > **src** > **main** > **res** > **layout** och öppnar **activity_main. XML** och öppnar **texten** Visa.
-2. Ändra aktivitets layouten, till exempel: `<androidx.coordinatorlayout.widget.CoordinatorLayout` till `<androidx.coordinatorlayout.widget.LinearLayout`.
+1. I fönstret Android Studio projekt navigerar du till **app** > **src** > **main** > **res** > **layout** och öppnar **activity_main. XML** och **öppnar datavyn.**
+2. Ändra aktivitets layouten, till exempel: `<androidx.coordinatorlayout.widget.CoordinatorLayout` till `<androidx.coordinatorlayout.widget.DrawerLayout`. 
 3. Lägg till `LinearLayout` egenskapen till noden. `android:orientation="vertical"`
 4. Klistra in följande kod i `LinearLayout` noden och Ersätt aktuellt innehåll:
 
@@ -176,13 +177,13 @@ I den här kursen skapas ett nytt projekt. Om du vill ladda ned den slutförda s
 
     ```gradle  
     implementation 'com.android.volley:volley:1.1.1'
-    implementation 'com.microsoft.identity.client:msal:0.3.+'
+    implementation 'com.microsoft.identity.client:msal:1.0.+'
     ```
 
 ### <a name="use-msal"></a>Använd MSAL
 
 Gör nu ändringar `MainActivity.java` i för att lägga till och använda MSAL i din app.
-I fönstret Android Studio projekt navigerar du till **appen** > **src** > **main** > **Java** > **com. exempel. msal**och öppnar `MainActivity.java`.
+I fönstret Android Studio projekt navigerar du till **app** > **src** > **main** > **Java** > **com. exempel. ( din app)** och öppna `MainActivity.java`.
 
 #### <a name="required-imports"></a>Obligatoriska importer
 

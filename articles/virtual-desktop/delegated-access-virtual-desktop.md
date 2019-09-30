@@ -1,69 +1,69 @@
 ---
-title: Delegerad åtkomst i Windows Virtual Desktop förhandsgranskning – Azure
-description: Hur du delegerar administrativa funktioner på en distribution av Windows virtuella skrivbord Preview, inklusive exempel.
+title: Delegerad åtkomst i Windows Virtual Desktop – Azure
+description: Så här delegerar du administrativa funktioner på en distribution av virtuella Windows-datorer, inklusive exempel.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: helohr
-ms.openlocfilehash: 41cf5f8bcc69e181350a63d215fb0d78d43dcfdf
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: e8d1ba00043f43f626043d78ce0ab8953a0b3fbe
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67272815"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679552"
 ---
-# <a name="delegated-access-in-windows-virtual-desktop-preview"></a>Delegerad åtkomst i Windows Virtual Desktop-förhandsversion
+# <a name="delegated-access-in-windows-virtual-desktop"></a>Delegerad åtkomst i Windows Virtual Desktop
 
-Förhandsversion för virtuella skrivbord i Windows har en delegerad åtkomst-modell som kan du definiera mängden åtkomst som en viss användare tillåts ha genom att tilldela dem en roll. En rolltilldelning har tre komponenter: säkerhetsobjekt, rolldefinitionen och omfång. Virtuella Windows-skrivbordet delegerad åtkomstmodellen baseras på Azure RBAC-modellen. Läs mer om specifika rolltilldelningar och komponenter i [i Azure rollbaserad åtkomstkontroll: översikt](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
+Windows Virtual Desktop har en delegerad åtkomst modell som gör att du kan definiera hur mycket åtkomst en viss användare får ha genom att tilldela dem en roll. En roll tilldelning har tre komponenter: säkerhets objekt, roll definition och omfattning. Den delegerade åtkomst modellen för Windows Virtual Desktop baseras på Azure RBAC-modellen. Mer information om de olika roll tilldelningarna och deras komponenter finns i [Översikt över Azure rollbaserad åtkomst kontroll](https://docs.microsoft.com/azure/active-directory/role-based-access-built-in-roles).
 
-Virtuella Windows-skrivbordet delegerad åtkomst stöder följande värden för varje element i rolltilldelningen:
+Windows Virtual Desktop-delegerad åtkomst stöder följande värden för varje element i roll tilldelningen:
 
 * Säkerhetsobjekt
     * Användare
     * Tjänstens huvudnamn
 * Rolldefinition
     * Inbyggda roller
-* Scope
-    * Klient-grupper
-    * Klienter
-    * Värd-pooler
+* Omfång
+    * Klient grupper
+    * klienter
+    * Värdar för pooler
     * App-grupper
 
 ## <a name="built-in-roles"></a>Inbyggda roller
 
-Delegerad åtkomst i virtuella Windows-skrivbordet har flera inbyggda rolldefinitioner som du kan tilldela till användare och tjänstens huvudnamn.
+Delegerad åtkomst i Windows Virtual Desktop har flera inbyggda roll definitioner som du kan tilldela till användare och tjänstens huvud namn.
 
 * En RDS-ägare kan hantera allt, inklusive åtkomst till resurser.
-* En RDS-deltagare kan hantera allt utom åtkomst till resurser.
-* En RDS-läsare kan visa allt, men göra inte några ändringar.
-* En RDS-operatör kan visa diagnostik aktiviteter.
+* En RDS-deltagare kan hantera allt men åtkomst till resurser.
+* En RDS-läsare kan visa allt men inte göra några ändringar.
+* En RDS-operatör kan visa diagnostiska aktiviteter.
 
-## <a name="powershell-cmdlets-for-role-assignments"></a>PowerShell-cmdletar för rolltilldelningar
+## <a name="powershell-cmdlets-for-role-assignments"></a>PowerShell-cmdletar för roll tilldelningar
 
-Du kan köra följande cmdlets för att skapa, visa och ta bort rolltilldelningar:
+Du kan köra följande cmdletar för att skapa, Visa och ta bort roll tilldelningar:
 
-* **Get-RdsRoleAssignment** visar en lista över rolltilldelningar.
-* **Ny RdsRoleAssignment** skapar en ny rolltilldelning.
-* **Ta bort RdsRoleAssignment** tar bort rolltilldelningar.
+* **Get-RdsRoleAssignment** visar en lista över roll tilldelningar.
+* **New-RdsRoleAssignment** skapar en ny roll tilldelning.
+* **Remove-RdsRoleAssignment** tar bort roll tilldelningar.
 
-### <a name="accepted-parameters"></a>Accepterade parametrar
+### <a name="accepted-parameters"></a>Godkända parametrar
 
-Du kan ändra grundläggande tre cmdletar med följande parametrar:
+Du kan ändra de tre grundläggande cmdletarna med följande parametrar:
 
-* **AadTenantId**: Anger Azure Active Directory-klient-ID som tjänstens huvudnamn är medlem.
-* **AppGroupName**: namnet på gruppen Remote Desktop-appen.
-* **Diagnostik**: anger omfattningen för diagnostik. (Måste kopplas till antingen den **infrastruktur** eller **klient** parametrar.)
-* **HostPoolName**: namnet på poolen Remote Desktop-värd.
-* **Infrastruktur**: anger omfattningen för infrastruktur.
-* **RoleDefinitionName**: namnet på rollen Fjärrskrivbordstjänster rollbaserad åtkomstkontroll tilldelat till användaren, gruppen eller app. (Till exempel Remote Desktop Services ägare, Remote Desktop Services läsare och så vidare.)
-* **ServerPrincipleName**: namnet på Azure Active Directory-programmet.
-* **SignInName**: användarens e-postadress eller användarens huvudnamn.
-* **TenantName**: namnet på den Remote Desktop-klienten.
+* **AadTenantId**: anger Azure Active Directory klient-ID som tjänstens huvud namn är medlem i.
+* **AppGroupName**: namnet på gruppen med fjärr skrivbords appar.
+* **Diagnostik**: anger diagnostisk omfattning. (Måste kombineras med antingen **infrastrukturen** eller **klient** parametrarna.)
+* **HostPoolName**: namnet på poolen för fjärr skrivbords värden.
+* **Infrastruktur**: anger infrastruktur omfånget.
+* **RoleDefinitionName**: namnet på Fjärrskrivbordstjänster den rollbaserade rollbaserade åtkomst kontroll rollen som tilldelats användaren, gruppen eller appen. (Till exempel Fjärrskrivbordstjänster ägare, Fjärrskrivbordstjänster läsaren och så vidare.)
+* **ServerPrincipleName**: namnet på det Azure Active Directory programmet.
+* **SignInName**: användarens e-postadress eller User Principal Name.
+* **TenantName**: namnet på fjärr skrivbords klienten.
 
 ## <a name="next-steps"></a>Nästa steg
 
-En fullständig lista över varje roll kan använda PowerShell-cmdlets, se den [PowerShell-referens](/powershell/windows-virtual-desktop/overview).
+En fullständig lista över PowerShell-cmdletar som varje roll kan använda finns i [PowerShell-referensen](/powershell/windows-virtual-desktop/overview).
 
-Riktlinjer för hur du ställer in en virtuellt skrivbord i Windows-miljö finns i [Windows Virtual Desktop förhandsversionsmiljön](environment-setup.md).
+Rikt linjer för hur du konfigurerar en Windows Virtual Desktop-miljö finns i [Windows Virtual Desktop-miljö](environment-setup.md).

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/14/2019
 ms.author: helohr
-ms.openlocfilehash: 625515223da12751b7765baa795bc68d2a7b46b4
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 07a45f54eb7c00e20abcfb05979e24493e5b9604
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70233247"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676661"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -64,7 +64,7 @@ Nu när du har registrerat din app är det dags att konfigurera din Log Analytic
 
 ## <a name="configure-your-log-analytics-workspace"></a>Konfigurera din Log Analytics arbets yta
 
-För bästa möjliga upplevelse rekommenderar vi att du konfigurerar din Log Analytics arbets yta med följande prestanda räknare som gör att du kan härleda användar upplevelsen i en fjärrsession. En lista över rekommenderade räknare med föreslagna tröskelvärden finns i tröskelvärden för [Windows prestanda räknare](deploy-diagnostics.md#windows-performance-counter-thresholds).
+För bästa möjliga upplevelse rekommenderar vi att du konfigurerar din Log Analytics arbets yta med följande prestanda räknare som gör att du kan härleda användar upplevelsen i en fjärrsession. En lista över rekommenderade räknare med föreslagna tröskelvärden finns i [tröskelvärden för Windows prestanda räknare](deploy-diagnostics.md#windows-performance-counter-thresholds).
 
 ### <a name="create-an-azure-log-analytics-workspace-using-powershell"></a>Skapa en Azure Log Analytics-arbetsyta med PowerShell
 
@@ -98,13 +98,13 @@ Så här konfigurerar du de rekommenderade prestanda räknarna manuellt:
 1. Öppna din webbläsare och logga in på [Azure Portal](https://portal.azure.com/) med ditt administratörs konto.
 2. Gå sedan till **Log Analytics arbets ytor** för att granska de konfigurerade Windows-prestandaräknare.
 3. I avsnittet **Inställningar** väljer du **Avancerade inställningar**.
-4. Efter det navigerar du till **data** > **Windows prestanda räknare** och lägger till följande räknare:
+4. Efter det navigerar du till **Data** > **prestanda räknare för Windows** och lägger till följande räknare:
 
-    -   Logisk disk (\*)\|% ledigt utrymme
-    -   Logisk disk (C:)\\Gmsn. Diskkölängd
-    -   Tillgängligt minne\*(\\) megabyte
-    -   Processor information (\*)\\processor tid
-    -   Fördröjning för användarindata per session (\*)\\Max fördröjning för indata
+    -   Logisk disk (\*) \|% ledigt utrymme
+    -   Logisk disk (C:) \\Avg. Diskkölängd
+    -   Minne (\*) \\Available MB
+    -   Processor information (\*) \\Processor tid
+    -   Fördröjning av användarindata per session (\*) \\Max-indata fördröjning
 
 Läs mer om prestanda räknare [i prestanda data källor för Windows och Linux i Azure Monitor](/azure/azure-monitor/platform/data-sources-performance-counters).
 
@@ -131,14 +131,14 @@ För att se till att din Log Analytics arbets yta har de förkonfigurerade Windo
 
 1. Gå till **Log Analytics arbets ytor** i [Azure Portal](https://portal.azure.com/)och granska de konfigurerade Windows-prestandaräknare.
 2. Under **Inställningar**väljer du **Avancerade inställningar**.
-3. Sedan går du till **data** > **Windows prestanda räknare**.
+3. Därefter går du till **Data** > **prestanda räknare för Windows**.
 4. Kontrol lera att följande räknare är förkonfigurerade:
 
-   - Logisk disk (\*)\|% ledigt utrymme: Visar mängden ledigt utrymme för det totala användbara utrymmet på disken som en procent andel.
-   - Logisk disk (C:)\\Gmsn. Diskkölängd: Längden på disk överförings förfrågan för din C-enhet. Värdet får inte överstiga 2 under en kort tids period.
-   - Tillgängligt minne\*(\\) megabyte: Systemets tillgängliga minne i megabyte.
-   - Processor information (\*)\\processor tid: procent andelen tid som processorn ägnat åt att köra en icke-inaktiv tråd.
-   - Fördröjning för användarindata per session (\*)\\Max fördröjning för indata
+   - Logisk disk (\*) \|% ledigt utrymme: Visar mängden ledigt utrymme för det totala användbara utrymmet på disken som en procent andel.
+   - Logisk disk (C:) \\Avg. Diskkölängd: Längden på disk överförings förfrågan för din C-enhet. Värdet får inte överstiga 2 under en kort tids period.
+   - Minne (\*) \\Available MB: Systemets tillgängliga minne i megabyte.
+   - Processor information (\*) \\Processor tid: procent andelen förfluten tid som processorn ägnat åt att köra en icke-inaktiv tråd.
+   - Fördröjning av användarindata per session (\*) \\Max-indata fördröjning
 
 ### <a name="connect-to-vms-in-your-log-analytics-workspace"></a>Ansluta till virtuella datorer i din Log Analytics-arbetsyta
 
@@ -173,15 +173,15 @@ Ange omdirigerings-URI: n:
 
 1.  I [Azure Portal](https://portal.azure.com/)går du till **app Services** och letar upp det program som du skapade.
 2.  Gå till sidan Översikt och kopiera URL: en som du hittar där.
-3.  Navigera till **app** -registreringar och välj den app som du vill distribuera.
+3.  Navigera till **app-registreringar** och välj den app som du vill distribuera.
 4.  I den vänstra panelen under avsnittet hantera väljer du **autentisering**.
-5.  Ange önskad omdirigerings-URI i text rutan omdirigerings- **URI** och välj sedan **Spara** i det övre vänstra hörnet på menyn.
+5.  Ange önskad omdirigerings-URI i text rutan **omdirigerings-URI** och välj sedan **Spara** i det övre vänstra hörnet på menyn.
 6. Välj **webbplats** under typ på den nedrullningsbara menyn.
 7. Ange URL: en från sidan Översikt över appen och Lägg till **/Security/signin-callback** i slutet av den. Till exempel: `https://<yourappname>.azurewebsites.net/security/signin-callback`.
 
    ![Sidan omdirigerings-URI](media/redirect-uri-page.png)
 
-8. Gå nu till dina Azure-resurser, Välj resursen Azure App tjänster med det namn som du angav i mallen och navigera till den URL som är kopplad till den. (Till exempel om namnet på appen som du använde i mallen var `contosoapp45`, är <https://contosoapp45.azurewebsites.net>din associerade URL).
+8. Gå nu till dina Azure-resurser, Välj resursen Azure App tjänster med det namn som du angav i mallen och navigera till den URL som är kopplad till den. (Till exempel om namnet på appen som du använde i mallen var `contosoapp45`, är din associerade URL <https://contosoapp45.azurewebsites.net>).
 9. Logga in med lämpligt Azure Active Directory användar konto.
 10.   Välj **Acceptera**.
 
@@ -189,8 +189,8 @@ Ange omdirigerings-URI: n:
 
 Innan du gör diagnostikverktyget tillgängligt för dina användare måste du kontrol lera att de har följande behörigheter:
 
-- Användare behöver Läs behörighet för Log Analytics. Mer information finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
--  Användare behöver också Läs behörighet för den virtuella Windows-klienten för fjärr skrivbord (RDS-läsar rollen). Mer information finns i [delegerad åtkomst i för hands versionen av Windows Virtual Desktop](delegated-access-virtual-desktop.md).
+- Användare behöver Läs behörighet för Log Analytics. Mer information finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+-  Användare behöver också Läs behörighet för den virtuella Windows-klienten för fjärr skrivbord (RDS-läsar rollen). Mer information finns i [delegerad åtkomst i Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 Du måste också ge användarna följande information:
 
@@ -226,25 +226,25 @@ Du kan också interagera med användare på värd för sessionen:
 
 ### <a name="windows-performance-counter-thresholds"></a>Tröskelvärden för Windows prestanda räknare
 
-- Logisk disk (\*)\|% ledigt utrymme:
+- Logisk disk (\*) \|% ledigt utrymme:
 
     - Visar procent andelen av det totala användbara utrymmet på den logiska disken som är kostnads fri.
     - Fastställd Mindre än 20% har marker ATS som ohälsosamt.
 
-- Logisk disk (C:)\\Gmsn. Diskkölängd:
+- Logisk disk (C:) \\Avg. Diskkölängd:
 
     - Representerar lagrings systemets villkor.
     - Fastställd Högre än 5 har marker ATS som ohälsosamt.
 
-- Tillgängligt minne\*(\\) megabyte:
+- Minne (\*) \\Available MB:
 
     - Systemets tillgängliga minne.
     - Fastställd Mindre än 500 megabyte har marker ATS som ohälsosamt.
 
-- Processor information (\*)\\processor tid:
+- Processor information (\*) \\Processor tid:
 
     - Fastställd Högre än 80% har marker ATS som ohälsosam.
 
-- [Fördröjning av användarindata per session (\*)\\högsta fördröjning](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [Fördröjning av användarindata per session (\*) \\Max för data fördröjning](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
     - Fastställd Högre än 2000 MS har marker ATS som ohälsosamt.

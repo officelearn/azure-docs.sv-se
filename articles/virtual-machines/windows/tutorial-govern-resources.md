@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 12/05/2018
 ms.author: tomfitz
 ms.custom: mvc
-ms.openlocfilehash: 8c551e5c61c091e46870efcc8bffcb669aa78ea9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: cb0050f79f2f6a38b9cd58ee87aa88899f0f5a15
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100322"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71674994"
 ---
 # <a name="tutorial-learn-about-windows-virtual-machine-management-with-azure-powershell"></a>Självstudier: Lär dig hur du hanterar virtuella Windows-datorer med Azure PowerShell
 
@@ -70,7 +70,7 @@ New-AzRoleAssignment -ObjectId $adgroup.id `
   -RoleDefinitionName "Virtual Machine Contributor"
 ```
 
-Om du får ett fel meddelande om **att \<huvud-GUID > inte finns i katalogen**sprids den nya gruppen i Azure Active Directory. Prova att köra kommandot igen.
+Om du får ett fel meddelande om att **huvud kontot \<guid > inte finns i katalogen**, sprids inte den nya gruppen till hela Azure Active Directory. Prova att köra kommandot igen.
 
 Normalt upprepar du processen för *Nätverksdeltagare* och *Lagringskontodeltagare* för att se till att hanteringen av alla distribuerade resurser tilldelas till användare. Du kan hoppa över dessa steg i den här artikeln.
 
@@ -235,8 +235,8 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 > * Skydda viktiga resurser med lås
 > * Tagga resurser för fakturering och hantering
 
-Gå vidare till nästa självstudie om du vill lära dig mer om virtuella datorer med hög tillgänglighet.
+Gå vidare till nästa självstudie om du vill veta mer om hur du identifierar ändringar och hanterar paket uppdateringar på en virtuell Linux-dator.
 
 > [!div class="nextstepaction"]
-> [Övervaka virtuella datorer](tutorial-monitoring.md)
+> [Hantera virtuella datorer](tutorial-config-management.md)
 

@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: b05b4f8638eedc0830c887da59c0c22706a1c4ce
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 77e1c9e64081e20ef064fd8341c54c13940f0dd4
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933390"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677304"
 ---
 # <a name="url-prebuilt-entity-for-a-luis-app"></a>URL-fördefinierad entitet för en LUIS-app
 URL: en entitet extraherar URL: er med domännamn eller IP-adresser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller URL: er till programmet. URL: en entitet har stöd för `en-us` kultur endast. 
@@ -26,7 +26,7 @@ URL: en hanteras från GitHub-lagringsplatsen för [identifierare – text](http
 
 ## <a name="resolution-for-prebuilt-url-entity"></a>Lösning för den fördefinierade URL: en entitet
 
-### <a name="api-version-2x"></a>API-version 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 I följande exempel visas av lösningen på den **builtin.url** entitet.
 
@@ -54,9 +54,9 @@ I följande exempel visas av lösningen på den **builtin.url** entitet.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON är med parametern `verbose` inställd på `false`:
 
 ```json
 {
@@ -78,7 +78,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 }
 ```
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON är med parametern `verbose` inställd på `true`:
 
 ```json
 {
@@ -112,6 +112,11 @@ Följande JSON- `verbose` parameter har angetts till `true`:
 }
 ```
 
+
+* * * 
+
 ## <a name="next-steps"></a>Nästa steg
+
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 Lär dig mer om den [ordningstal](luis-reference-prebuilt-ordinal.md), [nummer](luis-reference-prebuilt-number.md), och [temperatur](luis-reference-prebuilt-temperature.md) entiteter.

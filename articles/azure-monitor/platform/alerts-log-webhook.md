@@ -1,19 +1,19 @@
 ---
 title: Webhook-åtgärder för logg aviseringar i Azure-aviseringar
 description: Den här artikeln beskriver hur du skapar en logg aviserings regel med hjälp av Log Analytics arbets ytan eller Application Insights, hur aviseringen skickar data som en HTTP-webhook och information om de olika anpassningar som är möjliga.
-author: msvijayn
+author: yanivlavi
 services: monitoring
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 8bdd0d5230feeeb4c80775ce63aa7e4eaccb601c
-ms.sourcegitcommit: 920ad23613a9504212aac2bfbd24a7c3de15d549
+ms.openlocfilehash: 3e29bdf41b0421aa4461b11fbf9bc0535179486d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "68226799"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677757"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för logg aviserings regler
 När en [logg avisering skapas i Azure](alerts-log.md)har du möjlighet att [Konfigurera den med hjälp av åtgärds grupper](action-groups.md) för att utföra en eller flera åtgärder. Den här artikeln beskriver de olika webhook-åtgärder som är tillgängliga och visar hur du konfigurerar en anpassad JSON-baserad webhook.
@@ -57,7 +57,7 @@ Webhooks innehåller en URL och en nytto last som är formaterad i JSON som data
 | *Prenumerations-ID* |#subscriptionid |ID för din Azure-prenumeration som används. 
 
 > [!NOTE]
-> *LinkToSearchResults* överför parametrar som *SearchQuery*, sökintervallet StartTime och *Sök Intervallets slut tid* i URL: en till Azure Portal för visning i avsnittet analys. Azure Portal har en URI-storleks gräns på ungefär 2 000 tecken. Portalen kommer *inte* att öppna länkar som finns i aviseringar om parameter värden överskrider gränsen. Du kan mata in information manuellt om du vill visa resultat i Analytics-portalen. Du kan också använda [Application Insights Analytics-REST API](https://dev.applicationinsights.io/documentation/Using-the-API) eller [Log Analytics REST API](/rest/api/loganalytics/) för att hämta resultat program mässigt. 
+> *LinkToSearchResults* överför parametrar som *SearchQuery*,sökintervallet StartTime och *Sök Intervallets slut tid* i URL: en till Azure Portal för visning i avsnittet analys. Azure Portal har en URI-storleks gräns på ungefär 2 000 tecken. Portalen kommer *inte* att öppna länkar som finns i aviseringar om parameter värden överskrider gränsen. Du kan mata in information manuellt om du vill visa resultat i Analytics-portalen. Du kan också använda [Application Insights Analytics-REST API](https://dev.applicationinsights.io/documentation/Using-the-API) eller [Log Analytics REST API](/rest/api/loganalytics/) för att hämta resultat program mässigt. 
 
 Du kan till exempel ange följande anpassade nytto last som innehåller en enda parameter som kallas *text*. Tjänsten som denna webhook anropar förväntar sig denna parameter.
 

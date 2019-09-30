@@ -1,22 +1,22 @@
 ---
 title: Skapa en FSLogix profil behållare för en adresspool med en virtuell dator baserad fil resurs – Azure
-description: Så här konfigurerar du en FSLogix profil behållare för en Windows-pool för för hands version av virtuella datorer med en virtuell dator baserad fil resurs.
+description: Konfigurera en FSLogix profil behållare för en Windows-pool för virtuella skriv bord med en virtuell dator baserad fil resurs.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: cf3d682e4d0c68822267a4e63846d80b632cbdcc
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 9b187696524e96bc13254a24fd8f39d5aeb89e7d
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876800"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676686"
 ---
-# <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Skapa en profil behållare för en värd-pool med en fil resurs
+# <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Skapa en profilcontainer för en värdpool med hjälp av en filresurs
 
-I för hands versionen av Windows Virtual Desktop finns FSLogix profil behållare som den rekommenderade användar profil lösningen. Vi rekommenderar inte att du använder UPD-lösningen (User profile disk) som kommer att vara inaktuell i framtida versioner av Windows Virtual Desktop.
+Tjänsten Windows Virtual Desktop tillhandahåller FSLogix profil behållare som den rekommenderade användar profil lösningen. Vi rekommenderar inte att du använder UPD-lösningen (User profile disk) som kommer att vara inaktuell i framtida versioner av Windows Virtual Desktop.
 
 I den här artikeln får du veta hur du konfigurerar en FSLogix profil behållar resurs för en adresspool med en virtuell dator baserad fil resurs. Mer FSLogix-dokumentation finns på [FSLogix-webbplatsen](https://docs.fslogix.com/).
 
@@ -56,9 +56,9 @@ Om du vill konfigurera de virtuella datorerna med FSLogix-programvaran gör du f
 
 1. [Anslut till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 2. Starta en webbläsare och navigera till [den här länken](https://go.microsoft.com/fwlink/?linkid=2084562) för att ladda ned FSLogix-agenten.
-3. Gå till \\ \\Win32 -versionen\\ellerx64-\\versionen i. zip-filen och kör FSLogixAppsSetup för att installera FSLogix-agenten. \\ \\  Mer information om hur du installerar FSLogix finns i [Hämta och installera FSLogix](https://docs.microsoft.com/fslogix/install-ht).
-4. Navigera till **Program Files** > **FSLogix** > -**appar** för att bekräfta att agenten är installerad.
-5. Från Start-menyn kör du **regedit** som administratör. Navigera till **\\datorns\\HKEY_LOCAL_MACHINE\\-program vara FSLogix**.
+3. Gå till antingen \\ @ no__t-1Win32 @ no__t-2Release eller \\ @ no__t-4X64 @ no__t-5Release i. zip-filen och kör **FSLogixAppsSetup** för att installera FSLogix-agenten.  Mer information om hur du installerar FSLogix finns i [Hämta och installera FSLogix](https://docs.microsoft.com/fslogix/install-ht).
+4. Navigera till **programfiler** > **FSLogix** > -**appar** för att bekräfta att agenten är installerad.
+5. Från Start-menyn kör du **regedit** som administratör. Navigera till **datorn @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**.
 6. Skapa en nyckel med namnet **profiler**.
 7. Skapa följande värden för profil nyckeln:
 

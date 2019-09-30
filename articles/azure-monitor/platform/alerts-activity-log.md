@@ -1,18 +1,18 @@
 ---
 title: Skapa, Visa och hantera aktivitets logg aviseringar i Azure Monitor
 description: Skapa aktivitets logg aviseringar med hjälp av Azure Portal, en Azure Resource Manager mall och Azure PowerShell.
-author: msvijayn
+author: rboucher
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: vinagara
-ms.openlocfilehash: a7f80698791831b3d4404ea0f687a75c660c2222
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.author: robb
+ms.openlocfilehash: e93b6f9c74bb44cb7341f5763261ecb699432ae2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67852745"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675265"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor  
 
@@ -43,7 +43,7 @@ Använd följande procedur.
 1. I Azure Portal väljer du **övervaka** > **aviseringar**.
 2. Välj **ny varnings regel** i det övre vänstra hörnet i **aviserings** fönstret.
 
-     ![Ny varnings regel](media/alerts-activity-log/AlertsPreviewOption.png)
+     ![Ny aviseringsregel](media/alerts-activity-log/AlertsPreviewOption.png)
 
      Fönstret **Skapa regel** visas.
 
@@ -59,7 +59,7 @@ Använd följande procedur.
 
      **Exempel vy för aviserings mål**
 
-     ![Välja mål](media/alerts-activity-log/select-target.png)
+     ![Välj mål](media/alerts-activity-log/select-target.png)
 
    - Under **mål kriterier**väljer du **Lägg till kriterier**. Alla tillgängliga signaler för målet visas, vilket inkluderar de från olika kategorier av **aktivitets loggen**. Kategori namnet läggs till i **övervaknings tjänstens** namn.
 
@@ -108,7 +108,7 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
 1. I Azure Portal väljer du **övervaka** > **aviseringar**. Välj **Hantera aviserings regler** i det övre vänstra hörnet i fönstret.
 
-    ![Hantera aviserings regler](media/alerts-activity-log/manage-alert-rules.png)
+    ![Hantera varningsregler](media/alerts-activity-log/manage-alert-rules.png)
 
     Listan över tillgängliga regler visas.
 
@@ -124,7 +124,7 @@ En enkel analoghet för att förstå villkor för vilka aviserings regler som ka
 
 3. Välj regeln och dubbelklicka om du vill redigera regel alternativen. Gör de ändringar som krävs och välj sedan **Spara**.
 
-   ![Hantera aviserings regler](media/alerts-activity-log/activity-log-rule-edit-page.png)
+   ![Hantera varningsregler](media/alerts-activity-log/activity-log-rule-edit-page.png)
 
 4. Du kan aktivera, inaktivera eller ta bort en regel. Välj lämpligt alternativ överst i fönstret när du har valt regeln enligt beskrivningen i steg 2.
 

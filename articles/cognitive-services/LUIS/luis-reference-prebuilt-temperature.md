@@ -9,24 +9,24 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: ecdaec6dcade033bf99842dd384be095dd363a05
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 0c16a60b0ddcde733cfbc7b9c90e07b697526015
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933409"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677395"
 ---
 # <a name="temperature-prebuilt-entity-for-a-luis-app"></a>Fördefinierad temperatur enhet för en LUIS-app
 Temperatur extraherar en mängd olika typer av temperatur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller temperatur till programmet. Temperatur entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
 
 ## <a name="types-of-temperature"></a>Typer av temperatur
-Temperaturen hanteras från Recognizer [-text GitHub-](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) lagringsplatsen
+Temperaturen hanteras från [Recognizer-text GitHub-](https://github.com/Microsoft/Recognizers-Text/blob/master/Patterns/English/English-NumbersWithUnit.yaml#L819) lagringsplatsen
 
 ## <a name="resolution-for-prebuilt-temperature-entity"></a>Lösning för fördefinierade temperatur entitet
 
-### <a name="api-version-2x"></a>API-version 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 I följande exempel visas av lösningen på den **builtin.temperature** entitet.
 
@@ -58,9 +58,9 @@ I följande exempel visas av lösningen på den **builtin.temperature** entitet.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON är med parametern `verbose` inställd på `false`:
 
 ```json
 {
@@ -85,7 +85,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 }
 ```
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON är med parametern `verbose` inställd på `true`:
 
 ```json
 {
@@ -122,6 +122,10 @@ Följande JSON- `verbose` parameter har angetts till `true`:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Nästa steg
+
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 Lär dig mer om den [procent](luis-reference-prebuilt-percentage.md), [nummer](luis-reference-prebuilt-number.md), och [ålder](luis-reference-prebuilt-age.md) entiteter. 

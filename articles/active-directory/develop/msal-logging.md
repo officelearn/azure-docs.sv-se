@@ -1,5 +1,5 @@
 ---
-title: Logga in MSAL-program | Microsoft Identity Platform
+title: Logga in MSAL-program (Microsoft Authentication Library) | Azure
 description: Lär dig mer om loggning i MSAL-program (Microsoft Authentication Library).
 services: active-directory
 documentationcenter: dev-center-name
@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dad8a276cd40b1ff04bbced833b5d70cec4fc87
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: d3235037d2b60322ab3e5c393c0a19b1a42bdc6c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268587"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678043"
 ---
 # <a name="logging-in-msal-applications"></a>Logga in MSAL-program
 
@@ -44,14 +44,14 @@ Som standard fångar MSAL-loggaren inte upp mycket känsliga personliga eller or
 ## <a name="logging-in-msalnet"></a>Logga in MSAL.NET
 
  > [!NOTE]
- > Mer information om MSAL.NET finns i [MSAL.net-wikin](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki). Hämta exempel på MSAL.NET-loggning och mer.
- 
+ > Se [MSAL.net-wikin](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki) för exempel på MSAL.net-loggning med mera.
+
 I MSAL 3. x anges loggning per program när appen skapas med hjälp av `.WithLogging` Builder-modifieraren. Den här metoden kräver valfria parametrar:
 
-- \- *Nivå* kan du bestämma vilken loggnings nivå du vill ha. Om du ställer in det på fel får du bara fel meddelanden
-- Med *PiiLoggingEnabled* kan du logga personliga och organisatoriska data om värdet är true. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data.
-- *LogCallback* har angetts till ett ombud som utför loggningen. Om *PiiLoggingEnabled* är true får den här metoden meddelandena två gånger: en gång med parametern *containsPii* är lika med falskt och meddelandet utan personliga data, och en andra gång med *containsPii* -parametern lika med sant och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
-- *DefaultLoggingEnabled* aktiverar standard loggning för plattformen. Som standard är det falskt. Om du anger värdet till sant används händelse spårning i Desktop/UWP-program, NSLog på iOS och logcat på Android.
+- med `Level` kan du bestämma vilken loggnings nivå du vill ha. Om du ställer in det på fel får du bara fel meddelanden
+- med `PiiLoggingEnabled` kan du logga personliga och organisatoriska data om värdet är true. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data.
+- `LogCallback` har angetts till ett ombud som utför loggningen. Om `PiiLoggingEnabled` är sant får den här metoden meddelandena två gånger: När parametern `containsPii` är lika med falskt och meddelandet utan personliga data, och en andra gång med parametern `containsPii` lika med sant och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
+- `DefaultLoggingEnabled` aktiverar standard loggning för plattformen. Som standard är det falskt. Om du anger värdet till sant används händelse spårning i Desktop/UWP-program, NSLog på iOS och logcat på Android.
 
 ```csharp
 class Program
@@ -80,16 +80,54 @@ class Program
  }
  ```
 
- ## <a name="logging-in-msaljs"></a>Logga in MSAL. js
+## <a name="logging-in-msal-for-android-using-java"></a>Logga in MSAL för Android med Java
 
- Du kan aktivera loggning i MSAL. js genom att skicka ett loggnings objekt under konfigurationen för att `UserAgentApplication` skapa en instans. Detta loggnings objekt har följande egenskaper:
+Aktivera loggning när appen skapas genom att skapa en loggning för motringning. Återanropet använder följande parametrar:
+
+- `tag` är en sträng som skickas till återanropet av biblioteket. Den är kopplad till logg posten och kan användas för att sortera loggnings meddelanden.
+- med `logLevel` kan du bestämma vilken loggnings nivå du vill ha. De logg nivåer som stöds är: `Error`, `Warning`, `Info` och `Verbose`.
+- `message` är innehållet i logg posten.
+- `containsPII` anger om meddelanden som innehåller personliga data eller organisations data ska loggas. Som standard är detta inställt på falskt, så att programmet inte loggar personliga data. Om `containsPII` är `true` får den här metoden meddelandena två gånger: när den `containsPII`-parametern har angetts till `false` och `message` utan personliga data, och en andra gång med `containsPii`-parametern inställd på `true` och meddelandet kan innehålla personliga data. I vissa fall (när meddelandet inte innehåller personliga data) är meddelandet samma.
+
+```java
+private StringBuilder mLogs;
+
+mLogs = new StringBuilder();
+Logger.getInstance().setExternalLogger(new ILoggerCallback()
+{
+   @Override
+   public void log(String tag, Logger.LogLevel logLevel, String message, boolean containsPII)
+   {
+      mLogs.append(message).append('\n');
+   }
+});
+```
+
+Som standard kommer MSAL-loggaren inte att samla in personlig identifierbar information eller information som är identifierbar för organisationen.
+Så här aktiverar du loggning av personlig identifierbar information eller organisatorisk identifierbar information:
+
+```java
+Logger.getInstance().setEnablePII(true);
+```
+
+Så här inaktiverar du loggning av personliga data och organisations data:
+
+```java
+Logger.getInstance().setEnablePII(false);
+```
+
+Som standard är loggning till logcat inaktive rad. För att aktivera: 
+```java
+Logger.getInstance().setEnableLogcatLog(true);
+```
+
+## <a name="logging-in-msaljs"></a>Logga in MSAL. js
+
+ Aktivera loggning i MSAL. js genom att skicka ett loggnings objekt under konfigurationen för att skapa en `UserAgentApplication`-instans. Detta loggnings objekt har följande egenskaper:
 
 - `localCallback`: en callback-instans som kan tillhandahållas av utvecklaren för att använda och publicera loggar på ett anpassat sätt. Implementera localCallback-metoden beroende på hur du vill dirigera om loggarna.
-
-- `level`(valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: Fel, varning, info, verbose. Standardvärdet är info.
-
-- `piiLoggingEnabled`(valfritt): gör att du kan logga personliga och organisatoriska data om värdet är true. Som standard är detta inställt på falskt så att programmet inte loggar personliga data. Personliga data loggar skrivs aldrig till standardutdata som konsol, logcat eller NSLog. Standardvärdet är inställt på falskt.
-
+- `level`(valfritt): den konfigurerbara logg nivån. De logg nivåer som stöds är: `Error`, `Warning`, `Info` och `Verbose`. Standardvärdet är `Info`.
+- `piiLoggingEnabled` (valfritt): om värdet är true loggas personliga och organisatoriska data. Som standard är detta falskt så att programmet inte loggar personliga data. Personliga data loggar skrivs aldrig till standardutdata som konsol, logcat eller NSLog.
 - `correlationId`(valfritt): en unik identifierare som används för att mappa begäran med svar på fel söknings syfte. Standardvärdet är RFC4122 version 4 GUID (128 bitar).
 
 ```javascript
@@ -99,7 +137,7 @@ function loggerCallback(logLevel, message, containsPii) {
 
 var msalConfig = {
     auth: {
-        clientId: “abcd-ef12-gh34-ikkl-ashdjhlhsdg”,
+        clientId: “<Enter your client id>”,
     },
      system: {
              logger: new Msal.Logger(

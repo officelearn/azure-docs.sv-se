@@ -1,22 +1,22 @@
 ---
-title: Skapa en Windows-pool för för hands version av virtuella datorer med Azure Marketplace – Azure
-description: Så här skapar du en Windows Virtual Desktop för hands version av poolen med hjälp av Azure Marketplace.
+title: Skapa en Windows-pool för virtuella skriv bord med Azure Marketplace – Azure
+description: Hur du skapar en Windows-pool för virtuella skriv bord med hjälp av Azure Marketplace.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: d6628f1522880f650bfd8c728fe46fd050a8e6a0
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c0b93529872de774e1a6e915ef8254c5c0e0a1a9
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70208378"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676714"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>Självstudier: Skapa en värdpool med Azure Marketplace
 
-Lagringspooler är en samling av en eller flera identiska virtuella datorer i Windows Virtual Desktop Preview-klient miljöer. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
+Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
 
 I den här självstudien beskrivs hur du skapar en adresspool i en Windows-klient för virtuella skriv bord med hjälp av ett Microsoft Azure Marketplace erbjudande. Uppgifterna omfattar:
 
@@ -52,7 +52,7 @@ Det här kan du göra på bladet **grundläggande** :
 
 1. Ange ett namn för den värdbaserade poolen som är unik i Windows-klienten för virtuella skriv bord.
 2. Välj lämpligt alternativ för ett personligt skriv bord. Om du väljer **Ja**, kommer varje användare som ansluter till den här poolen permanent att tilldelas till en virtuell dator.
-3. Ange en kommaavgränsad lista med användare som kan logga in på de virtuella Windows-klienterna och få åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill user1@contoso.com tilldela och user2@contoso.com komma åt anger du "user1@contoso.com,user2@contoso.com".
+3. Ange en kommaavgränsad lista med användare som kan logga in på de virtuella Windows-klienterna och få åtkomst till en stationär dator när Azure Marketplace-erbjudandet har slutförts. Om du till exempel vill tilldela user1@contoso.com och user2@contoso.com-åtkomst anger du "user1@contoso.com, user2@contoso.com".
 4. Välj **Skapa nytt** och ange ett namn för den nya resurs gruppen.
 5. För **plats**väljer du samma plats som det virtuella nätverk som har anslutning till Active Directory-servern.
 6. Välj **OK**.
@@ -73,14 +73,14 @@ För bladet **Konfigurera virtuella datorer** :
 För bladet **Inställningar för virtuell dator** :
 
 >[!NOTE]
-> Om du ansluter dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group)-domänkontrollanten.
+> Om du ansluter dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD-domänkontrollanten](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
 1. För **avbildnings källa**väljer du källan och anger den information som krävs för att hitta den och hur den ska lagras. Om du väljer att inte använda hanterade diskar väljer du det lagrings konto som innehåller VHD-filen.
 2. Ange User Principal Name och lösen ord för det domän konto som ska ansluta till de virtuella datorerna till Active Directorys domänen. Samma användar namn och lösen ord kommer att skapas på de virtuella datorerna som ett lokalt konto. Du kan återställa de här lokala kontona senare.
 3. Välj det virtuella nätverk som har anslutning till Active Directory-servern och välj sedan ett undernät som är värd för de virtuella datorerna.
 4. Välj **OK**.
 
-### <a name="windows-virtual-desktop-preview-tenant-information"></a>Information om för hands versionen av Windows Virtual Desktop
+### <a name="windows-virtual-desktop-tenant-information"></a>Klient information för virtuella Windows-datorer
 
 För bladet **information om virtuella Windows-datorer med virtuella skriv bord** :
 

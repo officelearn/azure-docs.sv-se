@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 867e8f830542aab712b2bfe32f05dd9469c0da49
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 61be3225f22aca821f8c26522ab37eab0c82bc26
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932541"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677705"
 ---
 # <a name="currency-prebuilt-entity-for-a-luis-app"></a>Fördefinierad valuta enhet för en LUIS-app
 Den fördefinierade valuta enheten identifierar valuta i många valörer och länder/regioner, oavsett LUIS-programkultur. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller den valuta som programmet avsikter. Valuta entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
@@ -26,7 +26,7 @@ Valutan hanteras från GitHub-lagringsplatsen för [identifierare – text](http
 
 ## <a name="resolution-for-currency-entity"></a>Lösning för valuta entitet
 
-### <a name="api-version-2x"></a>API-version 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 I följande exempel visas av lösningen på den **builtin.currency** entitet.
 
@@ -64,9 +64,9 @@ I följande exempel visas av lösningen på den **builtin.currency** entitet.
 
 
 
-### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON är med parametern `verbose` inställd på `false`:
 
 ```json
 {
@@ -91,7 +91,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 }
 ```
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON är med parametern `verbose` inställd på `true`:
 
 ```json
 {
@@ -128,6 +128,11 @@ Följande JSON- `verbose` parameter har angetts till `true`:
 }
 ```
 
+
+* * * 
+
 ## <a name="next-steps"></a>Nästa steg
+
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 Lär dig mer om den [datetimeV2](luis-reference-prebuilt-datetimev2.md), [dimension](luis-reference-prebuilt-dimension.md), och [e-post](luis-reference-prebuilt-email.md) entiteter. 

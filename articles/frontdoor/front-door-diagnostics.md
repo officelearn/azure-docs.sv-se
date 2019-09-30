@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sharadag
-ms.openlocfilehash: 5f76df0045fc3939392759ed0edd266380295a85
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 229706ff91b776363d3e9de080e02cee5edf9c77
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260181"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677900"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door-service"></a>Övervaka mått och loggar i Azures tjänst för frontend-dörr
 
 Genom att använda Azures tjänst för front dörr kan du övervaka resurser på följande sätt:
 
-- **Mått**. Application Gateway har för närvarande sju mått för att visa prestanda räknare.
+- **Mått**. Azures front dörr har för närvarande sju mått för att visa prestanda räknare.
 - **Loggar**. Med aktivitets-och diagnostikloggar kan prestanda, åtkomst och annan information sparas eller förbrukas från en resurs i övervaknings syfte.
 
 ### <a name="metrics"></a>Mått

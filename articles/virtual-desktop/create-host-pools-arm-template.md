@@ -1,22 +1,22 @@
 ---
-title: Skapa en Windows-pool för för hands version av Windows Virtual Desktop med en Azure Resource Manager-mall – Azure
-description: Så här skapar du en adresspool i för hands versionen av Windows Virtual Desktop med en Azure Resource Manager-mall.
+title: Skapa en Windows-pool för virtuella skriv bord med en Azure Resource Manager-mall – Azure
+description: Så här skapar du en adresspool i det virtuella Windows-skrivbordet med en Azure Resource Manager-mall.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 27fe19c2b1f92b67e02b4e09d5fcd607759d8abd
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b96ecad93c481a762b81a7888940850ed3a73e5f
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163745"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679618"
 ---
 # <a name="create-a-host-pool-with-an-azure-resource-manager-template"></a>Skapa en värdpool med en Azure Resource Manager-mall
 
-Lagringspooler är en samling av en eller flera identiska virtuella datorer i Windows Virtual Desktop Preview-klient miljöer. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
+Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
 
 Följ anvisningarna i det här avsnittet för att skapa en adresspool för en Windows-klient för virtuella skriv bord med en Azure Resource Manager-mall från Microsoft. I den här artikeln får du lära dig hur du skapar en adresspool i Windows Virtual Desktop, skapar en resurs grupp med virtuella datorer i en Azure-prenumeration, ansluter de virtuella datorerna till AD-domänen och registrerar de virtuella datorerna med Windows Virtual Desktop.
 
@@ -42,7 +42,7 @@ Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de 
 
 1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **Kopiera länk plats**.
 2. Öppna en text redigerare som anteckningar och klistra in länken där.
-3. Höger efter "https://portal.azure.com/" och innan hashtagg (#) anger ett @-tecken följt av klient domän namnet. Här är ett exempel på det format som du bör använda https://portal.azure.com/@Contoso.onmicrosoft.com#create/:.
+3. Höger efter "https://portal.azure.com/" och innan hashtagg (#) anger ett @-tecken följt av innehavarens domän namn. Här är ett exempel på det format som du bör använda: https://portal.azure.com/@Contoso.onmicrosoft.com#create/.
 4. Logga in på Azure Portal som en användare med administratörs-/deltagar behörighet för Cloud Solution Provider-prenumerationen.
 5. Klistra in länken som du kopierade till text redigeraren i adress fältet.
 

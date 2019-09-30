@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 37b9ca071ca5b2e423d7efd93e4089e3a77b4e50
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 15ba8ad4d3bcf00024a0c7b14b004de08d37621a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933608"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677655"
 ---
 # <a name="dimension-prebuilt-entity-for-a-luis-app"></a>Fördefinierad dimensions enhet för en LUIS-app
 Entiteten fördefinierade dimension identifierar olika typer av dimensioner, oavsett språkinställningar för LUIS-app. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller dimensioner till programmet avsikter. Dimensionen entitet stöds i [många kulturer](luis-reference-prebuilt-entities.md). 
@@ -28,7 +28,7 @@ Dimensionen hanteras från GitHub-lagringsplatsen för [identifierare – text](
 
 ## <a name="resolution-for-dimension-entity"></a>Lösning för dimensionen entitet
 
-### <a name="api-version-2x"></a>API-version 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 I följande exempel visas av lösningen på den **builtin.dimension** entitet.
 
@@ -60,9 +60,10 @@ I följande exempel visas av lösningen på den **builtin.dimension** entitet.
 }
 ```
 
-### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+
+Följande JSON är med parametern `verbose` inställd på `false`:
 
 ```json
 {
@@ -87,7 +88,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 }
 ```
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON är med parametern `verbose` inställd på `true`:
 
 ```json
 {
@@ -124,6 +125,10 @@ Följande JSON- `verbose` parameter har angetts till `true`:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Nästa steg
+
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 Lär dig mer om den [e-post](luis-reference-prebuilt-email.md), [nummer](luis-reference-prebuilt-number.md), och [ordningstal](luis-reference-prebuilt-ordinal.md) entiteter. 

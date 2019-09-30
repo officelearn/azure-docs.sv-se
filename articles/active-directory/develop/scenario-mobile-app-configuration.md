@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7b731c9936ab85b19428687330044a46c563c49
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 168fbb275f70acd229dfd8f2e3f0d4c325db0f94
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71268371"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71678023"
 ---
 # <a name="mobile-app-that-calls-web-apis---code-configuration"></a>Mobilapp som anropar webb-API: er – kod konfiguration
 
@@ -155,9 +155,13 @@ I Android och iOS aktiverar mäklaren:
 - Enhets identifiering. Aktiverar Azure AD Device-relaterade principer för villkorlig åtkomst genom att komma åt enhets certifikatet som skapades på enheten när den var ansluten till arbets platsen.
 - Verifiering av program identifiering. När ett program anropar Broker, skickar den sin omdirigerings-URL och Service Broker verifierar den.
 
-### <a name="enable-the-brokers-on-xamarin"></a>Aktivera utjämnare på Xamarin
+### <a name="enable-the-broker-on-xamarin"></a>Aktivera Broker på Xamarin
 
 Om du vill aktivera någon av dessa funktioner använder `WithBroker()` du parametern när du `PublicClientApplicationBuilder.CreateApplication` anropar-metoden. `.WithBroker()`anges till sant som standard. Följ stegen nedan för [Xamarin. iOS](#brokered-authentication-for-xamarinios).
+
+### <a name="enable-the-broker-for-msal-for-android"></a>Aktivera Broker för MSAL för Android
+
+Mer information om hur du aktiverar en Service Broker på Android finns i avsnittet om [Utjämnad autentisering i Android](brokered-auth.md) . 
 
 ### <a name="enable-the-broker-for-msal-for-ios-and-macos"></a>Aktivera Broker för MSAL för iOS och macOS
 

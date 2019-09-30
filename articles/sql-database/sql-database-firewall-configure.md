@@ -11,12 +11,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/12/2019
-ms.openlocfilehash: cebf5e80ea59a29efed984097a4157f5238fad5c
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: e3e65a6deadfbcad563a6b64c0a9f48182cdd571
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744967"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686474"
 ---
 # <a name="azure-sql-database-and-azure-sql-data-warehouse-ip-firewall-rules"></a>Regler för Azure SQL Database och Azure SQL Data Warehouse IP-brandvägg
 
@@ -38,7 +38,7 @@ Anslutnings försök från Internet och Azure måste passera brand väggen innan
 
 ### <a name="server-level-ip-firewall-rules"></a>IP-brandväggsregler på servernivå
 
-  Dessa regler gör det möjligt för klienter att komma åt hela Azure SQL Server, det vill säga alla databaser inom samma SQL Database-Server. Reglerna lagras i *huvud* databasen.
+  Dessa regler gör det möjligt för klienter att komma åt hela Azure SQL Server, det vill säga alla databaser inom samma SQL Database-Server. Reglerna lagras i *huvud* databasen. Du kan ha högst 128 IP brand Väggs regler på server nivå för en Azure-SQL Server.
   
   Du kan konfigurera regler för IP-brandvägg på server nivå med hjälp av Azure Portal-, PowerShell-eller Transact-SQL-uttryck.
   - Om du vill använda portalen eller PowerShell måste du vara prenumerations ägare eller en prenumerations deltagare.

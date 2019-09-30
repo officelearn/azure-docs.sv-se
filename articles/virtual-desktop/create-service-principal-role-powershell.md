@@ -1,22 +1,22 @@
 ---
-title: Skapa Windows Virtual Desktop Preview-tjänstens huvud namn och roll tilldelningar med hjälp av PowerShell – Azure
-description: Hur du skapar tjänstens huvud namn och tilldelar roller med hjälp av PowerShell i för hands versionen av Windows Virtual Desktop.
+title: Skapa tjänstens huvud namn och roll tilldelningar för Windows Virtual Desktop genom att använda PowerShell – Azure
+description: Hur du skapar tjänstens huvud namn och tilldelar roller med PowerShell i Windows Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: helohr
-ms.openlocfilehash: dbde4ccede7f27ae494c8326babc7ec69b4a1266
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 87057d29d9d95ac0ebca298e40ca0d8c2aa9b0b1
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70985009"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679624"
 ---
 # <a name="tutorial-create-service-principals-and-role-assignments-by-using-powershell"></a>Självstudier: Skapa tjänstens huvudnamn och rolltilldelningar med PowerShell
 
-Tjänstens huvud namn är identiteter som du kan skapa i Azure Active Directory för att tilldela roller och behörigheter för ett specifikt syfte. I för hands versionen av Windows Virtual Desktop kan du skapa ett huvud namn för tjänsten för att:
+Tjänstens huvud namn är identiteter som du kan skapa i Azure Active Directory för att tilldela roller och behörigheter för ett specifikt syfte. I Windows Virtual Desktop kan du skapa ett huvud namn för tjänsten för att:
 
 - Automatisera vissa hanterings uppgifter för virtuella Windows-datorer.
 - Använd som autentiseringsuppgifter i stället för MFA-obligatoriska användare när du kör en Azure Resource Manager mall för Windows Virtual Desktop.

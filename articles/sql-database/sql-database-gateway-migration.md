@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: 2e578c6bfdfb25eaba3d0c692ff33aa5b0572669
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a2064e0012abea237c1b4c0c6f7e35119c1aeff5
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306002"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686809"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Azure SQL Database trafikmigrering till nyare gateways
 
@@ -52,7 +52,7 @@ Du påverkas inte om du har:
 
 ## <a name="what-to-do-you-do-if-youre-affected"></a>Vad du gör om du påverkas
 
-Vi rekommenderar att du tillåter utgående trafik till IP-adresser för alla [Azure SQL Database Gateway-IP-adresser](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) i regionen på TCP-port 1433 och port intervall 11000-11999 i brand Väggs enheten. Mer information om Port intervall finns i [anslutnings princip](sql-database-connectivity-architecture.md#connection-policy).
+Vi rekommenderar att du tillåter utgående trafik till IP-adresser för alla [Azure SQL Database Gateway-IP-adresser](sql-database-connectivity-architecture.md#azure-sql-database-gateway-ip-addresses) i regionen på TCP-port 1433 och port intervall 11000-11999. Den här rekommendationen gäller för klienter som ansluter lokalt och som också ansluter via tjänst slut punkter. Mer information om Port intervall finns i [anslutnings princip](sql-database-connectivity-architecture.md#connection-policy).
 
 Anslutningar som görs från program som använder Microsoft JDBC driv rutinen under version 4,0 kan inte verifiera certifikat verifiering. Lägre versioner av Microsoft JDBC förlitar sig på eget namn (CN) i certifikatets ämnes fält. Minskningen är att se till att egenskapen hostNameInCertificate är inställd på *. database.windows.net. Mer information om hur du anger egenskapen hostNameInCertificate finns i [ansluta med SSL-kryptering](/sql/connect/jdbc/connecting-with-ssl-encryption).
 

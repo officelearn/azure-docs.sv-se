@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 74df4f8e3161576280e1d71c4a9b2f50a169dbb4
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350313"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71687060"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -214,30 +214,31 @@ När du har skapat **myVm*ansluter du till den från Internet på följande sät
     Name:    myserver.privatelink.database.windows.net
     Address:  10.0.0.5
     Aliases:   myserver.database.windows.net
-3. Install [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
+    ```
+3. Installera [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. In **Connect to server**, enter or select this information:
+4. I **Anslut till Server**anger eller väljer du den här informationen:
 
-    | Setting | Value |
+    | Inställning | Value |
     | ------- | ----- |
-    | Server type| Select **Database Engine**.|
-    | Server name| Select *myserver.database.windows.net* |
-    | User name | Enter a password provided during the SQL server creation. |
-    |Password |Enter a password provided during the SQL server creation. |
-    |Remember password|Select **Yes**.|
+    | Servertyp| Välj **Databasmotor**.|
+    | servernamn| Välj *myserver.Database.Windows.net* |
+    | Användarnamn | Ange ett lösen ord som du angav när du skapade SQL-servern. |
+    |lösenordsinställning |Ange ett lösen ord som du angav när du skapade SQL-servern. |
+    |Komma ihåg lösenord|Välj **Ja**.|
     |||
-1. Select **Connect**.
-2. Browse databases from left menu.
-3. (Optionally) Create or query information from mydatabase.
-4. Close the remote desktop connection to *myVm*. 
+1. Välj **Anslut**.
+2. Bläddra bland databaser från menyn till vänster.
+3. Du kan också Skapa eller fråga efter information från databasen.
+4. Stäng fjärr skrivbords anslutningen till *myVm*. 
 
-## Clean up resources 
-When you're done using the private endpoint, SQL server, and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+## <a name="clean-up-resources"></a>Rensa resurser 
+När du är klar med den privata slut punkten, SQL Server och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller: 
+1. Skriv *myResourceGroup*@no__t – 1in **Sök** box överst i portalen och välj *myResourceGroup* from Sök resultatet. 
+2. Välj **ta bort resurs grupp**. 
+3. Ange myResourceGroup för **Skriv resurs gruppens namn** And Välj **ta bort**.
 
-## Next steps
+## <a name="next-steps"></a>Nästa steg
 
-In this quickstart, you created a VM on a virtual network, a SQL database server, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the SQL database server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint?](private-endpoint-overview.md).
+I den här snabb starten skapade du en virtuell dator i ett virtuellt nätverk, en SQL Database-Server och en privat slut punkt för privat åtkomst. Du har anslutit till en virtuell dator från Internet och kommunicerat på ett säkert sätt till SQL Database-servern med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?](private-endpoint-overview.md).
 

@@ -1,22 +1,22 @@
 ---
-title: Identifiera problem med Windows Virtual Desktop Preview Diagnostics-funktionen – Azure
-description: Beskriver funktionen för förhands granskning av Windows Virtual Desktop och hur du använder den.
+title: Identifiera problem med Windows Virtual Desktop Diagnostics-funktionen – Azure
+description: Beskriver funktionen Windows-diagnostik för virtuella skriv bord och hur du använder den.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: c07086feef1851f1a6e2a5cda2f541d52a50d91d
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: f041889f1594ef3852c8f2393be93bb7a6513b4c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163496"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676636"
 ---
 # <a name="identify-issues-with-the-diagnostics-feature"></a>Identifiera problem med diagnostikfunktionen
 
-I för hands versionen av Windows Virtual Desktop finns en diagnostisk funktion som gör det möjligt för administratören att identifiera problem via ett enda gränssnitt. Windows Virtual Desktop-roller loggar en diagnostisk aktivitet när en användare interagerar med systemet. Varje logg innehåller relevant information, till exempel de Windows-roller för virtuella skriv bord som ingår i transaktionen, fel meddelanden, klient information och användar information. Diagnostiska aktiviteter skapas av både slutanvändare och administrativa åtgärder och kan kategoriseras i tre huvud buckets:
+Windows Virtual Desktop erbjuder en diagnostisk funktion som gör det möjligt för administratören att identifiera problem via ett enda gränssnitt. Windows Virtual Desktop-roller loggar en diagnostisk aktivitet när en användare interagerar med systemet. Varje logg innehåller relevant information, till exempel de Windows-roller för virtuella skriv bord som ingår i transaktionen, fel meddelanden, klient information och användar information. Diagnostiska aktiviteter skapas av både slutanvändare och administrativa åtgärder och kan kategoriseras i tre huvud buckets:
 
 * Flödes prenumerations aktiviteter: slutanvändaren utlöser dessa aktiviteter när de försöker ansluta till sina flöden via Microsoft Fjärrskrivbord-program.
 * Anslutnings aktiviteter: slutanvändaren utlöser dessa aktiviteter när de försöker ansluta till en stationär eller RemoteApp via Microsoft Fjärrskrivbord-program.
@@ -136,7 +136,7 @@ Fel scenarier kategoriseras internt till tjänsten och externa till Windows Virt
 I följande tabell visas vanliga fel som dina administratörer kan köra i.
 
 >[!NOTE]
->Den här förhands granskningen innehåller inte en fullständig kategorisering av fel och kommer att uppdateras regelbundet. Se till att du har den senaste informationen genom att gå tillbaka till den här artikeln minst en gång i månaden.
+>Den här listan innehåller de vanligaste felen och uppdateras i en vanlig takt. Se till att du har den senaste informationen genom att gå tillbaka till den här artikeln minst en gång i månaden.
 
 ### <a name="external-management-error-codes"></a>Fel koder för externa hantering
 
@@ -176,6 +176,6 @@ I följande tabell visas vanliga fel som dina administratörer kan köra i.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om roller i Windows Virtual Desktop finns i för [hands versionen av Windows Virtual Desktop](environment-setup.md).
+Mer information om roller i Windows Virtual Desktop finns i [Windows Virtual Desktop-miljö](environment-setup.md).
 
 Om du vill se en lista över tillgängliga PowerShell-cmdletar för virtuella Windows-datorer, se [PowerShell](/powershell/windows-virtual-desktop/overview)-referensen.

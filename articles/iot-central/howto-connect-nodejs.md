@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 75b900ecb37ae8d092d4e37129b7f39f801c470d
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: ccded68cfaa00e6e13e2bb32e114b81108742829
+ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066452"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71686674"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Ansluta ett allmänt klient program till ditt Azure IoT Central-program (Node. js)
 
@@ -38,7 +38,7 @@ Lägg till följande telemetri på sidan **mått** :
 
 | Visningsnamn | Fältnamn  | Enheter | Min | Max | Decimaler |
 | ------------ | ----------- | ----- | --- | --- | -------------- |
-| Temperatur  | temperatur | f     | 60  | 110 | 0              |
+| Temperatur  | temperatur | Fr     | 60  | 110 | 0              |
 | Fuktighet     | luftfuktighet    | %     | 0   | 100 | 0              |
 | Tryck     | tryck    | 101,3   | 80  | 110 | 0              |
 
@@ -101,7 +101,7 @@ Lägg till följande **nummer** inställningar på sidan **Inställningar** :
 | Visningsnamn    | Fältnamn     | Enheter | Decimaler | Min | Max  | Inledande |
 | --------------- | -------------- | ----- | -------- | --- | ---- | ------- |
 | Fläkt hastighet       | fanSpeed       | varvtal   | 0        | 0   | 3000 | 0       |
-| Ange temperatur | angeTemperatur | f     | 0        | 20  | 200  | 80      |
+| Ange temperatur | angeTemperatur | Fr     | 0        | 20  | 200  | 80      |
 
 Ange fält namnet exakt som det visas i tabellen i enhets mal len. Om fält namnen inte matchar egenskaps namnen i motsvarande enhets kod kan enheten inte ta emot inställning svärdet.
 
@@ -111,7 +111,7 @@ Lägg till följande kommando på sidan **kommandon** :
 
 | Visningsnamn    | Fältnamn     | Standardvärde för tidsgräns | Datatyp |
 | --------------- | -------------- | --------------- | --------- |
-| Tids       | tids      | 30              | nummer    |
+| Tids       | Tids      | 30              | nummer    |
 
 Lägg till följande ingångs fält i nedräknings kommandot:
 
@@ -164,7 +164,7 @@ Följande steg visar hur du skapar ett klient program som implementerar den rikt
     var provisioningHost = 'global.azure-devices-provisioning.net';
     var idScope = '{your Scope ID}';
     var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key};
+    var symmetricKey = '{your Primary Key}';
     var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
     var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
     var hubClient;

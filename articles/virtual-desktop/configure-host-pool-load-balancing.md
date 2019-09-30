@@ -1,5 +1,5 @@
 ---
-title: Konfigurera belastnings Utjämnings metoden för för hands versionen av Windows Virtual Desktop – Azure
+title: Konfigurera belastnings Utjämnings metoden för Windows Virtual Desktop – Azure
 description: Så här konfigurerar du belastnings Utjämnings metoden för en Windows Virtual Desktop-miljö.
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: e1f1ea10dc68e501cfac7ef0cf0383ce78e8f380
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 3a940dbf592087878cb9dd19f856f1a3d94291c5
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163756"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676782"
 ---
-# <a name="configure-the-windows-virtual-desktop-preview-load-balancing-method"></a>Konfigurera belastnings Utjämnings metoden för för hands versionen av Windows Virtual Desktop
+# <a name="configure-the-windows-virtual-desktop-load-balancing-method"></a>Konfigurera metoden för belastningsutjämning för Windows Virtual Desktop
 
-Genom att konfigurera belastnings Utjämnings metoden för en värd pool kan du justera Windows Virtual Desktop Preview-miljön så att den passar dina behov bättre.
+Genom att konfigurera belastnings Utjämnings metoden för en värddator kan du justera Windows Virtual Desktop-miljön så att den bättre passar dina behov.
 
 >[!NOTE]
 > Detta gäller inte för en beständig Skriv bords värd eftersom användarna alltid har en 1:1-mappning till en sessionsnyckel i poolen.

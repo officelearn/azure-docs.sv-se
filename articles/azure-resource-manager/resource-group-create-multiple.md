@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3a0761fad32b2cfb0387cca79b6c1c0dc83c8e98
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: f97f9dac76ac29cf295b5cedc08f916e85c4e317
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345419"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71675090"
 ---
 # <a name="resource-property-or-variable-iteration-in-azure-resource-manager-templates"></a>Resurs, egenskap eller variabel iteration i Azure Resource Manager mallar
 
@@ -57,7 +57,7 @@ Begränsningarna för antalet är detsamma om de används med en resurs, variabe
 
 ## <a name="resource-iteration"></a>Resurs upprepning
 
-När du måste bestämma under distributionen för att skapa en eller flera instanser av en resurs, lägger du till ett `copy`-element i resurs typen. I elementet kopiera anger du antalet iterationer och ett namn för den här slingan.
+Om du vill skapa fler än en instans av en resurs i en distribution lägger du till ett `copy`-element i resurs typen. I elementet kopiera anger du antalet iterationer och ett namn för den här slingan.
 
 Resursen som ska skapas flera gånger tar följande format:
 

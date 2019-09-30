@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: dalek
-ms.openlocfilehash: 62f2ea36468e30b20ef08bde21bfde961faae8f9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 448469d4c1ff15ed2ba814dfaa653c4d3c7e3452
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067016"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677817"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -30,7 +30,7 @@ Om du har frågor om hur prissättningen fungerar för Application Insights kan 
 
 ## <a name="pricing-model"></a>Prismodell
 
-Prissättningen för [Azure Application insikter][start] baseras på data volymen. Varje Application Insights resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration.
+Prissättningen för [Azure Application insikter][start] baseras på data volymen och eventuellt för längre data kvarhållning. Varje Application Insights resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration.
 
 ### <a name="data-volume-details"></a>Information om data volym
 
@@ -47,7 +47,7 @@ Prissättningen för [Azure Application insikter][start] baseras på data volyme
 
 Det finns ingen separat avgift för *ping-test* av en enda sida. Telemetri från ping-test och multi-Step-tester debiteras på samma sätt som andra telemetri från din app.
 
-## <a name="review-usage-and-estimate-costs"></a>Granska användning och beräkna kostnader
+## <a name="understand-your-usage-and-estimate-costs"></a>Förstå din användning och beräkna kostnader
 
 Application Insights är det enkelt att förstå vad dina kostnader sannolikt kommer att baseras på de senaste användnings mönstren. Kom igång genom att gå till sidan **användning och uppskattade kostnader** i Azure Portal för resursen Application Insights:
 
@@ -110,11 +110,17 @@ Här följer några saker som du kan göra för att minska din data volym:
 * Dela din telemetri mellan separata instrument nycklar. 
 * Föraggregerade mått. Om du skickar anrop till TrackMetric i din app kan du minska trafiken genom att använda överlagringen som godkänner beräkningen av medelvärdet och standard avvikelsen för en batch med mått. Eller så kan du använda ett [paket för](https://www.myget.org/gallery/applicationinsights-sdk-labs)församlings sammansättning.
 
-## <a name="manage-the-maximum-daily-data-volume"></a>Hantera maximal daglig datavolym
+## <a name="manage-your-maximum-daily-data-volume"></a>Hantera din maximala dagliga data volym
 
 Du kan använda den dagliga volym begränsningen för att begränsa de data som samlas in. Men om höljet uppfylls uppstår en förlust av all telemetri som skickas från ditt program för resten av dagen. Vi *rekommenderar inte* att programmet träffar det dagliga höljet. Du kan inte spåra programmets hälsa och prestanda när den når den dagliga gränsen.
 
 I stället för att använda den dagliga volym gränsen använder du [sampling](../../azure-monitor/app/sampling.md) för att justera data volymen till önskad nivå. Använd sedan den dagliga begränsningen endast som "sista utväg" om ditt program inte börjar att skicka mycket större telemetri.
+
+### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera
+
+Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
+
+### <a name="set-the-daily-cap"></a>Ange dagligt tak
 
 Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera** i Application Insights resurs, på sidan **användning och uppskattade kostnader** och väljer **dagligt tak**.
 
@@ -122,7 +128,7 @@ Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera*
 
 Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är `dailyQuota`egenskapen som ska ändras.  Via Azure Resource Manager kan du också ställa in `dailyQuotaResetTime` och använda det dagliga `warningThreshold`taket. 
 
-## <a name="sampling"></a>Samling
+## <a name="sampling"></a>Sampling
 [Sampling](../../azure-monitor/app/sampling.md) är en metod för att minska den hastighet som telemetri skickas till din app, samtidigt som du behåller möjligheten att hitta relaterade händelser under diagnostiska sökningar. Du behåller också korrekta antal händelser.
 
 Sampling är ett effektivt sätt att minska kostnaderna och hålla dig inom din månads kvot. Samplings algoritmen behåller relaterade objekt för telemetri, så om du till exempel använder Sök kan du hitta begäran som är relaterad till ett visst undantag. Algoritmen behåller också de korrekta värdena så att du ser rätt värden i Metric Explorer för begär ande frekvens, undantags frekvens och andra antal.
@@ -160,6 +166,10 @@ Om du vill ändra kvarhållning går du till sidan **användning och uppskattade
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
 
 När faktureringen är aktive rad för längre kvarhållning debiteras data som är längre än 90 dagar som samma pris som för närvarande faktureras för Azure Log Analytics data kvarhållning. Läs mer på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Håll dig uppdaterad om varierande behållnings förlopp genom [röstning för det här förslaget](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+
+## <a name="data-transfer-charges-using-application-insights"></a>Avgifter för data överföring med Application Insights
+
+Att skicka data till Application Insights kan medföra avgifter för data bandbredd. Som det beskrivs i [prissättnings sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)är data överföringen mellan Azure-tjänster som finns i två regioner debiterad som utgående data överföring enligt normal taxa. Inkommande data överföring är kostnads fri. Den här avgiften är dock väldigt liten (några%) jämfört med kostnaderna för Application Insights logg data inmatning. Därför bör du kontrol lera kostnaderna för Log Analytics behöver fokusera på din inmatade data volym och vi har vägledning som hjälper dig att förstå den [här](https://docs.microsoft.com/azure/azure-monitor/app/pricing#managing-your-data-volume).   
 
 ## <a name="limits-summary"></a>Sammanfattning av gränser
 

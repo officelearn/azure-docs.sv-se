@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 6d354ab25125b0df90ac3d6852d7eafe5d5aba46
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: f940893a5328db65549b40269578399655f8539e
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064695"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679255"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med hjälp av Azure Active Directory B2C
 
@@ -38,32 +38,15 @@ I den här guiden får du lära dig att:
 
 ## <a name="add-a-web-api-application"></a>Lägga till ett program för webb-API
 
-Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-1. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-1. Välj **Program** och därefter **Lägg till**.
-1. Ange ett namn på programmet. Till exempel *webapi1*.
-1. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
-1. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:5000`.
-1. För **app-ID-URI**anger du en API-slutpunkt-ID till den URI som visas. I självstudien anger `api`du, så att hela URI: n `https://contosotenant.onmicrosoft.com/api`liknar.
-1. Klicka på **Skapa**.
-1. Välj *webapi1* -programmet för att öppna dess egenskaps sida.
-1. Registrera det **program-ID** som visas på sidan Egenskaper. Du behöver det här ID: t i ett senare steg när du konfigurerar webb programmet.
+[!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
 ## <a name="configure-scopes"></a>Konfigurera omfång
 
 Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Vissa användare kan till exempel ha både läs- och skrivåtkomst medan andra bara har skrivskyddad åtkomst. I den här självstudien definierar du både Läs-och Skriv behörighet för webb-API: et.
 
-1. Välj **program**och välj sedan *webapi1* för att öppna dess egenskaps sida om den inte redan är öppen.
-1. Välj **Publicerade omfång**.
-1. För **omfattning**, ange `Hello.Read`och för **Beskrivning**anger `Read access to hello`du.
-1. För **omfattning**, ange `Hello.Write`och för **Beskrivning**anger `Write access to hello`du.
-1. Välj **Spara**.
-1. Registrera det **fullständiga värdet för omfattning** för `Hello.Read` det omfång som ska användas i ett senare steg när du konfigurerar ett program med en sida. Det fullständiga värdet för `https://yourtenant.onmicrosoft.com/api/Hello.Read`omfattning liknar.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-De publicerade omfången kan användas för att tilldela behörighet för webb-API till ett klientprogram.
+Registrera det **fullständiga värdet för omfattning** för `demo.read` det omfång som ska användas i ett senare steg när du konfigurerar ett program med en sida. Det fullständiga värdet för `https://yourtenant.onmicrosoft.com/api/demo.read`omfattning liknar.
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
@@ -75,8 +58,8 @@ I den nödvändiga självstudien har du skapat ett webb program med namnet *weba
 1. Välj **Program** och därefter *webapp1*.
 1. Välj **API-åtkomst** och därefter **Lägg till**.
 1. I listrutan **Välj API** väljer du *webapi1*.
-1. I listrutan **Välj reservationsomfång** väljer du omfången **Hello.Read** och **Hello.Write** som du definierade tidigare.
-1. Klicka på **OK**.
+1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
+1. Välj **OK**.
 
 Webb programmet med en sida är registrerat för att anropa det skyddade webb-API: et. En användare autentiseras med Azure AD B2C för att använda ett program med en sida. En app med en enda sida får en auktorisering från Azure AD B2C för åtkomst till det skyddade webb-API: et.
 
@@ -101,8 +84,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
       "ClientId": "<webapi-application-ID>",
       "Policy": "B2C_1_signupsignin1",
 
-      "ScopeRead": "Hello.Read",
-      "ScopeWrite": "Hello.Write"
+      "ScopeRead": "demo.read",
+      "ScopeWrite": "demo.write"
     },
     ```
 
@@ -154,7 +137,7 @@ I det här avsnittet ska du uppdatera det enkla programmet för att anropa det A
 Ändra inställningarna i SPA:
 
 1. Öppna filen *index. html* i [Active-Directory-B2C-JavaScript-msal-singlepageapp][github-js-spa] -projektet som du laddade ned eller klonade i föregående självstudie.
-1. Konfigurera exemplet med URI för den *Hello. Read* -omfattning som du skapade tidigare och URL: en för webb-API: et.
+1. Konfigurera exemplet med URI: n för *demonstrationen. Läs* omfattning som du skapade tidigare och URL: en för webb-API: et.
     1. I definitionen ersätter du värdet med den fullständiga URI: n för omfattningen (det **fullständiga värdet** som du registrerade tidigare). `b2cScopes` `appConfig`
     1. Ändra värdet till det `applicationURL` värde som du angav i föregående avsnitt. `webApi`
 
@@ -163,7 +146,7 @@ I det här avsnittet ska du uppdatera det enkla programmet för att anropa det A
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
     var appConfig = {
-      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/Hello.Read"],
+      b2cScopes: ["https://<your-tenant-name>.onmicrosoft.com/api/demo.read"],
       webApi: "http://localhost:5000/"
     };
     ```

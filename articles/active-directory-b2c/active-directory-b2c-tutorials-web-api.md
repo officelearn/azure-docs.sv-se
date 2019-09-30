@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 87d46fad1c0a5494910a8218c4e40994fc140386
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 77cd720ffd2763b2ad3d73559a5363989f9e3e3a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103400"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679298"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
 
@@ -54,23 +54,17 @@ Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan g
 
 Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Till exempel kan användare av webb-API:et ha både läs- och skrivbehörighet, eller så har användare av webb-API:et kanske bara läsbehörighet. I den här självstudiekursen använder du omfång för att definiera läs- och skrivrättigheter för webb-API.
 
-1. Välj **Program** och därefter *webapi1*.
-2. Välj **Publicerade omfång**.
-3. Som **omfång** anger du `Hello.Read` och som beskrivning anger du `Read access to hello`.
-4. Som **omfång** anger du `Hello.Write` och som beskrivning anger du `Write access to hello`.
-5. Klicka på **Spara**.
-
-De publicerade omfången kan användas för att ge ett klientprogram behörighet till webb-API:et.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
 Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:et. I den obligatoriska föregående självstudien skapade du en webbapp i Azure AD B2C med namnet *webapp1*. Du använder det programmet för att anropa webb-API:et.
 
 1. Välj **Program** och därefter *webapp1*.
-2. Välj **API-åtkomst** och därefter **Lägg till**.
-3. I listrutan **Välj API** väljer du *webapi1*.
-4. I listrutan **Välj reservationsomfång** väljer du omfången **Hello.Read** och **Hello.Write** som du definierade tidigare.
-5. Klicka på **OK**.
+1. Välj **API-åtkomst** och därefter **Lägg till**.
+1. I listrutan **Välj API** väljer du *webapi1*.
+1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
+1. Välj **OK**.
 
 Programmet har registrerats för att anropa det skyddade webb-API:et. En användare autentiserar med Azure AD B2C för att använda programmet. Programmet får ett auktoriseringsbeviljande från Azure AD B2C som ger tillgång till det skyddade webb-API:et.
 
@@ -99,8 +93,8 @@ Följande två projekt finns i exempellösningen:
 
     ```csharp
     <add key="api:ApiIdentifier" value="https://<Your tenant name>.onmicrosoft.com/api/" />
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
@@ -128,8 +122,8 @@ Följande två projekt finns i exempellösningen:
 1. Konfigurera omfattnings inställningen så att den matchar de som du skapade i portalen.
 
     ```csharp
-    <add key="api:ReadScope" value="Hello.Read" />
-    <add key="api:WriteScope" value="Hello.Write" />
+    <add key="api:ReadScope" value="demo.read" />
+    <add key="api:WriteScope" value="demo.write" />
     ```
 
 ## <a name="run-the-sample"></a>Kör exemplet

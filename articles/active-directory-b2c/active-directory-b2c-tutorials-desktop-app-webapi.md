@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 75469d4522cea2914e0f69d5aa1850e468cb0d50
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 8c4b2d818549da07faf9ecd28f61b4ed5315f745
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064844"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679326"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>Självstudie: Bevilja åtkomst till ett Node.js-webb-API från en skrivbordsapp med hjälp av Azure Active Directory B2C
 
@@ -29,48 +29,29 @@ I den här guiden får du lära dig att:
 > * Ge behörigheter till webb-API:t
 > * Uppdatera exemplet så att programmet används
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
 ## <a name="prerequisites"></a>Förutsättningar
 
 Slutför stegen och förutsättningarna i [Självstudie: Aktivera autentisering av konton i ett skrivbordsprogram med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-desktop-app.md).
 
 ## <a name="add-a-web-api-application"></a>Lägga till ett program för webb-API
 
-Webb-API-resurser måste vara registrerade i klientorganisationen innan de kan godkänna och svara på en begäran från en skyddad resurs från klientprogram som använder en åtkomsttoken.
-
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C klient genom att välja filtret **katalog + prenumeration** på den översta menyn och välja den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
-4. Välj **Program** och därefter **Lägg till**.
-5. Ange ett namn på programmet. Till exempel *webapi1*.
-6. För **Inkludera webbapp/webb-API** och **Tillåt implicit flöde** väljer du **Ja**.
-7. För **Svars-URL** anger du en slutpunkt dit Azure AD B2C ska returnera de token som programmet begär. I den här självstudien körs exemplet lokalt och lyssnar på `https://localhost:5000`.
-8. För **URI för app-ID** anger du den identifierare som används för webb-API:t. Den fullständiga URI-identifieraren inklusive domänen skapas åt dig. Till exempel `https://contosotenant.onmicrosoft.com/api`.
-9. Klicka på **Skapa**.
-10. På egenskapssidan antecknar du program-ID:t du kommer att använda när du konfigurerar webbappen.
+[!INCLUDE [active-directory-b2c-appreg-webapi](../../includes/active-directory-b2c-appreg-webapi.md)]
 
 ## <a name="configure-scopes"></a>Konfigurera omfång
 
 Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång används av webb-API för att implementera omfångsbaserad åtkomststyrning. Vissa användare kan till exempel ha både läs- och skrivåtkomst medan andra bara har skrivskyddad åtkomst. I den här självstudien definierar du läs- och skrivrättigheter för webb-API:et.
 
-1. Välj **Program** och sedan *webapi1*.
-2. Välj **Publicerade omfång**.
-3. Som **omfång** anger du `Hello.Read` och som beskrivning anger du `Read access to hello`.
-4. Som **omfång** anger du `Hello.Write` och som beskrivning anger du `Write access to hello`.
-5. Klicka på **Spara**.
-
-De publicerade omfången kan användas för att tilldela behörighet för webb-API till ett klientprogram.
+[!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
 Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:t. I den obligatoriska föregående självstudien skapade du en webbapp i Azure AD B2C med namnet *app1*. Du använder det här programmet till att anropa webb-API:t.
 
 1. Välj **Program** och sedan *nativeapp1*.
-2. Välj **API-åtkomst** och sedan **Lägg till**.
-3. I listrutan **Välj API** väljer du *webapi1*.
-4. I listrutan **Välj reservationsomfång** väljer du omfången **Hello.Read** och **Hello.Write** som du definierade tidigare.
-5. Klicka på **OK**.
+1. Välj **API-åtkomst** och sedan **Lägg till**.
+1. I listrutan **Välj API** väljer du *webapi1*.
+1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
+1. Välj **OK**.
 
 En användare autentiserar med Azure AD B2C för att använda WPF-skrivbordsappen. Skrivbordsappen får ett auktoriseringsbeviljande från Azure AD B2C som ger tillgång till det skyddade webb-API:t.
 
@@ -83,6 +64,7 @@ När webb-API:t är registrerat och har ett definierat omfång måste du konfigu
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-nodejs-webapi.git
 ```
+
 Exempelwebb-API:et för Node.js använder Passport.js-biblioteket för att aktivera Azure AD B2C att skydda anrop till API: et.
 
 1. Öppna filen `index.js`.

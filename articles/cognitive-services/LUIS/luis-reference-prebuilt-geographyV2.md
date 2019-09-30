@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 05/07/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: e28b541c1b5aa8f733c9f4ed44fd2ea5296b34d8
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 04bc3019a55920351b0e91c87e63b8309d94e34c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933531"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677611"
 ---
 # <a name="geographyv2-prebuilt-entity-for-a-luis-app"></a>GeographyV2-fördefinierad entitet för en LUIS-app
 Entiteten fördefinierade geographyV2 identifierar platser. Eftersom den här entiteten har redan tränats, behöver du inte lägga till exempel yttranden som innehåller GeographyV2 till programmet avsikter. GeographyV2 entiteten har stöd för engelska [kultur](luis-reference-prebuilt-entities.md).
@@ -35,7 +35,7 @@ De geografiska platserna har undertyper:
 
 ## <a name="resolution-for-geographyv2-entity"></a>Lösning för GeographyV2 entitet
 
-### <a name="api-version-2x"></a>API-version 2. x
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 I följande exempel visas av lösningen på den **builtin.geographyV2** entitet.
 
@@ -93,9 +93,9 @@ I följande exempel visas av lösningen på den **builtin.geographyV2** entitet.
 } 
 ```
 
-### <a name="preview-api-version-3x"></a>Förhandsgranska API version 3. x
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
 
-Följande JSON- `verbose` parameter har angetts till `false`:
+Följande JSON är med parametern `verbose` inställd på `false`:
 
 ```json
 {
@@ -121,7 +121,7 @@ Följande JSON- `verbose` parameter har angetts till `false`:
 }
 ```
 
-Följande JSON- `verbose` parameter har angetts till `true`:
+Följande JSON är med parametern `verbose` inställd på `true`:
 
 ```json
 {
@@ -191,6 +191,10 @@ Följande JSON- `verbose` parameter har angetts till `true`:
 }
 ```
 
+* * * 
+
 ## <a name="next-steps"></a>Nästa steg
+
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 Lär dig mer om den [e-post](luis-reference-prebuilt-email.md), [nummer](luis-reference-prebuilt-number.md), och [ordningstal](luis-reference-prebuilt-ordinal.md) entiteter. 

@@ -1,5 +1,5 @@
 ---
-title: Skapa en Windows Virtual Desktop Preview-adresspool för att verifiera tjänst uppdateringar – Azure
+title: Skapa en Windows-pool för virtuella Skriv bords värdar för att verifiera tjänst uppdateringar – Azure
 description: Så här skapar du en pool för validering av värdar för övervakning av tjänst uppdateringar innan uppdateringar distribueras till produktion.
 services: virtual-desktop
 author: Heidilohr
@@ -7,16 +7,16 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 3843a03b3b6d41520b121e5088fb13eac956e6fa
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: c294bb41afae1257add0c96a9f77adad3f871849
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163598"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676682"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>Självstudier: Skapa en värdpool för att verifiera tjänstuppdateringar
 
-Lagringspooler är en samling av en eller flera identiska virtuella datorer i Windows Virtual Desktop Preview-klient miljöer. Innan du distribuerar lagringspooler till produktions miljön rekommenderar vi starkt att du skapar en pool för validerings värdar. Uppdateringar tillämpas först på verifiering av värdbaserade pooler, så att du kan övervaka tjänst uppdateringar innan du återställer dem till produktions miljön. Utan en verifierings värd kan du inte identifiera ändringar som innehåller fel, vilket kan leda till stillestånds tid för användare i produktions miljön.
+Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Innan du distribuerar lagringspooler till produktions miljön rekommenderar vi starkt att du skapar en pool för validerings värdar. Uppdateringar tillämpas först på verifiering av värdbaserade pooler, så att du kan övervaka tjänst uppdateringar innan du återställer dem till produktions miljön. Utan en verifierings värd kan du inte identifiera ändringar som innehåller fel, vilket kan leda till stillestånds tid för användare i produktions miljön.
 
 För att se till att dina appar fungerar med de senaste uppdateringarna bör verifierings värddatorn vara lika likadan som lagringspooler i produktions miljön som möjligt. Användarna bör ansluta så ofta som de använder för att köra en pool för värden för autentisering. Om du har automatiserat tester på din värd-pool bör du inkludera automatiserad testning på verifierings värds poolen.
 
@@ -34,7 +34,7 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 ## <a name="create-your-host-pool"></a>Skapa din värd bassäng
 
 Du kan skapa en adresspool genom att följa anvisningarna i någon av följande artiklar:
-- [Självstudier: Skapa en värdbaserad pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Självstudier: Skapa en värdbaserad pool med Azure Marketplace @ no__t-0
 - [Skapa en värdbaserad pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
 - [Skapa en värdbaserad pool med PowerShell](create-host-pools-powershell.md)
 
@@ -71,7 +71,7 @@ Resultatet från cmdleten bör likna följande utdata:
 
 ## <a name="update-schedule"></a>Uppdaterings schema
 
-I för hands versionen sker tjänst uppdateringar på ungefär en månatlig takt. Om det uppstår allvarliga problem kommer kritiska uppdateringar att tillhandahållas på en mer frekvent takt.
+Tjänst uppdateringar sker varje månad. Om det uppstår allvarliga problem kommer kritiska uppdateringar att tillhandahållas oftare.
 
 ## <a name="next-steps"></a>Nästa steg
 

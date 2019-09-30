@@ -1,22 +1,22 @@
 ---
 title: Förbereda och anpassa en huvud-VHD-avbildning – Azure
-description: Hur du förbereder, anpassar och laddar upp en Windows Virtual Desktop Preview-huvudavbildning till Azure.
+description: Hur du förbereder, anpassar och laddar upp en Windows-huvudavbildning av ett virtuellt skriv bord till Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 8127c0a42ec42a661af31cc489964cc40cb4937d
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: 379664fb7170249b8f21ec9826f8b0b6fbe19892
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981082"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679532"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
-Den här artikeln beskriver hur du förbereder en avbildning av en virtuell hård disk (VHD) för uppladdning till Azure, inklusive hur du skapar virtuella datorer (VM) och installerar program vara på dem. Dessa anvisningar gäller för en för hands version av en Windows Virtual Desktop-konfiguration som kan användas med din organisations befintliga processer.
+Den här artikeln beskriver hur du förbereder en avbildning av en virtuell hård disk (VHD) för uppladdning till Azure, inklusive hur du skapar virtuella datorer (VM) och installerar program vara på dem. De här anvisningarna gäller för en Windows-konfiguration med en virtuell dator som kan användas med din organisations befintliga processer.
 
 ## <a name="create-a-vm"></a>Skapa en virtuell dator
 
@@ -72,7 +72,7 @@ Om dina användare behöver åtkomst till vissa LOB-program rekommenderar vi att
 
 Så här inaktiverar du automatiska uppdateringar via lokal grupprincip:
 
-1. Öppna **Redigerare för lokalt grupprincipobjekt\\\\administrativa mallar\\Windows-komponenter Windows Update**.
+1. Öppna **Redigerare för lokalt grupprincipobjekt @ no__t-1Administrative templates @ no__t-2Windows Components @ no__t-3Windows Update**.
 2. Högerklicka på **Konfigurera automatisk uppdatering** och Ställ in den på **inaktive rad**.
 
 Du kan också köra följande kommando i en kommando tolk för att inaktivera automatiska uppdateringar.
@@ -109,7 +109,7 @@ Fjärråtkomstprinciper kan aktive ras på grupprincip nivå eftersom alla virtu
 
 Så här konfigurerar du fjärråtkomstprinciper:
 
-1. Navigera till **administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > tidsgränserför sessionsvärdservern för fjärrskrivbordssessioner. > 
+1. Gå till **Administrativa mallar** > **Windows-komponenter**@no__t-**3 Fjärrskrivbordstjänster** > **värd**för fjärrskrivbordssession  > **tids gränser för session**.
 2. I panelen till höger väljer du den **angivna tids gränsen för aktiva men inaktiva principer för Fjärrskrivbordstjänster sessioner** .
 3. När det modala fönstret visas ändrar du princip alternativet från **inte konfigurerad** till **aktive rad** för att aktivera principen.
 4. I den nedrullningsbara menyn under alternativet princip anger du hur lång tid som ska vara **3 timmar**.
@@ -134,7 +134,7 @@ Omdirigera tids zoner:
 1. Öppna **konsolen Grupprinciphantering**på Active Directory-servern.
 2. Expandera din domän och grupprincip objekt.
 3. Högerklicka på grupprincip- **objektet** som du skapade för grup princip inställningarna och välj **Redigera**.
-4. I **redigeraren Grupprinciphantering**navigerar du till **dator konfigurations** > **principer** > **administrativa mallar** > **Windows-komponenter**  >   **Fjärrskrivbordstjänster** > värdenhet > för fjärrskrivbordssession och omdirigering**av resurser**.
+4. I **redigeraren Grupprinciphantering**navigerar du till **dator konfiguration** > **principer** > **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster**@no__ t-10**värd**för fjärrskrivbordssession 2**enhets-och omdirigering av resurser**.
 5. Aktivera inställningen **Tillåt omdirigering** av tidszon.
 
 Du kan också köra det här kommandot på huvud avbildningen för att omdirigera tids zoner:
@@ -225,7 +225,7 @@ Följande anvisningar visar hur du överför huvud avbildningen till ett Azure S
 Nu när du har en avbildning kan du skapa eller uppdatera värdar för pooler. Mer information om hur du skapar och uppdaterar värdbaserade pooler finns i följande artiklar:
 
 - [Skapa en värdbaserad pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
-- [Självstudier: Skapa en värdbaserad pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
+- [Självstudier: Skapa en värdbaserad pool med Azure Marketplace @ no__t-0
 - [Skapa en värdbaserad pool med PowerShell](create-host-pools-powershell.md)
 - [Skapa en profil behållare för en värd-pool med en fil resurs](create-host-pools-user-profile.md)
 - [Konfigurera belastnings Utjämnings metoden för Windows Virtual Desktop](configure-host-pool-load-balancing.md)

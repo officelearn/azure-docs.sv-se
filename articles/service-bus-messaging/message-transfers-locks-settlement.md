@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus-överföringar av meddelanden, lås och uppgörelser | Microsoft Docs
-description: Översikt över Service Bus överföringar av meddelanden och avräkning åtgärder
+title: Azure Service Bus meddelande överföring, lås och kvittning | Microsoft Docs
+description: Översikt över Service Bus meddelande överföring och kvittnings åtgärder
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -13,36 +13,36 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/25/2018
 ms.author: aschhab
-ms.openlocfilehash: a78409a15acb4e60fc4200778d0f33b3fb566e85
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9aaada1ede8912b8b70f37c628ec918eca9be9d2
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60403949"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676266"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Överföringar av meddelanden, lås och uppgörelser
 
-Central möjligheterna för en asynkron meddelandekö, till exempel Service Bus är att acceptera meddelanden i en kö eller ämne och hålla dem tillgängliga för senare hämtning. *Skicka* är term som används för överföring av ett meddelande till den asynkrona meddelandekön. *Ta emot* är begrepp som ofta används för överföring av ett meddelande till en klient som hämtades.
+Den centrala funktionen hos en meddelande koordinator, till exempel Service Bus, är att ta emot meddelanden i en kö eller ett ämne och hålla dem tillgängliga för senare hämtning. *Send* är den term som används ofta för överföring av ett meddelande till meddelande utjämningen. *Receive* är den term som används ofta för överföring av ett meddelande till en hämtnings klient.
 
-När en klient skickar ett meddelande, företaget vanligtvis vill veta om meddelandet korrekt har överförts till och accepteras av Service broker eller om någon typ av fel inträffat. Den här positiv eller negativ bekräftelse cykelvärdena klienten och den asynkrona meddelandekön förstå om överföring tillståndet för meddelandet och är därför kallas *avräkning*.
+När en klient skickar ett meddelande vill det vanligt vis veta om meddelandet har överförts korrekt till och godkänts av Service Broker eller om någon sorts fel uppstod. Med den här positiva eller negativa bekräftelsen kvittas klienten och Service Broker-överenskommelsen om överförings tillstånd för meddelandet och kallas därför för *kvittning*.
 
-På samma sätt när den asynkrona meddelandekön över ett meddelande till en klient, broker och klienten vill upprätta en bra uppfattning om meddelandet har bearbetats och kan därför tas bort eller om meddelandeleverans eller bearbetning misslyckades, och därmed den meddelandet kanske levereras igen.
+På samma sätt, när Broker överför ett meddelande till en klient, vill att koordinatorn och klienten ska kunna skapa en förståelse för huruvida meddelandet har bearbetats och kan därför tas bort, eller om meddelande leveransen eller bearbetningen misslyckades, och därmed meddelandet kan behöva levereras igen.
 
-## <a name="settling-send-operations"></a>Reglera skicka åtgärder
+## <a name="settling-send-operations"></a>Lösar sändnings åtgärder
 
-Med någon av de Service Bus-API-klienterna som stöds kan skicka åtgärder i Service Bus alltid uttryckligen har reglerats, vilket innebär att API-åtgärden väntar på att ett godkännande-resultat från Service Bus tas emot, och slutför sedan skicka igen.
+Genom att använda någon av de Service Bus API-klienter som stöds, kommer sändnings åtgärder till Service Bus alltid att lösas uttryckligen, vilket innebär att API-åtgärden väntar på ett godkännande resultat från Service Bus till anlända och slutför sedan åtgärden skicka.
 
-Om meddelandet avvisades av Service Bus, innehåller avvisningen en felindikator och text med en ”spårnings-id” inuti den. Avvisningen innehåller även information om huruvida åtgärden kan göras med alla förväntan att lyckas. I klienten, är den här informationen omvandlas till ett undantag och upphöjt till anroparen av skicka igen. Om meddelandet har accepterats, åtgärden har slutförts tyst.
+Om meddelandet avvisas av Service Bus innehåller avvisningen en fel indikator och text med ett "spårnings-ID" inuti. Avvisningen innehåller också information om huruvida åtgärden kan utföras på nytt med väntande resultat. I klienten inaktive ras den här informationen i ett undantag och utlöses till anroparen för sändnings åtgärden. Om meddelandet har accepterats slutförs åtgärden tyst.
 
-När du använder AMQP-protokollet som är exklusiva protokoll för .NET Standard-klienten och Java-klient och [som är ett alternativ för .NET Framework-klienten](service-bus-amqp-dotnet.md), överföringar av meddelanden och kvittningar är pipelined och helt asynkront, och vi rekommenderar att du använder de asynkrona programming model API varianterna.
+När du använder AMQP-protokollet, som är det exklusiva protokollet för .NET standard-klienten och Java-klienten, och [som är ett alternativ för den .NET Framework klienten](service-bus-amqp-dotnet.md), är meddelande överföringar och kvittningar pipeliniska och helt asynkrona. Vi rekommenderar att du använder API-varianter för asynkron programmerings modell.
 
-En avsändare kan du placera flera meddelanden för anslutningen i snabb följd utan att behöva vänta på att varje meddelande som ska bekräftas innebär, som annars skulle vara fallet SBMP-protokollet eller med HTTP 1.1. De asynkrona skicka åtgärderna att slutföra eftersom respektive meddelanden accepteras och lagras på partitionerade enheter eller skicka när åtgärden till olika entiteter överlappar varandra. Slutföranden kan även inträffa utanför den ursprungliga ordningen för Skicka.
+En avsändare kan placera flera meddelanden i kabeln i snabb följd utan att behöva vänta på att varje meddelande ska bekräftas, vilket annars skulle vara fallet med SBMP-protokollet eller med HTTP 1,1. De asynkrona sändnings åtgärderna slutförs eftersom respektive meddelanden godkänns och lagras, på partitionerade entiteter eller när en skicka-åtgärd till olika enheter överlappar varandra. Slutförandet kan också uppstå från den ursprungliga sändnings ordningen.
 
-Strategi för hantering av resultatet av skicka åtgärder kan ha omedelbar och betydande prestandapåverkan för ditt program. Exemplen i det här avsnittet är skrivna i C# och tillämpa equivalently för Java Futures.
+Strategin för att hantera resultatet av sändnings åtgärder kan ha omedelbar och betydande prestanda påverkan för ditt program. Exemplen i det här avsnittet är skrivna C# och tillämpas likvärdigt för Java-framtida.
 
-Om programmet genererar ökningar av meddelanden, illustreras här med en vanlig slinga och var i väntan på slutförande för var och en skickar igen innan du skickar nästa meddelande, synkron eller asynkron API former både, 10 meddelanden skickas endast slutförs efter 10 sekventiella fullständig tur och RETUR för betalning.
+Om programmet genererar burst-meddelanden, illustreras här med en enkel loop och var på att vänta på att varje sändnings åtgärd skulle skickas innan nästa meddelande, synkrona eller asynkrona API-former, som skickar 10 meddelanden bara är slutförda efter 10 sekventiella full tur resor för kvittning.
 
-Med en antagen 70 Millisekunden TCP tur och RETUR svarstid avståndet från en lokal plats till Service Bus och får bara 10 ms för Service Bus för att acceptera och lagra varje meddelande, tar loopen upp minst 8 sekunder, inte räkna nyttolast överföringstiden eller hitta potentiella väg överbelastning effekter:
+Med ett förväntat 70 millisekunder för TCP-svars tid från en lokal plats till Service Bus och ger dig bara 10 ms för att Service Bus att acceptera och lagra varje meddelande, tar följande loop upp minst 8 sekunder, inte för att räkna upp nytto Last överförings tid eller potentiella effekter för väg överbelastning:
 
 ```csharp
 for (int i = 0; i < 100; i++)
@@ -52,9 +52,9 @@ for (int i = 0; i < 100; i++)
 }
 ```
 
-Om programmet startar 10 skicka asynkrona åtgärder i direkt följd och väntar på dig sina respektive slutförande separat, överlappar kommunikation tur och RETUR-tid för de 10 skicka åtgärderna. 10 meddelanden överförs i direkt följd som potentiellt även delning av TCP-ramar, och varaktighet för överföring beror huvudsakligen på nätverksrelaterade tiden det tar för att hämta meddelanden överförs till den asynkrona meddelandekön.
+Om programmet startar de 10 asynkrona sändnings åtgärderna i omedelbar följd och väntar på att de ska slutföras separat, överlappar den fördröjnings tiden för de tio sändnings åtgärderna. 10 meddelanden överförs i omedelbar följd, vilket kan vara till och med dela TCP-ramar och den övergripande överförings tiden beror på den nätverks-relaterade tiden det tar att hämta meddelanden som överförs till Service Broker.
 
-Gör samma antaganden som tidigare loopen, kan den totala överlappande körningstiden för loopen förblir bra under en sekund:
+Genom att göra samma antaganden som för föregående slinga kan den totala överlappande körnings tiden för följande slinga vara i drift under en sekund:
 
 ```csharp
 var tasks = new List<Task>();
@@ -65,9 +65,9 @@ for (int i = 0; i < 100; i++)
 await Task.WhenAll(tasks);
 ```
 
-Det är viktigt att Observera att alla asynkrona programmeringsmodeller använda någon form av Minnesbaserad, dold arbetskö som innehåller väntande åtgärder. När [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) eller **skicka** (Java) returneras, skicka aktiviteten är i kö i den arbetskön men protocol-gest inleds endast när det är aktivitetens tur att köra. För kod som ofta push ökningar av meddelanden och där tillförlitlighet är viktigt, anledning att inte för många meddelanden placeras ”som rör sig” på samma gång eftersom alla skickade meddelanden ta upp minne tills de har formellt förts till ledningen.
+Det är viktigt att Observera att alla asynkrona programmerings modeller använder någon form av minnesallokering-baserad, Dold arbetskö som innehåller väntande åtgärder. När [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) eller **Skicka** (Java) returnerar, köas sändnings uppgiften i den arbets kön, men protokoll-gesten börjar bara när det är dags att köra uppgiften. För kod som är försiktig för att skicka meddelanden till och var tillförlitlighet är ett problem, bör du tänka på att inte för många meddelanden placeras i flygningen på samma gång, eftersom alla skickade meddelanden tar upp minnet tills de faktiskt har placerats i kabeln.
 
-Semaforer, är enligt följande kodavsnitt i C#, synkroniseringsobjekt som gör det möjligt att sådan på programnivå som begränsning när det behövs. Den här användningen av en semafor kan högst 10 meddelanden ska vara som rör sig på samma gång. En av 10 tillgängliga semafor låsen vidtas innan skicka och den släpps som skicka är klar. Den 11: e passerar den loop som väntar tills minst en av föregående skickar har slutförts och sedan gör låstiden:
+Semaforer, som du ser i följande kodfragment i, C#är synkroniseringsobjekt som aktiverar sådan begränsning på program nivå vid behov. Den här användningen av en semafor gör att högst 10 meddelanden kan finnas i flygningen samtidigt. En av de 10 tillgängliga semafors låsen tas före sändningen och släpps när sändningen är klar. Det elfte passet i slingan väntar tills minst ett av de tidigare överföringarna har slutförts och gör sedan dess lås tillgängligt:
 
 ```csharp
 var semaphore = new SemaphoreSlim(10);
@@ -82,7 +82,7 @@ for (int i = 0; i < 100; i++)
 await Task.WhenAll(tasks);
 ```
 
-Program bör **aldrig** initiera en asynkron sändningsåtgärden i ett ”utlöses och Glöm” sätt utan att hämta resultatet av åtgärden. Då kan du läsa in interna och osynliga aktivitetskö upp till minnet är förbrukat, och programmet att identifiera skicka fel:
+Program bör **aldrig** initiera en asynkron sändnings åtgärd i "Fire and glömma"-sätt utan att hämta resultatet av åtgärden. Detta kan läsa in den interna och osynliga uppgifts kön upp till minnes överbelastning och hindra programmet från att identifiera sändnings fel:
 
 ```csharp
 for (int i = 0; i < 100; i++)
@@ -92,39 +92,51 @@ for (int i = 0; i < 100; i++)
 }
 ```
 
-Med en låg nivå AMQP-klient, Service Bus kan också användas ”före reglerade” överföringar. En förväg reglerade överföring är en fire-and-forget-åtgärd som resultatet i båda fallen inte rapporteras tillbaka till klienten och meddelandet anses reglerats när de skickas. Bristen på feedback till klienten innebär också att det finns inga användbara data för diagnostik, vilket innebär att det här läget inte är lämplig för att få hjälp via Azure-supporten.
+Med en AMQP-klient med låg nivå accepterar Service Bus även "förbetalda" överföringar. En förbetald överföring är en brand-och-glöm-åtgärd för vilken resultatet, oavsett hur, inte rapporteras tillbaka till klienten och meddelandet betraktas som kvittat när det skickas. Bristen på feedback till klienten innebär också att det inte finns några åtgärds bara data tillgängliga för diagnostik, vilket innebär att det här läget inte är kvalificerat för hjälp via supporten för Azure.
 
-## <a name="settling-receive-operations"></a>Reglera får operations
+## <a name="settling-receive-operations"></a>Lösa mottagnings åtgärder
 
-För att ta emot operations, Service Bus-API-klienter aktivera två olika lägen för explicit: *Ta emot och borttagning* och *Peek-Lock*.
+För Receive-åtgärder möjliggör Service Bus-API-klienter två olika explicita lägen: *Receive-och-Delete* och *Peek-lock*.
 
-Den [ta emot och ta bort](/dotnet/api/microsoft.servicebus.messaging.receivemode) läge talar om för den asynkrona meddelandekön att tänka på alla meddelanden som skickas till den mottagande klienten som reglerade när skickas. Det innebär att meddelandet anses förbrukas så snart den asynkrona meddelandekön har satt till ledningen. Meddelandet går förlorad om meddelandeöverföringen misslyckas.
+### <a name="receiveanddelete"></a>ReceiveAndDelete
 
-Upp-och av det här läget är att mottagaren behöver inte vidta ytterligare åtgärder för meddelandet och även inte långsammare genom resultatet av samband. Om data i enskilda meddelanden har lågt värde, eller endast är meningsfulla för mycket kort tid, är det rimliga valet i det här läget.
+Läget för att [ta emot och ta bort](/dotnet/api/microsoft.servicebus.messaging.receivemode) instruerar koordinatorn att ta hänsyn till alla meddelanden som skickas till den mottagande klienten som kvittas när de skickas. Det innebär att meddelandet anses förbrukat så snart som Service Broker har placerat det på kabeln. Om meddelande överföringen Miss lyckas går meddelandet förlorat.
 
-Den [Peek-Lock](/dotnet/api/microsoft.servicebus.messaging.receivemode) läge meddelar den asynkrona meddelandekön att den mottagande klienten vill reglera mottagna meddelanden uttryckligen. Meddelandet görs tillgänglig för mottagaren att bearbeta, medan lagras under ett exklusivt lås i tjänsten så att andra, konkurrerande mottagarna inte kan se den. Varaktigheten för låset definieras inledningsvis på kö eller prenumeration och kan utökas genom klienten ägande låset, via den [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) igen.
+Inifrån i det här läget är att mottagaren inte behöver vidta ytterligare åtgärder i meddelandet och inte heller är långsam genom att vänta på resultatet av kvittningen. Om data i de enskilda meddelandena har ett lågt värde och/eller bara är meningsfulla för en mycket kort stund, är det här läget ett rimligt val.
 
-När ett meddelande är låst kan andra klienter som tar emot från samma kö eller prenumeration ikläd Lås och hämta nästa tillgängliga meddelanden inte under active Lås. När låset på meddelandet har släppts explicit, eller när låset upphör att gälla, visas meddelandet tillbaka slut eller nästan framför hämtning ordningen för redelivery.
+### <a name="peeklock"></a>PeekLock
 
-När meddelandet släpps flera gånger av mottagare eller de gör det låset förflyta för ett angivet antal gånger ([maxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)), meddelandet tas automatiskt bort från kö eller prenumeration och placeras i den associerade obeställbara meddelanden.
+Läget [Peek-lock](/dotnet/api/microsoft.servicebus.messaging.receivemode) visar att den mottagande klienten vill lösa mottagna meddelanden explicit. Meddelandet görs tillgängligt för att mottagaren ska kunna bearbeta, medan den hålls under ett exklusivt lås i tjänsten så att andra konkurrerande mottagare inte kan se det. Längden på låset definieras ursprungligen på kö-eller prenumerations nivå och kan utökas av klienten som äger låset, via [RenewLock](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.renewlockasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_RenewLockAsync_System_String_) -åtgärden.
 
-Mottagande klienten startar avräkning av ett mottaget meddelande med en positiv bekräftelse när anropas [Slutför](/dotnet/api/microsoft.servicebus.messaging.queueclient.complete#Microsoft_ServiceBus_Messaging_QueueClient_Complete_System_Guid_) på API-nivå. Detta anger till den asynkrona meddelandekön att meddelandet har bearbetats och meddelandet tas bort från kö eller prenumeration. Den asynkrona meddelandekön svarar mottagarens avräkning avsikten med ett svar som anger om lösande kan utföras.
+När ett meddelande är låst kan andra klienter som tar emot från samma kö eller prenumeration ta på Lås och hämta nästa tillgängliga meddelanden som inte är aktiva i det aktiva låset. När låset på ett meddelande har frigjorts eller när låset upphör att gälla, kommer meddelandet att öppnas på eller närmast början av hämtnings ordningen för omleverans.
 
-När den mottagande klienten inte kan bearbeta meddelandet, men vill meddelandet att levereras, det kan uttryckligen ställa för meddelandet att frigöra och olåst direkt genom att anropa [överge](/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) eller den kan inte göra någonting och låta låset förflyta.
+När meddelandet har frigjorts upprepade gånger av mottagare eller om de tillåter att låset förflyter för ett definierat antal gånger ([maxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount#Microsoft_ServiceBus_Messaging_QueueDescription_MaxDeliveryCount)), tas meddelandet bort automatiskt från kön eller prenumerationen och placeras i den associerade kön för obeställbara meddelanden.
 
-Om ett mottagande klienten kan inte bearbeta ett meddelande och vet att redelivering meddelandet och gör om åtgärden inte hjälper, den kan avvisa meddelandet, vilket flyttar det till kön för obeställbara meddelanden genom att anropa [Systemkön](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), vilket också kan du ange en anpassad egenskap, inklusive en orsakskod som kan hämtas med meddelandet från kön för obeställbara meddelanden.
+Den mottagande klienten initierar en kvittning av ett mottaget meddelande med en positiv bekräftelse när den anropar [fullständig](/dotnet/api/microsoft.servicebus.messaging.queueclient.complete#Microsoft_ServiceBus_Messaging_QueueClient_Complete_System_Guid_) på API-nivå. Detta anger att utjämningen av meddelandet har bearbetats och att meddelandet tas bort från kön eller prenumerationen. Service Broker svarar på mottagarens kvittnings avsikt med ett svar som anger om kvittningen kan utföras.
 
-Specialfall avveckling av är uppskjutna som beskrivs i en separat artikel.
+När den mottagande klienten Miss lyckas med att bearbeta ett meddelande, men vill att meddelandet ska skickas igen, kan du uttryckligen be om att meddelandet släpps och låses upp direkt genom att anropa [Abandon](/dotnet/api/microsoft.servicebus.messaging.queueclient.abandon) eller så kan det göra ingenting och låta låset gå ut.
 
-Den **Slutför** eller **Systemkön** åtgärder samt de **RenewLock** kan misslyckas på grund av nätverksproblem, om hållas låset har upphört att gälla eller så finns det andra tjänstsidan villkor som förhindrar betalning. I en av de senare fallen skickar tjänsten en negativ bekräftelse som lyfter fram som ett undantag i API-klienter. Om orsaken är en bruten nätverksanslutning, har låset släppts eftersom Service Bus inte stöder återställning av befintliga AMQP länkar på en annan anslutning.
+Om en mottagar klient inte kan bearbeta ett meddelande och vet att det inte går att komma åt meddelandet och försöka utföra åtgärden igen, kan det avvisa meddelandet, som flyttar det till kön för obeställbara meddelanden genom att anropa [obeställbara meddelanden kön](/dotnet/api/microsoft.servicebus.messaging.queueclient.deadletter), vilket även tillåter att du anger en anpassad egenskap inklusive en orsaks kod som kan hämtas med meddelandet från kön för obeställbara meddelanden.
 
-Om **Slutför** misslyckas, vilket inträffar normalt Setup.exe för meddelandehantering och i vissa fall efter minuter av bearbetning, det mottagande programmet kan bestämma om den bevarar tillståndet för arbetet och ignorerar samma meddelande när de skickas en gång, eller om det raderar work resultatet och försöker som meddelandet är once.
+Ett specialfall av kvittning är uppskjutande, som beskrivs i en separat artikel.
 
-Vanliga mekanism för att identifiera dubblettmeddelandet leveranser är genom att kontrollera meddelande-id som kan och bör anges av avsändaren till ett unikt värde som eventuellt justeras med en identifierare från den ursprungliga processen. En jobbschemat skulle förmodligen ange meddelande-id till identifieraren för den försöker tilldela till en arbetare till den angivna worker-jobbet och worker skulle ignorera den andra förekomsten av jobbet tilldelningen om jobbet har redan gjorts.
+Åtgärderna **Complete** eller **obeställbara meddelanden kön** och **RenewLock** kan Miss lyckas på grund av nätverks problem, om det kvarhållna låset har upphört att gälla eller om det finns andra villkor för service sidan som förhindrar kvittning. I ett av de sistnämnda fallen skickar tjänsten en negativ bekräftelse på att det finns ett undantag i API-klienterna. Om orsaken är en bruten nätverks anslutning, släpps låset eftersom Service Bus inte stöder återställning av befintliga AMQP-länkar på en annan anslutning.
+
+Om **detta Miss lyckas** , vilket vanligt vis sker vid mycket slut på meddelande hantering och i vissa fall efter bearbetningen av antalet minuter, kan det mottagande programmet avgöra om det bevarar status för arbetet och ignorerar samma meddelande när det levereras en andra gång, eller om det tosses ut arbets resultatet och försöker igen när meddelandet har levererats igen.
+
+Den typiska mekanismen för att identifiera dubbla meddelande leveranser är genom att kontrol lera meddelande-ID: t, som kan anges av avsändaren till ett unikt värde, eventuellt justerad med en identifierare från ursprungs processen. Ett jobb schema skulle troligt vis ange meddelande-ID: t till identifieraren för det jobb som det försöker tilldela till en anställd med den angivna arbetaren, och arbetaren skulle ignorera den andra förekomsten av jobb tilldelningen om jobbet redan har slutförts.
+
+> [!IMPORTANT]
+> Det är viktigt att notera att låset som PeekLock får i meddelandet är temporärt och kan gå förlorat under följande förhållanden
+>   * Tjänst uppdatering
+>   * Uppdatering av operativ system
+>   * Ändra egenskaperna för entiteten (kö, ämne, prenumeration) medan låset hålls.
+>
+> När låset förloras genererar Azure Service Bus en LockLostException som kommer att visas på klient program koden. I det här fallet bör klientens standard omprövnings logik automatiskt starta och försöka utföra åtgärden igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill veta mer om Service Bus-meddelanden, finns i följande avsnitt:
+Mer information om Service Bus meddelanden finns i följande avsnitt:
 
 * [Service Bus-köer, ämnen och prenumerationer](service-bus-queues-topics-subscriptions.md)
 * [Komma igång med Service Bus-köer](service-bus-dotnet-get-started-with-queues.md)

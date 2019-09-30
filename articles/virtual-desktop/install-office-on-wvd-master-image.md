@@ -1,18 +1,18 @@
 ---
 title: Installera Office på en huvud hård disk avbildning – Azure
-description: Så här installerar och anpassar du Office på en Windows Virtual Desktop Preview Master-avbildning till Azure.
+description: Installera och anpassa Office på en Windows-huvudavbildning för virtuella skriv bord till Azure.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 79fe541d1bb3bea8447cf095673111362cec74d2
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 378be7ebc1cc04433d42b6a05d7eafc73a515568
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816442"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679526"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>Installera Office på en VHD-huvudavbildning
 
@@ -23,7 +23,7 @@ Den här artikeln förutsätter att du redan har skapat en virtuell dator (VM). 
 Den här artikeln förutsätter också att du har förhöjd åtkomst på den virtuella datorn, oavsett om den är etablerad i Azure eller Hyper-V Manager. Om inte, se [öka åtkomsten för att hantera alla Azure-prenumerationer och hanterings grupper](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
 
 >[!NOTE]
->Dessa anvisningar gäller för en för hands version av en Windows Virtual Desktop-konfiguration som kan användas med din organisations befintliga processer.
+>De här anvisningarna gäller för en Windows-konfiguration med en virtuell dator som kan användas med din organisations befintliga processer.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>Installera Office i läget för delad dator aktivering
 
@@ -45,7 +45,7 @@ Den här exempel konfigurations-XML: en som vi har angett kommer att göra följ
 - Aktivera aktivering av delad dator.
 
 >[!NOTE]
->Sök funktionen för stencil i Visio fungerar inte i Windows Virtual Desktop under för hands versions konfigurationen.
+>Sök funktionen i Visios stencil kanske inte fungerar som förväntat i Windows Virtual Desktop.
 
 Det här är den här exempel konfigurations-XML: en:
 
@@ -53,7 +53,7 @@ Det här är den här exempel konfigurations-XML: en:
 - Installera OneDrive i per användare-läge. Läs mer i [Installera OneDrive i per dator läge](#install-onedrive-in-per-machine-mode).
 
 >[!NOTE]
->Aktivering av delade datorer kan konfigureras via grupprincip objekt (GPO) eller register inställningar. Grupprincipobjektet finns på **dator konfigurations\\principer\\administrativa mallar\\Microsoft Office 2016 (dator)\\licens inställningar**
+>Aktivering av delade datorer kan konfigureras via grupprincip objekt (GPO) eller register inställningar. GRUPPRINCIPOBJEKTet finns i **dator konfiguration @ no__t-1Policies @ no__t-2Administrative templates @ no__t-3Microsoft Office 2016 (maskin) \\Licensing inställningar**
 
 Distributions verktyget för Office innehåller setup. exe. Installera Office genom att köra följande kommando på en kommando rad:
 
@@ -130,11 +130,11 @@ OneDrive installeras vanligt vis per användare. I den här miljön bör den ins
 
 Så här installerar du OneDrive i per dator läge:
 
-1. Börja med att skapa en plats för att mellanlagra OneDrive-installationsprogrammet. En lokal disk-mapp eller\\[\\UNC]-plats (File://UNC) är felfri.
+1. Börja med att skapa en plats för att mellanlagra OneDrive-installationsprogrammet. En lokal disk-mapp eller [\\ @ no__t-1unc]-platsen (file://unc) är felfri.
 
-2. Hämta OneDriveSetup. exe till den mellanlagrade platsen med den här länken:<https://aka.ms/OneDriveWVD-Installer>
+2. Hämta OneDriveSetup. exe till den mellanlagrade platsen med den här länken: <https://aka.ms/OneDriveWVD-Installer>
 
-3. Om du har installerat Office med OneDrive genom att utesluta  **\<ExcludeApp ID = "OneDrive\>"/** avinstallerar du alla befintliga OneDrive-användarspecifika installationer från en upphöjd kommando tolk genom att köra följande kommando:
+3. Om du har installerat Office med OneDrive genom att utesluta **\<EXCLUDEAPP ID = "OneDrive"/\>** avinstallerar du alla befintliga OneDrive-användarspecifika installationer från en upphöjd kommando tolk genom att köra följande kommando:
     
     ```batch
     "[staged location]\OneDriveSetup.exe" /uninstall

@@ -1,22 +1,22 @@
 ---
-title: Skapa en Windows Virtual Desktop Preview-adresspool med PowerShell – Azure
-description: Så här skapar du en adresspool i för hands versionen av Windows Virtual Desktop med PowerShell-cmdletar.
+title: Skapa en Windows-pool för virtuella skriv bord med PowerShell – Azure
+description: Så här skapar du en adresspool i Windows Virtual Desktop med PowerShell-cmdletar.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 1fb377d482277a4776214d08b879d99f4234ca40
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: a5e228417610a19c38acf9ce2db6e743ec122580
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70163681"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679583"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>Skapa en värdpool med PowerShell
 
-Lagringspooler är en samling av en eller flera identiska virtuella datorer i Windows Virtual Desktop Preview-klient miljöer. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
+Värdbaserade pooler är en samling av en eller flera identiska virtuella datorer i Windows-miljöer för virtuella Skriv bords klienter. Varje adresspool kan innehålla en app-grupp som användare kan interagera med på samma sätt som på ett fysiskt skriv bord.
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>Använda PowerShell-klienten för att skapa en adresspool
 
@@ -48,7 +48,7 @@ Add-RdsAppGroupUser -TenantName <tenantname> -HostPoolName <hostpoolname> -AppGr
 
 Cmdleten **Add-RdsAppGroupUser** har inte stöd för att lägga till säkerhets grupper och lägger bara till en användare i taget i gruppen app. Om du vill lägga till flera användare i app-gruppen kör du cmdleten igen med rätt huvud namn för användare.
 
-Kör följande cmdlet för att exportera registrerings-token till en variabel, som du kommer att använda senare i [registrera de virtuella datorerna i Windows-poolen för virtuella skriv bord](#register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool).
+Kör följande cmdlet för att exportera registrerings-token till en variabel, som du kommer att använda senare i [registrera de virtuella datorerna i Windows-poolen för virtuella skriv bord](#register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool).
 
 ```powershell
 $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hostpoolname>).Token
@@ -64,9 +64,12 @@ Du kan skapa en virtuell dator på flera sätt:
 - [Skapa en virtuell dator från en hanterad avbildning](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
 - [Skapa en virtuell dator från en ohanterad avbildning](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
+>[!NOTE]
+>Om du distribuerar en virtuell dator med Windows 7 som värd operativ system, är processen för att skapa och distribuera lite annorlunda. Mer information finns i [distribuera en virtuell Windows 7-dator på Windows Virtual Desktop](deploy-windows-7-virtual-machine.md).
+
 När du har skapat en sessions värd för virtuella datorer ska du [tillämpa en Windows-licens på en virtuell dator för en fjärrskrivbordssession](./apply-windows-license.md#apply-a-windows-license-to-a-session-host-vm) för att köra Windows-eller Windows Server-datorer utan att betala någon annan licens. 
 
-## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-preview-agent-installations"></a>Förbereda de virtuella datorerna för Windows Virtual Desktop Preview agent-installationer
+## <a name="prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations"></a>Förbereda de virtuella datorerna för Windows Virtual Desktop agent-installationer
 
 Du måste göra följande för att förbereda dina virtuella datorer innan du kan installera de virtuella Windows-datorerna och registrera de virtuella datorerna i Windows-poolen för virtuella Skriv bords värdar:
 
@@ -82,9 +85,9 @@ För att lyckas med domän koppling gör du följande på varje virtuell dator:
 5. Autentisera med ett domän konto som har behörighet att ansluta till datorer med domän anslutning.
 
     >[!NOTE]
-    > Om du ansluter dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group)-domänkontrollanten.
+    > Om du ansluter dina virtuella datorer till en Azure Active Directory Domain Services (Azure AD DS)-miljö måste du se till att din domän anslutning också är medlem i [Administratörs gruppen för AAD-domänkontrollanten](../active-directory-domain-services/tutorial-create-instance.md#configure-an-administrative-group).
 
-## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-preview-host-pool"></a>Registrera de virtuella datorerna på Windows-poolen för för hands version av virtuella skriv bord
+## <a name="register-the-virtual-machines-to-the-windows-virtual-desktop-host-pool"></a>Registrera de virtuella datorerna i Windows-poolen för virtuella skriv bord
 
 Att registrera de virtuella datorerna på en Windows-pool för virtuella skriv bord är lika enkelt som att installera de virtuella Windows-datorerna.
 
@@ -92,12 +95,12 @@ Registrera Windows-agenter för virtuella skriv bord genom att göra följande p
 
 1. [Anslut till den virtuella datorn](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) med de autentiseringsuppgifter du angav när du skapade den virtuella datorn.
 2. Ladda ned och installera Windows-agenten för virtuella skriv bord.
-   - Hämta Windows-agenten för [virtuella skriv bord](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
-   - Högerklicka på det nedladdade installations programmet, Välj **Egenskaper**, Välj avblockera och välj sedan **OK**. Detta gör att systemet kan lita på installations programmet.
+   - Hämta [Windows-agenten för virtuella skriv bord](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv).
+   - Högerklicka på det nedladdade installations programmet, Välj **Egenskaper**, Välj **avblockera**och välj sedan **OK**. Detta gör att systemet kan lita på installations programmet.
    - Kör installations programmet. När du uppmanas att ange registrerings-token anger du det värde som du fick från cmdleten **export-RdsRegistrationInfo** .
 3. Ladda ned och installera Windows Virtual Desktop agent start program.
    - Hämta [Start programmet för Windows Virtual Desktop agent](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrxrH).
-   - Högerklicka på det nedladdade installations programmet, Välj **Egenskaper**, Välj avblockera och välj sedan **OK**. Detta gör att systemet kan lita på installations programmet.
+   - Högerklicka på det nedladdade installations programmet, Välj **Egenskaper**, Välj **avblockera**och välj sedan **OK**. Detta gör att systemet kan lita på installations programmet.
    - Kör installations programmet.
 
 >[!IMPORTANT]

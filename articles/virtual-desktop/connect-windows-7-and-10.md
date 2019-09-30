@@ -1,5 +1,5 @@
 ---
-title: Ansluta till för hands versionen av Windows Virtual Desktop från Windows 10 eller Windows 7 – Azure
+title: Ansluta till Windows Virtual Desktop från Windows 10 eller Windows 7 – Azure
 description: Hur du ansluter till virtuella Windows-datorer med hjälp av Windows Skriv bords klienten.
 services: virtual-desktop
 author: Heidilohr
@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: helohr
-ms.openlocfilehash: 49431f75fb801c683a167e1809724eeeef208561
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 561dad566d7f1caaf609c8013fa075062e4471ea
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338455"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71676749"
 ---
-# <a name="connect-with-the-windows-desktop-client"></a>Ansluta till Windows Desktop-klienten
+# <a name="connect-with-the-windows-desktop-client"></a>Ansluta med Windows-skrivbordsklienten
 
 > Gäller för: Windows 7 och Windows 10
 

@@ -1,19 +1,19 @@
 ---
 title: 'Växla från äldre Log Analytics aviserings-API till nya API: er för Azure-aviseringar'
 description: 'Översikt över äldre savedSearch-baserade Log Analytics aviserings-API och process för att växla varnings regler till nya ScheduledQueryRules-API: er med information som behandlar vanliga kund problem.'
-author: msvijayn
+author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.author: vinagara
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 8f23d19b06152b633df6688489753498c86aee27
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 7b3a09c9227110d6dba205987903a2c97dccf1b8
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034788"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71677790"
 ---
 # <a name="switch-api-preference-for-log-alerts"></a>Byta API-inställning för loggaviseringar
 
@@ -33,12 +33,12 @@ Det finns flera fördelar med att skapa och hantera aviseringar med hjälp av [S
 - Logg aviseringar som skapats med [SCHEDULEDQUERYRULES API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) kan ha en definierad period på upp till 48 timmar och hämta data under en längre period än tidigare
 - Skapa aviserings regler i en bild som en enskild resurs utan att behöva skapa tre resurs nivåer som med [äldre Log Analytics aviserings-API](api-alerts.md)
 - Ett enda programmerings gränssnitt för alla varianter av frågor baserade logg aviseringar i Azure – New [scheduledQueryRules-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) kan användas för att hantera regler för Log Analytics samt Application Insights
-- Hantera dina logg aviseringar med [PowerShell](alerts-log.md#managing-log-alerts-using-powershell) -cmdletar
+- Hantera dina logg aviseringar med [PowerShell-cmdletar](alerts-log.md#managing-log-alerts-using-powershell)
 - Alla nya logg aviserings funktioner och framtida utveckling kommer bara att vara tillgängliga via den nya [scheduledQueryRules-API: n](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)
 
 ## <a name="process-of-switching-from-legacy-log-alerts-api"></a>Process för att växla från äldre logg aviserings-API
 
-Användarna är kostnads fria att använda antingen [äldre Log Analytics aviserings-API](api-alerts.md) eller det nya scheduledQueryRules-API: [et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Aviserings regler som skapats av något av API: et kan *endast hanteras av samma API* – och från Azure Portal. Som standard fortsätter Azure Monitor att använda [äldre Log Analytics varnings-API](api-alerts.md) för att skapa en ny varnings regel från Azure Portal för befintliga arbets ytor i Log Analytics. Som [aviserad ny logg arbets yta som skapats den 1 juni 2019](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/) , kommer automatiskt att använda New [scheduledQueryRules-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) som standard, inklusive i Azure Portal.
+Användarna är kostnads fria att använda antingen [äldre Log Analytics aviserings-API](api-alerts.md) eller det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules). Aviserings regler som skapats av något av API: et kan *endast hanteras av samma API* – och från Azure Portal. Som standard fortsätter Azure Monitor att använda [äldre Log Analytics varnings-API](api-alerts.md) för att skapa en ny varnings regel från Azure Portal för befintliga arbets ytor i Log Analytics. Som [aviserad ny logg arbets yta som skapats den 1 juni 2019](https://azure.microsoft.com/updates/switch-api-preference-log-alerts/) , kommer automatiskt att använda New [scheduledQueryRules-API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) som standard, inklusive i Azure Portal.
 
 Påverkan av växeln av preferens till scheduledQueryRules-API: n kompileras nedan:
 
@@ -49,7 +49,7 @@ Påverkan av växeln av preferens till scheduledQueryRules-API: n kompileras ned
 Processen för att flytta aviserings regler från [äldre Log Analytics varnings-API: t](api-alerts.md) inbegriper inte ändring av aviserings definition, fråga eller konfiguration på något sätt. Aviserings reglerna och övervakningen påverkas inte och aviseringarna kommer inte att stoppas eller stoppas, under eller efter växeln. Den enda ändringen är en ändring av API-inställningen och åtkomst till dina regler via ett nytt API.
 
 > [!NOTE]
-> När en användare väljer att växla inställningar till det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)kan du inte välja tillbaka eller återgå till att använda äldre aviserings- [API: er för äldre Log Analytics](api-alerts.md).
+> När en användare väljer att växla inställningar till det nya [scheduledQueryRules-API: et](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)kan du inte välja tillbaka eller återgå till att använda äldre [aviserings-API: er för äldre Log Analytics](api-alerts.md).
 
 En kund som vill växla frivilligt till den nya [scheduledQueryRules](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) och blockera användningen från den [äldre Log Analytics varnings-API: et](api-alerts.md). kan göra detta genom att utföra ett parkera-anrop på nedanstående API för att växla alla aviserings regler som är kopplade till den aktuella Log Analytics-arbetsytan.
 
@@ -113,5 +113,5 @@ Annars, om den angivna logg analys arbets ytan ännu inte har växlats till att 
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig mer om [Azure Monitor-logg aviseringar](alerts-unified-log.md).
-- Lär dig hur du skapar [logg aviseringar i Azure](alerts-log.md)-aviseringar.
+- Lär dig hur du skapar [logg aviseringar i Azure-aviseringar](alerts-log.md).
 - Lär dig mer om [Azures aviserings upplevelse](../../azure-monitor/platform/alerts-overview.md).

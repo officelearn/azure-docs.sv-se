@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/13/2017
 ms.author: huishao
-ms.openlocfilehash: cce66ff5d5270596ef9d9911764b7eb2a6460fd7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c1ac7a0310eda032b45fb57cea95ba38b753ef1d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70083257"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695338"
 ---
 # <a name="introduction-to-freebsd-on-azure"></a>Introduktion till FreeBSD på Azure
 Den här artikeln innehåller en översikt över att köra en virtuell FreeBSD-dator i Azure.
@@ -29,19 +29,13 @@ FreeBSD för Microsoft Azure är ett avancerat operativ system för datorer som 
 
 Microsoft Corporation gör avbildningar av FreeBSD tillgängliga i Azure med [Azures gästa Gent](https://github.com/Azure/WALinuxAgent/) förkonfigurerad. För närvarande erbjuds följande FreeBSD-versioner som avbildningar av Microsoft:
 
-- FreeBSD 10,3-version
-- FreeBSD 10,4-version
-- FreeBSD 11,1-version
+- [FreeBSD 10,4 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
+- [FreeBSD 11,2 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
+- [FreeBSD 12,0 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD120)
 
 Agenten ansvarar för kommunikation mellan den virtuella datorn FreeBSD och Azure-infrastrukturen för åtgärder, till exempel etablering av den virtuella datorn vid första användningen (användar namn, lösen ord eller SSH-nyckel, värdnamn osv.) och aktivering av funktioner för selektiva VM-tillägg.
 
 Som för framtida versioner av FreeBSD är strategin att vara aktuell och göra de senaste versionerna tillgängliga strax efter att de publicerats av FreeBSD release Engineering-teamet.
-
-## <a name="deploying-a-freebsd-virtual-machine"></a>Distribuera en virtuell FreeBSD-dator
-Att distribuera en virtuell FreeBSD-dator är en enkel process med hjälp av en avbildning från Azure Marketplace från Azure Portal:
-
-- [FreeBSD 10,4 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD104)
-- [FreeBSD 11,2 på Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.FreeBSD112)
 
 ### <a name="create-a-freebsd-vm-through-azure-cli-on-freebsd"></a>Skapa en virtuell FreeBSD-dator via Azure CLI på FreeBSD
 Först måste du installera [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) genom att följa kommando på en FreeBSD dator.
@@ -65,7 +59,7 @@ sudo rm /usr/local/bin/python 
 sudo ln -s /usr/local/bin/python3.5 /usr/local/bin/python
 ```
 
-Under installationen uppmanas `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`du att. Om du svarar `y` och anger `/etc/rc.conf` som `a path to an rc file to update`kan du möta problemet `ERROR: [Errno 13] Permission denied`. För att lösa det här problemet bör du ge den aktuella användaren Skriv behörighet till den aktuella `etc/rc.conf`användaren.
+Under installationen uppmanas du `Modify profile to update your $PATH and enable shell/tab completion now? (Y/n)`. Om du svarar `y` och anger `/etc/rc.conf` som `a path to an rc file to update` kan du möta problemet `ERROR: [Errno 13] Permission denied`. För att lösa det här problemet bör du ge den aktuella användaren behörigheten skriva till den aktuella användaren, `etc/rc.conf`.
 
 Nu kan du logga in på Azure och skapa din virtuella FreeBSD-dator. Nedan visas ett exempel på hur du skapar en virtuell FreeBSD 11,0-dator. Du kan också lägga till parametern `--public-ip-address-dns-name` med ett globalt unikt DNS-namn för en nyligen skapad offentlig IP-adress. 
 
@@ -116,7 +110,7 @@ Följande virtuella dator tillägg stöds i FreeBSD.
 ## <a name="authentication-user-names-passwords-and-ssh-keys"></a>Autentisering: användar namn, lösen ord och SSH-nycklar
 När du skapar en virtuell FreeBSD-dator med hjälp av Azure Portal måste du ange ett användar namn, lösen ord eller en offentlig SSH-nyckel.
 Användar namn för att distribuera en virtuell FreeBSD-dator på Azure får inte matcha namn på system konton (UID < 100) som redan finns på den virtuella datorn ("rot", till exempel).
-För närvarande stöds endast RSA SSH-nyckeln. En SSH-nyckel för flera rader måste `---- BEGIN SSH2 PUBLIC KEY ----` börja med och `---- END SSH2 PUBLIC KEY ----`sluta med.
+För närvarande stöds endast RSA SSH-nyckeln. En SSH-nyckel för flera rader måste börja med `---- BEGIN SSH2 PUBLIC KEY ----` och sluta med `---- END SSH2 PUBLIC KEY ----`.
 
 ## <a name="obtaining-superuser-privileges"></a>Hämta behörigheter för superanvändare
 Det användar konto som anges under distributionen av virtuella dator instanser på Azure är ett konto med privilegier. Paketet med sudo installerades i den publicerade FreeBSD-avbildningen.

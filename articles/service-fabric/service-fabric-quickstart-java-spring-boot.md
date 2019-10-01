@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 2aa5879ee3960bd5d26855ac7e7c3e12994ee54e
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 4ec6addb348b8c13f124ec225e056d2003a93c38
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861341"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703526"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>Snabbstart: Distribuera en Java våren Boot-app på Azure Service Fabric
 
@@ -28,7 +28,7 @@ Den här snabb starten visar hur du distribuerar ett Java våren Boot-program ti
 
 I den här snabbstarten används exemplet [Komma igång](https://spring.io/guides/gs/spring-boot/) från Spring-webbplatsen. Med bekanta kommandoradsverktyg guidar den här snabbstarten igenom distribuering av Spring Boot-exemplet som ett Service Fabric-program. När du är klar fungerar exemplet Spring Boot Getting Started på Service Fabric.
 
-![Skärmbild av programmet](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+![Exempel på vår Start Service Fabric](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 I den här snabbstarten lär du dig att:
 
@@ -79,7 +79,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
 
 1. Ange följande information för varje fråga.
 
-    ![Yeoman-poster](./media/service-fabric-quickstart-java-spring-boot/yeomanspringboot.png)
+    ![Yeoman-poster för våren Boot](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
 1. I mappen `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` skapar du en fil med namnet `entryPoint.sh`. Lägg till följande i filen `entryPoint.sh`. 
 
@@ -147,7 +147,7 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
 
     Det kan ta lite tid att starta det lokala klustret. För att bekräfta att klustret är helt aktiverat öppnar du Service Fabric Explorer på **http://localhost:19080** . När du ser fem felfria noder vet du att det lokala klustret är igång och redo. 
     
-    ![Felfritt lokalt kluster](./media/service-fabric-quickstart-java-spring-boot/sfxlocalhost.png)
+    ![Service Fabric Explorer visar felfria noder](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
 1. Öppna mappen `gs-spring-boot/SpringServiceFabric`.
 1. Kör följande kommando för att ansluta till det lokala klustret.
@@ -163,7 +163,7 @@ I det här skedet har du skapat ett Service Fabric-program för exemplet Spring 
 
 1. Öppna din favorit webbläsare och få åtkomst till programmet genom att gå `http://localhost:8080`till.
 
-    ![Programmets lokala klientdel](./media/service-fabric-quickstart-java-spring-boot/springbootsflocalhost.png)
+    ![Exempel på vår Start Service Fabric](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 Nu kan du komma åt Spring Boot-programmet som har distribuerats till ett Service Fabric-kluster.
 
@@ -178,7 +178,7 @@ Så här skalar du webbklienttjänsten:
 1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://localhost:19080`.
 1. Välj ellipsen ( **...** ) bredvid noden **Fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och välj **Scale service (skala tjänst**).
 
-    ![Skalningstjänst i Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxscaleservicehowto.png)
+    ![Exempel på Service Fabric Explorer Scale service](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-scale-sample.png)
 
     Du kan nu välja att skala antalet instanser av tjänsten.
 
@@ -196,7 +196,7 @@ Så här skalar du webbklienttjänsten:
 
 1. Välj noden **Fabric:/SpringServiceFabric/SpringGettingStarted** i trädvyn och expandera noden partition (representeras av ett GUID).
 
-    ![Skalningstjänsten i Service Fabric Explorer har slutförts](./media/service-fabric-quickstart-java-spring-boot/sfxscaledservice.png)
+    ![Tjänsten för Service Fabric Explorer skalning har slutförts](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-partition-node.png)
 
     Tjänsten har tre instanser, och trädvyn visar vilka noder instanserna körs på.
 
@@ -209,10 +209,10 @@ För att demonstrera tjänstredundans simuleras en nodomstart med Service Fabric
 1. Öppna Service Fabric Explorer i ditt kluster, till exempel `http://localhost:19080`.
 1. Välj ellipsen ( **...** ) bredvid noden som kör instansen av tjänsten och starta om noden.
 
-    ![Omstartsnod för Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/sfxhowtofailover.png)
+    ![Service Fabric Explorer starta om nod](./media/service-fabric-quickstart-java-spring-boot/service=fabric-explorer-restart=node.png)
 1. Instansen av tjänsten flyttas till en annan nod och ditt program får inget avbrott.
 
-    ![Omstartsnod för Service Fabric Explorer lyckades](./media/service-fabric-quickstart-java-spring-boot/sfxfailedover.png)
+    ![Service Fabric Explorer restart-noden lyckades](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-service-moved.png)
 
 ## <a name="next-steps"></a>Nästa steg
 

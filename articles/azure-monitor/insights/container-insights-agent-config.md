@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/14/2019
 ms.author: magoedte
-ms.openlocfilehash: 2b601825a58fe5739a43df607067acc8d629c5f4
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 7cd915c47fa0661a9da66d7ca3315480ce7d6b98
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69558892"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709433"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agent data insamling för Azure Monitor för behållare
 
@@ -45,9 +45,9 @@ Följande är de inställningar som kan konfigureras för att styra data insamli
 |----|----------|------|------------|
 |`schema-version` |Sträng (Skift läges känslig) |v1 |Det här är den schema version som används av agenten vid parsning av den här ConfigMap. Schema version som stöds för närvarande är v1. Det finns inte stöd för att ändra det här värdet och kommer att avvisas när ConfigMap utvärderas.|
 |`config-version` |Sträng | | Stöder möjlighet att hålla koll på den här konfigurations filens version i käll kontroll systemet/lagrings platsen. Maximalt antal tillåtna tecken är 10 och alla andra tecken trunkeras. |
-|`[log_collection_settings.stdout] enabled =` |Boolean | Sant eller falskt | Kontrollerar om STDOUT container logg samling är aktive rad. När värdet är `true` inställt på och inga namn områden utesluts för`log_collection_settings.stdout.exclude_namespaces` STDOUT logg samling (inställningen nedan) samlas STDOUT-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är `enabled = true`standardvärdet. |
+|`[log_collection_settings.stdout] enabled =` |Boolesk | Sant eller falskt | Kontrollerar om STDOUT container logg samling är aktive rad. När värdet är `true` inställt på och inga namn områden utesluts för`log_collection_settings.stdout.exclude_namespaces` STDOUT logg samling (inställningen nedan) samlas STDOUT-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är `enabled = true`standardvärdet. |
 |`[log_collection_settings.stdout] exclude_namespaces =`|Sträng | Kommaavgränsad matris |Matris med Kubernetes-namnområden som StdOut-loggar inte ska samlas in för. Den här inställningen gäller endast om `log_collection_settings.stdout.enabled` har angetts till `true`. Om inget värde anges i ConfigMap är `exclude_namespaces = ["kube-system"]`standardvärdet.|
-|`[log_collection_settings.stderr] enabled =` |Boolean | Sant eller falskt |Anger om stderr container logg samling är aktive rad. När värdet är `true` inställt på och inga namn områden utesluts för`log_collection_settings.stderr.exclude_namespaces` STDOUT logg insamling (inställning) samlas stderr-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är `enabled = true`standardvärdet. |
+|`[log_collection_settings.stderr] enabled =` |Boolesk | Sant eller falskt |Anger om stderr container logg samling är aktive rad. När värdet är `true` inställt på och inga namn områden utesluts för`log_collection_settings.stderr.exclude_namespaces` STDOUT logg insamling (inställning) samlas stderr-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är `enabled = true`standardvärdet. |
 |`[log_collection_settings.stderr] exclude_namespaces =` |Sträng |Kommaavgränsad matris |Matris med Kubernetes-namnområden som stderr-loggar inte ska samlas in för. Den här inställningen gäller endast om `log_collection_settings.stdout.enabled` har angetts till `true`. Om inget värde anges i ConfigMap är `exclude_namespaces = ["kube-system"]`standardvärdet. |
 | `[log_collection_settings.env_var] enabled =` |Boolesk | Sant eller falskt | Detta kontrollerar om en miljö variabel samling är aktive rad. När det är `false`inställt på, samlas inga miljövariabler in för någon behållare som körs i alla poddar/noder i klustret. Om inget värde anges i ConfigMap är `enabled = true`standardvärdet. |
 
@@ -75,9 +75,9 @@ När en URL anges, kommer Azure Monitor för behållare bara att kassera slut pu
 | Hela klustret | | | | Ange en av följande tre metoder för att kassera slut punkter för mått. |
 | | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en speciell Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
 | | `kubernetes_services` | Sträng | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att kassera mått från Kube-State-Metrics. Till exempel`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolean | Sant eller falskt | När det är `true` inställt på i inställningarna för hela klustret kommer Azure Monitor for containers agent att kassera Kubernetes-poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
-| | `prometheus.io/scrape` | Boolesk | Sant eller falskt | Aktiverar kassation av pod. `monitor_kubernetes_pods`måste anges till `true`. |
-| | `prometheus.io/scheme` | Sträng | http eller https | Används som standard för skrotning över HTTP. Om det behövs anger du `https`till. | 
+| | `monitor_kubernetes_pods` | Boolesk | Sant eller falskt | När det är `true` inställt på i inställningarna för hela klustret kommer Azure Monitor for containers agent att kassera Kubernetes-poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `prometheus.io/scrape` | Boolesk | Sant eller falskt | Aktiverar kassation av pod. `monitor_kubernetes_pods` måste anges till `true`. |
+| | `prometheus.io/scheme` | Sträng | http eller https | Används som standard för skrotning över HTTP. Om det behövs anger du till `https`. | 
 | | `prometheus.io/path` | Sträng | Kommaavgränsad matris | Den HTTP-resurs Sök väg som måtten ska hämtas från. Om måtten Path inte `/metrics`är det definierar du den med den här anteckningen. |
 | | `prometheus.io/port` | Sträng | 9102 | Ange en port att lyssna på. Om porten inte har angetts är den standard 9102. |
 | Node-wide | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en speciell Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
@@ -163,7 +163,7 @@ Fel förhindrar omsagent från att parsa filen, vilket gör att den startas om o
 
 ## <a name="applying-updated-configmap"></a>Använder uppdaterad ConfigMap
 
-Om du redan har distribuerat en ConfigMap till klustret och du vill uppdatera det med en nyare konfiguration kan du redigera ConfigMap-filen som du tidigare har använt och sedan använda samma kommando som tidigare `kubectl apply -f <configmap_yaml_file.yaml`.
+Om du redan har distribuerat en ConfigMap till klustret och du vill uppdatera det med en nyare konfiguration kan du redigera ConfigMap-filen som du tidigare har använt och sedan använda samma kommando som tidigare, `kubectl apply -f <configmap_yaml_file.yaml`.
 
 Konfigurations ändringen kan ta några minuter innan den börjar gälla, och alla omsagent-poddar i klustret kommer att startas om. Omstarten är en rullande omstart för alla omsagent-poddar, inte alla omstart på samma tidpunkt. När omstarterna är klara visas ett meddelande som liknar följande och som innehåller resultatet: `configmap "container-azm-ms-agentconfig" updated`.
 
@@ -187,6 +187,22 @@ Utdata ser ut ungefär så här med antecknings schema versioner:
 ```
 
 ## <a name="review-prometheus-data-usage"></a>Granska Prometheus data användning
+
+Om du vill visa Prometheus-mått som har klippts av Azure Monitor anger du "Prometheus" som namn område. Här är en exempel fråga för att Visa Prometheus-mått från namn området `default` Kubernetes.
+
+```
+InsightsMetrics 
+| where Namespace contains "prometheus"
+| extend tags=parse_json(Tags)
+| where tostring(tags.namespace) == "default" 
+```
+
+Prometheus-data kan också direkt frågas efter namn.
+
+```
+InsightsMetrics 
+| where Name contains "some_prometheus_metric"
+```
 
 Följande fråga tillhandahålls för att identifiera inmatnings volymen för varje mått storlek i GB per dag för att förstå om den är hög.
 

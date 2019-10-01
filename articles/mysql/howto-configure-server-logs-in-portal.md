@@ -1,67 +1,85 @@
 ---
-title: Konfigurera och komma åt långsamma frågeloggar för Azure Database för MySQL i Azure-portalen
-description: Den här artikeln beskriver hur du konfigurerar och komma åt långsam loggarna i Azure Database för MySQL från Azure-portalen.
-author: rachel-msft
-ms.author: raagyema
+title: Konfigurera och komma åt långsamma Query-loggar för Azure Database for MySQL i Azure Portal
+description: Den här artikeln beskriver hur du konfigurerar och kommer åt långsamma loggar i Azure Database for MySQL från Azure Portal.
+author: ajlam
+ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: b16ac525d41eb2423828a647fdb75fd3f4a80a31
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.date: 09/30/2019
+ms.openlocfilehash: b3986c19ec008437f3230b3674ce60d1dfba2024
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67052712"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703442"
 ---
-# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Konfigurera och åtkomst långsam fråga loggar i Azure portal
+# <a name="configure-and-access-slow-query-logs-in-the-azure-portal"></a>Konfigurera och komma åt långsamma Query-loggar i Azure Portal
 
-Du kan konfigurera, visa och hämta den [Azure Database for MySQL långsamma frågeloggar](concepts-server-logs.md) från Azure-portalen.
+Du kan konfigurera, lista och ladda ned [Azure Database for MySQL långsamma frågemeddelanden](concepts-server-logs.md) från Azure Portal.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-För att gå igenom den här guiden, måste du:
-- [Azure Database for MySQL-server](quickstart-create-mysql-server-database-using-azure-portal.md)
+## <a name="prerequisites"></a>Förutsättningar
+För att gå igenom den här instruktions guiden behöver du:
+- [Azure Database for MySQL Server](quickstart-create-mysql-server-database-using-azure-portal.md)
 
 ## <a name="configure-logging"></a>Konfigurera loggning
-Konfigurera åtkomst till den långsam frågeloggen för MySQL. 
+Konfigurera åtkomst till MySQLs långsamma fråga logg. 
 
 1. Logga in på [Azure Portal](https://portal.azure.com/).
 
 2. Välj din Azure Database for MySQL-server.
 
-3. Under den **övervakning** avsnittet i sidopanelen, Välj **serverloggar**. 
-   ![Välj loggar Klicka för att konfigurera](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+3. Under avsnittet **övervakning** på sid panelen väljer du **Server loggar**. 
+   ![Select-Server loggar, klicka för att konfigurera @ no__t-1
 
-4. Markera rubriken **Klicka här för att aktivera loggar och konfigurera loggparametrarna** att se de serverparametrarna.
+4. Välj rubriken **Klicka här för att aktivera loggar och konfigurera logg parametrar** för att se server parametrarna.
 
-5. Ändra de parametrar som du behöver justera. Alla ändringar du gör i den här sessionen är markerade i lila. 
+5. Ändra parametrarna som du behöver justera. Alla ändringar du gör i den här sessionen är markerade i lila. 
 
-   När du har ändrat parametrarna kan du klicka på **spara**. Eller så kan du **Ignorera** dina ändringar.
+   När du har ändrat parametrarna kan du klicka på **Spara**. Eller så kan du **Ignorera** dina ändringar.
 
    ![Klicka på Spara eller ta bort](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
 
-6. Gå tillbaka till listan över loggarna genom att klicka på den **stängningsknappen** (X ikonen) på den **serverparametrar** sidan.
+6. Gå tillbaka till listan över loggar genom att klicka på **knappen Stäng** (X-ikon) på sidan **Server parametrar** .
 
 ## <a name="view-list-and-download-logs"></a>Visa lista och hämta loggar
-Du kan visa en lista över tillgängliga långsamma frågeloggar och hämta individuella loggfiler i fönstret serverloggar när loggning börjar.
+När du har börjat logga in kan du Visa en lista över tillgängliga långsamma frågemeddelanden och hämta enskilda loggfiler i fönstret Server loggar.
 
 1. Öppna Azure Portal.
 
 2. Välj din Azure Database for MySQL-server.
 
-3. Under den **övervakning** avsnittet i sidopanelen, Välj **serverloggar**. På sidan visas en lista över loggfilerna, som visas:
+3. Under avsnittet **övervakning** på sid panelen väljer du **Server loggar**. Sidan visar en lista över loggfilerna som visas:
 
    ![Lista över loggar](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
 
    > [!TIP]
-   > Namngivningskonventionen loggens är **mysql - långsam - < servernamn >-yyyymmddhh.log**. Datum och tid som används i filnamnet är tid när loggen har utfärdats. Loggfiler roteras var 24 timmar eller 7,5 GB, beroende på vilket som kommer först.
+   > Namngivnings konventionen för loggen är **MySQL-långsamma-< ditt Server namn >-yyyymmddhh. log**. Datum och tid som används i fil namnet är tiden när loggen utfärdades. Loggfiler roteras var 24: e timme eller 7,5 GB, beroende på vilket som kommer först.
 
-4. Om du behöver den **sökrutan** snabbt begränsa till en viss loggning baserat på datum/tid. Sökningen är på namnet på loggen.
+4. Om det behövs kan du använda **sökrutan** för att snabbt begränsa till en specifik logg baserat på datum/tid. Sökningen har samma namn som loggen.
 
-5. Ladda ned enskilda loggfiler med hjälp av den **hämta** knappen (nedåt-ikon) bredvid varje loggfil i tabellraden som visas:
+5. Hämta enskilda loggfiler med knappen **Hämta** (nedåtpil) bredvid varje loggfil i tabell raden som visas:
 
-   ![Klicka på nedladdningsikonen](./media/howto-configure-server-logs-in-portal/5-download.png)
+   ![Klicka på ikonen Ladda ned](./media/howto-configure-server-logs-in-portal/5-download.png)
+
+## <a name="set-up-diagnostic-logs"></a>Konfigurera diagnostikloggar
+
+1. Under avsnittet **övervakning** i sid panelen väljer du **diagnostikinställningar**.
+
+1. Klicka på "+ Lägg till diagnostisk inställning" ![Add diagnostisk inställning @ no__t-1
+
+1. Ange ett namn på en diagnostisk inställning.
+
+1. Ange vilka data mottagare som ska skicka långsamma frågemeddelanden (lagrings konto, händelsehubben och/eller Log Analytics arbets yta).
+
+1. Välj "MySqlSlowLogs" som logg typ.
+@no__t 0Configure-diagnostik @ no__t-1
+
+1. När du har konfigurerat data Sinks att skicka in de långsamma frågeresultaten till kan du klicka på **Spara**.
+@no__t 0Save-diagnostik @ no__t-1
+
+1. Få åtkomst till långsamma fråga-loggar genom att utforska dem i de data mottagare du konfigurerade. Det kan ta upp till 10 minuter innan loggarna visas.
 
 ## <a name="next-steps"></a>Nästa steg
-- Se [åtkomst långsam fråga loggar i CLI](howto-configure-server-logs-in-cli.md) att lära dig hur du laddar ned långsamma frågeloggar programmässigt.
-- Läs mer om [långsamma frågeloggar](concepts-server-logs.md) i Azure Database för MySQL.
-- Mer information om parameterdefinitioner och MySQL-loggning finns i dokumentationen för MySQL på [loggar](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).
+- Mer information om hur du hämtar långsamma frågemeddelanden via programmering finns i [komma åt långsamma fråge loggar i CLI](howto-configure-server-logs-in-cli.md) .
+- Läs mer om [långsamma frågemeddelanden](concepts-server-logs.md) i Azure Database for MySQL.
+- Mer information om parameter definitioner och MySQL-loggning finns i MySQL-dokumentationen för [loggar](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html).

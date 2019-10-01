@@ -12,12 +12,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, 
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: ece47c86fba6bc975a4146f596fa001014352a4f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 41dea16f7938d391f8cdf03e1a731e8082f74b26
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725849"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695477"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-and-net-core-on-kubernetes-with-azure-dev-spaces"></a>Snabbstart: Felsöka och iterera med Visual Studio och .NET Core på Kubernetes med Azure dev Spaces
 
@@ -26,6 +26,11 @@ I den här guiden får du lära dig hur du:
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Iterativt utvecklar kod i containrar med Visual Studio.
 - Felsöka kod som körs i klustret med Visual Studio.
+
+Med Azure dev Spaces kan du också felsöka och iterera med:
+- [Java och Visual Studio Code](quickstart-java.md)
+- [Node. js och Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core och Visual Studio Code](quickstart-netcore.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -117,7 +122,7 @@ Om Visual Studio fortfarande är anslutet till ditt dev-utrymme klickar du på k
 
 När du kör tjänsten i Kubernetes med en fel sökare ansluten har du fullständig åtkomst till felsöknings information som anrops stack, lokala variabler och undantags information.
 
-Ta bort Bryt punkten genom att placera markören på rad 20 `Controllers/HomeController.cs` i och trycka på *F9*.
+Ta bort Bryt punkten genom att placera markören på rad 20 i `Controllers/HomeController.cs` och trycka på *F9*.
 
 ## <a name="clean-up-your-azure-resources"></a>Rensa dina Azure-resurser
 

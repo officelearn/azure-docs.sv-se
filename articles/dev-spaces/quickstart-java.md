@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes utveckling med behållare, mikrotjänster och Java på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, behållare, Java, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 28b6a2ecff756c878bb3bc0a69976e7cede5f7ee
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 160787ba9766d27f9497b4fd6822fc5bc25cd4ba
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772665"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695522"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Felsöka och iterera med Visual Studio Code och Java på Kubernetes med hjälp av Azure dev Spaces
 
@@ -25,6 +25,10 @@ I den här guiden får du lära dig hur du:
 - Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
 - Felsök koden i ditt dev Space från Visual Studio Code.
 
+Med Azure dev Spaces kan du också felsöka och iterera med:
+- [Node. js och Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core och Visual Studio Code](quickstart-netcore.md)
+- [.NET Core och Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -115,7 +119,7 @@ Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings p
 Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *starta Java-program (AZDS)* igen. Exempel:
 
 1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
-1. Uppdatera [rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java` ](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) till:
+1. Uppdatera [rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java`](https://github.com/Azure/dev-spaces/blob/master/samples/java/getting-started/webfrontend/src/main/java/com/ms/sample/webfrontend/Application.java#L19) till:
     
     ```java
     return "Hello from webfrontend in Azure!";
@@ -136,7 +140,7 @@ Gå tillbaka *till trädvyn genom* att klicka på *Visa* och sedan på *Explorer
 
 När du kör tjänsten i Kubernetes med en fel sökare ansluten har du fullständig åtkomst till felsöknings information som anrops stack, lokala variabler och undantags information.
 
-Ta bort Bryt punkten genom att placera markören på rad 19 `src/main/java/com/ms/sample/webfrontend/Application.java` i och trycka på *F9*.
+Ta bort Bryt punkten genom att placera markören på rad 19 i `src/main/java/com/ms/sample/webfrontend/Application.java` och trycka på *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 

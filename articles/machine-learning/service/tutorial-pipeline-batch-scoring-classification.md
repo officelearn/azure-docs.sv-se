@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Maskin inlärnings pipeliner för batch-Poäng'
+title: 'Självstudier: ML pipelines för batch-Poäng'
 titleSuffix: Azure Machine Learning
 description: Bygg en pipeline för maskin inlärning för att köra batch-bedömning i en bild klassificerings modell i Azure Machine Learning. Maskin inlärnings pipeliner optimerar arbets flödet med hastighet, portabilitet och åter användning, så att du kan fokusera på din expertis – maskin inlärning – i stället för på infrastruktur och automatisering.
 services: machine-learning
@@ -10,14 +10,14 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/05/2019
-ms.openlocfilehash: 978cfa7926e7a035494aae11351c15a45c0251e4
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3fe25f0f8297a7b743ed5f522e8a35deb165a039
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350430"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695617"
 ---
-# <a name="use-a-machine-learning-pipeline-for-batch-scoring"></a>Använda en maskin inlärnings pipeline för batch-Poäng
+# <a name="build--use-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Bygg & Använd en Azure Machine Learning pipeline för batch-Poäng
 
 I den här självstudien använder du en pipeline i Azure Machine Learning för att köra ett batch-bedömnings jobb. I exemplet används den förtränade inlagan [(convolutional neurala](https://arxiv.org/abs/1512.00567) Network Tensorflow Model för att klassificera omärkta bilder. När du har skapat och publicerat en pipeline konfigurerar du en REST-slutpunkt som du kan använda för att utlösa pipelinen från alla HTTP-bibliotek på vilken plattform som helst.
 

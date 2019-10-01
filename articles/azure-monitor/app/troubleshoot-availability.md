@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.reviewer: sdash
 ms.author: lagayhar
-ms.openlocfilehash: ee64a8af35f938def94e369bdb400fed6e2798c0
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: fd56fffe6b11d1c32d7abfe28140127d01933def
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146601"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695043"
 ---
 # <a name="troubleshooting"></a>Felsökning
 
@@ -44,7 +44,7 @@ Den här artikeln hjälper dig att felsöka vanliga problem som kan uppstå när
 |    |Omdirigering av vissa IP-adresser sker via (belastnings utjämning, geo Traffic Manager, Azure Express Route.) 
 |    |Om du använder Azure ExpressRoute finns det scenarier där paket kan släppas i fall där [asymmetrisk routning sker](https://docs.microsoft.com/azure/expressroute/expressroute-asymmetric-routing).|
 
-## <a name="intermittent-test-failure-with-a-protocol-violation-error"></a>Tillfälligt test fel med ett protokoll fel
+## <a name="test-failure-with-a-protocol-violation-error"></a>Test fel med ett protokoll fel
 
 |Symtom/fel meddelande| Möjliga orsaker| Möjliga lösningar |
 |----|---------|-----|

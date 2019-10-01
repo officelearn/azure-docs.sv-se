@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 97684a4668c1d495fa690674f7bd94e064737bd4
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 0707ed3dfee9af27b7cab66c7952d1e7c1d57cb8
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273956"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703204"
 ---
 # <a name="developer-resources-for-language-understanding"></a>Utvecklings resurser för Language Understanding
 
@@ -34,6 +34,8 @@ Hitta referens dokumentation baserat på verktyget:
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Language Understanding redigerings-och förutsägelse begär Anden
 
 Language Understandings tjänsten nås från en Azure-resurs som du måste skapa. Det finns två resurser: redigera och förutsäga slut punkts resurser. Med båda dessa resurser kan du kontrol lera dina LUIS-resurser. 
+
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
 
 ### <a name="rest-apis"></a>REST API:er
 

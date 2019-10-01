@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c216512aef117a332d3aabfc83ec5615b70b202c
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: a8e35254a79ac43b35f45d1a20f3d1f6815f32be
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033833"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702811"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
 
@@ -90,34 +90,32 @@ Gransknings loggar publiceras i samma pipeline som andra aktiviteter för Azure 
 Om du vill tillåta skript-eller programbaserad åtkomst till Azure AD repor ting-API: n måste du ha ett Azure Active Directory-program registrerat i Azure AD B2C-klienten med följande API-behörigheter:
 
 * Microsoft Graph
-  * Program: Läs alla Gransknings logg data
+  * Program: Läs all spårningsloggsdata
 
 Du kan aktivera de här behörigheterna för en befintlig Azure Active Directory program registrering i B2C-klienten eller skapa en ny som är specifik för användning med gransknings logg automatisering.
 
-Om du vill skapa ett nytt program tilldelar du nödvändiga API-behörigheter och skapar en klient hemlighet och utför följande steg:
+Följ de här stegen registrera ett program, tilldela det nödvändiga Microsoft Graph API-behörigheter och skapa sedan en klient hemlighet.
 
-1. Registrera program i Azure Active Directory
-    1. Logga in på [Azure Portal](https://portal.azure.com) och växla till den katalog som innehåller din Azure AD B2C-klient.
-    1. Välj **Azure Active Directory** (*inte* Azure AD B2C) på den vänstra menyn. Eller Välj **alla tjänster**och Sök sedan efter och välj **Azure Active Directory**.
-    1. Under **Hantera** i den vänstra menyn väljer du **Appregistreringar (bakåtkompatibelt)** .
-    1. Välj **ny program registrering**
-    1. Ange ett namn på programmet. Till exempel *Gransknings logg app*.
-    1. Ange en giltig URL i **inloggnings-URL: en**. Till exempel *https://localhost* . Den här slut punkten behöver inte vara nåbar, men måste vara en giltig URL.
-    1. Välj **Skapa**.
-    1. Registrera **program-ID: t** som visas på sidan **registrerade program** . Du behöver det här värdet för autentisering i Automation-skript som exemplet PowerShell-skript som visas i ett senare avsnitt.
-1. Tilldela API-åtkomst behörigheter
-    1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
-    1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
-    1. Välj **Lägg till**och **Välj sedan ett API**.
-    1. Välj **Microsoft Graph**och **Välj**sedan.
-    1. Under **program behörigheter**väljer du **Läs alla Gransknings logg data**.
-    1. Välj knappen **Välj** och välj sedan **färdig**.
-    1. Välj **bevilja**, och välj sedan **Ja**.
-1. Skapa klient hemlighet
-    1. Under **API-åtkomst**väljer du **nycklar**.
-    1. Ange en beskrivning av nyckeln i rutan **nyckel Beskrivning** . Till exempel *Gransknings logg nyckel*.
-    1. Välj en giltighets **tid**och välj sedan **Spara**.
-    1. Registrera nyckelns **värde**. Du behöver det här värdet för autentisering i Automation-skript som exemplet PowerShell-skript som visas i ett senare avsnitt.
+### <a name="register-application-in-azure-active-directory"></a>Registrera program i Azure Active Directory
+
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
+
+### <a name="assign-api-access-permissions"></a>Tilldela API-åtkomst behörigheter
+
+1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
+1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
+1. Välj **Lägg till**och **Välj sedan ett API**.
+1. Välj **Microsoft Graph**och **Välj**sedan.
+1. Under **program behörigheter**väljer du **Läs alla Gransknings logg data**.
+1. Välj knappen **Välj** och välj sedan **färdig**.
+1. Välj **bevilja**, och välj sedan **Ja**.
+
+### <a name="create-client-secret"></a>Skapa klient hemlighet
+
+1. Under **API-åtkomst**väljer du **nycklar**.
+1. Ange en beskrivning av nyckeln i rutan **nyckel Beskrivning** . Till exempel *Gransknings logg nyckel*.
+1. Välj en giltighets **tid**och välj sedan **Spara**.
+1. Registrera nyckelns **värde**. Du behöver det här värdet för autentisering i Automation-skript som exemplet PowerShell-skript som visas i ett senare avsnitt.
 
 Nu har du ett program med nödvändig API-åtkomst, ett program-ID och en nyckel som du kan använda i dina Automation-skript. I avsnittet om PowerShell-skript längre fram i den här artikeln finns ett exempel på hur du kan hämta aktivitets händelser med ett skript.
 

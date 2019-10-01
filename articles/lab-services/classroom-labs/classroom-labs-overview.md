@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 05/21/2018
+ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 964f5624a3a588a1520a08365c5fa9c783114e48
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 67ebce2130bf5594d3c8c671934f7141a02eb60d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60303748"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694655"
 ---
 # <a name="introduction-to-classroom-labs"></a>Introduktion till klassrumslabb
 Azure Lab Services låter dig snabbt konfigurera en ett klassrums-labbmiljö i molnet. En undervisare skapar ett klassrumslabb, etablerar virtuella Windows- eller Linux-datorer, installerar nödvändig programvara och verktyg i klassen och gör dem tillgängliga för studenterna. Studenterna i klassen ansluter till virtuella datorer (VM) i labbet och använder dem för sina projekt, uppgifter, klassrumsövningar. 
@@ -33,6 +33,9 @@ Användare som bjuds in till ditt labb får omedelbar åtkomst till de resurser 
 
 ## <a name="cost-optimization-and-tracking"></a>Kostnadsoptimering och spårning  
 Håll dig inom budgeten genom att kontrollera exakt hur många timmar dina labbanvändare kan använda de virtuella datorerna. Konfigurera scheman i labbet för att ge användarna åtkomst till de virtuella datorerna endast under angivna tidpunkter eller konfigurera återkommande avstängnings- och starttider. Håll koll på individuella användares användning och ange begränsningar.
+
+## <a name="example-class-types"></a>Exempel på klass typer
+Du kan ställa in labb för flera typer av klasser med Azure Lab Services. Se [exempel klass typerna på Azure Lab Services](class-types.md) artikel för några exempel typer av klasser för vilka du kan ställa in labb med Azure Lab Services. 
 
 ## <a name="next-steps"></a>Nästa steg
 Kom igång med att konfigurera ett labbkonto som krävs för att skapa ett klassrumslabb med Azure Lab Services:

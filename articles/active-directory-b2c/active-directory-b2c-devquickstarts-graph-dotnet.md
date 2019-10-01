@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 903492d790cdde93dfe84763de139fe85e26b234
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218278"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701900"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API:n
 
@@ -43,16 +43,9 @@ När du har en Azure AD B2C klient måste du registrera ditt hanterings program 
 
 ### <a name="register-application-in-azure-active-directory"></a>Registrera program i Azure Active Directory
 
-Om du vill använda Azure AD-Graph API med B2C-klienten måste du registrera ett program med hjälp av Azure Active Directory **Appregistreringar** -arbetsflödet.
+Om du vill använda Azure AD-Graph API med din B2C-klient måste du registrera ett program med hjälp av arbets flödet Azure Active Directory program registrering.
 
-1. Logga in på [Azure Portal](https://portal.azure.com) och växla till den katalog som innehåller din Azure AD B2C-klient.
-1. Välj **Azure Active Directory** (*inte* Azure AD B2C) på den vänstra menyn. Eller Välj **alla tjänster** och Sök sedan efter och välj **Azure Active Directory**.
-1. Under **Hantera** i den vänstra menyn väljer du **Appregistreringar (bakåtkompatibelt)** .
-1. Välj **ny program registrering**
-1. Ange ett namn på programmet. Till exempel *hanterings program*.
-1. Ange en giltig URL i **inloggnings-URL: en**. Till exempel *https://localhost* . Den här slut punkten behöver inte vara nåbar, men måste vara en giltig URL.
-1. Välj **Skapa**.
-1. Registrera **program-ID: t** som visas på sidan Översikt över **registrerade appar** . Du använder det här värdet för konfiguration i ett senare steg.
+[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
 
 ### <a name="assign-api-access-permissions"></a>Tilldela API-åtkomst behörigheter
 
@@ -83,7 +76,7 @@ Om du vill ge ditt program möjlighet att ta bort användare eller uppdatera lö
 1. Under **Hantera**väljer du **roller och administratörer**.
 1. Välj rollen **användar administratör** .
 1. Välj **Lägg till tilldelning**.
-1. I rutan **Välj** text anger du namnet på det program som du registrerade tidigare, till exempel *hanterings program*. Välj ditt program när det visas i Sök resultatet.
+1. I rutan **Välj** text anger du namnet på det program som du registrerade tidigare, till exempel *managementapp1*. Välj ditt program när det visas i Sök resultatet.
 1. Välj **Lägg till**. Det kan ta några minuter innan behörigheterna är fullständigt spridda.
 
 Ditt Azure AD B2C-program har nu ytterligare behörigheter som krävs för att ta bort användare eller uppdatera sina lösen ord i B2C-klienten.

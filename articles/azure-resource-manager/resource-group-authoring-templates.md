@@ -4,14 +4,14 @@ description: Beskriver strukturen och egenskaperna för Azure Resource Manager m
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 09/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: 4a5c1a99911c31f539d4f55adefb2c5f06243dd0
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: b6d479935bc9e4bd731b93d3e027644b9ca4dbe0
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984102"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694981"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager mallar
 
@@ -75,7 +75,7 @@ Tillgängliga egenskaper för en parameter är:
 | Elementnamn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
 | parameter-Name |Ja |Parameterns namn. Måste vara en giltig JavaScript-identifierare. |
-| type |Ja |Typ av parameter värde. De tillåtna typerna och värdena är **String**, **SecureString**, **int**, **bool**, **Object**, **secureObject**och **array**. |
+| type |Ja |Typ av parameter värde. De tillåtna typerna och värdena är **String**, **SecureString**, **int**, **bool**, **Object**, **secureObject**och **array**. Se [data typer](#data-types). |
 | defaultValue |Nej |Standardvärdet för parametern, om det inte finns något värde för parametern. |
 | allowedValues |Nej |Matris med tillåtna värden för parametern för att kontrol lera att rätt värde har angetts. |
 | minValue |Nej |Det minsta värdet för int-typ parametrar, detta värde är inkluderat. |
@@ -85,6 +85,18 @@ Tillgängliga egenskaper för en parameter är:
 | description |Nej |Beskrivning av den parameter som visas för användarna via portalen. Mer information finns i [kommentarer i mallar](#comments). |
 
 Exempel på hur du använder parametrar finns [i parametrar i Azure Resource Manager mallar](template-parameters.md).
+
+### <a name="data-types"></a>Datatyper
+
+För heltal som skickas som infogade parametrar kan värde intervallet begränsas av SDK eller kommando rads verktyget som du använder för distribution. När du till exempel använder PowerShell för att distribuera en mall kan heltals typer vara mellan-2147483648 och 2147483647. Undvik den här begränsningen genom att ange stora heltals värden i en [parameter fil](resource-manager-parameter-files.md). Resurs typer tillämpar egna gränser för heltals egenskaper.
+
+När du anger booleska värden och heltals värden i mallen omger du värdet med citat tecken. Start-och slut sträng värden med dubbla citat tecken.
+
+Objekt börjar med en vänster klammerparentes och slutar med en höger klammerparentes. Matriser börjar med en vänsterparentes och slutar med en höger hak paren tes.
+
+Det går inte att läsa säkra strängar och säkra objekt efter resurs distributionen.
+
+Exempel på format data typer finns i [parameter typ format](resource-manager-parameter-files.md#parameter-type-formats).
 
 ## <a name="variables"></a>Variabler
 
@@ -123,7 +135,7 @@ Exempel på hur du använder variabler finns [i variabler i Azure Resource Manag
 
 ## <a name="functions"></a>Funktioner
 
-I mallen kan du skapa egna funktioner. Dessa funktioner är tillgängliga för användning i din mall. Vanligt vis definierar du ett komplext uttryck som du inte vill upprepa i hela mallen. Du kan skapa användardefinierade funktioner från uttryck och [funktioner](resource-group-template-functions.md) som stöds i mallar.
+I mallen kan du skapa egna funktioner. Dessa funktioner är tillgängliga för användning i din mall. Vanligt vis definierar du komplicerade uttryck som du inte vill upprepa i hela mallen. Du kan skapa användardefinierade funktioner från uttryck och [funktioner](resource-group-template-functions.md) som stöds i mallar.
 
 När du definierar en användar funktion finns det vissa begränsningar:
 
@@ -240,7 +252,7 @@ Du definierar resurser med följande struktur:
 | properties |Nej |Resurs-/regionsspecifika konfigurations inställningar. Värdena för egenskaperna är desamma som de värden som du anger i begär ande texten för åtgärden REST API (metoden sätt) för att skapa resursen. Du kan också ange en kopierad matris för att skapa flera instanser av en egenskap. Information om vilka värden som är tillgängliga finns i [referens för mallar](/azure/templates/). |
 | sku | Nej | Vissa resurser tillåter värden som definierar SKU: n som ska distribueras. Du kan till exempel ange typen av redundans för ett lagrings konto. |
 | type | Nej | Vissa resurser tillåter ett värde som definierar vilken typ av resurs du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB som ska skapas. |
-| Projektplan | Nej | Vissa resurser tillåter värden som definierar den plan som ska distribueras. Du kan till exempel ange Marketplace-avbildningen för en virtuell dator. | 
+| plan | Nej | Vissa resurser tillåter värden som definierar den plan som ska distribueras. Du kan till exempel ange Marketplace-avbildningen för en virtuell dator. | 
 | resurser |Nej |Underordnade resurser som är beroende av den resurs som definieras. Ange endast resurs typer som tillåts av schemat för den överordnade resursen. Beroendet av den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
 
 ## <a name="outputs"></a>outputs

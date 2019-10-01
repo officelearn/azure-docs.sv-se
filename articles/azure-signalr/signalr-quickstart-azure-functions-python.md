@@ -7,12 +7,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/08/2019
 ms.author: antchu
-ms.openlocfilehash: fbae9d15ba8572a8ae2c493ec85eb0010c2664eb
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 728111548176a0a3212b1677eeb192ccdc47fe88
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882170"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709501"
 ---
 # <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-python"></a>Snabbstart: Skapa ett chattrum med Azure Functions-och SignalR-tjänsten med python
 
@@ -74,7 +74,7 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 
 1. I **local.settings.json** klistrar du in anslutningssträngen i värdet för inställningen **AzureSignalRConnectionString**. Spara filen.
 
-1. Python-funktioner ordnas i mappar. I varje mapp finns två filer: *Function. JSON* definierar de bindningar som används i funktionen och  *\_ \_init\_\_. py* är bröd texten i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
+1. Python-funktioner ordnas i mappar. I varje mapp finns två filer: *Function. JSON* definierar de bindningar som används i funktionen och *\_ @ no__t-3init @ no__t-4\_.py* är bröd texten i funktionen. Det finns två HTTP-utlösta funktioner i den här funktionsappen:
 
     - **negotiate** (förhandla) – använder indatabindningen *SignalRConnectionInfo* för att skapa och returnera giltig anslutningsinformation.
     - **messages** (meddelanden) – tar emot ett chattmeddelande i begärandetexten och använder utdatabindningen *SignalR* för att skicka meddelandet till alla anslutna klientprogram.
@@ -102,4 +102,4 @@ Logga in på Azure-portalen på <https://portal.azure.com/> med ditt Azure-konto
 I den här snabb starten har du skapat och kört ett program utan server i real tid i VS Code. Som nästa steg ska du lära dig mer om hur du distribuerar Azure Functions via VS Code.
 
 > [!div class="nextstepaction"]
-> [Distribuera Azure Functions med VS Code](https://code.visualstudio.com/tutorials/functions-extension/getting-started)
+> [Distribuera Azure Functions med VS Code](/azure/javascript/tutorial-vscode-serverless-node-01)

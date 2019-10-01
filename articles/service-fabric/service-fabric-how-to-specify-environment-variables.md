@@ -1,5 +1,5 @@
 ---
-title: Så här anger miljövariabler för tjänster i Azure Service Fabric | Microsoft Docs
+title: 'Anvisningar: Ange miljövariabler för tjänster i Azure Service Fabric | Microsoft Docs'
 description: Visar hur du använder miljövariabler för program i Service Fabric
 documentationcenter: .net
 author: mikkelhegn
@@ -12,48 +12,57 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: f75de635f08ae06db349387a436c636c149ec9f2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: df9b199c24301016b9f9da8a8dec52129bbf94bd
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720237"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703532"
 ---
-# <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Hur du anger miljövariabler för tjänster i Service Fabric
+# <a name="how-to-specify-environment-variables-for-services-in-service-fabric"></a>Så här anger du miljövariabler för tjänster i Service Fabric
 
-Den här artikeln visar hur du anger miljövariabler för en tjänst eller en behållare i Service Fabric.
+Den här artikeln visar hur du anger miljövariabler för en tjänst eller behållare i Service Fabric.
 
-## <a name="procedure-for-specifying-environment-variables-for-services"></a>Proceduren för att ange miljövariabler för tjänster
+## <a name="procedure-for-specifying-environment-variables-for-services"></a>Procedur för att ange miljövariabler för tjänster
 
-I det här exemplet anger du en miljövariabel för en behållare. Artikeln förutsätter att du redan har ett manifest för program och tjänster.
+I det här exemplet anger du en miljö variabel för en behållare. Artikeln förutsätter att du redan har ett program-och tjänst manifest.
 
-1. Öppna filen servicemanifest.XML.
-1. I den `CodePackage` element, lägga till en ny `EnvironmentVariables` element och en `EnvironmentVariable` element för varje miljövariabeln.
+1. Öppna filen ServiceManifest. xml.
+2. I elementet `CodePackage` lägger du till ett nytt `EnvironmentVariables`-element och ett `EnvironmentVariable`-element för varje miljö variabel.
 
     ```xml
-      <CodePackage Name="MyCode" Version="CodeVersion1">
-      ...
-        <EnvironmentVariables>
-          <EnvironmentVariable Name="MyEnvVariable" Value="DefaultValue"/>
-          <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
-        </EnvironmentVariables>
-      </CodePackage>
+    <CodePackage Name="MyCode" Version="CodeVersion1">
+            ...
+            <EnvironmentVariables>
+                  <EnvironmentVariable Name="MyEnvVariable" Value="DefaultValue"/>
+                  <EnvironmentVariable Name="HttpGatewayPort" Value="19080"/>
+            </EnvironmentVariables>
+    </CodePackage>
     ```
 
-    Miljövariabler kan åsidosättas i applikationsmanifestet.
+   Miljövariabler kan åsidosättas i applikations manifestet.
 
-1. Om du vill åsidosätta miljövariabler i applikationsmanifestet, använda den `EnvironmentOverrides` element.
+3. Om du vill åsidosätta miljövariablerna i applikations manifestet använder du elementet `EnvironmentOverrides`.
 
     ```xml
       <ServiceManifestImport>
-        <ServiceManifestRef ServiceManifestName="FrontEndServicePkg" ServiceManifestVersion="1.0.0" />
+        <ServiceManifestVersion="1.0.0" />
         <EnvironmentOverrides CodePackageRef="MyCode">
           <EnvironmentVariable Name="MyEnvVariable" Value="OverrideValue"/>
         </EnvironmentOverrides>
       </ServiceManifestImport>
     ```
 
-## <a name="next-steps"></a>Nästa steg
-Mer information om några av de viktigaste begreppen som beskrivs i den här artikeln finns det [hantera program för flera miljöer artiklar](service-fabric-manage-multiple-environment-app-configuration.md).
+## <a name="specifying-environment-variables-dynamically-using-docker-compose"></a>Ange miljövariabler dynamiskt med Docker Compose
 
-Information om andra funktioner för hantering av appen som är tillgängliga i Visual Studio finns i [hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).
+Service Fabric har stöd för möjligheten att [använda Docker Compose för distribution](service-fabric-docker-compose.md#supported-compose-directives). Skapa filer kan käll miljövariabler från gränssnittet. Det här beteendet kan användas för att ersätta önskade miljö värden dynamiskt:
+
+```yml
+environment:
+  - "hostname:${hostname}"
+```
+
+## <a name="next-steps"></a>Nästa steg
+Mer information om några av de grundläggande begreppen som beskrivs i den här artikeln finns i artikeln [hantera program för flera miljöer](service-fabric-manage-multiple-environment-app-configuration.md).
+
+Information om andra hanterings funktioner för appar som är tillgängliga i Visual Studio finns i [Hantera dina Service Fabric-program i Visual Studio](service-fabric-manage-application-in-visual-studio.md).

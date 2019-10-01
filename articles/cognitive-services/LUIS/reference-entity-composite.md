@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 07/24/2019
+ms.date: 09/29/2019
 ms.author: diberry
-ms.openlocfilehash: ea258275cf954bc6e06da03324c2ae93de0e7fde
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: a5a1ad467074ee0aa55d14d50ae153ac68304e6f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68563238"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695155"
 ---
 # <a name="composite-entity"></a>Sammansatt entitet 
 
@@ -33,66 +33,150 @@ En sammansatt entitet består av andra entiteter, till exempel färdiga entitete
 
 ## <a name="example-json"></a>Exempel på JSON
 
-Betrakta en sammansatt entitet av `number` fördefinierad `Location::ToLocation` och med följande uttryck:
+Överväg en sammansatt entitet av fördefinierad `number` och `Location::ToLocation` med följande uttryck:
 
-`book 2 tickets to paris`
+`book 2 tickets to cairo`
 
-Observera att `2`, antalet, och `paris`, ToLocation har ord mellan dem som inte tillhör någon av enheterna. Grön linje, används i en taggade uttryck i den [LUIS](luis-reference-regions.md) webbplats, anger en sammansatt entitet.
+Observera att `2`, antalet, och `cairo`, ToLocation har ord mellan dem som inte tillhör någon av enheterna. Grön linje, används i en taggade uttryck i den [LUIS](luis-reference-regions.md) webbplats, anger en sammansatt entitet.
 
 ![Sammansatt entitet](./media/luis-concept-data-extraction/composite-entity.png)
+
+#### <a name="v2-prediction-endpoint-responsetabv2"></a>[Slut punkts svar för v2 förutsägelse](#tab/V2)
 
 Sammansatta entiteter returneras i en `compositeEntities` matris och alla enheter i sammansatt returneras också i de `entities` matris:
 
 ```JSON
-
-"entities": [
+  "entities": [
     {
-    "entity": "2 tickets to cairo",
-    "type": "ticketInfo",
-    "startIndex": 0,
-    "endIndex": 17,
-    "score": 0.67200166
+      "entity": "2 tickets to cairo",
+      "type": "ticketinfo",
+      "startIndex": 5,
+      "endIndex": 22,
+      "score": 0.9214487
     },
     {
-    "entity": "2",
-    "type": "builtin.number",
-    "startIndex": 0,
-    "endIndex": 0,
-    "resolution": {
+      "entity": "cairo",
+      "type": "builtin.geographyV2.city",
+      "startIndex": 18,
+      "endIndex": 22
+    },
+    {
+      "entity": "2",
+      "type": "builtin.number",
+      "startIndex": 5,
+      "endIndex": 5,
+      "resolution": {
         "subtype": "integer",
         "value": "2"
+      }
     }
-    },
+  ],
+  "compositeEntities": [
     {
-    "entity": "cairo",
-    "type": "builtin.geographyV2",
-    "startIndex": 13,
-    "endIndex": 17
-    }
-],
-"compositeEntities": [
-    {
-    "parentType": "ticketInfo",
-    "value": "2 tickets to cairo",
-    "children": [
+      "parentType": "ticketinfo",
+      "value": "2 tickets to cairo",
+      "children": [
         {
-        "type": "builtin.geographyV2",
-        "value": "cairo"
+          "type": "builtin.number",
+          "value": "2"
         },
         {
-        "type": "builtin.number",
-        "value": "2"
+          "type": "builtin.geographyV2.city",
+          "value": "cairo"
+        }
+      ]
+    }
+  ]
+```    
+
+#### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 slut punkts svar för förutsägelse](#tab/V3)
+
+Detta är JSON om `verbose=false` anges i frågesträngen:
+
+```json
+"entities": {
+    "ticketinfo": [
+        {
+            "number": [
+                2
+            ],
+            "geographyV2": [
+                "cairo"
+            ]
         }
     ]
+}
+```
+
+Detta är JSON om `verbose=true` anges i frågesträngen:
+
+```json
+"entities": {
+    "ticketinfo": [
+        {
+            "number": [
+                2
+            ],
+            "geographyV2": [
+                "cairo"
+            ],
+            "$instance": {
+                "number": [
+                    {
+                        "type": "builtin.number",
+                        "text": "2",
+                        "startIndex": 5,
+                        "length": 1,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ],
+                "geographyV2": [
+                    {
+                        "type": "builtin.geographyV2.city",
+                        "text": "cairo",
+                        "startIndex": 18,
+                        "length": 5,
+                        "modelTypeId": 2,
+                        "modelType": "Prebuilt Entity Extractor",
+                        "recognitionSources": [
+                            "model"
+                        ]
+                    }
+                ]
+            }
+        }
+    ],
+    "$instance": {
+        "ticketinfo": [
+            {
+                "type": "ticketinfo",
+                "text": "2 tickets to cairo",
+                "startIndex": 5,
+                "length": 18,
+                "score": 0.9214487,
+                "modelTypeId": 4,
+                "modelType": "Composite Entity Extractor",
+                "recognitionSources": [
+                    "model"
+                ]
+            }
+        ]
     }
-]
-```    
+}
+```
+
+* * * 
+
 
 |Dataobjekt|Entitetsnamn|Värde|
 |--|--|--|
 |Fördefinierade enhet - nummer|”builtin.number”|”2”|
-|Fördefinierad entitet – GeographyV2|”Location::ToLocation”|”paris”|
+|Fördefinierad entitet – GeographyV2|”Location::ToLocation”|Cairo|
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den [](luis-tutorial-composite-entity.md)här självstudien lägger du till en **sammansatt enhet** för att bunta extraherade data av olika typer till en enda som innehåller entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.
+I den här [självstudien](luis-tutorial-composite-entity.md)lägger du till en **sammansatt enhet** för att bunta extraherade data av olika typer till en enda som innehåller entiteten. Genom att paketera data extrahera klientprogrammet enkelt relaterade data i olika datatyper.

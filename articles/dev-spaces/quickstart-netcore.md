@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 162a020351efb27fe25b566918ddda555fac35eb
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: d9a69ea993b86946a0999a38264a68e28dc62d50
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772605"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695467"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-net-core-on-kubernetes-using-azure-dev-spaces-visual-studio-code"></a>Snabbstart: Felsöka och iterera med Visual Studio Code och .NET Core på Kubernetes med hjälp av Azure dev Spaces (Visual Studio Code)
 
@@ -24,6 +24,11 @@ I den här guiden får du lära dig hur du:
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
 - Felsök koden i ditt dev Space från Visual Studio Code.
+
+Med Azure dev Spaces kan du också felsöka och iterera med:
+- [Java och Visual Studio Code](quickstart-java.md)
+- [Node. js och Visual Studio Code](quickstart-nodejs.md)
+- [.NET Core och Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -109,7 +114,7 @@ Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings p
 Om du vill distribuera en uppdaterad version av tjänsten kan du uppdatera alla filer i projektet och köra *.net Core Launch (AZDS)* igen. Exempel:
 
 1. Om programmet fortfarande körs klickar du på *Felsök* och *stoppar sedan fel sökningen* för att stoppa det.
-1. Uppdatera [rad 22 i `Controllers/HomeController.cs` ](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) till:
+1. Uppdatera [rad 22 i `Controllers/HomeController.cs`](https://github.com/Azure/dev-spaces/blob/master/samples/dotnetcore/getting-started/webfrontend/Controllers/HomeController.cs#L22) till:
     
     ```csharp
     ViewData["Message"] = "Your application description page in Azure.";
@@ -131,7 +136,7 @@ Gå tillbaka *till trädvyn genom* att klicka på *Visa* och sedan på *Explorer
 
 När du kör tjänsten i Kubernetes med en fel sökare ansluten har du fullständig åtkomst till felsöknings information som anrops stack, lokala variabler och undantags information.
 
-Ta bort Bryt punkten genom att placera markören på rad 22 `Controllers/HomeController.cs` i och trycka på *F9*.
+Ta bort Bryt punkten genom att placera markören på rad 22 i `Controllers/HomeController.cs` och trycka på *F9*.
 
 ## <a name="update-code-from-visual-studio-code"></a>Uppdatera kod från Visual Studio Code
 

@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 77cd720ffd2763b2ad3d73559a5363989f9e3e3a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: fd4bf602cb5ca409b957e9dbd6f963d88428a63f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679298"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694650"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET webb-API med hjälp av Azure Active Directory B2C
 
@@ -58,13 +58,9 @@ Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång anvä
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
-Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:et. I den obligatoriska föregående självstudien skapade du en webbapp i Azure AD B2C med namnet *webapp1*. Du använder det programmet för att anropa webb-API:et.
+Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:et. I den obligatoriska föregående självstudien skapade du en webbapp i Azure AD B2C med namnet *webapp1*. Du använder det här programmet till att anropa webb-API:t.
 
-1. Välj **Program** och därefter *webapp1*.
-1. Välj **API-åtkomst** och därefter **Lägg till**.
-1. I listrutan **Välj API** väljer du *webapi1*.
-1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
-1. Välj **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Programmet har registrerats för att anropa det skyddade webb-API:et. En användare autentiserar med Azure AD B2C för att använda programmet. Programmet får ett auktoriseringsbeviljande från Azure AD B2C som ger tillgång till det skyddade webb-API:et.
 
@@ -73,8 +69,6 @@ Programmet har registrerats för att anropa det skyddade webb-API:et. En använd
 När webb-API:et är registrerat och har ett definierat omfång konfigurerar du webb-API:et så det använder din Azure AD B2C-klientorganisation. I den här självstudiekursen konfigurerar du ett webb-API-exempel. Exempelwebb-API:et ingår i det projekt som du laddade ned i den obligatoriska föregående självstudien.
 
 Exempellösningen innehåller två projekt:
-
-Följande två projekt finns i exempellösningen:
 
 * **TaskWebApp** – Skapa och redigera en uppgiftslista. Exemplet använder användarflödet för **registrering eller inloggning** för att registrera eller logga in användare.
 * **TaskService** – Har stöd för att skapa, läsa, uppdatera och ta bort funktionen för uppgiftslistor. API:et skyddas av Azure AD B2C och anropas av TaskWebApp.

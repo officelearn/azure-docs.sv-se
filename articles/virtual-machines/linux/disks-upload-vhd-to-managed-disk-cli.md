@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: bc8932a9904a3e4e671edc3e624ff15e7253e1ed
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 938f1696c95f8feb9aeebd28139870e3ce020613
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326824"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695452"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-cli"></a>Ladda upp en virtuell hård disk till Azure med Azure CLI
 
@@ -32,7 +32,7 @@ För närvarande stöds direkt uppladdning för standard hård diskar, standard 
 
 ## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
 
-Om du vill överföra din virtuella hård disk till Azure måste du skapa en tom hanterad disk som är särskilt konfigurerad för den här överförings processen. Innan du skapar en sådan finns det ytterligare information som du bör känna till om de här diskarna.
+Om du vill överföra din virtuella hård disk till Azure måste du skapa en tom hanterad disk som har kon figurer ATS för den här överförings processen. Innan du skapar en sådan finns det ytterligare information som du bör känna till om de här diskarna.
 
 Den här typen av hanterade diskar har två unika tillstånd:
 
@@ -51,7 +51,7 @@ az disk create -n mydiskname -g resourcegroupname -l westus2 --for-upload --uplo
 
 Om du vill ladda upp antingen Premium SSD eller en standard SSD ersätter du **standard_lrs** med antingen **premium_LRS** eller **standardssd_lrs**. Ultra SSD stöds ännu inte.
 
-Nu har du skapat en tom hanterad disk som har kon figurer ATS för uppladdnings processen. Om du vill ladda upp en virtuell hård disk till disken behöver du en skrivbar SAS, så att du kan referera till den som mål för överföringen.
+Nu har du skapat en tom hanterad disk som är konfigurerad för överförings processen. Om du vill ladda upp en virtuell hård disk till disken behöver du en skrivbar SAS, så att du kan referera till den som mål för överföringen.
 
 Använd följande kommando för att generera en skrivbar SAS för din tomma hanterade disk:
 

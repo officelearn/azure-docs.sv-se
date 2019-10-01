@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 9a751956f73ca4a88545e034a32d699c0766dd1d
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855364"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710175"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statisk webbplats som är värd för i Azure Storage
 
@@ -44,7 +44,7 @@ Du kan använda något av dessa verktyg för att ladda upp innehåll till **$Web
 > * [AzCopy](../common/storage-use-azcopy-v10.md)
 > * [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 > * [Azure-pipeline](https://azure.microsoft.com/services/devops/pipelines/)
-> * [Visual Studio Code-tillägg](https://code.visualstudio.com/tutorials/static-website/getting-started)
+> * [Visual Studio Code-tillägg](/azure/javascript/tutorial-vscode-static-website-node-01)
 
 ## <a name="viewing-content"></a>Visa innehåll
 
@@ -56,11 +56,11 @@ Användare kan visa webbplats innehåll från en webbläsare med hjälp av den o
 |**Azure CLI** | [Hitta webbplats-URL: en med hjälp av Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Azure PowerShell modul** | [Hitta webbplats-URL: en med hjälp av PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
-URL: en för din webbplats innehåller en regional kod. Till exempel innehåller URL `https://contosoblobaccount.z22.web.core.windows.net/` : en regional `z22`kod.
+URL: en för din webbplats innehåller en regional kod. Till exempel URL: en `https://contosoblobaccount.z22.web.core.windows.net/` innehåller regional kod `z22`.
 
 Även om koden måste vara en webb adress är den bara för intern användning och du behöver inte använda koden på något annat sätt.
 
-Det index dokument som du anger när du aktiverar statisk webbplats värd, visas när användarna öppnar platsen och inte anger en speciell fil (till exempel: `https://contosoblobaccount.z22.web.core.windows.net`).  
+Det index dokument som du anger när du aktiverar statisk webbplats värd visas när användarna öppnar platsen och inte anger en fil (till exempel: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
 Om servern returnerar ett 404-fel och du inte har angett ett fel dokument när du aktiverade webbplatsen, returneras en standard-404-sida till användaren.
 
@@ -74,9 +74,9 @@ Följande skärm bild visar inställningen för offentlig åtkomst nivå i Azure
 
 Även om den primära statiska webbplats slut punkten inte påverkas, påverkar en ändring av den offentliga åtkomst nivån den primära BLOB-tjänstens slut punkt.
 
-Om du till exempel ändrar den offentliga åtkomst nivån för **$Web** containern från **privat (ingen anonym åtkomst)** till **BLOB (endast anonym Läs åtkomst för blobbar)** , så är nivån för offentlig åtkomst till den primära statiska webbplats slut punkten `https://contosoblobaccount.z22.web.core.windows.net/index.html`ändras inte.
+Om du till exempel ändrar den offentliga åtkomst nivån för **$Web** containern från **privat (ingen anonym åtkomst)** till **BLOB (endast anonym Läs åtkomst för blobbar)** , så är nivån för offentlig åtkomst till den primära statiska webbplats slut punkten `https://contosoblobaccount.z22.web.core.windows.net/index.html` ändras inte.
 
-Den offentliga åtkomsten till den primära BLOB service-slutpunkten `https://contosoblobaccount.blob.core.windows.net/$web/index.html` ändras dock från privat till offentlig. Nu kan användare öppna filen genom att använda någon av dessa två slut punkter.
+Den offentliga åtkomsten till den primära BLOB-tjänstens slut punkt `https://contosoblobaccount.blob.core.windows.net/$web/index.html` ändras dock från privat till offentlig. Nu kan användare öppna filen genom att använda någon av dessa två slut punkter.
 
 ## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Stöd för Content Delivery Network (CDN) och SSL (Secure Socket Layer)
 
@@ -113,4 +113,4 @@ Om du vill aktivera mått på dina statiska webbplats sidor, se [Aktivera mått 
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [Bygg din första server lös webbapp](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Självstudier: Vara värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)
+* [Självstudier: Värd för din domän i Azure DNS @ no__t-0

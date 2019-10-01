@@ -1,6 +1,6 @@
 ---
-title: Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsyta | Microsoft Docs
-description: Samla in Azure-aktivitetsloggen i Azure Monitor-loggar och Använd lösningen för fjärrövervakning att analysera och söka i Azure-aktivitetsloggen i alla dina Azure-prenumerationer.
+title: Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta | Microsoft Docs
+description: Samla in Azure aktivitets logg i Azure Monitor loggar och Använd övervaknings lösningen för att analysera och söka i Azure aktivitets loggen i alla dina Azure-prenumerationer.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -11,68 +11,71 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/19/2019
+ms.date: 09/30/2019
 ms.author: bwren
-ms.openlocfilehash: 5839fd40a128097e400f13acbe4fb6ef90c656b7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: affefa96d6e38a88c994938115ddf44bcf8bd36d
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66248136"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695054"
 ---
-# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in och analysera Azure-aktivitetsloggar i Log Analytics-arbetsyta i Azure Monitor
-Den [Azure-aktivitetsloggen](activity-logs-overview.md) ger information om händelser på prenumerationsnivå som har inträffat i Azure-prenumerationen. Den här artikeln beskrivs hur du samlar in aktivitetsloggen i Log Analytics-arbetsytan och hur du använder Activity Log Analytics [övervakningslösning](../insights/solutions.md), vilket ger loggfrågor och vyer för att analysera data. 
+# <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Samla in och analysera Azure aktivitets loggar i Log Analytics arbets yta i Azure Monitor
+[Azure aktivitets loggen](activity-logs-overview.md) ger inblick i händelser på prenumerations nivå som har inträffat i din Azure-prenumeration. Den här artikeln beskriver hur du samlar in aktivitets loggen på en Log Analytics arbets yta och hur du använder Aktivitetslogganalys [övervaknings lösning](../insights/solutions.md)som innehåller logg frågor och vyer för att analysera dessa data. 
 
-Ansluta aktivitetsloggen till Log Analytics-arbetsytan ger följande fördelar:
+Att ansluta aktivitets loggen till en Log Analytics arbets yta ger följande fördelar:
 
-- Konsolidera aktivitetsloggen från flera Azure-prenumerationer på en plats för analys.
-- Store aktivitetsloggposter längre än 90 dagar.
-- Korrelera aktivitetsloggen data med andra övervakningsdata som samlas in av Azure Monitor.
-- Använd [logga frågor](../log-query/log-query-overview.md) att utföra avancerade analyser och få bättre insikt i aktivitetsloggen transaktioner.
+- Konsolidera aktivitets loggen från flera Azure-prenumerationer till en plats för analys.
+- Lagra aktivitets logg poster under längre tid än 90 dagar.
+- Korrelera aktivitets logg data med andra övervaknings data som samlas in av Azure Monitor.
+- Använd [logg frågor](../log-query/log-query-overview.md) för att utföra komplexa analyser och få djupgående insikter om aktivitets logg poster.
 
-## <a name="connect-to-log-analytics-workspace"></a>Anslut till Log Analytics-arbetsyta
-En aktivitetslogg kan anslutas till endast en arbetsyta, men en enda arbetsyta kan anslutas till aktivitetsloggen för flera prenumerationer i samma Azure-klient. Samling över flera klienter, se [samla in Azure-aktivitetsloggar till Log Analytics-arbetsytan i alla prenumerationer i olika Azure Active Directory innehavare](activity-log-collect-tenants.md).
+## <a name="connect-to-log-analytics-workspace"></a>Anslut till Log Analytics arbets yta
+En aktivitets logg kan endast anslutas till en arbets yta, men en enskild arbets yta kan anslutas till aktivitets loggen för flera prenumerationer i samma Azure-klient. För insamling över flera klienter, se [samla in Azure-aktivitets loggar i en Log Analytics arbets yta mellan prenumerationer i olika Azure Active Directory klienter](activity-log-collect-tenants.md).
 
-Använd följande procedur för att ansluta aktivitetsloggen till din Log Analytics-arbetsyta:
+> [!IMPORTANT]
+> Du kan få ett fel med följande procedur om resurs leverantörerna Microsoft. OperationalInsights och Microsoft. OperationsManagement inte har registrerats för din prenumeration. Se [Azures resurs leverantörer och typer](../../azure-resource-manager/resource-manager-supported-services.md) för att registrera dessa leverantörer.
 
-1. Från den **Log Analytics-arbetsytor** menyn i Azure-portalen, väljer arbetsytan för att samla in aktivitetsloggen.
-1. I den **datakällor för arbetsyta** avsnitt i den arbetsytan väljer du **Azure-aktivitetsloggen**.
-1. Klicka på den prenumeration som du vill ansluta till.
+Använd följande procedur för att ansluta aktivitets loggen till din Log Analytics-arbetsyta:
+
+1. Från menyn **Log Analytics arbets ytor** i Azure Portal väljer du arbets ytan för att samla in aktivitets loggen.
+1. I avsnittet **data källor för arbets yta** på menyn för arbets ytan väljer du **Azure aktivitets logg**.
+1. Klicka på den prenumeration som du vill ansluta.
 
     ![Arbetsytor](media/activity-log-export/workspaces.png)
 
-1. Klicka på **Connect** ansluta aktivitetsloggen i prenumerationen till den valda arbetsytan. Om prenumerationen är redan ansluten till en annan arbetsyta, klickar du på **Disconnect** först för att koppla från den.
+1. Klicka på **Anslut** för att ansluta aktivitets loggen i prenumerationen till den valda arbets ytan. Om prenumerationen redan är ansluten till en annan arbets yta, klickar du på **Koppla från** först för att koppla bort den.
 
-    ![Ansluta arbetsytor](media/activity-log-export/connect-workspace.png)
+    ![Anslut arbets ytor](media/activity-log-export/connect-workspace.png)
 
-## <a name="analyze-in-log-analytics-workspace"></a>Analysera i Log Analytics-arbetsyta
-När du ansluter en aktivitetslogg till Log Analytics-arbetsytan poster ska skrivas till arbetsytan i en tabell som heter **AzureActivity** som du kan hämta med en [loggfråga](../log-query/log-query-overview.md). Strukturen för den här tabellen varierar beroende på den [kategori av loggpost](activity-logs-overview.md#categories-in-the-activity-log). Se [Azure-aktivitetsloggen Händelseschema](activity-log-schema.md) en beskrivning av varje kategori.
+## <a name="analyze-in-log-analytics-workspace"></a>Analysera i Log Analytics arbets ytan
+När du ansluter en aktivitets logg till en Log Analytics arbets yta skrivs poster till arbets ytan i en tabell med namnet **AzureActivity** som du kan hämta med en [logg fråga](../log-query/log-query-overview.md). Strukturen för den här tabellen varierar beroende på vilken [kategori logg posten](activity-logs-overview.md#categories-in-the-activity-log)har. Se [händelse schema för Azure aktivitets logg](activity-log-schema.md) för en beskrivning av varje kategori.
 
-## <a name="activity-logs-analytics-monitoring-solution"></a>Lösning för övervakning av aktivitet loggar Analytics
-Azure Log Analytics-lösningen för fjärrövervakning ingår flera loggfrågor och vyer för att analysera poster aktivitetsloggen i Log Analytics-arbetsytan.
+## <a name="activity-logs-analytics-monitoring-solution"></a>Aktivitets loggarna analys övervaknings lösning
+Azure Log Analytics Monitoring-lösningen innehåller flera logg frågor och vyer för att analysera aktivitets logg poster i Log Analytics-arbetsytan.
 
 ### <a name="install-the-solution"></a>Installera lösningen
-Stegen nedan i [installera en övervakningslösning](../insights/solutions.md#install-a-monitoring-solution) att installera den **Activity Log Analytics** lösning. Det finns ingen ytterligare konfiguration krävs.
+Använd proceduren i [installera en övervaknings lösning](../insights/solutions.md#install-a-monitoring-solution) för att installera **Aktivitetslogganalys** lösning. Ingen ytterligare konfiguration krävs.
 
 ### <a name="use-the-solution"></a>Använd lösningen
-Övervakningslösningar kan nås från den **övervakaren** menyn i Azure-portalen. Välj **mer** i den **Insights** avsnitt för att öppna den **översikt** sida med lösningen paneler. Den **Azure-aktivitetsloggar** panelen visar en uppräkning av antalet **AzureActivity** poster i din arbetsyta.
+Övervaknings lösningar nås från **Monitor** -menyn i Azure Portal. Välj **mer** i avsnittet om **insikter** för att öppna **översikts** sidan med lösnings panelerna. I panelen **Azure aktivitets loggar** visas antalet **AzureActivity** -poster i din arbets yta.
 
 ![Azure-aktivitetsloggar panel](media/collect-activity-logs/azure-activity-logs-tile.png)
 
 
-Klicka på den **Azure-aktivitetsloggar** panelen för att öppna den **Azure-aktivitetsloggar** vy. Vyn består av visualiseringen delar i följande tabell. Varje del listar upp till 10 objekt som matchar den delar villkoren för det angivna tidsintervallet. Du kan köra en loggfråga som returnerar alla matchande poster genom att klicka på **se alla** längst ned på delen.
+Klicka på panelen **Azure aktivitets loggar** för att öppna vyn **Azure aktivitets loggar** . Vyn innehåller visualiserings delarna i följande tabell. Varje del visar upp till 10 objekt som matchar delarnas kriterier för det angivna tidsintervallet. Du kan köra en logg fråga som returnerar alla matchande poster genom att klicka på **Visa alla** längst ned i delen.
 
 ![Instrumentpanelen för Azure-aktivitetsloggar](media/collect-activity-logs/activity-log-dash.png)
 
-| En del visualisering | Beskrivning |
+| Visualiserings del | Beskrivning |
 | --- | --- |
-| Azure-Aktivitetsloggposter | Visar ett stapeldiagram på den översta posten i Azure-aktivitetsloggen poster summor för datumintervall som du har valt och visar en lista över de översta 10 aktivitet anropare. Klicka på diagrammet för att köra en loggsökning för `AzureActivity`. Klicka på en anroparen objekt om du vill köra en loggsökning som returnerar alla poster i aktivitetsloggen för objektet. |
-| Aktivitetsloggar efter Status | Visar ett ringdiagram för Azure-aktivitetsloggen status för det valda datumintervallet och en lista över de översta tio status-posterna. Klicka på diagrammet för att köra en loggfråga för `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Klicka på en statusobjekt om du vill köra en loggsökning som returnerar alla poster i aktivitetsloggen för status för posten. |
-| Aktivitetsloggar efter resurs | Visar det totala antalet resurser med aktivitetsloggar och visar en lista över de översta tio resurser med post antalet för varje resurs. Klicka på den totala område för att köra en loggsökning för `AzureActivity | summarize AggregatedValue = count() by Resource`, som visar alla Azure-resurser tillgängliga för lösningen. Klicka på en resurs för att köra en loggfråga som returnerar alla aktivitetsposter för den resursen. |
-| Aktivitetsloggar av Resursprovidern | Visar det totala antalet resursprovidrar som producerar aktivitetsloggar och visar en lista över tio främsta. Klicka på total område för att köra en loggfråga för `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, som visar alla leverantörer av Azure-resurs. Klicka på en resursprovider för att köra en loggfråga som returnerar alla aktivitetsposter för providern. |
+| Azure-Aktivitetsloggposter | Visar ett stapeldiagram för de översta posterna i Azures aktivitets logg post för det datum intervall som du har valt och visar en lista över de 10 främsta aktivitetens anropare. Klicka på diagrammet för att köra en loggsökning för `AzureActivity`. Klicka på ett anroparens objekt för att köra en loggs ökning som returnerar alla aktivitets logg poster för objektet. |
+| Aktivitetsloggar efter Status | Visar ett ring diagram för Azures aktivitets logg status för det valda datum intervallet och en lista över de tio främsta status posterna. Klicka på diagrammet för att köra en logg fråga för `AzureActivity | summarize AggregatedValue = count() by ActivityStatus`. Klicka på ett status objekt om du vill köra en loggs ökning som returnerar alla aktivitets logg poster för den status posten. |
+| Aktivitetsloggar efter resurs | Visar det totala antalet resurser med aktivitets loggar och listar de tio främsta resurserna med antal poster för varje resurs. Klicka på den totala område för att köra en loggsökning för `AzureActivity | summarize AggregatedValue = count() by Resource`, som visar alla Azure-resurser tillgängliga för lösningen. Klicka på en resurs för att köra en logg fråga som returnerar alla aktivitets poster för resursen. |
+| Aktivitetsloggar av Resursprovidern | Visar det totala antalet resurs leverantörer som skapar aktivitets loggar och listar de tio främsta. Klicka på det totala utrymmet för att köra en logg fråga för `AzureActivity | summarize AggregatedValue = count() by ResourceProvider`, som visar alla Azure Resource providers. Klicka på en resurs leverantör för att köra en logg fråga som returnerar alla aktivitets poster för providern. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om den [aktivitetsloggen](activity-logs-overview.md).
-- Läs mer om den [Azure Monitor dataplattform](data-platform.md).
-- Använd [logga frågor](../log-query/log-query-overview.md) att visa detaljerad information från din aktivitetslogg.
+- Läs mer om [aktivitets loggen](activity-logs-overview.md).
+- Läs mer om [Azure Monitor data plattform](data-platform.md).
+- Använd [logg frågor](../log-query/log-query-overview.md) för att visa detaljerad information från aktivitets loggen.

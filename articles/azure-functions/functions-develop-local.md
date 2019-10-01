@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: c50615b9cbe5c3ca926d893858bb39eeb5720067
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 7c2e727ecb080d1db212e8b45a2c48bac81a3949
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129594"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709314"
 ---
 # <a name="code-and-test-azure-functions-locally"></a>Kod och test Azure Functions lokalt
 
@@ -38,7 +38,7 @@ Var och en av de här lokala utvecklings miljöerna gör att du kan skapa Functi
 ## <a name="next-steps"></a>Nästa steg
 
 + Läs mer om lokal utveckling av kompilerade C# funktioner med visual Studio 2019 i [utveckla Azure Functions med Visual Studio](functions-develop-vs.md).
-+ Mer information om lokal utveckling av funktioner med VS Code på en Mac-, Linux-eller Windows-dator finns i [vs Code-dokumentationen för Azure Functions](https://code.visualstudio.com/tutorials/functions-extension/getting-started).
++ Mer information om lokal utveckling av funktioner med VS Code på en Mac-, Linux-eller Windows-dator finns i [distribuera Azure Functions från vs Code](/azure/javascript/tutorial-vscode-serverless-node-01).
 + Mer information om hur du utvecklar funktioner från kommando tolken eller terminalen finns i [arbeta med Azure Functions Core tools](functions-run-local.md).
 
 <!-- LINKS -->

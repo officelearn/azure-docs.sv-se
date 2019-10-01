@@ -9,16 +9,16 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 5a6c87da7ae62af54990e0a1a2c62065717a201a
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 70e58077fa40ce685324cd24b447886ec3411034
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70256964"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703188"
 ---
-# <a name="authoring-and-runtime-keys"></a>Redigerings-och körnings nycklar
+# <a name="authoring-and-runtime-keys"></a>Redigering och körningsnycklar
 
 
 >[!NOTE]
@@ -29,7 +29,7 @@ LUIS använder två typer av Azure-resurser. varje typ har nycklar:
 * [Redigering](#programmatic-key) för att skapa avsikter, entiteter och etikett yttranden, träna och publicera. När du är redo att publicera LUIS-appen behöver du en [förutsägelse slut punkts nyckel för körningen som är](luis-how-to-azure-subscription.md) tilldelad till appen.
 * [Förutsägelse slut punkt nyckel för körnings miljön](#prediction-endpoint-runtime-key). Klient program, till exempel en chatt-robot, behöver åtkomst till körnings **frågans slut punkt för frågans förutsägelse** via den här nyckeln. 
 
-|Nyckel|Syfte|Kognitiv tjänst`kind`|Kognitiv tjänst`type`|
+|Nyckel|Syfte|Kognitiv tjänst `kind`|Kognitiv tjänst `type`|
 |--|--|--|--|
 |[Redigera nyckel](#programmatic-key)|Redigering, utbildning, publicering, testning.|`LUIS.Authoring`|`Cognitive Services`|
 |[Körnings nyckel för förutsägelse slut punkt](#prediction-endpoint-runtime-key)| Med en uttryck kan du fastställa intentor och entiteter med en användar-.|`LUIS`|`Cognitive Services`|
@@ -46,7 +46,7 @@ Det är viktigt att du skapar LUIS-appar i [regioner](luis-reference-regions.md#
 
 En redigerings nyckel skapas automatiskt när du skapar ett LUIS-konto och det är kostnads fritt. När du börjar med LUIS har du en start nyckel över alla dina LUIS-appar för varje redigerings [region](luis-reference-regions.md). Syftet med redigerings nyckeln är att tillhandahålla autentisering för att hantera din LUIS-app eller för att testa förutsägelse slut punkts frågor. 
 
-Genom att skapa redigerings nycklar i Azure Portal kan du kontrol lera behörigheterna till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors). Du måste ha behörighet på Azures prenumerations nivå för att kunna lägga till deltagare... 
+Genom att skapa redigerings nycklar i Azure Portal kan du kontrol lera behörigheterna till redigerings resursen genom att tilldela användare [rollen deltagare](#contributions-from-other-authors). Du måste ha behörighet på Azures prenumerations nivå för att lägga till bidrags givare. 
 
 Om du vill hitta redigerings nyckeln loggar du in på [Luis](luis-reference-regions.md#luis-website) och klickar på konto namnet i det övre högra navigerings fältet för att öppna **konto inställningar**.
 
@@ -83,12 +83,30 @@ Det här är en särskild resurs som skapas åt dig. Den visas inte i listan öv
 ### <a name="use-runtime-key-in-query"></a>Använd körnings nyckel i fråga
 LUIS runtime-slutpunkten godkänner två typer av frågor, både med körnings nyckeln för förutsägelse slut punkt, men på olika platser.
 
-Slut punkten som används för att komma åt körningen använder en under domän som är unik för din resurs region, enligt `{region}` följande tabell. 
+Slut punkten som används för att få åtkomst till körnings miljön använder en under domän som är unik för din resurs region, som betecknas med `{region}` i följande tabell. 
+
+
+#### <a name="v2-prediction-endpointtabv2"></a>[V2-förutsägelse slut punkt](#tab/V2)
 
 |verb|Exempel på placering av url och nyckel|
 |--|--|
-|[GET](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`<br><br>frågesträngsvärdet för `runtime-key`<br><br>Ändra din fråga slutpunktsvärdet för den `runtime-key` från den redigering (starter)-nyckeln till den nya slutpunktsnyckeln för att kunna använda LUIS endpoint viktiga kvot hastighet. Om du skapar nyckeln, och tilldela nyckeln men inte ändra frågan slutpunktsvärdet för `runtime-key`, du inte använder din viktiga kvot för slutpunkten.|
-|[POST](https://{region}.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`<br><br> huvudets värde för `Ocp-Apim-Subscription-Key`<br>Om du skapar körnings nyckeln och tilldelar körnings nyckeln men inte ändrar värdet för slut punkts fråga för `Ocp-Apim-Subscription-Key`, använder du inte din körnings nyckel.|
+|[GET](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78)|`https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?runtime-key=your-endpoint-key-here&verbose=true&timezoneOffset=0&q=turn%20on%20the%20lights`|
+|[POST](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee79)| `https://{region}.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2`|
+
+#### <a name="v3-prediction-endpointtabv3"></a>[V3 förutsägelse slut punkt](#tab/V3)
+
+|verb|Exempel på placering av url och nyckel|
+|--|--|
+|[GET](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a91e54c9db63d589f433)|`https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?runtime-key=your-endpoint-key-here&query=turn%20on%20the%20lights`|
+|[POST](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0-preview/operations/5cb0a5830f741b27cd03a061)| `https://{region}.api.cognitive.microsoft.com/luis/v3.0-preview/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict`| 
+
+Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
+
+* * * 
+
+**HÄMTA**: Ändra din fråga slutpunktsvärdet för den `runtime-key` från den redigering (starter)-nyckeln till den nya slutpunktsnyckeln för att kunna använda LUIS endpoint viktiga kvot hastighet. Om du skapar nyckeln, och tilldela nyckeln men inte ändra frågan slutpunktsvärdet för `runtime-key`, du inte använder din viktiga kvot för slutpunkten.
+
+**PUBLICERA**: Ändra huvud värde för `Ocp-Apim-Subscription-Key`<br>Om du skapar körnings nyckeln och tilldelar körnings nyckeln men inte ändrar värdet för slut punkts fråga för `Ocp-Apim-Subscription-Key`, använder du inte din körnings nyckel.
 
 App-ID som används i de föregående URL: er, `df67dcdb-c37d-46af-88e1-8b97951ca1c2`, är den offentliga IoT-app som används för den [interaktiv demonstration](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/). 
 
@@ -187,7 +205,7 @@ En offentlig app publiceras i alla regioner så att en användare med en region-
 
 ## <a name="transfer-of-ownership"></a>Överlåtelse av äganderätt
 
-**För [redigering av resurs migrerade](luis-migration-authoring.md) appar**: 
+**För [redigering av resurs migrerade](luis-migration-authoring.md) appar**: Som ägare till resursen kan du lägga till en `contributor`.
 
 **För appar som inte har migrerats än**: Exportera din app som en JSON-fil. En annan LUIS-användare kan importera appen så att den blir appens ägare. Den nya appen har ett annat app-ID.  
 

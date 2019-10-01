@@ -16,12 +16,12 @@ ms.date: 09/23/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 467fbc421cdd681d0aab52faf75a4987ee849b15
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e7555dc44e533945d360a3d2e4120f71f953a6d2
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345518"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709360"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -84,9 +84,7 @@ Det är inte alla versioner av Azure AD Connect som görs tillgängliga för aut
 - Förbättrad diagnostik och fel sökning kring grup principer som inte tillåter att ADSync-tjänsten startas när den startas första gången.
 - Ett fel har åtgärd ATS där visnings namnet för en Windows-dator skrevs felaktigt.
 - Åtgärda ett fel där OS-typen för en Windows-dator skrevs felaktigt.
-- Ett fel har åtgärd ATS där icke-Windows 10-datorer synkroniserades oväntade. Observera att effekterna av den här ändringen är att icke-Windows-10-datorer som tidigare har synkroniserats nu kommer att tas bort. Detta påverkar inte några funktioner eftersom synkroniseringen av Windows-datorer endast används för Hybrid Azure AD-domän anslutning, som endast fungerar för Windows 10-enheter. 
-- Åtgärda ett fel där visnings namnet för en Windows-dator skrevs felaktigt.
-- Åtgärda ett fel där OS-typen för en Windows-dator skrevs felaktigt.
+- Ett fel har åtgärd ATS där icke-Windows 10-datorer synkroniserades oväntade. Observera att effekterna av den här ändringen är att icke-Windows-10-datorer som tidigare har synkroniserats nu kommer att tas bort. Detta påverkar inte några funktioner eftersom synkroniseringen av Windows-datorer endast används för Hybrid Azure AD-domän anslutning, som endast fungerar för Windows 10-enheter.
 - Flera nya (interna) cmdletar har lagts till i ADSync PowerShell-modulen.
 
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: helohr
-ms.openlocfilehash: 379664fb7170249b8f21ec9826f8b0b6fbe19892
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679532"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710185"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -204,7 +204,7 @@ När du har förberedat avbildningen för uppladdning ser du till att den virtue
 
 Det här avsnittet gäller endast när huvud avbildningen har skapats lokalt.
 
-Följande anvisningar visar hur du överför huvud avbildningen till ett Azure Storage-konto. Om du inte redan har ett Azure Storage-konto följer du anvisningarna i [den här artikeln](https://code.visualstudio.com/tutorials/static-website/create-storage) för att skapa ett.
+Följande anvisningar visar hur du överför huvud avbildningen till ett Azure Storage-konto. Om du inte redan har ett Azure Storage-konto följer du anvisningarna i [den här artikeln](/azure/javascript/tutorial-vscode-static-website-node-03) för att skapa ett.
 
 1. Konvertera VM-avbildningen (VHD) till Fixed om du inte redan gjort det. Om du inte konverterar bilden till Fixed kan du inte skapa bilden.
 

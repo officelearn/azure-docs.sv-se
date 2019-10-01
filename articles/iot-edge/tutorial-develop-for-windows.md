@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 6cde60ee31b1654d79affd6e9050f426365ba29f
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0c7d88d76a3fea87b3cfe4032186140f38c263d3
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240964"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693397"
 ---
 # <a name="tutorial-develop-iot-edge-modules-for-windows-devices"></a>Självstudier: Utveckla IoT Edge-moduler för Windows-tjänster
 
@@ -134,7 +134,7 @@ Tillägget Azure IoT Edge-verktyg innehåller projektmallar för alla språk som
    | ----- | ----- |
    | Visual Studio-mall | Välj  **C# modul**. | 
    | Modulnamn | Godkänn standard- **IotEdgeModule1**. | 
-   | URL för databas | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Behållar avbildningen fylls i automatiskt från värdet för modulens projekt namn. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta inloggningsservern från sidan Översikt för ditt containerregister på Azure-portalen. <br><br> Den slutliga avbildnings lagrings \<platsen ser\>ut som register namn. azurecr.io/iotedgemodule1. |
+   | URL för databas | En bildlagringsplats innehåller namnet på containerregistret och namnet på containeravbildningen. Behållar avbildningen fylls i automatiskt från värdet för modulens projekt namn. Ersätt **localhost:5000** med värdet för inloggningsservern från ditt Azure-containerregister. Du kan hämta **inloggnings serverns** värde från sidan **Översikt** i behållar registret i Azure Portal. <br><br> Den slutliga avbildnings lagrings \<platsen ser\>ut som register namn. azurecr.io/iotedgemodule1. |
 
       ![Konfigurera ditt projekt för mål enheten, modultypen och behållar registret](./media/tutorial-develop-for-windows/add-module-to-solution.png)
 
@@ -143,33 +143,38 @@ Tillägget Azure IoT Edge-verktyg innehåller projektmallar för alla språk som
 När ditt nya projekt har lästs in i Visual Studio-fönstret kan du bekanta dig med de filer som har skapats: 
 
 * Ett IoT Edge-projekt med namnet **CSharpTutorialApp**.
-    * Mappen **moduler** innehåller pekare till de moduler som ingår i projektet. I det här fallet bör det bara vara IotEdgeModule1. 
-    * Filen **Deployment. template. JSON** är en mall som hjälper dig att skapa ett distributions manifest. Ett *distributions manifest* är en fil som definierar exakt vilka moduler som du vill distribuera på en enhet, hur de ska konfigureras och hur de kan kommunicera med varandra och molnet. 
+  * Mappen **moduler** innehåller pekare till de moduler som ingår i projektet. I det här fallet bör det bara vara IotEdgeModule1. 
+  * Den dolda **. miljö** filen innehåller autentiseringsuppgifterna till behållar registret. Autentiseringsuppgifterna delas med din IoT Edge-enhet så att de har åtkomst till att hämta behållar avbildningarna.
+  * Filen **Deployment. template. JSON** är en mall som hjälper dig att skapa ett distributions manifest. Ett *distributions manifest* är en fil som definierar exakt vilka moduler som du vill distribuera på en enhet, hur de ska konfigureras och hur de kan kommunicera med varandra och molnet.
+    > [!TIP]
+    > I avsnittet autentiseringsuppgifter för registret fylls adressen till från den information som du angav när du skapade lösningen. Variablerna användar namn och lösen ord är dock lagrade i. miljö-filen. Detta är av säkerhets nivå, eftersom. miljö filen är git, men distributions mal len inte är det.
 * Ett IoT Edge module-projekt med namnet **IotEdgeModule1**.
-    * **Program.cs** -filen innehåller koden för C# den kodmodul som medföljer projekt mal len. Standardmodulen tar emot inmatade objekt från en källa och skickar den vidare till IoT Hub. 
-    * Filen **module. JSON** innehåller information om modulen, inklusive den fullständiga avbildnings lagrings platsen, avbildnings versionen och vilken Dockerfile som ska användas för varje plattform som stöds.
+  * **Program.cs** -filen innehåller koden för C# den kodmodul som medföljer projekt mal len. Standardmodulen tar emot inmatade objekt från en källa och skickar den vidare till IoT Hub. 
+  * Filen **module. JSON** innehåller information om modulen, inklusive den fullständiga avbildnings lagrings platsen, avbildnings versionen och vilken Dockerfile som ska användas för varje plattform som stöds.
 
 ### <a name="provide-your-registry-credentials-to-the-iot-edge-agent"></a>Ange autentiseringsuppgifterna för registret för IoT Edge agenten
 
-Den IoT Edge körningen behöver dina autentiseringsuppgifter för att hämta behållar avbildningarna till IoT Edges enheten. Lägg till de här autentiseringsuppgifterna i distributions mal len. 
+Den IoT Edge körningen behöver dina autentiseringsuppgifter för att hämta behållar avbildningarna till IoT Edges enheten. IoT Edge-tillägget försöker hämta information om behållar registret från Azure och fylla det i distributions mal len.
 
-1. Öppna filen **Deployment. template. JSON** .
+1. Öppna filen **Deployment. template. JSON** i din modul lösning.
 
-2. Hitta egenskapen **registryCredentials** i önskade egenskaper för $edgeAgent. 
-
-3. Uppdatera egenskapen med dina autentiseringsuppgifter med följande format: 
+1. Hitta egenskapen **registryCredentials** i de $edgeAgent önskade egenskaperna och se till att den innehåller rätt information.
 
    ```json
    "registryCredentials": {
      "<registry name>": {
-       "username": "<username>",
-       "password": "<password>",
+       "username": "$CONTAINER_REGISTRY_USERNAME_<registry name>",
+       "password": "$CONTAINER_REGISTRY_PASSWORD_<registry name>",
        "address": "<registry name>.azurecr.io"
      }
    }
    ```
 
-4. Spara filen deployment.template.json. 
+1. Öppna **. kuvert** -filen i din modul-lösning. (Den är dold som standard i Solution Explorer, så du kan behöva välja knappen **Visa alla filer** för att visa den.)
+
+1. Lägg till värdena för **användar namn** och **lösen ord** som du kopierade från Azure Container Registry.
+
+1. Spara ändringarna i. kuvert-filen.
 
 ### <a name="review-the-sample-code"></a>Granska exempelkoden
 

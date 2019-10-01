@@ -1,84 +1,85 @@
 ---
-title: Virtuellt WAN-nätverk i Azure-partner | Microsoft Docs
-description: Den här artikeln hjälper partner ställa in Azure virtuellt WAN automation.
+title: Azure virtuella WAN-partner | Microsoft Docs
+description: Den här artikeln hjälper partner att konfigurera Azure Virtual WAN Automation.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/30/2019
 ms.author: cherylmc
-ms.openlocfilehash: f286c02e0eb6e801f62d4f2e16f1197a1e9d44ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72493f084b89d41c1e0d6ff60c35afa3491b0eda
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66304552"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703446"
 ---
 # <a name="virtual-wan-partners"></a>Virtuella WAN-partner
 
-Den här artikeln beskriver vi hur du ställer in automatiseringsmiljö för att ansluta och konfigurera en gren-enhet (en kund lokala VPN-enhet eller SDWAN CPE) för Azure virtuellt WAN-nätverk. Om du är en leverantör som tillhandahåller gren-enheter som kan hantera VPN-anslutning via IPSec-/ IKEv2 eller IPSec-/ IKEv1 är den här artikeln för dig.
+Den här artikeln hjälper dig att förstå hur du konfigurerar Automation-miljön för att ansluta och konfigurera en grenad enhet (en lokal VPN-enhet eller SDWAN CPE) för Azure Virtual WAN. Om du är en provider som tillhandahåller avdelnings enheter som kan hantera VPN-anslutning via IPsec/IKEv2 eller IPsec/IKEv1, är den här artikeln för dig.
 
-En gren-enhet (kund lokala VPN-enhet eller SDWAN CPE) använder vanligtvis en styrenheten/instrumentpanel som ska etableras. SD-WAN lösning administratörer kan ofta använda en hanteringskonsol för att etablera en enhet innan den hämtar ansluten till nätverket. Den här VPN-kompatibel enhet hämtar dess plan logik från en domänkontrollant. VPN-enhet eller SD-WAN controller kan använda Azure API: er för att automatisera anslutningen till Azure virtuellt WAN-nätverk. Den här typen av anslutning kräver att den lokala enheten har en extern offentlig IP-adress som har tilldelats.
+En grenen het (en lokal VPN-enhet eller SDWAN CPE) använder vanligt vis en styrenhets-eller enhets instrument panel för att tillhandahållas. Administratörer för SD-WAN-lösningar kan ofta använda en hanterings konsol för att företablera en enhet innan den kopplas till nätverket. Den här VPN-kompatibla enheten får kontroll Plans logik från en kontroll enhet. VPN-enheten eller SD-WAN-styrenheten kan använda Azure API: er för att automatisera anslutningen till Azure Virtual WAN. Den här typen av anslutning kräver att den lokala enheten har tilldelats en externt riktad offentlig IP-adress.
 
-## <a name ="before"></a>Innan du börjar att automatisera
+## <a name ="before"></a>Innan du börjar automatisera
 
-* Kontrollera att enheten har stöd för IPsec IKEv1/IKEv2. Se [standardprinciper](#default).
-* Se den [REST API: er](https://docs.microsoft.com/rest/api/azure/) som du ska använda för att automatisera anslutningen till Azure virtuellt WAN-nätverk.
-* Testa en Portal för Azure virtuellt WAN-nätverk.
-* Sedan bestämma vilken del av anslutningen stegen som du vill automatisera. Vi rekommenderar minst automatisering:
+* Kontrol lera att enheten har stöd för IPsec IKEv1/IKEv2. Se [standard principer](#default).
+* Se de [REST-API: er](https://docs.microsoft.com/rest/api/azure/) som du ska använda för att automatisera anslutningen till Azure Virtual WAN.
+* Testa Portal upplevelsen av Azure Virtual WAN.
+* Bestäm sedan vilken del av anslutnings stegen du vill automatisera. Vi rekommenderar minst att du automatiserar:
 
   * Åtkomstkontroll
-  * Överföring av gren enhetsinformation i Azure virtuellt WAN-nätverk
-  * Ladda ned Azure-konfiguration och konfigurera anslutningen från gren enhet till Azure virtuellt WAN-nätverk
+  * Ladda upp information om gren enhet till Azure Virtual WAN
+  * Hämta Azure-konfiguration och konfigurera anslutning från gren enheten till Azure Virtual WAN
 
-* Förstå den förväntade kundupplevelsen tillsammans med Azure virtuellt WAN-nätverk.
+* Förstå den förväntade kund upplevelsen tillsammans med Azure Virtual WAN.
 
-  1. Vanligtvis startar en virtuellt WAN användare processen genom att skapa en resurs som virtuellt WAN-nätverk.
-  2. Du ställer in en service principal-baserad resursåtkomst för det lokala systemet (din gren domänkontrollant eller etablering programvaran för VPN-enheter) att förgreningsinformationen i Azure virtuellt WAN-nätverk.
-  3. Användaren kan välja att logga in på ditt användargränssnitt och ställa in autentiseringsuppgifter för tjänstens huvudnamn. När detta är klar, din kontrollant ska kunna ladda upp informationen om gren med automation som du tillhandahåller. Manuell motsvarigheten till det på Azure-sidan är skapa webbplats.
-  4. När platsinformation (gren enhet) är tillgängliga i Azure kan associerar användaren platsen till en hubb. En virtuell hubb är ett virtuellt nätverk med Microsoft-hanterad. Navet innehåller olika tjänstslutpunkter för anslutning från ditt lokala nätverk (vpnsite). Navet är kärnan i ditt nätverk i en region. Det kan bara finnas en hubb per Azure-region och vpn-slutpunkten (vpngateway) i den har skapats under den här processen. VPN-gateway är en skalbar gateway storlekarna på lämpligt sätt utifrån bandbredds- och behov. Du kan välja att automatisera virtuella hubben och vpngateway skapas från instrumentpanelen gren enhetens styrenhet.
-  5. När den virtuella hubben är kopplad till platsen, genereras en konfigurationsfil för användaren att manuellt hämta. Detta är om din automation kommer in och gör att användaren ska få sömlös. I stället för att användaren behöver ladda ned och konfigurera den gren-enheten manuellt, kan du ange automation och ger minimal klicka igenom upplevelse på Användargränssnittet, därmed lindra vanliga anslutningsproblem till exempel delade nyckel matchar inte, IPSec-parameter Matchningsfel, konfigurationsfilen läsbarhet osv.
-  6. I slutet av det här steget i din lösning, kommer användaren ha en smidig plats-till-plats-anslutning mellan avdelningskontor enheten och virtuella hubben. Du kan också ställa in ytterligare anslutningar på andra hubs. Varje anslutning är en aktiv-aktiv-tunnel. Kunderna kan välja att använda en annan leverantör för var och en av länkarna för tunneln.
+  1. Vanligt vis startar en virtuell WAN-användare processen genom att skapa en virtuell WAN-resurs.
+  2. Användaren konfigurerar en tjänstens huvud namns-baserade resurs grupp åtkomst för det lokala systemet (din gren kontroll eller VPN-enhetens etablerings program) för att skriva informations Grens information i Azure Virtual WAN.
+  3. Användaren kan välja att logga in på ditt användar gränssnitt och konfigurera autentiseringsuppgifterna för tjänstens huvud namn. När den är klar ska din kontrollant kunna ladda upp information om grenen med den automatisering som du kommer att tillhandahålla. Den manuella motsvarigheten till det här på Azure-sidan är "Skapa webbplats".
+  4. När informationen om plats (gren enhet) är tillgänglig i Azure kommer användaren att ansluta platsen till en hubb. En virtuell hubb är ett Microsoft-hanterat virtuellt nätverk. Navet innehåller olika tjänstslutpunkter för anslutning från ditt lokala nätverk (vpnsite). Navet är kärnan i ditt nätverk i en region. Det kan bara finnas en hubb per Azure-region och VPN-slutpunkten (vpngateway) i den skapas under den här processen. VPN-gatewayen är en skalbar Gateway vars storlek är lämplig baserat på bandbredd och anslutnings behov. Du kan välja att automatisera virtuell hubb och vpngateway skapande från din avdelnings styrenhets instrument panel.
+  5. När den virtuella hubben är kopplad till platsen genereras en konfigurations fil för att användaren ska kunna hämta den manuellt. Det är här som din automatisering kommer i och gör användar upplevelsen sömlös. I stället för att användaren måste ladda ned och konfigurera gren enheten manuellt, kan du ställa in automatiseringen och tillhandahålla minimala klickningar i användar gränssnittet, vilket minskar vanliga anslutnings problem, t. ex. felaktig matchning av delade nycklar, IPSec-parameter matchnings fel, konfigurations filens läsbarhet osv.
+  6. I slutet av det här steget i lösningen kommer användaren att ha en sömlös plats-till-plats-anslutning mellan gren enheten och den virtuella hubben. Du kan också konfigurera ytterligare anslutningar över andra hubbar. Varje anslutning är en aktiv-aktiv-tunnel. Kunden kan välja att använda en annan Internet leverantör för var och en av länkarna för tunneln.
+  7. Överväg att tillhandahålla fel söknings-och övervaknings funktioner i hanterings gränssnittet för CPE. Vanliga scenarier är "kunder som inte kan komma åt Azure-resurser på grund av ett CPE-problem", "Visa IPsec-parametrar på CPE-sidan" osv.
 
-## <a name ="understand"></a>Förstå automation
+## <a name ="understand"></a>Förstå Automation-information
 
 
-###  <a name="access"></a>Åtkomstkontroll
+###  <a name="access"></a>Åtkomst kontroll
 
-Kunder måste kunna ställa in lämplig åtkomstkontroll för virtuellt WAN-nätverk i enhetens användargränssnitt. Detta rekommenderas använder ett huvudnamn för Azure-tjänsten. Tjänstens huvudnamn-baserad åtkomst ger enheten controller lämplig autentisering för att ladda upp informationen om grenen. Mer information finns i [skapa tjänstens huvudnamn](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Den här funktionen är utanför Azure virtuellt WAN erbjudandet, listan vi nedan de vanliga åtgärder för att konfigurera åtkomst i Azure efter vilken form av relevant information är inputted i instrumentpanelen för hantering av enheten
+Kunderna måste kunna ställa in lämplig åtkomst kontroll för virtuellt WAN-nätverk i enhetens användar gränssnitt. Detta rekommenderas med hjälp av ett huvud namn för Azure-tjänsten. Tjänstens huvud namn (SPN) tillhandahåller den enhets styrenhet som är lämplig autentisering för att överföra information om grenen. Mer information finns i [skapa tjänstens huvud namn](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application). Även om den här funktionen ligger utanför det virtuella WAN-erbjudandet i Azure finns en lista under de vanligaste stegen för att ställa in åtkomst i Azure efter vilken relevant information finns i listan på instrument panelen för enhets hantering
 
-* Skapa ett Azure Active Directory-program för din lokala enhetens styrenhet.
-* Hämta nyckel för program-ID och autentiseringsnyckel
+* Skapa ett Azure Active Directory-program för din lokala enhets styrenhet.
+* Hämta program-ID och autentiseringsnyckel
 * Hämta klientorganisations-ID
-* Tilldela program till rollen ”bidragsgivare”
+* Tilldela program till rollen "deltagare"
 
-###  <a name="branch"></a>Överför grenen enhetsinformation
+###  <a name="branch"></a>Ladda upp information om gren enhet
 
-Utforma användarupplevelsen att ladda upp gren (lokala) platsinformation till Azure. [REST API: er](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) för VPNSite kan användas för att skapa platsinformationen i virtuellt WAN-nätverk. Du kan ange alla gren SDWAN/VPN-enheter eller välja enheten anpassningar efter behov.
+Utforma användar upplevelsen för att ladda upp information om grenen (lokal plats) till Azure. [REST-API: er](https://docs.microsoft.com/rest/api/virtualwan/vpnsites) för VPNSite kan användas för att skapa plats informationen i virtuella WAN-nätverk. Du kan tillhandahålla alla gren-SDWAN/VPN-enheter eller välja enhets anpassningar efter behov.
 
 
-### <a name="device"></a>Enheten nedladdning och anslutning
+### <a name="device"></a>Hämtning och anslutning av enhets konfiguration
 
-Det här steget omfattar att hämta Azure-konfiguration och konfigurera anslutningen från gren-enhet i Azure virtuellt WAN-nätverk. I det här steget, skulle en kund som inte använder en provider manuellt hämta Azure-konfiguration och tillämpa den på sina lokala SDWAN/VPN-enhet. Som en provider, bör du automatisera det här steget. Enhetens styrenhet kan anropa 'GetVpnConfiguration' REST API för att ladda ned Azure-konfiguration, som vanligtvis ut ungefär som följande fil.
+Det här steget innebär att ladda ned Azure-konfiguration och konfigurera anslutning från gren enheten till Azure Virtual WAN. I det här steget laddar en kund som inte använder en provider manuellt Azure-konfigurationen och tillämpar den på den lokala SDWAN/VPN-enheten. Som en provider bör du automatisera det här steget. Enhets styrenheten kan anropa ' GetVpnConfiguration ' REST API för att ladda ned Azure-konfigurationen, som vanligt vis ser ut ungefär som i följande fil.
 
-**Konfigurationsanmärkningar**
+**Konfigurations anmärkningar**
 
-  * Om virtuella Azure-nätverk är kopplade till den virtuella hubben, visas de som ConnectedSubnets.
-  * VPN-anslutningen använder routningsbaserad konfiguration och IKEv2/IKEv1.
+  * Om Azure-virtuella nätverk är anslutna till den virtuella hubben visas de som ConnectedSubnets.
+  * VPN-anslutningar använder väg-baserad konfiguration och stöder både IKEv1-och IKEv2-protokoll.
 
-#### <a name="understanding-the-device-configuration-file"></a>Förstå konfigurationsfilen enhet
+#### <a name="understanding-the-device-configuration-file"></a>Förstå enhetens konfigurations fil
 
 Konfigurationsfilen för enheten innehåller de inställningarna du ska använda när du konfigurerar den lokala VPN-enheten. När du visar den här filen ser du följande information:
 
 * **vpnSiteConfiguration** I det här avsnittet anges enhetsinformation konfigurerad som en plats som ansluter till det virtuella WAN-nätverket. Det omfattar namn och offentlig IP-adress för grenenheten.
 * **vpnSiteConnections** – Det här avsnittet innehåller information om följande:
 
-    * **Adressutrymme** av de virtuella NAV VNet.<br>Exempel:
+    * **Adress utrymme** för virtuella hubbar VNet.<br>Exempel:
  
         ```
         "AddressSpace":"10.1.0.0/24"
         ```
-    * **Adressutrymme** av de virtuella nätverk som är anslutna till hubben.<br>Exempel:
+    * **Adress utrymmet** för de virtuella nätverk som är anslutna till hubben.<br>Exempel:
 
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
@@ -196,13 +197,13 @@ Konfigurationsfilen för enheten innehåller de inställningarna du ska använda
    }
   ```
 
-## <a name="default"></a>Standardprinciper för IPsec-anslutning
+## <a name="default"></a>Standard principer för IPsec-anslutning
 
 [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
-### <a name="does-everything-need-to-match-between-the-virtual-hub-vpngateway-policy-and-my-on-premises-sdwanvpn-device-or-sd-wan-configuration"></a>Behöver allt matcha mellan den virtuella hubb vpngateway principen och Mina lokala SDWAN/VPN-enhet eller SD-WAN konfiguration?
+### <a name="does-everything-need-to-match-between-the-virtual-hub-vpngateway-policy-and-my-on-premises-sdwanvpn-device-or-sd-wan-configuration"></a>Behöver allting matcha mellan vpngateway-principen för virtuella hubbar och min lokala SDWAN/VPN-enhet eller SD-WAN-konfiguration?
 
-Din lokala SDWAN/VPN-enhet eller SD-WAN konfigurationen måste matcha eller innehålla följande algoritmer och parametrar som du anger i Azure IPsec/IKE-principen.
+Din lokala SDWAN/VPN-enhet eller SD-WAN-konfiguration måste matcha eller innehålla följande algoritmer och parametrar, som du anger i Azure IPsec/IKE-principen.
 
 * IKE-krypteringsalgoritm
 * IKE-integritetsalgoritm
@@ -213,6 +214,6 @@ Din lokala SDWAN/VPN-enhet eller SD-WAN konfigurationen måste matcha eller inne
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om virtuellt WAN-nätverk finns i [om Azure virtuellt WAN-nätverk](virtual-wan-about.md) och [virtuellt WAN vanliga frågor om Azure](virtual-wan-faq.md).
+Mer information om virtuellt WAN finns i [om Azure Virtual WAN](virtual-wan-about.md) och [vanliga frågor och svar om Azure Virtual WAN](virtual-wan-faq.md).
 
-För ytterligare information, skicka ett e- <azurevirtualwan@microsoft.com>. Ange ditt företagsnamn inom [ ] i ämnesraden.
+Om du vill ha ytterligare information kan du skicka ett e-postmeddelande till <azurevirtualwan@microsoft.com>. Ange ditt företagsnamn inom [ ] i ämnesraden.

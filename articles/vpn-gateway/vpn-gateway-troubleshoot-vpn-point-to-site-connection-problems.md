@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/31/2019
+ms.date: 09/30/2019
 ms.author: genli
-ms.openlocfilehash: 0a32f9a9fde0983a5b97f7342a111d40ef01c686
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: cfa95f2aab5ba270aea0a36b037ae293b36c7b28
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104824"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695530"
 ---
 # <a name="troubleshooting-azure-point-to-site-connection-problems"></a>Telefonbaserad Problem med Azure punkt-till-plats-anslutning
 
@@ -45,7 +45,7 @@ Följ dessa steg för att lösa problemet:
 
 2. Kontrol lera att följande certifikat finns på rätt plats:
 
-    | Certifikat | Location |
+    | Certifiera | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktuell User\Personal\Certificates |
     | AzureRoot. cer    | Lokala Computer\Trusted rot certifikat utfärdare|
@@ -84,7 +84,7 @@ Förbereda Windows 10 eller Server 2016 för IKEv2:
    | Windows 10 Version 1709 | Den 22 mars 2018 | [KB4089848](https://www.catalog.update.microsoft.com/search.aspx?q=kb4089848) |
    |  |  |  |  |
 
-2. Ange registernyckelvärdet. Skapa eller ange `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD-nyckeln i registret till 1.
+2. Ange registernyckelvärdet. Skapa eller ange `HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\RasMan\ IKEv2\DisableCertReqPayload` REG_DWORD-nyckel i registret till 1.
 
 ## <a name="vpn-client-error-the-message-received-was-unexpected-or-badly-formatted"></a>VPN-klient fel: Det mottagna meddelandet var oväntat eller felaktigt formaterat
 
@@ -121,7 +121,7 @@ När du försöker ansluta till ett virtuellt Azure-nätverk med hjälp av VPN-k
 
 1. Kontrol lera att följande certifikat finns på rätt plats:
 
-    | Certifikat | Location |
+    | Certifiera | Location |
     | ------------- | ------------- |
     | AzureClient.pfx  | Aktuell User\Personal\Certificates |
     | Azuregateway-*GUID*.cloudapp.net  | Aktuella User\Trusted rot certifikat utfärdare|
@@ -250,32 +250,6 @@ Lös problemet genom att ladda ned och distribuera om platsen till plats paketet
 ## <a name="too-many-vpn-clients-connected-at-once"></a>För många VPN-klienter är anslutna samtidigt
 
 Det maximala antalet tillåtna anslutningar har nåtts. Du kan se det totala antalet anslutna klienter i Azure Portal.
-
-## <a name="point-to-site-vpn-incorrectly-adds-a-route-for-100008-to-the-route-table"></a>Punkt-till-plats-VPN lägger felaktigt till en väg för 10.0.0.0/8 i routningstabellen
-
-### <a name="symptom"></a>Symtom
-
-När du ringer upp VPN-anslutningen på punkt-till-plats-klienten, ska VPN-klienten lägga till en väg mot det virtuella Azure-nätverket. IP Helper-tjänsten bör lägga till en väg för VPN-klienternas undernät. 
-
-Intervallet för VPN-klienten tillhör ett mindre undernät på 10.0.0.0/8, till exempel 10.0.12.0/24. I stället för en väg för 10.0.12.0/24 läggs en väg för 10.0.0.0/8 till med högre prioritet. 
-
-Den här Felaktiga vägen bryter anslutningen till andra lokala nätverk som kan höra till ett annat undernät inom intervallet 10.0.0.0/8, till exempel 10.50.0.0/24, som inte har en angiven väg definierad. 
-
-### <a name="cause"></a>Orsak
-
-Det här beteendet är avsiktligt för Windows-klienter. När klienten använder PPP IPCP-protokollet hämtas IP-adressen för tunnel gränssnittet från-servern (VPN-gatewayen i det här fallet). Men på grund av en begränsning i protokollet har klienten inte nät masken. Eftersom det inte finns något annat sätt att hämta det försöker klienten gissa nät masken baserat på IP-adressens klass i tunnel gränssnittet. 
-
-Därför läggs en väg till baserat på följande statiska mappning: 
-
-Om adressen tillhör klass A--> tillämpa/8
-
-Om adressen tillhör klass B – > tillämpa/16
-
-Om adressen tillhör klass C--> tillämpa/24
-
-### <a name="solution"></a>Lösning
-
-Ha vägar till andra nätverk som ska matas in i routningstabellen med längsta prefix eller lägre mått (och därmed högre prioritet) än platsen för platsen. 
 
 ## <a name="vpn-client-cannot-access-network-file-shares"></a>VPN-klienten kan inte komma åt nätverks fil resurser
 

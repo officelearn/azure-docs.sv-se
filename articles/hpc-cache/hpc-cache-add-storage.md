@@ -4,34 +4,26 @@ description: Definiera lagrings mål så att Azure HPC-cachen kan använda ditt 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 7df0727a58f3d70289c5060175572dac1bbb4abb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/01/2019
+ms.author: rohogue
+ms.openlocfilehash: 302d727ede9604d11972eaa8f46a3e27f204858f
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300030"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710026"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
-*Lagrings målen* är Server dels lagring för filer som nås via en Azure HPC-instans. Du kan lägga till NFS-lagring, till exempel ett lokalt maskin varu system eller lagra data i Azure blob.
+*Lagrings målen* är Server dels lagring för filer som nås via en Azure HPC-instans. Du kan lägga till NFS-lagring (t. ex. ett lokalt maskin varu system) eller lagra data i Azure blob.
 
 Du kan definiera upp till tio olika lagrings mål för ett cacheminne. Cachen visar alla lagrings mål i ett sammanlagt namn område.
 
 Kom ihåg att lagrings exporten måste vara tillgänglig från cachens virtuella nätverk. För lokal maskin varu lagring kan du behöva konfigurera en DNS-server som kan matcha värdnamn för NFS-lagrings åtkomst. Läs mer i [DNS-åtkomst](hpc-cache-prereqs.md#dns-access).
 
-Du kan lägga till lagrings mål när du skapar din cache eller efteråt. Proceduren skiljer sig något beroende på om du lägger till Azure Blob Storage eller en NFS-export. Information om var och en finns nedan.
+Lägg till lagrings mål när du har skapat din cache. Proceduren skiljer sig något beroende på om du lägger till Azure Blob Storage eller en NFS-export. Information om var och en finns nedan.
 
-## <a name="add-storage-targets-while-creating-the-cache"></a>Lägg till lagrings mål när du skapar cachen
-
-Använd fliken **lagrings mål** i guiden Skapa Azure HPC-cache för att definiera lagring på samma gång som du skapar en cache-instans.
-
-![skärm bild av sidan lagrings mål](media/hpc-cache-storage-targets-pop.png)
-
-Klicka på länken **Lägg till lagrings mål** för att lägga till lagring.
-
-## <a name="add-storage-targets-from-the-cache"></a>Lägg till lagrings mål från cachen
+## <a name="open-the-storage-targets-page"></a>Öppna sidan Storage-mål
 
 Öppna din cache-instans från Azure Portal och klicka på **lagrings mål** på den vänstra sid panelen. Sidan lagrings mål listar alla befintliga mål och innehåller en länk för att lägga till en ny.
 
@@ -107,7 +99,7 @@ Ett NFS-lagrings mål kan ha flera virtuella sökvägar, så länge varje sökv�
 Skapa alla sökvägar från ett lagrings mål.
 <!-- You can create multiple namespace paths to represent different exports on the same NFS storage system, but you must create them all from one storage target. -->
 
-Fyll i följande värden för varje namn områdes Sök väg: 
+Fyll i följande värden för varje namn områdes Sök väg:
 
 * **Sökväg till virtuellt namn område** – ange sökvägen till klientens fil för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
 
@@ -115,7 +107,7 @@ Fyll i följande värden för varje namn områdes Sök väg:
 
 * **NFS-export Sök väg** – ange sökvägen till NFS-exporten.
 
-* **Sökväg till under katalog** – om du vill montera en speciell under katalog för exporten anger du den här. Annars lämnar du fältet tomt. 
+* **Sökväg till under katalog** – om du vill montera en speciell under katalog för exporten anger du den här. Annars lämnar du fältet tomt.
 
 När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
@@ -124,7 +116,7 @@ När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
 När du skapar ett lagrings mål som pekar på ett NFS-lagrings system måste du välja *användnings modellen* för det målet. Den här modellen avgör hur dina data cachelagras.
 
-* Läs mer tung – om du oftast använder cachen för att påskynda data Läs åtkomst väljer du det här alternativet. 
+* Läs mer tung – om du oftast använder cachen för att påskynda data Läs åtkomst väljer du det här alternativet.
 
 * Läsa/skriva – om klienter använder cachen för att läsa och skriva väljer du det här alternativet.
 

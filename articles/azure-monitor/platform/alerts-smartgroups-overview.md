@@ -1,66 +1,66 @@
 ---
 title: Smarta grupper
-description: Smart grupper är sammanställning av aviseringar som hjälper dig att minska onödig avisering
+description: Smarta grupper är agg regeringar för aviseringar som hjälper dig att minska aviserings bruset
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/15/2018
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: e0bef0fc4f4b61add24c243af0dac64933ad5bab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 08657163eb170b8d3185ce15bd724f1f55bbe2bd
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60346336"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702860"
 ---
 # <a name="smart-groups"></a>Smarta grupper
-En gemensam utmaning kan stöta på när hantering av aviseringar sig igenom bruset för att ta reda på det faktiskt som är viktigt - smart grupper är avsedda att vara lösning på problemet.  
+En vanlig utmaning vid hantering av aviseringar är att gå igenom bruset och ta reda på vad som egentligen är viktigt – smarta grupper är avsedda att vara lösningen på det problemet.  
 
-Smart grupper skapas automatiskt med hjälp av maskininlärningsalgoritmer kan kombinera relaterade aviseringar som representerar ett enda problem.  När en avisering skapas, läggs algoritmen det till en ny smart grupp eller en befintlig smart grupp baserat på information som historiska mönster, liknande egenskaper och liknande struktur. Exempel: om % CPU på flera virtuella datorer i en prenumeration aktivitetstoppar samtidigt leder till många enskilda aviseringar och om dessa aviseringar som har inträffat tillsammans när som helst tidigare aviseringarna sannolikt grupperas i en enda grupp för Smart föreslår en eventuella vanliga grundorsaken. Det innebär att för felsökning av aviseringar, smart grupper inte bara tillåter dem att minska bruset genom att hantera relaterade aviseringar som en sammansatt enhet, guidas även dem mot vanliga rotorsaker för sina aviseringar som möjligt.
+Smarta grupper skapas automatiskt med hjälp av Machine Learning-algoritmer för att kombinera relaterade aviseringar som representerar ett enda problem.  När en avisering skapas lägger algoritmen till den i en ny smart grupp eller en befintlig smart grupp baserat på information som historiska mönster, liknande egenskaper och liknande struktur. Om till exempel% CPU på flera virtuella datorer i en prenumeration samtidigt försätts till många enskilda aviseringar samtidigt, och om sådana aviseringar har inträffat när som helst tidigare, kommer de här aviseringarna troligen att grupperas i en enda smart grupp, vilket föreslår en potentiell allmän rotorsak. Det innebär att för någon fel sökning av aviseringar kan smarta grupper inte bara tillåta att de minskar bruset genom att hantera relaterade aviseringar som en enda sammanställd enhet, men de guidar också dem mot möjliga vanliga Rotors Aker för sina aviseringar.
 
-För närvarande algoritmen som endast tar hänsyn till aviseringar från samma Övervakare tjänst inom en prenumeration. Smart grupper kan minska onödig avisering via denna konsolidering med upp till 99%. Du kan visa orsaken till att aviseringar ingick i en grupp i sidan med smarta grupp.
+För närvarande tar algoritmen bara hänsyn till aviseringar från samma övervakare i en prenumeration. Smarta grupper kan minska upp till 99% av varnings bruset genom denna konsolidering. Du kan visa orsaken till att aviseringar inkluderades i en grupp på sidan information om smart grupp.
 
-Du kan visa information om smart grupper och ställa in tillståndet på samma sätt till hur du kan med aviseringar. Varje avisering är medlem i en smart gruppen. 
+Du kan visa information om smarta grupper och ange tillstånd på samma sätt som du kan med aviseringar. Varje avisering är medlem i en och endast en smart grupp. 
 
-## <a name="smart-group-state"></a>Smart grupptillstånd
-Smart tillstånd är en liknande koncept till aviseringstillståndet, där du kan hantera lösningsprocessen på nivån för en smart grupp. Liknar aviseringstillståndet, när en smart grupp har skapats, har den **New** tillstånd, som du kan ändra antingen **godkänd** eller **stängd**.
+## <a name="smart-group-state"></a>Smart Group-tillstånd
+Smart Group State är ett liknande koncept som aviserings tillstånd, vilket gör att du kan hantera lösnings processen på nivån i en smart grupp. På liknande sätt som aviserings tillstånd, när en smart grupp skapas, har den det **nya** läget, som kan ändras till antingen **godkänd** eller **stängd**.
 
-Följande smart grupp tillstånd stöds.
+Följande Smart Group-tillstånd stöds.
 
-| Status | Beskrivning |
+| State | Beskrivning |
 |:---|:---|
-| Ny | Problemet bara har identifierats och har inte har granskat. |
-| Bekräftad | En administratör har granskat gruppen smart och mellanrum. |
-| Stängd | Problemet har lösts. När en smart grupp har stängts kan öppna du det genom att ändra det till ett annat tillstånd. |
+| Ny | Problemet har precis identifierats och har ännu inte granskats. |
+| Godkänt | En administratör har granskat den smarta gruppen och börjat arbeta med den. |
+| Stängd | Problemet har åtgärd ATS. När en smart grupp har stängts kan du öppna den igen genom att ändra den till ett annat tillstånd. |
 
-[Lär dig hur du ändrar status för smart gruppen.](https://aka.ms/managing-alert-smart-group-states)
+[Lär dig hur du ändrar status för din smart grupp.](https://aka.ms/managing-alert-smart-group-states)
 
 > [!NOTE]
->  Ändra tillståndet för en smart grupp ändrar inte tillståndet för aviseringarna som enskild medlem.
+>  Att ändra status för en smart grupp ändrar inte statusen för de enskilda medlems aviseringarna.
 
-## <a name="smart-group-details-page"></a>Smart sidan med information
+## <a name="smart-group-details-page"></a>Informations sida för smart grupp
 
-Sidan med smarta gruppen visas när du väljer en smart grupp. Den innehåller information om gruppen smart, inklusive resonemang som användes för att skapa gruppen och du kan ändra tillståndet.
+Sidan smart grupp information visas när du väljer en smart grupp. Den innehåller information om den smarta gruppen, inklusive de orsaker som användes för att skapa gruppen och gör att du kan ändra dess tillstånd.
  
-![Smart grupp information](media/alerts-smartgroups-overview/smart-group-detail.png)
+![Information om smart grupp](media/alerts-smartgroups-overview/smart-group-detail.png)
 
 
-Sidan med smarta grupp innehåller följande avsnitt.
+Informations sidan för smart grupp innehåller följande avsnitt.
 
 | Section | Beskrivning |
 |:---|:---|
-| Aviseringar | Visar en lista över de enskilda aviseringar som ingår i gruppen smart. Välj en avisering för att öppna appens sida aviseringsinformation. |
-| Historik | Visar en lista över varje åtgärd som gruppen smart och eventuella ändringar som görs till den. Det här är för närvarande begränsad till tillståndsändringar och avisering Medlemskapsändringar. |
+| Aviseringar | Visar en lista över enskilda aviseringar som ingår i den smarta gruppen. Välj en avisering för att öppna sidan aviserings information. |
+| Historik | Visar en lista över varje åtgärd som utförs av den smarta gruppen och eventuella ändringar som görs i den. Detta är för närvarande begränsat för att ge status ändringar och ändringar i varnings medlemskap. |
 
-## <a name="smart-group-taxonomy"></a>Smart grupp taxonomi
+## <a name="smart-group-taxonomy"></a>Smart Group-taxonomi
 
 Namnet på en smart grupp är namnet på den första aviseringen. Du kan inte skapa eller byta namn på en smart grupp.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Hantera smarta grupper](https://aka.ms/managing-smart-groups)
-- [Ändra aviseringen och smart-tillstånd](https://aka.ms/managing-alert-smart-group-states)
+- [Ändra din status för avisering och smart grupp](https://aka.ms/managing-alert-smart-group-states)
 
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/23/2019
 ms.author: rimman
 ms.reviewer: sngun
-ms.openlocfilehash: 299799566f0d54cc3fa017b032e15b387fe8cdd5
-ms.sourcegitcommit: c72ddb56b5657b2adeb3c4608c3d4c56e3421f2c
+ms.openlocfilehash: 876fef2b597e9a7dfd896f2b9697378e745a07f3
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/24/2019
-ms.locfileid: "68467929"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709819"
 ---
 # <a name="serverless-event-based-architectures-with-azure-cosmos-db-and-azure-functions"></a>Händelsebaserade arkitekturer utan server med Azure Cosmos DB och Azure Functions
 
@@ -20,7 +20,7 @@ Azure Functions är det enklaste sättet att ansluta till [ändrings flödet](ch
 
 ![Server lösa händelsebaserade funktioner som fungerar med Azure Functions utlösare för Cosmos DB](./media/change-feed-functions/functions.png)
 
-Med Azure Functions-utlösaren [för Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)kan du utnyttja skalningen av [processen för byte](./change-feed-processor.md)och pålitlig händelse identifiering utan att behöva underhålla någon [arbets infrastruktur](./change-feed-processor.md). Fokusera bara på din Azure Function-logik utan att oroa dig över resten av pipeline för händelse-källa. Du kan till och med blanda utlösaren med andra [Azure Functions bindningar](../azure-functions/functions-triggers-bindings.md#supported-bindings).
+Med [Azure Functions-utlösaren för Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)kan du utnyttja skalningen av [processen för byte](./change-feed-processor.md)och pålitlig händelse identifiering utan att behöva underhålla någon [arbets infrastruktur](./change-feed-processor.md). Fokusera bara på din Azure Function-logik utan att oroa dig över resten av pipeline för händelse-källa. Du kan till och med blanda utlösaren med andra [Azure Functions bindningar](../azure-functions/functions-triggers-bindings.md#supported-bindings).
 
 > [!NOTE]
 > För närvarande stöds Azure Functions utlösare för Cosmos DB endast för användning med Core-API: et (SQL).
@@ -37,7 +37,7 @@ Om du vill implementera ett Server lös händelsebaserat flöde måste du:
 Att skapa en Azure-funktion med en Azure Functions-utlösare för Cosmos DB stöds nu i alla Azure Functions IDE-och CLI-integrationer:
 
 * [Visual Studio-tillägg](../azure-functions/functions-develop-vs.md) för Visual Studio-användare.
-* [Visual Studio Core-tillägg](https://code.visualstudio.com/tutorials/functions-extension/create-function) för Visual Studio Code-användare.
+* [Visual Studio Core-tillägg](/azure/javascript/tutorial-vscode-serverless-node-01) för Visual Studio Code-användare.
 * Och slutligen [Core CLI-verktyg](../azure-functions/functions-run-local.md#create-func) för en plattforms oberoende IDE oberoende-upplevelse.
 
 ## <a name="run-your-trigger-locally"></a>Kör din utlösare lokalt

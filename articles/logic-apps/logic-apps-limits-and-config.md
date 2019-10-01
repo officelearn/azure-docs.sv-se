@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 07/19/2019
-ms.openlocfilehash: 463cd350eb3c878a7d080cdfa7c8e0fabffd1a93
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 02c27faa4ac45165747d5eb450e75f666ba7d013
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672674"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703475"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Gränser och konfigurations information för Azure Logic Apps
 
@@ -275,11 +275,11 @@ De IP-adresser som Azure Logic Apps använder för inkommande och utgående samt
 
 * För logi Kap par som körs i en integrerings tjänst miljö (ISE) ser du till att du [öppnar dessa portar](../logic-apps/connect-virtual-network-vnet-isolated-environment.md#ports).
 
-* Logic Apps kan inte komma åt Azure Storage-konton som har [brand Väggs regler](https://docs.microsoft.com/azure/storage/common/storage-network-security) och finns i samma region. Logic Apps kan dock komma åt Azure Storage-konton som finns i en annan region eftersom en offentlig IP-adress används för att kommunicera mellan regioner. Eller så kan du använda något av alternativen här:
+* Logic Apps kan inte komma åt Azure Storage-konton som har [brand Väggs regler](../storage/common/storage-network-security.md) och finns i samma region. Logic Apps kan dock komma åt Azure Storage-konton som finns i en annan region eftersom en offentlig IP-adress används för att kommunicera mellan regioner. Se bara till att du tillåter [utgående IP-adresser för hanterade anslutningar i din region](../logic-apps/logic-apps-limits-and-config.md#outbound). Eller så kan du använda antingen fler avancerade alternativ här:
 
   * Skapa en [integrerings tjänst miljö](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)som kan ansluta till resurser i ett virtuellt Azure-nätverk.
 
-  * Om du redan använder API Management kan du använda den här tjänsten för det här scenariot. Mer information finns i [enkel arkitektur för företags integrering](https://aka.ms/aisarch).
+  * Om du använder en dedikerad nivå för API Management kan du följa lagrings-API: et genom att använda API Management och tillåta de senares IP-adresser genom brand väggen. I princip lägger du till det virtuella Azure-nätverket som används av API Management i lagrings kontots brand Väggs inställning. Du kan sedan använda antingen åtgärden API Management eller HTTP-åtgärden för att anropa API: erna för Azure Storage. Men om du väljer det här alternativet måste du hantera autentiseringsprocessen själv. Mer information finns i [enkel arkitektur för företags integrering](https://aka.ms/aisarch).
 
 * För anpassade anslutningar, [Azure Government](../azure-government/documentation-government-overview.md)och [Azure Kina 21Vianet](https://docs.microsoft.com/azure/china/)är fasta eller reserverade IP-adresser inte tillgängliga.
 
@@ -314,7 +314,7 @@ De IP-adresser som Azure Logic Apps använder för inkommande och utgående samt
 | Indien, södra | 52.172.9.47, 52.172.49.43, 52.172.51.140, 104.211.225.152 |
 | Sydostasien | 52.163.93.214, 52.187.65.81, 52.187.65.155, 104.215.181.6 |
 | Västra centrala USA | 13.78.137.247, 52.161.8.128, 52.161.19.82, 52.161.26.172 |
-| Västra Europa | 13.95.155.53, 51.144.176.185, 52.174.49.6, 52.174.54.218 |
+| Västra Europa | 13.95.155.53, 52.174.54.218, 52.174.49.6, 51.144.176.185 |
 | Indien, västra | 104.211.157.237, 104.211.164.25, 104.211.164.112, 104.211.165.81 |
 | Västra USA | 13.91.252.184, 52.160.90.237, 138.91.188.137, 157.56.160.212 |
 | Västra USA 2 | 13.66.128.68, 13.66.224.169, 52.183.30.10, 52.183.39.67 |
@@ -350,7 +350,7 @@ De IP-adresser som Azure Logic Apps använder för inkommande och utgående samt
 | Indien, södra | 52.172.50.24, 52.172.52.0, 52.172.55.231, 104.211.227.229, 104.211.229.115, 104.211.230.126, 104.211.230.129, 104.211.231.39 | 40.78.194.240 - 40.78.194.255, 13.71.125.22 |
 | Sydostasien | 13.67.91.135, 13.67.107.128, 13.67.110.109, 13.76.4.194, 13.76.5.96, 13.76.133.155, 52.163.228.93, 52.163.230.166 | 13.67.8.240 - 13.67.8.255, 52.187.68.19 |
 | Västra centrala USA | 13.78.129.20, 13.78.137.179, 13.78.141.75, 13.78.148.140, 13.78.151.161, 52.161.18.218, 52.161.9.108, 52.161.27.190 | 13.71.195.32 - 13.71.195.47, 52.161.102.22 |
-| Västra Europa | 13.95.147.65, 23.97.210.126, 23.97.211.179, 23.97.218.130, 40.68.209.23, 40.68.222.65, 51.144.182.201, 104.45.9.52 | 13.69.64.208 - 13.69.64.223, 52.174.88.118 |
+| Västra Europa | 40.68.222.65, 40.68.209.23, 13.95.147.65, 23.97.218.130, 51.144.182.201, 23.97.211.179, 104.45.9.52, 23.97.210.126 | 13.69.64.208 - 13.69.64.223, 40.115.50.13, 52.174.88.118 |
 | Indien, västra | 104.211.154.7, 104.211.154.59, 104.211.156.153, 104.211.158.123, 104.211.158.127, 104.211.162.205, 104.211.164.80, 104.211.164.136 | 104.211.146.224 - 104.211.146.239, 104.211.189.218 |
 | Västra USA | 40.83.164.80, 40.118.244.241, 40.118.241.243, 52.160.92.112, 104.42.38.32, 104.42.49.145, 157.56.162.53, 157.56.167.147 | 40.112.243.160 - 40.112.243.175, 104.42.122.49 |
 | Västra USA 2 | 13.66.201.169, 13.66.210.167, 13.66.246.219, 13.77.149.159, 52.175.198.132, 52.183.29.132, 52.183.30.169 | 13.66.140.128 - 13.66.140.143, 52.183.78.157 |

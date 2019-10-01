@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 8d47ae84fd489b4841d8bcf7755da6c30cf6035d
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: c0a11c90b59c1c475f80b82073c6b151d57535c3
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967003"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709792"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Snabbstart: Visuellt innehåll klient bibliotek för python
 
@@ -64,7 +64,7 @@ Skapa sedan variabler för resursens Azure-slutpunkt och nyckel.
 Du kan installera klient biblioteket med:
 
 ```console
-pip install --upgrade azure-cognitiveservices-Computer Vision
+pip install --upgrade azure-cognitiveservices-vision-computervision
 ```
 
 ## <a name="object-model"></a>Objekt modell
@@ -128,7 +128,7 @@ Följande kod identifierar vanliga objekt i avbildningen och skriver ut dem till
 
 Följande kod identifierar företags märken och logo typer i bilden och skriver ut dem till-konsolen. Mer information finns i [varumärkes identifiering](../concept-brand-detection.md) .
 
-[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_objects)]
+[!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_brands)]
 
 ### <a name="detect-faces"></a>Identifiera ansikten
 

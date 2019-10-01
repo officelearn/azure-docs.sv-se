@@ -4,14 +4,14 @@ description: Krav för att använda Azure HPC cache
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: fab85785ea183736b4012c349af143ef3a8c784a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/01/2019
+ms.author: rohogue
+ms.openlocfilehash: cfaa8f94dbb836a61b7f024c9426625d874dc524
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299916"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709962"
 ---
 # <a name="prerequisites-for-azure-hpc-cache-preview"></a>Krav för Azure HPC cache (för hands version)
 
@@ -57,15 +57,14 @@ Lär dig mer om Azure Virtual Networks och DNS-serverkonfigurationer i [namn mat
 Kontrol lera de här behörighets kraven innan du börjar skapa din cache.
 
 * Cache-instansen måste kunna skapa virtuella nätverks gränssnitt (NIC). Den användare som skapar cachen måste ha tillräcklig behörighet i prenumerationen för att skapa nätverkskort.
-<!-- There are several ways to authorize this access; read [Additional prerequisites](media/preview-prereqs.md) to learn more. -->
 
 * Om du använder Blob Storage behöver Azure HPC cache auktorisering för att komma åt ditt lagrings konto. Du kan använda rollbaserad åtkomst kontroll (RBAC) för att ge cache åtkomst till Blob Storage. Två roller krävs: Lagrings konto deltagare och data deltagare i Storage blob. Följ instruktionerna i [Lägg till lagrings mål](hpc-cache-add-storage.md#add-the-access-control-roles-to-your-account) för att lägga till rollerna.
 
 ## <a name="storage-infrastructure"></a>Lagrings infrastruktur
 
-Cachen stöder export av Azure Blob-behållare eller NFS-maskinvara. Du kan definiera lagrings mål när du skapar cachen, men du kan även lägga till lagrings utrymme efteråt.
+Cachen stöder export av Azure Blob-behållare eller NFS-maskinvara. Lägg till lagrings mål när du har skapat cacheminnet.
 
-Varje lagrings typ har särskilda krav. 
+Varje lagrings typ har särskilda krav.
 
 ### <a name="nfs-storage-requirements"></a>Krav för NFS-lagring
 

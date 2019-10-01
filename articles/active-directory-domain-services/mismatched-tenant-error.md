@@ -1,67 +1,63 @@
 ---
-title: Lös felmatchade katalog fel i Azure AD Domain Services | Microsoft Docs
-description: Förstå och åtgärda felmatchade katalog fel för befintliga Azure AD Domain Services hanterade domäner
+title: Åtgärda felmatchade katalog fel i Azure AD Domain Services | Microsoft Docs
+description: Lär dig mer om ett fel som inte matchar katalogen och hur du löser det i Azure AD Domain Services
 services: active-directory-ds
-documentationcenter: ''
 author: iainfoulds
 manager: daveba
-editor: curtand
 ms.assetid: 40eb75b7-827e-4d30-af6c-ca3c2af915c7
 ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/22/2019
+ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 4978f7b782271daff996807172a24103bd8d9860
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 8b1c3184ada743fddb78e1a3d0ce8d67f1f1a94f
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69617281"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693333"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>Lös felmatchade katalog fel för befintliga Azure AD Domain Services hanterade domäner
-Du har en befintlig Azure AD Domain Services hanterad domän. När du navigerar till Azure Portal och visar den hanterade domänen visas följande fel meddelande:
 
-![Katalog fel som inte matchar](./media/getting-started/mismatched-tenant-error.png)
+Om en Azure Active Directory Domain Services (Azure AD DS)-hanterad domän visar ett fel som inte matchar klient organisationen kan du inte administrera den hanterade domänen förrän den är löst. Det här felet uppstår om det underliggande virtuella Azure-nätverket flyttas till en annan Azure AD-katalog.
 
-Du kan inte administrera den här hanterade domänen förrän felet har åtgärd ATS.
+I den här artikeln förklaras varför felet uppstår och hur du löser det.
 
+## <a name="what-causes-this-error"></a>Vad orsakar det här felet?
 
-## <a name="whats-causing-this-error"></a>Vad är orsaken till det här felet?
-Det här felet beror på att den hanterade domänen och det virtuella nätverk som den är aktive rad för tillhör två olika Azure AD-klienter. Du kan till exempel ha en hanterad domän med namnet "contoso.com" och den har Aktiver ATS för Contosos Azure AD-klient. Men det virtuella Azure-nätverket där den hanterade domänen aktiverades tillhör Fabrikam-en annan Azure AD-klient.
+Ett felmatchat katalog fel inträffar när en Azure AD DS-hanterad domän och ett virtuellt nätverk tillhör två olika Azure AD-klienter. Du kan till exempel ha en Azure AD DS-hanterad domän med namnet *contoso.com* som körs i Contosos Azure AD-klient. Men det virtuella Azure-nätverket för hanterad domän är en del av den Fabrikam Azure AD-klienten.
 
-Den nya Azure Portal (och särskilt Azure AD Domain Services tillägget) bygger på Azure Resource Manager. I modern Azure Resource Manager-miljö tillämpas vissa begränsningar för att leverera större säkerhet och för rollbaserad åtkomst kontroll (RBAC) till resurser. Att aktivera Azure AD Domain Services för en Azure AD-klient är en känslig åtgärd eftersom det gör att hash-värden för autentiseringsuppgifter synkroniseras med den hanterade domänen. Den här åtgärden kräver att du är en klient administratör för katalogen. Dessutom måste du ha administratörs behörighet för det virtuella nätverk där du aktiverar den hanterade domänen. För att RBAC-kontrollerna ska fungera konsekvent bör den hanterade domänen och det virtuella nätverket tillhöra samma Azure AD-klient.
+Azure använder rollbaserad åtkomst kontroll (RBAC) för att begränsa åtkomsten till resurser. När du aktiverar Azure AD DS i en Azure AD-klient synkroniseras inloggnings-hashar till den hanterade domänen. Den här åtgärden kräver att du är innehavaradministratör för Azure AD-katalogen och att åtkomsten till autentiseringsuppgifterna måste kontrol leras. Om du vill distribuera resurser till ett virtuellt Azure-nätverk och kontrol lera trafik måste du ha administratörs behörighet för det virtuella nätverk där du distribuerar Azure AD DS.
 
-I korthet kan du inte aktivera en hanterad domän för en Azure AD-klient ' contoso.com ' i ett virtuellt nätverk som tillhör en Azure-prenumeration som ägs av en annan Azure AD-klient ' fabrikam.com '. 
-
-**Giltig konfiguration**: I det här distributions scenariot har Contosos hanterade domän Aktiver ATS för Contoso Azure AD-klienten. Den hanterade domänen exponeras i ett virtuellt nätverk som tillhör en Azure-prenumeration som ägs av contoso Azure AD-klienten. Därför tillhör både den hanterade domänen och det virtuella nätverket samma Azure AD-klient. Den här konfigurationen är giltig och stöds fullt ut.
-
-![Giltig klient konfiguration](./media/getting-started/valid-tenant-config.png)
-
-**Felaktig matchning av klient konfiguration**: I det här distributions scenariot har Contosos hanterade domän Aktiver ATS för Contoso Azure AD-klienten. Den hanterade domänen exponeras dock i ett virtuellt nätverk som tillhör en Azure-prenumeration som ägs av den Fabrikam Azure AD-klienten. Därför tillhör den hanterade domänen och det virtuella nätverket två olika Azure AD-klienter. Den här konfigurationen är den felmatchade klient konfigurationen och stöds inte. Det virtuella nätverket måste flyttas till samma Azure AD-klient (det vill säga contoso) som den hanterade domänen. Mer information [](#resolution) finns i lösnings avsnittet.
-
-![Felaktig matchning av klient konfiguration](./media/getting-started/mismatched-tenant-config.png)
-
-Därför visas det här felet när den hanterade domänen och det virtuella nätverk som den är aktive rad för tillhör två olika Azure AD-klienter.
+För att RBAC ska fungera konsekvent och säker åtkomst till alla resurser som Azure AD DS använder, måste den hanterade domänen och det virtuella nätverket tillhöra samma Azure AD-klient.
 
 Följande regler gäller i Resource Manager-miljön:
+
 - En Azure AD-katalog kan ha flera Azure-prenumerationer.
 - En Azure-prenumeration kan ha flera resurser, till exempel virtuella nätverk.
 - En enda Azure AD Domain Services hanterad domän är aktive rad för en Azure AD-katalog.
 - En Azure AD Domain Services hanterad domän kan aktive ras på ett virtuellt nätverk som tillhör någon av Azure-prenumerationerna inom samma Azure AD-klient.
 
+### <a name="valid-configuration"></a>Giltig konfiguration
 
-## <a name="resolution"></a>Lösning
-Det finns två alternativ för att lösa det felmatchade katalog felet. Du kan:
+I följande exempel distributions scenario är contoso Azure AD DS-hanterad domän aktive rad i Contoso Azure AD-klienten. Den hanterade domänen distribueras i ett virtuellt nätverk som tillhör en Azure-prenumeration som ägs av contoso Azure AD-klienten. Både den hanterade domänen och det virtuella nätverket tillhör samma Azure AD-klient. Den här exempel konfigurationen är giltig och stöds fullt ut.
 
-- Klicka på **ta bort** om du vill ta bort den befintliga hanterade domänen. Återskapa med hjälp av [Azure Portal](https://portal.azure.com), så att den hanterade domänen och det virtuella nätverk som den är tillgänglig i tillhör Azure AD-katalogen. Anslut alla datorer som tidigare var anslutna till den borttagna domänen till den nyligen skapade hanterade domänen.
+![Giltig konfiguration av Azure AD DS-klient med den hanterade domänen och den virtuella nätverks delen av samma Azure AD-klient](./media/getting-started/valid-tenant-config.png)
 
-- Flytta Azure-prenumerationen som innehåller det virtuella nätverket till den Azure AD-katalog som din hanterade domän tillhör. Följ stegen i den [överföra ägarskapet för en Azure-prenumeration till en annan konto](../billing/billing-subscription-transfer.md) artikel.
+### <a name="mismatched-tenant-configuration"></a>Felaktig matchning av klient konfiguration
 
+I det här exempel distributions scenariot är contoso Azure AD DS-hanterad domän aktiverat i Contoso Azure AD-klienten. Den hanterade domänen distribueras dock i ett virtuellt nätverk som tillhör en Azure-prenumeration som ägs av den Fabrikam Azure AD-klienten. Den hanterade domänen och det virtuella nätverket tillhör två olika Azure AD-klienter. Den här exempel konfigurationen är en felaktig matchning av klienten och stöds inte. Det virtuella nätverket måste flyttas till samma Azure AD-klient som den hanterade domänen.
 
-## <a name="related-content"></a>Relaterat innehåll
-* [Azure AD Domain Services-Komma igång guide](tutorial-create-instance.md)
-* [Fel söknings guide – Azure AD Domain Services](troubleshoot.md)
+![Felaktig matchning av klient konfiguration](./media/getting-started/mismatched-tenant-config.png)
+
+## <a name="resolve-mismatched-tenant-error"></a>Lös fel vid fel matchning av klient organisations fel
+
+Följande två alternativ löser det felmatchade katalog felet:
+
+* [Ta bort den hanterade Azure AD DS-domänen](delete-aadds.md) från din befintliga Azure AD-katalog. [Skapa en ersättnings Azure AD DS-hanterad domän](tutorial-create-instance.md) i samma Azure AD-katalog som det virtuella nätverk som du vill använda. När du är klar ansluter du alla datorer som tidigare var anslutna till den borttagna domänen till den återskapade hanterade domänen.
+* [Flytta Azure-prenumerationen](../billing/billing-subscription-transfer.md) som innehåller det virtuella nätverket till samma Azure AD-katalog som den hanterade domänen för Azure AD DS.
+
+## <a name="next-steps"></a>Nästa steg
+
+Mer information om fel sökning av problem med Azure AD DS finns i [fel söknings guiden](troubleshoot.md).

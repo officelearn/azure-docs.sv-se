@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes utveckling med behållare, mikrotjänster och Node. js på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, Containers, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 8148f7858ac9de458daa1c15220507b0de1bad19
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 69d92db790157d67ea33a52304f0982973d9012e
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772622"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694776"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-nodejs-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Felsöka och iterera med Visual Studio Code och Node. js på Kubernetes med hjälp av Azure dev Spaces
 
@@ -24,6 +24,11 @@ I den här guiden får du lära dig hur du:
 - Ställa in Azure Dev Spaces med ett hanterat Kubernetes-kluster i Azure.
 - Utveckla en iterativ kod i behållare med hjälp av Visual Studio Code.
 - Felsök koden i ditt dev Space från Visual Studio Code.
+
+Med Azure dev Spaces kan du också felsöka och iterera med:
+- [Java och Visual Studio Code](quickstart-java.md)
+- [.NET Core och Visual Studio Code](quickstart-netcore.md)
+- [.NET Core och Visual Studio](quickstart-netcore-visualstudio.md)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -130,7 +135,7 @@ Gå tillbaka *till trädvyn genom* att klicka på *Visa* och sedan på *Explorer
 
 När du kör tjänsten i Kubernetes med en fel sökare ansluten har du fullständig åtkomst till felsöknings information som anrops stack, lokala variabler och undantags information.
 
-Ta bort Bryt punkten genom att placera markören på rad 13 `server.js` i och trycka på *F9*.
+Ta bort Bryt punkten genom att placera markören på rad 13 i `server.js` och trycka på *F9*.
 
 Klicka på *Felsök* och *stoppa* fel sökningen för att stoppa fel söknings programmet.
 

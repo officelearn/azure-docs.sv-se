@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: dapine
-ms.openlocfilehash: 7de529c9478b78ff9dd042df90a061f0a96f5427
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: a718a2335ed4928c6cd40ad4dc832eaf82bc6a2b
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316406"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695300"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installera och köra LUIS Docker-behållare
  
@@ -80,7 +80,7 @@ En fullständig beskrivning av tillgängliga taggar, till exempel som `latest` a
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren är på värddatorn [](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer) använder du följande process för att arbeta med behållaren.
 
 ![Process för att använda Language Understanding-behållare (LUIS)](./media/luis-container-how-to/luis-flow-with-containers-diagram.jpg)
 
@@ -325,7 +325,6 @@ Mer information om alternativen finns i [konfigurera behållare](luis-container-
 
 Den senaste behållaren, som släpptes på 2019 build, stöder:
 
-* Stavnings kontroll i Bing: begär anden till slut punkten för `&spellCheck=true&bing-spell-check-subscription-key={bingKey}` frågans förutsägelse med parametrarna för frågesträngen. Använd självstudierna [stavningskontroll i Bing v7](luis-tutorial-bing-spellcheck.md) för att lära dig mer. Om den här funktionen används skickar behållaren uttryck till din Stavningskontroll i Bing v7-resurs.
 * [Nya fördefinierade domäner](luis-reference-prebuilt-domains.md): de här företags fokuserade domänerna omfattar entiteter, exempel yttranden och mönster. Utöka dessa domäner för eget bruk. 
 
 <a name="unsupported-dependencies"></a>
@@ -343,6 +342,7 @@ App-konfigurationer som inte stöds|Information|
 |Entiteter som inte stöds för engelsk (en-US) kultur|[GeographyV2](https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-prebuilt-geographyv2) fördefinierade entiteter|
 |Tal Prima|Externa beroenden stöds inte i behållaren.|
 |Sentimentanalys|Externa beroenden stöds inte i behållaren.|
+|Stavnings kontroll i Bing|Externa beroenden stöds inte i behållaren.|
 
 <!--blogs/samples/video courses -->
 [!INCLUDE [Discoverability of more container information](../../../includes/cognitive-services-containers-discoverability.md)]

@@ -9,17 +9,17 @@ ms.author: deli
 ms.reviewer: klam, LADocs
 ms.topic: article
 ms.date: 09/23/2019
-ms.openlocfilehash: 6b80cbd16ac78f7f347bef9ab8e22c4d67d31058
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 73aa641fc4bb01ef3d06820ecd18b61197ab81e7
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71301031"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695504"
 ---
 # <a name="migrate-azure-scheduler-jobs-to-azure-logic-apps"></a>Migrera Azure Scheduler-jobb till Azure Logic Apps
 
 > [!IMPORTANT]
-> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](#retire-date). Om du vill fortsätta arbeta med de jobb som du har konfigurerat i Scheduler kan du gå vidare till Azure Logic Apps så snart som möjligt genom att följa den här artikeln.
+> [Azure Logic Apps](../logic-apps/logic-apps-overview.md) ersätter Azure Scheduler, som dras [tillbaka](#retire-date). Om du vill fortsätta arbeta med de jobb som du har konfigurerat i Scheduler kan du gå vidare till Azure Logic Apps så snart som möjligt genom att följa den här artikeln. 
 
 Den här artikeln visar hur du kan schemalägga engångs-och återkommande jobb genom att skapa automatiserade arbets flöden med Azure Logic Apps, i stället för med Azure Scheduler. När du skapar schemalagda jobb med Logic Apps får du följande fördelar:
 
@@ -38,6 +38,10 @@ Mer information finns i [Vad är Azure Logic Apps?](../logic-apps/logic-apps-ove
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
 * Om du vill utlösa din Logi Kap par genom att skicka HTTP-begäranden använder du ett verktyg som t. ex. [Postman Desktop-appen](https://www.getpostman.com/apps).
+
+## <a name="migrate-by-using-a-script"></a>Migrera med hjälp av ett skript
+
+Varje Scheduler-jobb är unikt, så det finns inget verktyg med en storlek som passar alla för att migrera Scheduler-jobb till Azure Logic Apps. Du kan dock [redigera skriptet](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration) så att det passar dina behov.
 
 ## <a name="schedule-one-time-jobs"></a>Schemalägga engångs jobb
 
@@ -203,7 +207,7 @@ Mer information om undantags hantering finns i avsnittet [hantera fel och undant
 **S**: Vi rekommenderar att du alltid säkerhetskopierar ditt arbete. Kontrol lera att de Logic Apps som du har skapat körs som förväntat innan du tar bort eller inaktiverar dina jobb i Schemaläggaren. 
 
 **F**: Finns det ett verktyg som kan hjälpa mig att migrera mina jobb från Scheduler till Logic Apps? <br>
-**S**: Varje Scheduler-jobb är unikt, vilket innebär att det inte finns något verktyg med en storlek som passar alla. Men olika skript är tillgängliga så att du kan ändra dem efter dina behov. För skript tillgänglighet, kom tillbaka senare.
+**S**: Varje Scheduler-jobb är unikt, vilket innebär att det inte finns något verktyg med en storlek som passar alla. Beroende på dina behov kan du dock [Redigera det här skriptet för att migrera Azure Scheduler-jobb till Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
 
 **F**: Var kan jag få support för att migrera mina jobb I Schemaläggaren? <br>
 **S**: Här följer några exempel på hur du kan få support: 

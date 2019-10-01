@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 09/25/2019
 ms.author: diberry
-ms.openlocfilehash: 318df27ebb822f49c1f8881d0bf68ac7167dea36
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dc99626e2341e180ba0ab191003cf3a6ba9b72e9
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71351299"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71695153"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>Använd uppföljande frågor för att skapa en längre konversation
 
@@ -55,23 +55,37 @@ När du skapar en kunskaps bas visar avsnittet **fylla i ditt KB** en **Aktivera
 
 ![Kryss ruta för att aktivera extrahering av flera sätt](../media/conversational-context/enable-multi-turn.png)
 
-När du väljer det här alternativet för ett importerat dokument kan konversationen med flera varv vara underförstådd från dokument strukturen. Om den strukturen finns skapar QnA Maker uppföljnings guiden som parar frågor och svar åt dig som en del av import processen. 
+När du väljer det här alternativet kan konversationen med flera varv underförstås från dokument strukturen. Om den strukturen finns skapar QnA Maker uppföljnings guiden som parar frågor och svar åt dig som en del av import processen. 
 
 Flera-turn-strukturen kan bara härledas från URL: er, PDF-filer eller DOCX-filer. Ett exempel på en struktur finns i en bild av en [manuell PDF-fil för Microsoft Surface-användare](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/product-manual.pdf). På grund av storleken på den här PDF-filen kräver QnA Maker resursen en **Sök pris nivå** på **B** (15 index) eller mer. 
 
 ![! [Exempel på en struktur i en Användar handbok] (.. /media/conversational-context/import-file-with-conversational-structure.png)](../media/conversational-context/import-file-with-conversational-structure.png#lightbox)
 
-När du importerar PDF-dokumentet anger QnA Maker uppföljnings anvisningarna från strukturen för att skapa ett konversations flöde. 
+### <a name="determine-multi-turn-structure-from-format"></a>Bestäm struktur för flera turn från formatet
 
-1. I QnA Maker väljer du **skapa en kunskaps bas**.
-1. Skapa eller Använd en befintlig QnA Maker-tjänst. I föregående exempel på Microsoft-arbetsytan, eftersom PDF-filen är för stor för en mindre nivå, använder du en QnA Maker tjänst med en **Sök tjänst** på **B** (15 index) eller mer.
-1. Ange ett namn för din kunskaps bas, till exempel **Surface manual**.
-1. Markera kryss rutan **Aktivera extrahering av flera turn från URL: er,. PDF eller. docx-filer** . 
-1. Välj ytans manuella URL, **https://github.com/Azure-Samples/cognitive-services-sample-data-files/raw/master/qna-maker/data-source-formats/product-manual.pdf** .
+QnA Maker anger en struktur för flera sätt från:
 
-1. Välj knappen **skapa din KB** . 
+* Rubrikens tecken storlek – om du använder formatmall, färg eller någon annan mekanism för att göra en struktur i dokumentet kommer QnA Maker inte att extrahera flera-turn-prompter. 
 
-    När kunskaps basen har skapats visas en vy över fråga-och-svar-par.
+Rubrikernas regler är:
+
+* Avsluta inte en rubrik med ett frågetecken, `?`. 
+
+### <a name="add-file-with-multi-turn-prompts"></a>Lägg till fil med flera turn-prompter
+
+När du lägger till ett dokument med flera dokument, anger QnA Maker uppföljnings anvisningarna från strukturen för att skapa ett konversations flöde. 
+
+1. I QnA Maker väljer du en befintlig kunskaps bas som skapats med **Aktivera extrahering av flera turn från URL: er, PDF-eller docx-filer.** aktiva. 
+1. Gå till sidan **Inställningar** och välj den fil eller URL som du vill lägga till. 
+1. **Spara och träna** kunskaps basen.
+
+> [!Caution]
+> Stöd för att använda en exporterad TSV eller XLS-fil med flera inaktiverade kunskaps bas som data källa för en ny eller tom kunskaps bas stöds inte. Du måste **Importera** den filtypen från sidan **Inställningar** på QNA Maker-portalen för att kunna lägga till exporterade prompter med flera turn i en kunskaps bas.
+
+
+## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Skapa kunskaps bas med flera turn-prompter med Create API
+
+Du kan skapa ett kunskaps ärende med flera turn-prompter med hjälp av [QNA Maker skapa API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Prompterna läggs till i `context`-egenskapens `prompts`-matris. 
 
 ## <a name="show-questions-and-answers-with-context"></a>Visa frågor och svar med kontext
 
@@ -126,29 +140,6 @@ När en uppföljnings fråga skapas och ett befintligt fråga-och-svar-par anges
 1. När du är klar med att redigera visnings texten väljer du **Spara**. 
 1. I det övre navigerings fältet **sparar och tränar**du.
 
-
-<!--
-
-## To find the best prompt answer, add metadata to follow-up prompts 
-
-If you have several follow-up prompts for a specific question-and-answer pair but you know, as the knowledge base manager, that not all prompts should be returned, use metadata to categorize the prompts in the knowledge base. You can then send the metadata from the client application as part of the GenerateAnswer request.
-
-In the knowledge base, when a question-and-answer pair is linked to follow-up prompts, the metadata filters are applied first, and then the follow-ups are returned.
-
-1. Add metadata to each of the two follow-up question-and-answer pairs:
-
-    |Question|Add metadata|
-    |--|--|
-    |*Feedback on a QnA Maker service*|"Feature":"all"|
-    |*Feedback on an existing feature*|"Feature":"one"|
-    
-    ![The "Metadata tags" column for adding metadata to a follow-up prompt](../media/conversational-context/add-metadata-feature-to-follow-up-prompt.png) 
-
-1. Select **Save and train**. 
-
-    When you send the question **Give feedback** with the metadata filter **Feature** with a value of **all**, only the question-and-answer pair with that metadata is returned. QnA Maker doesn't return both question-and-answer pairs, because both don't match the filter. 
-
--->
 
 ## <a name="add-a-new-question-and-answer-pair-as-a-follow-up-prompt"></a>Lägg till ett nytt fråga-och-svar-par som en uppföljnings fråga
 
@@ -374,21 +365,13 @@ Du har lagt till prompter i din kunskaps bas och testat flödet i test fönstret
 
 [Visnings texten och visnings ordningen](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update#promptdto), som returneras i JSON-svaret, stöds för redigering av [uppdaterings-API: et](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update). 
 
-<!--
-
-FIX - Need to go to parent, then answer column, then edit answer. 
-
--->
-
-## <a name="create-knowledge-base-with-multi-turn-prompts-with-the-create-api"></a>Skapa kunskaps bas med flera turn-prompter med Create API
-
-Du kan skapa en kunskaps bas med flera turn-prompter med hjälp av [QNA Maker skapa API](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/create). Prompterna läggs till i `context`-egenskapens `prompts`-matris. 
-
-
 ## <a name="add-or-delete-multi-turn-prompts-with-the-update-api"></a>Lägg till eller ta bort prompter med uppdaterings-API: et
 
 Du kan lägga till eller ta bort prompter med flera turn-meddelanden med hjälp av [API: et QNA Maker Update](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase/update).  Prompterna läggs till i `context`-egenskapens `promptsToAdd`-matris och `promptsToDelete`-matrisen. 
 
+## <a name="export-knowledge-base-for-version-control"></a>Exportera kunskaps bas för versions kontroll
+
+QnA Maker [stöder versions kontroll](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) i QNA Makers portalen genom att inkludera flera steg i konversationen i den exporterade filen.
 
 ## <a name="next-steps"></a>Nästa steg
 

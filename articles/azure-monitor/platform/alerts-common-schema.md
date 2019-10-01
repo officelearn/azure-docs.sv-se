@@ -1,80 +1,80 @@
 ---
-title: Samma avisering schema för Azure monitor-aviseringar
-description: Förstå vanliga avisering schemat, varför du bör använda den och hur du aktiverar det
+title: Vanliga aviserings schema för aviseringar i Azure Monitor
+description: Förstå det vanliga aviserings schemat, varför du bör använda det och hur du aktiverar det
 author: anantr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.author: anantr
+ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 91ec5aa42367f6caaa93aaf808fde504e92fbc04
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 9b142e00543d425b73c4102914bba2dd92c75b8b
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67594326"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702896"
 ---
 # <a name="common-alert-schema"></a>Vanligt aviseringsschema
 
-Den här artikeln beskriver vad det gemensamma schemat för aviseringen är, fördelarna med att använda det och hur du aktiverar den.
+I den här artikeln beskrivs det vanliga aviserings schemat, fördelarna med att använda det och hur du aktiverar det.
 
-## <a name="what-is-the-common-alert-schema"></a>Vad är det gemensamma schemat för aviseringen?
+## <a name="what-is-the-common-alert-schema"></a>Vad är det vanliga aviserings schemat?
 
-Det gemensamma schemat för avisering standardiserar förbrukning upplevelsen för aviseringar i Azure idag. Historiskt sett har tre aviseringstyperna i Azure i dag (mått, logg och aktivitetsloggen) hade sina egna e-postmallar, webhook-scheman, osv. Med det gemensamma schemat för avisering, kan du nu få aviseringar med ett konsekvent schema.
+Det vanliga aviserings schemat standardiserar användnings upplevelsen för aviserings meddelanden i Azure idag. Tidigare var de tre aviserings typerna i Azure idag (Metric, loggen och aktivitets loggen) haft egna e-postmallar, webhook-scheman osv. Med det gemensamma aviserings schemat kan du nu få aviserings meddelanden med ett konsekvent schema.
 
-Alla aviseringsinstansen beskriver **den resurs som påverkades** och **orsaken till aviseringen**, och dessa instanser beskrivs i det gemensamma schemat i följande avsnitt:
-* **Essentials**: En uppsättning **standardiserade fält**Common över alla aviseringstyper som beskriver **vilka resurser** aviseringen är på tillsammans med ytterligare vanliga avisering metadata (till exempel allvarlighetsgrad eller beskrivning). 
-* **Avisera kontext**: En uppsättning fält som beskriver den **orsaken till aviseringen**, med fält som varierar **baserat på typ av avisering**. En metrisk varning skulle till exempel ha fält som Måttnamn och måttvärde i varningskontexten, en aktivitetsloggavisering skulle ha information om den händelse som skapade aviseringen. 
+Alla varnings instanser beskriver **den resurs som påverkades** och **orsaken till aviseringen**, och dessa instanser beskrivs i det gemensamma schemat i följande avsnitt:
+* **Essentials**: En uppsättning **standardiserade fält**, gemensamma för alla aviserings typer, som beskriver **vilken resurs** som aviseringen är på samt ytterligare vanliga aviserings-metadata (till exempel allvarlighets grad eller beskrivning). 
+* **Aviserings kontext**: En uppsättning fält som beskriver **orsaken till aviseringen**, med fält som varierar **beroende på aviserings typen**. Till exempel skulle en mått avisering ha fält som Metric-namn och mått värde i aviserings kontexten, medan en aktivitets logg avisering skulle ha information om händelsen som genererade aviseringen. 
 
-Vanliga integrationsscenarier som vi får höra från våra kunder involverar routning av aviseringsinstansen till berörda teamet baserat på vissa pivot (till exempel resursgrupp) efter vilken ansvarig teamet börjar arbeta på den. Med det gemensamma schemat för aviseringar, kan du har in Routning logic över aviseringstyper genom att utnyttja viktiga fält, lämna fälten kontext som gäller för berörda team att undersöka vidare.
+De typiska integrerings scenarierna som vi hör från kunder innebär att aviserings instansen vidarebefordras till den berörda gruppen baserat på en pivot (t. ex. resurs grupp), efter vilken det ansvariga teamet börjar arbeta på den. Med det gemensamma aviserings schemat kan du ha standardiserad cirkulations logik över aviserings typer genom att använda de viktigaste fälten, lämna kontext fälten som det är för de berörda teamen att undersöka vidare.
 
-Det innebär att du kan ha färre integreringar, vilket gör processen med att hantera och underhålla dem. en _mycket_ lättare. Dessutom visar framtida avisering nyttolast enrichments (till exempel anpassning, diagnostiska berikande, etc.) endast upp i det gemensamma schemat.
+Det innebär att du kan ha färre integrationer, vilket gör att du kan hantera och underhålla dem en _mycket_ enklare uppgift. Framtida nytto last för aviserings nytto laster (till exempel anpassning, Diagnostic-anrikning osv.) kommer också att placeras i det gemensamma schemat.
 
-## <a name="what-enhancements-does-the-common-alert-schema-bring"></a>Vilka förbättringar det gemensamma schemat för avisering ta med?
+## <a name="what-enhancements-does-the-common-alert-schema-bring"></a>Vilka förbättringar tar det vanliga aviserings schemat?
 
-Det gemensamma schemat för avisering visas själva främst i dina aviseringar. De förbättringar som visas nedan:
+Det vanliga aviserings schemat kommer huvudsakligen att manifesta sig själva i aviserings aviseringarna. De förbättringar som du ser visas nedan:
 
 | Action | Förbättringar|
 |:---|:---|
-| SMS | En konsekvent SMS-mall för alla aviseringstyper. |
-| Email | En konsekvent och detaljerade e-postmall, så att du kan enkelt diagnostisera problem på ett ögonblick. Inbäddade djup-länkar till aviseringsinstansen på portalen och resurser som påverkas se till att du snabbt kan gå in i processen för reparation. |
-| Webhook/Logic App-/ Azure-funktion/Automation-Runbook | En konsekvent JSON struktur för alla aviseringstyper, där du kan enkelt skapa integreringar över olika aviseringstyper. |
+| SMS | En konsekvent SMS-mall för alla aviserings typer. |
+| Email | En konsekvent och detaljerad e-postmall som gör det enkelt att snabbt diagnostisera problem. Inbäddade djup länkar till aviserings instansen på portalen och den berörda resursen garanterar att du snabbt kan gå vidare till reparations processen. |
+| Webhook/Logic app/Azure Function/Automation Runbook | En konsekvent JSON-struktur för alla aviserings typer, vilket gör att du enkelt kan bygga integreringar över olika aviserings typer. |
 
-Det nya schemat kan också en rikare upplevelse för avisering förbrukning i både Azure-portalen och Azure-mobilappen i den närmaste framtiden. 
+Det nya schemat kommer också att aktivera en rikare aviserings användning i både Azure Portal och Azure-mobilapp i omedelbar framtid. 
 
-[Läs mer om schemadefinitionerna för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
-
-> [!NOTE]
-> Det gemensamma schemat för aviseringen har inte stöd för följande åtgärder: ITSM-anslutningsprogram.
-
-## <a name="how-do-i-enable-the-common-alert-schema"></a>Hur aktiverar jag det gemensamma schemat för avisering
-
-Du kan anmäla eller avanmäla dig i det gemensamma aviseringarna schemat via åtgärdsgrupper på båda portalen och via REST API. Visa/Dölj att växla till det nya schemat finns på åtgärd-nivå. Exempelvis kan behöva du separat anmäla dig till en e poståtgärd och webhook-åtgärd.
+[Lär dig mer om schema definitionerna för Webhooks/Logic Apps/Azure Functions/Automation-runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
 
 > [!NOTE]
-> 1. Följande aviseringstyper stöder det gemensamma schemat som standard (ingen opt i krävs):
+> Följande åtgärder stöder inte det gemensamma aviserings schemat: ITSM-anslutningsprogram.
+
+## <a name="how-do-i-enable-the-common-alert-schema"></a>Vill du Hur gör jag för att aktivera det vanliga aviserings schemat?
+
+Du kan välja att välja ett gemensamt aviserings schema via åtgärds grupper på både portalen och i REST API. Växlingen för att växla till det nya schemat finns på en åtgärds nivå. Du måste till exempel separat välja för en e-poståtgärd och en webhook-åtgärd.
+
+> [!NOTE]
+> 1. Följande aviserings typer stöder gemensamt schema som standard (inte opt-in krävs):
 >     * Aviseringar för smart identifiering
-> 1. Följande aviseringstyper stöd finns inte för det gemensamma schemat:
->     * Aviseringar som genereras av [Azure Monitor för virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
->     * Aviseringar som genereras av [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
+> 1. Följande aviserings typer stöder för närvarande inte det gemensamma schemat:
+>     * Aviseringar som genererats av [Azure Monitor for VMS](https://docs.microsoft.com/azure/azure-monitor/insights/vminsights-overview)
+>     * Aviseringar som genererats av [Azure Cost Management](https://docs.microsoft.com/azure/billing/billing-cost-management-budget-scenario)
 
-### <a name="through-the-azure-portal"></a>Via Azure portal
+### <a name="through-the-azure-portal"></a>Via Azure Portal
 
-![Välja samma avisering schema](media/alerts-common-schema/portal-opt-in.png)
+![Eget deltagande i aviserings schema](media/alerts-common-schema/portal-opt-in.png)
 
-1. Öppna befintliga eller en ny åtgärd i en åtgärdsgrupp. 
-1. Välj ”Ja” för växlingsknappen för att aktivera det gemensamma schemat för aviseringen som visas.
+1. Öppna en befintlig eller ny åtgärd i en åtgärds grupp. 
+1. Välj Ja om du vill aktivera det gemensamma aviserings schemat enligt visning.
 
-### <a name="through-the-action-groups-rest-api"></a>Via åtgärdsgrupper REST-API
+### <a name="through-the-action-groups-rest-api"></a>Genom REST API åtgärds grupper
 
-Du kan också använda den [åtgärd grupper API](https://docs.microsoft.com/rest/api/monitor/actiongroups) att välja det gemensamma schemat för aviseringen. När du gör den [skapa eller uppdatera](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API-anrop, kan du ange flaggan ”useCommonAlertSchema” till 'true' (om du vill välja) eller ”FALSKT” (för att välja bort) för någon av följande åtgärder - e-post/webhook/logic app/Azure-funktion/automation-runbook.
+Du kan också använda [Åtgärds grupps-API: et](https://docs.microsoft.com/rest/api/monitor/actiongroups) för att välja gemensamt aviserings schema. När du gör ett anrop för att [skapa eller uppdatera](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API kan du ange flaggan "useCommonAlertSchema" till "true" (för att välja) eller "falskt" (för att avanmäla) för någon av följande åtgärder – e-post/webhook/Logic app/Azure Function/Automation Runbook.
 
-Till exempel följande begärandetext görs till den [skapa eller uppdatera](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST-API kommer att göra följande:
+Exempel: följande begär ande text till [skapa-eller uppdaterings](https://docs.microsoft.com/rest/api/monitor/actiongroups/createorupdate) REST API gör följande:
 
-* Aktivera vanliga avisering schemat för e-poståtgärden ”Johan Svenssons e-post”
-* Inaktivera det gemensamma aviseringarna schemat för e-poståtgärden ”Jane Smith e-post”
-* Aktivera vanliga avisering schemat för webhook-åtgärd ”exempel webhook”
+* Aktivera det vanliga aviserings schemat för e-poståtgärden John berg e-post
+* Inaktivera det vanliga aviserings schemat för e-poståtgärden "Jane Smith" e-post "
+* Aktivera det vanliga aviserings schemat för webhook-åtgärden "exempel-webhook"
 
 ```json
 {
@@ -124,8 +124,8 @@ Till exempel följande begärandetext görs till den [skapa eller uppdatera](htt
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Vanliga avisering schemadefinitioner för Webhooks/Logic Apps/Azure Functions/Automation-Runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
-- [Lär dig hur du skapar en logikapp som använder det gemensamma schemat som aviseringen för att hantera alla aviseringar.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
+- [Vanliga aviserings schema definitioner för Webhooks/Logic Apps/Azure Functions/Automation-runbooks.](https://aka.ms/commonAlertSchemaDefinitions)
+- [Lär dig hur du skapar en logisk app som använder det gemensamma aviserings schemat för att hantera alla dina aviseringar.](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-common-schema-integrations) 
 
 
 

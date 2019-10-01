@@ -10,12 +10,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: cshoe
-ms.openlocfilehash: 0bd6222a6f2a2582fb715dbaf364fe23e41630d5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff3d7d1272f9067f6bf9791c7964f8bf5f71945b
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085147"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709342"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategier för att testa din kod i Azure Functions
 
@@ -54,7 +54,7 @@ Varje funktion tar en instans av [ILogger](https://docs.microsoft.com/dotnet/api
 
 Den `ListLogger` klass är avsedd att implementera den `ILogger` gränssnitt och håll ned på interna listan över meddelanden för utvärdering under ett test.
 
-**Högerklicka** på programmet Functions *. test* och välj **Lägg till > klass**, ge den namnet **NullScope.cs** och ange följande kod:
+**Högerklicka** på programmet *functions. test* och välj **Lägg till > klass**, ge den namnet **NullScope.cs** och ange följande kod:
 
 ```csharp
 using System;
@@ -110,11 +110,11 @@ namespace Functions.Tests
 
 Den `ListLogger` klassen implementerar följande medlemmar som kontrakt genom den `ILogger` gränssnitt:
 
-- **BeginScope**: Omfattningar lägger till kontext i loggningen. I det här fallet pekar testet precis på den statiska instansen i `NullScope` klassen för att testet ska fungera.
+- **BeginScope**: Omfattningar lägger till kontext i loggningen. I det här fallet pekar testet precis på den statiska instansen i klassen `NullScope` så att testet kan fungera.
 
-- **IsEnabled**: Standardvärdet för `false` tillhandahålls.
+- **IsEnabled**: Standardvärdet för `false` har angetts.
 
-- **Logg**: Den här metoden använder den `formatter` tillhandahållna funktionen för att formatera meddelandet och lägger sedan till den resulterande texten `Logs` i samlingen.
+- **Logg**: Den här metoden använder den tillhandahållna `formatter`-funktionen för att formatera meddelandet och lägger sedan till den resulterande texten i @no__t 1-samlingen.
 
 Den `Logs` samling är en instans av `List<string>` och har initierats i konstruktorn.
 
@@ -197,7 +197,7 @@ Den `TestFactory` klassen implementerar följande medlemmar:
 
 - **Data**: Den här egenskapen returnerar en [IEnumerable](https://docs.microsoft.com/dotnet/api/system.collections.ienumerable) -samling med exempel data. Nyckelvärdepar representerar värden som skickas till en frågesträng.
 
-- **CreateDictionary**: Den här metoden accepterar ett nyckel/värde-par som argument och returnerar `Dictionary` en ny som `QueryCollection` används för att skapa för att representera frågesträngs värden.
+- **CreateDictionary**: Den här metoden accepterar ett nyckel/värde-par som argument och returnerar en ny `Dictionary` som används för att skapa `QueryCollection` som representerar frågesträngs värden.
 
 - **CreateHttpRequest**: Den här metoden skapar en HTTP-begäran som initieras med de aktuella frågesträngs parametrarna.
 
@@ -246,11 +246,11 @@ namespace Functions.Tests
 ```
 Medlemmar som implementerats i den här klassen är:
 
-- **Http_trigger_should_return_known_string**: Det här testet skapar en begäran med frågesträng svärdet för `name=Bill` en http-funktion och kontrollerar att det förväntade svaret returneras.
+- **Http_trigger_should_return_known_string**: Det här testet skapar en begäran med sträng värden för `name=Bill` till en HTTP-funktion och kontrollerar att det förväntade svaret returneras.
 
 - **Http_trigger_should_return_string_from_member_data**: I det här testet används xUnit-attribut för att tillhandahålla exempel data till HTTP-funktionen.
 
-- **Timer_should_log_message**: Det här testet skapar en instans `ListLogger` av och skickar den till en timer-funktion. När funktionen körs, kontrolleras loggen för att se till att förväntade meddelandet finns.
+- **Timer_should_log_message**: Det här testet skapar en instans av `ListLogger` och skickar den till en timer-funktion. När funktionen körs, kontrolleras loggen för att se till att förväntade meddelandet finns.
 
 Om du vill komma åt program inställningarna i dina tester kan du använda [system. Environment. GetEnvironmentVariable](./functions-dotnet-class-library.md#environment-variables).
 
@@ -311,7 +311,7 @@ module.exports = {
 ```
 Den här modulen implementerar den `IsPastDue` egenskapen stå är som en falsk timer-instans.
 
-Använd funktioner för VS Code-tillägg till [skapa en ny funktion i JavaScript HTTP](https://code.visualstudio.com/tutorials/functions-extension/getting-started) och ge den namnet *HttpTrigger*. När funktionen har skapats kan du lägga till en ny fil i samma mapp med namnet **index.test.js**, och Lägg till följande kod:
+Använd funktioner för VS Code-tillägg till [skapa en ny funktion i JavaScript HTTP](/azure/javascript/tutorial-vscode-serverless-node-01) och ge den namnet *HttpTrigger*. När funktionen har skapats kan du lägga till en ny fil i samma mapp med namnet **index.test.js**, och Lägg till följande kod:
 
 ```javascript
 const httpFunction = require('./index');

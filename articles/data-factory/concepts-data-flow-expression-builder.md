@@ -1,80 +1,83 @@
 ---
-title: Azure Data Factory mappning Data Flow Uttrycksverktyget
-description: Uttrycksverktyget för Azure Data Factory mappningsdata flöden
+title: Azure Data Factory mappar uttrycks verktyg för data flöde
+description: Uttrycks verktyget för Azure Data Factory mappning av data flöden
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 01/30/2019
-ms.openlocfilehash: df9cfb0c0e36f54c8b1fbee4def552c78e9d42c1
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.openlocfilehash: 67a6de6d85a58f48af4761e0b5d5b0a1a4d74b1a
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61269200"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703396"
 ---
-# <a name="mapping-data-flow-expression-builder"></a>Mappningen Data Flow Uttrycksverktyget
+# <a name="mapping-data-flow-expression-builder"></a>Mappa data flöde uttrycks verktyg
 
 [!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-I Azure Data Factory mappning dataflöde hittar du uttryck rutor där du kan ange uttryck för transformering av data. Använd kolumner, fält, variabler, parametrar, funktioner från ditt dataflöde i dessa rutor. Om du vill skapa uttrycket använda Uttrycksverktyget, som startas genom att klicka i textrutan uttryck i transformeringen. Du ser även ibland ”beräknad kolumn” alternativ när du väljer kolumner för omvandling. När du klickar på som visas också Uttrycksverktyget startas.
+I Azure Data Factory mappa data flödet hittar du resultat rutor där du kan ange uttryck för data omvandling. Använd kolumner, fält, variabler, parametrar, funktioner från ditt data flöde i dessa rutor. Om du vill bygga uttrycket använder du uttrycks verktyget, som startas genom att klicka i text rutan uttryck inuti omvandlingen. Ibland kan du också se alternativen för beräknad kolumn när du väljer kolumner för omvandling. När du klickar på den visas även uttrycks verktyget.
 
-![Uttrycksverktyget](media/data-flow/expression.png "Uttrycksverktyget")
+![Uttrycks verktyg för uttrycks verktyget](media/data-flow/xpb1.png "")
 
-Verktyget Uttrycksverktyget som standard alternativet text redigeraren. funktionen för automatisk komplettering läser från objektmodellen hela Azure Data Factory-dataflöde med syntax kontrollerar och markeringar.
+Uttrycks verktyget standard är standard alternativet text redigerare. funktionen för automatisk komplettering läser från hela Azure Data Factory data flödes objekt modell med syntaxkontroll och markering.
 
-![Uttrycksverktyget automatisk komplettering](media/data-flow/expb1.png "Uttrycksverktyget automatisk komplettering")
+![Uttrycks]automatisk komplettering i uttrycks verktyg(media/data-flow/expb1.png "automatiskt")
 
-## <a name="currently-working-on-field"></a>För närvarande arbetar med fält
+## <a name="build-schemas-in-output-schema-pane"></a>Bygg scheman i fönstret utdata schema
 
-![Uttrycksverktyget](media/data-flow/exp3.png "för närvarande arbetar med")
+![Lägg till komplexa]kolumner(media/data-flow/complexcolumn.png "Lägg till kolumner")
 
-Längst upp till vänster i uttrycket Builder-Användargränssnittet, visas ett fält med namnet ”för närvarande arbetar på” med namnet på fältet som du arbetar med. Uttrycket som du skapar i Användargränssnittet kommer att gälla precis som för närvarande arbetsområde. Om du vill att omvandla ett annat fält kan spara ditt aktuella arbete och använder den här listrutan att välja ett annat fält och skapa ett uttryck för andra fält.
+I fönstret till vänster schema för utdata visas de kolumner som du ändrar och lägger till i schemat. Du kan bygga enkla och komplexa data strukturer interaktivt här. Lägg till ytterligare fält med hjälp av "Lägg till kolumn" och skapa hierarkier med "Lägg till underkolumn".
 
-## <a name="data-preview-in-debug-mode"></a>Förhandsgranskning i felsökningsläge
+![Lägg]till under kolumn(media/data-flow/addsubcolumn.png "Lägg till under kolumn")
 
-![Uttrycksverktyget](media/data-flow/exp4b.png "uttryck förhandsgranskning")
+## <a name="data-preview-in-debug-mode"></a>Förhandsgranska data i fel söknings läge
 
-När du arbetar på ditt uttryck kan växla du om du vill på felsökningsläge från designyta Azure Data Factory-dataflöde aktiverar dynamisk pågående förhandsgranskning av data resultaten från uttrycket som du skapar. I realtid live-felsökning är aktiverad för din uttryck.
+(media/data-flow/exp4b.png "Förhands granskning") av ![uttrycks]data
 
-![Felsökningsläge](media/data-flow/debugbutton.png "felsöka knappen")
+När du arbetar med dina data flödes uttryck växlar du till fel söknings läge från den Azure Data Factory data flödets design yta, vilket möjliggör en pågående för hands version av data resultaten från det uttryck som du skapar. Direkt fel sökning i real tid har Aktiver ATS för dina uttryck.
 
+(media/data-flow/debugbutton.png "Knappen Felsök") i ![fel söknings läge]
 
-![Uttrycksverktyget](media/data-flow/exp5.png "uttryck förhandsgranskning")
+Klicka på Uppdatera om du vill uppdatera resultatet av ditt uttryck mot ett Live-exempel på källan i real tid.
+
+(media/data-flow/exp5.png "Förhands granskning") av ![uttrycks]data
 
 ## <a name="comments"></a>Kommentar
 
-Lägga till kommentarer i ditt uttryck med hjälp av enda rad och flerradiga kommentarssyntax:
+Lägg till kommentarer till dina uttryck med hjälp av en enkel rad och en kommentar med flera rader:
 
-![Kommentarer](media/data-flow/comments.png "kommentarer")
+![Kommentarer](media/data-flow/comments.png "")
 
 ## <a name="regular-expressions"></a>Reguljära uttryck
 
-Uttrycksspråk Azure Data Factory-dataflöde [här fullständig referensdokumentation](https://aka.ms/dataflowexpressions), möjliggör funktioner som innehåller syntax för reguljära uttryck. När du använder reguljära uttryck, Uttrycksverktyget försöker tolka omvänt snedstreck (\\) som en sekvens för escape-tecken. När du använder snedstreck i din reguljära uttryck måste du omge hela regex i ticken (\`) eller använda en dubbla omvända snedstrecken.
+Det Azure Data Factory data flödets uttrycks språk, [fullständig referens dokumentation här](https://aka.ms/dataflowexpressions), aktiverar funktioner som inkluderar syntax för reguljära uttryck. När du använder reguljära uttrycks funktioner försöker uttrycks verktyget tolka omvänt snedstreck (\\) som en Escape-teckensekvens. När du använder omvända snedstreck i det reguljära uttrycket, omger du hela regexen i Ticket (\`) eller använder ett dubbelt omvänt snedstreck.
 
-Exempel på användning av skalstreck
+Exempel med Tick
 
 ```
 regex_replace('100 and 200', `(\d+)`, 'digits')
 ```
 
-eller använda dubbla snedstreck
+eller med dubbla snedstreck
 
 ```
 regex_replace('100 and 200', '(\\d+)', 'digits')
 ```
 
-## <a name="addressing-array-indexes"></a>Adressering matris index
+## <a name="addressing-array-indexes"></a>Adressering av mat ris index
 
-Med funktioner för uttryck som returnerar matriser, använder du hakparenteser [] att åtgärda specifika index i den returnerade matrisobjekt. Matrisen är de-baserade.
+Med uttrycks funktioner som returnerar matriser, använder du hakparenteser [] för att adressera vissa index inuti det returnerade mat ris objektet. Matrisen är en-baserad.
 
-![Uttrycket Builder matris](media/data-flow/expb2.png "uttryck förhandsgranskning")
+(media/data-flow/expb2.png "Förhands granskning") av Expression ![Builder mat ris]-data
 
-## <a name="handling-names-with-special-characters"></a>Hantering av namn med specialtecken
+## <a name="handling-names-with-special-characters"></a>Hantera namn med specialtecken
 
-När du har kolumnnamn som innehåller specialtecken eller blanksteg omger du namnet med klammerparenteser.
+När du har kolumn namn som innehåller specialtecken eller mellanslag, omger du namnet med klammerparenteser.
 * ```{[dbo].this_is my complex name$$$}```
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Börja skapa uttryck för omvandling av data](data-flow-expression-functions.md)
+[Börja bygga data omvandlings uttryck](data-flow-expression-functions.md)

@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/02/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2b05ba7e4d38b596bdf76655fad0736425f8ce89
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 707c6d99d4c5f4335ff771bdd916b2ee37092604
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71002537"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71710069"
 ---
 # <a name="build-scikit-learn-models-at-scale-with-azure-machine-learning"></a>Bygg scikit – lär dig modeller i stor skala med Azure Machine Learning
 
@@ -31,7 +31,7 @@ Kör den här koden i någon av följande miljöer:
  - Azure Machine Learning Notebook VM – inga hämtningar eller installationer behövs
 
     - Slutför [Självstudie: Konfigurera miljö och arbets](tutorial-1st-experiment-sdk-setup.md) yta för att skapa en dedikerad Notebook-server som är förinstallerad med SDK och exempel lagrings plats.
-    - I mappen exempel utbildning på Notebook-servern hittar du en slutförd och utökad antecknings bok genom att gå till den här katalogen: **How-to-use-azureml > training > Train-y-Deploy-with-sklearn** Folder.
+    - I mappen exempel inlärning på Notebook-servern hittar du en slutförd och utökad antecknings bok genom att gå till den här katalogen: **How-to-use-azureml > ml-framework > scikit-lär > utbildning > träna-sin parameter-Tune-Deploy-with-sklearn** mappen.
 
  - Din egen Jupyter Notebook Server
 
@@ -40,7 +40,7 @@ Kör den här koden i någon av följande miljöer:
     - Hämta data uppsättningen och exempel skript filen 
         - [Iris-datauppsättning](https://archive.ics.uci.edu/ml/datasets/iris)
         - [`train_iris.py`](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn)
-    - Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) av den här guiden på sidan med GitHub-exempel. Antecknings boken innehåller ett expanderat avsnitt som täcker intelligenta parametrar för att justera och hämta den bästa modellen med primära mått.
+    - Du kan också hitta en slutförd [Jupyter Notebook version](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/scikit-learn/training/train-hyperparameter-tune-deploy-with-sklearn/train-hyperparameter-tune-deploy-with-sklearn.ipynb) av den här guiden på sidan med GitHub-exempel. Antecknings boken innehåller ett expanderat avsnitt som täcker intelligenta parametrar för att justera och hämta den bästa modellen med primära mått.
 
 ## <a name="set-up-the-experiment"></a>Konfigurera experimentet
 
@@ -84,28 +84,20 @@ os.makedirs(project_folder, exist_ok=True)
 exp = Experiment(workspace=ws, name='sklearn-iris')
 ```
 
-### <a name="upload-dataset-and-scripts"></a>Ladda upp data uppsättning och skript
+### <a name="prepare-training-script"></a>Förbered utbildnings skript
 
-Data [lagret](how-to-access-data.md) är en plats där data kan lagras och nås genom att montera eller kopiera data till beräknings målet. Varje arbets yta tillhandahåller ett standard data lager. Överför data och utbildnings skript till data lagret så att de enkelt kan nås under utbildningen.
+I den här självstudien har utbildnings skriptet **train_iris. py** redan angetts. I praktiken bör du kunna ta med ett anpassat tränings skript som är och köra det med Azure ML utan att behöva ändra koden.
 
-1. Skapa katalogen för dina data.
+Om du vill använda Azure MLs spårnings-och mått funktioner lägger du till en liten del av Azure ML-koden i utbildnings skriptet.  I övnings skriptet **train_iris. py** visas hur du loggar vissa mått i Azure ml-körningen med hjälp av `Run`-objektet i skriptet.
 
-    ```Python
-    os.makedirs('./data/iris', exist_ok=True)
-    ```
+Det tillhandahållna utbildnings skriptet använder exempel data från `iris = datasets.load_iris()`-funktionen.  För dina egna data kan du behöva använda steg som att [Ladda upp data uppsättning och skript](how-to-train-keras.md#data-upload) för att göra data tillgängliga under utbildningen.
 
-1. Överför Iris-datauppsättningen till standard data lagret.
+Kopiera övnings skriptet **train_iris. py** till projekt katalogen.
 
-    ```Python
-    ds = ws.get_default_datastore()
-    ds.upload(src_dir='./data/iris', target_path='iris', overwrite=True, show_progress=True)
-    ```
-
-1. Ladda upp utbildnings skriptet scikit-lär, `train_iris.py`.
-
-    ```Python
-    shutil.copy('./train_iris.py', project_folder)
-    ```
+```
+import shutil
+shutil.copy('./train_iris.py', project_folder)
+```
 
 ## <a name="create-or-get-a-compute-target"></a>Skapa eller hämta ett beräknings mål
 

@@ -2,16 +2,18 @@
 author: cynthn
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 01/27/2019
+ms.date: 09/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 11c9b2ea3ea054415f25f864651df28288aa0025
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 93a2554b5d3cc24e1b5fc1e3d0f18ed1bfe0579c
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266848"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71692051"
 ---
-Du kan dra nytta av många möjligheter att övervaka dina virtuella datorer genom att samla in, Visa och analysera diagnostik-och loggdata. Om du vill göra en enkel [övervakning](../articles/azure-monitor/overview.md) av den virtuella datorn kan du använda översikts skärmen för den virtuella datorn i Azure Portal. Du kan använda [tillägg](../articles/virtual-machines/windows/extensions-features.md) för att konfigurera diagnostik på de virtuella datorerna för att samla in ytterligare mått data. Du kan också använda mer avancerade övervaknings alternativ, till exempel [Application Insights](../articles/azure-monitor/app/app-insights-overview.md) och [Log Analytics](../articles/azure-monitor/log-query/log-query-overview.md).
+Med den betydande tillväxten för virtuella datorer som finns i Azure är det viktigt att identifiera prestanda-och hälso problem som påverkar program och infrastruktur tjänster som de stöder. Grundläggande övervakning levereras som standard med Azure av mått typerna CPU-användning, disk användning, minnes användning och nätverks trafik som samlas in av värdens hypervisor. Ytterligare mått-och loggdata kan samlas in med hjälp av [tillägg](../articles/virtual-machines/windows/extensions-features.md) för att konfigurera diagnostik på dina virtuella datorer från gäst operativ systemet.
+
+För att identifiera och hjälpa till att diagnostisera prestanda-och hälso problem med gäst operativ systemet, .NET-baserade eller Java-komponenter för webb program som körs inuti den virtuella datorn, Azure Monitor levererar centraliserad övervakning med omfattande funktioner som Azure Monitor for VMs och Application Insights.
 
 ## <a name="diagnostics-and-metrics"></a>Diagnostik och mått 
 
@@ -27,11 +29,11 @@ Du kan konfigurera och övervaka insamlingen av [diagnostikdata](https://docs.mi
 
 - **Aktivera insamling av gäst operativ systemets diagnostikdata.** När du skapar en virtuell dator har du möjlighet att aktivera gäst operativ systemets diagnostik med inställnings skärmen. När du aktiverar samlingen av diagnostikdata läggs [IaaSDiagnostics-tillägget för Linux](../articles/virtual-machines/linux/diagnostic-extension.md) eller [IaaSDiagnostics-tillägget för Windows](../articles/virtual-machines/windows/ps-extensions-diagnostics.md) till i den virtuella datorn, vilket gör att du kan samla in ytterligare disk-, CPU-och minnes data.
 
-    Med hjälp av insamlade diagnostikdata kan du konfigurera automatisk skalning för dina virtuella datorer. Du kan också konfigurera loggar för att lagra data och konfigurera aviseringar så att du vet när prestandan inte är riktigt korrekt.
+    Med hjälp av insamlade diagnostikdata kan du konfigurera automatisk skalning för dina virtuella datorer. Du kan också konfigurera [Azure Monitor loggar](../articles/azure-monitor/platform/data-platform-logs.md) för att lagra data och konfigurera aviseringar så att du vet när prestanda inte stämmer.
 
 ## <a name="alerts"></a>Aviseringar
 
-Du kan skapa [aviseringar](../articles/azure-monitor/platform/alerts-overview.md) baserat på vissa prestanda mått. Exempel på problem som du kan aviseras om inkluderar när den genomsnittliga CPU-användningen överskrider ett visst tröskelvärde eller ledigt disk utrymme sjunker under en viss mängd. Aviseringar kan konfigureras i [Azure Portal](../articles/azure-monitor/platform/alerts-classic-portal.md), med [Azure POWERSHELL](../articles/azure-monitor/platform/alerts-classic-portal.md#with-powershell)eller [Azure CLI](../articles/azure-monitor/platform/alerts-classic-portal.md#with-azure-cli).
+Du kan skapa [aviseringar](../articles/azure-monitor/platform/alerts-overview.md) baserat på vissa prestanda mått. Exempel på problem som du kan aviseras om inkluderar när den genomsnittliga CPU-användningen överskrider ett visst tröskelvärde eller ledigt disk utrymme sjunker under en viss mängd. Aviseringar kan konfigureras i [Azure Portal](../articles/azure-monitor/platform/alerts-metric.md#create-with-azure-portal), med hjälp av [Azure Resource Manager mallar](../articles/azure-monitor/platform/alerts-metric-create-templates.md)eller [Azure CLI](../articles/azure-monitor/platform/alerts-metric.md#with-azure-cli).
 
 ## <a name="azure-service-health"></a>Azure Service Health
 
@@ -48,8 +50,8 @@ Du kan skapa [aviseringar](../articles/azure-monitor/platform/alerts-overview.md
 Några av de saker du kan göra med aktivitets loggen är:
 
 - Skapa en [avisering för en aktivitets logg händelse](../articles/azure-monitor/platform/activity-logs-overview.md).
-- [Strömma det till en Event Hub](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) för inmatning av en tjänst från tredje part eller en anpassad analys lösning som PowerBI.
-- Analysera den i PowerBI med hjälp av [PowerBI-innehålls paketet](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
+- [Strömma den till en händelsehubben](../articles/azure-monitor/platform/activity-logs-stream-event-hubs.md) för inmatning av en tjänst från tredje part eller en anpassad analys lösning som Power BI.
+- Analysera den i Power BI med hjälp av [Power BI innehålls paketet](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-audit-logs/).
 - [Spara det till ett lagrings konto](../articles/azure-monitor/platform/archive-activity-log.md) för arkivering eller manuell kontroll. Du kan ange Retentions tiden (i dagar) med hjälp av logg profilen.
 
 Du kan också komma åt aktivitets logg data med hjälp av [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.insights/), [Azure CLI](https://docs.microsoft.com/cli/azure/monitor)eller [övervaka REST-API: er](https://docs.microsoft.com/rest/api/monitor/).
@@ -59,19 +61,17 @@ Du kan också komma åt aktivitets logg data med hjälp av [Azure PowerShell](ht
 Några av de saker du kan göra med diagnostikloggar är:
 
 - [Spara dem till ett lagrings konto](../articles/azure-monitor/platform/archive-diagnostic-logs.md) för granskning eller manuell kontroll. Du kan ange Retentions tiden (i dagar) med hjälp av inställningarna för resurs diagnostik.
-- [Strömma dem till Event Hubs](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) för inmatning av en tjänst från tredje part eller en anpassad analys lösning som PowerBI.
+- [Strömma dem till Event Hubs](../articles/azure-monitor/platform/resource-logs-stream-event-hubs.md) för inmatning av en tjänst från tredje part eller en anpassad analys lösning som Power BI.
 - Analysera dem med [Log Analytics](../articles/log-analytics/log-analytics-azure-storage.md).
 
 ## <a name="advanced-monitoring"></a>Avancerad övervakning
 
-- [Azure Monitor](../articles/azure-monitor/overview.md) är en tjänst som övervakar molnet och lokala miljöer för att bevara deras tillgänglighet och prestanda. Den innehåller en omfattande lösning för att samla in, analysera och agera på telemetri från molnet och lokala miljöer. Det hjälper dig att förstå hur dina program fungerar och identifierar proaktivt problem som påverkar dem och de resurser som de förlitar sig på. Du kan installera ett tillägg på en [virtuell Linux-dator](../articles/virtual-machines/linux/extensions-oms.md) eller en [virtuell Windows-dator](../articles/virtual-machines/windows/extensions-oms.md) som installerar Log Analytics agent för att samla in loggdata och lagra data i en Log Analytics arbets yta.
+För att få insyn i programmet eller tjänsten som stöds av den virtuella Azure-datorn och skalnings uppsättningar för virtuella datorer, identifiera problem med gäst operativ systemet eller arbets belastningen som körs på den virtuella datorn för att förstå om den påverkar tillgänglighet eller prestanda för programmet, eller är ett problem med programmet, aktivera både [Azure Monitor for VMS](../articles/azure-monitor/insights/vminsights-overview.md) och [Application Insights](../articles/azure-monitor/app/app-insights-overview.md).
 
-    För virtuella Windows-och Linux-datorer är den rekommenderade metoden för att samla in loggar att installera Log Analytics agenten. Det enklaste sättet att installera Log Analytics agenten på en virtuell dator är genom [Log Analytics VM-tillägget](../articles/log-analytics/log-analytics-azure-vm-extension.md). Med hjälp av tillägget förenklas installationen och agenten konfigureras automatiskt att skicka data till den Log Analytics-arbetsyta som du anger. Agenten uppgraderas också automatiskt så att du alltid har de senaste funktionerna och korrigeringarna.
-
-- Med [Network Watcher](../articles/network-watcher/network-watcher-monitoring-overview.md) kan du övervaka den virtuella datorn och dess associerade resurser när de relaterar till nätverket som de finns i. Du kan installera Network Watcher agent-tillägget på en [virtuell Linux-dator](../articles/virtual-machines/linux/extensions-nwa.md) eller en [virtuell Windows-dator](../articles/virtual-machines/windows/extensions-nwa.md).
-
-- [Azure Monitor for VMS](../articles/azure-monitor/insights/vminsights-overview.md) övervakar dina virtuella Azure-datorer (VM) i stor skala genom att analysera prestanda och hälsa för dina virtuella Windows-och Linux-datorer, inklusive deras olika processer och sammankopplade beroenden för andra resurser och externa tillverknings. 
+Azure Monitor for VMs övervakar dina virtuella Azure-datorer (VM) i skala genom att analysera prestanda och hälsa för dina virtuella Windows-och Linux-datorer, inklusive olika processer och sammankopplade beroenden för andra resurser och externa processer identifierar. Det innehåller flera trend prestanda diagram som hjälper dig att undersöka problem och utvärdera kapaciteten för dina virtuella datorer. Beroende kartan visar övervakade och oövervakade datorer, misslyckade och aktiva nätverks anslutningar mellan processer och dessa datorer och visar trend diagram med standard mått för nätverks anslutning. Tillsammans med Application Insights övervakar du ditt program och samlar in telemetri, till exempel HTTP-begäranden, undantag osv. så att du kan korrelera problem mellan de virtuella datorerna och ditt program. Konfigurera [Azure Monitor aviseringar](../articles/azure-monitor/platform/alerts-overview.md) för att varna dig om viktiga villkor som har identifierats av övervaknings data som samlas in av Azure Monitor for VMS.
 
 ## <a name="next-steps"></a>Nästa steg
+
 - Gå igenom stegen i [övervaka en virtuell Windows-dator med Azure PowerShell](../articles/virtual-machines/windows/tutorial-monitoring.md) eller [övervaka en virtuell Linux-dator med Azure CLI](../articles/virtual-machines/linux/tutorial-monitoring.md).
+
 - Lär dig mer om bästa praxis kring [övervakning och diagnostik](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

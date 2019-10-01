@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 08/05/2019
-ms.openlocfilehash: 2d7cc217ff8ae45491c0f9d6b54ea8afea19cd2e
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.openlocfilehash: b2c1f01e53cfe41b72e3e079059c66e4e2409012
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981245"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703277"
 ---
 # <a name="azure-sql-database-and-data-warehouse-network-access-controls"></a>Kontroll av nätverks åtkomst för Azure SQL Database och informations lager
 
@@ -72,7 +72,9 @@ IP-baserad brand vägg är en funktion i Azure SQL Server som förhindrar all å
 ## <a name="virtual-network-firewall-rules"></a>Virtual Network brand Väggs regler
 
 Förutom IP-regler kan du med Azure SQL Server-brandväggen definiera regler för *virtuella nätverk*.  
-Läs mer i [Virtual Network tjänst slut punkter och regler för Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md).
+Läs mer i [Virtual Network tjänst slut punkter och regler för Azure SQL Database](sql-database-vnet-service-endpoint-rule-overview.md) eller titta på den här videon:
+
+> [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/Data-Exposed--Demo--Vnet-Firewall-Rules-for-SQL-Database/player?WT.mc_id=dataexposed-c9-niner]
 
  ### <a name="azure-networking-terminology"></a>Terminologi för Azure-nätverk  
 Observera följande villkor för Azure-nätverk när du utforskar Virtual Network brand Väggs regler
@@ -105,7 +107,7 @@ Regler för virtuella nätverk är enklare att upprätta och hantera åtkomst fr
 
 - För hjälp med att ansluta till en Azure SQL-databas från öppna käll-eller tredjepartsprogram, se [kod exempel för klient snabb start för att SQL Database](https://msdn.microsoft.com/library/azure/ee336282.aspx).
 
-- Information om ytterligare portar som du kan behöva öppna finns i **SQL Database: Yttre vs inuti** -avsnittet med [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
+- Information om ytterligare portar som du kan behöva öppna finns i **SQL-databasen: Utanför vs inuti @ no__t-0-avsnittet av [portar utöver 1433 för ADO.NET 4,5 och SQL Database](sql-database-develop-direct-route-ports-adonet-v12.md)
 
 - En översikt över Azure SQL Database-anslutningar finns i [arkitektur för Azure SQL-anslutning](sql-database-connectivity-architecture.md)
 

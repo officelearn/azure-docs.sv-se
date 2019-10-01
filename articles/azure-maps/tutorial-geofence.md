@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: a020ef91e52a5d801557399df827d3641bfb974e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 176cde77810a1c75cc18c351969a128fa78348af
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934190"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71694932"
 ---
 # <a name="set-up-a-geofence-by-using-azure-maps"></a>Konfigurera en geofence med hjälp av Azure Maps
 
@@ -148,10 +148,24 @@ Vi använder postman-programmet för att ladda upp geofence för byggarbetsplats
    }
    ```
 
-5. Klicka på Send (Skicka) och granska svarsrubriken. Platsrubriken innehåller URI för åtkomst eller nedladdning av data för framtida användning. Den innehåller även ett unikt `udId` för uppladdade data.
+5. Klicka på Send (Skicka) och granska svarsrubriken. Vid en lyckad begäran kommer **plats** huvudet innehålla status-URI för att kontrol lera den aktuella statusen för uppladdnings förfrågan. Status-URI: n kommer att ha följande format. 
 
    ```HTTP
-   https://atlas.microsoft.com/mapData/{udId}/status?api-version=1.0&subscription-key={Subscription-key}
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
+   ```
+
+6. Kopiera din status-URI och Lägg `subscription-key` till en parameter till den med dess värde som din Azure Maps konto prenumerations nyckel. Status-URI-formatet ska vara som det som anges nedan:
+
+   ```HTTP
+   https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
+   ```
+
+7. För att hämta `udId` öppnar du en ny flik i Postman-appen och väljer Hämta http-metod på fliken Builder och gör en get-begäran i status-URI: n. Om din data uppladdning lyckades får du en udId i svars texten. Kopiera udId för senare användning.
+
+   ```JSON
+   {
+    "udid" : "{udId}"
+   }
    ```
 
 ## <a name="set-up-an-event-handler"></a>Konfigurera en händelsehanterare

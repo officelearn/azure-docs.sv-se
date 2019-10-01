@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
-ms.openlocfilehash: dacc4179483de5d5ef8a05fd836e4241c161deac
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: e2f195f648f08c31fbfe44543ee763aeed7459f0
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68741268"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71702974"
 ---
 # <a name="alert-management-solution-in-azure-log-analytics"></a>Lösning i Azure Log Analytics för aviseringshantering
 
 ![Varningsikon för hantering](media/alert-management-solution/icon.png)
 
 > [!NOTE]
->  Azure Monitor stöder nu förbättrade funktioner för [att hantera dina aviseringar i skala](https://aka.ms/azure-alerts-overview), inklusive de som genereras av [övervaknings verktyg som SCOM, zabbix eller nagios](https://aka.ms/managing-alerts-other-monitoring-services).
+>  Azure Monitor stöder nu förbättrade funktioner för [att hantera dina aviseringar i skala](https://aka.ms/azure-alerts-overview), inklusive de som genereras av [övervaknings verktyg som System Center Operations Manager, zabbix eller nagios](https://aka.ms/managing-alerts-other-monitoring-services).
 >  
 
 
@@ -74,7 +74,7 @@ Klicka på den **aviseringshantering** panelen för att öppna den **aviseringsh
 |:--- |:--- |
 | Kritiska aviseringar |Alla aviseringar med en allvarlighetsgraden kritiskt grupperade efter aviseringens namn.  Klicka på ett namn på avisering att köra en loggsökning som returnerar alla poster för den här aviseringen. |
 | Varningsaviseringar |Alla aviseringar med en allvarlighetsgrad för varning grupperade efter aviseringsnamn.  Klicka på ett namn på avisering att köra en loggsökning som returnerar alla poster för den här aviseringen. |
-| Aktiva SCOM-aviseringar |Alla aviseringar som samlas in från Operations Manager med några tillstånd än *stängd* grupperade efter källa som skapade aviseringen. |
+| Aktiva System Center Operations Manager-aviseringar |Alla aviseringar som samlas in från Operations Manager med några tillstånd än *stängd* grupperade efter källa som skapade aviseringen. |
 | Alla aktiva aviseringar |Alla aviseringar med alla allvarlighetsgrad grupperade efter aviseringens namn. Bara innehåller Operations Manager-varningar med några tillstånd än *stängd*. |
 
 Om du bläddrar till höger på instrumentpanelen visar flera vanliga frågor som du kan klicka på för att utföra en [loggsökning](../../azure-monitor/log-query/log-query-overview.md) för aviseringsdata.

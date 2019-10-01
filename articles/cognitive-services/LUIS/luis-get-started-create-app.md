@@ -9,14 +9,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/05/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 1704b62cae6375d376fc43fb7a2940cd9c717072
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 748c51e74db20ac101dc2dff0d924567acded114
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382510"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703243"
 ---
 # <a name="quickstart-use-prebuilt-home-automation-app"></a>Snabbstart: Använda fördefinierad hemautomatisering
 
@@ -31,15 +31,15 @@ För den här artikeln behöver du ett kostnadsfritt LUIS-konto som skapas på L
 ## <a name="create-a-new-app"></a>Skapa en ny app
 Du kan skapa och hantera dina appar på **Mina appar**. 
 
-2. Välj **Create new app** (Skapa ny app).
+1. Välj **Create new app** (Skapa ny app).
 
     [![Skärmbild av applista](media/luis-quickstart-new-app/app-list.png "Skärmbild av applista")](media/luis-quickstart-new-app/app-list.png)
 
-3. Namnge appen ”Home Automation” (Hemautomatisering) i dialogrutan.
+1. Namnge appen ”Home Automation” (Hemautomatisering) i dialogrutan.
 
     [![Skärmbild av popup-fönstret Skapa ny app](media/luis-quickstart-new-app/create-new-app-dialog.png "Skärmbild av popup-fönstret Skapa ny app")](media/luis-quickstart-new-app/create-new-app-dialog.png)
 
-4. Välj programkultur. Välj engelska för appen Home Automation. Välj sedan **Done** (Klar). LUIS skapar appen Home Automation. 
+1. Välj programkultur. Välj engelska för appen Home Automation. Välj sedan **Done** (Klar). LUIS skapar appen Home Automation. 
 
     >[!NOTE]
     >Kulturen kan inte ändras när appen har skapats. 
@@ -58,7 +58,7 @@ När domänen har lagts till visar rutan för den fördefinierade domänen knapp
 
 Välj **Intents** i navigeringsfönstret till vänster för att granska avsikter för domänen HomeAutomation. Varje avsikt har exempelyttranden.
 
-![Skärm bild av listan med HomeAutomation-intentor](media/luis-quickstart-new-app/home-automation-intents.png "Skärm bild av listan med HomeAutomation-intentor")]
+![Skärm bild av listan med HomeAutomation-intentor](media/luis-quickstart-new-app/home-automation-intents.png "skärm bild av listan över HomeAutomation")
 
 > [!NOTE]
 > **None** (Ingen) är en avsikt som tillhandahålls av alla LUIS-appar. Du kan använda den till att hantera yttranden som inte motsvarar funktioner som finns i din app. 
@@ -80,7 +80,7 @@ Turn off the lights
 
 Kontrollera att avsikten med högst poäng motsvarar den avsikt du förväntade dig för varje testyttrande.
 
-I det här exemplet `Turn off the lights` identifieras korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff**.
+I det här exemplet identifieras `Turn off the lights` korrekt som det främsta bedömnings syftet för **HomeAutomation. TurnOff**.
 
 [![Skärmbild av testpanelen med ett yttrande markerat](media/luis-quickstart-new-app/test.png "Skärmbild av testpanelen med ett yttrande markerat")](media/luis-quickstart-new-app/test.png)
 
@@ -101,69 +101,27 @@ Välj **Test** igen för att dölja testfönstret.
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
-1. Gå till slutet av webbadressen, skriv `turn off the living room light` och tryck på Retur. Webbläsaren visar API-versionen **v2** för JSON-svaret på http-slutpunkten.
+1. Gå till slutet av webbadressen, skriv `turn off the living room light` och tryck på Retur. 
+
+    #### <a name="v2-prediction-endpointtabv2"></a>[V2-förutsägelse slut punkt](#tab/V2)
+
+    `https://<region>.api.cognitive.microsoft.com/luis/**v2.0**/apps/<appID>?subscription-key=<YOUR_KEY>&**q=<user-utterance-text>**`
+
+    Webbläsaren visar API-versionen **v2** för JSON-svaret på http-slutpunkten.
 
     ```json
     {
-      "query": "turn off the living room light",
+      "query": "turn off the lights",
       "topScoringIntent": {
         "intent": "HomeAutomation.TurnOff",
-        "score": 0.9753089
+        "score": 0.995867
       },
-      "intents": [
-        {
-          "intent": "HomeAutomation.TurnOff",
-          "score": 0.9753089
-        },
-        {
-          "intent": "HomeAutomation.QueryState",
-          "score": 0.01027893
-        },
-        {
-          "intent": "HomeAutomation.TurnUp",
-          "score": 0.006881481
-        },
-        {
-          "intent": "HomeAutomation.SetDevice",
-          "score": 0.006786365
-        },
-        {
-          "intent": "HomeAutomation.TurnDown",
-          "score": 0.005145787
-        },
-        {
-          "intent": "HomeAutomation.TurnOn",
-          "score": 0.004114749
-        },
-        {
-          "intent": "None",
-          "score": 0.000598924
-        }
-      ],
       "entities": [
         {
-          "entity": "living room",
-          "type": "HomeAutomation.Location",
-          "startIndex": 13,
-          "endIndex": 23,
-          "score": 0.94558233
-        },
-        {
-          "entity": "living room light",
-          "type": "HomeAutomation.DeviceName",
-          "startIndex": 13,
-          "endIndex": 29,
-          "resolution": {
-            "values": [
-              "living room light"
-            ]
-          }
-        },
-        {
-          "entity": "light",
+          "entity": "lights",
           "type": "HomeAutomation.DeviceType",
-          "startIndex": 25,
-          "endIndex": 29,
+          "startIndex": 13,
+          "endIndex": 18,
           "resolution": {
             "values": [
               "light"
@@ -174,56 +132,38 @@ Välj **Test** igen för att dölja testfönstret.
     }
     ```
     
-## <a name="query-the-v3-api-prediction-endpoint"></a>Fråga v3 API förutsägelse-slutpunkten
+    #### <a name="v3-prediction-endpointtabv3"></a>[V3 förutsägelse slut punkt](#tab/V3)
 
-För en [v3 API-fråga](luis-migration-api-v3.md)i webbläsaren ändrar du Get-metoden https-begäran och ändrar värdena inom vinkelparenteser för dina egna värden. 
+    För en [v3 API-fråga](luis-migration-api-v3.md)i webbläsaren ändrar du Get-metoden https-begäran och ändrar värdena inom vinkelparenteser för dina egna värden.     
 
-**V2-URL med get-metod**:
+    `https://<region>.api.cognitive.microsoft.com/luis/**v3.0-preview**/apps/<appID>/**slots**/**production**/**predict**?subscription-key=<YOUR_KEY>&**query=<user-utterance-text>**`
 
-https://\<region >. API. kognitiv. Microsoft. com/Luis/**v 2.0**/Apps/\<AppID >? verbose = True & prenumeration-Key =\<YOUR_KEY > &**q =\<User-uttryck-text >**
-
-**V3-URL med get-metod**:
-
-https://\<region >. API. kognitiv. Microsoft. com/Luis/**v 3.0 – Preview**/Apps/\<AppID >/**lots**/**Production**/**predict**? verbose = True & prenumerations nyckel =\<YOUR_KEY > &**query =\<User-uttryck-text >**
-
-Webbläsaren visar **v3 API** -versionen av JSON-svaret för http-slutpunkten.
-
-```json
-{
-    "query": "turn off the lights",
-    "prediction": {
-        "normalizedQuery": "turn off the lights",
-        "topIntent": "HomeAutomation.TurnOff",
-        "intents": {
-            "HomeAutomation.TurnOff": {
-                "score": 0.99649024
-            }
-        },
-        "entities": {
-            "HomeAutomation.DeviceType": [
-                [
-                    "light"
-                ]
-            ],
-            "$instance": {
+    ```json
+    {
+        "query": "turn off the lights",
+        "prediction": {
+            "normalizedQuery": "turn off the lights",
+            "topIntent": "HomeAutomation.TurnOff",
+            "intents": {
+                "HomeAutomation.TurnOff": {
+                    "score": 0.99649024
+                }
+            },
+            "entities": {
                 "HomeAutomation.DeviceType": [
-                    {
-                        "type": "HomeAutomation.DeviceType",
-                        "text": "lights",
-                        "startIndex": 13,
-                        "length": 6,
-                        "modelTypeId": 5,
-                        "modelType": "List Entity Extractor",
-                        "recognitionSources": [
-                            "model"
-                        ]
-                    }
+                    [
+                        "light"
+                    ]
                 ]
             }
         }
     }
-}
-```
+    ```
+
+
+    Läs mer om [v3 förutsägelse slut punkten](luis-migration-api-v3.md).
+    
+    * * * 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 06/20/2019
 tags: connectors
-ms.openlocfilehash: 8160cd2cb77a56f3d9b13f3c43929cc4ab7565b0
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: ce59c238e50a1be6879b07e959b236f6181a8ce4
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309589"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703261"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-with-azure-logic-apps"></a>Skapa och hantera blobbar i Azure Blob Storage med Azure Logic Apps
 
@@ -25,11 +25,12 @@ Den här artikeln visar hur du kan komma åt och hantera filer som lagras som bl
 Anta att du har ett verktyg som uppdateras på en Azure-webbplats. Detta fungerar som utlösare för din Logic app. När den här händelsen inträffar kan du låta din Logic app uppdatera en fil i din Blob Storage-behållare, som är en åtgärd i din Logic app.
 
 > [!NOTE]
-> Logic Apps kan inte komma åt Azure Storage-konton som har [brand Väggs regler](../storage/common/storage-network-security.md) och finns i samma region. Logic Apps kan dock komma åt Azure Storage-konton som finns i en annan region eftersom en offentlig IP-adress används för att kommunicera mellan regioner. Eller så kan du använda något av alternativen här:
+>
+> Logic Apps kan inte komma åt Azure Storage-konton som har [brand Väggs regler](../storage/common/storage-network-security.md) och finns i samma region. Logic Apps kan dock komma åt Azure Storage-konton som finns i en annan region eftersom en offentlig IP-adress används för att kommunicera mellan regioner. Se bara till att du tillåter [utgående IP-adresser för hanterade anslutningar i din region](../logic-apps/logic-apps-limits-and-config.md#outbound). Eller så kan du använda antingen fler avancerade alternativ här:
 >
 > * Skapa en [integrerings tjänst miljö](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)som kan ansluta till resurser i ett virtuellt Azure-nätverk.
 >
-> * Om du redan använder API Management kan du använda den här tjänsten för det här scenariot. Mer information finns i [enkel arkitektur för företags integrering](https://aka.ms/aisarch).
+> * Om du använder en dedikerad nivå för API Management kan du följa lagrings-API: et genom att använda API Management och tillåta de senares IP-adresser genom brand väggen. I princip lägger du till det virtuella Azure-nätverket som används av API Management i lagrings kontots brand Väggs inställning. Du kan sedan använda antingen åtgärden API Management eller HTTP-åtgärden för att anropa API: erna för Azure Storage. Men om du väljer det här alternativet måste du hantera autentiseringsprocessen själv. Mer information finns i [enkel arkitektur för företags integrering](https://aka.ms/aisarch).
 
 Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app. Information om anslutningsspecifika teknisk information finns i referens för [Azure Blob Storage Connector](/connectors/azureblobconnector/).
 

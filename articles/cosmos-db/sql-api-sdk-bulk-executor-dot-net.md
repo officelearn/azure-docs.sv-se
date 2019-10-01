@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 11/19/2018
 ms.author: ramkris
-ms.openlocfilehash: d24481c1364b41f38e4ca7b8f7d726ebc22a1117
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 447f52a08c9e833808508852c4619f6ce1d947e1
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624648"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703375"
 ---
 # <a name="net-bulk-executor-library-download-information"></a>.NET bulk utförar-bibliotek: Hämta information 
 
@@ -46,11 +46,11 @@ ms.locfileid: "69624648"
 
 * Stöd har lagts till för utförar i Graph för att acceptera TTL på hörn och kanter
 
-### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0 – preview2
+### <a name="a-name220-preview2220-preview2"></a><a name="2.2.0-preview2"/>2.2.0-preview2
 
 * Ett problem har åtgärd ATS, vilket orsakade undantag vid elastisk skalning av Azure Cosmos DB vid körning i Gateway-läge. Den här korrigeringen gör att den fungerar som likvärdig med 1.4.1-versionen.
 
-### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0 – preview2
+### <a name="a-name210-preview2210-preview2"></a><a name="2.1.0-preview2"/>2.1.0-preview2
 
 * Stöd har lagts till för BulkDelete-stöd för SQL API-konton för att acceptera partitionsnyckel, dokument-ID-tupler att ta bort. Den här ändringen gör att den fungerar som likvärdig med 1.4.0-versionen.
 
@@ -61,6 +61,12 @@ ms.locfileid: "69624648"
 ### <a name="a-name200-preview200-preview"></a><a name="2.0.0-preview"/>2.0.0-Preview
 
 * .NET standard 2,0 har lagts till som en av de mål ramverk som stöds för att utförar-biblioteket ska fungera med .NET Core-program.
+
+### <a name="a-name182182"></a><a name="1.8.2"/>1.8.2
+
+* Fast hög CPU-förbrukning i vissa scenarier.
+* Spårningen använder nu TraceSource. Användare kan definiera lyssnare för `BulkExecutorTrace`-källan.
+* Åtgärdat ett sällsynt scenario som kan orsaka ett lås när dokument skickas nästan MB i storlek.
 
 ### <a name="a-name160160"></a><a name="1.6.0"/>1.6.0
 

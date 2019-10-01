@@ -9,12 +9,12 @@ ms.author: estfan
 ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 07/26/2019
-ms.openlocfilehash: 0b04ca5c4bea00221d5a823432b6fc1934badb1a
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 15e1f1c4c8757ca55ec27659a4ca11b1729aebc2
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320523"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701935"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Ansluta till virtuella Azure-nätverk från Azure Logic Apps med hjälp av en integrerings tjänst miljö (ISE)
 
@@ -67,17 +67,19 @@ Den här artikeln visar hur du utför dessa uppgifter:
 
 ## <a name="check-network-ports"></a>Kontrol lera nätverks portarna
 
-När du använder en ISE med ett befintligt virtuellt nätverk har ett vanligt installations problem en eller flera blockerade portar. De anslutningar som du använder för att skapa anslutningar mellan din ISE och mål systemet kan också ha egna port krav. Om du till exempel kommunicerar med ett FTP-system med hjälp av FTP-anslutningen kontrollerar du att den port som du använder på FTP-systemet, till exempel port 21 för att skicka kommandon, är tillgänglig.
-
-Om du har skapat ett nytt virtuellt nätverk och undernät utan begränsningar behöver du inte konfigurera [nätverks säkerhets grupper (NSG: er)](../virtual-network/security-overview.md) i det virtuella nätverket så att du kan styra trafiken mellan undernät. För ett befintligt virtuellt nätverk kan du *välja* att konfigurera NSG: er genom att [filtrera nätverks trafik över undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du väljer den här vägen ser du till att din ISE öppnar vissa portar, enligt beskrivningen i följande tabell, i det virtuella nätverk som har NSG: er. För befintliga NSG: er eller brand väggar i det virtuella nätverket måste du därför se till att de öppnar dessa portar. På så sätt förblir din ISE tillgänglig och kan fungera korrekt så att du inte förlorar åtkomsten till din ISE. Om några av de portar som krävs inte är tillgängliga, slutar även din ISE att fungera.
+När du använder en ISE med ett virtuellt Azure-nätverk har ett vanligt installations problem en eller flera blockerade portar. De anslutningar som du använder för att skapa anslutningar mellan din ISE och mål systemet kan också ha egna port krav. Om du till exempel kommunicerar med ett FTP-system med hjälp av FTP-anslutningen kontrollerar du att porten som du använder på FTP-systemet är tillgänglig, till exempel port 21 för att skicka kommandon. För att se till att din ISE är tillgänglig och kan fungera korrekt, öppnar du portarna som anges i tabellen nedan. Om några av de portar som krävs inte är tillgängliga, slutar även din ISE att fungera.
 
 > [!IMPORTANT]
-> För intern kommunikation i dina undernät kräver ISE att du öppnar alla portar i dessa undernät.
+> Käll portar är tillfälliga, så se till att du ställer in dem på `*` för alla regler.
+> För intern kommunikation i dina undernät kräver din ISE att du öppnar alla portar i dessa undernät.
 
-I den här tabellen beskrivs de portar i ditt virtuella nätverk som används av ISE och var dessa portar används. [Resource Manager-tjänstens Taggar](../virtual-network/security-overview.md#service-tags) representerar en grupp IP-adressprefix som bidrar till att minimera komplexiteten när du skapar säkerhets regler.
+* Om du har skapat ett nytt virtuellt nätverk och undernät utan begränsningar behöver du inte konfigurera [nätverks säkerhets grupper (NSG: er)](../virtual-network/security-overview.md#network-security-groups) i det virtuella nätverket för att styra trafiken mellan undernät.
 
-> [!NOTE]
-> Käll portar är tillfälliga, så Ställ in dem på `*` för alla regler.
+* I ett befintligt virtuellt nätverk kan du *välja* att konfigurera NSG: er genom att [filtrera nätverks trafik över undernät](../virtual-network/tutorial-filter-network-traffic.md). Om du väljer den här vägen, i det virtuella nätverk där du vill konfigurera NSG: er, måste du öppna de portar som anges i tabellen nedan. Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)behöver du både TCP-och UDP-protokoll.
+
+* Om du tidigare har en befintlig NSG: er eller brand vägg i ditt virtuella nätverk, se till att du öppnar de portar som anges i tabellen nedan. Om du använder [NSG säkerhets regler](../virtual-network/security-overview.md#security-rules)behöver du både TCP-och UDP-protokoll.
+
+Här är den tabell som beskriver de portar i ditt virtuella nätverk som används av ISE och var dessa portar används. [Resource Manager-tjänstens Taggar](../virtual-network/security-overview.md#service-tags) representerar en grupp IP-adressprefix som bidrar till att minimera komplexiteten när du skapar säkerhets regler.
 
 | Syfte | Direction | Målportar | Källtjänsttagg | Måltjänsttagg | Anteckningar |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|

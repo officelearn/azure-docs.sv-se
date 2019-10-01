@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 09/02/2019
+ms.date: 09/27/2019
 ms.author: diberry
-ms.openlocfilehash: 4e9ecdad0fb4d02f160977fa28a484b2a3a5bb30
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: f640921e6f48559db3f1414551d6ed974df15e4f
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257083"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703226"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>Snabbstart: Distribuera en app i LUIS-portalen
 
@@ -34,7 +34,7 @@ Du skapar en förutsägelse slut punkts resurs i Azure Portal. Den här resursen
 
 1. Logga in på [Azure Portal](https://ms.portal.azure.com/).
 
-1. Välj det gröna **+** tecknet i den övre vänstra panelen. Sök efter `Cognitive Services` i Marketplace och välj den.
+1. Välj det gröna **+-** tecknet i den övre vänstra panelen. Sök efter `Cognitive Services` på Marketplace och välj den.
 
 1. Konfigurera prenumerationen med följande inställningar:
 
@@ -69,7 +69,7 @@ Varje gång du skapar en ny resurs för LUIS måste du tilldela resursen till LU
 
    ![Tilldela en resurs till din app](./media/get-started-portal-deploy-app/assign-resource.png)
 
-1. Hitta den nya raden i tabellen och kopiera slutpunkts-URL. Den är korrekt konstruerad för att `HTTP GET` göra en begäran till Luis API-slutpunkten för en förutsägelse.
+1. Hitta den nya raden i tabellen och kopiera slutpunkts-URL. Den är korrekt konstruerad för att skapa en `HTTP GET`-begäran till LUIS API-slutpunkten för en förutsägelse.
 
 ## <a name="train-and-publish-the-app"></a>Träna och publicera appen
 
@@ -85,51 +85,58 @@ Träna appen när du är redo att testa den. Publicera appen när du vill att de
 
 1. På sidan **nycklar och slut punkts inställningar** letar du upp listan över tilldelade resurser och motsvarande slut punkts-URL: er längst ned.
 
-1. Välj slut punkts-URL: en som är kopplad till ditt nya resurs namn. Den här åtgärden öppnar en webbläsare med en korrekt konstruerad URL för att `GET` göra en begäran till förutsägelse slut punkts körningen.
+1. Välj slut punkts-URL: en som är kopplad till ditt nya resurs namn. Den här åtgärden öppnar en webbläsare med en korrekt konstruerad webb adress för att göra en `GET`-begäran till förutsägelse slut punkts körningen.
 
-1. I slutet av URL: en är kort för fråga och är där användarens uttryck läggs till i get-begäran. `q=` Efter anger du samma användar -uttrycksomanvändesislutetavföregåendesnabbstart:`q=`
+## <a name="prediction-endpoint-request"></a>Förutsägelse slut punkts förfrågan
 
-    ```Is there a form named hrf-234098```
+<!-- V3FIX -->
 
-    Webbläsaren visar svaret, som är samma JSON som klient programmet kommer att få:
+@No__t-0 i slutet av URL: en är kort för **fråga** och är där användarens uttryck läggs till i get-begäran. Efter `q=` anger du samma användar-uttryck som användes i slutet av föregående snabb start:
 
-    ```JSON
+```Is there a form named hrf-234098```
+
+Webbläsaren visar svaret, som är samma JSON som klient programmet kommer att få:
+
+```JSON
+{
+"query": "Is there a form named hrf-234098",
+"topScoringIntent": {
+    "intent": "FindForm",
+    "score": 0.9768753
+},
+"intents": [
     {
-    "query": "Is there a form named hrf-234098",
-    "topScoringIntent": {
-        "intent": "FindForm",
-        "score": 0.9768753
+    "intent": "FindForm",
+    "score": 0.9768753
     },
-    "intents": [
-        {
-        "intent": "FindForm",
-        "score": 0.9768753
-        },
-        {
-        "intent": "None",
-        "score": 0.0216071066
-        }
-    ],
-    "entities": [
-        {
-        "entity": "hrf-234098",
-        "type": "Human Resources Form Number",
-        "startIndex": 22,
-        "endIndex": 31
-        }
-      ]
+    {
+    "intent": "None",
+    "score": 0.0216071066
     }
-    ```
+],
+"entities": [
+    {
+    "entity": "hrf-234098",
+    "type": "Human Resources Form Number",
+    "startIndex": 22,
+    "endIndex": 31
+    }
+    ]
+}
+```
 
-    Det här svaret ger dig mer information än standard test fönstret i föregående självstudie. Om du vill se samma informations nivå i test fönstret måste du publicera appen. När appen har publicerats väljer du **Jämför med publicerad** i test fönstret. Använd **Visa JSON-vy** i det publicerade test fönstret för att se samma JSON som i föregående steg. På så sätt kan du jämföra den aktuella appen som du arbetar med med en app som publiceras till slut punkten.
+Det här svaret ger dig mer information än standard test fönstret i föregående självstudie. Om du vill se samma informations nivå i test fönstret måste du publicera appen. När appen har publicerats väljer du **Jämför med publicerad** i test fönstret. Använd **Visa JSON-vy** i det publicerade test fönstret för att se samma JSON som i föregående steg. På så sätt kan du jämföra den aktuella appen som du arbetar med med en app som publiceras till slut punkten.
 
-    [![Jämför den aktuella redigeringen jämfört med den publicerade versionen av appen](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+[![Compare som för närvarande redigerar jämfört med en publicerad version av appen](./media/get-started-portal-deploy-app/compare-test-pane.png)](./media/get-started-portal-deploy-app/compare-test-pane.png#lightbox)
+
+
+
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
 När du är klar med den här snabb starten väljer du **Mina appar** på den översta navigerings menyn. Markera kryss rutan för appen i listan och välj sedan **ta bort** från verktygsfältet kontext ovanför listan.
 
-[![Ta bort appen från listan Mina appar](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
+[![Delete app från listan Mina appar](./media/get-started-portal-build-app/delete-app.png)](./media/get-started-portal-build-app/delete-app.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

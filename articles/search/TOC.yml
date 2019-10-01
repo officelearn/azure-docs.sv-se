@@ -244,7 +244,7 @@
             - name: Skapa ett kunskapslager i Azure-portalen
               href: knowledge-store-create-portal.md
             - name: Skapa med hjälp av REST och Postman
-              href: knowledge-store-howto.md
+              href: knowledge-store-create-rest.md
             - name: Visa med Storage Explorer
               href: knowledge-store-view-storage-explorer.md
             - name: Anslut med Power BI

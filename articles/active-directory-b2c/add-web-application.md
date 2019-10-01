@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 3114f082a402fd005797b270cfdcd7527784dbe1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 88ce3931d9f47b8c16251a45e54fa96b97f038e2
+ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679227"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71693276"
 ---
 # <a name="add-a-web-api-application-to-your-azure-active-directory-b2c-tenant"></a>Lägga till ett webb-API-program till din Azure Active Directory B2C-klient
 
@@ -42,10 +42,6 @@ Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång anvä
 
 Om du vill anropa ett skyddat webb-API från ett program måste du ge programmet åtkomst till API:t. Som exempel: I [Självstudie: Registrera ett program i Azure Active Directory B2C](tutorial-register-applications.md)skapas ett webb program i Azure AD B2C med namnet *webapp1*. Du kan använda det här programmet för att anropa webb-API: et.
 
-1. Välj **program**och välj sedan ditt webb program.
-1. Välj **API-åtkomst** och sedan **Lägg till**.
-1. I listrutan **Välj API** väljer du *webapi1*.
-1. I list rutan **Välj omfång** väljer du de omfattningar som du definierade tidigare. Till exempel *demo. Read* och *demo. Write*.
-1. Välj **OK**.
+[!INCLUDE [active-directory-b2c-permissions-api](../../includes/active-directory-b2c-permissions-api.md)]
 
 Programmet har registrerats för att anropa det skyddade webb-API:et. En användare autentiserar med Azure AD B2C för att använda programmet. Programmet får ett auktoriseringsbeviljande från Azure AD B2C som ger tillgång till det skyddade webb-API:et.

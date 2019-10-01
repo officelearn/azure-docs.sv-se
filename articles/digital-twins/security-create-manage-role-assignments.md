@@ -9,19 +9,16 @@ ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 968ae62344f99edf8eb46eb62a4cf13f300c868f
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 2c43dd7c0700efdd2fbf2f16c57c9c9dc69d3c6b
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815641"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71703356"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Skapa och hantera roll tilldelningar i Azure Digitals flätas
 
 Azure Digitals flätar använder rollbaserad åtkomst kontroll ([RBAC](./security-role-based-access-control.md)) för att hantera åtkomst till resurser.
-
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="role-assignments-overview"></a>Översikt över roll tilldelningar
 
@@ -39,7 +36,7 @@ Varje roll tilldelning överensstämmer med följande definition:
 
 I tabellen nedan beskrivs varje attribut:
 
-| Attribut | Namn | Obligatorisk | Typ | Beskrivning |
+| Attribut | Name | Obligatorisk | Typ | Beskrivning |
 | --- | --- | --- | --- | --- |
 | roleId | Identifierare för roll definition | Ja | Sträng | Unikt ID för den önskade roll tilldelningen. Hitta roll definitioner och deras identifierare genom att fråga system-API: et eller granska tabellen nedan. |
 | objekt-ID | Objekt identifierare | Ja | Sträng | Ett Azure Active Directory-ID, tjänstens huvud objekt-ID eller domän namn. Vad eller vem roll tilldelningen är tilldelad till. Roll tilldelningen måste vara formaterad enligt dess associerade typ. För objectIdType måste ObjectID börja `“@”` med-symbolen. `DomainName` |
@@ -63,7 +60,7 @@ Tidigare introducerades attributet **objectIdType** .
 
 Azure Digitals dubbla har stöd för fullständiga åtgärder för att *skapa*, *läsa*och *ta bort* roll tilldelningar. *Uppdaterings* åtgärder hanteras genom att lägga till roll tilldelningar, ta bort roll tilldelningar eller ändra de [diagram över spatial information](./concepts-objectmodel-spatialgraph.md) som roll tilldelningarna ger åtkomst till.
 
-![Roll tilldelnings slut punkter][1]
+[@no__t tilldelnings slut punkter för 1Role](media/security-roles/roleassignments.png)](media/security-roles/roleassignments.png#lightbox)
 
 Den tillhandahållna Swagger Reference-dokumentationen innehåller ytterligare information om alla tillgängliga API-slutpunkter, begär ande åtgärder och definitioner.
 
@@ -71,23 +68,28 @@ Den tillhandahållna Swagger Reference-dokumentationen innehåller ytterligare i
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-<div id="grant"></div>
-
 ### <a name="grant-permissions-to-your-service-principal"></a>Bevilja behörighet till tjänstens huvud namn
 
 Att bevilja behörighet till tjänstens huvud namn är ofta ett av de första stegen du ska vidta när du arbetar med digitala Digital-objekt i Azure. Den har följande:
 
-1. Logga in på Azure-instansen via PowerShell.
+1. Logga in på Azure-instansen via [Azure CLI](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) eller [PowerShell](https://docs.microsoft.com/powershell/azure/).
 1. Hämtar information om tjänstens huvud namn.
 1. Tilldela den önskade rollen till tjänstens huvud namn.
 
 Ditt program-ID anges till dig i Azure Active Directory. Läs igenom [snabb](./quickstart-view-occupancy-dotnet.md)starten om du vill veta mer om att konfigurera och tillhandahålla ett digitalt Azure-innehåll i Active Directory.
 
-När du har program-ID: t kör du följande PowerShell-kommandon:
+När du har program-ID: t kör du ett av följande kommandon. I Azure CLI:
 
-```shell
+```azurecli
+az login
+az ad sp show --id <ApplicationId>
+```
+
+I PowerShell:
+
+```powershell
 Login-AzAccount
-Get-AzADServicePrincipal -ApplicationId  <ApplicationId>
+Get-AzADServicePrincipal -ApplicationId <ApplicationId>
 ```
 
 En användare med **Administratörs** rollen kan sedan tilldela rollen disk utrymmes administratör till en användare genom att göra en autentiserad HTTP POST-begäran till URL: en:
@@ -108,11 +110,9 @@ Med följande JSON-brödtext:
 }
 ```
 
-<div id="all"></div>
-
 ### <a name="retrieve-all-roles"></a>Hämta alla roller
 
-![System roller][2]
+[![System roller](media/security-roles/system.png)](media/security-roles/system.png#lightbox)
 
 Om du vill visa en lista över alla tillgängliga roller (roll definitioner) gör du en autentiserad HTTP GET-begäran till:
 
@@ -152,8 +152,6 @@ En lyckad begäran returnerar en JSON-matris med poster för varje roll som kan 
     }
 ]
 ```
-
-<div id="check"></div>
 
 ### <a name="check-a-specific-role-assignment"></a>Kontrol lera en speciell roll tilldelning
 
@@ -210,7 +208,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/YOUR_ROLE_ASSIGNMENT_ID
 | --- | --- |
 | *YOUR_ROLE_ASSIGNMENT_ID* | **ID** för den roll tilldelning som ska tas bort |
 
-En lyckad BORTTAGNINGs förfrågan returnerar en 204-svars status. Verifiera borttagningen av roll tilldelningen genom att [kontrol lera](#check) om roll tilldelningen fortfarande innehåller.
+En lyckad BORTTAGNINGs förfrågan returnerar en 204-svars status. Verifiera borttagningen av roll tilldelningen genom att [kontrol lera](#check-a-specific-role-assignment) om roll tilldelningen fortfarande innehåller.
 
 ### <a name="create-a-role-assignment"></a>Skapa en roll tilldelning
 
@@ -282,7 +280,3 @@ Följande exempel visar hur du konfigurerar din JSON-brödtext i flera vanliga s
 - För att granska Azure Digitals med rollbaserad åtkomst kontroll, Läs [roll-grundläggande-åtkomst-kontroll](./security-authenticating-apis.md).
 
 - Läs [API-autentisering](./security-authenticating-apis.md)om du vill veta mer om Azure Digitals dubbla API-autentisering.
-
-<!-- Images -->
-[1]: media/security-roles/roleassignments.png
-[2]: media/security-roles/system.png

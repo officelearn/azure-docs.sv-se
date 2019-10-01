@@ -1,9 +1,9 @@
 ### YamlMime:YamlDocument
 documentType: LandingData
-title: Dokumentation om förhandsversionen av Windows Virtual Desktop
+title: Dokumentation om Windows Virtual Desktop
 metadata:
-  title: 'Dokumentation om förhandsversionen av Windows Virtual Desktop – självstudier, snabbstarter, API-referenser | Microsoft Docs'
-  description: Förhandsversionen av Windows Virtual Desktop för Azure är en Windows 10 Enterprise-upplevelse för flera användare som är virtualiserad i molnet.
+  title: 'Dokumentation om Windows Virtual Desktop – Självstudier, snabbstarter, API-referenser | Microsoft Docs'
+  description: Windows Virtual Desktop för Azure är en Windows 10 Enterprise-upplevelse för flera användare som är virtualiserad i molnet.
   author: Heidilohr
   manager: daveba
   ms.service: virtual-desktop
@@ -17,11 +17,11 @@ sections:
   - title: Översikt
     items:
       - type: paragraph
-        text: 'Läs mer om förhandsversionen av Windows Virtual Desktop och hur den används. Med hjälp av självstudier, instruktioner, referensinnehåll och mer får du lära dig att konfigurera värdpooler och klientorganisationer samt tilldela roller till användare i din Windows Virtual Desktop-miljö.'
+        text: 'Läs mer om Windows Virtual Desktop och hur den används. Med hjälp av självstudier, instruktioner, referensinnehåll och mer får du lära dig att konfigurera värdpooler och klientorganisationer samt tilldela roller till användare i din Windows Virtual Desktop-miljö.'
       - type: list
         style: unordered
         items:
-          - html: <a href="/azure/virtual-desktop/overview">Vad är förhandsversionen av Windows Virtual Desktop?</a>
+          - html: <a href="/azure/virtual-desktop/overview">Vad är Windows Virtual Desktop?</a>
   - title: Steg för steg-självstudier
     items:
       - type: paragraph

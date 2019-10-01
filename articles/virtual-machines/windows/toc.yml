@@ -36,13 +36,15 @@
     - name: 10 – Styra virtuella datorer
       href: tutorial-govern-resources.md
       displayName: scope policy RBAC lock tag
-    - name: 11 – Övervaka och uppdatera virtuella datorer
-      href: tutorial-monitoring.md
-    - name: 12 – Hantera VM-säkerhet
+    - name: 11 – Spåra och uppdatera virtuella datorer
+      href: tutorial-config-management.md
+    - name: 12 – Övervaka virtuella datorer
+      href: tutorial-monitor.md
+    - name: 13 – Hantera VM-säkerhet
       href: tutorial-azure-security.md
-    - name: 13 – Installera en SQL\IIS\.NET-stack
+    - name: 14 – Installera en SQL\IIS\.NET-stack
       href: tutorial-iis-sql.md
-    - name: 14 – Säker webbserver med SSL
+    - name: 15 – Säker webbserver med SSL
       href: tutorial-secure-web-server.md
 - name: Exempel
   items:

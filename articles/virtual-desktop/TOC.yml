@@ -38,6 +38,8 @@
       href: create-host-pools-arm-template.md
     - name: Skapa en värdpool med PowerShell
       href: create-host-pools-powershell.md
+    - name: Distribuera en virtuell Windows 7-dator på Windows Virtual Desktop
+      href: deploy-windows-7-virtual-machine.md
     - name: Använd Windows-licens för Windows Virtual Desktop-sessionsvärdar
       href: apply-windows-license.md
     - name: Skapa en profilcontainer för en värdpool med hjälp av en filresurs
@@ -86,6 +88,8 @@
       href: troubleshoot-set-up-issues.md
     - name: Session för konfiguration av virtuell värddator
       href: troubleshoot-vm-configuration.md
+    - name: Felsöka en virtuell Windows 7-dator i Windows Virtual Desktop
+      href: troubleshoot-windows-7-vm.md
     - name: Anslutningar för fjärrskrivbordsklienten
       href: troubleshoot-client-connection.md
     - name: Windows Virtual Desktop PowerShell

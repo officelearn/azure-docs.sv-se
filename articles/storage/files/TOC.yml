@@ -183,6 +183,8 @@
       items:
         - name: 'Blobbar, köer och filer (version 12.x – förhandsversion)'
           href: 'https://azure.github.io/azure-sdk-for-java/track2reports/index.html'
+        - name: 'Blobbar, köer och filer (version 8)'
+          href: 'https://docs.microsoft.com/java/api/overview/azure/storage?view=azure-java-legacy'
         - name: Lagringsresursprovider
           href: /java/api/overview/azure/storage/management
     - name: Node.js
@@ -284,6 +286,8 @@
           href: 'https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/'
         - name: Azure Storage Data Movement Library
           href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
+        - name: Bibliotek för lagringsresursprovider
+          href: 'https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/'
     - name: Källkod
       items:
         - name: .NET
@@ -297,7 +301,7 @@
             - name: Bibliotek för dataflytt
               href: 'https://github.com/Azure/azure-storage-net-data-movement'
             - name: Bibliotek för lagringsresursprovider
-              href: /dotnet/api/overview/azure/storage/management
+              href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.Management.Storage'
         - name: Java
           items:
             - name: Azure Storage-klientbibliotek version 12.x (förhandsversion)

@@ -62,7 +62,7 @@ Ett parameter värde som definieras i definitionen av en skiss kallas en **stati
 
 1. Klicka på en befintlig skiss och klicka sedan på **Redigera skiss** eller klicka på **+ skapa skiss** och fyll i informationen på fliken **grundläggande** .
 
-1. Klicka på **Nästa: Artefakter eller klicka på fliken **artefakter.****
+1. Klicka på **Nästa: Artefakter** eller klicka på fliken **artefakter.**
 
 1. Artefakter som läggs till i skissen med parameter alternativ visar **X av Y-parametrar** som är ifyllda i kolumnen **parametrar** . Klicka på artefakt raden för att redigera artefakt parametrarna.
 

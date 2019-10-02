@@ -25,6 +25,8 @@
       items:
         - name: ASP.NET Core
           href: quickstart-feature-flag-aspnet-core.md
+        - name: Java Spring
+          href: quickstart-feature-flag-spring-boot.md
 - name: Självstudier
   items:
     - name: Aktivera dynamisk konfiguration i ASP.NET Core
@@ -33,6 +35,8 @@
       href: enable-dynamic-configuration-dotnet-core.md
     - name: Använda funktionsflaggor i en .NET Core-app
       href: use-feature-flags-dotnet-core.md
+    - name: Använda funktionsflaggor i en Spring Boot-app
+      href: use-feature-flags-spring-boot.md
     - name: Hantera funktionsflaggor
       href: manage-feature-flags.md
     - name: Integrera med en CI/CD-pipeline

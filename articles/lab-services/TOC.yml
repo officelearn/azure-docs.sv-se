@@ -70,6 +70,14 @@
               href: devtest-lab-use-claim-capabilities.md
 - name: Instruktionsguider
   items:
+    - name: Klassrumslabb – klasstyper
+      items:
+        - name: Klasstyper
+          href: classroom-labs/class-types.md
+        - name: Djupinlärning i naturlig bearbetning
+          href: classroom-labs/class-type-deep-learning-natural-processing.md
+        - name: Gränssnittsskript i Linux
+          href: classroom-labs/class-type-shell-scripting-linux.md
     - name: Klassrumslabb
       items:
         - name: Skapa och konfigurera labbkonton (labbkontoägare)

@@ -21,17 +21,17 @@
       items:
         - name: Använda utkast
           href: kubernetes-draft.md
-        - name: Använda Java (VS Code och CLI)
-          href: ../dev-spaces/quickstart-java.md
-          maintainContext: true
-        - name: Använda .NET Core (VS Code och CLI)
+        - name: Använda Visual Studio Code och Azure Dev Spaces
           href: ../dev-spaces/quickstart-netcore.md
           maintainContext: true
-        - name: Använda .NET Core (Visual Studio 2017)
+        - name: Använda Visual Studio och Azure Dev Spaces
           href: ../dev-spaces/quickstart-netcore-visualstudio.md
           maintainContext: true
-        - name: Använda Node.js (VS Code och CLI)
-          href: ../dev-spaces/quickstart-nodejs.md
+        - name: Använda CLI och Azure Dev Spaces
+          href: ../dev-spaces/quickstart-cli.md
+          maintainContext: true
+        - name: Använda Azure Dev Spaces för teamutveckling
+          href: ../dev-spaces/quickstart-team-development.md
           maintainContext: true
 - name: Självstudier
   items:

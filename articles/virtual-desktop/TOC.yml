@@ -66,6 +66,8 @@
   items:
     - name: Windows Virtual Desktop-miljö
       href: environment-setup.md
+    - name: Bandbreddsrekommendationer för fjärrsessioner
+      href: bandwidth-recommendations.md
     - name: Delegerad åtkomst i Windows Virtual Desktop
       href: delegated-access-virtual-desktop.md
     - name: Belastningsutjämningsmetoder för värdpool

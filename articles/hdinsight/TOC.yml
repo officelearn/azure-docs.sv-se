@@ -17,6 +17,8 @@
           href: ./hdinsight-administer-use-dotnet-sdk.md
         - name: Hantera HDInsight-kluster – PowerShell
           href: ./hdinsight-administer-use-powershell.md
+        - name: Skapa en ETL-pipeline
+          href: ./hdinsight-sales-insights-etl.md
     - name: Exempel
       items:
         - name: Azure CLI-exempel

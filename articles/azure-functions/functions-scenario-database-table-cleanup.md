@@ -8,20 +8,20 @@ manager: jeconnoc
 ms.assetid: 076f5f95-f8d2-42c7-b7fd-6798856ba0bb
 ms.service: azure-functions
 ms.topic: conceptual
-ms.date: 10/28/2018
+ms.date: 10/02/2019
 ms.author: glenga
-ms.openlocfilehash: 0388c712d6f44755e768e491944df1a9451653b7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 469e0149a3b9dce22f0590240a053ee3b183c7b9
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70085238"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815982"
 ---
 # <a name="use-azure-functions-to-connect-to-an-azure-sql-database"></a>Använd Azure Functions för att ansluta till en Azure SQL Database
 
-Den här artikeln visar hur du använder Azure Functions för att skapa ett schemalagt jobb som ansluter till en Azure SQL Database-instans. Funktions koden rensar rader i en tabell i databasen. Den nya C# funktionen skapas baserat på en fördefinierad timer-mall i Visual Studio 2019. För att stödja det här scenariot måste du också ange en databas anslutnings sträng som en app-inställning i Function-appen. I det här scenariot används en Mass åtgärd mot databasen. 
+Den här artikeln visar hur du använder Azure Functions för att skapa ett schemalagt jobb som ansluter till en Azure SQL Database eller en Azure SQL-hanterad instans. Funktions koden rensar rader i en tabell i databasen. Den nya C# funktionen skapas baserat på en fördefinierad timer-mall i Visual Studio 2019. För att stödja det här scenariot måste du också ange en databas anslutnings sträng som en app-inställning i Function-appen. För Azure SQL-hanterad instans måste du [Aktivera den offentliga slut punkten](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) för att kunna ansluta från Azure Functions. I det här scenariot används en Mass åtgärd mot databasen. 
 
-Om det är första gången du arbetar med C# funktioner bör du läsa [Azure Functions C# Developer](functions-dotnet-class-library.md)-referensen.
+Om det är första gången du arbetar med C# funktioner bör du läsa [Azure Functions C# Developer-referensen](functions-dotnet-class-library.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -39,7 +39,7 @@ Du måste hämta anslutnings strängen för den databas som du skapade när du h
 
 1. Välj **SQL-databaser** på den vänstra menyn och välj din databas på sidan SQL- **databaser** .
 
-1. Välj **anslutnings strängar** under **Inställningar** och kopiera den fullständiga **ADO.net** -anslutningssträngen.
+1. Välj **anslutnings strängar** under **Inställningar** och kopiera den fullständiga **ADO.net** -anslutningssträngen. För Azure SQL Managed instance Copy-anslutningssträng för offentlig slut punkt.
 
     ![Kopiera anslutnings strängen ADO.NET.](./media/functions-scenario-database-table-cleanup/adonet-connection-string.png)
 
@@ -49,11 +49,11 @@ En funktionsapp är värd för körningen av dina funktioner i Azure. Som bästa
 
 Du måste ha publicerat din app tidigare på Azure. [Publicera din Function-app till Azure](functions-develop-vs.md#publish-to-azure)om du inte redan gjort det.
 
-1. I Solution Explorer högerklickar du på programmets Function-projekt och väljer **publicera** > **hantera program inställningar.** ... Välj **Lägg till inställning**, i **nytt inställnings namn**för `sqldb_connection`appen, skriv och välj **OK**.
+1. I Solution Explorer högerklickar du på programmets Function-projekt och väljer **publicera** > **hantera program inställningar.** ... Välj **Lägg till inställning**, i **nytt inställnings namn för appen**, skriv `sqldb_connection` och välj **OK**.
 
     ![Program inställningar för Function-appen.](./media/functions-scenario-database-table-cleanup/functions-app-service-add-setting.png)
 
-1. I den nya **sqldb_connection** -inställningen klistrar du in anslutnings strängen som du kopierade i föregående avsnitt i det lokala `{your_username}` fältet `{your_password}` och ersätter plats hållarna med verkliga värden. Välj **Infoga värde från lokal** för att kopiera det uppdaterade värdet till fältet **Remote** och välj sedan **OK**.
+1. I den nya **sqldb_connection** -inställningen klistrar du in anslutnings strängen som du kopierade i föregående avsnitt i det **lokala** fältet och ersätter `{your_username}`-och `{your_password}`-plats hållarna med verkliga värden. Välj **Infoga värde från lokal** för att kopiera det uppdaterade värdet till fältet **Remote** och välj sedan **OK**.
 
     ![Lägg till inställningen för SQL-anslutningssträng.](./media/functions-scenario-database-table-cleanup/functions-app-service-settings-connection-string.png)
 
@@ -79,11 +79,11 @@ Nu kan du lägga till C# funktions koden som ansluter till din SQL Database.
 
 ## <a name="add-a-timer-triggered-function"></a>Skapa en timerutlöst funktion
 
-1. I Solution Explorer högerklickar du på programmets Function-projekt och väljer **Lägg till** > **ny Azure-funktion**.
+1. I Solution Explorer högerklickar du på programmets Function-projekt och väljer **Lägg till** > **ny Azure Function**.
 
-1. När du har valt mallen **Azure Functions** väljer du **Lägg till**det nya `DatabaseCleanup.cs` objektet.
+1. När du har valt den **Azure Functions** mallen namnger du det nya objektet något som `DatabaseCleanup.cs` och väljer **Lägg till**.
 
-1. I dialog rutan **ny Azure Function** väljer du **timer** -utlösare och sedan **OK**. Den här dialog rutan skapar en kod fil för den timer-aktiverade funktionen.
+1. I dialog rutan **ny Azure Function** väljer du **timer-utlösare** och sedan **OK**. Den här dialog rutan skapar en kod fil för den timer-aktiverade funktionen.
 
 1. Öppna den nya kod filen och Lägg till följande using-uttryck högst upp i filen:
 
@@ -92,7 +92,7 @@ Nu kan du lägga till C# funktions koden som ansluter till din SQL Database.
     using System.Threading.Tasks;
     ```
 
-1. Ersätt den befintliga `Run` funktionen med följande kod:
+1. Ersätt den befintliga `Run`-funktionen med följande kod:
 
     ```cs
     [FunctionName("DatabaseCleanup")]
@@ -116,7 +116,7 @@ Nu kan du lägga till C# funktions koden som ansluter till din SQL Database.
     }
     ```
 
-    Den här funktionen körs var 15: e sekund `Status` för att uppdatera kolumnen baserat på speditions datum. Mer information om timer-utlösaren finns i timer-utlösare [för Azure Functions](functions-bindings-timer.md).
+    Den här funktionen körs var 15: e sekund för att uppdatera kolumnen `Status` baserat på transport datumet. Mer information om timer-utlösaren finns i [timer-utlösare för Azure Functions](functions-bindings-timer.md).
 
 1. Tryck på **F5** för att starta Function-appen. Fönstret [Azure Functions Core tools](functions-develop-local.md) körning öppnas bakom Visual Studio.
 
@@ -124,9 +124,9 @@ Nu kan du lägga till C# funktions koden som ansluter till din SQL Database.
 
     ![Visa funktions loggarna.](./media/functions-scenario-database-table-cleanup/function-execution-results-log.png)
 
-    Vid den första körningen bör du uppdatera 32 rader med data. Följande kör uppdatering av inga data rader, om du inte gör ändringar i SalesOrderHeader-tabellens data så att fler rader väljs av `UPDATE` instruktionen.
+    Vid den första körningen bör du uppdatera 32 rader med data. Följande kör uppdatering av inga data rader, om du inte gör ändringar i SalesOrderHeader-tabellens data så att fler rader har marker ATS i `UPDATE`-instruktionen.
 
-Om du planerar att [publicera den här funktionen](functions-develop-vs.md#publish-to-azure)måste du komma ihåg `TimerTrigger` att ändra attributet till ett mer rimligt [cron-schema](functions-bindings-timer.md#ncrontab-expressions) än var 15: e sekund.
+Om du planerar att [publicera den här funktionen](functions-develop-vs.md#publish-to-azure)måste du komma ihåg att ändra `TimerTrigger`-attributet till ett mer rimligt [cron-schema](functions-bindings-timer.md#ncrontab-expressions) än var 15: e sekund.
 
 ## <a name="next-steps"></a>Nästa steg
 

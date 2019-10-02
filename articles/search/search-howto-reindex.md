@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 8a03472b72ea7c2dc69d79400e33d5ec65cc6126
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 863050b2646f6f7b3a3d9ba3487f11729bef22c8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647697"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719854"
 ---
 # <a name="how-to-rebuild-an-azure-search-index"></a>Återskapa ett Azure Search-index
 
@@ -31,9 +31,9 @@ Till skillnad från återskapande som tar ett index offline körs *data uppdater
 | Ändra en fält definition | Att ändra ett fält namn, data typ eller specifika [indexattribut](https://docs.microsoft.com/rest/api/searchservice/create-index) (sökbar, Filterable, sorterbar, aspektbar) kräver en fullständig återuppbyggnad. |
 | Tilldela ett fält till en analys | [Analys](search-analyzers.md) verktyg definieras i ett index och tilldelas sedan till fält. Du kan lägga till en ny analys definition till ett index när som helst, men du kan bara *tilldela* en analys när fältet har skapats. Detta gäller både för egenskaperna **Analyzer** och **indexAnalyzer** . Egenskapen **searchAnalyzer** är ett undantag (du kan tilldela den här egenskapen till ett befintligt fält). |
 | Uppdatera eller ta bort en analys definition i ett index | Du kan inte ta bort eller ändra en befintlig analys konfiguration (Analyzer, tokenizer, token filter eller char filter) i indexet om du inte bygger om hela indexet. |
-| Lägg till ett fält till en förslags ställare | Om det redan finns ett fält och du vill lägga till det i [](index-add-suggesters.md) en förslags konstruktion måste du återskapa indexet. |
+| Lägg till ett fält till en förslags ställare | Om det redan finns ett fält och du vill lägga till det i en [förslags](index-add-suggesters.md) konstruktion måste du återskapa indexet. |
 | Ta bort ett fält | Om du vill ta bort alla spår för ett fält fysiskt måste du återskapa indexet. När en omedelbar återuppbyggnad inte är praktisk kan du ändra program koden för att inaktivera åtkomst till fältet "borttaget". Fysiskt är fält definitionen och innehållet kvar i indexet tills nästa återuppbyggnad när du använder ett schema som utelämnar fältet i fråga. |
-| Växlings nivåer | Om du behöver mer kapacitet finns det ingen uppgradering på plats. En ny tjänst skapas vid den nya kapacitets punkten och index måste byggas från grunden på den nya tjänsten. |
+| Växlings nivåer | Om du behöver mer kapacitet finns det ingen uppgradering på plats i Azure Portal. En ny tjänst måste skapas och index måste byggas från grunden på den nya tjänsten. För att automatisera den här processen kan du använda exempel koden **index-Backup-Restore** i den här [Azure Search .net-exempel lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples). Den här appen kommer att säkerhetskopiera ditt index till en serie JSON-filer och sedan återskapa indexet i en Sök tjänst som du anger.|
 
 Eventuella andra ändringar kan göras utan att det påverkar befintliga fysiska strukturer. Mer specifikt kräver följande ändringar *inte* en index återuppbyggnad:
 
@@ -57,7 +57,7 @@ Vad du kan göra enkelt är att *Uppdatera dokument* i ett index. För många S�
 
 [Indexerare](search-indexer-overview.md) fören klar data uppdaterings åtgärden. En indexerare kan bara indexera en tabell eller vy i den externa data källan. För att indexera flera tabeller är det enklaste sättet att skapa en vy som kopplar tabeller och projekt till de kolumner som du vill indexera. 
 
-När du använder indexerare som crawlar externa data källor, kontrollerar du att det finns en "hög vatten märkes kolumn" i källdata. Om det finns en sådan kan du använda den för stegvis ändrings identifiering genom att bara hämta de rader som innehåller nytt eller uppdaterat innehåll. För [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection)används ett `lastModified` fält. I [Azure Table Storage](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection) `timestamp` används samma syfte. På samma sätt har både [Azure SQL Database indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) och [Azure Cosmos db indexerare](search-howto-index-cosmosdb.md#indexing-changed-documents) fält för att flagga rad uppdateringar. 
+När du använder indexerare som crawlar externa data källor, kontrollerar du att det finns en "hög vatten märkes kolumn" i källdata. Om det finns en sådan kan du använda den för stegvis ändrings identifiering genom att bara hämta de rader som innehåller nytt eller uppdaterat innehåll. För [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md#incremental-indexing-and-deletion-detection)används ett `lastModified`-fält. I [Azure Table Storage](search-howto-indexing-azure-tables.md#incremental-indexing-and-deletion-detection)har `timestamp` samma syfte. På samma sätt har både [Azure SQL Database indexerare](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) och [Azure Cosmos db indexerare](search-howto-index-cosmosdb.md#indexing-changed-documents) fält för att flagga rad uppdateringar. 
 
 Mer information om indexerare finns i [Översikt över indexerare](search-indexer-overview.md) och [återställ indexerare REST API](https://docs.microsoft.com/rest/api/searchservice/reset-indexer).
 
@@ -67,7 +67,7 @@ Planera regelbundet, fullständig återuppbyggnad under aktiv utveckling, när i
 
 Läs-och Skriv behörighet på service nivå krävs för index uppdateringar. 
 
-Det går inte att återskapa ett index i portalen. Program mässigt kan du anropa uppdaterings [Index REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) eller [motsvarande .NET-API: er](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) för en fullständig återuppbyggnad. En begäran om uppdaterings index är identisk med [create index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), men har en annan kontext.
+Det går inte att återskapa ett index i portalen. Program mässigt kan du anropa [uppdaterings Index REST API](https://docs.microsoft.com/rest/api/searchservice/update-index) eller [motsvarande .NET-API: er](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.iindexesoperations.createorupdatewithhttpmessagesasync?view=azure-dotnet) för en fullständig återuppbyggnad. En begäran om uppdaterings index är identisk med [create index REST API](https://docs.microsoft.com/rest/api/searchservice/create-index), men har en annan kontext.
 
 Följande arbets flöde är fördelat mot REST API, men gäller även för .NET SDK.
 

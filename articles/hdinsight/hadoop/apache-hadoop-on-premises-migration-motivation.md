@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/25/2018
 ms.author: hrasheed
-ms.openlocfilehash: 3c122a68e9f28772be4e3a17a21e5457aa187ce6
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.openlocfilehash: a65b775a516bfccac2dee5ce00bc7d6495df256d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70736103"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718365"
 ---
 # <a name="migrate-on-premises-apache-hadoop-clusters-to-azure-hdinsight---motivation-and-benefits"></a>Migrera lokala Apache Hadoop-kluster till Azure HDInsight – motivation och fördelar
 
@@ -51,9 +51,9 @@ Azure HDInsight är en moln distribution av Hadoop-komponenter. Med Azure HDInsi
 
 - **Produktivitet** – du kan använda olika verktyg för Hadoop och spark i din önskade utvecklings miljö.
 
-- **Utöknings barhet med anpassade verktyg eller program från tredje part** – HDInsight-kluster kan utökas med installerade komponenter och kan också integreras med de andra Big data-lösningarna genom att använda distributioner med [en enda klickning](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/) från Azure-marknads plats.
+- **Utöknings barhet med anpassade verktyg eller program från tredje part** – HDInsight-kluster kan utökas med installerade komponenter och kan också integreras med de andra Big data-lösningarna genom att använda [en](https://azure.microsoft.com/services/hdinsight/partner-ecosystem/)2deployments @no__t-från Azure Marknads plats.
 
-- **Enkel hantering, administration och övervakning** – Azure HDInsight integreras med [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) för att tillhandahålla ett enda gränssnitt som du kan använda för att övervaka alla dina kluster.
+- **Enkel hantering, administration och övervakning** – Azure HDInsight integreras med [Azure Monitor loggar](../hdinsight-hadoop-oms-log-analytics-tutorial.md) to tillhandahåller ett enda gränssnitt som du kan använda för att övervaka alla dina kluster.
 
 - **Integrering med andra Azure-tjänster** – HDInsight kan enkelt integreras med andra populära Azure-tjänster, till exempel följande:
 
@@ -137,10 +137,10 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Data destinationer|HDFS, RDBMS, Kafka, MPP ||
 |**Ämne**: **Metadata**|||
 |Hive DB-typ|MySQL, postgres||
-|Nej. Hive-metastores|2||
-|Nej. av Hive-tabeller|100||
-|Nej. av Ranger-principer|20||
-|Nej. av Oozie-arbetsflöden|100||
+|Antal Hive-metastores|2||
+|Antal Hive-tabeller|100||
+|Antal Ranger-principer|20||
+|Antal Oozie-arbetsflöden|100||
 |**Ämne**: **Skalning**|||
 |Data volym, inklusive replikering|100 TB||
 |Daglig inmatnings volym|50 GB||
@@ -152,11 +152,11 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Använt diskutrymme|75%||
 |Genomsnittligt nätverk% använt|25 %
 |**Ämne**: **Bilda**|||
-|Nej. av administratörer|2||
-|Nej. av utvecklare|10||
-|Nej. för slutanvändare|100||
+|Antal administratörer|2||
+|Antal utvecklare|10||
+|Antal slutanvändare|100||
 |Färdigheter|Hadoop, Spark||
-|Nej. tillgängliga resurser för migrerings aktiviteter|2||
+|Antal tillgängliga resurser för migrerings aktiviteter|2||
 |**Ämne**: **Begränsningar**|||
 |Aktuella begränsningar|Svars tiden är hög||
 |Aktuella utmaningar|Samtidiga problem||
@@ -180,7 +180,7 @@ Det här avsnittet innehåller fråge formulär för mallar som hjälper dig att
 |Privat och skyddad datapipeline?|Ja||
 |Domänanslutna kluster (ESP)?|     Ja||
 |Lokalt AD Sync till molnet?|     Ja||
-|Nej. för AD-användare att synkronisera?|          100||
+|Antal AD-användare som ska synkroniseras?|          100||
 |OK för att synkronisera lösen ord till molnet?|    Ja||
 |Endast moln användare?|                 Ja||
 |MFA krävs?|                       Nej|| 

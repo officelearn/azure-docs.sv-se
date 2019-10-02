@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 8e9cc93a74c299be6fb4898b4af143a43fc079f5
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 3c7ba10525dedf213a416d9ce6b55c80539fedd7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067029"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812212"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Övervaka tillgängligheten för en webbplats
 
@@ -31,7 +31,7 @@ Det finns tre typer av tillgänglighets test:
 
 * [URL-pingtest](#create-a-url-ping-test): Ett enkelt test som du kan skapa på Azure-portalen.
 * [Webb test för flera steg](availability-multistep.md): En inspelning av en sekvens med webb förfrågningar, som kan spelas upp för att testa mer komplexa scenarier. Webbtester med flera steg skapas i Visual Studio Enterprise och överförs till portalen för körning.
-* [Tillgänglighets test för anpassad spårning](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): `TrackAvailability()` Metoden kan användas för att skapa dina egna tester för anpassad tillgänglighet.
+* [Tillgänglighets test för anpassad spårning](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability?view=azure-dotnet): Om du väljer att skapa ett anpassat program för att köra tillgänglighets test, kan metoden `TrackAvailability()` användas för att skicka resultaten till Application Insights.
 
 **Du kan skapa upp till 100 tillgänglighets test per Application Insights resurs.**
 

@@ -6,12 +6,12 @@ ms.author: arramac
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 9b78c18547ef61b388a56a1272b5621cada43806
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8e22bf53a81d94c5204a76c58b43fed63e32b136
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120492"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803391"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB tjänst kvoter
 
@@ -33,7 +33,7 @@ När du har skapat ett Azure Cosmos-konto under din prenumeration kan du hantera
 | Maximal storlek på bifogade filer per konto (funktionen bilaga skrivs över) | 2 GB | 
 
 > [!NOTE]
-> För bästa praxis för att hantera arbets belastningar som har partitionsnyckel som behöver högre gränser för lagring eller data flöde, se [design för varmt partitionsnyckel](synthetic-partition-keys.md)
+> Mer information om metod tips för att hantera arbets belastningar som har partitionsnyckel som kräver högre gränser för lagring eller data flöde finns i [skapa en syntetisk partitionsnyckel](synthetic-partition-keys.md).
 >
 
 En Cosmos-behållare (eller delad data flödes databas) måste ha ett minsta data flöde på 400 ru: er. När behållaren växer är det lägsta tillåtna data flödet också beroende av följande faktorer:

@@ -1,17 +1,17 @@
 ---
 title: Etablera dataflöde för en databas i Azure Cosmos DB
 description: Lär dig att etablera dataflöde på databasnivå i Azure Cosmos DB
-author: rimman
+author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
-ms.author: rimman
-ms.openlocfilehash: 29bc65c8afaa1fe4bdc39923bd2219184e8b3a96
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.date: 09/28/2019
+ms.author: mjbrown
+ms.openlocfilehash: 93961b44f1c0d063774395ab384cb84b1aa05d99
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093003"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812499"
 ---
 # <a name="provision-throughput-on-a-database-in-azure-cosmos-db"></a>Etablera data flöde för en databas i Azure Cosmos DB
 
@@ -27,47 +27,19 @@ Den här artikeln beskriver hur du etablerar data flöde på en databas i Azure 
 
 1. Öppna rutan **Data Explorer** och välj **Ny databas**. Ange följande information:
 
-   * Ange ett databas-ID. 
+   * Ange ett databas-ID.
    * Välj **Etablera dataflöde**.
    * Ange ett dataflöde (till exempel 1000 RU).
    * Välj **OK**.
 
-![Skärmbild av dialogrutan Ny databas](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
+    ![Skärmbild av dialogrutan Ny databas](./media/how-to-provision-database-throughput/provision-database-throughput-portal-all-api.png)
 
+## <a name="provision-throughput-using-azure-cli-or-powershell"></a>Etablera data flöde med hjälp av Azure CLI eller PowerShell
 
-## <a name="provision-throughput-using-azure-cli"></a>Etablera dataflöde med hjälp av Azure CLI
+Information om hur du skapar en databas med delat data flöde finns i
 
-```azcli-interactive
-az cosmosdb database create --db-name
-                            [--key]
-                            [--name]
-                            [--resource-group-name]
-                            [--subscription]
-                            [--throughput]
-                            [--url-connection]
-```
-
-
-
-
-## <a name="provision-throughput-using-powershell"></a>Etablera data flöde med PowerShell
-
-```azurepowershell-interactive
-# Create a database and provision throughput of 400 RU/s
-$resourceGroupName = "myResourceGroup"
-$accountName = "mycosmosaccount"
-$databaseName = "database1"
-$databaseResourceName = $accountName + "/sql/" + $databaseName
-
-$databaseProperties = @{
-    "resource"=@{ "id"=$databaseName };
-    "options"=@{ "Throughput"= 400 }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $databaseResourceName -PropertyObject $databaseProperties
-```
+* [Skapa en databas med Azure CLI](manage-with-cli.md#create-a-database-with-shared-throughput)
+* [Skapa en databas med PowerShell](manage-with-powershell.md#create-db-ru)
 
 ## <a name="provision-throughput-using-net-sdk"></a>Etablera dataflöde med hjälp av .NET SDK
 
@@ -75,6 +47,7 @@ New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databas
 > Du kan använda Cosmos SDK: er för SQL API för att etablera data flöde för alla API: er. Om du vill kan du även använda följande exempel för API för Cassandra.
 
 ### <a id="dotnet-all"></a>Alla API:er
+
 ### <a name="net-v2-sdk"></a>.Net V2 SDK
 
 ```csharp
@@ -91,6 +64,7 @@ await client.CreateDatabaseIfNotExistsAsync(
 ```
 
 ### <a name="net-v3-sdk"></a>.Net V3 SDK
+
 [!code-csharp[](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos/tests/Microsoft.Azure.Cosmos.Tests/SampleCodeForDocs/DatabaseDocsSampleCode.cs?name=DatabaseCreateWithThroughput)]
 
 ### <a id="dotnet-cassandra"></a>API för Cassandra

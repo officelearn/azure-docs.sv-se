@@ -17,14 +17,14 @@ ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 943cad871330e2f3b6e13b33dca582ab545fe4be
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a83980c3d4d03f53a19918ed213c965e50baa406
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64726564"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720046"
 ---
-# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudier: Ansluta virtuella nätverk med peerkoppling med hjälp av Azure portal
+# <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Självstudier: Ansluta virtuella nätverk med peering för virtuella nätverk med hjälp av Azure Portal
 
 Du kan ansluta virtuella nätverk till varandra med peerkoppling. Dessa virtuella nätverk kan finnas i samma region eller andra regioner (kallas även Global VNet-peering). När virtuella nätverk har peerkopplats kan resurser i båda virtuella nätverken kommunicera med varandra, med samma svarstid och bandbredd som om resurserna fanns i samma virtuella nätverk. I den här guiden får du lära dig att:
 
@@ -50,10 +50,10 @@ Logga in på Azure Portal på https://portal.azure.com.
 
     |Inställning|Värde|
     |---|---|
-    |Namn|myVirtualNetwork1|
+    |Name|myVirtualNetwork1|
     |Adressutrymme|10.0.0.0/16|
-    |Prenumeration| Välj din prenumeration.|
-    |Resursgrupp| Välj **Skapa ny** och ange *myResourceGroup*.|
+    |Subscription| Välj din prenumeration.|
+    |Resource group| Välj **Skapa ny** och ange *myResourceGroup*.|
     |Location| Välj **USA, östra**.|
     |Undernätsnamn|Subnet1|
     |Undernätsadressintervall|10.0.0.0/24|
@@ -64,9 +64,9 @@ Logga in på Azure Portal på https://portal.azure.com.
 
     |Inställning|Värde|
     |---|---|
-    |Namn|myVirtualNetwork2|
+    |Name|myVirtualNetwork2|
     |Adressutrymme|10.1.0.0/16|
-    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
+    |Resource group| Välj **Använd befintlig** och sedan **myResourceGroup**.|
     |Undernätsadressintervall|10.1.0.0/24|
 
 ## <a name="peer-virtual-networks"></a>Peerkoppla virtuella nätverk
@@ -78,29 +78,20 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 3. Ange eller välj följande information, acceptera standardinställningarna för återstående inställningar och välj sedan **OK**.
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |---|---|
-    |Namn|myVirtualNetwork1-myVirtualNetwork2|
-    |Prenumeration| Välj din prenumeration.|
-    |Virtuellt nätverk|myVirtualNetwork2 – Välj det virtuella nätverket *myVirtualNetwork2* genom att välja **Virtuellt nätverk** och sedan **myVirtualNetwork2**. Du kan välja ett virtuellt nätverk i samma region eller i en annan region.|
+    |Peer-kopplingens namn från myVirtualNetwork1 till ett virtuellt dator nätverk|myVirtualNetwork1-myVirtualNetwork2 – när sidan först läses in visas frasen "fjärran sluten virtuellt nätverk" här. När du har valt det virtuella fjärrnätverket ersätts frasen "fjärrstyrt nätverk" med namnet på det virtuella fjärrnätverket.|
+    |Subscription| Välj din prenumeration.|
+    |Virtuellt nätverk|myVirtualNetwork2 – om du vill välja det virtuella *myVirtualNetwork2* -nätverket väljer du **virtuellt nätverk**och väljer sedan **myVirtualNetwork2 (myResourceGroup)** . Du kan välja ett virtuellt nätverk i samma region eller i en annan region.|
+    |Peer-kopplingens namn från myVirtualNetwork2 till myVirtualNetwork1|myVirtualNetwork2-myVirtualNetwork1|
 
-    ![Inställningar för peerkoppling](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
+    ![Inställningar för peerkoppling](./media/tutorial-connect-virtual-networks-portal/peering-settings-bidirectional.png)
 
-    **PEERING-STATUS** är *Initierad* som du ser på följande bild:
+    **Peering-statusen** är *ansluten*, som visas på följande bild:
 
-    ![Peering-status](./media/tutorial-connect-virtual-networks-portal/peering-status.png)
+    ![Peering-status](./media/tutorial-connect-virtual-networks-portal/peering-status-connected.png)
 
     Om du inte ser status uppdaterar du webbläsaren.
-
-4. I rutan **Sök** högst upp på Azure Portal börjar du skriva *MyVirtualNetwork2*. När **myVirtualNetwork2** visas i sökresultatet väljer du det.
-5. Utför steg 2–3 igen, med följande ändringar, och välj sedan **OK**:
-
-    |Inställning|Värde|
-    |---|---|
-    |Namn|myVirtualNetwork2-myVirtualNetwork1|
-    |Virtuellt nätverk|myVirtualNetwork1|
-
-    **PEERING-STATUS** är *Ansluten*. Azure har också ändrat peering-status för peerkopplingen *myVirtualNetwork2-myVirtualNetwork1* från *Initierad* till *Ansluten*. Peerkopplingen mellan virtuella nätverk är inte helt upprättad förrän peering-statusen för båda virtuella nätverken är *Ansluten*. 
 
 ## <a name="create-virtual-machines"></a>Skapa virtuella datorer
 
@@ -114,18 +105,18 @@ Skapa en virtuell dator i varje virtuellt nätverk så att du kan kommunicera me
 
     |Inställning|Värde|
     |---|---|
-    |Namn|myVm1|
+    |Name|myVm1|
     |Användarnamn| Ange ett valfritt användarnamn.|
-    |Lösenord| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resursgrupp| Välj **Använd befintlig** och sedan **myResourceGroup**.|
+    |lösenordsinställning| Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    |Resource group| Välj **Använd befintlig** och sedan **myResourceGroup**.|
     |Location| Välj **USA, östra**.|
 4. Välj en VM-storlek i **Välj en storlek**.
 5. Välj följande värden för **Inställningar** och sedan **OK**:
 
-    |Inställning|Värde|
+    |Inställning|Value|
     |---|---|
     |Virtuellt nätverk| myVirtualNetwork1 – Om det inte redan är valt väljer du **Virtuellt nätverk** och sedan **myVirtualNetwork1** under **Välj ett virtuellt nätverk**.|
-    |Undernät| Subnet1 – Om det inte redan är valt väljer du **Undernät** och sedan **Subnet1** under **Välj undernät**.|
+    |Subnet| Subnet1 – Om det inte redan är valt väljer du **Undernät** och sedan **Subnet1** under **Välj undernät**.|
     
     ![Inställningar för virtuella datorer](./media/tutorial-connect-virtual-networks-portal/virtual-machine-settings.png)
  
@@ -137,7 +128,7 @@ Utför steg 1–6 igen, med följande ändringar:
 
 |Inställning|Värde|
 |---|---|
-|Namn | myVm2|
+|Name | myVm2|
 |Virtuellt nätverk | myVirtualNetwork2|
 
 Det tar några minuter att skapa de virtuella datorerna. Fortsätt inte med återstående steg förrän båda virtuella datorerna har skapats.

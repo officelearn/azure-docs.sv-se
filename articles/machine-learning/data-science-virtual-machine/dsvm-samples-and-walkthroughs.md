@@ -10,18 +10,22 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: f3d683ffb91639db64000efa2d9791d13d84b79b
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ad58adb85077a27bce65595738ffdbd92bace9bd
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195676"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802443"
 ---
 # <a name="samples-on-azure-data-science-virtual-machines"></a>Exempel på Azure Data Science-Virtual Machines
 
 Azure Data Science Virtual Machines (Dsvm) innehåller en omfattande uppsättning exempel kod. De här exemplen omfattar Jupyter-anteckningsböcker och skript i språk som python och R.
 > [!NOTE]
 > Mer information om hur du kör Jupyter-anteckningsböcker på dina virtuella datorer för data vetenskap finns i avsnittet [Access Jupyter](#access-jupyter) .
+
+## <a name="prerequisites"></a>Förutsättningar
+
+För att kunna köra dessa exempel måste du ha etablerad en Data Science Virtual Machine. Se snabb starter för [Windows](./provision-vm.md) och [Ubuntu](./dsvm-ubuntu-intro.md).
 
 ## <a name="available-samples"></a>Tillgängliga exempel
 | Exempel-kategori | Beskrivning | Platser |
@@ -42,7 +46,7 @@ Azure Data Science Virtual Machines (Dsvm) innehåller en omfattande uppsättnin
 
 ## <a name="access-jupyter"></a>Åtkomst Jupyter 
 
-Välj **Jupyter** -ikonen på Skriv bordet eller program menyn för att komma åt Jupyter. Du kan också komma åt Jupyter i en Linux-utgåva av en DSVM. Om du vill komma åt fjärr anslutning från en webbläsare `https://<Full Domain Name or IP Address of the DSVM>:8000` går du till på Ubuntu.
+Välj **Jupyter** -ikonen på Skriv bordet eller program menyn för att komma åt Jupyter. Du kan också komma åt Jupyter i en Linux-utgåva av en DSVM. Om du vill komma åt fjärr anslutning från en webbläsare går du till `https://<Full Domain Name or IP Address of the DSVM>:8000` på Ubuntu.
 
 Använd följande vägledning om du vill lägga till undantag och göra Jupyter åtkomst tillgänglig via en webbläsare:
 

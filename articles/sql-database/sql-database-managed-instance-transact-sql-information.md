@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: dc01f8556fb1c88899cae1a8767cb23d6b6041eb
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
-ms.translationtype: MT
+ms.openlocfilehash: 7f47798ec3d0be8885853454ced8c1ea4c2a268c
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71128872"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720396"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -149,7 +149,7 @@ En hanterad instans kan inte komma åt filer, så det går inte att skapa krypto
 - Att ange en Azure AD-inloggning som är mappad till en Azure AD-grupp eftersom databas ägaren inte stöds.
 - Personifiering av Azure AD-huvudobjekt på server nivå med hjälp av andra Azure AD-huvudobjekt stöds, till exempel [execute as](/sql/t-sql/statements/execute-as-transact-sql) -satsen. Kör som-begränsningar är:
 
-  - Kör som-användare stöds inte för Azure AD-användare när namnet skiljer sig från inloggnings namnet. Ett exempel är när användaren skapas med syntaxen Create User [myAadUser] from login [john@contoso.com] och personifiering görs i exec as User = _myAadUser_. När du skapar en **användare** från ett Azure AD server-huvudobjekt (inloggning) anger du användar namn som samma Login_name från **inloggningen**.
+  - Kör som-användare stöds inte för Azure AD-användare när namnet skiljer sig från inloggnings namnet. Ett exempel är när användaren skapas med syntaxen CREATE USER [myAadUser] FROM LOGIn [john@contoso.com] och personifiering görs via EXEC AS USER = _myAadUser_. När du skapar en **användare** från ett Azure AD server-huvudobjekt (inloggning) anger du användar namn som samma Login_name från **inloggningen**.
   - Endast SQL Server nivå huvud konton (inloggningar) som är en del av `sysadmin` rollen kan köra följande åtgärder som är riktade till Azure AD-huvud konton:
 
     - KÖRA SOM ANVÄNDARE
@@ -303,7 +303,7 @@ Mer information finns i [Alter Database](https://docs.microsoft.com/sql/t-sql/st
 
 Följande SQL Agent-funktioner stöds för närvarande inte:
 
-- Proxyservrar
+- Proxy
 - Schemalägga jobb på en inaktiv processor
 - Aktivera eller inaktivera en agent
 - Aviseringar
@@ -317,7 +317,7 @@ Följande tabell typer stöds inte:
 - [-](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
 - [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
 - [extern tabell](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) PolyBase
-- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (stöds inte endast i Generell användning-nivån)
+- [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (stöds inte endast i generell användning-nivån)
 
 Information om hur du skapar och ändrar tabeller finns i [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) och [ändra tabell](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
 
@@ -348,7 +348,7 @@ Inte dokumenterade DBCC-instruktioner som är aktiverade i SQL Server stöds int
 
 - Endast ett begränsat antal globala spårnings flaggor stöds. Session-Level `Trace flags` stöds inte. Se [spårnings flaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) och [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) fungerar med det begränsade antalet globala spårnings flaggor.
-- Det går inte att använda [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) med alternativen REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST och REPAIR_REBUILD eftersom databasen inte kan anges `SINGLE_USER` i läget-se [Alter Database-skillnader](#alter-database-statement). Potentiella databas fel hanteras av support teamet för Azure. Kontakta Azure-supporten om du är märker databas skada som bör åtgärdas.
+- Det går inte att använda [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) med alternativen REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST och REPAIR_REBUILD eftersom databasen inte kan ställas in i `SINGLE_USER`-läge – se [ändra databas skillnader](#alter-database-statement). Potentiella databas fel hanteras av support teamet för Azure. Kontakta Azure-supporten om du är märker databas skada som bör åtgärdas.
 
 ### <a name="distributed-transactions"></a>Distribuerade transaktioner
 
@@ -408,7 +408,7 @@ Externa tabeller som refererar till filerna i HDFS eller Azure Blob Storage stö
 
 - Ögonblicks bilder och dubbelriktade typer av replikering stöds. Sammanslagningsreplikering, peer-to-peer-replikering och uppdaterings bara prenumerationer stöds inte.
 - [Transaktionell replikering](sql-database-managed-instance-transactional-replication.md) är tillgänglig för offentlig för hands version på en hanterad instans med vissa begränsningar:
-    - Alla typer av replikeringspartner (utgivare, distributör, pull-prenumerant och push-prenumerant) kan placeras på hanterade instanser, men utgivare och distributörer kan inte placeras på olika instanser.
+    - Alla typer av replikeringspartner (utgivare, distributör, pull-prenumerant och push-prenumerant) kan placeras på hanterade instanser, men utgivaren och distributören måste antingen vara både i molnet eller både lokalt.
     - Hanterade instanser kan kommunicera med de senaste versionerna av SQL Server. Se de versioner som stöds [här](sql-database-managed-instance-transactional-replication.md#supportability-matrix-for-instance-databases-and-on-premises-systems).
     - Transaktionsreplikering har vissa [ytterligare nätverks krav](sql-database-managed-instance-transactional-replication.md#requirements).
 
@@ -515,7 +515,7 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 - `SERVERPROPERTY('EngineEdition')`Returnerar värdet 8. Den här egenskapen identifierar en hanterad instans unikt. Se [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `SERVERPROPERTY('InstanceName')`returnerar NULL eftersom begreppet instans som det finns för SQL Server inte gäller för en hanterad instans. Se [SERVERPROPERTY (' instancename ')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
 - `@@SERVERNAME`Returnerar ett fullständigt DNS "anslutnings bara" namn, till exempel my-managed-instance.wcus17662feb9ce98.database.windows.net. Se [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
-- `SYS.SERVERS`Returnerar ett fullständigt DNS "anslutnings bara" namn, t. `myinstance.domain.database.windows.net` ex. för egenskaperna "name" och "data_source". Se [sys. SERVRAR](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
+- `SYS.SERVERS` returnerar ett fullständigt DNS "anslutnings bara" namn, till exempel `myinstance.domain.database.windows.net` för egenskaperna "name" och "data_source". Se [sys. SERVRAR](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
 - `@@SERVICENAME`returnerar NULL eftersom begreppet tjänst som finns för SQL Server inte gäller för en hanterad instans. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
 - `SUSER_ID`stöds. Den returnerar NULL om Azure AD-inloggningen inte finns i sys. syslogins. Se [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
 - `SUSER_SID`stöds inte. Felaktiga data returneras, vilket är ett tillfälligt känt problem. Se [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
@@ -594,11 +594,11 @@ Personifiering med `EXECUTE AS USER` eller `EXECUTE AS LOGIN` av följande AAD-h
 -   AAD-användare med alias. Följande fel returneras i det här fallet `15517`.
 - AAD-inloggningar och användare baserat på AAD-program eller tjänstens huvud namn. Följande fel returneras i det här fallet `15517` och. `15406`
 
-### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@queryparametern stöds inte i sp_send_db_mail
+### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query-parametern stöds inte i sp_send_db_mail
 
 **Ikraftträdande** April 2019
 
-Parametern i sp_send_db_mail-proceduren fungerar inte. [](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) `@query`
+Parametern `@query` i [sp_send_db_mail](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-send-dbmail-transact-sql) -proceduren fungerar inte.
 
 ### <a name="transactional-replication-must-be-reconfigured-after-geo-failover"></a>Transaktionsreplikering måste konfigureras om efter GEO-redundans
 

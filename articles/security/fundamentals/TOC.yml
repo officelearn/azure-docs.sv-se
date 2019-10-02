@@ -235,8 +235,6 @@
     - name: FedRAMP
       displayName: 'blueprint, privacy, certifications'
       items:
-        - name: Azure-tjänster efter granskningsomfattning
-          href: ../compliance/azure-services-in-fedramp-auditscope.md
         - name: Datanalys
           href: ../blueprints/fedramp-analytics-overview.md
         - name: Informationslager
@@ -283,16 +281,6 @@
           href: ../blueprints/pcidss-iaaswa-overview.md
         - name: PaaS-webbprogram
           href: ../blueprints/pcidss-paaswa-overview.md
-    - name: SCCA
-      displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Skydda Azures databehandlingsarkitektur
-          href: ../compliance/secure-azure-computing-architecture.md
-    - name: Betrodd Internetanslutning
-      displayName: 'blueprint, privacy, certifications'
-      items:
-        - name: Betrodd Internetanslutning med Azure
-          href: ../compliance/compliance-tic.md
     - name: UK NHS
       displayName: 'blueprint, privacy, certifications'
       items:

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/31/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 20c8fbd1626adaf67b790d500d8bfdeff6f27841
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: HT
+ms.openlocfilehash: 8ec61a04d6bb7289f12becf8baebae5e47150897
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702181"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802103"
 ---
 # <a name="azure-active-directory-b2c-user-migration"></a>Azure Active Directory B2C: Användarmigrering
 
@@ -59,22 +59,13 @@ Registrera först ett program som du kan använda för hanterings uppgifter som 
 
 Ge sedan programmet de Azure AD-Graph API behörigheter som krävs för att skriva till katalogen.
 
-1. I menyn **Inställningar** väljer du **nödvändiga behörigheter**.
-1. Välj **Windows-Azure Active Directory**.
-1. I fönstret **Aktivera åtkomst** , under **program behörigheter**, väljer du **läsa och skriva katalog data**och väljer sedan **Spara**.
-1. I fönstret **nödvändiga behörigheter** väljer du **bevilja behörigheter**och väljer sedan **Ja**.
-
-   ![Kryss rutan Läs/skriv katalog, Spara och bevilja behörighet markerad](media/active-directory-b2c-user-migration/pre-migration-app-registration-permissions.png)
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="step-13-create-the-application-secret"></a>Steg 1,3: Skapa program hemligheten
 
 Skapa en klient hemlighet (nyckel) som ska användas av det program för användarmigrering som du konfigurerar i ett senare steg.
 
-1. På sidan **registrerad app** väljer du **Inställningar**.
-1. Välj **Nycklar**.
-1. Under **lösen ord**lägger du till en ny nyckel (kallas även en klient hemlighet) med namnet *MyClientSecret* eller ett annat namn som du väljer, väljer ett utgångs fönster, väljer **Spara**och kopierar sedan nyckelvärdet för senare användning.
-
-    ![Meny alternativet program-ID-värde och nycklar markerat i Azure Portal](media/active-directory-b2c-user-migration/pre-migration-app-id-and-key.png)
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Nu har du ett program med behörighet att skapa, läsa och uppdatera användare i din Azure AD B2C klient.
 

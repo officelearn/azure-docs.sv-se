@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/20/2019
 ms.author: juliako
-ms.openlocfilehash: 304091634c9e07f0a34029e83111a537b95bc061
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 329c7191482787f25cfddfd8c4d70074df9a7c1f
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338540"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719969"
 ---
 # <a name="migrate-from-media-indexer-and-media-indexer-2-to-video-indexer"></a>Migrera från Media Indexer och Media Indexer 2 till Video Indexer
 
-[Azure Media Indexer v1](media-services-index-content.md) medie processor kommer att dras tillbaka den 1 oktober 2020. [Azure Media Indexer v2-förhands gransknings](media-services-process-content-with-indexer2.md) medie processorer kommer att dras tillbaka den 1 januari 2020.  [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter dessa äldre medie processorer.
+[Azure Media Indexer](media-services-index-content.md) medie processorn kommer att dras tillbaka den 1 oktober 2020. Processorerna för för [hands versionen av Azure Media Indexer 2](media-services-process-content-with-indexer2.md) kommer att dras tillbaka den 1 januari 2020.  [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter dessa äldre medie processorer.
 
 Azure Media Services Video Indexer bygger på Azure-medieanalys, Azure Search, Cognitive Services (till exempel Ansikts-API, Microsoft Translator, API för visuellt innehåll och Custom Speech Service). Programmet gör det möjligt att extrahera insikter från dina videor med video- och ljudmodeller för Video Indexer. Om du vill se vilka scenarier Video Indexer kan användas i, vilka funktioner det erbjuder och hur du kommer igång, se [video Indexer video-och ljud modeller](../video-indexer/video-indexer-overview.md). 
 

@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 02/22/2019
+ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: e9ce71f12d50aa414579e5fc7c2961156965a337
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 1fe1d50f24c70c89ea0fbaa952673cdeacc4f1bf
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71037529"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803167"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>Administratörsroller för klassiska prenumerationer, Azure RBAC-roller och administratörsroller för Azure AD
 
@@ -45,7 +45,7 @@ Kontoadministratör, tjänstadministratör och medadministratör är de tre admi
 | Klassisk prenumerationsadministratör | Gräns | Behörigheter | Anteckningar |
 | --- | --- | --- | --- |
 | Kontoadministratör | 1 per Azure-konto | <ul><li>Gå till [Azure-kontocentret](https://account.azure.com/Subscriptions)</li><li>Hantera alla prenumerationer i ett konto</li><li>Skapa nya prenumerationer</li><li>Avbryt prenumerationer</li><li>Ändra faktureringen för en prenumeration</li><li>Ändra tjänstadministratör</li></ul> | Begreppsmässigt är detta faktureringsägaren för prenumerationen.<br>Kontoadministratören har ingen åtkomst till Azure-portalen. |
-| Tjänstadministratör | 1 per Azure-prenumeration | <ul><li>Hantera tjänster i [Azure-portalen](https://portal.azure.com)</li><li>Tilldela användare till rollen Medadministratör</li></ul> | Som standard för en ny prenumeration är kontoadministratören också tjänstadministratören.<br>Tjänstadministratören har likvärdig åtkomst som en användare som har tilldelats rollen Ägare i prenumerationsomfånget.<br>Tjänstadministratören har fullständig åtkomst till Azure-portalen. |
+| Tjänstadministratör | 1 per Azure-prenumeration | <ul><li>Hantera tjänster i [Azure-portalen](https://portal.azure.com)</li><li>Avbryt prenumerationen</li><li>Tilldela användare till rollen Medadministratör</li></ul> | Som standard för en ny prenumeration är kontoadministratören också tjänstadministratören.<br>Tjänstadministratören har likvärdig åtkomst som en användare som har tilldelats rollen Ägare i prenumerationsomfånget.<br>Tjänstadministratören har fullständig åtkomst till Azure-portalen. |
 | Medadministratör | 200 per prenumeration | <ul><li>Samma åtkomstbehörigheter som tjänstadministratören, men kan inte ändra associationen mellan prenumerationer och Azure-kataloger</li><li>Tilldela användare till rollen Medadministratör, men kan inte ändra tjänstadministratör</li></ul> | Medadministratören har likvärdig åtkomst som en användare som har tilldelats rollen Ägare i prenumerationsomfånget. |
 
 I Azure-portalen kan du hantera medadministratörer eller visa tjänstadministratören med hjälp av fliken **Klassiska administratörer**.
@@ -63,6 +63,8 @@ Mer information finns i [Klassiska Azure-prenumerationsadministratörer](classic
 Ett Azure-konto representerar en faktureringsrelation. Ett Azure-konto är en användaridentitet, en eller flera Azure-prenumerationer och en associerad uppsättning Azure-resurser. Den person som skapar kontot är kontoadministratör för alla prenumerationer som skapas i det kontot. Den personen är även standardtjänstadministratör för prenumerationen.
 
 Azure-prenumerationer hjälper dig att organisera åtkomst till Azure-resurser. samt styra hur resursanvändningen rapporteras, faktureras och betalas. Olika prenumerationer kan ha olika fakturerings- och betalningskonfiguration, vilket betyder att du kan ha olika faktureringsplaner beroende på kontor, avdelning, projekt och så vidare. Varje tjänst tillhör en prenumeration, och prenumerations-ID kan krävas för programmässiga åtgärder.
+
+Varje prenumeration är associerad med en Azure AD-katalog. Du hittar katalogen som prenumerationen är kopplad till genom att öppna **prenumerationer** i Azure Portal och sedan välja en prenumeration för att se katalogen.
 
 Konton och prenumerationer hanteras i [Azure-kontocentret](https://account.azure.com/Subscriptions).
 

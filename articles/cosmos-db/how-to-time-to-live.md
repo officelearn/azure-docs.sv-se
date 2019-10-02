@@ -4,14 +4,14 @@ description: Lär dig hur du konfigurerar och hanterar Time to Live i Azure Cosm
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: ddda7b96147892efb38cb0405120db3613e98cf8
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: e36b894ec9c7433bc114145e0de5f519f73486f1
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104873"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815917"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Konfigurera Time to Live i Azure Cosmos DB
 
@@ -36,10 +36,16 @@ Använd följande steg för att aktivera TTL för en container utan upphörande.
 
    ![Konfigurera Time to Live i Azure-portalen](./media/how-to-time-to-live/how-to-time-to-live-portal.png)
 
+* När DefaultTimeToLive är null är ditt Time to Live av
+* När DefaultTimeToLive är-1 är Time to Live inställningen på (inget standardvärde)
+* När DefaultTimeToLive har ett annat int-värde (förutom 0) är Time to Live inställningen på
 
-- När DefaultTimeToLive är null är ditt Time to Live av
-- När DefaultTimeToLive är-1 är Time to Live inställningen på (inget standardvärde)
-- När DefaultTimeToLive har ett annat int-värde (förutom 0) är Time to Live inställningen på
+## <a name="enable-time-to-live-on-a-container-using-azure-cli-or-powershell"></a>Aktivera tid till Live på en behållare med hjälp av Azure CLI eller PowerShell
+
+Om du vill skapa eller aktivera TTL i en behållare ser du
+
+* [Skapa en behållare med TTL med Azure CLI](manage-with-cli.md#create-a-container-with-ttl)
+* [Skapa en behållare med TTL med PowerShell](manage-with-powershell.md#create-container-unique-key-ttl)
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Aktivera TTL för en container med hjälp av SDK
 
@@ -185,11 +191,10 @@ SalesOrder salesOrder = new SalesOrder
 const itemDefinition = {
           id: "doc",
           name: "sample Item",
-          key: "value", 
+          key: "value",
           ttl: 2
         };
 ```
-
 
 ## <a name="reset-time-to-live"></a>Återställa Time to live
 

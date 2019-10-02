@@ -5,15 +5,15 @@ services: digital-twins
 author: dsk-2015
 ms.service: digital-twins
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 09/30/2019
 ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 1fc30ea5aa843329b6227bfa564b3d10e2273cd7
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 6e808fb64d004f117a3c25946ad97e26ddfadaa3
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310500"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802375"
 ---
 >[!NOTE]
 >Det här avsnittet innehåller anvisningar för den [nya Azure AD-appens registrering](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app). Om du fortfarande har en äldre intern app-registrering kan du använda den så länge den stöds. Om den nya metoden för registrering av appar inte fungerar i konfigurationen kan du dessutom försöka skapa en äldre AAD-app. Läs [Registrera din Azure Digital-appen med Azure Active Directory äldre](../articles/digital-twins/how-to-use-legacy-aad.md) för mer information. 
@@ -39,16 +39,18 @@ ms.locfileid: "71310500"
 
 1. Öppna fönstret **API-behörigheter** för din app-registrering. Välj **Lägg till en behörighet** -knapp. I rutan **begär API-behörigheter** väljer du fliken **API: er min organisation använder** och söker sedan efter:
     
-    1. **Azure Digital-dubbla**. Välj **Azure Digitals dubbla** API: er.
+    1. `Azure Digital Twins`. Välj **Azure Digitals dubbla** API: er.
 
         [![Sök-API eller digitala Azure-dubbla](./media/digital-twins-permissions/aad-aap-search-api-dt.png)](./media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
-    1. Du kan också söka efter **Azure Smart Spaces**. Välj API för **Azure Smart Spaces-tjänsten** .
+    1. Du kan också söka efter `Azure Smart Spaces Service`. Välj API för **Azure Smart Spaces-tjänsten** .
 
         [![Sök-API för Azure Smart Spaces](./media/digital-twins-permissions/aad-app-search-api.png)](./media/digital-twins-permissions/aad-app-search-api.png#lightbox)
 
-    > [!NOTE]
-    > Det exakta namnet som visas när sökningen sker kan variera beroende på vilken Azure-klient som du tillhör.
+    > [!IMPORTANT]
+    > Det API-namn och ID för Azure AD som visas beror på din klient organisation:
+    > * Testa klient organisation och kund konton bör söka efter `Azure Digital Twins`.
+    > * Andra Microsoft-konton bör söka efter `Azure Smart Spaces Service`.
 
 1. Det valda API: et visas som **Azure Digitals dubbla** i samma **API-behörigheter för begäran** . Välj List rutan **Läs (1)** och välj sedan **Läs. Skriv** -kryss rutan. Välj knappen **Lägg till behörigheter** .
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/13/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: ad7986a0c4b0d59322ccebcaa6b1c70776164c48
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 4393609bf426c6ae99c48a5d84162526aeff6fb7
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69015696"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803522"
 ---
 # <a name="quickstart-qna-maker-rest-apis-for-nodejs"></a>Snabbstart: QnA Maker REST API: er för Node. js
 
@@ -32,10 +32,13 @@ Använd QnA Maker REST API: er för Node. js för att:
 
 [Referens dokumentation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/knowledgebase) | [Node. js-exempel](https://github.com/Azure-Samples/cognitive-services-qnamaker-nodejs/tree/master/documentation-samples/quickstarts/rest-api)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Den aktuella versionen av [Node. js](https://nodejs.org).
+* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -43,7 +46,7 @@ Använd QnA Maker REST API: er för Node. js för att:
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för QnA Maker med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. 
 
-När du har hämtat en nyckel från resursen [skapar](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) du miljövariabler för resursen, med `QNAMAKER_RESOURCE_KEY` namnet `QNAMAKER_AUTHORING_ENDPOINT`och. Använd de nyckel-och värd värden som finns på resursens **snabb starts** sida i Azure Portal.
+När du har hämtat en nyckel från resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för resursen, med `QNAMAKER_RESOURCE_KEY` namnet `QNAMAKER_AUTHORING_ENDPOINT`och. Använd de nyckel-och slut punkts värden som finns på resursens **snabb start** sida i Azure Portal.
 
 ### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
@@ -53,13 +56,13 @@ I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny 
 mkdir myapp && cd myapp
 ```
 
-Kör kommandot för att skapa en Node `package.json` -fil. `npm init -y` 
+Kör kommandot `npm init -y` för att skapa en nod `package.json`-fil. 
 
 ```console
 npm init -y
 ```
 
-Lägg till `request` och NPM-paketen: `reqeuestretry`
+Lägg till `reqeuestretry`-och `request`-NPM-paket:
 
 ```console
 npm install requestretry request --save
@@ -80,7 +83,7 @@ Dessa kodfragment visar hur du gör följande med QnA Maker REST-API: er för No
 
 
 
-Skapa en fil med `rest-apis.js` namnet och Lägg till följande _kräver_ -instruktion för att göra HTTP-förfrågningar. 
+Skapa en fil med namnet `rest-apis.js` och Lägg till följande _kräver_ -instruktion för att göra HTTP-begäranden. 
 
 ```javascript
 const request = require("requestretry");

@@ -5,15 +5,15 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/04/2019
+ms.date: 10/01/2019
 ms.author: mialdrid
 ms.custom: seodec18
-ms.openlocfilehash: 5b74e387c6bee58acbbb7bae320a9bc72a4dda1c
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: b566cc9e45348241cf6ae7b81bd0e471fbf59ba0
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376281"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720044"
 ---
 # <a name="expressroute-virtual-network-gateway-and-fastpath"></a>ExpressRoute-gateway för virtuella nätverk och FastPath
 Om du vill ansluta ditt virtuella Azure-nätverk och ditt lokala nätverk via ExpressRoute måste du först skapa en virtuell nätverksgateway. En virtuell nätverksgateway fungerar i två olika syfte: Exchange IP-vägar mellan nätverken och dirigera nätverks trafik. I den här artikeln beskrivs Gateway-typer, Gateway SKU: er och uppskattade prestanda per SKU. Den här artikeln beskriver också ExpressRoute [FastPath](#fastpath), en funktion som gör att nätverks trafiken från ditt lokala nätverk kan kringgå den virtuella Nätverksgatewayen för att förbättra prestandan.
@@ -60,12 +60,12 @@ De nya gateway-SKU: er har också stöd för andra distributionsalternativ för 
 ## <a name="fastpath"></a>FastPath
 ExpressRoute virtuella nätverksgateway är utformad för att utbyta nätverks vägar och dirigera nätverks trafik. FastPath är utformat för att förbättra data Sök vägens prestanda mellan ditt lokala nätverk och ditt virtuella nätverk. När aktive rad skickar FastPath nätverks trafik direkt till virtuella datorer i det virtuella nätverket, vilket kringgår gatewayen. 
 
-FastPath är endast tillgängligt på [ExpressRoute Direct](expressroute-erdirect-about.md) . Med andra ord kan du bara aktivera den här funktionen om du [ansluter ditt virtuella nätverk](expressroute-howto-linkvnet-arm.md) till en ExpressRoute-krets som skapats på en ExpressRoute Direct-port. FastPath kräver fortfarande att en virtuell nätverksgateway skapas för att utväxla vägar mellan ett virtuellt nätverk och ett lokalt nätverk. Den virtuella Nätverksgatewayen måste vara antingen Ultra Performance eller ErGw3AZ.
+FastPath finns på alla ExpressRoute-kretsar. En virtuell nätverksgateway krävs fortfarande för att skapa vägar mellan virtuella nätverk och lokalt nätverk. Den virtuella Nätverksgatewayen måste vara antingen Ultra Performance eller ErGw3AZ.
 
 FastPath har inte stöd för följande funktioner:
 * UDR i Gateway-undernät: om du använder en UDR på Gateway-undernätet för det virtuella nätverket kommer nätverks trafiken från ditt lokala nätverk även att skickas till den virtuella Nätverksgatewayen.
 * VNet-peering: om du har andra virtuella nätverk som är peer-anslutna med det som är anslutet till ExpressRoute nätverks trafiken från ditt lokala nätverk till de andra virtuella nätverken (d.v.s. det kallas "ekrar"-virtuella nätverk) kommer att fortsätta att skickas till det virtuella nätverket nyckeln. Lösningen är att ansluta alla virtuella nätverk till ExpressRoute-kretsen direkt.
-* Grundläggande belastnings Balander: om du distribuerar en enkel intern belastningsutjämnare i ditt virtuella nätverk eller den Azure PaaS-tjänst som du distribuerar i ditt virtuella nätverk använder en grundläggande intern belastningsutjämnare, nätverks trafiken från ditt lokala nätverk till de virtuella IP-adresserna som finns på Basic Load Balancer skickas till den virtuella Nätverksgatewayen. Lösningen är att uppgradera den grundläggande belastningsutjämnaren till en [standard belastnings utjämning](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). 
+* Grundläggande Load Balancer: om du distribuerar en enkel intern belastningsutjämnare i det virtuella nätverket eller den Azure PaaS-tjänst som du distribuerar i ditt virtuella nätverk använder en enkel intern belastningsutjämnare, nätverks trafiken från ditt lokala nätverk till de virtuella IP-adresserna som finns på Basic Load Balancer skickas till den virtuella Nätverksgatewayen. Lösningen är att uppgradera den grundläggande belastningsutjämnaren till en [standard belastnings utjämning](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview). 
  
 ## <a name="resources"></a>REST API: er och PowerShell-cmdlets
 Ytterligare tekniska resurser och specifik syntax krav när du använder REST API: er och PowerShell-cmdletar för gateway-konfigurationer för virtuella nätverk finns i följande sidor:

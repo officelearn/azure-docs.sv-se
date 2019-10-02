@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: cbb86dd4b24cb325b8ea6708ebc2ffc89a697757
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 402bf198981641db74a86bbc420fab83124f0b47
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553388"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802022"
 ---
 # <a name="quickstart-translate-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Omvandla tal med Speech-SDK för Java
 
-Snabb Starter är också tillgängliga för [tal-till-text](quickstart-java-jre.md) och [röst-första virtuella assistent](quickstart-virtual-assistant-java-jre.md).
+Snabb Starter är också tillgängliga för [tal-till-text](quickstart-java-jre.md), [text till tal](quickstart-text-to-speech-java-jre.md)och [röst-och första virtuella assistent](quickstart-virtual-assistant-java-jre.md).
 
 I den här snabbstarten skapar du ett enkelt Java-program som samlar in användarens tal från din dators mikrofon, översätter talet och transkriberar den översatta texten till kommandoraden i realtid. Det här programmet har utformats för att köras på 64-bitars Windows eller 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) eller på macOS 10,13 eller senare. Den är byggd med talet SDK maven-paketet och Sol förmörkelse Java IDE.
 
@@ -57,7 +57,7 @@ Om du kör Linux kontrollerar du att dessa beroenden är installerade innan du s
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
 1. Du lägger till en ny tom klass i Java-projektet genom att välja **Arkiv** > **Nytt** > **Klass**.
 

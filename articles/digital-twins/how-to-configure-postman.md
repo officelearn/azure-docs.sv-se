@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 09/30/2019
 ms.author: v-adgera
-ms.openlocfilehash: a39663adedfdb9c00c4429f65ec1bd27286cb136
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: f33e5be2408d2ebacd215c5f0601d712197254a7
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69904287"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803417"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för digital Azures dubbla
 
@@ -35,21 +35,42 @@ Med Postman-klienten kan Solutions-utvecklare ange typen av HTTP-begäran (*post
 
 Konfigurera Azure Active Directory-appen så att den använder det implicita bidrags flödet OAuth 2,0.
 
-1. Följ stegen i [vår snabb start](./quickstart-view-occupancy-dotnet.md) för att skapa ett Azure AD-program. Eller skapa en [inbyggd app med hjälp av det äldre AAD](./how-to-use-legacy-aad.md)-bladet.
+1. Öppna fönstret **API-behörigheter** för din app-registrering. Välj **Lägg till en behörighet** -knapp. I rutan **begär API-behörigheter** väljer du fliken **API: er min organisation använder** och söker sedan efter:
+    
+    1. `Azure Digital Twins`. Välj **Azure Digitals dubbla** API: er.
 
-1. Under **API-behörigheter**väljer du **Lägg till en behörighet**. Sedan använder **Azure Digitals dubblare** under- **API: er som används i organisationen**. Om sökningen inte hittar API:et söker du efter **Azure Smart Spaces** i stället. Välj sedan **delegerade behörigheter**, **Läs** > **läsa. Skriv**och **Lägg till behörighet**.
+        [![Sök-API eller digitala Azure-dubbla](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
 
-    [![Azure Active Directory app-registreringar Lägg till API](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+    1. Du kan också söka efter `Azure Smart Spaces Service`. Välj API för **Azure Smart Spaces-tjänsten** .
+
+        [![Sök-API för Azure Smart Spaces](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
+
+    > [!IMPORTANT]
+    > Det API-namn och ID för Azure AD som visas beror på din klient organisation:
+    > * Testa klient organisation och kund konton bör söka efter `Azure Digital Twins`.
+    > * Andra Microsoft-konton bör söka efter `Azure Smart Spaces Service`.
+
+1. Det valda API: et visas som **Azure Digitals dubbla** i samma **API-behörigheter för begäran** . Välj List rutan **Läs (1)** och välj sedan **Läs. Skriv** -kryss rutan. Välj knappen **Lägg till behörigheter** .
+
+    [![Lägga till API-behörigheter](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
+
+1. Beroende på organisationens inställningar kan du behöva vidta ytterligare åtgärder för att bevilja administratörs åtkomst till det här API: et. Kontakta administratören om du vill ha mer information. När administratörs åtkomsten har godkänts visas kolumnen **Administratörs medgivande som krävs** i rutan **API-behörigheter** som liknar följande för dina API: er:
+
+    [![Lägga till API-behörigheter](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
+
 
 1. Välj **manifest** för att öppna applikations manifestet för appen. Ange *oauth2AllowImplicitFlow* till `true`.
 
     [![Azure Active Directory implicit flöde](media/how-to-configure-postman/implicit-flow.png)](media/how-to-configure-postman/implicit-flow.png#lightbox)
 
-1. Konfigurera en **svars** - `https://www.getpostman.com/oauth2/callback`URL till.
+1. Konfigurera en **svars-URL** till `https://www.getpostman.com/oauth2/callback`.
 
     [![Azure Active Directory svars-URL](media/how-to-configure-postman/reply-url.png)](media/how-to-configure-postman/reply-url.png#lightbox)
 
 1. Kopiera och behåll **program-ID: t** för din Azure Active Directory-app. Den används i de steg som följer.
+
+   [![Azure Active Directory program-ID](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
+
 
 ## <a name="obtain-an-oauth-20-token"></a>Hämta en OAuth 2,0-token
 
@@ -72,9 +93,9 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
 
     | Fält  | Value |
     |---------|---------|
-    | Beviljandetyp | `Implicit` |
+    | Typ av beviljande | `Implicit` |
     | Motringnings-URL | `https://www.getpostman.com/oauth2/callback` |
-    | URL för autentisering | Använd **URL:** en för auktorisering från steg 2 |
+    | URL för autentisering | Använd **URL:** en för auktorisering från **steg 2** |
     | Klientorganisations-ID | Använd **program-ID:** t för den Azure Active Directory-app som skapades eller återanvändas från föregående avsnitt |
     | Omfång | Lämna tomt |
     | State | Lämna tomt |
@@ -82,7 +103,7 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
 
 1. Klienten bör nu visas som:
 
-    [![Exempel på Postman-klient](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
+    [1Postman-klient exempel @no__t](media/how-to-configure-postman/postman-oauth-token.png)](media/how-to-configure-postman/postman-oauth-token.png#lightbox)
 
 1. Välj **token för begäran**.
 
@@ -92,21 +113,19 @@ Konfigurera och konfigurera Postman för att hämta en Azure Active Directory-to
   
 1. Rulla nedåt och välj **Använd token**.
 
-<div id="multi"></div>
-
 ## <a name="make-a-multipart-post-request"></a>Gör en flerdelade POST-begäran
 
 När du har slutfört de föregående stegen konfigurerar du Postman att göra en autentiserad HTTP multipart-begäran:
 
-1. På fliken **sidhuvud** lägger du till en http-begäran rubrik nyckel **innehåll-typ** med `multipart/mixed`värde.
+1. På fliken **sidhuvud** lägger du till en http-begäran rubrik nyckel **innehåll-typ** med värdet `multipart/mixed`.
 
-   [![Innehålls typ för multipart/blandat](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
+   [![Content typ multipart/blandat](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialisera icke-text data i filer. JSON-data sparas som en JSON-fil.
-1. På fliken **brödtext** lägger du till varje fil genom att tilldela ett **nyckel** namn, `file` välja `text`eller.
+1. På fliken **brödtext** lägger du till varje fil genom att tilldela ett **nyckel** namn och välja `file` eller `text`.
 1. Välj sedan varje fil via knappen **Välj fil** .
 
-   [![Exempel på Postman-klient](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
+   [1Postman-klient exempel @no__t](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)
 
    >[!NOTE]
    > * Postman-klienten kräver inte att flerdelade segment har en manuellt tilldelad **innehålls typ** eller **innehålls-disposition**.

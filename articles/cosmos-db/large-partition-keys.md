@@ -4,20 +4,32 @@ description: 'Lär dig hur du skapar en behållare i Azure Cosmos DB med stor pa
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 07/03/2019
+ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: a1216daade2df832b606fceb648fca998c3fdec8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 5b0d182e09a4978a4d9c1184f085e140e5c698bc
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300138"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811716"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Skapa behållare med stor partitionsnyckel
 
-Azure Cosmos DB använder hash-baserad partitionerings schema för att uppnå horisontell skalning av data. Alla Azure Cosmos-behållare som skapats före maj 3 2019 använder en hash-funktion som beräknar hash baserat på de första 100 byte i partitionsnyckel. Om det finns flera partitionstyper som har samma första 100 byte betraktas dessa logiska partitioner som samma logiska partition av tjänsten. Detta kan leda till problem som att kvoten för partitionsstorleken är felaktig och att unika index tillämpas över partitionernas nycklar. Stora partitionsalternativ har introducerats för att lösa det här problemet. Azure Cosmos DB stöder nu stora partitionsnyckel med värden upp till 2 KB.
+Azure Cosmos DB använder hash-baserad partitionerings schema för att uppnå horisontell skalning av data. Alla Azure Cosmos-behållare som skapats före maj 3 2019 använder en hash-funktion som beräknar hash baserat på den första 100 byte i partitionsnyckel. Om det finns flera partitionstyper som har samma första 100 byte betraktas dessa logiska partitioner som samma logiska partition av tjänsten. Detta kan leda till problem som att kvoten för partitionsstorleken är felaktig och att unika index tillämpas över partitionernas nycklar. Stora partitionsalternativ har introducerats för att lösa det här problemet. Azure Cosmos DB stöder nu stora partitionsnyckel med värden upp till 2 KB.
 
-Stora partitionsuppsättningar stöds med hjälp av funktionerna i en förbättrad version av hash-funktionen, som kan generera en unik hash från stora partitionsnyckel upp till 2 KB. Den här hash-versionen rekommenderas också för scenarier med hög partitionsnyckel, oberoende av storleken på partitionsnyckel. En kardinalitet för partitionsnyckel definieras som antalet unika logiska partitioner, till exempel i ordningen ~ 30000 logiska partitioner i en behållare. Den här artikeln beskriver hur du skapar en behållare med en stor partitionsnyckel med hjälp av Azure Portal och olika SDK: er. 
+Stora partitionsuppsättningar stöds med hjälp av funktionerna i en förbättrad version av hash-funktionen, som kan generera en unik hash från stora partitionsnyckel upp till 2 KB. Den här hash-versionen rekommenderas också för scenarier med hög partitionsnyckel, oberoende av storleken på partitionsnyckel. En kardinalitet för partitionsnyckel definieras som antalet unika logiska partitioner, till exempel i ordningen ~ 30000 logiska partitioner i en behållare. Den här artikeln beskriver hur du skapar en behållare med en stor partitionsnyckel med hjälp av Azure Portal och olika SDK: er.
+
+## <a name="create-a-large-partition-key-azure-portal"></a>Skapa en stor partitionsnyckel (Azure Portal)
+
+Om du vill skapa en stor partitionsnyckel samtidigt som du skapar en ny behållare med hjälp av Azure Portal, kontrollerar du att **nyckeln My partition är större än 100-byte-** alternativet. Som standard används alla nya behållare för att använda de stora partitionernas nycklar. Avmarkera kryss rutan om du inte behöver stora partitionerings nycklar eller om du har program som körs på SDK-versioner som är äldre än 1,18.
+
+![Skapa stora partitionsalternativ med Azure Portal](./media/large-partition-keys/large-partition-key-with-portal.png)
+
+## <a name="create-a-large-partition-key-powershell"></a>Skapa en stor partitionsnyckel (PowerShell)
+
+Om du vill skapa en behållare med stöd för stor partitionsnyckel, se,
+
+* [Skapa en Azure Cosmos-behållare med en stor nyckel storlek](manage-with-powershell.md##create-container-big-pk)
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>Skapa en stor partitionsnyckel (.NET SDK)
 
@@ -29,7 +41,7 @@ Om du vill skapa en behållare med en stor partitionsnyckel med hjälp av .NET S
 await database.CreateContainerAsync(
     new ContainerProperties(collectionName, $"/longpartitionkey")
     {
-        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2, 
+        PartitionKeyDefinitionVersion = PartitionKeyDefinitionVersion.V2,
     })
 ```
 
@@ -48,47 +60,6 @@ database,
            }
          },
       new RequestOptions { OfferThroughput = 400 });
-```
-
-## <a name="create-a-large-partition-key-azure-portal"></a>Skapa en stor partitionsnyckel (Azure Portal) 
-
-Om du vill skapa en stor partitionsnyckel samtidigt som du skapar en ny behållare med hjälp av Azure Portal, kontrollerar du att **nyckeln My partition är större än 100-byte-** alternativet. Som standard används alla nya behållare för att använda de stora partitionernas nycklar. Avmarkera kryss rutan om du inte behöver stora partitionerings nycklar eller om du har program som körs på SDK-versioner som är äldre än 1,18.
-
-![Skapa stora partitionsalternativ med Azure Portal](./media/large-partition-keys/large-partition-key-with-portal.png)
-
-## <a name="create-a-large-partition-key-powershell"></a>Skapa en stor partitionsnyckel (PowerShell)
-
-Om du vill skapa en behållare med en stor partitionsnyckel med PowerShell, `"version" = 2` inkluderar du för objektet.`partitionKey`
-
-```azurepowershell-interactive
-# Create a Cosmos SQL API container with large partition key support (version 2)
-$resourceGroupName = "myResourceGroup"
-$containerName = "mycosmosaccount" + "/sql/" + "myDatabase" + "/" + "myContainer"
-
-# Container with large partition key support (version = 2)
-$containerProperties = @{
-  "resource"=@{
-    "id"=$containerName;
-    "partitionKey"=@{
-        "paths"=@("/myPartitionKey");
-        "kind"="Hash";
-        "version" = 2
-    };
-    "indexingPolicy"=@{
-        "indexingMode"="Consistent";
-        "includedPaths"= @(@{
-            "path"="/*"
-        });
-        "excludedPaths"= @(@{
-            "path"="/myPathToNotIndex/*"
-        })
-    }
-  }
-}
-
-New-AzResource -ResourceType "Microsoft.DocumentDb/databaseAccounts/apis/databases/containers" `
-    -ApiVersion "2015-04-08" -ResourceGroupName $resourceGroupName `
-    -Name $containerName -PropertyObject $containerProperties
 ```
 
 ## <a name="supported-sdk-versions"></a>SDK-versioner som stöds
@@ -110,5 +81,3 @@ För närvarande kan du inte använda behållare med stor partitionsnyckel i i P
 * [Enheter för programbegäran i Azure Cosmos DB](request-units.md)
 * [Etablera data flöde på behållare och databaser](set-throughput.md)
 * [Arbeta med Azure Cosmos-konto](account-overview.md)
-
-

@@ -14,18 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 25ae54ea8dd75fae74d4578b33146483ade53e4c
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: e74dd54403ed599aa95e8fc8a94c2bd7a3ca41d8
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240751"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719114"
 ---
 # <a name="connect-your-external-solution-using-common-event-format"></a>Ansluta din externa lösning med hjälp av vanligt händelse format
-
-> [!IMPORTANT]
-> Azure Sentinel är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade. Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Du kan ansluta Azure Sentinel med en extern lösning som gör att du kan spara loggfiler i syslog. Om din enhet gör det möjligt att spara loggar som ett syslog-CEF (common Event format) kan du enkelt köra analyser och frågor över data med hjälp av integreringen med Azure Sentinel.
 
@@ -141,7 +137,7 @@ Det kan ta upp till 20 minuter innan loggarna börjar visas i Log Analytics.
 
 7. Om du vill kontrol lera om det finns fel eller om loggarna inte kommer `tail /var/opt/microsoft/omsagent/<workspace id>/log/omsagent.log`, kan du leta i. Om det står fel i logg format, går du till `/etc/opt/microsoft/omsagent/{0}/conf/omsagent.d/security_events.conf "https://aka.ms/syslog-config-file-linux"` och tittar på filen `security_events.conf`och kontrollerar att dina loggar matchar regex-formatet som visas i den här filen.
 
-8. Se till att standard storleken för syslog-meddelanden är begränsad till 2048 byte (2 KB). Om loggarna är för långa uppdaterar du security_events. conf med det här kommandot:`message_length_limit 4096`
+8. Se till att standard storleken för syslog-meddelanden är begränsad till 2048 byte (2 KB). Om loggarna är för långa uppdaterar du security_events. conf med det här kommandot: `message_length_limit 4096`
 
 
 ## <a name="next-steps"></a>Nästa steg

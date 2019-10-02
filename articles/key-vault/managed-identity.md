@@ -1,5 +1,5 @@
 ---
-title: Använd en App Service program system-tilldelade hanterade identiteter för att få åtkomst till Azure Key Vault
+title: Använd en systemtilldelad hanterad identitet för att få åtkomst till Azure Key Vault
 description: Lär dig hur du skapar en hanterad identitet för App Service program och hur du använder den för att få åtkomst till Azure Key Vault
 services: key-vault
 author: msmbaldwin
@@ -9,18 +9,19 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 8ac6f9be80d31804089ae2589998079dc7df66b3
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 6c7a9fdb5ed60023a82984fd5be5b424c634e679
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004311"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720252"
 ---
-# <a name="use-an-app-service-managed-identity-to-access-azure-key-vault"></a>Använd en App Service hanterad identitet för att få åtkomst till Azure Key Vault 
+# <a name="provide-key-vault-authentication-with-a-managed-identity"></a>Tillhandahåll Key Vault autentisering med en hanterad identitet
 
-Den här artikeln visar hur du skapar en hanterad identitet för App Service program och använder den för att få åtkomst till Azure Key Vault. Information om program som är värdar för virtuella Azure-datorer finns i [använda en Windows VM-systemtilldelad hanterad identitet för åtkomst till Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md). 
+Med en hanterad identitet från Azure Active Directory kan din app enkelt komma åt andra Azure AD-skyddade resurser. Identiteten hanteras av Azure-plattformen och kräver inte att du etablerar eller roterar några hemligheter. Mer information finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). 
 
-Med en hanterad identitet från Azure Active Directory kan din app enkelt komma åt andra Azure AD-skyddade resurser. Identiteten hanteras av Azure-plattformen och kräver inte att du etablerar eller roterar några hemligheter. Mer information om hanterade identiteter i Azure AD finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md). 
+Den här artikeln visar hur du skapar en hanterad identitet för ett App Service program och använder den för att få åtkomst till Azure Key Vault. Information om program som är värdar för virtuella Azure-datorer finns i [använda en Windows VM-systemtilldelad hanterad identitet för åtkomst till Azure Key Vault](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-nonaad.md).
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -32,7 +33,8 @@ För att slutföra den här guiden måste du ha följande resurser.
    - [Skapa ett nyckel valv med Azure CLI](quick-create-cli.md)
    - [Skapa ett nyckel valv med Azure PowerShell](quick-create-powershell.md)
    - [Skapa ett nyckel valv med Azure Portal](quick-create-portal.md).
-- Ett befintligt App Service program som du vill bevilja åtkomst till nyckel valvet. Du kan snabbt skapa en genom att följa stegen i [dokumentationen för App Service](../app-service/overview.md)/
+- Ett befintligt App Service program som du vill bevilja åtkomst till nyckel valvet. Du kan snabbt skapa en genom att följa stegen i [App Service-dokumentationen](../app-service/overview.md).
+- [Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) eller [Azure PowerShell](/powershell/azure/overview). Du kan också använda [Azure Portal](http://portal.azure.com).
 
 
 ## <a name="adding-a-system-assigned-identity"></a>Lägga till en tilldelad identitet 
@@ -101,7 +103,7 @@ az functionapp identity assign --name myApp --resource-group myResourceGroup
 
 ### <a name="azure-cli"></a>Azure CLI
 
-Om du vill ge ditt program åtkomst till ditt nyckel valv använder du kommandot för att ange princip för Azure CLI [-AZ](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) för att ange **ObjectID** -parametern med **principalId* som du noterade ovan.
+Om du vill ge ditt program åtkomst till ditt nyckel valv använder du kommandot för att ange princip för Azure CLI [-AZ](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) och anger **ObjectID** -parametern med **principalId** som du noterade ovan.
 
 ```azurecli-interactive
 az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-permissions get list 
@@ -109,7 +111,9 @@ az keyvault set-policy --name myKeyVault --object-id <PrincipalId> --secret-perm
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs en [Översikt över Azure Key Vault](key-vault-overview.md)
-- Se [Azure Key Vault Developer ' s guide](key-vault-developers-guide.md)
-- Lär dig mer om [nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
+- [Azure Key Vault säkerhet: Identitets-och åtkomst hantering @ no__t-0
+- [Tillhandahålla Key Vault autentisering med en princip för åtkomst kontroll](key-vault-group-permissions-for-apps.md)
+- [Om nycklar, hemligheter och certifikat](about-keys-secrets-and-certificates.md)
+- [Skydda nyckel valvet](key-vault-secure-your-key-vault.md).
+- [Guide för Azure Key Vault utvecklare](key-vault-developers-guide.md)
 - Granska [Azure Key Vault bästa praxis](key-vault-best-practices.md)

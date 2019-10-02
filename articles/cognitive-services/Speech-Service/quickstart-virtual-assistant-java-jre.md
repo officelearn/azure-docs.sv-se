@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: bidishac
-ms.openlocfilehash: b1be09a2af712277ccaad827b8e84e24ed9f5c5c
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: c5a6042e4b181190849b3759325e4aab0c22413b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553259"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71800039"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-java"></a>Snabbstart: Skapa en röst-första virtuell assistent med talet SDK, Java
 
-Snabb Starter är också tillgängliga för [tal-till-text](quickstart-java-jre.md) och [tal översättning](quickstart-translate-speech-java-jre.md).
+Snabb Starter är också tillgängliga för [tal-till-text](quickstart-java-jre.md), [text till tal](quickstart-text-to-speech-java-jre.md)och [tal översättning](quickstart-translate-speech-java-jre.md).
 
 I den här artikeln skapar du ett Java-konsolprogram med hjälp av [Cognitive Services Speech SDK](speech-sdk.md). Programmet ansluter till en tidigare skapad robot som kon figurer ATS för att använda den direkta rad igenkännings kanalen, skicka en röst förfrågan och returnera en aktivitet för röst svar (om den har kon figurer ATS). Programmet har skapats med maven-paketet för tal-SDK och Sol förmörkelse Java IDE på Windows, Ubuntu Linux eller macOS. Det körs i en 64-bitars Java 8-körningsmiljö (JRE).
 
@@ -48,7 +48,7 @@ Om du kör Windows (64-bitars) bör du kontrol lera att du har installerat Micro
 
 ## <a name="optional-get-started-fast"></a>Valfritt: Kom igång snabbt
 
-I den här snabb starten beskrivs steg för steg hur du gör ett enkelt klient program att ansluta till din tal-aktiverade bot. Om du föredrar att använda den fullständiga käll koden för färdig att kompilera som används i den här snabb starten finns den i exemplen för [tal-SDK](https://aka.ms/csspeech/samples) under `quickstart` mappen.
+I den här snabb starten beskrivs steg för steg hur du gör ett enkelt klient program att ansluta till din tal-aktiverade bot. Om du föredrar att använda den fullständiga käll koden för färdig att kompilera som används i den här snabb starten är den tillgänglig i [exemplen för tal-SDK](https://aka.ms/csspeech/samples) under mappen `quickstart`.
 
 ## <a name="create-and-configure-project"></a>Skapa och konfigurera projektet
 
@@ -64,7 +64,7 @@ Du kan också aktivera loggning genom att uppdatera filen **Pom. XML** så att d
     </dependency>
    ```
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
 1. Du lägger till en ny tom klass i Java-projektet genom att välja **Arkiv** > **Nytt** > **Klass**.
 
@@ -72,7 +72,7 @@ Du kan också aktivera loggning genom att uppdatera filen **Pom. XML** så att d
 
    ![Skärmbild av fönstret New Java Class (Ny Java-klass)](media/sdk/qs-java-jre-06-create-main-java.png)
 
-1. Öppna den nyligen skapade **huvud** klassen och ersätt innehållet i `Main.java` filen med följande start kod.
+1. Öppna den nya **huvud** klassen och ersätt innehållet i filen `Main.java` med följande start kod.
 
     ```java
     package speechsdk.quickstart;
@@ -139,11 +139,11 @@ Du kan också aktivera loggning genom att uppdatera filen **Pom. XML** så att d
     }
     ```
 
-1. I **main** -metoden ska du först konfigurera `DialogServiceConfig` och använda den för att skapa en `DialogServiceConnector` instans. Detta kommer att ansluta till den direkta linjens tal kanal för att interagera med din robot. En `AudioConfig` instans används också för att ange källan för ljud inspelning. I det här exemplet används standard mikrofonen med `AudioConfig.fromDefaultMicrophoneInput()`.
+1. I **main** -metoden konfigurerar du först din `DialogServiceConfig` och använder den för att skapa en @no__t 2-instans. Detta kommer att ansluta till den direkta linjens tal kanal för att interagera med din robot. En `AudioConfig`-instans används också för att ange källan för ljud inspelning. I det här exemplet används standard mikrofonen med `AudioConfig.fromDefaultMicrophoneInput()`.
 
-    * Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel, som du kan hämta härifrån [.](get-started.md)
+    * Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel som du kan hämta [härifrån.](get-started.md)
     * Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration.
-    * Ersätt strängen `YourChannelSecret` med din direkta rad tal kanal hemlighet.
+    * Ersätt strängen `YourChannelSecret` med den direkta linjens tal kanal hemlighet.
 
     > [!NOTE]
     > Direkt linje tal (för hands version) är för närvarande tillgängligt i en delmängd av tal Services-regioner. Se [listan över regioner som stöds för röst-första virtuella assistenter](regions.md#voice-first-virtual-assistants) och se till att dina resurser distribueras i någon av dessa regioner.
@@ -161,7 +161,7 @@ Du kan också aktivera loggning genom att uppdatera filen **Pom. XML** så att d
     final DialogServiceConnector connector = new DialogServiceConnector(botConfig, audioConfig);
     ```
 
-1. `DialogServiceConnector`förlitar sig på flera händelser för att kommunicera med sina robot aktiviteter, tal igenkännings resultat och annan information. Lägg till dessa händelse lyssnare härnäst.
+1. `DialogServiceConnector` förlitar sig på flera händelser för att kommunicera med sina robot aktiviteter, tal igenkännings resultat och annan information. Lägg till dessa händelse lyssnare härnäst.
 
     ```java
     // Recognizing will provide the intermediate recognized text while an audio stream is being processed
@@ -200,7 +200,7 @@ Du kan också aktivera loggning genom att uppdatera filen **Pom. XML** så att d
         });
     ```
 
-1. Anslut till `DialogServiceConnector` det direkta rad talet genom att `connectAsync()` anropa metoden. Om du vill testa din robot kan du anropa `listenOnceAsync` -metoden för att skicka ljud inspelning från mikrofonen. Dessutom kan du också använda `sendActivityAsync` metoden för att skicka en anpassad aktivitet som en serialiserad sträng. Dessa anpassade aktiviteter kan ge ytterligare data som din robot kommer att använda i konversationen.
+1. Anslut `DialogServiceConnector` till direkt linje tal genom att anropa metoden `connectAsync()`. Om du vill testa din robot kan du anropa metoden `listenOnceAsync` för att skicka ljud inspelning från mikrofonen. Dessutom kan du också använda metoden `sendActivityAsync` för att skicka en anpassad aktivitet som en serialiserad sträng. Dessa anpassade aktiviteter kan ge ytterligare data som din robot kommer att använda i konversationen.
 
     ```java
     connector.connectAsync();
@@ -211,9 +211,9 @@ Du kan också aktivera loggning genom att uppdatera filen **Pom. XML** så att d
     // connector.sendActivityAsync(...)
     ```
 
-1. Spara ändringarna i `Main` filen.
+1. Spara ändringarna i `Main`-filen.
 
-1. Om du vill ha stöd för uppspelning av svar lägger du till en ytterligare klass som transformerar PullAudioOutputStream-objektet som returneras från getAudio () API till ett Java-InputStream för enkel hantering. Den här ActivityAudioStream är en specialiserad klass som hanterar ljud svar från "direkt linjens tal kanal". Den ger till gång till information som krävs för att hämta ljud format för uppspelning: För den här**klassen**väljer du**ny** >  **fil** > .
+1. Om du vill ha stöd för uppspelning av svar lägger du till en ytterligare klass som transformerar PullAudioOutputStream-objektet som returneras från getAudio () API till ett Java-InputStream för enkel hantering. Den här ActivityAudioStream är en specialiserad klass som hanterar ljud svar från "direkt linjens tal kanal". Den ger till gång till information som krävs för att hämta ljud format för uppspelning: För den valda **filen** > **ny** > -**klass**.
 
 1. I fönstret **ny Java-klass** anger du **speechsdk. snabb start** i **paket** fältet och **ActivityAudioStream** i fältet **namn** .
 
@@ -459,12 +459,12 @@ Du kan också aktivera loggning genom att uppdatera filen **Pom. XML** så att d
 
     ```
 
-1. Spara ändringarna i `ActivityAudioStream` filen.
+1. Spara ändringarna i `ActivityAudioStream`-filen.
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
 Tryck på F11 eller välj **Kör** > **Felsök**.
-I-konsolen visas ett meddelande om att "säga något" i det här läget, du kan tala om en engelsk fras eller mening som din robot kommer att förstå. Ditt tal skickas till din robot via direkt linjens tal kanal där den kommer att identifieras, bearbetas av din robot och svaret returneras som en aktivitet. Om din robot returnerar tal som svar kommer ljudet att spelas upp med hjälp av `AudioPlayer` -klassen.
+I-konsolen visas ett meddelande om att "säga något" i det här läget, du kan tala om en engelsk fras eller mening som din robot kommer att förstå. Ditt tal skickas till din robot via direkt linjens tal kanal där den kommer att identifieras, bearbetas av din robot och svaret returneras som en aktivitet. Om din robot returnerar tal som svar kommer ljudet att spelas upp med hjälp av klassen `AudioPlayer`.
 
 ![Skärmbild av konsolutdata efter lyckad taligenkänning](media/sdk/qs-java-jre-08-console-output.png)
 

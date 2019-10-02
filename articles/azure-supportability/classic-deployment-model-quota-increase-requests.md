@@ -7,18 +7,24 @@ ms.date: 06/20/2019
 ms.topic: article
 ms.service: azure
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 70ad44eade871d52591014ee24e645b95c52f1e5
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: c7860a098096d718a6c5d7cd661ef2b1c1b21e89
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234892"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802669"
 ---
 # <a name="classic-deployment-model"></a>Klassisk distributionsmodell
 
-Klassisk distributions modell är den äldre generationen Azures distributions läge och använder en global vCPU kvot gräns för virtuella datorer och skalnings uppsättningar för virtuella datorer. Den klassiska distributions modellen rekommenderas inte längre och har nu ersatts av Resource Manager-modellen. Mer information om de här två distributions modellerna och fördelarna med Resource Manager hittar du på sidan distributions modell för Resource Manager. När en ny prenumeration skapas, tilldelas en standard kvot för virtuella processorer. När en ny virtuell dator ska distribueras med hjälp av en klassisk distributions modell får summan av nya och befintliga virtuella processorer-användning i alla regioner inte överskrida vCPU-kvoten som har godkänts för den klassiska distributions modellen. Läs mer om kvoter på [sidan för Azure-prenumeration och tjänst begränsningar](https://aka.ms/quotalimits)
+Den klassiska distributions modellen är den äldre generationens Azure-distributions modell. Den tillämpar en global vCPU kvot gräns för virtuella datorer och skalnings uppsättningar för virtuella datorer. Den klassiska distributions modellen rekommenderas inte längre och har nu ersatts av Resource Manager-modellen. 
 
-Du kan begära en ökning av virtuella processorer-gränsen för den klassiska distributions modellen via hjälp + support-bladet eller användnings-och kvot bladet i portalen.
+Mer information om de här två distributions modellerna och fördelarna med att använda Resource Manager finns på sidan [Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md) .
+ 
+När en ny prenumeration skapas, tilldelas en standard kvot för virtuella processorer. När en ny virtuell dator ska distribueras med den klassiska distributions modellen får summan av nya och befintliga vCPU-användningar i alla regioner inte överskrida vCPU-kvoten som har godkänts för den klassiska distributions modellen.
+ 
+Läs mer om kvoter på sidan för [Azure-prenumeration och tjänst begränsningar](https://aka.ms/quotalimits) .
+
+Du kan begära en ökning av kvot gränsen för vCPU för den klassiska distributions modellen via bladet "hjälp + support" eller "användnings + kvot" i portalen.
 
 ## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Begäran per VM-serien vCPU kvot ökning på prenumerations nivå med **Hjälp + Support** -bladet
 

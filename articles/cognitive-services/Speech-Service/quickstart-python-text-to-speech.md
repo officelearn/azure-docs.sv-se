@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 8579693052ea102e34d81d84abaced52d1e7440d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: a2e43b72bda65c5f1e7515888ac33b0ac806e64c
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350955"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803249"
 ---
 # <a name="quickstart-convert-text-to-speech-using-python"></a>Snabbstart: Konvertera text till tal med python
 
@@ -173,5 +173,6 @@ Se till att ta bort all konfidentiell information från exempelappens källkod, 
 ## <a name="see-also"></a>Se också
 
 * [Referens för text till tal-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis)
+* [Använda python-och tal-SDK för att konvertera text till tal](quickstart-text-to-speech-python.md)
 * [Skapa anpassade rösttyper](how-to-customize-voice-font.md)
 * [Post voice-exempel för att skapa en anpassad röst](record-custom-voice-samples.md)

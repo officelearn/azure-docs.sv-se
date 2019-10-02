@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 43ae6e7100efd923c81a0f9b94867a9101549d9b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9114d491be1ae11623264c3beaf7c26f1fa143de
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559848"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803144"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-python"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med Python
 
@@ -25,10 +25,12 @@ Den här snabbstarten anropar API:er för QnA Maker:
 * [Skapa kunskapsbas](https://go.microsoft.com/fwlink/?linkid=2092179)
 * [Hämta åtgärdsinformation](https://docs.microsoft.com/rest/api/cognitiveservices/qnamaker/operations/getdetails)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 * [Python 3.7](https://www.python.org/downloads/)
-* Du måste ha en QnA Maker-tjänst. Hämta nyckeln genom att välja Nycklar under Resurshantering på instrumentpanelen.
+* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal. 
 
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-python-repo-note.md)]
 
@@ -43,7 +45,7 @@ Högst upp i `create-new-knowledge-base-3x.py` lägger du till följande rader f
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=1-1 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Lägga till nödvändiga konstanter
-När du har lagt till nödvändiga beroenden lägger du till de konstanter som krävs för åtkomst till QnA Maker. Ersätt värdet av variabeln `subscriptionKey` med din egen QnA Maker-nyckel.
+När du har lagt till nödvändiga beroenden lägger du till de konstanter som krävs för åtkomst till QnA Maker. Ersätt värdet för `<your-qna-maker-subscription-key>` och `<your-resource-name>` med din egen QnA Maker nyckel och resurs namn.
 
 [!code-python[Add the required constants](~/samples-qnamaker-python/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base-3x.py?range=5-13 "Add the required constants")]
 

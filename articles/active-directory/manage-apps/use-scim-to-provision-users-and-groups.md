@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/01/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b135838558a493cff0e28a8429d31f5a03a69857
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 922e5a2d5c639d7df380f686ddf7843ab59fca59
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033457"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802363"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
 
@@ -59,7 +59,7 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
 
 **Ansluta ett program som stöder SCIM:**
 
-1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com). 
+1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com). Observera att du kan få åtkomst till en kostnads fri utvärderings version av Azure Active Directory med P2-licenser genom att registrera dig för [programmet för utvecklare](https://developer.microsoft.com/office/dev-program)
 1. Välj **företags program** i det vänstra fönstret. En lista över alla konfigurerade appar visas, inklusive appar som har lagts till från galleriet.
 1. Välj **+ ny app** > **alla** > **program som inte är Galleri**.
 1. Ange ett namn för ditt program och välj **Lägg till** för att skapa ett app-objekt. Den nya appen läggs till i listan över företags program och öppnas på sidan för hantering av appar.
@@ -96,6 +96,9 @@ När den första cykeln har startat kan du välja **gransknings loggar** i den v
 > [!NOTE]
 > Den första cykeln tar längre tid att utföra än senare synkroniseringar, vilket inträffar ungefär var 40: e minut så länge tjänsten körs.
 
+**Publicera ditt program i Azure AD-program galleriet:**
+
+Om du skapar ett program som ska använda sig av fler än en klient kan du göra det tillgängligt i Azure AD-programgalleriet. Detta gör det enkelt för organisationer att identifiera programmet och konfigurera etablering. Det är enkelt att publicera din app i Azure AD-galleriet och göra etableringen tillgänglig för andra. Kolla in stegen [här](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing). 
 ## <a name="understanding-the-azure-ad-scim-implementation"></a>Förstå Azure AD SCIM-implementeringen
 
 Om du skapar ett program som har stöd för ett SCIM 2,0-API för användar hantering beskrivs i det här avsnittet hur du implementerar Azure AD SCIM-klienten och hur du bör modellera hanteringen och Svaren för SCIM-protokollet. När du har implementerat din SCIM-slutpunkt kan du testa den genom att följa anvisningarna som beskrivs i föregående avsnitt.

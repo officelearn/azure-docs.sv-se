@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: c0a11c90b59c1c475f80b82073c6b151d57535c3
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
-ms.translationtype: HT
+ms.openlocfilehash: ab6a0d5c2a4c4623506d90b76b77462abb8fe4af
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709792"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719497"
 ---
 # <a name="quickstart-computer-vision-client-library-for-python"></a>Snabbstart: Visuellt innehåll klient bibliotek för python
 
@@ -136,9 +136,9 @@ Följande kod returnerar identifierade ansikten i bilden med deras Rectangle-koo
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_faces)]
 
-### <a name="detect-adult-or-racy-content"></a>Identifiera vuxen eller vågat innehåll
+### <a name="detect-adult-racy-or-gory-content"></a>Identifiera vuxna, vågat eller fullständig innehåll
 
-Följande kod skriver ut den identifierade förekomsten av vuxen eller vågat innehåll i avbildningen. Se [vuxen och vågatt innehåll](../concept-detecting-adult-content.md) för mer information.
+Följande kod skriver ut den identifierade förekomsten av olämpligt innehåll i bilden. Mer information finns i [vuxen, vågat, fullständig-innehåll](../concept-detecting-adult-content.md) .
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ComputerVision/ComputerVisionQuickstart.py?name=snippet_adult)]
 

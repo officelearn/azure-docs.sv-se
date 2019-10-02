@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera tal-, Java-(Windows-, Linux) – tal-service'
+title: 'Snabbstart: Identifiera tal-, Java-(Windows-, Linux-, macOS) – tal service'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten får du lära dig att skapa ett enkelt Java-program som fångar upp och omtilldelar användar tal från datorns mikrofon.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
-ms.openlocfilehash: 498e41b08133113be9789ef49291b8e2bb0f3705
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9438cd1345d324b068db8837216afb39241cb2a2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554116"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802476"
 ---
 # <a name="quickstart-recognize-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Känna igen tal med Speech Service SDK för Java
 
-Snabb Starter är också tillgängliga för [tal-till-tal-översättning](quickstart-translate-speech-java-jre.md) och [röst för första virtuella assistent](quickstart-virtual-assistant-java-jre.md).
+Snabb Starter är också tillgängliga för [tal-till-tal-översättning](quickstart-translate-speech-java-jre.md), [röst-första virtuella assistent](quickstart-virtual-assistant-java-jre.md)och [tal syntes](quickstart-text-to-speech-java-jre.md).
 
 Om du vill kan du välja ett annat programmeringsspråk och/eller miljö:<br/>
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
@@ -61,7 +61,7 @@ Om du kör Windows (64-bitars) bör du kontrol lera att du har installerat C++ M
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-quickstart-java-create-proj.md)]
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
 1. Du lägger till en ny tom klass i Java-projektet genom att välja **Arkiv** > **Nytt** > **Klass**.
 
@@ -95,6 +95,7 @@ Ytterligare exempel, till exempel att läsa tal från en ljudfil, finns på GitH
 
 ## <a name="see-also"></a>Se också
 
-- [Snabbstart: Översätta tal, Java (Windows, Linux)](quickstart-translate-speech-java-jre.md)
+- [Snabbstart: Översätt tal, Java (Windows, Linux, macOS) ](quickstart-translate-speech-java-jre.md)
+- [Snabbstart: Syntetisera tal, Java (Windows, Linux, macOS) ](quickstart-text-to-speech-java-jre.md)
 - [Anpassa akustiska modeller](how-to-customize-acoustic-models.md)
 - [Anpassa språkmodeller](how-to-customize-language-model.md)

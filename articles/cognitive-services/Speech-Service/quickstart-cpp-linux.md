@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: dfbf40ef422903069352e64340fe5e3cb960a105
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f1b87d0219bdf1b317eed41f91e65bf318b31e5a
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559449"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803355"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-linux-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i C++ på Linux med hjälp av Speech SDK
 
@@ -33,8 +33,6 @@ Du behöver en prenumerations nyckel för tal tjänster för att slutföra den h
 ## <a name="install-speech-sdk"></a>Installera Speech SDK
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-Den aktuella versionen av Cognitive Services Speech SDK är `1.6.0`.
 
 Speech SDK för Linux kan användas för att bygga både 64-bitars och 32-bitars program. De nödvändiga biblioteken och huvudfilerna kan laddas ned som en tar-fil från https://aka.ms/csspeech/linuxbinary.
 
@@ -112,6 +110,12 @@ Ladda ned och installera SDK enligt följande:
   g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/x86" -l:libasound.so.2
   ```
 
+* Kör följande kommando i ett **arm64** -system (64-bitars) för att skapa programmet.
+
+  ```sh
+  g++ helloworld.cpp -o helloworld -I "$SPEECHSDK_ROOT/include/cxx_api" -I "$SPEECHSDK_ROOT/include/c_api" --std=c++14 -lpthread -lMicrosoft.CognitiveServices.Speech.core -L "$SPEECHSDK_ROOT/lib/arm64" -l:libasound.so.2
+  ```
+
 ## <a name="run-the-app"></a>Kör appen
 
 1. Konfigurera inläsarens bibliotekssökväg så att den pekar på Speech SDK-biblioteket.
@@ -126,6 +130,12 @@ Ladda ned och installera SDK enligt följande:
 
      ```sh
      export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/x86"
+     ```
+
+   * I ett **arm64** -system (64-bitars) anger du följande kommando.
+
+     ```sh
+     export LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$SPEECHSDK_ROOT/lib/arm64"
      ```
 
 1. Kör appen.

@@ -8,20 +8,29 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/30/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 06e2a772bfad7b1964f813a6cb6266efe61c6ccf
-ms.sourcegitcommit: 5f67772dac6a402bbaa8eb261f653a34b8672c3a
+ms.openlocfilehash: c5a1af0b26f30cac39a76c4480848fbe1d75477b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/01/2019
-ms.locfileid: "70206847"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803109"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Snabbstart: Skapa en kunskapsbas i QnA Maker med Java
 
 Den här snabbstarten går igenom hur du programmatiskt skapar ett exempel på QnA Maker-kunskapsbas. QnA Maker extraherar automatiskt frågor och svar för delvis strukturerat innehåll, som vanliga frågor från [datakällor](../Concepts/data-sources-supported.md). Modellen för kunskapsbasen har definierats i JSON som skickas i brödtexten i API-begäran.
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 [!INCLUDE [Code is available in Azure-Samples GitHub repo](../../../../includes/cognitive-services-qnamaker-java-repo-note.md)]
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* [Go 1.10.1](https://golang.org/dl/)
+* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Om du vill hämta din nyckel och slut punkt (som innehåller resurs namnet) väljer du **snabb start** för resursen i Azure Portal.
+
+[Exempel koden](https://github.com/Azure-Samples/cognitive-services-qnamaker-java/blob/master/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java) finns på GitHub-lagrings platsen för QNA Maker med Java.
 
 ## <a name="create-a-knowledge-base-file"></a>Skapa en kunskapsbasfil
 
@@ -34,7 +43,11 @@ Högst upp i `CreateKB.java` lägger du till följande rader för att lägga til
 [!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
 
 ## <a name="add-the-required-constants"></a>Lägga till nödvändiga konstanter
-När du har lagt till nödvändiga beroenden lägger du till de konstanter som krävs till klassen `CreateKB` för åtkomst till QnA Maker. Ersätt värdet för variabeln `subscriptionKey` med din egen QnA Maker-nyckel. Du behöver inte lägga till den sista klammerparentesen för att avsluta klassen. Den finns i det sista kodfragmentet i slutet av den här snabbstarten.
+När du har lagt till nödvändiga beroenden lägger du till de konstanter som krävs till klassen `CreateKB` för åtkomst till QnA Maker. 
+
+Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln och resurs namnet genom att välja **snabb start** i Azure Portal för din QNA Maker resurs. 
+
+Du behöver inte lägga till den sista klammerparentesen för att avsluta klassen. Den finns i det sista kodfragmentet i slutet av den här snabbstarten.
 
 [!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=26-34 "Add the required constants")]
 
@@ -100,7 +113,7 @@ Upprepa anropet tills det lyckas eller misslyckas:
 ```
 
 ## <a name="add-a-main-method"></a>Lägga till en main-metod
-Main-metoden skapar kunskapsbasen och söker sedan efter status. Åtgärds-ID: t returneras i fältet POSTens svars huvud **plats**och används som en del av vägen i get-begäran. `while` Loopen försöker igen om den inte är slutförd.
+Main-metoden skapar kunskapsbasen och söker sedan efter status. Åtgärds-ID: t returneras i fältet POSTens svars huvud **plats**och används som en del av vägen i get-begäran. Loopen i `while` försöker igen om den inte är slutförd.
 
 [!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
 

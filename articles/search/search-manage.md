@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 2c4b2a03e7e5c818453eaf4ad6881b2caba3b93c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647666"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719870"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Tjänst administration för Azure Search i Azure Portal
 > [!div class="op_single_selector"]
@@ -79,10 +79,9 @@ Om du inte använder indexerare använder du program koden för att skicka objek
 
 ## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
 
-Eftersom Azure Search inte är en primär data lagrings lösning ger vi inte en formell mekanism för säkerhets kopiering och återställning av självbetjäning. Program koden som används för att skapa och fylla i ett index är det alternativ för återställning om du tar bort ett index av misstag. 
+Eftersom Azure Search inte är en primär data lagrings lösning ger vi inte en formell mekanism för säkerhets kopiering och återställning av självbetjäning. Du kan dock använda exempel koden **index-Backup-Restore** i den här [Azure Search .net-lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples) för att säkerhetskopiera index definitionen och ögonblicks bilden till en serie JSON-filer och sedan använda filerna för att återställa indexet, om det behövs. Det här verktyget kan också flytta index mellan tjänst nivåer.
 
-Om du vill återskapa ett index tar du bort det (förutsatt att det finns), återskapar indexet i tjänsten och läser in igen genom att hämta data från det primära data lagret.
-
+Annars är din program kod som används för att skapa och fylla i ett index det här alternativet för återställning om du tar bort ett index av misstag. Om du vill återskapa ett index tar du bort det (förutsatt att det finns), återskapar indexet i tjänsten och läser in igen genom att hämta data från det primära data lagret.
 
 <a id="scale"></a>
 

@@ -17,12 +17,12 @@ ms.date: 09/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6760677a94855c259501103a54a96d687c87910b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290973"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812603"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -57,6 +57,9 @@ Förutom dessa tre konton som används för att köra Azure AD Connect behöver 
 > Dedikerade administrativa skogar gör det möjligt för organisationer att vara värdar för administrativa konton, arbets stationer och grupper i en miljö som har starkare säkerhets kontroller än produktions miljön.
 > Mer information om dedikerade administrativa skogar finns i [ESAE administrativ skog design metod](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach)
 >>>>>>> e683a61b0ed62ae739941410f658a127534e2481
+
+> [!NOTE]
+> Den globala administratörs rollen krävs inte efter den första installationen och det enda obligatoriska kontot kommer att vara roll kontot för **Directory-synkronisering** . Det innebär inte necssarily att du bara vill ta bort kontot med rollen global administratör. Det är bättre att ändra rollen till en mindre kraftfull roll eftersom helt ta bort kontot kan orsaka problem om du skulle behöva köra guiden igen. Genom att minska behörigheten för rollen kan du alltid återhöja behörigheter om du måste använda guiden Azure AD Connect igen. 
 
 ## <a name="installing-azure-ad-connect"></a>Installerar Azure AD Connect
 Installations guiden för Azure AD Connect har två olika sökvägar:

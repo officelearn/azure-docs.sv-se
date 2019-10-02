@@ -10,19 +10,21 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: c9b63685ae73fb4e056c72a640d6c4049e98b8b8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559501"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803318"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av Speech SDK
+
+Snabb Starter är också tillgängliga för [tal syntes](quickstart-text-to-speech-java-android.md) och [röst för första virtuella assistent](quickstart-virtual-assistant-java-android.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig att utveckla ett Java-program för Android med hjälp av Speech SDK för Cognitive Services för att transkribera tal till text.
-Programmet baseras på tal SDK maven-paketet, version 1.6.0 och Android Studio 3,3.
+Programmet baseras på tal SDK maven-paketet och Android Studio 3,3.
 Speech SDK är kompatibelt med Android-enheter med 32/64-bitars ARM-processorer och Intel x86/x64-kompatibla processorer.
 
 > [!NOTE]
@@ -56,7 +58,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/java-android/app/src/main/res/layout/activity_main.xml)]
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
 1. Öppna till källfilen `MainActivity.java`. Ersätt all kod i den här filen med följande.
 

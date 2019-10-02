@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 06/12/2019
 ms.author: diberry
-ms.openlocfilehash: f565d95f8270612a8d83dd44a1e1bb895d1a4373
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: 11b626c0033814f0886ac76fff0c5d4087a80554
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662791"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720244"
 ---
 # <a name="guidelines-for-responsible-implementation-of-personalizer"></a>Rikt linjer för ansvarig implementering av Personanpassare
 
@@ -63,7 +63,8 @@ När du väljer användnings fall för Personanpassare:
 
 * Starta design processen och fundera över hur anpassningen hjälper dina användare.
 * Överväg de negativa konsekvenserna i verkligheten om några objekt inte rangordnas för användare på grund av anpassnings mönster eller utforskning.
-* Överväg att själv uppfylla Prophecy-slingor. Detta kan inträffa om en anpassnings belöning tågen en modell så att den senare kan utesluta en demografisk grupp från att komma åt relevant innehåll. De flesta personer i en låg inkomst verksamhet får till exempel inget bidrags försäkrings erbjudande, och långsamt utan att bara kunna se erbjudandet.
+* Överväg om ditt användnings fall utgör en automatiserad bearbetning, vilket avsevärt påverkar data ämnen som regleras i [GDPR](https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:32016R0679) artikel 22 eller andra lagar.
+* Överväg att själv uppfylla Prophecy-slingor. Detta kan inträffa om en anpassnings belöning tågen en modell så att den senare kan utesluta en demografisk grupp från att komma åt relevant innehåll. De flesta personer i en låg inkomst verksamhet får till exempel inget bidrags försäkrings erbjudande, och långsamt utan att kunna se erbjudandet om det inte finns tillräckligt med undersökning.
 * Spara kopior av modeller och inlärnings principer om det är nödvändigt att producera om Personanpassaren i framtiden. Du kan göra detta regelbundet eller varje modell uppdaterings period.
 * Tänk på vilken nivå av utforskning som är lämplig för utrymmet och hur du använder det som ett verktyg för att minimera effekten "eko kammare".
 
@@ -131,7 +132,7 @@ Följande är design områden för ansvariga implementeringar av AI. Lär dig me
 ### <a name="transparency"></a>Transparens
 *AI-system bör vara begripliga*. Med Personanpassare:
 
-* *Ge användare information om hur innehållet har anpassats.* Du kan till exempel Visa dina användare en knapp `Why These Suggestions?` som visar vilka Top-funktioner i användaren och åtgärder som spelade en roll i resultatet av en personanpassare.
+* *Ge användare information om hur innehållet har anpassats.* Du kan till exempel Visa dina användare en knapp med etiketten `Why These Suggestions?` som visar vilka Top-funktioner i användaren och åtgärder som spelade en roll i resultatet av en Personanpassare.
 * Se till att användnings villkoren är tänkta att du använder information om användare och deras beteende för att anpassa upplevelsen.
 
 ### <a name="fairness"></a>Skälighet
@@ -144,7 +145,7 @@ Följande är design områden för ansvariga implementeringar av AI. Lär dig me
 ### <a name="reliability-and-safety"></a>Tillförlitlighet och säkerhet
 *AI-system bör utföras på ett tillförlitligt och säkert sätt*. För Personanpassare:
 
-* *Ange inte åtgärder för en personanpassare som inte*ska väljas. Till exempel bör filmer som inte är lämpligt filtreras bort från åtgärder för att anpassas vid rekommendation för en anonym användare eller under ålders användare.
+* *Ange inte åtgärder för en personanpassare som inte ska väljas*. Till exempel bör filmer som inte är lämpligt filtreras bort från åtgärder för att anpassas vid rekommendation för en anonym användare eller under ålders användare.
 * *Hantera din personanpassa modell som en affärs till gång*.  Fundera över hur ofta du ska spara och säkerhetskopiera modell-och inlärnings principerna bakom din personliga loop och på annat sätt behandla den som en viktig affärs till gång. Det är viktigt att återge tidigare resultat för att själv kunna granska och mäta förbättringar.
 * *Tillhandahåll kanaler för att få direkt feedback från användarna*. Förutom att kunna koda säkerhets kontroller för att se till att endast rätt mål grupper ser rätt innehåll, ger du en feedback för användarna att rapportera innehåll som kan vara överraskande eller störa. I synnerhet om ditt innehåll kommer från användare eller tredje part, bör du överväga att använda Microsoft Content Moderator eller ytterligare verktyg för att granska och validera innehåll.
 * *Utföra frekventa utvärderingar offline*. På så sätt kan du övervaka trender och se till att effektiviteten är känt.

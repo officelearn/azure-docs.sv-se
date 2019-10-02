@@ -10,16 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: travisw
-ms.openlocfilehash: 1c203bb39a90fdb1c77c3a2c844318a748df7c63
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: f5b8623c835b4188d098ab2acf842abef30138e9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559217"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71800060"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Skapa en röst-första virtuell assistent i Java på Android med hjälp av talet SDK
 
-Det finns även en snabb start för [tal till text](quickstart-java-android.md).
+Det finns även en snabb start för [tal-till-text](quickstart-java-android.md) och [text till tal](quickstart-text-to-speech-java-android.md).
 
 I den här artikeln skapar du en röst-första virtuell assistent med Java för Android med hjälp av [talet SDK](speech-sdk.md). Det här programmet ansluter till en robot som du redan har skapat och konfigurerat med den [direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech). Sedan skickas en röst förfrågan till roboten och visar en röst aktive rad svars aktivitet.
 
@@ -96,17 +96,17 @@ Ersätt sedan innehållet i `activity_main.xml` med följande kod:
 
 I den här XML-koden definieras ett enkelt gränssnitt för att interagera med din robot.
 
-* Elementet initierar en interaktion och anropar `onBotButtonClicked` metoden vid klickning. `button`
-* I `recoText` elementet visas tal-till-text-resultatet när du pratar med din robot.
-* \- `activityText` Elementet visar JSON-nyttolasten för den senaste bot Framework-aktiviteten från din robot.
+* Elementet `button` initierar en interaktion och anropar metoden `onBotButtonClicked` när du klickar på den.
+* I elementet `recoText` visas tal-till-text-resultatet när du pratar med din robot.
+* I elementet `activityText` visas JSON-nyttolasten för den senaste bot Framework-aktiviteten från din robot.
 
 Texten och den grafiska representationen av ditt användargränssnitt bör nu se ut så här:
 
 ![](media/sdk/qs-java-android-assistant-designer-ui.png)
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
-1. Öppna `MainActivity.java`och ersätt innehållet med följande kod:
+1. Öppna `MainActivity.java` och ersätt innehållet med följande kod:
 
    ```java
     package samples.speech.cognitiveservices.microsoft.com;
@@ -250,11 +250,11 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
     }
    ```
 
-   * `onCreate` Metoden inkluderar kod som begär mikrofon-och Internet-behörigheter.
+   * Metoden `onCreate` innehåller kod som begär mikrofon-och Internet-behörigheter.
 
    * Metoden `onBotButtonClicked` är, som tidigare nämnts, knappklickshanteraren. En knapp tryckning utlöser en enda interaktion ("Vänd") med din robot.
 
-   * Metoden visar de händelser som används `DialogServiceConnector` av och grundläggande hantering av inkommande aktiviteter. `registerEventListeners`
+   * Metoden `registerEventListeners` visar de händelser som används av `DialogServiceConnector` och grundläggande hantering av inkommande aktiviteter.
 
 1. I samma fil ersätter du konfigurations strängarna så att de matchar dina resurser:
 

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 09/26/2019
 ms.author: diberry
-ms.openlocfilehash: 877a28e5f672bbd61bad2b4c5c9175c7dafa71ab
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4409f04f9fd370b862ee62f9595ffca9fe6e4406
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345331"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802535"
 ---
 # <a name="quickstart-personalize-client-library-for-python"></a>Snabbstart: Anpassa klient bibliotek för python
 
@@ -68,8 +68,6 @@ Installera det personliga klient biblioteket för python med följande kommando:
 pip install azure-cognitiveservices-personalizer
 ```
 
-Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett nedladdnings Bart NuGet-paket.
-
 ## <a name="change-the-model-update-frequency"></a>Ändra modell uppdaterings frekvensen
 
 I Azure Portal i gruppen personanpassa på sidan **Inställningar** ändrar du **modell uppdaterings frekvensen** till 10 sekunder. Detta kommer att träna tjänsten snabbt, så att du kan se hur de viktigaste åtgärderna ändras för varje iteration.
@@ -108,7 +106,9 @@ Från projekt katalogen öppnar du **Sample.py** -filen i önskat redigerings pr
 
 ## <a name="add-personalizer-resource-information"></a>Lägg till information om personanpassa resurser
 
-I **program** -klassen skapar du variabler för din resurs Azure-nyckel och slut punkt från miljövariablerna, med `PERSONALIZER_RESOURCE_KEY` namnet `PERSONALIZER_RESOURCE_ENDPOINT`och. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
+Skapa variabler för resursens Azure-nyckel och slut punkt från miljövariablerna, med `PERSONALIZER_RESOURCE_KEY` namnet `PERSONALIZER_RESOURCE_ENDPOINT`och. Om du har skapat miljövariablerna när programmet har startats måste redigeraren, IDE eller gränssnittet som kör det stängas och läsas in igen för att få åtkomst till variabeln. Metoderna kommer att skapas senare i den här snabb starten.
+
+Resurs namnet är en del av slut punktens URL: `https://<your-resource-name>.api.cognitive.microsoft.com/`.
 
 [!code-python[Create variables to hold the Personalizer resource key and endpoint values found in the Azure portal.](~/samples-personalizer/quickstarts/python/sample.py?name=AuthorizationVariables)]
 
@@ -120,7 +120,7 @@ Skapa sedan en metod för att returnera en personanpassa klient. Parametern till
 
 ## <a name="get-content-choices-represented-as-actions"></a>Hämta innehålls val som visas som åtgärder
 
-Åtgärder representerar de innehålls val som du vill att en Personanpassare ska rangordna. Lägg till följande metoder i program-klassen för att få en användares indata från kommando raden för tid på dag och aktuell kost preferens.
+Åtgärder representerar de innehålls val som du vill att en Personanpassare ska rangordna. Lägg till följande metoder för att få en användares indata från kommando raden för tid på dag och aktuell kost preferens.
 
 [!code-python[Present time out day preference to the user](~/samples-personalizer/quickstarts/python/sample.py?name=getActions)]
 
@@ -132,7 +132,7 @@ Skapa sedan en metod för att returnera en personanpassa klient. Parametern till
 
 Inlärnings-loopen för inlärning är en cykel av [rang](#request-a-rank) -och [belönings](#send-a-reward) samtal. I den här snabb starten, som varje rang anrop, för att anpassa innehållet, följs av ett belönings samtal för att berätta för personanpassa hur väl tjänsten rangordnade innehållet. 
 
-Följande kod i `main` -metoden i programmet loopar genom en cykel som ber användaren att ange sina inställningar på kommando raden, vilket skickar informationen till en person som ska rangordnas, och presentera det rankade valet för kunden att välja bland de och skicka en belöning till personligare signalera hur väl tjänsten gjorde en rangordning av valet.
+Följande kod går igenom en cykel som ber användaren om sina inställningar på kommando raden, vilket skickar informationen till en person som ska rangordnas, och som presenterar det rankade valet för kunden att välja bland listan, och sedan skicka en belöning till Personanpassan signalerar hur väl tjänsten gjorde en rangordning av valet.
 
 [!code-python[The Personalizer learning loop ranks the request.](~/samples-personalizer/quickstarts/python/sample.py?name=mainLoop&highlight=9,10,29)]
 

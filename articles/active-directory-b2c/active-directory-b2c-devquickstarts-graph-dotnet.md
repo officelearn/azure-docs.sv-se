@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 02765538ce8a351db539438837b6426c0896d2d4
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: HT
+ms.openlocfilehash: 2585b47d049047cc191bfc284c4486361917f1ed
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71701900"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802067"
 ---
 # <a name="azure-ad-b2c-use-the-azure-ad-graph-api"></a>Azure AD B2C: Använd Azure AD Graph API:n
 
@@ -49,19 +49,11 @@ Om du vill använda Azure AD-Graph API med din B2C-klient måste du registrera e
 
 ### <a name="assign-api-access-permissions"></a>Tilldela API-åtkomst behörigheter
 
-1. På sidan **registrerad app** -översikt väljer du **Inställningar**.
-1. Under **API-åtkomst**väljer du **nödvändiga behörigheter**.
-1. Välj **Windows-Azure Active Directory**.
-1. Under **program behörigheter**väljer du **läsa och skriva katalog data**.
-1. Välj **Spara**.
-1. Välj **bevilja**, och välj sedan **Ja**. Det kan ta några minuter innan behörigheterna är fullständigt spridda.
+[!INCLUDE [active-directory-b2c-permissions-directory](../../includes/active-directory-b2c-permissions-directory.md)]
 
 ### <a name="create-client-secret"></a>Skapa klient hemlighet
 
-1. Under **API-åtkomst**väljer du **nycklar**.
-1. Ange en beskrivning av nyckeln i rutan **nyckel Beskrivning** . Till exempel *hanterings nyckel*.
-1. Välj en giltighets **tid** och välj sedan **Spara**.
-1. Registrera nyckelns **värde**. Du använder det här värdet för konfiguration i ett senare steg.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Nu har du ett program som har behörighet att *skapa*, *läsa*och *Uppdatera* användare i din Azure AD B2C klient. Fortsätt till nästa avsnitt för att lägga till användar *borttagnings* -och *lösen ords uppdaterings* behörigheter.
 

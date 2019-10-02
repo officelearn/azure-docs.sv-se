@@ -11,12 +11,12 @@ ms.date: 09/14/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a8e35254a79ac43b35f45d1a20f3d1f6815f32be
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: bf9b6a3ad40d46b628bfcdb3fa3e32b2419360c9
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702811"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802114"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Åtkomst till Azure AD B2C gransknings loggar
 
@@ -112,10 +112,7 @@ Följ de här stegen registrera ett program, tilldela det nödvändiga Microsoft
 
 ### <a name="create-client-secret"></a>Skapa klient hemlighet
 
-1. Under **API-åtkomst**väljer du **nycklar**.
-1. Ange en beskrivning av nyckeln i rutan **nyckel Beskrivning** . Till exempel *Gransknings logg nyckel*.
-1. Välj en giltighets **tid**och välj sedan **Spara**.
-1. Registrera nyckelns **värde**. Du behöver det här värdet för autentisering i Automation-skript som exemplet PowerShell-skript som visas i ett senare avsnitt.
+[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
 
 Nu har du ett program med nödvändig API-åtkomst, ett program-ID och en nyckel som du kan använda i dina Automation-skript. I avsnittet om PowerShell-skript längre fram i den här artikeln finns ett exempel på hur du kan hämta aktivitets händelser med ett skript.
 

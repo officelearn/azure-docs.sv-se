@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 06/28/2019
 ms.author: cbasoglu
-ms.openlocfilehash: 64f02a33a3aeecddf751b8293542776bf5819574
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: 5ccfecc2bc61940f72844f43ec81826536cfe89a
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061895"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803233"
 ---
 # <a name="quickstart-recognize-speech-in-swift-on-macos-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i SWIFT på macOS med hjälp av tal-SDK
+
+Snabb Starter är också tillgängliga för [tal syntes](quickstart-text-to-speech-swift-macos.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,7 +36,7 @@ Gå igenom den här listan med förhandskrav innan du sätter igång:
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.6.0`. Observera att den här självstudien inte fungerar utan ändringar för någon tidigare version av SDK.
+Observera att den här självstudien inte fungerar med tidigare version av SDK än 1.6.0.
 
 Cognitive Services Speech SDK för macOS distribueras som ett Ramverks paket.
 Den kan användas i Xcode-projekt som en [CocoaPod](https://cocoapods.org/)eller hämtas från https://aka.ms/csspeech/macosbinary och länkas manuellt. Den här guiden använder en CocoaPod.
@@ -53,41 +55,41 @@ I dialogrutorna som följer gör du följande val:
     1. Inaktivera kryss rutorna om du vill använda storyboards och skapa ett dokument baserat program. Det enkla användar gränssnittet för exempel programmet kommer att skapas program mässigt.
     1. Inaktivera alla kryssrutor för test och kärndata.
 1. Välja projektkatalog
-    1. Välj en katalog där projektet ska läggas till. Detta skapar en `helloworld` katalog i den valda katalogen som innehåller alla filer för Xcode-projektet.
+    1. Välj en katalog där projektet ska läggas till. Detta skapar en `helloworld`-katalog i den valda katalogen som innehåller alla filer för Xcode-projektet.
     1. Inaktivera skapandet av en Git-lagringsplats för det här exempelprojektet.
 1. Ange rättigheter för nätverks-och mikrofon åtkomst. Klicka på namnet på appen i den första raden i översikten till vänster för att komma till appens konfiguration och välj sedan fliken funktioner.
     1. Aktivera inställningen "app Sandbox" för appen.
     1. Aktivera kryss rutorna för åtkomst till "utgående anslutningar" och "mikrofon".
-    ![Sandbox-inställningar](media/sdk/qs-swift-macos-sandbox.png)
-1. Appen måste också deklarera användningen av mikrofonen i `Info.plist` filen. Klicka på filen i översikten och Lägg till nyckeln "sekretess-mikrofon användning Beskrivning" med ett värde som "mikrofon krävs för tal igenkänning".
-    ![Inställningar i info. plist](media/sdk/qs-swift-macos-info-plist.png)
+    ![Sandbox inställningar @ no__t-1
+1. Appen måste också deklarera användningen av mikrofonen i `Info.plist`-filen. Klicka på filen i översikten och Lägg till nyckeln "sekretess-mikrofon användning Beskrivning" med ett värde som "mikrofon krävs för tal igenkänning".
+    ![Settings i info. plist @ no__t-1
 1. Stäng Xcode-projektet. Du kommer att använda en annan instans av det senare när du har konfigurerat CocoaPods.
 
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
-1. Placera en ny rubrik fil med namnet `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` `helloworld` i katalogen i projektet HelloWorld och klistra in följande kod i den:
+1. Placera en ny rubrik fil med namnet `MicrosoftCognitiveServicesSpeech-Bridging-Header.h` i katalogen `helloworld` i projektet HelloWorld och klistra in följande kod i den:
 
    [!code-cpp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h#code)]
-1. Lägg till den relativa `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` sökvägen till interimskontot för överbryggning i Swift-projektfilen för målet HelloWorld i rubrik ![egenskaper för *mål-C-bryggning*](media/sdk/qs-swift-macos-bridging-header.png)
+1. Lägg till den relativa sökvägen `helloworld/MicrosoftCognitiveServicesSpeech-Bridging-Header.h` till bryggnings huvudet till SWIFT-projektets inställningar för HelloWorld-målet i *mål-C-bryggnings huvud* fältet ![Header egenskaper @ no__t-3
 1. Ersätt innehållet i den automatiskt genererade `AppDelegate.swift`-filen genom att göra följande:
 
    [!code-swift[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/helloworld/AppDelegate.swift#code)]
-1. I `AppDelegate.swift`ersätter du strängen `YourSubscriptionKey` med din prenumerations nyckel.
-1. Ersätt strängen `YourServiceRegion` med den region som är kopplad till din prenumeration ( `westus` till exempel för den kostnads fria utvärderings prenumerationen).
+1. Ersätt strängen `YourSubscriptionKey` med din prenumerations nyckel i `AppDelegate.swift`.
+1. Ersätt strängen `YourServiceRegion` med den region som är kopplad till din prenumeration (till exempel `westus` för den kostnads fria utvärderings prenumerationen).
 
 ## <a name="install-the-sdk-as-a-cocoapod"></a>Installera SDK som en CocoaPod
 
 1. Installera CocoaPod-beroende hanteraren enligt beskrivningen i [installations anvisningarna](https://guides.cocoapods.org/using/getting-started.html).
-1. Navigera till katalogen för din exempel App (`helloworld`). Placera en textfil med namnet `Podfile` och följande innehåll i katalogen:
+1. Navigera till katalogen för din exempel App (`helloworld`). Placera en textfil med namnet `Podfile` och följande innehåll i den katalogen:
 
    [!code-ruby[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/swift-macos/helloworld/Podfile)]
-1. Navigera till `helloworld` katalogen i en Terminal och kör kommandot `pod install`. Detta skapar en `helloworld.xcworkspace` Xcode-arbetsyta som innehåller både exempel appen och tal-SDK som ett beroende. Den här arbets ytan kommer att användas i följande.
+1. Gå till katalogen `helloworld` i en Terminal och kör kommandot `pod install`. Detta genererar en `helloworld.xcworkspace` Xcode-arbetsyta som innehåller både exempel programmet och tal-SDK som ett beroende. Den här arbets ytan kommer att användas i följande.
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
-1. `helloworld.xcworkspace` Öppna arbets ytan i Xcode.
+1. Öppna arbets ytan `helloworld.xcworkspace` i Xcode.
 1. Gör felsökningsresultatet synligt (**View** > **Debug Area** > **Activate Console**) (Visa > Felsökningsområde > Aktivera konsol).
-1. Skapa och kör exempel koden genom att välja **produkt** > **körning** på menyn eller genom att klicka på uppspelnings knappen.
+1. Skapa och kör exempel koden genom att välja **produkt** > **Kör** på menyn eller genom att klicka på **uppspelnings** knappen.
 1. När du klickar på knappen "identifiera" i appen och säger några ord bör du se texten du har talat i den nedre delen av app-fönstret.
 
 ## <a name="next-steps"></a>Nästa steg

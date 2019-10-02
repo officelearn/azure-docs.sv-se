@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: c8d78473a1128dd4f96f2cfa0c14d2d3b1b2c1e9
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2a707eda6a7e32a95666dd70e196c8da3c3b7834
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300566"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815946"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Varna och övervaka data fabriker med hjälp av Azure Monitor
 
@@ -468,6 +468,9 @@ Skapa eller Lägg till diagnostikinställningar för din data fabrik.
 
 Efter en liten stund visas den nya inställningen i listan med inställningar för den här data fabriken. Diagnostikloggar strömmas till den arbets ytan så snart som nya händelse data genereras. Upp till 15 minuter kan förflyta mellan när en händelse genereras och när den visas i Log Analytics.
 
+* I _resursvyn_ läge loggar diagnostikloggar från Azure Data Factory flöda till _ADFPipelineRun_-, _ADFTriggerRun_-och _ADFActivityRun_ -tabeller
+* I _Azure-diagnostikläge-_ läge flödar diagnostikloggar till _AzureDiagnostics_ -tabellen
+
 > [!NOTE]
 > Eftersom en Azure-loggfil inte kan ha fler än 500 kolumner rekommenderar vi starkt att du väljer resurs-/regionsspecifika läge. Mer information finns i [Log Analytics kända begränsningar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
 
@@ -508,6 +511,9 @@ När du installerar Azure Data Factory Analytics skapas en standard uppsättning
 Du kan visualisera föregående mått, titta på frågorna bakom dessa mått, redigera frågorna, skapa aviseringar och vidta andra åtgärder.
 
 ![Grafisk representation av pipelines körs av Data Factory "](media/data-factory-monitor-oms/monitor-oms-image8.png)
+
+> [!NOTE]
+> Azure Data Factory Analytics (för hands version) skickar diagnostikloggar till _resursbaserade_ mål tabeller. Du kan skriva frågor mot följande tabeller: _ADFPipelineRun_, _ADFTriggerRun_och _ADFActivityRun_.
 
 ## <a name="alerts"></a>Aviseringar
 

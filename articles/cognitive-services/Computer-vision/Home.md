@@ -8,19 +8,19 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 07/03/2019
+ms.date: 10/01/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 915388b850b1b046dae91a20540881480694a944
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: db62f003f7eb8dd272305b86712cf1d721797114
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70967046"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719547"
 ---
 # <a name="what-is-computer-vision"></a>Vad är visuellt innehåll?
 
-Azure-tjänsten Visuellt innehåll ger utvecklare tillgång till avancerade algoritmer som bearbetar bilder och returnerar information. Om du vill analysera en bild kan du antingen ladda upp den eller ange en bild-URL. Algoritmerna för bildbearbetning kan analysera innehållet på olika sätt beroende på de visuella egenskaper som du är intresserad av. Visuellt innehåll kan till exempel avgöra om en bild innehåller vuxen eller vågat innehåll eller hitta alla mänskliga ansikten i en bild.
+Azure-tjänsten Visuellt innehåll ger utvecklare tillgång till avancerade algoritmer som bearbetar bilder och returnerar information. Om du vill analysera en bild kan du antingen ladda upp den eller ange en bild-URL. Algoritmerna för bildbearbetning kan analysera innehållet på olika sätt beroende på de visuella egenskaper som du är intresserad av. Visuellt innehåll kan till exempel avgöra om en bild innehåller innehåll som är olämpligt för barn eller om den kan hitta alla mänskliga ansikten i en bild.
 
 Du kan använda Visuellt innehåll i ditt program antingen med hjälp av en intern SDK eller genom att anropa REST API direkt. Den här sidan beskriver allmänt vad du kan göra med Visuellt innehåll.
 
@@ -52,7 +52,7 @@ Du kan också använda [OCR-API (optisk tecken läsning)](concept-recognizing-te
 
 ## <a name="moderate-content-in-images"></a>Moderera innehåll i bilder
 
-Du kan använda visuellt innehåll till att [identifiera innehåll som är olämpligt för barn](concept-detecting-adult-content.md) i en bild och returnera en förtroendepoäng för dem. Du kan ställa in filtret för vuxen och vågat innehålls identifiering på en rörlig skala för att passa dina inställningar.
+Du kan använda Visuellt innehåll för att [identifiera vuxna innehåll](concept-detecting-adult-content.md) i en bild och returnera konfidensts resultat för olika klassificeringar. Tröskelvärdet för flaggat innehåll kan ställas in på en rörlig skala för att passa dina inställningar.
 
 ## <a name="use-containers"></a>Använda containrar
 

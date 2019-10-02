@@ -8,17 +8,45 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 09/20/2019
+ms.author: brianem
 ms.custom: seodec18
-ms.openlocfilehash: 12eecc4998153cbeedeb907ecad33c56141a50e6
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0e4d0eb19da2485b689b1c5d5192e344153aef0b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68559128"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799962"
 ---
 # <a name="release-notes"></a>Viktig information
+## <a name="speech-sdk-170-2019-september-release"></a>1\.7.0 för tal-SDK: 2019-version för september
+
+**Nya funktioner**
+*   Beta stöd för Xamarin på Universell Windows-plattform (UWP), Android och iOS har lagts till
+*   IOS-stöd har lagts till för Unity
+*   Har lagt till stöd för komprimerade instöd för ALaw, Mulaw, FLAC på Android, iOS och Linux
+*   Lade till SendMessageAsync i anslutnings klassen för att skicka ett meddelande till tjänsten
+*   Lade till SetMessageProperty i anslutnings klassen för att ange egenskapen för ett meddelande
+*   TTS-tillagda bindningar för Java (JRE och Android), python, Swift och mål-C
+*   TTS-stöd för uppspelning av OS för macOS, iOS och Android.
+*   Information om Word-gränser för TTS har lagts till.
+
+**Felkorrigeringar**
+*   Fast IL2CPP build-problem på Unity 2019 för Android
+*   Ett åtgärds fel med felaktigt utformade huvuden i WAV-filen har bearbetats felaktigt
+*   Ett fast problem med UUID-nummer är inte unikt i vissa anslutnings egenskaper
+*   Åtgärdade några varningar om specificerare för null-värden i Swift-bindningar (kan kräva små kod ändringar)
+*   En bugg har åtgärd ATS som gjorde att WebSocket-anslutningar stängdes på ett smidigt sätt under nätverks belastning
+*   iOS: stöd har släppts för arm7s-arkitekturen
+*   Ett problem har åtgärd ATS på Android som ibland resulterar i dubbla exponerings-ID: n som används av DialogServiceConnector
+*   Förbättringar av anslutningarnas stabilitet i flera olika interaktioner och rapportering av fel (via avbrutna händelser) när de inträffar med DialogServiceConnector
+*   DialogServiceConnector-sessionen börjar nu att tillhandahålla händelser, inklusive när ListenOnceAsync anropas () under en aktiv StartKeywordRecognitionAsync ()
+*   Har åtgärdat en krasch som är associerad med DialogServiceConnector-aktiviteter som tas emot 
+
+**Exempel**
+*   Snabb start för Xamarin
+*   Uppdaterad CPP-snabb start med information om Linux-ARM64
+*   Uppdaterad enhets snabb start med iOS-information
 
 ## <a name="speech-sdk-160-2019-june-release"></a>1\.6.0 för tal-SDK: 2019 – utgåva från juni
 
@@ -318,7 +346,7 @@ I vår [exempellagringsplatsen](https://aka.ms/csspeech/samples), ett nytt stick
 * Stöd för .NET Standard 2.0 på Windows. Kolla in den [Snabbstart för .NET Core](quickstart-csharp-dotnetcore-windows.md).
 * Försök Stöd för UWP i Windows (version 1709 eller senare).
   * Kolla in den [UWP snabbstarten](quickstart-csharp-uwp.md).
-  * Anteckning: UWP-appar som skapats med tal-SDK: n har inte lyckats med Windows app Certificate Kit (WACK).
+  * Obs! UWP-appar som skapats med tal-SDK: n har inte lyckats med Windows app Certificate Kit (WACK).
 * Stöd för tidskrävande erkännande med automatisk återanslutning.
 
 **Funktionella ändringar**

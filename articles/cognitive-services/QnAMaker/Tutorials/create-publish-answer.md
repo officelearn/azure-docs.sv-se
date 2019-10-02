@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: e5b8cd01a64274e58927a5647897b1f9d86f7c24
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: f0888b25258f6a7830df1195995159432b19907d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390876"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802812"
 ---
 # <a name="tutorial-using-c-create-knowledge-base-then-answer-question"></a>Självstudie: Använda C#, skapa kunskapsbas och sedan besvara fråga
 
@@ -41,7 +41,7 @@ Den här snabb starten anropar QnA Maker REST API: er:
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Senaste [**Visual Studio Community-versionen**](https://www.visualstudio.com/downloads/).
-* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln genom att välja **Nycklar** under **Resurshantering** på instrumentpanelen. 
+* Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md). Hämta nyckeln och resurs namnet genom att välja **snabb start** i Azure Portal för din QNA Maker resurs. 
 
 > [!NOTE] 
 > De fullständiga lösningsfilerna finns i [**Azure-Samples/cognitive-services-qnamaker-csharp** GitHub-lagringsplats](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp/tree/master/documentation-samples/tutorials/create-publish-answer-knowledge-base).
@@ -146,13 +146,13 @@ API-anropet returnerar 204-status för en lyckad publicering utan något innehå
 För andra svar returneras svaret oförändrat.
 
 ## <a name="generating-an-answer"></a>Generera ett svar
-För att komma åt KB för att skicka en fråga och få det bästa svaret behöver programmet _slutpunktsvärden_ från KB-informations-API:et och _nyckeln för den primära slutpunkten_ från slutpunkts-API:et. Dessa metoder finns i följande avsnitt liksom metoden för att generera ett svar. 
+För att få åtkomst till KB för att skicka en fråga och få bästa möjliga svar, behöver programmet _resurs namnet_ från KB-informations-API: et och den _primära slut punkts nyckeln_ från slut punkts-API: et. Dessa metoder finns i följande avsnitt liksom metoden för att generera ett svar. 
 
 Följande tabell visar hur data används för att konstruera URI:
 
 |Generera mall för svars-URI|
 |--|
-|https://**HOSTNAME**.azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
+|https://-**resurs-Name**. azurewebsites.net/qnamaker/knowledgebases/**KBID**/generateAnswer|
 
 Den _primära slutpunkten_ skickas som huvud för att autentisera begäran att generera ett svar:
 
@@ -169,7 +169,7 @@ Brödtexten i begäran måste skicka rätt JSON:
 ```
 
 ## <a name="get-kb-details"></a>Hämta KB-information
-Lägg till följande metod för att hämta KB-informationen. Den här informationen innehåller värdnamnet för KB. Värdnamnet är namnet på den QnA Maker Azure-webbtjänst som angav när du skapade QnA Maker-resursen. 
+Lägg till följande metod för att hämta KB-informationen. Informationen innehåller resurs namnet för den KB, som kallas `hostName` i följande JSON. Resurs namnet är namnet på den QnA Maker resurs som du angav när du skapade QnA Maker resursen. 
 
 [!code-csharp[Get KB Details](~/samples-qnamaker-csharp/documentation-samples/tutorials/create-publish-answer-knowledge-base/QnaMakerQuickstart/Program.cs?range=260-273 "Add publish method")]
 

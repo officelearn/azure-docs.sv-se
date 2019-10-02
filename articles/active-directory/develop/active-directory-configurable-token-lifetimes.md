@@ -13,24 +13,24 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 09/17/2019
 ms.author: ryanwi
 ms.custom: aaddev, annaba, identityplatformtop40
 ms.reviewer: hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f9244dfabef8b13105ef830f9f4543da9cb2cca9
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: b3696ebc216062a6d52fd187819f07dfb0078057
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70842649"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812582"
 ---
 # <a name="configurable-token-lifetimes-in-azure-active-directory-preview"></a>Konfigurerbara livstider för token i Azure Active Directory (för hands version)
 
 Du kan ange livs längden för en token som utfärdats av Azure Active Directory (Azure AD). Du kan ange livs längd för token för alla appar i din organisation, för ett program med flera innehavare (flera organisationer) eller för ett särskilt tjänst huvud namn i din organisation.
 
 > [!IMPORTANT]
-> Efter att ha hört från kunder under för hands versionen har vi implementerat [hanterings funktioner för autentisering](https://go.microsoft.com/fwlink/?linkid=2083106) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens. Efter den 1 november 2019 kommer du inte att kunna använda konfigurerings bara livs längds princip för token för att konfigurera uppdateringstoken, men du kan fortfarande använda den för att konfigurera åtkomsttoken.
+> Efter att ha hört från kunder under för hands versionen har vi implementerat [hanterings funktioner för autentisering](https://go.microsoft.com/fwlink/?linkid=2083106) i Azure AD villkorlig åtkomst. Du kan använda den här nya funktionen för att konfigurera livstid för uppdateringstoken genom att ange inloggnings frekvens. Efter den 1 november 2019 kommer du inte att kunna använda konfigurerings bara livs längds princip för token för att konfigurera sessioner och uppdatera tokens. Du kan fortfarande konfigurera livstid för åtkomsttoken efter utfasningen.
 
 I Azure AD representerar ett princip objekt en uppsättning regler som tillämpas på enskilda program eller på alla program i en organisation. Varje princip typ har en unik struktur med en uppsättning egenskaper som tillämpas på objekt som de är tilldelade till.
 
@@ -389,7 +389,7 @@ New-AzureADPolicy -Definition <Array of Rules> -DisplayName <Name of Policy> -Is
 | <code>&#8209;DisplayName</code> |Sträng för princip namnet. |`-DisplayName "MyTokenPolicy"` |
 | <code>&#8209;IsOrganizationDefault</code> |Om värdet är true anger principen som organisationens standard princip. Om det är falskt, gör ingenting. |`-IsOrganizationDefault $true` |
 | <code>&#8209;Type</code> |Typ av princip. Använd alltid "TokenLifetimePolicy" för token för token. | `-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>Valfritt |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;AlternativeIdentifier</code> [valfritt] |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -402,7 +402,7 @@ Get-AzureADPolicy
 
 | Parametrar | Beskrivning | Exempel |
 | --- | --- | --- |
-| <code>&#8209;Id</code>Valfritt |**ObjectID (ID)** för den princip du vill använda. |`-Id <ObjectId of Policy>` |
+| <code>&#8209;Id</code> [valfritt] |**ObjectID (ID)** för den princip du vill använda. |`-Id <ObjectId of Policy>` |
 
 </br></br>
 
@@ -430,10 +430,10 @@ Set-AzureADPolicy -Id <ObjectId of Policy> -DisplayName <string>
 | --- | --- | --- |
 | <code>&#8209;Id</code> |**ObjectID (ID)** för den princip du vill använda. |`-Id <ObjectId of Policy>` |
 | <code>&#8209;DisplayName</code> |Sträng för princip namnet. |`-DisplayName "MyTokenPolicy"` |
-| <code>&#8209;Definition</code>Valfritt |Matris med stringified-JSON som innehåller alla princip regler. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
-| <code>&#8209;IsOrganizationDefault</code>Valfritt |Om värdet är true anger principen som organisationens standard princip. Om det är falskt, gör ingenting. |`-IsOrganizationDefault $true` |
-| <code>&#8209;Type</code>Valfritt |Typ av princip. Använd alltid "TokenLifetimePolicy" för token för token. |`-Type "TokenLifetimePolicy"` |
-| <code>&#8209;AlternativeIdentifier</code>Valfritt |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
+| <code>&#8209;Definition</code> [valfritt] |Matris med stringified-JSON som innehåller alla princip regler. |`-Definition @('{"TokenLifetimePolicy":{"Version":1,"MaxInactiveTime":"20:00:00"}}')` |
+| <code>&#8209;IsOrganizationDefault</code> [valfritt] |Om värdet är true anger principen som organisationens standard princip. Om det är falskt, gör ingenting. |`-IsOrganizationDefault $true` |
+| <code>&#8209;Type</code> [valfritt] |Typ av princip. Använd alltid "TokenLifetimePolicy" för token för token. |`-Type "TokenLifetimePolicy"` |
+| <code>&#8209;AlternativeIdentifier</code> [valfritt] |Anger ett alternativt ID för principen. |`-AlternativeIdentifier "myAltId"` |
 
 </br></br>
 
@@ -494,7 +494,7 @@ Remove-AzureADApplicationPolicy -Id <ObjectId of Application> -PolicyId <ObjectI
 
 </br></br>
 
-### <a name="service-principal-policies"></a>Huvudprinciper för tjänst
+### <a name="service-principal-policies"></a>Principer för tjänstens huvud namn
 Du kan använda följande cmdletar för principer för tjänstens huvud namn.
 
 #### <a name="add-azureadserviceprincipalpolicy"></a>Add-AzureADServicePrincipalPolicy

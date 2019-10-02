@@ -1,6 +1,6 @@
 ---
-title: Distribuera Virtual Machine Scale Sets med Visual Studio | Microsoft Docs
-description: Distribuera Virtual Machine Scale Sets med Visual Studio och Resource Manager-mall
+title: Distribuera skalnings uppsättningen för virtuella datorer med Visual Studio | Microsoft Docs
+description: Distribuera Virtual Machine Scale Sets med Visual Studio och en Resource Manager-mall
 services: virtual-machine-scale-sets
 ms.custom: H1Hack27Feb2017
 ms.workload: na
@@ -14,96 +14,91 @@ ms.service: virtual-machine-scale-sets
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/13/2017
+ms.date: 09/09/2019
 ms.author: manayar
-ms.openlocfilehash: 3d472aeaae7e7f02eba58aadea1df042d6c0f27b
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: d397f81ce29e0ec738156b755948985a4edfc70b
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67204719"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802256"
 ---
-# <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Så här skapar du en Virtual Machine Scale Sets med Visual Studio
-Den här artikeln visar hur du distribuerar ett Azure Virtual Machine Scale Sets med hjälp av en Visual Studio-Resursgruppsdistribution.
+# <a name="how-to-create-a-virtual-machine-scale-set-with-visual-studio"></a>Så här skapar du en skalnings uppsättning för virtuella datorer med Visual Studio
 
-[Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) är en Azure Compute-resurs för att distribuera och hantera en uppsättning liknande virtuella datorer med automatisk skalning och belastningsutjämning. Du kan etablera och distribuera Virtual Machine Scale Sets med hjälp av [Azure Resource Manager-mallar](https://github.com/Azure/azure-quickstart-templates). Azure Resource Manager-mallar kan distribueras med hjälp av Azure CLI, PowerShell, REST och även direkt från Visual Studio. Visual Studio innehåller en uppsättning exempel på mallar, som kan distribueras som en del av ett projekt för distribution av Azure resursgrupper.
+Den här artikeln visar hur du distribuerar en skalnings uppsättning för en virtuell Azure-dator med hjälp av en resurs grupps distribution i Visual Studio.
 
-Azure-resursgrupp-distributioner är ett sätt att gruppera och publicera en uppsättning relaterade Azure-resurser i en enda Distributionsåtgärden. Du kan läsa mer om dem här: [Skapa och distribuera Azure-resursgrupper via Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+[Azure Virtual Machine Scale Sets](https://azure.microsoft.com/blog/azure-vm-scale-sets-public-preview/) är en Azure Compute-resurs som distribuerar och hanterar en samling liknande virtuella datorer med autoskalning och belastnings utjämning. Du kan etablera och distribuera Virtual Machine Scale Sets med [Azure Resource Manager-mallar](https://github.com/Azure/azure-quickstart-templates). Azure Resource Manager mallar kan distribueras med hjälp av Azure CLI, PowerShell, REST och även direkt från Visual Studio. Visual Studio innehåller en uppsättning exempel på mallar, som du kan distribuera som en del av ett distributions projekt för Azure-resurs grupper.
 
-## <a name="pre-requisites"></a>Förutsättningar
-För att komma igång med att distribuera Virtual Machine Scale Sets i Visual Studio, behöver du följande:
+Distributioner av Azure-resurs grupper är ett sätt att gruppera och publicera en uppsättning relaterade Azure-resurser i en enda distributions åtgärd. Mer information finns i [skapa och Distribuera Azure-resurs grupper via Visual Studio](../vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
+
+## <a name="prerequisites"></a>Förutsättningar
+
+För att komma igång med att distribuera Virtual Machine Scale Sets i Visual Studio behöver du följande förutsättningar:
 
 * Visual Studio 2013 eller senare
-* Azure SDK 2.7, 2.8 eller 2.9
+* Azure SDK 2,7, 2,8 eller 2,9
 
 >[!NOTE]
->Dessa instruktioner förutsätter att du använder Visual Studio med [Azure SDK 2.8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
+>I den här artikeln används Visual Studio 2019 med [Azure SDK 2,8](https://azure.microsoft.com/blog/announcing-the-azure-sdk-2-8-for-net/).
 
-## <a name="creating-a-project"></a>Skapa ett projekt
-1. Skapa ett nytt projekt i Visual Studio genom att välja **fil | Ny | Projektet**.
-   
-    ![Ny fil][file_new]
+## Skapa ett projekt<a name="creating-a-project"></a> 
 
-2. Under **Visual C# | Molnet**, Välj **Azure Resource Manager** att skapa ett projekt för att distribuera en Azure Resource Manager-mall.
-   
-    ![Skapa projekt][create_project]
+1. Öppna Visual Studio och välj **skapa ett nytt projekt**.
 
-3. Välj Linux eller Windows VM Scale ange mall i listan med mallar.
-   
-   ![Välj mall][select_Template]
+1. I **skapa ett nytt projekt**väljer du **Azure resurs grupp** för C# och väljer sedan **Nästa**.
 
-4. När projektet har skapats visas PowerShell-distributionsskript, en Azure Resource Manager-mall och en parameterfil för Virtual Machine Scale Sets.
-   
-    ![Solution Explorer][solution_explorer]
+1. I **Konfigurera ditt nya projekt anger du**ett namn och väljer **skapa**.
+
+    ![Namnge och skapa ditt projekt](media/virtual-machine-scale-sets-vs-create/configure-azure-resource-group.png)
+
+1. I listan med mallar väljer du mallen för **skalnings uppsättningen för virtuella Windows-datorer** eller virtuella Linux- **datorer** . Välj **OK**.
+
+   ![Välj en mall för virtuell dator](media/virtual-machine-scale-sets-vs-create/select-vm-template.png)
+
+När du har skapat projektet innehåller **Solution Explorer** ett skript för PowerShell-distribution, en Azure Resource Manager-mall och en parameter fil för skalnings uppsättningen för den virtuella datorn.
 
 ## <a name="customize-your-project"></a>Anpassa ditt projekt
-Du kan nu redigera mallen för att anpassa den efter ditt programs behov, till exempel att lägga till VM-tilläggsegenskaper eller redigera regler för belastningsutjämning. Som standard konfigureras den skala ange mallar för virtuella datorer för att distribuera AzureDiagnostics tillägg, vilket gör det enkelt att lägga till regler för automatisk skalning. Den distribuerar också en belastningsutjämnare med en offentlig IP-adress som konfigurerats med inkommande NAT-regler. 
 
-Belastningsutjämnaren kan du ansluta till Virtuella datorer med SSH (Linux) eller RDP (Windows). Klientdelens portintervall börjar vid 50000. För linux som det innebär att om du SSH till port 50000, du dirigeras till port 22 för den första virtuella datorn i Skalningsuppsättningen. Ansluta till port 50001 dirigeras till port 22 på den andra virtuella datorn och så vidare.
+Nu kan du redigera mallen för att anpassa den efter programmets behov. Du kan lägga till egenskaper för virtuell dator tillägg eller redigera regler för belastnings utjämning. Som standard konfigureras mallarna för skalnings uppsättningar för virtuella datorer för att distribuera **AzureDiagnostics** -tillägget, vilket gör det enkelt att lägga till regler för autoskalning. Mallarna distribuerar också en belastningsutjämnare med en offentlig IP-adress som kon figurer ATS med inkommande NAT-regler.
 
- Ett bra sätt att redigera dina mallar med Visual Studio är att använda JSON-disposition för att ordna parametrar, variabler och resurser. Med en förståelse för schemat kan Visual Studio peka ut fel i mallen innan du distribuerar den.
+Med belastningsutjämnaren kan du ansluta till de virtuella dator instanserna med SSH (Linux) eller RDP (Windows). Klient dels port intervallet börjar på 50000. Om du använder SSH till port 50000 i Linux dirigeras belastnings utjämning till port 22 på den första virtuella datorn i skalnings uppsättningen. Anslutning till port 50001 dirigeras till port 22 för den andra virtuella datorn och så vidare.
 
-![JSON-Explorer][json_explorer]
+ Ett bra sätt att redigera dina mallar med Visual Studio är att använda **JSON-disposition**. Du kan organisera parametrarna, variablerna och resurserna. Med en förståelse för schemat kan Visual Studio peka ut fel i mallen innan du distribuerar det.
+
+![JSON Explorer](media/virtual-machine-scale-sets-vs-create/json-explorer.png)
 
 ## <a name="deploy-the-project"></a>Distribuera projektet
-1. Distribuera Azure Resource Manager-mall för att skapa Virtual Machine Scale Sets-resurs. Högerklicka på projektnoden och välj **distribuera | Ny distribution**.
-   
-    ![Distribuera mallen][5deploy_Template]
-    
-2. Välj din prenumeration i dialogrutan ”Distribuera till resursgrupp”.
-   
-    ![Distribuera mallen][6deploy_Template]
 
-3. Härifrån kan skapa du en Azure-resursgrupp för att distribuera din mall.
-   
-    ![Ny resursgrupp][new_resource]
+Distribuera Azure Resource Manager-mallen för att skapa den virtuella datorns skalnings uppsättnings resurs:
 
-4. Klicka sedan på **redigera parametrar** ange parametrar som skickas till din mall. Ange användarnamnet och lösenordet för operativsystem, vilket krävs för att skapa distributionen. Om du inte har PowerShell Tools för Visual Studio installerat, rekommenderar vi att kontrollera **spara lösenord** att undvika dolda PowerShell Kommandotolken eller använda [keyvault support](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/).
-   
-    ![Redigera parametrar][edit_parameters]
+1. I **Solution Explorer**högerklickar du på projektet och väljer **distribuera** > **ny**.
 
-5. Klicka på **distribuera**. Den **utdata** visar förloppet för distributionen. Observera att åtgärden körs den **distribuera AzureResourceGroup.ps1** skript.
-   
-   ![Utdatafönstret][output_window]
+    ![Distribuera projektet](media/virtual-machine-scale-sets-vs-create/deploy-new-project.png)
 
-## <a name="exploring-your-virtual-machine-scale-set"></a>Utforska Virtual Machine Scale Sets
-När distributionen är klar kan du visa den nya Virtual Machine Scale Sets i Visual Studio **Cloud Explorer** (uppdatera listan). Cloud Explorer kan du hantera Azure-resurser i Visual Studio när du utvecklar program. Du kan också visa din Virtual Machine Scale Sets i den [Azure-portalen](https://portal.azure.com) och [Azure Resource Explorer](https://resources.azure.com/).
+1. I **distribuera till resurs grupp**väljer du vilken prenumeration som ska användas och väljer en resurs grupp. Om det behövs kan du skapa en resurs grupp.
 
-![Cloud Explorer][cloud_explorer]
+1. Välj sedan **Redigera parametrar** för att ange parametrar som skickas till din mall.
 
- Portalen ger det bästa sättet att visuellt hantera Azure-infrastrukturen med en webbläsare medan Azure Resource Explorer ger ett enkelt sätt att utforska och felsöka Azure-resurser, vilket ger ett fönster i ”instance-view” och visar även PowerShell-kommandon för resurserna tittar du på.
+   ![Ange prenumeration och resurs grupp](media/virtual-machine-scale-sets-vs-create/deploy-to-resource-group.png)
+
+1. Ange användar namn och lösen ord för operativ systemet. De här värdena krävs för att skapa distributionen. Om du inte har PowerShell-verktyg för Visual Studio installerat väljer du **Spara lösen ord** för att undvika en dold PowerShell-kommandotolk eller använder [Key Vault support](https://azure.microsoft.com/blog/keyvault-support-for-arm-templates/). Fortsätt genom att välja **Spara** .
+
+    ![Redigera distributions parametrar](media/virtual-machine-scale-sets-vs-create/edit-deployment-parameters.png)
+
+1. I **distribuera till resurs grupp**väljer du **distribuera**. Åtgärden kör skriptet **Deploy-AzureResourceGroup. ps1** . I fönstret **utdata** visas distributions förloppet.
+
+   ![Utdata visar resultat](media/virtual-machine-scale-sets-vs-create/deployment-output.png)
+
+## Utforska din skalnings uppsättning för virtuella datorer<a name="exploring-your-virtual-machine-scale-set"></a>
+
+Välj **visa** > **Cloud Explorer** för att visa den nya skalnings uppsättningen för virtuella datorer. Använd **Uppdatera alla**, om det behövs.
+
+![Cloud Explorer](media/virtual-machine-scale-sets-vs-create/cloud-explorer.png)
+
+Med **Cloud Explorer** kan du hantera Azure-resurser i Visual Studio när du utvecklar program. Du kan också Visa skalnings uppsättningen för den virtuella datorn i [Azure Portal](https://portal.azure.com) och [Azure Resource Explorer](https://resources.azure.com/).
+
+ Portalen är det bästa sättet att hantera din Azure-infrastruktur med en webbläsare. Azure Resource Explorer är ett enkelt sätt att utforska och felsöka Azure-resurser. Azure Resource Explorer erbjuder instans visningen och visar även PowerShell-kommandon för de resurser som du tittar på.
 
 ## <a name="next-steps"></a>Nästa steg
-När du har distribuerats Virtual Machine Scale Sets via Visual Studio kan du anpassa ditt projekt så att det passar dina program. Till exempel konfigurera automatisk skalning genom att lägga till en **Insights** resurs, lägger till infrastrukturen i din mall (t.ex. fristående virtuella datorer) eller distribuera program med hjälp av det anpassade skripttillägget. Bra exempel på mallar finns i den [Azure-Snabbstartsmallar](https://github.com/Azure/azure-quickstart-templates) GitHub-lagringsplatsen (Sök efter ”vmss”).
 
-[file_new]: ./media/virtual-machine-scale-sets-vs-create/1-FileNew.png
-[create_project]: ./media/virtual-machine-scale-sets-vs-create/2-CreateProject.png
-[select_Template]: ./media/virtual-machine-scale-sets-vs-create/3b-SelectTemplateLin.png
-[solution_explorer]: ./media/virtual-machine-scale-sets-vs-create/4-SolutionExplorer.png
-[json_explorer]: ./media/virtual-machine-scale-sets-vs-create/10-JsonExplorer.png
-[5deploy_Template]: ./media/virtual-machine-scale-sets-vs-create/5-DeployTemplate.png
-[6deploy_Template]: ./media/virtual-machine-scale-sets-vs-create/6-DeployTemplate.png
-[new_resource]: ./media/virtual-machine-scale-sets-vs-create/7-NewResourceGroup.png
-[edit_parameters]: ./media/virtual-machine-scale-sets-vs-create/8-EditParameter.png
-[output_window]: ./media/virtual-machine-scale-sets-vs-create/9-Output.png
-[cloud_explorer]: ./media/virtual-machine-scale-sets-vs-create/12-CloudExplorer.png
+När du har distribuerat Virtual Machine Scale Sets via Visual Studio kan du ytterligare anpassa ditt projekt så att det passar dina program krav. Konfigurera till exempel autoskalning genom att lägga till en **Insights** -resurs. Du kan lägga till en infrastruktur till din mall, till exempel fristående virtuella datorer eller distribuera program med hjälp av tillägget för anpassat skript. Användbara exempel mallar finns i GitHub-lagringsplatsen för [Azure snabb starts mallar](https://github.com/Azure/azure-quickstart-templates) . Sök efter `vmss`.

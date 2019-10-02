@@ -1,41 +1,40 @@
 ---
 title: 'Snabbstart: Syntetiskt tal, Union tal-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: Använd den här guiden för att skapa ett text till tal-program med Unity och talet SDK för Unity (beta). När du är färdig kan du syntetisera tal från text i real tid till enhetens högtalare.
+description: Använd den här guiden för att skapa ett text till tal-program med Unity och talet SDK för Unity. När du är färdig kan du syntetisera tal från text i real tid till enhetens högtalare.
 services: cognitive-services
 author: yinhew
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 6/26/2019
+ms.date: 9/19/2019
 ms.author: yinhew
-ms.openlocfilehash: 507ab9ef9bb3e482e5a33d2406424dfb9116de54
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: be5f07b8ea58d0d62c70e0e9dc8ab187ce4a0f63
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553620"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803189"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity-beta"></a>Snabbstart: Syntetisera tal med talet SDK för Unity (beta)
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-unity"></a>Snabbstart: Syntetisera tal med talet SDK för Unity
 
 Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-csharp-unity.md).
 
-Använd den här guiden för att skapa ett text till tal-program [](https://unity3d.com/) med hjälp av Unity och talet SDK för Unity (beta).
+Använd den här guiden för att skapa ett text till tal-program med hjälp av [Unity](https://unity3d.com/) och talet SDK för Unity.
 När du är färdig kan du syntetisera tal från text i real tid till enhetens högtalare.
 Om du inte är bekant med Unity rekommenderar vi att du läser [användarhandboken för Unity](https://docs.unity3d.com/Manual/UnityManual.html) innan du börjar med programutvecklingen.
 
 > [!NOTE]
-> Speech SDK för Unity är för närvarande i betaversion.
-> Det stöder Windows Desktop (x86 och x64) eller Universell Windows-plattform (x86, x64, ARM/ARM64) och Android (x86, ARM32/64).
+> Det stöder Windows Desktop (x86 och x64) eller Universell Windows-plattform (x86, x64, ARM/ARM64), Android (x86, ARM32/64) och iOS (x64 simulator, ARM32 och ARM64).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 För att slutföra det här projektet behöver du:
 
 * [2018,3 eller senare](https://store.unity.com/) med [Unity 2019,1 lägga till stöd för UWP-arm64](https://blogs.unity3d.com/2019/04/16/introducing-unity-2019-1/#universal)
-* [Visual Studio 2017](https://visualstudio.microsoft.com/downloads/)
-     * För ARM64-support installerar du de [valfria build-verktygen för arm64 och Windows 10 SDK för arm64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
+* [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/). Version 15,9 eller senare av Visual Studio 2017 är också acceptabelt.
+* För Windows ARM64-stöd installerar du de [valfria build-verktygen för arm64 och Windows 10 SDK för arm64](https://blogs.windows.com/buildingapps/2018/11/15/official-support-for-windows-10-on-arm-development/) 
 * En prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
 
 ## <a name="create-a-unity-project"></a>Skapa ett Unity-projekt
@@ -63,18 +62,18 @@ För att slutföra det här projektet behöver du:
 Vi lägger till ett minimalt gränssnitt i vår scen, som består av ett indatafält för att ange texten för syntes, en knapp som utlöser tal syntes och ett textfält som visar resultatet.
 
 * I [hierarkifönstret](https://docs.unity3d.com/Manual/Hierarchy.html) (som standard finns till vänster) visas en exempelscen som Unity skapade med det nya projektet.
-* Klicka på knappen **skapa** överst i hierarkifönstret och välj**fältet** **UI** > -Indatatyp.
-* Detta skapar tre spel objekt som du kan se i hierarkifönstret: ett indatamängds objekt kapslat i ett **arbets ytans** objekt och ett **Event Events** -objekt.
+* Klicka på knappen **skapa** längst upp i hierarkifönstret och välj **UI** > **indatafält**.
+* Detta skapar tre spel objekt som du kan se i hierarkifönstret: ett **Indatamängds** objekt kapslat i ett **arbets ytans** objekt och ett **Event Events** -objekt.
 * [Navigera i vyn scen](https://docs.unity3d.com/Manual/SceneViewNavigation.html) så att du har en lämplig vy över arbets ytan och inmatade fält i [vyn scen](https://docs.unity3d.com/Manual/UsingTheSceneView.html).
 * Klicka på objektet **indatafält** i fönstret hierarki för att visa dess inställningar i [fönstret kontrollant](https://docs.unity3d.com/Manual/UsingTheInspector.html) (som standard till höger).
 * Ange egenskaperna för **POS X** och **POS Y** till **0**, så att inmatade fält centreras i mitten av arbets ytan.
-* Klicka på knappen **skapa** överst i hierarkifönstret igen och välj **UI** > -**knappen** för att skapa en knapp.
+* Klicka på knappen **skapa** överst i hierarkifönstret igen och välj **UI** > **om** du vill skapa en knapp.
 * Klicka på **knappobjektet** i hierarkifönstret för att visa dess inställningar i fönstret [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (Inspektör, som standard till höger).
 * Ange egenskaperna för **POS X** och **POS Y** till **0** och **-48**och ange egenskaperna **width** och **height** till **160** och **30** för att se till att knappen och inmatade fält inte överlappar varandra.
 * Klicka på knappen **skapa** överst i hierarkifönstret igen och välj **UI** > -**text** för att skapa ett textfält.
 * Klicka på **textobjektet** i hierarkifönstret för att visa dess inställningar i fönstret [Inspector](https://docs.unity3d.com/Manual/UsingTheInspector.html) (Inspektör, som standard till höger).
 * Ange egenskaperna för **POS X** och **POS Y** till **0** och **80**och ange egenskaperna **width** och **height** till **320** och **80** för att se till att textfältet och inmatade fält inte överlappar varandra.
-* Klicka på knappen **skapa** överst i hierarkifönstret igen och välj **ljud** > **ljud källa** för att skapa en ljud källa.
+* Klicka på knappen **skapa** överst i hierarkifönstret igen och välj ljud**källa** för **ljud** >  för att skapa en ljud källa.
 
 När du är klar bör användargränssnittet ut ungefär som på den här skärmbilden:
 
@@ -103,7 +102,7 @@ När du är klar bör användargränssnittet ut ungefär som på den här skärm
 
    * Klicka på **arbetsyteobjektet** i hierarkifönstret. Då öppnas inställningen i [fönstret kontrollant](https://docs.unity3d.com/Manual/UsingTheInspector.html) (som standard till höger).
    * Klicka på knappen **Lägg till komponent** i fönstret Inspector (Inspektör) och sök sedan efter det HelloWorld-skript som vi skapade ovan och lägg till det.
-   * Observera att Hello World-komponenten har fyra oinitierade egenskaper, **utdata**, inmatnings **fält**, **Speak-knapp** och **ljud källa**som matchar `HelloWorld` klassens offentliga egenskaper.
+   * Observera att Hello World-komponenten har fyra oinitierade egenskaper, **utdata**, **inmatnings fält**, **Speak-knapp** och **ljud källa**som matchar de offentliga egenskaperna för klassen @no__t 4.
      För att koppla dem klickar du på objektväljaren (den lilla cirkelikonen till höger om egenskapen) och väljer de textobjekt och knappobjekt som du skapade tidigare.
 
      > [!NOTE]
@@ -119,7 +118,7 @@ När du är klar bör användargränssnittet ut ungefär som på den här skärm
 
 * Titta efter felsökningsmeddelanden i [konsolfönstret](https://docs.unity3d.com/Manual/Console.html).
 
-* När du är klar med att syntetisera talet klickar du  på uppspelnings knappen i Unity editor-verktygsfältet för att stoppa appen.
+* När du är klar med att syntetisera talet klickar du på **uppspelnings** knappen i Unity editor-verktygsfältet för att stoppa appen.
 
 ## <a name="additional-options-to-run-this-application"></a>Ytterligare alternativ för att köra det här programmet
 

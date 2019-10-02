@@ -6,14 +6,14 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/30/2019
 ms.author: lyhughes
-ms.openlocfilehash: ad51fbe7d2f8e8f115adf03d6333c0747765ee43
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 6d8d6f03847fcd22a6d78c445ae039c73e9badfa
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338610"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719168"
 ---
 # <a name="connect-to-and-authenticate-with-apis"></a>Ansluta till och autentisera med API: er
 
@@ -34,7 +34,10 @@ För att kunna integrera ett program eller en tjänst med Azure AD måste en utv
 * Webb program till webb-API: Ett webb program måste hämta resurser från ett webb-API som skyddas av Azure AD.
 * Daemon-eller Server program till webb-API: Ett daemon-program eller ett serverprogram utan webb gränssnitt behöver hämta resurser från ett webb-API som skyddas av Azure AD.
 
-Windows Azure Authentication Library erbjuder många sätt att förvärva Active Directory-token. Mer information om biblioteks-och kod exempel finns i [ADAL.net wiki](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki).
+> [!IMPORTANT]
+> Azure Digitals dubbla har stöd för båda följande autentiseringspaket:
+> * Det senaste [Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview)
+> * [ADAL (Azure Active Directory Authentication Library)](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries)
 
 ## <a name="call-digital-twins-from-a-middle-tier-web-api"></a>Anropa digitala dubblare från ett webb-API på Mittens nivå
 

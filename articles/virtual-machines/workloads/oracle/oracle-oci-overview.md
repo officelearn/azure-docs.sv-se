@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 06/04/2019
 ms.author: rogirdh
 ms.custom: ''
-ms.openlocfilehash: 9947d28cbde7f4804283e03cc07093b9240ca6bf
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 0f35f22d6bd32d75d5c3b07d8a20b4bb7714e247
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241006"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799568"
 ---
 # <a name="oracle-application-solutions-integrating-microsoft-azure-and-oracle-cloud-infrastructure-preview"></a>Oracle-programlösningar som integrerar Microsoft Azure och Oracle Cloud Infrastructure (för hands version)
 
@@ -28,7 +28,7 @@ Microsoft och Oracle har samarbetat för att tillhandahålla låg latens, hög g
 Med den här anslutningen över molnet kan du partitionera ett program på flera nivåer för att köra databas nivån på en Oracle Cloud Infrastructure (OCI) och programmet och andra nivåer på Microsoft Azure. Upplevelsen liknar att köra hela lösnings stacken i ett enda moln. 
 
 > [!IMPORTANT]
-> Den här funktionen för över moln är för närvarande en för hands version och [begränsningar gäller](#preview-limitations). Om du vill aktivera anslutning med låg latens mellan Azure och OCI måste din Azure-prenumeration först vara vit – anges för den här funktionen. Du måste registrera dig i förhands granskningen genom att fylla i det här korta [enkät formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du kan inte använda funktionen förrän du får ett bekräftelse meddelande. Du kan också kontakta din Microsoft-representant för att vara aktive rad för den här för hands versionen. Åtkomst till för hands versions funktionen är beroende av att Microsoft är tillgänglig och begränsad av Microsoft. Slut för ande av undersökningen garanterar inte åtkomst. Den här för hands versionen tillhandahålls utan service nivå avtal och bör inte användas för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se [kompletterande användnings villkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för Microsoft Azure för hands versionerna av mer information. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Den här funktionen för över moln är för närvarande en för hands version och [begränsningar gäller](#preview-limitations). För att kunna upprätta en anslutning med låg latens mellan Azure och OCI måste din Azure-prenumeration först aktive ras för den här funktionen. Du måste registrera dig i förhands granskningen genom att fylla i det här korta [enkät formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du kan inte använda funktionen förrän du får ett bekräftelse meddelande. Du kan också kontakta din Microsoft-representant för att vara aktive rad för den här för hands versionen. Åtkomst till för hands versions funktionen är beroende av att Microsoft är tillgänglig och begränsad av Microsoft. Slut för ande av undersökningen garanterar inte åtkomst. Den här för hands versionen tillhandahålls utan service nivå avtal och bör inte användas för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se [kompletterande användnings villkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för Microsoft Azure för hands versionerna av mer information. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 Om du är intresse rad av att distribuera Oracle-lösningar helt och hållet i Azure-infrastrukturen, se [Oracle VM-avbildningar och deras distribution på Microsoft Azure](oracle-vm-solutions.md).
 

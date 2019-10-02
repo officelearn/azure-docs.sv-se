@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 737bad504519a2ec7eee9764593245e0fee28cc3
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673058"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720362"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -21,7 +21,7 @@ Geo-Zone-redundant lagring (GZRS) (för hands version) Marries hög tillgänglig
 
 Med ett GZRS lagrings konto kan du fortsätta att läsa och skriva data om en tillgänglighets zon blir otillgänglig eller inte kan återställas. Dessutom är dina data också varaktiga när det gäller ett fullständigt regionalt avbrott eller en katastrof där den primära regionen inte kan återskapas. GZRS har utformats för att ge minst 99.99999999999999% (16 9) objekts hållbarhet under ett angivet år. GZRS erbjuder också samma [skalbarhets mål](storage-scalability-targets.md) som LRS, ZRS, GRS eller RA-GRS. Du kan välja att aktivera Läs åtkomst till data i den sekundära regionen med Read-Access geo-Zone-redundant lagring (RA-GZRS) om dina program behöver kunna läsa data i händelse av en katastrof i den primära regionen.
 
-Microsoft rekommenderar att du använder GZRS för program som kräver konsekvens, hållbarhet, hög tillgänglighet, utmärkt prestanda och återhämtning för diaster-återställning. Om du vill ha ytterligare säkerhet för Läs behörighet till den sekundära regionen i händelse av en regional katastrof aktiverar du RA-GZRS för ditt lagrings konto.
+Microsoft rekommenderar att du använder GZRS för program som kräver konsekvens, tålighet, hög tillgänglighet, utmärkta prestanda och återhämtning för haveri beredskap. Om du vill ha ytterligare säkerhet för Läs behörighet till den sekundära regionen i händelse av en regional katastrof aktiverar du RA-GZRS för ditt lagrings konto.
 
 ## <a name="about-the-preview"></a>Om för hands versionen
 

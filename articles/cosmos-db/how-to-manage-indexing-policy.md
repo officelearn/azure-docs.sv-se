@@ -4,14 +4,14 @@ description: Lär dig hur du hanterar indexerings principer i Azure Cosmos DB
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/17/2019
+ms.date: 09/28/2019
 ms.author: thweiss
-ms.openlocfilehash: b80a4b8697544a0f7fe7cee99b666a513f53a0d6
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f7d364eb5db5c6d6304944d490468edf8b5ebe2e
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104856"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811654"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Hantera indexerings principer i Azure Cosmos DB
 
@@ -334,6 +334,7 @@ I Azure Cosmos DB kan indexerings principen uppdateras med någon av metoderna n
 
 - från Azure Portal
 - Använda Azure CLI
+- Använda PowerShell
 - använda en av SDK: erna
 
 En [indexerings princip uppdatering](index-policy.md#modifying-the-indexing-policy) utlöser en index omvandling. Förloppet för den här omvandlingen kan också spåras från SDK: er.
@@ -361,21 +362,15 @@ Azure Cosmos-behållare lagrar sin indexerings princip som ett JSON-dokument som
 
 ## <a name="use-the-azure-cli"></a>Använda Azure CLI
 
-Med [uppdaterings kommandot AZ cosmosdb Collection](/cli/azure/cosmosdb/collection#az-cosmosdb-collection-update) från Azure CLI kan du ersätta JSON-definitionen för en behållares indexerings princip:
+Om du vill skapa en behållare med en anpassad indexerings princip går du till [skapa en behållare med en anpassad index princip med hjälp av CLI](manage-with-cli.md#create-a-container-with-a-custom-index-policy)
 
-```azurecli-interactive
-az cosmosdb collection update \
-    --resource-group-name $resourceGroupName \
-    --name $accountName \
-    --db-name $databaseName \
-    --collection-name $containerName \
-    --indexing-policy "{\"indexingMode\": \"consistent\", \"includedPaths\": [{ \"path\": \"/*\", \"indexes\": [{ \"dataType\": \"String\", \"kind\": \"Range\" }] }], \"excludedPaths\": [{ \"path\": \"/headquarters/employees/?\" } ]}"
-```
+## <a name="use-powershell"></a>Använd PowerShell
+
+Om du vill skapa en behållare med en anpassad indexerings princip går du till [skapa en behållare med en anpassad index princip med hjälp av PowerShell](manage-with-powershell.md#create-container-custom-index)
 
 ## <a name="use-the-net-sdk-v2"></a>Använda .NET SDK v2
 
 `IndexingPolicy` `IncludedPaths` `IndexingMode` `ExcludedPaths` [](https://www.nuget.org/packages/Microsoft.Azure.DocumentDB/) Objektet från .NET SDK v2 visar en egenskap som gör att du kan ändra och lägga till eller ta bort och. `DocumentCollection`
-
 
 ```csharp
 // Retrieve the container's details
@@ -406,7 +401,6 @@ long indexTransformationProgress = container.IndexTransformationProgress;
 ## <a name="use-the-net-sdk-v3"></a>Använd .NET SDK v3
 
 `IndexingMode` `IndexingPolicy` `ExcludedPaths` `IncludedPaths` [](https://www.nuget.org/packages/Microsoft.Azure.Cosmos/) [](create-sql-api-dotnet.md) Objektet från .NET SDK v3 (se den här snabb starten om användningen) visar en egenskap som gör att du kan ändra och lägga till eller ta bort och. `ContainerProperties`
-
 
 ```csharp
 // Retrieve the container's details
@@ -508,7 +502,7 @@ Collection<SpatialType> collectionOfSpatialTypes = new ArrayList<SpatialType>();
 
 SpatialSpec spec = new SpatialSpec();
 spec.setPath("/locations/*");
-collectionOfSpatialTypes.add(SpatialType.Point);          
+collectionOfSpatialTypes.add(SpatialType.Point);
 spec.setSpatialTypes(collectionOfSpatialTypes);
 spatialIndexes.add(spec);
 

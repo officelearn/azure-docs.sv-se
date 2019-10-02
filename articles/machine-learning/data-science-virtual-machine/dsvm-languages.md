@@ -6,16 +6,16 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 09/11/2017
-ms.openlocfilehash: 0cedc9ede43d18d0b94b8a516170db53e3a27910
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.date: 09/27/2019
+ms.openlocfilehash: 586cdd6dc06a7685f17c78fa4c4ea2f2ebf52f3d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70885627"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802406"
 ---
 # <a name="languages-supported-on-the-data-science-virtual-machine"></a>Språk som stöds på den virtuella datorn för datavetenskap 
 
@@ -65,18 +65,17 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
   Standard-python-miljöerna på DSVM är globala miljöer som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du i rot-eller python2-miljön `activate` med hjälp av kommandot som administratör. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
 
-## <a name="python-linux-and-windows-server-2012-edition"></a>Python (Linux och Windows Server 2012 Edition)
+## <a name="python-linux-edition"></a>Python (Linux-utgåva)
 
 |    |           |
 | ------------- | ------------- |
 | Språk versioner som stöds | Python 2,7 och 3,5 |
-| DSVM-versioner som stöds      | Linux, Windows Server 2012    |
+| DSVM-versioner som stöds      | Linux   |
 | Hur är det konfigurerade / installerad på DSVM?  | Två globala `conda` miljöer skapas: <br /> * `root`miljön finns på `/anaconda/` python 2,7. <br/> * `py35`miljön finns på `/anaconda/envs/py35`python 3,5.       |
 | Innehåller länkar till exempel      | Exempel på Jupyter-anteckningsböcker för python ingår.     |
 | Relaterade verktyg på DSVM      | PySpark, R, Julia      |
 ### <a name="how-to-use-and-run-it"></a>Använda och köra den    
 
-**Linux**
 * Kör i en Terminal:
 
   Öppna terminalen och gör något av följande, beroende på vilken version av python du vill köra:
@@ -103,34 +102,6 @@ Data Science Virtual Machine (DSVM) innehåller flera färdiga språk och utveck
 
   Standard Python-miljöer på DSVM är globala miljöer kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du den i rot-eller py35- `source activate` miljön genom att använda kommandot som administratör eller som en användare med sudo-behörigheter. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
 
-**Windows 2012**
-* Kör i en kommando tolk:
-
-  Öppna en kommando tolk och gör något av följande, beroende på vilken version av python du vill köra:
-
-     ```
-    # To run Python 2.7
-    activate 
-    python --version
-    
-    # To run Python 3.5
-    activate py35
-    python --version
-    
-    ```
-* Använd i en IDE:
-
-  Använd Python Tools för Visual Studio (PTVS) installeras i Visual Studio Community-utgåvan. Den enda miljö som ställs in automatiskt i PTVS är python 2,7.
-    > [!NOTE]
-    > För att peka PTVS på python 3,5 måste du skapa en anpassad miljö i PTVS. Om du vill ange den här miljöns sökväg i Visual Studio Community Edition går du till **verktyg** -> **python tools** -> **python-miljöer** och väljer **+ anpassad**. Ange sedan platsen till `c:\anaconda\envs\py35` och välj _identifiera automatiskt_.
-
-* Använd i Jupyter:
-
-  Öppna Jupyter och välj **ny** för att skapa en ny antecknings bok. Du kan ställa in kernel-typen som **python [Conda root]** för python 2,7 och **python [Conda-miljö: Py35]** för python 3,5. 
-
-* Installera python-paket:
-
-  Standard-python-miljöerna på DSVM är globala miljöer som kan läsas av alla användare. Men endast administratörer kan skriva och installera globala paket. Om du vill installera paket i den globala miljön aktiverar du i rot-eller py35-miljön `activate` med hjälp av kommandot som administratör. Sedan kan du använda en paket hanterare som `conda` eller `pip` för att installera eller uppdatera paket.
 
 ## <a name="r"></a>R
 

@@ -8,16 +8,20 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: bbb5b90ffac4a89c14a4a6df51022bb61b10fbb0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: e5cea36760746eaa63451c9e9955368c71ba4472
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845491"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816133"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Snabb start – konfigurera en privat moln miljö
 
 I den här artikeln lär du dig hur du skapar ett privat CloudSimple-moln och konfigurerar din privata moln miljö.
+
+## <a name="before-you-begin"></a>Innan du börjar
+
+Granska [nätverks krav](cloudsimple-network-checklist.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 

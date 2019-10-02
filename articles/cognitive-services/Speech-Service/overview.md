@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 0aa4286d8cb630f221613bebd13f7ea722224ac6
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 993064a36bd12c95e83ffb7c9635c3e4dfcec0f0
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70068849"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803351"
 ---
 # <a name="what-are-the-speech-services"></a>Vad är Speech Services?
 
@@ -41,12 +41,14 @@ Dessa funktioner utgör Azures tal tjänster. Använd länkarna i den här tabel
 
 Lär dig vad som är nytt med Azure Speech Services.
 
+* September 2019
+  * Utgivna tal SDK-1.7.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
 * 2019 augusti
   * **Ny självstudie**: [Röstaktivera din robot med Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-  * Har lagt till en ny tal [`chat`](speech-synthesis-markup.md#adjust-speaking-styles)format, `en-US-JessaNeural` för rösten. 
+  * Ett nytt tal format, [`chat`](speech-synthesis-markup.md#adjust-speaking-styles), har lagts till för @no__t 2-rösten. 
 * 2019 juni
   * Utgivna tal SDK-1.6.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
-* Maj 2019 – dokumentationen är nu tillgänglig för [konversations](conversation-transcription-service.md)avskrifter, avskriftering av [samtals Center](call-center-transcription.md)och [röst-och första virtuella assistenter](voice-first-virtual-assistants.md).
+* Maj 2019 – dokumentationen är nu tillgänglig för [konversations avskrifter](conversation-transcription-service.md), [avskriftering av samtals Center](call-center-transcription.md)och [röst-och första virtuella assistenter](voice-first-virtual-assistants.md).
 * Maj 2019
   * Utgivna tal SDK-1.5.1. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
   * Utgivna tal SDK-1.5.0. En fullständig lista över uppdateringar, förbättringar och kända problem finns i [viktig information](releasenotes.md).
@@ -68,8 +70,8 @@ Vi erbjuder snabb starter i de flesta populära programmeringsspråk, som var ut
 När du har haft möjlighet att använda tal tjänsterna kan du prova vår självstudie som lär dig hur du kan identifiera avsikter från tal med hjälp av talet SDK och LUIS.
 
 * [Självstudier: Identifiera avsikter från tal med talet SDK och LUIS.C#](how-to-recognize-intents-from-speech-csharp.md)
-* [Självstudier: Röst möjliggör din robot med talet SDK,C#](tutorial-voice-enable-your-bot-speech-sdk.md)
-* [Självstudier: Bygg en kolv-app för att översätta text, analysera sentiment och syntetisera översatt text till tal, REST](https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis?toc=%2fazure%2fcognitive-services%2fspeech-service%2ftoc.json&bc=%2fazure%2fcognitive-services%2fspeech-service%2fbreadcrumb%2ftoc.json&toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fspeech-service%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json)
+* [Självstudier: Röst aktivera din robot med talet SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
+* [Självstudier: Bygg en kolv-app för att översätta text, analysera sentiment och syntetisera översatt text till tal, REST @ no__t-0
 
 ## <a name="get-sample-code"></a>Hämta exempelkod
 

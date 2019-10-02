@@ -1,46 +1,46 @@
 ---
-title: 'Snabbstart: Använda cURL för att få svar från knowledge base - QnA Maker'
+title: 'Snabbstart: Använd sväng för att få svar från kunskaps basen – QnA Maker'
 titleSuffix: Azure Cognitive Services
-description: Den här snabbstarten visar hur du hämtar ett svar från din kunskapsbas med cURL.
+description: Den här snabb starten vägleder dig genom att få svar från din kunskaps bas med hjälp av sväng.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 07/16/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: bb33e829853e1f9a975d29c7a80298b9033f0748
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: b698b40546ee1655ebbef3980692ede6b51fc7f1
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68249638"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803029"
 ---
-# <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Snabbstart: Få svar från knowledge base med cURL
+# <a name="quickstart-get-answer-from-knowledge-base-using-curl"></a>Snabbstart: Få svar från kunskaps basen med hjälp av sväng
 
-Snabbstarten cURL-baserade beskriver hur du hämtar ett svar från din kunskapsbas.
+Den här Spiralbaserade snabb starten vägleder dig genom att få svar från din kunskaps bas.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Senaste [ **cURL**](https://curl.haxx.se/).
+* Senaste [**vändning**](https://curl.haxx.se/).
 * Du måste ha en [QnA Maker-tjänst](../How-To/set-up-qnamaker-service-azure.md) och en [kunskapsbas med frågor och svar](../Tutorials/create-publish-query-in-portal.md).
 
 ## <a name="publish-to-get-endpoint"></a>Publicera för att få en slutpunkt
 
 När du är redo att generera ett svar på en fråga från din kunskapsbas kan du [publicera](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) kunskapsbasen.
 
-## <a name="use-production-endpoint-with-curl"></a>Produktion slutpunkten med cURL
+## <a name="use-production-endpoint-with-curl"></a>Använd produktions slut punkt med sväng
 
-När din kunskapsbas publiceras visar sidan **publicera** inställningar för HTTP-begäran för att generera ett svar. Den **CURL** fliken visas de inställningar som krävs för att generera ett svar på kommandoraden [CURL](https://www.getpostman.com).
+När din kunskapsbas publiceras visar sidan **publicera** inställningar för HTTP-begäran för att generera ett svar. På fliken **vändning** visas de inställningar som krävs för att generera ett svar från kommando rads verktyget, [sväng](https://www.getpostman.com).
 
 [![Publicera resultat](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png)](../media/qnamaker-use-to-generate-answer/curl-command-on-publish-page.png#lightbox)
 
-Utför följande steg för att generera ett svar med CURL:
+Utför följande steg för att generera ett svar med en sväng:
 
-1. Kopiera texten på fliken CURL. 
-1. Öppna en kommandorad eller terminal och klistra in texten.
-1. Redigera din fråga och vara relevanta för din kunskapsbas. Tänk på att inte ta bort som innehåller JSON kring problemet.
+1. Kopiera texten på fliken vändning. 
+1. Öppna en kommando rad eller Terminal och klistra in texten.
+1. Redigera frågan så att den är relevant för din kunskaps bas. Var noga med att inte ta bort den som innehåller JSON som omger frågan.
 1. Ange kommandot. 
 1. Svaret innehåller relevant information om svaret. 
 
@@ -69,7 +69,7 @@ Utför följande steg för att generera ett svar med CURL:
 
 ## <a name="use-staging-endpoint-with-curl"></a>Använda mellanlagringsslutpunkten med cURL
 
-Om du vill få svar från mellanlagring slutpunkten kan använda den `isTest` body egenskapen.
+Om du vill få ett svar från mellanlagringsplatsen använder du text egenskapen `isTest`.
 
 ```json
 isTest:true
@@ -77,7 +77,7 @@ isTest:true
 
 ## <a name="next-steps"></a>Nästa steg
 
-Publiceringssidan tillhandahåller även information till [generera ett svar](get-answer-from-kb-using-postman.md) med Postman. 
+På sidan publicera finns också information om hur du [genererar ett svar](get-answer-from-kb-using-postman.md) med Postman. 
 
 > [!div class="nextstepaction"]
 > [Använda metadata när du genererar ett svar](../How-to/metadata-generateanswer-usage.md)

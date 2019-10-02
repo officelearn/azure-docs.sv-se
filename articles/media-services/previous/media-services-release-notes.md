@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: media
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 08/21/2019
+ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 91dead0953d6c124f9179e70b4ed38fe0c13bdc2
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 7684acbd26848bbccb09416df44a9669965dcfe9
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338553"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720146"
 ---
 # <a name="azure-media-services-release-notes"></a>Viktig information om Azure Media Services
 
@@ -50,9 +50,9 @@ Information om Media Services REST API versions historik finns i [Azure Media Se
 
 ### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
 
-Vi presenterar utfasningen av *Azure Media Indexer v1* -och *Azure Media Indexer v2-förhandsgranskning*. [Azure Media Indexer v1](media-services-index-content.md) medie processor kommer att dras tillbaka den 1 oktober 2020. [Azure Media Indexer v2-förhands gransknings](media-services-process-content-with-indexer2.md) medie processorer kommer att dras tillbaka den 1 januari 2020. [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter dessa äldre medie processorer.
+Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version*. [Azure Media Indexer](media-services-index-content.md) medie processorn kommer att dras tillbaka den 1 oktober 2020. Processorerna för för [hands versionen av Azure Media Indexer 2](media-services-process-content-with-indexer2.md) kommer att dras tillbaka den 1 januari 2020. [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter dessa äldre medie processorer.
 
-Mer information finns i [Migrera från Azure Media Indexer v1 och Azure Media Indexer v2 för att Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
+Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](migrate-indexer-v1-v2.md).
 
 ## <a name="august-2019"></a>2019 augusti
 

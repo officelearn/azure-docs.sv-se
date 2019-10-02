@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: cb365517c581ebf83026046f385496afd3e28d7f
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 3f25bbbbc8b3f34bdb89ba8797b042826a88ca8d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261585"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815954"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>Snabbstart: Skapa, fråga och bläddra i en Azure Cosmos DB graf-databas med hjälp av Gremlin-konsolen
 
@@ -55,7 +55,7 @@ Du måste också installera [Gremlin-konsolen](https://tinkerpop.apache.org/). A
 
     Inställning|Föreslaget värde|Beskrivning
     ---|---|---
-    värdar|[*account-name*.gremlin.cosmos.azure.com]|Se följande skärmbild. Detta är det Gremlin URI-värdet på översiktssidan för Azure-portalen inom hakparenteser utan : 443/ på slutet.
+    värdar|[*konto namn*. **Gremlin**. Cosmos.Azure.com]|Se följande skärmbild. Detta är **GREMLIN URI** -värdet på översikts sidan för Azure Portal, inom hakparenteser, med efterföljande: 443/borttaget. Obs! Se till att använda Gremlin-värdet och **inte** URI: n som slutar med [*Account-name*. Documents.Azure.com] vilket sannolikt skulle resultera i att "värden inte svarade i tid"-undantag vid försök att köra Gremlin-frågor senare. 
     port|443|Ställ in på 443.
     användarnamn|*Ditt användarnamn*|Resursen i formuläret `/dbs/<db>/colls/<coll>` där `<db>` är databasnamnet och `<coll>` är samlingens namn.
     lösenord|*Din primärnyckel*| Se andra skärmbilden nedan. Det här är din primärnyckel som du kan hämta från sidan Nycklar i Azure-portalen i rutan Primärnyckel. Använd kopieringsknappen till vänster om rutan för att kopiera värdet.
@@ -85,7 +85,7 @@ se till att omsluta värdet för värdparametern inom hakparenteser [].
 1. I terminalen, kör `:remote connect tinkerpop.server conf/remote-secure.yaml` för att ansluta till din apptjänst.
 
     > [!TIP]
-    > Om felet `No appenders could be found for logger` visas kontrollerar du att du har uppdaterat serialiserarvärdet i filen remote-secure.yaml på det sätt som beskrivs i steg 2. 
+    > Om felet `No appenders could be found for logger` visas kontrollerar du att du har uppdaterat serialiserarvärdet i filen remote-secure.yaml på det sätt som beskrivs i steg 2. Om konfigurationen är korrekt kan den här varningen ignoreras eftersom den inte bör påverka användningen av-konsolen. 
 
 1. Kör sedan `:remote console` för att omdirigera alla kommandon till fjärrservern.
 

@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: pabutler
-ms.openlocfilehash: 9c55688674fe16f64bfb27788a6e038059694a77
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 09bf8479921c9bd55b98e835a19ea995fa37e20b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087466"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720070"
 ---
 # <a name="prerequisites-for-managing-accounts-on-the-cloud-partner-portal"></a>Krav för att hantera konton på Cloud Partner Portal 
 
@@ -28,8 +28,7 @@ Välj ditt konto namn noggrant.  Den representerar din organisation, så den bö
 
 ## <a name="registration-steps"></a>Registrerings steg
 
-I följande tabell visas de steg som krävs för att helt registrera dig som en Microsoft Cloud Publisher.  Fullständiga instruktioner finns i [bli en Cloud Marketplace-utgivare.](https://docs.microsoft.com/azure/marketplace/become-publisher
-) 
+I följande tabell visas de steg som krävs för att helt registrera dig som en Microsoft Cloud Publisher.  Fullständiga instruktioner finns i [bli en Cloud Marketplace-utgivare](https://docs.microsoft.com/azure/marketplace/become-publisher). 
 
 
 |                   Steg                   |  Resulterande registrering eller resurs                     |

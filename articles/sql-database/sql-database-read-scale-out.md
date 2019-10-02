@@ -11,24 +11,26 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: aefd3da1908b2be879b5ba500746fab48e43d5bd
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 73c31a60fb14df00f50fefb35ca123298241c61d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566956"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71812374"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>Använd skrivskyddade repliker för att belastningsutjämna skrivskyddade arbets belastningar för frågor
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Som en del av [arkitekturen för hög tillgänglighet](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)etablerades varje databas i Premium-, affärskritisk-eller hög nivå tjänst nivå automatiskt med en primär replik och flera sekundära repliker. De sekundära replikerna är etablerade med samma beräknings storlek som den primära repliken. Med funktionen **Läs skalbarhet** kan du belastningsutjämna SQL Database skrivskyddade arbets belastningar med kapaciteten hos en av de skrivskyddade replikerna i stället för att dela Skriv-och skriv repliken. Det här gör att den skrivskyddade arbetsbelastningen isoleras från den huvudsakliga läs/skriv-arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för program som innehåller logiskt åtskilda skrivskyddade arbets belastningar, till exempel analys. De kan få prestanda för delar med den här extra kapaciteten utan extra kostnad.
+Som en del av [arkitekturen för hög tillgänglighet](./sql-database-high-availability.md#premium-and-business-critical-service-tier-availability)etablerades varje databas på tjänst nivån Premium och affärskritisk automatiskt med en primär replik och flera sekundära repliker. De sekundära replikerna är etablerade med samma beräknings storlek som den primära repliken. Med funktionen **Läs skalbarhet** kan du belastningsutjämna SQL Database skrivskyddade arbets belastningar med kapaciteten hos en av de skrivskyddade replikerna i stället för att dela Skriv-och skriv repliken. Det här gör att den skrivskyddade arbetsbelastningen isoleras från den huvudsakliga läs/skriv-arbetsbelastningen och påverkar inte dess prestanda. Funktionen är avsedd för program som innehåller logiskt åtskilda skrivskyddade arbets belastningar, till exempel analys. På tjänst nivåerna Premium och Affärskritisk kan program få prestanda för delar med denna ytterligare kapacitet utan extra kostnad.
+
+Funktionen för **Läs skalning** är också tillgänglig i den storskaliga tjänst nivån när minst en sekundär replik skapas. Flera sekundära repliker kan användas om skrivskyddade arbets belastningar kräver fler resurser än vad som är tillgängligt på en sekundär replik. Hög tillgänglighets arkitekturen för nivåerna Basic, standard och Generell användning omfattar inte några repliker. Funktionen för **Läs skalning** är inte tillgänglig i dessa tjänst nivåer.
 
 Följande diagram illustrerar det med hjälp av en Affärskritisk databas.
 
 ![Skrivskyddade repliker](media/sql-database-read-scale-out/business-critical-service-tier-read-scale-out.png)
 
-Funktionen Läs skalning är aktive rad som standard på nya Premium-, Affärskritisk-och storskaliga databaser. Om SQL-anslutningssträngen har kon figurer `ApplicationIntent=ReadOnly`ATS med kommer programmet att omdirigeras av gatewayen till en skrivskyddad replik av databasen. Information om hur du använder `ApplicationIntent` egenskapen finns i [Ange program avsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
+Funktionen Läs skalning är aktive rad som standard på nya Premium-, Affärskritisk-och storskaliga databaser. För storskaliga skapas en sekundär replik som standard för nya databaser. Om SQL-anslutningssträngen har kon figurer `ApplicationIntent=ReadOnly`ATS med kommer programmet att omdirigeras av gatewayen till en skrivskyddad replik av databasen. Information om hur du använder `ApplicationIntent` egenskapen finns i [Ange program avsikt](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent).
 
 Om du vill säkerställa att programmet ansluter till den primära repliken oavsett `ApplicationIntent` inställningen i SQL-anslutningssträngen, måste du explicit inaktivera Läs-och utskalning när du skapar databasen eller när du ändrar konfigurationen. Om du till exempel uppgraderar din databas från standard-eller Generell användning-nivån till Premium, Affärskritisk eller nivån på den storskaliga nivån och vill se till att alla dina anslutningar fortsätter att gå till den primära repliken inaktiverar du Läs-och utskalning. Mer information om hur du inaktiverar det finns i [Aktivera och inaktivera Läs skalning](#enable-and-disable-read-scale-out).
 

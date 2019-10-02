@@ -12,15 +12,15 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 10/1/2019
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 10e0f24642d54c43d6c818773d0eb17815ab784b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: b6ac528d0d2916f513be4e2a72bff061bdad8e58
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996910"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718653"
 ---
 # <a name="tutorial-configure-https-on-an-azure-cdn-custom-domain"></a>Självstudier: Konfigurera HTTPS på en anpassad Azure CDN-domän
 
@@ -190,7 +190,7 @@ Det tar vanligt vis några timmar att validera automatiskt. Om du inte ser din d
 ### <a name="custom-domain-is-not-mapped-to-your-cdn-endpoint"></a>Den anpassade domänen har inte mappats till CDN-slutpunkten
 
 >[!NOTE]
->Om du använder **Azure CDN från Akamai**måste din anpassade domän mappas till ditt CDN-ställe med en CNAME-post som anges ovan.  Den här funktionen är för närvarande planerad inför framtiden. 
+>Om du använder **Azure CDN från Akamai**bör följande CNAME konfigureras för att aktivera automatisk domän validering. "_acme-Challenge. <custom domain hostname> -> CNAME-> <custom domain hostname>.ak-acme-challenge.azureedge.net "
 
 Om posten CNAME innehåller cdnverify-underdomänen följer du resten av anvisningarna i det här steget.
 

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 4f039fde275e5dca49b3c78550722d827bead062
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 3ccc5c7c0def7ec1d8d2f8927dc8f8e5d3678a52
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155104"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718969"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net"></a>Snabbstart: Azure Key Vault klient bibliotek för .NET
 
@@ -93,7 +93,8 @@ az keyvault create --name <your-unique-keyvault-name> -g "myResourceGroup"
 
 ### <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
 
-Det enklaste sättet att autentisera ett molnbaserad .NET-program är med en hanterad identitet. Mer information finns i [tjänst-till-tjänst-autentisering för Azure Key Vault med hjälp av .net](service-to-service-authentication.md) . För enkelhetens skull skapar den här snabb starten ett .NET-konsol program. Att autentisera ett Skriv bords program med Azure kräver att tjänstens huvud namn används.
+Det enklaste sättet att autentisera ett molnbaserad .NET-program är med en hanterad identitet. Mer information finns i [använda en app service hanterad identitet för att få åtkomst till Azure Key Vault](managed-identity.md) . För enkelhetens skull skapar den här snabb starten ett .NET-konsol program. Autentisering av ett Skriv bords program med Azure kräver att tjänstens huvud namn och en princip för åtkomst kontroll används.
+
 Skapa en tjänst princip med Azure CLI [-AZ AD SP Create-for-RBAC-](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-create-for-rbac) kommando:
 
 ```azurecli

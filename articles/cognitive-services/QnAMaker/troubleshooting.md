@@ -8,24 +8,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/25/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: c0ceea5c86af8d733c838e19f77eaeadc8a12dbb
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300244"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802157"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
 Den granskade listan med de vanligaste frågorna om QnA Maker tjänsten hjälper dig att komma igång med tjänsten snabbare och med bättre resultat.
 
+<a name="how-to-get-the-qnamaker-service-hostname"></a>
 
-## <a name="how-to-get-the-qnamaker-service-hostname"></a>Så här hämtar du värdnamnet för QnAMaker-tjänsten
+## <a name="how-to-get-the-qnamaker-service-endpoint"></a>Så här hämtar du QnAMaker-tjänstens slut punkt
 
-QnAMaker service värdnamn är användbart för felsökning när du kontaktar supporten för QnAMaker eller UserVoice. Värd namnet är en URL i det här formatet: https:// *{hostname}* . azurewebsites.net.
+QnAMaker-tjänstens slut punkt är användbar för fel sökning när du kontaktar QnAMaker-support eller UserVoice. Slut punkten är en URL i det här formuläret: https://your-resource-name.azurewebsites.net.
     
 1. Gå till QnAMaker-tjänsten (resursgrupp) den [Azure-portalen](https://portal.azure.com)
 
@@ -35,9 +36,9 @@ QnAMaker service värdnamn är användbart för felsökning när du kontaktar su
 
      ![Välj QnAMaker App Service](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-1. Hostname-URL: en finns i avsnittet Översikt
+1. Slut punkts-URL: en är tillgänglig i översikts avsnittet
 
-    ![Värdnamn för QnAMaker](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    ![QnAMaker-slutpunkt](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
     
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Använd hjälp roboten i QnA Maker Portal
@@ -173,7 +174,7 @@ Följ instruktionerna i [detta](./Tutorials/create-qna-bot.md) dokumentationen f
 Du måste ha följande information om din kunskaps bas:
 
 * Kunskaps bas-ID.
-* Namnet på den publicerade slut punkten för kunskaps basen hittades på sidan **Inställningar** när du har publicerat.
+* Det anpassade under domän namnet för den publicerade slut punkten i kunskaps basen, som kallas `host`, hittades på sidan **Inställningar** när du har publicerat.
 * Kunskaps basens publicerade slut punkts nyckel finns på **inställnings** sidan när du har publicerat. 
 
 Med den här informationen går du till appens robots App Service i Azure Portal. Under **Inställningar-> konfiguration – inställningar för > program**, ändra dessa värden.  

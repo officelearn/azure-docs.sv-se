@@ -8,18 +8,20 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/04/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 229956b41f7f26637e6a6aa62e341c4b06b8a429
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: cafc1e2f3f195301a6c0f9485ebaa10111b08c7d
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70376367"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803055"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabbstart: Skapa, träna och publicera en QnA Maker-kunskapsbas
 
 Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på hur du skapar en QnA Maker kunskaps bas från en enkel webb sida med vanliga frågor och svar om återställning av BitLocker-nyckel.
+
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ## <a name="prerequisite"></a>Krav
 

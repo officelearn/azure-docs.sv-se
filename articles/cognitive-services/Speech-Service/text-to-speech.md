@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: erhopf
-ms.openlocfilehash: 3d2c3e2bf693f763db13d90961a31e871aa25235
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d12b952d298b41c8d06f0fcac141a45749de9051
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558865"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71799944"
 ---
 # <a name="what-is-text-to-speech"></a>Vad är text-till-tal?
 
@@ -55,7 +55,7 @@ Alla text inmatningar som skickas till text till tal-tjänsten måste strukturer
 När du använder text till tal-tjänsten debiteras du för varje tecken som konverteras till tal, inklusive interpunktion. SSML-dokumentet är inte fakturerbart, valfria element som används för att justera hur texten konverteras till tal, t. ex. fonem och färgdjup, räknas som fakturerbara tecken. Här är en lista över vad som är fakturerbara:
 
 * Text som skickas till text till tal-tjänsten i SSML-delen av begäran
-* Alla markeringar i textfältet för begär ande texten i SSML-format, förutom for `<speak>` - `<voice>` och-Taggar
+* Alla markeringar i textfältet i begär ande texten i SSML-format, förutom `<speak>`-och `<voice>`-Taggar
 * Bokstäver, interpunktion, blank steg, tabbar, markeringar och alla blank stegs tecken
 * Varje kod punkt som definierats i Unicode
 
@@ -71,13 +71,13 @@ I den här tabellen listas huvud funktionerna för text till tal:
 | Användningsfall | SDK | REST |
 |----------|-----|------|
 | Omvandla text till tal. | Ja | Ja |
-| Ladda upp data uppsättningar för röst anpassning. | Nej | Ja\* |
-| Skapa och hantera röst teckensnitts modeller. | Nej | Ja\* |
-| Skapa och hantera röst teckensnitts distributioner. | Nej | Ja\* |
-| Skapa och hantera röst teckensnitts test. | Nej | Ja\* |
-| Hantera prenumerationer. | Nej | Ja\* |
+| Ladda upp data uppsättningar för röst anpassning. | Nej | Ja @ no__t-0 |
+| Skapa och hantera röst teckensnitts modeller. | Nej | Ja @ no__t-0 |
+| Skapa och hantera röst teckensnitts distributioner. | Nej | Ja @ no__t-0 |
+| Skapa och hantera röst teckensnitts test. | Nej | Ja @ no__t-0 |
+| Hantera prenumerationer. | Nej | Ja @ no__t-0 |
 
-\**Dessa tjänster är tillgängliga med Cris.AI-slutpunkten. Se [referens för Swagger](https://westus.cris.ai/swagger/ui/index). De här API: erna för anpassad röst utbildning och hantering implementerar begränsning som begränsar begär anden till 25 per 5 sekunder, medan API för tal syntes implementerar sig själv begränsning som tillåter 200-begäranden per sekund som högsta. När begränsningen inträffar får du ett meddelande via meddelande rubriker.*
+\* *These-tjänster är tillgängliga med hjälp av cris.ai-slutpunkten. Se [referens för Swagger](https://westus.cris.ai/swagger/ui/index). De här API: erna för anpassad röst utbildning och hantering implementerar begränsning som begränsar begär anden till 25 per 5 sekunder, medan API för tal syntes implementerar sig själv begränsning som tillåter 200-begäranden per sekund som högsta. När begränsningen inträffar får du ett meddelande via meddelande rubriker.*
 
 ## <a name="get-started-with-text-to-speech"></a>Kom igång med text till tal
 
@@ -93,6 +93,13 @@ Vi erbjuder snabb starter som har utformats för att du ska kunna köra kod på 
 | [C#, Unity](quickstart-text-to-speech-csharp-unity.md) | Windows, Android | [Mellan](https://aka.ms/csspeech/csharpref) |
 | [C++](quickstart-text-to-speech-cpp-windows.md) | Windows | [Mellan](https://aka.ms/csspeech/cppref) |
 | [C++](quickstart-text-to-speech-cpp-linux.md) | Linux | [Mellan](https://aka.ms/csspeech/cppref) |
+| [Java](quickstart-text-to-speech-java-jre.md) | Windows, Linux, macOS | [Mellan](https://aka.ms/csspeech/javaref) |
+| [Java](quickstart-text-to-speech-java-android.md) | Android | [Mellan](https://aka.ms/csspeech/javaref) |
+| [Objective-C](quickstart-text-to-speech-objectivec-macos.md) | macOS | [Mellan](https://aka.ms/csspeech/objectivecref) |
+| [Objective-C](quickstart-text-to-speech-objectivec-ios.md) | iOS | [Mellan](https://aka.ms/csspeech/objectivecref) |
+| [Swift](quickstart-text-to-speech-swift-macos.md) | macOS | [Mellan](https://aka.ms/csspeech/objectivecref) |
+| [Swift](quickstart-text-to-speech-swift-ios.md) | iOS | [Mellan](https://aka.ms/csspeech/objectivecref) |
+| [Python](quickstart-text-to-speech-python.md) | Window, Linux, macOS | [Mellan](https://aka.ms/csspeech/pythonref) |
 
 ### <a name="rest-quickstarts"></a>REST-snabb starter
 

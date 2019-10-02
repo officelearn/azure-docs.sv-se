@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
 ms.date: 09/16/2019
-ms.openlocfilehash: 85ab8a61e0aebadf212217bc88e07e0066eca02b
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146792"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816087"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -38,12 +38,27 @@ Azure SQL Database Hanterad instans kan distribueras på två maskin varu genera
 | Maskinvara | Intel E5-2673 v3 (Haswell) 2,4 GHz-processorer, anslutna SSD vCore = 1 PP (fysisk kärna) | Intel E5-2673 v4 (Broadwell) 2,3-GHz-processorer, fast NVMe SSD, vCore = 1 LP (Hyper-Thread) |
 | Antal v-kärnor | 8, 16, 24 virtuella kärnor | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | Högsta mängd minne (minne/Core-förhållande) | 7 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. | 5,1 GB per vCore<br/>Lägg till fler virtuella kärnor för att få mer minne. |
-| Högsta minnes intern OLTP-minne | Instans gräns: 3 GB per vCore<br/>Databas gränser:<br/> – 8 kärnor: 8 GB per databas<br/> – 16 kärnor: 20 GB per databas<br/> – 24 kärnor: 36 GB per databas | Instans gräns: 2,5 GB per vCore<br/>Databas gränser:<br/> – 8 kärnor: 13 GB per databas<br/> – 16 kärnor: 32 GB per databas |
+| Högsta minnes intern OLTP-minne | Instans gräns: 1 – 1,5 GB per vCore| Instans gräns: 0,8 – 1,65 GB per vCore |
 | Högsta reserverade instans lagring |  Generell användning: 8 TB<br/>Affärskritisk: 1 TB | Generell användning: 8 TB<br/> Affärskritisk 1 TB, 2 TB eller 4 TB beroende på antalet kärnor |
 
 > [!IMPORTANT]
 > - Gen4-maskinvaran har fasats ut. Vi rekommenderar att du distribuerar nya hanterade instanser på Gen5-maskinvara.
 > - Gen4-maskinvaran är för närvarande bara tillgänglig i följande regioner: Nord Europa, Västeuropa, östra USA, södra centrala USA, norra centrala USA, västra USA 2, centrala USA, centrala Kanada, södra Indien, Sydostasien och Korea, centrala.
+
+#### <a name="in-memory-oltp-available-space"></a>Tillgängligt utrymme i minnet för OLTP 
+
+Mängden minnes intern OLTP-lagring beror på antalet virtuella kärnor och maskin varu generering. I följande tabell visas gränser för minne som kan användas för InMemory OLTP-objekt.
+
+| Minnes intern OLTP-utrymme per vCore    | **Gen5** | **Gen4** |
+| --- | --- | --- |
+| 4 | 3,14 GB | |   
+| 8 | 6,28 GB | 8 GB |
+| 16    | 15,77 GB | 20 GB |
+| 24    | 25,25 GB | 36 GB |
+| 32    | 37,94 GB | |
+| 40    | 52,23 GB | |
+| 64    | 99,9 GB   | |
+| 80    | 131,68 GB| |
 
 ### <a name="service-tier-characteristics"></a>Egenskaper för tjänst nivå
 

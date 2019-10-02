@@ -10,18 +10,18 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: d7d35c251848af5cfd5852080d01831085401227
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 12abb7fb6d5e93e226ae539f8161566e3c30bd65
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68554123"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803333"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-macos-by-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i C++ på MacOS med hjälp av tal-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln skapar du ett C++ konsol program för MacOS 10,13 och senare. Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att skriva tal till text i real tid från Mac-mikrofonen. Programmet har skapats med [Speech SDK för MacOS](https://aka.ms/csspeech/macosbinary) och din Macs standard C++ kompilator (till exempel `g++`).
+I den här artikeln skapar du ett C++ konsol program för MacOS 10,13 och senare. Du använder Cognitive Services [Speech SDK](speech-sdk.md) för att skriva tal till text i real tid från Mac-mikrofonen. Programmet har skapats med [talet SDK för MacOS](https://aka.ms/csspeech/macosbinary) och din Mac- C++ standardkompilerare (till exempel @no__t 2).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -31,9 +31,7 @@ Du behöver en prenumerations nyckel för tal tjänster för att slutföra den h
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
-Den aktuella versionen av Cognitive Services Speech SDK är `1.6.0`.
-
-Talet SDK för macOS kan laddas ned som ett zippat ramverk från https://aka.ms/csspeech/macosbinary.
+Talet SDK för macOS kan laddas ned som ett zippat Ramverks paket från https://aka.ms/csspeech/macosbinary.
 
 Ladda ned och installera SDK enligt följande:
 
@@ -49,7 +47,7 @@ Ladda ned och installera SDK enligt följande:
    mkdir -p "$SPEECHSDK_ROOT"
    ```
 
-1. Hämta och extrahera `.zip` arkivet som innehåller talet SDK Framework:
+1. Hämta och extrahera `.zip`-arkivet som innehåller talet SDK Framework:
 
    ```sh
    wget -O SpeechSDK-macOS.zip https://aka.ms/csspeech/macosbinary
@@ -62,9 +60,9 @@ Ladda ned och installera SDK enligt följande:
    ls -l "$SPEECHSDK_ROOT"
    ```
 
-   Katalog listan ska innehålla meddelanden från tredje part och licensfiler, samt en `MicrosoftCognitiveServicesSpeech.framework` katalog.
+   Katalog listan ska innehålla meddelanden från tredje part och licensfiler, samt en `MicrosoftCognitiveServicesSpeech.framework`-katalog.
 
-## <a name="add-sample-code"></a>Lägga till exempelkod
+## <a name="add-sample-code"></a>Lägg till exempelkod
 
 1. Skapa en C++-källfil med namnet `helloworld.cpp` och klistra in följande kod i den.
 

@@ -2,18 +2,18 @@
 title: Övervaka och hantera Hadoop med Ambari REST API – Azure HDInsight
 description: Lär dig hur du använder Ambari för att övervaka och hantera Hadoop-kluster i Azure HDInsight. I det här dokumentet får du lära dig hur du använder Ambari-REST API som ingår i HDInsight-kluster.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 06/07/2019
-ms.author: hrasheed
-ms.openlocfilehash: 5836dda186c7bd9baeafa193052b0b75d63e291b
-ms.sourcegitcommit: b12a25fc93559820cd9c925f9d0766d6a8963703
+ms.openlocfilehash: 146aaa8b1b69c29e22f39d48883f604098b8e348
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69019607"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718406"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-rest-api"></a>Hantera HDInsight-kluster med hjälp av Apache Ambari REST API
 
@@ -43,14 +43,14 @@ Lär dig hur du använder Apache Ambari-REST API för att hantera och övervaka 
 
 För att ansluta till Ambari i HDInsight krävs HTTPS. Använd administratörs konto namnet (standard är **administratör**) och lösen ord som du angav när du skapade klustret.
 
-För Enterprise Security Package kluster, i stället för `admin`, använder du ett fullständigt kvalificerat `username@domain.onmicrosoft.com`användar namn som.
+För Enterprise Security Package kluster, i stället för `admin`, använder du ett fullständigt kvalificerat användar namn som `username@domain.onmicrosoft.com`.
 
 ## <a name="examples"></a>Exempel
 
 ### <a name="setup-preserve-credentials"></a>Installations program (bevara autentiseringsuppgifter)
 Behåll dina autentiseringsuppgifter för att undvika att behöva ange dem igen för varje exempel.  Kluster namnet kommer att bevaras i ett separat steg.
 
-**EN. Bash**  
+**EN. Bash @ no__t-0  
 Redigera skriptet nedan genom att ersätta `PASSWORD` med det faktiska lösen ordet.  Ange sedan kommandot.
 
 ```bash
@@ -85,7 +85,7 @@ $clusterName
 
 ### <a name="parsing-json-data"></a>Parsar JSON-data
 
-I följande exempel används [JQ](https://stedolan.github.io/jq/) eller [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) för att parsa JSON Response-dokumentet och `health_report` bara visa informationen från resultaten.
+I följande exempel används [JQ](https://stedolan.github.io/jq/) eller [ConvertFrom-JSON](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/convertfrom-json) för att parsa JSON Response-dokumentet och endast visa information om `health_report` från resultaten.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName" \
@@ -208,15 +208,15 @@ $respObj.items.configurations.properties.'fs.defaultFS'
 ```
 
 > [!IMPORTANT]  
-> Dessa exempel returnerar den första konfigurationen som tillämpas på servern (`service_config_version=1`) som innehåller den här informationen. Om du hämtar ett värde som har ändrats efter att klustret har skapats kan du behöva lista konfigurations versionerna och hämta det senaste.
+> I de här exemplen returneras den första konfigurationen som tillämpas på servern (`service_config_version=1`) som innehåller den här informationen. Om du hämtar ett värde som har ändrats efter att klustret har skapats kan du behöva lista konfigurations versionerna och hämta det senaste.
 
 Returvärdet liknar något av följande exempel:
 
-* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net`– Det här värdet anger att klustret använder ett Azure Storage konto för standard lagring. `ACCOUNTNAME` Värdet är namnet på lagrings kontot. `CONTAINER` Delen är namnet på BLOB-behållaren i lagrings kontot. Behållaren är roten till den HDFS-kompatibla lagringen för klustret.
+* `wasbs://CONTAINER@ACCOUNTNAME.blob.core.windows.net` – det här värdet anger att klustret använder ett Azure Storage konto för standard lagring. Värdet `ACCOUNTNAME` är namnet på lagrings kontot. @No__t-0-delen är namnet på BLOB-behållaren i lagrings kontot. Behållaren är roten till den HDFS-kompatibla lagringen för klustret.
 
-* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net`– Det här värdet anger att klustret använder Azure Data Lake Storage Gen2 för standard lagring. Värdena `ACCOUNTNAME` och`CONTAINER` har samma betydelser som för Azure Storage tidigare nämnts.
+* `abfs://CONTAINER@ACCOUNTNAME.dfs.core.windows.net` – det här värdet anger att klustret använder Azure Data Lake Storage Gen2 för standard lagring. Värdena `ACCOUNTNAME` och `CONTAINER` har samma betydelser som för Azure Storage tidigare nämnts.
 
-* `adl://home`– Det här värdet anger att klustret använder Azure Data Lake Storage Gen1 för standard lagring.
+* `adl://home` – det här värdet anger att klustret använder Azure Data Lake Storage Gen1 för standard lagring.
 
     Använd följande exempel för att hitta Data Lake Storage konto namn:
 
@@ -232,7 +232,7 @@ Returvärdet liknar något av följande exempel:
     $respObj.items.configurations.properties.'dfs.adls.home.hostname'
     ```
 
-    Det returnerade värdet liknar `ACCOUNTNAME.azuredatalakestore.net`, där `ACCOUNTNAME` är namnet på det data Lake Storage kontot.
+    Returvärdet liknar `ACCOUNTNAME.azuredatalakestore.net`, där `ACCOUNTNAME` är namnet på Data Lake Storage-kontot.
 
     Använd följande exempel för att hitta katalogen i Data Lake Storage som innehåller lagringen för klustret:
 
@@ -286,7 +286,7 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konf
 
 ### <a name="get-configuration-for-specific-component"></a>Hämta konfiguration för en enskild komponent
 
-Hämta konfigurationen för den komponent som du är intresse rad av. I följande exempel ersätter `INITIAL` du med det tagg värde som returnerades från föregående begäran.
+Hämta konfigurationen för den komponent som du är intresse rad av. I följande exempel ersätter du `INITIAL` med det tagg värde som returnerades från föregående begäran.
 
 ```bash
 curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL"
@@ -298,7 +298,7 @@ $resp = Invoke-WebRequest -Uri "https://$clusterName.azurehdinsight.net/api/v1/c
 $resp.Content
 ```
 
-Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella `livy2-conf` konfigurationen för komponenten.
+Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella konfigurationen för `livy2-conf`-komponenten.
 
 ### <a name="update-configuration"></a>Uppdatera konfiguration
 
@@ -306,16 +306,16 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella `liv
    Ändra och ange sedan följande kommandon:
 
    * Ersätt `livy2-conf` med den önskade komponenten.
-   * Ersätt `INITIAL` med det faktiska värdet som `tag` hämtades för från [Hämta alla konfigurationer](#get-all-configurations).
+   * Ersätt `INITIAL` med det faktiska värdet hämtas för `tag` från [Hämta alla konfigurationer](#get-all-configurations).
 
-     **EN. Bash**  
+     **EN. Bash @ no__t-0  
      ```bash
      curl -u admin:$password -sS -G "https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/configurations?type=livy2-conf&tag=INITIAL" \
      | jq --arg newtag $(echo version$(date +%s%N)) '.items[] | del(.href, .version, .Config) | .tag |= $newtag | {"Clusters": {"desired_config": .}}' > newconfig.json
      ```
 
      **B. PowerShell**  
-     PowerShell-skriptet använder [JQ](https://stedolan.github.io/jq/).  Redigera `C:\HD\jq\jq-win64` nedan om du vill visa din faktiska sökväg och version av [JQ](https://stedolan.github.io/jq/).
+     PowerShell-skriptet använder [JQ](https://stedolan.github.io/jq/).  Redigera `C:\HD\jq\jq-win64` nedan för att återspegla din faktiska sökväg och version av [JQ](https://stedolan.github.io/jq/).
 
      ```powershell
      $epoch = Get-Date -Year 1970 -Month 1 -Day 1 -Hour 0 -Minute 0 -Second 0
@@ -332,13 +332,13 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella `liv
 
    * Skapar ett rot dokument för den nya önskade konfigurationen.
 
-   * Hämtar innehållet i `.items[]` matrisen och lägger till det under **desired_config** -elementet.
+   * Hämtar innehållet i matrisen `.items[]` och lägger till det under **desired_config** -elementet.
 
-   * Tar bort elementen `version` `Config` , och, eftersom dessa element inte behövs för att skicka en ny konfiguration. `href`
+   * Tar bort `href`-, `version`-och `Config`-element eftersom dessa element inte behövs för att skicka en ny konfiguration.
 
-   * Lägger till `tag` ett-element med `version#################`värdet. Den numeriska delen baseras på det aktuella datumet. Varje konfiguration måste ha en unik tagg.
+   * Lägger till ett `tag`-element med värdet `version#################`. Den numeriska delen baseras på det aktuella datumet. Varje konfiguration måste ha en unik tagg.
 
-     Slutligen sparas data i `newconfig.json` dokumentet. Dokument strukturen bör se ut ungefär som i följande exempel:
+     Slutligen sparas data i dokumentet `newconfig.json`. Dokument strukturen bör se ut ungefär som i följande exempel:
 
      ```json
      {
@@ -359,7 +359,7 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella `liv
      ```
 
 2. Redigera `newconfig.json`.  
-   Öppna dokumentet och ändra/Lägg till värden `properties` i objektet. `newconfig.json` I följande exempel ändras värdet `"livy.server.csrf_protection.enabled"` från `"true"` till `"false"`.
+   Öppna dokumentet `newconfig.json` och ändra/Lägg till värden i objektet `properties`. I följande exempel ändras värdet för `"livy.server.csrf_protection.enabled"` från `"true"` till `"false"`.
 
         "livy.server.csrf_protection.enabled": "false",
 
@@ -382,7 +382,7 @@ Det här exemplet returnerar ett JSON-dokument som innehåller den aktuella `liv
     $resp.Content
     ```  
 
-    De här kommandona skickar innehållet i filen **newconfig. JSON** till klustret som den nya önskade konfigurationen. Begäran returnerar ett JSON-dokument. **VersionTag** -elementet i det här dokumentet måste matcha den version du skickade, och objektet configs innehåller de konfigurations ändringar som du har begärt.
+    De här kommandona skickar innehållet i filen **newconfig. JSON** till klustret som den nya önskade konfigurationen. Begäran returnerar ett JSON-dokument. **VersionTag** -elementet i det här dokumentet måste matcha den version du skickade, och objektet **configs** innehåller de konfigurations ändringar som du har begärt.
 
 ### <a name="restart-a-service-component"></a>Starta om en tjänst komponent
 
@@ -453,10 +453,10 @@ Om du i det här läget tittar på Ambari webb gränssnitt indikerar Spark-tjän
     ```
 
     > [!IMPORTANT]  
-    > `href` Värdet som returneras av denna URI använder den interna IP-adressen för klusternoden. Om du vill använda den utanför klustret, ersätter `10.0.0.18:8080` du delen med FQDN för klustret.  
+    > Värdet `href` som returneras av denna URI använder den interna IP-adressen för klusternoden. Om du vill använda den utanför klustret ersätter du `10.0.0.18:8080`-delen med FQDN för klustret.  
 
 4. Verifiera begäran.  
-    Redigera kommandot nedan genom att ersätta `29` med det faktiska värdet som `id` returnerades från föregående steg.  Följande kommandon hämtar status för begäran:
+    Redigera kommandot nedan genom att ersätta `29` med det faktiska värdet för @no__t 1 som returnerades från föregående steg.  Följande kommandon hämtar status för begäran:
 
     ```bash
     curl -u admin:$password -sS -H "X-Requested-By: ambari" \
@@ -471,7 +471,7 @@ Om du i det här läget tittar på Ambari webb gränssnitt indikerar Spark-tjän
     $respObj.Requests.request_status
     ```
 
-    Ett svar på `COMPLETED` indikerar att begäran har avslut ATS.
+    Ett svar på `COMPLETED` anger att begäran har avslut ATS.
 
 5. När den tidigare begäran har slutförts använder du följande för att starta Spark2-tjänsten.
 
@@ -510,4 +510,4 @@ Om du i det här läget tittar på Ambari webb gränssnitt indikerar Spark-tjän
 
 ## <a name="next-steps"></a>Nästa steg
 
-En fullständig referens till REST API finns i [Apache AMBARI API Reference v1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).
+En fullständig referens till REST API finns i [Apache AMBARI API Reference v1](https://github.com/apache/ambari/blob/trunk/ambari-server/docs/api/v1/index.md).  Se även [auktorisera användare för Apache Ambari views](./hdinsight-authorize-users-to-ambari.md)

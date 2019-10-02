@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 36bcb8f7a3ee75794741b44f91956950179e5544
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 1d8379d0ee54332ae4971cd9abaa8b153d52084a
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162291"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71816070"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database funktioner
 
@@ -35,7 +35,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | **SQL-funktion** | **Enkla databaser och elastiska pooler** | **Hanterade instanser och instans pooler** |
 | --- | --- | --- |
 | [Alltid krypterad](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) | Ja – se [certifikat Arkiv](sql-database-always-encrypted.md) och [nyckel valv](sql-database-always-encrypted-azure-key-vault.md) | Ja – se [certifikat Arkiv](sql-database-always-encrypted.md) och [nyckel valv](sql-database-always-encrypted-azure-key-vault.md) |
-| [Always on-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas. Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](sql-database-business-continuity.md) | [Hög tillgänglighet](sql-database-high-availability.md) ingår i varje databas och [kan inte hanteras av användaren](sql-database-managed-instance-transact-sql-information.md#always-on-availability). Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](sql-database-business-continuity.md) |
+| [Always on-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) | [99,99-99.995% tillgänglighet](sql-database-high-availability.md) garanteras för varje databas. Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](sql-database-business-continuity.md) | [99,99.% tillgänglighet](sql-database-high-availability.md) garanteras för varje databas och [kan inte hanteras av användaren](sql-database-managed-instance-transact-sql-information.md#always-on-availability). Haveri beredskap beskrivs i [Översikt över affärs kontinuitet med Azure SQL Database](sql-database-business-continuity.md). Använd [grupper för automatisk redundans](sql-database-auto-failover-group.md) för att konfigurera sekundär Always on-hanterad instans i en annan region. Andra SQL Server instanser och enskilda databaser kan inte användas som sekundära för hanterade instanser. |
 | [Koppla en databas](https://docs.microsoft.com/sql/relational-databases/databases/attach-a-database) | Nej | Nej |
 | [Granskning](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) | [Ja](sql-database-auditing.md)| [Ja](sql-database-managed-instance-auditing.md), med vissa [skillnader](sql-database-managed-instance-transact-sql-information.md#auditing) |
 | [Azure Active Directory autentisering (AAD)](sql-database-aad-authentication.md) | Ja. AAD-användare. | Ja. Inklusive AAD-inloggningar på server nivå. |
@@ -57,7 +57,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [DDL-instruktioner](https://docs.microsoft.com/sql/t-sql/statements/statements) | De flesta – se enskilda uttryck | Ja – se [skillnader i T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [DDL-utlösare](https://docs.microsoft.com/sql/relational-databases/triggers/ddl-triggers) | Endast databas |  Ja |
 | [Vyer för distribuerad partition](https://docs.microsoft.com/sql/t-sql/statements/create-view-transact-sql#partitioned-views) | Nej | Ja |
-| [Distribuerade transaktioner-MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Inga – se [elastiska transaktioner](sql-database-elastic-transactions-overview.md) |  Inga se [skillnader mellan länkade servrar](sql-database-managed-instance-transact-sql-information.md#linked-servers) |
+| [Distribuerade transaktioner-MS DTC](https://docs.microsoft.com/sql/relational-databases/native-client-ole-db-transactions/supporting-distributed-transactions) | Inga – se [elastiska transaktioner](sql-database-elastic-transactions-overview.md) |  Inga se [skillnader mellan länkade servrar](sql-database-managed-instance-transact-sql-information.md#linked-servers). Försök att konsolidera databaser från flera distribuerade SQL Server instanser till en hanterad instans under migreringen. |
 | [DML-utlösare](https://docs.microsoft.com/sql/relational-databases/triggers/create-dml-triggers) | De flesta – se enskilda uttryck |  Ja |
 | [DMV](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views) | De flesta – se enskilda DMV: er |  Ja – se [skillnader i T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Händelseaviseringar](https://docs.microsoft.com/sql/relational-databases/service-broker/event-notifications) | Inga-se [aviseringar](sql-database-insights-alerts-portal.md) | Nej |
@@ -90,7 +90,7 @@ I följande tabell visas de viktigaste funktionerna i SQL Server och innehåller
 | [Återställ databasen från en säkerhets kopia](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Från automatiska säkerhets kopieringar – se [SQL Database återställning](sql-database-recovery-using-backups.md) | Från automatiska säkerhets kopieringar – se [SQL Database återställning](sql-database-recovery-using-backups.md) och fullständiga säkerhets kopior som finns på Azure Blob Storage – se [skillnader i säkerhets kopiering](sql-database-managed-instance-transact-sql-information.md#backup) |
 | [Återställ databasen till SQL Server](https://docs.microsoft.com/sql/relational-databases/backup-restore/back-up-and-restore-of-sql-server-databases#restore-data-backups) | Nej. Använd BACPAC eller BCP i stället för intern återställning. | Nej, eftersom SQL Server databas motor som används i hanterade instanser har högre version än en RTM-version av SQL Server som används lokalt. Använd BACPAC, BCP eller transaktionell replikering i stället. |
 | [Semantisk sökning](https://docs.microsoft.com/sql/relational-databases/search/semantic-search-sql-server) | Nej | Nej |
-| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | Nej | Ja, men bara inom instansen. Se [Service Broker skillnader](sql-database-managed-instance-transact-sql-information.md#service-broker) |
+| [Service Broker](https://docs.microsoft.com/sql/database-engine/configure-windows/sql-server-service-broker) | Nej | Ja, men bara inom instansen. Om du använder fjärrService Broker vägar försöker du konsolidera databaser från flera distribuerade SQL Server-instanser till en hanterad instans under migreringen och använder bara lokala vägar. Se [Service Broker skillnader](sql-database-managed-instance-transact-sql-information.md#service-broker) |
 | [Server konfigurations inställningar](https://docs.microsoft.com/sql/database-engine/configure-windows/server-configuration-options-sql-server) | Nej | Ja – se [skillnader i T-SQL](sql-database-managed-instance-transact-sql-information.md) |
 | [Set-instruktioner](https://docs.microsoft.com/sql/t-sql/statements/set-statements-transact-sql) | De flesta – se enskilda uttryck | Ja – se [skillnader i T-SQL](sql-database-managed-instance-transact-sql-information.md)|
 | [SQL Server Agent](https://docs.microsoft.com/sql/ssms/agent/sql-server-agent) | Inga – se [elastiska jobb](elastic-jobs-overview.md) | Ja – se [SQL Server Agent skillnader](sql-database-managed-instance-transact-sql-information.md#sql-server-agent) |
@@ -133,7 +133,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [Återställning av tidpunkt för databas](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-a-sql-server-database-to-a-point-in-time-full-recovery-model) | Ja – alla andra tjänst nivåer än storskalig-se [SQL Database återställning](sql-database-recovery-using-backups.md#point-in-time-restore) | Ja – se [SQL Database återställning](sql-database-recovery-using-backups.md#point-in-time-restore) |
 | Resurspooler | Ja, som [elastiska pooler](sql-database-elastic-pool.md) | Ja. En enda hanterad instans kan ha flera databaser som delar samma pool med resurser. Dessutom kan du distribuera flera hanterade instanser i [instans pooler (för hands version)](sql-database-instance-pools.md) som kan dela resurserna. |
 | Skala upp eller ned (online) | Ja, du kan antingen ändra DTU eller reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. | Ja, du kan ändra reserverad virtuella kärnor eller maximum Storage med minimal stillestånds tid. |
-| SQL-alias | Ja, se [DNS-alias](dns-alias-overview.md) | Nej |
+| [SQL-alias](https://docs.microsoft.com/sql/database-engine/configure-windows/create-or-delete-a-server-alias-for-use-by-a-client) | Nej, Använd [DNS-alias](dns-alias-overview.md) | Nej, Använd [Clicongf](https://techcommunity.microsoft.com/t5/Azure-Database-Support-Blog/Lesson-Learned-33-How-to-make-quot-cliconfg-quot-to-work-with/ba-p/369022) för att konfigurera alias på klient datorerna. |
 | [SQL-analys](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Ja | Ja |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Ja | Nej |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. |
@@ -142,6 +142,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [Fråga prestanda insikter (QPI)](sql-database-query-performance.md) | Ja | Nej. Använd inbyggda rapporter i SQL Server Management Studio och Azure Data Studio. |
 | [VNet](../virtual-network/virtual-networks-overview.md) | Delvis, den ger begränsad åtkomst med [VNet](sql-database-vnet-service-endpoint-rule-overview.md) -slutpunkter | Ja, den hanterade instansen matas in i kundens VNet. Se [undernät](sql-database-managed-instance-transact-sql-information.md#subnet) och [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |
 | VNet-tjänstens slut punkt | [Ja](sql-database-vnet-service-endpoint-rule-overview.md) | Nej |
+| VNet global peering | Ja, med hjälp av [privata IP-och tjänst slut punkter](sql-database-vnet-service-endpoint-rule-overview.md) | Nej, den [hanterade instansen stöds inte](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) på grund av [belastnings Utjämnings begränsning i VNet global peering](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints).
 
 ## <a name="tools"></a>Verktyg
 Azure SQL Database har stöd för olika data verktyg som kan hjälpa dig att hantera dina data.
@@ -161,7 +162,7 @@ Azure SQL Database har stöd för olika data verktyg som kan hjälpa dig att han
 | [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) | Ja | Ja [version 18,0 och högre](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) |
 | [SQL Server PowerShell](https://docs.microsoft.com/sql/relational-databases/scripting/sql-server-powershell) | Ja | Ja |
 | [SQL Server Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler) | Inga – se [utökade händelser](sql-database-xevent-db-diff-from-svr.md) | Ja |
-| [System Center Operations Manager-SCOM](https://docs.microsoft.com/system-center/scom/welcome) | [Ja](https://www.microsoft.com/download/details.aspx?id=38829) | Ja, [i för hands version](https://www.microsoft.com/download/details.aspx?id=100306) |
+| [System Center Operations Manager (SCOM)](https://docs.microsoft.com/system-center/scom/welcome) | [Ja](https://www.microsoft.com/download/details.aspx?id=38829) | Ja, [i för hands version](https://www.microsoft.com/download/details.aspx?id=100306) |
 
 ## <a name="migration-methods"></a>Metoder för migrering
 

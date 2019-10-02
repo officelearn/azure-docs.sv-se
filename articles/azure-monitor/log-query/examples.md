@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 10/03/2018
+ms.date: 10/01/2019
 ms.author: bwren
-ms.openlocfilehash: d50a680ed2b054f87a9cf36e761bd16d79677fb3
-ms.sourcegitcommit: 770b060438122f090ab90d81e3ff2f023455213b
+ms.openlocfilehash: 7cdd471e6618e83483f6cc304f284a1669f3b67b
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "68304705"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718902"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Exempel på Azure Monitor logg frågor
 Den här artikeln innehåller olika exempel på [frågor](log-query-overview.md) som använder [Kusto-frågespråket](/azure/kusto/query/) för att hämta olika typer av loggdata från Azure Monitor. Olika metoder används för att konsolidera och analysera data, så att du kan använda dessa exempel för att identifiera olika strategier som du kan använda för dina egna krav.  
@@ -44,7 +44,7 @@ Sök tabell **händelse** -och **SecurityEvents** efter poster som nämner _konv
 search in (Event, SecurityEvent) "unmarshaling"
 ```
 
-## <a name="heartbeat"></a>Tveka
+## <a name="heartbeat"></a>Pulsslag
 
 ### <a name="chart-a-week-over-week-view-of-the-number-of-computers-sending-data"></a>Visa en veckas över-Week-vy över antalet datorer som skickar data
 
@@ -205,7 +205,7 @@ Perf
 | render timechart
 ```
 
-## <a name="protection-status"></a>Skydds status
+## <a name="protection-status"></a>Skyddsstatus
 
 ### <a name="computers-with-non-reporting-protection-status-duration"></a>Datorer med status varaktighet för icke-rapporterings skydd
 Det här exemplet listar datorer med statusen _rapporterar ej_ och hur länge de befann sig i den här statusen.
@@ -409,7 +409,7 @@ Usage
 ```
 
 ### <a name="usage-of-specific-computers-today"></a>Användning av vissa datorer idag
-I det här exemplet  hämtas användnings data från den sista dagen för dator namn som innehåller strängen _ContosoFile_. Resultaten sorteras efter **TimeGenerated**.
+I det här exemplet hämtas användnings data från den sista dagen för dator namn som innehåller strängen _ContosoFile_. Resultaten sorteras efter **TimeGenerated**.
 
 ```Kusto
 Usage
@@ -425,13 +425,12 @@ Det här exemplet visar en lista över datorer som saknade en eller flera viktig
 
 ```Kusto
 let ComputersMissingUpdates3DaysAgo = Update
-| where TimeGenerated between (ago(3d)..ago(2d))
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where TimeGenerated between (ago(30d)..ago(1h))
+| where Classification !has "Critical" and UpdateState =~ "Needed"
 | summarize makeset(Computer);
-
 Update
 | where TimeGenerated > ago(1d)
-| where  Classification == "Critical Updates" and UpdateState != "Not needed" and UpdateState != "NotNeeded"
+| where Classification has "Critical" and UpdateState =~ "Needed"
 | where Computer in (ComputersMissingUpdates3DaysAgo)
 | summarize UniqueUpdatesCount = dcount(Product) by Computer, OSType
 ```

@@ -1,6 +1,6 @@
 ---
 title: Ladda upp en virtuell hård disk till Azure med Azure PowerShell
-description: Lär dig hur du laddar upp en virtuell hård disk till en Azure-hanterad disk med hjälp av Azure PowerShell.
+description: Lär dig hur du laddar upp en virtuell hård disk till en Azure-hanterad disk och kopierar en hanterad disk över flera regioner med Azure PowerShell.
 author: roygara
 ms.author: rogarana
 ms.date: 05/06/2019
@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: 5b7c612d349c3f596487db4af025e5e599b6589c
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
-ms.translationtype: HT
+ms.openlocfilehash: de9975151270ccce8d4a7abd58210c6550d40464
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694785"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720342"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Ladda upp en virtuell hård disk till Azure med Azure PowerShell
 
@@ -27,7 +27,8 @@ För närvarande stöds direkt uppladdning för standard hård diskar, standard 
 
 - Ladda ned den senaste [versionen av AzCopy v10](../../storage/common/storage-use-azcopy-v10.md#download-and-install-azcopy).
 - [Installera Azure PowerShell-modul](/powershell/azure/install-Az-ps).
-- En VHD-fil som lagras lokalt.
+- Om du tänker Ladda upp en virtuell hård disk från pem: En virtuell hård disk som [har förberetts för Azure](prepare-for-upload-vhd-image.md), lagrats lokalt.
+- Eller en hanterad disk i Azure om du vill utföra en kopierings åtgärd.
 
 ## <a name="create-an-empty-managed-disk"></a>Skapa en tom hanterad disk
 
@@ -82,6 +83,45 @@ När uppladdningen är klar och du inte längre behöver skriva mer data till di
 
 ```powershell
 Revoke-AzDiskAccess -ResourceGroupName 'myResourceGroup' -DiskName 'myDiskName'
+```
+
+## <a name="copy-a-managed-disk"></a>Kopiera en hanterad disk
+
+Direkt överföring fören klar också processen att kopiera en hanterad disk. Du kan antingen kopiera inom samma region eller mellan regioner (till en annan region).
+
+Följ skriptet gör detta åt dig, processen liknar de steg som beskrivs ovan, med vissa skillnader eftersom du arbetar med en befintlig disk.
+
+> [!IMPORTANT]
+> Du måste lägga till en förskjutning på 512 när du tillhandahåller disk storleken i byte för en hanterad disk från Azure. Detta beror på att Azure utelämnar sidfoten när den returnerar disk storleken. Kopieringen Miss kommer om du inte gör det. Följande skript använder redan det här.
+
+Ersätt `<sourceResourceGroupHere>`, `<sourceDiskNameHere>`, `<targetDiskNameHere>`, `<targetResourceGroupHere>`, `<yourOSTypeHere>` och `<yourTargetLocationHere>` (ett exempel på ett plats värde är uswest2) med dina värden och kör sedan följande skript för att kopiera en hanterad disk.
+
+```powershell
+
+$sourceRG = <sourceResourceGroupHere>
+$sourceDiskName = <sourceDiskNameHere>
+$targetDiskName = <targetDiskNameHere>
+$targetRG = <targetResourceGroupHere>
+$targetLocate = <yourTargetLocationHere>
+#Expected value for OS is either "Windows" or "Linux"
+$targetOS = <yourOSTypeHere>
+
+$sourceDisk = Get-AzDisk -ResourceGroupName $sourceRG -DiskName $sourceDiskName
+
+# Adding the sizeInBytes with the 512 offset, and the -Upload flag
+$targetDiskconfig = New-AzDiskConfig -SkuName 'Standard_LRS' -osType $targetOS -UploadSizeInBytes $($sourceDisk.DiskSizeBytes+512) -Location $targetLocate -CreateOption 'Upload'
+
+$targetDisk = New-AzDisk -ResourceGroupName $targetRG -DiskName $targetDiskName -Disk $targetDiskconfig
+
+$sourceDiskSas = Grant-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName -DurationInSecond 86400 -Access 'Read'
+
+$targetDiskSas = Grant-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName -DurationInSecond 86400 -Access 'Write'
+
+azcopy copy $sourceDiskSas.AccessSAS $targetDiskSas.AccessSAS --blob-type PageBlob
+
+Revoke-AzDiskAccess -ResourceGroupName $sourceRG -DiskName $sourceDiskName
+
+Revoke-AzDiskAccess -ResourceGroupName $targetRG -DiskName $targetDiskName 
 ```
 
 ## <a name="next-steps"></a>Nästa steg

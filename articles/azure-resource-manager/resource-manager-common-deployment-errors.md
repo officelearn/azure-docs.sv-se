@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/30/2019
 ms.author: tomfitz
-ms.openlocfilehash: fc6fdde4daa2d671b9d93673c2a78c2d9d85963c
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 0e03cd3747fe6770be7dddaf36d634547ed75b39
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70275743"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71718947"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsök vanliga problem med Azure-distribution med Azure Resource Manager
 
@@ -36,7 +36,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | Konflikt | Du begär en åtgärd som inte är tillåten i resursens aktuella tillstånd. Till exempel tillåts disk storleks ändring bara när du skapar en virtuell dator eller när den virtuella datorn frigörs. | |
 | DeploymentActive | Vänta tills en samtidig distribution till den här resurs gruppen har slutförts. | |
 | DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte innehåller den information du behöver för att lösa problemet. Se fel informationen för en felkod som innehåller mer information. | [Hitta felkod](#find-error-code) |
-| DeploymentQuotaExceeded | Om du når gränsen på 800-distributioner per resurs grupp tar du bort distributioner från den historik som inte längre behövs. Du kan ta bort poster från historiken med [AZ Group Deployment Delete](/cli/azure/group/deployment#az-group-deployment-delete) för Azure CLI eller [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) i PowerShell. Att ta bort en post från distributions historiken påverkar inte distributions resurserna. | |
+| DeploymentQuotaExceeded | Om du når gränsen på 800-distributioner per resurs grupp tar du bort distributioner från den historik som inte längre behövs. | [Lös fel när antalet distributioner överskrider 800](deployment-quota-exceeded.md) |
 | DnsRecordInUse | DNS-postens namn måste vara unikt. Ange ett annat namn. | |
 | ImageNotFound | Kontrol lera inställningarna för VM-avbildningar. |  |
 | InUseSubnetCannotBeDeleted | Du kan få det här felet när du försöker uppdatera en resurs, och begäran bearbetas genom att ta bort och skapa resursen. Se till att du anger alla värden som inte har ändrats. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
@@ -248,6 +248,6 @@ Eller anta att du påträffar distributions fel som du tror är relaterade till 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du går igenom en fel [söknings kurs finns i Självstudier: Felsöka distributioner av Resource Manager-mallar](./resource-manager-tutorial-troubleshoot.md)
+* Information om hur du går igenom en fel söknings kurs finns i [Tutorial: Felsöka distributioner av Resource Manager-mallar @ no__t-0
 * Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](resource-group-audit.md).
 * Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](resource-manager-deployment-operations.md).

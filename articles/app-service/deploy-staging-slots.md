@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 09/19/2019
 ms.author: cephalin
-ms.openlocfilehash: 35618b80dc4731f4d679bab9f035987af50730e8
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 436ab0a561349185de58c3783f334ea1dce9001d
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71129708"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720121"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Konfigurera mellanlagrings miljöer i Azure App Service
 <a name="Overview"></a>
@@ -106,7 +106,7 @@ När som helst i växlings åtgärden sker allt arbete vid initiering av de väx
 
 Om du vill konfigurera en app-inställning eller anslutnings sträng för att fästa mot en angiven plats (som inte växlas) går du till sidan **konfiguration** för den platsen. Lägg till eller redigera en inställning och välj sedan **distributions plats inställning**. Om du markerar den här kryss rutan visas App Service att inställningen inte kan växlas. 
 
-![Platsinställning](./media/web-sites-staged-publishing/SlotSetting.png)
+![Plats inställning](./media/web-sites-staged-publishing/SlotSetting.png)
 
 <a name="Swap"></a>
 
@@ -128,7 +128,7 @@ Växla mellan distributions platser:
 
 2. Välj önskade **käll** -och **mål** platser. Normalt är målet produktions platsen. Välj också flikarna **käll ändringar** och **mål ändringar** och kontrol lera att konfigurations ändringarna förväntas. När du är klar kan du växla platserna direkt genom att välja **Växla**.
 
-    ![Slutför växling](./media/web-sites-staged-publishing/SwapImmediately.png)
+    ![Slutföra växlingen](./media/web-sites-staged-publishing/SwapImmediately.png)
 
     Om du vill se hur mål platsen kommer att köras med de nya inställningarna innan växlingen faktiskt sker väljer du inte **växling**, utan följer anvisningarna i [Växla med förhands granskning](#Multi-Phase).
 
@@ -140,9 +140,6 @@ Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 
 ### <a name="swap-with-preview-multi-phase-swap"></a>Växla med förhands granskning (växling i flera faser)
 
-> [!NOTE]
-> Växling med förhands granskning stöds inte i Web Apps på Linux.
-
 Innan du byter till produktion som mål plats kontrollerar du att appen körs med de växlade inställningarna. Käll platsen har också förvärmts innan växlings förslutning, vilket är önskvärt för verksamhets kritiska program.
 
 När du utför en växling med för hands versionen utför App Service samma [växlings åtgärd](#AboutConfiguration) men pausas efter det första steget. Du kan sedan verifiera resultatet på mellanlagringsplatsen innan du slutför växlingen. 
@@ -153,7 +150,7 @@ För att växla med för hands version:
 
 1. Följ stegen i [Växla distributions fack](#Swap) men Välj **utför växling med förhands granskning**.
 
-    ![Växla med förhandsgranskning](./media/web-sites-staged-publishing/SwapWithPreview.png)
+    ![Växla med för hands version](./media/web-sites-staged-publishing/SwapWithPreview.png)
 
     I dialog rutan visas hur konfigurationen i käll platsen ändras i fas 1, och hur käll-och mål platsen ändras i fas 2.
 
@@ -204,7 +201,8 @@ Om du har problem kan du läsa [Felsöka växlingar](#troubleshoot-swaps).
 <a name="Warm-up"></a>
 
 ## <a name="specify-custom-warm-up"></a>Ange anpassad uppvärmning
-När du använder [Automatisk växling](#Auto-Swap)kan vissa appar kräva anpassade värme åtgärder innan växlingen. I `applicationInitialization` konfigurations elementet i Web. config kan du ange anpassade initierings åtgärder. [Växlings åtgärden](#AboutConfiguration) väntar på att den här anpassade uppvärmningen ska slutföras innan den växlar till mål platsen. Här är ett exempel på Web. config-fragment.
+
+Vissa appar kan kräva anpassade värme åtgärder innan växlingen. I `applicationInitialization` konfigurations elementet i Web. config kan du ange anpassade initierings åtgärder. [Växlings åtgärden](#AboutConfiguration) väntar på att den här anpassade uppvärmningen ska slutföras innan den växlar till mål platsen. Här är ett exempel på Web. config-fragment.
 
     <system.webServer>
         <applicationInitialization>
@@ -317,7 +315,7 @@ Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType M
 ```
 
 ---
-### <a name="swap-deployment-slots"></a>Växla distributions fack
+### <a name="swap-deployment-slots"></a>Växla distributionsfack
 ```powershell
 $ParametersObject = @{targetSlot  = "[slot name – e.g. “production”]"}
 Invoke-AzResourceAction -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots -ResourceName [app name]/[slot name] -Action slotsswap -Parameters $ParametersObject -ApiVersion 2015-07-01
@@ -334,7 +332,61 @@ Get-AzLog -ResourceGroup [resource group name] -StartTime 2018-03-07 -Caller Slo
 Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microsoft.Web/sites/slots –Name [app name]/[slot name] -ApiVersion 2015-07-01
 ```
 
----
+## <a name="automate-with-arm-templates"></a>Automatisera med ARM-mallar
+
+[Arm-mallar](https://docs.microsoft.com/en-us/azure/azure-resource-manager/template-deployment-overview) är deklarativ JSON-filer som används för att automatisera distributionen och konfigurationen av Azure-resurser. Om du vill byta plats på platser med ARM-mallar anger du två egenskaper för resurserna *Microsoft. Web/Sites/fackes* och *Microsoft. Web/Sites* :
+
+- `buildVersion`: Detta är en sträng egenskap som representerar den aktuella versionen av appen som distribuerats på platsen. Exempel: "v1", "1.0.0.1" eller "2019-09-20T11:53:25.2887393-07:00".
+- `targetBuildVersion`: det här är en sträng egenskap som anger vad `buildVersion` facket ska ha. Om targetBuildVersion inte är lika med den aktuella `buildVersion` utlöser detta växlings åtgärden genom att hitta den plats som har angivet `buildVersion`.
+
+### <a name="example-arm-template"></a>Exempel ARM-mall
+
+Följande ARM-mall kommer att uppdatera `buildVersion` för mellanlagringsplatsen och ange `targetBuildVersion` på produktions platsen. Detta byter ut de två platserna. Mallen förutsätter att du redan har en webapp som skapats med en plats med namnet "mellanlagring".
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "my_site_name": {
+            "defaultValue": "SwapAPIDemo",
+            "type": "String"
+        },
+        "sites_buildVersion": {
+            "defaultValue": "v1",
+            "type": "String"
+        }
+    },
+    "resources": [
+        {
+            "type": "Microsoft.Web/sites/slots",
+            "apiVersion": "2018-02-01",
+            "name": "[concat(parameters('my_site_name'), '/staging')]",
+            "location": "East US",
+            "kind": "app",
+            "properties": {
+                "buildVersion": "[parameters('sites_buildVersion')]"
+            }
+        },
+        {
+            "type": "Microsoft.Web/sites",
+            "apiVersion": "2018-02-01",
+            "name": "[parameters('my_site_name')]",
+            "location": "East US",
+            "kind": "app",
+            "dependsOn": [
+                "[resourceId('Microsoft.Web/sites/slots', parameters('my_site_name'), 'staging')]"
+            ],
+            "properties": {
+                "targetBuildVersion": "[parameters('sites_buildVersion')]"
+            }
+        }        
+    ]
+}
+```
+
+Den här ARM-mallen är idempotenta, vilket innebär att den kan köras upprepade gånger och producera samma tillstånd för platserna. Efter den första körningen kommer `targetBuildVersion` att matcha den aktuella `buildVersion`, så en växling kommer inte att utlösas.
+
 <!-- ======== Azure CLI =========== -->
 
 <a name="CLI"></a>

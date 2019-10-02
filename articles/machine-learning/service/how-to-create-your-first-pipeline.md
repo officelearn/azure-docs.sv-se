@@ -11,12 +11,12 @@ ms.author: sanpil
 author: sanpil
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: f1a0db395b86f473d2372a5ca779020e54186e45
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: af20c9e3a50c0c60135b1e447e7e1cba1fc36526
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034845"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815730"
 ---
 # <a name="create-and-run-machine-learning-pipelines-with-azure-machine-learning-sdk"></a>Skapa och kör maskin inlärnings pipeliner med Azure Machine Learning SDK
 
@@ -436,7 +436,7 @@ Du kan aktivera den igen med `p.enable()`. Mer information finns i klass referen
 
 För att optimera och anpassa beteendet för dina pipeliner kan du göra några saker runt cachelagring och åter användning. Du kan till exempel välja att:
 + **Inaktivera standard åter användning av steget Kör utdata** genom att ställa in `allow_reuse=False` under [steg definition](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py). Åter användning är nyckel när du använder pipelines i en samarbets miljö eftersom du tar bort onödiga körningar ger flexibilitet. Du kan dock välja att inte använda.
-+ **Utöka hashing bortom skriptet**och ta även med en absolut sökväg eller relativa sökvägar till source_directory till andra filer och kataloger med hjälp av`hash_paths=['<file or directory']` 
++ **Utöka hashing bortom skriptet**och ta även med en absolut sökväg eller relativa sökvägar till source_directory till andra filer och kataloger med hjälp av `hash_paths=['<file or directory']` 
 + **Framtvinga generering av utdata för alla steg i en körning** med`pipeline_run = exp.submit(pipeline, regenerate_outputs=False)`
 
 Som standard `allow_reuse` har steg Aktiver ATS och endast huvud skript filen är hash-kodad. Om skriptet för ett specifikt steg däremot är detsamma (`script_name`, indata och parametrar), så kommer utdata från ett föregående steg att återanvändas, jobbet skickas inte till beräkningen och resultatet från föregående körning är omedelbart tillgängligt för nästa steg i stället .  
@@ -449,11 +449,11 @@ step = PythonScriptStep(name="Hello World",
                         allow_reuse=False,
                         hash_paths=['hello_world.ipynb'])
 ```
- 
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Använd [dessa Jupyter-anteckningsböcker på GitHub](https://aka.ms/aml-pipeline-readme) att utforska machine learning-ytterligare pipelines.
 - Se SDK Reference-hjälpen för [azureml-pipeline-Core-](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py) paketet och AzureML- [pipeline-steg-](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py) paketet.
+- Se tips om [hur du](how-to-debug-pipelines.md) felsöker och felsöker pipeliner.
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../../includes/aml-clone-for-examples.md)]

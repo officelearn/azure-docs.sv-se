@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 06/11/2019
+ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 6605aa268a7ee7fe75254df5dbe96e9dfbc71d79
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 7e1ea234bde96ce84259841bbc592bf6373bc639
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272421"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802796"
 ---
 # <a name="use-bot-with-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Använd bot med QnA Maker-och LUIS för att distribuera kunskaps basen
 När kunskapsbasen QnA Maker växer stora, blir det svårt att underhålla den som en enda monolitisk ange och det finns en behöver delas upp i knowledge base i mindre logiska segment.
@@ -37,13 +37,13 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
 1. [Skapa en app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
 1. [Lägg till ett intent](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) för varje QnA Maker knowledge base. Exempel yttranden bör motsvara frågor i kunskapsbaser QnA Maker.
 1. [Träna LUIS-app](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) och [publicera LUIS-app](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) LUIS-appen.
-1. I den **hantera** avsnittet, anteckna din LUIS app-ID, LUIS slutpunktsnyckeln, och vara värd för regionen. Du behöver dessa värden senare. 
+1. I avsnittet **Hantera** noterar du ditt Luis app-ID, Luis-slutpunkt-nyckeln och det [anpassade domän namnet](../../cognitive-services-custom-subdomains.md). Du behöver dessa värden senare. 
 
 ## <a name="create-qna-maker-knowledge-bases"></a>Skapa QnA Maker kunskapsbaser
 
 1. Logga in på [QnA Maker](https://qnamaker.ai).
 1. [Skapa](https://www.qnamaker.ai/Create) en kunskapsbaser för varje avsikt i LUIS-app.
-1. Testa och publicera kunskapsbaser. När du publicerar varje KB anteckna KB-ID, värd (underdomän innan _.azurewebsites.net/qnamaker_), och auktoriseringsnyckeln för slutpunkten. Du behöver dessa värden senare. 
+1. Testa och publicera kunskapsbaser. När du publicerar varje KB noterar du KB-ID, resurs namn (anpassad under domän före _. azurewebsites.net/qnamaker_) och nyckel för att lägga till en slut punkt. Du behöver dessa värden senare. 
 
     Den här artikeln förutsätter att de KB-artiklar skapas i samma Azure QnA Maker-prenumeration.
 
@@ -109,13 +109,13 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
     [Serializable]
     public class QnAMakerService
     {
-        private string qnaServiceHostName;
+        private string qnaServiceResourceName;
         private string knowledgeBaseId;
         private string endpointKey;
 
-        public QnAMakerService(string hostName, string kbId, string endpointkey)
+        public QnAMakerService(string resourceName, string kbId, string endpointkey)
         {
-            qnaServiceHostName = hostName;
+            qnaServiceResourceName = resourceName;
             knowledgeBaseId = kbId;
             endpointKey = endpointkey;
 
@@ -136,7 +136,7 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
         }
         public async Task<string> GetAnswer(string question)
         {
-            string uri = qnaServiceHostName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
+            string uri = qnaServiceResourceName + "/qnamaker/knowledgebases/" + knowledgeBaseId + "/generateAnswer";
             string questionJSON = "{\"question\": \"" + question.Replace("\"","'") +  "\"}";
 
             var response = await Post(uri, questionJSON);
@@ -169,7 +169,7 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
         // QnA Maker global settings
         // assumes all KBs are created with same Azure service
         static string qnamaker_endpointKey = "<QnA Maker endpoint KEY>";
-        static string qnamaker_endpointDomain = "my-qnamaker-s0-s";
+        static string qnamaker_resourceName = "my-qnamaker-s0-s";
         
         // QnA Maker Human Resources Knowledge base
         static string HR_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
@@ -178,8 +178,8 @@ I scenariot ovan QnA Maker först hämtar syftet med den inkommande frågan frå
         static string Finance_kbID = "<QnA Maker KNOWLEDGE BASE ID>";
 
         // Instantiate the knowledge bases
-        public QnAMakerService hrQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", HR_kbID, qnamaker_endpointKey);
-        public QnAMakerService financeQnAService = new QnAMakerService("https://" + qnamaker_endpointDomain + ".azurewebsites.net", Finance_kbID, qnamaker_endpointKey);
+        public QnAMakerService hrQnAService = new QnAMakerService("https://" + qnamaker_resourceName + ".azurewebsites.net", HR_kbID, qnamaker_endpointKey);
+        public QnAMakerService financeQnAService = new QnAMakerService("https://" + qnamaker_resourceName + ".azurewebsites.net", Finance_kbID, qnamaker_endpointKey);
 
         public BasicLuisDialog() : base(new LuisService(new LuisModelAttribute(
             LUIS_appId,

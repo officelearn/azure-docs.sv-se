@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: wolfma
-ms.openlocfilehash: c5e12812a4305493be2cdc234946796b21dd26d8
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: ee505cc78c16d85640c7e13541272f1bafe30061
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68558939"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71800003"
 ---
 # <a name="about-the-speech-sdk"></a>Om tal-SDK
 
@@ -33,12 +33,15 @@ För Windows stöder vi följande språk:
 
 * C#(UWP och .NET) C++: Du kan referera till och använda den senaste versionen av vårt tal SDK NuGet-paket. Paketet innehåller 32-bitars och 64-bitars klientbibliotek och hanterade (.NET)-bibliotek. SDK: N kan installeras i Visual Studio med hjälp av NuGet. Sök efter **Microsoft.CognitiveServices.Speech**.
 
-* Java: Du kan referera till och använda den senaste versionen av vårt tal SDK maven-paket, som endast stöder Windows x64. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0` som ett beroende.
+* Java: Du kan referera till och använda den senaste versionen av vårt tal SDK maven-paket, som endast stöder Windows x64. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` som ett beroende.
 
 ### <a name="linux"></a>Linux
 
 > [!NOTE]
-> För närvarande stöder vi endast Ubuntu 16,04, Ubuntu 18,04 och Debian 9 på en dator (x86 eller x64 för C++ utveckling och x64 för .net Core, Java och python).
+> För närvarande stöder vi endast Ubuntu 16,04, Ubuntu 18,04 och Debian 9 på följande mål arkitekturer:
+> - x86, x64 och ARM64 för C++ utveckling
+> - x64 och ARM64 för Java
+> - x64 för .NET Core och python
 
 Kontrol lera att du har de nödvändiga biblioteken installerade genom att köra följande Shell-kommandon:
 
@@ -59,10 +62,10 @@ sudo apt-get install libssl1.0.2 libasound2
 * C#: Du kan referera till och använda den senaste versionen av vårt tal SDK NuGet-paket. Lägg till följande paketreferens i projektet om du vill referera till SDK:
 
   ```xml
-  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.6.0" />
+  <PackageReference Include="Microsoft.CognitiveServices.Speech" Version="1.7.0" />
   ```
 
-* Java: Du kan referera till och använda den senaste versionen av vårt tal SDK maven-paket. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0` som ett beroende.
+* Java: Du kan referera till och använda den senaste versionen av vårt tal SDK maven-paket. I Maven-projekt lägger du till `https://csspeechstorage.blob.core.windows.net/maven/` som ytterligare lagringsplats och referens `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0` som ett beroende.
 
 * C++: Ladda ned SDK som ett [. tar-paket](https://aka.ms/csspeech/linuxbinary) och packa upp filerna i valfri katalog. I följande tabell visas mappstrukturen SDK:
 
@@ -78,7 +81,7 @@ sudo apt-get install libssl1.0.2 libasound2
 
 ### <a name="android"></a>Android
 
-Java SDK för Android paketeras som ett [AAR (Android-bibliotek)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek och nödvändiga Android-behörigheter. Den finns i ett Maven-centrallager på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:1.6.0`.
+Java SDK för Android paketeras som ett [AAR (Android-bibliotek)](https://developer.android.com/studio/projects/android-library), som innehåller nödvändiga bibliotek och nödvändiga Android-behörigheter. Den finns i ett Maven-centrallager på `https://csspeechstorage.blob.core.windows.net/maven/` som paket `com.microsoft.cognitiveservices.speech:client-sdk:1.7.0`.
 
 Om du vill använda paketet från Android Studio-projekt gör du följande ändringar:
 
@@ -91,7 +94,7 @@ Om du vill använda paketet från Android Studio-projekt gör du följande ändr
 * I modul på servernivå build.gradle-filen lägger du till följande för att den `dependencies` avsnittet:
 
   ```gradle
-  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.6.0'
+  implementation 'com.microsoft.cognitiveservices.speech:client-sdk:1.7.0'
   ```
 
 Java SDK är också en del av den [tal Devices SDK](speech-devices-sdk.md).

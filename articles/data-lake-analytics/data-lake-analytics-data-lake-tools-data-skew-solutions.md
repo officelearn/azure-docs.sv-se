@@ -8,12 +8,12 @@ ms.reviewer: jasonwhowell
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/16/2016
-ms.openlocfilehash: 440a36d00334840688f66d0027152d7581b7158c
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 9ff7ba5f04a8c1862f8ef136f8f3f6900f00a431
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309910"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802557"
 ---
 # <a name="resolve-data-skew-problems-by-using-azure-data-lake-tools-for-visual-studio"></a>Lös data sneda problem med hjälp av Azure Data Lake verktyg för Visual Studio
 
@@ -165,7 +165,7 @@ Exemplet nedan visar en separerad vänster rad uppsättning. Varje utgående rad
 
 Attribut för kombinations läge:
 
-- [SqlUserDefinedCombiner(Mode=CombinerMode.Full)]: Every output row potentially depends on all the input rows from left and right with the same key value.
+- SqlUserDefinedCombiner (läge = CombinerMode. full): Alla utdatakolumner kan vara beroende av alla inmatnings rader från vänster och höger med samma nyckel värde.
 
 - SqlUserDefinedCombiner(Mode=CombinerMode.Left): Varje utgående rad är beroende av en enda inmatnings rad från vänster (och alla rader från höger till höger med samma nyckel värde).
 

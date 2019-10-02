@@ -11,14 +11,14 @@ ms.service: log-analytics
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/01/2019
 ms.author: bwren
-ms.openlocfilehash: 746166713a6d7d90afb77fb03cf86b311178c5f5
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 50f973de8d1ca983725bc9e9e64eefc9de5237fa
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899652"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802131"
 ---
 # <a name="send-log-data-to-azure-monitor-with-the-http-data-collector-api-public-preview"></a>Skicka loggdata till Azure Monitor med API: t för HTTP-datainsamling (offentlig för hands version)
 Den här artikeln visar hur du använder API: t för HTTP-datainsamling för att skicka logg data till Azure Monitor från en REST API-klient.  Här beskrivs hur du formaterar data som samlats in av ditt skript eller program, inkluderar dem i en begäran och har den begäran som auktoriserats av Azure Monitor.  Exempel finns för PowerShell, C#och python.
@@ -41,7 +41,7 @@ Alla data i arbets ytan Log Analytics lagras som en post med en viss post typ.  
 ## <a name="create-a-request"></a>Skapa en förfrågan
 Om du vill använda API: et för HTTP-datainsamling skapar du en POST-begäran som innehåller de data som ska skickas i JavaScript Object Notation (JSON).  I följande tre tabeller visas de attribut som krävs för varje begäran. Vi beskriver varje attribut mer detaljerat längre fram i artikeln.
 
-### <a name="request-uri"></a>Förfrågans URI
+### <a name="request-uri"></a>Begärd URI
 | Attribut | Egenskap |
 |:--- |:--- |
 | Metod |POST |
@@ -232,7 +232,7 @@ $SharedKey = "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"
 $LogType = "MyRecordType"
 
 # You can use an optional field to specify the timestamp from the data. If the time field is not specified, Azure Monitor assumes the time is the message ingestion time
-$TimeStampField = ""
+$TimeStampField = "DateValue"
 
 
 # Create two records with the same set of properties to create
@@ -240,13 +240,13 @@ $json = @"
 [{  "StringValue": "MyString1",
     "NumberValue": 42,
     "BooleanValue": true,
-    "DateValue": "2016-05-12T20:00:00.625Z",
+    "DateValue": "2019-09-12T20:00:00.625Z",
     "GUIDValue": "9909ED01-A74C-4874-8ABF-D2678E3AE23D"
 },
 {   "StringValue": "MyString2",
     "NumberValue": 43,
     "BooleanValue": false,
-    "DateValue": "2016-05-12T20:00:00.625Z",
+    "DateValue": "2019-09-12T20:00:00.625Z",
     "GUIDValue": "8809ED01-A74C-4874-8ABF-D2678E3AE23D"
 }]
 "@

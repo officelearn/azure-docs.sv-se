@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.workload: mobile
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 12/17/2018
+ms.date: 09/16/2019
 ms.author: mbullwin
-ms.openlocfilehash: 778a95db8ce462d06e2464db56b542f8113a4960
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 94e994a3dc1cd9d5d5d0b7acb5aed4783d881915
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67875380"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802290"
 ---
 # <a name="application-insights-frequently-asked-questions"></a>Application Insights: Vanliga frågor och svar
 
@@ -59,7 +59,7 @@ Företags planen debiteras en avgift för varje dag som varje nod i webb servern
 
 [Läs pris Planen](https://azure.microsoft.com/pricing/details/application-insights/).
 
-## <a name="how-much-is-it-costing"></a>Hur mycket kostar det?
+## <a name="how-much-does-it-cost"></a>Hur mycket kostar det?
 
 * Öppna **sidan användning och uppskattade kostnader** i en Application Insights resurs. Det finns ett diagram över senaste användningen. Du kan ange en data volyms gräns om du vill.
 * Öppna [Azures fakturerings blad](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview) för att se dina fakturor för alla resurser.
@@ -139,6 +139,8 @@ Vi letar upp IP-adressen (IPv4 eller IPv6) för webb klienten med hjälp av [Geo
 
 * Webb läsar telemetri: Vi samlar in avsändarens IP-adress.
 * Server telemetri: Application Insights-modulen samlar in klientens IP-adress. Den samlas inte in om `X-Forwarded-For` har angetts.
+* Mer information om hur IP-adress och data för geolokalisering samlas in i Application Insights finns i den här [artikeln](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection).
+
 
 Du kan konfigurera `ClientIpHeaderTelemetryInitializer` att ta med IP-adressen från en annan rubrik. I vissa system flyttas den till exempel av en proxy, belastningsutjämnare eller CDN till `X-Originating-IP`. [Läs mer](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
@@ -196,8 +198,8 @@ Använd en enda resurs för alla komponenter eller roller i ett enda företags s
 | Beroende telemetri |[Installera AI-Statusövervakare på servern](monitor-performance-live-website-now.md) |Diagnostisera problem med databaser eller andra externa komponenter |
 | Hämta stack spår från undantag |[Infoga TrackException-anrop i din kod](asp-net-exceptions.md) (men vissa rapporteras automatiskt) |Identifiera och diagnostisera undantag |
 | Sök logg spårningar |[Lägg till ett loggnings kort](asp-net-trace-logs.md) |Diagnostisera undantag, prestanda problem |
-| Grundläggande om klient användning: sidvyer, sessioner,... |[JavaScript-initierare på webb sidor](javascript.md) |Användningsanalys |
-| Anpassade mått för klienter |[Spåra samtal på webb sidor](api-custom-events-metrics.md) |Förbättra användar upplevelsen |
+| Grundläggande om klient användning: sidvyer, sessioner,... |[JavaScript-initierare på webb sidor](javascript.md) |Användninganalys |
+| Anpassade mått för klienter |[Spåra samtal på webb sidor](api-custom-events-metrics.md) |Förbättrad användarupplevelse |
 | Anpassade mått för Server |[Spåra anrop i Server](api-custom-events-metrics.md) |Business Intelligence |
 
 ## <a name="why-are-the-counts-in-search-and-metrics-charts-unequal"></a>Varför är antalet i Sök-och mått diagram desamma?

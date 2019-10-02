@@ -11,15 +11,15 @@ ms.service: app-service
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 02/22/2019
+ms.date: 10/01/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: c4e97a96687e5fa1d934ab8c0317b52cb753f72c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d2823158192ae9fc9182f3f60f82d5bd9c050b09
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088161"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71811630"
 ---
 # <a name="configure-tls-mutual-authentication-for-azure-app-service"></a>Konfigurera ömsesidig TLS-autentisering för Azure App Service
 
@@ -31,19 +31,28 @@ Du kan begränsa åtkomsten till Azure App Service-appen genom att aktivera olik
 
 ## <a name="enable-client-certificates"></a>Aktivera klient certifikat
 
-Om du vill konfigurera din app så att den kräver klient certifikat måste du ställa `clientCertEnabled` in `true`appens inställning på. Ange inställningen genom att köra följande kommando i [Cloud Shell](https://shell.azure.com).
+Om du vill konfigurera din app så att den kräver klient certifikat måste du ange inställningen `clientCertEnabled` för att din app ska `true`. Ange inställningen genom att köra följande kommando i [Cloud Shell](https://shell.azure.com).
 
 ```azurecli-interactive
 az webapp update --set clientCertEnabled=true --name <app_name> --resource-group <group_name>
 ```
 
+## <a name="exclude-paths-from-requiring-authentication"></a>Uteslut sökvägar från att kräva autentisering
+
+När du aktiverar ömsesidig autentisering för ditt program, kräver alla sökvägar under appens rot ett klient certifikat för åtkomst. Om du vill tillåta att vissa sökvägar är öppna för anonym åtkomst kan du definiera undantags Sök vägar som en del av program konfigurationen.
+
+Du kan konfigurera undantags Sök vägar genom att välja **konfigurations** > **allmänna inställningar** och definiera en sökväg för undantag. I det här exemplet skulle något under `/public`-sökvägen för ditt program inte begära ett klient certifikat.
+
+![Sökvägar för certifikat undantag][exclusion-paths]
+
+
 ## <a name="access-client-certificate"></a>Åtkomst till klient certifikat
 
-I App Service sker SSL-avslutning av begäran på klient delens belastningsutjämnare. När du vidarebefordrar begäran till din app-kod med [aktiverade klient certifikat](#enable-client-certificates), infogar App Service `X-ARR-ClientCert` ett begär ande huvud med klient certifikatet. App Service gör ingenting med det här klient certifikatet annat än att vidarebefordra det till din app. Appens kod ansvarar för att verifiera klient certifikatet.
+I App Service sker SSL-avslutning av begäran på klient delens belastningsutjämnare. När du vidarebefordrar begäran till din app-kod med [aktive rad klient certifikat](#enable-client-certificates), infogar App Service ett huvud för @no__t 1-begäran med klient certifikatet. App Service gör ingenting med det här klient certifikatet annat än att vidarebefordra det till din app. Appens kod ansvarar för att verifiera klient certifikatet.
 
 För ASP.NET är klient certifikatet tillgängligt via egenskapen **HttpRequest. ClientCertificate** .
 
-För andra program stackar (Node. js, php osv.) är klient certifikatet tillgängligt i din app via ett base64-kodat värde i `X-ARR-ClientCert` begär ande huvudet.
+För andra program stackar (Node. js, PHP osv.) är klient certifikatet tillgängligt i din app via ett base64-kodat värde i rubriken `X-ARR-ClientCert`-begäran.
 
 ## <a name="aspnet-sample"></a>ASP.NET-exempel
 
@@ -171,7 +180,7 @@ För andra program stackar (Node. js, php osv.) är klient certifikatet tillgän
 
 ## <a name="nodejs-sample"></a>Node. js-exempel
 
-Följande Node. js-exempel kod hämtar `X-ARR-ClientCert` rubriken och använder [Node-falska](https://github.com/digitalbazaar/forge) för att konvertera den base64-kodade PEM-strängen till ett certifikat objekt och verifiera den:
+Följande Node. js-exempel kod hämtar `X-ARR-ClientCert`-huvudet och använder [Node-falska](https://github.com/digitalbazaar/forge) för att konvertera den base64-KODAde PEM-strängen till ett certifikat objekt och verifiera den:
 
 ```javascript
 import { NextFunction, Request, Response } from 'express';
@@ -213,3 +222,5 @@ export class AuthorizationHandler {
     }
 }
 ```
+
+[exclusion-paths]: ./media/app-service-web-configure-tls-mutual-auth/exclusion-paths.png

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 08/06/2019
-ms.openlocfilehash: 677a52572658f80d9cde4de28dd02d6e957407d2
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: de215502f1ecb55bc331f29057a4f7c3f30b0132
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269199"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720168"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Vad är en Azure Machine Learning arbets yta?
 
@@ -66,9 +66,6 @@ Machine Learning-uppgifter läser och/eller skriver artefakter till din arbets y
 + Visa maskin inlärnings artefakter som experiment, pipelines, modeller, distributioner.
 + Spåra och övervaka modeller.
 
-
-
-
 ## <a name="workspace-management"></a>Hantering av arbets yta
 
 Du kan också utföra följande hanterings uppgifter för arbets ytan:
@@ -80,7 +77,7 @@ Du kan också utföra följande hanterings uppgifter för arbets ytan:
 | Hantera åtkomst till arbets ytan    | **&check;**   | |  **&check;**    |
 | Skapa en virtuell dator för Notebook | **&check;**   | |     |
 
-### <a name='create-workspace'></a>Skapa en arbets yta
+## <a name='create-workspace'></a>Skapa en arbets yta
 
 Det finns flera sätt att skapa en arbets yta.
 

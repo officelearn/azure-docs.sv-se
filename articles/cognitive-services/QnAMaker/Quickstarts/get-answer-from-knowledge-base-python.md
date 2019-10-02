@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/03/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 34c85de456e7ec96f3244d327fd53c91ed90d109
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f7bf73561cadab866c08ae279d18bc1bd4655983
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306903"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802978"
 ---
 # <a name="quickstart-get-answers-to-a-question-from-a-knowledge-base-with-python"></a>Snabbstart: Få svar på en fråga med hjälp av en kunskapsbas med Python
 
@@ -43,6 +43,8 @@ Koden för den här snabbstarten finns i lagringsplatsen [https://github.com/Azu
 Längst upp i filen `get-answer-3x.py` lägger du till nödvändiga beroenden i projektet:
 
 [!code-python[Add the required dependencies](~/samples-qnamaker-python/documentation-samples/quickstarts/get-answer/get-answer-3x.py?range=1-2 "Add the required dependencies")]
+
+<!--TBD - reword this following paragraph -->
 
 Värden och vägen skiljer sig från hur de visas på sidan **Publicera**. Det beror på att Python-bibliotek inte tillåter någon routning i värden. Routningen som visas på sidan **Publicera** som en del av värden har flyttats till flödet.
 

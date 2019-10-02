@@ -10,12 +10,12 @@ ms.topic: quickstart
 description: Snabb Kubernetes utveckling med behållare, mikrotjänster och Java på Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes service, behållare, Java, Helm, service nät, service nät-routning, kubectl, K8s
 manager: gwallace
-ms.openlocfilehash: 160787ba9766d27f9497b4fd6822fc5bc25cd4ba
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 2154ec3ae99ae816b970c96ffde435f1a3366e99
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695522"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815863"
 ---
 # <a name="quickstart-debug-and-iterate-with-visual-studio-code-and-java-on-kubernetes-using-azure-dev-spaces"></a>Snabbstart: Felsöka och iterera med Visual Studio Code och Java på Kubernetes med hjälp av Azure dev Spaces
 
@@ -50,6 +50,9 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --gen
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>Aktivera Azure dev Spaces i ditt AKS-kluster
 
 `use-dev-spaces` Använd kommandot för att aktivera dev Spaces på ditt AKS-kluster och följ anvisningarna. Kommandot nedan aktiverar dev-utrymmen i *MyAKS* -klustret i gruppen *MyResourceGroup* och skapar ett *standard* dev-utrymme.
+
+> [!NOTE]
+> Kommandot `use-dev-spaces` installerar även Azure dev Spaces CLI om det inte redan är installerat. Det går inte att installera Azure dev Spaces CLI i Azure Cloud Shell.
 
 ```cmd
 $ az aks use-dev-spaces -g MyResourceGroup -n MyAKS

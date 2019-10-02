@@ -1,6 +1,6 @@
 ---
-title: Artikel om kända problem/Överflyttnings begränsningar med online-migreringar till Azure Database for MySQL | Microsoft Docs
-description: Läs om kända problem/begränsningar för migrering med online-migreringar till Azure Database for MySQL.
+title: Artikel om kända problem/migrerings begränsningar med online-migrering från PostgreSQL till Azure Database for PostgreSQL-enskild server | Microsoft Docs
+description: Läs om kända problem/begränsningar för migrering med online-migrering från PostgreSQL till Azure Database for PostgreSQL.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -10,17 +10,17 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 08/06/2019
-ms.openlocfilehash: 56758e2962adb41c9876171c89b37263a70ed0e4
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.date: 10/03/2019
+ms.openlocfilehash: 891e8a261e092de0ffcef3941dd48f01942a8030
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743544"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802578"
 ---
-# <a name="known-issuesmigration-limitations-with-online-migrations-to-azure-db-for-postgresql"></a>Kända problem/migrerings begränsningar med online-migreringar till Azure DB för PostgreSQL
+# <a name="known-issuesmigration-limitations-with-online-migrations-from-postgresql-to-azure-db-for-postgresql-single-server"></a>Kända problem/migrerings begränsningar med online-migreringar från PostgreSQL till Azure DB för PostgreSQL-enskild server
 
-Kända problem och begränsningar som är kopplade till online-migreringar från PostgreSQL till Azure Database for PostgreSQL beskrivs i följande avsnitt.
+Kända problem och begränsningar som är kopplade till online-migrering från PostgreSQL till Azure Database for PostgreSQL-enskild server beskrivs i följande avsnitt.
 
 ## <a name="online-migration-configuration"></a>Konfiguration av online-migrering
 
@@ -32,7 +32,7 @@ Kända problem och begränsningar som är kopplade till online-migreringar från
 
 - Om du vill aktivera logisk replikering i filen **Source postgresql postgresql. conf** anger du följande parametrar:
   - **wal_level** = logisk
-  - **max_replication_slots** = [Max antal databaser för migrering]; Om du vill migrera 4 databaser ställer du in värdet på 4
+  - **max_replication_slots** = [Max antal databaser för migrering]; Om du vill migrera fyra databaser ställer du in värdet på 4
   - **max_wal_senders** = [antal databaser som körs samtidigt]; det rekommenderade värdet är 10
 - Lägg till DMS-agentens IP-adress till källan PostgreSQL pg_hba. conf
   1. Anteckna DMS-IP-adressen när du har slutfört etableringen av en instans av DMS.
@@ -42,7 +42,7 @@ Kända problem och begränsningar som är kopplade till online-migreringar från
 
 - Användaren måste ha behörigheten Super på den server som är värd för käll databasen
 - Förutom att ha ENUM i käll databasens schema måste käll-och mål databasens scheman överensstämma.
-- Schemat i mål Azure Database for PostgreSQL får inte ha sekundär nycklar. Använd följande fråga om du vill ta bort sekundär nycklar:
+- Schemat i mål Azure Database for PostgreSQL-en server får inte ha sekundär nycklar. Använd följande fråga om du vill ta bort sekundär nycklar:
 
     ```
                                 SELECT Queries.tablename
@@ -73,7 +73,7 @@ Kända problem och begränsningar som är kopplade till online-migreringar från
 
     Kör släpp sekundärnyckeln (som är den andra kolumnen) i frågeresultatet.
 
-- Schemat i mål Azure Database for PostgreSQL får inte ha några utlösare. Använd följande för att inaktivera utlösare i mål databasen:
+- Schemat i mål Azure Database for PostgreSQL-en server får inte ha några utlösare. Använd följande för att inaktivera utlösare i mål databasen:
 
      ```
     SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGGERS WHERE TRIGGER_SCHEMA = 'your_schema';

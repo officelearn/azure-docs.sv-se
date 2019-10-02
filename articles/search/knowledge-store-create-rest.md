@@ -6,14 +6,14 @@ services: search
 ms.service: search
 ms.subservice: cognitive-search
 ms.topic: tutorial
-ms.date: 09/13/2019
+ms.date: 10/01/2019
 ms.author: laobri
-ms.openlocfilehash: ae0694c4c79527ef3b64ad68d32ef3bce0150462
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: HT
+ms.openlocfilehash: e28fa919c4c656b9ceb1d34806c3ef08aec2df2c
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703575"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719926"
 ---
 # <a name="create-an-azure-search-knowledge-store-using-rest"></a>Skapa en Azure Search kunskaps lager med hjälp av REST
 
@@ -29,7 +29,7 @@ När du har skapat kunskaps lagret kan du lära dig mer om att komma åt det hä
 
 + [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempel data och kunskaps lagret. Ditt lagrings konto måste använda samma plats (till exempel västra USA) för din Azure Search-tjänst. *Konto typen* måste vara *StorageV2 (generell användning v2)* (standard) eller *Storage (generell användning v1)* .
 
-+ Rekommenderat: [Postman Desktop-appen](https://www.getpostman.com/) för att skicka begär anden till Azure Search. Du kan använda REST API med valfritt verktyg som kan arbeta med HTTP-förfrågningar och-svar. Postman är ett bra alternativ för att utforska REST-API: er och används i den här artikeln. Dessutom innehåller [käll koden](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) för den här artikeln en Postman-samling med begär Anden. 
++ Rekommenderat: [Postman Desktop-appen](https://www.getpostman.com/) för att skicka begär anden till Azure Search. Du kan använda REST API med valfritt verktyg som kan arbeta med HTTP-förfrågningar och-svar. Postman är ett bra alternativ för att utforska REST-API: er och används i den här artikeln. Dessutom innehåller [käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) för den här artikeln en Postman-samling med begär Anden. 
 
 ## <a name="2---store-the-data"></a>2 – lagra data
 
@@ -53,7 +53,7 @@ Läs in CSV-filen för hotell granskningar i Azure Blob Storage så att den kan 
 
 ## <a name="3---configure-postman"></a>3 – Konfigurera PostMan
 
-Ladda ned [käll koden för Postman-samlingen](https://github.com/Azure-Samples/azure-search-postman-samples/knowledge-store/KnowledgeStore.postman_collection.json) och importera den till Postman med hjälp av **fil, importera.** .. Växla till fliken **samlingar** och klicka på knappen **...** och välj **Redigera**. 
+Ladda ned [käll koden för Postman-samlingen](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) och importera den till Postman med hjälp av **fil, importera.** .. Växla till fliken **samlingar** och klicka på knappen **...** och välj **Redigera**. 
 
 ![Postman-app som visar navigering](media/knowledge-store-create-rest/postman-edit-menu.png "navigera till redigerings menyn i Postman")
 
@@ -88,7 +88,7 @@ När du skapar ett kunskaps lager måste du skicka fyra HTTP-förfrågningar:
 1. En skicka begäran om att skapa färdigheter. Färdigheter anger hur många som ska användas för dina data och kunskaps lagrets struktur.
 1. En skicka-begäran för att skapa indexeraren. Att köra indexeraren läser data, tillämpar färdigheter och lagrar resultaten. Du måste köra den här begäran senast.
 
-[Käll koden](https://github.com/Azure-Samples/azure-search-postman-searches/Tutorial/Knowledge_Store/KnowledgeStore.postman_collection.json) innehåller en Postman-samling med dessa fyra förfrågningar. Om du vill utfärda begär Anden växlar du till begärans flik i Postman och lägger till `api-key`-och `Content-Type`-begärandehuvuden. Ange värdet för `api-key` till `{{admin-key}}`. Ange värdet `Content-type` till `application/json`. 
+[Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) innehåller en Postman-samling med dessa fyra förfrågningar. Om du vill utfärda begär Anden växlar du till begärans flik i Postman och lägger till `api-key`-och `Content-Type`-begärandehuvuden. Ange värdet för `api-key` till `{{admin-key}}`. Ange värdet `Content-type` till `application/json`. 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot som visar Postman-gränssnittet för huvuden @ no__t-1

@@ -5,15 +5,15 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/11/2019
+ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: d4d2a843248985c4fe17bf5401b261862d71fecf
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: a8a2ff5e98948030609328a3de33399ede154a3d
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383031"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71815690"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Hantera IoT Central från Azure Portal
 
@@ -40,6 +40,8 @@ Välj nu **Skapa**.
 ![Hanterings Portal: IoT Central resurs](media/howto-manage-iot-central-from-portal/image0c1.png)
 
 Fyll i alla fält i formuläret. Det här formuläret liknar det formulär som du fyller i för att skapa program på webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) . Mer information finns i snabb starten för att [skapa ett IoT Central-program](quick-deploy-iot-central.md) .
+
+**Plats** är den fysiska plats eller det [geografiskt](https://azure.microsoft.com/global-infrastructure/geographies/) område där du vill skapa ditt program. Normalt bör du välja den plats som är fysiskt närmast dina enheter för att få optimala prestanda. Du kan se de regioner där Azure IoT Central är tillgängligt på sidan [produkter som är tillgängliga efter region](https://azure.microsoft.com/global-infrastructure/services/?products=iot-central) . När du har valt en plats kan du inte flytta programmet till en annan plats senare.
 
 > [!NOTE]
 > För **hands versions** mal len är för närvarande endast tillgänglig i regionerna **Nord Europa** och **centrala USA** .

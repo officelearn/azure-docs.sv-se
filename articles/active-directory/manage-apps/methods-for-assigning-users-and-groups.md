@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13c9003baaca11dce5a2192a8183674faddfa6dc
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: bd66df381e11582b30ded5e3b529070357f35ad2
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967286"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71720293"
 ---
 # <a name="assign-users-and-groups-to-an-application-in-azure-active-directory"></a>Tilldela användare och grupper till ett program i Azure Active Directory
 Den här artikeln visar hur du tilldelar användare eller grupper till ett program i Azure Active Directory (AD Azure). Användare måste först tilldelas till ett program innan en administratör kan ge dem åtkomst för att göra följande:
@@ -50,7 +50,7 @@ Innan du kan tilldela användare och grupper till ett program, måste du kräva 
 
 Följ stegen nedan om du vill tilldela en eller flera användare till ett program direkt:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör eller som en program ägare som inte är administratör.**
 
 2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
@@ -88,7 +88,7 @@ Efter en kort tids period kommer de användare du har valt att kunna starta prog
 
 Följ stegen nedan om du vill tilldela en eller flera grupper till ett program direkt:
 
-1.  Öppna den [ **Azure-portalen** ](https://portal.azure.com/) och logga in som en **Global administratör.**
+1.  Öppna [**Azure Portal**](https://portal.azure.com/) och logga in som **Global administratör** eller som en icke-administratörs program ägare med en Azure AD Premium licens tilldelad.
 
 2.  Öppna den **Azure Active Directory-tillägget** genom att klicka på **alla tjänster** överst i den huvudsakliga vänstra navigeringsmenyn.
 
@@ -150,7 +150,7 @@ Följ stegen nedan om du vill aktivera självbetjäningsprogram åtkomst till et
 
 10. **Valfritt:** Om du vill kräva ett affärs godkännande innan användarna tillåts måste du ställa in **Kräv godkännande innan jag beviljar åtkomst till det här programmet?** växla till **Ja**.
 
-11. **Valfritt: För program som bara använder lösen ord för enkel inloggning** , om du vill att dessa affärs god kännare ska kunna ange lösen ord som skickas till det här programmet för godkända användare, ställer du in **Tillåt god kännare att ange användarens lösen ord för det här program?** Växla till **Ja**.
+11. **Valfritt: För program som bara använder lösen ord för enkel inloggning**  om du vill att de affärs god kännarna ska kunna ange lösen ord som skickas till det här programmet för godkända användare ställer du in alternativet **Tillåt god kännare att ange användarens lösen ord för det här programmet?** Växla till **Ja**.
 
 12. **Valfritt:** Om du vill ange de affärs god kännare som tillåts att godkänna åtkomst till det här programmet klickar du på väljaren bredvid den etikett **som har behörighet att godkänna åtkomst till det här programmet?** om du vill välja upp till 10 enskilda affärs god kännare.
 

@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 09/21/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: 8e52a37376e91e5c529cddd9b211d81c4b2fa442
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 31bd85ca9b106758dbb7bfd399b7a493ea7fea9f
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203839"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803091"
 ---
 # <a name="quickstart-qna-maker-client-library-for-net"></a>Snabbstart: QnA Maker klient bibliotek för .NET
 
@@ -30,6 +30,8 @@ Använd QnA Maker klient bibliotek för .NET för att:
 
 [Referens dokumentation](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker?view=azure-dotnet) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Knowledge.QnAMaker) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Knowledge.QnAMaker/)  |  [ exempelC# ](https://github.com/Azure-Samples/cognitive-services-qnamaker-csharp)
 
+[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
+
 ## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
@@ -41,7 +43,7 @@ Använd QnA Maker klient bibliotek för .NET för att:
 
 Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på. Skapa en resurs för QnA Maker med hjälp av [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) eller [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) på den lokala datorn. 
 
-När du har fått en nyckel från resursen [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med `QNAMAKER_SUBSCRIPTION_KEY`namnet.
+När du har fått en nyckel och slut punkt för resursen [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, med namnet `QNAMAKER_SUBSCRIPTION_KEY`. Resurs namnet används som en del av slut punktens URL.
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
 
@@ -113,13 +115,16 @@ I **main** -metoden skapar du en variabel för resursens Azure-nyckel som hämta
 
 Skapa sedan ett [ApiKeyServiceClientCredentials](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.apikeyserviceclientcredentials?view=azure-dotnet) -objekt med din nyckel och Använd den med slut punkten för att skapa ett [QnAMakerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerclient?view=azure-dotnet) -objekt.
 
-Om nyckeln inte finns i `westus` regionen, som exempel koden visar, ändrar du plats för **slut punkts** variabeln. Den här platsen finns på **översikts** sidan för din QNA Maker-resurs i Azure Portal.
+Ändra **slut punkts** variabeln `<your-custom-domain>` till namnet på din anpassade domän. Den här platsen finns på **översikts** sidan för din QNA Maker-resurs i Azure Portal.
 
-[!code-csharp[Authorization to resource key](~/samples-qnamaker-csharp/documentation-samples/quickstarts/Knowledgebase_Quickstart/Program.cs?name=Authorization)]
+```csharp
+var subscriptionKey = Environment.GetEnvironmentVariable("QNAMAKER_SUBSCRIPTION_KEY");
+var client = new QnAMakerClient(new ApiKeyServiceClientCredentials(subscriptionKey)) { Endpoint = "https://<your-custom-domain>.api.cognitive.microsoft.com" };
+```
 
 ## <a name="authenticate-the-runtime-for-generating-an-answer"></a>Autentisera körningen för att skapa ett svar
 
-I **main** -metoden skapar du en variabel för resursens Azure-nyckel som hämtas från en miljövariabler `QNAMAKER_ENDPOINT_HOSTNAME` med `QNAMAKER_ENDPOINT_KEY`namnet och. När du publicerar din kunskaps bas returneras dessa värden. När du har publicerat kan du hitta de här inställningarna på sidan **Inställningar** på QNA Maker-portalen. 
+I **main** -metoden skapar du en variabel för resursens autentisering som hämtas från en miljövariabler med namnet `QNAMAKER_ENDPOINT_HOSTNAME` och `QNAMAKER_ENDPOINT_KEY`. När du publicerar din kunskaps bas returneras dessa värden. När du har publicerat kan du hitta de här inställningarna på sidan **Inställningar** på QNA Maker-portalen. 
 
 Skapa en [QnAMakerRuntimeClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.qnamakerruntimeclient?view=azure-dotnet) för att söka i kunskaps basen för att skapa ett svar eller träna från aktiv inlärning.
 

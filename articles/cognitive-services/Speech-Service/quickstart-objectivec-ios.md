@@ -10,14 +10,16 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: 01a2b9d5bad7d490f5ee9f6a21af5bc1308bdab1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d87fd06b45d1d3636c442d962daa79cf526e74f2
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68553659"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803271"
 ---
 # <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med hjälp av Speech SDK
+
+Snabb Starter är också tillgängliga för [tal syntes](quickstart-text-to-speech-objectivec-ios.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
@@ -34,8 +36,6 @@ Gå igenom den här listan med förhandskrav innan du sätter igång:
 ## <a name="get-the-speech-sdk-for-ios"></a>Skaffa Speech SDK för iOS
 
 [!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
-
-Den aktuella versionen av Cognitive Services Speech SDK är `1.6.0`.
 
 Cognitive Services Speech SDK för iOS är för närvarande distribuerad som ett kakao-ramverk.
 Den kan hämtas [härifrån.](https://aka.ms/csspeech/iosbinary) Ladda ned filen till arbetskatalogen.
@@ -87,10 +87,10 @@ Ersätt den automatiskt genererade XML:en med följande kod:
     <string>Need microphone access for speech recognition from microphone.</string>
     ```
 
-## <a name="building-and-running-the-sample"></a>Skapa och köra exemplet
+## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
 1. Gör felsökningsresultatet synligt (**View** > **Debug Area** > **Activate Console**) (Visa > Felsökningsområde > Aktivera konsol).
-1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på menyn **produkt** > **mål** .
+1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på**mål** menyn för **produkt** > .
 1. Skapa och kör exempelkoden i iOS-simulatorn genom att välja **Product** > **Run** (Produkt > Kör) på menyn eller genom att klicka på **uppspelningsknappen**.
 1. När du har klickat på knappen ”Recognize (File)” (Identifiera (fil)) i appen bör du se innehållet i ljudfilen ”What's the weather like?” (Vad är det för väder?) på den nedre delen av skärmen.
 

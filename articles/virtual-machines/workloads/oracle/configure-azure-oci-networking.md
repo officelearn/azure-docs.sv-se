@@ -13,19 +13,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/02/2019
 ms.author: rogirdh
-ms.openlocfilehash: eb5d03d50a99978e4f3ee58fba206dd730f7d5fe
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 63543c0ac34536b736bd4b8cdbd47fdd98e9f9be
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100142"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802213"
 ---
 # <a name="set-up-a-direct-interconnection-between-azure-and-oracle-cloud-infrastructure"></a>Konfigurera en direkt anslutning mellan Azure och Oracle Cloud Infrastructure  
 
 För att skapa en [integrerad miljö för flera moln](oracle-oci-overview.md) (för hands version), erbjuder Microsoft och Oracle direkt samtrafik mellan Azure och Oracle Cloud Infrastructure (OCI) via [ExpressRoute](../../../expressroute/expressroute-introduction.md) och [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnectoverview.htm). Med ExpressRoute och FastConnect-samtrafik kan kunderna uppleva låg latens, högt data flöde, privat direkt anslutning mellan de två molnen.
 
 > [!IMPORTANT]
-> Anslutningen mellan Microsoft Azure och OCI är i förhands gransknings fasen. Om du vill aktivera anslutning med låg latens mellan Azure och OCI måste din Azure-prenumeration först vara vit – anges för den här funktionen. Du måste registrera dig i förhands granskningen genom att fylla i det här korta [enkät formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du kan inte använda funktionen förrän du får ett bekräftelse meddelande. Du kan också kontakta din Microsoft-representant för att vara aktive rad för den här för hands versionen. Åtkomst till för hands versions funktionen är beroende av att Microsoft är tillgänglig och begränsad av Microsoft. Slut för ande av undersökningen garanterar inte åtkomst. Den här för hands versionen tillhandahålls utan service nivå avtal och bör inte användas för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se [kompletterande användnings villkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för Microsoft Azure för hands versionerna av mer information. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
+> Anslutningen mellan Microsoft Azure och OCI är i förhands gransknings fasen. För att kunna upprätta en anslutning med låg latens mellan Azure och OCI måste din Azure-prenumeration först aktive ras för den här funktionen. Du måste registrera dig i förhands granskningen genom att fylla i det här korta [enkät formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRyzVVsi364tClw522rL9tkpUMVFGVVFWRlhMNUlRQTVWSTEzT0dXMlRUTyQlQCN0PWcu). Du får ett e-postmeddelande tillbaka när din prenumeration har registrerats. Du kan inte använda funktionen förrän du får ett bekräftelse meddelande. Du kan också kontakta din Microsoft-representant för att vara aktive rad för den här för hands versionen. Åtkomst till för hands versions funktionen är beroende av att Microsoft är tillgänglig och begränsad av Microsoft. Slut för ande av undersökningen garanterar inte åtkomst. Den här för hands versionen tillhandahålls utan service nivå avtal och bör inte användas för produktions arbets belastningar. Vissa funktioner kanske inte stöds eller har begränsad funktionalitet, eller så är de inte tillgängliga på alla Azure-platser. Se [kompletterande användnings villkor](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) för Microsoft Azure för hands versionerna av mer information. Vissa aspekter av funktionen kan ändras innan den är allmänt tillgänglig (GA).
 
 Följande bild visar en översikt över sammanlänkningen:
 
@@ -37,7 +37,7 @@ Följande bild visar en översikt över sammanlänkningen:
 
 * Anslutning är bara möjlig när en peering-plats i Azure ExpressRoute är i närheten av eller på samma peering-plats som OCI-FastConnect. Se [begränsningar för för hands versionen](oracle-oci-overview.md#preview-limitations).
 
-* Din Azure-prenumeration måste vara vit listas för den här förhands gransknings funktionen.
+* Din Azure-prenumeration måste vara aktive rad för den här för hands versions funktionen.
 
 ## <a name="configure-direct-connectivity-between-expressroute-and-fastconnect"></a>Konfigurera direkt anslutning mellan ExpressRoute och FastConnect
 
@@ -57,7 +57,7 @@ Följande bild visar en översikt över sammanlänkningen:
 1. Skapa en gateway för dynamisk routning (DRG). Du behöver det när du skapar din FastConnect-krets. Mer information finns i dokumentationen för [Dynamic routing Gateway](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm) .
 1. Skapa en FastConnect-krets under din Oracle-klient. Mer information finns i Oracle- [dokumentationen](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/azure.htm).
   
-    * Under konfiguration av FastConnect väljer **du Microsoft Azure: ExpressRoute** som Provider.
+    * Under FastConnect-konfiguration väljer du **Microsoft Azure: ExpressRoute @ no__t-0 som Provider.
     * Välj den gateway för dynamisk routning som du etablerade i föregående steg.
     * Välj den bandbredd som ska tillhandahållas. För bästa prestanda måste bandbredden matcha den bandbredd som väljs när du skapar ExpressRoute-kretsen.
     * I **Provider service Key**klistrar du in ExpressRoute-tjänst nyckeln.

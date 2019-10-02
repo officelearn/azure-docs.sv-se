@@ -154,7 +154,7 @@ Utför följande steg om en intern proxyserver är mellan hanterings gruppen och
 1. Öppna Operations Manager-konsolen och välj arbetsytan **Administration**.
 1. Expandera Operations Management Suite och klicka sedan på **Anslutningar**.
 1. I vyn OMS-anslutning klickar du på **Konfigurera proxyserver**.
-1. I **guiden Operations Management Suite: Sidan proxyserver väljer du **Använd en proxyserver för att få åtkomst till Operations Management Suite**och anger sedan URL: en med port numret, till exempel, http://corpproxy:80 och klickar sedan på **Slutför.****
+1. I **guiden Operations Management Suite: Sidan proxyserver** väljer du **Använd en proxyserver för att få åtkomst till Operations Management Suite**och anger sedan URL: en med port numret, till exempel, http://corpproxy:80 och klickar sedan på **Slutför.**
 
 Om proxyservern kräver autentisering utför du följande steg för att konfigurera autentiseringsuppgifter och inställningar som måste spridas till hanterade datorer som rapporterar till Azure Monitor i hanterings gruppen.
 

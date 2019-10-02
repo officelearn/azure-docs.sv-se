@@ -58,8 +58,8 @@ Sammanfoga sedan de två filerna tillsammans:
 
 Data uppsättningen har flera typer av statistik för varje e-post:
 
-* Kolumner som **Word\_FREQ\_* Word*** anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **Word\_-FREQ\_** till exempel är **1**, *gör*1% av alla ord i e-postmeddelandet.
-* Kolumner som **char\_FREQ\_* char*** anger procent andelen av alla tecken i e-postmeddelandet som är *char*.
+* Kolumner som **Word\_FREQ\_*Word*** anger procent andelen ord i e-postmeddelandet som matchar *Word*. Om **Word\_-FREQ\_** till exempel är **1**, *gör*1% av alla ord i e-postmeddelandet.
+* Kolumner som **char\_FREQ\_*char*** anger procent andelen av alla tecken i e-postmeddelandet som är *char*.
 * **kapital\_kör\_längd\_längsta** är den längsta en sekvens med versaler.
 * **kapital\_kör\_längd\_genomsnittliga** är den genomsnittliga alla sekvenser av versaler.
 * **kapital\_kör\_längd\_totala** är den totala längden på alla sekvenser av versaler.

@@ -164,7 +164,7 @@ När händelserna flyttas till Log Analytics kan du köra följande [fråga](/az
 1. Under **åtgärder**väljer du **skapa åtgärds grupp**. Sidan **Lägg till åtgärds grupp** öppnas.
 1. I **Åtgärds grupp namn**skriver du *myActionGroup*.
 1. Skriv **myActionGroup**i **kort namn**.
-1. I **resurs grupp**väljer du * myResourceGroupAvailability * *.
+1. I **resurs grupp**väljer du *myResourceGroupAvailability* *.
 1. Under åtgärder, under **Åtgärds namn** skriver du **e-post**och väljer sedan **e-post/SMS/push/röst**. Sidan **e-post/SMS/push/Voice** öppnas.
 1. Välj **e**-postadress, Skriv in din e-postadress och välj sedan **OK**.
 1. På sidan **Lägg till åtgärds grupp** väljer du **OK**. 

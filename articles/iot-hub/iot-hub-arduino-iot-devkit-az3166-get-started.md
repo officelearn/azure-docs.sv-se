@@ -293,7 +293,7 @@ I stället för att tillhandahålla Azure-IoT Hub och-enhet från Azure Portal k
 
     ![Välj tavla och COM](media/iot-hub-arduino-devkit-az3166-get-started/getting-started/select-com.png)
 
-1. Klicka `F1` för att öppna kommando-paletten, Skriv **och välj Azure IoT Device Workbench: Konfigurera enhets inställningar... och välj sedan **Konfigurera anslutnings sträng för enhet > väljer IoT Hub enhets anslutnings sträng.****
+1. Klicka `F1` för att öppna kommando-paletten, Skriv **och välj Azure IoT Device Workbench: Konfigurera enhets inställningar...** och välj sedan **Konfigurera anslutnings sträng för enhet > väljer IoT Hub enhets anslutnings sträng.**
 
 1. På DevKit trycker du på **knappen a**, push och släpper knappen **Återställ** och släpper sedan **knappen A**. Din DevKit går in i konfigurations läge och sparar anslutnings strängen.
 

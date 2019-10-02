@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: d24b22ad7f306e6334369ec859f5f01b2d32184e
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
-ms.translationtype: HT
+ms.openlocfilehash: c6a424ed6036016839f03f50f90ad5d911b05fad
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695836"
+ms.locfileid: "71710008"
 ---
-# <a name="example-class-types-on-azure-lab-services"></a>Exempel på klass typer på Azure Lab Services
-Den här artikeln innehåller en lista över exempel klasser som du kan konfigurera på Azure Lab Services.
+# <a name="class-types-overview---azure-lab-services"></a>Översikt över klass typer – Azure Lab Services
+Med Azure Lab Services kan du snabbt konfigurera klass rums labb miljöer i molnet. Artiklar i det här avsnittet ger vägledning om hur du ställer in flera olika typer av klass rums labb med Azure Lab Services.
 
 ## <a name="deep-learning-in-natural-language-processing"></a>Djup inlärning i naturlig språk bearbetning
 Du kan ställa in ett labb som fokuserar på djup inlärning i naturlig språk bearbetning (NLP) med hjälp av Azure Lab Services. NLP (Natural Language Processing) är en form av artificiell intelligens (AI) som gör det möjligt för datorer med översättning, tal igenkänning och andra funktioner för språk förståelse. Studenter som tar en NLP-klass får en virtuell Linux-dator (VM) för att lära sig hur man använder neurala-nätverks algoritmer för att utveckla djup inlärnings modeller som används för att analysera skrivna mänskliga språk. 

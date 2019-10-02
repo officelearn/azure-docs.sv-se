@@ -10,7 +10,7 @@ ms.date: 09/13/2019
 ms.author: laobri
 ms.openlocfilehash: ae0694c4c79527ef3b64ad68d32ef3bce0150462
 ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/01/2019
 ms.locfileid: "71703575"

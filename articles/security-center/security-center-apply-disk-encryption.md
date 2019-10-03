@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: 0ae2b695a64e55b493453549627860872166ed25
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b3d05e71726ae37dd30bbb68ceb84b67a3bef0e5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202499"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71822281"
 ---
 # <a name="apply-disk-encryption-in-azure-security-center"></a>Använd disk kryptering i Azure Security Center
 Azure Security Center rekommenderar att du använder disk kryptering om du har virtuella Windows-eller Linux-diskar som inte är krypterade med Azure Disk Encryption. Med disk kryptering kan du kryptera dina virtuella Windows-och Linux IaaS-diskar.  Kryptering rekommenderas både för OS- och datavolymer på den virtuella datorn.
@@ -43,7 +43,7 @@ För att kryptera Azure-Virtual Machines som har identifierats av Security Cente
 * Hämta och kör skriptet Azure Disk Encryption förutsättningar Azure PowerShell.
 * Kryptera dina virtuella datorer.
 
-[Kryptera en virtuell Windows IaaS-dator med Azure PowerShell](../security/azure-disk-encryption-linux-powershell-quickstart.md) vägleder dig genom de här stegen. Det här avsnittet förutsätter att du använder en Windows-klientdator från vilken du konfigurerar disk kryptering.
+[Kryptera en virtuell Windows IaaS-dator med Azure PowerShell](../virtual-machines/linux/disk-encryption-powershell-quickstart.md) vägleder dig genom de här stegen. Det här avsnittet förutsätter att du använder en Windows-klientdator från vilken du konfigurerar disk kryptering.
 
 Det finns många metoder som kan användas för Azure Virtual Machines. Om du redan känner till Azure PowerShell eller Azure CLI väl kanske du hellre vill använda alternativa metoder. Läs mer om de här andra metoderna i [Azure Disk Encryption](../security/azure-security-disk-encryption.md).
 

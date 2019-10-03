@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 7f47798ec3d0be8885853454ced8c1ea4c2a268c
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 94e9a484afe42f8621380fa685f8bc9faeb894d3
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
 ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720396"
+ms.locfileid: "71816041"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -544,7 +544,15 @@ En hanterad instans placerar utförlig information i fel loggarna. Det finns må
 
 ## <a name="Issues"></a>Kända problem
 
-### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongioing-database-restore"></a>Ändra tjänst nivå och skapa instans åtgärder blockeras av ongioing Database Restore
+### <a name="wrong-error-returned-while-trying-to-remove-a-file-that-is-not-empty"></a>Ett fel fel returnerades vid försök att ta bort en fil som inte är tom
+
+**Ikraftträdande** Okt 2019
+
+SQL Server/hanterad instans [tillåter inte att användaren släpper en fil som inte är tom](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database.md#Prerequisites). Om du försöker ta bort en data fil som inte är tom med `ALTER DATABASE REMOVE FILE`-instruktionen returneras inte felet `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` omedelbart. Den hanterade instansen fortsätter att försöka släppa filen och åtgärden kommer att Miss sen efter 30 min med `Internal server error`.
+
+**Lösning**: Ta bort innehållet i filen med kommandot `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Om det här är den enda filen i fil gruppen måste du ta bort data från tabellen eller partitionen som är kopplade till den här fil gruppen innan du krymper filen och eventuellt läsa in dessa data till en annan tabell/partition.
+
+### <a name="change-service-tier-and-create-instance-operations-are-blocked-by-ongoing-database-restore"></a>Ändra tjänst nivå och skapa instans åtgärder blockeras av pågående databas återställning
 
 **Ikraftträdande** Sep 2019
 

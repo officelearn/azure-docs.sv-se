@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b38764f7a615cce410ab3cf3c4977f558d5c5d38
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 2922aa32bab2d9d7146a03757850d4b724ad7570
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315018"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71822255"
 ---
 # <a name="set-up-sign-in-with-a-salesforce-saml-provider-by-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med en Salesforce-SAML-provider genom att använda anpassade principer i Azure Active Directory B2C
 
@@ -195,6 +195,8 @@ Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgär
 3. Spara filen *TrustFrameworkExtensions. XML* och ladda upp den igen för verifiering.
 
 ## <a name="create-an-azure-ad-b2c-application"></a>Skapa ett Azure AD B2C program
+
+Kommunikation med Azure AD B2C sker via ett program som du registrerar i B2C-klienten. Det här avsnittet innehåller valfria steg som du kan utföra för att skapa ett testprogram om du inte redan har gjort det.
 
 [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 

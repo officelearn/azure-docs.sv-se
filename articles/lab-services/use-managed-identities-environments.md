@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: spelluru
-ms.openlocfilehash: fc06d5d36cb6004c79bec79838c8f0d51961d560
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
-ms.translationtype: HT
+ms.openlocfilehash: d1dd059f1a6f9ce96b27d4fe1f214978dfc06a8f
+ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720155"
+ms.locfileid: "71815988"
 ---
 # <a name="use-azure-managed-identities-to-deploy-environments-in-a-lab"></a>Använd Azure Managed Identities för att distribuera miljöer i ett labb 
 Som labb ägare kan du använda en hanterad identitet för att distribuera miljöer i ett labb. Den här funktionen är användbar i scenarier där miljön innehåller eller har referenser till Azure-resurser, till exempel nyckel valv, delade avbildnings gallerier och nätverk som är externa i miljöns resurs grupp. Det gör det möjligt att skapa sand Box miljöer som inte är begränsade till resurs gruppen för den miljön.
@@ -54,7 +54,7 @@ Om du vill ändra den användar hanterade identitet som är tilldelad till labbe
 1. När du har skapat en identitet noterar du resurs-ID för den här identiteten. Den bör se ut som i följande exempel: 
 
     `/subscriptions/0000000000-0000-0000-0000-00000000000000/resourceGroups/<RESOURCE GROUP NAME> /providers/Microsoft.ManagedIdentity/userAssignedIdentities/<NAME of USER IDENTITY>`.
-1. Med hjälp av **Fiddler**kör du ett sätt-kommando som liknar följande exempel. För namnet på tjänstens löpare rekommenderar vi att du använder namnet på identiteten även om du kan ange ett namn som du vill ha. 
+1. Utför en skicka https-metod för att lägga till en ny `ServiceRunner`-resurs i labbet som liknar följande exempel. Service löpare-resursen är en proxykonfiguration för att hantera och kontrol lera hanterade identiteter i DevTest Labs. Namnet på tjänstens löpare kan vara ett giltigt namn, men vi rekommenderar att du använder namnet på den hanterade identitets resursen. 
  
     ```json
     PUT https://management.azure.com/subscriptions/{subId}/resourceGroups/{rg}/providers/Microsoft.Devtestlab/labs/{yourlabname}/serviceRunners/{serviceRunnerName}

@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 03/15/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7cbddc4b7af546396a1a5a4c86d349a96054a6f3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 4c065e1970a01f7e3737f8bd99672c84f2019bfe
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726276"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71822324"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Tillägg för Azure Disk Encryption 
 
@@ -104,7 +104,7 @@ Innan du börjar bör du granska den [krav](azure-security-disk-encryption-prere
      ```
 
 ### <a name="bkmk_prereq-script"></a> Med hjälp av PowerShell-skript för Azure Disk Encryption krav
-Om du redan är bekant med kraven för Azure Disk Encryption kan du använda den [PowerShell-skript för Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Ett exempel på hur du använder det här PowerShell-skript finns i den [kryptera en virtuell dator-Snabbstart](azure-disk-encryption-linux-powershell-quickstart.md). Du kan ta bort kommentarerna från en del av skriptet, med början på rad 211, att kryptera alla diskar för befintliga virtuella datorer i en befintlig resursgrupp. 
+Om du redan är bekant med kraven för Azure Disk Encryption kan du använda den [PowerShell-skript för Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Ett exempel på hur du använder det här PowerShell-skript finns i den [kryptera en virtuell dator-Snabbstart](../virtual-machines/linux/disk-encryption-powershell-quickstart.md). Du kan ta bort kommentarerna från en del av skriptet, med början på rad 211, att kryptera alla diskar för befintliga virtuella datorer i en befintlig resursgrupp. 
 
 I följande tabell visas vilka parametrar som kan användas i PowerShell-skriptet: 
 
@@ -206,7 +206,7 @@ Använd den [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx
 
 ### <a name="prerequisites-for-os-disk-encryption"></a>Krav för OS-diskkryptering
 
-* Den virtuella datorn måste använda en distribution som är kompatibel med disk kryptering för operativ system [som anges i Azure Disk Encryption operativ system som stöds: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
+* Den virtuella datorn måste använda en distribution som är kompatibel med operativ systemets disk kryptering enligt listan @no__t i 0Azure disk kryptering som stöds: Linux](azure-security-disk-encryption-prerequisites.md#linux) 
 * Den virtuella datorn måste skapas från Marketplace-avbildning i Azure Resource Manager.
 * Azure virtuell dator med minst 4 GB RAM (rekommenderas är 7 GB).
 * (För RHEL och CentOS) Inaktivera SELinux. Om du vill inaktivera SELinux, se ”4.4.2. Inaktivera SELinux ”i den [SELinux användar- och Administrator's Guide](https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/SELinux_Users_and_Administrators_Guide/sect-Security-Enhanced_Linux-Working_with_SELinux-Changing_SELinux_Modes.html#sect-Security-Enhanced_Linux-Enabling_and_Disabling_SELinux-Disabling_SELinux) på den virtuella datorn.

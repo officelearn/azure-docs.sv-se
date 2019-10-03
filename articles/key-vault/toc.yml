@@ -66,12 +66,12 @@
       items:
         - name: Säkerhetsöversikt
           href: overview-security.md
-        - name: Inbyggda säkerhetskontroller
-          href: key-vault-security-controls.md
         - name: Säkerhetsvärldar
           href: key-vault-ovw-security-worlds.md
         - name: Säkra ditt nyckelvalv
           href: key-vault-secure-your-key-vault.md
+        - name: Inbyggda säkerhetskontroller
+          href: key-vault-security-controls.md
     - name: Mjuk borttagning
       href: key-vault-ovw-soft-delete.md
     - name: Begränsning
@@ -98,8 +98,12 @@
       items:
         - name: Rekommendationer
           href: security-recommendations.md
-    - name: Använda en hanterad identitet i App Service
-      href: managed-identity.md
+    - name: Autentisering
+      items:
+        - name: Använda en hanterad identitet i App Service
+          href: managed-identity.md
+        - name: Använda en princip för åtkomstkontroll
+          href: key-vault-group-permissions-for-apps.md
     - name: Azure Key Vault-loggning
       href: key-vault-logging.md
     - name: Åtkomst bakom brandväggar
@@ -114,8 +118,6 @@
       href: key-vault-soft-delete-cli.md
     - name: Använda mjuk borttagning i Key Vault med Azure PowerShell
       href: key-vault-soft-delete-powershell.md
-    - name: Bevilja åtkomst med hjälp av grupper
-      href: key-vault-group-permissions-for-apps.md
     - name: Konfigurera brandväggar och virtuella nätverk
       href: key-vault-network-security.md
     - name: Java Development

@@ -830,6 +830,8 @@
                   href: log-query/app-expression.md
                 - name: uttryck för arbetsyta
                   href: log-query/workspace-expression.md
+                - name: resursuttryck
+                  href: log-query/resource-expression.md
                 - name: Gör dina programdataresurser enhetliga
                   href: log-query/unify-app-resource-data.md
             - name: Exempel och vägledning

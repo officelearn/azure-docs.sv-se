@@ -261,6 +261,8 @@
       items:
         - name: Skapa ML-pipelines i Python
           href: how-to-create-your-first-pipeline.md
+        - name: Felsöka ML-pipelines
+          href: how-to-debug-pipelines.md
         - name: Azure-pipelines för CI/CD
           displayName: 'continuous, integration, delivery'
           href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/service/context/ml-context

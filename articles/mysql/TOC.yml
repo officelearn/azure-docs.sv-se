@@ -4,6 +4,8 @@
   items:
     - name: Vad är Azure DB for MySQL?
       href: overview.md
+    - name: Vilket MySQL-alternativ bör jag välja?
+      href: select-right-deployment-type.md
 - name: Snabbstarter
   expanded: true
   items:

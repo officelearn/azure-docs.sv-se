@@ -10,6 +10,8 @@
     - name: Snabbstart
       expanded: true
       items:
+        - name: Planera för nätverk
+          href: cloudsimple-network-checklist.md
         - name: Initiera och etablera kapacitet
           href: quickstart-create-cloudsimple-service.md
         - name: Konfigurera privat molnmiljö
@@ -144,6 +146,8 @@
               href: configure-server-vrealize-automation-endpoint.md
             - name: Migrera virtuella arbetsbelastningsdatorer till ett privat moln
               href: migrate-workloads.md
+            - name: Migrera med hjälp av Azure Data Box
+              href: migration-using-azure-data-box.md
             - name: Säkerställa hög tillgänglighet för program i VMware på Azure
               href: ensuring-high-availability.md
             - name: Välja en lösning för belastningsutjämning

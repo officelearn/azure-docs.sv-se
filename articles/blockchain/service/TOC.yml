@@ -47,6 +47,8 @@
       href: manage-cli.md
     - name: Hantera konsortium med PowerShell
       href: manage-consortium-powershell.md
+    - name: Använda Logic Apps
+      href: ethereum-logic-app.md
 - name: Resurser
   items:
     - name: Blockchain REST API

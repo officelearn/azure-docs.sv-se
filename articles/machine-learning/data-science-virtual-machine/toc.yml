@@ -4,10 +4,12 @@
 - name: Översikt
   expanded: true
   items:
-    - name: Vad är Data Science Virtual Machine?
+    - name: Vad är Data Science Virtual Machine (DSVM)?
       href: overview.md
     - name: Vad är Geo AI DSVM?
       href: geo-ai-dsvm-overview.md
+    - name: Verktyg som ingår med DSVM
+      href: tools-included.md
 - name: Snabbstarter
   expanded: true
   items:

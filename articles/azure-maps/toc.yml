@@ -27,6 +27,8 @@
           href: tutorial-geofence.md
         - name: Rumslig analys
           href: tutorial-iot-hub-maps.md
+        - name: EV-routning med Azure Notebooks (Python)
+          href: tutorial-ev-routing.md
 - name: Begrepp
   items:
     - name: Autentisering med Azure Maps

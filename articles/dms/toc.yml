@@ -65,8 +65,10 @@
           href: known-issues-azure-sql-online.md
         - name: Kända problem – Onlinemigrering till Azure DB för MySQL
           href: known-issues-azure-mysql-online.md
-        - name: Kända problem – onlinemigrering till Azure DB for PostgreSQL – enskild server
+        - name: Kända problem – Onlinemigrering från PostgreSQL till Azure DB for PostgreSQL – enskild server
           href: known-issues-azure-postgresql-online.md
+        - name: Kända problem – Onlinemigrering från Oracle till Azure DB for PostgreSQL – enskild server
+          href: known-issues-oracle-azure-postgresql-online.md
     - name: Videoklipp
       items:
         - name: Använda databasmigreringsguiden

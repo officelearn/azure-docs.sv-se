@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 947bfe85d94a5d11eeb54bd6b24c4c515af024d4
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9cdda62f0178a18897e3bc6c8cec6cfa943d3b1b
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490698"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709515"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Konfigurera ditt faktureringskonto för ett Microsoft-kundavtal
 
@@ -86,7 +86,7 @@ Ditt nya faktureringskonto förenklar faktureringen för din organisation och ge
 1. Du använder faktureringskontot för att hantera faktureringen för ditt Microsoft-kundavtal. Mer information om faktureringskonto finns i [förstå faktureringskonto](billing-mca-overview.md#your-billing-account).
 2. Du använder faktureringsprofilen för att hantera faktureringen för din organisation på ett liknande sätt som för din Enterprise-avtalsregistrering. Företagsadministratörer blir ägare till faktureringsprofilen. Mer information om faktureringsprofiler finns i [förstå faktureringsprofiler](billing-mca-overview.md#billing-profiles).
 3. Du kan använda ett fakturaavsnitt för att organisera dina kostnader utifrån dina behov, ungefär som avdelningar i din Enterprise-avtalsregistrering. Avdelning blir fakturaavsnitt, och avdelningsadministratörer blir ägare av respektive fakturaavsnitt. Mer information om fakturaavsnitt finns i [förstå fakturaavsnitt](billing-mca-overview.md#invoice-sections).
-4. De konton som skapades i ditt Enterprise-avtal stöds inte på det nya faktureringskontot. Kontots prenumerationer tillhör respektive fakturaavsnitt för sin avdelning. Kontoägare kan skapa och hantera prenumerationer för sina fakturaavsnitt.
+4. De konton som skapades i ditt Enterprise-avtal stöds inte på det nya faktureringskontot. Kontots prenumerationer tillhör respektive fakturaavsnitt för deras avdelning. Kontoägare kan skapa och hantera prenumerationer för sina fakturaavsnitt.
 
 ## <a name="changes-to-billing-administrator-access"></a>Ändringar av faktureringsadministratörers åtkomst
 

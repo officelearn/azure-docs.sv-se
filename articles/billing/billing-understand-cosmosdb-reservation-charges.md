@@ -6,15 +6,15 @@ author: rimman
 manager: kfile
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 04/13/2019
+ms.date: 09/30/2019
 ms.author: banders
 ms.reviewer: sngun
-ms.openlocfilehash: d5a13e4466234d73bafe8dbe76cae92955cf64bd
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d10418e5095a3331c343f805d2c8385aa4974ffc
+ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "60370755"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71701815"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-cosmos-db"></a>Förstå hur reservationsrabatten tillämpas för Azure Cosmos DB
 
@@ -22,7 +22,7 @@ När du har köpt en reserverad Azure Cosmos DB-kapacitet tillämpas reservation
 
 ## <a name="how-reservation-discount-is-applied"></a>Så tillämpas reservationsrabatten
 
-Reservationsrabatter *går förlorade om de inte används*. Om du inte har några matchande resurser för en viss timme förlorar du därmed en reserverad kvantitet för den timmen. Du kan inte föra vidare oanvända reserverade timmar.
+Reservationsrabatter *går förlorade om de inte används*. Om du inte har några matchande resurser för en viss timme förlorar du därmed en reservationskvantitet för den timmen. Det går inte att föra vidare oanvända reserverade timmar.
 
 När du avslutar en resurs tillämpas reservationsrabatten automatiskt på en annan matchande resurs i det angivna omfånget. Om det inte finns några matchande resurser i det angivna omfånget går de reserverade timmarna *förlorade*.
 

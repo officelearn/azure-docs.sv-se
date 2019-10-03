@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: billing
-ms.date: 04/25/2017
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: f706ad86493981d5b38248ec209a7c8b936f6817
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f5d549006961f3108bf7155610dfb3a9ea78422a
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "68443216"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719782"
 ---
 # <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Översikt över rapporterings-API:er för Enterprise-kunder
 Med rapporterings-API:erna kan Enterprise-kunder hämta förbruknings- och faktureringsdata till önskade dataanalysverktyg. Enterprise-kunder har signerat [ett Enterprise-avtal (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) med Azure om särskilda betalningsåtaganden som berättigar till anpassade priser för Azure-resurser.
@@ -57,8 +57,8 @@ ETags returneras i svaret för alla ovanstående API:er. En ändring i Etag indi
 |Statuskod för svar|Meddelande|Beskrivning|
 |-|-|-|
 |200| OK|Inget fel|
-|401| Behörighet saknas| Det gick inte att hitta API-nyckeln – ogiltig, har gått ut osv.|
-|404| Inte tillgänglig| Det gick inte att hitta rapportens slutpunkt|
+|401| Behörighet saknas| Det gick inte att hitta API-nyckeln – ogiltig, har gått ut eller liknande|
+|404| Inte tillgänglig| Det gick inte att hitta rapportslutpunkten|
 |400| Felaktig begäran| Ogiltiga parametrar – datumintervall, EA-nummer osv.|
 |500| Serverfel| Ett oväntat fel inträffade när begäran bearbetades| 
 

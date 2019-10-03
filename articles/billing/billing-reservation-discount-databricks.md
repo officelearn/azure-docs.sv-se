@@ -6,14 +6,14 @@ author: yashesvi
 manager: yashar
 ms.service: billing
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 7c1855b587ab1d603e9c6ac24a67b0f50065361f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 9651a61cb7b5c995a46571b7628d5416c08f4161
+ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67827643"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71719669"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Så här tillämpas rabatter för förhandsköp av Azure Databricks
 
@@ -25,7 +25,7 @@ Rabatten för förhandsköp gäller endast för användning av Azure Databricks-
 
 ## <a name="pre-purchase-discount-application"></a>Tillämpning av rabatter för förhandsköp
 
-Förhandsköp av Databricks gäller för alla arbetsbelastningar och nivåer i Databricks. Förhandsköp kan liknas vid en pool av förbetalda DBCU:er. Användningen dras av från poolen, oberoende av arbetsbelastning eller nivå. Användningen dras av enligt följande:
+Förhandsköp av Databricks gäller för alla arbetsbelastningar och nivåer i Databricks. Förhandsköp kan liknas vid en pool av förbetalda DBCU:er. Användningen dras av från poolen, oberoende av arbetsbelastning eller nivå. Användningen dras av enligt följande förhållande:
 
 | **Arbetsbelastning** | **DBU-tillämpningsgrad — Standard-nivå** | **DBU-tillämpningsgrad — Premium-nivå** |
 | --- | --- | --- |
@@ -52,7 +52,7 @@ Om du har frågor eller behöver hjälp kan du [skapa en supportbegäran](https:
 - Information om hur du hanterar en reservation finns i [Hantera Azure-reservationer](billing-manage-reserved-vm-instance.md).
 - Om du vill veta mer om hur du kan spara pengar genom att köpa Azure Databricks i förväg läser du [Optimera kostnaderna genom att köpa Azure Databricks i förväg](billing-prepay-databricks-reserved-capacity.md).
 - Du kan läsa mer om Azure-reservationer i följande artiklar:
-  - [Vad är Azure Reservations?](billing-save-compute-costs-reservations.md)
+  - [Vad är Azure-reservationer?](billing-save-compute-costs-reservations.md)
   - [Hantera reservationer i Azure](billing-manage-reserved-vm-instance.md)
   - [Förstå reservationsanvändning för en prenumeration med Betala per användning-priser](billing-understand-reserved-instance-usage.md)
   - [Förstå reservationsanvändning för din Enterprise-registrering](billing-understand-reserved-instance-usage-ea.md)

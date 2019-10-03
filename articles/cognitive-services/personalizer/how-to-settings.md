@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 09/30/2019
 ms.author: diberry
-ms.openlocfilehash: 376c2efbf3269092d0534870108ef6d753f8743e
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: bad581fbc53292b5a7c25157ef839e07f33e131e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962531"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827885"
 ---
 # <a name="personalizer-settings"></a>Inställningar för personanpassa
 
@@ -45,9 +45,9 @@ Konfigurera tjänstens inställningar för din feedback-Slings användning av f�
 
 |Inställning|Syfte|
 |--|--|
-|Vänte tid för belöning|Anger efter hur lång tid som Personanpassaren samlar in belönings värden för ett rang samtal, från det ögonblick då rang anropet inträffar. Det här värdet anges genom att fråga: "Hur lång tid ska personanpassa att vänta på belönings samtal?" Alla ersättningar som anländer efter att det här fönstret loggas men inte används för inlärning.|
-|Standard belöning|Om inget belönings samtal tas emot av en Personanpassare under fönstret för fördröjnings vänte tid som är associerat med ett rang samtal, tilldelar Personanpassaren standard belöningen. Som standard, och i de flesta fall, är standard belöningen noll.|
-|Belönings agg regering|Om flera fördelar tas emot för samma rang-API-anrop används denna agg regerings metod: **Sum** eller **tidigast**. Tidigaste plockning av den tidigaste poängen och tar bort resten. Detta är användbart om du vill ha unika belöningar bland eventuella dubbla samtal. |
+|Väntetid för ersättning|Anger efter hur lång tid som Personanpassaren samlar in belönings värden för ett rang samtal, från det ögonblick då rang anropet inträffar. Det här värdet anges genom att fråga: "Hur lång tid ska personanpassa att vänta på belönings samtal?" Alla ersättningar som anländer efter att det här fönstret loggas men inte används för inlärning.|
+|Standardersättning|Om inget belönings samtal tas emot av en Personanpassare under fönstret för fördröjnings vänte tid som är associerat med ett rang samtal, tilldelar Personanpassaren standard belöningen. Som standard, och i de flesta fall, är standard belöningen noll.|
+|Belöna sammansättning|Om flera fördelar tas emot för samma rang-API-anrop används denna agg regerings metod: **Sum** eller **tidigast**. Tidigaste plockning av den tidigaste poängen och tar bort resten. Detta är användbart om du vill ha unika belöningar bland eventuella dubbla samtal. |
 
 När du har ändrat de här inställningarna ska du se till att välja **Spara**.
 
@@ -61,7 +61,7 @@ Anpassningar kan identifiera nya mönster och anpassa sig till användar beteend
 
 När du har ändrat den här inställningen, se till att välja **Spara**.
 
-### <a name="model-update-frequency"></a>Uppdaterings frekvens för modell
+### <a name="model-update-frequency"></a>Modellens uppdateringsfrekvens
 
 Den senaste modellen, som tränas från belönings-API-anrop från varje aktiv händelse, används inte automatiskt av ett personligt rang anrop. **Uppdaterings frekvensen för modellen** anger hur ofta modellen som används av ranknings anropet uppdateras. 
 
@@ -87,6 +87,21 @@ I resurs hanteringens avsnitt för **modell och princip**, granska modell skapan
 
 Från resurs hanteringens avsnitt för **modell och princip**importerar du en ny utbildnings princip eller exporterar den aktuella inlärnings principen.
 Du kan hämta learning policy-filer från tidigare exporter eller ladda ned de optimerade principerna som upptäcks under en offline-utvärdering. Om du gör manuella ändringar av de här filerna påverkas maskin inlärnings prestanda och precisionen för offline-utvärderingar, och Microsoft kan inte skriva ut för att ge maskin inlärning och utvärderingar, eller tjänst undantag som orsakas av manuellt redigerade principer.
+
+## <a name="clear-data-for-your-learning-loop"></a>Rensa data för din inlärnings slinga
+
+1. I Azure Portal för din personanpassa resurs går du till sidan **modell och princip** och väljer **Rensa data**.
+1. Om du vill rensa alla data och återställa inlärnings slingan till det ursprungliga läget markerar du alla tre kryss rutorna.
+
+    ![I Azure Portal rensar du data från en personanpassa resurs.](./media/settings/clear-data-from-personalizer-resource.png)
+
+    |Inställning|Syfte|
+    |--|--|
+    |Loggade anpassnings-och belönings data.|Dessa loggnings data används i offline-utvärderingar. Rensa data om du återställer din resurs.|
+    |Återställ anpassnings modellen.|Den här modellen ändras på varje omskolning. Den här frekvensen av utbildning anges i **frekvensen för överförings modeller** på sidan **Inställningar** . |
+    |Ange inlärnings principen som standard.|Om du har ändrat inlärnings principen som en del av en offline-utvärdering återställs den till den ursprungliga inlärnings principen.|
+
+1. Välj **Rensa markerade data** för att påbörja clearing processen. Status rapporteras i Azure-meddelanden i det övre högra navigerings fönstret. 
 
 ## <a name="next-steps"></a>Nästa steg
 

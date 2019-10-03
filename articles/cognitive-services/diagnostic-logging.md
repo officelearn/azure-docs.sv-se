@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 06/14/2019
 ms.author: erhopf
-ms.openlocfilehash: cd380b4e2a7c05f0beedc2ab102b268aa4068f66
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 539a35f170b2ee0c94762a30ed9376ca4a416210
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516363"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827902"
 ---
 # <a name="enable-diagnostic-logging-for-azure-cognitive-services"></a>Aktivera diagnostisk loggning för Azure Cognitive Services
 
@@ -35,7 +35,7 @@ Om du vill aktivera diagnostikloggning måste du lagra dina loggdata någonstans
 Låt oss börja med att aktivera diagnostisk loggning med hjälp av Azure Portal.
 
 > [!NOTE]
-> Om du vill aktivera den här funktionen med PowerShell eller Azure CLI använder du anvisningarna i [samla in och Använd loggdata från dina Azure-resurser](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#diagnostic-settings).
+> Om du vill aktivera den här funktionen med PowerShell eller Azure CLI använder du anvisningarna i [samla in och Använd loggdata från dina Azure-resurser](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 1. Navigera till Azure Portal. Leta sedan reda på och välj en Cognitive Services resurs. Till exempel din prenumeration på Webbsökning i Bing.   
 2. Gå sedan till den vänstra navigerings menyn och leta upp **övervakning** och välj **diagnostikinställningar**. Den här skärmen innehåller alla tidigare skapade diagnostikinställningar för den här resursen.

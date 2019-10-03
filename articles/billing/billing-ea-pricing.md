@@ -9,15 +9,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/01/2019
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: a7f7da197a06dbbb730a7386882e534b8381cf9e
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 486a6b46b6c4590b7f49cd8aba449204cd8f4fac
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67491357"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709707"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>Visa och ladda ned din organisations Azure-priser
 
@@ -49,7 +49,7 @@ Du måste vara ägare, deltagare, läsare eller fakturaansvarig för fakturering
 ### <a name="download-price-sheets-for-the-current-billing-period"></a>Ladda ned prisdokument för den aktuella faktureringsperioden
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter *Kostnadshantering + fakturering*.
+1. Sök efter *Kostnadshantering och fakturering*.
 1. Välj en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto först.
 1. Du hittar nedladdningslänkarna i avsnittet **Översikt** under kostnaderna hittills under månaden.
 1. Välj **Azure-prisdokument**.
@@ -58,7 +58,7 @@ Du måste vara ägare, deltagare, läsare eller fakturaansvarig för fakturering
 ### <a name="download-price-sheets-for-billed-charges"></a>Ladda ned prisdokument för fakturerade avgifter
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
-1. Sök efter *Kostnadshantering + fakturering*.
+1. Sök efter *Kostnadshantering och fakturering*.
 1. Välj en faktureringsprofil. Beroende på din åtkomst kan du behöva välja ett faktureringskonto först.
 1. Välj **Fakturor**.
 1. Leta rätt på fakturaraden i rutnätet som motsvarar det prisdokument du vill ladda ned.

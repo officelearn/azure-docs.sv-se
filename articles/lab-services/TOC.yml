@@ -72,7 +72,7 @@
   items:
     - name: Klassrumslabb – klasstyper
       items:
-        - name: Klasstyper
+        - name: Översikt över klasstyper
           href: classroom-labs/class-types.md
         - name: Djupinlärning i naturlig bearbetning
           href: classroom-labs/class-type-deep-learning-natural-processing.md

@@ -367,7 +367,7 @@ Mer information om förbättrad säkerhets information finns i vår [Administrat
 
 3. I **användarna kan använda för hands versions funktioner för att registrera och hantera säkerhets information – förbättrat** utrymme, Välj **vald**och sedan välja en grupp med användare eller Välj **alla** för att aktivera funktionen för alla användare i klienten.
 
-4. I * *-användarna kan använda för hands versions funktioner för registrering och hantering av säkerhet * * * * * * * * * * * * * * * * ***.**
+4. I-**användarna kan använda för hands versions funktioner för registrering och hantering av** **säkerhet**.
 
 5. Spara inställningarna.
 

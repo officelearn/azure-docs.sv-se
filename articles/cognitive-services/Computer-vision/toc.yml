@@ -113,7 +113,7 @@
       href: concept-generating-thumbnails.md
     - name: Igenkänning av utskrifter och handskriven text
       href: concept-recognizing-text.md
-    - name: Identifiering av olämpligt innehåll
+    - name: Identifiering av innehåll som är olämpligt för barn
       href: concept-detecting-adult-content.md
 - name: Instruktionsguider
   items:

@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 7adf43110cffdc669b39632521c69ed5d3723257
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845712"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948165"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestanda justering med ordnat grupperat columnstore-index  
 
@@ -44,6 +44,43 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 > [!NOTE] 
 > I en ordnad CCI-tabell, sorteras inte nya data som resulterar i DML-eller data inläsnings åtgärder automatiskt.  Användare kan återskapa de beställda CCI för att sortera alla data i tabellen.  
+
+## <a name="query-performance"></a>Frågeprestanda
+
+En frågas prestanda vinst från en ordnad CCI är beroende av frågans mönster, storleken på data, hur väl data sorteras, den fysiska strukturen för segment och den DWU och resurs klass som valts för frågekörningen.  Användarna bör granska alla dessa faktorer innan de väljer sorterings kolumner när du designar en ordnad CCI-tabell.
+
+Frågor med alla dessa mönster körs vanligt vis snabbare med ordnade CCI.  
+1. Frågorna har likhets-, olikhets-eller intervall-predikat
+1. Predikatet predikat och de beställda CCI-kolumnerna är desamma.  
+1. Predikat-kolumnerna används i samma ordning som kolumn ordnings talet för de ordnade CCI-kolumnerna.  
+ 
+I det här exemplet har Table T1 ett grupperat columnstore-index som ordnats i sekvensen Col_C, Col_B och Col_A.
+
+```sql
+
+CREATE CLUSTERED COLUMNSTORE INDEX MyOrderedCCI ON  T1
+ORDER (Col_C, Col_B, Col_A)
+
+```
+
+Prestanda för fråga 1 kan dra nytta av mer från beställda CCI än de övriga tre frågorna. 
+
+```sql
+-- Query #1: 
+
+SELECT * FROM T1 WHERE Col_C = 'c' AND Col_B = 'b' AND Col_A = 'a';
+
+-- Query #2
+
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_C = 'c' AND Col_A = 'a';
+
+-- Query #3
+SELECT * FROM T1 WHERE Col_B = 'b' AND Col_A = 'a';
+
+-- Query #4
+SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
+
+```
 
 ## <a name="data-loading-performance"></a>Data inläsnings prestanda
 
@@ -85,7 +122,7 @@ Att skapa en ordnad CCI är en offline-åtgärd.  För tabeller som inte har nå
 
 ## <a name="examples"></a>Exempel
 
-**EN. Så här söker du efter ordnade kolumner och ordnings tal:**
+**A. Så här söker du efter ordnade kolumner och ordnings tal:**
 ```sql
 SELECT object_name(c.object_id) table_name, c.name column_name, i.column_store_order_ordinal 
 FROM sys.index_columns i 

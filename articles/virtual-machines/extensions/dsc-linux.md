@@ -13,16 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: c37b81e08e5d9f150081a9dc12af51175e3f590c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6df6bb5c0be4bf1779541a815bd933965024809f
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70084723"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960395"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
 Önskad tillstånds konfiguration (DSC) är en hanterings plattform som gör att du kan hantera din IT-och utvecklings infrastruktur med konfiguration som kod.
+
+> ! Observera DSC-tillägget för Linux och [Azure Monitor tillägget för virtuell dator för Linux för](/virtual-machines/extensions/oms-linux) närvarande finns en konflikt och stöds inte i en sida vid sida-konfiguration.  Det innebär att du inte bör använda de två lösningarna tillsammans på samma virtuella dator.
 
 DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget installerar OMI-och DSC-agenten på virtuella Azure-datorer. DSC-tillägget kan också utföra följande åtgärder
 
@@ -39,7 +41,7 @@ DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget insta
 
 ### <a name="operating-system"></a>Operativsystem
 
-DSC Linux-tillägget stöder alla Linux-distributioner som har godkänts [på Azure](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) , förutom:
+DSC Linux-tillägget stöder alla [Linux-distributioner](/virtual-machines/linux/endorsed-distros) som har godkänts på Azure, förutom:
 
 | Distribution | Version |
 |---|---|
@@ -56,10 +58,10 @@ DSCForLinux-tillägget kräver att den virtuella mål datorn är ansluten till I
 
 Här följer alla offentliga konfigurations parametrar som stöds:
 
-* `FileUri`: (valfritt, sträng) URI för MOF-filen/meta MOF-filen/den anpassade resursens ZIP-fil.
+* `FileUri`: (valfri, sträng) URI för MOF-filen/meta MOF-filen/den anpassade resursens ZIP-fil.
 * `ResourceName`: (valfritt, sträng) namnet på den anpassade modulen
 * `ExtensionAction`: (valfritt, sträng) anger vad ett tillägg gör. giltiga värden: Registrera, skicka, Hämta, installera, ta bort. Om inget värde anges anses det som push-åtgärd som standard.
-* `NodeConfigurationName`: (valfritt, sträng) namnet på den nods konfiguration som ska användas.
+* `NodeConfigurationName`: (valfritt, sträng) namnet på den nod som ska tillämpas.
 * `RefreshFrequencyMins`: (valfritt, int) anger hur ofta (i minuter) DSC försöker hämta konfigurationen från hämtnings servern. 
        Om konfigurationen på hämtnings servern skiljer sig från den nuvarande på målnoden kopieras den till den väntande lagringen och tillämpas.
 * `ConfigurationMode`: (valfritt, sträng) anger hur DSC ska tillämpa konfigurationen. Giltiga värden är: ApplyOnly, ApplyAndMonitor, ApplyAndAutoCorrect.
@@ -76,7 +78,7 @@ Här följer alla skyddade konfigurations parametrar som stöds:
 * `StorageAccountName`: (valfritt, sträng) namnet på det lagrings konto som innehåller filen
 * `StorageAccountKey`: (valfritt, sträng) nyckeln för det lagrings konto som innehåller filen
 * `RegistrationUrl`: (valfritt, sträng) URL: en för det Azure Automation kontot
-* `RegistrationKey`: (valfritt, sträng) åtkomst nyckeln för det Azure Automation kontot
+* `RegistrationKey`: (valfritt, sträng) åtkomst nyckeln för Azure Automations kontot
 
 
 ## <a name="scenarios"></a>Scenarier
@@ -284,7 +286,7 @@ Mer information om Azure Resource Manager mall finns i [redigera Azure Resource 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
 ### <a name="21-using-azure-cliazure-cli"></a>2.1. Använda [**Azure CLI**] [Azure-CLI]
-Innan du distribuerar DSCForLinux-tillägget bör du konfigurera `public.json` och `protected.json`, enligt de olika scenarierna i avsnitt 3.
+Innan du distribuerar DSCForLinux-tillägget bör du konfigurera din `public.json` och `protected.json`, enligt de olika scenarierna i avsnitt 3.
 
 #### <a name="211-classic"></a>punkt. Klassisk
 Klassiskt läge kallas även för Azure Service Management-läge. Du kan växla till den genom att köra:
@@ -316,7 +318,7 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 --private-config-path protected.json --public-config-path public.json
 ```
 > [!NOTE]
-> I Azure Resource Manager läge `azure vm extension list` är inte tillgängligt för tillfället.
+> I Azure Resource Manager läge är `azure vm extension list` inte tillgängligt för tillfället.
 >
 
 ### <a name="22-using-azure-powershellazure-powershell"></a>2.2. Använda [**Azure PowerShell**] [Azure-PowerShell]

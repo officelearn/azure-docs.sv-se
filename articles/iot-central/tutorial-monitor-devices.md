@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: d716eb761ab406b65f10898b29775327a801ac45
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: f68bc211be3cffb61b3381390ae2eeacaffa4213
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69875464"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960427"
 ---
 # <a name="tutorial-use-azure-iot-central-to-monitor-your-devices"></a>Självstudier: Använda Azure IoT Central för att övervaka dina enheter
 
@@ -41,7 +41,7 @@ Innan du börjar bör byggaren skapa Azure IoT Central-programmet genom att slut
 
 Azure IoT Central skickar meddelanden om enheter via e-post. Byggaren lade till en regel för att skicka ett meddelande när temperaturen i en ansluten luftkonditioneringsenhet överskrider ett tröskelvärde. Kontrollera e-postmeddelanden som skickas till det konto som valdes ut av byggaren för att få meddelanden.
 
-Öppna det e-postmeddelande som du fick i slutet av självstudien om att [konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md). I e-postmeddelandet väljer du **Klicka här för att öppna enheten**:
+Öppna det e-postmeddelande som du fick i slutet av självstudien om att [konfigurera regler och åtgärder för din enhet](tutorial-configure-rules.md). I e-postmeddelandet väljer du länken till enheten bredvid **enhetens namn** i avsnittet **information** :
 
 ![E-postavisering](media/tutorial-monitor-devices/email.png)
 

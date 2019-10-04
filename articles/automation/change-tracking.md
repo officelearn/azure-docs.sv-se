@@ -10,12 +10,12 @@ ms.date: 04/29/2019
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2d6976e872223cbb66682b9a02ce343487bec35d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 8a1395c89b047bb120c7f7e2d2d9bb9b4d2b0c50
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240264"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959967"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Spåra ändringar i din miljö med Ändringsspårning-lösningen
 
@@ -134,7 +134,7 @@ Med rekursion kan du ange jokertecken för att förenkla spårning över katalog
 * Jokertecken krävs för att spåra flera filer
 * Om jokertecken används kan de bara användas i det sista segmentet i en sökväg. (till exempel `c:\folder\*file*` eller `/etc/*.conf`)
 * Om en miljö variabel har en ogiltig sökväg kommer verifieringen att lyckas, men den sökvägen kommer att Miss lyckas När inventeringen körs.
-* Undvik allmänna sökvägar som `c:\*.*` när du anger sökvägen, eftersom detta skulle leda till att för många mappar passerade.
+* Undvik allmänna sökvägar som `c:\*.*` när du anger sökvägen, eftersom detta skulle leda till att för många mappar har passerat.
 
 ## <a name="configure-file-content-tracking"></a>Konfigurera spårning av fil innehåll
 
@@ -176,7 +176,7 @@ Andra begränsningar:
 Följande fel har uppstått i Ändringsspårning-lösningen:
 
 * Uppdateringar av snabb korrigeringar samlas inte in på Windows Server 2016 Core RS3-datorer.
-* Linux-Daemonar kan visa ett ändrat tillstånd även om det inte har ändrats. Detta beror på hur `SvcRunLevels` fältet fångas.
+* Linux-Daemonar kan visa ett ändrat tillstånd även om det inte har ändrats. Detta beror på hur `SvcRunLevels`-fältet fångas.
 
 ## <a name="change-tracking-data-collection-details"></a>Information om Ändringsspårning data insamling
 
@@ -221,42 +221,25 @@ Agenten spårar bara ändringar, vilket optimerar agentens prestanda. Att ange e
 Syftet med att övervaka ändringar i register nycklar är att hitta utöknings punkter där kod från tredje part och skadlig kod kan aktive ras. I följande lista visas en lista över förkonfigurerade register nycklar. Dessa nycklar har kon figurer ATS men inte Aktiver ATS. Om du vill spåra register nycklarna måste du aktivera var och en.
 
 > [!div class="mx-tdBreakAll"]
-> |  |
-> |---------|
-> |**\_Lokala\_HKEY-MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar vanliga Autostart-poster som kopplas direkt till Utforskaren i Windows och körs vanligt vis med Explorer. exe.    |
-> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group-Policy\Scripts\Startup**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar skript som körs vid start.     |
-> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Group-Policy\Scripts\Shutdown**    |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar skript som körs vid avstängning.     |
-> |**HKEY\_LOCAL\_MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nycklar som läses in innan användaren loggar in på sitt Windows-konto. Nyckeln används för 32-bitars program som körs på 64-bitars datorer.    |
-> |**HKEY\_lokala\_MACHINE\SOFTWARE\Microsoft\Active Setup\Installed-komponenter**     |
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar ändringar i program inställningarna.     |
-> |**\_Lokala\_HKEY-MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar vanliga Autostart-poster som kopplas direkt till Utforskaren i Windows och körs vanligt vis med Explorer. exe.|
-> |**\_Lokala\_HKEY-MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar vanliga Autostart-poster som kopplas direkt till Utforskaren i Windows och körs vanligt vis med Explorer. exe.|
-> |**\_Lokala\_HKEY-MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för registrering av ikon överläggs hanterare.|
-|**\_Lokala\_HKEY-MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakare för ikon överläggs hanterare registrering för 32-bitars program som körs på 64-bitars datorer.|
-> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper-objekt**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nya plugin-program för webb läsar tillägg för Internet Explorer. Används för att få åtkomst till Document Object Model (DOM) för den aktuella sidan och för att kontrol lera navigeringen.|
-> |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper-objekt**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nya plugin-program för webb läsar tillägg för Internet Explorer. Används för att få åtkomst till Document Object Model (DOM) för den aktuella sidan och för att kontrol lera navigering för 32-bitars program som körs på 64-bitars datorer.|
-> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Internet-Explorer\Extensions**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nya Internet Explorer-tillägg, till exempel anpassade verktygs menyer och anpassade verktygsfälts knappar.|
-> |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Internet-Explorer\Extensions**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar nya Internet Explorer-tillägg, till exempel anpassade verktygs menyer och anpassade verktygsfälts knappar för 32-bitars program som körs på 64-bitars datorer.|
-> |**HKEY\_lokala\_MACHINE\Software\Microsoft\Windows-NT\CurrentVersion\Drivers32**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar de 32-bitars driv rutiner som är kopplade till wavemapper, wave1 och Wave2, MSACM. imaadpcm,. msadpcm,. msgsm610 och vidc. Liknar avsnittet [driv rutiner] i systemet. INI-fil.|
-> |**HKEY\_lokala\_MACHINE\Software\Wow6432Node\Microsoft\Windows-NT\CurrentVersion\Drivers32**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar de 32-bitars driv rutiner som är associerade med wavemapper, wave1 och Wave2, MSACM. imaadpcm,. msadpcm,. msgsm610 och vidc för 32-bitars program som körs på 64-bitars datorer. Liknar avsnittet [driv rutiner] i systemet. INI-fil.|
-> |**HKEY\_LOCAL\_MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar listan över kända eller ofta använda system-DLL-filer. Det här systemet förhindrar att personer utnyttjar svaga program katalog behörigheter genom att släppa i trojanska hästar versioner av system-DLL: er.|
-> |**HKEY\_lokala\_MACHINE\SOFTWARE\Microsoft\Windows-NT\CurrentVersion\Winlogon\Notify**|
-|&nbsp;&nbsp;&nbsp;&nbsp;Övervakar listan över paket som kan ta emot händelse meddelanden från Winlogon, den interaktiva inloggnings support modellen för Windows-operativsystemet.|
+> |Registernyckel | Syfte |
+> |---------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Övervakar vanliga Autostart-poster som kopplas direkt till Utforskaren i Windows och körs vanligt vis med Explorer. exe.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Startup` | Övervakar skript som körs vid start.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Group Policy\Scripts\Shutdown` | Övervakar skript som körs vid avstängning.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Run` | Övervakar nycklar som läses in innan användaren loggar in på sitt Windows-konto. Nyckeln används för 32-bitars program som körs på 64-bitars datorer.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Active Setup\Installed Components` | Övervakar ändringar i program inställningarna.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\ShellEx\ContextMenuHandlers` | Övervakar vanliga Autostart-poster som kopplas direkt till Utforskaren i Windows och körs vanligt vis med Explorer. exe.
+> |`HKEY\LOCAL\MACHINE\Software\Classes\Directory\Shellex\CopyHookHandlers` | Övervakar vanliga Autostart-poster som kopplas direkt till Utforskaren i Windows och körs vanligt vis med Explorer. exe.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Övervakare för registrering av ikon överläggs hanterare.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\ShellIconOverlayIdentifiers` | Övervakare för ikon överläggs hanterare registrering för 32-bitars program som körs på 64-bitars datorer.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Övervakar nya plugin-program för webb läsar tillägg för Internet Explorer. Används för att få åtkomst till Document Object Model (DOM) för den aktuella sidan och för att kontrol lera navigeringen.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Explorer\Browser Helper Objects` | Övervakar nya plugin-program för webb läsar tillägg för Internet Explorer. Används för att få åtkomst till Document Object Model (DOM) för den aktuella sidan och för att kontrol lera navigering för 32-bitars program som körs på 64-bitars datorer.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Internet Explorer\Extensions` | Övervakar nya Internet Explorer-tillägg, till exempel anpassade verktygs menyer och anpassade verktygsfälts knappar.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Internet Explorer\Extensions` | Övervakar nya Internet Explorer-tillägg, till exempel anpassade verktygs menyer och anpassade verktygsfälts knappar för 32-bitars program som körs på 64-bitars datorer.
+> |`HKEY\LOCAL\MACHINE\Software\Microsoft\Windows NT\CurrentVersion\Drivers32` | Övervakar de 32-bitars driv rutiner som är kopplade till wavemapper, wave1 och Wave2, MSACM. imaadpcm,. msadpcm,. msgsm610 och vidc. Liknar avsnittet [driv rutiner] i systemet. INI-fil.
+> |`HKEY\LOCAL\MACHINE\Software\Wow6432Node\Microsoft\Windows NT\CurrentVersion\Drivers32` | Övervakar de 32-bitars driv rutiner som är associerade med wavemapper, wave1 och Wave2, MSACM. imaadpcm,. msadpcm,. msgsm610 och vidc för 32-bitars program som körs på 64-bitars datorer. Liknar avsnittet [driv rutiner] i systemet. INI-fil.
+> |`HKEY\LOCAL\MACHINE\System\CurrentControlSet\Control\Session Manager\KnownDlls` | Övervakar listan över kända eller ofta använda system-DLL-filer. Det här systemet förhindrar att personer utnyttjar svaga program katalog behörigheter genom att släppa i trojanska hästar versioner av system-DLL: er.
+> |`HKEY\LOCAL\MACHINE\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon\Notify` | Övervakar listan över paket som kan ta emot händelse meddelanden från Winlogon, den interaktiva inloggnings support modellen för Windows-operativsystemet.
 
 ## <a name="network-requirements"></a>Nätverkskrav
 
@@ -302,7 +285,7 @@ I följande exempel visar skärm bilden att filen `C:\windows\system32\drivers\e
 
 ![Ett diagram som visar fil ändringen för hosts](./media/change-tracking/changes.png)
 
-Om du vill analysera ändringen ytterligare går du till loggs ökningen genom att klicka på **Log Analytics**. När du har loggat in söker du efter innehålls ändringar till värd filen med frågan `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Den här frågan söker efter ändringar som inkluderar en ändring av fil innehåll för filer vars fullständiga sökväg innehåller ordet "hosts". Du kan också fråga efter en viss fil genom att ändra Sök vägs delen till dess fullständigt kvalificerade form (till `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`exempel).
+Om du vill analysera ändringen ytterligare går du till loggs ökningen genom att klicka på **Log Analytics**. När du har loggat in söker du efter innehålls ändringar till värd filen med frågan `ConfigurationChange | where FieldsChanged contains "FileContentChecksum" and FileSystemPath contains "hosts"`. Den här frågan söker efter ändringar som inkluderar en ändring av fil innehåll för filer vars fullständiga sökväg innehåller ordet "hosts". Du kan också fråga efter en viss fil genom att ändra Sök vägs delen till dess fullständigt kvalificerade form (till exempel `FileSystemPath == "c:\windows\system32\drivers\etc\hosts"`).
 
 När frågan returnerar önskade resultat klickar du på knappen **ny varnings regel** i loggs ökningen för att öppna sidan Skapa avisering. Du kan också navigera till den här upplevelsen genom **Azure Monitor** i Azure Portal. I upplevelsen för att skapa aviseringar, kontrollerar du frågan igen och ändrar aviserings logiken. I det här fallet vill du att aviseringen ska utlösas om det inte finns någon ändring som upptäcks på alla datorer i miljön.
 
@@ -320,14 +303,14 @@ Aviseringar om ändringar i värd filen är en lämplig tillämpning av aviserin
 
 |Söka i data  |Beskrivning  |
 |---------|---------|
-|ConfigurationChange <br>&#124;där ConfigChangeType = = "Files" och FileSystemPath innehåller "c:\\Windows\\system32\\-\\drivrutiner"|Användbart för att spåra ändringar i system kritiska filer|
-|ConfigurationChange <br>&#124;där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c:\\Windows\\system32\\-\\drivrutiner\\osv"|Användbart för att spåra ändringar i konfigurationsfiler för nycklar|
+|ConfigurationChange <br>&#124;där ConfigChangeType = = "Files" och FileSystemPath innehåller "c: \\Windows @ no__t-2system32 @ no__t-3drivers @ no__t-4"|Användbart för att spåra ändringar i system kritiska filer|
+|ConfigurationChange <br>&#124;där FieldsChanged innehåller "FileContentChecksum" och FileSystemPath = = "c: \\Windows @ no__t-2system32 @ no__t-3drivers @ no__t-4etc @ no__t-5hosts"|Användbart för att spåra ändringar i konfigurationsfiler för nycklar|
 |ConfigurationChange <br>&#124;där ConfigChangeType = = "WindowsServices" och SvcName innehåller "W3SVC" och SvcState = = "stoppad"|Användbart för att spåra ändringar i system kritiska tjänster|
 |ConfigurationChange <br>&#124;där ConfigChangeType = = "daemons" och SvcName innehåller "SSH" och SvcState! = "kör"|Användbart för att spåra ändringar i system kritiska tjänster|
 |ConfigurationChange <br>&#124;där ConfigChangeType = = "Software" och ChangeCategory = = "Added"|Användbart för miljöer som behöver låsta program varu konfigurationer|
 |ConfigurationData <br>&#124;där SoftwareName innehåller "övervaknings agent" och CurrentVersion! = "8.0.11081.0"|Användbart för att se vilka datorer som har en inaktuell eller icke-kompatibel program varu version installerad. Den rapporterar det senaste rapporterade konfigurations läget, inte ändringar.|
-|ConfigurationChange <br>&#124;där RegistryKey = = "HKEY_LOCAL_MACHINE\\Software\\Microsoft\\Windows\\CurrentVersion\\QualityCompat"| Användbart för att spåra ändringar i viktiga Antivirus nycklar|
-|ConfigurationChange <br>&#124;där RegistryKey innehåller "HKEY_LOCAL_MACHINE\\system\\CurrentControlSet\\Services\\SharedAccess\\Parameters\\FirewallPolicy"| Användbart för att spåra ändringar i brand Väggs inställningar|
+|ConfigurationChange <br>&#124;där RegistryKey = = @ "HKEY_LOCAL_MACHINE @ no__t-1SOFTWARE @ no__t-2Microsoft @ no__t-3Windows @ no__t-4CurrentVersion @ no__t-5QualityCompat"| Användbart för att spåra ändringar i viktiga Antivirus nycklar|
+|ConfigurationChange <br>&#124;där RegistryKey innehåller @ "HKEY_LOCAL_MACHINE @ no__t-1SYSTEM @ no__t-2CurrentControlSet @ no__t-3Services @ no__t-4SharedAccess @ no__t-5Parameters @ no__t-6FirewallPolicy"| Användbart för att spåra ändringar i brand Väggs inställningar|
 
 ## <a name="next-steps"></a>Nästa steg
 

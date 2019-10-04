@@ -6,14 +6,14 @@ manager: nitinme
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 10/03/2019
 ms.author: heidist
-ms.openlocfilehash: fd65bb134d9057246a1b8c5cc2986e979713d20b
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 2d3b74476def5bdf46a6292996f0af9162b20b43
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327153"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947785"
 ---
 # <a name="service-limits-in-azure-search"></a>Tjänst begränsningar i Azure Search
 De maximala gränserna för lagring, arbets belastningar och kvantiteter av index, dokument och andra objekt är beroende av om du [etablerar Azure Search](search-create-service-portal.md) på kostnads nivåer som är **kostnads fria**, **Basic**, **standard**eller **Storage** .
@@ -45,7 +45,7 @@ De maximala gränserna för lagring, arbets belastningar och kvantiteter av inde
 
 ## <a name="index-limits"></a>Index gränser
 
-| Resource | Lediga | Basic&nbsp;<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
+| Resource | Lediga | Basic @ no__t-0<sup>1</sup>  | S1 | S2 | S3 | S3&nbsp;HD | L1 | L2 |
 | -------- | ---- | ------------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal index |3 |5 eller 15 |50 |200 |200 |1 000 per partition eller 3 000 per tjänst |10 |10 |
 | Maximalt antal enkla fält per index |1000 |100 |1000 |1000 |1000 |1000 |1000 |1000 |
@@ -84,7 +84,7 @@ För tjänster som omfattas av dokument gränser gäller följande gräns värde
 
 |  Lediga | Basic | S1 | S2 | S3 | S3&nbsp;HD |
 |-------|-------|----|----|----|-------|
-|  10 000 |1&nbsp;miljon |15 miljoner per partition eller 180 miljoner per tjänst |60 miljoner per partition eller 720 miljoner per tjänst |120 miljoner per partition eller 1,4 miljarder per tjänst |1 miljon per index eller 200 miljoner per partition |
+|  10 000 |1 @ no__t-0million |15 miljoner per partition eller 180 miljoner per tjänst |60 miljoner per partition eller 720 miljoner per tjänst |120 miljoner per partition eller 1,4 miljarder per tjänst |1 miljon per index eller 200 miljoner per partition |
 
 Om tjänsten har gränser som blockerar dig skapar du en ny tjänst och publicerar sedan om allt innehåll till den tjänsten. Det finns ingen mekanism för att sömlöst etablera tjänsten på ny maskin vara i bakgrunden.
 
@@ -105,7 +105,7 @@ Kom ihåg att undanta data som inte går att köra från begäran för att bevar
 Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som helhet, men större data uppsättningar kan kräva mer indexerings tid än vad som tillåts. Om ett indexerings jobb inte kan slutföras inom den högsta tillåtna tiden kan du prova att köra det enligt ett schema. Scheduler håller reda på indexerings status. Om ett schemalagt indexerings jobb avbryts av någon anledning kan indexeraren Hämta var den senast slutade vid nästa schemalagda körning.
 
 
-| Resource | Kostnads&nbsp;fri<sup>1</sup> | Basic&nbsp;<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
+| Resource | Kostnads fri @ no__t-0<sup>1</sup> | Basic @ no__t-0<sup>2</sup>| S1 | S2 | S3 | S3&nbsp;HD&nbsp;<sup>3</sup>|L1 |L2 |
 | -------- | ----------------- | ----------------- | --- | --- | --- | --- | --- | --- |
 | Maximalt antal indexerare |3 |5 eller 15|50 |200 |200 |Gäller inte |10 |10 |
 | Maximalt antal datakällor |3 |5 eller 15 |50 |200 |200 |Gäller inte |10 |10 |
@@ -115,7 +115,7 @@ Maximal körnings tid finns för att ge balans och stabilitet till tjänsten som
 | Maximal kör tid <sup>5</sup> | 1-3 minuter |24 timmar |24 timmar |24 timmar |24 timmar |Gäller inte  |24 timmar |24 timmar |
 | Maximal kör tid för kognitiv sökning färdighetsuppsättningar eller BLOB-indexering med bild analys <sup>5</sup> | 3-10 minuter |2 timmar |2 timmar |2 timmar |2 timmar |Gäller inte  |2 timmar |2 timmar |
 | BLOB-indexerare: maximal BLOB-storlek, MB |16 |16 |128 |256 |256 |Gäller inte  |256 |256 |
-| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32,000 |64,000 |4&nbsp;miljoner |4&nbsp;miljoner |4&nbsp;miljoner |Gäller inte |4&nbsp;miljoner |4&nbsp;miljoner |
+| BLOB-indexerare: maximalt antal tecken för innehåll som extraherats från en BLOB |32,000 |64,000 |4 @ no__t-0million |4 @ no__t-0million |4 @ no__t-0million |Gäller inte |4 @ no__t-0million |4 @ no__t-0million |
 
 <sup>1</sup> kostnads fria tjänster har indexeraren maximal körnings tid på 3 minuter för BLOB-källor och 1 minut för alla andra data källor. För AI-indexering som anropar Cognitive Services är kostnads fria tjänster begränsade till 20 kostnads fria transaktioner per dag, där en transaktion definieras som ett dokument som passerar genom anriknings pipelinen.
 
@@ -147,6 +147,18 @@ För lagrings optimerade nivåer bör du förvänta dig ett lägre flöde för f
 ## <a name="data-limits-cognitive-search"></a>Data begränsningar (kognitiv sökning)
 
 En [kognitiv Sök-pipeline](cognitive-search-concept-intro.md) som gör anrop till en textanalys resurs för [enhets igenkänning](cognitive-search-skill-entity-recognition.md), [extrahering av nyckel fraser](cognitive-search-skill-keyphrases.md), [sentiment analys](cognitive-search-skill-sentiment.md)och [språk identifiering](cognitive-search-skill-language-detection.md) är beroende av data begränsningar. Den maximala storleken för en post ska vara 50 000 tecken som mäts av [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Om du behöver dela upp dina data innan du skickar dem till sentiment analys, använder du [text delnings kunskapen](cognitive-search-skill-textsplit.md).
+
+## <a name="throttling-limits"></a>Begränsnings gränser
+
+Sök frågor och indexerings begär Anden är begränsade som systemet närmar sig högsta kapacitet. Begränsningen fungerar på olika sätt för olika API: er. API: er för frågor (Sök/föreslå/komplettera om) och indexerings-API: er begränsar dynamiskt baserat på belastningen på tjänsten. Index-API: er har begränsningar för statisk begär ande hastighet. 
+
+Begränsningar för statisk taxa för begäran för åtgärder relaterade till ett index:
+
++ List index (Hämta/Indexes): 5 per sekund per Sök enhet
++ Hämta index (Hämta/Indexes/myindex): 10 per sekund per Sök enhet
++ Skapa index (POST/Indexes): 12 per minut per Sök enhet
++ Skapa eller uppdatera index (Lägg/Indexes/myindex): 6 per sekund per Sök enhet
++ Ta bort index (ta bort/Indexes/myindex): 12 per minut per Sök enhet 
 
 ## <a name="api-request-limits"></a>Begränsningar för API-begäran
 * Högst 16 MB per begäran <sup>1</sup>

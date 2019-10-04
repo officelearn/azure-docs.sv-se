@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 09/25/2019
+ms.date: 10/03/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e7bd33d74d9ecf6ebc35981df7255ecc19253c7
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 72ae1301be4a3a3c086961aae72fb9eeb12aeda2
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71812603"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960231"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Konton och behörigheter
 
@@ -48,10 +48,10 @@ Förutom dessa tre konton som används för att köra Azure AD Connect behöver 
 
 - **SQL sa-konto (valfritt)** : används för att skapa ADSync-databasen när du använder den fullständiga versionen av SQL Server.  Den här SQL Server kan vara lokal eller fjärran sluten till den Azure AD Connect installationen.  Kontot kan vara samma konto som företags administratören.  Etableringen av databasen kan nu utföras out-of-band av SQL-administratören och sedan installeras av Azure AD Connect administratör med databas ägar rättigheter.  Information om detta finns i [installera Azure AD Connect med hjälp av SQL-delegerad administratörs behörighet](how-to-connect-install-sql-delegation.md)
 
-<<<<<<< HEAD
+
 >[!IMPORTANT]
 > Från och med build 1.4. # # #. # stöds det inte längre att använda ett företags administratörs konto eller ett domän administratörs konto som AD DS-konto.  Om du försöker ange ett konto som är företags administratör eller domän administratör när du anger **Använd befintligt konto**visas ett fel meddelande.
-=======
+
 > [!NOTE]
 > Det finns stöd för att hantera de administrativa konton som används i Azure AD Connect från en ESAE-administrativ skog (även kallad "Red skog").
 > Dedikerade administrativa skogar gör det möjligt för organisationer att vara värdar för administrativa konton, arbets stationer och grupper i en miljö som har starkare säkerhets kontroller än produktions miljön.
@@ -134,7 +134,7 @@ Följande är en sammanfattning av sidorna för anpassade installations guider, 
 >[!IMPORTANT]
 >En ny PowerShell-modul med namnet ADSyncConfig. psm1 introducerades med build **1.1.880.0** (lanserades i augusti 2018) som innehåller en samling cmdlets som hjälper dig att konfigurera rätt Active Directory behörigheter för Azure AD DS Connector-kontot.
 >
->Mer information finns i [Azure AD Connect: Konfigurera behörighet för AD DS-anslutningsprogrammet](how-to-connect-configure-ad-ds-connector-account.md)
+>Mer information finns i [Azure AD Connect: Konfigurera behörighet för AD DS-kopplings konto @ no__t-0
 
 Det konto som du anger på sidan **Anslut dina kataloger** måste finnas i Active Directory före installationen.  Azure AD Connect version 1.1.524.0 och senare har möjlighet att låta guiden Azure AD Connect skapa det **AD DS-administratörskonto** som används för att ansluta till Active Directory.  
 
@@ -249,9 +249,9 @@ Namnet på den server som kontot används på kan identifieras i den andra delen
 
 Kontot skapas med ett långt komplext lösen ord som inte upphör att gälla. Den beviljas ett särskilt konto för **synkronisering** av roll katalog som bara har behörighet att utföra synkronisering av aktiviteter. Den här särskilda inbyggda rollen kan inte beviljas utanför Azure AD Connects guiden. Azure Portal visar det här kontot med rollen **användare**.
 
-Det finns en gräns på 20 Sync service-konton i Azure AD. Om du vill hämta en lista över befintliga Azure AD-tjänstekonton i din Azure AD kör du följande Azure AD PowerShell-cmdlet:`Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
+Det finns en gräns på 20 Sync service-konton i Azure AD. Om du vill hämta en lista över befintliga Azure AD-tjänstekonton i Azure AD kör du följande Azure AD PowerShell-cmdlet: `Get-AzureADDirectoryRole | where {$_.DisplayName -eq "Directory Synchronization Accounts"} | Get-AzureADDirectoryRoleMember`
 
-Om du vill ta bort oanvända Azure AD-tjänstekonton kör du följande Azure AD PowerShell-cmdlet:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
+Om du vill ta bort oanvända Azure AD-tjänstekonton kör du följande Azure AD PowerShell-cmdlet: `Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
 >Innan du kan använda ovanstående PowerShell-kommandon måste du installera [Azure Active Directory PowerShell för Graph-modulen](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) och ansluta till din instans av Azure AD med [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)

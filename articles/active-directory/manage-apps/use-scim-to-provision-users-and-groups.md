@@ -1,6 +1,6 @@
 ---
-title: Automatisera etablering av appar med SCIM i Azure Active Directory | Microsoft Docs
-description: Azure Active Directory kan automatiskt etablera användare och grupper till valfritt program eller en identitet Arkiv som är fronted av en webbtjänst med gränssnittet som definierats i protokollspecifikation SCIM
+title: SCIM användar etablering med Azure Active Directory | Microsoft Docs
+description: Lär dig att skapa en SCIM-slutpunkt, integrera ditt SCIM-API med Azure Active Directory och börja automatisera provisoning-användare och-grupper i dina program.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,26 +16,26 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 922e5a2d5c639d7df380f686ddf7843ab59fca59
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 9344feeadc5f4146c3b3f853082cd9255100af5c
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802363"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949638"
 ---
-# <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Med hjälp av System för domänerna Identity Management (SCIM) att automatiskt etablera användare och grupper från Azure Active Directory till program
+# <a name="scim-user-provisioning-with-azure-active-directory"></a>SCIM användar etablering med Azure Active Directory
 
-SCIM är ett standardiserat protokoll och schema som syftar till att öka konsekvensen i hur identiteter hanteras i olika system. När ett program har stöd för en SCIM-slutpunkt för användar hantering kan Azure AD-tjänsten för användar etablering skicka begär Anden för att skapa, ändra eller ta bort tilldelade användare och grupper till den här slut punkten.
+System för SCIM (Cross-Domain Identity Management) är standardiserat protokoll och schema som syftar till att öka konsekvensen i hur identiteter hanteras i olika system. När ett program har stöd för en SCIM-slutpunkt för användar hantering kan Azure AD-tjänsten för användar etablering skicka begär Anden för att skapa, ändra eller ta bort tilldelade användare och grupper till den här slut punkten.
 
 Många av de program för vilka Azure AD har stöd för [Förintegrerad automatisk användar etablering](../saas-apps/tutorial-list.md) implementera scim som innebär att du kan ta emot meddelanden om användar ändringar.  Förutom dessa kan kunderna ansluta program som har stöd för en specifik profil i [SCIM 2,0-protokoll specifikationen](https://tools.ietf.org/html/rfc7644) med hjälp av det generiska integrations alternativet "icke-Gallery" i Azure Portal.
 
-Huvud fokus i den här artikeln finns i profilen för SCIM 2,0 som Azure AD implementerar som en del av dess allmänna SCIM-anslutning för appar som inte är gallerier. Test av ett program som stöder SCIM med den allmänna Azure AD-anslutningen är dock ett steg för att hämta en app som visas i Azure AD-galleriet som stöd för användar etablering. Mer information om hur du får ditt program listat i Azure AD-programgalleriet finns [i så här gör du: Lista ditt program i Azure AD-programgalleriet](../develop/howto-app-gallery-listing.md).
+Huvud fokus i den här artikeln finns i profilen för SCIM 2,0 som Azure AD implementerar som en del av dess allmänna SCIM-anslutning för appar som inte är gallerier. Test av ett program som stöder SCIM med den allmänna Azure AD-anslutningen är dock ett steg för att hämta en app som visas i Azure AD-galleriet som stöd för användar etablering. Mer information om hur du får ditt program listat i Azure AD-programgalleriet finns i [How till: Lista ditt program i Azure AD-programgalleriet @ no__t-0.
 
 > [!IMPORTANT]
 > Beteendet för Azure AD SCIM-implementeringen uppdaterades senast den 18 december 2018. Information om vad som har ändrats finns i [SCIM 2,0 Protocol Compliance of the Azure AD User Provisioning-tjänsten](application-provisioning-config-problem-scim-compatibility.md).
 
-![Visar etablering från Azure AD till en app eller identitets lager][0]<br/>
-*Bild 1: Etablering från Azure Active Directory till ett program eller identitets lager som implementerar SCIM*
+![Shows etablering från Azure AD till en app eller identitets lager @ no__t-1<br/>
+*Bild 1: Etablering från Azure Active Directory till ett program eller identitets lager som implementerar SCIM @ no__t-0
 
 Den här artikeln är uppdelad i fyra delar:
 
@@ -61,17 +61,17 @@ Program som stöder SCIM-profilen som beskrivs i den här artikeln kan anslutas 
 
 1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com). Observera att du kan få åtkomst till en kostnads fri utvärderings version av Azure Active Directory med P2-licenser genom att registrera dig för [programmet för utvecklare](https://developer.microsoft.com/office/dev-program)
 1. Välj **företags program** i det vänstra fönstret. En lista över alla konfigurerade appar visas, inklusive appar som har lagts till från galleriet.
-1. Välj **+ ny app** > **alla** > **program som inte är Galleri**.
+1. Välj **+ ny program** > **alla** > **icke-galleriprogram**.
 1. Ange ett namn för ditt program och välj **Lägg till** för att skapa ett app-objekt. Den nya appen läggs till i listan över företags program och öppnas på sidan för hantering av appar.
 
-   ![Skärm bild som visar Azure AD-programgalleriet][1]<br/>
-   *Bild 2: Program Galleri för Azure AD*
+   ![Screenshot visar Azure AD Application Gallery @ no__t-1<br/>
+   *Figure 2: Azure AD-programgalleri @ no__t-0
 
 1. På skärmen hantering av appar väljer du **etablering** i den vänstra panelen.
 1. I den **etablering läge** menyn och välj **automatisk**.
 
-   ![Exempel: Etablerings sidan för en app i Azure Portal][2]<br/>
-   *Bild 3: Konfigurera etablering i Azure Portal*
+   ![Exempel: Etablerings sidan för en app i Azure Portal @ no__t-0<br/>
+   *Bild 3: Konfigurera etablering i Azure Portal @ no__t-0
 
 1. I den **klient-URL** fältet, anger du URL till slutpunkten för programmets SCIM. Exempel: https://api.contoso.com/scim/
 1. Om SCIM-slutpunkten kräver en OAuth-ägartoken från en utfärdare än Azure AD kan sedan kopiera den obligatoriska OAuth-ägartoken till det valfria **hemlighet Token** fält. Om det här fältet lämnas tomt innehåller Azure AD en OAuth Bearer-token som utfärdats från Azure AD med varje begäran. Appar som använder Azure AD som en identitetsprovider kan verifiera den här Azure AD-utfärdade token.
@@ -108,21 +108,21 @@ I [SCIM 2,0-protokoll specifikationen](http://www.simplecloud.info/#Specificatio
 * Har stöd för att skapa användare och eventuellt även grupper, enligt avsnitt [3,3 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.3).  
 * Stöder ändring av användare eller grupper med PATCH-begäranden enligt [avsnittet 3.5.2 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
 * Stöder hämtning av en känd resurs för en användare eller grupp som skapats tidigare, enligt [avsnittet 3.4.1 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
-* Har stöd för att skicka frågor till användare eller grupper enligt avsnittet [3.4.2 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Som standard `id` hämtas användare av och efter frågas av deras `username` och `externalid`, och grupper efter frågas av `displayName`.  
+* Har stöd för att skicka frågor till användare eller grupper enligt avsnittet [3.4.2 i scim-protokollet](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Som standard hämtas användare av sina `id` och efter frågas av deras `username` och `externalid`, och grupper efter frågas av `displayName`.  
 * Har stöd för att skicka frågor till användare efter ID och chef, enligt avsnittet 3.4.2 i SCIM-protokollet.  
 * Har stöd för att skicka frågor till grupper efter ID och per medlem, enligt avsnittet 3.4.2 i SCIM-protokollet.  
 * Accepterar en enda Bearer-token för autentisering och auktorisering av Azure AD till ditt program.
 
 Följ dessa allmänna rikt linjer när du implementerar en SCIM-slutpunkt för att säkerställa kompatibilitet med Azure AD:
 
-* `id`är en obligatorisk egenskap för alla resurser. Varje svar som returnerar en resurs måste se till att varje resurs har den här egenskapen `ListResponse` , förutom med noll medlemmar.
-* Svar på en fråga/filter-begäran ska alltid vara `ListResponse`en.
+* `id` är en obligatorisk egenskap för alla resurser. Varje svar som returnerar en resurs måste se till att varje resurs har den här egenskapen, förutom `ListResponse` med noll medlemmar.
+* Svar på en fråga/filter-begäran ska alltid vara en `ListResponse`.
 * Grupper är valfria, men stöds endast om SCIM-implementeringen stöder PATCH-begäranden.
 * Det är inte nödvändigt att inkludera hela resursen i KORRIGERINGs svaret.
 * Microsoft Azure AD använder endast följande operatorer:  
      - `eq`
      - `and`
-* Kräv inte Skift läges känslig matchning på strukturella element i scim, i synnerhet korrigerings `op` åtgärds värden, enligt definitionen i. https://tools.ietf.org/html/rfc7644#section-3.5.2 Azure AD avger värdena för "OP" som `Add`, `Replace`och `Remove`.
+* Kräv inte Skift läges känslig matchning på strukturella element i SCIM, särskilt korrigering `op` åtgärds värden, enligt definitionen i https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD genererar värdena för "OP" som `Add`, `Replace` och `Remove`.
 * Microsoft Azure AD gör begär Anden att hämta en slumpmässig användare och grupp för att säkerställa att slut punkten och autentiseringsuppgifterna är giltiga. Det sker också som en del av **test anslutnings** flödet i [Azure Portal](https://portal.azure.com). 
 * Attributet som resurserna kan frågas om på ska anges som ett matchande attribut i programmet i [Azure Portal](https://portal.azure.com). Mer information finns i [Anpassa mappningar för användar etablerings attribut](https://docs.microsoft.com/azure/active-directory/active-directory-saas-customizing-attribute-mappings)
 
@@ -130,8 +130,8 @@ Följ dessa allmänna rikt linjer när du implementerar en SCIM-slutpunkt för a
 
 Följande bild visar de meddelanden som Azure Active Directory skickar till en SCIM-tjänst för att hantera livs cykeln för en användare i ditt programs identitets lager.  
 
-![Visar användar etablering och inetablerings ordning][4]<br/>
-*Bild 4: Användar etablering och inetablerings ordning*
+![Shows användar etablering och inetablerings sekvens @ no__t-1<br/>
+*Figure 4: Användar etablering och inetablerings sekvens @ no__t-0
 
 ### <a name="group-provisioning-and-de-provisioning"></a>Gruppetablering och avetablering
 
@@ -140,8 +140,8 @@ Grupp etablering och avetablering är valfria. När det implementeras och aktive
 * Begär Anden om att hämta grupper anger att attributet members ska uteslutas från alla resurser som tillhandahålls som svar på begäran.  
 * Förfrågningar att avgöra om ett referensattribut har ett visst värde är begäranden om attributet medlemmar.  
 
-![Visar grupp etablering och inetablerings ordning][5]<br/>
-*Figur 5: Grupp etablering och inetablerings ordning*
+![Shows för grupp etablering och inetablerings sekvens @ no__t-1<br/>
+*Figure 5: Grupp etablering och inetablerings sekvens @ no__t-0
 
 ### <a name="scim-protocol-requests-and-responses"></a>Begär Anden och svar för SCIM-protokoll
 Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats av Azure AD SCIM-klienten och exempel på förväntade svar. För bästa resultat bör du koda appen för att hantera dessa begär anden i det här formatet och generera förväntade svar.
@@ -196,7 +196,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 
 ### <a name="user-operations"></a>Användar åtgärder
 
-* Användare kan frågas efter `userName` eller `email[type eq "work"]` attribut.  
+* Användare kan frågas genom `userName` eller `email[type eq "work"]` attribut.  
 
 #### <a name="create-user"></a>Skapa användare
 
@@ -458,7 +458,7 @@ Det här avsnittet innehåller exempel på SCIM-begäranden som har genererats a
 ### <a name="group-operations"></a>Grupp åtgärder
 
 * Grupper ska alltid skapas med en lista med tomma medlemmar.
-* Det `displayName` går att fråga efter attribut med grupper.
+* Grupper kan frågas av attributet `displayName`.
 * Uppdateringen av grupp PATCH-begäran ska ge ett *HTTP 204-innehåll* i svaret. Att returnera en brödtext med en lista över alla medlemmar är inte lämpligt.
 * Det är inte nödvändigt att stödja att returnera alla medlemmar i gruppen.
 
@@ -656,7 +656,7 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableri
 1. Ladda ned koden exempelpaketet på [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)
 1. Packa upp paketet och placera den på din Windows-dator på en plats, till exempel C:\AzureAD-BYOA-Provisioning-Samples\.
 1. Starta FileProvisioning\Host\FileProvisioningService.csproj-projekt i Visual Studio i den här mappen.
-1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**och kör följande kommandon för FileProvisioningService-projektet för att lösa lösnings referenserna:
+1. Välj **verktyg** > **NuGet Package Manager** > **Package**Manager-konsolen och kör följande kommandon för FileProvisioningService-projektet för att lösa lösnings referenserna:
 
    ```powershell
     Update-Package -Reinstall
@@ -664,20 +664,20 @@ Det enklaste sättet att implementera en SCIM-slutpunkt som kan ta emot etableri
 
 1. Skapa FileProvisioningService-projektet.
 1. Starta Kommandotolken programmet i Windows (som administratör) och använda den **cd** kommando för att ändra katalogen till din **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug**mapp.
-1. Kör följande kommando och Ersätt `<ip-address>` med IP-adressen eller domän namnet för Windows-datorn:
+1. Kör följande kommando och ersätt `<ip-address>` med IP-adressen eller domän namnet för Windows-datorn:
 
    ```
     FileSvc.exe http://<ip-address>:9000 TargetFile.csv
    ```
 
-1. I Windows- **Inställningar** > **nätverk & Internet inställningar**väljer du Windows- **brandväggen** > **Avancerade inställningar**och skapar en regel för **inkommande trafik** som tillåter inkommande åtkomst till porten 9000.
+1. I Windows under **Windows-inställningar**@no__t-**1 nätverks & Internet inställningar**väljer du **Windows-brandväggen** > **Avancerade inställningar**och skapar en **regel för inkommande trafik** som tillåter inkommande åtkomst till port 9000.
 1. Om Windows-datorn ligger bakom en router måste routern konfigureras för att köra översättning av nätverks åtkomst mellan port 9000 som exponeras för Internet och port 9000 på Windows-datorn. Den här konfigurationen krävs för att Azure AD ska få åtkomst till den här slut punkten i molnet.
 
 #### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Registrera exempel SCIM-slutpunkten i Azure AD
 
 1. Logga in på [Azure Active Directory Portal](https://aad.portal.azure.com). 
 1. Välj **företags program** i det vänstra fönstret. En lista över alla konfigurerade appar visas, inklusive appar som har lagts till från galleriet.
-1. Välj **+ ny app** > **alla** > **program som inte är Galleri**.
+1. Välj **+ ny program** > **alla** > **icke-galleriprogram**.
 1. Ange ett namn för ditt program och välj **Lägg till** för att skapa ett app-objekt. Det programobjekt som skapas är avsedd att representera målappen du skulle etablering för och implementera enkel inloggning för och inte bara SCIM-slutpunkten.
 1. På skärmen hantering av appar väljer du **etablering** i den vänstra panelen.
 1. I den **etablering läge** menyn och välj **automatisk**.    
@@ -837,7 +837,7 @@ För att vara värd för tjänsten inom Internet Information Services skapar en 
 
 ### <a name="handling-endpoint-authentication"></a>Hantering av slutpunktsautentisering
 
-Begäranden från Azure Active Directory omfattar en OAuth 2.0-ägartoken.   Alla tjänster som tar emot begäran ska autentisera utfärdaren som Azure Active Directory för den förväntade Azure Active Directory klienten, för åtkomst till Azure Active Directory Graph-webbtjänsten.  I token utfärdaren identifieras med ett iss-anspråk som ”iss” ”:"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  I det här exemplet är bas adressen för anspråks värdet https://sts.windows.net, identifierar Azure Active Directory som utfärdaren, medan det relativa adress segmentet cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 är en unik identifierare för Azure Active Directory klienten för vilken token utfärdades. Mål gruppen för token är programmets mall-ID för appen i galleriet. Programmets mall-ID för alla anpassade appar är 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. Programmets mall-ID för varje app i galleriet varierar. Kontakta ProvisioningFeedback@microsoft.com för att få frågor om Programmall-ID för ett galleri program. Varje program som registreras i en enda klient organisation kan få samma `iss` anspråk med scim-begäranden.
+Begäranden från Azure Active Directory omfattar en OAuth 2.0-ägartoken.   Alla tjänster som tar emot begäran ska autentisera utfärdaren som Azure Active Directory för den förväntade Azure Active Directory klienten, för åtkomst till Azure Active Directory Graph-webbtjänsten.  I token utfärdaren identifieras med ett iss-anspråk som ”iss” ”:"https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/".  I det här exemplet är bas adressen för anspråk svärdet, https://sts.windows.net, identifierar Azure Active Directory som utfärdare, medan det relativa adress segmentet cbb1a5ac-f33b-45fa-9bf5-f37db0fed422 är en unik identifierare för den Azure Active Directory klient organisation som token utfärdades. Mål gruppen för token är programmets mall-ID för appen i galleriet. Programmets mall-ID för alla anpassade appar är 8adf8e6e-67b2-4cf2-a259-e3dc5476c621. Programmets mall-ID för varje app i galleriet varierar. Kontakta ProvisioningFeedback@microsoft.com om du har frågor om Programmall-ID för ett galleri program. Varje program som registreras i en enda klient organisation kan få samma `iss`-anspråk med SCIM-begäranden.
 
 Utvecklare som använder CLI-biblioteken från Microsoft för att skapa en SCIM-tjänst kan autentisera begär Anden från Azure Active Directory med hjälp av Microsoft. OWIN. Security. ActiveDirectory-paketet genom att följa dessa steg: 
 
@@ -1329,7 +1329,7 @@ Utvecklare som använder CLI-biblioteken från Microsoft för att skapa en SCIM-
 
 Azure Active Directory kan etablera två typer av resurser till SCIM-webbtjänster.  Dessa typer av resurser är användare och grupper.  
 
-Användar resurser identifieras av schema-ID: n `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, som ingår i protokoll specifikationen:. https://tools.ietf.org/html/rfc7643  Standard mappningen av attributen för användare i Azure Active Directory till attributen för användar resurser finns i tabell 1.  
+Användar resurser identifieras av schema-ID: n, `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`, som ingår i protokoll specifikationen: https://tools.ietf.org/html/rfc7643.  Standard mappningen av attributen för användare i Azure Active Directory till attributen för användar resurser finns i tabell 1.  
 
 Gruppera resurser identifieras av schema-ID `urn:ietf:params:scim:schemas:core:2.0:Group`. Tabell 2 visar standard mappningen av attributen för grupper i Azure Active Directory till attributen för grupp resurser.  
 

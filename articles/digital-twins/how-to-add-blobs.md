@@ -1,20 +1,20 @@
 ---
-title: Så här lägger du till blobbar i objekt i Azure Digitals flätas | Microsoft Docs
+title: Så här lägger du till blobar till objekt – Azure Digitals flätade | Microsoft Docs
 description: Lär dig hur du lägger till blobar till objekt i digitala Azure-objekt.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 35bc5a4532f040aeb464a91b14adcb540ccc113a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 3a278501f1110da0ab332d0e1acf170892be26ee
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71845493"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949148"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Lägga till blobbar till objekt i Azure Digitals, dubbla
 

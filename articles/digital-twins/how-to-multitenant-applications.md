@@ -1,19 +1,19 @@
 ---
 title: Aktivera program med flera innehavare med Azure Digitals-dubbla | Microsoft Docs
 description: Så här konfigurerar du Azure Active Directory program för flera innehavare för Azures digitala dubbla.
-author: mavoge
+ms.author: alinast
+author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: mavoge
-ms.openlocfilehash: 2ee3681640f68839c32e2963b34d5547abb6943b
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.date: 10/02/2019
+ms.openlocfilehash: 070b04b27982b84f101ee4d6f85f4e5b82760092
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976884"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958794"
 ---
 # <a name="enable-multitenant-applications-with-azure-digital-twins"></a>Aktivera program med flera klient organisationer med digitala Azure-dubbla
 
@@ -32,15 +32,15 @@ Om du vill veta mer om flera organisationer kan du läsa [program med flera klie
 I det här scenariot bör du överväga en utvecklare som skapar en Azure digital-lösning (**utvecklare**) och en kund som använder lösningen (**kund**):
 
 - **Utvecklaren** har en Azure-prenumeration med en Azure Active Directory klient.
-- **Utvecklare** distribuerar en digital Azure-instans i Azure-prenumerationen. Azure Active Directory automatiskt skapat ett huvud namn förtjänsten i utvecklarens Azure Active Directory-klient.
-- Användare i **utvecklarens**Azure Active Directory-klient kan sedan [Hämta OAuth 2,0](./security-authenticating-apis.md) -token från Azures digitala dubbla-tjänster.
+- **Utvecklare** distribuerar en digital Azure-instans i Azure-prenumerationen. Azure Active Directory automatiskt skapat ett huvud namn för tjänsten i **utvecklarens**Azure Active Directory-klient.
+- Användare i **utvecklarens**Azure Active Directory-klient kan sedan [Hämta OAuth 2,0-token](./security-authenticating-apis.md) från Azures digitala dubbla-tjänster.
 - **Utvecklare** skapar nu en mobilapp som direkt kan integreras med API: er för Azure Digitals sammanflätade hantering.
 - **Utvecklare** gör det möjligt för **kunden** att använda det mobila programmet.
 - **Kunden** måste ha behörighet att använda Azure Digitals hanterings-API i **utvecklarens**program.
 
 Problemet:
 
-- När **kunden** loggar ini utvecklarens program kan appen inte hämta tokens för **kundens**användare att autentisera med API: er för Azure Digitals sammanflätade hantering.
+- När **kunden** loggar in i **utvecklarens**program kan appen inte hämta tokens för **kundens**användare att autentisera med API: er för Azure Digitals sammanflätade hantering.
 - Ett undantag utfärdas i Azure Active Directory som anger att Azure Digital-dubbla är okända i **kundens**katalog.
 
 ## <a name="problem-solution"></a>Problem lösning
@@ -57,20 +57,16 @@ För att lösa det tidigare problem scenariot krävs följande åtgärder för a
   1. Öppna **prenumerationer**.
   1. Välj den prenumeration som har den Azure Active Directory klienten som ska användas i **utvecklarens**program.
 
-     ![Azure Active Directory prenumerationer][1]
+     [![Azure Active Directory prenumerationer](media/multitenant/ad-subscriptions.png)](media/multitenant/ad-subscriptions.png#lightbox)
 
   1. Välj **resurs leverantörer**.
   1. Sök efter **Microsoft. IoTSpaces**.
   1. Välj **Registrera**.
 
-     ![Azure Active Directory resurs leverantörer][2]
+     [![Azure Active Directory-resurs leverantörer](media/multitenant/ad-resource-providers.png)](media/multitenant/ad-resource-providers.png#lightbox)
   
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill lära dig mer om hur du använder användardefinierade funktioner med Azure Digitals finns mer information [i så här skapar du Azure Digitals inbyggda funktioner](./how-to-user-defined-functions.md).
 
 - Om du vill lära dig hur du använder rollbaserad åtkomst kontroll för att ytterligare skydda programmet med roll tilldelningar läser [du skapa och hantera Azure Digitals, rollbaserad åtkomst kontroll](./security-create-manage-role-assignments.md).
-
-<!-- Images -->
-[1]: media/multitenant/ad-subscriptions.png
-[2]: media/multitenant/ad-resource-providers.png

@@ -2,24 +2,25 @@
 title: ta med fil
 description: ta med fil
 services: digital-twins
-author: dsk-2015
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
 ms.date: 09/24/2019
-ms.author: dkshir
 ms.custom: include file
-ms.openlocfilehash: 5b88e3f17c1bbf60d38763f7fb349302ae4a920b
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 7b2df437833f270a6e102257693426f4cc65b9d2
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71310517"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949756"
 ---
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
 1. Välj **Skapa en resurs** i fönstret till vänster. Sök efter **digitala dubbla**och välj **digitala dubbla**. Välj **Skapa** för att starta distributionsprocessen.
 
-   [![Val för att skapa en ny Digitals dubbla instanser](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
+   [![Selections för att skapa en ny digital garn instans](./media/create-digital-twins-portal/create-digital-twins.png)](./media/create-digital-twins-portal/create-digital-twins.png#lightbox)
 
 1. I fönstret **Digital Twins** anger du följande information:
    * **Resursnamn**: Skapa ett unikt namn på Digital Twins-instansen.
@@ -27,7 +28,7 @@ ms.locfileid: "71310517"
    * **Resursgrupp**: Välj eller skapa en [resursgrupp](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups) för Digital Twins-instansen.
    * **Plats**: Välj den plats som är närmast enheterna.
 
-     [![Digitals fönster ruta med inmatad information](./media/create-digital-twins-portal/create-digital-twins-param.png)](./media/create-digital-twins-portal/create-digital-twins-param.png#lightbox)
+     [@no__t 1Digitals fönster rutor med angiven information](./media/create-digital-twins-portal/create-digital-twins-param.png)](./media/create-digital-twins-portal/create-digital-twins-param.png#lightbox)
 
 1. Granska din Digital Twins-information och välj sedan **Skapa**. Det kan ta några minuter för Digital Twins-instansen att skapas. Du kan övervaka förloppet i **meddelandefönstret**.
 
@@ -37,4 +38,4 @@ ms.locfileid: "71310517"
 
     Ändra URL:en för **hanterings-API** till det här formatet: `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/api/v1.0/`. Programmet använder den ändra URL:en som bas-URL för att få åtkomst till instansen. Kopiera denna ändrade URL till en temporär fil. Du behöver URL:en i nästa avsnitt.
 
-    [![Hanterings-API](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)
+    [![Management-API](./media/create-digital-twins-portal/digital-twins-management-api.png)](./media/create-digital-twins-portal/digital-twins-management-api.png#lightbox)

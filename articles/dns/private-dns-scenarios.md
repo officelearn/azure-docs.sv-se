@@ -1,59 +1,58 @@
 ---
 title: Scenarier för Azure DNS Private Zones
-description: Översikt över vanliga scenarier för att använda Azure DNS Private Zones.
+description: Översikt över vanliga scenarier för användning av Azure DNS Private Zones.
 services: dns
 author: vhorne
 ms.service: dns
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 409595febded7b242eae876ebb2cb35ae4999e5e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 747fe891bf4d6bd042e689107cd87680795eb82b
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60686862"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959331"
 ---
-# <a name="azure-dns-private-zones-scenarios"></a>Azure DNS Private Zones scenarier
-Azure DNS Private Zones tillhandahåller namnmatchning i ett virtuellt nätverk samt mellan virtuella nätverk. I den här artikeln ska titta vi på några vanliga scenarier som kan genomföras med hjälp av den här funktionen. 
+# <a name="azure-dns-private-zones-scenarios"></a>Scenarier för Azure DNS privata zoner
 
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
+Azure DNS Private Zones tillhandahålla namn matchning i ett virtuellt nätverk samt mellan virtuella nätverk. I den här artikeln tittar vi på några vanliga scenarier som kan realiseras med hjälp av den här funktionen.
 
-## <a name="scenario-name-resolution-scoped-to-a-single-virtual-network"></a>Scenario: Namnmatchning begränsade till ett enda virtuellt nätverk
-I det här scenariot har du ett virtuellt nätverk i Azure som innehåller ett antal Azure-resurser, inklusive virtuella datorer (VM). Du vill lösa resurser från i det virtuella nätverket via ett visst domännamn (DNS-zon) och du behöver namnmatchning för att vara privat och inte kan nås från internet. För de virtuella datorerna i det virtuella nätverket måste dessutom Azure för att automatiskt registrera dem i DNS-zonen. 
+## <a name="scenario-name-resolution-scoped-to-a-single-virtual-network"></a>Scenario: Namn matchningen är begränsad till ett enda virtuellt nätverk
+I det här scenariot har du ett virtuellt nätverk i Azure som har ett antal Azure-resurser, inklusive Virtual Machines (VM). Du vill lösa resurserna inifrån det virtuella nätverket via ett särskilt domän namn (DNS-zon) och du behöver namn matchningen som privat och inte tillgänglig från Internet. För de virtuella datorerna i det virtuella nätverket måste Azure dessutom registrera dem automatiskt i DNS-zonen. 
 
-Det här scenariot beskrivs nedan. Virtuellt nätverk med namnet ”A” innehåller två virtuella datorer (VNETA VM1 och VNETA VM2). Var och en av dessa har privata IP-adresser som är associerade. När du skapar en privat zon med namnet contoso.com och länka det här virtuella nätverket som ett virtuellt nätverk för registrering, skapar Azure DNS automatiskt två A-poster i zonen som du ser. Nu, är VNETA-VM1 för att lösa VNETA VM2.contoso.com DNS-frågor får ett DNS-svar som innehåller VNETA VM2 privat IP. Dessutom får en omvänd DNS-fråga (PTR) för den privata IP av VNETA-VM1 (10.0.0.1) som utfärdats av VNETA VM2 ett DNS-svar som innehåller namnet på VNETA-VM1 är som förväntat. 
+Det här scenariot beskrivs nedan. Virtual Network med namnet "A" innehåller två virtuella datorer (VNETA-VM1 och VNETA-VM2). Vart och ett av dessa har privata IP-adresser associerade. När du skapar en privat zon med namnet contoso.com och länkat det här virtuella nätverket som ett virtuellt registrerings nätverk skapar Azure DNS automatiskt två poster i zonen som de visas. DNS-frågor från VNETA-VM1 för att lösa VNETA-VM2.contoso.com kommer nu att få ett DNS-svar som innehåller den privata IP-adressen för VNETA-VM2. Dessutom kommer en omvänd DNS-fråga (PTR) för den privata IP-adressen för VNETA-VM1 (10.0.0.1) som utfärdats från VNETA-VM2 att få ett DNS-svar som innehåller namnet på VNETA-VM1, som förväntat. 
 
-![Enkel lösning för virtuella nätverk](./media/private-dns-scenarios/single-vnet-resolution.png)
+![Enskild virtuell nätverks lösning](./media/private-dns-scenarios/single-vnet-resolution.png)
 
-## <a name="scenario-name-resolution-across-virtual-networks"></a>Scenario: Namnmatchning för virtuella nätverk
+## <a name="scenario-name-resolution-across-virtual-networks"></a>Scenario: Namn matchning i virtuella nätverk
 
-Det här scenariot är vanligare fallet där du vill koppla en privat zon med flera virtuella nätverk. Det här scenariot kan passa arkitekturer, till exempel NAV och eker-modellen där det finns en central virtuella navnätverket virtuella nätverk är anslutna till vilken flera andra ekrar. Central hubbens virtuella nätverk kan länka som virtuellt registreringsnätverk till en privat zon och virtuella ekernätverk kan länkas som virtuella matchningsnätverk. 
+Det här scenariot är det vanligaste fallet där du behöver associera en privat zon med flera virtuella nätverk. Det här scenariot kan passa arkitekturer som Hub-och-eker-modellen där det finns ett virtuellt nätverk i Central hubb som flera andra eker-virtuella nätverk är anslutna till. Det virtuella nätverket i den centrala hubben kan länkas till en privat zon för det virtuella nätverket, och de virtuella ekrar som kan länkas till virtuella nätverk. 
 
-Följande diagram visar en enkel version av det här scenariot där det finns bara två virtuella nätverk - A och B. A är utsedd till ett virtuellt nätverk för registrering och B är utsedd till ett virtuellt nätverk för matchning. Avsikten är att båda virtuella nätverken du delar en gemensam zonen contoso.com. När zonen skapas och de virtuella nätverken upplösning och registrering är länkade till zonen, Azure kommer automatiskt att registreras DNS-poster för de virtuella datorerna (VNETA VM1 och VNETA VM2) från det virtuella nätverket A. Du kan även manuellt lägga till DNS-poster i zonen för virtuella datorer i det virtuella matchningsnätverket B. Med den här konfigurationen kan du lägga märke till följande beteende för proxy och omvänd DNS-frågor:
-* En DNS-fråga från VNETB VM1 i det virtuella matchningsnätverk B och för VNETA VM1.contoso.com får ett DNS-svar som innehåller VNETA VM1 privat IP.
-* En omvänd DNS (PTR)-fråga från VNETB VM2 i det virtuella matchningsnätverk B och för 10.1.0.1, får ett DNS-svar som innehåller FQDN VNETB-VM1.contoso.com. Anledningen är att omvänd DNS-frågor är begränsade till samma virtuella nätverk. 
-* En omvänd DNS (PTR)-fråga från VNETB VM3 i det virtuella matchningsnätverk B och för 10.0.0.1, får NXDOMAIN. Anledningen är att omvänd DNS-frågor endast är begränsade till samma virtuella nätverk. 
+Följande diagram visar en enkel version av det här scenariot där det bara finns två virtuella nätverk – A och B. A anges som ett virtuellt registrerings nätverk och B anges som ett virtuellt lösnings nätverk. Avsikten är att båda virtuella nätverken ska dela en gemensam zon contoso.com. När zonen har skapats och de virtuella datorerna för matchning och registrering är länkade till zonen registrerar Azure automatiskt DNS-poster för de virtuella datorerna (VNETA-VM1 och VNETA-VM2) från det virtuella nätverket A. Du kan också manuellt lägga till DNS-poster i zonen för virtuella datorer i det virtuella matchnings nätverket B. Med den här installationen ser du följande saker för att vidarebefordra och omvända DNS-frågor:
+* En DNS-fråga från VNETB-VM1 i lösningens virtuella nätverk B, för VNETA-VM1.contoso.com, kommer att få ett DNS-svar som innehåller den privata IP-adressen för VNETA-VM1.
+* En omvänd DNS-fråga (PTR) från VNETB-VM2 i den virtuella matchnings nätverket B, för 10.1.0.1, kommer att få ett DNS-svar som innehåller FQDN-VNETB-VM1.contoso.com. Orsaken är att omvända DNS-frågor är begränsade till samma virtuella nätverk. 
+* En omvänd DNS-fråga (PTR) från VNETB-VM3 i den virtuella matchnings nätverket B, för 10.0.0.1, kommer att få NXDOMAIN. Orsaken är att omvända DNS-frågor bara är begränsade till samma virtuella nätverk. 
 
 
-![Lösningar för flera virtuella nätverk](./media/private-dns-scenarios/multi-vnet-resolution.png)
+![Flera lösningar för virtuella nätverk](./media/private-dns-scenarios/multi-vnet-resolution.png)
 
-## <a name="scenario-split-horizon-functionality"></a>Scenario: Split-Horizon-funktioner
+## <a name="scenario-split-horizon-functionality"></a>Scenario: Funktioner för delad horisont
 
-I det här scenariot har du ett användningsfall där du vill att utnyttja olika DNS-matchningen beroende på där klienten är placerad (inuti Azure eller ut på internet) för samma DNS-zonen. Exempel: du kan ha en privata och offentliga versionen av ditt program som har olika funktioner eller beteende, men du vill använda samma domännamn för båda versionerna. Det här scenariot kan realiseras med Azure DNS genom att skapa en offentlig DNS-zon som en privat zon med samma namn.
+I det här scenariot har du ett användnings fall där du vill realisera olika DNS-matchnings beteende beroende på var klienten finns (i Azure eller på Internet), för samma DNS-zon. Du kan till exempel ha en privat och offentlig version av programmet som har olika funktioner eller beteende, men du vill använda samma domän namn för båda versionerna. Det här scenariot kan realiseras med Azure DNS genom att skapa en offentlig DNS-zon och en privat zon med samma namn.
 
-Följande diagram visar det här scenariot. Du har ett virtuellt nätverk A som har två virtuella datorer (VNETA VM1 och VNETA VM2) som har både privata IP-adresser och offentliga IP-adresser tilldelas. Du skapar en offentlig DNS-zon med namnet contoso.com och registrera den offentliga IP-adresser för dessa virtuella datorer som DNS-poster i zonen. Du kan också skapa en privat DNS-zon som kallas även contoso.com som anger att en virtuellt registreringsnätverk. Azure registrerar automatiskt de virtuella datorerna som A-poster i den privata zonen som pekar till sina privata IP-adresser.
+Följande diagram illustrerar det här scenariot. Du har ett virtuellt nätverk som har två virtuella datorer (VNETA-VM1 och VNETA-VM2) som har både privata IP-adresser och offentliga IP-allokerade. Du skapar en offentlig DNS-zon med namnet contoso.com och registrerar de offentliga IP-adresserna för de virtuella datorerna som DNS-poster i zonen. Du skapar också en Privat DNS zon som också kallas contoso.com som anger ett som registrerings virtuella nätverk. Azure registrerar automatiskt de virtuella datorerna som en post i den privata zonen, vilket leder till sina privata IP-adresser.
 
-Nu när en internet-klient skickar en DNS-fråga för att leta upp VNETA VM1.contoso.com, returneras Azure den offentliga IP-adressposten från offentlig zon. Om samma DNS-frågan har utfärdats från en annan virtuell dator (till exempel: VNETA-VM2) i samma virtuella nätverk A, kommer Azure att returnera privata IP-adressposten från den privata zonen. 
+Nu när en Internet-klient utfärdar en DNS-fråga för att söka efter VNETA-VM1.contoso.com, returnerar Azure den offentliga IP-posten från den offentliga zonen. Om samma DNS-fråga utfärdas från en annan virtuell dator (till exempel: VNETA-VM2) i samma virtuella nätverk A kommer Azure att returnera den privata IP-posten från den privata zonen. 
 
-![Dela Brian upplösning](./media/private-dns-scenarios/split-brain-resolution.png)
+![Dela Brian-lösning](./media/private-dns-scenarios/split-brain-resolution.png)
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner).
 
-Lär dig hur du [skapa en privat DNS-zon](./private-dns-getstarted-powershell.md) i Azure DNS.
+Lär dig hur du [skapar en privat DNS-zon](./private-dns-getstarted-powershell.md) i Azure DNS.
 
-Läs mer om DNS-zoner och poster genom att besöka: [DNS-zoner och poster översikt](dns-zones-records.md).
+Lär dig mer om DNS-zoner och poster genom att besöka: [Översikt över DNS-zoner och-poster](dns-zones-records.md).
 
 Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.
 

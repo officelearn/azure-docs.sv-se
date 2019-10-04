@@ -1,20 +1,20 @@
 ---
 title: Azure Digitals dubbla funktioner klient biblioteks referens för användar definierade funktioner | Microsoft Docs
 description: Azure Digitals dubbla användares klient biblioteks referens för användar definierade funktioner.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: article
 ms.date: 08/12/2019
-ms.author: alinast
 ms.custom: seodec18
-ms.openlocfilehash: 14c153a6e5837da28060122a629c8cc5df8262cf
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 36fb8a5588321426ccae7d6c6577fb4b48f3a4db
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013760"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948911"
 ---
 # <a name="user-defined-functions-client-library-reference"></a>Klient biblioteks referens för användardefinierade funktioner
 
@@ -24,7 +24,7 @@ Det här dokumentet innehåller referensinformation för klient biblioteket Azur
 
 Klient biblioteket definierar hjälp metoder för ofta använda åtgärder.
 
-### <a name="getspacemetadataid--space"></a>getSpaceMetadata (ID) ⇒`space`
+### <a name="getspacemetadataid--space"></a>getSpaceMetadata (ID) ⇒ `space`
 
 Med en utrymmes identifierare hämtar den här funktionen utrymmet från grafen.
 
@@ -34,7 +34,7 @@ Med en utrymmes identifierare hämtar den här funktionen utrymmet från grafen.
 | ---------- | ------------------- | ------------ |
 | *id*  | `guid` | Utrymmes identifierare |
 
-### <a name="getsensormetadataid--sensor"></a>getSensorMetadata (ID) ⇒`sensor`
+### <a name="getsensormetadataid--sensor"></a>getSensorMetadata (ID) ⇒ `sensor`
 
 Med den här funktionen hämtar sensor identifieraren från grafen.
 
@@ -44,7 +44,7 @@ Med den här funktionen hämtar sensor identifieraren från grafen.
 | ---------- | ------------------- | ------------ |
 | *id*  | `guid` | Sensor identifierare |
 
-### <a name="getdevicemetadataid--device"></a>getDeviceMetadata (ID) ⇒`device`
+### <a name="getdevicemetadataid--device"></a>getDeviceMetadata (ID) ⇒ `device`
 
 Med en enhets identifierare hämtar den här funktionen enheten från grafen.
 
@@ -54,7 +54,7 @@ Med en enhets identifierare hämtar den här funktionen enheten från grafen.
 | ------ | ------------------- | ------------ |
 | *id* | `guid` | Enhets identifierare |
 
-### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue (sensorId, datatyp) ⇒`value`
+### <a name="getsensorvaluesensorid-datatype--value"></a>getSensorValue (sensorId, datatyp) ⇒ `value`
 
 Med den här funktionen hämtar sensor-ID och dess datatyp det aktuella värdet för sensorn.
 
@@ -65,7 +65,7 @@ Med den här funktionen hämtar sensor-ID och dess datatyp det aktuella värdet 
 | *sensorId*  | `guid` | Sensor identifierare |
 | *dataType*  | `string` | Sensor data typ |
 
-### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue (spaceId, valueName) ⇒`value`
+### <a name="getspacevaluespaceid-valuename--value"></a>getSpaceValue (spaceId, valueName) ⇒ `value`
 
 Med en utrymmes identifierare och värde namnet hämtar den här funktionen det aktuella värdet för egenskapen Space.
 
@@ -76,7 +76,7 @@ Med en utrymmes identifierare och värde namnet hämtar den här funktionen det 
 | *spaceId*  | `guid` | Utrymmes identifierare |
 | *valueName* | `string` | Utrymmes egenskaps namn |
 
-### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorId, datatyp) ⇒`value[]`
+### <a name="getsensorhistoryvaluessensorid-datatype--value"></a>getSensorHistoryValues (sensorId, datatyp) ⇒ `value[]`
 
 Med den här funktionen hämtar sensor-ID och dess datatyp de historiska värdena för sensorn.
 
@@ -87,7 +87,7 @@ Med den här funktionen hämtar sensor-ID och dess datatyp de historiska värden
 | *sensorId* | `guid` | Sensor identifierare |
 | *dataType* | `string` | Sensor data typ |
 
-### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues (spaceId, datatyp) ⇒`value[]`
+### <a name="getspacehistoryvaluesspaceid-datatype--value"></a>getSpaceHistoryValues (spaceId, datatyp) ⇒ `value[]`
 
 Med en blank stegs identifierare och värde namnet hämtar den här funktionen de historiska värdena för den egenskapen på utrymmet.
 
@@ -108,7 +108,7 @@ Med en utrymmes identifierare hämtar den här funktionen de underordnade utrymm
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
 
-### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors(spaceId) ⇒`sensor[]`
+### <a name="getspacechildsensorsspaceid--sensor"></a>getSpaceChildSensors (spaceId) ⇒ `sensor[]`
 
 Med en utrymmes identifierare hämtar den här funktionen de underordnade sensorerna för det överordnade utrymmet.
 
@@ -118,7 +118,7 @@ Med en utrymmes identifierare hämtar den här funktionen de underordnade sensor
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
 
-### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices(spaceId) ⇒`device[]`
+### <a name="getspacechilddevicesspaceid--device"></a>getSpaceChildDevices (spaceId) ⇒ `device[]`
 
 Med en utrymmes identifierare hämtar den här funktionen de underordnade enheterna för det överordnade utrymmet.
 
@@ -128,7 +128,7 @@ Med en utrymmes identifierare hämtar den här funktionen de underordnade enhete
 | ------ | ------------------- | ------------ |
 | *spaceId* | `guid` | Utrymmes identifierare |
 
-### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors (deviceId) ⇒`sensor[]`
+### <a name="getdevicechildsensorsdeviceid--sensor"></a>getDeviceChildSensors (deviceId) ⇒ `sensor[]`
 
 Med en enhets identifierare hämtar den här funktionen de underordnade sensorer för den överordnade enheten.
 
@@ -148,7 +148,7 @@ Med en utrymmes identifierare hämtar den här funktionen sitt överordnade utry
 | ------ | ------------------- | ------------ |
 | *childSpaceId* | `guid` | Utrymmes identifierare |
 
-### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace(childSensorId) ⇒`space`
+### <a name="getsensorparentspacechildsensorid--space"></a>getSensorParentSpace (childSensorId) ⇒ `space`
 
 Med en sensor identifierare hämtar den här funktionen sitt överordnade utrymme.
 
@@ -158,7 +158,7 @@ Med en sensor identifierare hämtar den här funktionen sitt överordnade utrymm
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Sensor identifierare |
 
-### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace(childDeviceId) ⇒`space`
+### <a name="getdeviceparentspacechilddeviceid--space"></a>getDeviceParentSpace (childDeviceId) ⇒ `space`
 
 Baserat på en enhets identifierare hämtar den här funktionen sitt överordnade utrymme.
 
@@ -168,7 +168,7 @@ Baserat på en enhets identifierare hämtar den här funktionen sitt överordnad
 | ------ | ------------------- | ------------ |
 | *childDeviceId* | `guid` | Enhets identifierare |
 
-### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice(childSensorId) ⇒`space`
+### <a name="getsensorparentdevicechildsensorid--space"></a>getSensorParentDevice (childSensorId) ⇒ `space`
 
 Med en sensor identifierare hämtar den här funktionen sin överordnade enhet.
 
@@ -178,7 +178,7 @@ Med en sensor identifierare hämtar den här funktionen sin överordnade enhet.
 | ------ | ------------------- | ------------ |
 | *childSensorId* | `guid` | Sensor identifierare |
 
-### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty (spaceId, propertyName) ⇒`extendedProperty`
+### <a name="getspaceextendedpropertyspaceid-propertyname--extendedproperty"></a>getSpaceExtendedProperty (spaceId, propertyName) ⇒ `extendedProperty`
 
 Med en utrymmes identifierare hämtar den här funktionen egenskapen och dess värde från utrymmet.
 
@@ -189,7 +189,7 @@ Med en utrymmes identifierare hämtar den här funktionen egenskapen och dess v�
 | *spaceId* | `guid` | Utrymmes identifierare |
 | *Namn* | `string` | Utrymmes egenskaps namn |
 
-### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty (sensorId, propertyName) ⇒`extendedProperty`
+### <a name="getsensorextendedpropertysensorid-propertyname--extendedproperty"></a>getSensorExtendedProperty (sensorId, propertyName) ⇒ `extendedProperty`
 
 Med en sensor identifierare hämtar den här funktionen egenskapen och dess värde från sensorn.
 
@@ -200,7 +200,7 @@ Med en sensor identifierare hämtar den här funktionen egenskapen och dess vär
 | *sensorId* | `guid` | Sensor identifierare |
 | *Namn* | `string` | Namn på sensor egenskap |
 
-### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty (deviceId, propertyName) ⇒`extendedProperty`
+### <a name="getdeviceextendedpropertydeviceid-propertyname--extendedproperty"></a>getDeviceExtendedProperty (deviceId, propertyName) ⇒ `extendedProperty`
 
 Baserat på en enhets identifierare hämtar den här funktionen egenskapen och dess värde från enheten.
 
@@ -276,19 +276,19 @@ De svars modeller som returneras från klient referensens hjälp metoder beskriv
 
 ### <a name="space-methods"></a>Utrymmes metoder
 
-#### <a name="parent--space"></a>Överordnad () ⇒`space`
+#### <a name="parent--space"></a>Överordnad () ⇒ `space`
 
 Den här funktionen returnerar det överordnade utrymmet för det aktuella utrymmet.
 
-#### <a name="childsensors--sensor"></a>ChildSensors() ⇒`sensor[]`
+#### <a name="childsensors--sensor"></a>ChildSensors () ⇒ `sensor[]`
 
 Den här funktionen returnerar de underordnade sensorer för det aktuella utrymmet.
 
-#### <a name="childdevices--device"></a>ChildDevices() ⇒`device[]`
+#### <a name="childdevices--device"></a>ChildDevices () ⇒ `device[]`
 
 Den här funktionen returnerar de underordnade enheterna för det aktuella utrymmet.
 
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty (propertyName) ⇒`extendedProperty`
+#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty (propertyName) ⇒ `extendedProperty`
 
 Den här funktionen returnerar den utökade egenskapen och dess värde för det aktuella utrymmet.
 
@@ -296,7 +296,7 @@ Den här funktionen returnerar den utökade egenskapen och dess värde för det 
 | ------ | ------------------- | ------------ |
 | *Namn* | `string` | Namn på utökad egenskap |
 
-#### <a name="valuevaluename--value"></a>Värde (valueName) ⇒`value`
+#### <a name="valuevaluename--value"></a>Värde (valueName) ⇒ `value`
 
 Den här funktionen returnerar värdet för det aktuella utrymmet.
 
@@ -304,7 +304,7 @@ Den här funktionen returnerar värdet för det aktuella utrymmet.
 | ------ | ------------------- | ------------ |
 | *valueName* | `string` | Namn på värdet |
 
-#### <a name="historyvaluename--value"></a>Historik (valueName) ⇒`value[]`
+#### <a name="historyvaluename--value"></a>Historik (valueName) ⇒ `value[]`
 
 Den här funktionen returnerar de historiska värdena för det aktuella utrymmet.
 
@@ -340,15 +340,15 @@ Den här funktionen skickar ett meddelande till den angivna nytto lasten.
 
 ### <a name="device-methods"></a>Enhetsmetoder
 
-#### <a name="parent--space"></a>Överordnad () ⇒`space`
+#### <a name="parent--space"></a>Överordnad () ⇒ `space`
 
 Den här funktionen returnerar det överordnade utrymmet för den aktuella enheten.
 
-#### <a name="childsensors--sensor"></a>ChildSensors() ⇒`sensor[]`
+#### <a name="childsensors--sensor"></a>ChildSensors () ⇒ `sensor[]`
 
 Den här funktionen returnerar den aktuella enhetens underordnade sensorer.
 
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty (propertyName) ⇒`extendedProperty`
+#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty (propertyName) ⇒ `extendedProperty`
 
 Den här funktionen returnerar den utökade egenskapen och dess värde för den aktuella enheten.
 
@@ -388,15 +388,15 @@ Den här funktionen skickar ett meddelande till den angivna nytto lasten.
 
 ### <a name="sensor-methods"></a>Sensor metoder
 
-#### <a name="space--space"></a>Utrymme () ⇒`space`
+#### <a name="space--space"></a>Utrymme () ⇒ `space`
 
 Den här funktionen returnerar den aktuella sensorns överordnade utrymme.
 
-#### <a name="device--device"></a>Enhet () ⇒`device`
+#### <a name="device--device"></a>Enhet () ⇒ `device`
 
 Den här funktionen returnerar den överordnade enheten för den aktuella sensorn.
 
-#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty (propertyName) ⇒`extendedProperty`
+#### <a name="extendedpropertypropertyname--extendedproperty"></a>ExtendedProperty (propertyName) ⇒ `extendedProperty`
 
 Den här funktionen returnerar den utökade egenskapen och dess värde för den aktuella sensorn.
 
@@ -404,11 +404,11 @@ Den här funktionen returnerar den utökade egenskapen och dess värde för den 
 | ------ | ------------------- | ------------ |
 | *Namn* | `string` | Namn på utökad egenskap |
 
-#### <a name="value--value"></a>Värde () ⇒`value`
+#### <a name="value--value"></a>Värde () ⇒ `value`
 
 Den här funktionen returnerar värdet för den aktuella sensorn.
 
-#### <a name="history--value"></a>Historik () ⇒`value[]`
+#### <a name="history--value"></a>Historik () ⇒ `value[]`
 
 Den här funktionen returnerar de historiska värdena för den aktuella sensorn.
 

@@ -1,18 +1,18 @@
 ---
 title: Distribuerade data i Azure Database for PostgreSQL – storskalig (citus)
-description: Tabeller och Shards som distribueras i Server gruppen.
+description: Lär dig mer om distribuerade tabeller, referens tabeller, lokala tabeller och Shards i Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: acc07086f4eaac523cb27e1361cb9cc6d380c695
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 8a0fe871685f2a140cd8272d93f49f594cd2c910
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998030"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947490"
 ---
 # <a name="distributed-data-in-azure-database-for-postgresql--hyperscale-citus"></a>Distribuerade data i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -51,7 +51,7 @@ En bra kandidat för lokala tabeller är små administrativa tabeller som inte i
 
 I föregående avsnitt beskrivs hur distribuerade tabeller lagras som Shards på arbetsnoder. I det här avsnittet beskrivs mer teknisk information.
 
-Tabellen `pg_dist_shard` metadata i koordinatorn innehåller en rad för varje Shard för varje distribuerad tabell i systemet. Raden matchar ett Shard-ID med ett heltals intervall i ett hash-utrymme (shardminvalue, shardmaxvalue).
+Den `pg_dist_shard` metadata tabellen i koordinatorn innehåller en rad för varje Shard för varje distribuerad tabell i systemet. Raden matchar ett Shard-ID med ett heltals intervall i ett hash-utrymme (shardminvalue, shardmaxvalue).
 
 ```sql
 SELECT * from pg_dist_shard;
@@ -64,13 +64,13 @@ SELECT * from pg_dist_shard;
  (4 rows)
 ```
 
-Om koordinator-noden vill avgöra vilken Shard som innehåller en rad med `github_events`hash-värden, hashas värdet för distributions kolumnen på raden. Noden kontrollerar sedan vilket Shard\'s-intervall som innehåller det hashade värdet. Intervallen definieras så att avbildningen av hash-funktionen är sin osammanhängande Union.
+Om koordinator-noden vill avgöra vilken Shard som innehåller en rad med `github_events` hash-kodas värdet för distributions kolumnen på raden. Sedan kontrollerar noden vilka Shard @ no__t-0s-intervall som innehåller det hashade värdet. Intervallen definieras så att avbildningen av hash-funktionen är sin osammanhängande Union.
 
 ### <a name="shard-placements"></a>Shard placeringar
 
-Anta att Shard 102027 är associerat med raden i fråga. Raden läses eller skrivs i en tabell som kallas `github_events_102027` för en av arbets tagarna. Vilken arbetare? Detta fastställs helt av metadata-tabellerna. Mappningen av Shard till Worker kallas för Shard-placering.
+Anta att Shard 102027 är associerat med raden i fråga. Raden läses eller skrivs i en tabell med namnet `github_events_102027` i en av arbets tagarna. Vilken arbetare? Detta fastställs helt av metadata-tabellerna. Mappningen av Shard till Worker kallas för Shard-placering.
 
-Koordinator-noden skriver om frågor till fragment som refererar till de olika tabellerna `github_events_102027` som och kör fragmenten på lämpliga arbetare. Här är ett exempel på en fråga som körs bakom kulisserna för att hitta noden som innehåller Shard-ID 102027.
+Koordinator-noden skriver om frågor till fragment som refererar till de olika tabellerna som `github_events_102027` och kör fragmenten på lämpliga arbetare. Här är ett exempel på en fråga som körs bakom kulisserna för att hitta noden som innehåller Shard-ID 102027.
 
 ```sql
 SELECT

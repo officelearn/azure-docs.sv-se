@@ -52,8 +52,9 @@
       href: gif-images.md
     - name: Hämta populära bilder
       href: trending-images.md
-    - name: Bläddra bland bilder
-      href: paging-images.md
+    - name: bläddrar igenom sökresultat
+      maintainContext: true
+      href: ../bing-web-search/paging-search-results.md
     - name: Ändra storlek på och beskär miniatyrer
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

@@ -1,19 +1,19 @@
 ---
 title: Utgående och slut punkter i Azure Digitals flätar | Microsoft Docs
 description: Rikt linjer för hur du skapar slut punkter med Azure Digitals dubbla.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
-ms.author: alinast
-ms.openlocfilehash: 3c33992ce3c130d6c06e0709a9c4ddcab4fff159
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.date: 10/02/2019
+ms.openlocfilehash: e7516fffb4aa8806062655e39c591e4691e779b1
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013945"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959118"
 ---
 # <a name="egress-and-endpoints"></a>Utgående och slut punkter
 
@@ -54,8 +54,8 @@ Händelser skickas av IoT-objekt (till exempel enheter och sensorer) för bearbe
 | data | object | Händelse data som är speciella för resurs leverantören. |
 | eventType | string | En av de registrerade händelse typerna för den här händelse källan. |
 | eventTime | string | Tiden då händelsen genereras baserat på providerns UTC-tid. |
-| dataVersion | string | Dataobjektets schemaversion. Utgivaren definierar schema versionen. |
-| metadataVersion | string | Schemaversion för händelsemetadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
+| dataVersion | string | Data objektets schema version. Utgivaren definierar schema versionen. |
+| metadataVersion | string | Schema versionen för händelsens metadata. Event Grid definierar schemat för de högsta nivå egenskaperna. Event Grid ger det här värdet. |
 | subject | string | Fullständig resurs Sök väg till händelse källan. Det går inte att skriva till det här fältet. Event Grid ger det här värdet. |
 
 Mer information om händelse schema för Event Grid:
@@ -63,7 +63,7 @@ Mer information om händelse schema för Event Grid:
 - Granska [Azure Event Grid händelse schema referens](../event-grid/event-schema.md).
 - Läs [EventGridEvent-referens för Azure EventGrid Node. js SDK](https://docs.microsoft.com/javascript/api/azure-eventgrid/eventgridevent?view=azure-node-latest).
 
-## <a name="event-types"></a>Händelse typer
+## <a name="event-types"></a>Händelsetyper
 
 Händelse typer klassificerar händelsens karaktär och anges i fältet **eventType** . Tillgängliga händelse typer anges i följande lista:
 
@@ -320,7 +320,7 @@ YOUR_MANAGEMENT_API_URL/endpoints
     | YOUR_SECONDARY_KEY | Sekundär anslutnings sträng som används för att autentisera |
     | YOUR_EVENT_HUB_NAME | Namnet på händelsehubben |
 
-- Dirigera till Event Hubs händelse typ **DeviceMessage**. Inkludering av `EntityPath` i **ConnectionString** är obligatoriskt:
+- Dirigera till Event Hubs händelse typ **DeviceMessage**. Inkludering av `EntityPath` i **ConnectionString** är obligatorisk:
 
   ```JSON
   {

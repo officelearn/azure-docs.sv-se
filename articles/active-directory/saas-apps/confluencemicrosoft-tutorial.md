@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1384a8c9cfc4da9e8757c26bdb3e92defdb73708
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: d54580d395b17d80742ed95aefa479f4bc104484
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743677"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960093"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Confluence SAML SSO från Microsoft
 
@@ -75,9 +75,13 @@ För närvarande stöds följande versioner av Confluence:
 - Confluence: 6.8.1
 - Confluence: 6.9.0
 - Confluence: 6.10.0
+- Confluence: 6.10.3
 - Confluence: 6.11.0
 - Confluence: 6.12.0
+- Confluence: 6.13.5
 - Confluence: 6.15.3
+- Confluence: 6.15.4
+- Confluence: 6.15.8
 
 > [!NOTE]
 > Observera att vårt Confluence-plugin-program också fungerar på Ubuntu version 16,04
@@ -196,11 +200,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. När plugin-programmet har installerats visas det i avsnittet för **användarinstallerade** tillägg i avsnittet **Manage Add-on** (Hantera tillägg). Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon13.png)
+    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. Utför följande steg på konfigurationssidan:
 
-    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon53.png)
+    ![Konfigurera enkel inloggning](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Kontrollera att det bara finns ett certifikat mappat mot appen så att det inte förekommer några fel vid lösningen av metadata. Om det finns flera certifikat får administratören ett fel vid lösningen av metadata.
@@ -210,6 +214,8 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     1. Kopiera värdena för **identifierare, svars-URL och inloggnings-URL** och klistra in dem respektive textrutor för **identifierare, svars-URL och inloggnings-URL** i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
     1. I **Login Button Name** (Namn på inloggningsknapp) skriver du namnet på den knapp som organisationen vill att användarna ser på inloggningsskärmen.
+    
+    1. I **Beskrivning av inloggnings knapp** anger du en beskrivning av knappen som din organisation vill att användarna ska kunna se på inloggnings skärmen.
 
     1. I **SAML User ID Locations** (Platser för SAML-användar-ID) väljer du antingen **User ID is in the NameIdentifier element of the Subject statement** (Användar-ID finns i elementet NameIdentifieri instruktionen Ämne) eller **User ID is in an Attribute element** (Användar-ID finns i ett Attribut-element).  Detta ID måste vara användar-ID för Confluence. Om användar-ID: t inte matchas kommer systemet inte att tillåta användare att logga in. 
 

@@ -10,12 +10,12 @@ ms.workload: na
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 7b5ee5bfe4b7498bc13ff0c8582b49fed8478e0a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 1b53d8a15e6ca1d4fc5a8ed6d58e526fadd12466
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71337786"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949007"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanterings grupper för resurs organisation och hantering
 
@@ -31,9 +31,13 @@ Du kan skapa hanterings gruppen med hjälp av portalen, PowerShell eller Azure C
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **alla tjänst** > **hanterings grupper**.
+1. Välj **alla tjänster** > **hantering + styrning**.
 
-1. På huvud sidan väljer du **ny hanterings grupp**.
+1. Välj **Cost Management + fakturering**
+
+1. På sidan Cost Management + fakturerings hanterings grupper väljer du **hanteringsgrupper**
+
+1. Välj **+ Lägg till hanterings grupp**.
 
    ![Sida för att arbeta med hanterings grupper](./media/main.png)
 

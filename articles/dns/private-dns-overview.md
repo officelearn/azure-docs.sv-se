@@ -7,19 +7,14 @@ ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
 ms.author: victorh
-ms.openlocfilehash: 0921a1ac7aa1192fae78f168c2eb51ee3e74e24a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 152087ab3dc20dfc95cfeaa0353d961917d362d6
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774609"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959352"
 ---
 # <a name="what-is-azure-private-dns"></a>Vad är Azure Privat DNS?
-
-> [!IMPORTANT]
-> Azure Privat DNS är för närvarande en offentlig för hands version.
-> Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
-> Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 Domain Name System eller DNS ansvarar för översättning (eller matchning av) ett tjänst namn till dess IP-adress.  Azure DNS är en värd tjänst för DNS-domäner som ger namn matchning med hjälp av Microsoft Azure-infrastrukturen. Förutom att stöda DNS-domäner med stöd för Internet, stöder Azure DNS även privata DNS-zoner.
 
@@ -60,22 +55,14 @@ Azure DNS tillhandahåller följande funktioner:
 
 * **Omvänd DNS-sökning stöds inom det virtuella nätverkets omfång**. Omvänd DNS-sökning för en privat IP-adress i det virtuella nätverk som är kopplat till en privat zon returnerar det fullständiga domän namnet som innehåller värd/postnamn och zonnamn som suffix.
 
-## <a name="known-issues"></a>Kända problem
-Följande objekt är kända buggar och problem i för hands versionen:
-* Om du tar bort ett virtuellt nätverk som är länkat till en privat DNS-zon tar det inte bort länkarna till den privata DNS-zonen. Länken fungerar inte om du återskapar det virtuella nätverket med samma namn och resurs grupp och försöker länka det igen till en privat DNS-zon. Undvik det här problemet genom att skapa det virtuella nätverket i en annan resurs grupp eller med ett annat namn i samma resurs grupp.
-* Om du flyttar ett virtuellt nätverk till en annan resurs grupp eller prenumeration uppdateras inte länkarna till den privata DNS-zonen. Namn matchningen för det flyttade virtuella nätverket fortsätter att fungera, men du kommer att se gamla ARM-ID: n för det virtuella nätverket när du visar de virtuella nätverks länkarna för den privata DNS-zonen.
-* För närvarande är länkade virtuella nätverk som finns i Förenade Arabemiraten norra, Förenade Arabemiraten Central, södra Afrika, västra Nord, Östra Kanada, södra Frankrike kan Miss lyckas och du kan se tillfälliga DNS-matchningar. 
-
-
 ## <a name="other-considerations"></a>Annat att tänka på
 
 Azure DNS har följande begränsningar:
 
 * Ett enskilt virtuellt nätverk kan bara länkas till en privat zon om automatisk registrering av VM DNS-poster är aktiverat. Du kan dock länka flera virtuella nätverk till en enda DNS-zon.
 * Omvänd DNS fungerar endast för privat IP-utrymme i det länkade virtuella nätverket
-* Omvänd DNS för en privat IP-adress för ett länkat virtuellt nätverk returnerar "internal.cloudapp.net" som standard suffix för den virtuella datorn. För virtuella nätverk som är länkade till en privat zon där autoregistrering är aktiverat returnerar omvänd DNS för en privat IP-adress 2 FQDN, en med standardsuffixet *Internal.cloudapp.net* och en annan med den privata zonens suffix.
-* Villkorlig vidarebefordran stöds inte internt för tillfället. Information om hur du aktiverar matchning mellan Azure och lokala nätverk finns i [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md).
-
+* Omvänd DNS för en privat IP-adress för ett länkat virtuellt nätverk returnerar *Internal.cloudapp.net* som standard suffix för den virtuella datorn. För virtuella nätverk som är länkade till en privat zon med autoregistrering aktive rad returnerar omvänd DNS för en privat IP-adress två FQDN: en med standard suffixet *Internal.cloudapp.net* och ett annat med suffixet för den privata zonen.
+* Villkorlig vidarebefordran stöds inte för närvarande. För att aktivera matchning mellan Azure och lokala nätverk. Se [namn matchning för virtuella datorer och roll instanser](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)
  
 ## <a name="pricing"></a>Prissättning
 

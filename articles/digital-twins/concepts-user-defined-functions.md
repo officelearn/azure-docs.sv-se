@@ -1,19 +1,19 @@
 ---
-title: Data bearbetning och användardefinierade funktioner med Azure Digitals flätade | Microsoft Docs
+title: Data bearbetning och användardefinierade funktioner – Azure Digitals flätar | Microsoft Docs
 description: Översikt över data bearbetning,-matchningar och användardefinierade funktioner med Azure Digitals dubbla.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 07facf06702a63df8ea93d43b9896b72322b209f
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b8ea5c54afd4b1e2c212422417688e528367d44f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178262"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949979"
 ---
 # <a name="data-processing-and-user-defined-functions"></a>Databearbetning och användardefinierade funktioner
 
@@ -23,7 +23,7 @@ Azure Digitals dubbla ger avancerade beräknings funktioner. Utvecklare kan defi
 
 När enheterna skickar telemetridata till Azure Digitals, kan utvecklare bearbeta data i fyra faser: *validera*, *matcha*, *Beräkna*och *Skicka*.
 
-[![Data bearbetnings flöde för Azure Digital](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
+[![Azure Digitals data bearbetnings flöde](media/concepts/digital-twins-data-processing-flow.png)](media/concepts/digital-twins-data-processing-flow.png#lightbox)
 
 1. Validerings fasen transformerar meddelandet inkommande telemetri till ett vanligt [data överförings objekt](https://docs.microsoft.com/aspnet/web-api/overview/data/using-web-api-with-entity-framework/part-5) format. I den här fasen körs även enhets-och sensor validering.
 1. Matchnings fasen söker efter lämpliga användardefinierade funktioner som ska köras. Fördefinierade matchningar söker efter användardefinierade funktioner baserat på information om enhet, sensor och utrymme från meddelandet inkommande telemetri.
@@ -34,17 +34,17 @@ När enheterna skickar telemetridata till Azure Digitals, kan utvecklare bearbet
 
 Data bearbetning i digitala Digital-objekt i Azure består av att definiera tre objekt: *motsvarigheter*, *användardefinierade funktioner*och *roll tilldelningar*.
 
-[![Azure Digitals dubbla data bearbetnings objekt](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
+[![Azure digitala dubbla data bearbetnings objekt](media/concepts/digital-twins-user-defined-functions.png)](media/concepts/digital-twins-user-defined-functions.png#lightbox)
 
 ### <a name="matchers"></a>Matchningar
 
 Motsvarigheter definierar en uppsättning villkor som utvärderar vilka åtgärder som sker baserat på inkommande sensor för telemetri. Villkor för att fastställa matchningen kan omfatta egenskaper från sensorn, sensorns överordnade enhet och sensorns överordnade utrymme. Villkoren uttrycks som jämförelser mot en [JSON-sökväg](https://jsonpath.com/) som beskrivs i det här exemplet:
 
-- Alla sensorer av data typs **temperatur** som representeras av det Escape-sträng svärdet`\"Temperature\"`
-- Med `01` deras port
-- Som tillhör enheter med **tillverkaren** av den utökade egenskaps nyckeln har angetts till det Escape-sträng svärdet`\"GoodCorp\"`
-- Som tillhör mellanslag av den typ som anges av den undantagna strängen`\"Venue\"`
-- Som är underordnade till överordnade **SpaceId**`DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
+- Alla sensorer av data typs **temperatur** som representeras av det Escape-sträng svärdet `\"Temperature\"`
+- Ha `01` i sin port
+- Som tillhör enheter med **tillverkaren** av den utökade egenskaps nyckeln som har angetts till det Escape-sträng svärdet `\"GoodCorp\"`
+- Som hör till blank steg av den typ som anges av den undantagna strängen `\"Venue\"`
+- Som är underordnade för överordnad **SpaceId** `DE8F06CA-1138-4AD7-89F4-F782CC6F69FD`
 
 ```JSON
 {
@@ -83,9 +83,9 @@ Motsvarigheter definierar en uppsättning villkor som utvärderar vilka åtgärd
 > [!IMPORTANT]
 > - JSON-sökvägar är Skift läges känsliga.
 > - JSON-nyttolasten är samma som den nytto last som returneras av:
->   - `/sensors/{id}?includes=properties,types`för sensorn.
->   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes`för sensorns överordnade enhet.
->   - `/spaces/{id}?includes=properties,types,location,timezone`för sensorns överordnade utrymme.
+>   - `/sensors/{id}?includes=properties,types` för sensorn.
+>   - `/devices/{id}?includes=properties,types,sensors,sensorsproperties,sensorstypes` för sensorns överordnade enhet.
+>   - `/spaces/{id}?includes=properties,types,location,timezone` för sensorns överordnade utrymme.
 > - Jämförelserna är Skift läges okänsliga.
 
 ### <a name="user-defined-functions"></a>Användardefinierade funktioner

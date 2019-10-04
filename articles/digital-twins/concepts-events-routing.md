@@ -1,19 +1,19 @@
 ---
-title: Dirigera händelser och meddelanden med Azure Digitals, dubbla | Microsoft Docs
+title: Dirigera händelser och meddelanden – Azure Digitals, dubblare | Microsoft Docs
 description: Översikt över routning av händelser och meddelanden till tjänst slut punkter med Azure Digitals
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 81f2cc32ee10e891ffab127d6ecd7909eb75abd6
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 217a1d94a4a5235fc5886f34986ffcb3aef60873
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177079"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949253"
 ---
 # <a name="routing-events-and-messages"></a>Routningshändelser och meddelanden
 
@@ -29,7 +29,7 @@ Azure Digital-dubbla finns på två sätt för att ansluta IoT-händelser med an
 
 Användare kan ange en eller flera utgående slut punkter för att skicka händelser eller vidarebefordra meddelanden. Händelser och meddelanden kommer att skickas till slut punkterna enligt dessa fördefinierade inställningar för routning. Med andra ord kan användarna ange en viss slut punkt för att ta emot diagram åtgärds händelser, en annan för att ta emot telemetri-händelser och så vidare.
 
-[![Routning av Azure Digitals dubbla händelser](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
+[![Azure digitala dubbla händelser routning](media/concepts/digital-twins-events-routing.png)](media/concepts/digital-twins-events-routing.png#lightbox)
 
 Routning till Event Hubs upprätthåller i vilken ordning telemetri-meddelanden ska skickas. De kommer då till slut punkten i samma ordning som de ursprungligen togs emot. Event Grid och Service Bus garanterar inte att slut punkterna tar emot händelser i samma ordning som de har inträffat. Händelse schemat innehåller dock en tidsstämpel som kan användas för att identifiera ordningen när händelserna kommer till slut punkten.
 

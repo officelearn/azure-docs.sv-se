@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
 ms.custom: seodec18
-ms.openlocfilehash: 29a771b93e1d686f7972e7dc4d9e78e5858644d6
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 36465f016eeb066c0e12f6434deb98fd7b10966a
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70899414"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958757"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>Förbereda för distribution av din IoT Edge-lösning i produktion
 
@@ -83,7 +83,7 @@ När du ansluter din IoT Edge-enhet, måste du fortsätta konfigurera variabeln 
 
 ### <a name="be-consistent-with-upstream-protocol"></a>Stämma överens med överordnade protokoll
 
-Om du har konfigurerat IoT Edge-agenten på IoT Edge-enheten för att använda ett annat protokoll än standard-AMQP, bör du deklarera samma protokoll i alla framtida distributioner. Till exempel om IoT Edge-enhet är bakom en proxyserver som blockerar AMQP portar kan konfigurerad du förmodligen att enheten ansluter via AMQP via WebSocket (AMQPWS). När du distribuerar moduler till enheten konfigurerar du samma APQPWS-protokoll för IoT Edge-agenten och IoT Edge Hub, eller så åsidosätter standard AMQP inställningarna och hindrar dig från att ansluta igen. 
+Om du har konfigurerat IoT Edge-agenten på IoT Edge-enheten för att använda ett annat protokoll än standard-AMQP, bör du deklarera samma protokoll i alla framtida distributioner. Till exempel om IoT Edge-enhet är bakom en proxyserver som blockerar AMQP portar kan konfigurerad du förmodligen att enheten ansluter via AMQP via WebSocket (AMQPWS). När du distribuerar moduler till enheten konfigurerar du samma AMQPWS-protokoll för IoT Edge-agenten och IoT Edge Hub, eller så åsidosätter standard AMQP inställningarna och hindrar dig från att ansluta igen. 
 
 Du behöver bara konfigurera miljövariabeln UpstreamProtocol för IoT Edge agenten och IoT Edge Hub-moduler. Alla ytterligare moduler anta oavsett protokoll har angetts i moduler för körning. 
 
@@ -174,7 +174,7 @@ Den här check listan är en start punkt för brand Väggs regler:
 
    | URL (\* = jokertecken) | Utgående TCP-portar | Användning |
    | ----- | ----- | ----- |
-   | mcr.microsoft.com  | 443 | Microsoft container Registry |
+   | mcr.microsoft.com  | 443 | Microsofts containerregister |
    | global.azure-devices-provisioning.net  | 443 | DPS-åtkomst (valfritt) |
    | \*.azurecr.io | 443 | Personliga och tredje parts behållar register |
    | \*.blob.core.windows.net | 443 | Hämtning av bild delta | 
@@ -205,9 +205,9 @@ När du testar en IoT Edge-distribution kan du normalt komma åt dina enheter f�
 
 Som standard anger Moby container Engine inte storleks gränser för behållar loggen. Med tiden kan detta leda till att enheten fyller i loggar och håller på att få slut på disk utrymme. Överväg följande alternativ för att förhindra detta:
 
-**Alternativet Ange globala gränser som gäller för alla behållar moduler**
+**Option: Ange globala gränser som gäller för alla behållar moduler @ no__t-0
 
-Du kan begränsa storleken på alla behållar logg fils loggar i behållar Motorns logg alternativ. I följande exempel anges logg driv rutinen `json-file` till (rekommenderas) med gränser för storlek och antal filer:
+Du kan begränsa storleken på alla behållar logg fils loggar i behållar Motorns logg alternativ. I följande exempel anges logg driv rutinen till `json-file` (rekommenderas) med gränser för storlek och antal filer:
 
 ```JSON
 {
@@ -219,7 +219,7 @@ Du kan begränsa storleken på alla behållar logg fils loggar i behållar Motor
 }
 ```
 
-Lägg till (eller Lägg till) den här informationen i `daemon.json` en fil med namnet och placera den rätt plats för din enhets plattform.
+Lägg till (eller Lägg till) den här informationen i en fil med namnet `daemon.json` och placera den rätt plats för din enhets plattform.
 
 | Plattform | Location |
 | -------- | -------- |
@@ -228,7 +228,7 @@ Lägg till (eller Lägg till) den här informationen i `daemon.json` en fil med 
 
 Behållar motorn måste startas om för att ändringarna ska börja gälla.
 
-**Alternativet Justera logg inställningar för varje container module**
+**Option: Justera logg inställningar för varje behållar modul @ no__t-0
 
 Du kan göra det i **createOptions** för varje modul. Exempel:
 
@@ -248,7 +248,7 @@ Du kan göra det i **createOptions** för varje modul. Exempel:
 
 **Ytterligare alternativ för Linux-system**
 
-* Konfigurera behållar motorn att skicka loggar `systemd` till [journalen](https://docs.docker.com/config/containers/logging/journald/) genom att ange `journald` som standard driv rutin för loggning. 
+* Konfigurera behållar motorn att skicka loggar till `systemd`- [Journal](https://docs.docker.com/config/containers/logging/journald/) genom att ange `journald` som driv rutin för standard loggning. 
 
 * Ta regelbundet bort gamla loggar från enheten genom att installera ett logrotate-verktyg. Använd följande filspecifikationen: 
 

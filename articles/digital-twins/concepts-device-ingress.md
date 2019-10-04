@@ -1,19 +1,19 @@
 ---
-title: Enhets anslutning och telemetri intränger med Azures digitala dubblare | Microsoft Docs
+title: Enhets anslutning och telemetri ingångar – Azure Digitals dubblare | Microsoft Docs
 description: Översikt över hur du förflyttar en enhet med Azure Digitals
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 22ae7aeeff4542bee764e131f58eb115026a4fb3
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 6c61bc6075b3f0713dd790f1b3aa1a47af9d8e6c
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177117"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950026"
 ---
 # <a name="device-connectivity-and-telemetry-ingress"></a>Enhetsanslutning och inkommande telemetri
 
@@ -39,7 +39,7 @@ I följande avsnitt får du lära dig hur du hämtar den IoT Hub enhets anslutni
 
 [!INCLUDE [Digital Twins Management API](../../includes/digital-twins-management-api.md)]
 
-Gör ett anrop på enhets-API: et `includes=ConnectionString` med en parameter för att hämta IoT Hub enhets anslutnings sträng. Filtrera efter enhetens GUID eller maskinvaru-ID för att hitta den aktuella enheten.
+Gör ett anrop på enhets-API: et med en `includes=ConnectionString`-parameter för att hämta anslutnings strängen för IoT Hub enheten. Filtrera efter enhetens GUID eller maskinvaru-ID för att hitta den aktuella enheten.
 
 ```plaintext
 YOUR_MANAGEMENT_API_URL/devices/YOUR_DEVICE_GUID?includes=ConnectionString
@@ -65,7 +65,7 @@ Du kan anpassa enhetens meddelande format och nytto Last så att den passar din 
 
 ### <a name="telemetry-properties"></a>Egenskaper för telemetri
 
- Nytto Last innehållet i ett **meddelande** kan vara godtyckligt data upp till 256 kB. Det finns några krav som förväntas för egenskaper [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) av typen. Tabellen visar de obligatoriska och valfria egenskaper som stöds av systemet.
+ Nytto Last innehållet i ett **meddelande** kan vara godtyckligt data upp till 256 kB. Det finns några krav som kan förväntas för egenskaper av typen [`Message.Properties`](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.message.properties?view=azure-dotnet) . Tabellen visar de obligatoriska och valfria egenskaper som stöds av systemet.
 
 | Egenskapsnamn | Value | Obligatorisk | Beskrivning |
 |---|---|---|---|

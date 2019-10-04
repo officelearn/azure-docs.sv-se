@@ -1,20 +1,20 @@
 ---
 title: 'Så här felsöker du UDF: er i Azure Digitals flätas | Microsoft Docs'
 description: 'Rikt linjer för hur du felsöker UDF: er i Azure Digitals dubbla.'
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/01/2019
-ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: df12d6866f5e9e6bf492e228e32b0b10f7266eb4
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 7b122df279ecde8ed9ed49b5a89251073f3feda7
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843841"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949890"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du användardefinierade funktioner i Azure Digitals dubbla
 
@@ -43,7 +43,7 @@ När du har konfigurerat kan du välja alla logg kategorier, mått och använda 
 
 Om du vill spåra sensor telemetri kontrollerar du att diagnostikinställningar har Aktiver ATS för din Azure Digital-instansen. Kontrol lera sedan att alla önskade logg kategorier är markerade. Till sist bekräftar du att önskade loggar skickas till Azure Monitor loggar.
 
-Om du vill matcha ett sensor telemetri till respektive loggar kan du ange ett korrelations-ID för de händelse data som skickas. Det gör du genom att ange `x-ms-client-request-id` egenskapen till ett GUID.
+Om du vill matcha ett sensor telemetri till respektive loggar kan du ange ett korrelations-ID för de händelse data som skickas. Det gör du genom att ange egenskapen `x-ms-client-request-id` till ett GUID.
 
 När du har skickat telemetri öppnar du Azure Monitor Log Analytics för att fråga efter loggar med hjälp av ange korrelations-ID:
 
@@ -173,7 +173,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Space", JSON.stringify(customNotification));
 ```
 
-Det här scenariot beror på att den använda identifieraren refererar till en sensor medan den angivna `Space`topologins objekt typ är.
+Det här scenariot beror på att den använda identifieraren refererar till en sensor medan den angivna topologins objekt typ är `Space`.
 
 **Korrigera** Exempel
 
@@ -185,7 +185,7 @@ var customNotification = {
 sendNotification(telemetry.SensorId, "Sensor", JSON.stringify(customNotification));
 ```
 
-Det enklaste sättet att inte köra i det här problemet är att använda `Notify` -metoden i objektet metadata.
+Det enklaste sättet att inte köra det här problemet är att använda metoden `Notify` på objektet metadata.
 
 Exempel:
 
@@ -216,4 +216,4 @@ Om du aktiverar diagnostikinställningar kan du stöta på följande vanliga und
 
 - Lär dig hur du aktiverar [övervakning och loggar](./how-to-configure-monitoring.md) i Azure Digitals dubbla.
 
-- Läs översikten över [Azures aktivitets logg](../azure-monitor/platform/activity-logs-overview.md) artikel om du vill ha fler alternativ för Azure-loggning.
+- Läs [översikten över Azures aktivitets logg](../azure-monitor/platform/activity-logs-overview.md) artikel om du vill ha fler alternativ för Azure-loggning.

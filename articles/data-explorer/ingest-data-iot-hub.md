@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 83f5339dbc4f093ba0b7287b53c053e319f928c9
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: 327fd5352a3f067638c7f9ceb51e2de9e284d845
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937394"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947852"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Mata in data från IoT Hub till Azure Datautforskaren (förhands granskning)
 
@@ -76,11 +76,11 @@ Nu ansluter du till IoT Hub från Azure Datautforskaren. När den här anslutnin
 
     **Inställning** | **Fältbeskrivning**
     |---|---|
-    | Namn på dataanslutning | Namnet på anslutningen som du vill skapa i Azure Data Explorer.
-    | IoT-hubb | IoT Hub namn. |
-    | Policy för delad åtkomst | Namnet på principen för delad åtkomst. Måste ha Läs behörighet. |
-    | Konsumentgrupp |  Konsument gruppen som definierats i den IoT Hub inbyggda slut punkten. |
-    | Systemegenskaper för händelsen | System egenskaperna för IoT Hub event. Om det finns flera poster per händelse meddelande, läggs system egenskaperna till i den första. |
+    | Namn på dataanslutning | Namnet på den anslutning som du vill skapa i Azure Datautforskaren
+    | IoT-hubb | IoT Hub-namn |
+    | Policy för delad åtkomst | Namnet på principen för delad åtkomst. Måste ha Läs behörighet |
+    | Konsumentgrupp |  Konsument gruppen som definierats i den IoT Hub inbyggda slut punkten |
+    | Systemegenskaper för händelsen | [Egenskaperna för IoT Hub Event System](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) om det finns flera poster per händelse meddelande läggs system egenskaperna till den första.|
     | | 
 
     > [!NOTE]
@@ -94,7 +94,7 @@ Nu ansluter du till IoT Hub från Azure Datautforskaren. När den här anslutnin
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Den tabell som du skapade i **testdb**. |
-    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. |
+    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, Multiline JSON, PSV, SOHSV, SCSV, TSV, TSVE och TXT. |
     | Kolumnmappning | *TestMapping* | Mappningen som du skapade i **testdb**, som mappar inkommande JSON-data till kolumn namn och data typer för **testdb**. Krävs för JSON, Multiline-JSON och AVRO, och valfritt för andra format.|
     | | |
 

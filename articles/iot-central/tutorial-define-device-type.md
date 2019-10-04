@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: db9f7e75af01ed83c39ef3a37ab2612426ef6ea4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a3faa76c1506664a075648edc7d57fbba542b011
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099612"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960531"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Självstudier: Definiera en ny enhetstyp i Azure IoT Central-programmet
 
@@ -75,7 +75,7 @@ Du behöver ett Azure IoT Central-program för att kunna genomföra den här sj�
 
      Mer information finns i [snabbstarten om att skapa ett program](quick-deploy-iot-central.md).
 
-## <a name="create-a-device-template"></a>Skapa en enhets mall
+## <a name="create-a-device-template"></a>Skapa en enhetsmall
 
 Som byggare kan du skapa och redigera enhetsmallar i programmet. När du skapar en enhetsmall genererar Azure IoT Central en simulerad enhet utifrån mallen. Den simulerade enheten genererar telemetri som gör att du kan testa programmets beteende innan du ansluter en riktig enhet.
 
@@ -95,7 +95,7 @@ Följande steg visar hur du skapar en ny enhetsmall kallad **Ansluten luftkondit
 
     ![Bibliotek för enhets mallar](./media/tutorial-define-device-type/devicetemplatelibrary.png)
 
-3. Välj **anpassad**luftkonditionerings enhet som namn på din enhets mall och välj sedan **skapa**. Du kan även ladda upp en bild av enheten som är synlig för operatörer i Device Explorer:
+3. Välj **anpassad** **luftkonditionerings** enhet som namn på din enhets mall och välj sedan **skapa**. Du kan även ladda upp en bild av enheten som är synlig för operatörer i Device Explorer:
 
     ![Anpassad enhet](./media/tutorial-define-device-type/createcustomdevice.png)
 
@@ -261,7 +261,7 @@ Du använder *inställningar* för att göra så att en operatör kan skicka kon
     | -------------------- | -----------     |
     | Visningsnamn         | Ange temperatur |
     | Fältnamn           | angeTemperatur  |
-    | Måttenhet      | f               |
+    | Måttenhet      | Fr               |
     | Decimaler       | 1               |
     | Minimivärde        | 20              |
     | Maxvärde        | 200             |
@@ -365,10 +365,10 @@ Du använder _kommandon_ så att en operatör kan köra kommandon direkt på enh
     | Visningsnamn         | Ekokommando    |
     | Fältnamn           | eko            |
     | Standardvärde för tidsgräns      | 30              |
-    | Visningstyp         | text            |
+    | Datatyp         | text            |
     | Beskrivning          | Enhetskommando  |  
 
-    Du kan lägga till ytterligare indata i kommandot genom **+** att välja för inmatnings **fält**.
+    Du kan lägga till ytterligare indata i kommandot genom att välja **+** för **inmatnings fält**.
 
     ![Förbereda för att lägga till en inställning](./media/tutorial-define-device-type/commandsecho1.png)
 

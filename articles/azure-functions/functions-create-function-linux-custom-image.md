@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: b4fd931142f8a3daf11b0540241323453e25ea4f
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 54d7dc4e57991f6b773169f539a86fdc8451cbba
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839123"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950377"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Skapa en funktion i Linux med en anpassad avbildning
 
@@ -295,11 +295,12 @@ I det här avsnittet visas hur du integrerar din funktion med en Azure Storage k
 
 Eftersom du använder en kö för lagring av utdata måste du ha installerat tillägget för lagrings bindningar innan du kör projektet. 
 
-#### <a name="javascriptpython"></a>Java Script/python
+
+# <a name="javascript--pythontabnodejspython"></a>[Java Script/python](#tab/nodejs+python)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
-#### <a name="c-class-library"></a>C#klass bibliotek
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 Med undantag för HTTP-och timer-utlösare implementeras bindningar som tilläggs paket. Kör följande [dotNet Lägg till paket](/dotnet/core/tools/dotnet-add-package) kommando i terminalfönstret för att lägga till lagrings tilläggs paketet i projektet.
 
@@ -310,35 +311,41 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 > [!TIP]
 > När du använder Visual Studio kan du också använda NuGet Package Manager för att lägga till det här paketet.
 
+---
+
 Nu kan du lägga till en bindning för lagring av utdata till ditt projekt.
 
 ### <a name="add-an-output-binding"></a>Lägg till en utdatabindning
 
 I funktioner kräver varje typ av bindning en `direction`, `type` och en unik `name` som ska definieras i function. JSON-filen. Hur du definierar dessa attribut beror på språket i din Function-app.
 
-####  <a name="javascriptpython"></a>Java Script/python
+# <a name="javascript--pythontabnodejspython"></a>[Java Script/python](#tab/nodejs+python)
 
 [!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
-#### <a name="c-class-library"></a>C#klass bibliotek
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
+
+---
 
 ### <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
 När bindningen har definierats kan du använda `name` för bindningen för att komma åt den som ett attribut i funktions under skriften. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
 
-#### <a name="javascript"></a>JavaScript
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
 
-#### <a name="python"></a>Python
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 [!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
 
-#### <a name="c-class-library"></a>C#klass bibliotek
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
+
+---
 
 ### <a name="update-the-hosted-container"></a>Uppdatera den värdbaserade behållaren
 

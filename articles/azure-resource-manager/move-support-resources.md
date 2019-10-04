@@ -4,14 +4,14 @@ description: Visar en lista över de Azure-resurs typer som kan flyttas till en 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 09/30/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: b34c244708c52ec7324c766286aff8ee9340db0b
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 81096a4299ec190cb4299f1b8ea4f9c2533d37ad
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687126"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948029"
 ---
 # <a name="move-operation-support-for-resources"></a>Åtgärds stöd för flytt av resurser
 Den här artikeln visar om en Azure-resurs har stöd för flytt åtgärden. Den innehåller också information om särskilda villkor att tänka på när du flyttar en resurs.
@@ -595,7 +595,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | Domänkontrollanter | Ja | Ja |
+> | domänkontrollanter | Ja | Ja |
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
@@ -636,7 +636,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | domäner | Ja | Ja |
-> | Avsnitt | Ja | Ja |
+> | avsnitt | Ja | Ja |
 
 ## <a name="microsofteventhub"></a>Microsoft.EventHub
 
@@ -711,7 +711,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | activitylogalerts | Nej | Nej |
 > | alertrules | Ja | Ja |
 > | autoscalesettings | Ja | Ja |
-> | Delarna | Ja | Ja |
+> | delarna | Ja | Ja |
 > | guestdiagnosticsettings | Nej | Nej |
 > | metricalerts | Nej | Nej |
 > | notificationgroups | Nej | Nej |
@@ -988,7 +988,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
-> | Instrument paneler | Ja | Ja |
+> | instrument paneler | Ja | Ja |
 
 ## <a name="microsoftportalsdk"></a>Microsoft.PortalSdk
 

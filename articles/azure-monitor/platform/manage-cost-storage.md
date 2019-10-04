@@ -14,39 +14,41 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: magoedte
 ms.subservice: ''
-ms.openlocfilehash: e21bad930bba02e4cbf715a050278ada812e55fa
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: fa0bd847596a601875d5662da1c000a5b1388eef
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71718925"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960268"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Hantera användning och kostnader med Azure Monitor loggar
 
 > [!NOTE]
-> I den här artikeln beskrivs hur du styr dina kostnader i Azure Monitor genom att ställa in data lagrings perioden för Log Analytics arbets ytan.  Se följande artikel för relaterad information.
-> - [Övervaka användning och uppskattade kostnader](usage-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
+> Den här artikeln beskriver hur du förstår och styr dina kostnader för Azure Monitor loggar. En relaterad artikel, [övervaknings användning och uppskattade kostnader](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) beskriver hur du visar användning och uppskattade kostnader i flera Azure-övervakningsfunktioner för olika pris modeller.
 
 Azure Monitor loggar har utformats för att skala och stödja insamling, indexering och lagring av stora mängder data per dag från vilken källa som helst i företaget eller som distribueras i Azure.  Detta kan vara en primära drivande faktorn för din organisation, är kostnadseffektivitet i slutändan underliggande drivrutinen. Därför är det viktigt att förstå att kostnaden för en Log Analytics-arbetsyta inte enbart baseras på mängden insamlade data, den är också beroende av den valda planen och hur länge du väljer att lagra data som genererats från dina anslutna källor.  
 
-I den här artikeln granskar vi hur du proaktivt övervakar tillväxt för volymen och lagring av data, och definiera gränser för att kontrollera de associerade kostnaderna. 
-
+I den här artikeln går vi igenom hur du kan övervaka inmatade data volymer och lagrings tillväxten på ett proaktivt sätt och definiera gränser för att kontrol lera de associerade kostnaderna. 
 
 ## <a name="pricing-model"></a>Prismodell
 
-Prissättningen för Log Analytics baseras på data volym inmatad och eventuellt för längre data kvarhållning. Varje Log Analytics arbets yta debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration. Mängden data inmatning kan vara avsevärd beroende på följande faktorer: 
+Standard priset för Log Analytics är en modell där **du betalar per** användning baserat på data volym som matas in och eventuellt för längre data kvarhållning. Varje Log Analytics arbets yta debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration. Mängden data inmatning kan vara avsevärd beroende på följande faktorer: 
 
-  - Antal aktiverade hanterings lösningar
-  - Användning av lösningar med sin egen fakturerings modell, till exempel [Azure Security Center](https://azure.microsoft.com/en-us/pricing/details/security-center/)
+  - Antal hanterings lösningar som är aktiverade och deras konfiguration (t. ex. 
   - Antal övervakade virtuella datorer
   - Typ av data som samlas in från varje övervakad virtuell dator 
+  
+Förutom modellen betala per användning har vi introducerat **kapacitets reservationer** för Log Analytics som gör att du kan spara så mycket som 25% jämfört med priset för betala per användning. Med kapacitets reservations priset kan du köpa en reservation som börjar på 100 GB/dag. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. [Läs mer](https://azure.microsoft.com/pricing/details/monitor/) om hur du Log Analytics priser för betala per användning och kapacitets reservationer. 
 
-> [!NOTE]
-> De nyligen presenterade pris nivåerna för kapacitets reservationer kommer att vara tillgängliga för Log Analytics den 1 november 2019. Läs mer i [https://azure.microsoft.com/en-us/pricing/details/monitor/](Azure Monitor pricing page).
+Observera att vissa lösningar, till exempel [Azure Security Center](https://azure.microsoft.com/pricing/details/security-center/) och [Azure Sentinel](https://azure.microsoft.com/pricing/details/azure-sentinel/), har sin egen pris modell. 
+
+## <a name="estimating-the-costs-to-manage-your-environment"></a>Beräkna kostnaderna för att hantera din miljö 
+
+Om du inte använder Azure Monitor loggar än kan du använda [pris Kalkylatorn för Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att beräkna kostnaden för att använda Log Analytics. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor panelen. Bläddra nedåt på sidan för att Azure Monitor och välj Log Analytics i list rutan typ.  Här kan du ange antalet virtuella datorer och de GB data GB som du förväntar dig att samla in från varje virtuell dator. Typcially 1 till 3 GB data månad matas in från en typisk virtuell Azure-dator. Om du redan utvärderar Azure Monitor loggar redan kan du använda din data statistik från din egen miljö. Nedan finns information om hur du fastställer [antalet övervakade virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-nodes-sending-data) och [mängden data som din arbets yta](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume)tar med. 
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Förstå din användning och beräkna kostnader
 
-Med Azure Monitor loggar är det enkelt att förstå vad kostnaderna beror på de senaste användnings mönstren. Det gör du genom att använda **Log Analytics användning och beräknade kostnader** för att granska och analysera data användningen. Visar hur mycket data som samlas in av varje lösning, hur mycket data bevaras och en uppskattning av dina kostnader utifrån mängden data som samlas in och alla kvarhållning utöver mängden som ingår.
+Om du använder Azure Monitor loggar nu är det enkelt att förstå vad kostnaderna beror på de senaste användnings mönstren. Det gör du genom att använda **Log Analytics användning och beräknade kostnader** för att granska och analysera data användningen. Visar hur mycket data som samlas in av varje lösning, hur mycket data bevaras och en uppskattning av dina kostnader utifrån mängden data som samlas in och alla kvarhållning utöver mängden som ingår.
 
 ![Användning och uppskattade kostnader](media/manage-cost-storage/usage-estimated-cost-dashboard-01.png)
 
@@ -57,6 +59,12 @@ Om du vill utforska dina data i mer detalj klickar du på ikonen längst upp hö
 På sidan **användning och uppskattade kostnader** kan du granska din data volym för månaden. Detta omfattar alla data tas emot och bevaras i Log Analytics-arbetsytan.  Klicka på **användnings information** överst på sidan för att Visa användnings instrument panelen med information om data volym trender efter källa, datorer och erbjudande. Visa och ange en daglig högsta gräns eller ändra kvarhållningsperioden klickar du på **Datavolymhantering**.
  
 Log Analytics avgifter läggs till i Azure-fakturan. Du kan se information om din Azure fakturerar under avsnittet fakturering i Azure Portal eller i den [Azure Billing Portal](https://account.windowsazure.com/Subscriptions).  
+
+## <a name="viewing-log-analytics-usage-on-your-azure-bill"></a>Visa Log Analytics användning på din Azure-faktura 
+
+Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Genom att lägga till ett filter efter resurs typ (till Microsoft. operationalinsights/arbets yta för Log Analytics) kan du spåra dina utgifter.
+
+Du kan få mer förståelse för din användning genom att [Ladda ned din användning från Azure-portalen](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). I det hämtade kalkyl bladet kan du se användning per Azure-resurs (t. ex. Log Analytics arbets yta) per dag. I det här Excel-kalkylbladet hittar du användning från dina Log Analytics-arbetsytor genom att först filtrera fram kolumnen "mätar kategori" för att Visa insikter och analyser (som används av några av de äldre pris nivåerna) och "Log Analytics" och sedan lägga till ett filter på instansen ID "-kolumnen som innehåller arbets ytan". Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Hantera din maximala dagliga data volym
 
@@ -104,22 +112,65 @@ När aviseringen har definierats och gränsen har nåtts kan en avisering har ut
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
 Följande steg beskriver hur du konfigurerar hur länge log data bevaras av i din arbetsyta.
+
+### <a name="default-retention"></a>Standard kvarhållning
+
+Ange standard kvarhållning för din arbets yta genom att 
  
-1. Välj **Användning och beräknade kostnader** i det vänstra fönstret på arbetsytan.
+1. I Azure-portalen, från din arbets yta, väljer du **användning och uppskattade kostnader** i det vänstra fönstret.
 2. På sidan **Användning och beräknade kostnader** klickar du på **Datavolymhantering** högst upp på sidan.
 3. Flytta skjutreglaget för att öka eller minska antalet dagar och klickar sedan på i fönstret **OK**.  Om du använder den *kostnadsfria* nivå, du kommer inte att kunna ändra kvarhållningsperioden för data och du måste uppgradera till betald nivå om du vill styra den här inställningen.
 
     ![Ändra inställning för kvarhållning av data arbets yta](media/manage-cost-storage/manage-cost-change-retention-01.png)
     
-Kvarhållning kan också [ställas in via arm](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) med parametern `dataRetention`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här funktionen exponeras bara via ARM. 
+Kvarhållning kan också [ställas in via arm](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) med parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här funktionen exponeras bara via ARM. 
 
 Två data typer – `Usage` och `AzureActivity` – bevaras i 90 dagar som standard och det kostar inget att debitera för denna 90-dagars kvarhållning. Dessa data typer är också kostnads fria från data inmatnings kostnader. 
+
+### <a name="retention-by-data-type"></a>Kvarhållning efter datatyp
+
+Det är också möjligt att ange olika bevarande inställningar för enskilda data typer. Varje datatyp är en under resurs till arbets ytan. Till exempel kan SecurityEvent-tabellen åtgärdas i [Azure Resource Manager (arm)](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) som:
+
+```
+/subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent
+```
+
+Observera att data typen (tabell) är Skift läges känslig.  Använd följande för att hämta de aktuella inställningarna för kvarhållning av data typer för en viss datatyp (i det här exemplet SecurityEvent):
+
+```JSON
+    GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
+```
+
+Om du vill hämta de aktuella inställningarna för kvarhållning per datatyp för alla data typer i din arbets yta, utelämnar du bara den specifika data typen, till exempel:
+
+```JSON
+    GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables?api-version=2017-04-26-preview
+```
+
+Om du vill ange kvarhållning av en viss datatyp (i det här exemplet SecurityEvent) till 730 dag gör du
+
+```JSON
+    PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview
+    {
+        "properties": 
+        {
+            "retentionInDays": 730
+        }
+    }
+```
+
+Det går inte att ange data typerna `Usage` och `AzureActivity` med anpassad kvarhållning. De kommer att ta på max värdet för kvarhållning av standard arbets yta eller 90 dagar. 
+
+Ett bra verktyg för att ansluta direkt till ARM för att ställa in kvarhållning enligt datatyp är OSS-verktyget [ARMclient](https://github.com/projectkudu/ARMClient).  Lär dig mer om ARMclient från artiklar av [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) och [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/). 
+
+> [!NOTE]
+> Inställning av kvarhållning för enskilda data typer kan användas för att minska kostnaderna för datakvarhållning.  För data som samlas in från och med oktober 2019 (när den här funktionen släpptes) kan en minskning av kvarhållning av vissa data typer minska din bevarande kostnad över tid.  För data som samlas in tidigare, påverkar inte en lägre kvarhållning för en enskild typ dina bevarande kostnader.  
 
 ## <a name="legacy-pricing-tiers"></a>Äldre pris nivåer
 
 Prenumerationer som hade en Log Analytics arbets yta eller Application Insights resurs i den 2 april 2018, eller som är kopplade till en Enterprise-avtal som startades före den 1 februari 2019, fortsätter att ha åtkomst till att använda de äldre pris nivåerna: **Kostnads fri**, **fristående (per GB)** och **per nod (OMS)** .  Arbets ytor i den kostnads fria pris nivån har en daglig data inmatning som är begränsad till 500 MB (förutom säkerhets data typer som samlas in av Azure Security Center) och datakvarhållning är begränsad till 7 dagar. Den kostnads fria pris nivån är endast avsedd för utvärderings ändamål. Arbets ytorna på de fristående eller per-nodens pris nivåer har användar konfigurerbar kvarhållning på upp till två år. 
 
-Arbets ytor som skapats före april 2016 har också till gång till de ursprungliga pris nivåerna **standard** och **Premium** , som har en fast data lagring på 30 respektive 365 dagar. Det går inte att skapa nya arbets ytor på pris nivåerna **standard** eller **Premium** , och om en arbets yta flyttas ut från dessa nivåer går det inte att flytta tillbaka den. 
+Arbets ytor som skapats före april 2016 kan också komma åt de ursprungliga pris nivåerna **standard** och **Premium** som har en fast data lagring på 30 respektive 365 dagar. Det går inte att skapa nya arbets ytor på pris nivåerna **standard** eller **Premium** , och om en arbets yta flyttas ut från dessa nivåer går det inte att flytta tillbaka den. 
 
 Mer information om begränsningar för pris nivån finns [här](https://docs.microsoft.com/azure/azure-subscription-service-limits#log-analytics-workspaces).
 
@@ -138,7 +189,7 @@ Om din Log Analytics arbets yta har åtkomst till äldre pris nivåer kan du än
 3. Under **prisnivå**, Välj en prisnivå och klickar sedan på **Välj**.  
     ![Valt prisplanen](media/manage-cost-storage/workspace-pricing-tier-info.png)
 
-Du kan också [ställa in pris nivån via arm](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) med hjälp av parametern `ServiceTier`. 
+Du kan också [ställa in pris nivån via arm](https://docs.microsoft.com/azure/azure-monitor/platform/template-workspace-configuration#configure-a-log-analytics-workspace) med hjälp av parametern `sku` (`pricingTier` i arm-mallen). 
 
 ## <a name="troubleshooting-why-log-analytics-is-no-longer-collecting-data"></a>Felsöka varför Log Analytics inte längre samla in data
 
@@ -195,7 +246,7 @@ union withsource = tt *
 ```
 
 > [!NOTE]
-> Använd dessa `union withsource = tt *` frågor sparsamt eftersom det är dyrt att köra genomsökningar över data typer. Den här frågan ersätter det gamla sättet att fråga information per dator med data typen användning.  
+> Använd dessa `union withsource = tt *`-frågor sparsamt eftersom det är dyrt att köra genomsökningar över data typer. Den här frågan ersätter det gamla sättet att fråga information per dator med data typen användning.  
 
 En mer exakt beräkning av vad som faktiskt faktureras är att hämta antalet datorer per timme som skickar fakturerings data typer. (För arbets ytor på den äldre pris nivån per nod beräknar Log Analytics antalet noder som måste faktureras per timme.) 
 
@@ -423,7 +474,7 @@ När du får en avisering kan du använda stegen i följande avsnitt för att fe
 
 ## <a name="data-transfer-charges-using-log-analytics"></a>Avgifter för data överföring med Log Analytics
 
-Att skicka data till Log Analytics kan medföra avgifter för data bandbredd. Som det beskrivs i [prissättnings sidan för Azure bandbredd](https://azure.microsoft.com/en-us/pricing/details/bandwidth/)är data överföringen mellan Azure-tjänster som finns i två regioner debiterad som utgående data överföring enligt normal taxa. Inkommande data överföring är kostnads fri. Den här avgiften är dock väldigt liten (några%) jämfört med kostnaderna för Log Analytics data inmatning. Därför bör du kontrol lera kostnaderna för Log Analytics behöver fokusera på din inmatade data volym och vi har vägledning som hjälper dig att förstå den [här](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).   
+Att skicka data till Log Analytics kan medföra avgifter för data bandbredd. Som det beskrivs i [prissättnings sidan för Azure bandbredd](https://azure.microsoft.com/pricing/details/bandwidth/)är data överföringen mellan Azure-tjänster som finns i två regioner debiterad som utgående data överföring enligt normal taxa. Inkommande data överföring är kostnads fri. Den här avgiften är dock väldigt liten (några%) jämfört med kostnaderna för Log Analytics data inmatning. Därför bör du kontrol lera kostnaderna för Log Analytics behöver fokusera på din inmatade data volym och vi har vägledning som hjälper dig att förstå den [här](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#understanding-ingested-data-volume).   
 
 ## <a name="limits-summary"></a>Sammanfattning av gränser
 

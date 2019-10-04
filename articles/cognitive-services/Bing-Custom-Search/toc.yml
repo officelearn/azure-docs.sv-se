@@ -60,8 +60,9 @@
     - name: Hantera träffmarkering
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Bläddra bland webbsidor
-      href: page-webpages.md
+    - name: bläddrar igenom sökresultat
+      href: ../Bing-Web-Search/paging-search-results.md
+      maintainContext: true
 - name: Referens
   items:
     - name: API-referens för anpassade automatiska förslag i Bing

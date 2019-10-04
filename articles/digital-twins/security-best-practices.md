@@ -1,25 +1,25 @@
 ---
 title: Förstå rekommenderade säkerhets metoder – Azure Digitals flätar | Microsoft Docs
 description: Lär dig mer om rekommenderade säkerhets metoder för Azure Digital-och Sakernas Internet.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.author: v-adgera
-ms.openlocfilehash: e98f8a4becad41d27d89de16f598b6fa531ad5e3
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: ba10a6105972eddc8474841b234d2eeddc994f5d
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827640"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948925"
 ---
 # <a name="security-best-practices"></a>Metodtips för säkerhet
 
 Azure Digitals dubbla säkerhet ger exakt åtkomst till specifika resurser och åtgärder i IoT-diagrammet. Det gör det genom detaljerad roll-och behörighets hantering som kallas [rollbaserad åtkomst kontroll](./security-role-based-access-control.md).
 
-Azure Digital-dubbla finns också med andra säkerhetsfunktioner som finns i Azure IoT, inklusive Azure Active Directory (Azure AD). Av den anledningen rekommenderar vi att du använder många av samma [Azure IoT](../iot-fundamentals/iot-security-best-practices.md) -säkerhetspraxiser för att konfigurera och säkra program som bygger på Azures digitala dubbla.
+Azure Digital-dubbla finns också med andra säkerhetsfunktioner som finns i Azure IoT, inklusive Azure Active Directory (Azure AD). Av den anledningen rekommenderar vi att du använder många av samma [Azure IoT-säkerhetspraxiser](../iot-fundamentals/iot-security-best-practices.md) för att konfigurera och säkra program som bygger på Azures digitala dubbla.
 
 I den här artikeln sammanfattas viktiga metod tips.
 
@@ -46,7 +46,7 @@ Några viktiga metoder för att säkert skydda ett IoT-utrymme är:
 > [!div class="checklist"]
 > * Kryptera sparade, lagrade eller beständiga data.
 > * Kräv lösen ord eller nycklar som ska ändras regelbundet eller uppdateras.
-> * Begränsa åtkomsten och behörigheten noggrant efter roll. Se metod tipsen för den [rollbaserade åtkomst kontrollen](#role-based-access-control-best-practices) nedan.
+> * Begränsa åtkomsten och behörigheten noggrant efter roll. Se [metod tipsen för den rollbaserade åtkomst kontrollen](#role-based-access-control-best-practices) nedan.
 > * Överväg en delad nätverkstopologi så att enheterna i varje nätverk isoleras från de andra.
 > * Använd kraftfull kryptering. Kräv långa lösen ord och Använd säkra protokoll och tvåfaktorautentisering.
 

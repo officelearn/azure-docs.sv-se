@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 9796a4efdacef04390705607defb7b5cdd462886
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 704c1cdf95424bffa19e0946d13fa45d1b520753
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828727"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959940"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -27,7 +27,7 @@ Den här artikeln sammanfattar och förklarar skillnaderna i syntax och beteende
 Det finns vissa PaaS-begränsningar som introduceras i den hanterade instansen och vissa beteende ändringar jämfört med SQL Server. Skillnaderna är indelade i följande kategorier:<a name="Differences"></a>
 
 - [Tillgänglighet](#availability) inkluderar skillnaderna i [Always on](#always-on-availability) och [backups](#backup).
-- [Säkerhet](#security) omfattar skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), kryptografiproviders [](#cryptographic-providers), inloggningar [och användare](#logins-and-users)samt [tjänst nyckeln och tjänstens huvud nyckel](#service-key-and-service-master-key).
+- [Säkerhet](#security) omfattar skillnaderna i [granskning](#auditing), [certifikat](#certificates), [autentiseringsuppgifter](#credential), [kryptografiproviders](#cryptographic-providers), [inloggningar och användare](#logins-and-users)samt [tjänst nyckeln och tjänstens huvud nyckel](#service-key-and-service-master-key).
 - [Konfigurationen](#configuration) inkluderar skillnaderna i [tillägg för buffertpooltillägget](#buffer-pool-extension), [sortering](#collation), [kompatibilitetsnivå](#compatibility-levels), [databas spegling](#database-mirroring), [databas alternativ](#database-options), [SQL Server Agent](#sql-server-agent)och [tabell alternativ](#tables).
 - [Funktionerna](#functionalities) omfattar [bulk INSERT/OpenRowSet](#bulk-insert--openrowset), [CLR](#clr), [DBCC](#dbcc), [distribuerade transaktioner](#distributed-transactions), [utökade händelser](#extended-events), [externa bibliotek](#external-libraries), [FILESTREAM och FileTable](#filestream-and-filetable), [full text Semantisk sökning](#full-text-semantic-search), [länkade servrar](#linked-servers), [PolyBase](#polybase), [replikering](#replication), [återställning](#restore-statement), [Service Broker](#service-broker), [lagrade procedurer, funktioner och utlösare](#stored-procedures-functions-and-triggers).
 - [Miljö inställningar](#Environment) som virtuella nätverk och under näts konfiguration.
@@ -50,22 +50,22 @@ Den här sidan förklarar även [tillfälliga kända problem](#Issues) som uppt�
 
 ### <a name="backup"></a>Säkerhetskopiera
 
-Hanterade instanser har automatiska säkerhets kopieringar, så användare kan `COPY_ONLY` skapa fullständiga säkerhets kopior av databasen. Säkerhets kopiering av differentiella, loggade och ögonblicks bilder stöds inte.
+Hanterade instanser har automatiska säkerhets kopieringar, så användare kan skapa fullständiga databas `COPY_ONLY` säkerhets kopior. Säkerhets kopiering av differentiella, loggade och ögonblicks bilder stöds inte.
 
 - Med en hanterad instans kan du bara säkerhetskopiera en instans databas till ett Azure Blob Storage-konto:
-  - Stöds `BACKUP TO URL` endast.
+  - Endast `BACKUP TO URL` stöds.
   - `FILE`, `TAPE`-och säkerhets kopierings enheter stöds inte.
-- De flesta allmänna `WITH` alternativ stöds.
-  - `COPY_ONLY`är obligatoriskt.
-  - `FILE_SNAPSHOT`stöds inte.
-  - Band alternativ: `REWIND` `NOREWIND` ,`UNLOAD`, och`NOUNLOAD` stöds inte.
-  - Användarspecifika alternativ: `NORECOVERY`, `STANDBY`, och `NO_TRUNCATE` stöds inte.
+- De flesta allmänna `WITH`-alternativen stöds.
+  - `COPY_ONLY` är obligatoriskt.
+  - `FILE_SNAPSHOT` stöds inte.
+  - Band alternativ: `REWIND`, `NOREWIND`, `UNLOAD` och `NOUNLOAD` stöds inte.
+  - Användarspecifika alternativ: `NORECOVERY`, `STANDBY` och `NO_TRUNCATE` stöds inte.
 
 Begränsningar: 
 
 - Med en hanterad instans kan du säkerhetskopiera en instans databas till en säkerhets kopia med upp till 32 Stripes, vilket är tillräckligt för databaser upp till 4 TB om komprimering av säkerhets kopia används.
-- Det går inte `BACKUP DATABASE ... WITH COPY_ONLY` att köra på en databas som är krypterad med service-hanterad Transparent datakryptering (TDE). Service-Managed TDE tvingar säkerhets kopieringarna att krypteras med en intern TDE-nyckel. Det går inte att exportera nyckeln, så du kan inte återställa säkerhets kopian. Använd automatisk säkerhets kopiering och återställning av tidpunkter, eller Använd [kundhanterad (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) i stället. Du kan också inaktivera kryptering på databasen.
-- Den största storleken för säkerhets kopierings stripe `BACKUP` med kommandot i en hanterad instans är 195 GB, vilket är den maximala BLOB-storleken. Öka antalet ränder i säkerhets kopierings kommandot för att minska storleken på enskilda stripe-volymer och håll dig inom den här gränsen.
+- Du kan inte köra `BACKUP DATABASE ... WITH COPY_ONLY` på en databas som är krypterad med tjänst hanterad transparent datakryptering (TDE). Service-Managed TDE tvingar säkerhets kopieringarna att krypteras med en intern TDE-nyckel. Det går inte att exportera nyckeln, så du kan inte återställa säkerhets kopian. Använd automatisk säkerhets kopiering och återställning av tidpunkter, eller Använd [kundhanterad (BYOK) TDE](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#customer-managed-transparent-data-encryption---bring-your-own-key) i stället. Du kan också inaktivera kryptering på databasen.
+- Den största storleken för säkerhets kopierings skikt med kommandot `BACKUP` i en hanterad instans är 195 GB, vilket är den maximala BLOB-storleken. Öka antalet ränder i säkerhets kopierings kommandot för att minska storleken på enskilda stripe-volymer och håll dig inom den här gränsen.
 
     > [!TIP]
     > För att undvika den här begränsningen när du säkerhetskopierar en databas från antingen SQL Server i en lokal miljö eller på en virtuell dator kan du:
@@ -74,7 +74,7 @@ Begränsningar:
     > - Överför säkerhetskopieringsfilerna till Blob Storage.
     > - Återställ till den hanterade instansen.
     >
-    > `Restore` Kommandot i en hanterad instans har stöd för större blob-storlekar i säkerhetskopieringsfilerna eftersom en annan Blob-typ används för lagring av de uppladdade säkerhets kopiorna.
+    > Kommandot `Restore` i en hanterad instans har stöd för större blob-storlekar i säkerhetskopieringsfilerna eftersom en annan Blob-typ används för lagring av de uppladdade säkerhets kopiorna.
 
 Information om säkerhets kopior med T-SQL finns i [säkerhets kopiering](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql).
 
@@ -84,15 +84,15 @@ Information om säkerhets kopior med T-SQL finns i [säkerhets kopiering](https:
 
 De viktigaste skillnaderna mellan granskning i databaser i Azure SQL Database och databaser i SQL Server är:
 
-- Med alternativet för distribution av hanterad instans i Azure SQL Database fungerar granskning på server nivå. `.xel` Loggfilerna lagras i Azure Blob Storage.
+- Med alternativet för distribution av hanterad instans i Azure SQL Database fungerar granskning på server nivå. Loggfilerna för `.xel` lagras i Azure Blob Storage.
 - Med distributions alternativen enkel databas och elastisk pool i Azure SQL Database, fungerar granskning på databas nivå.
 - I SQL Server lokala eller virtuella datorer fungerar granskning på server nivå. Händelser lagras i fil systemet eller i Windows-händelseloggen.
  
 XEvent-granskning i hanterade instanser stöder Azure Blob Storage-mål. Fil-och Windows-loggar stöds inte.
 
-Viktiga skillnader i `CREATE AUDIT` syntaxen för granskning till Azure Blob Storage är:
+Viktiga skillnader i syntaxen i `CREATE AUDIT` för granskning till Azure Blob Storage är:
 
-- Det finns en `TO URL` ny syntax som du kan använda för att ange URL: en för Azure Blob storage-behållaren `.xel` där filerna placeras.
+- En ny syntax `TO URL` anges att du kan använda för att ange URL: en för Azure Blob storage-behållaren där `.xel`-filerna placeras.
 - Syntaxen `TO FILE` stöds inte eftersom en hanterad instans inte kan komma åt Windows-filresurser.
 
 Mer information finns i: 
@@ -105,8 +105,8 @@ Mer information finns i:
 
 En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så följande villkor gäller:
 
-- Filenstödsinteför`CREATE FROM`certifikat. / `BACKUP TO`
-- `CREATE` Certifikatetfrån`ASSEMBLY` stöds inte. `FILE` / `BACKUP` / Det går inte att använda filer för privata nycklar. 
+- @No__t-0 @ no__t-1 @ no__t-2-filen stöds inte för certifikat.
+- @No__t-0 @ no__t-1 @ no__t-2-certifikatet från `FILE` @ no__t-4 @ no__t-5 stöds inte. Det går inte att använda filer för privata nycklar. 
 
 Se [Skapa certifikat](https://docs.microsoft.com/sql/t-sql/statements/create-certificate-transact-sql) -och [säkerhets kopierings certifikat](https://docs.microsoft.com/sql/t-sql/statements/backup-certificate-transact-sql). 
  
@@ -120,7 +120,7 @@ WITH PRIVATE KEY (<private_key_options>)
 
 ### <a name="credential"></a>Autentiseringsuppgift
 
-Endast Azure Key Vault och `SHARED ACCESS SIGNATURE` identiteter stöds. Windows-användare stöds inte.
+Endast Azure Key Vault-och `SHARED ACCESS SIGNATURE`-identiteter stöds. Windows-användare stöds inte.
 
 Se [skapa autentiseringsuppgifter](https://docs.microsoft.com/sql/t-sql/statements/create-credential-transact-sql) och [ändra autentiseringsuppgifter](https://docs.microsoft.com/sql/t-sql/statements/alter-credential-transact-sql).
 
@@ -128,19 +128,19 @@ Se [skapa autentiseringsuppgifter](https://docs.microsoft.com/sql/t-sql/statemen
 
 En hanterad instans kan inte komma åt filer, så det går inte att skapa kryptografiska providers:
 
-- `CREATE CRYPTOGRAPHIC PROVIDER`stöds inte. Se [skapa kryptografiprovider](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
-- `ALTER CRYPTOGRAPHIC PROVIDER`stöds inte. Se [Alter CRYPTOGRAPHIC Provider](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
+- `CREATE CRYPTOGRAPHIC PROVIDER` stöds inte. Se [skapa kryptografiprovider](https://docs.microsoft.com/sql/t-sql/statements/create-cryptographic-provider-transact-sql).
+- `ALTER CRYPTOGRAPHIC PROVIDER` stöds inte. Se [Alter CRYPTOGRAPHIC Provider](https://docs.microsoft.com/sql/t-sql/statements/alter-cryptographic-provider-transact-sql).
 
 ### <a name="logins-and-users"></a>Inloggningar och användare
 
-- SQL-inloggningar som skapats `FROM CERTIFICATE`med `FROM ASYMMETRIC KEY`hjälp av `FROM SID` , och stöds. Se [Skapa inloggning](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
+- SQL-inloggningar som skapats med hjälp av `FROM CERTIFICATE`, `FROM ASYMMETRIC KEY` och `FROM SID` stöds. Se [Skapa inloggning](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql).
 - Azure Active Directory (Azure AD) Server huvud namn (inloggningar) som skapats med syntaxen [create login](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) eller [create User from login [Azure AD login]](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current) stöds (offentlig för hands version). Dessa inloggningar skapas på server nivå.
 
-    Den hanterade instansen stöder Azure AD Database- `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`huvudobjekt med syntaxen. Den här funktionen kallas även för Azure AD-inneslutna databas användare.
+    Den hanterade instansen stöder Azure AD Database-huvudobjekten med syntaxen `CREATE USER [AADUser/AAD group] FROM EXTERNAL PROVIDER`. Den här funktionen kallas även för Azure AD-inneslutna databas användare.
 
-- Windows-inloggningar som skapats `CREATE LOGIN ... FROM WINDOWS` med syntaxen stöds inte. Använd Azure Active Directory inloggningar och användare.
+- Windows-inloggningar som skapats med syntaxen `CREATE LOGIN ... FROM WINDOWS` stöds inte. Använd Azure Active Directory inloggningar och användare.
 - Den Azure AD-användare som skapade instansen har [obegränsade administratörs privilegier](sql-database-manage-logins.md#unrestricted-administrative-accounts).
-- Användare som inte har administratörs behörighet på Azure AD kan skapas med hjälp `CREATE USER ... FROM EXTERNAL PROVIDER` av syntaxen. Se [skapa användare... FRÅN EXTERN PROVIDER](sql-database-manage-logins.md#non-administrator-users).
+- Användare som inte har administratörs behörighet på Azure AD kan skapas med hjälp av syntaxen `CREATE USER ... FROM EXTERNAL PROVIDER`. Se [CREATE-användare... FRÅN EXTERN PROVIDER @ NO__T-0.
 - Azure AD server-Huvudkonton (inloggningar) stöder endast SQL-funktioner inom en hanterad instans. Funktioner som kräver interaktion mellan olika instanser, oavsett om de ligger inom samma Azure AD-klient eller olika klienter, stöds inte för Azure AD-användare. Exempel på sådana funktioner är:
 
   - SQL-transaktionell replikering.
@@ -150,7 +150,7 @@ En hanterad instans kan inte komma åt filer, så det går inte att skapa krypto
 - Personifiering av Azure AD-huvudobjekt på server nivå med hjälp av andra Azure AD-huvudobjekt stöds, till exempel [execute as](/sql/t-sql/statements/execute-as-transact-sql) -satsen. Kör som-begränsningar är:
 
   - Kör som-användare stöds inte för Azure AD-användare när namnet skiljer sig från inloggnings namnet. Ett exempel är när användaren skapas med syntaxen CREATE USER [myAadUser] FROM LOGIn [john@contoso.com] och personifiering görs via EXEC AS USER = _myAadUser_. När du skapar en **användare** från ett Azure AD server-huvudobjekt (inloggning) anger du användar namn som samma Login_name från **inloggningen**.
-  - Endast SQL Server nivå huvud konton (inloggningar) som är en del av `sysadmin` rollen kan köra följande åtgärder som är riktade till Azure AD-huvud konton:
+  - Endast SQL Server nivå huvud konton (inloggningar) som är en del av rollen `sysadmin` kan köra följande åtgärder som är riktade till Azure AD-huvud konton:
 
     - KÖRA SOM ANVÄNDARE
     - KÖRA SOM INLOGGNING
@@ -159,16 +159,16 @@ En hanterad instans kan inte komma åt filer, så det går inte att skapa krypto
 
   - Active Directory administratörs begränsningar för hanterad instans:
 
-    - Azure AD-administratören som används för att konfigurera den hanterade instansen kan inte användas för att skapa ett Azure AD server-huvudobjekt (inloggning) i den hanterade instansen. Du måste skapa det första Azure AD server-huvudobjektet (inloggning) med hjälp av ett SQL Server `sysadmin` konto som är en roll. Den tillfälliga begränsningen tas bort när Azure AD server-huvudobjekten (inloggningar) blir allmänt tillgängliga. Om du försöker använda ett Azure AD-administratörskonto för att skapa inloggningen visas följande fel:`Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
-      - För närvarande måste den första Azure AD-inloggningen som skapas i huvud databasen skapas av standard SQL Servers kontot (inte Azure AD) som är en `sysadmin` roll genom att använda [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) från extern provider. Den här begränsningen tas bort efter den allmänna tillgängligheten. Sedan kan du skapa en första Azure AD-inloggning med hjälp av Active Directory-administratören för en hanterad instans.
+    - Azure AD-administratören som används för att konfigurera den hanterade instansen kan inte användas för att skapa ett Azure AD server-huvudobjekt (inloggning) i den hanterade instansen. Du måste skapa det första Azure AD server-huvudobjektet (inloggning) med hjälp av ett SQL Server konto som är en `sysadmin`-roll. Den tillfälliga begränsningen tas bort när Azure AD server-huvudobjekten (inloggningar) blir allmänt tillgängliga. Om du försöker använda ett Azure AD-administratörskonto för att skapa inloggningen visas följande fel: `Msg 15247, Level 16, State 1, Line 1 User does not have permission to perform this action.`
+      - För närvarande måste den första Azure AD-inloggningen som skapas i huvud databasen skapas av standard SQL Servers kontot (inte Azure AD) som är en `sysadmin`-roll med hjälp av [Skapa inloggning](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current) från extern provider. Den här begränsningen tas bort efter den allmänna tillgängligheten. Sedan kan du skapa en första Azure AD-inloggning med hjälp av Active Directory-administratören för en hanterad instans.
     - DacFx (export/import) som används med SQL Server Management Studio eller SqlPackage stöds inte för Azure AD-inloggningar. Den här begränsningen tas bort när Azure AD server-huvudobjekten (inloggningar) blir allmänt tillgängliga.
     - Använda Azure AD server-Huvudkonton (inloggningar) med SQL Server Management Studio:
 
       - Skript för Azure AD-inloggningar som använder alla autentiserade inloggningar stöds inte.
       - IntelliSense känner inte igen instruktionen Skapa inloggning från extern PROVIDER och visar en röd understrykning.
 
-- Endast huvud inloggningen på server nivå, som skapas av den hanterade instans etablerings processen, medlemmar i Server rollerna, till exempel `securityadmin` eller `sysadmin`eller andra inloggningar med ändra inloggnings behörighet på server nivå, kan skapa Azure AD Server huvud namn (inloggningar) i huvud databasen för hanterad instans.
-- Om inloggningen är ett SQL-huvud kan endast inloggningar som är en del `sysadmin` av rollen använda kommandot Skapa för att skapa inloggningar för ett Azure AD-konto.
+- Endast huvud inloggningen på server nivå, som skapas av den hanterade instans etablerings processen, medlemmar i Server rollerna, till exempel `securityadmin` eller `sysadmin` eller andra inloggningar med ändra alla INLOGGNINGs behörigheter på server nivå kan skapa Azure AD server-huvudobjekt (inloggningar) i huvud databasen för hanterad instans.
+- Om inloggningen är ett SQL-huvud kan endast inloggningar som är en del av rollen `sysadmin` använda kommandot Skapa för att skapa inloggningar för ett Azure AD-konto.
 - Azure AD-inloggningen måste vara medlem i en Azure AD i samma katalog som används för Azure SQL Database Hanterad instans.
 - Azure AD server-Huvudkonton (inloggningar) visas i Object Explorer som börjar med SQL Server Management Studio 18,0 Preview 5.
 - Överlappande Azure AD server-huvudobjekt (inloggningar) med ett administratörs konto för Azure AD tillåts. Azure AD server-Huvudkonton (inloggningar) prioriteras över Azure AD-administratören när du löser huvud kontot och tillämpar behörigheter på den hanterade instansen.
@@ -184,7 +184,7 @@ En hanterad instans kan inte komma åt filer, så det går inte att skapa krypto
 ### <a name="service-key-and-service-master-key"></a>Tjänst nyckel och tjänstens huvud nyckel
 
 - [Säkerhets kopiering av huvud nycklar](https://docs.microsoft.com/sql/t-sql/statements/backup-master-key-transact-sql) stöds inte (hanteras av SQL Database tjänsten).
-- [Master Key](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) Restore stöds inte (hanteras av SQL Database tjänsten).
+- [Master Key Restore](https://docs.microsoft.com/sql/t-sql/statements/restore-master-key-transact-sql) stöds inte (hanteras av SQL Database tjänsten).
 - [Säkerhets kopiering av tjänstens huvud nyckel](https://docs.microsoft.com/sql/t-sql/statements/backup-service-master-key-transact-sql) stöds inte (hanteras av SQL Database tjänsten).
 - Det finns inte stöd för [återställning av tjänstens huvud nyckel](https://docs.microsoft.com/sql/t-sql/statements/restore-service-master-key-transact-sql) (hanteras av SQL Database tjänsten).
 
@@ -193,7 +193,7 @@ En hanterad instans kan inte komma åt filer, så det går inte att skapa krypto
 ### <a name="buffer-pool-extension"></a>Buffertpooltillägget
 
 - [Buffertpooltillägget](https://docs.microsoft.com/sql/database-engine/configure-windows/buffer-pool-extension) stöds inte.
-- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION`stöds inte. Se [Alter Server Configuration](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
+- `ALTER SERVER CONFIGURATION SET BUFFER POOL EXTENSION` stöds inte. Se [Alter Server Configuration](https://docs.microsoft.com/sql/t-sql/statements/alter-server-configuration-transact-sql).
 
 ### <a name="collation"></a>Sortering
 
@@ -211,8 +211,8 @@ Se [ändra kompatibilitetsnivån för databas](https://docs.microsoft.com/sql/t-
 
 Databas spegling stöds inte.
 
-- `ALTER DATABASE SET PARTNER`och `SET WITNESS` -alternativ stöds inte.
-- `CREATE ENDPOINT … FOR DATABASE_MIRRORING`stöds inte.
+- `ALTER DATABASE SET PARTNER` och `SET WITNESS`-alternativ stöds inte.
+- `CREATE ENDPOINT … FOR DATABASE_MIRRORING` stöds inte.
 
 Mer information finns i [ändra databas uppsättnings partner och ange vittne](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-database-mirroring) och [skapa slut punkt... FÖR DATABASE_MIRRORING](https://docs.microsoft.com/sql/t-sql/statements/create-endpoint-transact-sql).
 
@@ -221,7 +221,7 @@ Mer information finns i [ändra databas uppsättnings partner och ange vittne](h
 - Flera loggfiler stöds inte.
 - InMemory-objekt stöds inte i Generell användning tjänst nivå. 
 - Det finns en gräns på 280 filer per Generell användning instans, vilket innebär högst 280 filer per databas. Både data-och loggfiler på Generell användning nivån räknas mot den här gränsen. [Affärskritisk nivån stöder 32 767-filer per databas](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
-- Databasen får inte innehålla fil grupper som innehåller FILESTREAM-data. Återställningen Miss lyckas om `FILESTREAM` . bak innehåller data. 
+- Databasen får inte innehålla fil grupper som innehåller FILESTREAM-data. Återställningen Miss lyckas om. bak innehåller `FILESTREAM`-data. 
 - Varje fil placeras i Azure Blob Storage. I/o och data flöde per fil beror på storleken på varje enskild fil.
 
 #### <a name="create-database-statement"></a>SKAPA databas uttryck
@@ -229,13 +229,13 @@ Mer information finns i [ändra databas uppsättnings partner och ange vittne](h
 Följande begränsningar gäller för `CREATE DATABASE`:
 
 - Det går inte att definiera filer och fil grupper. 
-- `CONTAINMENT` Alternativet stöds inte. 
-- `WITH`alternativ stöds inte. 
+- Alternativet `CONTAINMENT` stöds inte. 
+- `WITH`-alternativ stöds inte. 
    > [!TIP]
-   > Som en lösning använder `ALTER DATABASE` du efter `CREATE DATABASE` för att ange databas alternativ för att lägga till filer eller för att ange inne slutning. 
+   > Som en lösning använder du `ALTER DATABASE` efter `CREATE DATABASE` för att ange databas alternativ för att lägga till filer eller för att ange inne slutning. 
 
-- `FOR ATTACH` Alternativet stöds inte.
-- `AS SNAPSHOT OF` Alternativet stöds inte.
+- Alternativet `FOR ATTACH` stöds inte.
+- Alternativet `AS SNAPSHOT OF` stöds inte.
 
 Mer information finns i [skapa databas](https://docs.microsoft.com/sql/t-sql/statements/create-database-sql-server-transact-sql).
 
@@ -243,8 +243,8 @@ Mer information finns i [skapa databas](https://docs.microsoft.com/sql/t-sql/sta
 
 Vissa fil egenskaper kan inte ställas in eller ändras:
 
-- Det går inte att ange en fil Sök `ALTER DATABASE ADD FILE (FILENAME='path')` väg i t-SQL-instruktionen. Ta `FILENAME` bort från skriptet eftersom filerna placeras automatiskt i en hanterad instans. 
-- Ett fil namn kan inte ändras med `ALTER DATABASE` instruktionen.
+- Det går inte att ange en fil Sök väg i `ALTER DATABASE ADD FILE (FILENAME='path')` T-SQL-instruktionen. Ta bort `FILENAME` från skriptet eftersom filerna placeras automatiskt på en hanterad instans. 
+- Ett fil namn kan inte ändras med hjälp av `ALTER DATABASE`-instruktionen.
 
 Följande alternativ är inställda som standard och kan inte ändras:
 
@@ -279,7 +279,7 @@ Mer information finns i [Alter Database](https://docs.microsoft.com/sql/t-sql/st
 ### <a name="sql-server-agent"></a>SQL Server Agent
 
 - Det finns för närvarande inte stöd för att aktivera och inaktivera SQL Server Agent i en hanterad instans. SQL Agent körs alltid.
-- SQL Server Agent inställningarna är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i hanterade instanser. 
+- SQL Server Agent inställningarna är skrivskyddade. Proceduren `sp_set_agent_properties` stöds inte i en hanterad instans. 
 - Jobb
   - Steg för T-SQL-jobb stöds.
   - Följande migreringsjobb stöds:
@@ -316,7 +316,7 @@ Följande tabell typer stöds inte:
 
 - [-](https://docs.microsoft.com/sql/relational-databases/blob/filestream-sql-server)
 - [FILETABLE](https://docs.microsoft.com/sql/relational-databases/blob/filetables-sql-server)
-- [extern tabell](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) PolyBase
+- [Extern tabell](https://docs.microsoft.com/sql/t-sql/statements/create-external-table-transact-sql) (PolyBase)
 - [MEMORY_OPTIMIZED](https://docs.microsoft.com/sql/relational-databases/in-memory-oltp/introduction-to-memory-optimized-tables) (stöds inte endast i generell användning-nivån)
 
 Information om hur du skapar och ändrar tabeller finns i [CREATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) och [ändra tabell](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
@@ -327,26 +327,27 @@ Information om hur du skapar och ändrar tabeller finns i [CREATE TABLE](https:/
 
 En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så filerna måste importeras från Azure Blob Storage:
 
-- `DATASOURCE`krävs i `BULK INSERT` kommandot när du importerar filer från Azure Blob Storage. Se [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
-- `DATASOURCE`krävs i `OPENROWSET` funktionen när du läser innehållet i en fil från Azure Blob Storage. Se [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `DATASOURCE` krävs i kommandot `BULK INSERT` när du importerar filer från Azure Blob Storage. Se [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql).
+- `DATASOURCE` krävs i `OPENROWSET`-funktionen när du läser innehållet i en fil från Azure Blob Storage. Se [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- `OPENROWSET` kan användas för att läsa data från andra Azure SQL-databaser, hanterade instanser eller SQL Server instanser. Andra källor som Oracle-databaser eller Excel-filer stöds inte.
 
 ### <a name="clr"></a>CLR
 
 En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så följande villkor gäller:
 
-- Stöds `CREATE ASSEMBLY FROM BINARY` endast. Se [skapa assem bly från Binary](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql). 
-- `CREATE ASSEMBLY FROM FILE`stöds inte. Se [skapa sammansättning från fil](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
-- `ALTER ASSEMBLY`Det går inte att referera till filer. Se [Alter Assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
+- Endast `CREATE ASSEMBLY FROM BINARY` stöds. Se [skapa assem bly från Binary](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql). 
+- `CREATE ASSEMBLY FROM FILE` stöds inte. Se [skapa sammansättning från fil](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
+- `ALTER ASSEMBLY` kan inte referera till filer. Se [Alter Assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
 ### <a name="database-mail-db_mail"></a>Database Mail (db_mail)
- - `sp_send_dbmail`Det går inte att @file_attachments skicka bilagor med hjälp av parametern. Lokalt fil system och externa resurser eller Azure Blob Storage kan inte nås från den här proceduren.
- - Se kända problem som `@query` rör parametrar och autentisering.
+ - `sp_send_dbmail` kan inte skicka bilagor med hjälp av parametern @file_attachments. Lokalt fil system och externa resurser eller Azure Blob Storage kan inte nås från den här proceduren.
+ - Se kända problem som rör parametern för `@query` och autentisering.
  
 ### <a name="dbcc"></a>DBCC
 
 Inte dokumenterade DBCC-instruktioner som är aktiverade i SQL Server stöds inte i hanterade instanser.
 
-- Endast ett begränsat antal globala spårnings flaggor stöds. Session-Level `Trace flags` stöds inte. Se [spårnings flaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
+- Endast ett begränsat antal globala spårnings flaggor stöds. @No__t på sessionsbaserade-0 stöds inte. Se [spårnings flaggor](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-trace-flags-transact-sql).
 - [DBCC TRACEOFF](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceoff-transact-sql) och [DBCC TRACEON](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) fungerar med det begränsade antalet globala spårnings flaggor.
 - Det går inte att använda [DBCC CHECKDB](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-checkdb-transact-sql) med alternativen REPAIR_ALLOW_DATA_LOSS, REPAIR_FAST och REPAIR_REBUILD eftersom databasen inte kan ställas in i `SINGLE_USER`-läge – se [ändra databas skillnader](#alter-database-statement). Potentiella databas fel hanteras av support teamet för Azure. Kontakta Azure-supporten om du är märker databas skada som bör åtgärdas.
 
@@ -358,8 +359,8 @@ MSDTC-och [elastiska transaktioner](sql-database-elastic-transactions-overview.m
 
 Vissa Windows-/regionsspecifika mål för utökade händelser (XEvents) stöds inte:
 
-- `etw_classic_sync` Målet stöds inte. Lagra `.xel` filer i Azure Blob Storage. Se [etw_classic_sync-mål](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
-- `event_file` Målet stöds inte. Lagra `.xel` filer i Azure Blob Storage. Se [event_file-mål](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
+- @No__t-0-målet stöds inte. Lagra `.xel`-filer i Azure Blob Storage. Se [etw_classic_sync-mål](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#etw_classic_sync_target-target).
+- @No__t-0-målet stöds inte. Lagra `.xel`-filer i Azure Blob Storage. Se [event_file-mål](https://docs.microsoft.com/sql/relational-databases/extended-events/targets-for-extended-events-in-sql-server#event_file-target).
 
 ### <a name="external-libraries"></a>Externa bibliotek
 
@@ -368,9 +369,9 @@ I Database R och python stöds inte externa bibliotek ännu. Se [SQL Server Mach
 ### <a name="filestream-and-filetable"></a>FILESTREAM och FileTable
 
 - FILESTREAM-data stöds inte.
-- Databasen får inte innehålla fil grupper `FILESTREAM` med data.
-- `FILETABLE`stöds inte.
-- Tabeller kan inte `FILESTREAM` ha typer.
+- Databasen får inte innehålla fil grupper med `FILESTREAM`-data.
+- `FILETABLE` stöds inte.
+- Tabeller kan inte ha `FILESTREAM`-typer.
 - Följande funktioner stöds inte:
   - `GetPathLocator()`
   - `GET_FILESTREAM_TRANSACTION_CONTEXT()`
@@ -390,15 +391,15 @@ Länkade servrar i hanterade instanser har stöd för ett begränsat antal mål:
 
 - Mål som stöds är hanterade instanser, enskilda databaser och SQL Server instanser. 
 - Länkade servrar har inte stöd för distribuerade skrivbara transaktioner (MS DTC).
-- Mål som inte stöds är filer, Analysis Services och andra RDBMS. Försök att använda intern CSV-import från Azure Blob Storage `BULK INSERT` att `OPENROWSET` använda eller som ett alternativ för fil import.
+- Mål som inte stöds är filer, Analysis Services och andra RDBMS. Försök att använda intern CSV-import från Azure Blob Storage att använda `BULK INSERT` eller `OPENROWSET` som ett alternativ för fil import.
 
 Åtgärder
 
 - Skriv transaktioner över instanser stöds inte.
-- `sp_dropserver`stöds för att släppa en länkad server. Se [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
-- `OPENROWSET` Funktionen kan endast användas för att köra frågor på SQL Server instanser. De kan antingen hanteras, lokalt eller på virtuella datorer. Se [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
-- `OPENDATASOURCE` Funktionen kan endast användas för att köra frågor på SQL Server instanser. De kan antingen hanteras, lokalt eller på virtuella datorer. Endast-, `SQLNCLI11`-och `SQLOLEDB` -värden stöds som en provider. `SQLNCLI` Ett exempel är `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Se [OpenDataSource](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
-- Det går inte att använda länkade servrar för att läsa filer (Excel, CSV) från nätverks resurserna. Försök att använda [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) som läser CSV-filer från Azure Blob Storage. Spåra dessa förfrågningar på [feedback-objektet för hanterade instanser](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
+- `sp_dropserver` stöds för att släppa en länkad server. Se [sp_dropserver](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-dropserver-transact-sql).
+- Funktionen `OPENROWSET` kan endast användas för att köra frågor på SQL Server instanser. De kan antingen hanteras, lokalt eller på virtuella datorer. Se [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql).
+- Funktionen `OPENDATASOURCE` kan endast användas för att köra frågor på SQL Server instanser. De kan antingen hanteras, lokalt eller på virtuella datorer. Endast `SQLNCLI`-, `SQLNCLI11`-och `SQLOLEDB`-värden stöds som en provider. Ett exempel är `SELECT * FROM OPENDATASOURCE('SQLNCLI', '...').AdventureWorks2012.HumanResources.Employee`. Se [OpenDataSource](https://docs.microsoft.com/sql/t-sql/functions/opendatasource-transact-sql).
+- Det går inte att använda länkade servrar för att läsa filer (Excel, CSV) från nätverks resurserna. Försök att använda [bulk INSERT](https://docs.microsoft.com/sql/t-sql/statements/bulk-insert-transact-sql#e-importing-data-from-a-csv-file) eller [OpenRowSet](https://docs.microsoft.com/sql/t-sql/functions/openrowset-transact-sql#g-accessing-data-from-a-csv-file-with-a-format-file) som läser CSV-filer från Azure Blob Storage. Spåra denna begäran på den [hanterade instansens feedback-objekt](https://feedback.azure.com/forums/915676-sql-managed-instance/suggestions/35657887-linked-server-to-non-sql-sources)|
 
 ### <a name="polybase"></a>PolyBase
 
@@ -457,31 +458,31 @@ Om replikering har Aktiver ATS för en databas i en [failover-grupp](sql-databas
   - `RESTORE LOG ONLY`
   - `RESTORE REWINDONLY ONLY`
 - Källa: 
-  - `FROM URL`(Azure Blob Storage) är det enda alternativ som stöds.
-  - `FROM DISK`/`TAPE`/backup-enheten stöds inte.
+  - `FROM URL` (Azure Blob Storage) är det enda alternativ som stöds.
+  - `FROM DISK` @ no__t-1 @ no__t-2/enhet för säkerhets kopiering stöds inte.
   - Säkerhets kopierings uppsättningar stöds inte.
-- `WITH`alternativen stöds inte, till exempel Nej `DIFFERENTIAL` eller `STATS`.
-- `ASYNC RESTORE`: Restore fortsätter även om klient anslutningen bryts. Om anslutningen bryts, kan du kontrol lera `sys.dm_operation_status` status för en återställnings åtgärd och för att skapa och släppa en databas. Se [sys. DM _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
+- `WITH`-alternativ stöds inte, till exempel ingen `DIFFERENTIAL` eller `STATS`.
+- `ASYNC RESTORE`: Restore fortsätter även om klient anslutningen bryts. Om anslutningen bryts kan du kontrol lera status för en återställnings åtgärd i vyn `sys.dm_operation_status` och skapa och släppa databasen. Se [sys. DM _operation_status](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database). 
 
 Följande databas alternativ anges eller åsidosätts och kan inte ändras senare: 
 
-- `NEW_BROKER`om Service Broker inte är aktive rad i. bak-filen. 
-- `ENABLE_BROKER`om Service Broker inte är aktive rad i. bak-filen. 
-- `AUTO_CLOSE=OFF`om en databas i. bak-filen har `AUTO_CLOSE=ON`. 
-- `RECOVERY FULL`om en databas i. bak-filen har `SIMPLE` eller `BULK_LOGGED` återställnings läge.
+- `NEW_BROKER` om Service Broker inte är aktive rad i. bak-filen. 
+- `ENABLE_BROKER` om Service Broker inte är aktive rad i. bak-filen. 
+- `AUTO_CLOSE=OFF` om en databas i. bak-filen har `AUTO_CLOSE=ON`. 
+- `RECOVERY FULL` om en databas i. bak-filen har `SIMPLE` eller återställnings läget för @no__t 2.
 - En minnesoptimerade fil grupp läggs till och anropas XTP om den inte finns i filen Source. bak. 
 - Alla befintliga minnesoptimerade fil grupper byter namn till XTP. 
-- `SINGLE_USER`och `RESTRICTED_USER` alternativ konverteras till `MULTI_USER`.
+- `SINGLE_USER` och `RESTRICTED_USER`-alternativ konverteras till `MULTI_USER`.
 
 Begränsningar: 
 
-- Säkerhets kopior av skadade databaser kan återställas beroende på typen av skada, men automatiska säkerhets kopieringar görs inte förrän skadan har åtgärd ATS. Kontrol lera att du kör `DBCC CHECKDB` på käll instansen och Använd `WITH CHECKSUM` säkerhets kopiering för att förhindra det här problemet.
-- Återställning av `.BAK` filen för en databas som innehåller en begränsning som beskrivs i det här dokumentet ( `FILESTREAM` till exempel `FILETABLE` eller objekt) kan inte återställas på den hanterade instansen.
-- `.BAK`Det går inte att återställa filer som innehåller flera säkerhets kopierings uppsättningar. 
-- `.BAK`filer som innehåller flera loggfiler kan inte återställas.
+- Säkerhets kopior av skadade databaser kan återställas beroende på typen av skada, men automatiska säkerhets kopieringar görs inte förrän skadan har åtgärd ATS. Kontrol lera att du kör `DBCC CHECKDB` på käll instansen och Använd säkerhets kopierings `WITH CHECKSUM` för att förhindra det här problemet.
+- Återställning av `.BAK`-fil av en databas som innehåller en begränsning som beskrivs i det här dokumentet (till exempel `FILESTREAM` eller `FILETABLE` objekt) kan inte återställas på den hanterade instansen.
+- Det går inte att återställa `.BAK`-filer som innehåller flera säkerhets kopierings uppsättningar. 
+- Det går inte att återställa `.BAK`-filer som innehåller flera loggfiler.
 - Säkerhets kopior som innehåller databaser som är större än 8 TB, aktiva InMemory OLTP-objekt eller antal filer som skulle överskrida 280 filer per instans kan inte återställas på en Generell användning instans. 
 - Säkerhets kopior som innehåller databaser som är större än 4 TB eller InMemory OLTP-objekt med Total storlek som är större än den storlek som beskrivs i [resurs gränser](sql-database-managed-instance-resource-limits.md) kan inte återställas affärskritisk-instansen.
-Information om Restore-instruktioner [](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql)finns i Restore Statements.
+Information om Restore-instruktioner finns i [restore Statements](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql).
 
  > [!IMPORTANT]
  > Samma begränsningar gäller för inbyggd återställnings åtgärd för tidpunkter. Generell användning databas som är större än 4 TB kan till exempel inte återställas på Affärskritisk instansen. Affärskritisk databas med InMemory OLTP-filer eller mer än 280 filer kan inte återställas på Generell användning instansen.
@@ -491,41 +492,41 @@ Information om Restore-instruktioner [](https://docs.microsoft.com/sql/t-sql/sta
 Service Broker för överinstans stöds inte:
 
 - `sys.routes`: Som en förutsättning måste du välja adressen från sys. routes. Adressen måste vara lokal på varje väg. Se [sys. routes](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-routes-transact-sql).
-- `CREATE ROUTE`: Du kan inte `CREATE ROUTE` använda `ADDRESS` med andra `LOCAL`än. Se [skapa väg](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
-- `ALTER ROUTE`: Du kan inte `ALTER ROUTE` använda `ADDRESS` med andra `LOCAL`än. Se [Alter Route](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql). 
+- `CREATE ROUTE`: Du kan inte använda `CREATE ROUTE` med `ADDRESS` förutom `LOCAL`. Se [skapa väg](https://docs.microsoft.com/sql/t-sql/statements/create-route-transact-sql).
+- `ALTER ROUTE`: Du kan inte använda `ALTER ROUTE` med `ADDRESS` förutom `LOCAL`. Se [Alter Route](https://docs.microsoft.com/sql/t-sql/statements/alter-route-transact-sql). 
 
 ### <a name="stored-procedures-functions-and-triggers"></a>Lagrade procedurer, funktioner och utlösare
 
-- `NATIVE_COMPILATION`stöds inte i Generell användning nivån.
+- `NATIVE_COMPILATION` stöds inte i Generell användnings nivån.
 - Följande [sp_configure](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-configure-transact-sql) -alternativ stöds inte: 
   - `allow polybase export`
   - `allow updates`
   - `filestream_access_level`
   - `remote data archive`
   - `remote proc trans`
-- `sp_execute_external_scripts`stöds inte. Se [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
-- `xp_cmdshell`stöds inte. Se [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
-- `Extended stored procedures`stöds inte, vilket inkluderar `sp_addextendedproc`  och `sp_dropextendedproc`. Se [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
-- `sp_attach_db`, `sp_attach_single_file_db`, och `sp_detach_db` stöds inte. Se [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)och [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
+- `sp_execute_external_scripts` stöds inte. Se [sp_execute_external_scripts](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql#examples).
+- `xp_cmdshell` stöds inte. Se [xp_cmdshell](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/xp-cmdshell-transact-sql).
+- `Extended stored procedures` stöds inte, vilket innefattar `sp_addextendedproc` @ no__t-2and `sp_dropextendedproc`. Se [utökade lagrade procedurer](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/general-extended-stored-procedures-transact-sql).
+- `sp_attach_db`, `sp_attach_single_file_db` och `sp_detach_db` stöds inte. Se [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql)och [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 
 ### <a name="system-functions-and-variables"></a>System funktioner och variabler
 
 Följande variabler, funktioner och vyer returnerar olika resultat:
 
-- `SERVERPROPERTY('EngineEdition')`Returnerar värdet 8. Den här egenskapen identifierar en hanterad instans unikt. Se [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `SERVERPROPERTY('InstanceName')`returnerar NULL eftersom begreppet instans som det finns för SQL Server inte gäller för en hanterad instans. Se [SERVERPROPERTY (' instancename ')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
-- `@@SERVERNAME`Returnerar ett fullständigt DNS "anslutnings bara" namn, till exempel my-managed-instance.wcus17662feb9ce98.database.windows.net. Se [@@SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
+- `SERVERPROPERTY('EngineEdition')` returnerar värdet 8. Den här egenskapen identifierar en hanterad instans unikt. Se [SERVERPROPERTY](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `SERVERPROPERTY('InstanceName')` returnerar NULL eftersom begreppet instans som det finns för SQL Server inte gäller för en hanterad instans. Se [SERVERPROPERTY (' instancename ')](https://docs.microsoft.com/sql/t-sql/functions/serverproperty-transact-sql).
+- `@@SERVERNAME` returnerar ett fullständigt DNS "anslutnings bara" namn, till exempel my-managed-instance.wcus17662feb9ce98.database.windows.net. Se [@ @SERVERNAME](https://docs.microsoft.com/sql/t-sql/functions/servername-transact-sql). 
 - `SYS.SERVERS` returnerar ett fullständigt DNS "anslutnings bara" namn, till exempel `myinstance.domain.database.windows.net` för egenskaperna "name" och "data_source". Se [sys. SERVRAR](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-servers-transact-sql).
-- `@@SERVICENAME`returnerar NULL eftersom begreppet tjänst som finns för SQL Server inte gäller för en hanterad instans. Se [@@SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
-- `SUSER_ID`stöds. Den returnerar NULL om Azure AD-inloggningen inte finns i sys. syslogins. Se [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
-- `SUSER_SID`stöds inte. Felaktiga data returneras, vilket är ett tillfälligt känt problem. Se [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
+- `@@SERVICENAME` returnerar NULL eftersom begreppet tjänst som det finns för SQL Server inte gäller för en hanterad instans. Se [@ @SERVICENAME](https://docs.microsoft.com/sql/t-sql/functions/servicename-transact-sql).
+- `SUSER_ID` stöds. Den returnerar NULL om Azure AD-inloggningen inte finns i sys. syslogins. Se [SUSER_ID](https://docs.microsoft.com/sql/t-sql/functions/suser-id-transact-sql). 
+- `SUSER_SID` stöds inte. Felaktiga data returneras, vilket är ett tillfälligt känt problem. Se [SUSER_SID](https://docs.microsoft.com/sql/t-sql/functions/suser-sid-transact-sql). 
 
 ## <a name="Environment"></a>Miljö begränsningar
 
 ### <a name="subnet"></a>Subnet
 -  Du kan inte placera andra resurser (till exempel virtuella datorer) i under nätet där du har distribuerat din hanterade instans. Distribuera de här resurserna med ett annat undernät.
 - Under nätet måste ha tillräckligt många tillgängliga [IP-adresser](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Minimivärdet är 16 och rekommendationen måste ha minst 32 IP-adresser i under nätet.
-- [Tjänstens slut punkter kan inte kopplas till under nätet för den hanterade](sql-database-managed-instance-connectivity-architecture.md#network-requirements)instansen. Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
+- [Tjänstens slut punkter kan inte kopplas till under nätet för den hanterade instansen](sql-database-managed-instance-connectivity-architecture.md#network-requirements). Kontrol lera att alternativet tjänst slut punkter är inaktiverat när du skapar det virtuella nätverket.
 - Antalet virtuella kärnor och typer av instanser som du kan distribuera i en region har vissa [begränsningar och begränsningar](sql-database-managed-instance-resource-limits.md#regional-resource-limitations).
 - Det finns vissa [säkerhets regler som måste tillämpas på under nätet](sql-database-managed-instance-connectivity-architecture.md#network-requirements).
 
@@ -536,7 +537,7 @@ Följande variabler, funktioner och vyer returnerar olika resultat:
 
 ### <a name="tempdb"></a>TEMPDB
 
-Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kärna på en generell användning nivå. Den maximala `tempdb` storleken på en affärskritisk nivå begränsas av instans lagrings storleken. `Tempdb`logg filens storlek är begränsad till 120 GB både på Generell användning och Affärskritisk nivåer. Vissa frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de producerar mer än 120 GB loggdata.
+Den maximala fil storleken på `tempdb` får inte vara större än 24 GB per kärna på en Generell användning nivå. Den maximala storleken på @no__t 0 på en Affärskritisk nivå begränsas av instans lagrings storleken. `Tempdb`-logg filens storlek är begränsad till 120 GB både på Generell användning och Affärskritisk nivåer. Vissa frågor kan returnera ett fel om de behöver mer än 24 GB per kärna i `tempdb` eller om de producerar mer än 120 GB loggdata.
 
 ### <a name="error-logs"></a>Felloggar
 
@@ -556,7 +557,7 @@ SQL Server/hanterad instans [tillåter inte att användaren släpper en fil som 
 
 **Ikraftträdande** Sep 2019
 
-Kontinuerlig `RESTORE` instruktion, migrering av datamigrerings tjänsten och inbyggd tids återställning kommer att blockera uppdatering av tjänst nivån eller ändra storlek på den befintliga instansen och skapa nya instanser tills återställnings processen har slutförts. Med återställnings processen blockeras dessa åtgärder på hanterade instanser och instans-pooler i samma undernät där återställnings processen körs. Instanserna i instans pooler påverkas inte. Det går inte att skapa eller ändra åtgärder på tjänst nivå eller tids gräns – de fortsätter när återställnings processen har slutförts eller avbrutits.
+Kontinuerliga `RESTORE`-instruktioner, migreringsprocessen för datamigrering och inbyggd tids återställning kommer att blockera uppdatering av tjänst nivån eller ändra storlek på den befintliga instansen och skapa nya instanser tills återställnings processen har slutförts. Med återställnings processen blockeras dessa åtgärder på hanterade instanser och instans-pooler i samma undernät där återställnings processen körs. Instanserna i instans pooler påverkas inte. Det går inte att skapa eller ändra åtgärder på tjänst nivå eller tids gräns – de fortsätter när återställnings processen har slutförts eller avbrutits.
 
 **Lösning**: Vänta tills återställnings processen har slutförts, eller Avbryt återställnings processen om åtgärden för att skapa eller uppdatera tjänst nivå har högre prioritet.
 
@@ -564,11 +565,11 @@ Kontinuerlig `RESTORE` instruktion, migrering av datamigrerings tjänsten och in
 
 **Ikraftträdande** Sep 2019
 
-`RESTORE`instruktionen och inbyggd återställning av återställnings punkt utför inte några nessecary-kontroller på den återställda databasen:
-- **DBCC CHECKDB**  -  `DBCC CHECKDB` -instruktionenfungerarintepåden`RESTORE` återställda databasen. Om en ursprunglig databas är skadad eller om en säkerhets kopia skadas när den kopieras till Azure Blob Storage, kommer automatiska säkerhets kopieringar inte att vidtas och Azure-supporten kommer att kontakta kunden. 
+`RESTORE`-instruktionen och inbyggd återställnings punkt utför inte några nessecary-kontroller på den återställda databasen:
+- **DBCC CHECKDB** -  @ no__t-2-instruktionen utför inte `DBCC CHECKDB` på den återställda databasen. Om en ursprunglig databas är skadad eller om en säkerhets kopia skadas när den kopieras till Azure Blob Storage, kommer automatiska säkerhets kopieringar inte att vidtas och Azure-supporten kommer att kontakta kunden. 
 - Inbyggd återställnings process för tidpunkter kontrollerar inte att den automatiska säkerhets kopieringen från Affärskritisk instans innehåller [InMemory OLTP-objekt](sql-database-in-memory.md#in-memory-oltp). 
 
-**Lösning**: Kontrol lera att du kör `DBCC CHECKDB` på käll databasen innan du tar en säkerhets kopia och Använd `WITH CHECKSUM` alternativet i säkerhets kopiering för att undvika potentiella fel som kan återställas på den hanterade instansen. Kontrol lera att käll databasen inte innehåller [InMemory OLTP-objekt](sql-database-in-memory.md#in-memory-oltp) om du återställer den på generell användning nivå.
+**Lösning**: Se till att du kör `DBCC CHECKDB` på käll databasen innan du tar en säkerhets kopia och använder alternativet `WITH CHECKSUM` i säkerhets kopiering för att undvika potentiella fel som kan återställas på den hanterade instansen. Kontrol lera att käll databasen inte innehåller [InMemory OLTP-objekt](sql-database-in-memory.md#in-memory-oltp) om du återställer den på generell användning nivå.
 
 ### <a name="resource-governor-on-business-critical-service-tier-might-need-to-be-reconfigured-after-failover"></a>Resource Governor på Affärskritisk tjänst nivå kan behöva konfigureras om efter en redundansväxling
 
@@ -590,7 +591,7 @@ Database mail som har [kon figurer ATS med säker anslutning (SSL)](https://docs
 
 **Ikraftträdande** Aug 2019
 
-Service Broker dialog rutor mellan databaser slutar att leverera meddelanden till tjänsterna i andra databaser efter åtgärden ändra tjänst nivå. Meddelandena går **inte förlorade** och de finns i avsändar kön. Om du ändrar virtuella kärnor eller instans lagrings storlek i den hanterade instansen kommer `service_broke_guid` värdet i [sys. Databass](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn att ändras för alla databaser. Alla `DIALOG` skapade med [dialog](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) instruktionen BEGIN som hänvisar till tjänst hanterare i andra databaser kommer att sluta leverera meddelanden till mål tjänsten.
+Service Broker dialog rutor mellan databaser slutar att leverera meddelanden till tjänsterna i andra databaser efter åtgärden ändra tjänst nivå. Meddelandena går **inte förlorade** och de finns i avsändar kön. Om du ändrar virtuella kärnor eller instans lagrings storlek i hanterade instanser kommer `service_broke_guid`-värdet i [sys. Databass](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-databases-transact-sql) -vyn att ändras för alla databaser. Alla `DIALOG` som skapats med DIALOG instruktionen [BEGIN](https://docs.microsoft.com/en-us/sql/t-sql/statements/begin-dialog-conversation-transact-sql) som refererar till tjänst utjämnare i andra databaser kommer att sluta leverera meddelanden till mål tjänsten.
 
 **Korrigera** Stoppa alla aktiviteter som använder Service Broker dialog samtal över flera databaser innan du uppdaterar tjänst nivån och återinitierar dem igen. Om det finns återstående meddelanden som inte levereras efter ändringar i tjänst nivån läser du meddelandena från käll kön och skickar dem igen till målkön.
 
@@ -600,7 +601,7 @@ Service Broker dialog rutor mellan databaser slutar att leverera meddelanden til
 
 Personifiering med `EXECUTE AS USER` eller `EXECUTE AS LOGIN` av följande AAD-huvudobjekt stöds inte:
 -   AAD-användare med alias. Följande fel returneras i det här fallet `15517`.
-- AAD-inloggningar och användare baserat på AAD-program eller tjänstens huvud namn. Följande fel returneras i det här fallet `15517` och. `15406`
+- AAD-inloggningar och användare baserat på AAD-program eller tjänstens huvud namn. Följande fel returneras i det här fallet `15517` och `15406`.
 
 ### <a name="query-parameter-not-supported-in-sp_send_db_mail"></a>@query-parametern stöds inte i sp_send_db_mail
 
@@ -624,17 +625,17 @@ SQL Server Management Studio och SQL Server Data Tools har inte fullt stöd för
 
 ### <a name="temporary-database-is-used-during-restore-operation"></a>Tillfällig databas används under återställnings åtgärden
 
-När en databas återställs på den hanterade instansen skapar återställnings tjänsten först en tom databas med det önskade namnet för att allokera namnet på instansen. Efter en stund kommer den här databasen att tas bort och återställning av den faktiska databasen kommer att startas. Databasen som är i *återställnings* tillstånd kommer temporärt att ha ett slumpmässigt GUID-värde i stället för namn. Det tillfälliga namnet ändras till det önskade namnet i `RESTORE` instruktionen när återställnings processen har slutförts. I den inledande fasen kan användaren komma åt den tomma databasen och till och med skapa tabeller eller läsa in data i den här databasen. Den här tillfälliga databasen kommer att tas bort när återställnings tjänsten startar den andra fasen.
+När en databas återställs på den hanterade instansen skapar återställnings tjänsten först en tom databas med det önskade namnet för att allokera namnet på instansen. Efter en stund kommer den här databasen att tas bort och återställning av den faktiska databasen kommer att startas. Databasen som är i *återställnings* tillstånd kommer temporärt att ha ett slumpmässigt GUID-värde i stället för namn. Det tillfälliga namnet kommer att ändras till det önskade namnet som anges i `RESTORE`-instruktionen när återställnings processen har slutförts. I den inledande fasen kan användaren komma åt den tomma databasen och till och med skapa tabeller eller läsa in data i den här databasen. Den här tillfälliga databasen kommer att tas bort när återställnings tjänsten startar den andra fasen.
 
 **Lösning**: Få inte åtkomst till den databas som du återställer förrän du ser att återställningen har slutförts.
 
 ### <a name="tempdb-structure-and-content-is-re-created"></a>TEMPDB-strukturen och innehållet har skapats på nytt
 
-`tempdb` Databasen delas alltid upp i 12 datafiler och fil strukturen kan inte ändras. Den maximala storleken per fil kan inte ändras och nya filer kan inte läggas till i `tempdb`. `Tempdb`återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i `tempdb` bevaras inte.
+@No__t-0-databasen delas alltid upp i 12 datafiler och fil strukturen kan inte ändras. Den maximala storleken per fil kan inte ändras och nya filer kan inte läggas till i `tempdb`. `Tempdb` återskapas alltid som en tom databas när instansen startar eller växlar över och eventuella ändringar som görs i `tempdb` kommer inte att bevaras.
 
 ### <a name="exceeding-storage-space-with-small-database-files"></a>Överskrida lagrings utrymme med små databasfiler
 
-`CREATE DATABASE`, `ALTER DATABASE ADD FILE`-och `RESTORE DATABASE` -instruktioner kan Miss Miss kan uppstå på grund av att instansen kan uppnå gränsen för Azure Storage.
+`CREATE DATABASE`, `ALTER DATABASE ADD FILE`-och `RESTORE DATABASE`-instruktioner kan Miss Miss kan uppstå på grund av att instansen kan komma åt Azure Storage gränsen.
 
 Varje Generell användning hanterad instans har upp till 35 TB lagring reserverat för Azure Premium-disk utrymme. Varje databas fil placeras på en separat fysisk disk. Disk storlekar kan vara 128 GB, 256 GB, 512 GB, 1 TB eller 4 TB. Oanvänt utrymme på disken debiteras inte, men den totala summan av storleken på Azure Premium-diskar får inte överstiga 35 TB. I vissa fall kan en hanterad instans som inte behöver 8 TB totalt överskrida gränsen på 35 TB Azure på lagrings storleken på grund av intern fragmentering.
 
@@ -647,7 +648,7 @@ Det här exemplet illustrerar att under vissa omständigheter, på grund av en s
 
 I det här exemplet fortsätter befintliga databaser att fungera och kan växa utan problem så länge nya filer inte läggs till. Det går inte att skapa eller återställa nya databaser eftersom det inte finns tillräckligt med utrymme för nya disk enheter, även om den totala storleken på alla databaser inte når gränsen för instans storlek. Det fel som returneras i detta fall är inte klart.
 
-Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med hjälp av systemvyer. Om du når den här gränsen kan du försöka att [tömma och ta bort några av de mindre filerna med hjälp av DBCC SHRINKFILE](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) -instruktionen eller växla till [Affärskritisks nivån, som inte har den här gränsen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
+Du kan [identifiera antalet återstående filer](https://medium.com/azure-sqldb-managed-instance/how-many-files-you-can-create-in-general-purpose-azure-sql-managed-instance-e1c7c32886c1) med hjälp av systemvyer. Om du når den här gränsen kan du försöka att [tömma och ta bort några av de mindre filerna med hjälp av DBCC SHRINKFILE-instruktionen](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkfile-transact-sql#d-emptying-a-file) eller växla till [Affärskritisks nivån, som inte har den här gränsen](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-resource-limits#service-tier-characteristics).
 
 ### <a name="guid-values-shown-instead-of-database-names"></a>GUID-värden som visas i stället för databas namn
 
@@ -659,7 +660,7 @@ Fel loggar som är tillgängliga i den hanterade instansen är inte bestående o
 
 ### <a name="transaction-scope-on-two-databases-within-the-same-instance-isnt-supported"></a>Transaktions omfånget på två databaser inom samma instans stöds inte
 
-`TransactionScope` Klassen i .net fungerar inte om två frågor skickas till två databaser inom samma instans under samma transaktions omfång:
+Klassen `TransactionScope` i .NET fungerar inte om två frågor skickas till två databaser inom samma instans under samma transaktions omfång:
 
 ```csharp
 using (var scope = new TransactionScope())

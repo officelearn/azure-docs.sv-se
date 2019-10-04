@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
 ms.author: kumud
-ms.openlocfilehash: 0f18140036ac762c7383ed1b1d8081aa8d5f877f
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: 82bd92de8b2cbb0da4d6d37911a6a3f71186b592
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70165126"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71802042"
 ---
 # <a name="troubleshoot-connections-with-azure-network-watcher-using-powershell"></a>Felsöka anslutningar med Azure Network Watcher med PowerShell
 
@@ -39,7 +39,7 @@ Lär dig hur du använder anslutnings fel sökning för att kontrol lera om en d
 * Virtuella datorer för att felsöka anslutningar med.
 
 > [!IMPORTANT]
-> Fel sökning av anslutning kräver att den virtuella datorn som du `AzureNetworkWatcherExtension` felsöker från har VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
+> Fel sökning av anslutning kräver att den virtuella datorn som du felsöker från har `AzureNetworkWatcherExtension` VM-tillägget installerat. För att installera tillägget på en virtuell Windows-dator går du till [azure Network Watcher agent-tillägget virtuell dator för Windows](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) och för virtuella Linux-datorer gå till [Azure Network Watcher virtuell dator tillägg för Linux](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json). Tillägget krävs inte på mål slut punkten.
 
 ## <a name="check-connectivity-to-a-virtual-machine"></a>Kontrol lera anslutningen till en virtuell dator
 
@@ -57,14 +57,14 @@ $RG = Get-AzResourceGroup -Name $rgName
 $VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 $VM2 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $destVMName
 
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location} 
+$networkWatcher = Get-AzNetworkWatcher | Where-Object -Property Location -EQ -Value $VM1.Location 
 
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationId $VM2.Id -DestinationPort 80
 ```
 
 ### <a name="response"></a>Svar
 
-Följande svar är från föregående exempel.  I det här svaret går `ConnectionStatus` det inte att **komma åt**. Du kan se att alla avsökningar som skickats misslyckades. Anslutningen kunde inte utföras på den virtuella installationen på grund av en `NetworkSecurityRule` användardefinierad namngiven **UserRule_Port80**som kon figurer ATS för att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka anslutnings problem.
+Följande svar är från föregående exempel.  I detta svar går det inte att **komma åt**`ConnectionStatus`. Du kan se att alla avsökningar som skickats misslyckades. Anslutningen misslyckades på den virtuella enheten på grund av en användardefinierad `NetworkSecurityRule` med namnet **UserRule_Port80**, konfigurerad för att blockera inkommande trafik på port 80. Den här informationen kan användas för att undersöka anslutnings problem.
 
 ```
 ConnectionStatus : Unreachable
@@ -148,14 +148,14 @@ $sourceVMName = "MultiTierApp0"
 $RG = Get-AzResourceGroup -Name $rgName
 $VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
+$networkWatcher = Get-AzNetworkWatcher | Where-Object -Property Location -EQ -Value $VM1.Location 
 
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress 13.107.21.200 -DestinationPort 80
 ```
 
 ### <a name="response"></a>Svar
 
-I följande exempel visas den `ConnectionStatus` som **oåtkomlig**. I informationen kan du `Issues` se att trafiken blockerades på grund av en `UserDefinedRoute`. `Hops` 
+I följande exempel visas `ConnectionStatus` som **oåtkomlig**. I `Hops`-informationen kan du se under `Issues` att trafiken blockerades på grund av en `UserDefinedRoute`. 
 
 ```
 ConnectionStatus : Unreachable
@@ -211,7 +211,7 @@ $sourceVMName = "MultiTierApp0"
 $RG = Get-AzResourceGroup -Name $rgName
 $VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location } 
+$networkWatcher = Get-AzNetworkWatcher | Where-Object -Property Location -EQ -Value $VM1.Location 
 
 
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://bing.com/
@@ -219,7 +219,7 @@ Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1
 
 ### <a name="response"></a>Svar
 
-I följande svar kan du se `ConnectionStatus` programmen som **tillgängliga**. När en anslutning lyckas, anges latens värden.
+I följande svar kan du se `ConnectionStatus`-visarna är **tillgängliga**. När en anslutning lyckas, anges latens värden.
 
 ```
 ConnectionStatus : Reachable
@@ -264,14 +264,14 @@ $RG = Get-AzResourceGroup -Name $rgName
 
 $VM1 = Get-AzVM -ResourceGroupName $rgName | Where-Object -Property Name -EQ $sourceVMName
 
-$networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network/networkWatchers" -and $_.Location -eq $VM1.Location }
+$networkWatcher = Get-AzNetworkWatcher | Where-Object -Property Location -EQ -Value $VM1.Location
 
 Test-AzNetworkWatcherConnectivity -NetworkWatcher $networkWatcher -SourceId $VM1.Id -DestinationAddress https://contosostorageexample.blob.core.windows.net/ 
 ```
 
 ### <a name="response"></a>Svar
 
-Följande JSON är exempel svaret från att köra föregående cmdlet. När målet kan kontaktas `ConnectionStatus` visas egenskapen som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
+Följande JSON är exempel svaret från att köra föregående cmdlet. När målet kan uppnås visas egenskapen `ConnectionStatus` som **nåbar**.  Du får information om antalet hopp som krävs för att komma åt lagrings-bloben och svars tiden.
 
 ```json
 ConnectionStatus : Reachable

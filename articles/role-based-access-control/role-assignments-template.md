@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/20/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: b7f701cd3ce07099d80bca40e506108bcc9a9da9
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: b4eebf7dac4d388411f570b1546c96e3b82b2a98
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178110"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950069"
 ---
 # <a name="manage-access-to-azure-resources-using-rbac-and-azure-resource-manager-templates"></a>Hantera åtkomst till Azure-resurser med RBAC och Azure Resource Manager mallar
 
@@ -33,7 +33,7 @@ För att skapa åtkomst i RBAC skapar du rolltilldelningar. Följande mall visar
 Om du vill använda mallen måste du göra följande:
 
 - Skapa en ny JSON-fil och kopiera mallen
-- Ersätt `<your-principal-id>` med den unika identifieraren för en användare, grupp eller ett program som rollen ska tilldelas. Identifieraren har formatet:`11111111-1111-1111-1111-111111111111`
+- Ersätt `<your-principal-id>` med den unika identifieraren för en användare, grupp eller ett program som rollen ska tilldelas till. Identifieraren har formatet: `11111111-1111-1111-1111-111111111111`
 
 ```json
 {
@@ -159,6 +159,9 @@ New-AzDeployment -Location centralus -TemplateFile rbac-test.json -principalId $
 az deployment create --location centralus --template-file rbac-test.json --parameters principalId=$userid builtInRoleType=Reader
 ```
 
+> [!NOTE]
+> Den här mallen är inte idempotenta om inte samma `roleNameGuid`-värde anges som en parameter för varje distribution av mallen. Om ingen `roleNameGuid` anges, skapas som standard ett nytt GUID på varje distribution och efterföljande distributioner Miss Miss kan ett `Conflict: RoleAssignmentExists`-fel.
+
 ## <a name="create-a-role-assignment-at-a-resource-scope"></a>Skapa en roll tilldelning i ett resurs omfång
 
 Om du behöver skapa en roll tilldelning på nivån för en resurs, är formatet för roll tilldelningen annorlunda. Du anger resurs leverantörens namn område och resurs typ för den resurs som rollen ska tilldelas till. Du inkluderar också namnet på resursen i namnet på roll tilldelningen.
@@ -180,8 +183,6 @@ Om du vill använda mallen måste du ange följande indata:
 
 - Den unika identifieraren för en användare, grupp eller ett program som rollen ska tilldelas
 - Rollen som ska tilldelas
-- En unik identifierare som ska användas för roll tilldelningen eller så kan du använda standard identifieraren
-
 
 ```json
 {
@@ -203,13 +204,6 @@ Om du vill använda mallen måste du ange följande indata:
             ],
             "metadata": {
                 "description": "Built-in role to assign"
-            }
-        },
-        "roleNameGuid": {
-            "type": "string",
-            "defaultValue": "[newGuid()]",
-            "metadata": {
-                "description": "A new GUID used to identify the role assignment"
             }
         },
         "location": {
@@ -238,7 +232,7 @@ Om du vill använda mallen måste du ange följande indata:
         {
             "type": "Microsoft.Storage/storageAccounts/providers/roleAssignments",
             "apiVersion": "2018-09-01-preview",
-            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', parameters('roleNameGuid'))]",
+            "name": "[concat(variables('storageName'), '/Microsoft.Authorization/', guid(uniqueString(parameters('storageName'))))]",
             "dependsOn": [
                 "[variables('storageName')]"
             ],
@@ -267,12 +261,12 @@ Följande visar ett exempel på roll tilldelningen deltagare till en användare 
 
 ## <a name="create-a-role-assignment-for-a-new-service-principal"></a>Skapa en roll tilldelning för ett nytt huvud namn för tjänsten
 
-Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker tilldela en roll till tjänstens huvud namn kan roll tilldelningen inte utföras i vissa fall. Om du till exempel skapar en ny hanterad identitet och sedan försöker tilldela en roll till tjänstens huvud namn i samma Azure Resource Manager mall kan roll tilldelningen Miss Miss förväntat. Orsaken till det här felet är förmodligen en fördröjning i replikeringen. Tjänstens huvud namn skapas i en region. roll tilldelningen kan dock inträffa i en annan region som ännu inte har replikerat tjänstens huvud namn. För att åtgärda det här scenariot ska du `principalType` ställa in `ServicePrincipal` egenskapen till när roll tilldelningen skapas.
+Om du skapar ett nytt huvud namn för tjänsten och sedan omedelbart försöker tilldela en roll till tjänstens huvud namn kan roll tilldelningen inte utföras i vissa fall. Om du till exempel skapar en ny hanterad identitet och sedan försöker tilldela en roll till tjänstens huvud namn i samma Azure Resource Manager mall kan roll tilldelningen Miss Miss förväntat. Orsaken till det här felet är förmodligen en fördröjning i replikeringen. Tjänstens huvud namn skapas i en region. roll tilldelningen kan dock inträffa i en annan region som ännu inte har replikerat tjänstens huvud namn. För att åtgärda det här scenariot bör du ange egenskapen `principalType` till `ServicePrincipal` när du skapar roll tilldelningen.
 
 Följande mall visar:
 
 - Så här skapar du en ny hanterad identitet för tjänstens huvud namn
-- Så här anger du`principalType`
+- Så här anger du `principalType`
 - Tilldela deltagar rollen till tjänstens huvud namn i ett resurs grupps omfång
 
 Om du vill använda mallen måste du ange följande indata:

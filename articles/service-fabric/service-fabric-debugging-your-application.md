@@ -15,12 +15,12 @@ ms.custom: vs-azure
 ms.workload: azure-vs
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: b9ab36343dd11bdb5bd7cc1adcf2c8b1b971dab3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: ee5354845efba0cce92ccf4f11eb3480684e7509
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300687"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947892"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Felsöka ditt Service Fabric program med hjälp av Visual Studio
 > [!div class="op_single_selector"]
@@ -76,14 +76,10 @@ Om dina Service Fabric-program körs på ett Service Fabric-kluster i Azure kan 
 
 > [!NOTE]
 > Funktionen kräver [Service Fabric SDK 2,0](https://www.microsoft.com/web/handlers/webpi.ashx?command=getinstallerredirect&appid=MicrosoftAzure-ServiceFabric-VS2015) och [Azure sdk för .NET 2,9](https://azure.microsoft.com/downloads/).    
-> 
-> 
 
 <!-- -->
 > [!WARNING]
 > Fjärrfelsökning är avsedd för utvecklings-och test scenarier och ska inte användas i produktions miljöer, på grund av påverkan på program som körs.
-> 
-> 
 
 1. Navigera till ditt kluster i **Cloud Explorer**. Högerklicka och välj **Aktivera fel sökning**
    
@@ -128,8 +124,6 @@ Du kan också strömma spårningar direkt från en klusternod till Visual Studio
 > [!WARNING]
 > Strömnings spårningar är avsedda för utvecklings-och test scenarier och ska inte användas i produktions miljöer, på grund av påverkan på program som körs.
 > I ett produktions scenario bör du förlita dig på att vidarebefordra händelser med Azure-diagnostik.
-> 
-> 
 
 1. Navigera till ditt kluster i **Cloud Explorer**. Högerklicka och välj **Aktivera strömmande spår**
    

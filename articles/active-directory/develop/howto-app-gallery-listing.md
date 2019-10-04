@@ -18,16 +18,16 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 88d74fe794f4de95b7ba8b0dd5575ca56d2016e5
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: a97c10303a1ce74e53f46c21176c876faed307e7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71176931"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958660"
 ---
-# <a name="how-to-list-your-application-in-the-azure-active-directory-application-gallery"></a>Anvisningar: Visa ditt program i Azure Active Directory-programgalleriet
+# <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
-Den här artikeln visar hur du visar en lista över ett program i Azure AD-programgalleriet, implementera enkel inloggning (SSO) och hantera listan.
+Den här artikeln visar hur du visar en lista över ett program i program galleriet Azure Active Directory (Azure AD), implementera enkel inloggning (SSO) och hantera listan.
 
 ## <a name="what-is-the-azure-ad-application-gallery"></a>Vad är Azure AD-programgalleriet?
 
@@ -36,106 +36,102 @@ Den här artikeln visar hur du visar en lista över ett program i Azure AD-progr
 - En snabb sökning hittar ditt program i galleriet.
 - Kostnads fria, grundläggande och Premium Azure AD-kunder kan använda denna integrering.
 - Ömsesidiga kunder får en steg-för-steg-konfigurations guide.
-- Kunder som använder SCIM kan använda etablering för samma app.
+- Kunder som använder systemet för SCIM (Cross-Domain Identity Management) kan använda etablering för samma app.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-- För federerade program (öppna ID och SAML/WS-utfodras) måste programmet ha stöd för SaaS-modellen för att få listade i Azure AD-galleriet. Enterprise Gallery-program bör ha stöd för flera kundkonfigurationer och inte någon specifik kund.
-
-- För öppen ID Connect ska programmet vara Multi-Tenant och [Azure AD medgivande Framework](consent-framework.md) bör implementeras korrekt för programmet. Användaren kan skicka inloggnings förfrågan till en gemensam slut punkt så att alla kunder kan ge sitt medgivande till programmet. Du kan styra användar åtkomst baserat på klient-ID: t och användarens UPN som togs emot i token.
-
-- För SAML 2.0/WS-utfodras måste ditt program ha möjlighet att utföra SAML/WS-utfodras SSO-integrering i SP-eller IDP-läge. Kontrol lera att det fungerar korrekt innan du skickar in begäran.
-
-- För inloggning med lösen ord kontrollerar du att ditt program stöder formulärautentisering så att lösen ords valvet kan utföras för att få enkel inloggning som förväntat.
-
-- Behöver ett permanent konto för testning med minst 2 användare registrerade.
+- För federerade program (öppna ID och SAML/WS-utfodras) måste programmet ha stöd för SaaS-modellen (Software-as-a-Service) för att få listas i Azure AD App-galleriet. Enterprise Gallery-programmen måste ha stöd för flera kundkonfigurationer och inte någon specifik kund.
+- För Open-ID Connect måste programmet vara Multiklient och [Azure AD medgivande Framework](consent-framework.md) måste implementeras korrekt för programmet. Användaren kan skicka inloggnings förfrågan till en gemensam slut punkt så att alla kunder kan ge sitt medgivande till programmet. Du kan styra användar åtkomst baserat på klient-ID: t och användarens UPN som togs emot i token.
+- För SAML 2.0/WS-utfodras måste ditt program ha möjlighet att göra SAML/WS-utfodras SSO-integrering i SP-eller IDP-läge. Kontrol lera att den här funktionen fungerar korrekt innan du skickar in begäran.
+- För inloggning med lösen ord kontrollerar du att ditt program stöder formulärautentisering så att lösen ords valvet kan göras för att få enkel inloggning att fungera som förväntat.
+- Du behöver ett permanent konto för testning med minst två användare registrerade.
 
 ## <a name="submit-the-request-in-the-portal"></a>Skicka begäran i portalen
 
-När du har testat att program integrationen fungerar med Azure AD skickar du din begäran om åtkomst på vår [program nätverks Portal](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Om du har ett Office 365-konto använder du det för att logga in på den här portalen. Om inte, använder du Microsoft-konto (till exempel Outlook eller Hotmail) för att logga in.
+När du har testat att program integrationen fungerar med Azure AD skickar du din begäran om åtkomst i [program nätverks portalen](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Om du har ett Office 365-konto använder du det för att logga in på den här portalen. Om inte, använder du Microsoft-konto, t. ex. Outlook eller Hotmail, för att logga in.
 
-Om följande sida visas efter inloggningen kontaktar du integrerings [teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) och anger det e-postkonto som du vill använda för att skicka begäran. Sedan lägger Azure AD-teamet till kontot i Microsoft-programmets nätverks Portal.
+Om följande sida visas när du har loggat in, kontaktar du [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). Ange det e-postkonto som du vill använda för att skicka begäran. Azure AD-teamet kommer att lägga till kontot i Microsoft-programmets nätverks Portal.
 
 ![Åtkomstbegäran på SharePoint-portalen](./media/howto-app-gallery-listing/errorimage.png)
 
 När kontot har lagts till kan du logga in på Microsoft-programmets nätverks Portal.
 
-Och om följande sida visas när du har loggat in, ger du en affärs motivering för att behöva åtkomst i text rutan och väljer sedan **begär åtkomst**.
+Om följande sida visas när du har loggat in, ger du en affärs motivering för att få åtkomst i text rutan. Välj sedan **begär åtkomst**.
 
-  ![Åtkomstbegäran på SharePoint-portalen](./media/howto-app-gallery-listing/accessrequest.png)
+  ![Affärs justerings ruta på SharePoint-portalen](./media/howto-app-gallery-listing/accessrequest.png)
 
-Vårt team granskar informationen och ger dig åtkomst. När din begäran har godkänts kan du logga in på portalen och skicka begäran genom att klicka på panelen för att **skicka en begäran (ISV)** från start sidan.
+Vårt team granskar informationen och ger dig åtkomst. När din begäran har godkänts kan du logga in på portalen och skicka begäran genom att välja panelen för att **skicka begäran (ISV)** på Start sidan.
 
-![Start sida för SharePoint-portalen](./media/howto-app-gallery-listing/homepage.png)
+![Sändnings panelen för begäran (ISV) på Start Sidan](./media/howto-app-gallery-listing/homepage.png)
 
 > [!NOTE]
-> Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+> Om du har problem med åtkomst kan du kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="implementing-sso-using-federation-protocol"></a>Implementera SSO med Federations protokoll
+## <a name="implement-sso-by-using-the-federation-protocol"></a>Implementera SSO med hjälp av Federations protokollet
 
-Om du vill visa ett program i Azure AD App-galleriet måste du först implementera ett av följande Federations protokoll som stöds av Azure AD och samtycka med villkoren i Azure AD Application Gallery. Läs igenom villkoren i Azure AD-programgalleriet [här](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
+Om du vill visa ett program i Azure AD App-galleriet måste du först implementera ett av följande Federations protokoll som stöds av Azure AD. Du måste också godkänna villkoren för Azure AD Application Gallery. Läs villkoren i program galleriet för Azure AD på [den här webbplatsen](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/).
 
 - **OpenID Connect**: Om du vill integrera ditt program med Azure AD med hjälp av Open ID Connect-protokollet följer du [anvisningarna för utvecklare](authentication-scenarios.md).
 
-    ![Tids linje som visar hur OpenID ansluter programmet till galleriet](./media/howto-app-gallery-listing/openid.png)
+    ![Visa ett OpenID Connect-program i galleriet](./media/howto-app-gallery-listing/openid.png)
 
-    * Om du vill lägga till programmet i listan i galleriet med OpenID Connect väljer du **OpenID connect & OAuth 2,0** som ovan.
-    * Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+    * Om du vill lägga till programmet i listan i galleriet med hjälp av OpenID Connect väljer du **OpenID connect & OAuth 2,0** som det visas.
+    * Om du har problem med åtkomst kan du kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 - **SAML 2,0** eller **WS-utfodras**: Om din app stöder SAML 2,0 kan du integrera den direkt med en Azure AD-klient genom att följa [anvisningarna för att lägga till ett anpassat program](../active-directory-saas-custom-apps.md).
 
-  ![Tids linje för att lista SAML 2,0 eller WS-utfodras program i galleriet](./media/howto-app-gallery-listing/saml.png)
+  ![Visar ett SAML 2,0-eller WS-utfodras program i galleriet](./media/howto-app-gallery-listing/saml.png)
 
-  * Om du vill lägga till ditt program i listan i galleriet med **SAML 2,0** eller **WS-utfodras**, väljer du **SAML 2.0/WS-utfodras** som ovan.
-  * Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+  * Om du vill lägga till ditt program i listan i galleriet med **saml 2,0** eller **WS-utfodras**väljer du **SAML 2.0/WS-utfodras** som visas.
+  * Om du har problem med åtkomst kan du kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="implementing-sso-using-password-sso"></a>Implementera SSO med enkel inloggning för lösen ord
+## <a name="implement-sso-by-using-the-password-sso"></a>Implementera SSO med hjälp av lösen ords inloggning
 
-Skapa ett webb program som har en HTML-inloggnings sida för att konfigurera [lösenordsbaserad enkel inloggning](../manage-apps/what-is-single-sign-on.md). Lösenordsbaserad SSO, som även kallas lösen ords valv, gör att du kan hantera användar åtkomst och lösen ord för webb program som inte stöder identitets Federation. Det är också användbart för scenarier där flera användare behöver dela ett enda konto, t. ex. till din organisations konton för sociala media.
+Skapa ett webb program som har en HTML-inloggnings sida för att konfigurera [lösenordsbaserad enkel inloggning](../manage-apps/what-is-single-sign-on.md). Lösenordsbaserad SSO, som även kallas lösen ords valv, gör att du kan hantera användar åtkomst och lösen ord för webb program som inte stöder identitets Federation. Det är också användbart för scenarier där flera användare behöver dela ett enda konto, t. ex. till din organisations appar för sociala media.
 
-![Tids linje för att visa ett SSO-program för lösen ord i galleriet](./media/howto-app-gallery-listing/passwordsso.png)
+![Visar en lista med ett SSO-program i galleriet](./media/howto-app-gallery-listing/passwordsso.png)
 
-* Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen ord för enkel inloggning väljer du **lösen ord för SSO** som ovan.
-* Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+* Om du vill lägga till ditt program i listan i galleriet med hjälp av lösen ord för enkel inloggning väljer du **lösen ord för inloggning** som visas.
+* Om du har problem med åtkomst kan du kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="requesting-for-user-provisioning"></a>Begär användar etablering
+## <a name="request-for-user-provisioning"></a>Begäran om användar etablering
 
-Följ processen nedan för att begära användar etablering –
+Följ processen som visas i följande bild för att begära användar etablering.
 
-   ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/user-provisioning.png)
+   ![Begäran om användar etablering](./media/howto-app-gallery-listing/user-provisioning.png)
 
-## <a name="updateremove-existing-listing"></a>Uppdatera/ta bort befintlig lista
+## <a name="update-or-remove-an-existing-listing"></a>Uppdatera eller ta bort en befintlig lista
 
-Om du vill uppdatera eller ta bort ett befintligt program i Azure AD App-galleriet måste du först skicka in begäran i [program nätverks portalen](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Om du har ett Office 365-konto använder du det för att logga in på den här portalen. Om inte, använder du Microsoft-konto (till exempel Outlook eller Hotmail) för att logga in.
+Om du vill uppdatera eller ta bort ett befintligt program i Azure AD App-galleriet måste du först skicka in begäran i [program nätverks portalen](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Om du har ett Office 365-konto använder du det för att logga in på den här portalen. Om inte, använder du Microsoft-konto, t. ex. Outlook eller Hotmail, för att logga in.
 
-- Välj lämpligt alternativ som du ser i följande bild:
+- Välj lämpligt alternativ som du ser i följande bild.
 
-    ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/updateorremove.png)
+    ![Lista ett SAML-program i galleriet](./media/howto-app-gallery-listing/updateorremove.png)
 
     * Om du vill uppdatera ett befintligt program väljer du lämpligt alternativ enligt ditt krav.
-    * Om du vill ta bort ett befintligt program från Azure AD-galleriet väljer du **ta bort min program lista från galleriet**.
-    * Om du har problem med åtkomsten kontaktar du [integrerings teamet för Azure AD SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+    * Om du vill ta bort ett befintligt program från Azure AD App-galleriet väljer du **ta bort min program listning från galleriet**.
+    * Om du har problem med åtkomst kan du kontakta [Azure AD SSO integration-teamet](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-## <a name="listing-requests-by-customers"></a>Visar begär Anden från kunder
+## <a name="list-requests-by-customers"></a>Lista begär Anden från kunder
 
-Kunder kan skicka en begäran om att registrera ett program genom att klicka på **app-begäranden av kunder** -> **skicka in ny begäran**.
+Kunder kan skicka en begäran om att lista ett program genom att välja **app-begäranden från kunder** > **Skicka ny begäran**.
 
 ![Visar panelen kund begärda appar](./media/howto-app-gallery-listing/customer-submit-request.png)
 
-Nedan visas de program som krävs av kunden,
+Här är ett flöde av kund begärda program.
 
-![Visar flödet för efterfrågade appar för kund](./media/howto-app-gallery-listing/customer-request.png)
+![Visar flödet kundens begärda appar](./media/howto-app-gallery-listing/customer-request.png)
 
 ## <a name="timelines"></a>Tids linjer
 
-Tids linjen för processen med att lista ett SAML 2,0-eller WS-utfodras program i galleriet är 7-10 arbets dagar.
+Tids linjen för processen med att lista ett SAML 2,0-eller WS-utfodras program i galleriet är 7 till 10 arbets dagar.
 
-  ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/timeline.png)
+  ![Tids linje för att visa ett SAML-program i galleriet](./media/howto-app-gallery-listing/timeline.png)
 
-Tids linjen för processen med att ange ett OpenID Connect-program i galleriet är 2-5 arbets dagar.
+Tids linjen för processen med att ange ett OpenID Connect-program i galleriet är 2 till 5 arbets dagar.
 
-  ![Tids linje för att Visa SAML-program i galleriet](./media/howto-app-gallery-listing/timeline2.png)
+  ![Tids linje för att visa ett OpenID Connect-program i galleriet](./media/howto-app-gallery-listing/timeline2.png)
 
 ## <a name="escalations"></a>Förfrågningar
 
-Skicka e-post till SaaSApplicationIntegrations@service.microsoft.com integrerings teamet för [Azure AD SSO](mailto:SaaSApplicationIntegrations@service.microsoft.com) , och vi svarar så snart som möjligt för alla eskaleringar.
+Skicka e-post till [Azure AD SSO integration-teamet](mailto:SaaSApplicationIntegrations@service.microsoft.com) på SaaSApplicationIntegrations@service.microsoft.com och vi svarar så snart som möjligt för alla eskaleringar.

@@ -1,19 +1,19 @@
 ---
 title: 'Navigera i Azure Digitals dubbla API: er | Microsoft Docs'
 description: 'Lär dig mer om vanliga mönster för att skicka frågor till Azure Digitals hanterings-API: er.'
-author: kingdomofends
-manager: philmea
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 08/29/2019
-ms.author: v-adgera
-ms.openlocfilehash: 8472a86800d13cedd228ca881a7c095ff748350a
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: b01b83ab0e673254da19888210d9678e313acca2
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70172825"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949865"
 ---
 # <a name="how-to-use-azure-digital-twins-management-apis"></a>Använda Azure Digitals hanterings-API: er
 
@@ -35,11 +35,11 @@ I följande lista visas komponenterna i de digitala dubbla API: erna.
 
 * [/Ontologies](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Ontologies): Dessa API: er hjälper dig att hantera Ontologies, som är samlingar av utökade typer. Ontologies tillhandahåller namn för objekt typer per det fysiska utrymme som de representerar. *BACnet* -Ontology innehåller till exempel vissa namn för *sensor typer*, *data typer*, *datasubtypes*och *dataunittypes*. Ontologies hanteras och skapas av tjänsten. Användare kan läsa in och ta bort Ontologies. När en Ontology har lästs in aktive ras alla dess associerade typ namn och de är klara att tillhandahållas i det spatiala diagrammet. 
 
-* [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys): Du kan använda dessa API: er för att skapa anpassadeegenskaper för dina Spaces, *enheter*, *användare*och *sensorer*. De här egenskaperna skapas som nyckel/värde-par. Du kan definiera data typen för dessa egenskaper genom att ange deras *PrimitiveDataType*. Du kan till exempel definiera en egenskap med namnet *BasicTemperatureDeltaProcessingRefreshTime* av typen *uint* för sensorer och sedan tilldela ett värde för den här egenskapen för var och en av dina sensorer. Du kan också lägga till begränsningar för dessa värden när du skapar egenskapen, till exempel *minsta* och *högsta* intervall, samt tillåtna värden som *ValidationData*.
+* [/propertyKeys](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/PropertyKeys): Du kan använda dessa API: er för att skapa anpassade egenskaper för dina *Spaces*, *enheter*, *användare*och *sensorer*. De här egenskaperna skapas som nyckel/värde-par. Du kan definiera data typen för dessa egenskaper genom att ange deras *PrimitiveDataType*. Du kan till exempel definiera en egenskap med namnet *BasicTemperatureDeltaProcessingRefreshTime* av typen *uint* för sensorer och sedan tilldela ett värde för den här egenskapen för var och en av dina sensorer. Du kan också lägga till begränsningar för dessa värden när du skapar egenskapen, till exempel *minsta* och *högsta* intervall, samt tillåtna värden som *ValidationData*.
 
 * [/matchers](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Matchers): Med dessa API: er kan du ange de villkor som du vill utvärdera från dina inkommande enhets data. Mer information finns i [den här artikeln](concepts-user-defined-functions.md#matchers) . 
 
-* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): Med dessa API: er kan du skapa, ta bort eller uppdatera en anpassad funktion som ska köras när villkor som definieras av matchningarna sker, för att bearbeta data som kommer från din installation. Se [den här artikeln](concepts-user-defined-functions.md#user-defined-functions) för mer information om dessa anpassade funktioner, även kallade *användardefinierade funktioner*. 
+* [/userDefinedFunctions](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/UserDefinedFunctions): Med dessa API: er kan du skapa, ta bort eller uppdatera en anpassad funktion som ska köras när villkor som definieras av *matchningarna* sker, för att bearbeta data som kommer från din installation. Se [den här artikeln](concepts-user-defined-functions.md#user-defined-functions) för mer information om dessa anpassade funktioner, även kallade *användardefinierade funktioner*. 
 
 * [/endpoints](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#/Endpoints): Med dessa API: er kan du skapa slut punkter så att din digitala enhets lösning kan kommunicera med andra Azure-tjänster för data lagring och analys. Mer information finns i [den här artikeln](concepts-events-routing.md) . 
 
@@ -74,17 +74,17 @@ De digitala dubbla API: erna stöder filtrering och navigering i hela det spatia
 
 ### <a name="examples"></a>Exempel
 
-I följande lista visas några exempel på navigering genom [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) -API: er. `YOUR_MANAGEMENT_API_URL` Observera att plats hållaren refererar till URI för digitala dubbla API: er i formatet `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`, där `YOUR_INSTANCE_NAME` är namnet på din Azure Digital-instansen och `YOUR_LOCATION` är den region där din instans finns.
+I följande lista visas några exempel på navigering genom [/Devices](https://docs.westcentralus.azuresmartspaces.net/management/swagger/ui/index#!/Devices) -API: er. Observera att plats hållaren `YOUR_MANAGEMENT_API_URL` refererar till URI för digitala dubbla API: er i formatet `https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/api/v1.0/`, där `YOUR_INSTANCE_NAME` är namnet på din Azure Digital-instansen och `YOUR_LOCATION` är den region där din instans finns.
 
-- `YOUR_MANAGEMENT_API_URL/devices?maxLevel=1`returnerar alla enheter som är kopplade till rot utrymmen.
-- `YOUR_MANAGEMENT_API_URL/devices?minLevel=2&maxLevel=4`returnerar alla enheter som är kopplade till utrymmen med nivåerna 2, 3 eller 4.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId`returnerar alla enheter som är direkt anslutna till mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down`returnerar alla enheter som är kopplade till mySpaceId eller en av dess underordnade.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true`returnerar alla enheter som är kopplade till underordnade mySpaceId, förutom mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true&maxLevel=1&maxRelative=true`returnerar alla enheter som är kopplade till omedelbara underordnade till mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Up&maxLevel=-1&maxRelative=true`returnerar alla enheter som är kopplade till någon av de överordnade mySpaceId.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&maxLevel=5`returnerar alla enheter som är kopplade till underordnade mySpaceId som är på nivån mindre än eller lika med 5.
-- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true`returnerar alla enheter som är kopplade till utrymmen på samma nivå som mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?maxLevel=1` returnerar alla enheter som är kopplade till rot utrymmen.
+- `YOUR_MANAGEMENT_API_URL/devices?minLevel=2&maxLevel=4` returnerar alla enheter som är kopplade till utrymmen med nivåerna 2, 3 eller 4.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId` returnerar alla enheter som är direkt anslutna till mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down` returnerar alla enheter som är kopplade till mySpaceId eller en av dess underordnade.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true` returnerar alla enheter som är kopplade till underordnade mySpaceId, förutom mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&minLevel=1&minRelative=true&maxLevel=1&maxRelative=true` returnerar alla enheter som är kopplade till omedelbara underordnade mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Up&maxLevel=-1&maxRelative=true` returnerar alla enheter som är kopplade till någon av de överordnade mySpaceId.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Down&maxLevel=5` returnerar alla enheter som är kopplade till underordnade mySpaceId som är på nivån mindre än eller lika med 5.
+- `YOUR_MANAGEMENT_API_URL/devices?spaceId=mySpaceId&traverse=Span&minLevel=0&minRelative=true&maxLevel=0&maxRelative=true` returnerar alla enheter som är kopplade till blank steg på samma nivå som mySpaceId.
 
 
 ## <a name="odata-support"></a>OData-stöd

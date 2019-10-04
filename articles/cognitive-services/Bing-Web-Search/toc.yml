@@ -54,7 +54,7 @@
     - name: Hantera träffmarkering
       href: hit-highlighting.md
     - name: Bläddra igenom resultat
-      href: paging-webpages.md
+      href: paging-search-results.md
     - name: Ändra storlek på och beskär miniatyrer
       href: resize-and-crop-thumbnails.md
     - name: Uppgradera från v5 till v7

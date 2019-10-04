@@ -49,8 +49,8 @@
     - name: Hantera träffmarkering
       href: ../Bing-Web-Search/hit-highlighting.md
       maintainContext: true
-    - name: Bläddra bland nyheter
-      href: paging-news.md
+    - name: bläddrar igenom sökresultat
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: Ändra storlek på och beskär miniatyrer
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

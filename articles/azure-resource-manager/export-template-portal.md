@@ -1,94 +1,94 @@
 ---
-title: Exportera Azure Resource Manager-mall med hjälp av Azure-portalen
-description: Använd Azure-portalen för att exportera en Azure Resource Manager-mall från resurser i din prenumeration.
+title: Exportera Azure Resource Manager-mall med hjälp av Azure Portal
+description: Använd Azure Portal för att exportera en Azure Resource Manager mall från resurser i din prenumeration.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 06/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: e482bf99013b9bec9dfbf64c4e8ad5a8a43ff540
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67296309"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959703"
 ---
-# <a name="single-and-multi-resource-export-to-template-in-azure-portal"></a>Enkel och flera resurs export till mallen i Azure-portalen
+# <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportera en och flera resurser till en mall i Azure Portal
 
-Du kan exportera en mall från befintliga resurser för att hjälpa med att skapa Azure Resource Manager-mallar. Den exporterade mallen hjälper dig att förstå JSON-syntax och egenskaper som distribuerar dina resurser. Börja med den exporterade mallen för att automatisera framtida distributioner, och modifiera den efter ditt scenario.
+För att hjälpa till med att skapa Azure Resource Manager mallar kan du exportera en mall från befintliga resurser. Den exporterade mallen hjälper dig att förstå JSON-syntaxen och de egenskaper som distribuerar dina resurser. Om du vill automatisera framtida distributioner börjar du med den exporterade mallen och ändrar den för ditt scenario.
 
-Resource Manager kan du välja en eller flera resurser för att exportera till en mall. Du kan fokusera på exakt de resurser du behöver i mallen.
+Med Resource Manager kan du välja en eller flera resurser för att exportera till en mall. Du kan fokusera på exakt de resurser som du behöver i mallen.
 
-Den här artikeln visar hur du exporterar mallar via portalen. Du kan också använda [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), eller [REST API](/rest/api/resources/resourcegroups/exporttemplate).
+Den här artikeln visar hur du exporterar mallar via portalen. Du kan också använda [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates)eller [REST API](/rest/api/resources/resourcegroups/exporttemplate).
 
-## <a name="choose-the-right-export-option"></a>Välj rätt Exportalternativet
+## <a name="choose-the-right-export-option"></a>Välj rätt export alternativ
 
 Det finns två sätt att exportera en mall:
 
-* **Exportera från resursgruppen eller resursen**. Det här alternativet skapar en ny mall från befintliga resurser. Den exporterade mallen är en ”ögonblicksbild” av det aktuella tillståndet för resursgruppen. Du kan exportera en hela resursgruppen eller specifika resurser i resursgruppen.
+* **Exportera från resurs grupp eller resurs**. Med det här alternativet skapas en ny mall från befintliga resurser. Den exporterade mallen är en "ögonblicks bild" av resurs gruppens aktuella tillstånd. Du kan exportera en hel resurs grupp eller vissa resurser inom den resurs gruppen.
 
-* **Exportera före distributionen eller från historiken över**. Det här alternativet hämtar en exakt kopia av en mall som används för distribution.
+* **Exportera före distribution eller från historik**. Med det här alternativet hämtas en exakt kopia av en mall som används för distribution.
 
-Beroende på vilket alternativ som du väljer har de exporterade mallarna olika egenskaper.
+De exporterade mallarna har olika kvalitet beroende på vilket alternativ du väljer.
 
-| Från resursgruppen eller resursen | Före distributionen eller från historiken |
+| Från resurs grupp eller resurs | Före distribution eller från historik |
 | --------------------- | ----------------- |
-| Mall för ögonblicksbild av resursens aktuella tillstånd. Den innehåller alla manuella ändringar efter distributionen. | Mallen visas endast för resurser vid tidpunkten för distributionen. Eventuella manuella ändringar som gjorts efter distribution inkluderas inte. |
-| Du kan välja vilka resurser från en resursgrupp att exportera. | Alla resurser för en specifik distribution ingår. Du kan inte välja en delmängd av dessa resurser eller lägga till resurser som har lagts till på en annan tid. |
-| Mallen innehåller alla egenskaper för resurser, inklusive vissa egenskaper som du normalt skulle ange under distributionen. Du kanske vill ta bort eller rensa upp de här egenskaperna innan du återanvänder mallen. | Mallen innehåller bara de egenskaper som behövs för att distribuera. Mallen är redo att användas. |
-| Mallen innehålla förmodligen inte alla de parametrar du behöver för återanvändning. De flesta egenskapsvärden är hårdkodad i mallen. Du måste lägga till parametrar som ökar möjligheten att konfigurera resurser för att distribuera om mallen i andra miljöer. | Mallen innehåller parametrar som gör det enkelt att distribuera i olika miljöer. |
+| Mallen är en ögonblicks bild av resursens aktuella tillstånd. Den innehåller alla manuella ändringar som du har gjort efter distributionen. | Mall visar endast tillstånd för resurser vid tidpunkten för distributionen. Eventuella manuella ändringar som du har gjort efter distributionen ingår inte. |
+| Du kan välja vilka resurser från en resurs grupp som ska exporteras. | Alla resurser för en speciell distribution ingår. Du kan inte välja en delmängd av dessa resurser eller lägga till resurser som har lagts till vid en annan tidpunkt. |
+| Mallen innehåller alla egenskaper för resurserna, inklusive vissa egenskaper som du normalt sett angav under distributionen. Du kanske vill ta bort eller rensa dessa egenskaper innan du återanvänder mallen. | Mallen innehåller bara de egenskaper som krävs för distributionen. Mallen är klar att användas. |
+| Mallen innehåller antagligen inte alla parametrar som du behöver för åter användning. De flesta egenskaps värden är hårdkodade i mallen. Om du vill distribuera om mallen i andra miljöer måste du lägga till parametrar som ökar möjligheten att konfigurera resurserna. | Mallen innehåller parametrar som gör det enkelt att omdistribuera i olika miljöer. |
 
-Exportera mallen från en resursgrupp eller resurs, när:
+Exportera mallen från en resurs grupp eller resurs när:
 
-* Du behöver samla in ändringar till de resurser som har gjorts efter den ursprungliga distributionen.
+* Du måste samla in ändringar av de resurser som gjorts efter den ursprungliga distributionen.
 * Du vill välja vilka resurser som ska exporteras.
 
-Exportera mallen före distributionen eller från tidigare när:
+Exportera mallen före distribution eller från historiken när:
 
-* Vill du en mall för enkelt till återanvändning.
-* Du behöver inte inkludera ändringar efter den ursprungliga distributionen.
+* Du vill ha en lätt att återanvända mall.
+* Du behöver inte inkludera ändringar som du har gjort efter den ursprungliga distributionen.
 
-## <a name="export-template-from-resource-group"></a>Exportera mallen från resursgruppen
+## <a name="export-template-from-resource-group"></a>Exportera mall från resurs grupp
 
-Så här exporterar du en eller flera resurser från en resursgrupp:
+Så här exporterar du en eller flera resurser från en resurs grupp:
 
-1. Välj den resursgrupp som innehåller de resurser som du vill exportera.
+1. Välj den resurs grupp som innehåller de resurser som du vill exportera.
 
-1. Markera alla om du vill exportera alla resurser i resursgruppen och sedan **exportmallen**. Den **exportmallen** alternativet endast aktiveras när du har valt minst en resurs.
+1. Om du vill exportera alla resurser i resurs gruppen väljer du alla och sedan **Exportera mall**. Alternativet för att **Exportera mall** aktive ras bara när du har valt minst en resurs.
 
    ![Exportera alla resurser](./media/export-template-portal/select-all-resources.png)
 
-1. Markera kryssrutorna bredvid de här resurserna för att välja specifika resurser för export. Välj **exportmallen**.
+1. Om du vill välja vissa resurser för export markerar du kryss rutorna bredvid resurserna. Välj sedan **Exportera mall**.
 
-   ![Välj resurser som ska exporteras](./media/export-template-portal/select-resources.png)
+   ![Välj vilka resurser som ska exporteras](./media/export-template-portal/select-resources.png)
 
 1. Den exporterade mallen visas och är tillgänglig för hämtning.
 
    ![Visa mall](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>Exportera mallen från resurs
+## <a name="export-template-from-resource"></a>Exportera mall från resurs
 
 Så här exporterar du en resurs:
 
-1. Välj den resursgrupp som innehåller den resurs du vill exportera.
+1. Välj den resurs grupp som innehåller den resurs som du vill exportera.
 
-1. Välj resursen att exportera.
+1. Välj den resurs som ska exporteras.
 
    ![Välj resurs](./media/export-template-portal/select-link-resource.png)
 
-1. För den resursen väljer **exportmallen** i den vänstra rutan.
+1. För resursen väljer du **Exportera mall** i det vänstra fönstret.
 
-   ![Exportera resource](./media/export-template-portal/export-single-resource.png)
+   ![Exportera resurs](./media/export-template-portal/export-single-resource.png)
 
-1. Den exporterade mallen visas och är tillgänglig för hämtning. Mallen innehåller endast enskild resurs.
+1. Den exporterade mallen visas och är tillgänglig för hämtning. Mallen innehåller bara den enskilda resursen.
 
-## <a name="export-template-before-deployment"></a>Exportera mall före distributionen
+## <a name="export-template-before-deployment"></a>Exportera mall före distribution
 
-1. Välj den Azure-tjänst du vill distribuera.
+1. Välj den Azure-tjänst som du vill distribuera.
 
-1. Fyll i värden för den nya tjänsten.
+1. Fyll i värdena för den nya tjänsten.
 
-1. När skicka verifiering, men innan du påbörjar distribueringen, Välj **ladda ned en mall för automatisering**.
+1. När du har överfört verifieringen, men innan du påbörjar distributionen, väljer du **Ladda ned en mall för automatisering**.
 
    ![Ladda ned mall](./media/export-template-portal/download-before-deployment.png)
 
@@ -96,27 +96,27 @@ Så här exporterar du en resurs:
 
    ![Visa mall](./media/export-template-portal/show-template-before-deployment.png)
 
-## <a name="export-template-after-deployment"></a>Exportera mall efter distributionen
+## <a name="export-template-after-deployment"></a>Exportera mall efter distribution
 
-Du kan exportera den mall som användes för att distribuera befintliga resurser. Mallen som du får är exakt det som användes för distributionen.
+Du kan exportera den mall som användes för att distribuera befintliga resurser. Mallen som du hämtar är exakt den som användes för distributionen.
 
-1. Välj den resursgrupp som du vill exportera.
+1. Välj den resurs grupp som du vill exportera.
 
-1. Klicka på länken under **distributioner**.
+1. Välj länken under **distributioner**.
 
-   ![Välj distributionshistoriken](./media/export-template-portal/select-deployment-history.png)
+   ![Välj distributions historik](./media/export-template-portal/select-deployment-history.png)
 
-1. Välj en av distributionerna från distributionshistoriken.
+1. Välj en av distributionerna från distributions historiken.
 
-   ![Välj distributionen](./media/export-template-portal/select-details.png)
+   ![Välj distribution](./media/export-template-portal/select-details.png)
 
-1. Välj **mallen**. Mallen som används för den här distributionen visas och är tillgänglig för hämtning.
+1. Välj **mall**. Mallen som används för den här distributionen visas och är tillgänglig för hämtning.
 
    ![Välj mall](./media/export-template-portal/show-template-from-history.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig hur du exporterar mallar med [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates), eller [REST API](/rest/api/resources/resourcegroups/exporttemplate).
-- Läs Resource Manager-mallens syntax i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](./resource-group-authoring-templates.md).
-- Läs hur du utvecklar mallar i den [stegvisa självstudier](/azure/azure-resource-manager/).
-- Mallscheman för Azure Resource Manager-finns [mallreferensen](/azure/templates/).
+- Lär dig hur du exporterar mallar med [Azure CLI](manage-resource-groups-cli.md#export-resource-groups-to-templates), [Azure PowerShell](manage-resource-groups-powershell.md#export-resource-groups-to-templates)eller [REST API](/rest/api/resources/resourcegroups/exporttemplate).
+- Information om syntaxen för Resource Manager-mallar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](./resource-group-authoring-templates.md).
+- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](/azure/azure-resource-manager/).
+- Om du vill visa scheman för Azure Resource Manager mallar, se [referens för mallar](/azure/templates/).

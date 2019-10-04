@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: trbye
 ms.author: trbye
 author: trevorbye
-ms.date: 10/01/2019
-ms.openlocfilehash: 50593741e185a146c5a376c34da959063198e7d0
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/03/2019
+ms.openlocfilehash: 3df95f88c057fa564078dbf05d5dfa4b26150f6a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71813813"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959659"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Felsöka och felsöka maskin inlärnings pipeliner
 
@@ -27,7 +27,7 @@ I följande avsnitt får du en översikt över vanliga fall GRO par när du skap
 
 Ett av de vanligaste felen i en pipeline är att ett kopplat skript (data rengörings skript, bedömnings skript osv.) inte körs som avsett eller innehåller körnings fel i fjärrberäknings kontexten som är svåra att felsöka i arbets ytan i Azure Portal. 
 
-Det går inte att köra pipeliner lokalt, men enhets testning av underliggande skript är ett enkelt sätt att se till att skripten gör det som du förväntar dig att isolera, utan att vänta på den fullständiga körnings tiden för pipelinen. Det krävs en del utvecklings arbete för att göra detta:
+Det går inte att köra pipeliner lokalt, men om du kör skripten i isolering på din lokala dator kan du felsöka snabbare eftersom du inte behöver vänta på bearbetningen av beräknings-och miljö versionen. Det krävs en del utvecklings arbete för att göra detta:
 
 * Om dina data finns i ett moln data lager måste du hämta data och göra dem tillgängliga för ditt skript. Att använda ett litet exempel på dina data är ett bra sätt att skära ned i körningen och snabbt få feedback om skript beteende
 * Om du försöker simulera ett mellanliggande pipeline-steg kan du behöva bygga de objekt typer som det aktuella skriptet förväntar sig i föregående steg
@@ -38,6 +38,9 @@ När du har en skript konfiguration som ska köras i din lokala miljö är det m
 * Bifoga en anpassad fel söknings konfiguration
 * Pausa körning och inspektera objekt tillstånd
 * Fångst typ eller logiska fel som inte ska exponeras förrän runtime
+
+> [!TIP] 
+> När du kan kontrol lera att skriptet körs som förväntat kör du ett lämpligt nästa steg i en pipeline för ett enda steg innan du försöker köra det i en pipeline med flera steg.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Felsöka skript från fjärr kontext
 

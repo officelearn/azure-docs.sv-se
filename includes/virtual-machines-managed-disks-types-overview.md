@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/15/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 87e130d3a4569971bffb9b1ac2e189babb900225
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 3dfc3c309fe3583ddd4307cbfe4e55bf6522ffc3
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70997730"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71955880"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Vilka disk typer är tillgängliga i Azure?
 
@@ -27,7 +27,7 @@ Följande tabell innehåller en jämförelse av Ultra disks, Premium Solid-State
 |---------|---------|---------|---------|---------|
 |Disktyp   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |I/o-intensiva arbets belastningar, till exempel SAP HANA, toppnivå databaser (till exempel SQL, Oracle) och andra transaktions krävande arbets belastningar.   |Produktion och prestandakänsliga arbetsbelastningar   |Webb servrar, lätt använda företags program och utveckling/testning   |Säkerhets kopiering, icke-kritisk, ovanligt åtkomst   |
-|Diskstorlek   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
+|Största disk storlek   |65 536 gibibyte (GiB)    |32 767 GiB    |32 767 GiB   |32 767 GiB   |
 |Maximalt data flöde   |2 000 MiB/s    |900 MiB/s   |750 MiB/s   |500 MiB/s   |
 |Max IOPS   |160 000    |20,000   |6,000   |2,000   |
 

@@ -15,24 +15,18 @@ ms.date: 05/21/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d4b48e035476e5381104b442f87dcac03ac11778
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: df8b03d513e2d78083031fbc9a3f6dbc1b7d15d9
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499682"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958572"
 ---
 # <a name="review-access-for-yourself-to-groups-or-applications-in-azure-ad-access-reviews"></a>Granska åtkomst för dig själv till grupper eller program i åtkomst granskningar för Azure AD
 
 Azure Active Directory (Azure AD) gör det enklare för företag att hantera åtkomst till grupper eller program i Azure AD och andra Microsoft Online Services med en funktion som kallas Azure AD-åtkomst granskningar.
 
 Den här artikeln beskriver hur du granskar din egen åtkomst till en grupp eller ett program.
-
-## <a name="prerequisites"></a>Förutsättningar
-
-- Azure AD Premium P2
-
-Mer information finns i [vilka användare måste ha licenser?](access-reviews-overview.md#which-users-must-have-licenses).
 
 ## <a name="open-the-access-review"></a>Öppna åtkomst granskningen
 
@@ -46,7 +40,7 @@ Det första steget för att utföra en åtkomst granskning är att hitta och öp
 
 Om du inte har e-postmeddelandet kan du hitta dina väntande åtkomst granskningar genom att följa dessa steg.
 
-1. Logga in på webbplatsen för Mina appar på [https://myapps.microsoft.com](https://myapps.microsoft.com).
+1. Logga in på portalen för att [https://myapps.microsoft.com](https://myapps.microsoft.com).
 
     ![Appar för portalen som visar appar som du har behörighet att](./media/review-your-access/myapps-access-panel.png)
 

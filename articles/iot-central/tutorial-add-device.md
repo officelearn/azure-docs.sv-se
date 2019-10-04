@@ -9,23 +9,26 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 192374971e92bae282c5092dd8c5e7261fce0c5f
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 96b8090bd0e178be53cb49f42438951645def5d9
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066373"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960501"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Självstudier: Lägga till en riktig enhet till Azure IoT Central-programmet
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-Den här självstudien visar hur du lägger till och konfigurerar en riktig enhet till Microsoft Azure IoT Central-programmet.
+Den här självstudien visar hur du lägger till och konfigurerar en riktig enhet till Microsoft Azure IoT Central-programmet. 
+_* du behöver inte din egen externa enhet för att slutföra den här kursen. Den "riktiga enheten" skapas som ett kod program som körs i kommando rads miljön._ 
 
 Den här självstudien består av två delar:
 
 * Först lär du dig att som operatör lägga till och konfigurera en riktig enhet i Azure IoT Central-programmet. I slutet av den här delen hämtar du en anslutningssträng som används i den andra delen.
 * Sedan lär du dig, som enhetsutvecklare, om koden i din riktiga enhet. Du lägger till anslutningssträngen från den första delen i exempelkoden.
+
+
 
 I den här guiden får du lära dig att:
 
@@ -52,11 +55,11 @@ För att lägga till en riktig enhet i ditt program använder du enhetsmallen **
 
    I **Device Explorer** visas enhets mal len för den **anslutna luft konditioneringen** och en simulerad enhet. När du skapar en enhets mall skapar IoT Central automatiskt en simulerad enhet.
 
-2. Om du vill ansluta en verklig ansluten Luft Konditionerings enhet väljer **+** du och sedan **verkligt**:
+2. Observera att den **anslutna Luft Konditionerings** enhets mal len är den som är vald i **Device Explorer**. Om du vill börja ansluta en riktig luftkonditionerings enhet som använder den här mallen väljer du **+** , sedan **verklig**:
 
    ![Börja lägga till en ny, riktig, ansluten luftkonditioneringsenhet](media/tutorial-add-device/newreal.png)
 
-3. Ange enhets-ID (bör vara gement) eller Använd det föreslagna enhets-ID: t. Du kan även ange namnet på den nya enheten och välja **Skapa**.
+3. Ange ditt egna **enhets-ID** (bör vara i gemener) eller Använd det föreslagna värdet. Du kan också ange ett **enhets namn** för den nya enheten och välja **skapa**.
 
    ![Byt namn på enheten](media/tutorial-add-device/rename.png)
 
@@ -76,9 +79,9 @@ Den riktiga enheten skapas utifrån enhetsmallen **Ansluten luftkonditioneringse
 
 ## <a name="prepare-the-client-code"></a>Förbereda klientkoden
 
-Exempel koden i den här artikeln är skriven i [Node. js](https://nodejs.org/) och visar tillräckligt med kod för att:
+Exempel koden i den här artikeln är skriven i [Node. js](https://nodejs.org/) och visar tillräckligt med kod för en enhet för att:
 
-* Anslut som en enhet till Azure IoT Central-programmet.
+* Anslut till Azure IoT Central-programmet.
 * Skicka temperaturtelemetri som en ansluten luftkonditioneringsenhet.
 * Skicka enhetsegenskaper till Azure IoT Central-programmet.
 * Svara på en operatör som använder inställningen **Ange temperatur**.
@@ -96,13 +99,13 @@ Följande steg visar hur du förbereder [Node.js](https://nodejs.org/)-exemplet:
 
    ![Enhetssidan visar informationslänk för att visa anslutning](media/tutorial-add-device/connectionlink.png)
 
-1. På sidan enhets anslutning noterar du **omfångs-ID**, **enhets-ID** och **primär nyckel** värden. Du använder dessa värden senare i den här självstudien.
+1. På sidan **enhets anslutning** noterar du **omfångs-ID**, **enhets-ID** och **primär nyckel** värden. Du kommer att använda dessa värden senare i den här självstudien.
 
-   ![Anslutningsinformation](media/tutorial-add-device/device-connect.png)
+   ![Information om anslutningen](media/tutorial-add-device/device-connect.png)
 
 ### <a name="prepare-the-nodejs-project"></a>Förbereda Node. js-projektet
 
-1. Skapa en mapp som `connectedairconditioner` heter på din utvecklings dator.
+1. Skapa en mapp med namnet `connectedairconditioner` på din utvecklings dator.
 
 1. I kommandoradsmiljön går du till mappen `connectedairconditioner` som du skapade.
 
@@ -133,13 +136,13 @@ Följande steg visar hur du förbereder [Node.js](https://nodejs.org/)-exemplet:
     var ProvisioningDeviceClient = require('azure-iot-provisioning-device').ProvisioningDeviceClient;
     ```
 
-1. Lägg till följande variabel deklarationer i filen. Ersätt plats hållarna `{your Scope ID}` `{your Device ID}`och `{your Primary Key}` med anslutnings informationen för enheten som du antecknade tidigare:
+1. Lägg till följande variabel deklarationer i filen. Ersätt plats hållarna `{your Scope ID}`, `{your Device ID}` och `{your Primary Key}` med den enhets anslutnings information som du antecknade tidigare:
 
     ```javascript
     var provisioningHost = 'global.azure-devices-provisioning.net';
     var idScope = '{your Scope ID}';
     var registrationId = '{your Device ID}';
-    var symmetricKey = '{your Primary Key};
+    var symmetricKey = '{your Primary Key}';
     var provisioningSecurityClient = new SymmetricKeySecurityClient(registrationId, symmetricKey);
     var provisioningClient = ProvisioningDeviceClient.create(provisioningHost, idScope, new ProvisioningTransport(), provisioningSecurityClient);
     var hubClient;
@@ -150,7 +153,7 @@ Följande steg visar hur du förbereder [Node.js](https://nodejs.org/)-exemplet:
 
 ## <a name="review-client-code"></a>Granska klient koden
 
-I det föregående avsnittet skapade du ett Node.js-stommeprojekt för ett program som ansluter till Azure IoT Central-programmet. Nästa steg är att lägga till kod till:
+I föregående avsnitt skapade du ett Skeleton Node. js-projekt för ett enhets program som ansluter till ditt Azure IoT Central-program. Nästa steg är att lägga till kod till:
 
 * Anslut till Azure IoT Central-programmet.
 * Skicka telemetri till Azure IoT Central-programmet.

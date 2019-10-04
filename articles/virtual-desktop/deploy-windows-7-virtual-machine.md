@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 09/23/2019
+ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: e7f565a995e4c2a5338f08437b0dd336846ba154
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a6fb67ce531ed8cc028d2d0a8dfc3022544efe0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679924"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947575"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Distribuera en virtuell Windows 7-dator på Windows Virtual Desktop
 
@@ -43,9 +43,15 @@ Konfigurera en virtuell Windows 7-dator på Windows Virtual Desktop:
      shutdown /r /t 0
      ```
     
+11. Följ anvisningarna [här](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) för att hämta en registrerings-token.
+12. [Hämta Windows Virtual Desktop-agenten för Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm).
+13. [Ladda ned Windows Virtual Desktop Agent Manager för Windows 7](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3).
+14. Öppna installations programmet för Windows Virtual Desktop agent och följ instruktionerna. När du uppmanas till det, ger du registrerings nyckeln som du skapade i steg 11.
+15. Öppna installations programmet för Windows Virtual Desktop och följ anvisningarna.
+16. Du kan också blockera TCP/3389-porten för att ta bort direkt Remote Desktop Protocol åtkomst till den virtuella datorn.
+
 ## <a name="next-steps"></a>Nästa steg
 
-Din virtuella Windows 7-dator är nu redo att distribueras på virtuella Windows-datorer. Följ anvisningarna i [förbereda de virtuella datorerna för Windows Virtual Desktop agent-installationer](create-host-pools-powershell.md#prepare-the-virtual-machines-for-windows-virtual-desktop-agent-installations) för att slutföra distributionen.
+Din Windows-distribution för virtuella datorer är nu redo att användas. [Hämta den senaste versionen av Windows Virtual Desktop-klienten](https://aka.ms/wvd/clients/windows) för att komma igång.
 
 En lista med kända problem och fel söknings anvisningar för Windows 7 på Windows Virtual Desktop finns i vår fel söknings artikel på [Felsöka Windows 7 Virtual Machines i Windows Virtual Desktop](troubleshoot-windows-7-vm.md).
-

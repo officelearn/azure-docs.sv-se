@@ -2,18 +2,19 @@
 title: 'Självstudier: Övervaka ett utrymme med Azure Digital Twins | Microsoft Docs'
 description: Lär dig mer om att etablera rumsliga resurser och övervaka arbetsvillkor med Azure Digital Twins med hjälp av stegen i den här självstudien.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/20/2019
-ms.author: alinast
-ms.openlocfilehash: bdf37225e815d3848a87b88737daf4b5a5d2560c
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 74e3c46b2b1427c27923ed91846755797b8da690
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300056"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949074"
 ---
 # <a name="tutorial-provision-your-building-and-monitor-working-conditions-with-azure-digital-twins-preview"></a>Självstudier: Etablera dina arbets förhållanden för bygge och övervakning med Azure Digitals för hands version
 
@@ -53,7 +54,7 @@ Lägg till följande matchare under de befintliga matcharna. Kontrollera att nyc
         dataTypeValue: Temperature
 ```
 
-Den här matcharen spårar `SAMPLE_SENSOR_TEMPERATURE` sensorn som du lade till i [den första självstudien](tutorial-facilities-setup.md). 
+Den här matcharen spårar den `SAMPLE_SENSOR_TEMPERATURE`-sensor som du lade till i [den första självstudien](tutorial-facilities-setup.md). 
 
 ## <a name="create-a-user-defined-function"></a>Skapa en användardefinierad funktion
 
@@ -184,7 +185,7 @@ Lägg också märke till avsnittet **roleassignments**. Det tilldelar rollen Spa
 
 1. Från utdata i kommandofönstret kopierar du värdet för `ConnectionString` under avsnittet `Devices` till Urklipp. Du behöver det här värdet för att simulera enhetsanslutning i nästa avsnitt.
 
-    [![Etablera exempel](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
+    [![Provision-exempel](./media/tutorial-facilities-udf/run-provision-sample.png)](./media/tutorial-facilities-udf/run-provision-sample.png#lightbox)
 
 > [!TIP]
 > Om du får ett felmeddelande liknande ”I/O-åtgärden avbröts eftersom en tråd avslutades eller på grund av att ett program begärde det” under etableringen kan du försöka att köra kommandot igen. Detta kan inträffa om HTTP-klientens tidsgräns gått ut på grund av ett nätverksproblem.
@@ -205,7 +206,7 @@ I det här avsnittet använder du ett projekt med namnet *device-connectivity* i
 
    a. **DeviceConnectionString**: Tilldela värdet för `ConnectionString` i utdatafönstret från föregående avsnitt. Kopiera strängen helt, inom citattecknen, så att simulatorn kan ansluta till IoT-hubben.
 
-   b. **HardwareId** i matrisen **Sensors** (Sensorer): Eftersom du simulerar händelser från sensorer som har tillhandahållits till din Azure Digital-instansen, ska maskinvaru-ID: t och namnen på sensorer i den här filen `sensors` matcha noden i filen *provisionSample. yaml* .
+   b. **HardwareId** i matrisen **Sensors** (Sensorer): Eftersom du simulerar händelser från sensorer som har allokerats till din Azure Digital-instansen, ska maskinvaru-ID: t och namnen på sensorer i den här filen matcha `sensors`-noden i filen *provisionSample. yaml* .
 
       Lägg till en ny post för temperatursensorn. Noden **sensorer** i *appSettings. JSON* bör se ut så här:
 
@@ -245,7 +246,7 @@ Den användardefinierade funktionen körs varje gång din instans tar emot data 
 
 Utdatafönstret visar hur den användardefinierade funktionen körs och fångar upp händelser från enhetssimuleringen. 
 
-   [![Utdata för UDF-filen](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
+   [![Output för UDF-filen](./media/tutorial-facilities-udf/udf-running.png)](./media/tutorial-facilities-udf/udf-running.png#lightbox)
 
 Om det övervakade villkoret uppfylls anger den användardefinierade funktionen värdet för utrymmet med relevant meddelande, som vi såg [tidigare](#create-a-user-defined-function). Funktionen `GetAvailableAndFreshSpaces` skriver ut meddelandet på konsolen.
 

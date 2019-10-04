@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/09/2018
 ms.author: sngun
-ms.openlocfilehash: 8017f02e694f5c9e2cd677c7b1f28c5de973d077
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f8c38c46bd60834c166721f62088d8edb2c722a9
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932579"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949585"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK för SQL API: Information om hämtning och version
 > [!div class="op_single_selector"]
@@ -44,6 +44,14 @@ ms.locfileid: "70932579"
 
 > [!NOTE]
 > Om du använder .NET Framework, se den senaste versionen 3. x av [.NET SDK](sql-api-sdk-dotnet-standard.md), som är riktad mot .net standard. 
+
+### <a name="a-name270270"></a><a name="2.7.0"/>2.7.0
+
+* Stöd har lagts till för matriser och objekt i order by-frågor
+* Hantera effektiva kollisioner i en partitionsnyckel
+* LINQ-stöd har lagts till för flera OrderBy-operatorer med ThenBy-operatorn
+* Anpassade inställningar för serialisering används nu för alla upsert och ersättnings åtgärder
+* Problem med fast AysncCache-deadlock så att det fungerar med en entrådad Schemaläggaren
 
 ### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
 
@@ -348,7 +356,7 @@ ms.locfileid: "70932579"
 ### <a name="a-name130130"></a><a name="1.3.0"/>1.3.0
 * Stöd har lagts till för att ändra indexerings principer.
   * Ny ReplaceDocumentCollectionAsync-metod i DocumentClient
-  * Ny IndexTransformationProgress-egenskap i\<ResourceResponse T > för spårning av procentuellt förlopp för index princip ändringar
+  * Ny IndexTransformationProgress-egenskap i ResourceResponse @ no__t-0T > för spårning av procent förloppet för index princip ändringar
   * DocumentCollection. IndexingPolicy är nu föränderligt
 * Stöd har lagts till för rums indexering och frågor.
   * Nytt namn område för Microsoft. Azure. Documents. spatial för serialisering/deserialisering av spatiala typer som punkt och polygon
@@ -390,6 +398,7 @@ Förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK avvisas
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.7.0](#2.7.0) |23 september 2019 |--- |
 | [2.6.0](#2.6.0) |30 augusti 2019 |--- |
 | [2.5.1](#2.5.1) |Den 02 juli 2019 |--- |
 | [2.4.1](#2.4.1) |20 juni 2019 |--- |

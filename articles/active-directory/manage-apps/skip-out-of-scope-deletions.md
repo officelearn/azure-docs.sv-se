@@ -1,6 +1,6 @@
 ---
 title: Hoppa över borttagning av omfångs användare | Microsoft Docs
-description: Lär dig hur du åsidosätter standard beteendet för borttagning av omfattnings användare.
+description: Lär dig hur du åsidosätter standard beteendet för inaktive ring av omfångs användare.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2019
+ms.date: 10/03/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a753d8cce3f3b610abab2f78d54d76a05d8bc5cb
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 3b4a8005cf308d5cfce02976e3b2eff39d5fe8c0
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70815995"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958636"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>Hoppa över borttagning av användar konton som ingår i omfånget
 
@@ -53,7 +53,7 @@ Eftersom den här konfigurationen ofta används med *arbets dagen för att Activ
 Kör följande GET-fråga i Microsoft Graph Explorer och Ersätt [servicePrincipalId] med **servicePrincipalId** som extraherats från [steg 1](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id).
 
 ```http
-   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs
+   GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
    ![Hämta jobb fråga](./media/skip-out-of-scope-deletions/skip-03.png)

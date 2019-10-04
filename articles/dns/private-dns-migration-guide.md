@@ -1,51 +1,51 @@
 ---
-title: Migrera äldre Azure DNS Private Zones till den nya Resource Manager
-description: Den här guiden innehåller stegvisa anvisningar om hur du migrerar äldre privata DNS-zoner till senaste modellen
+title: Migrera äldre Azure DNS Private Zones till ny resurs modell
+description: Den här guiden innehåller steg-för-steg-instruktioner om hur du migrerar äldre privata DNS-zoner till den senaste resurs modellen
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: rohink
-ms.openlocfilehash: e7ebbf35cd572601f02a69930b58811686a92c86
-ms.sourcegitcommit: a52d48238d00161be5d1ed5d04132db4de43e076
+ms.openlocfilehash: 870f8f43fb37f3f58fc19f2fd544e77b1a3a3967
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67276099"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960560"
 ---
-# <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrera äldre privata Azure DNS-zoner till den nya resource Manager
+# <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>Migrera äldre Azure DNS privata zoner till ny resurs modell
 
-Vi skickade en ny API-resursen modell för privata Azure DNS-zoner som en del av förhandsversionen för uppdatering. Uppdatera förhandsvisning tillhandahåller nya funktioner och tar bort flera begränsningar och restriktioner för den första allmänna tillgängliga förhandsversionen. Dock dra nytta av funktionerna är inte tillgängliga för privata DNS-zoner som har skapats med hjälp av äldre API. Om du vill få fördelarna med den nya versionen, måste du migrera dina äldre privata DNS-zon resurser till den nya resursen modellen. Migreringsprocessen är enkel och tillhandahåller vi ett PowerShell.skript för att automatisera processen. Den här guiden innehåller stegvisa anvisningar för att migrera dina privata Azure DNS-zoner till nya resurs-modellen.
+Den nuvarande versionen av Azure DNS privata zoner innehåller nya funktioner och tar bort flera begränsningar och begränsningar för den första offentliga för hands versionen. Dessa förmåner är dock inte tillgängliga på de privata DNS-zoner som skapats med hjälp av för hands versionen av API. För att få fördelarna med den nya versionen måste du migrera dina äldre resurser för privata DNS-zoner till den nya resurs modellen. Migreringsprocessen är enkel och vi har angett ett PowerShell-skript för att automatisera processen. Den här guiden innehåller steg-för-steg-instruktioner om hur du migrerar Azure DNS privata zoner till den nya resurs modellen.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Kontrollera att du har installerat senaste versionen av Azure PowerShell. Mer information om Azure PowerShell (Az) och hur du installerar den besök https://docs.microsoft.com/powershell/azure/new-azureps-module-az
+Kontrol lera att du har installerat den senaste versionen av Azure PowerShell. Mer information om Azure PowerShell (AZ) och hur du installerar det finns på https://docs.microsoft.com/powershell/azure/new-azureps-module-az
 
-Kontrollera att du har Az.PrivateDns-modulen för Azure PowerShell installerad. Installera den här modulen, öppna en upphöjd PowerShell-fönster (administrativa läge) och ange följande kommando
+Kontrol lera att du har AZ. PrivateDns-modulen för den Azure PowerShell installerad. Du installerar den här modulen genom att öppna ett upphöjd PowerShell-fönster (administrations läge) och ange följande kommando
 
 ```powershell
 Install-Module -Name Az.PrivateDns -AllowPrerelease
 ```
 
 >[!IMPORTANT]
->Migreringsprocessen automatiserad helt och förväntas inte orsaka några driftstopp. Men om du använder privata Azure DNS-zoner (förhandsversion) i en produktionsmiljö bör du köra under migreringsprocessen under ett tidsintervall för planerat underhåll. Se till att du inte ändrar konfiguration eller post-uppsättningar med en privat DNS-zoner när du kör migreringsskriptet.
+>Migreringsprocessen är helt automatiserad och förväntas inte orsaka avbrott. Men om du använder Azure DNS privata zoner (för hands version) i en kritisk produktions miljö bör du köra följande migreringsprocessen under ett planerat underhålls tids fönster. Se till att du inte ändrar konfigurationen eller post uppsättningarna för en privat DNS-zon när du kör migrations skriptet.
 
 ## <a name="installing-the-script"></a>Installera skriptet
 
-Öppna en upphöjd PowerShell-fönster (administrativa läge) och kör följande kommando
+Öppna ett upphöjt PowerShell-fönster (administrativt läge) och kör följande kommando
 
 ```powershell
 install-script PrivateDnsMigrationScript
 ```
 
-Ange ”A” när du uppmanas att installera skriptet
+Ange "A" när du uppmanas att installera skriptet
 
 ![Installera skriptet](./media/private-dns-migration-guide/install-migration-script.png)
 
-Du kan också hämta den senaste versionen av PowerShell-skriptet i https://www.powershellgallery.com/packages/PrivateDnsMigrationScript
+Du kan också hämta den senaste versionen av PowerShell-skriptet manuellt på https://www.powershellgallery.com/packages/PrivateDnsMigrationScript
 
-## <a name="running-the-script"></a>Skriptet har körts
+## <a name="running-the-script"></a>Köra skriptet
 
 Kör följande kommando för att köra skriptet
 
@@ -53,67 +53,67 @@ Kör följande kommando för att köra skriptet
 PrivateDnsMigrationScript.ps1
 ```
 
-![Skriptet har körts](./media/private-dns-migration-guide/running-migration-script.png)
+![Köra skriptet](./media/private-dns-migration-guide/running-migration-script.png)
 
-### <a name="enter-the-subscription-id-and-sign-in-to-azure"></a>Ange prenumerations-ID och logga in på Azure
+### <a name="enter-the-subscription-id-and-sign-in-to-azure"></a>Ange prenumerations-ID och inloggning till Azure
 
-Du uppmanas att ange prenumerations-ID som innehåller de privata DNS-zoner som du vill migrera. Du att ombes att logga in på ditt Azure-konto. Slutför inloggningen så att skriptet kan komma åt privata DNS-zon resurserna i prenumerationen.
+Du uppmanas att ange prenumerations-ID som innehåller de privata DNS-zoner som du vill migrera. Du uppmanas att logga in på ditt Azure-konto. Slutför inloggningen så att skriptet kan komma åt de privata DNS-zon resurserna i prenumerationen.
 
 ![Logga in till Azure](./media/private-dns-migration-guide/login-migration-script.png)
 
-### <a name="select-the-dns-zones-you-want-to-migrate"></a>Välj DNS-zoner som du vill migrera
+### <a name="select-the-dns-zones-you-want-to-migrate"></a>Välj de DNS-zoner som du vill migrera
 
-Skriptet med hämta en lista över alla privata DNS-zoner i prenumerationen och be dig att bekräfta vilka som du vill migrera. Ange ”A” för att migrera alla privata DNS-zoner. När du kör det här steget, skriptet skapar nya privata DNS-zoner med nya resursmodell och kopiera sedan data till den nya DNS-zonen. Det här steget kommer inte att ändra din befintliga privata DNS-zoner i ändå.
+Skriptet med hämta en lista över alla privata DNS-zoner i prenumerationen och du tillfrågas om vilka du vill migrera. Ange "A" om du vill migrera alla privata DNS-zoner. När du har kört det här steget skapar skriptet nya privata DNS-zoner med ny resurs modell och kopierar data till den nya DSN-zonen. Det här steget kommer inte att förändra dina befintliga privata DNS-zoner i alla fall.
 
 ![Välj DNS-zoner](./media/private-dns-migration-guide/migratezone-migration-script.png)
 
-### <a name="switching-dns-resolution-to-the-new-dns-zones"></a>Växla DNS-matchningen som de nya DNS-zonerna
+### <a name="switching-dns-resolution-to-the-new-dns-zones"></a>Växla DNS-matchning till de nya DNS-zonerna
 
-När zoner och poster har kopierats till den nya resurs-modellen, uppmanas du att växla DNS-matchning till den nya DNS-zoner i skriptet. Det här steget tar bort associationen mellan äldre privata DNS-zoner och dina virtuella nätverk. När zonen äldre är länkat till de virtuella nätverken, skulle de nya DNS-zoner i ovanstående steg automatiskt ta över DNS-matchning för dessa virtuella nätverk.
+När zonerna och posterna har kopierats till den nya resurs modellen uppmanas du att växla DNS-matchningen till nya DNS-zoner i skriptet. Det här steget tar bort associationen mellan äldre privata DNS-zoner och dina virtuella nätverk. När den äldre zonen är olänkad från de virtuella nätverken tar de nya DNS-zonerna som skapats i ovanstående steg automatiskt över DNS-matchningen för de virtuella nätverken.
 
-Välj ”A” för att växla DNS-matchning för alla virtuella nätverk.
+Välj "A" om du vill ändra DNS-matchningen för alla virtuella nätverk.
 
-![Växla namnmatchning](./media/private-dns-migration-guide/switchresolution-migration-script.png)
+![Byter namn matchning](./media/private-dns-migration-guide/switchresolution-migration-script.png)
 
-### <a name="verify-the-dns-resolution"></a>Kontrollera DNS-matchning
+### <a name="verify-the-dns-resolution"></a>Verifiera DNS-matchningen
 
-Innan du fortsätter, kontrollera att DNS-matchningen på DNS-zoner fungerar som förväntat. Du kan logga in på ditt virtuella azure-datorer och problemet nslookup-frågor mot migrerade zonerna för att kontrollera att DNS-matchning fungerar.
+Innan du fortsätter bör du kontrol lera att DNS-matchningen på dina DNS-zoner fungerar som förväntat. Du kan logga in på dina virtuella Azure-datorer och utfärda nslookup-fråga mot migrerade zoner för att kontrol lera att DNS-matchning fungerar.
 
-![Verifiera namnmatchning](./media/private-dns-migration-guide/verifyresolution-migration-script.png)
+![Verifiera namn matchning](./media/private-dns-migration-guide/verifyresolution-migration-script.png)
 
-Om du upptäcker att du inte matchar DNS-frågor, Vänta några minuter och försök frågorna. Om DNS-frågor fungerar som förväntat, anger du ”Y” när skriptet uppmanas du att ta bort det virtuella nätverket från den privata DNS-zonen.
+Om du upptäcker att DNS-frågor inte kan lösas väntar du några minuter och försöker köra frågorna igen. Om DNS-frågor fungerar som förväntat anger du ' Y ' När skriptet frågar dig om du vill ta bort det virtuella nätverket från den privata DNS-zonen.
 
-![Bekräfta namnmatchning](./media/private-dns-migration-guide/confirmresolution-migration-script.png)
+![Bekräfta namn matchning](./media/private-dns-migration-guide/confirmresolution-migration-script.png)
 
 >[!IMPORTANT]
->Om på grund av någon anledning DNS matchning mot migrerade zonerna inte fungerar som förväntat, anger du ”n” i steget ovan och DNS-matchningen övergår i skriptet tillbaka till äldre zoner. Skapa ett supportärende och vi kan hjälpa dig med migreringen av dina DNS-zoner.
+>Om DNS-matchning av DNS-matchning mot migrerade zoner inte fungerar som förväntat, anger du "N" i ovanstående steg och skriptet växlar DNS-matchningen tillbaka till äldre zoner. Skapa ett support ärende och vi kan hjälpa dig med migreringen av dina DNS-zoner.
 
 ## <a name="cleanup"></a>Rensa
 
-Det här steget tar bort de äldre DNS-zonerna och att köras endast när du har kontrollerat att DNS-matchningen fungerar som förväntat. Du uppmanas att ta bort varje privata DNS-zonen. Ange ”Y” i varje Kommandotolken när du har verifierat att DNS-matchning för de zonerna fungerar korrekt.
+Det här steget tar bort de äldre DNS-zonerna och ska endast köras när du har kontrollerat att DNS-matchningen fungerar som förväntat. Du uppmanas att ta bort varje privat DNS-zon. Ange "Y" vid varje prompt när du har verifierat att DNS-matchningen för zonerna fungerar som den ska.
 
 ![Rensa](./media/private-dns-migration-guide/cleanup-migration-script.png)
 
-## <a name="update-your-automation"></a>Uppdatera din automation
+## <a name="update-your-automation"></a>Uppdatera din automatisering
 
-Om du använder automation, inklusive mallar, PowerShell-skript eller anpassad kod som utvecklats med SDK: N, måste du uppdatera ditt automation om du vill använda den nya resurs-modellen för privata DNS-zoner. Nedan finns länkar till nya privata DNS CLI/PS/SDK-dokumentation.
+Om du använder Automation, inklusive mallar, PowerShell-skript eller anpassad kod som har utvecklats med SDK, måste du uppdatera automatiseringen så att den använder den nya resurs modellen för privata DNS-zoner. Nedan visas länkar till en ny privat DNS CLI/PS/SDK-dokumentation.
 * [Azure DNS privata zoner REST API](https://docs.microsoft.com/rest/api/dns/privatedns/privatezones)
-* [Azure privata DNS-zoner CLI](https://docs.microsoft.com/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
-* [Azure privata DNS-zoner PowerShell](https://docs.microsoft.com/powershell/module/az.privatedns/?view=azps-2.3.2)
-* [Azure DNS private zones SDK](https://docs.microsoft.com/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
+* [Azure DNS privata zoner CLI](https://docs.microsoft.com/cli/azure/ext/privatedns/network/private-dns?view=azure-cli-latest)
+* [Azure DNS privata zoner PowerShell](https://docs.microsoft.com/powershell/module/az.privatedns/?view=azps-2.3.2)
+* [Azure DNS privata zoner SDK](https://docs.microsoft.com/dotnet/api/overview/azure/privatedns/management?view=azure-dotnet-preview)
 
-## <a name="need-further-help"></a>Behöver du mer hjälp?
+## <a name="need-further-help"></a>Behöver ytterligare hjälp
 
-Skapa ett supportärende om du behöver ytterligare hjälp med processen eller på grund av någon anledning listade stegen ovan inte fungerar för dig. Innehålla avskrift-filen som genereras av PowerShell-skriptet med ditt supportärende.
+Skapa ett support ärende om du behöver ytterligare hjälp med migreringsprocessen eller på grund av eventuella skäl som anges ovan. Inkludera avskrifts filen som genererats av PowerShell-skriptet med ditt support ärende.
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Lär dig hur du skapar en privat zon i Azure DNS med [Azure PowerShell](./private-dns-getstarted-powershell.md) eller [Azure CLI](./private-dns-getstarted-cli.md).
 
-* Läs mer om några vanliga [privat zon scenarier](./private-dns-scenarios.md) som kan genomföras med privata zoner i Azure DNS.
+* Läs om några vanliga [scenarier för privata](./private-dns-scenarios.md) zoner som kan realiseras med privata zoner i Azure DNS.
 
-* För vanliga frågor och svar om privata zoner i Azure DNS, inklusive specifika beteende kan du förväntar dig för vissa typer av åtgärder, finns i [privata DNS-vanliga frågor och svar](./dns-faq-private.md).
+* Vanliga frågor och svar om privata zoner i Azure DNS, inklusive specifika funktioner som kan förväntas för vissa typer av åtgärder, finns i [privat DNS vanliga frågor](./dns-faq-private.md)och svar.
 
-* Läs mer om DNS-zoner och poster genom att besöka [DNS-zoner och poster översikt](dns-zones-records.md).
+* Lär dig mer om DNS-zoner och poster genom att gå till [Översikt över DNS-zoner och-poster](dns-zones-records.md).
 
 * Lär dig mer om de andra viktiga [nätverksfunktionerna](../networking/networking-overview.md) i Azure.

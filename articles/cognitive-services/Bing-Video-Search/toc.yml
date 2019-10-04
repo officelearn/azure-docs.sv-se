@@ -50,7 +50,8 @@
     - name: Hämta populära videor
       href: trending-videos.md
     - name: Bläddra bland videor
-      href: paging-videos.md
+      maintainContext: true
+      href: ../Bing-Web-Search/paging-search-results.md
     - name: Ändra storlek på och beskär miniatyrer
       maintainContext: true
       href: ../bing-web-search/resize-and-crop-thumbnails.md

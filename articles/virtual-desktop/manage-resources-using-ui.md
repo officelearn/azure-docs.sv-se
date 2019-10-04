@@ -1,25 +1,25 @@
 ---
 title: Distribuera hanterings verktyget – Azure
-description: Så här installerar du ett användar gränssnitts verktyg för att hantera Windows-resurser för för hands versioner av virtuella datorer.
+description: Så här installerar du ett användar gränssnitts verktyg för att hantera Windows-resurser för virtuella skriv bord.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: e0f9dbd9bf6b0c12d3e3f028ab9cd4c80cdb5124
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
+ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816501"
+ms.lasthandoff: 09/30/2019
+ms.locfileid: "71679491"
 ---
 # <a name="tutorial-deploy-a-management-tool"></a>Självstudier: Distribuera ett hanteringsverktyg
 
-Hanterings verktyget tillhandahåller ett användar gränssnitt för att hantera förhands gransknings resurser för Microsoft virtuella skriv bord. I den här självstudien får du lära dig hur du distribuerar och ansluter till hanterings verktyget.
+Hanterings verktyget tillhandahåller ett användar gränssnitt för hantering av Microsoft-resurser för virtuella skriv bord. I den här självstudien får du lära dig hur du distribuerar och ansluter till hanterings verktyget.
 
 >[!NOTE]
->Dessa anvisningar gäller för en för hands version av en Windows Virtual Desktop-konfiguration som kan användas med din organisations befintliga processer.
+>De här anvisningarna gäller för en Windows-konfiguration med en virtuell dator som kan användas med din organisations befintliga processer.
 
 ## <a name="important-considerations"></a>Viktiga överväganden
 
@@ -50,15 +50,15 @@ Följ de här anvisningarna för att distribuera Azure-resurs hanterings mal len
     - Om du distribuerar i en prenumeration på Cloud Solution Provider följer du de här anvisningarna för att distribuera till Azure:
         1. Rulla nedåt och högerklicka på **distribuera till Azure**och välj sedan **Kopiera länk plats**.
         2. Öppna en text redigerare som anteckningar och klistra in länken där.
-        3. Direkt efter <https://portal.azure.com/> och före hashtagg (#), ange ett snabel-sign (@) följt av innehavarens domän namn. Här är ett exempel på formatet: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
+        3. Höger efter <https://portal.azure.com/> och innan hashtagg (#) anger ett @-tecken följt av klient domän namnet. Här är ett exempel på formatet: <https://portal.azure.com/@Contoso.onmicrosoft.com#create/>.
         4. Logga in på Azure Portal som en användare med administratörs-/deltagar behörighet för Cloud Solution Provider-prenumerationen.
         5. Klistra in länken som du kopierade till text redigeraren i adress fältet.
 
 ### <a name="guidance-for-template-parameters"></a>Vägledning för mallparametrar
 Så här anger du parametrar för att konfigurera verktyget:
 
-- Detta är URL: en för RD Broker:\/https:/rdbroker.WVD.Microsoft.com/
-- Detta är resurs-URL: en:\/https:/Mrs-Prod.AME.GBL/Mrs-RDInfra-Prod
+- Detta är URL: en för RD Broker: https: \//rdbroker. WVD. Microsoft. com/
+- Detta är resurs-URL: en: https: \//Mrs-Prod. amn. GBL/fru-RDInfra-Prod
 - Använd dina AAD-autentiseringsuppgifter med MFA inaktiverat för att logga in på Azure. Se [vad du behöver för att köra Azure Resource Manager-mallen](#what-you-need-to-run-the-azure-resource-manager-template).
 - Använd ett unikt namn för programmet som ska registreras i Azure Active Directory för hanterings verktyget. till exempel Apr3UX.
 

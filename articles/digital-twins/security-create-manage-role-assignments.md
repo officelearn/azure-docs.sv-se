@@ -1,20 +1,20 @@
 ---
 title: Skapa och hantera roll tilldelningar – Azure Digitals flätar | Microsoft Docs
 description: Lär dig mer om att skapa och hantera roll tilldelningar i Azure Digitals flätas.
-author: lyrana
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 10/02/2019
-ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
-ms.translationtype: HT
+ms.openlocfilehash: 68714a06f72a522df0245d9c044bb6ff6557d52f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827706"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949828"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Skapa och hantera roll tilldelningar i Azure Digitals flätas
 
@@ -39,10 +39,10 @@ I tabellen nedan beskrivs varje attribut:
 | Attribut | Name | Obligatorisk | Typ | Beskrivning |
 | --- | --- | --- | --- | --- |
 | roleId | Identifierare för roll definition | Ja | Sträng | Unikt ID för den önskade roll tilldelningen. Hitta roll definitioner och deras identifierare genom att fråga system-API: et eller granska tabellen nedan. |
-| objekt-ID | Objekt identifierare | Ja | Sträng | Ett Azure Active Directory-ID, tjänstens huvud objekt-ID eller domän namn. Vad eller vem roll tilldelningen är tilldelad till. Roll tilldelningen måste vara formaterad enligt dess associerade typ. För objectIdType måste ObjectID börja `“@”` med-symbolen. `DomainName` |
+| objekt-ID | Objekt identifierare | Ja | Sträng | Ett Azure Active Directory-ID, tjänstens huvud objekt-ID eller domän namn. Vad eller vem roll tilldelningen är tilldelad till. Roll tilldelningen måste vara formaterad enligt dess associerade typ. För `DomainName` objectIdType måste objectId börja med `“@”`-symbolen. |
 | objectIdType | Typ av objekt identifierare | Ja | Sträng | Typ av objekt identifierare som används. Se **ObjectIdTypes som stöds** nedan. |
-| path | Sökväg till Space | Ja | Sträng | Fullständig åtkomst Sök väg till `Space` objektet. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare behöver roll tilldelningen för hela grafen anger `"/"`du. Det här alternativet anger roten, men användningen rekommenderas inte. Följ alltid principen om minsta behörighet. |
-| tenantId | Klient-ID | Varierar | Sträng | I de flesta fall är ett Azure Active Directory klient-ID. Tillåts inte för `DeviceId` och `TenantId` ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId` ObjectIdTypes. Valfritt för domän namn ObjectIdType. |
+| path | Sökväg till Space | Ja | Sträng | Fullständig åtkomst Sök väg till objektet `Space`. Ett exempel är `/{Guid}/{Guid}`. Om en identifierare behöver roll tilldelningen för hela grafen anger du `"/"`. Det här alternativet anger roten, men användningen rekommenderas inte. Följ alltid principen om minsta behörighet. |
+| tenantId | Klient-ID | Varierar | Sträng | I de flesta fall är ett Azure Active Directory klient-ID. Tillåts inte för `DeviceId` och `TenantId`-ObjectIdTypes. Krävs för `UserId` och `ServicePrincipalId`-ObjectIdTypes. Valfritt för domän namn ObjectIdType. |
 
 ### <a name="supported-role-definition-identifiers"></a>Identifierare för roll definition som stöds
 
@@ -168,7 +168,7 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | YOUR_ACCESS_TYPE |  Sant | Sträng |   *Läsa*, *skapa*, *Uppdatera*eller *ta bort* |
 | YOUR_RESOURCE_TYPE | Sant | Sträng |  *Enhet*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *slut punkt*, nyckel *lager*, *matchnings*enhet, *Ontology*, *rapport*,  *Roll definitions*, *sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *system* , *UerDefinedFunction*, *användare*, *UserBlobMetadata*eller *UserExtendedProperty* |
 
-En lyckad begäran kommer att returnera ett `true` booleskt `false` värde eller ange om åtkomst typen har tilldelats användaren för den angivna sökvägen och resursen.
+En lyckad begäran kommer att returnera ett booleskt `true` eller `false` för att indikera om åtkomst typen har tilldelats användaren för den angivna sökvägen och resursen.
 
 ### <a name="get-role-assignments-by-path"></a>Hämta roll tilldelningar efter sökväg
 

@@ -15,16 +15,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/18/2019
 ms.author: manayar
-ms.openlocfilehash: d12fde33ec9d55c891c801f1b89143b4db6f8ae7
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 87d2b19f6143f567782778e35c8511f233d8b0e8
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70035757"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958146"
 ---
 # <a name="vertical-autoscale-with-virtual-machine-scale-sets"></a>Lodrät autoskalning med skalnings uppsättningar för virtuella datorer
 
-Den här artikeln beskriver hur du skalar Azure- [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) i lodrät skala med eller utan att etablera. För vertikal skalning av virtuella datorer som inte finns i skalnings uppsättningar, se [vertikalt skala virtuell Azure-dator med Azure Automation](../virtual-machines/windows/vertical-scaling-automation.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Den här artikeln beskriver hur du skalar Azure- [Virtual Machine Scale Sets](https://azure.microsoft.com/services/virtual-machine-scale-sets/) i lodrät skala med eller utan att etablera. 
 
 Vertikal skalning, som även kallas *skala upp* och *ned*, innebär att öka eller minska storleken på virtuella datorer som svar på en arbets belastning. Jämför det här beteendet med [horisontell skalning](virtual-machine-scale-sets-autoscale-overview.md), vilket även kallas *skala ut* och *skala i*, där antalet virtuella datorer ändras beroende på arbets belastningen.
 

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: c9ae01b3a8f49b210c363fea20bc3c221d9e837a
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
-ms.translationtype: HT
+ms.openlocfilehash: 83f10eb9dadfda5b87f1da287718f59da17c5110
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839622"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947603"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -51,14 +51,22 @@ I det här avsnittet visas hur du använder PowerShell för att skapa en Azure A
 >API-behörigheterna är Windows Virtual Desktop, Log Analytics och Microsoft Graph API-behörigheter läggs till i Azure Active Directory-programmet.
 
 1. Öppna PowerShell som administratör.
-2. Gå till [GitHub-lagrings platsen för RDS-mallar](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) och kör skriptet **create AD App Registration for Diagnostics. ps1** i PowerShell.
-3.  När du uppmanas att namnge din app anger du ett unikt namn på appen.
-4.  Skriptet uppmanas sedan att logga in med ett administratörs konto. Ange autentiseringsuppgifterna för en användare med [delegerad administratörs åtkomst](delegated-access-virtual-desktop.md). Administratören ska ha behörighet som ägare eller deltagare för fjärr skrivbords tjänster.
+2. Logga in på Azure med ett konto som har ägar-eller deltagar behörighet för den Azure-prenumeration som du vill använda för diagnostikverktyget:
+   ```powershell
+   Login-AzAccount
+   ```
+3. Logga in på Azure AD med samma konto:
+   ```powershell
+   Connect-AzureAD
+   ```
+4. Gå till [RDS-templates GitHub-lagrings platsen](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) och kör skriptet **CreateADAppRegistrationforDiagnostics. ps1** i PowerShell.
+5.  När du uppmanas att namnge din app anger du ett unikt namn på appen.
+
 
 När skriptet har körts ska det Visa följande saker i resultatet:
 
 -  Ett meddelande som bekräftar att din app nu har en roll tilldelning för tjänstens huvud namn.
--  Ditt utskrifts klient-ID och den klient hemliga nyckel som du behöver för när du distribuerar diagnostikverktyget.
+-  Ditt klient-ID och den hemliga klient nyckeln som du behöver för när du distribuerar diagnostikverktyget.
 
 Nu när du har registrerat din app är det dags att konfigurera din Log Analytics-arbetsyta.
 
@@ -76,7 +84,7 @@ Du kan köra ett PowerShell-skript för att skapa en Log Analytics arbets yta oc
 Köra PowerShell-skriptet:
 
 1.  Öppna PowerShell som administratör.
-2.  Gå till [GitHub-lagrings platsen för RDS-mallar](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) och kör skriptet **create LogAnalyticsWorkspace for Diagnostics. ps1** i PowerShell.
+2.  Gå till [RDS-templates GitHub-lagrings platsen](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) och kör skriptet **CreateLogAnalyticsWorkspaceforDiagnostics. ps1** i PowerShell.
 3. Ange följande värden för parametrarna:
 
     - För **ResourceGroupName**anger du namnet på resurs gruppen.

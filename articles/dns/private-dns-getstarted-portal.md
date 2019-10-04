@@ -5,20 +5,18 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 09/20/2019
+ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 1f13a56941a137397fbb849093feaeb19b897131
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 79b626ef6beaad3a8f15da08b882fc7d596540b0
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71156256"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960388"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Snabbstart: Skapa en privat Azure-DNS-zon med hjälp av Azure Portal
 
 Den här snabb starten vägleder dig genom stegen för att skapa din första privata DNS-zon och-post med hjälp av Azure Portal.
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
 
@@ -94,10 +92,10 @@ Nu skapar du två virtuella datorer så att du kan testa din privata DNS-zon:
 2. Skriv **Azure12345678** som lösen ord och bekräfta lösen ordet.
 
 5. För **offentliga inkommande portar**väljer du **Tillåt valda portar**och väljer sedan **RDP (3389)** för **Välj inkommande portar**.
-10. Godkänn de andra standardvärdena för sidan och klicka **sedan på Nästa: Diskar >** .
-11. Godkänn standardvärdena på sidan **diskar** och klicka sedan **på Nästa: Nätverks >** .
+10. Godkänn de andra standardvärdena för sidan och klicka sedan på **Next: Diskar >** .
+11. Godkänn standardvärdena på sidan **diskar** och klicka sedan på **Next: Nätverks >** .
 1. Kontrol lera att **myAzureVNet** har valts för det virtuella nätverket.
-1. Godkänn de andra standardvärdena för sidan och klicka sedan **på Nästa: Hanterings**>.
+1. Godkänn de andra standardvärdena för sidan och klicka sedan på **Next: Hanterings >** .
 2. För **startdiagnostik**väljer du **av**, godkänner de andra standardvärdena och väljer sedan **Granska + skapa**.
 1. Granska inställningarna och klicka sedan på **skapa**.
 

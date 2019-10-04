@@ -1,6 +1,7 @@
 ---
 title: Hitta tillgängliga rum – Azure Digital Twins | Microsoft Docs
 description: I den här snabbstarten kör du två .NET Core-exempelprogram som skickar simulerad telemetri för rörelse och koldioxid till ett utrymme i Azure Digital Twins. Målet är att hitta tillgängliga rum med frisk luft via hanterings-API:er efter beräknad bearbetning i molnet.
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
@@ -8,14 +9,13 @@ services: digital-twins
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc seodec18
-ms.date: 08/16/2019
-ms.author: alinast
-ms.openlocfilehash: 40a98f915bc11ad17eae27596519cc78539fb2bb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.date: 10/03/2019
+ms.openlocfilehash: 3c9a806b936b9f167d1700c95b1e769926abb17b
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640293"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958915"
 ---
 # <a name="quickstart-find-available-rooms-by-using-azure-digital-twins"></a>Snabbstart: Hitta tillgängliga rum med hjälp av Azure Digital Twins
 
@@ -81,11 +81,11 @@ En rumslig graf etableras med hjälp av filen [provisionSample.yaml](https://git
 
 1. Etableringssteget kan ta några minuter. En IoT-hubb etableras också i Digital Twins-instansen. Den loopas tills IoT-hubben visar Status=`Running`.
 
-    [![Etablera exempel](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
+    [![Provision-exempel](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample1.png#lightbox)
 
 1. I slutet av körningen kopierar du enhetens `ConnectionString` för användning i exemplet med enhetssimulatorn. Kopiera den sträng som beskrivs i den här bilden.
 
-    [![Kopiera anslutnings strängen](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
+    [![Copy anslutnings strängen](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png)](media/quickstart-view-occupancy-dotnet/digital-twins-provision-sample.png#lightbox)
 
     >[!TIP]
     > Du kan visa och ändra ett spatialt diagram med hjälp av [Visningsprogrammet för Azure Digital Twins Graph](https://github.com/Azure/azure-digital-twins-graph-viewer).
@@ -100,7 +100,7 @@ Skapa och kör sensorsimulatorprogrammet med hjälp av följande steg.
 1. Redigera [appsettings.json](https://github.com/Azure-Samples/digital-twins-samples-csharp/blob/master/device-connectivity/appsettings.json) för att uppdatera **DeviceConnectionString** med föregående `ConnectionString`.
 1. Kör `dotnet run` för att börja skicka sensordata. Du ser dem skickas till Digital Twins enligt följande bild.
 
-     [![Enhets anslutning](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
+     [![Device-anslutning](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png)](media/quickstart-view-occupancy-dotnet/digital-twins-device-connectivity.png#lightbox)
 
 1. Låt den här simulatorn köras så att du kan visa resultat sida vid sida med nästa steg. I det här fönstret visas de simulerade sensordata som skickats till Digital Twins. I nästa steg ställs frågor i realtid för att hitta tillgängliga rum med frisk luft.
 
@@ -119,7 +119,7 @@ Sensorexemplet simulerar slumpmässiga datavärden för två sensorer. Det är r
    - Tillgängliga rum med frisk luft.
    - Upptaget eller dålig luftkvalitet i rummet.
 
-     [![Hämta tillgängliga utrymmen med frisk luft](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
+     [@no__t 1Get tillgängliga utrymmen med frisk luft](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png)](media/quickstart-view-occupancy-dotnet/digital-twins-get-available.png#lightbox)
 
 För att förstå vad som hände i den här snabbstarten och vilka API:er som har anropats öppnar du [Visual Studio Code](https://code.visualstudio.com/Download) med kodprojektet för arbetsytan som finns i digital-twins-samples-csharp (se kommandot nedan). Ange följande kommando:
 

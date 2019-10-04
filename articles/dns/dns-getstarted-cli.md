@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
 ms.author: victorh
-ms.openlocfilehash: 7a2c300e30050e7e46a2b2c724258539df85e410
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b5d842c2d6ff84a0f17c4e8be0bfade018edc48b
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66111337"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959981"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>Snabbstart: Skapa en Azure DNS-zon och registrera med Azure CLI
 
@@ -20,7 +20,7 @@ Den här artikeln visar hur du skapar din första DNS-zon och DNS-post med hjäl
 
 En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera din DNS-zon på Internet måste du konfigurera namnservrarna för domänen. Dessa steg beskrivs nedan.
 
-Azure DNS stöder nu också privata DNS-zoner (för närvarande i förhandsversion). Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner). Ett exempel på hur du kan skapa en privat DNS-zon finns i [Kom igång med privata Azure DNS-zoner med CLI](./private-dns-getstarted-cli.md).
+Azure DNS stöder också privata DNS-zoner. Mer information om privata DNS-zoner finns i [Using Azure DNS for private domains](private-dns-overview.md) (Använda Azure DNS för privata domäner). Ett exempel på hur du kan skapa en privat DNS-zon finns i [Kom igång med privata Azure DNS-zoner med CLI](./private-dns-getstarted-cli.md).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +38,7 @@ az group create --name MyResourceGroup --location "East US"
 
 En DNS-zon skapas med hjälp av kommandot `az network dns zone create`. Om du vill se hjälpen för det här kommandot skriver du `az network dns zone create -h`.
 
-I följande exempel skapas en DNS-zon med namnet *contoso.xyz* i resursgruppen *MyResourceGroup*. Använd exemplet när du vill skapa en DNS-zon, och ersätt värdena med dina egna.
+I följande exempel skapas en DNS-zon med namnet *contoso. xyz* i resurs gruppen *MyResourceGroup*. Använd exemplet när du vill skapa en DNS-zon, och ersätt värdena med dina egna.
 
 ```azurecli
 az network dns zone create -g MyResourceGroup -n contoso.xyz
@@ -48,7 +48,7 @@ az network dns zone create -g MyResourceGroup -n contoso.xyz
 
 Skapa en DNS-post genom att använda kommandot `az network dns record-set [record type] add-record`. Hjälp om A-poster finns i `azure network dns record-set A add-record -h`.
 
-I följande exempel skapas en post med det relativa namnet ”www” i DNS-zonen ”contoso.xyz” i resursgruppen ”MyResourceGroup”. Det fullständigt kvalificerade namnet på postuppsättningen är ”www.contoso.xyz”. Posttypen är ”A”, med IP-adress ”10.10.10.10” och en standard-TTL på 3 600 sekunder (1 timme).
+I följande exempel skapas en post med det relativa namnet "www" i DNS-zonen "contoso. xyz" i resurs gruppen "MyResourceGroup". Det fullständigt kvalificerade namnet på post uppsättningen är "www. contoso. xyz". Post typen är "A", med IP-adressen "10.10.10.10" och en standard-TTL på 3600 sekunder (1 timme).
 
 ```azurecli
 az network dns record-set a add-record -g MyResourceGroup -z contoso.xyz -n www -a 10.10.10.10
@@ -68,13 +68,13 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
 
 **Så här testar du DNS-namnmatchning:**
 
-1. Kör följande cmdlet för att hämta listan över namnservrarna för zonen:
+1. Kör följande cmdlet för att hämta listan över namnservrar för zonen:
 
    ```azurecli
    az network dns record-set ns show --resource-group MyResourceGroup --zone-name contoso.xyz --name @
    ```
 
-1. Kopiera en av namnservernamnen från utdata från föregående steg.
+1. Kopiera ett av namn server namnen från utdata från föregående steg.
 
 1. Öppna en kommandotolk och kör följande kommando:
 
@@ -92,7 +92,7 @@ Nu när du har en DNS-testzon med en ”A”-testpost kan du testa namnmatchning
 
    ![nslookup](media/dns-getstarted-portal/nslookup.PNG)
 
-Värdnamnet **www\.contoso.xyz** motsvarar **10.10.10.10**, precis som du har konfigurerat den. Resultatet verifierar att namnmatchningen fungerar korrekt.
+Värd namnet **www\.contoso.xyz** matchar **10.10.10.10**, precis som du konfigurerade det. Resultatet verifierar att namnmatchningen fungerar korrekt.
 
 ## <a name="delete-all-resources"></a>Ta bort alla resurser
 

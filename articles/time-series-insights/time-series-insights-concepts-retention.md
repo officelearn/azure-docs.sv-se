@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5388b157ebea78a69355eb745492910f260be3ad
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 5799974581ba74d3265f0a5a66f9b081ded9f800
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68823641"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948211"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Förstå data kvarhållning i Azure Time Series Insights
 
@@ -28,11 +28,11 @@ I den här artikeln beskrivs två inställningar som påverkar datakvarhållning
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-Var och en av dina Azure Time Series-miljöer har en inställning som styr tiden för kvarhållning av **data**. Värdet sträcker sig från 1 till 400 dagar. Data tas bort baserat på miljöns lagrings kapacitet eller varaktigheten för kvarhållning, beroende på vilket som kommer först.
+Var och en av dina Azure Time Series-miljöer har en inställning som styr **tiden för kvarhållning av data**. Värdet sträcker sig från 1 till 400 dagar. Data tas bort baserat på miljöns lagrings kapacitet eller varaktigheten för kvarhållning, beroende på vilket som kommer först.
 
 Dessutom har din Azure Time Series-miljö en **gräns för lagrings gränsen överskreds** . Den styr ingångs-och rensnings beteende när den maximala kapaciteten för en miljö nås. Du kan välja mellan två beteenden när du konfigurerar den:
 
-- **Rensa gamla data** objekt  
+- **Rensa gamla data** (standard)  
 - **Pausa ingress**
 
 > [!NOTE]
@@ -46,14 +46,14 @@ Jämför data lagrings beteendet:
 
 - Detta är standard beteendet för Time Series Insights miljöer.  
 - Det här beteendet rekommenderas när användarna alltid vill se sina *senaste data* i sin Time Series Insightss miljö.
-- Med det här beteendet rensas data efter miljöns gränser (kvarhållning, storlek eller antal, beroende på vilket som kommer först). Kvarhållning är inställt på 30 dagar som standard.
+- Med det här beteendet *rensas* data efter miljöns gränser (kvarhållning, storlek eller antal, beroende på vilket som kommer först). Kvarhållning är inställt på 30 dagar som standard.
 - De äldsta inmatade data rensas först (FIFO-metod).
 
 ### <a name="example-one"></a>Exempel en
 
 Överväg en exempel miljö med kvarhållning, Fortsätt ingångs- **och rensa gamla data**:
 
-**Tiden** för datakvarhållning anges till 400 dagar. **Kapaciteten** anges till S1-enhet, som innehåller 30 GB total kapacitet.   Vi antar att inkommande data ackumuleras till 500 MB varje dag i genomsnitt. Den här miljön kan bara behålla 60 dagar av data som har fått frekvensen av inkommande data, eftersom den maximala kapaciteten uppnås med 60 dagar. Inkommande data ackumuleras som: 500 MB varje dag x 60 dagar = 30 GB.
+**Tiden för datakvarhållning** anges till 400 dagar. **Kapaciteten** anges till S1-enhet, som innehåller 30 GB total kapacitet.   Vi antar att inkommande data ackumuleras till 500 MB varje dag i genomsnitt. Den här miljön kan bara behålla 60 dagar av data som har fått frekvensen av inkommande data, eftersom den maximala kapaciteten uppnås med 60 dagar. Inkommande data ackumuleras som: 500 MB varje dag x 60 dagar = 30 GB.
 
 På 61st dag visar miljön de nyaste data, men rensar de äldsta data som är äldre än 60 dagar. Rensningen gör plats för den nya data strömningen i, så att nya data kan fortsätta att utforskas. Om användaren vill behålla data längre kan de öka storleken på miljön genom att lägga till ytterligare enheter eller så kan de skicka mindre data.  
 
@@ -75,7 +75,7 @@ När den här miljöns dagliga ingångs hastighet överskrider 0,166 GB per dag,
 
 ### <a name="example-three"></a>Exempel tre
 
-Överväg en miljö med kvarhållning som kon figurer ATS för att **pausa**ingångar. I det här exemplet är datakvarhållning- **perioden** inställd på 60 dagar. **Kapaciteten** anges till tre (3) enheter av S1. Anta att den här miljön har ingress av data på 2 GB varje dag. I den här miljön pausas ingressen när den maximala kapaciteten har nåtts.
+Överväg en miljö med kvarhållning som kon figurer ATS för att **pausa**ingångar. I det här exemplet är **datakvarhållning-perioden** inställd på 60 dagar. **Kapaciteten** anges till tre (3) enheter av S1. Anta att den här miljön har ingress av data på 2 GB varje dag. I den här miljön pausas ingressen när den maximala kapaciteten har nåtts.
 
 Vid detta tillfälle visar miljön samma data uppsättning tills ingressen återupptas eller tills **fortsatt** inaktivitet är aktiverat (vilket skulle rensa äldre data för att göra plats för nya data).
 
@@ -87,11 +87,11 @@ När ingress återupptas:
 > [!IMPORTANT]
 > Du bör ange aviseringar för att meddela att du undviker ingångs avbrott. Data förlust är möjlig eftersom standard kvarhållning är 1 dag för Azures händelse källor. När ingångarna har pausats förlorar du förmodligen de senaste data om inte ytterligare åtgärder vidtas. Du måste öka kapacitets-eller växel beteendet för att **Rensa gamla data** för att undvika risken för data förlust.
 
-I den påverkade Event Hubs bör du överväga att justera egenskapen för kvarhållning av **meddelanden** för att minimera data förlust när paus inträffar i Time Series Insights.
+I den påverkade Event Hubs bör du överväga att justera egenskapen för **kvarhållning av meddelanden** för att minimera data förlust när paus inträffar i Time Series Insights.
 
-[![Kvarhållning av Event Hub-meddelande.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
+[kvarhållning av ![Event.](media/time-series-insights-contepts-retention/event-hub-retention.png)](media/time-series-insights-contepts-retention/event-hub-retention.png#lightbox)
 
-Om inga egenskaper har kon figurer ATS på händelse`timeStampPropertyName`källan () Time Series Insights standardvärdet för tidsstämpeln för ankomst till händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelserna parsas.
+Om inga egenskaper har kon figurer ATS på händelse källan (`timeStampPropertyName`) Time Series Insights standardvärdet för att ange tidsstämpeln för ankomst till händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat, söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelser parsas.
 
 Om du behöver skala upp din miljö för att hantera ytterligare kapacitet eller öka längden på kvarhållning, se [skala Time Series Insights-miljön](time-series-insights-how-to-scale-your-environment.md) för mer information.  
 

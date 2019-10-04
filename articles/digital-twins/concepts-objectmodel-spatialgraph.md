@@ -1,19 +1,19 @@
 ---
-title: Förstå Digitals objekt modeller och rums informations diagram | Microsoft Docs
+title: Förstå Azure Digitals objekt modeller och rums information Graph | Microsoft Docs
 description: Använd Azure Digital Twins för att skapa relationer mellan personer, platser och enheter
+ms.author: alinast
 author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: alinast
-ms.openlocfilehash: 37f2afbd9bae4ca6bccc5062515f166687d8913c
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177067"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950013"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå digitala objekt modeller och spatial Intelligence-diagram
 
@@ -23,7 +23,7 @@ Digitala dubbla objekt modeller beskriver domänbaserade koncept, kategorier och
 
 Med digitala dubbla objekt modeller och en Ontology på plats kan du fylla ett _spatial diagram_. Spatiala diagram är virtuella representationer av många relationer mellan utrymmen, enheter och personer som är relevanta för en IoT-lösning. Det här diagrammet visar ett exempel på en spatial graf som använder en smart byggnads Ontology.
 
-[![Byggnad med digitala dubbla diagram](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
+[![Digitals flätas byggnad av spatialdata](media/concepts/digital-twins-spatial-graph-building.png)](media/concepts/digital-twins-spatial-graph-building.png#lightbox)
 
 I spatial grafen samlas utrymmen, enheter, sensorer och användare samman. Varje länkas samman på ett sätt som modellerar den verkliga världen. I det här exemplet har plats 43 fyra golv, var och en med många olika områden. Användare är kopplade till sina arbets stationer och tilldelas åtkomst till delar av grafen. En administratör har behörighet att göra ändringar i den spatiala grafen, medan en besökare har behörighet att bara visa vissa byggnads data.
 
@@ -31,28 +31,28 @@ I spatial grafen samlas utrymmen, enheter, sensorer och användare samman. Varje
 
 Digitala objekt modeller med dubbla objekt stöder dessa huvud kategorier av objekt:
 
-- **Blank steg** är virtuella eller fysiska platser, till exempel `Tenant` `Customer` `Region`,, och `Venue`.
-- **Enheter** är virtuella eller fysiska delar av utrustning, till exempel `AwesomeCompany Device` och. `Raspberry Pi 3`
-- **Sensorer** är objekt som identifierar händelser, till exempel `AwesomeCompany Temperature Sensor` och. `AwesomeCompany Presence Sensor`
+- **Blank steg** är virtuella eller fysiska platser, till exempel `Tenant`, `Customer`, `Region` och `Venue`.
+- **Enheter** är virtuella eller fysiska delar av utrustning, till exempel `AwesomeCompany Device` och `Raspberry Pi 3`.
+- **Sensorer** är objekt som identifierar händelser, till exempel `AwesomeCompany Temperature Sensor` och `AwesomeCompany Presence Sensor`.
 - **Användarna** identifierar personer och deras egenskaper.
 
 Andra objekt kategorier är:
 
-- **Resurser** är kopplade till ett utrymme och representerar vanligt vis Azure-resurser som ska användas av objekt i den spatiala diagrammet, `IoTHub`till exempel.
-- **Blobbar** är kopplade till objekt (till exempel utrymmen, enheter, sensorer och användare). De används som filer med MIME-typ och metadata, till exempel `maps` `pictures`,, och `manuals`.
-- **Utökade typer** är utöknings bara uppräkningar som förstärker entiteter `SpaceType` med `SpaceSubtype`särskilda egenskaper, till exempel och.
-- **Ontologies** `Default`representerar en uppsättning utökade typer, till exempel `Building` `BACnet`,, och `EnergyGrid`.
+- **Resurser** är kopplade till ett utrymme och representerar vanligt vis Azure-resurser som ska användas av objekt i spatial graf, till exempel `IoTHub`.
+- **Blobbar** är kopplade till objekt (till exempel utrymmen, enheter, sensorer och användare). De används som filer med MIME-typ och metadata, till exempel `maps`, `pictures` och `manuals`.
+- **Utökade typer** är utöknings bara uppräkningar som förstärker entiteter med särskilda egenskaper, till exempel `SpaceType` och `SpaceSubtype`.
+- **Ontologies** representerar en uppsättning utökade typer, till exempel `Default`, `Building`, `BACnet` och `EnergyGrid`.
 - **Egenskaps nycklar och värden** är anpassade egenskaper för utrymmen, enheter, sensorer och användare. De kan användas tillsammans med inbyggda egenskaper, till exempel `DeltaProcessingRefreshTime` som nyckel och `10` som värde.
-- **Roller** är uppsättningar med behörigheter som tilldelas till användare och enheter i spatial grafen, till exempel `Space Administrator` `User Administrator`,, och `Device Administrator`.
+- **Roller** är uppsättningar med behörigheter som tilldelas till användare och enheter i spatial grafen, till exempel `Space Administrator`, `User Administrator` och `Device Administrator`.
 - **Roll tilldelningar** är associationen mellan en roll och ett objekt i det spatiala diagrammet. Till exempel kan en användare eller ett huvud namn för tjänsten beviljas behörighet att hantera ett utrymme i den spatiala diagrammet.
 - **Säkerhets nyckel Arkiv** innehåller säkerhets nycklar för alla enheter i hierarkin under ett givet utrymme för att tillåta att enheten kommunicerar säkert med digitala dubbla objekt.
-- **Användardefinierade funktioner** (UDF: er) gör det möjligt att bearbeta anpassningsbar telemetri för sensorer i det spatiala diagrammet. Till exempel kan en UDF:
+- Med **användardefinierade funktioner** (UDF: er) kan du bearbeta anpassningsbar telemetri för sensorer i det spatiala diagrammet. Till exempel kan en UDF:
   - Ange ett sensor värde.
   - Utför anpassad logik baserat på sensor avläsningar och ange utdata till ett blank steg.
   - Bifoga metadata till ett utrymme.
   - Skicka meddelanden när fördefinierade villkor är uppfyllda. För närvarande kan UDF: er skrivas i Java Script.
 - **Matchningar** är objekt som avgör vilka UDF: er som körs för ett angivet telemetri.
-- **Slut punkter** är de platser där telemetri-meddelanden och digitala dubbla händelser kan dirigeras, till exempel `Event Hub` `Service Bus`,, och `Event Grid`.
+- **Slut punkter** är de platser där telemetri-meddelanden och digitala dubbla händelser kan dirigeras, till exempel `Event Hub`, `Service Bus` och `Event Grid`.
 
 ## <a name="spatial-intelligence-graph"></a>Diagram för spatial intelligens
 

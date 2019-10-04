@@ -1,18 +1,18 @@
 ---
 title: Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
-description: Lämpliga alternativ för distributions kolumner i vanliga storskaliga scenarier
+description: Lär dig hur du väljer distributions kolumner i vanliga storskaliga scenarier i Azure Database for PostgreSQL.
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: b0d1f343aa9b125ab0a5a9ab559d0788253037aa
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 0b29567dcd22c79c30e70594066f7ff87c18fdb0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69998195"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947600"
 ---
 # <a name="choose-distribution-columns-in-azure-database-for-postgresql--hyperscale-citus"></a>Välj distributions kolumner i Azure Database for PostgreSQL – storskalig (citus)
 
@@ -28,18 +28,18 @@ Arkitekturen för flera innehavare använder en form av hierarkisk databas model
 
 Citus (storskalig) kontrollerar frågor för att se vilket klient-ID de inkluderar och hittar matchande tabell-Shard. Den dirigerar frågan till en enda arbetsnoden som innehåller Shard. Att köra en fråga med alla relevanta data som placeras på samma nod kallas samplacering.
 
-Följande diagram illustrerar samplacering i data modellen för flera innehavare. Den innehåller två tabeller, konton och kampanjer, som var och `account_id`en distribueras av. De skuggade rutorna representerar Shards. Gröna Shards lagras tillsammans på en arbetsnoden och blå Shards lagras på en annan arbetsnod. Observera att en kopplings fråga mellan konton och kampanjer har alla data som krävs tillsammans på en nod när båda tabellerna är begränsade till samma konto\_-ID.
+Följande diagram illustrerar samplacering i data modellen för flera innehavare. Den innehåller två tabeller, konton och kampanjer, som var och en distribueras med `account_id`. De skuggade rutorna representerar Shards. Gröna Shards lagras tillsammans på en arbetsnoden och blå Shards lagras på en annan arbetsnod. Observera att en kopplings fråga mellan konton och kampanjer har alla data som krävs tillsammans på en nod när båda tabellerna är begränsade till samma konto @ no__t-0id.
 
 ![Samplacering för flera klienter](media/concepts-hyperscale-choosing-distribution-column/multi-tenant-colocation.png)
 
-Om du vill använda den här designen i ditt eget schema, identifierar du vad som utgör en klient i ditt program. Vanliga instanser är företag, konto, organisation eller kund. Kolumn namnet kommer att vara något som `company_id` liknar `customer_id`eller. Undersök var och en av dina frågor och fråga dig själv, så fungerar det om det hade ytterligare WHERE-satser för att begränsa alla tabeller som ingår i rader med samma klient-ID?
+Om du vill använda den här designen i ditt eget schema, identifierar du vad som utgör en klient i ditt program. Vanliga instanser är företag, konto, organisation eller kund. Kolumn namnet kommer att vara något som liknar `company_id` eller `customer_id`. Undersök var och en av dina frågor och fråga dig själv, så fungerar det om det hade ytterligare WHERE-satser för att begränsa alla tabeller som ingår i rader med samma klient-ID?
 Frågor i modellen för flera klienter är begränsade till en klient. Till exempel är frågor om försäljning eller lager begränsade inom en viss butik.
 
 #### <a name="best-practices"></a>Bästa praxis
 
--   **Partitionera distribuerade tabeller med en gemensam\_klient-ID-kolumn.** I ett SaaS-program där klienter är företag, är klient\_-ID: t sannolikt företags\_-ID: t.
+-   **Partitionera distribuerade tabeller av en gemensam klient @ no__t-1id-kolumn.** I ett SaaS-program där klienter är företag, är klienten @ no__t-0id troligt vis företaget @ no__t-1id.
 -   **Konvertera små kors klient tabeller till referens tabeller.** När flera klienter delar en liten tabell med information distribuerar du den som en referens tabell.
--   **Begränsa filtreringen av alla program frågor\_efter klient-ID.** Varje fråga bör begära information för en klient i taget.
+-   **Begränsa filtreringen av alla program frågor efter klient @ no__t-1id.** Varje fråga bör begära information för en klient i taget.
 
 Läs [själv studie kursen om flera innehavare](./tutorial-design-database-hyperscale-multi-tenant.md) för ett exempel på hur du skapar den här typen av program.
 
@@ -59,7 +59,7 @@ Real tids frågor efterfrågar vanligt vis numeriska mängder grupperade efter d
     Fakta tabellen kan bara ha en distributions nyckel. Tabeller som är kopplade till en annan nyckel samplaceras inte med fakta tabellen. Välj en dimension som ska samplaceras baserat på hur ofta den är ansluten och storleken på de kopplade raderna.
 -   **Ändra vissa dimensions tabeller till referens tabeller.** Om en dimensions tabell inte kan befinna sig i fakta tabellen kan du förbättra frågeresultaten genom att distribuera kopior av dimensions tabellen till alla noder i form av en referens tabell.
 
-I självstudierna i [real tids instrument panelen](./tutorial-design-database-hyperscale-realtime.md) finns ett exempel på hur du skapar den här typen av program.
+I [självstudierna i real tids instrument panelen](./tutorial-design-database-hyperscale-realtime.md) finns ett exempel på hur du skapar den här typen av program.
 
 ### <a name="time-series-data"></a>Time Series-data
 
@@ -75,4 +75,4 @@ Det vanligaste misstaget vid modellering av Time-Series-information i storskalig
 I [själv studie kursen om tids serier](https://aka.ms/hyperscale-tutorial-timeseries) finns ett exempel på hur du skapar den här typen av program.
 
 ## <a name="next-steps"></a>Nästa steg
-- Lär dig [](concepts-hyperscale-colocation.md) hur samplaceringen mellan distribuerade data hjälper frågor att köras snabbt.
+- Lär dig hur [samplaceringen](concepts-hyperscale-colocation.md) mellan distribuerade data hjälper frågor att köras snabbt.

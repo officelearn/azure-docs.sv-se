@@ -5,18 +5,16 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 09/20/2019
+ms.date: 10/05/2019
 ms.author: victorh
-ms.openlocfilehash: 8aee640d8648abb623fe5ead0b21e3ae3084424a
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 6f5f2263736e1317ca40e6c27a909be2aa106270
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162142"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960435"
 ---
 # <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-cli"></a>Snabbstart: Skapa en privat Azure-DNS-zon med hjälp av Azure CLI
-
-[!INCLUDE [private-dns-public-preview-notice](../../includes/private-dns-public-preview-notice.md)]
 
 Den här snabb starten vägleder dig genom stegen för att skapa din första privata DNS-zon och-post med hjälp av Azure CLI.
 
@@ -64,7 +62,7 @@ az network private-dns link vnet create -g MyAzureResourceGroup -n MyDNSLink \
    -z private.contoso.com -v myAzureVNet -e true
 ```
 
-Om du vill skapa en zon enbart för namn matchning (ingen automatisk värdnamn registrering) kan du använda `-e false` -parametern.
+Om du vill skapa en zon enbart för namn matchning (ingen automatisk värdnamn registrering) kan du använda parametern `-e false`.
 
 ### <a name="list-dns-private-zones"></a>Lista privata DNS-zoner
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/12/2019
 ms.author: magoedte
-ms.openlocfilehash: d6e65331db53be5ba13a75e6b03b271f1071716d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: ae8dd4cccb6795faa02e6705404644f6ccc24864
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67989817"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71948053"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-containers"></a>Så här frågar du efter loggar från Azure Monitor för behållare
 
@@ -42,7 +42,7 @@ Exempel på poster som samlas in av Azure Monitor för behållare och vilka data
 | Prestandamått för behållare som en del av Kubernetes-kluster | Perf &#124; där ObjectName == ”K8SContainer” | CounterName &#40; CpuRequestNanoCores, MemoryRequestBytes, CpuLimitNanoCores, MemoryWorkingSetBytes, RestartTimeEpoch, CpuUsageNanoCores, memoryRssBytes&#41;, CounterValue, TimeGenerated, CounterPath, SourceSystem | 
 | Anpassade mått |`InsightsMetrics` | Dator, namn, namn område, ursprung, SourceSystem, Taggar<sup>1</sup>, TimeGenerated, typ, va, _ResourceId | 
 
-<sup>1</sup> egenskapen *taggar* representerar [flera dimensioner](../platform/data-platform-metrics.md#multi-dimensional-metrics) för motsvarande mått. Mer information om de mått som samlas in och lagras i `InsightsMetrics` tabellen och en beskrivning av post egenskaperna finns i [Översikt över InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
+<sup>1</sup> egenskapen *taggar* representerar [flera dimensioner](../platform/data-platform-metrics.md#multi-dimensional-metrics) för motsvarande mått. Mer information om de mått som samlas in och lagras i tabellen `InsightsMetrics` och en beskrivning av post egenskaperna finns i [Översikt över InsightsMetrics](https://github.com/microsoft/OMS-docker/blob/vishwa/june19agentrel/docs/InsightsMetrics.md).
 
 >[!NOTE]
 >Stöd för Prometheus är en funktion i offentlig för hands version för tillfället.
@@ -69,6 +69,7 @@ Det är ofta bra att skapa frågor som börjar med ett exempel eller två och ä
 | ContainerImageInventory<br> &#124;Sammanfatta AggregatedValue = antal() efter bild, ImageTag, körs | Avbildningslager | 
 | **Välj Visa diagramalternativet**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”cpuUsageNanoCores” &#124; sammanfatta AvgCPUUsageNanoCores = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Processorprestanda för behållare | 
 | **Välj Visa diagramalternativet**:<br> Perf<br> &#124;där ObjectName == ”K8SContainer” och CounterName == ”memoryRssBytes” &#124; sammanfatta AvgUsedRssMemoryBytes = avg(CounterValue) efter bin (TimeGenerated, 30m), instansnamn | Behållare-minne |
+| InsightsMetrics<br> &#124;där name = = "requests_count"<br> &#124;sammanfatta val = any (val) av TimeGenerated = bin (TimeGenerated, 1m)<br> &#124;Sortera efter TimeGenerated ASC<br> &#124;projekt RequestsPerMinute = val-föreg (val), TimeGenerated <br> &#124;rendera Barchart  | Begär Anden per minut med anpassade mått |
 
 Följande exempel är en Prometheus mått fråga. De mått som samlas in är räknare och för att fastställa hur många fel som inträffade inom en viss tids period måste vi subtrahera från antalet. Data uppsättningen partitioneras av *partitionKey*, vilket innebär för varje unik uppsättning *namn*, *värdnamn*och *OperationType*, och vi kör en under fråga på den uppsättning som beställer loggarna efter *TimeGenerated*, en process som gör det möjligt att hitta föregående *TimeGenerated* och det antal som registrerats för den tiden för att fastställa en kostnad.
 

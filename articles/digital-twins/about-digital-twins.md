@@ -1,20 +1,20 @@
 ---
 title: Översikt över Azure Digital Twins | Microsoft Docs
 description: Läs mer om Azure Digital Twins, en Azure IoT-lösning för spatial intelligens.
-author: julieseto
-ms.author: jseto
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.date: 09/17/2019
 ms.topic: overview
 ms.service: digital-twins
 services: digital-twins
-manager: bertvanhoof
 ms.custom: mvc
-ms.openlocfilehash: 2b80d0b364330a0effa7b89c620bd935157de290
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 2194afe4784d1b59dc5fd5628e3a9223d13f92be
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178294"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949294"
 ---
 # <a name="overview-of-azure-digital-twins"></a>Översikt över Azure Digital Twins
 
@@ -93,7 +93,7 @@ Azure Digital Twins är användbart för att representera den fysiska världen o
 
 Azure Digital Twins använder Azure IoT Hub för att ansluta IoT-enheter och -sensorer som håller allt uppdaterat med den fysiska världen. Följande diagram visar hur Azure Digital Twins relaterar till andra Azure IoT-tjänster.
 
-[![Azure Digitals dubbla är en tjänst som bygger på Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
+[![Azure digitala dubbla är en tjänst som bygger på Azure IoT Hub](media/overview/azure-digital-twins-in-iot-ecosystem.png)](media/overview/azure-digital-twins-in-iot-ecosystem.png#lightbox)
 
 Läs mer om IoT [Azure IoT-tekniker och lösningar](../iot-fundamentals/iot-services-and-technologies.md).
 

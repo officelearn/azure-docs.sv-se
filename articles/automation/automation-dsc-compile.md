@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 10ddb7272de164e6f92022a6f512df31753f7e31
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 58aa310316a31eb63ca8dd614b60fb4bad73d997
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71265130"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959994"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration
 
@@ -49,14 +49,14 @@ Du kan använda [`Start-AzureRmAutomationDscCompilationJob`](/powershell/module/
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 ```
 
-`Start-AzureRmAutomationDscCompilationJob`Returnerar ett Compilation Job-objekt som du kan använda för att spåra dess status. Du kan sedan använda det här objektet för kompilering av jobb med[`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob)
-ta reda på status för compile-jobbet och[`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput)
+`Start-AzureRmAutomationDscCompilationJob` returnerar ett Compilation Job-objekt som du kan använda för att spåra dess status. Du kan sedan använda det här objektet för kompilering av jobb med [`Get-AzureRmAutomationDscCompilationJob`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjob)
+för att fastställa status för Compilation-jobbet och [`Get-AzureRmAutomationDscCompilationJobOutput`](/powershell/module/azurerm.automation/get-azurermautomationdsccompilationjoboutput)
 för att visa dess strömmar (utdata). Följande exempel kod startar kompilering av **SampleConfig** -konfigurationen, väntar tills den har slutförts och visar sedan dess strömmar.
 
 ```powershell
 $CompilationJob = Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'SampleConfig'
 
-while($CompilationJob.EndTime –eq $null -and $CompilationJob.Exception –eq $null)
+while($null -eq $CompilationJob.EndTime -and $null -eq $CompilationJob.Exception)
 {
     $CompilationJob = $CompilationJob | Get-AzureRmAutomationDscCompilationJob
     Start-Sleep -Seconds 3
@@ -124,7 +124,7 @@ Information om hur du skickar PSCredentials som parametrar finns i [behörighets
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>Kompilera konfigurationer i Azure Automation som innehåller sammansatta resurser
 
-Med **sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration. På så sätt kan du tillämpa flera konfigurationer på en enskild resurs. Se [sammansatta resurser: Använd en DSC-konfiguration som en](/powershell/dsc/authoringresourcecomposite) resurs för att lära dig mer om **sammansatta resurser**.
+Med **sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration. På så sätt kan du tillämpa flera konfigurationer på en enskild resurs. Se [Composite-resurser: Använd en DSC-konfiguration som resurs @ no__t-0 om du vill veta mer om **sammansatta resurser**.
 
 > [!NOTE]
 > För att konfigurationer som innehåller **sammansatta resurser** ska kunna kompileras korrekt måste du först se till att alla DSC-resurser som den sammansatta förlitar sig på först importeras i till Azure Automation.
@@ -198,11 +198,11 @@ Till gångs referenser är desamma i Azure Automation tillstånds konfiguration 
 
 #### <a name="credential-assets"></a>Inloggnings till gångar
 
-DSC-konfigurationer i Azure Automation kan referera till till gångar för `Get-AutomationPSCredential` automatisering av autentiseringsuppgifter med hjälp av cmdleten. Om en konfiguration har en parameter som har en **PSCredential** -typ kan du använda cmdleten `Get-AutomationPSCredential` genom att skicka sträng namnet för en Azure Automation Credential-till-cmdlet: en för att hämta autentiseringsuppgifterna. Du kan sedan använda objektet för den parameter som kräver **PSCredential** -objektet. I bakgrunden hämtas den Azure Automation autentiseringsuppgiften med det namnet och skickas till konfigurationen. I exemplet nedan visas detta i praktiken.
+DSC-konfigurationer i Azure Automation kan referera till till gångar för automatisering av autentiseringsuppgifter med hjälp av cmdleten `Get-AutomationPSCredential`. Om en konfiguration har en parameter som har en **PSCredential** -typ kan du använda cmdleten `Get-AutomationPSCredential` genom att skicka sträng namnet för en Azure Automation Credential till-cmdlet: en för att hämta autentiseringsuppgifterna. Du kan sedan använda objektet för den parameter som kräver **PSCredential** -objektet. I bakgrunden hämtas den Azure Automation autentiseringsuppgiften med det namnet och skickas till konfigurationen. I exemplet nedan visas detta i praktiken.
 
 Att bevara autentiseringsuppgifterna säkra i nodkonfigurationer (MOF-konfigurationsfilen) kräver kryptering av autentiseringsuppgifterna i MOF-filen för nodens konfiguration. För närvarande måste du meddela PowerShell DSC att det går att ange autentiseringsuppgifter som oformaterad text under MOF-genereringen av nodens konfiguration, eftersom PowerShell DSC inte vet att Azure Automation kommer att kryptera hela MOF-filen efter att den har genererats via ett Compilation-jobb.
 
-Du kan tala om för PowerShell DSC att det går att ange autentiseringsuppgifter som oformaterad text i den genererade nodens konfigurations MOF: ar med hjälp av konfigurations data. Du bör skicka `PSDscAllowPlainTextPassword = $true` via **ConfigurationData** för varje nodnamn som visas i DSC-konfigurationen och använder autentiseringsuppgifter.
+Du kan tala om för PowerShell DSC att det går att ange autentiseringsuppgifter som oformaterad text i den genererade nodens konfigurations MOF: ar med hjälp av konfigurations data. Du bör pass `PSDscAllowPlainTextPassword = $true` via **ConfigurationData** för varje nodnamn som visas i DSC-konfigurationen och använder autentiseringsuppgifter.
 
 I följande exempel visas en DSC-konfiguration som använder en till gång för Automation-autentiseringsuppgifter.
 

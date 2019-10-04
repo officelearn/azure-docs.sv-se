@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: 4e23a440f46b52633a88d0212e08c7b584f61a38
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: f59e449589c7f3027dc8a9daf9d8d12f04831dd7
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932480"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960575"
 ---
 # <a name="install-and-use-azure-iot-explorer"></a>Installera och använda Azure IoT Explorer
 
@@ -29,7 +29,7 @@ Den här artikeln visar hur du:
 Om du vill använda Azure IoT Explorer-verktyget behöver du:
 
 - En Azure IoT-hubb. Det finns många sätt att lägga till en IoT-hubb i din Azure-prenumeration, till exempel [skapa en IoT-hubb med hjälp av Azure CLI](../iot-hub/iot-hub-create-using-cli.md). Du behöver den IoT Hub-anslutningssträngen för att köra Azure IoT Explorer-verktyget. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-- En enhet som är registrerad i IoT Hub. Du kan registrera en enhet med hjälp av följande Azure CLI-kommando. Se till att ersätta `{YourIoTHubName}` plats hållarna och `{YourDeviceID}` med dina värden:
+- En enhet som är registrerad i IoT Hub. Du kan registrera en enhet med hjälp av följande Azure CLI-kommando. Se till att ersätta plats hållarna `{YourIoTHubName}` och `{YourDeviceID}` med dina värden:
 
     ```azurecli-interactive
     az iot hub device-identity create --hub-name {YourIoTHubName} --device-id {YourDeviceID}
@@ -65,29 +65,27 @@ Så här tar du bort en källa:
 
 Du kan dra och släppa en av modell definitions källorna till en annan rangordning i listan. Om det uppstår en konflikt åsidosätter definitions källor med högre ranknings källor med lägre rangordning.
 
-### <a name="overview-page"></a>Översikts sida
+### <a name="view-devices"></a>Visa enheter
 
-#### <a name="device-overview"></a>Enhets översikt
+När verktyget har anslutit till din IoT-hubb visas **sidan enhets lista med** en lista över enhets identiteter som registrerats med IoT Hub. Du kan expandera alla poster i listan om du vill se mer information.
 
-När verktyget har anslutit till din IoT-hubb visas en översikts sida med en lista över alla enhets identiteter som registrerats med Azure IoT Hub. Välj en enhet om du vill visa mer information.
+På sidan **enhets** lista kan du:
 
-#### <a name="device-management"></a>Enhetshantering
-
-- Om du vill registrera en ny enhet med hubben väljer du **Lägg till**. Ange ett enhets-ID. Använd standardinställningarna för att automatiskt generera autentiseringsinställningar och aktivera anslutningen till hubben.
-- Om du vill ta bort en enhets identitet väljer du **ta bort**. Granska enhets detaljerna innan du slutför den här åtgärden för att vara säker på att du tar bort rätt enhets identitet.
-- Verktyget stöder fråga efter `capabilityID` och. `interfaceID` Lägg till antingen `capabilityID` din `interfaceID` eller som en parameter för att skicka frågor till dina enheter.
+- Välj **Lägg till** för att registrera en ny enhet med hubben. Ange sedan ett enhets-ID. Använd standardinställningarna för att automatiskt generera autentiseringsinställningar och aktivera anslutningen till hubben.
+- Välj en enhet och välj sedan **ta bort** för att ta bort en enhets identitet. Granska enhets detaljerna innan du slutför den här åtgärden för att vara säker på att du tar bort rätt enhets identitet.
+- Fråga per `capabilityID` och `interfaceID`. Lägg till antingen din `capabilityID` eller `interfaceID` som en parameter för att skicka frågor till dina enheter.
 
 ## <a name="interact-with-a-device"></a>Interagera med en enhet
 
-Dubbelklicka på en enhet på översikts sidan för att visa nästa detalj nivå. Det finns två avsnitt: **Enhet** och **digital**.
+På sidan enhets **lista väljer** du ett värde i kolumnen **enhets-ID** för att Visa informations sidan för den registrerade enheten. Det finns två avsnitt för enheten: **Enhet** och **digital**.
 
 ### <a name="device"></a>Enhet
 
-Det här avsnittet innehåller flikarna **enhets identitet**, **telemetri**och **enhets dubbla** .
+Det här avsnittet innehåller flikarna **enhets identitet**, **enhets**-och **telemetri** .
 
-- Du kan visa och uppdatera enhetens identitets information på fliken **enhets identitet** .
-- Om en enhet är ansluten och aktivt skickar data, kan du Visa Telemetrin på fliken **telemetri** .
-- Du kan komma åt enhetens dubbla information på fliken **enhets dubbla** .
+- Du kan visa och uppdatera [enhetens identitets](../iot-hub/iot-hub-devguide-identity-registry.md) information på fliken **enhets identitet** .
+- Du kan komma åt [enhetens dubbla](../iot-hub/iot-hub-devguide-device-twins.md) information på fliken **enhets dubbla** .
+- Om en enhet är ansluten och aktivt skickar data, kan du Visa [Telemetrin](../iot-hub/iot-hub-devguide-messages-read-builtin.md) på fliken **telemetri** .
 
 ### <a name="digital-twin"></a>Digital, dubbel
 

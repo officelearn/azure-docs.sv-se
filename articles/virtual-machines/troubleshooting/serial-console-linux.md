@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: f6e08f113e29b44e4ec94d14624d62c1c3d48d45
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 15e0b8a5b3ea64148eb78cb376500adac2410a71
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124471"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949676"
 ---
 # <a name="azure-serial-console-for-linux"></a>Azures serie konsol för Linux
 
@@ -36,7 +36,7 @@ Information om en dokumentation för Windows i serie konsolen finns i [serie kon
 
 - Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste använda distributions modellen för resurs hantering. Klassiska distributioner stöds inte.
 
-- Ditt konto som använder en serie konsol måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och [](boot-diagnostics.md) lagrings kontot för startdiagnostik
+- Ditt konto som använder en serie konsol måste ha [rollen virtuell dator deltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) för den virtuella datorn och lagrings kontot för [startdiagnostik](boot-diagnostics.md)
 
 - Den virtuella datorn eller den virtuella datorns skalnings uppsättnings instans måste ha en lösenordsbaserad användare. Du kan skapa en med den [Återställ lösenord](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) funktion av access-tillägg för virtuell dator. Välj **Återställ lösenord** från den **Support och felsökning** avsnittet.
 
@@ -54,7 +54,7 @@ Information om en dokumentation för Windows i serie konsolen finns i [serie kon
 > Du kan också återställa administratörs lösen ordet i ditt konto genom [att använda grub för att starta i enanvändarläge](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distribution-availability"></a>Tillgänglighet för Linux-distribution för serie konsol
-För att serie konsolen ska fungera korrekt måste gäst operativ systemet konfigureras för att läsa och skriva konsol meddelanden till den seriella porten. De mest godkända [Azure Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) -distributionerna har den seriella konsolen konfigurerad som standard. Om du väljer **seriell konsol** i avsnittet **support + fel sökning** i Azure Portal ger åtkomst till serie konsolen.
+För att serie konsolen ska fungera korrekt måste gäst operativ systemet konfigureras för att läsa och skriva konsol meddelanden till den seriella porten. De mest godkända [Azure Linux-distributionerna](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) har den seriella konsolen konfigurerad som standard. Om du väljer **seriell konsol** i avsnittet **support + fel sökning** i Azure Portal ger åtkomst till serie konsolen.
 
 > [!NOTE]
 > Om du inte ser något i serie konsolen ser du till att startdiagnostik är aktiverat på den virtuella datorn. Genom att trycka på **RETUR** åtgärdas ofta problem där ingenting visas i serie konsolen.
@@ -69,11 +69,11 @@ SUSE        | Nyare SLES-avbildningar som är tillgängliga i Azure har åtkomst
 Oracle Linux        | Seriell konsol åtkomst aktiverat som standard.
 
 ### <a name="custom-linux-images"></a>Anpassade Linux-avbildningar
-Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra `ttyS0`en terminal på. Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service`.
+Om du vill aktivera en serie konsol för din anpassade Linux VM-avbildning aktiverar du konsol åtkomst i filen */etc/inittab* för att köra en terminal på `ttyS0`. Till exempel: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Du kan också behöva skapa en Getty on ttyS0. Detta kan göras med `systemctl start serial-getty@ttyS0.service`.
 
 Du ska också lägga till ttyS0 som mål för seriella utdata. Mer information om hur du konfigurerar en anpassad avbildning för att arbeta med serie konsolen finns i system krav för att [skapa och ladda upp en Linux-VHD i Azure](https://aka.ms/createuploadvhd#general-linux-system-requirements).
 
-Om du skapar en anpassad kernel bör du överväga att aktivera dessa kernel- `CONFIG_SERIAL_8250=y` flaggor `CONFIG_MAGIC_SYSRQ_SERIAL=y`: och. Konfigurations filen finns vanligt vis i */Boot/* -sökvägen.
+Om du skapar en anpassad kernel bör du överväga att aktivera dessa kernel-flaggor: `CONFIG_SERIAL_8250=y` och `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Konfigurations filen finns vanligt vis i */Boot/* -sökvägen.
 
 ## <a name="common-scenarios-for-accessing-the-serial-console"></a>Vanliga scenarier för åtkomst till serie konsolen
 
@@ -107,7 +107,7 @@ All åtkomst till seriekonsol för tillfället är inloggad på [startdiagnostik
 Om en användare är ansluten till seriekonsol och en annan användare begär har åtkomst till den samma virtuella datorn, kommer att kopplas från den första användaren och den andra användaren som är anslutna till samma session.
 
 > [!CAUTION]
-> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk timeout som är aktive rad i SAC (administrations konsol). för Linux kan du dock konfigurera inställningen för timeout för Terminal. Det gör du genom att `export TMOUT=600` lägga till i filen *. bash_profile* eller *. Profile* för den användare som du använder för att logga in i-konsolen. Den här inställningen tar bort sessionen efter 10 minuter.
+> Det innebär att en användare som är frånkopplad inte kommer att loggas ut. Möjligheten att genomdriva en utloggning vid från koppling (med SIGHUP eller liknande mekanism) finns fortfarande i översikten. För Windows finns en automatisk timeout som är aktive rad i SAC (administrations konsol). för Linux kan du dock konfigurera inställningen för timeout för Terminal. Om du vill göra det lägger du till `export TMOUT=600` i filen *. bash_profile* eller *. Profile* för den användare som du använder för att logga in i-konsolen. Den här inställningen tar bort sessionen efter 10 minuter.
 
 ## <a name="accessibility"></a>Hjälpmedel
 Hjälpmedel är en viktig fokus för Azures serie konsol. Vi har därför säkerställt att serie konsolen är fullständigt tillgänglig.
@@ -119,23 +119,21 @@ Använd den **fliken** på tangentbordet för att navigera i gränssnittet Serie
 Seriekonsolen har inbyggt stöd för Skärmläsaren. Navigera med en skärmläsare aktiveras kan alternativ text för knappen är markerade som ska läsas upp av Skärmläsaren.
 
 ## <a name="known-issues"></a>Kända problem
-Vi är medvetna om några problem med seriell konsol. Här är en lista över dessa problem och åtgärder för problemlösning. Dessa problem och begränsningar gäller för både virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer.
+Vi är medvetna om några problem med serie konsolen och den virtuella datorns operativ system. Här är en lista över de här problemen och stegen för att minska för virtuella Linux-datorer. Dessa problem och begränsningar gäller för både virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer. Om de inte matchar det fel du ser kan du läsa fel i vanliga fel med seriell konsol tjänsten i [vanliga](./serial-console-errors.md)fel i serie konsolen.
 
 Problem                           |   Åtgärd
 :---------------------------------|:--------------------------------------------|
 Att trycka på **RETUR** när anslutningen popup-meddelandet inte orsakar en uppmaning som ska visas. | Mer information finns i [Hitting ange ingenting](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Det här problemet kan uppstå om du kör en anpassad virtuell dator, en härdnings apparat eller en GRUB-konfiguration som gör att Linux inte kan ansluta till den seriella porten.
-Seriell konsol text tar bara upp en del av skärm storleken (ofta efter att ha använt en text redigerare). | Serie konsoler har inte stöd för förhandling om fönster storlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att ingen SIGWINCH-signal skickas till uppdateringens skärm storlek och att den virtuella datorn inte kommer att ha någon kunskap om din Terminals storlek. Installera xterm eller ett liknande verktyg för att tillhandahålla `resize` kommandot och kör `resize`sedan.
+Seriell konsol text tar bara upp en del av skärm storleken (ofta efter att ha använt en text redigerare). | Serie konsoler har inte stöd för förhandling om fönster storlek ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), vilket innebär att ingen SIGWINCH-signal skickas till uppdateringens skärm storlek och att den virtuella datorn inte kommer att ha någon kunskap om din Terminals storlek. Installera xterm eller ett liknande verktyg för att ge dig kommandot `resize` och kör sedan `resize`.
 Klistra in lång sträng fungerar inte. | Seriekonsolen begränsar längden på strängar som klistras in i terminalen för att 2048 tecken för att förhindra överbelastning serieport bandbredd.
-Seriell konsol fungerar inte med en lagrings konto brand vägg. | Seriell konsol efter design fungerar inte med lagrings kontots brand väggar aktiverade på lagrings kontot för startdiagnostik.
-Seriell konsol fungerar inte med ett lagrings konto med hjälp av Azure Data Lake Storage Gen2 med hierarkiska namn områden. | Detta är ett känt problem med hierarkiska namn områden. Du kan undvika detta genom att kontrol lera att lagrings kontot för startdiagnostik för den virtuella datorn inte har skapats med hjälp av Azure Data Lake Storage Gen2. Det här alternativet kan bara anges när lagrings kontot skapas. Du kan behöva skapa ett separat lagrings konto för startdiagnostik utan Azure Data Lake Storage Gen2 aktiverat för att undvika det här problemet.
-Oförutsägbara inmatade tangenter i SLES BYOS-avbildningar. Tangent bords inskrivning känns bara igen sporadiskt. | Detta är ett problem med Plymouth-paketet. Plymouth bör inte köras i Azure eftersom du inte behöver en välkomst skärm och Plymouth stör plattforms möjligheten att använda serie konsol. Ta bort Plymouth `sudo zypper remove plymouth` med och starta sedan om. Du kan också ändra kernel-raden för grub-konfigurationen genom `plymouth.enable=0` att lägga till i slutet av raden. Du kan göra detta genom att [Redigera start posten vid start](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), eller genom att redigera GRUB_CMDLINE_LINUX-raden i `/etc/default/grub`, återskapa grub med `grub2-mkconfig -o /boot/grub2/grub.cfg`och sedan starta om.
+Oförutsägbara inmatade tangenter i SLES BYOS-avbildningar. Tangent bords inskrivning känns bara igen sporadiskt. | Detta är ett problem med Plymouth-paketet. Plymouth bör inte köras i Azure eftersom du inte behöver en välkomst skärm och Plymouth stör plattforms möjligheten att använda serie konsol. Ta bort Plymouth med `sudo zypper remove plymouth` och starta sedan om. Du kan också ändra kernel-raden för GRUB-konfigurationen genom att lägga till `plymouth.enable=0` i slutet av raden. Du kan göra detta genom att [Redigera start posten vid start](https://aka.ms/serialconsolegrub#single-user-mode-in-suse-sles), eller genom att redigera GRUB_CMDLINE_LINUX-raden i `/etc/default/grub`, återskapa GRUB med `grub2-mkconfig -o /boot/grub2/grub.cfg` och sedan starta om.
 
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
 **FRÅGOR OCH. Hur kan jag skicka feedback?**
 
-A. Ge feedback genom att skapa ett GitHub- https://aka.ms/serialconsolefeedback problem på. Du kan också (mindre rekommenderas), kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com.
+A. Ge feedback genom att skapa ett GitHub-problem på https://aka.ms/serialconsolefeedback. Du kan också (mindre rekommenderas), kan du skicka feedback via azserialhelp@microsoft.com eller i kategorin virtuell dator för https://feedback.azure.com.
 
 **FRÅGOR OCH. Stöder seriekonsolen kopiera och klistra in?**
 
@@ -164,7 +162,7 @@ A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Info
 
 A. Ja det är det! Se [serie konsolen för Virtual Machine Scale Sets](serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
-**FRÅGOR OCH. Kan jag fortfarande använda den seriella konsolen för att ansluta till min VM/virtuell dators skalnings uppsättnings instans om jag konfigurerar den virtuella datorn eller den virtuella datorns skalnings uppsättning med endast autentisering med SSH-nyckel?**
+**FRÅGOR OCH. Om jag konfigurerar den virtuella datorn eller skalnings uppsättningen för virtuella datorer genom att bara använda SSH-nyckelalgoritm, kan jag fortfarande använda den seriella konsolen för att ansluta till min VM/virtuella dators skalnings uppsättnings instans?**
 
 A. Ja. Eftersom serie konsolen inte kräver SSH-nycklar behöver du bara konfigurera en kombination av användar namn/lösen ord. Du kan göra det genom att välja **Återställ lösen ord** i Azure Portal och använda autentiseringsuppgifterna för att logga in i serie konsolen.
 

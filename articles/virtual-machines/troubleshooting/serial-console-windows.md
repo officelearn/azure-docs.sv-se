@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 5/1/2019
 ms.author: alsin
-ms.openlocfilehash: ebf7b712dda19b396b044235bf194a5dd402ffac
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 9fbe6768014550a3746085406e9039e83185c20f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996425"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949687"
 ---
 # <a name="azure-serial-console-for-windows"></a>Azures serie konsol för Windows
 
@@ -104,7 +104,7 @@ Om du vill aktivera Windows boot loader anvisningarna för att visa i seriekonso
 
 1.  Ange `cmd` att skapa en kanal som har en CMD-instans.
 
-1.  Ange `ch -si 1` eller tryck `<esc>+<tab>` på kortkommandon för att växla till den kanal som kör cmd-instansen.
+1.  Ange `ch -si 1` eller tryck på `<esc>+<tab>`-kortkommandon för att växla till den kanal som kör CMD-instansen.
 
 1.  Tryck på **RETUR**, och ange sedan autentiseringsuppgifter med administrativ behörighet.
 
@@ -124,7 +124,7 @@ Seriell konsol kan användas för att skicka en NMI till en Azure virtuell dator
 Information om hur du konfigurerar Windows för att skapa en kraschdumpfil när den får en NMI finns i [hur du skapar en kraschdumpfil med hjälp av en NMI](https://support.microsoft.com/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file).
 
 ### <a name="use-function-keys-in-serial-console"></a>Använda funktionstangenterna i seriekonsol
-Funktionstangenter är aktiverade för användning för seriekonsolen i virtuella Windows-datorer. F8 i listrutan seriekonsolen underlättar för att enkelt ange avancerade inställningar för Start-menyn, men Seriell konsol är kompatibel med alla andra funktionstangenter. Du kan behöva trycka på **FN** + **F1** (eller F2, F3 osv.) på tangent bordet, beroende på vilken dator du använder för att använda en serie konsol från.
+Funktionstangenter är aktiverade för användning för seriekonsolen i virtuella Windows-datorer. F8 i listrutan seriekonsolen underlättar för att enkelt ange avancerade inställningar för Start-menyn, men Seriell konsol är kompatibel med alla andra funktionstangenter. Du kan behöva trycka på **Fn** + **F1** (eller F2, F3 osv.) på tangent bordet, beroende på vilken dator du använder för att använda en serie konsol från.
 
 ### <a name="use-wsl-in-serial-console"></a>Använd WSL i seriekonsol
 Windows-undersystem för Linux (WSL) har aktiverats för Windows Server 2019 eller senare, så det är också möjligt att aktivera WSL för användning i seriekonsolen om du kör Windows Server 2019 eller senare. Detta kan vara fördelaktigt för användare som även har tidigare erfarenhet av Linux-kommandon. Anvisningar för att aktivera WSL för Windows Server finns i den [installationsguide](https://docs.microsoft.com/windows/wsl/install-on-server).
@@ -175,11 +175,11 @@ Scenario          | Åtgärder i seriekonsolen
 Felaktig brandväggsregler | Åtkomst till seriella konsolen och åtgärda Windows brandväggsregler.
 Filsystem skadade/kontroll | Komma åt seriekonsolen och Återställ filsystemet.
 Problem med RDP-konfigurationen | Komma åt seriekonsolen och ändra inställningarna. Mer information finns i den [RDP-dokumentationen](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access).
-Nätverket låsa system | Komma åt seriekonsolen från Azure portal för att hantera systemet. Vissa nätverks kommandon visas i [Windows-kommandon: CMD och PowerShell](serial-console-cmd-ps-commands.md).
+Nätverket låsa system | Komma åt seriekonsolen från Azure portal för att hantera systemet. Vissa nätverks kommandon visas i [Windows-kommandon: CMD och PowerShell @ no__t-0.
 Interagera med startprogrammet | Åtkomst BCD via seriekonsolen. Mer information finns i [aktivera Windows-startmenyn i seriekonsolen](#enable-the-windows-boot-menu-in-the-serial-console).
 
 ## <a name="known-issues"></a>Kända problem
-Vi är medvetna om några problem med seriell konsol. Här är en lista över dessa problem och åtgärder för problemlösning. Dessa problem och begränsningar gäller för både virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer.
+Vi är medvetna om några problem med serie konsolen och den virtuella datorns operativ system. Här är en lista över de här problemen och stegen för att minska för virtuella Windows-datorer. Dessa problem och begränsningar gäller för både virtuella datorer och instanser av skalnings uppsättningar för virtuella datorer. Om de inte matchar det fel du ser kan du läsa fel i vanliga fel med seriell konsol tjänsten i [vanliga](./serial-console-errors.md)fel i serie konsolen.
 
 Problem                             |   Åtgärd
 :---------------------------------|:--------------------------------------------|
@@ -189,8 +189,6 @@ Det går inte att skriva på SAC fråga om kernel-felsökning är aktiverad. | R
 Klistra in i PowerShell i SAC resulterar i ett tredje tecken om det ursprungliga innehållet hade ett upprepade tecken. | En lösning kan köra `Remove-Module PSReadLine` att ta bort modulen PSReadLine från den aktuella sessionen. Den här åtgärden kommer inte att ta bort eller avinstallera modulen.
 Vissa tangentbord indata producerar utdata som onormalt SAC (till exempel **[A**, **[3 ~** ). | [VT100](https://aka.ms/vtsequences) escape-sekvenser stöds inte av SAC-prompten.
 Klistra in lång sträng fungerar inte. | Seriekonsolen begränsar längden på strängar som klistras in i terminalen för att 2048 tecken för att förhindra överbelastning serieport bandbredd.
-Seriell konsol fungerar inte med ett lagrings konto med hjälp av Azure Data Lake Storage Gen2 med hierarkiska namn områden. | Detta är ett känt problem med hierarkiska namn områden. Du kan undvika detta genom att kontrol lera att lagrings kontot för startdiagnostik för den virtuella datorn inte har skapats med hjälp av Azure Data Lake Storage Gen2. Det här alternativet kan bara anges när lagrings kontot skapas. Du kan behöva skapa ett separat lagrings konto för startdiagnostik utan Azure Data Lake Storage Gen2 aktiverat för att undvika det här problemet.
-
 
 ## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 
@@ -219,6 +217,6 @@ A. Avbildningen är antagligen felkonfigurerad för seriell konsolåtkomst. Info
 A. Ja det är det! Se [serie konsolen för Virtual Machine Scale Sets](./serial-console-overview.md#serial-console-for-virtual-machine-scale-sets)
 
 ## <a name="next-steps"></a>Nästa steg
-* En djupgående guide till cmd-och PowerShell-kommandon som du kan använda i Windows SAC finns [i Windows-kommandon: CMD och PowerShell](serial-console-cmd-ps-commands.md).
+* En djupgående guide till CMD-och PowerShell-kommandon som du kan använda i Windows SAC finns i [Windows-kommandon: CMD och PowerShell @ no__t-0.
 * Seriekonsolen är också tillgängligt för [Linux](serial-console-linux.md) virtuella datorer.
 * Läs mer om [startdiagnostik](boot-diagnostics.md).

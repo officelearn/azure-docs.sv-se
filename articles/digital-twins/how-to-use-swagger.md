@@ -1,20 +1,20 @@
 ---
 title: Förstå hur du använder Azure Digitals sammanflätade referenser Swagger | Microsoft Docs
 description: Förstå hur du använder Azure Digitals sammanflätade Swagger Reference-dokumentation.
-author: kingdomofends
-manager: alinast
+ms.author: alinast
+author: alinamstanciu
+manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/16/2019
-ms.author: v-adgera
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1344b86b9fa922dc22870dda495ff367a511b8ca
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 06cbdf6fbba89b6666e6fe3162fd591e93dffecd
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640266"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958873"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Dokumentation om Azure Digitals Swagger-referens
 
@@ -112,7 +112,7 @@ När du har slutfört Azure Active Directory registreringen:
 
 1. Välj knappen **auktorisera** på din Swagger-sida.
 
-    [![Välj knappen för att auktorisera Swagger](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
+    [![Select knappen för Swagger-auktorisering](media/how-to-use-swagger/swagger-select-authorize-btn.png)](media/how-to-use-swagger/swagger-select-authorize-btn.png#lightbox)
 
 1. Klistra in program-ID: t i fältet **client_id** .
 
@@ -120,7 +120,7 @@ När du har slutfört Azure Active Directory registreringen:
 
 1. Du omdirigeras sedan till följande lyckade spärred.
 
-    [![Swagger omdirigering](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
+    [![Swagger Redirect modal](media/how-to-use-swagger/swagger-auth-redirect-img.png)](media/how-to-use-swagger/swagger-auth-redirect-img.png#lightbox)
 
 Läs mer om interaktivt Est-begäranden som skyddas av OAuth 2,0 i den [officiella dokumentationen](https://swagger.io/docs/specification/authentication/oauth2/).
 

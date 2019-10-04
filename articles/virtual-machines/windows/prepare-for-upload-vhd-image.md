@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 3922388aaa7dd244b74404e50001e9c87870728d
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: 86ce2ada9ebd19c88414fab33a62dda5ba41ecb0
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937483"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949657"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbered en Windows-VHD eller VHDX som ska överföras till Azure
 
@@ -55,7 +55,7 @@ När du har konverterat disken skapar du en virtuell dator som använder disken.
 1. Öppna Hyper-V Manager och välj den lokala datorn till vänster. I menyn ovanför dator listan väljer du **åtgärd** > **Redigera disk**.
 2. På sidan **hitta virtuell hård disk** väljer du den virtuella disken.
 3. På sidan **Välj åtgärd** väljer du **konvertera** > **Nästa**.
-4. Om du behöver konvertera från VHDX väljer du **VHD** > **Nästa**.
+4. Om du behöver konvertera från VHDX väljer du **VHD**- > **härnäst**.
 5. Om du behöver konvertera från en dynamiskt expanderande disk väljer du **fast storlek** > **Nästa**.
 6. Leta upp och välj en sökväg för att spara den nya VHD-filen till.
 7. Välj **Slutför**.
@@ -83,16 +83,15 @@ Kör följande kommandon från en [upphöjd kommando tolk](https://technet.micro
 
 1. Ta bort alla statiska permanenta vägar i routningstabellen:
    
-   * Kör `route print` i kommando tolken om du vill visa routningstabellen.
-   * Kontrol lera `Persistence Routes` avsnitten. Om det finns en beständig väg använder `route delete` du kommandot för att ta bort det.
+   * Om du vill visa routningstabellen kör du `route print` vid kommando tolken.
+   * Kontrol lera `Persistence Routes`-avsnitten. Om det finns en beständig väg använder du kommandot `route delete` för att ta bort det.
 2. Ta bort WinHTTP-proxyn:
    
     ```PowerShell
     netsh winhttp reset proxy
     ```
 
-    Om den virtuella datorn behöver arbeta med en speciell proxy lägger du till ett proxy-undantag till Azure IP-[adressen](https://blogs.msdn.microsoft.com/mast/2015/05/18/what-is-the-ip-address-168-63-129-16/
-)(168.63.129.16) så att den virtuella datorn kan ansluta till Azure:
+    Om den virtuella datorn behöver arbeta med en speciell proxy lägger du till ett proxy-undantag till Azure IP-adressen ([168.63.129.16 @ no__t-1) så att den virtuella datorn kan ansluta till Azure:
     ```
     $proxyAddress="<your proxy server>"
     $proxyBypassList="<your list of bypasses>;168.63.129.16"
@@ -100,7 +99,7 @@ Kör följande kommandon från en [upphöjd kommando tolk](https://technet.micro
     netsh winhttp set proxy $proxyAddress $proxyBypassList
     ```
 
-3. Ange diskens SAN-princip [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx)till:
+3. Ange diskens SAN-princip till [`Onlineall`](https://technet.microsoft.com/library/gg252636.aspx):
    
     ```PowerShell
     diskpart 
@@ -112,10 +111,10 @@ Kör följande kommandon från en [upphöjd kommando tolk](https://technet.micro
     exit   
     ```
 
-4. Ange UTC-tid (Coordinated Universal Time) för Windows. Ange också start typen för Windows tids tjänst (`w32time`) till: `Automatic`
+4. Ange UTC-tid (Coordinated Universal Time) för Windows. Ange också start typen för Windows tids tjänst (`w32time`) till `Automatic`:
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -name "RealTimeIsUniversal" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\TimeZoneInformation' -Name "RealTimeIsUniversal" -Value 1 -Type DWord -Force
 
     Set-Service -Name w32time -StartupType Automatic
     ```
@@ -124,12 +123,12 @@ Kör följande kommandon från en [upphöjd kommando tolk](https://technet.micro
     ```PowerShell
     powercfg /setactive SCHEME_MIN
     ```
-6. Kontrol lera att `TEMP` miljövariablerna `TMP` och är inställda på sina standardvärden:
+6. Kontrol lera att miljövariablerna `TEMP` och `TMP` är inställda på sina standardvärden:
 
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "TEMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name "TMP" -Value "%SystemRoot%\TEMP" -Type ExpandString -Force
     ```
 
 ## <a name="check-the-windows-services"></a>Kontrol lera Windows-tjänsterna
@@ -153,56 +152,56 @@ Set-Service -Name RemoteRegistry -StartupType Automatic
 Kontrol lera att följande inställningar är korrekt konfigurerade för fjärråtkomst:
 
 >[!NOTE] 
->Du kan få ett fel meddelande när du kör `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -name <object name> -value <value>`. Du kan ignorera det här meddelandet på ett säkert sätt. Det innebär bara att domänen inte skickar den konfigurationen via ett grupprincip-objekt.
+>Du kan få ett fel meddelande när du kör `Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`. Du kan ignorera det här meddelandet på ett säkert sätt. Det innebär bara att domänen inte skickar den konfigurationen via ett grupprincip-objekt.
 
 1. Remote Desktop Protocol (RDP) är aktiverat:
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -name "fDenyTSConnections" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0 -Type DWord -Force
 
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDenyTSConnections" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "fDenyTSConnections" -Value 0 -Type DWord -Force
     ```
    
 2. RDP-porten har kon figurer ATS korrekt. Standard porten är 3389:
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "PortNumber" -Value 3389 -Type DWord -force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "PortNumber" -Value 3389 -Type DWord -Force
     ```
     När du distribuerar en virtuell dator skapas standard reglerna mot port 3389. Om du vill ändra port numret gör du det efter att den virtuella datorn har distribuerats i Azure.
 
 3. Lyssnaren lyssnar i varje nätverks gränssnitt:
    
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "LanAdapter" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "LanAdapter" -Value 0 -Type DWord -Force
    ```
 4. Konfigurera NLA-läget (Network-Level Authentication) för RDP-anslutningarna:
    
     ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "UserAuthentication" -Value 1 -Type DWord -force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 1 -Type DWord -Force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "SecurityLayer" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "SecurityLayer" -Value 1 -Type DWord -Force
 
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -name "fAllowSecProtocolNegotiation" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "fAllowSecProtocolNegotiation" -Value 1 -Type DWord -Force
      ```
 
 5. Ange värdet för Keep-Alive:
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveEnable" -Value 1  -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "KeepAliveInterval" -Value 1  -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "KeepAliveTimeout" -Value 1 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "KeepAliveEnable" -Value 1  -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "KeepAliveInterval" -Value 1  -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "KeepAliveTimeout" -Value 1 -Type DWord -Force
     ```
 6. Återansluta
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -name "fDisableAutoReconnect" -Value 0 -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fInheritReconnectSame" -Value 1 -Type DWord -force
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "fReconnectSame" -Value 0 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services' -Name "fDisableAutoReconnect" -Value 0 -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "fInheritReconnectSame" -Value 1 -Type DWord -Force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "fReconnectSame" -Value 0 -Type DWord -Force
     ```
 7. Begränsa antalet samtidiga anslutningar:
     
     ```PowerShell
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -name "MaxInstanceCount" -Value 4294967295 -Type DWord -force
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\Winstations\RDP-Tcp' -Name "MaxInstanceCount" -Value 4294967295 -Type DWord -Force
     ```
 8. Ta bort alla självsignerade certifikat som är kopplade till RDP-lyssnaren:
     
@@ -234,7 +233,7 @@ Kontrol lera att följande inställningar är korrekt konfigurerade för fjärr�
 2. Kör följande kommando i PowerShell för att tillåta WinRM genom de tre brand Väggs profilerna (domän, privat och offentlig) och aktivera PowerShell-fjärrtjänsten:
    
    ```PowerShell
-    Enable-PSRemoting -force
+    Enable-PSRemoting -Force
 
     Set-NetFirewallRule -DisplayName "Windows Remote Management (HTTP-In)" -Enabled True
    ```
@@ -293,16 +292,16 @@ Kontrol lera att den virtuella datorn är felfri, säker och RDP-tillgänglig:
 
     ```powershell
     # Set up the guest OS to collect a kernel dump on an OS crash event
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name CrashDumpEnabled -Type DWord -force -Value 2
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name DumpFile -Type ExpandString -force -Value "%SystemRoot%\MEMORY.DMP"
-    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -name NMICrashDump -Type DWord -force -Value 1
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -Name CrashDumpEnabled -Type DWord -Force -Value 2
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -Name DumpFile -Type ExpandString -Force -Value "%SystemRoot%\MEMORY.DMP"
+    Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\CrashControl' -Name NMICrashDump -Type DWord -Force -Value 1
 
     # Set up the guest OS to collect user mode dumps on a service crash event
     $key = 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting\LocalDumps'
     if ((Test-Path -Path $key) -eq $false) {(New-Item -Path 'HKLM:\SOFTWARE\Microsoft\Windows\Windows Error Reporting' -Name LocalDumps)}
-    New-ItemProperty -Path $key -name DumpFolder -Type ExpandString -force -Value "c:\CrashDumps"
-    New-ItemProperty -Path $key -name CrashCount -Type DWord -force -Value 10
-    New-ItemProperty -Path $key -name DumpType -Type DWord -force -Value 2
+    New-ItemProperty -Path $key -Name DumpFolder -Type ExpandString -Force -Value "c:\CrashDumps"
+    New-ItemProperty -Path $key -Name CrashCount -Type DWord -Force -Value 10
+    New-ItemProperty -Path $key -Name DumpType -Type DWord -Force -Value 2
     Set-Service -Name WerSvc -StartupType Manual
     ```
 4. Kontrol lera att lagrings platsen för Windows Management Instrumentation (WMI) är konsekvent:
@@ -310,9 +309,9 @@ Kontrol lera att den virtuella datorn är felfri, säker och RDP-tillgänglig:
     ```PowerShell
     winmgmt /verifyrepository
     ```
-    Om lagrings platsen är skadad, [Se WMI: Skada eller](https://blogs.technet.microsoft.com/askperf/2014/08/08/wmi-repository-corruption-or-not)på lagrings plats.
+    Om lagrings platsen är skadad, se [WMI: Skada på databasen eller inte @ no__t-0.
 
-5. Se till att inga andra program använder port 3389. Den här porten används för RDP-tjänsten i Azure. Om du vill se vilka portar som används på den virtuella `netstat -anob`datorn kör du:
+5. Se till att inga andra program använder port 3389. Den här porten används för RDP-tjänsten i Azure. Om du vill se vilka portar som används på den virtuella datorn kör du `netstat -anob`:
 
     ```PowerShell
     netstat -anob
@@ -400,21 +399,21 @@ Helst bör du hålla datorn uppdaterad på *korrigerings nivå*. Om detta inte �
 
 Sysprep (System Preparation Tool) är en process som du kan köra för att återställa en Windows-installation. Sysprep tillhandahåller en "direkt användning"-upplevelse genom att ta bort all personlig information och återställa flera komponenter. 
 
-Du kör vanligt vis Sysprep för att skapa en mall som du kan använda för att distribuera flera andra virtuella datorer som har en speciell konfiguration. Mallen kallas en generaliserad *avbildning*.
+Du kör vanligt vis Sysprep för att skapa en mall som du kan använda för att distribuera flera andra virtuella datorer som har en speciell konfiguration. Mallen kallas en *generaliserad avbildning*.
 
 Om du bara vill skapa en virtuell dator från en disk behöver du inte använda Sysprep. I stället kan du skapa den virtuella datorn från en *specialiserad avbildning*. Information om hur du skapar en virtuell dator från en specialiserad disk finns i:
 
 - [Skapa en virtuell dator från en specialiserad disk](create-vm-specialized.md)
 - [Skapa en virtuell dator från en specialiserad virtuell hård disk](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-specialized-portal?branch=master)
 
-Om du vill skapa en generaliserad avbildning måste du köra Sysprep. Mer information finns i [så här använder du Sysprep: En introduktion](https://technet.microsoft.com/library/bb457073.aspx). 
+Om du vill skapa en generaliserad avbildning måste du köra Sysprep. Mer information finns i [How för att använda Sysprep: En inledning @ no__t-0. 
 
 Alla roller och program som är installerade på en Windows-baserad dator stöder inte generaliserade avbildningar. Innan du kör den här proceduren ser du till att Sysprep stöder datorns roll. Mer information finns i [Sysprep-stöd för Server roller](https://msdn.microsoft.com/windows/hardware/commercialize/manufacture/desktop/sysprep-support-for-server-roles).
 
 ### <a name="generalize-a-vhd"></a>Generalisera en virtuell hård disk
 
 >[!NOTE]
-> När du har `sysprep.exe` kört följande steg stänger du av den virtuella datorn. Aktivera inte det igen förrän du har skapat en avbildning från den i Azure.
+> När du har kört `sysprep.exe` ska du stänga av den virtuella datorn i följande steg. Aktivera inte det igen förrän du har skapat en avbildning från den i Azure.
 
 1. Logga in på den virtuella Windows-datorn.
 1. Kör **kommando tolken** som administratör. 
@@ -430,17 +429,17 @@ Nu kan den virtuella hård disken laddas upp. Mer information om hur du skapar e
 
 
 >[!NOTE]
-> Det finns inte stöd för en anpassad *Unattend. XML-* fil. Även om vi har stöd `additionalUnattendContent` för egenskapen, som endast ger begränsat stöd för att lägga till [Microsoft-Windows-Shell-Setup-](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) alternativ i filen *Unattend. XML* som Azure Provisioning-agenten använder. Du kan till exempel använda [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) för att lägga till FirstLogonCommands och LogonCommands. Mer information finns i [AdditionalUnattendContent FirstLogonCommands-exempel](https://github.com/Azure/azure-quickstart-templates/issues/1407).
+> Det finns inte stöd för en anpassad *Unattend. XML-* fil. Även om vi har stöd för egenskapen `additionalUnattendContent`, som ger endast begränsat stöd för att lägga till [Microsoft-Windows-Shell-Setup-](https://docs.microsoft.com/windows-hardware/customize/desktop/unattend/microsoft-windows-shell-setup) alternativ i filen *Unattend. XML* som Azure Provisioning-agenten använder. Du kan till exempel använda [additionalUnattendContent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.additionalunattendcontent?view=azure-dotnet) för att lägga till FirstLogonCommands och LogonCommands. Mer information finns i [AdditionalUnattendContent FirstLogonCommands-exempel](https://github.com/Azure/azure-quickstart-templates/issues/1407).
 
 
 ## <a name="complete-the-recommended-configurations"></a>Slutför de rekommenderade konfigurationerna
 Följande inställningar påverkar inte VHD-uppladdning. Vi rekommenderar dock starkt att du har konfigurerat dem.
 
-* Installera [Azure Virtual Machine](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409)-agenten. Sedan kan du aktivera VM-tillägg. VM-tilläggen implementerar de flesta av de kritiska funktioner som du kanske vill använda med dina virtuella datorer. Du behöver tillägg, till exempel för att återställa lösen ord eller konfigurera RDP. Mer information finns i [Översikt över Azure Virtual Machine agent](../extensions/agent-windows.md).
+* Installera [Azure Virtual Machine-agenten](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). Sedan kan du aktivera VM-tillägg. VM-tilläggen implementerar de flesta av de kritiska funktioner som du kanske vill använda med dina virtuella datorer. Du behöver tillägg, till exempel för att återställa lösen ord eller konfigurera RDP. Mer information finns i [Översikt över Azure Virtual Machine agent](../extensions/agent-windows.md).
 * När du har skapat den virtuella datorn i Azure rekommenderar vi att du sätter växlings filen på den *temporala volym volymen* för att förbättra prestandan. Du kan ställa in fil placeringen på följande sätt:
 
    ```PowerShell
-   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -force
+   Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Memory Management' -Name "PagingFiles" -Value "D:\pagefile.sys" -Type MultiString -Force
    ```
   Om en datadisk är ansluten till den virtuella datorn är den temporala enhets volymens beteckning normalt *D*. Den här beteckningen kan vara olika beroende på dina inställningar och antalet tillgängliga enheter.
   * Vi rekommenderar att du inaktiverar skript block som kan tillhandahållas av antivirus program. De kan störa och blockera Windows Provisioning agent-skript som körs när du distribuerar en ny virtuell dator från avbildningen.

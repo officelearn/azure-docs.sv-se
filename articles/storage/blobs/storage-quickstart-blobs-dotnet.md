@@ -7,12 +7,12 @@ ms.date: 07/20/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 1b6348173f47b570efff25bf09e9a427ff2ba9b5
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 27ae562d38ee8734201299e10dbe6ac4be3cb2ee
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640994"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71947654"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-for-net"></a>Snabbstart: Azure Blob Storage-klient bibliotek för .NET
 
@@ -27,15 +27,15 @@ Använd Azure Blob Storage-klient biblioteket för .NET för att:
 * Lista alla blobar i en behållare
 * Ta bort en container
 
-[API Reference dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet) | [bibliotek käll kods](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [exempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
+[API Reference-dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet)@no__t-[1 biblioteks käll kod](https://github.com/Azure/azure-storage-net/tree/master/Blob) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/) | [exempel](https://azure.microsoft.com/resources/samples/?sort=0&service=storage&platform=dotnet&term=blob)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="required-before-you-begin"></a>Krävs innan du börjar
+## <a name="prerequisites"></a>Förutsättningar
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 * Azure Storage konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
-* [Net Core SDK](https://dotnet.microsoft.com/download/dotnet-core)eller senare för ditt operativ system. Se till att hämta SDK och inte körnings miljön.
+* Nuvarande [.net Core SDK](https://dotnet.microsoft.com/download/dotnet-core) för ditt operativ system. Se till att hämta SDK och inte körnings miljön.
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -45,7 +45,7 @@ Det här avsnittet beskriver hur du förbereder ett projekt för att arbeta med 
 
 Börja med att skapa ett .NET Core-program med namnet *BLOB-snabb start*.
 
-1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet *BLOB-snabb start*. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda källfil: *Program.cs*.
+1. I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot `dotnet new` för att skapa en ny konsol-app med namnet *BLOB-snabb start*. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda källfil: *Program.cs*.
 
    ```console
    dotnet new console -n blob-quickstart
@@ -80,7 +80,7 @@ Time Elapsed 00:00:03.08
 
 ### <a name="install-the-package"></a>Installera paketet
 
-När du fortfarande är i program katalogen installerar du Azure-Blob Storage klient biblioteket för .net-paketet med `dotnet add package` hjälp av kommandot.
+När du fortfarande är i program katalogen installerar du Azure-Blob Storage klient biblioteket för .NET-paketet med hjälp av kommandot `dotnet add package`.
 
 ```console
 dotnet add package Microsoft.Azure.Storage.Blob
@@ -91,10 +91,10 @@ dotnet add package Microsoft.Azure.Storage.Blob
 Från projekt katalogen:
 
 1. Öppna filen *program.cs* i redigeraren
-2. Ta bort `Console.WriteLine` instruktionen
-3. Lägg `using` till direktiv
-4. Skapa en `ProcessAsync` metod där huvud koden för exemplet kommer att finnas
-5. Anropa `ProcessAsync` metoden asynkront från`Main`
+2. Ta bort `Console.WriteLine`-instruktionen
+3. Lägg till `using`-direktiv
+4. Skapa en `ProcessAsync`-metod där huvud koden för exemplet kommer att finnas
+5. Anropa metoden `ProcessAsync` asynkront från `Main`
 
 Här är koden:
 
@@ -178,10 +178,10 @@ Följande diagram visar relationen mellan de här resurserna.
 
 Använd följande .NET-klasser för att interagera med dessa resurser:
 
-* [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): `CloudStorageAccount` Klassen representerar ditt Azure Storage-konto. Använd den här klassen för att ge åtkomst till Blob Storage med hjälp av konto åtkomst nycklar.
-* [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): `CloudBlobClient` Klassen ger en åtkomst punkt till BLOB service i din kod.
-* [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): `CloudBlobContainer` Klassen representerar en BLOB-behållare i din kod.
-* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): `CloudBlockBlob` Objektet representerar en block-BLOB i koden. Blockblobbar består av datablock som kan hanteras individuellt.
+* [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount): Klassen `CloudStorageAccount` representerar ditt Azure Storage-konto. Använd den här klassen för att ge åtkomst till Blob Storage med hjälp av konto åtkomst nycklar.
+* [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient): Klassen `CloudBlobClient` ger en åtkomst punkt till Blob Service i din kod.
+* [CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer): Klassen `CloudBlobContainer` representerar en BLOB-behållare i din kod.
+* [CloudBlockBlob](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob): Objektet `CloudBlockBlob` representerar en block-BLOB i koden. Blockblobbar består av datablock som kan hanteras individuellt.
 
 ## <a name="code-examples"></a>Kod exempel
 
@@ -197,9 +197,9 @@ I de här exempel kods tycken visas hur du gör följande med klient biblioteket
 
 ### <a name="authenticate-the-client"></a>Autentisera klienten
 
-Koden nedan kontrollerar att miljövariabeln innehåller en anslutnings sträng som kan parsas för att skapa ett [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) -objekt som pekar på lagrings kontot. Kontrollera att anslutningssträngen är giltig med hjälp av [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet)-metoden. Om `TryParse` är lyckad initierar `storageAccount` den variabeln och returnerar `true`.
+Koden nedan kontrollerar att miljövariabeln innehåller en anslutnings sträng som kan parsas för att skapa ett [CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet) -objekt som pekar på lagrings kontot. Kontrollera att anslutningssträngen är giltig med hjälp av [TryParse](/dotnet/api/microsoft.azure.storage.cloudstorageaccount.tryparse?view=azure-dotnet)-metoden. Om `TryParse` lyckas, initieras `storageAccount`-variabeln och returnerar `true`.
 
-Lägg till den här koden `ProcessAsync` i-metoden:
+Lägg till den här koden inuti metoden `ProcessAsync`:
 
 ```csharp
 // Retrieve the connection string for use with the application. The storage 
@@ -231,7 +231,7 @@ else
 ```
 
 > [!NOTE]
-> Om du vill utföra resten av åtgärderna i den här artikeln ersätter `// ADD OTHER OPERATIONS HERE` du koden ovan med kodfragmenten i följande avsnitt.
+> Om du vill utföra resten av åtgärderna i den här artikeln ersätter du `// ADD OTHER OPERATIONS HERE` i koden ovan med kodfragmenten i följande avsnitt.
 
 ### <a name="create-a-container"></a>Skapa en container
 
@@ -270,7 +270,7 @@ await cloudBlobContainer.SetPermissionsAsync(permissions);
 
 ### <a name="upload-blobs-to-a-container"></a>Ladda upp blobbar till en behållare
 
-Följande kodfragment hämtar en referens till ett `CloudBlockBlob` objekt genom att anropa metoden [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) i den behållare som skapades i föregående avsnitt. Sedan överförs den valda lokala filen till blobben genom att [UploadFromFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync) -metoden anropas. Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
+I följande kodfragment hämtas en referens till ett `CloudBlockBlob`-objekt genom att anropa metoden [GetBlockBlobReference](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.getblockblobreference) i den behållare som skapades i föregående avsnitt. Sedan överförs den valda lokala filen till blobben genom att [UploadFromFileAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblockblob.uploadfromfileasync) -metoden anropas. Den här metoden skapar bloben om den inte redan finns, och skriver över den om den finns.
 
 ```csharp
 // Create a file in your local MyDocuments folder to upload to a blob.
@@ -293,7 +293,7 @@ await cloudBlockBlob.UploadFromFileAsync(sourceFile);
 
 Visa en lista över blobarna i behållaren med hjälp av metoden [ListBlobsSegmentedAsync](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer.listblobssegmentedasync) . I det här fallet har endast en BLOB lagts till i behållaren, så List åtgärden returnerar bara den en blob.
 
-Om det finns för många blobbar att returnera i ett anrop (som standard är mer än 5000) `ListBlobsSegmentedAsync` returnerar metoden ett segment av den totala resultat uppsättningen och en fortsättnings-token. Om du vill hämta nästa segment blobar anger du det fortsättningstoken som returnerades av tidigare anrop, och så vidare tills fortsättningstokenet är null. Ett fortsättningstoken med nullvärde anger att alla blobar har hämtats. Koden visar hur du använder tilläggs-token för bästa praxis.
+Om det finns för många blobbar att returnera i ett anrop (som standard är fler än 5000) returnerar metoden `ListBlobsSegmentedAsync` ett segment av den totala resultat uppsättningen och en fortsättnings-token. Om du vill hämta nästa segment blobar anger du det fortsättningstoken som returnerades av tidigare anrop, och så vidare tills fortsättningstokenet är null. Ett fortsättningstoken med nullvärde anger att alla blobar har hämtats. Koden visar hur du använder tilläggs-token för bästa praxis.
 
 ```csharp
 // List the blobs in the container.

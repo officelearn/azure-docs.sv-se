@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: c39db870e44d4e810817b70e2793b8805088180e
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 325e84ec4489eb2f1f530585af7d3c4bc4b201fc
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932531"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949574"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK för SQL-API: Viktig information och resurser
 > [!div class="op_single_selector"]
@@ -44,6 +44,14 @@ ms.locfileid: "70932531"
 
 > [!NOTE]
 > Om du använder .NET Core, se den senaste versionen 3. x av [.NET SDK](sql-api-sdk-dotnet-standard.md), som är riktad mot .net standard. 
+
+### <a name="a-name270270"></a><a name="2.7.0"/>2.7.0
+
+* Stöd har lagts till för matriser och objekt i order by-frågor
+* Hantera effektiva kollisioner i en partitionsnyckel
+* LINQ-stöd har lagts till för flera OrderBy-operatorer med ThenBy-operatorn
+* Anpassade inställningar för serialisering används nu för alla upsert och ersättnings åtgärder
+* Problem med fast AysncCache-deadlock så att det fungerar med en entrådad Schemaläggaren
 
 ### <a name="a-name260260"></a><a name="2.6.0"/>2.6.0
 
@@ -272,6 +280,7 @@ Förfrågningar till Azure Cosmos DB med hjälp av en tillbakadragen SDK avvisas
 
 | Version | Utgivningsdatum | Slutdatum |
 | --- | --- | --- |
+| [2.7.0](#2.7.0) |23 september 2019 |--- |
 | [2.6.0](#2.6.0) |30 augusti 2019 |--- |
 | [2.5.1](#2.5.1) |Den 02 juli 2019 |--- |
 | [2.4.1](#2.4.1) |20 juni 2019 |--- |

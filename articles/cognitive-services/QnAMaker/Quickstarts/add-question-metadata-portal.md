@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 08/27/2019
+ms.date: 10/01/2019
 ms.author: diberry
-ms.openlocfilehash: dc4548e0c07adc485d1bb5785179aeb7ea2f3fe1
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: ed50e6adbcca7cbb4935400c7850c37dc2ed389f
+ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195696"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71803536"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>Snabbstart: Lägg till frågor och svar med QnA Maker Portal
 
@@ -61,7 +61,7 @@ När den här webb adressen har importer ATS skapades bara en fråga med ett sva
 
 I den här proceduren lägger du till ytterligare frågor.
 
-1. På sidan **Redigera** använder du sökrutan ovanför frågan och svars uppsättningarna för att hitta frågan`How large a knowledge base can I create?`
+1. På sidan **Redigera** använder du sökrutan ovanför frågan och svars uppsättningarna för att hitta frågan `How large a knowledge base can I create?`
 
 1. I kolumnen **fråga** väljer du **+ Lägg till alternativ formuleringen** och lägger sedan till varje ny formuleringen, som finns i följande tabell.
 
@@ -76,7 +76,7 @@ I den här proceduren lägger du till ytterligare frågor.
 
     `What GB size can a knowledge base be?`
 
-    Rätt svar returneras i markdown-format:`The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
+    Rätt svar returneras i markdown-format: `The size of the knowledge base depends on the SKU of Azure search you choose when creating the QnA Maker service. Read [here](https://docs.microsoft.com/azure/cognitive-services/qnamaker/tutorials/choosing-capacity-qnamaker-deployment) for more details.`
 
     Om du väljer **Granska** under det returnerade svaret kan du se fler svar som uppfyllde frågan men inte med samma höga förtroende nivå. 
 
@@ -92,14 +92,14 @@ Genom att lägga till metadata till en fråga och en svars uppsättning kan klie
 
 1. Välj **visnings alternativ**och välj sedan **Visa metadata**. 
 
-1. För frågan och svars uppsättningen som du nyss lade till väljer du **Lägg till metadata-Taggar**och `service` sedan lägger du `search`till `service:search`namnet och värdet.
+1. För frågan och svars uppsättningen som du nyss lade till väljer du **Lägg till metadata-Taggar**och lägger till namnet på `service` och värdet för `search`, `service:search`.
 
-1. Lägg till ytterligare metadata `link_in_answer` `false`-Taggar med namnet och värdet, `link_in_answer:false`.
+1. Lägg till ytterligare metadata-Taggar med namnet `link_in_answer` och värdet för `false`, `link_in_answer:false`.
 
-1. Sök efter det första svaret i tabellen, `How large a knowledge base can I create?`. 
+1. Sök efter det första svaret i tabellen `How large a knowledge base can I create?`. 
 1. Lägg till metadata-par för samma två metadata-Taggar:
 
-    `link_in_answer`:`true`<br>
+    `link_in_answer`: `true`<br>
     `server`: `qna_maker`
 
     Nu har du två frågor med samma metadata-Taggar med olika värden. 
@@ -121,7 +121,7 @@ Genom att lägga till metadata till en fråga och en svars uppsättning kan klie
     curl -X POST https://your-resource-name.azurewebsites.net/qnamaker/knowledgebases/your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey your-endpoint-key" -H "Content-type: application/json" -d "{'top':30, 'question':'size','strictFilters': [{'name':'service','value':'qna_maker'}]}"
     ```
 
-    Observera att frågan bara är ett enda ord, `size`som kan returnera antingen frågor och svars uppsättningar. Matrisen visar svaret för att minska till `qna_maker` bara svaren. `strictFilters` 
+    Observera att frågan bara är ett enda ord, `size`, som kan returnera antingen frågor och svars uppsättningar. Matrisen `strictFilters` visar svaret för att minska till bara @no__t 1-svar. 
 
     [!INCLUDE [Tip for debug property to JSON request](../includes/tip-debug-json.md)]
 
@@ -162,7 +162,7 @@ Genom att lägga till metadata till en fråga och en svars uppsättning kan klie
     }
     ```
 
-    Om det finns en fråga och en svars uppsättning som inte uppfyllde Sök termen men som uppfyller filtret, returneras den inte. I stället returneras det allmänna `No good match found in KB.` svaret.
+    Om det finns en fråga och en svars uppsättning som inte uppfyllde Sök termen men som uppfyller filtret, returneras den inte. I stället returneras den allmänna svars `No good match found in KB.`.
 
     Se till att du behåller metadata-namn och värdepar inom de gränser som krävs. 
 

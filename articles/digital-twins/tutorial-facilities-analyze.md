@@ -2,18 +2,19 @@
 title: 'Självstudier: Analysera händelser från Azure Digital Twins-konfigurationen | Microsoft Docs'
 description: Lär dig mer om att visualisera och analysera händelser från dina Azure Digital Twins-utrymmen, med Azure Time Series Insights, med hjälp av stegen i den här självstudien.
 services: digital-twins
+ms.author: alinast
 author: alinamstanciu
+manager: bertvanhoof
 ms.custom: seodec18
 ms.service: digital-twins
 ms.topic: tutorial
 ms.date: 09/23/2019
-ms.author: alinast
-ms.openlocfilehash: db62d2209207a807570e971ef4af5f9b10b06cb8
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: af776372026bf9affcda03fa9188b854ebedfc73
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300069"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949805"
 ---
 # <a name="tutorial-visualize-and-analyze-events-from-your-azure-digital-twins-spaces-by-using-time-series-insights"></a>Självstudier: Visualisera och analysera händelser från dina Azure Digital Twins-utrymmen med hjälp av Time Series Insights
 
@@ -57,10 +58,10 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. I Event Hubs namn områdes distribution väljer du **översikts** fönstret och väljer sedan **gå till resurs**.
 
-    [![Event Hubs namnrymd efter distribution](./media/tutorial-facilities-analyze/open-event-hub-ns.png)](./media/tutorial-facilities-analyze/open-event-hub-ns.png#lightbox)
+    [namn område för @no__t 1Event Hub efter distributionen](./media/tutorial-facilities-analyze/open-event-hub-ns.png)](./media/tutorial-facilities-analyze/open-event-hub-ns.png#lightbox)
 
 1. I **översiktsfönstret** för Event Hubs-namnområdet väljer du knappen **Event Hub** längst upp.
-    [![Knapp för händelsehubben](./media/tutorial-facilities-analyze/create-event-hub.png)](./media/tutorial-facilities-analyze/create-event-hub.png#lightbox)
+    [@no__t Hubbs knapp för 1Event](./media/tutorial-facilities-analyze/create-event-hub.png)](./media/tutorial-facilities-analyze/create-event-hub.png#lightbox)
 
 1. Ange ett **namn** för din händelsehubb och välj sedan **Skapa**.
 
@@ -68,13 +69,13 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. Välj knappen **Konsumentgrupp** högst upp och ange ett namn som **tsievents** för konsumentgruppen. Välj **Skapa**.
 
-    [![Konsument grupp för Event Hub](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)](./media/tutorial-facilities-analyze/event-hub-consumer-group.png#lightbox)
+    [![Event Hub-konsument grupp](./media/tutorial-facilities-analyze/event-hub-consumer-group.png)](./media/tutorial-facilities-analyze/event-hub-consumer-group.png#lightbox)
 
    När du har skapat konsumentgruppen visas den på listan längst ned på händelsehubbens **översiktsfönster**.
 
 1. Öppna fönstret **Policyer för delad åtkomst** för din händelsehubb och välj knappen **Lägg till**. Ange principnamnet **ManageSend** och se till att alla kryssrutor är markerade och välj **Skapa**.
 
-    [![Anslutnings strängar för Event Hub](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
+    [anslutnings strängar för @no__t 1Event Hub](./media/tutorial-facilities-analyze/event-hub-connection-strings.png)](./media/tutorial-facilities-analyze/event-hub-connection-strings.png#lightbox)
 
 1. Öppna principen ManageSend som du har skapat och kopiera värdena för **Anslutningssträng – primär nyckel** och **Anslutningssträng – sekundär nyckel** till en temporär fil. Du behöver dessa värden för att skapa en slutpunkt för händelsehubben i nästa avsnitt.
 
@@ -127,7 +128,7 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
    Det skapar två slutpunkter för din händelsehubb.
 
-   [![Slut punkter för Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png#lightbox)
+   [![Endpoints för Event Hubs](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png)](./media/tutorial-facilities-analyze/dotnet-create-endpoints.png#lightbox)
 
 ## <a name="analyze-with-time-series-insights"></a>Analysera med Time Series Insights
 
@@ -135,13 +136,13 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. Sök efter och välj en resurs för **Time Series Insights** allmän tillgänglighet (ga). Välj **Skapa**.
 
-1. Ange en **namn** på Time Series Insights-instansen och välj sedan din **prenumeration**. Välj **resursgruppen** du använde för din Digital Twins-instans och din **plats**. Välj **Nästa: Knappen händelse** källa eller fliken **händelse källa** .
+1. Ange en **namn** på Time Series Insights-instansen och välj sedan din **prenumeration**. Välj **resursgruppen** du använde för din Digital Twins-instans och din **plats**. Välj **Nästa: Händelse källa @ no__t-0-knapp eller fliken **händelse källa** .
 
-    [![Val för att skapa en Time Series Insights-instans](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
+    [![Selections för att skapa en Time Series Insights instans](./media/tutorial-facilities-analyze/create-tsi.png)](./media/tutorial-facilities-analyze/create-tsi.png#lightbox)
 
 1. På fliken **händelse källa** anger du ett **namn**, väljer **händelsehubben** som **typ av källa**och kontrollerar att de andra värdena är korrekt markerade. Välj **ManageSend** för **åtkomst princip namnet för händelsehubben**och välj sedan den konsument grupp som du skapade i föregående avsnitt för **konsument gruppen Event Hub**. Välj **Granska + skapa**.
 
-    [![Val för att skapa en händelse källa](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
+    [![Selections för att skapa en händelse källa](./media/tutorial-facilities-analyze/tsi-event-source.png)](./media/tutorial-facilities-analyze/tsi-event-source.png#lightbox)
 
 1. I fönstret **Granska + skapa** granskar du den information du har angett och väljer **skapa**.
 
@@ -153,13 +154,13 @@ Med tjänsten [Event Hubs](../event-hubs/event-hubs-about.md) kan du skapa en pi
 
 1. När några simulerade händelser genereras går du tillbaka till Time Series Insights-utforskaren och väljer uppdateringsknappen högst upp. Du bör se analytiska diagram som skapas för dina simulerade sensordata. 
 
-    [![Diagram i Time Series Insights Explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
+    [![Chart i Time Series Insights Explorer](./media/tutorial-facilities-analyze/tsi-explorer.png)](./media/tutorial-facilities-analyze/tsi-explorer.png#lightbox)
 
 1. I Time Series Insights Explorer kan du sedan generera diagram och termiska kartor för olika händelser och data från dina rum, sensorer och andra resurser. På vänster sida använder du listrutorna **MÅTT** och **DELA MED** för att skapa egna visualiseringar. 
 
    Välj exempelvis **Händelser** som **MÅTT** och **DigitalTwins SensorHardwareId** att **DELA MED** för att generera en termisk karta för var och en av dina sensorer. Den termiska kartan blir något som liknar:
 
-   [![Termisk karta i Time Series Insights Explorer](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png#lightbox)
+   [![Heatmap i Time Series Insights Explorer](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png)](./media/tutorial-facilities-analyze/tsi-explorer-heatmap.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

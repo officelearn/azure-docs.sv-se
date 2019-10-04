@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d69d5ffcae77e7144f97cb423d5bee93cb88fb27
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 713b43f720e3bccae3b9c6457a3317427fb3fc1a
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121598"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71960022"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med JIRA SAML SSO från Microsoft
 
@@ -60,8 +60,8 @@ För att komma igång behöver du följande objekt:
 
 ## <a name="supported-versions-of-jira"></a>Versioner av JIRA som stöds
 
-* JIRA Core och programvara: 6,4 till 8,0
-* JIRA-support 3.0.0 till 3.5.0
+* JIRA Core och programvara: 6,4 till 8.2.4
+* JIRA Service Desk 3.0.0 till 4.2.1
 * JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
 
 > [!NOTE]
@@ -92,7 +92,7 @@ Om du vill konfigurera och testa Azure AD SSO med JIRA SAML SSO från Microsoft 
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera JIRA SAML SSO med Microsoft SSO](#configure-jira-saml-sso-by-microsoft-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa JIRA SAML SSO av Microsoft test User](#create-jira-saml-sso-by-microsoft-test-user)** -om du vill ha en motsvarighet till B. Simon i JIRA SAML SSO av Microsoft som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -181,11 +181,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 5. När plugin-programmet har installerats visas det i avsnittet för **användarinstallerade** tillägg i avsnittet **Manage Add-on** (Hantera tillägg). Klicka på **Konfigurera** för att konfigurera det nya plugin-programmet.
 
-    ![Konfigurera enkel inloggning](./media/jiramicrosoft-tutorial/addon13.png)
+    ![Konfigurera enkel inloggning](./media/jiramicrosoft-tutorial/addon14.png)
 
 6. Utför följande steg på konfigurationssidan:
 
-    ![Konfigurera enkel inloggning](./media/jiramicrosoft-tutorial/addon53.png)
+    ![Konfigurera enkel inloggning](./media/jiramicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > Kontrollera att det bara finns ett certifikat mappat mot appen så att det inte förekommer några fel vid lösningen av metadata. Om det finns flera certifikat får administratören ett fel vid lösningen av metadata.
@@ -195,6 +195,8 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     1. Kopiera värdena för **identifierare, svars-URL och inloggnings-URL** och klistra in dem respektive textrutor för **identifierare, svars-URL och inloggnings-URL** i avsnittet **JIRA SAML SSO by Microsoft Domain and URL** (JIRA SAML SSO från Microsoft-domän och information om URL:er) i Azure-portalen.
 
     1. I **Login Button Name** (Namn på inloggningsknapp) skriver du namnet på den knapp som organisationen vill att användarna ser på inloggningsskärmen.
+    
+    1. I **Beskrivning av inloggnings knapp** anger du en beskrivning av knappen som din organisation vill att användarna ska kunna se på inloggnings skärmen.
 
     1. I **SAML User ID Locations** (Platser för SAML-användar-ID) väljer du antingen **User ID is in the NameIdentifier element of the Subject statement** (Användar-ID finns i elementet NameIdentifier-instruktionen Ämne) eller **User ID is in an Attribute element** (Användar-ID finns i ett Attribut-element).  Detta ID måste vara användar-ID för JIRA. Om användar-ID: t inte matchas kommer systemet inte att tillåta användare att logga in.
 
@@ -212,7 +214,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     1. Kryss rutan Aktivera **tvinga Azure-inloggning** om du bara vill logga in via autentiseringsuppgifter för Azure AD.
     
        > [!Note]
-       > Om du vill aktivera standard inloggnings formuläret för inloggning på inloggnings sidan när tvinga Azure-inloggning är aktiverat lägger du till frågeparametern i URL: en för webbläsaren.
+       >Om du vill aktivera standard inloggnings formuläret för inloggning på inloggnings sidan när tvinga Azure-inloggning är aktiverat lägger du till frågeparametern i URL: en för webbläsaren.
        > `https://<domain:port>/login.action?force_azure_login=false`
 
     1. Klicka på knappen **Spara** för att spara inställningarna.

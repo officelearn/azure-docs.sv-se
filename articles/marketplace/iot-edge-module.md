@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 09/22/2018
 ms.author: pabutler
-ms.openlocfilehash: 3010b63c7c4c575d915789c19b60710194c79196
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: 54369e0f2c943c146d186605833198253b960022
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67874678"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949528"
 ---
 # <a name="iot-edge-modules"></a>IoT Edge-moduler
 
@@ -82,9 +82,7 @@ De primära tekniska kraven för en IoT Edge modul, för att det ska bli certifi
 
 Om du inte redan har gjort det,
 
-- Registrera dig i [Microsoft Partner Network](https://partner.microsoft.com/membership).
-- Skapa ett [Microsoft-konto](https://account.microsoft.com/account/) (krävs för Azure Marketplace Transact-erbjudanden, rekommenderas för andra).
-- Skicka in [registrerings formuläret för Marketplace](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv). Mer information finns i så här [skapar du ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) .
+- [Registrera dig](https://azuremarketplace.microsoft.com/sell) på Marketplace.
 
 Om du har registrerat och skapar ett nytt erbjudande eller arbetar på ett befintligt,
 

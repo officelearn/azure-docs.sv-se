@@ -220,6 +220,8 @@
               href: connect-environment-lab-virtual-network.md
             - name: Konfigurera testmiljöer med kapslade mallar
               href: deploy-nested-template-environments.md
+            - name: Använda hanterade Azure-identiteter för att distribuera miljöer
+              href: use-managed-identities-environments.md
         - name: Hantera återanvändbara mallar
           items:
             - name: Anpassade avbildningar kontra formler

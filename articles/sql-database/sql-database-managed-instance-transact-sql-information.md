@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, carlrab, bonova
 ms.date: 08/12/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 94e9a484afe42f8621380fa685f8bc9faeb894d3
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
-ms.translationtype: HT
+ms.openlocfilehash: 9796a4efdacef04390705607defb7b5cdd462886
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816041"
+ms.locfileid: "71828727"
 ---
 # <a name="managed-instance-t-sql-differences-limitations-and-known-issues"></a>Hanterade instans T-SQL-skillnader, begränsningar och kända problem
 
@@ -334,7 +334,7 @@ En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så file
 
 En hanterad instans kan inte komma åt fil resurser och Windows-mappar, så följande villkor gäller:
 
-- Stöds `CREATE ASSEMBLY FROM BINARY` endast. Se [skapa sammansättning från binär](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql). 
+- Stöds `CREATE ASSEMBLY FROM BINARY` endast. Se [skapa assem bly från Binary](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql). 
 - `CREATE ASSEMBLY FROM FILE`stöds inte. Se [skapa sammansättning från fil](https://docs.microsoft.com/sql/t-sql/statements/create-assembly-transact-sql).
 - `ALTER ASSEMBLY`Det går inte att referera till filer. Se [Alter Assembly](https://docs.microsoft.com/sql/t-sql/statements/alter-assembly-transact-sql).
 
@@ -548,7 +548,7 @@ En hanterad instans placerar utförlig information i fel loggarna. Det finns må
 
 **Ikraftträdande** Okt 2019
 
-SQL Server/hanterad instans [tillåter inte att användaren släpper en fil som inte är tom](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database.md#Prerequisites). Om du försöker ta bort en data fil som inte är tom med `ALTER DATABASE REMOVE FILE`-instruktionen returneras inte felet `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` omedelbart. Den hanterade instansen fortsätter att försöka släppa filen och åtgärden kommer att Miss sen efter 30 min med `Internal server error`.
+SQL Server/hanterad instans [tillåter inte att användaren släpper en fil som inte är tom](https://docs.microsoft.com/sql/relational-databases/databases/delete-data-or-log-files-from-a-database#Prerequisites). Om du försöker ta bort en data fil som inte är tom med `ALTER DATABASE REMOVE FILE`-instruktionen returneras inte felet `Msg 5042 – The file '<file_name>' cannot be removed because it is not empty` omedelbart. Den hanterade instansen fortsätter att försöka släppa filen och åtgärden kommer att Miss sen efter 30 min med `Internal server error`.
 
 **Lösning**: Ta bort innehållet i filen med kommandot `DBCC SHRINKFILE (N'<file_name>', EMPTYFILE)`. Om det här är den enda filen i fil gruppen måste du ta bort data från tabellen eller partitionen som är kopplade till den här fil gruppen innan du krymper filen och eventuellt läsa in dessa data till en annan tabell/partition.
 

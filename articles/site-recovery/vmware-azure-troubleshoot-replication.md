@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/2/2019
 ms.author: mayg
-ms.openlocfilehash: 54686a96385532e17fe0ac6e59058b91b40c1342
-ms.sourcegitcommit: d060947aae93728169b035fd54beef044dbe9480
+ms.openlocfilehash: b02e819255db0cdf8b9d241f2ec0d41df7494162
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68742571"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844346"
 ---
 # <a name="troubleshoot-replication-issues-for-vmware-vms-and-physical-servers"></a>Felsök problem med replikering för virtuella VMware-datorer och fysiska servrar
 
@@ -41,7 +41,7 @@ Lös problemen genom att [Felsöka anslutningar och replikering](vmware-physical
 
 När du försöker välja käll datorn för att aktivera replikering med hjälp av Site Recovery kanske datorn inte är tillgänglig av någon av följande orsaker:
 
-* **Två virtuella datorer med samma instans-UUID**: Om två virtuella datorer under vCenter har samma instans-UUID, visas den första virtuella datorn som identifieras av konfigurations servern i Azure Portal. Lös problemet genom att se till att det inte finns två virtuella datorer med samma instans-UUID. Det här scenariot visas vanligt vis i instanser där en säkerhets kopia av virtuella datorer blir aktiv och är inloggad i våra identifierings poster. [Se Azure Site Recovery VMware-till-Azure: Så här rensar du dubbletter eller](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) inaktuella poster för att lösa problemet.
+* **Två virtuella datorer med samma instans-UUID**: Om två virtuella datorer under vCenter har samma instans-UUID, visas den första virtuella datorn som identifieras av konfigurations servern i Azure Portal. Lös problemet genom att se till att det inte finns två virtuella datorer med samma instans-UUID. Det här scenariot visas vanligt vis i instanser där en säkerhets kopia av virtuella datorer blir aktiv och är inloggad i våra identifierings poster. Se [Azure Site Recovery VMware-till-Azure: Så här rensar du dubbletter eller inaktuella poster @ no__t-0 för att lösa problemet.
 * **Felaktiga vCenter**-användarautentiseringsuppgifter: Se till att du har lagt till rätt vCenter-autentiseringsuppgifter när du konfigurerade konfigurations servern med hjälp av OVF-mallen eller den enhetliga installationen. Information om hur du kontrollerar de autentiseringsuppgifter som du lade till under installationen finns i [ändra autentiseringsuppgifter för automatisk identifiering](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
 * **vCenter otillräckliga behörigheter**: Om behörigheterna för åtkomst till vCenter inte har de behörigheter som krävs, kan det hända att det inte går att identifiera virtuella datorer. Kontrol lera att behörigheterna som beskrivs i [förbereda ett konto för automatisk identifiering](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) läggs till i vCenter-användarkontot.
 * **Azure Site Recovery hanterings servrar**: Om den virtuella datorn används som hanterings Server under en eller flera av följande roller – konfigurations servern/Scale-Out processervern/huvud mål servern, kan du inte välja den virtuella datorn från portalen. Hanterings servrar kan inte replikeras.
@@ -53,37 +53,17 @@ När du försöker välja käll datorn för att aktivera replikering med hjälp 
 
 ### <a name="troubleshoot-protected-virtual-machines-greyed-out-in-the-portal"></a>Felsöka skyddade virtuella datorer som är grå i portalen
 
-Virtuella datorer som replikeras under Site Recovery är inte tillgängliga i Azure Portal om det finns dubbla poster i systemet. Information om hur du tar bort inaktuella poster och löser problemet finns i [Azure Site Recovery VMware-till-Azure: Så här rensar du dubbletter eller](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx)inaktuella poster.
+Virtuella datorer som replikeras under Site Recovery är inte tillgängliga i Azure Portal om det finns dubbla poster i systemet. Information om hur du tar bort inaktuella poster och löser problemet finns i [Azure Site Recovery VMware-till-Azure: Så här rensar du dubbletter eller inaktuella poster @ no__t-0.
 
-## <a name="common-errors-and-solutions"></a>Vanliga fel och lösningar
+## <a name="no-crash-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Ingen kraschad återställnings punkt är tillgänglig för den virtuella datorn under de senaste XXX minuterna
+
+Några av de vanligaste problemen visas nedan
 
 ### <a name="initial-replication-issues-error-78169"></a>Problem med inledande replikering [fel 78169]
 
 Över ett ovan garanterar att det inte finns några problem med anslutning, bandbredd eller tidssynkronisering, se till att:
 
 - Inga antivirus program blockerar Azure Site Recovery. Läs [mer](vmware-azure-set-up-source.md#azure-site-recovery-folder-exclusions-from-antivirus-program) om undantag från mappar som krävs för Azure Site Recovery.
-
-### <a name="missing-app-consistent-recovery-points-error-78144"></a>Program-konsekventa återställnings punkter saknas [fel 78144]
-
- Detta inträffar på grund av problem med tjänsten Volume Shadow Copy (VSS). För att lösa detta: 
- 
-- Kontrol lera att den installerade versionen av Azure Site Recovery agent är minst 9.22.2. 
-- Kontrol lera att VSS-providern är installerad som en tjänst i Windows-tjänster och kontrol lera också att tjänsten Component service används för att kontrol lera att Azure Site Recovery VSS-Provider visas.
-- Om VSS-providern inte är installerad kan du läsa [artikeln om installation fel sökning](vmware-azure-troubleshoot-push-install.md#vss-installation-failures).
-
-- Om VSS är inaktiverat
-    - Kontrol lera att start typen för tjänsten VSS Provider är inställd på **Automatisk**.
-    - Starta om följande tjänster:
-        - VSS-tjänst
-        - Azure Site Recovery VSS Provider
-        - VDS-tjänst
-
-- Om du kör SQL-eller Exchange-arbetsbelastningar kan du kontrol lera loggarna för dessa program skribenter om det uppstår problem. Vanliga fel och deras upplösning registreras i följande artiklar:
-    -  [Alternativet för automatisk stängning i SQL Server Database har angetts till TRUE](https://support.microsoft.com/help/4504104)
-    - [SQL Server 2008 R2 utlöser ett fel som inte går att försöka igen](https://support.microsoft.com/help/4504103)
-    - [Känt problem i SQL Server 2016 och 2017](https://support.microsoft.com/help/4493364)
-    - [Vanliga problem med Exchange Server 2013 och 2016](https://support.microsoft.com/help/4037535)
-
 
 ### <a name="source-machines-with-high-churn-error-78188"></a>Käll datorer med hög omsättning [fel 78188]
 
@@ -138,8 +118,21 @@ Lös problemet genom att följa stegen nedan för att kontrol lera tjänst statu
     - Fel information finns i loggarna på platsen:
         
           C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents*log
+3. Om du vill registrera huvud målet med konfigurations servern navigerar du till mappen **%programdata%\ASR\Agent**och kör följande kommando tolk:
+   ```
+   cmd
+   cdpcli.exe --registermt
+
+   net stop obengine
+
+   net start obengine
+
+   exit
+   ```
 
 ## <a name="error-id-78144---no-app-consistent-recovery-point-available-for-the-vm-in-the-last-xxx-minutes"></a>Fel-ID 78144 – ingen programkonsekvent återställnings punkt är tillgänglig för den virtuella datorn under de senaste XXX minuterna
+
+Förbättringar har gjorts i Mobility agent [9,23](vmware-physical-mobility-service-overview.md##from-923-version-onwards) & [9,27](site-recovery-whats-new.md#update-rollup-39) -versioner för att hantera problem med VSS-installation. Se till att du har de senaste versionerna för bästa vägledning om hur du felsöker VSS-fel.
 
 Några av de vanligaste problemen visas nedan
 

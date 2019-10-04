@@ -8,12 +8,12 @@ services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: v-adgera
-ms.openlocfilehash: f33e5be2408d2ebacd215c5f0601d712197254a7
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
-ms.translationtype: MT
+ms.openlocfilehash: f04946dffd66dcd44743197a0ca8f0fe21624285
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803417"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844517"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Så här konfigurerar du Postman för digital Azures dubbla
 
@@ -122,7 +122,8 @@ När du har slutfört de föregående stegen konfigurerar du Postman att göra e
    [![Content typ multipart/blandat](media/how-to-configure-postman/content-type.png)](media/how-to-configure-postman/content-type.png#lightbox)
 
 1. Serialisera icke-text data i filer. JSON-data sparas som en JSON-fil.
-1. På fliken **brödtext** lägger du till varje fil genom att tilldela ett **nyckel** namn och välja `file` eller `text`.
+1. På fliken **brödtext** väljer du `form-data`. 
+1. Lägg till varje fil genom att tilldela ett **nyckel** namn och välja `file`.
 1. Välj sedan varje fil via knappen **Välj fil** .
 
    [1Postman-klient exempel @no__t](media/how-to-configure-postman/form-body.png)](media/how-to-configure-postman/form-body.png#lightbox)

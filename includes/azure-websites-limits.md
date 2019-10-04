@@ -4,12 +4,12 @@ ms.service: billing
 ms.topic: include
 ms.date: 08/09/2019
 ms.author: jroth
-ms.openlocfilehash: 1080e3488483610af0f0c9afadaf000895021821
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 8cdfe82888cca471aa5aae6717a16f62000c4ad5
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69657877"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839198"
 ---
 | Resource | Lediga | Delad | Basic | Standard | Premium (v2) | Isolerad </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -42,7 +42,7 @@ ms.locfileid: "69657877"
 <sup>2</sup> Det faktiska antalet appar som du kan vara värd för på de här datorerna beror på aktivitetens appar, storleken på dator instanserna och motsvarande resursutnyttjande.  
 <sup>3</sup> Dedikerade instanser kan ha olika storlekar. Mer information finns i [App Service prissättning](https://azure.microsoft.com/pricing/details/app-service/).  
 <sup>4</sup> Fler tillåts på begäran.  
-<sup>5</sup> Lagrings gränsen är den totala innehålls storleken för alla appar i samma App Service plan.  
+<sup>5</sup> Lagrings gränsen är den totala innehålls storleken för alla appar i samma app service-plan. Den totala innehålls storleken för alla appar i alla App Service-planer i en enda resurs grupp och region får inte överstiga 500 GB.  
 <sup>6</sup> Dessa resurser begränsas av fysiska resurser på dedikerade instanser (instans storlek och antal instanser).  
 <sup>7</sup> Om du skalar en app på Basic-nivån till två instanser har du 350 samtidiga anslutningar för var och en av de två instanserna. För standard-nivån och ovan finns det inga teoretiska gränser för Web Sockets, men andra faktorer kan begränsa antalet Web Sockets. Till exempel är maximalt antal samtidiga begär Anden `maxConcurrentRequestsPerCpu`tillåtna (definierade av): 7 500 per liten virtuell dator, 15 000 per medelhög virtuell dator (7 500 x 2 kärnor) och 75 000 per stor virtuell dator (18 750 x 4 kärnor).  
 <sup>8</sup> Kör anpassade körbara filer och/eller skript på begäran, enligt schema eller kontinuerligt som bakgrunds aktivitet i App Service-instansen. ”Alltid på” krävs för kontinuerlig körning av WebJobs. Azure Scheduler Kostnadsfri eller Standard krävs för schemalagda WebJobs. Det finns ingen fördefinierad gräns för antalet WebJobs som kan köras i en App Service instans. Det finns praktiska gränser som beror på vad program koden försöker göra.  

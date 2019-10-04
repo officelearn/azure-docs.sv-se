@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: conceptual
-ms.date: 03/26/2019
+ms.date: 10/01/2019
 ms.author: aahi
-ms.openlocfilehash: c7b3d9b66d74f16dc0938c888456d673b9cd4b77
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: ca93de71f64efaf21c78b37b9c9aee193d13b28d
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882892"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840227"
 ---
 # <a name="how-to-use-the-anomaly-detector-api-on-your-time-series-data"></a>Anvisningar: Använd API: t för avvikelse detektor i dina Time Series-data  
 
@@ -26,7 +26,7 @@ ms.locfileid: "68882892"
 API: t för avvikelse detektor tillhandahåller identifierings lägen: batch och strömning.
 
 > [!NOTE]
-> Följande URL-adresser för begäran måste kombineras med lämplig slut punkt för din prenumeration. Exempel: `https://westus2.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
+> Följande URL-adresser för begäran måste kombineras med lämplig slut punkt för din prenumeration. Exempel: `https://<your-custom-subdomain>.api.cognitive.microsoft.com/anomalydetector/v1.0/timeseries/entire/detect`
 
 
 ### <a name="batch-detection"></a>Batch-identifiering
@@ -47,7 +47,7 @@ Genom att skicka nya data punkter när du genererar dem kan du övervaka dina da
 
 ## <a name="adjusting-lower-and-upper-anomaly-detection-boundaries"></a>Justera nedre och övre avvikelse identifierings gränser
 
-Som standard beräknas de övre och nedre gränserna för avvikelse identifiering med `expectedValue`, `upperMargin`och `lowerMargin`. Om du behöver olika gränser rekommenderar vi att du använder `marginScale` en `upperMargin` till `lowerMargin`eller. Gränserna beräknas enligt följande:
+Som standard beräknas de övre och nedre gränserna för avvikelse identifiering med `expectedValue`, `upperMargin` och `lowerMargin`. Om du behöver olika gränser rekommenderar vi att du använder en `marginScale` till `upperMargin` eller `lowerMargin`. Gränserna beräknas enligt följande:
 
 |Gräns  |Beräkning  |
 |---------|---------|

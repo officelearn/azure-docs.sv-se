@@ -17,12 +17,12 @@ ms.date: 09/11/2018
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8024130b986d111abe3b470d6b06e86ed6419dc4
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: def5dc82f8cbda93f6ac18f8a2af41d5c82ce5da
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320921"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936757"
 ---
 # <a name="add-a-multitenant-application-to-the-azure-ad-application-gallery"></a>Lägg till ett program med flera klienter i program galleriet för Azure AD
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) är en molnbaserad identitets tjänst. [Azure 
 ## <a name="if-your-application-supports-saml-or-openidconnect"></a>Om programmet har stöd för SAML eller OpenIDConnect
 Om du har ett program för flera innehavare som du vill ska visas i Azure AD-programgalleriet, måste du först se till att programmet har stöd för någon av följande tekniker för enkel inloggning:
 
-- **OpenID Connect**: Om du vill att din app ska visas skapar du ett program för flera innehavare i Azure AD och implementerar [Azure AD medgivande Framework](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) för ditt program. Skicka inloggningsbegäran till en gemensam slut punkt så att alla kunder kan ge sitt medgivande till programmet. Du kan styra en användares åtkomst baserat på klient-ID och användarens UPN som togs emot i token. Skicka programmet genom att använda processen som beskrivs i ange [ditt program i Azure Active Directory program galleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
+- **OpenID Connect**: Om du vill att din app ska visas skapar du ett program för flera innehavare i Azure AD och implementerar [Azure AD medgivande Framework](https://docs.microsoft.com/azure/active-directory/develop/consent-framework) för ditt program. Skicka inloggningsbegäran till en gemensam slut punkt så att alla kunder kan ge sitt medgivande till programmet. Du kan styra en användares åtkomst baserat på klient-ID och användarens UPN som togs emot i token. Skicka programmet genom att använda processen som beskrivs i ange [ditt program i Azure Active Directory program galleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 
 - **SAML**: Om ditt program stöder SAML 2,0, kan appen listas i galleriet. Följ anvisningarna i [att lista ditt program i Azure Active Directory program galleriet](https://docs.microsoft.com/azure/active-directory/develop/active-directory-app-gallery-listing).
 

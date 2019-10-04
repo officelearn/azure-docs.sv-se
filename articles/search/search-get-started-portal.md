@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: quickstart
 ms.date: 09/10/2019
 ms.author: laobri
-ms.openlocfilehash: 44f370829b972840ac4266a760fefb4aa317be30
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: a4a25b8504d873b624e1f6822807c9c08ebd2e4f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884558"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936971"
 ---
 # <a name="quickstart-create-an-azure-search-index-using-the-azure-portal"></a>Snabbstart: Skapa ett Azure Search-index med hjälp av Azure Portal
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "70884558"
 > * [Python](search-get-started-python.md)
 > * [C#](search-get-started-dotnet.md)
 
-Om du vill få en snabb start med Azure Search-koncept så kan du testa de inbyggda verktygen i Azure-portalen. Guider och redigeringsverktyg erbjuder inte fullständig paritet med .NET och REST API:er, men du kan snabbt komma igång med en kodfri introduktion och skriva intressanta frågor mot exempeldata på bara några minuter.
+Om du vill få en snabb start med Azure Search-koncept så kan du testa de inbyggda verktygen i Azure-portalen. Guider och redigerare ger inte fullständig paritet med .NET-och REST-API: er, men du kan komma igång snabbt med en kod fri introduktion och skriva intressanta frågor mot ett index på några minuter.
 
 > [!div class="checklist"]
 > * Börja med en kostnadsfri offentlig uppsättning exempeldata i Azure
@@ -53,7 +53,7 @@ Avsnitten i tjänstinstrumentpanelen visar hur många index, indexerare och data
 
 Sökfrågor itererar över ett [*index*](search-what-is-an-index.md) som innehåller sökbara data, metadata och ytterligare konstruktioner som optimerar vissa sökbeteenden.
 
-För den här självstudien använder vi en inbyggd exampeldatamängd som kan crawlas med en [*indexerare*](search-indexer-overview.md) via guiden **Importera data**. En indexerare är en källspecifik crawler som kan läsa metadata och innehåll från Azure-datakällor som stöds. Normalt sett används indexerare programmässigt, men i portalen så kan du komma åt dem via guiden **Importera data**. 
+I den här självstudien använder vi en inbyggd exempel data uppsättning som kan crawlas med hjälp av en [*indexerare*](search-indexer-overview.md) via [guiden **Importera data** ](search-import-data-portal.md). En indexerare är en källspecifik crawler som kan läsa metadata och innehåll från Azure-datakällor som stöds. Normalt sett används indexerare programmässigt, men i portalen så kan du komma åt dem via guiden **Importera data**. 
 
 ### <a name="step-1---start-the-import-data-wizard-and-create-a-data-source"></a>Steg 1 – starta guiden Importera data och skapa en datakälla
 

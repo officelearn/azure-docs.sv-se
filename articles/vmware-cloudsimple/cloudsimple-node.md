@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 58af69b401400c7b2f663a91de8bf38bc9a296a3
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 729b832c068dcd401fa6e9d2f4af9193d3859a83
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877691"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845547"
 ---
 # <a name="cloudsimple-nodes-overview"></a>Översikt över CloudSimple-noder
 
@@ -36,13 +36,14 @@ De köpta noderna ger en kapacitet för betala per användning. Med inköps node
 
 Följande typer av noder är tillgängliga för köp eller reservation.
 
-| SKU | CS28-nod | CS36-nod |
-|-----|-------------|-------------|
-| Processor | 2x 2,2 GHz, 28 kärnor (56 HT) | 2x 2,3 GHz, 36 kärnor (72 HT) |
-| RAM | 256 GB | 512 GB |
-| Cachelagra disk |  1,6 – TB NVMe | 3,2 – TB NVMe |
-| Kapacitets disk | 5,625 TB RAW | 11,25 TB RAW |
-| Lagrings typ | Alla Flash | Alla Flash |
+| SKU           | CS28-nod                 | CS36-nod                 | CS36m-nod                |
+|---------------|-----------------------------|-----------------------------|-----------------------------|
+| Region        | Östra USA, västra USA            | Östra USA, västra USA            | Västra Europa                 |
+| Processor           | 2x 2,2 GHz, 28 kärnor (56 HT) | 2x 2,3 GHz, 36 kärnor (72 HT) | 2x 2,3 GHz, 36 kärnor (72 HT) |
+| RAM           | 256 GB                      | 512 GB                      | 576 GB                      |
+| Cachedisk    | 1,6 – TB NVMe                 | 3,2 – TB NVMe                 | 3,2 – TB NVMe                 |
+| Kapacitets disk | 5,625 TB RAW                | 11,25 TB RAW                | 15,36 TB RAW                |
+| Lagringstyp  | Alla Flash                   | Alla Flash                   | Alla Flash                   |
 
 ## <a name="limits"></a>Begränsningar
 

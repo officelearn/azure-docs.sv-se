@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 04e3881b553f639bb2df948b6ad1154f86f1c9da
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123089"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828222"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database utan server (för hands version)
 
@@ -67,7 +67,7 @@ I följande tabell sammanfattas skillnader mellan server lös beräknings nivå 
 |:---|:---|:---|
 |**Användnings mönster för databas**| Intermittent, oförutsägbar användning med lägre genomsnittlig beräknings användning över tid. |  Vanliga användnings mönster med högre genomsnittlig beräknings användning över tid, eller flera databaser med elastiska pooler.|
 | **Prestanda hanterings ansträngning** |Sämre|Högre|
-|**Beräknings skalning**|Automatiskt|Manuell|
+|**Beräknings skalning**|Automatisk|Manuellt|
 |**Beräknings svars tid**|Lägre efter inaktiva perioder|Omedelbar|
 |**Fakturerings precision**|Per sekund|Per timme|
 
@@ -126,7 +126,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 |Funktion|Autoresume-utlösare|
 |---|---|
-|Autentisering och auktorisering|Logga in|
+|Autentisering och auktorisering|Inloggning|
 |Identifiering av hot|Aktivera/inaktivera inställningar för hot identifiering på databas-eller server nivå.<br>Ändra inställningarna för hot identifiering på databas-eller server nivå.|
 |Dataidentifiering och -klassificering|Lägga till, ändra, ta bort eller Visa känslighets etiketter|
 |Granskning|Visa gransknings poster.<br>Uppdaterar eller visar gransknings principen.|
@@ -155,7 +155,7 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
 
 1. Ange namnet på tjänst målet. Tjänst målet föreskriver tjänst nivån, maskin varu genereringen och Max virtuella kärnor. I följande tabell visas alternativen för tjänst målet:
 
-   |Namn på tjänst målet|Tjänstnivå|Maskin varu generering|Max virtuella kärnor|
+   |Namn på tjänst målet|Tjänstnivå|Maskin varu generering|Maximalt antal virtuella kärnor|
    |---|---|---|---|
    |GP_S_Gen5_1|Generellt syfte|Gen5|1|
    |GP_S_Gen5_2|Generellt syfte|Gen5|2|
@@ -171,7 +171,7 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
 
    |Parameter|Värde alternativ|Standardvärde|
    |---|---|---|---|
-   |Minsta virtuella kärnor|Alla {0,5, 1, 2, 4} överskrider max virtuella kärnor|0,5 virtuella kärnor|
+   |Minsta antal virtuella kärnor|Är beroende av Max virtuella kärnor konfigurerade – se [resurs gränser](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 virtuella kärnor|
    |Pausa fördröjning|Lägst 60 minuter (1 timme)<br>Maximihalter 10080 minuter (7 dagar)<br>Steg om 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
 
 > [!NOTE]
@@ -225,7 +225,7 @@ En server lös databas kan flyttas till en allokerad beräknings nivå på samma
 
 ## <a name="modifying-serverless-configuration"></a>Ändra konfiguration utan Server
 
-### <a name="maximum-vcores"></a>Högsta antal virtuella kärnor
+### <a name="maximum-vcores"></a>Maximalt antal virtuella kärnor
 
 #### <a name="use-powershell"></a>Använd PowerShell
 

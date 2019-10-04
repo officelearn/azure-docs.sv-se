@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/14/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 07a45f54eb7c00e20abcfb05979e24493e5b9604
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
-ms.translationtype: MT
+ms.openlocfilehash: c9ae01b3a8f49b210c363fea20bc3c221d9e837a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676661"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71839622"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -203,7 +203,7 @@ När du har loggat in på ditt konto med hjälp av den information som du har f�
 
 ### <a name="how-to-read-activity-search-results"></a>Så här läser du resultat från aktivitets sökning
 
-Aktiviteter sorteras efter tidsstämpel, med den senaste aktiviteten först. Om resultatet returnerar ett fel, kontrol lera först om det är ett tjänst fel. För tjänst fel skapar du ett support ärende med aktivitets informationen som hjälper oss att felsöka problemet. Alla andra fel typer kan vanligt vis lösas av användaren eller administratören. En lista över de vanligaste fel scenarierna och hur du löser dem finns i [identifiera problem med funktionen diagnostik](diagnostics-role-service.md#common-error-scenarios).
+Aktiviteter sorteras efter tidsstämpel, med den senaste aktiviteten först. Om resultatet returnerar ett fel, kontrol lera först om det är ett tjänst fel. För tjänst fel skapar du ett support ärende med aktivitets informationen som hjälper oss att felsöka problemet. Alla andra fel typer kan vanligt vis lösas av användaren eller administratören. En lista över de vanligaste fel scenarierna och hur du löser dem finns i [identifiera och diagnostisera problem](diagnostics-role-service.md#common-error-scenarios).
 
 >[!NOTE]
 >Tjänst fel kallas "externa fel" i den länkade dokumentationen. Detta kommer att ändras när vi uppdaterar PowerShell-referensen.

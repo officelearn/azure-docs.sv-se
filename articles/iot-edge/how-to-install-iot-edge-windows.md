@@ -7,15 +7,15 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/10/2019
+ms.date: 10/04/2019
 ms.author: kgremban
 ms.custom: seodec18
-ms.openlocfilehash: 6118c4ddf1386ff4cc816148938e1f5ddeaecc9e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 513cf477e8c2899da17ee8e9bdfdb9ad2bedd159
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266086"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828098"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-windows"></a>Installera Azure IoT Edge runtime i Windows
 
@@ -121,52 +121,12 @@ Om du vill ha mer information om dessa installations alternativ kan du gå vidar
 
 ### <a name="option-2-install-and-automatically-provision"></a>Alternativ 2: Installera och automatiskt etablera
 
-I det här andra alternativet etablerar du enheten med hjälp av IoT Hub Device Provisioning Service. Ange omfångs **-ID** från en enhets etablerings tjänst instans och **registrerings-ID** från din enhet. Ytterligare värden kan krävas enligt din mekanism för attestering vid etablering med DPS, till exempel när [symmetriska nycklar](how-to-auto-provision-symmetric-keys.md)används.
+I det här andra alternativet etablerar du enheten med hjälp av IoT Hub Device Provisioning Service. Ange **omfattnings-ID: t** från en enhets etablerings tjänst instans tillsammans med annan information som är speciell för den önskade [mekanismen för attestering](../iot-dps/concepts-security.md#attestation-mechanism):
 
-Följande exempel visar en automatisk installation med Windows-behållare och TPM-attestering:
+* [Skapa och etablera en simulerad TPM Edge-enhet i Windows](how-to-auto-provision-simulated-device-windows.md)
+* [Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering](how-to-auto-provision-symmetric-keys.md)
 
-1. Följ stegen i [skapa och etablera en simulerad TPM-IoT Edge enhet i Windows](how-to-auto-provision-simulated-device-windows.md) för att konfigurera enhets etablerings tjänsten och hämta dess **scope-ID**, simulera en TPM-enhet och hämta dess **registrerings-ID**och skapa en person registrerings. När enheten har registrerats i din IoT-hubb fortsätter du med dessa installations steg.  
-
-   >[!TIP]
-   >Lämna fönstret med TPM-simulatorn öppen under installationen och testning. 
-
-1. Kör PowerShell som administratör.
-
-   >[!NOTE]
-   >Använd en AMD64-session av PowerShell för att installera IoT Edge, inte PowerShell (x86). Om du inte är säker på vilken typ av session du använder kör du följande kommando:
-   >
-   >```powershell
-   >(Get-Process -Id $PID).StartInfo.EnvironmentVariables["PROCESSOR_ARCHITECTURE"]
-   >```
-
-1. Kommandot **Deploy-IoTEdge** kontrollerar att Windows-datorn finns på en version som stöds, aktiverar funktionen containers och laddar sedan ned Moby runtime och IoT Edge Runtime. Kommandot använder som standard Windows-behållare. 
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Deploy-IoTEdge
-   ```
-
-1. I det här läget kan IoT core-enheter startas om automatiskt. Andra Windows 10-eller Windows Server-enheter kan bli ombedd att starta om. Om så är fallet startar du om enheten nu. När enheten är klar kör du PowerShell som administratör igen.
-
-1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot är standardvärdet för manuell etablering med Windows-behållare. `-Dps` Använd flaggan för att använda enhets etablerings tjänsten i stället för manuell etablering. Ersätt `{scope ID}` med scope-ID: t från enhets etablerings tjänsten `{registration ID}` och med registrerings-ID: t från enheten, som du bör hämta i steg 1.
-
-   Använda kommandot **Initialize-IoTEdge** för att använda DPS med TPM-attestering:
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID}
-   ```
-
-   Med kommandot **Initialize-IoTEdge** kan du använda DPS med symmetrisk nyckel attestering. Ersätt `{symmetric key}` med en enhets nyckel.
-
-   ```powershell
-   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
-   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
-   ```
-
-1. Använd stegen i [kontrol lera att installationen](#verify-successful-installation) har slutförts för att kontrol lera status för IoT Edge på enheten. 
-
-När du installerar och etablerar en enhet manuellt kan du använda ytterligare parametrar för att ändra installationen, inklusive:
+När du installerar och etablerar en enhet automatiskt kan du använda ytterligare parametrar för att ändra installationen, inklusive:
 
 * Direkt trafik för att gå igenom en proxyserver
 * Peka installations programmet till en offline-katalog
@@ -302,13 +262,13 @@ Kommandot Initialize-IoTEdge konfigurerar IoT Edge med enhetens anslutnings str�
 | **–** | Inga | **Växlings parameter**. Om ingen etablerings typ anges, är manuell standardvärdet.<br><br>Förklarar att du kommer att tillhandahålla ett omfångs-ID för enhets etablerings tjänsten (DPS) och din enhets registrerings-ID för att etablera genom DPS.  |
 | **DeviceConnectionString** | En anslutnings sträng från en IoT Edge enhet som är registrerad i en IoT Hub, med enkla citat tecken | **Krävs** för manuell installation. Om du inte anger någon anslutnings sträng i skript parametrarna uppmanas du att ange en under installationen. |
 | **ScopeId** | Ett scope-ID från en instans av enhets etablerings tjänsten som är kopplad till din IoT Hub. | **Krävs** för DPS-installation. Om du inte anger ett omfångs-ID i skript parametrarna uppmanas du att ange ett under installationen. |
-| **RegistrationId** | Ett registrerings-ID som genereras av din enhet | **Krävs** för DPS-installation. |
+| **RegistrationId** | Ett registrerings-ID som genereras av din enhet | **Krävs** för DPS-installation om du använder TPM eller symmetrisk nyckel attestering. |
 | **SymmetricKey** | Den symmetriska nyckel som används för att etablera IoT Edge enhets identitet när DPS används | **Krävs** för DPS-installation om du använder symmetrisk nyckel attestering. |
 | **Container** | **Windows** eller **Linux** | Om inget behållar operativ system anges är Windows standardvärdet.<br><br>För Windows-behållare använder IoT Edge Moby container Engine som ingår i installationen. För Linux-behållare måste du installera en behållar motor innan du startar installationen. |
 | **InvokeWebRequestParameters** | Hash-värde för parametrar och värden | Under installationen görs flera webb förfrågningar. Använd det här fältet om du vill ange parametrar för dessa webb förfrågningar. Den här parametern är användbar för att konfigurera autentiseringsuppgifter för proxyservrar. Mer information finns i [konfigurera en IoT Edge-enhet kan kommunicera via en proxyserver](how-to-configure-proxy-support.md). |
 | **AgentImage** | IoT Edge agent avbildnings-URI | Som standard använder en ny IoT Edge-installation den senaste rullande taggen för IoT Edge agent-avbildningen. Använd den här parametern för att ange en speciell tagg för avbildnings versionen eller för att ange en egen agent avbildning. Mer information finns i [förstå IoT Edge Taggar](how-to-update-iot-edge.md#understand-iot-edge-tags). |
 | **Användarnamn** | Användar namn för container registret | Använd bara den här parametern om du anger parametern-AgentImage till en behållare i ett privat register. Ange ett användar namn med åtkomst till registret. |
-| **Lösenord** | Säker lösen ords sträng | Använd bara den här parametern om du anger parametern-AgentImage till en behållare i ett privat register. Ange lösen ordet för att få åtkomst till registret. | 
+| **Lösenord** | Säker lösen ords sträng | Använd bara den här parametern om du anger parametern-AgentImage till en behållare i ett privat register. Ange lösen ordet för att få åtkomst till registret. |
 
 ### <a name="update-iotedge"></a>Uppdatera – IoTEdge
 

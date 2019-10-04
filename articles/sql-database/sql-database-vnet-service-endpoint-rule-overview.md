@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 08/27/2019
-ms.openlocfilehash: 485c79bab90295cf9af9ef1dbbc209d46931a485
-ms.sourcegitcommit: 909ca340773b7b6db87d3fb60d1978136d2a96b0
+ms.openlocfilehash: 5506f95d532f69286bf29ec8916485bd63ce94da
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70984945"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828814"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-database-servers"></a>Använd tjänst slut punkter och regler för virtuella nätverk för databas servrar
 
@@ -138,7 +138,7 @@ PolyBase används ofta för att läsa in data i Azure SQL Data Warehouse från A
    > - Om du har ett allmänt v1-eller Blob Storage-konto måste du **först uppgradera till v2** med hjälp av den här [guiden](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
    > - Information om kända problem med Azure Data Lake Storage Gen2 finns i den här [hand boken](https://docs.microsoft.com/azure/storage/data-lake-storage/known-issues).
     
-1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och klickar på **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till Azure SQL Server som är värd för din Azure SQL Data Warehouse som du har registrerat med Azure Active DIRECOTORY (AAD) som i steg 1.
+1. Under ditt lagrings konto navigerar du till **Access Control (IAM)** och klickar på **Lägg till roll tilldelning**. Tilldela RBAC-rollen **Storage BLOB data Contributor** till Azure SQL Server som är värd för din Azure SQL Data Warehouse som du har registrerat med Azure Active Directory (AAD) som i steg 1.
 
    > [!NOTE] 
    > Endast medlemmar med ägar behörighet kan utföra det här steget. De olika inbyggda rollerna för Azure-resurser finns i den här [guiden](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).

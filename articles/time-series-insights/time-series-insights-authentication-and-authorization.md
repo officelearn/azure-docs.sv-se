@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 88734b0ee05f5193da89f33e1639e4e7a187f225
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 9cee148b6cb17f18c06e98158ac21638cedf519c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264649"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828746"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights-API
 
@@ -107,7 +107,7 @@ I det här avsnittet beskrivs vanliga HTTP-begärandehuvuden och parametrar som 
 
 ### <a name="authentication"></a>Authentication
 
-För att utföra autentiserade frågor mot [Time Series Insights REST-API: er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2,0 Bearer-token skickas i [Authorization-huvudet](/rest/api/apimanagement/authorizationserver/createorupdate) med en rest-klient som du väljer (Postman, Java Script, C#). 
+För att utföra autentiserade frågor mot [Time Series Insights REST-API: er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2,0 Bearer-token skickas i [Authorization-huvudet](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) med en rest-klient som du väljer (Postman, Java Script, C#). 
 
 > [!IMPORTANT]
 > Token måste utfärdas exakt till `https://api.timeseries.azure.com/` resursen (kallas även "mål grupp" för token).

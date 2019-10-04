@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: mbullwin
-ms.openlocfilehash: 21a68c1daa3c7a2ab6689a72e23100be7582de1e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 9b2cb9b16a91220db6fcc193fe64ea674b7103ab
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162189"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937081"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights för webbsidor
 
@@ -50,7 +50,7 @@ appInsights.loadAppInsights();
 
 ### <a name="snippet-based-setup"></a>Kodfragment-baserad installation
 
-Om din app inte använder NPM kan du direkt Instrumenta dina webb sidor med Application Insights genom att klistra in det här kodfragmentet överst på varje sida. Helst bör det vara det första skriptet i `<head>` avsnittet så att det kan övervaka eventuella eventuella problem med alla dina beroenden.
+Om din app inte använder NPM kan du direkt Instrumenta dina webb sidor med Application Insights genom att klistra in det här kodfragmentet överst på varje sida. Helst bör det vara det första skriptet i `<head>` avsnittet så att det kan övervaka eventuella eventuella problem med alla dina beroenden. Om du använder programmet för att lägga till ett program i den här typen av program kan du lägga till kodfragmentet överst i filen `_Host.cshtml` i avsnittet `<head>`.
 
 ```html
 <script type="text/javascript">

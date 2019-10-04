@@ -5,16 +5,16 @@ services: time-series-insights
 author: ashannon7
 ms.service: time-series-insights
 ms.topic: tutorial
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 4c81daa1f55167fa868c69f3bff388dbaa4887cd
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 6144fd58a98376f9091fc7045d0e60e99feda709
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68725746"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71841856"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudier: Skapa en Azure Time Series Insights-miljö
 
@@ -55,9 +55,9 @@ Den här självstudien använder också en [IoT Solution Accelerator](https://ww
 
 Först skapar du lösningen för enhets simulering, som genererar test data för att fylla i din Time Series Insightss miljö.
 
-1. I ett separat fönster eller flik går du till [azureiotsolutions.com](https://www.azureiotsolutions.com). Logga in med samma Azure-prenumerations konto och välj enhets **simulerings** Accelerator.
+1. I ett separat fönster eller flik går du till [azureiotsolutions.com](https://www.azureiotsolutions.com). Logga in med samma Azure-prenumerations konto och välj **enhets simulerings** Accelerator.
 
-   [![Kör enhets simulerings Accelerator](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
+   [![Run Accelerator för enhets simulering](media/tutorial-create-populate-tsi-environment/sa-main.png)](media/tutorial-create-populate-tsi-environment/sa-main.png#lightbox)
 
 1. Ange de parametrar som krävs på sidan **skapa lösning för enhets simulering** .
 
@@ -70,18 +70,18 @@ Först skapar du lösningen för enhets simulering, som genererar test data för
 
    När du är klar väljer du **skapa lösning** för att etablera lösningens Azure-resurser. Det kan ta upp till 20 minuter att slutföra den här processen.
 
-   [![Etablera lösningen för enhets simulering](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
+   [@no__t 1Provision enhets simulerings lösning](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution.png#lightbox)
 
 1. När etableringen har slutförts ändras texten ovanför din nya lösning från **etablering** till **klar**.
 
    >[!IMPORTANT]
    > Välj inte **Starta** ännu! Behåll den här webb sidan öppen eftersom du kommer tillbaka till den senare.
 
-   [![Lösnings etablering för enhets simulering slutförd](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
+   [1Device-etablering av simulerings lösning har slutförts @no__t](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard-ready.png#lightbox)
 
 1. Granska nu de nyligen skapade resurserna i Azure Portal. På sidan **resurs grupper** ser du att en ny resurs grupp har skapats med hjälp av **lösnings namnet** som angavs i det sista steget. Anteckna de resurser som har skapats för enhets simuleringen.
 
-   [![Resurser för enhets simulering](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
+   [@no__t simulerings resurser för 1Device](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png)](media/tutorial-create-populate-tsi-environment/ap-device-sim-solution-resources.png#lightbox)
 
 ## <a name="create-an-environment"></a>Skapa en miljö
 
@@ -106,15 +106,15 @@ Skapa sedan en Time Series Insights-miljö i din Azure-prenumeration.
 
    När du är färdig väljer du **Granska + skapa** för att fortsätta till nästa steg.
 
-   [![Skapa en Time Series Insights miljö resurs](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
+   [![Create en Time Series Insights miljö resurs](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-params.png#lightbox)
 
 1. Nu ansluter du Time Series Insightss miljön till IoT Hub som skapats av Solution Accelerator. Ange **Välj en hubb** till `Select existing`. Välj sedan den IoT-hubb som skapats av Solution Accelerator när du anger **IoT Hub namn**.
 
-   [![Anslut Time Series Insightss miljön till den skapade IoT-hubben](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
+   [![Connect Time Series Insightss miljö till den skapade IoT-hubben](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-iot-hub.png#lightbox)
 
 1. Gå till panelen **meddelanden** för att övervaka slut för ande av distribution. 
 
-   [![Distributionen av Time Series Insights miljön lyckades](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
+   [distribution av 1Time Series Insights-miljö lyckades @no__t](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png)](media/tutorial-create-populate-tsi-environment/ap-create-resource-tsi-deployment-succeeded.png#lightbox)
 
 ## <a name="run-device-simulation"></a>Kör enhets simulering
 
@@ -124,11 +124,11 @@ Tillsammans med IoT Hub genererades ett Azure App Service-webbprogram för att s
 
 1. Gå tillbaka till din [Instrumentpanel för lösningsacceleratorer](https://www.azureiotsolutions.com/Accelerators#dashboard). Logga in igen, om det behövs, med samma Azure-konto som du har använt i den här självstudien. Nu kan du välja **Starta** under lösningen "enhets simulering".
 
-     [![Instrument panel för lösnings acceleratorer](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
+     [instrument panel för ![Solution acceleratorer](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png)](media/tutorial-create-populate-tsi-environment/sa-create-device-sim-solution-dashboard.png#lightbox)
 
 1. Webb programmet för enhets simulering börjar genom att du tillfrågas om du vill ge webb programmet behörigheten "logga in och läsa din profil". Med den här behörigheten kan programmet hämta den användar profil information som krävs för att stödja programmets funktion.
 
-     [![Godkännande av webb program för enhets simulering](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
+     [![Device för simulering av webb program](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png)](media/tutorial-create-populate-tsi-environment/sawa-signin-consent.png#lightbox)
 
 1. Ange de parametrar som krävs efter att installations sidan för **simulering** har lästs in.
 
@@ -137,16 +137,16 @@ Tillsammans med IoT Hub genererades ett Azure App Service-webbprogram för att s
    **Mål-IoT Hub** | Välj **Använd företablerade IoT Hub**.
    **Enhetsmodell** | Välj **Kylaggregat**.
    **Antal enheter**  | Ange `1000` under **belopp**.
-   **Telemetrifrekvens** | Ange `10` sekunder.
-   **Simuleringens varaktighet** | Välj **sluta i:** och ange `5` minuter.
+   **Telemetrifrekvens** | Ange @no__t – 0 sekunder.
+   **Simuleringens varaktighet** | Välj **slutar i:** och ange @no__t – 1 minuter.
 
    När du är klar väljer du **Starta simulering**. Simuleringen körs i totalt 5 minuter. Den genererar data från 1 000 simulerade enheter var 10: e sekund. 
 
-   [![Installation av enhets simulering](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png#lightbox)
+   [installation av @no__t 1Device-simulering](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-setup.png#lightbox)
 
 1. När simuleringen körs ser du att fälten **Totalt antal meddelanden** och **meddelanden per sekund** uppdateras, ungefär var 10: e sekund. Simuleringen slutar efter cirka 5 minuter och återgår till **simulerings installationen**.
 
-   [![Enhets simulering körs](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png#lightbox)
+   [@no__t-simulering av 1Device körs](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png)](media/tutorial-create-populate-tsi-environment/sawa-simulation-running.png#lightbox)
 
 ## <a name="verify-the-telemetry-data"></a>Kontrollera telemetridata
 
@@ -154,23 +154,23 @@ I det här sista avsnittet verifierar du att telemetridata har genererats och la
 
 1. Gå tillbaka till **översikts** sidan för Time Series Insightss miljöns resurs grupp. Välj Time Series Insightss miljö.
 
-   [![Resurs grupp och miljö för Time Series Insights miljö](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
+   [resurs grupp och miljö för @no__t 1Time Series Insights-miljön](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
 
 1. På sidan **Översikt över** Time Series Insightss miljö väljer du **URL: en för Time Series Insights Explorer** för att öppna Time Series Insights Explorer.
 
-   [![Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
+   [@no__t 1Time Series Insights-Utforskaren](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
 1. Time Series Insights Explorer läser in och autentiserar med hjälp av ditt Azure Portal-konto. Vid den inledande vyn kan du se i det diagram fält som Time Series Insightss miljön har fyllts i med simulerade telemetridata. Om du vill filtrera en snävare tid väljer du List rutan i det övre vänstra hörnet. Ange ett tidsintervall som är tillräckligt stort för att omfatta varaktigheten för enhets simuleringen. Välj sedan förstorings glaset för sökning.
 
-   [![Tids intervalls filter för Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
+   [tids intervalls filter för @no__t 1Time Series Insights-Utforskaren](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-filter-time-range.png#lightbox)
 
-1. Genom att begränsa tidsintervallet kan diagrammet zooma in i de distinkta burst-data överföringarna till IoT Hub och Time Series Insights miljön. Observera också att den strömmande texten **är klar** i det övre högra hörnet, vilket visar det totala antalet händelser som har hittats. Du kan också dra skjutreglaget för **intervall storlek** för att kontrol lera diagrammets rityta.
+1. Genom att begränsa tidsintervallet kan diagrammet zooma in i de distinkta burst-data överföringarna till IoT Hub och Time Series Insights miljön. Observera också att den **strömmande texten är klar** i det övre högra hörnet, vilket visar det totala antalet händelser som har hittats. Du kan också dra skjutreglaget för **intervall storlek** för att kontrol lera diagrammets rityta.
 
-   [![Filtrerad vy för tidsintervallet i Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
+   [![Time Series Insights tids intervall filtrerad vy](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range.png#lightbox)
 
 1. Slutligen kan du också vänsterklicka på en region för att filtrera ett intervall. Högerklicka sedan och Använd **utforska händelser** för att visa händelse information i vyn tabell **händelser** .
 
-   [![Filtrerade vyer och händelser i Time Series Insights Explorer](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
+   [@no__t 1Time Series Insights, filtrerade vyer och händelser i tids intervall](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png)](media/tutorial-create-populate-tsi-environment/tsie-view-time-range-events.png#lightbox)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

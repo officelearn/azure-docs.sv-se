@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/05/2019
+ms.date: 10/02/2019
 ms.author: TomSh
-ms.openlocfilehash: 4bc4e8e02c5b44c63ee531a295f2b59e91c056bd
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 85e1ebc05ad4ebe1d58716981c0688df0126efb0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69900471"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937232"
 ---
 # <a name="azure-best-practices-for-network-security"></a>Metod tips för Azure för nätverks säkerhet
 I den här artikeln beskrivs en samling Azure Best Practices för att förbättra nätverks säkerheten. Dessa bästa metoder är härledda från vår erfarenhet av Azure-nätverk och våra kunders upplevelser som du själv har.
@@ -63,7 +63,7 @@ När du använder nätverks säkerhets grupper för nätverks åtkomst kontroll 
 **Bästa praxis**: Undvik små virtuella nätverk och undernät för att garantera enkelhet och flexibilitet.   
 **Information**: De flesta organisationer lägger till fler resurser än vad som ursprungligen planeras och omtilldelar adresser är arbets krävande. Med små undernät läggs ett begränsat säkerhets värde till och mappar en nätverks säkerhets grupp till varje undernät lägger till resurser. Definiera undernät i stor storlek för att säkerställa att du har flexibilitet för tillväxt.
 
-**Bästa praxis**: Förenkla hanteringen av regel hantering för nätverks säkerhets grupper genom att definiera [program säkerhets grupper](https://docs.microsoft.com/rest/api/virtualnetwork/applicationsecuritygroups).  
+**Bästa praxis**: Förenkla hanteringen av regel hantering för nätverks säkerhets grupper genom att definiera [program säkerhets grupper](https://azure.microsoft.com/blog/applicationsecuritygroups/).  
 **Information**: Definiera en program säkerhets grupp för listor över IP-adresser som du tror kan ändras i framtiden eller som ska användas över flera nätverks säkerhets grupper. Se till att namnge program säkerhets grupper så att andra kan förstå deras innehåll och syfte.
 
 ## <a name="adopt-a-zero-trust-approach"></a>Använd en metod som saknar förtroende

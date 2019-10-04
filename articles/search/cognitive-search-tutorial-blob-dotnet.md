@@ -5,16 +5,15 @@ manager: nitinme
 author: MarkHeff
 services: search
 ms.service: search
-ms.subservice: cognitive-search
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: maheff
-ms.openlocfilehash: 260f6a6141903ea1fd7edcfe2e031091bba322be
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: b40cd63062e961848eb1ab6b956e63a83a634817
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70744746"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936940"
 ---
 # <a name="c-tutorial-call-cognitive-services-apis-in-an-azure-search-indexing-pipeline"></a>C#Gång Anropa API:er för Cognitive Services i en Azure Search indexerings pipeline
 
@@ -98,13 +97,13 @@ För det här projektet måste du installera version 9 av `Microsoft.Azure.Searc
 
 `Microsoft.Azure.Search` Installera NuGet-paketet med hjälp av Package Manager-konsolen i Visual Studio. Öppna Package Manager-konsolen genom att välja **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**. För att få kommandot att köras går du till [sidan Microsoft. Azure. search NuGet Package](https://www.nuget.org/packages/Microsoft.Azure.Search), väljer version 9 och kopierar Package Manager-kommandot. Kör det här kommandot i Package Manager-konsolen.
 
-Om du vill `Microsoft.Extensions.Configuration.Json` installera NuGet-paketet i Visual Studio väljer du **verktyg** > **NuGet Package Manager** > **Hantera NuGet-paket för lösning.** ... Välj Bläddra och Sök efter `Microsoft.Extensions.Configuration.Json` NuGet-paketet. När du har hittat det väljer du paketet, väljer ditt projekt, bekräftar att versionen är den senaste stabila versionen och väljer sedan installera.
+Om du vill installera `Microsoft.Extensions.Configuration.Json` NuGet-paketet i Visual Studio väljer du **verktyg** > **NuGet Package Manager** > **Hantera NuGet-paket för lösning...** . Välj Bläddra och Sök efter `Microsoft.Extensions.Configuration.Json` NuGet-paketet. När du har hittat det väljer du paketet, väljer ditt projekt, bekräftar att versionen är den senaste stabila versionen och väljer sedan installera.
 
 ## <a name="add-azure-search-service-information"></a>Lägg till Azure Search tjänst information
 
-För att du ska kunna ansluta till din Azure Search-tjänst måste du lägga till Sök tjänst informationen i projektet. Högerklicka på projektet i Solution Explorer och välj **Lägg till** > **nytt objekt.** ... Ge filen `appsettings.json` ett namn och välj **Lägg till**. 
+För att du ska kunna ansluta till din Azure Search-tjänst måste du lägga till Sök tjänst informationen i projektet. Högerklicka på projektet i Solution Explorer och välj **Lägg till** > **nytt objekt.** .. Namnge filen `appsettings.json` och välj **Lägg till**. 
 
-Den här filen måste inkluderas i din utmatnings katalog. Det gör du genom att högerklicka på `appsettings.json` och välja **Egenskaper**. Ändra värdet för **Kopiera till utdatakatalogen** till **kopia av nyare**.
+Den här filen måste inkluderas i din utmatnings katalog. Det gör du genom att högerklicka på `appsettings.json` och sedan välja **Egenskaper**. Ändra värdet för **Kopiera till utdatakatalogen** till **kopia av nyare**.
 
 Kopiera nedanstående JSON till din nya JSON-fil.
 
@@ -326,9 +325,9 @@ SplitSkill splitSkill = new SplitSkill(
 
 ### <a name="entity-recognition-skill"></a>Kompetens för enhets igenkänning
 
-Den `EntityRecognitionSkill` här instansen är inställd på `organization`att identifiera kategori typ. **Entitetens igenkännings** förmåga kan också identifiera kategori `person` typer `location`och.
+Den `EntityRecognitionSkill` här instansen är inställd på `organization`att identifiera kategori typ. **Enhets igenkännings** kompetensen kan också identifiera kategori typer `person` och `location`.
 
-Observera att fältet "context" är inställt ```"/document/pages/*"``` på med en asterisk, vilket innebär att ett anriknings steg anropas för varje ```"/document/pages"```sida under.
+Observera att fältet "context" är inställt på ```"/document/pages/*"``` med en asterisk, vilket innebär att ett anriknings steg anropas för varje sida under ```"/document/pages"```.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -355,7 +354,7 @@ EntityRecognitionSkill entityRecognitionSkill = new EntityRecognitionSkill(
 
 ### <a name="key-phrase-extraction-skill"></a>Extraherings färdighet för nyckel fraser
 
-Precis som `EntityRecognitionSkill` den instans som precis skapades, anropas **extrahering av diskussionsämne** -kompetens för varje sida i dokumentet.
+Precis som den `EntityRecognitionSkill`-instans som precis har skapat, anropas **extrahering av diskussionsämne** -kompetensen för varje sida i dokumentet.
 
 ```csharp
 List<InputFieldMappingEntry> inputMappings = new List<InputFieldMappingEntry>();
@@ -425,7 +424,7 @@ Den här övningen använder följande fält och fälttyp:
 
 Fält för det här indexet definieras med en modell klass. Varje egenskap i modellklassen har attribut som avgör motsvarande indexfälts sökrelaterade beteende. 
 
-Vi ska lägga till modell klassen i en ny C# fil. Högerklicka på projektet och välj **Lägg till** > **nytt objekt...** , välj "klass" och ge filen `DemoIndex.cs`ett namn och välj sedan **Lägg till**.
+Vi ska lägga till modell klassen i en ny C# fil. Högerklicka på projektet och välj **Lägg till** > **nytt objekt...** , välj "klass" och ge filen namnet `DemoIndex.cs` och välj sedan **Lägg till**.
 
 Se till att ange att du vill använda typer från `Microsoft.Azure.Search` namn områdena och. `Microsoft.Azure.Search.Models`
 
@@ -574,7 +573,7 @@ Kod uppsättningen ```"maxFailedItems"``` till-1, som instruerar indexerings mot
 
 Observera ```"dataToExtract"``` också att är inställt på ```"contentAndMetadata"```. Den här instruktionen anger att indexeraren automatiskt ska extrahera innehållet från olika filformat samt metadata som är relaterade till varje fil.
 
-När innehållet har extraherats kan du ställa in `imageAction` på att extrahera text från avbildningar som hittades i datakällan. Konfigurationen är ```"generateNormalizedImages"``` inställd på konfiguration, kombinerat med OCR-kunskaper och text kopplings kunskap, och anger att indexeraren ska extrahera text från bilderna (till exempel ordet "Stop" från ett trafik stopp) och bädda in det som en del av innehålls fältet. ```"imageAction"``` Det här beteendet gäller både avbildningarna som är inbäddade i dokumenten (tänk på en avbildning i en PDF) samt avbildningar som hittas i datakällan, till exempel en JPG-fil.
+När innehållet har extraherats kan du ställa in `imageAction` på att extrahera text från avbildningar som hittades i datakällan. @No__t-0 inställt på ```"generateNormalizedImages"```-konfiguration, kombinerat med OCR-kunskaper och text kopplings kunskap, anger att indexeraren ska extrahera text från bilderna (till exempel ordet "Stop" från ett trafik stopp) och bädda in det som en del av innehålls fältet. Det här beteendet gäller både avbildningarna som är inbäddade i dokumenten (tänk på en avbildning i en PDF) samt avbildningar som hittas i datakällan, till exempel en JPG-fil.
 
 ## <a name="check-indexer-status"></a>Kontrollera status för indexerare
 

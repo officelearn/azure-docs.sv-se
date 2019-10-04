@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/15/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: f892857d74150ee42cc2ea4b5c996feac3d1cfa2
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 19e1a5f1534d09246ca85029f45ee918ec57e51f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68695620"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828417"
 ---
 # <a name="expand-virtual-hard-disks-on-a-linux-vm-with-the-azure-cli"></a>Expandera virtuella hård diskar på en virtuell Linux-dator med Azure CLI
 
@@ -28,14 +28,14 @@ Den här artikeln kräver en befintlig virtuell dator i Azure med minst en data 
 
 I följande exempel ersätter du parameter namn, till exempel *myResourceGroup* och *myVM* med dina egna värden.
 
-1. Åtgärder på virtuella hård diskar kan inte utföras med den virtuella datorn som kör. Frigör den virtuella datorn med [AZ VM](/cli/azure/vm#az-vm-deallocate)-frigörning. I följande exempel avallokeras den virtuella datorn med namnet *myVM* i resurs gruppen med namnet *myResourceGroup*:
+1. Åtgärder på virtuella hård diskar kan inte utföras med den virtuella datorn som kör. Frigör den virtuella datorn med [AZ VM-frigörning](/cli/azure/vm#az-vm-deallocate). I följande exempel avallokeras den virtuella datorn med namnet *myVM* i resurs gruppen med namnet *myResourceGroup*:
 
     ```azurecli
     az vm deallocate --resource-group myResourceGroup --name myVM
     ```
 
     > [!NOTE]
-    > Den virtuella datorn måste frigöras för att expandera den virtuella hård disken. Om den virtuella datorn `az vm stop` stoppas frigörs inte beräknings resurserna. Om du vill frigöra beräknings resurser `az vm deallocate`använder du.
+    > Den virtuella datorn måste frigöras för att expandera den virtuella hård disken. Om du stoppar den virtuella datorn med `az vm stop` frigörs inte beräknings resurserna. Om du vill frigöra beräknings resurser använder du `az vm deallocate`.
 
 1. Visa en lista med hanterade diskar i en resurs grupp med [AZ disk List](/cli/azure/disk#az-disk-list). I följande exempel visas en lista med hanterade diskar i resurs gruppen med namnet *myResourceGroup*:
 
@@ -82,13 +82,13 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
     sudo umount /dev/sdc1
     ```
 
-    b. Använd `parted` för att Visa disk information och ändra storlek på partitionen:
+    b. Använd `parted` om du vill visa disk information och ändra storlek på partitionen:
 
     ```bash
     sudo parted /dev/sdc
     ```
 
-    Visa information om den befintliga partitionen layout med `print`. Utdata liknar följande exempel som visar den underliggande disken är 215 GB:
+    Visa information om den befintliga partitionen med `print`. Utdata liknar följande exempel som visar den underliggande disken är 215 GB:
 
     ```bash
     GNU Parted 3.2
@@ -113,15 +113,15 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
     End?  [107GB]? 215GB
     ```
 
-    d. Avsluta genom att ange `quit`.
+    d. Ange `quit` om du vill avsluta.
 
-1. Kontrol lera att partitionen har ändrat storlek genom att kontrol lera konsekvensen för partitionen med `e2fsck`:
+1. Kontrol lera att partitionen har ändrat storlek genom att verifiera konsekvensen för partitionen med `e2fsck`:
 
     ```bash
     sudo e2fsck -f /dev/sdc1
     ```
 
-1. Ändra storlek på fil systemet `resize2fs`med:
+1. Ändra storlek på fil systemet med `resize2fs`:
 
     ```bash
     sudo resize2fs /dev/sdc1
@@ -133,7 +133,7 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
     sudo mount /dev/sdc1 /datadrive
     ```
 
-1. Om du vill kontrol lera att data disken har storleksändrats använder `df -h`du. Följande exempel på utdata visar att data enheten */dev/sdc1* är 200 GB:
+1. Använd `df -h` om du vill kontrol lera att data disken har ändrats. Följande exempel på utdata visar att data enheten */dev/sdc1* är 200 GB:
 
     ```bash
     Filesystem      Size   Used  Avail Use% Mounted on
@@ -142,4 +142,4 @@ Om du vill använda en utökad disk expanderar du den underliggande partitionen 
 
 ## <a name="next-steps"></a>Nästa steg
 * Om du behöver ytterligare lagring kan du också [lägga till data diskar till en virtuell Linux-dator](add-disk.md). 
-* Mer information om disk kryptering finns i [kryptera diskar på en virtuell Linux-dator med hjälp av Azure CLI](encrypt-disks.md).
+* Mer information om disk kryptering finns i [Azure Disk Encryption för virtuella Linux-datorer](disk-encryption-overview.md).

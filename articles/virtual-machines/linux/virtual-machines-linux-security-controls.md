@@ -9,12 +9,12 @@ manager: rkarlin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c8608a980c405f1f9fdd5aa274a9a21d801a59ed
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 00753d885985e2734f0d87fdad9f219f44277d5a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886355"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828351"
 ---
 # <a name="security-controls-for-linux-virtual-machines"></a>Säkerhets kontroller för Virtuella Linux-datorer
 
@@ -35,7 +35,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Vir
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [övervaka och uppdatera en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/tutorial-monitoring) och [övervaka och uppdatera en virtuell Windows-dator i Azure](/azure/virtual-machines/windows/tutorial-monitoring). |
+| Azure Monitoring support (Log Analytics, App Insights osv.)| Ja | Se [övervaka och uppdatera en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/tutorial-monitoring). |
 | Loggning och granskning av kontroll-och hanterings plan| Ja |  |
 | Loggning och granskning av data planet | Nej |  |
 
@@ -50,7 +50,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Vir
 
 | Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar | Ja | Se [så här krypterar du en virtuell Linux-dator i Azure](/azure/virtual-machines/linux/encrypt-disks) och [krypterar virtuella diskar på en virtuell Windows-dator](/azure/virtual-machines/windows/encrypt-disks). |
+| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar | Ja | Se [Azure Disk Encryption för virtuella Linux-datorer](disk-encryption-overview.md). |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | Azure Virtual Machines stöder [ExpressRoute](/azure/expressroute) och VNET-kryptering. Se [kryptering under överföring i virtuella datorer](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms). |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Ja | Kundhanterade nycklar är ett Azure-krypterings scenario som stöds. Se [Översikt över Azure-kryptering](/azure/security/security-azure-encryption-overview#in-transit-encryption-in-vms).|
 | Kryptering på kolumn nivå (Azure Data Services)| Gäller inte | |

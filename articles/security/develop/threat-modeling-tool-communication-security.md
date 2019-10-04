@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 9c750522123995685191001988ae0081d9454ccf
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 090242cde79f6c31b0f70e1a75240778dca89fa7
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68728366"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828571"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Säkerhets ram: Kommunikations säkerhet | Åtgärder 
 | Produkt/tjänst | Artikel |
@@ -33,7 +33,7 @@ ms.locfileid: "68728366"
 | **Databas** | <ul><li>[Kontrol lera kryptering av SQL Server-anslutning och certifikat validering](#sqlserver-validation)</li><li>[Framtvinga krypterad kommunikation med SQL Server](#encrypted-sqlserver)</li></ul> |
 | **Azure Storage** | <ul><li>[Se till att kommunikationen med Azure Storage är över HTTPS](#comm-storage)</li><li>[Verifiera MD5-hash efter nedladdning av BLOB om HTTPS inte kan aktive ras](#md5-https)</li><li>[Använd SMB 3,0-kompatibel klient för att säkerställa data kryptering under överföring till Azure-filresurser](#smb-shares)</li></ul> |
 | **Mobil klient** | <ul><li>[Implementera certifikats fäste](#cert-pinning)</li></ul> |
-| **WCF** | <ul><li>[Aktivera HTTPS – säker transport kanal](#https-transport)</li><li>[WCF: Ange skydds nivå för meddelande säkerhet till EncryptAndSign](#message-protection)</li><li>[WCF: Använd ett konto med minst privilegier för att köra WCF-tjänsten](#least-account-wcf)</li></ul> |
+| **WCF** | <ul><li>[Aktivera HTTPS – säker transport kanal](#https-transport)</li><li>[WCF: Ange skydds nivå för meddelande säkerhet till EncryptAndSign @ no__t-0</li><li>[WCF: Använd ett konto med minst privilegier för att köra WCF-tjänsten @ no__t-0</li></ul> |
 | **Webb-API** | <ul><li>[Tvinga all trafik till webb-API: er över HTTPS-anslutning](#webapi-https)</li></ul> |
 | **Azure Cache for Redis** | <ul><li>[Se till att kommunikationen med Azure cache för Redis är över SSL](#redis-ssl)</li></ul> |
 | **IoT-fält Gateway** | <ul><li>[Skydda enhet till fält Gateway-kommunikation](#device-field)</li></ul> |
@@ -136,7 +136,7 @@ I följande exempel finns en grundläggande URL-omskrivning regel som tvingar al
   </system.webServer>
 </configuration>
 ```
-Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdirigering) när användaren begär en sida med HTTP. 301 omdirigerar begäran till samma URL som den begärda användaren, men ersätter HTTP-delen av begäran med HTTPS. Omdirigera till exempel HTTP://contoso.com till. HTTPS://contoso.com 
+Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdirigering) när användaren begär en sida med HTTP. 301 omdirigerar begäran till samma URL som den begärda användaren, men ersätter HTTP-delen av begäran med HTTPS. @No__t-0 omdirigeras till exempel till HTTPS://contoso.com. 
 
 ## <a id="http-hsts"></a>Aktivera HTTP Strict Transport Security (HSTS)
 
@@ -147,7 +147,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [OWASP HTTP Strict Transport Security lathund blad](https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet) |
-| **Steg** | <p>HTTP Strict Transport Security (HSTS) är en valbar säkerhets förbättring som anges av ett webb program med hjälp av ett särskilt svars huvud. När en webbläsare som stöds får den här rubriken att webbläsaren hindrar all kommunikation från att skickas via HTTP till den angivna domänen och kommer istället att skicka all kommunikation via HTTPS. Det förhindrar även HTTPS att klicka via prompter i webbläsare.</p><p>För att implementera HSTS måste följande svars huvud konfigureras för en webbplats globalt, antingen i kod eller i konfig. Strikt-transport-säkerhet: Max-Age = 300; includeSubDomains HSTS åtgärdar följande hot:</p><ul><li>Användar-och bok märken https://example.com eller manuellt skriver och är föremål för en man-in-the-Middle-angripare: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för mål domänen</li><li>Webb program som är avsedda att vara rent HTTPS oavsiktligt innehåller HTTP-länkar eller som hanterar innehåll över HTTP: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för mål domänen</li><li>En man-in-the-Middle-angripare försöker avlyssna trafik från en skadelidande-användare med ett ogiltigt certifikat och hoppas att användaren accepterar det felaktiga certifikatet: HSTS tillåter inte att en användare åsidosätter det ogiltiga certifikat meddelandet</li></ul>|
+| **Steg** | <p>HTTP Strict Transport Security (HSTS) är en valbar säkerhets förbättring som anges av ett webb program med hjälp av ett särskilt svars huvud. När en webbläsare som stöds får den här rubriken att webbläsaren hindrar all kommunikation från att skickas via HTTP till den angivna domänen och kommer istället att skicka all kommunikation via HTTPS. Det förhindrar även HTTPS att klicka via prompter i webbläsare.</p><p>För att implementera HSTS måste följande svars huvud konfigureras för en webbplats globalt, antingen i kod eller i konfig. Strikt-transport-säkerhet: Max-Age = 300; includeSubDomains HSTS åtgärdar följande hot:</p><ul><li>Användar bok märken eller manuellt skriver https://example.com och är underkastad en man-in-the-Middle-angripare: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för mål domänen</li><li>Webb program som är avsedda att vara rent HTTPS oavsiktligt innehåller HTTP-länkar eller som hanterar innehåll över HTTP: HSTS omdirigerar automatiskt HTTP-begäranden till HTTPS för mål domänen</li><li>En man-in-the-Middle-angripare försöker avlyssna trafik från en skadelidande-användare med ett ogiltigt certifikat och hoppas att användaren accepterar det felaktiga certifikatet: HSTS tillåter inte att en användare åsidosätter det ogiltiga certifikat meddelandet</li></ul>|
 
 ## <a id="sqlserver-validation"></a>Kontrol lera kryptering av SQL Server-anslutning och certifikat validering
 
@@ -158,7 +158,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 | **Tillämpliga tekniker** | SQL Azure  |
 | **Dokumentattribut**              | SQL Version - V12 |
 | **Reference**              | [Metod tips för att skriva säkra anslutnings strängar för SQL Database](https://social.technet.microsoft.com/wiki/contents/articles/2951.windows-azure-sql-database-connection-security.aspx#best) |
-| **Steg** | <p>All kommunikation mellan SQL Database och ett klient program krypteras med hjälp av Secure Sockets Layer (SSL) hela tiden. SQL Database stöder inte okrypterade anslutningar. Om du vill validera certifikat med program kod eller verktyg kan du uttryckligen begära en krypterad anslutning och inte lita på Server certifikaten. Om din program kod eller dina verktyg inte begär en krypterad anslutning får de fortfarande krypterade anslutningar</p><p>De kan dock inte verifiera Server certifikaten och kommer därför att vara utsatta för "man i de mittersta" angrepp. Om du vill validera certifikat med ADO.NET program kod `Encrypt=True` anger `TrustServerCertificate=False` och i databas anslutnings strängen. Om du vill verifiera certifikat via SQL Server Management Studio öppnar du dialog rutan Anslut till server. Klicka på kryptera anslutning på fliken anslutnings egenskaper</p>|
+| **Steg** | <p>All kommunikation mellan SQL Database och ett klient program krypteras med hjälp av Secure Sockets Layer (SSL) hela tiden. SQL Database stöder inte okrypterade anslutningar. Om du vill validera certifikat med program kod eller verktyg kan du uttryckligen begära en krypterad anslutning och inte lita på Server certifikaten. Om din program kod eller dina verktyg inte begär en krypterad anslutning får de fortfarande krypterade anslutningar</p><p>De kan dock inte verifiera Server certifikaten och kommer därför att vara utsatta för "man i de mittersta" angrepp. Om du vill validera certifikat med ADO.NET program kod anger du `Encrypt=True` och `TrustServerCertificate=False` i databas anslutnings strängen. Om du vill verifiera certifikat via SQL Server Management Studio öppnar du dialog rutan Anslut till server. Klicka på kryptera anslutning på fliken anslutnings egenskaper</p>|
 
 ## <a id="encrypted-sqlserver"></a>Framtvinga krypterad kommunikation med SQL Server
 
@@ -213,7 +213,7 @@ Den här regeln fungerar genom att returnera HTTP-statuskod 301 (permanent omdir
 | **Tillämpliga tekniker** | Generisk, Windows Phone |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Certifikat och offentlig nyckel fäste](https://www.owasp.org/index.php/Certificate_and_Public_Key_Pinning#.Net) |
-| **Steg** | <p>Certifikat sättning skyddar mot MITM-attacker (man-in-the-Middle). Att fästa är en process för att associera en värd med det förväntade X509-certifikatet eller den offentliga nyckeln. När ett certifikat eller en offentlig nyckel är känd eller visas för en värd, är certifikatet eller den offentliga nyckeln kopplad till värden. </p><p>När en angripare försöker att göra SSL-MITM-attack, under SSL-handskakningen kommer nyckeln från angriparens server att skilja sig från det fästa Certifikatets nyckel och begäran kommer att tas bort, vilket förhindrar att MITM certifikat fästs av implementerar ServicePointManagers `ServerCertificateValidationCallback` ombud.</p>|
+| **Steg** | <p>Certifikat sättning skyddar mot MITM-attacker (man-in-the-Middle). Att fästa är en process för att associera en värd med det förväntade X509-certifikatet eller den offentliga nyckeln. När ett certifikat eller en offentlig nyckel är känd eller visas för en värd, är certifikatet eller den offentliga nyckeln kopplad till värden. </p><p>När en angripare försöker att göra SSL-MITM-attack, under SSL-handskakningen kommer nyckeln från angriparens server att skilja sig från det fästa Certifikatets nyckel och begäran kommer att tas bort, vilket förhindrar att MITM certifikat fästs av implementerar ServicePointManager-delegaten `ServerCertificateValidationCallback`.</p>|
 
 ### <a name="example"></a>Exempel
 ```csharp
@@ -289,8 +289,8 @@ namespace CertificatePinningExample
 | **SDL-fas**               | Utveckla |  
 | **Tillämpliga tekniker** | NET Framework 3 |
 | **Dokumentattribut**              | Gäller inte  |
-| **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_transport_security_enabled) |
-| **Steg** | Program konfigurationen bör se till att HTTPS används för all åtkomst till känslig information.<ul><li>**SKRIFTLIGA** Om ett program hanterar känslig information och inte använder kryptering på meddelande nivå, bör det bara tillåtas att kommunicera via en krypterad transport kanal.</li><li>**REKOMMENDERADE** Se till att HTTP-transport är inaktive rad och Aktivera HTTPS-transport i stället. Ersätt `<httpTransport/>` till exempel taggen with `<httpsTransport/>` . Förlita dig inte på en nätverks konfiguration (brand vägg) för att garantera att programmet bara kan nås via en säker kanal. Från en Philosophical-plats bör programmet inte vara beroende av nätverket för dess säkerhet.</li></ul><p>Från en praktisk vy kan de personer som ansvarar för att skydda nätverket inte alltid följa säkerhets kraven för programmet när de utvecklas.</p>|
+| **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY kungariket](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_transport_security_enabled) |
+| **Steg** | Program konfigurationen bör se till att HTTPS används för all åtkomst till känslig information.<ul><li>**SKRIFTLIGA** Om ett program hanterar känslig information och inte använder kryptering på meddelande nivå, bör det bara tillåtas att kommunicera via en krypterad transport kanal.</li><li>**REKOMMENDERADE** Se till att HTTP-transport är inaktive rad och Aktivera HTTPS-transport i stället. Ersätt till exempel `<httpTransport/>` med taggen `<httpsTransport/>`. Förlita dig inte på en nätverks konfiguration (brand vägg) för att garantera att programmet bara kan nås via en säker kanal. Från en Philosophical-plats bör programmet inte vara beroende av nätverket för dess säkerhet.</li></ul><p>Från en praktisk vy kan de personer som ansvarar för att skydda nätverket inte alltid följa säkerhets kraven för programmet när de utvecklas.</p>|
 
 ## <a id="message-protection"></a>WCF: Ange skydds nivå för meddelande säkerhet till EncryptAndSign
 
@@ -301,7 +301,7 @@ namespace CertificatePinningExample
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff650862.aspx) |
-| **Steg** | <ul><li>**SKRIFTLIGA** När skydds nivån har angetts till "ingen" inaktive ras meddelande skyddet. Konfidentialitet och integritet uppnås med lämplig inställnings nivå.</li><li>**REKOMMENDERADE**<ul><li>När `Mode=None` -inaktiverar meddelande skydd</li><li>När `Mode=Sign` -tecken, men inte krypterar meddelandet, ska användas när data integriteten är viktig</li><li>När `Mode=EncryptAndSign` -signerar och krypterar meddelandet</li></ul></li></ul><p>Överväg att inaktivera kryptering och bara signera ditt meddelande när du bara behöver validera integriteten för informationen utan problem med sekretess. Detta kan vara användbart för drift-eller tjänste kontrakt där du behöver validera den ursprungliga avsändaren men inga känsliga data överförs. När du minskar skydds nivån bör du vara noga med att meddelandet inte innehåller någon personligt identifierbar information (PII).</p>|
+| **Steg** | <ul><li>**SKRIFTLIGA** När skydds nivån har angetts till "ingen" inaktive ras meddelande skyddet. Konfidentialitet och integritet uppnås med lämplig inställnings nivå.</li><li>**REKOMMENDERADE**<ul><li>När `Mode=None`-inaktiverar meddelande skydd</li><li>När `Mode=Sign`-signeras men inte krypterar meddelandet. bör användas när data integriteten är viktig</li><li>När `Mode=EncryptAndSign`-signerar och krypterar meddelandet</li></ul></li></ul><p>Överväg att inaktivera kryptering och bara signera ditt meddelande när du bara behöver validera integriteten för informationen utan problem med sekretess. Detta kan vara användbart för drift-eller tjänste kontrakt där du behöver validera den ursprungliga avsändaren men inga känsliga data överförs. När du minskar skydds nivån bör du vara noga med att meddelandet inte innehåller några personliga data.</p>|
 
 ### <a name="example"></a>Exempel
 Genom att konfigurera tjänsten och åtgärden för att endast signera meddelandet visas följande exempel. Service kontrakt exempel på `ProtectionLevel.Sign`: Följande är ett exempel på hur du använder ProtectionLevel. Sign på service kontrakts nivån: 
@@ -314,7 +314,7 @@ public interface IService
 ```
 
 ### <a name="example"></a>Exempel
-Exempel på `ProtectionLevel.Sign` åtgärds kontrakt (för detaljerad kontroll): Följande är ett exempel på hur du `ProtectionLevel.Sign` använder på OperationContract-nivå:
+Exempel på åtgärds kontrakt i `ProtectionLevel.Sign` (för detaljerad kontroll): Följande är ett exempel på hur du använder `ProtectionLevel.Sign` på OperationContract-nivån:
 
 ```
 [OperationContract(ProtectionLevel=ProtectionLevel.Sign] 

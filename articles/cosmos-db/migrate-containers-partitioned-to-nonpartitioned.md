@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: mjbrown
-ms.openlocfilehash: 77d70aaa9c1ae5a111a47e08f259c0ce95fd7c92
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 3a13f8928ba243195c30200dae0525e72c1c161b
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300119"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71844411"
 ---
 # <a name="migrate-non-partitioned-containers-to-partitioned-containers"></a>Migrera icke-partitionerade behållare till partitionerade behållare
 
@@ -99,7 +99,7 @@ Medan behållar definitionen har förbättrats med en partitionsnyckel, migreras
 
 ## <a name="access-documents-that-dont-have-a-partition-key"></a>Åtkomst till dokument som saknar partitionsnyckel
 
-Program har åtkomst till befintliga dokument som saknar partitionsnyckel med hjälp av den särskilda system egenskapen som kallas "CosmosContainerSettings. NonePartitionKeyValue", detta är värdet för de dokument som inte har migrerats. Du kan använda den här egenskapen i alla CRUD-och Query-åtgärder. I följande exempel visas ett exempel på hur du kan läsa ett enda dokument från NonePartitionKey. 
+Program har åtkomst till befintliga dokument som saknar partitionsnyckel med hjälp av den särskilda system egenskapen som kallas "PartitionKey. None", det här är värdet för de icke-migrerade dokumenten. Du kan använda den här egenskapen i alla CRUD-och Query-åtgärder. I följande exempel visas ett exempel på hur du kan läsa ett enda dokument från NonePartitionKey. 
 
 ```csharp
 CosmosItemResponse<DeviceInformationItem> readResponse = 

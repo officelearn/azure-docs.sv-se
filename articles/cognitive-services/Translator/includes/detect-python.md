@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 9207814c921f51b10939c6e9d1747e1e124f9890
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 6591fd6eb232bf5fb242c9e08830324f864dac2f
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907186"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837496"
 ---
 [!INCLUDE [Prerequisites](prerequisites-python.md)]
 
@@ -31,7 +31,7 @@ Den första kommentaren instruerar Python-tolken att använda UTF-8-kodning. Sed
 
 ## <a name="set-the-subscription-key-endpoint-and-path"></a>Ange prenumerations nyckel, slut punkt och sökväg
 
-Det här exemplet försöker läsa Translator text prenumerations nyckel och slut punkt från miljövariablerna: `TRANSLATOR_TEXT_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscription_key` och `endpoint` som en sträng och kommentera ut villkors satserna.
+Det här exemplet försöker läsa Translator Text prenumerations nyckel och slut punkt från miljövariablerna: `TRANSLATOR_TEXT_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscription_key` och `endpoint` som en sträng och kommentera ut villkors satserna.
 
 Kopiera den här koden till projektet:
 
@@ -112,7 +112,10 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+När du har kört exemplet bör du se följande utskrivna till Terminal:
+
+> [!NOTE]
+> Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
 
 ```json
 [

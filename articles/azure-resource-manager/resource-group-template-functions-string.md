@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: c30bb47f3f35663a6ffcfc0126758eb82c9dec4e
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: b558e046f3402fdfa127192788d7d3ee1307ddeb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194774"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937023"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Sträng funktioner för Azure Resource Manager mallar
 
@@ -331,7 +331,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Value |
 | ---- | ---- | ----- |
-| returrelaterade | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| Returrelaterade | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>contains
 
@@ -764,7 +764,7 @@ Utdata från föregående exempel med standardvärdena är:
 | ---- | ---- | ----- |
 | formatTest | Sträng | Hej, användare. Formaterat tal: 8 175 133 |
 
-## <a name="guid"></a>LED
+## <a name="guid"></a>guid
 
 `guid(baseString, ...)`
 
@@ -894,7 +894,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Senaste | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
-| notFound | Int | -1 |
+| NotFound | Int | -1 |
 
 ## <a name="last"></a>pågå
 
@@ -1007,7 +1007,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Senaste | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
-| notFound | Int | -1 |
+| NotFound | Int | -1 |
 
 ## <a name="length"></a>length
 
@@ -1364,7 +1364,7 @@ Returnerar en matris med strängar som innehåller under strängarna i Indatastr
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | inputString |Ja |sträng |Strängen som ska delas. |
-| avgränsare |Ja |sträng eller matris med strängar |Avgränsaren som ska användas för att dela strängen. |
+| Avgränsare |Ja |sträng eller matris med strängar |Avgränsaren som ska användas för att dela strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1824,7 +1824,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Value |
 | ---- | ---- | ----- |
-| returrelaterade | Sträng | Ett två tre |
+| Returrelaterade | Sträng | Ett två tre |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -1914,10 +1914,26 @@ Skapar en absolut URI genom att kombinera baseUri-och relativeUri-strängen.
 
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
-| baseUri |Ja |sträng |Bas-URI-sträng. |
+| baseUri |Ja |sträng |Bas-URI-sträng. Ta hand om det beteende som rör hanteringen av det avslutande snedstrecket ("/"), enligt beskrivningen i den här tabellen.  |
 | relativeUri |Ja |sträng |Den relativa URI-sträng som ska läggas till i bas-URI-strängen. |
 
-Värdet för parametern **baseUri** kan innehålla en speciell fil, men bara bas Sök vägen används när du konstruerar URI: n. Om du till exempel `http://contoso.com/resources/azuredeploy.json` skickar som en baseUri-parameter resulterar det i en `http://contoso.com/resources/`bas-URI av.
+* Om **baseUri** slutar på ett avslutande snedstreck är resultatet bara **baseUri** , följt av **relativeUri**.
+
+* Om **baseUri** inte avslutas med ett avslutande snedstreck inträffar ett av två saker.  
+
+   * Om **baseUri** inte har några snedstreck alls (förutom från "//" nära fram) är resultatet bara **baseUri** , följt av **relativeUri**.
+
+   * Om **baseUri** har vissa snedstreck, men inte slutar med ett snedstreck, tas allt från det sista snedstrecket bort från **BaseUri** och resultatet är **BaseUri** följt av **relativeUri**.
+     
+Här följer några exempel:
+
+```
+uri('http://contoso.org/firstpath', 'myscript.sh') -> http://contoso.org/myscript.sh
+uri('http://contoso.org/firstpath/', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json', 'myscript.sh') -> http://contoso.org/firstpath/myscript.sh
+uri('http://contoso.org/firstpath/azuredeploy.json/', 'myscript.sh') -> http://contoso.org/firstpath/azuredeploy.json/myscript.sh
+```
+För fullständig information löses de **baseUri** -och **relativeUri** -parametrarna som anges i [RFC 3986, avsnitt 5](https://tools.ietf.org/html/rfc3986#section-5).
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1976,7 +1992,7 @@ Kodar en URI.
 
 ### <a name="parameters"></a>Parametrar
 
-| Parameter | Krävs | Typ | Beskrivning |
+| Parameter | Krävs | type | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | stringToEncode |Ja |sträng |Det värde som ska kodas. |
 

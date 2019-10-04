@@ -8,26 +8,26 @@ ms.topic: include
 ms.date: 08/16/2019
 ms.author: alinast
 ms.custom: include file
-ms.openlocfilehash: ef6b395aeff18a63f52f58e2477679b48a19b002
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
-ms.translationtype: MT
+ms.openlocfilehash: fcb4b3d54e1e62a7f197f2f499e2b176bb707fd8
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624750"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843832"
 ---
 1. I [Azure-portalen](https://portal.azure.com)öppnar du **Azure Active Directory** från den vänstra panelen och öppnar sedan fönstret **Egenskaper**. Kopiera **katalog-ID:t** till en temporär fil. Du använder det här värdet för att konfigurera exempelprogrammet i nästa avsnitt.
 
-    ![ID för Azure Active Directory-katalog](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)
+    [![Azure Active Directory Directory-ID](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png#lightbox)
 
 1. Öppna **Azure Active Directory** i den vänstra rutan i [Azure Portal](https://portal.azure.com)och öppna sedan fönstret **Appregistreringar (bakåtkompatibelt)** . Välj knappen **ny program registrering** .
 
 1. Ge appregistreringen ett eget namn i rutan **Namn**. Ställ in **Programtyp** på **Intern** och **Omdirigerings-URI** som `https://microsoft.com`. Välj **Skapa**.
 
-    ![Skapa fönster](./media/digital-twins-permissions-legacy/aad-app-reg-create.png)
+    [![Fönstret Skapa](./media/digital-twins-permissions-legacy/aad-app-reg-create.png)](./media/digital-twins-permissions-legacy/aad-app-reg-create.png#lightbox)
 
 1.  Öppna den registrerade appen och kopiera värdet för fältet **Program-ID** till en temporär fil. Det här värdet identifierar din Azure Active Directory-app. Du använder program-ID:t för att konfigurera exempelprogrammet i följande avsnitt.
 
-    ![ID för Azure Active Directory-programmet](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png)
+    [![Azure Active Directory program-ID](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png)](./media/digital-twins-permissions-legacy/aad-app-reg-app-id.png#lightbox)
 
 1. Öppna fönstret för registrering av din app. Välj **Inställningar** > **Nödvändiga behörigheter** och sedan:
 
@@ -43,6 +43,6 @@ ms.locfileid: "69624750"
 
    f. I fönstret **nödvändiga behörigheter** väljer du knappen **bevilja behörigheter** och godkänner bekräftelsen som visas. Kontakta administratören om behörigheten inte beviljas för detta API.
 
-      ![Fönstret Nödvändiga behörigheter](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)
+      [@no__t 1Required behörighets fönstret](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png)](./media/digital-twins-permissions-legacy/aad-app-req-permissions.png#lightbox)
 
  

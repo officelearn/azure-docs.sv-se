@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: e52ce4411a2fa1969db196ba2e32bb485f71f8b6
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
-ms.translationtype: MT
+ms.openlocfilehash: 2dbb900d297f1acf05e77dca3e1753745e9b2b38
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931235"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937404"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
 
@@ -129,7 +129,8 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
     | | |
 
     > [!NOTE]
-    > Välj **mina data innehåller routningsinformation** för att använda dynamisk routning, där dina data innehåller den routningsinformation som krävs som visas i exempel kommentaren för [appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Om både statiska och dynamiska egenskaper anges åsidosätter de dynamiska egenskaperna de statiska. 
+    > * Välj **mina data innehåller routningsinformation** för att använda dynamisk routning, där dina data innehåller den routningsinformation som krävs som visas i exempel kommentaren för [appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Om både statiska och dynamiska egenskaper anges åsidosätter de dynamiska egenskaperna de statiska. 
+    > * Endast händelser som står i kö efter att du har skapat data anslutningen matas in.
 
 ## <a name="copy-the-connection-string"></a>Kopiera anslutningssträngen
 
@@ -197,7 +198,7 @@ Om du inte planerar att använda händelsehubben igen rensar du **test-hub-rg** 
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
+    Om den vänstra menyn är dold väljer du ![Visa-knappen](media/ingest-data-event-hub/expand.png) för att expandera den.
 
    ![Välj den resursgrupp som ska tas bort](media/ingest-data-event-hub/delete-resources-select.png)
 

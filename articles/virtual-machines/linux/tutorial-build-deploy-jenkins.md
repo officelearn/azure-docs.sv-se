@@ -12,12 +12,12 @@ ms.workload: infrastructure
 ms.date: 07/31/2018
 ms.author: tarcher
 ms.custom: jenkins
-ms.openlocfilehash: a62a302748cb7e60b6a857c686d1833ad499cc7a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 42e1ede7c762fef1f33436ea4c757b0c0531a8f2
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081659"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828432"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-with-using-jenkins-and-azure-devops-services"></a>Självstudier: Distribuera appar till virtuella Linux-datorer i Azure med Jenkins och Azure DevOps Services
 
@@ -54,7 +54,7 @@ till en [distributionsgrupp](https://docs.microsoft.com/azure/devops/pipelines/r
 ## <a name="get-the-sample-app"></a>Hämta exempelappen
 
 Du behöver en app som ska distribueras och lagras på en Git-lagringsplats.
-Vi rekommenderar att du för dessa självstudier använder [denna exempelapp, som finns tillgänglig från GitHub](https://github.com/azooinmyluggage/fabrikam-node). Dessa självstudier innehåller ett exempelskript som används för att installera Node.js och ett program. Om du vill arbeta med en egen lagringsplats bör du konfigurera ett liknande exempel.
+Vi rekommenderar att du för dessa självstudier använder [denna exempelapp, som finns tillgänglig från GitHub](https://github.com/azure-devops/fabrikam-node). Dessa självstudier innehåller ett exempelskript som används för att installera Node.js och ett program. Om du vill arbeta med en egen lagringsplats bör du konfigurera ett liknande exempel.
 
 Skapa en förgrening av den här appen och anteckna platsen (URL) för användning i senare steg i den här kursen. Läs mer i informationen om hur du [skapar en förgrening av en lagringsplats](https://help.github.com/articles/fork-a-repo/).    
 

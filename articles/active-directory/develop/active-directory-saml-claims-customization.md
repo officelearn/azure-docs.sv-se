@@ -18,20 +18,20 @@ ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c0625a233b3b4a949feff2e289361a26fc8dc5a
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
-ms.translationtype: MT
+ms.openlocfilehash: 8e7681afe3f5361b17670312c8391349c650a89d
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835353"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936775"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Anvisningar: Anpassa anspråk som utfärdats i SAML-token för företags program
 
 Idag har Azure Active Directory (Azure AD) stöd för enkel inloggning (SSO) med de flesta företags program, inklusive båda program som är förintegrerade i Azure AD App-galleriet samt anpassade program. När en användare autentiserar till ett program via Azure AD med hjälp av SAML 2,0-protokollet skickar Azure AD en token till programmet (via ett HTTP-inlägg). Därefter verifierar och använder appen token för att logga användaren i stället för att begära ett användar namn och lösen ord. Dessa SAML-tokens innehåller delar av information om den användare som kallas för *anspråk*.
 
-Ett *anspråk* är information som en identitets leverantör anger för en användare inom den token som de utfärdar för den användaren. I [SAML](https://en.wikipedia.org/wiki/SAML_2.0)-token finns dessa data vanligt vis i instruktionen SAML Attribute. Användarens unika ID visas vanligt vis i SAML-ämnet även kallat namn identifierare.
+Ett *anspråk* är information som en identitets leverantör anger för en användare inom den token som de utfärdar för den användaren. I [SAML-token](https://en.wikipedia.org/wiki/SAML_2.0)finns dessa data vanligt vis i instruktionen SAML Attribute. Användarens unika ID visas vanligt vis i SAML-ämnet även kallat namn identifierare.
 
-Som standard utfärdar Azure AD en SAML-token till ditt program som innehåller `NameIdentifier` ett anspråk med ett värde för användarens användar namn (även kallat User Principal Name) i Azure AD, vilket kan identifiera användaren unikt. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, förnamn och efter namn.
+Som standard utfärdar Azure AD en SAML-token till ditt program som innehåller ett `NameIdentifier`-anspråk med ett värde för användarens användar namn (kallas även User Principal Name) i Azure AD, vilket kan identifiera användaren unikt. SAML-token innehåller också ytterligare anspråk som innehåller användarens e-postadress, förnamn och efter namn.
 
 Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till programmet öppnar du programmet i Azure Portal. Öppna sedan avsnittet **användarattribut &-anspråk** .
 
@@ -39,7 +39,7 @@ Om du vill visa eller redigera de anspråk som utfärdats i SAML-token till prog
 
 Det finns två möjliga orsaker till varför du kan behöva redigera anspråk som utfärdats i SAML-token:
 
-* Programmet kräver `NameIdentifier` att NameID-anspråk är något annat än det användar namn (eller User Principal Name) som lagras i Azure AD.
+* Programmet kräver att `NameIdentifier` eller NameID-anspråk är något annat än användar namnet (eller User Principal Name) som lagras i Azure AD.
 * Programmet har skrivits för att kräva en annan uppsättning av anspråk-URI: er eller anspråks värden.
 
 ## <a name="editing-nameid"></a>Redigera NameID
@@ -65,15 +65,14 @@ I list rutan **Välj namn identifierare format** kan du välja något av följan
 | **Bestående** | Azure AD kommer att använda beständigt som NameID-format. |
 | **E-postadress** | Azure AD kommer att använda EmailAddress som NameID-format. |
 | **Ospecificerad** | Azure AD kommer att använda ospecificerat som NameID-format. |
-| **Tillfälliga** | Azure AD kommer att använda tillfällig som NameID-format. |
 
 Mer information om attributet NameIDPolicy finns i [SAML-protokoll för enkel inloggning](single-sign-on-saml-protocol.md).
 
 ### <a name="attributes"></a>Attribut
 
-Välj önskad källa för `NameIdentifier` (eller NameID)-anspråket. Du kan välja bland följande alternativ.
+Välj önskad källa för `NameIdentifier`-eller NameID-anspråk. Du kan välja bland följande alternativ.
 
-| Namn | Beskrivning |
+| Name | Beskrivning |
 |------|-------------|
 | Email | Användarens e-postadress |
 | userprincipalName | Användarens huvud namn (UPN) |
@@ -83,7 +82,7 @@ Välj önskad källa för `NameIdentifier` (eller NameID)-anspråket. Du kan vä
 | Katalogtillägg | Katalog tillägg som har [synkroniserats från lokala Active Directory med Azure AD Connect synkronisering](../hybrid/how-to-connect-sync-feature-directory-extensions.md) |
 | Attribut för tillägg 1-15 | Attribut för lokala tillägg som används för att utöka Azure AD-schemat |
 
-Mer information finns i [tabell 3: Giltiga ID-värden per](active-directory-claims-mapping.md#table-3-valid-id-values-per-source)källa.
+Mer information finns i [Table 3: Giltiga ID-värden per källa @ no__t-0.
 
 ### <a name="special-claims---transformations"></a>Särskilda anspråk – transformeringar
 
@@ -92,7 +91,7 @@ Du kan också använda funktionerna för anspråks omvandlingar.
 | Funktion | Beskrivning |
 |----------|-------------|
 | **ExtractMailPrefix()** | Tar bort domänsuffix från antingen e-postadressen eller User Principal Name. Detta extraherar bara den första delen av användar namnet som skickas genom (till exempel "joe_smith" i stället för joe_smith@contoso.com). |
-| **Anslut ()** | Ansluter till ett attribut med en verifierad domän. Om värdet för den valda användar identifieraren har en domän extraheras användar namnet för att lägga till den valda verifierade domänen. Om du till exempel väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användar-ID och väljer contoso.onmicrosoft.com som verifierade domän kommer detta att resultera i. joe_smith@contoso.onmicrosoft.com |
+| **Anslut ()** | Ansluter till ett attribut med en verifierad domän. Om värdet för den valda användar identifieraren har en domän extraheras användar namnet för att lägga till den valda verifierade domänen. Om du till exempel väljer e-postmeddelandet (joe_smith@contoso.com) som värde för användar-ID och väljer contoso.onmicrosoft.com som den verifierade domänen, leder detta till joe_smith@contoso.onmicrosoft.com. |
 | **ToLower()** | Konverterar tecknen i det valda attributet till gemener. |
 | **ToUpper()** | Konverterar tecknen i det valda attributet till versaler. |
 

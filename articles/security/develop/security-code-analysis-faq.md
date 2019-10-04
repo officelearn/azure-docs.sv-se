@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 846f0ecdd49fc1c501893209b60fa9acc8a32ed2
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: b28d02dd0ca375451f6ff75b1253ae8874bf2ab4
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242338"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828236"
 ---
 # <a name="frequently-asked-questions"></a>Vanliga frågor och svar
 Har du frågor? Läs följande vanliga frågor och svar om du vill ha mer information.
@@ -48,7 +48,7 @@ För det mesta är Azure DevOps build-aktiviteterna direkta omslutningar runt ko
 
 Märkbara skillnader:
 
-- Verktygen körs från källmappen i agenten $ (build. SourcesDirectory) eller från% BUILD_SOURCESDIRECTORY%. Ett exempel är C:\Agent\_work\1\s.
+- Verktygen körs från källmappen i agenten $ (build. SourcesDirectory) eller från% BUILD_SOURCESDIRECTORY%. Ett exempel är C:\Agent @ no__t-0work\1\s.
 - Sökvägar i argumenten kan vara relativa till roten i den käll katalog som anges ovan. Sökvägar kan också vara absoluta. Du får absoluta sökvägar antingen genom att använda Azure DevOps build-variabler eller genom att köra en lokal agent med kända distributions platser för lokala resurser.
 - Verktyg tillhandahåller automatiskt en sökväg eller mapp till utdatafilen. Om du anger en utmatnings plats för en build-uppgift ersätts platsen med en sökväg till vår välkända plats för loggar på Build-agenten
 - Vissa ytterligare kommando rads argument har ändrats för vissa verktyg. Ett exempel är tillägg eller borttagning av alternativ som garanterar att inget användar gränssnitt startas.
@@ -63,7 +63,7 @@ Bygg aktiviteter filtrerar vissa användarindata. För den här frågan är det 
 
 ### <a name="where-are-the-output-files-generated-by-the-tools-saved"></a>Var sparas utdatafilerna som genereras av verktygen? 
 
-Bygg aktiviteterna lägger automatiskt till sökvägar till den här välkända platsen på Build-agenten: $ (agent. BuildDirectory\_) sdt\logs. Eftersom vi är standardiserade på den här platsen har alla team som skapar eller använder kod analys loggar till gång till utdata.
+Bygg aktiviteterna lägger automatiskt till utdata sökvägar till den här välkända platsen på Build-agenten: $ (agent. BuildDirectory) \_sdt \ logs. Eftersom vi är standardiserade på den här platsen har alla team som skapar eller använder kod analys loggar till gång till utdata.
 
 ### <a name="can-i-queue-a-build-to-run-these-tasks-on-a-hosted-build-agent"></a>Kan jag köa en build för att köra dessa uppgifter på en värdbaserad build-agent? 
 
@@ -152,12 +152,6 @@ Exempel på giltiga undertrycks regler:
 
 #### <a name="what-are-recommended-guidelines-for-managing-secrets"></a>Vilka är rekommenderade rikt linjer för att hantera hemligheter?
 
-Det är praktiskt att upptäcka hårdkodade hemligheter snabbt och minimera riskerna. Men att hindra hemligheter från att bli incheckat på alla är ännu bättre.
-
-I detta hänseende har Microsoft publicerat en tidig förhands granskning av koden för att läsa in autentiseringsuppgifter som en del av [Microsoft DevLabs-tillägget](https://marketplace.visualstudio.com/items?itemName=VSIDEDevOpsMSFT.ContinuousDeliveryToolsforVisualStudio) för Visual Studio. Analyzer är en tidig för hands version. Den ger utvecklare en infogad upplevelse för att upptäcka potentiella hemligheter i sin kod. På så sätt kan du med hjälp av analys verktyget även ge utvecklare möjlighet att åtgärda problemen i real tid.
-
-Mer information finns i blogg inlägget [Hantera hemligheter på ett säkert sätt i molnet](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
-
 Med följande resurser kan du på ett säkert sätt hantera hemligheter och komma åt känslig information i dina program:
 
  - [Azure Key Vault](../../key-vault/index.yml)
@@ -166,6 +160,9 @@ Med följande resurser kan du på ett säkert sätt hantera hemligheter och komm
  - [Hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md)
  - [Hanterade identiteter i Azure App Service och Azure Functions](../../app-service/overview-managed-identity.md)
  - [AppAuthentication-bibliotek](../../key-vault/service-to-service-authentication.md)
+
+
+Mer information finns i blogg inlägget [Hantera hemligheter på ett säkert sätt i molnet](https://devblogs.microsoft.com/visualstudio/managing-secrets-securely-in-the-cloud/).
 
 #### <a name="can-i-write-my-own-custom-searchers"></a>Kan jag skriva egna anpassade sökre?
 
@@ -176,7 +173,7 @@ En innehålls sökre definieras enligt följande:
 - **Namn på**: Det beskrivande Sök förnamnet som ska användas i utdatafilen för autentiseringsuppgifter. Vi rekommenderar att du använder namngivnings konventionen kamel notation för Sök efter namn.
 - **RuleID**: Sök försäkrans ogenomskinliga ID:
     - En standard sökre för en autentiseringsuppgift-skanner tilldelas ett **RuleID** -värde som CSCAN0010, CSCAN0020 eller CSCAN0030. Den sista siffran är reserverad för att slå samman eller dela upp Sök grupper via reguljära uttryck (regex).
-    - **RuleID** -värdet för en anpassad sökning måste ha ett eget namn område. Exempel är CSCAN-\<namespace\>0010, CSCAN-\<namespace\>0020 och CSCAN-\<namespace\>0030.
+    - **RuleID** -värdet för en anpassad sökning måste ha ett eget namn område. Exempel är CSCAN-\<Namespace @ no__t-10010, CSCAN-\<Namespace @ no__t-30020 och CSCAN-\<Namespace @ no__t-50030.
     - Ett fullständigt kvalificerat Sök namn är kombinationen av ett **RuleID** -värde och ett Sök förnamn. Exempel är CSCAN0010. KeyStoreFiles och CSCAN0020. Base64EncodedCertificate.
 - **ResourceMatchPattern**: Regex för fil namns tillägg att kontrol lera mot Sök funktionen.
 - **ContentSearchPatterns**: En matris med strängar som innehåller regex-instruktioner som ska matchas. Om inga Sök mönster har definierats returneras alla filer som matchar **ResourceMatchPattern** -värdet.
@@ -205,13 +202,13 @@ Ett steg mellan dina huvud steg för bygge och Roslyn kan ha gjort att käll tr�
 
 Det fullständiga fel meddelandet:
 
-"CSC. exe" avslutades med felkod 1 – det går inte att skapa en instans av Analyzer *AAAA* från C:\\*bbbb*. dll: Det gick inte att läsa in filen eller sammansättningen "Microsoft. CodeAnalysis, version =*X. x.* x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen ”.
+"CSC. exe" avslutades med felkod 1--det går inte att skapa en instans av Analyzer *AAAA* från C: \\*bbbb*. dll: Det gick inte att läsa in filen eller sammansättningen "Microsoft. CodeAnalysis, version =*X. x.* x, Culture = neutral, PublicKeyToken = 31bf3856ad364e35" eller något av dess beroenden. Det går inte att hitta den angivna filen ”.
 
 Se till att din kompilator stöder Roslyn-analyser. Om du kör kommandot **CSC. exe/version** ska du rapportera version svärdet 2,6 eller senare.
 
 Ibland kan en. CSPROJ-fil åsidosätta build-datorns Visual Studio-installation genom att referera till ett paket från Microsoft.Net. compilers. Om du inte tänker använda en angiven version av kompilatorn tar du bort referenser till Microsoft.Net. compilers. Annars kontrollerar du att versionen av det refererade paketet är 2,6 eller senare.
 
-Försök att hämta fel logg Sök vägen, som anges i alternativet **CSC. exe/Errorlog** . Alternativet och sökvägen visas i loggen för build-uppgiften Roslyn-analyser. De kan se ut ungefär som **/Errorlog: f:\ts-Services-\_123 work\456\s\Some\Project\Code\Code.CSPROJ.sarif**
+Försök att hämta fel logg Sök vägen, som anges i alternativet **CSC. exe/Errorlog** . Alternativet och sökvägen visas i loggen för build-uppgiften Roslyn-analyser. De kan se ut ungefär som **/Errorlog: F:\ts-Services-123 @ no__t-1work\456\s\Some\Project\Code\Code.CSPROJ.sarif**
 
 ##### <a name="the-c-compiler-version-isnt-recent-enough"></a>C# Kompilator versionen är inte tillräckligt aktuell
 

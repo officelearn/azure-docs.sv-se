@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: raynew
-ms.openlocfilehash: c54273e0ca8c88a6fe47d5611950acd38f50b4c0
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8e034153a2e98a101527f411c78ace6e46b01b29
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212795"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937528"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -73,7 +73,7 @@ Funktioner som läggs till den här månaden sammanfattas i tabellen.
 
 **Funktion** | **Detaljer**
 --- | ---
-Lagringskonto | Site Recovery stöder nu användning av lagrings konton med brand vägg aktive rad för haveri beredskap för Hyper-V till Azure.  Du kan välja brand Väggs-aktiverade lagrings konton som ett mål konto eller för cachelagring. Om du använder ett brand Väggs konto, se till att du aktiverar alternativet för att tillåta betrodda Microsoft-tjänster.
+Lagringskonto | Site Recovery stöder nu användning av lagrings konton med brand vägg aktive rad för haveri beredskap för Hyper-V till Azure.  Du kan välja brand Väggs-aktiverade lagrings konton som ett mål konto eller för cachelagring. Om du använder ett brand Väggs konto, se till att du aktiverar alternativet för att tillåta betrodda Microsoft-tjänster.<br/><br/> Detta stöds för virtuella Hyper-V-datorer med eller utan System Center VMM.
 
 
 ## <a name="updates-august-2019"></a>Uppdateringar (augusti 2019)

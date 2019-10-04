@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: linux
 ms.subservice: disks
-ms.openlocfilehash: de9975151270ccce8d4a7abd58210c6550d40464
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 88b5cacf432e467c893dac6fc5839c468b2eafbd
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720342"
+ms.locfileid: "71828663"
 ---
 # <a name="upload-a-vhd-to-azure-using-azure-powershell"></a>Ladda upp en virtuell hård disk till Azure med Azure PowerShell
 
@@ -74,7 +74,7 @@ Använd AzCopy v10 för att ladda upp din lokala VHD-fil till en hanterad disk g
 Den här uppladdningen har samma data flöde som motsvarande [standard-hårddisk](disks-types.md#standard-hdd). Om du till exempel har en storlek som motsvarar S4, kommer du att ha ett data flöde på upp till 60 MiB/s. Men om du har en storlek som motsvarar S70 har du ett data flöde på upp till 500 MiB/s.
 
 ```
-AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas --blob-type PageBlob
+AzCopy.exe copy "c:\somewhere\mydisk.vhd" $diskSas.AccessSAS --blob-type PageBlob
 ```
 
 Om din sa upphör att gälla under uppladdningen och du inte `revoke-access` har anropat ännu kan du hämta en ny SAS för att fortsätta `grant-access`med överföringen med, igen.

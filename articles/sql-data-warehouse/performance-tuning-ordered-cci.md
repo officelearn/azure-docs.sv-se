@@ -10,21 +10,21 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 74a1a2218020718a05c9d01de96ddf4fccb35eb4
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
-ms.translationtype: MT
+ms.openlocfilehash: 7adf43110cffdc669b39632521c69ed5d3723257
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802571"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845712"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestanda justering med ordnat grupperat columnstore-index  
 
 När användarna frågar en columnstore-tabell i Azure SQL Data Warehouse kontrollerar optimeringen de lägsta och högsta värden som lagras i varje segment.  Segment som ligger utanför gränserna för frågespråket går inte att läsa från disk till minne.  En fråga kan få snabbare prestanda om antalet segment som ska läsas och deras sammanlagda storlek är små.   
 
 ## <a name="ordered-vs-non-ordered-clustered-columnstore-index"></a>Ordnat eller icke-ordnat grupperat columnstore-index 
-Som standard skapar en intern komponent (CCI) ett grupperat columnstore-index (CCI) för varje Azure Data Warehouse-tabell som skapats utan ett index-alternativ.  Data i varje kolumn komprimeras till ett separat CCI radgrupps-segment.  Det finns metadata för varje segments värde intervall, så segment som ligger utanför gränserna för frågespråket är inte lästa från disk under frågekörningen.  CCI erbjuder den högsta nivån av data komprimering och minskar storleken på segment som ska läsas så att frågor kan köras snabbare. Men eftersom index verktyget inte sorterar data innan du komprimerar det i segment, kan segment med överlappande värde intervall inträffa, vilket gör att frågor kan läsa fler segment från disken och ta längre tid att slutföra.  
+Som standard skapar en intern komponent (CCI) ett grupperat columnstore-index (CCI) för varje Azure Data Warehouse-tabell som skapats utan ett index-alternativ.  Data i varje kolumn komprimeras till ett separat CCI radgrupps-segment.  Det finns metadata för varje segments värde intervall, så segment som ligger utanför gränserna för frågespråket är inte lästa från disk under frågekörningen.  CCI erbjuder den högsta nivån av data komprimering och minskar storleken på segment som ska läsas så att frågor kan köras snabbare. Men eftersom index Builder inte sorterar data innan de komprimeras i segment, kan segment med överlappande värde intervall inträffa, vilket gör att frågor kan läsa fler segment från disken och ta längre tid att slutföra.  
 
-När du skapar en ordnad CCI sorterar Azure SQL Data Warehouse-motorn data i minnet efter beställnings nyckeln (erna) innan index verktyget komprimerar det till index segment.  Med sorterade data minskas överlappande av segment som gör att frågor kan få en mer effektiv segment Eli minering och därmed snabbare prestanda eftersom antalet segment som ska läsas från disken är mindre.  Om alla data kan sorteras i minnet samtidigt, kan segment som överlappa varandra undvikas.  Det här scenariot inträffar inte ofta när du har fått den stora storleken på data i data lager tabeller.  
+När du skapar en ordnad CCI sorterar Azure SQL Data Warehouses motorn befintliga data i minnet efter beställnings nyckeln (erna) innan index verktyget komprimerar dem till index segment.  Med sorterade data minskas överlappande av segment som gör att frågor kan få en mer effektiv segment Eli minering och därmed snabbare prestanda eftersom antalet segment som ska läsas från disken är mindre.  Om alla data kan sorteras i minnet samtidigt, kan segment som överlappa varandra undvikas.  Det här scenariot inträffar inte ofta när du har fått den stora storleken på data i data lager tabeller.  
 
 Om du vill kontrol lera segment intervallen för en kolumn kör du det här kommandot med ditt tabell namn och kolumn namn:
 
@@ -42,6 +42,9 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 
 ```
 
+> [!NOTE] 
+> I en ordnad CCI-tabell, sorteras inte nya data som resulterar i DML-eller data inläsnings åtgärder automatiskt.  Användare kan återskapa de beställda CCI för att sortera alla data i tabellen.  
+
 ## <a name="data-loading-performance"></a>Data inläsnings prestanda
 
 Prestanda för data inläsning i en ordnad CCI-tabell liknar data inläsning i en partitionerad tabell.  
@@ -51,12 +54,24 @@ Här är ett exempel på prestanda jämförelse av inläsning av data i tabeller
 ![Performance_comparison_data_loading @ no__t-1
  
 ## <a name="reduce-segment-overlapping"></a>Minska överlappande segment
-Nedan visas alternativ för att ytterligare minska segment som överlappar när du skapar beställda CCI i en ny tabell via CTAS eller en befintlig tabell med data:
 
-- Använd en större resurs klass för att tillåta att mer data sorteras samtidigt i minnet innan index verktyget komprimerar dem i segment.  En gång i ett index segment kan inte den fysiska platsen för data ändras.  Det finns ingen data sortering inom ett segment eller mellan segment.  
+Antalet överlappande segment beror på storleken på de data som ska sorteras, tillgängligt minne och den maximala graden av parallellitet (MAXDOP) under skapandet av ordnade CCI. Nedan visas alternativ för att minska överlappande segment när du skapar beställda CCI.
 
-- Använd en lägre grad av parallellitet (DOP = 1, till exempel).  Varje tråd som används för att skapa ordnad CCI fungerar på en delmängd data och sorterar den lokalt.  Det finns ingen global sortering mellan data sorterade efter olika trådar.  Genom att använda parallella trådar kan du minska tiden för att skapa en ordnad CCI men generera fler överlappande segment än att använda en enda tråd. 
+- Använd xlargerc resurs klass på en högre DWU för att tillåta mer minne för data sortering innan index verktyget komprimerar data i segment.  En gång i ett index segment kan inte den fysiska platsen för data ändras.  Det finns ingen data sortering inom ett segment eller mellan segment.  
+
+- Skapa beställda CCI med MAXDOP = 1.  Varje tråd som används för att skapa ordnad CCI fungerar på en delmängd data och sorterar den lokalt.  Det finns ingen global sortering mellan data sorterade efter olika trådar.  Genom att använda parallella trådar kan du minska tiden för att skapa en ordnad CCI men generera fler överlappande segment än att använda en enda tråd.  För närvarande stöds inte alternativet MAXDOP i skapa en ordnad CCI-tabell med CREATE TABLE AS SELECT-kommandot.  Att skapa en ordnad CCI via CREATE INDEX eller CREATE TABLE kommandon stöder inte alternativet MAXDOP. Exempel:
+
+```sql
+CREATE TABLE Table1 WITH (DISTRIBUTION = HASH(c1), CLUSTERED COLUMNSTORE INDEX ORDER(c1) )
+AS SELECT * FROM ExampleTable
+OPTION (MAXDOP 1);
+```
 - Sortera data efter sorterings nyckel (er) innan du läser in dem i Azure SQL Data Warehouse tabeller.
+
+
+Här är ett exempel på en ordnad tabell distribution som har noll segment som överlappar följande rekommendationer. Den ordnade CCI-tabellen skapas i en DWU1000c-databas via CTAS från en 20-heap-tabell med MAXDOP 1 och xlargerc.  CCI är ordnade i en BIGINT-kolumn utan dubbletter.  
+
+![Segment_No_Overlapping](media/performance-tuning-ordered-cci/perfect-sorting-example.png)
 
 ## <a name="create-ordered-cci-on-large-tables"></a>Skapa beställda CCI i stora tabeller
 Att skapa en ordnad CCI är en offline-åtgärd.  För tabeller som inte har några partitioner är data inte tillgängliga för användarna förrän den ordnade CCI-processen har skapats.   För partitionerade tabeller, eftersom motorn skapar den beställda CCI-partitionen per partition, kan användarna fortfarande komma åt data i partitioner där ordnade CCI inte har skapats.   Du kan använda det här alternativet för att minimera stillestånds tiden när du skapar ordnade CCI i stora tabeller: 

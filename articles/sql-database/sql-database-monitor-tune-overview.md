@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 83ff39e9f3b7f95256466c74011e55ebdc22a7a9
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: 5df9df1474489d7f1b1fb4e1089143cca63a3e42
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910529"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935606"
 ---
 # <a name="monitoring-and-performance-tuning"></a>Övervakning och prestandajustering
 
@@ -187,7 +187,7 @@ En RECOMPILE (eller ny kompilering efter cache-avtagningen) kan fortfarande resu
 
 När du har identifierat problemet kan du antingen finjustera problemen eller uppgradera beräknings storleken eller tjänst nivån för att öka kapaciteten hos SQL-databasen för att öka processor kraven. 
 
-Mer information finns i [skala enkla databas resurser i Azure SQL Database](sql-database-single-database-scale.md) och [skala elastiska pool resurser i Azure SQL Database](sql-database-elastic-pool-scale.md). Information om hur du skalar en hanterad instans finns i [resurs gränser på instans nivå](sql-database-managed-instance-resource-limits.md#instance-level-resource-limits).
+Mer information finns i [skala enkla databas resurser i Azure SQL Database](sql-database-single-database-scale.md) och [skala elastiska pool resurser i Azure SQL Database](sql-database-elastic-pool-scale.md). Information om hur du skalar en hanterad instans finns i [resurs gränser på tjänst nivå](sql-database-managed-instance-resource-limits.md#service-tier-characteristics).
 
 ### <a name="performance-problems-caused-by-increased-workload-volume"></a>Prestanda problem som orsakas av ökad arbets belastnings volym
 

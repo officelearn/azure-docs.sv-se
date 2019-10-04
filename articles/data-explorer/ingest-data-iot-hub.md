@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: cbe9aa2ea664d97df6008de05d6cb84da9771bcc
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
-ms.translationtype: MT
+ms.openlocfilehash: 83f5339dbc4f093ba0b7287b53c053e319f928c9
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70166555"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937394"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Mata in data från IoT Hub till Azure Datautforskaren (förhands granskning)
 
@@ -76,11 +76,11 @@ Nu ansluter du till IoT Hub från Azure Datautforskaren. När den här anslutnin
 
     **Inställning** | **Fältbeskrivning**
     |---|---|
-    | Namn på dataanslutning | Namnet på den anslutning som du vill skapa i Azure Datautforskaren
-    | IoT-hubb | IoT Hub-namn |
-    | Policy för delad åtkomst | Namnet på principen för delad åtkomst. Måste ha Läs behörighet |
-    | Konsumentgrupp |  Konsument gruppen som definierats i den IoT Hub inbyggda slut punkten |
-    | Egenskaper för händelse system | System egenskaper för IoT Hub event |
+    | Namn på dataanslutning | Namnet på anslutningen som du vill skapa i Azure Data Explorer.
+    | IoT-hubb | IoT Hub namn. |
+    | Policy för delad åtkomst | Namnet på principen för delad åtkomst. Måste ha Läs behörighet. |
+    | Konsumentgrupp |  Konsument gruppen som definierats i den IoT Hub inbyggda slut punkten. |
+    | Systemegenskaper för händelsen | System egenskaperna för IoT Hub event. Om det finns flera poster per händelse meddelande, läggs system egenskaperna till i den första. |
     | | 
 
     > [!NOTE]
@@ -98,8 +98,9 @@ Nu ansluter du till IoT Hub från Azure Datautforskaren. När den här anslutnin
     | Kolumnmappning | *TestMapping* | Mappningen som du skapade i **testdb**, som mappar inkommande JSON-data till kolumn namn och data typer för **testdb**. Krävs för JSON, Multiline-JSON och AVRO, och valfritt för andra format.|
     | | |
 
-    > [!TIP]
-    > Välj **mina data innehåller routningsinformation** för att använda dynamisk routning, där dina data innehåller den routningsinformation som krävs som visas i exempel kommentaren för [appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Om både statiska och dynamiska egenskaper anges åsidosätter de dynamiska egenskaperna de statiska. 
+    > [!NOTE]
+    > * Välj **mina data innehåller routningsinformation** för att använda dynamisk routning, där dina data innehåller den routningsinformation som krävs som visas i exempel kommentaren för [appen](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) . Om både statiska och dynamiska egenskaper anges åsidosätter de dynamiska egenskaperna de statiska. 
+    > * Endast händelser som står i kö efter att du har skapat data anslutningen matas in.
 
 ## <a name="generate-sample-data-for-testing"></a>Generera exempel data för testning
 
@@ -111,7 +112,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
 1. Öppna filen **SimulatedDevice.cs** i en valfri textredigerare.
 
-    Ersätt värdet för `s_connectionString` variabeln med enhets anslutnings strängen från [Registrera en enhet till IoT Hub](#register-a-device-to-the-iot-hub). Spara dina ändringar i filen **SimulatedDevice.cs**.
+    Ersätt värdet för variabeln `s_connectionString` med enhets anslutnings strängen från [Registrera en enhet till IoT Hub](#register-a-device-to-the-iot-hub). Spara dina ändringar i filen **SimulatedDevice.cs**.
 
 1. Installera de paket som krävs för programmet för simulerad enhet genom att köra följande kommandon i det lokala terminalfönstret:
 
@@ -164,7 +165,7 @@ Om du inte planerar att använda din IoT Hub igen kan du rensa **test-Hub-RG**f�
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
+    Om den vänstra menyn är dold väljer du ![Visa-knappen](media/ingest-data-event-hub/expand.png) för att expandera den.
 
    ![Välj den resursgrupp som ska tas bort](media/ingest-data-event-hub/delete-resources-select.png)
 

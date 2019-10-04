@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 09/16/2019
-ms.openlocfilehash: 5eaade975adac86b6842d1d8f9f9b8f522d15bca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.date: 10/02/2019
+ms.openlocfilehash: a360d836f1ef09b0bb87e2af39aeab0460034cd4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816087"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71935612"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>Översikt Azure SQL Database hanterade instans resurs gränser
 
@@ -25,13 +25,9 @@ Den här artikeln innehåller en översikt över de tekniska egenskaperna och re
 > [!NOTE]
 > Skillnader i funktioner som stöds och T-SQL-uttryck finns i [funktions skillnader](sql-database-features.md) och [stöd för t-SQL-uttryck](sql-database-managed-instance-transact-sql-information.md). Allmän skillnad mellan tjänst nivåerna i en enkel databas och en hanterad instans finns i [jämförelse av tjänst nivå](sql-database-service-tiers-general-purpose-business-critical.md#service-tier-comparison).
 
-## <a name="instance-level-resource-limits"></a>Resurs gränser på instans nivå
+## <a name="hardware-generation-characteristics"></a>Egenskaper för maskin varu skapande
 
-Den hanterade instansen har egenskaper och resurs gränser som är beroende av den underliggande infrastrukturen och arkitekturen. Gränserna är beroende av maskin varu generering och tjänst nivå.
-
-### <a name="hardware-generation-characteristics"></a>Egenskaper för maskin varu skapande
-
-Azure SQL Database Hanterad instans kan distribueras på två maskin varu generationer: Gen4 och Gen5. Maskin varu generationer har olika egenskaper, enligt beskrivningen i följande tabell:
+Den hanterade instansen har egenskaper och resurs gränser som är beroende av den underliggande infrastrukturen och arkitekturen. Azure SQL Database Hanterad instans kan distribueras på två maskin varu generationer: Gen4 och Gen5. Maskin varu generationer har olika egenskaper, enligt beskrivningen i följande tabell:
 
 |   | **Gen4** | **Gen5** |
 | --- | --- | --- |
@@ -45,22 +41,22 @@ Azure SQL Database Hanterad instans kan distribueras på två maskin varu genera
 > - Gen4-maskinvaran har fasats ut. Vi rekommenderar att du distribuerar nya hanterade instanser på Gen5-maskinvara.
 > - Gen4-maskinvaran är för närvarande bara tillgänglig i följande regioner: Nord Europa, Västeuropa, östra USA, södra centrala USA, norra centrala USA, västra USA 2, centrala USA, centrala Kanada, södra Indien, Sydostasien och Korea, centrala.
 
-#### <a name="in-memory-oltp-available-space"></a>Tillgängligt utrymme i minnet för OLTP 
+### <a name="in-memory-oltp-available-space"></a>Tillgängligt utrymme i minnet för OLTP 
 
-Mängden minnes intern OLTP-lagring beror på antalet virtuella kärnor och maskin varu generering. I följande tabell visas gränser för minne som kan användas för InMemory OLTP-objekt.
+Mängden minnes intern OLTP-rymd i [affärskritisk](sql-database-service-tier-business-critical.md) tjänst nivå beror på antalet virtuella kärnor och maskin varu generering. I följande tabell visas gränser för minne som kan användas för InMemory OLTP-objekt.
 
-| Minnes intern OLTP-utrymme per vCore    | **Gen5** | **Gen4** |
+| Minnes intern OLTP-rymd  | **Gen5** | **Gen4** |
 | --- | --- | --- |
-| 4 | 3,14 GB | |   
-| 8 | 6,28 GB | 8 GB |
-| 16    | 15,77 GB | 20 GB |
-| 24    | 25,25 GB | 36 GB |
-| 32    | 37,94 GB | |
-| 40    | 52,23 GB | |
-| 64    | 99,9 GB   | |
-| 80    | 131,68 GB| |
+| 4 virtuella kärnor  | 3,14 GB | |   
+| 8 virtuella kärnor  | 6,28 GB | 8 GB |
+| 16 virtuella kärnor | 15,77 GB | 20 GB |
+| 24 virtuella kärnor | 25,25 GB | 36 GB |
+| 32 virtuella kärnor | 37,94 GB | |
+| 40 virtuella kärnor | 52,23 GB | |
+| 64 virtuella kärnor | 99,9 GB    | |
+| 80 virtuella kärnor | 131,68 GB| |
 
-### <a name="service-tier-characteristics"></a>Egenskaper för tjänst nivå
+## <a name="service-tier-characteristics"></a>Egenskaper för tjänst nivå
 
 Den hanterade instansen har två tjänst nivåer: [Generell användning](sql-database-service-tier-general-purpose.md) och [affärskritisk](sql-database-service-tier-business-critical.md). Dessa nivåer ger [olika funktioner](sql-database-service-tiers-general-purpose-business-critical.md), enligt beskrivningen i tabellen nedan:
 
@@ -75,7 +71,7 @@ Den hanterade instansen har två tjänst nivåer: [Generell användning](sql-dat
 | Maximalt antal databasfiler per instans | Upp till 280, om inte instansens lagrings storlek eller [Azure Premium disk](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) utrymmes gräns har nåtts. | 32 767 filer per databas, om inte storleks gränsen för instans lagring har uppnåtts. |
 | Maximal data fil storlek | Begränsad till tillgänglig instans lagrings storlek (högst 2 TB-8 TB) och [lagrings utrymme för Azure Premium-disk](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files). | Begränsad till tillfället tillgänglig instans lagrings storlek (upp till 1 TB-4 TB). |
 | Största logg fils storlek | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. | Begränsad till 2 TB och tillgänglig instans lagrings storlek för närvarande. |
-| Data/logga IOPS (ungefärligt) | 500 – 7 500 per fil<br/>\*[Öka fil storleken för att få mer IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
+| Data/logga IOPS (ungefärligt) | Upp till 30-40 kB IOPS per instans *, 500-7500 per fil<br/>\*[Öka fil storleken för att få mer IOPS](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes)| 5,5 k-110 K (1375 IOPS/vCore)<br/>Lägg till fler virtuella kärnor för att få bättre IO-prestanda. |
 | Logg Skriv data flödes gräns (per instans) | 3 MB/s per vCore<br/>Högst 22 MB/s | 4 MB/s per vCore<br/>Max 48 MB/s |
 | Data flöde (ungefärligt) | 100-250 MB/s per fil<br/>\*[Öka fil storleken för att få bättre IO-prestanda](https://docs.microsoft.com/azure/virtual-machines/windows/premium-storage-performance#premium-storage-disk-sizes) | Inte begränsat. |
 | IO-latens för lagring (ungefärligt) | 5-10 MS | 1-2 MS |
@@ -88,9 +84,23 @@ Den hanterade instansen har två tjänst nivåer: [Generell användning](sql-dat
 > - Både data-och logg fils storleken i användar-och system databaserna ingår i instans lagrings storleken som jämförs med den maximala lagrings storleks gränsen. Använd <a href="https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-master-files-transact-sql">sys. master_files</a> system-vyn för att fastställa det totala använda utrymmet för databaser. Fel loggarna är inte bestående och ingår inte i storlek. Säkerhets kopieringar ingår inte i lagrings storleken.
 > - Data flödet och IOPS är också beroende av den sid storlek som inte uttryckligen begränsas av den hanterade instansen.
 > Du kan skapa en annan läsbar replik i olika Azure-regioner med hjälp av grupper för automatisk redundans.
+> - Högsta instans-IOPS beror på fillayouten och distributionen av arbets belastningen. Exempel: om du skapar 7 x 1 GB filer med högst 5 K IOPS varje och 7 små filer (mindre än 128 GB) med 500 IOPS var, kan du hämta 38500 IOPS per instans (7x5000 + 7x500) om din arbets belastning kan använda alla filer. Observera att viss mängd IOPS också används för automatisk säkerhets kopiering.
 
 > [!NOTE]
 > Mer information om [resurs gränserna i hanterade instanser av pooler finns i den här artikeln](sql-database-instance-pools.md#instance-pools-resource-limitations).
+
+### <a name="file-io-characteristics-in-general-purpose-tier"></a>Egenskaper för fil-i/o i Generell användning nivån
+
+I Generell användning tjänst nivå varje databas fil får dedikerad IOPS och data flöde som är beroende av fil storleken. Större filer får mer IOPS och data flöde. I/o-egenskaperna för databasfilerna visas i följande tabell:
+
+| Filstorlek           | 0-128 GiB | 128 – 256 GiB | 256 – 512 GiB | 0,5 – 1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+|---------------------|-------|-------|-------|-------|-------|-------|-------|
+| IOPS per fil       | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500   |
+| Data flöde per fil | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+
+Om du märker en lång IO-fördröjning på en viss databas fil eller om du ser att IOPS/data flödet når gränsen kan du förbättra prestandan genom [att öka fil storleken](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
+
+Det finns även gränser på instans nivå som maximalt logg skrivnings data flöde 22 MB/s, så du kanske inte kan nå filen i logg filen på grund av att du når instans data flödes gränsen.
 
 ## <a name="supported-regions"></a>Regioner som stöds
 

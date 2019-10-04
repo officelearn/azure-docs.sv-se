@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 5f6f4ce4fc77533a4d893472298ef3a20f153136
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: e3e819fc90e8900219ebc7809adb293369084a72
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568001"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828217"
 ---
 # <a name="in-memory-sample"></a>InMemory-exempel
 
@@ -49,9 +49,9 @@ För en mer förenklad, men mer visuellt tilltalande prestanda demonstration fö
 
 2. Anslut till databasen med SQL Server Management Studio [(SSMS. exe)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-3. Kopiera [InMemory OLTP Transact-SQL-skriptet](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skriptet skapar nödvändiga minnes objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
+3. Kopiera [InMemory OLTP Transact-SQL-skriptet](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_oltp_sample.sql) till Urklipp. T-SQL-skriptet skapar nödvändiga minnes objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
 
-4. Klistra in T-SQL-skriptet i SSMS och kör skriptet. `MEMORY_OPTIMIZED = ON` Satsen CREATE TABLE satser är viktiga. Exempel:
+4. Klistra in T-SQL-skriptet i SSMS och kör skriptet. @No__t-0-satsen CREATE TABLE uttryck är viktiga. Exempel:
 
 
 ```sql
@@ -87,7 +87,7 @@ Resultatet **0** innebär att minnet inte stöds och **1** betyder att det stöd
 - Demo. DemoSalesOrderDetailSeed
 
 
-Du kan granska minnesoptimerade tabeller genom **Object Explorer** i SSMS. Högerklicka på **tabeller** > **filter** > **filter**inställningarär > minnesoptimerade. Värdet är lika med 1.
+Du kan granska minnesoptimerade tabeller genom **Object Explorer** i SSMS. Högerklicka på **tabeller** > **filter** > **filter inställningar** > **är**minnesoptimerade. Värdet är lika med 1.
 
 
 Du kan också fråga i katalogvyer, till exempel:
@@ -171,7 +171,7 @@ end
 För att göra *_ondisk* -versionen av föregående t-SQL-skript för ostress. exe, ersätter du båda förekomsterna av *_inmem* -understrängen med *_ondisk*. Dessa ersättningar påverkar namnen på tabeller och lagrade procedurer.
 
 
-### <a name="install-rml-utilities-and-ostress"></a>Installera RML-verktyg och`ostress`
+### <a name="install-rml-utilities-and-ostress"></a>Installera RML-verktyg och `ostress`
 
 
 Vi rekommenderar att du planerar att köra ostress. exe på en virtuell Azure-dator (VM). Du skapar en [virtuell Azure-dator](https://azure.microsoft.com/documentation/services/virtual-machines/) i samma Azure-geografiska region där din AdventureWorksLT-databas finns. Men du kan köra ostress. exe på din bärbara dator i stället.
@@ -198,10 +198,10 @@ whereas for SQL 2016+
 
 
 
-### <a name="run-the-inmem-stress-workload-first"></a>Kör *_inmem* stress-arbetsbelastningen först
+### <a name="run-the-_inmem-stress-workload-first"></a>Kör *_inmem* stress-arbetsbelastningen först
 
 
-Du kan använda ett *RML cmd-kommandotolk* -fönster för att köra vår ostress. exe-kommandorad. Kommando rads parametrarna dirigerar `ostress` till:
+Du kan använda ett *RML cmd-kommandotolk* -fönster för att köra vår ostress. exe-kommandorad. Kommando rads parametrarna Direct `ostress` till:
 
 - Kör 100 anslutningar samtidigt (-N100).
 - Varje anslutning kör T-SQL-skriptet 50 gånger (-R50).
@@ -223,7 +223,7 @@ Köra föregående ostress. exe-kommando rad:
 
 2. Kopiera texten i föregående ostress. exe-kommandorad till Urklipp.
 
-3. `<placeholders>` Ersätt för parametrarna-S-U-P-d med rätt verkliga värden.
+3. Ersätt `<placeholders>` för parametrarna-S-U-P-d med rätt verkliga värden.
 
 4. Kör den redigerade kommando raden i ett RML cmd-fönster.
 
@@ -231,12 +231,12 @@ Köra föregående ostress. exe-kommando rad:
 #### <a name="result-is-a-duration"></a>Resultatet är en varaktighet
 
 
-När `ostress.exe` du är klar skrivs körnings tiden som den sista raden i utdata i RML cmd-fönstret. Till exempel, en kortare test körning senast 1,5 minuter:
+När `ostress.exe` har slutförts skrivs körnings tiden som den sista raden i utdata i RML cmd-fönstret. Till exempel, en kortare test körning senast 1,5 minuter:
 
 `11/12/15 00:35:00.873 [0x000030A8] OSTRESS exiting normally, elapsed time: 00:01:31.867`
 
 
-#### <a name="reset-edit-for-ondisk-then-rerun"></a>Återställ, redigera för *_ondisk*och kör sedan om
+#### <a name="reset-edit-for-_ondisk-then-rerun"></a>Återställ, redigera för *_ondisk*och kör sedan om
 
 
 När du har utfört resultatet från *_inmem* kör du följande steg för *_ondisk* -körningen:
@@ -256,7 +256,7 @@ När du har utfört resultatet från *_inmem* kör du följande steg för *_ondi
 
 #### <a name="expected-comparison-results"></a>Förväntade jämförelse resultat
 
-Våra minnes krävande tester har visat att prestanda förbättras med **nio gånger** för den här förenklad-arbetsbelastningen, med `ostress` körning på en virtuell Azure-dator i samma Azure-region som databasen.
+Våra minnes krävande tester har visat att prestanda förbättras med **nio gånger** för den här förenklad-arbetsbelastningen, med `ostress` som körs på en virtuell Azure-dator i samma Azure-region som databasen.
 
 <a id="install_analytics_manuallink" name="install_analytics_manuallink"></a>
 
@@ -279,7 +279,7 @@ För real tids analys på en OLTP-arbets belastning är det ofta bäst att anvä
    - Använd det exakta namnet.
    - Välj en Premium service-nivå.
 
-2. Kopiera [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/sql_in-memory_analytics_sample.sql) till Urklipp.
+2. Kopiera [sql_in-memory_analytics_sample](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/sql_in-memory_analytics_sample.sql) till Urklipp.
    - T-SQL-skriptet skapar nödvändiga minnes objekt i AdventureWorksLT-exempel databasen som du skapade i steg 1.
    - Skriptet skapar dimensions tabellen och två fakta tabeller. Fakta tabellerna fylls med 3 500 000 rader.
    - Skriptet kan ta 15 minuter att slutföra.
@@ -302,14 +302,14 @@ För real tids analys på en OLTP-arbets belastning är det ofta bäst att anvä
 #### <a name="key-queries-to-compare-the-columnstore-index"></a>Viktiga frågor för att jämföra columnstore-indexet
 
 
-Det finns [flera typer av T-SQL-frågetyper som du kan köra](https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/features/in-memory/t-sql-scripts/clustered_columnstore_sample_queries.sql) för att se prestanda förbättringar. I steg 2 i T-SQL-skriptet, bör du tänka på det här paret av frågor. De skiljer sig bara åt på en rad:
+Det finns [flera typer av T-SQL-frågetyper som du kan köra](https://raw.githubusercontent.com/microsoft/sql-server-samples/master/samples/features/in-memory-database/in-memory-oltp/t-sql-scripts/clustered_columnstore_sample_queries.sql) för att se prestanda förbättringar. I steg 2 i T-SQL-skriptet, bör du tänka på det här paret av frågor. De skiljer sig bara åt på en rad:
 
 
 - `FROM FactResellerSalesXL_PageCompressed a`
 - `FROM FactResellerSalesXL_CCI a`
 
 
-Ett grupperat columnstore-index finns i FactResellerSalesXL\_CCI-tabellen.
+Ett grupperat columnstore-index finns i tabellen FactResellerSalesXL @ no__t-0CCI.
 
 Följande T-SQL script-utdrag skriver ut statistik för IO och tid för frågan för varje tabell.
 
@@ -382,7 +382,7 @@ I en databas med P2-pris nivån kan du förväntar dig nio gånger prestanda vin
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabb start 1: InMemory OLTP-teknik för snabbare T-SQL-prestanda](https://msdn.microsoft.com/library/mt694156.aspx)
+- [Quickstart 1: InMemory OLTP-teknik för snabbare T-SQL prestanda @ no__t-0
 
 - [Använda minnes intern OLTP i ett befintligt Azure SQL-program](sql-database-in-memory-oltp-migration.md)
 

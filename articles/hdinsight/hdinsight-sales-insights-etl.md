@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Skapa en pipeline för extrahering, transformering, load (ETL) för att härleda Sälj insikter'
+title: 'Självstudier: Skapa en ETL-pipeline från slut punkt till slut punkt för att härleda Sälj insikter'
 description: Lär dig hur du använder skapa ETL-pipelines med Azure HDInsight för att härleda insikter från försäljnings data med Spark-kluster på begäran och Power BI.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,18 +8,18 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: 52509f886ac9882c372de401ca163ccef418837f
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 07714575bb4adfccf5d72a093874852c1bfebcc8
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695822"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843793"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Självstudier: Skapa en pipeline från slut punkt till slut punkt för att härleda Sälj insikter
 
-I den här självstudien skapar du en pipeline för data slut punkt till slut punkt som utför extraherings-, omvandlings-och inläsnings åtgärder. Pipelinen använder Apache Spark-och Apache Hive-kluster som körs på Azure HDInsight för att skicka frågor till och ändra data. Andra tekniker som används är Data Lake Storage Gen2 för data lagring och Power BI för visualisering.
+I den här självstudien skapar du en pipeline från slut punkt till slut punkt som utför åtgärder för att extrahera, transformera och läsa in (ETL). Pipelinen använder Apache Spark-och Apache Hive-kluster som körs på Azure HDInsight för att skicka frågor till och ändra data. Du använder också tekniker som Azure Data Lake Storage Gen2 för data lagring och Power BI för visualisering.
 
-Den här datapipelinen kombinerar data från alla olika butiker, tar bort alla oönskade data, lägger till nya data och läser in dem till lagrings utrymmet för att visualisera affärs insikter. Läs mer om ETL-pipeline [: extrahera, transformera och Läs in (ETL) i stor skala](./hadoop/apache-hadoop-etl-at-scale.md).
+Den här datapipelinen kombinerar data från olika butiker, tar bort alla oönskade data, lägger till nya data och läser in allt detta på lagrings platsen för att visualisera affärs insikter. Läs mer om ETL-pipelines i [Extract, Transform och load (ETL)](./hadoop/apache-hadoop-etl-at-scale.md)i stor skala.
 
 ![ETL-arkitektur](./media/hdinsight-sales-insights-etl/architecture.png)
 
@@ -33,54 +33,54 @@ Hämta [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=453
 
 ### <a name="clone-the-repository-with-scripts-and-data"></a>Klona lagrings platsen med skript och data
 
-1. Logga in på [Azure-portalen](https://portal.azure.com)
-1. Öppna Cloud Shell från den övre meny raden. Välj din prenumeration för att skapa en fil resurs om du uppmanas att göra det Azure Cloud Shell.
+1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Öppna Azure Cloud Shell från den översta meny raden. Välj din prenumeration för att skapa en fil resurs om Cloud Shell uppmanas till det.
 
-    ![Öppna Azure Cloud Shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
-1. Välj "bash" på den nedrullningsbara menyn "Välj miljö".
+   ![Öppna Azure Cloud Shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
+1. I list rutan **Välj miljö** väljer du **bash**.
 1. Logga in på ditt Azure-konto och ange prenumerationen. 
 1. Konfigurera resurs gruppen för projektet.
-    1. Välj ett unikt resurs grupp namn.
-    1. Kör kodfragmentet nedan i Azure Cloud Shell för att ange variabler som ska användas i senare steg
+   1. Välj ett unikt namn för resursgruppen.
+   1. Kör följande kodfragment i Cloud Shell för att ange variabler som ska användas i senare steg:
 
-        ```azurecli-interactive 
-        resourceGroup="<RESOURCE GROUP NAME>"
-        subscriptionID="<SUBSCRIPTION ID>"
+       ```azurecli-interactive 
+       resourceGroup="<RESOURCE GROUP NAME>"
+       subscriptionID="<SUBSCRIPTION ID>"
         
-        az account set --subscription $subscriptionID
-        az group create --name $resourceGroup --location westus
-        ```
+       az account set --subscription $subscriptionID
+       az group create --name $resourceGroup --location westus
+       ```
 
-1. Hämta data och skript för den här självstudien från [ETL-databasen för HDInsight Sales Insights](https://github.com/Azure-Samples/hdinsight-sales-insights-etl) genom att skriva följande kommandon på Cloud Shell:
+1. Hämta data och skript för den här självstudien från [ETL-databasen för HDInsight Sales Insights](https://github.com/Azure-Samples/hdinsight-sales-insights-etl) genom att ange följande kommandon i Cloud Shell:
 
-        ```azurecli-interactive 
-        git clone https://github.com/Azure-Samples/hdinsight-sales-insights-etl.git
-        cd hdinsight-sales-insights-etl
-        ```
-
-1. Skriv `ls` vid kommando tolken för att se följande filer och kataloger har skapats:
-
-    ```output
-    /salesdata/
-    /scripts/
-    /templates/
+    ```azurecli-interactive 
+    git clone https://github.com/Azure-Samples/hdinsight-sales-insights-etl.git
+    cd hdinsight-sales-insights-etl
     ```
+
+1. Ange `ls` i Shell-prompten för att se att följande filer och kataloger har skapats:
+
+   ```output
+   /salesdata/
+   /scripts/
+   /templates/
+   ```
 
 ### <a name="deploy-azure-resources-needed-for-the-pipeline"></a>Distribuera Azure-resurser som krävs för pipelinen 
 
-1. Lägg till körnings behörigheter för skriptet `chmod +x scripts/*.sh`
+1. Lägg till körnings behörigheter för `chmod +x scripts/*.sh`-skriptet.
 1. Använd kommandot `./scripts/resources.sh <RESOURCE_GROUP_NAME> <LOCATION>` för att köra skriptet för att distribuera följande resurser i Azure:
 
-    1. Ett Azure Blob Storage-konto – det här kontot kommer att innehålla företagets försäljnings data
-    2. Ett Azure Data Lake Storage Gen2 konto – det här kontot kommer att fungera som lagrings konto för båda HDInsight-klustren. Läs mer om HDInsight och Data Lake Storage Gen2 i [Azure HDInsight-integrering med data Lake Storage Gen2](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/).
-    3. En användardefinierad hanterad identitet – det här kontot ger HDInsight-kluster åtkomst till Data Lake Storage Gen2 kontot.
-    4. En Apache Spark Luster – det här klustret kommer att användas för att rensa och transformera rå data
-    5. Ett Apache Hive Interactive Query-kluster – det här klustret kommer att tillåta att frågor mot försäljnings data visualiseras med Power BI
-    6. Ett virtuellt Azure-nätverk som stöds av regler för nätverks säkerhets grupper (NSG) – det här virtuella nätverket gör det möjligt för kluster att kommunicera och även säkra kommunikationen. 
+   1. Ett Azure Blob Storage-konto. Det här kontot kommer att innehålla företagets försäljnings data.
+   2. Ett Azure Data Lake Storage Gen2 konto. Det här kontot kommer att fungera som lagrings konto för båda HDInsight-klustren. Läs mer om HDInsight och Data Lake Storage Gen2 i [Azure HDInsight-integrering med data Lake Storage Gen2](https://azure.microsoft.com/blog/azure-hdinsight-integration-with-data-lake-storage-gen-2-preview-acl-and-security-update/).
+   3. En användare som tilldelats en hanterad identitet. Det här kontot ger HDInsight-kluster åtkomst till Data Lake Storage Gen2 kontot.
+   4. Ett Apache Spark kluster. Klustret kommer att användas för att rensa och transformera rå data.
+   5. Ett Apache Hive Interactive Query-kluster. Det här klustret kommer att tillåta att fråga försäljnings data och visualisera dem med Power BI.
+   6. Ett virtuellt Azure-nätverk som stöds av regler för nätverks säkerhets grupper (NSG). Det här virtuella nätverket gör att klustren kan kommunicera och säkra sin kommunikation. 
 
 Det kan ta ungefär 20 minuter att skapa kluster.
 
-@No__t-0-skriptet innehåller följande kommando, som använder en Resource Manager-mall (`resourcestemplate.json`) för att skapa de angivna resurserna med önskad konfiguration.
+Skriptet `resources.sh` innehåller följande kommando. Det här kommandot använder en Azure Resource Manager-mall (`resourcestemplate.json`) för att skapa de angivna resurserna med önskad konfiguration.
 
 ```azurecli-interactive 
 az group deployment create --name ResourcesDeployment \
@@ -89,32 +89,32 @@ az group deployment create --name ResourcesDeployment \
     --parameters "@resourceparameters.json"
 ```
 
-@No__t-0-skriptet överför också CSV-filerna för försäljning till det nya Blob Storage-kontot med hjälp av kommandot:
+@No__t-0-skriptet överför också försäljnings data. csv-filer till det nya Blob Storage-kontot med hjälp av det här kommandot:
 
 ```
 az storage blob upload-batch -d rawdata \
     --account-name <BLOB STORAGE NAME> -s ./ --pattern *.csv
 ```
 
-Standard lösen ordet som används för SSH-åtkomst till klustret är `Thisisapassword1`. Om du vill ändra lösen ordet navigerar du till `resourcesparameters.json`-filen och ändrar lösen ordet för parametrarna `sparksshPassword`, `sparkClusterLoginPassword`, `llapClusterLoginPassword` och `llapsshPassword`.
+Standard lösen ordet för SSH-åtkomst till klustren är `Thisisapassword1`. Om du vill ändra lösen ordet går du till `resourcesparameters.json`-filen och ändrar lösen ordet för parametrarna `sparksshPassword`, `sparkClusterLoginPassword`, `llapClusterLoginPassword` och `llapsshPassword`.
 
 ### <a name="verify-deployment-and-collect-resource-information"></a>Verifiera distribution och samla in resursinformation
 
-1. Om du vill kontrol lera statusen för din distribution navigerar du till resurs gruppen på Azure Portal. Klicka på **distributioner** under **Inställningar**. Klicka på namnet på distributionen `ResourcesDeployment`. Här kan du se de resurser som har distribuerats och de som fortfarande pågår.
-1. När distributionen har slutförts går du till Azure Portal > **resurs grupper** > < RESOURCE_GROUP_NAME >
-1. Leta upp det nya Azure Storage-kontot som skapades för att lagra Sales-filerna. Namnet på lagrings kontot börjar med `blob` och innehåller sedan en slumpmässig sträng. 
-    1. Anteckna namnet på lagrings kontot för senare användning.
-    1. Klicka på namnet på Blob Storage-kontot.
-    1. På vänster sida av portalen under **Inställningar**klickar du på **åtkomst nycklar**.
-    1. Kopiera strängen i rutan **KEY1** och spara den för senare användning.
-1. Leta upp det Data Lake Storage Gen2 konto som skapades som lagring för HDInsight-klustren. Det här kontot finns i samma resurs grupp som Blob Storage-kontot, men börjar med `adlsgen2`.
-    1. Anteckna namnet på Data Lake Storage Gen2 kontot.
-    1. Klicka på namnet på Data Lake Storage Gen2 kontot.
-    1. Klicka på **åtkomst nycklar** under **Inställningar**på vänster sida av portalen
-    1. Kopiera strängen i rutan **KEY1** och spara den för senare användning.
+1. Om du vill kontrol lera statusen för din distribution går du till resurs gruppen på Azure Portal. Välj **distributioner** under **Inställningar**. Välj namnet på distributionen `ResourcesDeployment`. Här kan du se vilka resurser som har distribuerats och vilka resurser som fortfarande pågår.
+1. När distributionen är färdig går du till Azure Portal > **resurs grupper** > < RESOURCE_GROUP_NAME >.
+1. Leta upp det nya Azure Storage-kontot som skapades för att lagra Sales-filerna. Namnet på lagrings kontot börjar med `blob` och innehåller sedan en slumpmässig sträng. Gör följande:
+   1. Anteckna namnet på lagrings kontot för senare användning.
+   1. Välj namnet på Blob Storage-kontot.
+   1. På vänster sida av portalen under **Inställningar**väljer du **åtkomst nycklar**.
+   1. Kopiera strängen i rutan **KEY1** och spara den för senare användning.
+1. Leta upp det Data Lake Storage Gen2 konto som skapades som lagring för HDInsight-klustren. Det här kontot finns i samma resurs grupp som Blob Storage-kontot, men börjar med `adlsgen2`. Gör följande:
+   1. Anteckna namnet på Data Lake Storage Gen2 kontot.
+   1. Välj namnet på Data Lake Storage Gen2 kontot.
+   1. Välj **åtkomst nycklar**under **Inställningar**på vänster sida av portalen.
+   1. Kopiera strängen i rutan **KEY1** och spara den för senare användning.
 
 > [!Note]
-> När du känner till namnen på lagrings kontona kan du också hämta konto nycklar med hjälp av följande kommando i Azure Cloud Shell prompten:
+> När du känner till namnen på lagrings kontona kan du hämta konto nycklar genom att använda följande kommando i Azure Cloud Shell prompten:
 > ```azurecli-interactive
 > az storage account keys list \
 >    --account-name <STORAGE NAME> \
@@ -122,29 +122,29 @@ Standard lösen ordet som används för SSH-åtkomst till klustret är `Thisisap
 >    --output table
 > ```
 
-### <a name="create-an-azure-data-factory"></a>Skapa en Azure Data Factory
+### <a name="create-a-data-factory"></a>Skapa en datafabrik
 
-Azure Data Factory är ett verktyg som hjälper dig att automatisera Azure-pipeliner. Det är inte det enda sättet att utföra dessa uppgifter, men det är ett bra sätt att automatisera dessa processer. Mer information om Azure Data Factory finns i Läs mer om IT- [Azure Data Factory-dokumentationen](https://azure.microsoft.com/services/data-factory/). 
+Azure Data Factory är ett verktyg som hjälper dig att automatisera Azure-pipeliner. Det är inte det enda sättet att utföra dessa uppgifter, men det är ett bra sätt att automatisera processerna. Mer information om Azure Data Factory finns i Azure Data Factory- [dokumentationen](https://azure.microsoft.com/en-us/services/data-factory/). 
 
-Den här Azure Data Factory får en pipeline med två aktiviteter: 
+Den här data fabriken kommer att ha en pipeline med två aktiviteter: 
 
-1. Den första aktiviteten kopierar data från Azure-Blob Storage till Data Lake Storage gen 2-lagrings konto för att efterlikna data inmatningen.
-2. Den andra aktiviteten kommer att transformera data i Spark-klustret. Skriptet transformerar data genom att ta bort oönskade kolumner och lägga till en ny kolumn som beräknar intäkterna som genereras av en enskild transaktion.
+- Den första aktiviteten kopierar data från Azure Blob Storage till Data Lake Storage gen 2-lagrings konto för att efterlikna data inmatningen.
+- Den andra aktiviteten kommer att transformera data i Spark-klustret. Skriptet transformerar data genom att ta bort oönskade kolumner. Den lägger också till en ny kolumn som beräknar intäkterna som en enskild transaktion genererar.
 
-Om du vill konfigurera Azure Data Factory pipelinen kör du skriptet `adf.sh`:
+Konfigurera Azure Data Factory pipelinen genom att köra `adf.sh`-skriptet:
 
-1. Lägg till kör behörighet för filen med `chmod +x adf.sh`
-1. Kör skriptet med `./adf.sh` 
+1. Använd `chmod +x adf.sh` om du vill lägga till körnings behörigheter för filen.
+1. Använd `./adf.sh` för att köra skriptet. 
 
 Det här skriptet gör följande:
 
 1. Skapar ett huvud namn för tjänsten med `Storage Blob Data Contributor`-behörigheter på Data Lake Storage Gen2 lagrings kontot.
-1. Hämtar en autentiseringstoken för att auktorisera POST förfrågningar till [data Lake Storage Gen2 fil systemet REST API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create).
+1. Hämtar en autentiseringstoken för att auktorisera POST begär anden till [data Lake Storage Gen2 fil system REST API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/filesystem/create).
 1. Fyller i det faktiska namnet på ditt Data Lake Storage Gen2 lagrings konto i `sparktransform.py`-och `query.hql`-filer.
-1. Hämtar lagrings nycklar för Data Lake Storage Gen2-och Blob Storage-kontot.
+1. Hämtar lagrings nycklar för Data Lake Storage Gen2-och Blob Storage-konton.
 1. Skapar en annan resurs distribution för att skapa en Azure Data Factory pipeline med tillhör ande länkade tjänster och aktiviteter. Den överför lagrings nycklarna som parametrar till mallfilen så att de länkade tjänsterna kan komma åt lagrings kontona på rätt sätt.
 
-ADF-pipeline distribueras med hjälp av följande kommando:
+Data Factory pipelinen distribueras via följande kommando:
 
 ```azurecli-interactive
 az group deployment create --name ADFDeployment \
@@ -155,43 +155,43 @@ az group deployment create --name ADFDeployment \
 
 ## <a name="run-the-data-pipeline"></a>Kör data pipelinen
 
-### <a name="trigger-the-adf-activities"></a>Utlös ADF-aktiviteter
+### <a name="trigger-the-data-factory-activities"></a>Utlös Data Factory aktiviteter
 
-Den första aktiviteten i den ADF-pipeline som du har skapat flyttar data från Blob Storage till Data Lake Storage Gen2. Den andra aktiviteten använder Spark-omvandlingarna för data och sparar transformerade CSV-filer på en ny plats. Hela pipelinen kan ta några minuter att slutföra.
+Den första aktiviteten i Data Factory pipelinen som du har skapat flyttar data från Blob Storage till Data Lake Storage Gen2. Den andra aktiviteten använder Spark-omvandlingarna för data och sparar transformerade CSV-filer på en ny plats. Det kan ta några minuter att slutföra hela pipelinen.
 
 Om du vill utlösa pipelinen kan du antingen:
 
-1. Kör följande kommandon för att aktivera ADF-pipelinen i PowerShell. 
+- Kör följande kommandon för att utlösa Data Factory pipelines i PowerShell: 
 
     ```powershell
     Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "CopyPipeline_k8z" 
     Invoke-AzDataFactoryV2Pipeline -DataFactory $df -PipelineName "sparkTransformPipeline"
     ```
 
-1. Du kan också öppna Data Factory, välja författare & övervaka och utlösa kopierings pipelinen, sedan Spark-pipelinen från portalen. Se [skapa Apache Hadoop kluster på begäran i HDInsight med hjälp av Azure Data Factory](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-create-linux-clusters-adf#trigger-a-pipeline) för information om att utlösa pipelines via portalen.
+- Öppna data fabriken och välj **redigera & övervakare**. Utlös kopierings pipelinen och sedan Spark-pipelinen från portalen. Information om hur du aktiverar pipelines via portalen finns i [skapa Apache Hadoop kluster på begäran i HDInsight med Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
-För att kontrol lera att pipelinen har körts kan du göra något av följande:
+Du kan kontrol lera att pipelinerna har körts genom att utföra något av följande steg:
 
-1. Navigera till **Monitor** -avsnittet i Azure Data Factory via portalen.
-2. Gå till Data Lake Storage gen 2 lagrings konto lagrings Utforskaren, gå till `files`-fil systemet och navigera till mappen `transformed` och kontrol lera dess innehåll för att se om pipelinen lyckades.
+- Gå till **Monitor** -avsnittet i din data fabrik via portalen.
+- I Azure Storage Explorer går du till ditt Data Lake Storage gen 2-lagrings konto. Gå till fil systemet `files` och gå sedan till mappen `transformed` och kontrol lera dess innehåll för att se om pipelinen lyckades.
 
-Andra sätt att transformera data med hjälp av HDInsight finns i den här artikeln om att använda [Jupyter Notebook](https://docs.microsoft.com/azure/hdinsight/spark/apache-spark-load-data-run-query)
+Andra sätt att transformera data med hjälp av HDInsight finns i [den här artikeln om hur du använder Jupyter Notebook](/spark/apache-spark-load-data-run-query.md).
 
 ### <a name="create-a-table-on-the-interactive-query-cluster-to-view-data-on-power-bi"></a>Skapa en tabell i det interaktiva fråga klustret om du vill visa data på Power BI
 
-1. Kopiera filen Query. HQL till LLAP-klustret med SCP:
+1. Kopiera `query.hql`-filen till LLAP-klustret med hjälp av SCP: n:
 
     ```
     scp scripts/query.hql sshuser@<clustername>-ssh.azurehdinsight.net:/home/sshuser/
     ```
 
-2. Använd SSH i LLAP-klustret med följande kommando och ange ditt lösen ord. Om du inte har ändrat `resourcesparameters.json`-filen är lösen ordet `Thisisapassword1`.
+2. Använd SSH för att få åtkomst till LLAP-klustret med hjälp av följande kommando och ange sedan lösen ordet. Om du inte har ändrat `resourcesparameters.json`-filen är lösen ordet `Thisisapassword1`.
 
     ```
     ssh sshuser@<clustername>-ssh.azurehdinsight.net
     ```
 
-3. Kör följande kommando för att köra skriptet
+3. Använd följande kommando för att köra skriptet:
 
     ```
     beeline -u 'jdbc:hive2://localhost:10001/;transportMode=http' -f query.hql
@@ -201,20 +201,22 @@ Det här skriptet skapar en hanterad tabell på det interaktiva Query-kluster so
 
 ### <a name="create-a-power-bi-dashboard-from-sales-data"></a>Skapa en Power BI instrument panel från försäljnings data
 
-1. Öppna Power BI Desktop
+1. Öppna Power BI Desktop.
 1. Välj **Hämta data**.
 1. Sök efter **kluster för interaktiv HDInsight-fråga**.
-1. Klistra in URI: n för klustret där. Den ska vara i formatet `https://<LLAP CLUSTER NAME>.azurehdinsight.net`, typ `default` för databasen.
+1. Klistra in URI: n för klustret där. Versionsformatet ska vara `https://<LLAP CLUSTER NAME>.azurehdinsight.net`.
+
+   Ange `default` för databasen.
 1. Ange det användar namn och lösen ord som du använder för att komma åt klustret.
 
-När data har lästs in kan du experimentera med instrument panelen som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
+När data har lästs in kan du experimentera med den instrument panel som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
 
 * [Introduktion till instrument paneler för Power BI designers](https://docs.microsoft.com/power-bi/service-dashboards)
 * [Självstudier: Kom igång med Power BI-tjänst @ no__t-0
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Om du inte kommer att fortsätta att använda det här programmet tar du bort alla resurser med följande steg så att du inte debiteras för dem.
+Om du inte kommer att fortsätta att använda det här programmet tar du bort alla resurser genom att använda följande kommando så att du inte debiteras för dem.
 
 ```azurecli-interactive 
 az group delete -n $resourceGroup

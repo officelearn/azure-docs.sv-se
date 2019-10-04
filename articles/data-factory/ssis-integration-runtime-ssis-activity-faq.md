@@ -12,12 +12,12 @@ author: wenjiefu
 ms.author: wenjiefu
 ms.reviewer: sawinark
 manager: craigg
-ms.openlocfilehash: 8e800ec8a7a2dd52e052547efa51deaad8c9bb45
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: ec5a3ab0a2498e7d9bb24bed1bc0a37194e38e9e
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104926"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936956"
 ---
 # <a name="troubleshoot-package-execution-in-the-ssis-integration-runtime"></a>Felsöka paket körning i SSIS integration runtime
 
@@ -121,12 +121,17 @@ Felet uppstår när SSIS-integrerings körningen inte kan komma åt lagrings utr
 ### <a name="error-message-microsoft-ole-db-provider-for-analysis-services-hresult-0x80004005-description-com-error-com-error-mscorlib-exception-has-been-thrown-by-the-target-of-an-invocation"></a>Felmeddelande: "Microsoft OLE DB Provider för Analysis Services. HRESULT Beskrivning av 0x80004005 visas: COM-fel: COM-fel: mscorlib; Ett undantag har utlösts av målet för ett anrop "
 
 En möjlig orsak är att användar namnet eller lösen ordet med Azure Multi-Factor Authentication aktiverat har kon figurer ATS för Azure Analysis Services autentisering. Den här autentiseringen stöds inte i integrerings körningen för SSIS. Försök att använda ett huvud namn för tjänsten för Azure Analysis Services autentisering:
+
 1. Förbered ett huvud namn för tjänsten enligt beskrivningen i [Automation med tjänstens huvud namn](https://docs.microsoft.com/azure/analysis-services/analysis-services-service-principal).
 2. I anslutnings hanteraren konfigurerar du **Använd ett särskilt användar namn och lösen ord**: ange **AppID** som användar namn och **clientSecret** som lösen ord.
 
 ### <a name="error-message-adonet-source-has-failed-to-acquire-the-connection-guid-with-the-following-error-message-login-failed-for-user-nt-authorityanonymous-logon-when-using-a-managed-identity"></a>Felmeddelande: ”ADONET-källan kunde inte hämta anslutningen {GUID} med följande felmeddelande: Inloggningen misslyckades för användarens NT AUTHORITY\ANONYMOUS-inloggning när en hanterad identitet används
 
 Se till att du inte konfigurerar autentiseringsmetoden för anslutnings hanteraren som **Active Directory** lösenordsautentisering när parametern *ConnectUsingManagedIdentity* är **True**. Du kan konfigurera den som **SQL-autentisering** i stället, vilket ignoreras om *ConnectUsingManagedIdentity* har angetts.
+
+### <a name="error-message-0xc020801f-at--odata-source--cannot-acquire-a-managed-connection-from-the-run-time-connection-manager"></a>Felmeddelande: "0xC020801F vid..., OData-Källa [...]: Det går inte att hämta en hanterad anslutning från kör tids anslutnings hanteraren
+
+En möjlig orsak är att Transport Layer Security (TLS) inte är aktiverat i SSIS integration runtime som krävs av din OData-källa. Du kan aktivera TLS i SSIS integration runtime genom att använda anpassa installationen. Mer information finns på [det går inte att ansluta Project Online OData från SSIS](https://docs.microsoft.com/office365/troubleshoot/cant-connect-project-online-odata-from-ssis) och [Anpassa installationen för integrerings körningen för Azure-SSIS](how-to-configure-azure-ssis-ir-custom-setup.md).
 
 ### <a name="error-message-request-staging-task-with-operation-guid--fail-since-error-failed-to-dispatch-staging-operation-with-error-message-microsoftsqlserverintegrationservicesaisagentcoreaisagentexception-failed-to-load-data-proxy"></a>Felmeddelande: "Begär mellanlagrings uppgift med åtgärds-GUID... misslyckande sedan fel: Det gick inte att skicka mellanlagrings åtgärd med fel meddelande: Microsoft. SqlServer. IntegrationServices. AisAgentCore. AisAgentException: Det gick inte att läsa in dataproxy. "
 

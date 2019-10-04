@@ -7,12 +7,12 @@ ms.reviewer: oflipman
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: dfc0cd6686ac4ea1af2beb34edeadd17e4c952e1
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b8aa87b871b86a8dab3b1984b638366a42708483
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329440"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936898"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-an-azure-resource-manager-template"></a>Skapa ett Azure Datautforskaren-kluster och-databas med hjälp av en Azure Resource Manager mall
 
@@ -110,7 +110,7 @@ Du kan distribuera Azure Resource Manager-mallen med [hjälp av Azure Portal](#u
 
     ![Distribuera till Azure](media/create-cluster-database-resource-manager/deploy-2-azure.png)
 
-Du kan [Redigera och distribuera mallen i Azure Portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) med hjälp av formuläret.
+    Du kan [Redigera och distribuera mallen i Azure Portal](/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal#edit-and-deploy-the-template) med hjälp av formuläret.
 
 1. Fullständiga **grundläggande** och **inställnings** avsnitt. Välj unikt kluster och databas namn.
 Det tar några minuter att skapa ett Azure Datautforskaren-kluster och-databas.
@@ -142,7 +142,7 @@ Det tar några minuter att skapa ett Azure Datautforskaren-kluster och-databas.
 
 #### <a name="verify-the-deployment-using-powershell"></a>Verifiera distributionen med PowerShell
 
-Verifiera distributionen genom att använda följande Azure PowerShell skript.  Om Cloud Shell fortfarande är öppet behöver du inte kopiera/köra den första raden (Read-Host). Mer information om hur du hanterar Azure Datautforskaren-resurser i PowerShell finns i [AZ. Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). Gör relevanta ändringar
+Verifiera distributionen genom att använda följande Azure PowerShell skript.  Om Cloud Shell fortfarande är öppen, behöver du inte kopiera/köra den första raden (Read-Host). Mer information om hur du hanterar Azure Datautforskaren-resurser i PowerShell finns i [AZ. Kusto](/powershell/module/az.kusto/?view=azps-2.7.0). 
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"
@@ -163,9 +163,9 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 Ta bort resurserna i Azure Portal genom att följa stegen i [Rensa resurser](create-cluster-database-portal.md#clean-up-resources).
 
-### <a name="clean-up-resources-using-powershell"></a>Rensa resurser med PowerShell
+### <a name="clean-up-resources-using-powershell"></a>Rensa resurser med hjälp av PowerShell
 
-Om Cloud Shell fortfarande är öppet behöver du inte kopiera/köra den första raden (Read-Host).
+Om Cloud Shell fortfarande är öppen, behöver du inte kopiera/köra den första raden (Read-Host).
 
 ```azurepowershell-interactive
 $projectName = Read-Host -Prompt "Enter the same project name that you used in the last procedure"

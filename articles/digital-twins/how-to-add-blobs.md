@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/09/2019
+ms.date: 10/01/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: 61c09435606612377781fb382d2d31144e96b07b
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
-ms.translationtype: MT
+ms.openlocfilehash: 35bc5a4532f040aeb464a91b14adcb540ccc113a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68965936"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845493"
 ---
 # <a name="add-blobs-to-objects-in-azure-digital-twins"></a>Lägga till blobbar till objekt i Azure Digitals, dubbla
 
@@ -60,17 +60,15 @@ JSON-BLOB-metadata följer följande modell:
 | **subtype** | String | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID för blobben-kan inte använda *undertyp* -och *subtypeId* |
 | **description** | String | Anpassad Beskrivning av blobben |
-| **sharing** | String | Om blobben kan vara delad-Enum [`None`, `Tree`, `Global`] |
+| **sharing** | String | Om blobben kan delas med kommandot [`None`, `Tree` `Global`] |
 
-BLOB-metadata anges alltid som det första segmentet med **innehålls typ** `application/json` eller som en `.json` fil. Fildata anges i det andra segmentet och kan vara av alla MIME-typer som stöds.
+BLOB-metadata anges alltid som det första segmentet med **Content-Type** `application/json` eller som en `.json`-fil. Fildata anges i det andra segmentet och kan vara av alla MIME-typer som stöds.
 
 Swagger-dokumentationen beskriver dessa modell scheman i fullständig detalj.
 
 [!INCLUDE [Digital Twins Swagger](../../includes/digital-twins-swagger.md)]
 
 Lär dig mer om att använda referens dokumentationen genom att läsa om [hur du använder Swagger](./how-to-use-swagger.md).
-
-<div id="blobModel"></div>
 
 ### <a name="blobs-response-data"></a>BLOB-svars data
 
@@ -117,13 +115,13 @@ Individuellt returnerade blobbar följer följande JSON-schema:
 | **typeId** | Integer | Blob-typ-ID: t kan inte använda *typ* och *typeId* |
 | **subtype** | String | BLOB-undertypen-det går inte att använda *undertyp* och *subtypeId* |
 | **subtypeId** | Integer | Undertyp-ID för blobben-kan inte använda *undertyp* -och *subtypeId* |
-| **sharing** | String | Om blobben kan vara delad-Enum [`None`, `Tree`, `Global`] |
+| **sharing** | String | Om blobben kan delas med kommandot [`None`, `Tree` `Global`] |
 | **description** | String | Anpassad Beskrivning av blobben |
 | **contentInfos** | Array | Anger ostrukturerad metadatainformation, inklusive version |
 | **fullName** | String | Det fullständiga namnet på blobben |
 | **spacePaths** | String | Utrymmes Sök väg |
 
-BLOB-metadata anges alltid som det första segmentet med **innehålls typ** `application/json` eller som en `.json` fil. Fildata anges i det andra segmentet och kan vara av alla MIME-typer som stöds.
+BLOB-metadata anges alltid som det första segmentet med **Content-Type** `application/json` eller som en `.json`-fil. Fildata anges i det andra segmentet och kan vara av alla MIME-typer som stöds.
 
 ### <a name="blob-multipart-request-examples"></a>Exempel på BLOB multipart-begäran
 
@@ -181,17 +179,16 @@ multipartContent.Add(fileContents, "contents");
 var response = await httpClient.PostAsync("spaces/blobs", multipartContent);
 ```
 
-Slutligen kan [](https://curl.haxx.se/) användarna i form av en multipart-begäran på samma sätt:
+Slutligen kan [användarna i](https://curl.haxx.se/) form av en multipart-begäran på samma sätt:
 
-[![Enhets-blobar](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
+[![Device blobbar](media/how-to-add-blobs/curl-img.png)](media/how-to-add-blobs/curl-img.png#lightbox)
 
 ```bash
-curl
- -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs"
- -H "Authorization: Bearer YOUR_TOKEN"
- -H "Accept: application/json"
- -H "Content-Type: multipart/form-data"
- -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json"
+curl -X POST "YOUR_MANAGEMENT_API_URL/spaces/blobs" \
+ -H "Authorization: Bearer YOUR_TOKEN" \
+ -H "Accept: application/json" \
+ -H "Content-Type: multipart/form-data" \
+ -F "meta={\"ParentId\":\"YOUR_SPACE_ID\",\"Name\":\"My CURL Blob\",\"Type\":\"Map\",\"SubType\":\"GenericMap\",\"Description\":\"A well chosen description\",\"Sharing\":\"None\"};type=application/json" \
  -F "text=PATH_TO_FILE;type=text/plain"
 ```
 
@@ -211,7 +208,7 @@ I följande avsnitt beskrivs de grundläggande BLOB-relaterade API-slutpunkterna
 
 Du kan koppla blobbar till enheter. Följande bild visar Swagger-referens dokumentationen för dina hanterings-API: er. Den anger enhets-relaterade API-slutpunkter för BLOB-konsumtion och eventuella obligatoriska Sök vägs parametrar som ska skickas till dem.
 
-[![Enhets-blobar](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
+[![Device blobbar](media/how-to-add-blobs/blobs-device-api-img.png)](media/how-to-add-blobs/blobs-device-api-img.png#lightbox)
 
 Om du till exempel vill uppdatera eller skapa en blob och bifoga blobben till en enhet gör du en autentiserad HTTP-PATCH-begäran till:
 
@@ -223,13 +220,13 @@ YOUR_MANAGEMENT_API_URL/devices/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | Det önskade BLOB-ID: t |
 
-Lyckade förfrågningar returnerar ett JSON-objekt enligt [beskrivningen ovan](#blobModel).
+Lyckade förfrågningar returnerar ett JSON-objekt enligt [beskrivningen ovan](#blobs-response-data).
 
 ### <a name="spaces"></a>Blanksteg
 
 Du kan också bifoga blobbar till blank steg. Följande bild visar en lista över alla blank stegs-API-slutpunkter som ansvarar för hantering av blobbar. Den visar också alla Sök vägs parametrar som skickas till dessa slut punkter.
 
-[![Utrymmes blobbar](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
+[![Space blobbar](media/how-to-add-blobs/blobs-space-api-img.png)](media/how-to-add-blobs/blobs-space-api-img.png#lightbox)
 
 Om du till exempel vill returnera en blob som är ansluten till ett utrymme gör du en autentiserad HTTP GET-begäran till:
 
@@ -241,15 +238,15 @@ YOUR_MANAGEMENT_API_URL/spaces/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | Det önskade BLOB-ID: t |
 
-Lyckade förfrågningar returnerar ett JSON-objekt enligt [beskrivningen ovan](#blobModel).
+Lyckade förfrågningar returnerar ett JSON-objekt enligt [beskrivningen ovan](#blobs-response-data).
 
 En PATCH-begäran till samma slut punkt uppdaterar metadata-beskrivningar och skapar versioner av blobben. HTTP-begäran görs via KORRIGERINGs metoden, tillsammans med alla nödvändiga meta-och multiform-formulär data.
 
 ### <a name="users"></a>Användare
 
-Du kan koppla blobbar till användar modeller (till exempel för att associera en profil bild). Följande bild visar relevanta användar-API-slutpunkter och eventuella obligatoriska Sök vägs `id`parametrar, t. ex.:
+Du kan koppla blobbar till användar modeller (till exempel för att associera en profil bild). Följande bild visar relevanta användar-API-slutpunkter och eventuella obligatoriska Sök vägs parametrar, t. ex. `id`:
 
-[![Användar-blobbar](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
+[![User blobbar](media/how-to-add-blobs/blobs-users-api-img.png)](media/how-to-add-blobs/blobs-users-api-img.png#lightbox)
 
 Om du till exempel vill hämta en blob som är kopplad till en användare gör du en autentiserad HTTP GET-begäran med alla nödvändiga formulär data för att:
 
@@ -261,7 +258,7 @@ YOUR_MANAGEMENT_API_URL/users/blobs/YOUR_BLOB_ID
 | --- | --- |
 | *YOUR_BLOB_ID* | Det önskade BLOB-ID: t |
 
-Lyckade förfrågningar returnerar ett JSON-objekt enligt [beskrivningen ovan](#blobModel).
+Lyckade förfrågningar returnerar ett JSON-objekt enligt [beskrivningen ovan](#blobs-response-data).
 
 ## <a name="common-errors"></a>Vanliga fel
 

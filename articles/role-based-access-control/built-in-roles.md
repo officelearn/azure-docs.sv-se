@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 08/27/2019
+ms.date: 09/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: c2066502a6a9d742c347e08d528a2490a390bb7e
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 65a049070806fd702497d50236e9d541de2e8b1a
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672635"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842301"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Inbyggda roller för Azure-resurser
 
@@ -60,6 +60,9 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 | [Administratörs roll för Azure Kubernetes service Cluster](#azure-kubernetes-service-cluster-admin-role) | Visa lista med autentiseringsuppgifter för kluster administratör. |
 | [Användar roll för Azure Kubernetes service-kluster](#azure-kubernetes-service-cluster-user-role) | Visa lista över autentiseringsuppgifter för kluster användare. |
 | [Azure Maps data läsare (förhands granskning)](#azure-maps-data-reader-preview) | Beviljar åtkomst till läsa kartdata relaterade data från ett Azure Maps-konto. |
+| [Azure Sentinel-deltagare](#azure-sentinel-contributor) | Azure Sentinel-deltagare |
+| [Azure Sentinel-läsare](#azure-sentinel-reader) | Azure Sentinel-läsare |
+| [Azure Sentinel-svarare](#azure-sentinel-responder) | Azure Sentinel-svarare |
 | [Azure Service Bus data ägare](#azure-service-bus-data-owner) | Ger fullständig åtkomst till Azure Service Bus resurser. |
 | [Azure Service Bus data mottagare](#azure-service-bus-data-receiver) | Ger åtkomst till Azure Service Bus resurser. |
 | [Azure Service Bus data avsändare](#azure-service-bus-data-sender) | Tillåter att åtkomst till Azure Service Bus-resurser skickas. |
@@ -178,7 +181,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **Beskrivning** | Låter dig hantera allt, förutom åtkomst till resurser. |
+> | **Beskrivning** | Låter dig hantera allt, förutom att bevilja åtkomst till resurser. |
 > | **Id** | b24988ac-6180-42a0-ab88-20f7382dd24c |
 > | **Åtgärder** |  |
 > | * | Skapa och hantera resurser av alla typer |
@@ -645,6 +648,89 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | *alternativet* |  |
 > | **DataActions** |  |
 > | Microsoft. Maps/Accounts/data/Read | Beviljar data Läs behörighet till ett Maps-konto. |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="azure-sentinel-contributor"></a>Azure Sentinel-deltagare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Azure Sentinel-deltagare |
+> | **Id** | ab8e14d6-4a74-4a29-9ba8-549422addade |
+> | **Åtgärder** |  |
+> | Microsoft. SecurityInsights/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med ny motor. |
+> | Microsoft.OperationalInsights/workspaces/read | Hämtar en befintlig arbets yta |
+> | Microsoft.OperationalInsights/workspaces/savedSearches/* |  |
+> | Microsoft.OperationsManagement/solutions/read | Ta slut på OMS-lösning |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/läsa | Köra frågor över data i arbets ytan |
+> | Microsoft. OperationalInsights/arbets ytor/data källor/läsa | Hämta data källor under en arbets yta. |
+> | Microsoft. Insights/arbets böcker/* |  |
+> | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera insikter aviserings regler |
+> | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
+> | Microsoft.Support/* | Skapa och hantera support biljetter |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="azure-sentinel-reader"></a>Azure Sentinel-läsare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Azure Sentinel-läsare |
+> | **Id** | 8d289c81-5878-46d4-8554-54e1e3d8b5cb |
+> | **Åtgärder** |  |
+> | Microsoft. SecurityInsights/*/Read |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med ny motor. |
+> | Microsoft.OperationalInsights/workspaces/read | Hämtar en befintlig arbets yta |
+> | Microsoft. OperationalInsights/arbets ytor/savedSearches/Read | Hämtar en sparad Sök fråga |
+> | Microsoft.OperationsManagement/solutions/read | Ta slut på OMS-lösning |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/läsa | Köra frågor över data i arbets ytan |
+> | Microsoft. OperationalInsights/arbets ytor/data källor/läsa | Hämta data källor under en arbets yta. |
+> | Microsoft. Insights/arbets böcker/läsa | Läs en arbetsbok |
+> | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera insikter aviserings regler |
+> | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
+> | Microsoft.Support/* | Skapa och hantera support biljetter |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
+> | **NotDataActions** |  |
+> | *alternativet* |  |
+
+## <a name="azure-sentinel-responder"></a>Azure Sentinel-svarare
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **Beskrivning** | Azure Sentinel-svarare |
+> | **Id** | 3e150937-b8fe-4cfb-8069-0eaf05ecd056 |
+> | **Åtgärder** |  |
+> | Microsoft. SecurityInsights/*/Read |  |
+> | Microsoft. SecurityInsights/Cases/* |  |
+> | Microsoft.OperationalInsights/workspaces/analytics/query/action | Sök med ny motor. |
+> | Microsoft.OperationalInsights/workspaces/read | Hämtar en befintlig arbets yta |
+> | Microsoft. OperationalInsights/arbets ytor/data källor/läsa | Hämta data källor under en arbets yta. |
+> | Microsoft. OperationalInsights/arbets ytor/savedSearches/Read | Hämtar en sparad Sök fråga |
+> | Microsoft.OperationsManagement/solutions/read | Ta slut på OMS-lösning |
+> | Microsoft. OperationalInsights/arbets ytor/fråga/läsa | Köra frågor över data i arbets ytan |
+> | Microsoft. OperationalInsights/arbets ytor/data källor/läsa | Hämta data källor under en arbets yta. |
+> | Microsoft. Insights/arbets böcker/läsa | Läs en arbetsbok |
+> | Microsoft.Authorization/*/read | Läs roller och roll tilldelningar |
+> | Microsoft.Insights/alertRules/* | Skapa och hantera insikter aviserings regler |
+> | Microsoft. Resources/Deployments/* | Skapa och hantera distributioner av resurs grupper |
+> | Microsoft.Resources/subscriptions/resourceGroups/read | Hämtar eller listar resurs grupper. |
+> | Microsoft.Support/* | Skapa och hantera support biljetter |
+> | **NotActions** |  |
+> | *alternativet* |  |
+> | **DataActions** |  |
+> | *alternativet* |  |
 > | **NotDataActions** |  |
 > | *alternativet* |  |
 
@@ -1767,7 +1853,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.Web/customApis/* | Skapar och hanterar en anpassad API. |
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | Hämta egenskaperna för en App Service plan |
-> | Microsoft.Web/sites/functions/listSecrets/action | Lista hemligheter Web Apps funktioner. |
+> | Microsoft.Web/sites/functions/listSecrets/action | Visa en lista över funktions hemligheter. |
 > | **NotActions** |  |
 > | *alternativet* |  |
 > | **DataActions** |  |
@@ -2278,6 +2364,7 @@ Följande tabell innehåller en kort beskrivning av varje inbyggd roll. Klicka p
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Läs alla återställnings punkter för replikering |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/repairReplication/action | Reparera replikering |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/reProtect/action | Återaktivera skydd för skyddat objekt |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Växla skyddscontainer |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailover/action | Testa redundans |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/testFailoverCleanup/action | Rensning av redundanstest |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/unplannedFailover/action | Redundans |

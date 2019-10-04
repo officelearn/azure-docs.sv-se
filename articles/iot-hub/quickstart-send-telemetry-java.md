@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: a97081101df5199d3201a6ec47df4c2ac2747416
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a808216b62459869e9adfd88afc60ee53259221d
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309147"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838657"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>Snabbstart: Skicka telemetri till en Azure IoT-hubb och läsa det med ett Java-program
 
@@ -125,7 +125,7 @@ Det simulerade enhetsprogrammet ansluter till en enhetsspecifik slutpunkt på di
 
     Följande skärmbild visar utdata när det simulerade enhetsprogrammet skickar telemetri till din IoT-hubb:
 
-    ![Kör den simulerade enheten](media/quickstart-send-telemetry-java/SimulatedDevice.png)
+    ![Utdata från telemetri som skickas av enheten till din IoT-hubb](media/quickstart-send-telemetry-java/iot-hub-simulated-device.png)
 
 ## <a name="read-the-telemetry-from-your-hub"></a>Läsa telemetrin från din hubb
 
@@ -155,7 +155,7 @@ Serverdelsprogrammet ansluter till **Events**-slutpunkten för tjänstsidan på 
 
     Följande skärmbild visar utdata när serverdelsprogrammet tar emot telemetri som skickats av den simulerade enheten till hubben:
 
-    ![Kör serverdelsprogrammet](media/quickstart-send-telemetry-java/ReadDeviceToCloud.png)
+    ![Utdata som backend-program tar emot telemetri som skickas till din IoT-hubb](media/quickstart-send-telemetry-java/iot-hub-read-device-to-cloud.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

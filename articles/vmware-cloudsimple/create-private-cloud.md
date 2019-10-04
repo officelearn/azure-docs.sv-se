@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: aacdb57c312946a9ec2b17a8d41aa9150efc277d
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a6e3d466321fcd8f32f46359c97f67400a8f86c6
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69640977"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828164"
 ---
 # <a name="create-a-cloudsimple-private-cloud"></a>Skapa ett privat CloudSimple-moln
 
@@ -46,7 +46,7 @@ Få åtkomst till [CloudSimple-portalen](access-cloudsimple-portal.md).
 
 5. I CloudSimple-portalen anger du ett namn för ditt privata moln.
 6. Välj **plats** för ditt privata moln.
-7. Välj **nodtyp**, konsekvent med det du köpte i Azure.  Du kan välja [alternativet CS28 eller CS36](cloudsimple-node.md#vmware-solution-by-cloudsimple-nodes-sku). Det senare alternativet inkluderar den maximala beräknings-och minnes kapaciteten.
+7. Välj **nodtyp**, konsekvent med det du köpte i Azure.
 8. Ange **antal noder**.  Minst tre noder krävs för att skapa ett privat moln.
 
     ![Skapa privat moln – grundläggande information](media/create-private-cloud-basic-info.png)

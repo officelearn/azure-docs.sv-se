@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 30751bebd397b378924453987462c9e2b3b55ebf
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c4b46bc952782fc7c9b56d6f0c049fe17b63d0f2
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803931"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71836377"
 ---
 # <a name="electric-vehicle-routing-using-azure-notebooks-python"></a>Routning av elektriskt fordon med Azure Notebooks (python)
 
-Azure Maps är en portfölj med geospatiala tjänst-API: er inbyggt i Azure som gör det möjligt för utvecklare, företag och ISV att skapa plats medvetna appar och IoT, mobilitet, logistik och till gångs spårnings lösningar. Azure Maps REST-API: er kan anropas från språk som python och R för att aktivera geospatiala data analyser och maskin inlärnings scenarier. Azure Maps erbjuder en robust uppsättning [routnings-API: er]([https://docs.microsoft.com/rest/api/maps/route) som gör att användarna kan beräkna vägar mellan flera data punkter baserat på olika villkor, till exempel fordons typ eller nåbart utrymme. I den här självstudien får vi gå igenom ett scenario för att hjälpa en elektrisk fordons driv rutin, vars fordon har låg batteri laddning, för att hitta den närmaste möjliga laddnings stationen med avseende på enhets tid.
+Azure Maps är en portfölj med geospatiala tjänst-API: er inbyggt i Azure som gör det möjligt för utvecklare, företag och ISV att skapa plats medvetna appar och IoT, mobilitet, logistik och till gångs spårnings lösningar. Azure Maps REST-API: er kan anropas från språk som python och R för att aktivera geospatiala data analyser och maskin inlärnings scenarier. Azure Maps erbjuder en robust uppsättning [routnings-API: er](https://docs.microsoft.com/rest/api/maps/route) som gör att användarna kan beräkna vägar mellan flera data punkter baserat på olika villkor, till exempel fordons typ eller nåbart utrymme. I den här självstudien får vi gå igenom ett scenario för att hjälpa en elektrisk fordons driv rutin, vars fordon har låg batteri laddning, för att hitta den närmaste möjliga laddnings stationen med avseende på enhets tid.
 
 I den här självstudien kommer du att:
 

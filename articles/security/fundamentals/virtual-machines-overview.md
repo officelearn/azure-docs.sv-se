@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 7b33484084b4ada5aeaf89eb90167658ade15ad8
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 4aca2a4495d4b6c3669982b2e7757b7252d70f6a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899783"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828563"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Översikt över Azure Virtual Machines-säkerhet
 Den här artikeln innehåller en översikt över de centrala Azure-säkerhetsfunktioner som kan användas med virtuella datorer.
@@ -37,7 +37,7 @@ Med Azure kan du bygga säkerhets förbättrade och kompatibla lösningar som:
 * Identifiera och identifiera hot.
 * Uppfylla kraven för efterlevnad.  
 
-## <a name="antimalware"></a>Program mot skadlig kod
+## <a name="antimalware"></a>Programvara mot skadlig kod
 
 Med Azure kan du använda program mot skadlig kod från säkerhets leverantörer som Microsoft, Symantec, Trend Micro och Kasper Sky. Den här program varan hjälper till att skydda dina virtuella datorer från skadliga filer, annons program och andra hot.
 
@@ -102,7 +102,7 @@ Lösningen är integrerad med Azure Key Vault som hjälper dig att styra och han
 Läs mer:
 
 * [Azure Disk Encryption för virtuella IaaS-datorer](/azure/security/azure-security-disk-encryption-overview)
-* [Snabbstart: Kryptera en virtuell Windows IaaS-dator med Azure PowerShell](../azure-disk-encryption-linux-powershell-quickstart.md)
+* [Snabbstart: Kryptera en virtuell Windows IaaS-dator med Azure PowerShell @ no__t-0
 
 ## <a name="virtual-machine-backup"></a>Säkerhetskopiering av virtuell dator
 
@@ -164,14 +164,14 @@ Azure Virtual Machines är certifierat för FISMA, FedRAMP, HIPAA, PCI DSS nivå
 
 Läs mer:
 
-* [Microsoft säkerhets Center: Fastställ](https://www.microsoft.com/en-us/trustcenter/compliance)
-* [Betrott moln: Microsoft Azure säkerhet, sekretess och efterlevnad](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
+* [Microsoft säkerhets Center: Kompatibilitet @ no__t-0
+* [Trusted Cloud: Microsoft Azure säkerhet, sekretess och efterlevnad @ no__t-0
 
 ## <a name="confidential-computing"></a>Konfidentiell dator användning
 
 Även om konfidentiella data behandling inte är tekniskt en del av säkerheten för virtuella datorer, ingår avsnittet om säkerhet på den virtuella datorn på den högre nivån av "Compute"-säkerhet. Konfidentiell data behandling ingår i kategorin "Compute"-säkerhet.
 
-Konfidentiell bearbetning garanterar att när data är "i klartext", vilket krävs för effektiv bearbetning, skyddas data i en betrodd körnings miljö https://en.wikipedia.org/wiki/Trusted_execution_environment (tee, även kallat en enklaven), ett exempel på som visas i bilden nedan .  
+Konfidentiell bearbetning garanterar att när data är "i klartext", vilket krävs för effektiv bearbetning, skyddas data i en betrodd körnings miljö https://en.wikipedia.org/wiki/Trusted_execution_environment (TEE-även kallat en enklaven), ett exempel på som visas i bilden nedan.  
 
 TEEs se till att det inte finns något sätt att visa data eller åtgärderna inuti utanför, även med en fel sökare. De säkerställer även att endast auktoriserad kod tillåts komma åt data. Om koden ändras eller manipuleras, nekas åtgärderna och miljön inaktive rad. TEE tillämpar dessa skydd i hela körningen av kod i den.
 

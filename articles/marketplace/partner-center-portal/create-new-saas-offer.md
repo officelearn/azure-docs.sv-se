@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7dd57e41144ec33aec6eb716716d0794d92071f5
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: e846db86ce95bd32d21727a4a5ec3195458cb9eb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70013093"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936879"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -93,7 +93,7 @@ I följande tabell visas ett exempel på uppdelning av kostnader och utbetalning
 
 |**Microsoft-räkningar**|**$100 per månad**|
 |:---|:---|
-|Microsoft betalar 80% av din licens kostnad <br>**För kvalificerade SaaS-appar betalar Microsoft 90% av din licens kostnad*|$80,00 per månad <br>*$* 90,00 per månad *|
+|Microsoft betalar 80% av din licens kostnad <br>**för kvalificerade SaaS-appar betalar Microsoft 90% av din licens kostnad*|$80,00 per månad <br>*$* 90,00 per månad *|
 
 - I det här exemplet har Microsoft fakturerar $100,00 till kunden för din program varu licens och ger ut $80,00 till utgivaren.
 - Partner som har kvalificerat sig för den **minskade service avgiften för Marketplace** ser en reducerad transaktions avgift på SaaS-erbjudandena från maj 2019 till och med juni 2020. I det här scenariot faktureras Microsoft $100,00 för din program varu licens och du betalar ut $90,00 till utgivaren.
@@ -248,15 +248,15 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
     **Exempel**: 
 
-    `<p>`Detta är mitt första stycke. `</p>` <br>
-    `<p>`Det här är mitt andra stycke. `</p>` <br>
+    `<p>` Detta är mitt första stycke. `</p>` <br>
+    `<p>` Detta är mitt andra stycke. `</p>` <br>
 
     Ovanstående skulle se ut så här:
 
     <p> Detta är mitt första stycke. </p>
     <p> Det här är mitt andra stycke. </p>
 
-1. Om du vill lägga till en **punkt lista med objekt**placerar du texten i `<li>` taggarna nedan. Du kan kopiera och klistra in fler punkt objekt `<li>` (objekt mellan taggarna och `</li>` ) i `<ul>` taggarna `</ul>` och. Se till att du lägger `<ul></ul>`till. 
+1. Om du vill lägga till en **punkt lista med objekt**placerar du texten i `<li>`-taggarna nedan. Du kan kopiera och klistra in fler punkt objekt (objekt mellan taggarna `<li>` och `</li>`) i `<ul>`-och `</ul>`-taggar. Se till att du lägger till `<ul></ul>`. 
 
     **Exempel**:
 
@@ -275,34 +275,34 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
         <li> Lägg till text här </li> 
     </ul> 
 
-1. Till **fetstil** , Lägg till `<b>` i början av den text som du vill använda fetstil och Lägg `</b>` till i slutet av den text som du vill använda fetstil. 
+1. Om du vill använda **fetstil** lägger du till `<b>` i början av den text som du vill använda fetstil och lägger till `</b>` i slutet av den text som du vill använda fetstil. 
 
-    **Exempel**: `<b>`KOSTNADS FRI UTVÄRDERING`</b>`
+    **Exempel**: `<b>` KOSTNADS FRI UTVÄRDERINGS VERSION `</b>`
     
     Ovanstående skulle medföra att den kostnads fria utvärderings versionen är fet i beskrivningen av erbjudandet i butik. 
 
     **KOSTNADS FRI UTVÄRDERING**
 
-1. Om du vill lägga till **rad brytningar** mellan `<br>` innehållet lägger du till före det innehåll som du vill starta på en ny rad. Om du vill lämna ett blank steg och se till att innehållet börjar på en ny rad lägger `<br><br>` du till före innehållet. 
+1. Lägg till **rad brytningar** mellan innehållet genom att lägga till `<br>` före det innehåll som du vill starta på en ny rad. Om du vill lämna ett blank steg och se till att innehållet börjar på en ny rad lägger du till `<br><br>` före innehållet. 
 
     **Exempel**:
 
-    Detta är en textrad. `<br>`Detta är en text rad som börjar på en ny rad. `<br><br>`Det här är en rad som kommer att starta två rader nedan. 
+    Detta är en textrad. `<br>` Detta är en text rad som börjar på en ny rad. `<br><br>` det här är en rad som startar två rader nedan. 
 
     Ovanstående skulle se ut så här:
 
     Detta är en textrad. <br> Detta är en text rad som börjar på en ny rad. <br><br> Det här är en rad som kommer att starta två rader nedan. 
 
-1. Om du vill **öka storleken på texten**väljer du först hur stor du vill att texten ska vara. Använd exemplen nedan. När du har valt textens storlek lägger du till motsvarande `<H*></H*>` Taggar i början och slutet av texten. 
+1. Om du vill **öka storleken på texten**väljer du först hur stor du vill att texten ska vara. Använd exemplen nedan. När du har valt textens storlek lägger du till motsvarande `<H*></H*>`-Taggar i början och slutet av texten. 
 
     **Exempel**:
 
-    `<h1>`Detta är rubrik 1`</h1>` <br>
-    `<h2>`Detta är rubrik 2`</h2>` <br>
-    `<h3>`Detta är rubrik 3`</h3>` <br>
-    `<h4>`Detta är rubrik 4`</h4>` <br>
-    `<h5>`Detta är rubrik 5`</h5>` <br>
-    `<h6>`Detta är rubrik 6`</h6>` 
+    `<h1>`This är rubrik 1 @ no__t-1 <br>
+    `<h2>`This är rubrik 2 @ no__t-1 <br>
+    `<h3>`This är rubrik 3 @ no__t-1 <br>
+    `<h4>`This är rubrik 4 @ no__t-1 <br>
+    `<h5>`This är rubrik 5 @ no__t-1 <br>
+    `<h6>`This är rubrik 6 @ no__t-1 
 
     Ovanstående skulle se ut så här:
 
@@ -409,6 +409,9 @@ SaaS erbjudanden via den kommersiella marknads platsen gör att du kan tillhanda
 Möjligheten att konfigurera en kostnads fri utvärderings version är tillgänglig för varje plan i erbjudandet. Du behöver bara gå till pris och tillgänglighet för varje erbjudande och markera kryss rutan för en månads utvärdering.
 
 ![En månads kostnads fri utvärderings ruta](./media/free-trial-enable.png)
+
+>[!Note]
+>När ditt transactable-erbjudande har publicerats med en kostnads fri utvärderings version kan det inte inaktive ras för den planen. Kontrol lera att den här inställningen är korrekt för den första publiceringen för att undvika att behöva återskapa planen.
 
 För att få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings `isFreeTrial`version använder du den nya API-egenskapen som kommer att markeras som sant eller falskt. Mer information finns i [SaaS Hämta prenumerations-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
 

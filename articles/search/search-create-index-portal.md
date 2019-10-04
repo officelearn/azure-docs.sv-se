@@ -1,25 +1,25 @@
 ---
 title: Skapa ett Azure Search-index i Azure Portal-Azure Search
-description: Lär dig hur du skapar ett index för Azure Search med hjälp av en inbyggd Portal index designers.
+description: Lär dig hur du skapar ett index för Azure Search med hjälp av en inbyggd Portal för index design.
 manager: nitinme
 author: heidisteen
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 02/16/2019
+ms.date: 10/02/2019
 ms.author: heidist
-ms.openlocfilehash: fec81cd9660348d492b1dabd24ac689f2b06e880
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 4abef5a3030643d4c7b91d2911f350190972f1eb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69638815"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937268"
 ---
 # <a name="create-an-azure-search-index-in-the-portal"></a>Skapa ett Azure Search-index i portalen
 
-Azure Search innehåller en inbyggd indexerad designer i portalen som är användbar för prototyper eller skapar ett [sökindex](search-what-is-an-index.md) som finns på din Azure Search-tjänst. Verktyget används för schema konstruktion. När du sparar definitionen, uttrycks ett tomt index fullständigt i Azure Search. Hur du läser in det med sökbara data är upp till dig.
+Azure Search innehåller en inbyggd indexerad designer i portalen som är användbar för prototyper eller skapar ett [sökindex](search-what-is-an-index.md) som finns på din Azure Search-tjänst. Verktyget används för schema konstruktion. När du sparar definitionen, uttrycks ett tomt index fullständigt i Azure Search. Hur du läser in det med sökbart innehåll är upp till dig.
 
-Index designern är bara en metod för att skapa ett index. Program mässigt kan du skapa ett index med hjälp av [.net](search-create-index-dotnet.md) -eller [rest](search-create-index-rest-api.md) -API: er.
+Index designern är bara en metod för att skapa ett index. Du kan också både skapa och läsa in ett index med hjälp av [guiden Importera data](search-get-started-portal.md). Guiden fungerar bara med index som skapas av sig själv. Program mässigt kan du skapa ett index med hjälp av [.net](search-create-index-dotnet.md) -eller [rest](search-create-index-rest-api.md) -API: er.
 
 ## <a name="start-index-designer"></a>Starta index designern
 
@@ -41,15 +41,17 @@ Indexsammansättningen innehåller en *fält samling* som definierar sökbara da
 
 1. Lägg till fält för att ange de dokument som ska överföras fullständigt, och ange en [datatyp](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) för var och en. Om dokument till exempel består av ett *hotell-ID*, *hotell-namn*, *adress*, *stad*och *region*, skapar du ett motsvarande fält för var och en i indexet. Läs [rikt linjerna för design i avsnittet nedan](#design) om du vill ha hjälp med att ställa in attribut.
 
-2. Ange ett *nyckel* fält av typen EDM. String. Värdena i det här fältet måste unikt identifiera varje dokument. Som standard heter fältet *id* men du kan byta namn på det så länge strängen följer [namngivningsreglerna](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Om dina fält exempelvis innehåller *hotell-ID*väljer du det för din nyckel. Ett nyckelfält är obligatoriskt för alla Azure Search-index, och det måste vara en sträng.
+1. Om inkommande data är hierarkiska bör schemat innehålla [komplexa typer](search-howto-complex-data-types.md) som representerar de kapslade strukturerna. Den inbyggda exempel data uppsättningen, hotell, visar komplexa typer som använder en adress (innehåller flera delfält) som har en 1-till-en-relation med varje hotell, och en komplex samling för rum där flera rum är associerade med varje hotell. 
 
-3. Ange attribut för varje fält. Index designern undantar inte attribut som är ogiltiga för data typen, men föreslår inte vad som ska tas med. Läs anvisningarna i nästa avsnitt för att förstå vad attributen är för.
+1. Ange ett *nyckel* fält av typen EDM. String. Ett nyckelfält är obligatoriskt för alla Azure Search-index, och det måste vara en sträng. Värdena i det här fältet måste unikt identifiera varje dokument. Som standard heter fältet *id* men du kan byta namn på det så länge strängen följer [namngivningsreglerna](https://docs.microsoft.com/rest/api/searchservice/Naming-rules). Om dina fält exempelvis innehåller *hotell-ID*väljer du det för din nyckel. 
+
+1. Ange attribut för varje fält. Index designern undantar inte attribut som är ogiltiga för data typen, men föreslår inte vad som ska tas med. Läs anvisningarna i nästa avsnitt för att förstå vad attributen är för.
 
     API-dokumentationen för Azure Search innehåller kodexempel med ett enkelt *hotell*index. I skärm bilden nedan kan du se index definitionen, inklusive den franska språk analys som anges under index definitionen, som du kan återskapa som en övning i portalen.
 
-    ![Demo index för hotell](media/search-create-index-portal/field-definitions.png "Demo index för hotell")
+    Hotell demonstrations ![index]för(media/search-create-index-portal/field-definitions.png "hotell demonstration")
 
-4. När du är färdig klickar du på **skapa** för att spara och skapa indexet.
+1. När du är färdig klickar du på **skapa** för att spara och skapa indexet.
 
 <a name="design"></a>
 

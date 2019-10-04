@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 10/02/2019
 ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: f9b1b32775393196a77bef3aa2257f6fb66afdcb
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 76a05817ae91bb49240e5d72988c776ce67ec1c0
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012294"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71845471"
 ---
 > [!NOTE]
 > Multipart-begäranden kräver vanligt vis tre delar:
@@ -26,7 +26,7 @@ ms.locfileid: "69012294"
 >
 > **Content-Type** och **Content-disposition** varierar beroende på användnings scenario.
 
-Multipart-begäranden kan göras via programmering (via C#), via en rest-klient eller verktyg som [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#multi). REST-klient verktyg kan ha olika stöd nivåer för komplexa multipart-begäranden. Konfigurations inställningarna kan också variera något från verktyg till verktyg. Kontrol lera vilket verktyg som passar bäst för dina behov.
+Multipart-begäranden kan göras via programmering (via C#), via en rest-klient eller verktyg som [Postman](https://docs.microsoft.com/azure/digital-twins/how-to-configure-postman#make-a-multipart-post-request). REST-klient verktyg kan ha olika stöd nivåer för komplexa multipart-begäranden. Konfigurations inställningarna kan också variera något från verktyg till verktyg. Kontrol lera vilket verktyg som passar bäst för dina behov.
 
 > [!IMPORTANT]
 > Multipart-begäranden som görs till Azure Digitals dubbla hanterings-API: er har vanligt vis två delar:

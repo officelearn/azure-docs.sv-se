@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 07/11/2019
 ms.author: magoedte
-ms.openlocfilehash: 3ac5d5d31bb54ce87859a6eec52dbe5948864d4c
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 810ecbd4421eec8e8e809b429270601a0c94d623
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147331"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840902"
 ---
 # <a name="manage-log-analytics-workspace-using-azure-resource-manager-templates"></a>Hantera Log Analytics arbets yta med Azure Resource Manager-mallar
 
@@ -27,7 +27,7 @@ ms.locfileid: "70147331"
 Du kan använda [Azure Resource Manager mallar](../../azure-resource-manager/resource-group-authoring-templates.md) för att skapa och konfigurera Log Analytics arbets ytor i Azure Monitor. Exempel på de uppgifter som du kan utföra med mallarna är:
 
 * Skapa en arbets yta inklusive ange pris nivå 
-* Lägg till en lösning
+* Lägga till en lösning
 * Skapa sparade sökningar
 * Skapa en datorgrupp
 * Aktivera insamling av IIS-loggar från datorer med Windows-agenten installerad
@@ -121,7 +121,7 @@ I följande exempel skapas en arbets yta med en mall från den lokala datorn. JS
 
 2. Redigera mallen så att den uppfyller dina krav. Granska [Microsoft.OperationalInsights/workspaces mall](https://docs.microsoft.com/azure/templates/microsoft.operationalinsights/workspaces) referens till att lära dig vilka egenskaper och värden som stöds. 
 3. Spara filen som **deploylaworkspacetemplate.json** till en lokal mapp.
-4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller kommando raden för att skapa arbets ytan och ange arbets ytans namn och plats som en del av kommandot.
+4. Nu är det dags att distribuera den här mallen. Du kan använda antingen PowerShell eller kommando raden för att skapa arbets ytan och ange arbets ytans namn och plats som en del av kommandot. Arbets ytans namn måste vara globalt unikt för alla Azure-prenumerationer.
 
    * För PowerShell använder du följande kommandon från mappen som innehåller mallen:
    
@@ -596,7 +596,7 @@ I följande mall-exempel visas hur du:
 
 Så här distribuerar du exempel mal len:
 
-1. Spara det bifogade exemplet i en fil, till exempel`azuredeploy.json` 
+1. Spara det bifogade exemplet i en fil, till exempel `azuredeploy.json` 
 2. Redigera mallen för att få den konfiguration du vill ha
 3. Använd PowerShell eller kommando raden för att distribuera mallen
 

@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 05/04/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 38fdbbf76806325e457f066e6b469a531c27b038
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1e0bc4647476cd5c6aa0f38456ef8890b4ddcaa5
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102216"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828763"
 ---
 # <a name="how-to-provision-a-windows-sql-server-virtual-machine-in-the-azure-portal"></a>Hur du etablerar en virtuell Windows SQL Server-dator i Azure Portal
 
@@ -38,7 +38,7 @@ När du skapar en SQL Server virtuell dator kan du välja en av flera förkonfig
 
 1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan Azure SQL i sökrutan. Valfritt Välj stjärnan bredvid **Azure SQL** för att Favorita den och lägga till den som ett objekt i navigeringen till vänster. 
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information genom att välja **Visa information**. 
-1. Skriv `2017` i sökrutan SQL Server avbildning på panelen **SQL Virtual Machines** och välj **sedan gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server** 2016 i list rutan. 
+1. Skriv `2017` i rutan SQL Server avbildnings sökning på panelen **SQL Virtual Machines** och välj sedan **Free SQL Server licens: SQL Server 2017-utvecklare på Windows Server 2016 @ no__t-0 från List rutan. 
 
 
    ![Välj avbildning av virtuell SQL-dator](media/virtual-machines-windows-portal-sql-server-provision/select-sql-vm-image-portal.png)
@@ -54,17 +54,6 @@ När du skapar en SQL Server virtuell dator kan du välja en av flera förkonfig
 
 1. Välj **Skapa**.
 
-
-## <a id="configure"></a>Konfigurations alternativ
-
-Det finns flera flikar för att konfigurera en SQL Server virtuell dator. I den här hand boken kommer vi att fokusera på följande: 
-
-| Steg | Beskrivning |
-| --- | --- |
-| **Grundläggande inställningar** |[Konfigurera grundläggande inställningar](#1-configure-basic-settings) |
-| **Valfria funktioner** |[Konfigurera valfria funktioner](#2-configure-optional-features) |
-| **SQL Server-inställningar** |[Konfigurera SQL Server-inställningar](#3-configure-sql-server-settings) |
-| **Granska + skapa** | [Granska sammanfattningen](#4-review--create) |
 
 ## <a name="1-configure-basic-settings"></a>1. Konfigurera grundläggande inställningar
 
@@ -85,7 +74,7 @@ Ange följande information på fliken **grundläggande** :
     1. Välj en plats för din **region**. 
     1. I den här hand boken lämnar du **tillgänglighets alternativ** inställda på _ingen infrastrukturs-redundans krävs_. Om du vill veta mer om tillgänglighets alternativ, se [tillgänglighet](../../windows/availability.md). 
     1. I listan **avbildning** väljer _du gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server_2016.  
-    1. Välj att **ändra storleken** på den virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. Vad gäller produktionsarbetsbelastningar hittar du rekommendationer för datorstorlek och konfiguration i [Prestandametodtips för SQL Server på virtuella Azure-datorer](virtual-machines-windows-sql-performance.md).
+    1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. Vad gäller produktionsarbetsbelastningar hittar du rekommendationer för datorstorlek och konfiguration i [Prestandametodtips för SQL Server på virtuella Azure-datorer](virtual-machines-windows-sql-performance.md).
 
     ![Instansinformation](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
@@ -141,8 +130,6 @@ Konfigurera övervakning och automatisk avstängning på fliken **övervakning**
 ## <a name="3-configure-sql-server-settings"></a>3. Konfigurera SQL Server inställningar
 
 Konfigurera vissa inställningar och optimeringar för SQL Server på fliken **SQL Server inställningar** . De inställningar som du kan konfigurera för SQL Server innehåller följande:
-
-
 
 | Inställning |
 | --- |
@@ -206,26 +193,21 @@ Följande tabell innehåller de parametrar som krävs för att konfigurera Azure
 
 Mer information finns i [Konfigurera Azure Key Vault-integrering för SQL Server på Azure Virtual Machines](virtual-machines-windows-ps-sql-keyvault.md).
 
-### <a name="storage-configuration"></a>Storage-konfiguration
+### <a name="storage-configuration"></a>Lagringskonfiguration
 
-På fliken **SQL Server inställningar** under lagrings **konfiguration**väljer du **ändra konfiguration** för att ange lagrings kraven.
+På fliken **SQL Server inställningar** under **lagrings konfiguration**väljer du **ändra konfiguration** för att öppna sidan prestanda optimerad lagrings konfiguration och anger lagrings kraven.
 
-
-> [!NOTE]
-> Det här alternativet är inte tillgängligt om du manuellt har konfigurerat den virtuella datorn för användning av standardlagring. Automatisk lagringsoptimering är endast tillgängligt för Premium Storage.
-
-> [!TIP]
-> Antalet stopp och den övre gränsen för varje skjutreglage beror på den valda storleken för virtuell dator. En större och kraftfullare virtuell dator kan skalas upp mer.
-
-Du kan ange krav som I/O-åtgärder per sekund (IOPs), genomflöde i MB/s och totalt lagringsutrymme. Konfigurera dessa värden med hjälp av reglagen. Du kan ändra dessa lagringsinställningar baserat på arbetsbelastningen. Portalen beräknar automatiskt antalet diskar som ska anslutas och konfigureras baserat på de här kraven.
+![Konfiguration av SQL VM-lagring](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Under **Storage optimerat för** väljer du något av följande alternativ:
 
 * **Allmänt** är standardinställningen och har stöd för de flesta arbetsbelastningar.
-* **Transaktionell** bearbetning optimerar lagringen för traditionella OLTP-arbetsbelastningar för databaser.
+* **Transaktions bearbetningen** optimerar lagringen för traditionella databas OLTP-arbetsbelastningar.
 * **Datalagerhantering** optimerar lagringen för analys- och rapporteringsarbetsbelastningar.
 
-![Konfiguration av SQL VM-lagring](media/virtual-machines-windows-portal-sql-server-provision/azure-sqlvm-storage-configuration.png)
+![Konfiguration av SQL VM-lagring](media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+Du kan välja att lämna värdena som standard, eller så kan du manuellt ändra lagrings sto pol Ogin så att den passar dina IOPS-behov. Mer information finns i [lagrings konfiguration](virtual-machines-windows-sql-server-storage-configuration.md). 
 
 ### <a name="sql-server-license"></a>SQL Server License
 Om du är Software Assurance-kund kan du använda [Azure Hybrid-förmån](https://azure.microsoft.com/pricing/hybrid-benefit/) för att ta med din egen SQL Server licens och spara resurser. 

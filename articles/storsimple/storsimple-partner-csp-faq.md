@@ -1,6 +1,6 @@
 ---
-title: Vanliga frågor och svar för Microsoft Azure StorSimple och Provider-Program för molnet lösningar för partner | Microsoft Docs
-description: Hitta svar på några vanliga frågor om StorSimple och CSP för partner.
+title: Vanliga frågor och svar om Microsoft Azure StorSimple och Cloud Solutions provider-program för partner | Microsoft Docs
+description: Få svar på några vanliga frågor om StorSimple och CSP för partner.
 services: storsimple
 documentationcenter: NA
 author: alkohli
@@ -14,88 +14,88 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 4750ba55c08ebac244e7515cae4e998155a79599
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 893e8de5efc523df34e2c1e139082d2b471cb63e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60628889"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828534"
 ---
-# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple för molnet lösningar Provider-Program: Vanliga frågor och svar
+# <a name="storsimple-for-cloud-solutions-provider-program-frequently-asked-questions"></a>StorSimple för Cloud Solutions provider-program: Vanliga frågor och svar
 
 
 ## <a name="overview"></a>Översikt
-Här följer frågor och svar som kan uppstå som en StorSimple-partner när du distribuera och hantera en StorSimple Virtual Array i Azure-portalen.
+Följande är frågor och svar som du kan ha som StorSimple-partner när du distribuerar eller hanterar en virtuell StorSimple-matris i Azure Portal.
 
 Frågor och svar är ordnade i följande kategorier:
 
- - [Modell för StorSimple och molnet Molnlösningsleverantör Program (CSP)](#storsimple-and-csp-model)
- - [Distribuera och hantera virtuella matrisen som partner](#deploy-and-manage-storsimple-as-a-partner)
- - Support för partner för StorSimple för CSP
+ - [StorSimple-och Cloud Solutions provider program-modell (CSP)](#storsimple-and-csp-model)
+ - [Distribuera och hantera virtuell matris som en partner](#deploy-and-manage-storsimple-as-a-partner)
+ - Stöd för StorSimple-partner för CSP
 
-## <a name="storsimple-and-csp-model"></a>StorSimple och CSP-modellen
+## <a name="storsimple-and-csp-model"></a>StorSimple och CSP-modell
 
-### <a name="what-does-it-mean-to-have-storsimple-as-a-part-of-the-cloud-solutions-provider-csp-program"></a>Vad innebär det att ha StorSimple som en del av programmet molnet Molnlösningsleverantör (CSP)?
- StorSimple för CSP gör det möjligt för våra CSP-partner att återförsälja StorSimple Virtual Array sina kunder. Den här modellen kan äga kundlivscykeln för slutpunkt till slutpunkt med direkt etablering, fakturering och support av Microsofts molntjänster med CSP-partner. 
+### <a name="what-does-it-mean-to-have-storsimple-as-a-part-of-the-cloud-solutions-provider-csp-program"></a>Vad betyder det att ha StorSimple som en del av CSP-programmet (Cloud Solutions Provider)?
+ StorSimple för CSP gör det möjligt för våra CSP-partner att sälja StorSimple virtuella matriser till sina kunder. Med den här modellen kan CSP-partner äga hela livs cykeln från slut punkt till slut punkt med direkt etablering, fakturering och support för Microsofts moln tjänster. 
 
-Mer information går du till [StorSimple i CSP-programmet](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
+Mer information finns på [StorSimple i CSP-programmet](https://www.microsoft.com/en-us/server-cloud/products/storsimple/). 
 
-### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-office-365-and-enterprise-mobility-suite-ems"></a>Är StorSimple en användningsbaserad eller baserat på klient-licenser som Office 365 och Enterprise Mobility Suite (EMS)?
-StorSimple är en användarbaserad tjänst. Kunder som förvärvar StorSimple Virtual Array via CSP-vägen betalar för användningen av virtuella matrisen och Azure, som separata orderrader på CSP-faktura. 
+### <a name="is-storsimple-a-usage-based-or-based-on-seat-licenses-like-office-365-and-enterprise-mobility-suite-ems"></a>Är StorSimple en användnings baserad eller baserad på klient licenser som Office 365 och Enterprise Mobility Suite (EMS)?
+StorSimple är en användnings baserad tjänst. Kunder som debiterar StorSimple Virtual Array via CSP-vägen betalar för användning av virtuell matris och Azure, faktureras som separata rad objekt i CSP-fakturan. 
 
-### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-office-365-and-the-enterprise-mobility-suite"></a>Liknar affärsmodell StorSimple med andra tjänster som Office 365 och Enterprise Mobility Suite? 
-Ja. Modellen är en parti rabatt precis som andra användningsbaserad tjänster i Azure. Parti rabatten för StorSimple är ungefär som andra Azure-tjänster. Den här modellen ger våra CSP-partner möjlighet att sälja mer och hantera Azure-förbrukning StorSimple Virtual Array.  
+### <a name="is-the-storsimple-business-model-similar-to-that-of-other-services-such-as-the-office-365-and-the-enterprise-mobility-suite"></a>Liknar StorSimple affärs modell samma som för andra tjänster, till exempel Office 365 och Enterprise Mobility Suite? 
+Ja. Modellen är en grossist rabatt modell precis som andra användnings tjänster i Azure. Parti rabatten för StorSimple liknar den för andra Azure-tjänster. Den här modellen ger våra CSP-partner en möjlighet att sälja mer och köra Azure-förbrukning via StorSimple Virtual Array.  
 
-### <a name="which-storsimple-skus-are-available-at-launch"></a>Vilka StorSimple-SKU: er är tillgängliga vid start?
-Samma SKU: er som är tillgängliga med fristående StorSimple-tjänster. 
+### <a name="which-storsimple-skus-are-available-at-launch"></a>Vilka StorSimple SKU: er är tillgängliga vid lanseringen?
+Samma SKU: er som är tillgängliga med de fristående StorSimple-tjänsterna. 
 
-### <a name="is-there-any-difference-between-the-storsimple-directly-purchased-from-microsoft-under-ea-and-storsimple-as-a-part-of-csp"></a>Finns det någon skillnad mellan StorSimple som är köpt direkt från Microsoft under EA och StorSimple som en del av CSP?
-Nej. Under CSP, kan kunder också köpa andra tjänster som erbjuds av CSP-partner tillsammans med StorSimple virtuell matris (SVA) till en enda faktura. Observera att för inköp den fysiska enheten för StorSimple 8000-serien, kunder fortfarande behöver genomgå för EA-vägen. 
+### <a name="is-there-any-difference-between-the-storsimple-directly-purchased-from-microsoft-under-ea-and-storsimple-as-a-part-of-csp"></a>Finns det någon skillnad mellan StorSimple som köpts direkt från Microsoft under EA och StorSimple som en del av CSP?
+Nej. Under CSP kan kunder även köpa andra tjänster som erbjuds av CSP-partner tillsammans med StorSimple Virtual Array (SVA) under en faktura. Observera att kunder som vill köpa den fysiska enheten StorSimple 8000-serien måste gå igenom EA-vägen. 
 
-### <a name="in-which-markets-is-storsimple-available-for-csp-at-launch"></a>I vilket marknad finns StorSimple för CSP vid start?
-StorSimple Virtual Array för CSP är tillgänglig på alla marknader där StorSimple är tillgängliga idag. Mer information går du till den [lista över regioner med StorSimple](https://azure.microsoft.com/regions/services/).
+### <a name="in-which-markets-is-storsimple-available-for-csp-at-launch"></a>På vilka marknader är StorSimple tillgängligt för CSP vid lanseringen?
+StorSimple virtuella matris för CSP finns på alla marknader där StorSimple är tillgängligt idag. Mer information finns i [listan över regioner där StorSimple är tillgängligt](https://azure.microsoft.com/regions/services/).
 
-### <a name="what-kind-of-solutions-can-a-partner-deliver-with-storsimple-and-csp"></a>Vilken typ av lösningar kan en partner levererar med StorSimple och CSP? 
+### <a name="what-kind-of-solutions-can-a-partner-deliver-with-storsimple-and-csp"></a>Vilken typ av lösningar kan en partner leverera med StorSimple och CSP? 
 Det finns flera lösningar:
 
-- Partner som kan säljer StorSimple Virtual Array. 
-- Partner som kan leverera lösningar som byggts kring StorSimple och andra Azure-tjänster och programvara från tredje part. Mer information finns i några möjliga [lösningar som finns runt StorSimple](https://aka.ms/storsimple-build-solutions).
-- De kan även identifiera nya affärsmodeller genom att leverera hanterade tjänster.
+- Partnerna kan återförsälja StorSimple Virtual Array. 
+- Partner kan leverera lösningar som bygger på StorSimple och andra Azure-tjänster eller program från tredje part. Mer information finns i vissa möjliga [lösningar som finns runt StorSimple](https://aka.ms/storsimple-build-solutions).
+- De kan också identifiera nya affärs modeller genom att leverera hanterade tjänster.
 
-### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Vad är incitament för StorSimple CSP-partner? Kvalificerar jag mig för någon incitament för CSP-programmet?
-För information om incitament, går du till [CSP-programmet incitament](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
+### <a name="what-are-the-incentives-available-for-storsimple-csp-partners-do-i-qualify-for-any-csp-program-incentives"></a>Vilka incitament är tillgängliga för StorSimple CSP-partner? Är jag berättigad till alla CSP-program?
+För information om incitament, gå till [program för CSP-program](https://partner.microsoft.com/en-US/cloud-solution-provider/program-details).
 
 
-## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Distribuera och hantera StorSimple som partner
+## <a name="deploy-and-manage-storsimple-as-a-partner"></a>Distribuera och hantera StorSimple som en partner
 
-### <a name="how-can-i-administer-storsimple-virtual-array-in-csp"></a>Hur kan jag för att administrera StorSimple Virtual Array i CSP? 
-Du kan lägga till prenumerationer för StorSimple Virtual Array till dina kunders konto via Partnercenter. Du kan dessutom använda Azure-portalen för att lägga till användare i prenumerationerna.
+### <a name="how-can-i-administer-storsimple-virtual-array-in-csp"></a>Hur kan jag administrera StorSimple virtuell matris i CSP? 
+Du kan lägga till StorSimple-prenumerationer för virtuella matriser till ditt kund konto via partner Center. Du kan också använda Azure Portal för att lägga till användare i prenumerationerna.
 
-### <a name="is-the-azure-portal-approach-the-same-as-other-services-for-csp"></a>Är samma som för andra tjänster för CSP metod, Azure-portalen? 
-Ja. Med StorSimple Virtual Array för CSP, ska det bästa sättet för partners åtkomst till Azure-portalen den [Partnercenter](https://partnercenter.microsoft.com/) där de kan hantera kunder och prenumerationer. För att hantera StorSimple-prenumerationer, ska partner eller kund (beroende på behörighet) logga in på Azure-portalen. 
+### <a name="is-the-azure-portal-approach-the-same-as-other-services-for-csp"></a>Är Azure Portal metoden samma som andra tjänster för CSP? 
+Ja. Med StorSimple virtuell matris för CSP bör det bästa sättet för partner att komma åt Azure Portal vara via [partner Center](https://partnercenter.microsoft.com/) där de kan hantera kunder och prenumerationer. För att hantera StorSimple-prenumerationer ska partnern eller kunden (beroende på de behörigheter som beviljats) Logga in på Azure Portal. 
 
-### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>Microsoft levererar en ny portal för StorSimple för CSP? 
-Nej. Du kommer att kunna administrera StorSimple Virtual Array i CSP via Azure portal.
+### <a name="is-microsoft-shipping-a-new-portal-for-storsimple-for-csp"></a>Levererar Microsoft en ny portal för StorSimple för CSP? 
+Nej. Du kommer att kunna administrera StorSimple virtuella matrisen i CSP via Azure Portal.
 
-### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>Jag har etablerat en fristående StorSimple-prenumeration för Min kund. Måste jag använda Azure-portalen för att administrera min enhet? 
+### <a name="i-have-provisioned-a-standalone-storsimple-subscription-for-my-customer-do-i-have-to-use-the-azure-portal-to-administer-my-device"></a>Jag har etablerad en fristående StorSimple-prenumeration för min kund. Måste jag använda Azure Portal för att administrera enheten? 
 Ja. 
 
-### <a name="is-the-microsoft-account-team-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Kompenseras Microsoft Account-team på grund av försäljningen av StorSimple via CSP?
-Ja. Partner försäljningschef och kund-kontoteamet för slutkunden kommer kompenseras CSP försäljning. Partner som förväntas ta lead i sälja sina differentierad värde och erbjudanden.
+### <a name="is-the-microsoft-account-team-compensated-as-a-result-of-sales-of-storsimple-through-csp"></a>Kompenseras Microsoft-konto teamet som ett resultat av försäljningen av StorSimple via CSP?
+Ja. Partner Sälj chefen och kund konto teamet för slut kunden kommer att kompenseras för CSP Sales. Partner förväntas ta en introduktion till att sälja sitt differentierade värde och erbjudanden.
 
 ## <a name="support-for-storsimple-and-csp"></a>Stöd för StorSimple och CSP
 
-### <a name="are-there-any-forums-to-get-additional-support-for-csp-partners-to-deploy-and-manage-storsimple"></a>Finns det inga forum för att få ytterligare stöd för CSP-partner att distribuera och hantera StorSimple?
-Du kan gå till StorSimple i CSP-forumet får du svar på vanliga frågor. Du måste ansluta till den [Azure rådgivare Yammer-grupp](https://www.yammer.com/azureadvisors) första. Nu söka efter och ansluter till gruppen - **StorSimple Partner rådgivare**.
+### <a name="are-there-any-forums-to-get-additional-support-for-csp-partners-to-deploy-and-manage-storsimple"></a>Finns det några forum för att få ytterligare support för CSP-partner för att distribuera och hantera StorSimple?
+Du kan gå till StorSimple i CSP-forumet för att få svar på några vanliga frågor. Du måste först gå med i [Yammer-gruppen för Azure Advisor](https://www.yammer.com/azureadvisors) . Nästa Sök efter och gå med i gruppen **StorSimple partner Advisor**.
 
-### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>Hur fungerar stöd tillsammans för StorSimple för CSP? 
-Supportmodellen för StorSimple i CSP är samma som för andra Azure-tjänster i CSP. Mer information går du till [kundsupport för CSP](https://msdn.microsoft.com/partner-center/customer-support). 
+### <a name="how-does-the-support-work-for-storsimple-for-csp"></a>Hur fungerar supporten för StorSimple för CSP? 
+Support modellen för StorSimple i CSP är samma som för andra Azure-tjänster i CSP. Mer information finns i [kund support för CSP](/partner-center/csp-overview).
 
-Gå till mer information om StorSimple för CSP:
+Mer information om StorSimple för CSP finns på:
 
-- [Microsoft Cloud Solution Provider-programmet](https://partner.microsoft.com/Membership)
-- [Partnercenter](https://partnercenter.microsoft.com/) 
+- [Microsoft Cloud Solution Provider-program](https://partner.microsoft.com/Membership)
+- [Partner Center](https://partnercenter.microsoft.com/) 
 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du är redo att distribuera StorSimple, går du till [distribuera StorSimple i CSP](storsimple-partner-csp-deploy.md).
+Om du är redo att distribuera din StorSimple går du till [distribuera din StorSimple i CSP](storsimple-partner-csp-deploy.md).

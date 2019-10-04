@@ -5,16 +5,16 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/29/2019
+ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: f0d847596ef21af67973b6572737e27e1d015991
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 932fbe6814df8ec324dd3360bcacfcbcf1c19b62
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676492"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842773"
 ---
-# <a name="automatically-scale-session-hosts"></a>Skala sessionsvärdar automatiskt
+# <a name="scale-session-hosts-dynamically"></a>Skala session värdar dynamiskt
 
 För många Windows-distributioner av virtuella datorer i Azure representerar kostnaderna för den virtuella datorn en betydande del av den totala distributions kostnaden för Windows Virtual Desktop. För att minska kostnaderna, är det bäst att stänga av och frigöra sessioner virtuella datorer (VM) under låg belastnings tider, och sedan starta om dem under hög användnings tid.
 

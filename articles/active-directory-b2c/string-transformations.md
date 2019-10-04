@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83379cc194f23ebff977babc7124a7bc90f4bc60
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 77f0b196777ae0f2ff0b870eac0a01b11854190b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063445"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936815"
 ---
 # <a name="string-claims-transformations"></a>Transformeringar av sträng anspråk
 
@@ -29,8 +29,8 @@ Jämför två anspråk och Utlös ett undantag om de inte är lika enligt de ang
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | sträng | Första anspråkets typ, som ska jämföras. |
-| inputClaim | inputClaim2 | sträng | Andra anspråkets typ, som ska jämföras. |
+| InputClaim | inputClaim1 | sträng | Första anspråkets typ, som ska jämföras. |
+| InputClaim | inputClaim2 | sträng | Andra anspråkets typ, som ska jämföras. |
 | InputParameter | stringComparison | sträng | sträng jämförelse, ett av värdena: Ordnings tal, OrdinalIgnoreCase. |
 
 Omvandlingen av **AssertStringClaimsAreEqual** -anspråk körs alltid från en [teknisk verifierings profil](validation-technical-profile.md) som anropas av en [självkontrollerad teknisk profil](self-asserted-technical-profile.md). **UserMessageIfClaimsTransformationStringsAreNotEqual** -metadata för självkontrollerad teknisk profil styr det fel meddelande som visas för användaren.
@@ -154,8 +154,8 @@ Avgör om ett sträng anspråk är lika med ett annat. Resultatet är en ny bool
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | sträng | Första anspråks typen, som ska jämföras. |
-| inputClaim | inputClaim2 | sträng | Andra anspråks typen, som ska jämföras. |
+| InputClaim | inputClaim1 | sträng | Första anspråks typen, som ska jämföras. |
+| InputClaim | inputClaim2 | sträng | Andra anspråks typen, som ska jämföras. |
 | InputParameter | operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
 | InputParameter | ignoreCase | boolean | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
 | OutputClaim | outputClaim | boolean | Den ClaimType som skapas efter att den här anspråks omvandlingen har anropats. |
@@ -195,7 +195,7 @@ Anger om ett anspråks värde är lika med värdet för indataparametern.
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim1 | sträng | Anspråkets typ, som ska jämföras. |
+| InputClaim | inputClaim1 | sträng | Anspråkets typ, som ska jämföras. |
 | InputParameter | operator | sträng | Möjliga värden: `EQUAL` eller `NOT EQUAL`. |
 | InputParameter | compareTo | sträng | sträng jämförelse, ett av värdena: Ordnings tal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Anger om jämförelsen ska ignorera Skift läget för strängarna som jämförs. |
@@ -238,8 +238,8 @@ Skapar en slumpmässig sträng med slump tals generatorn. Om slump tals generato
 | InputParameter | randomGeneratorType | sträng | Anger det slumpmässiga värdet som ska genereras, `GUID` (globalt unikt ID) eller `INTEGER` (ett tal). |
 | InputParameter | stringFormat | sträng | Valfritt Formatera det slumpmässiga värdet. |
 | InputParameter | Base64 | boolean | Valfritt Omvandla det slumpmässiga värdet till base64. Om sträng format används kodas värdet efter sträng format till base64. |
-| InputParameter | maximumNumber | int | Valfritt Endast `INTEGER` för randomGeneratorType. Ange det maximala antalet. |
-| InputParameter | dirigeringsrouter  | int | Valfritt Endast `INTEGER` för randomGeneratorType. Ange start värde för det slumpmässiga värdet. Obs! samma utsäde ger samma sekvens med slumpmässiga tal. |
+| InputParameter | maximumNumber | int | Valfritt Endast för `INTEGER` randomGeneratorType. Ange det maximala antalet. |
+| InputParameter | dirigeringsrouter  | int | Valfritt Endast för `INTEGER` randomGeneratorType. Ange start värde för det slumpmässiga värdet. Obs! samma utsäde ger samma sekvens med slumpmässiga tal. |
 | OutputClaim | outputClaim | sträng | Den ClaimTypes som ska skapas efter att den här anspråks omvandlingen har anropats. Det slumpmässiga värdet. |
 
 I följande exempel skapas ett globalt unikt ID. Den här anspråks omvandlingen används för att skapa det slumpmässiga UPN-namnet (användar Principens namn).
@@ -319,7 +319,7 @@ Använd den här anspråks omvandlingen för att formatera en {0}sträng med en 
 - Inmatade anspråk:
     - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
 - Indataparametrar:
-    - **stringFormat**: cpim_{0}@ {RelyingPartyTenantId}
+    - **stringFormat**: cpim_ @ no__t-1 @ {RelyingPartyTenantId}
 - Utgående anspråk:
   - **outputClaim**: cpim_5164db16-3eee-4629-bfda-dcc3326790e9@b2cdemo.onmicrosoft.com
 
@@ -504,7 +504,7 @@ Kontrollerar `matchTo` att en sträng anspråks-och indataparameter är lika, oc
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | inputClaim | sträng | Anspråks typen, som ska jämföras. |
+| InputClaim | inputClaim | sträng | Anspråks typen, som ska jämföras. |
 | InputParameter | matchTo | sträng | Strängen som ska jämföras med `inputClaim`. |
 | InputParameter | stringComparison | sträng | Möjliga värden: `Ordinal` eller `OrdinalIgnoreCase`. |
 | InputParameter | stringMatchMsg | sträng | Det första värdet som ska anges om strängarna är lika. |
@@ -553,7 +553,7 @@ Kontrollerar `matchTo` att en sträng anspråks-och indataparameter är lika, oc
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | claimToMatch | sträng | Anspråks typen, som ska jämföras. |
+| InputClaim | claimToMatch | sträng | Anspråks typen, som ska jämföras. |
 | InputParameter | matchTo | sträng | Strängen som ska jämföras med inputClaim. |
 | InputParameter | stringComparison | sträng | Möjliga värden: `Ordinal` eller `OrdinalIgnoreCase`. |
 | InputParameter | outputClaimIfMatched | sträng | Värdet som ska anges om strängarna är lika. |

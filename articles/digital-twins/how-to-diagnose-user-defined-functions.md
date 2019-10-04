@@ -6,15 +6,15 @@ manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/01/2019
 ms.author: v-adgera
 ms.custom: seodec18
-ms.openlocfilehash: c1bd33ea5cbe45d6ff862645d614d54d20110ef4
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
-ms.translationtype: MT
+ms.openlocfilehash: df12d6866f5e9e6bf492e228e32b0b10f7266eb4
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260845"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71843841"
 ---
 # <a name="how-to-debug-user-defined-functions-in-azure-digital-twins"></a>Så här felsöker du användardefinierade funktioner i Azure Digitals dubbla
 
@@ -55,6 +55,13 @@ AzureDiagnostics
 | Värde för fråga | Ersätt med |
 | --- | --- |
 | YOUR_CORRELATION_IDENTIFIER | Korrelations-ID som angavs för händelse data |
+
+För att se frågan om alla senaste telemetri loggar:
+
+```Kusto
+AzureDiagnostics
+| order by CorrelationId desc
+```
 
 Om du aktiverar loggning för den användardefinierade funktionen visas dessa loggar i Log Analytics-instansen med kategorin `UserDefinedFunction`. Hämta dem genom att ange följande frågevillkor i Log Analytics:
 

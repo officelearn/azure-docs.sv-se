@@ -11,26 +11,25 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.reviewer: mbullwin
-ms.date: 09/30/2019
+ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 448469d4c1ff15ed2ba814dfaa653c4d3c7e3452
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3e0bdd42ea19b7029d3f3df4ff9a5a275aec0271
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677817"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936684"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
 > [!NOTE]
-> Den här artikeln beskriver hur du analyserar data användnings Application Insights.  Finns i följande artiklar för relaterad information.
-> - [Övervaka användning och uppskattade kostnader](../../monitoring-and-diagnostics/monitoring-usage-and-estimated-costs.md) beskriver hur du visar användning och beräknade kostnader för flera Azure övervakningsfunktioner för olika prissättningsmodeller. Det beskriver också hur du ändrar din prissättningsmodell.
+> Den här artikeln beskriver hur du förstår och styr dina kostnader för Application Insights.  En relaterad artikel, [övervaknings användning och uppskattade kostnader](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) beskriver hur du visar användning och uppskattade kostnader i flera Azure-övervakningsfunktioner för olika pris modeller.
 
 Om du har frågor om hur prissättningen fungerar för Application Insights kan du publicera en fråga i vårt [Forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights).
 
 ## <a name="pricing-model"></a>Prismodell
 
-Prissättningen för [Azure Application insikter][start] baseras på data volymen och eventuellt för längre data kvarhållning. Varje Application Insights resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration.
+Priserna för [Azure Application insikter][start] är en modell där du betalar per användning, baserat på data volym inmatad och eventuellt för längre data kvarhållning. Varje Application Insights resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration. 
 
 ### <a name="data-volume-details"></a>Information om data volym
 
@@ -46,6 +45,22 @@ Prissättningen för [Azure Application insikter][start] baseras på data volyme
 [Webbtester med flera steg](../../azure-monitor/app/availability-multistep.md) debiteras ytterligare en kostnad. Webbtester med flera steg är webbtester som utför en sekvens med åtgärder.
 
 Det finns ingen separat avgift för *ping-test* av en enda sida. Telemetri från ping-test och multi-Step-tester debiteras på samma sätt som andra telemetri från din app.
+
+## <a name="estimating-the-costs-to-manage-your-application"></a>Beräkna kostnaderna för att hantera ditt program 
+
+Om du inte använder Application Insights än kan du använda [pris Kalkylatorn för Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att beräkna kostnaden för att använda Application Insights. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor panelen. Bläddra nedåt på sidan för att Azure Monitor och välj Application Insights i list rutan typ.  Här kan du ange det antal GB data som du förväntar dig att samla in per månad, så att de är så fråga om hur mycket data som Application Insights Samla in övervakningen av ditt program. 
+
+Det finns två sätt att åtgärda detta: användning av standard övervakning och anpassningsbar sampling som är tillgängligt i ASP.NET SDK eller estimtate du likley data inmatning baserat på vad andra liknande kunder har sett. 
+
+### <a name="data-collection-when-using-sampling"></a>Data insamling när du använder sampling
+
+Med ASP.NET SDK: s [anpassningsbara sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)justeras data volymen automatiskt så att den behålls inom en angiven högsta trafik hastighet för standard Application Insights övervakning. Om programmet genererar en liten mängd telemetri, till exempel vid fel sökning eller på grund av låg användning, kommer objekten inte att släppas av samplings processorn så länge volymen är lägre än de konfigurerade händelserna per sekund. För ett program med hög volym, med standard tröskelvärdet på 5 händelser per sekund, begränsar adaptiv sampling antalet dagliga händelser till 432 000. Med en typisk genomsnittlig händelse storlek på 1 KB motsvarar detta 13,4 GB telemetri per 31-dagars månad per nod som är värd för ditt program (eftersom samplingen görs lokal för varje nod.) 
+
+För SDK: er som inte stöder anpassningsbar sampling kan du använda [inmatnings sampling) [https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling ] som kan användas för att receved data Application Insights baserat på en procent andel data som ska behållas, eller [sampling med fast pris för ASP.net, ASP.net Core och Java webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) för att minska trafiken som skickas från din webb server och webbläsare
+
+### <a name="learn-from-what-similar-customers-collect"></a>Lär dig från vilka liknande kunder samlar in
+
+I pris Kalkylatorn för Azure-övervakning för Application Insights, om du aktiverar funktionen beräkna data volym baserat på program aktivitet, kan du ange indata om ditt program (begär Anden per månad och sid visningar per månad, om du kommer att samla in telemetri på klient sidan) och visar sedan kalkylatorn information om median och nittionde percentils mängden data som samlas in av liknande program. Dessa Scala sträcker sig naturligtvis över Application Insights konfiguration (t. ex. att vissa har standard [sampling](../../azure-monitor/app/sampling.md), några har ingen sampling osv.), så du har fortfarande kontrollen att minska mängden data som du matar in långt under median nivån med hjälp av sampling. Men det här är en utgångs punkt för att förstå vad andra, liknande kunder ser. 
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Förstå din användning och beräkna kostnader
 
@@ -64,6 +79,12 @@ Om du vill undersöka Application Insightss användningen mer djup, öppnar du s
 Application Insights avgifter läggs till på din Azure-faktura. Du kan se information om din Azure-faktura i **fakturerings** avsnittet i Azure Portal eller på [Azures fakturerings Portal](https://account.windowsazure.com/Subscriptions). 
 
 ![På den vänstra menyn väljer du fakturering](./media/pricing/02-billing.png)
+
+## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visa Application Insights användning på din Azure-faktura 
+
+Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Genom att lägga till ett filter efter resurs typ (till Microsoft. insikter/komponenter för Application Insights) kan du se spåra dina utgifter.
+
+Du kan få mer förståelse för din användning genom att [Ladda ned din användning från Azure-portalen](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID", som är "innehåller Microsoft. Insights/komponenter ".  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
 ## <a name="managing-your-data-volume"></a>Hantera din data volym 
 
@@ -156,16 +177,15 @@ I varje kvarhållen post `itemCount` anger antalet ursprungliga poster som den r
 
 ## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
 
-> [!NOTE]
-> Vi har tillfälligt tagit bort den här funktionen medan vi åtgärdar ett möjligt problem.  Vi kommer att få tillbaka den första veckan i oktober 2019.
-
 Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
 
 Om du vill ändra kvarhållning går du till sidan **användning och uppskattade kostnader** från Application Insights resursen och väljer alternativet **data kvarhållning** :
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
 
-När faktureringen är aktive rad för längre kvarhållning debiteras data som är längre än 90 dagar som samma pris som för närvarande faktureras för Azure Log Analytics data kvarhållning. Läs mer på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Håll dig uppdaterad om varierande behållnings förlopp genom [röstning för det här förslaget](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
+Kvarhållning kan också [ställas in via arm](https://docs.microsoft.com/azure/azure-monitor/app/powershell) med parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här funktionen exponeras bara via ARM. 
+
+När faktureringen börjar för längre kvarhållning i början av december 2019 faktureras data som är längre än 90 dagar som samma pris som för närvarande faktureras för Azure Log Analytics data kvarhållning. Läs mer på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Håll dig uppdaterad om varierande behållnings förlopp genom [röstning för det här förslaget](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
 ## <a name="data-transfer-charges-using-application-insights"></a>Avgifter för data överföring med Application Insights
 

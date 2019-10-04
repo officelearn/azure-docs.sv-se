@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 07/02/2019
-ms.openlocfilehash: 7f7eff0a8231d994a792ad20b02607c33db1833a
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: f15fb46568f4ad062605b51600d3c61870b48645
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70306141"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828858"
 ---
 # <a name="azure-sql-connectivity-architecture"></a>Arkitektur för Azure SQL-anslutning
 
@@ -26,7 +26,7 @@ I den här artikeln beskrivs Azure SQL Database och SQL Data Warehouse anslutnin
 
 Följande diagram ger en översikt över Azure SQL Database anslutnings arkitekturen.
 
-![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-overview.png)
+![Arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-overview.png)
 
 Följande steg beskriver hur en anslutning upprättas till en Azure SQL-databas:
 
@@ -46,13 +46,13 @@ Azure SQL Database stöder följande tre alternativ för anslutnings princip ins
 
 Om du ansluter inifrån Azure får anslutningarna `Redirect` som standard en anslutnings princip. En princip på `Redirect` innebär att när TCP-sessionen har upprättats till Azure SQL Database omdirigeras sedan klientsessionen till rätt databas kluster med en ändring i den virtuella mål-IP-adressen från den Azure SQL Database gatewayen till den för flernodskluster. Därefter flödar alla efterföljande paket direkt till klustret och hoppar över Azure SQL Database Gateway. Följande diagram illustrerar det här trafikflödet.
 
-![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-azure.png)
+![Arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-azure.png)
 
 ## <a name="connectivity-from-outside-of-azure"></a>Anslutning från utanför Azure
 
 Om du ansluter från en plats utanför Azure har anslutningarna `Proxy` som standard en anslutnings princip. En princip i `Proxy` innebär att TCP-sessionen upprättas via Azure SQL Database gateway och alla efterföljande paket flöden via gatewayen. Följande diagram illustrerar det här trafikflödet.
 
-![arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
+![Arkitektur översikt](./media/sql-database-connectivity-architecture/connectivity-onprem.png)
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Gateway-IP-adresser för Azure SQL Database
 
@@ -66,11 +66,11 @@ Information om hur trafiken ska migreras till nya gateways i vissa regioner finn
 | Australien, centrala    | 20.36.105.0 |
 | Australien, Central2   | 20.36.113.0 |
 | Östra Australien       | 13.75.149.87, 40.79.161.1 |
-| Sydöstra Australien | 191.239.192.109, 13.73.109.251 |
+| Australien, sydöstra | 191.239.192.109, 13.73.109.251 |
 | Södra Brasilien         | 104.41.11.5, 191.233.200.14 |
 | Centrala Kanada       | 40.85.224.249      |
 | Östra Kanada          | 40.86.226.166      |
-| Centrala USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96 | 
+| Centrala USA           | 13.67.215.62, 52.182.137.15, 23.99.160.139, 104.208.16.96, 104.208.21.1 | 
 | Kina, östra           | 139.219.130.35     |
 | Kina, östra 2         | 40.73.82.1         |
 | Kina, norra          | 139.219.15.17      |

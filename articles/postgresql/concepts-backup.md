@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: bf2e289ad12f459c37a93ad3936c30339ecf663d
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: a4d8cd9f8198002b0b9ade8fe5058de1fcacc68f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907528"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937356"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql---single-server"></a>Säkerhets kopiering och återställning i Azure Database for PostgreSQL-enskild server
 
@@ -25,7 +25,7 @@ Azure Database for PostgreSQL tar fullständiga, differentiella och transaktions
 
 Normalt sker fullständiga säkerhets kopieringar varje vecka, differentiella säkerhets kopieringar sker två gånger per dag och säkerhets kopieringar av transaktions loggar sker var femte minut. Den första fullständiga säkerhets kopieringen schemaläggs direkt efter att en server har skapats. Den första säkerhets kopieringen kan ta längre tid på en stor återställd Server. Den tidigaste tidpunkt som en ny server kan återställas till är den tid då den första fullständiga säkerhets kopieringen är klar.
 
-### <a name="backup-redundancy-options"></a>Alternativ för redundans för säkerhets kopiering
+### <a name="backup-redundancy-options"></a>Redundansalternativ för säkerhetskopiering
 
 Azure Database for PostgreSQL ger flexibiliteten att välja mellan lokalt redundant eller Geo-redundant lagring av säkerhets kopior i Generell användning och minnesoptimerade nivåer. När säkerhets kopiorna lagras i Geo-redundant lagring av säkerhets kopior lagras de inte bara i den region där servern finns, men replikeras också till ett [parat Data Center](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Detta ger bättre skydd och möjlighet att återställa servern i en annan region i händelse av en katastrof. Basic-nivån erbjuder endast lokalt redundant säkerhets kopierings lagring.
 

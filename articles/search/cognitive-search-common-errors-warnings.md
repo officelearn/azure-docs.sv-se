@@ -9,13 +9,12 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: abmotley
-ms.subservice: cognitive-search
-ms.openlocfilehash: 4e31f818e96ae9f13e3ce8892e575318831848f6
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 18befbfb924129518ac32a7fdddaa9ee573840b0
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329388"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936494"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Vanliga fel och varningar i AI-pipeline för anrikning i Azure Search
 
@@ -52,6 +51,64 @@ Indexeraren läser dokumentet från data källan, men det uppstod ett problem me
 | Dokument nyckeln är ogiltig | Dokument nyckeln får innehålla högst 1024 tecken | Ändra dokument nyckeln så att den uppfyller verifierings kraven. |
 | Det gick inte att använda fält mappning i ett fält | Det gick inte att använda mappnings funktionen `'functionName'` till fält `'fieldName'`. Matris får inte vara null. Parameter namn: byte | Dubbelt kontrol lera de [fält mappningar](search-indexer-field-mappings.md) som definierats för indexeraren och jämför med informationen i det angivna fältet för det misslyckade dokumentet. Det kan vara nödvändigt att ändra fält mappningarna eller dokument data. |
 | Det gick inte att läsa fältvärdet | Det gick inte att läsa värdet för kolumnen `'fieldName'` vid index `'fieldIndex'`. Ett fel på transport nivå har uppstått när resultat togs emot från servern. CSP TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden.) | Dessa fel beror vanligt vis på oväntade anslutnings problem med data källans underliggande tjänst. Försök att köra dokumentet via din indexerare igen senare. |
+
+### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Kompetens ingången ' languageCode ' har följande språk koder, "X, Y, Z", minst en som är ogiltig.
+Ett eller flera av värdena som angavs i den valfria `languageCode`-indatamängden för en underordnad färdighet stöds inte. Detta kan inträffa om du skickar utdata från [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) till efterföljande kunskaper och utdata består av fler språk än vad som stöds i de efterföljande färdigheterna.
+
+Om du vet att din data uppsättning är på ett språk bör du ta bort [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) och kompetensen `languageCode` och använda färdighets parametern `defaultLanguageCode` för den kunskapen i stället, förutsatt att språket stöds för den kunskapen.
+
+Om du vet att din data uppsättning innehåller flera språk och därför behöver [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) -och `languageCode`-indata, kan du överväga att lägga till en [ConditionalSkill](cognitive-search-skill-conditional.md) för att filtrera bort texten med språk som inte stöds innan du skickar in text till den efterföljande färdigheten.  Här är ett exempel på hur det kan se ut för EntityRecognitionSkill:
+
+```json
+{
+    "@odata.type": "#Microsoft.Skills.Util.ConditionalSkill",
+    "context": "/document",
+    "inputs": [
+        { "name": "condition", "source": "= $(/document/language) == 'de' || $(/document/language) == 'en' || $(/document/language) == 'es' || $(/document/language) == 'fr' || $(/document/language) == 'it'" },
+        { "name": "whenTrue", "source": "/document/content" },
+        { "name": "whenFalse", "source": "= null" }
+    ],
+    "outputs": [ { "name": "output", "targetName": "supportedByEntityRecognitionSkill" } ]
+}
+```
+
+Här följer några referenser för de språk som stöds för närvarande för var och en av de kunskaper som kan skapa det här fel meddelandet:
+* [Textanalys språk som stöds](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (för [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)och [SentimentSkill](cognitive-search-skill-sentiment.md))
+* [Språk som stöds av Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (för [texten TranslationSkill](cognitive-search-skill-text-translation.md))
+* [Text SplitSkill](cognitive-search-skill-textsplit.md) Språk som stöds: `da, de, en, es, fi, fr, it, ko, pt`
+
+### <a name="skill-did-not-execute-within-the-time-limit"></a>Kompetensen utfördes inte inom tids gränsen
+Det finns två fall där du kan stöta på det här fel meddelandet, som var och en behandlas på olika sätt. Följ anvisningarna nedan, beroende på vilken kompetens som returnerade felet åt dig.
+
+#### <a name="built-in-cognitive-service-skills"></a>Inbyggda kunskaper om kognitiva tjänster
+Många av de inbyggda kognitiva färdigheterna, till exempel språk identifiering, entitets igenkänning eller OCR, backas upp av en kognitiv tjänst-API-slutpunkt. Ibland finns det tillfälliga problem med dessa slut punkter och tids gränsen för en begäran upphör. För tillfälliga problem finns det ingen åtgärd förutom att vänta och försöka igen. Som en minskning bör du överväga att ställa in indexeraren att [köras enligt ett schema](search-howto-schedule-indexers.md). Schemalagd indexering hämtar var den slutade. Förutsatt att de tillfälliga problemen är lösta, bör indexerings-och kognitiva kompetens bearbetningen fortsätta vid nästa schemalagda körning.
+
+#### <a name="custom-skills"></a>Anpassade färdigheter
+Om du stöter på ett tids gräns fel med en anpassad färdighet som du har skapat, finns det några saker du kan prova. Börja med att granska din anpassade färdighet och se till att den inte fastnar i en oändlig slinga och att den returnerar ett resultat konsekvent. När du har bekräftat att är fallet ska du ta reda på hur körnings tiden för din färdighet är. Om du inte uttryckligen angav ett `timeout`-värde i din anpassade kunskaps definition, är standard `timeout` 30 sekunder. Om 30 sekunder inte är tillräckligt lång för att din kunskap ska kunna köras, kan du ange ett högre `timeout`-värde i din anpassade kunskaps definition. Här är ett exempel på en anpassad kunskaps definition där tids gränsen har angetts till 90 sekunder:
+
+```json
+  {
+        "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
+        "uri": "<your custom skill uri>",
+        "batchSize": 1,
+        "timeout": "PT90S",
+        "context": "/document",
+        "inputs": [
+          {
+            "name": "input",
+            "source": "/document/content"
+          }
+        ],
+        "outputs": [
+          {
+            "name": "output",
+            "targetName": "output"
+          }
+        ]
+      }
+```
+
+Det maximala värdet som du kan ange för parametern `timeout` är 230 sekunder.  Om din anpassade färdighet inte kan köras konsekvent inom 230 sekunder kan du överväga att minska `batchSize` i din anpassade färdighet så att den har färre dokument för bearbetning i en enda körning.  Om du redan har angett din `batchSize` till 1 måste du skriva om färdigheten för att kunna köra under 230 sekunder eller dela upp den i flera anpassade kunskaper så att körnings tiden för en enskild anpassad färdighet är högst 230 sekunder. Läs den [anpassade kunskaps dokumentationen](cognitive-search-custom-skill-web-api.md) för mer information.
 
 ##  <a name="warnings"></a>Varningar
 Varningar slutar inte att indexera, men de anger villkor som kan leda till oväntade resultat. Oavsett om du vidtar åtgärder eller inte beror på data och ditt scenario.

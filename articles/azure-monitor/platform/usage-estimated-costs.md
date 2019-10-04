@@ -9,22 +9,19 @@ ms.date: 04/18/2019
 ms.author: mbullwin
 ms.reviewer: Dale.Koetke
 ms.subservice: ''
-ms.openlocfilehash: 7117e7287f601b306893cb02dc5d7599d7c6224d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 787618b59cd18dd4c38892ddf0861808211671cb
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60453826"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936628"
 ---
 # <a name="monitoring-usage-and-estimated-costs-in-azure-monitor"></a>Övervaka användning och uppskattade kostnader i Azure Monitor
 
 > [!NOTE]
-> Den här artikeln beskriver hur du visar användning och uppskattade kostnader över flera Azure övervakningsfunktioner för olika prissättningsmodeller.  Finns i följande artiklar för relaterad information.
-> - [Hantera kostnader genom att kontrollera datavolymer och kvarhållning i Log Analytics](manage-cost-storage.md) beskrivs hur du kontrollerar dina kostnader genom att ändra kvarhållningsperioden för data.
-> - [Analysera dataanvändning i Log Analytics](../../azure-monitor/platform/data-usage.md) beskriver hur du analyserar och Avisera om din dataanvändning.
-> - [Hantera priser och datavolymer i Application Insights](../../azure-monitor/app/pricing.md) beskriver hur du analysera dataanvändning i Application Insights.
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+> Den här artikeln beskriver hur du visar användning och uppskattade kostnader i flera Azure-övervakningsfunktioner för olika pris modeller. Relaterade artiklar för vissa komponenter i Azure Monitor är:
+> - [Hantera användning och kostnader med Azure Monitor loggar](manage-cost-storage.md) beskriver hur du styr dina kostnader genom att ändra din data lagrings period och hur du analyserar och varnar för din data användning.
+> - [Hantera användning och kostnader för Application Insights](../../azure-monitor/app/pricing.md) beskriver hur du analyserar data användningen i Application Insights.
 
 I övervakaren hub i Azure Portal i **användning och uppskattade kostnader** sidan förklaras användningen av grundläggande övervakningsfunktioner som [aviseringar, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Azure Log Analytics ](https://azure.microsoft.com/pricing/details/log-analytics/), och [Azure Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). För kunder på priser avtal innan April 2018, omfattar detta även logganalys-användning som köpts via insikterna och Analytics erbjuder.
 
@@ -42,9 +39,11 @@ Här är en annan liknande användning och kostnadssammanfattning. Det här exem
 
 ![Användning och uppskattade kostnader portal skärmbild – April 2018 priser](./media/usage-estimated-costs/003.png)
 
-## <a name="new-pricing-model"></a>Ny Prismodell
+## <a name="pricing-model"></a>Prismodell
 
-I April 2018 en [nya övervakning prismodellen släpptes](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Detta omfattar molnvänliga, förbrukningsbaserad prissättning. Du betalar bara för det du använder, utan åtaganden för nod-baserade. Mer information om den nya prismodellen finns tillgängliga för [aviseringar, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) och [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+I April 2018 en [nya övervakning prismodellen släpptes](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/).  Den här funktionen har molnbaserad, konsumtions-baserade priser ("betala per användning"). Du betalar bara för det du använder, utan åtaganden för nod-baserade. Mer information om den nya prismodellen finns tillgängliga för [aviseringar, mått, meddelanden](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) och [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/). 
+
+Förutom modellen betala per användning i september 2019 lade vi till kapacitets reservationer för Log Analytics som gör att du kan spara så mycket som 25% jämfört med priset betala per användning. Med kapacitets reservations priset kan du köpa en reservation som börjar på 100 GB/dag. All användning ovanför reservations nivån debiteras enligt priset för betala per användning. [Läs mer](https://azure.microsoft.com/pricing/details/monitor/) om priser för kapacitets reservationer.
 
 För kunder Kom igång med Log Analytics eller Application Insights efter 2 April 2018 är det enda alternativet i den nya prismodellen. För kunder som redan använder dessa tjänster kan flyttas till den nya prismodellen är valfritt.
 
@@ -102,14 +101,13 @@ En översikt visar effekterna av dessa ändringar.
 
 ## <a name="moving-to-the-new-pricing-model"></a>Flytta till den nya prismodellen
 
-Om du har bestämt dig att införa den nya prismodellen för en viss prenumeration går du till varje Application Insights-resurs, öppna den **användning och uppskattade kostnader** och se till att det är den Grundprissättningsnivån och gå till varje Log Analytics arbetsytan, öppna den **prisnivå** sidan och ändra till den **Per GB (2018)** prisnivå. 
+Om du har bestämt dig för att använda den nya pris modellen för en prenumeration går du till varje Application Insights resurs, öppnar **användnings-och uppskattade kostnader** och kontrollerar att det finns på den grundläggande pris nivån och går till varje Log Analytics arbets yta, öppnar var och en av  **Sidan pris nivå** och ändra till pris nivån **per GB (2018)** . 
 
 > [!NOTE]
-> Kravet på att alla Application Insights-resurser och Log Analytics-arbetsytor inom en viss prenumeration införa den senaste prissättningsmodellen har nu tagits bort, vilket ger större flexibilitet och enklare konfiguration. 
+> Kravet att alla Application Insights resurser och Log Analytics arbets ytor inom en bestämd prenumeration antar den senaste pris sättnings modellen har tagits bort, vilket ger bättre flexsaldo och enklare konfiguration. 
 
 ## <a name="automate-moving-to-the-new-pricing-model"></a>Automatisera flyttas till den nya prismodellen
 
-Enligt vad som anges ovan är den inte längre ett krav att flytta alla övervakning resurser i en prenumeration till den nya prismodellen på samma gång, och kan därför den ``migratetonewpricingmodel`` åtgärd har inte längre någon effekt. Nu kan du flytta Application Insights-resurser och Log Analytics-arbetsytor separat till de senaste prisnivåerna.  
+Som nämnts ovan är det inte längre något som krävs för att flytta alla övervaknings resurser i en prenumeration till den nya pris modellen samtidigt, och därför kommer ``migratetonewpricingmodel``-åtgärden inte längre att ha någon verkan. Nu kan du flytta Application Insights-resurser och Log Analytics arbets ytor separat till de senaste pris nivåerna.  
 
-Automatisera den här ändringen dokumenteras för Application Insights med hjälp av [Set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) med ``-PricingPlan "Basic"`` och Log Analytics med hjälp av [Set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) med ``-sku "PerGB2018"``. 
-
+Automatisering av den här ändringen dokumenteras för Application Insights som använder [set-AzureRmApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/azurerm.applicationinsights/set-azurermapplicationinsightspricingplan) med ``-PricingPlan "Basic"`` och Log Analytics med [set-AzureRmOperationalInsightsWorkspace](https://docs.microsoft.com/powershell/module/AzureRM.OperationalInsights/Set-AzureRmOperationalInsightsWorkspace) med ``-sku "PerGB2018"``. 

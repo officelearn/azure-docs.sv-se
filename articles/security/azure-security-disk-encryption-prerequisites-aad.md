@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: da3cb81eaeaa3b1609ffe67b2aea92a69b6bb47a
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 07db6c5cecf2b8dec803e73d5775edef3f8906fa
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68726256"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828636"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Krav för Azure Disk Encryption (tidigare version)
 
@@ -53,6 +53,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | Ubuntu | 18,04| OS- och disk |
 | Ubuntu | 16.04| OS- och disk |
 | Ubuntu | 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS- och disk |
+| RHEL | 7,7 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7,6 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7.5 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7.4 | Operativ system och data disk (se OBS! nedan) |
@@ -60,6 +61,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | RHEL | 7.2 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 6.8 | Data disk (se OBS! nedan) |
 | RHEL | 6.7 | Data disk (se OBS! nedan) |
+| CentOS | 7,7 | OS- och disk |
 | CentOS | 7,6 | OS- och disk |
 | CentOS | 7.5 | OS- och disk |
 | CentOS | 7.4 | OS- och disk |

@@ -5,14 +5,14 @@ author: msmbaldwin
 ms.service: security
 ms.topic: article
 ms.author: mbaldwin
-ms.date: 03/25/2019
+ms.date: 09/30/2019
 ms.custom: seodec18
-ms.openlocfilehash: bd51e70122a5457c8dcf1bd8f2061fe25943e87f
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 551918373f8292d798980600d6e0d43add55bd18
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "71224516"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828276"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Krav för Azure Disk Encryption
 
@@ -70,6 +70,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | Ubuntu | 18,04| OS- och disk |
 | Ubuntu | 16.04| OS- och disk |
 | Ubuntu | 14.04.5</br>[med Azures justerade kernel uppdaterat till 4,15 eller senare](azure-security-disk-encryption-tsg.md#bkmk_Ubuntu14) | OS- och disk |
+| RHEL | 7,7 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7,6 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7.5 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 7.4 | Operativ system och data disk (se OBS! nedan) |
@@ -77,6 +78,7 @@ Linux Server-distributioner som inte har godkänts av Azure stöder inte Azure D
 | RHEL | 7.2 | Operativ system och data disk (se OBS! nedan) |
 | RHEL | 6.8 | Data disk (se OBS! nedan) |
 | RHEL | 6.7 | Data disk (se OBS! nedan) |
+| CentOS | 7,7 | OS- och disk |
 | CentOS | 7,6 | OS- och disk |
 | CentOS | 7.5 | OS- och disk |
 | CentOS | 7.4 | OS- och disk |
@@ -181,7 +183,7 @@ Den [Azure CLI 2.0](/cli/azure) är ett kommandoradsverktyg för att hantera Azu
 
 
 ## <a name="prerequisite-workflow-for-key-vault"></a>Nödvändiga arbetsflöde för Key Vault
-Om du redan är bekant med Key Vault och Azure AD-krav för Azure Disk Encryption kan du använda den [PowerShell-skript för Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Mer information om hur du använder skriptet krav finns i den [kryptera en virtuell dator-Snabbstart](azure-disk-encryption-linux-powershell-quickstart.md) och [Azure Disk Encryption bilaga](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
+Om du redan är bekant med Key Vault och Azure AD-krav för Azure Disk Encryption kan du använda den [PowerShell-skript för Azure Disk Encryption krav](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/Compute/Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Mer information om hur du använder skriptet krav finns i den [kryptera en virtuell dator-Snabbstart](../virtual-machines/linux/disk-encryption-powershell-quickstart.md) och [Azure Disk Encryption bilaga](azure-security-disk-encryption-appendix.md#bkmk_prereq-script). 
 
 1. Om det behövs skapar du en resursgrupp.
 2. Skapa ett nyckelvalv. 

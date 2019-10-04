@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 90007a82acce0010504bc06e96801869aea4a87a
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673010"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937507"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -33,9 +33,9 @@ Citrix utökar värdet för virtuella Windows-datorer med robusta Enterprise-ver
 
 ![VMware-logotyp](./media/partners/vmware.png)
 
-VMwares Horisont moln på Microsoft Azure ger organisationer möjlighet att ansluta sin egen instans av Microsoft Azure till det enkla, intuitiva moln kontroll planet, vilket skapar en säker, omfattande och moln värd lösning för att leverera virtualiserad Windows-program och skriv bord. Med lanseringen av Windows Virtual Desktop har VMware samarbetat med Microsoft för att utöka funktionerna i Windows Virtual Desktop till kunder som använder Horisont moln på Microsoft Azure.
-
-Som en godkänd Provider får VMwares Horisont moln på Microsoft Azure kunder alla fördelar med virtuella Windows-datorer, till exempel Windows 10 Enterprise för multi-session, Windows 7 med kostnads fria utökade säkerhets uppdateringar i upp till tre år och FSLogix funktioner, förutom alla moderna funktioner i företags klass i Horisont moln, till exempel brett stöd för slut punkter. global, molnbaserad service utjämning, flexibla Skriv bords alternativ och konfigurationer, hantering av användar miljö och stöd för Hybrid miljöer. 
+VMwares Horisont moln på Microsoft Azure ger organisationer möjlighet att ansluta sin egen instans av Microsoft Azure till det enkla, intuitiva moln kontroll planet, vilket skapar en säker, omfattande och moln värd lösning för att leverera virtualiserad Windows-program och skriv bord. Med lanseringen av Windows Virtual Desktop har VMware samarbetat med Microsoft för att utöka funktionerna i Windows Virtual Desktop till kunder som använder Horisont moln på Microsoft Azure. Den här funktionen kommer att vara tillgänglig i Tech Preview i slutet av 2019.
+ 
+Som godkänd leverantör kommer fördelarna med Windows Virtual Desktop att utökas till VMwares Horisont moln på Microsoft Azure kunder, inklusive Windows 10 Enterprise för multi-session, Windows 7 med kostnads fria utökade säkerhets uppdateringar i upp till tre år och FSLogix. Dessutom får kunderna företags funktioner i Horisont moln, t. ex. stöd för bred slut punkt. global, molnbaserad service utjämning; flexibla Skriv bords alternativ och konfigurationer; hantering av användar miljö; och stöd för Hybrid miljöer.
 
 - [Registrera dig för den tekniska för hands versionen av Horisont moln på Microsoft Azure](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html).
 - [Gå till partner webbplatsen](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html).
@@ -93,7 +93,7 @@ Nerdio är en Azure-plattform för IT-automatisering som gör det enkelt att dis
 Nerdio utökar värdet för virtuella Windows-datorer genom att göra det enkelt att etablera Azure-resurser och effektivisera distributionen. Med Nerdio för Azure kan den automatiskt distribuera och hantera en fullständig Azure-miljö, inklusive Windows Virtual Desktop, på under två timmar.
 
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
-- [Gå till partner webbplatsen](https://getnerdio.com/academy/windows-virtual-desktop-explained-for-msps/).
+- [Gå till partner webbplatsen](https://getnerdio.com/windows-virtual-desktop/).
 
 ## <a name="thinprint"></a>ThinPrint
 

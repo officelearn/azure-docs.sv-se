@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: jeconnoc
-ms.openlocfilehash: 63065c918a6f78510b4908c5e2ae80df67665b40
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: dfb4abaf3868b76e17fb35f952c4db6bcdf30634
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71672607"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838949"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio-code"></a>Ansluta funktioner till Azure Storage med Visual Studio Code
 
@@ -71,50 +71,7 @@ I funktioner kräver varje typ av bindning en `direction`, `type` och en unik `n
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-Binding-attribut definieras direkt i function. JSON-filen. Beroende på bindnings typen kan ytterligare egenskaper krävas. I [kös Ekö konfigurationen](functions-bindings-storage-queue.md#output---configuration) beskrivs de fält som krävs för en Azure Storage Queue-bindning. Tillägget gör det enkelt att lägga till bindningar i function. JSON-filen. 
-
-Om du vill skapa en bindning högerklickar du på (Ctrl + klicka på macOS) `function.json`-filen i mappen HttpTrigger och väljer **Lägg till bindning...** . Följ anvisningarna för att definiera följande bindnings egenskaper för den nya bindningen:
-
-| Uppmaning | Value | Beskrivning |
-| -------- | ----- | ----------- |
-| **Välj bindnings riktning** | `out` | Bindningen är en utgående bindning. |
-| **Välj bindning med riktning...** | `Azure Queue Storage` | Bindningen är en Azure Storage Queue-bindning. |
-| **Namnet som används för att identifiera den här bindningen i din kod** | `msg` | Namn som identifierar den bindnings parameter som refereras till i din kod. |
-| **Kön som meddelandet ska skickas till** | `outqueue` | Namnet på kön som bindningen skriver till. När *queueName* inte finns skapar bindningen den när den används första gången. |
-| **Välj inställning från "lokal. Setting. JSON"** | `AzureWebJobsStorage` | Namnet på en program inställning som innehåller anslutnings strängen för lagrings kontot. Inställningen `AzureWebJobsStorage` innehåller anslutnings strängen för det lagrings konto som du skapade med Function-appen. |
-
-En bindning läggs till i `bindings`-matrisen i function. JSON-filen, som nu bör se ut som i följande exempel:
-
-```json
-{
-   ...
-
-  "bindings": [
-    {
-      "authLevel": "function",
-      "type": "httpTrigger",
-      "direction": "in",
-      "name": "req",
-      "methods": [
-        "get",
-        "post"
-      ]
-    },
-    {
-      "type": "http",
-      "direction": "out",
-      "name": "$return"
-    },
-    {
-      "type": "queue",
-      "direction": "out",
-      "name": "msg",
-      "queueName": "outqueue",
-      "connection": "AzureWebJobsStorage"
-    }
-  ]
-}
-```
+[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
 
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 
@@ -128,37 +85,7 @@ När bindningen har definierats kan du använda `name` för bindningen för att 
 
 # <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
 
-Lägg till kod som använder objektet `msg` utgående bindning på `context.bindings` för att skapa ett Queue-meddelande. Lägg till den här koden före `context.res`-instruktionen.
-
-```javascript
-// Add a message to the Storage queue.
-context.bindings.msg = "Name passed to the function: " + 
-(req.query.name || req.body.name);
-```
-
-I det här läget bör din funktion se ut så här:
-
-```javascript
-module.exports = async function (context, req) {
-    context.log('JavaScript HTTP trigger function processed a request.');
-
-    if (req.query.name || (req.body && req.body.name)) {
-        // Add a message to the Storage queue.
-        context.bindings.msg = "Name passed to the function: " + 
-        (req.query.name || req.body.name);
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
-};
-```
+[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
 
 # <a name="ctabcsharp"></a>[C\#](#tab/csharp)
 

@@ -7,12 +7,12 @@ author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: 9c04f805cf410d2306eda76c84a201a67b022b84
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 154317e558c2c9a22f569f569684cced467900d5
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68716628"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937465"
 ---
 # <a name="custom-rules-for-web-application-firewall-v2"></a>Anpassade regler för webb programs brand vägg v2
 
@@ -37,7 +37,7 @@ Reguljära uttryck stöds också i anpassade regler, precis som i det datorisera
 
 Det är enkelt att tillåta och blockera trafik med anpassade regler. Du kan till exempel blockera all trafik från ett intervall med IP-adresser. Du kan skapa en annan regel för att tillåta trafik om begäran kommer från en speciell webbläsare.
 
-För att tillåta något, se till `-Action` att parametern är inställd på **Tillåt**. Om du vill blockera något kontrollerar du `-Action` att parametern är inställd på **blockera**.
+Om du vill tillåta något måste du se till att parametern `-Action` är inställd på **Tillåt**. Om du vill blockera något kontrollerar du att parametern `-Action` är inställd på **blockera**.
 
 ```azurepowershell
 $AllowRule = New-AzApplicationGatewayFirewallCustomRule `
@@ -96,8 +96,8 @@ Detta är namnet på regeln. Det här namnet visas i loggarna.
 
 ### <a name="priority-required"></a>Prioritet [krävs]
 
-- Anger ordningen som reglerna utvärderas i. Ju lägre värde, den tidigare utvärderings versionen av regeln.
--Måste vara unikt bland alla anpassade regler. En regel med prioritet 100 utvärderas före en regel med prioritet 200.
+- Anger ordningen som reglerna utvärderas i. Ju lägre värde, den tidigare utvärderings versionen av regeln. Det tillåtna intervallet är från 1-100. 
+- Måste vara unikt bland alla anpassade regler. En regel med prioritet 40 utvärderas före en regel med prioritet 80.
 
 ### <a name="rule-type-required"></a>Regeltyp [obligatoriskt]
 

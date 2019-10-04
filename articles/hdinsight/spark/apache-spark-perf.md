@@ -1,23 +1,23 @@
 ---
 title: Optimera Spark-jobb för prestanda – Azure HDInsight
 description: Visa vanliga strategier för bästa prestanda för Apache Spark kluster i Azure HDInsight.
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.openlocfilehash: 64dfd26e02526664a4edb204521f7a47a4463a12
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/01/2019
+ms.openlocfilehash: aa5329c6321866fd26e393b581702a392f510108
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181072"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936850"
 ---
 # <a name="optimize-apache-spark-jobs-in-hdinsight"></a>Optimera Apache Spark jobb i HDInsight
 
-Lär dig hur du optimerar [Apache Spark](https://spark.apache.org/) kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnes belastning, på grund av felaktiga konfigurationer (särskilt fel storleks körningar), långvariga åtgärder och uppgifter som resulterar i kartesiska-åtgärder. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb.
+Lär dig hur du optimerar [Apache Spark](https://spark.apache.org/) kluster konfiguration för din specifika arbets belastning.  Den vanligaste utmaningen är minnes belastning på grund av felaktiga konfigurationer (särskilt fel storleks körningar), långvariga åtgärder och uppgifter som resulterar i kartesiska-åtgärder. Du kan påskynda jobben med lämplig cachelagring och genom att tillåta [data skevning](#optimize-joins-and-shuffles). För bästa prestanda kan du övervaka och granska långvarig körning av Spark-jobb och köra resurs krävande jobb.
 
 I följande avsnitt beskrivs vanliga Spark-jobb optimeringar och rekommendationer.
 
@@ -41,7 +41,7 @@ Tidigare Spark-versioner använder RDD till abstrakta data, Spark 1,3 och 1,6 in
     * Hög global kostnad.
     * Delar upp kod generation i hela fasen.
 * **RDD**
-    * Du behöver inte använda RDD, om du inte behöver skapa en ny anpassad RDD.
+    * Du behöver inte använda RDD, om du inte behöver bygga en ny anpassad RDD.
     * Ingen fråga optimering via katalysator.
     * Ingen hel stegs kod genereras.
     * Hög global kostnad.
@@ -55,18 +55,19 @@ Det bästa formatet för prestanda är Parquet med *Fästnings komprimering*, vi
 
 ## <a name="select-default-storage"></a>Välj standard lagring
 
-När du skapar ett nytt Spark-kluster har du möjlighet att välja Azure-Blob Storage eller Azure Data Lake Storage som kluster standard lagring. Båda alternativen ger dig fördelen med långsiktig lagring för tillfälliga kluster, så dina data tas inte bort automatiskt när du tar bort klustret. Du kan återskapa ett tillfälligt kluster och fortfarande komma åt dina data.
+När du skapar ett nytt Spark-kluster kan du välja Azure Blob Storage eller Azure Data Lake Storage som kluster standard lagring. Båda alternativen ger dig fördelen med långsiktig lagring för tillfälliga kluster, så dina data tas inte bort automatiskt när du tar bort klustret. Du kan återskapa ett tillfälligt kluster och fortfarande komma åt dina data.
 
 | Lagrings typ | Filsystem | Hastighet | Tillfälliga | Användningsfall |
 | --- | --- | --- | --- | --- |
 | Azure Blob Storage | **wasb:** //URL/ | **Standard** | Ja | Tillfälligt kluster |
+| Azure Blob Storage (säker) | **wasbs:** //URL/ | **Standard** | Ja | Tillfälligt kluster |
 | Azure Data Lake Storage gen 2| **ABFS:** //URL/ | **Tid** | Ja | Tillfälligt kluster |
 | Azure Data Lake Storage Gen1| **ADL:** //URL/ | **Tid** | Ja | Tillfälligt kluster |
 | Lokal HDFS | **HDFS:** //URL/ | **Snabbaste** | Nej | Interaktivt 24/7-kluster |
 
 ## <a name="use-the-cache"></a>Använd cachen
 
-Spark tillhandahåller egna inbyggda funktioner för cachelagring som kan användas på olika sätt, till exempel `.persist()`, `.cache()`och `CACHE TABLE`. Denna inbyggda cachelagring är effektiv med små data uppsättningar samt i ETL-pipelines där du behöver cachelagra mellanliggande resultat. Men för närvarande fungerar inte Spark-intern cachelagring bra med partitionering, eftersom en cachelagrad tabell inte behåller partitionerings data. En mer generisk och tillförlitlig caching-teknik är *cachelagring av lagrings lager*.
+Spark tillhandahåller egna inbyggda funktioner för cachelagring som kan användas på olika sätt, till exempel `.persist()`, `.cache()`och `CACHE TABLE`. Denna inbyggda cachelagring är effektiv med små data uppsättningar samt i ETL-pipelines där du behöver cachelagra mellanliggande resultat. Spark-intern cachelagring fungerar dock för närvarande inte bra med partitionering, eftersom en cachelagrad tabell inte behåller partitionerings data. En mer generisk och tillförlitlig caching-teknik är *cachelagring av lagrings lager*.
 
 * Native Spark-cachelagring (rekommenderas inte)
     * Passar små data uppsättningar.
@@ -127,7 +128,7 @@ Du kan använda partitionering och Bucket på samma tid.
 
 ## <a name="optimize-joins-and-shuffles"></a>Optimera kopplingar och blanda
 
-Om du har långsamma jobb för en koppling eller blanda är orsaken förmodligen *dataskevning*, som är asymmetry i dina jobb data. Till exempel kan ett kart jobb ta 20 sekunder, men att köra ett jobb där data är anslutna eller blandade tar timmar.   Om du vill åtgärda data skevningen bör du salta hela nyckeln eller använda ett *isolerat salt* för vissa nycklar.  Om du använder ett isolerat salt bör du ytterligare filtrera för att isolera din delmängd av saltade nycklar i kart kopplingar. Ett annat alternativ är att introducera en Bucket-kolumn och församlad i Bucket först.
+Om du har långsamma jobb för en koppling eller blanda är orsaken förmodligen *dataskevning*, som är asymmetry i dina jobb data. Till exempel kan ett kart jobb ta 20 sekunder, men att köra ett jobb där data är anslutna eller blandade tar timmar. Om du vill åtgärda data skevningen bör du salta hela nyckeln eller använda ett *isolerat salt* för vissa nycklar. Om du använder ett isolerat salt bör du ytterligare filtrera för att isolera din delmängd av saltade nycklar i kart kopplingar. Ett annat alternativ är att introducera en Bucket-kolumn och församlad i Bucket först.
 
 En annan faktor som orsakar långsamma kopplingar kan vara kopplings typen. Som standard använder `SortMerge` Spark typen Join. Den här typen av anslutning lämpar sig bäst för stora data mängder, men är i övrigt kostsam eftersom det måste först sortera vänster och höger om data innan de sammanfogas.
 
@@ -144,14 +145,15 @@ val df1 = spark.table("FactTableA")
 val df2 = spark.table("dimMP")
 df1.join(broadcast(df2), Seq("PK")).
     createOrReplaceTempView("V_JOIN")
+
 sql("SELECT col1, col2 FROM V_JOIN")
 ```
 
-Om du använder Bucket tabeller har du en tredje kopplings typ, `Merge` kopplingen. En korrekt fördelad och försorterad data uppsättning hoppar över den dyra sorterings fasen från `SortMerge` en koppling.
+Om du använder Bucket tabeller har du en tredje kopplings typ, `Merge`-kopplingen. En korrekt fördelad och försorterad data uppsättning hoppar över den dyra sorterings fasen från `SortMerge` en koppling.
 
 Ordningen på kopplingar, särskilt i mer komplexa frågor. Börja med de mest selektiva kopplingarna. Du kan också flytta kopplingar som ökar antalet rader efter AGG regeringar när det är möjligt.
 
-Om du vill hantera parallellitet, särskilt när det gäller kartesiska-kopplingar, kan du lägga till kapslade strukturer, fönster och kanske hoppa över ett eller flera steg i Spark-jobbet.
+Om du vill hantera parallellitet för kartesiska-kopplingar kan du lägga till kapslade strukturer, fönster och kanske hoppa över ett eller flera steg i ditt Spark-jobb.
 
 ## <a name="customize-cluster-configuration"></a>Anpassa kluster konfiguration
 
@@ -179,17 +181,17 @@ När du bestämmer din utförar-konfiguration bör du tänka på hur du ska anv�
     5. Valfritt: Öka användningen och samtidigheten med oversubscribing CPU.
 
 Som en allmän tumregel när du väljer utförar storlek:
-    
+
 1. Börja med 30 GB per utförar och distribuera tillgängliga maskin kärnor.
 2. Öka antalet utförar-kärnor för större kluster (> 100-körningar).
-3. Öka eller minska storlekarna baserat både på utvärderings körningar och på föregående faktorer som till exempel GC-overhead.
+3. Ändra storlek baserat på både vid utvärderings körning och på föregående faktorer, till exempel GC-overhead.
 
 Tänk på följande när du kör samtidiga frågor:
 
 1. Börja med 30 GB per utförar och alla dator kärnor.
 2. Skapa flera parallella Spark-program med oversubscribing CPU (cirka 30% fördröjnings förbättring).
 3. Distribuera frågor över parallella program.
-4. Öka eller minska storlekarna baserat både på utvärderings körningar och på föregående faktorer som till exempel GC-overhead.
+4. Ändra storlek baserat på både vid utvärderings körning och på föregående faktorer, till exempel GC-overhead.
 
 Övervaka dina frågeresultat för avvikande eller andra prestanda problem genom att titta på vyn tids linje, SQL graf, jobb statistik och så vidare. Ibland är ett eller flera av körningarna långsammare än de andra, och uppgifter tar mycket längre tid att köra. Detta händer ofta i större kluster (> 30 noder). I det här fallet delar du in arbetet i ett större antal aktiviteter så att Scheduler kan kompensera för långsamma aktiviteter. Du kan till exempel ha minst två gånger så många uppgifter som antalet utförar-kärnor i programmet. Du kan också aktivera spekulativ körning av uppgifter med `conf: spark.speculation = true`.
 

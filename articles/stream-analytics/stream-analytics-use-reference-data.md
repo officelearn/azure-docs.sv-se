@@ -1,6 +1,6 @@
 ---
-title: Använd referensdata för sökningar i Azure Stream Analytics
-description: Den här artikeln beskriver hur du använder referensdata för att söka efter eller kombinera data i ett Azure Stream Analytics-jobb frågans design.
+title: Använd referens data för sökningar i Azure Stream Analytics
+description: Den här artikeln beskriver hur du använder referens data för att söka efter eller korrelera data i ett Azure Stream Analytics jobbs frågans design.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -8,112 +8,114 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: ed50dfd7e3c423c1c26a7dc19ae60dcb319f1850
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 8d094113107d8c49e34779cf8be62ecd71cb8cce
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67621604"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937193"
 ---
-# <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Med hjälp av referensdata för sökningar i Stream Analytics
+# <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
 
-Referensdata (även kallat en uppslagstabell) är en begränsad mängd data som är statiska eller långsamt ändrad karaktär användas för att utföra en sökning eller utöka din dataströmmar. I en IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referensdata och träffa realtid IoT-dataströmmar. Azure Stream Analytics läser in referensdata i minnet för att uppnå bearbetning av dataströmmar med låg latens. Att göra använder referensdata i Azure Stream Analytics-jobb kan du vanligtvis använder en [referens Data ansluta](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) i frågan. 
+Referens data (kallas även en uppslags tabell) är en begränsad data uppsättning som är statisk eller långsamt föränderlig i natur, som används för att utföra en sökning eller för att utöka dina data strömmar. I ett IoT-scenario kan du till exempel lagra metadata om sensorer (som inte ändras ofta) i referens data och ansluta dem med IoT-dataströmmar i real tid. Azure Stream Analytics läser in referens data i minnet för att uppnå låg latens för strömnings bearbetning. Om du vill använda referens data i ditt Azure Stream Analytics jobb använder du vanligt vis en [referens data koppling](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) i din fråga. 
 
-Stream Analytics stöder Azure Blob storage och Azure SQL Database som storage-skiktet för referensdata. Du kan också transformera och/eller kopiera referensdata till Blob storage från Azure Data Factory för att använda [alla många molnbaserade och lokala datalager](../data-factory/copy-activity-overview.md).
+Stream Analytics stöder Azure Blob Storage och Azure SQL Database som lagrings lager för referens data. Du kan också transformera och/eller kopiera referens data till Blob Storage från Azure Data Factory om du vill använda [valfritt antal molnbaserade och lokala data lager](../data-factory/copy-activity-overview.md).
 
 ## <a name="azure-blob-storage"></a>Azure Blob Storage
 
-Referensdata modelleras som en serie blobbar (definieras i den inkommande configuration) i stigande ordning efter datum/tid som anges i blobnamnet. Den **endast** har stöd för att lägga till i slutet av sekvensen med hjälp av ett datum/tid **större** än den som angetts av senaste blob i sekvensen.
+Referens data modelleras som en sekvens av blobbar (definieras i inmatnings konfigurationen) i stigande ordning för datum/tid som anges i BLOB-namnet. Den har **bara** stöd för att lägga till i slutet av sekvensen genom att använda en datum/tid som är **större** än den som anges av den sista blobben i sekvensen.
 
-### <a name="configure-blob-reference-data"></a>Konfigurera blob referensdata
+### <a name="configure-blob-reference-data"></a>Konfigurera referens data för BLOB
 
-Om du vill konfigurera din referensdata, måste du först skapa en som är av typen **referensdata**. Tabellen nedan beskriver varje egenskap som du måste ange när du skapar referensdata indata med dess beskrivning:
+Om du vill konfigurera dina referens data måste du först skapa en indata som är av typen **referens data**. I tabellen nedan förklaras varje egenskap som du måste ange när du skapar referens data inmatningen med beskrivningen:
 
-|**Egenskapsnamn**  |**Beskrivning**  |
+|**Egenskaps namn**  |**Beskrivning**  |
 |---------|---------|
-|Indataalias   | Ett eget namn som ska användas i jobbet frågan för att referera till denna indata.   |
-|Lagringskonto   | Namnet på lagringskontot där dina blobar finns. Om den finns i samma prenumeration som ditt Stream Analytics-jobb kan du markera den i listrutan.   |
-|Lagringskontonyckel   | Den hemliga nyckeln som är associerade med lagringskontot. Det här fylls automatiskt om lagringskontot tillhör samma prenumeration som ditt Stream Analytics-jobb.   |
+|Indataalias   | Ett eget namn som ska användas i jobb frågan för att referera till den här indatamängden.   |
+|Lagringskonto   | Namnet på det lagrings konto där blobarna finns. Om det är i samma prenumeration som ditt Stream Analytics jobb kan du välja det från List rutan.   |
+|Lagringskontonyckel   | Den hemliga nyckeln som är associerade med lagringskontot. Detta fylls i automatiskt om lagrings kontot finns i samma prenumeration som ditt Stream Analytics-jobb.   |
 |Storage-behållare   | Behållare är en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du laddar upp en blob till Blob-tjänsten måste du ange en behållare för blobben.   |
-|Sökvägsmönster   | Sökvägen som används för att hitta dina blobbar i den angivna behållaren. I sökvägen, kan du välja att ange en eller flera instanser av följande 2 variabler:<BR>{date}, {time}<BR>Exempel 1: products/{date}/{time}/product-list.csv<BR>Exempel 2: products/{date}/product-list.csv<BR>Exempel 3: product-list.csv<BR><br> Om blobben som inte finns i den angivna sökvägen, väntar Stream Analytics-jobbet på obestämd tid blobben som ska bli tillgänglig.   |
-|[Valfritt] datumformat   | Om du har använt {date} i mönstret sökväg som du har angett, kan du välja datumformat där dina blobbar ordnas från listan över de format som stöds.<BR>Exempel: ÅÅÅÅ/MM/DD, MM/DD/ÅÅÅÅ osv.   |
-|[Valfritt] tidsformat   | Om du har använt {time} i mönstret sökväg som du har angett, kan du välja tidsformatet där dina blobbar ordnas från listan över de format som stöds.<BR>Exempel: HH, HH/mm eller HH-mm.  |
-|Händelseserialiseringsformat   | Om du vill se till att dina frågor fungerar som förväntat, Stream Analytics behöver veta vilket serialiseringsformat använder du för inkommande dataströmmar. För referensdata är format som stöds CSV och JSON.  |
+|Sökvägsmönster   | Den sökväg som används för att hitta dina blobbar i den angivna behållaren. I sökvägen kan du välja att ange en eller flera instanser av följande två variabler:<BR>{date}, {time}<BR>Exempel 1: Products/{date}/{time}/Product-List. csv<BR>Exempel 2: Products/{date}/Product-List. csv<BR>Exempel 3: Product-List. csv<BR><br> Om blobben inte finns på den angivna sökvägen kommer Stream Analytics jobbet att vänta oändligt för att blobben ska bli tillgängligt.   |
+|Datum format [valfritt]   | Om du har använt {date} inom Sök vägs mönstret som du har angett kan du välja det datum format som dina blobbar är ordnade i list rutan med format som stöds.<BR>Exempel: ÅÅÅÅ/MM/DD, MM/DD/ÅÅÅÅ, osv.   |
+|Tids format [valfritt]   | Om du har använt {Time} inom Sök vägs mönstret som du har angett kan du välja det tids format som dina blobbar organiseras från i list rutan med format som stöds.<BR>Exempel: HH, HH/mm eller HH-mm.  |
+|Format för händelse serialisering   | För att se till att dina frågor fungerar som du förväntar dig måste Stream Analytics veta vilket serialiserat format du använder för inkommande data strömmar. För referens data är de format som stöds CSV och JSON.  |
 |Kodning   | UTF-8 är det enda kodformat som stöds för närvarande.  |
 
-### <a name="static-reference-data"></a>Statiska referensdata
+### <a name="static-reference-data"></a>Statiska referens data
 
-Om din referensdata inte förväntas ändras, sedan stöd för statisk referens för data är aktiverat genom att ange en statisk sökväg i konfigurationen av indata. Azure Stream Analytics hämtar blob från den angivna sökvägen. {date} och {time} ersättningen token inte behövs. Du rekommenderas att inte skriva över en statisk referensdatablob eftersom referensdata inte kan ändras i Stream Analytics.
+Om dina referens data inte förväntas ändras, så aktive ras stöd för statiska referens data genom att ange en statisk sökväg i indata-konfigurationen. Azure Stream Analytics hämtar bloben från den angivna sökvägen. {date} och {Time} ersättnings-token krävs inte. Eftersom referens data är oföränderliga i Stream Analytics, rekommenderas inte att skriva över en statisk referens data-BLOB.
 
-### <a name="generate-reference-data-on-a-schedule"></a>Generera referensdata enligt ett schema
+### <a name="generate-reference-data-on-a-schedule"></a>Generera referens data enligt ett schema
 
-Om din referensdata är en uppsättning med långsamt föränderliga data, stöd för för att uppdatera referens för data är aktiverat genom att ange en sökvägsmönster i den inkommande konfiguration med hjälp av den {date} och {time} ersättningen token. Stream Analytics hämtar uppdaterade referensdata datadefinitionerna baserat på det här mönstret för sökvägen. Till exempel ett mönster av `sample/{date}/{time}/products.csv` med datumformatet **”åååå-MM-DD”** och ett tidsformat för **”HH-mm”** instruerar Stream Analytics för att hämta den uppdaterade blobben `sample/2015-04-16/17-30/products.csv` 17:30:00 på den 16 April , 2015 UTC-tidszonen.
+Om dina referens data är en långsam ändring av data uppsättningen aktive ras stöd för uppdatering av referens data genom att ange ett Sök vägs mönster i indata-konfigurationen med hjälp av {date}-och {Time}-token för ersättning. Stream Analytics hämtar de uppdaterade referens data definitionerna baserat på den här Sök vägs mönstret. Ett mönster i `sample/{date}/{time}/products.csv` med datum formatet **"åååå-mm-dd"** och ett tids format på **"HH-mm"** instruerar till exempel Stream Analytics att hämta den uppdaterade bloben `sample/2015-04-16/17-30/products.csv` kl 5:30 den 16 april, 2015 UTC Time Zone.
 
-Azure Stream Analytics söker automatiskt efter uppdateras referensdatablobar med en minuts intervall. Om en blob med tidsstämpel 10:30:00 laddas med en liten fördröjning (till exempel 10:30:30), ser du en kort fördröjning i Stream Analytics-jobb som refererar till den här bloben. För att undvika sådana scenarier kan det rekommenderas att ladda upp blob tidigare än den effektiva måltiden (10: 30:00 i det här exemplet) att vänta tillräckligt länge för Stream Analytics-jobb att identifiera och läsa in den i minnet och utföra åtgärder. 
+Azure Stream Analytics söker automatiskt efter uppdaterade referens data blobbar med ett minut intervall. Om en blob med tidsstämpel 10:30:00 överförs med en liten fördröjning (till exempel 10:30:30) ser du en liten fördröjning i Stream Analytics jobb som refererar till denna blob. För att undvika sådana scenarier rekommenderar vi att du överför blobben som är tidigare än målets effektiva tid (10:30:00 i det här exemplet) för att tillåta Stream Analytics jobbet tillräckligt med tid för att identifiera och läsa in det i minnet och utföra åtgärder. 
 
 > [!NOTE]
-> För närvarande leta Stream Analytics-jobb efter den blob-uppdateringen bara när datortiden nyheterna till den tidpunkt som kodats i blobnamnet. Till exempel jobbet söker efter `sample/2015-04-16/17-30/products.csv` så snart som möjligt men inte tidigare än 17:30:00 den 16 April 2015 UTC tidszonen. Kommer det att *aldrig* leta efter en blob med en kodad tid tidigare än det senaste som har identifierats.
+> För närvarande Stream Analytics jobb bara att leta efter BLOB-uppdateringen när dator tiden går ut till den tid som kodas i BLOB-namnet. Jobbet kommer till exempel att leta efter `sample/2015-04-16/17-30/products.csv` så snart som möjligt, men inte tidigare än 5:30 PM den 16 april 2015 UTC-tidszonen. Det kommer *aldrig* att leta efter en blob med en kodad tid som är tidigare än den sista som identifierades.
 > 
-> Till exempel när jobbet hittar blob `sample/2015-04-16/17-30/products.csv` kommer att ignorera filer med en kodad datum tidigare än 17:30:00 den 16 April 2015 så om en sent inkommer `sample/2015-04-16/17-25/products.csv` blob skapas i samma behållare jobbet kommer inte att användas.
+> När jobbet till exempel hittar blobben `sample/2015-04-16/17-30/products.csv` ignoreras alla filer med ett kodat datum som är tidigare än 5:30 april, 2015, så om en sen inkommande `sample/2015-04-16/17-25/products.csv`-BLOB skapas i samma behållare kommer jobbet inte att använda det.
 > 
-> På samma sätt om `sample/2015-04-16/17-30/products.csv` produceras bara klockan 10:03 16 April 2015, men inga blob med ett tidigare datum finns i behållaren, jobbet ska använda den här filen startar klockan 10:03 16 April 2015 och använda tidigare referensdata fram till dess.
+> På samma sätt gäller att om `sample/2015-04-16/17-30/products.csv` bara produceras 10:03 den 16 april, 2015 men ingen BLOB med ett tidigare datum finns i behållaren, kommer jobbet att använda den här filen med 10:03 början den 16 april, 2015 och sedan använda tidigare referens data fram till dess.
 > 
-> Ett undantag startas när jobbet behöver igen bearbeta data bakåt i tiden eller när jobbet. Jobbet är ute efter senaste blob skapas innan jobbet börjar tid som anges vid start. Detta görs för att kontrollera att det finns en **icke-tomma** referensdatauppsättning när jobbet börjar. Om en inte kan hittas, visar följande diagnostik: `Initializing input without a valid reference data blob for UTC time <start time>`.
+> Ett undantag till detta är när jobbet måste bearbeta data igen i tid eller när jobbet startas första gången. Vid start tiden söker jobbet efter den senaste blob som producerats innan jobbets start tid har angetts. Detta görs för att se till att det finns en **icke-tom** referens data uppsättning när jobbet startas. Om det inte går att hitta någon, visar jobbet följande diagnostik: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan användas för att dirigera uppgiften med att skapa de uppdaterade blobbar som krävs av Stream Analytics för att uppdatera definitioner för referens för data. Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Data Factory stöder [ansluter till ett stort antal moln baserade och lokala datalager](../data-factory/copy-activity-overview.md) och flytta data enkelt enligt ett schema som du anger. Mer information och stegvisa anvisningar för hur du ställer in en Data Factory-pipeline för att generera referensdata för Stream Analytics som uppdateras enligt ett fördefinierat schema kan du titta i den här [GitHub-exempel](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan användas för att dirigera uppgiften att skapa de uppdaterade blobbar som krävs av Stream Analytics för att uppdatera referens data definitioner. Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Data Factory har stöd för [att ansluta till ett stort antal molnbaserade och lokala data lager](../data-factory/copy-activity-overview.md) och flytta data enkelt enligt ett regelbundet schema som du anger. Mer information och stegvisa anvisningar om hur du konfigurerar en Data Factory pipeline för att generera referens data för Stream Analytics som uppdateras i ett fördefinierat schema, finns i det här [GitHub exemplet](https://github.com/Azure/Azure-DataFactory/tree/master/Samples/ReferenceDataRefreshForASAJobs).
 
-### <a name="tips-on-refreshing-blob-reference-data"></a>Tips om hur du uppdaterar data i blob-referens
+### <a name="tips-on-refreshing-blob-reference-data"></a>Tips om att uppdatera BLOB-referenser
 
-1. Skriv inte över referensdatablobar eftersom de inte kan ändras.
-2. Det rekommenderade sättet att uppdatera referensdata är att:
-    * Använd {date} / {time} i sökväg-mönster
-    * Lägg till en ny blob med hjälp av samma behållare och sökvägen mönstret som definierats i jobbet indata
-    * Använd ett datum/tid **större** än den som angetts av senaste blob i sekvensen.
-3. Referensdatablobar är **inte** sorteras efter blobens ”senast ändrad” tid men endast av tid och datum som anges i blob namn med hjälp av den {date} och {time} ersättning.
-3. Om du vill undvika att behöva lista stort antal blobbar, Överväg att ta bort mycket gamla blobbar som bearbetningen inte längre kommer att ske. Observera att ASA försätts har ombearbetning av en viss i vissa scenarier som en omstart.
+1. Skriv inte över referens data blobbar eftersom de är oföränderliga.
+2. Det rekommenderade sättet att uppdatera referens data är att:
+    * Använd {date}-/{time} i Sök vägs mönstret
+    * Lägg till en ny BLOB med samma behållare och Sök vägs mönster som definierats i jobb indatatypen
+    * Använd en datum/tid som är **större** än det som anges av den sista blobben i sekvensen.
+3. Referens data blobbar beställs **inte** av blobens "senast ändrad"-tid, men bara vid den tid och det datum som anges i BLOB-namnet med hjälp av {date} och {Time} ersättningar.
+3. Överväg att ta bort mycket gamla blobbar som bearbetningen inte längre ska utföras för att undvika att lista ett stort antal blobbar. Observera att ASA kanske måste bearbeta en liten del i vissa scenarier som en omstart.
 
 ## <a name="azure-sql-database"></a>Azure SQL Database
 
-Azure SQL Database-referensdata hämtas av ditt Stream Analytics-jobb och lagras som en ögonblicksbild i minnet för bearbetning. Ögonblicksbild av din referensdata lagras också i en behållare i ett lagringskonto som du anger i konfigurationsinställningarna. Behållaren har skapats automatiskt när jobbet börjar. Om jobbet har stoppats eller försätts i ett felaktigt tillstånd, tas de automatisk skapade behållarna bort när jobbet startas om.  
+Azure SQL Database referens data hämtas av ditt Stream Analytics-jobb och lagras som en ögonblicks bild i minnet för bearbetning. Ögonblicks bilden av dina referens data lagras också i en behållare i ett lagrings konto som du anger i konfigurations inställningarna. Behållaren skapas automatiskt när jobbet startas. Om jobbet stoppas eller anger ett felaktigt tillstånd raderas de automatiskt skapade behållarna när jobbet startas om.  
 
-Om din referensdata är en uppsättning med långsamt föränderliga data, måste regelbundet uppdatera ögonblicksbilden som används i jobbet. Stream Analytics kan du ange ett intervall när du konfigurerar din Azure SQL Database inkommande anslutning. Stream Analytics-runtime frågar Azure SQL Database med det intervall som anges av uppdateringsfrekvensen. Den snabbaste uppdateringsintervall som stöds är en gång per minut. Stream Analytics lagrar en ny ögonblicksbild i storage-kontot som angetts för varje uppdatering.
+Om dina referens data är en långsam ändring av data uppsättningen, måste du regelbundet uppdatera den ögonblicks bild som används i jobbet. Med Stream Analytics kan du ange ett uppdaterings intervall när du konfigurerar din Azure SQL Database-ingångs anslutning. Stream Analytics runtime kommer att fråga din Azure SQL Database enligt intervallet som anges i uppdaterings intervallet. Det snabbaste uppdaterings intervallet som stöds är en gång per minut. För varje uppdatering lagrar Stream Analytics en ny ögonblicks bild i det angivna lagrings kontot.
 
-Stream Analytics har två alternativ för att fråga Azure SQL Database. En ögonblicksbild fråga är obligatoriskt och måste inkluderas i varje jobb. Stream Analytics kör ögonblicksbild-frågan med jämna mellanrum baserat på din uppdateringsintervall och använder resultatet av frågan (snapshot) som referensdatauppsättningen. Ögonblicksbild frågan ska rymmas i de flesta fall, men om du får prestandaproblem med stora datamängder och snabb uppdateringsintervall, du kan använda frågealternativet delta. Frågor som tar mer än 60 sekunder att gå tillbaka referensdatauppsättning resulterar i en tidsgräns.
+Stream Analytics innehåller två alternativ för att skicka frågor till Azure SQL Database. En ögonblicks bild fråga är obligatorisk och måste inkluderas i varje jobb. Stream Analytics kör ögonblicks bild frågan med jämna mellanrum baserat på ditt uppdaterings intervall och använder resultatet från frågan (ögonblicks bilden) som referens data uppsättning. Ögonblicks bilds frågan bör passa de flesta scenarier, men om du stöter på prestanda problem med stora data uppsättningar och snabba uppdaterings hastigheter kan du använda delta-frågealternativet. Frågor som tar mer än 60 sekunder att returnera referens data uppsättningen leder till en tids gräns.
 
-Med frågealternativet delta kör Stream Analytics ögonblicksbild-fråga från början för att få en referensdatauppsättning för baslinjen. Efter kör Stream Analytics deltafråga med jämna mellanrum baserat på din uppdateringsintervallet för att hämta stegvisa ändringar. Dessa stegvisa ändringar tillämpas kontinuerligt referensdatauppsättning att hålla det uppdaterat. Deltafråga hjälp kan minska kostnaden för lagring och nätverks-i/o-åtgärder.
+Med alternativet delta fråga kör Stream Analytics ögonblicks bild frågan från början för att hämta en referens data uppsättning för bas linjen. När Stream Analytics kör delta frågan med jämna mellanrum baserat på ditt uppdaterings intervall för att hämta stegvisa ändringar. De här stegvisa ändringarna tillämpas kontinuerligt på referens data uppsättningen för att hålla dem uppdaterade. Genom att använda delta frågor kan du minska lagrings kostnaderna och I/O-åtgärder I nätverket.
 
-### <a name="configure-sql-database-reference"></a>Konfigurera SQL Database-referens
+### <a name="configure-sql-database-reference"></a>Konfigurera SQL Database referens
 
-Om du vill konfigurera din referensdata för SQL-databas, måste du först skapa **referensdata** indata. Tabellen nedan beskriver varje egenskap som du måste ange när du skapar referensdata indata med en beskrivning. Mer information finns i [Använd referensdata från en SQL-databas till Azure Stream Analytics-jobb](sql-reference-data.md).
+Om du vill konfigurera dina SQL Database referens data måste du först skapa **referenser för data** inmatning. I tabellen nedan förklaras varje egenskap som du måste ange när du skapar referens data indata med en beskrivning. Mer information finns i [använda referens data från en SQL Database för ett Azure Stream Analytics jobb](sql-reference-data.md).
 
-|**Egenskapsnamn**|**Beskrivning**  |
+Du kan använda [Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) som referens data inmatning. Du måste [Konfigurera den offentliga slut punkten i Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
+
+|**Egenskaps namn**|**Beskrivning**  |
 |---------|---------|
-|Inmatat alias|Ett eget namn som ska användas i jobbet frågan för att referera till denna indata.|
+|Inmatat alias|Ett eget namn som ska användas i jobb frågan för att referera till den här indatamängden.|
 |Subscription|Välj din prenumeration|
-|Databas|Azure SQL-databasen som innehåller din referensdata.|
-|Användarnamn|Användarnamnet som är associerade med din Azure SQL Database.|
-|lösenordsinställning|Lösenordet som associeras med din Azure SQL Database.|
-|Uppdatera regelbundet|Det här alternativet kan du välja ett intervall. Välja ”On” kan du ange uppdateringsfrekvensen i DD:HH:MM.|
-|Ögonblicksbild fråga|Det här är standardalternativet för frågan som hämtar referensdata från din SQL-databas.|
-|Deltafråga|Uppdateringsintervall, Välj att lägga till en deltafråga för avancerade scenarier med stora datauppsättningar och en kort.|
+|Databas|Azure SQL Database som innehåller dina referens data. För Azure SQL Database Hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342*|
+|Användarnamn|Det användar namn som är associerat med din Azure SQL Database.|
+|lösenordsinställning|Lösen ordet som är kopplat till Azure SQL Database.|
+|Uppdatera regelbundet|Med det här alternativet kan du välja ett uppdaterings intervall. Om du väljer "på" kan du ange uppdaterings frekvensen i DD: HH: MM.|
+|Ögonblicksbildsfråga|Detta är standard alternativet fråga som hämtar referens data från SQL Database.|
+|Deltafråga|För avancerade scenarier med stora data uppsättningar och en kort uppdaterings takt väljer du att lägga till en delta fråga.|
 
-## <a name="size-limitation"></a>Storleksgräns
+## <a name="size-limitation"></a>Storleks begränsning
 
-Stream Analytics stöder referensdata med **maximal storlek på 300 MB**. 300 MB-gränsen för maximal storlek på referensdata är kan uppnås endast med enkla frågor. När frågan komplexitet ökar för att inkludera tillståndskänsliga bearbetningskällor, exempelvis fönsteraggregeringar, temporala kopplingar och temporala analysfunktioner förväntas att största storlek för referens data minskar som stöds. Om Azure Stream Analytics inte kan läsa in referensdata och utföra avancerade åtgärder, kommer jobbet slut på minne och misslyckas. I sådana fall kan når SU % utnyttjande mått 100%.    
+Stream Analytics stöder referens data med **maximal storlek på 300 MB**. Gränsen på 300 MB för maximal storlek för referens data kan bara uppnås med enkla frågor. När frågans komplexitet ökar för att inkludera tillstånds känslig bearbetning, till exempel fönster mängd, temporala kopplingar och temporala analys funktioner, förväntas det att den maximala storlek som stöds för referens data minskar. Om Azure Stream Analytics inte kan läsa in referens data och utföra komplexa åtgärder, kommer jobbet att ta slut på minne och Miss kan köras. I sådana fall når måttet SU% nyttjande 100%.    
 
-|**Antal enheter för strömning**  |**CA maxstorlek som stöds (i MB)**  |
+|**Antal enheter för strömning**  |**Ungefärlig. Max storlek som stöds (i MB)**  |
 |---------|---------|
 |1   |50   |
 |3   |150   |
 |6 och senare   |300   |
 
-Öka antalet enheter för strömning för ett jobb utöver 6 ökar inte den maximala storleken som stöds för referensdata.
+Att öka antalet strömnings enheter för ett jobb bortom 6 ökar inte den maximala storleken för referens data som stöds.
 
 Stöd för komprimering är inte tillgängligt för referensdata. 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa ett Stream Analytics-jobb med hjälp av Azure-portalen](stream-analytics-quick-create-portal.md)
+> [Snabbstart: Skapa ett Stream Analytics jobb genom att använda Azure Portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

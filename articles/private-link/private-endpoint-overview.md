@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 80f2e8a8fd41fbafbaf6d30bc1001b86c5dcdd50
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 1fff9c076349d98d7a72c4bf69edb0a2795ac88f
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266374"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937362"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Vad är en privat Azure-slutpunkt?
 
@@ -66,7 +66,7 @@ Du kan helt låsa dina arbets belastningar från att komma åt offentliga slut p
  
 ## <a name="access-to-a-private-link-resource-using-approval-workflow"></a>Åtkomst till en privat länk resurs med hjälp av godkännande arbets flöde 
 Du kan ansluta till en privat länk resurs med hjälp av följande metoder för godkännande av anslutning:
-- **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Utforskaren. \<Provider >/< resource_type >/privateEndpointConnectionApproval/Action
+- **Automatiskt** godkänd när du äger eller har behörighet för den specifika privata länk resursen. Den nödvändiga behörigheten baseras på resurs typen privat länk i följande format: Microsoft. \<Provider >/< resource_type >/privateEndpointConnectionApproval/action
 - **Manuell** begäran när du inte har behörighet som krävs och vill begära åtkomst. Ett arbets flöde för godkännande kommer att initieras. Den privata slut punkten och efterföljande privata slut punkts anslutningar skapas i ett väntande tillstånd. Ägaren till den privata länk resursen ansvarar för att godkänna anslutningen. När den har godkänts är den privata slut punkten aktive rad för att skicka trafik normalt, som du ser i följande arbets flödes diagram för godkännande.  
 
 ![arbets flödes godkännande](media/private-endpoint-overview/private-link-paas-workflow.png)
@@ -124,8 +124,9 @@ Följande tabell innehåller en lista med kända begränsningar när du använde
 |Regler för nätverks säkerhets grupper (NSG) gäller inte för privat slut punkt    |NSG stöds inte för privata slut punkter. Medan undernät som innehåller den privata slut punkten kan ha NSG kopplade till sig, gäller inte reglerna för trafik som bearbetas av den privata slut punkten. Du måste ha [aktiverat tvingande nätverks principer](disable-private-endpoint-network-policy.md) för att distribuera privata slut punkter i ett undernät. NSG tillämpas fortfarande på andra arbets belastningar som finns i samma undernät.   | Styr trafiken genom att använda NSG regler för utgående trafik på käll klienter.        |
 |Det går inte att skapa privata slut punkter i undernät som är aktiverade för tjänst slut punkt eller specialiserade arbets belastningar    |Det går inte att distribuera privata slut punkter på undernät som är aktiverade för tjänst slut punkter eller undernät som har delegerats till specialiserade arbets belastningar|  Skapa ett separat undernät för att distribuera de privata slut punkterna.        |
 |privat slut punkt kan bara mappas till privata länk tjänst (kundens ägare) i samma region    |   Det går inte att ansluta till en privat länk tjänst från en annan region       |  Under för hands versionen måste du distribuera din privata länk tjänst i samma region.        |
+|  Peer-Virtual Network med enbart privata slut punkter stöds inte   |   När du ansluter till privata slut punkter på en peer-Virtual Network utan någon annan arbets belastning stöds inte       | Distribuera en enskild virtuell dator på peer-Virtual Network för att aktivera anslutningen |
 |Specialiserade arbets belastningar kan inte komma åt privata slut punkter    |   Följande tjänster som distribueras i det virtuella nätverket kan inte komma åt någon privat länk resurs med hjälp av privata slut punkter:<br>App Service-plan</br>Azure Container-instans</br>Azure NetApp Files</br>Dedikerad HSM i Azure<br>       |   Ingen minskning under för hands versionen.       |
-|  Portalen stöder inte skapande av privata slut punkter med alias  |   Portalen tillåter endast skapande av privata slut punkter med resurs-URI      | Använd resurs-URI för att begära privata slut punkts anslutningar        |
+
 
 ## <a name="next-steps"></a>Nästa steg
 - [Skapa en privat slut punkt för SQL Database servern med hjälp av portalen](create-private-endpoint-portal.md)

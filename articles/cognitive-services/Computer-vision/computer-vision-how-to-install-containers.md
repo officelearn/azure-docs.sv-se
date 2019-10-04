@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/24/2019
+ms.date: 10/03/2019
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 98330e88b0b94c488fd968d8fc18806ec6908b26
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 7c137572fadd07254343b7b4c34b5a63534b9d88
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316201"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937004"
 ---
 # <a name="install-and-run-computer-vision-containers"></a>Installera och kör Visuellt innehåll behållare
 
@@ -44,8 +44,6 @@ Du måste uppfylla följande krav innan du använder behållarna:
 ## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
 
 [!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
-
-[!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
 ### <a name="the-host-computer"></a>Värddatorn
 
@@ -99,7 +97,7 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 ## <a name="how-to-use-the-container"></a>Använda behållaren
 
-När behållaren är på värddatorn [](#the-host-computer)använder du följande process för att arbeta med behållaren.
+När behållaren är på [värddatorn](#the-host-computer) använder du följande process för att arbeta med behållaren.
 
 1. [Kör behållaren](#run-the-container-with-docker-run)med de fakturerings inställningar som krävs. Fler [exempel](computer-vision-resource-container-config.md) på `docker run` kommandot är tillgängliga. 
 1. [Fråga behållarens förutsägelse slut punkt](#query-the-containers-prediction-endpoint). 

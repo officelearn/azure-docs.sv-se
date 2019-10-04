@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.openlocfilehash: 53bed3fe50afef260ac44f73a9f82e6894015c90
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e6767c1e03b074f43993e449ca81af951c579090
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349008"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937327"
 ---
 # <a name="best-practices-for-using-power-bi-to-query-and-visualize-azure-data-explorer-data"></a>Metod tips för att använda Power BI för att fråga och visualisera Azure Datautforskaren-data
 
@@ -28,13 +28,13 @@ När du arbetar med terabytes färska rå data följer du rikt linjerna för att
 
 * **Import läge kontra DirectQuery-läge** – Använd **import** läge för att interagera med mindre data uppsättningar. Använd **DirectQuery** -läge för stora, ofta uppdaterade data uppsättningar. Du kan till exempel skapa dimensions tabeller med hjälp av **import** läge eftersom de är små och inte ändras ofta. Ange uppdaterings intervallet enligt den förväntade frekvensen för data uppdateringar. Skapa fakta tabeller med **DirectQuery** -läge eftersom tabellerna är stora och innehåller rå data. Använd de här tabellerna för att presentera filtrerade data med hjälp av Power BI [drillthrough](https://docs.microsoft.com/power-bi/desktop-drillthrough).
 
-* **Parallelitet** – Azure Data Explorer är en linjärt skalbar data plattform, vilket innebär att du kan förbättra prestanda för instrument panels åter givning genom att öka det parallella flödet från slut punkt till slut punkt på följande sätt:
+* **Parallelitet** – Azure datautforskaren är en linjär skalbar data plattform, vilket innebär att du kan förbättra prestanda för instrument panels åter givning genom att öka parallellitet för slut punkt till slut punkt på följande sätt:
 
    * Öka antalet [samtidiga anslutningar i DirectQuery i Power BI](https://docs.microsoft.com/power-bi/desktop-directquery-about#maximum-number-of-connections-option-for-directquery).
 
    * Använd [svag konsekvens för att förbättra parallellitet](/azure/kusto/concepts/queryconsistency). Detta kan påverka datans aktualitet.
 
-* **Effektiva utsnitt** – du kan använda [Sync-utsnitt](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) för att förhindra att rapporter läser in data innan du är klar. När du har strukturerat data uppsättningen, placerar alla visuella objekt och markerar alla utsnitt, kan du välja det synkroniserade utsnittet för att endast läsa in de data som behövs.
+* **Effektiva utsnitt** – Använd [Synkronisera utsnitt](https://docs.microsoft.com/power-bi/visuals/power-bi-visualization-slicers#sync-and-use-slicers-on-other-pages) för att förhindra att rapporter läser in data innan du är klar. När du har strukturerat data uppsättningen, placerar alla visuella objekt och markerar alla utsnitt, kan du välja det synkroniserade utsnittet för att endast läsa in de data som behövs.
 
 * **Använd filter** – Använd så många Power BI filter som möjligt för att fokusera på Azure datautforskaren-sökningen på relevanta data Shards.
 
@@ -46,7 +46,7 @@ I följande avsnitt finns tips och trick för att använda Kusto-frågespråk me
 
 ### <a name="complex-queries-in-power-bi"></a>Komplexa frågor i Power BI
 
-Komplexa frågor är enklare att uttryckas i Kusto än i Power Query. De bör implementeras som [Kusto-funktioner](/azure/kusto/query/functions)och anropas i Power BI. Den här metoden krävs när du använder **DirectQuery** med `let`-instruktioner i din Kusto-fråga. Eftersom Power BI ansluter till två frågor och `let`-instruktioner inte kan användas med operatorn `join` kan syntaxfel uppstå. Spara därför varje del av funktionen Join as a Kusto och Tillåt Power BI att koppla samman de här två funktionerna.
+Komplexa frågor är enklare att uttryckas i Kusto än i Power Query. De bör implementeras som [Kusto-funktioner](/azure/kusto/query/functions)och anropas i Power BI. Den här metoden krävs när du använder **DirectQuery** med `let`-instruktioner i din Kusto-fråga. Eftersom Power BI ansluter till två frågor och `let`-satser inte kan användas med operatorn `join` kan syntaxfel uppstå. Spara därför varje del av funktionen Join as a Kusto och Tillåt Power BI att koppla samman de här två funktionerna.
 
 ### <a name="how-to-simulate-a-relative-data-time-operator"></a>Så här simulerar du en relativ data tids operator
 
@@ -104,7 +104,7 @@ I fönstret **Redigera frågor** , **Start** > **avancerad redigerare**
     Source = Kusto.Contents("Help", "Samples", "StormEvents | where State == 'ALABAMA' | take 100", [])
     ```
 
-1. Ersätt relevant del av frågan med din parameter. Dela upp frågan i flera delar och sammanfoga dem igen med hjälp av &-tecknet, tillsammans med parametern.
+1. Ersätt relevant del av frågan med din parameter. Dela upp frågan i flera delar och slå tillbaka dem med ett et-tecken (&), tillsammans med parametern.
 
    I frågan ovan tar vi till exempel `State == 'ALABAMA'`-delen och delar upp den till: `State == '` och `'` och vi ska placera `State`-parametern mellan dem:
    
@@ -138,7 +138,7 @@ Du kan använda en frågeparameter i alla fråge steg som stöder den. Filtrera 
 
 ### <a name="dont-use-power-bi-data-refresh-scheduler-to-issue-control-commands-to-kusto"></a>Använd inte Power BI data uppdatering Scheduler för att utfärda kontroll kommandon till Kusto
 
-Power BI innehåller en schemaläggare för data uppdatering som regelbundet kan utfärda frågor mot en data källa. Den här mekanismen bör inte användas för att schemalägga kontroll kommandon till Kusto, eftersom Power BI förutsätter att alla frågor är skrivskyddade.
+Power BI innehåller en schemaläggare för data uppdatering som regelbundet kan utfärda frågor mot en data källa. Den här mekanismen bör inte användas för att schemalägga kontroll kommandon till Kusto eftersom Power BI förutsätter att alla frågor är skrivskyddade.
 
 ### <a name="power-bi-can-send-only-short-lt2000-characters-queries-to-kusto"></a>Power BI kan bara skicka korta (@no__t 02000 tecken) frågor till Kusto
 

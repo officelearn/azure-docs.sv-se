@@ -4,14 +4,14 @@ description: Visar vilka typer av Azure-resurs typer som stöder taggar. Innehå
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: 7b8d3de3eaa9cdbb945879f2acc283d74c8b4e82
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 06028224379bd42e1e0ea21b684ce443abd5992a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996833"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937017"
 ---
 # <a name="tag-support-for-azure-resources"></a>Tagga stöd för Azure-resurser
 I den här artikeln beskrivs om en resurs typ stöder [taggar](resource-group-using-tags.md). Den kolumn som har etiketten **stöder Taggar** anger om resurs typen har en egenskap för taggen. Kolumnen med etiketten **tagg i Cost** visar om den resurs typen skickar taggen till kostnads rapporten.
@@ -40,7 +40,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft. fakturering](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -123,6 +122,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft. ObjectStore](#microsoftobjectstore)
 > - [Microsoft. OffAzure](#microsoftoffazure)
 > - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -198,7 +198,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | logs | Nej |Nej |
 > | rapporter | Nej |Nej |
 > | servicehealthmetrics | Nej |Nej |
-> | services | Nej |Nej |
+> | tjänster | Nej |Nej |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
@@ -393,6 +393,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/kunder | Nej |Nej |
 > | billingAccounts/kunder/billingSubscriptions | Nej |Nej |
 > | billingAccounts/kunder/initiateTransfer | Nej |Nej |
+> | billingAccounts/kunder/principer | Nej |Nej |
 > | billingAccounts/kunder/produkter | Nej |Nej |
 > | billingAccounts/kunder/transaktioner | Nej |Nej |
 > | billingAccounts/kunder/överföringar | Nej |Nej |
@@ -440,13 +441,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | mapApis | Ja |Ja |
 > | updateCommunicationPreference | Nej |Nej |
-
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
-> | ------------- | ----------- | ----------- |
-> | BizTalk | Ja |Ja |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -542,7 +536,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | trådlösa | Nej |Nej |
-> | Domän namn | Ja |Ja |
+> | Domän namn | Nej |Nej |
 > | Domän namn/funktioner | Nej |Nej |
 > | Domän namn/internalLoadBalancers | Nej |Nej |
 > | Domän namn/serviceCertificates | Nej |Nej |
@@ -556,7 +550,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | quotas | Nej |Nej |
 > | resourceTypes | Nej |Nej |
 > | validateSubscriptionMoveAvailability | Nej |Nej |
-> | virtualMachines | Ja |Ja |
+> | virtualMachines | Nej |Nej |
 > | virtualMachines/diagnosticSettings | Nej |Nej |
 > | virtualMachines/metricDefinitions | Nej |Nej |
 > | virtualMachines/mått | Nej |Nej |
@@ -577,10 +571,10 @@ Hoppa till ett namn område för en resurs leverantör:
 > | expressRouteCrossConnections | Nej |Nej |
 > | expressRouteCrossConnections/peering | Nej |Nej |
 > | gatewaySupportedDevices | Nej |Nej |
-> | networkSecurityGroups | Ja |Ja |
+> | networkSecurityGroups | Nej |Nej |
 > | quotas | Nej |Nej |
-> | reservedIps | Ja |Ja |
-> | virtualNetworks | Ja |Ja |
+> | reservedIps | Nej |Nej |
+> | virtualNetworks | Nej |Nej |
 > | virtualNetworks/remoteVirtualNetworkPeeringProxies | Nej |Nej |
 > | virtualNetworks/virtualNetworkPeerings | Nej |Nej |
 
@@ -591,12 +585,12 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | trådlösa | Nej |Nej |
 > | Diskar | Nej |Nej |
-> | bilder | Nej |Nej |
+> | avbildningar | Nej |Nej |
 > | osImages | Nej |Nej |
 > | osPlatformImages | Nej |Nej |
 > | publicImages | Nej |Nej |
 > | quotas | Nej |Nej |
-> | storageAccounts | Ja |Ja |
+> | storageAccounts | Nej |Nej |
 > | storageAccounts/blobServices | Nej |Nej |
 > | storageAccounts/fileServices | Nej |Nej |
 > | storageAccounts/metricDefinitions | Nej |Nej |
@@ -634,24 +628,22 @@ Hoppa till ett namn område för en resurs leverantör:
 > | diskEncryptionSets | Ja |Ja |
 > | Diskar | Ja |Ja |
 > | gallerier | Ja |Ja |
-> | gallerier/program | Ja |Ja |
-> | gallerier/program/versioner | Ja |Ja |
-> | gallerier/bilder | Ja |Ja |
-> | gallerier/avbildningar/versioner | Ja |Ja |
+> | gallerier/program | Nej |Nej |
+> | gallerier/program/versioner | Nej |Nej |
+> | gallerier/bilder | Nej |Nej |
+> | gallerier/avbildningar/versioner | Nej |Nej |
 > | hostGroups | Ja |Ja |
 > | hostGroups/värdar | Ja |Ja |
-> | bilder | Ja |Ja |
+> | avbildningar | Ja |Ja |
 > | proximityPlacementGroups | Ja |Ja |
 > | restorePointCollections | Ja |Ja |
 > | restorePointCollections/restorePoints | Nej |Nej |
 > | sharedVMImages | Ja |Ja |
-> | sharedVMImages/versioner | Ja |Ja |
+> | sharedVMImages/versioner | Nej |Nej |
 > | ögonblicksbilder | Ja |Ja |
 > | virtualMachines | Ja |Ja |
 > | virtualMachines/tillägg | Ja |Ja |
 > | virtualMachines/metricDefinitions | Nej |Nej |
-> | virtualMachines/scriptJobs | Nej |Nej |
-> | virtualMachines/softwareUpdateDeployments | Nej |Nej |
 > | virtualMachineScaleSets | Ja |Ja |
 > | virtualMachineScaleSets/extensions | Nej |Nej |
 > | virtualMachineScaleSets/networkInterfaces | Nej |Nej |
@@ -675,7 +667,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | samtliga | Nej |Nej |
 > | Marknads platser | Nej |Nej |
 > | Pricesheets | Nej |Nej |
-> | produkter | Nej |Nej |
+> | läkemedle | Nej |Nej |
 > | ReservationDetails | Nej |Nej |
 > | ReservationRecommendations | Nej |Nej |
 > | ReservationSummaries | Nej |Nej |
@@ -866,7 +858,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | services | Nej |Nej |
+> | tjänster | Nej |Nej |
 > | tjänster/projekt | Nej |Nej |
 
 ## <a name="microsoftdatashare"></a>Microsoft. DataShare
@@ -919,6 +911,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | serverGroups | Ja |Ja |
 > | servrar | Ja |Ja |
 > | servrar/rådgivare | Nej |Nej |
+> | servrar/privateEndpointConnectionProxies | Nej |Nej |
+> | servrar/privateEndpointConnections | Nej |Nej |
+> | servrar/privateLinkResources | Nej |Nej |
 > | servrar/queryTexts | Nej |Nej |
 > | servrar/recoverableServers | Nej |Nej |
 > | servers/topQueryStatistics | Nej |Nej |
@@ -1023,7 +1018,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | services | Ja |Ja |
+> | tjänster | Ja |Ja |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -1123,7 +1118,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | services | Ja |Ja |
+> | tjänster | Ja |Ja |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -1189,7 +1184,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | valv/eventGridFilters | Nej |Nej |
 > | valv/hemligheter | Nej |Nej |
 
-## <a name="microsoftkusto"></a>Microsoft. Kusto
+## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
@@ -1199,6 +1194,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | kluster/databaser | Nej |Nej |
 > | kluster/databaser/dataconnections | Nej |Nej |
 > | kluster/databaser/eventhubconnections | Nej |Nej |
+> | kluster/sharedidentities | Nej |Nej |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -1278,7 +1274,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
-> | budgivning | Nej |Nej |
+> | erbjudanden | Nej |Nej |
 > | offerTypes | Nej |Nej |
 > | offerTypes/utgivare | Nej |Nej |
 > | offerTypes/utgivare/erbjudanden | Nej |Nej |
@@ -1287,7 +1283,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | offerTypes/utgivare/erbjudanden/planer/konfigurationer | Nej |Nej |
 > | offerTypes/utgivare/erbjudanden/planer/configs/importImage | Nej |Nej |
 > | privategalleryitems | Nej |Nej |
-> | produkter | Nej |Nej |
+> | läkemedle | Nej |Nej |
 > | utgivare | Nej |Nej |
 > | Utgivare/erbjudanden | Nej |Nej |
 > | Utgivare/erbjudanden/ändringar | Nej |Nej |
@@ -1363,11 +1359,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
 > | ------------- | ----------- | ----------- |
 > | netAppAccounts | Ja |Ja |
+> | netAppAccounts/backupPolicies | Ja |Ja |
 > | netAppAccounts/capacityPools | Ja |Ja |
 > | netAppAccounts/capacityPools/Volumes | Ja |Ja |
+> | netAppAccounts/capacityPools/Volumes/Backups | Nej |Nej |
 > | netAppAccounts/capacityPools/Volumes/mountTargets | Ja |Ja |
 > | netAppAccounts/capacityPools/volym/ögonblicks bilder | Ja |Ja |
-
+> | netAppAccounts/valv | Nej |Nej |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1458,6 +1456,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!NOTE]
 > För Azures frontend-tjänst kan du använda taggar när du skapar resursen, men att uppdatera eller lägga till taggar stöds inte för närvarande.
 
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1465,6 +1464,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | namnrymder | Ja |Nej |
 > | namnrymder/notificationHubs | Ja |Nej |
+
+## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Stöder Taggar | Tagga i kostnads rapport |
+> | ------------- | ----------- | ----------- |
+> | osNamespaces | Ja |Ja |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -1607,13 +1613,15 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- | ----------- |
 > | distributioner | Ja |Nej |
 > | distributioner/åtgärder | Nej |Nej |
-> | Länkar | Nej |Nej |
+> | länkar | Nej |Nej |
 > | notifyResourceJobs | Nej |Nej |
 > | Providers | Nej |Nej |
 > | resourceGroups | Ja |Nej |
 > | resurser | Nej |Nej |
 > | prenumerationer | Nej |Nej |
 > | prenumerationer/providers | Nej |Nej |
+> | prenumerationer/resourceGroups | Nej |Nej |
+> | prenumerationer/ResourceGroups/resurser | Nej |Nej |
 > | prenumerationer/resurser | Nej |Nej |
 > | prenumerationer/tagNames | Nej |Nej |
 > | prenumerationer/tagNames/tagValues | Nej |Nej |
@@ -1680,6 +1688,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | securityStatusesSummaries | Nej |Nej |
 > | serverVulnerabilityAssessments | Nej |Nej |
 > | inställningar | Nej |Nej |
+> | underbedömningar | Nej |Nej |
 > | uppgifter | Nej |Nej |
 > | topologier | Nej |Nej |
 > | workspaceSettings | Nej |Nej |
@@ -1703,7 +1712,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Dina | Nej |Nej |
 > | fall | Nej |Nej |
 > | dataConnectors | Nej |Nej |
-> | entiteter | Nej |Nej |
+> | Poster | Nej |Nej |
 > | entityQueries | Nej |Nej |
 > | officeConsents | Nej |Nej |
 > | inställningar | Nej |Nej |
@@ -1972,7 +1981,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | anslutningar | Ja |Ja |
 > | customApis | Ja |Ja |
 > | deletedSites | Nej |Nej |
-> | funktioner | Nej |Nej |
+> | functions | Nej |Nej |
 > | hostingEnvironments | Ja |Ja |
 > | hostingEnvironments/multiRolePools | Nej |Nej |
 > | hostingEnvironments/workerPools | Nej |Nej |

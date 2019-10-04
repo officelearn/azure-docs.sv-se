@@ -1,6 +1,6 @@
 ---
-title: Hantera programhemligheter i Azure Service Fabric | Microsoft Docs
-description: Lär dig hur du skyddar hemliga värden i ett Service Fabric-program (plattformsagnostiska).
+title: Hantera Azure Service Fabric program hemligheter | Microsoft Docs
+description: Lär dig hur du skyddar hemliga värden i ett Service Fabric program (oberoende).
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,30 +14,30 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/04/2019
 ms.author: vturecek
-ms.openlocfilehash: d151dbf20e68a2152e9d886a74e51786bb8fbfa6
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9854ad7118684e1a5e57b0809d733d812ad64176
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60614484"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828837"
 ---
-# <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Hantera krypterade hemligheter i Service Fabric-program
-Den här guiden leder dig genom stegen för att hantera hemligheter i ett Service Fabric-program. Hemligheter kan vara känslig information, till exempel storage-anslutningssträngar, lösenord och andra värden som inte ska hanteras i oformaterad text.
+# <a name="manage-encrypted-secrets-in-service-fabric-applications"></a>Hantera krypterade hemligheter i Service Fabric program
+Den här guiden vägleder dig genom stegen för att hantera hemligheter i ett Service Fabric program. Hemligheter kan vara vilken känslig information som helst, till exempel lagrings anslutnings strängar, lösen ord eller andra värden som inte ska hanteras i oformaterad text.
 
-Använda krypterade hemligheter i ett Service Fabric-program omfattar tre steg:
-* Ställ in ett krypteringscertifikat och kryptera hemligheter.
+Att använda krypterade hemligheter i ett Service Fabric-program omfattar tre steg:
+* Konfigurera ett krypterings certifikat och kryptera hemligheter.
 * Ange krypterade hemligheter i ett program.
-* Dekryptera krypterade hemligheter från koden.
+* Dekryptera krypterade hemligheter från Service koden.
 
-## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>Konfigurera ett krypteringscertifikat och kryptera hemligheter
-Konfigurera ett krypteringscertifikat och använder det för att kryptera hemligheter varierar mellan Windows och Linux.
-* [Ställ in ett krypteringscertifikat och kryptera hemligheter på Windows-kluster.][secret-management-windows-specific-link]
-* [Ställ in ett krypteringscertifikat och kryptera hemligheter i Linux-kluster.][secret-management-linux-specific-link]
+## <a name="set-up-an-encryption-certificate-and-encrypt-secrets"></a>Konfigurera ett krypterings certifikat och kryptera hemligheter
+Att konfigurera ett krypterings certifikat och använda det för att kryptera hemligheter varierar mellan Windows och Linux.
+* [Konfigurera ett krypterings certifikat och kryptera hemligheter på Windows-kluster.][secret-management-windows-specific-link]
+* [Konfigurera ett krypterings certifikat och kryptera hemligheter på Linux-kluster.][secret-management-linux-specific-link]
 
 ## <a name="specify-encrypted-secrets-in-an-application"></a>Ange krypterade hemligheter i ett program
-Föregående steg beskriver hur du krypterar en hemlighet med ett certifikat och producerar en Base64-kodad sträng för användning i ett program. Den här Base64-kodad sträng kan anges som ett krypterat [parametern] [ parameters-link] i Settings.xml för en tjänst eller som ett krypterat [miljövariabeln] [ environment-variables-link] i en tjänst ServiceManifest.xml.
+I föregående steg beskrivs hur du krypterar en hemlighet med ett certifikat och skapar en Base64 64-kodad sträng för användning i ett program. Den här Base-64-kodade strängen kan anges som en krypterad [parameter][parameters-link] i en tjänsts inställningar. XML eller som en krypterad [miljö variabel][environment-variables-link] i en tjänsts ServiceManifest. xml.
 
-Ange ett krypterat [parametern] [ parameters-link] i konfigurationsfilen för din tjänst Settings.xml med den `IsEncrypted` attributet inställt på `true`:
+Ange en krypterad [parameter][parameters-link] i tjänstens inställningar. XML-konfigurationsfil med attributet `IsEncrypted` inställt på `true`:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -47,7 +47,7 @@ Ange ett krypterat [parametern] [ parameters-link] i konfigurationsfilen för di
   </Section>
 </Settings>
 ```
-Ange ett krypterat [miljövariabeln] [ environment-variables-link] i din tjänst servicemanifest.XML med den `Type` attributet inställt på `Encrypted`:
+Ange en krypterad [miljö variabel][environment-variables-link] i tjänstens ServiceManifest. XML-fil med attributet `Type` inställt på `Encrypted`:
 ```xml
 <CodePackage Name="Code" Version="1.0.0">
   <EnvironmentVariables>
@@ -56,11 +56,22 @@ Ange ett krypterat [miljövariabeln] [ environment-variables-link] i din tjänst
 </CodePackage>
 ```
 
-### <a name="inject-application-secrets-into-application-instances"></a>Mata in programhemligheter i instanser av programmet
-Vi rekommenderar att distributionen till olika miljöer är som automatiserade som möjligt. Detta kan åstadkommas genom att utföra hemliga kryptering i en kompileringsmiljö och att tillhandahålla krypterade hemligheter som parametrar när du skapar instanser av programmet.
+Hemligheterna kan också inkluderas i ditt Service Fabric program genom att ange ett certifikat i applikations manifestet. Lägg till ett **SecretsCertificate** -element i **ApplicationManifest. XML** och inkludera det önskade certifikatets tumavtryck.
 
-#### <a name="use-overridable-parameters-in-settingsxml"></a>Använd åsidosättningsbara parametrar i Settings.xml
-Konfigurationsfilen Settings.xml kan åsidosättningsbara parametrar som kan anges vid tidpunkten för skapandet av programmet. Använd den `MustOverride` attribut i stället för att tillhandahålla ett värde för en parameter:
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
+
+### <a name="inject-application-secrets-into-application-instances"></a>Mata in program hemligheter i program instanser
+Vi rekommenderar att distribution till olika miljöer är så automatiserat som möjligt. Detta kan åstadkommas genom att utföra hemlig kryptering i en build-miljö och tillhandahålla krypterade hemligheter som parametrar när du skapar program instanser.
+
+#### <a name="use-overridable-parameters-in-settingsxml"></a>Använd åsidosättningsbar-parametrar i Settings. XML
+Konfigurations filen Settings. XML tillåter åsidosättningsbar-parametrar som kan tillhandahållas när programmet skapas. Använd attributet `MustOverride` i stället för att ange ett värde för en parameter:
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -71,7 +82,7 @@ Konfigurationsfilen Settings.xml kan åsidosättningsbara parametrar som kan ang
 </Settings>
 ```
 
-Om du vill åsidosätta värden i Settings.xml deklarerar du en åsidosättning parameter för tjänsten i ApplicationManifest.xml:
+Om du vill åsidosätta värden i Settings. XML deklarerar du en parameter för åsidosättning för tjänsten i ApplicationManifest. XML:
 
 ```xml
 <ApplicationManifest ... >
@@ -92,15 +103,15 @@ Om du vill åsidosätta värden i Settings.xml deklarerar du en åsidosättning 
   </ServiceManifestImport>
  ```
 
-Nu värdet kan anges som en *parametr aplikace* när du skapar en instans av programmet. Skapa en programinstans kan skriptas med hjälp av PowerShell, eller skriftliga i C#, för enkel integrering i en build-process.
+Du kan nu ange värdet som en *program parameter* när du skapar en instans av programmet. Du kan skapa en program instans med hjälp av PowerShell eller skriva in C#för enkel integrering i en build-process.
 
-Med hjälp av PowerShell, parametern anges till den `New-ServiceFabricApplication` kommandot som en [hash-tabell](https://technet.microsoft.com/library/ee692803.aspx):
+Med PowerShell anges parametern till kommandot `New-ServiceFabricApplication` som en [hash-tabell](https://technet.microsoft.com/library/ee692803.aspx):
 
 ```powershell
 New-ServiceFabricApplication -ApplicationName fabric:/MyApp -ApplicationTypeName MyAppType -ApplicationTypeVersion 1.0.0 -ApplicationParameter @{"MySecret" = "I6jCCAeYCAxgFhBXABFxzAt ... gNBRyeWFXl2VydmjZNwJIM="}
 ```
 
-Med hjälp av C#, programparametrar anges i en `ApplicationDescription` som en `NameValueCollection`:
+Med C#, anges program parametrar i en `ApplicationDescription` som en `NameValueCollection`:
 
 ```csharp
 FabricClient fabricClient = new FabricClient();
@@ -118,8 +129,8 @@ ApplicationDescription applicationDescription = new ApplicationDescription(
 await fabricClient.ApplicationManager.CreateApplicationAsync(applicationDescription);
 ```
 
-## <a name="decrypt-encrypted-secrets-from-service-code"></a>Dekryptera krypterade hemligheter från koden
-API: er för att komma åt [parametrar] [ parameters-link] och [miljövariabler] [ environment-variables-link] tillåter enkel dekryptering av krypterade värden. Eftersom krypterad sträng innehåller information om certifikatet som används för kryptering, behöver du inte ange certifikatet manuellt. Certifikatet behöver bara installeras på den nod som tjänsten körs på.
+## <a name="decrypt-encrypted-secrets-from-service-code"></a>Dekryptera krypterade hemligheter från Service koden
+API: erna för åtkomst till [parametrar][parameters-link] och [miljövariabler][environment-variables-link] möjliggör enkel dekryptering av krypterade värden. Eftersom den krypterade strängen innehåller information om certifikatet som används för kryptering behöver du inte ange certifikatet manuellt. Certifikatet behöver bara installeras på den nod där tjänsten körs.
 
 ```csharp
 // Access decrypted parameters from Settings.xml
@@ -136,7 +147,7 @@ string MyEnvVariable = Environment.GetEnvironmentVariable("MyEnvVariable");
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Läs mer om [program- och Tjänstsäkerhet](service-fabric-application-and-service-security.md)
+Läs mer om [säkerhet för program och tjänster](service-fabric-application-and-service-security.md)
 
 <!-- Links -->
 [parameters-link]:service-fabric-how-to-parameterize-configuration-files.md

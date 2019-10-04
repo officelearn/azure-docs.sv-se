@@ -1,25 +1,24 @@
 ---
-title: Etablera enheter med DPS med hjälp av symmetrisk nyckel attestering-Azure IoT Edge | Microsoft Docs
+title: Etablera enheter automatiskt med DPS med hjälp av symmetrisk nyckel attestering-Azure IoT Edge | Microsoft Docs
 description: Använd symmetrisk nyckel attestering för att testa automatisk enhets etablering för Azure IoT Edge med enhets etablerings tjänsten
 author: kgremban
 manager: philmea
 ms.author: kgremban
 ms.reviewer: mrohera
-ms.date: 07/10/2019
+ms.date: 10/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom: seodec18
-ms.openlocfilehash: 5a7e7fa011c0287d5e97ad7a8cd2e3ba77f298dd
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 53b1abca25119f4168aaf12a66c4347c53ed0a62
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299853"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828066"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-symmetric-key-attestation"></a>Skapa och etablera en IoT Edge enhet med hjälp av symmetrisk nyckel attestering
 
-Azure IoT Edge-enheter kan vara autoprovisioned med hjälp av den [Device Provisioning-tjänsten](../iot-dps/index.yml) precis som enheter som inte är Microsoft edge-aktiverade. Om du är bekant med processen för autoprovisioning kan du granska den [autoprovisioning begrepp](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
+Azure IoT Edge-enheter kan vara automatisk etablering med hjälp av den [Device Provisioning-tjänsten](../iot-dps/index.yml) precis som enheter som inte är Microsoft edge-aktiverade. Om du är bekant med processen för automatisk etablering kan du granska den [begrepp inom Automatisk etablering](../iot-dps/concepts-auto-provisioning.md) innan du fortsätter.
 
 Den här artikeln visar hur du skapar en individuell registrering av enhets etablerings tjänsten med hjälp av symmetrisk nyckel attestering på en IoT Edge enhet med följande steg:
 
@@ -27,7 +26,7 @@ Den här artikeln visar hur du skapar en individuell registrering av enhets etab
 * Skapa en enskild registrering för enheten.
 * Installera IoT Edge Runtime och Anslut till IoT Hub.
 
-Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet med en enhets etablerings tjänst instans. Den här attesterings metoden representerar en "Hello World"-upplevelse för utvecklare som är nya för enhets etablering eller som inte har strikta säkerhets krav. Enhets attestering med en [TPM](../iot-dps/concepts-tpm-attestation.md) är säkrare och bör användas för mer långtgående säkerhets krav.
+Symmetrisk nyckel attestering är en enkel metod för att autentisera en enhet med en enhets etablerings tjänst instans. Den här attesterings metoden representerar en "Hello World"-upplevelse för utvecklare som är nya för enhets etablering eller som inte har strikta säkerhets krav. Enhets attestering med hjälp av [TPM](../iot-dps/concepts-tpm-attestation.md) -eller [X. 509-certifikat](../iot-dps/concepts-security.md#x509-certificates) är säkrare och bör användas för mer långtgående säkerhets krav.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -191,9 +190,29 @@ Ersätt plats hållarnas värden för `{scope_id}`, `{registration_id}`och `{sym
 
 ### <a name="windows-device"></a>Windows-enhet
 
-Följ anvisningarna för att installera IoT Edge runtime på enheten som du skapade en härledd enhets nyckel för. Se till att konfigurera IoT Edge-körningen för automatisk och manuell och etablering.
+Installera IoT Edge runtime på enheten som du genererade en härledd enhets nyckel för. Du konfigurerar IoT Edge runtime för automatisk, inte manuell, etablering.
 
-[Installera och etablera IoT Edge automatiskt i Windows](how-to-install-iot-edge-windows.md#option-2-install-and-automatically-provision)
+Mer detaljerad information om hur du installerar IoT Edge i Windows, inklusive krav och instruktioner för aktiviteter som hantering av behållare och uppdatering av IoT Edge, finns i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
+
+1. Öppna ett PowerShell-fönster i administratörsläge. Se till att använda en AMD64-session av PowerShell när du installerar IoT Edge, inte PowerShell (x86).
+
+1. Kommandot **Deploy-IoTEdge** kontrollerar att Windows-datorn finns på en version som stöds, aktiverar funktionen containers och laddar sedan ned Moby runtime och IoT Edge Runtime. Kommandot använder som standard Windows-behållare.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Deploy-IoTEdge
+   ```
+
+1. I det här läget kan IoT core-enheter startas om automatiskt. Andra Windows 10-eller Windows Server-enheter kan bli ombedd att starta om. Om så är fallet startar du om enheten nu. När enheten är klar kör du PowerShell som administratör igen.
+
+1. Kommandot **Initialize-IoTEdge** konfigurerar IoT Edge runtime på din dator. Kommandot använder standardinställningen manuell etablering med Windows-behållare om du inte använder flaggan `-Dps` för att använda automatisk etablering.
+
+   Ersätt plats hållarnas värden för `{scope_id}`, `{registration_id}`och `{symmetric_key}` med de data som du samlade in tidigare.
+
+   ```powershell
+   . {Invoke-WebRequest -useb https://aka.ms/iotedge-win} | Invoke-Expression; `
+   Initialize-IoTEdge -Dps -ScopeId {scope ID} -RegistrationId {registration ID} -SymmetricKey {symmetric key}
+   ```
 
 ## <a name="verify-successful-installation"></a>Verifiera installationen
 

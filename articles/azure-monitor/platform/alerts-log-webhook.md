@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3e29bdf41b0421aa4461b11fbf9bc0535179486d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677757"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838574"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>Webhook-åtgärder för logg aviserings regler
 När en [logg avisering skapas i Azure](alerts-log.md)har du möjlighet att [Konfigurera den med hjälp av åtgärds grupper](action-groups.md) för att utföra en eller flera åtgärder. Den här artikeln beskriver de olika webhook-åtgärder som är tillgängliga och visar hur du konfigurerar en anpassad JSON-baserad webhook.
 
 > [!NOTE]
-> Du kan också använda [vanliga aviserings scheman](https://aka.ms/commonAlertSchemaDocs) för webhook-integreringar. Det vanliga aviserings schemat ger fördelarna med att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor. [Lär dig mer om vanliga aviserings schema definitioner.](https://aka.ms/commonAlertSchemaDefinitions)
+> Du kan också använda [vanliga aviserings scheman](https://aka.ms/commonAlertSchemaDocs) för webhook-integreringar. Det vanliga aviserings schemat ger fördelarna med att ha en enda utöknings bar och enhetlig aviserings nytto last för alla aviserings tjänster i Azure Monitor. Observera att det gemensamma aviserings schemat inte uppfyller det anpassade JSON-alternativet för logg aviseringar. Den fördröjer den vanliga nytto lasten för aviserings schema om det är markerat oavsett vilken anpassning du kan ha gjort på varnings regel nivån. [Lär dig mer om vanliga aviserings schema definitioner.](https://aka.ms/commonAlertSchemaDefinitions)
 
 ## <a name="webhook-actions"></a>Webhook-åtgärder
 

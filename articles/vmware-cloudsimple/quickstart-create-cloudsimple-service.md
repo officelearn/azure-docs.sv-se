@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 39395c9d082bc40836c14ee4c0d328341f96edca
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 228ca0f43322c271b1a6db55a37c852ca1f66799
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71816123"
+ms.locfileid: "71828907"
 ---
 # <a name="quickstart---create-azure-vmware-solution-by-cloudsimple-service"></a>Snabb start – skapa en Azure VMware-lösning av CloudSimple-tjänsten
 
@@ -77,7 +77,7 @@ Om du vill ställa in betala per användning-kapacitet för en CloudSimple priva
 7. Ange prefixet för att identifiera noderna.
 8. Välj platsen för nodens resurser.
 9. Välj den dedikerade plats som ska vara värd för nodens resurser.
-10. Välj nodtyp. Du kan välja [alternativet CS28 eller CS36](cloudsimple-node.md). Det senare alternativet inkluderar den maximala beräknings-och minnes kapaciteten.
+10. Välj [nodtyp](cloudsimple-node.md).
 11. Välj antalet noder som ska etableras.
 12. Välj **Granska + Skapa**.
 13. Granska inställningarna. Klicka på **föregående**om du vill ändra inställningarna.

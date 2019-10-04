@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: d1cbca20b9f1ee1d5f7eefb760ed60fa4d019050
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 95d8c2974ea372dd59d15a9f2cc31ed171acd932
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972856"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828920"
 ---
 # <a name="frequently-asked-questions-about-vmware-solution-by-cloudsimple"></a>Vanliga frågor om VMware-lösning av CloudSimple
 
@@ -29,11 +29,11 @@ Ett privat CloudSimple-moln är ett privat, dedikerat moln som består av en ber
 
 **Var finns CloudSimple-tjänsten?**
 
-CloudSimple är tillgängligt i regionerna USA, östra och västra USA med ytterligare regioner som kommer snart.
+CloudSimple är tillgängligt i regionerna USA, västra USA, västra USA och västra Europa med ytterligare regioner som kommer snart.
 
 **Hur gör jag för att aktivera min prenumeration för CloudSimple?**
 
-Du kan kontakta din Microsoft-konto representant på [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) för att aktivera din prenumeration för CloudSimple-tjänsten. Ange ditt prenumerations-ID i e-postmeddelandet där du vill att CloudSimple-tjänsten är aktive rad  
+Du kan kontakta din Microsoft-konto-representant på [azurevmwaresales@microsoft.com](mailto:azurevmwaresales@microsoft.com) om du vill aktivera din prenumeration för CloudSimple-tjänsten. Ange ditt prenumerations-ID i e-postmeddelandet där du vill att CloudSimple-tjänsten är aktive rad  
 
 **Hur gör jag för att du till gång till CloudSimple-portalen?**
 
@@ -68,7 +68,7 @@ Du kan visa information om ditt privata moln i CloudSimple-portalen. För att an
 
 En Azure ExpressRoute-krets är en snabb, låg latens, säker anslutning med hög hastighet.  CloudSimple tillhandahåller en dedikerad ExpressRoute-krets per region per kund.  Med den här kretsen kan du upprätta en säker anslutning från en lokal plats eller din Azure-prenumeration.
 
-**Vad är nätverks kostnaderna för att ansluta till CloudSimple?  Gäller alla utgående avgifter mellan CloudSimple och Azure, eller mellan regioner?**
+**What är nätverks kostnaderna för att ansluta till CloudSimple?  Gäller eventuella utgående avgifter mellan CloudSimple och Azure, eller mellan regioner?**
 
 Det finns ingen CloudSimple avgift för utgående nätverk.  Azure standard rates gäller för all utgående trafik från ditt virtuella nätverk eller från din lokala ExpressRoute-krets.
 
@@ -106,8 +106,9 @@ CloudSimple innehåller följande säkerhetsfunktioner för att skydda din priva
 
 CloudSimple erbjuder följande värd typer:
 
-* **CS28-nod:** PROCESSOR: 2x 2,2 GHz, totalt 28 kärnor, 48 HT.  RAM: 256 GB.  Lagring: 1600 GB NVMe-cache, 5760 GB data (alla-blinkar). Nätverks 2x25Gbe NIC
-* **CS36-nod:** CPU 2x 2,3 GHz, totalt 36 kärnor, 72 HT.  RAM: 512 GB.  Lagring: 3200 GB NVMe cache 11520 GB data (alla-blinkar).  Nätverks 2x25Gbe NIC
+* **CS28-nod:** PROCESSOR: 2x 2,2 GHz, totalt 28 kärnor, 48 HT.  RAM: 256 GB.  Lagring: 1600 GB NVMe-cache, 5760 GB data (alla-blinkar). Nätverks 4x25Gbe NIC
+* **CS36-nod:** CPU 2x 2,3 GHz, totalt 36 kärnor, 72 HT.  RAM: 512 GB.  Lagring: 3200 GB NVMe cache 11520 GB data (alla-blinkar).  Nätverks 4x25Gbe NIC
+* **CS36m-nod:** CPU 2x 2,3 GHz, totalt 36 kärnor, 72 HT.  RAM: 576 GB.  Lagring: 3200 GB NVMe cache 13360 GB data (alla-blinkar).  Nätverks 4x25Gbe NIC
 
 **Hur hanteras eventuella maskin varu fel?**
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 077915705c242805d3709b5d52d445288fa5336a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 13c3f3aaf54bc3fb8ef656b5c1ce227fa70cee0b
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064357"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71936793"
 ---
 # <a name="date-claims-transformations"></a>Transformeringar av datum anspråk
 
@@ -29,8 +29,8 @@ Kontrollerar att ett datum-och tids anspråk (sträng data typ) är senare än e
 
 | Objekt | TransformationClaimType | Datatyp | Anteckningar |
 | ---- | ----------------------- | --------- | ----- |
-| inputClaim | leftOperand | sträng | Första anspråkets typ, vilket bör vara senare än det andra anspråket. |
-| inputClaim | rightOperand | sträng | Andra anspråkets typ, som bör vara tidigare än det första anspråket. |
+| InputClaim | leftOperand | sträng | Första anspråkets typ, vilket bör vara senare än det andra anspråket. |
+| InputClaim | rightOperand | sträng | Andra anspråkets typ, som bör vara tidigare än det första anspråket. |
 | InputParameter | AssertIfEqualTo | boolean | Anger om den här kontrollen ska passas om den vänstra operanden är lika med den högra operanden. |
 | InputParameter | AssertIfRightOperandIsNotPresent | boolean | Anger om den här kontrollen ska passas om den högra operanden saknas. |
 | InputParameter | TreatAsEqualIfWithinMillseconds | int | Anger antalet millisekunder som ska tillåtas mellan de två datumen gånger för att överväga de tider som är lika med (till exempel för att ta hänsyn till klock skevning). |

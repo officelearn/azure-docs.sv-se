@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: gwallace
-ms.openlocfilehash: 1da5d8aba92ac5cca5f7cdc281e169ce284b202d
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 63008de6d29790333764f4dcca27b8dc03cedbdb
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169174"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71838184"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Använd Linux-diagnostiskt tillägg för att övervaka mått och loggar
 
@@ -384,7 +384,7 @@ Det här valfria avsnittet styr körningen av godtyckliga [OMI](https://github.c
 
 Element | Value
 ------- | -----
-namnområde | valfritt OMI-namnområdet som frågan ska köras inom. Om inget anges är standardvärdet "root/SCX", implementerat av [System Center cross-platform-leverantörer](https://scx.codeplex.com/wikipage?title=xplatproviders&referringTitle=Documentation).
+namnområde | valfritt OMI-namnområdet som frågan ska köras inom. Om inget anges är standardvärdet "root/SCX", implementerat av [System Center cross-platform-leverantörer](https://github.com/Microsoft/SCXcore).
 query | OMI-frågan som ska köras.
 table | valfritt Azure Storage-tabellen i det angivna lagrings kontot (se [skyddade inställningar](#protected-settings)).
 frequency | valfritt Antalet sekunder mellan körningen av frågan. Standardvärdet är 300 (5 minuter); Minimivärdet är 15 sekunder.
@@ -695,7 +695,7 @@ Data som skickas till JsonBlob-mottagare lagras i blobbar i lagrings kontot med 
 Dessutom kan du använda dessa UI-verktyg för att komma åt data i Azure Storage:
 
 * Visual Studio-Server Explorer.
-* [Microsoft Azure Storage Explorer] (https://azurestorageexplorer.codeplex.com/ "Azure Storage Explorer").
+* [Microsoft Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/ "Azure Lagringsutforskaren").
 
 Den här ögonblicks bilden av en Microsoft Azure Storage Explorer-session visar de genererade Azure Storage tabellerna och behållarna från ett korrekt konfigurerat LAD 3,0-tillägg på en virtuell test dator. Avbildningen stämmer inte exakt med [exemplet på LAD 3,0-konfigurationen](#an-example-lad-30-configuration).
 

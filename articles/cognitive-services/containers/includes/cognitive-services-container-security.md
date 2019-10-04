@@ -7,14 +7,14 @@ author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 09/13/2019
+ms.date: 09/24/2019
 ms.author: dapine
-ms.openlocfilehash: 0e9fa9146292bf7dabbbf06d3bb436aa6cd2e6e2
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 7322d356d972635b81bc1bdd4b329bd3d5ac02df
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71124106"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71842579"
 ---
 ## <a name="azure-cognitive-services-container-security"></a>Säkerhet för Azure Cognitive Services-behållare
 
@@ -23,7 +23,7 @@ Säkerheten bör vara primärt fokuserad när du utvecklar program. Vikten av s�
 > [!IMPORTANT]
 > Som standard finns det *Ingen säkerhet* för API: et för Cognitive Services container. Orsaken till detta är att behållaren ofta körs som en del av en pod som skyddas från utsidan av en nätverks brygga. Det är dock möjligt att aktivera autentisering som fungerar identiskt med autentiseringen som används vid åtkomst till den [molnbaserade Cognitive Services][request-authentication].
 
-Diagrammet nedan visar standard och **osäker** Metod:
+Diagrammet nedan illustrerar **standard och osäker** Metod:
 
 ![Containersäkerhet](../media/container-security.svg)
 

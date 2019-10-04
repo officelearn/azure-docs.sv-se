@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 01/23/2019
 ms.author: pepogors
-ms.openlocfilehash: 19ccd44888d64967baf82568c1cbb2540f3b3f68
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 75edb385a86be849ec7c165759d3b451eab804f6
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68780347"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828516"
 ---
 # <a name="azure-service-fabric-security"></a>Azure Service Fabric-säkerhet 
 
@@ -79,7 +79,7 @@ Använd följande egenskaper för Resource Manager-mall för att tillämpa en AC
 
 ## <a name="secure-a-service-fabric-cluster-certificate-by-common-name"></a>Skydda ett Service Fabric kluster certifikat per eget namn
 
-Om du vill skydda ditt Service Fabric kluster `Common Name`med certifikat använder du Resource Manager- [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)på följande sätt:
+Om du vill skydda ditt Service Fabric-kluster med certifikat `Common Name` använder du Resource Manager- [certificateCommonNames](https://docs.microsoft.com/rest/api/servicefabric/sfrp-model-clusterproperties#certificatecommonnames)på följande sätt:
 
 ```json
 "certificateCommonNames": {
@@ -96,16 +96,16 @@ Om du vill skydda ditt Service Fabric kluster `Common Name`med certifikat använ
 > [!NOTE]
 > Service Fabric kluster kommer att använda det första giltiga certifikatet som hittas i värdens certifikat arkiv. I Windows kommer det här certifikatet att vara det senaste förfallo datumet som matchar ditt eget namn och utfärdare tumavtryck.
 
-Azure-domäner, till exempel\<* din under\>domän. cloudapp.Azure.com \<eller din under\>domän. trafficmanager.net, ägs av Microsoft. Certifikat utfärdare kommer inte att utfärda certifikat för domäner till obehöriga användare. De flesta användare behöver köpa en domän från en registrator eller vara behörig domän administratör för en certifikat utfärdare för att utfärda ett certifikat med samma namn.
+Azure-domäner som * \<YOUR SUBDOMAIN\>.cloudapp.azure.com eller \<YOUR SUBDOMAIN\>.trafficmanager.net ägs av Microsoft. Certifikat utfärdare kommer inte att utfärda certifikat för domäner till obehöriga användare. De flesta användare behöver köpa en domän från en registrator eller vara behörig domän administratör för en certifikat utfärdare för att utfärda ett certifikat med samma namn.
 
 Mer information om hur du konfigurerar DNS-tjänsten för att matcha din domän med en Microsoft-IP-adress finns i så här konfigurerar du [Azure DNS som värd för din domän](https://docs.microsoft.com/azure/dns/dns-delegate-domain-azure-dns).
 
 > [!NOTE]
 > När du har delegerat domän namn servrarna till Azure DNS Zone namnservrar, lägger du till följande två poster i din DNS-zon:
-> - En "A"-post för domän Apex som inte är `Alias record set` en till alla IP-adresser som din anpassade domän kommer att matcha.
-> - En C-post för Microsoft-underordnade domäner som du har angett som inte är `Alias record set`en. Du kan till exempel använda din Traffic Manager eller Load Balancer DNS-namn.
+> - En "A"-post för domän APEX som inte är en `Alias record set` till alla IP-adresser som din anpassade domän kommer att lösa.
+> - En C-post för Microsoft-underordnade domäner som du har angett som inte är en `Alias record set`. Du kan till exempel använda din Traffic Manager eller Load Balancer DNS-namn.
 
-Uppdatera portalen för att visa ett anpassat DNS-namn för Service Fabric klustret `"managementEndpoint"`genom att uppdatera följande mall egenskaper för Service Fabric Cluster Resource Manager:
+Uppdatera portalen om du vill visa ett anpassat DNS-namn för Service Fabric klustret `"managementEndpoint"` genom att uppdatera mallens egenskaper för Service Fabric Cluster Resource Manager:
 
 ```json
  "managementEndpoint": "[concat('https://<YOUR CUSTOM DOMAIN>:',parameters('nt0fabricHttpGatewayPort'))]",
@@ -152,6 +152,18 @@ user@linux:$ openssl smime -encrypt -in plaintext_UTF-16.txt -binary -outform de
 
 När du har krypterat dina skyddade värden [anger du krypterade hemligheter i Service Fabric program](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#specify-encrypted-secrets-in-an-application)och dekrypterar [krypterade hemligheter från Service koden](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-secret-management#decrypt-encrypted-secrets-from-service-code).
 
+## <a name="include-certificate-in-service-fabric-applications"></a>Inkludera certifikat i Service Fabric program
+
+För att ge programmet åtkomst till hemligheter, inkludera certifikatet genom att lägga till ett **SecretsCertificate** -element i applikations manifestet.
+
+```xml
+<ApplicationManifest … >
+  ...
+  <Certificates>
+    <SecretsCertificate Name="MyCert" X509FindType="FindByThumbprint" X509FindValue="[YourCertThumbrint]"/>
+  </Certificates>
+</ApplicationManifest>
+```
 ## <a name="authenticate-service-fabric-applications-to-azure-resources-using-managed-service-identity-msi"></a>Autentisera Service Fabric-program till Azure-resurser med hjälp av Hanterad tjänstidentitet (MSI)
 
 Information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser?](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview#how-does-it-work).
@@ -159,7 +171,7 @@ Azure Service Fabric-kluster finns på Virtual Machine Scale Sets, som har stöd
 Om du vill hämta en lista över tjänster som MSI kan användas för att autentisera till, se [Azure-tjänster som stöder Azure Active Directory autentisering](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/services-support-msi#azure-services-that-support-azure-ad-authentication).
 
 
-Om du vill aktivera systemtilldelad hanterad identitet under skapandet av en skalnings uppsättning för virtuella datorer eller en befintlig skalnings uppsättning `"Microsoft.Compute/virtualMachinesScaleSets"` för virtuella datorer, måste du deklarera följande egenskap:
+Om du vill aktivera systemtilldelad hanterad identitet under skapandet av en skalnings uppsättning för virtuella datorer eller en befintlig skalnings uppsättning för virtuella datorer, måste du deklarera följande `"Microsoft.Compute/virtualMachinesScaleSets"`-egenskap:
 
 ```json
 "identity": { 
@@ -205,7 +217,7 @@ cosmos_db_password=$(curl 'https://management.azure.com/subscriptions/<YOUR SUBS
 [Vi rekommenderar att du implementerar en bransch standard konfiguration som är allmänt känd och väl testad, till exempel Microsofts säkerhets bas linjer, i stället för att skapa en bas linje själv](https://docs.microsoft.com/windows/security/threat-protection/windows-security-baselines). ett alternativ för att konfigurera dessa på din Virtual Machine Scale Sets är att använda Azures tilläggs hanterare för önskad tillstånds konfiguration (DSC) för att konfigurera de virtuella datorerna när de är online, så att de kör produktions program varan.
 
 ## <a name="azure-firewall"></a>Azure Firewall
-[Azure-brandväggen är en hanterad, molnbaserad nätverks säkerhets tjänst som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt tillstånds känslig brand vägg som en tjänst med inbyggd hög tillgänglighet och obegränsad moln skalbarhet. ](https://docs.microsoft.com/azure/firewall/overview); detta gör det möjligt att begränsa utgående http/S-trafik till en angiven lista med fullständigt kvalificerade domän namn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Vi rekommenderar att du använder [Azure FIREWALL FQDN-Taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar och aktiverar nätverks trafik till Microsoft Windows Update-slutpunkter kan flöda genom brand väggen. [Genom att distribuera Azure-brandväggen med en mall](https://docs.microsoft.com/azure/firewall/deploy-template) får du ett exempel på definitionen av resurs mal len för Microsoft. Network/azureFirewalls. Brand Väggs regler som är vanliga för att Service Fabric program är att tillåta följande för klustrets virtuella nätverk:
+[Azure-brandväggen är en hanterad, molnbaserad nätverks säkerhets tjänst som skyddar dina Azure Virtual Network-resurser. Det är en fullständigt tillstånds känslig brand vägg som en tjänst med inbyggd hög tillgänglighet och obegränsad moln skalbarhet. ](https://docs.microsoft.com/azure/firewall/overview); Detta gör det möjligt att begränsa utgående HTTP/S-trafik till en angiven lista med fullständigt kvalificerade domän namn (FQDN), inklusive jokertecken. Den här funktionen kräver inte SSL-avslutning. Vi rekommenderar att du använder [Azure FIREWALL FQDN-Taggar](https://docs.microsoft.com/azure/firewall/fqdn-tags) för Windows-uppdateringar och aktiverar nätverks trafik till Microsoft Windows Update-slutpunkter kan flöda genom brand väggen. [Genom att distribuera Azure-brandväggen med en mall](https://docs.microsoft.com/azure/firewall/deploy-template) får du ett exempel på definitionen av resurs mal len för Microsoft. Network/azureFirewalls. Brand Väggs regler som är vanliga för att Service Fabric program är att tillåta följande för klustrets virtuella nätverk:
 
 - \* download.microsoft.com
 - *servicefabric.azure.com

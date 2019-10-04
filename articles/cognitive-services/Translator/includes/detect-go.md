@@ -4,12 +4,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: 0c2408d8ea8fb6458761ef1d853d5dde52ac2311
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: d75c925ef55163ce06b2ceff585e230d95b38c77
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907163"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71837522"
 ---
 [!INCLUDE [Prerequisites](prerequisites-go.md)]
 
@@ -35,7 +35,7 @@ import (
 
 ## <a name="create-the-main-function"></a>Skapa Main-funktionen
 
-Det här exemplet försöker läsa Translator text prenumerations nyckel och slut punkt från följande miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
+Det här exemplet försöker läsa Translator Text prenumerations nyckel och slut punkt från följande miljövariabler: `TRANSLATOR_TEXT_SUBSCRIPTION_KEY` och `TRANSLATOR_TEXT_ENDPOINT`. Om du inte är bekant med miljövariabler kan du ange `subscriptionKey` och `endpoint` som strängar och kommentera ut villkors satserna.
 
 Kopiera den här koden till projektet:
 
@@ -156,7 +156,11 @@ Om du vill jämföra din kod med vår finns det fullständiga exemplet på [GitH
 
 ## <a name="sample-response"></a>Exempelsvar
 
-Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+När du har kört exemplet bör du se följande utskrivna till Terminal:
+
+> [!NOTE]
+> Hitta lands-/region förkortningen i den här [listan över språk](https://docs.microsoft.com/azure/cognitive-services/translator/language-support).
+
 
 ```json
 [

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/12/2019
 ms.author: kumud
-ms.openlocfilehash: a6ba401d9d10e900fef5e2d296e74a07f84162cd
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 1a3859e1831f64269e7684072ddf166f29566fd9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670758"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828976"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Vanliga frågor och svar om Azure Virtual Network
 
@@ -395,7 +395,7 @@ Med tjänst slut punkts principer för virtuella nätverk (VNet) kan du filtrera
 
 ### <a name="does-azure-active-directory-azure-ad-support-vnet-service-endpoints"></a>Har Azure Active Directory (Azure AD) stöd för VNet-tjänstens slut punkter?
 
-Azure Active Directory (Azure AD) stöder inte tjänstens slut punkter internt. En fullständig lista över Azure-tjänster som stöder VNet-tjänstens slut punkter visas [här](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Observera att taggen "Microsoft. AzureActiveDirectory" som anges under tjänster som stöder tjänst slut punkter används för att stödja tjänst slut punkter till ADLS gen 1. För ADLS gen 1 använder Virtual Network-integrering för Azure Data Lake Storage Gen1 den virtuella nätverks tjänstens slut punkt säkerhet mellan ditt virtuella nätverk och Azure Active Directory (Azure AD) för att generera ytterligare säkerhets anspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst. Läs mer om [Azure Data Lake Store generation 1 VNet-integrering] (.. /Data-Lake-Store/data-Lake-Store-Network-Security.MD? TOC =% 2fazure% 2fvirtual-Network% 2ftoc. JSON
+Azure Active Directory (Azure AD) stöder inte tjänstens slut punkter internt. En fullständig lista över Azure-tjänster som stöder VNet-tjänstens slut punkter visas [här](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview). Observera att taggen "Microsoft. AzureActiveDirectory" som anges under tjänster som stöder tjänst slut punkter används för att stödja tjänst slut punkter till ADLS gen 1. För ADLS gen 1 använder Virtual Network-integrering för Azure Data Lake Storage Gen1 den virtuella nätverks tjänstens slut punkt säkerhet mellan ditt virtuella nätverk och Azure Active Directory (Azure AD) för att generera ytterligare säkerhets anspråk i åtkomsttoken. Dessa anspråk används sedan för att autentisera ditt virtuella nätverk till ditt Data Lake Storage Gen1-konto och tillåta åtkomst. Läs mer om [Azure Data Lake Store generation 1 VNet-integrering](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 ### <a name="are-there-any-limits-on-how-many-vnet-service-endpoints-i-can-set-up-from-my-vnet"></a>Finns det några begränsningar för hur många VNet-tjänstens slut punkter jag kan konfigurera från mitt VNet?
 Det finns ingen gräns för det totala antalet VNet-slutpunkter i ett virtuellt nätverk. För en Azure-tjänst resurs (till exempel ett Azure Storage konto) kan tjänster upprätthålla gränser för antalet undernät som används för att skydda resursen. I följande tabell visas några exempel begränsningar: 

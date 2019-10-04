@@ -4,14 +4,14 @@ description: Visar hur resurs typer hanterar fullständig borttagning av läge i
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 10/03/2019
 ms.author: tomfitz
-ms.openlocfilehash: d8238dddee041573d9b122e62cec66118c681ef6
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: cdc00ccc61e20865e993a18c72b930d9570896f2
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995269"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937040"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>Borttagning av Azure-resurser för komplett läges distributioner
 
@@ -43,7 +43,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.Batch](#microsoftbatch)
 > - [Microsoft. fakturering](#microsoftbilling)
 > - [Microsoft.BingMaps](#microsoftbingmaps)
-> - [Microsoft.BizTalkServices](#microsoftbiztalkservices)
 > - [Microsoft.Blockchain](#microsoftblockchain)
 > - [Microsoft.Blueprint](#microsoftblueprint)
 > - [Microsoft.BotService](#microsoftbotservice)
@@ -126,6 +125,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > - [Microsoft.NetApp](#microsoftnetapp)
 > - [Microsoft.Network](#microsoftnetwork)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
+> - [Microsoft. ObjectStore](#microsoftobjectstore)
 > - [Microsoft. OffAzure](#microsoftoffazure)
 > - [Microsoft. OperationalInsights](#microsoftoperationalinsights)
 > - [Microsoft.OperationsManagement](#microsoftoperationsmanagement)
@@ -201,7 +201,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | logs | Nej |
 > | rapporter | Nej |
 > | servicehealthmetrics | Nej |
-> | services | Nej |
+> | tjänster | Nej |
 
 ## <a name="microsoftadvisor"></a>Microsoft.Advisor
 
@@ -396,6 +396,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | billingAccounts/kunder | Nej |
 > | billingAccounts/kunder/billingSubscriptions | Nej |
 > | billingAccounts/kunder/initiateTransfer | Nej |
+> | billingAccounts/kunder/principer | Nej |
 > | billingAccounts/kunder/produkter | Nej |
 > | billingAccounts/kunder/transaktioner | Nej |
 > | billingAccounts/kunder/överföringar | Nej |
@@ -443,13 +444,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | mapApis | Ja |
 > | updateCommunicationPreference | Nej |
-
-## <a name="microsoftbiztalkservices"></a>Microsoft.BizTalkServices
-
-> [!div class="mx-tableFixed"]
-> | Resurstyp | Borttagning i complete-läget |
-> | ------------- | ----------- |
-> | BizTalk | Ja |
 
 ## <a name="microsoftblockchain"></a>Microsoft.Blockchain
 
@@ -594,7 +588,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | trådlösa | Nej |
 > | Diskar | Nej |
-> | bilder | Nej |
+> | avbildningar | Nej |
 > | osImages | Nej |
 > | osPlatformImages | Nej |
 > | publicImages | Nej |
@@ -637,24 +631,22 @@ Hoppa till ett namn område för en resurs leverantör:
 > | diskEncryptionSets | Ja |
 > | Diskar | Ja |
 > | gallerier | Ja |
-> | gallerier/program | Ja |
-> | gallerier/program/versioner | Ja |
-> | gallerier/bilder | Ja |
-> | gallerier/avbildningar/versioner | Ja |
+> | gallerier/program | Nej |
+> | gallerier/program/versioner | Nej |
+> | gallerier/bilder | Nej |
+> | gallerier/avbildningar/versioner | Nej |
 > | hostGroups | Ja |
 > | hostGroups/värdar | Ja |
-> | bilder | Ja |
+> | avbildningar | Ja |
 > | proximityPlacementGroups | Ja |
 > | restorePointCollections | Ja |
 > | restorePointCollections/restorePoints | Nej |
 > | sharedVMImages | Ja |
-> | sharedVMImages/versioner | Ja |
+> | sharedVMImages/versioner | Nej |
 > | ögonblicksbilder | Ja |
 > | virtualMachines | Ja |
 > | virtualMachines/tillägg | Ja |
 > | virtualMachines/metricDefinitions | Nej |
-> | virtualMachines/scriptJobs | Nej |
-> | virtualMachines/softwareUpdateDeployments | Nej |
 > | virtualMachineScaleSets | Ja |
 > | virtualMachineScaleSets/extensions | Nej |
 > | virtualMachineScaleSets/networkInterfaces | Nej |
@@ -678,7 +670,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | samtliga | Nej |
 > | Marknads platser | Nej |
 > | Pricesheets | Nej |
-> | produkter | Nej |
+> | läkemedle | Nej |
 > | ReservationDetails | Nej |
 > | ReservationRecommendations | Nej |
 > | ReservationSummaries | Nej |
@@ -869,9 +861,8 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | services | Ja |
+> | tjänster | Ja |
 > | tjänster/projekt | Ja |
-> | lots | Ja |
 
 ## <a name="microsoftdatashare"></a>Microsoft. DataShare
 
@@ -923,6 +914,9 @@ Hoppa till ett namn område för en resurs leverantör:
 > | serverGroups | Ja |
 > | servrar | Ja |
 > | servrar/rådgivare | Nej |
+> | servrar/privateEndpointConnectionProxies | Nej |
+> | servrar/privateEndpointConnections | Nej |
+> | servrar/privateLinkResources | Nej |
 > | servrar/queryTexts | Nej |
 > | servrar/recoverableServers | Nej |
 > | servers/topQueryStatistics | Nej |
@@ -1027,7 +1021,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | services | Ja |
+> | tjänster | Ja |
 
 ## <a name="microsofteventgrid"></a>Microsoft.EventGrid
 
@@ -1127,7 +1121,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | services | Ja |
+> | tjänster | Ja |
 
 ## <a name="microsofthybridcompute"></a>Microsoft.HybridCompute
 
@@ -1193,7 +1187,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | valv/eventGridFilters | Nej |
 > | valv/hemligheter | Nej |
 
-## <a name="microsoftkusto"></a>Microsoft. Kusto
+## <a name="microsoftkusto"></a>Microsoft.Kusto
 
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
@@ -1203,6 +1197,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | kluster/databaser | Nej |
 > | kluster/databaser/dataconnections | Nej |
 > | kluster/databaser/eventhubconnections | Nej |
+> | kluster/sharedidentities | Nej |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
 
@@ -1282,7 +1277,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > [!div class="mx-tableFixed"]
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
-> | budgivning | Nej |
+> | erbjudanden | Nej |
 > | offerTypes | Nej |
 > | offerTypes/utgivare | Nej |
 > | offerTypes/utgivare/erbjudanden | Nej |
@@ -1291,7 +1286,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | offerTypes/utgivare/erbjudanden/planer/konfigurationer | Nej |
 > | offerTypes/utgivare/erbjudanden/planer/configs/importImage | Nej |
 > | privategalleryitems | Nej |
-> | produkter | Nej |
+> | läkemedle | Nej |
 > | utgivare | Nej |
 > | Utgivare/erbjudanden | Nej |
 > | Utgivare/erbjudanden/ändringar | Nej |
@@ -1367,11 +1362,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Resurstyp | Borttagning i complete-läget |
 > | ------------- | ----------- |
 > | netAppAccounts | Ja |
+> | netAppAccounts/backupPolicies | Ja |
 > | netAppAccounts/capacityPools | Ja |
 > | netAppAccounts/capacityPools/Volumes | Ja |
+> | netAppAccounts/capacityPools/Volumes/Backups | Nej |
 > | netAppAccounts/capacityPools/Volumes/mountTargets | Ja |
 > | netAppAccounts/capacityPools/volym/ögonblicks bilder | Ja |
-
+> | netAppAccounts/valv | Nej |
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
 > [!div class="mx-tableFixed"]
@@ -1464,6 +1461,13 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | namnrymder | Ja |
 > | namnrymder/notificationHubs | Ja |
+
+## <a name="microsoftobjectstore"></a>Microsoft. ObjectStore
+
+> [!div class="mx-tableFixed"]
+> | Resurstyp | Borttagning i complete-läget |
+> | ------------- | ----------- |
+> | osNamespaces | Ja |
 
 ## <a name="microsoftoffazure"></a>Microsoft.OffAzure
 
@@ -1606,7 +1610,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | ------------- | ----------- |
 > | distributioner | Nej |
 > | distributioner/åtgärder | Nej |
-> | Länkar | Nej |
+> | länkar | Nej |
 > | notifyResourceJobs | Nej |
 > | Providers | Nej |
 > | resourceGroups | Nej |
@@ -1618,7 +1622,6 @@ Hoppa till ett namn område för en resurs leverantör:
 > | prenumerationer/resurser | Nej |
 > | prenumerationer/tagNames | Nej |
 > | prenumerationer/tagNames/tagValues | Nej |
-> | taggar | Nej |
 > | klienter | Nej |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1682,6 +1685,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | securityStatusesSummaries | Nej |
 > | serverVulnerabilityAssessments | Nej |
 > | inställningar | Nej |
+> | underbedömningar | Nej |
 > | uppgifter | Nej |
 > | topologier | Nej |
 > | workspaceSettings | Nej |
@@ -1705,7 +1709,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | Dina | Nej |
 > | fall | Nej |
 > | dataConnectors | Nej |
-> | entiteter | Nej |
+> | Poster | Nej |
 > | entityQueries | Nej |
 > | officeConsents | Nej |
 > | inställningar | Nej |
@@ -1966,7 +1970,7 @@ Hoppa till ett namn område för en resurs leverantör:
 > | anslutningar | Ja |
 > | customApis | Ja |
 > | deletedSites | Nej |
-> | funktioner | Nej |
+> | functions | Nej |
 > | hostingEnvironments | Ja |
 > | hostingEnvironments/multiRolePools | Nej |
 > | hostingEnvironments/workerPools | Nej |

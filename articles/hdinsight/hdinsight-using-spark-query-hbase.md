@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 06/06/2019
-ms.openlocfilehash: e6b3fc4f9badeedbed55f89702933b41a952977b
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/02/2019
+ms.openlocfilehash: fdfd026be1a10410cd7c875dbdf0de9660c8412c
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180797"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937621"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Använda Apache Spark för att läsa och skriva Apache HBase-data
 
@@ -144,7 +144,7 @@ I det här steget definierar du ett katalog objekt som mappar schemat från Apac
     |}""".stripMargin
     ```
 
-    Koden utför följande:  
+    Koden gör följande:  
 
      a. Definiera ett katalog schema för HBase-tabellen med `Contacts`namnet.  
      b. Identifiera rowkey som `key`och mappa kolumn namnen som används i Spark till kolumn serien, kolumn namnet och kolumn typen som används i HBase.  
@@ -192,8 +192,7 @@ I det här steget definierar du ett katalog objekt som mappar schemat från Apac
 8. Utfärda en SQL-fråga mot `contacts` tabellen:
 
     ```scala
-    val query = spark.sqlContext.sql("select personalName, officeAddress from contacts")
-    query.show()
+    spark.sqlContext.sql("select personalName, officeAddress from contacts").show
     ```
 
 9. Du bör se resultatet så här:

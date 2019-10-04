@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 386dc737bb45eec031aaa1a0c55f4478b8302c54
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 05bb8b75fb09f3b8df0a6775874e72bdb04fc65e
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173578"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937548"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -52,21 +52,20 @@ I följande tabell visas egenskaps namn och beskrivningar för att konfigurera D
 
 Du kan använda [Azure SQL Database](https://azure.microsoft.com/services/sql-database/) som utdata för data som är i relation till typ eller för program som är beroende av innehåll som finns i en Relations databas. Stream Analytics jobb skriver till en befintlig tabell i SQL Database. Tabell schemat måste exakt matcha fälten och deras typer i jobbets utdata. Du kan också ange [Azure SQL Data Warehouse](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) som utdata via alternativet SQL Database utdata. Information om hur du kan förbättra Skriv data flödet finns i artikeln [Stream Analytics med Azure SQL Database som utdata](stream-analytics-sql-output-perf.md) .
 
+Du kan också använda [Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) som utdata. Du måste [Konfigurera den offentliga slut punkten i Azure SQL Database Hanterad instans](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) och manuellt konfigurera följande inställningar i Azure Stream Analytics. Den virtuella Azure-datorn som kör SQL Server med en databas ansluten stöds också genom att konfigurera inställningarna manuellt nedan.
+
 I följande tabell visas egenskaps namnen och deras beskrivning för att skapa en SQL Database utdata.
 
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Utdataalias |Ett eget namn som används i frågor för att dirigera utdata till den här databasen. |
 | Databas | Namnet på databasen dit du skickar dina utdata. |
-| servernamn | SQL Database-servernamn. |
+| servernamn | SQL Database-servernamn. För Azure SQL Database Hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342* |
 | Användarnamn | Det användar namn som har Skriv behörighet till databasen. Stream Analytics stöder endast SQL-autentisering. |
 | lösenordsinställning | Lösenordet för att ansluta till databasen. |
 | Tabell | Tabellnamnet där skrivs utdata. Tabell namnet är Skift läges känsligt. Schemat för den här tabellen ska exakt matcha det antal fält och deras typer som jobbets utdata genererar. |
 |Ärv partitionsschema| Ett alternativ för att ärva partitionerings schema i föregående fråga-steg för att aktivera helt parallell topologi med flera skrivare till tabellen. Mer information finns i [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md).|
 |Max batchantal| Den rekommenderade övre gränsen för antalet poster som skickas med varje Mass infognings transaktion.|
-
-> [!NOTE]
-> Azure SQL Database-erbjudandet stöds för utdata i Stream Analytics, men en virtuell Azure-dator som kör SQL Server med en databas ansluten eller i en SQL Azure hanterad instans stöds inte ännu. Detta kan ändras i framtida versioner.
 
 ## <a name="blob-storage-and-azure-data-lake-gen2"></a>Blob Storage och Azure Data Lake Gen2
 

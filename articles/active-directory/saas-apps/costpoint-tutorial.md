@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c1a8b916feb2ad67623434f2b63468be72bf1aa
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 01168540e27605db0d240c0774159a710b5d5254
+ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879629"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71840126"
 ---
 # <a name="tutorial-integrate-costpoint-with-azure-active-directory"></a>Självstudier: Integrera Costpoint med Azure Active Directory
 
@@ -44,129 +44,146 @@ För att komma igång behöver du följande objekt:
 
 I den här självstudien kommer du att konfigurera och testa Azure AD SSO i en test miljö. Costpoint stöder **SP-och IDP** -initierad SSO.
 
-## <a name="adding-costpoint-from-the-gallery"></a>Lägga till Costpoint från galleriet
+## <a name="generate-costpoint-metadata"></a>Generera Costpoint metadata
 
-Om du vill konfigurera integreringen av Costpoint i Azure AD måste du lägga till Costpoint från galleriet i listan över hanterade SaaS-appar.
+Costpoint SAML SSO-konfiguration beskrivs i guiden **DeltekCostpoint711Security. pdf** . Hämta den här guiden från Deltek Costpoint Support Site och se **installations programmet för SAML-enkel inloggning** > **Konfigurera SAML enkel inloggning mellan Costpoint och Microsoft Azure** avsnittet. Följ instruktionerna och generera en **XML-fil för COSTPOINT SP-federationsmetadata** . 
+
+![Konfigurations verktyg för Costpoint](./media/costpoint-tutorial/config-utility.png)
+
+## <a name="add-costpoint-from-the-gallery"></a>Lägg till Costpoint från galleriet
+
+Om du vill integrera Costpoint med Azure AD lägger du först till Costpoint i listan över hanterade SaaS-appar från galleriet i Azure Portal:
 
 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
+
 1. I det vänstra navigerings fönstret väljer du tjänsten **Azure Active Directory** .
-1. Navigera till **företags program** och välj sedan **alla program**.
+
+   ![Azure Active Directory-knappen](common/select-azuread.png)
+
+1. Välj **företags program** > **alla program**.
+
+   ![Bladet för Enterprise-program](common/enterprise-applications.png)
+
 1. Välj **nytt program**om du vill lägga till ett nytt program.
-1. I avsnittet **Lägg till från galleriet** , skriver du **Costpoint** i sökrutan.
-1. Välj **Costpoint** från resultat panelen och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+   ![Knappen Nytt program](common/add-new-app.png)
 
-Konfigurera och testa Azure AD SSO med Costpoint med hjälp av en test användare som heter **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Costpoint.
+1. I avsnittet **Lägg till från galleriet** , ange **Costpoint** i sökrutan.
+
+   ![Costpoint i resultat listan](common/search-new-app.png)
+
+1. I listan resultat väljer du **Costpoint**och lägger sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
+
+## <a name="configure-and-test-azure-ad-single-sgn-on"></a>Konfigurera och testa Azure AD Single SGN
+
+Konfigurera och testa Azure AD SSO med Costpoint med hjälp av en test användare med namnet **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Costpoint.
 
 Om du vill konfigurera och testa Azure AD SSO med Costpoint, slutför du följande Bygg stenar:
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
-2. **[Konfigurera Costpoint](#configure-costpoint)** för att konfigurera SSO-inställningarna på program sidan.
-3. **[Skapa en Azure AD](#create-an-azure-ad-test-user)** -testanvändare för att testa enkel inloggning i Azure AD med B. Simon.
-4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testanvändaren att aktivera B. Simon för att använda enkel inloggning i Azure AD.
-5. **[Skapa Costpoint test User](#create-costpoint-test-user)** för att ha en motsvarighet till B. Simon i Costpoint som är länkad till Azure AD-representation av användare.
-6. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
+1. **[Konfigurera Costpoint](#configure-costpoint)** för att konfigurera inställningar för SAML SSO på program sidan.
+1. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)** för att testa enkel inloggning i Azure AD med B. Simon.
+1. **[Tilldela Azure AD-testanvändaren](#assign-the-azure-ad-test-user)** att aktivera B. Simon för att använda enkel inloggning i Azure AD.
+1. **[Skapa en Costpoint-testanvändare](#create-a-costpoint-test-user)** som ska ha en motsvarighet till B. Simon i Costpoint som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
-Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
+Följ de här stegen för att aktivera Azure AD SSO i Azure Portal:
 
-1. I [Azure Portal](https://portal.azure.com/)går du till sidan för program integrering i **Costpoint** , letar upp avsnittet **Hantera** och väljer **enkel inloggning**.
-1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/penna för **grundläggande SAML-konfiguration** för att redigera inställningarna.
+1. På sidan **Costpoint** Application Integration väljer du **enkel inloggning**.
 
-   ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
+   ![Konfigurera länken för enkel inloggning](common/select-sso.png)
 
-1. I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du har **metadatafilen för tjänstleverantör**:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du har *metadata-filen för tjänste leverantören*, Slutför följande steg:
 
-    > [!NOTE]
-    > Du hämtar metadata-filen för tjänst leverantören från avsnittet **skapa Costpoint metadata** , som beskrivs senare i självstudien.
+   > [!NOTE]
+   > Du hämtar metadata-filen för tjänst leverantören i [generera metadata för Costpoint](#generate-costpoint-metadata). Hur du använder filen beskrivs senare i självstudien.
  
-    1. Klicka på **ladda upp metadatafilen**.
+   1. Välj knappen **Ladda upp metadatafil** och välj **XML-filen för Costpoint SP-federationsmetadata** som tidigare genererades av Costpoint och välj sedan knappen **Lägg till** för att ladda upp filen.
+
+      ![Ladda upp metadatafilen](./media/costpoint-tutorial/upload-metadata.png)
     
-    1. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
-    
-    1. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i text rutor i Costpoint-avsnittet
+   1. När metadatafilen har laddats upp fylls **ID** och **svars-URL** -värden automatiskt i Costpoint-avsnittet.
 
-        > [!Note]
-        > Om värdena **Identifierare** och **Svars-URL** inte fylls i automatiskt fyller du i värdena manuellt enligt dina krav. Verifiera att **identifieraren (entitets-ID)** och svars- **URL (intygets konsument tjänst-URL)** har angetts korrekt och att **ACS-URL:** en är en giltig Costpoint-URL som slutar med **/LoginServlet.CPS**.
+      > [!NOTE]
+      > Om **ID** -och **svars-URL** -värdena inte är automatiska polulated anger du värdena manuellt enligt ditt krav. Verifiera att **identifieraren (entitets-ID)** och **svars-URL (intygets konsument tjänst-URL)** är korrekt inställda och att **ACS-URL:** en är en giltig Costpoint-URL som slutar med **/LoginServlet.CPS**.
 
-    1. Klicka på **Ange ytterligare URL:er**.
+   1. Välj **Ange ytterligare URL: er**. För **relä tillstånd**anger du ett värde med följande mönster: `system=[your system]` (till exempel **system = DELTEKCP**).
 
-    1. I text rutan **relä tillstånd** anger du ett värde med hjälp av följande mönster:`system=[your system], (for example, **system=DELTEKCP**)`
+1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , väljer du **kopierings** ikonen för att kopiera **URL: en för appens Federations-metadata** och spara den i anteckningar.
 
-1. Om du vill konfigurera programmet i **SP**-initierat läge gör du följande:
-    
-    I rutan **Inloggnings-URL** anger du en URL: `https://costpointteea.deltek.com/cpweb/cploginform.htm`
-
-    > [!NOTE]
-    > Dessa värden är inte verkliga. Uppdatera de här värdena med den faktiska identifieraren, svars-URL och relä status. Kontakta [Costpoint client support team](https://www.deltek.com/about/contact-us) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
-
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera-ikonen för att kopiera **URL: en** för appens Federations-metadata och spara den i anteckningar.
-
-   ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
-
-### <a name="generate-costpoint-metadata"></a>Generera Costpoint metadata
-
-Costpoint SAML SSO-konfiguration beskrivs i guiden **DeltekCostpoint711Security. pdf** . Från det som hänvisar till **inställningen för SAML-enkel inloggning > konfigurera SAML enkel inloggning mellan Costpoint och Azure AD-** avsnittet. Följ anvisningarna och generera **XML-filen med COSTPOINT SP-federationsmetadata** . Använd det här i den **grundläggande SAML-konfigurationen** i Azure Portal.
-
-![Konfigurations verktyg för Costpoint](./media/costpoint-tutorial/config02.png)
-
-> [!NOTE]
-> Du får guiden **DeltekCostpoint711Security. pdf** från [Costpoint-klientens support team](https://www.deltek.com/about/contact-us). Om du inte har den här filen kan du kontakta den för att hämta den här filen.
+   ![SAML-signeringscertifikat](common/copy-metadataurl.png)
 
 ### <a name="configure-costpoint"></a>Konfigurera Costpoint
 
-Återgå till **konfigurations verktyget för Costpoint** och klistra in **URL: en** för appens Federations-metadata i text rutan **IDP Federation Metadata XML** och fortsätt med instruktionerna från guiden **DeltekCostpoint711Security. pdf** för att slutföra Costpoint SAML-installation. 
+1. Återgå till konfigurations verktyget för Costpoint. I text rutan **XML-IDP för federationsmetadata** klistrar du in innehållet i URL-filen för *app Federation-Metadata* . 
 
-![Konfigurations verktyg för Costpoint](./media/costpoint-tutorial/config01.png)
+   ![Konfigurations verktyg för Costpoint](./media/costpoint-tutorial/config-utility-idp.png)
+
+1. Fortsätt med instruktionerna från guiden **DeltekCostpoint711Security. pdf** för att avsluta SAML-installationen av Costpoint.
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+Syftet med det här avsnittet är att skapa en test användare i Azure Portal med namnet B. Simon.
 
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
+1. I Azure-portalen går du till den vänstra panelen och väljer **Azure Active Directory** > **Användare** > **Alla användare**.
+
+   ![”Användare och grupper” och ”alla användare”-länkar](common/users.png)
+
+1. Välj **Ny användare**.
+
+   ![Knappen Ny användare](common/new-user.png)
+
+1. I **användar** egenskaperna slutför du de här stegen:
+
+   ![Dialogrutan användare](common/user-properties.png)
+
+   1. I fältet **namn** anger du **B. Simon**.
+   
+   1. I fältet **användar namn** anger du `b.simon\@yourcompanydomain.extension` (till exempel B.Simon@contoso.com).
+   
+   1. Markera kryss rutan **Visa lösen ord** och skriv sedan ned värdet som visas i fältet **lösen ord** .
+   
+   1. Välj **Skapa**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja B. Simon åtkomst till Costpoint.
+I det här avsnittet aktiverar du B. Simon för att använda enkel inloggning med Azure genom att bevilja B. Simon åtkomst till Costpoint.
 
 1. I Azure Portal väljer du **företags program** > **alla program**.
+
 1. I listan program väljer du **Costpoint**.
+
 1. I avsnittet **Hantera** på appens översikts sida väljer **du användare och grupper**.
 
    ![Länken ”användare och grupper”](common/users-groups-blade.png)
 
-1. Välj **Lägg till användare**och välj **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+1. Välj **Lägg till användare**. I dialog rutan **Lägg till tilldelning** väljer **du användare och grupper**.
 
-    ![Länken Lägg till användare](common/add-assign-user.png)
+   ![Länken Lägg till användare](common/add-assign-user.png)
 
-1. I dialog rutan **användare och grupper** väljer du **Britta Simon** från listan användare och klickar på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Klicka på knappen **tilldela** i dialog rutan **Lägg till tilldelning** .
+1. I dialog rutan **användare och grupper** väljer du **B. Simon**i listan **användare** . Välj sedan **Välj**.
 
-### <a name="create-costpoint-test-user"></a>Skapa Costpoint test användare
+1. Om du förväntar dig ett roll värde i SAML-intyget väljer du lämplig roll för användaren i listan i dialog rutan **Välj roll** och väljer sedan **Välj**.
 
-I det här avsnittet ska du skapa en användare i Costpoint. Anta att **användar-ID: t** är **B. Simon** och namnet **B. Simon**. Arbeta med [Costpoint-klientens support team](https://www.deltek.com/about/contact-us) för att lägga till användaren på Costpoint-plattformen. Användaren måste skapas och aktive ras innan du använder enkel inloggning.
- 
-När du har skapat en användares **autentiseringsmetod** måste den vara **Active Directory**, kryss rutan **SAML-enkel inloggning** måste vara markerad och användar namnet från Azure Active Directory måste vara **Active Directory eller certifikat-ID** (se nedan).
+1. I dialogrutan **Lägg till tilldelning** väljer du **Tilldela**.
 
-![Costpoint-användare](./media/costpoint-tutorial/user01.png)
+### <a name="create-a-costpoint-test-user"></a>Skapa en Costpoint-test användare
+
+I det här avsnittet skapar du en användare i Costpoint. Anta att användar-ID: t är **b. Simon** och att användarens namn är **b. Simon**. Arbeta med [Costpoint-klientens support team](https://www.deltek.com/about/contact-us) för att lägga till användaren på Costpoint-plattformen. Användaren måste skapas och aktive ras innan de kan använda enkel inloggning.
+
+När användaren har skapats måste du välja användarens **autentiseringsmetod** **Active Directory**, kryss rutan **SAML-enkel inloggning** måste vara markerad och användar namnet från Azure Active Directory måste vara **Active Directory eller Certifikat-ID** (visas i följande skärm bild).
+
+![Costpoint-användare](./media/costpoint-tutorial/costpoint-user.png)
 
 ### <a name="test-sso"></a>Testa SSO
 
-När du väljer panelen Costpoint på åtkomst panelen, bör du loggas in automatiskt på den Costpoint som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du väljer panelen Costpoint på åtkomst panelen, bör du loggas in automatiskt till Costpoint-programmet eftersom du ställer in SSO. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Lista med självstudier för att integrera SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
 - [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 

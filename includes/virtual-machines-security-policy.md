@@ -4,16 +4,16 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: cynthn
-ms.openlocfilehash: 5c90d7b5eefdf8357c0f6f8efb619bd69af12b06
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 53c9dea83fc6d413d7e82194696ffedabcc8cf7b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68843337"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71830182"
 ---
 Det är viktigt att du håller den virtuella datorn säker för de program som du kör. Att skydda dina virtuella datorer kan omfatta en eller flera Azure-tjänster och-funktioner som omfattar säker åtkomst till dina virtuella datorer och säker lagring av dina data. Den här artikeln innehåller information som gör att du kan skydda dina virtuella datorer och program.
 
-## <a name="antimalware"></a>Program mot skadlig kod
+## <a name="antimalware"></a>Programvara mot skadlig kod
 
 Modern Threat landskap för moln miljöer är dynamisk, vilket ökar trycket för att upprätthålla det effektiva skyddet för att uppfylla efterlevnads-och säkerhets kraven. [Microsoft Antimalware för Azure](../articles/security/fundamentals/antimalware.md) är en kostnads fri real tids skydds funktion som hjälper dig att identifiera och ta bort virus, spionprogram och annan skadlig program vara. Aviseringar kan konfigureras för att meddela dig när kända skadlig eller oönskad program vara försöker installera sig själv eller köra på den virtuella datorn. Det finns inte stöd för virtuella datorer som kör Linux eller Windows Server 2008.
 
@@ -25,7 +25,7 @@ Security Centers just-in-Time-åtkomst kan användas över din VM-distribution f
 
 ## <a name="encryption"></a>Kryptering
 
-Virtuella diskar i Azure kan krypteras för förbättrad [VM](../articles/virtual-machines/linux/encrypt-disks.md) -säkerhet och efterlevnad för virtuella [Windows-datorer](../articles/virtual-machines/windows/encrypt-disks.md) . Virtuella diskar på virtuella Windows-datorer krypteras i vila med BitLocker. Virtuella diskar på virtuella Linux-datorer krypteras i vila med hjälp av dm-crypt. 
+Virtuella diskar i Azure kan krypteras för förbättrad [VM](../articles/virtual-machines/linux/disk-encryption-overview.md) -säkerhet och efterlevnad för virtuella [Windows-datorer](../articles/virtual-machines/windows/encrypt-disks.md) . Virtuella diskar på virtuella Windows-datorer krypteras i vila med BitLocker. Virtuella diskar på virtuella Linux-datorer krypteras i vila med hjälp av dm-crypt. 
 
 Det kostar inget att kryptera virtuella diskar i Azure. Krypterings nycklar lagras i Azure Key Vault med hjälp av program varu skydd, eller så kan du importera eller generera nycklar i HSM: er (Hardware Security modules) som är certifierade enligt standarden FIPS 140-2 nivå 2. Dessa kryptografiska nycklar används för att kryptera och dekryptera virtuella diskar som är anslutna till den virtuella datorn. Du behåller kontrollen över dessa kryptografiska nycklar och kan granska deras användning. Ett Azure Active Directory tjänstens huvud namn är en säker mekanism för att utfärda kryptografiska nycklar när virtuella datorer är påslagna.
 

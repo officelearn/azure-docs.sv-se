@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/05/2017
 ms.author: mathoma
-ms.openlocfilehash: 2705b42849922ce7e3650162b8f1ff78723685c2
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 57a325dd297955296a94db134b6a2a6d58a37f03
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309248"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828616"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Lagrings konfiguration för SQL Server virtuella datorer
 
@@ -42,9 +42,28 @@ I följande avsnitt beskrivs hur du konfigurerar lagring för nya SQL Server vir
 
 ### <a name="azure-portal"></a>Azure Portal
 
-När du konfigurerar en virtuell Azure-dator med hjälp av en SQL Server Galleri avbildning kan du välja att automatiskt konfigurera lagringen för den nya virtuella datorn. Du anger lagrings storlek, prestanda begränsningar och arbets belastnings typ. Följande skärm bild visar bladet lagrings konfiguration som används vid etablering av SQL VM.
+När du konfigurerar en virtuell Azure-dator med hjälp av en SQL Server Galleri avbildning väljer du **ändra konfiguration** på fliken **SQL Server inställningar** för att öppna konfigurations sidan Prestandaoptimerad lagring. Du kan antingen lämna värdena som standard eller ändra vilken typ av disk konfiguration som passar dina behov bäst utifrån din arbets belastning. 
 
 ![SQL Server VM lagrings konfiguration under etableringen](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-provisioning.png)
+
+Välj den typ av arbets belastning som du distribuerar SQL Server för under **lagrings optimering**. Med alternativet **allmän** optimering får du som standard en datadisk med 5000 högsta IOPS och du kommer att använda samma enhet för dina data, transaktions logg och tempdb-lagring. Om du väljer antingen transaktions **bearbetning** (OLTP) eller **data lager** skapas en separat disk för data, en separat disk för transaktions loggen och Använd lokal SSD för tempdb. Det finns inga lagrings skillnader mellan **transaktions bearbetning** och **data lager**hantering, men det ändrar [stripe-konfigurationen och spårnings flaggor](#workload-optimization-settings). Om du väljer Premium Storage konfigureras cachelagringen till *ReadOnly* för data enheten, och *ingen* för logg enheten enligt [SQL Server VM bästa metoder för prestanda](virtual-machines-windows-sql-performance.md). 
+
+![SQL Server VM lagrings konfiguration under etableringen](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration.png)
+
+Disk konfigurationen är helt anpassningsbar så att du kan konfigurera lagrings miljön, disktyp och IOPs som du behöver för din SQL Server VM arbets belastning. Du kan också använda UltraSSD (för hands version) som ett alternativ för **disk typen** om din SQL Server VM finns i någon av de regioner som stöds (USA, östra 2, Sydostasien och Europa) och du har aktiverat [Ultra disks för din prenumeration](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+
+Dessutom kan du ange cachelagring för diskarna. Virtuella Azure-datorer har en teknik för cachelagring på flera nivåer som kallas [BLOB-cache](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) vid användning med [Premium-diskar](/azure/virtual-machines/windows/disks-types#premium-ssd). BLOB-cachen använder en kombination av den virtuella datorns RAM-minne och lokal SSD för cachelagring. 
+
+Diskcachelagring för Premium SSD kan vara *ReadOnly*, *readwrite* eller *none*. 
+
+- *ReadOnly* -cachelagring är mycket bra för SQL Server datafiler som lagras på Premium Storage. *ReadOnly* -cachelagring ger låg Läs latens, hög Läs-IOPS och data flöde eftersom läsningar utförs från cache, vilket operativ system i det virtuella dator minnet och lokal SSD. Dessa läsningar är mycket snabbare än läsningar från datadisk, som är från Azure Blob Storage. Premium Storage räknar inte vilka läsningar som hanteras från cachen mot disken IOPS och data flödet. Därför kan du använda det totala antalet IOPS-ANT data flöden. 
+- *Ingen* cache-konfiguration ska användas för diskarna som är värd för SQL Server logg filen eftersom logg filen skrivs sekventiellt och inte drar nytta av *ReadOnly* -cachelagring. 
+- *Readwrite* -cachelagring ska inte användas som värd för SQL Server filer eftersom SQL Server inte stöder data konsekvens med *readwrite* -cachen. Skriver avfalls kapaciteten för den *ReadOnly* BLOB-cachen och fördröjningen ökar om skrivningar går genom *ReadOnly* BLOB cache-lager. 
+
+
+   > [!TIP]
+   > Se till att lagrings konfigurationen matchar de begränsningar som angetts av den valda virtuella dator storleken. Att välja lagrings parametrar som överskrider prestanda gränsen för VM-storleken resulterar i fel: `The desired performance might not be reached due to the maximum virtual machine disk performance cap.`. Sänk antingen IOPs genom att ändra disk typen eller öka begränsningen för prestanda begränsning genom att öka storleken på den virtuella datorn. 
+
 
 Baserat på dina val utför Azure följande konfigurations åtgärder för lagring när du har skapat den virtuella datorn:
 
@@ -64,6 +83,13 @@ Om du använder följande Resource Manager-mallar bifogas två Premium-datadiska
 * [Skapa en virtuell dator med automatisk uppdatering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-autopatching)
 * [Skapa en virtuell dator med AKV-integrering](https://github.com/Azure/azure-quickstart-templates/tree/master/201-vm-sql-full-keyvault)
 
+### <a name="quickstart-template"></a>Snabbstartsmall
+
+Du kan använda följande snabb starts mall för att distribuera en SQL Server VM med lagrings optimering. 
+
+* [Skapa en virtuell dator med lagrings optimering](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage/)
+* [Skapa en virtuell dator med UltraSSD](https://github.com/Azure/azure-quickstart-templates/tree/master/101-sql-vm-new-storage-ultrassd)
+
 ## <a name="existing-vms"></a>Befintliga virtuella datorer
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
@@ -79,34 +105,13 @@ Om du vill ändra lagrings inställningarna väljer du **Konfigurera** under **I
 
 ![Konfigurera lagring för befintliga SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-configuration-existing.png)
 
-De konfigurations alternativ som visas varierar beroende på om du har använt den här funktionen tidigare. När du använder för första gången kan du ange dina lagrings krav för en ny enhet. Om du tidigare använde den här funktionen för att skapa en enhet kan du välja att utöka enhetens lagring.
+Du kan ändra disk inställningarna för de enheter som konfigurerades under SQL Server VM skapande processen. Om du väljer **utöka enhet** öppnas sidan ändring av enhet, så att du kan ändra disk typen, samt lägga till ytterligare diskar. 
 
-### <a name="use-for-the-first-time"></a>Använd för första gången
+![Konfigurera lagring för befintliga SQL Server VM](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-drive.png)
 
-Om det är första gången du använder den här funktionen kan du ange lagrings storlek och prestanda begränsningar för en ny enhet. Den här upplevelsen liknar vad du kan se vid etablerings tiden. Den största skillnaden är att du inte har behörighet att ange arbets belastnings typ. Denna begränsning förhindrar att befintliga SQL Server konfigurationer avbryts på den virtuella datorn.
 
-Azure skapar en ny enhet utifrån dina specifikationer. I det här scenariot utför Azure följande uppgifter för lagrings konfiguration:
 
-* Skapar och kopplar data diskar för Premium Storage till den virtuella datorn.
-* Konfigurerar data diskarna så att de kan nås SQL Server.
-* Konfigurerar data diskarna i en lagringspool baserat på de angivna kraven för storlek och prestanda (IOPS och data flöde).
-* Kopplar lagringspoolen till en ny enhet på den virtuella datorn.
-
-Mer information om hur Azure konfigurerar lagrings inställningar finns i [avsnittet lagrings konfiguration](#storage-configuration).
-
-### <a name="add-a-new-drive"></a>Lägg till en ny enhet
-
-Om du redan har konfigurerat lagring på SQL Server VM kan du utöka lagringen med två nya alternativ. Det första alternativet är att lägga till en ny enhet, vilket kan öka prestanda nivån för den virtuella datorn.
-
-När du har lagt till enheten måste du dock utföra en extra manuell konfiguration för att uppnå prestanda ökningen.
-
-### <a name="extend-the-drive"></a>Utöka enheten
-
-Det andra alternativet för att utöka lagringen är att utöka den befintliga enheten. Det här alternativet ökar det tillgängliga lagrings utrymmet för enheten, men det ökar inte prestandan. Med lagringspooler kan du inte ändra antalet kolumner efter det att lagringspoolen har skapats. Antalet kolumner bestämmer antalet parallella skrivningar som kan vara stripe över data diskarna. Därför kan inga tillagda data diskar öka prestandan. De kan bara ge mer lagrings utrymme för de data som skrivs. Den här begränsningen innebär också att när du utökar enheten bestämmer antalet kolumner det minsta antalet data diskar som du kan lägga till. Så om du skapar en lagringspool med fyra data diskar är antalet kolumner också fyra. Varje gång du utökar lagringen måste du lägga till minst fyra data diskar.
-
-![Utöka en enhet för en virtuell SQL-dator](./media/virtual-machines-windows-sql-storage-configuration/sql-vm-storage-extend-a-drive.png)
-
-## <a name="storage-configuration"></a>Storage-konfiguration
+## <a name="storage-configuration"></a>Lagringskonfiguration
 
 Det här avsnittet innehåller en referens för de lagrings konfigurations ändringar som Azure utför automatiskt vid etablering eller konfiguration av SQL VM i Azure Portal.
 

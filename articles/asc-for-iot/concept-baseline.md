@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/26/2019
+ms.date: 10/03/2019
 ms.author: mlottner
-ms.openlocfilehash: a9de9924b851024dd36c848203cc3ada2cde208c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: b0f5696b36082375a29e99298395cf16734d5bb4
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71329414"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937144"
 ---
 # <a name="azure-security-center-for-iot-baseline-and-custom-checks"></a>Azure Security Center för IoT-bas linje och anpassade kontroller
 
@@ -32,7 +32,7 @@ En bas linje fastställer standard beteendet för varje enhet och gör det lätt
 
 ## <a name="baseline-custom-checks"></a>Bas linje anpassade kontroller
 
-Med anpassade bas kontroller upprättas en anpassad lista över kontroller för varje enhets bas linje med hjälp av modulens identitet på enhets nivå. 
+Med anpassade bas kontroller upprättas en anpassad lista över kontroller för varje enhets bas linje med hjälp av **modulens identitet** på enhets nivå. 
 
 ## <a name="setting-baseline-properties"></a>Ange egenskaper för bas linje
 
@@ -67,8 +67,8 @@ Så här konfigurerar du anpassade bas kontroller:
 | Name| State | Giltiga värden| Standardvärden| Beskrivning |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |baselineCustomChecksEnabled|Krävs: sant |Giltiga värden: **Boolesk** |Standardvärde: **falskt** |Max tidsintervall innan meddelanden med hög prioritet skickas.|
-|baselineCustomChecksFilePath |Krävs: sant|Giltiga värden: **Sträng**, **Null** |Standardvärde: **PT5H** |Fullständig sökväg till bas linje XML-konfigurationen|
-|baselineCustomChecksFileHash |Krävs: sant|Giltiga värden: **Sträng**, **Null** |Standardvärde: **PT5H** |`sha256sum` i XML-konfigurationsfilen. Använd [sha256sum-referensen](https://linux.die.net/man/1/sha256sum) om du vill ha mer information. |
+|baselineCustomChecksFilePath |Krävs: sant|Giltiga värden: **Sträng**, **Null** |Standardvärde: **Null** |Fullständig sökväg till bas linje XML-konfigurationen|
+|baselineCustomChecksFileHash |Krävs: sant|Giltiga värden: **Sträng**, **Null** |Standardvärde: **Null** |`sha256sum` i XML-konfigurationsfilen. Använd [sha256sum-referensen](https://linux.die.net/man/1/sha256sum) om du vill ha mer information. |
 
 Om du vill granska fler bas linje exempel, se [anpassade bas linje exempel-1](https://ascforiot.blob.core.windows.net/public/custom_baseline_example_hyperv_ubuntu1804.xml) och [anpassad bas linje exempel-2](https://ascforiot.blob.core.windows.net/public/oms_audits.xml).
 

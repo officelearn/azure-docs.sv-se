@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: 9508ce927ef03c83f1c4ef7bf28d2fc02b831a99
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: f877306170b45d65a52a4c76afd7f064e83f240a
+ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68879931"
+ms.lasthandoff: 10/03/2019
+ms.locfileid: "71937296"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server instans migrering till Azure SQL Database Hanterad instans
 
@@ -169,7 +169,7 @@ Därför bör du jämföra prestanda parametrarna med bas linjen och identifiera
 Resultatet av prestanda jämförelsen kan vara:
 - Arbets belastnings prestanda på den hanterade instansen är anpassad eller bättre för arbets belastnings prestandan på SQL Server. I det här fallet har du bekräftat att migreringen har slutförts.
 - Majoriteten av prestanda parametrarna och frågorna i arbets belastningen fungerar bra, med vissa undantag med försämrade prestanda. I det här fallet skulle du behöva identifiera skillnaderna och deras prioritet. Om det finns några viktiga frågor med försämrade prestanda bör du undersöka att de underliggande SQL-avtalen har ändrats eller att frågorna påträffar vissa resurs gränser. Minskning i det här fallet kan vara att använda några tips i de kritiska frågorna (till exempel ändrad kompatibilitetsnivå, en äldre kardinalation-uppskattning), antingen direkt eller med hjälp av plan guider, återskapa eller skapa statistik och index som kan påverka planerna. 
-- De flesta av frågorna är långsammare på den hanterade instansen jämfört med din käll SQL Server. I det här fallet kan du försöka identifiera rotor saken till skillnaden, till exempel att nå ut till [en resurs gräns]( sql-database-managed-instance-resource-limits.md#instance-level-resource-limits) som IO-gränser, minnes gräns, instans logg hastighets begränsning osv. Om det inte finns några resurs gränser som kan orsaka skillnaden kan du försöka ändra kompatibilitetsnivån för databasen eller ändra databas inställningar som äldre kardinalitet och starta om testet. Granska de rekommendationer som tillhandahålls av Managed instance eller Query Store-vyer för att identifiera de frågor som försämrat prestanda.
+- De flesta av frågorna är långsammare på den hanterade instansen jämfört med din käll SQL Server. I det här fallet kan du försöka identifiera rotor saken till skillnaden, till exempel att nå ut till [en resurs gräns]( sql-database-managed-instance-resource-limits.md#service-tier-characteristics) som IO-gränser, minnes gräns, instans logg hastighets begränsning osv. Om det inte finns några resurs gränser som kan orsaka skillnaden kan du försöka ändra kompatibilitetsnivån för databasen eller ändra databas inställningar som äldre kardinalitet och starta om testet. Granska de rekommendationer som tillhandahålls av Managed instance eller Query Store-vyer för att identifiera de frågor som försämrat prestanda.
 
 > [!IMPORTANT]
 > Den hanterade instansen har inbyggd funktion för automatisk plan korrigering som är aktive rad som standard. Den här funktionen säkerställer att frågor som fungerat bra i inklistring inte försämras i framtiden. Se till att den här funktionen är aktive rad och att du har kört arbets belastningen tillräckligt lång med de gamla inställningarna innan du ändrar nya inställningar för att aktivera hanterad instans för att lära dig om bas linje prestanda och planer.

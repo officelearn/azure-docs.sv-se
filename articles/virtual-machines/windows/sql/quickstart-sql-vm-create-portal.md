@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 3ba804f76f8d443c0b49a9b4e5425333f01f0b9a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bbf127f105f0ef22a23f00541396c2ac66b0e5f9
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102330"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828367"
 ---
 # <a name="quickstart-create-a-sql-server-2017-windows-virtual-machine-in-the-azure-portal"></a>Snabbstart: Skapa en virtuell Windows-dator med SQL Server 2017 i Azure Portal
 
@@ -43,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 1. Välj **Azure SQL** i den vänstra menyn i Azure Portal. Om **Azure SQL** inte finns i listan väljer du **alla tjänster**och skriver sedan *Azure SQL* i sökrutan.
 1. Välj **+ Lägg** till för att öppna **alternativ sidan Välj SQL-distribution** . Du kan visa mer information genom att välja **Visa information** på panelen **SQL Virtual Machines** .
-1. Välj **Kostnadsfri SQL Server-licens: SQL Server 2017-utvecklare på Windows Server** 2016-avbildningen från List rutan.
+1. Välj **Kostnadsfri SQL Server-licens: SQL Server 2017-utvecklare på Windows Server 2016 @ no__t-0-bild från List rutan.
 
    ![Nytt sökfönster](./media/quickstart-sql-vm-create-portal/select-sql-2017-vm-image.png)
 
@@ -64,7 +64,7 @@ Ange följande information på fliken **grundläggande** :
     1. Välj en plats för din **region**. 
     1. I den här snabb starten måste du lämna **tillgänglighets alternativen** inställt på _ingen infrastruktur-redundans krävs_. Om du vill veta mer om tillgänglighets alternativ, se [tillgänglighet](../../windows/availability.md). 
     1. I listan **avbildning** väljer _du gratis SQL Server licens: SQL Server 2017-utvecklare på Windows Server_2016. 
-    1. Välj att **ändra storleken** på den virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. 
+    1. Välj att **ändra storleken** **på den** virtuella datorn och välj **a2 Basic** -erbjudandet. Se till att rensa dina resurser när du är klar med dem för att förhindra eventuella oväntade kostnader. 
 
    ![Instansinformation](media/quickstart-sql-vm-create-portal/basics-instance-details.png)
 
@@ -81,9 +81,10 @@ Ange följande information på fliken **grundläggande** :
 Konfigurera följande alternativ på fliken **SQL Server inställningar** :
 
 1. Under **säkerhet & nätverk**väljer du _offentliga (Internet_) för **SQL-anslutning** och ändrar porten till `1401` för att undvika att använda ett välkänt port nummer i det offentliga scenariot. 
-1. Under **SQL-autentisering**väljer du **Aktivera**. SQL-inloggningen konfigureras till samma användarnamn och lösenord som du konfigurerade för den virtuella datorn. Använd standardinställningarna för **Azure Key Vault integrering** och lagrings **konfiguration**.  
+1. Under **SQL-autentisering**väljer du **Aktivera**. SQL-inloggningen konfigureras till samma användarnamn och lösenord som du konfigurerade för den virtuella datorn. Använd standardinställningen för Azure Key Vault- [**integrering**](virtual-machines-windows-ps-sql-keyvault.md). **Lagrings konfigurationen** är inte tillgänglig för den grundläggande SQL Server VM-avbildningen men du hittar mer information om tillgängliga alternativ för andra avbildningar i [lagrings konfigurationen](virtual-machines-windows-sql-server-storage-configuration.md#new-vms).  
 
    ![Säkerhets inställningar för SQL Server](media/quickstart-sql-vm-create-portal/sql-server-settings.png)
+
 
 1. Ändra eventuella andra inställningar om det behövs och välj sedan **Granska + skapa**. 
 

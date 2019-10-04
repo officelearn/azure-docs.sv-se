@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/28/2018
 ms.author: cynthn
-ms.openlocfilehash: c394b013b057a78e99cafc0adde9727d0a75a87c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: effe1169fb531abd3fe8a206f2baf83380fcd28f
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091833"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828400"
 ---
 # <a name="mount-azure-file-storage-on-linux-vms-using-smb"></a>Montera Azure File Storage på virtuella Linux-datorer med SMB
 
@@ -41,7 +41,7 @@ az group create --name myResourceGroup --location eastus
 
 ## <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
-Skapa ett nytt lagrings konto i resurs gruppen som du skapade med [AZ lagrings konto skapa](/cli/azure/storage/account). I det här exemplet skapas ett lagrings konto med namnet *mySTORAGEACCT\<Random Number >* och namnet på det lagrings kontot anges i variabeln **STORAGEACCT**. Lagrings konto namn måste vara unika, `$RANDOM` med Lägg till ett nummer i slutet för att göra det unikt.
+Skapa ett nytt lagrings konto i resurs gruppen som du skapade med [AZ lagrings konto skapa](/cli/azure/storage/account). I det här exemplet skapas ett lagrings konto med namnet *mySTORAGEACCT @ no__t-1random number >* och namnet på lagrings kontot placeras i variabeln **STORAGEACCT**. Lagrings konto namn måste vara unika, med `$RANDOM` lägger till ett tal i slutet för att göra det unikt.
 
 ```bash
 STORAGEACCT=$(az storage account create \
@@ -71,7 +71,7 @@ Skapa fil lagrings resursen med hjälp av [AZ Storage Share Create](/cli/azure/s
 
 Resurs namn måste vara alla gemener, siffror och enskilda bindestreck, men får inte börja med ett bindestreck. Mer information om hur du namnger filresurser och filer finns i [Namnge och referera till resurser, kataloger, filer och Metadata](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Shares--Directories--Files--and-Metadata).
 
-I det här exemplet skapas en resurs med namnet Unshare med en 10-GIB kvot. 
+I det här exemplet skapas en resurs med namnet *Unshare* med en 10-GIB kvot. 
 
 ```bash
 az storage share create --name myshare \
@@ -99,7 +99,7 @@ Montera Azure-filresursen i den lokala katalogen.
 sudo mount -t cifs //$STORAGEACCT.file.core.windows.net/myshare /mnt/MyAzureFileShare -o vers=3.0,username=$STORAGEACCT,password=$STORAGEKEY,dir_mode=0777,file_mode=0777,serverino
 ```
 
-Kommandot ovan använder monterings [](https://linux.die.net/man/8/mount) kommandot för att montera Azure-filresursen och alternativ som är speciella för [CIFS](https://linux.die.net/man/8/mount.cifs). Mer specifikt file_mode-och dir_mode-alternativen ställer in filer och kataloger `0777`för behörighet. `0777` Behörigheten ger Läs-, skriv-och körnings behörighet för alla användare. Du kan ändra dessa behörigheter genom att ersätta värdena med andra [chmod-behörigheter](https://en.wikipedia.org/wiki/Chmod). Du kan också använda andra [CIFS](https://linux.die.net/man/8/mount.cifs) -alternativ som GID eller UID. 
+Kommandot ovan använder [monterings](https://linux.die.net/man/8/mount) kommandot för att montera Azure-filresursen och alternativ som är speciella för [CIFS](https://linux.die.net/man/8/mount.cifs). Mer specifikt file_mode-och dir_mode-alternativen ställer in filer och kataloger för att ge behörighet `0777`. Behörigheten `0777` ger Läs-, skriv-och körnings behörighet till alla användare. Du kan ändra dessa behörigheter genom att ersätta värdena med andra [chmod-behörigheter](https://en.wikipedia.org/wiki/Chmod). Du kan också använda andra [CIFS](https://linux.die.net/man/8/mount.cifs) -alternativ som GID eller UID. 
 
 
 ## <a name="persist-the-mount"></a>Behåll monteringen
@@ -115,5 +115,5 @@ För ökad säkerhet i produktions miljöer bör du lagra dina autentiseringsupp
 
 - [Använda Cloud-Init för att anpassa en virtuell Linux-dator när den skapas](using-cloud-init.md)
 - [Lägg till en disk till en virtuell Linux-dator](add-disk.md)
-- [Kryptera diskar på en virtuell Linux-dator med hjälp av Azure CLI](encrypt-disks.md)
+- [Azure Disk Encryption för virtuella Linux-datorer](disk-encryption-overview.md)
 

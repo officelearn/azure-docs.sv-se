@@ -6,14 +6,14 @@ author: mlearned
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 07/08/2019
+ms.date: 10/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 54a95186a297cf3604858341fb8f5aba3702bf5a
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 4d736556147797bcd007bdab1b5328deeadea712
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241783"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827358"
 ---
 # <a name="frequently-asked-questions-about-azure-kubernetes-service-aks"></a>Vanliga frågor och svar om Azure Kubernetes service (AKS)
 
@@ -59,7 +59,9 @@ För Windows Server-noder (för närvarande i för hands version i AKS) körs in
 
 ## <a name="why-are-two-resource-groups-created-with-aks"></a>Varför skapas två resurs grupper med AKS?
 
-Varje AKS-distribution omfattar två resurs grupper:
+AKS bygger på ett antal Azure-infrastruktur resurser, inklusive skalnings uppsättningar för virtuella datorer, virtuella nätverk och hanterade diskar. På så sätt kan du utnyttja många av kärn funktionerna i Azure-plattformen i den hanterade Kubernetes-miljön som tillhandahålls av AKS. De flesta typer av virtuella Azure-datorer kan till exempel användas direkt med AKS och Azure Reservations kan användas för att ta emot rabatter på dessa resurser automatiskt.
+
+För att aktivera den här arkitekturen omfattar varje AKS-distribution två resurs grupper:
 
 1. Du skapar den första resurs gruppen. Den här gruppen innehåller endast Kubernetes-Tjänsteresursen. AKS Resource Provider skapar automatiskt den andra resurs gruppen under distributionen. Ett exempel på den andra resurs gruppen är *MC_myResourceGroup_myAKSCluster_eastus*. Information om hur du anger namnet på den här andra resurs gruppen finns i nästa avsnitt.
 1. Den andra resurs gruppen, som kallas *resurs gruppen för noden*, innehåller alla infrastruktur resurser som är associerade med klustret. Dessa resurser omfattar Kubernetes-nodens virtuella datorer, virtuella nätverk och lagring. Som standard har noden resurs grupp ett namn som *MC_myResourceGroup_myAKSCluster_eastus*. AKS tar automatiskt bort nodens resurs när klustret tas bort, så den bör endast användas för resurser som delar klustrets livs cykel.
@@ -87,7 +89,7 @@ Om du ändrar eller tar bort Azure-skapade Taggar och andra resurs egenskaper i 
 
 ## <a name="what-kubernetes-admission-controllers-does-aks-support-can-admission-controllers-be-added-or-removed"></a>Vilka Kubernetes-kontrollanter stöder AKS? Kan åtkomst kontrol Lanterna läggas till eller tas bort?
 
-AKS stöder följande [styrenheter för åtkomst][admission-controllers]kontroll:
+AKS stöder följande styrenheter för [åtkomst][admission-controllers]kontroll:
 
 - *NamespaceLifecycle*
 - *LimitRanger*
@@ -159,7 +161,7 @@ Du kan, men AKS rekommenderar inte detta. Uppgraderingar bör helst utföras nä
 
 Nej, ta bort/ta bort alla noder i ett felaktigt tillstånd eller ta bort dem från klustret innan du uppgraderar.
 
-## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Jag har kört ett kluster borttagnings fel men ser felet`[Errno 11001] getaddrinfo failed` 
+## <a name="i-ran-a-cluster-delete-but-see-the-error-errno-11001-getaddrinfo-failed"></a>Det gick inte att ta bort klustret, men du kan se felet `[Errno 11001] getaddrinfo failed` 
 
 Oftast orsakas detta av användare som har en eller flera nätverks säkerhets grupper (NSG: er) som fortfarande används och som är kopplade till klustret.  Ta bort dem och försök att ta bort dem igen.
 
@@ -173,7 +175,7 @@ Kontrol lera att tjänstens huvud namn inte har upphört att gälla.  Se: Autent
 
 ## <a name="can-i-use-the-virtual-machine-scale-set-apis-to-scale-manually"></a>Kan jag använda API: erna för skalnings uppsättningen för virtuella datorer för att skala manuellt?
 
-Nej, skalnings åtgärder med hjälp av API: er för skalnings uppsättningen för virtuella datorer stöds inte. Använd AKS-API:`az aks scale`er ().
+Nej, skalnings åtgärder med hjälp av API: er för skalnings uppsättningen för virtuella datorer stöds inte. Använd AKS-API: erna (`az aks scale`).
 
 ## <a name="can-i-use-virtual-machine-scale-sets-to-manually-scale-to-0-nodes"></a>Kan jag använda skalnings uppsättningar för virtuella datorer för att manuellt skala till 0 noder?
 

@@ -5,15 +5,15 @@ services: digital-twins
 author: kingdomofends
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/12/2019
+ms.date: 09/30/2019
 ms.author: v-adgera
 ms.custom: include file
-ms.openlocfilehash: fa88bf7f8db9b4fea63429dbfd18f84ee84ccda1
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
-ms.translationtype: MT
+ms.openlocfilehash: 1c8237ce4e8b758395567e939c1ed4bda1f297ff
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "69012301"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827650"
 ---
 Rollbaserad åtkomst kontroll är en arvs driven säkerhets strategi för hantering av åtkomst, behörigheter och roller. Underordnade roller ärver behörigheter från överordnade roller. Behörigheter kan även tilldelas utan att ärvas från en överordnad roll. De kan också tilldelas för att anpassa en roll vid behov.
 

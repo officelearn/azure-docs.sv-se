@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c99ee1987b592a2e8314d529b118fb26945271e
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241699"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827143"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är berättigandehantering i Azure AD? (Förhandsversion)
 
@@ -122,8 +122,8 @@ För att bättre förstå hantering av rättigheter och dess dokumentation bör 
 | Term eller begrepp | Beskrivning |
 | --- | --- |
 | hantering av rättigheter | En tjänst som tilldelar, återkallar och administrerar åtkomst paket. |
-| åtkomst paket | En samling behörigheter och principer till resurser som användare kan begära. Ett Access-paket finns alltid i en katalog. |
-| åtkomstbegäran | En begäran om åtkomst till ett Access-paket. En begäran skickas vanligt vis genom ett arbets flöde. |
+| åtkomstpaket | En samling resurser som ett team eller projekt behöver och som styrs av principer. Ett Access-paket finns alltid i en katalog. |
+| åtkomstbegäran | En begäran om åtkomst till resurserna i ett Access-paket. En begäran skickas vanligt vis genom ett arbets flöde. |
 | policy | En uppsättning regler som definierar åtkomst livs cykeln, till exempel hur användare får åtkomst, vem som kan godkänna och hur länge användare har åtkomst. Exempel på principer är medarbetarnas åtkomst och extern åtkomst. |
 | catalog | En behållare för relaterade resurser och åtkomst paket. |
 | Allmän katalog | En inbyggd katalog som alltid är tillgänglig. För att lägga till resurser i den allmänna katalogen krävs vissa behörigheter. |

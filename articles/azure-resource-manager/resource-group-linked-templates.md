@@ -4,20 +4,20 @@ description: 'Beskriver hur du använder länkade mallar i en Azure Resource Man
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/02/2019
 ms.author: tomfitz
-ms.openlocfilehash: b48988c04f6b387a8124a812a836e2b92a9d3ada
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 59af553f4080ca86e964b75234e4d812297d8541
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194383"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827337"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Med hjälp av länkade och kapslade mallar när du distribuerar Azure-resurser
 
-För att distribuera din lösning, kan du använda samma mall eller en Huvudmall med många relaterade mappar. Relaterade mallen kan vara en separat fil som är länkad till från den huvudsakliga mallen eller en mall som är kapslade i den huvudsakliga mallen.
+För att distribuera din lösning, kan du använda samma mall eller en Huvudmall med många relaterade mappar. De relaterade mallarna kan antingen vara separata filer som är länkade till från huvud mal len, eller mallar som är kapslade i huvud mal len.
 
-För små till medelstora lösningar är lättare att förstå och hantera en enda mall. Du kan se alla resurser och värden i en enda fil. För avancerade scenarier länkade mallar gör det möjligt att bryta ned lösningen till riktade komponenter och återanvända mallar.
+För små till medelstora lösningar är lättare att förstå och hantera en enda mall. Du kan se alla resurser och värden i en enda fil. Med länkade mallar i avancerade scenarier kan du dela upp lösningen i riktade komponenter. Du kan enkelt återanvända dessa mallar för andra scenarier.
 
 När du använder länkade mallar kan skapa du en Huvudmall som tar emot parametervärdena under distributionen. Den huvudsakliga mallen innehåller alla länkade mallar och skickar värden till dessa mallar efter behov.
 
@@ -27,7 +27,7 @@ En självstudiekurs finns i [självstudie: Skapa länkade Azure Resource Manager
 > För länkade eller kapslade mallar kan du bara använda [stegvis](deployment-modes.md) distributions läge.
 >
 
-## <a name="link-or-nest-a-template"></a>Länka eller kapsla en mall
+## <a name="deployments-resource"></a>Distributions resurs
 
 Om du vill länka till en annan mall, lägger du till en **distributioner** resurs till mallen för huvudsakliga.
 
@@ -47,7 +47,7 @@ Om du vill länka till en annan mall, lägger du till en **distributioner** resu
 
 Egenskaper som du anger för distribution av resursen varierar beroende på om du länkar till en extern mall eller kapsla en mall för infogad i mallen huvudsakliga.
 
-### <a name="nested-template"></a>Kapslad mall
+## <a name="nested-template"></a>Kapslad mall
 
 Om du vill kapsla mallen inom den huvudsakliga mallen använder den **mall** egenskap och ange mallens syntax.
 
@@ -94,9 +94,17 @@ Om du vill kapsla mallen inom den huvudsakliga mallen använder den **mall** ege
 
 Den kapslade mallen kräver den [samma egenskaper](resource-group-authoring-templates.md) som en standardmall.
 
-### <a name="external-template-and-external-parameters"></a>Externa mall och externa parametrar
+## <a name="external-template"></a>Extern mall
 
-Om du vill länka till en extern mall och parameterfilen **templateLink** och **parametersLink**. När du länkar till en mall, måste Resource Manager-tjänsten kunna komma åt den. Du kan inte ange en lokal fil eller en fil som endast är tillgängliga i det lokala nätverket. Du kan endast ange ett URI-värde som innehåller antingen **http** eller **https**. Ett alternativ är att placera din länkade mall i ett lagringskonto och använda URI: N för objektet.
+Använd egenskapen **templateLink** för att länka till en extern mall. Du kan inte ange en lokal fil eller en fil som endast är tillgängliga i det lokala nätverket. Du kan endast ange ett URI-värde som innehåller antingen **http** eller **https**. Resource Manager måste kunna komma åt mallen.
+
+Ett alternativ är att placera din länkade mall i ett lagringskonto och använda URI: N för objektet.
+
+Du kan ange parametrar för din externa mall antingen i en extern fil eller i en intern fil.
+
+### <a name="external-parameters"></a>Externa parametrar
+
+När du anger en extern parameter fil använder du egenskapen **parametersLink** :
 
 ```json
 "resources": [
@@ -105,15 +113,15 @@ Om du vill länka till en extern mall och parameterfilen **templateLink** och **
     "apiVersion": "2018-05-01",
     "name": "linkedTemplate",
     "properties": {
-    "mode": "Incremental",
-    "templateLink": {
+      "mode": "Incremental",
+      "templateLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.json",
         "contentVersion":"1.0.0.0"
-    },
-    "parametersLink": {
+      },
+      "parametersLink": {
         "uri":"https://mystorageaccount.blob.core.windows.net/AzureTemplates/newStorageAccount.parameters.json",
         "contentVersion":"1.0.0.0"
-    }
+      }
     }
   }
 ]
@@ -121,11 +129,11 @@ Om du vill länka till en extern mall och parameterfilen **templateLink** och **
 
 Du inte behöver ange den `contentVersion` -egenskapen för mallen eller parametrar. Om du inte anger ett värde för innehållsversion, distribueras den aktuella versionen av mallen. Om du anger ett värde för innehållsversion måste måste den matcha versionen i länkade mallen. annars misslyckas distributionen med ett fel.
 
-### <a name="external-template-and-inline-parameters"></a>Externa mallen och infogade parametrar
+### <a name="inline-parameters"></a>Infogade parametrar
 
 Eller så kan du ange parametern-infogade. Du kan inte använda både infogade parametrar och en länk till en parameterfil. Distributionen misslyckas med ett fel när båda `parametersLink` och `parameters` har angetts.
 
-Om du vill skicka ett värde från den huvudsakliga mallen till länkad mall, använda **parametrar**.
+Om du vill skicka ett värde från huvud mal len till den länkade mallen använder du **parameter** egenskapen.
 
 ```json
 "resources": [
@@ -269,7 +277,7 @@ Den huvudsakliga mallen distribuerar länkad mall och hämtar värdet som return
 }
 ```
 
-Du kan ange beroenden mellan länkade mallen och andra resurser som andra typer av resurser. När andra resurser kräver utdatavärde från länkade mallen, se därför till länkad mall har distribuerats före. Eller, när den länkade mallen är beroende av andra resurser, se till att andra resurser distribueras innan länkad mall.
+Du kan ange beroenden mellan länkade mallen och andra resurser som andra typer av resurser. När andra resurser kräver ett värde för utdata från den länkade mallen kontrollerar du att den länkade mallen har distribuerats före dem. Eller, när den länkade mallen är beroende av andra resurser, se till att andra resurser distribueras innan länkad mall.
 
 I följande exempel visas en mall som distribuerar en offentlig IP-adress och returnerar resurs-ID:
 

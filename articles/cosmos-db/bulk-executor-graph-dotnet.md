@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 127c12b6a36f31f91fdce3700c43e2602a5c0194
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624545"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827274"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
 
@@ -23,7 +23,7 @@ Till skillnad från när du skickar Gremlin-frågor till en databas, där komman
 
 ## <a name="bulk-operations-with-graph-data"></a>Massåtgärder med diagramdata
 
-[Bulk utförar-biblioteket](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) innehåller ett `Microsoft.Azure.CosmosDB.BulkExecutor.Graph` namn område för att tillhandahålla funktioner för att skapa och importera diagram objekt. 
+[Bulk utförar-biblioteket](https://docs.microsoft.com/dotnet/api/microsoft.azure.cosmosdb.bulkexecutor.graph?view=azure-dotnet) innehåller en `Microsoft.Azure.CosmosDB.BulkExecutor.Graph`-namnrymd för att tillhandahålla funktioner för att skapa och importera diagram objekt. 
 
 Följande process beskriver hur datamigrering kan användas för en Gremlin API-container:
 1. Hämta poster från datakällan.
@@ -73,7 +73,7 @@ catch (Exception e)
 }
 ```
 
-Mer information om parametrarna i bulk utförar-biblioteket finns i [avsnittet BulkImportData to Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/bulk-executor-dot-net#bulk-import-data-to-azure-cosmos-db).
+Mer information om parametrarna i bulk utförar-biblioteket finns i [avsnittet BulkImportData to Azure Cosmos DB](bulk-executor-dot-net.md#bulk-import-data-to-an-azure-cosmos-account).
 
 Nyttolasten behöver instansieras till `GremlinVertex`- och `GremlinEdge`-objekt. Så här kan dessa objekt skapas:
 
@@ -131,7 +131,7 @@ Den här lagringsplatsen innehåller GraphBulkExecutor-exemplet med följande fi
 Fil|Beskrivning
 ---|---
 `App.config`|Det här är där program- och databasspecifika parametrar anges. Den här filen ska först ändras för att ansluta till måldatabasen och -samlingarna.
-`Program.cs`| Den här filen innehåller logiken bakom skapandet `DocumentClient` av samlingen, hantering av rensningar och sändning av Mass utförar-begäranden.
+`Program.cs`| Den här filen innehåller logiken bakom skapandet av `DocumentClient`-samlingen, hantering av rensningar och sändning av Mass utförar-begäranden.
 `Util.cs`| Den här filen innehåller en hjälpklass som innehåller logiken bakom att generera testdata och kontrollera om databasen och samlingarna finns.
 
 I `App.config`-filen är följande konfigurationsvärden som kan tillhandahållas:

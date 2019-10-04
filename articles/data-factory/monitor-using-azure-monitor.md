@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/11/2018
-ms.openlocfilehash: 2a707eda6a7e32a95666dd70e196c8da3c3b7834
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 6f5472e42b7ef43123698f01ee76fb0e691aa45e
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815946"
+ms.locfileid: "71827793"
 ---
 # <a name="alert-and-monitor-data-factories-by-using-azure-monitor"></a>Varna och övervaka data fabriker med hjälp av Azure Monitor
 
@@ -472,7 +472,7 @@ Efter en liten stund visas den nya inställningen i listan med inställningar f�
 * I _Azure-diagnostikläge-_ läge flödar diagnostikloggar till _AzureDiagnostics_ -tabellen
 
 > [!NOTE]
-> Eftersom en Azure-loggfil inte kan ha fler än 500 kolumner rekommenderar vi starkt att du väljer resurs-/regionsspecifika läge. Mer information finns i [Log Analytics kända begränsningar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-stream-log-store#known-limitation-column-limit-in-azurediagnostics).
+> Eftersom en Azure-loggfil inte kan ha fler än 500 kolumner rekommenderar vi starkt att du väljer resurs-/regionsspecifika läge. Mer information finns i [Log Analytics kända begränsningar](../azure-monitor/platform/resource-logs-collect-workspace.md#column-limit-in-azurediagnostics).
 
 ### <a name="install-azure-data-factory-analytics-from-azure-marketplace"></a>Installera Azure Data Factory Analytics från Azure Marketplace
 

@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03c09a751119c1d6effa5795f2dbf7da422b7806
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 48f3109b4c87e25444629ca25411894eab8a9d56
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70135786"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827132"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Azure AD Connect synkronisering: Förhindra oavsiktliga borttagningar
 I det här avsnittet beskrivs funktionen förhindra oavsiktliga borttagningar (förhindra oavsiktliga borttagningar) i Azure AD Connect.
@@ -35,18 +35,18 @@ Vanliga scenarier när du ser många borttagningar inkluderar:
 * Alla objekt i en organisationsenhet tas bort.
 * En organisationsenhet ges nytt namn så att alla objekt i den anses hamna utanför synkroniseringens omfång.
 
-Standardvärdet för 500-objekt kan ändras med PowerShell med `Enable-ADSyncExportDeletionThreshold`, som är en del av den AD Sync modulen som installeras med Azure Active Directory Connect. Du bör konfigurera det här värdet så att det passar din organisations storlek. Eftersom synkroniseringsschemat körs var 30: e minut, är värdet antalet borttagningar som visas inom 30 minuter.
+Standardvärdet 500-objekt kan ändras med PowerShell med hjälp av `Enable-ADSyncExportDeletionThreshold`, som är en del av modulen AD Sync som installeras med Azure Active Directory Connect. Du bör konfigurera det här värdet så att det passar din organisations storlek. Eftersom synkroniseringsschemat körs var 30: e minut, är värdet antalet borttagningar som visas inom 30 minuter.
 
 Om för många borttagningar är mellanlagrade för att exporteras till Azure AD, stoppas exporten och du får ett e-postmeddelande som detta:
 
 ![Förhindra oavsiktliga borttagningar av e-post](./media/how-to-connect-sync-feature-prevent-accidental-deletes/email.png)
 
-> *Hej (teknisk kontakt). Vid (tid) upptäckte Identitetssynkronisering tjänsten att antalet borttagningar översteg det konfigurerade tröskelvärdet för borttagning av (organisations namn). Ett totalt antal (tal)-objekt har skickats för borttagning i den här Identitetssynkronisering körningen. Detta är uppfyllt eller översteg det konfigurerade tröskelvärdet för borttagning av (antal) objekt. Du måste ange en bekräftelse på att dessa borttagningar ska bearbetas innan vi fortsätter. Mer information om felet som anges i det här e-postmeddelandet finns i förhindra oavsiktliga borttagningar.*
+> *Hello (teknisk kontakt). Vid (tid) upptäckte Identitetssynkronisering tjänsten att antalet borttagningar översteg det konfigurerade tröskelvärdet för borttagning av (organisations namn). Ett totalt antal (tal)-objekt har skickats för borttagning i den här Identitetssynkronisering körningen. Detta är uppfyllt eller översteg det konfigurerade tröskelvärdet för borttagning av (antal) objekt. Du måste ange en bekräftelse på att dessa borttagningar ska bearbetas innan vi fortsätter. Mer information om felet som anges i det här e-postmeddelandet finns i förhindra oavsiktliga borttagningar.*
 >
 > 
 
-Du kan också se statusen `stopped-deletion-threshold-exceeded` när du tittar på **Synchronization Service Manager** användar gränssnittet för export profilen.
-![Förhindra oavsiktliga borttagningar av Sync Service Manager UI](./media/how-to-connect-sync-feature-prevent-accidental-deletes/syncservicemanager.png)
+Du kan också se status `stopped-deletion-threshold-exceeded` när du tittar på **Synchronization Service Manager** användar gränssnittet för export profilen.
+![Prevent av misstag tar bort synkronisering Service Manager UI @ no__t-1
 
 Om detta var oväntat undersöker du och vidtar lämpliga åtgärder. Gör så här om du vill se vilka objekt som ska tas bort:
 
@@ -58,15 +58,16 @@ Om detta var oväntat undersöker du och vidtar lämpliga åtgärder. Gör så h
 
 ![Sök efter anslutnings utrymme](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
-[!NOTE] Om du inte är säker på att alla borttagningar önskas och vill gå en säkrare väg. Du kan använda PowerShell-cmdleten `Enable-ADSyncExportDeletionThreshold` : om du vill ange ett nytt tröskelvärde snarare än att inaktivera tröskelvärdet som kan tillåta oönskade borttagningar. 
+[!NOTE] Om du inte är säker på att alla borttagningar önskas och vill gå en säkrare väg. Du kan använda PowerShell-cmdleten: `Enable-ADSyncExportDeletionThreshold` om du vill ange ett nytt tröskelvärde i stället för att inaktivera tröskelvärdet som kan tillåta oönskade borttagningar. 
 
+## <a name="if-all-deletes-are-desired"></a>Om alla borttagningar önskas
 Om alla borttagningar önskas gör du följande:
 
-1. Kör PowerShell-cmdleten `Get-ADSyncExportDeletionThreshold`för att hämta det aktuella tröskelvärdet för borttagning. Ange ett globalt administratörs konto och lösen ord för Azure AD. Standardvärdet är 500.
-2. Om du vill inaktivera det här skyddet tillfälligt kan du köra PowerShell-cmdleten genom att `Disable-ADSyncExportDeletionThreshold`köra PowerShell-cmdleten:. Ange ett globalt administratörs konto och lösen ord för Azure AD.
+1. Om du vill hämta det aktuella tröskelvärdet för borttagning kör du PowerShell-cmdleten `Get-ADSyncExportDeletionThreshold`. Ange ett globalt administratörs konto och lösen ord för Azure AD. Standardvärdet är 500.
+2. Om du vill inaktivera skyddet tillfälligt och låta dem gå igenom, kör du PowerShell-cmdleten: `Disable-ADSyncExportDeletionThreshold`. Ange ett globalt administratörs konto och lösen ord för Azure AD.
    ![Autentiseringsuppgifter](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. När Azure Active Directory anslutningen fortfarande är markerad väljer du åtgärden **Kör** och väljer **Exportera**.
-4. Kör PowerShell-cmdleten för att återaktivera skyddet: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Ersätt 500 med det värde som du noterade när du hämtade det aktuella tröskelvärdet för borttagning. Ange ett globalt administratörs konto och lösen ord för Azure AD.
+4. Aktivera skyddet igen genom att köra PowerShell-cmdleten: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Ersätt 500 med det värde som du noterade när du hämtade det aktuella tröskelvärdet för borttagning. Ange ett globalt administratörs konto och lösen ord för Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 **Översikts avsnitt**

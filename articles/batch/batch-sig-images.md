@@ -8,12 +8,12 @@ ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
 ms.author: lahugh
-ms.openlocfilehash: c3f5155c7d1576657f36445562b5b425148a838a
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: fa232fb48e80e3ae3751920e4215c4b4d3ded19a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348949"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827920"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>Använd det delade avbildnings galleriet för att skapa en anpassad pool
 
@@ -58,7 +58,7 @@ För att skala batch-pooler på ett tillförlitligt sätt med en anpassad avbild
 
 ### <a name="prepare-a-vm"></a>Förbered en virtuell dator
 
-Om du skapar en ny virtuell dator för avbildningen använder du en Azure Marketplace-avbildning från första part som stöds av batch som bas avbildning för din hanterade avbildning. Endast första parts bilder kan användas som en bas avbildning. Om du vill få en fullständig lista över referens för Azure Marketplace-avbildningar som stöds av Azure Batch, se [noden List Node agent SKU: er](/rest/api/batchservice/account/listnodeagentskus) .
+Om du skapar en ny virtuell dator för avbildningen använder du en Azure Marketplace-avbildning från första part som stöds av batch som bas avbildning för din hanterade avbildning. Endast första parts bilder kan användas som en bas avbildning. Om du vill få en fullständig lista över referens för Azure Marketplace-avbildningar som stöds av Azure Batch, se [noden List Node agent SKU: er](/java/api/com.microsoft.azure.batch.protocol.accounts.listnodeagentskus) .
 
 > [!NOTE]
 > Du kan inte använda en avbildning från tredje part som har ytterligare licens-och inköps villkor som bas avbildning. Information om dessa Marketplace-avbildningar finns i rikt linjerna [för](../virtual-machines/linux/cli-ps-findimage.md#deploy-an-image-with-marketplace-terms

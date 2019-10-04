@@ -5,14 +5,14 @@ services: Azure, Marketplace, Compute, Storage, Networking, Blockchain, Security
 author: qianw211
 ms.service: marketplace
 ms.topic: article
-ms.date: 9/26/2019
+ms.date: 10/2/2019
 ms.author: ellacroi
-ms.openlocfilehash: abc3b3a6be5f8c61c07fb29a6f168c8738733099
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4096b9201afc98f6e5eb239cf9e6883ac69b6e79
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350379"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827992"
 ---
 # <a name="microsoft-commercial-marketplace-faqs"></a>Vanliga frågor och svar om Microsoft Marketplace
 
@@ -155,7 +155,7 @@ Detta är de vanligaste alternativen per erbjudande typ:
 
 **Vilka typer av försök stöds?**
 
-De kostnads fria utvärderings erbjudandena är listor med ett anrop till åtgärd för att initiera en utvärderings version. Dessa leder kunden till en webbplats som definierats av utgivaren för att ställa in utvärderings versionen. Test versioner kan också läggas till i avgiftsbelagda erbjudanden där den första månaden är kostnads fri. 
+Utgivare kan lägga till en kostnads fri månad för betalda SaaS-erbjudanden och en eller tre kostnads fria månaders förbrukning för VM-avbildningar. De kostnads fria utvärderings erbjudandena är listor med ett anrop till åtgärd för att initiera en utvärderings version. Dessa leder kunden till en webbplats som definierats av utgivaren för att ställa in utvärderings versionen. Test versioner kan också läggas till i avgiftsbelagda erbjudanden där den första månaden är kostnads fri. 
 
 **Måste jag ha ett betalnings instrument (t. ex. kredit kort) i filen för att distribuera den kostnads fria nivån eller ta med dina egna licens erbjudanden (BYOL)?**
 
@@ -169,6 +169,10 @@ Enterprise-avtal (EA) indirekta kunder måste kontakta sin Licensing Solution Pr
 
 Ja, för kunder med Enterprise-avtal (EA) kan registrerings administratören stänga av köp behörighet för alla konton i registreringen och aktivera den igen tillräckligt länge för att göra ett köp. Dessutom kan alla kunder använda Azure Policy för att begränsa distributions alternativen för sina Azure-prenumerationer, inklusive hantering av Azure Marketplace-resurser.
 
+**Vilka betalnings metoder stöds för inköp av kommersiella marknads platser?**
+
+Kunder kan köpa erbjudanden från Azure Marketplace och Microsoft AppSource att använda kredit kort. Om du har en befintlig Azure-prenumeration använder köp från Azure Marketplace betalnings metoden som kon figurer ATS för kontot och visas på samma faktura som en separat rad artikel. Vissa erbjudanden använder sig av Azures affärsmässiga åtaganden, men de flesta ommercial i Marketplace tar inte upp Enterprise-avtal åtaganden även om användningen av Azure-infrastrukturen.
+
 **Kan jag använda Azures prenumerations krediter eller betalnings medel i mitt konto mot Azure Marketplace-erbjudanden?**
 
 För specifika Azure Marketplace-erbjudanden kan Azure-prenumerationskrediter eller betalningsåtaganden användas. En fullständig lista över produkter som ingår i det här programmet finns i det [monetära åtagandet i Azure](https://azure.microsoft.com/updates/azure-marketplace-third-party-reseller-services-now-use-azure-monetary-commitment/) . Dessa erbjudanden omfattar inte BYOL-eller BYOS-alternativ. Alla andra Azure Marketplace-erbjudanden kan inte använda Azures prenumerations krediter eller betalnings åtagande: som den kostnads fria utvärderings versionen på en månad, månatliga MSDN-krediter, krediter från Azure-kampanjer, kredit sal Don och andra kostnads fria krediter från Azure.
@@ -176,12 +180,6 @@ För specifika Azure Marketplace-erbjudanden kan Azure-prenumerationskrediter el
 **Gäller volym licens rabatter för Azure Marketplace-köp?**
 
 Nej. Utgivaren som äger lösningar på Azure Marketplace kan ange priser.  Microsofts standard volym licens rabatter gäller inte för Azure Marketplace-köp.
-
-**Hur gör jag för att betala för de här prenumerationerna? Visas mina Azure Marketplace-köp på Azure-fakturan eller någon annan faktura?**
-
-MOSP – [Microsoft Online Subscription-program](https://azure.microsoft.com/support/legal/subscription-agreement/?country=us&language=en) (t. ex. Web-Direct) debiteras mot samma kredit kort som finns i filen för prenumerations profilen för Azure. Om du inte har ett kredit kort på en fil kan du inte köpa från Azure Marketplace. I det här fallet fick du ett särskilt avstående för att få dina Azure-avgifter fakturerade i stället.
-
-Enterprise-avtal-kunder (EA) debiteras mot deras EA. Vissa Azure Marketplace-erbjudanden som anges här är först avdragen från alla tillgängliga betalnings åtaganden och faktureras som överanvändning på en enda kvartals faktura. Indirekta EA-, utbildnings-och myndighets Kunder debiteras av deras LSP (Licensing Solution Provider).
 
 **Var kan jag se information om min Azure Marketplace-prenumeration och fakturerings information?**
 
@@ -197,7 +195,7 @@ Eftersom tillägget är kopplat till den virtuella Azure-datorn (VM) för att av
 
 **Hur ofta faktureras jag för mina Azure Marketplace-köp?**
 
-Enterprise-avtal kunder, för de specifika tjänsterna som beskrivs, har först tillgängliga betalnings åtaganden som minskas med den totala kostnaden för dessa tjänster under den månad de förbrukas. Alla Azure Marketplace-erbjudanden som inte dras av från betalnings åtagandet faktureras månads vis. Årliga SaaS-prenumerationer faktureras en gång för hela årets tjänster.
+Alla Azure Marketplace-erbjudanden som inte dras av från betalnings åtagandet faktureras månads vis. Årliga SaaS-prenumerationer faktureras en gång för hela årets tjänster.
 
 MOSP – kunder med [Microsoft Online prenumerations program](https://azure.microsoft.com/support/legal/subscription-agreement/) (Web Direct) debiteras månads vis mot samma kredit kort som finns i filen för prenumerations profilen för Azure. Årliga SaaS-prenumerationer faktureras en gång för hela årets tjänster.
 
@@ -210,10 +208,6 @@ Om du vill migrera andra tjänster som köpts från Azure Marketplace till en EA
 **Vad är skillnaden mellan *pris*, *program varu pris*och *Total pris* i kostnads strukturen för erbjudanden om virtuella datorer på Azure Marketplace?**
 
 *Priset* avser kostnaden för den virtuella Azure-datorn för att köra program varan. *Program varu priset* avser kostnaden för Marketplace-utgivarens program vara som körs på en virtuell Azure-dator. Det *totala priset* avser den sammanlagda kostnaden för den virtuella Azure-datorn och Marketplace-utgivarens program vara som körs på en virtuell Azure-dator.
-
-**Kan jag använda Azures prenumerations krediter eller penning belopp på mitt konto för Azure-produkter och-tjänster som krävs för att köra Azure Marketplace-erbjudanden?**
-
-Ja. Azures prenumerations krediter eller penning åtagande fonder på kontot kan användas för Azure-produkter och Azure Marketplace-erbjudanden. Till exempel kan du använda Azures penning åtagande för *pris* komponenten i ett erbjudande för virtuella datorer på Azure Marketplace. Azures prenumerations krediter och penning åtagande fonder kan dock endast tillämpas på vissa Marketplace-program (*program varu pris*) som körs på en virtuell Azure-dator.
 
 **Hur gör jag för att ta reda på hur mycket av mitt Azure Marketplace-köp jag har använt?**
 

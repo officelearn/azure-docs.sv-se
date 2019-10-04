@@ -1,20 +1,20 @@
 ---
-title: Skapa och hantera roll tilldelningar i Azure Digitals flätas | Microsoft Docs
-description: Skapa och hantera roll tilldelningar i Azure Digitals dubbla.
+title: Skapa och hantera roll tilldelningar – Azure Digitals flätar | Microsoft Docs
+description: Lär dig mer om att skapa och hantera roll tilldelningar i Azure Digitals flätas.
 author: lyrana
 manager: alinast
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/02/2019
 ms.author: lyhughes
 ms.custom: seodec18
-ms.openlocfilehash: 2c43dd7c0700efdd2fbf2f16c57c9c9dc69d3c6b
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
-ms.translationtype: MT
+ms.openlocfilehash: 9a9f3398df099eca7d83b38595364956e6b3b76b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703356"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827706"
 ---
 # <a name="create-and-manage-role-assignments-in-azure-digital-twins"></a>Skapa och hantera roll tilldelningar i Azure Digitals flätas
 
@@ -165,8 +165,8 @@ YOUR_MANAGEMENT_API_URL/roleassignments/check?userId=YOUR_USER_ID&path=YOUR_PATH
 | --- | --- | --- | --- |
 | YOUR_USER_ID |  Sant | Sträng |   ObjectId för UserId-objectIdType. |
 | YOUR_PATH | Sant | Sträng |   Den valda sökvägen för att kontrol lera åtkomsten för. |
-| YOUR_ACCESS_TYPE |  Sant | Sträng |   Åtkomst typen att söka efter. |
-| YOUR_RESOURCE_TYPE | Sant | Sträng |  Resursen som ska kontrol leras. |
+| YOUR_ACCESS_TYPE |  Sant | Sträng |   *Läsa*, *skapa*, *Uppdatera*eller *ta bort* |
+| YOUR_RESOURCE_TYPE | Sant | Sträng |  *Enhet*, *DeviceBlobMetadata*, *DeviceExtendedProperty*, *ExtendedPropertyKey*, *ExtendedType*, *slut punkt*, nyckel *lager*, *matchnings*enhet, *Ontology*, *rapport*,  *Roll definitions*, *sensor*, *SensorExtendedProperty*, *Space*, *SpaceBlobMetadata*, *SpaceExtendedProperty*, *SpaceResource*, *SpaceRoleAssignment*, *system* , *UerDefinedFunction*, *användare*, *UserBlobMetadata*eller *UserExtendedProperty* |
 
 En lyckad begäran kommer att returnera ett `true` booleskt `false` värde eller ange om åtkomst typen har tilldelats användaren för den angivna sökvägen och resursen.
 

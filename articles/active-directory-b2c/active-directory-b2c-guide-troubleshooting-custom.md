@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5dee0ef768180057452a232436fc295b36fd756c
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 4893025b7d54dad1f1da6c5967d3c1dec99b499b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68963742"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71826913"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Felsöka Azure AD B2C anpassade principer och identitets miljö ramverk
 
@@ -39,30 +39,28 @@ Valideringen av XML-principagenten utförs automatiskt vid uppladdning. De flest
 
 Vanliga verifierings fel inkluderar följande:
 
-> Fel kodfragment:`...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
+> Fel kodfragment: `...makes a reference to ClaimType with id "displayName" but neither the policy nor any of its base policies contain such an element`
 
 * Värdet för ClaimType kan vara felstavat eller så finns det inte i schemat.
 * ClaimType-värden måste definieras i minst en av filerna i principen.
     Exempel: `<ClaimType Id="issuerUserId">`
 * Om ClaimType definieras i tilläggs filen, men den också används i ett TechnicalProfile-värde i bas filen, resulterar det i ett fel när bas filen laddas upp.
 
-> Fel kodfragment:`...makes a reference to a ClaimsTransformation with id...`
+> Fel kodfragment: `...makes a reference to a ClaimsTransformation with id...`
 
 * Orsakerna till det här felet kan vara samma som för ClaimType-felet.
 
-> Fel kodfragment:`Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
+> Fel kodfragment: `Reason: User is currently logged as a user of 'yourtenant.onmicrosoft.com' tenant. In order to manage 'yourtenant.onmicrosoft.com', please login as a user of 'yourtenant.onmicrosoft.com' tenant`
 
-* Kontrol lera att TenantId-värdet i `<TrustFrameworkPolicy\>` elementen och `<BasePolicy\>` matchar mål Azure AD B2C klient.
+* Kontrol lera att TenantId-värdet i `<TrustFrameworkPolicy\>`-och `<BasePolicy\>`-element matchar mål Azure AD B2C klient organisationen.
 
 ## <a name="troubleshoot-the-runtime"></a>Felsöka körningen
 
-* Använd **Kör nu** och `https://jwt.ms` för att testa dina principer oberoende av ditt webb-eller mobil program. Den här webbplatsen fungerar som ett förlitande parts program. Den visar innehållet i den JSON Web Token (JWT) som genereras av din Azure AD B2Cs princip. Om du vill skapa ett testprogram navigerar du till **Azure AD B2C** \> **program** i Azure Portal och lägger till ett program med följande värden:
+* Använd **Kör nu** och `https://jwt.ms` för att testa dina principer oberoende av ditt webb-eller mobil program. Den här webbplatsen fungerar som ett förlitande parts program. Den visar innehållet i JSON-webbtoken (JWT) som genereras av din Azure AD B2Cs princip.
 
-  * **Namn på**: TestApp
-  * **Webb program/webb-API**: Nej
-  * **Ursprunglig klient**: Nej
+    Så här skapar du ett testprogram som kan omdirigera till `https://jwt.ms` för kontroll av token:
 
-  Lägg sedan till `https://jwt.ms` som en **svars-URL**.
+    [!INCLUDE [active-directory-b2c-appreg-idp](../../includes/active-directory-b2c-appreg-idp.md)]
 
 * Använd [Fiddler](https://www.telerik.com/fiddler)om du vill spåra utbytet av meddelanden mellan klientens webbläsare och Azure AD B2C. Det kan hjälpa dig att få en indikation på var din användar resa inte fungerar i ditt Dirigerings steg.
 
@@ -70,7 +68,7 @@ Vanliga verifierings fel inkluderar följande:
 
 ## <a name="recommended-practices"></a>Rekommenderade metoder
 
-**Behåll flera versioner av dina scenarier. Gruppera dem i ett projekt med ditt program.** Filerna Base, Extensions och förlitande part är direkt beroende av varandra. Spara dem som en grupp. När nya funktioner läggs till i dina principer bör du hålla separata arbets versioner. Stegvisa arbets versioner i ditt eget fil system med program koden som de interagerar med. Dina program kan anropa många olika principer för förlitande part i en klient organisation. De kan bli beroende av de anspråk som de förväntar sig från dina Azure AD B2C-principer.
+**Keep flera versioner av dina scenarier. Gruppera dem i ett projekt med ditt program.** Filerna Base, Extensions och förlitande part är direkt beroende av varandra. Spara dem som en grupp. När nya funktioner läggs till i dina principer bör du hålla separata arbets versioner. Stegvisa arbets versioner i ditt eget fil system med program koden som de interagerar med. Dina program kan anropa många olika principer för förlitande part i en klient organisation. De kan bli beroende av de anspråk som de förväntar sig från dina Azure AD B2C-principer.
 
 **Utveckla och testa tekniska profiler med kända användar resor.** Använd principer för testade start paket för att konfigurera dina tekniska profiler. Testa dem separat innan du infogar dem i dina egna användar resor.
 

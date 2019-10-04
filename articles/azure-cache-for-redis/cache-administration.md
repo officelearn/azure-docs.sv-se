@@ -14,12 +14,12 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 07/05/2017
 ms.author: yegu
-ms.openlocfilehash: ddb9dd49af4557e6ff8d38110de4a99a9cf6fed7
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: eb6773d1547499fcd3a73aebf8f17ec61b6dc06a
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687009"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827592"
 ---
 # <a name="how-to-administer-azure-cache-for-redis"></a>Så här administrerar du Azure cache för Redis
 I det här avsnittet beskrivs hur du utför administrations åtgärder som att [Starta](#reboot) om och [schemalägga uppdateringar](#schedule-updates) för Azure cache för Redis-instanser.
@@ -83,7 +83,7 @@ Ja, för PowerShell-instruktioner, se [så här startar du om en Azure-cache fö
 Omstart är tillgängligt för alla pris nivåer.
 
 ## <a name="schedule-updates"></a>Schemauppdateringar
-På bladet **schema uppdateringar** kan du ange en underhålls period för cacheminnet på din Premium-nivå. När underhålls fönstret har angetts görs alla redis server-uppdateringar i det här fönstret. 
+På bladet **schema uppdateringar** kan du ange ett underhålls fönster för din cache-instans. När underhålls fönstret har angetts görs alla redis server-uppdateringar i det här fönstret. 
 
 > [!NOTE] 
 > Underhålls perioden gäller endast för redis server-uppdateringar och inte för Azure-uppdateringar eller uppdateringar av operativ systemet på de virtuella datorer som är värdar för cachen.

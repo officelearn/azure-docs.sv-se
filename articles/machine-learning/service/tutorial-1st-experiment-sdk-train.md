@@ -10,12 +10,12 @@ author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
 ms.date: 09/03/2019
-ms.openlocfilehash: 6287f51d4fa0a1e4c2fb27b7cde873262ad6b3fe
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: c775b16eaa15ccd7115f4770bf197545a9de2500
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327233"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71828020"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Självstudier: Träna din första ML-modell
 
@@ -35,21 +35,12 @@ Den enda förutsättningen är att köra en del av den här självstudien, [inst
 
 I den här delen av självstudien kör du koden i exempel Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` som öppnades i slutet av del en. Den här artikeln vägleder dig genom samma kod som finns i antecknings boken.
 
-## <a name="launch-jupyter-web-interface"></a>Starta Jupyter-webbgränssnitt
+## <a name="open-the-notebook"></a>Öppna antecknings boken
 
-1. På arbets ytans sida i Azure Portal väljer du **Notebook VM** : ar till vänster.
+1. Logga in på [sidan med landnings sidan för arbets ytan](https://ml.azure.com/).
 
-1. Välj **Jupyter** i **URI** -kolumnen för den virtuella dator som du skapade i del ett av den här självstudien.
+1. Öppna **självstudien – 1st-experiment-SDK-träna. ipynb** i din mapp som du ser i [del ett](tutorial-1st-experiment-sdk-setup.md#open).
 
-    ![Starta Jupyter Notebook-servern](./media/tutorial-1st-experiment-sdk-setup/start-server.png)
-
-   Länken startar din Notebook-Server och öppnar Jupyter Notebook-webbsida på en ny flik i webbläsaren.  Den här länken fungerar bara för den person som skapar den virtuella datorn. Varje användare av arbets ytan måste skapa sin egen virtuella dator.
-
-1. På webb sidan för Jupyter Notebook väljer du den översta mappnamn som innehåller ditt användar namn.  
-
-   Den här mappen finns i [lagrings kontot](concept-workspace.md#resources) för arbets ytan i stället för på själva Notebook-datorn.  Om du tar bort den virtuella Notebook-datorn behåller du fortfarande allt ditt arbete.  När du skapar en ny Notebook VM senare, kommer den att läsa in samma mapp. Om du delar din arbets yta med andra, kommer de att se din mapp och du ser dem.
-
-1. Öppna under katalogen och öppna Jupyter-anteckningsboken `tutorials/tutorial-1st-experiment-sdk-train.ipynb`, **inte** `.yml` filen med samma namn. `samples-*` 
 
 > [!Warning]
 > Skapa **inte** en *ny* antecknings bok i Jupyter-gränssnittet! Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb` inkluderar **all kod och alla data som behövs** för den här självstudien.
@@ -60,7 +51,7 @@ I den här delen av självstudien kör du koden i exempel Jupyter Notebook `tuto
 > Resten av den här artikeln innehåller samma innehåll som du ser i antecknings boken.  
 >
 > Växla till antecknings boken för Jupyter nu om du vill läsa den samtidigt som du kör koden. 
-> Om du vill köra en enda kod cell i en bärbar dator klickar du på cellen kod och trycker på **SKIFT + RETUR**. Du kan också köra hela antecknings boken genom att välja **Cell > kör alla** på den översta menyn.
+> Om du vill köra en enda kod cell i en bärbar dator klickar du på cellen kod och trycker på **SKIFT + RETUR**. Du kan också köra hela antecknings boken genom att välja **Kör alla** från det översta verktygsfältet.
 
 Importera- `config.json` `from_config().` klassen och Läs in din prenumerations information från filen med funktionen som söker efter JSON-filen i den aktuella katalogen som standard, men du kan också ange en Sök vägs parameter för att peka på filen `Workspace` använda `from_config(path="your/file/path")`. I en molnbaserad Notebook-Server är filen automatiskt i rot katalogen.
 
@@ -138,7 +129,7 @@ När utbildningen har slutförts anropar `experiment` du variabeln för att häm
 experiment
 ```
 
-<table style="width:100%"><tr><th>Name</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länka till Azure Portal</td><td>Länk till dokumentation</td></tr></table>
+<table style="width:100%"><tr><th>Name</th><th>Arbetsyta</th><th>Rapport sida</th><th>Sidan dokument</th></tr><tr><td>diabetes – experiment</td><td>ditt-arbetsyte namn</td><td>Länk till Azure Portal</td><td>Länk till dokumentation</td></tr></table>
 
 ## <a name="view-training-results-in-portal"></a>Visa utbildnings resultat i portalen
 
@@ -182,7 +173,7 @@ print("Best run_id rmse: " + str(minimum_rmse))
     Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
     Best run_id rmse: 57.234760283951765
 
-Använd det bästa körnings-ID: t för att hämta `Run` den enskilda körningen med hjälp av konstruktorn tillsammans med experiment-objektet. Anropa `get_file_names()` sedan för att se alla filer som är tillgängliga för nedladdning från den här körningen. I det här fallet överför du bara en fil för varje körning under utbildningen.
+Använd det bästa körnings-ID: t för att hämta den enskilda körningen med hjälp av konstruktorn `Run` tillsammans med experiment-objektet. Anropa `get_file_names()` sedan för att se alla filer som är tillgängliga för nedladdning från den här körningen. I det här fallet överför du bara en fil för varje körning under utbildningen.
 
 ```python
 from azureml.core import Run

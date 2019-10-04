@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 0a718786cc7c72ef4ee9573c3c3e40401c53a315
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 6bff2210e77f7af98c1289b08159a89f42f2a3bd
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308069"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827609"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: Vanliga frågor och svar
 
@@ -193,7 +193,7 @@ Information om skydd mot skadlig kod finns i [Microsoft Antimalware för Azure C
 
 ### <a name="how-do-i-create-a-keytab-for-an-hdinsight-esp-cluster"></a>Hur gör jag för att skapa en keytab för ett HDInsight ESP-kluster?
 
-Skapa en Kerberos-keytab för ditt domän användar namn. Du kan senare använda den här keytab för att autentisera till fjärranslutna domänanslutna kluster utan att ange ett lösen ord. Observera att domän namnet är versaler:
+Skapa en Kerberos-keytab för ditt domän användar namn. Du kan senare använda den här keytab för att autentisera till fjärranslutna domänanslutna kluster utan att ange ett lösen ord. Domän namnet är versaler:
 
 ```shell
 ktutil
@@ -310,14 +310,14 @@ Du använder sparade skript för att anpassa nya arbetsnoder som läggs till i k
 
 Du kan använda följande REST-slutpunkter för att hämta nödvändig information i JSON-format. Använd grundläggande autentiseringsscheman för att göra begär Anden.
 
-- Tez-frågevy: *https:\//\<kluster namn >. azurehdinsight. net/WS/v1/Timeline/HIVE_QUERY_ID/*
-- Tez dag vy: *https:\//\<kluster namn >. azurehdinsight. net/WS/v1/Timeline/TEZ_DAG_ID/*
+- Tez-frågevy: *https: \/ @ no__t-2 @ no__t-3cluster name >. azurehdinsight. net/WS/v1/Timeline/HIVE_QUERY_ID/*
+- Tez dag vy: *https: \/ @ no__t-2 @ no__t-3cluster namn >. azurehdinsight. net/WS/v1/Timeline/TEZ_DAG_ID/*
 
 ### <a name="how-do-i-retrieve-the-configuration-details-from-hdi-cluster-by-using-an-azure-active-directory-user"></a>Hur gör jag för att hämta konfigurations information från HDI-kluster med hjälp av en Azure Active Directory användare?
 
 Om du vill förhandla rätt autentiserings-token med din AAD-användare går du igenom gatewayen med hjälp av följande format:
 
-* https://`<cluster dnsname>`. azurehdinsight.NET/API/v1/Clusters/testclusterdem/stack_versions/1/repository_versions/1 
+* https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
 
 ### <a name="how-do-i-use-ambari-restful-api-to-monitor-yarn-performance"></a>Hur gör jag för att använda Ambari RESTful API för att övervaka garn prestanda?
 
@@ -352,6 +352,10 @@ Om du anropar kommandot från utanför det virtuella nätverket eller från ett 
 ### <a name="how-much-does-it-cost-to-deploy-an-hdinsight-cluster"></a>Hur mycket kostar det att distribuera ett HDInsight-kluster?
 
 Mer information om priser och vanliga frågor och svar om fakturering finns på pris sidan för [Azure HDInsight](https://azure.microsoft.com/pricing/details/hdinsight/) .
+
+### <a name="when-does-hdinsight-billing-start--stop"></a>När ska HDInsight-faktureringen starta & stoppa?
+
+Debiteringen för HDInsight-klustret börjar när ett kluster skapas och stoppas när klustret tas bort. Faktureringen beräknas proportionellt per minut.
 
 ### <a name="how-do-i-cancel-my-subscription"></a>Hur gör jag för att avbryta min prenumeration?
 

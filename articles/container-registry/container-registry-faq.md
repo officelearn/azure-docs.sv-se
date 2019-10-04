@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 293f2a704fecb04bc6b65e49743ea80905f2394f
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70142678"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827410"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -260,6 +260,7 @@ Bild karantänen är för närvarande en förhands gransknings funktion i ACR. D
 - [Nya användar behörigheter kanske inte träder i kraft omedelbart efter uppdateringen](#new-user-permissions-may-not-be-effective-immediately-after-updating)
 - [Autentiseringsinformation anges inte i rätt format för direkta REST API-anrop](#authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls)
 - [Varför visar Azure Portal inte alla mina databaser eller Taggar?](#why-does-the-azure-portal-not-list-all-my-repositories-or-tags)
+- [Varför kan Azure Portal inte hämta databaser eller Taggar?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Hur gör jag för att samla in http-spårningar i Windows?](#how-do-i-collect-http-traces-on-windows)
 
 ### <a name="check-health-with-az-acr-check-health"></a>Kontrol lera hälsa med`az acr check-health`
@@ -409,6 +410,17 @@ curl $redirect_url
 ### <a name="why-does-the-azure-portal-not-list-all-my-repositories-or-tags"></a>Varför visar Azure Portal inte alla mina databaser eller Taggar? 
 
 Om du använder Microsoft Edge/IE-webbläsaren kan du se högst 100 databaser eller taggar. Om registret har fler än 100 databaser eller Taggar rekommenderar vi att du använder antingen Firefox-eller Chrome-webbläsaren för att lista dem alla.
+
+### <a name="why-does-the-azure-portal-fail-to-fetch-repositories-or-tags"></a>Varför kan Azure Portal inte hämta databaser eller Taggar?
+
+Webbläsaren kanske inte kan skicka begäran om att hämta databaser eller taggar till servern. Det kan finnas olika anledningar till att:
+
+* Brist på nätverks anslutning
+* Brandvägg
+* Ad-blockerare
+* DNS-fel
+
+Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen och din anslutning. Dessutom kan du också försöka med en Incognito eller privat session i webbläsaren för att undvika inaktuella webbläsares cacheminnen eller cookies.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur gör jag för att samla in http-spårningar i Windows?
 

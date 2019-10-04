@@ -16,25 +16,22 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: nacanuma
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 988c73236d9f5ef360ded03bca36a4bb24ebd308
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: c41dedf6b4fe52ba3250ada14b0cca6bbeb636af
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290824"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827117"
 ---
 # <a name="quickstart-sign-in-users-and-acquire-an-access-token-from-a-javascript-single-page-application"></a>Snabbstart: Logga in användare och hämta en åtkomsttoken från ett program med en enda sida med Java Script
 
-I den här snabb starten får du lära dig hur du använder ett kod exempel som visar hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton. En JavaScript-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API.
-
-![Hur exempel programmet i den här snabb starten fungerar](media/quickstart-v2-javascript/javascriptspa-intro.svg)
+I den här snabb starten använder du ett kod exempel för att lära dig hur ett Java Script-program (Single-Side Application) kan logga in användare av personliga konton, arbets konton och skol konton. En JavaScript-SPA kan också hämta en åtkomsttoken för att anropa Microsoft Graph-API: et eller något webb-API. (Se [hur exemplet fungerar](#how-the-sample-works) för en illustration.)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här snabb starten kräver följande konfiguration:
-* Om du vill köra projektet med en Node. js-Server laddar du ned och installerar [Node. js](https://nodejs.org/en/download/).
-* Om du vill redigera projektfiler laddar du ned och installerar [Visual Studio Code](https://code.visualstudio.com/download).
-* Om du vill köra projektet som en Visual Studio-lösning kan du ladda ned och installera [Visual studio 2019](https://visualstudio.microsoft.com/downloads/).
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
+* [Node.js](https://nodejs.org/en/download/).
+* Antingen [Visual Studio Code](https://code.visualstudio.com/download) (för att redigera projektfiler) eller [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (ro kör projektet som en Visual Studio-lösning).
 
 > [!div renderon="docs"]
 > ## <a name="register-and-download-your-quickstart-application"></a>Registrera och ladda ned snabbstartsprogrammet
@@ -82,8 +79,6 @@ Välj det alternativ som passar din utvecklings miljö:
 
 * Valfritt Om du vill köra projektet med IIS-servern [laddar du ned Visual Studio-projektet](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip). Extrahera zip-filen till en lokal mapp (till exempel *C:\Azure-samples*).
 
-
-
 #### <a name="step-3-configure-your-javascript-app"></a>Steg 3: Konfigurera din JavaScript-app
 
 > [!div renderon="docs"]
@@ -114,8 +109,8 @@ var msalConfig = {
 > [!div renderon="docs"]
 >
 > Där:
-> - Enter_the_Application_Id_here > är **program-ID: t (Client)** för det program som du har registrerat.  *\<*
-> - Enter_the_Tenant_info_here > har angetts till något av följande alternativ:  *\<*
+> - *\<Enter_the_Application_Id_here >* är **program-ID: t (Client)** för det program som du har registrerat.
+> - *\<Enter_the_Tenant_info_here >* har angetts till något av följande alternativ:
 >    - Om ditt program har stöd *för konton i den här organisations katalogen*ersätter du värdet med **klient-ID** eller **klient namn** (till exempel *contoso.Microsoft.com*).
 >    - Om ditt program har stöd *för konton i en organisations katalog*ersätter du värdet med **organisationer**.
 >    - Om ditt program har stöd *för konton i en organisations katalog och personliga Microsoft-konton*ersätter du värdet med **vanligt**. Om du bara vill begränsa stödet till *personliga Microsoft-konton*ersätter du värdet med **konsumenter**.
@@ -144,6 +139,10 @@ var msalConfig = {
 När webbläsaren har läst in programmet väljer du **Logga**in. Första gången du loggar in uppmanas du att ange ditt medgivande för att ge programmet åtkomst till din profil och att logga in dig. När du har loggat in visas din användar profil information på sidan.
 
 ## <a name="more-information"></a>Mer information
+
+### <a name="how-the-sample-works"></a>Så här fungerar exemplet
+
+![Hur exempel programmet i den här snabb starten fungerar](media/quickstart-v2-javascript/javascriptspa-intro.svg)
 
 ### <a name="msaljs"></a>msal.js
 

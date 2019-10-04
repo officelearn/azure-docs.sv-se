@@ -13,15 +13,15 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3a014bab0252667c3c70e56399a72de4e5771a86
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210109"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827585"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med en Azure-Virtual Network
-Det här dokumentet beskriver den Azure App Service funktionen för integrering av virtuella nätverk och hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). [Virtuella Azure-nätverk][VNETOverview] (Virtuella nätverk) låter dig placera många av dina Azure-resurser i ett dirigerbart nätverk som inte är Internet.  
+Det här dokumentet beskriver den Azure App Service funktionen för integrering av virtuella nätverk och hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Med [Azure Virtual Networks][VNETOverview] (virtuella nätverk) kan du placera många av dina Azure-resurser i ett dirigerbart nätverk som inte är Internet.  
 
 Azure App Service har två varianter. 
 
@@ -171,13 +171,13 @@ Om du bara skapar en gateway för användning med App Service VNet-integrering b
 Så här aktiverar du VNet-integrering i appen: 
 
 1. Gå till din app i Azure Portal och öppna appinställningar och välj nätverk > VNet-integrering. Din ASP måste vara en standard-SKU eller bättre för att kunna använda funktionen VNet-integrering. 
- ![GRÄNSSNITT för VNet-integrering][1]
+ ![VNet integration UI @ no__t-1
 
 1. Välj **Lägg till VNet**. 
- ![Lägg till VNet-integrering][2]
+ ![Add VNet-integrering @ no__t-1
 
 1. Välj ditt VNet. 
-  ![Välj ditt VNet][8]
+  ![Select ditt VNet @ no__t-1
   
 Din app kommer att startas om efter det här sista steget.  
 
@@ -212,7 +212,7 @@ Den enda åtgärd du kan utföra i vyn app för din VNet-integrering är att kop
 
 ASP-gränssnittet för VNet-integrering visar alla virtuella nätverk som används av apparna i ASP. Om du vill se information om varje VNet klickar du på det virtuella nätverk som du är intresse rad av. Det finns två åtgärder som du kan utföra här.
 
-* **Synkronisera nätverk**. Den synkroniserade nätverks åtgärden gäller endast för den gateway-beroende funktionen för VNet-integrering. Att utföra en synkroniserad nätverks åtgärd garanterar att dina certifikat och nätverksinformation är synkroniserade. Om du lägger till eller ändrar DNS för ditt VNet måste du utföra en synkroniserad **nätverks** åtgärd. Den här åtgärden startar om alla appar som använder det här virtuella nätverket.
+* **Synkronisera nätverk**. Den synkroniserade nätverks åtgärden gäller endast för den gateway-beroende funktionen för VNet-integrering. Att utföra en synkroniserad nätverks åtgärd garanterar att dina certifikat och nätverksinformation är synkroniserade. Om du lägger till eller ändrar DNS för ditt VNet måste du utföra en **synkroniserad nätverks** åtgärd. Den här åtgärden startar om alla appar som använder det här virtuella nätverket.
 * **Lägg till vägar** Om du lägger till vägar kommer utgående trafik att bedrivas i ditt VNet.
 
 **Routning** Vägarna som definieras i ditt VNet används för att dirigera trafik till ditt VNet från din app. Om du behöver skicka ytterligare utgående trafik till VNet kan du lägga till dessa adress block här. Den här funktionen fungerar bara med Gateway krävs VNet-integrering.
@@ -236,7 +236,7 @@ Om du använder peering med den regionala VNet-integrationen behöver du inte g�
 Om du använder gatewayen som krävs VNet-integrering med peering måste du konfigurera ytterligare några objekt. Konfigurera peering så att den fungerar med din app:
 
 1. Lägg till en peering-anslutning på det virtuella nätverk som din App ansluter till. När du lägger till peering-anslutningen aktiverar du **Tillåt åtkomst till virtuellt nätverk** och markerar **Tillåt vidarebefordrad trafik** och **Tillåt Gateway-överföring**.
-1. Lägg till en peering-anslutning på det virtuella nätverk som peer-kopplas till det virtuella nätverk som du är ansluten till. När du lägger till peering-anslutningen på målets VNet aktiverar du **Tillåt åtkomst till virtuellt nätverk** och markerar **Tillåt vidarebefordrad trafik** och **Tillåt**fjärrgatewayer.
+1. Lägg till en peering-anslutning på det virtuella nätverk som peer-kopplas till det virtuella nätverk som du är ansluten till. När du lägger till peering-anslutningen på målets VNet aktiverar du **Tillåt åtkomst till virtuellt nätverk** och markerar **Tillåt vidarebefordrad trafik** och **Tillåt fjärrgatewayer**.
 1. Gå till App Service plan > Networking > VNet integration UI i portalen.  Välj det VNet som appen ansluter till. Under avsnittet routning lägger du till adress intervallet för det virtuella nätverk som peer-kopplas med det virtuella nätverk som appen är ansluten till.  
 
 
@@ -277,13 +277,13 @@ Om dessa objekt inte besvarar dina problem, se först till exempel:
 **regional VNet-integrering**
 * är ditt mål en RFC 1918-adress
 * finns det en NSG som blockerar utgående från ditt integrations under nät
-* Om du går över ExpressRoute eller en VPN-anslutning är din lokala gateway konfigurerad för att dirigera trafik tillbaka till Azure? Om du kan komma åt slut punkter i ditt VNet men inte lokalt, är det bättre att kontrol lera.
+* Om du går över ExpressRoute eller en VPN-anslutning, är din lokala gateway konfigurerad för att dirigera trafik tillbaka till Azure? Om du kan komma åt slut punkter i ditt VNet men inte lokalt, är det bättre att kontrol lera.
 
 **Gateway krävs VNet-integrering**
 * är adress intervallet för punkt-till-plats i RFC 1918-intervallen (10.0.0.0-10.255.255.255/172.16.0.0-172.31.255.255/192.168.0.0-192.168.255.255)?
 * Visas gatewayen som i portalen? Om din Gateway inte är igång kan du ta den tillbaka.
 * Visas certifikaten som synkroniserade eller så misstänker du att nätverks konfigurationen har ändrats?  Om dina certifikat inte är synkroniserade eller om du misstänker att det har skett en ändring av din VNet-konfiguration som inte har synkroniserats med ASP, klickar du på synkronisera nätverk.
-* Om du går över ExpressRoute eller en VPN-anslutning är din lokala gateway konfigurerad för att dirigera trafik tillbaka till Azure? Om du kan komma åt slut punkter i ditt VNet men inte lokalt, är det bättre att kontrol lera.
+* Om du går över ExpressRoute eller en VPN-anslutning, är din lokala gateway konfigurerad för att dirigera trafik tillbaka till Azure? Om du kan komma åt slut punkter i ditt VNet men inte lokalt, är det bättre att kontrol lera.
 
 Fel sökning av nätverks problem är en utmaning eftersom det inte går att se vad som blockerar åtkomst till en speciell värd: port kombination. Några av orsakerna är:
 
@@ -298,7 +298,7 @@ Kom ihåg att du inte vet vilken adress appen faktiskt kommer att använda. Det 
 
 Ytterligare fel söknings steg är:
 
-* Anslut till en virtuell dator i ditt VNet och försök att ansluta till resurs värden: port därifrån. Om du vill testa TCP-åtkomst använder du PowerShell **-kommandot test-** NetConnection. Syntax:
+* Anslut till en virtuell dator i ditt VNet och försök att ansluta till resurs värden: port därifrån. Om du vill testa TCP-åtkomst använder du PowerShell **-kommandot test-NetConnection**. Syntax:
 
       test-netconnection hostname [optional: -Port]
 
@@ -306,7 +306,7 @@ Ytterligare fel söknings steg är:
 
 #### <a name="on-premises-resources"></a>Lokala resurser ####
 
-Om din app inte kan komma åt en resurs lokalt, kontrollerar du om du kan komma åt resursen från ditt VNet. Använd PowerShell **-kommandot test-** NetConnection för att kontrol lera TCP-åtkomst. Om din virtuella dator inte kan komma åt din lokala resurs, kanske inte VPN-eller ExpressRoute-anslutningen är korrekt konfigurerad.
+Om din app inte kan komma åt en resurs lokalt, kontrollerar du om du kan komma åt resursen från ditt VNet. Använd PowerShell **-kommandot test-NetConnection** för att kontrol lera TCP-åtkomst. Om din virtuella dator inte kan komma åt din lokala resurs, kanske inte VPN-eller ExpressRoute-anslutningen är korrekt konfigurerad.
 
 Om det virtuella nätverket som finns på den virtuella datorn kan komma åt ditt lokala system, men din app inte kan, beror orsaken förmodligen på något av följande orsaker:
 
@@ -343,6 +343,6 @@ Du kan integrera App Service med en Azure-Virtual Network med hjälp av PowerShe
 [V2VNETPortal]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md
 [VPNERCoex]: ../expressroute/expressroute-howto-coexist-resource-manager.md
 [ASE]: environment/intro.md
-[creategatewaysubnet]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#gatewaysubnet
+[creategatewaysubnet]: ../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#creategw
 [creategateway]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#creategw
 [setp2saddresses]: https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal#addresspool

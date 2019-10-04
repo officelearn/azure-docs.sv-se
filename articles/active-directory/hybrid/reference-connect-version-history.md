@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 10/2/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7555dc44e533945d360a3d2e4120f71f953a6d2
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: e6776d7ff21599a1cfab47fd0e4ab0fbef5d3d8c
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709360"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827107"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: Versionshistorik
 Gruppen Azure Active Directory (Azure AD) uppdaterar regelbundet Azure AD Connect med nya funktioner. Alla tillägg gäller inte för alla mål grupper.
@@ -42,6 +42,17 @@ Hämta | [Ladda ned Azure AD Connect](https://go.microsoft.com/fwlink/?LinkId=61
 >Att släppa en ny version av Azure AD Connect är en process som kräver flera kvalitets kontroll steg för att säkerställa drift funktionen i tjänsten och medan vi går igenom den här processen kommer versions numret för en ny version och versions statusen att uppdateras för att återspegla det senaste läget.
 Medan vi går igenom den här processen visas versions numret för versionen med ett "X" på den lägre versions nummer positionen, som i "1.3. X. 0" – Detta anger att viktig information i det här dokumentet är giltig för alla versioner som börjar med "1,3.". Så snart som vi har slutfört versions processen uppdateras versions numret till den senast utgivna versionen och versions statusen uppdateras till "lanseras för hämtning och automatisk uppgradering".
 Det är inte alla versioner av Azure AD Connect som görs tillgängliga för automatisk uppgradering. Versions statusen anger om en version görs tillgänglig för automatisk uppgradering eller endast för hämtning. Om automatisk uppgradering har Aktiver ATS på Azure AD Connect-servern, uppgraderas servern automatiskt till den senaste versionen av Azure AD Connect som släpps för automatisk uppgradering. Observera att inte alla Azure AD Connect konfigurationer är berättigade till automatisk uppgradering. Använd den här länken för att läsa mer om [automatisk uppgradering](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-automatic-upgrade)
+
+## <a name="14250"></a>1.4.25.0
+
+### <a name="release-status"></a>Versions status
+9/28/2019: Släpps för automatisk uppgradering för att välja klienter. Inte tillgänglig för hämtning.
+
+Den här versionen åtgärdar ett fel där vissa servrar som automatiskt har uppgraderats från en tidigare version till 1.4.18.0 och erfarna problem med lösen ords återställning via självbetjäning (SSPR) och tillbakaskrivning av lösen ord.
+
+### <a name="fixed-issues"></a>Åtgärdade problem
+
+Under vissa omständigheter återaktiverade inte servrar som har uppgraderats automatiskt till 1.4.18.0 återställningen av lösen ord för självbetjäning och tillbakaskrivning av lösen ord när uppgraderingen har slutförts. Den här versionen av automatisk uppgradering åtgärdar problem som utfärdar och återaktiverar lösen ords återställning via självbetjäning och tillbakaskrivning av lösen ord.
 
 ## <a name="14180"></a>1.4.18.0
 

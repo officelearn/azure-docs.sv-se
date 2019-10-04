@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 9/25/2019
+ms.date: 10/02/2019
 ms.author: b-juche
-ms.openlocfilehash: 3d34caba9512dc0c0b20cf10476f5c38a2fab8ce
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299653"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827510"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -68,7 +68,11 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     Se [rikt linjer för Azure NetApp Files nätverks planering](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) för nätverkstopologier som stöds.
 
-    Nätverks säkerhets grupper (NSG: er) och brand väggar måste ha rätt konfigurerade regler för att tillåta Active Directory-och DNS-trafik begär Anden.
+    Nätverks säkerhets grupper (NSG: er) och brand väggar måste ha rätt konfigurerade regler för att tillåta Active Directory-och DNS-trafik begär Anden. 
+
+* Det Azure NetApp Files delegerade under nätet måste kunna komma åt alla Active Directory Domain Services (lägger till) domänkontrollanter i domänen, inklusive alla lokala domänkontrollanter och fjärranslutna domänkontrollanter. I annat fall kan tjänst avbrott uppstå.  
+
+    Om du har domänkontrollanter som inte kan kommas åt via Azure NetApp Files delegerade under nätet kan du skicka en support förfrågan för Azure för att ändra omfånget från **Global** (standard) till **plats**.  Azure NetApp Files behöver endast kommunicera med domänkontrollanter på platsen där Azure NetApp Files-adress utrymmet för det delegerade under nätet finns.
 
     Se [utforma platstopologi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) om AD-platser och-tjänster. 
 

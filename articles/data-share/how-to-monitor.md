@@ -1,51 +1,55 @@
 ---
-title: Så här övervakar du Azure förhandsgranskning för resursen
-description: Så här övervakar du Azure förhandsgranskning för resursen
+title: Övervaka för hands versionen av Azure Data Share
+description: Övervaka för hands versionen av Azure Data Share
 author: joannapea
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: joanpo
-ms.openlocfilehash: 869c1ed41d7f78df184461bc1d8cab6c6eb8d426
-ms.sourcegitcommit: 1572b615c8f863be4986c23ea2ff7642b02bc605
+ms.openlocfilehash: fbc6847dd86b7687d477b2bae0deab1389dc8491
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67789103"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827065"
 ---
-# <a name="monitor-azure-data-share-preview"></a>Övervaka Azure resurs förhandsgranskning 
+# <a name="monitor-azure-data-share-preview"></a>Övervaka för hands versionen av Azure Data Share 
 
-Den här artikeln förklarar hur du kan övervaka dina data-filresurser med hjälp av Azure förhandsgranskning för resursen. Som en dataleverantör kan du övervaka olika aspekter av din Datadelning relationer. Information om till exempel om datakonsumenterna som har accepterat din inbjudan till Dataresurs samt om de har skapat en filresurs-prenumeration och börjat använda dina data är tillgängliga att övervaka. 
+Den här artikeln förklarar hur du kan övervaka dina data resurser med hjälp av Azure Data repreview. Som data leverantör kan du övervaka olika aspekter av dina data delnings relationer. Information som till exempel om dina data konsumenter har accepterat din inbjudan till data resursen, samt om de har skapat en resurs prenumeration och börjat använda dina data, är tillgängliga för övervakning. 
 
-Du kan övervaka ögonblicksbilder som har utlösts i din Azure-prenumeration som en datakonsument. 
+Som data konsument kan du övervaka ögonblicks bilderna som har utlösts i din Azure-prenumeration. 
 
-## <a name="monitor-invitation-status"></a>Övervakarstatus för inbjudan
+## <a name="monitor-invitation-status"></a>Status för övervaka inbjudan
 
-Visa status för dina data resurs inbjudningar genom att gå till skickade resurser -> inbjudningar. 
+Visa statusen för dina inbjudningar för data delning genom att navigera till skickade resurser – > inbjudningar. 
 
-![Status för inbjudan](./media/invitation-status.png "status för inbjudan") 
+![](./media/invitation-status.png "Status") för Inbjudnings status för inbjudan 
 
-Det finns tre tillstånd som din inbjudan kan vara:
+Din inbjudan kan vara i tre lägen:
 
-* Väntande - accepterat Data resurs mottagaren inte har inbjudan.
-* Godkänd - har Data resurs mottagaren accepterat inbjudan.
-* Avvisade - har Data resurs mottagaren avvisat inbjudan.
+* Väntande-data delnings mottagare har ännu inte accepterat inbjudan.
+* Godkänd – mottagaren av data delning har accepterat inbjudan.
+* Avvisad-data delnings mottagare har avvisat inbjudan.
 
 > [!IMPORTANT]
-> Om du tar bort en inbjudan när den har redan accepterats motsvarar det inte att återkalla åtkomst. Om du vill stoppa framtida ögonblicksbilder från att kopieras till dina data konsumenter storage-konto måste du återkalla åtkomst via den *dela prenumerationer* fliken. 
+> Om du tar bort en inbjudan när den redan har godkänts är den inte likvärdig med att återkalla åtkomst. Om du vill stoppa framtida ögonblicks bilder från att kopieras till ditt data konsument lagrings konto måste du återkalla åtkomsten via fliken *dela prenumerationer* . 
 
 ## <a name="monitor-share-subscriptions"></a>Övervaka resurs prenumerationer
 
-Visa status för dina resurs-prenumerationer genom att gå till skickas resurser -> Dela prenumerationer. Detta ger dig information om aktiva prenumerationer som skapats av datakonsumenterna efter att du godkänt din inbjudan. Du kan stoppa framtida uppdateringar till datakonsument genom att välja prenumerationen som resursen och välja *återkalla*. 
+Visa statusen för dina resurs prenumerationer genom att navigera till skickade resurser-> dela prenumerationer. Detta ger dig information om aktiva prenumerationer som skapats av dina data konsumenter när du har accepterat din inbjudan. Du kan stoppa framtida uppdateringar av din data konsument genom att välja resurs prenumerationen och välja *återkalla*. 
 
-## <a name="snapshot-history"></a>Historik för ögonblicksbild 
+## <a name="snapshot-history"></a>Ögonblicks bilds historik 
 
-På fliken Historik omfattar kan du visa ögonblicksbilder som har kopierats till din datakonsumenten klient i. Du kan övervaka frekvens och varaktighet för varje ögonblicksintervallet. 
+På fliken Historik kan du Visa ögonblicks bilderna som har kopierats till din data konsument klient. Du kan övervaka frekvens och varaktighet för varje ögonblicks bilds intervall. 
 
-![Ta en ögonblicksbild historik](./media/sent-shares.png "ögonblicksbild historik") 
+Ögonblicks(./media/sent-shares.png "bild") historik för ![ögonblicks bild historik] 
 
-Du kan visa mer information om varje ögonblicksbild som körs genom att klicka på Kör startdatumet. 
+Du kan visa mer information om varje ögonblicks bild körning genom att klicka på start datum för körning. 
+
+Upp till 30 dagar från ögonblicks bilds historik visas som standard. Om du behöver se historiken mer än 30 dagar går du till övervakning-> diagnostikinställningar och väljer **Lägg till diagnostisk inställning**. Du måste välja ett lagrings konto för att lagra loggarna i. 
+
+(./media/diagnostic-settings.png "Diagnostiska inställningar") för ![ögonblicks bild historik] 
 
 ## <a name="next-steps"></a>Nästa steg 
 
-Läs mer om [Dataresurs för Azure-terminologi](terminology.md)
+Lär dig mer om [Azure Data Share-terminologi](terminology.md)

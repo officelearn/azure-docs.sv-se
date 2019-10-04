@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: tomfitz
-ms.openlocfilehash: 3805e0bb86772836ba4a1c91661477f29d5e0f70
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 0ff1e3cb71bd1bf5ee947eb5204839d48103628b
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70384052"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827930"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Utdata i Azure Resource Manager mall
 
@@ -64,7 +64,7 @@ I följande exempel visas hur du ställer in IP-adressen på en belastningsutjä
 }
 ```
 
-Du kan inte använda den `reference` funktion i avsnittet utdata i en [kapslade mallen](resource-group-linked-templates.md#link-or-nest-a-template). Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall.
+Du kan inte använda den `reference` funktion i avsnittet utdata i en [kapslade mallen](resource-group-linked-templates.md#nested-template). Konvertera kapslade mallen till en länkad mall för att returnera värden för en distribuerad resurs i en kapslad mall.
 
 ## <a name="get-output-values"></a>Hämta utgående värden
 

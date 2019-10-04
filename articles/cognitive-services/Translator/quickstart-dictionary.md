@@ -11,20 +11,18 @@ ms.topic: quickstart
 ms.date: 09/05/2019
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 5202b86d5b665c39fbb93365928c928aad2f40c1
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: fcbf6878be53d7aa6bf9569da194b4e90f2b10db
+ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70393900"
+ms.lasthandoff: 10/02/2019
+ms.locfileid: "71827455"
 ---
 # <a name="quickstart-look-up-words-with-bilingual-dictionary"></a>Snabbstart: Slå upp ord med tvåspråkig ord lista
 
 I den här snabb starten får du lära dig hur du får alternativa översättningar för en term, och även exempel på användning av dessa alternativa översättningar med hjälp av Translator Text API.
 
 För den här snabbstarten krävs ett [Azure Cognitive Services-konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) med en Translator Text-resurs. Om du inte har ett konto kan du använda den [kostnadsfria utvärderingsversionen](https://azure.microsoft.com/try/cognitive-services/) för att hämta en prenumerationsnyckel.
-
-[!INCLUDE [Custom subdomains notice](../../../includes/cognitive-services-custom-subdomains-note.md)]
 
 ::: zone pivot="programming-language-csharp"
 

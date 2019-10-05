@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/26/2019
 ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: e1279261de8e26b9e11f55100ce01277650e251b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: b233c5dd639bb6652f201727748a081f6a8a4c64
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615766"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950339"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>Använda Kubernetes-nätverk med dina egna IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -38,9 +38,9 @@ Med *Kubernetes*får bara noderna en IP-adress i det virtuella nätverkets under
 
 ![Kubernetes nätverks modell med ett AKS-kluster](media/use-kubenet/kubenet-overview.png)
 
-Azure har stöd för högst 400 vägar i en UDR, så du kan inte ha ett AKS-kluster som är större än 400 noder. AKS funktioner som [virtuella noder][virtual-nodes] eller nätverks principer stöds inte med *Kubernetes*.
+Azure har stöd för högst 400 vägar i en UDR, så du kan inte ha ett AKS-kluster som är större än 400 noder. AKS [virtuella noder][virtual-nodes] och Azure Network policies stöds inte med *Kubernetes*.  Du kan använda [Calico nätverks principer][calico-network-policies]eftersom de stöds med Kubernetes.
 
-Med *Azure cni*får varje Pod en IP-adress i IP-undernätet och kan kommunicera direkt med andra poddar och tjänster. Klustren kan vara så stora som det IP-adressintervall som du anger. IP-adressintervallet måste dock planeras i förväg, och alla IP-adresser används av AKS-noderna baserat på det maximala antalet poddar som de kan stödja. Avancerade nätverksfunktioner och scenarier som [virtuella noder][virtual-nodes] eller nätverks principer stöds med *Azure cni*.
+Med *Azure cni*får varje Pod en IP-adress i IP-undernätet och kan kommunicera direkt med andra poddar och tjänster. Klustren kan vara så stora som det IP-adressintervall som du anger. IP-adressintervallet måste dock planeras i förväg, och alla IP-adresser används av AKS-noderna baserat på det maximala antalet poddar som de kan stödja. Avancerade nätverksfunktioner och scenarier som [virtuella noder][virtual-nodes] eller nätverks principer (antingen Azure eller Calico) stöds med *Azure cni*.
 
 ### <a name="ip-address-availability-and-exhaustion"></a>Tillgänglighet och utbelastning för IP-adress
 
@@ -72,19 +72,16 @@ Använd *Kubernetes* när:
 
 - Du har begränsat IP-adressutrymmet.
 - De flesta av Pod-kommunikationen är i klustret.
-- Du behöver inte avancerade funktioner som virtuella noder eller nätverks principer.
+- Du behöver inte avancerade AKS-funktioner som virtuella noder eller Azure Network Policy.  Använd [Calico nätverks principer][calico-network-policies].
 
 Använd *Azure-cni* när:
 
 - Du har tillgängliga IP-adressutrymme.
 - De flesta av Pod-kommunikationen är till resurser utanför klustret.
 - Du vill inte hantera UDR.
-- Du behöver avancerade funktioner som virtuella noder eller nätverks principer.
+- Du behöver AKS avancerade funktioner som virtuella noder eller Azure Network Policy.  Använd [Calico nätverks principer][calico-network-policies].
 
 Mer information som hjälper dig att avgöra vilken nätverks modell som ska användas finns i [jämföra nätverks modeller och deras support omfång][network-comparisons].
-
-> [!NOTE]
-> Kuberouter gör det möjligt att aktivera nätverks princip när du använder Kubernetes och kan installeras som en daemonset i ett AKS-kluster. Tänk på att Kube-routern fortfarande är beta och att det inte finns något stöd för projektet i Microsoft.
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 
@@ -134,7 +131,7 @@ VNET_ID=$(az network vnet show --resource-group myResourceGroup --name myAKSVnet
 SUBNET_ID=$(az network vnet subnet show --resource-group myResourceGroup --vnet-name myAKSVnet --name myAKSSubnet --query id -o tsv)
 ```
 
-Tilldela nu tjänstens huvud namn för AKS- klustrets deltagar behörigheter på det virtuella nätverket med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Ange ett eget  *\<appId->* som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn:
+Tilldela nu tjänstens huvud namn för AKS-klustrets *deltagar* behörigheter på det virtuella nätverket med hjälp av kommandot [AZ roll tilldelning skapa][az-role-assignment-create] . Ange dina egna *\<appId >* som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn:
 
 ```azurecli-interactive
 az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
@@ -142,7 +139,7 @@ az role assignment create --assignee <appId> --scope $VNET_ID --role Contributor
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
 
-Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat behörigheter för ett huvud namn för tjänsten för att använda dessa nätverks resurser. Skapa nu ett AKS-kluster i ditt virtuella nätverk och under nätet med kommandot [AZ AKS Create][az-aks-create] . Definiera ditt eget tjänst huvud namn  *\<>* och  *\<lösen ord >* , som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn.
+Nu har du skapat ett virtuellt nätverk och undernät och skapat och tilldelat behörigheter för ett huvud namn för tjänsten för att använda dessa nätverks resurser. Skapa nu ett AKS-kluster i ditt virtuella nätverk och under nätet med kommandot [AZ AKS Create][az-aks-create] . Definiera ditt eget tjänst huvud namn *\<appId >* och *\<password >* , som du ser i utdata från föregående kommando för att skapa tjänstens huvud namn.
 
 Följande IP-adressintervall definieras också som en del av klustret Create process:
 
@@ -172,6 +169,24 @@ az aks create \
     --client-secret <password>
 ```
 
+> [!Note]
+> Om du vill aktivera ett AKS-kluster för att inkludera en [Calico-nätverks princip][calico-network-policies] kan du använda följande kommando.
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 3 \
+    --network-plugin kubenet --network-policy calico \
+    --service-cidr 10.0.0.0/16 \
+    --dns-service-ip 10.0.0.10 \
+    --pod-cidr 10.244.0.0/16 \
+    --docker-bridge-address 172.17.0.1/16 \
+    --vnet-subnet-id $SUBNET_ID \
+    --service-principal <appId> \
+    --client-secret <password>
+```
+
 När du skapar ett AKS-kluster skapas en nätverks säkerhets grupp och en routningstabell. Dessa nätverks resurser hanteras av AKS-kontroll planet. Nätverks säkerhets gruppen associeras automatiskt med de virtuella nätverkskorten på noderna. Routningstabellen associeras automatiskt med det virtuella nätverkets undernät. Regler för nätverks säkerhets grupper och routningstabeller och uppdateras automatiskt när du skapar och exponerar tjänster.
 
 ## <a name="next-steps"></a>Nästa steg
@@ -182,6 +197,7 @@ Med ett AKS-kluster som distribueras i ditt befintliga undernät för virtuella 
 [dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
 [cni-networking]: https://github.com/Azure/azure-container-networking/blob/master/docs/cni.md
 [kubenet]: https://kubernetes.io/docs/concepts/cluster-administration/network-plugins/#kubenet
+[Calico-network-policies]: https://docs.projectcalico.org/v3.9/security/calico-network-policy
 
 <!-- LINKS - Internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

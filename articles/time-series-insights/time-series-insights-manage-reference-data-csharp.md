@@ -10,14 +10,14 @@ ms.reviewer: jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2b9bd4b3516ee03ce78fcf255eba011f86f9c29c
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: d4f206b63be38c902f93a084889e60184ce03e07
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883936"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958047"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-by-using-c"></a>Hantera GA-referens data för en Azure Time Series Insights miljö med hjälp avC#
 
@@ -29,18 +29,18 @@ Slutför följande steg innan du kompilerar och kör exempel koden:
 
 1. [Skapa en referens data uppsättning](time-series-insights-add-reference-data-set.md).
 
-1. Konfigurera åtkomsttoken för programmet. Se till att token har hämtats via Azure Active Directory-API: et. Du bör skicka denna token i `Authorization` rubriken för varje fråge-API-begäran.
+1. Konfigurera åtkomsttoken för programmet. Se till att token har hämtats via Azure Active Directory-API: et. Du bör skicka denna token i `Authorization`-huvudet för varje fråge-API-begäran.
 
    Information om hur du konfigurerar icke-interaktiva program finns i [autentisering och auktorisering](time-series-insights-authentication-and-authorization.md).
 
 1. Redigera exempel koden för att ersätta exempel konstanterna som anges i **#DUMMY #** , nära början av koden.
 
 > [!NOTE]
-> Visa exempel koden för GA på [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
+> Visa exempel koden för GA i [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/csharp-tsi-ga-sample).
 
 ## <a name="project-dependencies"></a>Projekt beroenden
 
-Lägg till NuGet `Microsoft.IdentityModel.Clients.ActiveDirectory` - `Newtonsoft.Json` paket och i det här exemplet.
+Lägg till NuGet-paket `Microsoft.IdentityModel.Clients.ActiveDirectory` och `Newtonsoft.Json` för det här exemplet.
 
 ## <a name="c-sample-code"></a>C#exempel kod
 

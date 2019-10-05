@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: diberry
-ms.openlocfilehash: 94f019205959d63a05ed3d90ede59fece3c05901
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: bd1e665114fff4d5b7b0b2dca267207bdeebab56
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71316357"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949547"
 ---
 # <a name="language-and-region-support-for-luis"></a>Stöd för språk och din region för LUIS
 
@@ -54,7 +54,7 @@ Språkstöd varierar för [förskapade entiteter](luis-reference-prebuilt-entiti
 
  - I den `zh-cn` kulturen, LUIS förväntar sig förenklad kinesiska teckenuppsättningen i stället för den traditionella teckenuppsättningen.
  - Namn på avsikter, entiteter, funktioner och reguljära uttryck kan vara i kinesiska eller latinska tecken.
- - Se den [fördefinierade domän referensen](luis-reference-prebuilt-domains.md) för information om vilka färdiga domäner som stöds i `zh-cn` kulturen.
+ - Se den [fördefinierade domän referensen](luis-reference-prebuilt-domains.md) för information om vilka färdiga domäner som stöds i `zh-cn`-kulturen.
 <!--- When writing regular expressions in Chinese, do not insert whitespace between Chinese characters.-->
 
 ### <a name="japanese-support-notes"></a>\* Japanska stöder anteckningar
@@ -73,7 +73,9 @@ Se tal [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/S
 Se stavningskontroll i Bing [språk som stöds](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages) en lista över språk som stöds och status.
 
 ## <a name="rare-or-foreign-words-in-an-application"></a>Sällsynta eller främmande ord i ett program
-I den `en-us` kulturen, LUIS lär sig att skilja mest svenska ord, inklusive slang. I den `zh-cn` kulturen, LUIS lär sig att skilja mellan de flesta kinesiska tecken. Om du använder ett ovanligt ord i `en-us` eller tecknet i `zh-cn`, och du ser att LUIS verkar det går inte att skilja den ord eller tecken, du kan lägga till den ord eller tecken till en [funktionen frasen lista](luis-how-to-add-features.md). Till exempel ska utanför programmet – det vill säga främmande ord--kultur läggas till en fras-list-funktion. Den här frasen listan bör markeras ej utbytbara, att indikera att uppsättning sällsynta ord utgör en klass som LUIS bör lär sig att känna igen, men de är inte synonymer eller utbytbara med varandra.
+I den `en-us` kulturen, LUIS lär sig att skilja mest svenska ord, inklusive slang. I den `zh-cn` kulturen, LUIS lär sig att skilja mellan de flesta kinesiska tecken. Om du använder ett ovanligt ord i `en-us` eller tecknet i `zh-cn`, och du ser att LUIS verkar det går inte att skilja den ord eller tecken, du kan lägga till den ord eller tecken till en [funktionen frasen lista](luis-how-to-add-features.md). Till exempel ska utanför programmet – det vill säga främmande ord--kultur läggas till en fras-list-funktion. 
+
+<!--This phrase list should be marked non-interchangeable, to indicate that the set of rare words forms a class that LUIS should learn to recognize, but they are not synonyms or interchangeable with each other.-->
 
 ### <a name="hybrid-languages"></a>Hybrid-språk
 Hybrid språk kombinera ord från två kulturer, till exempel engelska och kinesiska. De här språken stöds inte i LUIS eftersom en app är baserad på en enda kultur.
@@ -103,8 +105,8 @@ Följande kulturer har anpassade tokenizer-versioner:
 
 |Kultur|Version|Syfte|
 |--|--|--|
-|Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare anger `Ich fahre einen krankenwagen` som en uttryck, `Ich fahre einen kranken wagen`aktive ras den. Tillåta markering av `kranken` och `wagen` oberoende som olika entiteter.|
-|Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på blank steg.<br> om en användare anges `Ich fahre einen krankenwagen` som en uttryck, förblir den en enda token. Markeras därför `krankenwagen` som en enskild entitet. |
+|Tyska<br>`de-de`|1.0.0|Tokenizes ord genom att dela dem med hjälp av en Machine Learning-baserad tokenizer som försöker dela upp sammansatta ord i sina enskilda komponenter.<br>Om en användare anger `Ich fahre einen krankenwagen` som en uttryck, aktive ras den `Ich fahre einen kranken wagen`. Tillåta markering av `kranken` och `wagen` oberoende av olika entiteter.|
+|Tyska<br>`de-de`|1.0.2|Tokenizes ord genom att dela dem på blank steg.<br> om en användare anger `Ich fahre einen krankenwagen` som en uttryck, förblir den en enda token. Därför är `krankenwagen` markerad som en enskild entitet. |
 
 ### <a name="migrating-between-tokenizer-versions"></a>Migrera mellan tokenizer-versioner
 <!--

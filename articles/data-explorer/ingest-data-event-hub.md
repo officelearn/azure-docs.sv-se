@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: 2dbb900d297f1acf05e77dca3e1753745e9b2b38
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
-ms.translationtype: HT
+ms.openlocfilehash: a83e2163c9aa970932f2eea8e2e04a715107ac7f
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937404"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950258"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
 
@@ -114,6 +114,7 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
     | Namnrymd för händelshubb | Ett unikt namnområdesnamn | Namnet som du valde tidigare, som identifierar ditt namnområde. |
     | Händelsehub | *test-hub* | Händelsehubben som du skapade. |
     | Konsumentgrupp | *test-group* | Konsumentgruppen som definierades i hubben som du skapade. |
+    | Systemegenskaper för händelsen | Välj relevanta egenskaper | [System egenskaper för Event Hub](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations) |
     | | |
 
     Måltabell:
@@ -124,7 +125,7 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
-    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. Komprimerings alternativ som stöds: GZip |
+    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, Multiline JSON, PSV, SOHSV, SCSV, TSV, TSVE och TXT. Komprimerings alternativ som stöds: GZip |
     | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**. Krävs för JSON, Multiline JSON eller AVRO, och valfritt för andra format.|
     | | |
 

@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 2c1473083c4fdb025588a7c4b410860a5f18dd5a
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 1482ac4b885507e37ba5972065810682c19bebed
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937065"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958463"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -22,9 +22,9 @@ SQL Server-databaser är kritiska arbetsbelastningar som kräver ett lågt mål 
 
 Den här lösningen utnyttjar SQL-inbyggda API: er för att säkerhetskopiera SQL-databaser.
 
-* När du har angett SQL Server VM som du vill skydda och fråga efter databaserna i den, kommer Azure Backup-tjänsten att installera ett tillägg för säkerhets kopiering av arbets belastning `AzureBackupWindowsWorkload` på den virtuella datorn med namn tillägget.
+* När du har angett SQL Server VM som du vill skydda och fråga efter databaserna i den, kommer Azure Backup-tjänsten att installera ett tillägg för säkerhets kopiering av arbets belastning på den virtuella datorn med namnet `AzureBackupWindowsWorkload`-tillägget.
 * Tillägget består av en koordinator och ett SQL-plugin-program. Även om koordinatorn ansvarar för att utlösa arbets flöden för olika åtgärder som att konfigurera säkerhets kopiering, säkerhets kopiering och återställning, är plugin-programmet ansvarigt för det faktiska data flödet.
-* Azure Backup skapar kontot `NT SERVICE\AzureWLBackupPluginSvc`för att kunna identifiera databaser på den här virtuella datorn. Det här kontot används för säkerhets kopiering och återställning och kräver SQL sysadmin-behörigheter. Azure Backup använder kontot för `NT AUTHORITY\SYSTEM` identifiering/frågor av databasen, så det här kontot måste vara en offentlig inloggning på SQL. Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](#set-vm-permissions).
+* För att kunna identifiera databaser på den här virtuella datorn skapar Azure Backup kontot `NT SERVICE\AzureWLBackupPluginSvc`. Det här kontot används för säkerhets kopiering och återställning och kräver SQL sysadmin-behörigheter. Azure Backup använder `NT AUTHORITY\SYSTEM`-kontot för databas identifiering/-förfrågan, så det här kontot måste vara en offentlig inloggning på SQL. Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](#set-vm-permissions).
 * När du har aktiverat konfigurera skydd för de valda databaserna konfigurerar säkerhets kopierings tjänsten koordinatorn med säkerhets kopierings scheman och annan princip information, som tillägget cachelagrar lokalt på den virtuella datorn.
 * Vid den schemalagda tiden kommunicerar koordinatorn med plugin-programmet och börjar strömma säkerhetskopierade data från SQL-servern med VDI.  
 * Plugin-programmet skickar data direkt till Recovery Services-valvet, vilket eliminerar behovet av en mellanlagringsplats. Data krypteras och lagras av Azure Backups tjänsten i lagrings konton.
@@ -45,10 +45,10 @@ Innan du börjar ska du kontrol lera följande:
 **Support** | **Detaljer**
 --- | ---
 **Distributioner som stöds** | Virtuella SQL Marketplace Azure-datorer och virtuella icke-Marketplace-datorer (manuellt installerat SQL Server) stöds.
-**Geografiska områden som stöds** | Sydöstra Australien (ASE), östra Australien (AE), Australien, centrala (AC), Australien, centrala 2 (AC) <br> Brasilien, södra (BRS)<br> Kanada, centrala (CNC), Kanada, östra (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> Östra USA (EUS), östra USA 2 (EUS2), västra centrala USA (WCUS), västra USA (WUS); Västra USA 2 (WUS 2) norra centrala USA (NCUS) centrala USA (CUS) södra centrala USA (SCUS) <br> Indien, centrala (INC), Indien, södra (moduler), västra Indien <br> Japan, östra (JPE), Japan, väst (JPW) <br> Korea, centrala (KRC), Korea, södra (KRS) <br> Nord Europa (NE), Västeuropa <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW) <br> US Gov, Arizona, US Gov, Virginia, US Gov, Texas, US DoD, centrala, US DoD, östra <br> Tyskland, norra Tyskland, västra centrala <br>
-Schweiz, norra Schweiz, västra **operativ system som stöds** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux stöds inte för närvarande.
+**Geografiska områden som stöds** | Sydöstra Australien (ASE), östra Australien (AE), Australien, centrala (AC), Australien, centrala 2 (AC) <br> Brasilien, södra (BRS)<br> Kanada, centrala (CNC), Kanada, östra (CE)<br> Asien, sydöstra (SEA), Asien, östra (EA) <br> Östra USA (EUS), östra USA 2 (EUS2), västra centrala USA (WCUS), västra USA (WUS); Västra USA 2 (WUS 2) norra centrala USA (NCUS) centrala USA (CUS) södra centrala USA (SCUS) <br> Indien, centrala (INC), Indien, södra (moduler), västra Indien <br> Japan, östra (JPE), Japan, väst (JPW) <br> Korea, centrala (KRC), Korea, södra (KRS) <br> Nord Europa (NE), Västeuropa <br> Storbritannien, södra (UKS), Storbritannien, västra (UKW) <br> US Gov, Arizona, US Gov, Virginia, US Gov, Texas, US DoD, centrala, US DoD, östra <br> Tyskland, norra Tyskland, västra centrala <br> Schweiz, norra Schweiz, västra
+**Operativsystem som stöds** | Windows Server 2016, Windows Server 2012 R2, Windows Server 2012<br/><br/> Linux stöds inte för närvarande.
 **SQL Server-versioner som stöds** | SQL Server 2017 som beskrivs [här](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 och SPS som beskrivs [här](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014 SQL Server 2012.<br/><br/> Enterprise, Standard, Web, Developer, Express.
-**.Net-versioner som stöds** | .NET Framework 4.5.2 och senare installerat på den virtuella datorn
+**.NET-versioner som stöds** | .NET Framework 4.5.2 och senare installerat på den virtuella datorn
 
 ### <a name="support-for-sql-server-2008-and-sql-server-2008-r2"></a>Stöd för SQL Server 2008 och SQL Server 2008 R2
 
@@ -87,7 +87,7 @@ Vi rekommenderar att säkerhets kopian bara konfigureras på en nod i en AG. Sä
 
 Beroende på vilka säkerhets kopierings-och säkerhets kopierings typer (fullständig/differentiell/Logga/kopiera endast fullständig), tas säkerhets kopiorna från en viss nod (primär/sekundär).
 
-- **Inställningar för säkerhets kopiering: Huvud**
+- **Backup-preferens: Primär @ no__t-0
 
 **Typ av säkerhets kopiering** | **Node**
     --- | ---
@@ -96,7 +96,7 @@ Beroende på vilka säkerhets kopierings-och säkerhets kopierings typer (fullst
     log |  Primär
     Fullständig kopia |  Primär
 
-- **Inställningar för säkerhets kopiering: Endast sekundär**
+- **Backup-preferens: Endast sekundär @ no__t-0
 
 **Typ av säkerhets kopiering** | **Node**
 --- | ---
@@ -105,7 +105,7 @@ Differentiell | Primär
 log |  Sekundär
 Fullständig kopia |  Sekundär
 
-- **Inställningar för säkerhets kopiering: Alternativ**
+- **Backup-preferens: Sekundär @ no__t-0
 
 **Typ av säkerhets kopiering** | **Node**
 --- | ---
@@ -189,7 +189,7 @@ Lägg till **NT instans\system** -och **NT Service\AzureWLBackupPluginSvc** -inl
 
 7. Klicka på OK.
 8. Upprepa samma steg (1-7 ovan) för att lägga till NT Service\AzureWLBackupPluginSvc-inloggning till SQL Server-instansen. Om inloggningen redan finns kontrollerar du att den har Server rollen sysadmin och under status har den behörighet att ansluta till databas motorn och logga in som aktive rad.
-9. När du har beviljat behörighet ska du **identifiera databaser** i portalen: Säkerhets **->** kopiering av **->** valv infrastruktur arbets belastning i virtuell Azure-dator:
+9. När du har beviljat behörighet ska du **identifiera databaser** i portalen: Valv **->** säkerhets kopierings infrastruktur **->** arbets belastningar i virtuell Azure-dator:
 
     ![Identifiera databaser i Azure Portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 

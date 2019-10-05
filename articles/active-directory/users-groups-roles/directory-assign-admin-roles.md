@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 412bfee12e50b66a780f33b2bca8c4ecc61d83f7
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 8fee8692b2e09f9e4f5580d60d2f7a5a5cea2858
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219352"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950349"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Administratörs roll behörigheter i Azure Active Directory
 
@@ -169,7 +169,10 @@ Den här rollen är endast tillgänglig för tilldelning som en ytterligare loka
 
 ### <a name="directory-readersdirectory-readers-permissions"></a>[Katalog läsare](#directory-readers-permissions)
 
-Det här är en roll som endast ska tilldelas till äldre program som inte stöder [medgivande ramverket](../develop/quickstart-v1-integrate-apps-with-azure-ad.md). Tilldela den inte till användare.
+Användare med den här rollen kan läsa grundläggande katalog information. Den här rollen ska användas för:
+* Att bevilja en speciell uppsättning gäst användare Läs åtkomst i stället för att ge dem till alla gäst användare.
+* Att bevilja en särskild uppsättning icke-administratörs användare åtkomst till Azure Portal när "begränsa åtkomst till Azure AD-portalen enbart till administratörer" är inställd på "Ja".
+* Beviljar tjänstens huvud namn åtkomst till katalogen där Directory. Read. all inte är ett alternativ.
 
 ### <a name="directory-synchronization-accountsdirectory-synchronization-accounts-permissions"></a>[Konton för katalog synkronisering](#directory-synchronization-accounts-permissions)
 

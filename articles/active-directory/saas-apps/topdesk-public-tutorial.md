@@ -1,6 +1,6 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med TOPdesk - offentliga | Microsoft Docs'
-description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TOPdesk - offentliga.
+title: 'Självstudier: Azure Active Directory integrering med TOPdesk-Public | Microsoft Docs'
+description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och TOPdesk.
 services: active-directory
 documentationCenter: na
 author: jeevansd
@@ -15,43 +15,43 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/02/2019
 ms.author: jeedes
-ms.openlocfilehash: a2a0ffd670a03aeaaa262b83127a385be9efc978
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e5575a2e8f776e87fcd4e6f4a7a9244752ebfd9a
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67088482"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950410"
 ---
-# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Självstudier: Azure Active Directory-integrering med TOPdesk – offentlig
+# <a name="tutorial-azure-active-directory-integration-with-topdesk---public"></a>Självstudier: Azure Active Directory integrering med TOPdesk-Public
 
-I den här självstudien får du lära dig hur du integrerar TOPdesk - offentliga med Azure Active Directory (AD Azure).
-Integrera TOPdesk - offentliga med Azure AD ger dig följande fördelar:
+I den här självstudien får du lära dig att integrera TOPdesk-Public med Azure Active Directory (Azure AD).
+Genom att integrera TOPdesk-offentliga med Azure AD får du följande fördelar:
 
-* Du kan styra i Azure AD som har åtkomst till TOPdesk - offentliga.
-* Du kan aktivera användarna att vara automatiskt inloggad till TOPdesk - offentlig (Single Sign-On) med sina Azure AD-konton.
+* Du kan styra Azure AD som har åtkomst till TOPdesk-Public.
+* Du kan göra det möjligt för användarna att logga in automatiskt till TOPdesk (enkel inloggning) med sina Azure AD-konton.
 * Du kan hantera dina konton på en central plats – Azure portal.
 
 Om du vill ha mer information om SaaS-appintegrering med Azure AD läser du avsnittet om [programåtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 
-Konfigurera Azure AD-integrering med TOPdesk - offentlig, behöver du följande objekt:
+Om du vill konfigurera Azure AD-integrering med TOPdesk-Public behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon Azure AD-miljö kan du hämta en månads utvärderingsversion [här](https://azure.microsoft.com/pricing/free-trial/)
-* TOPdesk - offentliga enkel inloggning aktiverat prenumeration
+* TOPdesk-aktiverad prenumeration för enkel inloggning
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
 I den här självstudien konfigurerar och testar du enkel inloggning med Azure AD i en testmiljö.
 
-* Har stöd för TOPdesk - offentliga **SP** -initierad SSO
+* TOPdesk – offentlig stöder **SP** -INITIERAd SSO
 
-## <a name="adding-topdesk---public-from-the-gallery"></a>Att lägga till TOPdesk - offentliga från galleriet
+## <a name="adding-topdesk---public-from-the-gallery"></a>Lägga till TOPdesk-Public från galleriet
 
-Om du vill konfigurera integreringen av TOPdesk - offentliga till Azure AD som du behöver lägga till TOPdesk - offentliga från galleriet i din lista över hanterade SaaS-appar.
+Om du vill konfigurera integreringen av TOPdesk i Azure AD måste du lägga till TOPdesk-Public från galleriet i listan över hanterade SaaS-appar.
 
-**Utför följande steg för att lägga till TOPdesk - offentliga från galleriet:**
+**Gör så här om du vill lägga till TOPdesk-offentlig från galleriet:**
 
 1. I den **[Azure-portalen](https://portal.azure.com)** , klicka på den vänstra navigeringspanelen **Azure Active Directory** ikon.
 
@@ -65,31 +65,31 @@ Om du vill konfigurera integreringen av TOPdesk - offentliga till Azure AD som d
 
     ![Knappen Nytt program](common/add-new-app.png)
 
-4. I sökrutan skriver **TOPdesk - offentliga**väljer **TOPdesk - offentliga** resultatet panelen klickar **Lägg till** för att lägga till programmet.
+4. I rutan Sök skriver du **TOPdesk-Public**, väljer **TOPdesk-Public** från resultat panelen och klickar sedan på **Lägg till** för att lägga till programmet.
 
-     ![TOPdesk - offentlig i resultatlistan](common/search-new-app.png)
+     ![TOPdesk – offentligt i resultat listan](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
 
-I det här avsnittet ska du konfigurera och testa Azure AD enkel inloggning med TOPdesk, offentlig baserat på en testanvändare kallas **Britta Simon**.
-För enkel inloggning till arbete, en länk förhållandet mellan en Azure AD-användare och relaterade användaren i TOPdesk - måste offentliga upprättas.
+I det här avsnittet konfigurerar och testar du enkel inloggning med Azure AD med TOPdesk-offentligt baserat på en test användare som kallas **Britta Simon**.
+För att enkel inloggning ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och en relaterad användare i TOPdesk-offentliga.
 
-Konfigurera och testa Azure AD enkel inloggning med TOPdesk - offentlig, måste du utföra följande byggblock:
+Om du vill konfigurera och testa enkel inloggning med TOPdesk i Azure AD måste du slutföra följande Bygg stenar:
 
 1. **[Konfigurera Azure AD enkel inloggning](#configure-azure-ad-single-sign-on)**  – om du vill ge användarna använda den här funktionen.
-2. **[Konfigurera TOPdesk - offentliga enkel inloggning](#configure-topdesk---public-single-sign-on)**  – om du vill konfigurera inställningar för enkel inloggning på programsidan.
+2. **[Konfigurera TOPdesk-offentlig enkel inloggning](#configure-topdesk---public-single-sign-on)** för att konfigurera inställningarna för enkel inloggning på program sidan.
 3. **[Skapa en Azure AD-testanvändare](#create-an-azure-ad-test-user)**  – om du vill testa Azure AD enkel inloggning med Britta Simon.
 4. **[Tilldela Azure AD-testanvändare](#assign-the-azure-ad-test-user)**  – om du vill aktivera Britta Simon att använda Azure AD enkel inloggning.
-5. **[Skapa TOPdesk - offentliga testanvändare](#create-topdesk---public-test-user)**  – du har en motsvarighet för Britta Simon i TOPdesk - offentlig som är länkad till en Azure AD-representation av användaren.
+5. **[Skapa TOPdesk-Public test User](#create-topdesk---public-test-user)** – om du vill ha en motsvarighet till Britta Simon i TOPdesk-Public som är länkat till Azure AD-representation av användare.
 6. **[Testa enkel inloggning](#test-single-sign-on)**  – om du vill kontrollera om konfigurationen fungerar.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Konfigurera enkel inloggning med Azure AD
 
 I det här avsnittet aktiverar du enkel inloggning med Azure AD i Azure-portalen.
 
-Konfigurera Azure AD enkel inloggning med TOPdesk - offentlig, utför följande steg:
+Utför följande steg för att konfigurera enkel inloggning för Azure AD med TOPdesk-Public:
 
-1. I den [Azure-portalen](https://portal.azure.com/)på den **TOPdesk - offentliga** application integration markerar **enkel inloggning**.
+1. På sidan [Azure Portal](https://portal.azure.com/)på sidan för **TOPdesk-offentlig** program integrering väljer du **enkel inloggning**.
 
     ![Konfigurera enkel inloggning för länken](common/select-sso.png)
 
@@ -104,7 +104,7 @@ Konfigurera Azure AD enkel inloggning med TOPdesk - offentlig, utför följande 
 4.  I avsnittet **Grundläggande SAML-konfiguration** utför du följande steg om du har **metadatafilen för tjänstleverantör**:
 
     >[!NOTE]
-    >Du får den **tjänstleverantör metadatafil** från den **konfigurera TOPdesk - offentliga enkel inloggning** avsnitt som beskrivs senare i självstudien.
+    >Du hämtar metadata- **filen för tjänst leverantören** från avsnittet **Konfigurera TOPdesk-offentlig enkel inloggning** som beskrivs senare i självstudien.
 
     a. Klicka på **Ladda upp metadatafil**.
     
@@ -114,22 +114,24 @@ Konfigurera Azure AD enkel inloggning med TOPdesk - offentlig, utför följande 
 
     ![välj metadatafil](common/browse-upload-metadata.png)
 
-    c. När metadatafilen har överförts den **identifierare** och **svars-URL** värden får automatiskt ifylld i avsnittet grundläggande SAML-konfiguration.
+    c. När metadatafilen har laddats upp, fylls **ID** och **svars-URL** -värden automatiskt i avsnittet grundläggande SAML-konfiguration.
 
-    ![TOPdesk - offentlig domän och URL: er med enkel inloggning för information](common/sp-identifier-reply.png)
+    ![Information om enkel inloggning för TOPdesk-offentliga domäner och URL: er](common/sp-identifier-reply.png)
 
     d. I textrutan **Inloggnings-URL** skriver du en URL med följande mönster: `https://<companyname>.topdesk.net`
 
-    e. I den **identifierare** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.topdesk.net/tas/public/login/verify`
-
+    e. I text rutan **ID för identitets-URL** fyller du i URL: en för TOPdesk metadata som du kan hämta från TOPdesk-konfigurationen. Den bör använda följande mönster: `https://<companyname>.topdesk.net/saml-metadata/<identifier>`
+    
+    f. I den **svars-URL** textrutan anger du ett URL med hjälp av följande mönster: `https://<companyname>.topdesk.net/tas/public/login/verify`
+    
     > [!NOTE] 
-    > Om den **identifierare** och **svars-URL** värden får inte fylls i automatiskt, måste du ange dem manuellt. Följer mönstret som nämns ovan för identifierare, och du får svars-URL-värde från den **konfigurera TOPdesk - offentliga enkel inloggning** avsnitt som beskrivs senare i självstudien. Den **inloggnings-URL** värdet är inte verkliga, så du behöver uppdatera värdet med faktiska inloggnings-URL: en. Kontakta [TOPdesk - supportteamet för offentlig klient](https://help.topdesk.com/saas/enterprise/user/) att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
+    > Om **ID** -och **svars-URL** -värdena inte fylls i automatiskt måste du ange dem manuellt. För identifierare följer du mönstret som nämnts ovan och du får svars-URL-värdet från avsnittet **Konfigurera TOPdesk-offentlig enkel inloggning** som beskrivs senare i självstudien. **Inloggnings-URL** -värdet är inte verkligt, så du måste uppdatera värdet med den faktiska inloggnings-URL: en. Kontakta [TOPdesk – support teamet för offentliga klienter](https://help.topdesk.com/saas/enterprise/user/) för att hämta värdet. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
 5. På sidan **Set up Single Sign-On with SAML** (Konfigurera enkel inloggning med SAML) går du till avsnittet **SAML Signing Certificate** (SAML-signeringscertifikat), klickar på **Ladda ned** för att ladda ned **Federation Metadata-XML** från de angivna alternativen enligt dina behov och spara den på datorn.
 
     ![Länk för hämtning av certifikat](common/metadataxml.png)
 
-6. På den **konfigurera TOPdesk - offentliga** avsnittet, kopiera den lämpliga URL: er enligt dina behov.
+6. I avsnittet **Konfigurera TOPdesk-Public** kopierar du lämpliga URL: er enligt ditt krav.
 
     ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
@@ -139,9 +141,9 @@ Konfigurera Azure AD enkel inloggning med TOPdesk - offentlig, utför följande 
 
     c. Utloggnings-URL
 
-### <a name="configure-topdesk---public-single-sign-on"></a>Konfigurera TOPdesk - offentliga enkel inloggning
+### <a name="configure-topdesk---public-single-sign-on"></a>Konfigurera TOPdesk-offentlig enkel inloggning
 
-1. Logga in på din **TOPdesk - offentliga** företagets plats som administratör.
+1. Logga in på din **TOPdesk-offentliga** företags webbplats som administratör.
 
 2. På menyn **TOPdesk** klickar du på **Inställningar**.
    
@@ -155,17 +157,17 @@ Konfigurera Azure AD enkel inloggning med TOPdesk - offentlig, utför följande 
    
     ![Allmänt](./media/topdesk-public-tutorial/ic790600.png "Allmänt")
 
-5. I den **offentliga** delen av den **SAML-inloggningen** konfiguration och utför följande steg:
+5. I avsnittet **offentligt** i avsnittet konfiguration av **SAML-inloggning** utför du följande steg:
    
     ![Tekniska inställningar](./media/topdesk-public-tutorial/ic790601.png "Tekniska inställningar")
    
     a. Klicka på **Ladda ned** för att ladda ned den offentliga metadatafilen, och spara den lokalt på datorn.
    
-    b. Öppna den hämta metadatafilen och välj sedan den **AssertionConsumerService** noden.
+    b. Öppna den hämtade metadatafilen och leta upp noden **AssertionConsumerService** .
 
     ![AssertionConsumerService](./media/topdesk-public-tutorial/ic790619.png "AssertionConsumerService")
    
-    c. Kopiera den **AssertionConsumerService** värde, klistra in det här värdet i den **svars-URL** -textrutan i **SAML grundkonfiguration** avsnittet.      
+    c. Kopiera värdet **AssertionConsumerService** och klistra in det här värdet i text rutan **svars-URL** i avsnittet **grundläggande SAML-konfiguration** .      
    
 6. Skapa en certifikatfil genom att utföra följande steg:
     
@@ -217,7 +219,7 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
     a. I fältet **Namn** anger du **BrittaSimon**.
   
-    b. I den **användarnamn** fälttyp brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
+    b. I fältet **användar namn** anger du brittasimon@yourcompanydomain.extension. Till exempel, BrittaSimon@contoso.com
 
     c. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan Lösenord.
 
@@ -225,15 +227,15 @@ Målet med det här avsnittet är att skapa en testanvändare i Azure-portalen m
 
 ### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
 
-I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inloggning genom att bevilja åtkomst till TOPdesk - offentliga.
+I det här avsnittet aktiverar du Britta Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till TOPdesk-Public.
 
-1. I Azure-portalen väljer du **företagsprogram**väljer **alla program**och välj sedan **TOPdesk - offentliga**.
+1. I Azure Portal väljer du **företags program**, väljer **alla program**och väljer sedan **TOPdesk-Public**.
 
     ![Bladet Företagsprogram](common/enterprise-applications.png)
 
-2. I listan med program väljer **TOPdesk - offentliga**.
+2. I listan program väljer du **TOPdesk-Public**.
 
-    ![TOPdesk - offentlig länk i listan med program](common/all-applications.png)
+    ![Länken TOPdesk-offentlig i program listan](common/all-applications.png)
 
 3. På menyn till vänster väljer du **Användare och grupper**.
 
@@ -249,38 +251,38 @@ I det här avsnittet ska aktivera du Britta Simon att använda Azure enkel inlog
 
 7. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
 
-### <a name="create-topdesk---public-test-user"></a>Skapa TOPdesk - offentliga testanvändare
+### <a name="create-topdesk---public-test-user"></a>Skapa TOPdesk-offentlig test användare
 
-För att aktivera Azure AD-användare att logga in på TOPdesk - offentlig, de måste etableras i TOPdesk - offentliga. När det gäller TOPdesk - offentliga etablering är en manuell aktivitet.
+För att Azure AD-användare ska kunna logga in på TOPdesk-offentliga måste de tillhandahållas i TOPdesk-Public. Vid TOPdesk-offentlig är etableringen en manuell uppgift.
 
 ### <a name="to-configure-user-provisioning-perform-the-following-steps"></a>Konfigurera användaretablering genom att utföra följande steg:
 
-1. Logga in på din **TOPdesk - offentliga** företagets plats som administratör.
+1. Logga in på din **TOPdesk-offentliga** företags webbplats som administratör.
 
-2. Klicka på menyn längst upp **TOPdesk \> New \> stödfiler \> Person**.
+2. I menyn högst upp klickar du på **TOPdesk \> nya \>-stödfiler \> person**.
    
-    ![Person](./media/topdesk-public-tutorial/ic790628.png "Person")
+    ![Person](./media/topdesk-public-tutorial/ic790628.png "person")
 
-3. I dialogrutan Ny Person utför du följande steg:
+3. I dialog rutan ny person utför du följande steg:
    
-    ![Ny Person](./media/topdesk-public-tutorial/ic790629.png "ny Person")
+    ![Ny person](./media/topdesk-public-tutorial/ic790629.png "ny") person
    
     a. Klicka på fliken Allmänt.
 
-    b. I den **efternamn** textrutan skriver som Simon användarens efternamn
+    b. I text rutan efter **namn** skriver du efter namn för användaren som Simon
  
     c. Välj en **plats** för kontot.
  
     d. Klicka på **Spara**.
 
 > [!NOTE]
-> Du kan använda alla andra TOPdesk - verktyg för att skapa offentliga användar-konto eller API: er som tillhandahålls av TOPdesk - publik för att etablera användarkonton i Azure AD.
+> Du kan använda andra TOPdesk-verktyg eller API: er som tillhandahålls av TOPdesk-Public för att etablera Azure AD-användarkonton.
 
 ### <a name="test-single-sign-on"></a>Testa enkel inloggning 
 
 I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
 
-När du klickar på TOPdesk - offentliga panelen i åtkomstpanelen, bör det vara loggas in automatiskt till TOPdesk - offentlig som du ställer in enkel inloggning. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen TOPdesk-offentlig i åtkomst panelen, bör du loggas in automatiskt på den TOPdesk-offentliga som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

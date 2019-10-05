@@ -6,16 +6,16 @@ keywords: data science tools, data science virtual machine, tools for data scien
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
-author: vijetajo
-ms.author: vijetaj
+author: gvashishtha
+ms.author: gopalv
 ms.topic: conceptual
-ms.date: 09/11/2017
-ms.openlocfilehash: 2d3d37bcb6ee4bae82d82cf676211e9e1546cfad
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.date: 10/3/2019
+ms.openlocfilehash: 47a701cce348e86359947376b3d6a9915dfb2264
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70191981"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950161"
 ---
 # <a name="data-science-virtual-machine-data-ingestion-tools"></a>Data Science Virtual Machine verktyg för datainhämtning
 
@@ -65,7 +65,7 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 | Vad är det?   | Verktyg för att importera data från olika källor till Azure Cosmos DB. Dessa källor innehåller JSON-filer, CSV-filer, SQL, MongoDB, Azure Table Storage, Amazon DynamoDB och Azure Cosmos DB SQL API-samlingar.      |
 | DSVM-versioner som stöds      | Windows      |
 | Vanliga användningsområden      | Importera filer från en virtuell dator till CosmosDB, importera data från Azure Table Storage till CosmosDB och importera data från en Microsoft SQL Server databas till CosmosDB.     |
-|  Hur du använder / köra den?    |   Om du vill använda kommando rads versionen öppnar du en kommando tolk och skriver `dt`. Om du vill använda GUI-verktyget öppnar du en kommando tolk `dtui`och skriver.    |
+|  Hur du använder / köra den?    |   Om du vill använda kommando rads versionen öppnar du en kommando tolk och skriver `dt`. Om du vill använda GUI-verktyget öppnar du en kommando tolk och skriver `dtui`.    |
 | Innehåller länkar till exempel      | [Importera data för CosmosDB](https://docs.microsoft.com/azure/cosmos-db/import-data)      |
 | Relaterade verktyg på DSVM      | AzCopy, AdlCopy      |
 
@@ -91,15 +91,3 @@ Här följer några data flytt verktyg som är tillgängliga i DSVM.
 |  Hur använder och kör jag det?    |   Kör _blobfuse_ i en terminal.    |
 | Innehåller länkar till exempel      | [blobfuse på GitHub](https://github.com/Azure/azure-storage-fuse)      |
 | Relaterade verktyg på DSVM      | Azure CLI      |
-
-
-## <a name="microsoft-data-management-gateway"></a>Microsoft Data Management Gateway
-
-|    |           |
-| ------------- | ------------- |
-| Vad är det?   | Ett verktyg för att ansluta lokala datakällor molnbaserade tjänster för konsumtion.      |
-| DSVM-versioner som stöds      | Windows      |
-| Vanliga användningsområden      | Ansluta en virtuell dator till en lokal datakälla.      |
-|  Hur du använder / köra den?    |   Öppna Microsoft Data Management Gateway på Start menyn.    |
-| Innehåller länkar till exempel      | [Gateway för datahantering](https://msdn.microsoft.com/library/dn879362.aspx)      |
-| Relaterade verktyg på DSVM      | AzCopy, AdlCopy, bcp    |

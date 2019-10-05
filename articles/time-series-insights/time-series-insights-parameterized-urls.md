@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.topic: conceptual
 ms.workload: big-data
-ms.date: 08/08/2019
+ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: ce8c74e5c194dbd971ecb65659c4fc8a7150146d
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: cad57e3e7e52ec291819110bab9d8d79f51e5a2f
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882927"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958161"
 ---
 # <a name="share-a-custom-view-using-a-parameterized-url"></a>Dela en anpassad vy med en parametriserad URL
 
@@ -55,18 +55,18 @@ För ett relativt tidsvärde använder du `relativeMillis=<value>`, där *värde
 
 Godkända värden motsvarar **snabb tids** menyn i Time Series Insights Explorer och inkluderar:
 
-* `1800000`(Senaste 30 minuterna)
-* `3600000`(Senaste 60 minuter)
-* `10800000`(Senaste 3 timmarna)
-* `21600000`(Senaste 6 timmarna)
-* `43200000`(Senaste 12 timmarna)
-* `86400000`(Senaste 24 timmarna)
-* `604800000`(Senaste 7 dagarna)
-* `2592000000`(Senaste 30 timmarna)
+* `1800000` (senaste 30 minuter)
+* `3600000` (senaste 60 minuter)
+* `10800000` (senaste 3 timmarna)
+* `21600000` (senaste 6 timmarna)
+* `43200000` (senaste 12 timmarna)
+* `86400000` (senaste 24 timmarna)
+* `604800000` (senaste 7 dagarna)
+* `2592000000` (senaste 30 timmarna)
 
 ### <a name="optional-parameters"></a>Valfria parametrar
 
-`timeSeriesDefinitions=<collection of term objects>` Parametern anger villkoren i en Time Series Insights vy:
+Parametern `timeSeriesDefinitions=<collection of term objects>` anger villkoren i en Time Series Insights vy:
 
 | Parameter | URL-objekt | Beskrivning |
 | --- | --- | --- |
@@ -74,16 +74,16 @@ Godkända värden motsvarar **snabb tids** menyn i Time Series Insights Explorer
 | **splitBy** | `\<string>` | Kolumnnamnet att *dela med*. |
 | **measureName** | `\<string>` | Kolumnnamnet för *mått*. |
 | **predikatet** | `\<string>` | *Where*-sats för filtrering på serversidan. |
-| **useSum** | `true` | En valfri parameter som anger att summan ska används för måttet. </br>  Observera att om `Events` är det valda måttet väljs antal som standard.  </br>  Om `Events` inte är valt väljs Average som standard. |
+| **useSum** | `true` | En valfri parameter som anger att summan ska används för måttet. </br>  Observera att om `Events` är det valda måttet är antalet markerat som standard.  </br>  Om `Events` inte är valt väljs genomsnitt som standard. |
 
-* `multiChartStack=<true/false>` Nyckel värdes paret aktiverar stackning i diagrammet.
-* `multiChartSameScale=<true/false>` Nyckel/värde-paret möjliggör samma skala för Y-axeln mellan termer inom en valfri parameter.  
+* Med nyckel värdes paret `multiChartStack=<true/false>` kan du stapla i diagrammet.
+* Nyckel/värde-paret `multiChartSameScale=<true/false>` aktiverar samma skala för Y-axeln mellan termer inom en valfri parameter.  
 * Med `timeBucketUnit=<Unit>&timeBucketSize=<integer>` kan du justera skjutreglaget intervall så att det ger en mer detaljerad eller smidigare, mer sammanslagen vy av diagrammet.  
-* `timezoneOffset=<integer>` Parametern låter dig ange tids zonen för diagrammet som ska visas som en förskjutning till UTC.
+* Med parametern `timezoneOffset=<integer>` kan du ange tids zonen för diagrammet som ska visas som en förskjutning till UTC.
 
 | Par (er) | Beskrivning |
 | --- | --- |
-| `multiChartStack=false` | `true`är aktiverat som standard för att `false` skicka till stack. |
+| `multiChartStack=false` | `true` är aktiverat som standard så pass `false` för stack. |
 | `multiChartStack=false&multiChartSameScale=true` | Stapling måste aktiveras att använda samma skala för y-axeln i villkoren.  Det är `false` som standard, så att skicka "true" aktiverar den här funktionen. |
 | `timeBucketUnit=<Unit>&timeBucketSize=<integer>` | Enheter (Units) = dagar, timmar, minuter, sekunder och millisekunder.  Inled alltid enheten med versal. </br> Definiera antalet enheter genom att skicka det önskade heltalet för timeBucketSize.  Observera att du jämnar upp till 7 dagar.  |
 | `timezoneOffset=-<integer>` | Heltalet är alltid i millisekunder. </br> OBS! den här funktionen skiljer sig något från vad vi aktiverar i Time Series Insights Explorer, där du kan välja lokal (webbläsarens tid) eller UTC. |
@@ -114,11 +114,11 @@ https://insights.timeseries.azure.com/samples?environmentId=10000000-0000-0000-0
 
 URL: en ovan beskriver och bygger vyn Time Series Insights Explorer:
 
-[![Villkor för Time Series Insights Explorer](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
+[Villkor för @no__t 1Time Series Insights-Utforskaren](media/parameterized-url/url1.png)](media/parameterized-url/url1.png#lightbox)
 
 Fullständig vy (inklusive diagrammet):
 
-[![Diagramvy](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
+[![Chart vy](media/parameterized-url/url2.png)](media/parameterized-url/url2.png#lightbox)
 
 ## <a name="next-steps"></a>Nästa steg
 

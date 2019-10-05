@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 1339fe66a4925104d459c0491caccdd7db5998a7
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: 63678ad7260210d86daf035bfec9bb467a526042
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114465"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950315"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>Skydda trafik mellan poddar med hjälp av nätverks principer i Azure Kubernetes service (AKS)
 
@@ -29,7 +29,7 @@ Du behöver Azure CLI-versionen 2.0.61 eller senare installerad och konfigurerad
 > 
 > Om du vill fortsätta att använda befintliga test kluster som använde nätverks principen under för hands versionen, uppgraderar du klustret till en ny Kubernetes-version för den senaste GA-versionen och distribuerar sedan följande YAML-manifest för att åtgärda krasching av mått servern och Kubernetes paneler. Den här korrigeringen krävs bara för kluster som använder Calico Network Policy Engine.
 >
-> Av säkerhets skäl bör du [läsa innehållet i det här yaml][calico-aks-cleanup] -manifestet för att förstå vad som distribueras till AKS-klustret.
+> Av säkerhets skäl bör du [läsa innehållet i det här yaml-manifestet][calico-aks-cleanup] för att förstå vad som distribueras till AKS-klustret.
 >
 > `kubectl delete -f https://raw.githubusercontent.com/Azure/aks-engine/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml`
 
@@ -50,19 +50,14 @@ Azure erbjuder två sätt att implementera nätverks principer. Du väljer ett a
 
 Båda implementeringarna använder Linux- *program varan iptables* för att genomdriva de angivna principerna. Principer översätts till uppsättningar av tillåtna och otillåtna IP-par. Dessa par är sedan programmerade som IPTable filter regler.
 
-Nätverks principen fungerar bara med alternativet Azure-CNI (avancerat). Implementeringen skiljer sig för de två alternativen:
-
-* *Azure-nätverks principer* – Azure-cni konfigurerar en bro i VM-värden för nätverk inom en nod. Filtrerings reglerna tillämpas när paketen passerar genom bryggan.
-* *Calico nätverks principer* – Azure-cni konfigurerar lokala kernel-vägar för trafik mellan noder. Principerna tillämpas på pod nätverks gränssnitt.
-
 ### <a name="differences-between-azure-and-calico-policies-and-their-capabilities"></a>Skillnader mellan Azure och Calico-principer och deras funktioner
 
 | Funktion                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
 | Plattformar som stöds                      | Linux                      | Linux                       |
-| Nätverks alternativ som stöds             | Azure CNI                  | Azure CNI                   |
+| Nätverks alternativ som stöds             | Azure CNI                  | Azure-CNI och Kubernetes       |
 | Efterlevnad med Kubernetes-specifikation | Alla princip typer som stöds |  Alla princip typer som stöds |
-| Ytterligare funktioner                      | Inga                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du `calicoctl` använder CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
+| Ytterligare funktioner                      | Inga                       | Utökad princip modell bestående av global nätverks princip, global nätverks uppsättning och värd slut punkt. Mer information om hur du använder `calicoctl` CLI för att hantera dessa utökade funktioner finns i [calicoctl User Reference][calicoctl]. |
 | Support                                  | Stöds av support-och teknik teamet för Azure | Calico community-support. Mer information om ytterligare avgiftsbelagd support finns i [Support alternativ för Project Calico][calico-support]. |
 | Loggning                                  | Regler som läggs till/tas bort i program varan iptables loggas på varje värd under */var/log/Azure-NPM.log* | Mer information finns i [Calico-komponent loggar][calico-logs] |
 
@@ -76,15 +71,15 @@ För att se nätverks principer i praktiken ska vi skapa och sedan expandera i e
 
 Först ska vi skapa ett AKS-kluster som har stöd för nätverks principer. Funktionen nätverks princip kan bara aktive ras när klustret skapas. Du kan inte aktivera nätverks princip i ett befintligt AKS-kluster.
 
-Om du vill använda en nätverks princip med ett AKS-kluster måste du använda [Azure cni-plugin-programmet][azure-cni] och definiera ett eget virtuellt nätverk och undernät. Mer detaljerad information om hur du planerar ut de nödvändiga under näts intervallen finns i [Konfigurera avancerade nätverk][use-advanced-networking].
+Om du vill använda Azure Network Policy måste du använda [Azure cni-plugin-programmet][azure-cni] och definiera ett eget virtuellt nätverk och undernät. Mer detaljerad information om hur du planerar ut de nödvändiga under näts intervallen finns i [Konfigurera avancerade nätverk][use-advanced-networking]. Calico nätverks princip kan användas med antingen samma Azure CNI-plugin-program eller med plugin-programmet Kubernetes CNI.
 
 Följande exempel skript:
 
 * Skapar ett virtuellt nätverk och undernät.
 * Skapar ett tjänst huvud namn för Azure Active Directory (Azure AD) för användning med AKS-klustret.
-* Tilldelar deltagar behörighet för AKS-kluster tjänstens huvud namn i det virtuella nätverket.
+* Tilldelar *deltagar* behörighet för AKS-kluster tjänstens huvud namn i det virtuella nätverket.
 * Skapar ett AKS-kluster i det definierade virtuella nätverket och aktiverar nätverks principen.
-    * Alternativet *Azure* Network Policy används. Använd `--network-policy calico` parametern för att använda Calico som alternativet nätverks princip i stället.
+    * Alternativet *Azure* Network Policy används. Använd parametern `--network-policy calico` om du vill använda Calico som alternativ för nätverks principer i stället. Obs! Calico kan användas med antingen `--network-plugin azure` eller `--network-plugin kubenet`.
 
 Ange en egen säker *SP_PASSWORD*. Du kan ersätta variablerna *RESOURCE_GROUP_NAME* och *CLUSTER_NAME* :
 
@@ -139,7 +134,7 @@ az aks create \
     --network-policy azure
 ```
 
-Det tar några minuter att skapa klustret. När klustret är klart konfigurerar `kubectl` du för att ansluta till ditt Kubernetes-kluster med hjälp av kommandot [AZ AKS get-credentials][az-aks-get-credentials] . Detta kommando hämtar autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem:
+Det tar några minuter att skapa klustret. När klustret är klart konfigurerar du `kubectl` för att ansluta till ditt Kubernetes-kluster med hjälp av kommandot [AZ AKS get-credentials][az-aks-get-credentials] . Detta kommando hämtar autentiseringsuppgifter och konfigurerar Kubernetes CLI för att använda dem:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME
@@ -168,7 +163,7 @@ Skapa en annan Pod och koppla en terminalsession för att testa att du kan nå s
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-I Shell-prompten använder `wget` du för att bekräfta att du har åtkomst till standard webb sidan för nginx:
+I Shell-prompten använder du `wget` för att bekräfta att du har åtkomst till standard webb sidan för NGINX:
 
 ```console
 wget -qO- http://backend
@@ -192,7 +187,7 @@ exit
 
 ### <a name="create-and-apply-a-network-policy"></a>Skapa och tillämpa en nätverks princip
 
-Nu när du har bekräftat att du kan använda den grundläggande NGINX-webbsidan i exempel backend-pod, skapar du en nätverks princip som nekar all trafik. Skapa en fil med `backend-policy.yaml` namnet och klistra in följande yaml-manifest. I det här manifestet används en *podSelector* för att koppla principen till poddar som har *appen: webapp, roll: Server dels* etikett, t. ex. ditt exempel nginx pod. Inga regler har definierats i *ingress*, så all inkommande trafik till Pod nekas:
+Nu när du har bekräftat att du kan använda den grundläggande NGINX-webbsidan i exempel backend-pod, skapar du en nätverks princip som nekar all trafik. Skapa en fil med namnet `backend-policy.yaml` och klistra in följande YAML-manifest. I det här manifestet används en *podSelector* för att koppla principen till poddar som har *appen: webapp, roll: Server dels* etikett, t. ex. ditt exempel nginx pod. Inga regler har definierats i *ingress*, så all inkommande trafik till Pod nekas:
 
 ```yaml
 kind: NetworkPolicy
@@ -223,7 +218,7 @@ Låt oss se om du kan använda webb sidan NGINX på backend-Pod igen. Skapa en a
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-I Shell-prompten använder `wget` du för att se om du kan komma åt standard webb sidan för nginx. Den här gången anger du ett timeout-värde till *2* sekunder. Nätverks principen blockerar nu all inkommande trafik, så det går inte att läsa in sidan, som du ser i följande exempel:
+I Shell-prompten använder du `wget` för att se om du kan komma åt standard webb sidan för NGINX. Den här gången anger du ett timeout-värde till *2* sekunder. Nätverks principen blockerar nu all inkommande trafik, så det går inte att läsa in sidan, som du ser i följande exempel:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -278,7 +273,7 @@ Schemalägg en pod som är märkt som *app = webapp, Role = frontend* och koppla
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-I Shell-prompten använder `wget` du för att se om du kan komma åt standard webb sidan för nginx:
+I Shell-prompten använder du `wget` för att se om du kan komma åt standard webb sidan för NGINX:
 
 ```console
 wget -qO- http://backend
@@ -308,7 +303,7 @@ Nätverks principen tillåter trafik från poddar-märkta *appar: webapp, Role: 
 kubectl run --rm -it --image=alpine network-policy --namespace development --generator=run-pod/v1
 ```
 
-I Shell-prompten använder `wget` du för att se om du kan komma åt standard webb sidan för nginx. Nätverks principen blockerar inkommande trafik, så det går inte att läsa in sidan, som du ser i följande exempel:
+I Shell-prompten använder du `wget` för att se om du kan komma åt standard webb sidan för NGINX. Nätverks principen blockerar inkommande trafik, så det går inte att läsa in sidan, som du ser i följande exempel:
 
 ```console
 $ wget -qO- --timeout=2 http://backend
@@ -339,7 +334,7 @@ Schemalägg en test-Pod i namn området för *produktion* som är märkt som *ap
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-I Shell-prompten använder `wget` du för att bekräfta att du har åtkomst till standard webb sidan för nginx:
+I Shell-prompten använder du `wget` för att bekräfta att du har åtkomst till standard webb sidan för NGINX:
 
 ```console
 wget -qO- http://backend.development
@@ -403,7 +398,7 @@ Schemalägg en annan Pod i *produktions* namn rymden och koppla en terminalserve
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace production --generator=run-pod/v1
 ```
 
-I Shell-prompten använder `wget` du för att se att nätverks principen nu nekar trafik:
+I Shell-prompten använder du `wget` för att se att nätverks principen nu nekar trafik:
 
 ```console
 $ wget -qO- --timeout=2 http://backend.development
@@ -423,7 +418,7 @@ När trafik nekas från namn området för *produktion* , Schemalägg en test-Po
 kubectl run --rm -it frontend --image=alpine --labels app=webapp,role=frontend --namespace development --generator=run-pod/v1
 ```
 
-I Shell-prompten använder `wget` du för att se att nätverks principen tillåter trafiken:
+I Shell-prompten använder du `wget` för att se att nätverks principen tillåter trafiken:
 
 ```console
 wget -qO- http://backend
@@ -468,9 +463,9 @@ Mer information om principer finns i [Kubernetes Network policies][kubernetes-ne
 [policy-rules]: https://kubernetes.io/docs/concepts/services-networking/network-policies/#behavior-of-to-and-from-selectors
 [aks-github]: https://github.com/azure/aks/issues
 [tigera]: https://www.tigera.io/
-[calicoctl]: https://docs.projectcalico.org/v3.6/reference/calicoctl/
+[calicoctl]: https://docs.projectcalico.org/v3.9/reference/calicoctl/
 [calico-support]: https://www.projectcalico.org/support
-[calico-logs]: https://docs.projectcalico.org/v3.6/maintenance/component-logs
+[calico-logs]: https://docs.projectcalico.org/v3.9/maintenance/component-logs
 [calico-aks-cleanup]: https://github.com/Azure/aks-engine/blob/master/docs/topics/calico-3.3.1-cleanup-after-upgrade.yaml
 
 <!-- LINKS - internal -->

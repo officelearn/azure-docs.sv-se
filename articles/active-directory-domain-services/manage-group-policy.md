@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: iainfou
-ms.openlocfilehash: 5c6d7b3403209710c9086b90abcb0e2ce61a0e8a
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 6fe959a661f23673bb5d3e6df630ef4ee25128f7
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69612677"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958550"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Administrera grupprincip i en Azure AD Domain Services hanterad domän
 
@@ -37,7 +37,10 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
     * Om det behövs, slutför du själv studie kursen för att [skapa och konfigurera en Azure Active Directory Domain Services-instans][create-azure-ad-ds-instance].
 * En virtuell Windows Server Management-dator som är ansluten till den hanterade Azure AD DS-domänen.
     * Om det behövs, slutför du själv studie kursen för att [skapa en virtuell Windows Server-dator och koppla den till en hanterad domän][create-join-windows-vm].
-* Ett användar konto som är medlem i administratörs gruppen för *Azure AD DC* i din Azure AD-klient.
+* Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
+
+> [!NOTE]
+> Eftersom det inte finns [någon åtkomst till domänkontrollanter i Azure AD DS](faqs.md#can-i-connect-to-the-domain-controller-for-my-managed-domain-using-remote-desktop)kan du inte skapa och använda en central lagrings plats för administrativa mallar för grup principer i en hanterad domän. [SYSVOL ingår inte i den lokala Azure AD Connect-synkroniseringen](synchronization.md#what-isnt-synchronized-to-azure-ad-ds), så du kan inte heller skapa en lokal central lagrings plats och synkronisera den med Azure AD DS via Azure AD.
 
 ## <a name="install-group-policy-management-tools"></a>Installera grupprincip hanterings verktyg
 
@@ -62,7 +65,7 @@ Om du vill skapa och konfigurera grupprincip objekt (GPO) måste du installera g
 Det finns standard grup princip objekt (GPO) för användare och datorer i en hanterad Azure AD DS-domän. Med den grupprincip hanterings funktionen installerad från föregående avsnitt kan vi visa och redigera ett befintligt grup princip objekt. I nästa avsnitt skapar du ett anpassat grup princip objekt.
 
 > [!NOTE]
-> Om du vill administrera en grup princip i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i administratörs gruppen för *AAD* -domänkontrollanten.
+> Om du vill administrera en grup princip i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
 1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas, inklusive **Grupprincip hantering** som installerades i föregående avsnitt.
 1. Öppna konsolen grupprinciphantering (GPMC) genom att välja **Grupprincip hantering**.

@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 829054064a21b2fb8da2bd975501bfcd0840e7eb
-ms.sourcegitcommit: 55e0c33b84f2579b7aad48a420a21141854bc9e3
+ms.openlocfilehash: dab4b4c6f41a95623a40e5d3fd859f9613afac27
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69624575"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71949602"
 ---
 # <a name="phrase-list-features-in-your-luis-app"></a>Fras List funktioner i LUIS-appen
 
@@ -46,14 +46,7 @@ Fras listor är inte länkade till en speciell avsikt eller entitet, men läggs 
 
 När du har angett några ord eller fraser använder du den **rekommenderade** funktionen för att hitta relaterade värden. Granska de relaterade värdena innan du lägger till dem i dina fras List värden.
 
-|Listtyp|Syfte|
-|--|--|
-|Utbytbara|Synonymer eller ord som, när de ändras till ett annat ord i listan, har samma avsikts-och enhets extrahering.|
-|Icke-utbytbart|Appens vokabulär, som är specifik för din app, mer än vanligt vis andra ord på det språket.|
-
-### <a name="interchangeable-lists"></a>Listor med utbytbara
-
-En lista med utbytbara fraser är för värden som är synonymer. Om du till exempel vill att alla vatten förekomster hittas och du har exempel yttranden som: 
+En fras lista är för värden som är synonymer. Om du till exempel vill att alla vatten förekomster hittas och du har exempel yttranden som: 
 
 * Vilka städer är nära de fantastiska sjöarna? 
 * Vilken väg körs i sjön-Havasu?
@@ -65,17 +58,7 @@ Varje uttryck bör bestämmas för både avsikt och entiteter oavsett vatten fö
 * Vilken väg körs tillsammans [bodyOfWater]?
 * Var börjar och slutar [bodyOfWater]? 
 
-Eftersom ord eller fraser för bröd texten i vatten är synonyma och kan användas utbytbara i yttranden, använder du den utbytbara inställningen på fras listan. 
-
-### <a name="non-interchangeable-lists"></a>Listor som inte är utbytbara
-
-En icke-utbytbar fras lista är en signal som höjer identifieringen till LUIS. Fras listan visar ord eller fraser som är mer betydande än andra ord. Detta hjälper både att identifiera matchning av avsikt och entitet. Anta till exempel att du har en ämnes domän som en global domän (vilket innebär att den är i flera kulturer men fortfarande på ett och samma språk). Det finns ord och fraser som är viktiga för appen, men som inte är synonyma. 
-
-För ett annat exempel använder du en lista med icke-utbytbara fraser för ovanliga, tillverkarspecifika och främmande ord. LUIS kanske inte att identifiera sällsynta och egna ord, samt främmande ord (utanför appen kultur). Icke-utbytbara inställningen anger att uppsättning sällsynta ord utgör en klass som LUIS bör lär sig att känna igen, men de är inte synonymer eller utbytbara med varandra.
-
-Lägg inte till alla möjliga ord eller fraser i en fras lista, Lägg till några ord eller fraser i taget, och omträna och publicera. 
-
-När fras listan växer med tiden kan det hända att vissa termer har många former (synonymer). Bryt ut dessa i en annan fras lista som är utbytbara. 
+Eftersom ord eller fraser för bröd texten i vatten är synonyma och kan användas utbytbara i yttranden. 
 
 <a name="phrase-lists-help-identify-simple-exchangeable-entities"></a>
 

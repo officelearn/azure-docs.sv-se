@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 9bb654f37ecc4fda46171e859adac0236b51e4b2
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 636c397001a3130c60fc2bf498339ad058aca374
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881493"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71959402"
 ---
 # <a name="get-started-with-custom-voice"></a>Komma igång med Custom Voice
 
@@ -59,6 +59,6 @@ Skapa ditt första projekt genom att välja fliken **text-till-tal/anpassad rös
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Förbered anpassade röst data](how-to-custom-voice.md)
+- [Förbered anpassade röst data](how-to-custom-voice-prepare-data.md)
 - [Skapa en anpassad röst](how-to-custom-voice-create-voice.md)
-- [Användar Spela in dina röst exempel](record-custom-voice-samples.md)
+- [Guide: Spela in dina röst exempel @ no__t-0

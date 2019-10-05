@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 967ca233169e2a2a213534d5b60bef2e3f44b6a9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 26ba3ff600ddca6158579941ab5d32b60ff13101
+ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69969652"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71950365"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>Nätverks koncept för program i Azure Kubernetes service (AKS)
 
@@ -29,7 +29,7 @@ I den här artikeln beskrivs de grundläggande koncepten som ger nätverk till d
 
 För att tillåta åtkomst till dina program, eller för att program komponenter ska kunna kommunicera med varandra, tillhandahåller Kubernetes ett abstraktions lager för virtuella nätverk. Kubernetes-noder är anslutna till ett virtuellt nätverk och kan tillhandahålla inkommande och utgående anslutning för poddar. Komponenten *Kube-proxy* körs på varje nod för att tillhandahålla de här nätverks funktionerna.
 
-I Kubernetes grupperar *tjänster* logiskt poddar för att tillåta direkt åtkomst via en IP-adress eller DNS-namn och på en speciell port. Du kan också distribuera trafik med hjälp av en *belastningsutjämnare*. Mer komplex routning av program trafik kan också uppnås med ingångs *enheter*. Säkerhet och filtrering av nätverks trafik för poddar är möjlig med Kubernetes- *nätverks principer* (i för hands versionen i AKS).
+I Kubernetes grupperar *tjänster* logiskt poddar för att tillåta direkt åtkomst via en IP-adress eller DNS-namn och på en speciell port. Du kan också distribuera trafik med hjälp av en *belastningsutjämnare*. Mer komplex routning av program trafik kan också uppnås med ingångs *enheter*. Säkerhet och filtrering av nätverks trafik för poddar är möjlig med Kubernetes- *nätverks principer*.
 
 Azure-plattformen hjälper också till att förenkla virtuella nätverk för AKS-kluster. När du skapar en Kubernetes-belastningsutjämnare skapas och konfigureras den underliggande Azure Load Balancer-resursen. När du öppnar nätverks portar till poddar konfigureras motsvarande regler för Azure nätverks säkerhets grupper. För HTTP-programroutning kan Azure också konfigurera *extern DNS* eftersom nya ingress-vägar konfigureras.
 

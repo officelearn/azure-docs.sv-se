@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: 7922f07cfe08d0bd58827b59337b86387c624778
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: d74d1c33816b3c028a26335af4c6d5b23b7a2046
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844683"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958475"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -28,9 +28,9 @@ Exempel projekt för fristående funktioner i python finns i [exempel på python
 
 ## <a name="programming-model"></a>Programmeringsmodell
 
-Azure Functions förväntar sig att en funktion är en tillstånds lös metod i python-skriptet som bearbetar indata och genererar utdata. Som standard förväntar sig körningen att metoden ska implementeras som en global metod `main()` som kallas `__init__.py` i filen. Du kan också [Ange en alternativ Start punkt](#alternate-entry-point).
+Azure Functions förväntar sig att en funktion är en tillstånds lös metod i python-skriptet som bearbetar indata och genererar utdata. Som standard förväntar sig körningen att metoden ska implementeras som en global metod som kallas `main()` i filen `__init__.py`. Du kan också [Ange en alternativ Start punkt](#alternate-entry-point).
 
-Data från utlösare och bindningar binds till funktionen via method-attribut `name` med hjälp av egenskapen som definierats i *Function. JSON* -filen. _Funktionen. JSON_ nedan beskriver till exempel en enkel funktion som utlöses av en http-begäran med `req`namnet:
+Data från utlösare och bindningar är kopplade till funktionen via attribut med hjälp av egenskapen `name` som definierats i *Function. JSON* -filen. _Funktionen. JSON_ nedan beskriver till exempel en enkel funktion som utlöses av en http-begäran med namnet `req`:
 
 ```json
 {
@@ -50,7 +50,7 @@ Data från utlösare och bindningar binds till funktionen via method-attribut `n
 }
 ```
 
-`__init__.py` Filen innehåller följande funktions kod:
+Filen `__init__.py` innehåller följande funktions kod:
 
 ```python
 def main(req):
@@ -73,7 +73,7 @@ Använd python-anteckningarna som ingår i [Azure. functions. *](/python/api/azu
 
 ## <a name="alternate-entry-point"></a>Alternativ Start punkt
 
-Du kan ändra standard beteendet för en funktion genom att alternativt ange `scriptFile` och `entryPoint` -egenskaperna i *Function. JSON* -filen. _Funktionen. JSON_ nedan meddelar till exempel körningen att använda `customentry()` metoden i _main.py_ -filen som start punkt för din Azure-funktion.
+Du kan ändra standard beteendet för en funktion genom att alternativt ange egenskaperna `scriptFile` och `entryPoint` i *Function. JSON* -filen. _Funktionen. JSON_ nedan meddelar till exempel körningen att använda metoden `customentry()` i _main.py_ -filen, som start punkt för din Azure-funktion.
 
 ```json
 {
@@ -123,7 +123,7 @@ När du distribuerar ett funktions projekt till din Function-app i Azure, ska he
 
 ## <a name="triggers-and-inputs"></a>Utlösare och indata
 
-Indata är indelade i två kategorier i Azure Functions: Utlös indata och ytterligare indata. Även om de skiljer sig i `function.json` filen är användningen identiska i python-kod.  Anslutnings strängar eller hemligheter för utlösare och inmatade källor mappar `local.settings.json` till värden i filen när de körs lokalt och program inställningarna körs i Azure. 
+Indata är indelade i två kategorier i Azure Functions: Utlös indata och ytterligare indata. Även om de skiljer sig i `function.json`-filen är användningen identiska i python-kod.  Anslutnings strängar eller hemligheter för utlösare och inmatade källor mappar till värden i `local.settings.json`-filen när de körs lokalt och program inställningarna körs i Azure. 
 
 Till exempel visar följande kod skillnaden mellan de två:
 
@@ -173,16 +173,16 @@ def main(req: func.HttpRequest,
     logging.info(f'Python HTTP triggered function processed: {obj.read()}')
 ```
 
-När funktionen anropas skickas HTTP-begäran till funktionen som `req`. En post hämtas från Azure-Blob Storage baserat på _ID: t_ i väg-URL: en och görs tillgänglig `obj` som i funktions texten.  Här är det angivna lagrings kontot den anslutnings sträng som `AzureWebJobsStorage` finns i och som är samma lagrings konto som används av Function-appen.
+När funktionen anropas skickas HTTP-begäran till funktionen som `req`. En post hämtas från Azure-Blob Storage baserat på _ID: t_ i väg-URL: en och görs tillgänglig som `obj` i funktions texten.  Här är det angivna lagrings kontot den anslutnings sträng som finns i, vilket är samma lagrings konto som används av Function-appen.
 
 
 ## <a name="outputs"></a>outputs
 
 Utdata kan uttryckas både i retur värde och utdataparametrar. Om det bara finns en utmatning rekommenderar vi att du använder det returnerade värdet. För flera utdata måste du använda utdataparametrar.
 
-Om du vill använda returvärdet för en funktion som värde för en utgående bindning `name` ska egenskapen för bindningen anges till `$return` i `function.json`.
+Om du vill använda returvärdet för en funktion som värde för en utgående bindning ska egenskapen `name` för bindningen anges till `$return` i `function.json`.
 
-Om du vill skapa flera utdata använder du `set()` metoden som tillhandahålls [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) av gränssnittet för att tilldela ett värde till bindningen. Följande funktion kan till exempel skicka ett meddelande till en kö och även returnera ett HTTP-svar.
+Om du vill skapa flera utdata använder du metoden `set()` som tillhandahålls av gränssnittet [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) för att tilldela ett värde till bindningen. Följande funktion kan till exempel skicka ett meddelande till en kö och även returnera ett HTTP-svar.
 
 ```json
 {
@@ -224,7 +224,7 @@ def main(req: func.HttpRequest,
 
 ## <a name="logging"></a>Loggning
 
-Åtkomst till Azure Functions runtime-loggen är tillgänglig via en [`logging`](https://docs.python.org/3/library/logging.html#module-logging) rot hanterare i din Function-app. Den här loggen är kopplad till Application Insights och gör att du kan flagga varningar och fel som påträffas under funktions körningen.
+Åtkomst till Azure Functions runtime-loggen är tillgänglig via en rot [-`logging`-](https://docs.python.org/3/library/logging.html#module-logging) hanterare i din Function-app. Den här loggen är kopplad till Application Insights och gör att du kan flagga varningar och fel som påträffas under funktions körningen.
 
 I följande exempel loggas ett informations meddelande när funktionen anropas via en HTTP-utlösare.
 
@@ -250,7 +250,7 @@ Mer information om loggning finns i [övervaka Azure Functions](functions-monito
 
 ## <a name="http-trigger-and-bindings"></a>HTTP-utlösare och bindningar
 
-HTTP-utlösaren definieras i filen function. Jon. `name` För bindningen måste matcha den namngivna parametern i funktionen. I föregående exempel används ett bindnings namn `req` . Den här parametern är ett [HttpRequest] -objekt och ett [HttpResponse] -objekt returneras.
+HTTP-utlösaren definieras i filen function. Jon. @No__t-0 för bindningen måste matcha den namngivna parametern i funktionen. I föregående exempel används ett bindnings namn `req`. Den här parametern är ett [HttpRequest] -objekt och ett [HttpResponse] -objekt returneras.
 
 Du kan hämta begärandehuvuden, frågeparametrar, väg parametrar och meddelande texten från [HttpRequest] -objektet. 
 
@@ -278,35 +278,47 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-I den här funktionen hämtas värdet för `name` Frågeparametern `params` från parametern för [HttpRequest] -objektet. Den JSON-kodade meddelande texten läses med hjälp `get_json` av metoden. 
+I den här funktionen hämtas värdet för Frågeparametern `name` från parametern `params` för [HttpRequest] -objektet. Den JSON-kodade meddelande texten läses med hjälp av metoden `get_json`. 
 
 På samma sätt kan du ange `status_code` och `headers` för svarsmeddelandet i det returnerade [HttpResponse] -objektet.
-                                                              
-## <a name="async"></a>Async
 
-Vi rekommenderar att du skriver din Azure-funktion som en asynkron samarbets rutin `async def` med hjälp av instruktionen.
+## <a name="concurrency"></a>Samtidighet
+
+Som standard kan funktioner python-körningen bara bearbeta ett anrop till en funktion i taget. Den samtidiga nivån kanske inte är tillräcklig under ett eller flera av följande villkor:
+
++ Du försöker hantera ett antal anrop som görs samtidigt.
++ Du bearbetar ett stort antal I/O-händelser.
++ Ditt program är I/O-bindning.
+
+I dessa fall kan du förbättra prestanda genom att köra asynkront och genom att använda flera olika språk arbets processer.  
+
+### <a name="async"></a>Async
+
+Vi rekommenderar att du använder `async def`-instruktionen för att köra din funktion som en asynkron samarbets rutin.
 
 ```python
-# Will be run with asyncio directly
-
+# Runs with asyncio directly
 
 async def main():
     await some_nonblocking_socket_io_op()
 ```
 
-Om Main ()-funktionen är synkron (ingen kvalificerare), kör vi automatiskt funktionen i en `asyncio` Thread-pool.
+När funktionen `main()` är synkron (utan kvalificeraren `async`) körs funktionen automatiskt i en pool med `asyncio`.
 
 ```python
-# Would be run in an asyncio thread-pool
-
+# Runs in an asyncio thread-pool
 
 def main():
     some_blocking_socket_io()
 ```
 
+### <a name="use-multiple-language-worker-processes"></a>Använd flera språk arbets processer
+
+Som standard har varje Functions Host-instans en enda språk arbets process. Det finns dock stöd för att ha flera språk arbets processer per värd instans. Funktions anrop kan sedan distribueras jämnt bland dessa språk arbets processer. Använd program inställningen [FUNCTIONS_WORKER_PROCESS_COUNT](functions-app-settings.md#functions_worker_process_count) för att ändra det här värdet. 
+
 ## <a name="context"></a>Kontext
 
-Om du vill hämta anrops kontexten för en funktion under körningen [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) ska du inkludera argumentet i signaturen. 
+Om du vill hämta anrops kontexten för en funktion under körningen inkluderar du argumentet [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) i signaturen. 
 
 Exempel:
 
@@ -348,7 +360,7 @@ def main(req):
 
 ## <a name="environment-variables"></a>Miljövariabler
 
-I funktioner visas [program inställningar](functions-app-settings.md), t. ex. tjänst anslutnings strängar, som miljövariabler under körningen. Du kan komma åt de här inställningarna genom `import os` att deklarera och sedan `setting = os.environ["setting-name"]`använda.
+I funktioner visas [program inställningar](functions-app-settings.md), t. ex. tjänst anslutnings strängar, som miljövariabler under körningen. Du kan komma åt de här inställningarna genom att deklarera `import os` och sedan använda `setting = os.environ["setting-name"]`.
 
 I följande exempel hämtas [program inställningen](functions-how-to-use-azure-function-app-settings.md#settings)med nyckeln med namnet `myAppSetting`:
 
@@ -370,9 +382,9 @@ För lokal utveckling underhålls program inställningarna [i filen Local. Setti
 
 Azure Functions stöder för närvarande endast python 3.6. x (officiell CPython-distribution).
 
-När du utvecklar lokalt med Azure Functions Core Tools eller Visual Studio Code lägger du till namn och versioner för de nödvändiga paketen i `requirements.txt` filen och installerar dem med `pip`.
+När du utvecklar lokalt med Azure Functions Core Tools eller Visual Studio Code lägger du till namn och versioner för de nödvändiga paketen i `requirements.txt`-filen och installerar dem med hjälp av `pip`.
 
-Till exempel kan följande krav fil och pip-kommando användas för att installera `requests` paketet från pypi.
+Till exempel kan följande krav fil och pip-kommando användas för att installera `requests`-paketet från PyPI.
 
 ```txt
 requests==2.19.1
@@ -401,7 +413,7 @@ There was an error restoring dependencies.ERROR: cannot install <package name - 
 The terminal process terminated with exit code: 1
 ```
 
-Om du vill skapa ett lokalt och konfigurera de binärfiler som krävs [installerar du Docker](https://docs.docker.com/install/) på den lokala datorn och kör följande kommando för att publicera med hjälp av [Azure Functions Core tools](functions-run-local.md#v2) (Func). Kom ihåg att `<app name>` ersätta med namnet på din Function-app i Azure. 
+Om du vill skapa ett lokalt och konfigurera de binärfiler som krävs [installerar du Docker](https://docs.docker.com/install/) på den lokala datorn och kör följande kommando för att publicera med hjälp av [Azure Functions Core tools](functions-run-local.md#v2) (Func). Kom ihåg att ersätta `<app name>` med namnet på din Function-app i Azure. 
 
 ```bash
 func azure functionapp publish <app name> --build-native-deps
@@ -413,7 +425,7 @@ Under försättsblad använder kärn verktygen Docker för att köra [MCR.Micros
 
 ## <a name="unit-testing"></a>Enhets testning
 
-Funktioner som skrivs i python kan testas som annan python-kod med standard testnings ramverk. För de flesta bindningar är det möjligt att skapa ett objekt av en modell genom att skapa en instans av en lämplig klass `azure.functions` från paketet. Eftersom paketet inte är omedelbart tillgängligt ser du till att installera det `requirements.txt` via filen enligt beskrivningen i avsnittet om [hantering av python-version och paket hantering](#python-version-and-package-management) ovan. [`azure.functions`](https://pypi.org/project/azure-functions/)
+Funktioner som skrivs i python kan testas som annan python-kod med standard testnings ramverk. För de flesta bindningar är det möjligt att skapa ett objekt av en modell genom att skapa en instans av en lämplig klass från `azure.functions`-paketet. Eftersom [`azure.functions`-](https://pypi.org/project/azure-functions/) paketet inte är omedelbart tillgängligt, måste du installera det via din `requirements.txt`-fil enligt beskrivningen i avsnittet [python-version och paket hantering](#python-version-and-package-management) ovan.
 
 Följande är till exempel ett modell test av en HTTP-utlöst funktion:
 
@@ -535,9 +547,9 @@ Alla kända problem och funktions begär Anden spåras med hjälp av listan med 
 
 ### <a name="cross-origin-resource-sharing"></a>Cross-origin resource sharing (CORS)
 
-Azure Functions stöder resurs delning mellan ursprung (CORS). CORS konfigureras [i portalen](functions-how-to-use-azure-function-app-settings.md#cors) och via [Azure CLI](/cli/azure/functionapp/cors). Listan över tillåtna ursprung för CORS-listan gäller på funktions nivån app. När CORS är aktiverat inkluderar `Access-Control-Allow-Origin` Svaren rubriken. Mer information finns i [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors).
+Azure Functions stöder resurs delning mellan ursprung (CORS). CORS konfigureras [i portalen](functions-how-to-use-azure-function-app-settings.md#cors) och via [Azure CLI](/cli/azure/functionapp/cors). Listan över tillåtna ursprung för CORS-listan gäller på funktions nivån app. När CORS är aktiverat innehåller Svaren `Access-Control-Allow-Origin`-huvudet. Mer information finns i [Cross-origin resource sharing](functions-how-to-use-azure-function-app-settings.md#cors).
 
-Listan över tillåtna ursprung [stöds för närvarande inte](https://github.com/Azure/azure-functions-python-worker/issues/444) för python Function-appar. På grund av den här begränsningen måste du uttryckligen ange `Access-Control-Allow-Origin` sidhuvudet i dina http-funktioner, som du ser i följande exempel:
+Listan över tillåtna ursprung [stöds för närvarande inte](https://github.com/Azure/azure-functions-python-worker/issues/444) för python Function-appar. På grund av den här begränsningen måste du uttryckligen ange `Access-Control-Allow-Origin`-huvudet i dina HTTP-funktioner, som du ser i följande exempel:
 
 ```python
 def main(req: func.HttpRequest) -> func.HttpResponse:

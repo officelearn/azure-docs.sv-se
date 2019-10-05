@@ -5,14 +5,14 @@ ms.service: iot-central
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 06/09/2019
+ms.date: 10/4/2019
 ms.topic: conceptual
-ms.openlocfilehash: 897b72dd7b292492e45cdc7401fe1acc5c86ca20
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 3ce2f4304787107d0d6875333e4630dae8d7d1dd
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877460"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973778"
 ---
 # <a name="visualize-and-analyze-your-azure-iot-central-data-in-a-power-bi-dashboard"></a>Visualisera och analysera dina Azure IoT Central-data på en Power BI-instrumentpanel
 
@@ -31,12 +31,19 @@ Använd Power BI lösning för Azure IoT Central för att skapa en kraftfull Pow
 
 Den här lösningen konfigurerar pipelinen som tar data i ditt Azure Blob Storage-konto från [kontinuerlig data export](howto-export-data.md). Dessa data flödar genom till Azure Functions, Azure Data Factory och Azure SQL Database för att bearbeta och transformera data. Utdata kan visualiseras och analyseras i en Power BI rapport som du kan ladda ned som en PBIX-fil. Alla dessa resurser skapas i din Azure-prenumeration så att du kan anpassa varje komponent så att den passar dina behov.
 
+> [!Note] 
+> Power BI-lösningen för Azure IoT Central fungerar med IoT Central appar som inte stöder IoT-Plug and Play (för hands versioner idag)
+
 ## <a name="get-the-power-bi-solution-for-azure-iot-centralhttpsakamsiotcentralpowerbisolutiontemplate-from-microsoft-appsource"></a>Hämta [Power BI-lösningen för Azure IoT Central](https://aka.ms/iotcentralpowerbisolutiontemplate) från Microsoft AppSource.
 
 ## <a name="prerequisites"></a>Förutsättningar
 För att ställa in lösningen krävs följande:
 - Åtkomst till en Azure-prenumeration
-- Exporterade data med [kontinuerlig data export](howto-export-data.md) från din IoT Central-app. Vi rekommenderar att du aktiverar mått, enheter och mallar för enhets mallar för att få ut mesta möjliga av Power BI-instrumentpanelen.
+- IoT Central program som inte stöder IoT Plug and Play (för hands versioner idag)
+- Kontinuerliga data export konfigureras upp till Azure Blob Storage från din IoT Central-app
+    - Se till att data formatet är Avro
+    - Vi rekommenderar att du aktiverar mått, enheter och mallar för enhets mallar för att få ut mesta möjliga av Power BI-instrumentpanelen.
+    - Lär dig [hur du konfigurerar kontinuerlig data export](howto-export-data-blob-storage.md)
 - Power BI Desktop (senaste versionen)
 - Power BI Pro (om du vill dela instrument panelen med andra)
 

@@ -1,17 +1,17 @@
 ---
 title: Pris nivåer för Azure Database for MySQL
-description: Den här artikeln beskriver pris nivåerna för Azure Database for MySQL.
+description: Lär dig mer om de olika pris nivåerna för Azure Database for MySQL inklusive Compute-generationer, lagrings typer, lagrings storlek, virtuella kärnor, minne och kvarhållning av säkerhets kopior.
 author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: 087a88322175b1908ab591a5b9afb5ae45227bb1
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: f53f260ebe80ce2e3d6d6349e3fa892fa3c021a3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71177955"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972815"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL pris nivåer
 
@@ -22,7 +22,7 @@ Du kan skapa en Azure Database for MySQL-server på någon av tre olika pris niv
 | Beräkningsgeneration | Gen 4, gen 5 | Gen 4, gen 5 | Generation 5 |
 | vCores | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
 | Minne per vCore | 2 GB | 5 GB | 10 GB |
-| Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
+| Lagrings storlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
 | Lagringstyp | Azure standard Storage | Azure Premium Storage | Azure Premium Storage |
 | Kvarhållningsperiod för databas säkerhets kopior | 7 till 35 dagar | 7 till 35 dagar | 7 till 35 dagar |
 
@@ -47,7 +47,7 @@ Lagrings utrymmet du tillhandahåller är mängden lagrings kapacitet som är ti
 |    | **Basic** | **Generell användning** | **Minnesoptimerade** |
 |:---|:----------|:--------------------|:---------------------|
 | Lagringstyp | Azure standard Storage | Azure Premium Storage | Azure Premium Storage |
-| Lagringsstorlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
+| Lagrings storlek | 5 GB till 1 TB | 5 GB till 4 TB | 5 GB till 4 TB |
 | Öknings storlek för lagring | 1 GB | 1 GB | 1 GB |
 | IOPS | Variabel |3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 6000 IOPS |
 
@@ -67,7 +67,7 @@ Vi ökar lagrings gränserna i våra Generell användning-och Minnesoptimerade n
 |              | **Generell användning** | **Minnesoptimerade** |
 |:-------------|:--------------------|:---------------------|
 | Lagringstyp | Azure Premium Storage | Azure Premium Storage |
-| Lagringsstorlek | 32 GB till 16 TB| 32 GB till 16 TB |
+| Lagrings storlek | 32 GB till 16 TB| 32 GB till 16 TB |
 | Öknings storlek för lagring | 1 GB | 1 GB |
 | IOPS | 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS| 3 IOPS/GB<br/>Min 100 IOPS<br/>Max 20 000 IOPS |
 
@@ -81,7 +81,7 @@ Vi ökar lagrings gränserna i våra Generell användning-och Minnesoptimerade n
 
 ### <a name="reaching-the-storage-limit"></a>Nått lagrings gränsen
 
-Servrar med mindre än 100 GB allokerat lagrings utrymme markeras som skrivskyddade om det lediga lagrings utrymmet är mindre än 512 MB eller 5% av den allokerade lagrings storleken. Servrar med mer än 100 GB allokerat lagrings utrymme markeras som skrivskyddade när det lediga lagrings utrymmet är mindre än 5 GB.
+Servrar med mindre än 100 GB allokerat lagringsutrymme markeras som skrivskyddade om det lediga lagringsutrymmet är mindre än 512 MB eller 5 % av den allokerade lagringsstorleken. Servrar med mer än 100 GB allokerat lagringsutrymme markeras bara som skrivskyddade när det lediga lagringsutrymmet är mindre än 5 GB.
 
 Om du till exempel har allokerat 110 GB lagrings utrymme och den faktiska användningen går över 105 GB, är servern markerad som skrivskyddad. Alternativt, om du har allokerat 5 GB lagring, markeras servern som skrivskyddad när den kostnads fria lagrings platsen når mindre än 256 MB.
 

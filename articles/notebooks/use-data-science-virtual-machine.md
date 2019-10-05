@@ -1,6 +1,6 @@
 ---
-title: Använda Azure virtuella datorer för datavetenskap
-description: Anslut till en Azure Science VM DSVM (Data) att utöka databearbetningskraft som är tillgängliga till Azure-datorer.
+title: Använd Azure Data Science Virtual Machines
+description: Anslut till en Azure-Data Science Virtual Machine (DSVM) för att utöka beräknings kraften som är tillgänglig för Azure Notebooks.
 services: app-service
 documentationcenter: ''
 author: getroyer
@@ -9,65 +9,64 @@ ms.assetid: 0ccc2529-e17f-4221-b7c7-9496d6a731cc
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: getroyer
-ms.openlocfilehash: fe9886429a5e894f40c04b1f65094e412c1dc9e2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 0f06475708adaf1324eedbd8e315fe4d731339be
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67441207"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970108"
 ---
-# <a name="use-azure-data-science-virtual-machines"></a>Använda Azure virtuella datorer för datavetenskap
+# <a name="use-azure-data-science-virtual-machines"></a>Använd Azure Data Science Virtual Machines
 
-Projekt körs som standard den **kostnadsfria Compute** åtkomstnivå, vilket är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå dessa begränsningar med hjälp av en annan virtuell dator som du har etablerat i en Azure-prenumeration. För detta ändamål, det bästa valet är en Azure Data Science Virtual Machine (DSVM) med hjälp av den **Data Science Virtual Machine för Linux (Ubuntu)** bild. Sådana DSVM är förkonfigurerad med allt du behöver för Azure-anteckningsböcker och visas automatiskt på den **kör** listrutan i Azure-anteckningsböcker.
+Som standard körs projekt på den **kostnads fria beräknings** nivån, som är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå de här begränsningarna genom att använda en annan virtuell dator som du har etablerad i en Azure-prenumeration. Det bästa valet är ett Azure-Data Science Virtual Machine (DSVM) med **data science Virtual Machine för Linux-avbildningen (Ubuntu)** . En sådan DSVM är förkonfigurerad med allt du behöver för Azure Notebooks och visas automatiskt i den nedrullningsbara List rutan **Kör** i Azure Notebooks.
 
 > [!Note]
-> Azure-datorer stöds endast på Dsvm som skapats med on Linux Ubuntu-avbildningen. Anteckningsböcker stöds inte på Windows 2012, Windows 2016 eller CentOS Linux-avbildningar.
+> Azure Notebooks stöds endast på Dsvm som skapats med på Linux Ubuntu-avbildningen. Antecknings böcker stöds inte på Windows 2012-, Windows 2016-eller Linux CentOS-avbildningar.
 
 ## <a name="create-a-dsvm-instance"></a>Skapa en DSVM-instans
 
-Följ anvisningarna för att skapa en ny instans av DSVM på [skapa en Ubuntu virtuell dator för datavetenskap](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro). Mer information, inklusive information om priser finns i [virtuella datorer för datavetenskap](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
+Följ instruktionerna för att [skapa en Ubuntu data science VM](/azure/machine-learning/data-science-virtual-machine/dsvm-ubuntu-intro)för att skapa en ny DSVM-instans. Mer information, inklusive pris information, finns i [Virtual Machines för data vetenskap](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/).
 
 ## <a name="connect-to-the-dsvm"></a>Ansluta till DSVM
 
-När du har skapat DSVM, Välj den **kör** listrutan i Azure-anteckningsböcker projektet instrumentpanelen och välj lämplig DSVM-instans. Den nedrullningsbara listan visar DSVM instanser om följande villkor är uppfyllda:
+När du har skapat DSVM väljer du List rutan **Kör** på instrument panelen för Azure Notebooks-projektet och väljer lämplig DSVM-instans. Den nedrullningsbara listan visar DSVM-instanser om följande villkor är uppfyllda:
 
-- Du har loggat in Azure-anteckningsböcker med ett konto som använder Azure Active Directory (AAD), till exempel ett företagskonto.
-- Ditt konto är ansluten till en Azure-prenumeration.
-- Du har en eller flera virtuella datorer i prenumerationen, med minst läsåtkomst som använder den virtuella datorn för datavetenskap för Linux (Ubuntu)-avbildning.)
+- Du är inloggad på Azure Notebooks med ett konto som använder Azure Active Directory (AAD), till exempel ett företags konto.
+- Ditt konto är anslutet till en Azure-prenumeration.
+- Du har en eller flera virtuella datorer i den prenumerationen, med minst läsar åtkomst, som använder Data Science Virtual Machine för Linux-avbildningen (Ubuntu).)
 
-![Data Science Virtual Machine-instanser i listrutan på instrumentpanelen för projektet](media/project-compute-tier-dsvm.png)
+![Data Science Virtual Machine instanser i list rutan på instrument panelen för projektet](media/project-compute-tier-dsvm.png)
 
-När du väljer en DSVM-instans, kan Azure-datorer efterfrågas specifik dator-autentiseringsuppgifterna som används när du skapade den virtuella datorn.
+När du väljer en DSVM-instans kan Azure Notebooks fråga dig om de autentiseringsuppgifter som ska användas när du skapade den virtuella datorn.
 
-Om något av villkoren inte uppfylls, kan du fortfarande ansluta till DSVM. I listrutan, väljer den **direkt Compute** alternativet, där du uppmanas ange ett namn (som visas i listan), den Virtuella datorns IP-adress och port (vanligtvis 8000, standardporten till vilken JupyterHub lyssnar) och VM-autentiseringsuppgifter:
+Om något av villkoren inte uppfylls kan du fortfarande ansluta till DSVM. I list rutan väljer du alternativet **direkt beräkning** , som uppmanar dig att ange ett namn (som ska visas i listan), den virtuella datorns IP-adress och port (vanligt vis 8000, standard porten som JupyterHub lyssnar) och de virtuella datorernas autentiseringsuppgifter:
 
-![Uppmaning om att samla in informationen för direkta beräkningsalternativet i server](media/project-compute-tier-direct.png)
+![Uppmana att samla in Server information för det direkta beräknings alternativet](media/project-compute-tier-direct.png)
 
-Du hämtar dessa värden från sidan DSVM i Azure-portalen.
+Du hämtar dessa värden från sidan DSVM i Azure Portal.
 
-## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Komma åt Azure anteckningsböcker filer från DSVM
+## <a name="accessing-azure-notebooks-files-from-the-dsvm"></a>Komma åt Azure Notebooks-filer från DSVM
 
-Filsystemåtkomst är stöds för DSVM-versioner 19.06.15 eller senare. Du kontrollerar versionen, ansluta till din DSVM via SSH och kör följande kommando: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (du måste använda den exakta IP-adressen som visas här). Versionsnumret visas i utdata för ”version”.
+Åtkomst till fil systemet stöds för DSVM-versioner 19.06.15 eller senare. För att kontrol lera versionen ansluter du först till din DSVM via SSH och kör sedan följande kommando: `curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2018-10-01"` (du måste använda den exakta IP-adressen som visas här). Versions numret visas i utdata för "version".
 
-Att bevara paritet av sökvägar med den **kostnadsfria Compute** nivå, du kan bara öppna ett projekt i taget på en DSVM. Om du vill öppna ett nytt projekt, måste du stänga av projektet är öppet först.
+Om du vill bevara paritet av fil Sök vägar med den **kostnads fria beräknings** nivån kan du bara öppna ett projekt i taget på en DSVM. Om du vill öppna ett nytt projekt måste du först stänga det öppna projektet.
 
-När ett projekt körs på en virtuell dator, filerna är monterade på rotkatalogen för Jupyter-server (den katalog som visas i JupyterHub), ersätter standardfiler för Azure-anteckningsböcker. När du stänger en virtuell dator med hjälp av den **avstängning** knappen i anteckningsboken Användargränssnittet för Azure-anteckningsböcker återställer standardfiler som.
+När ett projekt körs på en virtuell dator monteras filerna på Jupyter-serverns rot Katalog (den katalog som visas i JupyterHub) och ersätter standard Azure Notebooks-filerna. När du stänger av den virtuella datorn med knappen **Stäng** av i anteckningsbok-gränssnittet, Azure Notebooks återställer standardfilerna.
 
-![Avsluta-knappen i Azure-anteckningsböcker](media/shutdown.png)
+![Knappen Stäng av i Azure Notebooks](media/shutdown.png)
 
 ## <a name="create-new-dsvm-users"></a>Skapa nya DSVM-användare
 
-Om flera användare delar en DSVM, kan du undvika att blockera varandra genom att skapa och använda en DSVM-användare för varje användare av bärbara datorer:
+Om flera användare delar en DSVM kan du undvika att blockera varandra genom att skapa och använda en DSVM-användare för varje Notebook-användare:
 
-1. På den [Azure-portalen](https://portal.azure.com), navigera till den virtuella datorn.
-1. Under **Support och felsökning** i den vänstra marginalen väljer **Återställ lösenord**.
-1. Ange ett nytt användarnamn och lösenord och välj **uppdatering**. (Befintliga användarnamn påverkas inte.)
-1. Upprepa det föregående steget för alla ytterligare användare.
+1. På [Azure Portal](https://portal.azure.com)navigerar du till den virtuella datorn.
+1. Välj **Återställ lösen ord**under **support + fel sökning** i vänstermarginalen.
+1. Ange ett nytt användar namn och lösen ord och välj **Uppdatera**. (Befintliga användar namn påverkas inte.)
+1. Upprepa föregående steg för ytterligare användare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om Dsvm på [introduktion till Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).
+Lär dig mer om Dsvm för [Introduktion till Azure Data Science Virtual Machines](/azure/machine-learning/data-science-virtual-machine/overview).

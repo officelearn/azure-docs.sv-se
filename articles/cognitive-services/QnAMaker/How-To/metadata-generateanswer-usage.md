@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/27/2019
+ms.date: 10/02/2019
 ms.author: diberry
-ms.openlocfilehash: 2f9b624ffcc04963046ad817bb2bc9c025161506
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 03e04853e93bb78391476a365b20550d471e1dbb
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300255"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971799"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Få ett svar med GenerateAnswer-API och metadata
 
@@ -48,7 +48,7 @@ När du har publicerat din kunskaps bas, antingen från [QNA Maker-portalen](htt
 Så här hämtar du information om slut punkten:
 1. Logga in på [https://www.qnamaker.ai](https://www.qnamaker.ai).
 1. I **Mina kunskaps baser**väljer du **Visa kod** för din kunskaps bas.
-    ![Skärm bild av mina kunskaps baser](../media/qnamaker-how-to-metadata-usage/my-knowledge-bases.png)
+    @no__t – 0Screenshot av mina kunskaps Bases @ no__t-1
 1. Hämta information om din GenerateAnswer-slutpunkt.
 
     ![Skärm bild av slut punkts information](../media/qnamaker-how-to-metadata-usage/view-code.png)
@@ -64,7 +64,7 @@ Du anropar GenerateAnswer med en HTTP POST-begäran. Exempel kod som visar hur d
 POST-begäran använder:
 
 * Obligatoriska [URI-parametrar](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#uri-parameters)
-* Nödvändig [huvud egenskap](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, för säkerhet
+* Obligatorisk [huvud egenskap](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/get-answer-from-knowledge-base-nodejs#add-a-post-request-to-send-question-and-get-an-answer), `Authorization`, för säkerhet
 * Egenskaper för nödvändig [brödtext](https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train#feedbackrecorddto). 
 
 GenerateAnswer-URL: en har följande format: 
@@ -73,7 +73,7 @@ GenerateAnswer-URL: en har följande format:
 https://{QnA-Maker-endpoint}/knowledgebases/{knowledge-base-ID}/generateAnswer
 ```
 
-Kom ihåg att ange egenskapen HTTP-huvud `Authorization` för med ett värde i strängen `EndpointKey` med ett avslutande blank steg och sedan den slut punkts nyckel som finns på sidan **Inställningar** .
+Kom ihåg att ange egenskapen HTTP-huvud för `Authorization` med ett värde för strängen `EndpointKey` med ett avslutande blank steg och sedan finns slut punkts nyckeln på sidan **Inställningar** .
 
 Ett exempel på en JSON-text ser ut så här:
 
@@ -161,7 +161,7 @@ Support-roboten innehåller [ett exempel](https://github.com/microsoft/BotBuilde
 
 ## <a name="use-metadata-to-filter-answers-by-custom-metadata-tags"></a>Använd metadata för att filtrera svar efter anpassade metadata-Taggar
 
-Genom att lägga till metadata kan du filtrera Svaren efter dessa metadata-taggar. Lägg till kolumnen metadata från menyn **visnings alternativ** . Lägg till metadata i kunskaps basen genom att välja **+** metadata-ikonen för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
+Genom att lägga till metadata kan du filtrera Svaren efter dessa metadata-taggar. Lägg till kolumnen metadata från menyn **visnings alternativ** . Lägg till metadata i kunskaps basen genom att välja metadata **+-** ikonen för att lägga till ett metadata-par. Det här paret består av en nyckel och ett värde.
 
 ![Skärm bild av lägga till metadata](../media/qnamaker-how-to-metadata-usage/add-metadata.png)
 
@@ -219,9 +219,9 @@ Svaret på GenerateAnswer innehåller motsvarande metadatainformation för den m
 
 ## <a name="match-questions-only-by-text"></a>Matcha endast frågor, efter text
 
-Som standard söker QnA Maker igenom frågor och svar. Om du bara vill söka igenom frågor, för att generera ett svar, använder `RankerType=QuestionOnly` du i inläggs texten i GenerateAnswer-begäran.
+Som standard söker QnA Maker igenom frågor och svar. Om du bara vill söka igenom frågor, för att generera ett svar, använder du `RankerType=QuestionOnly` i INLÄGGs texten i GenerateAnswer-begäran.
 
-Du kan söka igenom den publicerade KB, använda `isTest=false`eller i test-KB med. `isTest=true`
+Du kan söka igenom det publicerade KB, använda `isTest=false` eller i test-KB med `isTest=true`.
 
 ```json
 {
@@ -249,4 +249,4 @@ Du kan söka igenom den publicerade KB, använda `isTest=false`eller i test-KB m
 På sidan **publicera** finns också information om hur du genererar ett svar med [Postman](../Quickstarts/get-answer-from-kb-using-postman.md) och [sväng](../Quickstarts/get-answer-from-kb-using-curl.md). 
 
 > [!div class="nextstepaction"]
-> [Skapa en kunskapsbas](./create-knowledge-base.md)
+> [Skapa en kunskaps bas robot](../tutorials/integrate-qnamaker-luis.md)

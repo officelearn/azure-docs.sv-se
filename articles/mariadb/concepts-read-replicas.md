@@ -1,17 +1,17 @@
 ---
 title: Läs repliker i Azure Database for MariaDB
-description: I den här artikeln beskrivs Läs repliker för Azure Database for MariaDB.
+description: 'Lär dig mer om att läsa repliker i Azure Database for MariaDB: välja regioner, skapa repliker, ansluta till repliker, övervaka replikering och stoppa replikering.'
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 5018cab1213fb99f4c3b07944d0cb3172d1cd2c7
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 29725c302887448689f4aafd86f1f834d81c23ed
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123231"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973582"
 ---
 # <a name="read-replicas-in-azure-database-for-mariadb"></a>Läs repliker i Azure Database for MariaDB
 
@@ -19,7 +19,7 @@ Med funktionen Läs replik kan du replikera data från en Azure Database for Mar
 
 Repliker är nya servrar som du hanterar precis som vanliga Azure Database for MariaDB-servrar. För varje Läs replik debiteras du för den etablerade beräkningen i virtuella kärnor och lagring i GB/månad.
 
-Om du vill veta mer om GTID-replikering kan du läsa [dokumentationen om MariaDB-replikering](https://mariadb.com/kb/en/library/gtid/).
+Mer information om GTID-replikering finns i [dokumentationen för MariaDB-replikering](https://mariadb.com/kb/en/library/gtid/).
 
 ## <a name="when-to-use-a-read-replica"></a>När du ska använda en Läs replik
 
@@ -40,10 +40,10 @@ Du kan skapa en Läs replik i en annan region än huvud servern. Replikering mel
 
 Du kan ha en huvud server i valfri [Azure Database for MariaDB region](https://azure.microsoft.com/global-infrastructure/services/?products=mariadb).  En huvud server kan ha en replik i dess kopplade region eller Universal Replica-regioner. I bilden nedan visas vilka replik regioner som är tillgängliga beroende på din huvud region.
 
-[![Läs replik regioner](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
+[![Read replik regioner](media/concepts-read-replica/read-replica-regions.png)](media/concepts-read-replica/read-replica-regions.png#lightbox)
 
 ### <a name="universal-replica-regions"></a>Universal Replica-regioner
-Du kan alltid skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. Det här är Universal Replica-regionerna:
+Du kan skapa en Läs replik i någon av följande regioner, oavsett var huvud servern finns. De Universal Replica-regioner som stöds är:
 
 Östra Australien, sydöstra Australien, centrala USA, Asien, östra, östra USA, östra USA 2, Japan, östra, västra Japan, centrala Korea, centrala, norra centrala USA, norra Europa, södra centrala USA, Sydostasien, Storbritannien, södra, Storbritannien, västra, Västeuropa, västra USA, västra USA 2.
 
@@ -78,7 +78,7 @@ När du skapar en replik ärver den inte brand Väggs reglerna eller slut punkte
 
 Repliken ärver administratörs kontot från huvud servern. Alla användar konton på huvud servern replikeras till läsa repliker. Du kan bara ansluta till en Läs replik med hjälp av de användar konton som är tillgängliga på huvud servern.
 
-Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MariaDB Server. För en server med namnet unreplica med administratörs **användar namnet**administratör kan du ansluta till repliken med hjälp av MySQL CLI:
+Du kan ansluta till repliken med hjälp av dess värdnamn och ett giltigt användar konto, precis som på en vanlig Azure Database for MariaDB Server. För en server med namnet **unreplica** med administratörs **användar namnet administratör kan**du ansluta till repliken med hjälp av MySQL CLI:
 
 ```bash
 mysql -h myreplica.mariadb.database.azure.com -u myadmin@myreplica -p
@@ -90,7 +90,7 @@ Ange lösen ordet för användar kontot vid prompten.
 
 Azure Database for MariaDB anger måttet för **replikeringsfördröjning i sekunder** i Azure Monitor. Måttet är endast tillgängligt för repliker.
 
-Måttet beräknas med hjälp av `seconds_behind_master` måttet som är tillgängligt `SHOW SLAVE STATUS` i MariaDB-kommandot.
+Det här måttet beräknas med `seconds_behind_master`-mått som är tillgängligt i MariaDB `SHOW SLAVE STATUS`-kommando.
 
 Ange en avisering för att meddela dig när fördröjningen för replikering når ett värde som inte är acceptabelt för din arbets belastning.
 
@@ -114,7 +114,7 @@ Läs repliker är för närvarande endast tillgängliga i Generell användning o
 
 ### <a name="master-server-restart"></a>Omstart av Master Server
 
-När du skapar en replik för en huvud server som inte har några befintliga repliker, startar originalet om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en period med låg belastning.
+När du skapar en replik för en huvud server som inte har några befintliga repliker, startar originalet om först för att förbereda sig för replikering. Ta detta i beaktande och utför dessa åtgärder under en låg belastnings period.
 
 ### <a name="new-replicas"></a>Nya repliker
 
@@ -141,13 +141,13 @@ Användare på huvud servern replikeras till läsa repliker. Du kan bara ansluta
 
 ### <a name="server-parameters"></a>Serverparametrar
 
-För att förhindra att data blir osynkroniserade och för att undvika potentiell data förlust eller skada, är vissa Server parametrar låsta från att uppdateras när du använder Läs repliker.
+I syfte att förhindra att data blir osynkroniserade samt att undvika potentiell dataförlust eller skadade data är vissa serverparametrar låsta från att uppdateras vid användning av skrivskyddade repliker.
 
 Följande Server parametrar är låsta på både huvud-och replik servern:
 - [`innodb_file_per_table`](https://mariadb.com/kb/en/library/innodb-system-variables/#innodb_file_per_table) 
 - [`log_bin_trust_function_creators`](https://mariadb.com/kb/en/library/replication-and-binary-log-system-variables/#log_bin_trust_function_creators)
 
-[`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) Parametern är låst på replik servrarna.
+Parametern [`event_scheduler`](https://mariadb.com/kb/en/library/server-system-variables/#event_scheduler) är låst på replik servrarna.
 
 ### <a name="other"></a>Annat
 

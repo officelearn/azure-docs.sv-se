@@ -1,18 +1,18 @@
 ---
 title: Översikt över Azure Database for MySQL Relations databas tjänst
-description: Översikt över Azure Database for MySQL Relations databas tjänst.
-ms.service: mysql
+description: Lär dig mer om tjänsten Azure Database for MySQL, en Relations databas tjänst i Microsoft-molnet baserat på MySQL Community Edition.
 author: ajlam
+ms.service: mysql
 ms.author: andrela
 ms.custom: mvc
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 08/13/2019
-ms.openlocfilehash: 1299f82c28181d1c24f68a0d36ba13c6b40d21ee
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 03fe0b091939b3281d0cc0cb5e35bf055fb307e1
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69013411"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970378"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Vad är Azure Database for MySQL?
 
@@ -55,7 +55,7 @@ Tjänsten Azure Database for MySQL använder lagrings kryptering för data i vil
 Som standard konfigureras Azure Database for MySQL-tjänsten för att kräva [SSL-anslutning](./concepts-ssl-connection-security.md) för data i rörelse över nätverket. Framtvingande av SSL-anslutningar mellan databasservern och klientprogrammen hjälper till att skydda mot ”man in the middle”-attacker genom att kryptera dataströmmen mellan servern och programmet. Du kan även välja att inaktivera SSL-kravet för anslutning till databastjänsten om klientprogrammet inte har stöd för SSL-anslutning.
 
 ## <a name="contacts"></a>Kontakter
-Om du har frågor eller förslag som du kan behöva för att arbeta med Azure Database for MySQL skickar du ett e-postmeddelande till Azure Database for MySQL-teamet ([ @Ask Azure dB för MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Observera att detta inte är ett alias för teknisk support.
+Om du har frågor eller förslag som du kan behöva för att arbeta med Azure Database for MySQL skickar du ett e-postmeddelande till Azure Database for MySQL-teamet ([@Ask Azure dB för MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Den här e-postadressen är inte ett alias för teknisk support.
 
 Tänk dessutom på följande kontaktpunkter efter behov:
 
@@ -64,8 +64,8 @@ Tänk dessutom på följande kontaktpunkter efter behov:
 - Om du vill ge feedback eller begära nya funktioner, skapar du ett inlägg via [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har läst en introduktion till Azure Database for MySQL och besvarat frågan "Vad är Azure Database for MySQL?", är du redo att:
+Nu när du har läst en introduktion till Azure Database for MySQL och besvarat frågan "Vad är Azure Database for MySQL?" du är redo att:
 
 - På prissättningssidan finns kostnadsjämförelser och kostnadsberäknare. [Prissättning](https://azure.microsoft.com/pricing/details/mysql/)
 - Kom igång genom att skapa din första server. [Skapa en Azure Database för MySQL med Azure Portal](quickstart-create-mysql-server-database-using-azure-portal.md)
-- Bygg din första app med önskat språk: [Python](./connect-python.md)[Node. js](./connect-nodejs.md)[](./connect-java.md)[](./connect-go.md) [](./connect-php.md)[Java ruby](./connect-ruby.md)php[.net (C#)](./connect-csharp.md)go |  |  |  |  |  | 
+- Bygg din första app med önskat språk: [Python](./connect-python.md) | [Node. js](./connect-nodejs.md) | [Java](./connect-java.md) | [ruby](./connect-ruby.md) | [php](./connect-php.md) | [.net (C#)](./connect-csharp.md)2[Go](./connect-go.md)

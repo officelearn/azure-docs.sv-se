@@ -1,22 +1,22 @@
 ---
-title: 'Självstudier: Distribuera din ASP.NET-app till Azure-datorer med Azure DevOps-projekt'
+title: 'Självstudier: Distribuera ASP.NET-appen till Azure Virtual Machines med hjälp av Azure DevOps Projects'
 description: DevOps Projects gör det enkelt att komma igång med Azure och distribuera din ASP.NET-app till Azure Virtual Machines i några få enkla steg.
 ms.author: mlearned
-ms.manager: douge
+manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 05643f342d51d99645d3c9204d6e63adcf2a0a73
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b03fb27c46d4fd925b91b8927fdd50ff4912aaec
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60546496"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969565"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Självstudier: Distribuera din ASP.NET-app till Azure-datorer med Azure DevOps-projekt
+# <a name="tutorial-deploy-your-aspnet-app-to-azure-virtual-machines-by-using-azure-devops-projects"></a>Självstudier: Distribuera ASP.NET-appen till Azure Virtual Machines med hjälp av Azure DevOps Projects
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 

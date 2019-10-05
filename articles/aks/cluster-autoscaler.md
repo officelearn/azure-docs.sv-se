@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: e96d501196a629c7e37de7e5ad66b68863bf556f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: b2973a8e826ab8cc8da29f1ec9678d6a6e4fa975
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097903"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971854"
 ---
 # <a name="preview---automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>För hands version – Skala automatiskt ett kluster så att det uppfyller program kraven på Azure Kubernetes service (AKS)
 
@@ -90,21 +90,21 @@ az aks create \
   --resource-group myResourceGroup \
   --name myAKSCluster \
   --node-count 1 \
-  --vm-set-type VirtualMachineScaleSets \
+  ---enable-vmss \
   --enable-cluster-autoscaler \
   --min-count 1 \
   --max-count 3
 ```
 
 > [!NOTE]
-> Om du anger en *--Kubernetes-version* när den `az aks create`körs måste den versionen uppfylla eller överskrida det lägsta versions nummer som anges i föregående avsnitt [innan du börjar](#before-you-begin) .
+> Om du anger en *--Kubernetes-version* när du kör `az aks create` måste den versionen uppfylla eller överskrida det lägsta versions nummer som anges i föregående avsnitt [innan du börjar](#before-you-begin) .
 
 Det tar några minuter att skapa klustret och konfigurera inställningarna för den automatiska skalnings inställningen i klustret.
 
 ## <a name="change-the-cluster-autoscaler-settings"></a>Ändra inställningarna för kluster autoskalning
 
 > [!IMPORTANT]
-> Om funktionen *flera agenter* är aktive rad för din prenumeration går du vidare till [avsnittet autoskalning med flera agenter](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Kluster med flera agenter aktiverade kräver `az aks nodepool` att kommando uppsättningen ändrar egenskaper för Node-pooler i stället för. `az aks` I anvisningarna nedan förutsätter vi att du inte har aktiverat flera noder i pooler. Du kan kontrol lera om du har aktiverat, `az feature  list -o table` köra och leta `Microsoft.ContainerService/multiagentpoolpreview`efter.
+> Om funktionen *flera agenter* är aktive rad för din prenumeration går du vidare till [avsnittet autoskalning med flera agenter](#use-the-cluster-autoscaler-with-multiple-node-pools-enabled). Kluster med flera agenter aktiverade kräver att kommandot `az aks nodepool` använder kommandot-0 för att ändra egenskaper för Node-pooler i stället för `az aks`. I anvisningarna nedan förutsätter vi att du inte har aktiverat flera noder i pooler. Kontrol lera att du har aktiverat genom att köra `az feature  list -o table` och leta efter `Microsoft.ContainerService/multiagentpoolpreview`.
 
 I föregående steg för att skapa ett AKS-kluster eller uppdatera en befintlig Node-pool, angavs det lägsta antalet noder för klustrets Autoskala till *1*, och det maximala antalet noder hade angetts till *3*. När dina program kräver ändringar kan du behöva justera antalet noder i den automatiska skalnings tjänsten för klustret.
 
@@ -159,7 +159,7 @@ az aks nodepool update \
   --max-count 5
 ```
 
-Klustret autoskalning kan inaktive ras med [AZ AKS nodepool Update][az-aks-nodepool-update] och skicka `--disable-cluster-autoscaler` parametern.
+Klustret autoskalning kan inaktive ras med [AZ AKS nodepool Update][az-aks-nodepool-update] och överföring av parametern `--disable-cluster-autoscaler`.
 
 ```azurecli-interactive
 az aks nodepool update \

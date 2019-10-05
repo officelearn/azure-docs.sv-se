@@ -8,12 +8,12 @@ ms.date: 07/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: peterpr
-ms.openlocfilehash: e6df6a1f751106f62cdfecc3a7b5efb0fe4c63bf
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 732ce570f8235d1f147055af6972c2a8d12599dc
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876001"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971580"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Exportera dina data i Azure IoT Central
 
@@ -33,9 +33,9 @@ Den här artikeln beskriver hur du använder funktionen för kontinuerlig data e
 
 ## <a name="set-up-export-destination"></a>Konfigurera export mål
 
-Om du inte har någon befintlig Event Hubs/Service Bus att exportera till, följer du dessa steg:
+Om du inte har någon befintlig Event Hubs/Service Bus att exportera till, följer du dessa steg för att skapa en:
 
-## <a name="create-event-hubs-namespace"></a>Skapa Event Hubs namn område
+### <a name="create-event-hubs-namespace"></a>Skapa Event Hubs namn område
 
 1. Skapa ett [nytt Event Hubs-namnområde i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.EventHub). Du kan läsa mer i [Azure Event Hubs-dokument](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 2. Välj en prenumeration. 
@@ -44,7 +44,7 @@ Om du inte har någon befintlig Event Hubs/Service Bus att exportera till, följ
     > Nu kan du exportera data till andra prenumerationer som **inte är samma** som den som du betalar per användning för IoT Central programmet. Du kommer att ansluta med hjälp av en anslutnings sträng i det här fallet.
 3. Skapa en Event Hub i Event Hubs namn området. Gå till ditt namn område och välj **+ Event Hub** överst för att skapa en Event Hub-instans.
 
-## <a name="create-service-bus-namespace"></a>Skapa Service Bus namn område
+### <a name="create-service-bus-namespace"></a>Skapa Service Bus namn område
 
 1. Skapa ett [nytt Service Bus-namnområde i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5) . Du kan läsa mer i [Azure Service Bus dokument](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-create-namespace-portal).
 2. Välj en prenumeration. 
@@ -66,14 +66,12 @@ Nu när du har ett Event Hubs/Service Bus-mål att exportera data till, följer 
     > [!Note]
     > Om du inte ser kontinuerliga data export på den vänstra menyn är du inte administratör i din app. Prata med en administratör för att konfigurera data export.
 
-    ![Skapa ny CDE-Händelsehubben](media/howto-export-data/export_menu1.png)
-
 3. Välj knappen **+ ny** längst upp till höger. Välj en av **Azure Event Hubs** eller **Azure Service Bus** som export mål. 
 
     > [!NOTE] 
     > Det maximala antalet exporter per app är fem. 
 
-    ![Skapa ny kontinuerlig data export](media/howto-export-data/export_new1.png)
+    ![Skapa ny kontinuerlig data export](media/howto-export-data/export-new2.png)
 
 4. I list rutan väljer du namn området för **Event Hubs namnrymd/Service Bus**. Du kan också välja det sista alternativet i listan som **anger en anslutnings sträng**. 
 
@@ -83,7 +81,7 @@ Nu när du har ett Event Hubs/Service Bus-mål att exportera data till, följer 
     > [!NOTE] 
     > För 7 dagars test av appar är det enda sättet att konfigurera kontinuerlig data export genom en anslutnings sträng. Detta beror på att sju dagars prov versioner inte har någon tillhör ande Azure-prenumeration.
 
-    ![Skapa ny CDE-Händelsehubben](media/howto-export-data/export_create1.png)
+    ![Skapa ny CDE-Händelsehubben](media/howto-export-data/export-eh.png)
 
 5. Valfritt Om du väljer **Ange en anslutnings sträng**visas en ny ruta där du kan klistra in anslutnings strängen. Så här hämtar du anslutnings strängen för din:
     - Event Hubs eller Service Bus går du till namn området i Azure Portal.
@@ -95,14 +93,12 @@ Nu när du har ett Event Hubs/Service Bus-mål att exportera data till, följer 
 
 7. Under **data som ska exporteras**anger du varje typ av data som ska exporteras genom att ange typen till **på**.
 
-6. Om du vill aktivera kontinuerlig data export kontrollerar du att **data exporten** är **på**. Välj **Spara**.
+8. Om du vill aktivera kontinuerlig data export kontrollerar du att aktivera **data export** är **aktiverat**. Välj **Spara**.
 
-    ![Konfigurera kontinuerlig data export](media/howto-export-data/export_list1.png)
-
-7. Efter några minuter visas dina data i det valda målet.
+9. Efter några minuter visas dina data i det valda målet.
 
 
-## <a name="export-to-azure-event-hubs-and-azure-service-bus"></a>Exportera till Azure Event Hubs och Azure Service Bus
+## <a name="data-format"></a>Dataformat
 
 Data för mått, enheter och enhets information exporteras till händelsehubben eller Service Bus kö eller ämne i nära real tid. Exporterade mått data innehåller hela det meddelande som dina enheter skickade till IoT Central, inte bara värdena för själva måtten. Exporterade enhets data innehåller ändringar i egenskaper och inställningar för alla enheter och exporterade enheter innehåller ändringar i alla enhets mallar. Exporterade data finns i "Body"-egenskapen och är i JSON-format.
 
@@ -146,7 +142,7 @@ I följande exempel visas ett meddelande om mätnings data som tagits emot i Eve
     "x-opt-enqueued-time": 1539381030200
   },
   "sequenceNumber": 25325,
-  "enqueuedTimeUtc": "2018-10-12T21:50:30.200Z",
+  "enqueuedTimeUtc": "2018-10-02T21:50:30.200Z",
   "offset": "<offset>",
   "properties": {
     "content_type": "application/json",
@@ -162,9 +158,9 @@ Meddelanden som innehåller enhets data skickas till händelsehubben eller Servi
 - Enheter med ändrad egenskap och inställnings värden
 
 Varje meddelande representerar en eller flera ändringar av en enhet sedan det senaste exporterade meddelandet. Information som ska skickas i varje meddelande inkluderar:
-- `id`av enheten i IoT Central
-- `name`av enheten
-- `deviceId`från [enhets etablerings tjänst](https://aka.ms/iotcentraldocsdps)
+- `id` av enheten i IoT Central
+- `name` av enheten
+- `deviceId` från [enhets etablerings tjänsten](https://aka.ms/iotcentraldocsdps)
 - Information om enhets mal len
 - Egenskapsvärden
 - Inställnings värden
@@ -211,21 +207,21 @@ I följande exempel visas ett meddelande om enhets data i händelsehubben eller 
   },
   "partitionKey": "<partitionKey>",
   "sequenceNumber": 39740,
-  "enqueuedTimeUtc": "2018-10-11T16:22:39.654Z",
+  "enqueuedTimeUtc": "2018-10-02T16:22:39.654Z",
   "offset": "<offset>",
 }
 ```
 
-### <a name="device-templates"></a>Enhets mallar
+### <a name="device-templates"></a>Enhetsmallar
 
 Meddelanden som innehåller information om enhetens mallar skickas till händelsehubben eller Service Bus kö eller ämne en gång om några minuter. Det innebär att en batch med meddelanden tas emot med data om
 - Nya enhetsspecifika mallar som har lagts till
 - Enhets mallar med ändrade mått, egenskaper och inställnings definitioner
 
 Varje meddelande representerar en eller flera ändringar i en enhets mall sedan det senaste exporterade meddelandet. Information som ska skickas i varje meddelande inkluderar:
-- `id`av enhets mal len
-- `name`av enhets mal len
-- `version`av enhets mal len
+- `id` av enhets mal len
+- `name` av enhets mal len
+- `version` av enhets mal len
 - Mät data typer och minsta/högsta värde
 - Egenskaps data typer och standardvärden
 - Ange data typer och standardvärden
@@ -236,62 +232,62 @@ Varje meddelande representerar en eller flera ändringar i en enhets mall sedan 
 I följande exempel visas ett meddelande om Device templates-data i händelsehubben eller Service Bus kö eller ämne:
 
 ```json
-{
-  "body": {
-    "id": "<id>",
-    "version": "1.0.0",
-    "name": "<templateName>",
-    "measurements": {
-      "telemetry": {
-        "humidity": {
-          "dataType": "double",
-          "name": "humidity"
+{ 
+  "body":{ 
+    "id":"<id>",
+    "version":"1.0.0",
+    "name":"<templateName>",
+    "measurements":{ 
+      "telemetry":{ 
+        "humidity":{ 
+          "dataType":"double",
+          "name":"humidity"
         },
-        "pressure": {
-          "dataType": "double",
-          "name": "pressure"
+        "pressure":{ 
+          "dataType":"double",
+          "name":"pressure"
         },
-        "temp": {
-          "dataType": "double",
-          "name": "temperature"
+        "temp":{ 
+          "dataType":"double",
+          "name":"temperature"
         }
       }
     },
-    "properties": {
-      "cloud": {
-        "location": {
-          "dataType": "string",
-          "name": "Location"
+    "properties":{ 
+      "cloud":{ 
+        "location":{ 
+          "dataType":"string",
+          "name":"Location"
         }
       },
-      "device": {
-        "dieNumber": {
-          "dataType": "double",
-          "name": "Die Number"
+      "device":{ 
+        "dieNumber":{ 
+          "dataType":"double",
+          "name":"Die Number"
         }
       }
     },
-    "settings": {
-      "device": {
-        "fanSpeed": {
-          "dataType": "double",
-          "name": "Fan Speed",
-          "initialValue": 0
+    "settings":{ 
+      "device":{ 
+        "fanSpeed":{ 
+          "dataType":"double",
+          "name":"Fan Speed",
+          "initialValue":0
         }
       }
     }
   },
-  "annotations": {
-    "iotcentral-message-source": "deviceTemplates",
-    "x-opt-partition-key": "<partitionKey>",
-    "x-opt-sequence-number": 25315,
-    "x-opt-offset": "<offset>",
-    "x-opt-enqueued-time": 1539274985085
+  "annotations":{ 
+    "iotcentral-message-source":"deviceTemplates",
+    "x-opt-partition-key":"<partitionKey>",
+    "x-opt-sequence-number":25315,
+    "x-opt-offset":"<offset>",
+    "x-opt-enqueued-time":1539274985085
   },
-  "partitionKey": "<partitionKey>",
-  "sequenceNumber": 25315,
-  "enqueuedTimeUtc": "2018-10-11T16:23:05.085Z",
-  "offset": "<offset>",
+  "partitionKey":"<partitionKey>",
+  "sequenceNumber":25315,
+  "enqueuedTimeUtc":"2018-10-02T16:23:05.085Z",
+  "offset":"<offset>"
 }
 ```
 

@@ -4,21 +4,20 @@ description: Snabbt skapa och köra en Jupyter notebook i Azure-anteckningsböck
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 5add60ad-0b4b-4fd5-adf5-eb50ce072d00
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 42f5d3abda715d83d58b0d341aed784de639e460
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 19e8217bf88427c353fdd4c90c9f421445b7c81a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751793"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970176"
 ---
 # <a name="quickstart-create-and-share-a-notebook"></a>Snabbstart: Skapa och dela en notebook-fil
 
@@ -34,7 +33,7 @@ ms.locfileid: "66751793"
 
 1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
 
-   - **Projektnamnet**: Hello World i Python
+   - **Projekt namn**: Hello World i python
    - **Projektet ID**: hello-world – python
    - **Offentliga projekt**: (avmarkerad)
    - **Skapa en README.md**: (avmarkerad)
@@ -83,7 +82,7 @@ ms.locfileid: "66751793"
     print(msg)
     ```
 
-1. Välj **kör** (kortkommandot: SKIFT + RETUR) att köra koden. Under cellen bör du se lyckade utdata som liknar följande text:
+1. Välj **Kör** (kortkommando: SKIFT + RETUR) för att köra koden. Under cellen bör du se lyckade utdata som liknar följande text:
 
     ```output
     Hello, Azure Notebooks! Today is Thursday, 15 November, 2018
@@ -93,7 +92,7 @@ ms.locfileid: "66751793"
 
     ![Spara ikonen i verktygsfältet Jupyter notebook](media/quickstarts/hello-results-save-icon.png)
 
-1. Välj den **filen** > **Stäng och stoppa** menykommandot att stoppa servern och stänga webbläsarfönstret.
+1. Välj kommandot **fil** > **Stäng och** stoppa för att stoppa-servern och stänga webbläsarfönstret.
 
 ## <a name="share-the-notebook"></a>Dela anteckningsboken
 

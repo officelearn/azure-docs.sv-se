@@ -1,22 +1,22 @@
 ---
-title: 'Självstudier: Distribuera din ASP.NET-app och Azure SQL Database-kod med hjälp av Azure DevOps-projekt'
+title: 'Självstudier: Distribuera ASP.NET-appen och Azure SQL Database kod med Azure DevOps Projects'
 description: DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps-projekt kan du distribuera din ASP.NET-app och Azure SQL Database-kod i några få enkla steg.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 0d05a2f3de92791572f0a5e6313777b5388af3df
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 560b16a40d73d07df6c9f446c7196cd930e2274e
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554954"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971489"
 ---
-# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Självstudier: Distribuera din ASP.NET-app och Azure SQL Database-kod med hjälp av Azure DevOps-projekt
+# <a name="tutorial-deploy-your-aspnet-app-and-azure-sql-database-code-by-using-azure-devops-projects"></a>Självstudier: Distribuera ASP.NET-appen och Azure SQL Database kod med Azure DevOps Projects
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 
@@ -182,7 +182,7 @@ Du behöver rätt behörigheter för att ansluta till Azure SQL-databasen.
 
     Du kan nu även använda klientverktyg som SQL Server Management Studio eller Visual Studio för att ansluta till SQL Server och Azure SQL-databasen. Använd egenskapen **servernamn** för att ansluta.
 
-    Om du inte ändrade databasanvändarnamnet när du först konfigurerade projektet i DevOps Projects är ditt användarnamn den lokala delen av din e-postadress. Exempel: om din e-postadress är *johndoe\@microsoft.com*, ditt användarnamn är *johndoe*.
+    Om du inte ändrade databasanvändarnamnet när du först konfigurerade projektet i DevOps Projects är ditt användarnamn den lokala delen av din e-postadress. Om din e-postadress till exempel är *johndoe\@microsoft.com*, är ditt användar namn *johndoe*.
 
    > [!NOTE]
    > Om du ändrar ditt lösenord för SQL-inloggningen måste du ändra lösenordet i variabeln för versionspipelinen enligt beskrivningen i avsnittet Granska CD-pipelinen.
@@ -216,6 +216,6 @@ Mer information om CI/CD-pipelinen finns i:
 > [!div class="nextstepaction"]
 > [Definiera din CD-pipeline med flera steg](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts)
 
-## <a name="videos"></a>Videoklipp
+## <a name="videos"></a>Videor
 
 > [!VIDEO https://channel9.msdn.com/Events/Build/2018/BRK3308/player]

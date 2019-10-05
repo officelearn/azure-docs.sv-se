@@ -4,14 +4,14 @@ description: Visar en lista över de Azure-resurs typer som kan ha fler än 800 
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 7/30/2019
+ms.date: 10/4/2019
 ms.author: tomfitz
-ms.openlocfilehash: eec448dcbf1c550b6b0a0ee0f17505fd6ddd3c74
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 6677290999049dead40f39e9a840735810c7c763
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70194732"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973310"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Resurser som inte är begränsade till 800 instanser per resurs grupp
 
@@ -37,9 +37,13 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 ## <a name="microsoftcompute"></a>Microsoft.Compute
 
 * Diskar
-* bilder
+* avbildningar
 * ögonblicksbilder
 * virtualMachines
+
+## <a name="microsoftcontainerinstance"></a>Microsoft.ContainerInstance
+
+* containerGroups
 
 ## <a name="microsoftcontainerregistry"></a>Microsoft.ContainerRegistry
 
@@ -68,7 +72,7 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
 
-* services
+* tjänster
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
@@ -81,6 +85,14 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 
 * integrationAccounts
 * arbetsflöden
+
+## <a name="microsoftnetapp"></a>Microsoft.NetApp
+
+* netAppAccounts
+* netAppAccounts/capacityPools
+* netAppAccounts/capacityPools/Volumes
+* netAppAccounts/capacityPools/Volumes/mountTargets
+* netAppAccounts/capacityPools/volym/ögonblicks bilder
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -132,6 +144,15 @@ För vissa resurs typer måste du kontakta supporten om du vill ta bort instans 
 ## <a name="microsoftscheduler"></a>Microsoft.Scheduler
 
 * förfrågningsåtgärder
+
+## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+
+* program
+* containerGroups
+* gatewayer
+* nätet
+* hemligheter
+* volymer
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 

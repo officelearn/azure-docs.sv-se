@@ -5,15 +5,15 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 09/24/2019
+ms.date: 10/04/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 12d3f06ca349413231d69fc9de7b9d2f36645b23
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: ed828a09843648b129b701c9afd22aac9e2fa9b0
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71273745"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970801"
 ---
 1. På vänstra sidan i portalen klickar du på **+Skapa en resurs** och skriver ”Virtuell nätverksgateway” i sökningen. Hitta **Virtuell nätverksgateway** bland sökresultaten och klicka på det. På sidan **virtuell nätverksgateway** klickar du på **skapa**. Då öppnas sidan **Skapa virtuell nätverksgateway**.
 
@@ -37,7 +37,7 @@ ms.locfileid: "71273745"
 
       **Virtuellt nätverk**: Välj i vilket virtuellt nätverk du vill lägga till denna gateway.
 
-      **Adress intervall för Gateway-under nätet**: Det här fältet visas bara om det virtuella nätverk som du har valt inte har något Gateway-undernät. Fyll i intervallet om du inte redan har ett Gateway-undernät. Om möjligt, gör du intervallet/27 eller större (/26,/25 osv.)
+      **Adress intervall för Gateway-under nätet**: Det här fältet visas bara om ditt VNet inte har ett Gateway-undernät. Om möjligt, gör du intervallet/27 eller större (/26,/25 osv.). Vi rekommenderar inte att du skapar ett intervall som är mindre än/28. Om du redan har ett Gateway-undernät kan du Visa GatewaySubnet information genom att gå till det virtuella nätverket. Visa intervallet genom att klicka på **undernät** . Om du vill ändra intervallet kan du ta bort och återskapa GatewaySubnet.
 
    **Offentlig IP-adress**: Den här inställningen anger det offentliga IP-adressprefixet som associeras med VPN-gatewayen. Den offentliga IP-adressen tilldelas dynamiskt till detta objekt när en VPN-gateway skapas. Den enda gången den offentliga IP-adressen ändras är när gatewayen tas bort och återskapas. Den ändras inte vid storleksändring, återställning eller annat internt underhåll/uppgraderingar av din VPN-gateway.
 

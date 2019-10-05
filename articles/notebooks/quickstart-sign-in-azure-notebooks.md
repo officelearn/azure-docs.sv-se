@@ -4,21 +4,20 @@ description: Snabbt logga in på Azure-anteckningsböcker och ange ett användar
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: fb8c94b1-6d0a-4b77-8d14-ae6efcdd99f4
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: a9ba6fcc0c8b74664f5c4b32e54530fb4aaa2881
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 0c12c8673ff61dcca62c72addcbf0d9b33c2c252
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751719"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973065"
 ---
 # <a name="quickstart-sign-in-and-set-a-user-id"></a>Snabbstart: Logga in och ange ett användar-ID
 
@@ -35,7 +34,7 @@ Men du kan alltid visa Azure-datorer utan att logga in, måste du logga in på K
     ![Skapa nytt Microsoft-konto-kommando i inloggningsuppmaning](media/accounts/create-new-microsoft-account.png)
 
     > [!Tip]
-    > Om du försöker skapa ett nytt konto med en e-postadress som redan har ett konto som är associerade med den kan du se meddelandet ”du kan inte logga här med ett arbets eller skolans e-postadress. Använda en personlig e-post, till exempel Gmail eller Yahoo! eller hämta en ny Outlook-e-post ”. I så fall kan du prova att logga in med den e-postadressen för arbetet utan att skapa ett nytt konto.
+    > Om du försöker skapa ett nytt konto med en e-postadress som redan har ett konto som är associerat med det kan du se meddelandet "du kan inte registrera dig här med en e-postadress till arbetet eller skolan. Använd ett personligt e-postmeddelande, till exempel Gmail eller Yahoo!, eller skaffa ett nytt Outlook-e-postmeddelande. " I så fall kan du försöka logga in med e-postadressen för arbetet utan att skapa ett nytt konto.
 
 1. Ange ditt lösenord när du tillfrågas.
 
@@ -56,7 +55,7 @@ Men du kan alltid visa Azure-datorer utan att logga in, måste du logga in på K
     ![Inledande vyn för en sida för Azure-anteckningsböcker](media/accounts/profile-page-new.png)
 
 > [!NOTE]
-> Om du ser meddelandet prova ”användar-ID används redan”, ett annat ID. Användar-ID är unika för alla konton i Azure-anteckningsböcker och anteckningsböcker i Azure reserverar även vissa användar-ID, till exempel Microsoft homofoner.
+> Om du ser meddelandet "användar-ID används redan", prova med ett annat ID. Användar-ID: n är unika för alla Azure Notebooks konton och Azure Notebooks också reserverar vissa användar-ID: n, t. ex. Microsoft varumärkes namn.
 
 ## <a name="sign-out"></a>Logga ut
 
@@ -67,4 +66,4 @@ Att logga ut, väljer användarnamnet längst upp till höger på sidan och seda
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa och dela en anteckningsbok](quickstart-create-share-jupyter-notebook.md)
+> [Snabbstart: Skapa och dela en Notebook @ no__t-0

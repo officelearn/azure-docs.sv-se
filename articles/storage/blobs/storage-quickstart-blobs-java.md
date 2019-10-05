@@ -1,33 +1,37 @@
 ---
-title: Så här skapar du en BLOB i Azure Storage använder klient biblioteket för Java-v7 | Microsoft Docs
-description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd sedan Azure Storage klient bibliotek för Java-v7 för att ladda upp en blob till Azure Storage, hämta en blob och lista blobarna i en behållare.
+title: 'Snabbstart: Azure Blob Storage-klient bibliotek för Java SDK-V8'
+description: Skapa ett lagringskonto och en container i objektlagring (Blob). Använd sedan Azure Storage klient bibliotek för Java SDK-V8 för att ladda upp en blob till Azure Storage, hämta en blob och lista blobarna i en behållare.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 02/04/2019
+ms.date: 10/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
-ms.openlocfilehash: 0aa3af754082d91c4a5994e42146d1f1f475f64d
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 87bae74265c4d3abe7301af35888561fcd256717
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390317"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971993"
 ---
-# <a name="how-to-upload-download-and-list-blobs-using-the-client-library-for-java-v7"></a>Ladda upp, ladda ned och lista blobar med hjälp av klient biblioteket för Java-v7
+# <a name="quickstart-azure-blob-storage-client-library-for-java-sdk-v8"></a>Snabbstart: Azure Blob Storage-klient bibliotek för Java SDK-V8
 
-I den här instruktions guiden får du lära dig hur du använder klient biblioteket för Java-v7 för att ladda upp, ladda ned och lista block-blobar i en behållare i Azure Blob Storage.
+Kom igång med Azures Blob Storage klient bibliotek för Java. Azure Blob Storage är Microsofts objekt lagrings lösning för molnet. Följ stegen för att installera paketet och prova exempel koden för grundläggande uppgifter. Blobblagring är optimerat för att lagra stora mängder ostrukturerade data.
+
+Använd Azures Blob Storage klient bibliotek för Java för att:
+
+* Skapa en container
+* Ange behörigheter för en behållare
+* Skapa en BLOB i Azure Storage
+* Ladda ned blobben till den lokala datorn
+* Lista alla blobar i en behållare
+* Ta bort en container
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
-
-Skapa också ett Azure Storage-konto i [Azure Portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). Hjälp med att skapa kontot finns i [Skapa ett lagringskonto](../common/storage-quickstart-create-account.md).
-
-Kontrol lera att du har följande krav:
-
-* Installera en IDE som har Maven-integrering.
-
+* Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
+* Azure Storage konto – [skapa ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
+* En IDE som har maven-integrering.
 * Du kan även installera och konfigurera Maven så att det fungerar från kommandoraden.
 
 Den här guiden använder [Sol förmörkelse](https://www.eclipse.org/downloads/) med konfigurationen "Sol förmörkelse IDE för Java-utvecklare".
@@ -205,6 +209,5 @@ sourceFile.deleteOnExit();
 I den här artikeln har du lärt dig hur du överför filer mellan en lokal disk och Azure Blob Storage med Java. För att få mer information om hur du arbetar med Java fortsätter du till vår lagringsplats för GitHub-källkod.
 
 > [!div class="nextstepaction"]
-> [Microsoft Azure Storage SDK-v10 för Java](https://github.com/azure/azure-storage-java) 
 > [Java API-referens](https://docs.microsoft.com/java/azure/)
 > [kod exempel för Java](../common/storage-samples-java.md)

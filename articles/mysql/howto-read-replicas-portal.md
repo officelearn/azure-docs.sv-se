@@ -1,17 +1,17 @@
 ---
-title: Skapa och hantera skrivskyddade repliker i Azure Database för MySQL
-description: Den här artikeln beskriver hur du konfigurerar och hanterar Läs repliker i Azure Database for MySQL med hjälp av portalen.
+title: Skapa & hantera Läs repliker (Azure Portal) – Azure Database for MySQL
+description: Lär dig hur du konfigurerar och hanterar Läs repliker i Azure Database for MySQL att använda Azure Portal.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/04/2019
-ms.openlocfilehash: 275c7bc8127855712c191141ef681526da7c377b
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: a90e9cccf8b59dabbee8415818c0e819ba1b26c3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70309491"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972877"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Skapa och hantera Läs repliker i Azure Database for MySQL med hjälp av Azure Portal
 

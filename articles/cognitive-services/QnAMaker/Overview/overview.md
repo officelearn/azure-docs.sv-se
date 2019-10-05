@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: overview
 ms.date: 08/01/2019
 ms.author: diberry
-ms.openlocfilehash: f56798359cdc8739a363bed3bfddadd584617adf
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d647875895e33254b51fb8c3d11aa40c6c1ed71f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68815477"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973792"
 ---
 # <a name="what-is-the-qna-maker-service"></a>Vad är tjänsten QnA Maker?
 
@@ -85,21 +85,8 @@ QnA Maker ger redigering, utbildning och publicering tillsammans med samarbets b
 
 **Steg 4**: Från klient programmet anropar du kunskaps basns slut punkt via programmering och läser JSON-svaret Visa det bästa svaret till användaren.  
 
-## <a name="news-and-updates"></a>Nyheter och uppdateringar
-
-Lär dig vad som är nytt med QnA Maker.
-
-* 2019 juni
-    * Förbättrad rangordnings modell för franska, italienska, tyska, spanska, portugisiska
-* April 2019
-    * Stöd för extrahering av webbplats innehåll
-    * Stöd för SharePoint-dokument
-* Mars 2019
-    * Aktiv inlärning 
-    * Förbättrad ranknings modell för NLP för engelska, 
-
 ## <a name="next-steps"></a>Nästa steg
 QnA Maker innehåller allt du behöver för att bygga, hantera och distribuera din anpassade kunskaps bas. 
 
 > [!div class="nextstepaction"]
-> [Skapa en QnA Maker-tjänst](../how-to/set-up-qnamaker-service-azure.md)
+> [Granska de senaste ändringarna](../whats-new.md)

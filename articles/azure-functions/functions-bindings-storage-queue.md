@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 6c708bfd0f8e49e9a857b9f77fab6224354ff06a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: ff0490a7854d0398df925fc56f766470ca9d1618
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70097185"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973458"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue Storage-bindningar för Azure Functions
 
@@ -57,7 +57,7 @@ Se exempel språkspecifika:
 
 ### <a name="trigger---c-example"></a>Utlösare – C#-exempel
 
-I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som `myqueue-items` avsöker kön och skriver en logg varje gången ett köobjekt bearbetas.
+I följande exempel visas en [ C# funktion](functions-dotnet-class-library.md) som söker i `myqueue-items`-kön och skriver en logg varje gången ett köobjekt bearbetas.
 
 ```csharp
 public static class QueueFunctions
@@ -74,7 +74,7 @@ public static class QueueFunctions
 
 ### <a name="trigger---c-script-example"></a>Utlösare – exempel på C#-skript
 
-I följande exempel visas en kö trigger-bindning i en *Function. JSON* -fil och [ C# skript kod (. CSX)](functions-reference-csharp.md) som använder bindningen. Funktionen avsöker `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
+I följande exempel visas en kö trigger-bindning i en *Function. JSON* -fil och [ C# skript kod (. CSX)](functions-reference-csharp.md) som använder bindningen. Funktionen avsöker kön `myqueue-items` och skriver en logg varje gången ett köobjekt bearbetas.
 
 Här är den *function.json* fil:
 
@@ -125,11 +125,11 @@ public static void Run(CloudQueueMessage myQueueItem,
 }
 ```
 
-I avsnittet [användning](#trigger---usage) beskrivs `myQueueItem`, som namnges av `name` egenskapen i function. JSON.  I [avsnittet meddelande metadata](#trigger---message-metadata) beskrivs alla andra variabler som visas.
+I [användnings](#trigger---usage) avsnittet beskrivs `myQueueItem`, som namnges av egenskapen `name` i function. JSON.  I [avsnittet meddelande metadata](#trigger---message-metadata) beskrivs alla andra variabler som visas.
 
 ### <a name="trigger---javascript-example"></a>Utlösare – JavaScript-exempel
 
-I följande exempel visas en kö trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen avsöker `myqueue-items` kön och skriver en logg varje gången ett köobjekt bearbetas.
+I följande exempel visas en kö trigger-bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen avsöker kön `myqueue-items` och skriver en logg varje gången ett köobjekt bearbetas.
 
 Här är den *function.json* fil:
 
@@ -151,7 +151,7 @@ Här är den *function.json* fil:
 Den [configuration](#trigger---configuration) förklaras de här egenskaperna.
 
 > [!NOTE]
-> Parametern name återspeglar som `context.bindings.<name>` i JavaScript-koden som innehåller objektets nytto Last. Den här nytto lasten skickas också som den andra parametern till funktionen.
+> Parametern name visar `context.bindings.<name>` i JavaScript-koden som innehåller köns objekt nytto Last. Den här nytto lasten skickas också som den andra parametern till funktionen.
 
 Här är JavaScript-kod:
 
@@ -170,11 +170,11 @@ module.exports = async function (context, message) {
 };
 ```
 
-I avsnittet [användning](#trigger---usage) beskrivs `myQueueItem`, som namnges av `name` egenskapen i function. JSON.  I [avsnittet meddelande metadata](#trigger---message-metadata) beskrivs alla andra variabler som visas.
+I [användnings](#trigger---usage) avsnittet beskrivs `myQueueItem`, som namnges av egenskapen `name` i function. JSON.  I [avsnittet meddelande metadata](#trigger---message-metadata) beskrivs alla andra variabler som visas.
 
 ### <a name="trigger---java-example"></a>Utlösare - Java-exemplet
 
-I följande Java-exempel visas en utlösnings funktion i Storage Queue som loggar det Utlös ande `myqueuename`meddelandet i kön.
+I följande Java-exempel visas en utlösnings funktion i Storage Queue som loggar det Utlös ande meddelandet som placeras i kön `myqueuename`.
 
  ```java
  @FunctionName("queueprocessor")
@@ -192,7 +192,7 @@ I följande Java-exempel visas en utlösnings funktion i Storage Queue som logga
 
 Följande exempel visar hur du läser ett Queue-meddelande som skickas till en funktion via en utlösare.
 
-En utlösare för lagrings kön definieras i *Function. JSON* där *Type* har angetts till `queueTrigger`.
+En utlösare för lagrings kön definieras i *Function. JSON* där *typ* har angetts till `queueTrigger`.
 
 ```json
 {
@@ -209,7 +209,7 @@ En utlösare för lagrings kön definieras i *Function. JSON* där *Type* har an
 }
 ```
 
-Koden `func.ServiceBusMessage`   *_init\__ .pydeklarerarenparametersomgörattdukanläsameddelandet\_* i kön i din funktion.
+Koden  *_\_init_\_.py* deklarerar en parameter som `func.ServiceBusMessage`, vilket gör att du kan läsa meddelandet i kön i din funktion.
 
 ```python
 import logging
@@ -254,7 +254,7 @@ I [ C# klass bibliotek](functions-dotnet-class-library.md)använder du följande
   }
   ```
 
-  Du kan ställa `Connection` in egenskapen för att ange det lagrings konto som ska användas, som du ser i följande exempel:
+  Du kan ställa in egenskapen `Connection` för att ange det lagrings konto som ska användas, som du ser i följande exempel:
 
   ```csharp
   [FunctionName("QueueTrigger")]
@@ -302,22 +302,22 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |**riktning**| Saknas | Endast i *Function. JSON* -filen. Måste anges till `in`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
 |**Namn** | Saknas |Namnet på den variabel som innehåller köns objektets nytto Last i funktions koden.  |
 |**Könamn** | **Könamn**| Namnet på kön som ska avsökas. |
-|**anslutning** | **anslutning** |Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna `AzureWebJobsStorage`app-inställningen.|
+|**anslutning** | **anslutning** |Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="trigger---usage"></a>Utlösare - användning
 
-I C# och C# skript, kan du komma åt meddelande data med hjälp av en metod `string paramName`parameter, till exempel. I C# skript `paramName` är det `name` värdet som anges i egenskapen för *Function. JSON*. Du kan binda till någon av följande typer:
+I C# och C# skript kan du komma åt meddelande data med hjälp av en metod parameter som `string paramName`. I C# skript är `paramName` det värde som anges i egenskapen `name` för *Function. JSON*. Du kan binda till någon av följande typer:
 
 * Objekt-funktions körningen deserialiserar en JSON-nyttolast till en instans av en godtycklig klass som definierats i din kod. 
 * `string`
 * `byte[]`
 * [CloudQueueMessage]
 
-Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
+Om du försöker binda till `CloudQueueMessage` och får ett fel meddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
-Använd `context.bindings.<name>` för att få åtkomst till nytto lasten för köobjekt i Java Script. Om nytto lasten är JSON deserialiseras den till ett objekt.
+I Java Script använder du `context.bindings.<name>` för att få åtkomst till nytto lasten i köobjektet. Om nytto lasten är JSON deserialiseras den till ett objekt.
 
 ## <a name="trigger---message-metadata"></a>Utlösare - meddelande metadata
 
@@ -325,7 +325,7 @@ Utlösaren för kön innehåller flera [Egenskaper för metadata](./functions-bi
 
 |Egenskap|Type|Beskrivning|
 |--------|----|-----------|
-|`QueueTrigger`|`string`|Köns nytto Last (om en giltig sträng). Om meddelandet nytto Last i kön är en sträng `QueueTrigger` , har samma värde som variabeln som heter `name` med egenskapen i *Function. JSON*.|
+|`QueueTrigger`|`string`|Köns nytto Last (om en giltig sträng). Om meddelandet nytto Last i kön är en sträng, `QueueTrigger` har samma värde som variabeln som namnges av egenskapen `name` i *Function. JSON*.|
 |`DequeueCount`|`int`|Antal gånger som det här meddelandet har tagits ur kö.|
 |`ExpirationTime`|`DateTimeOffset`|Tiden som meddelandet upphör att gälla.|
 |`Id`|`string`|Meddelande-ID för kö.|
@@ -335,13 +335,13 @@ Utlösaren för kön innehåller flera [Egenskaper för metadata](./functions-bi
 
 ## <a name="trigger---poison-messages"></a>Utlösare – skadliga meddelanden
 
-Om en utlösare funktion Miss lyckas försöker Azure Functions utföra funktionen upp till fem gånger för ett angivet Queue-meddelande, inklusive det första försöket. Om alla fem försök Miss lyckas lägger Functions-körningen till ett meddelande i en kö med namnet  *&lt;originalqueuename >-Poison*. Du kan skriva en funktion för att bearbeta meddelanden från den Poison-kön genom att logga dem eller skicka ett meddelande om att det krävs en manuell åtgärd.
+Om en utlösare funktion Miss lyckas försöker Azure Functions utföra funktionen upp till fem gånger för ett angivet Queue-meddelande, inklusive det första försöket. Om alla fem försöken Miss lyckas lägger Functions runtime till ett meddelande i en kö med namnet *&lt;originalqueuename >-Poison*. Du kan skriva en funktion för att bearbeta meddelanden från den Poison-kön genom att logga dem eller skicka ett meddelande om att det krävs en manuell åtgärd.
 
 Om du vill hantera Poison-meddelanden manuellt kontrollerar du [dequeueCount](#trigger---message-metadata) i Queue-meddelandet.
 
 ## <a name="trigger---polling-algorithm"></a>Utlös ande algoritm för avsökning
 
-Utlösaren för kön implementerar en slumpmässig algoritm för att ta bort inaktivt kön på lagrings transaktions kostnader.  När ett meddelande hittas väntar körningen i två sekunder och söker sedan efter ett annat meddelande. När inget meddelande hittas väntar det cirka fyra sekunder innan det försöker igen. Efter efterföljande misslyckade försök att hämta ett Queue-meddelande fortsätter vänte tiden att öka tills den når den maximala vänte tiden, vilket är en minut som standard. Maximal vänte tid kan konfigureras via `maxPollingInterval` egenskapen i [Host. JSON-filen](functions-host-json.md#queues).
+Utlösaren för kön implementerar en slumpmässig algoritm för att ta bort inaktivt kön på lagrings transaktions kostnader.  När ett meddelande hittas väntar körningen i två sekunder och söker sedan efter ett annat meddelande. När inget meddelande hittas väntar det cirka fyra sekunder innan det försöker igen. Efter efterföljande misslyckade försök att hämta ett Queue-meddelande fortsätter vänte tiden att öka tills den når den maximala vänte tiden, vilket är en minut som standard. Maximal vänte tid kan konfigureras via egenskapen `maxPollingInterval` i [Host. JSON-filen](functions-host-json.md#queues).
 
 ## <a name="trigger---concurrency"></a>Utlösare – samtidighets läge
 
@@ -435,7 +435,7 @@ public static CustomQueueMessage Run(CustomQueueMessage input, ILogger log)
 }
 ```
 
-Du kan skicka flera meddelanden samtidigt med hjälp av en `ICollector` - `IAsyncCollector` eller-parameter. Här är C# skript koden som skickar flera meddelanden, en med HTTP-begärans data och en med hårdkodade värden:
+Du kan skicka flera meddelanden samtidigt genom att använda en `ICollector`-eller `IAsyncCollector`-parameter. Här är C# skript koden som skickar flera meddelanden, en med HTTP-begärans data och en med hårdkodade värden:
 
 ```cs
 public static void Run(
@@ -489,7 +489,7 @@ module.exports = function (context, input) {
 };
 ```
 
-Du kan skicka flera meddelanden samtidigt genom att `myQueueItem` definiera en meddelande mat ris för utgående bindning. Följande JavaScript-kod skickar två köa meddelanden med hårdkodade värden för varje HTTP-begäran som tas emot.
+Du kan skicka flera meddelanden samtidigt genom att definiera en meddelande mat ris för utgående bindning för `myQueueItem`. Följande JavaScript-kod skickar två köa meddelanden med hårdkodade värden för varje HTTP-begäran som tas emot.
 
 ```javascript
 module.exports = function(context) {
@@ -514,13 +514,13 @@ module.exports = function(context) {
  }
 ```
 
-I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du `@QueueOutput` anteckningen för parametrar vars värde ska skrivas till Queue Storage.  Parametertypen ska vara `OutputBinding<T>`, där T är alla interna Java-typer av en POJO.
+I [Java Functions runtime-biblioteket](/java/api/overview/azure/functions/runtime)använder du kommentaren `@QueueOutput` på parametrar vars värde ska skrivas till Queue Storage.  Parametertypen ska vara `OutputBinding<T>`, där T är alla interna Java-typer av en POJO.
 
 ### <a name="output---python-example"></a>Utdata – python-exempel
 
 I följande exempel visas hur du matar utdata av enstaka och flera värden till lagrings köer. Konfigurationen som krävs för *Function. JSON* är på samma sätt.
 
-En bindning för lagrings kön definieras i *Function. JSON* där *Type* har angetts `queue`till.
+En bindning för lagrings kön definieras i *Function. JSON* där *typ* har angetts till `queue`.
 
 ```json
 {
@@ -552,7 +552,7 @@ En bindning för lagrings kön definieras i *Function. JSON* där *Type* har ang
 }
 ```
 
-Om du vill ange ett enskilt meddelande i kön skickar du ett enda värde till `set` -metoden.
+Om du vill ange ett enskilt meddelande i kön skickar du ett enda värde till metoden `set`.
 
 ```python
 import azure.functions as func
@@ -566,7 +566,7 @@ def main(req: func.HttpRequest, msg: func.Out[str]) -> func.HttpResponse:
     return 'OK'
 ```
 
-Om du vill skapa flera meddelanden i kön, deklarera en parameter som lämplig typ av lista och skicka en matris med värden (som matchar List typen) till `set` -metoden.
+Om du vill skapa flera meddelanden i kön, deklarera en parameter som lämplig typ av lista och skicka en matris med värden (som matchar List typen) till metoden `set`.
 
 ```python
 import azure.functions as func
@@ -583,7 +583,7 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 
 Använd [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/QueueAttribute.cs)i [ C# klass bibliotek](functions-dotnet-class-library.md).
 
-Attributet gäller för en `out` parameter eller returvärdet för funktionen. Attributets konstruktor tar köns namn, som visas i följande exempel:
+Attributet gäller för en `out`-parameter eller returvärdet för funktionen. Attributets konstruktor tar köns namn, som visas i följande exempel:
 
 ```csharp
 [FunctionName("QueueOutput")]
@@ -594,7 +594,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-Du kan ställa `Connection` in egenskapen för att ange det lagrings konto som ska användas, som du ser i följande exempel:
+Du kan ställa in egenskapen `Connection` för att ange det lagrings konto som ska användas, som du ser i följande exempel:
 
 ```csharp
 [FunctionName("QueueOutput")]
@@ -607,7 +607,7 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 
 Ett komplett exempel finns i [resultat – C#-exempel](#output---c-example).
 
-Du kan använda `StorageAccount` attributet för att ange lagrings kontot på klass-, metod-eller parameter nivå. Mer information finns i avsnittet om Utlösar-attribut.
+Du kan använda attributet `StorageAccount` för att ange lagrings kontot på klass-, metod-eller parameter nivå. Mer information finns i avsnittet om Utlösar-attribut.
 
 ## <a name="output---configuration"></a>Utdata - konfiguration
 
@@ -617,29 +617,29 @@ I följande tabell förklaras konfigurationsegenskaper för bindning som du ange
 |---------|---------|----------------------|
 |**type** | Saknas | Måste anges till `queue`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
 |**riktning** | Saknas | Måste anges till `out`. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Namnet på variabeln som representerar kön i funktions koden. Ange till `$return` att referera till funktionens retur värde.|
+|**Namn** | Saknas | Namnet på variabeln som representerar kön i funktions koden. Ange till `$return` om du vill referera till funktionens retur värde.|
 |**Könamn** |**Könamn** | Köns namn. |
-|**anslutning** | **anslutning** |Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel anger `connection` "unstorage" söker funktions körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den angivna `AzureWebJobsStorage`app-inställningen.|
+|**anslutning** | **anslutning** |Namnet på en app-inställning som innehåller den lagrings anslutnings sträng som ska användas för den här bindningen. Om appens inställnings namn börjar med "AzureWebJobs" kan du bara ange resten av namnet här. Om du till exempel ställer in `connection` till "telestorage" söker Functions-körningen efter en app-inställning med namnet "AzureWebJobsMyStorage". Om du lämnar `connection` tomt använder Functions-körningen standard anslutnings strängen för lagring i den app-inställning som heter `AzureWebJobsStorage`.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 ## <a name="output---usage"></a>Utdata - användning
 
-I C# och C# skript skriver du ett enskilt Queue-meddelande med hjälp av en metod `out T paramName`parameter, till exempel. I C# skript `paramName` är det `name` värdet som anges i egenskapen för *Function. JSON*. Du kan använda metoden Return-typ i stället för `out` en parameter och `T` kan vara någon av följande typer:
+I C# och C# skript skriver du ett enskilt Queue-meddelande med hjälp av en metod parameter som `out T paramName`. I C# skript är `paramName` det värde som anges i egenskapen `name` för *Function. JSON*. Du kan använda metoden Return-typ i stället för en `out`-parameter, och `T` kan vara någon av följande typer:
 
 * Ett objekt som är serialiserbar som JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
 
-Om du försöker binda till `CloudQueueMessage` och få ett fel meddelande, se till att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
+Om du försöker binda till `CloudQueueMessage` och får ett fel meddelande kontrollerar du att du har en referens till [rätt Storage SDK-version](#azure-storage-sdk-version-in-functions-1x).
 
 I C# och C# skript skriver du flera meddelanden i kön genom att använda någon av följande typer: 
 
 * `ICollector<T>` eller `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-I JavaScript-funktioner använder `context.bindings.<name>` du för att få åtkomst till meddelandet utgående kö. Du kan använda en sträng eller ett JSON-serialiserbar objekt för nytto lasten i objektet.
+I JavaScript-funktioner använder du `context.bindings.<name>` för att få åtkomst till meddelandet utgående kö. Du kan använda en sträng eller ett JSON-serialiserbar objekt för nytto lasten i objektet.
 
 
 ## <a name="exceptions-and-return-codes"></a>Undantag och returkoder
@@ -677,9 +677,9 @@ Det här avsnittet beskrivs de globala konfigurationsinställningarna som är ti
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
-|maxPollingInterval|00:00:01|Det maximala intervallet mellan Queue-avsökningar. Minimum är 00:00:00.100 (100 MS) och ökar till 00:01:00 (1 min). |
+|maxPollingInterval|00:00:01|Det maximala intervallet mellan Queue-avsökningar. Minimum är 00:00:00.100 (100 MS) och ökar till 00:01:00 (1 min).  I 1. x är data typen millisekunder och i 2. x är det ett TimeSpan.|
 |visibilityTimeout|00:00:00|Tidsintervall mellan återförsök vid bearbetning av ett meddelande Miss lyckas. |
-|batchSize|16|Antalet köa meddelanden som funktions körningen hämtar samtidigt och processer parallellt. När antalet som bearbetas `newBatchThreshold`går ned till kör körningen en annan batch och börjar bearbeta dessa meddelanden. Det maximala antalet samtidiga meddelanden som bearbetas per `batchSize` funktion `newBatchThreshold`är plus. Den här gränsen gäller separat för varje funktion som utlöses av kön. <br><br>Om du vill undvika parallell körning av meddelanden som tas emot i en kö kan du ange `batchSize` 1. Den här inställningen eliminerar dock ingen samtidighet så länge som din funktions App körs på en enda virtuell dator (VM). Om Function-appen skalar ut till flera virtuella datorer kan varje virtuell dator köra en instans av varje funktion som utlöses av kön.<br><br>Det maximala `batchSize` värdet är 32. |
+|batchSize|16|Antalet köa meddelanden som funktions körningen hämtar samtidigt och processer parallellt. När antalet som bearbetas går ned till `newBatchThreshold`, får körningen en annan batch och börjar bearbeta dessa meddelanden. Det maximala antalet samtidiga meddelanden som bearbetas per funktion är `batchSize` plus `newBatchThreshold`. Den här gränsen gäller separat för varje funktion som utlöses av kön. <br><br>Om du vill undvika parallell körning av meddelanden som tas emot i en kö kan du ange `batchSize` till 1. Den här inställningen eliminerar dock ingen samtidighet så länge som din funktions App körs på en enda virtuell dator (VM). Om Function-appen skalar ut till flera virtuella datorer kan varje virtuell dator köra en instans av varje funktion som utlöses av kön.<br><br>Högsta `batchSize` är 32. |
 |maxDequeueCount|5|Antal försök att bearbeta ett meddelande innan det flyttas till en Poison-kö.|
 |newBatchThreshold|batchSize/2|När antalet meddelanden som bearbetas samtidigt går till det här talet, hämtar körningen en annan batch.|
 

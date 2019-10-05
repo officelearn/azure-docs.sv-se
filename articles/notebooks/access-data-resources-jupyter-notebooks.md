@@ -4,21 +4,20 @@ description: 'Så här att få åtkomst till filer, REST API: er, databaser och 
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: ee867303-a5e5-4686-b2da-8a0108247d18
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 3dd1dde067a2ec745d7d60a78a50ab34ea30d0dd
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: e1284072db8ca8aa7a49bd3c4d52f54e5d09420a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359803"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970262"
 ---
 # <a name="access-cloud-data-in-a-notebook"></a>Åtkomst till molndata på en bärbar dator
 
@@ -80,12 +79,12 @@ När du arbetar med Cosmos DB kan du använda den [azure-cosmos DB-table](https:
 
 Azure tillhandahåller ett antal andra typer av databaser som du kan använda. Artiklarna nedan innehåller riktlinjer för att komma åt dessa databaser från Python:
 
-- [Azure Database for PostgreSQL: Använd python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/postgresql/connect-python)
-- [Snabbstart: Använda Azure Redis Cache med python](https://docs.microsoft.com/azure/redis-cache/cache-python-get-started)
-- [Azure Database for MySQL: Använd python för att ansluta och fråga efter data](https://docs.microsoft.com/azure/mysql/connect-python)
+- [Azure Database för PostgreSQL: Använd python för att ansluta och fråga data @ no__t-0
+- [Snabbstart: Använda Azure Redis Cache med python @ no__t-0
+- [Azure Database för MySQL: Använd python för att ansluta och fråga data @ no__t-0
 - [Azure Data Factory](https://azure.microsoft.com/services/data-factory/)
   - [Kopieringsguiden för Azure Data Factory](https://azure.microsoft.com/updates/code-free-copy-wizard-for-azure-data-factory/)
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anvisningar: Arbeta med Project-datafiler](work-with-project-data-files.md)
+- [Anvisningar: Arbeta med Project-datafiler @ no__t-0

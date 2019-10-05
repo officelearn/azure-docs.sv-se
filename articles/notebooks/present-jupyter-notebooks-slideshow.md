@@ -4,21 +4,20 @@ description: Hur du konfigurerar cellerna för bildspel läge Jupyter notebook o
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: c372175b-beb5-4b45-b2f8-34cb06990117
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 405fe71676de311ed7e59ea72798ff4fd2db0f62
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 04612dc8892a544397251580b3494badc84e2ad5
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60237469"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973119"
 ---
 # <a name="run-a-notebook-slideshow"></a>Kör en notebook bildspel
 
@@ -102,7 +101,7 @@ Eftersom bildspelet renderas fragment med mer lodrätt avstånd än när alla pu
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anvisningar: Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-- [Anvisningar: Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
-- [Anvisningar: Arbeta med filer](work-with-project-data-files.md)
-- [Anvisningar: Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
+- [Anvisningar: Konfigurera och hantera projekt @ no__t-0
+- [Anvisningar: Installera paket inifrån en bärbar dator @ no__t-0
+- [Anvisningar: Arbeta med datafiler @ no__t-0
+- [Anvisningar: Åtkomst till data resurser @ no__t-0

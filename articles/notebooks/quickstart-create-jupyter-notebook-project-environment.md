@@ -4,21 +4,20 @@ description: Skapa ett nytt projekt i Azure-anteckningsböcker som har konfigure
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: e049f591-27a7-440f-a1a3-c5bef25e8a28
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: 954bbc22e42865991ca7f38fbf3f6f0e8e78a437
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 6ec0d2fae285889a731e9b881ea90f15b96c85f2
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754023"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973073"
 ---
 # <a name="quickstart-create-a-project-with-a-custom-environment"></a>Snabbstart: Skapa ett projekt med en anpassad miljö
 
@@ -38,7 +37,7 @@ Ett projekt i Azure-datorer är en samling av filer, till exempel bärbara dator
 
 1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
 
-    - **Projektnamnet**: Projektet med anpassad miljö
+    - **Projekt namn**: Projekt med en anpassad miljö
     - **Projektet ID**: projekt-anpassad-miljö
     - **Offentliga projekt**: (avmarkerad)
     - **Skapa en README.md**: (avmarkerad)

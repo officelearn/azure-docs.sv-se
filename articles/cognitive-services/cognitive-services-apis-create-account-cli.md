@@ -7,14 +7,14 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: cd00f49aea08e5c94a9206b64f66f4424ef3ca04
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d50b0858ac7c4c0e5e0263bd157e044d0fec4489
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057641"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972674"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Skapa en Cognitive Services resurs med hjälp av kommando rads gränssnittet för Azure (CLI)
 
@@ -75,7 +75,7 @@ az group create \
 När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill använda, tillsammans med den [pris nivå](https://azure.microsoft.com/pricing/details/cognitive-services/) (eller SKU) som du vill använda. Du kommer att använda den här och andra information som parametrar när du skapar resursen.
 
 > [!NOTE]
-> Många kognitiva tjänster har en kostnads fri nivå som du kan använda för att testa tjänsten. Använd den kostnads fria nivån `F0` som SKU för din resurs.
+> Många kognitiva tjänster har en kostnads fri nivå som du kan använda för att testa tjänsten. Använd `F0` som SKU för din resurs för att använda den kostnads fria nivån.
 
 ### <a name="vision"></a>Visuellt innehåll
 
@@ -95,7 +95,7 @@ När du skapar en ny resurs behöver du veta vilken typ av tjänst du vill anvä
 | Automatiska förslag i Bing   | `Bing.Autosuggest.v7` |
 | Anpassad sökning i Bing | `Bing.CustomSearch`   |
 | Entitetssökning i Bing | `Bing.EntitySearch`   |
-| Bing-sökmotor        | `Bing.Search.v7`      |
+| Bing Search        | `Bing.Search.v7`      |
 | Stavningskontroll i Bing   | `Bing.SpellCheck.v7`  |
 
 ### <a name="speech"></a>Tal
@@ -133,7 +133,7 @@ az cognitiveservices account list-kinds
 
 Om du vill skapa och prenumerera på en ny Cognitive Services-resurs använder du kommandot [AZ cognitiveservices Account Create](https://docs.microsoft.com/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-create) . Detta kommando lägger till en ny fakturerbar resurs till resurs gruppen som skapades tidigare. När du skapar din nya resurs behöver du veta vilken typ av tjänst du vill använda, tillsammans med dess pris nivå (eller SKU) och en Azure-plats:
 
-Du kan skapa en F0 (kostnads fri) resurs för avvikelse detektor, med `anomaly-detector-resource` namnet med kommandot nedan.
+Du kan skapa en F0 (kostnads fri) resurs för avvikelse detektor, med namnet `anomaly-detector-resource` med kommandot nedan.
 
 ```azurecli-interactive
 az cognitiveservices account create \
@@ -170,6 +170,16 @@ Pris nivåerna (och den mängd du debiteras) baseras på antalet transaktioner s
 * tjänst funktioner som Aktiver ATS inom pris nivån.
 * Kostnaden för en fördefinierad mängd transaktioner. Om du fortsätter över den här mängden kommer du att få en extra avgift som anges i [pris informationen](https://azure.microsoft.com/pricing/details/cognitive-services/custom-vision-service/) för din tjänst.
 
+## <a name="get-current-quota-usage-for-your-resource"></a>Hämta aktuell kvot användning för din resurs
+
+Använd kommandot [AZ cognitiveservices Account List-Usage](https://docs.microsoft.com/en-us/cli/azure/cognitiveservices/account?view=azure-cli-latest#az-cognitiveservices-account-list-usage) för att få användningen av din kognitiva tjänst resurs.
+
+```azurecli-interactive
+az cognitiveservices account list-usage \
+    --name anomaly-detector-resource \
+    --resource-group cognitive-services-resource-group \
+    --subscription subscription-name
+```
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

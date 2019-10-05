@@ -4,10 +4,12 @@
   items:
     - name: Vad är QnA Maker?
       href: Overview/overview.md
+    - name: Nyheter
+      href: whats-new.md
 - name: Snabbstarter
   items:
     - name: Skapa en ny kunskapsbas
-      href: How-To/create-knowledge-base.md
+      href: quickstarts/create-publish-knowledge-base.md
     - name: Lägga till frågor med metadata
       href: quickstarts/add-question-metadata-portal.md
     - name: Få svar

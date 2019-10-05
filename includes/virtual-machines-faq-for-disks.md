@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ffc77d2a175d300be306b1566324b2551e38aeab
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 155ca71ae30559cc79e090a8a7bbc12c896b637f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266882"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973002"
 ---
 # <a name="frequently-asked-questions-about-azure-iaas-vm-disks-and-managed-and-unmanaged-premium-disks"></a>Vanliga frågor och svar om Azure IaaS VM-diskar och hanterade och ohanterade Premium-diskar
 
@@ -219,7 +219,7 @@ Ja, Azure Backup är nu tillgängligt.
 Du kan skapa Standard SSD diskar med Azure Resource Manager mallar, SDK, PowerShell eller CLI. Nedan visas de parametrar som behövs i Resource Manager-mallen för att skapa Standard SSD diskar:
 
 * *API version* för Microsoft. Compute måste anges som `2018-04-01` (eller senare)
-* Ange *managedDisk. storageAccountType* som`StandardSSD_LRS`
+* Ange *managedDisk. storageAccountType* som `StandardSSD_LRS`
 
 I följande exempel visas avsnittet *Properties. storageProfile. osDisk* för en virtuell dator som använder standard SSD diskar:
 
@@ -293,6 +293,10 @@ Ja
 **Är Azure Storage tjänst kryptering aktive rad som standard när jag skapar en hanterad disk?**
 
 Ja.
+
+**Är start volymen krypterad som standard på en hanterad disk?**
+
+Ja. Som standard krypteras alla hanterade diskar, inklusive OS-disken.
 
 **Vem hanterar krypterings nycklarna?**
 

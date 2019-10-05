@@ -1,20 +1,20 @@
 ---
-title: Så här felsöker du prestanda för frågor i Azure Database for MySQL
-description: Den här artikeln beskriver hur du använder FÖRKLARA för att felsöka frågeprestanda i Azure Database för MySQL.
+title: Så här felsöker du fråge prestanda i Azure Database for MySQL
+description: Lär dig hur du använder förklaring för att felsöka fråge prestanda i Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/28/2018
-ms.openlocfilehash: 819e2393619766d46385cdd6fe550fff1e1a7631
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d58721f1fedd234b3c400a82035048d8e70f8c32
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60720220"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972859"
 ---
-# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Hur du använder FÖRKLARA att profil-frågeprestanda i Azure Database för MySQL
-**FÖRKLARA** är ett praktiskt verktyg för att optimera frågor. FÖRKLARA instruktionen kan användas för att få information om hur SQL-uttryck körs. Följande utdata visar ett exempel på körning av en förklaring-instruktion.
+# <a name="how-to-use-explain-to-profile-query-performance-in-azure-database-for-mysql"></a>Så här använder du förklaringar för att profilera frågor om prestanda i Azure Database for MySQL
+**Förklaring** är ett användbart verktyg för att optimera frågor. FÖRKLARINGs instruktionen kan användas för att hämta information om hur SQL-uttryck körs. Följande utdata visar ett exempel på körning av en FÖRKLARINGs instruktion.
 
 ```sql
 mysql> EXPLAIN SELECT * FROM tb1 WHERE id=100\G
@@ -33,7 +33,7 @@ possible_keys: NULL
         Extra: Using where
 ```
 
-Se från det här exemplet är värdet för *nyckel* är NULL. Dessa utdata innebär MySQL kan inte hitta några index som optimerats för frågan och genomför en fullständig tabellsökning. Nu ska vi optimera den här frågan genom att lägga till ett index på den **ID** kolumn.
+Som du kan se i det här exemplet är värdet för *nyckeln* null. Den här utmatningen innebär att MySQL inte kan hitta några index som är optimerade för frågan och utför en fullständig tabells ökning. Vi optimerar den här frågan genom att lägga till ett index i kolumnen **ID** .
 
 ```sql
 mysql> ALTER TABLE tb1 ADD KEY (id);
@@ -53,10 +53,10 @@ possible_keys: id
         Extra: NULL
 ```
 
-Ny förklaring visar att MySQL nu använder ett index för att begränsa antalet rader till 1, vilket i sin tur dramatiskt förkortade söktiden.
+Den nya förklaringen visar att MySQL nu använder ett index för att begränsa antalet rader till 1, vilket i sin tur drastiskt förkortade Sök tiden.
  
-## <a name="covering-index"></a>Som täcker index
-Ett index omfattar består av alla kolumner i en fråga i indexet att minska värdet hämtning från datatabeller. Här är en bild i följande **GROUP BY** instruktionen.
+## <a name="covering-index"></a>Täcker index
+Ett täcker index består av alla kolumner i en fråga i indexet för att minska värde hämtningen från data tabeller. Här är en illustration i följande **Group by** -instruktion.
  
 ```sql
 mysql> EXPLAIN SELECT MAX(c1), c2 FROM tb1 WHERE c2 LIKE '%100' GROUP BY c1\G
@@ -75,9 +75,9 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-Se från utdata, använder inte MySQL index eftersom inga rätt index är tillgängliga. Det visar även *med tillfällig. Med hjälp av filen sortera*, vilket innebär att MySQL skapar en temporär tabell att uppfylla den **GROUP BY** satsen.
+Som kan ses från utdata, använder MySQL inte några index eftersom inga lämpliga index är tillgängliga. Den visar också *användning av temporärt. Använda fil sortering*, vilket innebär att MySQL skapar en temporär tabell för att uppfylla **Group by** -satsen.
  
-Skapa ett index i kolumnen **c2** enbart gör ingen skillnad och MySQL fortfarande behövs för att skapa en tillfällig tabell:
+Att skapa ett index för enbart kolumnen **C2** gör ingen skillnad, och MySQL måste fortfarande skapa en temporär tabell:
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY (c2);
@@ -97,7 +97,7 @@ possible_keys: NULL
         Extra: Using where; Using temporary; Using filesort
 ```
 
-I det här fallet en **omfattas index** på både **c1** och **c2** kan skapas, innebär att lägga till värdet för **c2**”direkt i indexet för eliminera ytterligare data sökning.
+I det här fallet kan ett **index som omfattas** både **C1** och **C2** skapas, genom att lägga till värdet **C2**direkt i indexet för att eliminera ytterligare data sökning.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY covered(c1,c2);
@@ -117,10 +117,10 @@ possible_keys: covered
         Extra: Using where; Using index
 ```
 
-Så som visas i ovanstående FÖRKLARA, använder omfattas indexet MySQL nu och Undvik att skapa en tillfällig tabell. 
+Som beskrivs ovan använder MySQL nu det skyddade indexet och undviker att skapa en tillfällig tabell. 
 
-## <a name="combined-index"></a>Kombinerade index
-En kombinerad index består värden från flera kolumner och kan ses som en matris med rader som sorteras genom att sammanfoga värden för de indexerade kolumnerna. Den här metoden kan vara användbart i en **GROUP BY** instruktionen.
+## <a name="combined-index"></a>Kombinerat index
+Ett kombinerat index består av värden från flera kolumner och kan betraktas som en matris med rader som sorteras efter sammanfogning av värden för de indexerade kolumnerna. Den här metoden kan vara användbar i en **Group by** -instruktion.
 
 ```sql
 mysql> EXPLAIN SELECT c1, c2 from tb1 WHERE c2 LIKE '%100' ORDER BY c1 DESC LIMIT 10\G
@@ -139,7 +139,7 @@ possible_keys: NULL
         Extra: Using where; Using filesort
 ```
 
-MySQL-utför en *filen sortera* åtgärd som är ganska långsam, särskilt när det har att sortera många rader. För att optimera den här frågan kan en kombinerad index skapas i både kolumner som sorteras.
+MySQL utför en *fil sorterings* åtgärd som är ganska långsam, särskilt när den måste sortera många rader. För att optimera den här frågan kan ett kombinerat index skapas i båda kolumnerna som sorteras.
 
 ```sql 
 mysql> ALTER TABLE tb1 ADD KEY my_sort2 (c1, c2);
@@ -159,12 +159,12 @@ possible_keys: NULL
         Extra: Using where; Using index
 ```
 
-FÖRKLARA visas nu att MySQL ska kunna använda kombinerade index för att undvika ytterligare sortering eftersom indexet sorteras redan.
+FÖRKLARINGEN visar nu att MySQL kan använda kombinerat index för att undvika ytterligare sortering eftersom indexet redan har sorterats.
  
 ## <a name="conclusion"></a>Sammanfattning
  
-Med hjälp av förklaring och annan typ av index kan öka prestanda avsevärt. Bara för att du har ett index i innebära tabellen inte MySQL skulle kunna använda det för dina frågor. Alltid verifiera dina antaganden med hjälp av förklaring och optimera dina frågor med hjälp av index.
+Att använda förklaringar och olika typer av index kan öka prestandan avsevärt. Att ha ett index i tabellen innebär inte nödvändigt vis att MySQL kan använda det för dina frågor. Validera alltid dina antaganden med hjälp av förklara och optimera dina frågor med hjälp av index.
 
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill hitta peer-svar på dina mest berörda frågor eller publicera en ny fråga/svar, besök [MSDN-forum](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Om du vill hitta peer-svar på dina mest aktuella frågor eller publicera en ny fråga/svar, besök [MSDN-forumet](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

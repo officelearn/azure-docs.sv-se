@@ -4,21 +4,20 @@ description: Konfigurera ditt konto för Azure-anteckningsböcker med ett Micros
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 0d657fcc-26bc-41dd-abf0-3e5cfd66e0e0
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 04/15/2019
 ms.author: kraigb
-ms.openlocfilehash: 311f4d612c9deab23e7537b0c53ff3932c312cd4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bc93f55a3349498fa82095c2bc2b3178e234c107
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60632151"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973138"
 ---
 # <a name="your-user-account-for-azure-notebooks"></a>Ditt konto för Azure-anteckningsböcker
 
@@ -43,7 +42,7 @@ Om du är osäker, väljer du den **skapa en** i konto-prompten. Du kan skapa et
 ![Kommando för att skapa ett nytt microsoftkonto](media/accounts/create-new-microsoft-account.png)
 
 > [!Note]
-> Om du försöker skapa ett nytt konto med en e-postadress som redan har ett konto som är associerade med den kan du se meddelandet ”du kan inte logga här med ett arbets eller skolans e-postadress. Använda en personlig e-post, till exempel Gmail eller Yahoo! eller hämta en ny Outlook-e-post ”. I så fall kan du prova att logga in med den e-postadressen för arbetet utan att skapa ett nytt konto.
+> Om du försöker skapa ett nytt konto med en e-postadress som redan har ett konto som är associerat med det kan du se meddelandet "du kan inte registrera dig här med en e-postadress till arbetet eller skolan. Använd ett personligt e-postmeddelande, till exempel Gmail eller Yahoo!, eller skaffa ett nytt Outlook-e-postmeddelande. " I så fall kan du försöka logga in med e-postadressen för arbetet utan att skapa ett nytt konto.
 
 För barnkonton blockeras åtkomst till Azure-anteckningsböcker som standard. Logga in med ett barnkonto visar felet visas nedan:
 

@@ -3,8 +3,8 @@ title: Skapa en Python-app i Linux – Azure App Service | Microsoft Docs
 description: Distribuera din Hello World-app skriven i Python med Azure App Service i Linux på bara några minuter.
 services: app-service\web
 documentationcenter: ''
-author: cephalin
-manager: jeconnoc
+author: msangapu-msft
+manager: gwallace
 editor: ''
 ms.assetid: ''
 ms.service: app-service-web
@@ -14,18 +14,16 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 08b1b85b980f992e799fc5198891290ec0d55c5d
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 4ffa202a717c75462cd2d715a7883756d49f5a9f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70071003"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972100"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux-preview"></a>Skapa en Python-app i Azure App Service i Linux (förhandsversion)
+# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Skapa en python-app i Azure App Service på Linux
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabbstarten visar hur du distribuerar en Python-app ovanpå den inbyggda Python-avbildningen (förhandsversion) i App Service i Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
-
-Du kan följa stegen i den här artikeln på en Mac-, Windows- eller Linux-dator.
+Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabb starten visar hur du distribuerar en python-app ovanpå den inbyggda python-avbildningen i App Service på Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -164,13 +162,11 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den inbyggda python-avbildningen i App Service på Linux är för närvarande en för hands version och du kan anpassa kommandot som används för att starta appen. Du kan även skapa Python-appar för produktion med en anpassad container istället.
-
 > [!div class="nextstepaction"]
-> [Självstudier: Python-app med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudier: Python-app med PostgreSQL @ no__t-0
 
 > [!div class="nextstepaction"]
 > [Konfigurera python-app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Distribuera från privat container-lagringsplats](tutorial-custom-docker-image.md)
+> [Självstudier: Distribuera från privat container-lagringsplats @ no__t-0

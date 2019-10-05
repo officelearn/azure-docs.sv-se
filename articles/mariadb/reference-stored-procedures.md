@@ -1,19 +1,19 @@
 ---
-title: Azure Database for MariaDB lagrade procedurer
-description: Den här artikeln beskriver lagrade procedurer som är speciella för Azure Database for MariaDB.
+title: Lagrade procedurer för Azure Database for MariaDB hantering
+description: Lär dig vilka lagrade procedurer i Azure Database for MySQL är användbara för att hjälpa dig att konfigurera datareplikering, ställa in timezone-och Kill-frågor.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: d9daaf619a19c0f4e4a591d4bbb4925679fd1fcb
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 0a33edeac735502964427ddc3b05076fb9fac969
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174908"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973473"
 ---
-# <a name="azure-database-for-mariadb-stored-procedures"></a>Azure Database for MariaDB lagrade procedurer
+# <a name="azure-database-for-mariadb-management-stored-procedures"></a>Lagrade procedurer för Azure Database for MariaDB hantering
 
 Lagrade procedurer finns på Azure Database for MariaDB-servrar för att hantera din MariaDB-Server. Detta omfattar hantering av serverns anslutningar, frågor och konfiguration av Datareplikering.  
 
@@ -39,9 +39,9 @@ Följande lagrade procedurer är tillgängliga i Azure Database for MariaDB att 
 
 |**Namn på lagrad procedur**|**Indataparametrar**|**Utdataparametrar**|**Användnings notering**|
 |-----|-----|-----|-----|
-|*MySQL. AZ _kill*|processlist_id|Gäller inte|[`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Motsvarande kommando. Avslutar anslutningen som är associerad med den angivna processlist_id när du har avslutat en instruktion som anslutningen körs.|
-|*MySQL. AZ _kill_query*|processlist_id|Gäller inte|[`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) Motsvarande kommando. Avslutar instruktionen som anslutningen körs för tillfället. Lämnar själva anslutningen.|
-|*MySQL. AZ _load_timezone*|Gäller inte|Gäller inte|Läser in tids zons tabeller så `time_zone` att parametern kan anges till namngivna värden (t. ex. "USA/Stilla havs området").|
+|*MySQL. AZ _kill*|processlist_id|Gäller inte|Motsvarar [`KILL CONNECTION`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar anslutningen som är associerad med den angivna processlist_id när du har avslutat en instruktion som anslutningen körs.|
+|*MySQL. AZ _kill_query*|processlist_id|Gäller inte|Motsvarar [`KILL QUERY`](https://dev.mysql.com/doc/refman/8.0/en/kill.html) kommando. Avslutar instruktionen som anslutningen körs för tillfället. Lämnar själva anslutningen.|
+|*MySQL. AZ _load_timezone*|Gäller inte|Gäller inte|Läser in tids zons tabeller som tillåter att parametern `time_zone` anges till namngivna värden (t. ex. "USA/Stilla havs området").|
 
 ## <a name="next-steps"></a>Nästa steg
 - Lär dig hur du konfigurerar [datareplikering](howto-data-in-replication.md)

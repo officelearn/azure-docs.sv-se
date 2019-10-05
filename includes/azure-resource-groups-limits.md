@@ -4,12 +4,12 @@ ms.service: azure-resource-manager
 ms.topic: include
 ms.date: 08/19/2019
 ms.author: tomfitz
-ms.openlocfilehash: 25928ef35da1ce4b3824303a5d46749c32aa701f
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 1190798b234f9c73e02fda41c03ffa296246be63
+ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "69626408"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71975347"
 ---
 | Resource | Standardgräns | Övre gräns |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "69626408"
 | Etikett nyckel längd |512 |512 |
 | Tagg värde längd |256 |256 |
 
-<sup>1</sup> Om du når gränsen på 800-distributioner per resurs grupp tar du bort distributioner från den historik som inte längre behövs. Om du tar bort en post från distributions historiken påverkas inte de distribuerade resurserna. Du kan ta bort poster från historiken med [AZ Group Deployment Delete](/cli/azure/group/deployment) för Azure CLI eller [Remove-AzResourceGroupDeployment](/powershell/module/az.resources/remove-azresourcegroupdeployment) i PowerShell.  Ett PowerShell-skript som automatiserar borttagning av distributioner i ett scenario med kontinuerlig integrering och kontinuerlig leverans (CI/CD) finns i [Remove-Deployments. ps1](https://gist.github.com/bmoore-msft/ed33fb940dafb09380174b7fca57651f).
+<sup>1</sup> Om du når gränsen på 800-distributioner per resurs grupp tar du bort distributioner från den historik som inte längre behövs. Om du tar bort en post från distributions historiken påverkas inte de distribuerade resurserna. Mer information finns i [lösa fel när antalet distributioner överstiger 800](../articles/azure-resource-manager/deployment-quota-exceeded.md).
 
 #### <a name="template-limits"></a>Mall gränser
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/31/2019
 ms.author: tomfitz
-ms.openlocfilehash: b558e046f3402fdfa127192788d7d3ee1307ddeb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 93f17ea9d2ffa33d1dca9da3eb60f75165e8ed61
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937023"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973337"
 ---
 # <a name="string-functions-for-azure-resource-manager-templates"></a>Sträng funktioner för Azure Resource Manager mallar
 
@@ -331,7 +331,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Value |
 | ---- | ---- | ----- |
-| Returrelaterade | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
+| returrelaterade | Array | ["1-1", "1-2", "1-3", "2-1", "2-2", "2-3"] |
 
 ## <a name="contains"></a>contains
 
@@ -894,7 +894,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Senaste | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
-| NotFound | Int | -1 |
+| notFound | Int | -1 |
 
 ## <a name="last"></a>pågå
 
@@ -1007,7 +1007,7 @@ Utdata från föregående exempel med standardvärdena är:
 | Senaste | Int | 3 |
 | firstString | Int | 2 |
 | lastString | Int | 0 |
-| NotFound | Int | -1 |
+| notFound | Int | -1 |
 
 ## <a name="length"></a>length
 
@@ -1097,7 +1097,7 @@ Du kan bara använda den här funktionen i ett uttryck för standardvärdet för
 
 Funktionen newGuid skiljer sig från [GUID](#guid) -funktionen eftersom den inte tar några parametrar. När du anropar GUID med samma parameter returneras samma identifierare varje gång. Använd GUID när du behöver generera samma GUID tillförlitligt för en speciell miljö. Använd newGuid när du behöver en annan identifierare varje gång, till exempel att distribuera resurser till en test miljö.
 
-Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), och den tidigare distributionen innehåller en parameter som använder newGuid, utvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställnings distributionen.
+Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md), och den tidigare distributionen innehåller en parameter som använder newGuid, utvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställnings distributionen.
 
 I en test miljö kan du behöva distribuera resurser flera gånger under en kort tid. I stället för att skapa unika namn kan du använda newGuid med [uniqueString](#uniquestring) för att skapa unika namn.
 
@@ -1364,7 +1364,7 @@ Returnerar en matris med strängar som innehåller under strängarna i Indatastr
 | Parameter | Krävs | Typ | Beskrivning |
 |:--- |:--- |:--- |:--- |
 | inputString |Ja |sträng |Strängen som ska delas. |
-| Avgränsare |Ja |sträng eller matris med strängar |Avgränsaren som ska användas för att dela strängen. |
+| avgränsare |Ja |sträng eller matris med strängar |Avgränsaren som ska användas för att dela strängen. |
 
 ### <a name="return-value"></a>Returvärde
 
@@ -1824,7 +1824,7 @@ Utdata från föregående exempel med standardvärdena är:
 
 | Namn | Typ | Value |
 | ---- | ---- | ----- |
-| Returrelaterade | Sträng | Ett två tre |
+| returrelaterade | Sträng | Ett två tre |
 
 ## <a name="uniquestring"></a>uniqueString
 
@@ -2110,7 +2110,7 @@ Returnerar det aktuella (UTC) datetime-värdet i det angivna formatet. Om inget 
 
 Du kan bara använda den här funktionen i ett uttryck för standardvärdet för en parameter. Om du använder den här funktionen någon annan stans i en mall returneras ett fel. Funktionen tillåts inte i andra delar av mallen eftersom den returnerar ett annat värde varje gång den anropas. Att distribuera samma mall med samma parametrar skulle inte tillförlitligt producera samma resultat.
 
-Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](resource-group-template-deploy-rest.md#redeploy-when-deployment-fails), och den tidigare distributionen innehåller en parameter som använder utcNow, utvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställnings distributionen.
+Om du använder [alternativet för att distribuera om en tidigare lyckad distribution](rollback-on-error.md), och den tidigare distributionen innehåller en parameter som använder utcNow, utvärderas inte parametern. I stället återanvänds parametervärdet från den tidigare distributionen automatiskt i återställnings distributionen.
 
 Var noga med att distribuera om en mall som förlitar sig på utcNow-funktionen för ett standardvärde. När du distribuerar om och inte anger något värde för parametern utvärderas funktionen om. Om du vill uppdatera en befintlig resurs i stället för att skapa en ny, måste du skicka värdet i parametervärdet från den tidigare distributionen.
 

@@ -1,9 +1,9 @@
 ---
-title: Konfigurera och använda Lagringsemulatorn med Visual Studio | Microsoft Docs
-description: Konfigurera och använda Lagringsemulatorn med Visual Studio
+title: Konfigurera och använda Storage-emulatorn med Visual Studio | Microsoft Docs
+description: Konfigurera och använda Storage-emulatorn med Visual Studio
 services: visual-studio-online
 author: ghogen
-manager: douge
+manager: jillfra
 assetId: c8e7996f-6027-4762-806e-614b93131867
 ms.prod: visual-studio-dev15
 ms.technology: vs-azure
@@ -12,46 +12,46 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: 39e2071a62d6a1f6ee050f862856815048e50430
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 08e3f5d5bb32d15b9d8d164c898d2b8d7a90108c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62128304"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969715"
 ---
-# <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Konfigurera och använda Lagringsemulatorn med Visual Studio
+# <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Konfigurera och använda Storage-emulatorn med Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
 
 ## <a name="overview"></a>Översikt
-Azure SDK-utvecklingsmiljö innehåller lagringsemulatorn, ett verktyg som simulerar Blob, Queue och Table storage tjänster som är tillgängliga i Azure på din lokala utvecklingsdator. Om du är att skapa en molntjänst som använder Azure storage-tjänster eller skrivs alla externa program som anropar lagringstjänsterna, du kan testa din kod lokalt mot storage-emulatorn. Azure Tools för Microsoft Visual Studio kan du integrera hanteringen av lagringsemulatorn i Visual Studio. Azure Tools initiera storage-emulatorn databasen vid första användning, som startar tjänsten storage-emulatorn när du kör eller felsöka från Visual Studio-kod och tillhandahåller skrivskyddad åtkomst till data för storage-emulatorn via Azure Storage Explorer.
+Azure SDK utvecklings miljön innehåller Storage-emulatorn, ett verktyg som simulerar de BLOB-, kö-och tabell lagrings tjänster som är tillgängliga i Azure på din lokala utvecklings dator. Om du skapar en moln tjänst som använder Azure Storage-tjänster, eller om du skriver ett externt program som anropar lagrings tjänsterna, kan du testa koden lokalt mot lagringsprovidern. Azure Tools för Microsoft Visual Studio integrerar hantering av lagringsprovidern i Visual Studio. Azure-verktygen initierar Storage emulator-databasen vid första användning, startar tjänsten Storage emulator när du kör eller felsöker din kod från Visual Studio och ger skrivskyddad åtkomst till lagrings-emulatorns data via Azure Storage Explorer.
 
-Detaljerad information om storage-emulatorn, inklusive systemkrav och anpassade konfigurationsanvisningar finns i [använder Azure Storage-emulatorn för utveckling och testning](storage/common/storage-use-emulator.md).
-
-> [!NOTE]
-> Det finns vissa skillnader i funktionalitet mellan storage-emulatorn simulering och Azure storage-tjänster. Se [skillnader mellan Lagringsemulatorn och Azure Storage Services](storage/common/storage-use-emulator.md) i Azure SDK-dokumentationen för information om specifika skillnader.
-> 
-> 
-
-## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Konfigurera en anslutningssträng för storage-emulatorn
-Om du vill komma åt storage-emulatorn från kod i en roll måste vill du konfigurera en anslutningssträng som pekar på storage-emulatorn och som kan senare ändras för att peka mot ett Azure storage-konto. En anslutningssträng är en konfigurationsinställning som din roll kan läsa vid körning för att ansluta till ett lagringskonto. Mer information om hur du skapar anslutningssträngar finns i [konfigurera Azure Storage-anslutningssträngar](/azure/storage/common/storage-configure-connection-string).
+Mer detaljerad information om Storage-emulatorn, inklusive system krav och anpassade konfigurations anvisningar finns i [använda Azure Storage emulatorn för utveckling och testning](storage/common/storage-use-emulator.md).
 
 > [!NOTE]
-> Du kan returnera en referens till storage-emulatorn-kontot från din kod med hjälp av den **DevelopmentStorageAccount** egenskapen. Den här metoden fungerar korrekt om du vill komma åt storage-emulatorn från din kod, men om du planerar att publicera programmet till Azure måste du skapa en anslutningssträng för att få åtkomst till ditt Azure storage-konto och ändra koden om du vill använda denna anslutning sträng innan du publicerar den. Om du byter mellan storage-emulatorn-konto och ett Azure storage-konto ofta, kommer en anslutningssträng förenklar processen.
+> Det finns vissa skillnader i funktionaliteten mellan Storage emulator-simuleringen och Azure Storage-tjänsterna. Se [skillnader mellan Storage-emulatorn och Azure Storage tjänster](storage/common/storage-use-emulator.md) i Azure SDK-dokumentationen för information om de olika skillnaderna.
 > 
 > 
 
-## <a name="initializing-and-running-the-storage-emulator"></a>Initiera och kör lagringsemulatorn
-Du kan ange att när du kör eller felsöka din tjänst i Visual Studio, Visual Studio öppnas automatiskt av storage-emulatorn. I Solution Explorer, öppna snabbmenyn för din **Azure** programprojektet och väljer **egenskaper**. På den **utveckling** fliken den **starta Azure Storage-emulatorn** väljer **SANT** (om den inte har angetts till detta värde).
-
-Första gången du kör eller felsöka din tjänst från Visual Studio, startar storage-emulatorn en initieringsprocessen. Den här processen reserverar lokala portar för storage-emulatorn och skapar databasen för storage-emulatorn. När du är klar behöver inte den här processen att köra igen såvida inte storage-emulatorn databasen tas bort.
+## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Konfigurera en anslutnings sträng för Storage-emulatorn
+För att få åtkomst till lagringsprovidern från kod i en roll, vill du konfigurera en anslutnings sträng som pekar på lagringsprovidern och som senare kan ändras så att de pekar på ett Azure Storage-konto. En anslutnings sträng är en konfigurations inställning som din roll kan läsa vid körning för att ansluta till ett lagrings konto. Mer information om hur du skapar anslutnings strängar finns i [Konfigurera anslutnings strängar för Azure Storage](/azure/storage/common/storage-configure-connection-string).
 
 > [!NOTE]
-> Från och med juni 2012 av verktyg för Azure körs storage-emulatorn som standard i SQL Express LocalDB. I tidigare versioner av verktyg för Azure storage-emulatorn körs mot en standardinstans av SQL Express 2005 eller 2008 som du måste installera innan du kan installera Azure SDK. Du kan också köra lagringsemulatorn mot en namngiven instans av SQL Express eller en namngiven eller standardinstansen av Microsoft SQL Server. Om du vill konfigurera storage-emulatorn för att köra mot en instans än standardinstansen, se [använder Azure Storage-emulatorn för utveckling och testning](storage/common/storage-use-emulator.md).
+> Du kan returnera en referens till kontot för lagrings emulatorn från din kod med hjälp av egenskapen **DevelopmentStorageAccount** . Den här metoden fungerar korrekt om du vill ha åtkomst till lagringsprovidern från din kod, men om du planerar att publicera ditt program till Azure måste du skapa en anslutnings sträng för att få åtkomst till ditt Azure Storage-konto och ändra koden för att använda den anslutningen sträng innan du publicerar den. Om du växlar mellan Storage-emulatorns konto och ett Azure Storage-konto ofta, kommer en anslutnings sträng att förenkla processen.
 > 
 > 
 
-Storage-emulatorn tillhandahåller ett användargränssnitt för att visa status för lokal lagring-tjänster och att starta, stoppa och återställa dem. När tjänsten storage-emulatorn har startats kan du visa användargränssnittet eller starta eller stoppa tjänsten genom att högerklicka på ikonen i meddelandefältet för Microsoft Azure-emulatorn i Windows-Aktivitetsfältet.
+## <a name="initializing-and-running-the-storage-emulator"></a>Initiera och köra Storage-emulatorn
+Du kan ange att om du vill köra eller felsöka tjänsten i Visual Studio startar Visual Studio automatiskt Storage-emulatorn. Öppna snabb menyn för ditt **Azure** -projekt i Solution Explorer och välj **Egenskaper**. På fliken **utveckling** i listan **Starta Azure Storage emulator** väljer du **Sant** (om den inte redan är inställd på det värdet).
 
-## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Visa storage-emulatorn data i Server Explorer
-Azure Storage-noden i Server Explorer kan du visa data och ändra inställningarna för blob- och tabelldata i ditt storage-konton, inklusive storage-emulatorn. Se [hantera Azure Blob Storage-resurser med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) för mer information.
+Första gången du kör eller felsöker tjänsten från Visual Studio startar Storage-emulatorn en initierings process. Den här processen reserverar lokala portar för Storage-emulatorn och skapar Storage emulator-databasen. När processen är klar behöver den här processen inte köras igen om inte Storage mula-databasen tas bort.
+
+> [!NOTE]
+> Från och med juni 2012-versionen av Azure-verktygen körs Storage-emulatorn som standard i SQL Express-LocalDB. I tidigare versioner av Azure-verktygen körs Storage-emulatorn mot en standard instans av SQL Express 2005 eller 2008, som du måste installera innan du kan installera Azure SDK. Du kan också köra Storage-emulatorn mot en namngiven instans av SQL Express eller en namngiven eller standard instans av Microsoft SQL Server. Om du behöver konfigurera Storage-emulatorn så att den körs mot en annan instans än standard instansen kan du läsa [använd Azure Storage emulatorn för utveckling och testning](storage/common/storage-use-emulator.md).
+> 
+> 
+
+Storage-emulatorn tillhandahåller ett användar gränssnitt för att visa statusen för de lokala lagrings tjänsterna och för att starta, stoppa och återställa dem. När tjänsten Storage emulator har startats kan du Visa användar gränssnittet eller starta eller stoppa tjänsten genom att högerklicka på ikonen i meddelande fältet för Microsoft Azure emulatorn i aktivitets fältet i Windows.
+
+## <a name="viewing-storage-emulator-data-in-server-explorer"></a>Visa Storage mula data i Server Explorer
+Azure Storage-noden i Server Explorer gör att du kan visa data och ändra inställningarna för blob-och tabell data i dina lagrings konton, inklusive Storage-emulatorn. Mer information finns i [Hantera Azure Blob Storage-resurser med Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-explorer-blobs) .
 

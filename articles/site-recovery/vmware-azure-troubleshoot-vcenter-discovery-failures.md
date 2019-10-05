@@ -1,28 +1,28 @@
 ---
-title: Felsöka växla tillbaka till den lokala under VMware VM-katastrofåterställning till Azure med Azure Site Recovery | Microsoft Docs
-description: Den här artikeln beskrivs olika sätt att felsöka problem med återställning efter fel och återaktiveringen av skyddet under VMware VM-katastrofåterställning till Azure med Azure Site Recovery.
-author: vDonGlover
-manager: JarrettRenshaw
+title: Felsök återställning efter fel till lokal plats under haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery | Microsoft Docs
+description: I den här artikeln beskrivs olika sätt att felsöka problem med återställning efter fel och skydd under haveri beredskap för virtuella VMware-datorer till Azure med Azure Site Recovery.
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.author: v-doglov
-ms.openlocfilehash: c598c5e238458c010500579c5371622b85e71de0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: raynew
+ms.openlocfilehash: c27e72333618f73b67eec9b5c0c3a70239a1c0b3
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565199"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970843"
 ---
 # <a name="troubleshoot-vcenter-discovery-failures"></a>Felsöka vCenter-identifieringsfel
 
-Den här artikeln hjälper dig att felsöka problem som uppstår på grund av VMware vCenter-identifiering av fel.
+Den här artikeln hjälper dig att felsöka problem som inträffar på grund av fel i VMware vCenter-identifiering.
 
 ## <a name="non-numeric-values-in-the-maxsnapshots-property"></a>Icke-numeriska värden i egenskapen maxSnapShots
 
-I versioner innan 9.20 vCenter kopplar bort när du hämtar en icke-numeriska värdet för egenskapen `snapshot.maxSnapShots` egenskapen på en virtuell dator.
+I tidigare versioner än 9,20 kopplas vCenter ned när det hämtar ett icke-numeriskt värde för egenskapen `snapshot.maxSnapShots`-egenskapen på en virtuell dator.
 
-Det här problemet har identifierats av fel-ID 95126.
+Det här problemet identifieras av fel-ID 95126.
 
     ERROR :: Hit an exception while fetching the required informationfrom vCenter/vSphere.Exception details:
     System.FormatException: Input string was not in a correct format.
@@ -30,53 +30,53 @@ Det här problemet har identifierats av fel-ID 95126.
        at System.Number.ParseInt32(String s, NumberStyles style, NumberFormatInfo info)
        at VMware.VSphere.Management.InfraContracts.VirtualMachineInfo.get_MaxSnapshots()
     
-Att lösa problemet:
+Så här löser du problemet:
 
-- Identifiera den virtuella datorn och ange värdet till ett numeriskt värde (VM redigera inställningarna i vCenter).
+- Identifiera den virtuella datorn och ange värdet till ett numeriskt värde (Redigera inställningar för virtuell dator i vCenter).
 
 Eller
 
-- Uppgradera konfigurationsservern till version 9.20 eller senare.
+- Uppgradera konfigurations servern till version 9,20 eller senare.
 
-## <a name="proxy-configuration-issues-for-vcenter-connectivity"></a>Proxy konfigurationsproblem för vCenter-anslutning
+## <a name="proxy-configuration-issues-for-vcenter-connectivity"></a>Problem med proxykonfigurationen för vCenter-anslutning
 
-vCenter identifiering utförs följer standard systemproxyinställningarna konfigurerats av användaren för System. DRA-tjänsten godkänner proxy-inställningar som anges av användaren under installationen av konfigurationsservern med hjälp av den enhetligt installationsprogram eller OVA-mallen. 
+vCenter-identifieringen följer systemets standardinställningar för proxy som kon figurer ATS av system användaren. Den DRA-tjänsten följer proxyinställningarna från användaren under installationen av konfigurations servern med hjälp av installations programmet för installations program eller-ägg. 
 
-I allmänhet ska proxyservern användas för att kommunicera med offentliga nätverk; till exempel kommunicera med Azure. Om proxyservern har konfigurerats och vCenter är i en lokal miljö, inte det att kunna kommunicera med dra-versionen.
+I allmänhet används proxyn för att kommunicera med offentliga nätverk. till exempel att kommunicera med Azure. Om proxyservern har kon figurer ATS och vCenter är i en lokal miljö kan den inte kommunicera med DRA.
 
-I följande situationer inträffa när det här problemet inträffar:
+Följande situationer inträffar när det här problemet uppstår:
 
-- VCenter-servern \<vCenter > kan inte nås på grund av felet: Fjärrservern returnerade ett fel: (503) servern är inte tillgänglig
-- VCenter-servern \<vCenter > kan inte nås på grund av felet: Fjärrservern returnerade ett fel: Det går inte att ansluta till fjärrservern.
+- Det går inte att hitta vCenter-servern \<vCenter > på grund av felet: Fjärrservern returnerade ett fel: (503) servern är inte tillgänglig
+- Det går inte att hitta vCenter-servern \<vCenter > på grund av felet: Fjärrservern returnerade ett fel: Det går inte att ansluta till fjärrservern.
 - Det går inte att ansluta till vCenter/ESXi-servern.
 
-Att lösa problemet:
+Så här löser du problemet:
 
-Ladda ned den [PsExec verktyget](https://aka.ms/PsExec). 
+Ladda ned [PsExec-verktyget](https://aka.ms/PsExec). 
 
-Använda PsExec för att komma åt användarkontext System och avgöra om Proxyadressen är konfigurerat. Du kan sedan lägga till vCenter till listan över kringgå med hjälp av följande procedurer.
+Använd PsExec-verktyget för att få åtkomst till system användar kontexten och ta reda på om proxyservern har kon figurer ATS. Du kan sedan lägga till vCenter i listan över undantag med följande procedurer.
 
-Proxykonfiguration för identifiering:
+För konfiguration av identifierings-proxy:
 
-1. Öppna Internet Explorer i systemkontexten som användare med hjälp av verktyget PsExec.
+1. Öppna IE i system användar kontext med PsExec-verktyget.
     
-    PSExec -s -i ”%programfiles%\Internet Explorer\iexplore.exe”
+    PsExec-s-i "%programfiles%\Internet Explorer\iexplore.exe"
 
-2. Ändra proxyinställningarna i Internet Explorer för att kringgå IP-adress för vCenter.
-3. Starta om tjänsten tmanssvc.
+2. Ändra proxyinställningarna i Internet Explorer för att kringgå vCenter-IP-adressen.
+3. Starta om tmanssvc-tjänsten.
 
-DRA proxykonfiguration:
+För att DRA en konfiguration:
 
-1. Öppna en kommandotolk och öppna mappen Microsoft Azure Site Recovery-providern.
+1. Öppna en kommando tolk och öppna mappen Microsoft Azure Site Recovery Provider.
  
-    **CD C:\Program Files\Microsoft Azure Site Recovery-providern**
+    **CD C:\Program Files\Microsoft Azure Site Recovery Provider**
 
-3. Kör följande kommando från Kommandotolken.
+3. Kör följande kommando från kommando tolken.
    
-   **DRCONFIGURATOR. EXE / konfigurera /AddBypassUrls [IP-adressen/FQDN för vCenter Server som angavs vid tidpunkten för Lägg till vCenter]**
+   **DRCONFIGURATOR. EXE/Configure/AddBypassUrls [IP-adress/FQDN för vCenter Server som tillhandahölls vid tidpunkten för att lägga till vCenter]**
 
-4. Starta om tjänsten DRA provider.
+4. Starta om tjänsten för att DRA providern.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hantera konfigurationsservern för VMware-VM-katastrofåterställning](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 
+[Hantera konfigurations servern för haveri beredskap för virtuella VMware-datorer](https://docs.microsoft.com/azure/site-recovery/vmware-azure-manage-configuration-server#refresh-configuration-server) 

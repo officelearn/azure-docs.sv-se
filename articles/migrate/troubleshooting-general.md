@@ -1,17 +1,18 @@
 ---
 title: Felsöka Azure Migrate problem | Microsoft Docs
 description: Innehåller en översikt över kända problem i Azure Migrates tjänsten, samt fel söknings tips för vanliga fel.
-author: rayne-wiselman
+author: musa-57
+ms.manager: abhemraj
 ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.author: raynew
-ms.openlocfilehash: 49c43d393ef0722424088e0073942b56787f1bc7
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.author: hamusa
+ms.openlocfilehash: 468c87e176cc61c48ba4caabd1c5a26f94d5fb5b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71067813"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970639"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Felsöka Azure Migrate
 
@@ -87,8 +88,8 @@ Ta bort ett projekt i den äldre versionen av Azure Migrate:
 ### <a name="delete-a-workspace"></a>Ta bort en arbetsyta
 
 Bläddra till Log Analytics arbets ytan som är kopplad till projektet.
-* Om du inte har tagit bort det Azure Migrate projektet kan du hitta länken till arbets ytan i **Essentials** > **Server Assessment**.
-       ![LA-arbetsyta](./media/troubleshooting-general/loganalytics-workspace.png)
+* Om du inte har tagit bort Azure Migrate-projektet hittar du en länk till arbets ytan i **grunderna** > **Server bedömning**.
+       ![LA-arbetsyta @ no__t-1
 
      * If you've already deleted the Azure Migrate project, select **Resource Groups** in the left pane of the Azure portal. Locate the workspace in the relevant resources group, and [follow the instructions](https://docs.microsoft.com/azure/azure-monitor/platform/delete-workspace) to delete it.
 
@@ -111,7 +112,7 @@ Om du får felet "den angivna manifest filen är ogiltig: Ogiltig OVF-manifest p
 2. Om distributionen fortfarande Miss lyckas och du använder VMware vSphere-klienten för att distribuera OVF-filen kan du prova att distribuera den via vSphere-webbklienten. Om distributionen fortfarande Miss lyckas kan du prova att använda en annan webbläsare.
 3. Om du använder vSphere-webbklienten och försöker distribuera den på vCenter Server 6,5 eller 6,7 försöker du att distribuera de ägg som finns direkt på ESXi-värden:
    - Anslut till ESXi-värden direkt (i stället för vCenter Server) med webb klienten (https://<*värdens IP-adress*>/UI).
-   - I **hem** > **inventering**väljer du mall för **fil** > **distribution OVF**. Bläddra till de ägg och slutför distributionen.
+   - I **start** > -**inventering**väljer du **fil** > **distribuera OVF-mall**. Bläddra till de ägg och slutför distributionen.
 4. Kontakta Azure Migrate support om distributionen fortfarande Miss lyckas.
 
 ## <a name="appliance-cant-connect-to-the-internet"></a>Enheten kan inte ansluta till Internet
@@ -332,7 +333,7 @@ När du har installerat beroende visualiserings agenter på lokala virtuella dat
 
 För virtuella Windows-datorer:
 1. Starta MMA på kontroll panelen.
-2. I >  **egenskaperna för Microsoft Monitoring Agent** **Azure Log Analytics (OMS)** kontrollerar du att arbets ytans **status** är grön.
+2. I **egenskaperna för Microsoft Monitoring Agent** > **Azure Log Analytics (OMS)** kontrollerar du att arbets ytans **status** är grön.
 3. Om statusen inte är grön kan du försöka ta bort arbets ytan och lägga till den igen till MMA.
 
       ![Dialog rutan Egenskaper för MMA](./media/troubleshooting-general/mma-status.png)

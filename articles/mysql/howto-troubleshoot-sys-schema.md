@@ -1,83 +1,83 @@
 ---
-title: Så här används sys_schema för prestandajustering och databasunderhåll i Azure Database for MySQL
-description: Den här artikeln beskriver hur du använder sys_schema för att hitta problem med prestanda och underhåll databas i Azure Database för MySQL.
+title: Använd sys_schema för att justera prestanda och underhålla Azure Database for MySQL
+description: Lär dig hur du använder sys_schema för att hitta prestanda problem och underhålla databaser i Azure Database for MySQL.
 author: ajlam
 ms.author: andrela
 ms.service: mysql
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 08/01/2018
-ms.openlocfilehash: 993c77056c09c1dc21d5317ddbfe8e937341718d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dc6b4744c74c56803127f63a8a6f29ca5a15090
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61422379"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972795"
 ---
-# <a name="how-to-use-sysschema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Hur du använder sys_schema för justering och databasen Underhåll i Azure Database for MySQL
+# <a name="how-to-use-sys_schema-for-performance-tuning-and-database-maintenance-in-azure-database-for-mysql"></a>Så här använder du sys_schema för prestanda justering och databas underhåll i Azure Database for MySQL
 
-MySQL-performance_schema, först i MySQL 5.5 innehåller instrumentering för många viktiga serverresurser som minnesallokering, lagrade program, metadata låsning, etc. Men performance_schema innehåller mer än 80 tabeller och informationen som krävs ofta kräver koppla tabeller inom performance_schema, samt tabeller från information_schema. Bygger på både performance_schema och information_schema, sys_schema ger en kraftfull uppsättning [användarvänliga vyer](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) i en skrivskyddad databas och är helt aktiverat i Azure Database för MySQL version 5.7.
+MySQL-performance_schema, som först är tillgängligt i MySQL 5,5, innehåller instrumentering för många viktiga server resurser, till exempel minnesallokering, lagrade program, metadata lås osv. Performance_schema innehåller dock fler än 80 tabeller och den information som krävs kräver ofta koppling av tabeller i performance_schema, samt tabeller från information_schema. När du bygger på både performance_schema och INFORMATION_SCHEMA ger sys_schema en kraftfull samling [användarvänliga vyer](https://dev.mysql.com/doc/refman/5.7/en/sys-schema-views.html) i en skrivskyddad databas och är helt aktive rad i Azure Database for MySQL version 5,7.
 
-![vyer för sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
+![vyer av sys_schema](./media/howto-troubleshoot-sys-schema/sys-schema-views.png)
 
-Det finns 52 vyer i sys_schema och vyerna har en av följande prefix:
+Det finns 52 vyer i sys_schema och varje vy har en av följande prefix:
 
-- Host_summary eller i/o: I/o-relaterade svarstider.
-- InnoDB: InnoDB Bufferstatus och lås.
-- Minne: Minnesanvändning för värd och användare.
-- Schema: Schema-relaterad information, om du till exempel automatisk ökning, index, osv.
-- Instruktion: Information om SQL-uttryck Det kan vara instruktionen som resulterade i fullständig tabellsökning eller lång Frågetid.
-- Användare: Resurser som används och grupperade efter användare. Exempel är filen I/o, anslutningar och minne.
-- Vänta: Vänta händelser grupperade efter värden eller användare.
+- Host_summary eller IO: I/O-relaterad fördröjning.
+- InnoDB Status och lås för InnoDB-buffert.
+- Minne: Minnes användning av värden och användare.
+- Schema Schema relaterad information, till exempel automatisk ökning, index osv.
+- Sekretesspolicy Information om SQL-uttryck; Det kan vara en instruktion som ledde till fullständig tabell genomsökning eller lång tid för frågor.
+- Användarvänlig Resurser som förbrukas och grupperas efter användare. Exempel är fil-I/o, anslutningar och minne.
+- Vänta: Vänta händelser grupperade efter värd eller användare.
 
-Nu ska vi titta på några vanliga användningsmönster för av sys_schema. Vi ska börja med att gruppera användningsmönster i två kategorier: **Prestandajustering** och **databasen Underhåll**.
+Nu ska vi titta på några vanliga användnings mönster för sys_schema. För att börja med ska vi gruppera användnings mönstren i två kategorier: **Prestanda justering** och **databas underhåll**.
 
 ## <a name="performance-tuning"></a>Prestandajustering
 
-### <a name="sysusersummarybyfileio"></a>*sys.user_summary_by_file_io*
+### <a name="sysuser_summary_by_file_io"></a>*sys.user_summary_by_file_io*
 
-I/o är dyraste åtgärden i databasen. Vi kan se den genomsnittliga i/o-svarstiden genom att fråga den *sys.user_summary_by_file_io* vy. Med 125 GB allokerat lagringsutrymme, min i/o-svarstid är ungefär 15 sekunder.
+I/o är den dyraste åtgärden i-databasen. Vi kan ta reda på den genomsnittliga IO-svars tiden genom att fråga *sys. user_summary_by_file_io* -vyn. Med standard 125 GB allokerad lagring, är min IO-latens cirka 15 sekunder.
 
-![i/o-svarstid: 125 GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
+![i/o-latens: 125 GB](./media/howto-troubleshoot-sys-schema/io-latency-125GB.png)
 
-Eftersom Azure Database for MySQL kan skalas i/o med avseende på lagring, efter att ha ökat min etablerad lagring till 1 TB, minskar mitt i/o-svarstid till 571 ms.
+Eftersom Azure Database for MySQL skalar IO med avseende på lagring, minskar min IO-fördröjning till 571 MS efter att ha ökat mitt allokerat lagrings utrymme till 1 TB.
 
-![i/o-svarstid: 1TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
+![i/o-latens: 1 TB](./media/howto-troubleshoot-sys-schema/io-latency-1TB.png)
 
-### <a name="sysschematableswithfulltablescans"></a>*sys.schema_tables_with_full_table_scans*
+### <a name="sysschema_tables_with_full_table_scans"></a>*sys.schema_tables_with_full_table_scans*
 
-Många frågor kan fortfarande resultera i fullständiga genomsökningar trots noggrann planering. Mer information om vilka typer av index och hur du optimerar dem kan du referera till den här artikeln: [Så här felsöker du frågeprestanda](./howto-troubleshoot-query-performance.md). Fullständig tabellsökningar är resurskrävande och försämra databasens prestanda. Det snabbaste sättet att hitta tabeller med fullständig tabellsökning är att fråga den *sys.schema_tables_with_full_table_scans* vy.
+Trots noggrann planering kan många frågor fortfarande resultera i fullständiga tabells ökningar. Mer information om typer av index och hur du optimerar dem finns i den här artikeln: [Så här felsöker du frågans prestanda](./howto-troubleshoot-query-performance.md). Fullständiga tabells ökningar är resurs krävande och försämrar databasens prestanda. Det snabbaste sättet att hitta tabeller med fullständig tabells ökning är att fråga *sys. schema_tables_with_full_table_scans* -vyn.
 
-![fullständig tabellsökningar](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
+![fullständiga tabells ökningar](./media/howto-troubleshoot-sys-schema/full-table-scans.png)
 
-### <a name="sysusersummarybystatementtype"></a>*sys.user_summary_by_statement_type*
+### <a name="sysuser_summary_by_statement_type"></a>*sys.user_summary_by_statement_type*
 
-Felsökning av problem med databasen prestanda kan det vara fördelaktigt att identifiera vilka händelser som händer i din databas och använder den *sys.user_summary_by_statement_type* vyn kan bara använda en urvalsfråga.
+För att felsöka problem med databas prestanda kan det vara bra att identifiera de händelser som händer i databasen, och i vyn *sys. user_summary_by_statement_type* kan du bara göra det.
 
-![Sammanfattning av instruktionen](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
+![Sammanfattning per instruktion](./media/howto-troubleshoot-sys-schema/summary-by-statement.png)
 
-I det här exemplet att Azure Database for MySQL 53 minuter tömdes frågeloggen slog 44579 gånger. Det är en lång tid och många IOs. Du kan minska den här aktiviteten genom att antingen inaktivera din långsam frågelogg eller minska frekvensen för långsam fråga inloggningen Azure-portalen.
+I det här exemplet Azure Database for MySQL ägnade 53 minuter att tömma slog-händelseloggen 44579 gånger. Det är en lång tid och många IOs. Du kan minska den här aktiviteten genom att antingen inaktivera din långsamma fråga-logg eller minska frekvensen för långsam inloggning Azure Portal.
 
-## <a name="database-maintenance"></a>Databasunderhåll
+## <a name="database-maintenance"></a>Databas underhåll
 
-### <a name="sysinnodbbufferstatsbytable"></a>*sys.innodb_buffer_stats_by_table*
+### <a name="sysinnodb_buffer_stats_by_table"></a>*sys.innodb_buffer_stats_by_table*
 
-InnoDB buffertpoolen finns i minnet och är den viktigaste cache mekanismen mellan DBMS och storage. Storleken på buffertpoolen InnoDB är knuten till prestandanivån och kan inte ändras om inte en annan produkt SKU är valt. Precis som med minne i ditt operativsystem, byta gamla sidor ut för att göra plats för nyare data. Om du vill ta reda på vilka tabeller använda de flesta av InnoDB pool buffertminne kan du fråga den *sys.innodb_buffer_stats_by_table* vy.
+InnoDB buffer finns i minnet och är den viktigaste cache-mekanismen mellan DBMS och lagring. Storleken på InnoDB-bufferten är kopplad till prestanda nivån och kan inte ändras om inte en annan produkt-SKU väljs. Precis som med minne i operativ systemet, växlas gamla sidor ut för att göra plats för mer information. Om du vill ta reda på vilka tabeller som använder merparten av InnoDB buffer buffer, kan du fråga *sys. innodb_buffer_stats_by_table* -vyn.
 
-![InnoDB Bufferstatus](./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png)
+![Status för InnoDB-buffert](./media/howto-troubleshoot-sys-schema/innodb-buffer-status.png)
 
-I bilden ovan är det tydligt att än systemtabeller och vyer, varje tabell i mysqldatabase033-databasen, som värd för någon av Mina WordPress-webbplatser, tar upp 16 KB eller 1 sida av data i minnet.
+I bilden ovan är det uppenbart att andra än system tabeller och vyer, varje tabell i mysqldatabase033-databasen, som är värd för en av mina WordPress-webbplatser, upptar 16 KB eller 1 sida av data i minnet.
 
-### <a name="sysschemaunusedindexes--sysschemaredundantindexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
+### <a name="sysschema_unused_indexes--sysschema_redundant_indexes"></a>*Sys.schema_unused_indexes* & *sys.schema_redundant_indexes*
 
-Index är fantastiska verktyg för att förbättra läsprestanda, men de medför ytterligare kostnader för infogningar och lagring. *Sys.schema_unused_indexes* och *sys.schema_redundant_indexes* ge insikter om oanvänt eller duplicerat index.
+Index är fantastiska verktyg för att förbättra Läs prestanda, men de medför ytterligare kostnader för infogningar och lagring. *Sys. schema_unused_indexes* och *sys. schema_redundant_indexes* ger insikter om oanvända eller dubbla index.
 
 ![oanvända index](./media/howto-troubleshoot-sys-schema/unused-indexes.png)
 
-![redundant index](./media/howto-troubleshoot-sys-schema/redundant-indexes.png)
+![redundanta index](./media/howto-troubleshoot-sys-schema/redundant-indexes.png)
 
 ## <a name="conclusion"></a>Sammanfattning
 
-Sammanfattningsvis är sys_schema ett bra verktyg för både prestanda justering och databasunderhåll. Se till att dra nytta av den här funktionen i din Azure Database för MySQL. 
+I sammanfattning är sys_schema ett utmärkt verktyg för både prestanda justering och databas underhåll. Se till att dra nytta av den här funktionen i din Azure Database for MySQL. 
 
 ## <a name="next-steps"></a>Nästa steg
-- Om du vill hitta peer-svar på dina mest berörda frågor eller publicera en ny fråga/svar, besök [MSDN-forum](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).
+- Om du vill hitta peer-svar på dina mest aktuella frågor eller publicera en ny fråga/svar, besök [MSDN-forumet](https://social.msdn.microsoft.com/forums/security/en-US/home?forum=AzureDatabaseforMySQL) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-database-mysql).

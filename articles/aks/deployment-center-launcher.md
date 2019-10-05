@@ -2,19 +2,18 @@
 title: Distributions Center för Azure-Kubernetes
 description: Med distributions Center i Azure DevOps blir det enklare att konfigurera en robust Azure DevOps-pipeline för ditt program
 ms.author: puagarw
-ms.manager: douge
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/12/2019
 author: pulkitaggarwl
 monikerRange: vsts
-ms.openlocfilehash: 35484566890f3bfd964e3fda337bfb3666d1da6c
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 5384180720d391c6b4ae830f9316a70e80003063
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68618723"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972983"
 ---
 # <a name="deployment-center-for-azure-kubernetes"></a>Distributions Center för Azure-Kubernetes
 
@@ -66,7 +65,7 @@ I den här kursen ska du:
 
     - **Azure-databaser**: Välj en lagrings plats från ditt befintliga projekt och din organisation.
 
-        ![Azure-lagringsplatser](media/deployment-center-launcher/azure-repos.gif)
+        ![Azure Repos](media/deployment-center-launcher/azure-repos.gif)
 
     - **GitHub**: Auktorisera och välj lagrings platsen för ditt GitHub-konto.
 
@@ -75,7 +74,7 @@ I den här kursen ska du:
 
 1. Distributions Center analyserar lagrings platsen och identifierar din Dockerfile. Om du vill uppdatera Dockerfile kan du redigera det identifierade port numret.
 
-    ![Programinställningar](media/deployment-center-launcher/application-settings.png)
+    ![Tillämpningsinställningar](media/deployment-center-launcher/application-settings.png)
 
     Om lagrings platsen inte innehåller Dockerfile, visar systemet ett meddelande för att genomföra ett.
 
@@ -127,7 +126,7 @@ Distributions Center skapar och konfigurerar automatiskt relationen mellan din A
 
 1. Välj den **kontinuerliga distributions** utlösaren till höger om **Drop** -alternativet. Den här versionen av pipelinen har en aktive rad CD-utlösare som kör en distribution när det finns en ny versions artefakt. Du kan också inaktivera utlösaren för att kräva manuell körning för dina distributioner.
 
-1. Om du vill granska alla uppgifter för din pipeline väljer du **uppgifter**. Versionen ställer in till i-miljön, konfigurerar `imagePullSecrets` -parametern, installerar Helm-verktyg och distribuerar Helm-diagrammen till Kubernetes-klustret.
+1. Om du vill granska alla uppgifter för din pipeline väljer du **uppgifter**. Versionen ställer in till i-miljön, konfigurerar parametern `imagePullSecrets`, installerar Helm-verktyg och distribuerar Helm-diagrammen till Kubernetes-klustret.
 
 1. Om du vill visa versions historiken väljer du **Visa versioner**.
 

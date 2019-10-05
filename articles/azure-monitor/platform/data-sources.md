@@ -6,18 +6,17 @@ author: bwren
 manager: carmonm
 editor: tysonn
 ms.service: azure-monitor
-ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/23/2019
 ms.author: bwren
-ms.openlocfilehash: dabc336a1f92169ab573e7cf29e1a7a069ae20b1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 164d1db1a80ef577792740f67a27a856a4ba4c3b
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262037"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972919"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Källor för övervaknings data för Azure Monitor
 Azure Monitor baseras på en [gemensam övervaknings data plattform](data-platform.md) som innehåller [loggar](data-platform-logs.md) och [mått](data-platform-metrics.md). Genom att samla in data till den här plattformen kan data från flera resurser analyseras tillsammans med en gemensam uppsättning verktyg i Azure Monitor. Övervaknings data kan också skickas till andra platser för att stödja vissa scenarier och vissa resurser kan skriva till andra platser innan de kan samlas in i loggar eller mått.
@@ -61,8 +60,8 @@ Telemetri som är relaterade till din Azure-klient samlas in från klient-wide-t
 | Destination | Beskrivning | Referens |
 |:---|:---|:---|
 | Azure Monitor-loggar | Konfigurera Azure AD-loggar som ska samlas in i Azure Monitor för att analysera dem med andra övervaknings data. | [Integrera Azure AD-loggar med Azure Monitor loggar (förhands granskning)](../../active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md) |
-| Azure Storage | Exportera Azure AD-loggar till Azure Storage för arkivering. | [Självstudier: Arkivera Azure AD-loggar till ett Azure Storage-konto (för hands version)](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
-| Händelsehubb | Strömma Azure AD-loggar till andra platser med hjälp av Event Hubs. | [Självstudier: Strömma Azure Active Directory loggar till en Azure Event Hub (för hands](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md)version). |
+| Azure Storage | Exportera Azure AD-loggar till Azure Storage för arkivering. | [Självstudier: Arkivera Azure AD-loggar till ett Azure Storage-konto (förhands granskning) ](../../active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md) |
+| Händelsehubb | Strömma Azure AD-loggar till andra platser med hjälp av Event Hubs. | [Självstudier: Strömma Azure Active Directory loggar till en Azure Event Hub (för hands version) ](../../active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md). |
 
 
 
@@ -104,7 +103,7 @@ De flesta Azure-tjänster skickar [plattforms mått](data-platform-metrics.md) s
 | Azure Monitor-loggar | Kopiera plattforms mått till loggar för utveckling och annan analys med hjälp av Log Analytics. | [Azure Diagnostics Direct till Log Analytics](resource-logs-collect-workspace.md) |
 | Event Hubs | Strömma mått till andra platser med hjälp av Event Hubs. |[Strömma Azure övervaknings data till en Event Hub för användning av ett externt verktyg](stream-monitoring-data-event-hubs.md) |
 
-### <a name="resource-logs"></a>Resurs loggar
+### <a name="resource-logs"></a>Resursloggar
 [Resurs loggar](resource-logs-overview.md) ger insikter om den _interna_ åtgärden för en Azure-resurs.  Resurs loggar skapas automatiskt, men du måste skapa en diagnostisk inställning för att ange ett mål för dem som ska samlas in för varje resurs.
 
 Konfigurations kraven och innehållet i resurs loggar varierar beroende på resurs typ och inte alla tjänster. Se [tjänster, scheman och kategorier som stöds för Azures resurs loggar](diagnostic-logs-schema.md) för information om varje tjänst och länkar till detaljerade konfigurations procedurer. Om tjänsten inte finns med i listan i den här artikeln skapar tjänsten för närvarande inte resurs loggar.

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: abee645f8929c10856f662b1504b163b58d953a5
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036035"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71975346"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -76,7 +76,7 @@ Därefter mäter du programmets högsta prestanda krav under dess livstid. Anvä
 | Minimum. Svarstid | | | |
 | Genomsnittlig svars tid | | | |
 | Max. Processor | | | |
-| Processorgenomsnitt | | | |
+| Genomsnittlig CPU | | | |
 | Max. Minne | | | |
 | Genomsnittligt minne | | | |
 | Ködjup | | | |
@@ -100,8 +100,8 @@ PerfMon-räknarna är tillgängliga för processor, minne och, varje logisk disk
 | **Svarstid** |Total tid för att slutföra en disk-IO-begäran. |Medel s/disk läsning <br> Medel s/disk skrivning |await <br> svctm |
 | **I/o-storlek** |Storleken på I/O-begäranden till lagrings diskarna. |Genomsnittligt antal Disk byte/läsning <br> Genomsnittlig Disk byte/skrivning |avgrq-sz |
 | **Ködjup** |Antal väntande I/O-begäranden som väntar på att läsas från eller skrivas till lagrings disken. |Aktuell diskkölängd |avgqu-sz |
-| **Bekräftat. Minnesoptimerade** |Mängden minne som krävs för att köra programmet smidigt |% Allokerade byte som används |Använd vmstat |
-| **Bekräftat. CPU** |PROCESSOR mängd som krävs för att köra programmet smidigt |% Processor tid |% util |
+| **Max. Minne @ no__t-0 |Mängden minne som krävs för att köra programmet smidigt |% Allokerade byte som används |Använd vmstat |
+| **Max. CPU** |PROCESSOR mängd som krävs för att köra programmet smidigt |% Processor tid |% util |
 
 Läs mer om [iostat](https://linux.die.net/man/1/iostat) och [perfmon](https://msdn.microsoft.com/library/aa645516.aspx).
 
@@ -135,12 +135,12 @@ Mer information om storlekar på virtuella datorer och om IOPS, data flöde och 
 
 ## <a name="nature-of-io-requests"></a>Typ av IO-begäranden
 
-En IO-begäran är en enhet med in-/utdata-åtgärd som programmet kommer att utföra. Att identifiera vilken typ av IO-begäranden, slumpmässig eller sekventiell, läsa eller skriva, liten eller stor, hjälper dig att avgöra programmets prestanda krav. Det är viktigt att förstå vilken typ av IO-begäranden som krävs för att fatta rätt beslut när du utformar program infrastrukturen.
+En IO-begäran är en enhet med in-/utdata-åtgärd som programmet kommer att utföra. Att identifiera vilken typ av IO-begäranden, slumpmässig eller sekventiell, läsa eller skriva, liten eller stor, hjälper dig att avgöra programmets prestanda krav. Det är viktigt att förstå vilken typ av IO-begäranden som krävs för att fatta rätt beslut när du utformar program infrastrukturen. IOs måste distribueras jämnt för att uppnå bästa möjliga prestanda.
 
 I/o-storlek är en av de viktiga faktorerna. I/o-storleken är storleken på begäran om indata/utdata som genererats av ditt program. I/o-storleken har en betydande inverkan på prestanda, särskilt på den IOPS och bandbredd som programmet kan uppnå. Följande formel visar förhållandet mellan IOPS, IO-storlek och bandbredd/data flöde.  
     ![](media/premium-storage-performance/image1.png)
 
-I vissa program kan du ändra deras IO-storlek, medan vissa program inte gör det. SQL Server bestämmer till exempel den optimala i/o-storleken och ger inte användare med någon ratt att ändra den. Å andra sidan tillhandahåller Oracle en parameter med namnet [\_DB block\_storlek](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) som du kan använda för att konfigurera i/O-begäran storlek för databasen.
+I vissa program kan du ändra deras IO-storlek, medan vissa program inte gör det. SQL Server bestämmer till exempel den optimala i/o-storleken och ger inte användare med någon ratt att ändra den. Å andra sidan tillhandahåller Oracle en parameter med namnet [db @ no__t-1BLOCK @ no__t-2SIZE](https://docs.oracle.com/cd/B19306_01/server.102/b14211/iodesign.htm#i28815) som du kan använda för att konfigurera storleken på i/O-begäran för databasen.
 
 Om du använder ett program, som inte tillåter att du ändrar i/o-storlek, använder du rikt linjerna i den här artikeln för att optimera prestanda-KPI: n som är mest relevant för ditt program. Exempel:
 
@@ -152,7 +152,7 @@ Om du använder ett program, som gör att du kan ändra i/o-storlek, använder d
 * Mindre IO-storlek för att få högre IOPS. Till exempel 8 KB för ett OLTP-program.  
 * Större IO-storlek för att få högre bandbredd/data flöde. Till exempel 1024 KB för ett data lager program.
 
-Här är ett exempel på hur du kan beräkna IOPS och data flöde/bandbredd för ditt program. Överväg ett program med hjälp av en P30-disk. Högsta antal IOPS och data flöde/bandbredd som en P30 disk kan uppnå är 5000 IOPS och 200 MB per sekund. Om ditt program kräver högsta IOPS från P30-disken och du använder en mindre IO-storlek som 8 KB, kommer den resulterande bandbredd som du kan hämta vara 40 MB per sekund. Men om ditt program kräver maximalt data flöde/bandbredd från P30 disk, och du använder en större IO-storlek som 1024 KB, kommer den resulterande IOPS att vara mindre än 200 IOPS. Därför bör du justera i/o-storleken så att den uppfyller både ditt programs IOPS och data flöde/bandbredds krav. I tabellen nedan sammanfattas olika IO-storlekar och deras motsvarande IOPS och data flöde för en P30 disk.
+Här är ett exempel på hur du kan beräkna IOPS och data flöde/bandbredd för ditt program. Överväg ett program med hjälp av en P30-disk. Högsta antal IOPS och data flöde/bandbredd som en P30 disk kan uppnå är 5000 IOPS och 200 MB per sekund. Om ditt program kräver högsta IOPS från P30-disken och du använder en mindre IO-storlek som 8 KB, kommer den resulterande bandbredd som du kan hämta vara 40 MB per sekund. Men om ditt program kräver maximalt data flöde/bandbredd från P30 disk, och du använder en större IO-storlek som 1024 KB, kommer den resulterande IOPS att vara mindre än 200 IOPS. Därför bör du justera i/o-storleken så att den uppfyller både ditt programs IOPS och data flöde/bandbredds krav. I följande tabell sammanfattas olika IO-storlekar och deras motsvarande IOPS och data flöde för en P30 disk.
 
 | Program krav | I/O-storlek | IOPS | Genom strömning/bandbredd |
 | --- | --- | --- | --- |
@@ -189,15 +189,15 @@ Anta till exempel att ett program krav är högst 4 000 IOPS. För att åstadkom
 *Drifts kostnader*  
 I många fall är det möjligt att den totala kostnaden för åtgärden med Premium Storage är lägre än att använda standard lagring.
 
-Överväg till exempel ett program som kräver 16 000 IOPS. För att uppnå den här prestandan behöver du en\_standard D14 Azure IaaS VM, som kan ge en maximal IOPS på 16 000 med 32 standard lagring 1 TB diskar. Varje 1 – TB standard lagrings disk kan uppnå högst 500 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 570. Månads kostnaden för 32 standard lagrings diskar är $1 638. Den uppskattade totala månads kostnaden blir $3 208.
+Överväg till exempel ett program som kräver 16 000 IOPS. För att uppnå den här prestandan behöver du en standard @ no__t-0D14 Azure IaaS VM, som kan ge en maximal IOPS på 16 000 med 32 standard lagring 1 TB diskar. Varje 1 – TB standard lagrings disk kan uppnå högst 500 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 570. Månads kostnaden för 32 standard lagrings diskar är $1 638. Den uppskattade totala månads kostnaden blir $3 208.
 
-Men om du har samma program på Premium Storage behöver du en mindre VM-storlek och färre Premium Storage-diskar, vilket minskar den totala kostnaden. En vanlig\_virtuell DS13-dator kan uppfylla 16 000 IOPS-kravet med fyra P30-diskar. Den virtuella datorn DS13 har en maximal IOPS på 25 600 och varje P30-disk har maximalt IOPS på 5 000. Som helhet kan den här konfigurationen uppnå 5 000 x 4 = 20 000 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 003. Månads kostnaden för fyra P30 Premium Storage-diskar är $544,34. Den uppskattade totala månads kostnaden blir $1 544.
+Men om du har samma program på Premium Storage behöver du en mindre VM-storlek och färre Premium Storage-diskar, vilket minskar den totala kostnaden. En standard @ no__t-0DS13 VM kan uppfylla 16 000 IOPS-kravet med fyra P30-diskar. Den virtuella datorn DS13 har en maximal IOPS på 25 600 och varje P30-disk har maximalt IOPS på 5 000. Som helhet kan den här konfigurationen uppnå 5 000 x 4 = 20 000 IOPS. Den uppskattade kostnaden för den här virtuella datorn per månad blir $1 003. Månads kostnaden för fyra P30 Premium Storage-diskar är $544,34. Den uppskattade totala månads kostnaden blir $1 544.
 
 I tabellen nedan sammanfattas kostnads nedbrytningen för det här scenariot för standard och Premium Storage.
 
 | &nbsp; | **Standard** | **Premium** |
 | --- | --- | --- |
-| **Kostnad för virtuell dator per månad** |$1 570,58 (standard\_D14) |$1 003,66 (standard\_DS13) |
+| **Kostnad för virtuell dator per månad** |$1 570,58 (standard @ no__t-0D14) |$1 003,66 (standard @ no__t-0DS13) |
 | **Kostnad för diskar per månad** |$1 638,40 (32 x 1 – TB diskar) |$544,34 (4 x P30 diskar) |
 | **Total kostnad per månad** |$3,208.98 |$1,544.34 |
 
@@ -209,13 +209,9 @@ När du kör Linux med Premium Storage kontrollerar du de senaste uppdateringarn
 
 ## <a name="premium-storage-disk-sizes"></a>Storlek på Premium Storage-diskar
 
-Azure Premium Storage erbjuder åtta GA disk storlekar och tre disk storlekar som är i för hands version. Varje disk storlek har en annan skalnings gräns för IOPS, bandbredd och lagring. Välj rätt Premium Storage disk storlek beroende på program kraven och den virtuella datorns storlek för hög skalning. I tabellen nedan visas de 11 disk storlekarna och deras funktioner. P4-, P6-, p15-, P60-, P70-och P80-storlekarna stöds för närvarande bara för Managed Disks.
+Azure Premium Storage erbjuder en mängd olika storlekar så att du kan välja en som passar dina behov bäst. Varje disk storlek har en annan skalnings gräns för IOPS, bandbredd och lagring. Välj rätt Premium Storage disk storlek beroende på program kraven och den virtuella datorns storlek för hög skalning. I tabellen nedan visas disk storlekar och deras funktioner. P4-, P6-, p15-, P60-, P70-och P80-storlekarna stöds för närvarande bara för Managed Disks.
 
-| Typ av Premium diskar  | P4    | P6    | P10   | P15 | P20   | P30   | P40   | P50   | P60   | P70   | P80   |
-|---------------------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|-------|
-| Diskstorlek           | 32 GiB | 64 GiB | 128 GiB| 256 GiB| 512 GB            | 1 024 GiB (1 TiB)    | 2 048 GiB (2 TiB)    | 4 095 GiB (4 TiB)    | 8 192 GiB (8 TiB)    | 16 384 GiB (16 TiB)    | 32 767 GiB (32 TiB)    |
-| IOPS per disk       | 120   | 240   | 500   | 1100 | 2 300              | 5000              | 7500              | 7500              | 12 500              | 15,000              | 20,000              |
-| Dataflöde per disk | 25 MiB per sekund  | 50 MiB per sekund  | 100 MiB per sekund |125 MiB per sekund | 150 MiB per sekund | 200 MiB per sekund | 250 MiB per sekund | 250 MiB per sekund | 480 MiB per sekund | 750 MiB per sekund | 750 MiB per sekund |
+[!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
 
 Hur många diskar du väljer beror på vilken disk storlek som valts. Du kan använda en enskild P50-disk eller flera P10-diskar för att uppfylla ditt program krav. Ta hänsyn till de överväganden som visas nedan när du gör valet.
 
@@ -284,9 +280,9 @@ Du kan till exempel använda dessa rikt linjer för att SQL Server som körs på
 
 För alla Premium-SSD eller Ultra disks med cache satt till **ReadOnly** eller **none**, måste du inaktivera "barriärer" när du monterar fil systemet. Du behöver inte hinder i det här scenariot eftersom skrivningarna till Premium Storage-diskar är varaktiga för dessa cacheinställningar. När Skriv förfrågan har slutförts har data skrivits till det beständiga arkivet. Om du vill inaktivera "barriärer" använder du någon av följande metoder. Välj ett för fil systemet:
   
-* För **reiserFS**kan du inaktivera barriärer med hjälp `barrier=none` av monterings alternativet. (Använd `barrier=flush`för att aktivera barriärer.)
-* Använd`barrier=0` monterings alternativet för **EXT3/Ext4**för att inaktivera barriärer. (Använd `barrier=1`för att aktivera barriärer.)
-* För **xfs**kan du inaktivera barriärer med hjälp `nobarrier` av monterings alternativet. (Använd `barrier`för att aktivera barriärer.)
+* För **reiserFS**kan du inaktivera barriärer med hjälp av monterings alternativet `barrier=none`. (Använd `barrier=flush` om du vill aktivera barriärer.)
+* För **EXT3/Ext4**, för att inaktivera barriärer, använder du monterings alternativet `barrier=0`. (Använd `barrier=1` om du vill aktivera barriärer.)
+* För **xfs**kan du inaktivera barriärer med hjälp av monterings alternativet `nobarrier`. (Använd `barrier` om du vill aktivera barriärer.)
 * För Premium Storage-diskar med cache set till **readwrite**aktiverar du hinder för Skriv hållbarhet.
 * För att volym etiketter ska vara kvar när du startar om den virtuella datorn måste du uppdatera/etc/fstab med UUID-referenser (Universally Unique Identifier) till diskarna. Mer information finns i [lägga till en hanterad disk till en virtuell Linux-dator](../articles/virtual-machines/linux/add-disk.md).
 

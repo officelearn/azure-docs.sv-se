@@ -4,40 +4,39 @@ description: Så här hanterar du projektet metadata, projektfiler, projektets m
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 35dd6ff1-a14a-4a2e-b173-6d8467de3e89
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: article
 ms.date: 05/13/2019
 ms.author: kraigb
-ms.openlocfilehash: 0440e498451ee141fa03851b78418caf911d0e32
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: fca98594be08f04b2f266f3aa574837ac024ecf4
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65596738"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973137"
 ---
 # <a name="manage-and-configure-projects"></a>Hantera och konfigurera projekt
 
 Ett projekt i Azure-datorer är i grunden en konfiguration av den underliggande Linux-datorn som kör Jupyter-anteckningsböcker tillsammans med en filmapp och beskrivande metadata. Instrumentpanelen för projektet i Azure-datorer kan du hantera filer och konfigurera projektets egenskaper:
 
-- Den Beräkningsnivån som projektet körs, vilket kan vara den kostnadsfria nivån eller en Azure-dator.
-- Projekt-metadata, som innehåller ett namn, beskrivning, en identifierare som används när du delar projektet och om projektet är offentlig eller privat.
-- Projektets anteckningsboken, data och andra filer som du hanterar som alla andra filsystem.
-- Ett projekts miljö som du hanterar via startskript eller direkt via terminalen.
-- Loggar som du kommer åt via terminalen.
+- Beräknings nivån som projektet körs på, vilket kan vara den kostnads fria nivån eller en virtuell Azure-dator.
+- Project-metadata, som innehåller ett namn, en beskrivning, en identifierare som används vid delning av projektet och om projektet är offentligt eller privat.
+- Projektets bärbara dator, data och andra filer som du hanterar precis som andra fil system.
+- Ett projekts miljö, som du hanterar antingen via Start skript eller direkt via terminalen.
+- Loggar, som du kommer åt via terminalen.
 
 > [!Note]
-> Hanterings- och funktioner som beskrivs här är endast tillgängligt för projektägare som har skapat projektet först. Du kan dock klona projektet till ditt eget konto i vilket fall du bli ägare och kan konfigurera projektet som du vill.
+> De hanterings-och konfigurations funktioner som beskrivs här är endast tillgängliga för den projekt ägare som skapade projektet från början. Du kan dock klona projektet till ditt eget konto, i vilket fall du blir ägare och kan konfigurera projektet efter behov.
 
 Azure-datorer startar den underliggande virtuella datorn när du kör en bärbar dator eller en annan fil. Servern sparar filer automatiskt och stängs av efter 60 minuters inaktivitet. Du kan också stoppa servern när som helst med den **avstängning** kommando (kortkommandot: h).
 
-## <a name="compute-tier"></a>Beräkningsnivån
+## <a name="compute-tier"></a>Beräkningsnivå
 
-Projekt körs som standard den **kostnadsfria Compute** åtkomstnivå, vilket är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå dessa begränsningar och öka beräkningskraft med hjälp av en annan virtuell dator som du har etablerat i en Azure-prenumeration. Mer information finns i [hur du använder virtuella datorer för datavetenskap](use-data-science-virtual-machine.md).
+Som standard körs projekt på den **kostnads fria beräknings** nivån, som är begränsad till 4 GB minne och 1 GB data för att förhindra missbruk. Du kan kringgå de här begränsningarna och öka beräknings kraften genom att använda en annan virtuell dator som du har etablerad i en Azure-prenumeration. Mer information finns i [så här använder du data vetenskap Virtual Machines](use-data-science-virtual-machine.md).
 
 ## <a name="edit-project-metadata"></a>Redigera projekt metadata
 
@@ -46,7 +45,7 @@ På instrumentpanelen för projektet väljer **Projektinställningar**och välj 
 | Inställning | Beskrivning |
 | --- | --- |
 | Projektnamn | Ett eget namn för ditt projekt som Azure-datorer använder för visning. Till exempel ”Hello World i Python”. |
-| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt. Detta ID kan använda endast bokstäver, siffror och bindestreck, är begränsade till 30 tecken och får inte vara en [reserverade projekt-ID](create-clone-jupyter-notebooks.md#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
+| Projekt-ID | En anpassad identifierare som blir en del av URL: en som du använder för att dela ett projekt. Detta ID får endast använda bokstäver, siffror och bindestreck, får innehålla högst 30 tecken och får inte vara ett [reserverat projekt-ID](create-clone-jupyter-notebooks.md#reserved-project-ids). Om du är osäker vad du använder, är en gemensam konvention att använda en gemen version av ditt projektnamn där blanksteg är aktiverade i bindestreck, till exempel ”min-notebook-projekt” (trunkerad vid behov för att passa längdbegränsningen). |
 | Offentliga projekt | Om ange, kan vem som helst med en länk till projektet. När du skapar ett privat projekt kan du avmarkera det här alternativet. |
 | Dölj kloner | Om du anger, andra användare inte kan se en lista över kloner som har gjorts för det här projektet. Dölja kloner är användbart för projekt som delas med många personer som inte tillhör samma organisation, till exempel när du använder en bärbar dator för undervisar en klass. |
 
@@ -71,7 +70,7 @@ Den **+ ny** kommando (kortkommandot: n) skapar nya filer eller mappar. När du 
 
 ### <a name="upload-files"></a>Överföra filer
 
-Den **överför** kommandot ger två alternativ för att importera data från andra platser: **Från URL: en** och **från datorn**. Mer information finns i [arbeta med datafiler i Azure-anteckningsbok projekt](work-with-project-data-files.md).
+**Uppladdnings** kommandot innehåller två alternativ för att importera data från andra platser: **Från URL** och **från dator**. Mer information finns i [arbeta med datafiler i Azure-anteckningsbok projekt](work-with-project-data-files.md).
 
 ### <a name="select-file-specific-commands"></a>Välj fil-fil
 
@@ -132,11 +131,11 @@ Om du vill lägga till ett steg, väljer du först **+ Lägg till**, Välj en st
 
 Vilken information som du sedan projicera beror på vilken typ av åtgärd som du har valt:
 
-- **Requirements.txt**: I den andra listan väljer du en *requirements.txt* fil som redan finns i projektet. Välj sedan en Python-version från den tredje listan som visas. Med hjälp av en *requirements.txt* fil, Azure-datorer körs `pip install -r` med den *requirements.txt* filen när du startar en notebook-server. Du behöver inte uttryckligen installera paket från i anteckningsboken själva.
+- **Krav. txt**: I den andra List rutan väljer du en fil med *kraven. txt* som redan finns i projektet. Välj sedan en Python-version från den tredje listan som visas. Med hjälp av en *requirements.txt* fil, Azure-datorer körs `pip install -r` med den *requirements.txt* filen när du startar en notebook-server. Du behöver inte uttryckligen installera paket från i anteckningsboken själva.
 
-- **Kommandoskriptet**: I den andra listan väljer du ett bash shell-skript i projektet (vanligtvis en fil med det *.sh* tillägget) som innehåller alla kommandon som du vill köra för att initiera miljön.
+- **Gränssnitts skript**: I den andra List rutan väljer du ett bash-gränssnitts skript i projektet (vanligt vis en fil med fil namns tillägget *. sh* ) som innehåller alla kommandon som du vill köra för att initiera miljön.
 
-- **Environment.yml**: I den andra listan väljer du en *environments.yml* -filen för Python-projekt med hjälp av en conda-miljö.
+- **Miljö. yml**: I den andra List rutan väljer du en *miljö. yml* -fil för python-projekt med hjälp av en Conda-miljö.
 
 När du är klar att lägga till steg, Välj **spara**.
 
@@ -191,5 +190,5 @@ Du kan även använda kommandot från en kodcell i en Python notebook:
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Anvisningar: Arbeta med data projektfiler](work-with-project-data-files.md)
+- [Anvisningar: Arbeta med Project-datafiler @ no__t-0
 - [Åtkomst till molndata på en bärbar dator](access-data-resources-jupyter-notebooks.md)

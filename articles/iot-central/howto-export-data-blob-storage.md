@@ -4,27 +4,27 @@ description: Så här exporterar du data från ditt Azure IoT Central-program ti
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/08/2019
+ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
-manager: peterpr
-ms.openlocfilehash: 7366072dbf6b000981899a56ca1c8cfe6af6f04a
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+manager: corywink
+ms.openlocfilehash: 7ee9d2bf32fcec5f5f4435fe09916f437d6323ee
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69876049"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71971665"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Exportera data till Azure Blob Storage
 
-[!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
+[!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
 *Det här avsnittet gäller för administratörer.*
 
-Den här artikeln beskriver hur du använder funktionen för kontinuerlig data export i Azure IoT Central för att regelbundet exportera data till ditt **Azure Blob Storage-konto**. Du kan exportera **mått**, **enheter**och **enhetsspecifika mallar** till filer i Apache Avro-format. Exporterade data kan användas för kall Sök vägs analys som utbildnings modeller i Azure Machine Learning eller långsiktig trend analys i Microsoft Power BI.
+Den här artikeln beskriver hur du använder funktionen för kontinuerlig data export i Azure IoT Central för att regelbundet exportera data till ditt **Azure Blob Storage-konto** eller **Azure Data Lake Storage Gen2 lagrings konto**. Du kan exportera **mått**, **enheter**och **ENHETSSPECIFIKA mallar** till filer i JSON-eller Apache Avro-format. Exporterade data kan användas för kall Sök vägs analys som utbildnings modeller i Azure Machine Learning eller långsiktig trend analys i Microsoft Power BI.
 
 > [!Note]
-> När du sedan aktiverar kontinuerlig data export får du bara data från det tillfället. För närvarande går det inte att hämta data under en tid då kontinuerliga data exporter ATS. Aktivera kontinuerlig data export tidigt om du vill behålla mer historiska data.
+> När du aktiverar kontinuerlig data export får du bara data från det här tillfället. För närvarande går det inte att hämta data under en tid då kontinuerliga data exporter ATS. Aktivera kontinuerlig data export tidigt om du vill behålla mer historiska data.
 
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -36,17 +36,15 @@ Den här artikeln beskriver hur du använder funktionen för kontinuerlig data e
 
 Om du inte har en befintlig lagrings enhet att exportera till följer du dessa steg:
 
-## <a name="create-storage-account"></a>Skapa lagrings konto
-
-1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan läsa mer i [Azure Storage dokument](https://aka.ms/blobdocscreatestorageaccount).
-2. För konto typen väljer du **generell användning** eller **blob-lagring**.
-3. Välj en prenumeration. 
+1. Skapa ett [nytt lagrings konto i Azure Portal](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM). Du kan lära dig mer om att skapa nya [Azure Blob Storage-konton](https://aka.ms/blobdocscreatestorageaccount) eller [Azure Data Lake Storage v2-lagrings konton](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account).
 
     > [!Note] 
-    > Nu kan du exportera data till andra prenumerationer som **inte är samma** som den som du betalar per användning för IoT Central programmet. Du kommer att ansluta med hjälp av en anslutnings sträng i det här fallet.
+    > Om du väljer att exportera data till ett ADLS v2-lagrings konto måste du välja **konto typ** som **BlobStorage**. 
 
-4. Skapa en behållare i ditt lagrings konto. Gå till ditt lagringskonto. Under **BLOB service**väljer du **Bläddra i blobbar**. Välj **+ behållare** överst för att skapa en ny behållare
+    > [!Note] 
+    > Du kan exportera data till lagrings konton i olika prenumerationer än den som du betalar per användning för IoT Central. Du kommer att ansluta med hjälp av en anslutnings sträng i det här fallet.
 
+2. Skapa en behållare i ditt lagrings konto. Gå till ditt lagringskonto. Under **BLOB service**väljer du **Bläddra i blobbar**. Välj **+ behållare** överst för att skapa en ny behållare.
 
 ## <a name="set-up-continuous-data-export"></a>Konfigurera kontinuerlig data export
 
@@ -54,19 +52,17 @@ Nu när du har ett lagrings mål att exportera data till, följer du dessa steg 
 
 1. Logga in på ditt IoT Central-program.
 
-2. På den vänstra menyn väljer du **kontinuerlig data export**.
+2. På den vänstra menyn väljer du **data export**.
 
     > [!Note]
-    > Om du inte ser kontinuerliga data export på den vänstra menyn är du inte administratör i din app. Prata med en administratör för att konfigurera data export.
-
-    ![Skapa ny CDE-Händelsehubben](media/howto-export-data/export_menu1.png)
+    > Om du inte ser data export på den vänstra menyn är du inte administratör i din app. Prata med en administratör för att konfigurera data export.
 
 3. Välj knappen **+ ny** längst upp till höger. Välj **Azure Blob Storage** som mål för exporten. 
 
     > [!NOTE] 
     > Det maximala antalet exporter per app är fem. 
 
-    ![Skapa ny kontinuerlig data export](media/howto-export-data/export_new1.png)
+    ![Skapa ny kontinuerlig data export](media/howto-export-data/export-new2.png)
 
 4. I list rutan väljer du ditt **lagrings konto namn område**. Du kan också välja det sista alternativet i listan som **anger en anslutnings sträng**. 
 
@@ -76,34 +72,41 @@ Nu när du har ett lagrings mål att exportera data till, följer du dessa steg 
     > [!NOTE] 
     > För 7 dagars test av appar är det enda sättet att konfigurera kontinuerlig data export genom en anslutnings sträng. Detta beror på att sju dagars prov versioner inte har någon tillhör ande Azure-prenumeration.
 
-    ![Skapa ny CDE-Händelsehubben](media/howto-export-data/export-create-blob.png)
+    ![Skapa ny export till BLOB](media/howto-export-data/export-create-blob2.png)
 
-5. Valfritt Om du väljer **Ange en anslutnings sträng**visas en ny ruta där du kan klistra in anslutnings strängen. Så här hämtar du anslutnings strängen för din:
-    - Lagrings konto går du till lagrings kontot i Azure Portal.
-        - Under **Inställningar**väljer du **åtkomst nycklar**
-        - Kopiera antingen anslutnings strängen KEY1 eller key2-anslutningssträngen
+5. Valfritt Om du väljer **Ange en anslutnings sträng**visas en ny ruta där du kan klistra in anslutnings strängen. Om du vill hämta anslutnings strängen för ditt lagrings konto går du till lagrings kontot i Azure Portal:-under **Inställningar**väljer du **åtkomst nycklar** – Kopiera antingen anslutnings strängen KEY1 eller key2-anslutningssträngen
  
-6. Välj en behållare i list rutan.
+6. Välj en behållare i list rutan. Om du inte har en behållare går du till ditt lagrings konto i Azure Portal:
+    - Under **BLOB service**väljer du **blobbar**. Klicka på **+ container** och ge containern ett namn. Välj en offentlig åtkomst nivå för dina data (alla kommer att fungera med kontinuerlig data export). Läs mer i [Azure Storage dokument](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal#create-a-container).
 
-7. Under **data som ska exporteras**anger du varje typ av data som ska exporteras genom att ange typen till **på**.
+7. Välj det **data format** som du föredrar: JSON-eller [Apache Avro](https://avro.apache.org/docs/current/index.html) -format.
 
-6. Om du vill aktivera kontinuerlig data export kontrollerar du att **data exporten** är **på**. Välj **Spara**.
+8. Under **data som ska exporteras**anger du varje typ av data som ska exporteras genom att ange typen till **på**.
 
-   ![Konfigurera kontinuerlig data export](media/howto-export-data/export-list-blob.png)
+9. Om du vill aktivera kontinuerlig data export kontrollerar du att aktivera **data export** är **aktiverat**. Välj **Spara**.
 
-7. Efter några minuter visas dina data i det valda målet.
+   ![Konfigurera kontinuerlig data export](media/howto-export-data/export-list-blob2.png)
+
+10. Efter några minuter visas dina data i ditt lagrings konto.
 
 
-## <a name="export-to-azure-blob-storage"></a>Exportera till Azure Blob Storage
+## <a name="path-structure"></a>Sök vägs struktur
 
-Data för mått, enheter och enhets information exporteras till ditt lagrings konto en gång per minut, med varje fil som innehåller grupp ändringar sedan den senaste exporterade filen. Exporterade data är i [Apache Avro](https://avro.apache.org/docs/current/index.html) -format och kommer att exporteras i till tre mappar. Standard Sök vägarna i ditt lagrings konto är:
-- Meddelanden: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Enheter: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
-- Enhets mallar: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+Data för mått, enheter och enhets information exporteras till ditt lagrings konto en gång per minut, med varje fil som innehåller grupp ändringar sedan den senaste exporterade filen. Exporterade data placeras i tre mappar i JSON-eller Avro-format. Standard Sök vägarna i ditt lagrings konto är:
+- Meddelanden: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Enheter: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+- Enhets mallar: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
+
+Du kan bläddra bland de exporterade filerna i Azure Portal genom att gå till filen och välja fliken **Redigera BLOB** .
+
+## <a name="data-format"></a>Dataformat 
 
 ### <a name="measurements"></a>Mått
 
 Exporterade mätnings data har alla nya meddelanden som tagits emot av IoT Central från alla enheter under den tiden. De exporterade filerna använder samma format som de meddelandefiler som exporteras av [IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) meddelanderoutning till Blob Storage.
+
+> [!NOTE]
+> Se till att enheterna skickar meddelanden som har `contentType: application/JSON` och `contentEncoding:utf-8` (eller `utf-16`, `utf-32`). Se [IoT Hub-dokumentationen](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-routing-query-syntax#message-routing-query-based-on-message-body) för ett exempel.
 
 > [!NOTE]
 > De enheter som skickar måtten representeras av enhets-ID: n (se följande avsnitt). Exportera enhetens ögonblicks bilder för att hämta namnen på enheterna. Korrelera varje meddelande post med hjälp av **connectionDeviceId** som matchar enhets Postens **deviceId** .
@@ -111,25 +114,25 @@ Exporterade mätnings data har alla nya meddelanden som tagits emot av IoT Centr
 I följande exempel visas en post i en avkodad avro-fil:
 
 ```json
-{
-    "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
-    "Properties": {},
-    "SystemProperties": {
-        "connectionDeviceId": "<connectionDeviceId>",
-        "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "<generationId>",
-        "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
-    },
-    "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
+{ 
+  "EnqueuedTimeUtc":"2019-06-11T00:00:08.2250000Z",
+  "Properties":{},
+  "SystemProperties":{ 
+    "connectionDeviceId":"<deviceId>",
+    "connectionAuthMethod":"{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
+    "connectionDeviceGenerationId":"<generationId>",
+    "enqueuedTime":"2019-06-11T00:00:08.2250000Z"
+  },
+  "Body":"{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
 }
 ```
 
 ### <a name="devices"></a>Enheter
 
 När kontinuerlig data export först aktive ras, exporteras en enda ögonblicks bild med alla enheter. Varje enhet innehåller:
-- `id`av enheten i IoT Central
-- `name`av enheten
-- `deviceId`från [enhets etablerings tjänst](https://aka.ms/iotcentraldocsdps)
+- `id` av enheten i IoT Central
+- `name` av enheten
+- `deviceId` från [enhets etablerings tjänsten](https://aka.ms/iotcentraldocsdps)
 - Information om enhets mal len
 - Egenskapsvärden
 - Inställnings värden
@@ -144,42 +147,42 @@ En ny ögonblicks bild skrivs en gång per minut. Ögonblicks bilden innehåller
 >
 > Enhets mal len som varje enhet tillhör representeras av ett mall-ID för enhet. Exportera enhets mal len ögonblicks bilder för att hämta namnet på enhets mal len.
 
-En post i den avkodade Avro-filen kan se ut så här:
+Exporterade filer innehåller en enskild rad per post. I följande exempel visas en post i Avro-format, avkodad:
 
 ```json
-{
-    "id": "<id>",
-    "name": "Refrigerator 2",
-    "simulated": true,
-    "deviceId": "<deviceId>",
-    "deviceTemplate": {
-        "id": "<template id>",
-        "version": "1.0.0"
+{ 
+  "id":"<id>",
+  "name":"Refrigerator 2",
+  "simulated":true,
+  "deviceId":"<deviceId>",
+  "deviceTemplate":{ 
+    "id":"<template id>",
+    "version":"1.0.0"
+  },
+  "properties":{ 
+    "cloud":{ 
+      "location":"New York",
+      "maintCon":true,
+      "tempThresh":20
     },
-    "properties": {
-        "cloud": {
-            "location": "New York",
-            "maintCon": true,
-            "tempThresh": 20
-        },
-        "device": {
-            "lastReboot": "2018-02-09T22:22:47.156Z"
-        }
-    },
-    "settings": {
-        "device": {
-            "fanSpeed": 0
-        }
+    "device":{ 
+      "lastReboot":"2018-02-09T22:22:47.156Z"
     }
+  },
+  "settings":{ 
+    "device":{ 
+      "fanSpeed":0
+    }
+  }
 }
 ```
 
-### <a name="device-templates"></a>Enhets mallar
+### <a name="device-templates"></a>Enhetsmallar
 
 När kontinuerlig data export har Aktiver ATS, exporteras en enda ögonblicks bild med alla enhets mallar. Varje enhets mall innehåller:
-- `id`av enhets mal len
-- `name`av enhets mal len
-- `version`av enhets mal len
+- `id` av enhets mal len
+- `name` av enhets mal len
+- `version` av enhets mal len
 - Mät data typer och minsta/högsta värden.
 - Egenskaps data typer och standardvärden.
 - Ange data typer och standardvärden.
@@ -192,79 +195,79 @@ En ny ögonblicks bild skrivs en gång per minut. Ögonblicks bilden innehåller
 > [!NOTE]
 > Enhetsspecifika har tagits bort sedan den senaste ögonblicks bilden inte har exporter ATS. Ögonblicks bilderna har för närvarande inga indikatorer för borttagna enhetsspecifika mallar.
 
-En post i den avkodade Avro-filen kan se ut så här:
+Exporterade filer innehåller en enskild rad per post. I följande exempel visas en post i Avro-format, avkodad:
 
 ```json
-{
-    "id": "<id>",
-    "name": "Refrigerated Vending Machine",
-    "version": "1.0.0",
-    "measurements": {
-        "telemetry": {
-            "humidity": {
-                "dataType": "double",
-                "name": "Humidity"
-            },
-            "magnetometerX": {
-                "dataType": "double",
-                "name": "Magnetometer X"
-            },
-            "magnetometerY": {
-                "dataType": "double",
-                "name": "Magnetometer Y"
-            },
-            "magnetometerZ": {
-                "dataType": "double",
-                "name": "Magnetometer Z"
-            }
-        },
-        "states": {
-            "connectivity": {
-                "dataType": "enum",
-                "name": "Connectivity"
-            }
-        },
-        "events": {
-            "opened": {
-                "name": "Door Opened",
-                "category": "informational"
-            }
-        }
+{ 
+  "id":"<id>",
+  "name":"Refrigerated Vending Machine",
+  "version":"1.0.0",
+  "measurements":{ 
+    "telemetry":{ 
+      "humidity":{ 
+        "dataType":"double",
+        "name":"Humidity"
+      },
+      "magnetometerX":{ 
+        "dataType":"double",
+        "name":"Magnetometer X"
+      },
+      "magnetometerY":{ 
+        "dataType":"double",
+        "name":"Magnetometer Y"
+      },
+      "magnetometerZ":{ 
+        "dataType":"double",
+        "name":"Magnetometer Z"
+      }
     },
-    "settings": {
-        "device": {
-            "fanSpeed": {
-                "dataType": "double",
-                "name": "Fan Speed",
-                "initialValue": 0
-            }
-        }
+    "states":{ 
+      "connectivity":{ 
+        "dataType":"enum",
+        "name":"Connectivity"
+      }
     },
-    "properties": {
-        "cloud": {
-            "location": {
-                "dataType": "string",
-                "name": "Location",
-                "initialValue": "Seattle"
-            },
-            "maintCon": {
-                "dataType": "boolean",
-                "name": "Maintenance Contract",
-                "initialValue": true
-            },
-            "tempThresh": {
-                "dataType": "double",
-                "name": "Temperature Alert Threshold",
-                "initialValue": 30
-            }
-        },
-        "device": {
-            "lastReboot": {
-                "dataType": "dateTime",
-                "name": "Last Reboot"
-            }
-        }
+    "events":{ 
+      "opened":{ 
+        "name":"Door Opened",
+        "category":"informational"
+      }
     }
+  },
+  "settings":{ 
+    "device":{ 
+      "fanSpeed":{ 
+        "dataType":"double",
+        "name":"Fan Speed",
+        "initialValue":0
+      }
+    }
+  },
+  "properties":{ 
+    "cloud":{ 
+      "location":{ 
+        "dataType":"string",
+        "name":"Location",
+        "initialValue":"Seattle"
+      },
+      "maintCon":{ 
+        "dataType":"boolean",
+        "name":"Maintenance Contract",
+        "initialValue":true
+      },
+      "tempThresh":{ 
+        "dataType":"double",
+        "name":"Temperature Alert Threshold",
+        "initialValue":30
+      }
+    },
+    "device":{ 
+      "lastReboot":{ 
+        "dataType":"dateTime",
+        "name":"Last Reboot"
+      }
+    }
+  }
 }
 ```
 

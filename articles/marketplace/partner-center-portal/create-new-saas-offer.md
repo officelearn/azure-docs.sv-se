@@ -6,19 +6,22 @@ manager: evansma
 ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: e846db86ce95bd32d21727a4a5ec3195458cb9eb
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.date: 10/04/2019
+ms.openlocfilehash: 48ef7aeb1804aca9001288f6babd302b9c3a8347
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936879"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969542"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
 För att börja skapa SaaS-erbjudanden (program vara som en tjänst) måste du först [skapa ett partner Center-konto](./create-account.md) och öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/commercial-marketplace/offers)med fliken **Översikt** vald.
 
 ![Instrument panel för extern Marketplace på Partner Center](./media/new-offer-overview.png)
+
+>[!Note]
+> När ett erbjudande har publicerats uppdateras bara ändringar i erbjudandet som gjorts i Partner Center i systemet och Store-frontend efter ompubliceringen. Kontrol lera att du har skickat in erbjudandet för publicering när du har gjort ändringar.
 
 Välj det + **nya erbjudandet...** och välj sedan meny alternativet **program vara som en tjänst** . 
 
@@ -35,7 +38,7 @@ Dialog rutan **nytt erbjudande** visas.
 
 - **Erbjudande-ID**: Unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet och Azure Resource Manager mallar (om tillämpligt). Erbjudande-ID måste vara gemener, alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg). Detta är begränsat till 50 tecken och kan inte ändras när du har valt *skapa*.  
 Exempel: test-erbjudande-1
-<br>Resulterar i URL: en:`https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
+<br>Resulterar i URL: en: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
 - **Erbjud alias**: Namnet som används för att referera till erbjudandet i Partner Center-portalen. Det här namnet används inte på Marketplace och skiljer sig från namnet på *erbjudandet* och andra värden som ska visas för kunderna. Det går inte att ändra det här värdet när du har valt *skapa*.
 
@@ -77,7 +80,7 @@ Följande kriterier måste vara uppfyllda för att kunna visa SaaS-erbjudanden (
 
 - Ditt erbjudande måste använda [Azure Active Directory (Azure AD)](https://azure.microsoft.com/services/active-directory/) för identitets hantering och autentisering.
 - Ditt erbjudande måste använda [SaaS-API: er](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2) för att integrera med Azure Marketplace.
-- Mer omfattande krav finns i publicerings [guiden för SaaS-erbjudandet](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
+- Mer omfattande krav finns i [publicerings guiden för SaaS-erbjudandet](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide).
 
 #### <a name="saas-pricing-and-billing-options"></a>Pris-och fakturerings alternativ för SaaS
 Med SaaS-lösningar som körs i utgivarens Azure-prenumeration inkluderar licens avgifter som betalas av kunderna kostnaden för den infrastruktur som program varan distribueras på. Användningen av Azure-infrastrukturen hanteras och faktureras till dig, partnern direkt. Den faktiska infrastruktur användnings avgiften ses inte av kunden. Utgivare ska paketera användnings avgifter för Azure-infrastruktur i sina priser för program varu licenser. 
@@ -107,7 +110,7 @@ I följande tabell visas ett exempel på uppdelning av kostnader och utbetalning
 #### <a name="csp-program-opt-in"></a>Deltagande i CSP-programmet
 [Cloud Solution Provider (CSP)-](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) programmet gör det möjligt för program erbjudanden att uppnå miljon tals kvalificerade Microsoft-kunder med minimal marknadsföring och försäljnings investeringar.
 
-- **Kanal Gör mitt erbjudande tillgängligt i CSP-programmet** (kryss ruta)
+- **Channels: Gör mitt erbjudande tillgängligt i CSP-programmet @ no__t-0 (kryss ruta)
 
 Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet kan moln lösnings leverantörer sälja din produkt som en del av en samlad lösning till sina kunder. 
 
@@ -137,7 +140,7 @@ Samla in kund kontakt information genom att ansluta ditt CRM-system (Customer Re
 
 En testen het är ett bra sätt att presentera ditt erbjudande för potentiella kunder genom att ge dem möjlighet att "prova innan du köper", vilket resulterar i ökad konvertering och skapandet av mycket kvalificerade leads. [Läs mer om test enheter.](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/what-is-test-drive)
 
-- **Aktivera en testen het** Rute 
+- **Aktivera en testen het** (kryss ruta) 
 
 Genom att aktivera test enheten uppmanas du att konfigurera en demonstrations miljö där kunder kan testa ditt erbjudande under en bestämd tids period. 
 
@@ -220,12 +223,12 @@ På fliken erbjudande lista visas de språk (och marknader) där ditt erbjudande
 
 Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt erbjudande och marknadsförings till gångar.
 
-- **Namn** (krävs): Namnet som definieras här visas som rubrik på din erbjudande lista på de Marketplace som du har valt. Namnet är förifyllt baserat på din föregående **nya erbjudande** post.  Detta kan vara ett varumärke.  Det får inte innehålla blank steg, emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
+- **Namn** (obligatoriskt): Namnet som definieras här visas som rubrik på din erbjudande lista på de Marketplace som du har valt. Namnet är förifyllt baserat på din föregående **nya erbjudande** post.  Detta kan vara ett varumärke.  Detta får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
 - **Sammanfattning** (krävs): Ange en kort beskrivning av ditt erbjudande som ska användas i Sök resultaten för Marketplace-listor. Upp till 100 tecken text kan anges i det här fältet.
 - **Beskrivning** (krävs): Ange en beskrivning av ditt erbjudande som ska visas i Översikt över Marketplace-listor. Överväg att inkludera ett värde förslag, viktiga fördelar, eventuella kategori-eller bransch associationer, inköps möjligheter för appar, eventuella obligatoriska upplysningar och en länk till mer information.
 Upp till 3 000 tecken text kan anges i det här fältet. Ytterligare tips finns i artikeln [skriva en bra app-Beskrivning](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
 - **Sök efter nyckelord**: Ange upp till tre sökord som kunder kan använda för att hitta ditt erbjudande i Marketplace.
-- **Komma igång-instruktioner** (krävs): Förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet. 
+- **Instruktioner för att komma igång** (krävs): Förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet. 
 
 #### <a name="description"></a>**Beskrivning**
 
@@ -311,7 +314,7 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 #### <a name="links"></a>Länkar
 
 - **Sekretess policy** (krävs): Länk till din organisations sekretess policy. Du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy
-- **Marknadsförings material för CSP-program** (valfritt): Du måste ange en länk till marknadsförings material om du väljer att utöka erbjudandet till programmet för [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
+- **Program marknadsförings material för CSP** (valfritt): Du måste ange en länk till marknadsförings material om du väljer att utöka erbjudandet till programmet för [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
 - **Användbara länkar** (valfritt): Valfria kompletterande online-dokument om din app eller relaterade tjänster som listas genom att tillhandahålla en **rubrik** och **URL**. Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en URL**.
 
 #### <a name="contact-information"></a>Kontaktinformation
@@ -322,13 +325,13 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
 **Teknisk kontakt** (krävs): För tekniska frågor.
 
-**Kontakt i kanal hanteraren** (krävs): För åter försäljar frågor som är relaterade till CSP-programmet.
+**Kanal hanterare, kontakt** (krävs): För åter försäljar frågor som är relaterade till CSP-programmet.
 
 #### <a name="files-and-images"></a>Filer och avbildningar
 
 - **Dokument** (krävs): Lägg till relaterade marknadsförings dokument för ditt erbjudande i PDF-format, och ange minst ett (1) och högst tre (3) dokument per erbjudande.
-- **Bilder** (valfritt): Det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser, vilket kräver följande storlekar – liten: 48 x 48 pixlar _(krävs),_ medel: 90 x 90 pixlar, stor: 216 x 216 pixlar _(krävs),_ bred: 255 x 115 pixlar och hjälte: 815 x 290 bild punkter. Alla avbildningar måste vara i. PNG-format.
-- **Skärm bilder** (krävs): Lägg till skärm bilder som demonstrerar ditt erbjudande. Högst fem (5) skärm bilder kan läggas till och ska vara i storlek med 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
+- **Avbildningar** (valfritt): Det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser, vilket kräver följande storlekar – liten: 48 x 48 pixlar _(krävs),_ medel: 90 x 90 pixlar, stor: 216 x 216 pixlar _(krävs),_ bred: 255 x 115 pixlar och hjälte: 815 x 290 bild punkter. Alla avbildningar måste vara i. PNG-format.
+- **Skärm dum par** (krävs): Lägg till skärm bilder som demonstrerar ditt erbjudande. Högst fem (5) skärm bilder kan läggas till och ska vara i storlek med 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Videor** (valfritt): Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.
 
 Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
@@ -340,12 +343,12 @@ Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
 
 ## <a name="preview"></a>Förhandsversion
 
-På fliken förhands **granskning** kan du definiera en begränsad förhands **gransknings grupp** för att släppa ditt erbjudande innan du publicerar erbjudandet Live till den bredare Marketplace-publiken.
+På fliken **förhands granskning** kan du definiera en begränsad **förhands gransknings grupp** för att släppa ditt erbjudande innan du publicerar erbjudandet Live till den bredare Marketplace-publiken.
 
 > [!IMPORTANT]
 > Du måste välja **Go Live** innan ditt erbjudande publiceras Live till offentlig Marketplace-publik när du har kontrollerat ditt erbjudande i för hands versionen.
 
-- **Definiera en förhands gransknings mål grupp: Lägg till ett enda AAD/MSA-konto per rad, tillsammans med en valfri beskrivning.**
+- @no__t – 0Define en förhands gransknings mål grupp: Lägg till ett enda AAD/MSA-konto per rad, tillsammans med en valfri beskrivning. **
 
 Lägg till upp till tio (10) e-postadresser manuellt, eller 20 (20) om du överför en CSV-fil, för befintligt Microsoft-konto (MSA) eller Azure Active Directory-konton som hjälper dig att verifiera ditt erbjudande innan du publicerar Live. Genom att lägga till dessa konton definierar du en mål grupp som ska få för hands versions åtkomst till ditt erbjudande innan den publiceras på Marketplace (s). Om erbjudandet redan är Live kan du fortfarande definiera en förhands gransknings grupp för att testa ändringar eller uppdateringar av ditt erbjudande.
 
@@ -356,11 +359,11 @@ Lägg till upp till tio (10) e-postadresser manuellt, eller 20 (20) om du överf
 
 På fliken **teknisk konfiguration** definieras den tekniska informationen (URL-sökväg, webhook, klient-ID och app-ID) som används för att ansluta till ditt erbjudande. Med den här anslutningen kan vi tillhandahålla ditt erbjudande för slutanvändaren om de väljer att förvärva det. Diagram som beskriver användningen av de insamlade fälten finns i dokumentationen för [API: er för SaaS-utförande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **URL för landnings sida** (krävs): Definiera webbplats-URL: en som kunderna hamnar på efter att ha skaffat ditt erbjudande från Marketplace. Den här URL: en är slut punkten som tar emot en token när en kund dirigeras till sidan. Denna token kan bytas ut mot etablerings information med hjälp av lösa i API: er som uppfyller kraven. Informationen och andra som du samlar in kan användas som en del av en kundinteraktiv webb sida som skapats i din upplevelse för att slutföra registreringen och aktivera köpet.
+- **URL för landnings sidan** (krävs): Definiera webbplats-URL: en som kunderna hamnar på efter att ha skaffat ditt erbjudande från Marketplace. Den här URL: en är slut punkten som tar emot en token när en kund dirigeras till sidan. Denna token kan bytas ut mot etablerings information med hjälp av lösa i API: er som uppfyller kraven. Informationen och andra som du samlar in kan användas som en del av en kundinteraktiv webb sida som skapats i din upplevelse för att slutföra registreringen och aktivera köpet.
 
-- **Anslutning** -webhook (krävs): För alla asynkrona händelser som Microsoft behöver skicka till dig för kundens räkning (exempel: SaaS-prenumerationen är ogiltig), vi kräver att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en http-slutpunkt som lyssnar efter händelser som publiceras till den och sedan hantera dem på rätt sätt (t. ex. https:\//Prod-1westus.Logic.Azure.com:443/Work). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Anslutningens webhook** (krävs): För alla asynkrona händelser som Microsoft behöver skicka till dig för kundens räkning (exempel: SaaS-prenumerationen är ogiltig), vi kräver att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https: \//Prod-1westus. Logic. Azure. com: 443/arbete ). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **ID för Azure AD-klient** (krävs): Inom Azure Portal kräver vi att du [skapar en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (t. ex. 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD-klient-ID** (krävs): Inom Azure Portal kräver vi att du [skapar en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (t. ex. 50c464d3-4930-494c-963c-1e951d15360e).
 
 - **ID för Azure AD-App** (krävs): Du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID** som anges (t. ex. 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
 
@@ -377,7 +380,7 @@ Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroe
 - Om plan status är **Draft** – ta bort utkast
 - Om plan status är **Live** – stoppa Sälj plan eller synkronisera privat publik
 
-**Skapa ny plan** (minst en plan för de som väljer att sälja via Microsoft)
+**Skapa en ny plan** (minst en plan för de som väljer att sälja via Microsoft)
 
 - **Plan-ID:** Skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID visas för kunder i produkt-URL och Azure Resource Manager mallar (om tillämpligt). Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. Högst 50 tecken tillåts för det här plan-ID: t. Observera att ID: t inte kan ändras när du har valt skapa.
 - **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (t. ex. Erbjudandets namn: Windows Server; utgå Windows Server 2016, Windows Server 2019).
@@ -413,14 +416,14 @@ Möjligheten att konfigurera en kostnads fri utvärderings version är tillgäng
 >[!Note]
 >När ditt transactable-erbjudande har publicerats med en kostnads fri utvärderings version kan det inte inaktive ras för den planen. Kontrol lera att den här inställningen är korrekt för den första publiceringen för att undvika att behöva återskapa planen.
 
-För att få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings `isFreeTrial`version använder du den nya API-egenskapen som kommer att markeras som sant eller falskt. Mer information finns i [SaaS Hämta prenumerations-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
+För att få information om kund prenumerationer som för närvarande ingår i en kostnads fri utvärderings version använder du den nya API-egenskapen `isFreeTrial`, som kommer att markeras som sant eller falskt. Mer information finns i [SaaS Hämta prenumerations-API](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2#get-subscription) .
 
 >[!Note]
 >Kostnads fria utvärderings versioner stöds inte för planer som utnyttjar Marketplace-avläsning.
 
 #### <a name="markets"></a>Marknaden
 
-- **Redigera marknader** valfritt
+- **Redigera marknader** (valfritt)
 
 Varje plan måste vara tillgänglig på minst en marknad. Markera kryss rutan för alla marknads platser där du vill att den här planen ska vara tillgänglig. En sökruta och knapp för att välja "skatte mottagare", där Microsoft betalar försäljnings-och användnings skatt för din räkning, ingår i hjälpen. 
 
@@ -458,7 +461,7 @@ Du har möjlighet att konfigurera varje plan så att den blir synlig för alla e
 
 #### <a name="privacy"></a>Sekretess
 
-- **Det här är en privat plan** (Valfri kryss ruta)
+- **Det här är en privat plan** (valfri kryss ruta)
 
 Markera den här kryss rutan om du vill att planen ska vara privat och endast synlig för den begränsade gruppen som du väljer. När du har publicerat som privat plan kan du uppdatera mål gruppen eller välja att göra planen tillgänglig för alla. När en plan publiceras som synlig för alla måste den vara synlig för alla. (Planen kan inte konfigureras som en privat plan igen).
 
@@ -466,7 +469,7 @@ Markera den här kryss rutan om du vill att planen ska vara privat och endast sy
 
 Tilldela den mål grupp som ska ha åtkomst till den här privata planen. Åtkomst tilldelas med klient-ID: n med alternativet att inkludera en beskrivning av varje tilldelad klient-ID. Högst 10 klient-ID: n kan läggas till, eller 20 000 kunders klient-ID om du importerar en. csv-kalkylbladsfilen.
 
-En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller apputvecklare får när organisationen eller apputvecklaren skapar en relation med Microsoft – som att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrol lera klient organisationen loggar du in på Azure Portal med det konto som du vill använda för att hantera ditt program. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med en domän namns-URL [https://www.whatismytenantid.com](https://www.whatismytenantid.com)på:.
+En klient organisation är en representation av en organisation med ett ID som representeras som GUID (globalt unik identifierare, ett 128-bitars heltal som används för att identifiera resurser). Det är en dedikerad instans av Azure AD som en organisation eller apputvecklare får när organisationen eller apputvecklaren skapar en relation med Microsoft – som att registrera sig för Azure, Microsoft Intune eller Microsoft 365. Varje Azure AD-klient är separat och åtskild från andra Azure AD-klienter. Om du vill kontrol lera klient organisationen loggar du in på Azure Portal med det konto som du vill använda för att hantera ditt program. Om du har en klient kommer du automatiskt att loggas in och kan se klientorganisationens namn direkt under namnet på ditt konto. Hovra över ditt kontonamn längst upp till höger i Azure-portalen så visas namn, e-post, katalog/klient-ID (ett GUID) och domän. Om ditt konto är kopplat till flera klienter måste du välja namnet på ditt konto för att öppna en meny där du kan växla mellan klienter. Varje klient har sitt eget klient-ID. Du kan också leta upp organisationens klient-ID med en domän namns-URL på: [https://www.whatismytenantid.com](https://www.whatismytenantid.com).
 
 Även om SaaS-erbjudanden använder klient-ID: n för att definiera en privat mål grupp kan andra erbjudande typer använda Azures prenumerations-ID (som också visas som GUID).
 

@@ -1,68 +1,68 @@
 ---
-title: Felsök Microsoft Azure Site Recovery-providern uppgradera | Microsoft Docs
+title: Felsöka uppgraderings fel för Microsoft Azure Site Recovery providern | Microsoft Docs
 description: Förstå och
-author: vDonGlover
-manager: jarrettr
+author: rayne-wiselman
+manager: carmonm
 ms.service: site-recovery
 ms.topic: troubleshooting
 ms.date: 02/05/2019
-ms.author: v-doglov
-ms.openlocfilehash: fc50be2a960784895947f3f154a0251f41716fc7
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: raynew
+ms.openlocfilehash: 6bb8263e7291506be6af7d5af7eda5786274d73c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60565709"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972631"
 ---
 # <a name="troubleshoot-microsoft-azure-site-recovery-provider-upgrade-failures"></a>Felsöka uppgraderingsfel för Microsoft Azure Site Recovery-providern
 
-Den här artikeln hjälper dig att lösa problem som kan orsaka fel under en Microsoft Azure Site Recovery-providern uppgradera.
+Den här artikeln hjälper dig att lösa problem som kan orsaka fel under uppgraderingen av Microsoft Azure Site Recovery providern.
 
-## <a name="the-upgrade-fails-reporting-that-the-latest-site-recovery-provider-is-already-installed"></a>Uppgraderingen misslyckas reporting senaste Site Recovery-providern har installerats
+## <a name="the-upgrade-fails-reporting-that-the-latest-site-recovery-provider-is-already-installed"></a>Uppgraderingen kan inte rapportera att den senaste Site Recovery-providern redan är installerad
 
-När du uppgraderar Microsoft Azure Site Recovery-providern (DRA), enhetliga installationsprogrammet för uppgraderingen misslyckas och problem med felmeddelandet:
+När du uppgraderar Microsoft Azure Site Recovery-providern (DRA) Miss lyckas uppgraderingen av den enhetliga installationen och det uppstår ett fel meddelande:
 
-Uppgradering stöds inte eftersom en senare version av programvaran är redan installerad.
+Uppgradering stöds inte eftersom en högre version av program varan redan är installerad.
 
-Om du vill uppgradera, använder du följande steg:
+Använd följande steg för att uppgradera:
 
-1. Ladda ned Microsoft Azure Site Recovery ett enhetligt installationsprogram:
-   1. I avsnittet ”länkar till samlade uppdateringar som för närvarande stöds” i den [tjänstuppdateringar i Azure Site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups) artikel, markerar den provider som du uppgraderar.
-   2. På sidan samlad letar du upp den **uppdateringsinformation** avsnittet och ladda ned den samlade uppdateringen för Microsoft Azure Site Recovery enhetliga installationsprogrammet.
+1. Hämta Microsoft Azure Site Recovery enhetlig installation:
+   1. I avsnittet "länkar till de samlade uppdateringar som stöds" i artikeln [tjänst uppdateringar i Azure Site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups) , väljer du den provider som du uppgraderar till.
+   2. På sidan sammanställning letar du upp avsnittet **uppdaterings information** och laddar ned Samlad uppdatering för Microsoft Azure Site Recovery enhetlig installation.
 
-2. Öppna en kommandotolk och navigera till den mapp som du hämtade enhetliga installationsprogrammet för filen. Extrahera installationsfilerna från nedladdningen med följande kommando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q/x:&lt;mappsökväg för de extrahera filerna&gt;.
+2. Öppna en kommando tolk och navigera till den mapp som du laddade ned den enhetliga installations filen till. Extrahera installationsfilerna från nedladdningen med hjälp av följande kommando, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x: &lt;folder sökväg för de extraherade filerna @ no__t-1.
     
     Exempel-kommando:
 
     MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 
-3. Navigera till mappen där du extraherade filerna och kör följande installationskommandon för i Kommandotolken:
+3. I kommando tolken navigerar du till mappen där du extraherade filerna och kör följande installations kommandon:
    
-    CX_THIRDPARTY_SETUP. EXE /VERYSILENT /SUPPRESSMSGBOXES/NORESTART UCX_SERVER_SETUP. EXE /VERYSILENT /SUPPRESSMSGBOXES/NORESTART UPGRADE
+    CX_THIRDPARTY_SETUP. EXE/VERYSILENT/SUPPRESSMSGBOXES/NORESTART UCX_SERVER_SETUP. EXE/VERYSILENT/SUPPRESSMSGBOXES/NORESTART/UPGRADE
 
-1. Gå tillbaka till den mapp som du hämtade det enhetliga installationsprogrammet och kör MicrosoftAzureSiteRecoveryUnifiedSetup.exe för att slutföra uppgraderingen. 
+1. Gå tillbaka till den mapp där du laddade ned den enhetliga installationen och kör MicrosoftAzureSiteRecoveryUnifiedSetup. exe för att slutföra uppgraderingen. 
 
-## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Uppgraderingen misslyckades på grund av mappen 3 part namnbyte
+## <a name="upgrade-failure-due-to-the-3rd-party-folder-being-renamed"></a>Uppgraderings problem på grund av att mappen från tredje part har bytt namn
 
-För att uppgraderingen ska lyckas måste mappen 3 part inte ändras.
+För att uppgraderingen ska lyckas får inte mappen tredje part byta namn.
 
-Du löser problemet.
+För att lösa problemet.
 
-1. Starta Registereditorn (regedit.exe) och öppna den HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 grenen.
-1. Granska den `Build_Version` nyckelvärdet. Om den är inställd på den senaste versionen, minska versionsnumret. Om exempelvis senaste versionen är 9.22. \* och `Build_Version` nyckeln inställd på värdet och minska det till 9.21.\*.
-1. Ladda ned den senaste Microsoft Azure Site Recovery enhetliga installationsprogrammet:
-   1. I avsnittet ”länkar till samlade uppdateringar som för närvarande stöds” i den [tjänstuppdateringar i Azure Site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups) artikel, markerar den provider som du uppgraderar.
-   2. På sidan samlad letar du upp den **uppdateringsinformation** avsnittet och ladda ned den samlade uppdateringen för Microsoft Azure Site Recovery enhetliga installationsprogrammet.
-1. Öppna en kommandotolk och navigera till den mapp som du hämtade enhetliga installationsprogrammet för fil- och extrahera installationsfilerna från nedladdningen med följande kommando, MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q/x:&lt;mappsökvägen för den extraherade filerna&gt;.
+1. Starta Registereditorn (regedit. exe) och öppna HKEY_LOCAL_MACHINE\SOFTWARE\WOW6432Node\InMage Systems\Installed Products\10 gren.
+1. Kontrol lera värdet för `Build_Version`. Om den är inställd på den senaste versionen minskar du versions numret. Till exempel, om den senaste versionen är 9,22. \* och nyckeln `Build_Version` har värdet och minska den till 9,21. \*.
+1. Ladda ned den senaste Microsoft Azure Site Recovery Unified-installationen:
+   1. I avsnittet "länkar till de samlade uppdateringar som stöds" i artikeln [tjänst uppdateringar i Azure Site Recovery](service-updates-how-to.md##links-to-currently-supported-update-rollups) , väljer du den provider som du uppgraderar till.
+   2. På sidan sammanställning letar du upp avsnittet **uppdaterings information** och laddar ned Samlad uppdatering för Microsoft Azure Site Recovery enhetlig installation.
+1. Öppna en kommando tolk och navigera till den mapp som du laddade ned den enhetliga installations filen till och Extrahera installationsfilerna från nedladdningen med hjälp av följande kommando, MicrosoftAzureSiteRecoveryUnifiedSetup. exe/q/x: &lt;folder sökväg för den extraherade filer @ no__t-1.
 
     Exempel-kommando:
 
     MicrosoftAzureSiteRecoveryUnifiedSetup.exe /q /x:C:\Temp\Extracted
 
-1. Navigera till mappen där du extraherade filerna och kör följande installationskommandon för i Kommandotolken:
+1. I kommando tolken navigerar du till mappen där du extraherade filerna och kör följande installations kommandon:
    
-    CX_THIRDPARTY_SETUP. EXE /VERYSILENT /SUPPRESSMSGBOXES/NORESTART
+    CX_THIRDPARTY_SETUP. EXE/VERYSILENT/SUPPRESSMSGBOXES/NORESTART
 
-1. Använd Aktivitetshanteraren för att övervaka förloppet för installationen. När processen för CX_THIRDPARTY_SETUP. EXE inte längre visas i Aktivitetshanteraren, gå vidare till nästa steg.
-1. Kontrollera att C:\thirdparty finns och att mappen innehåller RRD-bibliotek.
-1. Gå tillbaka till den mapp som du hämtade det enhetliga installationsprogrammet och kör MicrosoftAzureSiteRecoveryUnifiedSetup.exe för att slutföra uppgraderingen. 
+1. Använd aktivitets hanteraren för att övervaka förloppet för installationen. När processen för CX_THIRDPARTY_SETUP. EXE visas inte längre i aktivitets hanteraren, Fortsätt till nästa steg.
+1. Kontrol lera att C:\thirdparty finns och att mappen innehåller RRD-biblioteken.
+1. Gå tillbaka till den mapp där du laddade ned den enhetliga installationen och kör MicrosoftAzureSiteRecoveryUnifiedSetup. exe för att slutföra uppgraderingen. 

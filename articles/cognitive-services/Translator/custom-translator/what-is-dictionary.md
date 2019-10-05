@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: a4aac8afb7974be402ee98bb65c920133d4c118f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 36b449c4c4ca30eb658c9519ce8e870a4f1fab32
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947691"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970730"
 ---
 # <a name="what-is-a-dictionary"></a>Vad är en ord lista?
 
@@ -39,7 +39,7 @@ Du kan träna en modell med endast data från en ord lista. Om du vill göra det
 - Ord listor är inte en ersättning för att träna en modell med tränings data. Vi rekommenderar att du undviker dem och låter systemet lära sig från dina utbildnings data. Men när meningar eller sammansatta substantiv måste återges som de är, använder du en ord lista.
 - Fras ord listan bör användas sparsamt. Tänk på att när en fras i en mening ersätts, försvinner kontexten i den meningen eller begränsas för översättning av resten av meningen. Resultatet är att när frasen eller ordet i meningen översätts enligt den angivna ord listan, kommer den övergripande översättnings kvaliteten i meningen ofta att bli lidande.
 - Fras ord listan fungerar bra för sammansatta substantiv som produkt namn ("Microsoft SQL Server"), rätt namn ("stad") eller funktioner i produkten ("Pivot Table"). Det fungerar inte lika bra för verb eller adjektiv eftersom dessa vanligt vis är mycket inflected i källan eller på mål språket. Bästa praxis är att undvika ord listors poster för allt utom sammansatta substantiv.
-- När du använder en ord lista är versaler och skiljetecken viktiga. Ord listans poster matchar bara ord och fraser som har samma versaler och skiljetecken som den post som finns i ord listan. Översättningarna visar de versaler och skiljetecken som finns på mål sidan i ord listans fil. Som exempel har du tränat en engelsk till spansk modell med en ord lista som har angett "Hello" i käll filen som ska översättas till "Buenos Dias" i mål filen. När du begär översättning av en mening som innehåller "Hello", kommer systemet att söka i ord listan först och hitta en matchning ("Hello") och returnerar "Buenos Dias" i den slutliga översättningen.
+- När du använder en fras ord lista är Skift läge och interpunktion viktiga. Ord listans poster matchar bara ord och fraser i inmatnings meningen som använder exakt samma Skift läge och interpunktion som anges i käll ord listans fil. Översättningarna återspeglar även de versaler och skiljetecken som finns i mål ord listans fil. Om du till exempel har tränat ett engelskt till spanska-system som använder en fras ord lista som anger "oss" i käll filen och "EE. UU." i målfilen. När du begär översättning av en mening som innehåller ordet "US" (inte versaler) matchar inte ord listan. Om du däremot begär översättning av en mening som innehåller ordet "oss" (kapitaliseras) matchar ord listan och översättningen skulle innehålla "EE. UU." Observera att versaler och skiljetecken i översättningen kan skilja sig från de som anges i mål filen för ord listan och kan skilja sig från versaler och skiljetecken i källan. Det följer reglerna för mål språket.
 - Om ett ord förekommer mer än en gång i en ordlistefil, kommer systemet alltid att använda den senast angivna posten. Därför bör ord listan innehålla flera översättningar av samma ord.
 
 ## <a name="next-steps"></a>Nästa steg

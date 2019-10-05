@@ -2,19 +2,19 @@
 title: 'Självstudier: Distribuera ASP.NET Core-appar till Azure Kubernetes Service med Azure DevOps-projekt'
 description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera din ASP.NET Core-app med Azure Kubernetes Service (AKS) i några få enkla steg.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 2aa103b36f60a84aaafc47f03a6cf6d5b6b66160
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: b27d56d78296dc5500f97802f811a8923c4e87a8
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554955"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969672"
 ---
 # <a name="tutorial-deploy-aspnet-core-apps-to-azure-kubernetes-service-with-azure-devops-projects"></a>Självstudier: Distribuera ASP.NET Core-appar till Azure Kubernetes Service med Azure DevOps-projekt
 

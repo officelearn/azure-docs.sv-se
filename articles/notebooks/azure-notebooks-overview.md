@@ -4,21 +4,20 @@ description: Kör Jupyter-notebooks i molnet med den kostnadsfria Azure Notebook
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 9cea5a8e-c52d-4bdc-9e4a-cecdc1ad02c1
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: overview
 ms.date: 04/05/2019
 ms.author: kraigb
-ms.openlocfilehash: 4840a9839fe1f2a31470d4a67b3755b82077fd90
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 12d9a1a92c0b008244c7db4ec23d5a28888b042a
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60634328"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973170"
 ---
 # <a name="overview-of-azure-notebooks"></a>Översikt över Azure Notebooks
 
@@ -59,7 +58,7 @@ Azure Notebooks är en kostnadsfri tjänst, men varje projekt är begränsat til
 
 Släpp alla gränser genom att logga in på Azure Notebooks med ett konto med Azure Active Directory (till exempel ett företagskonto). Om kontot är associerat med en Azure-prenumeration kan du ansluta till valfria Azure Data Science Virtual Machine-instanser i den prenumerationen. Mer information finns i avsnittet om att [hantera och konfigurera projekt på beräkningsnivån](configure-manage-azure-notebooks-projects.md#compute-tier).
 
-Anteckningsboken servrar garanterat finns i högst 8 timmar. I de flesta fall behållaren är inte omfattas av den här gränsen och fortsätter att köras efter den här tiden, men kan ibland att stängas av långlivade sessioner för systemets stabilitet.
+Notebook-servrar garanterar att de finns i högst 8 timmar. I de flesta fall omfattas din behållare inte av denna gräns och fortsätter att köras efter den här tiden, men långvariga sessioner kan ibland stängas av för system stabilitet.
 
 ## <a name="available-kernels-and-environments"></a>Tillgängliga kernels och miljöer
 
@@ -115,8 +114,8 @@ Om du vill diskutera frågor om Azure Notebooks kan du rapportera ett problem p�
   
   - [Skapa och klona projekt](create-clone-jupyter-notebooks.md)
   - [Konfigurera och hantera projekt](configure-manage-azure-notebooks-projects.md)
-  - [Installera paket inifrån en notebook-fil](install-packages-jupyter-notebook.md)
+  - [Installera paket från inom en anteckningsbok](install-packages-jupyter-notebook.md)
   - [Presentera ett bildspel](present-jupyter-notebooks-slideshow.md)
-  - [Arbeta med datafiler](work-with-project-data-files.md)
-  - [Få åtkomst till dataresurser](access-data-resources-jupyter-notebooks.md)
+  - [Arbeta med filer](work-with-project-data-files.md)
+  - [Få åtkomst till data-resurser](access-data-resources-jupyter-notebooks.md)
   - [Använda Azure Machine Learning Services](use-machine-learning-services-jupyter-notebooks.md)

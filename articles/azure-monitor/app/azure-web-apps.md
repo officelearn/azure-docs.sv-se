@@ -7,21 +7,21 @@ author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 10/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: f45762d5b37a006ede9aeff76e3d756c8144f5ba
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 1a00a487713458e4221f1832b2a4840ebd0d0375
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258579"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71972962"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service prestanda
 
 Nu är det enklare än någonsin att aktivera övervakning i ASP.NET och ASP.NET Core baserade webb program som körs på [Azure App Services](https://docs.microsoft.com/azure/app-service/) . Tidigare var du tvungen att installera ett plats tillägg manuellt, det senaste tillägget/agenten är nu inbyggt i App Service-avbildningen som standard. Den här artikeln vägleder dig genom att aktivera Application Insights övervakning och ge preliminär vägledning för automatisering av processen för storskaliga distributioner.
 
 > [!NOTE]
-> Att manuellt lägga till ett Application Insights webbplats tillägg via**tillägg** för **utvecklingsverktyg** > är föråldrad. Den här metoden för tilläggs installation var beroende av manuella uppdateringar för varje ny version. Den senaste stabila versionen av tillägget är nu förinstallerad som en del av App Service avbildningen. [](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) Filerna finns i `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` och uppdateras automatiskt med varje stabil utgåva. Om du följer agentbaserade instruktioner för att aktivera övervakning nedan tas det inaktuella tillägget bort automatiskt.
+> Att manuellt lägga till ett Application Insights webbplats tillägg via **utvecklingsverktyg** > -**tillägg** är föråldrat. Den här metoden för tilläggs installation var beroende av manuella uppdateringar för varje ny version. Den senaste stabila versionen av tillägget är nu [förinstallerad](https://github.com/projectkudu/kudu/wiki/Azure-Site-Extensions) som en del av App Service avbildningen. Filerna finns i `d:\Program Files (x86)\SiteExtensions\ApplicationInsightsAgent` och uppdateras automatiskt med varje stabil utgåva. Om du följer agentbaserade instruktioner för att aktivera övervakning nedan tas det inaktuella tillägget bort automatiskt.
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
@@ -52,7 +52,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
    * Välj att skapa en ny resurs, om du inte redan har konfigurerat en Application Insights resurs för det här programmet. 
 
      > [!NOTE]
-     > När du klickar på **OK** för att skapa den nya resursen uppmanas du att **tillämpa övervaknings inställningarna**. Om du väljer **Fortsätt** länkas din nya Application Insights-resurs till din app service. då aktive ras även **en omstart av App Service**. 
+     > När du klickar på **OK** för att skapa den nya resursen uppmanas du att **tillämpa övervaknings inställningarna**. Om du väljer **Fortsätt** länkas din nya Application Insights-resurs till din app service. då **aktive ras även en omstart av App Service**. 
 
      ![Instrumentera din webbapp](./media/azure-web-apps/create-resource-01.png)
 
@@ -62,7 +62,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
    * .NET **Basic Collection** -nivån erbjuder grundläggande APM-funktioner med en instans.
 
-   * **Rekommenderad** .net-samlings nivå:
+   * Rekommenderad .NET- **samlings** nivå:
        * Lägger till trender för CPU, minne och I/O-användning.
        * Korrelerar mikrotjänster mellan begär Anden/beroende gränser.
        * Samlar in användnings trender och gör det möjligt att korrelation från tillgänglighets resultat till transaktioner.
@@ -71,7 +71,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
 
 3. Om du vill konfigurera inställningar som sampling, som du tidigare kan styra via filen applicationinsights. config, kan du nu interagera med samma inställningar via program inställningar med ett motsvarande prefix. 
 
-    * Om du till exempel vill ändra den inledande samplings procenten kan du skapa en program inställning `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` av: och `100`värdet.
+    * Om du till exempel vill ändra den inledande samplings procenten kan du skapa en program inställning av: `MicrosoftAppInsights_AdaptiveSamplingTelemetryProcessor_InitialSamplingPercentage` och värdet `100`.
 
     * Om du vill visa en lista över stödda alternativ för adaptiva typer av telemetri för telemetri, kan du läsa igenom [koden](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) och [tillhör ande dokumentation](https://docs.microsoft.com/azure/azure-monitor/app/sampling).
 
@@ -88,7 +88,7 @@ Att rikta in sig på hela ramverket från .NET Core, fristående distribution oc
    * Välj att skapa en ny resurs, om du inte redan har konfigurerat en Application Insights resurs för det här programmet. 
 
      > [!NOTE]
-     > När du klickar på **OK** för att skapa den nya resursen uppmanas du att **tillämpa övervaknings inställningarna**. Om du väljer **Fortsätt** länkas din nya Application Insights-resurs till din app service. då aktive ras även **en omstart av App Service**. 
+     > När du klickar på **OK** för att skapa den nya resursen uppmanas du att **tillämpa övervaknings inställningarna**. Om du väljer **Fortsätt** länkas din nya Application Insights-resurs till din app service. då **aktive ras även en omstart av App Service**. 
 
      ![Instrumentera din webbapp](./media/azure-web-apps/create-resource-01.png)
 
@@ -103,7 +103,7 @@ Att rikta in sig på hela ramverket från .NET Core, fristående distribution oc
 * Välj **inställningar**>** **program inställningar** **
    * Under program inställningar lägger du till ett nytt namn och **värde**för **appens inställning** :
 
-     Namn:`APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Värde:`true`
 
@@ -119,10 +119,10 @@ Om du vill inaktivera övervakning på klient sidan tar du antingen bort det ass
 
 Om du av någon anledning vill inaktivera övervakning på klient sidan:
 
-* Välj **Inställningar** > **program inställningar**
+* Välj **inställningar** > **program inställningar**
    * Under program inställningar lägger du till ett nytt namn och **värde**för **appens inställning** :
 
-     Namn:`APPINSIGHTS_JAVASCRIPT_ENABLED`
+     Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
      Värde:`false`
 
@@ -141,8 +141,8 @@ För att kunna aktivera telemetri-samling med Application Insights, behöver du 
 |Namn på App-inställning |  Definition | Value |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Huvud tillägg som styr körnings övervakning. | `~2` |
-|XDT_MicrosoftApplicationInsights_Mode |  I standard läget är de viktigaste funktionerna aktiverade för att säkerställa optimala prestanda. | `default`eller `recommended`. |
-|InstrumentationEngine_EXTENSION_VERSION | Kontrollerar om den binära omskrivnings `InstrumentationEngine` motorn aktive ras. Den här inställningen har prestanda konsekvenser och påverkar start-och start tid för kall. | `~1` |
+|XDT_MicrosoftApplicationInsights_Mode |  I standard läget är de viktigaste funktionerna aktiverade för att säkerställa optimala prestanda. | `default` eller `recommended`. |
+|InstrumentationEngine_EXTENSION_VERSION | Kontrollerar om den binära omskrivnings motorn `InstrumentationEngine` aktive ras. Den här inställningen har prestanda konsekvenser och påverkar start-och start tid för kall. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Kontrollerar om SQL & Azure Table text kommer att samlas in tillsammans med beroende anrop. Prestanda varning: den här inställningen kräver `InstrumentationEngine`. | `~1` |
 
 ### <a name="app-service-application-settings-with-azure-resource-manager"></a>App Service program inställningar med Azure Resource Manager
@@ -185,7 +185,7 @@ Med det här alternativet skapas den senaste Azure Resource Manager-mallen med a
 
   ![Mall för App Service-webbapp](./media/azure-web-apps/arm-template.png)
 
-Nedan visas ett exempel som ersätter alla instanser av `AppMonitoredSite` med namnet på din webbplats:
+Nedan visas ett exempel som ersätter alla instanser av `AppMonitoredSite` med ditt webbplats namn:
 
 ```json
 {
@@ -302,7 +302,7 @@ $app = Set-AzWebApp -AppSettings $newAppSettings -ResourceGroupName $app.Resourc
 
 Uppgradering från version 2.8.9 sker automatiskt, utan ytterligare åtgärder. De nya övervaknings bitarna levereras i bakgrunden till mål program tjänsten och när programmet startas om kommer de att hämtas.
 
-Kontrol lera vilken version av tillägget som du kör på`http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+Du kan kontrol lera vilken version av tillägget som du kör på `http://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
 ![Skärm bild av URL-sökväg http://yoursitename.scm.azurewebsites.net/ApplicationInsights](./media/azure-web-apps/extension-version.png)
 
@@ -330,34 +330,34 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 > ASP.NET Core 3,0-program stöds inte. Följ den [manuella instrumentering](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) via kod för ASP.net Core 3,0-appar.
 
 1. Kontrol lera att programmet övervakas via `ApplicationInsightsAgent`.
-    * Kontrol lera `ApplicationInsightsAgent_EXTENSION_VERSION` att appens inställning har värdet "~ 2".
+    * Kontrol lera att app-inställningen för `ApplicationInsightsAgent_EXTENSION_VERSION` har värdet "~ 2".
 2. Kontrol lera att programmet uppfyller de krav som ska övervakas.
-    * Bläddra till`https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
+    * Bläddra till `https://yoursitename.scm.azurewebsites.net/ApplicationInsights`
 
-    ![Skärm bild https://yoursitename.scm.azurewebsites/applicationinsights av resultat Sidan](./media/azure-web-apps/app-insights-sdk-status.png)
+    ![Skärm bild av https://yoursitename.scm.azurewebsites/applicationinsights resultat sida](./media/azure-web-apps/app-insights-sdk-status.png)
 
-    * Bekräfta att `Application Insights Extension Status` är`Pre-Installed Site Extension, version 2.8.12.1527, is running.`
+    * Bekräfta att `Application Insights Extension Status` är `Pre-Installed Site Extension, version 2.8.12.1527, is running.`
         * Om den inte körs följer du anvisningarna för [att aktivera Application Insights övervakning](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#enable-application-insights)
 
-    * Bekräfta att status källan finns och ser ut så här:`Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
+    * Bekräfta att status källan finns och ser ut så här: `Status source D:\home\LogFiles\ApplicationInsights\status\status_RD0003FF0317B6_4248_1.json`
         * Om ett liknande värde inte finns, innebär det att programmet inte körs eller inte stöds. För att säkerställa att programmet körs kan du försöka gå till programmets URL/program slut punkter manuellt, vilket gör att körnings informationen blir tillgänglig.
 
-    * Bekräfta att `IKeyExists` är`true`
+    * Bekräfta att `IKeyExists` är `true`
         * Om det är falskt lägger du till "APPINSIGHTS_INSTRUMENTATIONKEY med ditt iKey-GUID i dina program inställningar.
 
-    * Bekräfta att det inte finns några poster `AppAlreadyInstrumented`för `AppContainsDiagnosticSourceAssembly`,, `AppContainsAspNetTelemetryCorrelationAssembly`och.
-        * Om någon av dessa poster finns tar du bort följande paket från programmet: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource`och `Microsoft.AspNet.TelemetryCorrelation`.
+    * Bekräfta att det inte finns några poster för `AppAlreadyInstrumented`, `AppContainsDiagnosticSourceAssembly` och `AppContainsAspNetTelemetryCorrelationAssembly`.
+        * Om någon av dessa poster finns tar du bort följande paket från programmet: `Microsoft.ApplicationInsights`, `System.Diagnostics.DiagnosticSource` och `Microsoft.AspNet.TelemetryCorrelation`.
 
 Tabellen nedan innehåller en mer detaljerad förklaring av vad dessa värden innebär, deras underliggande orsaker och rekommenderade korrigeringar:
 
 |Problem värde|Förklaring|Korrigera
 |---- |----|---|
-| `AppAlreadyInstrumented:true` | Det här värdet anger att tillägget har identifierat att en aspekt av SDK: n redan finns i programmet och kommer att stängas av. Det kan bero på en referens till `System.Diagnostics.DiagnosticSource`, eller `Microsoft.AspNet.TelemetryCorrelation``Microsoft.ApplicationInsights`  | Ta bort referenserna. Vissa av dessa referenser läggs till som standard från vissa Visual Studio-mallar och äldre versioner av Visual Studio kan lägga till referenser `Microsoft.ApplicationInsights`till.
+| `AppAlreadyInstrumented:true` | Det här värdet anger att tillägget har identifierat att en aspekt av SDK: n redan finns i programmet och kommer att stängas av. Det kan bero på en referens till `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation` eller `Microsoft.ApplicationInsights`  | Ta bort referenserna. Vissa av dessa referenser läggs till som standard från vissa Visual Studio-mallar och äldre versioner av Visual Studio kan lägga till referenser till `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Om programmet är riktat mot .NET Core 2,1 eller 2,2, och refererar till [Microsoft. AspNetCore. all](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-paket, kommer det att finnas i Application Insights och tillägget kommer att återställas. | Kunder på .NET Core 2.1, 2.2 [rekommenderar](https://github.com/aspnet/Announcements/issues/287) att du använder Microsoft. AspNetCore. app-meta-paketet i stället.|
-|`AppAlreadyInstrumented:true` | Det här värdet kan också orsakas av förekomsten av ovanstående DLL-filer i mappen app från en tidigare distribution. | Rensa mappen app för att se till att dessa DLL-filer tas bort.|
+|`AppAlreadyInstrumented:true` | Det här värdet kan också orsakas av förekomsten av ovanstående DLL-filer i mappen app från en tidigare distribution. | Rensa mappen app för att se till att dessa DLL-filer tas bort. Kontrol lera både den lokala appens bin-katalog och katalogen wwwroot på App Service. (För att kontrol lera katalogen wwwroot i App Service-webbappen: Avancerade verktyg (kudu) > fel söknings konsolen > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Det här värdet anger att tillägget har identifierat referenser till `Microsoft.AspNet.TelemetryCorrelation` i programmet och kommer att återställas. | Ta bort referensen.
 |`AppContainsDiagnosticSourceAssembly**:true`|Det här värdet anger att tillägget har identifierat referenser till `System.Diagnostics.DiagnosticSource` i programmet och kommer att återställas.| Ta bort referensen.
-|`IKeyExists:false`|Det här värdet anger att Instrumentation- `APPINSIGHTS_INSTRUMENTATIONKEY`nyckeln inte finns i AppSetting. Möjliga orsaker: Värdena kan ha tagits bort av misstag, glömde att ange värden i Automation-skriptet osv. | Kontrol lera att inställningen finns i App Service programmets inställningar.
+|`IKeyExists:false`|Det här värdet anger att Instrumentation-nyckeln inte finns i AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Möjliga orsaker: Värdena kan ha tagits bort av misstag, glömde att ange värden i Automation-skriptet osv. | Kontrol lera att inställningen finns i App Service programmets inställningar.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte
 

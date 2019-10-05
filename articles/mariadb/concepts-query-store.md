@@ -1,21 +1,21 @@
 ---
 title: Query Store i Azure Database for MariaDB
-description: I den här artikeln beskrivs funktionen Query Store i Azure Database for MariaDB
+description: Lär dig mer om Query Store-funktionen i Azure Database for MariaDB som hjälper dig att spåra prestanda över tid.
 author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 5d4d01f9f85c78d0e864ec9d11c1d8cd43542e57
-ms.sourcegitcommit: 78ebf29ee6be84b415c558f43d34cbe1bcc0b38a
+ms.openlocfilehash: ee0a3c41edd144c1220cdc9b5a5463b43bef5551
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68950622"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973556"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Övervaka Azure Database for MariaDB prestanda med Query Store
 
-**Gäller för:**  Azure Database for MariaDB 10,2
+**Gäller för:**  Azure Database för MariaDB 10,2
 
 > [!IMPORTANT]
 > Query Store är i för hands version.
@@ -37,7 +37,7 @@ Frågearkivet är en valbar funktion, så den är inte aktiv som standard på en
 ### <a name="enable-query-store-using-the-azure-portal"></a>Aktivera Query Store med hjälp av Azure Portal
 
 1. Logga in på Azure Portal och välj Azure Database for MariaDB-servern.
-1. Välj **Server parametrar** i avsnittet **Inställningar** på menyn.
+1. Välj **Server parametrar** in **inställningarna** section på menyn.
 1. Sök efter parametern query_store_capture_mode.
 1. Ange värdet till alla och **Spara**.
 
@@ -52,8 +52,8 @@ Låt upp till 20 minuter innan den första data mängden sparas i MySQL-database
 
 Frågearkivet har två butiker:
 
-- Ett körnings statistik Arkiv för att spara information om statistik för körning av frågor.
-- En väntande statistik lagring för information om beständig information om väntande statistik.
+- Körnings statistik lagret för att spara information om körnings statistik för frågor.
+- Vänte statistik lagret för att spara information om väntande statistik.
 
 För att minimera utrymmes användningen sammanställs körnings statistik för körning i körnings statistik arkivet över ett fast, konfigurerbart tids fönster. Informationen i dessa butiker är synlig genom att fråga vyn över frågearkivet.
 
@@ -78,8 +78,8 @@ Här följer några exempel på hur du kan få mer insikter om din arbets belast
 | **Permanenta** | **Åtgärd** |
 |---|---|
 |Hög lås väntar | Kontrol lera fråge texterna för de berörda frågorna och identifiera målentiteten. Leta i Frågearkivet efter andra frågor som ändrar samma entitet, som körs ofta och/eller har hög varaktighet. När du har identifierat dessa frågor bör du överväga att ändra program logiken till att förbättra samtidigheten eller använda en mindre begränsande isolerings nivå. |
-|Hög buffert i/o väntar | Hitta frågorna med ett stort antal fysiska läsningar i Frågearkivet. Om de matchar frågorna med höga i/o-vänte tid, bör du överväga att introducera ett index på den underliggande entiteten för att göra sökningar i stället för genomsökningar. Detta skulle minimera IO-omkostnaderna för frågorna. Kontrol lera **prestanda rekommendationerna** för servern i portalen för att se om det finns några index rekommendationer för den här servern som skulle optimera frågorna. |
-|Hög minnes väntan | Hitta de mest krävande minnes frågorna i Frågearkivet. Dessa frågor fördröjer förmodligen ytterligare förloppet för de frågor som påverkas. Kontrol lera **prestanda rekommendationerna** för servern i portalen för att se om det finns några index rekommendationer som skulle optimera dessa frågor.|
+|Hög buffert i/o väntar | Hitta frågorna med ett stort antal fysiska läsningar i Frågearkivet. Om de matchar frågorna med höga i/o-vänte tid, bör du överväga att introducera ett index på den underliggande entiteten för att göra sökningar i stället för genomsökningar. Detta skulle minimera IO-omkostnaderna för frågorna. Kontrol lera **prestanda rekommendationer** for din server i portalen för att se om det finns index rekommendationer för den här servern som skulle optimera frågorna. |
+|Hög minnes väntan | Hitta de mest krävande minnes frågorna i Frågearkivet. Dessa frågor fördröjer förmodligen ytterligare förloppet för de frågor som påverkas. Kontrol lera **prestanda rekommendationer** for din server i portalen för att se om det finns index rekommendationer som skulle optimera dessa frågor.|
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
@@ -87,16 +87,16 @@ När Query Store har Aktiver ATS sparas data i 15-minuters agg regerings fönste
 
 Följande alternativ är tillgängliga för att konfigurera parametrar för Frågearkivet.
 
-| **Parametern** | **Beskrivning** | **Standard** | **Intervall** |
+| **Parametern** | **Beskrivning** | **Standard** | **Område** |
 |---|---|---|---|
-| query_store_capture_mode | Aktivera/inaktivera funktionen för Query Store baserat på värdet. Anteckning: Om performance_schema är inaktiverat, aktiverar query_store_capture_mode performance_schema och en delmängd av de prestanda schema instrument som krävs för den här funktionen. | Alla | INGEN, ALLA |
+| query_store_capture_mode | Aktivera/inaktivera funktionen för Query Store baserat på värdet. Obs! Om performance_schema är inaktiverat, aktiverar query_store_capture_mode performance_schema och en delmängd av de prestanda schema instrument som krävs för den här funktionen. | VISSA | INGEN, ALLA |
 | query_store_capture_interval | Hämtnings intervallet för frågearkivet i minuter. Tillåter att du anger det intervall som används för att aggregera frågeresultaten | 15 | 5 - 60 |
 | query_store_capture_utility_queries | Aktivera eller inaktivera för att avbilda alla verktygs frågor som körs i systemet. | NO | JA, NEJ |
 | query_store_retention_period_in_days | Tids period i dagar för att behålla data i frågearkivet. | 7 | 1 - 30 |
 
 Följande alternativ gäller specifikt för väntande statistik.
 
-| **Parametern** | **Beskrivning** | **Standard** | **Intervall** |
+| **Parametern** | **Beskrivning** | **Standard** | **Område** |
 |---|---|---|---|
 | query_store_wait_sampling_capture_mode | Gör det möjligt att aktivera/inaktivera väntande statistik. | INGEN | INGEN, ALLA |
 | query_store_wait_sampling_frequency | Ändrar frekvensen för vänta-sampling i sekunder. 5 till 300 sekunder. | 30 | 5-300 |
@@ -108,7 +108,7 @@ Använd [Azure Portal](howto-server-parameters.md) för att hämta eller ange e
 
 ## <a name="views-and-functions"></a>Vyer och funktioner
 
-Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i [rollen Välj offentlig behörighet](howto-create-users.md#create-additional-admin-users) kan använda dessa vyer för att se data i frågearkivet. Dessa vyer är bara tillgängliga i **MySQL** -databasen.
+Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i [rollen Välj offentlig behörighet](howto-create-users.md#create-additional-admin-users) kan använda dessa vyer för att se data i frågearkivet. Dessa vyer är bara tillgängliga i **MySQL**- database.
 
 Frågorna normaliseras genom att titta på deras struktur efter att du tagit bort litteraler och konstanter. Om två frågor är identiska förutom literala värden, har de samma hash.
 
@@ -171,11 +171,11 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 
 ## <a name="limitations-and-known-issues"></a>Begränsningar och kända problem
 
-- Om en MariaDB-Server har parametern `default_transaction_read_only` på kan Query Store inte samla in data.
-- Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor\>(= 6000 byte).
+- Om en MariaDB-Server har parametern `default_transaction_read_only` på kan Frågearkivet inte samla in data.
+- Query Store-funktionen kan avbrytas om den påträffar långa Unicode-frågor (\> = 6000 byte).
 - Kvarhållningsperioden för väntande statistik är 24 timmar.
-- Väntande statistik använder exempel på Värdejämföring för att avbilda en bråkdel av händelser. Frekvensen kan ändras med hjälp av parametern `query_store_wait_sampling_frequency`.
+- Väntande statistik använder exempel på Värdejämföring för att avbilda en bråkdel av händelser. Frekvensen kan ändras med parametern `query_store_wait_sampling_frequency`.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om [frågor om prestanda](concepts-query-performance-insight.md) insikter
+- Läs mer om [frågor om prestanda insikter](concepts-query-performance-insight.md)

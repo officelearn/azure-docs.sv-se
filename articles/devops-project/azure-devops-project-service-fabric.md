@@ -1,22 +1,22 @@
 ---
-title: 'Självstudier: Distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps-projekt'
+title: 'Självstudier: Distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps Projects'
 description: Azure DevOps Projects gör det enkelt att komma igång med Azure. Med DevOps Projects kan du distribuera din ASP.NET Core-app till Azure Service Fabric med några få enkla steg.
 ms.author: mlearned
-ms.manager: douge
+ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 07/09/2018
 author: mlearned
 monikerRange: vsts
-ms.openlocfilehash: 8ba217cb9ce849e57b15d3e6cc73529c78bf340e
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 5f14164da5cd89cc7d0578e6b64c39d227734d75
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60554953"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71969480"
 ---
-# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Självstudier: Distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps-projekt
+# <a name="tutorial-deploy-your-aspnet-core-app-to-azure-service-fabric-by-using-azure-devops-projects"></a>Självstudier: Distribuera din ASP.NET Core-app till Azure Service Fabric med Azure DevOps Projects
 
 Azure DevOps Projects ger ett förenklat sätt att ta med befintlig kod och Git-lagringsplatser i Azure, eller välja ett exempelprogram för att skapa en pipeline för kontinuerlig integration (CI) och kontinuerlig leverans (CD) till Azure. 
 
@@ -79,7 +79,7 @@ DevOps Projects skapar en CI/CD-pipeline i Azure Pipelines. Du kan skapa en ny A
 
 DevOps Projects konfigurerar automatiskt en CI/CD-pipeline i Azure Pipelines. Du kan utforska och anpassa pipelinen. För att bekanta dig med den gör du följande:
 
-1. Gå till instrumentpanelen för DevOps-projektet.
+1. Gå till instrument panelen för DevOps-projektet.
 
 1. Välj **Bygg-pipelines** längst upp på DevOps Projects-instrumentpanelen.  
     En webbläsarflik visar bygg-pipelinen för det nya projektet.

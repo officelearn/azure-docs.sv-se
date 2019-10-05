@@ -4,21 +4,20 @@ description: Så här skapar du en Jupyter-anteckningsbok en körning i Azure-an
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: 65bbb5fe-9939-4e8e-8f5b-c197d4be142a
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: kraigb
-ms.openlocfilehash: 09d4038e705fb3bc4ff2c82daf5dc4c07f346f94
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: 827338c299b19d04245d7114a99d946d0332c82f
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66751752"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973048"
 ---
 # <a name="tutorial-create-and-run-a-jupyter-notebook-with-python"></a>Självstudie: skapa och köra en Jupyter-anteckningsbok med Python
 
@@ -40,7 +39,7 @@ Slutförda anteckningsboken kan hittas på [GitHub - exempel för Azure-anteckni
 
 1. I den **Skapa nytt projekt** popup-fönstret som visas, ange eller ange följande information och välj sedan **skapa**:
 
-    - **Projektnamnet**: Exempel på linjär Regression – Cricket Chirps
+    - **Projekt namn**: Exempel på linjär regression – cricket Chirps
     - **Projektet ID**: linjär regression exempel
     - **Offentliga projekt**: (avmarkerad)
     - **Skapa en README.md**: (avmarkerad)
@@ -49,7 +48,7 @@ Slutförda anteckningsboken kan hittas på [GitHub - exempel för Azure-anteckni
 
 ## <a name="create-the-data-file"></a>Skapa datafilen
 
-Den linjära regressionsmodellen som du skapar i anteckningsboken hämtar data från en fil i ditt projekt med namnet *cricket_chirps.csv*. Du kan skapa den här filen genom att kopiera den från [GitHub - exempel för Azure-anteckningsböcker](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps), eller genom att ange data direkt. I följande avsnitt beskrivs båda metoderna.
+Den linjära regressionsmodellen som du skapar i anteckningsboken hämtar data från en fil i ditt projekt med namnet *cricket_chirps.csv*. Du kan skapa den här filen antingen genom att kopiera den från [GitHub Azure Notebooks-exempel](https://github.com/Microsoft/AzureNotebooks/tree/master/Samples/Linear%20Regression%20-%20Cricket%20Chirps)eller genom att ange data direkt. I följande avsnitt beskrivs båda metoderna.
 
 ### <a name="upload-the-data-file"></a>Ladda upp filen
 
@@ -128,7 +127,7 @@ Du kan nu skapa och öppna anteckningsboken med redo datafilen och projekt milj�
 1. Eftersom du har en *requirements.txt* filen i miljöinställningarna för visas meddelandet ”väntar på din behållare till Slutför förbereds”. Du kan välja **OK** att stänga meddelandet och fortsätta arbeta i anteckningsboken; du kan inte köra kod celler, men tills miljön är fullständigt konfigurerad.
 1. Anteckningsboken öppnas i Jupyter-gränssnitt med en enda tom kodcell som standard.
 
-    [![Inledande vy av en ny anteckningsbok i Azure-anteckningsböcker](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
+    [![Initial vy av en ny antecknings bok i Azure Notebooks](media/tutorial/tutorial-new-notebook.png)](media/tutorial/tutorial-new-notebook.png#lightbox)
 
 ## <a name="tour-the-notebook-interface"></a>Tour bärbar dator-gränssnitt
 
@@ -144,7 +143,7 @@ Med den bärbara datorn körs, kan du lägga till kod och Markdown-celler kör c
 (F) indikator för om anteckningsboken är betrodd (standardvärdet är **ej betrodd**).
 (G) kernel som används för att köra anteckningsboken tillsammans med en indikator för aktiviteten.
 
-[![Delar av Användargränssnittet för Jupyter-gränssnittet](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
+[@no__t 1Primary UI-områden i Jupyter-gränssnittet](media/tutorial/tutorial-notebook-ui.png)](media/tutorial/tutorial-notebook-ui.png#lightbox)
 
 Jupyter innehåller en inbyggd genomgång av de primära UI-element. Starta den guidade visningen genom att välja den **hjälpa** > **användaren gränssnittet rundtur** kommando och klicka på via de popup-fönster.
 
@@ -411,13 +410,13 @@ När du är klar med en bärbar dator, använder den **filen** > **Stäng och st
 
 ## <a name="debug-notebooks-using-visual-studio-code"></a>Felsöka anteckningsböcker som använder Visual Studio Code
 
-Om koden cellerna i anteckningsboken inte fungerar på det sätt som du förväntar dig, kan du ha koden buggar eller andra fel. Men än att använda `print` -uttryck för att visa värdet för variabler, alla felsökning anläggningar inte omfattas av en typisk Jupyter-miljö.
+Om koden cellerna i anteckningsboken inte fungerar på det sätt som du förväntar dig, kan du ha koden buggar eller andra fel. Men förutom att använda `print`-instruktioner för att visa värdet för variabler, erbjuder en typisk Jupyter-miljö inga fel söknings funktioner.
 
-Som tur är kan du kan ladda ned den bärbara datorn *.ipynb* filen och sedan öppna den i Visual Studio Code med Python-tillägg. Tillägget importerar direkt en bärbar dator som en enda kodfil bevara din Markdown-celler i kommentarerna. När du har importerat anteckningsboken, kan du använda felsökaren för Visual Studio Code för att gå igenom koden, ange brytpunkter, granska tillstånd och så vidare. När du har gjort ändringar i koden du sedan exportera den *.ipynb* från Visual Studio Code och ladda upp den tillbaka till Azure-anteckningsböcker.
+Lyckligt vis kan du hämta Notebook *. ipynb* -filen och sedan öppna den i Visual Studio Code med hjälp av python-tillägget. Tillägget importerar en antecknings bok direkt som en enda kod fil och bevarar markdown-cellerna i kommentarer. När du har importerat antecknings boken kan du använda Visual Studio Code debugger för att gå igenom koden, ange Bryt punkter, granska status och så vidare. När du har gjort ändringar i koden exporterar du *. ipynb* -filen från Visual Studio Code och laddar upp den igen till Azure Notebooks.
 
-Mer information finns i [felsöka en Jupyter-anteckningsbok](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) i Visual Studio Code-dokumentationen.
+Mer information finns i [Felsöka en Jupyter Notebook](https://code.visualstudio.com/docs/python/jupyter-support#debug-a-jupyter-notebook) i Visual Studio Code-dokumentationen.
 
-Se även [Visual Studio Code - stöd för Jupyter](https://code.visualstudio.com/docs/python/jupyter-support) för ytterligare funktioner i Visual Studio Code för Jupyter-anteckningsböcker.
+Se även [Visual Studio Code-Jupyter support](https://code.visualstudio.com/docs/python/jupyter-support) för ytterligare funktioner i Visual Studio Code för Jupyter Notebooks.
 
 ## <a name="next-steps"></a>Nästa steg
 

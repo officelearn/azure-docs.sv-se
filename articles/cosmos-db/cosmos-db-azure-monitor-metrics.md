@@ -1,17 +1,17 @@
 ---
 title: Hämta Azure Cosmos DB mått från Azure Monitor
-description: ''
+description: Lär dig hur du visar olika kategorier av Azure Cosmos DB mått från Azure Monitor med Azure Portal.
 author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/01/2019
-ms.openlocfilehash: 762c910336fa2b50a46eda23cf66d8a7aa383c52
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 905eca99c137af2fd40a1243de8fabd15314477c
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241228"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71973746"
 ---
 # <a name="monitor-and-debug-azure-cosmos-db-metrics-from-azure-monitor"></a>Övervaka och felsöka Azure Cosmos DB mått från Azure Monitor
 
@@ -72,7 +72,7 @@ Du kan gruppera mått med hjälp av alternativet **Använd delning** . Du kan ti
 |---|---|---|---| ---| ---| ---|
 | AvailableStorage (tillgängligt lagrings utrymme) |Byte (totalt) | Totalt tillgängligt lagrings utrymme som har rapporter ATS enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5 M| Tillgängligt lagrings utrymme| Används för att övervaka tillgänglig lagrings kapacitet (gäller endast för fasta lagrings samlingar) minimal kornig het är 5 minuter.| 
 | DataUsage (data användning) |Byte (totalt) |Total data användning rapporterad enligt 5-minuters kornig het per region| DatabaseName, samlings region| 5 M |Datastorlek | Används för att övervaka total data användning i behållare och region, minsta kornig het är 5 minuter.|
-| IndexUsage (index användning) | Byte (totalt) |Total användning av index rapporterad enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5 M| Indexstorlek| Används för att övervaka total data användning i behållare och region, minsta kornig het är 5 minuter. |
+| IndexUsage (index användning) | Byte (totalt) |Total användning av index rapporterad enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5 M| Index storlek| Används för att övervaka total data användning i behållare och region, minsta kornig het är 5 minuter. |
 | DocumentQuota (dokument kvot) | Byte (totalt) | Total lagrings kvot som rapporter ATS med 5 minuters kornig het per region.| DatabaseName, samlings region| 5 M |Lagringskapacitet| Används för att övervaka den totala kvoten vid container och region, minimal kornig het är 5 minuter.|
 | DocumentCount (antal dokument) | Antal (totalt) |Totalt antal dokument som rapporter ATS enligt 5 minuters kornig het per region| DatabaseName, samlings region| 5 M |Antal dokument|Används för att övervaka antalet dokument i container och region, minimal kornig het är 5 minuter.|
 

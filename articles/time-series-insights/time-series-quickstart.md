@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.workload: big-data
 ms.custom: mvc seodec18
 ms.date: 09/23/2019
-ms.openlocfilehash: b5fb0c4de82d5ff5f5290127ec529787cabad64a
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 83446facc734c0bfa24b7e78916d652467d01415
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258348"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978685"
 ---
 # <a name="quickstart-explore-azure-time-series-insights"></a>Snabbstart: Utforska Azure Time Series Insights
 
@@ -24,7 +24,7 @@ Den här Azure Time Series Insights Explorer-snabb starten hjälper dig att komm
 
 Azure Time Series Insights är en helt hanterad tjänst för analys, lagring och visualisering som gör det enklare att utforska och analysera miljarder IoT-händelser samtidigt. Du får en global vy över dina data så att du snabbt kan verifiera din IoT-lösning och undvika kostsamma drift stopp för verksamhets kritiska enheter. Azure Time Series Insights hjälper dig att identifiera dolda trender, upptäcka avvikelser och utföra rotor Saks analyser i nära real tid.
 
-För ytterligare flexibilitet kan du lägga till Azure Time Series Insights i ett befintligt program via dess kraftfulla [REST-API: er](./time-series-insights-update-tsq.md) och [klient-SDK](./tutorial-create-tsi-sample-spa.md). Du kan använda API: er för att lagra, fråga och använda Time Series-data i ett valfritt klient program. Du kan också använda klient-SDK: n för att lägga till UI-komponenter i ditt befintliga program.
+För ytterligare flexibilitet kan du lägga till Azure Time Series Insights i ett befintligt program via dess kraftfulla [REST-API: er](./time-series-insights-update-tsq.md) och [klient-SDK](https://github.com/microsoft/tsiclient). Du kan använda API: er för att lagra, fråga och använda Time Series-data i ett valfritt klient program. Du kan också använda klient-SDK: n för att lägga till UI-komponenter i ditt befintliga program.
 
 Den här snabb starten i Time Series Insights Explorer innehåller en guidad genom gång av funktioner som är allmänt tillgängliga.
 
@@ -39,45 +39,45 @@ Den här snabb starten i Time Series Insights Explorer innehåller en guidad gen
 
 1. Sidan Time Series Insights guidad visning visas. Välj **Nästa** för att starta den guidade visningen.
 
-   [![Välj nästa](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
+   [![Select nästa](media/quickstart/quickstart1.png)](media/quickstart/quickstart1.png#lightbox)
 
 ## <a name="explore-the-demo-environment"></a>Utforska demo miljön
 
 1. **Panelen för val av tid** visas. Använd den här panelen för att välja en tidsram som ska visualiseras.
 
-   [![Panel för val av tid](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
+   [![Time markerings panel](media/quickstart/quickstart2.png)](media/quickstart/quickstart2.png#lightbox)
 
 1. Välj en tidsram och dra den i regionen. Välj sedan **Sök**.
 
-   [![Välj en tidsram](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
+   [![Select en tidsram](media/quickstart/quickstart3.png)](media/quickstart/quickstart3.png#lightbox)
 
    Time Series Insights visar en diagramvisualisering för den tidsram du angav. Du kan utföra olika åtgärder i linje diagrammet. Du kan till exempel filtrera, fästa, sortera och stapla.
 
    Gå tillbaka till **panelen för val av tid**genom att välja nedåtpilen som visas:
 
-   [![Diagramobjektet](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
+   [![Chart](media/quickstart/quickstart4.png)](media/quickstart/quickstart4.png#lightbox)
 
 1. Välj **Lägg till** på **panelen villkor** för att lägga till ett nytt sökord.
 
-   [![Lägg till objekt](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
+   [![Add-objekt](media/quickstart/quickstart5.png)](media/quickstart/quickstart5.png#lightbox)
 
 1. I diagrammet kan du välja en region, högerklicka på regionen och välja **Utforska händelser**.
 
-   [![Utforska händelser](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
+   [![Explore händelser](media/quickstart/quickstart6.png)](media/quickstart/quickstart6.png#lightbox)
 
    Ett rutnät med dina rå data visas från den region som du utforskar.
 
-   [![Rutnätsvy](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
+   [![Grid vy](media/quickstart/quickstart7.png)](media/quickstart/quickstart7.png#lightbox)
 
 ## <a name="select-and-filter-data"></a>Markera och filtrera data
 
 1. Redigera dina villkor för att ändra värdena i diagrammet. Lägg till en annan term för att korsa olika typer av värden.
 
-   [![Lägg till en term](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
+   [![Add en term](media/quickstart/quickstart8.png)](media/quickstart/quickstart8.png#lightbox)
 
 1. Ange ett filter villkor i rutan **filter serie** för filtrering av Improvised-serie. För snabbstarten anger du **Station5** om du vill korskorrelera temperatur och tryck för den stationen.
 
-   [![Filter serie](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
+   [![Filter-serien](media/quickstart/quickstart9.png)](media/quickstart/quickstart9.png#lightbox)
 
 När du har slutfört snabbstarten kan du experimentera med exempeldata för att skapa olika visualiseringar.
 

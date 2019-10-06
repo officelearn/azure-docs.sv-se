@@ -1,5 +1,5 @@
 ---
-title: Vill du ansluta data källor till Azure Sentinel? | Microsoft Docs
+title: Anslut data källor till Azure Sentinel | Microsoft Docs
 description: Lär dig hur du ansluter data källor till Azure Sentinel.
 services: sentinel
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: d8d3e52882a5cde9b00bf07ded933ae4d45b454b
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: d4605ad448916d788fd0a7089835a9ad3828697e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240172"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980410"
 ---
 # <a name="connect-data-sources"></a>Ansluta till datakällor
 
@@ -99,7 +99,7 @@ Alternativt kan du distribuera agenten manuellt på en befintlig virtuell Azure-
 | SigninLogs | [Anslut Azure AD](connect-azure-active-directory.md)  | V | |
 | AzureFirewall |[Azure Diagnostics](../firewall/tutorial-diagnostics.md) | V | |
 | InformationProtectionLogs_CL  | [Azure Information Protection rapporter](https://docs.microsoft.com/azure/information-protection/reports-aip)<br>[Anslut Azure Information Protection](connect-azure-information-protection.md)  | V | Detta använder vanligt vis **InformationProtectionEvents** -funktionen tillsammans med data typen. Mer information finns i [ändra rapporterna och skapa anpassade frågor](https://docs.microsoft.com/azure/information-protection/reports-aip#how-to-modify-the-reports-and-create-custom-queries)|
-| AzureNetworkAnalytics_CL  | [Trafik analys schema](../network-watcher/traffic-analytics.md) [Trafik analys](../network-watcher/traffic-analytics.md)  | | |
+| AzureNetworkAnalytics_CL  | Trafik [analys schema](../network-watcher/traffic-analytics.md) [](../network-watcher/traffic-analytics.md) analys  | | |
 | CommonSecurityLog  | [Anslut CEF](connect-common-event-format.md)  | V | |
 | OfficeActivity | [Anslut Office 365](connect-office-365.md) | V | |
 | SecurityEvents | [Anslut säkerhets händelser i Windows](connect-windows-security-events.md)  | V | Arbets böckerna för oskyddade protokoll finns i [arbets boks konfiguration för oskyddade protokoll](https://blogs.technet.microsoft.com/jonsh/azure-sentinel-insecure-protocols-dashboard-setup/)  |

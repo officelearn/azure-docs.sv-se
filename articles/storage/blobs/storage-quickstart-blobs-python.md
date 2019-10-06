@@ -7,12 +7,12 @@ ms.date: 09/11/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 4d371026b932a0870798a32b3102102836962b78
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: a6c0ae8c63739d37ad8417d1dff2d0f7181e6ae9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203965"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981209"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
 
@@ -50,7 +50,7 @@ I programmet måste du ange ditt lagringskontonamn och kontonyckel för att skap
 
 1. Öppna filen *example.py* från Solution Explorer i IDE.
 
-1. Ersätt värdena `accountkey` och med ditt lagrings konto namn och nyckel: `accountname`
+1. Ersätt värdena `accountname` och `accountkey` med ditt lagrings konto namn och nyckel:
 
     ```python
     block_blob_service = BlockBlobService(
@@ -96,8 +96,8 @@ Exempel programmet skapar en test fil i mappen *dokument* , laddar upp filen til
 
 1. Gå till mappen *dokument* och Sök efter de två filerna innan du fortsätter.
 
-    * *QuickStart_\<Universal-Unique-Identifier\>*
-    * *QuickStart_\<Universal-Unique-Identifier\>_DOWNLOADED*
+    * *QuickStart_ @ no__t-1universally-Unique-Identifier @ no__t-2*
+    * *QuickStart_ @ no__t-1universally-Unique-Identifier @ no__t-2_DOWNLOADED*
 
 1. Du kan öppna dem och se att de är samma.
 
@@ -144,7 +144,7 @@ Blob Storage stöder blockblobar, tilläggsblobar och sidblobar. Blockblobar kan
 
 Om du vill överföra en fil till en blob hämtar du den fullständiga sökvägen genom att slå ihop katalognamnet och filnamnet på den lokala enheten. Du kan sedan ladda upp filen till angiven sökväg med hjälp av metoden `create_blob_from_path`. 
 
-Exempel koden skapar en lokal fil som systemet använder för att ladda upp och ladda ned, lagra filen som systemet laddar upp som *full_path_to_file* och namnet på blobben som *local_file_name*. I det här exemplet överförs filen till din behållare med namnet `quickstartblobs`:
+Exempel koden skapar en lokal fil som systemet använder för att ladda upp och ladda ned, lagra filen som systemet laddar upp som *full_path_to_file* och namnet på blobben som *local_file_name*. I det här exemplet överförs filen till behållaren med namnet `quickstartblobs`:
 
 ```python
 # Create a file in Documents to test the upload and download.
@@ -169,7 +169,7 @@ Det går att använda flera uppladdningsmetoder med Blob Storage. Om du till exe
 
 ### <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Följande kod skapar en `generator` `list_blobs` för-metoden. Koden går igenom listan över blobbar i behållaren och skriver ut deras namn till-konsolen.
+Följande kod skapar en `generator` för metoden `list_blobs`. Koden går igenom listan över blobbar i behållaren och skriver ut deras namn till-konsolen.
 
 ```python
 # List the blobs in the container.
@@ -182,8 +182,8 @@ for blob in generator:
 ### <a name="download-the-blobs"></a>Ladda ned blobarna
 
 
-Ladda ned blobar till din lokala disk med `get_blob_to_path` hjälp av metoden.
-Följande kod laddar ned bloben som du laddade upp tidigare. Systemet lägger till *_DOWNLOADED* till BLOB-namnet så att du kan se båda filerna på den lokala disken. "
+Ladda ned blobar till din lokala disk med hjälp av metoden `get_blob_to_path`.
+Följande kod laddar ned bloben som du laddade upp tidigare. Systemet lägger till *_DOWNLOADED* till BLOB-namnet så att du kan se båda filerna på den lokala disken.
 
 ```python
 # Download the blob(s).

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d6ca7827200815cf9b9b1c7ac697d06f9c6b306d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 219a3c56f9e4e4c9e132fa759b017fac63ade766
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147054"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977980"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Åtgärda icke-kompatibla resurser med Azure Policy
 
@@ -80,7 +79,7 @@ Den `$assignment` variabeln innehåller nu ägar-ID för den hanterade identitet
 
 ### <a name="grant-defined-roles-with-powershell"></a>Bevilja definierat roller med PowerShell
 
-Den nya hantera identiteten måste slutföra replikering via Azure Active Directory innan den kan beviljas de nödvändiga rollerna. När replikeringen är klar itererar följande exempel princip definitionen i `$policyDef` för **roleDefinitionIds** och använder [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att ge den nya hanterade identiteten roller.
+Den nya hantera identiteten måste slutföra replikering via Azure Active Directory innan den kan beviljas de nödvändiga rollerna. När replikeringen är klar itererar följande exempel princip definitionen i `$policyDef` för **roleDefinitionIds** och använder [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) för att ge rollerna den nya hanterade identiteten.
 
 ```azurepowershell-interactive
 # Use the $policyDef to get to the roleDefinitionIds array
@@ -161,7 +160,7 @@ Resurser som distribueras via en **reparation uppgift** läggs till i **distribu
 
 ### <a name="create-a-remediation-task-through-azure-cli"></a>Skapa en reparations uppgift via Azure CLI
 
-Använd`az policy remediation` kommandona om du vill skapa en **reparations uppgift** med Azure CLI. Ersätt `{subscriptionId}` med ditt prenumerations- `{myAssignmentId}` ID och med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
+Om du vill skapa en **reparations uppgift** med Azure CLI använder du `az policy remediation`-kommandon. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
 
 ```azurecli-interactive
 # Login first with az login if not using Cloud Shell
@@ -174,7 +173,7 @@ Andra reparations kommandon och exempel finns i kommandona för att [Reparera AZ
 
 ### <a name="create-a-remediation-task-through-azure-powershell"></a>Skapa en reparations uppgift via Azure PowerShell
 
-Om du vill skapa en **reparations uppgift** med Azure PowerShell använder `Start-AzPolicyRemediation` du kommandona. Ersätt `{subscriptionId}` med ditt prenumerations- `{myAssignmentId}` ID och med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
+Om du vill skapa en **reparations aktivitet** med Azure PowerShell använder du `Start-AzPolicyRemediation`-kommandona. Ersätt `{subscriptionId}` med ditt prenumerations-ID och `{myAssignmentId}` med ditt **deployIfNotExists** eller **ändra** princip tilldelnings-ID.
 
 ```azurepowershell-interactive
 # Login first with Connect-AzAccount if not using Cloud Shell

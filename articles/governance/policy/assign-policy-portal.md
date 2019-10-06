@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 6db0879152dfcfd37719c8d22f836da6db7ed79d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5bbacb83e4275a513c53094c40508c3f13136658
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000899"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981513"
 ---
 # <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Snabbstart: Skapa en principtilldelning för att identifiera icke-kompatibla resurser
 
@@ -47,7 +46,7 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar policydefi
 
 1. Välj ellipsen **Principdefinition** för att öppna listan med tillgängliga definitioner. Azure Policy har inbyggda principdefinitioner som du kan använda. Många är tillgängliga, till exempel:
 
-   - Lägg till tagg och dess värde
+   - Framtvinga tagg och dess värde
    - Använd tagg och dess värde
    - Kräv SQL Server version 12.0
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: ffa4424dd3173cf6493ec219fe92925c970ad08c
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: e4a57c6d4a9034d9145058e9137759c2cea19aa6
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71258312"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978660"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Vad är Azure Time Series Insights (förhandsversion)?
 
@@ -81,7 +81,7 @@ Med introduktionen av dessa viktiga funktioner för industriell IoT tillhandahå
 | Smidig och kontinuerlig integrering med andra data lösningar | Data i Time Series Insights [lagras](./time-series-insights-update-storage-ingress.md) i Apache Parquet-filer med öppen källkod. Den här integreringen med andra datalösningar, oavsett om de är från första eller tredje part, är enkel för slutpunkt-till-slutpunkt scenarier. Scenarierna innefattar Business Intelligence, avancerad maskininlärning och förutsägelseanalys. |
 | Datagranskning i nära realtid | Användargränssnittet i [Azure Time Series Insights Explorer förhandsversion](./time-series-insights-update-explorer.md) innehåller visualisering för alla data som strömmas genom datainmatningspipeline. Strax efter att du ansluter en händelsekälla kan du visa, utforska och fråga efter händelsedata. På så sätt kan du verifiera om en enhet genererar data som förväntat. Du kan också övervaka en IoT-tillgångs hälsotillstånd, produktivitet och övergripande effektivitet. |
 | Rotorsaksanalys och avvikelseidentifiering | [Azure Time Series Insights Explorer förhandsversion](./time-series-insights-update-explorer.md) stöder både mönster och perspektivvyer för att genomföra och spara rotorsaksanalys i flera steg. I kombination med Azure Stream Analytics kan du använda Time Series Insights för att upptäcka varningar och avvikelser i nära realtid. |
-| Anpassade program som bygger på Time Series Insights plattform | Time Series Insights stöder [JavaScript SDK](./tutorial-explore-js-client-lib.md). SDK innehåller omfattande kontroller och förenklad åtkomst till frågor. Använd SDK för att skapa anpassade IoT-program ovanpå Time Series Insights som passar just dina affärsbehov. Du kan även använda [fråge-API:er](./time-series-insights-update-tsq.md) för Time Series Insights för att driva data till anpassade IoT-program. |
+| Anpassade program som bygger på Time Series Insights plattform | Time Series Insights stöder [JavaScript SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). SDK innehåller omfattande kontroller och förenklad åtkomst till frågor. Använd SDK för att skapa anpassade IoT-program ovanpå Time Series Insights som passar just dina affärsbehov. Du kan även använda [fråge-API:er](./time-series-insights-update-tsq.md) för Time Series Insights för att driva data till anpassade IoT-program. |
 
 ## <a name="next-steps"></a>Nästa steg
 

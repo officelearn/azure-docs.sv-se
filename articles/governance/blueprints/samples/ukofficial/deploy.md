@@ -7,13 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 21c5ad69a5e2b09e973b7b348690f554fca5dbe2
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e2109c5b524c0b38886327bf4c1ea7087380b40f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802325"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978249"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuera de NHSa skiss exemplen från Storbritannien och Storbritannien
 
@@ -41,7 +40,7 @@ Börja med att implementera skiss exemplet genom att skapa en ny skiss i din mil
    - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet.
    - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj fliken _artefakter_ högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
+1. Välj fliken _artefakter_ överst på sidan eller **Next: Artefakter @ no__t-0 längst ned på sidan.
 
 1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
@@ -99,8 +98,8 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
 |Skiss initiativ för NHS Storbritannien eller Storbritannien|Principtilldelning |Resurs typer för att granska diagnostikloggar (princip: Skiss initiativ för de officiella eller brittiska NHS i Storbritannien |Lista över resurs typer som ska granskas om diagnostisk logg inställning är antecknings aktive rad.  För acceptabla värden, se [tjänster, scheman och kategorier som stöds för Azure Diagnostic-loggar](../../../../azure-monitor/platform/diagnostic-logs-schema.md). |
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i området (princip: \[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget (princip: \[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer |Principtilldelning |Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i området (princip: \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer |Principtilldelning |Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget (princip: \[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer) |Valfritt Standardvärdet är _none_. Mer information finns i [skapa en Log Analytics arbets yta i Azure Portal](../../../../azure-monitor/learn/quick-create-workspace.md). |
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -108,7 +107,7 @@ Nu när du har granskat stegen för att distribuera NHS-skisserna från Storbrit
 
 > [!div class="nextstepaction"]
 > [Officiella och brittiska NHS-ritningar – översikt](./index.md)
-> [Storbritannien och Storbritannien NHS ritningar – kontroll mappning](./control-mapping.md)
+> [UK officiella och UK NHS-ritningar-kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

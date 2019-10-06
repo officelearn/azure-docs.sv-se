@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: 706960f18080b4883735195b21ed05c3763e8617
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 0c832e272029dc110e156ef89deb908fec02f1b2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264500"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981197"
 ---
 # <a name="what-is-azure-time-series-insights"></a>Vad är Azure Time Series Insights?
 
@@ -31,7 +31,7 @@ Time Series Insights har fyra nyckeluppgifter:
 - Time Series Insights ger direkt visualisering via Time Series Insights Explorer. 
 - Time Series Insights tillhandahåller en Query-tjänst, både i Time Series Insights Explorer och genom att använda API: er som är enkla att integrera för att bädda in tids serie data i anpassade program.
 
-Om du skapar ett program för intern förbrukning eller för externa kunder kan du använda Time Series Insights som Server del. Du kan använda den för att indexera, lagra och sammanställa tids serie data. Om du vill bygga en anpassad visualisering och användar upplevelse överst använder du [klient-SDK: n](tutorial-explore-js-client-lib.md). Time Series Insights är också utrustad med flera [API: er för frågor](how-to-shape-query-json.md) för att aktivera dessa anpassade scenarier.
+Om du skapar ett program för intern förbrukning eller för externa kunder kan du använda Time Series Insights som Server del. Du kan använda den för att indexera, lagra och sammanställa tids serie data. Om du vill bygga en anpassad visualisering och användar upplevelse överst använder du [klient-SDK: n](https://github.com/microsoft/tsiclient/blob/master/docs/API.md). Time Series Insights är också utrustad med flera [API: er för frågor](how-to-shape-query-json.md) för att aktivera dessa anpassade scenarier.
 
 Tidsseriedata representerar ändringar i en tillgång eller en process över tid. Time Series-data indexeras av tidsstämplar och tiden är den mest meningsfulla axeln som dessa data är organiserade i. Time Series-data anländer vanligt vis i nummerordning, så det behandlas som en infogning i stället för en uppdatering av databasen.
 
@@ -42,7 +42,7 @@ Azure Time Series Insights fångar in och lagrar varje ny händelse som en rad, 
 
 ### <a name="learn-more-about-azure-time-series-insights-the-cloud-based-iot-analytics-platformbr"></a>Lär dig mer om Azure Time Series Insights, den molnbaserade IoT Analytics-plattformen.</br>
 
-[![GRAFIK](https://img.youtube.com/vi/GaARrFfjoss/0.jpg)](https://www.youtube.com/watch?v=GaARrFfjoss)
+[![VIDEO](https://img.youtube.com/vi/GaARrFfjoss/0.jpg)](https://www.youtube.com/watch?v=GaARrFfjoss)
 
 ## <a name="primary-scenarios"></a>Primära scenarier
 

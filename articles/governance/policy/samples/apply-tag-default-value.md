@@ -2,17 +2,16 @@
 title: Exempel – Använd taggen och dess standardvärde
 description: Den här exempelprincipdefinitionen lägger till ett angivet taggnamn och värde, om taggen inte redan finns.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: a9ad211ac1ef9889fcff9646f30fe306458c3538
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 03c5c1de3713d2d7a2b2914b7b9bff9fa8b01320
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60549707"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977596"
 ---
 # <a name="sample---apply-tag-and-its-default-value"></a>Exempel – Använd taggen och dess standardvärde
 
@@ -50,10 +49,10 @@ Det JSON som definierar principparametrarna, som används av Azure CLI och Azure
 
 [!code-json[parameters](../../../../policy-templates/samples/built-in-policy/apply-default-tag-value/azurepolicy.parameters.json "Policy parameters (JSON)")]
 
-|Namn |Typ |Fält |Beskrivning |
+|Name |type |Fält |Beskrivning |
 |---|---|---|---|
-|tagName |String |tags |Namnet på taggen, till exempel costCenter (kostnadsställe)|
-|tagValue |String |tags |Taggens värde, till exempel headquarter (huvudkontor)|
+|tagName |Sträng |taggar |Namnet på taggen, till exempel costCenter (kostnadsställe)|
+|tagValue |Sträng |taggar |Taggens värde, till exempel headquarter (huvudkontor)|
 
 När du skapar en tilldelning via PowerShell eller Azure CLI går det att skicka parametervärdena som JSON antingen i en sträng eller via en fil med hjälp av `-PolicyParameter` (PowerShell) eller `--params` (Azure CLI).
 PowerShell stödjer även `-PolicyParameterObject`, vilket kräver att det till cmdlet skickas en Name/Value-hashtabell där **Name** (Namn) är parameternamnet och **Value** (Värde) är det enskilda värde eller den matris med värden som skickas under tilldelningen.
@@ -73,8 +72,8 @@ I den här exempelparametern definieras _tagName_ **costCenter** och _tagValue_ 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-[![Distribuera princip för exemplet till Azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
-[![distribuera princip för exemplet till Azure Government](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+[![Deploy till azure](../media/deploy/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
+[![Deploy princip exemplet till Azure gov](../media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2Fbuilt-in-policy%2Fapply-default-tag-value%2Fazurepolicy.json)
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -215,7 +214,7 @@ Det finns flera verktyg som kan användas för att interagera med Resource Manag
 
 ### <a name="rest-api-explanation"></a>REST API-förklaring
 
-| Tjänst | Grupp | Åtgärd | Anteckningar |
+| Tjänsten | Grupp | Åtgärd | Anteckningar |
 |---|---|---|---|
 | Resurshantering | Principdefinitioner | [Skapa](/rest/api/resources/policydefinitions/createorupdate) | Skapar en ny Azure Policy-definition vid en prenumeration. Alternativ: [Skapa vid hanteringsgrupp](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Resurshantering | Principtilldelningar | [Skapa](/rest/api/resources/policyassignments/create) | Skapar en ny Azure Policy-tilldelning. I det här exemplet ges den en definition, men den kan också ta emot ett initiativ. |

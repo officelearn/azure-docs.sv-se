@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/29/2019
 ms.topic: quickstart
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 33c67f77a26e2a4fc97d7f5483aad53c121e117b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 668dfc908418792c1258d112fbdfb640e85abbe2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239023"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980281"
 ---
 # <a name="advanced-resource-graph-queries"></a>Avancerade frågor för Resource Graph
 
@@ -70,7 +69,7 @@ Search-AzGraph -Query "project tags | summarize buildschema(tags)"
 
 ## <a name="vm-regex"></a>Virtuella datorer matchade av regex
 
-Den här frågan söker efter virtuella datorer som matchar ett [reguljärt uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference) (även kallat _regex_). Med **matchnings \@ -regex** kan vi definiera regex för att matcha, vilket `^Contoso(.*)[0-9]+$`är.
+Den här frågan söker efter virtuella datorer som matchar ett [reguljärt uttryck](/dotnet/standard/base-types/regular-expression-language-quick-reference) (även kallat _regex_). De **matchar regex-\@** låter oss definiera regex som ska matcha, vilket är `^Contoso(.*)[0-9]+$`.
 Den regex-definitionen förklaras så här:
 
 - `^` – Matchningen måste börja i början av strängen.

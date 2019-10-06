@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: e38eb1315cde3400b70925059d4dd50475a47835
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 240d0fa388fbdfdd3d29d735aed708a096440740
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979669"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980357"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Självstudier: Skapa en anpassad principdefinition
 
@@ -46,11 +45,11 @@ Det är viktigt att du förstår syftet med principen innan du skapar principdef
 
 Dina krav bör tydligt identifiera både resurstillståndet ”to be” och ”not to be”.
 
-Vi har definierat förväntat tillstånd för resursen, men vi har ännu inte definierat vad vi vill ha gjort med icke-kompatibla resurser. Azure Policy stöder ett antal [effekterna](../concepts/effects.md). I den här självstudien ska vi definiera affärsbehov som att förhindra skapandet av resurser om de inte är kompatibla med affärsreglerna. För att nå detta mål använder vi effekten för att [neka](../concepts/effects.md#deny). Vi vill också ha alternativet för att inaktivera principen för specifika tilldelningar. Därför använder vi den [inaktiverade](../concepts/effects.md#disabled) effekten och skapar en [parameter](../concepts/definition-structure.md#parameters) i principdefinitionen.
+Vi har definierat förväntat tillstånd för resursen, men vi har ännu inte definierat vad vi vill ha gjort med icke-kompatibla resurser. Azure Policy stöder ett antal [effekter](../concepts/effects.md). I den här självstudien ska vi definiera affärsbehov som att förhindra skapandet av resurser om de inte är kompatibla med affärsreglerna. För att nå detta mål använder vi effekten för att [neka](../concepts/effects.md#deny). Vi vill också ha alternativet för att inaktivera principen för specifika tilldelningar. Därför använder vi den [inaktiverade](../concepts/effects.md#disabled) effekten och skapar en [parameter](../concepts/definition-structure.md#parameters) i principdefinitionen.
 
 ## <a name="determine-resource-properties"></a>Fastställa resursegenskaper
 
-Baserat på affärsbehov, är Azure-resursen att granska med Azure Policy ett lagringskonto. Vi vet emellertid inte vilka egenskaper som ska användas i principdefinitionen. Azure Policy utvärderar mot JSON-representation av resursen, så vi behöver förstå egenskaperna som är tillgängliga på den här resursen.
+Utifrån affärs kraven är Azure-resursen som ska granskas med Azure Policy ett lagrings konto. Vi vet emellertid inte vilka egenskaper som ska användas i principdefinitionen. Azure Policy utvärderas mot JSON-representationen av resursen så att vi måste förstå de egenskaper som är tillgängliga för den resursen.
 
 Det finns många sätt att avgöra egenskaperna för en Azure-resurs. Vi ska titta på var och en för den här självstudien:
 
@@ -68,9 +67,9 @@ Det finns flera sätt att titta på en [Resource Manager-mall](../../../azure-re
 #### <a name="existing-resource-in-the-portal"></a>Befintlig resurs i portalen
 
 Det enklaste sättet att hitta egenskaper är att titta på en befintlig resurs av samma typ. Resurser som redan har konfigurerats med inställningen som du vill framtvinga innehåller också värdet att jämföra med.
-Titta på den **exportmallen** sida (under **inställningar**) i Azure-portalen för den specifika resursen.
+Titta på sidan **Exportera mall** (under **inställningar**) i Azure Portal för den aktuella resursen.
 
-![Exportera mallsidan på befintlig resurs](../media/create-custom-policy-definition/export-template.png)
+![Sidan exportera mall på en befintlig resurs](../media/create-custom-policy-definition/export-template.png)
 
 Om du gör det för ett lagringskonto visas en mall som liknar det här exemplet:
 
@@ -207,7 +206,7 @@ az graph query -q "where type=~'microsoft.storage/storageaccounts' | limit 1"
 Search-AzGraph -Query "where type=~'microsoft.storage/storageaccounts' | limit 1"
 ```
 
-Resultatet liknar vad vi ser i Resource Manager-mallar och via Azure Resource Explorer. Azure Resource Graph resultat kan dock även innehålla [alias](../concepts/definition-structure.md#aliases) information av _projicera_ den _alias_ matris:
+Resultatet liknar vad vi ser i Resource Manager-mallar och via Azure Resource Explorer. Resultatet av Azure-resursens diagram kan dock också innehålla information om [alias](../concepts/definition-structure.md#aliases) genom att _projicera_ _alias_ -matrisen:
 
 ```kusto
 where type=~'microsoft.storage/storageaccounts'

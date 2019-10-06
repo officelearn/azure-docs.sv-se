@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 01/31/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 695e04dcbc7762c85dd0dd9aaff6e5fd9fe99348
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 047e9cab8d7776fc3b5353aebc571e28ad780ae8
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155562"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977959"
 ---
 # <a name="programmatically-create-policies"></a>Skapa principer programmässigt
 
@@ -91,10 +90,10 @@ Det första steget mot bättre överblick över dina resurser är att skapa och 
 
    Ersätt _ContosoRG_ med namnet på din avsedda resursgrupp.
 
-   **Omfattnings** parametern i `New-AzPolicyAssignment` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt. Ersätt `{rName}`, `{rgName}`, ,`{subId}` och`{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID och namn på hanterings gruppen.
-   `{rType}`ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
+   **Omfattnings** parametern på `New-AzPolicyAssignment` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurssökväg som den **ResourceId** egenskapen `Get-AzResourceGroup` returnerar. Mönster för **omfång** för varje behållare är på följande sätt. Ersätt `{rName}`, `{rgName}`, `{subId}` och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID respektive namn för hanterings gruppen.
+   `{rType}` ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
-   - Klusterresursen`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resurs-`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resursgrupp – `/subscriptions/{subId}/resourceGroups/{rgName}`
    - Prenumeration – `/subscriptions/{subId}/`
    - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`
@@ -220,9 +219,9 @@ Följ anvisningarna nedan om du vill skapa en principdefinition:
    az policy assignment create --name '<name>' --scope '<scope>' --policy '<policy definition ID>'
    ```
 
-   Parametern **--scope** i `az policy assignment create` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg. Mönster för **--omfattning** för varje behållare är följande. Ersätt `{rName}`, `{rgName}`, ,`{subId}` och`{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID och namn på hanterings gruppen. `{rType}`ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
+   Parametern **--scope** på `az policy assignment create` fungerar med hanterings grupp, prenumeration, resurs grupp eller en enskild resurs. Parametern använder en fullständig resurs Sök väg. Mönster för **--omfattning** för varje behållare är följande. Ersätt `{rName}`, `{rgName}`, `{subId}` och `{mgName}` med resurs namnet, resurs gruppens namn, prenumerations-ID respektive namn för hanterings gruppen. `{rType}` ersätts med resurs **typen** för resursen, till exempel `Microsoft.Compute/virtualMachines` för en virtuell dator.
 
-   - Klusterresursen`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
+   - Resurs-`/subscriptions/{subID}/resourceGroups/{rgName}/providers/{rType}/{rName}`
    - Resursgrupp – `/subscriptions/{subID}/resourceGroups/{rgName}`
    - Prenumeration – `/subscriptions/{subID}`
    - Hanteringsgrupp- `/providers/Microsoft.Management/managementGroups/{mgName}`

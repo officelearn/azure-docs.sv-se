@@ -113,7 +113,7 @@
           href: security-center-identity-access.md
     - name: Tillämpa molnskydd
       items:
-        - name: Hantera Just-in-time-åtkomst
+        - name: Hantera just-in-time-åtkomst
           href: security-center-just-in-time.md
         - name: Anpassningsbara programkontroller
           href: security-center-adaptive-application.md
@@ -147,6 +147,8 @@
   items:
     - name: 'REST API:er'
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Viktig information
+      href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Tillbakadragande av funktioner och API (juli 2019)
       href: security-center-features-retirement-july2019.md
     - name: Utvärdering av slutpunktsskydd och rekommendationer

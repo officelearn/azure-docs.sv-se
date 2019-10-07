@@ -16,16 +16,16 @@ ms.workload: infrastructure-services
 ms.date: 04/24/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: ddc577af945c01b94dae5a75725082e4e6689fd9
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: e6ff3e6798fadca89455790efa28891c02e9e459
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64697140"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996968"
 ---
 # <a name="what-is-azure-network-watcher"></a>Vad är Azure Network Watcher?
 
-I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa mått samt aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk.
+I Azure Network Watcher finns verktyg för att övervaka, diagnostisera, visa mått samt aktivera eller inaktivera loggar för resurser i ett virtuellt Azure-nätverk. Network Watcher har utformats för att övervaka och reparera nätverks hälsan för IaaS-produkter (Infrastructure-as-a-Service) som innehåller Virtual Machines, virtuella nätverk, programgatewayer, belastnings utjämning osv. Obs! Den är inte avsedd för och kommer inte att fungera för PaaS övervakning eller webb analys. 
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -85,7 +85,7 @@ Det finns [gränser](../azure-subscription-service-limits.md?toc=%2fazure%2fnetw
 
 Informationen är användbar när du planerar kommande resursdistributioner.
 
-## <a name="logs"></a>Loggar
+## <a name="logs"></a>Logs
 
 ### <a name="analyze-traffic-to-or-from-a-network-security-group"></a>Analysera trafiken till eller från en nätverkssäkerhetsgrupp
 

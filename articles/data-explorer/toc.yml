@@ -114,22 +114,34 @@
           href: sisense.md
     - name: Hantera
       items:
-        - name: Kontrollera klusterhälsa
-          href: check-cluster-health.md
-        - name: Välja kluster-SKU för virtuell dator
-          href: manage-cluster-choose-sku.md
-        - name: Hantera horisontell klusterskalning
-          href: manage-cluster-horizontal-scaling.md
-        - name: Hantera vertikal klusterskalning
-          href: manage-cluster-vertical-scaling.md
-        - name: Hantera klustersäkerhet
-          href: manage-cluster-security.md
-        - name: Hantera databasbehörigheter
-          href: manage-database-permissions.md
-        - name: Ta bort data
-          href: delete-data.md
-        - name: Hantera duplicerade data
-          href: dealing-with-duplicates.md
+        - name: Kluster
+          items:
+            - name: Välja kluster-SKU för virtuell dator
+              href: manage-cluster-choose-sku.md
+            - name: Hantera horisontell klusterskalning
+              href: manage-cluster-horizontal-scaling.md
+            - name: Hantera vertikal klusterskalning
+              href: manage-cluster-vertical-scaling.md
+            - name: Hantera klustersäkerhet
+              href: manage-cluster-security.md
+            - name: Kontrollera klusterhälsa
+              href: check-cluster-health.md
+        - name: Databas
+          items:
+            - name: Hantera databasbehörigheter
+              href: manage-database-permissions.md
+            - name: Principer
+              items:
+                - name: 'C#'
+                  href: database-table-policies-csharp.md
+                - name: Python
+                  href: database-table-policies-python.md
+        - name: Data
+          items:
+            - name: Ta bort data
+              href: delete-data.md
+            - name: Hantera duplicerade data
+              href: dealing-with-duplicates.md
     - name: Övervaka
       items:
         - name: Använda diagnostikloggar för att övervaka datainmatning

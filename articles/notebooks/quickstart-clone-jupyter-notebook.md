@@ -4,21 +4,20 @@ description: Snabbt klona en Jupyter-anteckningsbok från en GitHub-lagringsplat
 services: app-service
 documentationcenter: ''
 author: kraigb
-manager: douge
+manager: barbkess
 ms.assetid: d7122b78-6daa-4bea-883b-ff832cfecef3
 ms.service: azure-notebooks
 ms.workload: na
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 12/04/2018
 ms.author: kraigb
-ms.openlocfilehash: e180192ed8375e00464ed9ec96080cde10295e5c
-ms.sourcegitcommit: 45e4466eac6cfd6a30da9facd8fe6afba64f6f50
+ms.openlocfilehash: ed239c470a49fc045bd436668f83dff32eac3a66
+ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/07/2019
-ms.locfileid: "66754053"
+ms.lasthandoff: 10/05/2019
+ms.locfileid: "71970121"
 ---
 # <a name="quickstart-clone-a-notebook"></a>Snabbstart: Skapa en notebook-fil
 
@@ -34,19 +33,19 @@ Kloning av skapar en kopia av en GitHub-anteckningsbok i anteckningsböcker i Az
 
     ![Mina projekt länk överst i webbläsarfönstret](media/quickstarts/my-projects-link.png)
 
-1. På den **Mina projekt** väljer du uppåtpilen (kortkommandot: U; knappen visas som **överför GitHub-lagringsplatsen** när webbläsarfönstret är tillräckligt bred för):
+1. På sidan **Mina projekt** väljer du pilknappen (kortkommando: Ä knappen visas som **överför GitHub lagrings platsen** när webbläsarfönstret är tillräckligt bred):
 
-    ![Ladda upp GitHub-lagringsplatsen kommandot på sidan Mina projekt](media/quickstarts/upload-github-repo-command.png)
+    ![Ladda upp GitHub lagrings platsen-kommandot på sidan mina projekt](media/quickstarts/upload-github-repo-command.png)
 
-1. I den **överför GitHub-lagringsplatsen** som visas, ange eller ange följande information och välj sedan **Import**:
+1. I fönstret **överför GitHub-lagringsplats** som visas anger eller anger du följande information och väljer sedan **Importera**:
 
-   - **GitHub-lagringsplatsen**: Microsoft cognitive-tjänster-datorer (det här namnet klonar Jupyter-anteckningsböcker för Azure Cognitive Services på [ https://github.com/Microsoft/cognitive-services-notebooks ](https://github.com/Microsoft/cognitive-services-notebooks)).
+   - **GitHub-lagringsplats**: Microsoft/kognitiva-tjänster – Notebook (det här namnet klonar Jupyter-anteckningsböcker för Azure Cognitive Services vid [https://github.com/Microsoft/cognitive-services-notebooks](https://github.com/Microsoft/cognitive-services-notebooks)).
    - **Klona rekursivt**: (avmarkerad)
-   - **Projektnamnet**: Cognitive Services klon
+   - **Projekt namn**: Klona Cognitive Services
    - **Projektet ID**: cognitive services klon
    - **Offentliga**: (avmarkerad)
 
-     ![Ladda upp GitHub-lagringsplatsen popup-fönstret för att samla in information om lagringsplats](media/quickstarts/upload-github-repo-popup.png)
+     ![Ladda upp GitHub lagrings platsen-popup för att samla in lagrings platsen-information](media/quickstarts/upload-github-repo-popup.png)
 
 1. Ha tålamod medan processen körs; kloning av en databas kan ta några minuter.
 

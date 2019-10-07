@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: c12345791e62aa99bd07dde7fc44dd52d0989941
-ms.sourcegitcommit: 59fd8dc19fab17e846db5b9e262a25e1530e96f3
+ms.openlocfilehash: 82c56a01d7f14f1eeae26dfa784f3545552bf6b9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/21/2019
-ms.locfileid: "65979169"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981393"
 ---
 # <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudier: Skapa och hantera principer för att använda kompatibilitet
 
@@ -36,11 +35,11 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
 1. Välj **Tilldelningar** till vänster på sidan Azure Policy. En tilldelning är en princip som tilldelats ett specifikt område.
 
-   ![Klicka på tilldelningar från principöversikt](../media/create-and-manage/select-assignments.png)
+   ![Sidan Välj tilldelningar från princip översikt](../media/create-and-manage/select-assignments.png)
 
 1. Välj **Tilldela princip** längst upp på sidan **Princip – Tilldelningar**.
 
-   ![Tilldela en principdefinition från sidan tilldelningar](../media/create-and-manage/select-assign-policy.png)
+   ![Tilldela en princip definition från sidan tilldelningar](../media/create-and-manage/select-assign-policy.png)
 
 1. På sidan **Tilldela princip** väljer du **Omfång** genom att klicka på ellipsen och antingen välja en hanteringsgrupp eller en prenumeration. Du kan även välja en resursgrupp. En omfattning avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Klicka sedan på **Välj** längst ned på sidan **Omfång**.
 
@@ -52,7 +51,7 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 
 1. Välj **Kräv SQL Server version 12.0**. Om du inte hittar det genast skriver du **require sql server** (kräv sql server) i sökrutan och trycker sedan på RETUR eller klickar utanför sökrutan. Klicka på **Välj** längst ned på sidan **Tillgängliga definitioner** när du har hittat och valt principdefinitionen.
 
-   ![Använd sökrutan filtrera för att hitta en princip](../media/create-and-manage/select-available-definition.png)
+   ![Använd Sök filter för att hitta en princip](../media/create-and-manage/select-available-definition.png)
 
 1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet låter du *Kräv SQL Server version 12.0* vara kvar. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.
    **Tilldelad av** fylls automatiskt i baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
@@ -67,7 +66,7 @@ Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure
 
 1. Välj **Definitioner** under **Redigering** till vänster på sidan Azure Policy.
 
-   ![Sidan definition under redigering grupp](../media/create-and-manage/definition-under-authoring.png)
+   ![Definitions sidan under redigerings gruppen](../media/create-and-manage/definition-under-authoring.png)
 
 1. Välj **+ Principdefinition** överst på sidan. Den här knappen öppnar sidan **Principdefinition**.
 
@@ -117,7 +116,7 @@ Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Skapa en principdefinition med REST API
 
-Du kan skapa en princip med REST API för Principdefinitioner i Azure. Med REST API kan du skapa och ta bort principdefinitioner och få information om befintliga definitioner. Om du vill skapa en principdefinition använder du följande exempel:
+Du kan skapa en princip med REST API för Azure Policy definitioner. Med REST API kan du skapa och ta bort principdefinitioner och få information om befintliga definitioner. Om du vill skapa en principdefinition använder du följande exempel:
 
 ```http
 PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.authorization/policydefinitions/{policyDefinitionName}?api-version={api-version}
@@ -157,7 +156,7 @@ Inkludera en begärantext som liknar följande exempel:
 
 ## <a name="create-a-policy-definition-with-powershell"></a>Skapa en principdefinition med PowerShell
 
-Innan du fortsätter med PowerShell-exemplet ska du kontrollera att du har installerat den senaste versionen av Azure PowerShell Az-modulen.
+Innan du fortsätter med PowerShell-exemplet måste du kontrol lera att du har installerat den senaste versionen av modulen Azure PowerShell AZ.
 
 Du kan skapa en principdefinition med cmdleten `New-AzPolicyDefinition`.
 
@@ -331,7 +330,7 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Välj **+ Initiativdefinition** överst på sidan för att öppna sidan **Initiativdefinition**.
 
-   ![Initiativdefinitionen granskningssidan](../media/create-and-manage/initiative-definition.png)
+   ![Sidan granska initiativ definition](../media/create-and-manage/initiative-definition.png)
 
 1. Använd ellipsen **Definitionens plats**  och välj en hanteringsgrupp eller en prenumeration där definitionen ska lagras. Om föregående sida begränsades till en enskild hanteringsgrupp eller prenumeration så fylls **definitionsplats** i automatiskt.
 
@@ -351,11 +350,11 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
    När du har valt principdefinitionen i listan läggs den till under **Principer och parametrar**.
 
-   ![Granska initiativdefinitionen parametrar](../media/create-and-manage/initiative-definition-2.png)
+   ![Granska initiativ definitions parametrar](../media/create-and-manage/initiative-definition-2.png)
 
 1. Om en principdefinition som läggs till i initiativet har parametrar visas de under namnet på principen i området **Principer och parametrar**. _Värdet_ kan anges till antingen Ange värde (hårdkodat för alla tilldelningar i initiativet) eller Använd initiativparametern (ställs in under varje initiativtilldelning). Om du väljer "Ange värde" kan du via listrutan till höger om _Värden_ ange eller välja värden. Om du väljer Använd initiativparametern så visas ett nytt avsnitt **Initiativparameter** där du kan definiera den parameter som ställs in under initiativtilldelningen. Tillåtna värden för den här initiativparametern kan ytterligare begränsa vad du kan ange under initiativtilldelningen.
 
-   ![Ändra initiativdefinitionen parametrar från tillåtna värden](../media/create-and-manage/initiative-definition-3.png)
+   ![Ändra initiativ definitions parametrar från tillåtna värden](../media/create-and-manage/initiative-definition-3.png)
 
    > [!NOTE]
    > När det gäller vissa parametrar av typen `strongType` går det inte att automatiskt fastställa listan med värden. I de här fallen visas en ellips till höger om parameterraden. Om du klickar på den så öppnas sidan Parameteromfång (&lt;Parameternamn&gt;). På den här sidan väljer du den prenumeration som ska användas för att tillhandahålla värdealternativen. Det här parameterområdet används bara när initiativdefinitionen skapas. Den påverkar inte principutvärderingen eller initiativets omfattning efter tilldelningen.
@@ -368,11 +367,11 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Leta upp initiativdefinitionen **Bli säker** som du skapade tidigare och markera den. Välj **Tilldela** överst på sidan för att öppna sidan **Get Secure: Assign initiative** (Tilldela initiativ).
 
-   ![Tilldela en definition från sidan för definition av initiativ](../media/create-and-manage/assign-definition.png)
+   ![Tilldela en definition från sidan initiativ definition](../media/create-and-manage/assign-definition.png)
 
    Du kan även högerklicka på den markerade raden eller vänsterklicka på ellipsen i slutet av raden för att få upp en snabbmeny. Välj sedan **Tilldela**.
 
-   ![Alternativ för ett initiativ](../media/create-and-manage/select-right-click.png)
+   ![Alternativa alternativ för ett initiativ](../media/create-and-manage/select-right-click.png)
 
 1. Fyll i sidan **Get Secure: Assign Initiative** genom att ange följande exempelinformation. Du kan använda din egen information.
 
@@ -394,11 +393,11 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 1. Leta upp initiativet **Hämta källan**. Det är sannolikt fortfarande i _Efterlevnadstillståndet_ **Inte startat**.
    Klicka på initiativet att få fullständig information om förloppet för tilldelningen.
 
-   ![Initiativkompatibilitet sidan – utvärderingar som inte har startats](../media/create-and-manage/compliance-status-not-started.png)
+   ![Sidan krav på initiativ-utvärderingar har inte startats](../media/create-and-manage/compliance-status-not-started.png)
 
 1. När initiativtilldelningen har slutförts, uppdateras sidan för efterlevnad med den _Efterlevnadstillståndet_ **Efterlever**.
 
-   ![Initiativkompatibilitet sidan-resurser kompatibel](../media/create-and-manage/compliance-status-compliant.png)
+   ![Sidan krav på initiativ – resurser är kompatibla](../media/create-and-manage/compliance-status-compliant.png)
 
 1. När du klickar på en princip på sidan initiativefterlevnad så öppnas sidan med efterlevnadsinformation för principen. Den här sidan ger information på resursnivån för efterlevnad.
 
@@ -427,7 +426,7 @@ I det här exemplet utförde Trent Baker, en av Contosos seniora virtualiserings
 
 1. Ange **Undantag** genom att klicka på ellipsen och välj den resursgrupp som ska exkluderas, vilket är *SQLServers_Excluded* i det här exemplet.
 
-   ![Lägga till en exkluderade resursgrupp i principtilldelningen](../media/create-and-manage/request-exclusion.png)
+   ![Lägg till en undantagen resurs grupp i princip tilldelningen](../media/create-and-manage/request-exclusion.png)
 
    > [!NOTE]
    > Beroende på principen och dess effekt skulle undantaget också kunna beviljas till specifika resurser i en resursgrupp inom omfånget för tilldelningen. Eftersom **Neka** har använts i den här självstudien, gör det ingen skillnad att ange undantag för en specifik resurs som redan finns.

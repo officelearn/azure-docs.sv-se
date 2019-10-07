@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 05/29/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 6820daf34e63fd48e83c645e7509a3256bc8435b
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.openlocfilehash: 0c8c270681794621b2a12671d4bcf350cd6cc4d8
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70066995"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981119"
 ---
 # <a name="use-an-ssl-certificate-in-your-application-code-in-azure-app-service"></a>Använd ett SSL-certifikat i program koden i Azure App Service
 
@@ -44,7 +44,7 @@ Kopiera certifikatets tumavtryck och se [göra certifikatet tillgängligt](#make
 
 Offentliga certifikat stöds i *. cer* -format. För att ladda upp ett offentligt certifikat, <a href="https://portal.azure.com" target="_blank">Azure Portal</a>och navigera till din app.
 
-Klicka **på SSL-inställningar** > **offentliga certifikat (. cer)**  > **Ladda upp offentligt certifikat** från den vänstra navigeringen i din app.
+Klicka på **SSL-inställningar** > **offentliga certifikat (. cer)**  > **Ladda upp offentligt certifikat** från den vänstra navigeringen i din app.
 
 I **namn**anger du ett namn för certifikatet. I **CER-certifikatfil**väljer du CER-filen.
 
@@ -62,16 +62,16 @@ När certifikatet har importer ATS kopierar du tumavtrycket för certifikatet oc
 
 ## <a name="make-the-certificate-accessible"></a>Gör certifikatet tillgängligt
 
-Om du vill använda ett uppladdat eller importerat certifikat i appens kod gör du `WEBSITE_LOAD_CERTIFICATES` dess tumavtryck tillgängligt med appens inställning genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
+Om du vill använda ett uppladdat eller importerat certifikat i appens kod gör du dess tumavtryck tillgängligt med appen `WEBSITE_LOAD_CERTIFICATES`, genom att köra följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>:
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_CERTIFICATES=<comma-separated-certificate-thumbprints>
 ```
 
-Ange värdet till `*`om du vill göra alla dina certifikat tillgängliga.
+Om du vill göra alla dina certifikat tillgängliga, ställer du in värdet på `*`.
 
 > [!NOTE]
-> Den här inställningen placerar de angivna certifikaten i den [aktuella User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) -butiken för de flesta pris nivåer, men i den isolerade nivån (d.v.s. appen körs i en [App Service-miljön](environment/intro.md)) placeras certifikaten i den [lokala Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) auktoriseringsarkiv.
+> Den här inställningen placerar de angivna certifikaten i den [aktuella User\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) -butiken för de flesta pris nivåer, men om din app körs på den **isolerade** nivån (d.v.s. appen körs i en [App Service-miljön](environment/intro.md)) kan du behöva checka in den [lokala Machine\My](/windows-hardware/drivers/install/local-machine-and-current-user-certificate-stores) Store i stället.
 >
 
 ![Konfigurera app-inställning](./media/app-service-web-ssl-cert-load/configure-app-setting.png)
@@ -112,13 +112,13 @@ certStore.Close();
 
 Om du behöver läsa in en certifikat fil från program katalogen är det bättre att ladda upp den med [FTPS](deploy-ftp.md) i stället för [git](deploy-local-git.md), till exempel. Du bör behålla känsliga data som ett privat certifikat från käll kontroll.
 
-Även om du läser in filen direkt i din .NET-kod, verifierar biblioteket fortfarande om den aktuella användar profilen har lästs in. Om du vill läsa in den aktuella användar profilen `WEBSITE_LOAD_USER_PROFILE` anger du appens inställning med följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+Även om du läser in filen direkt i din .NET-kod, verifierar biblioteket fortfarande om den aktuella användar profilen har lästs in. Om du vill läsa in den aktuella användar profilen anger du inställningen för `WEBSITE_LOAD_USER_PROFILE`-appen med följande kommando i <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings WEBSITE_LOAD_USER_PROFILE=1
 ```
 
-När den här inställningen har angetts läser följande C# exempel in ett certifikat som `mycert.pfx` kallas från `certs` katalogen i appens lagrings plats.
+När den här inställningen har angetts läser följande C# exempel in ett certifikat med namnet `mycert.pfx` från katalogen `certs` i appens lagrings plats.
 
 ```csharp
 using System;

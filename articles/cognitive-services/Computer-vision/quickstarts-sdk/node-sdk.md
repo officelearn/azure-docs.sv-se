@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: pafarley
-ms.openlocfilehash: fdf2b132b5d07b2b12c679cb436968c6fb19887e
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: a51a8e02ec08b9a4ee353c2c45345c4d01246894
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719517"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981833"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>Snabbstart: Visuellt innehåll klient bibliotek för Node. js
 
@@ -25,7 +25,7 @@ Använd Visuellt innehåll klient bibliotek för Node. js för att:
 * [Analysera en bild](#analyze-an-image)
 * [Skriv ut och handskriven text](#read-printed-and-handwritten-text)
 
-[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [paket (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[Referens dokumentation](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | -[paket (NPM)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [exempel](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -41,7 +41,7 @@ Azure-Cognitive Services representeras av Azure-resurser som du prenumererar på
 * Få en [utvärderings nyckel](https://azure.microsoft.com/try/cognitive-services/#decision) som är giltig i sju dagar utan kostnad. När du har registrerat dig kommer den att vara tillgänglig på [Azure-webbplatsen](https://azure.microsoft.com/try/cognitive-services/my-apis/).  
 * Visa din resurs på [Azure Portal](https://portal.azure.com/).
 
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts `COMPUTER_VISION_ENDPOINT` -URL: en med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive.
+När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och slut punkts-URL: en med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` respektive `COMPUTER_VISION_ENDPOINT`.
  
 ### <a name="create-a-new-nodejs-application"></a>Skapa ett nytt Node.js-program
 
@@ -51,7 +51,7 @@ I ett konsol fönster (till exempel cmd, PowerShell eller bash) skapar du en ny 
 mkdir myapp && cd myapp
 ```
 
-Kör kommandot för att skapa ett Node-program med `package.json` en fil. `npm init` 
+Kör kommandot `npm init` för att skapa ett Node-program med en `package.json`-fil. 
 
 ```console
 npm init
@@ -59,13 +59,13 @@ npm init
 
 ### <a name="install-the-client-library"></a>Installera klient biblioteket
 
-`ms-rest-azure` Installera och `azure-cognitiveservices-computervision` NPM-paketen:
+Installera `ms-rest-azure`-och `azure-cognitiveservices-computervision`-NPM-paket:
 
 ```console
 npm install azure-cognitiveservices-computervision ms-rest-azure
 ```
 
-Appens `package.json` fil kommer att uppdateras med beroenden.
+Appens `package.json`-fil kommer att uppdateras med beroenden.
 
 ### <a name="prepare-the-nodejs-script"></a>Förbereda Node. js-skriptet
 
@@ -73,7 +73,7 @@ Skapa en ny fil, *index. js*och öppna den i en text redigerare. Lägg till föl
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imports)]
 
-Definiera sedan en funktion `computerVision` och deklarera en async-serie med funktionen primär funktion och motringning. Du kommer att lägga till snabb starts koden i den primära funktionen `computerVision` och anropa längst ned i skriptet.
+Definiera sedan en funktion `computerVision` och deklarera en asynkron serie med primär funktion och callback-funktion. Du kommer att lägga till snabb starts koden i den primära funktionen och anropa `computerVision` längst ned i skriptet.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_functiondef_begin)]
 
@@ -189,7 +189,7 @@ Följande kod skriver ut de identifierade färgattributen i bilden, till exempel
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors)]
 
-Definiera hjälp funktionen `printColorScheme` för att skriva ut information om färgschemat till-konsolen.
+Definiera hjälp funktionen `printColorScheme` om du vill skriva ut information om färg schema till-konsolen.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_colors_print)]
 
@@ -205,13 +205,13 @@ Följande kod tolkar data om identifierade landmärken i bilden.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks)]
 
-Definiera hjälp funktionen `formatRectDomain` för att parsa plats data om identifierade landmärken.
+Definiera hjälp funktionen `formatRectDomain` om du vill parsa plats data om identifierade landmärken.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_landmarks_rect)]
 
 ### <a name="get-the-image-type"></a>Hämta avbildnings typen
 
-Följande kod skriver ut information om typen av bild&mdash;oavsett om den är en ClipArt-eller linje ritning.
+Följande kod skriver ut information om den typ av bild @ no__t-0whether som är ClipArt eller linje ritning.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_imagetype)]
 
@@ -228,17 +228,17 @@ Visuellt innehåll kan läsa synlig text i en bild och konvertera den till en te
 
 ### <a name="set-up-test-images"></a>Konfigurera test avbildningar
 
-Spara en referens till URL: en för de bilder som du vill extrahera text från.
+Spara en referens till URL: en för de avbildningar som du vill extrahera text från.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_images)]
 
 ### <a name="call-the-recognize-api"></a>Anropa API: et för igenkänning
 
-Lägg till koden nedan, som anropar `recognizeText` funktionen för de aktuella avbildningarna.
+Lägg till koden nedan, som anropar funktionen `recognizeText` för de aktuella avbildningarna.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_call)]
 
-`recognizeText` Definiera funktionen. Detta anropar metoden **recognizeText** på klient objekt, som returnerar ett ÅTGÄRDS-ID och startar en asynkron process för att läsa innehållet i avbildningen. Sedan använder den åtgärds-ID: t för att kontrol lera åtgärden vid en sekunds intervall tills resultatet returneras. Den returnerar sedan de extraherade resultaten.
+Definiera `recognizeText`-funktionen. Detta anropar metoden **recognizeText** på klient objekt, som returnerar ett ÅTGÄRDS-ID och startar en asynkron process för att läsa innehållet i avbildningen. Sedan använder den åtgärds-ID: t för att kontrol lera åtgärden vid en sekunds intervall tills resultatet returneras. Den returnerar sedan de extraherade resultaten.
 
 [!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_read_helper)]
 
@@ -248,7 +248,7 @@ Definiera sedan hjälp funktionen `printRecText`, som skriver ut resultatet av e
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Kör programmet med `node` kommandot på snabb starts filen.
+Kör programmet med kommandot `node` på snabb starts filen.
 
 ```console
 node index.js

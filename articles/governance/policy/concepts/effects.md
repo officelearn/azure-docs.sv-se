@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: 06a5ffbef2b841acc7ea7ecc82d05dfccbc0cab1
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 991cfb54dc511c284c5f5d0cf1807d5dd42b34ea
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147005"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978075"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå effekterna av Azure Policy
 
@@ -26,7 +25,7 @@ Dessa effekter stöds för närvarande i en princip definition:
 - [Autentiseringsregel](#deny)
 - [DeployIfNotExists](#deployifnotexists)
 - [Inaktiverad](#disabled)
-- [EnforceRegoPolicy](#enforceregopolicy) förhandsgranskningsvyn
+- [EnforceRegoPolicy](#enforceregopolicy) (för hands version)
 - [Gör](#modify)
 
 ## <a name="order-of-evaluation"></a>Ordningen för utvärdering
@@ -65,7 +64,7 @@ Lägg till påverkar endast har en **information** matris som krävs. Som **info
 
 ### <a name="append-examples"></a>Lägg till exempel
 
-Exempel 1: Ett **fält/värde** -par med ett icke **-\*[]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. När ett icke- **[\*]** -alias är en matris lägger effekterna till **värdet** som hela matrisen. Om matrisen redan finns inträffar en Deny-händelse från konflikten.
+Exempel 1: Ett **fält/värde** -par med ett icke- **[\*]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** för att ange IP-regler för ett lagrings konto. När aliaset som inte är **[\*]** är en matris, lägger effekterna till **värdet** som hela matrisen. Om matrisen redan finns inträffar en Deny-händelse från konflikten.
 
 ```json
 "then": {
@@ -80,7 +79,7 @@ Exempel 1: Ett **fält/värde** -par med ett icke **-\*[]** - [alias](definition
 }
 ```
 
-Exempel 2: Ett **fält/värde** -par med **ett\*[]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** som anger IP-regler för ett lagrings konto. Genom att använda **[\*]** -aliaset lägger du till **värdet** i en befintlig matris som kan användas. Om matrisen inte finns kommer den att skapas.
+Exempel 2: Enkelt **fält/värde** -par med ett **[\*]** - [alias](definition-structure.md#aliases) med ett mat ris **värde** för att ange IP-regler för ett lagrings konto. Genom att använda **[\*]** aliaset lägger du till **värdet** i en befintlig matris som kan användas. Om matrisen inte finns kommer den att skapas.
 
 ```json
 "then": {
@@ -97,7 +96,7 @@ Exempel 2: Ett **fält/värde** -par med **ett\*[]** - [alias](definition-struct
 
 ## <a name="modify"></a>Ändra
 
-Ändra används för att lägga till, uppdatera eller ta bort taggar på en resurs under skapandet eller uppdateringen. Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. En ändra princip ska alltid ha `mode` inställningen _indexerad_. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md).
+Ändra används för att lägga till, uppdatera eller ta bort taggar på en resurs under skapandet eller uppdateringen. Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. En ändra princip ska alltid ha `mode` inställt på _indexerad_. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md).
 En enda ändra-regel kan ha valfritt antal åtgärder.
 
 > [!IMPORTANT]
@@ -116,14 +115,14 @@ Egenskapen **information** för funktionen ändra har alla under egenskaper som 
 - **roleDefinitionIds** [krävs]
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
   - Den roll som definieras måste innehålla alla åtgärder som beviljas rollen [deltagare](../../../role-based-access-control/built-in-roles.md#contributor) .
-- **åtgärder** kunna
+- **åtgärder** [krävs]
   - En matris med alla märknings åtgärder som ska utföras för matchande resurser.
   - Egenskaper:
-    - **åtgärd** kunna
+    - **åtgärd** [krävs]
       - Definierar vilken åtgärd som ska vidtas för en matchande resurs. Alternativen är: _addOrReplace_, _Add_, _Remove_. _Lägg till_ fungerar ungefär som [i Lägg till-resultatet.](#append)
-    - **fält** kunna
+    - **fält** [obligatoriskt]
       - Taggen för att lägga till, ersätta eller ta bort. Taggnamn måste följa samma namngivnings konvention för andra [fält](./definition-structure.md#fields).
-    - **värde** valfritt
+    - **värde** (valfritt)
       - Värdet som taggen ska ställas in på.
       - Den här egenskapen krävs om **åtgärden** är _addOrReplace_ eller _Add_.
 
@@ -131,9 +130,9 @@ Egenskapen **information** för funktionen ändra har alla under egenskaper som 
 
 Med egenskapen för **drifts** egenskaper kan du ändra flera taggar på olika sätt från en enda princip definition. Varje åtgärd består av egenskaperna **åtgärd**, **fält**och **värde** . Åtgärden avgör vad reparations uppgiften gör till taggarna, fältet avgör vilken tagg som ändras och värdet definierar den nya inställningen för taggen. Exemplet nedan gör följande tagg ändringar:
 
-- Ställer in `environment` taggen på "test", även om den redan finns med ett annat värde.
+- Anger taggen `environment` till "test", även om den redan finns med ett annat värde.
 - Tar bort taggen `TempResource`.
-- Ställer in taggen till den princip parameter DeptName som kon figurer ATS för princip tilldelningen. `Dept`
+- Ställer in taggen `Dept` till den princip parameter _DeptName_ som kon figurer ATS i princip tilldelningen.
 
 ```json
 "details": {
@@ -167,7 +166,7 @@ Egenskapen **operation** har följande alternativ:
 
 ### <a name="modify-examples"></a>Ändra exempel
 
-Exempel 1: `environment` Lägg till `environment` taggen och ersätt befintliga taggar med "test":
+Exempel 1: Lägg till taggen `environment` och ersätt befintliga `environment`-Taggar med "test":
 
 ```json
 "then": {
@@ -187,7 +186,7 @@ Exempel 1: `environment` Lägg till `environment` taggen och ersätt befintliga 
 }
 ```
 
-Exempel 2: Ta bort `environment`taggenoch Lägg till taggen eller ersätt befintliga `environment` Taggar med ett parameter värde: `env`
+Exempel 2: Ta bort taggen `env` och Lägg till taggen `environment` eller ersätt befintliga `environment`-Taggar med ett parameter värde:
 
 ```json
 "then": {
@@ -241,7 +240,7 @@ Granska används för att skapa en varning-händelse i aktivitetsloggen vid utv�
 
 ### <a name="audit-evaluation"></a>Granska utvärdering
 
-Audit är den senaste effekterna som kontrol leras av Azure Policy när en resurs skapas eller uppdateras. Azure Policy skickar sedan resursen till resurs leverantören. Granskning fungerar på samma sätt för en resursbegäran och en utvärderingscykel för datorprincip. Azure policy lägger till `Microsoft.Authorization/policies/audit/action` en åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel.
+Audit är den senaste effekterna som kontrol leras av Azure Policy när en resurs skapas eller uppdateras. Azure Policy skickar sedan resursen till resurs leverantören. Granskning fungerar på samma sätt för en resursbegäran och en utvärderingscykel för datorprincip. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action`-åtgärd i aktivitets loggen och markerar resursen som icke-kompatibel.
 
 ### <a name="audit-properties"></a>Egenskaper för granskning
 
@@ -263,7 +262,7 @@ AuditIfNotExists aktiverar granskning på resurser som matchar den **om** villko
 
 ### <a name="auditifnotexists-evaluation"></a>AuditIfNotExists utvärdering
 
-AuditIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. Granskningen uppstår om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. Azure policy lägger till `Microsoft.Authorization/policies/audit/action` en åtgärd i aktivitets loggen på samma sätt som gransknings resultatet. När det utlöses, den resurs som uppfyller den **om** villkoret är den resurs som markeras som icke-kompatibla.
+AuditIfNotExists körs när en Resursprovider hanterat en skapa eller uppdatera resursbegäran och returnerade statuskoden lyckades. Granskningen uppstår om det finns inga relaterade resurser eller om resurserna som definierats av **ExistenceCondition** inte utvärderas till SANT. Azure Policy lägger till en `Microsoft.Authorization/policies/audit/action`-åtgärd i aktivitets loggen på samma sätt som gransknings resultatet. När det utlöses, den resurs som uppfyller den **om** villkoret är den resurs som markeras som icke-kompatibla.
 
 ### <a name="auditifnotexists-properties"></a>AuditIfNotExists egenskaper
 
@@ -274,7 +273,7 @@ Den **information** egenskapen om AuditIfNotExists effekterna har alla subegensk
   - Om **information. Type** är en resurs typ under **IF** -villkor-resursen, frågar principen efter resurser av den här **typen** inom omfånget för den utvärderade resursen. I annat fall är princip frågorna inom samma resurs grupp som den utvärderade resursen.
 - **Namn på** (valfritt)
   - Anger det exakta namnet på resursen som ska matcha och gör principen att hämta en specifik resurs i stället för alla resurser av den angivna typen.
-  - När villkors värden för **IF. Field. Type** och **then. details. Type** match, blir **namnet** _obligatoriskt_ och måste `[field('name')]`vara. En [gransknings](#audit) funktion bör dock beaktas i stället.
+  - När villkors värden för **IF. Field. Type** och **then.** Type matchar, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]`. En [gransknings](#audit) funktion bör dock beaktas i stället.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchningen av relaterade resursen komma från en annan resursgrupp.
   - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.
@@ -345,7 +344,7 @@ Egenskapen **information** för DeployIfNotExists-effekterna har alla under egen
   - Startar genom att hämta en resurs under den **om** villkor resurs och frågor inom samma resursgrupp som den **om** villkoret resurs.
 - **Namn på** (valfritt)
   - Anger det exakta namnet på resursen som ska matcha och gör principen att hämta en specifik resurs i stället för alla resurser av den angivna typen.
-  - När villkors värden för **IF. Field. Type** och **then. details. Type** match, blir **namnet** _obligatoriskt_ och måste `[field('name')]`vara.
+  - När villkors värden för **IF. Field. Type** och **then.** Type matchar, blir **namnet** _obligatoriskt_ och måste vara `[field('name')]`.
 - **ResourceGroupName** (valfritt)
   - Tillåter matchningen av relaterade resursen komma från en annan resursgrupp.
   - Gäller inte om **typ** är en resurs som är under den **om** villkoret resurs.
@@ -366,7 +365,7 @@ Egenskapen **information** för DeployIfNotExists-effekterna har alla under egen
   - Exempelvis kan användas för att kontrollera att den överordnade resursen (i den **om** villkor) är i samma resursplats som den matchande relaterad resursen.
 - **roleDefinitionIds** [krävs]
   - Den här egenskapen måste innehålla en matris med strängar som matchar rollbaserad åtkomstkontroll roll-ID nås av prenumerationen. Mer information finns i [reparation – konfigurera principdefinitionen](../how-to/remediate-resources.md#configure-policy-definition).
-- **DeploymentScope** valfritt
+- **DeploymentScope** (valfritt)
   - Tillåtna värden är _prenumeration_ och _ResourceGroup_.
   - Anger vilken typ av distribution som ska utlösas. _Prenumerationen_ anger en [distribution på prenumerations nivå](../../../azure-resource-manager/deploy-to-subscription.md), _ResourceGroup_ anger en distribution till en resurs grupp.
   - En _plats_ egenskap måste anges i _distributionen_ när du använder distributioner på prenumerations nivå.
@@ -446,11 +445,11 @@ Var 5: e minut slutförs en fullständig genomsökning av klustret och resultate
 
 Egenskapen **information** för EnforceRegoPolicy-effekter har de subegenskaper som beskriver reglerna för Rego-åtkomstkontroll.
 
-- **policyId** kunna
+- **policyId** [krävs]
   - Ett unikt namn som skickas som en parameter till Rego-åtkomstkontroll.
-- **princip** kunna
+- **princip** [nödvändig]
   - Anger URI för Rego-åtkomstkontroll.
-- **policyParameters** valfritt
+- **policyParameters** [valfritt]
   - Definierar alla parametrar och värden som ska skickas till Rego-principen.
 
 ### <a name="enforceregopolicy-example"></a>EnforceRegoPolicy-exempel

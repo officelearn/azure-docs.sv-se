@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 05/11/2018
 ms.author: ningk
-ms.openlocfilehash: eb5de6bf42769e7fd04782fc52d93764d1d7a3d6
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: e341cc5beeb8e8362a848bb1e208ddf1dc773978
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093912"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976803"
 ---
 # <a name="integrate-cloud-foundry-with-azure"></a>Integrera Cloud Foundry med Azure
 
@@ -31,7 +31,7 @@ Det finns [6 del system av Cloud Foundry](https://docs.cloudfoundry.org/concepts
 ## <a name="1-high-availability-and-scalability"></a>1. Hög tillgänglighet och skalbarhet
 ### <a name="managed-disk"></a>Hanterad disk
 Bosh använder Azure CPI (Cloud Provider Interface) för disk skapande och borttagning av rutiner. Som standard används ohanterade diskar. Kunden måste manuellt skapa lagrings konton och sedan konfigurera kontona i CF MANIFEST-filer. Detta beror på begränsningen av antalet diskar per lagrings konto.
-Nu är [hanterad disk](https://azure.microsoft.com/services/managed-disks/) tillgänglig, och erbjuder hanterad säker och tillförlitlig disk lagring för virtuella datorer. Kunden behöver inte längre hantera lagrings kontot för skalning och HA. Azure ordnar diskarna automatiskt. Oavsett om det är en ny eller en befintlig distribution, kommer Azure CPI att hantera skapandet eller migreringen av den hanterade disken under en CF-distribution. Den stöds med PCF 1,11. Du kan också utforska vägledningen Cloud Foundry [Managed disk](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks) med öppen källkod för referens. 
+Nu är [hanterad disk](https://azure.microsoft.com/services/managed-disks/) tillgänglig, och erbjuder hanterad säker och tillförlitlig disk lagring för virtuella datorer. Kunden behöver inte längre hantera lagrings kontot för skalning och HA. Azure ordnar diskarna automatiskt. Oavsett om det är en ny eller en befintlig distribution, kommer Azure CPI att hantera skapandet eller migreringen av den hanterade disken under en CF-distribution. Den stöds med PCF 1,11. Du kan också utforska [vägledningen Cloud Foundry Managed disk](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/managed-disks) med öppen källkod för referens. 
 ### <a name="availability-zone-"></a>Tillgänglighets zon *
 Som en molnbaserad program plattform är Cloud Foundry utformad med [fyra nivåer av hög tillgänglighet](https://docs.pivotal.io/pivotalcf/2-1/concepts/high-availability.html). Medan de första tre nivåerna av program varu fel kan hanteras av själva CF-systemet, tillhandahålls plattforms fel tolerans av moln leverantörer. Nyckeln CF-komponenter bör skyddas med en moln leverantörs plattform HA-lösning. Detta inkluderar GoRouters, Diego hjärna, CF-databaser och service paneler. Som standard används [Azures tillgänglighets uppsättning](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/deploy-cloudfoundry-with-availability-sets) för fel tolerans mellan kluster i ett Data Center.
 Den nya [Azure Availability-zonen](https://docs.microsoft.com/azure/availability-zones/az-overview ) är nu fri att lanseras nu, vilket ger fel tolerans till nästa nivå, med redundans med låg latens mellan data Center.
@@ -65,7 +65,7 @@ Databasen för användar konto och autentisering. Den lagrar relaterade data fö
 Som standard kan en lokal system databas (MySQL) användas. Använd Azure Managed MySQL eller PostgreSQL Services för HA och för att skala. Här är en instruktion om att [Aktivera Azure MySQL/postgresql för CCDB, UAADB och andra system databaser med öppen källkod Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/configure-cf-external-databases-using-azure-mysql-postgres-service).
 
 ## <a name="5-open-service-broker"></a>5. Öppna Service Broker
-Azure Service Broker erbjuder konsekvent gränssnitt för att hantera programmets åtkomst till Azure-tjänster. Med den nya [öppna Service Broker för Azure Project](https://github.com/Azure/open-service-broker-azure) får du ett enkelt och enkelt sätt att leverera tjänster till program över Cloud Foundry, OpenShift och Kubernetes. Mer information om distributions anvisningar för PCF finns i [Azure Open Service Broker-panelen för PCF](https://network.pivotal.io/products/azure-open-service-broker-pcf/) .
+Azure Service Broker erbjuder konsekvent gränssnitt för att hantera programmets åtkomst till Azure-tjänster. Med den nya [öppna Service Broker för Azure Project](https://github.com/Azure/open-service-broker-azure) får du ett enkelt och enkelt sätt att leverera tjänster till program över Cloud Foundry, OpenShift och Kubernetes. Mer information om distributions anvisningar för PCF finns i [Azure Open Service Broker-panelen för PCF](https://pivotal.io/platform/services-marketplace/data-management/microsoft-azure) .
 
 ## <a name="6-metrics-and-logging"></a>6. Mått och loggning
 Azure Log Analytics munstycke är en Cloud Foundry komponent som vidarebefordrar mått från [Cloud Foundry loggregator-Firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) till [Azure Monitor loggar](https://azure.microsoft.com/services/log-analytics/). Med munstycket kan du samla in, Visa och analysera systemets hälso tillstånds-och prestanda mått i flera distributioner.

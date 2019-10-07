@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 882228c7cb49a6a419b2b5e0bb200da3391d4584
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: a55fccd8942e9bbdee4611120ffcab48fe4a8c62
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802568"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978298"
 ---
 # <a name="deploy-the-iso-27001-shared-services-blueprint-sample"></a>Distribuera skiss exemplet för delade tjänster i ISO 27001
 
@@ -33,14 +32,14 @@ Börja med att implementera skiss exemplet genom att skapa en ny skiss i din mil
 
 1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
 
-1. **Hitta ISO 27001: Skiss exempel** för delade tjänster under _andra exempel_ och välj **Använd det här exemplet**.
+1. Hitta **ISO 27001: Delade tjänster @ no__t – 0 skiss exempel under _andra exempel_ och välj **Använd det här exemplet**.
 
 1. Ange _grunderna_ för skiss exemplet:
 
    - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet för delade tjänster i ISO 27001.
    - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj fliken _artefakter_ högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
+1. Välj fliken _artefakter_ överst på sidan eller **Next: Artefakter @ no__t-0 längst ned på sidan.
 
 1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
@@ -89,8 +88,8 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
      - **Organisations namn**: Ange ett kort namn för din organisation. Den här egenskapen används främst för att namnge resurser.
      - **Adressprefix för Shared Services-undernät**: Ange värdet för CIDR-notering för nätverk de distribuerade resurserna tillsammans.
      - **Plats för delade tjänster**: Bestämmer vilken plats artefakterna distribueras till. Alla tjänster är inte tillgängliga på alla platser. Artefakter som distribuerar sådana tjänster tillhandahåller ett parameter alternativ för platsen som artefakten ska distribueras till.
-     - **Tillåten plats (princip: Skiss initiativ för ISO 27001)** : Värde som anger tillåtna platser för resurs grupper och resurser.
-     - **Log Analytics arbets yta för VM-agenter (princip: Skiss initiativ för ISO 27001)** : Anger resurs-ID för en arbets yta. Den här parametern använder `concat` en funktion för att konstruera resurs-ID: t.
+     - **Allowed plats (princip: Skiss initiativ för ISO 27001)** : Värde som anger tillåtna platser för resurs grupper och resurser.
+     - **Log Analytics-arbetsyta för VM-agenter (princip: Skiss initiativ för ISO 27001)** : Anger resurs-ID för en arbets yta. Den här parametern använder en `concat`-funktion för att skapa resurs-ID.
 
    - Artefaktparametrar
 
@@ -107,10 +106,10 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 
 |Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
-|\[För\]hands version: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfång|Valfritt Standardvärdet är _["none"]_ .|
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfång|Valfritt Standardvärdet är _["none"]_ .|
-|\[För\]hands version: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
-|\[För\]hands version: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfång|Valfritt Standardvärdet är _["none"]_ .|
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfång|Valfritt Standardvärdet är _["none"]_ .|
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|Valfritt Standardvärdet är _["none"]_ .|
 |Tillåtna resurstyper|Principtilldelning|Tillåtna resurstyper|Lista över resurs typer som får distribueras. Den här listan består av alla resurs typer som distribueras i delade tjänster.|
 |Tillåtna SKU:er för lagringskonto|Principtilldelning|Tillåtna lagrings-SKU: er|Lista över diagnostiska loggar lagrings konto SKU: er tillåts. Standardvärdet är _["Standard_LRS"]_ .|
 |Tillåtna SKU:er för virtuella datorer|Principtilldelning|Lista över virtuella dator-SKU: er som kan distribueras. Standardvärdet är _["Standard_DS1_v2", "Standard_DS2_v2"]_ .|
@@ -144,13 +143,13 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Resurs grupp för hopp|Resource group|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-jb-rg` för att göra resurs gruppen unik.|
 |Resurs grupp för hopp|Resource group|Location|**Locked** – använder skiss parametern.|
 |Jumpbox-mall|Resource Manager-mall|Jumpbox-administratörens användarnamn|Det användar namn som används för att komma åt de virtuella datorerna i bygel. Måste matcha samma egenskaps värde i **Key Vault-mallen**. Standardvärdet är _JB-admin-user_.|
-|Jumpbox-mall|Resource Manager-mall|Lösen ord för hopp i administratör (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/Subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-RG/providers/Microsoft.KeyVault/Vaults/{orgName}-sharedsvcs-kv" och Ersätt `{subscriptionId}` med ditt prenumerations- `{orgName}` ID och med **organisationen namn** skiss parameter.|
+|Jumpbox-mall|Resource Manager-mall|Lösen ord för hopp i administratör (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" och ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med **organisationens namn** skiss parameter.|
 |Jumpbox-mall|Resource Manager-mall|Lösen ord för bygel (Key Vault hemligt namn)|Användar namn för hopp administratören. Måste matcha värdet i **Key Vault Template** - **administratörens användar namn**.|
 |Jumpbox-mall|Resource Manager-mall|Jumpbox-operativsystem|Fastställer operativ systemet för den virtuella datorn i hoppet. Standardvärdet är _Windows_.|
 |Active Directory Domain Services resurs grupp|Resource group|Name|**Locked** -sammanfogar **organisations namnet** med `-sharedsvcs-adds-rg` för att göra resurs gruppen unik.|
 |Active Directory Domain Services resurs grupp|Resource group|Location|**Locked** – använder skiss parametern.|
 |Active Directory Domain Services-mall|Resource Manager-mall|Domänadministratörens användarnamn|Användar namn för Lägg till hopp. Måste matcha samma egenskaps värde i **Key Vault-mallen**. Standardvärdet _läggs till-admin-user_.|
-|Active Directory Domain Services-mall|Resource Manager-mall|Lösen ord för domän administratör (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/Subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-RG/providers/Microsoft.KeyVault/Vaults/{orgName}-sharedsvcs-kv" och Ersätt `{subscriptionId}` med ditt prenumerations- `{orgName}` ID och med **organisationen namn** skiss parameter.|
+|Active Directory Domain Services-mall|Resource Manager-mall|Lösen ord för domän administratör (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/subscriptions/{subscriptionId}/resourceGroups/{orgName}-sharedsvcs-kv-rg/providers/Microsoft.KeyVault/vaults/{orgName}-sharedsvcs-kv" och ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med **organisationens namn** skiss parameter.|
 |Active Directory Domain Services-mall|Resource Manager-mall|Domän administratörs lösen ord (Key Vault hemligt namn)|Användar namnet för domän administratören. Måste matcha värdet i **Key Vault mall** **domän administratör användar namn**.|
 |Active Directory Domain Services-mall|Resource Manager-mall|Domännamn|Namnet på Active Directory som skapats av exemplet. Standardvärdet är _contoso.com_.|
 |Active Directory Domain Services-mall|Resource Manager-mall|Domän administratörs användare|Användar namn för admin AD-konto och för att ansluta enheter till AD-domänen. Måste matcha egenskap svärdet för **AD admin-användarnamn** i **Key Vault-mallen**. Standardvärdet är _domän administratör – användare_.|
@@ -161,7 +160,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 Nu när du har granskat stegen för att distribuera ISO 27001-skissen för delade tjänster kan du gå till följande artiklar om du vill veta mer om arkitektur och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [ISO 27001 delade tjänster skiss – översikt](./index.md)
+> [Iso 27001 delade tjänster skiss – översikt](./index.md)
 > [ISO 27001 delade tjänster skiss-kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:

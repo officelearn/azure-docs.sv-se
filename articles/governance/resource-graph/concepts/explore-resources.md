@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 148d69b96291737088a1472a9affd8bb9e43ab1b
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: e6a43db764a3dbc001e132ef5e321f20aa36041f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241129"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981260"
 ---
 # <a name="explore-your-azure-resources-with-resource-graph"></a>Utforska dina Azure-resurser med resursgrafer
 
@@ -40,7 +39,7 @@ Search-AzGraph -Query "where type =~ 'Microsoft.Compute/virtualMachines' | limit
 ```
 
 > [!NOTE]
-> Azure PowerShell `Search-AzGraph` cmdleten returnerar en **PSCustomObject** som standard. Om du vill att utdata ska se ut på samma sätt som det som returneras av `ConvertTo-Json` Azure CLI, används cmdleten. Standardvärdet för **djup** är _2_. Om du ställer in det på _100_ ska alla returnerade nivåer konverteras.
+> Cmdleten Azure PowerShell `Search-AzGraph` returnerar en **PSCustomObject** som standard. Om du vill att utdata ska se ut på samma sätt som det som returneras av Azure CLI, används `ConvertTo-Json`-cmdleten. Standardvärdet för **djup** är _2_. Om du ställer in det på _100_ ska alla returnerade nivåer konverteras.
 
 JSON-resultatet är strukturerat på samma sätt som i följande exempel:
 

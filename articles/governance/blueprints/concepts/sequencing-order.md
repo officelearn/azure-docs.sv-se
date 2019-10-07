@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/22/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 05cc12f5416cbbbff470b40c870f41647ef37cd5
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: bda7a6caea931a993a6ddd6731688792bf0b3948
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231918"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981020"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Förstå distributions ordningen i Azure-ritningar
 
@@ -48,7 +47,7 @@ I varje **resurs grupps** artefakt används följande ordning för artefakter so
 
 När du skapar stora skiss definitioner kan det vara nödvändigt att resurser skapas i en speciell ordning. Det vanligaste användnings mönstret i det här scenariot är när en skiss definition innehåller flera Azure Resource Manager mallar. Ritningar hanterar det här mönstret genom att tillåta ordningsföljds ordning att definieras.
 
-Ordningen utförs genom att definiera en `dependsOn` egenskap i JSON. Skiss definitionen, för resurs grupper och artefakt objekt stöder den här egenskapen. `dependsOn`är en sträng mat ris med artefakt namn som den specifika artefakten måste skapas innan den skapas.
+Ordningen utförs genom att definiera en `dependsOn`-egenskap i JSON. Skiss definitionen, för resurs grupper och artefakt objekt stöder den här egenskapen. `dependsOn` är en sträng mat ris med artefakt namn som den specifika artefakten måste skapas innan den skapas.
 
 > [!NOTE]
 > När du skapar skiss objekt hämtar varje artefakt resurs sitt namn från fil namnet, om du använder [PowerShell](/powershell/module/az.blueprint/new-azblueprintartifact), eller URL-slutpunkten om du använder [REST API](/rest/api/blueprints/artifacts/createorupdate).
@@ -56,7 +55,7 @@ Ordningen utförs genom att definiera en `dependsOn` egenskap i JSON. Skiss defi
 
 ### <a name="example---ordered-resource-group"></a>Exempel på ordnad resurs grupp
 
-Den här exempel ritnings definitionen har en resurs grupp som har definierat en anpassad ordningsföljd ordning genom att deklarera ett värde `dependsOn`för, tillsammans med en standard resurs grupp. I det här fallet bearbetas artefakten med namnet **assignPolicyTags** före den **beställda-RG** resurs gruppen.
+Den här exempel ritnings definitionen har en resurs grupp som har definierat en anpassad ordningsföljd ordning genom att deklarera ett värde för `dependsOn`, tillsammans med en standard resurs grupp. I det här fallet bearbetas artefakten med namnet **assignPolicyTags** före den **beställda-RG** resurs gruppen.
 **standard – RG** kommer att bearbetas enligt standard ordningen för ordningsföljd.
 
 ```json
@@ -141,11 +140,11 @@ Mallen för prenumerations nivåns artefakt beroende på resurs gruppen **vänta
 
 Under skapandet används en Top ologiska sortering för att skapa ett beroende diagram över ritningens artefakter. Kontrollen säkerställer att varje nivå av beroendet mellan resurs grupper och artefakter stöds.
 
-Om ett artefakt beroende deklareras som inte ändrar standard ordningen görs ingen ändring. Ett exempel är en resurs grupp som är beroende av en princip för en prenumerations nivå. Ett annat exempel är en resurs grupps "standard-RG"-princip tilldelning som är beroende av den underordnade roll tilldelningen standard-RG för resurs gruppen. I båda fallen har inte `dependsOn` den förändrade standard ordningen och inga ändringar görs.
+Om ett artefakt beroende deklareras som inte ändrar standard ordningen görs ingen ändring. Ett exempel är en resurs grupp som är beroende av en princip för en prenumerations nivå. Ett annat exempel är en resurs grupps "standard-RG"-princip tilldelning som är beroende av den underordnade roll tilldelningen standard-RG för resurs gruppen. I båda fallen skulle `dependsOn` inte ha ändrat standard ordningen för ordningsföljd och inga ändringar skulle göras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [skiss livs cykeln](lifecycle.md).
+- Mer information om [livscykeln för en skiss](lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
 - Lär dig hur du använder [resurslåsning för en skiss](resource-locking.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).

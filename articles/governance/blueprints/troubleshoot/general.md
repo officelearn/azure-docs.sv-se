@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 12/11/2018
 ms.topic: troubleshooting
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 14e957986df7a114b8c865ee82e2ac447683dc2c
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: b99e94bfdcbf12e82a094f14995b6b93aa3354ed
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70257181"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978232"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Felsöka fel med Azure-ritningar
 
@@ -59,11 +58,11 @@ Skiss parametrar som är funktioner bearbetas innan de skickas till artefakter.
 
 #### <a name="cause"></a>Orsak
 
-Att skicka en skiss parameter som använder en funktion, till `[resourceGroup().tags.myTag]`exempel, till en artefakt resulterar i att det behandlade resultatet av funktionen som anges i artefakten i stället för den dynamiska funktionen.
+Att skicka en skiss parameter som använder en funktion, till exempel `[resourceGroup().tags.myTag]`, till en artefakt resulterar i att det behandlade resultatet av funktionen som anges i artefakten i stället för den dynamiska funktionen.
 
 #### <a name="resolution"></a>Lösning
 
-Om du vill skicka en funktion via som en parameter, kan du undanta `[` hela strängen med så att skiss parametern `[[resourceGroup().tags.myTag]`ser ut som. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/template-expressions.md).
+Om du vill skicka en funktion genom att använda som parameter, escapea hela strängen med `[` så att skiss parametern ser ut som `[[resourceGroup().tags.myTag]`. Escape-tecken gör att ritningar hanterar värdet som en sträng när skissen bearbetas. Ritningar placerar sedan funktionen på artefakten så att den kan vara dynamisk som förväntat. Mer information finns [i syntax och uttryck i Azure Resource Manager mallar](../../../azure-resource-manager/template-expressions.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

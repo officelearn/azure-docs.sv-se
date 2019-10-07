@@ -6,17 +6,16 @@ ms.author: dacoulte
 ms.date: 04/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 8d3cee73d8614c4aea2d2883cdcf2f049b1b8f67
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 5c62fdb698dddf293d339904fd0c854052d636eb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232948"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981051"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Förstå resurs låsning i Azure-ritningar
 
-Att skapa konsekventa miljöer i skala är bara riktigt värdefullt om det finns en mekanism för att upprätthålla denna konsekvens. Den här artikeln förklarar hur resurs låsning fungerar i Azure-ritningar. Om du vill se ett exempel på resurs låsning och tillämpning av _neka_-tilldelningar, se själv studie kursen [skydda nya resurser](../tutorials/protect-new-resources.md) .
+Att skapa konsekventa miljöer i skala är bara riktigt värdefullt om det finns en mekanism för att upprätthålla denna konsekvens. Den här artikeln förklarar hur resurs låsning fungerar i Azure-ritningar. Om du vill se ett exempel på resurs låsning och tillämpning av _neka-tilldelningar_, se själv studie kursen [skydda nya resurser](../tutorials/protect-new-resources.md) .
 
 ## <a name="locking-modes-and-states"></a>Lås lägen och tillstånd
 
@@ -27,7 +26,7 @@ Resurser som har skapats av artefakter i en skiss tilldelning har fyra tillstån
 
 |Läge|Artefakt resurs typ|State|Beskrivning|
 |-|-|-|-|
-|Lås inte|*|Inte låst|Resurser skyddas inte av ritningar. Det här läget används också för resurser som läggs till i en skrivskyddad eller **inte tar bort** artefakten för resurs gruppen utanför en skiss tilldelning.|
+|Lås inte|*|Inte låst|Resurser skyddas inte av ritningar. Det här läget används också för resurser som läggs till i en **skrivskyddad** eller **inte tar bort** artefakten för resurs gruppen utanför en skiss tilldelning.|
 |Skrivskyddad|Resource group|Det går inte att redigera/ta bort|Resurs gruppen är skrivskyddad och taggarna i resurs gruppen kan inte ändras. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
 |Skrivskyddad|Icke-resurs grupp|Skrivskyddad|Resursen kan inte ändras på något sätt: inga ändringar och det går inte att ta bort den.|
 |Ta inte bort|*|Kan inte ta bort|Resurserna kan ändras, men de kan inte tas bort. Det går inte att lägga till, flytta, ändra eller ta bort resurser som **inte är låsta** från den här resurs gruppen.|
@@ -49,7 +48,7 @@ När tilldelningen tas bort tas låsen som skapats av ritningar bort. Resursen �
 
 ## <a name="how-blueprint-locks-work"></a>Hur skissen låser sig
 
-Åtgärden för [](../../../role-based-access-control/deny-assignments.md) att neka en RBAC-åtgärd tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt alternativet **skrivskyddad** eller **Ta inte bort** . Neka-åtgärden läggs till av den hanterade identiteten för skiss tilldelningen och kan bara tas bort från artefakt resurserna av samma hanterade identitet. Det här säkerhets måttet tillämpar låsnings funktionen och förhindrar borttagning av skiss låset utanför ritningar.
+Åtgärden för [att neka en RBAC-](../../../role-based-access-control/deny-assignments.md) åtgärd tillämpas på artefakt resurser under tilldelningen av en skiss om tilldelningen har valt alternativet **skrivskyddad** eller **Ta inte bort** . Neka-åtgärden läggs till av den hanterade identiteten för skiss tilldelningen och kan bara tas bort från artefakt resurserna av samma hanterade identitet. Det här säkerhets måttet tillämpar låsnings funktionen och förhindrar borttagning av skiss låset utanför ritningar.
 
 ![Skissen neka tilldelning för resurs gruppen](../media/resource-locking/blueprint-deny-assignment.png)
 
@@ -57,8 +56,8 @@ När tilldelningen tas bort tas låsen som skapats av ritningar bort. Resursen �
 
 |Läge |Behörigheter. åtgärder |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|Skrivskyddad |**\*** |**\*/read** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
-|Ta inte bort |**\*/Delete** | |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Skrivskyddad |**\*** |**\*/läsning** |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
+|Ta inte bort |**\*/ta bort** | |SystemDefined (alla) |skiss tilldelning och användardefinierad i **excludedPrincipals** |Resurs grupp- _Sant_; Resurs- _falskt_ |
 
 > [!IMPORTANT]
 > Azure Resource Manager cachelagrar roll tilldelnings information i upp till 30 minuter. Till följd av detta kan neka-tilldelningar neka åtgärder på skiss resurser inte omedelbart tillämpas fullständigt. Under den här tids perioden kan det vara möjligt att ta bort en resurs som är avsedd att skyddas av skiss lås.
@@ -111,7 +110,7 @@ Detta är ett exempel på en begär ande text som innehåller **excludedPrincipa
 ## <a name="next-steps"></a>Nästa steg
 
 - Följ själv studie kursen [skydda nya resurser](../tutorials/protect-new-resources.md) .
-- Lär dig mer om [skiss livs cykeln](lifecycle.md).
+- Mer information om [livscykeln för en skiss](lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](sequencing-order.md).
 - Lär dig hur du [uppdaterar befintliga tilldelningar](../how-to/update-existing-assignments.md).

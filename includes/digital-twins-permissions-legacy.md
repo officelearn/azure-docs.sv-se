@@ -7,15 +7,17 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 08/16/2019
+ms.date: 10/03/2019
 ms.custom: include file
-ms.openlocfilehash: 690ff402c632bfc28f1a9a218677e9772f5a3200
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 7e0396c032a9f3dc26b82648604624446d6ad191
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949922"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978585"
 ---
+## <a name="azure-active-directory-legacy-registration"></a>Azure Active Directory äldre registrering
+
 1. I [Azure-portalen](https://portal.azure.com)öppnar du **Azure Active Directory** från den vänstra panelen och öppnar sedan fönstret **Egenskaper**. Kopiera **katalog-ID:t** till en temporär fil. Du använder det här värdet för att konfigurera exempelprogrammet i nästa avsnitt.
 
     [![Azure Active Directory Directory-ID](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png)](./media/digital-twins-permissions-legacy/aad-app-reg-tenant.png#lightbox)

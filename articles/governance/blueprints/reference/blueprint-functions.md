@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/15/2019
 ms.topic: reference
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: dcf073c58a723b8dbd835ac331c0ce9d16187445
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: a3021e79ddfb808db64896d79bb163d42236b295
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232863"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978388"
 ---
 # <a name="functions-for-use-with-azure-blueprints"></a>Funktioner för användning med Azure-ritningar
 
@@ -63,7 +62,7 @@ Ett objekt av utdata-egenskaper. Egenskaperna för **utdata** är beroende av de
 
 #### <a name="resource-manager-template-artifact"></a>Artefakt för Resource Manager-mall
 
-Utmatnings egenskaperna för det returnerade objektet definieras i Resource Manager-mallen och returneras av distributionen.
+**Utmatnings** egenskaperna för det returnerade objektet definieras i Resource Manager-mallen och returneras av distributionen.
 
 #### <a name="role-assignment-artifact"></a>Roll tilldelnings artefakt
 
@@ -109,7 +108,7 @@ Några exempel på hämtning av data från _myTemplateArtifact_ -exemplet är:
 
 | Uttryck | type | Value |
 |:---|:---|:---|
-|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \["First", "sekund"\] |
+|`[artifacts("myTemplateArtifact").outputs.myArray]` | Array | \[ "första", "sekund" \] |
 |`[artifacts("myTemplateArtifact").outputs.myArray[0]]` | Sträng | "first" |
 |`[artifacts("myTemplateArtifact").outputs.myString]` | Sträng | "my string value" |
 |`[artifacts("myTemplateArtifact").outputs.myObject]` | Object | { "myproperty": "my value", "anotherProperty": true } |
@@ -219,9 +218,9 @@ Det returnerade objektet är i följande format:
 
 ### <a name="remarks"></a>Kommentarer
 
-Funktionen Azure Blueprint skiljer sig från Azure Resource Manager Template-funktionen. Det `resourceGroup()` går inte att använda funktionen i en artefakt på prenumerations nivå eller skiss definitionen. Den kan bara användas i skiss artefakter som ingår i en resurs grupps artefakt.
+Funktionen Azure Blueprint skiljer sig från Azure Resource Manager Template-funktionen. Det går inte att använda funktionen `resourceGroup()` i en artefakt på prenumerations nivå eller skiss definitionen. Den kan bara användas i skiss artefakter som ingår i en resurs grupps artefakt.
 
-En vanlig användning av `resourceGroup()` funktionen är att skapa resurser på samma plats som resurs gruppens artefakt.
+En vanlig användning av funktionen `resourceGroup()` är att skapa resurser på samma plats som resurs gruppens artefakt.
 
 ### <a name="example"></a>Exempel
 
@@ -241,7 +240,7 @@ Om du vill använda resurs gruppens plats, anger du antingen skiss definitionen 
 }
 ```
 
-Använd `resourceGroup()` sedan funktionen i kontexten för en skiss artefakt som är riktad mot ett resurs grupps plats hållare objekt. I det här exemplet distribueras mallens artefakt till resurs gruppen _NetworkingPlaceholder_ och ger parametern _resourceLocation_ dynamiskt ifylld med _NetworkingPlaceholder_ resurs gruppens plats till webbplatsmall. Platsen för _NetworkingPlaceholder_ -resurs gruppen kan ha definierats statiskt i skiss definitionen eller dynamiskt definieras under tilldelningen. I båda fallen anges mallens artefakt som information som en parameter och använder den för att distribuera resurserna till rätt plats.
+Använd sedan funktionen `resourceGroup()` i kontexten för en skiss artefakt som är riktad mot ett resurs grupps plats hållare. I det här exemplet distribueras mallens artefakt till resurs gruppen _NetworkingPlaceholder_ och ger parametern _resourceLocation_ dynamiskt ifylld med _NetworkingPlaceholder_ resurs gruppens plats till webbplatsmall. Platsen för _NetworkingPlaceholder_ -resurs gruppen kan ha definierats statiskt i skiss definitionen eller dynamiskt definieras under tilldelningen. I båda fallen anges mallens artefakt som information som en parameter och använder den för att distribuera resurserna till rätt plats.
 
 ```json
 {
@@ -266,7 +265,7 @@ Använd `resourceGroup()` sedan funktionen i kontexten för en skiss artefakt so
 
 `resourceGroups(placeholderName)`
 
-Returnerar ett objekt som representerar den angivna resurs grupps artefakten. Till skillnad `resourceGroup()`från, som kräver kontexten för artefakten, används den här funktionen för att hämta egenskaperna för en speciell resurs grupps plats hållare när den inte ingår i kontexten för den resurs gruppen.
+Returnerar ett objekt som representerar den angivna resurs grupps artefakten. Till skillnad från `resourceGroup()`, som kräver en kontext för artefakten används den här funktionen för att hämta egenskaperna för en angiven resurs grupps plats hållare när den inte är i kontext för den resurs gruppen.
 
 ### <a name="parameters"></a>Parametrar
 
@@ -303,7 +302,7 @@ Om du vill använda resurs gruppens plats, anger du antingen skiss definitionen 
 }
 ```
 
-Använd `resourceGroups()` sedan funktionen från kontexten för alla skiss artefakter för att få en referens till resurs gruppens placeholder-objekt. I det här exemplet distribueras mallens artefakt utanför resurs gruppen _NetworkingPlaceholder_ och ger parametern _artifactLocation_ dynamiskt ifylld med _NetworkingPlaceholder_ resurs gruppens plats till webbplatsmall. Platsen för _NetworkingPlaceholder_ -resurs gruppen kan ha definierats statiskt i skiss definitionen eller dynamiskt definieras under tilldelningen. I båda fallen anges mallens artefakt som information som en parameter och använder den för att distribuera resurserna till rätt plats.
+Använd sedan funktionen `resourceGroups()` från kontexten för alla skiss artefakter för att få en referens till resurs gruppens placeholder-objekt. I det här exemplet distribueras mallens artefakt utanför resurs gruppen _NetworkingPlaceholder_ och ger parametern _artifactLocation_ dynamiskt ifylld med _NetworkingPlaceholder_ resurs gruppens plats till webbplatsmall. Platsen för _NetworkingPlaceholder_ -resurs gruppen kan ha definierats statiskt i skiss definitionen eller dynamiskt definieras under tilldelningen. I båda fallen anges mallens artefakt som information som en parameter och använder den för att distribuera resurserna till rätt plats.
 
 ```json
 {
@@ -345,7 +344,7 @@ Det returnerade objektet är i följande format:
 
 ### <a name="example"></a>Exempel
 
-Använd prenumerationens visnings namn och `concat()` funktionen för att skapa en namngivnings konvention som skickas som parameter- _resourceName_ till mallens artefakt.
+Använd prenumerationens visnings namn och funktionen `concat()` för att skapa en namngivnings konvention som skickas som parameter- _resourceName_ till mallens artefakt.
 
 ```json
 {
@@ -368,7 +367,7 @@ Använd prenumerationens visnings namn och `concat()` funktionen för att skapa 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Lär dig mer om [skiss livs cykeln](../concepts/lifecycle.md).
+- Mer information om [livscykeln för en skiss](../concepts/lifecycle.md).
 - Förstå hur du använder [statiska och dynamiska parametrar](../concepts/parameters.md).
 - Lär dig hur du anpassar [sekvensordningen för en skiss](../concepts/sequencing-order.md).
 - Lär dig hur du använder [resurslåsning för en skiss](../concepts/resource-locking.md).

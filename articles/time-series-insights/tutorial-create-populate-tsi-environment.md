@@ -9,12 +9,12 @@ ms.date: 10/02/2019
 ms.author: dpalled
 manager: cshankar
 ms.custom: seodec18
-ms.openlocfilehash: 6144fd58a98376f9091fc7045d0e60e99feda709
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: a6f2b2875ea58ff89d59f577f7cb27d97e07b28e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71841856"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981239"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-environment"></a>Självstudier: Skapa en Azure Time Series Insights-miljö
 
@@ -196,4 +196,4 @@ I den här självstudiekursen lärde du dig att:
 Nu när du vet hur du skapar en egen Time Series Insights miljö, lär du dig hur du skapar ett webb program som använder data från en Time Series Insights-miljö:
 
 > [!div class="nextstepaction"]
-> [Skapa en enkelsidig Azure Time Series Insights-webbapp](tutorial-create-tsi-sample-spa.md)
+> [Se visualiserings exempel för värdbaserade klient-SDK](https://tsiclientsample.azurewebsites.net/)

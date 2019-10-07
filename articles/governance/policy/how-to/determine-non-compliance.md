@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/26/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: a0faaeee369a2227f6018141e5aa5d18c9037e9d
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 556a8029b9b5f831ac3ace7ed0fcc474fb2e262e
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71161985"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978100"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Fastställa orsaker till icke-kompatibilitet
 
@@ -94,7 +93,7 @@ Följande matris mappar varje tänkbar _orsak_ till det ansvariga [villkoret](..
 |Det aktuella värdet måste vara större än eller lika med målvärdet. |Större eller **inte** mindre |
 |Det aktuella värdet måste vara större än målvärdet. |större eller **icke** -lessOrEquals |
 |Det aktuella värdet måste vara mindre än eller lika med målvärdet. |lessOrEquals eller **inte** större |
-|Det aktuella värdet måste finnas. |Finns |
+|Det aktuella värdet måste finnas. |finns |
 |Det aktuella värdet måste vara i målvärdet. |i eller **inte** notIn |
 |Det aktuella värdet måste vara samma som målvärdet. |gilla eller **inte** notLike |
 |Det aktuella värdet måste Skift läges känsligt matcha målvärdet. |matcha eller **not** notMatch |
@@ -192,7 +191,7 @@ Audit that an application is installed inside Windows VMs.                Compli
 Audit that an application is installed inside Windows VMs                 NonCompliant                       02/09/2019 09:00:20 AM 02/09/2019 09:00:23 AM VM01  ../15ze1...
 ```
 
-## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Ändrings historik (förhands granskning)
+## <a name="a-namechange-historychange-history-preview"></a><a name="change-history"/>Change historik (för hands version)
 
 Som en del av en ny **offentlig för hands version**är de 14 senaste dagarna i ändrings historiken tillgängliga för alla Azure-resurser som stöder [borttagning av fullständigt läge](../../../azure-resource-manager/complete-mode-deletion.md). Ändrings historiken innehåller information om när en ändring upptäcktes och en _visuell skillnad_ för varje ändring. En ändrings identifiering utlöses när Resource Manager-egenskaperna läggs till, tas bort eller ändras.
 

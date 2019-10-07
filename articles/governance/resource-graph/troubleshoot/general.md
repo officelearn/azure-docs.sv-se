@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 08/21/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: 4cd4d89f276770cba401d7941a975fad8e49c8cd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000530"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976613"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Felsöka fel med Azure Resource Graph
 
@@ -69,11 +68,11 @@ Kunder som frågar Azure Resource Graph REST API får ett _500_ -svar (internt S
 
 #### <a name="cause"></a>Orsak
 
-Azures resurs diagram REST API bara stöd för `Content-Type` en av **program/JSON**. Vissa REST verktyg eller agenter som standard är **text/plain**, vilket inte stöds av REST API.
+Azures resurs diagram REST API bara stöd för en `Content-Type` av **Application/JSON**. Vissa REST verktyg eller agenter som standard är **text/plain**, vilket inte stöds av REST API.
 
 #### <a name="resolution"></a>Lösning
 
-Kontrol lera att verktyget eller agenten som du använder för att fråga Azure Resource Graph har REST API `Content-Type` huvud som kon figurer ATS för **Application/JSON**.
+Kontrol lera att verktyget eller agenten som du använder för att fråga Azure Resource Graph har REST API huvud `Content-Type` konfigurerat för **Application/JSON**.
 ### <a name="rest-403"></a>Situationen Ingen Läs behörighet för alla prenumerationer i listan
 
 #### <a name="issue"></a>Problem

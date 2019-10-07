@@ -2,17 +2,16 @@
 title: Skapa hanterings grupper för att organisera Azure-resurser – Azure-styrning
 description: Lär dig hur du skapar Azure-hanterings grupper för att hantera flera resurser med hjälp av portalen, Azure PowerShell och Azure CLI.
 author: rthorn17
-manager: rithorn
 ms.service: governance
 ms.date: 04/05/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 4489086fcab32230b991a8007a8d9922fd0ddd43
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 92ab550aa76adc39863a6557d3959b4538bc9a63
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971554"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980798"
 ---
 # <a name="create-management-groups-for-resource-organization-and-management"></a>Skapa hanterings grupper för resurs organisation och hantering
 

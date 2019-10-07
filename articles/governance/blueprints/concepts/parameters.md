@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/12/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: ee44d744c580dd9fbf20e7186b6e76fdc74cc5d0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 2bb38e0698d7504ba1bb139ca1bd5e3b14e5cdd4
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71004082"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981059"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Skapa dynamiska modeller via parametrar
 
@@ -89,7 +88,7 @@ När du skapar en skiss genom REST API är det möjligt att skapa [skiss paramet
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Brödtext i förfrågan
+- Begärandetext
 
   ```json
   {
@@ -122,7 +121,7 @@ Följande REST API exempel skapar en roll tilldelnings artefakt på skissen och 
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/roleOwner?api-version=2018-11-01-preview
   ```
 
-- Brödtext i förfrågan
+- Begärandetext
 
   ```json
   {
@@ -139,7 +138,7 @@ I det här exemplet använder **principalIds** -egenskapen parametern **Owners**
 
 ##### <a name="artifact-level-parameter"></a>Parameter för artefakt nivå
 
-Att`parameters()` skapa **statiska parametrar** i en artefakt liknar varandra, men tar ett rakt värde i stället för att använda funktionen. I följande exempel skapas två statiska parametrar, **TagName** och **tagValue**. Värdet för varje anges direkt och använder inte ett funktions anrop.
+Att skapa **statiska parametrar** i en artefakt liknar varandra, men tar ett rakt värde i stället för att använda funktionen `parameters()`. I följande exempel skapas två statiska parametrar, **TagName** och **tagValue**. Värdet för varje anges direkt och använder inte ett funktions anrop.
 
 - REST API-URI
 
@@ -147,7 +146,7 @@ Att`parameters()` skapa **statiska parametrar** i en artefakt liknar varandra, m
   PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{YourMG}/providers/Microsoft.Blueprint/blueprints/MyBlueprint/artifacts/policyStorageTags?api-version=2018-11-01-preview
   ```
 
-- Brödtext i förfrågan
+- Begärandetext
 
   ```json
   {
@@ -185,7 +184,7 @@ Motsatsen till en statisk parameter är en **dynamisk parameter**. Den här para
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Ange dynamiska parametrar från REST API
 
-Att ange **dynamiska parametrar** under tilldelningen görs genom att ange värdet direkt. I stället för att använda en funktion, t. ex. [parametrar ()](../reference/blueprint-functions.md#parameters), är det angivna värdet en lämplig sträng. Artefakter för en resurs grupp definieras med egenskaperna "Mallnamn", **namn**och **plats** . Alla andra parametrar för den inkluderade artefakten definieras under **parametrar** med ett **\<\>** nyckel par för namn och **värde** . Om skissen har kon figurer ATS för en dynamisk parameter som inte anges under tilldelningen kommer tilldelningen att Miss förväntas.
+Att ange **dynamiska parametrar** under tilldelningen görs genom att ange värdet direkt. I stället för att använda en funktion, t. ex. [parametrar ()](../reference/blueprint-functions.md#parameters), är det angivna värdet en lämplig sträng. Artefakter för en resurs grupp definieras med egenskaperna "Mallnamn", **namn**och **plats** . Alla andra parametrar för den inkluderade artefakten definieras under **parametrar** med ett **\<name @ no__t-3-** och **värde** nyckel par. Om skissen har kon figurer ATS för en dynamisk parameter som inte anges under tilldelningen kommer tilldelningen att Miss förväntas.
 
 - REST API-URI
 
@@ -193,7 +192,7 @@ Att ange **dynamiska parametrar** under tilldelningen görs genom att ange värd
   PUT https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.Blueprint/blueprintAssignments/assignMyBlueprint?api-version=2018-11-01-preview
   ```
 
-- Brödtext i förfrågan
+- Begärandetext
 
   ```json
   {

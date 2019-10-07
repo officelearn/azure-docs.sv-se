@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 09/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: f4eb1b69a1464cacaf666e49f4aff7422d63611d
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 906cff017c3f80cb1bdd369453b18564d19eb492
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71264521"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981159"
 ---
 # <a name="azure-time-series-insights-preview-use-cases"></a>Azure Time Series Insights för hands versions användning
 
@@ -38,7 +38,7 @@ Azure Time Series Insights är ett tjänst erbjudande från slut punkt till slut
 
 Utforska och analysera direkt flera miljarder händelser för att upptäcka avvikelser och dolda trender i dina data. Time Series Insights ger nära realtid-prestanda till IoT- och DevOps-analysarbetsbelastningar.
 
-[![Data Utforskaren](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
+[![Data Explorer](media/v2-update-use-cases/data-explorer.svg)](media/v2-update-use-cases/data-explorer.svg#lightbox)
 
 De flesta kunder samtycker till att den minsta tiden som krävs för att få insikter är en av främsta-funktionerna i Time Series Insights:
 
@@ -56,11 +56,11 @@ Det finns tre huvudsakliga sätt att interagera med data som lagras i Time Serie
 
 - Det andra sättet att starta är att använda JavaScript SDK för att snabbt bädda in kraftfulla diagram och grafer i ditt webb program. Med bara några rader med kod kan du skapa kraftfulla frågor. Använd dem för att fylla i linje diagram, cirkel diagram, liggande diagram, termiska kartor, data rutnät och mycket annat. Alla dessa element finns kvar i rutan med hjälp av SDK. SDK sammanfattar också Time Series Insights fråge-API: er. Du kan använda dem för att skapa SQL-liknande predikat för att fråga de data som du vill visa på en instrument panel. För Hybrid lösningar för presentations lager erbjuder Time Series Insights parametriserade URL: er. De ger sömlösa anslutnings punkter med Time Series Insights för hands versions Utforskaren för djup dykningar i data.
 
-    * Läs mer om Java Script SDK i [klient biblioteket för Time Series Insights JS](tutorial-explore-js-client-lib.md) och i [Time Series Insights klient](https://github.com/Microsoft/tsiclient) dokumentationen.
+    * Läs om [klient biblioteket för Time Series Insights JS](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) och [Time Series Insights klient](https://github.com/Microsoft/tsiclient) dokumentationen om du vill veta mer om Java Script SDK.
 
     * Lär dig mer om delnings-URL: er och det nya användar gränssnittet genom att granska [visualisera data i Azure Time Series Insights Preview Explorer](time-series-insights-update-explorer.md).
 
-- Det tredje sättet att starta är att använda de kraftfulla API: erna för att fråga data som lagras i Time Series Insights. Time Series Insights har temporala operatörer som `from` `first`, `to`, och `last`. Det innehåller agg regeringar och `average`transformeringar som `max`, `order by` `min` `split by`,,, och `DateHistogram`. Den har också filter operatorer som `has` `and`, `in` `or` `greater than`,,, och `REGEX`. Alla dessa operatörer gör det möjligt för underordnade program att snabbt hitta intressanta trender och mönster i dina data. Använd dem för att fylla i visuella visualiseringar för att upptäcka avvikelser.
+- Det tredje sättet att starta är att använda de kraftfulla API: erna för att fråga data som lagras i Time Series Insights. Time Series Insights har temporala operatörer som `from`, `to`, `first` och `last`. Det innehåller agg regeringar och transformeringar som `average`, `min`, `max`, `split by`, `order by` och `DateHistogram`. Den har också filter operatörer som `has`, `in`, `and`, `or`, `greater than` och `REGEX`. Alla dessa operatörer gör det möjligt för underordnade program att snabbt hitta intressanta trender och mönster i dina data. Använd dem för att fylla i visuella visualiseringar för att upptäcka avvikelser.
 
 ## <a name="operational-analysis-and-driving-process-efficiency"></a>Operativ analys och processeffektivitet
 
@@ -86,7 +86,7 @@ Time Series Insights erbjuder data utforskning i nära real tid och till gångs 
 
 Integrera med avancerade analys tjänster som Machine Learning och Azure Databricks. Time Series Insights ingress av rå data från miljon tals enheter. Den lägger till sammanhangsbaserade data som kan förbrukas sömlöst av en serie Azure Analytics-tjänster.
 
-[![Tjänstprogrammet](media/v2-update-use-cases/advanced-analytics.svg)](media/v2-update-use-cases/advanced-analytics.svg#lightbox)
+[![Analytics](media/v2-update-use-cases/advanced-analytics.svg)](media/v2-update-use-cases/advanced-analytics.svg#lightbox)
 
 Avancerad analys och maskin inlärning förbrukar och bearbetar stora mängder data. Dessa data används för att fatta data drivna beslut och utföra förutsägelse analyser. I IoT-användningsfall lär sig avancerade analys algoritmer från data som samlas in från miljon tals enheter. Dessa enheter överför data flera gånger varje sekund. Data som samlas in från IoT-enheter är RAW. Den saknar sammanhangsbaserad information, till exempel enhetens plats och enhetens enhets läsning. Det innebär att rå data är svåra att förbruka direkt för avancerad analys.
 

@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 04/22/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: c6e35d688581d0839e12806117e63c7d71fbc459
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 54bb0b4f21752b91ceb9d4004c153ff4d95006aa
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70231509"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71976765"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Förstå frågespråket i Azure Resource Graph
 
@@ -54,9 +53,9 @@ Här är en lista över funktioner som stöds i resurs diagram:
 
 ## <a name="escape-characters"></a>Escape-tecken
 
-Vissa egenskaps namn, till exempel sådana som innehåller `.` en `$`eller, måste omslutas eller undantas i frågan, eller egenskaps namnet tolkas felaktigt och ger inte det förväntade resultatet.
+Vissa egenskaps namn, till exempel sådana som innehåller en `.` eller `$`, måste omslutas eller undantas i frågan, eller egenskaps namnet tolkas felaktigt och ger inte det förväntade resultatet.
 
-- `.`– Rad brytning av egenskaps namnet:`['propertyname.withaperiod']`
+- `.` – rad brytning av egenskaps namnet: `['propertyname.withaperiod']`
   
   Exempel fråga som radbryter egenskapen _OData. Type_:
 
@@ -64,21 +63,21 @@ Vissa egenskaps namn, till exempel sådana som innehåller `.` en `$`eller, mås
   where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.['odata.type']
   ```
 
-- `$`– Escape-tecken i egenskaps namnet. Vilket escape-tecken som används beror på vilket Shell-resurs diagram som körs från.
+- `$` – undantar tecknen i egenskaps namnet. Vilket escape-tecken som används beror på vilket Shell-resurs diagram som körs från.
 
-  - **bash** - `\`
+  - **bash** -  @ no__t-2
 
-    Exempel fråga som utrymningr egenskaps  _\$typen_ i bash:
+    Exempel fråga som utrymningr egenskapen _\$type_ i bash:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.\$type
     ```
 
-  - **cmd** – undanta `$` inte tecken.
+  - **cmd** -escape inte `$`-tecken.
 
   - **PowerShell** - ``` ` ```
 
-    Exempel fråga som utrymningr egenskaps  _\$typen_ i PowerShell:
+    Exempel fråga som utrymningr egenskapen _\$type_ i PowerShell:
 
     ```kusto
     where type=~'Microsoft.Insights/alertRules' | project name, properties.condition.`$type

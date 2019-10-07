@@ -6,14 +6,13 @@ ms.author: dacoulte
 ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
 ms.custom: fasttrack-new
-ms.openlocfilehash: 520eded941f625bf90204213188ac1afc94d3111
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: cec8d224e52de25fe026a17d57144da3cd53fc5b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802575"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981669"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-migrate-landing-zone-blueprint-sample"></a>Distribuera den Microsoft Cloud implementerings ramverket för Azure Migrates exempel på skiss zon skiss
 
@@ -43,7 +42,7 @@ Börja med att implementera skiss exemplet genom att skapa en ny skiss i din mil
    - **Skiss namn** Ange ett namn för din kopia av skiss exemplet för CAF migration landnings zon.
    - **Definitions plats** Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj fliken _artefakter_ högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
+1. Välj fliken _artefakter_ överst på sidan eller **Next: Artefakter @ no__t-0 längst ned på sidan.
 
 1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
@@ -109,7 +108,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
 |-|-|-|-|
 |Distribuera vNET-landnings zon|Resource Manager-mall|IPAddress_Space|**Locked** -Tillhandahåll två första oktetter, till exempel 10,0|
-|Distribuera Key Vault|Resource Manager-mall|KV – Access policy|**Låst** -grupp eller användar objekt-ID för att ge behörighet till i Key Vault|
+|Distribuera nyckelvalv|Resource Manager-mall|KV – Access policy|**Låst** -grupp eller användar objekt-ID för att ge behörighet till i Key Vault|
 |Distribuera Log Analytics|Resource Manager-mall|LogAnalytics_DataRetention|**Låst** – antal dagar som data kommer att behållas i Log Analytics|
 |Distribuera Log Analytics|Resource Manager-mall|LogAnalytics_Location|**Låst** – region som används vid etablering av arbets ytan|
 |Distribuera Azure Migrate|Resource Manager-mall|Azure_Migrate_Location|**Låst** – Välj den region som ska distribueras Azure Migrate|

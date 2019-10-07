@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 07/30/2019
 ms.topic: conceptual
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 6112f6f2834f02cec970af886360844c5314150d
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 154e66366d4a687e60d7bddd28278414e3a4ccd7
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678990"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981037"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Förstå livs cykeln för en Azure Blueprint
 
@@ -33,7 +32,7 @@ För att helt förstå en skiss och stegen tar vi upp en standard livs cykel:
 
 När du skapar en skiss kan du lägga till artefakter till den, Spara till en hanterings grupp eller prenumeration och ange ett unikt namn och en unik version. Skissen är nu i ett **utkast** läge och kan inte tilldelas ännu. I **utkast** läge kan du fortsätta att uppdatera och ändra det.
 
-En aldrig publicerad skiss i **utkast** läge visar en annan ikon på sidan **skiss definitioner** än de som har publicerats. Den **senaste versionen** visas som **utkast** för dessa aldrig publicerade skisser.
+En aldrig publicerad skiss i **utkast** läge visar en annan ikon på sidan **skiss definitioner** än de som har **publicerats**. Den **senaste versionen** visas som **utkast** för dessa aldrig publicerade skisser.
 
 Skapa och redigera en skiss med [Azure Portal](../create-blueprint-portal.md#create-a-blueprint) eller [REST API](../create-blueprint-rest-api.md#create-a-blueprint).
 
@@ -46,13 +45,13 @@ Publicera en skiss med [Azure Portal](../create-blueprint-portal.md#publish-a-bl
 
 ## <a name="creating-and-editing-a-new-version-of-the-blueprint"></a>Skapa och redigera en ny version av skissen
 
-En **publicerad** version av en skiss kan inte ändras. En ny version av skissen kan dock läggas till i den befintliga skissen och ändras efter behov. Ändra en befintlig skiss genom att redigera den. När de nya ändringarna sparas innehåller skissen nu opublicerade **ändringar**. Dessa ändringar är en ny **utkast** version av skissen.
+En **publicerad** version av en skiss kan inte ändras. En ny version av skissen kan dock läggas till i den befintliga skissen och ändras efter behov. Ändra en befintlig skiss genom att redigera den. När de nya ändringarna sparas innehåller skissen nu **opublicerade ändringar**. Dessa ändringar är en ny **utkast** version av skissen.
 
 Redigera en skiss med [Azure Portal](../create-blueprint-portal.md#edit-a-blueprint).
 
 ## <a name="publishing-a-new-version-of-the-blueprint"></a>Publicera en ny version av skissen
 
-Varje redige rad version av en skiss måste **publiceras** innan den kan tilldelas. När **opublicerade ändringar** har gjorts i en skiss men inte **publicerat**, är knappen **publicera skiss** tillgänglig på sidan Redigera skiss. Om knappen inte visas har skissen redan publicerats och inga **opublicerade ändringar**har gjorts.
+Varje redige rad version av en skiss måste **publiceras** innan den kan tilldelas. När **opublicerade ändringar** har gjorts i en skiss men inte **publicerat**, är knappen **publicera skiss** tillgänglig på sidan Redigera skiss. Om knappen inte visas har skissen redan **publicerats** och inga **opublicerade ändringar**har gjorts.
 
 > [!NOTE]
 > En enda skiss kan ha flera **publicerade** versioner som var och en kan tilldelas till prenumerationer.

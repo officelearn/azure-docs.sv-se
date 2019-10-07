@@ -6,20 +6,19 @@ ms.author: dacoulte
 ms.date: 09/09/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: b2b38fe2d9a2bf4c645e5b1cda4b8fba356353d3
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 27cf1539fc98b2ad7f1b82e194989c1619ab99fb
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181198"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980720"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy-definitionsstruktur
 
 Resursen principdefinitioner används av Azure Policy för att etablera konventioner för resurser. Varje definition beskriver resurskompatibilitet och vad i kraft för att vidta när en resurs är inkompatibla.
 Du kan styra kostnaderna genom att definiera konventioner och mer hantera enkelt dina resurser. Du kan till exempel ange att bara vissa typer av virtuella datorer är tillåtna. Eller så kan du kräva att alla resurser har en viss tagg. Principer ärvs av alla underordnade resurser. Om en princip tillämpas på en resursgrupp, kan den användas för alla resurser i resursgruppen.
 
-Ett schema som används av Azure Policy finns här: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policydefinitions](/azure/templates/microsoft.authorization/2019-01-01/policydefinitions)
+Princip definitions schema finns här: [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 Du kan använda JSON för att skapa en principdefinition. Principdefinitionen innehåller element för:
 
@@ -84,7 +83,7 @@ Vi rekommenderar att du ställer in **läge** till `all` i de flesta fall. Alla 
 
 ### <a name="resource-provider-modes"></a>Resurs leverantörs lägen
 
-Det enda resurs leverantörs läge som stöds `Microsoft.ContainerService.Data` för närvarande är för att hantera regler för regler för åtkomst kontroll i [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md).
+Det enda resurs leverantörs läge som stöds för närvarande är `Microsoft.ContainerService.Data` för hantering av regler för åtkomst kontroll i [Azure Kubernetes-tjänsten](../../../aks/intro-kubernetes.md).
 
 > [!NOTE]
 > [Azure policy för Kubernetes](rego-for-aks.md) finns i en offentlig för hands version och stöder bara inbyggda princip definitioner.
@@ -101,7 +100,7 @@ Parametrar fungerar på samma sätt som när du skapar principer. Du kan återan
 
 En parameter har följande egenskaper som används i princip definitionen:
 
-- **name**: Parameterns namn. Används av `parameters` distributions funktionen i princip regeln. Mer information finns i [använda ett parameter värde](#using-a-parameter-value).
+- **name**: Parameterns namn. Används av distributions funktionen `parameters` i princip regeln. Mer information finns i [använda ett parameter värde](#using-a-parameter-value).
 - `type`: Anger om parametern är en **sträng**, en **matris**, ett **objekt**, ett **booleskt värde** **, ett** **flyttal**eller en **datetime**.
 - `metadata`: Definierar under egenskaper som främst används av Azure Portal för att Visa användarvänlig information:
   - `description`: En förklaring av vad parametern används för. Kan användas för att ge exempel på acceptabla värden.
@@ -148,7 +147,7 @@ Det här exemplet refererar till den **allowedLocations** -parameter som visades
 
 ### <a name="strongtype"></a>strongType
 
-I egenskapen kan du använda strongType för att ange en lista med alternativ för flera val i Azure Portal. `metadata` Tillåtna värden för **strongType** nu:
+I egenskapen `metadata` kan du använda **strongType** för att ange en lista över alternativ i Azure Portal som innehåller flera alternativ. Tillåtna värden för **strongType** nu:
 
 - `location`
 - `resourceTypes`
@@ -247,7 +246,7 @@ Ett villkor utvärderar om ett **fält** eller **värde** accessor uppfyller vis
 När du använder den **som** och **notLike** villkor du anger ett jokertecken `*` i värdet.
 Värdet får inte innehålla fler än ett jokertecken `*`.
 
-När du använder **matchnings** -och **notMatch** - `#` villkor, anger du för `?` att matcha en siffra `.` , för en bokstav, för att matcha alla tecken och andra tecken som ska matcha det faktiska tecknet.
+När du använder **matchnings** -och **notMatch** -villkoren anger du `#` för att matcha en siffra, `?` för en bokstav, `.` för att matcha alla tecken och andra tecken som ska matcha det faktiska tecknet.
 **matchnings** -och **notMatch** är Skift läges känsliga. Skift läges känsliga alternativ är tillgängliga i **matchInsensitively** och **notMatchInsensitively**. Exempel finns i [Tillåt flera namn mönster](../samples/allow-multiple-name-patterns.md).
 
 ### <a name="fields"></a>Fält
@@ -272,18 +271,18 @@ Följande fält stöds:
   - Exempel: `tags['Acct.CostCenter']` där **acct. CostCenter** är namnet på taggen.
 - `tags['''<tagName>''']`
   - Den här klammerns syntax stöder taggnamn som har apostrofer i den genom att använda dubbla apostrofer.
-  - Där **"\<TagName\>"** är namnet på taggen som verifierar villkoret för.
-  - Exempel: `tags['''My.Apostrophe.Tag''']` där **'\<TagName\>'** är namnet på taggen.
+  - Där **"\<tagName @ no__t-2"** är namnet på taggen som verifierar villkoret för.
+  - Exempel: `tags['''My.Apostrophe.Tag''']` där **"\<tagName @ no__t-3"** är namnet på taggen.
 - Egenskapen alias – en lista i [alias](#aliases).
 
 > [!NOTE]
-> `tags.<tagName>`, `tags[tagName]`, och `tags[tag.with.dots]` är fortfarande acceptabla sätt att deklarera ett Tags-fält. De prioriterade uttrycken är dock de som anges ovan.
+> `tags.<tagName>`, `tags[tagName]` och `tags[tag.with.dots]` är fortfarande acceptabla sätt att deklarera ett Tags-fält. De prioriterade uttrycken är dock de som anges ovan.
 
 #### <a name="use-tags-with-parameters"></a>Använda taggar med parametrar
 
 Ett parameter värde kan skickas till ett tagg-fält. Att skicka en parameter till ett taggnamn ökar flexibiliteten i princip definitionen under princip tilldelning.
 
-I följande exempel `concat` används för att skapa ett fält uppslag för taggen som heter värdet för **TagName** -parametern. Om taggen inte finns **används Lägg till-resultatet för** att lägga till taggen med värdet för samma namngivna tagg uppsättning på den överordnade resurs gruppen granskade resurser med hjälp `resourcegroup()` av funktionen lookup.
+I följande exempel används `concat` för att skapa ett fält uppslag för taggen som heter värdet för **TagName** -parametern. Om taggen inte finns **används Lägg till** -funktionen för att lägga till taggen med värdet för samma namngivna tagg uppsättning på den överordnade resurs gruppen granskade resurser med hjälp av sök funktionen `resourcegroup()`.
 
 ```json
 {
@@ -311,7 +310,7 @@ Villkor kan även skapas med hjälp av **värde**. **värde** kontrollerar villk
 
 #### <a name="value-examples"></a>Värde exempel
 
-I den här princip regel exemplet används **värde** för att jämföra resultatet `resourceGroup()` av funktionen `*netrg`och egenskapen returnerat **namn** till ett **like** -villkor. Regeln nekar en resurs som inte är av `Microsoft.Network/*` **typen** i någon resurs grupp vars namn slutar med `*netrg`.
+Den här princip regel exemplet använder **värdet** för att jämföra resultatet av funktionen `resourceGroup()` och egenskapen returnerat **namn** till ett **like** villkor för `*netrg`. Regeln nekar en resurs som inte är av **typen** `Microsoft.Network/*` i någon resurs grupp vars namn slutar på `*netrg`.
 
 ```json
 {
@@ -332,7 +331,7 @@ I den här princip regel exemplet används **värde** för att jämföra resulta
 }
 ```
 
-Den här princip regel exemplet använder **värdet** för att kontrol lera om resultatet av flera kapslade funktioner `true` **är lika med** . Regeln nekar en resurs som inte har minst tre taggar.
+Den här princip regel exemplet använder **värdet** för att kontrol lera om resultatet av flera kapslade funktioner **är lika med** `true`. Regeln nekar en resurs som inte har minst tre taggar.
 
 ```json
 {
@@ -367,7 +366,7 @@ Användningen av _Template Functions_ i **Value** tillåter många komplexa kaps
 }
 ```
 
-Exempel princip regeln ovan använder [del sträng ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) för att jämföra de tre första tecken **namnen** med **ABC**. Om **namnet** är kortare än tre tecken `substring()` resulterar funktionen i ett fel. Det här felet gör att principen blir en **neka** -påverkan.
+Exempel princip regeln ovan använder [del sträng ()](../../../azure-resource-manager/resource-group-template-functions-string.md#substring) för att jämföra de tre första tecken **namnen** med **ABC**. Om **namnet** är kortare än tre tecken resulterar funktionen `substring()` i ett fel. Det här felet gör att principen blir en **neka** -påverkan.
 
 Använd i stället funktionen [IF ()](../../../azure-resource-manager/resource-group-template-functions-logical.md#if) för att kontrol lera om de tre första tecknen i **namn** är lika med **ABC** utan att ett **namn** som är kortare än tre tecken kan orsaka ett fel:
 
@@ -385,7 +384,7 @@ Använd i stället funktionen [IF ()](../../../azure-resource-manager/resource-g
 }
 ```
 
-Med den reviderade princip regeln `if()` kontrollerar **namnet på namnet** innan det försöker hämta ett `substring()` värde med färre än tre tecken. Om **namnet** är för kort returneras värdet "inte börjar med ABC" i stället och jämförs med **ABC**. En resurs med ett kort namn som inte börjar med **ABC** kan fortfarande inte utföra princip regeln, men inte längre orsaka ett fel under utvärderingen.
+Med den ändrade princip regeln `if()` kontrollerar längden på **namnet** innan den försöker hämta ett `substring()` på ett värde med färre än tre tecken. Om **namnet** är för kort returneras värdet "inte börjar med ABC" i stället och jämförs med **ABC**. En resurs med ett kort namn som inte börjar med **ABC** kan fortfarande inte utföra princip regeln, men inte längre orsaka ett fel under utvärderingen.
 
 ### <a name="effect"></a>Verkan
 
@@ -517,7 +516,7 @@ Flera av de alias som är tillgängliga har en version som visas som ett ”norm
 
 Aliaset "normal" representerar fältet som ett enda värde. Det här fältet är för exakta matchnings scenarier när hela uppsättningen med värden måste vara exakt som definierad, inte mer eller mindre.
 
-Med aliaset **[\*]** kan du jämföra med värdet för varje element i matrisen och vissa egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaper för "if ingen", "om några", "eller" om alla "-scenarier. Med hjälp av **ipRules\*[]** verifierar ett exempel att varje _åtgärd_ är _nekad_, men inte bekymrar dig om hur många regler som finns eller vad IP- _värdet_ är. Den här exempel regeln söker efter eventuella matchningar av **ipRules [\*]. Value** till **10.0.4.1** och tillämpar bara **effectType** om den inte hittar minst en matchning:
+**[@No__t-1]** -aliaset gör det möjligt att jämföra mot värdet för varje element i matrisen och vissa egenskaper för varje element. Den här metoden gör det möjligt att jämföra element egenskaper för "if ingen", "om några", "eller" om alla "-scenarier. Med **ipRules [\*]** verifierar ett exempel att varje _åtgärd_ är _nekad_, men inte bekymrar dig om hur många regler som finns eller vad IP- _värdet_ är. Den här exempel regeln söker efter eventuella matchningar av **ipRules [\*]. värde** till **10.0.4.1** och tillämpar bara **effectType** om det inte hittar minst en matchning:
 
 ```json
 "policyRule": {
@@ -539,7 +538,7 @@ Med aliaset **[\*]** kan du jämföra med värdet för varje element i matrisen 
 }
 ```
 
-Mer information finns i [utvärdera [\*]-aliaset](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
+Mer information finns i avsnittet [om att utvärdera [\*] alias](../how-to/author-policies-for-arrays.md#evaluating-the--alias).
 
 ## <a name="initiatives"></a>Initiativ
 

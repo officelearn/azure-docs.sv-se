@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 02/01/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: d9aadc477c3f39cfbb108d2f3eece0c9e0b06264
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: ff50619d7b3d5bc803e8ee8d9e4cbf4389a4191f
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70239151"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71978091"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Hämta efterlevnads data för Azure-resurser
 
@@ -413,7 +412,7 @@ Trent Baker
 
 ## <a name="azure-monitor-logs"></a>Azure Monitor-loggar
 
-Om du har en [Log Analytics](../../../log-analytics/log-analytics-overview.md) -arbetsyta `AzureActivity` med från [Aktivitetslogganalys-lösningen](../../../azure-monitor/platform/activity-log-collect.md) som är kopplad till din prenumeration kan du också Visa inkompatibla resultat från utvärderings cykeln `AzureActivity` med hjälp av enkla Kusto-frågor och partitionstabell. Med information i Azure Monitor loggar kan aviseringar konfigureras för att se om de inte uppfyller kraven.
+Om du har en [Log Analytics arbets yta](../../../log-analytics/log-analytics-overview.md) med `AzureActivity` från [Aktivitetslogganalys-lösningen](../../../azure-monitor/platform/activity-log-collect.md) som är bunden till din prenumeration kan du också Visa inkompatibla resultat från utvärderings cykeln med hjälp av enkla Kusto-frågor och tabellen `AzureActivity`. Med information i Azure Monitor loggar kan aviseringar konfigureras för att se om de inte uppfyller kraven.
 
 
 ![Azure Policy kompatibilitet med hjälp av Azure Monitor loggar](../media/getting-compliance-data/compliance-loganalytics.png)

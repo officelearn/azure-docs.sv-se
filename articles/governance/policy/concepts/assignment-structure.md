@@ -6,27 +6,24 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-manager: carmonm
-ms.openlocfilehash: a01cee2ba803a048e426507b57b96d0833743636
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181384"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981423"
 ---
-# <a name="azure-policy-assignment-structure"></a>Azure Policy tilldelnings struktur
+# <a name="azure-policy-assignment-structure"></a>Tilldelningsstruktur i Azure Policy
 
 Princip tilldelningar används av Azure Policy för att definiera vilka resurser som tilldelas när principer eller initiativ. Princip tilldelningen kan fastställa värdena för parametrar för den grupp resurser vid tilldelnings tid, vilket gör det möjligt att återanvända princip definitioner som hanterar samma resurs egenskaper med olika behov av efterlevnad.
 
-Ett schema som används av Azure Policy finns här: [https://docs.microsoft.com/azure/templates/microsoft.authorization/2019-01-01/policyassignments](/azure/templates/microsoft.authorization/2019-01-01/policyassignments)
-
-Du använder JSON för att skapa en princip tilldelning. Principdefinitionen innehåller element för:
+Du använder JSON för att skapa en princip tilldelning. Princip tilldelningen innehåller element för:
 
 - Visningsnamn
 - description
 - metadata
 - tvingande läge
-- Princip definition
+- princip definition
 - parameters
 
 Följande JSON visar till exempel en princip tilldelning i _DoNotEnforce_ -läge med dynamiska parametrar:
@@ -76,7 +73,7 @@ Om **enforcementMode** inte anges i en princip eller initiativ definition använ
 ## <a name="policy-definition-id"></a>ID för princip definition
 
 Det här fältet måste vara det fullständiga Sök vägs namnet för antingen en princip definition eller en initiativ definition.
-`policyDefinitionId`är en sträng och inte en matris. Vi rekommenderar att om flera principer ofta tilldelas tillsammans, så att du kan använda ett [initiativ](./definition-structure.md#initiatives) i stället.
+`policyDefinitionId` är en sträng och inte en matris. Vi rekommenderar att om flera principer ofta tilldelas tillsammans, så att du kan använda ett [initiativ](./definition-structure.md#initiatives) i stället.
 
 ## <a name="parameters"></a>Parametrar
 
@@ -94,7 +91,7 @@ Den här designen gör det möjligt att återanvända en princip eller initiativ
 }
 ```
 
-I det här exemplet är `prefix` parametrarna som tidigare definierats i princip definitionen och. `suffix` Den här princip tilldelningen `prefix` anger till **Avda** och `suffix` till **-LC**. Samma princip definition kan återanvändas med en annan uppsättning parametrar för en annan avdelning, vilket minskar dupliceringen och komplexiteten i princip definitioner samtidigt som den ger flexibilitet.
+I det här exemplet är parametrarna som tidigare definierats i princip definitionen `prefix` och `suffix`. Den här princip tilldelningen anger `prefix` till **Avda** och `suffix` till **-LC**. Samma princip definition kan återanvändas med en annan uppsättning parametrar för en annan avdelning, vilket minskar dupliceringen och komplexiteten i princip definitioner samtidigt som den ger flexibilitet.
 
 ## <a name="next-steps"></a>Nästa steg
 

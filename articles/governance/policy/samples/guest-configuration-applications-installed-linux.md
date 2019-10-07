@@ -1,58 +1,57 @@
 ---
-title: Exempel – granska om program inte är installerad på virtuella Linux-datorer
-description: Det här exemplet gäst principkonfigurationen initiativ och definitioner granska om de angivna programmen inte är installerade i Linux-datorer.
+title: Exempel – granska om program inte är installerade i virtuella Linux-datorer
+description: Detta exempel på principer för gäst konfiguration och definitioner granskar om de angivna programmen inte är installerade på virtuella Linux-datorer.
 author: DCtheGeek
-manager: carmonm
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: eda5a2a6d2dae58f8da72deccbb89a34c7f21dae
-ms.sourcegitcommit: 0568c7aefd67185fd8e1400aed84c5af4f1597f9
+ms.openlocfilehash: ef2ab4bebf2247b08cdc80ed74bbe17a67c5baae
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/06/2019
-ms.locfileid: "65204021"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71977039"
 ---
-# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exempel – granska om angivna program inte är installerad på virtuella Linux-datorer
+# <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exempel – granska om de angivna programmen inte är installerade i virtuella Linux-datorer
 
-Det här initiativet gäst principkonfigurationen skapar en granskningshändelse när de angivna programmen inte är installerad på Linux-datorer. ID för den här inbyggda initiativ är `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
+Den här principen för konfiguration av gäst konfiguration skapar en gransknings händelse när de angivna programmen inte installeras på virtuella Linux-datorer. ID: t för det här inbyggda initiativet är `/providers/Microsoft.Authorization/policySetDefinitions/c937dcb4-4398-4b39-8d63-4a6be432252e`.
 
 > [!IMPORTANT]
-> Alla gäster Configuration initiativen består av **granska** och **deployIfNotExists** principdefinitioner. Tilldela bara en av principdefinitionerna orsaka gäst konfiguration inte ska fungera korrekt.
+> Alla initiativ för gäst konfiguration består av **gransknings** -och **deployIfNotExists** princip definitioner. Om du bara tilldelar en av princip definitionerna kommer gäst konfigurationen inte att fungera korrekt.
 
-Du kan tilldela det här exemplet med:
+Du kan tilldela det här exemplet med hjälp av:
 
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="components-of-the-initiative"></a>Komponenter i initiativ
+## <a name="components-of-the-initiative"></a>Initiativets komponenter
 
-Detta [gäst Configuration](../concepts/guest-configuration.md) initiativ består av följande principer:
+Detta [gäst konfigurations](../concepts/guest-configuration.md) initiativ består av följande principer:
 
-- [granska](#audit-definition) -granska när program inte är installerad på virtuella Linux-datorer
+- [Granska](#audit-definition) -granska när program inte är installerade i virtuella Linux-datorer
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/fee5cb2b-9d9b-410e-afe3-2902d90d0004`
-- [deployIfNotExists](#deployIfNotExists-definition) -distribuera VM-tillägget för att granska när program inte är installerad på virtuella Linux-datorer
+- [deployIfNotExists](#deployIfNotExists-definition) – distribuera VM-tillägg till granskning när program inte är installerade i virtuella Linux-datorer
   - ID: `/providers/Microsoft.Authorization/policyDefinitions/4d1c04de-2172-403f-901b-90608c35c721`
 
 ### <a name="initiative-definition"></a>Initiativdefinition
 
-Initiativet har skapats genom att gå med i **granska** och **deployIfNotExists** definitioner tillsammans och [initiativ parametrar](#initiative-parameters). Det här är JSON i definitionen.
+Initiativet skapas genom att du ansluter till **gransknings** -och **deployIfNotExists** -definitionerna tillsammans och [initiativ parametrarna](#initiative-parameters). Detta är JSON för definitionen.
 
 [!code-json[initiative-definition](../../../../policy-templates/samples/GuestConfiguration/installed-application-linux/azurepolicyset.json "Initiative definition (JSON)")]
 
 ### <a name="initiative-parameters"></a>Initiativparametrar
 
-|Namn |Typ |Beskrivning |
+|Name |Typ |Beskrivning |
 |---|---|---|
-|ApplicationName |String |Programnamn. Exempel: ”python”, ”powershell” eller en kommaavgränsad lista, till exempel ”python, powershell”. Använd \* för matchning med jokertecken, t.ex ' power\*'. |
+|applicationName |Sträng |Program namn. Exempel: python, PowerShell eller en kommaavgränsad lista, till exempel python, PowerShell. Använd \* för matchning av jokertecken, t. ex. Power @ no__t-1. |
 
 När du skapar en tilldelning via PowerShell eller Azure CLI går det att skicka parametervärdena som JSON antingen i en sträng eller via en fil med hjälp av `-PolicyParameter` (PowerShell) eller `--params` (Azure CLI).
 PowerShell stödjer även `-PolicyParameterObject`, vilket kräver att det till cmdlet skickas en Name/Value-hashtabell där **Name** (Namn) är parameternamnet och **Value** (Värde) är det enskilda värde eller den matris med värden som skickas under tilldelningen.
 
-I det här exemplet-parametern, installation av program _python_ och _powershell_ granskas.
+I den här exempel parametern granskas installationen av program _python_ och _PowerShell_ .
 
 ```json
 {
@@ -62,64 +61,64 @@ I det här exemplet-parametern, installation av program _python_ och _powershell
 }
 ```
 
-Endast den **deployIfNotExists** principdefinition använder initiativparametrar.
+Endast **deployIfNotExists** -princip definitionen använder initiativ parametrarna.
 
-### <a name="audit-definition"></a>Granska definitionen
+### <a name="audit-definition"></a>gransknings definition
 
-JSON definierar reglerna för den **granska** principdefinitionen.
+JSON som definierar reglerna för **gransknings** princip definitionen.
 
 [!code-json[audit-definition](../../../../policy-templates/samples/GuestConfiguration/installed-application-linux/audit/azurepolicy.rules.json "audit policy rules (JSON)")]
 
 ### <a name="deployifnotexists-definition"></a>deployIfNotExists-definition
 
-JSON definierar reglerna för den **deployIfNotExists** principdefinitionen.
+JSON som definierar reglerna för **deployIfNotExists** -princip definitionen.
 
 [!code-json[deployIfNotExists-definition](../../../../policy-templates/samples/GuestConfiguration/installed-application-linux/deployIfNotExists/azurepolicy.rules.json "deployIfNotExists policy rules (JSON)")]
 
-Den **deployIfNotExists** principdefinitionen definierar Azure-avbildningarna principen har verifierats på:
+**DeployIfNotExists** princip definition definierar de Azure-avbildningar som principen har verifierats på:
 
 |Utgivare |Erbjudande |SKU |
 |-|-|-|
-|OpenLogic |CentOS\* |Alla utom 6\* |
-|Redhat |RHEL |Alla utom 6\* |
+|OpenLogic |CentOS\* |Alla utom 6 @ no__t-0 |
+|Redhat |RHEL |Alla utom 6 @ no__t-0 |
 |Redhat |osa | Alla |
-|credativ |Debian | Alla utom 7\* |
-|SUSE |SLES\* |Alla utom 11\* |
-|Canonical| UbuntuServer |Alla utom 12\* |
+|credativ |Debian | Alla utom 7 @ no__t-0 |
+|SUSE |SLES @ NO__T-0 |Alla utom 11 @ no__t-0 |
+|Canonical| UbuntuServer |Alla utom 12 @ no__t-0 |
 |microsoft-dsvm |linux-data-science-vm-ubuntu |Alla |
 |microsoft-dsvm |azureml |Alla |
-|cloudera |cloudera-centos-os |Alla utom 6\* |
-|cloudera |cloudera-altus-centos-os |Alla |
+|Cloudera |Cloudera-CentOS-OS |Alla utom 6 @ no__t-0 |
+|Cloudera |Cloudera-Altus-CentOS-OS |Alla |
 |microsoft-ads |linux\* |Alla |
 |microsoft-aks |Alla |Alla |
 |AzureDatabricks |Alla |Alla |
-|qubole inc |Alla |Alla |
+|qubole-Inc |Alla |Alla |
 |datastax |Alla |Alla |
 |Couchbase |Alla |Alla |
 |scalegrid |Alla |Alla |
-|Kontrollpunkt |Alla |Alla |
+|tidszon |Alla |Alla |
 |paloaltonetworks |Alla |Alla |
 
-Den **distribution** del av regeln skickar den _installedApplication_ parametern till gäst-konfiguration-agenten på den virtuella datorn. Den här konfigurationen kan agenten validering och rapportera kompatibilitet tillbaka via den **granska** principdefinitionen.
+**Distributions** delen av regeln överför _installedApplication_ -parametern till gäst konfigurations agenten på den virtuella datorn. Den här konfigurationen gör att agenten kan utföra verifieringarna och rapportera efterlevnaden genom **gransknings** princip definitionen.
 
 ## <a name="azure-portal"></a>Azure Portal
 
-Efter den **granska** och **deployIfNotExists** definitioner skapas i portalen, rekommenderar vi för att gruppera dem till en [initiativ](../concepts/definition-structure.md#initiatives) för tilldelning.
+När du har skapat **gransknings** -och **deployIfNotExists** -definitionerna i portalen rekommenderar vi att du grupperar dem till ett [initiativ](../concepts/definition-structure.md#initiatives) för tilldelning.
 
-### <a name="create-copy-of-audit-definition"></a>Skapa kopia av audit definition
+### <a name="create-copy-of-audit-definition"></a>Skapa en kopia av gransknings definition
 
-[![Distribuera princip för exemplet till Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
-[![distribuera princip för exemplet till Azure Government](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Deploy till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
+[![Deploy princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2Faudit%2Fazurepolicy.json)
 
-Med dessa knappar för att distribuera via portalen skapar en kopia av den **granska** principdefinitionen.
-Utan den länkade **deployIfNotExists** principdefinition gäst-konfigurationen fungerar inte korrekt.
+Genom att använda dessa knappar för att distribuera via portalen skapas en kopia av **gransknings** princip definitionen.
+Utan den kopplade **deployIfNotExists** -princip definitionen fungerar inte gäst konfigurationen som den ska.
 
-### <a name="create-copy-of-deployifnotexists-definition"></a>Skapa kopia av deployIfNotExists definition
+### <a name="create-copy-of-deployifnotexists-definition"></a>Skapa en kopia av deployIfNotExists-definitionen
 
-[![Distribuera princip för exemplet till Azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
-[![distribuera princip för exemplet till Azure Government](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Deploy till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
+[![Deploy princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/?#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FGuestConfiguration%2Finstalled-application-linux%2FdeployIfNotExists%2Fazurepolicy.json)
 
-Med dessa knappar för att distribuera via portalen skapar en kopia av den **deployIfNotExists** principdefinitionen. Utan den länkade **granska** principdefinition gäst-konfigurationen fungerar inte korrekt.
+Genom att använda dessa knappar för att distribuera via portalen skapas en kopia av **deployIfNotExists** -princip definitionen. Utan den kopplade **gransknings** princip definitionen fungerar inte gäst konfigurationen som den ska.
 
 ## <a name="azure-powershell"></a>Azure PowerShell
 
@@ -127,9 +126,9 @@ Med dessa knappar för att distribuera via portalen skapar en kopia av den **dep
 
 ### <a name="deploy-with-azure-powershell"></a>Distribuera med Azure PowerShell
 
-#### <a name="copy-and-assign-the-initiative"></a>Kopiera och tilldela initiativ
+#### <a name="copy-and-assign-the-initiative"></a>Kopiera och tilldela initiativet
 
-De här stegen skapar en kopia av initiativet som innehåller inbyggda principer för både **granska** och **deployIfNotExists** och tilldelar initiativ till en resursgrupp.
+De här stegen skapar en kopia av initiativet som innehåller de inbyggda principerna för både **gransknings** -och **deployIfNotExists** och tilldelar initiativet till en resurs grupp.
 
 ```azurepowershell-interactive
 # Create the policy initiative (Subscription scope)
@@ -164,9 +163,9 @@ Remove-AzRoleAssignment -ObjectId $saIdentity -Scope $scope.ResourceId -RoleDefi
 Remove-AzPolicySetDefinition -Id $initDef
 ```
 
-#### <a name="copy-and-assign-the-audit-definition"></a>Kopiera och tilldelar definitionen granska
+#### <a name="copy-and-assign-the-audit-definition"></a>Kopiera och tilldela gransknings definitionen
 
-De här stegen skapar en kopia av den **granska** definition och tilldela den till en resursgrupp. Den här definitionen fungerar inte korrekt utan den länkade **deployIfNotExists** definition också tilldelas.
+De här stegen skapar en kopia av **gransknings** definitionen och tilldelar den till en resurs grupp. Den här definitionen fungerar inte som den ska utan att den kopplade **deployIfNotExists** -definitionen också tilldelas.
 
 ```azurepowershell-interactive
 # Create the policy definition (Subscription scope)
@@ -189,10 +188,10 @@ Remove-AzPolicyAssignment -Id $assignment.ResourceId
 Remove-AzPolicyDefinition -Id $definition
 ```
 
-#### <a name="copy-and-assign-the-deployifnotexists-definition"></a>Kopiera och tilldela deployIfNotExists-definition
+#### <a name="copy-and-assign-the-deployifnotexists-definition"></a>Kopiera och tilldela deployIfNotExists-definitionen
 
-De här stegen skapar en kopia av den **deployIfNotExists** definition och tilldela den till en resursgrupp.
-Den här definitionen fungerar inte korrekt utan den länkade **granska** definition också tilldelas.
+De här stegen skapar en kopia av **deployIfNotExists** -definitionen och tilldelar den till en resurs grupp.
+Den här definitionen fungerar inte som den ska utan den kopplade **gransknings** definitionen tilldelas också.
 
 ```azurepowershell-interactive
 # Create the policy definition (Subscription scope)
@@ -233,17 +232,17 @@ Skripten för distribution och borttagning använder följande kommandon. Varje 
 
 | Kommando | Anteckningar |
 |---|---|
-| [New-AzPolicySetDefinition](/powershell/module/az.resources/New-AzPolicySetDefinition) | Skapar ett Azure Policy-initiativ. |
-| [New-AzPolicyDefinition](/powershell/module/az.resources/New-AzPolicyDefinition) | Skapar en Azure Policy definition. |
+| [New-AzPolicySetDefinition](/powershell/module/az.resources/New-AzPolicySetDefinition) | Skapar ett Azure Policy initiativ. |
+| [New-AzPolicyDefinition](/powershell/module/az.resources/New-AzPolicyDefinition) | Skapar en Azure Policy-definition. |
 | [Get-AzResourceGroup](/powershell/module/az.resources/Get-AzResourceGroup) | Hämtar en enskild resursgrupp. |
-| [New-AzPolicyAssignment](/powershell/module/az.resources/New-AzPolicyAssignment) | Skapar en ny Azure Policy-tilldelning för ett initiativ eller definition. |
-| [New-AzRoleAssignment](/powershell/module/az.resources/New-AzRoleAssignment) | Ger en rolltilldelning till specifika huvudnamn. |
+| [New-AzPolicyAssignment](/powershell/module/az.resources/New-AzPolicyAssignment) | Skapar en ny Azure Policy tilldelning för ett initiativ eller en definition. |
+| [New-AzRoleAssignment](/powershell/module/az.resources/New-AzRoleAssignment) | Ger en befintlig roll tilldelning till det särskilda huvud kontot. |
 | [Remove-AzPolicyAssignment](/powershell/module/az.resources/Remove-AzPolicyAssignment) | Tar bort en befintlig Azure Policy-tilldelning. |
 | [Remove-AzPolicySetDefinition](/powershell/module/az.resources/Remove-AzPolicySetDefinition) | Tar bort ett initiativ. |
 | [Remove-AzPolicyDefinition](/powershell/module/az.resources/Remove-AzPolicyDefinition) | Tar bort en definition. |
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska ytterligare [Azure Policy-exempel](index.md).
-- Läs mer om [Azure gäst principkonfigurationen](../concepts/guest-configuration.md).
-- Granska [Azure Policy-definitionsstruktur](../concepts/definition-structure.md).
+- Granska ytterligare [Azure policy exempel](index.md).
+- Läs mer om [Azure policy gäst konfiguration](../concepts/guest-configuration.md).
+- Granska [Azure policy definitions struktur](../concepts/definition-structure.md).

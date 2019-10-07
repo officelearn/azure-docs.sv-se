@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/05/2019
 ms.topic: tutorial
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: 137764cba91ab94adef4719a0d34b6fb9e6efe29
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: f3250052a7e26b5d8ef7cb1d411f9d9252089875
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232624"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980728"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Självstudier: Skapa en miljö från ett skiss exempel
 
@@ -46,7 +45,7 @@ Börja med att implementera skiss exemplet. När du importerar skapas en ny skis
    - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet. I den här självstudien använder vi namnet _två-RGS-with-Role-tilldelningar_.
    - **Definitions plats**: Använd ellipsen och välj hanterings gruppen eller prenumerationen för att spara din kopia av exemplet till.
 
-1. Välj fliken _artefakter_ högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
+1. Välj fliken _artefakter_ överst på sidan eller **Next: Artefakter @ no__t-0 längst ned på sidan.
 
 1. Granska listan över artefakter som utgör skiss exemplet. Det här exemplet definierar två resurs grupper med visnings namn för _ProdRG_ och _PreProdRG_. Det slutliga namnet och platsen för varje resurs grupp anges under skiss tilldelningen. Resurs gruppen _ProdRG_ tilldelas rollen _deltagare_ och _PreProdRG_ resurs gruppen tilldelas rollen _ägare_ och _läsare_ . Rollerna som tilldelas i definitionen är statiska, men användaren, appen eller gruppen som tilldelas rollen anges under skiss tilldelningen.
 
@@ -68,11 +67,11 @@ Din kopia av skiss exemplet har nu skapats i din miljö. Den skapas i **utkast**
 
 Det här steget gör det möjligt att tilldela skissen till en prenumeration. När den har publicerats kan du fortfarande göra ändringar. Ytterligare ändringar kräver publicering med ett nytt **versions** värde för att spåra skillnader mellan olika versioner av samma skiss definition.
 
-När du **har slutfört** ett Portal meddelande om publicerings skissen visas går du vidare till nästa steg.
+När du **har slutfört ett Portal meddelande om publicerings skissen** visas går du vidare till nästa steg.
 
 ## <a name="assign-the-sample-copy"></a>Tilldela exempel kopian
 
-När kopieringen av skiss exemplet har publicerats kanden tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
+När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenumeration i hanterings gruppen som den sparades till. Det här steget är den plats där parametrar tillhandahålls för att göra varje distribution av kopian av skiss exemplet unik.
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **Skisser**.
 
@@ -92,7 +91,7 @@ När kopieringen av skiss exemplet har publicerats kanden tilldelas en prenumera
 
    - Lås tilldelning
 
-     Välj Lås läget skrivskyddad skiss. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
+     Välj Lås läget _skrivskyddad_ skiss. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
 
    - Hanterad identitet
 
@@ -100,7 +99,7 @@ När kopieringen av skiss exemplet har publicerats kanden tilldelas en prenumera
 
    - Artefaktparametrar
 
-     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. Ange parametervärdet till vad som definieras i kolumnen **värde** för varje artefakt. För `{Your ID}`väljer du ditt Azure-användarkonto.
+     De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. Ange parametervärdet till vad som definieras i kolumnen **värde** för varje artefakt. För `{Your ID}` väljer du ditt Azure-användarkonto.
 
      |Namn på artefakt|Artefakttyp|Parameternamn|Value|Beskrivning|
      |-|-|-|-|-|
@@ -134,25 +133,25 @@ Skiss tilldelningen skapar och spårar de artefakter som definieras i skiss defi
 
 1. Välj sidan **åtkomst kontroll (IAM)** till vänster och sedan fliken **roll tilldelningar** .
 
-   Här ser vi att ditt konto har beviljats _deltagar_ rollen för resursensomfattning. Skiss tilldelningen _tilldelning – två-RGS-med-roll tilldelningar_ har _ägar_ rollen som den användes för att skapa resurs gruppen. Dessa behörigheter används också för att hantera resurser med konfigurerade skiss lås.
+   Här ser vi att ditt konto har beviljats _deltagar_ rollen för _resursens_omfattning. Skiss tilldelningen _tilldelning – två-RGS-med-roll tilldelningar_ har _ägar_ rollen som den användes för att skapa resurs gruppen. Dessa behörigheter används också för att hantera resurser med konfigurerade skiss lås.
 
 1. Från Azure Portal dynamiska objekt väljer du **tilldelning-två-RGS – med-roll tilldelningar** för att gå tillbaka en sida och sedan välja resurs gruppen **PreProductionRG** .
 
 1. Välj sidan **åtkomst kontroll (IAM)** till vänster och sedan fliken **roll tilldelningar** .
 
-   Här ser vi att ditt konto har beviljats både _ägar_ - och läsar rollerna, både i den _här resursens_omfattning. Skiss tilldelningen har också _ägar_ rollen som den första resurs gruppen.
+   Här ser vi att ditt konto har beviljats både _ägar_ -och _läsar_ rollerna, både i den _här resursens_omfattning. Skiss tilldelningen har också _ägar_ rollen som den första resurs gruppen.
 
 1. Välj fliken **neka tilldelningar** .
 
-   Skiss tilldelningen skapade en [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) på den distribuerade resurs gruppen för att tvinga det skrivskyddade utkast låset. Neka-tilldelningen hindrar någon med lämpliga rättigheter på fliken _roll tilldelningar_ från att vidta vissa åtgärder. Neka-tilldelningen påverkar _alla huvud konton_.
+   Skiss tilldelningen skapade en [neka-tilldelning](../../../role-based-access-control/deny-assignments.md) på den distribuerade resurs gruppen för att tvinga det _skrivskyddade_ utkast låset. Neka-tilldelningen hindrar någon med lämpliga rättigheter på fliken _roll tilldelningar_ från att vidta vissa åtgärder. Neka-tilldelningen påverkar _alla huvud konton_.
 
 1. Välj neka tilldelning och välj sedan sidan **nekade behörigheter** till vänster.
 
-   Neka-tilldelningen förhindrar alla åtgärder **\*** med- **Åtgärds** konfigurationen, men tillåter Läs åtkomst genom att exkludera  **\*/Read** via **NotActions**.
+   Neka-tilldelningen förhindrar alla åtgärder med **\*-och-** **Åtgärds** konfigurationen, men tillåter Läs åtkomst genom att utesluta **\*/läsning** via **NotActions**.
 
 1. Från Azure Portal dynamiska länkar väljer du **PreProductionRG-Access Control (IAM)** . Välj sedan sidan **Översikt** till vänster och sedan knappen **ta bort resurs grupp** . Ange namnet _PreProductionRG_ för att bekräfta borttagningen och välj **ta bort** längst ned i fönstret.
 
-   Portal meddelandet det **gick inte att ta bort resurs gruppen PreProductionRG** visas. Felet anger att när ditt konto har behörighet att ta bort resurs gruppen nekas åtkomst av skiss tilldelningen. Kom ihåg att vi valde lås läget skrivskyddad skiss under skiss tilldelningen. Skiss låset förhindrar ett konto med behörighet, till och med _ägare_, från att ta bort resursen. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
+   Portal meddelandet det **gick inte att ta bort resurs gruppen PreProductionRG** visas. Felet anger att när ditt konto har behörighet att ta bort resurs gruppen nekas åtkomst av skiss tilldelningen. Kom ihåg att vi valde lås läget _skrivskyddad_ skiss under skiss tilldelningen. Skiss låset förhindrar ett konto med behörighet, till och med _ägare_, från att ta bort resursen. Mer information finns i [Låsa skissresurser](../concepts/resource-locking.md).
 
 De här stegen visar att våra resurser har skapats som definierade och att skisserna låser sig förhindra oönskad borttagning, även från ett konto med behörighet.
 

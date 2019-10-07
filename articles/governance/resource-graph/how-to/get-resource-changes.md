@@ -1,50 +1,49 @@
 ---
 title: Hämta resursändringar
-description: Lär dig hur du hittar när en resurs har ändrats och hämta en lista över de egenskaper som ändrats.
+description: Förstå hur du hittar när en resurs har ändrats och hämtar en lista över de egenskaper som har ändrats.
 services: resource-graph
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 05/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
-manager: carmonm
-ms.openlocfilehash: b6ef57a3f39c82be30d92aef72c1bbe03b653768
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2027f56d44be14895a40550d78a79d9e9dda9d97
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66236514"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71980298"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
-Resurser får ändra via loppet av daglig användning, omkonfiguration och även omdistributionen.
-Ändra kan komma från en person eller av en automatiserad process. De flesta ändringen är avsiktligt, men ibland är det inte. Med de senaste 14 dagarna ändringshistoria kan Azure Resource Graph du:
+Resurser ändras genom daglig användning, omkonfiguration och till och med omdistribution.
+Ändringen kan komma från en person eller en automatiserad process. De flesta ändringar är av design, men ibland är det inte. Med de senaste 14 dagarna i ändrings historiken kan du med Azure Resource Graph:
 
 - se när ändringar har identifierats på en Azure Resource Manager-egenskap
 - se vilka egenskaper som ändrats som en del av ändringshändelsen.
 
-Identifiering av ändring av och information är värdefull för följande exempelscenarier:
+Ändrings identifiering och information är värdefull i följande exempel scenarier:
 
-- Under incidenthantering för att förstå _potentiellt_ relaterade ändringar. Fråga efter händelser under en viss tidsperiod och utvärdera information om ändringar.
-- Att hålla en Konfigurationshanteringsdatabas kallas en CMDB uppdaterad. I stället för att uppdatera alla resurser och deras fullständiga egenskapsuppsättningar enligt en frekvens som är schemalagd att bara hämta vad som ändrats.
-- Förstå vilka andra egenskaper kan ändras när en resurs ändras kompatibilitetsstatus. Utvärdering av dessa ytterligare egenskaper kan ge insikter om andra egenskaper som kan behöva hanteras via en Azure Policy definition.
+- Under incident hantering kan du förstå _potentiellt_ relaterade ändringar. Fråga efter ändrings händelser under en angiven tids period och utvärdera ändrings informationen.
+- Upprätthålla en databas för konfigurations hantering, som kallas en CMDB, uppdaterad. I stället för att uppdatera alla resurser och deras fullständiga egenskaps uppsättningar enligt en schemalagd frekvens får du bara det som ändrades.
+- Förstå vilka andra egenskaper som kan ha ändrats när en resurs ändrade kompatibilitetstillstånd. Utvärdering av dessa ytterligare egenskaper kan ge insikter om andra egenskaper som kan behöva hanteras via en Azure Policy-definition.
 
-Den här artikeln visar hur du samlar in uppgifterna via Resource Graph SDK. Den här informationen i Azure-portalen finns i Azure Policy [ändringshistorik](../../policy/how-to/determine-non-compliance.md#change-history-preview) eller Azure-aktivitetsloggen [ändringshistorik](../../../azure-monitor/platform/activity-log-view.md#azure-portal).
+Den här artikeln visar hur du samlar in den här informationen via resurs Diagramets SDK. Information om hur du kan se den här informationen i Azure Portal finns i Azure Policys [ändrings historik](../../policy/how-to/determine-non-compliance.md#change-history-preview) eller [ändrings historik](../../../azure-monitor/platform/activity-log-view.md#azure-portal)för Azure aktivitets loggen.
 
 > [!NOTE]
-> Information om ändringar i resurs-diagrammet är för Resource Manager-egenskaper. Spåra ändringar i en virtuell dator finns i Azure Automation [ändringsspårning](../../../automation/automation-change-tracking.md) eller Azure Policy [gäst-konfigurationen för virtuella datorer](../../policy/concepts/guest-configuration.md).
+> Ändrings informationen i resurs diagrammet är för Resource Manager-egenskaper. Information om hur du spårar ändringar i en virtuell dator finns i Azure Automation [ändrings spårning](../../../automation/automation-change-tracking.md) eller Azure policys [gäst konfiguration för virtuella datorer](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
-> Ändra historik i Azure Resource Graph är i offentlig förhandsversion.
+> Ändrings historiken i Azure Resource Graph finns i en offentlig för hands version.
 
-## <a name="find-when-changes-were-detected"></a>Hitta när ändringar har upptäckts
+## <a name="find-when-changes-were-detected"></a>Sök när ändringar upptäcktes
 
-Det första steget i att se vad som ändrats på en resurs är att hitta ändringen händelser relaterade till resursen i en tidsperiod. Det här steget gör du genom de **resourceChanges** REST-slutpunkt.
+Det första steget i att se vad som har ändrats på en resurs är att hitta ändrings händelserna som är relaterade till resursen inom ett tidsintervall. Det här steget görs genom **resourceChanges** REST-slutpunkten.
 
-Den **resourceChanges** slutpunkten kräver två parametrar i begärandetexten:
+**ResourceChanges** -slutpunkten kräver två parametrar i begär ande texten:
 
-- **resourceId**: Azure-resursen ska sökas efter ändringar.
-- **Intervall**: En egenskap med _starta_ och _slutet_ datum för när du ska söka efter en ändring händelse med hjälp av den **Zulu tidszon (Z)** .
+- **resourceId**: Azure-resursen att söka efter ändringar på.
+- **intervall**: En egenskap med _Start_ - _och slutdatum för_ när du ska söka efter en ändrings händelse med **Zulu Time Zone (Z)** .
 
 Exempel-begärandetexten:
 
@@ -58,13 +57,13 @@ Exempel-begärandetexten:
 }
 ```
 
-Med ovanstående begärandetexten, REST API-URI för **resourceChanges** är:
+Med ovanstående begär ande text är REST API-URI: n för **resourceChanges** :
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChanges?api-version=2018-09-01-preview
 ```
 
-Svaret liknar det här exemplet:
+Svaret ser ut ungefär som i det här exemplet:
 
 ```json
 {
@@ -90,17 +89,17 @@ Svaret liknar det här exemplet:
 }
 ```
 
-Varje identifierad Ändringshändelse för den **resourceId** har en **changeId** som är unik för den här resursen. Medan den **changeId** sträng kan ibland innehålla andra egenskaper, det har bara säkert vara unikt. Ändra posten innehåller tiderna som den före och efter ögonblicksbilder som utförts.
-Ändra händelsen inträffade vid en tidpunkt i det här fönstret.
+Varje identifierad ändrings händelse för **resourceId** har en **changeId** som är unik för den resursen. **ChangeId** -strängen kan ibland innehålla andra egenskaper, men den garanterar bara att vara unik. Ändrings posten innehåller de gånger som tidigare och efter ögonblicks bilder togs.
+Ändrings händelsen inträffade vid något tillfälle i det här fönstret.
 
-## <a name="see-what-properties-changed"></a>Se vad som ändrats egenskaper
+## <a name="see-what-properties-changed"></a>Se vilka egenskaper som har ändrats
 
-Med den **changeId** från den **resourceChanges** slutpunkten, den **resourceChangeDetails** REST-slutpunkt används sedan för att hämta information om ändringshändelsen.
+Med **changeId** från **resourceChanges** -slutpunkten används **resourceChangeDetails** REST-slutpunkten för att hämta information om ändrings händelsen.
 
-Den **resourceChangeDetails** slutpunkten kräver två parametrar i begärandetexten:
+**ResourceChangeDetails** -slutpunkten kräver två parametrar i begär ande texten:
 
-- **resourceId**: Azure-resursen ska sökas efter ändringar.
-- **changeId**: Unikt ändringshändelsen för den **resourceId** samlats in från **resourceChanges**.
+- **resourceId**: Azure-resursen att söka efter ändringar på.
+- **changeId**: Den unika ändrings händelsen för **resourceId** som samlats in från **resourceChanges**.
 
 Exempel-begärandetexten:
 
@@ -111,13 +110,13 @@ Exempel-begärandetexten:
 }
 ```
 
-Med ovanstående begärandetexten, REST API-URI för **resourceChangeDetails** är:
+Med ovanstående begär ande text är REST API-URI: n för **resourceChangeDetails** :
 
 ```http
 POST https://management.azure.com/providers/Microsoft.ResourceGraph/resourceChangeDetails?api-version=2018-09-01-preview
 ```
 
-Svaret liknar det här exemplet:
+Svaret ser ut ungefär som i det här exemplet:
 
 ```json
 {
@@ -219,12 +218,12 @@ Svaret liknar det här exemplet:
 }
 ```
 
-**beforeSnapshot** och **afterSnapshot** var och ge den tid som ögonblicksbilden togs och egenskaper vid den tidpunkten. Ändringen hände någon gång mellan de här ögonblicksbilderna. Studera exemplet ovan kan vi se att den egenskap som ändrades var **supportsHttpsTrafficOnly**.
+**beforeSnapshot** och **afterSnapshot** var och en anger tiden då ögonblicks bilden togs och egenskaperna vid denna tidpunkt. Ändringen skedde mellan dessa ögonblicks bilder. I exemplet ovan kan vi se att egenskapen som ändrades var **supportsHttpsTrafficOnly**.
 
-Om du vill jämföra resultaten programmässigt, jämför den **innehåll** delen av varje ögonblicksbild för att avgöra skillnaden. Om du jämför hela ögonblicksbilden, om den **tidsstämpel** visar alltid som en skillnad trots som förväntat.
+Jämför resultaten program mässigt genom att jämföra **innehålls** delen av varje ögonblicks bild för att fastställa skillnaden. Om du jämför hela ögonblicks bilden visas alltid **tidsstämpeln** som en differens trots att den förväntas.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se språket som användes i [Starter frågor](../samples/starter.md).
-- Se avancerade använder i [avancerade frågor](../samples/advanced.md).
-- Lär dig hur du [Utforska resurser](../concepts/explore-resources.md).
+- Se språket som används i [Start frågor](../samples/starter.md).
+- Se avancerade användnings områden i [avancerade frågor](../samples/advanced.md).
+- Lär dig att [utforska resurser](../concepts/explore-resources.md).

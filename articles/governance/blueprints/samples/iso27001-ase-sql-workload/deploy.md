@@ -6,13 +6,12 @@ ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-manager: carmonm
-ms.openlocfilehash: fb68b2f78e48dabf5b1377b7c811840a85604f53
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 4804e10488c537dbf997aba0ec49f784bc67457d
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802425"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981589"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Distribuera exempel på arbets belastnings skiss för ISO 27001 App Service-miljön/SQL Database
 
@@ -41,14 +40,14 @@ Börja med att implementera skiss exemplet genom att skapa en ny skiss i din mil
 
 1. Från sidan **komma igång** till vänster väljer du knappen **skapa** under _skapa en skiss_.
 
-1. **Hitta ISO 27001: Skiss exempel för ASE** /SQL-arbetsbelastning under _andra exempel_ och välj **Använd det här exemplet**.
+1. Hitta **ISO 27001: ASE/SQL-arbetsbelastning @ no__t-0 skiss exempel under _andra exempel_ och välj **Använd det här exemplet**.
 
 1. Ange _grunderna_ för skiss exemplet:
 
    - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet för arbets belastningen ISO 27001 ASE/SQL.
    - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj fliken _artefakter_ högst upp på sidan eller **nästa: Artefakter** längst ned på sidan.
+1. Välj fliken _artefakter_ överst på sidan eller **Next: Artefakter @ no__t-0 längst ned på sidan.
 
 1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
@@ -123,7 +122,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Nätverks resurs grupp|Resource group|Name|**Locked** -sammanfogar **organisations namnet** med `-workload-net-rg` för att göra resurs gruppen unik.|
 |Nätverks resurs grupp|Resource group|Location|**Locked** – använder skiss parametern.|
 |Nätverkssäkerhetsgrupp-mall|Resource Manager-mall|Loggkvarhållning i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
-|Mall för Virtual Network och route-tabell|Resource Manager-mall|Privat IP för Azure Firewall|Konfigurerar den privata IP-adressen för [Azure-brandväggen](../../../../firewall/overview.md). Ska ingå i CIDR-notationen som definieras _i ISO 27001: Delade tjänster_ artefakt parameter **prefix för Azure Firewall-undernät**. Standardvärdet är _10.0.4.4_.|
+|Mall för Virtual Network och route-tabell|Resource Manager-mall|Privat IP för Azure Firewall|Konfigurerar den privata IP-adressen för [Azure-brandväggen](../../../../firewall/overview.md). Ska ingå i CIDR-notationen som definieras i _ISO 27001: Delade tjänster @ no__t-0 artefakt parameter **Azure Firewall Subnet**-adressprefix. Standardvärdet är _10.0.4.4_.|
 |Mall för Virtual Network och route-tabell|Resource Manager-mall|Prenumerations-ID för delade tjänster|Värde som används för att aktivera VNET-peering mellan en arbets belastning och delade tjänster.|
 |Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för virtuellt nätverk|CIDR-notering för det virtuella nätverket. Standardvärdet är _10.1.0.0/16_.|
 |Mall för Virtual Network och route-tabell|Resource Manager-mall|Adressprefix för standardundernät|CIDR-notering för det virtuella nätverkets standard under nät. Standardvärdet är _10.1.0.0/16_.|
@@ -137,7 +136,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |Azure SQL Database resurs grupp|Resource group|Name|**Locked** -sammanfogar **organisations namnet** med `-workload-azsql-rg` för att göra resurs gruppen unik.|
 |Azure SQL Database resurs grupp|Resource group|Location|**Locked** – använder skiss parametern.|
 |Azure SQL Database-mall|Resource Manager-mall|Azure SQL Server-administratörens användarnamn|Användar namn för Azure-SQL Server. Måste matcha samma egenskaps värde i **Key Vault-mallen**. Standardvärdet är _SQL-admin-user_.|
-|Azure SQL Database-mall|Resource Manager-mall|Azure SQL Server admin-lösenord (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/Subscription/{subscriptionId}/resourceGroups/{orgName}-Workload-kv/providers/Microsoft.KeyVault/Vaults/{orgName}-Workload-kv" och Ersätt `{subscriptionId}` med ditt prenumerations- `{orgName}` ID och med **organisationens namn** skiss parameter.|
+|Azure SQL Database-mall|Resource Manager-mall|Azure SQL Server admin-lösenord (Key Vault resurs-ID)|Resurs-ID för Key Vault. Använd "/subscription/{subscriptionId}/resourceGroups/{orgName}-workload-kv/providers/Microsoft.KeyVault/vaults/{orgName}-workload-kv" och ersätt `{subscriptionId}` med ditt prenumerations-ID och `{orgName}` med skissen **organisations namn** ProfileServiceApplicationProxy.|
 |Azure SQL Database-mall|Resource Manager-mall|Azure SQL Server admin-lösenord (Key Vault hemligt namn)|SQL Server administratörens användar namn. Måste överensstämma med värdet i **Key Vault Template** -egenskapen **Azure SQL Server Admin användar namn**.|
 |Azure SQL Database-mall|Resource Manager-mall|Loggkvarhållning i dagar|Data kvarhållning i dagar. Standardvärdet är _365_.|
 |Azure SQL Database-mall|Resource Manager-mall|AAD admin-objekt-ID|AAD-objekt-ID för den användare som ska tilldelas som Active Directory administratör. Inget standardvärde och får inte vara tomt. Du hittar det här värdet från Azure Portal genom att söka efter och välja "användare" under _tjänster_. Använd rutan _namn_ om du vill filtrera efter konto namnet och välj det kontot. På sidan _användar profil_ väljer du ikonen "Klicka för att kopiera" bredvid _objekt-ID_.|
@@ -153,7 +152,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 Nu när du har granskat stegen för att distribuera ISO 27001 App Service-miljön/SQL Database arbets belastnings skiss kan du gå till följande artiklar om du vill veta mer om arkitektur och kontroll mappning:
 
 > [!div class="nextstepaction"]
-> [ISO 27001 App Service-miljön/SQL Database arbets belastnings skiss – översikt](./index.md)
+> [Iso 27001 App Service-miljön/SQL Database arbets belastnings skiss – översikt](./index.md)
 > [ISO 27001 App Service-miljön/SQL Database arbets belastnings skiss-kontroll mappning](./control-mapping.md)
 
 Ytterligare artiklar om skisser och hur de används:

@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9cee148b6cb17f18c06e98158ac21638cedf519c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: e98c004b802711c83558bf4d7ec86c418679836b
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828746"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981157"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Autentisering och auktorisering för Azure Time Series Insights-API
 
@@ -33,7 +33,7 @@ Registrerings flödet för Azure Active Directory-appen omfattar tre huvud steg.
 
 1. [Registrera ett program](#azure-active-directory-app-registration) i Azure Active Directory.
 1. Ge programmet [behörighet att komma åt data i Time Series Insightss miljön](#granting-data-access).
-1. Använd **program-ID** och **klient hemlighet** för att hämta en token `https://api.timeseries.azure.com/` från [klient programmet](#client-app-initialization). Token kan sedan användas för att anropa Time Series Insights-API: et.
+1. Använd **program-ID** och **klient hemlighet** för att hämta en token från `https://api.timeseries.azure.com/` i [klient programmet](#client-app-initialization). Token kan sedan användas för att anropa Time Series Insights-API: et.
 
 Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarautentiseringsuppgifter göra följande:
 
@@ -59,15 +59,15 @@ Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarauten
 
 1. I Time Series Insightss miljön väljer du **data åtkomst principer** och väljer **Lägg till**.
 
-   [![Lägg till ny princip för data åtkomst i Time Series Insightss miljön](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
+   [![Add ny princip för data åtkomst till Time Series Insightss miljö](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-add.png#lightbox)
 
 1. I dialog rutan **Välj användare** klistrar du in antingen **program namnet** eller **program-ID: t** från avsnittet Azure Active Directory app Registration.
 
-   [![Hitta ett program i dialog rutan Välj användare](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
+   [![Find ett program i dialog rutan Välj användare](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-user.png#lightbox)
 
 1. Välj rollen. Välj **läsare** för att fråga data eller **deltagare** att fråga efter data och ändra referens data. Välj **OK**.
 
-   [![Välj läsare eller deltagare i dialog rutan Välj användar roll](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
+   [![Pick läsare eller deltagare i dialog rutan Välj användar roll](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png)](media/authentication-and-authorization/time-series-insights-data-access-policies-select-role.png#lightbox)
 
 1. Spara principen genom att välja **OK**.
 
@@ -99,7 +99,7 @@ Enligt **steg 3**kan du genom att avgränsa ditt program och dina användarauten
     string accessToken = token.AccessToken;
     ```
 
-1. Token kan sedan skickas i `Authorization` rubriken när programmet anropar Time Series Insights-API: et.
+1. Token kan sedan skickas i `Authorization`-huvudet när programmet anropar Time Series Insights-API: et.
 
 ## <a name="common-headers-and-parameters"></a>Vanliga rubriker och parametrar
 
@@ -110,29 +110,29 @@ I det här avsnittet beskrivs vanliga HTTP-begärandehuvuden och parametrar som 
 För att utföra autentiserade frågor mot [Time Series Insights REST-API: er](https://docs.microsoft.com/rest/api/time-series-insights/)måste en giltig OAuth 2,0 Bearer-token skickas i [Authorization-huvudet](/rest/api/apimanagement/2019-01-01/authorizationserver/createorupdate) med en rest-klient som du väljer (Postman, Java Script, C#). 
 
 > [!IMPORTANT]
-> Token måste utfärdas exakt till `https://api.timeseries.azure.com/` resursen (kallas även "mål grupp" för token).
-> * Din [Postman](https://www.getpostman.com/) - **AuthURL** med uppfyller därför följande:`https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
+> Token måste utfärdas exakt till `https://api.timeseries.azure.com/`-resursen (kallas även "mål grupp" för token).
+> * Din [Postman](https://www.getpostman.com/) - **AuthURL** med motsvarar därför följande: `https://login.microsoftonline.com/microsoft.onmicrosoft.com/oauth2/authorize?resource=https://api.timeseries.azure.com/`
 
 > [!TIP]
-> Mer information om hur du autentiserar med Time Series Insights-API: er med hjälp av [Java Script client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md)finns i självstudien [utforska Azure Time Series Insights JavaScript-klient bibliotek](tutorial-explore-js-client-lib.md#authentication) .
+> Mer information om hur du autentiserar med Time Series Insights-API: er med hjälp av [Java Script client SDK](https://github.com/microsoft/tsiclient/blob/master/docs/API.md) tillsammans med diagram och diagram finns i [exempel visualiseringen för klient-SDK](https://tsiclientsample.azurewebsites.net/) för värdbaserade Azure Time Series Insights.
 
 ### <a name="http-headers"></a>HTTP-rubriker
 
 Obligatoriska begärandehuvuden:
 
-- `Authorization`för autentisering och auktorisering måste en giltig OAuth 2,0 Bearer-token skickas i Authorization-huvudet. Token måste utfärdas exakt till `https://api.timeseries.azure.com/` resursen (kallas även "mål grupp" för token).
+- `Authorization` för autentisering och auktorisering måste en giltig OAuth 2,0 Bearer-token skickas i Authorization-huvudet. Token måste utfärdas exakt till `https://api.timeseries.azure.com/`-resursen (kallas även "mål grupp" för token).
 
 Valfria begärandehuvuden:
 
-- `Content-type`-stöds `application/json` endast.
-- `x-ms-client-request-id`– en klientbegärans-ID. Tjänsten registrerar det här värdet. Tillåter att tjänsten spårar åtgärder mellan tjänster.
-- `x-ms-client-session-id`-ett sessions-ID för klienten. Tjänsten registrerar det här värdet. Tillåter tjänsten att spåra en grupp relaterade åtgärder mellan tjänster.
-- `x-ms-client-application-name`– namnet på programmet som skapade den här begäran. Tjänsten registrerar det här värdet.
+- `Content-type` – endast `application/json` stöds.
+- `x-ms-client-request-id`-klient begär ande-ID. Tjänsten registrerar det här värdet. Tillåter att tjänsten spårar åtgärder mellan tjänster.
+- `x-ms-client-session-id`-ett klientsession-ID. Tjänsten registrerar det här värdet. Tillåter tjänsten att spåra en grupp relaterade åtgärder mellan tjänster.
+- `x-ms-client-application-name`-namnet på programmet som skapade den här begäran. Tjänsten registrerar det här värdet.
 
 Svars rubriker:
 
-- `Content-type`-stöds `application/json` endast.
-- `x-ms-request-id`– Server-genererat fråge-ID. Kan användas för att kontakta Microsoft för att undersöka en begäran.
+- `Content-type` – endast `application/json` stöds.
+- `x-ms-request-id` – Server-genererat fråge-ID. Kan användas för att kontakta Microsoft för att undersöka en begäran.
 
 ### <a name="http-parameters"></a>HTTP-parametrar
 
@@ -143,7 +143,7 @@ Obligatoriska parametrar för URL-frågesträng:
 
 Valfria URL-parametrar för frågesträng:
 
-- `timeout=<timeout>`– tids gräns på Server sidan för körning av begäran. Gäller endast för [Hämta miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) och hämta API: er för [samling av miljö](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) . Timeout-värdet ska vara i ISO 8601-varaktighets format `"PT20S"` , till exempel och måste vara `1-30 s`inom intervallet. Standardvärdet `30 s`är.
+- `timeout=<timeout>` – tids gräns för Server sidan för körning av begäran. Gäller endast för [Hämta miljö händelser](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-events-api) och hämta API: er för [samling av miljö](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-api#get-environment-aggregates-api) . Timeout-värdet ska vara i ISO 8601-varaktighets format, till exempel `"PT20S"` och måste vara inom intervallet `1-30 s`. Standardvärdet är `30 s`.
 
 ## <a name="next-steps"></a>Nästa steg
 

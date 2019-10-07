@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 02/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: 6b79b34b1db6c201a8f132e4c608e251edb3666a
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 9671ddcf98ae97c0a3df49cce008faf403f5dcd2
+ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735427"
+ms.lasthandoff: 10/06/2019
+ms.locfileid: "71981099"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Support mat ris för Azure Backup
 
@@ -22,7 +22,7 @@ Andra support-matriser är tillgängliga:
 
 - Support mat ris för [säkerhets kopiering av virtuella Azure-datorer](backup-support-matrix-iaas.md)
 - Support mat ris för säkerhets kopiering med [System Center Data Protection Manager (DPM)/Microsoft Azure Backup Server (Mabs)](backup-support-matrix-mabs-dpm.md)
-- Support mat ris för säkerhets kopiering med hjälp av [Microsoft Azure Recovery Services (mars)](backup-support-matrix-mars-agent.md) -agenten
+- Support mat ris för säkerhets kopiering med hjälp av [Microsoft Azure Recovery Services (mars)-agenten](backup-support-matrix-mars-agent.md)
 
 ## <a name="vault-support"></a>Stöd för valv
 
@@ -59,7 +59,7 @@ Här är what's som stöds om du vill säkerhetskopiera lokala datorer:
 **Gräns** | **Detaljer**
 --- | ---
 **Data diskar för virtuella Azure-datorer** | Gräns på 16
-**Data disk storlek för virtuell Azure-dator** | Enskilda diskar kan vara upp till 4 095 GB
+**Data disk storlek för virtuell Azure-dator** | Har stöd för säkerhets kopiering av virtuella datorer med varje disk storlek upp till 30 TB och högst 256 TB kombinerat för alla diskar i en virtuell dator.
 
 ### <a name="azure-vm-backup-options"></a>Alternativ för säkerhetskopiering av virtuella Azure-datorer
 
@@ -139,7 +139,7 @@ Säkerhets kopiering stöder komprimering av säkerhets kopierings trafik, som s
 **Inställning** | **Begränsningar**
 --- | ---
 **Högsta antal återställnings punkter per skyddad instans (dator eller arbets belastning)** | 9 999
-**Maximal förfallo tid för en återställnings punkt** | Ingen gräns
+**Maximal förfallo tid för en återställnings punkt** | Obegränsad
 **Maximal säkerhets kopierings frekvens till DPM/MABS** | Varje kvart för SQL Server<br/><br/> En gång i timmen för andra arbets belastningar
 **Maximal säkerhets kopierings frekvens till valv** | **Lokala Windows-datorer eller virtuella Azure-datorer som kör MARS:** Tre per dag<br/><br/> **DPM/MABS:** Två per dag<br/><br/> **Azure VM-säkerhetskopiering:** En per dag
 **Kvarhållning av återställnings punkt** | Varje dag, varje vecka, varje månad, varje år

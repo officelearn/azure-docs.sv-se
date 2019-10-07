@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 528be96f95523089c78562814c292fb0f40849e1
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: b9d724a44a94ed13786391a235bb9967036f29dc
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240243"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338484"
 ---
 ::: zone target="docs"
 
@@ -53,7 +53,7 @@ Innan du börjar ska du kontrollera att:
     - Vara ansluten till höghastighetsnätverk. Vi rekommenderar starkt att du har en anslutning på minst 10 GbE. Om en 10 GbE anslutning inte är tillgänglig kan en 1 GbE datalänk användas, men då påverkas kopieringshastigheten. 
 6. Du måste ha tillgång till en plan yta där du kan placera Data Box. Om du vill placera enheten på en standardrackhylla måste du ha en 7U-plats i datacenterracket. Du kan placera enheten liggande eller stående i racket.
 7. Du har skaffat följande kablar för att ansluta Data Box till värddatorn.
-    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Till exempel användes en CISCO SFP-H10GB-CU3M 10GBASE-CU TWINMAX SFP +3M-kabel för intern testning. Mer information finns i [listan över kablar och växlar från Mellanox som stöds](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
+    - En eller flera 10-GbE SFP+ Twinax-kopparkablar eller SFP+-fiberoptikkablar (använd med DATA 1- och DATA 2-nätverksgränssnitt). Data Box har Mellanox ConnectX®-3 Pro EN Dual-Port 10GBASE-T-adaptrar med PCI Express 3.0-nätverksgränssnitt. Därmed bör kablar som är kompatibla med det här gränssnittet fungera. Till exempel användes en CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M-kabel för intern testning. Mer information finns i [listan över kablar och växlar från Mellanox som stöds](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf).
     - En RJ-45 CAT 6-nätverkskabel (använd med MGMT-nätverksgränssnitt)
     - En RJ-45 CAT 6A- eller en RJ-45 CAT 6-nätverkskabel (använd med DATA 3-nätverksgränssnitt konfigurerat som 10 Gbps respektive 1 Gbps)
 

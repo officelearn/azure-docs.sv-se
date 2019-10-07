@@ -54,7 +54,7 @@
       href: install-office-on-wvd-master-image.md
     - name: Konfigurera GPU för Windows Virtual Desktop
       href: configure-vm-gpu.md
-    - name: Skala sessionsvärdar automatiskt
+    - name: Skala sessionsvärdar dynamiskt
       href: set-up-scaling-script.md
     - name: Anpassa feed för Windows Virtual Desktop-användare
       href: customize-feed-for-virtual-desktop-users.md
@@ -84,7 +84,7 @@
   items:
     - name: 'Översikt, feedback och support för felsökning'
       href: troubleshoot-set-up-overview.md
-    - name: Identifiera problem med diagnostikfunktionen
+    - name: Identifiera och diagnostisera problem
       href: diagnostics-role-service.md
     - name: Skapa klient- och värdpool
       href: troubleshoot-set-up-issues.md

@@ -82,6 +82,8 @@
       href: functions-deployment-technologies.md
     - name: Händelser och meddelanden
       items:
+        - name: Tillförlitlig händelsebearbetning
+          href: functions-reliable-event-processing.md
         - name: Design för identiska indata
           href: functions-idempotent.md
     - name: Utlösare och bindningar

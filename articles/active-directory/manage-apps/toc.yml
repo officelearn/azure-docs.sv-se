@@ -241,6 +241,8 @@
           items:
             - name: Felsöka användaretablering
               href: application-provisioning-config-problem.md
+            - name: Karantänstatus
+              href: application-provisioning-quarantine-status.md
             - name: Etableringsloggar
               href: /azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context
             - name: Synkronisera ett attribut för mappning – galleriappen
@@ -357,6 +359,8 @@
           href: provisioning-agent-release-version-history.md
     - name: Programproxy för lokala appar
       items:
+        - name: Vanliga frågor och svar om programproxy
+          href: application-proxy-faq.md
         - name: Versionshistorik för programproxy
           href: application-proxy-release-version-history.md
 - name: Resurser

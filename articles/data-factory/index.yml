@@ -1,98 +1,173 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Dokumentation om Azure Data Factory
+summary: Azure Data Factory är Azures ETL-molntjänst för skalbar serverlös dataintegrering och dataomvandling.  Tjänsten har ett kodlöst användargränssnitt för intuitiv redigering och enkel övervakning och hantering. Du kan också flytta (lift and shift) befintliga SSIS-paket till Azure och köra dem med fullständig kompatibilitet i ADF. SSIS Integration Runtime erbjuder en fullständigt hanterad tjänst, så du behöver inte bekymra dig om infrastrukturhantering.
 metadata:
-  title: 'Dokumentation om Azure Data Factory – Självstudier, API-referens | Microsoft Docs'
-  description: 'Lär dig hur du använder Data Factory för att konfigurera automatiska datapipelines till och från källor på lokala platser och i molnet, för att flytta och bearbeta data för analys.'
+  title: Dokumentation om Azure Data Factory
+  description: Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines samt flyttar och omvandlar data för analys.
   services: data-factory
-  author: djpmsft
-  ms.author: daperlov
-  manager: craigg
   ms.service: data-factory
-  ms.tgt_pltfrm: na
-  ms.topic: overview
-  ms.date: 08/06/2018
-abstract:
-  description: 'Lär dig att använda Data Factory, en tjänst för molndataintegrering, för att ordna datalagrings-, rörelse- och bearbetningstjänster i automatiserade datapipelines. Självstudier och annan dokumentation visar hur du konfigurerar och hanterar datapipelines samt flyttar och omvandlar data för analys. <p>Om du använder V1 av Data Factory-tjänsten går du till <a href=/azure/data-factory/v1/data-factory-introduction>V1-dokumentationen.</a></p>'
-  aside:
-    image:
-      alt: null
-      height: 110
-      src: media/index/video.png
-      width: 250
-    title: 'Nya funktioner för modern dataintegrering i molnet (1: 19:22)'
-    href: 'https://channel9.msdn.com/Events/Build/2018/BRK2204/player'
-    width: 250
-sections:
-  - title: Snabbstarter på 5 minuter
-    items:
-      - type: paragraph
-        text: 'Lär dig hur du skapar en Data Factory-pipeline för att flytta och bearbeta data med någon av följande snabbstarter:'
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: /azure/data-factory/media/index/portal.svg
-            text: Data Factory-användargränssnitt
-            href: /azure/data-factory/quickstart-create-data-factory-portal
-          - image:
-              src: /azure/data-factory/media/index/copy-data-tool.png
-            text: Kopiera data-verktyg
-            href: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
-          - image:
-              src: /azure/data-factory/media/index/logo_powershell.svg
-            text: Azure PowerShell
-            href: /azure/data-factory/quickstart-create-data-factory-powershell
-          - image:
-              src: /azure/data-factory/media/index/logo_net.svg
-            text: .NET
-            href: /azure/data-factory/quickstart-create-data-factory-dot-net
-          - image:
-              src: /azure/data-factory/media/index/logo_python.svg
-            text: Python
-            href: /azure/data-factory/quickstart-create-data-factory-python
-          - image:
-              src: /azure/data-factory/media/index/logo_rest.svg
-            text: REST
-            href: /azure/data-factory/quickstart-create-data-factory-rest-api
-          - image:
-              src: /azure/data-factory/media/index/logo_azure_resource_manager.svg
-            text: Resource Manager-mall
-            href: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: 'Lär dig att skapa och övervaka en datafabrik:'
-      - type: list
-        style: unordered
-        items:
-          - html: Kopiera data i molnet – <a href="/azure/data-factory/tutorial-copy-data-tool">verktyget för att kopiera data</a> | <a href="/azure/data-factory/tutorial-copy-data-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-copy-data-dot-net">.NET</a>
-          - html: Kopiera lokala data till molnet – <a href="/azure/data-factory/tutorial-hybrid-copy-data-tool">verktyget för att kopiera data | <a href="/azure/data-factory/tutorial-hybrid-copy-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-hybrid-copy-powershell">Azure PowerShell</a>
-          - html: Masskopiera data – <a href="/azure/data-factory/tutorial-bulk-copy-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-bulk-copy">Azure PowerShell</a>
-          - html: Kopiera data inkrementellt – <a href="/azure/data-factory/tutorial-incremental-copy-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-incremental-copy-powershell">Azure PowerShell</a>
-          - html: Omvandla data i molnet med Spark – <a href="/azure/data-factory/tutorial-transform-data-spark-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-transform-data-spark-powershell">Azure PowerShell</a>
-          - html: Omvandla data i ett virtuellt nätverk – <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network-portal">Data Factory-användargränssnitt</a> | <a href="/azure/data-factory/tutorial-transform-data-hive-virtual-network">Azure PowerShell</a>
-          - html: Lägga till branchning och länkning – <a href="/azure/data-factory/tutorial-control-flow-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-control-flow">.NET</a>
-          - html: Köra SSIS-paket i Azure – <a href="/azure/data-factory/tutorial-create-azure-ssis-runtime-portal">Data Factory UI</a> | <a href="/azure/data-factory/tutorial-deploy-ssis-packages-azure">Azure PowerShell</a>
-          - html: Kontinuerlig integrering och leverans (CI/CD) i Azure Data Factory – <a href="/azure/data-factory/continuous-integration-deployment">Data Factory UI</a>
-  - title: Exempel
-    items:
-      - type: paragraph
-        text: Använd följande exempel för att arbeta med Data Factory
-      - type: list
-        style: unordered
-        className: spaced noBullet
-        items:
-          - html: <a href="/azure/data-factory/samples-powershell">PowerShell</a>
-  - title: Referens
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: Kommandorad
-            html: <p><a href="/powershell/module/az.datafactory/">Azure PowerShell</a></p>
-          - title: Språk
-            html: <p><a href="/dotnet/api/microsoft.azure.management.datafactory">NET</a></p><p><a href="/python/api/overview/azure/datafactory?view=azure-python">Python</a></p>
-          - title: REST
-            html: <p><a href="/rest/api/datafactory">REST-API</a></p>
+  ms.topic: landing-page
+  ms.collection: collection
+  author: markingmyname
+  ms.author: maghan
+  ms.date: 10/02/2019
+  monikerRange: ''
+  ms.openlocfilehash: 619205d9eb275b9cbe6506fc37d56d757d95d796
+  ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/03/2019
+  ms.locfileid: "71937460"
+landingContent:
+- title: Om Azure Data Factory
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Data Factory?
+      url: /azure/data-factory/introduction
+  - linkListType: reference
+    links:
+    - text: Faktablad
+      url: /azure/data-factory/whitepapers
+    - text: Prissättning
+      url: https://azure.microsoft.com/pricing/details/data-factory/
+    - text: Förstå priser med hjälp av exempel
+      url: /azure/data-factory/pricing-concepts
+    - text: Senaste funktionsuppdateringarna
+      url: https://azure.microsoft.com/updates/?tag=data-factory
+    - text: ADF-blogg
+      url: https://techcommunity.microsoft.com/t5/Azure-Data-Factory/bg-p/AzureDataFactoryBlog
+    - text: Begär en funktion
+      url: https://feedback.azure.com/forums/270578-azure-data-factory
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Azure Data Factory-användargränssnitt
+      url: /azure/data-factory/quickstart-create-data-factory-portal
+    - text: Kopiera data-verktyg
+      url: /azure/data-factory/quickstart-create-data-factory-copy-data-tool
+    - text: Azure PowerShell
+      url: /azure/data-factory/quickstart-create-data-factory-powershell
+    - text: .NET
+      url: /azure/data-factory/quickstart-create-data-factory-dot-net
+    - text: Python
+      url: /azure/data-factory/quickstart-create-data-factory-python
+    - text: REST
+      url: /azure/data-factory/quickstart-create-data-factory-rest-api
+    - text: Resource Manager-mall
+      url: /azure/data-factory/quickstart-create-data-factory-resource-manager-template
+- title: Dataförflyttning
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Översikt över kopieringsaktivitet
+      url: /azure/data-factory/copy-activity-overview
+    - text: Justering av kopieringsprestanda
+      url: /azure/data-factory/copy-activity-performance
+  - linkListType: overview
+    links:
+    - text: Migrering av datasjö och informationslager
+      url: /azure/data-factory/data-migration-guidance-overview
+  - linkListType: tutorial
+    links:
+    - text: Kopiera data i molnet
+      url: /azure/data-factory/tutorial-copy-data-tool
+    - text: Kopiera lokala data till molnet
+      url: /azure/data-factory/tutorial-hybrid-copy-data-tool
+    - text: Masskopiera data
+      url: /azure/data-factory/
+    - text: Kopiera data stegvis
+      url: /azure/data-factory/tutorial-create-azure-ssis-runtime-portal
+    - text: Läsa in ADLS Gen2
+      url: /azure/data-factory/continuous-integration-deployment
+    - text: Läsa in SQL DW
+      url: /azure/data-factory/load-azure-sql-data-warehouse
+    - text: Läsa in SAP BW
+      url: /azure/data-factory/load-sap-bw-data
+- title: Dataomvandling
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Vad är Mappa dataflöden?
+      url: /azure/data-factory/concepts-data-flow-overview
+  - linkListType: tutorial
+    links:
+    - text: Skapa ett dataflöde
+      url: /azure/data-factory/data-flow-create
+    - text: Uttrycksspråk för dataflöden
+      url: /azure/data-factory/data-flow-expression-functions
+    - text: Felsöka dataflöde
+      url: /azure/data-factory/concepts-data-flow-debug-mode
+    - text: Köra dataflödesaktivitet i pipeline
+      url: /azure/data-factory/control-flow-execute-data-flow-activity
+    - text: Övervaka dataflöde
+      url: /azure/data-factory/concepts-data-flow-monitoring
+    - text: Dataflödesprestanda
+      url: /azure/data-factory/concepts-data-flow-performance
+- title: Flytta (lift and shift) SSIS-paket
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Migrera SSIS-paket till en hanterad Azure SQL Database-instans
+      url: /azure/data-factory/scenario-ssis-migration-ssisdb-mi
+  - linkListType: tutorial
+    links:
+    - text: Köra SSIS-paket i Azure
+      url: /azure/data-factory/tutorial-deploy-ssis-packages-azure
+  - linkListType: how-to-guide
+    links:
+    - text: Etablera SSIS Integration Runtime
+      url: /azure/data-factory/create-azure-ssis-integration-runtime
+    - text: Ansluta SSIS IR till ett virtuellt nätverk
+      url: /azure/data-factory/join-azure-ssis-integration-runtime-virtual-network
+    - text: Köra SSIS-paket med aktiviteten Kör SSIS-paket
+      url: /azure/data-factory/how-to-invoke-ssis-package-ssis-activity
+    - text: Schemalägga SSIS Integration Runtime
+      url: /azure/data-factory/how-to-schedule-azure-ssis-integration-runtime
+    - text: Anpassa installationsprogrammet för SSIS IR
+      url: /azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup
+    - text: Installera licensierade komponenter för SSIS IR
+      url: /azure/data-factory/how-to-develop-azure-ssis-ir-licensed-components
+- title: Säkerhet
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Säkerhetsöverväganden vid dataflytt
+      url: /azure/data-factory/data-movement-security-considerations
+    - text: Hanterad identitet för datafabrik
+      url: /azure/data-factory/data-factory-service-identity
+    - text: Spara autentiseringsuppgifter i Azure Key Vault
+      url: /store-credentials-in-key-vault
+- title: Redigera, övervaka och hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Övervaka Azure-datafabriker visuellt
+      url: /azure/data-factory/author-visually
+    - text: Källkontroll
+      url: /azure/data-factory/source-control
+    - text: Kontinuerlig integrering och leverans
+      url: /azure/data-factory/continuous-integration-deployment
+    - text: Iterativ utveckling och felsökning
+      url: /azure/data-factory/iterative-development-debugging
+    - text: Övervaka visuellt
+      url: /azure/data-factory/monitor-visually
+    - text: Övervaka med Azure Monitor
+      url: /azure/data-factory/monitor-using-azure-monitor
+    - text: Övervaka med SDKs
+      url: /azure/data-factory/monitor-programmatically
+- title: Språk
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Azure PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.datafactory/
+    - text: .NET
+      url: https://docs.microsoft.com/dotnet/api/microsoft.azure.management.datafactory/
+    - text: Python
+      url: https://docs.microsoft.com/python/api/overview/azure/datafactory?view=azure-python
+    - text: REST
+      url: https://docs.microsoft.com/rest/api/datafactory/
+    - text: Resource Manager-mall
+      url: https://docs.microsoft.com/azure/templates/microsoft.datafactory/allversions

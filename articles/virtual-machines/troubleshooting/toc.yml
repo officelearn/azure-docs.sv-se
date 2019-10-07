@@ -65,8 +65,14 @@
       href: detailed-troubleshoot-ssh-connection.md
 - name: Vanliga felmeddelanden
   href: error-messages.md
+- name: Data som du behöver samla in när du öppnar ett ärende för Microsoft Azure Automation
+  href: collect-data-microsoft-azure-automation-case.md
 - name: Prestandaproblem med virtuella datorer
   href: performance-diagnostics.md
+- name: Allmän prestandafelsökning för Azure-virtuella datorer som kör Linux eller Windows
+  href: troubleshoot-performance-virtual-machine-linux-windows.md
+- name: Stöd för 32-bitars operativsystem i Azure Virtual Machines
+  href: support-32-bit-operating-systems-virtual-machines.md
   items:
     - name: Windows
       items:

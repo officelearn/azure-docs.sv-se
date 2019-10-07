@@ -77,19 +77,21 @@
     - name: Skapa en utvärdering
       href: how-to-create-assessment.md
     - name: Utvärdera en SQL Server-databas
-      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb?toc=/azure/migrate/toc.json&bc=/azure/migrate/breadcrumb/toc.json&view=sql-server-2017'
+      href: 'https://docs.microsoft.com/sql/dma/dma-assess-sql-data-estate-to-sqldb'
     - name: Anpassa en utvärdering
       href: how-to-modify-assessment.md
     - name: Lägga till migreringsverktyg
       href: how-to-migrate.md
-    - name: Utvärdera och migrera i stor skala
-      items:
-        - name: Utvärdera ett stort antal virtuella VMware-datorer
-          href: scale-vmware-assessment.md
-        - name: Utvärdera ett stort antal Hyper-V-datorer
-          href: scale-hyper-v-assessment.md
-        - name: Automatisera migrering av ett stort antal virtuella datorer
-          href: how-to-migrate-at-scale.md
+    - name: Förbereda datorer för migrering
+      href: prepare-for-migration.md
+- name: Utvärdera och migrera i stor skala
+  items:
+    - name: Utvärdera ett stort antal virtuella VMware-datorer
+      href: scale-vmware-assessment.md
+    - name: Utvärdera ett stort antal Hyper-V-datorer
+      href: scale-hyper-v-assessment.md
+    - name: Automatisera migrering av ett stort antal virtuella datorer
+      href: how-to-migrate-at-scale.md
     - name: Migreringsexempel – Contoso-serien
       href: contoso-migration-overview.md
 - name: Felsöka

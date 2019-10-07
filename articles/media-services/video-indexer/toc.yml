@@ -9,6 +9,8 @@
   items:
     - name: Komma igång
       href: video-indexer-get-started.md
+    - name: Bjuda in användare
+      href: invite-users.md
 - name: Självstudier
   items:
     - name: Använda Video Indexer-API

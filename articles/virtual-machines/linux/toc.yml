@@ -111,6 +111,14 @@
           href: acu.md
         - name: vCPU-kvoter
           href: quotas.md
+        - name: Reserverade instanser
+          items:
+            - name: Förskottsbetala för virtuella datorer
+              href: prepay-reserved-vm-instances.md
+            - name: Vad är Azure-reservationer?
+              href: ../../billing/billing-save-compute-costs-reservations.md
+            - name: Flexibilitet för VM-instansstorlek
+              href: reserved-vm-instance-size-flexibility.md
         - name: Benchmark-poäng
           href: compute-benchmark-scores.md
     - name: Godkända distributioner
@@ -302,16 +310,6 @@
           href: ../../azure-monitor/platform/alerts-metric.md
         - name: Skapa loggaviseringar
           href: ../../azure-monitor/platform/alerts-log.md
-    - name: Hantera kostnader
-      items:
-        - name: Förskottsbetala för virtuella datorer – Azure-reservationer
-          href: prepay-reserved-vm-instances.md
-        - name: Förskottsbetala för programvaruplaner för Azure
-          href: prepay-suse-software-charges.md
-        - name: Vad är Azure-reservationer?
-          href: ../../billing/billing-save-compute-costs-reservations.md
-        - name: Flexibilitet för VM-instansstorlek
-          href: reserved-vm-instance-size-flexibility.md
     - name: Använda avbildningar
       items:
         - name: Delade bildgallerier
@@ -378,8 +376,6 @@
           href: manage-availability.md
         - name: Skapa en närhetsplaceringsgrupp
           href: proximity-placement-groups.md
-        - name: Lodrätt skalning
-          href: vertical-scaling-automation.md
         - name: Skapa virtuell dator i tillgänglighetszon
           href: create-cli-availability-zone.md
     - name: Använda automatiseringsverktyg

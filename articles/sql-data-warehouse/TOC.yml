@@ -139,6 +139,12 @@
           items:
             - name: Vägledning för prestandajustering
               href: performance-tuning-ordered-CCI.md
+            - name: Skapa tabell
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=aps-pdw-2016-au7'
+            - name: CTAS
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7'
+            - name: Skapa och ändra index
+              href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and-'
         - name: Cachelagring för resultatuppsättningar
           items:
             - name: Ange för en databas

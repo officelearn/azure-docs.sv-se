@@ -778,29 +778,35 @@
   items:
     - name: Ordlista
       href: sql-database-glossary-terms.md
-    - name: Utveckla dina färdigheter med Microsoft Learn
-      href: /learn/browse/?products=azure-sql-database
-    - name: SQL Server-bloggen
-      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
-    - name: Microsoft Azure-bloggen
-      href: 'https://azure.microsoft.com/blog/'
     - name: Azure-översikt
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: Offentliga datauppsättningar
-      href: sql-database-public-data-sets.md
-    - name: Felsökning av anslutningar
-      href: 'https://support.microsoft.com/help/10085/troubleshooting-connectivity-issues-with-microsoft-azure-sql-database'
-    - name: Prissättning
-      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/sql-azure'
-    - name: Videoklipp
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'
-    - name: Tjänstuppdateringar
-      href: 'https://azure.microsoft.com/updates/?service=sql-database'
     - name: Arkitekturcenter
       href: /azure/architecture/
+    - name: Utveckla dina färdigheter med Microsoft Learn
+      href: /learn/browse/?products=azure-sql-database
     - name: Kundberättelser
       href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc'
+    - name: Microsoft Azure-bloggen
+      href: 'https://azure.microsoft.com/blog/'
+    - name: MSDN-forum
+      href: 'https://social.msdn.microsoft.com/Forums/home?forum=ssdsgetstarted'
+    - name: Offentliga datauppsättningar
+      href: sql-database-public-data-sets.md
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/pricing/details/sql-database/'
+    - name: Tjänstuppdateringar
+      href: 'https://azure.microsoft.com/updates/?service=sql-database'
+    - name: SQL Server-bloggen
+      href: 'https://cloudblogs.microsoft.com/sqlserver/?product=azure-sql-database'
+    - name: Stack Overflow
+      href: 'https://stackoverflow.com/questions/tagged/sql-azure'
+    - name: Felsöka
+      items:
+        - name: Anslutningsproblem
+          href: troubleshoot-connectivity-issues-microsoft-azure-sql-database.md
+        - name: Problemlösning
+          items:
+            - name: Import/Export-tjänsten låser sig
+              href: azure-sql-database-hangs-importing-exporting.md
+    - name: Videoklipp
+      href: 'https://azure.microsoft.com/documentation/videos/index/?services=sql-database'

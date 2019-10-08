@@ -371,7 +371,7 @@
               href: delete-vault.md
     - name: Haveriberedskap för appar
       items:
-        - name: Konfigurera haveriberedskap för Azure för lokala appar
+        - name: Om haveriberedskap för lokala appar
           href: site-recovery-workload.md
         - name: Active Directory och DNS
           href: site-recovery-active-directory.md

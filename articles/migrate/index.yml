@@ -1,43 +1,91 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Migrate-dokumentation
+summary: Använd Azure Migrate för att migrera till Azure-molnet. Azure Migrate tillhandahåller en central hubb för identifiering, utvärdering och migrering av lokala arbetsbelastningar till Azure. Hubben tillhandahåller Azure Migrate-verktyg och integrerade verktyg från oberoende programvaruleverantörer (ISV).
 metadata:
-  title: 'Dokumentation om Azure Migrate – självstudier, API-referens | Microsoft Docs'
-  description: Lär dig att utvärdera lokala datorer för migrering till Azure
-  services: migration-planner
-  author: rayne-wiselman
-  manager: carmonm
-  ms.service: migration
-  ms.tgt_pltfrm: na
-  ms.devlang: na
+  title: Azure Migrate-dokumentation
+  description: Använd Azure Migrate för att migrera till Azure-molnet. Azure Migrate tillhandahåller en central hubb för identifiering, utvärdering och migrering av lokala arbetsbelastningar till Azure. Hubben tillhandahåller Azure Migrate-verktyg och integrerade verktyg från oberoende programvaruleverantörer (ISV).
+  ms.service: azure-migrate
   ms.topic: landing-page
-  ms.date: 11/22/2017
+  ms.collection: collection
+  author: rayne-wiselman
   ms.author: raynew
-abstract:
-  description: 'Azure Migrate hjälper dig att migrera till Azure-molnet. Azure Migrate ger en central hubb för att spåra identifiering, utvärdering och migrering av lokala arbetsbelastningar och virtuella datorer i molnet. Hubben tillhandahåller Azure Migrate-verktyg för utvärdering och migrering, samt integrerade verktyg från oberoende programvaruleverantörer (ISV:er).'
-sections:
-  - title: Steg för steg-självstudier
-    items:
-      - type: paragraph
-        text: Lär dig att utvärdera och migrera virtuella VMware-datorer till Azure
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-vmware">Förbereda virtuella VMware-datorer för utvärdering och migrering till Azure</a>
-          - html: <a href="tutorial-assess-vmware">Utvärdera virtuella VMware-datorer för migrering till Azure</a>
-          - html: <a href="tutorial-migrate-vmware">Migrera virtuella VMware-datorer till Azure med migrering utan agent</a>
-          - html: <a href="tutorial-migrate-vmware-agent">Migrera virtuella VMware-datorer till Azure med agentbaserad migrering</a>
-      - type: paragraph
-        text: Lär dig hur du utvärderar och migrerar virtuella Hyper-V-datorer till Azure
-      - type: list
-        style: ordered
-        items:
-          - html: <a href="tutorial-prepare-hyper-v">Förbereda virtuella Hyper-V-datorer för utvärdering och migrering till Azure</a>
-          - html: <a href="tutorial-assess-hyper-v">Utvärdera virtuella Hyper-V-datorer för migrering till Azure</a>
-          - html: <a href="tutorial-migrate-hyper-v">Migrera virtuella Hyper-V-datorer till Azure</a>
-      - type: paragraph
-        text: 'Lär dig att migrera fysiska servrar, virtualiserade datorer och virtuella datorer i molnet till Azure'
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="tutorial-migrate-physical-virtual-machines">Migrera fysiska eller virtualiserade servrar till Azure</a>
+  ms.date: 10/07/2019
+  ms.openlocfilehash: 494bb2f7ec6076bbc7b3b891cd0cb525ae53c5d1
+  ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/07/2019
+  ms.locfileid: "72001150"
+landingContent:
+- title: Om Azure Migrate
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Azure Migrate?
+      url: ./migrate-services-overview.md
+    - text: Vad är nytt i Azure Migrate?
+      url: ./whats-new.md
+    - text: Vanliga frågor
+      url: ./resources-faq.md
+- title: Komma igång
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Utvärdera virtuella VMware-datorer med Server Assessment
+      url: ./tutorial-prepare-vmware.md
+    - text: Utvärdera virtuella Hyper-V-datorer med Server Assessment
+      url: ./tutorial-prepare-hyper-v.md
+    - text: Migrera virtuella VMware-datorer med Server Migration
+      url: ./server-migrate-overview.md
+    - text: Migrera virtuella Hyper-V-datorer med Server Migration
+      url: ./tutorial-migrate-hyper-v.md
+    - text: Migrera fysiska servrar/virtuella datorer med Server Migration
+      url: ./tutorial-migrate-physical-virtual-machines.md
+- title: Starta distributionen
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Granska metodtips för Server Assessment
+      url: ./best-practices-assessment.md
+    - text: Läs mer om distributionen av Azure Migrate-installationer
+      url: ./migrate-replication-appliance.md
+    - text: Granska Azure Migrate-stödmatrisen
+      url: migrate-support-matrix.md
+    - text: Granska VMware-stödmatrisen
+      url: migrate-support-matrix-vmware.md
+    - text: Granska Hyper-V-stödmatrisen
+      url: migrate-support-matrix-hyper-v.md
+- title: Hantera
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Lägga till migreringsverktyg
+      url: ./how-to-migrate.md
+    - text: Skala VMware-utvärdering
+      url: ./scale-vmware-assessment.md
+    - text: Automatisera och skala migrering
+      url: ./how-to-migrate-at-scale.md
+    - text: Felsöka utvärdering och migrering
+      url: ./troubleshooting-general.md
+- title: Läs mer
+  linkLists:
+  - linkListType: learn
+    links:
+    - text: VMware-agentbaserad migreringsarkitektur
+      url: ./agent-based-migration-architecture.md
+    - text: Hyper-V-migreringsarkitektur
+      url: ./hyper-v-migration-architecture.md
+    - text: Läs mer om utvärderingar
+      url: ./concepts-assessment-calculation.md
+    - text: Läs mer om visualisering av beroenden
+      url: ./concepts-dependency-visualization.md
+- title: Delta
+  linkLists:
+  - linkListType: get-started
+    links:
+    - text: Begära en tjänstfunktion
+      url: https://feedback.azure.com/forums/907195-azure-migrate
+    - text: Ställa en fråga i vårt forum
+      url: https://social.msdn.microsoft.com/forums/azure/home?forum=AzureMigrate
+    - text: Azure Tech Community
+      url: https://techcommunity.microsoft.com/t5/Azure-Migration/bd-p/AzureMigration

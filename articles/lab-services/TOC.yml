@@ -78,6 +78,8 @@
           href: classroom-labs/class-type-deep-learning-natural-processing.md
         - name: Gränssnittsskript i Linux
           href: classroom-labs/class-type-shell-scripting-linux.md
+        - name: Etisk hackning
+          href: classroom-labs/class-type-ethical-hacking.md
     - name: Klassrumslabb
       items:
         - name: Skapa och konfigurera labbkonton (labbkontoägare)
@@ -90,6 +92,8 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Bifoga eller ta bort ett delat bildgalleri
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
+            - name: Aktivera kapslad virtualisering på en virtuell malldator
+              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Skapa och konfigurera klassrumslabb (instruktör)
           items:
             - name: Skapa och hantera klassrumslabb

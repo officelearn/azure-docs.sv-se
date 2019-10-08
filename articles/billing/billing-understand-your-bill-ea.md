@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
-ms.openlocfilehash: 02ddaf4878367524291ce54a4e12fc9b4fee4cd2
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: f89d7935af10ebb477125c598a01278a4ceef0bd
+ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490292"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71326931"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Förstå fakturan för ditt Azure Enterprise-avtal
 
@@ -36,14 +36,14 @@ Du får en Azure-faktura när något av följande inträffar under din faktureri
     - Citrix XenApp Essentials
     - Citrix XenDesktop
     - Registrerad användare
-    - OpenLogic
+    - Openlogic
     - Registrerad användare för Remote Access Rights XenApp Essentials
     - Ubuntu Advantage
     - Visual Studio Enterprise (månatligen)
     - Visual Studio Enterprise (årsvis)
     - Visual Studio Professional (månatligen)
     - Visual Studio Professional (årsvis)
-- **Marketplace-avgifter**: Azure Marketplace-köp och -användning omfattas inte av din organisations kredit. Du faktureras därmed för Marketplace-tjänster oavsett ditt kreditsaldo. I Enterprise Portal kan en företagsadministratör aktivera och inaktivera Marketplace-köp.
+- **Marketplace-avgifter**: Azure Marketplace-köp och -användning omfattas inte av din organisations kredit. Du faktureras därmed för Marketplace-avgifter oavsett ditt kreditsaldo. I Enterprise Portal kan en företagsadministratör aktivera och inaktivera Marketplace-köp.
 
 ## <a name="review-charges-for-most-customers"></a>Granska avgifter för de flesta kunder
 Det här avsnittet gäller inte för Azure-kunder i Australien, Japan eller Singapore. Om du är i något av dessa länder/regioner kan du läsa [Granska avgifter för andra kunder](#review-charges-for-other-customers).
@@ -66,15 +66,15 @@ Jämför det sammanlagda belopp som visas i Enterprise Portal i **Rapporter** > 
 
 Det här avsnittet gäller endast för Azure-kunder i Australien, Japan eller Singapore.
 
-Du får en eller flera Azure-fakturor när följande inträffar:
+Du får en eller flera Azure-fakturor när något av följande inträffar:
 
 - **Överförbrukning av tjänst**: Din organisations användningsavgifter överstiger ditt kreditsaldo.
-- **Avgifter som debiteras separat**: De tjänster som din organisation använder omfattas inte av krediten. Du faktureras för följande tjänster oavsett ditt kreditsaldo:
+- **Avgifter som debiteras separat**: De tjänster som din organisation använder omfattas inte av krediten. Du faktureras för följande tjänster:
     - Canonical
     - Citrix XenApp Essentials
     - Citrix XenDesktop
     - Registrerad användare
-    - OpenLogic
+    - Openlogic
     - Registrerad användare för Remote Access Rights XenApp Essentials
     - Ubuntu Advantage
     - Visual Studio Enterprise (månatligen)

@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/01/2019
+ms.date: 09/26/2019
 ms.author: banders
-ms.openlocfilehash: 4d83228fbec395d604e5ce3f988d2a6157f21eed
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: 2259c9f05b157226c30a0e32e791ba540fa5af99
+ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490652"
+ms.lasthandoff: 09/27/2019
+ms.locfileid: "71338318"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Termer i prisdokumentet för ett Microsoft-kundavtal
 
@@ -30,27 +30,32 @@ I följande avsnitt beskrivs de viktigaste termerna i prisdokumentet för ett Mi
 
 | **Fältnamn**   | **Beskrivning**   |
 | --- | --- |
+| basePrice  | Marknadspriset vid den tidpunkt då kunden loggar in eller marknadspriset när mätaren för tjänsten startar om den här tidpunkten infaller efter inloggningen.   |
 | billingAccountId  | Unik identifierare för faktureringskontot.   |
 | billingAccountName  | Namnet på faktureringskontot.  |
+| billingCurrency | Valutan som avgifterna faktureras i |
 | billingProfileId  | Unik identifierare för faktureringsprofilen.   |
 | billingProfileName  | Namnet på faktureringsprofilen som har konfigurerats för att ta emot fakturor. Priserna i prisdokumentet är kopplade till den här faktureringsprofilen. |
-| productOrderName  | Namnet på den köpta produktplanen. |
-| serviceFamily  | Typ av Azure-tjänst, till exempel Compute, Analytics, Security |
+| currency | Valutan som alla priser återspeglas i. |
+| discount | Prisrabatten som erbjuds för examensnivå, kostnadsfri nivå, inkluderad mängd eller förhandlade rabatter i tillämpliga fall. Representeras som en procentandel. |
+| effectiveEndDate  | Slutdatumet för det gällande priset. |
+| effectiveStartDate  | Startdatumet när priset börjar gälla. |
+| includedQuantity | De kvantiteter av en specifik tjänst som en kund har rätt att använda utan ytterligare avgifter. |
+| marketPrice | Aktuellt, gällande marknadspris för en specifik tjänst. |
+| meterId  | Unik identifierare för mätaren. |
+| meterCategory  | Namnet på mätarens klassificeringskategori. Det här kan till exempel vara _Molntjänster_ eller _Nätverk_. |
+| meterName  | Namnet på mätaren. Mätaren representerar den distribuerbara resursen för en Azure-tjänst. |
+| meterSubCategory  | Namnet på mätarens underkategori.  |
+| meterType  |  Namnet på mätartypen. |
+| meterRegion  | Namnet på regionen där mätaren för tjänsten är tillgänglig. Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger.    |
 | Produkt  | Namnet på produkten som avgifterna gäller, till exempel Basic SQL DB eller Standard SQL DB  |
 | productId  | Unik identifierare för produkten vars mätare förbrukas. |
-| unitOfMeasure  | Anger måttenheten för fakturering av tjänsten. Beräkningstjänster debiteras exempelvis per timme. |
-| meterId  | Unik identifierare för mätaren. |
-| meterName  | Namnet på mätaren. Mätaren representerar den distribuerbara resursen för en Azure-tjänst. |
-| meterCategory  | Namnet på mätarens klassificeringskategori. Det här kan till exempel vara _Molntjänster_ eller _Nätverk_. |
-| meterType  |  Namnet på mätartypen. |
-| meterSubCategory  | Namnet på mätarens underkategori.  |
-| meterRegion  | Namnet på regionen där mätaren för tjänsten är tillgänglig. Anger datacenterplats för vissa tjänster som prissätts beroende på var datacentret ligger.    |
-| tierId  | Anger prisnivån i förekommande fall. Det här används tillsammans med tierMinimumUnits för fastställande av nivåindelade priser när priset varierar beroende på antalet förbrukade enheter.    |
+| productOrderName  | Namnet på den köpta produktplanen. |
+| serviceFamily  | Typ av Azure-tjänst, till exempel Compute, Analytics, Security |
 | tierMinimumUnits  | Definierar den nedre gränsen för nivåintervallet som priserna gäller. Om intervallet till exempel är 0 till 100 skulle tierMinimumUnits vara 0.  |
-| effectiveStartDate  | Startdatumet när priset börjar gälla. |
-| effectiveEndDate  | Slutdatumet för det gällande priset. |
+| unitOfMeasure  | Anger måttenheten för fakturering av tjänsten. Till exempel faktureras beräkningstjänster per timme. |
 | unitPrice  | Pris per enhet vid faktureringstillfället (inte det effektiva blandade priset) som är specifikt för en mätare och ett produktbeställningsnamn.  Obs! Enhetspriset är inte detsamma som det effektiva priset i användningsinformationen när det gäller tjänster som har olika priser för olika nivåer.  När det gäller tjänster med olika priser för olika nivåer så är det effektiva priset en blandning av de olika prisnivåerna och då visas inget nivåspecifikt enhetspris. Det blandade priset eller det effektiva priset är nettopriset för den förbrukade kvantiteten och sträcker sig över flera nivåer (där varje nivå har ett visst enhetspris). |
-| basePrice  | Marknadspriset vid den tidpunkt då kunden loggar in eller marknadspriset när mätaren för tjänsten startar om den här tidpunkten infaller efter inloggningen.   |
+
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Kontrollera åtkomsten till ett Microsoft-kundavtal
 [!INCLUDE [billing-check-mca](../../includes/billing-check-mca.md)]

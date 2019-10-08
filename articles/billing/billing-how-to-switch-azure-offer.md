@@ -9,20 +9,20 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/01/2019
+ms.date: 09/30/2019
 ms.author: banders
-ms.openlocfilehash: 8e87bcb9f7d05fd5041623693c96f8c737758c32
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: e382b4bf12b53573f3506474837093456f9b84c6
+ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "67490988"
+ms.lasthandoff: 10/01/2019
+ms.locfileid: "71709640"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>Byt erbjudande för din Azure-prenumeration
 
 Som kund med en [enskild prenumeration med användningsbaserad betalning](https://azure.microsoft.com/offers/ms-azr-0003p/) kan du byta erbjudande för din Azure-prenumeration i [Kontocenter](https://account.windowsazure.com/Subscriptions). Du kan till exempel använda den här funktionen för att dra nytta av [de månatliga krediterna för Visual Studio-prenumeranter](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/).
 
-**Vill du bara uppgradera från den kostnadsfria utvärderingsversionen?** Läs [Uppgradera prenumerationen](billing-upgrade-azure-subscription.md).
+**Vill du bara uppgradera från den kostnadsfria utvärderingsversionen?** Läs mer i [Uppgradera din prenumeration](billing-upgrade-azure-subscription.md).
 
 ## <a name="whats-supported"></a>Följande stöds:
 
@@ -101,7 +101,7 @@ När du byter erbjudande återställs [gräns- eller kvotökningar som överskri
 
 Den dag du byter erbjudande genereras en faktura för alla utestående debiteringar. Därefter faktureras din prenumeration enligt prisvillkoren för det nya erbjudandet. Årsdagen för prenumerationens fakturering ändras till det datum då du bytte erbjudande. Användnings- och faktureringsdata före bytet av erbjudande sparas inte. Därför rekommenderar vi att du laddar ned en kopia innan du byter.
 
-### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-providerhttpspartnermicrosoftcomsolutionscloud-reseller-overview-csp-or-enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement-ea"></a>Kan jag migrera från en prenumeration med prismodellen Betala per användning till [Leverantör av molnlösning](https://partner.microsoft.com/Solutions/cloud-reseller-overview) (CSP) eller [Enterprise-avtal](https://azure.microsoft.com/pricing/enterprise-agreement/) (EA)?
+### <a name="can-i-migrate-from-a-subscription-with-pay-as-you-go-rates-to-cloud-solution-provider-csp-or-enterprise-agreement-ea"></a>Kan jag migrera från en prenumeration med prismodellen Betala per användning till Leverantör av molnlösningar (CSP) eller Enterprise-avtal (EA)?
 
 * Information om hur du migrerar till CSP finns i [Migrera en Azure-prenumeration med prismodellen Betala per användning till CSP](https://docs.microsoft.com/azure/cloud-solution-provider/migration/migration-from-payg-to-csp).
 * Om du vill migrera till EA ber du din registreringsadministratör att lägga till ditt konto i EA. Följ anvisningarna i e-postinbjudan för att flytta dina prenumerationer i EA-registreringen. Mer information finns i [Associera ett befintligt konto](https://ea.azure.com/helpdocs/associateExistingAccount) på EA-portalen.

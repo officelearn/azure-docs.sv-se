@@ -4,16 +4,16 @@ description: I den här artikeln förklaras några vanliga uppgifter som adminis
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/18/2019
+ms.date: 09/25/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 236a8d6d280e75102df84fec5ab3df51f7ba355b
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
+ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71105488"
+ms.lasthandoff: 09/26/2019
+ms.locfileid: "71308094"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -31,7 +31,7 @@ När nya kontoinnehavare först läggs till i en Azure EA-registrering är deras
 
 När en Azure EA-administratör skapar en avdelning så kan Azure-företagsadministratören lägga till avdelningsadministratörer och koppla dem till en avdelning. En avdelningsadministratör kan skapa nya konton. Nya konton behövs till att skapa Azure EA-prenumerationer.
 
-Du kan läsa mer om att lägga till en avdelning under Skapa en Azure EA-avdelning.
+Du kan läsa mer om att lägga till en avdelningsadministratör under [Skapa en Azure EA-avdelningsadministratör](billing-ea-portal-get-started.md#add-a-department-admin).
 
 ## <a name="enterprise-user-roles"></a>Roller för företagsanvändare
 
@@ -124,14 +124,14 @@ Kontoöverföringar medför inga tjänsteavbrott. De kan genomföras samma dag s
 
 När du begär överföring av en registrering ska du ange följande information:
 
-- För källregistreringen, registreringsnumret och kontot som ska överföras
-- För målregistreringen, registreringsnumret som överföringen ska göras till
+- För källregistreringen, registreringsnumret och kontot som ska överföras.
+- För målregistreringen, registreringsnumret som överföringen ska göras till.
 - Det effektiva datumet för överföringen av registreringen kan vara målregistreringens startdatum eller något senare datum. Det valda datumet påverkar inte användningen i eventuella fakturor för överförbrukning som redan har utfärdats.
 
 Här är några andra saker du bör tänka på innan du överför en registrering:
 
-- Du behöver godkännande från en EA-administratör för mål- och källregistreringen
-  - I en del fall kan Microsoft begära ytterligare godkännande från en EA-administratör för källregistreringen
+- Du behöver godkännande från en EA-administratör för mål- och källregistreringen.
+  - I en del fall kan Microsoft begära ytterligare godkännande från en EA-administratör för källregistreringen.
 - Om överföring av en registrering inte uppfyller dina behov kan du överväga en kontoöverföring.
 - Det är bara de konton du anger som överförs. Du kan begära att alla konton ska överföras.
 - Källregistreringen behåller statusen aktiv/utvidgad. Du kan fortsätta att använda registreringen tills den upphör att gälla.
@@ -208,7 +208,7 @@ Om ett meddelande till en användare uteblir gör du så här för att kontrolle
 6. Lägg till en kontakt om det behövs och klicka på **Lägg till**.
 7. Klicka på **Spara**.
 
-![Exempel som visar Lägg till kontakt ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
+![Exempel som visar rutan Lägg till kontakt ](./media/billing-ea-portal-administration/create-ea-manage-partner-notification.png)
 
 ## <a name="azure-sponsorship-offer"></a>Azure-sponsringserbjudandet
 Azure-sponsringserbjudandet är ett begränsat, sponsrat Microsoft Azure-konto. Inbjudan skickas via e-post till ett begränsat antal kunder som väljs ut av Microsoft. Om du är berättigad till Microsoft Azure-sponsringserbjudandet så har du fått en e-postinbjudan till ditt konto-id.

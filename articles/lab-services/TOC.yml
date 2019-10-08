@@ -92,8 +92,6 @@
               href: classroom-labs/how-to-connect-peer-virtual-network.md
             - name: Bifoga eller ta bort ett delat bildgalleri
               href: classroom-labs/how-to-attach-detach-shared-image-gallery.md
-            - name: Aktivera kapslad virtualisering på en virtuell malldator
-              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Skapa och konfigurera klassrumslabb (instruktör)
           items:
             - name: Skapa och hantera klassrumslabb
@@ -112,6 +110,8 @@
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
             - name: Ange eller återställa lösenord för virtuella datorer
               href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: Aktivera kapslad virtualisering på en virtuell malldator
+              href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
         - name: Ansluta till virtuella datorer i klassrumslabb (elev)
           items:
             - name: Åtkomst till klassrumslabb

@@ -1,19 +1,19 @@
 - name: Dokumentation om Virtual Machines
   href: index.yml
 - name: Virtuella Linux-datorer i Azure
-  href: linux/overview.md
+  href: 'https://docs.microsoft.com/azure/virtual-machines/linux/'
 - name: Virtuella Windows-datorer i Azure
-  href: windows/overview.md
+  href: 'https://docs.microsoft.com/azure/virtual-machines/windows/'
 - name: Dokumentation om VM-tillägg
-  href: extensions/overview.md
+  href: ./extensions/overview.md
 - name: Arbetsbelastningar
   href: ./workloads/workloads.md
 - name: Klassiska distributioner
   items:
     - name: Virtuella Linux-datorer med klassisk distribution
-      href: linux/overview.md?toc=%2fazure%2fvirtual-machines%2flinux%2fclassic%2ftoc.json
+      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/linux/classic/'
     - name: Virtuella Windows-datorer med klassisk distribution
-      href: windows/overview.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json
+      href: 'https://docs.microsoft.com/previous-versions/azure/virtual-machines/windows/classic/'
 - name: Resurser
   items:
     - name: Utveckla dina färdigheter med Microsoft Learn

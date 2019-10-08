@@ -64,7 +64,7 @@ I det här exemplet skapar du tre virtuella datorer som ska användas som backen
    - *10.0.0.0/24* – Undernätets adressutrymme.
 7. Välj **OK**.
 
-8. Se till att **myBackendSubnet** är valt för under nätet under  ****nätverks gränssnitt**och välj sedan Nästa: Hantering**.
+8. Se till att **myBackendSubnet** är valt för under nätet under **nätverks gränssnitt**och välj sedan **Nästa: Hantering**.
 9. Välj **av** om du vill inaktivera startdiagnostik.
 10. Klicka på **Granska + skapa**, granska inställningarna på sidan Sammanfattning och välj sedan **skapa**.
 11. Skapa två fler virtuella datorer, *myVM2* och *myVM3* och placera dem i *MyVNet* virtuella nätverk och *myBackendSubnet* -undernätet.

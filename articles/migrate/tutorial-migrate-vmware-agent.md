@@ -236,7 +236,7 @@ Hämta mallen på följande sätt:
 
     ![Identifiera virtuella datorer](./media/tutorial-migrate-vmware-agent/migrate-discover.png)
 
-3. I **Identifiera datorer** > **Är dina datorer virtualiserade?** klickar du på **	Ja, med VMware vSphere Hypervisor-programmet**.
+3. I **Identifiera datorer** > **Är dina datorer virtualiserade?** klickar du på **Ja, med VMware vSphere Hypervisor-programmet**.
 4. I **Hur vill du migrera? väljer du** **Använd agent-baserad replikering**.
 5. I **mål region**väljer du den Azure-region som du vill migrera datorerna till.
 6. Välj **Bekräfta att mål regionen för migrering är regions namn**.

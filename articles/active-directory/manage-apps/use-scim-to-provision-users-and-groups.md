@@ -16,16 +16,16 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9344feeadc5f4146c3b3f853082cd9255100af5c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: b5c24a2340775712f1105448b2aacfdc9a75f1a6
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949638"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001723"
 ---
 # <a name="scim-user-provisioning-with-azure-active-directory"></a>SCIM användar etablering med Azure Active Directory
 
-System för SCIM (Cross-Domain Identity Management) är standardiserat protokoll och schema som syftar till att öka konsekvensen i hur identiteter hanteras i olika system. När ett program har stöd för en SCIM-slutpunkt för användar hantering kan Azure AD-tjänsten för användar etablering skicka begär Anden för att skapa, ändra eller ta bort tilldelade användare och grupper till den här slut punkten.
+System för[scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/bg-p/IdentityStandards)(Cross-Domain Identity Management) är standardiserat protokoll och schema som syftar till att öka konsekvensen i hur identiteter hanteras i olika system. När ett program har stöd för en SCIM-slutpunkt för användar hantering kan Azure AD-tjänsten för användar etablering skicka begär Anden för att skapa, ändra eller ta bort tilldelade användare och grupper till den här slut punkten.
 
 Många av de program för vilka Azure AD har stöd för [Förintegrerad automatisk användar etablering](../saas-apps/tutorial-list.md) implementera scim som innebär att du kan ta emot meddelanden om användar ändringar.  Förutom dessa kan kunderna ansluta program som har stöd för en specifik profil i [SCIM 2,0-protokoll specifikationen](https://tools.ietf.org/html/rfc7644) med hjälp av det generiska integrations alternativet "icke-Gallery" i Azure Portal.
 

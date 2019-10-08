@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 5/31/2019
 ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: f78f7c37fafd7f0b29f76220206b9adfb62f52c9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: d0314e94e627a42ab55f9e91017acac0cdc8b541
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677738"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001614"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Logg aviseringar i Azure Monitor
 
@@ -127,16 +127,25 @@ Eftersom aviseringen har kon figurer ATS för att utlösa baserat på totala öv
 
 ## <a name="log-search-alert-rule---firing-and-state"></a>Loggs ökning, varnings regel – utlösare och tillstånd
 
-Loggs öknings varnings regeln fungerar på den logik som predikat av användaren enligt konfigurationen och den anpassade analys frågan som används. Eftersom övervaknings logiken inklusive det exakta villkoret eller skälet till varför varnings regeln ska utlösas kapslas in i en Analytics-fråga – som kan skilja sig i varje logg aviserings regel. Azure-aviseringar innehåller information om det angivna underliggande begränsade (eller) scenariot som utvärderas när tröskel tillståndet för varnings regeln för loggs ökning är uppfyllt eller har överskridits. Därför kallas logg aviseringar som tillstånds lösa. Och loggar varnings regler kommer att behållas så länge som aviserings villkoret uppfylls genom resultatet av den anpassade analys frågan som tillhandahållits. Utan varningen var uppfylld, eftersom logiken för den exakta rotor Saks orsaken till övervaknings felet maskeras inuti den Analytics-fråga som anges av användaren. Det finns för närvarande ingen mekanism för Azure Monitor aviseringar för att på ett avgörande sätt härleda rotor saken att lösas.
+Loggs ökning varnings regler fungerar bara på den logik som du skapar i frågan. Varnings systemet har inte någon annan kontext för systemets tillstånd, din avsikt eller rotor saken underförstådda av frågan. Därför kallas logg aviseringar som tillstånds lösa. Villkoren utvärderas som "TRUE" eller "FALSe" varje gången de körs.  En avisering aktive ras varje stund som utvärderingen av aviserings villkoret är "sant", oavsett om den har utlösts tidigare.    
 
-Gör att vi kan se samma sak med ett praktiskt exempel. Anta att vi har en logg varnings regel som kallas *contoso-log-Alert*, enligt konfigurationen i [exemplet för antalet resultat typ logg avisering](#example-of-number-of-records-type-log-alert) – där den anpassade aviserings frågan är utformad för att söka efter 500 resultat kod i loggar.
+Nu ska vi se hur det fungerar i praktiken med ett praktiskt exempel. Anta att vi har en logg varnings regel som heter *contoso-log-Alert*, som är konfigurerad som i [exemplet för antalet resultat typ logg avisering](#example-of-number-of-records-type-log-alert). Villkoret är en anpassad aviserings fråga som har utformats för att söka efter 500 resultat kod i loggar. Om det finns mer än en resultat kod för 500 i loggarna, är villkoret för aviseringen sant. 
 
-- Kl. 1:05 när contoso-log-Alert kördes av Azure-aviseringar, gav logg Sök resultatet noll poster med resultat kod med 500. Eftersom noll är lägre än tröskelvärdet och aviseringen inte utlöses.
-- Vid nästa upprepning vid 1:10 PM när contoso-log-Alert kördes av Azure-aviseringar har logg Sök resultatet fem poster med resultat koden 500. Eftersom fem överskrider tröskelvärdet och aviseringen utlöses med tillhör ande åtgärder utlöses.
-- Kl. 1:15 när contoso-log-Alert kördes av Azure-aviseringar, har logg Sök resultatet två poster med 500 resultat kod. Eftersom två överskrider tröskelvärdet och aviseringen utlöses med tillhör ande åtgärder utlöses.
-- Nu vid nästa upprepning vid 1:20 PM när contoso-log-Alert kördes av Azure-aviseringen har logg Sök resultatet angetts igen noll poster med 500 resultat kod. Eftersom noll är lägre än tröskelvärdet och aviseringen inte utlöses.
+I varje intervall nedan utvärderar Azure-aviseringar villkoret för *contoso-logg-aviseringen*.
 
-Men i ovanstående fall, vid 1:15 PM, kan Azure-aviseringar inte avgöra om de underliggande problemen visas vid 1:10 kvar och om det finns nya net New-fel. Eftersom en fråga som tillhandahålls av användaren kan ta hänsyn till tidigare poster – Azure-aviseringar kan vara säker. Eftersom logiken för aviseringen kapslas in i aviserings frågan – så de två posterna med 500 resultat kod som visas på 1:15 PM kan eller kanske inte redan ses på 1:10 PM. Till fel på varnings sidan när contoso-logg aviseringen körs vid 1:15 PM utlöses den konfigurerade åtgärden igen. Nu vid 1:20 PM när noll poster visas med 500 resultat kod – Azure-aviseringar kan inte vara säker på att orsaken till 500 resultat koden som visas på 1:10 PM och 1:15 PM nu har lösts och Azure Monitor aviseringar säkert kan härleda att problem med 500-fel inte inträffar av samma orsak s igen. Därför kommer contoso-log-aviseringen inte att ändras till löst i Azures aviserings instrument panel och/eller meddelanden som skickas med aviserings lösning. I stället kan användaren som förstår det exakta villkoret eller orsaken till att logiken är inbäddad i analys frågan [Markera aviseringen som stängd](alerts-managing-alert-states.md) vid behov.
+
+| Time    | Antal poster som returneras av logg Sök frågan | Evalution för logg villkor | Resultat 
+| ------- | ----------| ----------| ------- 
+| 1:05 PM | 0 poster | 0 är inte > 0 så falskt |  Aviseringen utlöses inte. Inga åtgärder har anropats.
+| 1:10 PM | 2 poster | 2 > 0 så sant  | Aviserings Utlös och åtgärds grupper anropas. Aviserings tillstånd aktivt.
+| 1:15 PM | 5 poster | 5 > 0 så sant  | Aviserings Utlös och åtgärds grupper anropas. Aviserings tillstånd aktivt.
+| 1:20 PM | 0 poster | 0 är inte > 0 så falskt |  Aviseringen utlöses inte. Inga åtgärder har anropats. Aviserings tillstånd kvar aktivt.
+
+Använd föregående fall som exempel:
+
+Vid 1:15 PM kan Azure-aviseringar inte avgöra om de underliggande problemen visas vid 1:10 kvar och om posterna är net New-Failure eller upprepade fel vid 1:10PM. Frågan som tillhandahålls av användaren kanske inte tar hänsyn till tidigare poster och systemet känner inte igen. Azures aviserings system är skapat för fel på varnings sidan och utlöser aviseringen och de associerade åtgärderna på 1:15 PM. 
+
+Vid 1:20 PM när noll poster visas med 500 resultat kod kan Azure-aviseringar inte vara säker på att orsak till 500 resultat kod som visas på 1:10 PM och 1:15 PM nu har lösts. Det vet inte om 500-fel problemen inträffar av samma orsaker igen. Det innebär att *contoso-log-Alert* inte ändras till **löst** i Azures aviserings instrument panel och/eller att meddelanden inte skickas ut som anger att aviseringen har lösts. Endast du, som förstår det exakta villkoret eller orsaken till att logiken är inbäddad i analys frågan, kan [Markera aviseringen som stängd](alerts-managing-alert-states.md) vid behov.
 
 ## <a name="pricing-and-billing-of-log-alerts"></a>Priser och fakturering av logg aviseringar
 

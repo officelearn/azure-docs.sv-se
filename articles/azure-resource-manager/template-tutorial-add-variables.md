@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 9fc6e57a7e002cd4ffcf62c7779fb2626ce9c839
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: fb577c0c0f00da3735da98fc2e94f3610c9bd80d
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963802"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001464"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>Självstudier: Lägg till variabler i Resource Manager-mallen
 
@@ -47,13 +47,13 @@ Du är också bekant med funktionen [resourceGroup](resource-group-template-func
 
 Funktionen [uniqueString](resource-group-template-functions-string.md#uniquestring) skapar en 13-siffrig hash-värde. Det returnerade värdet bestäms av de parametrar som du skickar i. I den här självstudien använder du resurs gruppens ID som inmatad för hash-värdet. Det innebär att du kan distribuera den här mallen till olika resurs grupper och hämta ett annat unikt sträng värde. Men du får samma värde om du distribuerar till samma resurs grupp.
 
-Funktionen [concat](resource-group-template-functions-string.md#concat) tar värden och kombinerar dem. För den här variabeln tar den en sträng från en parameter och strängen från uniqueString-funktionen och kombinerar dem till en sträng.
+Funktionen [concat](resource-group-template-functions-string.md#concat) tar värden och kombinerar dem. För den här variabeln tar den strängen från parametern och strängen från uniqueString-funktionen och kombinerar dem till en sträng.
 
-Med parametern **storagePrefix** kan du skicka prefix som hjälper dig att identifiera lagrings konton. Du kan skapa en egen namngivnings konvention som gör det lättare att identifiera lagrings konton efter distribution från en lång lista med resurser.
+Med parametern **storagePrefix** kan du skicka ett prefix som hjälper dig att identifiera lagrings konton. Du kan skapa en egen namngivnings konvention som gör det lättare att identifiera lagrings konton efter distribution från en lång lista med resurser.
 
 Lägg slutligen märke till att lagrings namnet nu är inställt på variabeln i stället för en parameter.
 
-## <a name="deploy-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 Nu ska vi distribuera mallen. Att distribuera den här mallen är enklare än tidigare mallar eftersom du bara anger prefixet för lagrings namnet.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2018
 ms.author: yurid
-ms.openlocfilehash: a5d11be7d4fbe7f23b5584775c5d9a57c2214155
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b2b4dc1aa9486e432fb2fae48343c21fba620221
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200979"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996691"
 ---
 # <a name="azure-security-center-readiness-roadmap"></a>Beredskapsöversikt för Azure Security Center
 I det här dokumentet får du en beredskapsöversikt som hjälper dig att komma igång med Azure Security Center.
@@ -89,23 +89,23 @@ Artiklar
 
 ## <a name="advanced-cloud-defense"></a>Avancerat molnskydd
 
-Virtuella Azure-datorer kan dra nytta av funktioner för avancerat molnskydd i Security Center. Funktionerna omfattar åtkomst till virtuella just in time-datorer och anpassningsbara programkontroller.
+Virtuella Azure-datorer kan dra nytta av funktioner för avancerat molnskydd i Security Center. Dessa funktioner omfattar just-in-Time-åtkomst till virtuella datorer och anpassningsbara program kontroller.
 
 Använd följande resurser för att lära dig mer om hur du använder funktionerna i Security Center.
 
 Videor  
-* [Azure Security Center – Åtkomst till virtuella Just-in-Time-datorer](https://youtu.be/UOQb2FcdQnU)
+* [Azure Security Center – just-in-Time VM-åtkomst](https://youtu.be/UOQb2FcdQnU)
 * [Azure Security Center – Anpassningsbara programkontroller](https://youtu.be/wWWekI1Y9ck)
 
 Artiklar    
-* [Hantera åtkomsten till virtuella datorer med Just-In-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
+* [Hantera åtkomst till virtuella datorer med just-in-Time](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)
 * [Anpassningsbara programkontroller i Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-adaptive-application)
 
 ## <a name="hands-on-activities"></a>Praktiska aktiviteter
 
 * [Praktiska övningar i Security Center](https://www.microsoft.com/handsonlabs/SelfPacedLabs/?storyGuid=78871abf-6f35-4aa0-840f-d801f5cdbd72)
 * [Rekommendationsspelbok för brandvägg för webbaserade program (WAF) i Security Center](https://gallery.technet.microsoft.com/ASC-Playbook-Protect-38bd47ff)
-* [Playbook för Azure Security Center: Säkerhets aviseringar](https://gallery.technet.microsoft.com/Azure-Security-Center-f621a046)
+* [Playbook för Azure Security Center: Säkerhets aviseringar @ no__t-0
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Dokumentationssidan om Security Center](https://docs.microsoft.com/azure/security-center/)

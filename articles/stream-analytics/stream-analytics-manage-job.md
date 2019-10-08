@@ -9,16 +9,16 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/03/2019
-ms.openlocfilehash: d09ed0585250d078f728aa4e7272cca147a40c38
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 540cd0e136dc602848c34edbd3914d69ca725758
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67612366"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000546"
 ---
 # <a name="analyze-phone-call-data-with-stream-analytics-and-visualize-results-in-power-bi-dashboard"></a>Analysera telefonsamtalsdata med Stream Analytics och visualisera resultat på en Power BI-instrumentpanel
 
-I den här självstudien lär du dig att analysera telefonsamtalsdata med hjälp av Azure Stream Analytics. Telefonsamtal-data som genereras av ett klientprogram innehåller några bedrägliga samtal som kommer att filtreras av Stream Analytics-jobb.
+I den här självstudien lär du dig att analysera telefonsamtalsdata med hjälp av Azure Stream Analytics. Telefonsamtals data som genereras av ett klient program innehåller vissa bedrägliga anrop, som kommer att filtreras av Stream Analyticss jobbet.
 
 I den här guiden får du lära dig att:
 
@@ -32,7 +32,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Innan du börjar måste du göra följande:
+Innan du börjar utför du följande åtgärder:
 
 * Om du inte har någon Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/).
 * Logga in på [Azure Portal](https://portal.azure.com/).
@@ -53,9 +53,9 @@ Använd följande steg för att skapa en händelsehubb och skickar samtalsdata t
 
    |**Inställning**  |**Föreslaget värde** |**Beskrivning**  |
    |---------|---------|---------|
-   |Namn     | myEventHubsNS        |  Ett unikt namn för att identifiera händelsehubbens namnområde.       |
-   |Prenumeration     |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du vill skapa händelsehubben.      |
-   |Resursgrupp     |   MyASADemoRG      |  Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto.       |
+   |Name     | myEventHubsNS        |  Ett unikt namn för att identifiera händelsehubbens namnområde.       |
+   |Subscription     |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du vill skapa händelsehubben.      |
+   |Resource group     |   MyASADemoRG      |  Välj **Skapa ny** och ange ett nytt resursgruppsnamn för ditt konto.       |
    |Location     |   USA, västra 2      |    Plats där händelsehubbens namnområde kan distribueras.     |
 
 4. Använd standardalternativ för de återstående inställningarna och välj **Skapa**.
@@ -71,7 +71,7 @@ Använd följande steg för att skapa en händelsehubb och skickar samtalsdata t
 
 Innan ett program kan skicka data till Azure Event Hubs måste händelsen ha en princip som tillåter lämplig åtkomst. Åtkomstprincipen producerar en anslutningssträng som inkluderar auktoriseringsinformation.
 
-1. Gå till händelsehubben som du skapade i föregående steg, MyEventHub *. Välj **Principer för delad åtkomst** under **Inställningar** och välj sedan **+ Lägg till**.
+1. Navigera till händelsehubben som du skapade i föregående steg, MyEventHub *. Välj **Principer för delad åtkomst** under **Inställningar** och välj sedan **+ Lägg till**.
 
 2. Ge principen namnet **MyPolicy** och se till att **Hantera** är markerat. Välj sedan **Skapa**.
 
@@ -99,7 +99,7 @@ Innan du startar appen TelcoGenerator ska du konfigurera den så att den skickar
 3. Uppdatera elementet `<appSettings>` i config-filen med följande information:
 
    * Ange värdet för nyckeln *EventHubName* till värdet för EntityPath i anslutningssträngen.
-   * Ange värdet för den *Microsoft.ServiceBus.ConnectionString* nyckel till anslutningssträngen utan värdet EntityPath (Glöm inte att ta bort semikolonet som föregår det).
+   * Ange värdet för nyckeln *Microsoft. Service Bus. ConnectionString* till anslutnings strängen utan värdet EntityPath (Glöm inte att ta bort det semikolon som föregår det).
 
 4. Spara filen.
 5. Öppna sedan ett kommandofönster och växla till den mapp där du packade upp programmet TelcoGenerator. Ange sedan följande kommando:
@@ -111,14 +111,14 @@ Innan du startar appen TelcoGenerator ska du konfigurera den så att den skickar
    Kommandot stöder följande parametrar:
    * Antal samtalsdataposter per timme.
    * Procentandel för sannolikhet för bedrägeri, vilket är hur ofta appen ska simulera ett bedrägligt samtal. Värdet 0.2 betyder att cirka 20 % av anropsposterna ser bedrägliga ut.
-   * Längd i timmar, vilket är det antal timmar som appen ska köras. Du kan också stoppa appen när som helst genom att avsluta processen (**Ctrl + C**) på kommandoraden.
+   * Längd i timmar, vilket är det antal timmar som appen ska köras. Du kan också stoppa appen när du vill genom att avsluta processen (**CTRL + C**) på kommando raden.
 
    Efter några sekunder börjar appen visa telefonsamtalsposter på skärmen och skickar dem till en händelsehubb. Telefonsamtalsdata innehåller följande fält:
 
    |**Spela in**  |**Definition**  |
    |---------|---------|
    |CallrecTime    |  Tidsstämpeln för samtalets starttid.       |
-   |SwitchNum     |  Telefonväxeln används för att ansluta samtalet. I det här exemplet är växlarna strängar som representerar land/region för ursprung (USA, Kina, Storbritannien, Tyskland eller Australien).       |
+   |SwitchNum     |  Telefonväxeln används för att ansluta samtalet. I det här exemplet är växlarna strängar som representerar ursprungslandet/regionen (USA, Kina, Storbritannien, Tyskland eller Australien).       |
    |CallingNum     |  Uppringarens telefonnummer.       |
    |CallingIMSI     |  International Mobile Subscriber Identity (IMSI). Det är en unik identifierare för uppringaren.       |
    |CalledNum     |   Telefonnumret till mottagaren.      |
@@ -137,13 +137,13 @@ Nu nr du har en ström av anropshändelser kan du skapa ett Stream Analytics-job
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Jobbnamn     |  ASATutorial       |   Ett unikt namn för att identifiera händelsehubbens namnområde.      |
-   |Prenumeration    |  \<Din prenumeration\>   |   Välj en Azure-prenumeration där du vill skapa jobbet.       |
-   |Resursgrupp   |   MyASADemoRG      |   Välj **Använd befintlig** och ange ett nytt resursgruppsnamn för ditt konto.      |
+   |Subscription    |  \<Din prenumeration\>   |   Välj en Azure-prenumeration där du vill skapa jobbet.       |
+   |Resource group   |   MyASADemoRG      |   Välj **Använd befintlig** och ange ett nytt resursgruppsnamn för ditt konto.      |
    |Location   |    USA, västra 2     |      Plats där jobbet kan distribueras. Vi rekommenderar att du placerar jobbet och händelsehubben i samma region för bästa prestanda och så att du inte ska betala för att överföra data mellan regioner.      |
-   |Värdmiljö    | Molnet        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Molnet kan du distribuera till Azure-molnet och Edge kan du distribuera till en IoT Edge-enhet.    |
+   |Värdmiljö    | Molnet        |     Stream Analytics-jobb kan distribueras till molnet eller edge. Med molnet kan du distribuera till Azure-molnet, och med Edge kan du distribuera till en IoT Edge enhet.    |
    |Strömningsenheter     |    1       |      Strömningsenheter representerar de bearbetningsresurser som krävs för att köra ett jobb. Standardvärdet är inställt på 1. Mer information om skalning av strömningsenheter finns i artikeln om att [förstå och justera strömningsenheter](stream-analytics-streaming-unit-consumption.md).      |
 
-4. Använd standardalternativen för återstående inställningar, Välj **skapa**, och vänta på att distributionen ska lyckas.
+4. Använd standard alternativen för återstående inställningar, Välj **skapa**och vänta tills distributionen har slutförts.
 
    ![Skapa ett Azure Stream Analytics-jobb](media/stream-analytics-manage-job/create-stream-analytics-job.png)
 
@@ -160,10 +160,10 @@ Nästa steg är att definiera en indatakälla som jobbet använder för att läs
    |**Inställning**  |**Föreslaget värde**  |**Beskrivning**  |
    |---------|---------|---------|
    |Inmatat alias     |  CallStream       |  Ange ett eget namn som identifierar din inmatning. Indataaliaset får enbart innehålla alfanumeriska tecken, bindestreck och understreck och måste vara mellan 3-63 tecken långt.       |
-   |Prenumeration    |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du skapade händelsehubben. Händelsehubben kan finnas i samma eller en annan prenumeration som Stream Analytics-jobbet.       |
-   |Namnområde för händelsehubb    |  myEventHubsNS       |  Välj namnområdet för händelsehubben som du skapade i föregående avsnitt. Alla händelsehubbnamnområden som finns i din aktuella prenumeration visas i listrutan.       |
+   |Subscription    |   \<Din prenumeration\>      |   Välj en Azure-prenumeration där du skapade händelsehubben. Händelsehubben kan finnas i samma eller en annan prenumeration som Stream Analytics-jobbet.       |
+   |Namnrymd för händelshubb    |  myEventHubsNS       |  Välj namnområdet för händelsehubben som du skapade i föregående avsnitt. Alla händelsehubbnamnområden som finns i din aktuella prenumeration visas i listrutan.       |
    |Namn på händelsehubb    |   MyEventHub      |  Välj händelsehubben som du skapade i föregående avsnitt. Alla händelsehubbar som finns i din aktuella prenumeration visas i listrutan.       |
-   |Principnamn för Event Hub   |  MyPolicy       |  Välj händelsehubbens delade princip som du skapade i föregående avsnitt. Alla händelsehubbprinciper som finns i din aktuella prenumeration visas i listrutan.       |
+   |Principnamn för Event Hub   |  Policy       |  Välj händelsehubbens delade princip som du skapade i föregående avsnitt. Alla händelsehubbprinciper som finns i din aktuella prenumeration visas i listrutan.       |
 
 4. Använd standardalternativ för de återstående inställningarna och välj **Spara**.
 
@@ -195,7 +195,7 @@ Nästa steg är att skapa en transformering som analyserar data i realtid. Du de
 
 I det här exemplet görs bedrägliga samtal från samma användare inom fem sekunder, men på olika platser. Samma användare kan till exempel inte legitimt ringa ett samtal från USA och Australien samtidigt. Så här definierar du transformationsfrågan för ditt Stream Analytics-jobb:
 
-1. Från Azure-portalen, öppnar den **alla resurser** fönstret och navigera till den **ASATutorial** Stream Analytics-jobb som du skapade tidigare.
+1. Från Azure Portal öppnar du fönstret **alla resurser** och navigerar till det **ASATutorial** Stream Analytics jobb som du skapade tidigare.
 
 2. I avsnittet **Jobbtopologi** i Stream Analytics-jobbfönstret väljer du alternativet **Fråga**. I frågefönstret visas indata och utdata som är konfigurerade för jobbet, och du kan skapa en fråga för att transformera indataströmmen.
 
@@ -212,7 +212,7 @@ I det här exemplet görs bedrägliga samtal från samma användare inom fem sek
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Du kan sedan leta efter poster där den `CallingIMSI` värdet (det ursprungliga numret) är detsamma, men `SwitchNum` värdet (land/region för ursprung) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON**-satsen för kopplingen med hjälp av funktionen [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
+   Om du vill söka efter bedrägliga samtal kan du upprätta en självkoppling för strömmande data baserat på värdet `CallRecTime`. Sedan kan du söka efter anrops poster där värdet `CallingIMSI` (det ursprungliga numret) är detsamma, men värdet för @no__t 1 (ursprungsland/regionen) är olika. När du använder en JOIN-åtgärd med strömmande data måste kopplingen tillhandahålla samma begränsningar för hur långt matchningsraderna kan delas upp i tid. Eftersom strömmande data är oändliga anges tidsgränserna för relationen inom **ON**-satsen för kopplingen med hjälp av funktionen [DATEDIFF](https://docs.microsoft.com/stream-analytics-query/datediff-azure-stream-analytics).
 
    Frågan är som en vanlig SQL-koppling förutom funktionen **DATEDIFF**. Den **DATEDIFF**-funktion som används i den här frågan är specifik för Streaming Analytics och måste visas i `ON...BETWEEN`-satsen.
 
@@ -236,7 +236,7 @@ Du kan testa en fråga från frågeredigeraren med hjälp av exempeldata. Kör f
 
 4. Välj **Testa** för att testa frågan. Du bör se följande resultat:
 
-   ![Utdata från Stream Analytics frågetest](media/stream-analytics-manage-job/sample-test-output-restuls.png)
+   ![Utdata från Stream Analytics fråga-test](media/stream-analytics-manage-job/sample-test-output-restuls.png)
 
 ## <a name="start-the-job-and-visualize-output"></a>Starta jobbet och visualisera utdata
 
@@ -248,7 +248,7 @@ Du kan testa en fråga från frågeredigeraren med hjälp av exempeldata. Kör f
 
 4. Från din Power BI-arbetsyta väljer du **+ Skapa** för att skapa en new instrumentpanel med namnet *Fraudulent Calls* (Bedrägliga samtal).
 
-5. Välj **Lägg till panel** högst upp i fönstret. Välj sedan **Anpassade strömmande data** och **Nästa**. Välj **ASAdataset** under **Dina datamängder**. Välj **kort** från den **visualiseringstyp** listrutan och Lägg till **bedrägliga samtal** till **fält**. Välj **Nästa** för att ange ett namn på panelen och välj sedan **Applicera** för att skapa panelen.
+5. Välj **Lägg till panel** högst upp i fönstret. Välj sedan **Anpassade strömmande data** och **Nästa**. Välj **ASAdataset** under **Dina datamängder**. Välj **kort** i list rutan **visualiserings typ** och Lägg till **falska anrop** till **fält**. Välj **Nästa** för att ange ett namn på panelen och välj sedan **Applicera** för att skapa panelen.
 
    ![Skapa paneler på Power BI-instrumentpanelen](media/stream-analytics-manage-job/create-power-bi-dashboard-tiles.png)
 
@@ -258,18 +258,18 @@ Du kan testa en fråga från frågeredigeraren med hjälp av exempeldata. Kör f
    * Lägg till ett värde och välj **fraudulentcalls**.
    * För **Tidsfönster att visa** väljer du de senaste 10 minuterna.
 
-7. Din instrumentpanel bör se ut som i exemplet nedan när båda panelerna har lagts till. Observera att om din händelsehubbs avsändarprogram och Streaming Analytics-programmet körs, Power BI-instrumentpanel regelbundet uppdateras i takt kommer nya data.
+7. Din instrumentpanel bör se ut som i exemplet nedan när båda panelerna har lagts till. Observera att om avsändaren av Event Hub-programmet och streaming Analytics-programmet körs uppdateras Power BI instrument panelen regelbundet när nya data anländer.
 
    ![Visa resultat på Power BI-instrumentpanelen](media/stream-analytics-manage-job/power-bi-results-dashboard.png)
 
-## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Bädda in Power BI-instrumentpanel i ett webbprogram
+## <a name="embedding-your-power-bi-dashboard-in-a-web-application"></a>Bädda in din Power BI-instrumentpanel i ett webb program
 
-I den här delen av självstudiekursen ska du använda ett exempel [ASP.NET](https://asp.net/) exempelwebbprogram som skapats av Power BI-teamet att bädda in instrumentpanelen. Mer information om att bädda in instrumentpaneler finns i artikeln [inbäddning med Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
+I den här delen av självstudien använder du ett exempel på [ASP.net](https://asp.net/) -webbprogram som skapats av Power BI-teamet för att bädda in instrument panelen. Mer information om att bädda in instrumentpaneler finns i artikeln [inbäddning med Power BI](https://docs.microsoft.com/power-bi/developer/embedding).
 
-För att konfigurera programmet går du till GitHub-lagringsplatsen [PowerBI-Developer-Samples](https://github.com/Microsoft/PowerBI-Developer-Samples) och följer instruktionerna under avsnittet om **användarägda data** (använd URL:erna för omdirigering och startsida i underavsnittet **integrate-dashboard-web-app**). Eftersom vi använder exemplet med instrumentpanelen ska du använda exempelkoden **integrate-dashboard-web-app** som finns på [GitHub-lagringsplatsen](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-dashboard-web-app).
+Om du vill konfigurera programmet går du till GitHub [-lagringsplatsen PowerBI-Developer-samples](https://github.com/Microsoft/PowerBI-Developer-Samples) och följer anvisningarna under avsnittet **användare äger data** (Använd URL: erna för omdirigering och start sidan under underavsnittet **integrera-Web-App** ). Eftersom vi använder exempel på instrument panelen använder du exempel koden **integrera-Web-App** som finns i [GitHub-lagringsplatsen](https://github.com/Microsoft/PowerBI-Developer-Samples/tree/master/User%20Owns%20Data/integrate-web-app).
 När du har fått igång programmet i webbläsaren följer du anvisningarna för att bädda in instrumentpanelen du skapade tidigare på webbsidan:
 
-1. Välj **logga in på Power BI**, vilket ger programmet åtkomst till instrumentpaneler i Power BI-kontot.
+1. Välj **Logga in för att Power BI**, vilket ger programmet åtkomst till instrument panelerna i ditt Power BI-konto.
 
 2. Välj knappen **Hämta instrumentpaneler** som visar kontots instrumentpaneler i en tabell. Leta reda på namnet på instrumentpanelen du skapade tidigare **powerbi-embedded-dashboard** och kopiera motsvarande **EmbedUrl**.
 

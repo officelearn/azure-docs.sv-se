@@ -1,6 +1,6 @@
 ---
 title: Azure Security Center-självstudie – Skydda dina resurser med Azure Security Center | Microsoft Docs
-description: I den här självstudien får du se hur du konfigurerar en princip för Just-in-time-åtkomst till virtuell dator och en princip för programkontroll.
+description: I den här självstudien lär du dig hur du konfigurerar en just-in-Time-princip för VM-åtkomst och en princip för program kontroll.
 services: security-center
 documentationcenter: na
 author: memildin
@@ -14,20 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/03/2018
 ms.author: memildin
-ms.openlocfilehash: 28da3933cf1f1970758fcaec1358c9c16558af03
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8cb07f3447e50528a94811f33a2142086f698586
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200658"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996333"
 ---
 # <a name="tutorial-protect-your-resources-with-azure-security-center"></a>Självstudier: Skydda dina resurser med Azure Security Center
-Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. JIT-åtkomst (just-in-time) till virtuella datorer (VM) minskar din exponering för attacker genom att du kan neka beständig åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
+Security Center begränsar din exponering för hot med kontroller för åtkomst och program för att blockera skadlig aktivitet. Just-in-Time (JIT)-åtkomsten för virtuella datorer minskar exponeringen för attacker genom att du kan neka beständiga åtkomst till virtuella datorer. Istället tillhandahåller du kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs. Anpassningsbara programkontroller hjälper till att skydda virtuella datorer mot skadlig programvara genom att kontrollera vilka program du kan köra på dina virtuella datorer. Security Center använder Machine Learning för att analysera processerna som körs i den virtuella datorn och hjälper dig att tillämpa vitlisteregler med den här intelligensen.
 
 I den här självstudiekursen får du lära du dig att:
 
 > [!div class="checklist"]
-> * Konfigurera just-in-time-åtkomstprincip för virtuell dator
+> * Konfigurera en just-in-Time-princip för VM-åtkomst
 > * Konfigurera en princip för programkontroll
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/pricing/free-trial/) konto innan du börjar.
@@ -38,25 +38,25 @@ För att gå igenom funktionerna i den här självstudien måste du ha standardn
 ## <a name="manage-vm-access"></a>Hantera åtkomst till virtuella datorer
 JIT-åtkomst till virtuella datorer kan användas till att låsa inkommande trafik till dina virtuella Azure-datorer. Det här minskar exponeringen för attacker samtidigt som du enkelt kan ansluta till de virtuella datorerna när du behöver.
 
-Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När Just-in-time är aktiverat använder Security Center NSG-regler (Network Security Group), vilket begränsar åtkomsten till hanteringsportar så de inte kan nås av angripare.
+Hanteringsportar behöver inte vara öppna hela tiden. De behöver endast vara öppna medan du är ansluten till den virtuella datorn för att exempelvis utföra hantering eller underhåll. När just-in-Time har Aktiver ATS använder Security Center regler för nätverks säkerhets grupper (NSG) som begränsar åtkomsten till hanterings portar så att de inte kan nås av angripare.
 
-1. På huvudmenyn i Security Center väljer du **Just-in-time-åtkomst till virtuell dator** under **Avancerat molnskydd**.
+1. På Security Center huvud menyn väljer du **VM-åtkomst just-in-Time** under **Avancerat moln skydd**.
 
-   ![Just-in-time-åtkomst till virtuell dator][1]
+   ![Just-in-Time VM-åtkomst][1]
 
-   **Just-in-time-åtkomst till virtuell dator** ger information om dina virtuella datorers status:
+   **Just-in-Time VM-åtkomst** innehåller information om status för dina virtuella datorer:
 
-   - **Konfigurerad** – Virtuella datorer som har konfigurerats för att stödja Just-in-time-åtkomst till virtuella datorer.
-   - **Rekommenderas** – Virtuella datorer som kan stödja Just-in-time-åtkomst till virtuell dator men som inte har konfigurerats för det.
+   - **Konfigurerade** – virtuella datorer som har kon figurer ATS för att stödja just-in-Time VM-åtkomst.
+   - **Rekommenderade** – virtuella datorer som har stöd för just-in-Time VM-åtkomst men som inte har kon figurer ATS för.
    - **Ingen rekommendation** – Orsaker som kan orsaka att en virtuell dator inte rekommenderas är:
 
-     - Saknad NSG – Just-in-time-lösningen kräver att det finns en NSG.
-     - Klassisk virtuell dator – Security Centers just-in-time-åtkomst till virtuell dator stöder för närvarande bara virtuella datorer som har distribuerats via Azure Resource Manager.
-     - Övrigt – En virtuell dator i den här kategorin om just-in-time-lösningen är avstängd i säkerhetsprincipen för prenumerationen eller resursgruppen, eller om den virtuella datorn saknar en offentlig IP-adress och inte har någon NSG.
+     - Saknar NSG – just-in-Time-lösningen kräver att en NSG är på plats.
+     - Klassisk VM-Security Center just-in-Time-åtkomst för virtuella datorer stöder för närvarande endast virtuella datorer som distribueras via Azure Resource Manager.
+     - Övrigt – en virtuell dator finns i den här kategorin om just-in-Time-lösningen är inaktive rad i säkerhets principen för prenumerationen eller resurs gruppen, eller om den virtuella datorn saknar en offentlig IP-adress och inte har en NSG på plats.
 
-2. Välj en rekommenderad virtuell dator och klicka på alterantivet för att **aktivera JIT på 1 virtuell dator** för att konfigurera en just-in-time-princip för den virtuella datorn:
+2. Välj en rekommenderad virtuell dator och klicka på **Aktivera JIT på 1 virtuell dator** för att konfigurera en just-in-Time-princip för den virtuella datorn:
 
-   Du kan spara standardportarna som Security Center rekommenderar eller så kan du lägga till och konfigurera en ny port som du vill aktivera just-in-time-lösningen på. I den här självstudien ska vi lägga till en port genom att välja **Lägg till**.
+   Du kan spara standard portarna som Security Center rekommenderar eller så kan du lägga till och konfigurera en ny port som du vill aktivera just-in-Time-lösningen på. I den här självstudien ska vi lägga till en port genom att välja **Lägg till**.
 
    ![Lägga till portkonfiguration][2]
 
@@ -119,7 +119,7 @@ Om du vill avaktivera automatisk etablering:
 I den här självstudien har du lärt dig att begränsa din exponering för hot genom att:
 
 > [!div class="checklist"]
-> * Konfigurera en princip för Just-in-time-åtkomst till virtuell dator för att tillhandahålla kontrollerad och granskad åtkomst till virtuella datorer enbart när det behövs
+> * Konfigurera en just-in-Time-princip för VM-åtkomst för att tillhandahålla kontrollerad och granskad åtkomst till virtuella datorer endast vid behov
 > * Konfigurera en princip för anpassningsbara programkontroller för att kontrollera vilka program som kan köras på din virtuella dator
 
 Gå vidare till nästa kurs om du vill veta mer om att hantera säkerhetsincidenter.

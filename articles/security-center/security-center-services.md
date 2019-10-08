@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: ad662cdeb0a87e57eb9e3e7480d120be1c6c729e
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: d756f9dfbd0012f884bb0c4a1e27efc76d613234
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71218259"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982826"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Funktioner som stöds i Azure Security Center
 
@@ -39,20 +39,21 @@ I följande avsnitt visas Security Center funktioner som är tillgängliga för 
 |----|----|----|----|----|----|----|----|
 |**Miljö**|**Azure**||**Icke-Azure**|**Azure**||**Icke-Azure**||
 ||**Virtuell dator**|**Skalnings uppsättning för virtuell dator**||**Virtuell dator**|**Skalnings uppsättning för virtuell dator**|
-|Aviseringar om VMBA hot identifiering|✔|✔|✔|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
+|Aviseringar om hot identifiering för virtuella datorer med beteende analys|✔|✔|✔|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|Rekommendationer (kostnads fri) hot identifiering (standard)|
 |Nätverksbaserade hot identifierings aviseringar|✔|✔|X|✔|✔|X|Standard|
 |Microsoft Defender ATP-integrering|✔ (i versioner som stöds)|✔ (i versioner som stöds)|✔|X|X|X|Standard|
 |Korrigeringar som saknas|✔|✔|✔|✔|✔|✔|Lediga|
 |Säkerhetskonfigurationer|✔|✔|✔|✔|✔|✔|Lediga|
 |Endpoint Protection-utvärdering|✔|✔|✔|X|X|X|Lediga|
-|JIT VM-åtkomst|✔|X|X|✔|X|X|Standard|
+|Just-in-Time VM-åtkomst|✔|X|X|✔|X|X|Standard|
 |Anpassningsbara programkontroller|✔|X|✔|✔|X|✔|Standard|
-|TJÄNSTDATABASEN|✔|✔|✔|✔|✔|✔|Standard|
+|Övervakning av filintegritet|✔|✔|✔|✔|✔|✔|Standard|
 |Disk krypterings bedömning|✔|✔|X|✔|✔|X|Lediga|
 |Distribution från tredje part|✔|X|X|✔|X|X|Lediga|
 |NSG-utvärdering|✔|✔|X|✔|✔|X|Lediga|
 |Filbaserad hot identifiering|✔|✔|✔|X|X|X|Standard|
 |Nätverkskarta|✔|✔|X|✔|✔|X|Standard|
+|Adaptiv nätverkshärdning|✔|X|X|✔|X|X|Standard|
 |Anpassningsbara nätverks kontroller|✔|✔|X|✔|✔|X|Standard|
 |Instrument panel för regelefterlevnad & rapporter|✔|✔|✔|✔|✔|✔|Standard|
 |Rekommendationer och hot identifiering på Docker-värdbaserade IaaS behållare|X|X|X|✔|✔|✔|Standard|
@@ -99,7 +100,7 @@ Följande PaaS-resurser stöds av Azure Security Center:
 |Apptjänst|✔| ✔|
 |Funktion|✔| X|
 |Molntjänst|✔| X|
-|Virtuellt nätverk|✔| Ej tillämpligt|
+|VNet|✔| Ej tillämpligt|
 |Subnet|✔| Ej tillämpligt|
 |Nätverkskort|✔| Ej tillämpligt|
 |NSG|✔| Ej tillämpligt|
@@ -118,9 +119,9 @@ Följande PaaS-resurser stöds av Azure Security Center:
 |Data Lake Store|✔| X|
 |Nyckelvalv|✔| X|
 
-\*Dessa funktioner stöds för närvarande i offentlig för hands version.
+\* dessa funktioner stöds för närvarande i offentlig för hands version.
 
-\*\*Azure Active Directory (Azure AD) rekommendationer är bara tillgängliga för standard prenumerationer.
+\* @ no__t-1 Azure Active Directory (Azure AD) rekommendationer är bara tillgängliga för standard prenumerationer.
 
 ## <a name="next-steps"></a>Nästa steg
 

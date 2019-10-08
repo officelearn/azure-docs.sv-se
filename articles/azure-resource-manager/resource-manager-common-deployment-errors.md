@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: ac700592a63e88936593c24f8f7ce06a08e289ce
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972693"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001633"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsök vanliga problem med Azure-distribution med Azure Resource Manager
 
@@ -33,7 +33,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | AnotherOperationInProgress | Vänta tills den samtidiga åtgärden har slutförts. | |
 | AuthorizationFailed | Ditt konto eller tjänstens huvud namn har inte tillräcklig åtkomst för att slutföra distributionen. Kontrol lera vilken roll ditt konto tillhör och dess åtkomst till distributions omfånget.<br><br>Du kan få det här felet när en resurs leverantör som krävs inte är registrerad. | [Rollbaserad Access Control i Azure](../role-based-access-control/role-assignments-portal.md)<br><br>[Lös registrering](resource-manager-register-provider-errors.md) |
 | BadRequest | Du skickade distributions värden som inte matchar det som förväntas av Resource Manager. Kontrol lera meddelandet om inre status för att få hjälp med fel sökning. | [Referera till mallar](/azure/templates/) och [platser som stöds](resource-location.md) |
-| Konflikt | Du begär en åtgärd som inte är tillåten i resursens aktuella tillstånd. Till exempel tillåts disk storleks ändring bara när du skapar en virtuell dator eller när den virtuella datorn frigörs. | |
+| Uppstod | Du begär en åtgärd som inte är tillåten i resursens aktuella tillstånd. Till exempel tillåts disk storleks ändring bara när du skapar en virtuell dator eller när den virtuella datorn frigörs. | |
 | DeploymentActiveAndUneditable | Vänta tills en samtidig distribution till den här resurs gruppen har slutförts. | |
 | DeploymentNameInvalidCharacters | Distributions namnet får bara innehålla bokstäver, siffror, "-", "." eller "_". | |
 | DeploymentNameLengthLimitExceeded | Distributions namnen är begränsade till 64 tecken.  | |
@@ -44,6 +44,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | InUseSubnetCannotBeDeleted | Du kan få det här felet när du försöker uppdatera en resurs, och begäran bearbetas genom att ta bort och skapa resursen. Se till att du anger alla värden som inte har ändrats. | [Uppdatera resurs](/azure/architecture/building-blocks/extending-templates/update-resource) |
 | InvalidAuthenticationTokenTenant | Hämta åtkomsttoken för lämplig klient organisation. Du kan bara hämta token från den klient som ditt konto tillhör. | |
 | InvalidContentLink | Du har troligen försökt länka till en kapslad mall som inte är tillgänglig. Dubbelt kontrol lera den URI du angav för den kapslade mallen. Om mallen finns i ett lagrings konto kontrollerar du att URI: n är tillgänglig. Du kan behöva skicka en SAS-token. För närvarande kan du inte länka till en mall som finns i ett lagrings konto bakom en [Azure Storage-brandvägg](../storage/common/storage-network-security.md). Överväg att flytta mallen till en annan lagrings plats, t. ex. GitHub. | [Länkade mallar](resource-group-linked-templates.md) |
+| InvalidDeploymentLocation | När du distribuerar på prenumerations nivå har du angett en annan plats för ett tidigare använt distributions namn. | [Distributioner av prenumerations nivå](deploy-to-subscription.md) |
 | InvalidParameter | Ett av de värden som du angav för en resurs stämmer inte överens med det förväntade värdet. Det här felet kan bero på flera olika villkor. Ett lösen ord kan till exempel vara otillräckligt eller också kan ett BLOB-namn vara felaktigt. Fel meddelandet ska ange vilket värde som behöver korrigeras. | |
 | InvalidRequestContent | Distributions värden innehåller antingen värden som inte känns igen eller värden som krävs saknas. Bekräfta värdena för resurs typen. | [Mallreferens](/azure/templates/) |
 | InvalidRequestFormat | Aktivera fel söknings loggning när du kör distributionen och kontrol lera innehållet i begäran. | [Fel söknings loggning](#enable-debug-logging) |
@@ -92,7 +93,7 @@ Valideringsfel uppstår från scenarier som kan fastställas före distributione
 
 Båda typerna av fel returnerar en felkod som du använder för att felsöka distributionen. Båda typerna av fel visas i [aktivitetsloggen](resource-group-audit.md). Dock visas valideringsfel inte i distributionshistoriken eftersom distributionen aldrig startades.
 
-### <a name="validation-errors"></a>Verifieringsfel
+### <a name="validation-errors"></a>Verifierings fel
 
 När du distribuerar via portalen visas ett valideringsfel när du har skickat in dina värden.
 

@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 11/13/2018
 ms.author: dacurwin
-ms.openlocfilehash: 3f427726a128eed426a64bc533075ba0cdde9544
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 7a0f1f7dd79be250370fa97096a0cbf6dfc7f637
+ms.sourcegitcommit: 387da88b8262368c1b67fffea58fe881308db1c2
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241090"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71982859"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installera och uppgradera Azure Backup Server
 
@@ -146,7 +146,7 @@ Så här redigerar du inställningen för lagringsreplikering:
 
 ### <a name="extracting-the-software-package"></a>Extrahera programpaketet
 
-När du har hämtat alla filer klickar du på **MicrosoftAzureBackupInstaller. exe**. Då startas **guiden Microsoft Azure Backup installations guiden** för att extrahera installationsfilerna till en plats som du har angett. Fortsätt genom guiden och klicka på extraherings knappen för att starta extraherings processen.
+När du har hämtat alla filer klickar du på **MicrosoftAzureBackupInstaller. exe**. Då startas **guiden Microsoft Azure Backup installations guiden** för att extrahera installationsfilerna till en plats som du har angett. Fortsätt genom guiden och klicka på **extraherings** knappen för att starta extraherings processen.
 
 > [!WARNING]
 > Det krävs minst 4 GB ledigt utrymme för att extrahera installationsfilerna.
@@ -184,11 +184,14 @@ När extraherings processen har slutförts markerar du kryss rutan för att star
 
     Använd följande värden för SSRS-konfiguration: 
     - Tjänst konto: Använd det inbyggda kontot måste vara nätverks tjänst
-    - Webb tjänst-URL: ' Virtuell katalog ' ska vara ReportServer_<SQLInstanceName>
-    - Databas DatabaseName ska vara ReportServer $<SQLInstanceName>
-    - Webb portal-URL: ' Virtuell katalog ' ska vara Reports_<SQLInstanceName>
+    - Webb tjänst-URL: ' Virtuell katalog ' ska vara ReportServer_ @ no__t-0
+    - Databas DatabaseName måste vara ReportServer $ <SQLInstanceName>
+    - Webb portal-URL: ' Virtuell katalog ' ska vara Reports_ @ no__t-0
 
     [Läs mer](https://docs.microsoft.com/sql/reporting-services/report-server/configure-and-administer-a-report-server-ssrs-native-mode?view=sql-server-2017) om SSRS-konfiguration.
+
+    > [!NOTE]
+    > Licensiering för SQL Server som används som databas för MABS styrs av [Microsoft Online Services-villkoren](https://www.microsoft.com/en-us/licensing/product-licensing/products) (ost). Enligt OST kan SQL Server paketerad med MABS endast användas som databas för MABS.
 
 4. Ange en plats för installationen av Microsoft Azure Backup Server-filerna och klicka på **Nästa**.
 
@@ -235,12 +238,12 @@ MABS använder System Center Data Protection Manager Protection Agent. [Här fö
 
 I följande avsnitt beskrivs hur du uppdaterar skydds agenter för klient datorer.
 
-1. I administratörskonsol säkerhets kopierings server väljer > du hanterings**agenter**.
+1. Välj **hanterings** > **agenter**på administratörskonsol säkerhets kopierings Server.
 
 2. I visningsfönstret väljer du de klient datorer som du vill uppdatera skydds agenten för.
 
    > [!NOTE]
-   > Kolumnen **agent uppdateringar** visar när en uppdatering av skydds agenten är tillgänglig för varje skyddad dator. I fönstret **åtgärder** är uppdaterings åtgärden bara tillgänglig när en skyddad dator är vald och uppdateringar är tillgängliga.
+   > Kolumnen **agent uppdateringar** visar när en uppdatering av skydds agenten är tillgänglig för varje skyddad dator. I fönstret **åtgärder** är **uppdaterings** åtgärden bara tillgänglig när en skyddad dator är vald och uppdateringar är tillgängliga.
    >
    >
 
@@ -270,15 +273,15 @@ Här följer några steg om du behöver flytta MABS till en ny server, samtidigt
 9. Från SQL återställa DPMDB
 10. Från administratörs kommando rad på ny Server-CD till Microsoft Azure Backup installera plats och bin-mapp
 
-    Exempel på sökväg: C:\Windows\System32 > CD "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"
+    Exempel på sökväg: C:\Windows\System32 > CD "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin @ no__t-0
 
 11. Till Azure Backup kör du DPMSYNC-SYNC
 
     Om du har lagt till nya diskar i DPM-lagringspoolen i stället för att flytta de gamla, kör du DPMSYNC-reallocateReplica
 
-## <a name="network-connectivity"></a>Nätverksanslutning
+## <a name="network-connectivity"></a>Nätverks anslutning
 
-Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Du kan kontrol lera om datorn har anslutningen till Azure genom att använda ```Get-DPMCloudConnection``` cmdleten i Azure Backup Server PowerShell-konsolen. Om utdata från cmdleten är TRUE finns det en anslutning, annars finns det ingen anslutning.
+Azure Backup Server kräver anslutning till Azure Backups tjänsten för att produkten ska fungera korrekt. Använd cmdleten ```Get-DPMCloudConnection``` i Azure Backup Server PowerShell-konsolen för att kontrol lera om datorn har anslutningen till Azure. Om utdata från cmdleten är TRUE finns det en anslutning, annars finns det ingen anslutning.
 
 På samma gången måste Azure-prenumerationen vara i felfritt tillstånd. Logga in på [prenumerations portalen](https://account.windowsazure.com/Subscriptions)för att ta reda på status för din prenumeration och hantera den.
 
@@ -307,10 +310,10 @@ När anslutningen till Azure har återställts till den Azure Backup Server dato
 
 ### <a name="handling-subscription-states"></a>Hantera prenumerations tillstånd
 
-Det går att ta en Azure-prenumeration från ett utgånget eller avetablerat tillstånd till det *aktiva* tillståndet. Detta har dock vissa konsekvenser för produktens beteende medan statusen inte är *aktiv*:
+Det går att ta en Azure-prenumeration från ett *utgånget* eller *avetablerat* tillstånd till det *aktiva* tillståndet. Detta har dock vissa konsekvenser för produktens beteende medan statusen inte är *aktiv*:
 
 * En *avetablerad* prenumeration förlorar funktioner under den period som den avetableras. När den *aktive*ras är produkt funktionerna i Backup/Restore återupplivat. Du kan också hämta säkerhets kopierings data på den lokala disken om den behålls med en tillräckligt stor kvarhållningsperiod. Säkerhets kopierings data i Azure är dock irretrievably förlorade när prenumerationen övergår till *avetablerat* tillstånd.
-* En utgången prenumeration förlorar bara funktioner för tills den har gjorts *aktiv* igen. Eventuella säkerhets kopieringar som är schemalagda för den period då prenumerationen gick *ut* kommer inte att köras.
+* En *utgången* prenumeration förlorar bara funktioner för tills den har gjorts *aktiv* igen. Eventuella säkerhets kopieringar som är schemalagda för den period då prenumerationen gick *ut* kommer inte att köras.
 
 ## <a name="upgrade-mabs"></a>Uppgradera MABS
 

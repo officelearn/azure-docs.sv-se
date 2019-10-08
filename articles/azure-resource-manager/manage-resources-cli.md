@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure-resurser med hjälp av Azure CLI | Microsoft Docs
-description: Använda Azure CLI och Azure Resource Manager för att hantera dina resurser.
+description: Använd Azure CLI och Azure resurs hantering för att hantera dina resurser.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,29 +8,29 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 3293d08f63cf573c7833fae5dd15bfe3119fd6c7
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 78dd51c023bc46ed09219acc3df7e4ee7006ac2b
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206520"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001545"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Hantera Azure-resurser med hjälp av Azure CLI
 
-Lär dig hur du använder Azure CLI med [Azure Resource Manager](resource-group-overview.md) att hantera dina Azure-resurser. För att hantera resursgrupper, se [hantera Azure-resursgrupper med hjälp av Azure CLI](./manage-resource-groups-cli.md).
+Lär dig hur du använder Azure CLI med [Azure Resource Manager](resource-group-overview.md) för att hantera dina Azure-resurser. Information om hur du hanterar resurs grupper finns i [Hantera Azure-resurs grupper med hjälp av Azure CLI](./manage-resource-groups-cli.md).
 
-Andra artiklar om hur du hanterar resurser:
+Andra artiklar om att hantera resurser:
 
-- [Hantera Azure-resurser med hjälp av Azure portal](./manage-resources-portal.md)
+- [Hantera Azure-resurser med hjälp av Azure Portal](./manage-resources-portal.md)
 - [Hantera Azure-resurser med hjälp av Azure PowerShell](./manage-resources-powershell.md)
 
-## <a name="deploy-resources-to-an-existing-resource-group"></a>Distribuera resurser till en befintlig resursgrupp
+## <a name="deploy-resources-to-an-existing-resource-group"></a>Distribuera resurser till en befintlig resurs grupp
 
-Du kan distribuera Azure-resurser direkt med hjälp av Azure PowerShell eller distribuera en Resource Manager-mall för att skapa Azure-resurser.
+Du kan distribuera Azure-resurser direkt genom att använda Azure PowerShell eller distribuera en Resource Manager-mall för att skapa Azure-resurser.
 
-### <a name="deploy-a-resource"></a>Distribution av en resurs
+### <a name="deploy-a-resource"></a>Distribuera en resurs
 
-Följande skript skapar ett lagringskonto.
+Följande skript skapar ett lagrings konto.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -45,7 +45,7 @@ az storage account show --resource-group $resourceGroupName --name $storageAccou
 
 ### <a name="deploy-a-template"></a>Distribuera en mall
 
-Följande skript skapar distribuera en snabbstartsmall för att skapa ett lagringskonto. Mer information finns i [ Snabbstart: Skapa Azure Resource Manager-mallar med hjälp av Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
+Följande skript skapar distribution av en snabb starts mall för att skapa ett lagrings konto. Mer information finns i [ Snabbstart: Skapa Azure Resource Manager-mallar med Visual Studio Code @ no__t-0.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -57,17 +57,17 @@ az group deployment create --resource-group $resourceGroupName --template-uri "h
 
 Mer information finns i [distribuera resurser med Resource Manager-mallar och Azure CLI](./resource-group-template-deploy-cli.md).
 
-## <a name="deploy-a-resource-group-and-resources"></a>Distribuera en resursgrupp och resurser
+## <a name="deploy-a-resource-group-and-resources"></a>Distribuera en resurs grupp och resurser
 
-Du kan skapa en resursgrupp och distribuera resurser i gruppen. Mer information finns i [skapa resursgrupp och distribuera resurser](./deploy-to-subscription.md#create-resource-group-and-deploy-resources).
+Du kan skapa en resurs grupp och distribuera resurser till gruppen. Mer information finns i [skapa resurs grupp och distribuera resurser](./deploy-to-subscription.md#resource-group-and-resources).
 
-## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Distribuera resurser till flera prenumerationer eller resursgrupper
+## <a name="deploy-resources-to-multiple-subscriptions-or-resource-groups"></a>Distribuera resurser till flera prenumerationer eller resurs grupper
 
-Normalt kan distribuera du alla resurser i mallen till en enda resursgrupp. Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans, men placera dem i olika resursgrupper eller prenumerationer. Mer information finns i [distribuera Azure-resurser till flera prenumerationer eller resursgrupper](./resource-manager-cross-resource-group-deployment.md).
+Normalt distribuerar du alla resurser i mallen till en enda resurs grupp. Det finns dock scenarier där du vill distribuera en uppsättning resurser tillsammans, men placera dem i olika resurs grupper eller prenumerationer. Mer information finns i [Distribuera Azure-resurser till flera prenumerationer eller resurs grupper](./resource-manager-cross-resource-group-deployment.md).
 
 ## <a name="delete-resources"></a>Ta bort resurser
 
-Följande skript visar hur du tar bort ett lagringskonto.
+Följande skript visar hur du tar bort ett lagrings konto.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -77,11 +77,11 @@ read storageAccountName &&
 az storage account delete --resource-group $resourceGroupName --name $storageAccountName 
 ```
 
-Mer information om hur Azure Resource Manager beställningar borttagningen av resurser finns i [borttagning av Azure Resource Manager resource](./resource-group-delete.md).
+Mer information om hur Azure Resource Manager beställer borttagningen av resurser finns i [Azure Resource Manager ta bort resurs grupp](./resource-group-delete.md).
 
 ## <a name="move-resources"></a>Flytta resurser
 
-Följande skript visar hur du tar bort ett lagringskonto från en resursgrupp till en annan resursgrupp.
+Följande skript visar hur du tar bort ett lagrings konto från en resurs grupp till en annan resurs grupp.
 
 ```azurecli-interactive
 echo "Enter the source Resource Group name:" &&
@@ -98,9 +98,9 @@ Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumerat
 
 ## <a name="lock-resources"></a>Lås resurser
 
-Låsning förhindrar andra användare i din organisation av misstag tar bort eller ändrar kritiska resurser, till exempel Azure-prenumeration, resursgrupp eller resurs. 
+Låsning förhindrar att andra användare i organisationen oavsiktligt tar bort eller ändrar kritiska resurser, t. ex. Azure-prenumeration, resurs grupp eller resurs. 
 
-Följande skript låser ett storage-konto så att kontot inte kan tas bort.
+Följande skript låser ett lagrings konto så att kontot inte kan tas bort.
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -110,7 +110,7 @@ read storageAccountName &&
 az lock create --name LockSite --lock-type CanNotDelete --resource-group $resourceGroupName --resource-name $storageAccountName --resource-type Microsoft.Storage/storageAccounts 
 ```
 
-Följande skript hämtar alla Lås för ett lagringskonto:
+Följande skript hämtar alla Lås för ett lagrings konto:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -120,7 +120,7 @@ read storageAccountName &&
 az lock list --resource-group $resourceGroupName --resource-name $storageAccountName --resource-type Microsoft.Storage/storageAccounts --parent ""
 ```
 
-Följande skript tar bort ett lås för ett lagringskonto:
+Följande skript tar bort ett lås för ett lagrings konto:
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -135,15 +135,15 @@ Mer information finns i [Låsa resurser med Azure Resource Manager](resource-gro
 
 ## <a name="tag-resources"></a>Tagga resurser
 
-Taggar hjälper dig att organisera din resursgrupp och resurser logiskt. Mer information finns i [med taggar för att organisera Azure-resurser](./resource-group-using-tags.md#azure-cli).
+Taggning hjälper till att organisera resurs gruppen och resurserna logiskt. Mer information finns i [använda taggar för att ordna dina Azure-resurser](./resource-group-using-tags.md#azure-cli).
 
 ## <a name="manage-access-to-resources"></a>Hantera åtkomst till resurser
 
-[Rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) är sättet som du hantera åtkomst till resurser i Azure. Mer information finns i [hantera åtkomst med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md).
+[Rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) är sättet som du hantera åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med RBAC och Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs Azure Resource Manager i [översikt över Azure Resource Manager](./resource-group-overview.md).
-- Läs Resource Manager-mallens syntax i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](./resource-group-authoring-templates.md).
-- Läs hur du utvecklar mallar i den [stegvisa självstudier](/azure/azure-resource-manager/).
-- Mallscheman för Azure Resource Manager-finns [mallreferensen](/azure/templates/).
+- Mer information Azure Resource Manager finns [Azure Resource Manager översikt](./resource-group-overview.md).
+- Information om syntaxen för Resource Manager-mallar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](./resource-group-authoring-templates.md).
+- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](/azure/azure-resource-manager/).
+- Om du vill visa scheman för Azure Resource Manager mallar, se [referens för mallar](/azure/templates/).

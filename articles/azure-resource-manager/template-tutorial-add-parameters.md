@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 407148dadb774c72ef252ba0044655c2e219985f
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: f5e631994223d6362512ed0ddc89d1d3c884fbd4
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963753"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001495"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>Självstudier: Lägg till parametrar i Resource Manager-mallen
 
@@ -33,7 +33,7 @@ I slutet av den föregående själv studie kursen hade mallen följande JSON:
 
 Du kanske har lagt märke till att det finns ett problem med den här mallen. Lagrings konto namnet är hårdkodat. Du kan bara använda den här mallen för att distribuera samma lagrings konto varje gång. Om du vill distribuera ett lagrings konto med ett annat namn måste du skapa en ny mall, vilket uppenbart inte är ett praktiskt sätt att automatisera dina distributioner.
 
-## <a name="make-template-reusable"></a>Gör mall åter användning
+## <a name="make-your-template-reusable"></a>Gör så att din mall kan användas igen
 
 Lägg till en parameter som du kan använda för att skicka in ett lagrings konto namn om du vill att mallen ska kunna användas. Den markerade JSON i följande exempel visar vad som har ändrats i mallen. Parametern **storageName** identifieras som en sträng. Max längden är 24 tecken för att förhindra namn som är för långa.
 
@@ -41,7 +41,7 @@ Kopiera hela filen och ersätt din mall med dess innehåll.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
 
-## <a name="deploy-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 Nu ska vi distribuera mallen. I följande exempel distribueras mallen med Azure CLI eller PowerShell. Lägg märke till att du anger namnet på lagrings kontot som ett av värdena i distributions kommandot. För lagrings konto namnet anger du samma namn som du använde i föregående självstudie.
 
@@ -87,7 +87,7 @@ Den tidigare mallen har alltid distribuerat ett Standard_LRS lagrings konto. Du 
 
 **StorageSKU** -parametern har ett standardvärde. Det här värdet används när ett värde inte anges under distributionen. Den innehåller också en lista över tillåtna värden. Värdena matchar de värden som behövs för att skapa ett lagrings konto. Du vill inte att användare av mallen ska skicka in SKU: er som inte fungerar.
 
-## <a name="redeploy-template"></a>Distribuera om mallen
+## <a name="redeploy-the-template"></a>Distribuera om mallen
 
 Du är redo att distribuera igen. Eftersom standard-SKU: n är inställt på **Standard_LRS**behöver du inte ange ett värde för den parametern.
 

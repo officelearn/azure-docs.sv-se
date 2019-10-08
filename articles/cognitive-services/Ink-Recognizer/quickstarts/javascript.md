@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 5e3b97faaed84f2c07ea70ddb73bd8e8c9efa71d
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 19626bd68ad82108b2ebaa823d196d0f22008e29
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212656"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996909"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-javascript"></a>Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API och Java Script
 
@@ -34,12 +34,13 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
 - En webbläsare
 - Du hittar exempel Penn strecks data för den här snabb starten på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/javascript/InkRecognition/quickstart/example-ink-strokes.json).
 
+### <a name="create-an-ink-recognizer-resource"></a>Skapa en tryck färgs igenkännings resurs
 
-[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+[!INCLUDE [creating an ink recognizer resource](../includes/setup-instructions.md)]
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
-1. I din favorit-IDE eller-redigerare skapar du `.html` en ny fil. Lägg sedan till grundläggande HTML-kod i den för koden som vi ska lägga till senare.
+1. I din favorit-IDE eller-redigerare skapar du en ny `.html`-fil. Lägg sedan till grundläggande HTML-kod i den för koden som vi ska lägga till senare.
     
     ```html
     <!DOCTYPE html>
@@ -56,9 +57,9 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
     </html>
     ```
 
-2. `<body>` I taggen lägger du till följande HTML:
+2. I taggen `<body>` lägger du till följande HTML:
     1. Två text områden för att Visa JSON-begäran och-svar.
-    2. En knapp för att anropa `recognizeInk()` funktionen som kommer att skapas senare.
+    2. En knapp för att anropa funktionen `recognizeInk()` som kommer att skapas senare.
     
     ```HTML
     <!-- <body>-->
@@ -74,11 +75,11 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
 
 ## <a name="load-the-example-json-data"></a>Läs in exemplet med JSON-data
 
-1. `<script>` I taggen skapar du en variabel för sampleJson. Skapa sedan en JavaScript-funktion `openFile()` med namnet som öppnar en fil Utforskare så att du kan välja din JSON-fil. När du `Recognize ink` klickar på knappen anropas den här funktionen och börjar läsa filen.
-2. Använd ett `FileReader` `onload()` objekts funktion för att bearbeta filen asynkront. 
-    1. Ersätt eventuella `\n` eller `\r` tecken i filen med en tom sträng. 
-    2. Använd `JSON.parse()` för att konvertera texten till giltig JSON
-    3. `request` Uppdatera text rutan i programmet. Används `JSON.stringify()` för att formatera JSON-strängen. 
+1. I taggen `<script>` skapar du en variabel för sampleJson. Skapa sedan en JavaScript-funktion med namnet `openFile()` som öppnar en Utforskaren så att du kan välja din JSON-fil. När du klickar på knappen `Recognize ink` anropas den här funktionen och börjar läsa filen.
+2. Använd ett `FileReader`-objekts `onload()`-funktion för att bearbeta filen asynkront. 
+    1. Ersätt alla `\n`-eller `\r`-tecken i filen med en tom sträng. 
+    2. Använd `JSON.parse()` om du vill konvertera texten till giltig JSON
+    3. Uppdatera text rutan `request` i programmet. Använd `JSON.stringify()` för att formatera JSON-strängen. 
     
     ```javascript
     var sampleJson = "";
@@ -97,7 +98,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
 
 ## <a name="send-a-request-to-the-ink-recognizer-api"></a>Skicka en begäran till hand SKRIFTS tolkens API
 
-1. I taggen skapar du en funktion som kallas `recognizeInk()`. `<script>` Den här funktionen anropar sedan API: et och uppdaterar sidan med svaret. Lägg till koden från följande steg i den här funktionen. 
+1. I taggen `<script>` skapar du en funktion som heter `recognizeInk()`. Den här funktionen anropar sedan API: et och uppdaterar sidan med svaret. Lägg till koden från följande steg i den här funktionen. 
         
     ```javascript
     function recognizeInk() {
@@ -105,18 +106,17 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
     }
     ```
 
-    1. Skapa variabler för slut punkts-URL, prenumerations nyckel och exempel-JSON. Skapa sedan ett `XMLHttpRequest` objekt för att skicka API-begäran. 
+    1. Skapa variabler för slut punkts-URL, prenumerations nyckel och exempel-JSON. Skapa sedan ett `XMLHttpRequest`-objekt för att skicka API-begäran. 
         
         ```javascript
         // Replace the below URL with the correct one for your subscription. 
         // Your endpoint can be found in the Azure portal. For example: "https://<your-custom-subdomain>.cognitiveservices.azure.com";
-        var SERVER_ADDRESS = "YOUR-SUBSCRIPTION-URL";
+        var SERVER_ADDRESS = process.env["INK_RECOGNITION_ENDPOINT"];
         var ENDPOINT_URL = SERVER_ADDRESS + "/inkrecognizer/v1.0-preview/recognize";
-        // Replace the subscriptionKey string value with your valid subscription key.
-        var SUBSCRIPTION_KEY = "YOUR-SUBSCRIPTION-KEY";
+        var SUBSCRIPTION_KEY = process.env["INK_RECOGNITION_SUBSCRIPTION_KEY"];
         var xhttp = new XMLHttpRequest();
         ```
-    2. Skapa funktionen Return för `XMLHttpRequest` objektet. Den här funktionen kommer att parsa API-svaret från en lyckad begäran och visa den i programmet. 
+    2. Skapa funktionen Return för objektet `XMLHttpRequest`. Den här funktionen kommer att parsa API-svaret från en lyckad begäran och visa den i programmet. 
             
         ```javascript
         function returnFunction(xhttp) {
@@ -133,7 +133,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
         }
         ```
 
-    4. Skapa en funktion för `onreadystatechange` egenskapen Request för objektet. När det begär ande objektets beredskaps tillstånd ändras, kommer ovanstående retur-och fel funktioner att tillämpas.
+    4. Skapa en funktion för Request-objektets egenskap `onreadystatechange`. När det begär ande objektets beredskaps tillstånd ändras, kommer ovanstående retur-och fel funktioner att tillämpas.
             
         ```javascript
         xhttp.onreadystatechange = function () {
@@ -147,7 +147,7 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
         };
         ```
     
-    5. Skicka API-begäran. Lägg till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken och `content-type` ange till`application/json`
+    5. Skicka API-begäran. Lägg till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`-huvudet och ange `content-type` till `application/json`
     
         ```javascript
         xhttp.open("PUT", ENDPOINT_URL, true);

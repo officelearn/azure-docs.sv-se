@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 03f16987941f79f9161ccbc172bb2ca1a7139384
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: e735d8832912f5b512b7cfe015ca47efbe641da7
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773210"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72000441"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Tjänst nivåer i den DTU-baserade inköps modellen
 
@@ -35,7 +35,7 @@ Välja tjänstnivå beror huvudsakligen på kontinuitet för företag-, lagrings
 | :-- | --: |--:| --:|
 |Målarbetsbelastning|Utveckling och produktion|Utveckling och produktion|Utveckling och produktion|
 |SLA för drifttid|99,99 %|99,99 %|99,99 %|
-|Kvarhållning av säkerhetskopior|7 dagar|35 dagar|35 dagar|
+|Högsta kvarhållning av säkerhets kopior|7 dagar|35 dagar|35 dagar|
 |Processor|Låg|Låg, medel, hög|Medel, hög|
 |I/o-genomströmning (ungefärlig) |1-5 IOPS per DTU| 1-5 IOPS per DTU | 25 IOPS per DTU|
 |I/o-svarstid (ungefärlig)|5 ms (läsa), 10 ms (skriva)|5 ms (läsa), 10 ms (skriva)|2 ms (läsa/skriva)|

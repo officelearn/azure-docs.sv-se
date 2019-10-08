@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 09/05/2019
 ms.author: danlep
-ms.openlocfilehash: c62987031a73aa4840c1d036689a3c52fb4dc4a0
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: e2686dcd5615c42abf78cbf4575bab6008024718
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914670"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001400"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatisera behållar avbildnings versioner och underhåll med ACR-uppgifter
 
@@ -27,7 +27,7 @@ Behållare tillhandahåller nya nivåer av virtualisering, isolera program-och u
 
 ACR-aktiviteter stöder flera scenarier för att bygga och underhålla behållar avbildningar och andra artefakter. Mer information finns i följande avsnitt i den här artikeln.
 
-* **[Snabb uppgift](#quick-task)** – bygga och skicka en enda behållar avbildning till ett behållar register på begäran, i Azure, utan att behöva en lokal Docker-motor installation. Tänk `docker build` ,`docker push` i molnet.
+* **[Snabb uppgift](#quick-task)** – bygga och skicka en enda behållar avbildning till ett behållar register på begäran, i Azure, utan att behöva en lokal Docker-motor installation. Tänk `docker build`, `docker push` i molnet.
 * **Automatiskt utlöst uppgift** – aktivera en eller flera *utlösare* för att skapa en avbildning:
   * **[Utlös vid uppdatering av käll kod](#trigger-task-on-source-code-update)** 
   * **[Utlös vid uppdatering av bas avbildning](#automate-os-and-framework-patching)** 
@@ -44,7 +44,7 @@ Utvecklings cykeln för inre slingor, den iterativa processen med att skriva kod
 
 Innan du genomför din första kodrad kan ACR-aktiviteternas [snabb uppgift](container-registry-tutorial-quick-task.md) tillhandahålla en integrerad utvecklings upplevelse genom att avlasta dina behållar avbildningar till Azure. Med snabb uppgifter kan du verifiera dina automatiserade versions definitioner och fånga eventuella problem innan du genomför din kod.
 
-Med det välkända `docker build` formatet tar [AZ ACR build][az-acr-build] -kommandot i Azure CLI en [kontext](#context-locations) (uppsättningen filer som ska skapas), skickar ACR uppgifter och skickar som standard den inbyggda avbildningen till registret när den har slutförts.
+Med hjälp av det välkända `docker build`-formatet tar [AZ ACR build][az-acr-build] -kommandot i Azure CLI en [kontext](#context-locations) (uppsättningen filer som ska skapas), skickar ACR uppgifter och skickar som standard den inbyggda avbildningen till registret när den har slutförts.
 
 En introduktion finns i snabb starten för att [skapa och köra en behållar avbildning](container-registry-quickstart-task-cli.md) i Azure Container Registry.  
 
@@ -63,12 +63,12 @@ ACR-aktiviteter stöder följande utlösare när du anger en git-lagrings platse
 
 | Utlösare | Aktive rad som standard |
 | ------- | ------------------ |
-| Incheckning | Ja |
+| Checka in | Ja |
 | Pull-begäran | Nej |
 
 Om du vill konfigurera utlösaren anger du uppgiften en personlig åtkomsttoken (PAT) för att ange webhooken i GitHub-eller Azure DevOps-lagrings platsen.
 
-Lär dig hur du utlöser versioner av käll kods bekräftelse i självstudien för andra ACR uppgifter, automatiserar behållar [avbildnings avbildningar med Azure Container Registry uppgifter](container-registry-tutorial-build-task.md).
+Lär dig hur du utlöser versioner av käll kods bekräftelse i självstudien för andra ACR uppgifter, [automatiserar behållar avbildnings avbildningar med Azure Container Registry uppgifter](container-registry-tutorial-build-task.md).
 
 ## <a name="automate-os-and-framework-patching"></a>Automatisera korrigering av OS och ramverk
 
@@ -78,7 +78,7 @@ Behållar avbildningar kan delas i stor kategorisering i *bas* avbildningar och 
 
 När en operativ system-eller app Framework-avbildning uppdateras av den överordnade behållaren, till exempel med en kritisk säkerhets korrigering för operativ system, måste du också uppdatera dina bas avbildningar för att inkludera den kritiska korrigeringen. Varje program avbildning måste sedan återskapas för att inkludera dessa uppströms korrigeringar som nu ingår i bas avbildningen.
 
-Eftersom ACR-aktiviteter identifierar bas avbildnings beroenden dynamiskt när en behållar avbildning skapas, kan den identifiera när en program avbildnings bas avbildning uppdateras. Med en förkonfigurerad [build-uppgift](container-registry-tutorial-base-image-update.md#create-a-task)återbyggs ACR-aktiviteter **automatiskt varje program avbildning** åt dig. Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
+Eftersom ACR-aktiviteter identifierar bas avbildnings beroenden dynamiskt när en behållar avbildning skapas, kan den identifiera när en program avbildnings bas avbildning uppdateras. Med en förkonfigurerad [build-uppgift](container-registry-tutorial-base-image-update.md#create-a-task) **återbyggs ACR-aktiviteter automatiskt varje program avbildning** åt dig. Med den här automatiska identifieringen och återuppbyggnaden sparar ACR-uppgifter den tid och ansträngning som normalt krävs för att manuellt spåra och uppdatera varje program avbildning som refererar till den uppdaterade bas avbildningen.
 
 För avbildningar som bygger på en Dockerfile, spårar en ACR-uppgift en bas avbildnings uppdatering när bas avbildningen finns på någon av följande platser:
 
@@ -108,7 +108,7 @@ Du kan till exempel skapa en aktivitet med flera steg som automatiserar följand
 1. Bygg en test avbildning av webb program
 1. Kör test behållaren för webb program, som utför tester mot den program behållare som körs
 1. Om testerna passerar skapar du ett Helm-diagram Arkiv paket
-1. Utföra en `helm upgrade` användning med det nya Helm-diagrammets Arkiv paket
+1. Utföra en `helm upgrade` med det nya Helm-diagrammets Arkiv paket
 
 Med aktiviteter med flera steg kan du dela upp, köra och testa en bild i mer sammanställnings bara steg, med stöd för flera steg beroende. Med aktiviteter med flera steg i ACR-aktiviteter får du mer detaljerad kontroll över image bygge, testning och operativ system och ramverk för uppdatering av arbets flöden.
 
@@ -124,11 +124,12 @@ I följande tabell visas några exempel på kontext platser som stöds för ACR-
 | GitHub huvud gren | Filer inom den överordnade (eller andra standard) grenen av en GitHub-lagringsplats.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub-gren | En speciell gren av en GitHub-lagrings platsen.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub-undermapp | Filer i en undermapp i en GitHub-lagrings platsen. Exempel på en kombination av en gren och undermappar specifikation. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| Azure dataDevOpss-undermapp | Filer i en undermapp i en Azure-lagrings platsen. Exempel på en kombination av förgrening och undermappar specifikation. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | Fjärran tarball | Filer i ett komprimerat Arkiv på en fjärran sluten Server. | `http://remoteserver/myapp.tar.gz` |
 
 ## <a name="image-platforms"></a>Avbildnings plattformar
 
-Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. `--platform` Ange taggen för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till `--platform Linux/arm64/v8`exempel):
+Som standard skapar ACR-uppgifter avbildningar för Linux OS och amd64-arkitekturen. Ange taggen `--platform` för att bygga Windows-avbildningar eller Linux-avbildningar för andra arkitekturer. Ange operativ systemet och eventuellt en arkitektur som stöds i OS/Architecture-format (till exempel `--platform Linux/arm`). För ARM-arkitekturer kan du välja att ange en variant i formatet OS/Architecture/variant (till exempel `--platform Linux/arm64/v8`):
 
 | OS | Arkitektur|
 | --- | ------- | 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: memildin
-ms.openlocfilehash: 0663e97dabe8b5f50ee9605f0bc9319c7a2aa13c
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 356bfc28984ecc1bc6990c10378a3df155593e94
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201238"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996701"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till Security Center standard nivå för ökad säkerhet
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Den ger insyn och kontroll över hybrid moln arbets belastningar, aktiva försvar som minskar exponeringen för hot och intelligent identifiering som hjälper dig att hålla jämna steg med snabbt växande cyberhot-attacker.
@@ -45,10 +45,10 @@ Så här hämtar du standard nivån:
 4. Välj **standard** som ska uppgraderas.
 5. Klicka på **Spara**.
 
-(Priserna i bilden är till exempel endast avsedda.) ![Security Center priser](./media/security-center-pricing/get-standard.png)
+(Priserna i bilden är till exempel endast avsedda.) ![Security Center-priser @ no__t-1
 
 > [!NOTE]
-> Om du vill aktivera alla funktioner i Security Center, måste du aktivera Standardprisnivån för prenumerationen som innehåller de tillämpliga virtuella datorerna. Att konfigurera priser för en arbetsyta ger inte just-in-time-åtkomst till virtuella datorer, anpassningsbara programkontroller och nätveksidentifieringar för Azure-resurser.
+> Om du vill aktivera alla funktioner i Security Center, måste du aktivera Standardprisnivån för prenumerationen som innehåller de tillämpliga virtuella datorerna. Om du konfigurerar priser för en arbets yta aktive ras inte just-in-Time VM-åtkomst, anpassningsbara program kontroller och nätverks identifieringar för Azure-resurser.
 >
 >
 
@@ -64,7 +64,7 @@ Security Center erbjuder förbättrat skydd mot säkerhet och hot för dina hybr
 I den här artikeln introducerades priser för Security Center. Om du vill veta mer om standard nivån för förbättrad säkerhet och Avancerat skydd, se:
 
 - [Avancerad hotidentifiering](security-center-threat-report.md)
-- [Just-in-Time-kontroll för VM-åtkomst](security-center-just-in-time.md)
+- [Just-in-Time VM Access Control](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-pricing/get-standard.png

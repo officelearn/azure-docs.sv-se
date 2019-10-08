@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac78029ba2d1f45ef67ef0d858fdd2917bd4a97a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033327"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001704"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -56,18 +56,15 @@ Några vanliga orsaker till att använda den här funktionen är:
 
 **Azure AD Provisioning-tjänsten** etablerar användare för att SaaS appar och andra system genom att ansluta till användar hanterings-API-slutpunkter som tillhandahålls av varje program leverantör. Dessa API-slutpunkter för användar hantering tillåter Azure AD att program mässigt skapa, uppdatera och ta bort användare. För valda program kan etablerings tjänsten också skapa, uppdatera och ta bort ytterligare ID-relaterade objekt, till exempel grupper och roller.
 
-![Bild 1 för Azure AD Provisioning-tjänsten](./media/user-provisioning/provisioning0.PNG)
-:* Azure AD Provisioning-tjänsten*
+![Azure AD Provisioning-tjänsten @ no__t-1 @ no__t-2Figure 1: Azure AD Provisioning-tjänsten @ no__t-0
 
-![Utgående användar etablerings arbets flöde](./media/user-provisioning/provisioning1.PNG)
-*bild 2: "Utgående" arbets flöde för användar etablering från Azure AD till populära SaaS-program*
+![Outbound användar etablering arbets flöde @ no__t-1 @ no__t-2Figure 2: "Utgående" arbets flöde för användar etablering från Azure AD till populära SaaS-program @ no__t-0
 
-![Arbets flöde för inkommande användar etablering](./media/user-provisioning/provisioning2.PNG)
-–*bild 3: "Inkommande" arbets flöde för användar etablering från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory*
+![Inbound användar etablering arbets flöde @ no__t-1 @ no__t-2Figure 3: "Inkommande" arbets flöde för användar etablering från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory @ no__t-0
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Vilka program och system kan jag använda med automatisk användar etablering i Azure AD?
 
-Azure AD innehåller Förintegrerad support för många populära SaaS-appar och personal system, och allmänt stöd för appar som implementerar vissa delar av SCIM 2,0-standarden.
+Azure AD innehåller Förintegrerad support för många populära SaaS-appar och personal system, och allmänt stöd för appar som implementerar vissa delar av [SCIM 2,0-standarden](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010).
 
 ### <a name="pre-integrated-applications"></a>Förintegrerade program
 
@@ -170,7 +167,7 @@ Om en enskild användare inte kan läggas till, uppdateras eller tas bort i mål
 
 De här felen kan lösas genom att justera attributvärdena för den berörda användaren i käll systemet, eller genom att justera mappningar av attribut till inte orsaka konflikter.
 
-### <a name="quarantine"></a>Karantän
+### <a name="quarantine"></a>Vistelse
 
 Om de flesta eller alla anrop som görs mot mål systemet inte fungerar konsekvent på grund av ett fel (t. ex. för ogiltiga administratörsautentiseringsuppgifter), försätts etablerings jobbet i status "karantän". Det här läget anges i [sammanfattnings rapporten för etablering](check-status-user-account-provisioning.md) och via e-post om e-postaviseringar har kon figurer ats i Azure Portal.
 

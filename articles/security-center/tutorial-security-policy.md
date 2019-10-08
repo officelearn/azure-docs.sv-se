@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: memildin
-ms.openlocfilehash: 488210e4f2c5d3a8a978079d0c7293ce091d998b
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: fce8c75dadbb255a357b85bf85049423f50d18ec
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338779"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996349"
 ---
 # <a name="working-with-security-policies"></a>Arbeta med säkerhetsprinciper
 
 Den här artikeln förklarar hur du konfigurerar säkerhets principer och hur du visar dem i Security Center. Azure Security Center tilldelar automatiskt de [inbyggda säkerhets principerna](security-center-policy-definitions.md) för varje prenumeration som har publicerats. Du kan konfigurera dem i [Azure policy](../governance/policy/overview.md), vilket innebär att du också kan ange principer för hanterings grupper och över flera prenumerationer.
 
-Instruktioner för hur du anger principer med hjälp av PowerShell finns [i snabb start: Skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av](../governance/policy/assign-policy-powershell.md)Azure PowerShell-modulen.
+Instruktioner för hur du anger principer med hjälp av PowerShell finns i [Quickstart: Skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av Azure PowerShell modul @ no__t-0.
 
 >[!NOTE]
 > Security Center börjat integreras med Azure Policy. Befintliga kunder migreras automatiskt till det nya inbyggda initiativet i Azure Policy, i stället för de tidigare säkerhets principerna i Security Center. Den här ändringen påverkar inte dina resurser eller din miljö, förutom förekomsten av det nya initiativet i Azure Policy.
@@ -110,7 +110,7 @@ Mer information om rekommendationer finns i [hantera säkerhets rekommendationer
 
    ![Inaktivera princip](./media/tutorial-security-policy/security-policy.png)
 
-1. I avsnittet **parametrar** söker du efter principen som anropar rekommendationen som du vill inaktivera. Välj inaktive **rad** i list rutan.
+1. I avsnittet **parametrar** söker du efter principen som anropar rekommendationen som du vill inaktivera. Välj **inaktive rad** i list rutan.
 
    ![Inaktivera princip](./media/tutorial-security-policy/disable-policy.png)
 1. Klicka på **Spara**.
@@ -225,14 +225,14 @@ Det här exemplet visar hur du tar bort en tilldelning:
 |SQL-kryptering |Övervaka okrypterad SQL Database i Azure Security Center |sqlEncryptionMonitoringEffect| 
 |SQL-granskning |Övervaka en SQL-databas som inte har granskats i Azure Security Center |sqlAuditingMonitoringEffect|
 |Systemuppdateringar |Övervaka system uppdateringar som saknas i Azure Security Center |systemUpdatesMonitoringEffect|
-|Lagringskryptering |Granska saknad BLOB-kryptering för lagrings konton |storageEncryptionMonitoringEffect|
-|Åtkomst till JIT-nätverk |Övervaka möjliga JIT-åtkomst (Network just in Time) i Azure Security Center |jitNetworkAccessMonitoringEffect |
+|Lagringskryptering |Granska avsaknad av blobkryptering för lagringskonton |storageEncryptionMonitoringEffect|
+|Åtkomst till JIT-nätverk |Övervaka möjliga nätverks åtkomst för just-in-Time (JIT) i Azure Security Center |jitNetworkAccessMonitoringEffect |
 |Anpassningsbara programkontroller |Övervaka möjlig app-vit listning i Azure Security Center |adaptiveApplicationControlsMonitoringEffect|
 |Nätverkssäkerhetsgrupper |Övervaka tillåtad nätverks åtkomst i Azure Security Center |networkSecurityGroupsMonitoringEffect| 
 |Säkerhetskonfigurationer |Övervaka OS-sårbarheter i Azure Security Center |systemConfigurationsMonitoringEffect| 
-|Slutpunktsskydd |Övervaka saknade Endpoint Protection i Azure Security Center |endpointProtectionMonitoringEffect |
+|Slutpunktsskydd |Övervaka avsaknad av slutpunktsskydd i Azure Security Center |endpointProtectionMonitoringEffect |
 |Diskkryptering |Övervaka okrypterade VM-diskar i Azure Security Center |diskEncryptionMonitoringEffect|
-|Sårbarhetsbedömning |Övervaka säkerhets risker i virtuella datorer i Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
+|Sårbarhetsbedömning |Övervaka säkerhetsrisker i virtuella datorer i Azure Security Center |vulnerabilityAssessmentMonitoringEffect|
 |Brandvägg för webbaserade program |Övervaka oskyddat webb program i Azure Security Center |webApplicationFirewallMonitoringEffect |
 |Nästa generations brandvägg |Övervaka oskyddade nätverks slut punkter i Azure Security Center| |
 

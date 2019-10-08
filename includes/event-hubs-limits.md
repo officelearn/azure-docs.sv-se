@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: a20481ea42a0772ab42322e912cfce67877734d6
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 8c836582798f40cf6e9ffff264c1612cb4037f74
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71830180"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996886"
 ---
 Följande tabeller innehåller kvoter och begränsningar som är begränsade till [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/). Information om Event Hubs priser finns i [Event Hubs prissättning](https://azure.microsoft.com/pricing/details/event-hubs/).
 
@@ -55,5 +55,5 @@ Event Hubs Dedicated erbjudandet debiteras till ett fast månads pris, med minst
 | Partitioner | 2000 per CU |
 | Konsumentgrupper | Ingen gräns per CU, 1000 per Event-hubb |
 | Brokered Connections | 100 K ingår |
-| Meddelandelagring | Upp till 7 dagar, 10 TB inkluderat per CU |
+| Meddelandelagring | 90 dagar, 10 TB inkluderat per CU |
 | Capture | Ingår |

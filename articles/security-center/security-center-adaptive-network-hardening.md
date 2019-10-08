@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 7de0d7bacdf2194b3e1a303842c56a6a017d8d62
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 28761b78b49ad0774594b45db4587c710fc7d810
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202767"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996720"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Anpassad nätverks härdning i Azure Security Center
 Lär dig hur du konfigurerar anpassad nätverks härdning i Azure Security Center.
@@ -37,7 +37,7 @@ Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 14
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visa aviseringar och regler för anpassad nätverks härdning
 
-1. I Security Center väljer du **nätverk** -> **anpassad härdning av nätverk**. De virtuella nätverks datorerna visas under tre separata flikar:
+1. I Security Center väljer du **nätverk** -> **anpassad nätverks härdning**. De virtuella nätverks datorerna visas under tre separata flikar:
    * **Felaktiga resurser**: Virtuella datorer som för närvarande har rekommendationer och aviseringar som har utlösts genom att köra algoritmen för anpassad nätverks härdning. 
    * **Felfria resurser**: Virtuella datorer utan aviseringar och rekommendationer.
    * Ej **genomsökta resurser**: Virtuella datorer som den anpassningsbara algoritmen för nätverks härdning inte kan köras på på grund av någon av följande orsaker:
@@ -87,7 +87,7 @@ Några viktiga rikt linjer för att ändra en regel för anpassad nätverks här
 
 * En regel för att **neka all trafik** är den enda typen av "Neka"-regel som visas här, och den kan inte ändras. Du kan dock ta bort den (se [ta bort en regel](#delete-rule)).
   > [!NOTE]
-  > En **neka all trafik** regel rekommenderas när Security Center, som ett resultat av algoritmen, inte identifierar trafik som ska tillåtas, baserat på den befintliga NSG-konfigurationen. Därför är den rekommenderade regeln att neka all trafik till den angivna porten. Namnet på den här typen av regel visas som "systemgenererat". Efter att ha tillämpat den här regeln kommer det faktiska namnet i NSG att vara en sträng som består av protokollet, trafik riktningen, "Neka" och ett slumpmässigt nummer.
+  > En **neka all trafik** regel rekommenderas när Security Center, som ett resultat av algoritmen, inte identifierar trafik som ska tillåtas, baserat på den befintliga NSG-konfigurationen. Därför är den rekommenderade regeln att neka all trafik till den angivna porten. Namnet på den här typen av regel visas som "*systemgenererat*". Efter att ha tillämpat den här regeln kommer det faktiska namnet i NSG att vara en sträng som består av protokollet, trafik riktningen, "Neka" och ett slumpmässigt nummer.
 
 *Så här ändrar du en regel för anpassad nätverks härdning:*
 
@@ -131,9 +131,9 @@ Du kan lägga till en regel för "Tillåt" som inte rekommenderades av Security 
 
 ### Ta bort en <a name ="delete-rule"></a> regel
 
-Vid behov kan du ta bort en rekommenderad regel. Du kan till exempel bestämma att tillämpa en föreslagen regel kan blockera legitim trafik.
+Vid behov kan du ta bort en rekommenderad regel för den aktuella sessionen. Du kan till exempel bestämma att tillämpa en föreslagen regel kan blockera legitim trafik.
 
-*Så här tar du bort en regel för anpassad nätverks härdning:*
+*Så här tar du bort en regel för anpassad nätverks härdning för den aktuella sessionen:*
 
 1. Klicka på de tre punkterna (...) i slutet av regelns rad på fliken **regler** och klicka sedan på **ta bort**.  
 

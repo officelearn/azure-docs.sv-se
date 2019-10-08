@@ -10,12 +10,12 @@ ms.author: robreed
 ms.date: 09/24/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 010c6b00161c7a0a004932528fa4f608aa7c5e23
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: ab6d213e83c2d7eba95c6c9a6dca5edc1f0f2215
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850684"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996517"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>Min första PowerShell Workflow-runbook
 
@@ -123,7 +123,7 @@ Det runbook-jobb som du har skapat är fortfarande i utkastläge. Du måste publ
 
 ## <a name="step-5---add-authentication-to-manage-azure-resources"></a>Steg 5 – Lägga till autentisering för att hantera Azure-resurser
 
-Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. Det kan du inte göra, om du inte har autentiserat med de autentiseringsuppgifter som anges i [kraven](#prerequisites). Det gör du med cmdleten **Connect-AzureRmAccount** .
+Du har testat och publicerat din runbook, men hittills gör den egentligen inget användbart. Du vill att den ska hantera Azure-resurser. Det kan du inte göra, om du inte har autentiserat med de autentiseringsuppgifter som anges i [kraven](#prerequisites). Det gör du med cmdleten **Connect-AzAccount** .
 
 1. Öppna textredigeraren genom att klicka på **Redigera** i fönstret MyFirstRunbook-Workflow.
 2. du behöver inte längre **Skriv resultatet** , så gå vidare och ta bort den.
@@ -132,17 +132,17 @@ Du har testat och publicerat din runbook, men hittills gör den egentligen inget
 
    ```powershell-interactive
    # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID `
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID `
    -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
+   $AzureContext = Select-AzSubscription -SubscriptionId $Conn.SubscriptionID
    ```
 
    > [!IMPORTANT]
-   > **Add-AzureRmAccount** och **login-AzureRmAccount** är nu alias för **Connect-AzureRmAccount**. Om cmdleten **Connect-AzureRMAccount** inte finns kan du använda **Add-AzureRMAccount** eller login **-AzureRMAccount**, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna.
+   > **Add-AzAccount** och **login-AzAccount** är nu alias för **Connect-AzAccount**. Om cmdleten **Connect-AzAccount** inte finns kan du använda **Add-AzAccount** eller **login-AzAccount**, eller så kan du [Uppdatera dina moduler](automation-update-azure-modules.md) i ditt Automation-konto till de senaste versionerna.
 
 > [!NOTE]
 > Du kan behöva [Uppdatera dina moduler](automation-update-azure-modules.md) även om du precis har skapat ett nytt Automation-konto.
@@ -154,22 +154,22 @@ Du har testat och publicerat din runbook, men hittills gör den egentligen inget
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>Steg 6 – Lägga till kod för att starta en virtuell dator
 
-Nu när din Runbook autentiseras till din Azure-prenumeration kan du hantera resurser. du lägger till ett kommando för att starta en virtuell dator. Du kan välja en virtuell dator i din Azure-prenumeration och nu hårdkoda du namnet i runbooken. Om du hanterar resurser över flera prenumerationer måste du använda parametern **-AzureRmContext** tillsammans med [Get-AzureRmContext](/powershell/module/azurerm.profile/get-azurermcontext).
+Nu när din Runbook autentiseras till din Azure-prenumeration kan du hantera resurser. du lägger till ett kommando för att starta en virtuell dator. Du kan välja en virtuell dator i din Azure-prenumeration och nu hårdkoda du namnet i runbooken. Om du hanterar resurser över flera prenumerationer måste du använda parametern **-AzContext** tillsammans med [Get-AzContext](/powershell/module/az.accounts/get-azcontext).
 
-1. Efter *Connect-AzureRmAccount*skriver du *Start-AzureRmVM-Name "VMName"-ResourceGroupName "NameofResourceGroup"* och anger namn och resurs grupp namn för den virtuella datorn som ska startas.
+1. Efter *Connect-AzAccount*skriver du *Start-AzVM-Name "VMName"-ResourceGroupName "NameofResourceGroup"* och anger namn och resurs grupp namn för den virtuella datorn som ska startas.
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
    {
-   # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   # Ensures you do not inherit an AzContext in your runbook
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
 
-   $AzureContext = Select-AzureRmSubscription -SubscriptionId $Conn.SubscriptionID
+   $AzureContext = Select-AzSubscription -SubscriptionId $Conn.SubscriptionID
 
-   Start-AzureRmVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzureRmContext $AzureContext
+   Start-AzVM -Name 'VMName' -ResourceGroupName 'ResourceGroupName' -AzContext $AzureContext
    }
    ```
 
@@ -180,7 +180,7 @@ Nu när din Runbook autentiseras till din Azure-prenumeration kan du hantera res
 
 din Runbook startar för närvarande den virtuella datorn som du hårdkodad i runbooken, men det skulle vara mer användbart om du kan ange den virtuella datorn när runbooken startas. Du lägger till indataparametrar till Runbook för att tillhandahålla den funktionen.
 
-1. Lägg till parametrar för *VMName* och *ResourceGroupName* i runbooken och använd dessa variabler med cmdleten **Start-AzureRmVM** som i exemplet nedan.
+1. Lägg till parametrar för *VMName* och *ResourceGroupName* i runbooken och Använd dessa variabler med cmdleten **Start-AzVM** som i exemplet nedan.
 
    ```powershell-interactive
    workflow MyFirstRunbook-Workflow
@@ -189,12 +189,12 @@ din Runbook startar för närvarande den virtuella datorn som du hårdkodad i ru
      [string]$VMName,
      [string]$ResourceGroupName
     )
-   # Ensures you do not inherit an AzureRMContext in your runbook
-   Disable-AzureRmContextAutosave –Scope Process
+   # Ensures you do not inherit an AzContext in your runbook
+   Disable-AzContextAutosave –Scope Process
 
    $Conn = Get-AutomationConnection -Name AzureRunAsConnection
-   Connect-AzureRmAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
-   Start-AzureRmVM -Name $VMName -ResourceGroupName $ResourceGroupName
+   Connect-AzAccount -ServicePrincipal -Tenant $Conn.TenantID -ApplicationId $Conn.ApplicationID -CertificateThumbprint $Conn.CertificateThumbprint
+   Start-AzVM -Name $VMName -ResourceGroupName $ResourceGroupName
    }
    ```
 
@@ -210,7 +210,7 @@ din Runbook startar för närvarande den virtuella datorn som du hårdkodad i ru
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview)-dokumenten.
+* Mer information om PowerShell, inklusive språk referens-och inlärnings moduler finns i [PowerShell-dokumenten](https://docs.microsoft.com/en-us/powershell/scripting/overview).
 * Information om hur du kommer igång med grafiska runbooks finns i [Min första grafisk runbook](automation-first-runbook-graphical.md)
 * Se hur du kommer igång med PowerShell-runbooks i [Min första PowerShell-runbook](automation-first-runbook-textual-powershell.md)
 * Mer information om typer av runbooks, och om deras fördelar och begränsningar, finns i [Typer av Azure Automation-runbooks](automation-runbook-types.md)

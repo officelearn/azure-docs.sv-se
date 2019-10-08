@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 2056970a91a90fc14528b13650472722a235c354
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 4d4d83e12d284ce760b8a7e87fd42e6c8ebb4850
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350482"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001210"
 ---
 # <a name="create-and-manage-reusable-environments-for-training-and-deployment-with-azure-machine-learning"></a>Skapa och hantera återanvändbara miljöer för utbildning och distribution med Azure Machine Learning.
 
@@ -36,7 +36,7 @@ Miljöer anger python-paket, miljövariabler och program varu inställningar kri
 
 Du kan använda ett miljö objekt i din lokala beräkning för att utveckla ditt utbildnings skript, återanvända samma miljö på Azure Machine Learning beräkning för modell utbildning i stor skala och till och med distribuera din modell med samma miljö.
 
-Följande illustrerar att samma miljö objekt kan användas i både din körnings konfiguration för utbildning och i din inferencing-och distributions konfiguration för webb tjänst distributioner.
+I följande avsnitt visas hur du kan använda samma miljö objekt i både din körnings konfiguration för utbildning och i konfigurationen för din konfiguration för distribution av webb tjänster.
 
 ![Diagram över miljö i Machine Learning-arbetsflöde](./media/how-to-use-environments/ml-environment.png)
 
@@ -160,7 +160,7 @@ Lägg till paket i en miljö med Conda-, pip-eller privata Wheel-filer. Ange var
 
 Om ett paket är tillgängligt i en Conda-lagringsplats bör du använda Conda över pip-installationen. Orsaken är att Conda-paket vanligt vis levereras med färdiga binärfiler som gör installationen mer tillförlitlig.
 
-I följande exempel lägger `scikit-learn`till, specifikt version 0.21.3 och `pillow` `myenv` paket till miljön med [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) respektive [`add_pip_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) -metoderna.
+I följande exempel läggs `scikit-learn`, specifikt version 0.21.3 och `pillow`-paket till miljön, `myenv` med [`add_conda_package()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-conda-package-conda-package-) [-och `add_pip_package()`-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py#add-pip-package-pip-package-) metoderna.
 
 ```python
 from azureml.core import Environment
@@ -178,7 +178,7 @@ myenv.python.conda_dependencies=conda_dep
 
 ### <a name="private-wheel-files"></a>Privata Wheel-filer
 
-Du kan använda privata pip-drivrutinsfiler genom att först ladda upp den till din lagrings plats med hjälp [`add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) av en statisk metod, sedan fånga in lagrings-URL: en `add_pip_package()` och skicka URL: en till metoden
+Du kan använda privata pip-drivrutinsfiler genom att först ladda upp den till din lagrings plats med hjälp av statisk [`add_private_pip_wheel()`-](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) Metod, sedan fånga in lagrings-URL: en och skicka URL: en till metoden @no__t 2
 
 ```python
 # During environment creation the service replaces the URL by secure SAS URL, so your wheel file is kept private and secure
@@ -207,7 +207,7 @@ När den används för första gången, i utbildning eller distribution, registr
 
 ### <a name="get-existing-environments"></a>Hämta befintliga miljöer
 
-Miljö klassen erbjuder metoder som gör att du kan hämta befintliga miljöer i din arbets yta efter namn, som en lista eller genom att köra en speciell utbildning. För fel sökning eller gransknings syfte, reproducerbarhet
+Miljö klassen erbjuder metoder som gör att du kan hämta befintliga miljöer i din arbets yta efter namn, som en lista eller av en speciell utbildning som körs för fel söknings-eller gransknings syfte, samt reproducerbarhet.
 
 #### <a name="view-list-of-environments"></a>Visa lista över miljöer
 
@@ -216,7 +216,7 @@ Visa miljöerna i arbets ytan med [`Environment.list(workspace="workspace_name")
 #### <a name="get-environment-by-name"></a>Hämta miljö efter namn
 
 Du kan också få en speciell miljö efter namn och version.
-I följande kod används metoden [Get ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-) för att hämta versionen `1` `myenv` av `ws` miljön på arbets ytan.
+I följande kod används metoden [Get ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py#get-workspace--name--version-none-) för att hämta version `1` i miljön `myenv` på arbets ytan `ws`.
 
 ```python
 restored_environment = Environment.get(workspace=ws,name="myenv",version="1")
@@ -224,7 +224,7 @@ restored_environment = Environment.get(workspace=ws,name="myenv",version="1")
 
 #### <a name="training-run-specific-environment"></a>Utbildning som kör en speciell miljö
 
-Om du vill hämta miljön som används för en speciell körning när utbildningen har slutförts använder du metoden [get_environment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-environment--)i klassen Run.
+Om du vill hämta miljön som används för en speciell körning när utbildningen har slutförts använder du metoden [get_environment ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py#get-environment--) i klassen Run.
 
 ```python
 from azureml.core import Run
@@ -243,22 +243,22 @@ I det här exemplet används metoden [build ()](https://docs.microsoft.com/pytho
 
 ```python
 from azureml.core import Image
-build = env.build()
+build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
 ## <a name="docker-and-environments"></a>Docker och miljöer
 
- [DockerSection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) i Azure Machine Learning `Environments` -klassen gör att du kan anpassa och styra i detalj det gäst operativ system som din utbildning körs i.
+ [DockerSection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) i Azure Machine Learning `Environments`-klassen gör att du kan anpassa och kontrol lera i detalj det gäst operativ system som din utbildning körs i.
 
-När du `enable` dockar skapar tjänsten en Docker-avbildning och skapar en python-miljö med dina specifikationer inom den Docker-behållaren. Detta ger ytterligare isolering och reproducerbarhet för dina utbildnings körningar.
+När du `enable` Docker skapar tjänsten en Docker-avbildning och skapar en python-miljö med dina specifikationer inom den Docker-behållaren. Detta ger ytterligare isolering och reproducerbarhet för dina utbildnings körningar.
 
 ```python
 # Creates the environment inside a Docker container.
 myenv.docker.enabled = True
 ```
 
-När den har skapats visas Docker-avbildningen i Azure Container Registry som är kopplad till arbets ytan som standard.  Databas namnet har formatet *azureml/azureml_ @ no__t-1uuid @ no__t-2*. Den unika identifieraren (*uuuid*) motsvarar en hash beräknad från miljö konfigurationen. Detta gör att tjänsten kan avgöra om en avbildning som motsvarar den aktuella miljön redan finns för åter användning.
+När den har skapats visas Docker-avbildningen i Azure Container Registry som är kopplad till arbets ytan som standard.  Databas namnet har formatet *azureml/azureml_ @ no__t-1uuid @ no__t-2*. Den unika identifieraren (*UUID*) motsvarar en hash beräknad från miljö konfigurationen. Detta gör att tjänsten kan avgöra om en avbildning som motsvarar den aktuella miljön redan finns för åter användning.
 
 Dessutom använder tjänsten automatiskt en av de Ubuntu Linux-baserade [bas avbildningarna](https://github.com/Azure/AzureML-Containers)och installerar de angivna python-paketen. Bas avbildningen har processor-och GPU-versioner. Azure Machine Learning tjänsten identifierar automatiskt vilken version som ska användas.
 
@@ -269,7 +269,7 @@ myenv.docker.base_image_registry="your_registry_location"
 ```
 
 > [!NOTE]
-> Om du anger `environment.python.user_managed_dependencies=False` när du använder en anpassad Docker-avbildning kommer tjänsten att skapa en Conda-miljö i avbildningen och köra körningen i den miljön, i stället för att använda python-bibliotek som du kan ha installerat på bas avbildningen. Ange att parametern ska `True` använda dina egna installerade paket.
+> Om du anger `environment.python.user_managed_dependencies=False` när du använder en anpassad Docker-avbildning, kommer tjänsten att skapa en Conda-miljö i avbildningen och köra körningen i den miljön, i stället för att använda python-bibliotek som du kan ha installerat på bas avbildningen. Ange parametern till `True` om du vill använda dina egna installerade paket.
 
 ## <a name="using-environments-for-training"></a>Använda miljöer för utbildning
 
@@ -300,7 +300,7 @@ run = exp.submit(runconfig)
 ```
 
 > [!NOTE]
-> Om du vill inaktivera körnings historik eller köra ögonblicks bilder använder `ScriptRunConfig.run_config.history`du inställningen under.
+> Om du vill inaktivera körnings historik eller köra ögonblicks bilder använder du inställningen under `ScriptRunConfig.run_config.history`.
 
 Om du inte anger miljön i din körnings konfiguration kommer tjänsten att skapa en standard miljö när du skickar in din körning.
 
@@ -330,11 +330,11 @@ run = experiment.submit(sk_est)
 
 ## <a name="using-environments-for-web-service-deployment"></a>Använda miljöer för webb tjänst distribution
 
-Du kan använda miljöer när du distribuerar din modell som en webb tjänst. Detta gör det möjligt att skapa ett reproducerat arbets flöde där du kan träna, testa och distribuera din modell med exakt samma bibliotek i både träning och inferencing-beräkningar.
+Du kan använda miljöer när du distribuerar din modell som en webb tjänst. Detta gör det möjligt att skapa ett reproducerat arbets flöde där du kan träna, testa och distribuera din modell med exakt samma bibliotek i både din utbildning och dina härlednings beräkningar.
 
 Om du vill distribuera en webb tjänst kombinerar du miljö, bedömnings beräkning, bedömnings skript och registrerad modell i ditt distributions objekt, [distribuerar ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config--deployment-config-none--deployment-target-none-). Lär dig mer om att [distribuera webb tjänster](how-to-deploy-and-where.md).
 
-I det här exemplet förutsätter vi att du har slutfört en utbildning som vill distribuera modellen till en Azure Container Instance (ACI). När du skapar webb tjänsten monteras modell-och poängsättnings filerna på avbildningen och Azure Machine Learning inferencing-stacken läggs till i avbildningen.
+I det här exemplet förutsätter vi att du har slutfört en tränings körning och vill distribuera den modellen till en Azure Container Instance (ACI). När du skapar webb tjänsten monteras modell-och poängsättnings filerna på avbildningen och den Azure Machine Learning-härlednings stacken läggs till i avbildningen.
 
 ```python
 from azureml.core.model import InferenceConfig, Model
@@ -364,6 +364,6 @@ Den här [exempel antecknings boken](https://github.com/Azure/MachineLearningNot
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Självstudier: Träna en modell](tutorial-train-models-with-aml.md) använder ett hanterat beräknings mål för att träna en modell.
+* [Självstudier: Träna en modell @ no__t-0 använder ett hanterat beräknings mål för att träna en modell.
 * När du har en tränad modell lär du dig [hur och var modeller ska distribueras](how-to-deploy-and-where.md).
 * Visa [miljö klass](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment(class)?view=azure-ml-py) SDK-referensen.

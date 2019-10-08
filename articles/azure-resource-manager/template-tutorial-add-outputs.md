@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: beb2e6a16a303f633b36709fee2a60cca160d1b6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 458833372d5bd03a04e4df7d6e915cddb4bb05c7
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963809"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001534"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>Självstudier: Lägga till utdata i Resource Manager-mallen
 
@@ -49,7 +49,7 @@ Funktionen [Reference](resource-group-template-functions-resource.md#reference) 
 
 Slutligen returnerar den egenskapen **blobar** från lagrings kontot
 
-## <a name="deploy-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 Du är redo att distribuera mallen och titta på det returnerade värdet.
 
@@ -93,7 +93,7 @@ I utdata för kommandot distribution ser du ett objekt som liknar:
 
 ## <a name="review-your-work"></a>Granska ditt arbete
 
-Du har gjort en stor del av de senaste sex självstudierna. Vi tar en stund att granska vad du har gjort. Du har skapat en mall med parametrar som är enkla att tillhandahålla. Mallen kan återanvändas i olika miljöer eftersom den tillåter anpassning och dynamiskt skapar nödvändiga värden. Den returnerar information om det lagrings konto som du kan använda i skriptet.
+Du har gjort en stor del av de senaste sex självstudierna. Vi tar en stund att granska vad du har gjort. Du har skapat en mall med parametrar som är enkla att tillhandahålla. Mallen kan återanvändas i olika miljöer eftersom den tillåter anpassning och dynamiskt skapar nödvändiga värden. Den returnerar också information om det lagrings konto som du kan använda i skriptet.
 
 Nu ska vi titta på resurs gruppen och distributions historiken.
 

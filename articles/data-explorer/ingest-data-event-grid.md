@@ -1,36 +1,36 @@
 ---
 title: Mata in Azure-blobar i Azure Data Explorer
-description: I den här artikeln får du lära dig hur du skickar data för storage-konto till Azure Data Explorer med hjälp av en Event Grid-prenumeration.
+description: I den här artikeln får du lära dig hur du skickar lagrings konto data till Azure Datautforskaren att använda en Event Grid-prenumeration.
 author: radennis
 ms.author: radennis
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 5854a8974a4d2a9dbc1aa690dc2340fd806f4219
-ms.sourcegitcommit: ac1cfe497341429cf62eb934e87f3b5f3c79948e
+ms.openlocfilehash: 3c2407472cd15326c295f70c69606fc5ee663f72
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67490138"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996789"
 ---
-# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Mata in blobar i Azure Data Explorer genom att prenumerera på meddelanden för Event Grid
+# <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Mata in blobbar i Azure Datautforskaren genom att prenumerera på Event Grid meddelanden
 
-Azure Data Explorer är en snabb och skalbar tjänst för Kunskapsutveckling för logg-och telemetri. Den erbjuder kontinuerlig inmatning (datainläsning) från blobbar som skrivs till blob-behållare. 
+Azure Datautforskaren är en snabb och skalbar data utforsknings tjänst för logg-och telemetridata. Den erbjuder kontinuerlig inmatning (data inläsning) från blobbar skrivna till BLOB-behållare. 
 
-I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/azure/event-grid/overview) prenumeration och dirigera händelser till Datautforskaren i Azure via en händelsehubb. Om du vill börja, bör du ha ett lagringskonto med en event grid-prenumeration som skickar meddelanden till Azure Event Hubs. Sedan skapar en Event Grid-dataanslutning och se data flödet i hela systemet.
+I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/azure/event-grid/overview) prenumeration och dirigerar händelser till Azure datautforskaren via en Event Hub. Innan du börjar bör du ha ett lagrings konto med en Event Grid-prenumeration som skickar meddelanden till Azure Event Hubs. Sedan skapar du en Event Grid data anslutning och ser data flödet i systemet.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* En Azure-prenumeration. Skapa en [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
-* [Ett kluster och databasen](create-cluster-database-portal.md).
-* [Ett lagringskonto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
-* [En händelsehubb](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* En Azure-prenumeration. Skapa ett [kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
+* [Ett kluster och en databas](create-cluster-database-portal.md).
+* [Ett lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
+* [En Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="create-an-event-grid-subscription-in-your-storage-account"></a>Skapa en Event Grid-prenumeration på ditt lagringskonto
 
-1. Leta reda på lagringskontot i Azure-portalen.
-1. Välj **händelser** > **händelseprenumeration**.
+1. Hitta ditt lagrings konto i Azure Portal.
+1. Välj **händelser** > **händelse prenumeration**.
 
     ![Frågeprogramlänk](media/ingest-data-event-grid/create-event-grid-subscription.png)
 
@@ -38,30 +38,30 @@ I den här artikeln får du lära dig hur du ställer in en [Azure Event Grid](/
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
-    | Namn | *test-grid-connection* | Namnet på event grid som du vill skapa.|
-    | Händelseschema | *Event Grid-schema* | Schemat som ska användas för event grid. |
+    | Name | *test-grid-connection* | Namnet på det händelse rutnät som du vill skapa.|
+    | Händelseschema | *Event Grid schema* | Det schema som ska användas för Event Grid. |
     | Typ av ämne | *Lagringskonto* | Typ av Event Grid-ämne. |
     | Ämnesresurs | *gridteststorage* | Namnet på ditt lagringskonto. |
-    | Prenumerera på alla händelsetyper | *clear* | Få inte meddelanden vid alla händelser. |
-    | Definierade händelsetyper | *BLOB skapas* | Vilka specifika händelser du ska meddelas om. |
-    | Typ av slutpunkt | *Händelsehubbar* | Typ av slutpunkt som du skickar händelserna till. |
+    | Prenumerera på alla händelsetyper | *Rensa* | Få inte meddelanden vid alla händelser. |
+    | Definierade händelsetyper | *BLOB skapad* | Vilka specifika händelser du ska meddelas om. |
+    | Typ av slutpunkt | *Event Hub* | Typ av slutpunkt som du skickar händelserna till. |
     | Slutpunkt | *test-hub* | Händelsehubben som du skapade. |
     | | |
 
 1. Välj fliken **Ytterligare funktioner** om du vill spåra filer från en specifik container. Ange filter för meddelanden på följande sätt:
-    * **Ämnet börjar med** fältet är den *literal* prefixet för blob-behållaren. Eftersom det mönster som används är *startswith*, den kan sträcka sig över flera behållare. Jokertecken får inte användas.
+    * Fältet **subject börjar med** är det *litterala* prefixet för BLOB-behållaren. När mönstret som används är *StartsWith*kan det sträcka sig över flera behållare. Jokertecken får inte användas.
      Det *måste* anges enligt följande: *`/blobServices/default/containers/`* [containerprefix]
     * Fältet **Subject Ends With** (Ämnet slutar med) är det *literala* blobsuffixet. Jokertecken får inte användas.
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Skapa en måltabell i Azure Data Explorer
 
-Skapa en tabell i Azure Data Explorer där Händelsehubbar ska skicka data. Skapa tabellen i klustret och databasen förberett i förutsättningarna.
+Skapa en tabell i Azure Datautforskaren där Event Hubs ska skicka data. Skapa tabellen i klustret och databasen för beredd i kraven.
 
 1. Välj **Fråga** under klustret på Azure-portalen.
 
     ![Frågeprogramlänk](media/ingest-data-event-grid/query-explorer-link.png)
 
-1. Kopiera följande kommando i fönstret och välj **kör** till att skapa tabellen (TestTable) som ska ta emot de insamlade data.
+1. Kopiera följande kommando till fönstret och välj **Kör** för att skapa den tabell (TestTable) som ska ta emot inmatade data.
 
     ```Kusto
     .create table TestTable (TimeStamp: datetime, Value: string, Source:string)
@@ -77,19 +77,19 @@ Skapa en tabell i Azure Data Explorer där Händelsehubbar ska skicka data. Skap
 
 ## <a name="create-an-event-grid-data-connection-in-azure-data-explorer"></a>Skapa en Event Grid-dataanslutning i Azure Data Explorer
 
-Nu ansluta till event grid från Azure Data Explorer så att data som flödar till blob-behållaren strömmas till test-tabellen.
+Anslut nu till Event Grid från Azure Datautforskaren så att data som flödar till BLOB-behållaren strömmas till test tabellen. 
 
 1. Välj **Meddelanden** i verktygsfältet för att kontrollera att distributionen av händelsehubben lyckades.
 
-1. Under det kluster som du har skapat, Välj **databaser** > **TestDatabase**.
+1. Under klustret som du har skapat väljer du **databaser** > **TestDatabase**.
 
     ![Välj testdatabas](media/ingest-data-event-grid/select-test-database.png)
 
-1. Välj **datainmatning** > **Lägg till dataanslutning**.
+1. Välj **data inmatning** > **Lägg till data anslutning**.
 
     ![Datainhämtning](media/ingest-data-event-grid/data-ingestion-create.png)
 
-1.  Välj anslutningstyp: **BLOB-lagring**.
+1.  Välj Anslutnings typ: **BLOB-lagring**.
 
 1. Fyll i formuläret med följande information och välj **skapa**.
 
@@ -99,12 +99,12 @@ Nu ansluta till event grid från Azure Data Explorer så att data som flödar ti
 
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
-    | Namn på dataanslutning | *test-hub-connection* | Namnet på den anslutning som du vill skapa i Datautforskaren i Azure.|
+    | Namn på dataanslutning | *test-hub-connection* | Namnet på den anslutning som du vill skapa i Azure Datautforskaren.|
     | Lagringskontoprenumeration | Ditt prenumerations-ID | Prenumerations-ID:t där lagringskontot finns.|
-    | Lagringskonto | *gridteststorage* | Namnet på det lagringskonto som du skapade tidigare.|
-    | Event Grid | *test-grid-connection* | Namnet på event grid som du skapade. |
-    | Namn på händelsehubb | *test-hub* | Den händelsehubb som du skapade. Det här fältet fylls i automatiskt när du väljer en event grid. |
-    | Konsumentgrupp | *test-group* | Konsumentgruppen definierats i hubben som du skapade. |
+    | Lagringskonto | *gridteststorage* | Namnet på det lagrings konto som du skapade tidigare.|
+    | Event Grid | *test-grid-connection* | Namnet på det händelse rutnät som du har skapat. |
+    | Namn på händelsehubb | *test-hub* | Händelsehubben som du skapade. Det här fältet fylls i automatiskt när du väljer ett event-rutnät. |
+    | Konsumentgrupp | *test-group* | Konsument gruppen som definierats i den händelsehubben som du skapade. |
     | | |
 
     Måltabell:
@@ -112,15 +112,15 @@ Nu ansluta till event grid från Azure Data Explorer så att data som flödar ti
      **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Tabell | *TestTable* | Tabellen som du skapade i **TestDatabase**. |
-    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. Komprimeringsalternativ som stöds: Postnummer och GZip |
+    | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV och TXT. Komprimerings alternativ som stöds: Zip och GZip |
     | Kolumnmappning | *TestMapping* | Den mappning som du skapade i **TestDatabase**, som mappar inkommande JSON-data till kolumnnamnen och datatyperna i **TestTable**.|
     | | |
     
 ## <a name="generate-sample-data"></a>Generera exempeldata
 
-Nu när Azure Data Explorer och lagringskontot som är ansluten kan du skapa exempeldata och överföra den till blob-lagringen.
+Nu när Azure Datautforskaren och lagrings kontot är anslutna kan du skapa exempel data och ladda upp det till blob-lagringen.
 
-Vi kommer att arbeta med ett litet kommandoskript som utfärdar några grundläggande Azure CLI-kommandon för att interagera med Azure Storage-resurser. Det här skriptet skapar en ny behållare i ditt storage-konto, överför en befintlig fil (som en blob) till den behållaren och visar en lista över blobarna i behållaren. Du kan använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) att köra skriptet direkt i portalen.
+Vi kommer att arbeta med ett litet kommandoskript som utfärdar några grundläggande Azure CLI-kommandon för att interagera med Azure Storage-resurser. Det här skriptet skapar en ny behållare i ditt lagrings konto, laddar upp en befintlig fil (som en BLOB) till behållaren och listar sedan blobarna i behållaren. Du kan använda [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för att köra skriptet direkt i portalen.
 
 Spara data i en fil och ladda upp den med det här skriptet:
 
@@ -155,9 +155,9 @@ Spara data i en fil och ladda upp den med det här skriptet:
 ## <a name="review-the-data-flow"></a>Granska dataflödet
 
 > [!NOTE]
-> Azure Data Explorer har en aggregering (batchbearbetning)-princip för datainmatning som utformats för att optimera inmatning.
+> Azure Datautforskaren har en agg regerings princip (batch) för data inmatning som är utformad för att optimera inmatnings processen.
 Som standard konfigureras principen till 5 minuter.
-Du kommer att kunna ändra principen vid ett senare tillfälle om det behövs. I den här artikeln kan du förvänta dig en fördröjning på några minuter.
+Du kommer att kunna ändra principen vid ett senare tillfälle om det behövs. I den här artikeln kan du vänta en fördröjning på några minuter.
 
 1. Under ditt händelserutnät på Azure-portalen ser du en aktivitetstopp när appen körs.
 
@@ -192,8 +192,8 @@ Om du inte planerar att använda händelserutnätet igen rensar du **test-hub-rg
 
 1. Under **test-resource-group** väljer du **Ta bort resursgrupp**.
 
-1. I det nya fönstret, ange namnet på resursgruppen som ska ta bort (*test-hub-rg*), och välj sedan **ta bort**.
+1. I det nya fönstret anger du namnet på den resurs grupp som ska tas bort (*test-Hub-RG*) och väljer sedan **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Fråga efter data i Datautforskaren i Azure](web-query-data.md)
+* [Fråga efter data i Azure Datautforskaren](web-query-data.md)

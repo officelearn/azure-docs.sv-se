@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: quickstart
 ms.date: 09/23/2019
 ms.author: aahi
-ms.openlocfilehash: 86e69d75c067159a4daa637984a392a393dc46fa
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0c7d3ed7e2cbaee7d30f368efa004bbb3daaafdd
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211780"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996880"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-c"></a>Snabbstart: Identifiera digitalt bläck med hand SKRIFTS tolken REST API ochC#
 
@@ -41,104 +41,43 @@ Du hittar käll koden för den här snabb starten på [GitHub](https://go.micros
 
 - Du hittar exempel Penn strecks data för den här snabb starten på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/dotnet/InkRecognition/quickstart/example-ink-strokes.json).
 
-[!INCLUDE [cognitive-services-ink-recognizer-signup-requirements](../../../../includes/cognitive-services-ink-recognizer-signup-requirements.md)]
+### <a name="create-an-ink-recognizer-resource"></a>Skapa en tryck färgs igenkännings resurs
 
+[!INCLUDE [creating-an-ink-recognizer-resource](../includes/setup-instructions.md)]
 
 ## <a name="create-a-new-application"></a>Skapa ett nytt program
 
 1. Skapa en ny konsol lösning i Visual Studio och Lägg till följande paket. 
+    
+    [!code-csharp[imports](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=imports)]
 
-    ```csharp
-    using System;
-    using System.IO;
-    using System.Net;
-    using System.Net.Http;
-    using System.Net.Http.Headers;
-    using System.Text;
-    using System.Threading.Tasks;
-    using Newtonsoft.Json;
-    using Newtonsoft.Json.Linq;
-    ```
+2. Skapa variabler för din prenumerations nyckel och slut punkt och exempel-JSON-filen. Slut punkten kommer senare att kombineras med `inkRecognitionUrl` för att få åtkomst till API: et. 
 
-2. Skapa variabler för din prenumerations nyckel och din slut punkt. Ersätt slut punkten nedan med den som har genererats för din tryck färgs igenkännings resurs. Lägg till den i hand SKRIFTS tolkens URI för att ansluta till API: et.
-
-    ```csharp
-    // Replace the subscriptionKey string with your valid subscription key.
-    const string subscriptionKey = "YOUR_SUBSCRIPTION_KEY";
-
-    // Replace the dataPath string with a path to the JSON formatted ink stroke data.
-    const string dataPath = @"PATH-TO-INK-STROKE-DATA"; 
-
-    // URI information for ink recognition:
-    const string endpoint = "https://<your-custom-subdomain>.cognitiveservices.azure.com";
-    const string inkRecognitionUrl = "/inkrecognizer/v1.0-preview/recognize";
-    ```
+    [!code-csharp[endpoint file path and key variables](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=vars)]
 
 ## <a name="create-a-function-to-send-requests"></a>Skapa en funktion för att skicka begär Anden
 
-1. Skapa en ny async-funktion `Request` som använder variablerna som skapats ovan.
+1. Skapa en ny async-funktion som kallas `Request` som använder variablerna som skapas ovan.
 
-2. Ange klientens säkerhets protokoll och huvud information med hjälp av `HttpClient` ett objekt. Se till att lägga till din prenumerations nyckel `Ocp-Apim-Subscription-Key` i rubriken. Skapa sedan ett `StringContent` objekt för begäran.
+2. Ange klientens säkerhets protokoll och huvud information med ett `HttpClient`-objekt. Se till att lägga till din prenumerations nyckel i `Ocp-Apim-Subscription-Key`-huvudet. Skapa sedan ett `StringContent`-objekt för begäran.
  
 3. Skicka begäran med `PutAsync()`. Returnera svaret om begäran lyckas.  
     
-    ```csharp
-    static async Task<string> Request(string apiAddress, string endpoint, string subscriptionKey, string requestData){
-        
-        using (HttpClient client = new HttpClient { BaseAddress = new Uri(apiAddress) }){
-            System.Net.ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
-            client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-
-            var content = new StringContent(requestData, Encoding.UTF8, "application/json");
-            var res = await client.PutAsync(endpoint, content);
-            if (res.IsSuccessStatusCode){
-                return await res.Content.ReadAsStringAsync();
-            }
-            else{
-                return $"ErrorCode: {res.StatusCode}";
-            }
-        }
-    }
-    ```
+    [!code-csharp[request example method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=request)]
 
 ## <a name="send-an-ink-recognition-request"></a>Skicka en begäran om hand SKRIFTS igenkänning
 
-1. Skapa en ny funktion som `recognizeInk()`kallas. Skapa begäran och skicka den genom att anropa `Request()` funktionen med din slut punkt, prenumerations nyckel, URL: en för API: et och den digitala Penn linjens data.
+1. Skapa en ny funktion som kallas `recognizeInk()`. Skapa begäran och skicka den genom att anropa funktionen `Request()` med din slut punkt, prenumerations nyckel, URL: en för API: et och informationen om digitala penndrag.
 
 2. Deserialisera JSON-objektet och skriv det till-konsolen. 
     
-    ```csharp
-    static void recognizeInk(string requestData){
-
-        //construct the request
-        var result = Request(
-            endpoint,
-            inkRecognitionUrl,
-            subscriptionKey,
-            requestData).Result;
-
-        dynamic jsonObj = Newtonsoft.Json.JsonConvert.DeserializeObject(result);
-        System.Console.WriteLine(jsonObj);
-    }
-    ```
+    [!code-csharp[request to recognize ink data](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=recognize)]
 
 ## <a name="load-your-digital-ink-data"></a>Läs in digitala pennan tecknings data
 
-Skapa en funktion som `LoadJson()` kallas för att läsa in JSON-filen med bläck data. Använd en `StreamReader` och `JsonTextReader` för att skapa `JObject` en och returnera den.
-    
-```csharp
-public static JObject LoadJson(string fileLocation){
+Skapa en funktion som kallas `LoadJson()` för att läsa in JSON-filen med bläck data. Använd en `StreamReader` och `JsonTextReader` för att skapa en `JObject` och returnera den.
 
-    var jsonObj = new JObject();
-
-    using (StreamReader file = File.OpenText(fileLocation))
-    using (JsonTextReader reader = new JsonTextReader(file)){
-        jsonObj = (JObject)JToken.ReadFrom(reader);
-    }
-    return jsonObj;
-}
-```
+[!code-csharp[load the JSON file](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=loadJson)]
 
 ## <a name="send-the-api-request"></a>Skicka API-begäran
 
@@ -146,16 +85,8 @@ public static JObject LoadJson(string fileLocation){
 
 2. Anropa funktionen `recognizeInk()` som skapats ovan. Använd `System.Console.ReadKey()` för att låta konsol fönstret vara öppet när du har kört programmet.
     
-    ```csharp
-    static void Main(string[] args){
+    [!code-csharp[file main method](~/cognitive-services-rest-samples/dotnet/InkRecognition/quickstart/recognizeInk.cs?name=main)]
 
-        var requestData = LoadJson(dataPath);
-        string requestString = requestData.ToString(Newtonsoft.Json.Formatting.None);
-        recognizeInk(requestString);
-        System.Console.WriteLine("\nPress any key to exit ");
-        System.Console.ReadKey();
-        }
-    ```
 
 ## <a name="run-the-application-and-view-the-response"></a>Kör programmet och Visa svaret
 

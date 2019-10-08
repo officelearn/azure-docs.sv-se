@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a97c10303a1ce74e53f46c21176c876faed307e7
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: bd20928816a30ad2843ce6c876bd77152dcd69e1
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958660"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001745"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Visa ditt program i Azure Active Directory-programgalleriet
 
@@ -36,7 +36,7 @@ Den här artikeln visar hur du visar en lista över ett program i program galler
 - En snabb sökning hittar ditt program i galleriet.
 - Kostnads fria, grundläggande och Premium Azure AD-kunder kan använda denna integrering.
 - Ömsesidiga kunder får en steg-för-steg-konfigurations guide.
-- Kunder som använder systemet för SCIM (Cross-Domain Identity Management) kan använda etablering för samma app.
+- Kunder som använder systemet för[scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(Cross-Domain Identity Management) kan använda etablering för samma app.
 
 ## <a name="prerequisites"></a>Förutsättningar
 

@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 08/19/2019
 ms.author: travisw
 ms.openlocfilehash: c676e98eb812a31d6fb8d7cc0f58929f803c868e
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
+ms.lasthandoff: 10/07/2019
 ms.locfileid: "70382078"
 ---
 # <a name="quickstart-create-a-voice-first-virtual-assistant-with-the-speech-sdk-uwp"></a>Snabbstart: Skapa en röst-första virtuell assistent med talet SDK, UWP
@@ -39,7 +39,7 @@ För den här snabbstarten krävs:
 
 ## <a name="optional-get-started-fast"></a>Valfritt: Kom igång snabbt
 
-I den här snabb starten beskrivs steg för steg hur du gör ett klient program för att ansluta till din Speech-aktiverade bot. Om du föredrar att använda den fullständiga käll koden för färdig att kompilera som används i den här snabb starten finns den i [exemplen för tal-SDK](https://aka.ms/csspeech/samples) under `quickstart` mappen.
+I den här snabb starten beskrivs steg för steg hur du gör ett klient program för att ansluta till din Speech-aktiverade bot. Om du föredrar att använda den fullständiga käll koden för färdig att kompilera som används i den här snabb starten är den tillgänglig i [exemplen för tal-SDK](https://aka.ms/csspeech/samples) under mappen `quickstart`.
 
 ## <a name="create-a-visual-studio-project"></a>Skapa ett Visual Studio-projekt
 
@@ -53,7 +53,7 @@ Lägg nu till XAML-koden som definierar användar gränssnittet för programmet 
 
 Först skapar du programmets användar gränssnitt genom att lägga till XAML-koden:
 
-1. Öppna`MainPage.xaml`i **Solution Explorer**.
+1. Öppna `MainPage.xaml` i **Solution Explorer**.
 
 1. I designerns XAML-vy ersätter du hela innehållet med följande kodfragment:
 
@@ -108,7 +108,7 @@ Vyn Design uppdateras för att Visa programmets användar gränssnitt.
 
 Sedan lägger du till källa för bakomliggande kod så att programmet fungerar som förväntat. Källan för bakomliggande kod innehåller:
 
-- `using`instruktioner för `Speech` namn områdena `Speech.Dialog` och
+- `using`-instruktioner för `Speech`-och `Speech.Dialog`-namnrymder
 - En enkel implementering för att säkerställa mikrofon åtkomst, kabelansluten till en knapp hanterare
 - Grundläggande användar gränssnitt hjälper dig att presentera meddelanden och fel i programmet
 - En landnings punkt för den initierings kod Sök väg som kommer att fyllas i senare
@@ -117,7 +117,7 @@ Sedan lägger du till källa för bakomliggande kod så att programmet fungerar 
 
 Följ dessa steg om du vill lägga till koden bakom källan:
 
-1. Öppnakäll filen `MainPage.xaml.cs`bakomliggande kod i Solution Explorer. (Det är grupperat `MainPage.xaml`under.)
+1. Öppna käll filen bakomliggande kod `MainPage.xaml.cs` i **Solution Explorer**. (Den grupperas under `MainPage.xaml`.)
 
 1. Ersätt filens innehåll med följande kodfragment:
 
@@ -289,7 +289,7 @@ Följ dessa steg om du vill lägga till koden bakom källan:
     }
     ```
 
-1. Lägg till följande kodfragment i metod texten i `InitializeDialogServiceConnector`. Den här koden skapar `DialogServiceConnector` med din prenumerations information.
+1. Lägg till följande kodfragment i metod texten för `InitializeDialogServiceConnector`. Den här koden skapar `DialogServiceConnector` med din prenumerations information.
 
     ```csharp
     // create a DialogServiceConfig by providing a bot secret key 
@@ -315,9 +315,9 @@ Följ dessa steg om du vill lägga till koden bakom källan:
    > [!NOTE]
    > Information om hur du konfigurerar roboten och hämtar en kanal hemlighet finns i dokumentationen till bot Framework för [den direkta rad igenkännings kanalen](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-directlinespeech).
 
-1. Ersätt strängarna `YourChannelSecret`, `YourSpeechSubscriptionKey`och `YourServiceRegion` med dina egna värden för din robot, tal prenumeration och [region](regions.md).
+1. Ersätt strängarna `YourChannelSecret`, `YourSpeechSubscriptionKey` och `YourServiceRegion` med dina egna värden för din robot, tal prenumeration och [region](regions.md).
 
-1. Lägg till följande kodfragment i slutet av metod texten i `InitializeDialogServiceConnector`. Den här koden konfigurerar hanterare för händelser som förlitar sig `DialogServiceConnector` på att kommunicera med sina robot aktiviteter, tal igenkännings resultat och annan information.
+1. Lägg till följande kodfragment i slutet av metod texten för `InitializeDialogServiceConnector`. Den här koden konfigurerar hanterare för händelser som förlitar sig på `DialogServiceConnector` för att kommunicera sina robot aktiviteter, tal igenkännings resultat och annan information.
 
     ```csharp
     // ActivityReceived is the main way your bot will communicate with the client 
@@ -372,7 +372,7 @@ Följ dessa steg om du vill lägga till koden bakom källan:
     };
     ```
 
-1. Lägg till följande kodfragment i bröd texten `ListenButton_ButtonClicked` i-metoden `MainPage` i-klassen. Den här koden ställs `DialogServiceConnector` in för att lyssna, eftersom du redan har upprättat konfigurationen och registrerat händelse hanterare.
+1. Lägg till följande kodfragment i bröd texten i metoden `ListenButton_ButtonClicked` i klassen `MainPage`. Den här koden konfigurerar `DialogServiceConnector` att lyssna på, eftersom du redan har upprättat konfigurationen och registrerat händelse hanterare.
 
     ```csharp
     if (connector == null)
@@ -401,7 +401,7 @@ Följ dessa steg om du vill lägga till koden bakom källan:
     }
     ```
 
-1. Välj **Arkiv** > **Spara alla** på Meny raden för att spara ändringarna.
+1. I meny raden väljer du **arkiv** > **Spara alla** för att spara ändringarna.
 
 ## <a name="build-and-run-the-application"></a>Skapa och kör appen
 
@@ -409,7 +409,7 @@ Nu är du redo att bygga och testa ditt program.
 
 1. Välj **bygge** > **build-lösning** i meny raden för att bygga programmet. Koden bör nu kompileras utan fel.
 
-1. Starta programmet genom att välja **Felsök** > **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
+1. Starta programmet genom att välja **felsök** > **Starta fel sökning** (eller tryck på **F5**). Fönstret **HelloWorld** visas.
 
    ![Exempel på UWP Virtual Assistant- C# program i-snabb start](media/sdk/qs-virtual-assistant-uwp-helloworld-window.png)
 

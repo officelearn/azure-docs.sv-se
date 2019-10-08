@@ -9,26 +9,23 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 96b8090bd0e178be53cb49f42438951645def5d9
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 2673d0d2c1cb174316e99a79a10a67347e2bc031
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960501"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001349"
 ---
 # <a name="tutorial-add-a-real-device-to-your-azure-iot-central-application"></a>Självstudier: Lägga till en riktig enhet till Azure IoT Central-programmet
 
 [!INCLUDE [iot-central-original-pnp](../../includes/iot-central-original-pnp-note.md)]
 
-Den här självstudien visar hur du lägger till och konfigurerar en riktig enhet till Microsoft Azure IoT Central-programmet. 
-_* du behöver inte din egen externa enhet för att slutföra den här kursen. Den "riktiga enheten" skapas som ett kod program som körs i kommando rads miljön._ 
+Den här självstudien visar hur du lägger till och konfigurerar en *riktig enhet* till din Microsoft Azure IoT Central program. I den här självstudien kodar du den riktiga enheten med Node. js och kör koden på en stationär dator. Du behöver inte en separat IoT-enhet, till exempel en Raspberry Pi-eller MXChip IoT DevKit-enhet för att slutföra den här självstudien.
 
 Den här självstudien består av två delar:
 
 * Först lär du dig att som operatör lägga till och konfigurera en riktig enhet i Azure IoT Central-programmet. I slutet av den här delen hämtar du en anslutningssträng som används i den andra delen.
 * Sedan lär du dig, som enhetsutvecklare, om koden i din riktiga enhet. Du lägger till anslutningssträngen från den första delen i exempelkoden.
-
-
 
 I den här guiden får du lära dig att:
 
@@ -99,7 +96,7 @@ Följande steg visar hur du förbereder [Node.js](https://nodejs.org/)-exemplet:
 
    ![Enhetssidan visar informationslänk för att visa anslutning](media/tutorial-add-device/connectionlink.png)
 
-1. På sidan **enhets anslutning** noterar du **omfångs-ID**, **enhets-ID** och **primär nyckel** värden. Du kommer att använda dessa värden senare i den här självstudien.
+1. På sidan **enhets anslutning** noterar du **omfångs-ID**, **enhets-ID**och **primär nyckel** värden. Du använder dessa värden senare i den här självstudien.
 
    ![Information om anslutningen](media/tutorial-add-device/device-connect.png)
 

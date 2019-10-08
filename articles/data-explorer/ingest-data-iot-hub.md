@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 327fd5352a3f067638c7f9ceb51e2de9e284d845
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: ef66e6a69b6d33b16a558293fe29b8adf51cd137
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947852"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996754"
 ---
 # <a name="ingest-data-from-iot-hub-into-azure-data-explorer-preview"></a>Mata in data från IoT Hub till Azure Datautforskaren (förhands granskning)
 
@@ -77,11 +77,10 @@ Nu ansluter du till IoT Hub från Azure Datautforskaren. När den här anslutnin
     **Inställning** | **Fältbeskrivning**
     |---|---|
     | Namn på dataanslutning | Namnet på den anslutning som du vill skapa i Azure Datautforskaren
-    | IoT-hubb | IoT Hub-namn |
-    | Policy för delad åtkomst | Namnet på principen för delad åtkomst. Måste ha Läs behörighet |
+    | IoT-hubb | IoT Hub namn |
+    | Princip för delad åtkomst | Namnet på principen för delad åtkomst. Måste ha Läs behörighet |
     | Konsumentgrupp |  Konsument gruppen som definierats i den IoT Hub inbyggda slut punkten |
-    | Systemegenskaper för händelsen | [Egenskaperna för IoT Hub Event System](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages) om det finns flera poster per händelse meddelande läggs system egenskaperna till den första.|
-    | | 
+    | Egenskaper för händelse system | [System egenskaperna för IoT Hub Event](/azure/iot-hub/iot-hub-devguide-messages-construct#system-properties-of-d2c-iot-hub-messages). När du lägger till system egenskaper [skapar](/azure/kusto/management/tables#create-table) eller [uppdaterar](/azure/kusto/management/tables#alter-table-and-alter-merge-table) du tabell schema och [mappning](/azure/kusto/management/mappings) för att inkludera de valda egenskaperna. | | | 
 
     > [!NOTE]
     > Om du vill [redundansväxla manuellt](/azure/iot-hub/iot-hub-ha-dr#manual-failover)måste du återskapa data anslutningen.
@@ -95,7 +94,7 @@ Nu ansluter du till IoT Hub från Azure Datautforskaren. När den här anslutnin
     |---|---|---|
     | Tabell | *TestTable* | Den tabell som du skapade i **testdb**. |
     | Dataformat | *JSON* | Format som stöds är Avro, CSV, JSON, Multiline JSON, PSV, SOHSV, SCSV, TSV, TSVE och TXT. |
-    | Kolumnmappning | *TestMapping* | Mappningen som du skapade i **testdb**, som mappar inkommande JSON-data till kolumn namn och data typer för **testdb**. Krävs för JSON, Multiline-JSON och AVRO, och valfritt för andra format.|
+    | Kolumnmappning | *TestMapping* | [Mappningen](/azure/kusto/management/mappings) som du skapade i **testdb**, som mappar inkommande JSON-data till kolumn namn och data typer för **testdb**. Krävs för JSON, Multiline-JSON och AVRO, och valfritt för andra format.|
     | | |
 
     > [!NOTE]
@@ -165,7 +164,7 @@ Om du inte planerar att använda din IoT Hub igen kan du rensa **test-Hub-RG**f�
 
 1. Välj **Resursgrupper** i Azure Portal längst till vänster och välj sedan den resursgrupp du skapat.  
 
-    Om den vänstra menyn är dold väljer du ![Visa-knappen](media/ingest-data-event-hub/expand.png) för att expandera den.
+    Om den vänstra menyn är dold väljer du ![Knappen Expandera](media/ingest-data-event-hub/expand.png) för att expandera den.
 
    ![Välj den resursgrupp som ska tas bort](media/ingest-data-event-hub/delete-resources-select.png)
 

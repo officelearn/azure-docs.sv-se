@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 2abe917d1713bbc5f5844aced5e688baacc7d397
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: a6326b2ea9b4c2247df4f93eba904b7527666131
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202010"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996387"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Hantera åtkomst till virtuella datorer med just-in-Time
 
@@ -118,7 +118,7 @@ Från ASC kan du konfigurera en JIT-princip och begära åtkomst till en virtuel
 
 Så här begär du åtkomst till en virtuell dator via ASC:
 
-1. Under **just-in-Time-åtkomst för virtuell dator**väljer du fliken **konfigurerad** .
+1. Under **just-in-Time VM-åtkomst**väljer du fliken **konfigurerad** .
 
 2. Under **virtuell dator**klickar du på de virtuella datorer som du vill begära åtkomst för. Detta sätter en bock bredvid den virtuella datorn.
 
@@ -149,7 +149,7 @@ Så här redigerar du en befintlig just-in-Time-princip för en virtuell dator:
 
 1. Välj **Redigera**.
 1. Under **konfiguration av JIT VM-åtkomst**kan du antingen redigera befintliga inställningar för en redan skyddad port eller lägga till en ny anpassad port. 
-  ![JIT VM-åtkomst](./media/security-center-just-in-time/edit-policy.png)
+  @no__t 0jit VM Access @ no__t-1
 
 ## <a name="audit-jit-access-activity-in-asc"></a>Granska JIT Access-aktivitet i ASC
 
@@ -227,7 +227,7 @@ Just-in-Time-funktionen för VM-åtkomst kan användas via Azure Security Center
 
 ## <a name="jit-vm-access-via-powershell"></a>JIT VM-åtkomst via PowerShell
 
-Om du vill använda den just-in-Time-baserade VM-lösningen via PowerShell använder du de officiella Azure Security Center PowerShell- `Set-AzJitNetworkAccessPolicy`cmdletarna och särskilt.
+Om du vill använda den just-in-Time-baserade VM-lösningen via PowerShell använder du de officiella Azure Security Center PowerShell-cmdletarna och specifikt `Set-AzJitNetworkAccessPolicy`.
 
 I följande exempel anges en just-in-Time-princip för VM-åtkomst på en enskild virtuell dator och följande anges:
 

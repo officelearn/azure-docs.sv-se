@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: 7448516e464a379e27abd45834b31760fca3fedd
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 01cc625767cbf437031f503cf4b0d4dc59b62e08
+ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71201844"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "71996295"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding to Azure Security Center standard för förbättrad säkerhet
 Uppgradera till Security Center standard för att dra nytta av förbättrad säkerhets hantering och skydd mot hot för dina hybrid moln arbets belastningar.  Du kan prova standard kostnads fritt. Mer information finns på sidan med Security Center [prissättning](https://azure.microsoft.com/pricing/details/security-center/) .
@@ -48,7 +48,7 @@ Så här uppgraderar du en prenumeration eller arbets yta till standard:
    -    Du kan uppgradera prenumerationer och arbetsytor som inte är berättigade till utvärderingsversionen.
    -    Du kan välja berättigade arbetsytor och prenumerationer för att påbörja din utvärderingsperiod.
 3.  Klicka på **Starta utvärdering** för att påbörja din utvärderingsperiod för de valda prenumerationerna.
-  ![Välj prenumeration](./media/security-center-onboarding/select-subscription.png)
+  ![Select-prenumeration @ no__t-1
 
 
    > [!NOTE]
@@ -111,7 +111,7 @@ I den här artikeln har du lärt dig att publicera Azure-och icke-Azure-resurser
 
 - [Aktivera datainsamling](security-center-enable-data-collection.md)
 - [Hotinformationsrapport](security-center-threat-report.md)
-- [Just-in-Time-åtkomst till virtuell dator](security-center-just-in-time.md)
+- [Just-in-time-åtkomst till virtuella datorer](security-center-just-in-time.md)
 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png

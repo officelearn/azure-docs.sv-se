@@ -122,7 +122,7 @@ Som tidigare nämnts tillhandahåller andra OWIN-bibliotek vanligt vis en liknan
 
 Med båda URI: erna som stöds av ditt webb-API, behöver du nu uppdatera webb programmet så att det hämtar tokens från b2clogin.com-slutpunkten.
 
-Du kan till exempel konfigurera exempel webb programmet att använda den nya slut punkten genom att ändra `ida:AadInstance` värdet i filen *TaskWebApp\\**Web. config*** i **TaskWebApp** -projektet.
+Du kan till exempel konfigurera exempel webb programmet att använda den nya slut punkten genom att ändra `ida:AadInstance` värdet i filen *TaskWebApp\\**Web. config** i* **TaskWebApp** -projektet.
 
 Ändra värdet i *Web. config* för TaskWebApp så att det refererar `{your-b2c-tenant-name}.b2clogin.com` till i stället för. `login.microsoftonline.com` `ida:AadInstance`
 

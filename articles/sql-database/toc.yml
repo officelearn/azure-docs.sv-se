@@ -34,6 +34,8 @@
           href: sql-database-server-level-firewall-rule.md
         - name: Konfigurera en offentlig slutpunkt i en hanterad instans
           href: sql-database-managed-instance-public-endpoint-configure.md
+        - name: Konfigurera anslutningstyper i en hanterad instans
+          href: sql-database-managed-instance-connection-type.md
         - name: VM-klientanslutning till en hanterad instans
           href: sql-database-managed-instance-configure-vm.md
         - name: Punkt-till-plats-anslutning till en hanterad instans

@@ -134,8 +134,7 @@
           href: resource-group-linked-templates.md
         - name: Skapa flera instanser
           href: resource-group-create-multiple.md
-        - name: Skapa resursgrupper och resurser i prenumerationen
-          displayName: subscription level deployment
+        - name: Resurser på prenumerationsnivå
           href: deploy-to-subscription.md
     - name: Distribuera mallar
       items:

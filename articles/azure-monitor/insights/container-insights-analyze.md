@@ -106,7 +106,7 @@ Standard sidan öppnas när du väljer **insikts** > **kluster**. Fyra linje pre
 Prestanda diagrammen visar fyra prestanda mått:
 
 - **CPU-användning&nbsp;%för nod**: Ett sammanställt perspektiv av CPU-belastning för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **AVG**, **min**, **50**, **nittionde**, **95**eller **Max** i percentils väljaren ovanför diagrammet. Filtren kan antingen användas individuellt eller tillsammans. 
-- **&nbsp;Minnes användningpånod:%** Ett sammanställt perspektiv för minnes användning för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **AVG**, **min**, **50**, **nittionde**, **95**eller **Max** i percentils väljaren ovanför diagrammet. Filtren kan antingen användas individuellt eller tillsammans. 
+- **Minnes användningpånod&nbsp;%** : Ett sammanställt perspektiv för minnes användning för hela klustret. Om du vill filtrera resultaten för tidsintervallet väljer du **AVG**, **min**, **50**, **nittionde**, **95**eller **Max** i percentils väljaren ovanför diagrammet. Filtren kan antingen användas individuellt eller tillsammans. 
 - **Antal noder**: Antalet noder och status från Kubernetes. Status för de klusternoder som visas är total, klar och inte redo. De kan filtreras separat eller kombineras i väljaren ovanför diagrammet. 
 - **Antal aktiva Pod**: Ett Pod antal och status från Kubernetes. Status för poddar som visas är total, väntar, körs, okänd, lyckades eller misslyckades. De kan filtreras separat eller kombineras i väljaren ovanför diagrammet. 
 

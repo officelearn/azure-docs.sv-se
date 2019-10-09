@@ -10,18 +10,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/01/2019
+ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: 100bbb6e0ed8e2ea5b35e30e7759a3b11c169b60
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c488b96940cac03b9c392f0ac4bd1d32a15ba111
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077632"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035277"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
-Virtuell nätverkspeering gör det möjligt för dig att sömlöst ansluta Azure [virtuella nätverk](virtual-networks-overview.md). När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peer-kopplade virtuella nätverk dirigeras via Microsoft-stamnätsinfrastrukturen på nästan samma sätt som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk genom endast *privata* IP-adresser. Azure stöder:
+Med peering för virtuella nätverk kan du sömlöst ansluta [virtuella](virtual-networks-overview.md)Azure-nätverk. När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peer-kopplade virtuella nätverk dirigeras via Microsoft-stamnätsinfrastrukturen på nästan samma sätt som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk genom endast *privata* IP-adresser. Azure stöder:
 * VNet-peering – anslutning av virtuella nätverk i samma Azure-region
 * Global VNet-peering – anslutning av virtuella nätverk i olika Azure-regioner
 
@@ -63,7 +63,7 @@ När virtuella nätverk har peer-kopplats kan du också konfigurera gatewayen i 
 
 ![Överföring vid VNET-peering](./media/virtual-networks-peering-overview/figure04.png)
 
-Gatewayöverföring stöds för både VNet-Peering och Global VNet-Peering. Gateway-överföring mellan virtuella nätverk som skapats via olika distributionsmodeller (Resource Manager och klassisk) stöds endast om gatewayen är i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
+Gateway-överföring stöds för både VNet-peering och global VNet-peering. Gateway-överföring mellan virtuella nätverk som skapats via olika distributions modeller (Resource Manager och klassisk) stöds endast om gatewayen finns i det virtuella nätverket (Resource Manager). Mer information om hur du använder en gateway för överföring finns i [Configure a VPN gateway for transit in a virtual network peering](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json) (Konfigurera en VPN-gateway för överföring i peer-kopplade virtuella nätverk).
 
 När de virtuella nätverken som delar samma Azure ExpressRoute-anslutning är peer-kopplade går trafiken mellan dem genom peering-relationen (dvs. genom Azures stamnätverk). Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Du kan även använda en delad gateway och konfigurera överföringen för lokala anslutningar.
 
@@ -78,7 +78,7 @@ Du kan också prova att gå igenom [felsökningsstegen för problem relaterade t
 ## <a name="requirements-and-constraints"></a>Krav och begränsningar
 
 Följande begränsningar gäller endast när virtuella nätverk peerkopplas globalt:
-- Resurser i ett virtuellt nätverk kan inte kommunicera med frontend IP-adressen för en intern belastningsutjämnare i ett globalt peer-kopplade virtuella nätverk. Det finns bara stöd för grundläggande belastningsutjämnare inom samma region. Det finns stöd för Standard Load Balancer för både, VNet-Peering och Global VNet-Peering. Tjänster som använder en grundläggande belastningsutjämnare som inte fungerar över Global VNet-Peering finns dokumenterade [här.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
+- Resurser i ett virtuellt nätverk kan inte kommunicera med klient delens IP-adress för en Basic-intern belastningsutjämnare i ett globalt peer-kopplat virtuellt nätverk. Stöd för grundläggande Load Balancer finns bara inom samma region. Stöd för Standard Load Balancer finns för både VNet-peering och global VNet-peering. Tjänster som använder en grundläggande belastningsutjämnare som inte kommer att fungera över global VNet-peering dokumenteras [här.](virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)
 
 Läs mer om krav och begränsningar i avsnittet om [krav och begränsningar för peering för virtuella nätverk](virtual-network-manage-peering.md#requirements-and-constraints). Du kan läsa om gränserna för hur många peerkopplingar du kan skapa för ett virtuellt nätverk i [Nätverksbegränsningar för Azure](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits). 
 
@@ -90,13 +90,13 @@ Du kan läsa om behörigheterna som krävs för att skapa peering för ett virtu
 
 En nominell avgift tas ut för ingående och utgående trafik som använder en VNET-peeringanslutning. Mer information om prissättning för VNet-Peering och Global VNet-peering finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Gateway-överföring är en peering egenskap som gör det möjligt för ett virtuellt nätverk ska kunna använda en VPN/ExpressRoute-gateway i ett peer-kopplat virtuellt nätverk för skriptkörning över flera platser eller VNet-till-VNet-anslutning. Trafik som passerar genom en fjärr-gateway i det här scenariot är föremål för [VPN gateway avgifter](https://azure.microsoft.com/pricing/details/vpn-gateway/) eller ExpressRoute-gateway debiteras och leder inte till [VNet-peering avgifter.](https://azure.microsoft.com/pricing/details/virtual-network) Till exempel om VNetA har en VPN-gateway för lokal anslutning och VNetB peerkopplas till VNetA till lämpliga egenskaper som har konfigurerats, debiteras trafik från VNetB till den lokala endast utgående per prissättning för VPN gateway eller ExpressRoute priser. Avgifter för VNet-peering gäller inte. Lär dig hur du [konfigurerar VPN-gatewayöverföring för peer-kopplade virtuella nätverk](../vpn-gateway/vpn-gateway-peering-gateway-transit.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+Gateway-överföring är en peering-egenskap som gör att ett virtuellt nätverk kan använda en VPN/ExpressRoute-gateway i ett peer-kopplat virtuellt nätverk för anslutning mellan lokala platser eller VNet-till-VNet-anslutning. Mer information finns i [VPN gateway-avgifter](https://azure.microsoft.com/pricing/details/vpn-gateway/) eller ExpressRoute Gateway-kostnader och [VNet-peering-kostnader.](https://azure.microsoft.com/pricing/details/virtual-network)
 
 ## <a name="next-steps"></a>Nästa steg
 
 * Peering för virtuellt nätverk skapas mellan virtuella nätverk som skapats via samma eller olika distributionsmodeller som finns i samma eller olika prenumerationer. Genomför en självstudiekurs för något av följande scenarier:
 
-    |Azure-distributionsmodell             | Prenumeration  |
+    |Azure-distributionsmodell             | Subscription  |
     |---------                          |---------|
     |Båda Resource Manager              |[Samma](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Olika](create-peering-different-subscriptions.md)|

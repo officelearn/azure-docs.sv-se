@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 5/30/2019
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: c92bb8b2adb3e91e691e9fd1c17a7ee43e84fd11
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 6dc846ab6af0ed4d6d48c6f6db0abbce06427c36
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "68362638"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035891"
 ---
 Azure Data Factory är en tjänst för flera innehavare som har följande standard gränser på plats för att se till att kund prenumerationer skyddas från var and ras arbets belastningar. Kontakta supporten om du vill höja gränserna upp till max gränsen för din prenumeration.
 
@@ -27,7 +27,7 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Samtidiga pipeline körs per data fabrik som delas mellan alla pipeliner i fabriken | 10 000  | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidig extern aktivitet körs per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Externa aktiviteter hanteras i integration runtime men körs på länkade tjänster, inklusive Databricks, lagrad procedur, HDInsights och andra.</small> | 3000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidiga pipeline-aktiviteter per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) <br><small>Pipeline-aktiviteter körs på integration runtime, inklusive lookup, GetMetadata och Delete.</small>| 1000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
-| Samtidiga redigerings åtgärder per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Ta med test anslutning, bläddra i Mapplista och tabell lista, förhandsgranska data. | 200 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Samtidiga redigerings åtgärder per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)<br><small>Including test anslutning, bläddra i Mapplista och tabell lista, förhandsgranska data. | 200 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Samtidig data integrerings enheter<sup>1</sup> förbrukning per prenumeration per [Azure integration runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region grupp 1<sup>2</sup>: 6000<br>Region grupp 2<sup>2</sup>: 3000<br>Region grupp 3<sup>2</sup>: 1500 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Maximalt antal aktiviteter per pipeline, som omfattar inre aktiviteter för behållare | 40 | 40 |
 | Maximalt antal länkade integrerings körningar som kan skapas mot en enda egen värd för integration runtime | 100 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
@@ -44,6 +44,10 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 | Läs API-anrop | 12500/h<br/><br/> Denna gräns införs av Azure Resource Manager, inte Azure Data Factory. | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Övervaka frågor per minut | 1,000 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Entitet CRUD-åtgärder per minut | 50 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Maximal tid för fel sökning av data flöde | 8 timmar | 8 timmar |
+| Samtidiga antalet data flöden per fabrik | 50 | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
+| Samtidiga antalet fel söknings sessioner per användare per fabrik | 3 | 3 |
+| Data flöde Azure IR TTL-gräns | 4 timmar | [Kontakta supporten](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 
 <sup>1</sup> data integrerings enheten (DIU) används i en moln-till-moln-åtgärd, Läs mer från [data integrerings enheter (version 2)](../articles/data-factory/copy-activity-performance.md#data-integration-units). Information om fakturering finns i [Azure Data Factory prissättning](https://azure.microsoft.com/pricing/details/data-factory/).
 
@@ -79,7 +83,7 @@ Azure Data Factory är en tjänst för flera innehavare som har följande standa
 
 | **Resurs** | **Nedre standard gräns** | **Minsta gräns** |
 | --- | --- | --- |
-| Schema intervall |15 minuter |15 minuter |
+| Schema intervall |15 minuter |15 minuter |
 | Intervall mellan återförsök |1 sekund |1 sekund |
 | Timeout-värde för återförsök |1 sekund |1 sekund |
 

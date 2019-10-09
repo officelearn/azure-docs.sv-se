@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 06/24/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 2bf7118d1f4be065969312d1fb9b0cf77e820d48
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b0a7221107f05ff2239bd77cc18e7ffedc18efc1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262886"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023593"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>Registrera en SQL Server virtuell dator i Azure med providern för SQL VM-resurs
 
@@ -42,6 +42,11 @@ Om du vill använda en SQL VM-adressresurs måste du också registrera SQL VM-re
 
   > [!NOTE]
   > Det finns inga ytterligare licensierings krav kopplade till registrering med resurs leverantören. Registrering med SQL VM Resource providern erbjuder en förenklad metod för att uppfylla kravet på att meddela Microsoft att Azure Hybrid-förmån har Aktiver ATS i stället för att hantera licens registrerings formulär för varje resurs. 
+
+Mer information om fördelarna med att använda providern för SQL VM-resursen finns i följande [channel9](https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure?WT.mc_id=dataexposed-c9-niner) -video: 
+
+<iframe src="https://channel9.msdn.com/Shows/Data-Exposed/Benefit-from-SQL-VM-Resource-Provider-when-self-installing-SQL-Server-on-Azure/player" width="960" height="540" allowFullScreen frameBorder="0" title="Dra nytta av SQL VM Resource Provider när du själv installerar SQL Server på Azure-Microsoft Channel 9-video"></iframe>
+
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -159,7 +164,7 @@ Du kan kontrol lera om din SQL Server VM redan har registrerats med resurs lever
 
 ### <a name="command-line"></a>Kommandorad
 
-Verifiera aktuell SQL Server VM registrerings status med antingen AZ CLI eller PowerShell. `ProvisioningState`visar `Succeeded` om registreringen lyckades. 
+Verifiera aktuell SQL Server VM registrerings status med antingen AZ CLI eller PowerShell. `ProvisioningState` visas `Succeeded` om registreringen lyckades. 
 
 # <a name="az-clitabbash"></a>[AZ CLI](#tab/bash)
 

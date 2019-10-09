@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: robinsh
-ms.openlocfilehash: 565330528638bb6c8e0458a9761e2cf9fa4e3d2a
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 729371ede8df3dc21f70bc5742de52f2be874507
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001479"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030000"
 ---
 # <a name="get-started-with-device-twins-python"></a>Kom igång med enhets garn (python)
 
@@ -70,7 +70,7 @@ I det här avsnittet skapar du en python-konsol-app som lägger till platsens me
    from iothub_service_client import IoTHubDeviceTwin, IoTHubError
    ```
 
-4. Lägg till följande kod. Ersätt `[IoTHub Connection String]` med IoT Hub-anslutningssträngen som du kopierade i [Hämta IoT Hub](#get-the-iot-hub-connection-string)-anslutningssträngen. Ersätt `[Device Id]` med det enhets-ID som du registrerade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
+4. Lägg till följande kod. Ersätt `[IoTHub Connection String]` med IoT Hub-anslutningssträngen som du kopierade i [Hämta IoT Hub-anslutningssträngen](#get-the-iot-hub-connection-string). Ersätt `[Device Id]` med enhets-ID: t som du registrerade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
   
     ```python
     CONNECTION_STRING = "[IoTHub Connection String]"
@@ -171,7 +171,7 @@ I det här avsnittet ska du skapa en python-konsol-app som ansluter till din hub
     from azure.iot.device import IoTHubModuleClient
     ```
 
-4. Lägg till följande kod. Ersätt placeholder-värdet med enhets anslutnings strängen som du kopierade i [Registrera en ny enhet i IoT Hub.](#register-a-new-device-in-the-iot-hub) `[IoTHub Device Connection String]`
+4. Lägg till följande kod. Ersätt värdet för plats hållaren `[IoTHub Device Connection String]` med enhets anslutnings strängen som du kopierade i [Registrera en ny enhet i IoT Hub](#register-a-new-device-in-the-iot-hub).
 
     ```python
     CONNECTION_STRING = "[IoTHub Device Connection String]"
@@ -187,7 +187,7 @@ I det här avsnittet ska du skapa en python-konsol-app som ansluter till din hub
             print(patch)
 
     def iothub_client_init():
-        client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
+        client = IoTHubModuleClient.create_from_connection_string(CONNECTION_STRING)
         return client
 
     def iothub_client_sample_run():

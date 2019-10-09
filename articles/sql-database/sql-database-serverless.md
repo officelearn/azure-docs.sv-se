@@ -11,12 +11,12 @@ author: moslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
 ms.date: 09/06/2019
-ms.openlocfilehash: 86c03554f5faa1ebb40faa20b6a271f5310ccd4f
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 3b2cc5c0b5deab084c6fdae9435ea3a90b2dd8a6
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828222"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173406"
 ---
 # <a name="azure-sql-database-serverless-preview"></a>Azure SQL Database utan server (för hands version)
 
@@ -28,7 +28,7 @@ Server lösa beräknings nivåer för en enskild databas är parameterstyrda av 
 
 ![utan server fakturering](./media/sql-database-serverless/serverless-billing.png)
 
-### <a name="performance-configuration"></a>Prestandakonfiguration
+### <a name="performance-configuration"></a>Prestanda konfiguration
 
 - **Lägsta virtuella kärnor** och **maximal virtuella kärnor** är konfigurerbara parametrar som definierar intervallet för beräknings kapacitet som är tillgängliga för databasen. Minnes-och IO-gränser är proportionella till det vCore-intervall som angetts.  
 - Den automatiska **paus fördröjningen** är en konfigurerbar parameter som definierar den tids period som databasen måste vara inaktiv innan den pausas automatiskt. Databasen återupptas automatiskt när nästa inloggning eller annan aktivitet sker.  Du kan också inaktivera AutoPause.
@@ -66,9 +66,9 @@ I följande tabell sammanfattas skillnader mellan server lös beräknings nivå 
 | | **Data behandling utan Server** | **Allokerad beräkning** |
 |:---|:---|:---|
 |**Användnings mönster för databas**| Intermittent, oförutsägbar användning med lägre genomsnittlig beräknings användning över tid. |  Vanliga användnings mönster med högre genomsnittlig beräknings användning över tid, eller flera databaser med elastiska pooler.|
-| **Prestanda hanterings ansträngning** |Sämre|Högre|
+| **Prestanda hanterings ansträngning** |sämre|Högre|
 |**Beräknings skalning**|Automatisk|Manuellt|
-|**Beräknings svars tid**|Lägre efter inaktiva perioder|Omedelbar|
+|**Beräknings svars tid**|Lägre efter inaktiva perioder|Direkt|
 |**Fakturerings precision**|Per sekund|Per timme|
 
 ## <a name="purchasing-model-and-service-tier"></a>Inköps modell och tjänst nivå
@@ -126,7 +126,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 |Funktion|Autoresume-utlösare|
 |---|---|
-|Autentisering och auktorisering|Inloggning|
+|Autentisering och auktorisering|Logga in|
 |Identifiering av hot|Aktivera/inaktivera inställningar för hot identifiering på databas-eller server nivå.<br>Ändra inställningarna för hot identifiering på databas-eller server nivå.|
 |Dataidentifiering och -klassificering|Lägga till, ändra, ta bort eller Visa känslighets etiketter|
 |Granskning|Visa gransknings poster.<br>Uppdaterar eller visar gransknings principen.|
@@ -141,7 +141,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 
 Funktionen för att återuppta automatiskt utlöses även under distributionen av vissa tjänste uppdateringar som kräver att databasen är online.
 
-### <a name="connectivity"></a>Anslutningar
+### <a name="connectivity"></a>Anslutningsmöjlighet
 
 Om en server lös databas har pausats kommer den första inloggningen att återuppta databasen och returnera ett fel som anger att databasen inte är tillgänglig med felkoden 40613. När databasen har återupptagits måste inloggningen göras om för att upprätta anslutningen. Databas klienter med logik för anslutnings försök ska inte behöva ändras.
 
@@ -155,7 +155,7 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
 
 1. Ange namnet på tjänst målet. Tjänst målet föreskriver tjänst nivån, maskin varu genereringen och Max virtuella kärnor. I följande tabell visas alternativen för tjänst målet:
 
-   |Namn på tjänst målet|Tjänstnivå|Maskin varu generering|Maximalt antal virtuella kärnor|
+   |Namn på tjänst målet|Tjänstnivå|Maskin varu generering|Max virtuella kärnor|
    |---|---|---|---|
    |GP_S_Gen5_1|Generellt syfte|Gen5|1|
    |GP_S_Gen5_2|Generellt syfte|Gen5|2|
@@ -171,7 +171,7 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
 
    |Parameter|Värde alternativ|Standardvärde|
    |---|---|---|---|
-   |Minsta antal virtuella kärnor|Är beroende av Max virtuella kärnor konfigurerade – se [resurs gränser](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 virtuella kärnor|
+   |Minsta virtuella kärnor|Är beroende av Max virtuella kärnor konfigurerade – se [resurs gränser](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 virtuella kärnor|
    |Pausa fördröjning|Lägst 60 minuter (1 timme)<br>Maximihalter 10080 minuter (7 dagar)<br>Steg om 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
 
 > [!NOTE]
@@ -179,9 +179,9 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
 
 ### <a name="create-new-database-in-serverless-compute-tier"></a>Skapa ny databas i Server lös beräknings nivå 
 
-#### <a name="use-azure-portal"></a>Använda Azure-portalen
+#### <a name="use-azure-portal"></a>Använd Azure Portal
 
-Gå till [Snabbstart: Skapa en enskild databas i Azure SQL Database med hjälp av](sql-database-single-database-get-started.md)Azure Portal.
+Gå till [Snabbstart: Skapa en enda databas i Azure SQL Database med hjälp av Azure Portal @ no__t-0.
 
 #### <a name="use-powershell"></a>Använd PowerShell
 
@@ -225,23 +225,23 @@ En server lös databas kan flyttas till en allokerad beräknings nivå på samma
 
 ## <a name="modifying-serverless-configuration"></a>Ändra konfiguration utan Server
 
-### <a name="maximum-vcores"></a>Maximalt antal virtuella kärnor
+### <a name="maximum-vcores"></a>Högsta antal virtuella kärnor
 
 #### <a name="use-powershell"></a>Använd PowerShell
 
-Att ändra Max virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp `MaxVcore` av argumentet.
+Att ändra Max virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med argumentet `MaxVcore`.
 
 ### <a name="minimum-vcores"></a>Lägsta antal virtuella kärnor
 
 #### <a name="use-powershell"></a>Använd PowerShell
 
-Att ändra den minsta virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med hjälp `MinVcore` av argumentet.
+Att ändra den minsta virtuella kärnor utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med argumentet `MinVcore`.
 
 ### <a name="autopause-delay"></a>Pausa fördröjning
 
 #### <a name="use-powershell"></a>Använd PowerShell
 
-Ändring av paus fördröjningen utförs med hjälp av kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med `AutoPauseDelayInMinutes` argumentet.
+Ändring av paus fördröjningen utförs med kommandot [set-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabase) i PowerShell med argumentet `AutoPauseDelayInMinutes`.
 
 ## <a name="monitoring"></a>Övervakning
 
@@ -326,9 +326,9 @@ Anta att priset för beräknings enheten är $0.000073/vCore/Second.  Sedan debi
 
 ## <a name="available-regions"></a>Tillgängliga regioner
 
-Server lös beräknings nivån är tillgänglig i hela världen utom följande regioner: Australien, centrala, Kina, östra, Kina, norra, Frankrike, södra, Tyskland, centrala, Tyskland nordöstra, västra Indien, södra Korea, södra, västra, Storbritannien, norra, Storbritannien, södra, Storbritannien, västra och västra centrala USA.
+Server lös beräknings nivån är tillgänglig i hela världen utom följande regioner: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, Storbritannien, norra, Storbritannien, södra 2, västra centrala USA och US Gov Central (Iowa).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Information om hur du kommer [igång finns i snabb start: Skapa en enskild databas i Azure SQL Database med hjälp av](sql-database-single-database-get-started.md)Azure Portal.
+- För att komma igång, se [Quickstart: Skapa en enda databas i Azure SQL Database med hjälp av Azure Portal @ no__t-0.
 - För resurs gränser, se [resurs gränser för Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

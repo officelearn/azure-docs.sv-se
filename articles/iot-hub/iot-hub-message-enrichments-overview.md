@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/10/2019
 ms.author: robinsh
-ms.openlocfilehash: 9e3df59af33d6e5fdd1024d42c34dc2b4ed3184e
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 40ce5c4f73daac2b88d3a59e46d43dba10db0954
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69873185"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177999"
 ---
 # <a name="message-enrichments-for-device-to-cloud-iot-hub-messages-preview"></a>Meddelande anrikning för IoT Hub-meddelanden från enhet till moln (för hands version)
 
@@ -90,8 +90,8 @@ Den här funktionen är tillgänglig i för hands version och är tillgänglig i
 
 Ta en titt på de här artiklarna om du vill ha mer information om routning av meddelanden till en IoT Hub:
 
-* [Själv studie kurs om meddelande förbättringar](tutorial-message-enrichments.md)
+* [Själv studie kurs om meddelande anrikning](tutorial-message-enrichments.md)
 
 * [Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter](iot-hub-devguide-messages-d2c.md)
 
-* [Självstudier: IoT Hub routning](tutorial-routing.md)
+* [Självstudiekurs: IoT Hub routning @ no__t-0

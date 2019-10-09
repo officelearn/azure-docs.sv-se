@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 03/18/2019
+ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c5399f46106d94d593a15530ee0c223a3f5f3eaf
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 869e59aea9b78c44b1a920e58ecefab5e0ca4920
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802061"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169414"
 ---
 # <a name="tutorial-create-linked-azure-resource-manager-templates"></a>Självstudie: Skapa länkade Azure Resource Manager-mallar
 
@@ -83,7 +83,7 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
 
 ## <a name="create-the-linked-template"></a>Skapa den länkade mallen
 
-Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas som en fristående mall för att skapa ett lagrings konto. I den här självstudien tar den länkade mallen två parametrar och skickar tillbaka ett värde till huvud mal len. Värdet "Return" är definierat i `outputs` elementet.
+Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas som en fristående mall för att skapa ett lagrings konto. I den här självstudien tar den länkade mallen två parametrar och skickar tillbaka ett värde till huvud mal len. Värdet "Return" är definierat i `outputs`-elementet.
 
 1. Öppna **linkedTemplate. JSON** i Visual Studio Code om filen inte är öppen.
 2. Gör följande ändringar:
@@ -166,7 +166,7 @@ Den länkade mallen skapar ett lagringskonto. Den länkade mallen kan användas 
 
 ## <a name="upload-the-linked-template"></a>Ladda upp den länkade mallen
 
-Huvudmallen och den länkade mallen måste vara tillgängliga från där du kör distributionen. I den här självstudien använder du distributionsmetoden för Cloud shell som du använde i [Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Huvudmallen (azuredeploy.json) laddas upp till gränssnittet. Den länkade mallen (linkedTemplate.json) måste delas på en säker plats. Följande PowerShell-skript skapar ett Azure Storage-konto, laddar upp mallen till lagringskontot och genererar en SAS-token för att ge begränsad åtkomst till mallfilen. För att förenkla självstudien laddar skriptet ned en slutförd länkad mall från en delad plats. Om du vill använda den länkade mallen du har skapat kan du använda [Cloud shell](https://shell.azure.com) för att ladda upp din länkade mall och sedan ändra skriptet om du vill använda en egen länkad mall.
+Huvudmallen och den länkade mallen måste vara tillgängliga från där du kör distributionen. I den här självstudien använder du distributionsmetoden för Cloud shell som du använde i [Självstudie: Skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md). Huvudmallen (azuredeploy.json) laddas upp till gränssnittet. Den länkade mallen (linkedTemplate.json) måste delas på en säker plats. Följande PowerShell-skript skapar ett Azure Storage-konto, laddar upp mallen till lagringskontot och genererar en SAS-token för att ge begränsad åtkomst till mallfilen. För att förenkla självstudien laddar skriptet ned en slutförd länkad mall från en GitHub-lagringsplats. Om du vill använda den länkade mallen du har skapat kan du använda [Cloud shell](https://shell.azure.com) för att ladda upp din länkade mall och sedan ändra skriptet om du vill använda en egen länkad mall.
 
 > [!NOTE]
 > Skriptet begränsar SAS-token så att det kan användas inom åtta timmar. Om du behöver mer tid för att slutföra den här självstudien ökar du förfallotiden.
@@ -179,7 +179,7 @@ $resourceGroupName = $projectNamePrefix + "rg"
 $storageAccountName = $projectNamePrefix + "store"
 $containerName = "linkedtemplates" # The name of the Blob container to be created.
 
-$linkedTemplateURL = "https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
+$linkedTemplateURL = "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json" # A completed linked template used in this tutorial.
 $fileName = "linkedStorageAccount.json" # A file name used for downloading and uploading the linked template.
 
 # Download the tutorial linked template
@@ -259,7 +259,7 @@ Huvudmallen heter azuredeploy.json.
       "properties": {
           "mode": "Incremental",
           "templateLink": {
-              "uri":"https://armtutorials.blob.core.windows.net/linkedtemplates/linkedStorageAccount.json"
+              "uri":"https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-linked-templates/linkedStorageAccount.json"
           },
           "parameters": {
               "storageAccountName":{"value": "[variables('storageAccountName')]"},

@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 0d430f7c9a6e9d59b20cd1420b65f70d9c6994d5
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 350bc95e08aa994e4cb70db6bf1f08d53bbec5a3
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141442"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177289"
 ---
 # <a name="quickstart-generate-a-thumbnail-using-the-computer-vision-rest-api-and-curl"></a>Snabbstart: Skapa en miniatyr med hjälp av Visuellt innehåll REST API och svängen
 
@@ -38,7 +38,7 @@ För att köra exemplet följer du dessa steg:
 1. Kopiera följande kod till ett redigeringsprogram.
 1. Ersätt `<Subscription Key>` med en giltig prenumerationsnyckel.
 1. Ersätt `<File>` med sökvägen och filnamnet för att spara miniatyrbilden.
-1. Ändra URL:en för begäran (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.0`) till den plats där du hämtade dina prenumerationsnycklar om det behövs.
+1. Ändra URL:en för begäran (`https://westcentralus.api.cognitive.microsoft.com/vision/v2.1`) till den plats där du hämtade dina prenumerationsnycklar om det behövs.
 1. Du kan också ändra bilden (`{\"url\":\"...`) som ska analyseras om du vill.
 1. Öppna ett kommandofönster på en dator där cURL är installerat.
 1. Klistra in koden i fönstret och kör kommandot.
@@ -54,14 +54,14 @@ Så här skapar du och kör exemplet:
 1. Gör följande ändringar i kommandot där det behövs:
     1. Ersätt värdet för `<subscriptionKey>` med din prenumerationsnyckel.
     1. Ersätt värdet för `<thumbnailFile>` med sökvägen och namnet på den fil där du kan spara miniatyren.
-    1. Ersätt den första delen av URL: en för`westcentralus`begäran () med texten i din egen slut punkts-URL.
+    1. Ersätt den första delen av URL: en för begäran (`westcentralus`) med texten i din egen slut punkts-URL.
         [!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
     1. Du kan också ändra bild-URL i begärandetexten (`https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\`) till URL-adressen till en annan bild från vilken du kan skapa en miniatyrbild.
 1. Öppna ett kommandotolksfönster.
 1. Klistra in kommandot från textredigeraren i kommandotolkens fönster och kör sedan kommandot.
 
     ```bash
-    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.0/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
+    curl -H "Ocp-Apim-Subscription-Key: <subscriptionKey>" -o <thumbnailFile> -H "Content-Type: application/json" "https://westcentralus.api.cognitive.microsoft.com/vision/v2.1/generateThumbnail?width=100&height=100&smartCropping=true" -d "{\"url\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Shorkie_Poo_Puppy.jpg/1280px-Shorkie_Poo_Puppy.jpg\"}"
     ```
 
 ## <a name="examine-the-response"></a>Granska svaret

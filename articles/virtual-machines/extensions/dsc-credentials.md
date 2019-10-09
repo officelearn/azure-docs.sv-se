@@ -7,7 +7,7 @@ author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
-keywords: dsc
+keywords: DSC
 ms.assetid: ea76b7e8-b576-445a-8107-88ea2f3876b9
 ms.service: virtual-machines-windows
 ms.topic: article
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
 ms.author: robreed
-ms.openlocfilehash: 38a302545f2dd46a8123816a41c97ae26ee4c260
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b0625e3ac14e28cb4d43313bf1d9bc8b7afa08b1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092516"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176695"
 ---
 # <a name="pass-credentials-to-the-azure-dscextension-handler"></a>Skicka autentiseringsuppgifter till Azure DSCExtension-hanteraren
 
@@ -60,7 +60,7 @@ configuration Main
 }
 ```
 
-Det är viktigt att inkludera **Node localhost** som en del av konfigurationen. Tilläggs hanteraren söker särskilt efter nodens **localhost** -instruktion. Om den här instruktionen saknas fungerar följande steg inte. Det är också viktigt att inkludera typecast **[PsCredential]** . Den här typen utlöser tillägget för att kryptera autentiseringsuppgifterna.
+Det är viktigt att inkludera **Node localhost** som en del av konfigurationen. Tilläggs hanteraren söker särskilt efter **nodens localhost** -instruktion. Om den här instruktionen saknas fungerar följande steg inte. Det är också viktigt att inkludera typecast **[PsCredential]** . Den här typen utlöser tillägget för att kryptera autentiseringsuppgifterna.
 
 Publicera skriptet till Azure Blob Storage:
 
@@ -83,11 +83,11 @@ $vm | Update-AzVM
 
 Om du kör den här koden uppmanas du att ange autentiseringsuppgifter. När autentiseringsuppgiften har angetts lagras den kortfattat i minnet. När autentiseringsuppgiften har publicerats med cmdleten **set-AzVMDscExtension** överförs AUTENTISERINGSUPPGIFTEN via https till den virtuella datorn. I den virtuella datorn lagrar Azure autentiseringsuppgifterna som krypterats på disken med hjälp av det lokala VM-certifikatet. Autentiseringsuppgifterna dekrypteras i minnet och sedan krypteras det igen för att skicka det till DSC.
 
-Den här processen skiljer sig [från att använda säkra konfigurationer utan tilläggs hanterare](/powershell/dsc/securemof). Azure-miljön ger dig ett sätt att överföra konfigurations data på ett säkert sätt via certifikat. När du använder DSC-tilläggs hanteraren behöver du inte ange **$CertificatePath** eller en **$CertificateID**/  **$Thumbprint** post i **ConfigurationData**.
+Den här processen skiljer sig [från att använda säkra konfigurationer utan tilläggs hanterare](/powershell/scripting/dsc/pull-server/securemof). Azure-miljön ger dig ett sätt att överföra konfigurations data på ett säkert sätt via certifikat. När du använder DSC-tilläggs hanteraren behöver du inte ange **$CertificatePath** eller en **$CertificateID**@no__t 2- **$Thumbprint** -post i **ConfigurationData**.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Få en [Introduktion till tilläggs hanteraren för Azure DSC](dsc-overview.md).
 - Granska [Azure Resource Manager-mallen för DSC-tillägget](dsc-template.md).
-- Mer information om PowerShell DSC finns i [PowerShell-dokumentations centret](/powershell/dsc/overview).
-- Om du vill ha fler funktioner som du kan hantera med hjälp av PowerShell DSC kan du bläddra i [PowerShell](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)-galleriet för fler DSC-resurser.
+- Mer information om PowerShell DSC finns i [PowerShell-dokumentations centret](/powershell/scripting/dsc/overview/overview).
+- Om du vill ha fler funktioner som du kan hantera med hjälp av PowerShell DSC kan du bläddra i [PowerShell-galleriet](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0)för fler DSC-resurser.

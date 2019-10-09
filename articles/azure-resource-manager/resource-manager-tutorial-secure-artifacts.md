@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 02/25/2019
+ms.date: 10/08/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bf004f07558ae1f252a6bd26b4fd59ea9e4eea6e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: bcf64d98f53d85937ee7960ec3938280814267d8
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069257"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170201"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Självstudie: Skydda artefakter i Azure Resource Manager-malldistributioner
 
@@ -64,7 +64,7 @@ Om du vill automatisera de här stegen med hjälp av ett PowerShell-skript kan d
 
 ### <a name="download-the-bacpac-file"></a>Ladda ned BACPAC-filen
 
-Ladda ned [BACPAC-filen](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/SQLDatabaseExtension.bacpac) och spara den på din lokala dator med samma namn, **SQLDatabaseExtension.bacpac**.
+Ladda ned [BACPAC-filen](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-sql-extension/SQLDatabaseExtension.bacpac) och spara den på din lokala dator med samma namn, **SQLDatabaseExtension.bacpac**.
 
 ### <a name="create-a-storage-account"></a>skapar ett lagringskonto
 
@@ -134,13 +134,13 @@ En blobcontainer krävs innan du kan ladda upp filer.
 
 ## <a name="open-an-existing-template"></a>Öppna en befintlig mall
 
-I den här sessionen ändrar du den mall som du skapade i [Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) för att anropa BACPAC-filen med en SAS-token.  Den mall som utvecklades i självstudien om SQL-tillägget delas på [https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json](https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json).
+I den här sessionen ändrar du den mall som du skapade i [Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) för att anropa BACPAC-filen med en SAS-token.  Mallen som utvecklas i själv studie kursen för SQL-tillägg delas i [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
 
     ```url
-    https://armtutorials.blob.core.windows.net/sqlextensionbacpac/azuredeploy.json
+    https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json
     ```
 3. Välj **Öppna** för att öppna filen.
 
@@ -237,7 +237,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien distribuerade du en SQL Server och en SQL-databas samt importerade en BACPAC-fil med hjälp av SAS-token. Information om hur du skapar en Azure-Pipeline för att ständigt utveckla och distribuera Resource Manager-mallar finns i
+I den här självstudien distribuerade du en SQL Server och en SQL-databas samt importerade en BACPAC-fil med hjälp av SAS-token. Information om hur du skapar en Azure-pipeline för att kontinuerligt utveckla och distribuera Resource Manager-mallar finns i
 
 > [!div class="nextstepaction"]
-> [Kontinuerlig integrering med Azure-Pipeline](./resource-manager-tutorial-use-azure-pipelines.md)
+> [Kontinuerlig integrering med Azure pipeline](./resource-manager-tutorial-use-azure-pipelines.md)

@@ -1,6 +1,6 @@
 ---
 title: Vanliga frågor om Microsoft Azure Service Fabric | Microsoft Docs
-description: Vanliga frågor om Service Fabric och deras svar
+description: Vanliga frågor och svar om Service Fabric och deras svar
 services: service-fabric
 documentationcenter: .net
 author: chackdan
@@ -13,103 +13,103 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/18/2017
-ms.author: chackdan
-ms.openlocfilehash: 0bd8a7d403ad1fe0f7abb15356cc9c90ed6b3f02
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: pepogors
+ms.openlocfilehash: 23479692e815b5dda010ec2035c206df15715347
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66153820"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167416"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Vanliga frågor och svar om Service Fabric
 
-Det finns många vanliga frågor om vad Service Fabric kan göra och hur den ska användas. Det här dokumentet beskriver många av dessa vanliga frågor och deras svar.
+Det finns många vanliga frågor om vad Service Fabric kan göra och hur det ska användas. Det här dokumentet beskriver många av dessa vanliga frågor och svar.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="cluster-setup-and-management"></a>Konfigurera och hantera kluster
+## <a name="cluster-setup-and-management"></a>Kluster konfiguration och hantering
 
-### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Hur jag återställa mitt certifikat för Service Fabric-kluster?
+### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Hur gör jag för att återställa min Service Fabric kluster certifikat?
 
-Återställa kräver alla uppgradering till ditt program hälsotillstånd felidentifiering innan dina Service Fabric-klusterkvorum genomför ändringen. allokerade ändringar kan bara återställas framåt. Eskalering engineer via kundsupport, eventuellt krävs återställa klustret, om en oövervakade stora certifikat ändringen har introducerats.  [Service Fabric-Programuppgradering](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) gäller [programuppgraderingsparametrar](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master), och levererar noll avbrottstid uppgradera löftet.  Efter vårt rekommenderade program Uppgraderingsläge övervakade, automatisk förloppet via uppdateringsdomäner baseras på hälsokontroller skickar, löpande tillbaka automatiskt vid uppdatering av standardtjänst misslyckas.
+Att återställa all uppgradering till programmet kräver identifiering av hälso tillstånd innan ditt Service Fabric-klusterkvorum genomför ändringen. genomförda ändringar kan bara vidarebefordras. Det kan vara nödvändigt att återställa klustret med hjälp av kund support tjänster, om en oövervakad ändring av certifikatet har introducerats.  [Service Fabric programmets program uppgradering](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master) tillämpar [parametrarna för program uppgradering](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)och ger noll avbrotts löfte.  Efter den rekommenderade program uppgraderingens övervakade läge baseras automatisk förloppet via uppdaterings domäner på hälso kontroller som passerar, och återställs automatiskt om det inte går att uppdatera en standard tjänst.
  
-Om klustret är fortfarande att använda egenskapen klassiska certifikatets tumavtryck i Resource Manager-mallen, rekommenderar vi du [ändra kluster från tumavtrycket för certifikatet till nätverksnamn](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), för att utnyttja moderna hemligheter hanteringsfunktioner.
+Om klustret fortfarande använder den klassiska certifikatets tumavtryck-egenskap i din Resource Manager-mall, rekommenderar vi att du [ändrar klustret från certifikatets tumavtryck till ett eget namn](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn), för att utnyttja moderna hemligheter-hanterings funktioner.
 
-### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Kan jag skapa ett kluster som sträcker sig över flera Azure-regioner eller mitt eget Datacenter?
+### <a name="can-i-create-a-cluster-that-spans-multiple-azure-regions-or-my-own-datacenters"></a>Kan jag skapa ett kluster som sträcker sig över flera Azure-regioner eller mina egna data Center?
 
 Ja. 
 
-Kärnan i Service Fabric-klusterteknik kan användas för att kombinera datorer som körs var som helst i världen, så länge som de har nätverksanslutning till varandra. Bygga och köra sådant kluster kan dock vara komplicerat.
+Kärn Service Fabric klustring teknik kan användas för att kombinera datorer som körs var som helst i världen, så länge de har nätverks anslutning till varandra. Det kan dock vara svårt att skapa och köra ett sådant kluster.
 
-Om du är intresserad av att det här scenariot kan vi uppmanar dig att komma i kontakt antingen via den [Service Fabric GitHub-Problemlista](https://github.com/azure/service-fabric-issues) eller via supportrepresentant för att få ytterligare hjälp. Service Fabric-teamet arbetar för att tillhandahålla ytterligare tydlighet, vägledning och rekommendationer för det här scenariot. 
+Om du är intresse rad av det här scenariot, uppmuntrar vi dig att kontakta antingen via [listan Service Fabric GitHub-problem](https://github.com/azure/service-fabric-issues) eller genom support representanten för att få ytterligare vägledning. Service Fabrics teamet arbetar för att ge ytterligare klarhet, vägledning och rekommendationer för det här scenariot. 
 
 Några saker som du bör tänka på: 
 
-1. Resurs för Service Fabric-kluster i Azure är idag, regional eftersom VM-skalningsuppsättningen anger att klustret är byggt på. Det innebär att du kan förlora möjligheten att hantera klustret via Azure Resource Manager eller Azure-portalen vid regionala fel. Detta kan hända även om klustret är igång och du skulle kunna interagera med den direkt. Dessutom erbjuder Azure idag inte möjlighet att aktivera ett enda virtuellt nätverk som kan användas i olika regioner. Det innebär att ett kluster för flera regioner i Azure kräver antingen [offentliga IP-adresser för varje virtuell dator i VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) eller [Azure VPN gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). Dessa nätverk alternativ har olika påverkan på kostnader, prestanda, och att vissa grad programdesign, så noggrann analys och planering krävs innan skapa sådan miljö.
-2. Underhåll, hantering och övervakning av dessa virtuella datorer kan bli komplicerad, särskilt när omfatta _typer_ över miljöer, till exempel mellan olika molnleverantörer eller mellan lokala resurser och Azure. Försiktighet måste vidtas för att se till att uppgraderingar, övervakning, hantering och diagnostik förstås både klustret och programmen innan du kör produktionsarbetsbelastningar i en sådan miljö. Om du redan har erfarenhet lösa dessa problem i Azure eller i ditt eget datacenter, är det troligt att lösningarna samma kan användas när att bygga ut eller som kör Service Fabric-klustret. 
+1. Service Fabric kluster resursen i Azure är regional idag, precis som de virtuella datorernas skalnings uppsättningar som klustret bygger på. Det innebär att om ett regionalt fel uppstår kan du förlora möjligheten att hantera klustret via Azure Resource Manager eller Azure Portal. Detta kan inträffa även om klustret fortfarande körs och du kommer att kunna interagera med det direkt. Dessutom erbjuder Azure idag inte möjligheten att ha ett enda virtuellt nätverk som kan användas i olika regioner. Det innebär att ett kluster med flera regioner i Azure kräver antingen [offentliga IP-adresser för varje virtuell dator i VM Scale Sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine) eller [Azure VPN-gatewayer](../vpn-gateway/vpn-gateway-about-vpngateways.md). De här nätverks valen har olika konsekvenser för kostnader, prestanda och en viss grad av program design, så noggrann analys och planering krävs innan du står inför en sådan miljö.
+2. Underhåll, hantering och övervakning av de här datorerna kan bli krångligt, särskilt när de sträcker sig över olika _typer_ av miljöer, till exempel mellan olika moln leverantörer eller mellan lokala resurser och Azure. Det måste vara viktigt att se till att uppgraderingar, övervakning, hantering och diagnostik förstås för både klustret och programmen innan du kör produktions arbets belastningar i en sådan miljö. Om du redan har erfarenhet av att lösa dessa problem i Azure eller i dina egna data Center, är det troligt att samma lösningar kan användas när du skapar eller kör Service Fabric klustret. 
 
-### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Tar emot Service Fabric-noder automatiskt OS-uppdateringar?
+### <a name="do-service-fabric-nodes-automatically-receive-os-updates"></a>Får Service Fabric noder automatiskt uppdateringar av operativ systemet?
 
-Du kan använda [VM Scale ställa in automatisk OS uppdateringar](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) allmänt tillgänglig funktion i dag.
+Du kan använda [Automatisk uppdatering av skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) allmänt tillgänglig funktion idag.
 
-För kluster som inte körs i Azure, har vi [tillhandahålls ett program](service-fabric-patch-orchestration-application.md) att korrigera operativsystem under dina Service Fabric-noder.
+För kluster som inte körs i Azure har vi [tillhandahållit ett program](service-fabric-patch-orchestration-application.md) för att korrigera operativ systemen under Service Fabric noderna.
 
-### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Kan jag använda stora VM-skalningsuppsättningar i mitt SF-kluster? 
+### <a name="can-i-use-large-virtual-machine-scale-sets-in-my-sf-cluster"></a>Kan jag använda stora skalnings uppsättningar för virtuella datorer i mitt SF-kluster? 
 
-**Kort svar** – Nej 
+**Kort svar** – nej. 
 
-**Svara på länge** – även om stora VM-skalningsuppsättningar kan du skala en VM scale Sets upp till 1 000 instanser av virtuella datorer, sker detta med hjälp av Placeringsgrupper (PGs). Feldomäner (fd) och uppgraderingsdomäner (ud) är endast konsekventa i placering grupp Service fabric använder sig FD och ud för att fatta beslut om placering av dina service repliker/Service-instanser. Eftersom FD och ud är jämförbara endast i en placeringsgrupp är kan inte SF använda den. Exempelvis kan VM1 i SG1 har en topologi av FD = 0 och VM9 i SG2 har en topologi av FD = 4, det innebär inte att VM1 och VM2 finns på två olika maskinvara rack, därför SF kan inte använda FD-värden i det här fallet att fatta beslut om placeringen.
+**Långt svar** – även om stora skalnings uppsättningar för virtuella datorer låter dig skala en virtuell dator skalnings uppsättning upp till 1000 VM-instanser gör det det genom att använda placerings grupper (PGS). Fel domäner (fd) och uppgraderings domäner (UDs) är bara konsekventa inom en placerings grupp Service Fabric använder fd och UDs för att fatta beslut om tjänst repliker/tjänst instanser. Eftersom fd och UDs endast är jämförbara inom en placerings grupp, kan inte SF använda den. Om t. ex. VM1 i SG1 har en topologi av FD = 0 och VM9 i SG2 har en topologi av FD = 4, betyder det inte att VM1 och VM2 finns på två olika maskin varu rack, och därför kan SF inte använda FD-värdena i det här fallet för att fatta beslut om placering.
 
-Det finns andra problem med stor VM-skalningsuppsättningar, som om bristen på nivå 4-ladda stöd för belastningsutjämning. Det finns [information om stora skalningsuppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
-
-
-
-### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Vad är den minsta storleken på Service Fabric-kluster? Varför kan det vara mindre?
-
-Den minsta storleken som stöds för Service Fabric-kluster som kör produktionsarbetsbelastningar är fem noder. För scenarier för utveckling stöder vi en nod (optimerad för snabb utvecklingsupplevelse i Visual Studio) och kluster med fem noder.
-
-Vi kräver ett produktionskluster ha minst 5 noder på grund av följande tre orsaker:
-1. Även om inga användare-tjänsterna körs, körs Service Fabric-kluster en uppsättning tillståndskänsliga systemtjänster, inklusive namngivningstjänsten och redundans manager-tjänsten. Tjänsterna system är nödvändiga för att klustret ska fortsätta att fungera.
-2. Vi prioriterar alltid en replik av en tjänst per nod, så klusterstorlek är den övre gränsen för antalet repliker som en tjänst (faktiskt en partition) kan ha.
-3. Eftersom en uppgradering av klustret kommer att få ned minst en nod, vill vi ha en buffert på minst en nod, därför vill vi ett produktionskluster ha minst två noder *dessutom* till minst. Minst är kvorum storleken på en systemtjänst som beskrivs nedan.  
-
-Vi vill att klustret ska vara tillgängliga om samtidiga fel med två noder. Systemtjänster måste vara tillgänglig för ett Service Fabric-kluster ska vara tillgängliga. Tillståndskänsliga systemtjänster som namntjänst och redundans manager-tjänsten, som att spåra vilka tjänster som har distribuerats till klustret och där de är för närvarande finns, beror på stark konsekvens. Den stark konsekvensen i sin tur är beroende av möjligheten att hämta en *kvorum* Services-tillståndet för de angivna uppdateringar, där ett kvorum representerar en strikt majoritet av repliker (N/2 + 1) för en viss tjänst. Så om vi vill vara motståndskraftiga mot samtidiga förlust av två noder (alltså samtidiga förlust av två repliker på en systemtjänst), vi måste ha ClusterSize - QuorumSize > = 2, vilket tvingar den minsta storleken är fem. För att se som klustret har N noder och det finns N replikeringar av en system-tjänst – en på varje nod. Kvorum-storleken för en systemtjänst är (N/2 + 1). Ovanstående ojämlikhet ut N - (N/2 + 1) > = 2. Det finns två fall att tänka på: när N är jämnt och när N är udda. Om N är jämnt, exempelvis N = 2\*m där m > = 1, 2 ojämlikhet ut\*m - (2\*m/2 + 1) > = 2 eller m > = 3. Minimum för N är 6 och som kan uppnås när m = 3. Å andra sidan, om N är udda, säger N = 2\*m + 1 var m > = 1, 2 ojämlikhet ut\*m + 1 – ((2\*m + 1) / 2 + 1) > = 2 eller 2\*m + 1 – (m + 1) > = 2 eller m > = 2. Minimum för N är 5 och som kan uppnås när m = 2. Därför bland alla värden i N som uppfyller ojämlikhet ClusterSize - QuorumSize > = 2, vilket är 5.
-
-Observera att i argumentet ovan har vi antas att varje nod har en replik av en system-tjänst, alltså kvorum storleken beräknas baserat på antalet noder i klustret. Men genom att ändra *TargetReplicaSetSize* vi kan göra kvorum storleken mindre än (N / 2 + 1) som kan ge intryck av att vi kan har ett kluster som är mindre än 5 noder och fortfarande har 2 extra noder ovan storleken kvorum. Till exempel i ett kluster med 4 noder om vi ger TargetReplicaSetSize till 3, kvorum storleken utifrån TargetReplicaSetSize är (3/2 + 1) eller 2, så vi har ClusterSize - QuorumSize = 4-2 > = 2. Men vi kan inte garantera att system-tjänsten är tillgänglig med eller över kvorum om vi förlorar eventuella par noder samtidigt, kan det att de två noderna som vi förlorar som är värd för två repliker, så att systemtjänsten hamnar i förlorar kvorum (med endast en enskild replik till vänster) en ND blir otillgänglig.
-
-Mot den bakgrunden, låt oss nu undersöka några möjliga klusterkonfigurationer:
-
-**En nod**: det här alternativet ger inte hög tillgänglighet eftersom förlusten av en enda nod för märks innebär förlust av hela klustret.
-
-**Två noder**: ett kvorum för en tjänst som distribueras över två noder (N = 2) är 2 (2/2 + 1 = 2). När en enskild replik tappas bort, går det inte att skapa ett kvorum. Eftersom utför en uppgradering av tjänsten kräver att tillfälligt ta ned en replik, men detta är inte en användbar konfiguration.
-
-**Tre noder**: med tre noder (N = 3) kan kravet på att skapa ett kvorum är fortfarande två noder (3/2 + 1 = 2). Det innebär att du kan förlora en enskild nod och fortfarande behålla kvorum, men samtidigt fel hos två noder kommer att öka systemtjänster i förlorar kvorum och kommer att orsaka klustret blir otillgänglig.
-
-**Fyra noder**: med fyra noder (N = 4) kravet på att skapa ett kvorum är tre noder (4/2 + 1 = 3). Det innebär att du kan förlora en enskild nod och fortfarande behålla kvorum, men samtidigt fel hos två noder kommer att öka systemtjänster i förlorar kvorum och kommer att orsaka klustret blir otillgänglig.
-
-**Fem noder**: med fem noder (N = 5) kravet på att skapa ett kvorum är fortfarande tre noder (5/2 + 1 = 3). Det innebär att du kan förlora två noder på samma gång och fortfarande behålla kvorum för systemtjänster.
-
-För arbetsbelastningar för produktion, måste du vara motståndskraftiga mot samtidiga fel på minst två noder (till exempel en på grund av uppgradering av klustret, en på grund av andra orsaker), så att fem noder som krävs.
-
-### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Kan jag inaktivera mitt kluster på natten/helger för att spara kostnader?
-
-I allmänhet Nej. Service Fabric lagrar tillstånd på lokala differentierande diskar, vilket innebär att om den virtuella datorn flyttas till en annan värd, inte flyttar data med den. Under normal drift, som är inte ett problem eftersom den nya noden är online uppdaterade på andra noder. Men om du stoppar alla noder och starta sedan om dem senare, finns det en betydande risk som de flesta av noderna som börjar på nya värdar och gör det går inte att återställa systemet.
-
-Om du vill skapa kluster för att testa ditt program innan det distribueras rekommenderar vi att du skapar dessa kluster dynamiskt som en del av din [pipeline för kontinuerlig integrering/kontinuerlig distribution](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
+Det finns för närvarande andra problem med stora skalnings uppsättningar för virtuella datorer, t. ex. brist på nivå 4 belastnings Utjämnings stöd. Se för [information om stora skalnings uppsättningar](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md)
 
 
-### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Hur uppgraderar jag min operativsystemet (till exempel från Windows Server 2012 till Windows Server 2016)?
 
-Medan vi arbetar med en bättre upplevelse idag, är du ansvarig för uppgraderingen. Du måste uppgradera den OS-avbildningen på de virtuella datorerna i klustret en virtuell dator i taget. 
+### <a name="what-is-the-minimum-size-of-a-service-fabric-cluster-why-cant-it-be-smaller"></a>Vilken är minimi storleken på ett Service Fabric kluster? Varför kan det inte vara mindre?
 
-### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan jag kryptera anslutna datadiskar i en klusternodstyp (virtual machine scale Sets)?
-Ja.  Mer information finns i [skapa ett kluster med anslutna datadiskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [kryptera diskar (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md), och [kryptera diskar (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+Den minsta storlek som stöds för ett Service Fabric kluster som kör produktions arbets belastningar är fem noder. För utvecklings scenarier har vi stöd för en nod (optimerad för snabb utvecklings upplevelse i Visual Studio) och fem noder i klustret.
 
-### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan jag använda lågprioriterade virtuella datorer i en klusternodstyp (virtual machine scale Sets)?
-Nej. Lågprioriterade virtuella datorer stöds inte. 
+Ett produktions kluster måste ha minst 5 noder på grund av följande tre orsaker:
+1. Även om inga användar tjänster körs kör ett Service Fabric-kluster en uppsättning tillstånds känsliga system tjänster, inklusive namngivnings tjänsten och tjänsten failover Manager. Dessa system tjänster är nödvändiga för att klustret ska fortsätta att fungera.
+2. Vi placerar alltid en replik av en tjänst per nod, så kluster storleken är den övre gränsen för antalet repliker som en tjänst (faktiskt en partition) kan ha.
+3. Eftersom en kluster uppgradering kommer att ta minst en nod, vill vi ha en buffert på minst en nod, och vi vill därför att ett produktions kluster ska ha minst två noder *förutom* det lägsta. Minimi kravet är kvorumresursens storlek på en system tjänst enligt beskrivningen nedan.  
 
-### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Vad är kataloger och processer som jag behöver ska undantas när du kör ett antivirusprogram i mitt kluster?
+Vi vill att klustret ska vara tillgängligt i ett samtidigt fel i två noder. För att ett Service Fabric kluster ska vara tillgängligt måste system tjänsterna vara tillgängliga. Tillstånds känsliga system tjänster som namngivnings tjänst och failover Manager-tjänst, som spårar vilka tjänster som har distribuerats till klustret och var de finns, beror på stark konsekvens. Att stark konsekvens, i sin tur, beror på möjligheten att förvärva ett *kvorum* för en eventuell uppdatering av status för dessa tjänster, där ett kvorum representerar en strikt majoritet av replikerna (N/2 + 1) för en specifik tjänst. Om vi vill vara elastiska mot Samtidig förlust av två noder (alltså samtidigt förlust av två repliker av en system tjänst) måste vi ha ClusterSize-QuorumSize > = 2, vilket tvingar den minsta storleken att vara fem. Om du vill se att klustret har N noder och det finns N repliker av en system tjänst – en på varje nod. Kvorumresursens storlek för en system tjänst är (N/2 + 1). Ovanstående olikhet ser ut som N-(N/2 + 1) > = 2. Det finns två fall att tänka på: när N är jämnt och när N är udda. Om N är jämnt, säg N = 2 @ no__t-0m där m > = 1, ser olikheten ut som 2 @ no__t-1m-(2 @ no__t-2 m/2 + 1) > = 2 eller m > = 3. Minimivärdet för N är 6 och uppnås när m = 3. Å andra sidan om N är udda, säg N = 2 @ no__t-0m + 1 där m > = 1, ser olikheten ut som 2 @ no__t-1m + 1-((2 @ no__t-2 m + 1)/2 + 1) > = 2 eller 2 @ no__t-3m + 1-(m + 1) > = 2 eller m > = 2. Minimivärdet för N är 5 och uppnås när m = 2. Därför är det bland alla värden av N som uppfyller ClusterSize-QuorumSize > = 2, minimivärdet är 5.
+
+Obs! i ovanstående argument har vi förmodat att varje nod har en replik av en system tjänst, vilket innebär att kvorumdisken beräknas baserat på antalet noder i klustret. Genom att ändra *TargetReplicaSetSize* skulle vi dock kunna göra kvorumloggen mindre än (N/2 + 1), vilket kan ge intryck av att vi kan ha ett kluster som är mindre än 5 noder och fortfarande ha 2 extra noder ovanför kvorumresursens storlek. Om vi till exempel anger TargetReplicaSetSize till 3 i ett kluster med fyra noder, är kvorumresursens storlek baserad på TargetReplicaSetSize (3/2 + 1) eller 2, så vi har ClusterSize-QuorumSize = 4-2 > = 2. Vi kan dock inte garantera att system tjänsten kommer att finnas på eller över kvorum om vi förlorar några noder samtidigt, men det kan bero på att de två noderna som vi förlorade var värdar för två repliker, så att system tjänsten kommer att gå förlorade i kvorum (med en enda replik kvar) a nd blir otillgängligt.
+
+Med den bakgrunden undersöker vi några tänkbara klusterkonfigurationer:
+
+**En nod**: det här alternativet ger inte hög tillgänglighet eftersom förlusten av den enskilda noden av någon anledning innebär att hela klustret förloras.
+
+**Två noder**: ett kvorum för en tjänst som distribuerats över två noder (N = 2) är 2 (2/2 + 1 = 2). När en enskild replik går förlorad är det omöjligt att skapa ett kvorum. Eftersom utförandet av en tjänst uppgradering kräver tillfälligt en replik, är detta inte en användbar konfiguration.
+
+**Tre noder**: med tre noder (N = 3) är kravet på att skapa ett kvorum fortfarande två noder (3/2 + 1 = 2). Det innebär att du kan förlora en enskild nod och fortfarande upprätthålla kvorum, men ett samtidigt fel på två noder kommer att driva system tjänsterna till att förlora kvorum och kan orsaka att klustret blir otillgängligt.
+
+**Fyra noder**: med fyra noder (N = 4) måste kravet för att skapa ett kvorum vara tre noder (4/2 + 1 = 3). Det innebär att du kan förlora en enskild nod och fortfarande upprätthålla kvorum, men ett samtidigt fel på två noder kommer att driva system tjänsterna till att förlora kvorum och kan orsaka att klustret blir otillgängligt.
+
+**Fem noder**: med fem noder (N = 5) är kravet på att skapa ett kvorum fortfarande tre noder (5/2 + 1 = 3). Det innebär att du kan förlora två noder samtidigt och fortfarande upprätthålla kvorum för system tjänsterna.
+
+För produktions arbets belastningar måste du vara elastisk till samtidiga fel på minst två noder (till exempel en på grund av kluster uppgradering, en på grund av andra orsaker), så fem noder krävs.
+
+### <a name="can-i-turn-off-my-cluster-at-nightweekends-to-save-costs"></a>Kan jag stänga av mitt kluster på natten/helger för att spara kostnaderna?
+
+I allmänhet är nej. Service Fabric lagrar tillstånd på lokala, tillfälliga diskar, vilket innebär att om den virtuella datorn flyttas till en annan värd flyttas inte data med den. I normal drift är det inte ett problem eftersom den nya noden har uppdaterats av andra noder. Men om du stoppar alla noder och sedan startar om dem senare, finns det en betydande möjlighet att de flesta noderna börjar på nya värdar och gör att systemet inte kan återställas.
+
+Om du vill skapa kluster för att testa ditt program innan det distribueras, rekommenderar vi att du dynamiskt skapar dessa kluster som en del av [pipelinen för kontinuerlig integrering/kontinuerlig distribution](service-fabric-tutorial-deploy-app-with-cicd-vsts.md).
+
+
+### <a name="how-do-i-upgrade-my-operating-system-for-example-from-windows-server-2012-to-windows-server-2016"></a>Hur gör jag för att uppgraderar du mitt operativ system (till exempel från Windows Server 2012 till Windows Server 2016)?
+
+Vi arbetar på en förbättrad upplevelse, idag, och du ansvarar för uppgraderingen. Du måste uppgradera OS-avbildningen på virtuella datorer för klustret en virtuell dator i taget. 
+
+### <a name="can-i-encrypt-attached-data-disks-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan jag kryptera anslutna data diskar i en typ av klusternod (virtuell dators skalnings uppsättning)?
+Ja.  Mer information finns i [skapa ett kluster med anslutna data diskar](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks), [kryptera diskar (PowerShell)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-ps.md)och [kryptera diskar (CLI)](../virtual-machine-scale-sets/virtual-machine-scale-sets-encrypt-disks-cli.md).
+
+### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>Kan jag använda virtuella datorer med låg prioritet i en typ av klusternod (skalnings uppsättning för virtuella datorer)?
+Nej. Virtuella datorer med låg prioritet stöds inte. 
+
+### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Vad är de kataloger och processer som jag behöver undanta när jag kör ett antivirus program i mitt kluster?
 
 | **Antivirus uteslutna kataloger** |
 | --- |
@@ -132,64 +132,64 @@ Nej. Lågprioriterade virtuella datorer stöds inte.
 | FabricRM.exe |
 | FileStoreService.exe |
  
-### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Hur kan mitt program ska autentiseras mot KeyVault för att hämta hemligheter?
-Här följer innebär för ditt program att hämta autentiseringsuppgifter för att autentisera till KeyVault:
+### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Hur kan mitt program autentisera till nyckel valv för att få hemligheter?
+Följande innebär att ditt program kan hämta autentiseringsuppgifter för autentisering till nyckel valv:
 
-A. Under dina program build/förpackning jobb, kan du hämta ett certifikat till din SF-app-paket för data och används för att autentisera till KeyVault.
-B. För VM-skalningsuppsättningen MSI aktiverat värdar, kan du utveckla en enkel PowerShell SetupEntryPoint för din SF-app att hämta [en åtkomsttoken från MSI-slutpunkten](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token), och sedan [hämta dina hemligheter från KeyVault](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
+A. Du kan hämta ett certifikat till ditt SF-programs data paket och använda det för att autentisera till nyckel valv under program bygget/packnings jobbet.
+B. För virtuella datorer i skalnings uppsättningen för virtuella datorer kan du utveckla en enkel PowerShell-SetupEntryPoint för din SF-app för att få [en åtkomsttoken från MSI-slutpunkten](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)och sedan [Hämta dina hemligheter från nyckel valvet](/powershell/module/azurerm.keyvault/get-azurekeyvaultsecret).
 
-## <a name="application-design"></a>Programmets Design
+## <a name="application-design"></a>Program design
 
-### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Vad är det bästa sättet att köra frågor mot data över partitioner i en tillförlitlig samling?
+### <a name="whats-the-best-way-to-query-data-across-partitions-of-a-reliable-collection"></a>Vad är det bästa sättet att fråga efter data mellan partitioner i en tillförlitlig samling?
 
-Tillförlitliga samlingar är vanligtvis [partitionerade](service-fabric-concepts-partitioning.md) att skala ut för bättre prestanda och dataflöde. Det innebär att tillståndet för en viss tjänst kan spridas till tiotusen datorer. Om du vill utföra åtgärder utifrån den fullständiga datauppsättningen, har du några alternativ:
+Tillförlitliga samlingar är vanligt vis [partitionerade](service-fabric-concepts-partitioning.md) för att möjliggöra skalbarhet för bättre prestanda och data flöde. Det innebär att ett tillstånd för en specifik tjänst kan spridas över flera eller hundratals datorer. Om du vill utföra åtgärder över den fullständiga data uppsättningen har du några alternativ:
 
-- Skapa en tjänst som frågar alla partitioner i en annan tjänst för att dra in nödvändiga data.
+- Skapa en tjänst som frågar alla partitioner i en annan tjänst för att hämta de data som krävs.
 - Skapa en tjänst som kan ta emot data från alla partitioner i en annan tjänst.
-- Skicka data regelbundet från varje tjänst till en extern lagring. Den här metoden är endast om de frågor som du utför inte är en del av affärslogiken core.
+- Skicka regelbundet data från varje tjänst till en extern lagrings plats. Den här metoden är bara lämplig om frågorna som du utför inte är en del av din kärn affärs logik.
 
 
-### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>Vad är det bästa sättet att köra frågor mot data över min aktörer?
+### <a name="whats-the-best-way-to-query-data-across-my-actors"></a>Vad är det bästa sättet att fråga efter data i alla aktörer?
 
-Aktörer är avsedda att vara oberoende enheter av tillstånd och göra beräkningar, så det inte rekommenderas att utföra bred frågor av aktörstillstånd vid körning. Om du har ett behov av att fråga i den fullständiga uppsättningen aktörstillstånd, bör du antingen:
+Aktörerna är utformade för att vara oberoende enheter och beräkning, så det rekommenderas inte att utföra breda frågor för aktörs status vid körning. Om du behöver fråga över hela uppsättningen aktörs tillstånd, bör du överväga något av följande:
 
-- Ersätter din aktörstjänster med tillståndskänsliga reliable services så att antalet nätverk förfrågningar om att samla in alla data från antalet aktörer att antalet partitioner i din tjänst.
-- Designa din aktörer att regelbundet skicka deras tillstånd till en extern lagring för enklare frågor. Som är ovan, med den här metoden bara användbara om de frågor som du utför inte krävs för din runtime-beteende.
+- Ersätta din aktörs tjänst med tillstånds känsliga Reliable Services, så att antalet nätverks begär Anden att samla in all information från antalet aktörer till antalet partitioner i tjänsten.
+- Utforma dina aktörer för att regelbundet skicka sitt tillstånd till en extern lagrings plats för enklare frågor. Som ovan är den här metoden endast lönsam om frågorna som du utför inte krävs för ditt körnings beteende.
 
 ### <a name="how-much-data-can-i-store-in-a-reliable-collection"></a>Hur mycket data kan jag lagra i en tillförlitlig samling?
 
-Tillförlitliga tjänster partitioneras vanligtvis, så att den mängd som du kan lagra begränsas bara av antalet datorer som du har i klustret och mängden tillgängligt minne på dessa datorer.
+Tillförlitliga tjänster är vanligt vis partitionerade, så den mängd du kan lagra begränsas bara av antalet datorer som du har i klustret och mängden tillgängligt minne på dessa datorer.
 
-Anta exempelvis att du har en tillförlitlig samling i en tjänst med 100 partitioner och 3 repliker lagra objekt som genomsnittlig 1 kb stora. Anta nu att du har ett 10 dator-kluster med 16gb minne per dator. För enkelhetens skull och för att vara konservativ, förutsätts att operativsystemet och systemtjänster, Service Fabric-körningen och dina tjänster kan du använda 6gb på det lämnar 10gb som är tillgängliga per dator eller 100 gb för klustret.
+Anta till exempel att du har en tillförlitlig samling i en tjänst med 100 partitioner och 3 repliker, och lagrar objekt som är i storlek 1 KB. Anta nu att du har ett 10-dator kluster med 16 GB minne per dator. För enkelhetens skull bör du förutsätta att operativ system-och system tjänsterna, Service Fabric Runtime och dina tjänster förbrukar 6 GB av som lämnar 10 GB tillgängliga per dator eller 100 GB för klustret.
 
-Med tanke på att varje objekt måste vara lagrade tre gånger (en primär och två repliker), du skulle ha tillräckligt med minne för cirka 35 miljoner objekt i samlingen när vid full kapacitet. Vi rekommenderar dock att vara motståndskraftiga mot samtidiga förlusten av en fel domän och en uppgraderingsdomän som representerar ungefär 1/3 av kapacitet och kan minska antalet till ungefär 23 miljoner.
+Om varje objekt måste lagras tre gånger (en primär och två repliker) skulle du ha tillräckligt med minne för cirka 35 000 000 objekt i din samling när du arbetar med full kapacitet. Vi rekommenderar dock att du överlappar den samtidiga förlusten av en feldomän och en uppgraderings domän som representerar cirka 1/3 av kapaciteten och minskar antalet till ungefär 23 000 000.
 
-Observera att den här beräkningen förutsätter också:
+Observera att denna beräkning även förutsätter:
 
-- Att distributionen av data över partitionerna är ungefär uniform eller att du rapporterar inläsningsmåtten till Cluster Resource Manager. Läser in saldo som baseras på replikantal som standard Service Fabric. I föregående exempel, som placerar 10 primära repliker och 20 sekundära repliker på varje nod i klustret. Som fungerar bra för belastningen jämnt fördelade mellan partitionerna. Om belastningen inte är ännu, måste du rapportera belastning så att Resource Manager kan pack mindre repliker tillsammans och tillåta större repliker förbruka mer minne på en enskild nod.
+- Att data fördelningen över partitionerna är ungefär enhetlig eller att du rapporterar inläsnings mått till kluster resurs hanteraren. Som standard är Service Fabric belastnings utjämning baserat på antalet repliker. I föregående exempel skulle det medföra 10 primära repliker och 20 sekundära repliker på varje nod i klustret. Det fungerar bra för belastning som är jämnt fördelat över partitionerna. Om belastningen inte är ens måste du rapportera belastningen så att Resource Manager kan packa mindre repliker tillsammans och tillåta större repliker att förbruka mer minne på en enskild nod.
 
-- Att tillförlitlig tjänsten i fråga är bara en lagra tillståndet i klustret. Eftersom du kan distribuera flera tjänster till ett kluster, måste du vara uppmärksam på resurser att var och en måste köra och hantera dess tillstånd.
+- Att den tillförlitliga tjänsten i fråga är den enda lagrings statusen i klustret. Eftersom du kan distribuera flera tjänster till ett kluster måste du vara mindful av de resurser som måste köras och hantera sitt tillstånd.
 
-- Att växande inte eller minska storleken på själva klustret. Om du lägger till flera datorer, Service Fabric balansera om dina repliker för att använda den ytterligare kapaciteten tills antalet datorer överskrider antalet partitioner i din tjänst, eftersom en enskild replik inte kan omfatta datorer. Däremot om du minskar storleken på klustret genom att ta bort datorer dina repliker är förpackade tätare och har mindre totala kapaciteten.
+- Att själva klustret inte växer eller krymper. Om du lägger till fler datorer kommer Service Fabric att balansera om dina repliker för att utnyttja den ytterligare kapaciteten tills antalet datorer överskrider antalet partitioner i tjänsten, eftersom en enskild replik inte kan omfatta datorer. Om du däremot minskar storleken på klustret genom att ta bort datorer, packas dina repliker mer tätt och har mindre total kapacitet.
 
 ### <a name="how-much-data-can-i-store-in-an-actor"></a>Hur mycket data kan jag lagra i en aktör?
 
-Precis som med reliable services måste begränsas endast mängden data som du kan lagra i en aktörstjänsten av de totalt diskutrymme och tillgängligt minne mellan noderna i klustret. Enskilda aktörer är mest effektiva när de används för att kapsla in en liten mängd tillstånd och associerade affärslogik. Som en allmän regel ska en enskild aktör ha tillstånd som mäts i kilobyte.
+Precis som med Reliable Services begränsas mängden data som du kan lagra i en aktörs tjänst bara av det totala disk utrymmet och det tillgängliga minnet på noderna i klustret. Enskilda aktörer är dock mest effektiva när de används för att kapsla in en liten del av tillstånd och tillhör ande affärs logik. Som en allmän regel ska en enskild aktör ha ett tillstånd som mäts i kilobyte.
 
 ## <a name="other-questions"></a>Andra frågor
 
 ### <a name="how-does-service-fabric-relate-to-containers"></a>Hur relaterar Service Fabric till behållare?
 
-Behållare erbjuder ett enkelt sätt att paketet tjänster och deras beroenden, så att de körs konsekvent i alla miljöer och kan fungera i isolerad miljö på en enda dator. Service Fabric ger ett sätt att distribuera och hantera tjänster, inklusive [tjänster som har paketerats i en behållare](service-fabric-containers-overview.md).
+Behållare är ett enkelt sätt att paketera tjänster och deras beroenden, så att de körs konsekvent i alla miljöer och kan fungera på ett isolerat sätt på en enda dator. Service Fabric erbjuder ett sätt att distribuera och hantera tjänster, inklusive [tjänster som har paketerats i en behållare](service-fabric-containers-overview.md).
 
-### <a name="are-you-planning-to-open-source-service-fabric"></a>Planerar du att öppen källkod Service Fabric?
+### <a name="are-you-planning-to-open-source-service-fabric"></a>Planerar du att använda Service Fabric med öppen källkod?
 
-Vi har öppen källkod delar av Service Fabric ([tillförlitliga tjänster framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [tillförlitliga aktörer framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core-integrering bibliotek](https://github.com/Azure/service-fabric-aspnetcore), [ Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer), och [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) på GitHub och acceptera community-bidrag till projekt. 
+Vi har öppen källkod i Service Fabric ([Reliable Services Framework](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [pålitliga aktörer](https://github.com/Azure/service-fabric-services-and-actors-dotnet), [ASP.NET Core integrations bibliotek](https://github.com/Azure/service-fabric-aspnetcore), [Service Fabric Explorer](https://github.com/Azure/service-fabric-explorer)och [Service Fabric CLI](https://github.com/Azure/service-fabric-cli)) på GitHub och Godkänn community-bidrag till dessa projekt. 
 
-Vi [tillkännagav nyligen](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) att vi planerar att öppen källkod Service Fabric-körningen. Nu har vi den [Service Fabric-repon](https://github.com/Microsoft/service-fabric/) upp på GitHub med Linux skapa och testa verktyg, vilket innebär att du kan klona lagringsplatsen, skapa Service Fabric för Linux, kör grundläggande tester, öppna frågor och skicka in pull-begäranden. Vi arbetar hårt för att hämta Windows-kompileringsmiljö migreras under, tillsammans med en fullständig CI-miljö.
+Vi [meddelade nyligen](https://blogs.msdn.microsoft.com/azureservicefabric/2018/03/14/service-fabric-is-going-open-source/) att vi planerar att öppna källan Service Fabric Runtime. Nu har vi [Service Fabric lagrings platsen](https://github.com/Microsoft/service-fabric/) på GitHub med Linux-build-och test verktyg, vilket innebär att du kan klona lagrings platsen, bygga Service Fabric för Linux, köra grundläggande tester, öppna problem och skicka pull-begäranden. Vi arbetar hårt för att hämta Windows build-miljön som migrerats även, tillsammans med en komplett CI-miljö.
 
-Följ den [Service Fabric-bloggen](https://blogs.msdn.microsoft.com/azureservicefabric/) för mer information som de har meddelats.
+Följ [Service Fabric blogg](https://blogs.msdn.microsoft.com/azureservicefabric/) om du vill ha mer information när de annonseras.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig mer om [viktiga begrepp för Service Fabric](service-fabric-technical-overview.md) och [bästa praxis](service-fabric-best-practices-overview.md) is Fabric concepts](service-fabric-technical-overview.md) och [bästa praxis](service-fabric-best-practices-overview.md)
+Lär dig mer om [core Service Fabric Concepts](service-fabric-technical-overview.md) och [Best Practices](service-fabric-best-practices-overview.md) Ice Fabric-koncept] (Service-Fabric-Technical-overview.MD) och [bästa praxis](service-fabric-best-practices-overview.md)

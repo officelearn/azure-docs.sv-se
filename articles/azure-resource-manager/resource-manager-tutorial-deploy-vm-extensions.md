@@ -11,14 +11,14 @@ ms.devlang: na
 ms.date: 11/13/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a6d0c3e9daba6f4f37778fabde161751944e174a
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 338054aadbf04c6c6e2b496677476c2c5634b6ba
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774864"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169288"
 ---
-# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Självstudier: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar
+# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Självstudiekurs: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar
 
 Lär dig hur du använder [Azure-tillägg för virtuell dator](../virtual-machines/extensions/features-windows.md) för att utföra konfigurations- och automatiseringsuppgifter efter distribution på virtuella Azure-datorer. Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. I den här självstudien distribuerar du ett anpassat skripttillägg från en Azure Resource Manager-mall för att köra ett PowerShell-skript på en virtuell Windows-dator.  Skriptet installerar webbserver på den virtuella datorn.
 
@@ -48,7 +48,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="prepare-a-powershell-script"></a>Förbereda ett PowerShell-skript
 
-Ett PowerShell-skript med följande innehåll delas från ett [Azure-lagringskonto med offentlig åtkomst](https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1):
+Ett PowerShell-skript med följande innehåll delas från [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1):
 
 ```azurepowershell
 Install-WindowsFeature -name Web-Server -IncludeManagementTools
@@ -63,7 +63,7 @@ Azure-snabbstartsmallar är lagringsplatser för Resource Manager-mallar. I stä
 1. I Visual Studio Code väljer du **Arkiv** > **Öppna fil**.
 1. I rutan **Filnamn** klistrar du in följande webbadress: https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-vm-simple-windows/azuredeploy.json
 
-1. Välj **Öppna** för att öppna filen.  
+1. Välj **Öppna** för att öppna filen.
     Mallen definierar fem resurser:
 
    * **Microsoft.Storage/storageAccounts**. Se [mallreferensen](https://docs.microsoft.com/azure/templates/Microsoft.Storage/storageAccounts).
@@ -96,7 +96,7 @@ Lägg till en resurs för tillägg för virtuell dator i den befintliga mallen m
         "autoUpgradeMinorVersion":true,
         "settings": {
             "fileUris": [
-                "https://armtutorials.blob.core.windows.net/usescriptextensions/installWebServer.ps1"
+                "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-vm-extension/installWebServer.ps1"
             ],
             "commandToExecute": "powershell.exe -ExecutionPolicy Unrestricted -File installWebServer.ps1"
         }
@@ -109,7 +109,7 @@ Mer information om den här resursdefinitionen finns i [tilläggsreferensen](htt
 * **name**: eftersom tilläggsresursen är en underordnad resurs för det virtuella datorobjektet måste namnet ha den virtuella datorns namnprefix. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md).
 * **dependsOn**: skapa tilläggsresursen när du har skapat den virtuella datorn.
 * **fileUris**: det här är de platser där skriptfilerna lagras. Om du väljer att inte använda den angivna platsen måste du uppdatera värdena.
-* **commandToExecute**: det här kommandot kör skriptet.  
+* **commandToExecute**: det här kommandot kör skriptet.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
@@ -118,8 +118,7 @@ Mer information om distributionsproceduren finns i avsnittet ”Distribuera mall
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
 1. Välj den virtuella datorn i Azure Portal.
-1. Kopiera IP-adressen i datoröversikten genom att välja **Klicka för att kopiera** och klistra in den i en webbläsarflik.  
-   Välkomstsidan för Internet Information Services (IIS) öppnas:
+1. Kopiera IP-adressen i datoröversikten genom att välja **Klicka för att kopiera** och klistra in den i en webbläsarflik. Välkomstsidan för Internet Information Services (IIS) öppnas:
 
 ![Välkomstsida för Internet Information Services](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 
@@ -129,7 +128,7 @@ När du inte längre behöver Azure-resurserna du har distribuerat rensar du bor
 
 1. Välj **Resursgrupp** i den vänstra rutan i Azure Portal.
 2. Ange resursgruppens namn i fältet **Filtrera efter namn**.
-3. Välj resursgruppens namn.  
+3. Välj resursgruppens namn.
     Sex resurser visas i resursgruppen.
 4. Välj **Ta bort resursgrupp** på menyn längst upp.
 

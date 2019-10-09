@@ -13,18 +13,18 @@ ms.devlang: na
 ms.date: 06/12/2019
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5deedb12afb1b766255ad0a9f247594ed70acaa
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 708656ee88f5bacaa498bcd84fde34d69228d28b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67069303"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170270"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Snabbstart: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen
 
 Lär dig hur du genererar en Resource Manager-mall med hjälp av Azure-portalen samt hur du redigerar och distribuerar mallen från portalen. Resource Manager-mallar är JSON-filer som definierar de resurser du behöver för att distribuera lösningen. En beskrivning av de begrepp som används i samband med distribution och hantering av Azure-lösningar finns i [Översikt över Azure Resource Manager](resource-group-overview.md).
 
-![Resource manager-mall portal snabbstartsdiagram](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
+![snabb starts Portal diagram för Resource Manager-mall](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-export-deploy-template-portal.png)
 
 När du har slutfört självstudien kan du distribuera ett Azure Storage-konto. Samma process kan användas till att distribuera andra Azure-resurser.
 
@@ -32,9 +32,9 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 ## <a name="generate-a-template-using-the-portal"></a>Generera en mall med hjälp av portalen
 
-Skapa en Resource Manager-mall från början är inte en enkel åtgärd, särskilt om du är nybörjare på Azure-distribution och du inte är bekant med JSON-format. Med hjälp av Azure-portalen kan du konfigurera en resurs, till exempel ett Azure Storage-konto. Innan du distribuerar resursen kan du exportera konfigurationen till en Resource Manager-mall. Du kan spara mallen och använda den igen senare.
+Att skapa en Resource Manager-mall från grunden är inte en enkel uppgift, särskilt om du är nybörjare på Azure-distributionen och du inte är bekant med JSON-formatet. Med hjälp av Azure-portalen kan du konfigurera en resurs, till exempel ett Azure Storage-konto. Innan du distribuerar resursen kan du exportera konfigurationen till en Resource Manager-mall. Du kan spara mallen och använda den igen senare.
 
-Många mall för erfarna utvecklare använder den här metoden för att generera mallar när de försöker distribuera Azure-resurser som de inte är bekant med. Mer information om hur du exporterar mallar med hjälp av portalen finns i [exportera resursgrupper till mallar](./manage-resource-groups-portal.md#export-resource-groups-to-templates). Det andra sättet att hitta en fungerande mall är från [Azure-snabbstartmallar](https://azure.microsoft.com/resources/templates/).
+Många erfarna mallar för utvecklare använder den här metoden för att skapa mallar när de försöker distribuera Azure-resurser som de inte är bekanta med. Mer information om hur du exporterar mallar med hjälp av portalen finns i [Exportera resurs grupper till mallar](./manage-resource-groups-portal.md#export-resource-groups-to-templates). Det andra sättet att hitta en fungerande mall är från [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/).
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 2. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto – blob, fil, tabell, kö**.
@@ -42,10 +42,10 @@ Många mall för erfarna utvecklare använder den här metoden för att generera
     ![Skapa ett Azure-lagringskonto med hjälp av Azure-portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. Ange följande information:
 
-    |Namn|Värde|
+    |Name|Value|
     |----|----|
     |**Resursgrupp**|Välj **Skapa ny** och ge resursgruppen ett namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser. |
-    |**Namn**|Ge lagringskontot ett unikt namn. Lagringskontonamnet måste vara unikt för alla Azure och den bara innehålla gemena bokstäver och siffror. Namnet måste vara mellan 3 och 24 tecken. Om du får ett felmeddelande om ”lagringskontonamnet” mystorage1016 ”är redan upptagen” kan du prova med att använda  **&lt;ditt namn > storage&lt;dagens datum i MMDD >** , till exempel  **johndolestorage1016**. Mer information finns i [namngivningsregler och begränsningar](/azure/architecture/best-practices/naming-conventions#naming-rules-and-restrictions).|
+    |**Namn**|Ge lagringskontot ett unikt namn. Lagrings kontots namn måste vara unikt i hela Azure och det får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken. Om du får ett fel meddelande om att "lagrings konto namnet" mystorage1016 "redan är upptaget" försöker du med **&lt;your namn > Storage @ no__t-2Today's date i MMDD >** , till exempel **johndolestorage1016**. Mer information finns i [namngivnings regler och begränsningar](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
 
     Du kan använda standardvärdena för resten av egenskaperna.
 
@@ -54,7 +54,7 @@ Många mall för erfarna utvecklare använder den här metoden för att generera
     > [!NOTE]
     > Vissa av de exporterade mallarna kräver vissa ändringar innan du kan distribuera dem.
 
-4. Välj **Granska + skapa** längst ned på skärmen. Markera inte **skapa** i nästa steg.
+4. Välj **Granska + skapa** längst ned på skärmen. Välj inte **skapa** i nästa steg.
 5. Välj **Ladda ned en mall för automatisering** längst ned på skärmen. Portalen visar den genererade mallen:
 
     ![Generera en mall från portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template.png)
@@ -63,21 +63,21 @@ Många mall för erfarna utvecklare använder den här metoden för att generera
 
     Det finns sex parametrar angivna. En av dem heter **storageAccountName**. Den andra markerade delen på den föregående skärmbilden visar hur den här parametern ska anges i mallen. I nästa avsnitt kan du redigera mallen för att använda ett genererat namn för lagringskontot.
 
-    En Azure-resurs har definierats i mallen. Typen är `Microsoft.Storage/storageAccounts`. Ta en titt på hur resursen definieras och definitionsstruktur.
-6. Välj **hämta** högst upp på skärmen.
-7. Öppna den hämta zip-filen och spara **template.json** till datorn. I nästa avsnitt använder du ett malldistributionsverktyg för att redigera mallen.
+    En Azure-resurs har definierats i mallen. Typen är `Microsoft.Storage/storageAccounts`. Ta en titt på hur resursen definieras och definitions strukturen.
+6. Välj **Ladda ned** överst på skärmen.
+7. Öppna den hämtade ZIP-filen och spara sedan **Template. JSON** på din dator. I nästa avsnitt använder du ett malldistributionsverktyg för att redigera mallen.
 8. Välj fliken **Parameter** för att se de värden som du angav för parametrarna. Anteckna dessa värden, eftersom du behöver dem i nästa avsnitt när du distribuerar mallen.
 
     ![Generera en mall från portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-template-parameters.png)
 
-    Med både mallfilen och parameterfilen kan skapa du en resurs i den här självstudien, ett Azure storage-konto.
+    Med både mallfilen och parameter filen kan du skapa en resurs, i den här självstudien, ett Azure Storage-konto.
 
 ## <a name="edit-and-deploy-the-template"></a>Redigera och distribuera mallen
 
 Du kan använda Azure-portalen för att utföra viss grundläggande redigering av mallen. I den här snabbstarten använder du portalverktyget *Malldistribution*. *Malldistribution* används i den här självstudien, vilket innebär att du kan slutföra hela självstudien med ett gränssnitt – Azure-portalen. För redigering av en mer komplex mall bör du överväga att använda [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md), som tillhandahåller mer omfattande redigeringsfunktioner.
 
 > [!IMPORTANT]
-> Malldistributionen tillhandahåller ett gränssnitt för att testa enkla mallar. Du bör inte använda den här funktionen i produktion. I stället lagra dina mallar i ett Azure storage-konto eller en lagringsplatsen för källkod som GitHub.
+> Mall distributionen tillhandahåller ett gränssnitt för att testa enkla mallar. Vi rekommenderar inte att du använder den här funktionen i produktion. Lagra i stället dina mallar i ett Azure Storage-konto eller en käll kods lagrings plats som GitHub.
 
 Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan misslyckas om du anger namnet på ett lagringskonto som redan finns. För att undvika det här problemet ändrar du mallen så att den använder ett mallfunktionsanrop `uniquestring()` för att generera ett unikt lagringskontonamn.
 
@@ -93,8 +93,8 @@ Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan mis
 
     ![Azure Resource Manager-mallar](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-edit-storage-account-template-revised.png)
 
-   - Ta bort den **storageAccountName** parameter som visas i föregående skärmbild.
-   - Lägg till en variabel som kallas **storageAccountName** som visas i föregående skärmbild:
+   - Ta bort **storageAccountName** -parametern som visas på föregående skärm bild.
+   - Lägg till en variabel med namnet **storageAccountName** som visas på föregående skärm bild:
 
        ```json
        "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
@@ -156,15 +156,15 @@ Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan mis
 8. Välj **Spara**.
 9. Ange följande värden:
 
-    |Namn|Värde|
+    |Name|Value|
     |----|----|
-    |**Resursgrupp**|Välj resursgruppens namn du skapade i det sista avsnittet. |
-    |**Plats**|Välj en plats för lagringskontot. Välj till exempel **USA, centrala**. |
+    |**Resursgrupp**|Välj det resurs grupps namn som du skapade i det sista avsnittet. |
+    |**Location**|Välj en plats för lagrings kontot. Välj till exempel **USA, centrala**. |
     |**Kontotyp**|Ange **Standard_LRS** för den här snabbstarten. |
-    |**Kind**|Ange **StorageV2** för den här snabbstarten. |
-    |**Åtkomstnivå**|Ange **Frekvent** för den här snabbstarten. |
-    |**HTTPS-trafik endast aktiverad**| Välj **true** för den här snabbstarten. |
-    |**Jag godkänner villkoren som anges ovan**|(Välj)|
+    |**Metod**|Ange **StorageV2** för den här snabbstarten. |
+    |**Åtkomst nivå**|Ange **Frekvent** för den här snabbstarten. |
+    |**HTTPS-trafik är bara aktive rad**| Välj **true** för den här snabbstarten. |
+    |**Jag samtycker till de villkor som anges ovan**|Select|
 
     Här är en skärmbild på en exempeldistribution:
 
@@ -192,7 +192,7 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien lärde du dig hur du genererar en mall från Azure-portalen och hur du distribuerar mallen med hjälp av portalen. Den mall som användes i den här snabbstarten är en enkel mall med en Azure-resurs. När mallen är komplex är det enklare att använda Visual Studio Code eller Visual Studio för att utveckla mallen. Nästa snabbstart visar också hur du distribuerar mallar med Azure PowerShell och Azure-kommandoradsgränssnittet (CLI).
+I den här självstudien lärde du dig hur du genererar en mall från Azure-portalen och hur du distribuerar mallen med hjälp av portalen. Den mall som användes i den här snabbstarten är en enkel mall med en Azure-resurs. När mallen är komplex är det enklare att använda Visual Studio Code eller Visual Studio för att utveckla mallen. Mer information om hur du utvecklar mallar finns i vår nya nybörjar-serien:
 
 > [!div class="nextstepaction"]
-> [Skapa mallar med hjälp av Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md)
+> [Nybörjar självstudier](./template-tutorial-create-first-template.md)

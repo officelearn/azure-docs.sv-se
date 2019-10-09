@@ -7,57 +7,57 @@ ms.custom: mvc
 ms.service: postgresql
 ms.topic: overview
 ms.date: 05/06/2019
-ms.openlocfilehash: f4023fa84215a0319669de0d812d8306b62278e3
-ms.sourcegitcommit: 509e1583c3a3dde34c8090d2149d255cb92fe991
+ms.openlocfilehash: 5194cf51fd7f1debeba76edb48e8377919ae448a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/27/2019
-ms.locfileid: "65073274"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177953"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
-Azure Database för PostgreSQL är en relationsdatabastjänst i Microsoft-molnet som byggts för utvecklare. Den är baserad på communityversionen av öppen källkod [PostgreSQL](https://www.postgresql.org/) databasmotor och är tillgänglig i två distributionsalternativ: Enskild Server och hyperskala (Citus) (förhandsversion).
+Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molnet som skapats för utvecklare. Den baseras på community-versionen av [postgresql](https://www.postgresql.org/) Database Engine med öppen källkod och är tillgänglig i två distributions alternativ: Enskild server och storskalig (citus) (för hands version).
 
-## <a name="azure-database-for-postgresql---single-server"></a>Azure Database för PostgreSQL – enskild Server
-Distributionsalternativ för enskild Server ger:
+## <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-enskild server
+Distributions alternativet för enskild server ger:
 
 - Inbyggd hög tillgänglighet utan extra kostnad (99,99% SLA)
 - Förutsägbara prestanda med hjälp av priser enligt principen Betala per användning
-- Lodrät skalning vid behov inom några sekunder
-- Övervakning och avisering för att snabbt utvärdera effekten av att skala
+- Lodrät skala vid behov inom några sekunder
+- Övervakning och avisering för att snabbt utvärdera effekten av skalning
 - Säkert skydd av känsliga data som är vilande eller aktiva
 - Automatisk säkerhetskopiering och återställning av tidpunkter i upp till 35 dagar
 - Säkerhet och efterlevnad i företagsklass
 
-Alla dessa funktioner kräver nästan ingen administration och de tillhandahålls utan extra kostnad. De gör att du kan fokusera på snabb programutveckling och accelerera din tid till marknad, istället för slösa dyrbar tid och resurser för att hantera virtuella datorer och infrastruktur. Du kan fortsätta att utveckla ditt program med öppen källkod och plattform, utan att behöva lära dig nya färdigheter.
+Alla dessa funktioner kräver nästan ingen administration och de tillhandahålls utan extra kostnad. De gör att du kan fokusera på snabb program utveckling och påskynda din tid till marknaden, i stället för att ägna värdefull tid och resurser för att hantera virtuella datorer och infrastruktur. Du kan fortsätta att utveckla ditt program med de verktyg med öppen källkod och plattform som du väljer utan att behöva lära dig nya kunskaper.
 
-Distributionsalternativ för enskild Server erbjuder tre tjänstnivåer: Grundläggande, generell användning och minnesoptimerad. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-pricing-tiers.md).
+Distributions alternativet för enskild server har tre pris nivåer: Grundläggande, generell användning och minnesoptimerad. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-pricing-tiers.md).
 
-## <a name="azure-database-for-postgresql---hyperscale-citus-preview"></a>Azure Database för PostgreSQL – hyperskala (Citus) (förhandsversion)
-Alternativet hyperskala (Citus) skalas vågrätt frågor över flera datorer med horisontell partitionering. Dess frågemotorn parallelizes inkommande SQL-frågor på dessa servrar för snabbare svar på stora datauppsättningar. Den fungerar program som kräver större skala och prestanda, vanligtvis arbetsbelastningar som närmar-- eller redan överskrider – 100 GB data.
+## <a name="azure-database-for-postgresql---hyperscale-citus-preview"></a>Azure Database for PostgreSQL-Scale (citus) (för hands version)
+Alternativet för skalning (citus) skalar horisontellt frågor över flera datorer med hjälp av horisontell partitionering. Dess frågemotor parallelizes inkommande SQL-frågor över dessa servrar för snabbare svar på stora data mängder. Den hanterar program som kräver större skalning och prestanda, vanligt vis arbets belastningar som närmar sig – eller som redan är större än 100 GB data.
 
-Alternativ för distribution av storskaliga (Citus) ger:
+Citus-distributions alternativet ger:
 
-- Horisontell skalning över flera datorer som använder horisontell partitionering
-- Frågeparallellisering på dessa servrar för snabbare svar på stora datauppsättningar
-- Utmärkt stöd för program med flera klienter, operativ analys i realtid och stora dataflöden transaktionsbelastningar
+- Horisontell skalning mellan flera datorer med horisontell partitionering
+- Fråga parallellisering över dessa servrar för snabbare svar på stora data mängder
+- Utmärkt stöd för program med flera klienter, operativa analyser i real tid och transaktions arbets belastningar med höga data flöden
 
-Program som skapats för PostgreSQL kan du köra distribuerade frågor på hyperskala (Citus) med standard [anslutningsbibliotek](./concepts-connection-libraries.md) och minimala ändringar.
+Program som skapats för PostgreSQL kan köra distribuerade frågor på citus (storskalig) med standard [anslutnings bibliotek](./concepts-connection-libraries.md) och minimala ändringar.
 
-Observera att hyperskala (Citus) finns i offentlig förhandsversion och därmed ännu erbjuder inte något serviceavtal.
+Observera att för hands versionen (citus) finns i en offentlig för hands version och att det inte erbjuder något service avtal ännu.
 
 ## <a name="data-security"></a>Datasäkerhet
-Azure Database för PostgreSQL upprätthåller i Azure database services tradition av datasäkerhet. Det har funktioner som begränsar åtkomst, skydda data i vila och under rörelse och hjälper dig att övervaka aktiviteten. Besök [Azure Säkerhetscenter](https://azure.microsoft.com/overview/trusted-cloud/) för information om Azures plattformssäkerhet.
+Azure Database for PostgreSQL överlagrar Azure Database Services-tradition av data säkerhet. Den har funktioner som begränsar åtkomst, skyddar data i vila och i rörelse och hjälper dig att övervaka aktiviteten. Besök [Azure Säkerhetscenter](https://azure.microsoft.com/overview/trusted-cloud/) för information om Azures plattformssäkerhet.
 
-Azure Database for PostgreSQL-tjänsten använder lagringskryptering för vilande data och är FIPS 140-2-kompatibel. Data, inklusive säkerhetskopior, krypteras på disk. Tjänsten använder AES-256-bitars-chiffer som ingår i Azure storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras. Som standard kräver Azure Database for PostgreSQL-tjänsten säkra anslutningar för data i rörelse både över nätverket och mellan databasen och klienten programmet.
+Tjänsten Azure Database for PostgreSQL använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk med undantag för tillfälliga filer som skapas vid körning av frågor. Tjänsten använder AES 256-bit-chiffer som ingår i Azure Storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras. Som standard kräver Azure Database for PostgreSQL tjänsten säkra anslutningar för data i rörelse både i nätverket och mellan databasen och klient programmet.
 
-## <a name="contacts"></a>Contacts
-Några frågor eller förslag om hur du arbetar med Azure Database för PostgreSQL, skicka ett e-postmeddelande till Azure Database för PostgreSQL-teamet ([ @Ask Azure DB för PostgreSQL](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Den här adressen är för allmänna frågor i stället för supportärenden.
+## <a name="contacts"></a>Kontakter
+Om du har frågor eller förslag om hur du arbetar med Azure Database for PostgreSQL skickar du ett e-postmeddelande till Azure Database for PostgreSQL-teamet ([@Ask Azure dB för postgresql](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Den här adressen är för allmänna frågor snarare än support biljetter.
 
-Dessutom tänka på följande kontaktpunkten efter behov:
-- Kontakta Azure-supporten eller åtgärda ett problem med ditt konto, [lämna in en biljett från Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Tänk också på dessa kontakt punkter efter behov:
+- Kontakta Azure-supporten eller åtgärda ett problem med ditt konto genom att skicka [en biljett från Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 - Om du vill ge feedback eller begära nya funktioner, skapar du ett inlägg via [UserVoice](https://feedback.azure.com/forums/597976-azure-database-for-postgresql).
 
 ## <a name="next-steps"></a>Nästa steg
 - På [prissättningssidan](https://azure.microsoft.com/pricing/details/postgresql/) finns kostnadsjämförelser och kostnadsberäknare.
-- Kom igång genom att skapa din första Azure Database för PostgreSQL [enskild Server](./quickstart-create-server-database-portal.md) eller [hyperskala (Citus) (förhandsversion)](./quickstart-create-hyperscale-portal.md)
+- Kom igång genom att skapa din första Azure Database for PostgreSQL [enskild server](./quickstart-create-server-database-portal.md) eller [storskalig (citus) (för hands version)](./quickstart-create-hyperscale-portal.md)
 - Skapa din första app i Python, PHP, Ruby, C\#, Java, Node.js: [Anslutningsbibliotek](./concepts-connection-libraries.md)

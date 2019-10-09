@@ -1,6 +1,6 @@
 ---
-title: Skapa din första Azure Service Fabric-app i Linux med C# | Microsoft Docs
-description: Lär dig mer om att skapa och distribuera ett Service Fabric-program med C# och .NET Core 2.0.
+title: Skapa din första Azure Service Fabric-app i Linux C#med | Microsoft Docs
+description: Lär dig hur du skapar och distribuerar ett Service Fabric program C# med hjälp av och .net Core 2,0.
 services: service-fabric
 documentationcenter: csharp
 author: mani-ramaswamy
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/11/2018
-ms.author: subramar
-ms.openlocfilehash: 7bb9b1c545d30f66a09817ba977f12666a9f41c9
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: atsenthi
+ms.openlocfilehash: 8c34f50e8eb9d9793c146c38aca47691b04049c0
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60394327"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167304"
 ---
 # <a name="create-your-first-azure-service-fabric-application"></a>Skapa ditt första Azure Service Fabric-program
 > [!div class="op_single_selector"]
@@ -30,7 +30,7 @@ ms.locfileid: "60394327"
 
 Service Fabric innehåller SDK:er för att skapa tjänster i Linux i både .NET Core och Java. I den här självstudien visar vi hur man skapar ett program för Linux och en tjänst med C# i .NET Core 2.0.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Förutsättningar
 Du måste [konfigurera Linux-utvecklingsmiljön](service-fabric-get-started-linux.md) innan du börjar. Om du använder Mac OS X kan du [konfigurera en Linux-miljö på en virtuell dator med hjälp av Vagrant](service-fabric-get-started-mac.md).
 
 Du bör även installera [Service Fabric CLI](service-fabric-cli.md)
@@ -100,7 +100,7 @@ Du hittar parametrarna till de här kommandona i de genererade manifesten i prog
 När programmet har distribuerats öppnar du en webbläsare och går till [Service Fabric Explorer](service-fabric-visualizing-your-cluster.md) på [http://localhost:19080/Explorer](http://localhost:19080/Explorer). Expandera sedan noden **Program** och observera att det nu finns en post för din programtyp och en post för den första instansen av den typen.
 
 > [!IMPORTANT]
-> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric-körningen. På så sätt kan dina Reliable Services-tjänster att kommunicera med underliggande Service Fabric-körningen API: er. Mer information finns i [konfigurera en Reliable Services-app som körs i Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
+> Om du vill distribuera programmet till ett säkert Linux-kluster i Azure måste du konfigurera ett certifikat för att verifiera ditt program med Service Fabric Runtime. På så sätt kan dina Reliable Services-tjänster kommunicera med de underliggande Service Fabric runtime-API: erna. Mer information finns i [Konfigurera en Reliable Services app för att köra Linux-kluster](./service-fabric-configure-certificates-linux.md#configure-a-reliable-services-app-to-run-on-linux-clusters).  
 >
 
 ## <a name="start-the-test-client-and-perform-a-failover"></a>Starta testklienten och utför en redundansväxling
@@ -108,7 +108,7 @@ Aktörsprojekt gör ingenting på egen hand. Det behövs en annan tjänst eller 
 
 1. Kör skriptet med övervakningsverktyget för att se resultatet av aktörstjänsten.
 
-   När det gäller MAC OS X måste du kopiera mappen myactorsvcTestClient på samma plats i behållaren genom att köra följande ytterligare kommandon.
+   Om du använder MAC OS X måste du kopiera mappen myactorsvcTestClient till samma plats i behållaren genom att köra följande ytterligare kommandon.
     
     ```bash
     docker cp  [first-four-digits-of-container-ID]:/home

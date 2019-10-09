@@ -6,6 +6,16 @@
       href: resource-group-overview.md
     - name: Mallöversikt
       href: template-deployment-overview.md
+- name: Snabbstart
+  items:
+    - name: Skapa mallar – portal
+      href: resource-manager-quickstart-create-templates-use-the-portal.md
+    - name: Skapa mallar – VS Code
+      href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
+    - name: Skapa mallar – Visual Studio
+      href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
+    - name: Skapa mallar – IntelliJ IDEA
+      href: resource-manager-quickstart-create-templates-use-intellij.md
 - name: Självstudier
   items:
     - name: Nybörjare
@@ -32,14 +42,6 @@
           href: template-tutorial-use-parameter-file.md
     - name: Avancerat
       items:
-        - name: Skapa mallar – portal
-          href: resource-manager-quickstart-create-templates-use-the-portal.md
-        - name: Skapa mallar – VS Code
-          href: resource-manager-quickstart-create-templates-use-visual-studio-code.md
-        - name: Skapa mallar – Visual Studio
-          href: vs-azure-tools-resource-groups-deployment-projects-create-deploy.md
-        - name: Skapa mallar – IntelliJ IDEA
-          href: resource-manager-quickstart-create-templates-use-intellij.md
         - name: Använda mallreferens
           href: resource-manager-tutorial-create-encrypted-storage-accounts.md
         - name: Skapa flera instanser

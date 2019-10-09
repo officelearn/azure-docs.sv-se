@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/18/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b9e28f986f28bde6e46319ddb404d424c100726
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 571d8849fd7cae5c872a56182858848dbb43ef42
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174647"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026681"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sonarqube"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med SonarQube
 
@@ -68,7 +68,7 @@ Om du vill konfigurera och testa Azure AD SSO med SonarQube, slutför du följan
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera SONARQUBE SSO](#configure-sonarqube-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa SonarQube test User](#create-sonarqube-test-user)** -om du vill ha en motsvarighet till B. Simon i SonarQube som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -139,7 +139,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 2. Installera SAML-plugin-programmet från SonarQube-marknads platsen.
 
-3. Klicka på **administratör** längst upp till vänster på sidan och gå sedan till **SAML**.
+3. Klicka på **administratör** längst upp till vänster på sidan och gå sedan till **SAML**.
 
 4. Utför följande steg på sidan **SAML** :
 
@@ -157,11 +157,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     f. Öppna det Base64-kodade certifikatet i anteckningar, kopiera dess innehåll och klistra in det i text rutan **Provider-certifikat** .
 
-    g. I text rutan **attribut för SAML-användar inloggning** anger du `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`värdet.
+    g. I text rutan **attribut för SAML-användar inloggning** anger du värdet `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     h. I text rutan **SAML User Name-attribut** anger du värdet `http://schemas.microsoft.com/identity/claims/displayname`.
 
-    i. Ange värdet `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`i text rutan **e-postattribut för SAML-användare** .
+    i. I text rutan **e-postattribut för SAML-användare** anger du värdet `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name`.
 
     j. Klicka på **Spara**.
 

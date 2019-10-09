@@ -6,22 +6,22 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: dd51cc2d5f95598154b76b5da8e3fc9e4801100d
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: fec2b09b9dc471135d9cdd00ac2465728a47bdbf
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104952"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026930"
 ---
 # <a name="mapping-data-flow-conditional-split-transformation"></a>Mappa data flöde villkorlig delnings omvandling
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![verktyg för villkorlig delning](media/data-flow/conditionalsplit2.png "verktyg för villkorlig delning")
+
+(media/data-flow/conditionalsplit2.png "verktyg för villkorlig") delning för ![villkorlig delning]
 
 Den villkorliga delnings omvandlingen kan dirigera data rader till olika strömmar beroende på innehållet i data. Implementeringen av den villkorliga delnings omvandlingen liknar en ärende besluts struktur i ett programmeringsspråk. Omvandlingen utvärderar uttryck och baseras på resultaten och dirigerar data raden till den angivna data strömmen. Den här omvandlingen innehåller också en standardutdata, så att om en rad matchar inget uttryck dirigeras den till standardutdata.
 
-![villkorlig delning](media/data-flow/conditionalsplit1.png "alternativ för villkorlig delning")
+![villkorlig]delning(media/data-flow/conditionalsplit1.png "alternativ") för villkorlig delning
 
 ## <a name="multiple-paths"></a>Flera sökvägar
 

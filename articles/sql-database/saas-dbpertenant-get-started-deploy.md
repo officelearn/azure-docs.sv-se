@@ -11,12 +11,12 @@ author: MightyPen
 ms.author: genemi
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: d5326a3a154ed6f193b5527a0150ad84c843c273
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: d5f64f0a9abfa736c1db0e562b6f18ecfc1f6de5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570440"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023828"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Distribuera och utforska en SaaS-app med flera innehavare som använder mönstret för databas per klient organisation med SQL Database
 
@@ -74,7 +74,7 @@ Välj dina namn nu och skriv ned dem.
 
 1. Om du vill övervaka distributions status väljer du **meddelanden** (klock ikonen till höger om sökrutan). Att distribuera Wingtip-biljetterna SaaS-appen tar cirka fem minuter.
 
-   ![Distribueringen lyckades](media/saas-dbpertenant-get-started-deploy/succeeded.png)
+   ![Distributionen lyckades](media/saas-dbpertenant-get-started-deploy/succeeded.png)
 
 ## <a name="download-and-unblock-the-wingtip-tickets-management-scripts"></a>Ladda ned och avblockera hanterings skript för Wingtip Ticket
 
@@ -87,16 +87,16 @@ När programmet distribueras kan du ladda ned käll koden och hanterings skripte
 1. Välj **Klona eller ladda ned**.
 1. Välj **Hämta zip**och spara sedan filen.
 1. Högerklicka på filen **WingtipTicketsSaaS-DbPerTenant-Master. zip** och välj sedan **Egenskaper**.
-1. På fliken **Allmänt** väljer du avblockera > **Använd**.
+1. På fliken **Allmänt** väljer du **avblockera** > **Apply**.
 1. Välj **OK**och extrahera filerna
 
-Skript finns på... WingtipTicketsSaaS – DbPerTenant-Master\\Learning moduless-mappen. \\
+Skript finns i mappen... \\WingtipTicketsSaaS-DbPerTenant-Master @ no__t-1Learning modules.
 
 ## <a name="update-the-user-configuration-file-for-this-deployment"></a>Uppdatera användar konfigurations filen för den här distributionen
 
 Innan du kör skript måste du uppdatera resurs gruppen och användar värdena i användar konfigurations filen. Ange de här variablerna till de värden som du använde under distributionen.
 
-1. I PowerShell ISE öppnar du... Learning-\\moduler**userconfig. psm1** \\
+1. I PowerShell ISE öppnar du... \\Learning-moduler @ no__t-1**userconfig. psm1**
 1. Uppdatera **ResourceGroupName** och **namn** med de angivna värdena för din distribution (endast på raderna 10 och 11).
 1. Spara ändringarna.
 
@@ -108,13 +108,13 @@ I appen demonstreras platser som är värdar för händelser. Plats typerna omfa
 
 Internt i appen får varje klient en SQL-databas distribuerad till en elastisk SQL-pool.
 
-En Hubbs sida för centrala **händelser** innehåller en lista över länkar till klienterna i distributionen.
+En **Hubbs** sida för centrala händelser innehåller en lista över länkar till klienterna i distributionen.
 
-1. Använd URL: en för att öppna Events-hubben i http://events.wingtip-dpt.&lt webbläsaren:&gt;; User. trafficmanager.net. Ersätt &lt;användare&gt; med din distributions användar värde.
+1. Använd URL: en för att öppna Events-hubben i webbläsaren: http://events.wingtip-dpt.&lt; user&gt;.trafficmanager.net. Ersätt &lt;user @ no__t-1 med distributionens användar värde.
 
     ![Events Hub](media/saas-dbpertenant-get-started-deploy/events-hub.png)
 
-2. Välj **Fabrikam jazz-klubb** i hubben events.
+2. Välj **Fabrikam jazz-klubb** i hubben events.
 
     ![Events](./media/saas-dbpertenant-get-started-deploy/fabrikam.png)
 
@@ -122,14 +122,14 @@ En Hubbs sida för centrala **händelser** innehåller en lista över länkar ti
 
 Wingtip-programmet använder [*Azure Traffic Manager*](../traffic-manager/traffic-manager-overview.md) för att kontrol lera distributionen av inkommande begär Anden. URL: en för att komma åt sidan händelser för en viss klient använder följande format:
 
-- http://events.wingtip-dpt.&lt ;user&gt;.trafficmanager.net/fabrikamjazzclub
+- http://events.wingtip-dpt.&lt;user&gt;.trafficmanager.net/fabrikamjazzclub
 
     Delarna i föregående format förklaras i följande tabell.
 
     | URL-del        | Beskrivning       |
     | :-------------- | :---------------- |
     | http://events.wingtip-dpt | Händelse delarna i Wingtip-appen.<br /><br /> *-DPT* särskiljer implementeringen av en *databas per klient* för Wingtip-biljetter från andra implementeringar. Exempel är implementeringar av *en enda* app-per-klient ( *-sa*) eller flera *klient databaser* ( *-MT*). |
-    | .  *användare&lt;&gt;* | *AF1* i exemplet. |
+    | . *&lt;user @ no__t-2* | *AF1* i exemplet. |
     | .trafficmanager.net/ | Traffic Manager, bas-URL. |
     | fabrikamjazzclub | Identifierar klienten som heter Fabrikam jazz klubb. |
     | &nbsp; | &nbsp; |
@@ -140,7 +140,7 @@ Wingtip-programmet använder [*Azure Traffic Manager*](../traffic-manager/traff
   - Katalogen implementeras med hjälp av *Shard Map Management*.
 - Events Hub använder utökade metadata i katalogen för att skapa sidan med webb adresser för List-of-Events för varje klient.
 
-I en produktions miljö kan du vanligt vis skapa en CNAME DNS-post för att [*peka företagets Internet domän*](../traffic-manager/traffic-manager-point-internet-domain.md) till Traffic Manager DNS-namnet.
+I en produktions miljö kan du vanligt vis skapa en CNAME DNS-post för att [*peka företagets Internet domän*](../traffic-manager/traffic-manager-point-internet-domain.md) TO Traffic Manager DNS-namnet.
 
 > [!NOTE]
 > Det kanske inte är direkt uppenbart vad användningen av Traffic Manager är i den här självstudien. Målet med den här serien med självstudier är att demonstrera mönster som kan hantera en komplex produktions Miljös skala. I sådana fall skulle du till exempel ha flera webbappar som distribueras över hela världen, tillsammans med databaser och du behöver Traffic Manager för att dirigera mellan dessa instanser.
@@ -152,7 +152,7 @@ Nu när appen har distribuerats kan vi placera den att fungera.
 
 PowerShell *-skriptet demo-LoadGenerator* startar en arbets belastning som körs mot alla klient databaser. Den verkliga belastningen på många SaaS-appar är sporadisk och oförutsägbar. För att simulera den här typen av belastning skapar generatorn en belastning med slumpmässiga toppar eller burst-överföringar för varje klient. Burst-överföringarna sker med slumpmässiga intervall. Det tar flera minuter innan belastnings mönstret uppträder. Låt generatorn köras i minst tre eller fyra minuter innan du övervakar belastningen.
 
-1. I PowerShell ISE öppnar du... Learning modules\\-verktyg\\*demo-LoadGenerator. ps1* -skript. \\
+1. I PowerShell ISE öppnar du... \\Learning-moduler @ no__t-1Utilities @ no__t-2*demo-LoadGenerator. ps1* -skript.
 2. Tryck på F5 för att köra skriptet och starta belastnings generatorn. Lämna standardvärdena för parameter för tillfället.
 3. Logga in på ditt Azure-konto och välj den prenumeration som du vill använda, om det behövs.
 
@@ -172,7 +172,7 @@ Om du vill kontrol lera och övervaka bakgrunds jobben använder du följande cm
 
 1. *Demo-LoadGenerator. ps1* startar *LoadGenerator. ps1* i förgrunden.
 
-    - Både. ps1-filer lagras under verktygen\\\\i Learning modules för mappar.
+    - Både. ps1-filer lagras under mapparna Learning modules @ no__t-0Utilities @ no__t-1.
 
 2. *LoadGenerator. ps1* -loopar via alla klient databaser i katalogen.
 
@@ -181,9 +181,9 @@ Om du vill kontrol lera och övervaka bakgrunds jobben använder du följande cm
     - Som standard körs bakgrunds jobben i 120 minuter.
     - Varje jobb orsakar en CPU-baserad belastning på en klient databas genom att köra *sp_CpuLoadGenerator*. Belastningens intensitet och varaktighet varierar beroende på `$DemoScenario`.
     - *sp_CpuLoadGenerator* loopar runt en SQL SELECT-instruktion som orsakar hög CPU-belastning. Tidsintervallet mellan problem med SELECT varierar enligt parameter värden för att skapa en kontrollerbar CPU-belastning. Belastnings nivåer och intervall är slumpmässiga för att simulera mer realistiska belastningar.
-    - Den här. SQL-filen lagras *under\\WingtipTenantDB\\dbo\\StoredProcedures*.
+    - Den här. SQL-filen lagras under *WingtipTenantDB @ no__t-1dbo @ no__t-2StoredProcedures @ no__t-3*.
 
-4. Om `$OneTime = $false`inläsnings generatorn startar bakgrunds jobben och fortsätter att köras. Var tionde sekund övervakar den för alla nya klienter som är etablerade. Om du ställer `$OneTime = $true`in startar LoadGenerator bakgrunds jobben och slutar sedan att köra i förgrunden. I den här självstudien lämnar `$OneTime = $false`du.
+4. Om `$OneTime = $false` startar belastnings generatorn bakgrunds jobben och fortsätter sedan att köra. Var tionde sekund övervakar den för alla nya klienter som är etablerade. Om du anger `$OneTime = $true` startar LoadGenerator bakgrunds jobben och slutar sedan att köra i förgrunden. Lämna `$OneTime = $false` för den här självstudien.
 
    Använd CTRL-C eller stoppa åtgärden Ctrl-Break om du vill stoppa eller starta om belastnings generatorn.
 
@@ -198,7 +198,7 @@ Innan du fortsätter med nästa avsnitt måste du lämna belastnings generatorn 
 Den första distributionen skapar tre exempel klienter. Nu skapar du en annan klient för att se hur det distribuerade programmet påverkar. I Wingtip-appen förklaras arbets flödet för att etablera nya klienter i [själv studie kursen om etablering och katalog](saas-dbpertenant-provision-and-catalog.md). I det här steget skapar du en ny klient, som tar mindre än en minut.
 
 1. Öppna en ny PowerShell ISE.
-2. Öppna... Learning Modules\Provision och Catalog\\*provisionandcatalog. ps1.* \\
+2. Öppna... \\Learning Modules\Provision och Catalog @ no__t-1*provisionandcatalog. ps1*.
 3. Tryck på F5 för att köra skriptet. Lämna standardvärdena för tillfället.
 
    > [!NOTE]
@@ -220,14 +220,14 @@ Uppdatera Händelsehubben så att den nya klienten visas i listan.
 
 Nu när du har börjat köra en belastning mot samlingen av klienter kan vi titta på några av de resurser som har distribuerats.
 
-1. I [Azure Portal](https://portal.azure.com)bläddrar du till listan över SQL-servrar. Öppna sedan **katalogen-DPT&lt;-User&gt;**  Server.
+1. I [Azure Portal](https://portal.azure.com)bläddrar du till listan över SQL-servrar. Öppna sedan **katalogen-DPT-&lt;USER @ no__t-2-** servern.
     - Katalog servern innehåller två databaser, **tenantcatalog** och **basetenantdb** (en mall som kopieras för att skapa nya klienter).
 
    ![Databaser](./media/saas-dbpertenant-get-started-deploy/databases.png)
 
 2. Gå tillbaka till listan över SQL-servrar.
 
-3. Öppna **tenants1-DPT-User&lt;&gt;**  -servern som innehåller klient databaserna.
+3. Öppna **tenants1-DPT-&lt;USER @ no__t-2** -servern som innehåller klient databaserna.
 
 4. Se följande objekt:
 
@@ -240,7 +240,7 @@ Nu när du har börjat köra en belastning mot samlingen av klienter kan vi titt
 
 När *LoadGenerator. ps1* körs i flera minuter bör det finnas tillräckligt med data för att börja titta på vissa övervaknings funktioner. Dessa funktioner är inbyggda i pooler och databaser.
 
-Bläddra till servern **tenants1-DPT-&lt;&gt;User**och välj **Pool1** för att Visa resursutnyttjande för poolen. I följande diagram kördes belastnings generatorn i en timme.
+Bläddra till servern **tenants1-DPT-&lt;user @ no__t-2**och välj **Pool1** för att Visa resursutnyttjande för poolen. I följande diagram kördes belastnings generatorn i en timme.
 
    ![Övervaka pool](./media/saas-dbpertenant-get-started-deploy/monitor-pool.png)
 

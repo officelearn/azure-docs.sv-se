@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 026689b68244052c3ad7cb50cd90d7319b6760ef
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fbab3eff3d7f742c2542e4264ef1b2124c5f15e5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71229403"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024619"
 ---
 # <a name="tutorial-investigate-incidents-with-azure-sentinel"></a>Självstudier: Undersök incidenter med Azure Sentinel
 
@@ -35,7 +35,7 @@ Den här artikeln beskriver:
 > [!div class="checklist"]
 > * Undersöka incidenter
 > * Använd undersöknings diagrammet
-> * Svara på hot
+> * Reagera på hot
 
 En incident kan innehålla flera aviseringar. Det är en agg regering av alla relevanta bevis för en speciell undersökning. En incident skapas baserat på analys regler som du skapade på sidan **analys** . Egenskaperna som rör aviseringarna, till exempel allvarlighets grad och status, anges på incident nivå. När du har informerat Azure Sentinel vet vilka typer av hot du letar efter och hur du hittar dem kan du övervaka identifierade hot genom att undersöka incidenter.
 
@@ -44,7 +44,7 @@ Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings f
 
 ## <a name="how-to-investigate-incidents"></a>Så här undersöker du incidenter
 
-1. Välj **incidenter**. På ****  sidan incidenter kan du se hur många incidenter du har, hur många som är öppna, hur många som är inställda på att **pågå**och hur många som är stängda. För varje incident kan du se tiden det har inträffat och status för incidenten. Titta på allvarlighets graden för att bestämma vilka incidenter som ska hanteras först.
+1. Välj **incidenter**. På sidan **incidenter** kan du se hur många incidenter du har, hur många som är öppna, hur många som är inställda på att **pågå**och hur många som är stängda. För varje incident kan du se tiden det har inträffat och status för incidenten. Titta på allvarlighets graden för att bestämma vilka incidenter som ska hanteras först.
 
     ![Visa allvarlighets grad för incident](media/tutorial-investigate-cases/incident-severity.png)
 
@@ -54,7 +54,7 @@ Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings f
 
 1. Om du vill visa mer information om aviseringar och entiteter i incidenten väljer du **Visa fullständig information** på sidan incident och granskar de relevanta flikarna som sammanfattar incident informationen. På fliken **aviseringar** granskar du själva aviseringen. Du kan se all relevant information om aviseringen – frågan som utlöste aviseringen, antalet resultat som returneras per fråga och möjligheten att köra spel böcker på aviseringarna. Om du vill öka detalj nivån ytterligare i incidenten väljer du antalet **händelser**. Detta öppnar frågan som skapade resultaten och de händelser som utlöste aviseringen i Log Analytics. På fliken **entiteter** kan du se alla entiteter som du har mappat som en del av varnings regel definitionen.
 
-    ![Visa aviseringsinformation](media/tutorial-investigate-cases/alert-details.png)
+    ![Visa aviserings information](media/tutorial-investigate-cases/alert-details.png)
 
 1. Om du aktivt undersöker en incident, är det en bra idé att ställa in incidentens status på **pågående** tills du stänger den.
 
@@ -78,14 +78,14 @@ I undersöknings diagrammet får du:
 
 Så här använder du undersöknings diagrammet:
 
-1. Välj en incident och välj sedan **Undersök**. Då kommer du till undersöknings diagrammet. Grafen innehåller en illustrations karta över de entiteter som är direkt anslutna till aviseringen och varje resurs som är ansluten ytterligare.
+1. Välj en incident och välj sedan **Undersök**. Då kommer du till undersöknings diagrammet. Grafen innehåller en illustrations karta över de entiteter som är direkt anslutna till aviseringen och varje resurs som är ansluten ytterligare.
 
    > [!IMPORTANT] 
    > Du kommer bara att kunna undersöka incidenten om du använde enhets mappnings fälten när du konfigurerade din analys regel. Undersöknings diagrammet kräver att den ursprungliga incidenten innehåller entiteter.
 
    ![Visa karta](media/tutorial-investigate-cases/map1.png)
 
-1. Välj en entitet för att öppna fönstret **entiteter** så att du kan granska information om entiteten.
+1. Välj en entitet för att öppna fönstret **entiteter** så att du kan granska information om entiteten.
 
     ![Visa entiteter i kartan](media/tutorial-investigate-cases/map-entities.png)
   
@@ -97,7 +97,7 @@ Så här använder du undersöknings diagrammet:
 
     ![Visa relaterade aviseringar](media/tutorial-investigate-cases/related-alerts.png)
 
-1. För varje utforsknings fråga kan du välja alternativet för att öppna de råa händelse resultaten och frågan som används i Log Analytics, genom att välja **händelser\>** .
+1. För varje utforsknings fråga kan du välja alternativet för att öppna de råa händelse resultaten och frågan som används i Log Analytics genom att välja **händelser @ no__t-1**.
 
 1. För att förstå incidenten ger grafen en parallell tids linje.
 

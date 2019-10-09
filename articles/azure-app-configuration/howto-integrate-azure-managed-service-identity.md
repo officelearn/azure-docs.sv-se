@@ -13,20 +13,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: 4318c4b4d8f1b1f0974d0fae0a2ae5bd6e94b593
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 3a5517c31cdac0bf6f5ea386a8614d15521d4479
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076540"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035546"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Integrera med Azure Managed Identities
 
 Azure Active Directory [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) bidrar till att förenkla hanteringen av hemligheter för ditt moln program. Med en hanterad identitet kan du konfigurera din kod för att använda tjänstens huvud namn som skapades för den Azure Compute-tjänst som den körs på. Du använder en hanterad identitet i stället för en separat autentiseringsuppgift som lagras i Azure Key Vault eller en lokal anslutnings sträng. 
 
-Azure App konfiguration och dess .NET Core-, .NET-och Java våren-klient bibliotek har stöd för hanterad tjänst identitet (MSI) inbyggda i dem. Även om du inte behöver använda den, eliminerar MSI behovet av en åtkomsttoken som innehåller hemligheter. Din kod behöver bara känna till tjänstens slut punkt för ett app Configuration-Arkiv för att komma åt den. Du kan bädda in den här URL: en i koden direkt utan att oroa dig för att exponera någon hemlighet.
+Azure App konfiguration och dess .NET Core-, .NET-och Java våren-klient bibliotek har stöd för hanterad tjänst identitet (MSI) inbyggda i dem. Även om du inte behöver använda den, eliminerar MSI behovet av en åtkomsttoken som innehåller hemligheter. Din kod kan komma åt appens konfigurations Arkiv enbart med tjänstens slut punkt. Du kan bädda in den här URL: en i koden direkt utan att oroa dig för att exponera någon hemlighet.
 
 Den här självstudien visar hur du kan dra nytta av MSI för att komma åt App Configuration. Den bygger på den webbapp som introducerades i snabbstarterna. Innan du fortsätter måste du först [skapa en ASP.net Core-app med app-konfigurationen](./quickstart-aspnet-core-app.md) .
+
+Dessutom visar den här själv studie kursen hur du kan använda MSI tillsammans med app-konfigurationens Key Vault referenser. På så sätt kan du sömlöst komma åt hemligheter som lagras i Key Vault och konfigurations värden i app-konfigurationen. Om du vill utforska den här funktionen kan du avsluta [använda Key Vault referenser med ASP.net Core](./use-key-vault-references-dotnet-core.md) först.
 
 Du kan använda valfri kod redigerare för att utföra stegen i den här självstudien. [Visual Studio Code](https://code.visualstudio.com/) är ett utmärkt alternativ som är tillgängligt på Windows-, MacOS-och Linux-plattformarna.
 
@@ -35,6 +37,7 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Bevilja en hanterad identitets åtkomst till app-konfigurationen.
 > * Konfigurera appen så att den använder en hanterad identitet när du ansluter till app-konfigurationen.
+> * Du kan också konfigurera appen så att den använder en hanterad identitet när du ansluter till Key Vault via en app-konfiguration Key Vault referens.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
@@ -63,23 +66,25 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
 
 1. I [Azure Portal](https://portal.azure.com)väljer du **alla resurser** och väljer det konfigurations Arkiv för app som du skapade i snabb starten.
 
-2. Välj **åtkomstkontroll (IAM)** .
+1. Välj **åtkomstkontroll (IAM)** .
 
-3. På fliken **kontrol lera åtkomst** väljer du **Lägg till** i användar gränssnittet **Lägg till Roll tilldelnings** kort.
+1. På fliken **kontrol lera åtkomst** väljer du **Lägg till** i användar gränssnittet **Lägg till Roll tilldelnings** kort.
 
-4. Under **roll**väljer du **deltagare**. Under **tilldela åtkomst till**väljer du **App Service** under **systemtilldelad hanterad identitet**.
+1. Under **roll**väljer du **deltagare**. Under **tilldela åtkomst till**väljer du **App Service** under **systemtilldelad hanterad identitet**.
 
-5. Under **prenumeration**väljer du din Azure-prenumeration. Välj App Service resurs för din app.
+1. Under **prenumeration**väljer du din Azure-prenumeration. Välj App Service resurs för din app.
 
-6. Välj **Spara**.
+1. Välj **Spara**.
 
     ![Lägga till en hanterad identitet](./media/add-managed-identity.png)
+
+1. Valfritt: Om du vill ge åtkomst till Key Vault också följer du anvisningarna i [tillhandahålla Key Vault autentisering med en hanterad identitet](https://docs.microsoft.com/azure/key-vault/managed-identity).
 
 ## <a name="use-a-managed-identity"></a>Använda en hanterad identitet
 
 1. Hitta URL: en till appens konfigurations Arkiv genom att gå till konfigurations skärmen i Azure Portal och sedan klicka på fliken **åtkomst nycklar** .
 
-2. Öppna *appSettings. JSON*och Lägg till följande skript. *Ersätt\<service_endpoint >* , inklusive hakparenteser, med URL: en till appens konfigurations lager. 
+1. Öppna *appSettings. JSON*och Lägg till följande skript. Ersätt *\<service_endpoint >* , inklusive hakparenteser, med URL: en till appens konfigurations lager. 
 
     ```json
     "AppConfig": {
@@ -87,7 +92,7 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
     }
     ```
 
-3. Öppna *program.cs*och uppdatera `CreateWebHostBuilder` metoden genom att `config.AddAzureAppConfiguration()` ersätta metoden.
+1. Om du bara vill komma åt värden som lagras direkt i appens konfiguration öppnar du *program.cs*och uppdaterar metoden `CreateWebHostBuilder` genom att ersätta `config.AddAzureAppConfiguration()`-metoden.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -100,6 +105,24 @@ Om du vill konfigurera en hanterad identitet i portalen skapar du först ett pro
             })
             .UseStartup<Startup>();
     ```
+
+1. Om du vill använda konfigurations värden för appar och Key Vault referenser öppnar du *program.cs*och uppdaterar `CreateWebHostBuilder`-metoden som visas nedan. Detta skapar en ny `KeyVaultClient` med en `AzureServiceTokenProvider` och skickar den här referensen till ett anrop till `UseAzureKeyVault`-metoden.
+
+    ```csharp
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration((hostingContext, config) =>
+                {
+                    var settings = config.Build();
+                    AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
+                    KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
+                    
+                    config.AddAzureAppConfiguration(options => options.ConnectWithManagedIdentity(settings["AppConfig:Endpoint"])).UseAzureKeyVault(kvClient));
+                })
+                .UseStartup<Startup>();
+    ```
+
+    Du kan nu komma åt Key Vault referenser precis som andra konfigurations nycklar för appar. Config-providern använder `KeyVaultClient` som du konfigurerade för att autentisera till Key Vault och hämta värdet.
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
@@ -114,7 +137,7 @@ Det enklaste sättet att aktivera lokal Git-distribution för din app med kudu b
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
 ### <a name="enable-local-git-with-kudu"></a>Aktivera lokal Git med Kudu
-Om du ännu inte har en lokal git-lagringsplats för din app måste du initiera en genom att köra följande kommandon från appens projekt katalog:
+Om du inte har en lokal git-lagringsplats för din app måste du initiera en. Det gör du genom att köra följande kommandon från appens projekt katalog:
 
 ```cmd
 git init
@@ -122,19 +145,19 @@ git add .
 git commit -m "Initial version"
 ```
 
-Om du vill aktivera lokal Git-distribution för din app med kudu build- [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) servern kör du i Cloud Shell.
+Om du vill aktivera lokal Git-distribution för din app med kudu build-servern kör du [`az webapp deployment source config-local-git`](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-local-git) i Cloud Shell.
 
 ```azurecli-interactive
 az webapp deployment source config-local-git --name <app_name> --resource-group <group_name>
 ```
 
-Om du vill skapa en git-aktiverad app i [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) stället kör du i `--deployment-local-git` Cloud Shell med parametern.
+Om du vill skapa en git-aktiverad app i stället kör du [`az webapp create`](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) i Cloud Shell med parametern `--deployment-local-git`.
 
 ```azurecli-interactive
 az webapp create --name <app_name> --resource-group <group_name> --plan <plan_name> --deployment-local-git
 ```
 
-`az webapp create` Kommandot ger dig något som liknar följande utdata:
+Kommandot `az webapp create` ger dig något som liknar följande utdata:
 
 ```json
 Local git is configured with url of 'https://<username>@<app_name>.scm.azurewebsites.net/<app_name>.git'
@@ -166,7 +189,7 @@ Skicka till Azure-fjärrdatabasen för att distribuera appen med följande komma
 git push azure master
 ```
 
-Du kan se körnings viss automatisering i utdata, till exempel MSBuild för ASP.net, `npm install` för Node. js och `pip install` för python.
+Du kan se körnings viss automatisering i utdata, till exempel MSBuild för ASP.NET, `npm install` för Node. js och `pip install` för python.
 
 ### <a name="browse-to-the-azure-web-app"></a>Bläddra till Azure-webbappen
 
@@ -176,7 +199,7 @@ Bläddra till din webbapp med hjälp av en webbläsare för att kontrol lera att
 http://<app_name>.azurewebsites.net
 ```
 
-![app som körs i App Service](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
+![App som körs i App Service](../app-service/media/app-service-web-tutorial-dotnetcore-sqldb/azure-app-in-browser.png)
 
 ## <a name="use-managed-identity-in-other-languages"></a>Använd hanterad identitet på andra språk
 

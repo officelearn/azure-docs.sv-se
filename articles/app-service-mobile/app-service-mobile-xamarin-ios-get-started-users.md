@@ -1,6 +1,6 @@
 ---
-title: Komma igång med autentisering för Mobile Apps i Xamarin-iOS
-description: Lär dig hur du använder Mobile Apps du autentiserar användare i din Xamarin iOS-app genom olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft.
+title: Kom igång med autentisering för Mobile Apps i Xamarin iOS
+description: Lär dig hur du använder Mobile Apps för att autentisera användare av din Xamarin iOS-app via olika identitets leverantörer, till exempel AAD, Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -14,56 +14,56 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: fa1f4bae314025a71568e1e04cbf950ebbe26dbe
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 1af488d4f170508bbf586621d00e9a92657983ca
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446228"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024826"
 ---
 # <a name="add-authentication-to-your-xamarinios-app"></a>Lägga till autentisering i en Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-users) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 
-Det här avsnittet visar hur du autentiserar användare i en App Service Mobile App från ditt klientprogram. I den här självstudien lägger du till autentisering till snabbstartsprojektet Xamarin.iOS med hjälp av en identitetsprovider som stöds av App Service. Efter att har autentiseras och auktoriseras av din Mobilapp, användar-ID-värdet visas och du kommer att kunna få åtkomst till begränsade tabelldata.
+Det här avsnittet visar hur du autentiserar användare av en App Service mobilapp från klient programmet. I den här självstudien lägger du till autentisering i snabb starts projektet Xamarin. iOS med en identitetsprovider som stöds av App Service. När din mobilapp har autentiserats och godkänts av din mobilapp visas värdet användar-ID och du kommer att kunna komma åt data i begränsad tabell.
 
-Du måste slutföra kursen [skapa en Xamarin.iOS-app]. Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till tillägget autentiseringspaket ditt projekt. Läs mer om server-tilläggspaket [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Du måste först slutföra självstudien [skapa en Xamarin. iOS-app]. Om du inte använder det nedladdade projektet för snabb starts Server måste du lägga till paketet med autentiserings tillägg i projektet. Mer information om Server tilläggs paket finns i [arbeta med .NET-Server del Server SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="register-your-app-for-authentication-and-configure-app-services"></a>Registrera din app för autentisering och konfigurera App Services
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a>Lägg till din app i de tillåtna externa Omdirigeringswebbadresser
+## <a name="add-your-app-to-the-allowed-external-redirect-urls"></a>Lägg till din app i de tillåtna externa omdirigerings-URL: erna
 
-Säker autentisering måste du definiera en ny URL-schema för din app. På så sätt kan autentiseringssystem att omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder vi URL-schema _appname_ i hela. Du kan dock använda alla URL-schema som du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på serversidan:
+Säker autentisering kräver att du definierar ett nytt URL-schema för din app. Detta gör att Authentication-systemet kan omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder _vi program_ varan för URL-program i alla. Du kan dock använda alla URL-scheman du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på Server sidan:
 
-1. I den [Azure-portalen](https://portal.azure.com/), Välj din App Service.
+1. I [Azure Portal](https://portal.azure.com/)väljer du App Service.
 
-2. Klicka på den **autentisering / auktorisering** menyalternativ.
+2. Klicka på meny alternativet **autentisering/auktorisering** .
 
-3. I den **tillåtna externa omdirigerings-URL: er**, ange `url_scheme_of_your_app://easyauth.callback`.  Den **url_scheme_of_your_app** i den här strängen är URL-schemat för din mobilapp.  Den bör följa den normala URL specifikationen för ett protokoll (Använd bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer eftersom du behöver ändra programkoden mobila med URL-schema på flera platser.
+3. I de **tillåtna externa omdirigerings-URL: erna**anger du `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** i den här STRÄNGEN är URL-schemat för det mobila programmet.  Den bör följa normal URL-specifikation för ett protokoll (Använd bara bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer när du behöver justera koden för mobil program med URL-schemat på flera platser.
 
 4. Klicka på **OK**.
 
 5. Klicka på **Spara**.
 
-## <a name="restrict-permissions-to-authenticated-users"></a>Begränsa behörighet för autentiserade användare
+## <a name="restrict-permissions-to-authenticated-users"></a>Begränsa behörigheter till autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* Kör klientprojektet i Visual Studio eller Xamarin Studio på en enhet eller emulator. Kontrollera att ett ohanterat undantag med en statuskod 401 (obehörig) aktiveras när appen startar. Felet loggas i konsolen för felsökning. Du bör därför se felet i utdatafönstret i Visual Studio.
+* I Visual Studio eller Xamarin Studio kör du klient projektet på en enhet eller emulator. Kontrol lera att ett ohanterat undantag med status kod 401 (obehörig) utlöses när appen startar. Fel loggas i fel söknings konsolens konsol. Så i Visual Studio bör du se felen i fönstret utdata.
 
-    Den här obehörig felet inträffar eftersom appen försöker få åtkomst till din mobilappsserverdel som oautentiserade användare. Den *TodoItem* tabell nu kräver autentisering.
+    Detta obehöriga haverier uppstår eftersom appen försöker få åtkomst till Server delen för mobilappar som en oautentiserad användare. *TodoItem* -tabellen kräver nu autentisering.
 
-Därefter uppdaterar du klientappen till begär resurser från serverdelen för Mobilappen med en autentiserad användare.
+Sedan uppdaterar du klient programmet för att begära resurser från Server delen för mobilappar med en autentiserad användare.
 
 ## <a name="add-authentication-to-the-app"></a>Lägg till autentisering i appen
-I det här avsnittet ska du ändra appen om du vill visa en inloggningsskärm innan den visas data. När appen startar kommer inte att ansluta till din App Service och visas inte några data. När först gången som utför användaren uppdatering-gest inloggningsskärmen visas. efter genomförd inloggning visas listan över att göra-objekt.
+I det här avsnittet ska du ändra appen så att en inloggnings skärm visas innan data visas. När appen startar kommer den inte att ansluta till din App Service och kommer inte att visa några data. När den första gången användaren utför uppdateringen visas inloggnings skärmen. efter lyckad inloggning visas listan över att göra-objekt.
 
-1. Öppna filen i klientprojektet **QSTodoService.cs** och Lägg till följande med instruktionen och `MobileServiceUser` med accessor till QSTodoService-klassen:
+1. Öppna filen **QSTodoService.cs** i klient projektet och Lägg till följande using-instruktion och `MobileServiceUser` med accessor till klassen QSTodoService:
 
     ```csharp
     using UIKit;
@@ -73,7 +73,7 @@ I det här avsnittet ska du ändra appen om du vill visa en inloggningsskärm in
     public MobileServiceUser User { get { return user; } }
     ```
 
-2. Lägg till ny metod som heter **autentisera** till **QSTodoService** med följande definition:
+2. Lägg till en ny metod med namnet **autentisera** till **QSTodoService** med följande definition:
 
     ```csharp
     public async Task Authenticate(UIViewController view)
@@ -91,9 +91,9 @@ I det här avsnittet ska du ändra appen om du vill visa en inloggningsskärm in
     ```
 
     > [!NOTE]
-    > Om du använder en identitetsprovider än ett Facebook, ändrar du värdet som skickas till **LoginAsync** ovan till något av följande: _MicrosoftAccount_, _Twitter_, _Google_, eller _WindowsAzureActiveDirectory_.
+    > Om du använder en annan identitets leverantör än en Facebook, ändra värdet som skickas till **LoginAsync** ovan till något av följande: _MicrosoftAccount_, _Twitter_, _Google_eller _WindowsAzureActiveDirectory_.
 
-3. Öppna **QSTodoListViewController.cs**. Ändra metoddefinitionen av **ViewDidLoad** tar bort anropet till **RefreshAsync()** mot slutet:
+3. Öppna **QSTodoListViewController.cs**. Ändra metod definitionen för **ViewDidLoad** ta bort anropet till **RefreshAsync ()** nära slutet:
 
     ```csharp
     public override async void ViewDidLoad ()
@@ -112,7 +112,7 @@ I det här avsnittet ska du ändra appen om du vill visa en inloggningsskärm in
     }
     ```
 
-4. Ändra metoden **RefreshAsync** att autentisera om det **användaren** -egenskapen är null. Lägg till följande kod högst upp på metoddefinitionen:
+4. Ändra metoden **RefreshAsync** för autentisering om **användar** egenskapen är null. Lägg till följande kod högst upp i metod definitionen:
 
     ```csharp
     // start of RefreshAsync method
@@ -126,7 +126,7 @@ I det här avsnittet ska du ändra appen om du vill visa en inloggningsskärm in
     // rest of RefreshAsync method
     ```
 
-5. Öppna **AppDelegate.cs**, lägger du till följande metod:
+5. Öppna **AppDelegate.cs**och Lägg till följande metod:
 
     ```csharp
     public static Func<NSUrl, bool> ResumeWithURL;
@@ -137,12 +137,12 @@ I det här avsnittet ska du ändra appen om du vill visa en inloggningsskärm in
     }
     ```
 
-6. Öppna **Info.plist** filen, gå till **URL typer** i den **Avancerat** avsnittet. Nu konfigurera den **identifierare** och **URL-scheman** av din URL-typ och klicka på **Lägg till URL-typen**. **URL-scheman** bör vara samma som din {url_scheme_of_your_app}.
-7. I Visual Studio, som är anslutna till Mac-värd eller Visual Studio för Mac, kör klientprojektet riktar in sig på en enhet eller emulator. Kontrollera att appen visar inga data.
+6. Öppna filen **info. plist** , navigera till **URL-typer** i avsnittet **Avancerat** . Konfigurera **identifieraren** och URL- **scheman** för din URL-typ och klicka på **Lägg till URL-typ**. **URL-scheman** ska vara samma som {url_scheme_of_your_app}.
+7. I Visual Studio, som är ansluten till din Mac-värd eller Visual Studio för Mac, kör du klient projektet som mål en enhet eller emulator. Kontrol lera att appen inte visar några data.
 
-    Utför gesten uppdatering genom att dra nedåt i listan med objekt, vilket leder till inloggningsskärmen visas. När du har angett giltiga autentiseringsuppgifter, visas listan över att göra-objekt och du kan göra uppdateringar till data.
+    Utför uppdateringen genom att dra ned listan över objekt, vilket gör att inloggnings skärmen visas. När du har angett giltiga autentiseringsuppgifter kommer appen att visa listan över att göra-objekt och du kan göra uppdateringar av data.
 
 <!-- URLs. -->
 [Submit an app page]: https://go.microsoft.com/fwlink/p/?LinkID=266582
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Skapa en Xamarin.iOS-app]: app-service-mobile-xamarin-ios-get-started.md
+[Skapa en Xamarin. iOS-app]: app-service-mobile-xamarin-ios-get-started.md

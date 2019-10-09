@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/14/2019
+ms.date: 10/07/2019
 ms.author: magoedte
-ms.openlocfilehash: 7cd915c47fa0661a9da66d7ca3315480ce7d6b98
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ada573cc919d775af52abc5a75004866aebbeddb
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709433"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033947"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agent data insamling för Azure Monitor för behållare
 
@@ -45,11 +45,11 @@ Följande är de inställningar som kan konfigureras för att styra data insamli
 |----|----------|------|------------|
 |`schema-version` |Sträng (Skift läges känslig) |v1 |Det här är den schema version som används av agenten vid parsning av den här ConfigMap. Schema version som stöds för närvarande är v1. Det finns inte stöd för att ändra det här värdet och kommer att avvisas när ConfigMap utvärderas.|
 |`config-version` |Sträng | | Stöder möjlighet att hålla koll på den här konfigurations filens version i käll kontroll systemet/lagrings platsen. Maximalt antal tillåtna tecken är 10 och alla andra tecken trunkeras. |
-|`[log_collection_settings.stdout] enabled =` |Boolesk | Sant eller falskt | Kontrollerar om STDOUT container logg samling är aktive rad. När värdet är `true` inställt på och inga namn områden utesluts för`log_collection_settings.stdout.exclude_namespaces` STDOUT logg samling (inställningen nedan) samlas STDOUT-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är `enabled = true`standardvärdet. |
-|`[log_collection_settings.stdout] exclude_namespaces =`|Sträng | Kommaavgränsad matris |Matris med Kubernetes-namnområden som StdOut-loggar inte ska samlas in för. Den här inställningen gäller endast om `log_collection_settings.stdout.enabled` har angetts till `true`. Om inget värde anges i ConfigMap är `exclude_namespaces = ["kube-system"]`standardvärdet.|
-|`[log_collection_settings.stderr] enabled =` |Boolesk | Sant eller falskt |Anger om stderr container logg samling är aktive rad. När värdet är `true` inställt på och inga namn områden utesluts för`log_collection_settings.stderr.exclude_namespaces` STDOUT logg insamling (inställning) samlas stderr-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är `enabled = true`standardvärdet. |
-|`[log_collection_settings.stderr] exclude_namespaces =` |Sträng |Kommaavgränsad matris |Matris med Kubernetes-namnområden som stderr-loggar inte ska samlas in för. Den här inställningen gäller endast om `log_collection_settings.stdout.enabled` har angetts till `true`. Om inget värde anges i ConfigMap är `exclude_namespaces = ["kube-system"]`standardvärdet. |
-| `[log_collection_settings.env_var] enabled =` |Boolesk | Sant eller falskt | Detta kontrollerar om en miljö variabel samling är aktive rad. När det är `false`inställt på, samlas inga miljövariabler in för någon behållare som körs i alla poddar/noder i klustret. Om inget värde anges i ConfigMap är `enabled = true`standardvärdet. |
+|`[log_collection_settings.stdout] enabled =` |Boolesk | Sant eller falskt | Kontrollerar om STDOUT container logg samling är aktive rad. När värdet är inställt på `true` och inga namn områden exkluderas för STDOUT logg samling (`log_collection_settings.stdout.exclude_namespaces` nedan) samlas STDOUT-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är standardvärdet `enabled = true`. |
+|`[log_collection_settings.stdout] exclude_namespaces =`|Sträng | Kommaavgränsad matris |Matris med Kubernetes-namnområden som StdOut-loggar inte ska samlas in för. Den här inställningen gäller endast om `log_collection_settings.stdout.enabled` är inställt på `true`. Om inget värde anges i ConfigMap är standardvärdet `exclude_namespaces = ["kube-system"]`.|
+|`[log_collection_settings.stderr] enabled =` |Boolesk | Sant eller falskt |Anger om stderr container logg samling är aktive rad. När värdet är inställt på `true` och inga namn områden exkluderas för STDOUT logg samling (`log_collection_settings.stderr.exclude_namespaces`-inställning) samlas stderr-loggar in från alla behållare i alla poddar/noder i klustret. Om inget värde anges i ConfigMaps är standardvärdet `enabled = true`. |
+|`[log_collection_settings.stderr] exclude_namespaces =` |Sträng |Kommaavgränsad matris |Matris med Kubernetes-namnområden som stderr-loggar inte ska samlas in för. Den här inställningen gäller endast om `log_collection_settings.stdout.enabled` är inställt på `true`. Om inget värde anges i ConfigMap är standardvärdet `exclude_namespaces = ["kube-system"]`. |
+| `[log_collection_settings.env_var] enabled =` |Boolesk | Sant eller falskt | Den här inställningen styr samlingen av miljövariabler över alla poddar/noder i klustret och standardvärdet är `enabled = true` när det inte anges i ConfigMaps. Om samlingen av miljövariabler är globalt aktive rad, kan du inaktivera den för en speciell behållare genom att ange miljövariabeln `AZMON_COLLECT_ENV` till **falskt** antingen med en Dockerfile-inställning eller i [konfigurations filen för Pod](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/) under  **avsnittet miljö:** . Om insamlingen av miljövariabler är globalt inaktive rad kan du inte aktivera samling för en speciell behållare (det vill säga den enda åsidosättning som kan tillämpas på behållar nivån är att inaktivera samlingen när den redan är aktive rad globalt.). |
 
 ### <a name="prometheus-scraping-settings"></a>Prometheus OLE-inställningar
 
@@ -74,17 +74,17 @@ När en URL anges, kommer Azure Monitor för behållare bara att kassera slut pu
 |------|-----|-----------|-------|-------------|
 | Hela klustret | | | | Ange en av följande tre metoder för att kassera slut punkter för mått. |
 | | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en speciell Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
-| | `kubernetes_services` | Sträng | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att kassera mått från Kube-State-Metrics. Till exempel`kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
-| | `monitor_kubernetes_pods` | Boolesk | Sant eller falskt | När det är `true` inställt på i inställningarna för hela klustret kommer Azure Monitor for containers agent att kassera Kubernetes-poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
+| | `kubernetes_services` | Sträng | Kommaavgränsad matris | En matris med Kubernetes-tjänster för att kassera mått från Kube-State-Metrics. Till exempel `kubernetes_services = ["https://metrics-server.kube-system.svc.cluster.local/metrics", http://my-service-dns.my-namespace:9100/metrics]`.|
+| | `monitor_kubernetes_pods` | Boolesk | Sant eller falskt | När värdet är `true` i inställningarna för hela klustret, kommer Azure Monitor för container agent att kassera Kubernetes poddar över hela klustret för följande Prometheus-anteckningar:<br> `prometheus.io/scrape:`<br> `prometheus.io/scheme:`<br> `prometheus.io/path:`<br> `prometheus.io/port:` |
 | | `prometheus.io/scrape` | Boolesk | Sant eller falskt | Aktiverar kassation av pod. `monitor_kubernetes_pods` måste anges till `true`. |
 | | `prometheus.io/scheme` | Sträng | http eller https | Används som standard för skrotning över HTTP. Om det behövs anger du till `https`. | 
-| | `prometheus.io/path` | Sträng | Kommaavgränsad matris | Den HTTP-resurs Sök väg som måtten ska hämtas från. Om måtten Path inte `/metrics`är det definierar du den med den här anteckningen. |
+| | `prometheus.io/path` | Sträng | Kommaavgränsad matris | Den HTTP-resurs Sök väg som måtten ska hämtas från. Om måtten Path inte är `/metrics` definierar du den med den här anteckningen. |
 | | `prometheus.io/port` | Sträng | 9102 | Ange en port att lyssna på. Om porten inte har angetts är den standard 9102. |
 | Node-wide | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en speciell Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
 | Hela noden eller hela klustret | `interval` | Sträng | 60 s | Samlings intervallets standardvärdet är en minut (60 sekunder). Du kan ändra samlingen för antingen *[prometheus_data_collection_settings. node]* och/eller *[prometheus_data_collection_settings. Cluster]* till Time units, t. ex. ns, US (eller Âμs), MS, s, m, h. |
-| Hela noden eller hela klustret | `fieldpass`<br> `fielddrop`| Sträng | Kommaavgränsad matris | Du kan ange att vissa mått ska samlas in eller inte från slut punkten genom att ange List rutan`fieldpass`Tillåt () och`fielddrop`neka (). Du måste först ange listan över tillåtna. |
+| Hela noden eller hela klustret | `fieldpass`<br> `fielddrop`| Sträng | Kommaavgränsad matris | Du kan ange att vissa mått ska samlas in eller inte från slut punkten genom att ange List rutan Tillåt (`fieldpass`) och neka (`fielddrop`). Du måste först ange listan över tillåtna. |
 
-ConfigMap är en global lista och det kan bara finnas en ConfigMap som tillämpas på agenten. Det går inte att ha en annan ConfigMap över samlingarna.
+ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämpas på agenten. Det går inte att ha en annan ConfigMaps över samlingarna.
 
 ## <a name="configure-and-deploy-configmaps"></a>Konfigurera och distribuera ConfigMaps
 
@@ -93,11 +93,11 @@ Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigu
 1. [Hämta](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) mallen ConfigMap yaml File och spara den som container-AZM-MS-agentconfig. yaml.  
 1. Redigera ConfigMap yaml-filen med dina anpassningar.
 
-    - Om du vill undanta vissa namn rymder för STDOUT-logg samling konfigurerar du nyckeln/värdet med hjälp av `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`följande exempel:.
+    - Om du vill undanta vissa namn rymder för STDOUT-logg samling konfigurerar du nyckeln/värdet med hjälp av följande exempel: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
-    - Om du vill inaktivera en miljö variabel samling för en speciell behållare anger du nyckel `[log_collection_settings.env_var] enabled = true` /värde för att aktivera variabel insamling globalt och följer sedan stegen [här](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) för att slutföra konfigurationen av den angivna behållaren.
+    - Om du vill inaktivera en miljö variabel samling för en speciell behållare ställer du in nyckeln/Value `[log_collection_settings.env_var] enabled = true` för att aktivera variabel insamling globalt och följer sedan stegen [här](container-insights-manage-agent.md#how-to-disable-environment-variable-collection-on-a-container) för att slutföra konfigurationen av den angivna behållaren.
     
-    - Om du vill inaktivera stderr-logg samling i hela klustret konfigurerar du nyckeln/värdet med hjälp av följande `[log_collection_settings.stderr] enabled = false`exempel:.
+    - Om du vill inaktivera stderr-logg samling i hela klustret konfigurerar du nyckeln/värdet med hjälp av följande exempel: `[log_collection_settings.stderr] enabled = false`.
     
     - I följande exempel visas hur du konfigurerar ConfigMap-filmåtten från ett globalt URL-kluster, från en agents DameonSet Node-wide och genom att ange en POD-anteckning
 
@@ -140,7 +140,7 @@ Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigu
           - prometheus.io/port:"8000" #If port is not 9102 use this annotation
         ```
 
-1. Skapa ConfigMap genom att köra följande kubectl-kommando `kubectl apply -f <configmap_yaml_file.yaml>`:.
+1. Skapa ConfigMap genom att köra följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Exempel: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
@@ -153,7 +153,7 @@ Verifiera att konfigurationen har tillämpats genom att använda följande komma
 config::unsupported/missing config schema version - 'v21' , using defaults
 ```
 
-Fel som rör tillämpning av konfigurations ändringar för Prometheus finns också tillgängliga för granskning.  Antingen från loggarna från en agent Pod med samma `kubectl logs` kommando eller från Live-loggar. Live-loggar visar fel som liknar följande:
+Fel som rör tillämpning av konfigurations ändringar för Prometheus finns också tillgängliga för granskning.  Antingen från loggarna från en agent Pod med samma `kubectl logs`-kommando eller från Live-loggar. Live-loggar visar fel som liknar följande:
 
 ```
 2019-07-08T18:55:00Z E! [inputs.prometheus]: Error in plugin: error making HTTP request to http://invalidurl:1010/metrics: Get http://invalidurl:1010/metrics: dial tcp: lookup invalidurl on 10.0.0.10:53: no such host
@@ -169,7 +169,7 @@ Konfigurations ändringen kan ta några minuter innan den börjar gälla, och al
 
 ## <a name="verifying-schema-version"></a>Verifierar schema version
 
-Konfigurations schema versioner som stöds är tillgängliga som Pod-anteckning (schema versioner) på omsagent-pod. Du kan se dem med följande kubectl-kommando:`kubectl describe pod omsagent-fdf58 -n=kube-system`
+Konfigurations schema versioner som stöds är tillgängliga som Pod-anteckning (schema versioner) på omsagent-pod. Du kan se dem med följande kubectl-kommando: `kubectl describe pod omsagent-fdf58 -n=kube-system`
 
 Utdata ser ut ungefär så här med antecknings schema versioner:
 

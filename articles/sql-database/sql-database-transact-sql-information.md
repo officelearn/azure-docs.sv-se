@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: 0f64642d04504770415c0d2243ec77b44bde05f2
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: fbc4628ff3d3d7d90f7ec2c47c87f7afa3e9cd43
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68566294"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028829"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Lösa skillnader i Transact-SQL vid migrering till SQL Database
 
@@ -57,7 +57,7 @@ Förutom Transact-SQL-uttryck som är relaterade till de funktioner som inte st�
 - Funktioner: `fn_get_sql`, `fn_virtualfilestats`,`fn_virtualservernodes`
 - All Syntax som rör maskinvarubaserade Server inställningar: till exempel minne, arbets trådar, processor tillhörighet, spårnings flaggor. Använd tjänst nivåer och beräknings storlekar i stället.
 - `KILL STATS JOB`
-- `OPENQUERY`, `OPENROWSET`,och namn på fyra delar `OPENDATASOURCE`
+- `OPENQUERY`, `OPENROWSET`, `OPENDATASOURCE` och namn på fyra delar
 - .NET Framework: CLR-integrering med SQL Server
 - Semantisk sökning
 - Autentiseringsuppgifter för Server: Använd i stället [databasens begränsade autentiseringsuppgifter](https://msdn.microsoft.com/library/mt270260.aspx) .
@@ -74,15 +74,15 @@ Förutom Transact-SQL-uttryck som är relaterade till de funktioner som inte st�
 - Spårnings flaggor: Vissa spårade flaggobjekt har flyttats till kompatibilitetsläge.
 - Felsökning av Transact-SQL
 - Utlösar Server – begränsade eller inloggnings utlösare
-- `USE`Sekretesspolicy Om du vill ändra databasens kontext till en annan databas måste du skapa en ny anslutning till den nya databasen.
+- `USE`-uttryck: Om du vill ändra databasens kontext till en annan databas måste du skapa en ny anslutning till den nya databasen.
 
 ## <a name="full-transact-sql-reference"></a>Fullständig referens för Transact-SQL
 
-Mer information om hur du använder Transact-SQL grammatik, användning och exempel finns i [referens för Transact-SQL (databas motor)](https://msdn.microsoft.com/library/bb510741.aspx) i SQL Server Books Online.
+Mer information om hur du använder Transact-SQL grammatik, användning och exempel finns i [referens för Transact-SQL (databas motor)](https://msdn.microsoft.com/library/bb510741.aspx) In SQL Server Books Online.
 
 ### <a name="about-the-applies-to-tags"></a>Om "Gäller för"-taggar
 
-Transact-SQL-referensen innehåller artiklar relaterade till SQL Server versioner 2008 för närvarande. Under artikel rubriken finns ett ikon fält, som visar de fyra SQL Server plattformarna och som anger tillämplighet. Till exempel introducerades tillgänglighetsgrupper i SQL Server 2012. I artikeln [skapa tillgänglighets grupp](https://msdn.microsoft.com/library/ff878399.aspx) anges att instruktionen gäller för **SQL Server (från och med 2012)** . Uttrycket gäller inte för SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse eller Parallel Data Warehouse.
+Transact-SQL-referensen innehåller artiklar relaterade till SQL Server versioner 2008 för närvarande. Under artikel rubriken finns ett ikon fält, som visar de fyra SQL Server plattformarna och som anger tillämplighet. Till exempel introducerades tillgänglighetsgrupper i SQL Server 2012.  [Skapa tillgänglighets grupp](https://msdn.microsoft.com/library/ff878399.aspx) article anger att instruktionen gäller **SQL Server (från och med 2012)** . Uttrycket gäller inte för SQL Server 2008, SQL Server 2008 R2, Azure SQL Database, Azure SQL Data Warehouse eller Parallel Data Warehouse.
 
 I vissa fall kan en artikels allmänna ämne användas i en produkt, men det finns mindre skillnader mellan produkterna. Skillnaderna anges på mitt punkter i artikeln efter behov. I vissa fall kan en artikels allmänna ämne användas i en produkt, men det finns mindre skillnader mellan produkterna. Skillnaderna anges på mitt punkter i artikeln efter behov. Till exempel är artikeln Skapa utlösare tillgänglig i SQL Database. Men alternativet **alla Server** för utlösare på server nivå anger att utlösare på server nivå inte kan användas i SQL Database. Använd i stället databas nivå utlösare.
 

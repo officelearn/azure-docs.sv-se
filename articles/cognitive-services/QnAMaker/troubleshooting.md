@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/26/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 00d3d63ff1a5b4d5dab0534e039145b97091af87
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 51d21dca1d8a5223e67cb7ea8489800989cff55c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802157"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026026"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>Fel sökning för QnA Maker
 
@@ -43,7 +43,7 @@ QnAMaker-tjänstens slut punkt är användbar för fel sökning när du kontakta
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>Använd hjälp roboten i QnA Maker Portal
 
-QnA Maker ger en **Hjälp** robot på QNA Maker portal som hjälp. Hjälp roboten är tillgänglig på alla webb sidor. Roboten använder QNA Maker för att ge svar och ger [ C# bot Framework](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) -kodfragmentet till roboten så att du snabbt kan komma igång med din egen svars robot. 
+QnA Maker ger en **Hjälp** robot på QNA Maker portal som hjälp. Hjälp roboten är tillgänglig på alla webb sidor. Roboten använder QNA Maker för att ge svar och ger [ C# bot Framework-kodfragmentet](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) till roboten så att du snabbt kan komma igång med din egen svars robot. 
 
 ![! [QnA Maker innehåller en * *-hjälp * * bot i QnA Maker portalen som hjälp.] (./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
@@ -99,7 +99,7 @@ Se [datakällans platser](./Concepts/data-sources-supported.md#data-source-locat
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>Uppdateringar som jag gjorde på min kunskapsbas inte visas publicera. Varför inte?
 
-Varje redigeringsåtgärden måste i uppdatera tabell-, test- eller inställningen, sparas innan de kan publiceras. Se till att klicka på den **spara och träna** knappen efter varje.
+Varje redigeringsåtgärden måste i uppdatera tabell-, test- eller inställningen, sparas innan de kan publiceras. Se till att klicka på knappen **Spara och träna** efter varje redigerings åtgärd.
 
 ### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>Har kunskapsbasen stöd för formaterade data eller multimedia?
 
@@ -123,7 +123,7 @@ Uppdatera din app service när på varningsikonen är bredvid versionsvärdet f�
 
 Om du tar bort ett Azure Search-index är åtgärden slutgiltig och indexet kan inte återställas. 
 
-### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Jag har tagit `testkb` bort mitt index i min search-tjänst. Hur kan jag åtgärda detta? 
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>Jag har tagit bort mitt `testkb`-index i min search-tjänst. Hur kan jag åtgärda detta? 
 
 Dina gamla data kan inte återställas. Skapa en ny QnA Maker resurs och skapa din kunskaps bas igen.
 
@@ -139,7 +139,7 @@ Om du vill använda flera språk och flera kunskapsbaser, har användaren att sk
 
 Namnet på resursen för Azure Search är resursnamnet QnA Maker med vissa slumpmässiga bokstäver som tillägg i slutet. På så sätt blir det svårt att skilja mellan flera Sök efter resurser för QnA Maker. Skapa en separat Azure Search-tjänst (namngivning av det sätt som du vill) och ansluter den till din QnA Service. Stegen liknar de steg du behöver utföra för att [uppgradera en Azure-sökning](How-To/set-up-qnamaker-service-azure.md#upgrade-the-azure-search-service).
 
-### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>När QNA Maker returnerar `Runtime core is not initialized,` jag det?
+### <a name="when-qna-maker-returns-runtime-core-is-not-initialized-how-do-i-fix-it"></a>När QnA Maker returnerar `Runtime core is not initialized,` hur löser jag det?
 
 Disk utrymmet för App Service kan vara fullt. Steg för att åtgärda disk utrymmet:
 
@@ -179,7 +179,7 @@ Du måste ha följande information om din kunskaps bas:
 
 Med den här informationen går du till appens robots App Service i Azure Portal. Under **Inställningar-> konfiguration – inställningar för > program**, ändra dessa värden.  
 
-Kunskaps basens slut punkts nyckel är `QnAAuthkey` märkt i ABS-tjänsten. 
+Kunskaps basens slut punkts nyckel är märkt `QnAAuthkey` i ABS-tjänsten. 
 
 ### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>Kan två eller flera klient program dela en kunskaps bas? 
 

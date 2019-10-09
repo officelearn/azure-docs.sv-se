@@ -1,42 +1,21 @@
 ---
-title: Dynamics 365 för Customer Engagement erbjuder inställningar-fliken | Azure Marketplace
-description: Konfigurera erbjudandet inställningarna för en Dynamics 365 för kundengagemang programmet erbjudandet på AppSource-marknadsplatsen.
+title: Fliken Inställningar för Dynamics 365 för Customer Engagement-erbjudandet | Azure Marketplace
+description: Föråldrad CPP-artikel, länkad till PC-artikel; var "Konfigurera inställningarna för erbjudandet för ett Dynamics 365 för kund engagemang-program på AppSource Marketplace."
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: 219a69632fe29b1d756702d97804613021b57006
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 71cea44a428fe9eca40ac70e56e6e0a80362115a
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942444"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033885"
 ---
-# <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Dynamics 365 för Customer Engagement erbjuder inställningar-fliken
+# <a name="dynamics-365-for-customer-engagement-offer-settings-tab"></a>Fliken Inställningar för Dynamics 365 för Customer Engagement-erbjudandet
 
-Den här artikeln beskriver hur du konfigurerar erbjudandet inställningarna för en Dynamics 365 för Customer Engagement-program.
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera Dynamics 365-erbjudanden om kund engagemang. I stället har den här funktionen flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [skapa en ny Dynamics 365 för kund engagemang & PowerApps-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-Den **Dynamics 365 för kundengagemang** > **nytt erbjudande** öppnas med fokus på den **erbjuder inställningar** fliken.  En asterisk (*) läggs till fältnamnet anger att det krävs.
-
-![Erbjud fliken Inställningar för Dynamics 365 för kundengagemang](./media/dyn365ce-offer-settings-tab.png)
-
-
-## <a name="offer-settings-fields"></a>Erbjudandet inställningar fält
-
-I följande tabell beskrivs fälten i den här fliken. Required fields are indicted by an asterisk (*).
-
-|    Fält         |       Beskrivning                                                            |
-|  ---------       |     ---------------                                                          |
-| **Erbjudande-ID\***   | En unik identifierare (inom en utgivarprofil för) för erbjudandet. Den här identifieraren syns i URL: er och insikter rapporter i produkten. Det har högst 50 tecken och kan använda gemena alfanumeriska tecken och bindestreck (-). (Det ID: t får inte sluta med ett bindestreck.) **Obs:** Det här fältet kan inte ändras när ett erbjudande lanseras eftersom den är kopplad till erbjudandets marketplace bas-URL.  |
-| **Utgivar-ID\***  | Din organisations unika identifieraren i Azure Marketplace. Alla dina erbjudanden som ska associeras med ditt publisher-ID. Det här värdet kan inte ändras när erbjudandet har sparats. |
-| **Namn\***       | Visningsnamn för ditt erbjudande. Det här namnet visas i AppSource-marknadsplatsen. Det får innehålla högst 50 tecken. Vi rekommenderar att du använder ett beskrivande namn för varumärke för din produkt. Omfattar inte namnet på din organisation om det inte är hur din produkt släpps. Om du marknadsföring det här erbjudandet i andra webbplatser och publiceringar, se till att namnet exakt samma i alla publikationer. |
-|  |  |
-
-Välj **spara** att spara inställningarna för ditt erbjudande.
-
-
-## <a name="next-steps"></a>Nästa steg
-
-Använd den [teknisk informationsfliken](./cpp-technical-info-tab.md) att konfigurera program- och information för ditt erbjudande.
+Innan du skapar ett nytt Dynamics 365-erbjudande för kund engagemang bör du läsa [skapa ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/directory) med den valda **översikts** sidan. Följ instruktionerna i [skapa en ny Dynamics 365 för kund engagemang & PowerApps-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) för att skapa ditt erbjudande.

@@ -1,69 +1,69 @@
 ---
-title: Server begrepp i Azure Database för PostgreSQL – enskild Server
-description: Den här artikeln innehåller riktlinjer för att konfigurera och hantera Azure Database för PostgreSQL – enskild Server och överväganden.
+title: Server koncept i Azure Database for PostgreSQL-enskild server
+description: Den här artikeln innehåller överväganden och rikt linjer för att konfigurera och hantera Azure Database for PostgreSQL-enskild server.
 author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: bc135e58d0fbabc809f3718915e9f4e35b8ed875
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bd7c24489e8ac7b26cb703923ddf9cbb741cfd68
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65067163"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029963"
 ---
-# <a name="azure-database-for-postgresql---single-server"></a>Azure Database för PostgreSQL – enskild Server
-Den här artikeln innehåller överväganden och riktlinjer för att arbeta med Azure Database för PostgreSQL – enskild Server.
+# <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-enskild server
+Den här artikeln innehåller överväganden och rikt linjer för att arbeta med Azure Database for PostgreSQL-en server.
 
-## <a name="what-is-an-azure-database-for-postgresql-server"></a>Vad är en Azure Database for PostgreSQL-server?
-En server i Azure Database för PostgreSQL – alternativ för distribution av enskild Server är en central administrativ plats för flera databaser. Det är samma PostgreSQL server-konstruktion som du kanske är bekant med lokala över hela världen. Mer specifikt PostgreSQL-tjänsten hanteras, ger prestanda, exponerar åtkomst och funktioner på servernivå.
+## <a name="what-is-an-azure-database-for-postgresql-server"></a>Vad är en Azure Database for PostgreSQL-Server?
+En server i distributions alternativet Azure Database for PostgreSQL-enskild server är en central administrations plats för flera databaser. Det är samma PostgreSQL Server-konstruktion som du kanske är van vid i den lokala världen. Mer specifikt är PostgreSQL-tjänsten hanterad, ger prestanda garantier, visar åtkomst och funktioner på server nivå.
 
-En Azure Database for PostgreSQL-server:
+En Azure Database for PostgreSQL Server:
 
-- Skapas inom en Azure-prenumeration.
-- Är den överordnade resursen för databaser.
-- Tillhandahåller ett namnområde för databaser.
-- Är en behållare med stark livslängdssemantik – ta bort en server och tar bort de inneslutna databaserna.
+- Skapas i en Azure-prenumeration.
+- Är överordnad resurs för databaser.
+- Innehåller ett namn område för databaser.
+- Är en behållare med stark livs längd – ta bort en server och tar bort de inneslutna databaserna.
 - Samlar resurser i en region.
-- Tillhandahåller en anslutningsslutpunkt för server och databasåtkomst 
-- Tillhandahåller definitionsområdet för hanteringsprinciper som tillämpas på dess databaser: inloggning, brandvägg, användare, roller, konfigurationer osv.
-- Är tillgänglig i flera versioner. Mer information finns i [PostgreSQL-databas-versioner som stöds](concepts-supported-versions.md).
-- Kan utökas av användare. Mer information finns i [PostgreSQL-tillägg](concepts-extensions.md).
+- Tillhandahåller en anslutnings slut punkt för Server-och databas åtkomst 
+- Tillhandahåller omfattning för hanterings principer som gäller för databaserna: inloggning, brand vägg, användare, roller, konfigurationer osv.
+- Är tillgänglig i flera versioner. Mer information finns i [PostgreSQL Database-versioner som stöds](concepts-supported-versions.md).
+- Är utöknings bar av användare. Mer information finns i [postgresql-tillägg](concepts-extensions.md).
 
-Du kan skapa en eller flera databaser inom en Azure Database for PostgreSQL-server. Du kan välja att skapa en databas per server om du vill använda dig av samtliga resurser, eller skapa flera databaser som får dela på resurserna. Priserna är strukturerade per server, baserat på konfigurationen av prisnivå, virtuella kärnor, och lagringsutrymme (GB). Mer information finns i [prisnivåer](./concepts-pricing-tiers.md).
+I en Azure Database for PostgreSQL-Server kan du skapa en eller flera databaser. Du kan välja att skapa en databas per server om du vill använda dig av samtliga resurser, eller skapa flera databaser som får dela på resurserna. Priserna är strukturerad per server, baserat på konfigurationen av pris nivån, virtuella kärnor och lagring (GB). Mer information finns i [pris nivåer](./concepts-pricing-tiers.md).
 
-## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Hur jag för att ansluta och autentisera till en Azure Database for PostgreSQL-server?
-Följande element att säkerställa säker åtkomst till databasen:
+## <a name="how-do-i-connect-and-authenticate-to-an-azure-database-for-postgresql-server"></a>Hur gör jag för att ansluta och autentisera till en Azure Database for PostgreSQL-Server?
+Följande element hjälper till att säkerställa säker åtkomst till databasen:
 
 |||
 |:--|:--|
-| **Autentisering och auktorisering** | Azure Database for PostgreSQL-server stöder interna PostgreSQL-autentisering. Du kan ansluta och autentisera till servern med den serveradministratör. |
-| **Protokoll** | Tjänsten stöder ett meddelandebaserat protokoll som används av PostgreSQL. |
-| **TCP/IP** | Protokollet som stöds via TCP/IP och över sockets för Unix-domän. |
-| **Brandvägg** | För att skydda dina data, förhindrar en brandväggsregel all åtkomst till servern och dess databaser tills du anger vilka datorer som har behörighet. Se [Azure Database for PostgreSQL-Server brandväggsregler](concepts-firewall-rules.md). |
+| **Autentisering och auktorisering** | Azure Database for PostgreSQL Server stöder intern PostgreSQL-autentisering. Du kan ansluta och autentisera till servern med serverns Administratörs inloggning. |
+| **Protokoll** | Tjänsten stöder ett Message-baserat protokoll som används av PostgreSQL. |
+| **TCP/IP** | Protokollet stöds över TCP/IP och över UNIX-domänsuffix. |
+| **Brandvägg** | För att skydda dina data förhindrar en brand Väggs regel all åtkomst till servern och dess databaser tills du anger vilka datorer som har behörighet. Se [Azure Database for postgresql server brand Väggs regler](concepts-firewall-rules.md). |
 
-## <a name="managing-your-server"></a>Hantering av servern
-Du kan hantera Azure Database for PostgreSQL-servrar med hjälp av den [Azure-portalen](https://portal.azure.com) eller [Azure CLI](/cli/azure/postgres).
+## <a name="managing-your-server"></a>Hantera servern
+Du kan hantera Azure Database for PostgreSQL-servrar med hjälp av [Azure Portal](https://portal.azure.com) eller [Azure CLI](/cli/azure/postgres).
 
-När du skapar en server måste ställa du in autentiseringsuppgifterna för din administratörsanvändaren. Administratören är den högsta Privilegierade användaren som du har på servern. Det hör till rollen azure_pg_admin. Den här rollen har inte fullständig superanvändare behörigheter. 
+När du skapar en server konfigurerar du autentiseringsuppgifterna för administratörs användaren. Administratörs användaren är den högsta behörighets användaren som du har på servern. Den tillhör rollen azure_pg_admin. Den här rollen har inte fullständig behörighet för superanvändare. 
 
-Attributet PostgreSQL superanvändare har tilldelats azure_superuser, som tillhör den hanterade tjänsten. Du har inte åtkomst till den här rollen.
+Attributet PostgreSQL superanvändare tilldelas till azure_superuser, som tillhör den hanterade tjänsten. Du har inte åtkomst till den här rollen.
 
-En Azure Database for PostgreSQL-server har standarddatabaser: 
-- **postgres** -en standarddatabas som du kan ansluta till när servern har skapats.
-- **azure_maintenance** -den här databasen används för att avgränsa de processer som tillhandahåller hanteringstjänster från användaråtgärder. Du har inte åtkomst till den här databasen.
-- **azure_sys** -en-databas för Query Store. Den här databasen lagra inte data när Query Store är inaktiverad; Det här är standardinställningen. Mer information finns i den [Query Store översikt](concepts-query-store.md).
+En Azure Database for PostgreSQL-Server har standard databaser: 
+- **postgres** – en standard databas som du kan ansluta till när servern har skapats.
+- **azure_maintenance** – den här databasen används för att avgränsa de processer som tillhandahåller den hanterade tjänsten från användar åtgärder. Du har inte åtkomst till den här databasen.
+- **azure_sys** – en databas för frågearkivet. Den här databasen samlar inte data när Frågearkivet är inaktive rad. Detta är standardinställningen. Mer information finns i [Översikt över frågearkivet](concepts-query-store.md).
 
 
-## <a name="server-parameters"></a>Serverparametrar
-PostgreSQL-serverparametrar fastställa konfigurationen av servern. Azure Database för PostgreSQL listan över parametrar kan ses och redigeras med hjälp av Azure portal eller Azure CLI. 
+## <a name="server-parameters"></a>Server parametrar
+PostgreSQL-Server parametrarna bestämmer serverns konfiguration. I Azure Database for PostgreSQL kan listan över parametrar visas och redige ras med hjälp av Azure Portal eller Azure CLI. 
 
-Som en hanterad tjänst för Postgres de konfigurerbara parametrarna i Azure Database för PostgreSQL är en delmängd av parametrarna i en lokal Postgres-instans (Mer information om Postgres-parametrar finns i den [PostgreSQL-dokumentation](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Azure Database för PostgreSQL-server har aktiverats med standardvärden för varje parameter skapats. Starta om vissa parametrar som kräver en server eller superanvändare åtkomst för att ändringarna ska börja gälla kan inte konfigureras av användaren.
+Som en hanterad tjänst för postgres, är de konfigurerbara parametrarna i Azure Database for PostgreSQL en delmängd av parametrarna i en lokal postgres-instans (mer information om postgres-parametrar finns i [postgresql-dokumentationen](https://www.postgresql.org/docs/9.6/static/runtime-config.html)). Din Azure Database for PostgreSQL-Server är aktive rad med standardvärden för varje parameter vid skapande. Vissa parametrar som kräver en omstart av servern eller superanvändare för att ändringarna ska börja gälla kan inte konfigureras av användaren.
 
 
 ## <a name="next-steps"></a>Nästa steg
 - En översikt över tjänsten finns i [Azure Database for PostgreSQL översikt](overview.md).
-- Information om specifika resurskvoter och begränsningar baserat på din **tjänstnivå**, se [tjänstnivåer](concepts-pricing-tiers.md).
-- Information om hur du ansluter till tjänsten finns i [anslutningsbibliotek för Azure Database for PostgreSQL](concepts-connection-libraries.md).
-- Visa och redigera serverparametrar via [Azure-portalen](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).
+- Information om vilka resurs kvoter och begränsningar som baseras på **tjänst nivån**finns i [tjänst nivåer](concepts-pricing-tiers.md).
+- Information om hur du ansluter till tjänsten finns i [anslutnings bibliotek för Azure Database for PostgreSQL](concepts-connection-libraries.md).
+- Visa och redigera Server parametrar via [Azure Portal](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: d7c2aee3ad73552a57776af5ce6585b36518d169
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 95dbe2b9ccfdc0a900ba53668869e3872b6e51d5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71687060"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030303"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -54,7 +54,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
 
 ### <a name="create-virtual-machine"></a>Skapa virtuell dator
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **beräknings** > **virtuell dator**.
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **Compute** > **virtuell dator**.
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
@@ -81,7 +81,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
 
 1. Välj **Nästa: Diskar**.
 
-1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **nästa: Nätverk**.
+1. I **skapa en virtuell dator-diskar**lämnar du standardvärdena och väljer **Next: Nätverk**.
 
 1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
@@ -90,7 +90,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
     | Subnet | Lämna standard **under nätet (10.1.0.0/24)** .|
-    | Offentlig IP | Lämna standardinställningen **(ny) myVm-ip**. |
+    | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
     |||
@@ -103,7 +103,7 @@ I det här avsnittet ska du skapa en Virtual Network och under nätet som är v�
 ## <a name="create-a-sql-database-server"></a>Skapa en SQL Database-Server
 I det här avsnittet ska du skapa en SQL Database-Server i Azure. 
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **databaser** > **SQL-databas**.
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **databaser** > **SQL Database**.
 
 1. I **skapa SQL Database – grunderna**anger eller väljer du den här informationen:
 
@@ -121,12 +121,12 @@ I det här avsnittet ska du skapa en SQL Database-Server i Azure.
     | Inställning | Value |
     | ------- | ----- |
     |servernamn  | Ange *Server*. Om det här namnet tas skapar du ett unikt namn.|
-    | Inloggning för serveradministratör| Ange ett administratörs namn som du väljer. |
+    | inloggning för serveradministratör| Ange ett administratörs namn som du väljer. |
     | lösenordsinställning | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
     | Location | Välj en Azure-region där du vill att din SQL Server ska finnas. |
     
 7. Välj **OK**. 
-8. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
+8. Välj **Granska + skapa**. Du kommer till **granskningen + skapa** Page där Azure validerar konfigurationen. 
 9. När du ser meddelandet valideringen har skickats väljer du **skapa**. 
 10. När du ser meddelandet valideringen har skickats väljer du skapa. 
 
@@ -134,8 +134,8 @@ I det här avsnittet ska du skapa en SQL Database-Server i Azure.
 
 I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut punkt i den. 
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **nätverk** > **Private Link Center (för hands version)** .
-2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **nätverk**@no__t – 3**privat länk Center (för hands version)** .
+2. I **privat länk Center – översikt**, på alternativet för att **skapa en privat anslutning till en tjänst**, väljer du **Start**.
 1. I **skapa en privat slut punkt (för hands version) – grundläggande**anger eller väljer du den här informationen:
 
     | Inställning | Value |
@@ -144,10 +144,10 @@ I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut p
     | Subscription | Välj din prenumeration. |
     | Resource group | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **INSTANSINFORMATION** |  |
-    | Name | *Ange myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
+    | Name | Ange * myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
     |Region|Välj **WestCentralUS**.|
     |||
-5. Välj **nästa: Resurs**.
+5. Välj @ no__t-0Next: Resurs @ no__t-0.
 6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
 
     | Inställning | Value |
@@ -158,7 +158,7 @@ I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut p
     | Resource |Välj *Server*|
     |Mål under resurs |Välj *sqlServer*|
     |||
-7. Välj **nästa: Konfiguration**.
+7. Välj @ no__t-0Next: Konfiguration @ no__t-0.
 8. I **skapa en privat slut punkt (för hands version) – konfiguration**, anger eller väljer du den här informationen:
 
     | Inställning | Value |
@@ -171,8 +171,8 @@ I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut p
     |Privat DNS zon |Välj *(ny) privatelink. Database. Windows. net* |
     |||
 
-1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
-2. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
+1. Välj **Granska + skapa**. Du kommer till **granskningen + skapa** Page där Azure validerar konfigurationen. 
+2. När du ser den **verifiering som skickades** message väljer du **skapa**. 
  
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av fjärr skrivbord (RDP)
 
@@ -204,7 +204,7 @@ När du har skapat **myVm*ansluter du till den från Internet på följande sät
 
 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
 
-2. Ange `nslookup myserver.database.windows.net`. 
+2. Ange @ no__t-0. 
 
     Du får ett meddelande som liknar detta:
     ```azurepowershell
@@ -225,7 +225,7 @@ När du har skapat **myVm*ansluter du till den från Internet på följande sät
     | servernamn| Välj *myserver.Database.Windows.net* |
     | Användarnamn | Ange ett lösen ord som du angav när du skapade SQL-servern. |
     |lösenordsinställning |Ange ett lösen ord som du angav när du skapade SQL-servern. |
-    |Komma ihåg lösenord|Välj **Ja**.|
+    |Kom ihåg lösen ord|Välj **Ja**.|
     |||
 1. Välj **Anslut**.
 2. Bläddra bland databaser från menyn till vänster.

@@ -1,6 +1,6 @@
 ---
-title: Node.js (MEAN.js) med MongoDB - Azure Apptjänst | Microsoft Docs
-description: Lär dig att få en Node.js-app att fungera i Azure med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng. MEAN.js används i självstudien.
+title: Node. js (MEAN. js) med MongoDB-Azure App Service | Microsoft Docs
+description: Lär dig att få en Node.js-app att fungera i Azure med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng. MEAN. js används i självstudien.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 361e921af65b33ac0a7a8d12e28db1cb305b0fa1
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 0b9b10542b861b49e83ff9704912a569cdca7616
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66138825"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024914"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-app-in-azure"></a>Självstudier: Skapa en Node.js- och MongoDB-app i Azure
 
@@ -310,7 +310,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app_name>.scm.azurewebsites.net/<app_name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ``` 
 
 Du kanske märker att distributionsprocessen kör [Gulp](https://gulpjs.com/) efter `npm install`. App Service kör inte Gulp- eller Grunt-uppgifter under distributionen. Den här exempellagringsplatsen har två extra filer i rotkatalogen för detta: 

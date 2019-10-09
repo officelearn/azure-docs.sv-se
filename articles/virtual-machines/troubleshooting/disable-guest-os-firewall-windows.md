@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 9ae8620b803fa9a911f44840a5fff5d190a316a1
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 6883d046078b5dccd2f1e83e87b41ca83edc92e3
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71086539"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030598"
 ---
 # <a name="disable-the-guest-os-firewall-in-azure-vm"></a>Inaktivera brandvägg för gästoperativsystem i en virtuell Azure-dator
 
@@ -90,9 +90,9 @@ Om du har en fungerande Azure-agent kan du använda [anpassat skript tillägg](.
 
 Följ dessa steg om du vill använda [fjär registret](https://support.microsoft.com/help/314837/how-to-manage-remote-access-to-the-registry).
 
-1.  Starta Registereditorn på den virtuella datorn för fel sökning och gå sedan till **fil** > **anslutning nätverks register**.
+1.  Starta Registereditorn på den virtuella datorn för fel sökning och gå sedan till **fil** > **Anslut nätverks registret**.
 
-2.  Öppna *mål datorn*\System-grenen och ange följande värden:
+2.  Öppna *mål datorn*\System-grenen och ange följande värden:
 
     ```
     <TARGET MACHINE>\SYSTEM\CurrentControlSet\services\SharedAccess\Parameters\FirewallPolicy\DomainProfile\EnableFirewall           -->        0 
@@ -102,13 +102,13 @@ Följ dessa steg om du vill använda [fjär registret](https://support.microsoft
 
 3.  Starta om tjänsten. Eftersom du inte kan göra det med hjälp av fjär registret måste du använda ta bort tjänst konsol.
 
-4.  Öppna en instans av **Services. msc**.
+4.  Öppna en instans av **Services. msc**.
 
 5.  Klicka på **tjänster (lokalt)** .
 
 6.  Välj **Anslut till en annan dator**.
 
-7.  Ange den **privata IP-adressen (DIP)**  för den virtuella datorns problem.
+7.  Ange den **privata IP-adressen (DIP)** för den virtuella datorns problem.
 
 8.  Starta om den lokala brand Väggs principen.
 

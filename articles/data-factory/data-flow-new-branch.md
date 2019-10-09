@@ -1,32 +1,32 @@
 ---
-title: Azure Data dataflöde Factory mappning ny gren omvandling
-description: Azure Data dataflöde Factory mappning ny gren omvandling
+title: Azure Data Factory mappa data flöde ny gren omvandling
+description: Azure Data Factory mappa data flöde ny gren omvandling
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 9fac78f21f2f128ccb040e176891c33d39bf2820
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3f443396627a4bbaba2a3eeb0a3ac05cc1597c85
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61349161"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029285"
 ---
-# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Azure Data dataflöde Factory mappning ny gren omvandling
+# <a name="azure-data-factory-mapping-data-flow-new-branch-transformation"></a>Azure Data Factory mappa data flöde ny gren omvandling
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Branch-alternativ](media/data-flow/menu.png "menyn")
 
-Branchning tar aktuella dataströmmen i ditt dataflöde och replikera den till en annan stream. Använd ny gren att utföra flera uppsättningar med åtgärder och transformationer mot samma dataström.
+(media/data-flow/menu.png "Menyn") ![förgrenings alternativ]
 
-Exempel: Ditt dataflöde har en källa transformera med en vald uppsättning kolumner och konverteringsmöjligheter för datatyper. Du kan sedan placera en härledd kolumn direkt efter den här källan. I den härledda kolumnen har du skapa ett nytt fält som kombinerar förnamn och efternamn för att göra ett nytt ”efternamn”-fält.
+Branchning tar den aktuella data strömmen i ditt data flöde och replikerar den till en annan data ström. Använd ny gren för att utföra flera uppsättningar av åtgärder och omvandlingar mot samma data ström.
 
-Du kan behandla nya dataströmmen med en uppsättning transformationer och en mottagare på en rad och Använd ny gren för att skapa en kopia av dataströmmen där kan du omvandla samma data med en annan uppsättning transformationer. Genom att omvandla den kopierade data i en separat gren, kan du därefter mottagare dessa data till en annan plats.
+Exempel: Ditt data flöde har en käll omvandling med en vald uppsättning kolumner och data typs konverteringar. Sedan placerar du en härledd kolumn direkt efter den källan. I den härledda kolumnen har du skapat ett nytt fält som kombinerar förnamn och efter namn för att skapa ett nytt "fullständigt namn"-fält.
+
+Du kan behandla den nya strömmen med en uppsättning transformationer och en mottagare på en rad och använda ny gren för att skapa en kopia av data strömmen där du kan omvandla samma data med en annan uppsättning transformeringar. Genom att omvandla de kopierade data i en separat gren kan du därefter mata in dessa data till en annan plats.
 
 > [!NOTE]
-> ”Ny gren” visas endast som en åtgärd på den + omvandling menyn när det finns en efterföljande omvandling efter den aktuella platsen där du försöker grenen. dvs. visas inte en ”ny gren” alternativ i slutet här tills du lägger till en annan transformering efter Välj
+> "Ny gren" visas endast som en åtgärd på menyn + omvandling när det finns en efterföljande omvandling efter den aktuella plats där du försöker förgrena. Det innebär att du inte ser alternativet "ny gren" i slutet här förrän du lägger till en annan omvandling efter Select
 
-![Branch](media/data-flow/branch2.png "Branch 2")
+![Gren](media/data-flow/branch2.png "gren 2")

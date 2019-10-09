@@ -12,12 +12,12 @@ ms.date: 04/11/2019
 ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4002c14ed6340a0e1a89ee295d47c98436515775
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 0c416d7279dd558b8a793064e295b7654925b1c8
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561778"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034886"
 ---
 # <a name="add-or-update-a-users-profile-information-using-azure-active-directory"></a>Lägg till eller uppdatera en användares profilinformation med hjälp av Azure Active Directory
 Lägg till information om användarprofiler, inklusive en profilbild, projektspecifika information och vissa inställningar med hjälp av Azure Active Directory (AD Azure). Läs mer om att lägga till nya användare, [lägga till eller ta bort användare i Azure Active Directory](add-users-azure-active-directory.md).
@@ -46,7 +46,7 @@ Som du ser finns det mer information i en användares profil än vad du kan läg
 
     - **Inställningar.** Bestäm om användaren kan logga in på Azure Active Directory-klient. Du kan också ange globala Användarplats.
 
-    - **Kontaktinformation.** Lägg till alla relevanta kontaktinformation för användaren. Till exempel en gatuadress eller ett mobiltelefonnummer.
+    - **Kontaktinformation.** Lägg till all relevant kontakt information för användaren, förutom användarens telefonnummer eller mobil kontakt information (endast en global administratör kan uppdatera för användare i administratörs roller).
 
     - **Om autentiseringskontakt.** Kontrollera den här informationen för att kontrollera att det finns en aktiv telefonnummer och e-postadress för användaren. Den här informationen används av Azure Active Directory för att se till att du verkligen är användaren vid inloggning. Om autentiseringskontakt kan bara uppdateras genom en global administratör.
 

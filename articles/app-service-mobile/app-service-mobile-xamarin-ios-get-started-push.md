@@ -1,6 +1,6 @@
 ---
-title: Lägg till pushmeddelanden i en Xamarin.iOS-app med Azure App Service
-description: Lär dig hur du använder Azure App Service för att skicka push-meddelanden till en Xamarin.iOS-app
+title: Lägg till push-meddelanden till din Xamarin. iOS-app med Azure App Service
+description: Lär dig hur du använder Azure App Service för att skicka push-meddelanden till din Xamarin. iOS-app
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -14,51 +14,51 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 9edd5e755b4a42fe881a0863bb284039299ec713
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 27c20d3d3c84455130c8fd978eaeb076781846ef
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446270"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024983"
 ---
-# <a name="add-push-notifications-to-your-xamarinios-app"></a>Lägga till push-meddelanden i en Xamarin.iOS-App
+# <a name="add-push-notifications-to-your-xamarinios-app"></a>Lägg till push-meddelanden i din Xamarin. iOS-app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started-push) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudien lägger du till push-meddelanden till den [Xamarin.iOS Snabbstart](app-service-mobile-xamarin-ios-get-started.md) projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
+I den här självstudien lägger du till push-meddelanden i [snabb starts projektet Xamarin. iOS](app-service-mobile-xamarin-ios-get-started.md) så att ett push-meddelande skickas till enheten varje gång en post infogas.
 
-Om du inte använder serverprojekt hämtade Snabbstart måste tilläggspaket för push-meddelande. Se [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) för mer information.
+Om du inte använder det nedladdade snabb start Server-projektet behöver du ett tilläggs paket för push-meddelanden. Mer information finns i [arbeta med .NET-Server del Server SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) .
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Slutför den [Xamarin.iOS snabbstarten](app-service-mobile-xamarin-ios-get-started.md) självstudien.
+* Slutför [snabb starts guiden för Xamarin. iOS](app-service-mobile-xamarin-ios-get-started.md) .
 * En fysisk iOS-enhet. Push-meddelanden stöds inte av iOS-simulatorn.
 
-## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Registrera appen för push-meddelanden på Apple developer-portalen
+## <a name="register-the-app-for-push-notifications-on-apples-developer-portal"></a>Registrera appen för push-meddelanden på Apples utvecklings Portal
 
 [!INCLUDE [Enable Apple Push Notifications](../../includes/enable-apple-push-notifications.md)]
 
-## <a name="configure-your-mobile-app-to-send-push-notifications"></a>Konfigurera Mobilappen för att skicka push-meddelanden
+## <a name="configure-your-mobile-app-to-send-push-notifications"></a>Konfigurera mobilappen för att skicka push-meddelanden
 
 [!INCLUDE [app-service-mobile-apns-configure-push](../../includes/app-service-mobile-apns-configure-push.md)]
 
-## <a name="update-the-server-project-to-send-push-notifications"></a>Uppdatera serverprojektet för att skicka push-meddelanden
+## <a name="update-the-server-project-to-send-push-notifications"></a>Uppdatera Server projektet för att skicka push-meddelanden
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a name="configure-your-xamarinios-project"></a>Konfigurera ditt Xamarin.iOS-projekt
+## <a name="configure-your-xamarinios-project"></a>Konfigurera ditt Xamarin. iOS-projekt
 
 [!INCLUDE [app-service-mobile-xamarin-ios-configure-project](../../includes/app-service-mobile-xamarin-ios-configure-project.md)]
 
 ## <a name="add-push-notifications-to-your-app"></a>Lägg till push-meddelanden i appen
 
-1. I **QSTodoService**, Lägg till följande egenskap så att **AppDelegate** kan hämta mobila klienten:
+1. I **QSTodoService**lägger du till följande egenskap så att **AppDelegate** kan hämta mobil klienten:
 
     ```csharp
     public MobileServiceClient GetClient {
@@ -73,14 +73,14 @@ Om du inte använder serverprojekt hämtade Snabbstart måste tilläggspaket fö
     }
     ```
 
-2. Lägg till följande `using` instruktion överst i **AppDelegate.cs** fil.
+2. Lägg till följande `using`-instruktion överst i **AppDelegate.cs** -filen.
 
     ```csharp
     using Microsoft.WindowsAzure.MobileServices;
     using Newtonsoft.Json.Linq;
     ```
 
-3. I **AppDelegate**, åsidosätter den **FinishedLaunching** händelse:
+3. I **AppDelegate**åsidosätter du **FinishedLaunching** -händelsen:
 
    ```csharp
     public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
@@ -99,7 +99,7 @@ Om du inte använder serverprojekt hämtade Snabbstart måste tilläggspaket fö
     }
     ```
 
-4. I samma fil, åsidosätter den `RegisteredForRemoteNotifications` händelse. I den här koden registrerar du för en enkel mall-meddelanden som skickas över alla plattformar som stöds av servern.
+4. I samma fil åsidosätter du händelsen `RegisteredForRemoteNotifications`. I den här koden registrerar du dig för ett enkelt mal meddelande som skickas mellan alla plattformar som stöds av servern.
 
     Mer information om mallar med Notification Hubs finns i [mallar](../notification-hubs/notification-hubs-templates-cross-platform-push-messages.md).
 
@@ -122,7 +122,7 @@ Om du inte använder serverprojekt hämtade Snabbstart måste tilläggspaket fö
     }
     ```
 
-5. Sedan kan åsidosätta den **DidReceivedRemoteNotification** händelse:
+5. Åsidosätt sedan **DidReceivedRemoteNotification** -händelsen:
 
    ```csharp
     public override void DidReceiveRemoteNotification (UIApplication application, NSDictionary userInfo, Action<UIBackgroundFetchResult> completionHandler)
@@ -142,17 +142,17 @@ Om du inte använder serverprojekt hämtade Snabbstart måste tilläggspaket fö
     }
     ```
 
-Din app har uppdaterats för att stödja push-meddelanden.
+Appen har nu uppdaterats för att stödja push-meddelanden.
 
-## <a name="test"></a>Test-push-meddelanden i din app
+## <a name="test"></a>Testa push-meddelanden i din app
 
-1. Tryck på den **kör** för att skapa projektet och starta appen i en kompatibla iOS-enhet och klicka sedan på **OK** accepterar push-meddelanden.
+1. Tryck på **Kör** -knappen för att skapa projektet och starta appen i en iOS-kompatibel enhet. Klicka sedan på **OK** för att acceptera push-meddelanden.
 
    > [!NOTE]
-   > Du måste uttryckligen godkänna push-meddelanden från din app. Den här begäran inträffar bara första gången som appen körs.
+   > Du måste uttryckligen acceptera push-meddelanden från din app. Den här begäran sker bara första gången appen körs.
 
-2. Skriv en uppgift i appen, och klicka sedan på plustecknet ( **+** ) ikonen.
-3. Kontrollera att ett meddelande tas emot och klicka sedan på **OK** att stänga meddelandet.
-4. Upprepa steg 2 och omedelbart stänga appen och sedan kontrollera att ett meddelande visas.
+2. Skriv en aktivitet i appen och klicka sedan på plus ikonen ( **+** ).
+3. Verifiera att ett meddelande har tagits emot och klicka sedan på **OK** för att stänga meddelandet.
+4. Upprepa steg 2 och Stäng appen omedelbart och kontrol lera att ett meddelande visas.
 
-Den här självstudien har slutförts.
+Du har slutfört den här självstudien.

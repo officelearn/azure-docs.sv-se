@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 08/09/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: d9b4cf755bbf2e225bee813510c083570b0f8064
-ms.sourcegitcommit: 32242bf7144c98a7d357712e75b1aefcf93a40cc
+ms.openlocfilehash: 604f18fe2fbf4d8b4f3778817455d92a2811620b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70280180"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028621"
 ---
 # <a name="pricing-guidance-for-sql-server-azure-vms"></a>Pris vägledning för SQL Server virtuella Azure-datorer
 
@@ -64,7 +64,7 @@ Du har två alternativ att betala för SQL Server-licensiering för dessa versio
 
 ## <a name="pay-per-usage"></a>Betala per användning
 
-Om **du betalar SQL Server licens per användning** innebär det att kostnaden för den virtuella Azure-datorn per sekund ingår i SQL Server licensen. Du kan se prissättningen för de olika SQL Server-versionerna (Web, standard, Enterprise) på pris sidan för Azure VM för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
+Om du **betalar SQL Server licens per användning** (även kallat **betala**per användning) innebär det att kostnaden för den virtuella Azure-datorn per sekund omfattar kostnaden för SQL Server licensen. Du kan se prissättningen för de olika SQL Server-versionerna (Web, standard, Enterprise) på pris sidan för Azure VM för [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/windows) eller [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/linux).
 
 Kostnaden är samma för alla versioner av SQL Server (2012 SP3 till 2017). Licens kostnaden per sekund beror på antalet VM-virtuella processorer.
 
@@ -74,7 +74,7 @@ Att betala SQL Server licensiering per användning rekommenderas för:
 
 - **Arbets belastningar med okänd livs längd eller skalning**. Till exempel en app som kanske inte krävs under några månader, eller som kan kräva mer eller mindre beräknings kraft, beroende på efter frågan.
 
-Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa avbildningar för att betala per användning, se följande länkar:
+Om du vill skapa en SQL Server 2017 virtuell Azure-dator med någon av dessa avbildningar enligt principen betala per användning, se följande länkar:
 
 | Plattform | Licensierade bilder |
 |---|---|
@@ -139,7 +139,7 @@ Licens kostnaden för SQL Server är direkt relaterad till antalet virtuella pro
 
 Det finns nya maskin storlekar som fungerar bra med vissa typer av SQL Server arbets belastningar. De här datorernas storlekar behåller höga nivåer av minne, lagring och I/O-bandbredd, men de har lägre virtualiserat antal kärnor. Tänk till exempel följande exempel:
 
-| Storlek på virtuell dator | vCPU:er | Minne | Maximalt antal diskar | Max-I/O-genomflöde | Kostnader för SQL-licensiering | Totalkostnad (Compute + Licensing) |
+| Storlek på virtuell dator | Virtuella processorer | Minne | Maximalt antal diskar | Max-I/O-genomflöde | Kostnader för SQL-licensiering | Totalkostnad (Compute + Licensing) |
 |---|---|---|---|---|---|---|
 | **Standard_DS14v2** | 16 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | | |
 | **Standard_DS14-4v2** | 4 | 112 GB | 32 | 51 200 IOPS eller 768 MB/s | 75% lägre | 57% lägre |

@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9acedc081166c84935e3abfde8401b55c64156a7
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 34ef0497b5cacb66ccf92079e740acd98a05021a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174584"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026441"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cakehr"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med CakeHR
 
@@ -68,7 +68,7 @@ Om du vill konfigurera och testa Azure AD SSO med CakeHR, slutför du följande 
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera CAKEHR SSO](#configure-cakehr-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa CakeHR test User](#create-cakehr-test-user)** -om du vill ha en motsvarighet till B. Simon i CakeHR som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -137,15 +137,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 1. Öppna ett nytt webbläsarfönster och logga in på din CakeHR företags webbplats som administratör.
 
-2. I det övre högra hörnet på sidan klickar du på **profil** och navigerar sedan till **Inställningar**.
+2. I det övre högra hörnet på sidan klickar du på **profil** och navigerar sedan till **Inställningar**.
 
     ![CakeHR-konfiguration](./media/cakehr-tutorial/config01.png)
 
-3. Klicka på **integration** >i **SAML SSO** på vänster sida av meny raden och utför följande steg:
+3. På vänster sida av meny raden klickar du på **integreringar** > **SAML SSO** och utför följande steg:
 
      ![CakeHR-konfiguration](./media/cakehr-tutorial/config02.png)
 
-     a. I text rutan **entitets-ID** skriver `cake.hr`du.
+     a. Skriv `cake.hr` i text rutan **entitets-ID** .
 
      b. I text rutan **URL för autentisering** klistrar du in värdet för **inloggnings-URL: en**som du har kopierat från Azure Portal.
 
@@ -163,7 +163,7 @@ Om du vill att Azure AD-användare ska kunna logga in på CakeHR måste de tillh
 
 1. Logga in på CakeHR som säkerhets administratör.
 
-2. Klicka på **företags** > **tillägg**på vänster sida av meny raden.
+2. Klicka på **företags** > **Lägg till**på vänster sida av meny raden.
 
     ![CakeHR-konfiguration](./media/cakehr-tutorial/config03.png)
 
@@ -173,7 +173,7 @@ Om du vill att Azure AD-användare ska kunna logga in på CakeHR måste de tillh
 
     a. I text rutan **fullständigt namn** anger du namnet på användaren, t. ex. B. Simon.
 
-    b. I text rutan **arbets-e-postadress** anger du e- `B.Simon@contoso.com`postadressen till användaren.
+    b. I text rutan **arbets-e-postadress** anger du e-postmeddelandet som `B.Simon@contoso.com`.
 
     c. Klicka på **Skapa konto**.
 

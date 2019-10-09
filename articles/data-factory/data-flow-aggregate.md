@@ -6,23 +6,23 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 778aefc05a9b12648e60d752a3c281cb18323125
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: 0201cbdd05cd8aae4afb92b459bf58fb5ff6a142
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314233"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026975"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Sammanställd transformering i mappnings data flödet 
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Med den sammanställda omvandlingen kan du definiera agg regeringar för kolumner i dina data strömmar. Med uttrycks verktyget kan du definiera olika typer av agg regeringar som SUM, MIN, MAX och COUNT som kan grupperas efter befintliga eller beräknade kolumner.
 
 ## <a name="group-by"></a>Gruppera efter
-Välj en befintlig kolumn eller skapa en ny beräknad kolumn som ska användas som en Group by-sats för din AGG regering. Om du vill använda en befintlig kolumn väljer du önskad kolumn i list rutan. Om du vill skapa en ny beräknad kolumn hovrar du över satsen och klickar på beräknad kolumn. Detta öppnar uttrycks [verktyget för data flöde](concepts-data-flow-expression-builder.md). När du har skapat en beräknad kolumn anger du namnet på kolumnen utdata i fältet "namn som". Om du vill lägga till ytterligare en Group by-sats, Hovra över en befintlig sats och klicka på +.
+Välj en befintlig kolumn eller skapa en ny beräknad kolumn som ska användas som en Group by-sats för din AGG regering. Om du vill använda en befintlig kolumn väljer du önskad kolumn i list rutan. Om du vill skapa en ny beräknad kolumn hovrar du över satsen och klickar på beräknad kolumn. Detta öppnar [uttrycks verktyget för data flöde](concepts-data-flow-expression-builder.md). När du har skapat en beräknad kolumn anger du namnet på kolumnen utdata i fältet "namn som". Om du vill lägga till ytterligare en Group by-sats, Hovra över en befintlig sats och klicka på +.
 
-![Sammanställd omvandlings grupp efter inställningar](media/data-flow/agg.png "Sammanställd omvandlings grupp efter inställningar")
+![Sammanställd transformerings grupp efter inställningar](media/data-flow/agg.png "sammanställd omvandlings grupp efter inställningar")
 
 > [!NOTE]
 > En Group by-sats är valfri i en mängd omvandling.

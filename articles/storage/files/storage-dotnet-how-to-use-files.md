@@ -5,71 +5,86 @@ author: roygara
 ms.service: storage
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/22/2017
+ms.date: 10/7/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b79086298983e807cbfe0f4413d1fde54969cc6c
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 6f2159ddf3e3039dc0c38fc8f942c508ac177f06
+ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986372"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72038176"
 ---
 # <a name="develop-for-azure-files-with-net"></a>Utveckla för Azure Files med .NET
 
 [!INCLUDE [storage-selector-file-include](../../../includes/storage-selector-file-include.md)]
 
-Den här kursen visar grunderna i hur du använder .NET för att utveckla program eller tjänster som lagrar fildata med hjälp av [Azure Files](storage-files-introduction.md). I den här självstudiekursen skapar vi ett enkelt konsolprogram och utför grundläggande åtgärder med .NET och Azure Files:
+Den här kursen visar grunderna i hur du använder .NET för att utveckla program eller tjänster som lagrar fildata med hjälp av [Azure Files](storage-files-introduction.md). I den här självstudien skapar vi ett enkelt konsol program för att utföra grundläggande åtgärder med .NET och Azure Files:
 
-* Hämta innehållet i en fil
-* Ange kvoten (den största tillåtna storleken) för filresursen.
+* Hämta innehållet i en fil.
+* Ange den maximala storleken eller *kvoten* för fil resursen.
 * Skapa en signatur för delad åtkomst (SAS-nyckel) för en fil som använder en princip för delad åtkomst som definierats för resursen.
 * Kopiera en fil till en annan fil i samma lagringskonto.
 * Kopiera en fil till en blobb i samma lagringskonto.
-* Använd Azure Storage-mätvärden för felsökning
+* Använd Azure Storage mått för fel sökning.
 
-Mer information om Azure Files finns i [Introduktion till Azure Files](storage-files-introduction.md).
+Mer information om Azure Files finns i [Vad är Azure Files?](storage-files-introduction.md)
 
 [!INCLUDE [storage-check-out-samples-dotnet](../../../includes/storage-check-out-samples-dotnet.md)]
 
 ## <a name="understanding-the-net-apis"></a>Förstå .NET-API: er
 
-Azure Files tillhandahåller två breda metoder för klientprogram: Server Message Block (SMB) och REST. I .NET abstraheras metoderna av API:erna `System.IO` och `WindowsAzure.Storage`.
+Azure Files tillhandahåller två breda metoder för klientprogram: Server Message Block (SMB) och REST. I .NET är API: erna för `System.IO` och `WindowsAzure.Storage` abstrakta dessa metoder.
 
 API | När du ska använda detta | Anteckningar
 ----|-------------|------
-[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Ditt program: <ul><li>Behöver läsa/skriva filer via SMB</li><li>Körs på en enhet som har åtkomst via port 445 till ditt Azure Files-konto</li><li>Behöver inte hantera några av de administrativa inställningarna för filresursen</li></ul> | Kodning av fil-I/O med Azure Files över SMB är i princip samma sak som kodning av I/O med en nätverksfilresurs eller lokal lagringsenhet. Gå till [den här självstudien](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) för att få en introduktion till ett antal funktioner i .NET, inklusive fil-I/O.
-[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Ditt program: <ul><li>Det går inte att komma åt Azure Files via SMB på port 445 på grund av brandväggen eller Internetleverantörens begränsningar</li><li>Kräver administrativa funktioner, som möjligheten att ställa in en filresurs kvot eller skapa en signatur för delad åtkomst</li></ul> | Den här artikeln visar användningen av `Microsoft.Azure.Storage.File` för fil-I/O med REST (istället för SMB) och hantering av filresursen.
+[System.IO](https://docs.microsoft.com/dotnet/api/system.io) | Ditt program: <ul><li>Behöver läsa/skriva filer med hjälp av SMB</li><li>Körs på en enhet som har åtkomst via port 445 till ditt Azure Files-konto</li><li>Behöver inte hantera några av de administrativa inställningarna för filresursen</li></ul> | Fil-I/O som implementeras med Azure Files över SMB är vanligt vis samma som I/O med nätverks fil resurs eller lokal lagrings enhet. En introduktion till ett antal funktioner i .NET, inklusive fil-I/O, finns i självstudier för [konsol programmet](https://docs.microsoft.com/dotnet/csharp/tutorials/console-teleprompter) .
+[Microsoft.Azure.Storage.File](https://docs.microsoft.com/dotnet/api/overview/azure/storage#client-library) | Ditt program: <ul><li>Det går inte att komma åt Azure Files med SMB på port 445 på grund av brand Väggs-eller Internet leverantörs begränsningar</li><li>Kräver administrativa funktioner, som möjligheten att ställa in en filresurs kvot eller skapa en signatur för delad åtkomst</li></ul> | Den här artikeln visar hur du använder `Microsoft.Azure.Storage.File` för fil-I/O med REST i stället för SMB och hantering av fil resursen.
 
 ## <a name="create-the-console-application-and-obtain-the-assembly"></a>Skapa konsolprogrammet och hämta monteringen
-Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg beskriver hur du skapar ett konsolprogram i Visual Studio 2017, men stegen är liknande i andra versioner av Visual Studio.
 
-1. Välj **Arkiv** > **Nytt** > **Projekt**
-2. Välj **Installerat** > **Mallar** > **Visual C#**  > **Windows Classic Desktop**
-3. Välj **Konsolprogram (.NET Framework)**
-4. Ange ett namn för ditt program i fältet **Namn**
-5. Välj **OK**
+Skapa ett nytt Windows-konsolprogram i Visual Studio. Följande steg visar hur du skapar ett konsol program i Visual Studio 2019. Stegen är ungefär som i andra versioner av Visual Studio.
 
-Alla kodexempel i den här självstudiekursen kan läggas till i `Main()`-metoden i konsolprogrammets `Program.cs`-fil.
+1. Starta Visual Studio och välj **skapa ett nytt projekt**.
+1. I **skapa ett nytt projekt**väljer du **konsol program (.NET Framework)** för C#och väljer sedan **Nästa**.
+1. I **Konfigurera ditt nya projekt**anger du ett namn för appen och väljer **skapa**.
 
-Du kan använda Azure Storage klient bibliotek i vilken typ av .NET-program som helst, inklusive en Azure-moln tjänst eller webbapp, samt Skriv bords-och mobil program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
+Du kan lägga till alla kod exempel i den här självstudien till metoden `Main()` i konsol programmets `Program.cs`-fil.
+
+Du kan använda Azure Storage klient bibliotek i alla typer av .NET-program. Dessa typer omfattar en moln tjänst för Azure eller en webbapp, samt Station ära och mobila program. I den här guiden använder vi oss av en konsolapp för enkelhetens skull.
 
 ## <a name="use-nuget-to-install-the-required-packages"></a>Använd NuGet för att installera de paket som behövs
-Dessa är paket som du behöver referera till i projektet för att slutföra den här kursen:
 
-* [Microsoft Azure Storage gemensamt bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/): Det här paketet ger programmatisk åtkomst till vanliga resurser i ditt lagrings konto.
-* [Microsoft Azure Storage BLOB-bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/): Det här paketet ger programmatisk åtkomst till BLOB-resurser i ditt lagrings konto.
-* [Microsoft Azure Storage fil bibliotek för .net](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/): Det här paketet ger programmatisk åtkomst till fil resurser i ditt lagrings konto.
-* [Microsoft Azure Configuration Manager-biblioteket för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): Det här paketet tillhandahåller en klass för parsning av en anslutningssträng i en konfigurationsfil, oavsett var ditt program körs.
+Använd de här paketen i ditt projekt för att slutföra den här självstudien:
+
+* [Microsoft Azure Storage gemensamt bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/)
+  
+  Det här paketet ger programmatisk åtkomst till vanliga resurser i ditt lagrings konto.
+* [Microsoft Azure Storage BLOB-bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Blob/)
+
+  Det här paketet ger programmatisk åtkomst till BLOB-resurser i ditt lagrings konto.
+* [Microsoft Azure Storage fil bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/)
+
+  Det här paketet ger programmatisk åtkomst till fil resurser i ditt lagrings konto.
+* [Microsoft Azure Configuration Manager bibliotek för .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/)
+
+  Det här paketet innehåller en klass för parsning av en anslutnings sträng i en konfigurations fil, oavsett var ditt program körs.
 
 Du kan använda NuGet för att hämta båda paketen. Följ de här stegen:
 
-1. Högerklicka på ditt projekt i **Solution Explorer** och välj **Hantera NuGet-paket**.
-2. Sök online efter ”WindowsAzure.Storage” och klicka på **Installera** för att installera Storage-klientbiblioteket och alla dess beroenden.
-3. Sök online efter ”WindowsAzure.ConfigurationManager” och klicka på **Installera** för att installera Azure Configuration Manager.
+1. I **Solution Explorer**högerklickar du på projektet och väljer **Hantera NuGet-paket**.
+1. I **NuGet Package Manager**väljer du **Bläddra**. Sök sedan efter och välj **Microsoft. Azure. Storage. blob**och välj sedan **Installera**.
 
-## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Spara autentiseringsuppgifterna för ditt lagringskonto i app.config-filen
-Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redigera app.config-filen så att den ser ut som i följande exempel. Ersätt `myaccount` med namnet på ditt lagringskonto och `mykey` med din åtkomstnyckel för lagring.
+   Det här steget installerar paketet och dess beroenden.
+1. Sök efter och installera dessa paket:
+
+   * **Microsoft. Azure. Storage. common**
+   * **Microsoft.Azure.Storage.File**
+   * **Microsoft. Azure. ConfigurationManager**
+
+## <a name="save-your-storage-account-credentials-to-the-appconfig-file"></a>Spara autentiseringsuppgifterna för ditt lagrings konto i filen app. config
+
+Spara sedan dina autentiseringsuppgifter i projektets `App.config`-fil. I **Solution Explorer**dubbelklickar du på `App.config` och redigerar filen så att den liknar följande exempel. Ersätt `myaccount` med ditt lagrings konto namn och `mykey` med din lagrings konto nyckel.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -87,7 +102,8 @@ Nu ska du spara dina autentiseringsuppgifter i projektets app.config-fil. Redige
 > Den senaste versionen av Azure Storage-emulatorn har inte stöd för Azure Files. Anslutningssträngen måste peka på ett Azure Storage-konto i molnet för att fungera med Azure Files.
 
 ## <a name="add-using-directives"></a>Lägga till med hjälp av direktiv
-Öppna filen `Program.cs` från Solution Explorer och lägg till följande med hjälp av direktiv överst i filen.
+
+Öppna filen `Program.cs` i **Solution Explorer**och Lägg till följande med hjälp av direktiv överst i filen.
 
 ```csharp
 using Microsoft.Azure; // Namespace for Azure Configuration Manager
@@ -99,7 +115,8 @@ using Microsoft.Azure.Storage.File; // Namespace for Azure Files
 [!INCLUDE [storage-cloud-configuration-manager-include](../../../includes/storage-cloud-configuration-manager-include.md)]
 
 ## <a name="access-the-file-share-programmatically"></a>Ansluta till filresursen via programmering
-Lägg till följande kod i `Main()`-metoden (efter koden som visas ovan) för att hämta anslutningssträngen. Den här koden hämtar en referens till den fil som vi skapade tidigare och returnerar filens innehåll i konsolfönstret.
+
+Lägg sedan till följande innehåll i metoden `Main()`, efter den kod som visas ovan, för att hämta anslutnings strängen. Den här koden hämtar en referens till filen som vi skapade tidigare och matar ut innehållet.
 
 ```csharp
 // Create a CloudFileClient object for credentialed access to Azure Files.
@@ -136,9 +153,10 @@ if (share.Exists())
 Visa resultatet genom att köra konsolprogrammet.
 
 ## <a name="set-the-maximum-size-for-a-file-share"></a>Ange den största storleken för en filresurs
-Från och med version 5.x av klientbiblioteket för Azure Storage kan du ange kvoten (eller den största storleken) för en filresurs, i antal gigabyte. Du kan också kontrollera hur mycket data som lagras på resursen för närvarande.
 
-Genom att ange kvoten för en resurs kan du begränsa den totala storleken på filerna som lagras på resursen. Om den totala storleken på filerna som lagras på resursen överskrider kvoten som angetts för resursen kan klienterna inte öka storleken på befintliga filer eller skapa nya filer såvida inte dessa filer är tomma.
+Från och med version 5. x av Azure Storage klient biblioteket kan du ange kvoten (maximal storlek) för en fil resurs. Du kan också kontrollera hur mycket data som lagras på resursen för närvarande.
+
+Om du anger kvoten för en resurs begränsas den totala storleken på filerna som lagras på resursen. Om den totala storleken på filer på resursen överskrider den kvot som angetts för resursen, kan klienterna inte öka storleken på befintliga filer. Klienterna kan inte skapa nya filer, såvida inte dessa filer är tomma.
 
 Exemplet nedan visar hur du kontrollerar användningen av en resurs och hur du ställer in kvoten för resursen.
 
@@ -173,9 +191,10 @@ if (share.Exists())
 ```
 
 ### <a name="generate-a-shared-access-signature-for-a-file-or-file-share"></a>Generera en signatur för delad åtkomst för en fil eller filresurs
-Från och med version 5.x av klientbiblioteket för Azure Storage kan du generera en signatur för delad åtkomst (SAS) för en filresurs eller för en enskild fil. Du kan också skapa en princip för delad åtkomst på en filresurs för att hantera signaturer för delad åtkomst. Vi rekommenderar att du skapar en princip för delad åtkomst eftersom det ger dig möjlighet att återkalla signaturen för delad åtkomst om det behövs.
 
-I följande exempel skapar vi en princip för delad åtkomst på en resurs och använder sedan principen för att ange begränsningarna för en signatur för delad åtkomst på en fil i resursen.
+Från och med version 5.x av klientbiblioteket för Azure Storage kan du generera en signatur för delad åtkomst (SAS) för en filresurs eller för en enskild fil. Du kan också skapa en princip för delad åtkomst på en filresurs för att hantera signaturer för delad åtkomst. Vi rekommenderar att du skapar en princip för delad åtkomst eftersom du kan återkalla SAS om den blir komprometterad.
+
+I följande exempel skapas en princip för delad åtkomst på en resurs. I exemplet används principen för att tillhandahålla begränsningar för en SAS på en fil i resursen.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -221,19 +240,21 @@ if (share.Exists())
 }
 ```
 
-Mer information om hur du skapar och använder signaturer för delad åtkomst finns i [använda signaturer för delad åtkomst (SAS)](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Mer information om hur du skapar och använder signaturer för delad åtkomst finns i [så här fungerar en signatur för delad åtkomst](../common/storage-sas-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#how-a-shared-access-signature-works).
 
 ## <a name="copy-files"></a>Kopiera filer
-Från och med version 5.x av klientbiblioteket för Azure Storage kan du kopiera en fil till en annan fil, en fil till en blobb eller en blobb till en fil. I nästa avsnitt ser du hur du utför kopieringsåtgärderna genom programmering.
 
-Du kan också använda AzCopy för att kopiera en fil till en annan eller för att kopiera en blobb till en fil eller tvärtom. Mer information finns i [Överföra data med kommandoradsverktyget AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+Från och med version 5.x av klientbiblioteket för Azure Storage kan du kopiera en fil till en annan fil, en fil till en blobb eller en blobb till en fil. I nästa avsnitt visar vi hur du utför dessa kopierings åtgärder program mässigt.
+
+Du kan också använda AzCopy för att kopiera en fil till en annan eller kopiera en blob till en fil eller till ett annat sätt runt. Se [Kom igång med AZCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
 
 > [!NOTE]
 > Om du kopierar en blobb till en fil eller en fil till en blobb måste du använda en signatur för delad åtkomst (SAS) för att auktorisera åtkomst till källobjektet, även om du kopierar inom samma lagringskonto.
-> 
-> 
+>
 
-**Kopiera en fil till en annan fil** I följande exempel kopierar vi en fil till en annan fil i samma resurs. Eftersom den här kopieringsåtgärden kopierar mellan filer i samma lagringskonto kan du använda autentisering med delad nyckel för att utföra kopieringen.
+### <a name="copy-a-file-to-another-file"></a>Kopiera en fil till en annan fil
+
+I följande exempel kopierar vi en fil till en annan fil i samma resurs. Eftersom den här kopierings åtgärden kopierar mellan filer i samma lagrings konto kan du använda autentisering med delad nyckel för att kopiera.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -277,7 +298,9 @@ if (share.Exists())
 }
 ```
 
-**Kopiera en fil till en blob** I följande exempel skapar vi en fil och kopierar den till en blob inom samma lagringskonto. I exemplet skapas en SAS för källfilen, som tjänsten använder för att auktorisera åtkomsten till källfilen under kopieringen.
+### <a name="copy-a-file-to-a-blob"></a>Kopiera en fil till en blobb
+
+I följande exempel skapar vi en fil och kopierar den till en blobb inom samma lagringskonto. I exemplet skapas en SAS för källfilen, som tjänsten använder för att auktorisera åtkomsten till källfilen under kopieringen.
 
 ```csharp
 // Parse the connection string for the storage account.
@@ -326,9 +349,10 @@ Console.WriteLine("Destination blob contents: {0}", destBlob.DownloadText());
 Du kan kopiera en blobb till en fil på samma sätt. Om källobjektet är en blobb skapar du en SAS för att auktorisera åtkomsten till blobben under kopieringen.
 
 ## <a name="share-snapshots"></a>Resursögonblicksbilder
+
 Från och med version 8.5 av klientbiblioteket för Azure Storage kan du skapa en resursögonblicksbild. Du kan också visa eller bläddra bland resursögonblicksbilder och ta bort resursögonblicksbilder. Resursögonblicksbilder är skrivskyddade så att inga skrivåtgärder tillåts på resursögonblicksbilder.
 
-**Skapa resursögonblicksbilder**
+### <a name="create-share-snapshots"></a>Skapa resurs ögonblicks bilder
 
 I följande exempel skapas en ögonblicksbild av en filresurs.
 
@@ -340,7 +364,8 @@ CloudFileShare myShare = fClient.GetShareReference(baseShareName);
 var snapshotShare = myShare.Snapshot();
 
 ```
-**Lista över resursögonblicksbilder**
+
+### <a name="list-share-snapshots"></a>Lista resursögonblicksbilder
 
 Följande exempel visar en lista över ögonblicksbilder på en resurs.
 
@@ -348,7 +373,7 @@ Följande exempel visar en lista över ögonblicksbilder på en resurs.
 var shares = fClient.ListShares(baseShareName, ShareListingDetails.All);
 ```
 
-**Bläddra bland filer och kataloger i resursögonblicksbilder**
+### <a name="browse-files-and-directories-within-share-snapshots"></a>Bläddra bland filer och kataloger i resurs ögonblicks bilder
 
 Följande exempel bläddrar bland filer och kataloger i resursögonblicksbilder.
 
@@ -358,40 +383,36 @@ var rootDirectory = mySnapshot.GetRootDirectoryReference();
 var items = rootDirectory.ListFilesAndDirectories();
 ```
 
-**Visa en lista över resurser och resursögonblicksbilder och återställ filresurser eller filer från resursögonblicksbilder** 
+### <a name="list-shares-and-share-snapshots-and-restore-file-shares-or-files-from-share-snapshots"></a>Lista resurser och dela ögonblicks bilder och återställa fil resurser eller filer från resurs ögonblicks bilder
 
-Genom att göra en ögonblicksbild av en filresurs kan du återställa enskilda filer eller hela filresursen i framtiden. 
+Genom att göra en ögonblicksbild av en filresurs kan du återställa enskilda filer eller hela filresursen i framtiden.
 
-Du kan återställa en fil från en ögonblicksbild av en filresurs genom att skicka en fråga till ögonblicksbilderna av en filresurs. Du kan sedan hämta en fil som tillhör en viss resursögonblicksbild och använda den versionen för att antingen läsa direkt och jämföra eller för att återställa.
+Du kan återställa en fil från en ögonblicksbild av en filresurs genom att skicka en fråga till ögonblicksbilderna av en filresurs. Sedan kan du hämta en fil som tillhör en viss resurs ögonblicks bild. Använd den versionen för att antingen läsa och jämföra eller återställa direkt.
 
 ```csharp
 CloudFileShare liveShare = fClient.GetShareReference(baseShareName);
 var rootDirOfliveShare = liveShare.GetRootDirectoryReference();
-
-       var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
+var dirInliveShare = rootDirOfliveShare.GetDirectoryReference(dirName);
 var fileInliveShare = dirInliveShare.GetFileReference(fileName);
 
-           
 CloudFileShare snapshot = fClient.GetShareReference(baseShareName, snapshotTime);
 var rootDirOfSnapshot = snapshot.GetRootDirectoryReference();
-
-       var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
+var dirInSnapshot = rootDirOfSnapshot.GetDirectoryReference(dirName);
 var fileInSnapshot = dir1InSnapshot.GetFileReference(fileName);
 
 string sasContainerToken = string.Empty;
-       SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
-       sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
-       sasConstraints.Permissions = SharedAccessFilePermissions.Read;
-       //Generate the shared access signature on the container, setting the constraints directly on the signature.
+SharedAccessFilePolicy sasConstraints = new SharedAccessFilePolicy();
+sasConstraints.SharedAccessExpiryTime = DateTime.UtcNow.AddHours(24);
+sasConstraints.Permissions = SharedAccessFilePermissions.Read;
+
+//Generate the shared access signature on the container, setting the constraints directly on the signature.
 sasContainerToken = fileInSnapshot.GetSharedAccessSignature(sasConstraints);
 
 string sourceUri = (fileInSnapshot.Uri.ToString() + sasContainerToken + "&" + fileInSnapshot.SnapshotTime.ToString()); ;
 fileInliveShare.StartCopyAsync(new Uri(sourceUri));
-
 ```
 
-
-**Ta bort resursögonblicksbilder**
+### <a name="delete-share-snapshots"></a>Ta bort resurs ögonblicks bilder
 
 Följande exempel tar bort en ögonblicksbild av en filresurs.
 
@@ -399,21 +420,22 @@ Följande exempel tar bort en ögonblicksbild av en filresurs.
 CloudFileShare mySnapshot = fClient.GetShareReference(baseShareName, snapshotTime); mySnapshot.Delete(null, null, null);
 ```
 
-## <a name="troubleshooting-azure-files-using-metrics"></a>Felsöka Azure File Storage med hjälp av mätvärden
+## Felsöka Azure Files med hjälp av mått<a name="troubleshooting-azure-files-using-metrics"></a>
+
 Nu stöder Azure Storage Analytics mätvärden för Azure Files. Med hjälp av mätvärdesdata kan du spåra begäranden och diagnostisera problem.
 
-Du kan aktivera mått för Azure Files från [Azure Portal](https://portal.azure.com). Du kan också aktivera mätvärden via programmering genom att anropa åtgärden Ange egenskaper för filtjänsten via REST-API:et eller någon av dess motsvarigheter i klientbiblioteket för Azure Storage.
+Du kan aktivera mått för Azure Files från [Azure Portal](https://portal.azure.com). Du kan också aktivera mått genom programmering genom att anropa åtgärden Ange fil tjänst egenskaper med REST API eller en av dess analoga objekt i lagrings klient biblioteket.
 
 Följande kodexempel visar hur du använder Storage-klientbiblioteket för .NET för att aktivera mätvärden för Azure Files.
 
-Lägg först till följande `using`-direktiv i `Program.cs`-filen, förutom de som du lade till ovan:
+Lägg först till följande `using`-direktiv i `Program.cs`-filen, tillsammans med de som du lade till ovan:
 
 ```csharp
 using Microsoft.Azure.Storage.File.Protocol;
 using Microsoft.Azure.Storage.Shared.Protocol;
 ```
 
-Tänk på att Azure Blobs, Azure Table och Azure Queues använder den delade `ServiceProperties`-typen i namnrymden `Microsoft.Azure.Storage.Shared.Protocol` och att Azure Files använder en egen typ, det vill säga typen `FileServiceProperties` i namnrymden `Microsoft.Azure.Storage.File.Protocol`. Din kod måste dock referera till båda namnrymderna för att följande kod ska kompileras.
+Även om Azure-blobbar, Azure-tabeller och Azure-köer använder den delade `ServiceProperties`-typen i namn området `Microsoft.Azure.Storage.Shared.Protocol`, Azure Files använder sin egen typ, `FileServiceProperties`-typen i namn området `Microsoft.Azure.Storage.File.Protocol`. Du måste referera till båda namn områdena från din kod, men för att kunna kompilera i följande kod.
 
 ```csharp
 // Parse your storage connection string from your application's configuration file.
@@ -456,26 +478,31 @@ Console.WriteLine(serviceProperties.MinuteMetrics.RetentionDays);
 Console.WriteLine(serviceProperties.MinuteMetrics.Version);
 ```
 
-Du kan också gå till [Felsökningsartikeln om Azure-filer](storage-troubleshoot-windows-file-connection-problems.md) för felsökningsinformation från slutpunkt till slutpunkt.
+Om du stöter på problem kan du referera till [fel sökning Azure Files problem i Windows](storage-troubleshoot-windows-file-connection-problems.md).
 
 ## <a name="next-steps"></a>Nästa steg
-Mer information om Azure Files finns på följande länkar.
+
+Mer information om Azure Files finns i följande resurser:
 
 ### <a name="conceptual-articles-and-videos"></a>Begreppsrelaterade artiklar och videoklipp
+
 * [Azure Files: ett smidigt SMB-filsystem i molnet för Windows och Linux](https://azure.microsoft.com/documentation/videos/azurecon-2015-azure-files-storage-a-frictionless-cloud-smb-file-system-for-windows-and-linux/)
 * [Använda Azure Files med Linux](storage-how-to-use-files-linux.md)
 
 ### <a name="tooling-support-for-file-storage"></a>Verktygsstöd för File Storage
-* [Använd AzCopy med Microsoft Azure Storage](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+
+* [Kom igång med AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
 * [Använd Azure CLI:et med Azure Storage](../common/storage-azure-cli.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#create-and-manage-file-shares)
-* [Felsökning av problem i Azure Files](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
+* [Felsöka Azure Files-problem i Windows](https://docs.microsoft.com/azure/storage/storage-troubleshoot-file-connection-problems)
 
 ### <a name="reference"></a>Referens
-* [Storage-klientbibliotek för .NET-referens](https://msdn.microsoft.com/library/azure/dn261237.aspx)
-* [File Service REST API referens](https://msdn.microsoft.com/library/azure/dn167006.aspx)
+
+* [Azure Storage-API: er för .NET](/dotnet/api/overview/azure/storage)
+* [Fil tjänst REST API](/rest/api/storageservices/File-Service-REST-API)
 
 ### <a name="blog-posts"></a>Blogginlägg
-* [Azure Files är nu allmänt tillgängligt](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
-* [Inuti Azure Files](https://azure.microsoft.com/blog/inside-azure-file-storage/)
-* [Introduktion till Microsoft Azure File Service](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
+
+* [Azure File Storage, nu allmänt tillgängligt](https://azure.microsoft.com/blog/azure-file-storage-now-generally-available/)
+* [Inuti Azure File Storage](https://azure.microsoft.com/blog/inside-azure-file-storage/)
+* [Introduktion till tjänsten Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/12/introducing-microsoft-azure-file-service.aspx)
 * [Bevara anslutningar till Microsoft Azure Files](https://blogs.msdn.com/b/windowsazurestorage/archive/2014/05/27/persisting-connections-to-microsoft-azure-files.aspx)

@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/02/2019
-ms.openlocfilehash: df9e6e3a9116b9a4490d8847e9a9d3e9e112f4f7
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.date: 10/03/2019
+ms.openlocfilehash: 16b0fdcbae51b30e14fbf7ea4d98699dfaf19804
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098798"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035735"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Anpassa Azure HDInsight-kluster med hjälp av skript åtgärder
 
@@ -24,8 +24,8 @@ Skript åtgärder kan också publiceras på Azure Marketplace som ett HDInsight-
 
 För ett domänanslutet HDInsight-kluster finns det två Apache Ambari-behörigheter som krävs när du använder skript åtgärder med klustret:
 
-* **AMBARI. KÖR\_ANPASSAT\_KOMMANDO**. Administratörs rollen Ambari har den här behörigheten som standard.
-* **KLUSTER. KÖR\_ANPASSAT\_KOMMANDO**. Både HDInsight-kluster administratören och Ambari-administratören har den här behörigheten som standard.
+* **AMBARI. KÖR @ NO__T-1CUSTOM @ NO__T-2COMMAND**. Administratörs rollen Ambari har den här behörigheten som standard.
+* **KLUSTER. KÖR @ NO__T-1CUSTOM @ NO__T-2COMMAND**. Både HDInsight-kluster administratören och Ambari-administratören har den här behörigheten som standard.
 
 Mer information om hur du arbetar med behörigheter med domänanslutna HDInsight finns i [Hantera HDInsight-kluster med Enterprise Security Package](./domain-joined/apache-domain-joined-manage.md).
 
@@ -48,7 +48,7 @@ En skript åtgärd är Bash-skript som körs på noderna i ett HDInsight-kluster
 
     * För vanliga kluster:
 
-      * ADLS Gen1: Det tjänst huvud namn som används för att komma åt Data Lake Storage måste ha Läs behörighet till skriptet. URI-formatet för skript som lagras i Data Lake Storage Gen1 `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`är.
+      * ADLS Gen1: Det tjänst huvud namn som används för att komma åt Data Lake Storage måste ha Läs behörighet till skriptet. URI-formatet för skript som lagras i Data Lake Storage Gen1 är `adl://DATALAKESTOREACCOUNTNAME.azuredatalakestore.net/path_to_file`.
 
       * En BLOB i ett Azure Storage konto som antingen är det primära eller ytterligare lagrings kontot för HDInsight-klustret. HDInsight beviljas åtkomst till båda typerna av lagrings konton när klustret skapas.
 
@@ -123,7 +123,7 @@ Ett fel i ett skript som körs på ett kluster som redan körs medför inte auto
 >
 > Skript åtgärder körs med rot privilegier. Se till att du förstår vad ett skript gör innan du tillämpar det på klustret.
 
-När du tillämpar ett skript på ett kluster ändras kluster statusen från att **köras** till **godkänd**. Sedan ändras den till **HDInsight-konfigurationen** och slutligen tillbaka till att **köras** för lyckade skript. Skript status loggas i historiken för skript åtgärden. Den här informationen visar om skriptet lyckades eller misslyckades. `Get-AzHDInsightScriptActionHistory` PowerShell-cmdleten visar till exempel status för ett skript. Den returnerar information som liknar följande text:
+När du tillämpar ett skript på ett kluster ändras kluster statusen från att **köras** till **godkänd**. Sedan ändras den till **HDInsight-konfigurationen** och slutligen tillbaka till att **köras** för lyckade skript. Skript status loggas i historiken för skript åtgärden. Den här informationen visar om skriptet lyckades eller misslyckades. Till exempel visar PowerShell-cmdleten `Get-AzHDInsightScriptActionHistory` en status för ett skript. Den returnerar information som liknar följande text:
 
     ScriptExecutionId : 635918532516474303
     StartTime         : 8/14/2017 7:40:55 PM
@@ -157,13 +157,9 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
 ### <a name="use-a-script-action-during-cluster-creation-from-the-azure-portal"></a>Använd en skript åtgärd när du skapar kluster från Azure Portal
 
-1. Börja skapa ett kluster enligt beskrivningen i [Konfigurera kluster i HDInsight med Apache Hadoop, Apache Spark, Apache Kafka med mera](hdinsight-hadoop-provision-linux-clusters.md). När klustret skapas, kommer du till sidan __kluster Sammanfattning__ . På sidan __kluster Sammanfattning__ väljer du länken __Redigera__ för __Avancerade inställningar__.
+1. Börja skapa ett kluster enligt beskrivningen i [skapa Linux-baserade kluster i HDInsight med hjälp av Azure Portal](hdinsight-hadoop-create-linux-clusters-portal.md). När klustret skapas, kommer du till steg 6, **skript åtgärder**. Navigera till **valfri** >  **+ Skicka ny**.
 
-    ![Avancerade inställningar för Azure Portal Cluster](./media/hdinsight-hadoop-customize-cluster-linux/advanced-settings-link.png)
-
-1. I avsnittet __Avancerade inställningar__ väljer du __skript åtgärder__. I avsnittet __skript åtgärder__ väljer du __+ Skicka ny__.
-
-    ![Portal skript åtgärder skicka ny](./media/hdinsight-hadoop-customize-cluster-linux/add-new-script-action.png)
+    ![Åtgärd för Azure Portal kluster skript](./media/hdinsight-hadoop-customize-cluster-linux/azure-portal-cluster-classic-script-action.png)
 
 1. Använd posten __Välj en skript__ för att välja ett förtillverkade skript. Välj __anpassad__om du vill använda ett anpassat skript. Ange sedan __namnet__ och __bash skript-URI__ för skriptet.
 
@@ -185,7 +181,7 @@ I det här avsnittet beskrivs de olika sätten att använda skript åtgärder n�
 
     ![Åtgärder för flera skript i HDInsight](./media/hdinsight-hadoop-customize-cluster-linux/multiple-scripts-actions.png)
 
-    När du är klar med att lägga till skript väljer du knappen __Välj__ och klickar sedan på __Nästa__ för att återgå till avsnittet __kluster Sammanfattning__ .
+    När du är klar med att lägga till skript, väljer du knappen __Välj__ och sedan knappen __Nästa__ för att fortsätta till avsnittet __kluster Sammanfattning__ .
 
 1. Skapa klustret genom att välja __skapa__ från __kluster sammanfattnings__ valet.
 
@@ -235,9 +231,7 @@ I det här avsnittet beskrivs hur du tillämpar skript åtgärder på ett kluste
 
 Gå till [Azure Portal](https://portal.azure.com):
 
-1. Välj **alla tjänster**på den vänstra menyn.
-
-1. Under **Analytics**väljer du **HDInsight-kluster**.
+1. Gå till den vänstra menyn och navigera till **alla tjänster** >  **analys**@no__t-tre**HDInsight-kluster**.
 
 1. Välj ditt kluster i listan, så öppnas standardvyn.
 
@@ -306,11 +300,11 @@ Innan du börjar ska du kontrol lera att du installerar och konfigurerar Azure C
     azure hdinsight script-action create <clustername> -g <resourcegroupname> -n <scriptname> -u <scriptURI> -t <nodetypes>
     ```
 
-    Om du utelämnar parametrar för det här kommandot uppmanas du att göra det. Om skriptet som du anger med `-u` accepterar parametrar kan du ange dem med `-p` hjälp av-parametern.
+    Om du utelämnar parametrar för det här kommandot uppmanas du att göra det. Om skriptet som du anger med `-u` accepterar parametrar kan du ange dem med hjälp av parametern `-p`.
 
-    Giltiga nodtyper är `headnode`, `workernode`och `zookeeper`. Om skriptet ska tillämpas på flera nodtyper anger du typerna avgränsade med semikolon `;`. Till exempel `-n headnode;workernode`.
+    Giltiga nodtyper är `headnode`, `workernode` och `zookeeper`. Om skriptet ska tillämpas på flera nodtyper anger du typerna avgränsade med semikolon `;`. Till exempel `-n headnode;workernode`.
 
-    Lägg till `--persistOnSuccess`för att spara skriptet. Du kan också Spara skriptet senare med hjälp `azure hdinsight script-action persisted set`av.
+    Lägg till `--persistOnSuccess` om du vill spara skriptet. Du kan också Spara skriptet senare genom att använda `azure hdinsight script-action persisted set`.
 
     När jobbet har slutförts visas utdata som följande text:
 
@@ -336,9 +330,7 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **alla tjänster**på den vänstra menyn.
-
-1. Under **Analytics**väljer du **HDInsight-kluster**.
+1. Gå till den vänstra menyn och navigera till **alla tjänster** > **analys**@no__t-tre**HDInsight-kluster**.
 
 1. Välj ditt kluster i listan, så öppnas standardvyn.
 
@@ -366,7 +358,7 @@ Ett exempel på hur du använder .NET SDK för att tillämpa skript i ett kluste
 | `Remove-AzHDInsightPersistedScriptAction` |Nedgradera en bestående skript åtgärd till en ad hoc-åtgärd. |
 
 > [!IMPORTANT]  
-> `Remove-AzHDInsightPersistedScriptAction`ångrar inte de åtgärder som utförs av ett skript. Den här cmdleten tar bara bort den sparade flaggan.
+> `Remove-AzHDInsightPersistedScriptAction` ångrar inte de åtgärder som utförs av ett skript. Den här cmdleten tar bara bort den sparade flaggan.
 
 Följande exempel skript visar hur du använder cmdlet: ar för att befordra och sedan nedgradera ett skript.
 
@@ -384,7 +376,7 @@ Följande exempel skript visar hur du använder cmdlet: ar för att befordra och
 | `azure hdinsight script-action persisted delete <clustername> <scriptname>` |Nedgradera en bestående skript åtgärd till en ad hoc-åtgärd. |
 
 > [!IMPORTANT]  
-> `azure hdinsight script-action persisted delete`ångrar inte de åtgärder som utförs av ett skript. Den här cmdleten tar bara bort den sparade flaggan.
+> `azure hdinsight script-action persisted delete` ångrar inte de åtgärder som utförs av ett skript. Den här cmdleten tar bara bort den sparade flaggan.
 
 ### <a name="the-hdinsight-net-sdk"></a>HDInsight .NET SDK
 
@@ -403,8 +395,8 @@ Det finns två typer av komponenter med öppen källkod i HDInsight-tjänsten:
 
   * [Apache HADOOP garn](https://hadoop.apache.org/docs/current/hadoop-yarn/hadoop-yarn-site/YARN.html) Hanteraren.
   * [HiveQL](https://cwiki.apache.org/confluence/display/Hive/LanguageManual)för Hive-frågespråket.
-  * [Apache Mahout](https://mahout.apache.org/). 
-    
+  * [Apache Mahout](https://mahout.apache.org/).
+
     En fullständig lista över kluster komponenter finns i [vilka Apache Hadoop-komponenter och-versioner som är tillgängliga med HDInsight?](hdinsight-component-versioning.md)
 
 * **Anpassade komponenter**. Som användare av klustret kan du installera eller använda i din arbets belastning, vilken komponent som helst som är tillgänglig i communityn eller som du har skapat.
@@ -430,7 +422,7 @@ Du kan använda Ambari-webbgränssnittet för att visa information som loggats a
 
 ### <a name="the-apache-ambari-web-ui"></a>Webb gränssnittet för Apache Ambari
 
-1. Gå till https://CLUSTERNAME.azurehdinsight.net i webbläsaren. Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.
+1. I webbläsaren går du till https://CLUSTERNAME.azurehdinsight.net. Ersätt **KLUSTERNAMN** med namnet på ditt HDInsight-kluster.
 
     När du uppmanas till det anger du administratörens konto namn, **administratör**och lösen ord för klustret. Du kanske måste ange administratörs behörigheten på ett webb formulär igen.
 
@@ -438,7 +430,7 @@ Du kan använda Ambari-webbgränssnittet för att visa information som loggats a
 
     ![Ambari Web UI-fältet med OPS valt](./media/hdinsight-hadoop-customize-cluster-linux/hdi-apache-ambari-nav.png)
 
-3. Hitta de poster som har **kört\_customscriptaction** i kolumnen **åtgärder** . Dessa poster skapas när skript åtgärderna körs.
+3. Hitta de poster som har **kört @ no__t-1customscriptaction** i kolumnen **åtgärder** . Dessa poster skapas när skript åtgärderna körs.
 
     ![Åtgärds åtgärder för Apache Ambari-skript](./media/hdinsight-hadoop-customize-cluster-linux/ambari-script-action.png)
 
@@ -448,19 +440,19 @@ Du kan använda Ambari-webbgränssnittet för att visa information som loggats a
 
 Om det inte går att skapa ett kluster på grund av ett skript fel sparas loggarna i klustrets lagrings konto.
 
-* Lagrings loggarna är tillgängliga `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`på.
+* Lagrings loggarna är tillgängliga på `\STORAGE_ACCOUNT_NAME\DEFAULT_CONTAINER_NAME\custom-scriptaction-logs\CLUSTER_NAME\DATE`.
 
     ![Skript åtgärds loggar](./media/hdinsight-hadoop-customize-cluster-linux/script-action-logs-in-storage.png)
 
     Under den här katalogen ordnas loggarna separat för **huvudnoden**, **arbetsnoden**och **Zookeeper-noden**. Se följande exempel:
 
-    * **Huvudnoden**:`<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
+    * **Huvudnoden**: `<uniqueidentifier>AmbariDb-hn0-<generated_value>.cloudapp.net`
 
-    * **Arbets nod**:`<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
+    * **Worker-nod**: `<uniqueidentifier>AmbariDb-wn0-<generated_value>.cloudapp.net`
 
-    * **Zookeeper-nod**:`<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
+    * **Zookeeper-nod**: `<uniqueidentifier>AmbariDb-zk0-<generated_value>.cloudapp.net`
 
-* Alla **STDOUT** och **stderr** för motsvarande värd överförs till lagrings kontot. Det finns en **output-\*. txt** och **errors\*-. txt** för varje skript åtgärd. Filen **output-*. txt** innehåller information om URI: n för skriptet som kördes på värden. Följande text är ett exempel på den här informationen:
+* Alla **STDOUT** och **stderr** för motsvarande värd överförs till lagrings kontot. Det finns ett **utdata @no__t -1. txt** och **fel – @no__t -3. txt** för varje skript åtgärd. Filen **output-*. txt** innehåller information om URI: n för skriptet som kördes på värden. Följande text är ett exempel på den här informationen:
 
         'Start downloading script locally: ', u'https://hdiconfigactions.blob.core.windows.net/linuxrconfigactionv01/r-installer-v01.sh'
 
@@ -492,7 +484,7 @@ ImportError: cannot import name BlobService
 
 __Orsak__. Det här felet uppstår om du uppgraderar python-Azure Storage-klienten som ingår i HDInsight-klustret. HDInsight förväntar sig Azure Storage 0.20.0-klient.
 
-__Lösning__. För att lösa det här felet ansluter du manuellt till varje klusternod med `ssh`hjälp av. Kör följande kommando för att installera om rätt version av lagrings klienten:
+__Lösning__. För att lösa det här felet ansluter du manuellt till varje klusternod genom att använda `ssh`. Kör följande kommando för att installera om rätt version av lagrings klienten:
 
 ```bash
 sudo pip install azure-storage==0.20.0

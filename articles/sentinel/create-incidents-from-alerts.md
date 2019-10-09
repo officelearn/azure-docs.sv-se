@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 1acef92ed5de86d4526d8b5c4bcf338b341c50f7
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 722feb29a08cd5e1113eae197fbcae9769ed5550
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241272"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029760"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Skapa incidenter automatiskt från Microsofts säkerhets aviseringar
 
@@ -35,7 +35,7 @@ Du måste [ansluta Microsoft-säkerhetslösningar](connect-data-sources.md#data-
 
 Använd de inbyggda regler som är tillgängliga i Azure Sentinel för att välja vilka anslutna Microsoft-säkerhetslösningar som ska skapa Azure Sentinel-incidenter automatiskt i real tid. Du kan också redigera reglerna för att definiera mer detaljerade alternativ för filtrering som av de aviseringar som genereras av Microsoft Security-lösningen ska skapa incidenter i Azure Sentinel. Du kan till exempel välja att skapa Azure Sentinel-incidenter automatiskt från hög allvarlighets grad Azure Security Center aviseringar.
 
-1. I Azure Portal under Azure Sentinel väljer du **analys**.
+1. I Azure Portal under Azure Sentinel väljer du **analys**.
 
 1. Välj fliken **regelmallar** för att se alla de inbyggda analys reglerna.
 

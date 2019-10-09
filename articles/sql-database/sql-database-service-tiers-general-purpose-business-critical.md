@@ -10,21 +10,21 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 02/23/2019
-ms.openlocfilehash: 41acef4ebe13ac6152d795db4adfae5a6ae1ad91
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.date: 10/01/2019
+ms.openlocfilehash: 7b5fd9800fdd2ee3b46087308f81f506e3e09e03
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70995435"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034954"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database tjänst nivåer
 
 Azure SQL Database baseras på SQL Server databas motor arkitektur som har justerats för moln miljön för att säkerställa 99,99% tillgänglighet, även om det uppstår ett infrastruktur haveri. Tre tjänst nivåer används i Azure SQL Database, var och en med en annan arkitektur modell. Dessa tjänst nivåer är:
 
-- [Generell användning](sql-database-service-tier-general-purpose.md), som är utformad för de flesta allmänna arbets belastningar.
-- [Affärs kritisk](sql-database-service-tier-business-critical.md), som är utformad för arbets belastningar med låg latens med en läsbar replik.
-- [Storskalig](sql-database-service-tier-hyperscale.md), som är utformad för mycket stora databaser (upp till 100 TB) med flera läsbara repliker.
+- [Generell användning](sql-database-service-tier-general-purpose.md), som är utformad för budgetorienterade arbets belastningar.
+- [Storskalig](sql-database-service-tier-hyperscale.md), som är utformad för de flesta företags arbets belastningar, vilket ger mycket skalbar lagring, Läs skalbarhet och snabb återställning av databas.
+- [Affärs kritisk](sql-database-service-tier-business-critical.md), som är utformad för arbets belastningar med låg latens med hög återhämtnings kapacitet till fel och snabba redundanser.
 
 I den här artikeln beskrivs skillnaderna är · att interpolera tjänst nivåerna, lagrings-och säkerhets kopierings överväganden för de allmänna och affärs kritiska tjänst nivåerna i den vCore-baserade inköps modellen.
 
@@ -32,9 +32,9 @@ I den här artikeln beskrivs skillnaderna är · att interpolera tjänst nivåer
 
 I följande tabell beskrivs viktiga skillnader mellan tjänst nivåer för den senaste generationen (Gen5). Observera att tjänst nivå egenskaperna kan vara annorlunda i Enkel databas och hanterad instans.
 
-| | Resurstyp | Generellt syfte |  Storskalig | Verksamhetskritisk |
+| | Resurstyp | Generellt syfte |  Hyperskala | Affärskritisk |
 |:---:|:---:|:---:|:---:|:---:|
-| **Bäst för** | |  De flesta företags arbets belastningar. Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ. | Data program med stora data kapacitets krav, möjlighet att automatiskt skala lagring upp till 100 TB och skala beräknings vätskan. | OLTP-program med hög transaktions hastighet och lägsta latens i/o. Ger högsta möjliga återhämtning till problem med flera isolerade repliker.|
+| **Bäst för** | |  Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ. | De flesta företags arbets belastningar. Automatisk skalning av lagrings storlek upp till 100 TB, flytande lodrät och vågrät beräknings skalning, snabb databas återställning. | OLTP-program med hög transaktions frekvens och låg IO-latens. Erbjuder högsta möjliga återhämtning till fel och snabba växlingar med hjälp av flera synkront uppdaterade repliker.|
 |  **Tillgängligt i resurs typ:** ||Enkel databas/elastisk pool/hanterad instans | Enskild databas | Enkel databas/elastisk pool/hanterad instans |
 | **Beräknings storlek**|Enkel databas/elastisk pool | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor |
 | | Hanterad instans | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | 4, 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
@@ -52,7 +52,7 @@ I följande tabell beskrivs viktiga skillnader mellan tjänst nivåer för den s
 |**Regelbundet**|Alla|RA-GRS, 7-35 dagar (7 dagar som standard)| RA-GRS, 7 dagar, konstant tidpunkts återställning (PITR) | RA-GRS, 7-35 dagar (7 dagar som standard) |
 |**Minnes intern OLTP** | | Gäller inte | Gäller inte | Tillgängligt |
 |**Skrivskyddade repliker**| | 0  | 0 - 4 | 1 (inbyggt, ingår i priset) |
-|**Priser/fakturering** | Enskild databas | [vCore, reserverad lagring och lagring av säkerhets kopior](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS debiteras inte. | [vCore för varje replik och använt lagrings utrymme](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | [vCore, reserverad lagring och lagring av säkerhets kopior](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS debiteras inte. |
+|**Priser/fakturering** | Enskild databas | [vCore, reserverad lagring och lagring av säkerhets kopior](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS debiteras inte. | [vCore för varje replik och använt lagrings utrymme](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS har ännu inte debiterats. | [vCore, reserverad lagring och lagring av säkerhets kopior](https://azure.microsoft.com/pricing/details/sql-database/single/) debiteras. <br/>IOPS debiteras inte. |
 || Managed Instance | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | Gäller inte | [vCore och reserverad lagring](https://azure.microsoft.com/pricing/details/sql-database/managed/) debiteras. <br/>IOPS debiteras inte.<br/>Lagring av säkerhets kopior debiteras inte ännu. | 
 |**Rabatt modeller**| | [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning| [Azure Hybrid-förmån](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning| [Reserverade instanser](sql-database-reserved-capacity.md)<br/>[Azure Hybrid-förmån](sql-database-service-tiers-vcore.md#azure-hybrid-benefit) (inte tillgängligt för utveckling/testning-prenumerationer)<br/>[Enterprise](https://azure.microsoft.com/offers/ms-azr-0148p/) och [betala](https://azure.microsoft.com/offers/ms-azr-0023p/) per användning-prenumerationer för utveckling och testning|
 
@@ -63,7 +63,7 @@ Mer information finns i de detaljerade skillnaderna mellan tjänst nivåerna i [
 
 ## <a name="data-and-log-storage"></a>Data-och logg lagring
 
-Följande faktorer påverkar mängden lagrings utrymme som används för data-och loggfiler:
+Följande faktorer påverkar mängden lagrings utrymme som används för data-och loggfiler, och gäller för Generell användning och Affärskritisk. Mer information om data och logg lagring i stor skala finns i [storskalig Service Tier](sql-database-service-tier-hyperscale.md).
 
 - Det allokerade lagrings utrymmet används av data filer (MDF) och loggfiler (LDF).
 - Varje beräknings storlek för en enskild databas stöder en maximal databas storlek, med en maximal standard storlek på 32 GB.
@@ -72,8 +72,8 @@ Följande faktorer påverkar mängden lagrings utrymme som används för data-oc
 - Du kan välja en enskild databas storlek mellan 10 GB och den maximala storleken som stöds.
   - Öka eller minska storleken i steg om 10 GB för lagring i tjänst nivåerna standard eller allmän användning.
   - Öka eller minska storleken i steg om 250 GB för lagring på tjänst nivåerna Premium eller affärs kritisk.
-- I tjänst nivån `tempdb` generell användning används en ansluten SSD och den här lagrings kostnaden ingår i vCore-priset.
-- På nivån `tempdb` verksamhets kritisk tjänst delar den anslutna SSD med MDF-och ldf-filerna `tempdb` och lagrings kostnaden ingår i vCore-priset.
+- I den allmänna tjänst nivån `tempdb` används en ansluten SSD och den här lagrings kostnaden ingår i vCore-priset.
+- I nivån verksamhets kritisk tjänst `tempdb` delar den anslutna SSD-filen med MDF-och LDF-filerna och lagrings kostnaden @no__t 1 ingår i vCore-priset.
 
 > [!IMPORTANT]
 > Du debiteras för den totala lagring som allokerats för MDF-och LDF-filer.

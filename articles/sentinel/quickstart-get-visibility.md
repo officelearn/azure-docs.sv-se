@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: c81f4cacd4c93d681122f3c8cd692ca8645288af
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 676a41b64b79be6b11c3ef22b34d3de0e37e2a92
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240093"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023806"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Snabbstart: Komma igång med Azure Sentinel
 
@@ -72,14 +72,14 @@ Inbyggda arbets böcker ger integrerade data från dina anslutna data källor s�
       ![PAL-instrument panel](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-Du kan anpassa arbets böckerna antingen genom att redigera knappen ![](./media/qs-get-visibility/edit-query-button.png)för huvud frågan. Du kan klicka på knappen ![knapp](./media/qs-get-visibility/go-to-la-button.png) för att gå till [Log Analytics för att redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort vissa paneler från arbets boken.
+Du kan anpassa arbets böckerna antingen genom att redigera huvud frågan ![button @ no__t-1. Du kan klicka på knappen ![button @ no__t-1 för att gå till [Log Analytics och redigera frågan där](../azure-monitor/log-query/get-started-portal.md), och du kan välja ellipsen (...) och välja **Anpassa panel data**, vilket gör att du kan redigera huvud tids filtret, eller ta bort de enskilda panelerna från arbets boken.
 
-Mer information om hur du arbetar med frågor finns [i Självstudier: Visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
+Mer information om hur du arbetar med frågor finns i [Tutorial: Visuella data i Log Analytics @ no__t-0
 
 ### <a name="add-a-new-tile"></a>Lägg till en ny panel
 
 Om du vill lägga till en ny panel kan du lägga till den i en befintlig arbets bok, antingen en som du skapar eller en inbyggd Azure Sentinel-arbetsbok. 
-1. I Log Analytics skapar du en panel med hjälp av anvisningarna i [självstudierna: Visuella data i Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md). 
+1. I Log Analytics skapar du en panel med hjälp av anvisningarna i [Tutorial: Visuella data i Log Analytics @ no__t-0. 
 2. När panelen har skapats väljer du den arbets bok som du vill att panelen ska visas under **PIN-kod**.
 
 ## <a name="create-new-workbooks"></a>Skapa nya arbets böcker
@@ -122,11 +122,11 @@ Generera identifieringar av [data källor som du har anslutit till Azure Sentine
 
 När du skapar en ny identifiering kan du utnyttja de inbyggda identifieringarna som är utformade av Microsofts säkerhets forskare som är skräddarsydda för de data källor som du har anslutit.
 
-Om du vill visa alla färdiga identifieringar går du till **analyser** och sedan **regel mallar**. Den här fliken innehåller alla inbyggda regler för Azure-kontroll.
+Om du vill visa alla färdiga identifieringar går du till **analyser** och sedan **regel mallar**. Den här fliken innehåller alla inbyggda regler för Azure-kontroll.
 
    ![Använd inbyggda identifieringar för att hitta hot med Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
-Mer information om hur du hämtar välkomst identifieringar finns i [Självstudier: Hämta inbyggda analyser](tutorial-detect-threats-built-in.md).
+Mer information om hur du hämtar välkomst identifieringar finns i [Tutorial: Hämta inbyggda-Analytics @ no__t-0.
  
 ## <a name="next-steps"></a>Nästa steg
 I den här snabb starten har du lärt dig hur du kommer igång med Azure Sentinel. Fortsätt till självstudien för [att identifiera hot](tutorial-detect-threats-built-in.md).

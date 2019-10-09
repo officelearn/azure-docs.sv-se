@@ -9,19 +9,26 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: abmotley
-ms.openlocfilehash: 18befbfb924129518ac32a7fdddaa9ee573840b0
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: b5a161e570489e6382f2226ab5dc9a1c34dc67df
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936494"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028316"
 ---
 # <a name="common-errors-and-warnings-of-the-ai-enrichment-pipeline-in-azure-search"></a>Vanliga fel och varningar i AI-pipeline för anrikning i Azure Search
 
 Den här artikeln innehåller information och lösningar på vanliga fel och varningar som du kan stöta på under AI-anrikning i Azure Search.
 
 ## <a name="errors"></a>Fel
-Indexeringen stoppas när antalet fel överstiger ["maxfaileditems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). I följande avsnitt får du hjälp att lösa fel som gör att indexeringen kan fortsätta.
+Indexeringen stoppas när antalet fel överstiger ["maxFailedItems"](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
+
+Om du vill att indexerarna ska ignorera dessa fel (och hoppa över "misslyckade dokument") bör du överväga att uppdatera `maxFailedItems` och `maxFailedItemsPerBatch` enligt beskrivningen [här](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+
+> [!NOTE]
+> Varje misslyckat dokument tillsammans med dess dokument nyckel (när det är tillgängligt) visas som ett fel i körnings statusen för indexeraren. Du kan använda [index-API: et](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) för att ladda upp dokumenten manuellt vid ett senare tillfälle om du har ställt in indexeraren för att tolerera felen.
+
+I följande avsnitt får du hjälp att lösa fel som gör att indexeringen kan fortsätta.
 
 ### <a name="could-not-read-document"></a>Det gick inte att läsa dokumentet
 Indexeraren kunde inte läsa dokumentet från data källan. Detta kan inträffa på grund av:
@@ -51,6 +58,14 @@ Indexeraren läser dokumentet från data källan, men det uppstod ett problem me
 | Dokument nyckeln är ogiltig | Dokument nyckeln får innehålla högst 1024 tecken | Ändra dokument nyckeln så att den uppfyller verifierings kraven. |
 | Det gick inte att använda fält mappning i ett fält | Det gick inte att använda mappnings funktionen `'functionName'` till fält `'fieldName'`. Matris får inte vara null. Parameter namn: byte | Dubbelt kontrol lera de [fält mappningar](search-indexer-field-mappings.md) som definierats för indexeraren och jämför med informationen i det angivna fältet för det misslyckade dokumentet. Det kan vara nödvändigt att ändra fält mappningarna eller dokument data. |
 | Det gick inte att läsa fältvärdet | Det gick inte att läsa värdet för kolumnen `'fieldName'` vid index `'fieldIndex'`. Ett fel på transport nivå har uppstått när resultat togs emot från servern. CSP TCP-Provider, fel: 0-en befintlig anslutning tvingades stänga av den fjärranslutna värden.) | Dessa fel beror vanligt vis på oväntade anslutnings problem med data källans underliggande tjänst. Försök att köra dokumentet via din indexerare igen senare. |
+
+### <a name="could-not-index-document"></a>Det gick inte att indexera dokumentet
+Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i Sök indexet. Detta kan inträffa på grund av:
+
+| Reason | Exempel | Action |
+| --- | --- | --- |
+| Ett fält innehåller en term som är för stor | En term i dokumentet är större än [32 KB-gränsen](search-limits-quotas-capacity.md#api-request-limits) | Du kan undvika den här begränsningen genom att se till att fältet inte har kon figurer ATS som filtrerat, aspekt Bart eller sorterbart.
+| Dokumentet är för stort för att indexeras | Ett dokument är större än [Max storleken för API-begäranden](search-limits-quotas-capacity.md#api-request-limits) | [Så här indexerar du stora data mängder](search-howto-large-index.md)
 
 ### <a name="skill-input-languagecode-has-the-following-language-codes-xyz-at-least-one-of-which-is-invalid"></a>Kompetens ingången ' languageCode ' har följande språk koder, "X, Y, Z", minst en som är ogiltig.
 Ett eller flera av värdena som angavs i den valfria `languageCode`-indatamängden för en underordnad färdighet stöds inte. Detta kan inträffa om du skickar utdata från [LanguageDetectionSkill](cognitive-search-skill-language-detection.md) till efterföljande kunskaper och utdata består av fler språk än vad som stöds i de efterföljande färdigheterna.
@@ -110,7 +125,19 @@ Om du stöter på ett tids gräns fel med en anpassad färdighet som du har skap
 
 Det maximala värdet som du kan ange för parametern `timeout` är 230 sekunder.  Om din anpassade färdighet inte kan köras konsekvent inom 230 sekunder kan du överväga att minska `batchSize` i din anpassade färdighet så att den har färre dokument för bearbetning i en enda körning.  Om du redan har angett din `batchSize` till 1 måste du skriva om färdigheten för att kunna köra under 230 sekunder eller dela upp den i flera anpassade kunskaper så att körnings tiden för en enskild anpassad färdighet är högst 230 sekunder. Läs den [anpassade kunskaps dokumentationen](cognitive-search-custom-skill-web-api.md) för mer information.
 
-##  <a name="warnings"></a>Varningar
+### <a name="could-not-mergeorupload--delete-document-to-the-search-index"></a>Det gick inte att `MergeOrUpload` | `Delete`-dokument till Sök indexet
+
+Dokumentet lästes och bearbetades, men indexeraren kunde inte lägga till det i Sök indexet. Detta kan inträffa på grund av:
+
+| Reason | Exempel | Action |
+| --- | --- | --- |
+| En term i dokumentet är större än [32 KB-gränsen](search-limits-quotas-capacity.md#api-request-limits) | Ett fält innehåller en term som är för stor | Du kan undvika den här begränsningen genom att se till att fältet inte har kon figurer ATS som filtrerat, aspekt Bart eller sorterbart.
+| Ett dokument är större än [Max storleken för API-begäranden](search-limits-quotas-capacity.md#api-request-limits) | Dokumentet är för stort för att indexeras | [Så här indexerar du stora data mängder](search-howto-large-index.md)
+| Det går inte att ansluta till mål indexet (som kvarstår efter återförsök) eftersom tjänsten är under annan belastning, t. ex. frågor eller indexering. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är hårt belastad. | [Skala upp Sök tjänsten](search-capacity-planning.md)
+| Sök tjänsten korrigeras för tjänst uppdatering eller är i mitten av en omkonfiguration av topologin. | Det gick inte att upprätta en anslutning till uppdaterings index. Sök tjänsten är för närvarande nere/Search-tjänsten genomgår en över gång. | Konfigurera tjänsten med minst tre repliker för 99,9% tillgänglighet per [SLA-dokumentation](https://azure.microsoft.com/support/legal/sla/search/v1_0/)
+| Haveri i den underliggande beräknings-/nätverks resursen (sällsynt) | Det gick inte att upprätta en anslutning till uppdaterings index. Ett okänt fel uppstod. | Konfigurera indexerare så att de [körs enligt ett schema](search-howto-schedule-indexers.md) för att hämta från ett felaktigt tillstånd.
+
+##  <a name="warnings"></a>Varna
 Varningar slutar inte att indexera, men de anger villkor som kan leda till oväntade resultat. Oavsett om du vidtar åtgärder eller inte beror på data och ditt scenario.
 
 ### <a name="skill-input-was-truncated"></a>Kompetens ineffekten trunkerades

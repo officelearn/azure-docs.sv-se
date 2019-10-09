@@ -1,6 +1,6 @@
 ---
-title: Node.js (MEAN.js) med MongoDB på Linux – Azure Apptjänst | Microsoft Docs
-description: Lär dig att få en Node.js-app att fungera i Azure App Service på Linux, med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng. MEAN.js används i självstudien.
+title: Node. js (MEAN. js) med MongoDB på Linux – Azure App Service | Microsoft Docs
+description: Lär dig att få en Node.js-app att fungera i Azure App Service på Linux, med anslutning till en Cosmos DB-databas med en MongoDB-anslutningssträng. MEAN. js används i självstudien.
 services: app-service\web
 documentationcenter: nodejs
 author: cephalin
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 3a5f6b5b1f66542a534c9016c5d9d60a1273975f
-ms.sourcegitcommit: 61c8de2e95011c094af18fdf679d5efe5069197b
+ms.openlocfilehash: cf145e04ca0e0ddf336521e72f6dc230dc8fc86b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "62117579"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024948"
 ---
 # <a name="build-a-nodejs-and-mongodb-app-in-azure-app-service-on-linux"></a>Skapa en Node.js- and MongoDB-app i Azure App Service på Linux
 
@@ -131,7 +131,7 @@ I det här steget skapar du ett databaskonto med hjälp av Azure Cosmos DB:s API
 
 Skapa ett Cosmos DB-konto i Cloud Shell med kommandot [`az cosmosdb create`](/cli/azure/cosmosdb?view=azure-cli-latest#az-cosmosdb-create).
 
-I följande kommando, anger du ett unikt Cosmos DB-namn för den  *\<cosmosdb-name >* platshållare. Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb-name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
+I följande kommando ersätter du ett unikt Cosmos DB namn för plats hållaren *\<cosmosdb-name >* . Det här namnet används som en del av Cosmos DB-slutpunkten `https://<cosmosdb-name>.documents.azure.com/`, så namnet måste vara unikt för alla Cosmos DB-konton i Azure. Namnet får endast innehålla gemener, siffror och bindestreck och måste vara mellan 3 och 50 tecken långt.
 
 ```azurecli-interactive
 az cosmosdb create --name <cosmosdb-name> --resource-group myResourceGroup --kind MongoDB
@@ -186,9 +186,9 @@ Kopiera värdet för `primaryMasterKey`. Du behöver den här informationen i n�
 
 ### <a name="configure-the-connection-string-in-your-nodejs-application"></a>Konfigurera anslutningssträngen i ditt Node.js-program
 
-I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_. _.gitignore_ konfigureras för att hålla filen utanför lagringsplatsen.
+I din lokala MEAN.js-lagringsplats skapar du en fil som heter _local-production.js_ i mappen _config/env/_ . _.gitignore_ konfigureras för att hålla filen utanför lagringsplatsen.
 
-Kopiera följande kod till den. Se till att ersätta två  *\<cosmosdb-name >* platshållarna med din Cosmos-DB databasnamn och Ersätt den  *\<primära huvudnyckel >* med nyckeln du kopierade i föregående steg.
+Kopiera följande kod till den. Se till att ersätta de två plats hållarna *\<cosmosdb-name >* med namnet på din Cosmos DB databas och ersätt plats hållaren *\<primary-master-Key >* med den nyckel som du kopierade i föregående steg.
 
 ```javascript
 module.exports = {
@@ -259,13 +259,13 @@ Som standard håller MEAN.js-projektet _config/env/local-production.js_ utanför
 
 Om du vill konfigurera appinställningar använder du kommandot [`az webapp config appsettings set`](/cli/azure/webapp/config/appsettings?view=azure-cli-latest#az-webapp-config-appsettings-set) i Cloud Shell.
 
-I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt den  *\<appens namn->*,  *\<cosmosdb-name >*, och  *\<primära huvudnyckel >* platshållare.
+I följande exempel konfigureras appinställningen `MONGODB_URI` i Azure-appen. Ersätt plats hållarna *\<APP-name >* , *\<cosmosdb-name >* och *\<primary-Master-Key >* .
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings MONGODB_URI="mongodb://<cosmosdb-name>:<primary-master-key>@<cosmosdb-name>.documents.azure.com:10250/mean?ssl=true"
 ```
 
-I Node.js-koden får du [åtkomst till den här appinställningen](configure-language-nodejs.md#access-environment-variables) med `process.env.MONGODB_URI`, precis som du vill komma åt andra miljövariabler.
+I Node. js-koden får du [åtkomst till den här appen](configure-language-nodejs.md#access-environment-variables) med `process.env.MONGODB_URI`, precis som när du har åtkomst till en miljö variabel.
 
 På din lokala MEAN.js-lagringsplats öppnar du _config/env/production.js_ (inte _config/env/local-production.js_), som har en specifik konfiguration för produktion-miljö. MEAN.js-standardappen är redan konfigurerade för att använda `MONGODB_URI`-miljövariabeln du har skapat.
 
@@ -297,7 +297,7 @@ remote: Handling node.js deployment.
 .
 remote: Deployment successful.
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git
- * [new branch]      master -> master
+ * [new branch]      master -> master
 ```
 
 Du kanske märker att distributionsprocessen kör [Gulp](https://gulpjs.com/) efter `npm install`. App Service kör inte Gulp- eller Grunt-uppgifter under distributionen. Den här exempellagringsplatsen har två extra filer i rotkatalogen för detta:
@@ -305,7 +305,7 @@ Du kanske märker att distributionsprocessen kör [Gulp](https://gulpjs.com/) ef
 - _.deployment_ – Den här filen skickar ett meddelande till App Service om att köra `bash deploy.sh` som anpassat distributionsskript.
 - _deploy.sh_ – Det anpassade distributionsskriptet. Om du granskar filen ser du att den kör `gulp prod` efter `npm install` och `bower install`.
 
-Du kan använda den här metoden för att lägga till steg i din Git-baserade distributionen. När som helst när du startar om Azure-appen kör inte App Service om dessa automatiserade uppgifter. Mer information finns i [kör trista/Bower/Gulp](configure-language-nodejs.md#run-gruntbowergulp).
+Du kan använda den här metoden för att lägga till steg i din Git-baserade distributionen. När som helst när du startar om Azure-appen kör inte App Service om dessa automatiserade uppgifter. Mer information finns i [köra grunt/Bower/Gulp](configure-language-nodejs.md#run-gruntbowergulp).
 
 ### <a name="browse-to-the-azure-app"></a>Bläddra till Azure-appen
 
@@ -428,7 +428,7 @@ NODE_ENV=production node server.js
 
 Gå till `http://localhost:8443` i en webbläsare och kontrollera att du är inloggad.
 
-Välj **Administratör > Hantera artiklar** och lägg sedan till en artikel genom att välja knappen **+**.
+Välj **Administratör > Hantera artiklar** och lägg sedan till en artikel genom att välja knappen **+** .
 
 Nu ser du den nya textrutan `Comment`.
 
@@ -486,9 +486,9 @@ Vad du lärt dig:
 Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Mappa anpassad DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
+> [Självstudier: Mappa ett anpassat DNS-namn till din app @ no__t-0
 
-Eller titta på andra resurser:
+Eller kolla ut andra resurser:
 
 > [!div class="nextstepaction"]
-> [Konfigurera Node.js-app](configure-language-nodejs.md)
+> [Konfigurera Node. js-app](configure-language-nodejs.md)

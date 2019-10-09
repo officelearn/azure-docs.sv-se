@@ -1,0 +1,69 @@
+---
+title: Så här binder du Azure cache för Redis till ditt Azure våren Cloud-program | Microsoft Docs
+description: Lär dig hur du binder Azure-cache för Redis till ditt Azure våren Cloud-program
+services: spring-cloud
+author: v-vasuke
+manager: gwallace
+editor: ''
+ms.service: spring-cloud
+ms.topic: quickstart
+ms.date: 10/06/2019
+ms.author: v-vasuke
+ms.openlocfilehash: d8fa31207baecc80674fb11b492927800676b8a2
+ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72038946"
+---
+# <a name="tutorial-bind-azure-services-to-your-azure-spring-cloud-application-azure-cache-for-redis"></a>Självstudier: Bind Azure-tjänster till ditt Azure våren Cloud-program: Azure Cache for Redis
+
+Med Azure våren Cloud kan du binda utvalda Azure-tjänster till dina program automatiskt, i stället för att manuellt konfigurera ditt våren Boot-program. Den här artikeln visar hur du binder ditt program till Azure cache för Redis.
+
+## <a name="prerequisites"></a>Förutsättningar
+
+* En distribuerad Azure våren Cloud-instans
+* En Azure-cache för Redis-tjänstinstans
+* Azure våren Cloud-tillägg för Azure CLI
+
+Om det behövs installerar du moln tillägget Azure våren för Azure CLI med hjälp av följande kommando:
+
+```azurecli
+az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+```
+
+>[!TIP]
+> Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln.  Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, JDK, Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com) från Shell.Azure.com.  Du kan lära dig mer om Azure Cloud Shell genom att [läsa vår dokumentation](../cloud-shell/overview.md)
+
+## <a name="bind-azure-cache-for-redis"></a>Bind Azure-cache för Redis
+
+1. Lägg till följande beroende i projektets `pom.xml`
+
+    ```xml
+    <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-data-redis-reactive</artifactId>
+    </dependency>
+    ```
+1. Ta bort `spring.redis.*` egenskaper, om det finns, i filen `application.properties`
+
+1. Uppdatera den aktuella distributionen med hjälp av `az spring-cloud app update` eller skapa en ny distribution med hjälp av `az spring-cloud app deployment create`.
+
+1. Gå till sidan Azure våren Cloud service i Azure Portal. Hitta **program instrument panelen** och välj det program som ska bindas till Azure-cachen för Redis.  Det här är samma program som du uppdaterade eller distribuerade i föregående steg. Välj sedan `Service binding` och välj knappen `Create service binding`. Fyll i formuläret och var noga med att välja **bindnings typ** `Azure Cache for Redis`, din redis-server och alternativet primär nyckel. 
+
+1. Starta om appen och den här bindningen bör fungera nu.
+
+1. För att säkerställa att tjänst bindningen är korrekt väljer du bindnings namnet och kontrollerar dess information. Fältet `property` bör se ut så här:
+    ```
+    spring.redis.host=some-redis.redis.cache.windows.net
+    spring.redis.port=6380
+    spring.redis.password=abc******
+    spring.redis.ssl=true
+    ```
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här självstudien har du lärt dig hur du binder ditt Azure våren Cloud-program till en Azure Redis cache.  Om du vill veta mer om att binda tjänster till programmet fortsätter du till självstudien för att binda ett program till en MySQL-databas.
+
+> [!div class="nextstepaction"]
+> [Lär dig hur du binder en Azure MySQL-tjänst till din Azure våren Cloud-tjänst](spring-cloud-tutorial-bind-mysql.md).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 02/24/2019
 ms.author: yegu
-ms.openlocfilehash: b4642ecfad17bf3e926e9efdec034bbe4aa6c20e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: a2764c8e634fd8d827cba9fa7ec9cb61cc6c40af
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076312"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035295"
 ---
 # <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
 
@@ -34,7 +34,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en ASP.NET Core
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
+6. Välj **Configuration Explorer** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
     | Nyckel | Value |
     |---|---|
@@ -53,13 +53,13 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 
 2. I den nya mappen kör du följande kommando för att skapa ett nytt ASP.NET Core MVC-webbprogram-projekt:
 
-        dotnet new mvc
+        dotnet new mvc --no-https
 
 ## <a name="add-secret-manager"></a>Lägga till Secret Manager
 
-Om du vill använda Secret Manager lägger `UserSecretsId` du till ett-element i *. CSPROJ* -filen.
+Om du vill använda Secret Manager lägger du till ett `UserSecretsId`-element i *. CSPROJ* -filen.
 
-- Öppna *. CSPROJ* -filen. Lägg till `UserSecretsId` ett-element som det visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget. Spara filen.
+- Öppna *. CSPROJ* -filen. Lägg till ett `UserSecretsId`-element som det visas här. Du kan använda samma GUID, eller så kan du ersätta det här värdet med ditt eget. Spara filen.
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -83,7 +83,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
 1. Lägg till en referens till `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-paketet genom att köra följande kommando:
 
-        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
+        dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
 
 2. Kör följande kommando för att återställa paket för ditt projekt:
 
@@ -98,7 +98,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
 
     > [!IMPORTANT]
-    > Vissa gränssnitt kommer att trunkera anslutnings strängen om den inte omges av citat tecken. Se till att `dotnet user-secrets` kommandots utdata visar hela anslutnings strängen. Om den inte gör det kör du kommandot på nytt, så att anslutnings strängen stängs av i citat tecken.
+    > Vissa gränssnitt kommer att trunkera anslutnings strängen om den inte omges av citat tecken. Se till att utdata från kommandot `dotnet user-secrets` visar hela anslutnings strängen. Om den inte gör det kör du kommandot på nytt, så att anslutnings strängen stängs av i citat tecken.
 
     Secret Manager används bara för att testa webbappen lokalt. När appen distribueras till [Azure App Service](https://azure.microsoft.com/services/app-service/web)kan du till exempel använda ett program för att ange **anslutnings strängar** i App Service i stället för med Secret Manager för att lagra anslutnings strängen.
 
@@ -110,7 +110,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-5. Uppdatera metoden för att använda app-konfiguration genom att `config.AddAzureAppConfiguration()` anropa-metoden. `CreateWebHostBuilder`
+5. Uppdatera metoden `CreateWebHostBuilder` för att använda app-konfiguration genom att anropa metoden `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

@@ -1,40 +1,22 @@
 ---
 title: LCS-prenumeration
-description: Introduktion till en självstudie för att skapa en prenumeration.
+description: Den här CPP-artikeln är kopplad till PC-artikeln. var "Introduktion till en själv studie kurs om att skapa en prenumeration".
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: 43d27f832d5eb456de60e86257e2be8575f94bf9
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 58733bec13c99f2c871c1782d56db8304386dc44
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935203"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034387"
 ---
 # <a name="lcs-subscription"></a>LCS-prenumeration
 
-I den här självstudien får du lära dig hur skapar en prenumeration. Den här prenumerationen ger dig en Testklient för Microsoft Online och Microsoft Dynamics Lifecycle Services-projekt där du kan distribuera en miljö. Du också konfigurera ytterligare användare i din Microsoft Online-klient och få upplevelse med följande funktioner för administration av tjänsten. Här följer de färdigheter som du får lära dig:
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera Dynamics 365 för finans-och drift erbjudanden. I stället har den här funktionen flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [skapa en ny Dynamics 365 for Operations-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-- Testa klienten prenumererar och skapa en ny Microsoft Online.
-- Gå till Lifecycle Services-projekt.
-- Använda funktioner på Lifecycle Services.
-- Lägga till ytterligare användare i Microsoft Azure Active Directory och klienten.
-- Visa resurser i din prenumeration i e-post.
-
-## <a name="key-terms"></a>Viktiga begrepp
-
-**Microsoft Online Services-klient** – en klient är gruppen av alla prenumerationer och användare för din organisation. Klienten skapas samtidigt som din första prenumeration på Microsoft Online Services.
-
-**Prenumeration** – en prenumeration ger dig en online-miljön. Den här miljön kan du uppleva Dynamics 365 för åtgärder i molnet och kan du också se hur anpassningar som du utvecklar kan distribueras till molnet.
-
-**Microsoft Azure Active Directory** -molnmiljön innehåller Azure Active Directory (AD), som hjälper dig att hantera användare, grupper, roller och licenser för online program, på samma sätt som hur du hanterar dem för on-premises miljöer.
-
-**Användare** -användare av de tjänster som din organisation prenumererar hanteras i Azure AD. Alla användare i din klient kan läggas och tilldelade säkerhetsroller.
-
-**Utvecklare och administratörer** -utvecklare och administratörer är användare som har åtkomst till Lifecycle Services där du kan också hantera projekt och miljöer. Dessa användare är också slutanvändare.
-
-Se [LCS prenumeration](https://docs.microsoft.com/dynamics365/operations/dev-itpro/dev-tools/sign-up-preview-subscription) för mer information.
+Innan du skapar en ny Dynamics 365 för Operations-erbjudandet bör du läsa [skapa ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/directory) med den valda **översikts** sidan. Följ instruktionerna i [skapa en ny Dynamics 365 för drift erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) för att skapa ditt erbjudande.

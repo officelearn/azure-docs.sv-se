@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 99ae0139d7b12c0bfb87030d2b749b12834a4f96
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: f7c27bde3806684045bc43f8ff99eefb14c8d04a
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141099"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029137"
 ---
 # <a name="visually-monitor-azure-data-factories"></a>Övervaka Azure-datafabriker visuellt
 Azure Data Factory är en molnbaserad data integrerings tjänst. Du kan använda den för att skapa data drivna arbets flöden i molnet för att dirigera och automatisera data förflyttning och data omvandling. Med hjälp av Azure Data Factory kan du:
@@ -46,7 +46,7 @@ I listvyn visas varje pipeline-körning för Data Factory pipeliner. Den innehå
 | Åtgärder | Enskild åtgärd som är tillgänglig för att Visa aktivitets körningar |
 | Kör Start | Start datum och-tid för pipeline-körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
 | Duration | Körnings tid (HH: MM: SS) |
-| Aktiverad av | Manuell utlösare eller schemalagd utlösare |
+| Utlöst av | Manuell utlösare eller schemalagd utlösare |
 | State | **Misslyckades**, **lyckades**eller **pågår** |
 | Parametrar | Parametrar för pipeline-körningen (namn/värde-par) |
 | Fel | Fel i pipeline-körning (om det finns) |
@@ -59,8 +59,8 @@ Listvyn visar aktivitets körningar som motsvarar varje pipeline-körning. Om du
 
 | **Kolumnnamn** | **Beskrivning** |
 | --- | --- |
-| Aktivitetsnamn | Namn på aktiviteten inuti pipelinen |
-| Aktivitetstyp | Typ av aktivitet, till exempel **copy**, **HDInsightSpark**eller **HDInsightHive** |
+| Aktivitets namn | Namn på aktiviteten inuti pipelinen |
+| Aktivitets typ | Typ av aktivitet, till exempel **copy**, **HDInsightSpark**eller **HDInsightHive** |
 | Kör Start | Start datum och-tid för aktivitets körningen (MM/DD/ÅÅÅÅ, HH: MM: SS fm/em) |
 | Duration | Körnings tid (HH: MM: SS) |
 | State | **Misslyckades**, **lyckades**eller **pågår** |
@@ -161,7 +161,7 @@ Välj **feedback** -ikonen för att ge oss feedback om olika funktioner eller pr
 
 ## <a name="alerts"></a>Aviseringar
 
-Du kan generera aviseringar för mått som stöds i Data Factory. Välj **övervaka** > **aviseringar & mått** på sidan Data Factory övervakning för att komma igång.
+Du kan generera aviseringar för mått som stöds i Data Factory. Välj **övervaka** > -**aviseringar & mått** på sidan Data Factory övervakning för att komma igång.
 
 ![Sidan Data Factory Monitor](media/monitor-visually/alerts01.png)
 
@@ -171,7 +171,7 @@ En introduktion till sju minuter och demonstration av den här funktionen finns 
 
 ### <a name="create-alerts"></a>Skapa aviseringar
 
-1.  Välj **ny aviserings regel** för att skapa en ny avisering.
+1.  Välj **ny aviserings regel** för att skapa en ny avisering.
 
     ![Knappen Ny varnings regel](media/monitor-visually/alerts02.png)
 

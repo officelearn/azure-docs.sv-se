@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 6ff273236f9f8465de9ec0cda89ed3ff8996ecec
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: d2561b1882ea612f29c0ff0eeb4bd6614403c9ff
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70932653"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025476"
 ---
 # <a name="aks-troubleshooting"></a>AKS-felsökning
 
@@ -30,7 +30,7 @@ Du måste [begära kärnor](https://docs.microsoft.com/azure/azure-supportabilit
 ## <a name="what-is-the-maximum-pods-per-node-setting-for-aks"></a>Vad är den maximala inställningen för poddar per nod för AKS?
 
 Den maximala inställningen för poddar per nod är 30 som standard om du distribuerar ett AKS-kluster i Azure Portal.
-Den maximala inställningen för poddar per nod är 110 som standard om du distribuerar ett AKS-kluster i Azure CLI. (Kontrol lera att du använder den senaste versionen av Azure CLI). Den här standardinställningen kan ändras med hjälp `–-max-pods` av flaggan `az aks create` i kommandot.
+Den maximala inställningen för poddar per nod är 110 som standard om du distribuerar ett AKS-kluster i Azure CLI. (Kontrol lera att du använder den senaste versionen av Azure CLI). Standardvärdet kan ändras med hjälp av flaggan `–-max-pods` i kommandot `az aks create`.
 
 ## <a name="im-getting-an-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Jag får ett insufficientSubnetSize-fel när jag distribuerar ett AKS-kluster med avancerade nätverksfunktioner. Vad ska jag göra?
 
@@ -44,8 +44,8 @@ Mer information finns i [planera IP-adresser för klustret](configure-azure-cni.
 
 Det kan finnas olika orsaker till att Pod har fastnat i det läget. Du kan titta på:
 
-* Själva pod, med hjälp `kubectl describe pod <pod-name>`av.
-* Loggarna med hjälp `kubectl log <pod-name>`av.
+* Själva pod, genom att använda `kubectl describe pod <pod-name>`.
+* Loggarna genom att använda `kubectl log <pod-name>`.
 
 Mer information om hur du felsöker Pod-problem finns i [Felsöka program](https://kubernetes.io/docs/tasks/debug-application-cluster/debug-application/#debugging-pods).
 
@@ -59,13 +59,13 @@ Orsaken till varningarna på instrument panelen är att klustret nu är aktivera
 
 ## <a name="i-cant-connect-to-the-dashboard-what-should-i-do"></a>Jag kan inte ansluta till instrument panelen. Vad ska jag göra?
 
-Det enklaste sättet att komma åt din tjänst utanför klustret är att köra `kubectl proxy`, vilka proxyservrar som begär att skickas till din localhost port 8001 till Kubernetes-API-servern. Därifrån kan API-servern proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
+Det enklaste sättet att komma åt din tjänst utanför klustret är att köra `kubectl proxy`, vilka proxyservrar begär Anden som skickas till din localhost port 8001 till Kubernetes-API-servern. Därifrån kan API-servern proxy till din tjänst: `http://localhost:8001/api/v1/namespaces/kube-system/services/kubernetes-dashboard/proxy/#!/node?namespace=default`.
 
-Om du inte ser Kubernetes-instrumentpanelen kontrollerar du om `kube-proxy` Pod körs `kube-system` i namn området. Om den inte är i ett körnings tillstånd tar du bort Pod så att den startas om.
+Om du inte ser Kubernetes-instrumentpanelen kontrollerar du om `kube-proxy`-pod körs i namn området `kube-system`. Om den inte är i ett körnings tillstånd tar du bort Pod så att den startas om.
 
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Jag kan inte hämta loggar med kubectl-loggar eller så kan jag inte ansluta till API-servern. Jag får "fel från servern: fel vid uppringning av Server del: slå TCP...". Vad ska jag göra?
 
-Kontrol lera att standard nätverks säkerhets gruppen inte har ändrats och att både port 22 och 9000 är öppna för anslutning till API-servern. Kontrol lera om `tunnelfront` Pod körs i *Kube-systemets* namnrymd med `kubectl get pods --namespace kube-system` kommandot. Om den inte är det, kan du framtvinga borttagning av Pod och startas om.
+Kontrol lera att standard nätverks säkerhets gruppen inte har ändrats och att både port 22 och 9000 är öppna för anslutning till API-servern. Kontrol lera om `tunnelfront`-pod körs i *Kube-systemets* namnrymd med kommandot `kubectl get pods --namespace kube-system`. Om den inte är det, kan du framtvinga borttagning av Pod och startas om.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-message-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Jag försöker uppgradera eller skala och får ett meddelande: Det går inte att ändra egenskapen "imageReference". Hur gör jag för att åtgärda det här problemet?
 
@@ -77,7 +77,7 @@ Du kan få det här felet eftersom du har ändrat taggarna i agent-noderna i AKS
 
 Felet uppstår när kluster anger ett felaktigt tillstånd av flera orsaker. Följ stegen nedan för att lösa ett tillstånd för misslyckad kluster innan du försöker igen den tidigare misslyckade åtgärden:
 
-1. Tills klustret är i ett `failed` `upgrade` tillstånd `scale` där det inte går att utföra åtgärder. Vanliga problem och lösningar för roten är:
+1. Det går inte att utföra `upgrade`-och `scale`-åtgärder förrän klustret har ett `failed`-tillstånd. Vanliga problem och lösningar för roten är:
     * Skalning med **otillräcklig beräknings kvot (CRP)** . För att lösa problemet måste du först skala klustret till ett stabilt mål tillstånd inom kvoten. Följ sedan de här [stegen för att begära en ökad beräknings kvot](../azure-supportability/resource-manager-core-quotas-request.md) innan du försöker skala upp igen utöver de inledande kvot gränserna.
     * Skala ett kluster med avancerade nätverk och **otillräckliga undernät (nätverks resurser)** . För att lösa problemet måste du först skala klustret till ett stabilt mål tillstånd inom kvoten. Följ sedan [de här stegen för att begära en resurs kvot ökning](../azure-resource-manager/resource-manager-quota-errors.md#solution) innan du försöker skala upp igen utöver de inledande kvot gränserna.
 2. När den underliggande orsaken till uppgraderings felet har lösts bör klustret ha statusen klar. När en lyckad status har verifierats kan du försöka utföra den ursprungliga åtgärden igen.
@@ -88,7 +88,7 @@ Felet uppstår när kluster anger ett felaktigt tillstånd av flera orsaker. Fö
 
 Att uppgradera och skala åtgärder på ett kluster med en enda Node-pool eller ett kluster med [flera noder](use-multiple-node-pools.md) , är ömsesidigt uteslutande. Det går inte att ha ett kluster eller en Node-pool samtidigt för uppgradering och skalning. I stället måste varje åtgärds typ slutföras på mål resursen innan nästa begäran om samma resurs. Det innebär att åtgärder begränsas när aktiva uppgraderingar eller skalnings åtgärder inträffar eller görs och senare Miss lyckas. 
 
-För att diagnostisera problemet `az aks show -g myResourceGroup -n myAKSCluster -o table` kan du Hämta detaljerad status för klustret. Baserat på resultatet:
+För att diagnostisera problemet kan du köra `az aks show -g myResourceGroup -n myAKSCluster -o table` för att hämta detaljerad status för klustret. Baserat på resultatet:
 
 * Om klustret aktivt uppgraderas väntar du tills åtgärden avslutas. Om det lyckades, gör om den tidigare misslyckade åtgärden igen.
 * Om det inte går att uppgradera klustret följer du stegen som beskrivs i föregående avsnitt.
@@ -105,9 +105,9 @@ Du kan få fel som indikerar att ditt AKS-kluster inte finns på en skal uppsät
 
 **Agentpoolegenskap ' agentpoolegenskap ' har ställt in automatisk skalning som aktive rad men inte på Virtual Machine Scale Sets**
 
-Om du vill använda funktioner som till exempel kluster autoskalning eller flera noder i pooler måste AKS-kluster skapas som använder skalnings uppsättningar för virtuella datorer. Fel returneras om du försöker använda funktioner som är beroende av den virtuella datorns skalnings uppsättningar och du riktar in ett vanligt AKS-kluster för skalnings uppsättningar som inte är virtuella datorer. Stöd för virtuell dators skalnings uppsättning är för närvarande en för hands version i AKS.
+Om du vill använda funktioner som till exempel kluster autoskalning eller flera noder i pooler måste AKS-kluster skapas som använder skalnings uppsättningar för virtuella datorer. Fel returneras om du försöker använda funktioner som är beroende av den virtuella datorns skalnings uppsättningar och du riktar in ett vanligt AKS-kluster för skalnings uppsättningar som inte är virtuella datorer.
 
-Följ stegen *innan du börjar* med att registrera dig för för hands versionen av den virtuella datorns skalnings uppsättning och skapa ett AKS-kluster:
+Följ stegen *innan du börjar* i rätt dokument för att skapa ett AKS-kluster på rätt sätt:
 
 * [Använd kluster autoskalning](cluster-autoscaler.md)
 * [Skapa och Använd flera noder i pooler](use-multiple-node-pools.md)
@@ -118,14 +118,14 @@ Följ stegen *innan du börjar* med att registrera dig för för hands versionen
 
 Namngivnings begränsningar implementeras av både Azure-plattformen och AKS. Om ett resurs namn eller en parameter delar någon av dessa begränsningar returneras ett fel som uppmanar dig att ange en annan Indatatyp. Följande rikt linjer gäller för namngivning:
 
-* AKS *MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen `MC_resourceGroupName_resourceName_AzureRegion` för får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn.
+* AKS *MC_* resurs grupp namn kombinerar resurs grupps namn och resurs namn. Den automatiskt genererade syntaxen för `MC_resourceGroupName_resourceName_AzureRegion` får inte vara större än 80 tecken. Om det behövs kan du minska längden på resurs gruppens namn eller AKS kluster namn.
 * *DnsPrefix* måste börja och sluta med alfanumeriska värden. Giltiga tecken är alfanumeriska värden och bindestreck (-). *DnsPrefix* får inte innehålla specialtecken, till exempel en punkt (.).
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Jag får fel meddelanden när jag försöker skapa, uppdatera, skala, ta bort eller uppgradera kluster, den åtgärden är inte tillåten eftersom en annan åtgärd pågår.
 
 *Den här fel söknings hjälpen dirigeras från aka.ms/aks-pending-operation*
 
-Kluster åtgärder är begränsade när en tidigare åtgärd fortfarande pågår. Om du vill hämta en detaljerad status för klustret använder du `az aks show -g myResourceGroup -n myAKSCluster -o table` kommandot. Använd din egen resurs grupp och AKS kluster namn efter behov.
+Kluster åtgärder är begränsade när en tidigare åtgärd fortfarande pågår. Om du vill hämta en detaljerad status för klustret använder du kommandot `az aks show -g myResourceGroup -n myAKSCluster -o table`. Använd din egen resurs grupp och AKS kluster namn efter behov.
 
 Baserat på utdata från klustrets status:
 
@@ -144,6 +144,6 @@ Använd följande lösningar för detta:
 
 ## <a name="im-receiving-errors-after-restricting-my-egress-traffic"></a>Jag får fel meddelanden när jag har begränsat min utgående trafik
 
-Vid begränsning av utgående trafik från ett AKS-kluster [krävs och valfria rekommenderade](limit-egress-traffic.md) utgående portar/nätverks regler och FQDN/applikations regler för AKS. Om inställningarna är i konflikt med någon av dessa regler kanske du inte kan köra vissa `kubectl` kommandon. Du kan också se fel när du skapar ett AKS-kluster.
+Vid begränsning av utgående trafik från ett AKS-kluster [krävs och valfria rekommenderade](limit-egress-traffic.md) utgående portar/nätverks regler och FQDN/applikations regler för AKS. Om inställningarna är i konflikt med någon av dessa regler kanske du inte kan köra vissa `kubectl`-kommandon. Du kan också se fel när du skapar ett AKS-kluster.
 
 Kontrol lera att inställningarna inte står i konflikt med några av de obligatoriska eller valfria rekommenderade utgående portarna/nätverks reglerna och reglerna för FQDN/program.

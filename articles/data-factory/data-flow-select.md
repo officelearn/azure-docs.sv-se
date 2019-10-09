@@ -6,35 +6,35 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 3c81ec5e213364ed6f159fd20e12879a098caad4
-ms.sourcegitcommit: 4b5dcdcd80860764e291f18de081a41753946ec9
+ms.openlocfilehash: 289f98fdc2f39449cdeede9ee46fb39847ae2cb5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/03/2019
-ms.locfileid: "68774993"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029278"
 ---
 # <a name="mapping-data-flow-select-transformation"></a>Mappa data flöde Välj omvandling
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Använd den här omvandlingen för kolumn urval (minska antalet kolumner), Ali Aset och Stream Names och ändra ordning på kolumner.
 
 ## <a name="how-to-use-select-transformation"></a>Använda Välj omvandling
 Med alternativet Välj transformering kan du ange alias för en hel ström eller kolumner i den data strömmen, tilldela olika namn (alias) och sedan referera till de nya namnen senare i ditt data flöde. Den här transformeringen är användbar för självkopplings scenarier. Sättet att implementera en själv koppling i ett ADF-dataflöde är att ta en ström, förgrena den med "ny gren", sedan omedelbart efteråt, lägga till en "Välj"-transformering. Den data strömmen kommer nu att ha ett nytt namn som du kan använda för att koppla tillbaka till den ursprungliga strömmen och skapa en själv koppling:
 
-![Själv koppling](media/data-flow/selfjoin.png "Själv koppling")
+![](media/data-flow/selfjoin.png "Själv") koppling
 
 I diagrammet ovan är Select Transform överst. Detta är alias för den ursprungliga strömmen till "OrigSourceBatting". I den markerade kopplings transformeringen nedan kan du se att vi använder den här Välj Ali strömmen som höger koppling, så att vi kan referera till samma nyckel i både vänster & högra sida av den inre kopplingen.
 
 Välj kan också användas på ett sätt som avmarkerar kolumner från ditt data flöde. Om du t. ex. har 6 kolumner som definierats i din mottagare, men du bara vill välja en viss 3 att transformera och sedan flöda till mottagaren, kan du bara välja de tre genom att använda alternativet Välj transformering.
 
-![Välj omvandling](media/data-flow/newselect1.png "Välj alias")
+![Välj transformering](media/data-flow/newselect1.png "Välj alias")
 
 ## <a name="options"></a>Alternativ
 * Standardvärdet för "Välj" är att inkludera alla inkommande kolumner och behålla de ursprungliga namnen. Du kan ange ett alias för strömmen genom att ange namnet på Välj transformering.
 * Om du vill ange alias för enskilda kolumner avmarkerar du "Markera alla" och använder kolumn mappningen längst ned.
 * Välj hoppa över dubbletter för att eliminera dubblerade kolumner från indata-eller utdata-metadata.
 
-![Hoppa över dubbletter](media/data-flow/select-skip-dup.png "Hoppa över dubbletter")
+![Hoppa över dubbletter](media/data-flow/select-skip-dup.png "hoppa över dubbletter")
 
 * När du väljer att hoppa över dubbletter visas resultaten på fliken Granska. ADF behåller den första förekomsten av kolumnen och du ser att varje efterföljande förekomst av samma kolumn har tagits bort från ditt flöde.
 
@@ -44,7 +44,7 @@ Välj kan också användas på ett sätt som avmarkerar kolumner från ditt data
 ## <a name="mapping"></a>Mappning
 Som standard mappar Select-omvandlingen alla kolumner automatiskt, vilket kommer att gå igenom alla inkommande kolumner till samma namn i utdata. Namnet på den utgående strömmen som anges i Välj inställningar definierar ett nytt aliasnamn för data strömmen. Om du behåller Välj uppsättningen för automatisk mappning, kan du ge alias för hela data strömmen med alla kolumner samma.
 
-![Välj omvandlings regler](media/data-flow/rule2.png "Regel baserad mappning")
+Välj(media/data-flow/rule2.png "regel baserad mappning") för ![omvandlings regler]
 
 Om du vill skapa alias för, ta bort, byta namn på eller ordna om kolumner måste du först stänga av "Auto-Map". Som standard visas en standard regel som anges för dig som heter "alla kolumner". Du kan lämna den här regeln på plats om du alltid vill att alla inkommande kolumner ska mappas till samma namn i sina utdata.
 

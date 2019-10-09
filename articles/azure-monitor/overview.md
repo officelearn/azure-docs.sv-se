@@ -7,17 +7,15 @@ editor: ''
 services: monitoring-and-diagnostics
 documentationcenter: monitoring-and-diagnostics
 ms.service: azure-monitor
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.topic: conceptual
-ms.date: 01/26/2019
+ms.topic: overview
+ms.date: 10/07/2019
 ms.author: bwren
-ms.openlocfilehash: 140a5cba6926e8711f0b70896ade55c11d332e0d
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 578cb57c9c971874e16ddb75d399e165cc75dfa6
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345307"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035656"
 ---
 # <a name="azure-monitor-overview"></a>Översikt över Azure Monitor
 
@@ -45,7 +43,7 @@ För många Azure-resurser kommer du att se data som samlas in av Azure Monitor 
 
 ![Mått](media/overview/metrics.png)
 
-Loggdata som samlas in av Azure Monitor kan analyseras med [frågor](log-query/log-query-overview.md) för att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med [Log Analytics](log-query/portals.md) i Azure Portal och sedan antingen analysera data med hjälp av dessa verktyg eller spara frågor för användning med visualiseringar eller [varnings regler](platform/alerts-overview.md). [](visualizations.md)
+Loggdata som samlas in av Azure Monitor kan analyseras med [frågor](log-query/log-query-overview.md) för att snabbt hämta, konsolidera och analysera insamlade data.  Du kan skapa och testa frågor med [Log Analytics](log-query/portals.md) i Azure Portal och sedan antingen analysera data med hjälp av dessa verktyg eller spara frågor för användning med [visualiseringar](visualizations.md) eller [varnings regler](platform/alerts-overview.md).
 
 Azure Monitor använder en version av [Kusto-frågespråket](/azure/kusto/query/) som används av Azure datautforskaren som är lämplig för enkla logg frågor, men även avancerade funktioner som agg regeringar, kopplingar och smart analys. Du kan snabbt lära dig frågespråket med [flera lektioner](log-query/get-started-queries.md).  Viss vägledning erbjuds användare som redan är bekanta med [SQL](log-query/sql-cheatsheet.md) och [Splunk](log-query/splunk-cheatsheet.md).
 
@@ -115,7 +113,7 @@ Med autoskalning kan du använda rätt mängd resurser för att hantera belastni
 [Visualiseringar](visualizations.md) som diagram och tabeller är effektiva verktyg för att sammanfatta övervaknings data och presentera dem för olika mål grupper. Azure Monitor har egna funktioner för visualisering av övervaknings data och utnyttjar andra Azure-tjänster för att publicera den till olika mål grupper.
 
 ### <a name="dashboards"></a>Instrumentpaneler
-Med [Azure](../azure-portal/azure-portal-dashboards.md) -instrumentpaneler kan du kombinera olika typer av data, inklusive både mått och loggar, i ett enda fönster i [Azure Portal](https://portal.azure.com). Du kan välja att dela instrument panelen med andra Azure-användare. Element i hela Azure Monitor kan läggas till i en Azure-instrumentpanel förutom utdata från eventuella logg frågor eller mått diagram. Du kan till exempel skapa en instrument panel som kombinerar paneler som visar ett diagram över mått, en tabell med aktivitets loggar, ett användnings diagram från Application Insights och utdata från en logg fråga.
+Med [Azure-instrumentpaneler](../azure-portal/azure-portal-dashboards.md) kan du kombinera olika typer av data, inklusive både mått och loggar, i ett enda fönster i [Azure Portal](https://portal.azure.com). Du kan välja att dela instrument panelen med andra Azure-användare. Element i hela Azure Monitor kan läggas till i en Azure-instrumentpanel förutom utdata från eventuella logg frågor eller mått diagram. Du kan till exempel skapa en instrument panel som kombinerar paneler som visar ett diagram över mått, en tabell med aktivitets loggar, ett användnings diagram från Application Insights och utdata från en logg fråga.
 
 ![Instrumentpanel](media/overview/dashboard.png)
 

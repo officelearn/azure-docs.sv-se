@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 2a740d8ee0eb50cfa01f36bd8f5590a58e1e6627
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 8f4ed6de5ff47efa441c371b80670c500f57c9bb
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931918"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034059"
 ---
 # <a name="time-series-model"></a>Time Series-modell
 
@@ -25,7 +25,7 @@ Traditionellt har data som samlas in från IoT-enheter saknar sammanhangsbaserad
 
 Tids serie modeller spelar en viktig roll i frågor och navigering eftersom de sätta enhets-och entiteter som inte är enheter. Data som bevaras i Time Series-modellen har en tids serie fråga beräkningar genom att dra nytta av de formler som lagras i dem.
 
-[![Översikt över tids serie modell](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
+[Översikt över modell för @no__t 1Time-serien](media/v2-update-tsm/tsm.png)](media/v2-update-tsm/tsm.png#lightbox)
 
 ## <a name="key-capabilities"></a>De viktigaste funktionerna
 
@@ -82,7 +82,7 @@ Time Series Insights typer har variabler, som är namngivna beräkningar över v
 
 Följande matris fungerar som en förklaring för variabel definitioner:
 
-[![Typ av variabel definitions tabell](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
+[variabel definitions tabell för @no__t 1Type](media/v2-update-tsm/table.png)](media/v2-update-tsm/table.png#lightbox)
 
 | Definition | Beskrivning |
 | --- | ---|
@@ -126,7 +126,7 @@ Tänk på följande exempel där hierarkin H1 har *byggnad*, *golv*och *rum* som
 
 Beroende på *instans fälten*visas hierarkins attribut och värden som visas i följande tabell:
 
-| Tidserie-ID | Instans fält |
+| Time Series-ID | Instans fält |
 | --- | --- |
 | ID1 | "skapa" = "1000", "golv" = "10", "rum" = "55"  |
 | ID2 | "skapa" = "1000", "Room" = "55" |

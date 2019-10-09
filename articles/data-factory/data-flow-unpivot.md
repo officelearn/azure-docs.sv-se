@@ -1,57 +1,57 @@
 ---
-title: Dataflöde för Azure Data Factory mappning normalisera omvandling
-description: Dataflöde för Azure Data Factory mappning normalisera omvandling
+title: Azure Data Factory mappning av unpivot-transformering för data flöde
+description: Azure Data Factory mappning av unpivot-transformering för data flöde
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 160ff8bbcb8ce5a4f1f32245cc366281640c5919
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 28fedf96ec178aae0615129421bdae7721a66105
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348313"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029940"
 ---
-# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory normalisera omvandling
+# <a name="azure-data-factory-unpivot-transformation"></a>Azure Data Factory unpivot-transformering
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Använd Unpivot i ADF mappning dataflöde som ett sätt att göra en Onormaliserad datauppsättning till en mer normaliserade version genom att expandera värden från flera kolumner i en enda post till flera poster med samma värden i en enda kolumn.
 
-![Normalisera omvandling](media/data-flow/unpivot1.png "normalisera alternativ 1")
+Använd unpivot i data flöde för ADF-mappning som ett sätt att omvandla en normaliserad data uppsättning till en mer normaliserad version genom att expandera värden från flera kolumner i en enskild post till flera poster med samma värden i en enda kolumn.
 
-## <a name="ungroup-by"></a>Dela upp av
+![Avpivotera transformering](media/data-flow/unpivot1.png "avpivotera alternativ 1")
 
-![Normalisera omvandling](media/data-flow/unpivot5.png "normalisera alternativ 2")
+## <a name="ungroup-by"></a>Dela upp efter
 
-Ange först de kolumner som du vill gruppera efter för pivot-aggregering. Ange en eller flera kolumner för att dela upp med den + bredvid kolumnlistan.
+![Avpivotera transformerings](media/data-flow/unpivot5.png "alternativ för avpivotering 2")
 
-## <a name="unpivot-key"></a>Normalisera nyckel
+Ange först de kolumner som du vill gruppera efter för din Pivot-aggregering. Ange en eller flera kolumner för att dela upp med +-tecknet bredvid kolumn listan.
 
-![Normalisera omvandling](media/data-flow/unpivot6.png "normalisera alternativ 3")
+## <a name="unpivot-key"></a>Unpivot-nyckel
 
-Pivot-nyckeln är den kolumn som ADF kommer växla över från rader till kolumnen. Som standard kommer varje unikt värde i datauppsättningen för det här fältet växla över till en kolumn. Du kan också ange värdena för från den datauppsättning som du vill växla över till kolumnvärdena.
+![Unpivot Transformation]-(media/data-flow/unpivot6.png "Alternativ 3")
 
-## <a name="unpivoted-columns"></a>Icke-Pivotkolumner
+Pivot-tangenten är den kolumn som ADF kommer från rad till kolumn. Som standard kommer varje unikt värde i data uppsättningen för det här fältet att pivoteras till en kolumn. Du kan också ange värden från data uppsättningen som du vill pivotera till kolumn värden.
 
-![Normalisera omvandling](media/data-flow//unpivot7.png "normalisera alternativ 4")
+## <a name="unpivoted-columns"></a>Kolumner som inte har pivoteras
 
-Välj till sist sammansättning som du vill använda för pivoterat värden och hur du vill att kolumnerna som ska visas i den nya utdata-projektionen från omvandlingen.
+![Avpivotera transformering](media/data-flow//unpivot7.png "avpivotera alternativ 4")
 
-(Valfritt) Du kan ange ett namngivningsmönster från en med ett prefix, mitten och suffixet som ska läggas till varje nytt kolumnnamn från radvärdena.
+Slutligen väljer du den agg regering som du vill använda för de pivoterade värdena och hur du vill att kolumnerna ska visas i den nya utdata-projektionen från omvandlingen.
 
-Till exempel skulle pivotera ”försäljning” av ”Region” bara ger dig nya kolumnvärdena från varje försäljning värde. Exempel: "25", "50", "1000", ... Men om du anger ett prefixvärdet för ”försäljning” kan kommer sedan ”försäljning” föregås till värden.
+Valfritt Du kan ange ett namn mönster med ett prefix, mellan och suffix som ska läggas till i varje nytt kolumn namn från rad värden.
+
+Om du till exempel pivoterar "Sales" efter "region" får du bara nya kolumn värden från varje försäljnings värde. Exempel: "25", "50", "1000", ... Men om du anger ett prefixvärde för "försäljning" kommer värdet "Sales" att föregås av värdena.
 
 <img src="media/data-flow/unpivot3.png" width="400">
 
-Ange kolumnordning till ”Normal” grupperas alla pivoterat kolumner med deras aggregerade värden. Ange hur kolumnerna till ”laterala” kommer växla mellan kolumn och värde.
+Om du anger kolumn ordningen till "normal" grupperas alla de pivoterade kolumnerna med deras sammanlagda värden. Att ange kolumnernas ordning till "lateral" kommer att alternera mellan kolumn och värde.
 
-![Normalisera omvandling](media/data-flow//unpivot7.png "normalisera alternativ 5")
+![Avpivotera transformerings](media/data-flow//unpivot7.png "alternativ 5")
 
-I sista normaliserades data resultatet set visas kolumnsummorna avpivoterade nu i separata radvärden.
+I den sista pivottabellen med nedpivoterade data visas kolumn summor nu i separata rad värden.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Använd den [pivotera omvandling](data-flow-pivot.md) till pivot rader till kolumner.
+Använd [Pivot-transformeringen](data-flow-pivot.md) för att pivotera rader till kolumner.

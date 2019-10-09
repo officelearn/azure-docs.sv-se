@@ -1,39 +1,21 @@
 ---
-title: Skapa en Dynamics 365 för kundengagemang programmet erbjudande | Azure Marketplace
-description: Hur du skapar en ny Dynamics 365 för kundengagemang programmet erbjudandet på AppSource-marknadsplatsen.
+title: Skapa ett Dynamics 365-erbjudande för Customer Engagement-program | Azure Marketplace
+description: Den här CPP-artikeln och pekade på PC-artikel; var "hur man skapar ett nytt Dynamics 365-erbjudande för kund engagemang på AppSource Marketplace."
 services: Dynamics 365 for Customer Engagement Offer, Azure, Marketplace, Cloud Partner Portal, AppSource
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 12/21/2018
-ms.author: pabutler
-ms.openlocfilehash: ebfef673102878e50f744081ec9b46fd4cd1796b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 1682abd3983d3e090b59e6452c4761913e29da3d
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942697"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034348"
 ---
-# <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Skapa en Dynamics 365 för kundengagemang programmet erbjudande
+# <a name="create-a-dynamics-365-for-customer-engagement-application-offer"></a>Skapa ett erbjudande för Dynamics 365 för kund engagemang
 
-Det här avsnittet beskriver hur du skapar och publicerar en Dynamics 365 för kundengagemang programmet erbjudande för AppSource-marknadsplatsen. Varje erbjudande visas som en egen enhet i marketplace och består av följande grupper i tillgångar och stödtjänster: erbjuder information paketet teknisk information, marknadsföring artefakter, supportinformation och valfritt Test Drive specifikationer. 
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera Dynamics 365-erbjudanden om kund engagemang. I stället har den här funktionen flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [skapa en ny Dynamics 365 för kund engagemang & PowerApps-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-
-## <a name="new-offer-form"></a>Nytt erbjudande formulär
-
-Logga in på den [Cloud Partner Portal](https://cloudpartner.azure.com/), och välj sedan **+ nytt erbjudande** på den vänstra menyraden. På ikonen nytt erbjuda meny, Välj **Dynamics 365 för kundengagemang**:
-
-![Nytt erbjudande menyalternativet för Dynamics 365 för Customer Engagement-program](./media/new-dyn365ce-menu-item.png)
-
-Den **nytt erbjudande** formulär visas och anger första [ **erbjuder inställningar** fliken](./cpp-offer-settings-tab.md).
-
-
-## <a name="next-steps"></a>Nästa steg
-
-Den **nytt erbjudande** sidan innehåller en uppsättning flikar och formulärfält som du använder för att skapa ett nytt erbjudande. Följande artiklar beskriver hur du definierar tillgångar och kompletterande information för ditt nya erbjudande.
-
-* [fliken Erbjudandeinställningar](./cpp-offer-settings-tab.md)
-* [Fliken Teknisk information](./cpp-technical-info-tab.md)
-* [fliken Test Drive](./cpp-testdrive-tab.md)
-* [Fliken Butiksinformation](./cpp-storefront-details-tab.md)
-* [Fliken Kontakter](./cpp-contacts-tab.md)
+Innan du skapar ett nytt Dynamics 365-erbjudande för kund engagemang bör du läsa [skapa ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/directory) med den valda **översikts** sidan. Följ instruktionerna i [skapa en ny Dynamics 365 för kund engagemang & PowerApps-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) för att skapa ditt erbjudande.

@@ -8,14 +8,14 @@ manager: cshankar
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/08/2019
+ms.date: 10/07/2019
 ms.custom: seodec18
-ms.openlocfilehash: 29418345aaa8042e50b1297541cac3af0a3c1504
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 7b7d041b678ccf2a476afc6d0744f6971349677e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68935197"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034875"
 ---
 # <a name="data-querying"></a>Fråga data
 
@@ -35,7 +35,7 @@ Tre primära API-kategorier är tillgängliga i Time Series Insights:
 
 Följande kärn-API: er stöds.
 
-[![Översikt över Time Series-frågor](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
+[Översikt över 1Time Series-frågor @no__t](media/v2-update-tsq/tsq.png)](media/v2-update-tsq/tsq.png#lightbox)
 
 ## <a name="environment-apis"></a>Miljö-API: er
 
@@ -51,7 +51,7 @@ Följande tids serie modell – fråge-API: er är tillgängliga:
 
 * [API för modell inställningar](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#model-settings-api): Aktiverar get och patch för standard typen och modell namnet för miljön.
 * [Typ-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#types-api): Aktiverar CRUD för tids serie typer och deras associerade variabler.
-* [API: er](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api)för hierarkier: Aktiverar CRUD i Time Series-hierarkier och deras associerade fält Sök vägar.
+* [API: er för hierarkier](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#hierarchies-api): Aktiverar CRUD i Time Series-hierarkier och deras associerade fält Sök vägar.
 * [Instans-API](https://docs.microsoft.com/rest/api/time-series-insights/preview-model#instances-api): Aktiverar CRUD på Time Series-instanser och deras associerade instans fält.
 
 ## <a name="time-series-query-tsq-apis"></a>API: er för Time Series-frågor (TSQ)
@@ -67,11 +67,11 @@ Följande API: er för Time Series-frågor är tillgängliga:
 
   API för Get-serien returnerar ett tids serie värde för varje variabel för varje intervall. Ett Time Series-värde är ett format som Time Series Insights används för att mata ut JSON från en fråga. Värdena som returneras baseras på Time Series-ID: t och uppsättningen variabler som tillhandahölls.
 
-* [API](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api)för sammanställd serie: Gör det möjligt att fråga och hämta Time Series Insights data från insamlade händelser genom att sampla och aggregera inspelade data.
+* [API för sammanställd serie](https://docs.microsoft.com/rest/api/time-series-insights/preview-query#aggregate-series-api): Gör det möjligt att fråga och hämta Time Series Insights data från insamlade händelser genom att sampla och aggregera inspelade data.
 
   API: t för sammanställd serie returnerar ett tids serie värde för varje variabel för varje intervall. Värdena baseras på Time Series-ID: t och uppsättningen med variabler som tillhandahölls. API: t för sammanställd serie uppnår en minskning med hjälp av variabler som lagras i tids serie modellen eller som anges i mängd-eller exempel data.
 
-  Mängd typer som stöds `Min`: `Max`, `Sum`, `Count`,,`Average`
+  Samlings typer som stöds: `Min`, `Max`, `Sum`, `Count`, `Average`
 
 ## <a name="next-steps"></a>Nästa steg
 

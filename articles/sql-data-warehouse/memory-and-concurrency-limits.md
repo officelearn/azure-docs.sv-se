@@ -1,35 +1,33 @@
 ---
-title: Minne och samtidighet begränsningar i Azure SQL Data Warehouse | Microsoft Docs
-description: Visa minne och samtidighet gränserna som allokerats till de olika prestandanivåer och resursklasser i Azure SQL Data Warehouse.
+title: Minnes-och samtidiga gränser i Azure SQL Data Warehouse | Microsoft Docs
+description: Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna och resurs klasserna i Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 03/15/2019
+ms.date: 10/04/2019
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 0a92c032027e772020eda0b626a6dc6db024bf57
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 73bb5b75a440755e088a4d9a294b5b97b0b7199e
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595565"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035122"
 ---
-# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Minne och samtidighet gränser för Azure SQL Data Warehouse
-Visa minne och samtidighet gränserna som allokerats till de olika prestandanivåer och resursklasser i Azure SQL Data Warehouse. Mer information, samt att tillämpa de här funktionerna på din plan för hantering av arbetsbelastning, se [resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md). 
+# <a name="memory-and-concurrency-limits-for-azure-sql-data-warehouse"></a>Minnes-och samtidiga gränser för Azure SQL Data Warehouse
+Visa minnes-och samtidiga gränser som tilldelats de olika prestanda nivåerna och resurs klasserna i Azure SQL Data Warehouse. Mer information och tillämpa dessa funktioner i din plan för hantering av arbets belastning finns i [resurs klasser för hantering av arbets](resource-classes-for-workload-management.md)belastning. 
 
-Det finns för närvarande två generationer som är tillgängliga med SQL Data Warehouse – Gen1 och Gen2. Vi rekommenderar att du utnyttjar Gen2 av SQL Data Warehouse för att få bästa möjliga prestanda för din arbetsbelastning i informationslager. Gen2 introducerar ett nytt NVMe-Solid State Disk-cacheminne som ser till att data som oftast används nära processorerna. Detta tar bort remote-i/o för beräkningsintensiva och mest krävande arbetsbelastningar. Förutom prestanda erbjuder Gen2 den bästa skala genom att du kan skala upp till 30 000 Informationslagerenheter och obegränsad kolumnformad lagring. Vi fortfarande stöd för den tidigare generationen (Gen1) i SQL Data Warehouse och behålla samma funktioner; men vi rekommenderar att du [uppgradera till Gen2](upgrade-to-latest-generation.md) vid första möjliga tillfälle. 
+## <a name="data-warehouse-capacity-settings"></a>Kapacitets inställningar för informations lager
+I följande tabeller visas den maximala kapaciteten för data lagret på olika prestanda nivåer. Information om hur du ändrar prestanda nivån finns i [Scale Compute-Portal](quickstart-scale-compute-portal.md).
 
-## <a name="data-warehouse-capacity-settings"></a>Kapacitetsinställningarna för data warehouse
-Följande tabeller visar den maximala kapaciteten för datalagret på olika prestandanivåer. Om du vill ändra prestandanivån, se [skala beräkning – portalen](quickstart-scale-compute-portal.md).
+### <a name="service-levels"></a>Service nivåer
 
-### <a name="gen2"></a>Gen2
+Tjänst nivåerna sträcker sig från DW100c till DW30000c.
 
-Gen2 innehåller 2,5 gånger mer minne per fråga än Gen1. Den här extra minne hjälper Gen2 leverera snabba prestanda.  Prestandanivåer för Gen2 mellan DW100c och DW30000c. 
-
-| Prestandanivå | Compute-noder | Distributioner per Compute-nod | Minne per datalager (GB) |
+| Prestandanivå | Compute-noder | Distributioner per Compute-nod | Minne per informations lager (GB) |
 |:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
 | DW100c            | 1             | 60                             |    60                          |
 | DW200c            | 1             | 60                             |   120                          |
@@ -48,37 +46,16 @@ Gen2 innehåller 2,5 gånger mer minne per fråga än Gen1. Den här extra minne
 | DW15000c          | 30            | 2                              |  9000                          |
 | DW30000c          | 60            | 1                              | 18000                          |
 
-Den maximala Gen2 DWU är DW30000c som har 60 Compute-noder och en distribution per Compute-nod. Till exempel bearbetar en 600 TB data warehouse vid DW30000c cirka 10 TB per Compute-nod.
+Den högsta service nivån är DW30000c, som har 60 Compute-noder och en distribution per Compute-nod. Till exempel, ett 600 TB informations lager på DW30000c bearbetar cirka 10 TB per Compute-nod.
 
-### <a name="gen1"></a>Gen1
+## <a name="concurrency-maximums"></a>Högsta antal samtidiga
+För att säkerställa att varje fråga har tillräckligt med resurser för att köras effektivt, SQL Data Warehouse spårar resursutnyttjande genom att tilldela samtidiga platser till varje fråga. Systemet placerar frågor i en kö baserat på prioritets-och samtidiga platser. Frågor väntar i kön tills det finns tillräckligt med tillgängliga samtidighets fack. [Prioritets](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) -och samtidiga platser fastställer processor prioritet. Mer information finns i [analysera din arbets belastning](analyze-your-workload.md)
 
-Servicenivåer för Gen1 mellan DW100 och DW6000. 
+**Statiska resurs klasser**
 
-| Prestandanivå | Compute-noder | Distributioner per Compute-nod | Minne per datalager (GB) |
-|:-----------------:|:-------------:|:------------------------------:|:------------------------------:|
-| DW100             | 1             | 60                             |  24                            |
-| DW200             | 2             | 30                             |  48                            |
-| DW300             | 3             | 20                             |  72                            |
-| DW400             | 4             | 15                             |  96                            |
-| DW500             | 5             | 12                             | 120                            |
-| DW600             | 6             | 10                             | 144                            |
-| DW1000            | 10            | 6                              | 240                            |
-| DW1200            | 12            | 5                              | 288                            |
-| DW1500            | 15            | 4                              | 360                            |
-| DW2000            | 20            | 3                              | 480                            |
-| DW3000            | 30            | 2                              | 720                            |
-| DW6000            | 60            | 1                              | 1440                           |
+Följande tabell visar maximalt antal samtidiga frågor och samtidiga platser för varje [statisk resurs klass](resource-classes-for-workload-management.md).  
 
-## <a name="concurrency-maximums"></a>Samtidighet maximum
-För att säkerställa att varje fråga har tillräckligt med resurser för att köra effektivt, spårar resursanvändningen genom att tilldela samtidighetsfack till varje fråga i SQL Data Warehouse. Systemet samlar frågor i en kö baserat på prioritet och samtidighetsfack. Frågor vänta i kön tills det finns tillräckligt många samtidighetsfack. [Vikten](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-workload-importance) och samtidighetsfack fastställa CPU-prioritering. Mer information finns i [analysera din arbetsbelastning](analyze-your-workload.md)
-
-### <a name="gen2"></a>Gen2
- 
-**Statiska resursklasser**
-
-I följande tabell visas de maximalt antal samtidiga frågor och samtidighetsfack för varje [Statiska resursklass](resource-classes-for-workload-management.md).  
-
-| Servicenivå | Maximalt antal samtidiga frågor | Samtidighetsfack som är tillgängliga | Platser som används av staticrc10 | Platser som används av staticrc20 | Platser som används av staticrc30 | Platser som används av staticrc40 | Platser som används av staticrc50 | Platser som används av staticrc60 | Platser som används av staticrc70 | Platser som används av staticrc80 |
+| Servicenivå | Maximalt antal samtidiga frågor | Tillgängliga samtidiga platser | Platser som används av staticrc10 | Platser som används av staticrc20 | Platser som används av staticrc30 | Platser som används av staticrc40 | Platser som används av staticrc50 | Platser som används av staticrc60 | Platser som används av staticrc70 | Platser som används av staticrc80 |
 |:-------------:|:--------------------------:|:---------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
 | DW100c        |  4                         |    4                        | 1         | 2          | 4          | 4          | 4         |  4         |  4         |  4         |
 | DW200c        |  8                         |    8                        | 1         | 2          | 4          | 8          |  8         |  8         |  8         |  8        |
@@ -97,16 +74,11 @@ I följande tabell visas de maximalt antal samtidiga frågor och samtidighetsfac
 | DW15000c      | 128                        |  600                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 | DW30000c      | 128                        | 1200                        | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
 
-**Dynamiska resursklasser**
+**Dynamiska resurs klasser**
 
-> [!NOTE]
-> Resursklass smallrc på Gen2 dynamiskt lägger till minne servicenivån ökar och endast stöder en maximal 32 samtidiga frågor på DW1000c och 4 och DW100c.  När instansen skalas bortom DW1500c, samtidighetsfack och minnet som används av ökar smallrc när nivån ökar service. 
->
->
+I följande tabell visas maximalt antal samtidiga frågor och samtidiga platser för varje [dynamisk resurs klass](resource-classes-for-workload-management.md). Dynamiska resurs klasser använder en procent andel av 3-10-22-70-minne för små och medel stora XLarge resurs klasser på alla service nivåer.
 
-I följande tabell visas de maximalt antal samtidiga frågor och samtidighetsfack för varje [dynamisk resursklass](resource-classes-for-workload-management.md). Till skillnad från Gen1 är dynamiska resursklasser på Gen2 verkligen dynamiska.  Gen2 används en 3-10-22 – 70 procent minnesallokering för små-medium-stora-xlarge resursklasser över alla servicenivåer.
-
-| Servicenivå | Maximalt antal samtidiga frågor | Samtidighetsfack som är tillgängliga | Platser som används av smallrc | Platser som används av mediumrc | Platser som används av largerc | Platser som används av xlargerc |
+| Servicenivå | Maximalt antal samtidiga frågor | Tillgängliga samtidiga platser | Platser som används av smallrc | Platser som används av mediumrc | Platser som används av largerc | Platser som används av xlargerc |
 |:-------------:|:--------------------------:|:---------------------------:|:---------------------:|:----------------------:|:---------------------:|:----------------------:|
 | DW100c        |  4                         |    4                        | 1                     |  1                     |  1                    |   2                    |
 | DW200c        |  8                         |    8                        | 1                     |  1                     |  1                    |   5                    |
@@ -126,57 +98,10 @@ I följande tabell visas de maximalt antal samtidiga frågor och samtidighetsfac
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
 
-
-#### <a name="gen1"></a>Gen1
-
-Statiska resursklasser
-
-I följande tabell visas de maximalt antal samtidiga frågor och samtidighetsfack för varje [Statiska resursklass](resource-classes-for-workload-management.md) på **Gen1**.
-
-| Servicenivå | Maximalt antal samtidiga frågor | Maximal samtidighetsfack | Platser som används av staticrc10 | Platser som används av staticrc20 | Platser som används av staticrc30 | Platser som används av staticrc40 | Platser som används av staticrc50 | Platser som används av staticrc60 | Platser som används av staticrc70 | Platser som används av staticrc80 |
-|:-------------:|:--------------------------:|:-------------------------:|:---------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|:----------:|
-| DW100         | 4                          |   4                       | 1         | 2          | 4          | 4          |  4         |  4         |  4         |   4        |
-| DW200         | 8                          |   8                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
-| DW300         | 12                         |  12                       | 1         | 2          | 4          | 8          |  8         |  8         |  8         |   8        |
-| DW400         | 16                         |  16                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW500         | 20                         |  20                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW600         | 24                         |  24                       | 1         | 2          | 4          | 8          | 16         | 16         | 16         |  16        |
-| DW1000        | 32                         |  40                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW1200        | 32                         |  48                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW1500        | 32                         |  60                       | 1         | 2          | 4          | 8          | 16         | 32         | 32         |  32        |
-| DW2000        | 48                         |  80                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW3000        | 64                         | 120                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         |  64        |
-| DW6000        | 128                        | 240                       | 1         | 2          | 4          | 8          | 16         | 32         | 64         | 128        |
-
-Dynamiska resursklasser
-> [!NOTE]
-> Resursklass smallrc på Gen1 allokerar en fast mängd minne per fråga, liknande sätt som statiska resurs klassen staticrc10.  Eftersom smallrc är statiska, har möjlighet att skala upp till 128 samtidiga frågor. 
->
->
-
-I följande tabell visas de maximalt antal samtidiga frågor och samtidighetsfack för varje [dynamisk resursklass](resource-classes-for-workload-management.md) på **Gen1**.
-
-| Servicenivå | Maximalt antal samtidiga frågor | Samtidighetsfack som är tillgängliga | Platser som används av smallrc | Platser som används av mediumrc | Platser som används av largerc | Platser som används av xlargerc |
-|:-------------:|:--------------------------:|:---------------------------:|:-------:|:--------:|:-------:|:--------:|
-| DW100         |  4                         |   4                         | 1       |  1       |  2      |   4      |
-| DW200         |  8                         |   8                         | 1       |  2       |  4      |   8      |
-| DW300         | 12                         |  12                         | 1       |  2       |  4      |   8      |
-| DW400         | 16                         |  16                         | 1       |  4       |  8      |  16      |
-| DW500         | 20                         |  20                         | 1       |  4       |  8      |  16      |
-| DW600         | 24                         |  24                         | 1       |  4       |  8      |  16      |
-| DW1000        | 32                         |  40                         | 1       |  8       | 16      |  32      |
-| DW1200        | 32                         |  48                         | 1       |  8       | 16      |  32      |
-| DW1500        | 32                         |  60                         | 1       |  8       | 16      |  32      |
-| DW2000        | 48                         |  80                         | 1       | 16       | 32      |  64      |
-| DW3000        | 64                         | 120                         | 1       | 16       | 32      |  64      |
-| DW6000        | 128                        | 240                         | 1       | 32       | 64      | 128      |
-
-
-När en av de här tröskelvärdena är uppfyllt, är nya frågor i kö och körs på en först in, först ut.  När en frågor är klar och antalet frågor och fack understiger gränserna, frigör köade frågor i SQL Data Warehouse. 
+När det inte finns tillräckligt många lediga platser för att starta frågekörningen, placeras frågor i kö och körs utifrån prioritet.  Om det finns motsvarande prioritet körs frågor på en första, först ut-grunden.  När en fråga har slutförts och antalet frågor och platser faller under gränserna, SQL Data Warehouse släpper köade frågor. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om hur du utnyttjar resursklasser för att optimera din arbetsbelastning ytterligare Läs följande artiklar:
-* [Resursklasser för hantering av arbetsbelastning](resource-classes-for-workload-management.md)
-* [Analysera din arbetsbelastning](analyze-your-workload.md)
-
+Om du vill veta mer om hur du utnyttjar resurs klasser för att optimera arbets belastningen ytterligare kan du läsa följande artiklar:
+* [Resurs klasser för hantering av arbets belastning](resource-classes-for-workload-management.md)
+* [Analysera din arbets belastning](analyze-your-workload.md)

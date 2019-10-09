@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/19/2019
 ms.author: cherylmc
 ms.custom: seodec18
-ms.openlocfilehash: 77c90cccbbfa5865878ae4dc47e5009697560ed3
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
-ms.translationtype: HT
+ms.openlocfilehash: a52f9fca172e42aa39a4507347185026451a8ff2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001310"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029032"
 ---
 # <a name="expressroute-routing-requirements"></a>ExpressRoute-routningskrav
 För att kunna ansluta till Microsofts molntjänster med ExpressRoute måste du konfigurera och hantera routning. Vissa anslutningsleverantörer erbjuder konfigurering och hantering av routning som en hanterad tjänst. Fråga din anslutningsleverantör om de erbjuder denna tjänst. Om inte måste du uppfylla följande krav:
@@ -215,14 +215,16 @@ Förutom ovanstående taggar Microsoft också prefix baserat på vilken tjänst 
 
 | **Tjänst** | **BGP-community värde** |
 | --- | --- |
-| exchange online | 12076:5010 |
-| sharepoint online | 12076:5020 |
-| Skype för företag – Online | 12076:5030 |
+| Exchange Online * * | 12076:5010 |
+| SharePoint Online * * | 12076:5020 |
+| Skype för företag – Online * * | 12076:5030 |
+| CRM Online |12076:5040 |
 | Azure Global Services * | 12076:5050 |
-| Andra Office 365 Online-tjänster | 12076:5100 |
+| Azure Active Directory |12076:5060 |
+| Andra Office 365 Online Services * * | 12076:5100 |
 
 \* Globala Azure-tjänster innehåller bara Azure-DevOps just nu.
-
+\* * Auktorisering krävs från Microsoft, se [Konfigurera väg filter för Microsoft-peering](how-to-routefilter-portal.md) 
 
 > [!NOTE]
 > Microsoft använder inte några community-värden för BGP som du har angett för vägar som annonseras till Microsoft.

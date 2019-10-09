@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: billgib
 ms.date: 09/19/2018
-ms.openlocfilehash: 7b238044fd3795ae2f49c2fa21367e6499a65672
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95d13c997d3871815ebd541e5985eb9fef726a76
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68570122"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029754"
 ---
 # <a name="manage-schema-in-a-saas-application-using-the-database-per-tenant-pattern-with-azure-sql-database"></a>Hantera schemat i ett SaaS-program med hjälp av mönstret för databas per klient med Azure SQL Database
  
@@ -41,7 +41,7 @@ Se till att följande förhandskrav är slutförda för att kunna slutföra den 
 * Den senaste versionen av SQL Server Management Studio (SSMS) ska vara installerad. [Ladda ned och installera SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)
 
 > [!NOTE]
-> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till med ämne = för SaaSFeedback@microsoft.com hands version av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad SaaSFeedback@microsoft.com , så kontakta dig för relaterade frågor eller support.
+> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = för hands version av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad, så kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.
 
 ## <a name="introduction-to-saas-schema-management-patterns"></a>Introduktion till SaaS schema hanterings mönster
 
@@ -55,7 +55,7 @@ I mönstret för databas per klient isoleras klient data effektivt, men det öka
 Det finns en ny version av elastiska jobb som nu är en integrerad funktion i Azure SQL Database. Den här nya versionen av elastiska jobb är för närvarande i begränsad förhandsvisning. Denna begränsade för hands version har stöd för att använda PowerShell för att skapa en jobb agent och T-SQL för att skapa och hantera jobb.
 
 > [!NOTE]
-> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till med ämne = för SaaSFeedback@microsoft.com hands version av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad SaaSFeedback@microsoft.com , så kontakta dig för relaterade frågor eller support.
+> I den här självstudien används funktioner i SQL Databases tjänsten som är i en begränsad förhands granskning (Elastic Database-jobb). Om du vill göra den här själv studie kursen anger du ditt prenumerations-ID till SaaSFeedback@microsoft.com med ämnet = för hands version av elastiska jobb. När du fått en bekräftelse att din prenumeration har aktiverats kan du, [ladda ned och installera den senaste förhandsversionen av jobs-cmdletarna](https://github.com/jaredmoo/azure-powershell/releases). Den här för hands versionen är begränsad, så kontakta SaaSFeedback@microsoft.com för relaterade frågor eller support.
 
 ## <a name="get-the-wingtip-tickets-saas-database-per-tenant-application-scripts"></a>Hämta Wingtip-biljetterna SaaS-databas per klient program skript
 
@@ -65,7 +65,7 @@ Programmets käll kod och hanterings skript är tillgängliga i [WingtipTicketsS
 
 I den här självstudien krävs att du använder PowerShell för att skapa en jobb agent och dess agent databas för återställning av jobb. Jobb Agent databasen innehåller jobb definitioner, jobb status och historik. När jobb agenten och databasen har skapats kan du skapa och övervaka jobb direkt.
 
-1. **I POWERSHELL ISE**öppnar du... Inlärnings\\moduler schema\\hantering*schemamanagement. ps1.* \\
+1. **I POWERSHELL ISE**öppnar du... \\Learning-moduler @ No__t-2Schema Management @ no__t-3*schemamanagement. ps1*.
 1. Tryck **F5** för att köra skriptet.
 
 Skriptet *schemamanagement. ps1* anropar skriptet *Deploy-SchemaManagement. ps1* för att skapa en SQL-databas med namnet *osagent* på katalog servern. Sedan skapas jobb agenten med hjälp av-databasen som en parameter.
@@ -76,26 +76,26 @@ I Wingtip biljetter-appen innehåller varje klient databas en uppsättning plats
 
 Börja med att granska de plats typer som ingår i varje klient databas. Anslut till en av klient databaserna i SQL Server Management Studio (SSMS) och granska VenueTypes-tabellen.  Du kan också fråga den här tabellen i Frågeredigeraren i Azure Portal, som öppnas från databas sidan. 
 
-1. Öppna SSMS och Anslut till klient servern: *tenants1-DPT-&lt;&gt;User. Database.Windows.net*
-1. För att bekräfta *att motorcykelns racing* -och *SIM-klubb* **inte** ingår, bläddrar du till _contosoconcerthall_ -databasen på *tenants1&lt;-&gt; DPT-User-* servern och frågar  *VenueTypes* -tabell.
+1. Öppna SSMS och Anslut till klient servern: *tenants1-DPT-@no__t -1user&gt;.database.windows.net*
+1. För att bekräfta att *motorcykelns racing* -och *SIM-klubb* **inte** ingår, bläddrar du till _contosoconcerthall_ -databasen på *tenants1-DPT-&lt;User @ no__t-6-* servern och frågar *VenueTypes* partitionstabell.
 
 Nu ska vi skapa ett jobb för att uppdatera *VenueTypes* -tabellen i alla klient databaser för att lägga till nya typer av platser.
 
 Om du vill skapa ett nytt jobb använder du en uppsättning jobb system lagrade procedurer som skapats i _JobAgent_ -databasen när jobb agenten skapades.
 
-1. I SSMS ansluter du till katalog servern: *Catalog-DPT-&lt;&gt;User. Database.Windows.net* Server 
-1. Öppna filen i SSMS... Inlärnings\\moduler schema\\hantering DeployReferenceData. SQL \\
-1. Ändra instruktionen: Ange @wtpUser = &lt;användare&gt; och Ersätt det användar värde som används när du distribuerade Wingtip-biljetterna SaaS-databasen per klient program
-1. Se till att du är ansluten till _JobAgent_ -databasen och tryck **F5** för att köra skriptet
+1. I SSMS ansluter du till katalog servern: *Catalog-DPT-@no__t -1user&gt;.database.windows.net* -Server 
+1. I SSMS öppnar du filen... \\Learning modules @ no__t-1Schema Management\\DeployReferenceData.sql
+1. Ändra instruktionen: Ange @wtpUser = &lt;user @ no__t-2 och Ersätt det användar värde som används när du har distribuerat Wingtip Ticket SaaS Database per klient program
+1. Se till att du är ansluten till _JobAgent_ -databasen och tryck **F5** för att köra skriptet
 
 Observera följande element i *DeployReferenceData. SQL* -skriptet:
-* **SP\_Add\_TargetGroup\_** skapar mål grupp namnet DemoServerGroup.
-* **SP\_Läggtill\_mål\_gruppmedlem\_** används för att definiera uppsättningen med mål databaser.  Först _tenants1-DPT&lt;-User&gt;_  server läggs till.  Om du lägger till servern som ett mål kommer databaserna på den servern när jobb körningen ska inkluderas i jobbet. Sedan läggs _basetenantdb_ -databasen och *AdHocReporting* -databasen (används i en senare självstudie) som mål.
-* **SP\_Add\_Job** skapar ett jobb med namnet _referens data distribution_.
-* **SP\_Add\_Jobstep** skapar det jobb steg som innehåller T-SQL-kommando texten för att uppdatera referens tabellen, VenueTypes.
+* **SP @ no__t-1add @ no__t-2target @ no__t-3group** skapar mål grupp namnet DemoServerGroup.
+* **SP @ no__t-1add @ no__t-2target @ no__t-3group @ no__t-4member** används för att definiera uppsättningen av mål databaser.  Först _tenants1-DPT-&lt;user @ no__t-2-_ servern läggs till.  Om du lägger till servern som ett mål kommer databaserna på den servern när jobb körningen ska inkluderas i jobbet. Sedan läggs _basetenantdb_ -databasen och *AdHocReporting* -databasen (används i en senare självstudie) som mål.
+* **SP @ no__t-1add @ no__t-2job** skapar ett jobb med namnet _referens data distribution_.
+* **SP @ no__t-1add @ no__t-2jobstep** skapar det jobb steg som innehåller kommando texten t-SQL för att uppdatera referens tabellen, VenueTypes.
 * De återstående vyerna i skriptet visar att jobbet finns och övervakar jobbkörningen. Använd de här frågorna för att granska status värdet i kolumnen **livs cykel** för att fastställa när jobbet har avslut ATS på alla mål databaser.
 
-När skriptet har slutförts kan du kontrol lera att referens data har uppdaterats.  I SSMS bläddrar du till *contosoconcerthall* -databasen på *tenants1-DPT-&lt;User&gt; -* servern och frågar *VenueTypes* -tabellen.  Kontrol lera att *motorcykelns racing* -och *SIM-klubb* **nu finns** .
+När skriptet har slutförts kan du kontrol lera att referens data har uppdaterats.  I SSMS bläddrar du till *contosoconcerthall* -databasen på *tenants1-DPT-&lt;user @ no__t-3-* servern och frågar *VenueTypes* -tabellen.  Kontrol lera att *motorcykelns racing* -och *SIM-klubb* **nu finns** .
 
 
 ## <a name="create-a-job-to-manage-the-reference-table-index"></a>Skapa ett jobb för att hantera referenstabellindexet
@@ -104,14 +104,14 @@ I den här övningen används ett jobb för att återskapa indexet för primär 
 
 Skapa ett jobb med samma jobbs systemlagrade procedurer.
 
-1. Öppna SSMS och Anslut till servern _Catalog-DPT-&lt;User&gt;. Database.Windows.net_
-1. Öppna filen _... Inlärningsmoduler\\schemahantering\\OnlineReindex.SQL \\_
-1. Högerklicka på, Välj anslutning och Anslut till _katalogen-DPT-User&gt;.&lt;Database.Windows.net-_ servern om den inte redan är ansluten
+1. Öppna SSMS och Anslut till _katalogen – DPT-@no__t -1user&gt;.database.windows.net-_ servern
+1. Öppna filen _... \\Learning-moduler @ no__t-2Schema Management\\OnlineReindex.sql_
+1. Högerklicka, Välj anslutning och Anslut till _katalogen – DPT-@no__t -1user&gt;.database.windows.net-_ servern, om den inte redan är ansluten
 1. Se till att du är ansluten till _JobAgent_ -databasen och tryck **F5** för att köra skriptet
 
 Observera följande element i _OnlineReindex. SQL_ -skriptet:
-* **SP\_Add\_Job** skapar ett nytt jobb med namnet "online Omindexera\_PK\_\_-VenueTyp\_265E44FD7FD4C885"
-* **SP\_Add\_Jobstep** skapar det jobb steg som innehåller T-SQL-kommando texten för att uppdatera indexet
+* **SP @ no__t-1add @ no__t-2job** skapar ett nytt jobb med namnet "online Reindex PK @ no__t-3 @ No__t-4VenueTyp @ no__t-5 @ NO__T-6265E44FD7FD4C885"
+* **SP @ no__t-1add @ no__t-2jobstep** skapar det jobb steg som innehåller kommando texten t-SQL för att uppdatera indexet
 * Återstående vyer i skript övervaknings jobb körningen. Använd de här frågorna för att granska status värdet i kolumnen **livs cykel** för att fastställa när jobbet har slutförts på alla mål grupps medlemmar.
 
 

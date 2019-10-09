@@ -1,36 +1,36 @@
 ---
-title: Azure Data Factory-flöde flytta Datanoder
-description: Flytta noder i ett Azure Data Factory mappning dataflödesdiagram
+title: Flytta noder i Azure Data Factory data flöde
+description: Så här flyttar du noder i ett diagram över Azure Data Factory mappnings data flöde
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 951a5d4fcbd561b085b0377bde48e820dc8972a2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 853fff955a953052b94ad4e7e1dd55371069c30b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65519957"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030182"
 ---
-# <a name="mapping-data-flow-move-nodes"></a>Mappningen Datanoder Flow flytta
+# <a name="mapping-data-flow-move-nodes"></a>Mappa data flöde flytta noder
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Aggregera omvandling alternativ](media/data-flow/agghead.png "aggregator rubrik")
 
-Designyta Azure Data Factory-dataflöde är en ”utveckling” yta där du kan bygga data flöden uppifrån och ned, vänster till höger. Det är en verktygslåda som är kopplade till varje transformering med ett plustecken (+) symbol. Koncentrera dig på din affärslogik i stället för att ansluta noder via kanter i en miljö med fri form DAG.
+Aggregator-(media/data-flow/agghead.png "rubrik") för ![aggregerade omvandlings alternativ]
 
-Utan en dra och släpp-paradigm är därför sättet att ”flytta” en omvandling noden att ändra den inkommande dataströmmen. I stället ska du flytta transformeringar genom att ändra ”inkommande dataström”.
+Den Azure Data Factory data flödets design yta är en "konstruktion"-yta där du skapar data flödar uppifrån och ned, från vänster till höger. Det finns en verktygs låda som är kopplad till varje omvandling med plus tecknet (+). Fokusera på affärs logiken i stället för att ansluta noder via kanter i en kostnads fri form av en DAG miljö.
 
-## <a name="streams-of-data-inside-of-data-flow"></a>Dataströmmar i dataflöde
+Så, utan att dra och släppa paradigm, så att du kan flytta en Transformations nod, är att ändra den inkommande data strömmen. I stället flyttar du transformeringar runt genom att ändra "inkommande ström".
 
-I Azure Data Factory dataflöde representerar strömmar flödet av data. I fönstret omvandling inställningar visas ett ”inkommande Steam”-fält. Anger det vilken inkommande dataström vehicle omvandlingen. Du kan ändra den fysiska platsen för omvandling noden visas i diagrammet genom att klicka på inkommande Stream-namnet och välja en annan dataströmmen. Aktuella transformeringen tillsammans med alla efterföljande transformeringar på dataströmmen flyttas sedan till den nya platsen.
+## <a name="streams-of-data-inside-of-data-flow"></a>Data strömmar av data i data flödet
 
-Om du flyttar en omvandling med en eller flera transformationer efter att det ska den nya platsen i dataflödet anslutas via en ny gren.
+I Azure Data Factory data flöde representerar strömmar data flödet. I fönstret omvandlings inställningar visas ett "inkommande ång"-fält. Detta visar vilken inkommande data ström som används för att mata över omvandlingen. Du kan ändra den fysiska platsen för Transform-noden i diagrammet genom att klicka på namnet på den inkommande strömmen och välja en annan data ström. Den aktuella omvandlingen tillsammans med alla efterföljande transformeringar i den data strömmen kommer sedan att flyttas till den nya platsen.
 
-Om du har inga efterföljande omvandlingar när noden som du har valt flyttas endast den transformeringen till den nya platsen.
+Om du flyttar en omvandling med en eller flera transformeringar efter den, kommer den nya platsen i data flödet att anslutas via en ny gren.
+
+Om du inte har några efterföljande omvandlingar efter noden som du har valt flyttas bara den omvandlingen till den nya platsen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har slutfört utformningen dataflöde, aktivera knappen felsökning och testa det ut i felsökningsläge antingen direkt i den [data flödesdesignern](concepts-data-flow-debug-mode.md) eller [pipeline debug](control-flow-execute-data-flow-activity.md).
+När du har slutfört din data flödes design aktiverar du knappen Felsök på och testar den i fel söknings läge, antingen direkt i [data flödes design](concepts-data-flow-debug-mode.md) eller [pipeline-felsökning](control-flow-execute-data-flow-activity.md).

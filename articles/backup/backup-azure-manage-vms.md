@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 9e7d6a027a60590396446479aecf1644ef753ecf
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 24e36e231d80a82362333b7a711f94cf627816ac
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130174"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029257"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Hantera virtuella Azure-säkerhetskopieringar med Azure Backup tjänsten
 
@@ -49,7 +49,7 @@ Visa virtuella datorer på valv-instrument panelen:
 
     ![Öppna panelen säkerhets kopierings objekt](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-6. På bladet **säkerhets kopierings objekt** kan du Visa listan över skyddade virtuella datorer. I det här exemplet skyddar valvet en virtuell dator: demobackup.  
+6. På bladet **säkerhets kopierings objekt** kan du Visa listan över skyddade virtuella datorer. I det här exemplet skyddar valvet en virtuell dator: demobackup.  
 
     ![Visa bladet säkerhets kopierings objekt](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 
@@ -66,7 +66,7 @@ Så här hanterar du en säkerhets kopierings princip:
 
     ![Öppna panelen säkerhets kopierings objekt](./media/backup-azure-manage-vms/contoso-vault-1606.png)
 
-3. På bladet **säkerhets kopierings objekt** kan du Visa listan över skyddade virtuella datorer och senaste säkerhets kopierings status med tiden för senaste återställnings punkter.
+3. På bladet **säkerhets kopierings objekt** kan du Visa listan över skyddade virtuella datorer och senaste säkerhets kopierings status med tiden för senaste återställnings punkter.
 
     ![Visa bladet säkerhets kopierings objekt](./media/backup-azure-manage-vms/backup-items-blade-select-item.png)
 

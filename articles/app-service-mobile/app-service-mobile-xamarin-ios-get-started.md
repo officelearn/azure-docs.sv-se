@@ -14,19 +14,19 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 57867eeca9f29cfc3983cbdca94c830aa7a20500
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 26095757f8079f43e620e5f067f461f67c7042f9
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446247"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024850"
 ---
 # <a name="create-a-xamarinios-app"></a>Skapa en Xamarin.iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-ios-get-started) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 I den här kursen får du lära dig hur du lägger till en molnbaserad serverdelstjänst i en Xamarin.iOS-mobilapp med hjälp av en mobilappsserverdel i Azure.  Du skapar både en ny mobilapp-serverdel och en enkel *Att göra-lista* Xamarin.iOS-app som lagrar app-data i Azure.
@@ -37,33 +37,33 @@ Du måste slutföra den här kursen innan du påbörjar någon annan Xamarin.iOS
 För att slutföra den här självstudien, finns följande förhandskrav:
 
 * Ett aktivt Azure-konto. Om du inte har ett konto kan du registrera dig för en utvärderingsversion av Azure och få upp till tio mobilappar utan kostnad som du kan fortsätta att använda även efter utvärderingsperiodens slut. Mer information om den [kostnadsfria utvärderingsversionen av Azure](https://azure.microsoft.com/pricing/free-trial/).
-* Visual Studio för Mac. Se [konfiguration och installation av Visual Studio för Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
-* En Mac med Xcode 9.0 eller senare.
+* Visual Studio för Mac. Se [installation och installation för Visual Studio för Mac](https://docs.microsoft.com/visualstudio/mac/installation?view=vsmac-2019)
+* En Mac med Xcode 9,0 eller senare.
   
 ## <a name="create-an-azure-mobile-app-backend"></a>Skapa en mobilapp-serverdel i Azure
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
-## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Skapa en databasanslutning och konfigurera projektet klient och server
+## <a name="create-a-database-connection-and-configure-the-client-and-server-project"></a>Skapa en databas anslutning och konfigurera klient-och Server projektet
 [!INCLUDE [app-service-mobile-configure-new-backend](../../includes/app-service-mobile-configure-new-backend.md)]
 
-## <a name="run-the-xamarinios-app"></a>Kör Xamarin.iOS-app
-1. Öppna Xamarin.iOS-projektet.
+## <a name="run-the-xamarinios-app"></a>Kör Xamarin. iOS-appen
+1. Öppna Xamarin. iOS-projektet.
 
-2. Gå till den [Azure-portalen](https://portal.azure.com/) och navigera till den mobila appen som du skapade. På den `Overview` bladet letar du reda på URL: en som är den offentliga slutpunkten för din mobilapp. Exempel – sitename för min app name ”test123” kommer att https://test123.azurewebsites.net.
+2. Gå till [Azure Portal](https://portal.azure.com/) och navigera till den mobilapp som du har skapat. På bladet `Overview` letar du efter URL: en som är den offentliga slut punkten för mobilappen. Exempel – webbplats namnet för mitt program namn "test123" kommer att https://test123.azurewebsites.net.
 
-3. Öppna filen `QSTodoService.cs` i den här mappen - xamarin.iOS/ZUMOAPPNAME. Programnamnet är `ZUMOAPPNAME`.
+3. Öppna filen `QSTodoService.cs` i den här mappen – Xamarin. iOS/ZUMOAPPNAME. Program namnet är `ZUMOAPPNAME`.
 
-4. I `QSTodoService` klass, Ersätt `ZUMOAPPURL` variabeln med offentlig slutpunkt ovan.
+4. I `QSTodoService`-klassen ersätter du `ZUMOAPPURL`-variabeln med den offentliga slut punkten ovan.
 
     `const string applicationURL = @"ZUMOAPPURL";`
 
-    blir
+    bli
     
     `const string applicationURL = @"https://test123.azurewebsites.net";`
     
-5. Tryck på F5 för att distribuera och köra appen i iPhone-emulatorn.
+5. Tryck på F5 för att distribuera och köra appen i en iPhone-emulator.
 
-6. I appen, ange en beskrivande text som *i självstudiekursen* och klicka sedan på den knappen.
+6. Skriv en beskrivande text i appen, till exempel *Slutför självstudien* och klicka sedan på knappen +.
 
     ![][10]
 

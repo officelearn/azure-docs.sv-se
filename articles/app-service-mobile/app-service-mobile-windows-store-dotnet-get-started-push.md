@@ -14,20 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 7455ad33660a0af004a3a3ad982e929fc4b3031e
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: e3e82c971fee7f7dd95e6f9ef72631e8e82ebe7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851127"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025259"
 ---
 # <a name="add-push-notifications-to-your-windows-app"></a>Lägga till push-meddelanden i Windows-appen
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet. Kolla [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-windows-store-dotnet-get-started-push) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 
@@ -43,7 +43,7 @@ Om du inte använder det nedladdade snabb start Server-projektet behöver du ett
 
 Du måste skicka in din app till Microsoft Store och sedan konfigurera ditt Server projekt att integrera med [Windows Notification Services (WNS)](https://docs.microsoft.com/windows/uwp/design/shell/tiles-and-notifications/windows-push-notification-services--wns--overview) för att skicka push.
 
-1. I Visual Studio Solution Explorer högerklickar du på projektet UWP, klickar på **Store** > **associera app med Store...** .
+1. I Visual Studio Solution Explorer högerklickar du på projektet UWP, klickar på **lagra** > **associera appen med butiken...** .
 
     ![Associera appen med Microsoft Store](./media/app-service-mobile-windows-store-dotnet-get-started-push/notification-hub-associate-uwp-app.png)
 
@@ -65,7 +65,7 @@ Du måste skicka in din app till Microsoft Store och sedan konfigurera ditt Serv
 
 ## <a id="update-service"></a>Uppdatera servern för att skicka push-meddelanden
 
-Använd proceduren nedan som matchar din server dels projekt typ&mdash;, antingen [.NET-Server](#dotnet) del eller [Node. js-backend](#nodejs).
+Använd proceduren nedan som matchar din server dels projekt typ @ no__t-0either [.NET-Server](#dotnet) del eller [Node. js-backend](#nodejs).
 
 ### <a name="dotnet"></a>.NET-Server dels projekt
 
@@ -171,7 +171,7 @@ Använd proceduren nedan som matchar din server dels projekt typ&mdash;, antinge
 ## <a id="update-app"></a>Lägg till push-meddelanden i din app
 Sedan måste appen registreras för push-meddelanden vid start. När du redan har aktiverat autentisering kontrollerar du att användaren loggar in innan du försöker registrera dig för push-meddelanden.
 
-1. Öppna projekt filen **app.XAML.cs** och Lägg till följande `using` -satser:
+1. Öppna projekt filen **app.XAML.cs** och Lägg till följande `using`-satser:
 
     ```csharp
     using System.Threading.Tasks;

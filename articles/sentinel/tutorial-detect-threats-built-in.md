@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: fdb34173e0ca52f57a004e3a5b4a076e423ff5bd
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 6d61b94a50716966ac0b3c75551ddd9d8e291965
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240104"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024453"
 ---
 # <a name="tutorial-detect-threats-out-of-the-box"></a>Självstudier: Identifiera hot som är färdiga
 
@@ -29,7 +29,7 @@ ms.locfileid: "71240104"
 > Den här funktionen tillhandahålls utan service nivå avtal och rekommenderas inte för produktions arbets belastningar.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-När du har [anslutit dina data källor](quickstart-onboard.md) till Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta ger Azure Sentinel dig med inbyggda mallar som är färdiga. De här mallarna utformades av Microsofts team med säkerhetsexperter och analytiker baserat på kända hot, vanliga angrepps vektorer och misstänkta aktivitets eskalerings kedjor. När du har aktiverat de här mallarna söker de automatiskt efter aktiviteter som ser misstänkt ut i din miljö. Många av mallarna kan anpassas för att söka efter eller filtrera ut aktiviteter utifrån dina behov. De aviseringar som genereras av de här mallarna skapar incidenter som du kan tilldela och undersöka i din miljö.
+När du har [anslutit dina data källor](quickstart-onboard.md) To Azure Sentinel vill du bli meddelad när något misstänkt inträffar. För att du ska kunna göra detta ger Azure Sentinel dig med inbyggda mallar som är färdiga. De här mallarna utformades av Microsofts team med säkerhetsexperter och analytiker baserat på kända hot, vanliga angrepps vektorer och misstänkta aktivitets eskalerings kedjor. När du har aktiverat de här mallarna söker de automatiskt efter aktiviteter som ser misstänkt ut i din miljö. Många av mallarna kan anpassas för att söka efter eller filtrera ut aktiviteter utifrån dina behov. De aviseringar som genereras av de här mallarna skapar incidenter som du kan tilldela och undersöka i din miljö.
 
 Den här självstudien hjälper dig att identifiera hot med Azure Sentinel:
 
@@ -39,7 +39,7 @@ Den här självstudien hjälper dig att identifiera hot med Azure Sentinel:
 
 ## <a name="about-out-of-the-box-detections"></a>Om välkomst identifieringar
 
-Om du vill visa alla färdiga identifieringar går du till **analyser** och sedan **regel mallar**. Den här fliken innehåller alla inbyggda regler för Azure-kontroll.
+Om du vill visa alla färdiga identifieringar går du till **analyser** och sedan **regel mallar**. Den här fliken innehåller alla inbyggda regler för Azure-kontroll.
 
    ![Använd inbyggda identifieringar för att hitta hot med Azure Sentinel](media/tutorial-detect-built-in/view-oob-detections.png)
 
@@ -58,7 +58,7 @@ Följande typer av mallar är tillgängliga:
  
 1. Guiden Skapa regel öppnas, baserat på den valda mallen. All information fylls i, och för **schemalagda regler** eller **säkerhets regler för Microsoft**, kan du anpassa logiken så att den passar din organisation bättre, eller skapa ytterligare regler baserat på den inbyggda mallen. När du har gått igenom stegen i guiden Skapa regel och slutfört skapandet av en regel som baseras på mallen, visas den nya regeln på fliken **aktiva regler** .
 
-Mer information om fälten i guiden finns [i Självstudier: Skapa anpassade analys regler för att identifiera misstänkta hot](tutorial-detect-threats-custom.md).
+Mer information om fälten i guiden finns i [Tutorial: Skapa anpassade analys regler för att identifiera misstänkta hot @ no__t-0.
 
 
 

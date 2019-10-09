@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 083a7e7ad4ac40a7782936e664a9136d0452e93d
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 69fe370029cef391b8ee483ffdee5c588df41d58
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694671"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030673"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurera ett labb för att lära sig använda Shell-skript i Linux
 Den här artikeln visar hur du konfigurerar ett labb för att lära sig att använda Shell-skript i Linux. Skript är en användbar del av system administration som gör det möjligt för administratörer att undvika repetitiva uppgifter. I det här exempel scenariot täcker klassen traditionella bash-skript och förbättrade skript. Förbättrade skript är skript som kombinerar bash-kommandon och Ruby. Med den här metoden kan ruby skicka data runt-och bash-kommandon för att interagera med gränssnittet. 
@@ -83,7 +83,9 @@ I det här avsnittet visas hur du installerar ett par text redigerings program. 
 ## <a name="cost"></a>Kostnad 
 Om du vill uppskatta kostnaden för det här labbet kan du använda följande exempel:
  
-För en klass av 25 studenter med 20 timmar schemalagda klass tider och 10 timmars kvot för läxor eller tilldelningar, skulle priset för labbet vara: 25 studenter * (20 + 10) timmar * 20 labbs enheter * 0,01 USD per timme = 150 USD
+För en klass av 25 studenter med 20 timmar schemalagda klass tider och 10 timmars kvot för läxor eller tilldelningar, skulle priset för labbet vara: 
+
+25 studenter * (20 + 10) timmar * 20 labbs enheter * 0,01 USD per timme = 150 USD
 
 Mer information om priser finns i följande dokument: [Azure Lab Services prissättning](https://azure.microsoft.com/pricing/details/lab-services/).
 

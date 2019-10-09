@@ -10,12 +10,12 @@ ms.subservice: development
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: ca0ac228bfe10992b658796d123c8dfbed74947f
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 0aecb2309743ffecc2fb68435192224c6c690aee
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948165"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035106"
 ---
 # <a name="performance-tuning-with-ordered-clustered-columnstore-index"></a>Prestanda justering med ordnat grupperat columnstore-index  
 
@@ -43,7 +43,7 @@ ORDER BY o.name, pnp.distribution_id, cls.min_data_id
 ```
 
 > [!NOTE] 
-> I en ordnad CCI-tabell, sorteras inte nya data som resulterar i DML-eller data inläsnings åtgärder automatiskt.  Användare kan återskapa de beställda CCI för att sortera alla data i tabellen.  
+> I en ordnad CCI-tabell, sorteras inte nya data som resulterar i DML-eller data inläsnings åtgärder automatiskt.  Användare kan återskapa de beställda CCI för att sortera alla data i tabellen.  I Azure SQL Data Warehouse är columnstore-indexet återbyggt en offline-åtgärd.  För en partitionerad tabell görs en ombyggning av en partition i taget.  Data i partitionen som återskapas är offline och otillgängliga tills återskapandet har slutförts för den partitionen. 
 
 ## <a name="query-performance"></a>Frågeprestanda
 
@@ -84,11 +84,17 @@ SELECT * FROM T1 WHERE Col_A = 'a' AND Col_C = 'c';
 
 ## <a name="data-loading-performance"></a>Data inläsnings prestanda
 
-Prestanda för data inläsning i en ordnad CCI-tabell liknar data inläsning i en partitionerad tabell.  
-Det kan ta längre tid att läsa in data i en ordnad CCI-tabell än data som läses in i en icke-ordnad CCI-tabell på grund av data sorteringen.  
+Prestanda för data inläsning i en ordnad CCI-tabell liknar en partitionerad tabell.  Inläsning av data i en ordnad CCI-tabell kan ta längre tid än en icke-ordnad CCI-tabell på grund av data sorterings åtgärden, men frågor kan köras snabbare efteråt med ordnade CCI.  
 
 Här är ett exempel på prestanda jämförelse av inläsning av data i tabeller med olika scheman.
-![Performance_comparison_data_loading @ no__t-1
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/cci-data-loading-performance.png)
+
+
+Här är ett exempel på att fråga prestanda jämförelser mellan CCI och ordnade CCI.
+
+![Performance_comparison_data_loading](media/performance-tuning-ordered-cci/occi_query_performance.png)
+
  
 ## <a name="reduce-segment-overlapping"></a>Minska överlappande segment
 
@@ -116,7 +122,7 @@ Att skapa en ordnad CCI är en offline-åtgärd.  För tabeller som inte har nå
 1.  Skapa partitioner på den stora mål tabellen (kallas tabell A).
 2.  Skapa en tom ordnad CCI-tabell (kallas tabell B) med samma tabell-och partition schema som tabell A.
 3.  Växla en partition från tabell A till tabell B.
-4.  Kör ALTER INDEX < Ordered_CCI_Index > återskapa på tabell B för att återskapa den switchade partitionen.  
+4.  Kör ALTER INDEX < Ordered_CCI_Index > Rebuild PARTITION = < Partition_ID > i tabell B för att återskapa den switchade partitionen.  
 5.  Upprepa steg 3 och 4 för varje partition i tabell A.
 6.  När alla partitioner har växlats från tabell A till tabell B och har återskapats, tar du bort tabell A och byter namn på tabell B till tabell A. 
 

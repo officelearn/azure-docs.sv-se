@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: d4b7733ce3ac6db4c39f632401661eefce11d20c
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a6d0cba41e694e154da32a878cb4c076aae13e65
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827585"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034722"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Integrera din app med en Azure-Virtual Network
 Det här dokumentet beskriver den Azure App Service funktionen för integrering av virtuella nätverk och hur du konfigurerar den med appar i [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714). Med [Azure Virtual Networks][VNETOverview] (virtuella nätverk) kan du placera många av dina Azure-resurser i ett dirigerbart nätverk som inte är Internet.  
@@ -64,6 +64,10 @@ Det finns vissa saker som VNet-integrering inte stöder, inklusive:
 
 ## <a name="regional-vnet-integration"></a>Regional VNet-integrering 
 
+> [!NOTE]
+> Peering är inte tillgängligt ännu för Linux-baserade App Service.
+>
+
 När VNet-integrering används med virtuella nätverk i samma region som din app, kräver det att ett delegerat undernät används med minst 32 adresser. Det går inte att använda under nätet för något annat. Utgående anrop som görs från din app görs från adresserna i det delegerade under nätet. När du använder den här versionen av VNet-integrering görs anropen från adresser i ditt VNet. Genom att använda adresser i ditt VNet kan din app:
 
 * Gör anrop till tjänstens slut punkt säkrade tjänster
@@ -108,7 +112,7 @@ Regional VNet-integrering kräver att ditt integrations-undernät delegeras till
 Om du vill koppla från din app från VNet väljer du **Koppla från**. Då startas din webbapp om. 
 
 
-#### <a name="web-app-for-containers"></a>Webbapp för containrar
+#### <a name="web-app-for-containers"></a>Web App for Containers
 
 Om du använder App Service på Linux med de inbyggda avbildningarna fungerar funktionen regional VNet-integrering utan ytterligare ändringar. Om du använder Web App for Containers måste du ändra Docker-avbildningen för att kunna använda VNet-integrering. I Docker-avbildningen använder du PORT miljö variabeln som den huvudsakliga webb serverns lyssnings port, i stället för att använda ett hårdkodad port nummer. PORT miljö variabeln anges automatiskt av App Service plattform vid behållarens start tid. Om du använder SSH måste SSH-daemonen konfigureras för att lyssna på det port nummer som anges av SSH_PORT-miljövariabeln när du använder regional VNet-integrering.
 

@@ -1,6 +1,6 @@
 ---
-title: Hur du använder Apache Cordova-pluginprogrammet för Azure Mobile Apps
-description: Hur du använder Apache Cordova-pluginprogrammet för Azure Mobile Apps
+title: Så här använder du Apache Cordova-plugin-programmet för Azure Mobile Apps
+description: Så här använder du Apache Cordova-plugin-programmet för Azure Mobile Apps
 services: app-service\mobile
 documentationcenter: javascript
 author: elamalani
@@ -14,43 +14,43 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 327cb3a3667c63454549ec694790769c9ea1fd58
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3cf18e6da56b25e453d52dc58020961f672da27d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67446426"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027433"
 ---
-# <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Hur du använder Apache Cordova-klientbiblioteket för Azure Mobile Apps
+# <a name="how-to-use-apache-cordova-client-library-for-azure-mobile-apps"></a>Använda Apache Cordova-klient bibliotek för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-how-to-use-client-library) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
-Den här guiden lär du dig att utföra vanliga scenarier med senast [Apache Cordova-Plugin för Azure Mobile Apps]. Om du är nybörjare på Azure Mobile Apps slutföra [Azure mobila appar Snabbstart] för att skapa en serverdel, skapa en tabell och ladda ned ett färdiga Apache Cordova-projekt. I den här guiden fokuserar vi på klientsidan Apache Cordova-plugin-programmet.
+Den här guiden lär dig att utföra vanliga scenarier med hjälp av det senaste [Apache Cordova-plugin-program för Azure Mobile Apps]. Om du är nybörjare på Azure Mobile Apps måste du först slutföra [Azure Mobile Apps Snabbstart] för att skapa en server del, skapa en tabell och hämta ett fördefinierat Apache Cordova-projekt. I den här hand boken fokuserar vi på klient sidans Apache Cordova-plugin-program.
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
-Detta SDK har stöd för Apache Cordova v6.0.0 och senare på iOS, Android och Windows enheter.  Plattformsstödet är följande:
+SDK: n stöder Apache Cordova v 6.0.0 och senare på iOS-, Android-och Windows-enheter.  Plattforms stödet är följande:
 
-* Android API 19 – 24 (KitKat via Nougat).
-* iOS version 8.0 och senare.
-* Windows Phone 8.1.
-* Universal Windows Platform.
+* Android API 19-24 (KitKat till nougat).
+* iOS-versioner 8,0 och senare.
+* Windows Phone 8,1.
+* Universell Windows-plattform.
 
-## <a name="Setup"></a>Installation och krav
-Den här guiden förutsätter att du har skapat en serverdel med en tabell. Den här handboken förutsätts att tabellen har samma schema som tabellerna i dessa självstudier. Den här guiden förutsätter också att du har lagt till Apache Cordova-plugin-programmet i koden.  Om du inte har gjort det, kan du lägga till Apache Cordova-plugin-programmet till ditt projekt på kommandoraden:
+## <a name="Setup"></a>Konfiguration och krav
+Den här guiden förutsätter att du har skapat en server del med en tabell. Den här guiden förutsätter att tabellen har samma schema som tabellerna i de här självstudierna. Den här guiden förutsätter också att du har lagt till Apache Cordova-plugin-programmet i din kod.  Om du inte har gjort det kan du lägga till Apache Cordova-plugin-programmet i projektet på kommando raden:
 
 ```
 cordova plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
-Mer information om hur du skapar [din första Apache Cordova-app], finns i deras dokumentation.
+Mer information om hur [din första Apache Cordova-app]finns i dokumentationen.
 
-## <a name="ionic"></a>Hur du konfigurerar en joniska v2-app
+## <a name="ionic"></a>Konfigurera en Joniska v2-app
 
-Om du vill konfigurera ett joniska v2-projekt, skapar en grundläggande app och lägga till Cordova-plugin-programmet:
+Om du vill konfigurera ett Joniska v2-projekt korrekt skapar du först en grundläggande app och lägger till Cordova-plugin-programmet:
 
 ```
 ionic start projectName --v2
@@ -58,78 +58,78 @@ cd projectName
 ionic plugin add cordova-plugin-ms-azure-mobile-apps
 ```
 
-Lägg till följande rader till `app.component.ts` att skapa klientobjektet:
+Lägg till följande rader i `app.component.ts` om du vill skapa ett klient objekt:
 
 ```typescript
 declare var WindowsAzure: any;
 var client = new WindowsAzure.MobileServiceClient("https://yoursite.azurewebsites.net");
 ```
 
-Du kan nu skapa och köra projektet i webbläsaren:
+Nu kan du skapa och köra projektet i webbläsaren:
 
 ```
 ionic platform add browser
 ionic run browser
 ```
 
-Azure Mobile Apps Cordova-plugin-programmet har stöd för både joniska v1 och v2-appar.  Endast joniska v2-appar kräver ytterligare deklarationen för den `WindowsAzure` objekt.
+Azure Mobile Apps Cordova-plugin-programmet stöder både Joniska v1-och v2-appar.  Endast Joniska v2-appar kräver ytterligare deklaration för `WindowsAzure`-objektet.
 
 [!INCLUDE [app-service-mobile-html-js-library.md](../../includes/app-service-mobile-html-js-library.md)]
 
 ## <a name="auth"></a>Hur: Autentisera användare
-Azure App Service stöder autentisering och auktorisering av appanvändare som använder olika externa indentitetsprovidrar: Facebook, Google, Microsoft-konto och Twitter. Du kan ange behörigheter för tabeller för att begränsa åtkomst för specifika åtgärder endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i server-skript. Mer information finns i den [komma igång med autentisering] självstudien.
+Azure App Service stöder autentisering och auktorisering av App-användare med olika externa identitets leverantörer: Facebook, Google, Microsoft-konto och Twitter. Du kan ange behörigheter för tabeller för att begränsa åtkomsten för vissa åtgärder till endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i Server skript. Mer information finns i själv studie kursen [Kom igång med autentisering] .
 
-När du använder autentisering i en Apache Cordova-app, måste följande Cordova-plugin-program vara tillgängliga:
+När du använder autentisering i en Apache Cordova-app måste följande Cordova-plugin-program vara tillgängliga:
 
 * [cordova-plugin-device]
 * [cordova-plugin-inappbrowser]
 
-Två autentiseringsflöden stöds: ett flöde för server och ett klient-flöde.  Server-flödet innehåller enklaste autentiseringsupplevelse som den är beroende av leverantörens Webbgränssnitt för autentisering. Klientflödet gör för djupare integrering med specifika funktioner som enkel inloggning som den är beroende av provider-specifik enhetsspecifika SDK: er.
+Två autentiserings flöden stöds: ett Server flöde och ett klient flöde.  Server flödet ger den enklaste autentiseringen, eftersom det förlitar sig på providerns webbautentiserings-gränssnitt. Klient flödet gör det möjligt att integrera djupare med enhetsspecifika funktioner, till exempel enkel inloggning, eftersom det är beroende av providerspecifika leverantörsspecifika SDK: er.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library.md](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Hur: Konfigurera Mobile App-tjänsten för externa Omdirigeringswebbadresser.
-Flera typer av Apache Cordova-program använda en loopback-funktion för att hantera OAuth UI flöden.  OAuth UI-flöden på localhost orsaka problem Eftersom Autentiseringstjänsten vet bara hur du använder tjänsten som standard.  Exempel på problematiska OAuth UI flöden:
+### <a name="configure-external-redirect-urls"></a>Hur: Konfigurera mobil App Service för externa omdirigerings-URL: er.
+Flera typer av Apache Cordova-program använder en loopback-funktion för att hantera OAuth UI-flöden.  OAuth UI-flöden på localhost orsakar problem eftersom Autentiseringstjänsten bara vet hur tjänsten används som standard.  Exempel på problematiska OAuth UI-flöden är:
 
-* Ripple-emulatorn.
-* Live återinläsning med joniska.
-* Kör mobil serverdel lokalt
-* Kör mobila serverdelstjänst i en annan Azure App Service än en tillhandahåller autentisering.
+* Krusnings-emulatorn.
+* Direktsänd belastning med Joniska.
+* Köra mobil Server delen lokalt
+* Att köra mobil Server delen i en annan Azure App Service än den som tillhandahåller autentisering.
 
-Följ dessa instruktioner för att lägga till dina lokala inställningar i konfigurationen:
+Följ dessa anvisningar för att lägga till dina lokala inställningar i konfigurationen:
 
 1. Logga in på [Azure Portal]
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din Mobilapp.
+2. Välj **alla resurser** eller **app Services** och klicka sedan på namnet på din mobilapp.
 3. Klicka på **verktyg**
-4. Klicka på **resursläsaren** i Följ-menyn och klicka på **Gå**.  Ett nytt fönster eller flik öppnas.
-5. Expandera den **config**, **authsettings** noder för din plats i det vänstra navigeringsfältet.
-6. Klicka på **redigera**
-7. Sök efter ”allowedExternalRedirectUrls”-element.  Det kan ställas in på null eller en matris med värden.  Ändra värdet till följande värde:
+4. Klicka på **resurs läsaren** på menyn Observera och klicka sedan på **gå**.  Ett nytt fönster eller en ny flik öppnas.
+5. Expandera **authsettings** -noderna **config**, för din webbplats i det vänstra navigerings fältet.
+6. Klicka på **Redigera**
+7. Leta efter elementet "allowedExternalRedirectUrls".  Det kan vara inställt på null eller en matris med värden.  Ändra värdet till följande värde:
 
          "allowedExternalRedirectUrls": [
              "http://localhost:3000",
              "https://localhost:3000"
          ],
 
-    Ersätt URL: er med URL: er för din tjänst.  Exempel är `http://localhost:3000` (för Node.js-exemplet service), eller `http://localhost:4400` (för tjänsten Ripple).  Dessa URL: er är dock exempel – din situation, inklusive för tjänster som nämns i exempel kan vara olika.
-8. Klicka på den **Läs/Skriv** knappen i det övre högra hörnet på skärmen.
-9. Klicka på gröna **PLACERA** knappen.
+    Ersätt URL: erna med URL: er för din tjänst.  Exempel på detta är `http://localhost:3000` (för Node. js-exempel tjänsten) eller `http://localhost:4400` (för Krusnings tjänsten).  Dessa URL: er är dock exempel – din situation, inklusive för de tjänster som nämns i exemplen, kan vara olika.
+8. Klicka på knappen **Läs/skriv** i det övre högra hörnet på skärmen.
+9. Klicka på knappen grönt **placering** .
 
-Inställningarna sparas i det här läget.  Stäng inte webbläsarfönstret förrän du är klar med inställningarna sparas.
-Också lägga till dessa loopback-URL: er i CORS-inställningarna för din App Service:
+Inställningarna sparas i det här läget.  Stäng inte webbläsarfönstret förrän inställningarna har sparats.
+Lägg också till dessa loopback-URL: er till CORS-inställningarna för din App Service:
 
 1. Logga in på [Azure Portal]
-2. Välj **alla resurser** eller **Apptjänster** klicka sedan på namnet på din Mobilapp.
-3. Inställningar-bladet öppnas automatiskt.  Om det inte, klickar på **alla inställningar**.
-4. Klicka på **CORS** under menyn API.
-5. Ange den URL som du vill lägga till i rutan som visas och tryck RETUR.
-6. Ange ytterligare URL: er som behövs.
+2. Välj **alla resurser** eller **app Services** och klicka sedan på namnet på din mobilapp.
+3. Bladet inställningar öppnas automatiskt.  Om den inte är det klickar du på **alla inställningar**.
+4. Klicka på **CORS** under API-menyn.
+5. Ange den URL som du vill lägga till i rutan och tryck på RETUR.
+6. Ange ytterligare URL: er efter behov.
 7. Spara inställningarna genom att klicka på **Spara**.
 
-Det tar cirka 10 – 15 sekunder för de nya inställningarna ska börja gälla.
+Det tar ungefär 10-15 sekunder innan de nya inställningarna börjar gälla.
 
 ## <a name="register-for-push"></a>Hur: Registrera dig för push-meddelanden
-Installera den [modul phonegap plugin push] att hantera pushmeddelanden.  Det här plugin-program kan enkelt läggas till med hjälp av den `cordova plugin add` kommandot på kommandoraden eller via installationsprogrammet för Git-plugin-programmet i Visual Studio.  Följande kod i din Apache Cordova-app registrerar din enhet för push-meddelanden:
+Installera [PhoneGap – plugin-push] för att hantera push-meddelanden.  Detta plugin-program kan enkelt läggas till med kommandot `cordova plugin add` på kommando raden eller via installations programmet för git-plugin i Visual Studio.  Följande kod i din Apache Cordova-App registrerar din enhet för push-meddelanden:
 
 ```javascript
 var pushOptions = {
@@ -168,22 +168,22 @@ pushHandler.on('error', function (error) {
 });
 ```
 
-Använda Notification Hubs SDK för att skicka push-meddelanden från servern.  Skicka aldrig push-meddelanden direkt från klienter. Då kan användas för att utlösa en DoS-angrepp mot Meddelandehubbar eller pns-systemet.  Pns-systemet kan förbjuda trafiken till följd av sådana attacker.
+Använd Notification Hubs SDK för att skicka push-meddelanden från servern.  Skicka aldrig push-meddelanden direkt från klienter. Detta kan användas för att utlösa en denial of service-attack mot Notification Hubs eller PNS.  PNS kan förbjuda trafiken till följd av sådana angrepp.
 
 ## <a name="more-information"></a>Mer information
 
-Du hittar detaljerad information om API: et i vår [API-dokumentation](https://azure.github.io/azure-mobile-apps-js-client/).
+Detaljerad API-information finns i vår [API-dokumentation](https://azure.github.io/azure-mobile-apps-js-client/).
 
 <!-- URLs. -->
 [Azure Portal]: https://portal.azure.com
-[Azure mobila appar Snabbstart]: app-service-mobile-cordova-get-started.md
-[Komma igång med autentisering]: app-service-mobile-cordova-get-started-users.md
+[Azure Mobile Apps Snabbstart]: app-service-mobile-cordova-get-started.md
+[Kom igång med autentisering]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Apache Cordova-Plugin för Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
+[Apache Cordova-plugin-program för Azure Mobile Apps]: https://www.npmjs.com/package/cordova-plugin-ms-azure-mobile-apps
 [din första Apache Cordova-app]: https://cordova.apache.org/#getstarted
 [phonegap-facebook-plugin]: https://github.com/wizcorp/phonegap-facebook-plugin
-[modul phonegap plugin push]: https://www.npmjs.com/package/phonegap-plugin-push
+[PhoneGap – plugin-push]: https://www.npmjs.com/package/phonegap-plugin-push
 [cordova-plugin-device]: https://www.npmjs.com/package/cordova-plugin-device
 [cordova-plugin-inappbrowser]: https://www.npmjs.com/package/cordova-plugin-inappbrowser
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 4523d7bf8f6c0ffc0ebfbc57d20a19baec08c91b
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 99def93a20a365dd0ff5fc27e9c52909ee30bd83
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720362"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028133"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -31,11 +31,11 @@ GZRS och RA-GZRS är för närvarande tillgängliga för förhands granskning i 
 
 - Nordeuropa
 - Västeuropa
-- USA, östra
+- USA, Östra
 - USA, östra 2
 - USA, centrala
 
-Microsoft fortsätter att aktivera GZRS och RA-GZRS i ytterligare Azure-regioner. På sidan [uppdateringar för Azure-tjänsten](https://azure.microsoft.com/updates/)regelbundet hittar du information om regioner som stöds.
+Microsoft fortsätter att aktivera GZRS och RA-GZRS i ytterligare Azure-regioner. Kontrol lera [Azure Service Updates](https://azure.microsoft.com/updates/) page regelbundet för information om regioner som stöds.
 
 Information om priser för för hands versionen finns i GZRS Preview-priser för [blobbar](https://azure.microsoft.com/pricing/details/storage/blobs), [filer](https://azure.microsoft.com/pricing/details/storage/files/), [köer](https://azure.microsoft.com/pricing/details/storage/queues/)och [tabeller](https://azure.microsoft.com/pricing/details/storage/tables/).
 
@@ -49,11 +49,11 @@ När data skrivs till ett lagrings konto med GZRS eller RA-GZRS aktiverat, repli
 > [!IMPORTANT]
 > Asynkron replikering innebär en fördröjning mellan den tid som data skrivs till den primära regionen och när de replikeras till den sekundära regionen. I händelse av en regional katastrof kan ändringar som ännu inte har repliker ATS till den sekundära regionen gå förlorade om data inte kan återställas från den primära regionen.
 
-När du skapar ett lagrings konto anger du hur data i det kontot ska replikeras och du kan också ange den primära regionen för det kontot. Den kopplade sekundära regionen för ett geo-replikerat konto bestäms utifrån den primära regionen och kan inte ändras. Aktuell information om regioner som stöds av Azure finns i [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Information om hur du skapar ett lagrings konto med hjälp av GZRS eller RA-GZRS finns i [skapa ett lagrings konto](storage-quickstart-create-account.md).
+När du skapar ett lagrings konto anger du hur data i det kontot ska replikeras och du kan också ange den primära regionen för det kontot. Den kopplade sekundära regionen för ett geo-replikerat konto bestäms utifrån den primära regionen och kan inte ändras. Aktuell information om regioner som stöds av Azure finns i @ no__t-0Business kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner @ no__t-0. Information om hur du skapar ett lagrings konto med hjälp av GZRS eller RA-GZRS finns i [skapa ett lagrings konto](storage-quickstart-create-account.md).
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>Använd RA-GZRS för hög tillgänglighet
 
-När du aktiverar RA-GZRS för ditt lagrings konto kan dina data läsas från den sekundära slut punkten och från den primära slut punkten för ditt lagrings konto. Den sekundära slut punkten lägger till suffixet *– sekundärt* till konto namnet. Till exempel, om den primära slut punkten för BLOB service är `myaccount.blob.core.windows.net`, är `myaccount-secondary.blob.core.windows.net`den sekundära slut punkten. Åtkomst nycklarna för ditt lagrings konto är desamma för både den primära och den sekundära slut punkten.
+När du aktiverar RA-GZRS för ditt lagrings konto kan dina data läsas från den sekundära slut punkten och från den primära slut punkten för ditt lagrings konto. Den sekundära slut punkten lägger till suffixet *– sekundärt* till konto namnet. Om den primära slut punkten för Blob Service till exempel är @ no__t-0, är den sekundära slut punkten @ no__t-1. Åtkomst nycklarna för ditt lagrings konto är desamma för både den primära och den sekundära slut punkten.
 
 Om du vill dra nytta av RA-GZRS i händelse av ett regionalt avbrott måste du utforma ditt program i förväg för att hantera det här scenariot. Ditt program bör läsa från och skriva till den primära slut punkten, men växla till att använda den sekundära slut punkten i händelse av att den primära regionen blir otillgänglig. Vägledning om hur du utformar för hög tillgänglighet med RA-GZRS finns i [utforma hög tillgängliga program med hjälp av ra-GZRS eller RA-GRS](https://docs.microsoft.com/azure/storage/common/storage-designing-ha-apps-with-ragrs).
 
@@ -115,7 +115,7 @@ En manuell migrering kan resultera i avbrott i programmet. Om ditt program kräv
 
 Under en direktmigrering kan du använda ditt lagrings konto medan dina data migreras mellan käll-och mål lagrings konton. Under direktmigreringen fortsätter ditt konto att uppfylla sitt service avtal för hållbarhet och tillgänglighet. Det finns ingen stillestånds tid eller data förlust som orsakas av direktmigrering.
 
-Endast General-Purpose v2-konton stöder GZRS/RA-GZRS, så innan du skickar en begäran om Direktmigrering till GZRS/RA-GZRS måste du uppgradera ditt konto till General-Purpose v2. Mer information finns i  [Översikt över Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview)och [Uppgradera till ett allmänt-syfte v2-lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
+Endast General-Purpose v2-konton stöder GZRS/RA-GZRS, så innan du skickar en begäran om Direktmigrering till GZRS/RA-GZRS måste du uppgradera ditt konto till General-Purpose v2. Mer information finns i [Översikt över Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-account-overview) AND [Uppgradera till ett allmänt-syfte v2-lagrings konto](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade).
 
 När migreringen är klar uppdateras lagrings kontots replikeringsstatus till **geo-Zone-redundant lagring (GZRS)** eller **Geo-redundant lagring med Läs åtkomst (ra-GZRS)** . Tjänst slut punkter, åtkomst nycklar, signaturer för delad åtkomst (SAS) och andra alternativ för konto konfiguration förblir oförändrade och intakta.
 
@@ -125,7 +125,7 @@ Tänk på följande begränsningar för direktmigrering:
 - Ditt konto måste innehålla data.
 - Du kan bara migrera data inom samma region.
 - Endast standard lagrings konto typer stöder Direktmigrering. Premium Storage-konton måste migreras manuellt.
-- Direktmigrering från ett GZRS-eller RA-GZRS-konto till ett konto av LRS, GRS eller RA-GRS stöds inte. Du måste flytta data manuellt till ett nytt eller ett befintligt lagrings konto.
+- Direktmigrering från ett GZRS-eller RA-GZRS-konto till ett konto av LRS, GRS eller RA-GRS stöds inte. Du behöver flytta data manuellt till ett nytt eller ett befintligt lagringskonto.
 - Du kan begära en Direktmigrering från RA-GRS till RA-GZRS. Migrering från RA-GRS till GZRS stöds dock inte. I det här fallet måste du begära en Direktmigrering till RA-GZRS och sedan manuellt konvertera lagrings kontot till att använda GZRS.
 - Managed disks stöder endast LRS och kan inte migreras till GZRS eller RA-GZRS. För integrering med tillgänglighets uppsättningar, se [Introduktion till Azure Managed disks](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#integration-with-availability-sets).
 - Du kan lagra ögonblicks bilder och avbildningar för Standard SSD Managed Disks på Standard HDD lagring och [välja mellan alternativen LRS, ZRS, GZRS och ra-GZRS](https://azure.microsoft.com/pricing/details/managed-disks/).
@@ -133,23 +133,23 @@ Tänk på följande begränsningar för direktmigrering:
 
 Om du vill begära en Direktmigrering använder du [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Från portalen väljer du det lagrings konto som ska migreras till GZRS eller RA-GZRS och följer dessa anvisningar:
 
-1. Välj **ny supportbegäran**.
-2. Slutför **grunderna** baserat på din konto information. I avsnittet **tjänst** väljer du  **hantering av lagrings konto**och anger det konto som ska migreras.
-3. Välj **Nästa**.
-4. Ange följande värden i avsnittet **problem** :
+1. Välj **ny supportbegäran**.
+2. Slutför **grunderna** baserat på din konto information. I avsnittet **tjänst** väljer du **hantering av lagrings konto** och anger det konto som ska migreras.
+3. Välj **Nästa**.
+4. Ange följande värden i avsnittet **problem** :
     - **Allvarlighets grad**: Låt standardvärdet vara kvar.
-    - **Problem typ**: Välj **datamigrering**.
-    - **Kategori**: Välj **migrera till (RA-) GZRS i en region**.
-    - **Rubrik**: Ange en beskrivande rubrik, till exempel **(RA-) GZRS för konto migrering**.
-    - **Information**: Skriv **Mer information i @no__t-** 1box, till exempel "Jag vill MIGRERA till GZRS från [LRS, GRS] i \_ @ no__t-3-regionen." eller "Jag vill migrera till RA-GZRS från [LRS, RA-GRS] i regionen \_ @ no__t-1."
-5. Välj **Nästa**.
-6. Kontrol lera att kontakt informationen är korrekt på bladet med **kontakt information** .
-7. Välj  **Skapa**.
+    - **Problem typ**: Välj **datamigrering**.
+    - **Kategori**: Välj **migrera till (RA-) GZRS i en region**.
+    - **Rubrik**: Ange en beskrivande rubrik, till exempel **(RA-) GZRS för konto migrering**.
+    - **Information**: Skriv ytterligare information i **informations** rutan, till exempel "Jag vill MIGRERA till GZRS från [LRS, GRS] i regionen \_ @ no__t-2." eller "Jag vill migrera till RA-GZRS från [LRS, RA-GRS] i regionen \_ @ no__t-1."
+5. Välj **Nästa**.
+6. Kontrol lera att kontakt informationen är korrekt på bladet med **kontakt information** .
+7. Välj **Skapa**.
 
 En support representant kommer att kontakta dig för att få hjälp.
 
 ## <a name="see-also"></a>Se också
 
 - [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
-- [Lokalt redundant lagring (LRS): Data redundans för låg kostnad för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
-- [Zon-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
+- @no__t 0Locally redundant lagring (LRS): Data redundans för låg kostnad för Azure Storage @ no__t-0
+- [Zone-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet @ no__t-0 

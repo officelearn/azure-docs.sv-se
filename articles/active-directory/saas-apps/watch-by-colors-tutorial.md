@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7d0810c393cf9b6060f456c5ff01d03673b62a9
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 6d8fdc8ba2337a3be49a4645e48a45120fb0ccec
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861298"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026088"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med titta på färger
 
@@ -65,7 +65,7 @@ Om du vill konfigurera och testa Azure AD SSO med titta på färger, slutför du
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. Konfigurera de enskilda inloggnings inställningarna på program Sidan **[genom att konfigurera titta efter färger SSO](#configure-watch-by-colors-sso)** .
     1. **[Skapa titta efter färger testa användare](#create-watch-by-colors-test-user)** – för att få en motsvarighet till B. Simon i titta efter färger som är länkade till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -80,7 +80,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
 
 1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
@@ -132,7 +132,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 3. Om du vill konfigurera bevakade färger manuellt öppnar du ett nytt webbläsarfönster och loggar in på din bevakare av företags plats som administratör och utför följande steg:
 
-4. Klicka på **profil** > **konto inställningar** > **SSO (enkel inloggning)** i det övre högra hörnet på sidan.
+4. I det övre högra hörnet på sidan klickar du på **profil** > **konto inställningar** > **SSO (enkel inloggning)** .
 
     ![Konfiguration av bevaka färger](./media/watch-by-colors-tutorial/config01.png)
 
@@ -168,7 +168,7 @@ Om du vill att Azure AD-användare ska kunna logga in för att titta på färger
 
     b. I textrutan **Efternamn** anger du efternamnet på användaren som **Simon**.
 
-    c. I text rutan **e-postadress** anger du e-postadressen till användaren `B.Simon@contoso.com`.
+    c. I text rutan **e-postadress** anger du e-postmeddelandet som `B.Simon@contoso.com`.
 
     d. I text rutan **lösen ord** anger du lösen ordet.
 

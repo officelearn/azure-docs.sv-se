@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 07/25/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 357cc23c9dedb49dfd19dc897102762066ffd1b2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: b3147db8cda04ce7a71b35659eb91a20a06e0c52
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679348"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028043"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>Självstudier: Skapa en plats-till-plats-anslutning med Azure Virtual WAN
 
@@ -106,7 +106,7 @@ I det här steget skapar du peeringanslutningen mellan hubben och ett virtuellt 
     * **Virtuellt nätverk** – Välj det virtuella nätverk du vill ansluta till hubben. Det virtuella nätverket får inte ha någon befintlig gateway för virtuellt nätverk.
 4. Klicka på **OK** för att skapa peering-anslutningen.
 
-## <a name="device"></a>7. Ladda ned VPN-anslutning
+## <a name="device"></a>7. Ladda ned VPN-konfiguration
 
 Konfigurera den lokala VPN-enheten med hjälp av konfigurationen för VPN-enheten.
 

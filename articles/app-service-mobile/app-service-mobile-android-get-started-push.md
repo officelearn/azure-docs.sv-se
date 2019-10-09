@@ -14,37 +14,37 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 529aa8327d31cdda044178b6d03035b602744db2
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 3185447e4e465fe49849bb4280f2af9bbe852e19
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443662"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027698"
 ---
-# <a name="add-push-notifications-to-your-android-app"></a>Lägg till push-meddelanden till din Android-app
+# <a name="add-push-notifications-to-your-android-app"></a>Lägg till push-meddelanden i din Android-app
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-get-started-push) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudien lägger du till push-meddelanden till den [Snabbstart för Android] projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
+I den här självstudien lägger du till push-meddelanden till [Snabb start för Android] projektet för Android så att ett push-meddelande skickas till enheten varje gång en post infogas.
 
-Om du inte använder serverprojekt hämtade Snabbstart måste tilläggspaket för push-meddelande. Mer information finns i [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Om du inte använder det nedladdade snabb start Server-projektet behöver du ett tilläggs paket för push-meddelanden. Mer information finns i [arbeta med .NET-Server del Server SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="prerequisites"></a>Förutsättningar
 
 Du behöver följande:
 
-* En IDE, beroende på ditt projekt backend-server:
+* En IDE, beroende på ditt projekts backend:
 
-  * [Android Studio](https://developer.android.com/sdk/index.html) om den här appen har en Node.js-serverdel.
-  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) eller senare om den här appen har en Microsoft .NET-serverdel.
-* Android 2.3 eller senare, Google Repository revision 27 eller senare och Google Play Services 9.0.2 eller senare för Firebase Cloud Messaging.
-* Slutför den [Snabbstart för Android].
+  * [Android Studio](https://developer.android.com/sdk/index.html) om den här appen har en Node. js-Server del.
+  * [Visual Studio Community 2013](https://go.microsoft.com/fwLink/p/?LinkID=391934) eller senare om den här appen har en Microsoft .NET Server del.
+* Android 2,3 eller senare, Google databas revision 27 eller senare och Google Play Services 9.0.2 eller senare för Firebase Cloud Messaging.
+* Slutför [Snabb start för Android].
 
 ## <a name="create-a-project-that-supports-firebase-cloud-messaging"></a>Skapa ett projekt som har stöd för Firebase Cloud Messaging
 
@@ -58,21 +58,21 @@ Du behöver följande:
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a name="enable-push-notifications-for-the-server-project"></a>Aktivera push-meddelanden för serverprojektet
+## <a name="enable-push-notifications-for-the-server-project"></a>Aktivera push-meddelanden för Server projektet
 
 [!INCLUDE [app-service-mobile-dotnet-backend-configure-push-google](../../includes/app-service-mobile-dotnet-backend-configure-push-google.md)]
 
 ## <a name="add-push-notifications-to-your-app"></a>Lägg till push-meddelanden i appen
 
-I det här avsnittet ska uppdatera du din Android-app i klienten för att hantera push-meddelanden.
+I det här avsnittet uppdaterar du din klient-Android-app för att hantera push-meddelanden.
 
-### <a name="verify-android-sdk-version"></a>Kontrollera Android SDK-version
+### <a name="verify-android-sdk-version"></a>Verifiera Android SDK-version
 
 [!INCLUDE [app-service-mobile-verify-android-sdk-version](../../includes/app-service-mobile-verify-android-sdk-version.md)]
 
-Nästa steg är att installera Google Play-tjänster. Firebase Cloud Messaging har vissa lägsta nivå krav med API för utveckling och testning, som den **minSdkVersion** -egenskapen i manifestet måste följa.
+Nästa steg är att installera Google Play-tjänster. Firebase Cloud Messaging har vissa krav på minsta API-nivå för utveckling och testning, vilket **minSdkVersion** -egenskapen i manifestet måste följa.
 
-Om du testar med en äldre enhet läser [Lägg till Firebase till din Android-projekt] att avgöra hur låg du kan ange det här värdet och ställa in korrekt.
+Om du testar med en äldre enhet bör du läsa [Lägg till Firebase i ditt Android-projekt] för att avgöra hur låg du kan ange det här värdet och ange det på lämpligt sätt.
 
 ### <a name="add-firebase-cloud-messaging-to-the-project"></a>Lägg till Firebase Cloud Messaging i projektet
 
@@ -82,19 +82,19 @@ Om du testar med en äldre enhet läser [Lägg till Firebase till din Android-pr
 
 [!INCLUDE [app-service-mobile-android-getting-started-with-push](../../includes/app-service-mobile-android-getting-started-with-push.md)]
 
-## <a name="test-the-app-against-the-published-mobile-service"></a>Testa appen mot den publicerade mobiltjänsten
+## <a name="test-the-app-against-the-published-mobile-service"></a>Testa appen mot den publicerade mobil tjänsten
 
-Du kan testa appen genom att koppla en Android-telefon med en USB-kabel direkt eller genom att använda en virtuell enhet i emulatorn.
+Du kan testa appen genom att koppla en Android-telefon direkt med en USB-kabel eller genom att använda en virtuell enhet i emulatorn.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har slutfört den här självstudien, Överväg fortsätter in på någon av följande självstudiekurser:
+Nu när du har slutfört den här självstudien kan du fortsätta med någon av följande själv studie kurser:
 
 * [Lägg till autentisering i din Android-app](app-service-mobile-android-get-started-users.md).
-  Lär dig hur du lägger till autentisering till snabbstartsprojektet todolist på Android med en identitetsprovider som stöds.
+  Lär dig hur du lägger till autentisering i ToDoList snabb starts projekt på Android med en identitets leverantör som stöds.
 * [Aktivera synkronisering offline för din Android-app](app-service-mobile-android-get-started-offline-data.md).
-  Lär dig hur du lägger till offlinestöd i appen med hjälp av en Mobile Apps-serverdel. Med offlinesynkronisering kan användare kan interagera med en mobil app&mdash;visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverksanslutning.
+  Lär dig hur du lägger till offline-stöd i din app med hjälp av en Mobile Apps Server del. Med offline-synkronisering kan användare interagera med en mobilapp @ no__t-0viewing, lägga till eller ändra data @ no__t-1even när det inte finns någon nätverks anslutning.
 
 <!-- URLs -->
-[Snabbstart för Android]: app-service-mobile-android-get-started.md
-[Lägg till Firebase till din Android-projekt]: https://firebase.google.com/docs/android/setup
+[Snabb start för Android]: app-service-mobile-android-get-started.md
+[Lägg till Firebase i ditt Android-projekt]: https://firebase.google.com/docs/android/setup

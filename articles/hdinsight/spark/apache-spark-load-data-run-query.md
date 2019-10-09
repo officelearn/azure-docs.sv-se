@@ -2,18 +2,18 @@
 title: 'Självstudier: Läs in data och kör frågor på Apache Spark kluster i Azure HDInsight'
 description: Självstudie – lär dig hur du läser in data och kör interaktiva frågor i Spark-kluster i Azure HDInsight.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.author: hrasheed
-ms.date: 05/16/2019
-ms.openlocfilehash: 109ed1a2ef22e498c2d19fd2e4f1848f289e9b55
-ms.sourcegitcommit: 97605f3e7ff9b6f74e81f327edd19aefe79135d2
+ms.date: 10/03/2019
+ms.openlocfilehash: 3d6b7cf67faa94d0947d16cc79d0d5b839de7acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70735277"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027787"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Självstudier: Läsa in data och köra frågor i ett Apache Spark-kluster i Azure HDInsight
 
@@ -30,11 +30,11 @@ Ett Apache Spark-kluster i HDInsight. Se [skapa ett Apache Spark-kluster](./apac
 
 ## <a name="create-a-jupyter-notebook"></a>Skapa en Jupyter-anteckningsbok
 
-Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar. 
+Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika datorspråk. Du kan använda anteckningsboken för att interagera med dina data, kombinera kod med markdown-text och utföra enkla visualiseringar.
 
-1. Redigera URL: `https://SPARKCLUSTER.azurehdinsight.net/jupyter` en genom `SPARKCLUSTER` att ersätta med namnet på ditt Spark-kluster. Ange sedan den redigerade URL-adressen i en webbläsare. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
+1. Redigera URL-adressen `https://SPARKCLUSTER.azurehdinsight.net/jupyter` genom att ersätta `SPARKCLUSTER` med namnet på ditt Spark-kluster. Ange sedan den redigerade URL-adressen i en webbläsare. Ange autentiseringsuppgifterna för klustret om du uppmanas att göra det.
 
-2. På webb sidan Jupyter väljer du **ny** > **PySpark** för att skapa en antecknings bok. 
+2. På webb sidan Jupyter väljer du **ny** > **PySpark** för att skapa en antecknings bok.
 
    ![Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-create-jupyter-interactive-spark-sql-query.png "Skapa en Jupyter-anteckningsbok för att köra en interaktiv Spark SQL-fråga")
 
@@ -45,8 +45,8 @@ Jupyter Notebook är en interaktiv anteckningsboksmiljö som stöder flera olika
 
 ## <a name="create-a-dataframe-from-a-csv-file"></a>Skapa en dataram från en csv-fil
 
-Program kan skapa dataramar direkt från filer eller mappar via fjärrlagring, till exempel Azure Storage eller Azure Data Lake Storage, från en Hive-tabell eller från andra datakällor som stöds av Spark, till exempel Cosmos DB, Azure SQL DB, DW osv. Följande skärmbild visar en ögonblicksbild av den HVAC.csv-fil som används i självstudien. Csv-filen finns i alla HDInsight Spark-kluster. Datan visar temperaturvariationer i vissa byggnader.
-    
+Program kan skapa dataframes direkt från filer eller mappar på fjärrlagringen, till exempel Azure Storage eller Azure Data Lake Storage. från en Hive-tabell; eller från andra data källor som stöds av Spark, till exempel Cosmos DB, Azure SQL DB, DW och så vidare. Följande skärmbild visar en ögonblicksbild av den HVAC.csv-fil som används i självstudien. Csv-filen finns i alla HDInsight Spark-kluster. Datan visar temperaturvariationer i vissa byggnader.
+
 ![Ögonblicksbild av data för en interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-sample-data-interactive-spark-sql-query.png "Ögonblicksbild av data för en interaktiv Spark SQL-fråga")
 
 1. Klistra in följande kod i en tom cell i Jupyter Notebook och tryck sedan på **SKIFT + RETUR** för att köra koden. Koden importerar de typer som krävs för det här scenariot:
@@ -60,7 +60,7 @@ Program kan skapa dataramar direkt från filer eller mappar via fjärrlagring, t
 
     ![Status för interaktiv Spark SQL-fråga](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "Status för interaktiv Spark SQL-fråga")
 
-2. Kör följande kod för att skapa en dataram och en tillfällig tabell (**hvac**). 
+2. Kör följande kod för att skapa en dataram och en tillfällig tabell (**hvac**).
 
     ```python
     # Create a dataframe and table from sample data
@@ -87,13 +87,13 @@ När tabellen har skapats kan du köra en interaktiv fråga på datan.
 
     ![Områdesdiagram över interaktivt Spark-frågeresultat](./media/apache-spark-load-data-run-query/hdinsight-interactive-spark-query-result-area-chart.png "Områdesdiagram över interaktivt Spark-frågeresultat")
 
-3. Från meny raden i anteckningsbokslayout navigerar du till **filen** > **Save och Checkpoint**.
+3. Från meny raden i anteckningsbokslayout navigerar du till **fil** > **Spara och kontroll punkt**.
 
-4. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Annars stänger du antecknings boken för att frigöra kluster resurserna: från meny raden i anteckningsbok-menyn navigerar du till **filen** >  **Stäng och stoppa**.
+4. Om du ska starta [nästa självstudie](apache-spark-use-bi-tools.md) direkt kan du lämna anteckningsboken öppen. Annars stänger du antecknings boken för att frigöra kluster resurserna: från meny raden i anteckningsbokslayout navigerar du till **fil** >  **Stäng och stoppa**.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-I HDInsight lagras dina data och Jupyter Notebooks i Azure Storage eller Azure Data Lake Store för att du på ett säkert sätt ska kunna ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används. Om du tänker arbeta med nästa självstudie direkt kan du behålla klustret.
+Med HDInsight lagras dina data och Jupyter antecknings böcker i Azure Storage eller Azure Data Lake Storage, så att du kan ta bort ett kluster på ett säkert sätt när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger mer än avgifterna för lagring, är det ekonomiskt klokt att ta bort kluster när de inte används. Om du tänker arbeta med nästa självstudie direkt kan du behålla klustret.
 
 Öppna klustret i Azure Portal och välj **Ta bort**.
 

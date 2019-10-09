@@ -1,40 +1,22 @@
 ---
-title: Krav för hantering av program
-description: Lista över förutsättningarna för hantering av program.
+title: Krav för program hantering
+description: Föråldrad CPP-artikel, länkad till PC-artikel; var "lista över krav för program hantering".
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 0219d7e8a94dd6710c553f2133442867e39f6870
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: a92d32084dd36433fdc872db66f0f375a770bfda
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935534"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034427"
 ---
-# <a name="prerequisites-for-application-curation"></a>Krav för hantering av program
+# <a name="prerequisites-for-application-curation"></a>Krav för program hantering
 
-Microsoft kräver specifika granskningar för att kunna verifiera att följande krav är uppfyllda:
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera Dynamics 365 för finans-och drift erbjudanden. I stället har den här funktionen flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [skapa en ny Dynamics 365 for Operations-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-- En partner\'anpassad kod uppfyller riktlinjerna för Microsofts.
-- Ett lösningspaket för Microsoft Dynamics Lifecycle Services (LCS)-kan distribueras.
-- Transaktioner kan utföras.
-
-För närvarande kan partner måste visar att dessa krav är uppfyllda genom att göra testdistributioner och sedan delas resultatet med Microsoft. Ingen kod kommer att distribueras på en kundmiljö som Microsoft ännu inte\'t validerats. Partners måste slutföra följande hanterat artefakter och tester:
-
-- Analysrapport för kod (bil)
-- Affärsmodelleraren processen (BPM) / testskript
-- Projektets namn och beskrivning
-- Säkerhetskopiering för Business-databas
-- Paket för data och bearbeta data paket (Decision)
-- Metod
-- Binärfiler (valfritt)
-- Distribuerbar paket
-- Modeller (kod och tester)
-- Marknadsföring innehåll
-
-Mer information om tekniken och processer krav finns i [verifiera program för Finance and Operations](https://docs.microsoft.com/dynamics365/operations/dev-itpro/lcs-solutions/app-validation-lcs-solutions).  Även om du inte redan har gjort det, granska de [Office 365, Dynamics 365, PowerApps och Power BI erbjuder publiceringsguide](../appsource-offer-publishing-guide.md).
-
+Innan du skapar en ny Dynamics 365 för Operations-erbjudandet bör du läsa [skapa ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/directory) med den valda **översikts** sidan. Följ instruktionerna i [skapa en ny Dynamics 365 för drift erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) för att skapa ditt erbjudande.

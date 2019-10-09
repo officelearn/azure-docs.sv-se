@@ -1,6 +1,6 @@
 ---
 title: Lägg till autentisering på Android med Mobile Apps | Microsoft Docs
-description: Lär dig hur du använder funktionen Mobile Apps i Azure App Service du autentiserar användare i din Android-app genom olika identitetsleverantörer, inklusive Google, Facebook, Twitter och Microsoft.
+description: Lär dig hur du använder Mobile Apps funktionen i Azure App Service för att autentisera användare av Android-appen via olika identitets leverantörer, inklusive Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: android
 author: elamalani
@@ -14,64 +14,64 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: f138911510db4e6839ff96317fa6004e449e58be
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 789bb45ddef8d5ca0205e96298491ebee02698d6
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443583"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025500"
 ---
 # <a name="add-authentication-to-your-android-app"></a>Lägg till autentisering i din Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-android-get-started-users) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="summary"></a>Sammanfattning
-I den här självstudien får du lägga till autentisering till snabbstartsprojektet todolist på Android med hjälp av en identitetsprovider som stöds. Den här självstudien är baserad på den [Kom igång med Mobile Apps] kursen måste du slutföra först.
+I den här självstudien lägger du till autentisering i ToDoList snabb starts projekt på Android med hjälp av en identitets leverantör som stöds. Den här självstudien baseras på självstudien [Kom igång med Mobile Apps] , som du måste slutföra först.
 
 ## <a name="register"></a>Registrera din app för autentisering och konfigurera Azure App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Lägg till din app i de tillåtna externa Omdirigeringswebbadresser
+## <a name="redirecturl"></a>Lägg till din app i de tillåtna externa omdirigerings-URL: erna
 
-Säker autentisering måste du definiera en ny URL-schema för din app. På så sätt kan autentiseringssystem att omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder vi URL-schema _appname_ i hela. Du kan dock använda alla URL-schema som du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på serversidan:
+Säker autentisering kräver att du definierar ett nytt URL-schema för din app. Detta gör att Authentication-systemet kan omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder _vi program_ varan för URL-program i alla. Du kan dock använda alla URL-scheman du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på Server sidan:
 
-1. I den [Azure Portal], Välj din App Service.
+1. I [Azure Portal]väljer du App Service.
 
-2. Klicka på den **autentisering / auktorisering** menyalternativ.
+2. Klicka på meny alternativet **autentisering/auktorisering** .
 
-3. I den **tillåtna externa omdirigerings-URL: er**, ange `appname://easyauth.callback`.  Den _appname_ i den här strängen är URL-schemat för din mobilapp.  Den bör följa den normala URL specifikationen för ett protokoll (Använd bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer eftersom du behöver ändra programkoden mobila med URL-schema på flera platser.
+3. I de **tillåtna externa omdirigerings-URL: erna**anger du `appname://easyauth.callback`.  _APPNAME_ i den här STRÄNGEN är URL-schemat för det mobila programmet.  Den bör följa normal URL-specifikation för ett protokoll (Använd bara bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer när du behöver justera koden för mobil program med URL-schemat på flera platser.
 
 4. Klicka på **OK**.
 
 5. Klicka på **Spara**.
 
-## <a name="permissions"></a>Begränsa behörighet för autentiserade användare
+## <a name="permissions"></a>Begränsa behörigheter till autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-* Öppna projektet du slutfört med självstudien i Android Studio [Kom igång med Mobile Apps]. Från den **kör** -menyn klickar du på **kör app**, och kontrollera att ett ohanterat undantag med en statuskod 401 (obehörig) aktiveras när appen startar.
+* I Android Studio öppnar du projektet som du har slutfört med självstudien [Kom igång med Mobile Apps]. Från menyn **Kör** klickar du på **kör app**och kontrollerar att ett ohanterat undantag med status kod 401 (ej behörig) utlöses när appen startar.
 
-     Det här undantaget inträffar eftersom appen försöker få åtkomst till backend-server som en oautentiserad användare men *TodoItem* tabell nu kräver autentisering.
+     Detta undantag uppstår eftersom appen försöker komma åt Server delen som en oautentiserad användare, men *TodoItem* -tabellen kräver nu autentisering.
 
-Därefter uppdaterar du appen för att autentisera användare innan du begär resurser från Mobile Apps-serverdel.
+Sedan uppdaterar du appen för att autentisera användare innan du begär resurser från Mobile Apps Server del.
 
 ## <a name="add-authentication-to-the-app"></a>Lägg till autentisering i appen
 [!INCLUDE [mobile-android-authenticate-app](../../includes/mobile-android-authenticate-app.md)]
 
 
 
-## <a name="cache-tokens"></a>Cache-autentiseringstoken på klienten
+## <a name="cache-tokens"></a>Cachelagra autentiseringstoken på klienten
 [!INCLUDE [mobile-android-authenticate-app-with-token](../../includes/mobile-android-authenticate-app-with-token.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-Nu när du har slutfört den här självstudien för grundläggande autentisering, Överväg fortsätter in på någon av följande självstudiekurser:
+Nu när du har slutfört den här grundläggande autentiseringen kan du fortsätta med någon av följande själv studie kurser:
 
-* [Lägg till push-meddelanden till din Android-app](app-service-mobile-android-get-started-push.md).
-  Lär dig hur du konfigurerar din Mobile Apps-serverdelen så att du använder Azure notification hubs för att skicka push-meddelanden.
+* [Lägg till push-meddelanden i din Android-app](app-service-mobile-android-get-started-push.md).
+  Lär dig hur du konfigurerar Mobile Apps Server del så att Azure Notification Hub används för att skicka push-meddelanden.
 * [Aktivera synkronisering offline för din Android-app](app-service-mobile-android-get-started-offline-data.md).
-  Lär dig hur du lägger till offlinestöd i appen med hjälp av en Mobile Apps-serverdel. Med offlinesynkronisering kan användare kan interagera med en mobil app&mdash;visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverksanslutning.
+  Lär dig hur du lägger till offline-stöd i din app med hjälp av en Mobile Apps Server del. Med offline-synkronisering kan användare interagera med en mobilapp @ no__t-0viewing, lägga till eller ändra data @ no__t-1even när det inte finns någon nätverks anslutning.
 
 <!-- Anchors. -->
 [Register your app for authentication and configure Mobile Services]: #register

@@ -11,18 +11,18 @@ ms.reviewer: klam, LADocs
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 08/20/2019
-ms.openlocfilehash: d6c7f04d35a91e30a98ec403b6811a2be0aaee20
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: c85b3e3ced661eb36d9cb1eb0ae443a5ab21a913
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051675"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029526"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snabbstart: Skapa ditt första automatiserade arbetsflöde med Azure Logic Apps – Azure-portalen
 
 I den här snabbstarten beskrivs hur du bygger ditt första automatiserade arbetsflöde med [Azure Logic Apps](../logic-apps/logic-apps-overview.md). I den här artikeln skapar du en logikapp som regelbundet kontrollerar om det finns nya objekt via en webbplats RRS-feed. Om det finns ett nytt objekt skickar logikappen ett e-postmeddelande för vart och ett. När du är klar ser logikappen ut som det här arbetsflödet på en hög nivå:
 
-![Översikt – exempel på logikapp](./media/quickstart-create-first-logic-app-workflow/overview.png)
+![Exempel på högnivås exempel på Logic app-arbetsflöde](./media/quickstart-create-first-logic-app-workflow/quickstart-workflow-overview.png)
 
 Om du vill följa den här snabbstarten måste du ha ett e-postkonto från en provider som stöds av Logic Apps, som Office 365 Outlook, Outlook.com eller Gmail. För andra providrar [läser du listan med anslutningsappar här](https://docs.microsoft.com/connectors/). För den här logikappen används ett Office 365 Outlook-konto. Om du använder något annat e-postkonto är de övergripande stegen desamma, men användargränssnittet kan skilja sig något.
 
@@ -34,13 +34,13 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
 
 ## <a name="create-your-logic-app"></a>Skapa en logikapp
 
-1. Från huvud menyn i Azure väljer du **skapa en** > app för resurs**integrerings** > **logik**.
+1. Från huvud menyn i Azure väljer du **skapa en resurs** > **integrations** > **Logic app**.
 
-   ![Skapa en logikapp](./media/quickstart-create-first-logic-app-workflow/create-logic-app.png)
+   ![Skapa logikapp – Azure-portalen](./media/quickstart-create-first-logic-app-workflow/create-new-logic-app.png)
 
 1. Under **Skapa en logikapp** anger du information om din logikapp så som det visas här. När du är klar väljer du **skapa**.
 
-   ![Tillhandahålla information om logikappar](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
+   ![Ange information om den nya Logic-appen](./media/quickstart-create-first-logic-app-workflow/create-logic-app-settings.png)
 
    | Egenskap | Value | Beskrivning |
    |----------|-------|-------------|
@@ -51,15 +51,15 @@ Logga in på [Azure Portal](https://portal.azure.com) med autentiseringsuppgifte
    | **Log Analytics** | Av | Behåll inställningen **Av** för diagnostisk loggning. |
    ||||
 
-1. När Azure har distribuerat din app går du till Azure-verktygsfältet > och väljer aviseringar**gå till resurs** för din distribuerade Logic-app.
+1. När Azure har distribuerat din app går du till Azure-verktygsfältet och väljer **meddelanden** > **gå till resurs** för din distribuerade Logic-app.
 
-   ![Gå till resurs](./media/quickstart-create-first-logic-app-workflow/go-to-logic-app.png)
+   ![Gå till en nyligen skapad Logic app-resurs](./media/quickstart-create-first-logic-app-workflow/go-to-new-logic-app-resource.png)
 
    Eller så kan du hitta och välja din Logic-app genom att skriva namnet i sökrutan.
 
    Logic Apps Designer öppnas och det visas en sida med en introduktionsvideo och vanliga utlösare. Under **Mallar** väljer du **Tom logikapp**.
 
-   ![Välj Tom Logic app-mall](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
+   ![Välj tom mall för Logic app](./media/quickstart-create-first-logic-app-workflow/choose-logic-app-template.png)
 
 Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) som utlöses när ett nytt RSS-flödesobjekt kommer. Varje logikapp måste börja med en utlösare som utlöses när en specifik händelse sker eller när ett särskilt villkor uppfylls. Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som startar och kör ditt arbetsflöde.
 
@@ -71,15 +71,15 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
 1. Skriv "RSS" i rutan Sök. Välj den här utlösaren i listan utlösare: **När ett flödes objekt publiceras – RSS**
 
-   ![Välj utlösare: ”RSS – När ett flödesobjekt publiceras”](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss.png)
+   ![Välj "när ett feed-objekt publiceras" utlösare](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-new-feed-item.png)
 
 1. Ange den här informationen för utlösaren enligt vad som visas och beskrivs här:
 
-   ![Konfigurera utlösare med RSS-flöde, frekvens och intervall](./media/quickstart-create-first-logic-app-workflow/add-trigger-rss-settings.png)
+   ![Konfigurera utlösare med RSS-flöde, frekvens och intervall](./media/quickstart-create-first-logic-app-workflow/add-rss-trigger-settings.png)
 
    | Egenskap | Value | Beskrivning |
    |----------|-------|-------------|
-   | **RSS-feedens webbadress** | ```http://feeds.reuters.com/reuters/topNews``` | Länken till det RSS-flöde som du vill övervaka |
+   | **RSS-feedens webbadress** | `http://feeds.reuters.com/reuters/topNews` | Länken till det RSS-flöde som du vill övervaka |
    | **Intervall** | 1 | Antalet intervaller som ska förflyta mellan kontrollerna |
    | **Frekvens** | Minut | Tidsenhet för varje intervall mellan kontroller  |
    ||||
@@ -88,7 +88,7 @@ Lägg därefter till en [utlösare](../logic-apps/logic-apps-overview.md#logic-a
 
 1. Om du vill dölja utlösarinformationen för tillfället klickar du in utlösarens rubriklist.
 
-   ![Minimera form för att dölja information](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
+   ![Dölj Logic app-form för att dölja information](./media/quickstart-create-first-logic-app-workflow/collapse-trigger-shape.png)
 
 1. Spara din logikapp. I verktygsfältet designer väljer du **Spara**.
 
@@ -100,13 +100,13 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
 
 1. Under **när ett flödes objekt publiceras** utlösare väljer du **nytt steg**.
 
-   ![Lägga till en åtgärd](./media/quickstart-create-first-logic-app-workflow/add-new-action.png)
+   ![Under utlösare väljer du "nytt steg"](./media/quickstart-create-first-logic-app-workflow/add-new-step-under-trigger.png)
 
 1. Under **Välj en åtgärd** och sökrutan väljer du **alla**.
 
 1. Skriv "Skicka ett e-postmeddelande" i rutan Sök. Välj åtgärden skicka ett e-postmeddelande för den önskade e-postleverantören.
 
-   ![Välj den här åtgärden: ”Office 365 Outlook – Skicka ett e-postmeddelande”](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
+   ![Välj åtgärden "Skicka ett e-postmeddelande" för Office 365 Outlook](./media/quickstart-create-first-logic-app-workflow/add-action-send-email.png)
 
    Om du vill filtrera åtgärdslistan till ett specifikt program eller en tjänst kan du välja det programmet eller den tjänsten först:
 
@@ -123,21 +123,21 @@ Nu lägger du till en [åtgärd](../logic-apps/logic-apps-overview.md#logic-app-
 
    1. I rutan **Ämne** anger du den här texten med ett avslutande blanksteg: ```New RSS item:```
 
-      ![Ange ämne för e-post](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
+      ![I egenskapen "ämne" anger du e-postmeddelandets ämne](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject.png)
 
    1. På listan **Lägg till dynamiskt innehåll** väljer du **Flödesrubrik** för att ta med RSS-objektets titel.
 
-      ![Lista med dynamiskt innehåll – ”Feed-titel”](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
+      ![Från listan med dynamiskt innehåll väljer du egenskapen feed-rubrik](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-subject-dynamic-content.png)
 
       När du är klar ser ämnet ut som i det här exemplet:
 
-      ![Tillagd flödesrubrik](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
+      ![Det färdiga e-postmeddelandets exempel för tillagd feed-rubrik](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-feed-title.png)
 
-      Om en For each-loop (för varje) visas i designern har du valt en token för en matris, till exempel token **categories-item**. För sådana typer av token lägger designern automatiskt till den här loopen omkring åtgärden som refererar till token. På så sätt kan din logikappsåtgärd utföra samma åtgärd på varje element i matrisen. Om du vill ta bort loopen väljer du ellipserna ( **...** ) på loopens namn list och väljer sedan **ta bort**.
+      Om en For each-loop (för varje) visas i designern har du valt en token för en matris, till exempel token **categories-item**. För sådana typer av token lägger designern automatiskt till den här loopen omkring åtgärden som refererar till token. På så sätt kan din logikappsåtgärd utföra samma åtgärd på varje element i matrisen. Om du vill ta bort loopen väljer du **ellipserna** ( **...** ) på loopens namn list och väljer sedan **ta bort**.
 
    1. I **brödtextrutan** anger du texten och väljer dessa token för e-postmeddelandets brödtext. Tryck på Skift + Enter för att lägga till tomma rader i en redigeringsruta.
 
-      ![Lägg till innehåll för e-postmeddelandets brödtext](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
+      ![Välj Egenskaper för innehåll för e-postbrödtext](./media/quickstart-create-first-logic-app-workflow/add-action-send-email-body.png)
 
       | Egenskap | Beskrivning |
       |----------|-------------|
@@ -156,7 +156,7 @@ Om du vill starta din Logic app manuellt går du till verktygsfältet i designer
 
 Här är ett exempel på ett e-postmeddelande som den här logikappen skickar.
 
-![E-postmeddelande skickat för nytt RSS-flödesobjekt](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
+![Exempel på e-postmeddelande som skickas när ett nytt RSS-flöde visas](./media/quickstart-create-first-logic-app-workflow/monitor-rss-feed-email.png)
 
 När utlösaren kontrollerar RSS-flödet och hittar nya objekt utlöses den och Logic Apps-motorn skapar en instans av ditt logikapparbetsflöde som kör åtgärderna i arbetsflödet. Om utlösaren inte hittar nya objekt utlöses den inte, och den ”hoppar över” att instansiera arbetsflödet.
 
@@ -168,11 +168,11 @@ Ta bort resursgruppen som innehåller logikappen och alla relaterade resurser n�
 
 1. Välj **resurs grupper**på huvud menyn i Azure och välj sedan din Logic Apps resurs grupp. I **översikts** fönstret väljer du **ta bort resurs grupp**.
 
-   ![”Resursgrupper” > ”Översikt” > ”Ta bort resursgrupp”](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
+   ![Hitta, markera och ta bort resurs grupp](./media/quickstart-create-first-logic-app-workflow/delete-resource-group.png)
 
 1. Ange resurs gruppens namn som bekräftelse och välj **ta bort**.
 
-   ![Bekräfta borttagning](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+   ![Bekräfta borttagningen genom att välja "ta bort"](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
 
 > [!NOTE]
 > När du tar bort en logikapp instantieras inga nya körningar. Alla pågående och väntande körningar avbryts. Om du har flera tusen körningar kan det ta relativt lång tid att avbryta dem.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb5c82e551ed6299f754f518ebeebca0be4964d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: ca17d049d988b2bc8b60249d99c03f70c555d3fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679305"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023735"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Konfigurera flödet för autentiseringsuppgifter för resurs ägar lösen ord i Azure AD B2C
 
@@ -25,7 +25,7 @@ ROPC-flödet (Resource Owner Password Credential) är ett OAuth-standardautentis
 
 I Azure Active Directory B2C (Azure AD B2C) stöds följande alternativ:
 
-- **Ursprunglig klient**: Användar interaktion under autentisering sker när kod körs på en enhet på användar sidan. Enheten kan vara ett mobilt program som körs i ett inbyggt operativ system, till exempel Android eller som körs i en webbläsare, till exempel Java Script.
+- **Ursprunglig klient**: Användar interaktion under autentisering sker när kod körs på en enhet på användar sidan. Enheten kan vara ett mobilt program som körs i ett inbyggt operativ system, till exempel Android och iOS.
 - **Offentligt klient flöde**: Endast användarautentiseringsuppgifter som samlats in av ett program skickas i API-anropet. Autentiseringsuppgifterna för programmet skickas inte.
 - **Lägg till nya anspråk**: Innehållet i ID-token kan ändras för att lägga till nya anspråk.
 
@@ -58,9 +58,9 @@ Följande flöden stöds inte:
 ## <a name="test-the-user-flow"></a>Testa användar flödet
 
 Använd ditt favorit-API utvecklings program för att generera ett API-anrop och granska svaret för att felsöka ditt användar flöde. Skapa ett anrop som detta med informationen i följande tabell som brödtext i POST-begäran:
-- *Ersätt\<yourtenant. onmicrosoft. com >* med namnet på din B2C-klient.
+- Ersätt *@no__t -1yourtenant. onmicrosoft. com >* med namnet på din B2C-klient.
 - Ersätt *\<B2C_1A_ROPC_Auth >* med det fullständiga namnet på din resurs ägar lösen ords princip för autentiseringsuppgifter.
-- *Ersätt\<bef2222d56-552f-4a5b-b90a-1988a7d634c3->* med program-ID: t från registreringen.
+- Ersätt *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3->* med program-ID: t från registreringen.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 

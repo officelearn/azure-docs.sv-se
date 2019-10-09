@@ -1,44 +1,44 @@
 ---
-title: Skapa Azure Data Factory mappning av dataflöde
-description: Så här skapar du en Azure Data Factory mappning av dataflöde
+title: Skapa Azure Data Factory mappa data flöde
+description: Så här skapar du ett Azure Data Factory mappnings data flöde
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: 366ed60534544ebbf889e2f72fe703f9b821f871
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: d8ebc026add9dfd85d7cbe312a8cfffd3e365f82
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235665"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026874"
 ---
-# <a name="create-azure-data-factory-data-flow"></a>Skapa Azure Data Factory-dataflöde
+# <a name="create-azure-data-factory-data-flow"></a>Skapa Azure Data Factory data flöde
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Mappning av Data som flödar i ADF är ett sätt att omvandla data i stor skala utan kodning krävs. Du kan utforma ett omvandlingsjobb i flödesdesignern data genom att skapa en serie transformationer. Börja med valfritt antal källa transformationer följt av datatransformationssteg. Slutför ditt dataflöde med mottagare att få dina resultat i en destination.
 
-Kom igång genom att först skapa en ny V2 Data Factory från Azure-portalen. När du har skapat din nya datafabrik klickar du på ikonen ”författare och Övervakare” för att starta Användargränssnittet för Data Factory.
+Att mappa data flöden i ADF är ett sätt att omvandla data i skala utan att behöva koda. Du kan utforma ett datatransformerings jobb i data flödes designern genom att skapa en serie transformeringar. Börja med ett valfritt antal käll omvandlingar följt av data omvandlings steg. Fyll sedan i ditt data flöde med mottagare för att få dina resultat i ett mål.
 
-![Alternativ för Flow](media/data-flow/v2portal.png "dataflödet skapa")
+Kom igång genom att först skapa en ny v2-Data Factory från Azure Portal. När du har skapat din nya fabrik klickar du på panelen "skapa & övervakare" för att starta Data Factory användar gränssnittet.
 
-När du använder Användargränssnittet för Data Factory kan använda du exemplet Data flödar. Exemplen är tillgängliga från ADF mallgalleriet. Skapa ”Pipeline från mall” i ADF, och Välj kategorin Data flöda från mallgalleriet.
+Data ![flödes alternativ](media/data-flow/v2portal.png "data flöde skapa")
 
-![Alternativ för Flow](media/data-flow/template.png "dataflödet skapa")
+När du är i Data Factory användar gränssnittet kan du använda exempel data flöden. Exemplen är tillgängliga från galleriet för ADM-mallar. I ADF skapar du "pipeline från mall" och väljer kategorin data flöde från mallgalleriet.
 
-Du uppmanas att ange dina uppgifter för Azure Blob Storage-konto.
+Data ![flödes alternativ](media/data-flow/template.png "data flöde skapa")
 
-![Alternativ för Flow](media/data-flow/template2.png "dataflödet skapa 2")
+Du uppmanas att ange din Azure Blob Storage konto information.
 
-[Data som används för de här exemplen finns här](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Ladda ned exempeldata och lagra filer i din Azure Blob storage-konton så att du kan använda exemplen.
+Data ![flöde alternativ](media/data-flow/template2.png "data flöde skapa 2")
 
-## <a name="create-new-data-flow"></a>Skapa nytt dataflöde
+[De data som används för dessa exempel hittar du här](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Hämta exempel data och lagra filerna i dina Azure Blob Storage-konton så att du kan köra exemplen.
 
-Använd skapa resursen ”plus-tecknet”-knappen i ADF UI att skapa Data flödar.
+## <a name="create-new-data-flow"></a>Skapa nytt data flöde
 
-![Alternativ för Flow](media/data-flow/newresource.png "ny resurs")
+Använd knappen Skapa resurs "plus tecken" i ADF-gränssnittet för att skapa data flöden.
+
+![Data flödes alternativ](media/data-flow/newresource.png "Ny resurs")
 
 ## <a name="next-steps"></a>Nästa steg
 
-Börja skapa din Dataomvandling med en [source omvandling](data-flow-source.md).
+Börja skapa din data omvandling med en [käll omvandling](data-flow-source.md).

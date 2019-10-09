@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8b5479bc7f4e65f23a2e2dcf7deb91742fe50610
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 1d5a29ca7ed4eb23c2e0edd4d39cc2920e779acb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70382494"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025509"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegera registrerings behörigheter för app i Azure Active Directory
 
@@ -61,10 +61,10 @@ I vissa fall inkluderar företags program som skapats från program galleriet b�
 
 ### <a name="to-assign-an-owner-to-an-enterprise-application"></a>Tilldela en ägare till ett företags program
 
-1. Logga in på [din Azure AD-organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) med ett konto som är berättigat till program administratören eller moln program administratören för organisationen.
-1. På [sidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) Appregistreringar för organisationen väljer du en app för att öppna översikts sidan för appen.
-1. Välj **ägare** om du vill se en lista över ägare för appen.
-1. Välj **Lägg till** för att välja en eller flera ägare som ska läggas till i appen.
+1. Logga in på [din Azure AD-organisation](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) with ett konto som är berättigat till program administratören eller moln program administratören för organisationen.
+1. På [Appregistreringar sidan](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/)@no__t – 1for organisationen väljer du en app för att öppna sidan Översikt för appen.
+1. Välj **ägare** om du vill se en lista över ägare för appen.
+1. Välj **Lägg till** för att välja en eller flera ägare som ska läggas till i appen.
 
 > [!IMPORTANT]
 > Användare och tjänstens huvud namn kan vara ägare till program registreringar. Endast användare kan vara ägare till företags program. Grupper kan inte tilldelas som ägare till någon.

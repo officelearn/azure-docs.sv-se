@@ -1,6 +1,6 @@
 ---
-title: Lägg till push-meddelanden i Xamarin.Android-appen | Microsoft Docs
-description: Lär dig hur du använder Azure App Service och Azure Notification Hubs för att skicka push-meddelanden i Xamarin.Android-appen
+title: Lägg till push-meddelanden i din Xamarin. Android-app | Microsoft Docs
+description: Lär dig hur du använder Azure App Service och Azure Notification Hubs för att skicka push-meddelanden till din Xamarin. Android-app
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -14,33 +14,33 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: cff0845b555f25fce438f3389e1f97cda0450bc3
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: f71dc2cde2790f60641462a705a1147b4ace3128
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447132"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027155"
 ---
 # <a name="add-push-notifications-to-your-xamarinandroid-app"></a>Lägg till push-meddelanden i Xamarin.Android-appen
 
 [!INCLUDE [app-service-mobile-selector-get-started-push](../../includes/app-service-mobile-selector-get-started-push.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-push) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 
-I den här självstudien lägger du till push-meddelanden till den [Xamarin.Android snabbstarten](app-service-mobile-windows-store-dotnet-get-started.md) projekt så att ett push-meddelande skickas till enheten varje gång en post infogas.
+I den här självstudien lägger du till push-meddelanden i [snabb starts projektet Xamarin. Android](app-service-mobile-windows-store-dotnet-get-started.md) så att ett push-meddelande skickas till enheten varje gång en post infogas.
 
-Om du inte använder det nedladdade snabbstartsprojektet på en server måste tilläggspaket för push-meddelande. Mer information finns i den [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) guide.
+Om du inte använder det hämtade snabb starts Server projektet behöver du ett tilläggs paket för push-meddelanden. Mer information finns i avsnittet [arbeta med .NET-Server delen Server SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) guide.
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-Den här självstudien kräver installationen:
+I den här självstudien krävs installationen:
 
-* Ett aktivt Google-konto. Du kan registrera dig för ett Google-konto på [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
-* [Google Cloud Messaging-klientkomponent](https://components.xamarin.com/view/GCMClient/).
+* Ett aktivt Google-konto. Du kan registrera dig för ett Google-konto på [accounts.Google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302).
+* [Google Cloud messaging klient komponent](https://components.xamarin.com/view/GCMClient/).
 
 ## <a name="configure-hub"></a>Konfigurera en Notification Hub
 
@@ -54,31 +54,31 @@ Den här självstudien kräver installationen:
 
 [!INCLUDE [app-service-mobile-android-configure-push](../../includes/app-service-mobile-android-configure-push-for-firebase.md)]
 
-## <a id="update-server"></a>Uppdatera serverprojektet för att skicka push-meddelanden
+## <a id="update-server"></a>Uppdatera Server projektet för att skicka push-meddelanden
 
 [!INCLUDE [app-service-mobile-update-server-project-for-push-template](../../includes/app-service-mobile-update-server-project-for-push-template.md)]
 
-## <a id="configure-app"></a>Konfigurera klientprojektet för push-meddelanden
+## <a id="configure-app"></a>Konfigurera klient projektet för push-meddelanden
 
 [!INCLUDE [mobile-services-xamarin-android-push-configure-project](../../includes/mobile-services-xamarin-android-push-configure-project.md)]
 
-## <a id="add-push"></a>Lägg till kod för push-meddelanden till din app
+## <a id="add-push"></a>Lägg till kod för push-meddelanden i din app
 
 [!INCLUDE [app-service-mobile-xamarin-android-push-add-to-app](../../includes/app-service-mobile-xamarin-android-push-add-to-app.md)]
 
-## <a name="test"></a>Test-push-meddelanden i din app
+## <a name="test"></a>Testa push-meddelanden i din app
 
-Du kan testa appen med hjälp av en virtuell enhet i emulatorn. Det finns ytterligare konfigurationssteg som krävs vid körning på en emulator.
+Du kan testa appen genom att använda en virtuell enhet i emulatorn. Det krävs ytterligare konfigurations steg när du kör på en emulator.
 
-1. Den virtuella enheten måste ha Google APIs som mål i hanteraren för Android Virtual Device (AVD).
+1. Den virtuella enheten måste ha Google-API: er angivna som mål i Android Virtual Device (AVD) Manager.
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/google-apis-avd-settings.png)
 
-2. Lägg till ett Google-konto till Android-enhet genom att klicka på **appar** > **inställningar** > **Lägg till konto**, följer sedan anvisningarna.
+2. Lägg till ett Google-konto till Android-enheten genom att klicka på **appar** > **Inställningar** > **Lägg till konto**och följ sedan anvisningarna.
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/add-google-account.png)
 
-3. Kör appen todolist som innan och infoga en ny att göra-objekt. Den här tiden kan visas en meddelandeikon i meddelandefältet. Du kan öppna lådan meddelande om du vill visa den fullständiga texten i meddelandet.
+3. Kör ToDoList-appen som tidigare och infoga ett nytt att göra-objekt. Den här gången visas en meddelande ikon i meddelande fältet. Du kan öppna meddelande lådan för att visa all meddelande text.
 
     ![](./media/app-service-mobile-xamarin-android-get-started-push/android-notifications.png)
 

@@ -1,0 +1,182 @@
+---
+title: Förbereda ett våren-program för distribution i Azure våren Cloud | Microsoft Docs
+description: I den här snabb starten förbereder du ett Java våren-program för distribution.
+services: spring-cloud
+author: v-vasuke
+manager: jeconnoc
+editor: ''
+ms.service: spring-cloud
+ms.topic: quickstart
+ms.date: 10/06/2019
+ms.author: v-vasuke
+ms.openlocfilehash: 98d9f3f656cff84cec8d223ed535255157155bd2
+ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72039009"
+---
+# <a name="tutorial-prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Självstudier: Förbereda ett Java våren-program för distribution i Azure våren Cloud
+
+Den här snabb starten visar hur du förbereder ett befintligt Java våren Cloud-program för distribution till Azure våren Cloud.  Azure våren Cloud har kon figurer ATS korrekt och ger robusta tjänster för att övervaka, skala och uppdatera ditt våren Cloud-program. 
+
+## <a name="java-runtime-version"></a>Java Runtime-version
+
+Endast våren/Java-program kan köras i Azure våren-molnet.
+
+Både Java 8 och Java 11 stöds. Värd miljön innehåller den senaste Azul Zulu-OpenJDK för Azure. Mer information om Azul Zulu-OpenJDK för Azure hittar du i [den här artikeln](https://docs.microsoft.com/azure/java/jdk/java-jdk-install) . 
+
+## <a name="spring-boot-and-spring-cloud-versions"></a>Moln versioner för våren start och våren
+
+Endast våren Boot-appar stöds i Azure våren-molnet. Både våren boot 2,0 och 2,1 stöds. De kombinationer av fjäder och våren som stöds finns i tabellen nedan.
+
+Start version för våren | Våren Cloud-version
+---|---
+2.0. x | Finchley. RELEASE
+2.1. x | Greenwich. RELEASE
+
+Kontrol lera att din `pom.xml`-fil har moln beroenden våren start och våren som baseras på din version.
+
+### <a name="version-20"></a>Version 2,0:
+
+```xml
+    <!-- Spring Boot dependencies -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.0.9.RELEASE</version>
+    </parent>
+
+    <!-- Spring Cloud dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Finchley.SR4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
+
+### <a name="version-21"></a>Version 2,1:
+
+```xml
+    <!-- Spring Boot dependencies -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.8.RELEASE</version>
+    </parent>
+
+    <!-- Spring Cloud dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Greenwich.SR3</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
+
+## <a name="azure-spring-cloud-client-dependency"></a>Klient beroende för Azure våren Cloud
+
+Azure våren-moln är värdar för och hanterar fjäder moln komponenter åt dig, till exempel Registry-molnet och vår moln konfigurations Server. Ta med klient biblioteket Azure våren Cloud i dina beroenden för att tillåta kommunikation med din Azure våren Cloud Service-instans.
+
+I tabellen nedan visas rätt versioner för din våren Boot/våren Cloud-App.
+
+Start version för våren | Våren Cloud-version | Azure våren Cloud-version
+---|---|---
+2.0. x | Finchley. RELEASE | 2.0.0 – ÖGONBLICKS BILD
+2.1. x | Greenwich. RELEASE | 2.1.0 – ÖGONBLICKS BILD
+
+Ta med det här kodfragmentet i din `pom.xml` med rätt Azure våren Cloud-version i "beroende":
+
+```xml
+    <repositories>
+        <repository>
+            <id>nexus-snapshots</id>
+            <url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+    
+    <dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.1.0-SNAPSHOT</version>
+    </dependency>
+```
+
+## <a name="other-required-dependencies"></a>Andra nödvändiga beroenden
+
+För att aktivera de inbyggda funktionerna i Azure våren Cloud måste ditt program innehålla följande beroenden. På så sätt ser du till att programmet konfigurerar sig korrekt med varje komponent.  
+
+### <a name="service-registry"></a>Tjänst register
+
+Om du vill använda den hanterade tjänsten för Azure-tjänsten ska du inkludera `spring-cloud-starter-netflix-eureka-client` i `POM.xml` som visas nedan.
+
+Slut punkten för tjänst registrerings servern matas automatiskt in som miljövariabler med din app. Program kommer att kunna registrera sig själva med tjänstens register Server och identifiera andra beroende mikrotjänster.
+
+```xml
+    <dependency>
+        <groupId>org.springframework.cloud</groupId>
+        <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+    </dependency>
+```
+
+### <a name="distributed-configuration"></a>Distribuerad konfiguration
+
+Om du vill aktivera distribuerad konfiguration inkluderar du `spring-cloud-config-client` i avsnittet beroenden i `pom.xml`.
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-config-client</artifactId>
+</dependency>
+```
+
+> [!WARNING]
+> Ange inte `spring.cloud.config.enabled=false` i bootstrap-konfiguration eftersom det hindrar programmet från att fungera med konfigurations servern.
+
+### <a name="metrics"></a>Mått
+
+Inkludera `spring-boot-starter-actuator` i avsnittet beroenden i din Pom. xml. Måtten kommer att hämtas regelbundet från JMX-slutpunkterna och kan visualiseras med hjälp av Azure Portal.
+
+```xml
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+```
+
+### <a name="distributed-tracing"></a>Distribuerad spårning
+
+Inkludera `spring-cloud-starter-sleuth` och `spring-cloud-starter-zipkin` i avsnittet beroenden i Pom. XML enligt nedan. Du måste också aktivera en Azure App insikts-instans för att arbeta med din Azure våren Cloud Service-instans. Läs mer om hur du aktiverar App Insights med Azure våren Cloud [här](spring-cloud-tutorial-distributed-tracing.md)
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-sleuth</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-zipkin</artifactId>
+</dependency>
+```
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här självstudien har du lärt dig hur du konfigurerar ditt Java våren-program för distribution till Azure våren Cloud.  Fortsätt till nästa självstudie om du vill lära dig hur du aktiverar konfigurations servern.
+
+> [!div class="nextstepaction"]
+> [Lär dig hur du konfigurerar konfigurations servern](spring-cloud-tutorial-config-server.md).
+

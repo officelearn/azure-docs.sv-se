@@ -1,38 +1,38 @@
 ---
-title: Azure Data Factory mappning Dataomvandling Flow sortera
-description: Azure Data Factory mappning sortera Dataomvandling
+title: Azure Data Factory mappa data flödes sorterings omvandling
+description: Azure Data Factory mappa data sorterings omvandling
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: d0482d1081c16dc89e7371c4c33de9b2bb4e4c2e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f9d2699c870de21daea9ce421c79f089c04b99fa
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348388"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029117"
 ---
-# <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory Data Flow sortera omvandlingar
+# <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory sorterings omvandlingar för data flöde
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Sortera inställningar](media/data-flow/sort.png "sortera")
 
-Sortera transformeringen kan du sortera inkommande rader på aktuella data i dataströmmen. Utgående raderna från sortera transformeringen följer därefter de skrivordning regler som du anger. Du kan välja enskilda kolumner och sortera dem ASC eller DEC, med hjälp av indikatorn för pilen bredvid respektive fält. Om du behöver ändra kolumnen innan du tillämpar sorteringen, klicka på ”beräknade kolumner” för att starta uttrycksredigeraren. Detta ger möjlighet att skapa ett uttryck för sorteringsåtgärden i stället för bara tillämpas en kolumn för sorteringen.
+Sorterings ![Inställningar](media/data-flow/sort.png "Sortera")
+
+Med sorterings omvandlingen kan du sortera inkommande rader i den aktuella data strömmen. Utgående rader från sorterings omvandlingen kommer sedan att följa de ordnings regler som du har angett. Du kan välja enskilda kolumner och sortera dem med hjälp av pilen med pilen bredvid respektive fält. Om du behöver ändra kolumnen innan du tillämpar sorteringen klickar du på beräknade kolumner för att starta uttrycks redigeraren. Detta ger möjlighet att skapa ett uttryck för sorterings åtgärden i stället för att helt enkelt använda en kolumn för sorteringen.
 
 ## <a name="case-insensitive"></a>Skiftlägesokänsligt
-Du kan aktivera ”skiftlägeskänsligt” om du vill ignorera skiftläge vid sortering sträng eller text fält.
+Du kan aktivera "Skift läges okänslig" om du vill ignorera Skift läge vid sortering av sträng-eller textfält.
 
-”Sortera endast inom partitioner” utnyttjar Spark Datapartitionering. Om du sorterar inkommande data endast inom varje partition sortera Data flödar partitionerade data i stället för att sortera hela dataströmmen.
+"Sortera endast inom partitioner" utnyttjar Spark-datapartitionering. Genom att bara sortera inkommande data inom varje partition kan data flöden sortera partitionerade data i stället för att sortera hela data strömmen.
 
-Sortera villkor omvandling sortera kan skrivas om. Så om du behöver flytta en kolumn som är högre upp i sortera prioritet, hämta den raden med musen och flytta den högre eller lägre i listan över sortering.
+Vart och ett av sorterings villkoren i sortera-omvandlingen kan ordnas om. Så om du behöver flytta en kolumn högre upp i sorterings prioriteten tar du bort raden med musen och flyttar den högre eller lägre i sorterings listan.
 
-Partitionering inverkan på Sortera
+Partitionerings effekter vid sortering
 
-Dataflöde för ADF körs på stordata Spark-kluster med data fördelade över flera noder och partitioner. Det är viktigt att ha detta i åtanke när utforma ditt dataflöde om du är beroende av sortera transformeringen att behålla data i den ordningen. Om du vill partitionera om dina data i en efterföljande omvandling kan du förlora sortering på grund av att reshuffling av data.
+ADF-dataflödet körs på Big data Spark-kluster med data som distribueras över flera noder och partitioner. Det är viktigt att tänka på detta när du skapar ditt data flöde om du är beroende av sorteringen för att bevara data i samma ordning. Om du väljer att partitionera om dina data i en efterföljande omvandling kan du förlora din sortering på grund av den reshuffling av data.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Efter sortering, kanske du vill använda den [sammanställd omvandling](data-flow-aggregate.md)
+Efter sorteringen kanske du vill använda den [sammanställda omvandlingen](data-flow-aggregate.md)

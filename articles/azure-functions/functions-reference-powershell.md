@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6cf03d1269cac5dcfa67c2d4778be3fce9ee63aa
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 9163f2b7943a8022b88b2ed514f4a466e61a8d98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973374"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029014"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell-guide för utvecklare
 
@@ -434,6 +434,9 @@ Följande inställningar är tillgängliga för att ändra hur de hanterade bero
 | MDMaxBackgroundUpgradePeriod      | "7.00:00:00" (7 dagar)     | Varje PS-anställd initierar sökning efter modul uppgraderingar i PS-galleriet om arbets process start och varje MDMaxBackgroundUpgradePeriod efter det. Om nya versioner av modulen är tillgängliga i PS-galleriet, kommer de att installeras till fil systemet som är tillgängligt för PS-arbetare. Om du minskar det här värdet kan din Function-app Hämta nyare modul versioner tidigare, men kommer även att öka resursanvändningen för appar (nätverks-I/O, CPU, lagring). Om du ökar det här värdet minskas användningen av resurs resursen, men det kan också dröja att leverera nya modul versioner till din app.      | 
 | MDNewSnapshotCheckPeriod          | "01:00:00" (1 timme)       | Varje PS Worker måste startas om efter att de nya modulerna har installerats i fil systemet. Att starta om PS Worker kan påverka appens tillgänglighet eftersom det kan avbryta aktuella funktions anrop. Till dess att alla PS-arbetstagarna har startats om kan funktions anrop använda antingen den gamla versionen eller den nya versionen av modulen. Omstart av alla PS-arbetare kommer att slutföras inom MDNewSnapshotCheckPeriod. Om du ökar det här värdet minskas frekvensen för avbrott, men det kan också öka tids perioden när funktions anropen använder antingen den gamla eller den nya modulens versioner icke-deterministiskt. |
 | MDMinBackgroundUpgradePeriod      | "1,00:00:00" (1 dag)     | För att undvika alltför stora modul uppgraderingar vid frekventa arbets starter, utförs ingen sökning efter modul uppgraderingar om en anställd redan har initierat den senaste MDMinBackgroundUpgradePeriod. |
+
+> [!NOTE]
+> Hanterade beroenden är beroende av åtkomst till www.powershellgallery.com för att hämta moduler. Du måste se till att funktions körningen har åtkomst till denna URL genom att lägga till eventuella nödvändiga brand Väggs regler.
 
 Att dra nytta av dina egna anpassade moduler är lite annorlunda än hur du gör det normalt.
 

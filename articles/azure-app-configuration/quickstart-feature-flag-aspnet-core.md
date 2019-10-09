@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
 ms.date: 04/19/2019
 ms.author: yegu
-ms.openlocfilehash: 6f9094a52ff3558fa8d1f2fee1d80ed8eb09a416
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: d7a9f365c9e2b6039451375f4ad50a7ce04cdd5b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076329"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029729"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>Snabbstart: Lägga till funktions flaggor i en ASP.NET Core app
 
@@ -51,7 +51,7 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 1. I den nya mappen kör du följande kommando för att skapa ett nytt ASP.NET Core MVC-webbprogram-projekt:
 
    ```    
-   dotnet new mvc
+   dotnet new mvc --no-https
    ```
 
 ## <a name="add-secret-manager"></a>Lägga till Secret Manager
@@ -59,7 +59,7 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) i projektet. Verktyget Secret Manager lagrar känsliga data för utvecklings arbete utanför projekt trädet. Den här metoden hjälper till att förhindra oavsiktlig delning av apphemligheter i källkoden.
 
 1. Öppna *. CSPROJ* -filen.
-1. Lägg till `UserSecretsId` ett-element som det visas i följande exempel och Ersätt värdet med ditt eget, vilket vanligt vis är ett GUID:
+1. Lägg till ett `UserSecretsId`-element som visas i följande exempel och Ersätt värdet med ditt eget, vilket vanligt vis är ett GUID:
 
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
@@ -81,7 +81,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
-1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore` `Microsoft.FeatureManagement.AspNetCore` NuGet-paketen genom att köra följande kommandon:
+1. Lägg till referens till `Microsoft.Azure.AppConfiguration.AspNetCore`-och `Microsoft.FeatureManagement.AspNetCore`-NuGet-paketen genom att köra följande kommandon:
 
     ```
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
@@ -96,7 +96,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 1. Lägg till en hemlighet med namnet **ConnectionStrings:AppConfig** i Secret Manager.
 
-    Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. `<your_connection_string>` Ersätt värdet i följande kommando med anslutnings strängen för appens konfigurations arkiv.
+    Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. Ersätt värdet `<your_connection_string>` i följande kommando med anslutnings strängen för appens konfigurations arkiv.
 
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
@@ -114,7 +114,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     using Microsoft.Extensions.Configuration.AzureAppConfiguration;
     ```
 
-1. Uppdatera metoden för att använda app-konfiguration genom att `config.AddAzureAppConfiguration()` anropa-metoden. `CreateWebHostBuilder`
+1. Uppdatera metoden `CreateWebHostBuilder` för att använda app-konfiguration genom att anropa metoden `config.AddAzureAppConfiguration()`.
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -136,7 +136,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     using Microsoft.FeatureManagement;
     ```
 
-1. Uppdatera metoden för att lägga till stöd för funktions flaggor genom `services.AddFeatureManagement()` att anropa metoden. `ConfigureServices` Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:
+1. Uppdatera metoden `ConfigureServices` om du vill lägga till stöd för funktions flaggor genom att anropa metoden `services.AddFeatureManagement()`. Du kan också ta med alla filter som ska användas med funktions flaggor genom att anropa `services.AddFeatureFilter<FilterType>()`:
 
     ```csharp
     public void ConfigureServices(IServiceCollection services)
@@ -145,7 +145,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     }
     ```
 
-1. `Configure` Uppdatera metoden för att lägga till ett mellanprogram så att funktions flagg värden kan uppdateras vid ett återkommande intervall medan ASP.net Core webbappen fortsätter att ta emot begär Anden.
+1. Uppdatera metoden `Configure` om du vill lägga till ett mellanprogram så att funktions flagg värden kan uppdateras vid ett återkommande intervall medan ASP.NET Core webbappen fortsätter att ta emot begär Anden.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -200,7 +200,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     @addTagHelper *, Microsoft.FeatureManagement.AspNetCore
     ```
 
-1. Öppna *_Layout. cshtml* i den*delade* `<nav>` katalogen för *vyer*\\och ersätt streckkoden `<header>` under `<body>`  >  med följande kod:
+1. Öppna *_Layout. cshtml* i *vyerna*\\*delade* katalogen och ersätt `<nav>`-streckkoden under `<body>` @ no__t-6 @ no__t-7 med följande kod:
 
     ```html
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
@@ -267,7 +267,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
     |---|---|
     | Beta | På |
 
-1. Starta om programmet genom att växla tillbaka till kommando tolken och `Ctrl-C` fortsätta att köra `dotnet` processen genom att klicka på kör `dotnet run`igen.
+1. Starta om programmet genom att växla tillbaka till kommando tolken och trycka på `Ctrl-C` om du vill avbryta körningen `dotnet` och sedan köra `dotnet run` igen.
 
 1. Uppdatera webbläsarsidan för att visa de nya konfigurationsinställningarna.
 
@@ -279,7 +279,7 @@ Lägg till [verktyget Secret Manager](https://docs.microsoft.com/aspnet/core/sec
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det för att hantera funktioner i en ASP.NET Core-webbapp via biblioteken för [funktions hantering](https://go.microsoft.com/fwlink/?linkid=2074664).
+I den här snabb starten har du skapat ett nytt konfigurations Arkiv för appar och använt det för att hantera funktioner i en ASP.NET Core-webbapp via [biblioteken för funktions hantering](https://go.microsoft.com/fwlink/?linkid=2074664).
 
 - Läs mer om [funktions hantering](./concept-feature-management.md).
 - [Hantera funktions flaggor](./manage-feature-flags.md).

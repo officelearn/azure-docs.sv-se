@@ -1,24 +1,24 @@
 ---
-title: Dynamics 365 for Operations hjälpa Wiki
-description: Dynamics 365 för åtgärder att Wiki på sidan med information
+title: Dynamics 365 for Operations hjälp wiki
+description: Inaktuell artikel och länkad till PC-artikel; var "Dynamics 365 for Operations hjälp wiki-informations sida"
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: d957055a3545d790b9419ed1523352155ecc3add
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: cf21f0aa42eef089d02632ba9323574768459054
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64935184"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034414"
 ---
-# <a name="dynamics-365-for-operations-help-wiki"></a>Dynamics 365 for Operations hjälpa Wiki
+# <a name="dynamics-365-for-operations-help-wiki"></a>Dynamics 365 for Operations hjälp wiki
 
-Microsoft Dynamics 365 for Operations är Microsoft\'s affärsprogram för företag. När du gör det möjligt att snabbt fatta smartare beslut via ett intelligent användargränssnitt som ger åtkomst till information i realtid och data. Det gör det möjligt för företag att omvandla och utveckla genom att tillhandahålla beprövade affärslogik som gör att de kan ändra sina affärsprocesser snabbare. Det ger företag möjlighet att växa i egen takt och göra affärer nästan var som helst, när som helst, så att de kan skala sin verksamhet globalt för att uppfylla företagets behov.
+Microsoft Dynamics 365 for Operations är Microsofts affärs program för företag. Det gör det möjligt för användare att snabbt fatta smartare beslut genom ett intelligent användar gränssnitt som ger åtkomst till insikter och data i real tid. Det gör det möjligt för företag att transformera och förnya genom att leverera beprövad affärs logik som gör det möjligt för dem att utforma om sina affärs processer snabbare. Det ger företag flexibiliteten att växa i sin egen takt och gör verksamheten nästan överallt, när som helst, så att de kan skala sina åtgärder globalt för att uppfylla affärs behoven.
 
-Den här användarhandboken kan hjälpa dig att lära dig hur Dynamics 365 för åtgärder som passar din verksamhet.
+Den här användar handboken kan hjälpa dig att lära dig hur du gör Dynamics 365 för drift för ditt företag.
 
-Se [Dynamics 365 för åtgärder att Wiki](https://docs.microsoft.com/dynamics365/operations/) för mer information.
+Mer information finns i [Dynamics 365 for Operations Help wiki](https://docs.microsoft.com/dynamics365/operations/) .

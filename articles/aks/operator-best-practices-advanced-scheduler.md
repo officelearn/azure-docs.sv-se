@@ -1,50 +1,50 @@
 ---
-title: Metodtips för operatorn – avancerade scheduler funktioner i Azure Kubernetes Services (AKS)
-description: Läs kluster operatorn metodtipsen för att använda avancerade scheduler-funktioner som taints och tolerations, noden väljare och tillhörighet, eller mellan pod tillhörighet och anti-tillhörighet i Azure Kubernetes Service (AKS)
+title: Bästa praxis för Operator – avancerade Scheduler-funktioner i Azure Kubernetes Services (AKS)
+description: Lär dig metod tipsen för kluster operatorn för att använda avancerade Scheduler-funktioner som till exempel för-och-förfalskningar, Node-väljare och tillhörighet, eller mellan Pod tillhörighet och anti-tillhörighet i Azure Kubernetes service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 4caa4219d2bf7558dbdf71e92e4993722c6e8f6a
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: a31f839b4bad79a52f5cab386d17e3084314784b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614882"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026107"
 ---
-# <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metodtips för avancerade scheduler funktioner i Azure Kubernetes Service (AKS)
+# <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Metod tips för avancerade Scheduler-funktioner i Azure Kubernetes service (AKS)
 
-Du hanterar kluster i Azure Kubernetes Service (AKS) bör behöva du ofta isolera team och arbetsbelastningar. Scheduler Kubernetes tillhandahåller avancerade funktioner som låter dig styra vilka poddar kan schemaläggas på vissa noder eller hur flera pod program på rätt sätt kan distribueras i klustret. 
+När du hanterar kluster i Azure Kubernetes service (AKS) behöver du ofta isolera team och arbets belastningar. Kubernetes Scheduler innehåller avancerade funktioner som gör att du kan styra vilka poddar som kan schemaläggas på vissa noder, eller hur program med flera Pod kan distribueras på lämpligt sätt i klustret. 
 
-Den här bästa praxis-artikeln fokuserar på avancerade Kubernetes schemaläggningsfunktioner för klusteroperatörer. I den här artikeln kan du se hur du:
+I den här artikeln fokuserar vi på avancerade funktioner för Kubernetes-schemaläggning för kluster operatörer. I den här artikeln kan du se hur du:
 
 > [!div class="checklist"]
-> * Använd taints och tolerations att begränsa vilka poddar kan schemaläggas på noder
-> * Prioritera poddar ska köras på vissa noder med noden väljare eller nodtillhörighet
-> * Dela upp eller gruppen tillsammans poddar med mellan pod tillhörighet eller anti-tillhörighet
+> * Använd bismakar och tolererar för att begränsa vilka poddar som kan schemaläggas på noder
+> * Ange att poddar ska köras på vissa noder med Node Selector eller Node tillhörighet
+> * Dela upp eller gruppera ihop poddar med interpod tillhörighet eller anti-tillhörighet
 
-## <a name="provide-dedicated-nodes-using-taints-and-tolerations"></a>Ange dedikerade noder med taints och tolerations
+## <a name="provide-dedicated-nodes-using-taints-and-tolerations"></a>Tillhandahålla dedikerade noder med hjälp av utsmakar och tolererande
 
-**Bästa praxis riktlinjer** – begränsa åtkomsten för resurs-intensiva program, till exempel ingress-styrenheter till specifika noder. Håll nod-resurser som är tillgängliga för arbetsbelastningar som kräver dem och Tillåt inte schemaläggning av andra arbetsbelastningar på noderna.
+**Vägledning för bästa praxis** – begränsa åtkomsten för resurs intensiva program, till exempel ingångs styrenheter, till vissa noder. Se till att Node-resurserna är tillgängliga för arbets belastningar som kräver dem, och Tillåt inte schemaläggning av andra arbets belastningar på noderna.
 
-När du skapar AKS-kluster kan du distribuera noder med GPU-stöd eller ett stort antal kraftfulla processorer. Dessa noder används ofta för bearbetning av stora arbetsbelastningar som machine learning-(ML) eller artificiell intelligens (AI). Eftersom den här typen av maskinvara är vanligtvis en dyr noden resurs att distribuera, begränsa de arbetsbelastningar som kan schemaläggas på noderna. Du kan i stället välja att dedikera vissa noder i klustret för att köra ingress-tjänster och förhindra att andra arbetsbelastningar.
+När du skapar ditt AKS-kluster kan du distribuera noder med GPU-stöd eller ett stort antal kraftfulla processorer. Dessa noder används ofta för stora data bearbetnings arbets belastningar som Machine Learning (ML) eller artificiell intelligens (AI). Eftersom den här typen av maskin vara vanligt vis är en dyr resurs som du kan distribuera, begränsar du arbets belastningarna som kan schemaläggas på dessa noder. Du kanske vill tilldela vissa noder i klustret för att köra ingress-tjänster och förhindra andra arbets belastningar.
 
-Det här stödet för olika noder tillhandahålls med hjälp av flera nodpooler. Ett AKS-kluster innehåller en eller flera nodpooler. Stöd för flera nodpooler i AKS förhandsvisas just nu.
+Detta stöd för olika noder tillhandahålls genom att använda flera noder i pooler. Ett AKS-kluster innehåller en eller flera noder i en pool. Stöd för flera Node-pooler i AKS är för närvarande en för hands version.
 
-Kubernetes-Schemaläggaren kan använda taints och tolerations för att begränsa vilka arbetsbelastningar kan köras på noder.
+Kubernetes Scheduler kan använda utsmakar och tolereras för att begränsa vilka arbets belastningar som kan köras på noder.
 
-* En **förorena** tillämpas på en nod som anger att endast specifika poddar kan schemaläggas på dem.
-* En **toleration** sedan appliceras till en pod som låter dem *tolerera* färg för en nod.
+* En **bismak** tillämpas på en nod som endast anger att vissa poddar kan schemaläggas på dem.
+* En **tolererande** tillämpas sedan på en pod som gör det möjligt för dem att *tolerera* en nods smak.
 
-När du distribuerar en pod till ett AKS-kluster, schemalägger Kubernetes endast poddar på noder där en toleration justeras med färg. Anta att du har en nodpool i AKS-kluster för noder med GPU stöder till exempel. Du kan definiera namn, till exempel *gpu*, sedan ett värde för schemaläggning. Om det här värdet anges till *NoSchedule*, Kubernetes-Schemaläggaren kan inte schemalägga poddar på noden om poden inte definierar lämpliga toleration.
+När du distribuerar en POD till ett AKS-kluster kan Kubernetes bara schemalägga poddar på noder där en tolererad av bismaken är justerad. Anta till exempel att du har en Node-pool i ditt AKS-kluster för noder med GPU-stöd. Du definierar namn, till exempel *GPU*, och sedan ett värde för schemaläggning. Om du ställer in det här värdet på *noschema*kan Kubernetes Scheduler inte schemalägga poddar på noden om Pod inte definierar lämplig tolerera.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
 ```
 
-Med en färg som tillämpas på noderna, därefter anger du en toleration i pod-specifikationen som tillåter schemaläggning på noderna. Följande exempel definierar den `sku: gpu` och `effect: NoSchedule` ska kunna hanteras den färg som tillämpas på noden i föregående steg:
+Med en-smak som tillämpas på noderna definierar du sedan en tolerera i pod-specifikationen som tillåter schemaläggning på noderna. I följande exempel definieras `sku: gpu` och `effect: NoSchedule` för att tolerera den smak som tillämpas på noden i föregående steg:
 
 ```yaml
 kind: Pod
@@ -69,44 +69,44 @@ spec:
     effect: "NoSchedule"
 ```
 
-Om den här pod distribueras, till exempel med `kubectl apply -f gpu-toleration.yaml`, Kubernetes har schemalägga pod på noderna med den färg som används. Den här logisk isolering kan du styra åtkomsten till resurser i ett kluster.
+När den här Pod distribueras, t. ex. genom att använda `kubectl apply -f gpu-toleration.yaml`, kan Kubernetes schemalägga Pod på noderna med den använda bismaken. Med den här logiska isoleringen kan du kontrol lera åtkomsten till resurser i ett kluster.
 
-När du tillämpar taints arbeta med programutvecklare och ägare och låt dem att definiera nödvändiga tolerations i sina distributioner.
+När du använder smakarna arbetar du med dina programutvecklare och ägare för att tillåta dem att definiera de nödvändiga tolererarna i sina distributioner.
 
-Läs mer om taints och tolerations [tillämpa taints och tolerations][k8s-taints-tolerations].
+Mer information om bismaker och tolererande finns i [använda bismakar och tolererande][k8s-taints-tolerations].
 
-Läs mer om hur du använder flera nodpooler i AKS [skapa och hantera flera nodpooler för ett kluster i AKS][use-multiple-node-pools].
+Mer information om hur du använder flera Node-pooler i AKS finns i [skapa och hantera flera noder för ett kluster i AKS][use-multiple-node-pools].
 
-### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Beteendet för taints och tolerations i AKS
+### <a name="behavior-of-taints-and-tolerations-in-aks"></a>Beteende för bismaker och tolererar i AKS
 
-När du uppgraderar en nodpool i AKS följer taints och tolerations ett set-mönster som de har kopplats till nya noder:
+När du uppgraderar en Node-pool i AKS följer smakarna och tolererarna ett uppsättnings mönster som de tillämpas på nya noder:
 
-- **Standard-kluster utan stöd för skalning av virtuella datorer**
-  - Vi antar att du har ett tvånods-kluster – *node1* och *nod2*. När du uppgraderar, en ny nod (*Nod3*) har skapats.
-  - Taints från *node1* tillämpas på *Nod3*, sedan *Nod1* tas sedan bort.
-  - En annan nya noder har skapats (med namnet *node1*, eftersom den tidigare *Nod1* har tagits bort), och *nod2* taints tillämpas på den nya *Nod1*. Sedan *nod2* tas bort.
-  - I princip *node1* blir *Nod3*, och *node2* blir *Nod1*.
+- **Standard kluster utan skalnings stöd för virtuella datorer**
+  - Vi antar att du har ett kluster med två noder, *Nod1* och *NOD2*. När du uppgraderar skapas en ytterligare nod (*nod3*).
+  - De bismakerna från *Nod1* tillämpas på *nod3*. därefter raderas *Nod1* .
+  - En annan ny nod skapas (med namnet *Nod1*, eftersom den tidigare *Nod1* togs bort) och *NOD2* -smakarna tillämpas på den nya *Nod1*. Sedan tas *NOD2* bort.
+  - I själva verket *Nod1* blir *nod3*och *NOD2* blir *Nod1*.
 
-- **Kluster som använder VM-skalningsuppsättningar** (för närvarande i förhandsversion i AKS)
-  - Igen, vi antar att du har ett tvånods-kluster – *node1* och *nod2*. Uppgradering av nodpoolen.
-  - Två ytterligare noder har skapats, *Nod3* och *nod4*, och taints skickas respektive.
-  - Ursprungligt *node1* och *nod2* tas bort.
+- **Kluster som använder skalnings uppsättningar för virtuella datorer**
+  - Nu antar vi att du har ett kluster med två noder, *Nod1* och *NOD2*. Du uppgraderar Node-poolen.
+  - Två ytterligare noder skapas, *nod3* och *nod4*och smakarna skickas på respektive.
+  - De ursprungliga *Nod1* och *NOD2* tas bort.
 
-När du skalar en nodpool i AKS överför inte taints och tolerations över av design.
+När du skalar en Node-pool i AKS överförs inte smakarna och tolererarna genom design.
 
-## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Kontrollen pod schemaläggning med hjälp av noden väljare och tillhörighet
+## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Styr Pod-schemaläggning med hjälp av Node-väljare och tillhörighet
 
-**Bästa praxis riktlinjer** – styra schemaläggning av poddar på noder med hjälp av noden väljare, nodtillhörighet, eller kommunikation mellan pod tillhörighet. De här inställningarna gör det möjligt för Kubernetes-Schemaläggaren för att isolera logiskt arbetsbelastningar, till exempel av maskinvara i noden.
+**Vägledning för bästa praxis** – styr schemaläggningen av poddar på noder med hjälp av Node-väljare, tillhörigheter för noder eller mellan-Pod tillhörighet. De här inställningarna gör det möjligt för Kubernetes Scheduler att logiskt isolera arbets belastningar, t. ex. efter maskin vara i noden.
 
-Taints och tolerations används för att logiskt isolera resurser med en hård avklippt – om en pod inte tolerera fel på en nod färg, den är inte schemalagd på noden. En annan metod är att använda noden väljare. Du märka noder, som att ange lokalt anslutna SSD-lagring eller en stor mängd minne och sedan definiera i pod-specifikationen en nod-väljare. Kubernetes schemalägger sedan dessa poddar på en matchande nod. Till skillnad från tolerations, kan du schemalägga poddar utan en matchande noden väljare på märkta noder. Detta gör att oanvända resurser på noder för att använda, men ger prioritet till poddar som definierar matchande noden Väljaren.
+Bismakar och tolererande används för att logiskt isolera resurser med en hård avhuggning – om Pod inte tolererar en nods smak, är den inte schemalagd på noden. En annan metod är att använda Node-väljare. Du kan märka noder, till exempel för att indikera lokalt anslutna SSD-lagring eller en stor mängd minne och sedan definiera i pod-specifikationen för en Node-selektor. Kubernetes schemalägger sedan dessa poddar på en matchande nod. Till skillnad från tolererar kan poddar utan en matchande Node-väljare schemaläggas på namngivna noder. Det här beteendet tillåter att oanvända resurser på noderna använder, men ger prioritet till poddar som definierar matchande Node-selektorn.
 
-Nu ska vi titta på ett exempel på noder med en hög mängd minne. Dessa noder kan ge inställning till poddar som begär en hög mängd minne. För att säkerställa att resurserna inte sitta inaktiv, kan de också andra poddar ska köras.
+Nu ska vi titta på ett exempel på noder med stor mängd minne. Dessa noder kan ge preferenser poddar som kräver en stor mängd minne. För att se till att resurserna inte är i inaktiva läge, tillåter de också att andra poddar körs.
 
 ```console
 kubectl label node aks-nodepool1 hardware:highmem
 ```
 
-En pod-specifikation sedan lägger till den `nodeSelector` egenskapen att definiera en nod-väljare som matchar den anges på en nod:
+En POD-specifikation lägger sedan till egenskapen `nodeSelector` för att definiera en Node-selektor som matchar etikett uppsättningen på en nod:
 
 ```yaml
 kind: Pod
@@ -128,15 +128,15 @@ spec:
       hardware: highmem
 ```
 
-När du använder alternativen scheduler kan arbeta med programutvecklare och ägare och låt dem korrekt definiera sina pod-specifikationer.
+När du använder dessa alternativ för Schemaläggaren arbetar du med dina programutvecklare och ägare så att de kan definiera sina Pod-specifikationer korrekt.
 
-Läs mer om hur du använder noden väljare [tilldela Poddar till noder][k8s-node-selector].
+Mer information om hur du använder Node-väljare finns i [tilldela poddar till noder][k8s-node-selector].
 
-### <a name="node-affinity"></a>Nodtillhörighet
+### <a name="node-affinity"></a>Node-tillhörighet
 
-En nod-väljare är ett enkelt sätt att tilldela poddar till en viss nod. Mer flexibilitet är tillgängliga med *nodtillhörighet*. Med noden tillhörighet definierar du vad händer om en pod inte kan matchas med en nod. Du kan *kräver* att Kubernetes scheduler matchar en pod med en taggade värd. Du kan också *föredrar* en matchning men Tillåt pod schemaläggas på en annan värd om den inte matchar är tillgänglig.
+En Node-selektor är ett grundläggande sätt att tilldela poddar till en specifik nod. Mer flexibilitet är tillgänglig med hjälp av *Node tillhörighet*. Med Node Affinity definierar du vad som händer om Pod inte kan matchas med en nod. Du kan *kräva* att Kubernetes Scheduler matchar en POD med en etikettad värd. Du kan också *föredra* en matchning men tillåta att Pod schemaläggs på en annan värd om den inte matchar är tillgänglig.
 
-I följande exempel anger nodtillhörighet till *requiredDuringSchedulingIgnoredDuringExecution*. Den här tillhörighet kräver Kubernetes-schema för att använda en nod med en motsvarande etikett. Om det finns någon nod har poden att vänta tills schemaläggning för att fortsätta. Om du vill tillåta pod schemaläggas på en annan nod, kan du i stället ange värdet *preferredDuringScheduledIgnoreDuringExecution*:
+I följande exempel anges nodens tillhörighet till *requiredDuringSchedulingIgnoredDuringExecution*. Den här tillhörigheten kräver att Kubernetes-schemat använder en nod med en matchande etikett. Om ingen nod är tillgänglig, måste Pod vänta på schemaläggning för att fortsätta. Om du vill tillåta att Pod schemaläggs på en annan nod kan du i stället ange värdet till *preferredDuringScheduledIgnoreDuringExecution*:
 
 ```yaml
 kind: Pod
@@ -164,29 +164,29 @@ spec:
             values: highmem
 ```
 
-Den *IgnoredDuringExecution* en del av inställningen anger att om noden etiketter ändringen, poden inte bör tas bort från noden. Kubernetes-scheduler använder bara de uppdaterade noden etiketterna för nya poddarna schemalagda, inte de poddar som redan har schemalagts på noderna.
+*IgnoredDuringExecution* -delen av inställningen indikerar att om nodens etiketter ändras, bör Pod inte avlägsnas från noden. Kubernetes Scheduler använder bara uppdaterade Node-etiketter för nya poddar som har schemalagts, inte poddar som redan har schemalagts för noderna.
 
 Mer information finns i [tillhörighet och anti-tillhörighet][k8s-affinity].
 
-### <a name="inter-pod-affinity-and-anti-affinity"></a>Kommunikation mellan pod tillhörighet och anti-tillhörighet
+### <a name="inter-pod-affinity-and-anti-affinity"></a>Inter-Pod tillhörighet och anti-tillhörighet
 
-En slutlig metod för Kubernetes-Schemaläggaren för att isolera arbetsbelastningar logiskt använder mellan pod tillhörighet eller anti-tillhörighet. Inställningarna definierar de poddarna *bör inte* schemaläggas på en nod som har en befintlig matchande pod eller att de *bör* schemaläggas. Som standard försöker Kubernetes scheduler schemalägger flera poddar i en replikuppsättning mellan noder. Du kan definiera mer specifika regler lösa problemet.
+En sista metod för Schemaläggaren av Kubernetes-Schemaläggaren för att logiskt isolera arbets belastningar använder sig av interpod tillhörighet eller anti-tillhörighet. Inställningarna definierar *att poddar inte ska* schemaläggas på en nod som har en befintlig matchande POD eller att de *ska* schemaläggas. Som standard försöker Kubernetes Scheduler schemalägga flera poddar i en replik uppsättning mellan noder. Du kan definiera mer speciella regler kring det här beteendet.
 
-Ett bra exempel är ett webbprogram som använder också en Azure Cache för Redis. Du kan använda pod anti-tillhörighet för regler för att begära att Kubernetes scheduler distribuerar repliker mellan noder. Du kan sedan använda regler för mappning mellan och för att se till att varje web app-komponenten har schemalagts på samma värddator som en motsvarande cache. Distributionen av poddar över noder ser ut som i följande exempel:
+Ett exempel är ett webb program som också använder en Azure-cache för Redis. Du kan använda Pod som skydds regler för att begära att Kubernetes Scheduler distribuerar repliker över flera noder. Du kan sedan använda tillhörighets regler för att kontrol lera att varje webb program komponent är schemalagd på samma värd som motsvarande cache. Fördelningen av poddar över noder ser ut som i följande exempel:
 
-| **Nod 1** | **Nod 2** | **Noden 3** |
+| **Nod 1** | **Nod 2** | **Nod 3** |
 |------------|------------|------------|
-| WebApp-1   | webapp-2   | webapp-3   |
+| webapp-1   | webapp-2   | webapp-3   |
 | cache-1    | cache-2    | cache-3    |
 
-Det här exemplet är en mer komplex distribution än användningen av noden väljare eller nodtillhörighet. Distribution ger dig kontroll över hur Kubernetes schemalägger poddar på noder och logiskt kan isolera resurser. En komplett exempel på det här webbprogrammet med Azure Cache för Redis-exempel finns i [samordna poddar på samma nod][k8s-pod-affinity].
+Det här exemplet är en mer komplex distribution än att använda Node-väljare eller Node-tillhörighet. I distributionen får du kontroll över hur Kubernetes schemalägger poddar på noder och kan isolera resurser logiskt. Ett komplett exempel på det här webb programmet med Azure cache för Redis-exempel finns i [Placera poddar på samma nod][k8s-pod-affinity].
 
 ## <a name="next-steps"></a>Nästa steg
 
-Den här artikeln fokuserar på avancerade funktioner för Kubernetes scheduler. Mer information om kluster i AKS finns i följande metoder:
+Den här artikeln fokuserar på avancerade funktioner i Kubernetes Scheduler. Mer information om kluster åtgärder i AKS finns i följande metod tips:
 
-* [Isolering för flera innehavare och kluster][aks-best-practices-scheduler]
-* [Grundläggande funktioner som Kubernetes scheduler][aks-best-practices-scheduler]
+* [Flera innehavare och kluster isolering][aks-best-practices-scheduler]
+* [Basic Kubernetes Scheduler-funktioner][aks-best-practices-scheduler]
 * [Autentisering och auktorisering][aks-best-practices-identity]
 
 <!-- EXTERNAL LINKS -->

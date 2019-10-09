@@ -6,19 +6,19 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 0b68007f8c3383997f0d31888198af866d38b590
-ms.sourcegitcommit: 83df2aed7cafb493b36d93b1699d24f36c1daa45
+ms.openlocfilehash: 1412f7d822d83a8712d27dd4e86311567d6ac714
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/22/2019
-ms.locfileid: "71178652"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029311"
 ---
 # <a name="azure-data-factory-pivot-transformation"></a>Pivot-transformering för Azure Data Factory
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Använd Pivot i ADF-dataflöde som en agg regering där en eller flera grupperade kolumner har sina distinkta rad värden omvandlade till enskilda kolumner. I stort sett kan du pivotera rad värden i nya kolumner (omvandla data till metadata).
 
-![Pivot-alternativ](media/data-flow/pivot1.png "Pivot 1")
+![Pivot-alternativ](media/data-flow/pivot1.png "pivottabell 1")
 
 ## <a name="group-by"></a>Gruppera efter
 
@@ -50,7 +50,7 @@ Om du anger kolumn ordningen till "normal" grupperas alla de pivoterade kolumner
 
 Om du vill ange den agg regering som du vill använda för pivottabellens värden klickar du på fältet längst ned i fönstret för pivoterade kolumner. Du kommer att ange i uttrycks verktyget för ADF-dataflöde där du kan skapa ett agg regerings uttryck och tillhandahålla ett beskrivande aliasnamn för dina nya aggregerade värden.
 
-Använd uttrycks språket för ADF-dataflödet för att beskriva de pivoterade kolumn omvandlingarna i https://aka.ms/dataflowexpressions uttrycks verktyget:.
+Använd uttrycks språket för ADF-dataflödet för att beskriva de pivoterade kolumn omvandlingarna i uttrycks verktyget: https://aka.ms/dataflowexpressions.
 
 ## <a name="pivot-metadata"></a>Pivotera metadata
 
@@ -60,7 +60,7 @@ I Pivot-transformeringen skapas nya kolumn namn som är dynamiska utifrån dina 
 
 Pivot genererar nya kolumn namn dynamiskt baserat på rad värden. Du kan omvandla dessa nya kolumner till metadata som kan refereras till senare i ditt data flöde. Det gör du genom att klicka på fliken Data förhands granskning. Alla nya kolumner som genereras av din Pivot-transformering visas med en "förbockad" ikon i tabell rubriken. Klicka på knappen "Mappa förbrukade" för att omvandla de nya kolumnerna till metadata, vilket gör dem till en del av data flödets modell.
 
-![Pivotera kolumner](media/data-flow/newpivot1.png "Mappa uppstaplade Pivot-kolumner")
+![Pivotera kolumner](media/data-flow/newpivot1.png "karta med staplade pivottabeller")
 
 ### <a name="landing-new-columns-in-sink"></a>Landning av nya kolumner i mottagare
 

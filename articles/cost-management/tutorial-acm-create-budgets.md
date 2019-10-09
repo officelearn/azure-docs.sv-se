@@ -5,23 +5,23 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/09/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 0cae5166fbbba650b270829b9c8e3711b12a574e
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 8d8f796fa7db9cab5bcac88a293dd1b98707a571
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71073938"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025770"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Självstudier: Skapa och hantera Azure-budgetar
 
 Budgetar i Cost Management hjälper dig att planera och öka organisationsansvar. Med budgetar kan du ta hänsyn till de Azure-tjänster du förbrukar eller prenumererar på under en viss period. De hjälper dig att informera andra om sina utgifter att proaktivt hantera kostnader och övervaka hur utgifter fortskrider över tid. När budgetgränser som du har skapat överskrids utlöses endast meddelanden. Ingen av dina resurser som påverkas och förbrukning stoppats inte. Du kan använda budgetar för att jämföra och spåra utgifter som du analysera kostnaderna.
 
-Kostnader och användnings data är vanligt vis tillgängliga inom 8-12 timmar och budgetar utvärderas mot dessa kostnader var fjärde timme. E-postaviseringar tas normalt emot inom 12-16 timmar.
+Kostnader och användnings data är vanligt vis tillgängliga inom 12-16 timmar och budgetar utvärderas mot dessa kostnader var fjärde timme. E-postaviseringar tas normalt emot inom 12-16 timmar.
 
 Budgetar återställa automatiskt i slutet av en viss (månadsvis, Kvartalsvis eller årligen) för samma budgetbelopp när du väljer ett förfallodatum i framtiden. Eftersom de återställa med samma budgetbelopp, måste du skapa separata budgetar när budgeterade valutabelopp skiljer sig åt för framtida perioder.
 
@@ -78,7 +78,7 @@ Baserat på de fält som valts i budgeten så långt visas ett diagram som hjäl
 
 ![Exempel som visar hur du skapar budget med månads kostnads data ](./media/tutorial-acm-create-budgets/monthly-budget01.png)
 
-När du har konfigurerat budget beloppet klickar du på **Nästa** för att konfigurera budget aviseringar. Budgetar kräver minst en kostnad tröskelvärdet (% av budgeten) och en motsvarande e-postadress. Du kan också ta upp till fem tröskelvärden och fem e-postadresser i en enda budget. När ett tröskelvärde för budget är uppfyllt, tas e-postmeddelanden emot på normalt inom mindre än åtta timmar. Mer information om meddelanden finns i [använda kostnads aviseringar](cost-mgt-alerts-monitor-usage-spending.md). I exemplet nedan skapas en e-postavisering när 90% av budgeten nås.
+När du har konfigurerat budget beloppet klickar du på **Nästa** för att konfigurera budget aviseringar. Budgetar kräver minst en kostnad tröskelvärdet (% av budgeten) och en motsvarande e-postadress. Du kan också ta upp till fem tröskelvärden och fem e-postadresser i en enda budget. När ett budget tröskelvärde är uppfyllt tas e-postaviseringar normalt emot i mindre än 20 timmar. Mer information om meddelanden finns i [använda kostnads aviseringar](cost-mgt-alerts-monitor-usage-spending.md). I exemplet nedan skapas en e-postavisering när 90% av budgeten nås.
 
 ![Exempel som visar aviserings villkor](./media/tutorial-acm-create-budgets/monthly-budget-alert.png)
 

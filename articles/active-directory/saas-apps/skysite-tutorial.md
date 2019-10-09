@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/27/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: adbf57e0446820959113ba4f27cc2f93fd20fdd5
-ms.sourcegitcommit: ee61ec9b09c8c87e7dfc72ef47175d934e6019cc
+ms.openlocfilehash: 93ef7f4201e9613cc6fa4391bc28d257272fa1c7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70173450"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026125"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-skysite"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med SKYSITE
 
@@ -68,7 +68,7 @@ Om du vill konfigurera och testa Azure AD SSO med SKYSITE, slutför du följande
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera SKYSITE SSO](#configure-skysite-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa SKYSITE test User](#create-skysite-test-user)** -om du vill ha en motsvarighet till B. Simon i SKYSITE som är länkad till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -89,13 +89,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
+1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
 
-1. SKYSITE-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+1. SKYSITE-programmet förväntar sig SAML-intyg i ett särskilt format, vilket innebär att du kan lägga till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan användarattribut.
 
     ![image](common/edit-attribute.png)
 
-1. Utöver ovan förväntar sig SKYSITE-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)**  utför du följande steg:
+1. Utöver ovan förväntar sig SKYSITE-programmet att fler attribut skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)** utför du följande steg:
 
     a. Klicka på **pennan** bredvid **grupper som returneras i anspråk**.
 
@@ -159,7 +159,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     ![Konfiguration](./media/skysite-tutorial/config04.png)
 
-    a. I text rutan **identitets leverantörens inloggnings-URL** klistrar du in värdet för URL för **användar åtkomst**som du har kopierat från fliken **Egenskaper** i Azure Portal.
+    a. I text rutan **identitets leverantörens inloggnings-URL** klistrar du in värdet för **URL för användar åtkomst**som du har kopierat från fliken **Egenskaper** i Azure Portal.
 
     b. Klicka på **överför certifikat**för att överföra Base64-kodat certifikat som du har laddat ned från Azure Portal.
 

@@ -14,16 +14,18 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 4ffa202a717c75462cd2d715a7883756d49f5a9f
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+experimental: false
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: d6e062145474b8479db749627b56163106f088d8
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972100"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024940"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Skapa en python-app i Azure App Service på Linux
 
-Med [App Service i Linux](app-service-linux-intro.md) får du en mycket skalbar och automatiskt uppdaterad webbvärdtjänst som utgår från operativsystemet Linux. Den här snabb starten visar hur du distribuerar en python-app ovanpå den inbyggda python-avbildningen i App Service på Linux med hjälp av [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
+I den här snabb starten distribuerar du en enkel python-app till [app service på Linux](app-service-linux-intro.md), som ger en mycket skalbar och automatisk korrigering av webb värd tjänst. Du kan använda Azures kommando rads gränssnitt ( [Azure CLI](/cli/azure/install-azure-cli)) via interaktiva, webbläsarbaserat Azure Cloud Shell, så du kan följa stegen i använda en Mac-, Linux-eller Windows-dator.
 
 ![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
 
@@ -120,7 +122,7 @@ Python-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
 
 **Grattis!** Du har distribuerat din första Python-app till App Service i Linux.
 
-## <a name="update-locally-and-redeploy-the-code"></a>Uppdatera lokalt och distribuera om koden
+## <a name="update-and-redeploy-the-code"></a>Uppdatera och distribuera om koden
 
 Skriv `code application.py` i Cloud Shell för att öppna Cloud Shell-redigeraren.
 

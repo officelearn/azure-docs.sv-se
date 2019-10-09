@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 11/22/2018
 ms.author: delhan
-ms.openlocfilehash: 6e90b164fac4ea1123f5f9a43eea1169d93d9a04
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: 0cbd1a24f5c460e248d55777735da6809befba63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71154028"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028790"
 ---
 # <a name="azure-vm-guest-os-firewall-is-blocking-inbound-traffic"></a>Azure VM gäst-OS-brandväggen blockerar inkommande trafik
 
@@ -102,7 +102,7 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
 
 #### <a name="mitigation-2"></a>Lösning 2
 
-1.  Fråga brandväggsprofiler för att avgöra om den inkommande principen har angetts för *BlockInboundAlways*:
+1.  Fråga brand Väggs profilerna för att avgöra om den inkommande brand Väggs principen är inställd på *BlockInboundAlways*:
 
     ```cmd
     netsh advfirewall show allprofiles | more
@@ -115,7 +115,7 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
     >    * *BlockInbound*: All inkommande trafik kommer att blockeras om du inte har en regel som tillåter att trafiken används.
     >    * *BlockInboundAlways*: Alla brand Väggs regler kommer att ignoreras och all trafik kommer att blockeras.
 
-2.  Redigera den *DefaultInboundAction* att ställa in de här profilerna på **Tillåt** trafik. Gör detta genom att köra följande kommando:
+2.  Redigera *DefaultInboundAction* för att ställa in dessa profiler för att **tillåta** trafik. Gör detta genom att köra följande kommando:
 
     ```cmd
     netsh advfirewall set allprofiles firewallpolicy allowinbound,allowoutbound
@@ -138,7 +138,7 @@ Ansluta till den [Seriekonsolen och öppna en PowerShell-instans](serial-console
 
 2.  Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
 
-3.  Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna systemdisken.
+3.  Kontrollera att disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna systemdisken.
 
 #### <a name="mitigation-1"></a>Lösning 1
 
@@ -150,7 +150,7 @@ Se [Aktivera-inaktivera en brand Väggs regel på ett gäst operativ system](en
 
 2.  Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn.
 
-3.  När de är kopplade till den Virtuella återställningsdatorn, se till att disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
+3.  När system disken är ansluten till den virtuella återställnings datorn kontrollerar du att disken är flaggad som **online** i disk hanterings konsolen. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
 
 4.  Öppna en upphöjd CMD-instans och kör följande skript:
 

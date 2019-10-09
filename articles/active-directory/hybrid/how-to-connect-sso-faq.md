@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 11/14/2018
+ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b12acf083e83d42ff3e8d6967d747f4bb2d93543
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 7241c8dfbedb24f95c29ea9e1c3f763218a5668d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960191"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025670"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory sömlös enkel inloggning: Vanliga frågor och svar
 
@@ -45,7 +45,7 @@ Nedan visas en icke-fullständig lista över program som kan skicka dessa parame
 
 | Programnamn | Programmets URL som ska användas |
 | -- | -- |
-| Åtkomstpanelen | https: \//Mina appar. Microsoft. com/contoso. com |
+| Åtkomstpanel | https: \//Mina appar. Microsoft. com/contoso. com |
 | Outlook på webben | https:\//outlook.office365.com/contoso.com |
 | Office 365 portaler | https: \//Portal. Office. com? domain_hint = contoso. com, https: \//www. Office. com? domain_hint = contoso. com |
 
@@ -96,7 +96,10 @@ Följ de här stegen på den lokala server där du kör Azure AD Connect:
    1. Anropa `$creds = Get-Credential`. När du uppmanas till det anger du autentiseringsuppgifter för domän administratören för den avsedda AD-skogen.
 
    > [!NOTE]
-   > Vi använder domän administratörens användar namn, som anges i formatet UPN (User Principal Names) (johndoe@contoso.com) eller domän kvalificerat Sam-Account name (contoso\johndoe eller contoso. com\johndoe) för att hitta den avsedda AD-skogen. Om du använder domän kvalificerat SAM-kontonamn använder vi domän delen av användar namnet för att hitta domänkontrollanten [i domän administratören med hjälp av DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Om du använder UPN i stället, [översätter vi det till ett domän kvalificerat SAM-kontonamn](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) innan du hittar lämplig domänkontrollant.
+   >Användar namnet för domän administratörs behörighet måste anges i formatet SAM-kontonamn (contoso\johndoe eller contoso. com\johndoe). Vi använder domän delen av användar namnet för att hitta domänkontrollanten i domän administratören med hjälp av DNS.
+
+   >[!NOTE]
+   >Det domän administratörs konto som används får inte vara medlem i gruppen för skyddade användare. I så fall kommer åtgärden att Miss Miss läge.
 
    2. Anropa `Update-AzureADSSOForest -OnPremCredentials $creds`. Det här kommandot uppdaterar Kerberos-dekrypteringsnyckeln för dator kontot `AZUREADSSOACC` i den här särskilda AD-skogen och uppdaterar det i Azure AD.
    3. Upprepa föregående steg för varje AD-skog som du har konfigurerat funktionen på.

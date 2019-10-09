@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 05/16/2019
-ms.openlocfilehash: bb803861fa64beb0b4afe2202230209493f42a1d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.date: 10/03/2019
+ms.openlocfilehash: fe7560f68690233d7a333724274a259d693123d0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003680"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035683"
 ---
 # <a name="tutorial-analyze-apache-spark-data-using-power-bi-in-hdinsight"></a>Självstudier: Analysera Apache Spark-data med Power BI i HDInsight
 
@@ -27,7 +27,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="prerequisites"></a>Förutsättningar
 
-* Slutför självstudien om artikeln [: Läs in data och kör frågor på ett Apache Spark kluster i Azure](./apache-spark-load-data-run-query.md)HDInsight.
+* Slutför artikeln [Tutorial: Läs in data och kör frågor på ett Apache Spark kluster i Azure HDInsight @ no__t-0.
 
 * [Power BI Desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 
 ## <a name="verify-the-data"></a>Kontrollera datan
 
-Den [Jupyter Notebook](https://jupyter.org/)-anteckningsbok som du skapade i [föregående självstudie](apache-spark-load-data-run-query.md) innehåller kod för att skapa en `hvac`-tabell. Den här tabellen baseras på CSV-filen som är tillgänglig på alla HDInsight Spark- `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv`kluster på. Följ stegen nedan för att verifiera datan.
+Den [Jupyter Notebook](https://jupyter.org/)-anteckningsbok som du skapade i [föregående självstudie](apache-spark-load-data-run-query.md) innehåller kod för att skapa en `hvac`-tabell. Den här tabellen baseras på CSV-filen som är tillgänglig på alla HDInsight Spark-kluster på `\HdiSamples\HdiSamples\SensorSampleData\hvac\hvac.csv`. Följ stegen nedan för att verifiera datan.
 
 1. Klistra in följande kod från Jupyter-anteckningsboken och tryck sedan på **SKIFT+RETUR**. Koden kontrollerar att tabellerna finns.
 
@@ -76,7 +76,7 @@ De första stegen i att arbeta med Spark är att ansluta till klustret i Power B
 
 1. Öppna Power BI Desktop. Stäng välkomst skärmen start sida om den öppnas.
 
-2. På fliken **Start** går du till **Hämta data** > **mer..** .
+2. På fliken **Start** går du till **Hämta data** > **fler.** ..
 
     ![Hämta data till Power BI Desktop från Apache Spark i HDInsight](./media/apache-spark-use-bi-tools/hdinsight-spark-power-bi-desktop-get-data.png "Hämta data till Power BI från Apache Spark BI")
 
@@ -84,7 +84,7 @@ De första stegen i att arbeta med Spark är att ansluta till klustret i Power B
 
     ![Hämta data till Power BI från Apache Spark BI](./media/apache-spark-use-bi-tools/apache-spark-bi-import-data-power-bi.png "Hämta data till Power BI från Apache Spark BI")
 
-4. Ange din kluster-URL (i formuläret `mysparkcluster.azurehdinsight.net`) i text rutan **Server** .
+4. Ange din kluster-URL (i formatet `mysparkcluster.azurehdinsight.net`) i text rutan **Server** .
 
 5. Under **data anslutnings läge**väljer du **DirectQuery**. Välj sedan **OK**.
 
@@ -92,7 +92,7 @@ De första stegen i att arbeta med Spark är att ansluta till klustret i Power B
 
 6. Ange inloggnings konto informationen för HDInsight och välj sedan **Anslut**. Standardkontonamnet är *admin*.
 
-7. Välj tabellen, vänta med att visa en förhands granskning av data och välj sedan **load.** `hvac`
+7. Välj tabellen `hvac`, vänta på att visa en förhands granskning av data och välj sedan **load**.
 
     ![Spark-klustrets användarnamn och lösenord](./media/apache-spark-use-bi-tools/apache-spark-bi-select-table.png "Spark-klustrets användarnamn och lösenord")
 
@@ -108,23 +108,23 @@ De första stegen i att arbeta med Spark är att ansluta till klustret i Power B
 
         Diagrammet ser ut så här:
 
-        ![områdes diagram Summa](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "områdes diagram Summa")
+        ![](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph-sum.png "diagram") summa för ytdiagram i ytdiagram
 
         Som standard visar visualiseringen summan för **ActualTemp** och **TargetTemp**. Välj nedpilen bredvid **ActualTemp** och **TragetTemp** i fönstret visualiseringar. du kan se **Sum** är markerat.
 
     3. Välj nedpilen bredvid **ActualTemp** och **TragetTemp** i fönstret visualiseringar och välj **genomsnitt** för att få ett genomsnitt av faktiska och mål temperatur för varje byggnad.
 
-        ![medelvärde för värden](./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "medelvärde för värden")
+        ![medelvärde]för värden i(./media/apache-spark-use-bi-tools/apache-spark-bi-average-of-values.png "genomsnitt")
 
         Din datavisualisering bör likna den på skärmbilden. Flytta markören över visualiseringen för att få verktygstips med relevanta data.
 
-        ![ytdiagram](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "ytdiagram")
+        ![ytdiagram-](./media/apache-spark-use-bi-tools/apache-spark-bi-area-graph.png "diagram")
 
-9. Navigera till **fil** > **Spara**, ange namnet `BuildingTemperature` på filen och välj sedan **Spara**.
+9. Navigera till **filen** > **Spara**, ange namnet `BuildingTemperature` för filen och välj sedan **Spara**.
 
 ### <a name="publish-the-report-to-the-power-bi-service-optional"></a>Publicera rapporten till Power BI-tjänsten (valfritt)
 
-Med Power BI-tjänsten kan du dela rapporter och instrumentpaneler i din organisation. I det här avsnittet publicerar du först datamängden och rapporten. Sedan fäster du rapporten på en instrumentpanel. Instrumentpaneler används vanligtvis för att fokusera på en delmängd data i en rapport. Det finns bara en enda visualisering i rapporten, men det är ändå bra att gå igenom stegen.
+Med Power BI-tjänsten kan du dela rapporter och instrumentpaneler i din organisation. I det här avsnittet publicerar du först datamängden och rapporten. Sedan fäster du rapporten på en instrumentpanel. Instrument paneler används vanligt vis för att fokusera på en delmängd av data i en rapport. Du har bara en visualisering i rapporten, men det är fortfarande användbart att gå igenom stegen.
 
 1. Öppna Power BI Desktop.
 
@@ -174,7 +174,7 @@ Ditt visuella objekt är fastsatt på instrumentpanelen. Du kan lägga till fler
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger större än avgifterna för lagring är det ekonomiskt sett bra att ta bort kluster när de inte används.
+När du har slutfört vägledningen kanske du vill ta bort klustret. Med HDInsight lagras dina data i Azure Storage, så att du på ett säkert sätt kan ta bort ett kluster när det inte används. Du debiteras också för ett HDInsight-kluster, även när det inte används. Eftersom avgifterna för klustret är flera gånger mer än avgifterna för lagring, är det ekonomiskt klokt att ta bort kluster när de inte används.
 
 Om du vill ta bort ett kluster läser du [ta bort ett HDInsight-kluster med hjälp av webbläsaren, PowerShell eller Azure CLI](../hdinsight-delete-cluster.md).
 

@@ -12,19 +12,22 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 05/18/2019
 ms.author: mbullwin
-ms.openlocfilehash: ac9bd6021b5fcec36e3aadfdf4c30020971f3be5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 99a18125fa5ce07a46fcc1af554fd03746ebf110
+ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299255"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72038145"
 ---
 # <a name="explore-java-trace-logs-in-application-insights"></a>Utforska Java trace-loggar i Application Insights
 Om du använder logback eller Log4J (v 1.2 eller v 2.0) för spårning kan du låta spårnings loggarna skickas automatiskt till Application Insights där du kan utforska och söka efter dem.
 
+> [!TIP]
+> Du behöver bara ange din Application Insights Instrumentation-nyckel en gång för ditt program. Om du använder ett ramverk som Java våren kanske du redan har registrerat nyckeln någon annan stans i appens konfiguration.
+
 ## <a name="using-the-application-insights-java-agent"></a>Använda Application Insights Java-agenten
 
-Du kan konfigurera Application Insights Java-agenten att automatiskt avbilda dina loggar genom att aktivera funktionen i `AI-Agent.xml` filen:
+Du kan konfigurera Application Insights Java-agenten att automatiskt avbilda dina loggar genom att aktivera funktionen i `AI-Agent.xml`-filen:
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -92,7 +95,7 @@ Uppdatera sedan projekt beroendena för att få de hämtade binärfilerna.
 ```
 
 #### <a name="if-youre-using-gradle"></a>Om du använder Gradle …
-Om ditt projekt redan har kon figurer ATS för att använda Gradle för Build lägger du till någon av följande rader `dependencies` i gruppen i filen build. Gradle:
+Om ditt projekt redan har kon figurer ATS för att använda Gradle för Build lägger du till någon av följande rader i gruppen `dependencies` i filen build. Gradle:
 
 Uppdatera sedan projekt beroendena för att få de hämtade binärfilerna.
 
@@ -118,7 +121,7 @@ Uppdatera sedan projekt beroendena för att få de hämtade binärfilerna.
 #### <a name="otherwise-"></a>Eller …
 Följ rikt linjerna för att installera Application Insights Java SDK manuellt, Hämta burken (när du har tillkommer till Central sidan i maven klickar du på länken ' jar ' i nedladdnings avsnittet) för lämplig tillägg och lägger till den nedladdade tilläggs jar i projektet.
 
-| Loggare | Ladda ned | Bibliotek |
+| Loggar | Ladda ned | Bibliotek |
 | --- | --- | --- |
 | Logback |[Logback tilläggsprogram-jar](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-logback%22) |applicationinsights-logging-logback |
 | Log4J v 2.0 |[Log4J v2-tilläggsprogram](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22applicationinsights-logging-log4j2%22) |applicationinsights-logging-log4j2 |

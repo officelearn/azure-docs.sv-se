@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 86ce2ada9ebd19c88414fab33a62dda5ba41ecb0
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: b834f14450196e8d377177bf10c80fbb05a10a57
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949657"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030014"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Förbered en Windows-VHD eller VHDX som ska överföras till Azure
 
@@ -344,7 +344,7 @@ Kontrol lera att den virtuella datorn är felfri, säker och RDP-tillgänglig:
 
    - Ansvariga för säkerhets kopiering
 
-   - Alla
+   - Grupperna
 
    - Användare
 
@@ -395,6 +395,9 @@ Helst bör du hålla datorn uppdaterad på *korrigerings nivå*. Om detta inte �
 |                         | CVE-2018-0886  | KB4103718               | KB4103730                | KB4103725       | KB4103723                                               | KB4103731                  | KB4103727                                       | KB4103721                                       |
 |                         |                | KB4103712          | KB4103726          | KB4103715|                                                         |                            |                                                 |                                                 |
        
+> [!NOTE]
+> För att undvika en oavsiktlig omstart under VM-etablering rekommenderar vi att du ser till att alla Windows Update installationer är klara och att inga uppdateringar väntar. Ett sätt att göra detta är att installera alla möjliga Windows-uppdateringar och starta om en gång innan du kör Sysprep-kommandot.
+
 ### Avgöra när Sysprep ska användas<a id="step23"></a>    
 
 Sysprep (System Preparation Tool) är en process som du kan köra för att återställa en Windows-installation. Sysprep tillhandahåller en "direkt användning"-upplevelse genom att ta bort all personlig information och återställa flera komponenter. 

@@ -1,6 +1,6 @@
 ---
-title: Värdbaserade provkörning | Azure Marketplace
-description: Hur du ställer in en Underhåll Marketplace finns testa
+title: Värdbaserad testen het | Azure Marketplace
+description: Så här konfigurerar du en underhålls värd för en Marketplace-test enhet
 services: Azure, Marketplace, Cloud Partner Portal,
 author: pbutlerm
 manager: Ricardo.Villalobos
@@ -8,48 +8,48 @@ ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/13/2018
 ms.author: pabutler
-ms.openlocfilehash: b8f9ca96ac9386037460ad5c1c9f56fe7b9c2e18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67d8421b2e545c951dcbc3280a306514e4b14897
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64939986"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030051"
 ---
 # <a name="hosted-test-drive"></a>Värdbaserad Test Drive
 
-En värd Test Drive tar bort komplexiteten i installationen av Microsoft hosting och underhålla den tjänst som utför Test Drive användaren etablering och borttagning. Den här artikeln är avsedd för utgivare som har sitt erbjudande på AppSource eller skapar en ny och vill erbjuda en värdbaserad provkörning som ansluter med en Dynamics 365 för kundengagemang, Dynamics 365 för finans- och Operations- eller Dynamics 365 Business Central instans.
+En värdbaserad testen het tar bort komplexiteten i installationen av Microsoft som värd och underhåller den tjänst som utför den användar etablering och avetableringen av test enheten. Den här artikeln är för utgivare som har sitt erbjudande på AppSource eller skapar en ny och vill erbjuda en värdbaserad testen het som ansluter med en Dynamics 365 för kund engagemang, Dynamics 365 för finanser och drift, eller Dynamics 365 Business Central session.
 
 ## <a name="how-to-publish-a-test-drive"></a>Så här publicerar du en Test Drive
 
-Gå till befintliga erbjudandet eller skapa ett nytt erbjudande.
+Navigera till befintligt erbjudande eller skapa ett nytt erbjudande.
 
-Välj alternativet Test Drive på menyn på klientsidan.
+Välj alternativet testa enhet på menyn på sidan.
 
-Välj \'Ja\' för \'aktivera en Test Drive\' alternativet.
+Välj \'Yes @ no__t-1 för \'Enable en Test Drive @ no__t-3-alternativ.
 
-Ange följande fält i den \'information\' avsnittet.
+Ange följande fält i avsnittet \'Details @ no__t-1.
 
-- **Beskrivning**: Ger en översikt över din provkörning. Den här texten visas för användaren när Test Drive etableras. Det här fältet stöder HTML om du vill ge formaterat innehåll.
-- **Användarhandbok**: Ladda upp en detaljerad användarhandboken (fil av typen PDF) som hjälper dig Test Drive användarna att förstå hur du använder din App.
-- **Testa enheten demonstrationsvideon**: Du kan också ladda upp en video som visar din App.
+- **Beskrivning**: Ange en översikt över test enheten. Den här texten visas för användaren medan test enheten håller på att tillhandahållas. Det här fältet stöder HTML om du vill tillhandahålla formaterat innehåll.
+- **Användar handbok**: Överför en detaljerad Användar handbok (fil av typen. pdf) som hjälper användarna att förstå hur de använder din app.
+- **Video om prov Drive demo**: Du kan också ladda upp en video som demonstrerar din app.
 
-Grant AppSource behörighet att etablera och avetablera Test Drive-användare i din klient med hjälp av anvisningarna finns [här](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
+Bevilja AppSource-behörighet för att etablera och avetablera användare av test enheter i din klient med hjälp av anvisningarna som finns [här](https://github.com/Microsoft/AppSource/blob/patch-1/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md).
 
-I det här steget ska du generera den \'Azure AD App-Id\' och \'Azure AD App-nyckeln\' värden som anges nedan.
+I det här steget genererar du \'Azure AD App-ID @ no__t-1 och \'Azure AD App Key @ no__t-3 värden som anges nedan.
 
-Ange följande fält i den \'teknisk konfiguration\' avsnittet:
+Ange följande fält i avsnittet \'Technical Configuration @ no__t-1:
 
-- **Typ av Test Drive**: Välj \'Microsoft Hosted (exempel Dynamics 365 för kundengagemang)-alternativet. Detta anger att Microsoft ska vara värd för och underhålla den tjänst som utför Test Drive användaren etablering och borttagning.
-- **Maxantal samtidiga Provkörningar**: Ange fältet till antalet samtidiga användare som kan ha en aktiv provkörning vid en given tidpunkt tid. Varje användare kommer att använda en Dynamics-licens när deras Test Drive är aktiv, så du måste se till att du har minst detta antal Dynamics licenser som är tillgängliga för Test Drive-användare. Rekommenderat värde från 3 till 5.
-- **Driv varaktighet (timmar)** : Ange fältet till antalet timmar Test Drive ska aktiveras för användarna. Efter detta antal timmar, kommer användaren avetableras från din klient. Rekommenderat värde på 2 – 24 timmar beroende på komplexiteten för din App. Användaren kan begära ett annat Test Drive alltid om de körs utanför tid och vill använda Test Drive igen.
-- **Instans-URL: en**: Ange en URL som användaren provkörning först öppnas när de startar Test Drive. Detta är vanligtvis URL: en för din Dynamics 365-instans som har din App och exempeldata som installeras på. Exempelvärde: https:\//testdrive.crm.dynamics.com
-- **Azure AD-klient-ID**: Ange ID för Azure-klient för din Dynamics 365-instans. Att hämta det här värdet, logga in på Azure-portalen och gå till \'Azure Active Directory\'  - \> väljer Egenskaper från menyn bladet –\> kopiera Directory-ID. Exempelvärde: 72f988bf-86f1-41af-91ab-2d7cd0111234
-- **Azure AD App ID**: ID för den Azure AD-App som du skapade i steg 7. \ exempelvärde: 53852862-a2ae-4e43-9461-faa49650a096
-- **Azure AD-Appnyckeln**: Hemligheten för den Azure AD-App som skapats i steg 7. \ exempelvärde: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
-- **Namn på Azure AD-klient**: Ange namnet på Azure-klient för din Dynamics 365-instans. Använd formatet \<tenantname.\> onmicrosoft.com. Exempelvärde: testdrive.onmicrosoft.com
-- **Instans-URL: en för webb-API**: Ange URL: en för webb-API för din Dynamics 365-instans. Du kan hämta det här värdet genom att logga in på din Microsoft Dynamics 365-instans och navigera till inställning -\> anpassning -\> utvecklarresurser -\> instans webb-API (kopiera URL: en). Exempelvärde: https:\//testdrive.crm.dynamics.com/api/data/v9.0 
-- **Rollnamnet**: Ange namnet på den anpassade Dynamics 365 säkerhetsrollen du har skapat för Test Drive. Det här är den roll som ska tilldelas användare under deras Test Drive. Exempelvärde: testdriverole
+- **Typ av test enhet**: Välj \'Microsoft värdbaserade (exempel för Dynamics 365 för kund engagemang)). Detta anger att Microsoft ska vara värd för och underhålla den tjänst som utför den användar etablering och avetableringen av test enheten.
+- **Maximalt antal samtidiga test enheter**: Ange det här fältet till antalet samtidiga användare som kan ha en aktiv testen het vid en viss tidpunkt. Varje användare kommer att använda en Dynamics-licens medan deras test enhet är aktiv, så du måste se till att du har minst så många Dynamics-licenser som är tillgängliga för användare av test enheter. Rekommenderat värde 3-5.
+- **Test enhetens varaktighet (timmar)** : Ange det här fältet till det antal timmar som användarnas test enhet aktive ras för. Efter så här många timmar kommer användaren att avetableras från din klient. Rekommenderat värde på 2-24 timmar beroende på appens komplexitet. Användaren kan alltid begära en annan testen het om de kör tids gränsen och vill komma åt test enheten igen.
+- **Instans-URL**: Ange en URL som användaren av test enheten kommer att gå från första gången till när de startar test enheten. Detta är vanligt vis URL: en för din Dynamics 365-instans som har din app och exempel data installerade på. Exempel värde: https: \//testdrive. CRM. Dynamics. com
+- **ID för Azure AD-klient organisation**: Ange ID för Azure-klienten för din Dynamics 365-instans. Om du vill hämta det här värdet loggar du in på Azure Portal och navigerar till \'Azure Active Directory @ no__t-1 @ no__t-2 @ no__t-3 Välj egenskaper från meny bladet-\> Kopiera katalog-ID: t. Exempel värde: 72f988bf-86f1-41af-91ab-2d7cd0111234
+- **Azure AD App-ID**: ID för Azure AD App som du skapade i steg 7. \ exempel värde: 53852862-a2ae-4e43-9461-faa49650a096
+- **Azure AD App nyckel**: Hemlighet för Azure AD App som skapades i steg 7. \ exempel värde: IJUgaIOfq9b9LbUjeQmzNBW4VGn6grr1l/n3aMrnfdk=
+- **Namn på Azure AD-klient organisation**: Ange namnet på Azure-klienten för din Dynamics 365-instans. Använd formatet \<tenantname. \>onmicrosoft.com. Exempel värde: testdrive.onmicrosoft.com
+- **Webb-API-URL för instans**: Ange URL: en för webb-API för din Dynamics 365-instans. Du kan hämta det här värdet genom att logga in på Microsoft Dynamics 365-instansen och navigera för att ställa in-\> anpassning-\> utvecklares resurser-\> instans webb-API (kopiera denna URL). Exempel värde: https: \//testdrive. CRM. Dynamics. com/API/data/v 9.0 
+- **Rollnamn**: Ange namnet på den anpassade Dynamics 365 säkerhets roll som du har skapat för test enheten. Detta är den roll som ska tilldelas användare under deras test enhet. Exempel värde: testdriverole
 
 ## <a name="next-steps"></a>Nästa steg
 
-Redo när **publicera** ditt erbjudande, när din app har passerat-certifiering, har du en **förhandsversion** i ditt erbjudande. Starta en Test Drive i Användargränssnittet och kontrollera att din Provkörningar körs korrekt. När du känner dig bekväm med ditt erbjudande förhandsversion nu är det dags att **gå live!**
+När du är klar med **publiceringen** av erbjudandet har du en **förhands granskning** av ditt erbjudande när din app har klarat certifieringen. Starta en testen het i användar gränssnittet och kontrol lera att test enheterna körs på rätt sätt. När du känner dig bekvämt med ditt för hands erbjudande är det dags att **gå live!**

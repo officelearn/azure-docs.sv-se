@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 08/29/2019
-ms.openlocfilehash: cb7d55db978cb8eb7944ffe3f3f51d025d5fb891
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: ae7baf09df42a5824e5f59e7ebb372f4d9f6350c
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164311"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72032869"
 ---
 # <a name="resource-limits-for-single-databases-using-the-vcore-based-purchasing-model"></a>Resurs gränser för enskilda databaser med den vCore-baserade inköps modellen
 
@@ -42,7 +42,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings storlek|GP_Gen4_1|GP_Gen4_2|GP_Gen4_3|GP_Gen4_4|GP_Gen4_5|GP_Gen4_6
 |:--- | --: |--: |--: |--: |--: |--: |
 |Beräknings generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
-|vCores|1|2|3|4|5|6|
+|Virtuella kärnor|1|2|3|4|5|6|
 |Minne (GB)|7|14|21|28|35|42|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -65,7 +65,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings storlek|GP_Gen4_7|GP_Gen4_8|GP_Gen4_9|GP_Gen4_10|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |Beräknings generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
-|vCores|7|8|9|10|16|24|
+|Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|168|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -88,7 +88,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings storlek|GP_Gen5_2|GP_Gen5_4|GP_Gen5_6|GP_Gen5_8|GP_Gen5_10|GP_Gen5_12|GP_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Beräknings generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|2|4|6|8|10|12|14|
+|Virtuella kärnor|2|4|6|8|10|12|14|
 |Minne (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -111,7 +111,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings storlek|GP_Gen5_16|GP_Gen5_18|GP_Gen5_20|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Beräknings generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|16|18|20|24|32|40|80|
+|Virtuella kärnor|16|18|20|24|32|40|80|
 |Minne (GB)|81,6|91,8|102|122,4|163,2|204|408|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
@@ -191,7 +191,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings storlek|BC_Gen4_1|BC_Gen4_2|BC_Gen4_3|BC_Gen4_4|BC_Gen4_5|BC_Gen4_6|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Beräknings generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
-|vCores|1|2|3|4|5|6|
+|Virtuella kärnor|1|2|3|4|5|6|
 |Minne (GB)|7|14|21|28|35|42|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|1|2|3|4|5|6|
@@ -215,10 +215,10 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings storlek|BC_Gen4_7|BC_Gen4_8|BC_Gen4_9|BC_Gen4_10|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |Beräknings generation|Gen4|Gen4|Gen4|Gen4|Gen4|Gen4|
-|vCores|7|8|9|10|16|24|
+|Virtuella kärnor|7|8|9|10|16|24|
 |Minne (GB)|49|56|63|70|112|168|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|
-|Minnes intern OLTP-lagring (GB)|7|8|9,5|11|20|36|
+|Minnes intern OLTP-lagring (GB)|7|8|9.5|11|20|36|
 |Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
 |Maximal data storlek (GB)|650|650|650|650|1024|1024|
 |Största logg storlek (GB)|195|195|195|195|307|307|
@@ -239,7 +239,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings storlek|BC_Gen5_2|BC_Gen5_4|BC_Gen5_6|BC_Gen5_8|BC_Gen5_10|BC_Gen5_12|BC_Gen5_14|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Beräknings generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|2|4|6|8|10|12|14|
+|Virtuella kärnor|2|4|6|8|10|12|14|
 |Minne (GB)|10.2|20,4|30,6|40,8|51|61,2|71,4|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|1,571|3,142|4,713|6,284|8,655|11,026|13,397|
@@ -263,7 +263,7 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Beräknings storlek|BC_Gen5_16|BC_Gen5_18|BC_Gen5_20|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |
 |Beräknings generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|16|18|20|24|32|40|80|
+|Virtuella kärnor|16|18|20|24|32|40|80|
 |Minne (GB)|81,6|91,8|102|122,4|163,2|204|408|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|15,768|18,139|20,51|25,252|37,936|52,22|131,64|
@@ -289,33 +289,38 @@ Du kan ange tjänst nivå, beräknings storlek och lagrings belopp för en enski
 |Prestandanivå|HS_Gen5_2|HS_Gen5_4|HS_Gen5_8|HS_Gen5_16|HS_Gen5_24|HS_Gen5_32|HS_Gen5_40|HS_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |
 |Beräknings generation|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|Gen5|
-|vCores|2|4|8|16|24|32|40|80|
+|Virtuella kärnor|2|4|8|16|24|32|40|80|
 |Minne (GB)|10.2|20,4|40,8|81,6|122,4|163,2|204|408|
+|[RBPEX](sql-database-service-tier-hyperscale.md#compute) Ändra|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|3X-minne|
 |Columnstore-stöd|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
 |Minnes intern OLTP-lagring (GB)|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Maximal data storlek (TB)|100 |100 |100 |100 |100 |100 |100 |100 |
 |Största logg storlek (TB)|1 |1 |1 |1 |1 |1 |1 |1 |
 |Maximal data storlek för TempDB (GB)|64|128|256|384|384|384|384|384|
-|Lagringstyp|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|Lokal SSD|
-|Max data IOPS (64 KB)| [Anmärkning 1](#note-1) |[Anmärkning 1](#note-1)|[Anmärkning 1](#note-1) |[Anmärkning 1](#note-1) |[Anmärkning 1](#note-1) |[Anmärkning 1](#note-1) |[Anmärkning 1](#note-1) | [Anmärkning 1](#note-1) |
-|I/o-svarstid (ungefärlig)|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|Ska fastställas|
+|Lagringstyp| [Anmärkning 1](#notes) |[Anmärkning 1](#notes)|[Anmärkning 1](#notes) |[Anmärkning 1](#notes) |[Anmärkning 1](#notes) |[Anmärkning 1](#notes) |[Anmärkning 1](#notes) | [Anmärkning 1](#notes) |
+|Max data IOPS (64 KB)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|[Anmärkning 2](#notes)|
+|I/o-svarstid (ungefärlig)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|[Anmärkning 3](#notes)|
 |Maximalt antal samtidiga arbetare (begär Anden)|200|400|800|1600|2400|3200|4000|8000|
 |Maximalt antal samtidiga sessioner|30000|30000|30000|30000|30000|30000|30000|30000|
 |Sekundära repliker|0-4|0-4|0-4|0-4|0-4|0-4|0-4|0-4|
 |Multi-AZ|Gäller inte|Saknas|Saknas|Saknas|Saknas|Saknas|Saknas|Gäller inte|
 |Läs skalbarhet|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|Inkluderad säkerhets kopierings lagring |7|7|7|7|7|7|7|7|
+|Kvarhållning av lagrings utrymme för säkerhets kopior|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|7 dagar|
 |||
 
-### <a name="note-1"></a>Anmärkning 1
+#### <a name="notes"></a>Anteckningar
 
-Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen.
+**Anmärkning 1**: Storskalighet är en arkitektur med flera nivåer med separata beräknings-och lagrings komponenter: [Arkitektur för storskalig Service Tier](sql-database-service-tier-hyperscale.md#distributed-functions-architecture)
 
-### <a name="next-steps"></a>Nästa steg
+**Anmärkning 2**: Storskalig arkitektur med flera nivåer har cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen.
+
+**Anmärkning 3**: Svars tiden är 1-2 MS för data i den RBPEX SSD-baserade cachen på beräknings repliker, som cachelagrar de mest använda data sidorna. Högre latens för data som hämtas från sid servrar.
+
+## <a name="next-steps"></a>Nästa steg
 
 - För resurs gränser för DTU för en enskild databas, se [resurs gränser för enskilda databaser med hjälp av den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-single-databases.md)
 - VCore resurs gränser för elastiska pooler finns i [resurs gränser för elastiska pooler med hjälp av vCore-baserad inköps modell](sql-database-vcore-resource-limits-elastic-pools.md)
 - För DTU-resurs gränser för elastiska pooler, se [resurs gränser för elastiska pooler med hjälp av den DTU-baserade inköps modellen](sql-database-dtu-resource-limits-elastic-pools.md)
-- Resurs begränsningar för hanterade instanser finns i [resurs gränser](sql-database-managed-instance-resource-limits.md)för hanterade instanser.
+- Resurs begränsningar för hanterade instanser finns i [resurs gränser för hanterade](sql-database-managed-instance-resource-limits.md)instanser.
 - Information om allmänna Azure-gränser finns i [Azure-prenumeration och tjänst begränsningar, kvoter och begränsningar](../azure-subscription-service-limits.md).
 - Information om resurs gränser på en databas server finns i [Översikt över resurs gränser på en SQL Database-Server](sql-database-resource-limits-database-server.md) för information om begränsningar på Server-och prenumerations nivåer.

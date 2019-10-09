@@ -11,12 +11,12 @@ author: nacharya1
 ms.author: nilesha
 ms.date: 06/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8b38b359821d3d4926085fee8e412fbe06155739
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: e80d79c16b0748e25e549365001990fb014b5f14
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350629"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030550"
 ---
 # <a name="what-is-automated-machine-learning"></a>Vad är automatisk maskininlärning?
 
@@ -37,6 +37,13 @@ Data forskare, analytiker och utvecklare i olika branscher kan använda automati
 + Utnyttja metod tips för data vetenskap
 + Ge smidig problemlösning
 
+I följande tabell visas vanliga automatiserade ML-användnings fall. 
+
+Klassificering| Regression | Prognosticering för tids serier
+---|---|---
+[Bedrägeri identifiering](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb)|[Prestanda förutsägelse för CPU](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-hardware-performance/auto-ml-regression-hardware-performance.ipynb) |[Prognoser för efter frågan](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
+[Marknadsförings förutsägelse](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing/auto-ml-classification-bank-marketing.ipynb)|[Förutsägelse av material hållbarhet](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/regression-concrete-strength/auto-ml-regression-concrete-strength.ipynb)|[Försäljnings prognoser](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-orange-juice-sales/auto-ml-forecasting-orange-juice-sales.ipynb)
+
 ## <a name="how-automated-ml-works"></a>Så här fungerar automatisk ML
 
 Med hjälp av **Azure Machine Learning**kan du utforma och köra dina AUTOMATISERAde ml-experiment med följande steg:
@@ -55,7 +62,7 @@ Med hjälp av **Azure Machine Learning**kan du utforma och köra dina AUTOMATISE
 
 Under utbildningen skapar Azure Machine Learning ett antal parallella pipelines som testar olika algoritmer och parametrar. Det stoppas när det träffar de slut kriterier som definierats i experimentet.
 
-Du kan också kontrol lera den loggade körnings informationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Inlärnings körningen genererar ett serialiserat objekt (`.pkl` fil) som innehåller modellen och data förbearbetningen.
+Du kan också kontrol lera den loggade körnings informationen, som [innehåller mått](how-to-understand-automated-ml.md) som samlats in under körningen. Inlärnings körningen skapar ett serialiserat python-objekt (`.pkl`-fil) som innehåller modellen och data förbearbetningen.
 
 När modell byggnaden automatiseras, kan du också [lära dig hur viktiga eller relevanta funktioner är](how-to-configure-auto-train.md#explain) i de genererade modellerna.
 
@@ -74,7 +81,7 @@ I varje automatiserad maskin inlärnings experiment förbehandlas dina data med 
 
 I varje automatiserad maskin inlärnings experiment skalas dina data automatiskt eller normaliseras för att hjälpa algoritmerna att fungera bra.  I modell utbildningen används en av följande skalnings-eller normaliserings tekniker för varje modell.
 
-|Skala&nbsp;normalisering&&nbsp;| Beskrivning |
+|Skala @ no__t-0 @ no__t-1 @ no__t-2normalization| Beskrivning |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | Standardisera funktioner genom att ta bort medelvärdet och skalan till enhets avvikelse  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | Transformerar funktioner genom att skala varje funktion efter minsta och högsta värde för kolumnen  |
@@ -90,7 +97,7 @@ Ytterligare avancerade för bearbetnings-och funktionalisering är också tillg�
 
 + Azure-portalen: Markera kryss rutan för **process** i **Avancerade inställningar** [med de här stegen](how-to-create-portal-experiments.md).
 
-+ Python SDK: Anger `"preprocess": True` [för klassen`AutoMLConfig` ](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
++ Python SDK: Ange `"preprocess": True` för [klassen `AutoMLConfig`](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py).
 
 
 ## <a name="time-series-forecasting"></a>Tidsserieprognoser
@@ -165,7 +172,7 @@ Automatisk ML är också tillgängligt i andra Microsoft-lösningar som:
 
 Se exempel och lär dig hur du skapar modeller med hjälp av automatisk maskin inlärning:
 
-+ [Följ självstudien: Träna en Regressions modell automatiskt med Azures automatiserade Machine Learning](tutorial-auto-train-models.md)
++ Följ [Tutorial: Träna en Regressions modell automatiskt med Azures automatiserad Machine Learning @ no__t-0
 
 + Konfigurera inställningarna för automatiskt utbildnings experiment:
   + [Använd de här stegen](how-to-create-portal-experiments.md)i Azure Portal gränssnitt eller landnings sidan för arbets ytan (för hands version).

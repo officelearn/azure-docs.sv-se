@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/31/2019
-ms.openlocfilehash: 05bb8b75fb09f3b8df0a6775874e72bdb04fc65e
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5e05acf515aacaada96bd6e493c1a2bf24d7c5ab
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937548"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030762"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -23,7 +23,7 @@ När du utformar din Stream Analytics fråga kan du se namnet på utdata genom a
 
 Om du vill skapa, redigera och testa Stream Analytics jobb-utdata kan du använda [Azure Portal](stream-analytics-quick-create-portal.md#configure-job-output), [Azure POWERSHELL](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), [.NET API](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), [REST API](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-output)och [Visual Studio](stream-analytics-quick-create-vs.md).
 
-Vissa utmatnings typer [](#partitioning)stöder partitionering. [Batch](#output-batch-size) -storlekarna för utdata varierar för att optimera data flödet.
+Vissa utmatnings typer stöder [partitionering](#partitioning). [Batch-storlekarna för utdata](#output-batch-size) varierar för att optimera data flödet.
 
 
 ## <a name="azure-data-lake-storage-gen-1"></a>Azure Data Lake Storage Gen1
@@ -80,8 +80,8 @@ I följande tabell visas egenskaps namn och beskrivningar för att skapa BLOB-ut
 | Utdataalias        | Ett eget namn som används i frågor för att dirigera utdata till blob storage. |
 | Lagringskonto     | Namnet på det lagrings konto där du ska skicka dina utdata.               |
 | Lagringskontonyckel | Den hemliga nyckeln som är associerade med lagringskontot.                              |
-| Lagringscontainer   | En logisk gruppering för blobbar som lagras i Azure-Blob Service. När du laddar upp en blob till Blob-tjänsten måste du ange en behållare för blobben. |
-| Sökvägsmönster | Valfritt. Det fil Sök väg mönster som används för att skriva Blobbarna i den angivna behållaren. <br /><br /> I Sök vägs mönstret kan du välja att använda en eller flera instanser av variablerna datum och tid för att ange frekvensen som blobbar skrivs: <br /> {date}, {time} <br /><br />Du kan använda anpassad BLOB-partitionering för att ange ett anpassat {Field}-namn från dina händelse data till partitionering av blobbar. Fältnamnet är alfanumeriska och kan innehålla blanksteg, bindestreck och understreck. Följande: begränsningar för anpassade fält <ul><li>Fält namn är inte Skift läges känsliga. Tjänsten kan till exempel inte skilja mellan kolumn "ID" och kolumn "ID".</li><li>Kapslade fält är inte tillåtna. Använd i stället ett alias i jobb frågan för att "förenkla" fältet.</li><li>Det går inte att använda uttryck som fält namn.</li></ul> <br />Den här funktionen gör det möjligt att använda anpassade inställningar för datum/tid-format i sökvägen. Anpassat datum och tid format måste vara angivna en i taget, omgivna av den {datetime:\<specificerare >} nyckelord. Tillåtna indata för \<specificeraren > är åååå, mm, m, DD, d, hh, H, mm, m, SS eller s. Nyckelordet {datetime\<: specificerare >} kan användas flera gånger i sökvägen för att skapa anpassade konfigurations datum/tids inställningar. <br /><br />Exempel: <ul><li>Exempel 1: cluster1/logs / {date} / {time}</li><li>Exempel 2: cluster1/logs / {date}</li><li>Exempel 3: cluster1/{client_id}/{date}/{time}</li><li>Exempel 4: cluster1/{datetime: SS}/{myField} där frågan är: Välj data. Field som ett fält från indata.</li><li>Exempel 5: cluster1/Year = {datetime: åååå}/månad = {datetime: MM}/dag = {datetime: DD}</ul><br />Tidstämpeln för den skapade mappstrukturen följer UTC och inte lokal tid.<br /><br />Fil namns användning använder följande konvention: <br /><br />{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension<br /><br />Exempel utdatafilerna:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />Mer information om den här funktionen finns i [Azure Stream Analytics Anpassad partitionering av BLOB-utdata](stream-analytics-custom-path-patterns-blob-storage-output.md). |
+| Lagrings behållare   | En logisk gruppering för blobbar som lagras i Azure-Blob Service. När du laddar upp en blob till Blob-tjänsten måste du ange en behållare för blobben. |
+| Sökvägsmönster | Valfritt. Det fil Sök väg mönster som används för att skriva Blobbarna i den angivna behållaren. <br /><br /> I Sök vägs mönstret kan du välja att använda en eller flera instanser av variablerna datum och tid för att ange frekvensen som blobbar skrivs: <br /> {date}, {time} <br /><br />Du kan använda anpassad BLOB-partitionering för att ange ett anpassat {Field}-namn från dina händelse data till partitionering av blobbar. Fältnamnet är alfanumeriska och kan innehålla blanksteg, bindestreck och understreck. Följande: begränsningar för anpassade fält <ul><li>Fält namn är inte Skift läges känsliga. Tjänsten kan till exempel inte skilja mellan kolumn "ID" och kolumn "ID".</li><li>Kapslade fält är inte tillåtna. Använd i stället ett alias i jobb frågan för att "förenkla" fältet.</li><li>Det går inte att använda uttryck som fält namn.</li></ul> <br />Den här funktionen gör det möjligt att använda anpassade inställningar för datum/tid-format i sökvägen. Anpassat datum och tid format måste vara angivna en i taget, omgivna av den {datetime:\<specificerare >} nyckelord. Tillåtna indata för \<specifier > är åååå, MM, M, DD, d, HH, H, mm, M, SS eller s. Nyckelordet {datetime: \<specifier >} kan användas flera gånger i sökvägen för att skapa anpassade konfigurations datum och tids inställningar. <br /><br />Exempel: <ul><li>Exempel 1: cluster1/logs / {date} / {time}</li><li>Exempel 2: cluster1/logs / {date}</li><li>Exempel 3: cluster1/{client_id}/{date}/{time}</li><li>Exempel 4: cluster1/{datetime: SS}/{myField} där frågan är: Välj data. Field som ett fält från indata.</li><li>Exempel 5: cluster1/Year = {datetime: åååå}/månad = {datetime: MM}/dag = {datetime: DD}</ul><br />Tidstämpeln för den skapade mappstrukturen följer UTC och inte lokal tid.<br /><br />Fil namns användning använder följande konvention: <br /><br />{Path Prefix Pattern}/schemaHashcode_Guid_Number.extension<br /><br />Exempel utdatafilerna:<ul><li>Myoutput/20170901/00/45434_gguid_1.csv</li>  <li>Myoutput/20170901/01/45434_gguid_1.csv</li></ul> <br />Mer information om den här funktionen finns i [Azure Stream Analytics Anpassad partitionering av BLOB-utdata](stream-analytics-custom-path-patterns-blob-storage-output.md). |
 | Datumformat | Valfri. Du kan välja datumformat där filerna ordnas om datumtoken används i prefixsökvägen. Exempel: ÅÅÅÅ/MM/DD |
 | Tidsformat | Valfri. Om tiden token används i prefixsökvägen, ange tidsformatet där filerna ordnas. Det enda värdet som stöds är för närvarande HH. |
 | Händelseserialiseringsformat | Serialiseringsformat för utdata. JSON, CSV, Avro och Parquet stöds. |
@@ -111,16 +111,16 @@ Du behöver några parametrar för att konfigurera data strömmar från Event Hu
 | Egenskapsnamn | Beskrivning |
 | --- | --- |
 | Utdataalias | Ett eget namn som används i frågor för att dirigera frågeresultatet till den här händelsehubben. |
-| Namnrymd för händelshubb | En behållare för en uppsättning meddelande enheter. När du skapade en ny händelsehubben, skapade du även ett namn område för Event Hub. |
+| Namnområde för händelsehubb | En behållare för en uppsättning meddelande enheter. När du skapade en ny händelsehubben, skapade du även ett namn område för Event Hub. |
 | Namn på händelsehubb | Namnet på din Event Hub-utdata. |
 | Principnamn för Event hub | Principen för delad åtkomst, som du kan skapa på fliken **Konfigurera** på händelsehubben. Varje princip för delad åtkomst har ett namn, behörigheter som du ställa in och åtkomstnycklar. |
 | Principnyckel för Event hub | Den delade åtkomst nyckeln som används för att autentisera åtkomsten till Event Hub-namnområdet. |
-| Partitionsnyckelkolumn | Valfritt. En kolumn som innehåller partitionsnyckel för Event Hub-utdata. |
+| Nyckel kolumn för partition | Valfritt. En kolumn som innehåller partitionsnyckel för Event Hub-utdata. |
 | Händelseserialiseringsformat | Serialiserings formatet för utdata. JSON-, CSV- och Avro stöds. |
 | Kodning | För CSV och JSON är UTF-8 i kodningsformat som endast stöds just nu. |
 | Avgränsare | Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och lodrät stapel. |
-| Format | Gäller endast för JSON-serialisering. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. **Matris** anger att utdata är formaterad som en matris med JSON-objekt. Den här matrisen stängs först när jobbet stoppas eller Stream Analytics har gått vidare till nästa tidsfönstret. I allmänhet är det bättre att använda line-separerad JSON, eftersom det inte kräver någon särskild hantering medan utdatafilen fortfarande skrivs till. |
-| Egenskapskolumner | Valfritt. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
+| Format | Gäller endast för JSON-serialisering. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. **Matris** anger att utdata är formaterad som en matris med JSON-objekt. Den här matrisen stängs först när jobbet stoppas eller Stream Analytics har gått vidare till nästa tidsfönstret. I allmänhet är det bättre att använda line-separerad JSON, eftersom det inte kräver någon särskild hantering medan utdatafilen fortfarande skrivs till. Mer information finns i avsnittet [utdata för batch-storlek](#output-batch-size) . |
+| Egenskaps kolumner | Valfritt. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI
 
@@ -136,7 +136,7 @@ I följande tabell visas egenskaps namn och beskrivningar för att konfigurera P
 | Grupparbetsyta |Om du vill aktivera delning av data med andra Power BI användare kan du välja grupper inuti ditt Power BI konto eller välja **min arbets yta** om du inte vill skriva till en grupp. Uppdaterar en befintlig grupp kräver förnya Power BI-autentisering. |
 | Namn på datauppsättning |Ange ett namn på data uppsättningen som du vill att Power BI-utdata ska använda. |
 | Tabellnamn |Ange ett tabellnamn under datauppsättningen för Power BI-utdata. För närvarande kan Power BI utdata från Stream Analytics-jobb bara ha en tabell i en data uppsättning. |
-| Auktorisera anslutningen | Du måste auktorisera med Power BI för att konfigurera dina inställningar för utdata. När du har beviljat dessa utdata åtkomst till din Power BI-instrumentpanel kan du återkalla åtkomsten genom att ändra användar kontots lösen ord, ta bort jobbets utdata eller ta bort Stream Analyticss jobbet. | 
+| Auktorisera anslutning | Du måste auktorisera med Power BI för att konfigurera dina inställningar för utdata. När du har beviljat dessa utdata åtkomst till din Power BI-instrumentpanel kan du återkalla åtkomsten genom att ändra användar kontots lösen ord, ta bort jobbets utdata eller ta bort Stream Analyticss jobbet. | 
 
 En genom gång av hur du konfigurerar en Power BI utdata och en instrument panel finns i själv studie kursen [Azure Stream Analytics och Power BI](stream-analytics-power-bi-dashboard.md) .
 
@@ -165,7 +165,7 @@ Post-matris | Sträng typ, konstant värde "IRecord" eller "IArray"
 ### <a name="update-the-schema"></a>Uppdatera schemat
 Stream Analytics härleder modellschemat data baserat på den första uppsättningen händelser i utdata. Senare, om det behövs, uppdateras data modellens schema för att hantera inkommande händelser som kanske inte passar in i det ursprungliga schemat.
 
-`SELECT *` Undvik frågan för att förhindra dynamisk schema uppdatering på rader. Förutom potentiella prestanda konsekvenser kan det leda till osäkerhet vid den tid det tar för resultaten. Välj de exakta fält som ska visas på instrument panelen för Power BI. Datavärdena bör dessutom vara kompatibel med datatypen.
+Undvik att använda frågan `SELECT *` för att förhindra dynamisk schema uppdatering på rader. Förutom potentiella prestanda konsekvenser kan det leda till osäkerhet vid den tid det tar för resultaten. Välj de exakta fält som ska visas på instrument panelen för Power BI. Datavärdena bör dessutom vara kompatibel med datatypen.
 
 
 Föregående/aktuell | Int64 | Sträng | DateTime | Double-värde
@@ -175,7 +175,7 @@ Double-värde | Double-värde | Sträng | Sträng | Double-värde
 Sträng | String | String | String | Sträng 
 DateTime | Sträng | Sträng |  DateTime | Sträng
 
-## <a name="table-storage"></a>Tabellagring
+## <a name="table-storage"></a>Table Storage
 
 [Azure Table Storage](../storage/common/storage-introduction.md) erbjuder hög skalbar lagring med hög tillgänglighet, så att ett program kan skalas automatiskt för att möta användarnas behov. Table Storage är Microsofts NoSQL Key/Attribute-Arkiv, som du kan använda för strukturerade data med färre begränsningar i schemat. Azure Table storage kan användas för att lagra data för persistence och effektiv Filhämtning.
 
@@ -208,8 +208,8 @@ I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa
 | Kodning |För CSV och JSON är UTF-8 i kodningsformat som endast stöds just nu. |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och lodrät stapel. |
 | Format |Gäller endast för JSON-typ. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. **Matris** anger att utdata är formaterad som en matris med JSON-objekt. |
-| Egenskapskolumner | Valfritt. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
-| Systemegenskapskolumner | Valfritt. Nyckel värdes par med system egenskaper och motsvarande kolumn namn som måste kopplas till det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [system egenskaper för Service Bus kö-och ämnes utdata](#system-properties-for-service-bus-queue-and-topic-outputs)  |
+| Egenskaps kolumner | Valfritt. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
+| Kolumner i system egenskap | Valfritt. Nyckel värdes par med system egenskaper och motsvarande kolumn namn som måste kopplas till det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [system egenskaper för Service Bus kö-och ämnes utdata](#system-properties-for-service-bus-queue-and-topic-outputs)  |
 
 Antalet partitioner är [baserat på Service Bus-SKU och storleken](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckeln är ett heltalsvärde som unikt för varje partition.
 
@@ -228,8 +228,8 @@ I följande tabell visas egenskaps namnen och deras beskrivningar för att skapa
 | Händelseserialiseringsformat |Serialiserings formatet för utdata. JSON-, CSV- och Avro stöds. |
 | Kodning |Om du använder CSV eller JSON-format måste du ange en kodning. UTF-8 är det enda kodformat som stöds för närvarande. |
 | Avgränsare |Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal olika avgränsare för serialisering av data i CSV-format. Värden som stöds är kommatecken, semikolon, utrymme, fliken och lodrät stapel. |
-| Egenskapskolumner | Valfritt. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
-| Systemegenskapskolumner | Valfritt. Nyckel värdes par med system egenskaper och motsvarande kolumn namn som måste kopplas till det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [system egenskaper för Service Bus kö-och ämnes utdata](#system-properties-for-service-bus-queue-and-topic-outputs) |
+| Egenskaps kolumner | Valfritt. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
+| Kolumner i system egenskap | Valfritt. Nyckel värdes par med system egenskaper och motsvarande kolumn namn som måste kopplas till det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [system egenskaper för Service Bus kö-och ämnes utdata](#system-properties-for-service-bus-queue-and-topic-outputs) |
 
 Antalet partitioner är [baserat på Service Bus-SKU och storleken](../service-bus-messaging/service-bus-partitioning.md). Partitionsnyckel är ett unikt heltals värde för varje partition.
 
@@ -252,7 +252,7 @@ I följande tabell beskrivs egenskaperna för att skapa ett Azure Cosmos DB-utda
 | Konto-ID | Azure Cosmos DB kontots namn eller slut punkts-URI. |
 | Kontonyckel | Den delade åtkomst nyckeln för det Azure Cosmos DB kontot. |
 | Databas | Namnet på Azure Cosmos DBs databasen. |
-| Behållarnamn | Behållar namnet som ska användas, vilket måste finnas i Cosmos DB. Exempel:  <br /><ul><li> _MyContainer_: Det måste finnas en behållare med namnet "behållare".</li>|
+| Containerns namn | Behållar namnet som ska användas, vilket måste finnas i Cosmos DB. Exempel:  <br /><ul><li> _MyContainer_: Det måste finnas en behållare med namnet "behållare".</li>|
 | Dokument-id |Valfritt. Namnet på fältet i utmatnings händelser som används för att ange den primära nyckel som infognings-eller uppdaterings åtgärder baseras på.
 
 ## <a name="azure-functions"></a>Azure Functions
@@ -282,15 +282,15 @@ I en situation där det inte finns någon händelse vilplan i ett tids fönster 
 Du kan koppla frågeegenskaper som användar egenskaper till dina utgående meddelanden. De här kolumnerna hamnar inte i nytto lasten. Egenskaperna finns i form av en ord lista i utmatnings meddelandet. *Key* är kolumnens namn och *värde* är kolumnens värde i ord listan för egenskaper. Alla Stream Analytics data typer stöds förutom post och matris.  
 
 Utdata som stöds: 
-* Service Bus-kö 
-* Service Bus-ämne 
-* Händelsehub 
+* Service Bus kö 
+* Service Bus ämne 
+* Händelsehubb 
 
 I följande exempel lägger vi till de två fälten `DeviceId` och `DeviceStatus` i metadata. 
-* Frågeterm`select *, DeviceId, DeviceStatus from iotHubInput`
-* Konfiguration av utdata:`DeviceId,DeviceStatus`
+* Fråga: `select *, DeviceId, DeviceStatus from iotHubInput`
+* Konfiguration av utdata: `DeviceId,DeviceStatus`
 
-![Egenskapskolumner](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
+![Egenskaps kolumner](./media/stream-analytics-define-outputs/10-stream-analytics-property-columns.png)
 
 Följande skärm bild visar egenskaper för utmatnings meddelande som har granskats i EventHub genom [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer).
 
@@ -298,7 +298,7 @@ Följande skärm bild visar egenskaper för utmatnings meddelande som har gransk
 
 ## <a name="system-properties-for-service-bus-queue-and-topic-outputs"></a>System egenskaper för Service Bus kö-och ämnes utdata 
 Du kan koppla frågenoder som [system egenskaper](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) till den utgående Service Bus-kön eller ämnes meddelanden. De här kolumnerna hamnar inte i nytto lasten i stället för motsvarande BrokeredMessage [system egenskap](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties) fylls med värdena i kolumnen fråga.
-Dessa system egenskaper stöds – `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
+Dessa system egenskaper stöds-`MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 Sträng värden för de här kolumnerna tolkas som motsvarande typ av system egenskaps värde och eventuella tolknings fel behandlas som data fel.
 Det här fältet anges som ett JSON-objekt format. Information om det här formatet är följande:
 * Omgivet av klammerparenteser {}.
@@ -310,10 +310,10 @@ Det här fältet anges som ett JSON-objekt format. Information om det här forma
 
 Här visas hur du använder den här egenskapen –
 
-* Frågeterm`select *, column1, column2 INTO queueOutput FROM iotHubInput`
-* Kolumner i system egenskap:`{ "MessageId": "column1", "PartitionKey": "column2"}`
+* Fråga: `select *, column1, column2 INTO queueOutput FROM iotHubInput`
+* Kolumner i system egenskap: `{ "MessageId": "column1", "PartitionKey": "column2"}`
 
-Detta anger `MessageId` om Service Bus Queue-meddelanden med `column1`värdena och PartitionKey har angetts med `column2`värdet.
+Detta anger `MessageId` på Service Bus Queue-meddelanden med `column1`-värden och PartitionKey anges med `column2`-värden.
 
 ## <a name="partitioning"></a>Partitionering
 
@@ -323,7 +323,7 @@ I följande tabell sammanfattas partition-stöd och antalet skrivare för utdata
 | --- | --- | --- | --- |
 | Azure Data Lake Store | Ja | Använd {date}-och {Time}-tokens i mönstret Path-prefix. Välj datum format, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ eller MM-DD-ÅÅÅÅ. HH används för tids formatet. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). |
 | Azure SQL Database | Ja, måste aktive ras. | Baserat på PARTITION BY-satsen i frågan. | När alternativet Ärv partitionering är aktiverat, följer du inpartitionering för [fullständiga kan göras parallella-frågor](stream-analytics-scale-jobs.md). Mer information om hur du uppnår bättre Skriv data flödes prestanda när du läser in data i Azure SQL Database finns [Azure Stream Analytics utdata till Azure SQL Database](stream-analytics-sql-output-perf.md). |
-| Azure Blob Storage | Ja | Använd {date}-och {Time}-token från dina händelse fält i Sök vägs mönstret. Välj datum format, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ eller MM-DD-ÅÅÅÅ. HH används för tids formatet. BLOB-utdata kan partitioneras med ett enda anpassat Event-attribut {FieldName} eller {datetime\<: specificerare >}. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). |
+| Azure Blob Storage | Ja | Använd {date}-och {Time}-token från dina händelse fält i Sök vägs mönstret. Välj datum format, till exempel ÅÅÅÅ/MM/DD, DD/MM/ÅÅÅÅ eller MM-DD-ÅÅÅÅ. HH används för tids formatet. BLOB-utdata kan partitioneras med ett enda anpassat Event-attribut {FieldName} eller {datetime: \<specifier >}. | Följer inkommande partitionering för [helt kan frågor](stream-analytics-scale-jobs.md). |
 | Azure Event Hubs | Ja | Ja | Varierar beroende på partitionen justering.<br /> När partitionsnyckel för Event Hub-utdata är jämnt justerad med föregående steg i frågan, är antalet skrivare samma som antalet partitioner i Event Hub-utdata. Varje skrivare använder [klassen EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) för att skicka händelser till den angivna partitionen. <br /> När partitionsnyckel för utdata i Event Hub inte är justerad till föregående steg i frågan, är antalet skrivare samma som antalet partitioner i det föregående steget. Varje skrivare använder [klassen SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) i **EventHubClient** för att skicka händelser till alla utdata-partitioner. |
 | Power BI | Nej | Ingen | Ej tillämpligt. |
 | Azure Table Storage | Ja | Alla utdatakolumn.  | Följer inkommande partitionering för [fullständigt parallelliseras frågor](stream-analytics-scale-jobs.md). |
@@ -332,7 +332,7 @@ I följande tabell sammanfattas partition-stöd och antalet skrivare för utdata
 | Azure Cosmos DB | Ja | Baserat på PARTITION BY-satsen i frågan. | Följer inkommande partitionering för [fullständigt parallelliseras frågor](stream-analytics-scale-jobs.md). |
 | Azure Functions | Ja | Baserat på PARTITION BY-satsen i frågan. | Följer inkommande partitionering för [fullständigt parallelliseras frågor](stream-analytics-scale-jobs.md). |
 
-Antalet utgående skrivare kan också kontrol leras med hjälp `INTO <partition count>` av (se [i](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))-satsen i din fråga, vilket kan vara till hjälp när du vill uppnå en önskad jobb sto pol Ogin. Om nätverkskortet utdata inte är partitionerad medför brist på data i en indatapartitionen en fördröjning upp till sent ankomst lång tid. I sådana fall slås utdata samman till en enda skrivare, vilket kan orsaka Flask halsar i din pipeline. Om du vill veta mer om principen för att komma i beaktande, se [Azure Stream Analytics händelse ordning](stream-analytics-out-of-order-and-late-events.md).
+Antalet utgående skrivare kan också kontrol leras med hjälp av `INTO <partition count>` (se [into](https://docs.microsoft.com/stream-analytics-query/into-azure-stream-analytics#into-shard-count))-satsen i din fråga, vilket kan vara till hjälp när du vill uppnå en önskad jobb sto pol Ogin. Om nätverkskortet utdata inte är partitionerad medför brist på data i en indatapartitionen en fördröjning upp till sent ankomst lång tid. I sådana fall slås utdata samman till en enda skrivare, vilket kan orsaka Flask halsar i din pipeline. Om du vill veta mer om principen för att komma i beaktande, se [Azure Stream Analytics händelse ordning](stream-analytics-out-of-order-and-late-events.md).
 
 ## <a name="output-batch-size"></a>Batchstorlek för utdata
 Azure Stream Analytics använder batchar av variabel storlek för att bearbeta händelser och skriva till utdata. Vanligt vis skriver Stream Analyticss motorn ett meddelande i taget och använder batchar för effektivitet. När hastigheten för både inkommande och utgående händelser är hög använder Stream Analytics större batchar. När den utgående hastigheten är låg, använder mindre Batcher för att hålla det med låg latens.
@@ -344,7 +344,7 @@ I följande tabell förklaras några överväganden för batching av utdata:
 | Azure Data Lake Store | Se [data Lake Storage gränser](../azure-subscription-service-limits.md#data-lake-store-limits). | Använd upp till 4 MB per Skriv åtgärd. |
 | Azure SQL Database | Kan konfigureras med maximalt antal batchar. 10 000 högsta och 100 lägsta antal rader per enskild Mass infogning som standard.<br />Se [Azure SQL-gränser](../sql-database/sql-database-resource-limits.md). |  Varje batch infogas från början med maximalt antal batchar. Batch är uppdelad i mitten (till lägsta antal batchar) baserat på nya försök att köra fel från SQL. |
 | Azure Blob Storage | Se [Azure Storage gränser](../azure-subscription-service-limits.md#storage-limits). | Maximal blob-block storlek är 4 MB.<br />Maximalt antal BLOB-bock är 50 000. |
-| Azure Event Hubs  | 256 KB eller 1 MB per meddelande. <br />Se [Event Hubs gränser](../event-hubs/event-hubs-quotas.md). |  När indata/utdata-partitionering inte är justerad, paketeras varje `EventData` händelse individuellt i och skickas i en batch med upp till maximal meddelande storlek. Detta inträffar även om [anpassade metadata-egenskaper](#custom-metadata-properties-for-output) används. <br /><br />  När indata/utdata-partitionering är justerad, packas flera händelser i `EventData` en enda instans, upp till den maximala meddelande storleken och skickas. |
+| Azure Event Hubs  | 256 KB eller 1 MB per meddelande. <br />Se [Event Hubs gränser](../event-hubs/event-hubs-quotas.md). |  När indata/utdata-partitionering inte är justerad, packas varje händelse separat i `EventData` och skickas i en batch med upp till maximal meddelande storlek. Detta inträffar även om [anpassade metadata-egenskaper](#custom-metadata-properties-for-output) används. <br /><br />  När indata/utdata-partitionering är justerad, packas flera händelser i en enda `EventData`-instans, upp till den maximala meddelande storleken och skickas. |
 | Power BI | Se [Power BI REST API-gränser](https://msdn.microsoft.com/library/dn950053.aspx). |
 | Azure Table Storage | Se [Azure Storage gränser](../azure-subscription-service-limits.md#storage-limits). | Standardvärdet är 100 entiteter per enskild transaktion. Du kan konfigurera den till ett mindre värde efter behov. |
 | Azure Service Bus-kö   | 256 KB per meddelande för standard nivån 1 MB för Premium-nivån.<br /> Se [Service Bus gränser](../service-bus-messaging/service-bus-quotas.md). | Använd en enskild händelse per meddelande. |
@@ -355,7 +355,7 @@ I följande tabell förklaras några överväganden för batching av utdata:
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
 > 
-> [Snabbstart: Skapa ett Stream Analytics jobb genom att använda Azure Portal](stream-analytics-quick-create-portal.md)
+> [Snabbstart: Skapa ett Stream Analytics jobb genom att använda Azure Portal @ no__t-0
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

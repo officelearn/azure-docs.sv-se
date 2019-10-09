@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 06/28/2019
 ms.author: wesmc
-ms.openlocfilehash: 8d7bb201a9d01725f933105a4a0beb85c82ca105
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: d1de29124825a7f398b9722bb2455d1105e9c9f7
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203711"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72023639"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Välj rätt IoT Hub nivå för din lösning
 
@@ -35,11 +35,11 @@ Standard nivån för IoT Hub aktiverar alla funktioner och krävs för alla IoT-
 
 Det går bara att välja en typ av [utgåva](https://azure.microsoft.com/pricing/details/iot-hub/) inom en nivå per IoT Hub. Du kan till exempel skapa en IoT Hub med flera enheter S1, men inte med en blandning av enheter från olika versioner, till exempel S1 och S2.
 
-| Funktion | Basnivå | Kostnads fri/standard-nivå |
+| Funktion | Basic-nivå | Kostnads fri/standard-nivå |
 | ---------- | ---------- | ------------- |
 | [Telemetri från enhet till moln](iot-hub-devguide-messaging.md) | Ja | Ja |
 | [Identitet per enhet](iot-hub-devguide-identity-registry.md) | Ja | Ja |
-| [Meddelanderoutning](iot-hub-devguide-messages-read-custom.md) och [Event Grid-integrering](iot-hub-event-grid.md) | Ja | Ja |
+| [Meddelanderoutning,](iot-hub-devguide-messages-read-custom.md) [meddelande anrikning](iot-hub-message-enrichments-overview.md)och [Event Grid-integrering](iot-hub-event-grid.md) | Ja | Ja |
 | [HTTP-, AMQP-och MQTT-protokoll](iot-hub-devguide-protocols.md) | Ja | Ja |
 | [Enhets etablerings tjänst](../iot-dps/about-iot-dps.md) | Ja | Ja |
 | [Övervakning och diagnostik](iot-hub-monitor-resource-health.md) | Ja | Ja |
@@ -70,7 +70,7 @@ Konfigurationen av partitionen förblir oförändrad när du migrerar från Basi
 
 Skillnaden mellan de funktioner som stöds mellan nivåerna Basic och standard i IoT Hub innebär att vissa API-anrop inte fungerar med Basic-nivå nav. Följande tabell visar vilka API: er som är tillgängliga:
 
-| API | Basnivå | Kostnads fri/standard-nivå |
+| API | Basic-nivå | Kostnads fri/standard-nivå |
 | --- | ---------- | ------------- |
 | [Ta bort enhet](https://docs.microsoft.com/rest/api/iothub/service/deletedevice) | Ja | Ja |
 | [Hämta enhet](https://docs.microsoft.com/rest/api/iothub/service/getdevice) | Ja | Ja |

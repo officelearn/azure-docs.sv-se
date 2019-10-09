@@ -10,12 +10,12 @@ ms.reviewer: jmartens, garye
 ms.author: jordane
 author: jpe316
 ms.date: 07/12/2019
-ms.openlocfilehash: 3997f327bd6512eeee2cb5e7a0af802f12d1727a
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 910974eac6a67c9c9fe68c502f2876ef68bb94eb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71034295"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028532"
 ---
 # <a name="run-batch-predictions-on-large-data-sets-with-azure-machine-learning-pipelines"></a>Köra batch-förutsägelser på stora data mängder med Azure Machine Learning pipelines
 
@@ -52,7 +52,7 @@ Följande steg konfigurerar de resurser du behöver för att köra en pipeline:
 
 - Få åtkomst till databasen som redan har tränats modellen, inkommande etiketter och bilder för att bedöma (detta är redan inställd för dig).
 - Konfigurera ett datalager för att lagra dina utdata.
--  `DataReference`Konfigurera objekt så att de pekar på data i föregående data lager.
+- Konfigurera @ no__t-0 @ no__t-1objects för att peka på data i föregående data lager.
 - Ställ in beräkning datorer eller kluster där kör pipeline-stegen.
 
 ### <a name="access-the-datastores"></a>Komma åt datalagringen
@@ -77,7 +77,7 @@ batchscore_blob = Datastore.register_azure_blob_container(ws,
 
 Konfigurera sedan för att använda standard data lagret för utdata.
 
-När du skapar din arbets yta är [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) och [blob-lagringen](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) kopplade till arbets ytan som standard. Azure Files är standard data lagret för en arbets yta, men du kan också använda Blob Storage som ett data lager. Mer information finns i [alternativ för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
+När du skapar din arbets yta kan du [Azure Files](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) AND [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction) are som är kopplat till arbets ytan som standard. Azure Files är standard data lagret för en arbets yta, men du kan också använda Blob Storage som ett data lager. Mer information finns i [alternativ för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-decide-blobs-files-disks).
 
 ```python
 def_data_store = ws.get_default_datastore()
@@ -87,7 +87,7 @@ def_data_store = ws.get_default_datastore()
 
 Nu kan referera till data i din pipeline som indata till steg för pipeline.
 
-En datakälla i en pipeline representeras av en [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) objekt.  `DataReference`Objektetpekarpådatasomfinnsiellerkannås från ett data lager. Du behöver `DataReference`  objekt för katalogen som används för inmatnings avbildningar, katalogen där den förtränade modellen lagras, katalogen för etiketter och katalogen utdata.
+En datakälla i en pipeline representeras av en [DataReference](https://docs.microsoft.com/python/api/azureml-core/azureml.data.data_reference.datareference) objekt. @ No__t-0 @ no__t-1object pekar på data som finns i eller är tillgängliga från ett data lager. Du behöver `DataReference` @ no__t-1objects för den katalog som används för inmatnings avbildningar, katalogen där den förtränade modellen lagras, katalogen för etiketter och katalogen utdata.
 
 ```python
 from azureml.data.data_reference import DataReference
@@ -154,7 +154,7 @@ Innan du kan använda pretrained modellen, måste du ladda ned modellen och regi
 
 ### <a name="download-the-pretrained-model"></a>Ladda ned pretrained modellen
 
-Ladda ned tränats modellen för visuellt innehåll (InceptionV3) från <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Extrahera den sedan till `models` undermappen.
+Ladda ned tränats modellen för visuellt innehåll (InceptionV3) från <http://download.tensorflow.org/models/inception_v3_2016_08_28.tar.gz>. Extrahera den sedan till undermappen `models`.
 
 ```python
 import os
@@ -193,7 +193,7 @@ model = Model.register(
 >[!Warning]
 >Följande kod är bara ett exempel på vad som finns i [batch_score. py](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/batch_scoring.py) som används av [exempel antecknings boken](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/pipeline-batch-scoring/pipeline-batch-scoring.ipynb). Du måste skapa ett eget bedömnings skript för ditt scenario.
 
-Den `batch_score.py` skriptet tar indatabilder *dataset_path*, tränats modeller i *model_dir,* och matar ut *resultat label.txt* till *output_dir*.
+@No__t-0-skriptet tar inmatnings bilder i *dataset_path*, förtränade modeller i *model_dir* och matar ut *Results-Label. txt* till *output_dir*.
 
 ```python
 # Snippets from a sample scoring script
@@ -267,7 +267,7 @@ amlcompute_run_config.environment.spark.precache_packages = False
 
 ### <a name="specify-the-parameter-for-your-pipeline"></a>Ange parametern för din pipeline
 
-Skapa en pipeline-parameter genom att använda ett [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py) -objekt med ett standardvärde.
+Skapa en pipeline-parameter med hjälp av ett [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py)- object med ett standardvärde.
 
 ```python
 from azureml.pipeline.core.graph import PipelineParameter

@@ -1,47 +1,21 @@
 ---
-title: Dynamics 365 för kundengagemang erbjuder kontakter fliken | Azure Marketplace
-description: Konfigurera kontaktinformation för Dynamics 365 för kundengagemang erbjudandet på AppSource-marknadsplatsen.
+title: Dynamics 365 för kund engagemang-fliken kontakter | Azure Marketplace
+description: Den här CPP-artikeln är kopplad till PC-artikeln. Var "Konfigurera kontakt information för Dynamics 365 för kund engagemang-erbjudande på AppSource Marketplace".
 services: Dynamics 365 for Customer Engagement, Azure, AppSource, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: ChJenk
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 04/24/2019
-ms.author: pabutler
-ms.openlocfilehash: cdd3d01c9295ef5ae8e7bc1936b5926fb38cfe77
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 8a04d7d6f5913a100ab6c4187a42a4d6c470cbda
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64942502"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033899"
 ---
-# <a name="azure-application-contacts-tab"></a>Fliken för Azure application kontakter
+# <a name="azure-application-contacts-tab"></a>Fliken Azure Application Contacts
 
-Använd den **kontakter** flik för att tillhandahålla tekniker och kunden supportinformation för din Dynamics 365 för kundengagemang erbjudande.
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera Dynamics 365-erbjudanden om kund engagemang. I stället har den här funktionen flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [skapa en ny Dynamics 365 för kund engagemang & PowerApps-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer).
 
-![Fliken kontakter för erbjudande](./media/dynce-contacts-tab.png)
-
-
-## <a name="specify-customer-and-engineering-contacts"></a>Ange kund- och tekniker kontakter
-
-Ange följande värden för att definiera primärt **Engineering Contact** och för ditt erbjudande. Required fields are indicted by an asterisk (*).
-
-|    Fält        |  Beskrivning                    |
-|    ---------    |  ---------------                |
-|  **Namn\***       |  Namnet på den tekniska kontakten för din app. Den här kontakten kommer få teknisk information från Microsoft.   |
-|  **E-post\***      |  E-postadress för teknisk kontakt  |
-|  **telefon\***      |  Telefonnumret till den tekniska kontakten  |
-|  |  |
-
-Ange följande värden för att definiera primärt **Supportkontakt** och för ditt erbjudande.
-
-|    Fält        |   Beskrivning                   |
-|    ---------    |  ---------------                |
-|  **Namn\***       |  Namnet på kundkontakt för stöd för din app. Den här kontakten får support-relaterade kommunikation från Microsoft.   |
-|  **E-post\***      |  E-postadress för support kundkontakt  |
-|  **telefon\***      |  Telefonnumret till supporten kundkontakt  |
-|  |  |
-
-
-## <a name="next-steps"></a>Nästa steg
-
-När du har kontrollerat att du har nödvändiga [tekniska resurser](./cpp-create-technical-assets.md) för ditt erbjudande, är det dags att [publicera Dynamics 365 för kundengagemang erbjudande](./cpp-publish-offer.md).
+Innan du skapar ett nytt Dynamics 365-erbjudande för kund engagemang bör du läsa [skapa ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/directory) med den valda **översikts** sidan. Följ instruktionerna i [skapa en ny Dynamics 365 för kund engagemang & PowerApps-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-customer-engagement-offer) för att skapa ditt erbjudande.

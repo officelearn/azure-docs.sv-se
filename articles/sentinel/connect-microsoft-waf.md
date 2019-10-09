@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 9d85b5a72c2e37719348d61250d167eb9a5688a1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: e7dc1e6c1bb1ca81ada59cb3dae8fecbc6452b7f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240028"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029783"
 ---
 # <a name="connect-data-from-microsoft-web-application-firewall"></a>Anslut data från Microsoft webb programs brand vägg
 
@@ -40,10 +40,10 @@ När din Microsoft Web Application-brandvägg har distribuerats och hämta data 
     
 1. I Azure Sentinel-portalen väljer du **data anslutningar**.
 1. På sidan data anslutningar väljer du panelen **WAF** .
-1. Gå till [Application Gateway resurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) och välj din WAF.
-    1. Välj **diagnostikinställningar**.
-    1. Välj **+ Lägg till diagnostisk inställning** under tabellen.
-    1. På sidan **diagnostikinställningar** anger du ett **namn** och väljer **Skicka till Log Analytics**.
+1. Gå till [Application Gateway resurs](https://ms.portal.azure.com/#blade/HubsExtension/BrowseAllResourcesBlade/resourceType/Microsoft.Network%2FapplicationGateways) AND välj din WAF.
+    1. Välj **diagnostikinställningar**.
+    1. Välj **+ Lägg till diagnostisk inställning** under tabellen.
+    1. På sidan **diagnostikinställningar** anger du ett **namn** och väljer **Skicka till Log Analytics**.
     1. Under **Log Analytics arbets yta** väljer du Azure Sentinel-arbetsytan.
     1. Välj de logg typer som du vill analysera. Vi rekommenderar: ApplicationGatewayAccessLog och ApplicationGatewayFirewallLog.
 1. Om du vill använda det relevanta schemat i Log Analytics för brand Väggs aviseringar i Microsoft Web Application söker du efter **AzureDiagnostics**.

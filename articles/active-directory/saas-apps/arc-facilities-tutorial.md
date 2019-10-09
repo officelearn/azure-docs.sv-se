@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a7cf5a5e2669fcbb5344fc6dd4b5c6de8318c3a5
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 43fd1375ac8ffa850ca3f2c4c2b34e63631a9811
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70846933"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025915"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-arc-facilities"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med båg funktioner
 
@@ -70,7 +70,7 @@ Om du vill konfigurera och testa Azure AD SSO med båg funktioner slutför du f�
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 1. **[Konfigurera Arc-anläggningar SSO](#configure-arc-facilities-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa Arc-anläggningar testa användare](#create-arc-facilities-test-user)** – för att få en motsvarighet till B. Simon i båg anläggningar som är länkade till Azure AD-representation av användare.
 1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -91,7 +91,7 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     ![image](common/edit-attribute.png)
 
-1. Utöver ovan förväntar sig ARC-arbetsprogrammet några fler attribut att skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)**  utför du följande steg:
+1. Utöver ovan förväntar sig ARC-arbetsprogrammet några fler attribut att skickas tillbaka i SAML-svar. I avsnittet **användarattribut &-anspråk** i dialog rutan **grupp anspråk (förhands granskning)** utför du följande steg:
 
     a. Klicka på **pennan** bredvid **grupper som returneras i anspråk**.
 

@@ -1,39 +1,37 @@
 ---
 title: Gränser för Azure Cosmos DB Gremlin
 description: Referens dokumentation för körnings begränsningar i diagram motor
-author: olignat
+author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: reference
-ms.date: 09/10/2019
-ms.author: olignat
-ms.openlocfilehash: f1fe4cfac22a651f44338986d0a767fe3e1a360b
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.date: 10/04/2019
+ms.author: lbosq
+ms.openlocfilehash: 76ad787990c355d29613c05ca9fce31885a2eccc
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70911081"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029843"
 ---
 # <a name="azure-cosmos-db-gremlin-limits"></a>Azure Cosmos DB Gremlin-gränser
 Den här artikeln beskriver gränserna för Azure Cosmos DB Gremlin-motorn och förklarar hur de kan påverka kund bläddringskontroll.
 
-Cosmos DB Gremlin skapas ovanpå Cosmos DB-infrastruktur, vilket är orsaken till att alla begränsningar i [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) fortfarande gäller. 
+Cosmos DB Gremlin skapas ovanpå Cosmos DB-infrastruktur. På grund av detta gäller alla gränser som beskrivits i [Azure Cosmos DB tjänst gränser](https://docs.microsoft.com/azure/cosmos-db/concepts-limits) fortfarande. 
 
 ## <a name="limits"></a>Begränsningar
 
-När Gremlin-gränsen uppnås avbryts traversen med **x-MS-status-Code** = 429 som anger ett begränsnings fel.
+När Gremlin-gränsen uppnås avbryts Traversal med en **x-MS-status-kod** på 429 som indikerar ett begränsnings fel. Mer information finns i [Gremlin-serverns svars rubriker](gremlin-limits.md) .
 
 **Resurs**    | **Standardgräns** | **Förklaring**
 --- | --- | ---
-*Minne per begäran* | **2 GB** | Maximal mängd minne som en förfrågan kan förbruka vid bearbetning. Begär Anden som behöver beräkning av stora data mängder använder ytterligare minne. Överväg att ange mindre data uppsättningar för att undvika att den här gränsen passeras eller Använd OLAP-lösningar.
-*Skript längd* | **64 KB** | Maximal längd för ett Gremlin-bläddringsskript per begäran.
-*Operator djup* | **400** |  Totalt antal unika steg i en bläddring. ```g.V().out()``` Har till exempel antalet operatorer på 2: V () och out () ```g.V('label').repeat(out()).times(100)``` har operatörs djupet på 3: V (), REPEAT () och out () eftersom ```.times(100)``` är en parameter till ```.repeat()``` operatorn.
+*Skriptets längd* | **64 KB** | Maximal längd för ett Gremlin-bläddringsskript per begäran.
+*Operatorns djup* | **400** |  Totalt antal unika steg i en bläddring. @No__t-0 har till exempel ett antal operatorer 2: V () och out (), ```g.V('label').repeat(out()).times(100)``` har ett operatörs djup på 3: V (), REPEAT () och out () eftersom ```.times(100)``` är en parameter till ```.repeat()```-operator.
 *Grad av parallellitet* | **32** | Maximalt antal lagringspartitioner i en enskild förfrågan till lagringsskiktet. Grafer med hundratals partitioner påverkas av den här gränsen.
-*Upprepnings gräns* | **32** | Maximalt antal iterationer en ```.repeat()```-operator kan köra. Varje iteration av ```.repeat()``` steg i de flesta fall kör en bredd-första genom gång, vilket innebär att all traversr är begränsad till högst 32 hopp mellan hörnen.
-*Timeout för bläddringskontroll* | **30 sekunder** | Traversal avbryts när den är för tillfället. Cosmos DB Graph är en OLTP-databas där ett stort antal bläddringar kan slutföras på bara några millisekunder. Om du vill köra OLAP-frågor i Cosmos DB Graph använder du [Apache Spark](https://azure.microsoft.com/services/cosmos-db/) med [diagram Data ramar](https://spark.apache.org/docs/latest/sql-programming-guide.html#datasets-and-dataframes) och [Cosmos DB Spark-anslutning](https://github.com/Azure/azure-cosmosdb-spark).
-*Predikat-gräns* | **20** | Antal ```.has()```- eller ```.hasNot()```-steg som tillämpas på en enskild kant eller ett enskilt hörn. När den här gränsen nås visas felet ```The SQL query exceeded the maximum number of joins. The allowed limit is 20``` i programmet. Det är ett tillfälligt besvär som teamet arbetar för att lyfta upp den här gränsen. 
-*Timeout för inaktiv anslutning* | **5 timmar** | Den tid som Graph Server håller WebSocket-anslutningen öppen utan trafik på den. TCP Keep-Alive-paket eller HTTP Keep-Alive-begäranden utökar inte anslutnings livs längd utöver den här gränsen, men om de inte skickas kan den underliggande Azure-infrastrukturen stänga anslutningen även snart. Cosmos DB diagram motor anses vara inaktiv om det inte finns några Gremlin-bläddringskontroll som körs på den.
-*Resource-token per timme* | **100** | Antal unika resurs-token som används av Gremlin-klienter för att ansluta till Gremlin-kontot i en region. När programmet överskrider den unika Tim gränsen `"Exceeded allowed resource token limit of 100 that can be used concurrently"` för token returneras nästa autentiseringsbegäran.
+*Upprepningsgräns* | **32** | Maximalt antal iterationer en ```.repeat()```-operator kan köra. Varje iteration av ```.repeat()```-steget i de flesta fall kör bredd-första genom gång, vilket innebär att alla traverser är begränsade till högst 32 hopp mellan hörnen.
+*Tidsgräns för bläddring* | **30 sekunder** | Traversal avbryts när den är för tillfället. Cosmos DB Graph är en OLTP-databas där ett stort antal bläddringar kan slutföras på bara några millisekunder. Om du vill köra OLAP-frågor i Cosmos DB Graph använder du [Apache Spark](https://azure.microsoft.com/services/cosmos-db/) med [diagram Data ramar](https://spark.apache.org/docs/latest/sql-programming-guide.html#datasets-and-dataframes) och [Cosmos DB Spark-anslutning](https://github.com/Azure/azure-cosmosdb-spark).
+*Tidsgräns för vilande anslutning* | **1 timme** | Hur lång tid som Gremlin-tjänsten ska hålla inaktiva WebSocket-anslutningar öppna. TCP Keep-Alive-paket eller HTTP Keep-Alive-begäranden utökar inte anslutnings livs längd utöver den här gränsen. Cosmos DB Graph-motor anser att WebSocket-anslutningar är inaktiva om inga aktiva Gremlin-begäranden körs på den.
+*Resurstoken per timme* | **100** | Antal unika resurstoken som Gremlin-klienter använder till att ansluta till Gremlin-kontot i en region. När programmet överskrider den unika kvoten för token kommer `"Exceeded allowed resource token limit of 100 that can be used concurrently"` att returneras vid nästa autentiseringsbegäran.
 
 ## <a name="next-steps"></a>Nästa steg
 * [Azure Cosmos DB Gremlin-svarshuvuden](gremlin-headers.md) 

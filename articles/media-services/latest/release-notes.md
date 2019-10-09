@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 09/06/2019
 ms.author: juliako
-ms.openlocfilehash: 618aa58fe8553789c831ca933ae6be73843b93dd
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801384"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030526"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
@@ -153,31 +153,31 @@ Modulen CLI 2,0 är nu tillgänglig för [Azure Media Services v3 ga](https://do
 
 #### <a name="asset-commands"></a>Till gångs kommandon
 
-- ```--storage-account```och ```--container``` argument har lagts till.
-- Standardvärden för förfallo tid (nu + 23h) och behörigheter (läsa) i ```az ams asset get-sas-url``` kommandot tillagt.
+- ```--storage-account``` och ```--container```-argument har lagts till.
+- Standardvärden för förfallo tid (nu + 23h) och behörigheter (Läs) i ```az ams asset get-sas-url```-kommandot har lagts till.
 
 #### <a name="job-commands"></a>Jobb kommandon
 
-- ```--correlation-data```och ```--label``` tillagda argument
-- ```--output-asset-names```har bytt namn till ```--output-assets```. Nu accepterar den en blankstegsavgränsad lista med till gångar i formatet "assetName = Label". En till gång utan etikett kan skickas så här: "assetName =".
+- ```--correlation-data``` och ```--label```-argument har lagts till
+- ```--output-asset-names``` omdöpt till ```--output-assets```. Nu accepterar den en blankstegsavgränsad lista med till gångar i formatet "assetName = Label". En till gång utan etikett kan skickas så här: "assetName =".
 
 #### <a name="streaming-locator-commands"></a>Kommandon för streaming Locator
 
-- ```az ams streaming locator```kommandot Base ersattes ```az ams streaming-locator```med.
-- ```--streaming-locator-id```och ```--alternative-media-id support``` argument har lagts till.
-- ```--content-keys argument```argumentet har uppdaterats.
-- ```--content-policy-name```har bytt namn till ```--content-key-policy-name```.
+- ```az ams streaming locator``` Base-kommando ersattes med ```az ams streaming-locator```.
+- ```--streaming-locator-id``` och ```--alternative-media-id support```-argument har lagts till.
+- värdet för argumentet ```--content-keys argument``` har uppdaterats.
+- ```--content-policy-name``` omdöpt till ```--content-key-policy-name```.
 
 #### <a name="streaming-policy-commands"></a>Kommandon för direkt uppspelnings princip
 
-- ```az ams streaming policy```kommandot Base ersattes ```az ams streaming-policy```med.
-- Krypterings parameter stöd ```az ams streaming-policy create``` har lagts till.
+- ```az ams streaming policy``` Base-kommando ersattes med ```az ams streaming-policy```.
+- Stöd för krypterings parametrar i ```az ams streaming-policy create``` har lagts till.
 
 #### <a name="transform-commands"></a>Omvandlings kommandon
 
-- ```--preset-names```argumentet ersatt med ```--preset```. Nu kan du bara ange 1 utdata/för inställning i taget (för att lägga till fler du behöver ```az ams transform output add```köra). Du kan också ange anpassade StandardEncoderPreset genom att skicka sökvägen till din anpassade JSON.
-- ```az ams transform output remove```kan utföras genom att skicka det utgående index som ska tas bort.
-- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```argument har lagts ```az ams transform create``` till ```az ams transform output add``` i och-kommandon.
+- argumentet ```--preset-names``` ersattes med ```--preset```. Nu kan du bara ange 1 utdata/förval i taget (om du vill lägga till fler måste du köra ```az ams transform output add```). Du kan också ange anpassade StandardEncoderPreset genom att skicka sökvägen till din anpassade JSON.
+- ```az ams transform output remove``` kan utföras genom att skicka det utgående index som ska tas bort.
+- ```--relative-priority, --on-error, --audio-language and --insights-to-extract```-argument läggs till i ```az ams transform create```-och ```az ams transform output add```-kommandon.
 
 ## <a name="october-2018---ga"></a>Oktober 2018 – GA
 
@@ -275,4 +275,5 @@ Kolla in [Azure Media Services community](media-services-community.md) -artikeln
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Översikt](media-services-overview.md)
+- [Översikt](media-services-overview.md)
+- [Viktig information om Media Services v2](../previous/media-services-release-notes.md)

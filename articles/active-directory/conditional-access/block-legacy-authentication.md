@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d227b4cf7090cdc3177c7045d6137f30a13f71b
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f4e4dc33d670c5f6c5ebefa21ccf1a1ff941e913
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68931955"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024574"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Anvisningar: Blockera äldre autentisering till Azure AD med villkorlig åtkomst   
 
@@ -52,8 +52,8 @@ I det här avsnittet beskrivs hur du konfigurerar en princip för villkorlig åt
 
 Innan du kan blockera äldre autentisering i din katalog måste du först förstå om dina användare har appar som använder äldre autentisering och hur de påverkar den övergripande katalogen. Inloggnings loggar för Azure AD kan användas för att förstå om du använder äldre autentisering.
 
-1. Navigera till **Azure Portal** > **Azure Active Directory** > **inloggningar**.
-1. Lägg till kolumnen klient program om den inte visas genom att klicka på **kolumner** > **klient program**.
+1. Gå till **Azure Portal** > **Azure Active Directory** > -**inloggningar**.
+1. Lägg till kolumnen client app om den inte visas genom att klicka på **kolumner** > **klient program**.
 1. **Lägg till filter** > **klient program** > Välj alla alternativ för **andra klienter** och klicka på **Använd**.
 
 Vid filtrering visas bara inloggnings försök som gjorts av äldre autentiseringsprotokoll. Om du klickar på varje enskilt inloggnings försök visas ytterligare information. Fältet **klient app** på fliken **grundläggande information** visar vilket äldre autentiseringsprotokoll som användes.
@@ -101,7 +101,7 @@ Mer information finns i [så här distribuerar du en ny princip?](best-practices
 
 ## <a name="what-you-should-know"></a>Det här bör du känna till
 
-Att blockera åtkomst med **andra klienter** blockerar också Exchange Online PowerShell med Basic auth.
+Att blockera åtkomst med **andra klienter** blockerar också Exchange Online PowerShell och Dynamics 365 med Basic auth.
 
 Att konfigurera en princip för **andra klienter** blockerar hela organisationen från vissa klienter som SPConnect. Det här blocket inträffar eftersom äldre klienter autentiseras på oväntade sätt. Problemet gäller inte för större Office-program som äldre Office-klienter.
 

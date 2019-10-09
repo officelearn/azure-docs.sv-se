@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709bf2e413ddb40ae1ed84672cea0c0b71be2ce6
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 21409eb056743d92db42e0787af24f8cec07db1b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70305948"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026958"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-harness"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med nät
 
@@ -141,11 +141,11 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 3. Om du vill konfigurera nät manuellt öppnar du ett nytt webbläsarfönster och loggar in på din företags webbplats som administratör och utför följande steg:
 
-4. Klicka på**Inställningar**för **kontinuerlig säkerhets** > **åtkomst hantering** > på sidan längst upp till höger på sidan.
+4. Klicka på **kontinuerlig säkerhet** > **åtkomst hantering** > **autentiseringsinställningar**längst upp till höger på sidan.
 
     ![Konfiguration av nät](./media/harness-tutorial/configure01.png)
 
-5. I avsnittet **SSO-providers** klickar du på **+ Lägg till SSO-providers** > **SAML**.
+5. I avsnittet **SSO-providers** klickar du på **+ Lägg till SSO-providers** > **SAML**.
 
     ![Konfiguration av nät](./media/harness-tutorial/configure03.png)
 
@@ -169,11 +169,11 @@ Om du vill att Azure AD-användare ska kunna logga in på ett nät, måste de ti
 
 1. Logga in för att ansluta som administratör.
 
-1. Längst upp till höger på sidan**klickar du på**principer för **kontinuerlig säkerhets** > **åtkomst hantering** > .
+1. Klicka på **kontinuerlig säkerhet** > **åtkomst hantering** > **användare**längst upp till höger på sidan.
 
     ![Konfiguration av nät](./media/harness-tutorial/configure04.png)
 
-1. Klicka på **+ Lägg till användare**till höger på sidan.
+1. Klicka på **+ Lägg till användare**till höger på sidan.
 
     ![Konfiguration av nät](./media/harness-tutorial/configure05.png)
 
@@ -181,7 +181,7 @@ Om du vill att Azure AD-användare ska kunna logga in på ett nät, måste de ti
 
     ![Konfiguration av nät](./media/harness-tutorial/configure06.png)
 
-    a. I text rutan **e-postadress (er)** anger du e-postadressen till användaren `B.simon@contoso.com`.
+    a. I text rutan **e-postadress (er)** anger du e-postmeddelandet som `B.simon@contoso.com`.
 
     b. Välj **användar grupper**.
 

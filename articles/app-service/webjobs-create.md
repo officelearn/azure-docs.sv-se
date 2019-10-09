@@ -12,12 +12,12 @@ ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 66c1b62dc94fc071d3b04fc0d4e89220df74d1f8
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 748f49a3f6f36617271a1497ccac6c63821a7693
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68945809"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024655"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrunds aktiviteter med WebJobs i Azure App Service
 
@@ -35,10 +35,10 @@ Azure Functions är ett annat sätt att köra program och skript. En jämförels
 
 ## <a name="webjob-types"></a>Webb jobb typer
 
-I följande tabell beskrivs skillnaderna mellan *kontinuerliga* och utlösta WebJobs.
+I följande tabell beskrivs skillnaderna mellan *kontinuerliga* och *utlösta* WebJobs.
 
 
-|Kontinuerlig  |Utlöst  |
+|Kontinuerlig igenkänning  |Utlöses  |
 |---------|---------|
 | Startar omedelbart när webb jobbet skapas. För att det ska gå att avsluta jobbet fungerar programmet eller skriptet vanligt vis i en oändlig slinga. Om jobbet har slutförts kan du starta om det. | Startar bara när de utlöses manuellt eller enligt ett schema. |
 | Körs på alla instanser som webbappen körs på. Du kan också begränsa webbjobbet till en enda instans. |Körs på en enda instans som Azure väljer för belastnings utjämning.|
@@ -75,20 +75,20 @@ when making changes in one don't forget the other two.
 
     ![Webb jobbs sida](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Använd **Lägg till webb jobb** inställningar som anges i tabellen.
+3. Använd **Lägg till webb jobb** inställningar som anges i tabellen.
 
    ![Sidan Lägg till webb jobb](./media/web-sites-create-web-jobs/addwjcontinuous.png)
 
    | Inställning      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
-   | **Namn** | myContinuousWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_". |
-   | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet filtyper som [stöds](#acceptablefiles) . |
-   | **Bastyp** | Kontinuerlig | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
+   | **Namn** | myContinuousWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_". |
+   | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
+   | **Typ** | Kontinuerlig igenkänning | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **Skalning** | Flera instanser | Endast tillgängligt för kontinuerliga WebJobs. Bestämmer om programmet eller skriptet körs på alla instanser eller bara en instans. Alternativet att köra på flera instanser gäller inte för [pris nivåerna](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)kostnads fri eller delad. | 
 
 4. Klicka på **OK**.
 
-   Det nya webb jobbet visas på sidan WebJobs.
+   Det nya webb jobbet visas på sidan **WebJobs** .
 
    ![Lista över WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
@@ -113,20 +113,20 @@ when making changes in one don't forget the other two.
 
     ![Webb jobbs sida](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Använd **Lägg till webb jobb** inställningar som anges i tabellen.
+3. Använd **Lägg till webb jobb** inställningar som anges i tabellen.
 
    ![Sidan Lägg till webb jobb](./media/web-sites-create-web-jobs/addwjtriggered.png)
 
    | Inställning      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
-   | **Namn** | myTriggeredWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_".|
-   | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet filtyper som [stöds](#acceptablefiles) . |
-   | **Bastyp** | Utlöst | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
-   | **Utlösar** | Manuell | |
+   | **Namn** | myTriggeredWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_".|
+   | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
+   | **Typ** | Utlöses | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
+   | **Utlösare** | Manuell | |
 
 4. Klicka på **OK**.
 
-   Det nya webb jobbet visas på sidan WebJobs.
+   Det nya webb jobbet visas på sidan **WebJobs** .
 
    ![Lista över WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
@@ -151,27 +151,27 @@ when making changes in one don't forget the other two.
 
    ![Webb jobbs sida](./media/web-sites-create-web-jobs/wjblade.png)
 
-3. Använd **Lägg till webb jobb** inställningar som anges i tabellen.
+3. Använd **Lägg till webb jobb** inställningar som anges i tabellen.
 
    ![Sidan Lägg till webb jobb](./media/web-sites-create-web-jobs/addwjscheduled.png)
 
    | Inställning      | Exempelvärde   | Beskrivning  |
    | ------------ | ----------------- | ------------ |
-   | **Namn** | myScheduledWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_". |
-   | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet filtyper som [stöds](#acceptablefiles) . |
-   | **Bastyp** | Utlöst | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
-   | **Utlösar** | Schemalagd | Aktivera funktionen Always on för att schemalägga arbetet på ett tillförlitligt sätt. Always On är bara tillgängligt på pris nivåerna Basic, standard och Premium.|
-   | **CRON-uttryck** | 0 0/20 * * * * | [Cron-uttryck](#ncrontab-expressions) beskrivs i följande avsnitt. |
+   | **Namn** | myScheduledWebJob | Ett namn som är unikt inom en App Service-app. Måste börja med en bokstav eller en siffra och får inte innehålla specialtecken förutom "-" och "_". |
+   | **Fil uppladdning** | ConsoleApp. zip | En *zip* -fil som innehåller din körbara fil eller skript fil samt alla stödfiler som behövs för att köra programmet eller skriptet. Den körbara filen eller skript fil typerna som stöds finns i avsnittet [filtyper som stöds](#acceptablefiles) . |
+   | **Typ** | Utlöses | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
+   | **Utlösare** | Schemalagd | Aktivera funktionen Always on för att schemalägga arbetet på ett tillförlitligt sätt. Always On är bara tillgängligt på pris nivåerna Basic, standard och Premium.|
+   | **CRON-uttryck** | 0 0/20 * * * * | [Cron-uttryck](#ncrontab-expressions) beskrivs i följande avsnitt. |
 
 4. Klicka på **OK**.
 
-   Det nya webb jobbet visas på sidan WebJobs.
+   Det nya webb jobbet visas på sidan **WebJobs** .
 
    ![Lista över WebJobs](./media/web-sites-create-web-jobs/listallwebjobs.png)
 
 ## <a name="ncrontab-expressions"></a>NCRONTAB-uttryck
 
-Du kan ange ett [NCRONRAB-uttryck](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) i portalen eller inkludera en `settings.job` fil i roten av din webb jobb *. zip* -fil, som i följande exempel:
+Du kan ange ett [NCRONRAB-uttryck](../azure-functions/functions-bindings-timer.md#ncrontab-expressions) i portalen eller inkludera en `settings.job`-fil i roten av din webb jobb *. zip* -fil, som i följande exempel:
 
 ```json
 {

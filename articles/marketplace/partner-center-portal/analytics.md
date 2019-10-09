@@ -7,12 +7,12 @@ ms.author: shthota
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/09/2019
-ms.openlocfilehash: 87ecf534fa7d4f3609882f5f18b314c246e388bd
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b48e0cddfe4880382147e7bfb634335f10d6f5f9
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036647"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028845"
 ---
 # <a name="analytics-for-the-commercial-marketplace-in-partner-center"></a>Analys för den kommersiella marknads platsen i Partner Center
 
@@ -26,6 +26,7 @@ Om du vill komma åt Partner Center Analytics-verktyg öppnar du **[analys](http
 |[Ordna](#orders-dashboard)|Information om dina beställningar i ett grafiskt och nedladdnings Bart format|
 |[Kunden](#customer-dashboard)|Information om dina kunder, inklusive tillväxt trender, som presenteras i ett grafiskt och nedladdnings Bart format|
 |[–](#downloads-dashboard)|En lista över dina nedladdnings begär Anden under de senaste 30 dagarna|
+|[Klassificeringar och recensioner](#ratings-and-reviews)| Information om klassificering och recensioner som kunderna lämnar för de erbjudanden som de har köpt.
 
 ## <a name="summary-dashboard"></a>Sammanfattnings instrument panel
 
@@ -44,7 +45,7 @@ Du kan hitta ett datum intervall i det övre högra hörnet på varje sida. Utda
 
 ![Partner Center analys instrument panel](./media/analyze-dashboard.png)
 
-### <a name="totals"></a>Totalt belopp
+### <a name="totals"></a>Summor
 
 Avsnittet **summor** visar antalet order som skapats, eller kunder som har köpts, under det valda datum intervallet. 
 
@@ -244,7 +245,7 @@ Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk t
 | Moln instans namn: Azure Government | Beställa| Myndighets-/regionsspecifika Microsoft-moln för någon av följande myndigheter: Kina, Tyskland eller USA av Amerika.| |
 | Kund ort| Kunden| Orts namnet som tillhandahålls av kunden. Staden kan skilja sig från staden i en kunds Azure-prenumeration.||
 | Kundens kommunikations språk  | Kunden| Det språk som kunden föredrar för kommunikation.||
-| Kund företags namn | Kund, order | Företags namnet som tillhandahålls av kunden. Namnet kan skilja sig från namnet i en kunds Azure-prenumeration.|  |
+| Kund företags namn | Kund, order | Företags namnet som tillhandahålls av kunden. Namnet får inte vara detsamma som staden i en kunds Azure-prenumeration.|  |
 | Kund land | Kund, order | Landets namn som tillhandahålls av kunden. Landet kan skilja sig från landet i en kunds Azure-prenumeration.|  |
 | Kund-e-post| Kunden| E-postadressen som tillhandahålls av slut kunden. E-postadressen kan skilja sig från e-postadressen i en kunds Azure-prenumeration.||
 | Förnamn för kund| Kunden| Det namn som tillhandahålls av kunden. Namnet får inte vara detsamma som det namn som anges i en kunds Azure-prenumeration.| |
@@ -262,7 +263,7 @@ Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk t
 | Marketplace-licens typ: Lediga| Beställa| Erbjudandet är konfigurerat att vara kostnads fritt för alla användare. Microsoft fakturerar inte kunder för användningen av det här erbjudandet.||
 | Marketplace-licens typ: Microsoft as åter försäljare  | Beställa| Microsoft är din åter försäljare för det här Marketplace-erbjudandet.|  |
 | Prenumerations-ID för Marketplace | Kund, order | Den unika identifierare som är kopplad till Azure-prenumerationen som kunden använde för att köpa Marketplace-erbjudandet. ID var tidigare GUID för Azure-prenumerationen.||
-| Erbjudande  | Beställa| Namnet på Marketplace-erbjudandet.|| |
+| Erbjudandets namn  | Beställa| Namnet på Marketplace-erbjudandet.|| |
 | Erbjudandetyp  | Beställa| Typ av Microsoft Marketplace erbjudande.|||
 | Erbjudande typ: Hanterat program  | För | Använd Azure app: den hanterade appens erbjudande typ när följande villkor är uppfyllda: Du distribuerar antingen en prenumeration baserad lösning för din kund med antingen en virtuell dator eller en hel IaaS lösning. Du eller din kund kräver att lösningen hanteras av en partner. |
 | Erbjudande typ: Azure Application| För | Använd mallen för Azure Application lösnings erbjudande när din lösning kräver ytterligare distribution och konfigurations automatisering utöver en enkel virtuell dator.||
@@ -270,7 +271,7 @@ Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk t
 | Erbjudande typ: Container | Beställa| Använd containerns erbjudande typ när din lösning är en Docker-behållar avbildning som tillhandahålls som en Kubernetes-baserad Azure Container Service.||
 | Erbjudande typ: Dynamics 365 Business Central| Beställa| Använd den här erbjudande typen när din lösning är integrerad med Dynamics 365 för finanser och åtgärder| |
 | Erbjudande typ: Dynamics 365 för Customer Engagement | Beställa| Använd den här erbjudande typen när din lösning är integrerad med Dynamics 365 för kund engagemang.||
-| Erbjudande typ: IoT Edge-modul | Beställa| Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. |
+| Erbjudande typ: IoT Edge modul | Beställa| Azure IoT Edge moduler är de minsta beräknings enheter som hanteras av IoT Edge och kan innehålla Microsoft-tjänster (till exempel Azure Stream Analytics), tjänster från tredje part eller din egen lösnings-specifika kod. |
 | Erbjudande typ: Power BI program | Beställa| Använd typen Power BI program erbjudande när du distribuerar ett program som är integrerat med Power BI.|  |
 | Erbjudande typ: SaaS-program| Beställa| Använd SaaS-appens erbjudande typ för att göra det möjligt för kunden att köpa din SaaS-baserade, tekniska lösning som en prenumeration.||
 | Erbjudande typ: Virtuell dator | Beställa| Använd den virtuella datorns erbjudande typ när du distribuerar en virtuell installation till prenumerationen som är kopplad till din kund.||
@@ -282,6 +283,41 @@ Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk t
 | Order status: Aktiv  | Beställa| Kunden har köpt en order och har inte annullerat sin beställning.|         |
 | Order status: avbruten | Beställa| Kunden köpte tidigare en order och annullerade sedan sin beställning.||
 | Providerns e-postadress| Kunden| E-postadressen till leverantören som är involverad i relationen mellan Microsoft och slut kunden. Om kunden är ett företag genom åter försäljaren blir detta åter försäljaren. Om en moln lösnings leverantör (CSP) är involverad är detta CSP.|
-| Namn på leverantör| Kunden| Namnet på leverantören som är involverad i relationen mellan Microsoft och slut kunden. Om kunden är ett företag genom åter försäljaren blir detta åter försäljaren. Om en moln lösnings leverantör (CSP) är involverad är detta CSP.|
+| Providernamn| Kunden| Namnet på leverantören som är involverad i relationen mellan Microsoft och slut kunden. Om kunden är ett företag genom åter försäljaren blir detta åter försäljaren. Om en moln lösnings leverantör (CSP) är involverad är detta CSP.|
 | SKU| Beställa| SKU-namn som definieras under publiceringen. Ett erbjudande kan ha många SKU: er, men en SKU kan bara associeras med ett enda erbjudande.||
 | Slutdatum för utvärdering| Beställa| Det datum då utvärderings perioden för den här ordern upphör eller har avslut ATS.||
+
+## <a name="ratings-and-reviews"></a>Klassificeringar och recensioner
+
+När kunder bläddrar, söker efter och köper erbjudanden på båda marknads platser kan de lämna betyg och recensioner om de erbjudanden de har köpt. De kan skicka in nya klassificeringar eller recensioner och uppdatera eller ta bort klassificeringar eller recensioner som redan har skickats. Granskningar publiceras i Azure Marketplace eller AppSource på fliken recensioner på sidan för erbjudandets produkt visning. Kunder kan inkludera sina namn för klassificeringar eller recensioner, eller så kan de publicera anonymt.  
+
+> [!NOTE]
+> Kunder kan bara göra ändringar i de klassificeringar och recensioner de äger.
+
+På **instrument panelen klassificering & granska** visas trender och insikter om kund aktiviteter. Den ger grafiska representationer av:
+
+- Klassificering & granskningar  
+- Granska kommentarer
+
+### <a name="marketplace-storefront-tabs"></a>Marketplace butik-flikar
+
+Utgivare kan visa sina erbjudande mått separat på AppSource-& Azure Marketplace-flikarna. Om du vill visa vissa erbjudande mått väljer du **erbjudandet** i list rutan:
+
+![List rutan för att analysera erbjudande i partner centret](./media/analyze-offer-dropdown.png)
+
+### <a name="ratings-and-reviews-summary"></a>Sammanfattning av klassificering och recensioner
+
+I sammanfattnings avsnittet klassificerings & recensioner visas måtten nedan för det valda datum intervallet:
+
+- **Genomsnittligt omdöme:** Viktad genomsnittlig stjärn klassificering av alla klassificeringar som skickats av kunder för det valda erbjudandet.
+- **Klassificering av klassificering:** Nedbrytning av stjärn klassificeringen med antalet kunder som har skickat betyg. Stapeldiagrammet staplas med faktiska och ändrade klassificeringar (uppdaterat betygs antal).
+- **Total betyg:** Totalt antal inskickade klassificeringar. Det här antalet inkluderar även klassificeringar med och utan recensioner.
+- **Klassificering med recensioner:** Antal granskningar som har skickats.
+
+![Översikt över analys och granskning i Partner Center](./media/analyze-ratings-summary.png)
+
+### <a name="review-comments"></a>Granska kommentarer
+
+Granskningar visas i kronologisk ordning för när de publicerades. I standardvyn visas alla granskningar. Du kan filtrera igenom granskningarna efter stjärn klassificering med **filtret** i list menyn. Du kan också söka efter nyckelord som visas i granskningen.  
+
+![Partner Center, analysera gransknings kommentarer](./media/analyze-reviews.png)

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 01/09/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5ef060127840838778a00fdabd2d56b2ef23d6f4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3abc221295a90dfbf7e46e3bd5bff1c8c0937162
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082686"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035017"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-linux"></a>Installera NVIDIA GPU-drivrutiner på virtuella datorer i N-serien som kör Linux
 
@@ -190,7 +190,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    
    sudo apt-get install linux-azure -y
    ```
-3. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NVv2 virtuella datorer.) Det gör du genom att skapa en fil `/etc/modprobe.d` med `nouveau.conf` namnet med följande innehåll:
+3. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NVv2 virtuella datorer.) Det gör du genom att skapa en fil i `/etc/modprobe.d` med namnet `nouveau.conf` med följande innehåll:
 
    ```
    blacklist nouveau
@@ -254,7 +254,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
    sudo yum install hyperv-daemons
    ```
 
-2. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NV2 virtuella datorer.) Det gör du genom att skapa en fil `/etc/modprobe.d` med `nouveau.conf` namnet med följande innehåll:
+2. Inaktivera Nouveau kernel-drivrutinen, som inte är kompatibel med NVIDIA-drivrutinen. (Använd bara NVIDIA-drivrutinen på NV-eller NV2 virtuella datorer.) Det gör du genom att skapa en fil i `/etc/modprobe.d` med namnet `nouveau.conf` med följande innehåll:
 
    ```
    blacklist nouveau
@@ -277,7 +277,7 @@ Om du vill installera NVIDIA GRID-drivrutiner på virtuella datorer med NV eller
 
    ```
  
-4. Återanslut till den virtuella datorn och kör `lspci` kommandot. Kontrol lera att kortet eller korten i NVIDIA M60 visas som PCI-enheter.
+4. Återanslut till den virtuella datorn och kör kommandot `lspci`. Kontrol lera att kortet eller korten i NVIDIA M60 visas som PCI-enheter.
  
 5. Hämta och installera RUTNÄTs driv rutinen:
 
@@ -321,7 +321,7 @@ Om driv rutinen är installerad visas utdata som liknar följande. Observera att
  
 
 ### <a name="x11-server"></a>Begäran om x11-Server
-Om du behöver en begäran om x11-Server för fjärr anslutningar till en NV-eller NVv2-VM rekommenderas [x11vnc](http://www.karlrunge.com/x11vnc/) eftersom den tillåter grafikens maskin varu acceleration. BusID för den M60-enheten måste läggas till manuellt i begäran om x11-konfigurationsfilen (vanligt vis `etc/X11/xorg.conf`). Lägg till `"Device"` ett avsnitt som liknar följande:
+Om du behöver en begäran om x11-Server för fjärr anslutningar till en NV-eller NVv2-VM rekommenderas [x11vnc](http://www.karlrunge.com/x11vnc/) eftersom den tillåter grafikens maskin varu acceleration. BusID för den M60-enheten måste läggas till manuellt i begäran om x11-konfigurations filen (vanligt vis `etc/X11/xorg.conf`). Lägg till ett `"Device"`-avsnitt som liknar följande:
  
 ```
 Section "Device"
@@ -333,7 +333,7 @@ Section "Device"
 EndSection
 ```
  
-Uppdatera dessutom ditt `"Screen"` avsnitt för att använda den här enheten.
+Uppdatera dessutom `"Screen"`-avsnittet för att använda den här enheten.
  
 Du kan hitta decimal BusID genom att köra
 
@@ -341,7 +341,7 @@ Du kan hitta decimal BusID genom att köra
 nvidia-xconfig --query-gpu-info | awk '/PCI BusID/{print $4}'
 ```
  
-BusID kan ändras när en virtuell dator tilldelas eller startas om. Därför kanske du vill skapa ett skript för att uppdatera BusID i begäran om x11-konfigurationen när en virtuell dator startas om. Du kan till exempel skapa ett skript `busidupdate.sh` med namnet (eller ett annat namn som du väljer) med innehåll som liknar följande:
+BusID kan ändras när en virtuell dator tilldelas eller startas om. Därför kanske du vill skapa ett skript för att uppdatera BusID i begäran om x11-konfigurationen när en virtuell dator startas om. Du kan till exempel skapa ett skript med namnet `busidupdate.sh` (eller ett annat namn som du väljer) med innehåll som liknar följande:
 
 ```bash 
 #!/bin/bash
@@ -361,7 +361,8 @@ Skapa sedan en post för ditt uppdaterings skript i `/etc/rc.d/rc3.d` så att sk
 
 ## <a name="troubleshooting"></a>Felsökning
 
-* Du kan ställa in persistence- `nvidia-smi` läge med så att kommandots utdata går snabbare när du behöver fråga kort. Kör `nvidia-smi -pm 1`om du vill ställa in persistence-läge. Observera att om den virtuella datorn startas om så går läges inställningen bort. Du kan alltid skripta läges inställningen så att den körs vid start.
+* Du kan ställa in persistence-läge med `nvidia-smi` så att kommandots utdata går snabbare när du behöver fråga kort. Kör `nvidia-smi -pm 1` om du vill ställa in persistence-läge. Observera att om den virtuella datorn startas om så går läges inställningen bort. Du kan alltid skripta läges inställningen så att den körs vid start.
+* Om du har uppdaterat NVIDIA CUDA-drivrutinerna till den senaste versionen och hittar RDMA-connectivcity fungerar inte längre, [installerar du om RDMA-drivrutinerna](https://docs.microsoft.com/azure/virtual-machines/linux/n-series-driver-setup#rdma-network-connectivity) för att reistablish anslutningen. 
 
 ## <a name="next-steps"></a>Nästa steg
 

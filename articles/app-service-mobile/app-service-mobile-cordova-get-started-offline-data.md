@@ -1,6 +1,6 @@
 ---
-title: Aktivera synkronisering offline för din Azure-Mobilapp (Cordova) | Microsoft Docs
-description: Lär dig hur du använder App Service Mobile App till cache och synkronisering av offlinedata i din Cordova-App
+title: Aktivera synkronisering offline för din Azure-mobilapp (Cordova) | Microsoft Docs
+description: Lär dig hur du använder App Service mobilapp för att cachelagra och synkronisera offline-data i ditt Cordova-program
 documentationcenter: cordova
 author: elamalani
 manager: crdun
@@ -14,31 +14,31 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 04c8e7b2b60a60f17c49862d5c17793c16456032
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: dc1183e1557d634ab1880376a1347f43f33b329f
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443528"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027504"
 ---
 # <a name="enable-offline-sync-for-your-cordova-mobile-app"></a>Aktivera synkronisering offline för din Cordova-mobilapp
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-offline-data) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
-Den här självstudien innehåller funktionen offline-synkronisering i Azure Mobile Apps för Cordova. Offlinesynkronisering kan slutanvändarna kan interagera med en mobil app&mdash;visa, lägga till eller ändra data&mdash;även om det inte finns någon nätverksanslutning. Ändringarna sparas i en lokal databas.  När enheten är online igen kan har de här ändringarna synkroniserats med fjärrtjänsten.
+I den här självstudien beskrivs funktionen offline-synkronisering i Azure Mobile Apps för Cordova. Offline-synkronisering ger slutanvändare möjlighet att interagera med en mobilapp @ no__t-0viewing, lägga till eller ändra data @ no__t-1even när det inte finns någon nätverks anslutning. Ändringarna lagras i en lokal databas.  När enheten är online igen synkroniseras dessa ändringar med fjärrtjänsten.
 
-Den här självstudien är baserad på lösning för Cordova-Snabbstart för Mobile Apps som du skapar när du slutför självstudien [Snabbstart för Apache Cordova]. I den här självstudien får uppdatera du quickstart-lösningen för att lägga till Offlinefunktioner för Azure Mobile Apps.  Vi kan också markera offline-specifik kod i appen.
+Den här självstudien baseras på Cordova snabb starts lösning för Mobile Apps som du skapar när du är klar med självstudien [Snabb start för Apache Cordova]. I den här självstudien uppdaterar du snabb starts lösningen för att lägga till offline-funktioner i Azure Mobile Apps.  Vi markerar också den offline-/regionsspecifika koden i appen.
 
-Mer information om funktionen offline-synkronisering, finns i avsnittet [Datasynkronisering offline i Azure Mobile Apps]. Information om API-användning finns på [API-dokumentation](https://azure.github.io/azure-mobile-apps-js-client).
+Mer information om funktionen offline-synkronisering finns i avsnittet [Datasynkronisering offline i Azure Mobile Apps]. Mer information om API-användning finns i [API-dokumentationen](https://azure.github.io/azure-mobile-apps-js-client).
 
-## <a name="add-offline-sync-to-the-quickstart-solution"></a>Lägg till offlinesynkronisering i Snabbstart-lösning
-Offlinesynkronisering-koden måste läggas till appen. Offlinesynkronisering kräver plugin cordova-sqlite-lagring, som hämtar läggs automatiskt till din app när plugin-programmet Azure Mobile Apps som ingår i projektet. Quickstart-projektet innehåller båda dessa plugin-program.
+## <a name="add-offline-sync-to-the-quickstart-solution"></a>Lägg till offline-synkronisering i snabb starts lösningen
+Koden för offlinesynkronisering måste läggas till i appen. Offline-synkronisering kräver plugin-programmet Cordova-sqlite-Storage, som automatiskt läggs till i din app när Azure Mobile Apps-plugin-programmet ingår i projektet. Snabb starts projektet innehåller båda dessa plugin-program.
 
-1. I Visual Studio Solution Explorer, Öppna index.js och Byt ut koden
+1. I Visual Studios Solution Explorer öppnar du index. js och ersätter följande kod
 
         var client,            // Connection to the Azure Mobile App backend
            todoItemTable;      // Reference to a table endpoint on backend
@@ -49,7 +49,7 @@ Offlinesynkronisering-koden måste läggas till appen. Offlinesynkronisering kr�
            todoItemTable,      // Reference to a table endpoint on backend
            syncContext;        // Reference to offline data sync context
 
-2. Ersätt följande kod:
+2. Ersätt sedan följande kod:
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net');
 
@@ -71,13 +71,13 @@ Offlinesynkronisering-koden måste läggas till appen. Offlinesynkronisering kr�
         // Get the sync context from the client
         syncContext = client.getSyncContext();
 
-    Föregående kod tilläggen initiera det lokala arkivet och definiera en lokal tabell som matchar kolumnvärden som används i din Azure-serverdel. (Du behöver inte inkludera alla kolumnvärdena i den här koden.)  Den `version` underhålls av mobil serverdel och används för konfliktlösning.
+    Föregående kod lägger till i den lokala lagringen och definierar en lokal tabell som matchar de kolumn värden som används i Azures Server del. (Du behöver inte inkludera alla kolumn värden i den här koden.)  Fältet `version` underhålls av mobil Server delen och används för konflikt lösning.
 
-    Du får en referens till sync-kontexten genom att anropa **getSyncContext**. Synkronisera kontext bevaras tabellrelationer genom att spåra och push-överföra ändringarna i alla tabeller som en klientapp har ändrat när `.push()` anropas.
+    Du får en referens till Sync-kontexten genom att anropa **getSyncContext**. Den synkroniserade kontexten hjälper till att bevara tabell relationer genom att spåra och överföra ändringar i alla tabeller som en klient app har ändrat när `.push()` anropas.
 
-3. Uppdatera programmets URL till din Mobilapp programmets URL.
+3. Uppdatera programmets URL till appens URL för mobilapp.
 
-4. Ersätt därefter den här koden:
+4. Ersätt sedan den här koden:
 
         todoItemTable = client.getTable('todoitem'); // todoitem is the table name
 
@@ -113,13 +113,13 @@ Offlinesynkronisering-koden måste läggas till appen. Offlinesynkronisering kr�
         $('#add-item').submit(addItemHandler);
         $('#refresh').on('click', refreshDisplay);
 
-    Föregående kod Initierar synkronisering kontexten och anropar sedan getSyncTable (i stället för getTable) för att hämta en referens till den lokala tabellen.
+    Föregående kod initierar kontexten för synkronisering och anropar sedan getSyncTable (i stället för getTable) för att få en referens till den lokala tabellen.
 
-    Den här koden använder den lokala databasen för alla skapa, läsa, uppdatera och ta bort (CRUD) tabellåtgärder.
+    I den här koden används den lokala databasen för alla åtgärder för att skapa, läsa, uppdatera och ta bort (CRUD) tabell.
 
-    Det här exemplet utför enkla felhantering på synkroniseringskonflikter. Ett riktigt program skulle hantera olika fel som nätverksförhållanden och servern är i konflikt. Kodexempel, finns det [offlinesynkronisering exempel].
+    Det här exemplet utför enkel fel hantering vid synkroniseringskonflikter. Ett verkligt program hanterar de olika felen som nätverks förhållanden, Server konflikter och andra. Exempel på kod exempel finns i [offline Sync-exempel].
 
-5. Lägg sedan till den här funktionen om du vill utföra den faktiska synkroniseringen.
+5. Lägg sedan till den här funktionen för att utföra den faktiska synkroniseringen.
 
         function syncBackend() {
 
@@ -133,19 +133,19 @@ Offlinesynkronisering-koden måste läggas till appen. Offlinesynkronisering kr�
           syncContext.pull(new WindowsAzure.Query('todoitem'));
         }
 
-    Du bestämmer dig för när du ska skicka ändringar till serverdelen för Mobilappen genom att anropa **syncContext.push()** . Du kan exempelvis kalla **syncBackend** i en händelsehanterare för knappen som är knutna till en knapp för synkronisering.
+    Du bestämmer när du vill skicka ändringar till den mobila appens Server del genom att anropa **syncContext. push ()** . Du kan till exempel anropa **syncBackend** i en knapp händelse hanterare som är bunden till en synkronisera-knapp.
 
-## <a name="offline-sync-considerations"></a>Överväganden för offline-synkronisering
+## <a name="offline-sync-considerations"></a>Överväganden offline-synkronisering
 
-I det här exemplet på **push** -metoden för **syncContext** endast anropas vid start av appen i Återanropsfunktionen för inloggning.  I ett verkligt program kan du också göra den här sync-funktionen som utlöses manuellt eller när nätverket tillstånd ändras.
+I exemplet kallas **push** -metoden för **syncContext** bara för att starta appen i motringningsfunktionen för inloggning.  I ett verkligt program kan du också göra den här synkroniseringsfunktionen aktive rad manuellt eller när nätverks tillstånd ändras.
 
-När en pull körs mot en tabell som har väntande spåras lokala uppdateringar av den kontext som hämtar åtgärden automatiskt utlösare en push. När du uppdaterar, att lägga till och slutföra objekt i det här exemplet kan du utelämna den explicita **push** anropar, eftersom det kan vara redundant.
+När en pull körs mot en tabell som har väntande lokala uppdateringar som spåras av kontexten utlöser pull-åtgärden automatiskt en push. När du uppdaterar, lägger till och slutför objekt i det här exemplet kan du utelämna det explicita **push** -anropet eftersom det kan vara redundant.
 
-I den angivna koden alla poster i remote todoItem-tabellen tillfrågas, men det är också möjligt att filtrera poster genom att skicka en fråge-id och skicka frågor till **push**. Mer information finns i avsnittet *inkrementell synkronisering* i [Datasynkronisering offline i Azure Mobile Apps].
+I den angivna koden frågas alla poster i den fjärranslutna todoItem-tabellen, men det går också att filtrera poster genom att skicka ett fråge-ID och fråga till **push**. Mer information finns i avsnittet *stegvis synkronisering* i [Datasynkronisering offline i Azure Mobile Apps].
 
-## <a name="optional-disable-authentication"></a>(Valfritt) Inaktivera autentisering
+## <a name="optional-disable-authentication"></a>Valfritt Inaktivera autentisering
 
-Om du inte vill konfigurera autentisering innan du testar offlinesynkronisering, kommentera ut återanropsfunktion för inloggningen, men lämna koden i Återanropsfunktionen tagit bort kommentarstecken från.  När du kommentera ut rader inloggning koden visas nedan:
+Om du inte vill konfigurera autentisering innan du testar offline-synkronisering, så kommentera ut funktionen motringning för inloggning, men lämna koden inuti motringningsfunktionen utan att kommenteras.  När du har kommenterat ut inloggnings raderna följer koden:
 
       // Login to the service.
       // client.login('twitter')
@@ -156,56 +156,56 @@ Om du inte vill konfigurera autentisering innan du testar offlinesynkronisering,
         });
       // }, handleError);
 
-Nu kan synkroniseringar app med Azure-serverdel när du kör appen.
+Appen synkroniseras nu med Azure-Server delen när du kör appen.
 
-## <a name="run-the-client-app"></a>Kör klientappen
-Med offlinesynkronisering har nu aktiverats kan köra du klientprogrammet minst en gång på varje plattform för att fylla i lokalt Arkiv-databasen. Senare kan simulera en offlinescenario och ändra data i det lokala arkivet medan appen är offline.
+## <a name="run-the-client-app"></a>Kör klient programmet
+Om du har aktiverat offline-synkronisering kan du köra klient programmet minst en gång på varje plattform för att fylla i den lokala lagrings databasen. Du kan senare simulera ett offline-scenario och ändra data i det lokala arkivet när appen är offline.
 
-## <a name="optional-test-the-sync-behavior"></a>(Valfritt) Testa sync-beteende
-I det här avsnittet ska ändra du klientprojektet för att simulera en offlinescenario med hjälp av en ogiltig programmets URL för din serverdel. När du lägger till eller ändra dataobjekt dessa ändringar som hålls kvar i det lokala arkivet, men är inte synkroniserade med datalagret serverdelen tills anslutningen har återupprättats.
+## <a name="optional-test-the-sync-behavior"></a>Valfritt Testa beteendet för synkronisering
+I det här avsnittet ändrar du klient projektet för att simulera ett offline-scenario genom att använda en ogiltig program-URL för din server del. När du lägger till eller ändrar data objekt lagras dessa ändringar i det lokala arkivet, men synkroniseras inte till Server dels data lagret förrän anslutningen har återupprättats.
 
-1. Öppna filen index.js projektet i Solution Explorer och ändra programmets URL så att den pekar till en ogiltig URL, som följande kod:
+1. Öppna projekt filen index. js i Solution Explorer och ändra programmets URL så att den pekar på en ogiltig URL, t. ex. följande kod:
 
         client = new WindowsAzure.MobileServiceClient('http://yourmobileapp.azurewebsites.net-fail');
 
-2. Uppdatera CSP: N i index.html, `<meta>` element med samma ogiltig URL.
+2. Uppdatera CSP-`<meta>`-elementet med samma ogiltiga URL i index. html.
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: http://yourmobileapp.azurewebsites.net-fail; style-src 'self'; media-src *">
 
-3. Skapa och kör klientappen och Lägg märke till att ett undantag loggas i konsolen när appen försöker synkronisera med serverdelen efter inloggning. Alla nya objekt som du lägger till finns bara i det lokala arkivet tills de skickas till den mobila serverdelstjänst. Klientappen fungerar som om den är ansluten till serverdelen.
+3. Skapa och kör klient programmet och Lägg märke till att ett undantag loggas i-konsolen när appen försöker synkronisera med Server delen efter inloggningen. Alla nya objekt som du lägger till finns bara i den lokala butiken tills de skickas till den mobila Server delen. Klient programmet fungerar som om det är anslutet till Server delen.
 
-4. Stäng appen och starta om den för att kontrollera att de nya objekt som du har skapat sparas till det lokala arkivet.
+4. Stäng appen och starta om den för att kontrol lera att de nya objekt som du har skapat är sparade i det lokala arkivet.
 
-5. (Valfritt) Använda Visual Studio för att visa din Azure SQL Database-tabell för att se att data i databasen i serverdelen inte har ändrats.
+5. Valfritt Använd Visual Studio för att visa din Azure SQL Database tabell för att se att data i backend-databasen inte har ändrats.
 
-    Öppna i Visual Studio **Server Explorer**. Gå till din databas i **Azure**->**SQL-databaser**. Högerklicka på databasen och välj **öppna i SQL Server Object Explorer**. Nu kan du bläddra till din SQL-databastabell och dess innehåll.
+    Öppna **Server Explorer**i Visual Studio. Navigera till din databas i **Azure**->**SQL-databaser**. Högerklicka på databasen och välj **Öppna i SQL Server Object Explorer**. Nu kan du bläddra till SQL Database-tabellen och dess innehåll.
 
-## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>(Valfritt) Testa återanslutning till din mobila serverdel
+## <a name="optional-test-the-reconnection-to-your-mobile-backend"></a>Valfritt Testa åter anslutningen till din mobila Server del
 
-I det här avsnittet kan du återansluta app på mobil serverdel, vilket simulerar appen kommer tillbaka till ett onlinetillstånd. När du loggar in, synkroniseras data till din mobila serverdelstjänst.
+I det här avsnittet ansluter du appen till den mobila Server delen, som simulerar appen som kommer tillbaka till ett online-tillstånd. När du loggar in synkroniseras data till din mobil Server del.
 
-1. Öppna index.js och återställa programmets URL.
-2. Öppna index.html och korrigera programmets URL i CSP: N `<meta>` element.
-3. Bygg och kör klientappen. Appen försöker synkronisera med serverdelen för mobilappen efter inloggning. Kontrollera att inga undantag loggas i Felsökningskonsolen.
-4. (Valfritt) Visa uppdaterade data med hjälp av SQL Server Object Explorer eller ett REST-verktyg som Fiddler. Observera att dessa data har synkroniserats mellan databasen och det lokala arkivet.
+1. Öppna index. js igen och Återställ programmets URL.
+2. Öppna index. html igen och korrigera programmets URL i CSP-`<meta>`-elementet.
+3. Återskapa och kör klient programmet. Appen försöker synkronisera med den mobila appens Server del efter inloggningen. Kontrol lera att inga undantag loggas i fel söknings konsolen.
+4. Valfritt Visa uppdaterade data med antingen SQL Server Object Explorer eller ett REST-verktyg som Fiddler. Observera att data har synkroniserats mellan server dels databasen och det lokala arkivet.
 
-    Observera att dessa data har synkroniserats mellan databasen och det lokala arkivet och innehåller de objekt som du har lagt till medan kopplades från din app.
+    Observera att data har synkroniserats mellan databasen och den lokala lagrings platsen och innehåller de objekt som du lade till när din app kopplades från.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Datasynkronisering offline i Azure Mobile Apps]
 * [Visual Studio Tools för Apache Cordova]
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer avancerade funktioner för offline-synkronisering, till exempel konfliktlösning i den [offlinesynkronisering exempel]
-* Granska offlinesynkronisering API-referens i den [API-dokumentation](https://azure.github.io/azure-mobile-apps-js-client).
+* Granska mer avancerade funktioner för offline-synkronisering, till exempel konflikt lösning i [offline Sync-exempel]
+* Granska offline Sync API-referensen i [API-dokumentationen](https://azure.github.io/azure-mobile-apps-js-client).
 
 <!-- ##Summary -->
 
 <!-- Images -->
 
 <!-- URLs. -->
-[Snabbstart för Apache Cordova]: app-service-mobile-cordova-get-started.md
-[offlinesynkronisering exempel]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
+[Snabb start för Apache Cordova]: app-service-mobile-cordova-get-started.md
+[offline Sync-exempel]: https://github.com/Azure-Samples/app-service-mobile-cordova-client-conflict-handling
 [Datasynkronisering offline i Azure Mobile Apps]: app-service-mobile-offline-data-sync.md
 [Cloud Cover: Offline Sync in Azure Mobile Services]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Adding Authentication]: app-service-mobile-cordova-get-started-users.md

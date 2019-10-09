@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 788fee724f381ab317b97a682aa21d17ec1ffa9d
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: c4daa5989013ba8d5c5a7136fe0878fae64f0357
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70137304"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030572"
 ---
 # <a name="datasets-in-azure-data-factory"></a>Data uppsättningar i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -66,7 +66,7 @@ En data uppsättning i Data Factory definieras i följande JSON-format:
 ```
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap | Beskrivning | Obligatorisk |
+Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
 name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
 type | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
@@ -75,7 +75,7 @@ typeProperties | Typ egenskaperna är olika för varje typ (till exempel: Azure-
 
 ### <a name="data-flow-compatible-dataset"></a>Data flöde-kompatibel data mängd
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Se de [data uppsättnings typer som stöds](#dataset-type) för en lista över data uppsättnings typer som är kompatibla med [data flöde](concepts-data-flow-overview.md) . Data uppsättningar som är kompatibla för ett data flöde kräver detaljerade data uppsättnings definitioner för omvandlingar. Därför är JSON-definitionen något annorlunda. I stället för en _struktur_ egenskap är data uppsättningar som är kompatibla med data flödet en _schema_ egenskap.
 
@@ -111,7 +111,7 @@ När du importerar schemat för en data flödes data uppsättning väljer du kna
 
 I följande tabell beskrivs egenskaperna i ovanstående JSON:
 
-Egenskap | Beskrivning | Obligatorisk |
+Egenskap | Beskrivning | Krävs |
 -------- | ----------- | -------- |
 name | Data uppsättningens namn. Se [Azure Data Factory namngivnings regler](naming-rules.md). |  Ja |
 type | Typ av data uppsättning. Ange en av de typer som stöds av Data Factory (till exempel: AzureBlob, AzureSqlTable). <br/><br/>Mer information finns i [data uppsättnings typer](#dataset-type). | Ja |
@@ -146,7 +146,7 @@ Observera följande punkter:
 - linkedServiceName refererar till en länkad tjänst av typen AzureSqlDatabase, som definieras i nästa JSON-kodfragment.
 
 ## <a name="dataset-type"></a>Data uppsättnings typ
-Det finns många olika typer av data uppsättningar, beroende på vilket data lager du använder. Du hittar en lista över data som lagras som stöds av Data Factory [](connector-overview.md) från översikts artikeln. Klicka på ett data lager om du vill veta hur du skapar en länkad tjänst och en data uppsättning för det data lagret.
+Det finns många olika typer av data uppsättningar, beroende på vilket data lager du använder. Du hittar en lista över data som lagras som stöds av Data Factory från [översikts](connector-overview.md) artikeln. Klicka på ett data lager om du vill veta hur du skapar en länkad tjänst och en data uppsättning för det data lagret.
 
 I exemplet i föregående avsnitt är typ av data uppsättning inställd på **AzureSqlTable**. På samma sätt anges typ av data uppsättning till **AzureBlob**för en Azure Blob-datamängd, som du ser i följande JSON:
 
@@ -177,12 +177,12 @@ Avsnittet för **struktur** avsnittet eller **schemat** (Data Flow Compatible) �
 
 Varje kolumn i strukturen innehåller följande egenskaper:
 
-Egenskap | Beskrivning | Obligatorisk
+Egenskap | Beskrivning | Krävs
 -------- | ----------- | --------
 name | Kolumnens namn. | Ja
 type | Kolumnens datatyp. Data Factory stöder följande Interimistiska data typer som tillåtna värden: **Int16, Int32, Int64, enkel, dubbel, decimal, byte [], Boolean, sträng, GUID, DateTime, DateTimeOffset och TimeSpan** | Nej
-culture | . NET-baserad kultur som ska användas när typen är en .net-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
-format | Format sträng som ska användas när typen är en .net-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | Nej
+culture | . Den NET-baserade kulturen som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Standardvärdet är `en-us`. | Nej
+format | Format sträng som ska användas när typen är en .NET-typ: `Datetime` eller `Datetimeoffset`. Referera till [anpassade datum-och tids format strängar](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings) för hur du formaterar DateTime. | Nej
 
 ### <a name="example"></a>Exempel
 I följande exempel antar vi att käll-BLOB-data är i CSV-format och innehåller tre kolumner: UserID, Name och lastlogindate. De är av typen Int64, String och datetime med ett anpassat datetime-format med förkortade franska namn för veckodag.
@@ -212,8 +212,8 @@ Du kan skapa data uppsättningar genom att använda något av dessa verktyg elle
 
 Här följer några skillnader mellan Data Factory och Data Factory data uppsättningar för version 1:
 
-- Den externa egenskapen stöds inte i den aktuella versionen. Den ersätts av en [](concepts-pipeline-execution-triggers.md)utlösare.
-- Egenskaperna policy och Availability stöds inte i den aktuella versionen. Start tiden för en pipeline beror på utlösare. [](concepts-pipeline-execution-triggers.md)
+- Den externa egenskapen stöds inte i den aktuella versionen. Den ersätts av en [utlösare](concepts-pipeline-execution-triggers.md).
+- Egenskaperna policy och Availability stöds inte i den aktuella versionen. Start tiden för en pipeline beror på [utlösare](concepts-pipeline-execution-triggers.md).
 - Data uppsättningar som har definierats i en pipeline stöds inte i den aktuella versionen.
 
 ## <a name="next-steps"></a>Nästa steg

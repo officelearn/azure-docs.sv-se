@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 05/06/2019
-ms.openlocfilehash: 8c35877c7de2fa89a8fe7a94c11787814183df9e
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.date: 10/02/2019
+ms.openlocfilehash: 6f2ef181e7f61696245a4413d7a28d84801f2838
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162259"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72032883"
 ---
 # <a name="faq-about-azure-sql-hyperscale-databases"></a>Vanliga frågor och svar om Azure SQL-storskaliga databaser
 
@@ -37,31 +37,31 @@ Den storskaliga Service nivån är endast tillgänglig för enskilda databaser m
 
 ### <a name="how-does-the-hyperscale-service-tier-differ-from-the-general-purpose-and-business-critical-service-tiers"></a>Hur skiljer sig den storskaliga tjänst nivån från Generell användning och Affärskritisk tjänst nivåerna
 
-VCore-baserade tjänst nivåer skiljer sig i huvudsak baserat på tillgänglighet, lagrings typ och IOPs.
+VCore-baserade tjänst nivåer skiljer sig i huvudsak baserat på tillgänglighet, lagrings typ och IOPS.
 
 - Generell användning tjänst nivån är lämplig för de flesta affärs arbets belastningar och erbjuder en balanserade uppsättning beräknings-och lagrings alternativ där IO-fördröjning eller växlings tider inte är prioritet.
 - Den storskaliga tjänst nivån är optimerad för mycket stora databas arbets belastningar.
 - Affärskritisk tjänst nivån är lämplig för företags arbets belastningar där IO-fördröjningen är en prioritet.
 
-| | Resurstyp | Generellt syfte |  Storskalig | Verksamhetskritisk |
+| | Resurstyp | Generellt syfte |  Hyperskala | Affärskritisk |
 |:---:|:---:|:---:|:---:|:---:|
-| **Bäst för** |Alla|  De flesta företags arbets belastningar. Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ. | Data program med krav på stor data kapacitet och möjlighet att skala lagrings utrymme och skala automatiskt. | OLTP-program med hög transaktions hastighet och lägsta latens i/o. Ger högsta möjliga återhämtning till problem med flera isolerade repliker.|
+| **Bäst för** |Alla|Erbjuder budget orienterade balanserade beräknings-och lagrings alternativ.|De flesta företags arbets belastningar. Automatisk skalning av lagrings storlek upp till 100 TB, flytande lodrät och vågrät beräknings skalning, snabb databas återställning.|OLTP-program med hög transaktions frekvens och låg IO-latens. Erbjuder högsta möjliga återhämtning till fel och snabba växlingar med hjälp av flera synkront uppdaterade repliker.|
 |  **Resurstyp** ||Enkel databas/elastisk pool/hanterad instans | Enskild databas | Enkel databas/elastisk pool/hanterad instans |
 | **Beräknings storlek**|Enkel databas/elastisk pool * | 1 till 80 virtuella kärnor | 1 till 80 virtuella kärnor * | 1 till 80 virtuella kärnor |
 | |Hanterad instans | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor | Gäller inte | 8, 16, 24, 32, 40, 64, 80 virtuella kärnor |
 | **Lagringstyp** | Alla |Premium-Fjärrlagring (per instans) | Fristående lagring med lokal SSD-cache (per instans) | Super-fast lokal SSD-lagring (per instans) |
 | **Lagrings storlek** | Enkel databas/elastisk pool | 5 GB – 4 TB | Upp till 100 TB | 5 GB – 4 TB |
 | | Hanterad instans  | 32 GB – 8 TB | Gäller inte | 32 GB – 4 TB |
-| **IO-dataflöde** | Enkel databas * * | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPs är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
+| **IOPS** | Enkel databas * * | 500 IOPS per vCore med 7000 maximal IOPS | Hög skalning är en arkitektur med flera nivåer med cachelagring på flera nivåer. Effektiv IOPS är beroende av arbets belastningen. | 5000 IOPS med 200 000 högsta IOPS|
 | | Hanterad instans | Beror på fil storleken | Gäller inte | Hanterad instans: Beror på fil storleken|
 |**Tillgänglighet**|Alla|1 replik, ingen Read-Scale, ingen lokal cache | Flera repliker, upp till 4 storskalig, delvis lokal cache | 3 repliker, 1 Read-Scale, Zone-redundant HA, fullständig lokal cache |
 |**Regelbundet**|Alla|RA-GRS, 7-35 dagar (7 dagar som standard)| RA-GRS, 7 dagar, konstant tidpunkts återställning (PITR) | RA-GRS, 7-35 dagar (7 dagar som standard) |
 
-\*Elastiska pooler stöds inte i den storskaliga tjänst nivån
+\* elastiska pooler stöds inte i den storskaliga tjänst nivån
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>Vem ska använda den storskaliga tjänst nivån
 
-Den storskaliga Service nivån är främst avsedd för kunder som har stora lokala SQL Server databaser och vill modernisera sina program genom att flytta till molnet eller för kunder som redan använder Azure SQL Database och vill utöka risken för databas tillväxt. Hög skalning är också avsett för kunder som söker både höga prestanda och hög skalbarhet. Med storskalighet får du:
+Den storskaliga Service nivån är avsedd för kunder som har stora lokala SQL Server databaser och vill modernisera sina program genom att flytta till molnet eller för kunder som redan använder Azure SQL Database och vill utöka potential för databas tillväxt. Hög skalning är också avsett för kunder som söker både höga prestanda och hög skalbarhet. Med storskalighet får du:
 
 - Stöd för upp till 100 TB databas storlek
 - Snabba databas säkerhets kopieringar oavsett databas storlek (säkerhets kopior baseras på ögonblicks bilder av filer)
@@ -93,7 +93,7 @@ SQL Database storskalig ger snabb skalbarhet baserat på din arbets belastnings 
 
   Med storskalighet får du också möjlighet att etablera en eller flera ytterligare Compute-noder som du kan använda för att hantera dina Läs begär Anden. Det innebär att du kan använda dessa ytterligare Compute-noder som skrivskyddade noder för att avlasta din Läs arbets belastning från den primära beräkningen. Förutom skrivskyddade, fungerar dessa noder också som frekvent vänt i händelse av en redundansväxling från den primära.
 
-  Etableringen av varje ytterligare Compute-noder kan göras i konstant tid och är en online-åtgärd. Du kan ansluta till dessa ytterligare skrivskyddade Compute-noder genom att ange `ApplicationIntent` argumentet för anslutnings strängen till. `readonly` Alla anslutningar som marker `readonly` ATS med dirigeras automatiskt till en av de ytterligare skrivskyddade Compute-noderna.
+  Etableringen av varje ytterligare Compute-noder kan göras i konstant tid och är en online-åtgärd. Du kan ansluta till dessa ytterligare skrivskyddade Compute-noder genom att ange argumentet `ApplicationIntent` i anslutnings strängen till `readonly`. Alla anslutningar som marker ATS med `readonly` dirigeras automatiskt till en av de ytterligare skrivskyddade Compute-noderna.
 
 ## <a name="deep-dive-questions"></a>Djupgående frågor
 
@@ -161,7 +161,7 @@ Transaktions loggen med stor skala är nästan oändlig. Du behöver inte bekymr
 
 ### <a name="does-my-temp-db-scale-as-my-database-grows"></a>Växer min temporära databas som min databas
 
-`tempdb` Databasen finns på lokal SSD-lagring och konfigureras utifrån den beräknings storlek som du etablerar. Din `tempdb` är optimerad och har getts ut för att ge högsta möjliga prestanda. `tempdb` Storleken kan inte konfigureras och hanteras av del systemet Storage.
+Din `tempdb`-databas finns på lokal SSD-lagring och konfigureras utifrån den beräknings storlek som du etablerar. Din `tempdb` är optimerad och har getts ut för att ge högsta möjliga prestanda. Storleken på `tempdb` kan inte konfigureras och hanteras av del systemet Storage.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-the-data-files"></a>Växer storleken på databasen automatiskt eller måste jag hantera storleken på datafilerna
 
@@ -173,7 +173,7 @@ Databas storleken ökar automatiskt när du infogar/matar in mer data.
 
 ### <a name="in-what-increments-does-my-database-size-grow"></a>I vilka ökningar växer min databas storlek
 
-1 GB
+Varje data fil växer med 10 GB. Flera datafiler kan växa samtidigt.
 
 ### <a name="is-the-storage-in-sql-database-hyperscale-local-or-remote"></a>Är lagringen i SQL Database storskalig lokal eller fjärran sluten
 
@@ -217,22 +217,23 @@ Nej. För närvarande kan du inte flytta en storskalig databas till en annan tj�
 
 Ja. Några av Azure SQL Database funktioner stöds inte i storskaliga ännu, inklusive men inte begränsad långsiktig säkerhets kopiering. När du har migrerat databaserna till storskaligt upphör dessa funktioner att fungera.  Vi räknar med att de här begränsningarna är tillfälliga.
 
-### <a name="can-i-move-my--on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Kan jag flytta min lokala SQL Server-databas eller min SQL Server virtuella dator databas till storskalig
+### <a name="can-i-move-my-on-premises-sql-server-database-or-my-sql-server-virtual-machine-database-to-hyperscale"></a>Kan jag flytta min lokala SQL Server-databas eller min SQL Server virtuella dator databas till storskalig
 
-Ja. Du kan använda alla befintliga migrerings tekniker för att migrera till storskalig, inklusive BACPAC, transaktionell replikering, logisk data inläsning. Se även [Azure Database migration service](../dms/dms-overview.md).
+Ja. Du kan använda alla befintliga migrerings tekniker för att migrera till storskalig, inklusive transaktionell replikering och andra data förflyttnings tekniker (Mass kopiering, Azure Data Factory, Azure Databricks, SSIS). Se även [Azure Database migration service](../dms/dms-overview.md).
 
 ### <a name="what-is-my-downtime-during-migration-from-an-on-premises-or-virtual-machine-environment-to-hyperscale-and-how-can-i-minimize-it"></a>Vad är drift stopp under migreringen från en lokal miljö eller virtuell dator miljö till skalbarhet och hur kan jag minimera den
 
-Nedtid är detsamma som stillestånds tiden när du migrerar dina databaser till en enda databas i Azure SQL Database. Du kan använda [](replication-to-sql-database.md#data-migration-scenario
-) Transaktionsreplikering för att minimera migreringen av drift stopp för databaser upp till några TB i storlek. För mycket stora databaser (10 + TB) kan du överväga att migrera data med hjälp av ADF, Spark eller andra tekniker för data förflyttning.
+Nedtid är detsamma som stillestånds tiden när du migrerar dina databaser till en enda databas i Azure SQL Database. Du kan använda [transactional Replication @ no__t-1 för att minimera migreringen av drift stopp för databaser upp till några TB i storlek. För mycket stora databaser (10 + TB) kan du överväga att migrera data med hjälp av ADF, Spark eller andra tekniker för data förflyttning.
 
 ### <a name="how-much-time-would-it-take-to-bring-in-x-amount-of-data-to-sql-database-hyperscale"></a>Hur lång tid tar det att ta upp X data för att SQL Database storskalig
 
-Storskaligheten kan förbruka 100 MB/s nya/ändrade data.
+Hög skalning kan förbruka 100 MB/SEK av nya/ändrade data, men den tid som krävs för att flytta data till Azure SQL-databaser påverkas också av tillgängligt nätverks data flöde, källans Läs hastighet och mål för den storskaliga databasens service nivå mål.
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-and-sql-data-warehouse"></a>Kan jag läsa data från Blob Storage och göra snabba inläsningar (t. ex. PolyBase och SQL Data Warehouse)
 
 Du kan läsa data från Azure Storage och läsa in data inläsning i en storskalig databas (precis som du kan göra med en vanlig enkel databas). PolyBase stöds för närvarande inte i Azure SQL Database. Du kan göra PolyBase med [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) eller köra ett Spark-jobb i [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) med [Spark-anslutaren för SQL](sql-database-spark-connector.md). Spark-anslutningen till SQL stöder Mass infogning.
+
+Du kan också massredigera Läs data från Azure Blob Store med BULK INSERT eller OpenRowSet: [Exempel på Mass åtkomst till data i Azure Blob Storage](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Enkel återställning eller Mass loggnings modell stöds inte i storskaliga versioner. Fullständig återställnings modell krävs för att tillhandahålla hög tillgänglighet. Storskaligheten ger dock en bättre data inmatnings hastighet jämfört med en enda Azure SQL-databas på grund av den nya logg arkitekturen.
 
@@ -344,7 +345,7 @@ Att skala upp eller ned resulterar i att befintliga anslutningar bryts när redu
 
 Slutanvändare. Inte automatisk.  
 
-### <a name="does-my-tempb-also-grow-as-the-compute-is-scaled-up"></a>`tempb` Växer även i takt med att beräkningen skalas upp
+### <a name="does-my-tempb-also-grow-as-the-compute-is-scaled-up"></a>Växer `tempb` också när beräkningen skalas upp
 
 Ja. Temp DB skalas upp automatiskt när beräkningen växer.  
 
@@ -360,16 +361,16 @@ Vi skapar två repliker för storskaliga databaser som standard. Om du vill just
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-nodes"></a>Hur gör jag för att ansluta till dessa sekundära Compute-noder
 
-Du kan ansluta till dessa ytterligare skrivskyddade Compute-noder genom att ange `ApplicationIntent` argumentet för anslutnings strängen till. `readonly` Alla anslutningar som marker `readonly` ATS med dirigeras automatiskt till en av de ytterligare skrivskyddade Compute-noderna.  
+Du kan ansluta till dessa ytterligare skrivskyddade Compute-noder genom att ange argumentet `ApplicationIntent` i anslutnings strängen till `readonly`. Alla anslutningar som marker ATS med `readonly` dirigeras automatiskt till en av de ytterligare skrivskyddade Compute-noderna.  
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-node-using-ssms--other-client-tools"></a>Hur gör jag för att validera om jag har lyckats ansluta till den sekundära Compute-noden med SSMS/andra klient verktyg?
 
 Du kan köra följande T-SQL-fråga med SSMS/andra klient verktyg: `SELECT DATABASEPROPERTYEX ( '<database_name>' , 'updateability' )`.
-Resultatet blir `READ_ONLY` om du pekar på den skrivskyddade sekundära noden eller `READ_WRITE` om din anslutning pekar på den primära noden.
+Resultatet är `READ_ONLY` om du pekar på den skrivskyddade sekundära noden eller `READ_WRITE` om din anslutning pekar på den primära noden.
 
 ### <a name="can-i-create-a-dedicated-endpoint-for-the-read-scale-replica"></a>Kan jag skapa en dedikerad slut punkt för den expanderade repliken
 
-Nej. Du kan bara ansluta till Read-Scale Replica genom att `ApplicationIntent=ReadOnly`ange.
+Nej. Du kan bara ansluta till storskalig replik genom att ange `ApplicationIntent=ReadOnly`.
 
 ### <a name="does-the-system-do-intelligent-load-balancing-of-the-read-workload"></a>Utför systemet intelligent belastnings utjämning för Läs arbets belastningen
 
@@ -381,7 +382,7 @@ Nej. De sekundära datornoderna används också för HA, så de måste vara samm
 
 ### <a name="do-i-get-different-temp-db-sizing-for-my-primary-compute-and-my-additional-secondary-compute-nodes"></a>Får jag en annan temp DB-storlek för min primära beräkning och mina ytterligare sekundära Compute-noder
 
-Nej. Din `tempdb` konfigureras baserat på beräknings storlekens etablering, de sekundära datornoderna har samma storlek som den primära beräkningen.
+Nej. Din `tempdb` har kon figurer ATS baserat på beräknings storleks etablering, dina sekundära datornoder har samma storlek som den primära beräkningen.
 
 ### <a name="can-i-add-indexes-and-views-on-my-secondary-compute-nodes"></a>Kan jag lägga till index och vyer på mina sekundära Compute-noder
 

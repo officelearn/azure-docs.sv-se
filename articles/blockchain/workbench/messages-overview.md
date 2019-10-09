@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: f0a9e90f1208d690c2423196be7f59dce71eb78b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 9f1580a9a43781996afadde5487adcafec860e26
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844078"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029694"
 ---
 # <a name="azure-blockchain-workbench-messaging-integration"></a>Integrering av Azure blockchain Workbench-meddelanden
 
@@ -65,7 +65,7 @@ Blockchain Workbench returnerar ett svar med följande fält:
 |-----------------------|-----------------------------------------------------------------------------------------------------------------------------|
 | requestId             | GUID för klienten har angetts |
 | userId                | ID för den användare som skapades |
-| userChainIdentifier   | Adress till den användare som skapades i blockchain-nätverket. I Ethereum är adressen användarens **on-Chain** -adress. |
+| userChainIdentifier   | Adress till den användare som skapades i blockchain-nätverket. I Ethereum är adressen användarens **on-Chain** -adress. |
 | connectionId          | Unikt ID för blockchain-anslutningen|
 | messageSchemaVersion  | Meddelande schema version |
 | messageName           | **CreateUserUpdate** |
@@ -311,7 +311,7 @@ Om begäran Miss lyckas ingår information om felen i ytterligare information.
 
 ### <a name="input-api-error-codes-and-messages"></a>Felkoder och meddelanden för API för indataport
 
-**Felkod 4000: Fel i felaktig begäran**
+**Error kod 4000: Fel i felaktig begäran @ no__t-0
 - Ogiltig connectionId
 - CreateUserRequest-deserialiseringen misslyckades
 - CreateContractRequest-deserialiseringen misslyckades
@@ -323,12 +323,12 @@ Om begäran Miss lyckas ingår information om felen i ytterligare information.
 - Kontraktet {som identifieras av redovisnings-ID: n} saknar funktion {arbets flödes funktions namn}
 - UserChainIdentifier finns inte
 
-**Felkod 4090: Konflikt fel**
+**Error kod 4090: Konflikt fel @ no__t-0
 - Användaren finns redan
 - Kontraktet finns redan
 - Kontrakt åtgärden finns redan
 
-**Felkod 5000: Internt Server fel**
+**Error kod 5000: Internt Server fel @ no__t-0
 - Undantags meddelanden
 
 ## <a name="event-notifications"></a>Händelseaviseringar
@@ -383,7 +383,7 @@ Innehåller information om enskilda block. *BlockMessage* innehåller ett avsnit
 
 | Name | Beskrivning |
 |------|-------------|
-| blockera | Innehåller [block information](#block-information) |
+| undantaget | Innehåller [block information](#block-information) |
 | transaktioner | Innehåller en samlings [transaktions information](#transaction-information) för blocket |
 | connectionId | Unikt ID för anslutningen |
 | messageSchemaVersion | Meddelande schema version |
@@ -563,7 +563,7 @@ Innehåller information när en kontrakts funktion anropas, t. ex. funktions nam
 | Name | Beskrivning |
 |------|-------------|
 | eventName                   | **ContractFunctionInvocation** |
-| uppringare                      | [Information om anropare](#caller-information) |
+| anroparen                      | [Information om anropare](#caller-information) |
 | contractId                  | Unikt ID för kontraktet i Azure blockchain Workbench |
 | contractLedgerIdentifier    | Unik identifierare för kontraktet i redovisningen |
 | functionName                | Namnet på funktionen |
@@ -645,8 +645,8 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 | eventName | **ApplicationIngestion** |
 | applicationId | Unikt ID för programmet i Azure blockchain Workbench |
 | applicationName | Programnamn |
-| applicationDisplayName | Programvisningsnamn |
-| applicationVersion | Programversion |
+| applicationDisplayName | Programmets visnings namn |
+| applicationVersion | Program version |
 | applicationDefinitionLocation | URL där programmets konfigurations fil finns |
 | contractCodes | Samling av [kontrakt koder](#contract-code-information) för programmet |
 | applicationRoles | Samling av [program roller](#application-role-information) för programmet |
@@ -678,7 +678,7 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 | id | Unikt ID för program arbets flödet i Azure blockchain Workbench |
 | name | Namn på program arbets flöde |
 | displayName | Visnings namn för program arbets flöde |
-| funktioner | Insamling av [funktioner för program arbets flödet](#workflow-function-information)|
+| functions | Insamling av [funktioner för program arbets flödet](#workflow-function-information)|
 | USA | Insamling av [tillstånd för program arbets flödet](#workflow-state-information) |
 | properties | Information om program [arbets flödets egenskaper](#workflow-property-information) |
 
@@ -687,14 +687,14 @@ Innehåller information när ett program laddas upp till Workbench, till exempel
 | Name | Beskrivning |
 |------|-------------|
 | id | Unik identifierare för program arbets flödes funktionen i Azure blockchain Workbench |
-| name | Funktionsnamn |
+| name | Funktions namn |
 | parameters | Parametrar för funktionen |
 
 ##### <a name="workflow-state-information"></a>Information om arbets flödes tillstånd
 
 | Name | Beskrivning |
 |------|-------------|
-| name | Delstatsnamn |
+| name | Tillstånds namn |
 | displayName | Visnings namn för tillstånd |
 | style | Tillstånds format (lyckades eller misslyckades) |
 
@@ -839,8 +839,8 @@ Innehåller information när en användare tilldelas en roll i Workbench, till e
 | eventName | **RoleAssignment** |
 | applicationId | Unikt ID för programmet i Azure blockchain Workbench |
 | applicationName | Programnamn |
-| applicationDisplayName | Programvisningsnamn |
-| applicationVersion | Programversion |
+| applicationDisplayName | Programmets visnings namn |
+| applicationVersion | Program version |
 | applicationRole        | Information om [program rollen](#roleassignment-application-role) |
 | tilldelare               | Information om [tilldelningen](#roleassignment-assigner) |
 | tilldelad person               | Information om [tilldelningen](#roleassignment-assignee) |

@@ -1,161 +1,130 @@
 ---
 title: Kartlägger prestanda-och justerings guiden för data flöde i Azure Data Factory | Microsoft Docs
-description: Lär dig mer om viktiga faktorer som påverkar prestanda för data flöden i Azure Data Factory när du använder mappnings data flöden.
+description: Lär dig mer om viktiga faktorer som påverkar prestanda för att mappa data flöden i Azure Data Factory.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
-ms.date: 09/22/2019
-ms.openlocfilehash: e4b3e08c0cc7fc1ead2aed551c228c6a1165c3b6
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 10/07/2019
+ms.openlocfilehash: 9db1b96cb495fd0de452091da79ab61f7ae59118
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180855"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030680"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+Att mappa data flöden i Azure Data Factory tillhandahålla ett kod fritt gränssnitt för att utforma, distribuera och dirigera data transformationer i stor skala. Om du inte är bekant med att mappa data flöden kan du läsa [Översikt över kart data flödet](concepts-data-flow-overview.md).
 
-Azure Data Factory mappa data flöden innehåller ett kod fritt webb läsar gränssnitt för att utforma, distribuera och dirigera data transformationer i skala.
+När du utformar och testar data flöden från ADF-UX måste du växla till fel söknings läge för att köra dina data flöden i real tid utan att vänta på att ett kluster ska värmas upp. Mer information finns i [fel söknings läge](concepts-data-flow-debug-mode.md).
 
-> [!NOTE]
-> Om du inte är bekant med ADF-mappning av data flöden i allmänhet, se [Översikt över data flöden](concepts-data-flow-overview.md) innan du läser den här artikeln.
->
+## <a name="monitoring-data-flow-performance"></a>Prestanda för övervakning av data flöde
 
-> [!NOTE]
-> När du utformar och testar data flöden från ADF-gränssnittet, se till att aktivera fel söknings växeln så att du kan köra dina data flöden i real tid utan att vänta på att ett kluster ska värmas upp.
->
+När du skapar mappnings data flöden kan du Unit testa varje omvandling genom att klicka på fliken Data förhands granskning på konfigurations panelen. När du har verifierat din logik kan du testa ditt data flöde från slut punkt till slut punkt som en aktivitet i en pipeline. Lägg till aktiviteten kör data flöde och Använd knappen Felsök för att testa data flödets prestanda. Öppna körnings planen och prestanda profilen för ditt data flöde genom att klicka på glasögon-ikonen under "åtgärder" på fliken utmatning i pipelinen.
 
-![Knappen Felsök](media/data-flow/debugb1.png "Felsök")
+Data ![flöde övervaka](media/data-flow/mon002.png "data flöde övervakare 2")
 
-## <a name="monitor-data-flow-performance"></a>Övervaka data flödes prestanda
+ Du kan använda den här informationen för att uppskatta prestanda för ditt data flöde mot olika data källor. Mer information finns i [övervaka mappning av data flöden](concepts-data-flow-monitoring.md).
 
-När du designar dina mappnings data flöden i webbläsaren kan du testa varje enskild omvandling genom att klicka på fliken Data förhands granskning i det nedre inställnings fönstret för varje omvandling. Nästa steg du bör vidta är att testa ditt data flöde från slut punkt till slut punkt i pipeline-designern. Lägg till aktiviteten kör data flöde och Använd knappen Felsök för att testa data flödets prestanda. I det nedre fönstret i pipeline-fönstret ser du en eyeglass-ikon under "åtgärder":
+![Övervaknings](media/data-flow/mon003.png "data") flöde övervakning 3 för data flöde
 
-![Data flödes övervakare](media/data-flow/mon002.png "Data flödes övervakare 2")
+ För pipeliniska fel söknings körningar krävs en minut i kluster konfigurations tiden i de övergripande prestanda beräkningarna för ett varmt kluster. Om du initierar standard Azure Integration Runtime kan tiden ta cirka 5 minuter.
 
-Om du klickar på ikonen visas körnings planen och efterföljande prestanda profiler för ditt data flöde. Du kan använda den här informationen för att uppskatta prestanda för ditt data flöde mot olika storleks data källor. Observera att du kan anta att du tar med 1 minut kluster jobb körnings konfiguration i dina övergripande prestanda beräkningar och om du använder standard Azure Integration Runtime kan du behöva lägga till fem minuter klustrets uppslags tid.
+## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Ökande beräknings storlek i Azure Integration Runtime
 
-![Övervakning av data flöde](media/data-flow/mon003.png "Data flödes övervakare 3")
+En Integration Runtime med fler kärnor ökar antalet noder i beräknings miljöerna för Spark och ger mer processor kraft för att läsa, skriva och transformera dina data.
+* Prova ett **Compute-optimerat** kluster om du vill att din bearbetnings takt ska vara högre än din ingående hastighet
+* Försök med **ett minnesoptimerade** kluster om du vill cachelagra mer data i minnet.
 
-## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimering för Azure SQL Database och Azure SQL Data Warehouse
+![Ny IR](media/data-flow/ir-new.png "ny IR")
 
-![Käll del](media/data-flow/sourcepart3.png "Käll del")
-
-### <a name="partition-your-source-data"></a>Partitionera dina källdata
-
-* Gå till "optimera" och välj "källa". Ange antingen en enskild tabell kolumn eller en typ i en fråga.
-* Välj kolumnen partition om du väljer kolumn.
-* Ange också det maximala antalet anslutningar till din Azure SQL-databas. Du kan prova en högre inställning för att få parallella anslutningar till databasen. Vissa fall kan dock leda till snabbare prestanda med ett begränsat antal anslutningar.
-* Käll databas tabellerna behöver inte vara partitionerade.
-* Om du ställer in en fråga i din käll omvandling som matchar partitionerings schemat i databas tabellen kan käll databas motorn utnyttja partition Eli minering.
-* Om källan inte redan är partitionerad använder ADF fortfarande data partitionering i miljön Spark-omvandling baserat på den nyckel som du väljer i käll omvandlingen.
-
-### <a name="set-batch-size-and-query-on-source"></a>Ange batchstorlek och fråga för källa
-
-![Källa](media/data-flow/source4.png "Källa")
-
-* Om du ställer in batch-storlek instrueras ADF att lagra data i mängder i minnet i stället för rad för rad. Det är en valfri inställning och du kan få slut på resurser på datornoderna om de inte har rätt storlek.
-* Genom att ställa in en fråga kan du filtrera rader direkt vid källan innan de tar emot data flödet för bearbetning, vilket kan göra det första data förvärvet snabbare.
-* Om du använder en fråga kan du lägga till valfria frågeuttryck för din Azure SQL DB, t. ex. Läs behörighet
-
-### <a name="set-isolation-level-on-source-transformation-settings-for-sql-datasets"></a>Ange isolerings nivå för käll omvandlings inställningar för SQL-datauppsättningar
-
-* Vid Läs behörighet får du snabbare frågeresultat om käll omvandling
-
-![Isolerings nivå](media/data-flow/isolationlevel.png "Isolerings nivå")
-
-### <a name="set-sink-batch-size"></a>Ange grupp storlek för mottagare
-
-![Mottagare](media/data-flow/sink4.png "Mottagare")
-
-* För att undvika rad-för-rad-bearbetning av dina data flöden anger du "batchstorlek" i mottagar inställningarna för Azure SQL DB. Detta meddelar ADF att bearbeta databas skrivningar i batchar baserat på den angivna storleken.
-
-### <a name="set-partitioning-options-on-your-sink"></a>Ange partitionerings alternativ för din mottagare
-
-* Även om du inte har dina data partitionerade i dina mål Azure SQL DB-tabeller går du till fliken optimera och ställer in partitionering.
-* Det är mycket ofta att du bara berättar ADF för att använda resursallokering i Spark-kluster, vilket resulterar i mycket snabbare data inläsning i stället för att tvinga alla anslutningar från en enda nod/partition.
-
-### <a name="increase-size-of-your-compute-engine-in-azure-integration-runtime"></a>Öka storleken på din beräknings motor i Azure Integration Runtime
-
-![Ny IR](media/data-flow/ir-new.png "Ny IR")
-
-* Öka antalet kärnor, vilket ökar antalet noder och ger dig mer processor kraft för att fråga och skriva till din Azure SQL-databas.
-* Prova alternativen "Compute Optimized" och "Minnesoptimerade" för att lägga till fler resurser till dina datornoder.
-
-### <a name="unit-test-and-performance-test-with-debug"></a>Test av enhets test och prestanda med fel sökning
-
-* När enhets test data flödar anger du knappen "fel sökning av data Flow" till på.
-* I data flödes designern använder du fliken Data förhands granskning i omvandlingar för att visa resultatet av din omvandlings logik.
-* Enhet testa dina data flödar från pipeline-designern genom att placera en data flödes aktivitet på pipelinens design arbets yta och använda knappen "Felsök" för att testa.
-* Testning i fel söknings läge fungerar mot en aktiv kluster miljö utan att behöva vänta på ett just-in-Time-kluster.
-* Under för hands versionen av data Flow-upplevelsen kan du begränsa mängden data som du testar med för varje källa genom att ange rad gränsen från länken fel söknings inställningar i gränssnittet för Data Flow designer. Observera att du först måste aktivera fel söknings läget.
-
-![Fel söknings inställningar](media/data-flow/debug-settings.png "Fel söknings inställningar")
-
-* När du testar dina data flöden från en pipeline för fel sökning kan du begränsa antalet rader som används för testning genom att ställa in samplings storleken på var och en av dina källor. Se till att inaktivera sampling när du schemalägger pipelinen enligt ett regelbundet drift schema.
-
-![Rad sampling](media/data-flow/source1.png "Rad sampling")
-
-### <a name="disable-indexes-on-write"></a>Inaktivera index vid skrivning
-* Använd en lagrad procedur i ADF-pipeline innan data flödes aktiviteten som inaktiverar index i mål tabellerna som skrivs till från din mottagare.
-* Efter din data flödes aktivitet lägger du till en annan lagrad proc-aktivitet som aktiverade dessa index.
-
-### <a name="increase-the-size-of-your-azure-sql-db"></a>Öka storleken på din Azure SQL DB
-* Schemalägg en storleks ändring för din källa och mottagare av Azure SQL DB innan du kör din pipeline för att öka data flödet och minimera Azure-begränsningen när du når DTU-gränser.
-* När din pipeline-körning har slutförts kan du ändra storlek på databaserna till normal körnings hastighet.
-
-## <a name="optimizing-for-azure-sql-data-warehouse"></a>Optimering för Azure SQL Data Warehouse
-
-### <a name="use-staging-to-load-data-in-bulk-via-polybase"></a>Använd mellanlagring för att läsa in data i bulk via PolyBase
-
-* För att undvika rad-för-rad-bearbetning av dina data flöden ställer du in alternativet "mellanlagring" i mottagar inställningarna så att ADF kan använda PolyBase för att undvika infogningar rad för rad i DW. Detta gör att ADF använder PolyBase så att data kan läsas in i bulk.
-* När du kör data flödes aktiviteten från en pipeline och mellanlagringen är aktive rad måste du välja BLOB Store-platsen för dina mellanlagrings data för Mass inläsning.
-
-### <a name="increase-the-size-of-your-azure-sql-dw"></a>Öka storleken på din Azure SQL DW
-
-* Schemalägg en storleks ändring av källan och sinka Azure SQL DW innan du kör din pipeline för att öka data flödet och minimera Azure-begränsningen när du når DWU-gränser.
-
-* När din pipeline-körning har slutförts kan du ändra storlek på databaserna till normal körnings hastighet.
-
-## <a name="optimize-for-files"></a>Optimera för filer
-
-* Du kan kontrol lera hur många partitioner som används i ADF. På varje källa för källa & Sink, och varje enskild omvandling, kan du ange ett partitionerings schema. För mindre filer kan det hända att du kan välja "enskild partition" och kan fungera bättre och snabbare än att be Spark att partitionera dina små filer.
-* Om du inte har tillräckligt med information om dina källdata kan du välja partitionering med resursallokering (Round Robin) och ange antalet partitioner.
-* Om du utforskar dina data och märker att du har kolumner som kan vara användbara hash-nycklar använder du alternativet för hash-partitionering.
-* När du felsöker i data förhands granskning och fel sökning av pipeline, Observera att gräns-och provtagnings storlekarna för filbaserade käll data uppsättningar endast gäller för det antal rader som returneras, inte antalet rader som läses. Detta är viktigt att observera eftersom det kan påverka prestandan för dina fel söknings körningar och möjligen orsaka att flödet slutar fungera.
-* Kom ihåg att fel söknings kluster är små kluster med en nod som standard, så Använd tillfälliga små filer för fel sökning. Gå till fel söknings inställningar och peka på en liten delmängd av dina data med en temporär fil.
-
-![Fel söknings inställningar](media/data-flow/debugsettings3.png "Fel söknings inställningar")
-
-### <a name="file-naming-options"></a>Fil namns alternativ
-
-* Standard typen för skrivning av transformerade data i data flöden för ADF-mappning är att skriva till en data uppsättning som har en länkad BLOB-eller ADLS-tjänst. Du bör ange att data uppsättningen ska peka till en mapp eller behållare, inte en namngiven fil.
-* Data flöden använder Azure Databricks Spark för körning, vilket innebär att dina utdata delas upp över flera filer baserat på antingen standard-Spark-partitionering eller partitionerings schema som du uttryckligen har valt.
-* En mycket vanlig åtgärd i ADF-dataflöden är att välja "utdata till en enskild fil" så att alla dina utdatafiler slås samman i en enda utdatafil.
-* Den här åtgärden kräver dock att utdata minskar till en enda partition på en enskild klusternod.
-* Tänk på detta när du väljer det här populära alternativet. Du kan ta bort resurser för klusternoder om du kombinerar många stora källfiler till en partition med en utdatafil.
-* Om du vill undvika att beräkna resurser för Compute-noden, kan du behålla standardvärdet eller explicit partitionerings schema i ADF, vilket optimerar prestanda och lägger sedan till en efterföljande kopierings aktivitet i pipelinen som sammanfogar alla delfiler från mappen utdata till en ny enskild Arkiv. I grunden separerar den här tekniken omvandlingen av åtgärder från fil sammanslagning och ger samma resultat som inställningen "utdata till en enskild fil".
-
-### <a name="looping-through-file-lists"></a>Loopa igenom fil listor
-
-I de flesta fall kommer data flöden i ADF att köras bättre från en pipeline som gör det möjligt för data flödes källans omvandling att iterera över flera filer. Med andra ord är det lämpligt att använda jokertecken eller fil listor i din källa i data flödet än att iterera över en stor lista med filer med hjälp av förloppet i pipelinen och anropa ett kör data flöde på varje iteration. Data flödes processen körs snabbare genom att tillåta att loopen inträffar i data flödet.
-
-Om jag till exempel har en lista med datafiler från 2019 juli som jag vill bearbeta i en mapp i Blob Storage, skulle det vara mer bra att anropa en kör data flödes aktivitet en gång från din pipeline och använda ett jokertecken i din källa som detta :
-
-```DateFiles/*_201907*.txt```
-
-Detta kommer att utföra bättre än en sökning mot BLOB-arkivet i en pipeline som sedan itererar över alla matchade filer med hjälp av en försvarad aktivitet med data flödes aktiviteten Kör i.
+Mer information om hur du skapar en Integration Runtime finns [i integration runtime i Azure Data Factory](concepts-integration-runtime.md).
 
 ### <a name="increase-the-size-of-your-debug-cluster"></a>Öka storleken på ditt fel söknings kluster
 
-Som standard använder fel söknings programmet standard Azure integration runtime som skapas automatiskt för varje data fabrik. Standardvärdet Azure IR har angetts till 8 kärnor, 4 för en driver-nod och 4 för en arbetsnoden, med hjälp av allmänna beräknings egenskaper. När du testar med större data kan du öka storleken på ditt fel söknings kluster genom att skapa en ny Azure IR med större konfigurationer och välja den nya Azure IR när du växlar vid fel sökning. Detta instruerar ADF att använda den här Azure IR för för hands versionen av data och pipeline-felsökning med data flöden.
+Som standard använder fel söknings programmet standard Azure integration runtime som skapas automatiskt för varje data fabrik. Standardvärdet Azure IR har angetts till åtta kärnor, fyra för en driver-nod och fyra för en arbetsnoden, med hjälp av allmänna beräknings egenskaper. När du testar med större data kan du öka storleken på ditt fel söknings kluster genom att skapa en Azure IR med större konfigurationer och välja den nya Azure IR när du växlar vid fel sökning. Detta instruerar ADF att använda den här Azure IR för för hands versionen av data och pipeline-felsökning med data flöden.
+
+## <a name="optimizing-for-azure-sql-database-and-azure-sql-data-warehouse"></a>Optimering för Azure SQL Database och Azure SQL Data Warehouse
+
+### <a name="partitioning-on-source"></a>Partitionering på källa
+
+1. Gå till fliken **optimera** och välj **Ange partitionering**
+1. Välj **källa**.
+1. Under **antal partitioner**anger du det maximala antalet anslutningar till din Azure SQL-databas. Du kan prova en högre inställning för att få parallella anslutningar till databasen. Vissa fall kan dock leda till snabbare prestanda med ett begränsat antal anslutningar.
+1. Välj om du vill partitionera med en speciell tabell kolumn eller en fråga.
+1. Om du har valt **kolumn**väljer du kolumnen partition.
+1. Om du har valt **fråga**anger du en fråga som matchar partitionerings schemats databas tabell. Med den här frågan kan käll databas motorn utnyttja partition Eli minering. Käll databas tabellerna behöver inte partitioneras. Om källan inte redan är partitionerad använder ADF fortfarande data partitionering i miljön Spark-omvandling baserat på den nyckel som du väljer i käll omvandlingen.
+
+![Käll dels](media/data-flow/sourcepart3.png "källa")
+
+### <a name="source-batch-size-input-and-isolation-level"></a>Käll grupps storlek, Indatatyp och isolerings nivå
+
+Under **käll alternativ** i käll omvandlingen kan följande inställningar påverka prestanda:
+
+* Batch-storlek instruerar ADF att lagra data i mängder i minnet i stället för rad för rad. Batchstorleken är en valfri inställning och du kan få slut på resurser på datornoderna om de inte ändras korrekt.
+* Genom att ställa in en fråga kan du filtrera rader på källan innan de anländer till data flödet för bearbetning. Detta kan göra den första data hämtningen snabbare. Om du använder en fråga kan du lägga till valfria frågeuttryck för din Azure SQL DB, till exempel READ uncommitted.
+* Vid Läs behörighet får du snabbare frågeresultat om käll omvandling
+
+![Käll](media/data-flow/source4.png "källa")
+
+### <a name="sink-batch-size"></a>Grupp storlek för mottagare
+
+Om du vill undvika rad-för-rad-bearbetning av dina data flöden ställer du in **batchstorleken** på fliken Inställningar för Azure SQL DB och Azure SQL DW-mottagare. Om batchstorleken anges, bearbetar ADF databas skrivningar i batchar baserat på den storlek som angetts.
+
+![Mottagar](media/data-flow/sink4.png "mottagare")
+
+### <a name="partitioning-on-sink"></a>Partitionering på handfat
+
+Även om du inte har dina data partitionerade i mål tabellerna rekommenderar vi att du har dina data partitionerade i Sink-omvandlingen. Partitionerade data resulterar ofta i mycket snabbare inläsningar för att tvinga alla anslutningar att använda en enda nod/partition. Gå till fliken optimera i din mottagare och *Välj partitionering med resursallokering för* att välja det idealiska antalet partitioner som ska skrivas till din mottagare.
+
+### <a name="disable-indexes-on-write"></a>Inaktivera index vid skrivning
+
+I din pipeline lägger du till en [lagrad procedur aktivitet](transform-data-using-stored-procedure.md) innan data flödes aktiviteten som inaktiverar index i mål tabellerna som skrivs från din mottagare. Efter din data flödes aktivitet lägger du till en annan lagrad procedur aktivitet som aktiverar dessa index.
+
+### <a name="increase-the-size-of-your-azure-sql-db-and-dw"></a>Öka storleken på din Azure SQL DB och DW
+
+Schemalägg en storleks ändring för din källa och mottagar Azure SQL DB och DW innan din pipeline kör för att öka data flödet och minimera Azure-begränsningen när du når DTU-gränser. När din pipeline-körning har slutförts ändrar du storlek på databaserna till normal körnings frekvens.
+
+### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Endast Azure SQL DW] Använd mellanlagring för att läsa in data i bulk via PolyBase
+
+Om du vill undvika rad-för-rad-infogningar i din DW kontrollerar du **Aktivera mellanlagring** i mottagar inställningarna så att ADF kan använda [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide). PolyBase gör att ADF kan läsa in data i bulk.
+* När du kör data flödes aktiviteten från en pipeline måste du välja en BLOB eller ADLS Gen2 lagrings plats för att mellanlagra dina data under Mass inläsning.
+
+## <a name="optimizing-for-files"></a>Optimera för filer
+
+Vid varje omvandling kan du ange det partitionerings schema som du vill att Data Factory ska använda på fliken optimera.
+* För mindre filer kan det hända att du kan välja *en enskild partition* ibland fungerar bättre och snabbare än att be Spark att partitionera dina små filer.
+* Om du inte har tillräckligt med information om dina källdata väljer du *resursallokering* partitionering och anger antalet partitioner.
+* Om dina data innehåller kolumner som kan vara användbara hash-nycklar väljer du *hash-partitionering*.
+
+Vid fel sökning i data förhands granskning och fel sökning av pipelinen gäller gräns-och samplings storlekarna för filbaserade käll data uppsättningar endast för det antal rader som returneras, inte antalet rader som läses. Detta kan påverka prestandan för dina fel söknings körningar och möjligen orsaka att flödet slutar fungera.
+* Fel söknings kluster är små kluster med en nod som standard och vi rekommenderar att du använder små exempel filer för fel sökning. Gå till fel söknings inställningar och peka på en liten delmängd av dina data med en temporär fil.
+
+    ![Felsöka inställningar](media/data-flow/debugsettings3.png "") för fel söknings inställningar
+
+### <a name="file-naming-options"></a>Fil namns alternativ
+
+Det vanligaste sättet att skriva transformerade data i mappnings data flöden skriver BLOB eller ADLS File Store. I din mottagare måste du välja en data uppsättning som pekar på en behållare eller mapp, inte en namngiven fil. När data flödet för mappning använder Spark för körning, delas utdata ut över flera filer baserat på ditt partitionerings schema.
+
+Ett gemensamt partitionerings schema är att välja _utdata till en fil_, som sammanfogar alla filer i utdatafilen till en enda fil i din mottagare. Den här åtgärden kräver att utdata minskar till en enda partition på en enskild klusternod. Du kan ta bort resurser för klusternoden om du kombinerar många stora källfiler till en enda utdatafil.
+
+För att undvika att beräkna resurser för beräknings resurser, Behåll standardvärdet optimerat schema i data flöde och Lägg till en kopierings aktivitet i din pipeline som sammanfogar alla delfiler från mappen utdata till en ny fil. Den här tekniken separerar åtgärden för omvandling från fil sammanslagning och ger samma resultat som _att ange utdata till en enskild fil_.
+
+### <a name="looping-through-file-lists"></a>Loopa igenom fil listor
+
+Ett data flöde för mappning kommer att köras bättre när käll omvandlingen upprepas över flera filer i stället för slingor via för varje aktivitet. Vi rekommenderar att du använder jokertecken eller fil listor i din käll omvandling. Data flödes processen körs snabbare genom att tillåta att slingor uppstår i Spark-klustret. Mer information finns i [jokertecken i käll omvandling](data-flow-source.md#file-based-source-options).
+
+Om du till exempel har en lista med datafiler från 2019 juli som du vill bearbeta i en mapp i Blob Storage, kan du använda ett jokertecken i din käll omvandling.
+
+```DateFiles/*_201907*.txt```
+
+Genom att använda jokertecken innehåller pipelinen bara en data flödes aktivitet. Detta kommer att utföra bättre än en sökning mot BLOB Store som sedan itererar över alla matchade filer med hjälp av en förvarsin aktivitet med data flödes aktiviteten Kör i.
 
 ## <a name="next-steps"></a>Nästa steg
 
 Se andra data flödes artiklar relaterade till prestanda:
 
-- [Fliken optimera data flöde](concepts-data-flow-optimize-tab.md)
+- [Fliken optimera data flöde](concepts-data-flow-overview.md#optimize)
 - [Data flödes aktivitet](control-flow-execute-data-flow-activity.md)
 - [Övervaka data flödes prestanda](concepts-data-flow-monitoring.md)

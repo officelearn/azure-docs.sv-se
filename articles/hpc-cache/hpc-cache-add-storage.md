@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: rohogue
-ms.openlocfilehash: 302d727ede9604d11972eaa8f46a3e27f204858f
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: dbcc68bacf8a11a7a85d5fad7fb4435fd03c7f93
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710026"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024560"
 ---
 # <a name="add-storage-targets"></a>Lägga till lagringsmål
 
@@ -37,13 +37,16 @@ Ange den här informationen för att definiera en Azure Blob-behållare.
 
 ![skärm bild av sidan Lägg till lagrings mål, ifylld med information för ett nytt Azure Blob Storage-mål](media/hpc-cache-add-blob.png)
 
-<!-- need to replace screenshot after note text is updated with both required RBAC roles -->
+<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
 * **Lagrings mål namn** – ange ett namn som identifierar det här lagrings målet i Azure HPC-cachen.
 * **Måltyp** – Välj **BLOB**.
 * **Lagrings konto** – Välj det konto som ska referera till behållaren.
 
   Du måste auktorisera cache-instansen för att komma åt lagrings kontot enligt beskrivningen i [Lägg till åtkomst roller](#add-the-access-control-roles-to-your-account).
+
+  Information om vilken typ av lagrings konto du kan använda finns i [krav för Blob Storage](hpc-cache-prereqs.md#blob-storage-requirements).
+
 * **Lagrings behållare** – Välj BLOB-behållaren för målet.
 
 * **Sökväg till virtuellt namn område** – ange sökvägen till klientens fil för det här lagrings målet. Läs [Konfigurera sammanställd namnrymd](hpc-cache-namespace.md) för att lära dig mer om funktionen för virtuellt namn område.
@@ -54,7 +57,7 @@ När du är färdig klickar du på **OK** för att lägga till lagrings målet.
 
 Azure HPC cache använder [rollbaserad åtkomst kontroll (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/index) för att ge cache-programmet åtkomst till ditt lagrings konto för Azure Blob Storage-mål.
 
-Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) och [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) för användaren "StorageCache Resource Provider".
+Lagrings kontots ägare måste uttryckligen lägga till rollerna [lagrings konto deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-account-contributor) och [Storage BLOB data-deltagare](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor) för användaren "HPC-Provider för HPC-cache".
 
 Du kan göra detta i förväg eller genom att klicka på en länk på sidan där du lägger till ett Blob Storage-mål.
 
@@ -62,13 +65,16 @@ Steg för att lägga till RBAC-roller:
 
 1. Öppna sidan **åtkomst kontroll (IAM)** för lagrings kontot. (Länken på sidan **Lägg till lagrings mål** öppnar automatiskt den här sidan för det valda kontot.)
 
-1. Klicka på överst på sidan och välj **Lägg till en roll tilldelning.** **+**
+1. Klicka på **+** överst på sidan och välj **Lägg till en roll tilldelning**.
 
 1. Välj rollen "lagrings konto deltagare" i listan.
 
 1. I fältet **tilldela åtkomst till** lämnar du standardvärdet markerat ("Azure AD User, Group eller service huvud namn").  
 
-1. I **Välj** -fältet söker du efter "storagecache".  Den här strängen ska matcha ett säkerhets objekt med namnet "HPC-Provider för HPC-cache". Klicka på det primära objektet för att välja det.
+1. I **Välj** -fältet söker du efter "HPC".  Den här strängen ska matcha ett tjänst huvud namn med namnet "HPC-Provider för HPC-cache". Klicka på det primära objektet för att välja det.
+
+   > [!NOTE]
+   > Om en sökning efter "HPC" inte fungerar kan du prova att använda strängen "storagecache" i stället. Användare som anslöt till förhands granskningen kan behöva använda det äldre namnet för tjänstens huvud namn.
 
 1. Klicka på knappen **Spara** för att lägga till roll tilldelningen i lagrings kontot.
 

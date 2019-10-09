@@ -1,6 +1,6 @@
 ---
-title: Kom igång med Mobile Apps i Xamarin Android-autentisering
-description: Lär dig hur du använder Mobile Apps du autentiserar användare i din Xamarin Android-app genom olika identitetsleverantörer, inklusive AAD, Google, Facebook, Twitter och Microsoft.
+title: Kom igång med autentisering för Mobile Apps i Xamarin Android
+description: Lär dig hur du använder Mobile Apps för att autentisera användare av din Xamarin Android-app via olika identitets leverantörer, till exempel AAD, Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: xamarin
 author: elamalani
@@ -14,53 +14,53 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 7a0b2c54c2d2a9daba56ea1d05c18e72a2d7a7a0
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 44a6261819ee8e880d9a5763e92678bc359f5eff
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67447058"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025094"
 ---
-# <a name="add-authentication-to-your-xamarinandroid-app"></a>Lägg till autentisering i din Xamarin.Android-app
+# <a name="add-authentication-to-your-xamarinandroid-app"></a>Lägg till autentisering i din Xamarin. Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-xamarin-android-get-started-users) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
-Det här avsnittet visar hur du autentiserar användare i en Mobilapp från klientprogrammet. I den här självstudien lägger du till autentisering till snabbstartsprojektet med hjälp av en identitetsprovider som stöds av Azure Mobile Apps. Efter att har autentiseras och auktoriseras i Mobile App måste visas användaren ID-värdet.
+Det här avsnittet visar hur du autentiserar användare av en mobilapp från klient programmet. I den här självstudien lägger du till autentisering i snabb starts projektet med en identitetsprovider som stöds av Azure Mobile Apps. När du har autentiserat och auktoriserat i mobilappen visas värdet för användar-ID.
 
-Den här självstudien är baserad på Snabbstart för Mobile App. Du måste också slutföra kursen [skapa en Xamarin.Android-app]. Om du inte använder serverprojekt hämtade Snabbstart, måste du lägga till tillägget autentiseringspaket ditt projekt. Läs mer om server-tilläggspaket [arbeta med SDK för .NET-serverdelen för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
+Den här självstudien baseras på snabb starten av mobilappen. Du måste också först slutföra självstudien [skapa en Xamarin. Android-app]. Om du inte använder det nedladdade projektet för snabb starts Server måste du lägga till paketet med autentiserings tillägg i projektet. Mer information om Server tilläggs paket finns i [arbeta med .NET-Server del Server SDK för Azure Mobile Apps](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md).
 
 ## <a name="register"></a>Registrera din app för autentisering och konfigurera App Services
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
-## <a name="redirecturl"></a>Lägg till din app i de tillåtna externa Omdirigeringswebbadresser
+## <a name="redirecturl"></a>Lägg till din app i de tillåtna externa omdirigerings-URL: erna
 
-Säker autentisering måste du definiera en ny URL-schema för din app. På så sätt kan autentiseringssystem att omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder vi URL-schema _appname_ i hela. Du kan dock använda alla URL-schema som du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på serversidan:
+Säker autentisering kräver att du definierar ett nytt URL-schema för din app. Detta gör att Authentication-systemet kan omdirigera tillbaka till din app när autentiseringen är klar. I den här självstudien använder _vi program_ varan för URL-program i alla. Du kan dock använda alla URL-scheman du väljer. Det bör vara unikt för det mobila programmet. Aktivera omdirigering på Server sidan:
 
-1. Välj din App Service i [Azure-portalen].
+1. I [Azure Portal] väljer du App Service.
 
-2. Klicka på den **autentisering / auktorisering** menyalternativ.
+2. Klicka på meny alternativet **autentisering/auktorisering** .
 
-3. I den **tillåtna externa omdirigerings-URL: er**, ange `url_scheme_of_your_app://easyauth.callback`.  Den **url_scheme_of_your_app** i den här strängen är URL-schemat för din mobilapp.  Den bör följa den normala URL specifikationen för ett protokoll (Använd bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer eftersom du behöver ändra programkoden mobila med URL-schema på flera platser.
+3. I de **tillåtna externa omdirigerings-URL: erna**anger du `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** i den här STRÄNGEN är URL-schemat för det mobila programmet.  Den bör följa normal URL-specifikation för ett protokoll (Använd bara bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer när du behöver justera koden för mobil program med URL-schemat på flera platser.
 
 4. Klicka på **OK**.
 
 5. Klicka på **Spara**.
 
-## <a name="permissions"></a>Begränsa behörighet för autentiserade användare
+## <a name="permissions"></a>Begränsa behörigheter till autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Kör klientprojektet i Visual Studio eller Xamarin Studio på en enhet eller emulator. Kontrollera att ett ohanterat undantag med en statuskod 401 (obehörig) aktiveras när appen startar. Detta inträffar eftersom appen försöker få åtkomst till din mobilappsserverdel som oautentiserade användare. Den *TodoItem* tabell nu kräver autentisering.
+I Visual Studio eller Xamarin Studio kör du klient projektet på en enhet eller emulator. Kontrol lera att ett ohanterat undantag med status kod 401 (obehörig) utlöses när appen startar. Detta inträffar eftersom appen försöker få åtkomst till Server delen för mobilappar som en oautentiserad användare. *TodoItem* -tabellen kräver nu autentisering.
 
-Därefter uppdaterar du klientappen till begär resurser från serverdelen för Mobilappen med en autentiserad användare.
+Sedan uppdaterar du klient programmet för att begära resurser från Server delen för mobilappar med en autentiserad användare.
 
 ## <a name="add-authentication"></a>Lägg till autentisering i appen
-Appen har uppdaterats så för att användarna trycker du på den **logga in** knappen och autentisera sig innan data visas.
+Appen uppdateras för att kräva att användare trycker på knappen **Logga in** och autentisera innan data visas.
 
-1. Lägg till följande kod till den **TodoActivity** klass:
+1. Lägg till följande kod i **TodoActivity** -klassen:
    
         // Define an authenticated user.
         private MobileServiceUser user;
@@ -98,16 +98,16 @@ Appen har uppdaterats så för att användarna trycker du på den **logga in** k
             }
         }
    
-    Detta skapar en ny metod för att autentisera en användare och en metod-hanterare för en ny **logga in** knappen. Användaren i exempelkoden ovan autentiseras med hjälp av en Facebook-inloggning. En dialogruta som används för att visa det användar-ID som autentiseras en gång.
+    Detta skapar en ny metod för att autentisera en användare och en metod hanterare för en ny **inloggnings** knapp. Användaren i exempel koden ovan autentiseras med hjälp av en Facebook-inloggning. En dialog ruta används för att Visa användar-ID när autentiseringen har autentiserats.
    
    > [!NOTE]
-   > Om du använder en identitetsprovider än Facebook, ändrar du värdet som skickas till **LoginAsync** ovan till något av följande: *MicrosoftAccount*, *Twitter*, *Google*, eller *WindowsAzureActiveDirectory*.
+   > Om du använder en annan identitets leverantör än Facebook ändrar du värdet som skickats till **LoginAsync** ovan till något av följande: *MicrosoftAccount*, *Twitter*, *Google*eller *WindowsAzureActiveDirectory*.
    > 
    > 
-2. I den **OnCreate** metod, ta bort eller kommentera följande rad med kod:
+2. Ta bort eller kommentera ut följande kodrad i **OnCreate** -metoden:
    
         OnRefreshItemsSelected ();
-3. Lägg till följande i filen Activity_To_Do.axml *LoginUser* knappen definitionen innan den befintliga *AddItem* knappen:
+3. I filen Activity_To_Do. axml lägger du till följande *LoginUser* Button-definition före den befintliga *addItem* -knappen:
    
           <Button
             android:id="@+id/buttonLoginUser"
@@ -115,10 +115,10 @@ Appen har uppdaterats så för att användarna trycker du på den **logga in** k
             android:layout_height="wrap_content"
             android:onClick="LoginUser"
             android:text="@string/login_button_text" />
-4. Lägg till följande element i filen Strings.xml resurser:
+4. Lägg till följande-element i filen Strings. XML-resurser:
    
         <string name="login_button_text">Sign in</string>
-5. Öppna filen AndroidManifest.xml, Lägg till följande kod i `<application>` XML-elementet:
+5. Öppna filen AndroidManifest. xml och Lägg till följande kod inuti `<application>` XML-element:
 
         <activity android:name="com.microsoft.windowsazure.mobileservices.authentication.RedirectUrlActivity" android:launchMode="singleTop" android:noHistory="true">
           <intent-filter>
@@ -129,13 +129,13 @@ Appen har uppdaterats så för att användarna trycker du på den **logga in** k
           </intent-filter>
         </activity>
 
-6. I Visual Studio eller Xamarin Studio kör klientprojektet på en enhet eller emulator och logga in med din valda identitetsprovider. När du är har loggat in visas inloggnings-ID och en lista över att göra-objekt och du kan göra uppdateringar till data.
+6. I Visual Studio eller Xamarin Studio kör du klient projektet på en enhet eller emulator och loggar in med den valda identitets leverantören. När du har loggat in visar appen ditt inloggnings-ID och listan med att göra-objekt, och du kan göra uppdateringar av data.
 
 ## <a name="troubleshooting"></a>Felsökning
 
 **Programmet kraschade med `Java.Lang.NoSuchMethodError: No static method startActivity`**
 
-I vissa fall är i konflikt i supportpaket visas som bara en varning i Visual studio, men programkrascher med det här undantaget vid körning. I det här fallet måste du se till att alla supportpaket som refereras till i ditt projekt har samma version. [Azure Mobile Apps NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har ett `Xamarin.Android.Support.CustomTabs`-beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket behöver du installera det här paketet i erfordrad version direkt för att undvika konflikter.
+I vissa fall visas konflikter i support paketen som en varning i Visual Studio, men programmet kraschar med detta undantag vid körning. I så fall måste du se till att alla de support paket som refereras till i ditt projekt har samma version. [Azure Mobile Apps NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Client/) har ett `Xamarin.Android.Support.CustomTabs`-beroende för Android-plattformen, så om ditt projekt använder nyare supportpaket behöver du installera det här paketet i erfordrad version direkt för att undvika konflikter.
 
 <!-- URLs. -->
-[Skapa en Xamarin.Android-app]: app-service-mobile-xamarin-android-get-started.md
+[Skapa en Xamarin. Android-app]: app-service-mobile-xamarin-android-get-started.md

@@ -1,32 +1,32 @@
 ---
-title: Azure Data Factory mappning Dataomvandling Flow Filter
-description: Azure Data Factory mappning Dataomvandling Flow Filter
+title: Azure Data Factory omvandling av data flödes filter
+description: Azure Data Factory omvandling av data flödes filter
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: e0b41850c149ff7095333cf77b780dec1f03b882
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: dd29753ff14d16081a46eebbc2ea02d94e5985f1
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66234417"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029354"
 ---
-# <a name="azure-data-factory-filter-transformation"></a>Azure data factory filter-transformering
+# <a name="azure-data-factory-filter-transformation"></a>Transformering av Azure Data Factory-filter
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Filter-transformeringar ger filtrering av raden. Skapa ett uttryck som definierar filtervillkoret. Klicka i textrutan för att starta Uttrycksverktyget. Skapa ett filteruttryck för att begränsa vilka rader från aktuell dataströmmen kan passera (filter) till nästa transformeringen i Uttrycksverktyget. Tänk på Filter-transformeringen som WHERE-satsen för en SQL-instruktion.
 
-## <a name="filter-on-loanstatus-column"></a>Filtrera på loan_status kolumnen:
+Filtrerings transformeringarna innehåller rad filtrering. Bygg ett uttryck som definierar filter villkoret. Klicka i text rutan för att starta uttrycks verktyget. I uttrycks verktyget skapar du ett filter uttryck som styr vilka rader från den aktuella data strömmen som tillåts passera genom (filter) till nästa omvandling. Tänk på filter omvandlingen som WHERE-satsen i ett SQL-uttryck.
+
+## <a name="filter-on-loan_status-column"></a>Filtrera på loan_status-kolumnen:
 
 ```
 in([‘Default’, ‘Charged Off’, ‘Fully Paid’], loan_status).
 ```
 
-Filtrera efter varje kolumn i filmer demo:
+Filtrera efter kolumnen år i demonstrations demon för filmer:
 
 ```
 year > 1980
@@ -34,4 +34,4 @@ year > 1980
 
 ## <a name="next-steps"></a>Nästa steg
 
-Prova en kolumn som filtrering omvandling, den [Välj omvandling](data-flow-select.md)
+Prova en kolumn filtrerings omvandling, [Välj omvandlingen](data-flow-select.md)

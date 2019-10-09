@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 923c828a3d7e9e10d79fcf079839b84c2f0e0f77
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: dbe3b0218b73649d40f27d17ee2c7de2853c6b7c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70772374"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025551"
 ---
 # <a name="view-custom-role-assignments-in-azure-active-directory"></a>Visa anpassade roll tilldelningar i Azure Active Directory
 
@@ -31,8 +31,8 @@ Den här artikeln beskriver hur du visar anpassade roller som du har tilldelat i
 
 Den här proceduren beskriver hur du visar tilldelningar för en roll med omfattning i hela organisationen.
 
-1. Logga in på [administrations centret](https://aad.portal.azure.com) för Azure AD med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
-1. Välj **Azure Active Directory**, Välj **roller och administratörer**och välj sedan en roll för att öppna den och visa dess egenskaper.
+1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) With privilegie rad roll administratör eller global administratörs behörighet i Azure AD-organisationen.
+1. Välj **Azure Active Directory**, Välj **roller och administratörer**och välj sedan en roll för att öppna den och visa dess egenskaper.
 1. Välj **tilldelningar** för att Visa rollernas tilldelningar.
 
     ![Visa roll tilldelningar och behörigheter när du öppnar en roll i listan](./media/roles-view-assignments/role-assignments.png)
@@ -104,12 +104,12 @@ HTTP/1.1 200 OK
 
 I det här avsnittet beskrivs hur du visar tilldelningar för en roll med en omfattning i ett program. Den här funktionen är för närvarande i allmänt tillgänglig förhandsversion.
 
-1. Logga in på [administrations centret](https://aad.portal.azure.com) för Azure AD med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
+1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) With privilegie rad roll administratör eller global administratörs behörighet i Azure AD-organisationen.
 1. Välj **Appregistreringar**och välj sedan appens registrering för att visa dess egenskaper. Du kanske måste välja **alla program** om du vill se en fullständig lista över app-registreringar i din Azure AD-organisation.
 
     ![Skapa eller redigera registrerings program från sidan Appregistreringar](./media/roles-create-custom/appreg-all-apps.png)
 
-1. I appens registrering väljer du **roller och administratörer**och väljer sedan en roll för att visa dess egenskaper.
+1. I appens registrering väljer du **roller och administratörer**och väljer sedan en roll för att visa dess egenskaper.
 
     ![Visa roll tilldelningar för program registrering från sidan Appregistreringar](./media/roles-view-assignments/appreg-assignments.png)
 

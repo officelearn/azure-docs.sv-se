@@ -1,6 +1,6 @@
 ---
-title: Kopiera nya och ändrade filer av LastModifiedDate med Azure Data Factory | Microsoft Docs
-description: Lär dig hur du använder en lösningsmall för att kopiera nya och ändrade filer av LastModifiedDate med Azure Data Factory.
+title: Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory | Microsoft Docs
+description: Lär dig hur du använder en lösnings mall för att kopiera nya och ändrade filer genom att LastModifiedDate med Azure Data Factory.
 services: data-factory
 documentationcenter: ''
 author: dearandyxu
@@ -13,41 +13,41 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 3/8/2019
-ms.openlocfilehash: cae75f4d64c8b3f74cc40e94a675c0f10a6bd9ec
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a2a8f0478d1ae4fb19cb911b02572145ff59839b
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60312856"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030070"
 ---
-# <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopiera nya och ändrade filer av LastModifiedDate med Azure Data Factory
+# <a name="copy-new-and-changed-files-by-lastmodifieddate-with-azure-data-factory"></a>Kopiera nya och ändrade filer genom LastModifiedDate med Azure Data Factory
 
-Den här artikeln beskrivs en mall som du kan använda för att kopiera nya och ändrade filer endast av LastModifiedDate från en butik med filbaserad till ett mål. 
+Den här artikeln beskriver en lösnings mall som du kan använda för att kopiera nya och ändrade filer endast av LastModifiedDate från en filbaserad lagring till ett mål lager. 
 
-## <a name="about-this-solution-template"></a>Om den här lösningsmallen
+## <a name="about-this-solution-template"></a>Om den här lösnings mal len
 
-Den här mallen väljer först nya och ändrade filer endast av deras attribut **LastModifiedDate**, och kopierar sedan dessa valda filer från datalager för källa till datalager för destination.
+Den här mallen väljer först de nya och ändrade filerna enbart efter deras attribut **LastModifiedDate**och kopierar sedan de valda filerna från data käll arkivet till data destinations lagret.
 
 Mallen innehåller en aktivitet:
-- **Kopiera** att kopiera nya och ändrade filer endast av LastModifiedDate från ett filarkiv till ett mål.
+- **Kopiera** för att kopiera nya och ändrade filer enbart av LastModifiedDate från ett fil lager till ett mål lager.
 
 Mallen definierar fyra parametrar:
--  *FolderPath_Source* är sökvägen till mappen där du kan läsa filer från arkivet källa. Du måste ersätta standardvärdet med din egen mappsökväg.
--  *FolderPath_Destination* är sökvägen till mappen där du vill kopiera filer till målarkiv. Du måste ersätta standardvärdet med din egen mappsökväg.
--  *LastModified_From* används för att välja filer vars LastModifiedDate-attributet är efter eller lika med det här datum/tid-värdet.  För att markera de nya filerna, som inte har kopierats senast, kan det här datum/tid-värdet vara tiden när pipelinen utlöstes senast. Du kan ersätta standardvärdet ' 2019-02-01T00:00:00Z' till din förväntade LastModifiedDate i UTC-tidszonen. 
--  *LastModified_To* används för att markera filer vars LastModifiedDate-attributet är innan det här datum/tid-värdet. För att markera de nya filerna, som inte har kopierats senast, kan det här datum/tid-värdet vara den aktuella tiden.  Du kan ersätta standardvärdet ' 2019-02-01T00:00:00Z' till din förväntade LastModifiedDate i UTC-tidszonen. 
+-  *FolderPath_Source* är sökvägen till mappen där du kan läsa filerna från käll arkivet. Du måste ersätta standardvärdet med din egen mappsökväg.
+-  *FolderPath_Destination* är sökvägen till mappen där du vill kopiera filer till mål lagret. Du måste ersätta standardvärdet med din egen mappsökväg.
+-  *LastModified_From* används för att välja de filer vars LastModifiedDate-attribut är efter eller lika med det här datetime-värdet.  För att kunna välja endast nya filer, som inte har kopierats senaste gången, kan det här datetime-värdet vara den tid då pipelinen utlöstes senast. Du kan ersätta standardvärdet "2019-02-01T00:00:00Z" till din förväntade LastModifiedDate i UTC-tidszonen. 
+-  *LastModified_To* används för att markera de filer vars LastModifiedDate-attribut är före detta datetime-värde. För att kunna välja endast nya filer, som inte har kopierats senast, kan det här datetime-värdet vara aktuell tid.  Du kan ersätta standardvärdet "2019-02-01T00:00:00Z" till din förväntade LastModifiedDate i UTC-tidszonen. 
 
-## <a name="how-to-use-this-solution-template"></a>Hur du använder den här lösningsmallen
+## <a name="how-to-use-this-solution-template"></a>Så här använder du den här lösnings mal len
 
-1. Gå till mallen **kopiera nya filer endast av LastModifiedDate**. Skapa en **New** anslutning till din butik för lagring av källa. Storage källagringen är där du vill kopiera filer från.
+1. Gå till mall **Kopiera endast nya filer av LastModifiedDate**. Skapa en **ny** anslutning till ditt käll lagrings lager. Käll lagrings lagret är den plats där du vill kopiera filer.
 
     ![Skapa en ny anslutning till källan](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate1.png)
     
-2. Välj först lagringen **typ**. Efter som indata lagringen **kontonamn** och **kontonyckel**. Välj slutligen **Slutför**.
+2. Välj först lagrings **typ**. När du har indata på lagrings **kontots namn** och **konto nyckeln**. Välj slutligen **Slutför**.
 
-    ![Ange en anslutningssträng](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate2.png)
+    ![Mata in en anslutnings sträng](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate2.png)
     
-3. Skapa en **New** anslutning till din målarkiv. Målarkiv är där du vill kopiera filer till. Du måste också ange anslutningsinformationen för data målarkiv liknande som du i steg 2.
+3. Skapa en **ny** anslutning till mål arkivet. Mål lagret är dit du vill kopiera filer till. Du måste också mata in anslutnings informationen för data destinations lagret på samma sätt som du gjorde i steg 2.
 
     ![Skapa en ny anslutning till målet](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate3.png)
 
@@ -55,41 +55,41 @@ Mallen definierar fyra parametrar:
 
     ![Använd den här mallen](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate4.png)
     
-5. Pipelinen i panelen visas enligt följande exempel:
+5. Du ser pipelinen tillgänglig i panelen, som du ser i följande exempel:
 
     ![Visa pipelinen](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate5.png)
 
-6. Välj **felsöka**, skriva-värdet för den **parametrar** och välj **Slutför**.  I bilden nedan är vi ange parametrarna som följande.
+6. Välj **Felsök**, Skriv värdet för **parametrarna** och välj **Slutför**.  I bilden nedan anger vi parametrarna som följer.
    - **FolderPath_Source** =  **/source/**
    - **FolderPath_Destination** =  **/destination/**
    - **LastModified_From** =  **2019-02-01T00:00:00Z**
    - **LastModified_To** = **2019-03-01T00:00:00Z**
     
-     I exemplet är som anger de filer som senast ändrades i tiden från att *2019-02-01T00:00:00Z* och *2019-03-01T00:00:00Z* ska kopieras från en mapp */source/*  till en mapp */destination/* .  Du kan ersätta dem med dina egna parametrar.
+     Exemplet indikerar de filer som senast ändrades inom TimeSpan mellan *2019-02-01T00:00:00Z* och *2019-03-01T00:00:00Z* kopieras från en mapp */Source/* till en mapp */destination/* .  Du kan ersätta dessa med dina egna parametrar.
     
      ![Köra en pipeline](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate6.png)
 
-7. Granska resultatet. Visas endast de filer som senast ändrades inom den konfigurerade timespan har kopierats till målarkiv.
+7. Granska resultatet. Du kommer bara att se de filer som senast ändrades inom det konfigurerade TimeSpan som har kopierats till mål lagret.
 
     ![Granska resultatet](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate7.png)
     
-8. Nu kan du lägga till en utlösare för rullande windows för att automatisera denna pipeline, så att pipelinen kan alltid kopiera nya och ändrade filer endast av LastModifiedDate med jämna mellanrum.  Välj **Lägg till utlösare**, och välj **ny/redigera**.
+8. Nu kan du lägga till en rullande Windows-utlösare för att automatisera den här pipelinen, så att pipelinen alltid kan kopiera nya och ändrade filer endast av LastModifiedDate med jämna mellanrum.  Välj **Lägg till utlösare**och välj **nytt/redigera**.
 
     ![Granska resultatet](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate8.png)
     
-9. I den **Lägg till utlösare** väljer **+ ny**.
+9. I fönstret **Lägg till utlösare** väljer du **+ ny**.
 
     ![Granska resultatet](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate9.png)
 
-10. Välj **rullande fönster** för Utlösartyp, ställer du in **var 15: e minut** som upprepningen (du kan ändra till helst intervall), och välj sedan **nästa**.
+10. Välj **rullande-fönstret** för utlösnings typen, ange **var 15: e minut** som upprepning (du kan ändra till valfri intervall tid) och välj sedan **Nästa**.
 
     ![Skapa utlösare](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate10.png)    
     
-11. Skriva-värdet för den **parametrar för Objektutlösare kör** som följande och välj **Slutför**.
-    - **FolderPath_Source** =  **/source/** .  Du kan ersätta med din mapp i källdatalagret.
-    - **FolderPath_Destination** =  **/destination/** .  Du kan ersätta med din mapp i måldatalager.
-    - **LastModified_From** =   **@trigger().outputs.windowStartTime**.  Det är en systemvariabel från utlösaren avgöra hur lång tid när pipelinen utlöstes senast.
-    - **LastModified_To** =  **@trigger().outputs.windowEndTime**.  Det är en systemvariabel från utlösaren avgöra hur lång tid när pipeline utlöses den här gången.
+11. Skriv värdet för **utlösarens körnings parametrar** enligt följande och välj **Slutför**.
+    - **FolderPath_Source** =  **/Source/** .  Du kan ersätta med din mapp i käll data lagret.
+    - **FolderPath_Destination** =  **/destination/** .  Du kan ersätta med din mapp i mål data lagret.
+    - **LastModified_From** =   **\@trigger (). outputs. windowStartTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöstes senast.
+    - **LastModified_To** =  **\@trigger (). outputs. windowEndTime**.  Det är en system variabel från utlösaren som fastställer tidpunkten då pipelinen utlöses för tillfället.
     
     ![Indataparametrar](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate11.png)
     
@@ -97,13 +97,13 @@ Mallen definierar fyra parametrar:
     
     ![Publicera alla](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate12.png)
 
-13. Skapa nya filer i mappen källa för datalager för källa.  Du nu väntar pipelinen ska utlösas automatiskt och endast de nya filerna kopieras till målarkiv.
+13. Skapa nya filer i din källmapp i data käll arkivet.  Du väntar nu på att pipelinen ska utlösas automatiskt och endast de nya filerna kopieras till mål lagret.
 
-14. Välj **övervakning** i den vänstra navigeringspanelen och vänta tills cirka 15 minuter om upprepningen av utlösaren har ställts in på var 15: e minut. 
+14. Välj fliken **övervakning** i den vänstra navigerings panelen och vänta i cirka 15 minuter om upprepningen av utlösaren har angetts till var 15: e minut. 
 
     ![Välj övervakning](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate14.png)
 
-15. Granska resultatet. Du ser din pipeline utlöses automatiskt var 15: e minut och endast de nya eller ändrade filerna från källan store kopieras till målarkiv i varje pipelinekörning.
+15. Granska resultatet. Du ser att din pipeline aktive ras automatiskt var 15: e minut, och bara nya eller ändrade filer från käll arkivet kopieras till mål lagret i varje pipeline-körning.
 
     ![Granska resultatet](media/solution-template-copy-new-files-lastmodifieddate/copy-new-files-lastmodifieddate15.png)
     

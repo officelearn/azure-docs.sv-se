@@ -10,40 +10,37 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/20/2019
+ms.date: 10/7/2019
 ms.author: raiye
-ms.openlocfilehash: 6168e877022eccd9cbe818c20e81266cc3ea1f69
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 736cb30942646788ee6f365f67244d27f1aa0316
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169364"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035177"
 ---
 # <a name="azure-guest-os"></a>Azure gäst operativ system
 Följande tabeller visar de uppdateringar av Microsoft Security Response Center (MSRC) som tillämpas på Azures gäst operativ system. Sök i den här artikeln för att avgöra om en viss uppdatering gäller det gäst operativ system som du använder. Uppdateringar överför alltid den specifika [familj][family-explain] som de introducerades i.
 
 ## <a name="september-2019-guest-os"></a>September 2019-gäst operativ system
 
->[!NOTE]
->Gäst operativ systemet i september distribueras för närvarande till virtuella datorer i moln tjänsten som har kon figurer ATS för automatiska uppdateringar. När distributionen är klar görs den här versionen tillgänglig för manuella uppdateringar via Azure Portal-och konfigurationsfiler. Följande korrigeringsfiler ingår i september gäst operativ system. Den här listan kan ändras.
-
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
-|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  2,90, 3,77, 4,70  |  10 september 2019  |
-|  Rel 19-09   |  [4516115]  |  Flash   |  2,90, 3,77, 4,70, 5,35, 6,11  |  10 september 2019  |
-|  Rel 19-09   |  [4512578]  |  Senaste kumulativa uppdateringen   |  6,11  |  10 september 2019  |
-|  Rel 19-09   |  [4514366]  |  .NET Framework 3,5 och 4.7.2   |  6,11  |  10 september 2019  |
-|  Rel 19-09   |  [4516044]  |  Senaste kumulativa uppdateringen   |  5,35  |  10 september 2019  |
-|  Rel 19-09   |  [4516064]  |  Windows-säkerhet   |  4,7  |  10 september 2019  |
-|  Rel 19-09   |  [4514350]  |  .NET Framework 3,5   |  4,7  |  10 september 2019  |
-|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  4,7  |  10 september 2019  |
-|  Rel 19-09   |  [4516062]  |  Windows-säkerhet   |  3,77  |  10 september 2019  |
-|  Rel 19-09   |  [4514349]  |  .NET Framework 3,5   |  3,77  |  10 september 2019  |
-|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  3,77  |  10 september 2019  |
-|  Rel 19-09   |  [4516033]  |  Windows-säkerhet   |  2.9  |  12 september 2019  |
-|  Rel 19-09   |  [4512488]  |  Ej säkerhet   |  4,7  |  Aug 13, 2019  |
-|  Rel 19-09   |  [4512518]  |  Ej säkerhet   |  3,77  |  Aug 13, 2019  |
-|  Rel 19-09   |  [4512506]  |  Ej säkerhet   |  2.9  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4516046]  |  Internet Explorer   |  [2,90], [3,77], [4,70]  |  10 september 2019  |
+|  Rel 19-09   |  [4516115]  |  Flash   |  [2,90], [3,77], [4,70], [5,35], [6,11]  |  10 september 2019  |
+|  Rel 19-09   |  [4512578]  |  Senaste kumulativa uppdateringen   |  [6,11]  |  10 september 2019  |
+|  Rel 19-09   |  [4514366]  |  .NET Framework 3,5 och 4.7.2   |  [6,11]  |  10 september 2019  |
+|  Rel 19-09   |  [4516044]  |  Senaste kumulativa uppdateringen   |  [5,35]  |  10 september 2019  |
+|  Rel 19-09   |  [4516064]  |  Windows-säkerhet   |  [4,70]  |  10 september 2019  |
+|  Rel 19-09   |  [4514350]  |  .NET Framework 3,5   |  [4,70]  |  10 september 2019  |
+|  Rel 19-09   |  [4514341]  |  .NET Framework 4.5.2   |  [4,70]  |  10 september 2019  |
+|  Rel 19-09   |  [4516062]  |  Windows-säkerhet   |  [3,77]  |  10 september 2019  |
+|  Rel 19-09   |  [4514349]  |  .NET Framework 3,5   |  [3,77]  |  10 september 2019  |
+|  Rel 19-09   |  [4514342]  |  .NET Framework 4.5.2   |  [3,77]  |  10 september 2019  |
+|  Rel 19-09   |  [4516033]  |  Windows-säkerhet   |  [2,90]  |  12 september 2019  |
+|  Rel 19-09   |  [4512488]  |  Ej säkerhet   |  [4,70]  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512518]  |  Ej säkerhet   |  [3,77]  |  Aug 13, 2019  |
+|  Rel 19-09   |  [4512506]  |  Ej säkerhet   |  [2,90]  |  Aug 13, 2019  |
 
 [4516046]: https://support.microsoft.com/kb/4516046
 [4516115]: https://support.microsoft.com/kb/4516115
@@ -60,6 +57,11 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 [4512488]: https://support.microsoft.com/kb/4512488
 [4512518]: https://support.microsoft.com/kb/4512518
 [4512506]: https://support.microsoft.com/kb/4512506
+[6,11]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-6-releases
+[5,35]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-5-releases
+[4,70]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-4-releases
+[3,77]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-3-releases
+[2,90]: https://docs.microsoft.com/en-us/azure/cloud-services/cloud-services-guestos-update-matrix#family-2-releases
 
 
 ## <a name="august-2019-guest-os"></a>Gäst operativ system augusti 2019
@@ -570,18 +572,18 @@ Följande tabeller visar de uppdateringar av Microsoft Security Response Center 
 | Produktkategori | Överordnad KB-artikel | Beskrivning av sårbarhet | Gästoperativsystem | Datum för första gången |
 | --- | --- | --- | --- | --- |
 | Rel 18-08 | [4343887] | Windows 10-säkerhet | 5,22 | 14 augusti 2018 |
-| Rel 18-08 | [4343899] | Endast Windows-säkerhet | 2,77 | 14 augusti 2018 |
+| Rel 18-08 | [4343899] | Endast Windows-säkerhet | 2.77 | 14 augusti 2018 |
 | Rel 18-08 | [4343896] | Endast Windows-säkerhet | 3,64 | 14 augusti 2018 |
 | Rel 18-08 | [4343888] | Endast Windows-säkerhet | 4,57 | 14 augusti 2018 |
-| Rel 18-08 | [4344177], [4344173] | .NET 3,5, 4,5-säkerhet | 2,77 | 14 augusti 2018 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3,5, 4,5-säkerhet | 2.77 | 14 augusti 2018 |
 | Rel 18-08 | [4344175], [4344172] | .NET 3,5, 4. x-säkerhet | 3,64 | 14 augusti 2018 |
 | Rel 18-08 | [4344178], [4344171] | .NET 3,5, 4. x-säkerhet | 4,57 | 14 augusti 2018 |
 | Rel 18-08 | [4346742], [4346739] | .NET 3,5, 4. x OOB-version | 3,64 | 30 juli 2018 |
 | Rel 18-08 | [4346745], [4346408] | .NET 3,5, 4. x OOB-version | 4,57 | 30 juli 2018 |
 | Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | 14 augusti 2018 |
 | Rel 18-08 | [4343205] | Internet Explorer | 2.77, 3.64, 4.57 | 14 augusti 2018 |
-| Gäller inte | [4338818] |Samlad insamling utan säkerhet |2,77 | 10 juli 2018 |
-| Gäller inte | [4019990] |Uppdatering av D3D-kompilator för .NET |2,77 | 10 juli 2018 |
+| Gäller inte | [4338818] |Samlad insamling utan säkerhet |2.77 | 10 juli 2018 |
+| Gäller inte | [4019990] |Uppdatering av D3D-kompilator för .NET |2.77 | 10 juli 2018 |
 | Gäller inte | [4338830] |Samlad insamling utan säkerhet |3,64 | 10 juli 2018 |
 | Gäller inte | [4338421] |Icke-säkerhets-.NET 3,5-sammanslagning |3,64 | 10 juli 2018 |
 | Gäller inte | [4338416] |Icke-säkerhet för .NET 4x-sammanslagning |3,64 | 10 juli 2018 |

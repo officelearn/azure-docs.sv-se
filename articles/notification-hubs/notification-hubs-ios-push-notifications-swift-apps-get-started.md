@@ -16,12 +16,12 @@ ms.date: 05/21/2019
 ms.author: miparker
 ms.reviewer: jowargo
 ms.lastreviewed: 05/21/2019
-ms.openlocfilehash: b830538f81d1696c34db3e4f66a07346c17bcdcc
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 8dae5bcc082ba5dd0953e3e97f609e4031547a35
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71211951"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030655"
 ---
 # <a name="tutorial-push-notifications-to-swift-ios-apps-that-use-the-notification-hubs-rest-api"></a>Självstudier: Push-meddelanden till SWIFT iOS-appar som använder Notification Hubs REST API
 
@@ -75,7 +75,7 @@ I det här avsnittet ska du bygga den iOS-app som ska ansluta till Notification 
 
 1. När du anger alternativ för det nya projektet:
 
-   1. Ange det **produkt namn** (PushDemo) och **organisations** -`com.<organization>`ID () som du använde när du angav **samlings-ID** i Apple Developer-portalen.
+   1. Ange det **produkt namn** (PushDemo) och **organisations-ID** (`com.<organization>`) som du använde när du angav **samlings-ID** i Apple Developer-portalen.
 
    1. Välj det **team** som **app-ID: t** har kon figurer ATS för.
 
@@ -100,7 +100,7 @@ I det här avsnittet ska du bygga den iOS-app som ska ansluta till Notification 
 
    ![Sammanfattning av Notification Hubs Essentials](./media/notification-hubs-ios-push-notifications-swift-apps-get-started/hub-essentials.png)
 
-   Du kan också hitta **notificationHubKeyName** -och **notificationHubKey** -värden genom att gå till **principer** och välja respektive **åtkomst princip**, till exempel. `DefaultFullSharedAccessSignature` Efter det kopierar du från den **primära anslutnings strängen** värdet som `SharedAccessKeyName=` föregås `notificationHubKeyName` av och värdet som `notificationHubKey`är prefixet `SharedAccessKey=` för.
+   Du kan också hitta **notificationHubKeyName** -och **notificationHubKey** -värden genom att gå till **principer** och välja respektive **åtkomst princip**, till exempel `DefaultFullSharedAccessSignature`. Efter det kopierar du från den **primära anslutnings strängen** värdet som föregås av `SharedAccessKeyName=` för `notificationHubKeyName` och värdet som föregås av `SharedAccessKey=` för `notificationHubKey`.
 
    Anslutnings strängen måste ha följande format:
 
@@ -108,15 +108,15 @@ I det här avsnittet ska du bygga den iOS-app som ska ansluta till Notification 
    Endpoint=sb://<namespace>.servicebus.windows.net/;SharedAccessKeyName=<notificationHubKeyName>;SharedAccessKey=<notificationHubKey>
    ```
 
-   För att det ska vara enkelt `DefaultFullSharedAccessSignature` , anger du så att du kan använda token för att skicka meddelanden. I praktiken är `DefaultListenSharedAccessSignature` det ett bättre alternativ för situationer där du bara vill ta emot meddelanden.
+   Ange `DefaultFullSharedAccessSignature` så att du kan använda token för att skicka meddelanden för att hålla det enkelt. I praktiken är `DefaultListenSharedAccessSignature` ett bättre alternativ för situationer där du bara vill ta emot meddelanden.
 
 1. Under **projekt navigering**väljer du **projekt namnet** och väljer sedan fliken **Allmänt** .
 
-1. Hitta **identitet** och ange sedan värdet för **paket-ID** : t så `com.<organization>.PushDemo`att det matchar, vilket är det värde som används för **app-ID: t** från föregående steg.
+1. Hitta **identitet** och ange sedan värdet för **paket-ID** : t så att det matchar `com.<organization>.PushDemo`, vilket är det värde som används för **app-ID: t** från föregående steg.
 
 1. Sök efter **signering**och välj sedan lämpligt **team** för ditt **Apple Developer-konto**. **Teamets** värde ska matcha det som du skapade med dina certifikat och profiler.
 
-1. Xcode bör automatiskt hämta rätt **etablerings profil** värde baserat på **paket-ID**. Om du inte ser det nya **etablerings profil** svärdet kan du prova att uppdatera profilerna **för signerings identiteten** genom att välja**konto** > visning för **Xcode** > **Preferences** >  **Information**. Välj **signerings identitet**och välj sedan knappen **Uppdatera** längst ned till höger för att ladda ned profilerna.
+1. Xcode bör automatiskt hämta rätt **etablerings profil** värde baserat på **paket-ID**. Om du inte ser det nya **etablerings profil** svärdet kan du försöka uppdatera profilerna för **signerings identiteten** genom att välja **Xcode** > **Inställningar** > **konto** > **Visa information**. Välj **signerings identitet**och välj sedan knappen **Uppdatera** längst ned till höger för att ladda ned profilerna.
 
 1. Välj fliken **funktioner** och se till att **push-meddelanden** är aktiverade.
 
@@ -285,7 +285,7 @@ SharedAccessSignature sig=<UrlEncodedSignature>&se=<ExpiryEpoch>&skn=<KeyName>&s
 Själva processen omfattar samma sex viktiga steg:  
 
 1. Beräknar förfallo [tiden i UNIX](https://en.wikipedia.org/wiki/Unix_time) -värdes format, vilket innebär hur många sekunder som har förflutit sedan midnatt Coordinated Universal Time, 1 januari 1970.
-1. Formatera **ResourceUrl** som representerar resursen som du försöker få åtkomst till, så att den är i procent kodad och gemen. **ResourceUrl** har formuläret `'https://<namespace>.servicebus.windows.net/<hubName>'`.
+1. Formatera **ResourceUrl** som representerar resursen som du försöker få åtkomst till, så att den är i procent kodad och gemen. **ResourceUrl** har formen `'https://<namespace>.servicebus.windows.net/<hubName>'`.
 1. Förbereder **StringToSign**, som är formaterad som `'<UrlEncodedResourceUrl>\n<ExpiryEpoch>'`.
 1. Data bearbetning och base64-kodning av **signaturen** med hjälp av HMAC-SHA256 hash för **StringToSign** -värdet. Hash-värdet används med **nyckel** delen av **anslutnings strängen** för respektive **auktoriseringsregel**.
 1. Formaterar den base64-kodade **signaturen** så att den är procent kodad.
@@ -297,7 +297,7 @@ I det här Swift-exemplet ska du använda Apples **CommonCrypto** -bibliotek med
 
 Lägga till och konfigurera bryggnings huvudet:
 
-1. I Xcode väljer du **Arkiv** > **ny** > filhuvud **fil**.>  Namnge rubrik filen **BridgingHeader. h**.
+1. I Xcode väljer du **fil** > **ny** > **fil**@no__t-**rubrik fil**. Namnge rubrik filen **BridgingHeader. h**.
 
 1. Redigera filen för att importera **CommonHMAC. h**:
 
@@ -313,11 +313,11 @@ Lägga till och konfigurera bryggnings huvudet:
 
 1. Uppdatera målets **build-inställningar** så att de refererar till interimskontot för överbryggning:
 
-   1. Öppna fliken **skapa inställningar** och rulla ned till avsnittet **Swift-kompilator** .
+   1. Öppna fliken **skapa inställningar** och rulla ned till avsnittet **Swift-kompilator** .
 
-   1. Se till att alternativet **Installera mål-C-kompatibilitetsläge**är inställt på **Ja**.
+   1. Se till att alternativet **Installera mål-C-kompatibilitetsläge** är inställt på **Ja**.
 
-   1. Ange fil Sök vägen `'<ProjectName>/BridgingHeader.h'` till alternativet **mål-C-bryggning-rubrik** . Detta är fil Sök vägen till vårt bro huvud.
+   1. Ange fil Sök vägen `'<ProjectName>/BridgingHeader.h'` i alternativet **mål-C bro huvud** . Detta är fil Sök vägen till vårt bro huvud.
 
    Om du inte kan hitta de här alternativen måste du kontrol lera att du har valt vyn **alla** och inte **grundläggande** eller **anpassad**.
 

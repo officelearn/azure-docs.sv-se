@@ -1,5 +1,5 @@
 ---
-title: Skapa ditt första automatiserade maskin inlärnings experiment
+title: Skapa ditt första automatiserade ML-klassificerings experiment
 titleSuffix: Azure Machine Learning
 description: Lär dig hur du tränar och distribuerar en klassificerings modell med automatiserad maskin inlärning i Azure Machine Learnings landnings sida för arbets ytan (för hands version).
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: tzvikei
 author: tsikiksr
 ms.reviewer: nibaccam
 ms.date: 09/26/2019
-ms.openlocfilehash: 3ddd228488d8ba4adc6780db1f65fdb634291d3b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: dcd6f2ea6f5c79664af0c2431da07549e71c26bc
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350496"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035680"
 ---
 # <a name="tutorial-create-your-first-classification-model-with-automated-machine-learning"></a>Självstudier: Skapa din första klassificerings modell med automatisk maskin inlärning
 
@@ -66,14 +66,14 @@ Du har slutfört följande experiment konfiguration och kör steg på sidan land
 
 1. Välj **Skapa experiment**. 
 
-1. Ange följande experiment namn:`my-1st-automl-experiment`
+1. Ange följande experiment namn: `my-1st-automl-experiment`
 
 1. Välj **skapa en ny beräkning** och konfigurera beräknings målet. Ett beräknings mål är en lokal eller molnbaserad resurs miljö som används för att köra ditt utbildnings skript eller vara värd för tjänst distributionen. För det här experimentet använder vi en molnbaserad beräkning. 
 
    Fält | Beskrivning | Värde för självstudier
    ----|---|---
-   Namn på Machine Learning-beräkning |Ett unikt namn som identifierar din beräknings kontext.|automl – beräkning
-   Storlek&nbsp;på&nbsp;virtuell dator| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
+   Compute-namn |Ett unikt namn som identifierar din beräknings kontext.|automl – beräkning
+   Virtual @ no__t-0machine @ no__t-1size| Välj storlek på den virtuella datorn för din beräkning.|Standard_DS12_V2
    Min/max-noder (i avancerade inställningar)| Du måste ange 1 eller fler noder för att kunna profilera data.|Minsta antal noder: 1<br>Högsta antal noder: 6
 
    >[!NOTE]
@@ -101,10 +101,10 @@ Du har slutfört följande experiment konfiguration och kör steg på sidan land
         
         Fält|Beskrivning| Värde för självstudier
         ---|---|---
-        Filformat|Definierar layout och typ av data som lagras i en fil.| Avgränsad
-        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan @ no__t-0 separata, oberoende regioner i oformaterad text eller andra data strömmar. |Komma
+        Fil format|Definierar layout och typ av data som lagras i en fil.| Avgränsade
+        Avgränsare|Ett eller flera tecken för att ange avgränsningen mellan @ no__t-0 separata, oberoende regioner i oformaterad text eller andra data strömmar. |Kommaseparerade
         Kodning|Identifierar vilken bit till Character-schema tabell som ska användas för att läsa din data uppsättning.| UTF-8
-        Kolumnrubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
+        Kolumn rubriker| Anger hur data uppsättningens huvuden, om det finns, kommer att behandlas.| Alla filer har samma rubriker
         Hoppa över rader | Anger hur många rader som ska hoppas över i data uppsättningen.| Inga
     
         ![Konfiguration av fliken för hands version](media/tutorial-1st-experiment-automated-ml/schema-tab-config.gif)
@@ -118,10 +118,10 @@ Du har slutfört följande experiment konfiguration och kör steg på sidan land
    >[!NOTE]
    > I den här självstudien får du inte ange mått poäng eller Max kärnor per upprepnings tröskel. Du kan inte heller blockera algoritmer från att testas.
    
-   Avancerade&nbsp;inställningar|Beskrivning|Värde&nbsp;för&nbsp;självstudier
+   Avancerade @ no__t – 0settings|Beskrivning|Värde @ no__t-0for @ no__t-1tutorial
    ------|---------|---
    Primärt mått| Bedömnings mått som ska mätas av Machine Learning-algoritmen.|AUC_weighted
-   Avslutnings villkor| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildnings&nbsp;jobb&nbsp;tid: 5 <br> <br> Max&nbsp;för#iterationer&#58;10&nbsp;&nbsp;
+   Avslutnings villkor| Om ett villkor uppfylls stoppas utbildnings jobbet. |Utbildning @ no__t-0job @ no__t-1time: 5 <br> <br> Max @ no__t-0 @ no__t-1 @ no__t-2of @ no__t-3iterations&#58;10
    Förbearbeta| Möjliggör förbehandling som genomförs av automatisk maskin inlärning. Detta inkluderar automatisk rensning av data, förberedelser och transformering för att generera syntetiska funktioner.| Aktivera
    Validerings typ | Välj en typ av kors validering.|K-vikning kors validering
    Antal valideringar | Antal tester. | 2 kors valideringar 
@@ -158,7 +158,7 @@ I den här experiment kontexten betraktas **VotingEnsemble** som den bästa mode
 
     Fält| Value
     ----|----
-    Distributionsnamn| My-automl – Deploy
+    Distributions namn| My-automl – Deploy
     Distributions Beskrivning| Min första automatiserade test distribution av Machine Learning
     Bedömnings skript| Skapa
     Miljö skript| Skapa
@@ -200,5 +200,5 @@ I den här automatiska självstudien för maskin inlärning använde du sidan f�
 + Mer information om klassificerings mått och diagram finns i artikeln [förstå automatiserade maskin inlärnings resultat](how-to-understand-automated-ml.md#classification) .
 
 >[!NOTE]
-> Den här data uppsättningen för bank marknadsföring görs tillgänglig [under Creative Commons (CCO: Offentlig domän) licens](https://creativecommons.org/publicdomain/zero/1.0/). Alla rättigheter i det enskilda innehållet i databasen licensieras enligt [licensen för databas innehåll](https://creativecommons.org/publicdomain/zero/1.0/) och är tillgängliga på [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Den här data uppsättningen var ursprungligen tillgänglig i den [Machine Learning databasen](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
+> Den här data uppsättningen för bank marknadsföring görs tillgänglig i [Creative Commons (CCO: Offentlig domän) licens @ no__t-0. Alla rättigheter i det enskilda innehållet i databasen licensieras enligt [licensen för databas innehåll](https://creativecommons.org/publicdomain/zero/1.0/) och är tillgängliga på [Kaggle](https://www.kaggle.com/janiobachmann/bank-marketing-dataset). Den här data uppsättningen var ursprungligen tillgänglig i den [Machine Learning databasen](https://archive.ics.uci.edu/ml/datasets/bank+marketing).<br><br>
 > [Moro et al., 2014] S. Moro, P. Cortez och P. Rita. En data driven metod för att förutse framgång för bank telemarketing. Besluts support system, Elsevier, 62:22-31, juni 2014.

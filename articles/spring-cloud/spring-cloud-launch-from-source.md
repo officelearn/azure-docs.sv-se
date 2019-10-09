@@ -1,0 +1,146 @@
+---
+title: Starta ditt våren Cloud-program från käll koden
+description: Lär dig hur du startar ditt Azure våren Cloud-program direkt från din käll kod
+author: jpconnock
+ms.service: spring-cloud
+ms.topic: conceptual
+ms.date: 9/27/2019
+ms.author: jeconnoc
+ms.openlocfilehash: a161b38ab6d23ad86df1ef7e843640276ba486bf
+ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72038813"
+---
+# <a name="launch-your-spring-cloud-application-from-source-code"></a>Starta ditt våren Cloud-program från käll koden
+
+Med Azures våren Cloud kan du starta ditt program direkt från Java-källkoden eller från en redan utformad JAR. Den här artikeln vägleder dig genom de steg som krävs.
+
+## <a name="initial-requirements"></a>Inledande krav
+
+Innan du börjar ska du se till att din Azure-prenumeration har de nödvändiga beroendena:
+
+1. [Installera Git](https://git-scm.com/)
+2. [Installera JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+3. [Installera maven 3,0 eller senare](https://maven.apache.org/download.cgi)
+4. [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+5. [Registrera dig för en Azure-prenumeration](https://azure.microsoft.com/free/)
+
+> [!TIP]
+> Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln.  Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, JDK, Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com) från Shell.Azure.com.  Du kan lära dig mer om Azure Cloud Shell genom att [läsa vår dokumentation](../cloud-shell/overview.md)
+
+## <a name="install-the-azure-cli-extension"></a>Installera Azure CLI-tillägget
+
+Installera Azure våren Cloud-tillägget för Azure CLI med följande kommando
+
+```Azure CLI
+az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-cloud/spring_cloud-0.1.0-py2.py3-none-any.whl
+```
+
+## <a name="provision-a-service-instance-using-the-azure-cli"></a>Etablera en tjänst instans med hjälp av Azure CLI
+
+Logga in på Azure CLI och välj din aktiva prenumeration. Se till att välja den aktiva prenumeration som är vit listas för Azure våren Cloud
+
+```Azure CLI
+az login
+az account list -o table
+az account set --subscription
+```
+
+Öppna ett Azure CLI-fönster och kör följande kommandon för att etablera en instans av Azure våren Cloud. Observera att vi också meddelar Azure våren Cloud att tilldela en offentlig domän här.
+
+```azurecli
+    az spring-cloud create -n <resource name> -g <resource group name> --is-public true
+```
+
+Tjänst instansen tar cirka fem minuter att distribuera.
+
+Ange standard resurs grupps namnet och kluster namnet med hjälp av följande kommandon:
+
+```azurecli
+az configure --defaults group=<service group name>
+az configure --defaults spring-cloud=<service instance name>
+```
+
+## <a name="create-the-spring-cloud-application"></a>Skapa vår moln applikation
+
+Följande kommando skapar ett våren Cloud-program i din prenumeration.  Detta skapar en tom fjäder moln tjänst till vilken vi kan ladda upp programmet.
+
+```azurecli
+az spring-cloud app create -n <app-name>
+```
+
+## <a name="deploy-your-spring-cloud-application"></a>Distribuera ditt våren Cloud-program
+
+Du kan distribuera ditt program från en fördefinierad JAR-eller Gradle-eller Maven-lagringsplats.  Hitta instruktioner för varje ärende nedan.
+
+### <a name="deploy-a-built-jar"></a>Distribuera en inbyggd JAR
+
+Om du vill distribuera från en JAR-version som bygger på din lokala dator måste du se till att din version tillverkar en [fat-jar](https://docs.spring.io/spring-boot/docs/current/reference/html/howto-build.html#howto-create-an-executable-jar-with-maven).
+
+Distribuera fat-JAR till en aktiv distribution
+
+```azurecli
+az spring-cloud app deploy -n <app-name> --jar-path <path-to-fat-JAR>
+```
+
+Distribuera fat-JAR till en speciell distribution
+
+```azurecli
+az spring-cloud app deployment create --app <app-name> -n <deployment-name> --jar-path <path-to-built-jar>
+```
+
+### <a name="deploy-from-source-code"></a>Distribuera från käll kod
+
+Azure våren Cloud använder [kpack](https://github.com/pivotal/kpack) för att bygga projektet.  Du kan använda Azure CLI för att ladda upp din källkod, bygga projektet med kpack och distribuera det till mål programmet.
+
+> [!WARNING]
+> Projektet måste bara producera en JAR-fil med en `main-class`-post i `MANIFEST.MF` i `target` (för maven-distributioner eller `build/libs` (för Gradle-distributioner).  Om du har flera JAR-filer med `main-class`-poster går det inte att distribuera.
+
+För en modul maven/Gradle-projekt:
+
+```azurecli
+cd <path-to-maven-or-gradle-source-root>
+az spring-cloud app deploy -n <app-name>
+```
+
+För maven/Gradle-projekt med flera moduler upprepar du för varje modul:
+
+```azurecli
+cd <path-to-maven-or-gradle-source-root>
+az spring-cloud app deploy -n <app-name> --target-module <relative-path-to-module>
+```
+
+### <a name="show-deployment-logs"></a>Visa distributions loggar
+
+Granska kpack-build-loggarna med följande kommando:
+
+```azurecli
+az spring-cloud app show-deploy-log -n <app-name> [-d <deployment-name>]
+```
+
+> [!NOTE]
+> Kpack-loggarna visar endast den senaste distributionen om distributionen skapades från källan med kpack.
+
+## <a name="assign-a-public-endpoint-to-gateway"></a>Tilldela en offentlig slut punkt till gateway
+
+1. Öppna sidan för **program instrument panelen** .
+2. Välj programmet `gateway` för att visa sidan med **programinformation** .
+3. Välj **tilldela domän** för att tilldela en offentlig slut punkt till gateway. Detta kan några minuter. 
+4. Ange den tilldelade offentliga IP-adressen i webbläsaren för att visa det program som körs.
+
+## <a name="next-steps"></a>Nästa steg
+
+I den här snabbstarten har du lärt dig att:
+
+> [!div class="checklist"]
+> * Etablera en tjänst instans
+> * Ange en konfigurations Server för en instans
+> * Bygg ett program för mikrotjänster lokalt
+> * Distribuera varje mikrotjänst
+> * Redigera miljövariabler för program
+> * Tilldela en offentlig IP-adress för din Application Gateway
+
+> [!div class="nextstepaction"]
+> [Förbered ditt Azure våren Cloud-program för distribution](spring-cloud-tutorial-prepare-app-deployment.md)

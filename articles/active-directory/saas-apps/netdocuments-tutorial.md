@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0bf25ce318415a8aa36bca8d4cd7380e4e8e67ca
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: 71e5e13485c4a10664d98363e8e99bfd3b4f4bcf
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743461"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035715"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-netdocuments"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med NetDocuments
 
@@ -84,7 +84,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. I textrutan **Inloggnings-URL** anger du en URL enligt följande mönster: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
 
-    b. I textrutan **Svars-URL** skriver du en URL med följande mönster: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    b. Skriv en URL med följande mönster i textrutan **Svars-URL**: `https://vault.netvoyage.com/neWeb2/docCent.aspx?whr=<Repository ID>`
+    
+    c. I textrutan **Identifierare (entitets-ID)** anger du en URL enligt följande mönster: `http://netdocuments.com/VAULT`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera värdena med den faktiska inloggnings-URL: en och svars-URL: en. Lagrings-ID är ett värde som börjar med **ca-** följt av 8 tecken kod som är associerad med din NetDocuments-lagringsplats. Mer information finns i [Netdokuments federerade identitets Support dokument](https://support.netdocuments.com/hc/en-us/articles/205220410-Federated-Identity-Login) . Alternativt kan du kontakta [NetDocuments-klientens support team](https://support.netdocuments.com/hc/) för att få dessa värden om du har problem med att konfigurera med hjälp av ovanstående information. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
@@ -139,15 +141,15 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 3. Klicka på **Lägg till och ta bort användare och grupper**.
    
-    ![Lagrings plats](./media/netdocuments-tutorial/ic795047.png "Lagrings plats")
+    ![Lagrings](./media/netdocuments-tutorial/ic795047.png "plats för") databasen
 
 4. Klicka på **Konfigurera avancerade alternativ för autentisering**.
     
-    ![Konfigurera avancerade autentiserings alternativ](./media/netdocuments-tutorial/ic795048.png "Konfigurera avancerade autentiserings alternativ")
+    ![Konfigurera avancerade autentiseringsalternativ](./media/netdocuments-tutorial/ic795048.png "Konfigurera alternativ för avancerad autentisering")
 
 5. I dialog rutan **federerad identitet** utför du följande steg:
    
-    ![Federerad identitet](./media/netdocuments-tutorial/ic795049.png "Federerad identitet")
+    (./media/netdocuments-tutorial/ic795049.png "Federerad") identitet för ![federerad identitet]
    
     a. Som **federerad identitets Server typ**väljer du **Active Directory Federation Services (AD FS)** .
    
@@ -170,11 +172,11 @@ Om det gäller net-dokument är etableringen en manuell uppgift.
 
 3. Klicka på **Lägg till och ta bort användare och grupper**.
    
-    ![Lagrings plats](./media/netdocuments-tutorial/ic795047.png "Lagrings plats")
+    ![Lagrings](./media/netdocuments-tutorial/ic795047.png "plats för") databasen
 
 4. I text rutan **e-postadress** skriver du in e-postadressen för ett giltigt Azure Active Directory konto som du vill etablera och klickar sedan på **Lägg till användare**.
    
-    ![E-postadress](./media/netdocuments-tutorial/ic795053.png "E-postadress")
+    E-(./media/netdocuments-tutorial/ic795053.png "postadress e-") ![postadress]
    
     >[!NOTE]
     >Den Azure Active Directory konto innehavaren får ett e-postmeddelande som innehåller en länk för att bekräfta kontot innan det blir aktivt. Du kan använda andra NetDocuments för att skapa verktyg för användar konton eller API: er som tillhandahålls av NetDocuments för att etablera Azure Active Directory användar konton.

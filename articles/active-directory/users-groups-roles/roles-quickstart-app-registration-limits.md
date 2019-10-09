@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f883741577de22f66cd7a9bfaf733aa3c59b879b
-ms.sourcegitcommit: ad9120a73d5072aac478f33b4dad47bf63aa1aaa
+ms.openlocfilehash: c91de3de743d168bea207f27fb162486ea625a63
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68707687"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026277"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Snabbstart: Bevilja behörighet att skapa obegränsade app-registreringar
 
@@ -32,8 +32,8 @@ Den minst privilegierade rollen som krävs för att skapa och tilldela anpassade
 
 ## <a name="create-a-new-custom-role-using-the-azure-ad-portal"></a>Skapa en ny anpassad roll med hjälp av Azure AD-portalen
 
-1. Logga in på [administrations centret](https://aad.portal.azure.com) för Azure AD med privilegierade roll administratörer eller globala administratörs behörigheter i Azure AD-organisationen.
-1. Välj **Azure Active Directory**, Välj **roller och administratörer**och välj sedan **ny anpassad roll**.
+1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) With privilegie rad roll administratör eller global administratörs behörighet i Azure AD-organisationen.
+1. Välj **Azure Active Directory**, Välj **roller och administratörer**och välj sedan **ny anpassad roll**.
 
     ![Skapa eller redigera roller från sidan roller och administratörer](./media/roles-create-custom/new-custom-role.png)
 
@@ -49,8 +49,8 @@ Den minst privilegierade rollen som krävs för att skapa och tilldela anpassade
 
 ### <a name="assign-the-role-to-a-user-using-the-azure-ad-portal"></a>Tilldela rollen till en användare med hjälp av Azure AD-portalen
 
-1. Logga in på [administrations centret](https://aad.portal.azure.com) för Azure AD med privilegierade roll administratörer eller globala administratörs behörigheter i din Azure AD-organisation.
-1. Välj **Azure Active Directory** och välj sedan **roller och administratörer**.
+1. Logga in på [Azure AD admin center](https://aad.portal.azure.com) With privilegie rad roll administratör eller global administratörs behörighet i din Azure AD-organisation.
+1. Välj **Azure Active Directory** och välj sedan **roller och administratörer**.
 1. Välj rollen program registrering skapare och välj **Lägg till tilldelning**.
 1. Välj önskad användare och klicka på **Välj** för att lägga till användaren i rollen.
 

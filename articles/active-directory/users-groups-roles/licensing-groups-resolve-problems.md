@@ -10,17 +10,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: article
 ms.workload: identity
-ms.date: 03/18/2019
+ms.date: 09/23/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2129405dfdc2585d29c35a0982c9823a4cd57f71
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 5dfe5b886ff389cf2d0f01d402990929c0ef5628
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68359991"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72033993"
 ---
 # <a name="identify-and-resolve-license-assignment-problems-for-a-group-in-azure-active-directory"></a>Identifiera och lösa licens tilldelnings problem för en grupp i Azure Active Directory
 
@@ -30,31 +30,31 @@ När du tilldelar licenser direkt till enskilda användare, utan att använda gr
 
 När du använder gruppbaserad licensiering kan samma fel inträffa, men de inträffar i bakgrunden medan Azure AD-tjänsten tilldelar licenser. Därför kan felen inte kommunicera direkt med dig. De registreras i stället på användarobjektet och rapporteras sedan via administrations portalen. Det ursprungliga syftet med att licensiera användaren går aldrig förlorat, men det registreras i ett fel tillstånd för framtida undersökning och lösning.
 
-## <a name="how-to-find-license-assignment-errors"></a>Så här hittar du licens tilldelnings fel
-**Så här hittar du licens tilldelnings fel**
+## <a name="find-license-assignment-errors"></a>Hitta fel vid licens tilldelning
 
-1. Om du vill hitta användare i ett fel tillstånd i en speciell grupp öppnar du rutan för gruppen. Under **licenser**visas ett meddelande om det finns några användare i ett fel tillstånd.
+### <a name="to-find-users-in-an-error-state-in-a-group"></a>Hitta användare i ett fel tillstånd i en grupp
+
+1. Öppna gruppen på sidan Översikt och välj **licenser**. Ett meddelande visas om det finns några användare i ett fel tillstånd.
 
    ![Meddelande om grupp-och fel meddelanden](./media/licensing-groups-resolve-problems/group-error-notification.png)
 
-2. Välj meddelandet för att öppna en lista över alla berörda användare. Du kan välja varje användare individuellt för att se mer information.
+1. Välj meddelandet för att öppna en lista över alla berörda användare. Du kan välja varje användare individuellt för att se mer information.
 
    ![lista över användare i grupp licensierings fel tillstånd](./media/licensing-groups-resolve-problems/list-of-users-with-errors.png)
 
-3. Om du vill hitta alla grupper som innehåller minst ett fel klickar du på bladet **Azure Active Directory** väljer **licenser**och väljer sedan **Översikt**. En informations ruta visas när grupper kräver din uppmärksamhet.
+1. Om du vill hitta alla grupper som innehåller minst ett fel klickar du på bladet **Azure Active Directory** väljer **licenser**och väljer sedan **Översikt**. En informations ruta visas när grupper kräver din uppmärksamhet.
 
    ![Översikt och information om grupper med fel tillstånd](./media/licensing-groups-resolve-problems/group-errors-widget.png)
 
-4. Markera rutan om du vill visa en lista över alla grupper med fel. Du kan välja varje grupp för mer information.
+1. Markera rutan om du vill visa en lista över alla grupper med fel. Du kan välja varje grupp för mer information.
 
    ![Översikt och lista över grupper med fel](./media/licensing-groups-resolve-problems/list-of-groups-with-errors.png)
 
-
 I följande avsnitt får du en beskrivning av varje möjligt problem och hur du kan lösa det.
 
-## <a name="not-enough-licenses"></a>Det finn inte tillräckligt med licenser
+## <a name="not-enough-licenses"></a>Inte tillräckligt med licenser
 
-**Gick** Det finns inte tillräckligt många tillgängliga licenser för en av de produkter som anges i gruppen. Du behöver köpa fler licenser för produkten eller frigöra oanvända licenser från andra användare eller grupper.
+**Problem:** Det finns inte tillräckligt många tillgängliga licenser för en av de produkter som anges i gruppen. Du behöver köpa fler licenser för produkten eller frigöra oanvända licenser från andra användare eller grupper.
 
 Om du vill se hur många licenser som är tillgängliga går du till **Azure Active Directory** > **licenser** > **alla produkter**.
 
@@ -62,14 +62,14 @@ Om du vill se vilka användare och grupper som använder licenser väljer du en 
 
 **PowerShell** PowerShell-cmdlets rapporterar felet som _CountViolation_.
 
-## <a name="conflicting-service-plans"></a>Tjänstplanerna är i konflikt
+## <a name="conflicting-service-plans"></a>Tjänst planer som står i konflikt
 
-**Gick** En av de produkter som anges i gruppen innehåller en tjänst plan som står i konflikt med en annan tjänst plan som redan har tilldelats användaren via en annan produkt. Vissa tjänste planer är konfigurerade på ett sätt som de inte kan tilldelas samma användare som en annan, relaterad service plan.
+**Problem:** En av de produkter som anges i gruppen innehåller en tjänst plan som står i konflikt med en annan tjänst plan som redan har tilldelats användaren via en annan produkt. Vissa tjänste planer är konfigurerade på ett sätt som de inte kan tilldelas samma användare som en annan, relaterad service plan.
 
 Se följande exempel. En användare har en licens för Office 365 Enterprise *E1* som tilldelas direkt, med alla aktiverade planer. Användaren har lagts till i en grupp som har tilldelats Office 365 Enterprise *E3* -produkten. E3-produkten innehåller tjänst planer som inte överlappar de planer som ingår i E1, så grupp licens tilldelningen Miss lyckas med fel meddelandet "tjänst planer som står i konflikt". I det här exemplet är de motstridiga service planerna:
 
--   SharePoint Online (plan 2) står i konflikt med SharePoint Online (plan 1).
--   Exchange Online (plan 2) står i konflikt med Exchange Online (plan 1).
+- SharePoint Online (plan 2) står i konflikt med SharePoint Online (plan 1).
+- Exchange Online (plan 2) står i konflikt med Exchange Online (plan 1).
 
 För att lösa den här konflikten måste du inaktivera två av planerna. Du kan inaktivera E1-licensen som är direkt tilldelad användaren. Eller så måste du ändra hela grupp licens tilldelningen och inaktivera planerna i E3-licensen. Alternativt kan du välja att ta bort E1-licensen från användaren om den är redundant i samband med E3-licensen.
 
@@ -79,7 +79,7 @@ Beslutet om hur du löser konflikter mellan produkt licenser tillhör alltid-adm
 
 ## <a name="other-products-depend-on-this-license"></a>Andra produkter är beroende av den här licensen
 
-**Gick** En av de produkter som anges i gruppen innehåller en service plan som måste vara aktive rad för en annan tjänst plan, i en annan produkt, för att fungera. Det här felet uppstår när Azure AD försöker ta bort den underliggande tjänst planen. Detta kan till exempel inträffa när du tar bort användaren från gruppen.
+**Problem:** En av de produkter som anges i gruppen innehåller en service plan som måste vara aktive rad för en annan tjänst plan, i en annan produkt, för att fungera. Det här felet uppstår när Azure AD försöker ta bort den underliggande tjänst planen. Detta kan till exempel inträffa när du tar bort användaren från gruppen.
 
 För att lösa det här problemet måste du kontrol lera att den nödvändiga planen fortfarande är tilldelad till användarna via någon annan metod eller att de beroende tjänsterna är inaktiverade för dessa användare. När du har gjort det kan du ta bort grupp licensen på rätt sätt från dessa användare.
 
@@ -87,7 +87,7 @@ För att lösa det här problemet måste du kontrol lera att den nödvändiga pl
 
 ## <a name="usage-location-isnt-allowed"></a>Användnings platsen är inte tillåten
 
-**Gick** Vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare måste du ange egenskapen **användnings plats** för användaren. Du kan ange platsen under avsnittet **användar** > **profil** > **Inställningar** i Azure Portal.
+**Problem:** Vissa Microsoft-tjänster är inte tillgängliga på alla platser på grund av lokala lagar och föreskrifter. Innan du kan tilldela en licens till en användare måste du ange egenskapen **användnings plats** för användaren. Du kan ange platsen under avsnittet **användar** > **profil**@no__t **-3 i** Azure Portal.
 
 När Azure AD försöker tilldela en grupp licens till en användare vars användnings plats inte stöds, Miss lyckas den och registrerar ett fel för användaren.
 
@@ -113,11 +113,11 @@ När du har löst eventuella problem med proxyservern för de berörda användar
 
 ## <a name="azure-ad-mail-and-proxyaddresses-attribute-change"></a>Ändring av attribut för Azure AD mail och ProxyAddresses
 
-**Gick** När du uppdaterar licens tilldelningen för en användare eller grupp kan du se att Azure AD mail och ProxyAddresses-attributet för vissa användare har ändrats.
+**Problem:** När du uppdaterar licens tilldelningen för en användare eller grupp kan du se att Azure AD mail och ProxyAddresses-attributet för vissa användare har ändrats.
 
 Vid uppdatering av licens tilldelningen för en användare utlöses att proxy-adress beräkningen har utlösts, vilket kan ändra användarattribut. Information om den exakta orsaken till ändringen och hur du löser problemet finns i den här artikeln om [hur proxyAddresses-attributet fylls i i Azure AD](https://support.microsoft.com/help/3190357/how-the-proxyaddresses-attribute-is-populated-in-azure-ad).
 
-## <a name="what-happens-when-theres-more-than-one-product-license-on-a-group"></a>Vad händer om det finns mer än en produkt licens i en grupp?
+## <a name="more-than-one-product-license-assigned-to-a-group"></a>Fler än en produkt licens tilldelad till en grupp
 
 Du kan tilldela fler än en produkt licens till en grupp. Du kan till exempel tilldela Office 365 Enterprise E3 och Enterprise Mobility + Security till en grupp för att enkelt aktivera alla inkluderade tjänster för användare.
 
@@ -125,48 +125,44 @@ Azure AD försöker tilldela alla licenser som anges i gruppen till varje använ
 
 Du kan se de användare som inte kunde tilldelas och kontrol lera vilka produkter som påverkas av det här problemet.
 
-## <a name="what-happens-when-a-group-with-licenses-assigned-is-deleted"></a>Vad händer när en grupp med tilldelade licenser tas bort?
+## <a name="when-a-licensed-group-is-deleted"></a>När en licensierad grupp tas bort
 
 Du måste ta bort alla licenser som har tilldelats en grupp innan du kan ta bort gruppen. Det kan dock ta tid att ta bort licenser från alla användare i gruppen. När du tar bort licens tilldelningar från en grupp kan det uppstå fel om användaren har en beroende licens tilldelad eller om det finns ett problem med en proxy-konflikt som förhindrar licens borttagningen. Om en användare har en licens som är beroende av en licens som tas bort på grund av att gruppen tas bort, konverteras licens tilldelningen till användaren från ärvd till Direct.
 
 Anta till exempel att en grupp med Office 365 E3/E5 har tilldelats en Skype for Business-tjänst plan aktive rad. Tänk också på att ett fåtal medlemmar i gruppen har licenser för ljud konferens som tilldelas direkt. När gruppen tas bort kommer gruppbaserad licensiering att försöka ta bort Office 365 E3/E5 från alla användare. Eftersom ljud konferens är beroende av Skype för företag, konverterar gruppbaserad licensiering Office 365 E3/E5-licenser till direkt licens tilldelning för alla användare med en tilldelad ljud konferens.
 
-## <a name="how-do-you-manage-licenses-for-products-with-prerequisites"></a>Hur hanterar du licenser för produkter med förutsättningar?
+## <a name="manage-licenses-for-products-with-prerequisites"></a>Hantera licenser för produkter med krav
 
 Vissa Microsoft Online-produkter som du kanske äger är *tillägg*. Tillägg kräver att en nödvändig tjänst plan aktive ras för en användare eller en grupp innan de kan tilldelas en licens. Med gruppbaserad licensiering kräver systemet att både tjänst avtalen för nödvändiga tjänster och tillägg finns i samma grupp. Detta görs för att se till att alla användare som läggs till i gruppen kan ta emot den fullständigt fungerande produkten. Vi ska tänka på följande exempel:
 
 Microsoft Workplace Analytics är en tilläggs produkt. Den innehåller en enda service plan med samma namn. Vi kan bara tilldela den här tjänst planen till en användare eller grupp, när någon av följande förutsättningar också är tilldelad:
-- Exchange Online (abonnemang 1) 
+
+- Exchange Online (abonnemang 1)
 - Exchange Online (plan 2)
 
-Om vi försöker tilldela den här produkten separat till en grupp returnerar portalen ett fel. Om du väljer fel meddelandet visas följande information:
+Om vi försöker tilldela den här produkten till en grupp, returnerar portalen ett meddelande. Om vi väljer objekt information visas följande fel meddelande:
 
-![Grupp, förutsättning saknas](./media/licensing-groups-resolve-problems/group-prerequisite-required.png)
-
-Om vi väljer information visas följande fel meddelande:
-
->Licens åtgärden misslyckades. Kontrol lera att gruppen har nödvändiga tjänster innan du lägger till eller tar bort en beroende tjänst. **Tjänsten Microsoft Workplace Analytics kräver att Exchange Online (plan 2) också aktive ras.**
+  "Licens åtgärden misslyckades. Kontrol lera att gruppen har nödvändiga tjänster innan du lägger till eller tar bort en beroende tjänst. **Tjänsten Microsoft Workplace Analytics kräver att Exchange Online (plan 2) också aktive ras.** "
 
 För att tilldela den här tilläggs licensen till en grupp, måste du se till att gruppen även innehåller den nödvändiga service planen. Vi kan till exempel uppdatera en befintlig grupp som redan innehåller den fullständiga Office 365 E3-produkten och sedan lägga till produkten till den.
 
-Det är också möjligt att skapa en fristående grupp som bara innehåller de minimi krav som krävs för att göra tillägget. Den kan endast användas för att licensiera de valda användarna för tilläggs produkten. I det här exemplet har vi tilldelat följande produkter till samma grupp:
+Det är också möjligt att skapa en fristående grupp som bara innehåller de minimi krav som krävs för att göra tillägget. Den kan endast användas för att licensiera valda användare för tilläggs produkten. Baserat på föregående exempel tilldelar du följande produkter till samma grupp:
+
 - Office 365 Enterprise E3 med endast tjänsten Exchange Online (plan 2) aktive rad
 - Microsoft arbets plats analys
-
-![Grupp, krav som ingår](./media/licensing-groups-resolve-problems/group-addon-with-prerequisite.png)
 
 Från och med nu förbrukar alla användare som läggs till i den här gruppen en licens för E3-produkten och en licens för produkt för arbets plats analys. På samma sätt kan dessa användare vara medlemmar i en annan grupp som ger dem fullständig E3-produkt, och de använder fortfarande bara en licens för produkten.
 
 > [!TIP]
 > Du kan skapa flera grupper för varje tjänst plan som krävs. Om du till exempel använder både Office 365 Enterprise E1 och Office 365 Enterprise E3 för dina användare, kan du skapa två grupper för att licensiera Microsoft arbets plats analys: en som använder E1 som en förutsättning och den andra som använder E3. På så sätt kan du distribuera tillägget till E1-och E3-användare utan att använda fler licenser.
 
-## <a name="how-do-you-force-license-processing-in-a-group-to-resolve-errors"></a>Hur tvingar du licens bearbetning i en grupp att lösa fel?
+## <a name="force-group-license-processing-to-resolve-errors"></a>Framtvinga bearbetning av grup licens för att lösa fel
 
 Beroende på vilka steg du har vidtagit för att lösa felen kan det vara nödvändigt att utlösa bearbetningen av en grupp manuellt för att uppdatera användar statusen.
 
 Om du till exempel frigör några licenser genom att ta bort direkta licens tilldelningar från användarna, måste du utlösa bearbetningen av grupper som tidigare inte har kunnat få fullständig licens för alla användar medlemmar. Om du vill bearbeta om en grupp går du till fönstret grupp, öppnar **licenser**och väljer sedan knappen **bearbeta** i verktygsfältet.
 
-## <a name="how-do-you-force-license-processing-on-a-user-to-resolve-errors"></a>Hur tvingar du licens bearbetning på en användare att lösa fel?
+## <a name="force-user-license-processing-to-resolve-errors"></a>Tvinga användar licens bearbetning för att lösa fel
 
 Beroende på vilka steg du har vidtagit för att lösa felen kan det vara nödvändigt att utlösa bearbetningen av en användare manuellt för att uppdatera användarens tillstånd.
 

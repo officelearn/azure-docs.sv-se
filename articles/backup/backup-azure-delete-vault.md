@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/20/2019
 ms.author: dacurwin
-ms.openlocfilehash: 5f10bb2062d7c805b485d5cfbfe8989a6aee0995
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: ae8421ca9e3705d697e9638e80fc61f853ff9d28
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162215"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028272"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Ta bort ett Azure Backup Recovery Services-valv
 
@@ -68,7 +68,7 @@ Utför följande steg för att stoppa skyddet och ta bort säkerhetskopierade da
 
          ![Rutan ta bort säkerhets kopierings data.](./media/backup-azure-delete-vault/stop-backup-blade-delete-backup-data.png)
 
-5. Kontrol lera **meddelande** ikonen: ![Meddelande ikonen.](./media/backup-azure-delete-vault/messages.png) När processen har slutförts visas följande meddelande i tjänsten: *Stoppar säkerhets kopiering och tar bort säkerhetskopierade data för "* Säkerhets kopierings objekt *"* . *Åtgärden*har slutförts.
+5. Kontrol lera **meddelande** ikonen: ![The meddelande ikon. ](./media/backup-azure-delete-vault/messages.png) När processen har slutförts visas följande meddelande i tjänsten: *Stoppar säkerhets kopiering och tar bort säkerhetskopierade data för "* Säkerhets kopierings objekt *"* . *Åtgärden har slutförts*.
 6. Välj **Uppdatera** på menyn **säkerhets kopierings objekt** för att se till att säkerhets kopierings objekt har tagits bort.
 
       ![Sidan ta bort säkerhets kopierings objekt.](./media/backup-azure-delete-vault/empty-items-list.png)
@@ -84,7 +84,7 @@ Börja med att läsa avsnittet **[innan du börjar](#before-you-start)** och fö
 
         ![För MARS väljer du ditt valv för att öppna instrument panelen.](./media/backup-azure-delete-vault/identify-protected-servers.png)
 
-      - För MABS eller DPM väljer du **säkerhets kopierings hanterings servrar**. Välj sedan den server som du vill ta bort. 
+      - För MABS eller DPM väljer du **säkerhets kopierings hanterings servrar**. Välj sedan den server som du vill ta bort. 
 
 
           ![För MABS väljer du ditt valv för att öppna instrument panelen.](./media/backup-azure-delete-vault/delete-backup-management-servers.png)
@@ -102,7 +102,7 @@ Börja med att läsa avsnittet **[innan du börjar](#before-you-start)** och fö
 4. Markera kryss rutan medgivande och välj sedan **ta bort**.
 
 
-5. Kontrol lera **meddelande** ikonen ![ta bort säkerhetskopierade data](./media/backup-azure-delete-vault/messages.png). När åtgärden har slutförts visar tjänsten meddelandet: *Stoppar säkerhets kopiering och tar bort säkerhetskopierade data för säkerhets kopierings objekt.* *Åtgärden*har slutförts.
+5. Kontrol lera **meddelande** ikonen ![delete backup data @ no__t-2. När åtgärden har slutförts visar tjänsten meddelandet: *Stoppar säkerhets kopiering och tar bort säkerhetskopierade data för säkerhets kopierings objekt.* *Åtgärden har slutförts*.
 6. Välj **Uppdatera** på menyn **säkerhets kopierings objekt** för att se till att säkerhets kopierings objekt tas bort.
 
 När den här processen är klar kan du ta bort säkerhets kopierings objekt från hanterings konsolen:
@@ -122,13 +122,13 @@ När den här processen är klar kan du ta bort säkerhets kopierings objekt fr�
 
     ![Stoppa en schemalagd säkerhets kopiering.](./media/backup-azure-delete-vault/stop-schedule-backup.png)
 4. Du uppmanas att ange en PIN-kod för säkerhet (personal Identification Number) som du måste generera manuellt. Det gör du genom att först logga in på Azure Portal.
-5. Gå till > **Inställningar**för > Recovery Services valv.
+5. Gå till **Recovery Services valv** > **Inställningar** > **Egenskaper**.
 6. Under **säkerhets-PIN**väljer du **generera**. Kopiera den här PIN-koden. PIN-koden är bara giltig i fem minuter.
 7. I hanterings konsolen klistrar du in PIN-koden och väljer sedan **OK**.
 
     ![Skapa en säkerhets kod.](./media/backup-azure-delete-vault/security-pin.png)
 
-8. På sidan **ändra säkerhets kopierings förlopp** visas följande meddelande: *Borttagna säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent.*  
+8. På sidan **ändra säkerhets kopierings förlopp** visas följande meddelande: @no__t 0Deleted säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent. *  
 
     ![Ta bort infrastruktur för säkerhets kopiering.](./media/backup-azure-delete-vault/deleted-backup-data.png)
 
@@ -167,7 +167,7 @@ När du har tagit bort de lokala säkerhets kopierings objekten följer du stege
 
 ## <a name="delete-the-recovery-services-vault"></a>Ta bort Recovery Services-valvet
 
-1. När alla beroenden har tagits bort bläddrar du till fönstret Essentials i menyn valv.
+1. När alla beroenden har tagits bort bläddrar du till fönstret **Essentials** i menyn valv.
 2. Kontrol lera att det inte finns några säkerhets kopierings objekt, säkerhets kopierings hanterings servrar eller replikerade objekt i listan. Om objekten fortfarande visas i valvet, se avsnittet [innan du börjar](#before-you-start) .
 
 3. När det inte finns några fler objekt i valvet väljer du **ta bort** på instrument panelen för valvet.
@@ -212,7 +212,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
        [-Confirm] 
        [<CommonParameters>] 
     ```
-    [Lär dig mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) om att inaktivera skydd för ett skyddat objekt med säkerhets kopiering. 
+    [Läs mer](https://docs.microsoft.com/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection?view=azps-2.6.0&viewFallbackFrom=azps-2.5.0) about inaktiverar skyddet för ett skyddat objekt som skyddas av säkerhets kopia. 
 
 - För lokala filer och mappar som skyddas med hjälp av Azure Backup Agent (MARS) säkerhetskopiera till Azure använder du följande PowerShell-kommando för att ta bort säkerhetskopierade data från varje MARS PowerShell-modul:
 
@@ -222,7 +222,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
 
     Post som följande prompt skulle visas:
      
-    *Microsoft Azure Backup är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent. <br/> [J] Ja [A] ja till alla [N] nej [L] nej till alla [S] gör uppehåll [?] Hjälp (standard är "Y"):*
+    *Microsoft Azure Backup är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent. <br/> [Y] Ja [A] ja till alla [N] nej [L] nej till alla [S] gör uppehåll [?] Hjälp (standard är "Y"):*
 
 
 - För lokala datorer som skyddas med MABS (Microsoft Azure Backup Server) eller DPM till Azure (System Center Data Protection Manager) använder du följande kommando för att ta bort säkerhetskopierade data i Azure.
@@ -233,7 +233,7 @@ Stoppa skyddet och ta bort säkerhets kopierings data:
 
     Post som följande prompt skulle visas: 
          
-   *Microsoft Azure Backup är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent. <br/> [J] Ja [A] ja till alla [N] nej [L] nej till alla [S] gör uppehåll [?] Hjälp (standard är "Y"):*
+   *Microsoft Azure Backup är du säker på att du vill ta bort den här säkerhets kopierings principen? Borttagna säkerhets kopierings data sparas i 14 dagar. Efter den tiden tas säkerhetskopierade data bort permanent. <br/> [Y] Ja [A] ja till alla [N] nej [L] nej till alla [S] gör uppehåll [?] Hjälp (standard är "Y"):*
 
 När du har tagit bort säkerhetskopierade data avregistrerar du alla lokala behållare och hanterings servrar. 
 

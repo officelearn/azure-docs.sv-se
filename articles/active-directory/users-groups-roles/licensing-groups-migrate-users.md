@@ -1,6 +1,6 @@
 ---
-title: Lägg till individuellt licensierade användare till gruppbaserad licensiering – Azure Active Directory | Microsoft Docs
-description: Hur du migrerar från enskilda användarlicenser till gruppbaserad licensiering med Azure Active Directory
+title: Lägg till enskilda licensierade användare till gruppbaserad licensiering – Azure Active Directory | Microsoft Docs
+description: Så här migrerar du från enskilda användar licenser till gruppbaserad licensiering med Azure Active Directory
 services: active-directory
 keywords: Azure AD-licensiering
 documentationcenter: ''
@@ -11,83 +11,79 @@ ms.service: active-directory
 ms.topic: article
 ms.workload: identity
 ms.subservice: users-groups-roles
-ms.date: 03/18/2019
+ms.date: 09/26/2019
 ms.author: curtand
 ms.reviewer: sumitp
 ms.custom: seohack1;it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 333f0ae0153073b57740446ecf47e36a1f9ce590
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 29ec9c05a7e7d594c64a450fe64e5bb0e0d1b7d0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65192461"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034752"
 ---
-# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Migrera användare med enskilda licenser till grupper för licensiering
+# <a name="how-to-migrate-users-with-individual-licenses-to-groups-for-licensing"></a>Så här migrerar du användare med enskilda licenser till grupper för licensiering
 
-Du kan ha befintliga licenser som distribueras till användare i organisationer via ”direkttilldelning”; det vill säga med hjälp av PowerShell-skript eller andra verktyg för att tilldela användarlicenser för enskilda. Innan du börjar använda gruppbaserad licensiering för att hantera licenser i din organisation, kan du kan använda den här migreringsplan för att ersätta befintliga lösningar sömlöst med gruppbaserad licensiering.
+Du kan ha befintliga licenser distribuerade till användare i organisationerna via "direkt tilldelning"; Det innebär att du kan använda PowerShell-skript eller andra verktyg för att tilldela enskilda användar licenser. Innan du börjar använda gruppbaserad licensiering för att hantera licenser i din organisation kan du använda den här migrations planen för att på ett smidigt sätt ersätta befintliga lösningar med gruppbaserad licensiering.
 
-Det viktigaste att tänka på är att du bör undvika att en situation där migrera till gruppbaserad licensiering leder användare tillfälligt förlorar sin tilldelade licenser. En process som kan leda till borttagning av licenser bör undvikas för att ta bort risken för användare att förlora åtkomsten till tjänster och deras data.
+Det viktigaste att tänka på är att du bör undvika en situation där migreringen till gruppbaserad licensiering leder till att användarna tillfälligt förlorar sina tilldelade licenser. Alla processer som kan leda till borttagning av licenser bör undvikas för att ta bort risken för att användare förlorar åtkomst till tjänster och deras data.
 
-## <a name="recommended-migration-process"></a>Rekommenderade migreringsprocessen
+## <a name="recommended-migration-process"></a>Rekommenderad migreringsprocessen
 
-1. Du har befintliga automation (till exempel PowerShell) som hanterar licenstilldelning och borttagning av användare. Låt den köra skick.
+1. Du har befintlig automatisering (till exempel PowerShell) som hanterar licens tilldelning och borttagning av användare. Låt det köras i befintligt skick.
 
-2. Skapa en ny licensiering grupp (eller bestämma vilka befintliga grupper som ska användas) och se till att alla nödvändiga användare läggs till som medlemmar.
+1. Skapa en ny licens grupp (eller Bestäm vilka befintliga grupper som ska användas) och se till att alla nödvändiga användare läggs till som medlemmar.
 
-3. Tilldela licenserna som krävs till dessa grupper. målet ska vara att återspegla den samma licensieringstillstånd ditt befintliga automation (till exempel PowerShell) tillämpas på dessa användare.
+1. Tilldela de licenser som krävs till dessa grupper. målet bör vara att avspegla samma licensierings tillstånd som din befintliga automatisering (till exempel PowerShell) gäller för dessa användare.
 
-4. Kontrollera att licenser har tillämpats för alla användare i dessa grupper. Det här programmet kan göras genom att kontrollera Bearbetningsstatus för i varje grupp och genom att kontrollera granskningsloggar.
+1. Kontrol lera att licenserna har tillämpats på alla användare i dessa grupper. Du kan göra det här programmet genom att kontrol lera bearbetnings statusen för varje grupp och genom att kontrol lera gransknings loggarna.
 
-   - Du kan stickkontrollera enskilda användare genom att titta på sina licensinformationen. Du ser att de har samma licenser ”direkt” och ”ärvt” från grupper.
+   - Du kan kontrol lera enskilda användare genom att titta på deras licens information. Du ser att de har samma licenser som har tilldelats "direkt" och "ärvda" från grupper.
 
-   - Du kan köra ett PowerShell.skript för att [kontrollera hur licenserna tilldelas till användare](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
+   - Du kan köra ett PowerShell-skript för att [kontrol lera hur licenser tilldelas till användare](licensing-group-advanced.md#use-powershell-to-see-who-has-inherited-and-direct-licenses).
 
-   - Om samma produktlicensen har tilldelats användaren både direkt och via en grupp kan förbrukas endast en licens av användaren. Därför krävs inga ytterligare licenser för att utföra migrering.
+   - När samma produkt licens tilldelas användaren både direkt och via en grupp, används bara en licens för användaren. Det krävs därför inga ytterligare licenser för att utföra migrering.
 
-5. Kontrollera att hitta några licensuppgifter misslyckades genom att kontrollera varje grupp för användare med feltillstånd. Mer information finns i [identifiera och lösa licensproblem för en grupp](licensing-groups-resolve-problems.md).
+1. Kontrol lera att inga licens tilldelningar misslyckades genom att kontrol lera varje grupp för användare med fel tillstånd. Mer information finns i [identifiera och lösa licens problem för en grupp](licensing-groups-resolve-problems.md).
 
-6. Överväg att ta bort de ursprungliga direkt tilldelningarna; Du kanske vill göra det gradvis, i ”vågor” att övervaka resultatet för en delmängd användare först.
-
-   Du kan lämna de ursprungliga direkt tilldelningarna på användare, men när användarna lämnar sina licensierade grupper de, behåller den ursprungliga licensen, vilket är eventuellt inte vad du vill ha.
+Överväg att ta bort de ursprungliga direkta tilldelningarna. Vi rekommenderar att du gör det gradvis och övervakar resultatet på en delmängd av användarna först. Om du kan lämna de ursprungliga direkta tilldelningarna för användarna, men när användarna lämnar sina licensierade grupper behåller de de direkt tilldelade licenserna, vilket kanske inte är vad du vill.
 
 ## <a name="an-example"></a>Ett exempel
 
-En organisation har 1 000 användare. Alla användare kräver Enterprise Mobility + Security (EMS) licenser. 200 användare är på ekonomiavdelningen och kräver Office 365 Enterprise E3-licenser. Organisationen har för närvarande ett PowerShell-skript som körs lokalt, lägga till och ta bort licenser från användare när de kommer och går. Men vill organisationen ersätta skriptet med gruppbaserad licensiering så licenser kan hanteras automatiskt av Azure AD.
+En organisation har 1 000 användare. Alla användare kräver Office 365 Enterprise E3-licenser. För närvarande har organisationen ett PowerShell-skript som körs lokalt, lägger till och tar bort licenser från användare när de kommer och går. Organisationen vill dock ersätta skriptet med gruppbaserad licensiering så att licenser kan hanteras automatiskt av Azure AD.
 
-Här är hur migreringsprocessen kan se ut:
+I så fall kan migreringsprocessen se ut så här:
 
-1. Med Azure portal, tilldela EMS-licens till den **alla användare** i Azure AD. Tilldela E3-licens till den **ekonomiavdelningen** grupp som innehåller alla användare.
+1. Med hjälp av Azure Portal tilldelar du Office 365 E3-licensen till gruppen **alla användare** i Azure AD.
 
-2. Bekräfta att licenstilldelning har slutförts för alla användare för varje grupp. Gå till bladet för varje grupp, Välj **licenser**, och kontrollera bearbetningsstatusen överst i den **licenser** bladet.
+1. Bekräfta att licens tilldelningen har slutförts för alla användare. Gå till sidan Översikt för gruppen, Välj **licenser**och kontrol lera bearbetnings status överst på bladet **licenser** .
 
-   - Se ut för ”senaste licensen ändringar har tillämpats för alla användare” för att bekräfta bearbetningen har slutförts.
+   - Sök efter "de senaste licens ändringarna har tillämpats för alla användare" för att bekräfta bearbetningen har slutförts.
 
-   - Leta efter ett meddelande längst upp om alla användare för vilka licenser inte kan har tilldelats. Kör vi inga fler licenser för vissa användare? Har några användare i konflikt licens-SKU: er som hindrar dem från ärver grupplicenserna?
+   - Sök efter ett meddelande ovanpå alla användare för vilka licenser kanske inte har tilldelats. Har vi slut på licenser för vissa användare? Har vissa användare motstridiga licens planer som hindrar dem från att ärva grupp licenser?
 
-3. Plats kontrollera vissa användare för att kontrollera att de har både direkt och gruppen licenserna tillämpas. Gå till bladet för en användare, väljer **licenser**, och undersök tillståndet för licenser.
+1. Kontrol lera vissa användare för att kontrol lera att de båda licenserna för direkt och grupp har tillämpats. Gå till profil sidan för en användare, Välj **licenser**och undersök licensernas tillstånd.
 
-   - Det här är det förväntade användartillståndet under migreringen:
+   - Detta är förväntat användar tillstånd under migreringen:
 
-      ![förväntade användartillståndet under migreringen](./media/licensing-groups-migrate-users/expected-user-state.png)
+      ![förväntat användar tillstånd under migreringen](./media/licensing-groups-migrate-users/expected-user-state.png)
 
-   Detta bekräftar att användaren har både direkt och ärvda licenser. Ser vi att båda **EMS** och **E3** tilldelas.
+     Detta bekräftar att användaren har både direkta och ärvda licenser. Vi ser att Office 365 E3 har tilldelats.
 
-   - Välj varje licens att visa information om aktiverade tjänster. Detta kan användas för att kontrollera om direct och gruppen licenser aktiverar exakt de samma service-planerna för användaren.
+   - Välj varje licens för att se vilka tjänster som är aktiverade. För att kontrol lera att de direkta och grupp licenserna tillåter exakt samma tjänster för användaren, Välj **tilldelningar**.
 
-      ![Kontrollera service-planer för användaren](./media/licensing-groups-migrate-users/check-service-plans.png)
+1. När du har bekräftat att både direkta och grupp licenser är likvärdiga, kan du börja ta bort direkt licenser från användare. Du kan testa detta genom att ta bort dem för enskilda användare i portalen och sedan köra automatiserings skript så att de tas bort i grupp. Här är ett exempel på samma användare med direkta licenser som tas bort via portalen. Observera att licens statusen är oförändrad, men vi kan inte längre se direkta tilldelningar.
 
-4. Du kan börja ta bort direkt licenser från användare när du har bekräftat att både direkt och gruppen licenser är likvärdiga. Du kan testa detta genom att ta bort dem för enskilda användare i portalen och sedan köra automatiserade skript om du vill ha dem bort gruppvis. Här är ett exempel på samma användare med direkt licenser tas bort via portalen. Observera att licensen förblir oförändrat, men vi inte längre visas direkt tilldelningar.
-
-   ![Bekräfta att direkt licenser har tagits bort](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
+   ![bekräfta att direkta licenser tas bort](./media/licensing-groups-migrate-users/direct-licenses-removed.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om övriga scenarier för hantering av programvarulicenser via grupper
+Lär dig mer om andra scenarier för grupp licens hantering:
 
-* [Vad är gruppbaserad licensiering i Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
-* [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
-* [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](licensing-groups-resolve-problems.md)
-* [Så här migrerar du användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory](licensing-groups-change-licenses.md)
-* [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](licensing-group-advanced.md)
-* [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](licensing-ps-examples.md)
+- [Vad är gruppbaserad licensiering i Azure Active Directory?](../fundamentals/active-directory-licensing-whatis-azure-portal.md)
+- [Tilldela licenser till en grupp i Azure Active Directory](licensing-groups-assign.md)
+- [Identifiera och lösa licensproblem för en grupp i Azure Active Directory](licensing-groups-resolve-problems.md)
+- [Så här migrerar du användare mellan produktlicenser med gruppbaserad licensiering i Azure Active Directory](licensing-groups-change-licenses.md)
+- [Fler scenarier med gruppbaserad licensiering i Azure Active Directory](licensing-group-advanced.md)
+- [PowerShell-exempel för gruppbaserad licensiering i Azure Active Directory](licensing-ps-examples.md)

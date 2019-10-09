@@ -8,20 +8,18 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 10/07/2019
 ms.author: makromer
-ms.openlocfilehash: 7db410e97046b6d251eb73e754e40eab09a2ee64
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.date: 10/07/2019
+ms.openlocfilehash: cbfa1acac34187263f8c4203e41bbe61d7e4c745
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981755"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030507"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Data flödes aktivitet i Azure Data Factory
 
 Använd data flödes aktiviteten för att transformera och flytta data via data flöden för mappning. Om du är nybörjare på data flöden, se [Översikt över kart data flöde](concepts-data-flow-overview.md)
-
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
 ## <a name="syntax"></a>Syntax
 
@@ -51,7 +49,7 @@ Använd data flödes aktiviteten för att transformera och flytta data via data 
 
 ## <a name="type-properties"></a>Typ egenskaper
 
-Egenskap | Beskrivning | Tillåtna värden | Obligatorisk
+Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
 data flöde | Referens till det data flöde som körs | DataFlowReference | Ja
 integrationRuntime | Beräknings miljön som data flödet körs på | IntegrationRuntimeReference | Ja

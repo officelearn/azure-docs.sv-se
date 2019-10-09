@@ -1,6 +1,6 @@
 ---
-title: Lägg till autentisering i Apache Cordova med Mobile Apps | Microsoft Docs
-description: Lär dig hur du använder Mobile Apps i Azure App Service du autentiserar användare i din Apache Cordova-app genom olika identitetsleverantörer, inklusive Google, Facebook, Twitter och Microsoft.
+title: Lägg till autentisering på Apache Cordova med Mobile Apps | Microsoft Docs
+description: Lär dig hur du använder Mobile Apps i Azure App Service för att autentisera användare av din Apache Cordova-app via olika identitets leverantörer, inklusive Google, Facebook, Twitter och Microsoft.
 services: app-service\mobile
 documentationcenter: javascript
 author: elamalani
@@ -14,61 +14,61 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: b0634038dbf5771ac1aa0bc00d007e758171b238
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: d5e124c6f73285efdaef515deba5816093a27e98
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67443513"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027561"
 ---
 # <a name="add-authentication-to-your-apache-cordova-app"></a>Lägg till autentisering i din Apache Cordova-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center investerar i nya och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda **skapa**, **Test** och **fördela** tjänster för att konfigurera pipeline för kontinuerlig integrering och leverans. När appen har distribuerats, utvecklare kan övervaka status och användningen av sin app med hjälp av den **Analytics** och **diagnostik** services och interagera med användare som använder den **Push** tjänsten. Utvecklare kan även utnyttja **Auth** att autentisera användarna och **Data** -tjänsten för att bevara och synkronisera AppData i molnet. Kolla in [App Center](https://appcenter.ms/?utm_source=zumo&utm_campaign=app-service-mobile-cordova-get-started-users) idag.
->
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="summary"></a>Sammanfattning
-I den här självstudien lägger du till autentisering till snabbstartsprojektet todolist på Apache Cordova med en identitetsprovider som stöds. Den här självstudien är baserad på den [Kom igång med Mobile Apps] kursen måste du slutföra först.
+I den här självstudien lägger du till autentisering i ToDoList snabb starts projekt på Apache Cordova med hjälp av en identitets leverantör som stöds. Den här självstudien baseras på självstudien [Kom igång med Mobile Apps] , som du måste slutföra först.
 
 ## <a name="register"></a>Registrera din app för autentisering och konfigurera App Service
 [!INCLUDE [app-service-mobile-register-authentication](../../includes/app-service-mobile-register-authentication.md)]
 
 [Titta på en video som visar liknande steg](https://channel9.msdn.com/series/Azure-connected-services-with-Cordova/Azure-connected-services-task-8-Azure-authentication)
 
-## <a name="permissions"></a>Begränsa behörighet för autentiserade användare
+## <a name="permissions"></a>Begränsa behörigheter till autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
 
-Nu kan du kontrollera att anonym åtkomst till din serverdel har inaktiverats. I Visual Studio:
+Nu kan du kontrol lera att anonym åtkomst till Server delen har inaktiverats. I Visual Studio:
 
-* Öppna projektet som du skapade när du har slutfört självstudien [Kom igång med Mobile Apps].
-* Kör ditt program i den **Google Android-emulatorn**.
-* Kontrollera att ett oväntat fel i anslutningen visas när appen startar.
+* Öppna projektet som du skapade när du slutförde självstudien [Kom igång med Mobile Apps].
+* Kör ditt program i **Google Android-emulatorn**.
+* Kontrol lera att ett oväntat anslutnings fel visas när appen har startats.
 
-Därefter uppdatera appen för att autentisera användare innan du begär resurser från serverdelen för Mobilappen.
+Uppdatera sedan appen för att autentisera användare innan du begär resurser från Server delen för mobilappar.
 
 ## <a name="add-authentication"></a>Lägg till autentisering i appen
-1. Öppna projektet i **Visual Studio**, öppna sedan den `www/index.html` filen för redigering.
-2. Leta upp den `Content-Security-Policy` meta-tagg i head-avsnittet.  Lägga till OAuth-värden i listan över tillåtna källor.
+1. Öppna projektet i **Visual Studio**och öppna sedan filen `www/index.html` för redigering.
+2. Leta upp taggen `Content-Security-Policy` i head-avsnittet.  Lägg till OAuth-värden i listan över tillåtna källor.
 
-   | Leverantör | Providernamn för SDK | OAuth-värd |
+   | Leverantör | Namn på SDK-Provider | OAuth-värd |
    |:--- |:--- |:--- |
-   | Azure Active Directory | aad | https://login.microsoftonline.com |
+   | Azure Active Directory | AAD | https://login.microsoftonline.com |
    | Facebook | facebook | https://www.facebook.com |
-   | Google | google | https://accounts.google.com |
+   | Google | Google | https://accounts.google.com |
    | Microsoft | microsoftaccount | https://login.live.com |
-   | Twitter | twitter | https://api.twitter.com |
+   | Twitter | Twitter | https://api.twitter.com |
 
-    Ett exempel innehåll-Security-Policy (implementerat för Azure Active Directory) är följande:
+    Ett exempel på en innehålls-säkerhets princip (implementerad för Azure Active Directory) är följande:
 
         <meta http-equiv="Content-Security-Policy" content="default-src 'self'
             data: gap: https://login.microsoftonline.com https://yourapp.azurewebsites.net; style-src 'self'">
 
-    Ersätt `https://login.microsoftonline.com` med OAuth-värden från den föregående tabellen.  Mer information om metataggen innehåll säkerhetsprincip finns i den [innehåll säkerhetsprincip dokumentation].
+    Ersätt `https://login.microsoftonline.com` med OAuth-värden från tabellen ovan.  Mer information om meta-taggen för innehåll – säkerhet och principer finns i [Dokumentation om säkerhets principer].
 
-    Vissa autentiseringsproviders kräver inte innehåll säkerhetsprincip ändras när de används på lämplig mobila enheter.  Inget innehåll säkerhetsprincip ändringar krävs till exempel när du använder Google-autentisering på en Android-enhet.
+    Vissa autentiseringsproviders kräver inte innehåll-säkerhets princip ändringar när de används på lämpliga mobila enheter.  Till exempel krävs inget innehåll – säkerhets princip ändringar när du använder Google-autentisering på en Android-enhet.
 
-3. Öppna den `www/js/index.js` filen för redigering, leta upp den `onDeviceReady()` metoden och under klientskapandet kod lägger du till följande kod:
+3. Öppna filen `www/js/index.js` för redigering, leta upp metoden `onDeviceReady()` och Lägg till följande kod under koden för att skapa klienter:
 
         // Login to the service
         client.login('SDK_Provider_Name')
@@ -90,16 +90,16 @@ Därefter uppdatera appen för att autentisera användare innan du begär resurs
 
             }, handleError);
 
-    Den här koden ersätter den befintliga koden som skapar tabellreferensen och uppdaterar Användargränssnittet.
+    Den här koden ersätter den befintliga koden som skapar tabell referensen och uppdaterar användar gränssnittet.
 
-    Metoden login() startar autentisering med providern. Metoden login() är en async-funktion som returnerar en JavaScript-löftet.  Resten av initieringen placeras i det promise svaret så att den inte körs förrän login()-metoden har slutförts.
+    Metoden login () påbörjar autentisering med providern. Metoden login () är en async-funktion som returnerar ett JavaScript-löfte.  Resten av initieringen placeras i löftes svaret så att det inte utförs förrän metoden login () har slutförts.
 
-4. I den kod som du just lade till ersätter `SDK_Provider_Name` med namnet på din inloggningsprovider. Till exempel för Azure Active Directory, använda `client.login('aad')`.
-5. Köra projektet.  När projektet har slutfört initiering, visar programmets OAuth-inloggningssidan för den valda authentication-providern.
+4. I den kod som du just har lagt till ersätter du `SDK_Provider_Name` med namnet på din inloggnings leverantör. Använd till exempel `client.login('aad')` för Azure Active Directory.
+5. Kör ditt projekt.  När projektet har initierats visar programmet sidan OAuth-inloggning för den valda autentiseringsprovidern.
 
 ## <a name="next-steps"></a>Nästa steg
-* Läs mer [Om autentisering] med Azure App Service.
-* Fortsätta självstudien genom att lägga till [Push-meddelanden] till din Apache Cordova-app.
+* Läs mer [om autentisering] med Azure App Service.
+* Fortsätt självstudien genom att lägga till [push-meddelanden] till din Apache Cordova-app.
 
 Lär dig hur du använder SDK: er.
 
@@ -109,7 +109,7 @@ Lär dig hur du använder SDK: er.
 
 <!-- URLs. -->
 [Kom igång med Mobile Apps]: app-service-mobile-cordova-get-started.md
-[Innehåll säkerhetsprincip dokumentation]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
+[Dokumentation om säkerhets principer]: https://cordova.apache.org/docs/en/latest/guide/appdev/whitelist/index.html
 [Push-meddelanden]: app-service-mobile-cordova-get-started-push.md
 [Om autentisering]: app-service-mobile-auth.md
 [Apache Cordova-SDK]: app-service-mobile-cordova-how-to-use-client-library.md

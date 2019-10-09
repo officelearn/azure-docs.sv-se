@@ -7,14 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/17/2019
-ms.openlocfilehash: a0568d3c3258fe082fe8451820fe7a25390cfe78
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
-ms.translationtype: HT
+ms.openlocfilehash: 102cfa81c6093ff1aeefdd8d1937143a25cf76f5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996783"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028485"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Mata in data från Event Hub i Azure Data Explorer
+
+> [!div class="op_single_selector"]
+> * [Portal](ingest-data-event-hub.md)
+> * [C#](data-connection-event-hub-csharp.md)
+> * [Python](data-connection-event-hub-python.md)
 
 Azure Data Explorer är en snabb och mycket skalbar datautforskningstjänst för logg- och telemetridata. Azure Data Explorer erbjuder inmatning (datainläsning) från Event Hubs, en dataströmningsplattform och händelseinmatningstjänst för stordata. [Event Hubs](/azure/event-hubs/event-hubs-about) kan bearbeta flera miljoner händelser per sekund i nära realtid. I den här artikeln skapar du en Event Hub, ansluter till den från Azure Datautforskaren och ser data flödet genom systemet.
 
@@ -68,7 +73,7 @@ I den här artikeln skapar du exempel data och skickar dem till en Event Hub. De
 
 1. Välj **Meddelanden** i verktygsfältet för att övervaka etableringsprocessen. Det kan ta flera minuter innan distributionen slutförs, men du kan gå vidare till nästa steg nu.
 
-    ![Aviseringar](media/ingest-data-event-hub/notifications.png)
+    ![Meddelanden](media/ingest-data-event-hub/notifications.png)
 
 ## <a name="create-a-target-table-in-azure-data-explorer"></a>Skapa en måltabell i Azure Data Explorer
 
@@ -111,8 +116,8 @@ Nu ansluter du till händelsehubben från Azure-datautforskaren. När den här a
     **Inställning** | **Föreslaget värde** | **Fältbeskrivning**
     |---|---|---|
     | Namn på dataanslutning | *test-hub-connection* | Namnet på anslutningen som du vill skapa i Azure Data Explorer.|
-    | Namnrymd för händelshubb | Ett unikt namnområdesnamn | Namnet som du valde tidigare, som identifierar ditt namnområde. |
-    | Händelsehub | *test-hub* | Händelsehubben som du skapade. |
+    | Namnområde för händelsehubb | Ett unikt namnområdesnamn | Namnet som du valde tidigare, som identifierar ditt namnområde. |
+    | Händelsehubb | *test-hub* | Händelsehubben som du skapade. |
     | Konsumentgrupp | *test-group* | Konsumentgruppen som definierades i hubben som du skapade. |
     | Egenskaper för händelse system | Välj relevanta egenskaper | [System egenskaper för Event Hub](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations). Om det finns flera poster per händelse meddelande, läggs system egenskaperna till i den första. När du lägger till system egenskaper [skapar](/azure/kusto/management/tables#create-table) eller [uppdaterar](/azure/kusto/management/tables#alter-table-and-alter-merge-table) du tabell schema och [mappning](/azure/kusto/management/mappings) för att inkludera de valda egenskaperna. |
     | | |

@@ -11,12 +11,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: dead041845c123672d881a8538644b56c34a58a2
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 36e48e86ed3cf7138f7ff5efe89d08c07df87f25
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845597"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028253"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-single-and-pooled-databases-in-azure-sql-database"></a>Ny DBA i molnet – hantera dina enkla databaser och databaser i Azure SQL Database
 
@@ -32,7 +32,7 @@ I den här artikeln beskrivs några av kärn egenskaperna för Azure SQL Databas
 - Affärskontinuitet och haveriberedskap (BCDR)
 - Säkerhet och efterlevnad
 - Övervakning och underhåll av intelligent databas
-- Dataflytt
+- Dataförflyttning
 
 > [!NOTE]
 > Den här artikeln gäller följande distributions alternativ i Azure SQL Database: enskilda databaser och elastiska pooler. Den gäller inte för distributions alternativet hanterad instans i SQL Database.
@@ -64,7 +64,7 @@ Med affärs kontinuitet och haveri beredskap kan du fortsätta din verksamhet, s
 
 Du skapar inga säkerhets kopior på Azure SQL DB och det beror på att du inte behöver. SQL Database säkerhetskopierar automatiskt databaser åt dig, så att du inte längre behöver bekymra dig om schemaläggning, insamling och hantering av säkerhets kopior. Plattformen tar en fullständig säkerhets kopia varje vecka, differentiell säkerhets kopiering med några timmar och en logg säkerhets kopia var femte minut för att säkerställa att haveri beredskap är effektiv och data förlusten är minimal. Den första fullständiga säkerhets kopieringen sker så snart du skapar en databas. Dessa säkerhets kopior är tillgängliga för dig under en viss period med namnet "kvarhållningsperiod" och varierar beroende på vilken tjänst nivå du väljer. SQL Database ger dig möjlighet att återställa till vilken tidpunkt som helst inom denna kvarhållningsperiod med hjälp av återställning av tidpunkt [(PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Tjänstnivå|Kvarhållningsperiod i dagar|
+|Tjänstenivå|Kvarhållningsperiod i dagar|
 |---|:---:|
 |Basic|7|
 |Standard|35|
@@ -132,7 +132,7 @@ En brand vägg förhindrar åtkomst till servern från en extern entitet genom a
 
 Du kan skapa brand Väggs regler på server nivå eller på databas nivå. Regler för IP-brandvägg på server nivå kan antingen skapas med hjälp av Azure Portal eller med SSMS. Mer information om hur du ställer in en brand Väggs regel på server nivå och databas nivå finns i: [Skapa IP brand Väggs regler i SQL Database](sql-database-security-tutorial.md#create-firewall-rules).
 
-#### <a name="service-endpoints"></a>Tjänstens slutpunkter
+#### <a name="service-endpoints"></a>Tjänstslutpunkter
 
 Som standard är din SQL-databas konfigurerad för att "ge Azure-tjänster åtkomst till servern", vilket innebär att alla virtuella datorer i Azure kan försöka ansluta till din databas. Dessa försök behöver fortfarande autentiseras. Men om du inte vill att databasen ska vara tillgänglig för alla Azure-IP-adresser kan du inaktivera alternativet "Tillåt Azure-tjänster för åtkomst till servern". Dessutom kan du konfigurera [VNet-tjänstens slut punkter](sql-database-vnet-service-endpoint-rule-overview.md).
 
@@ -282,7 +282,7 @@ Med [query Performance Insight](sql-database-query-performance.md) kan du Visa e
 
 #### <a name="azure-sql-analytics-preview-in-azure-monitor-logs"></a>Azure SQL-analys (för hands version) i Azure Monitor loggar
 
-Med [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md) kan du samla in och visualisera viktiga Azure-SQL Azure prestanda mått, stöd för upp till 150 000 SQL-databaser och 5 000 ELASTISKa SQL-pooler per arbets yta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL Database och Elastic pool-mått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje skikt i en programs tack.
+Med [Azure Monitor loggar](../azure-monitor/insights/azure-sql.md) kan du samla in och visualisera viktiga prestanda mått för Azure SQL Database, stöd för upp till 150 000 SQL-databaser och 5 000 elastiska SQL-pooler per arbets yta. Du kan använda den för att övervaka och ta emot meddelanden. Du kan övervaka SQL Database och Elastic pool-mått över flera Azure-prenumerationer och elastiska pooler och kan användas för att identifiera problem på varje skikt i en programs tack.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Jag är märker prestanda problem: Hur skiljer sig SQL Database fel söknings metoden från SQL Server
 
@@ -321,7 +321,7 @@ SQL Database använder vissa smarta tekniker som gör det möjligt för IT att h
 
 - **Exportera**: Du kan exportera din Azure SQL-databas som en BACPAC-fil från Azure Portal
 
-   ![Databas export](./media/sql-database-export/database-export1.png)
+   ![databas export](./media/sql-database-export/database-export1.png)
 
 - **Importera**: Du kan också importera data som en BACPAC-fil till databasen med hjälp av Azure Portal.
 

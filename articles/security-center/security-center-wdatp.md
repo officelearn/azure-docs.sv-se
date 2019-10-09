@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 07934e3c7d9f61ecb4153e6a169882509a81dc75
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: fb401226e9697afb71dfa7a30f9814e07c3422c2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71241029"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028077"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Avancerat skydd med Azure Security Center
 
@@ -70,7 +70,7 @@ Om du vill publicera servrar till Security Center klickar **du på gå till Azur
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Aktivera Microsoft Defender ATP-integrering
 
-Om du vill se om Microsoft Defender ATP-integrering är aktive rad väljer du pris för **säkerhets Center** >  **& inställningar** > klickar på din prenumeration.
+Om du vill se om Microsoft Defender ATP-integrering har Aktiver ATS väljer du **& inställningar** för **Security Center** >  > klickar på din prenumeration.
 Här kan du se de integreringar som är aktiverade för tillfället.
 
   ![Sidan Azure Security Center inställningar för hot identifiering med Microsoft Defender ATP-integrering aktive rad](media/security-center-wdatp/enable-integrations.png)
@@ -107,7 +107,7 @@ Så här skapar du en ofarlig test avisering för Microsoft Defender ATP:
 
 3. Om kommandot lyckas visas en ny avisering på instrument panelen för Azure Security Center och Microsoft Defender ATP-portalen. Den här aviseringen kan ta några minuter innan den visas.
 
-4. Om du vill granska aviseringen i Security Center går du till **säkerhets varningar** >  ,**misstänkt PowerShell-kommandorad**.
+4. Om du vill granska aviseringen i Security Center går du till **säkerhets aviseringar** >  **misstänkt PowerShell-kommandorad**.
 
 5. I undersöknings fönstret väljer du länken för att gå till Microsoft Defender ATP-portalen.
 

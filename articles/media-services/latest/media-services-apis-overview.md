@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: 5558eeb4012ac563388ad47df61114534e9859ed
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c6c8bcfec9a8bdf6948190c5f132c2e1763b9973
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308347"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025627"
 ---
 # <a name="developing-with-media-services-v3-apis"></a>Utveckla med Media Services v3-API: er
 
@@ -32,7 +32,7 @@ För att få åtkomst till Media Services resurser och Media Services-API: et m�
 * **Autentisering av tjänstens huvud namn** – används för att autentisera en tjänst (t. ex. webbappar, funktions program, Logic Apps, API och mikrotjänster). Program som ofta använder den här autentiseringsmetoden är appar som kör daemon-tjänster, tjänster på mellan nivå eller schemalagda jobb. För webb program bör till exempel alltid vara en mellan nivå som ansluter till Media Services med ett huvud namn för tjänsten.
 * **Användarautentisering** – används för att autentisera en person som använder appen för att interagera med Media Services resurser. Det interaktiva programmet bör först uppmana användaren att ange användarens autentiseringsuppgifter. Ett exempel är en hanterings konsol app som används av behöriga användare för att övervaka kodnings jobb eller direktsänd strömning.
 
-Media Services-API: n kräver att användaren eller programmet som gör REST API förfrågningar har åtkomst till Media Services konto resursen och använder en **deltagar** -eller **ägar** roll. API: et kan nås med rollen **läsare** men endast **Get** -eller **list**   -åtgärder är tillgängliga. Mer information finns i [rollbaserad åtkomst kontroll för Media Services-konton](rbac-overview.md).
+Media Services-API: n kräver att användaren eller programmet som gör REST API förfrågningar har åtkomst till Media Services konto resursen och använder en **deltagar** -eller **ägar** roll. API: et kan nås med rollen **läsare** men endast **Get** -eller **list** -åtgärder är tillgängliga. Mer information finns i [rollbaserad åtkomst kontroll för Media Services-konton](rbac-overview.md).
 
 I stället för att skapa ett huvud namn för tjänsten bör du överväga att använda hanterade identiteter för Azure-resurser för att komma åt Media Services-API Azure Resource Manager: et Mer information om hanterade identiteter för Azure-resurser finns i [Vad är hanterade identiteter för Azure-resurser](../../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -83,7 +83,7 @@ Namnen på filer/blobbar i en till gång måste följa både BLOB- [namnets krav
 
 ## <a name="long-running-operations"></a>Tids krävande åtgärder
 
-Åtgärderna som marker ATS `x-ms-long-running-operation` med i Azure Media Services [Swagger-filer](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långvariga åtgärder. 
+De åtgärder som har marker ATS med `x-ms-long-running-operation` i Azure Media Services [Swagger-filerna](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01/streamingservice.json) är långvariga åtgärder. 
 
 Mer information om hur du spårar asynkrona Azure-åtgärder finns i [asynkrona åtgärder](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-async-operations#monitor-status-of-operation).
 
@@ -95,7 +95,7 @@ Media Services har följande tids krävande åtgärder:
 * [Starta Live-händelse](https://docs.microsoft.com/rest/api/media/liveevents/start)
 * [Stoppa LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/stop)
 
-  `removeOutputsOnStop` Använd parametern för att ta bort alla associerade Live-utdata när händelsen stoppas.  
+  Använd parametern `removeOutputsOnStop` för att ta bort alla associerade Live-utdata när händelsen stoppas.  
 * [Återställ LiveEvent](https://docs.microsoft.com/rest/api/media/liveevents/reset)
 * [Skapa LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/create)
 * [Ta bort LiveOutput](https://docs.microsoft.com/rest/api/media/liveevents/delete)

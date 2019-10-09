@@ -14,18 +14,22 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 7133e8bc7d04b3653b6b788347b7bc5176087f4c
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 87c64a98d783d2604c985017fbce586ed51e5c9d
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883471"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025436"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Klient-och Server version i Mobile Apps och Mobile Services
+> [!NOTE]
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+
 Den senaste versionen av Azure Mobile Services är den **Mobile Apps** funktionen i Azure App Service.
 
 Mobile Apps klient-och Server-SDK: er baseras ursprungligen på dem i Mobile Services, men de är *inte* kompatibla med varandra.
-Det innebär att du måste använda en *Mobile Apps* klient-SDK med ett *Mobile Apps* Server-SDK och på samma sätt för *Mobile Services*. Detta kontrakt tillämpas via ett särskilt huvud värde som används av klient-och Server-SDK: `ZUMO-API-VERSION`erna.
+Det innebär att du måste använda en *Mobile Apps* klient-SDK med ett *Mobile Apps* Server-SDK och på samma sätt för *Mobile Services*. Det här kontraktet upprätthålls genom ett särskilt huvud värde som används av klient-och Server-SDK: erna `ZUMO-API-VERSION`.
 
 Obs: när det här dokumentet refererar till en *Mobile Services* Server del behöver det inte nödvändigt vis vara värd för Mobile Services. Nu kan du migrera en mobil tjänst så att den körs på App Service utan några kod ändringar, men tjänsten kommer fortfarande att använda *Mobile Services* SDK-versioner.
 
@@ -34,11 +38,11 @@ Nyckeln `ZUMO-API-VERSION` kan anges antingen i HTTP-huvudet eller frågesträng
 
 Exempel:
 
-TA https://service.azurewebsites.net/tables/TodoItem
+HÄMTA https://service.azurewebsites.net/tables/TodoItem
 
 SIDHUVUD ZUMO-API-VERSION: 2.0.0
 
-EFTER https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
+PUBLICERA https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 
 ## <a name="opting-out-of-version-checking"></a>Väljer av versions kontroll
 Du kan avanmäla versions kontrollen genom att ange värdet **True** för appens inställning **MS_SkipVersionCheck**. Ange detta antingen i Web. config eller i avsnittet program inställningar i Azure Portal.

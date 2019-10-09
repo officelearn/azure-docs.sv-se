@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 04/02/2019
 tags: ''
 keywords: ''
-ms.openlocfilehash: 7ba3323f0811f3f9b76d73796264bf17712a1179
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 67af4eae03b773fad9cf38964152c1fb9d623bd5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68841334"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025936"
 ---
 # <a name="install-ibm-zdt-devtest-environment-on-azure"></a>Installera IBM zD & T dev/test-miljö på Azure
 
@@ -62,11 +62,11 @@ Den här artikeln visar hur du konfigurerar Z-utveckling och test miljö (zD & T
 
 3. Hämta SSH-autentiseringsuppgifterna som visas på bladet **Översikt** på den virtuella datorn via knappen **Anslut** . Välj fliken **SSH** och kopiera SSH-inloggnings kommandot till Urklipp.
 
-4. Logga in på ett [bash-gränssnitt](/azure/cloud-shell/quickstart) från den lokala datorn och klistra in kommandot. Den kommer att vara i formatet **SSH\<-användar\>-ID\>\@\<IP-adress**. När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
+4. Logga in på ett [bash-gränssnitt](/azure/cloud-shell/quickstart) från den lokala datorn och klistra in kommandot. Den kommer att vara i formatet **SSH @ no__t-1user-ID @ no__t-2 @ no__t-3 @ no__t-4ip Address @ no__t-5**. När du uppmanas att ange dina autentiseringsuppgifter anger du dem för att upprätta en anslutning till din Hem Katalog.
 
 ## <a name="copy-the-installation-file-to-the-server"></a>Kopiera installations filen till servern
 
-Installations filen för webb servern är **ZDT\_install\_ee\_v 12.0.0.1. tgz**. Den ingår i mediet som tillhandahålls av IBM. Du måste ladda upp den här filen till din virtuella Ubuntu-dator.
+Installations filen för webb servern är **ZDT @ no__t-1Install @ no__t-2EE\_V12.0.0.1.tgz**. Den ingår i mediet som tillhandahålls av IBM. Du måste ladda upp den här filen till din virtuella Ubuntu-dator.
 
 1. På kommando raden anger du följande kommando för att kontrol lera att allt är uppdaterat i den nyligen skapade avbildningen:
 
@@ -91,7 +91,7 @@ Installations filen för webb servern är **ZDT\_install\_ee\_v 12.0.0.1. tgz**.
 
 ## <a name="install-the-enterprise-edition"></a>Installera Enterprise Edition
 
-1. Gå till ZDT-katalogen och expandera filen ZDT\_install\_ee\_v 12.0.0.1. tgz med följande kommandon:
+1. Gå till ZDT-katalogen och expandera filen ZDT @ no__t-0Install @ no__t-1EE\_V12.0.0.1.tgz med följande kommandon:
 
     ```
     cd ZDT
@@ -104,11 +104,11 @@ Installations filen för webb servern är **ZDT\_install\_ee\_v 12.0.0.1. tgz**.
     ./ZDT_Install_EE_V12.0.0.0.x86_64
     ```
 
-3. Välj **1** om du vill installera Enterprise Server.
+3. Välj **1** om du vill installera Enterprise Server.
 
 4. Tryck på **RETUR** och Läs igenom licens avtalen noggrant. I slutet av licensen anger du **Ja** för att fortsätta.
 
-5. När du uppmanas att ändra lösen ordet för den nyligen skapadeanvändaren, använder du kommandot **sudo passwd ibmsys1** och anger det nya lösen ordet.
+5. När du uppmanas att ändra lösen ordet för den nyligen skapade **användaren, använder**du kommandot **sudo passwd ibmsys1** och anger det nya lösen ordet.
 
 6. Så här kontrollerar du om installationen lyckades
 

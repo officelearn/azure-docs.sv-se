@@ -5,21 +5,21 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 03/27/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b2549abd3a4f87de99efa9a916e39b99c6fc8747
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: c1f83303c3f186b37c1c5c06e61c2263420c0cfa
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67187246"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028039"
 ---
-1. Gå till sidan virtuellt WAN-nätverk. Ett sätt att navigera till sidan är att gå till **alla tjänster**, och Sök efter virtuellt WAN-nätverk.
-1. Klicka på **+ Lägg till** för att öppna sidan **Skapa WAN**.
-1. På den **skapa WAN** fyller du i följande fält:
+1. Gå till den virtuella WAN-sidan. Klicka på **+Skapa en resurs** i portalen. Skriv det **virtuella WAN-nätverket** i sökrutan och välj RETUR.
+1. Välj **virtuellt WAN** från resultaten. På den virtuella WAN-sidan klickar du på **skapa**.
+1. Fyll i följande fält på sidan **skapa WAN** :
 
-   * **Namn** – Välj vad du vill kalla WAN-nätverket.
+   * **Namn** – ange det namn som du vill anropa ditt WAN.
    * **Prenumeration** – Välj vilken prenumeration du vill använda.
    * **Resursgrupp** – Skapa ny eller använd befintlig.
    * **Resursplats** – Välj en resursplats i listrutan. Ett WAN är en global resurs och är inte kopplad till en viss region. Du måste dock välja en region för att lättare att hantera och leta upp WAN-resursen som du skapar.

@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: b295ab442e70772a86d6699e1063c7a1c728f1a7
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 17083029f2377037b99abfa3ce8371661eccb957
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091124"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029987"
 ---
 # <a name="server-logs-in-azure-database-for-postgresql---single-server"></a>Server loggar i Azure Database for PostgreSQL-enskild server
 Azure Database for PostgreSQL genererar fråge- och felloggar. Frågor och fel loggar kan användas för att identifiera, felsöka och reparera konfigurations fel och underoptimala prestanda. (Åtkomst till transaktions loggar ingår inte). 
@@ -24,7 +24,7 @@ Du kan konfigurera loggning på servern med hjälp av loggnings server parametra
 Mer information om dessa parametrar finns i PostgreSQL [fel rapportering och logg](https://www.postgresql.org/docs/current/static/runtime-config-logging.html) dokumentation. Information om hur du konfigurerar Azure Database for PostgreSQL parametrar finns i [Portal dokumentationen](howto-configure-server-parameters-using-portal.md) eller CLI- [dokumentationen](howto-configure-server-parameters-using-cli.md).
 
 ## <a name="access-server-logs-through-portal-or-cli"></a>Åtkomst till Server loggar via portalen eller CLI
-Om du har aktiverat loggar kan du komma åt dem från Azure Database for PostgreSQL logg lagring med hjälp av [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md)och Azure REST API: er. Loggfilerna roteras varje timme eller varje 100 MB, beroende på vilket som kommer först. Du kan ställa in kvarhållningsperioden för den här logg lagringen med hjälp av parametern **\_logg kvarhållningsperiod\_** som är associerad med servern. Standardvärdet är 3 dagar; det maximala värdet är 7 dagar. Servern måste ha tillräckligt mycket allokerat lagrings utrymme för att kunna lagra loggfilerna. (Denna bevarande parameter styr inte Azure-diagnostikloggar.)
+Om du har aktiverat loggar kan du komma åt dem från Azure Database for PostgreSQL logg lagring med hjälp av [Azure Portal](howto-configure-server-logs-in-portal.md), [Azure CLI](howto-configure-server-logs-using-cli.md)och Azure REST API: er. Loggfilerna roteras varje timme eller varje 100 MB, beroende på vilket som kommer först. Du kan ange kvarhållningsperioden för logg lagringen med hjälp av parametern **log @ no__t-1retention @ no__t-2period** som är associerad med servern. Standardvärdet är 3 dagar; det maximala värdet är 7 dagar. Servern måste ha tillräckligt mycket allokerat lagrings utrymme för att kunna lagra loggfilerna. (Denna bevarande parameter styr inte Azure-diagnostikloggar.)
 
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar

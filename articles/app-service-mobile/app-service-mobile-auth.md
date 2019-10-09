@@ -12,14 +12,18 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: mahender
-ms.openlocfilehash: 1d40f1992a5c68872de6e0fa2fc04a1a25abe674
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3c7329638bd8a5d9e466864d780b7784304fa874
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098595"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027489"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Autentisering och auktorisering i Azure App Service för mobila appar
+
+> [!NOTE]
+> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 Den här artikeln beskriver hur autentisering och auktorisering fungerar när du utvecklar interna mobilappar med en App Service server del. App Service ger integrerad autentisering och auktorisering, så att dina mobilappar kan logga in användare i utan att ändra någon kod i App Service. Det är ett enkelt sätt att skydda ditt program och arbeta med data per användare. 
 
@@ -52,7 +56,7 @@ Om du inte vill konfigurera en SDK för leverantörer kan du tillåta att Mobile
 Kod för att starta det här flödet ingår i själv studie kursen för autentisering för varje plattform. I slutet av flödet har klient-SDK: n en App Service token, och token ansluts automatiskt till alla begär anden till program Server delen.
 
 Mer information om Authentication Flow finns i [App Service Authentication Flow](../app-service/overview-authentication-authorization.md#authentication-flow). 
-## <a name="more-resources"></a>Flera resurser
+## <a name="more-resources"></a>Fler resurser
 
 Följande självstudier visar hur du lägger till autentisering till dina mobila klienter med hjälp av det [serverbaserade flödet](../app-service/overview-authentication-authorization.md#authentication-flow):
 
@@ -70,7 +74,7 @@ Använd följande resurser om du vill använda det [klient dirigerade flödet](.
 * [Använd Active Directory-autentiseringsbibliotek för Android][ADAL-Android]
 * [Använd Active Directory-autentiseringsbibliotek för Windows och Xamarin][ADAL-dotnet]
 
-Använd följande resurser om du vill använda det klientbaserade [flödet](../app-service/overview-authentication-authorization.md#authentication-flow) för Facebook:
+Använd följande resurser om du vill använda det [klientbaserade flödet](../app-service/overview-authentication-authorization.md#authentication-flow) för Facebook:
 
 * [Använd Facebook SDK för iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#facebook-sdk)
 
@@ -78,7 +82,7 @@ Använd följande resurser om du vill använda det [klient dirigerade flödet](.
 
 * [Använd Twitter-infrastruktur för iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#twitter-fabric)
 
-Använd följande resurser om du vill använda det klientbaserade [flödet](../app-service/overview-authentication-authorization.md#authentication-flow) för Google:
+Använd följande resurser om du vill använda det [klientbaserade flödet](../app-service/overview-authentication-authorization.md#authentication-flow) för Google:
 
 * [Använd Google-inloggning SDK för iOS](../app-service-mobile/app-service-mobile-ios-how-to-use-client-library.md#google-sdk)
 

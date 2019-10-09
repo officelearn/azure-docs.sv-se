@@ -8,12 +8,12 @@ ms.date: 02/07/2019
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: rugopala
-ms.openlocfilehash: 4c01cd36d489d8e7128bed645c8cb1127c6c0c25
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: aaff1d5e657b8acb28293f3450849b1446727680
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71130413"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030787"
 ---
 # <a name="upgrade-your-big-data-analytics-solutions-from-azure-data-lake-storage-gen1-to-azure-data-lake-storage-gen2"></a>Uppgradera dina Big data Analytics-lösningar från Azure Data Lake Storage Gen1 till Azure Data Lake Storage Gen2
 
@@ -115,12 +115,12 @@ Med hanterings-API: er kan du hantera konton, medan API: er för fil systemet hj
 
 När du använder Data Lake Storage Gen1, kan du använda olika Microsoft-tjänster och produkter i pipelines slutpunkt till slutpunkt. Arbeta med Data Lake Storage Gen1 direkt eller indirekt dessa produkter och tjänster. Den här tabellen visas en lista över tjänsterna vi har ändrat för att arbeta med Data Lake Storage Gen1 och visar vilka som är kompatibel med Data Lake Storage Gen2.
 
-| **Område**             | **Tillgänglighet för Data Lake Storage Gen1**                                                                                                                                    | **Tillgänglighet för Data Lake Storage Gen2 – med autentisering med delad nyckel**                                                                                                           | **Tillgänglighet för Data Lake Storage Gen2 – med OAuth**                                                                                        |
+| **Område**             | **Tillgänglighet för Data Lake Storage Gen1**                                                                                                                                    | **Tillgänglighet för Data Lake Storage Gen2 – med autentisering med delad nyckel**                                                                                                           | **Tillgänglighet för Data Lake Storage Gen2 – med OAuth**                                                                                        |
 |----------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|
 | Analytics-ramverk  | [Apache Hadoop](https://hadoop.apache.org/docs/current/hadoop-azure-datalake/index.html)                                                                                       | *Tillgängligt nu*                                                                                                                                                              | *Tillgängligt nu*                                                                                                                                 |
 |                      | [HDInsight](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-hdinsight-hadoop-use-portal)                                                               | [HDInsight](https://docs.microsoft.com/azure/storage/data-lake-storage/quickstart-create-connect-hdi-cluster) 3.6 - *nu tillgängligt* HDInsight 4.0 - *ännu inte tillgänglig*      | HDInsight 3,6 ESP – *tillgängligt nu* <br><br>  HDInsight 4,0 ESP – *ännu inte tillgängligt*                                                                 |
-|                      | Databricks Runtime 3.1 och senare                                                                                                                                               | [Databricks Runtime 5,1 och uppåt](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html#azure-data-lake-storage-gen2) *– Tillgängligt nu* | [Databricks Runtime 5,1 och senare](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html#azure-data-lake-storage-gen2) – *tillgängligt nu*                                                                                              |
-|                      | [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store)                                            | *Stöds inte*                                                                                                                                                              | *Tillgängligt nu* [Länk](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-2017) |
+|                      | Databricks Runtime 3.1 och senare                                                                                                                                               | [Databricks Runtime 5,1 och senare](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html#azure-data-lake-storage-gen2) *– tillgängligt nu* | [Databricks Runtime 5,1 och senare](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html#azure-data-lake-storage-gen2) – *tillgängligt nu*                                                                                              |
+|                      | [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-load-from-azure-data-lake-store)                                            | *Stöds inte*                                                                                                                                                              | [Länk](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-2017) *tillgänglig nu* |
 | Dataintegrering     | [Data Factory](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-store)                                                                                | [Version 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage) – *tillgänglig nu* version 1 – *stöds inte*                               | [Version 2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage) – *tillgänglig nu* <br><br> Version 1 – *stöds inte*  |
 |                      | [AdlCopy](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-copy-data-azure-storage-blob)                                                                 | *Stöds inte*                                                                                                                                                              | *Stöds inte*                                                                                                                                 |
 |                      | [SQL Server Integration Services](https://docs.microsoft.com/sql/integration-services/connection-manager/azure-data-lake-store-connection-manager?view=sql-server-2017) | *Ännu inte tillgänglig*                                                                                                                                                          | *Ännu inte tillgänglig*                                                                                                                             |
@@ -245,11 +245,11 @@ När du vill skapa program på Data Lake Storage Gen1 eller Data Lake Storage Ge
 
 #### <a name="uri-changes"></a>URI-ändringar
 
-Huvud uppgiften här är att översätta URI: er som har prefixet `adl://` till URI: er som har ett `abfss://` prefix.
+Huvud uppgiften här är att översätta URI: er som har prefixet `adl://` till URI: er som har ett `abfss://`-prefix.
 
 URI-schemat för Data Lake Storage Gen1 nämns [här](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-store) i detalj, men i stora drag, är det *adl://mydatalakestore.azuredatalakestore.net/\<filsökväg\>.*
 
-URI-schemat för att komma åt Data Lake Storage Gen2-filer förklaras [här](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) i detalj, men det är `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`i stort sett.
+URI-schemat för att komma åt Data Lake Storage Gen2-filer förklaras [här](../../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md) i detalj, men är i stort sett `abfss://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>`.
 
 Du behöver gå igenom dina befintliga program och se till att du har ändrat URI: er på rätt sätt för att peka till Data Lake Storage Gen2 sådana. Dessutom måste du lägga till rätt autentiseringsuppgifter. Slutligen måste hur du dra tillbaka de ursprungliga program och Ersätt med det nya programmet justeras nära till din strategi för övergripande uppgradering.
 

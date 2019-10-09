@@ -11,16 +11,16 @@ ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: celested
 ms.reviewer: japere
-ms.openlocfilehash: 265458066a528246cbfa7876bf61b02a0382581b
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: c49535ad11139ac5145d4f283374bf9cc6d71f52
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499610"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72025783"
 ---
 # <a name="understand-and-solve-azure-active-directory-application-proxy-cors-issues"></a>Förstå och lösa Azure Active Directory-programproxy CORS-problem
 
-[Resurs delning mellan ursprung (CORS)](https://www.w3.org/TR/cors/) kan ibland innebära utmaningar för appar och API: er som du publicerar via Azure Active Directory-programproxy. I den här artikeln beskrivs problem och lösningar för Azure AD-programproxy CORS.
+1can för [resurs delning mellan ursprung (CORS)](https://www.w3.org/TR/cors/)@no__t-ibland befintliga utmaningar för appar och API: er som du publicerar via Azure Active Directory-programproxy. I den här artikeln beskrivs problem och lösningar för Azure AD-programproxy CORS.
 
 Webb läsar säkerhet förhindrar vanligt vis en webb sida från att göra AJAX-begäranden till en annan domän. Den här begränsningen kallas *samma ursprungs princip*och förhindrar att en skadlig webbplats läser känsliga data från en annan plats. Men ibland kanske du vill låta andra platser anropa ditt webb-API. CORS är en W3C-standard som gör det möjligt för en server att öka principen för samma ursprung och tillåta vissa frågor om flera ursprung medan andra nekas.
 
@@ -28,15 +28,15 @@ Webb läsar säkerhet förhindrar vanligt vis en webb sida från att göra AJAX-
 
 Två URL: er har samma ursprung om de har identiska scheman, värdar och portar ([RFC 6454](https://tools.ietf.org/html/rfc6454)), till exempel:
 
--   http:\//contoso.com/foo.html
--   http:\//contoso.com/bar.html
+-   http: \//contoso.com/foo.html
+-   http: \//contoso.com/bar.html
 
 Följande URL: er har olika ursprung än de föregående två:
 
--   http:\//contoso.net-annan domän
--   http:\//contoso.com:9000/foo.html – annan port
--   https:\//contoso.com/foo.html – annat schema
--   http:\//www.contoso.com/foo.html-annan under domän
+-   http: \//contoso. net-annan domän
+-   http: \//contoso.com:9000/foo.html – annan port
+-   https: \//contoso.com/foo.html – annat schema
+-   http: \//www.contoso.com/foo.html-annan under domän
 
 Principen med samma ursprung hindrar appar från att komma åt resurser från andra ursprung om de inte använder rätt rubrik för åtkomst kontroll. Om CORS-huvudena saknas eller är felaktiga, så går det inte att utföra cross-origin-begäranden. 
 
@@ -46,13 +46,13 @@ Du kan identifiera CORS-problem med hjälp av webbläsarens fel söknings verkty
 1. Tryck på **F12** för att öppna fel söknings konsolen.
 1. Försök att återskapa transaktionen och granska konsol meddelandet. En CORS-överträdelse skapar ett konsol fel om ursprung.
 
-I följande skärm bild kan du välja knappen **testa** som orsakade ett CORS-fel meddelande om att\/https:/corswebclient-contoso.msappproxy.net inte hittades i rubriken Access-Control-Allow-Origin.
+I följande skärm bild kan du välja knappen **testa** som orsakade ett CORS-fel meddelande om att https: \//corswebclient-contoso. msappproxy. net saknas i Access-Control-Allow-Origin-huvudet.
 
 ![CORS-problem](./media/application-proxy-understand-cors-issues/image3.png)
 
 ## <a name="cors-challenges-with-application-proxy"></a>CORS-utmaningar med Application Proxy
 
-I följande exempel visas ett typiskt Azure AD-programproxy CORS-scenario. Den interna servern är värd för en **CORSWebService** webb-API-kontrollant och en **CORSWebClient** som anropar **CORSWebService**. Det finns en AJAX-begäran från **CORSWebClient** till **CORSWebService**.
+I följande exempel visas ett typiskt Azure AD-programproxy CORS-scenario. Den interna servern är värd för en **CORSWebService** webb-API-kontrollant och en **CORSWebClient** som anropar **CORSWebService**. Det finns en AJAX-begäran från **CORSWebClient** till **CORSWebService**.
 
 ![Lokal begäran om samma ursprung](./media/application-proxy-understand-cors-issues/image1.png)
 
@@ -82,8 +82,8 @@ Ange i stället den **interna URL** : en för att publicera den överordnade kat
 
 De resulterande App-URL: erna löser effektivt CORS-problemet:
 
-- https:\//corswebclient-contoso.msappproxy.net/CORSWebService
-- https:\//corswebclient-contoso.msappproxy.net/CORSWebClient
+- https: \//corswebclient-contoso. msappproxy. net/CORSWebService
+- https: \//corswebclient-contoso. msappproxy. net/CORSWebClient
 
 ### <a name="option-3-update-http-headers"></a>Alternativ 3: Uppdatera HTTP-rubriker
 
@@ -93,15 +93,15 @@ Lägg till ett anpassat HTTP-svarshuvuden på webb tjänsten för att matcha urs
 
 Ändringen kräver inga kod ändringar. Du kan kontrol lera det i Fiddler-spåren:
 
-**Publicera rubriken addition**\
+**Publicera tilläggs**\
 HTTP/1.1 200 OK \
 Cache-kontroll: no-cache \
 Pragma: no-cache \
 Content-Type: text/plain charset = utf-8 \
 Upphör att gälla:-1 \
 Vary Acceptera-encoding \
-Server: Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0 \
-**Åtkomst kontroll-Allow-Origin: https\://corswebclient-contoso.msappproxy.net**\
+Servernamn Microsoft-IIS/8.5 Microsoft-HTTPAPI/2.0 \
+**Åtkomst-kontroll-Tillåt-ursprung: https @ no__t-1//corswebclient-contoso. msappproxy. net**\
 X-AspNet-Version: 4.0.30319
 X – drivs av: ASP.NET\
 Innehålls längd: 17
@@ -115,6 +115,6 @@ Du kan ändra din app så att den stöder CORS genom att lägga till rubriken Ac
 Vissa CORS-problem kan inte lösas, till exempel när appen omdirigeras till *login.microsoftonline.com* för autentisering och åtkomsttoken upphör att gälla. CORS-anropet Miss lyckas sedan. En lösning för det här scenariot är att utöka livs längden för åtkomsttoken, för att förhindra att den upphör att gälla under en användarsession. Mer information om hur du gör detta finns i [konfigurations bara livs längder för token i Azure AD](../develop/active-directory-configurable-token-lifetimes.md).
 
 ## <a name="see-also"></a>Se också
-- [Självstudier: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory](application-proxy-add-on-premises-application.md) 
+- [Självstudier: Lägg till ett lokalt program för fjärråtkomst via Application Proxy i Azure Active Directory @ no__t-0 
 - [Planera en Azure AD-programproxy-distribution](application-proxy-deployment-plan.md) 
 - [Fjärråtkomst till lokala program via Azure Active Directory-programproxy](application-proxy.md) 

@@ -4,14 +4,14 @@ description: Så här fyller du i Azure Blob Storage för användning med Azure 
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: c18e1c9afab211a8ac076307eefc9074ae7c99d6
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 10/07/2019
+ms.author: rohogue
+ms.openlocfilehash: 6c505e6918071b61a4152b0b421ed7cee3282206
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300000"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024499"
 ---
 # <a name="move-data-to-azure-blob-storage"></a>Flytta data till Azure Blob Storage
 
@@ -27,7 +27,7 @@ Tänk på följande saker:
 
 Det finns ett python-baserat verktyg för att läsa in innehåll i en Blob Storage-behållare. Läs för [inläsning av data i Blob Storage](#pre-load-data-in-blob-storage-with-clfsload) för mer information.
 
-Om du inte vill använda inläsnings verktyget, eller om du vill lägga till innehåll i ett befintligt lagrings mål, följer du tipsen för parallell data inmatning i [Kopiera data via Azure HPC-cachen](#copy-data-through-the-azure-hpc-cache). 
+Om du inte vill använda inläsnings verktyget, eller om du vill lägga till innehåll i ett befintligt lagrings mål, följer du tipsen för parallell data inmatning i [Kopiera data via Azure HPC-cachen](#copy-data-through-the-azure-hpc-cache).
 
 ## <a name="pre-load-data-in-blob-storage-with-clfsload"></a>För inläsning av data i blob-lagring med CLFSLoad
 
@@ -58,13 +58,13 @@ Verktyget aver CLFSLoad behöver följande information:
 
 Om du inte vill använda verktyget aver CLFSLoad eller om du vill lägga till en stor mängd data till ett befintligt Blob Storage-mål, kan du kopiera det via cachen. Azure HPC cache är utformat för att betjäna flera klienter samtidigt, så att du kan kopiera data via cachen genom att använda parallella skrivningar från flera klienter.
 
-![Diagram som visar multi-client, multi-threadd data förflyttning: I det övre vänstra hörnet har en ikon för lokal maskin varu lagring flera pilar från sig. Pilarna pekar på fyra klient datorer. Från varje klient dator tre pilar pekar du mot Azure HPC-cachen. Från Azure HPC cache pekar flera pilar på Blob Storage.](media/hpc-cache-parallel-ingest.png) 
+![Diagram som visar multi-client, multi-threadd data förflyttning: I det övre vänstra hörnet har en ikon för lokal maskin varu lagring flera pilar från sig. Pilarna pekar på fyra klient datorer. Från varje klient dator tre pilar pekar du mot Azure HPC-cachen. Från Azure HPC cache pekar flera pilar på Blob Storage.](media/hpc-cache-parallel-ingest.png)
 
-De ``cp`` eller``copy`` -kommandon som du vanligt vis använder för att överföra data från ett lagrings system till ett annat är processer med enkel tråd som bara kopierar en fil i taget. Det innebär att fil servern bara matar in en fil i taget, vilket är slöseri med cachens resurser.
+De ``cp``-eller ``copy``-kommandon som du vanligt vis använder för att överföra data från ett lagrings system till ett annat är processer med enkel tråd som bara kopierar en fil i taget. Det innebär att fil servern bara matar in en fil i taget, vilket är slöseri med cachens resurser.
 
 I det här avsnittet beskrivs strategier för att skapa en fil kopierings system med flera klienter och flera trådar för att flytta data till blob-lagring med Azure HPC-cache. Den förklarar fil överförings koncept och besluts punkter som kan användas för effektiv data kopiering med hjälp av flera klienter och kommandon för enkel kopiering.
 
-Det beskriver också vissa verktyg som kan hjälpa dig. ``msrsync`` Verktyget kan användas för att delvis automatisera processen med att dela upp en data uppsättning i buckets och använda rsync-kommandon. ``parallelcp`` Skriptet är ett annat verktyg som läser käll katalogen och utfärdar kopierings kommandon automatiskt.
+Det beskriver också vissa verktyg som kan hjälpa dig. @No__t-0-verktyget kan användas för att delvis automatisera processen med att dela upp en data uppsättning i buckets och använda rsync-kommandon. @No__t-0-skriptet är ett annat verktyg som läser käll katalogen och utfärdar kopierings kommandon automatiskt.
 
 ### <a name="strategic-planning"></a>Strategisk planering
 
@@ -77,9 +77,9 @@ Varje kopierings process har en data flödes hastighet och en fil överförings 
 
 Strategier för parallell data inmatning med Azure HPC-cache inkluderar:
 
-* Manuell kopiering – du kan manuellt skapa en flertrådad kopia på en klient genom att köra fler än ett kopierings kommando på en gång i bakgrunden mot fördefinierade uppsättningar av filer eller sökvägar. Läs mer i [Azure HPC Cloud data intag – manuell kopierings metod](hpc-cache-ingest-manual.md) .
+* Manuell kopiering – du kan manuellt skapa en flertrådad kopia på en klient genom att köra fler än ett kopierings kommando på en gång i bakgrunden mot fördefinierade uppsättningar av filer eller sökvägar. Läs mer i [Azure HPC cache-data inmatning – manuell kopierings metod](hpc-cache-ingest-manual.md) .
 
-* Delvis automatiserad kopiering ``msrsync`` med  -  ``msrsync`` är ett wrapper-verktyg som ``rsync`` kör flera parallella processer. Mer information finns i [Azure HPC-data intag – msrsync-metoden](hpc-cache-ingest-msrsync.md).
+* Delvis automatiserad kopiering med ``msrsync`` @ no__t-1 @ no__t-2 är ett wrapper-verktyg som kör flera parallella ``rsync``-processer. Mer information finns i [Azure HPC-data intag – msrsync-metoden](hpc-cache-ingest-msrsync.md).
 
 * Skriptad kopiering med ``parallelcp`` – lär dig hur du skapar och kör ett parallellt kopierings skript i [Azure HPC-data inmatning – parallell kopiering skript metod](hpc-cache-ingest-parallelcp.md).
 

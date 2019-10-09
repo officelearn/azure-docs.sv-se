@@ -1,49 +1,49 @@
 ---
-title: Azure Data dataflöde Factory mappning ny gren omvandling
-description: Azure Data dataflöde Factory mappning ny gren omvandling
+title: Azure Data Factory mappa data flöde ny gren omvandling
+description: Azure Data Factory mappa data flöde ny gren omvandling
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/12/2019
-ms.openlocfilehash: af2225d749283c7124f89d5a7cd735b2f6bfd121
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 35d5b2250cb5f2f5bd5b3a0073dc2e3c655ceccb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61348272"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029917"
 ---
-# <a name="mapping-data-flow-union-transformation"></a>Mappning av union Dataomvandling för flow
+# <a name="mapping-data-flow-union-transformation"></a>Mappa data Flow union-transformering
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Union att kombinera flera dataströmmar till en med den SQL unionen av dessa strömmar som nya utdata från Union transformeringen. Alla schemat från varje Indataströmmen kommer att kombineras i ditt dataflöde, utan att behöva ha en join-nyckel.
 
-Du kan kombinera n antalet dataströmmar i inställningstabellen genom att välja ikonen ”+” bredvid varje konfigurerade rad, inklusive såväl källdata som dataströmmar från befintliga transformeringar i ditt dataflöde.
+Union kombinerar flera data strömmar till en, med SQL-unionen av dessa strömmar som nya utdata från Union-omvandlingen. Alla scheman från varje indataströmmen kommer att kombineras i ditt data flöde, utan att ha en kopplings nyckel.
 
-![Union omvandling](media/data-flow/union.png "Union")
+Du kan kombinera n-antal strömmar i inställnings tabellen genom att välja ikonen "+" bredvid varje konfigurerad rad, inklusive både käll data och strömmar från befintliga transformationer i ditt data flöde.
 
-I det här fallet kan du kombinera olika metadata från flera källor (i det här exemplet tre olika källfiler) och kombinera dem i en enda dataström:
+Unions ![omtransformerings](media/data-flow/union.png "union")
 
-![Översikt över Union omvandling](media/data-flow/union111.png "Union 1")
+I det här fallet kan du kombinera olika metadata från flera källor (i det här exemplet tre olika källfiler) och kombinera dem till en enda ström:
 
-Om du vill uppnå genom att lägga till ytterligare rader i Union inställningarna genom att inkludera alla källa som du vill lägga till. Det finns inget behov av en gemensam lookup- eller join-nyckel:
+![Översikt över union-omvandling],(media/data-flow/union111.png "union 1")
 
-![Inställningar för Union omvandling](media/data-flow/unionsettings.png "Union inställningar")
+För att åstadkomma detta lägger du till ytterligare rader i unions inställningarna genom att inkludera alla källor som du vill lägga till. Det finns inget behov av en gemensam Sök-eller kopplings nyckel:
 
-Om du ställer in en Select transformation efter din Union kommer du att kunna överlappande fält eller fält som inte med namnet från headerless källor. Klicka på ”Granska” för att se kombinera metadata med 132 kolumner i det här exemplet från tre olika källor:
+(media/data-flow/unionsettings.png "Inställningar") för ![union Transformation Settings]
 
-![Union omvandling sista](media/data-flow/union333.png "Union 3")
+Om du ställer in en Välj omvandling efter din union, kan du byta namn på överlappande fält eller fält som inte har namngetts från huvudets huvud källor. Klicka på "inspektera" om du vill se kombinera metadata med 132 totala kolumner i det här exemplet från tre olika källor:
 
-## <a name="name-and-position"></a>Namn och placering
+![Union-transformering slut](media/data-flow/union333.png "union 3")
 
-När du väljer ”union med namnet” kommer varje kolumnvärde släpper i motsvarande kolumn från varje källa, med ett nytt metadataschema sammanslagna.
+## <a name="name-and-position"></a>Namn och position
 
-Om du väljer ”union efter position”, kommer varje kolumnvärde släpper i den ursprungliga placeringen från varje motsvarande källa, vilket resulterar i en ny kombinerade dataström där data från varje källa har lagts till i samma dataström:
+När du väljer "union efter namn", kommer varje kolumn värde att släppas i motsvarande kolumn från varje källa med ett nytt sammanfogat metadata-schema.
 
-![Union utdata](media/data-flow/unionoutput.png "Union utdata")
+Om du väljer "union by position" kommer varje kolumn värde att släppas till den ursprungliga positionen från varje motsvarande källa, vilket resulterar i en ny kombinerad data ström där data från varje källa läggs till i samma ström:
+
+![Union]output-utdata i(media/data-flow/unionoutput.png "union")
 
 ## <a name="next-steps"></a>Nästa steg
 
-Utforska liknande transformeringar, inklusive [ansluta](data-flow-join.md) och [Exists](data-flow-exists.md).
+Utforska liknande omvandlingar inklusive [Join](data-flow-join.md) och [exists](data-flow-exists.md).

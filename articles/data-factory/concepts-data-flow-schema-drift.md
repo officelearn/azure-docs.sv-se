@@ -7,16 +7,16 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/12/2019
-ms.openlocfilehash: 68c0da5a7fe2b02c6115a8c1bbc24feb95e12adb
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5eff92352251febca1d4e7033618372dc929d987
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003737"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029402"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Schema avvikelse i mappnings data flödet
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 Schema avvikelse är det fall där dina källor ofta ändrar metadata. Fält, kolumner och, typer kan läggas till, tas bort eller ändras i farten. Utan hantering av schema avvikelser blir ditt data flöde sårbart för överordnade data käll ändringar. Vanliga ETL-mönster fungerar inte när inkommande kolumner och fält ändras eftersom de tenderar att vara knutna till dessa käll namn.
 
@@ -34,7 +34,7 @@ Du måste fatta ett arkitektur beslut i ditt data flöde för att acceptera sche
 
 I en käll omvandling definieras schema avvikelsen som att läsa kolumner som inte har definierats i data uppsättnings schemat. Om du vill aktivera schema avvikelse kontrollerar du **Tillåt schema avvikelse** i din käll omvandling.
 
-![Schema avvikelse källa](media/data-flow/schemadrift001.png "Schema avvikelse källa")
+![Schema](media/data-flow/schemadrift001.png "avvikelse källa för") schema riktning
 
 När schema avvikelsen är aktive rad läses alla inkommande fält från din källa under körningen och skickas genom hela flödet till mottagaren. Som standard tas alla nyligen identifierade kolumner, som kallas för inkommande *kolumner*, emot som en sträng data typ. Om du vill att data flödet automatiskt ska härleda data typer av inaktuella kolumner kontrollerar du **härledda kolumn typer** i dina käll inställningar.
 
@@ -42,17 +42,17 @@ När schema avvikelsen är aktive rad läses alla inkommande fält från din kä
 
 I en Sink-omvandling är schema avvikelse när du skriver ytterligare kolumner ovanpå vad som definieras i data inmatnings schema. Om du vill aktivera schema avvikelse kontrollerar du **Tillåt schema avvikelse** i din Sink-omvandling.
 
-![Schema avvikelse mottagare](media/data-flow/schemadrift002.png "Schema avvikelse mottagare")
+![Schema avvikelse mottagare](media/data-flow/schemadrift002.png "schema avvikelse mottagare")
 
 Om schema avvikelse är aktiverat kontrollerar du att skjutreglaget för **automatisk mappning** på fliken mappning är aktiverat. Med det här skjutreglaget på, skrivs alla inkommande kolumner till ditt mål. Annars måste du använda regelbaserade mappningar för att skriva förbrukade kolumner.
 
-![Automatisk mappning av mottagare](media/data-flow/automap.png "Automatisk mappning av mottagare")
+![Mottagare]automatiskt mappning av(media/data-flow/automap.png "mottagare")
 
 ## <a name="transforming-drifted-columns"></a>Omvandla informerade kolumner
 
 När ditt data flöde har förfallna kolumner, kan du komma åt dem i dina omvandlingar med följande metoder:
 
-* Använd uttryck `byName` och för att explicit referera till en kolumn efter namn eller positions nummer. `byPosition`
+* Använd `byPosition`-och `byName`-uttryck för att explicit referera till en kolumn efter namn eller positions nummer.
 * Lägg till ett kolumn mönster i en härledd kolumn eller aggregerad omvandling så att den matchar valfri kombination av namn, ström, position eller typ
 * Lägg till regelbaserade mappningar i en urvals-eller Sink-omvandling för att matcha nedsänkta kolumner till kolumnalias i kolumner via ett mönster
 
@@ -62,11 +62,11 @@ Mer information om hur du implementerar kolumn mönster finns [i kolumn mönster
 
 Om du vill referera till påpekade kolumner kan du snabbt skapa mappningar för dessa kolumner via snabb åtgärden för förhands granskning av data. När [fel söknings läget](concepts-data-flow-debug-mode.md) är på går du till fliken Data förhands granskning och klickar på **Uppdatera** för att hämta en data för hands version. Om Data Factory upptäcker att det finns inaktuella kolumner kan du klicka på **Mappa** och generera en härledd kolumn som gör att du kan referera till alla nedstaplade kolumner i schema vyerna.
 
-![Kartning](media/data-flow/mapdrifted1.png "Kartning")
+![Kart]förförskjutnings(media/data-flow/mapdrifted1.png "karta")
 
 I den genererade härledda kolumn-omvandlingen mappas varje nedstaplad kolumn till dess identifierade namn och datatyp. I data förhands granskningen ovan identifieras kolumnen ' movieId ' som ett heltal. När du har klickat på **kartan** definieras movieId i den härledda kolumnen som `toInteger(byName('movieId'))` och tas med i schema vyerna i efterföljande transformeringar.
 
-![Kartning](media/data-flow/mapdrifted2.png "Kartning")
+![Kart]förförskjutnings(media/data-flow/mapdrifted2.png "karta")
 
 ## <a name="next-steps"></a>Nästa steg
 I [data flödets uttrycks språk](data-flow-expression-functions.md)hittar du ytterligare funktioner för kolumn mönster och schema avvikelser, inklusive "byName" och "byPosition".

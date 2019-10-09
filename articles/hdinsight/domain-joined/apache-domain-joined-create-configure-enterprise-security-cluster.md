@@ -8,12 +8,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: conceptual
 ms.date: 05/09/2019
-ms.openlocfilehash: 9b9071eae4ec18cb1d5fd277f6f5403ce3997f48
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: aed656c65fc70946f7d91cb4354e1c081954e68c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261730"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030390"
 ---
 # <a name="create-and-configure-enterprise-security-package-clusters-in-azure-hdinsight"></a>Skapa och konfigurera Enterprise Security Package kluster i Azure HDInsight
 
@@ -88,7 +88,7 @@ I det här avsnittet ska du skapa de användare som ska ha åtkomst till HDInsig
 
         ![Skapa ett andra administratörs användar objekt](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0024.png)
 
-1. På sidan **Active Directory användare och datorer** väljer du **åtgärd** > **ny** > **grupp**. Lägg till en grupp med namnet *HDIUserGroup*.
+1. På sidan **Active Directory användare och datorer** väljer du **åtgärd** > **ny** > -**grupp**. Lägg till en grupp med namnet *HDIUserGroup*.
 
     ![Skapa en ny Active Directory grupp](./media/apache-domain-joined-create-configure-enterprise-security-cluster/create-active-directory-group.png)
 
@@ -133,20 +133,20 @@ Nu ska du konfigurera din Azure AD-klient så att du kan synkronisera användare
     1. Under **Hantera**väljer **du användare** > **ny användare**.
     1. Ange följande information för den nya användaren:
         * **Namn**: fabrikamazureadmin
-        * **Användar namn**:fabrikamazureadmin@hdifabrikam.com
+        * **Användar namn**: fabrikamazureadmin@hdifabrikam.com
         * **Lösenord**: Ett säkert lösen ord som du väljer
 
     1. I avsnittet **grupper** söker du efter **AAD DC-administratörer** och klickar på **Välj**.
 
         ![Dialog rutan Azure AD-grupper](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0038.png)
 
-    1. Öppna avsnittet **katalog roll** och gå till höger och välj **Global administratör** > **OK**.
+    1. Öppna avsnittet **katalog roll** och välj **Global administratör** > **OK**till höger.
 
         ![Dialog rutan Azure AD-roll](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0040.png)
 
     1. Ange ett lösen ord för användaren. Välj sedan **Skapa**.
 
-1. Om du vill ändra lösen ordet för den nyligen skapade användaren \< fabrikamazureadmin@hdifabrikam.com> använder du identiteten för att logga in på Azure Portal. Sedan uppmanas du att ändra lösen ordet.
+1. Om du vill ändra lösen ordet för den nyligen skapade användaren \< @ no__t-1 > använder du identiteten för att logga in på Azure Portal. Sedan uppmanas du att ändra lösen ordet.
 
 ## <a name="sync-on-premises-users-to-azure-ad"></a>Synkronisera lokala användare med Azure AD
 
@@ -166,26 +166,26 @@ Nu ska du konfigurera din Azure AD-klient så att du kan synkronisera användare
 
 ### <a name="configure-a-sync-with-the-on-premises-domain-controller"></a>Konfigurera en synkronisering med den lokala domänkontrollanten
 
-1. På sidan **Anslut till Azure AD** anger du användar namn och lösen ord för den globala administratören för Azure AD. Använd det användar `fabrikamazureadmin@hdifabrikam.com` namn som du skapade när du konfigurerade Active Directory-klienten. Välj sedan **Nästa**. 
+1. På sidan **Anslut till Azure AD** anger du användar namn och lösen ord för den globala administratören för Azure AD. Använd användar namnet `fabrikamazureadmin@hdifabrikam.com` som du skapade när du konfigurerade Active Directory klienten. Välj sedan **Nästa**. 
 
     ![Sidan "Anslut till Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0058.png)
 
-1. På sidan **Anslut till Active Directory Domain Services** anger du användar namnet och lösen ordet för ett företags administratörs konto. Använd användar namnet `HDIFabrikam\HDIFabrikamAdmin` och lösen ordet som du skapade tidigare. Välj sedan **Nästa**. 
+1. På sidan **Anslut till Active Directory Domain Services** anger du användar namnet och lösen ordet för ett företags administratörs konto. Använd användar namnet `HDIFabrikam\HDIFabrikamAdmin` och lösen ordet som du skapade tidigare. Välj sedan **Nästa**. 
 
    ![Sidan "Anslut till Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0060.png)
 1. På sidan **konfiguration av Azure AD-inloggning** väljer du **Nästa**.
-   ![Sidan "inloggnings konfiguration för Azure AD"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0062.png)
+   @no__t 0The "Azure AD-inloggning" sidan @ no__t-1
 
-1. Välj **Installera**på sidan **klar att konfigurera** .
+1. Välj **Installera**på sidan **klar att konfigurera** .
 
    ![Sidan "klar att konfigurera"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0064.png)
 
 1. På sidan **konfigurationen har slutförts** väljer du **Avsluta**.
-   ![Sidan "konfigurationen har slutförts"](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0078.png)
+   ![The "konfigurationen är klar" @ no__t-1
 
 1. När synkroniseringen är klar bekräftar du att de användare som du skapade i IaaS-katalogen synkroniseras med Azure AD.
    1. Logga in på Azure Portal.
-   1. Välj **Azure Active Directory** > HDIFabrikam- > **användare**.
+   1. Välj **Azure Active Directory** > **HDIFabrikam** > **användare**.
 
 ### <a name="create-a-user-assigned-managed-identity"></a>Skapa en användartilldelad hanterad identitet
 
@@ -199,7 +199,7 @@ Skapa en användardefinierad hanterad identitet som du kan använda för att kon
 1. Under **plats**väljer du **centrala USA**.
 1. Välj **Skapa**.
 
-![skapa en ny användare som tilldelats en hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png)
+![Skapa en ny användare som tilldelats en hanterad identitet](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0082.png)
 
 ### <a name="enable-azure-ad-ds"></a>Aktivera Azure AD DS
 
@@ -250,8 +250,8 @@ Använd följande steg för att konfigurera Azure AD DS Virtual Network (**HDIFa
 
 1. Leta upp IP-adresserna för dina anpassade DNS-servrar. 
     1. Välj **HDIFabrikam.com** Azure AD DS-resurs. 
-    1. Under **Hantera**, väljer du **Egenskaper**. 
-    1. Hitta IP-adresserna under **IP-adress i virtuellt nätverk**.
+    1. Under **Hantera**, väljer du **Egenskaper**. 
+    1. Hitta IP-adresserna under **IP-adress i virtuellt nätverk**.
 
     ![Hitta anpassade DNS-IP-adresser för Azure AD DS](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0096.png)
 
@@ -260,7 +260,7 @@ Använd följande steg för att konfigurera Azure AD DS Virtual Network (**HDIFa
     1. Under **Inställningar**väljer du **DNS-servrar**. 
     1. Välj **anpassad**.
     1. I text rutan anger du den första IP-adressen (*10.0.0.4*).
-    1. Välj  **Spara**.
+    1. Välj **Spara**.
     1. Upprepa stegen för att lägga till den andra IP-adressen (*10.0.0.5*).
 
 I vårt scenario konfigurerade vi Azure AD DS att använda IP-adresser 10.0.0.4 och 10.0.0.5 och ange samma IP-adress på det virtuella Azure AD DS-nätverket:
@@ -285,25 +285,25 @@ New-SelfSignedCertificate -Subject hdifabrikam.com `
 ```
 
 > [!NOTE] 
-> Alla verktyg eller program som skapar en giltig PKCS 10-begäran (Public Key Cryptography \#Standards) kan användas för att forma begäran om SSL-certifikat.
+> Alla verktyg eller program som skapar en giltig PKCS (Public Key Cryptography Standards) \#10-begäran kan användas för att forma begäran om SSL-certifikat.
 
 Kontrol lera att certifikatet är installerat i datorns **personliga** Arkiv:
 
 1. Starta Microsoft Management Console (MMC).
 1. Lägg till snapin-modulen **certifikat** som hanterar certifikat på den lokala datorn.
-1. Expandera **certifikat (lokal dator)**  > **personliga** > **certifikat**. Ett nytt certifikat bör finnas i det **personliga** arkivet. Certifikatet utfärdas till det fullständigt kvalificerade värd namnet.
+1. Expandera **certifikat (lokal dator)**  > **personliga** > -**certifikat**. Ett nytt certifikat bör finnas i det **personliga** arkivet. Certifikatet utfärdas till det fullständigt kvalificerade värd namnet.
 
     ![Bekräfta skapande av lokalt certifikat](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0102.png)
 
-1. I fönstret till höger högerklickar du på det certifikat som du har skapat. Peka på **alla aktiviteter**och välj sedan **Exportera**.
+1. I fönstret till höger högerklickar du på det certifikat som du har skapat. Peka på **alla aktiviteter**och välj sedan **Exportera**.
 
-1. På sidan **Exportera privat nyckel** väljer du **Ja, exportera den privata nyckeln**. Datorn där nyckeln kommer att importeras behöver den privata nyckeln för att läsa de krypterade meddelandena.
+1. På sidan **Exportera privat nyckel** väljer du **Ja, exportera den privata nyckeln**. Datorn där nyckeln kommer att importeras behöver den privata nyckeln för att läsa de krypterade meddelandena.
 
     ![Sidan Exportera privat nyckel i guiden Exportera certifikat](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0103.png)
 
-1. På sidan **fil format** för export lämnar du standardinställningarna och väljer sedan **Nästa**. 
-1. På sidan **lösen ord** anger du ett lösen ord för den privata nyckeln. För **kryptering**väljer du **TripleDES-SHA1**. Välj sedan **Nästa**.
-1. På sidan **fil som ska exporteras** anger du sökvägen till och namnet på den exporterade certifikat filen och väljer sedan **Nästa**. Fil namnet måste ha fil namns tillägget. pfx. Den här filen konfigureras i Azure Portal för att upprätta en säker anslutning.
+1. På sidan **fil format för export** lämnar du standardinställningarna och väljer sedan **Nästa**. 
+1. På sidan **lösen ord** anger du ett lösen ord för den privata nyckeln. För **kryptering**väljer du **TripleDES-SHA1**. Välj sedan **Nästa**.
+1. På sidan **fil som ska exporteras** anger du sökvägen till och namnet på den exporterade certifikat filen och väljer sedan **Nästa**. Fil namnet måste ha fil namns tillägget. pfx. Den här filen konfigureras i Azure Portal för att upprätta en säker anslutning.
 1. Aktivera LDAPs för en Azure AD DS-hanterad domän.
     1. Välj domänen **HDIFabrikam.com**från Azure Portal.
     1. Under **Hantera**väljer du **säkert LDAP**.
@@ -326,7 +326,7 @@ Kontrol lera att certifikatet är installerat i datorns **personliga** Arkiv:
         | Destination port range | 636 |
         | Protocol | Any |
         | Action | Allow |
-        | Priority | \<Önskat antal > |
+        | Priority | \<Desired nummer > |
         | Name | Port_LDAP_636 |
 
     ![Dialog rutan Lägg till inkommande säkerhets regel](./media/apache-domain-joined-create-configure-enterprise-security-cluster/add-inbound-security-rule.png)
@@ -348,7 +348,7 @@ Det här steget kräver följande krav:
     $virtualNetwork | Set-AzVirtualNetwork
     ```
 
-1. Skapa en peer-relation mellan det virtuella nätverk som är värd för Azure`HDIFabrikam-AADDSVNET`AD DS () och det virtuella nätverk som ska vara värd för det ESP`HDIFabrikam-HDIVNet`-aktiverade HDInsight-klustret (). Använd följande PowerShell-kod för att peer-koppla de två virtuella nätverken.
+1. Skapa en peer-relation mellan det virtuella nätverk som är värd för Azure AD DS (`HDIFabrikam-AADDSVNET`) och det virtuella nätverk som ska vara värd för det ESP-aktiverade HDInsight-klustret (`HDIFabrikam-HDIVNet`). Använd följande PowerShell-kod för att peer-koppla de två virtuella nätverken.
 
     ```powershell
     Add-AzVirtualNetworkPeering -Name 'HDIVNet-AADDSVNet' -RemoteVirtualNetworkId (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-CentralUS').Id -VirtualNetwork (Get-AzVirtualNetwork -ResourceGroupName 'HDIFabrikam-WestUS')
@@ -378,7 +378,7 @@ Det här steget kräver följande krav:
 
     1. Slutför de andra stegen i kluster konfigurationen och kontrol lera informationen i **kluster sammanfattningen**. Välj **Skapa**.
 
-1. Logga in på Ambari-ANVÄNDARGRÄNSSNITTET för det nyligen skapade klustret på `https://CLUSTERNAME.azurehdinsight.net`. Använd administratörens användar `hdiadmin@hdifabrikam.com` namn och lösen ord.
+1. Logga in på Ambari-ANVÄNDARGRÄNSSNITTET för det nyligen skapade klustret på `https://CLUSTERNAME.azurehdinsight.net`. Använd administratörens användar namn `hdiadmin@hdifabrikam.com` och dess lösen ord.
 
     ![Fönstret Apache Ambari UI-inloggning](./media/apache-domain-joined-create-configure-enterprise-security-cluster/hdinsight-image-0135.jpg)
 

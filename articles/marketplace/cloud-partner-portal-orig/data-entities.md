@@ -1,37 +1,22 @@
 ---
-title: Dataentiteter
-description: En översikt över dataentiteter.
+title: Data enheter
+description: Aktuell CPP-artikel och länkad till PC-artikel; var "en översikt över dataentiteter".
 services: Azure, Marketplace, Cloud Partner Portal,
-author: pbutlerm
+author: ChJenk
 manager: Ricardo.Villalobos
 ms.service: marketplace
 ms.topic: conceptual
-ms.date: 09/13/2018
-ms.author: pabutler
-ms.openlocfilehash: a382f9b3ce08bba266311c2cc1d5f868f1bc3143
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.date: 09/30/2019
+ms.author: v-chjen
+ms.openlocfilehash: 072e06527c7744891db163c637734f4878fe312c
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64934935"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72034916"
 ---
-# <a name="data-entities"></a>Dataentiteter
+# <a name="data-entities"></a>Data enheter
 
-Den här artikeln definierar och ger en översikt över dataentiteter. Den innehåller information om funktionerna i dataentiteter, de scenarier som de stöder och de kategorier som används för dem och metoder för att skapa dem.
+[Cloud Partner Portal](https://cloudpartner.azure.com/) har inte längre stöd för att skapa och hantera Dynamics 365 för finans-och drift erbjudanden. I stället har den här funktionen flyttats till Microsoft [partner Center-portalen](https://partner.microsoft.com/). Mer information finns i [skapa en ny Dynamics 365 for Operations-erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
 
-## <a name="overview"></a>Översikt
-
-En dataenhet är en abstraktion av fysiska tillämpningen av databastabeller. Till exempel data för varje kund kan lagras i en kundtabell i normaliserade tabeller, och sedan resten kan spridas till en liten uppsättning relaterade tabeller. I det här fallet visas data entitet för kund-konceptet som en avnormaliserat vy, där varje rad innehåller alla data från kundtabellen och dess relaterade tabeller. En dataenhet kapslar in ett koncept för företag till ett format som underlättar utveckling och integration. Den abstraherad natur en dataenhet kan förenkla programutvecklingen och anpassning. Senare, gör abstraktionen också programkod från ofrånkomligt omsättning av fysiska tabellerna mellan versioner.
-
-Sammanfattningsvis: Datatabell Ger konceptuell abstraktion och inkapsling (avnormaliserat view) av underliggande tabellscheman som representerar viktiga begrepp och funktioner.
-
-## <a name="capabilities"></a>Funktioner
-
-En dataenhet har följande funktioner:
-
-- Det ersätter avvikande och fragmenterade begreppet AXD Data Import/Export Framework (DIXF) entiteter och aggregering frågar med enkel begrepp.
-- Det ger en enda stack för att avbilda affärslogik och för att aktivera scenarier, till exempel import/export, integration och programmering.
-- Det blir den primära mekanismen för att exportera och importera data paket för Application Lifecycle Management (ALM) och demo datascenarier.
-- Den kan visas som OData-tjänsten, och sedan används i tabular-style synkron integrationsscenarier och Microsoft Office-integreringar.
-
-Se [Dataentiteter](https://docs.microsoft.com/dynamics365/operations/dev-itpro/data-entities/data-entities) för mer information.
+Innan du skapar en ny Dynamics 365 för Operations-erbjudandet bör du läsa [skapa ett partner Center-konto](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) och sedan öppna [instrument panelen för instrument panelen](https://partner.microsoft.com/dashboard/directory) med den valda **översikts** sidan. Följ instruktionerna i [skapa en ny Dynamics 365 för drift erbjudande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer) för att skapa ditt erbjudande.

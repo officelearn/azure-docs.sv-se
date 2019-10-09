@@ -2,19 +2,19 @@
 title: Använda SSH med Hadoop – Azure HDInsight
 description: Du kan komma åt HDInsight med hjälp av SSH (Secure Shell). Det här dokumentet innehåller information om hur du ansluter till HDInsight med hjälp av ssh- och scp-kommandon från Windows, Linux, Unix eller macOS klienter.
 author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 keywords: hadoop-kommandon i linux, hadoop linux-kommandon, hadoop macos, ssh hadoop, ssh hadoop-kluster
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/03/2019
-ms.author: hrasheed
+ms.date: 10/02/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive,hdiseo17may2017
-ms.openlocfilehash: 934300351c05b1709dc9df38909edb1bb4ae73ea
-ms.sourcegitcommit: 6cbf5cc35840a30a6b918cb3630af68f5a2beead
+ms.openlocfilehash: 58a00d36120a4f8bbab0388f02f414c7f48b47b9
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/05/2019
-ms.locfileid: "68779575"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72028763"
 ---
 # <a name="connect-to-hdinsight-apache-hadoop-using-ssh"></a>Ansluta till HDInsight (Apache Hadoop) med SSH
 
@@ -26,8 +26,8 @@ Följande tabell innehåller den adress och portinformation som behövs för att
 | ----- | ----- | ----- |
 | `<clustername>-ssh.azurehdinsight.net` | 22 | Den primära huvudnoden |
 | `<clustername>-ssh.azurehdinsight.net` | 23 | Den sekundära huvudnoden |
-| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge-nod (ML Services på HDInsight) |
-| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Kantnod (alla andra klustertyper, om det finns en kantnod) |
+| `<clustername>-ed-ssh.azurehdinsight.net` | 22 | Edge-nod (ML-tjänster på HDInsight) |
+| `<edgenodename>.<clustername>-ssh.azurehdinsight.net` | 22 | Edge-nod (alla andra kluster typer, om en Edge-nod finns) |
 
 Ersätt `<clustername>` med namnet på klustret. Ersätt `<edgenodename>` med namnet på kantnoden. 
 
@@ -42,7 +42,7 @@ Om klustret innehåller en kantnod, rekommenderar vi att du __alltid ansluter ti
 
 Linux, Unix- och macOS system ger kommandon `ssh` och `scp`. Klienten `ssh` används ofta för att skapa en fjärrsession med kommandoradsverktyget med Linux eller Unix-baserade system. Klienten `scp` används för att kopiera filer mellan klienten och fjärrdatorn på ett säkert sätt.
 
-Microsoft Windows installerar ingen SSH-klient som standard. Klienterna `ssh` och `scp` är tillgängliga för Windows via följande paket:
+Microsoft Windows installerar inga SSH-klienter som standard. Klienterna `ssh` och `scp` är tillgängliga för Windows via följande paket:
 
 * [Openssh-klient](https://docs.microsoft.com/windows-server/administration/openssh/openssh_install_firstuse). Detta är en valfri funktion som introducerades i Windows 10-skapare uppdatering.
 
@@ -75,7 +75,7 @@ Använd `ssh-keygen`-kommandot för att skapa filer för offentliga och privata 
 
     ssh-keygen -t rsa -b 2048
 
-Du uppmanas att ange information när nyckeln skapas. Till exempel var nycklarna lagras eller om du vill använda en lösenfras. När processen har slutförts har två filer skapats: en offentlig nyckel och en privat nyckel.
+Du uppmanas att ange information under processen för att skapa nyckeln. Till exempel var nycklarna lagras eller om du vill använda en lösenfras. När processen har slutförts har två filer skapats: en offentlig nyckel och en privat nyckel.
 
 * Den __offentliga nyckeln__ används för att skapa ett HDInsight-kluster. Den offentliga nyckeln har filnamnstillägget `.pub`.
 
@@ -88,14 +88,14 @@ Du uppmanas att ange information när nyckeln skapas. Till exempel var nycklarna
 
 | Genereringsmetod | Så här använder du den offentliga nyckeln |
 | ------- | ------- |
-| Azure Portal | Avmarkera __Använd samma lösenord som klusterinloggning__ och välj sedan __Offentlig nyckel__ som SSH-autentiseringstyp. Välj slutligen filen för den offentliga nyckeln eller klistra in textinnehållet från filen i fältet __Offentlig SSH-nyckel__.</br>![Dialogrutan Offentlig SSH-nyckel vid generering av HDInsight-kluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
-| Azure PowerShell | Använd parametern för cmdleten [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) och skicka innehållet i den offentliga nyckeln som en sträng. `-SshPublicKey`|
-| Azure CLI | Använd parametern för [AZ HDInsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) -kommandot och skicka innehållet i den offentliga nyckeln som en sträng. `--sshPublicKey` |
+| Azure Portal | Avmarkera __Använd kluster inloggnings lösen ord för SSH__och välj sedan __offentlig nyckel__ som SSH-autentiseringstyp. Välj slutligen filen för den offentliga nyckeln eller klistra in textinnehållet från filen i fältet __Offentlig SSH-nyckel__.</br>![Dialogrutan Offentlig SSH-nyckel vid generering av HDInsight-kluster](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-public-key.png) |
+| Azure PowerShell | Använd parametern `-SshPublicKey` för cmdleten [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) och skicka innehållet i den offentliga nyckeln som en sträng.|
+| Azure CLI | Använd parametern `--sshPublicKey` för kommandot [AZ HDInsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) och skicka innehållet i den offentliga nyckeln som en sträng. |
 | Resource Manager-mall | Ett exempel på hur du använder SSH-nycklar med en mall finns i avsnittet [Deploy HDInsight on Linux with SSH key](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-publickey/) (Distribuera HDInsight i Linux med en SSH-nyckel). `publicKeys`-elementet i filen [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-publickey/azuredeploy.json) används för att skicka nycklarna till Azure när klustret skapas. |
 
 ## <a id="sshpassword"></a>Anspråksautentisering lösenordsinställning
 
-SSH-konton kan skyddas med ett lösenord. När du ansluter till HDInsight med hjälp av SSH uppmanas du att ange lösenordet.
+SSH-konton kan skyddas med ett lösenord. När du ansluter till HDInsight med hjälp av SSH uppmanas du att ange lösen ordet.
 
 > [!WARNING]  
 > Microsoft rekommenderar inte lösenordsverifiering för SSH. Lösenord kan gissas och är sårbara för råstyrkeattacker. I stället rekommenderar vi att du använder [SSH-nycklar för autentisering](#sshkey).
@@ -107,9 +107,9 @@ SSH-konton kan skyddas med ett lösenord. När du ansluter till HDInsight med hj
 
 | Genereringsmetod | Så här anger du lösenordet |
 | --------------- | ---------------- |
-| Azure Portal | SSH-användarkontot har som standard samma lösenord som kontot för klusterinloggning. Om du vill använda ett annat lösenord avmarkerar du __Använd samma lösenord som klusterinloggning__ och anger sedan lösenordet i fältet __SSH-lösenord__.</br>![Dialogrutan SSH-lösenord när ett HDInsight-kluster skapas](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
-| Azure PowerShell | Använd parametern för cmdleten [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) och skicka ett `PSCredential` objekt som innehåller SSH-användarkontots namn och lösen ord. `--SshCredential` |
-| Azure CLI | Använd parametern för [AZ HDInsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) -kommandot och ange lösen ordets värde. `--sshPassword` |
+| Azure Portal | SSH-användarkontot har som standard samma lösenord som kontot för klusterinloggning. Om du vill använda ett annat lösen ord avmarkerar du __Använd kluster inloggnings lösen ord för SSH__och anger sedan lösen ordet i fältet __SSH-lösenord__ .</br>![Dialogrutan SSH-lösenord när ett HDInsight-kluster skapas](./media/hdinsight-hadoop-linux-use-ssh-unix/create-hdinsight-ssh-password.png)|
+| Azure PowerShell | Använd parametern `--SshCredential` för cmdleten [New-AzHdinsightCluster](https://docs.microsoft.com/powershell/module/az.hdinsight/new-azhdinsightcluster) och skicka ett `PSCredential`-objekt som innehåller SSH-användarkontots namn och lösen ord. |
+| Azure CLI | Använd parametern `--sshPassword` i kommandot [AZ HDInsight Create](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) och ange lösen ordets värde. |
 | Resource Manager-mall | Ett exempel på hur du använder ett lösenord med en mall finns i [Deploy HDInsight on Linux with SSH password](https://azure.microsoft.com/resources/templates/101-hdinsight-linux-ssh-password/) (Distribuera HDInsight i Linux med SSH-lösenord). `linuxOperatingSystemProfile`-elementet i filen [azuredeploy.json](https://github.com/Azure/azure-quickstart-templates/blob/master/101-hdinsight-linux-ssh-password/azuredeploy.json) används för att skicka SSH-kontonamnet och SSH-lösenordet till Azure när klustret skapas.|
 
 ### <a name="change-the-ssh-password"></a>Ändra SSH-lösenordet
@@ -118,12 +118,14 @@ Information om hur du ändrar lösenordet för SSH-användarkontot finns i avsni
 
 ## <a id="domainjoined"></a>Anspråksautentisering Domänansluten HDInsight
 
-Om du använder ett __domänanslutet HDInsight-kluster__ måste du använda `kinit`-kommandot efter anslutning med lokal SSH-användare. Det här kommandot frågar efter en domänanvändare och ett lösenord och autentiserar din session med Azure Active Directory-domänen som är associerad med klustret.
+Om du använder ett __domänanslutet HDInsight-kluster__måste du använda kommandot `kinit` när du har anslutit med en lokal SSH-användare. Det här kommandot frågar efter en domänanvändare och ett lösenord och autentiserar din session med Azure Active Directory-domänen som är associerad med klustret.
 
 Du kan också aktivera Kerberos-autentisering på varje domänansluten nod (till exempel Head Node, Edge Node) för att använda SSH med domän kontot. Det gör du genom att redigera sshd-konfigurationsfilen:
+
 ```bash
 sudo vi /etc/ssh/sshd_config
 ```
+
 avkommentera och ändra `KerberosAuthentication` till `yes`
 
 ```bash
@@ -148,7 +150,7 @@ Huvudnoderna och kantnoden (om sådan finns) kan nås via Internet på port 22 o
     # Connect to secondary head node
     ssh -p 23 sshuser@clustername-ssh.azurehdinsight.net
     ```
-    
+
 * När du ansluter till __kantnoden__ använder du port 22. Det fullständiga domännamnet är `edgenodename.clustername-ssh.azurehdinsight.net`, där `edgenodename` är det namn du angav när du skapade kantnoden. `clustername` är namnet på klustret.
 
     ```bash
@@ -159,21 +161,23 @@ Huvudnoderna och kantnoden (om sådan finns) kan nås via Internet på port 22 o
 > [!IMPORTANT]  
 > I föregående exempel förutsätts att du använder lösenordsverifiering eller att certifikatautentisering sker automatiskt. Om du använder ett SSH-nyckelpar för autentisering och certifikatet inte används automatiskt, anger du den privata nyckeln med parametern `-i`. Till exempel `ssh -i ~/.ssh/mykey sshuser@clustername-ssh.azurehdinsight.net`.
 
-När du är ansluten ändras fönstret till att visa SSH-användarnamnet och den nod du är ansluten till. När du exempelvis är ansluten till den primära huvudnoden som `sshuser` visar fönstret `sshuser@hn0-clustername:~$`.
+När du är ansluten ändras prompten för att ange SSH-användarnamnet och noden som du är ansluten till. När du exempelvis är ansluten till den primära huvudnoden som `sshuser` visar fönstret `sshuser@hn0-clustername:~$`.
 
 ### <a name="connect-to-worker-and-apache-zookeeper-nodes"></a>Ansluta till Worker-och Apache Zookeeper-noder
 
-Arbetarnoder och Zookeeper-noder är inte tillgängliga direkt från internet. De kan nås från klustrets huvudnoder eller kantnoder. Här är de allmänna steg som du följer för att ansluta till andra noder:
+Arbetsnoderna och Zookeeper-noderna är inte direkt tillgängliga från Internet. De kan nås från klustrets huvudnoder eller kantnoder. Här är de allmänna steg som du följer för att ansluta till andra noder:
 
 1. Använd SSH för att ansluta till en huvud- eller kantnod:
 
-        ssh sshuser@myedge.mycluster-ssh.azurehdinsight.net
+    ```bash
+    ssh sshuser@myedge.mycluster-ssh.azurehdinsight.net
+    ```
 
 2. Från SSH-anslutningen till huvud- eller kantnoden använder du `ssh`-kommandot för att ansluta till en arbetarnod i klustret:
 
-        ```bash
-        ssh sshuser@wn0-myhdi
-        ```
+    ```bash
+    ssh sshuser@wn0-myhdi
+    ```
 
     Om du vill hämta en lista över nodnamn, se [Hantera HDInsight med hjälp av Apache Ambari REST API](hdinsight-hadoop-manage-ambari-rest-api.md#example-get-the-fqdn-of-cluster-nodes) Document.
 
@@ -195,24 +199,32 @@ Om SSH-kontot är säkrad med __SSH-nycklar__ kontrollerar du att SSH-vidarebefo
 
 2. Lägg till följande text i `config`-filen.
 
-        Host <edgenodename>.<clustername>-ssh.azurehdinsight.net
-          ForwardAgent yes
+    ```
+    Host <edgenodename>.<clustername>-ssh.azurehdinsight.net
+        ForwardAgent yes
+    ```
 
     Ersätt informationen för __Host__ med adressen för den nod som du ansluter till med hjälp av SSH. I föregående exempel används kantnoden. Den här posten konfigurerar vidarebefordran med SSH-agenten för den angivna noden.
 
 3. Testa SSH-agentvidarebefordran med hjälp av följande kommando från terminalen:
 
-        echo "$SSH_AUTH_SOCK"
+    ```bash
+    echo "$SSH_AUTH_SOCK"
+    ```
 
     Det här kommandot returnerar information liknande följande text:
 
-        /tmp/ssh-rfSUL1ldCldQ/agent.1792
+    ```output
+    /tmp/ssh-rfSUL1ldCldQ/agent.1792
+    ```
 
-    Om inget returneras så körs inte `ssh-agent`. Läs informationen om skripten för agentstart i [Använda ssh-agent med ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) eller läs dokumentationen för din SSH-klient för mer information.
+    Om inget returneras körs `ssh-agent` inte. Läs informationen om skripten för agentstart i [Använda ssh-agent med ssh (http://mah.everybody.org/docs/ssh)](http://mah.everybody.org/docs/ssh) eller läs dokumentationen för din SSH-klient för mer information.
 
-4. När du har verifierat att **ssh-agent** körs använder du följande för att lägga till din privata SSH-nyckel till agenten:
+4. När du har verifierat att **SSH-agenten** körs använder du följande för att lägga till din privata SSH-nyckel till agenten:
 
-        ssh-add ~/.ssh/id_rsa
+    ```bash
+    ssh-add ~/.ssh/id_rsa
+    ```
 
     Om din privata nyckel finns i en annan fil ersätter du `~/.ssh/id_rsa` med sökvägen till filen.
 

@@ -6,16 +6,16 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: e938baa21f9d2351b3270f4fa2411bf8ecb547d4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: bac270dc0d49c0eaa8c01b030256aa9bb597db80
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972804"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029859"
 ---
 # <a name="monitor-azure-database-for-mysql-performance-with-query-store"></a>Övervaka Azure Database for MySQL prestanda med Query Store
 
-**Gäller för:**  Azure Database för MySQL 5,7
+**Gäller för:** Azure Database for MySQL 5,7
 
 > [!IMPORTANT]
 > Query Store är i för hands version.
@@ -37,14 +37,14 @@ Frågearkivet är en valbar funktion, så den är inte aktiv som standard på en
 ### <a name="enable-query-store-using-the-azure-portal"></a>Aktivera Query Store med hjälp av Azure Portal
 
 1. Logga in på Azure Portal och välj Azure Database for MySQL-servern.
-1. Välj **Server parametrar** in **inställningarna** section på menyn.
+1. Välj **Server parametrar** i avsnittet **Inställningar** på menyn.
 1. Sök efter parametern query_store_capture_mode.
-1. Ange värdet till alla och **Spara**.
+1. Ange värdet till alla och **Spara**.
 
 Så här aktiverar du väntande statistik i Frågearkivet:
 
 1. Sök efter parametern query_store_wait_sampling_capture_mode.
-1. Ange värdet till alla och **Spara**.
+1. Ange värdet till alla och **Spara**.
 
 Låt upp till 20 minuter innan den första data mängden sparas i MySQL-databasen.
 
@@ -78,8 +78,8 @@ Här följer några exempel på hur du kan få mer insikter om din arbets belast
 | **Permanenta** | **Åtgärd** |
 |---|---|
 |Hög lås väntar | Kontrol lera fråge texterna för de berörda frågorna och identifiera målentiteten. Leta i Frågearkivet efter andra frågor som ändrar samma entitet, som körs ofta och/eller har hög varaktighet. När du har identifierat dessa frågor bör du överväga att ändra program logiken till att förbättra samtidigheten eller använda en mindre begränsande isolerings nivå. |
-|Hög buffert i/o väntar | Hitta frågorna med ett stort antal fysiska läsningar i Frågearkivet. Om de matchar frågorna med höga i/o-vänte tid, bör du överväga att introducera ett index på den underliggande entiteten för att göra sökningar i stället för genomsökningar. Detta skulle minimera IO-omkostnaderna för frågorna. Kontrol lera **prestanda rekommendationer** for din server i portalen för att se om det finns index rekommendationer för den här servern som skulle optimera frågorna. |
-|Hög minnes väntan | Hitta de mest krävande minnes frågorna i Frågearkivet. Dessa frågor fördröjer förmodligen ytterligare förloppet för de frågor som påverkas. Kontrol lera **prestanda rekommendationer** for din server i portalen för att se om det finns index rekommendationer som skulle optimera dessa frågor.|
+|Hög buffert i/o väntar | Hitta frågorna med ett stort antal fysiska läsningar i Frågearkivet. Om de matchar frågorna med höga i/o-vänte tid, bör du överväga att introducera ett index på den underliggande entiteten för att göra sökningar i stället för genomsökningar. Detta skulle minimera IO-omkostnaderna för frågorna. Kontrol lera **prestanda rekommendationerna** för servern i portalen för att se om det finns några index rekommendationer för den här servern som skulle optimera frågorna. |
+|Hög minnes väntan | Hitta de mest krävande minnes frågorna i Frågearkivet. Dessa frågor fördröjer förmodligen ytterligare förloppet för de frågor som påverkas. Kontrol lera **prestanda rekommendationerna** för servern i portalen för att se om det finns några index rekommendationer som skulle optimera dessa frågor.|
 
 ## <a name="configuration-options"></a>Konfigurationsalternativ
 
@@ -98,7 +98,7 @@ Följande alternativ gäller specifikt för väntande statistik.
 
 | **Parametern** | **Beskrivning** | **Standard** | **Område** |
 |---|---|---|---|
-| query_store_wait_sampling_capture_mode | Gör det möjligt att aktivera/inaktivera väntande statistik. | INGEN | INGEN, ALLA |
+| query_store_wait_sampling_capture_mode | Gör det möjligt att aktivera/inaktivera väntande statistik. | ALTERNATIVET | INGEN, ALLA |
 | query_store_wait_sampling_frequency | Ändrar frekvensen för vänta-sampling i sekunder. 5 till 300 sekunder. | 30 | 5-300 |
 
 > [!NOTE]
@@ -108,7 +108,7 @@ Använd [Azure Portal](howto-server-parameters.md) OR [Azure CLI](howto-confi
 
 ## <a name="views-and-functions"></a>Vyer och funktioner
 
-Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i [rollen Välj offentlig behörighet](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) kan använda dessa vyer för att se data i frågearkivet. Dessa vyer är bara tillgängliga i **MySQL**- database.
+Visa och hantera Frågearkivet med följande vyer och funktioner. Alla i [rollen Välj offentlig behörighet](howto-create-users.md#how-to-create-additional-admin-users-in-azure-database-for-mysql) kan använda dessa vyer för att se data i frågearkivet. Dessa vyer är bara tillgängliga i **MySQL** -databasen.
 
 Frågorna normaliseras genom att titta på deras struktur efter att du tagit bort litteraler och konstanter. Om två frågor är identiska förutom literala värden, har de samma hash.
 
@@ -161,7 +161,7 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 | `count_star` | bigint (20) | NO| Antal väntande händelser som samplats under intervallet för frågan |
 | `sum_timer_wait_ms` | double | NO| Total vänte tid (i millisekunder) för den här frågan under intervallet |
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 
 | **Namn**| **Beskrivning** |
 |---|---|

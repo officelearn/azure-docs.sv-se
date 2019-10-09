@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: conceptual
 ms.date: 05/21/2018
 tags: connectors
-ms.openlocfilehash: 61004ed75a1935ada21b5c620a909fb5289aebb8
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: f7558a5836d8f087e719346fb38bbf24ece2c8fb
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70050994"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026781"
 ---
 # <a name="find-news-with-bing-search-and-azure-logic-apps"></a>Hitta nyheter med Bing-sökning och Azure Logic Apps
 
@@ -24,7 +24,7 @@ Den här artikeln visar hur du kan hitta nyheter, videor och andra objekt genom 
 
 Du kan till exempel hitta nyhets objekt baserat på Sök villkor och låta Twitter publicera dessa objekt som tweets i ditt Twitter-flöde.
 
-Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Om du inte har arbetat med Logic Apps läser du [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [snabb start: Skapa din första Logic-](../logic-apps/quickstart-create-first-logic-app-workflow.md)app.
+Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Om du är nybörjare på Logi Kap par kan du läsa [Vad är Azure Logic Apps](../logic-apps/logic-apps-overview.md) och [Quickstart: Skapa din första Logic app @ no__t-0.
 Information om anslutningsspecifika teknisk information finns i referens för [Bing-sökning Connector](https://docs.microsoft.com/connectors/bingsearch/).
 
 ## <a name="prerequisites"></a>Förutsättningar
@@ -39,7 +39,7 @@ Information om anslutningsspecifika teknisk information finns i referens för [B
 
 ## <a name="add-a-bing-search-trigger"></a>Lägg till en Bing-sökning-utlösare
 
-I Azure Logic Apps måste varje Logi Kap par starta med en [](../logic-apps/logic-apps-overview.md#logic-app-concepts)utlösare som utlöses när en enskild händelse inträffar eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans och börjar köra appens arbets flöde.
+I Azure Logic Apps måste varje Logi Kap par starta med en [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts)som utlöses när en enskild händelse inträffar eller när ett särskilt villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en Logic App-instans och börjar köra appens arbets flöde.
 
 1. I Azure Portal eller Visual Studio skapar du en tom Logic-app som öppnar Logic App Designer. I det här exemplet används Azure Portal.
 
@@ -54,9 +54,9 @@ Eller, om anslutningen redan finns, anger du den information som krävs för utl
 
    I det här exemplet anger du kriterier för att returnera matchande nyhets artiklar från Bing-sökning.
 
-   | Egenskap | Obligatorisk | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
-   | Search Query | Ja | <*Sök efter ord*> | Ange Sök nyckelorden som du vill använda. |
+   | Search Query | Ja | <*Sök-ord*> | Ange Sök nyckelorden som du vill använda. |
    | Market | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
    | Safe Search | Ja | <*search-level*> | Filter nivån för att utesluta vuxna innehåll. Standardvärdet är "måttlig", men du väljer en annan nivå. |
    | Count | Nej | <*results-count*> | Returnera det angivna antalet resultat. Standardvärdet är 20, men du kan ange ett annat värde. Det faktiska antalet returnerade resultat kan vara mindre än det angivna antalet. |
@@ -81,7 +81,7 @@ I Azure Logic Apps är en [åtgärd](../logic-apps/logic-apps-overview.md#logic-
 
 1. Öppna din Logic app i Logic App Designer i Azure Portal eller Visual Studio. I det här exemplet används Azure Portal.
 
-2. Under utlösare eller åtgärd väljer du **nytt steg** > **Lägg till en åtgärd**.
+2. Under utlösare eller åtgärd väljer du **nytt steg** > **Lägg till en åtgärd**.
 
    I det här exemplet används den här utlösaren:
 
@@ -105,7 +105,7 @@ Välj den åtgärd du vill använda i listan åtgärder.
 
    I det här exemplet anger du villkoren för att returnera en delmängd av utlösarens resultat.
 
-   | Egenskap | Obligatorisk | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
    | Search Query | Ja | <*Sök-uttryck*> | Ange ett uttryck för att skicka frågor till utlösnings resultaten. Du kan välja bland fälten i listan med dynamiskt innehåll eller skapa ett uttryck med uttrycks verktyget. |
    | Market | Ja | <*locale*> | Sök språket. Standardvärdet är "en-US", men du kan välja ett annat värde. |
@@ -128,7 +128,7 @@ Välj den åtgärd du vill använda i listan åtgärder.
       ![Välj en funktion](./media/connectors-create-api-bing-search/expression-select-function.png)
 
    3. I listan fält väljer du **kategori**, som konverterar till en parameter. 
-   Lägg till ett kommatecken efter den första parametern och efter kommatecken lägger du till det här ordet:`'tech'` 
+   Lägg till ett kommatecken efter den första parametern och efter kommatecken lägger du till det här ordet: `'tech'` 
 
       ![Välj ett fält](./media/connectors-create-api-bing-search/expression-select-field.png)
 
@@ -152,11 +152,11 @@ Välj den åtgärd du vill använda i listan åtgärder.
 
 1. När du uppmanas att ange anslutnings information anger du följande information:
 
-   | Egenskap | Obligatorisk | Value | Beskrivning |
+   | Egenskap | Krävs | Value | Beskrivning |
    |----------|----------|-------|-------------|
-   | Anslutningens namn | Ja | <*anslutnings namn*> | Namnet som ska skapas för anslutningen |
+   | Anslutningsnamn | Ja | <-*anslutnings namn*> | Namnet som ska skapas för anslutningen |
    | API-version | Ja | <*API-version*> | Som standard är Bing-sökning API-versionen inställd på den aktuella versionen. Du kan välja en tidigare version om det behövs. |
-   | API-nyckel | Ja | <*API-nyckel*> | Den Bing-sökning API-nyckel som du fick tidigare. Om du inte har någon nyckel kan du hämta din [API-nyckel nu](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
+   | API-nyckel | Ja | <*API-key*> | Den Bing-sökning API-nyckel som du fick tidigare. Om du inte har någon nyckel kan du hämta din [API-nyckel nu](https://azure.microsoft.com/try/cognitive-services/?api=bing-news-search-api). |  
    |||||  
 
    Exempel:

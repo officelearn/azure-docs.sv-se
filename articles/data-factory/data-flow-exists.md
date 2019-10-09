@@ -1,40 +1,40 @@
 ---
-title: Azure Data Factory mappning av Flow finns Data-transformering
-description: Hur du kontrollerar för befintliga rader med data factory mappade data flödar genom att omvandla Exists
+title: Transformering av Azure Data Factory mappnings data flödet finns
+description: Så här söker du efter befintliga rader med hjälp av Data Factory-mappning av data flöden med exists-transformering
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: b98b7afb21f2f50d44ba93ed793b6efb20f75164
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8b488a079b2da1bcf0dd064025ed251a1dc25213
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65235983"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029388"
 ---
-# <a name="mapping-data-flow-exists-transformation"></a>Mappning av dataflödet finns omvandling
+# <a name="mapping-data-flow-exists-transformation"></a>Transformering av mappnings data flödet finns
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Exists-transformeringen är en rad som filtrering omvandling som hindrar eller tillåter rader i dina data kan flöda via. Finns transformera liknar ```SQL WHERE EXISTS``` och ```SQL WHERE NOT EXISTS```. Efter omvandlingen finns de resulterande raderna från din dataström antingen innehåller alla rader där kolumnvärden från källa 1 finns i källan 2 eller finns inte i källan 2.
 
-![Det finns inställningar](media/data-flow/exists.png "finns 1")
+Exists-omvandlingen är en omvandling för rad filtrering som stoppar eller tillåter att rader i dina data flödar genom. Transformeringen exists liknar ```SQL WHERE EXISTS``` och ```SQL WHERE NOT EXISTS```. När omvandlingen finns kommer de resulterande raderna från din data ström att inkludera alla rader där kolumn värden från källa 1 finns i källa 2 eller inte finns i källa 2.
 
-Välj andra källan för dina Exists så att dataflöde kan jämföra värden från Stream 1 mot Stream 2.
+![Finns inställningar](media/data-flow/exists.png "finns 1")
 
-Välj kolumnen från källa 1 och från källan 2 vars värden du vill kontrollera mot Exists eller finns inte.
+Välj den andra källan så att data flödet kan jämföra värden från data strömmen 1 mot Stream 2.
 
-## <a name="multiple-exists-conditions"></a>Flera finns villkor
+Välj kolumnen från källa 1 och från källa 2 vars värden du vill kontrol lera mot finns eller som inte finns.
 
-Bredvid varje rad i din kolumn villkor för Exists hittar du en + inloggning som är tillgängliga när du hovrar över nå raden. Detta kan du lägga till flera rader för Exists-villkor. Varje ytterligare villkor är en ”och”.
+## <a name="multiple-exists-conditions"></a>Det finns flera villkor
+
+Bredvid varje rad i dina kolumn villkor finns ett +-tecken tillgängligt när du hovrar över Reach-raden. På så sätt kan du lägga till flera rader för exists-villkor. Varje ytterligare villkor är "och".
 
 ## <a name="custom-expression"></a>Anpassat uttryck
 
-![Det finns anpassade inställningar](media/data-flow/exists1.png "finns anpassade")
+![Finns anpassade inställningar]som(media/data-flow/exists1.png "finns anpassade")
 
-Du kan klicka på ”anpassade uttryck” om du vill skapa i stället ett booleskt uttryck som din finns eller inte finns villkor. Markera den här rutan kan du ange ett eget uttryck som ett villkor.
+Du kan klicka på "anpassat uttryck" för att i stället skapa ett kostnads fritt uttryck som villkoret finns eller inte finns. Genom att markera den här rutan kan du ange ett eget uttryck som ett villkor.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Liknande transformationer är [Lookup](data-flow-lookup.md) och [ansluta](data-flow-join.md).
+Liknande omvandlingar är [Lookup](data-flow-lookup.md) och [Join](data-flow-join.md).

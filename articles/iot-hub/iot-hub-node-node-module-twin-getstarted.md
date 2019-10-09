@@ -9,12 +9,12 @@ services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 04/26/2018
-ms.openlocfilehash: 3796017af643c993871757482ed17d1765cd6494
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: e33987d382a2afd93644a413084339fcd330d2e2
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70802412"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029716"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-nodejs"></a>Kom igång med IoT Hub-modulens identitet och modul, dubbla (Node. js)
 
@@ -54,9 +54,9 @@ I det här avsnittet skapar du en Node. js-app som skapar en enhets identitet oc
 
 1. Skapa en katalog för att lagra din kod.
 
-2. Inuti den katalogen måste du först köra **NPM init-y** för att skapa en tom Package. JSON med standardinställningar. Det här är projekt filen för din kod.
+2. Inuti den katalogen måste du först köra **NPM init-y** för att skapa en tom Package. JSON med standardinställningar. Det här är projekt filen för din kod.
 
-3. Kör **NPM install-S Azure-iothub\@-moduler – för hands version** för att installera Service SDK i under katalogen **node_modules** .
+3. Kör **NPM install-S Azure-iothub @ no__t-1modules – Preview** för att installera Service SDK i under katalogen **node_modules** .
 
     > [!NOTE]
     > Under katalog namnet node_modules använder Word-modulen för att betyda "ett Node-bibliotek". Termen här har inget att göra med IoT Hub moduler.
@@ -133,7 +133,7 @@ I det här avsnittet skapar du en Node. js-app på din simulerade enhet som uppd
 
    ![Information om Azure-portalmodulen](./media/iot-hub-node-node-module-twin-getstarted/module-detail.png)
 
-2. Precis som du gjorde i steget ovan, skapar du en katalog för enhets koden och använder NPM för att initiera den och installera enhets-SDK: n (**NPM install-S Azure-IoT\@-Device-AMQP modules – för hands version**).
+2. Precis som du gjorde i steget ovan, skapar du en katalog för enhets koden och använder NPM för att initiera den och installera enhets-SDK: n (**NPM install-S Azure-IoT-Device-AMQP @ no__t-1modules-Preview**).
 
    > [!NOTE]
    > NPM-kommandot för installation kan vara långsamt. Vara patient, det tar upp massor av kod från paketets lagrings plats.
@@ -192,7 +192,7 @@ I det här avsnittet skapar du en Node. js-app på din simulerade enhet som uppd
     });
     ```
 
-4. Kör nu detta med hjälp av kommando **noden med dubbla. js**.
+4. Kör nu detta med hjälp av kommando **noden med dubbla. js**.
 
    ```cmd/sh
    F:\temp\module_twin>node twin.js

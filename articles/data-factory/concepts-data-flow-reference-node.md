@@ -1,29 +1,29 @@
 ---
-title: Azure Data Factory mappning Datanoden Flow-referens
-description: Dataflöde för data Factory läggs en referens-nod för kopplingar, sökningar, unioner
+title: Azure Data Factory mappar referens nod för data flöde
+description: Data Factory data flöde lägger till en reference-nod för kopplingar, uppslag, unioner
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 626943143e8fa193f143e66d856d9b00e3589fb5
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4ed17114cc0ce586c68c5b3e087acffdb82ea96c
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61262694"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030488"
 ---
-# <a name="mapping-data-flow-reference-node"></a>Mappningen Datanoden Flow-referens
+# <a name="mapping-data-flow-reference-node"></a>Mappar referens nod för data flöde
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-![Referera till noden](media/data-flow/referencenode.png "referens nod")
 
-En referens-nod läggs automatiskt till arbetsytan för en obestämd att noden som den är ansluten till refererar till en annan befintlig nod på arbetsytan. Tänk på en referens-nod som en pekare eller en referens till en annan transformering för flödet av data.
+Referens(media/data-flow/referencenode.png "nod") för ![referens nod]
 
-Exempel: När du ansluter eller Union mer än en dataström, dataflöde arbetsytan kan lägga till en referens-nod som visar namnet och inställningarna för icke-primär inkommande dataström.
+En reference-nod läggs automatiskt till på arbets ytan för att tyda på att noden den är kopplad till refererar till en annan befintlig nod på arbets ytan. Tänk på en reference-nod som en pekare eller en referens till en annan data flödes omvandling.
 
-Referensnoden kan inte flyttas eller tas bort. Du kan dock klicka i noden för att ändra inställningarna för ursprungliga omvandling.
+Exempel: När du ansluter eller binder fler än en data ström kan data flödets arbets yta lägga till en referens nod som visar namn och inställningar för den icke-primära inkommande data strömmen.
 
-UI-reglerna som styr när Referensnoden läggs dataflöde baseras på tillgängligt utrymme och lodrätt avstånd mellan rader.
+Det går inte att flytta eller ta bort referens noden. Du kan dock Klicka på noden för att ändra den ursprungliga omvandlings inställningen.
+
+De GRÄNSSNITTs regler som styr när data flödet lägger till referens-noden baseras på tillgängligt utrymme och lodrätt avstånd mellan rader.

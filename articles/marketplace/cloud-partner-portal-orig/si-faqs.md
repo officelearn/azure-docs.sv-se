@@ -1,101 +1,101 @@
 ---
-title: Säljaren insikter vanliga frågor och svar
-description: Vanliga frågor om funktionen försäljning insikter i partnerportalen i molnet.
+title: Vanliga frågor och svar om säljar insikter
+description: Vanliga frågor om säljar insikter-funktionen i Cloud Partner Portal.
 services: Azure, Marketplace, Cloud Partner Portal,
 author: v-miclar
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: pabutler
-ms.openlocfilehash: 2719b6b47225576f2eadeb5e5b40b3aa7b39444d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 059ec175a48cdcdec6214a6581452ec0536bf566
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64943100"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72030448"
 ---
-<a name="seller-insights-faq"></a>Säljaren insikter vanliga frågor och svar
+<a name="seller-insights-faq"></a>Vanliga frågor och svar om säljar insikter
 ===================
 
-Den här artikeln innehåller anvisningar för vanliga användarprocedurer i och frågor om försäljning insikter.
+Den här artikeln innehåller rikt linjer för vanliga användar procedurer i och frågor om säljar insikter.
 
 
-<a name="find-definitions-for-the-values-in-the-downloaded-transaction-file"></a>Hitta definitioner för värdena i filen hämtade transaktioner
+<a name="find-definitions-for-the-values-in-the-downloaded-transaction-file"></a>Hitta definitioner för värdena i den hämtade transaktions filen
 ------------------------------------------------------------------
 
-Definitioner av mått värden i filen transaktion finns i artikeln [försäljning Insights definitioner](./si-insights-definitions-v4.md).
+Definitionerna för Metric-värden i transaktions filen finns i artikeln [säljare insikter definitioner](./si-insights-definitions-v4.md).
 
 
-<a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Se kundens information om transaktioner som jag har betalats
+<a name="see-customer-details-of-transactions-for-which-ive-been-paid"></a>Se kund information om transaktioner för vilka jag har betalat
 -------------------------------------------------------------
 
-Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **Payout Status**, och Använd filter för att bara visa värdet ”betald ut”. Följande kolumner visas som innehåller kundinformation: **Företagsnamn**, **kund e-post**, **kundens land**, **kunden tillstånd**, och **kunden postnummer**.
+När du har laddat ned transaktionerna från modulen utbetalning letar du upp kolumnen med namnet **utbetalnings status**och använder filtret för att endast visa värdet "betald". Följande kolumner kommer att visas med kund information: **Företagets namn**, **kundens e-post**, **kund land**, **kund stat**och **kund post nummer**.
 
 
-<a name="calculate-my-open-accounts-receivable"></a>Beräkna min öppna kundreskontra
+<a name="calculate-my-open-accounts-receivable"></a>Beräkna mina öppna kund fordringar
 -------------------------------------
 
-Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **Payout Status**, och Använd filter för att bara visa värdet ”kommande Payout” och ”ej redo för Payout”. Summera kolumnen **Payout belopp (PC)** .
+När du har laddat ned dina transaktioner från modulen betalning letar du upp kolumnen med namnet **utbetalnings status**och använder filtret för att endast visa värdet "kommande utbetalning" och "inte redo för utbetalning". Summera sedan kolumnen med namnet **utbetalnings mängd (PC)** .
 
 
-<a name="calculate-revenue-by-customer-usage-period"></a>Beräkna intäkter genom att kunden användningsperiod
+<a name="calculate-revenue-by-customer-usage-period"></a>Beräkna intäkter per kund användnings period
 ------------------------------------------
 
-Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **transaktionsstatus**, och filtrera värdet ”betald”.   För varje transaktion som anges, kolumnen **Payout belopp (PC)**  representerar det du har betalat.  Om du vill beräkna användningsperiod som är associerad med transaktionen måste använda kolumnen **Belastningsdatum**, vilket är en Stäng uppskattning av den sista dagen i användningen för perioden som gäller för transaktionen.
+När du har laddat ned dina transaktioner från modulen betalning letar du upp kolumnen med namnet **transaktions status**och filtrerar värdet "betald".   Kolumnen med namnet **utbetalnings belopp (PC)** representerar den mängd som du har betalat för varje transaktion i listan.  Om du vill beräkna den användnings period som är kopplad till transaktionen använder du kolumnens **avgifts datum**, som är en nära approximation av den sista förbruknings dagen för den period som transaktionen gäller.
 
 
-<a name="calculate-your-bad-debt"></a>Beräkna din detta
+<a name="calculate-your-bad-debt"></a>Beräkna din dåliga skuld
 ---------------------
 
-Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **slutlig Status för samlingen**, och tillämpa filtret för att endast visa värdet för ”skriva ut”. Summera kolumnen **Payout belopp (PC)** .
+När du har laddat ned dina transaktioner från modulen betalning letar du upp kolumnen med namnet **slutlig samling**och använder filtret för att endast visa värdet "skriva av". Summera sedan kolumnen med namnet **utbetalnings mängd (PC)** .
 
 
-<a name="view-payout-or-customer-contact-information"></a>Visa payout eller kundens kontaktinformation
+<a name="view-payout-or-customer-contact-information"></a>Visa utbetalnings-eller kund kontakt information
 -------------------------------------------
 
-Logga in som en användare med rollen ”ägare” och inte rollen ”deltagare”. Endast ägarrollen visas betalnings-och kundinformation. Du hittar mer information om användarroller i artikeln [hantera användare](./cloud-partner-portal-manage-users.md).
+Logga in som en användare med rollen "ägare" och inte rollen "bidrag". Endast ägar rollen kommer att se utbetalnings-och kund information. Du kan läsa mer om användar roller i artikeln [Hantera användare](./cloud-partner-portal-manage-users.md).
 
 
-<a name="calculate-my-advance-payouts"></a>Beräkna min avancerade payouts
+<a name="calculate-my-advance-payouts"></a>Beräkna mina förskotts utbetalningar
 ----------------------------
 
-Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **transaktionstyp**, och Använd filter för att bara visa värdet ”kostnad”. Leta sedan upp kolumnen **slutlig Status för samlingen**, och Använd filter för att bara visa värdet ”pågår”. Slutligen summera det **Payout belopp (PC)** kolumnen för att beräkna utvecklingen av alla betalas till dig innan du samlingen från kunden.
+När du har laddat ned transaktionerna från modulen betalning letar du upp kolumnen med namnet **transaktions typ**och använder filtret för att bara visa värdet "avgift". Leta sedan upp kolumnen med etikettens **slutliga samlings status**och använd filtret för att endast visa värdet "pågår". Slutligen summera kolumnen **utbetalnings belopp (dator)** för att beräkna alla förskott som betalats till dig innan du insamlingen från kunden.
 
 
-<a name="calculate-customer-refunds"></a>Beräkna kunden återbetalningar
+<a name="calculate-customer-refunds"></a>Beräkna kund åter betalningar
 --------------------------
 
-Leta upp kolumnen efter nedladdningen dina transaktioner från modulen Payout **slutlig Status för samlingen**, och Använd filter för att bara visa värdet ”bidrag”. Summan i **kostnad belopp (PC)** kolumnen för att beräkna alla återbetalningar bearbetas för dina kunder.
+När du har laddat ned dina transaktioner från modulen utbetalning, letar du upp kolumnen med etikettens **slutliga samlings status**och använder filtret för att endast visa värdet "åter betalning". Sammanfatta kolumnen **avgifts belopp (PC)** för att beräkna alla åter betalningar som har bearbetats för dina kunder.
 
 
-<a name="identify-which-transactions-involved-a-microsoft-channel-partner"></a>Identifiera vilka transaktioner som ingår en kanal Microsoft-Partner
+<a name="identify-which-transactions-involved-a-microsoft-channel-partner"></a>Identifiera vilka transaktioner som ingår i en Microsoft Channel-partner
 ----------------------------------------------------------------
 
-Alla transaktioner i kolumnen **Azure licenstyp** som har filtrerats för att visa värdena ”Enterprise via återförsäljare” och ”Cloud Solution Provider” omfattar en kanal Microsoft-Partner. Du hittar mer information om partnern sina **återförsäljarens namn** och **återförsäljarens e-post** i betalnings modulen nedladdningen och nedladdning av kund-modulen.
+Alla transaktioner i kolumnen **Azure-licensserver** som filtreras för att visa värdena "Enterprise genom åter försäljare" och "Cloud Solution Provider" omfattar en Microsoft Channel-partner. Om du vill ha mer information om partnern kan du hitta **åter försäljarens namn** och **åter försäljarens e-post** i hämtnings modulen och kund-modulen.
 
 
-<a name="identify-trial-usage-and-trial-conversions"></a>Identifiera utvärderingsversion användnings- och utvärderingsversion konverteringar
+<a name="identify-trial-usage-and-trial-conversions"></a>Identifiera utvärderings användning och utvärderings versioner
 ------------------------------------------
 
-Ordning, användning och betalnings nedladdningar för modulen innehåller nu **utvärderingsversion slutdatum** för att förstå när utvärderingsperioden är slut slut för den specifika ordningen, om tillämpligt. Om du vill se utvärderingsversion användnings- och beställningar, letar du upp den **SKU fakturering typ** kolumn i nedladdningar, och Använd filter för att bara visa värdet ”utvärdering”. Om du vill se utvärderingsversion konverteringar letar du upp den **utvärderingsversion slutdatum** kolumn i nedladdningar, och tillämpa filtret för att bara visa order när den **utvärderingsversion slutdatum** har passerat dagens datum och **Avbryt datum** kolumnen är tom eller senare än den **utvärderingsversion slutdatum**.
+Hämtnings bara filer för order, användning och utbetalning innehåller nu **slutdatum för utvärdering** som hjälper dig att förstå när utvärderings perioden är slut för den specifika ordningen, i förekommande fall. Om du vill se utvärderings användning och-beställningar letar du upp kolumnen **SKU-fakturerings typ** i nedladdningarna och använder filtret för att bara visa värdet "utvärderings version". Om du vill se utvärderings versioner, letar du upp kolumnen **utvärderings datum för utvärderings** version i nedladdningarna och använder filtret för att bara visa order när **slutdatumet för utvärderings versionen** har passerat datum och kolumnen **annullera datum** är tom eller senare än **slutdatum för utvärderings versionen**.
 
 
-<a name="when-is-my-monthly-payout-calculated"></a>När beräknas min månatliga payout
+<a name="when-is-my-monthly-payout-calculated"></a>När beräknas min månads betalning
 ------------------------------------
 
-Din payouts utfärdas till dig av 15: e i månaden för alla mängder som är redo för payout av den sista kalender dagen i föregående månad. Den tredje dagen i månaden, kommer Microsoft beräkna den föregående månaden betalnings beloppet och uppdatera alla tillämpliga kostnad transaktioner i din nedladdning med ”kommande Payout” i den **Payout Status** kolumn. De här transaktionerna ska vara kvar i det aktuella tillståndet tills betalning-begäran skickas till din bank-konto, då deras **Payout Status** kommer att uppdateras till ”betalas ut” och ”Payout datum” kommer att uppdateras för att visa det datum då vi har skickat in den begäran om betalning din bank.
+Dina utbetalningar utfärdas till dig den 15: e i varje månad för alla belopp som är klara för utbetalning den senaste kalender dagen i föregående månad. På den tredje dagen i månaden beräknar Microsoft föregående månads utbetalnings belopp och uppdaterar alla tillämpliga avgifts transaktioner i nedladdningen med "kommande utbetalning" i kolumnen **utbetalnings status** . Transaktionerna förblir i det tillståndet tills betalnings förfrågan skickas till ditt bank konto, då deras **utbetalnings status** uppdateras till "betald" och "utbetalnings datum" uppdateras för att visa det datum då vi skickade in betalnings förfrågan till din banken.
 
 
-<a name="calculate-customer-acquisition-and-loss"></a>Beräkna kunden anskaffning och förlust
+<a name="calculate-customer-acquisition-and-loss"></a>Beräkna kund förvärv och-förlust
 ---------------------------------------
 
-Du kan se det datum när kunden först köpte en av dina erbjudanden genom att leta upp den **Date förvärvat** kolumn i användaren hämta. På samma sätt du kan se det datum då de inte längre hade ett erbjudande som publicerats av dig genom att leta upp den **datum förlorat** kolumn i nedladdning av kunden.
+Du kan se datumet då kunden först köpte ett av dina erbjudanden genom att leta reda på kolumnen inhämtat **datum** i kund hämtningen. På samma sätt kan du se det datum efter vilket de inte längre hade ett erbjudande som publicerats av dig, genom att leta upp kolumnen **datum förlorat** i kund hämtningen.
 
 
 <a name="finding-more-help"></a>Hitta mer hjälp
 -----------------
 
-- [Definitioner av försäljning Insights](./si-insights-definitions-v4.md) -hitta definitioner för mått och data
+- [Säljar insikter-definitioner](./si-insights-definitions-v4.md) – hitta definitioner för mått och data
 
-- [Komma igång med försäljning Insights](./si-getting-started.md) – introduktion till funktionen försäljning insikter.
+- [Kom igång med säljare insikter](./si-getting-started.md) – introduktion till säljar insikter-funktionen.
 

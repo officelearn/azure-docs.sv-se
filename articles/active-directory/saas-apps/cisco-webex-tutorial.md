@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/21/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 141d3062f231e198b3587efcdf4ae6e9a1c97ed6
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: d4e497c556bde1be4e498cd85a68282a0e3b2666
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70162666"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72026263"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-cisco-webex-meetings"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med Cisco WebEx-möten
 
@@ -67,7 +67,7 @@ Om du vill konfigurera och testa Azure AD SSO med Cisco WebEx-möten slutför du
 
 1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
     1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
-    1. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testuser-för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
 2. **[Konfigurera Cisco WebEx-möten SSO](#configure-cisco-webex-meetings-sso)** – för att konfigurera inställningarna för enkel inloggning på program sidan.
     1. **[Skapa Cisco WebEx-möten testa användare](#create-cisco-webex-meetings-test-user)** – för att få en motsvarighet till B. Simon i Cisco WebEx-möten som är länkade till Azure AD-representation av användare.
 3. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
@@ -78,13 +78,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I [Azure Portal](https://portal.azure.com/)på sidan **Cisco WebEx-möten** program integration, letar du upp avsnittet **Hantera** och väljer **enkel inloggning**.
 1. På sidan **Välj metod för enkel inloggning** väljer du **SAML**.
-1. På sidan **Konfigurera enkel inloggning med SAML** kan du konfigurera programmet i **IDP** initierat läge genom att ladda upp tjänstprovidern för **tjänste leverantören** enligt följande:
+1. På sidan **Konfigurera enkel inloggning med SAML** kan du konfigurera programmet i **IDP** initierat läge genom att ladda upp **tjänstprovidern för tjänste leverantören** enligt följande:
 
     a. Klicka på **ladda upp metadatafilen**.
 
     b. Klicka på **mappen logotyp** att välja metadatafilen och klicka på **överför**.
 
-    c. När du har slutfört den överförda tjänst leverantörens metadatafil, fylls **URL:** **n** och svars-URL-värden automatiskt i avsnittet **grundläggande SAML-konfiguration** .
+    c. När du har slutfört den överförda tjänst leverantörens metadatafil, fylls URL: **n** och **svars-URL** -värden automatiskt i avsnittet **grundläggande SAML-konfiguration** .
 
     >[!Note]
     >Du kommer att hämta metadata-filen för service providern från **Konfigurera Cisco WebEx-möten SSO** , som beskrivs senare i självstudien. 
@@ -95,9 +95,9 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
     
-    b. I text rutan för inloggnings- **URL** skriver du URL: en med följande mönster:` https://<customername>.my.webex.com`
+    b. I text rutan för **inloggnings-URL** skriver du URL: en med följande mönster: ` https://<customername>.my.webex.com`
 
-5. Cisco WebEx-Mötes program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på ikonen **Redigera** för att öppna dialogrutan Användarattribut.
+5. Cisco WebEx-Mötes program förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar av attribut i konfigurationen för SAML-token. I följande skärmbild visas listan över standardattribut. Klicka på **Redigera** ikon för att öppna dialog rutan användarattribut.
 
     ![image](common/edit-attribute.png)
 
@@ -178,7 +178,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
     c. Klicka på knappen **Exportera** för att ladda ned metadata-filen för tjänste leverantören och ladda upp den i avsnittet **grundläggande SAML-konfiguration** på Azure Portal.
 
-    d. I text rutan **AuthContextClassRef** skriver `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` du och om du vill aktivera MFA med Azure AD anger du de två värdena som`urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
+    d. I text rutan **AuthContextClassRef** skriver du `urn:oasis:names:tc:SAML:2.0:ac:classes:unspecified` och om du vill aktivera MFA med Azure AD anger du de två värdena som `urn:oasis:names:tc:SAML:2.0:ac:classes:PasswordProtectedTransport;urn:oasis:names:tc:SAML:2.0:ac:classes:X509`
 
     e. Välj **Skapa automatiskt konto**.
 

@@ -1,49 +1,49 @@
 ---
-title: Azure Data Factory mappning Dataomvandling Flow sökning
-description: Azure Data Factory mappning Dataomvandling Flow sökning
+title: Azure Data Factory mappning av data flödes uppslags omvandling
+description: Azure Data Factory mappning av data flödes uppslags omvandling
 author: kromerm
 ms.author: makromer
 ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/03/2019
-ms.openlocfilehash: 197f5ba9d6921f4a9921b7074b9e05162d3e37b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ef72b7aed12afd1cee47b11bc7584d1e53bf2af5
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64868126"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029338"
 ---
-# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning Dataomvandling Flow sökning
+# <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning av data flödes uppslags omvandling
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
 
-Använda sökning för att lägga till referensdata från en annan källa till ditt dataflöde. Det krävs en definierad källa som pekar på referenstabell och matchar på nyckelfält för sökning transformeringen.
 
-![Lookup omvandling](media/data-flow/lookup1.png "sökning")
+Använd lookup för att lägga till referens data från en annan källa till ditt data flöde. Uppslags transformeringen kräver en definierad källa som pekar på din referens tabell och matchar nyckel fält.
 
-Välj de fält som du vill matcha i mellan de inkommande dataströmmen och fälten från käll-referens. Du måste först ha skapat en ny källa på dataflöde design arbetsytan ska användas som till höger för sökningen.
+![](media/data-flow/lookup1.png "Sökning efter") omvandling
 
-När matchningar påträffas läggs de resulterande rader och kolumner från käll-referens till ditt dataflöde. Du kan välja vilka fält av intresse som du vill inkludera i dina mottagare i slutet av ditt dataflöde.
+Välj de nyckel fält som du vill matcha på mellan inkommande data Ströms fält och fälten från referens källan. Du måste först ha skapat en ny källa på data flödets design arbets yta som ska användas som den högra sidan för sökningen.
 
-## <a name="match--no-match"></a>Matcha / ingen matchning
+När matchningar hittas kommer de resulterande raderna och kolumnerna från referens källan att läggas till i ditt data flöde. Du kan välja vilka fält av intresse som du vill ta med i din mottagare i slutet av ditt data flöde.
 
-När din Sökningomvandling, du kan använda efterföljande omvandlingar granska resultatet av varje rad matchning med hjälp av funktionen uttryck `isMatch()` göra ytterligare alternativ i logik baserat på huruvida sökningen resulterade i en rad matchning eller inte.
+## <a name="match--no-match"></a>Matcha/ingen matchning
+
+Efter omvandlingen av sökningar kan du använda efterföljande omvandlingar för att granska resultaten av varje matchnings rad genom att använda Expression-funktionen `isMatch()` för att göra ytterligare val i din logik baserat på om sökningen resulterade i en rad matchning eller inte.
 
 ## <a name="optimizations"></a>Optimeringar
 
-I Data Factory kör Data flödar i utskalade Spark miljöer. Om din datauppsättning passar in i minnesutrymme för worker-nod, optimera vi prestanda för din sökning.
+I Data Factory körs data flöden i uppskalade Spark-miljöer. Om din data uppsättning kan anpassas till arbets ytans minnes utrymme kan vi optimera dina uppslags prestanda.
 
-![Broadcast-koppling](media/data-flow/broadcast.png "Broadcast-koppling")
+![Sänd ansluta till](media/data-flow/broadcast.png "sändnings anslutning")
 
-### <a name="broadcast-join"></a>Broadcast-koppling
+### <a name="broadcast-join"></a>Sändnings anslutning
 
-Välj till vänster och/eller höger broadcast-koppling för att begära ADF om du vill skicka hela datamängden från endera sidan av uppslagsrelation i minnet.
+Välj vänster och/eller höger sändnings anslutning för att begära ADF för att skicka hela data uppsättningen från endera sidan av Sök relationen till minnet.
 
 ### <a name="data-partitioning"></a>Datapartitionering
 
-Du kan också ange partitionering av dina data genom att välja ”Ange Datapartitionering” på fliken Optimize Lookup omvandlingen att skapa uppsättningar av data som kan passa bättre minne per worker.
+Du kan också ange partitionering av dina data genom att välja "Ange partitionering" på fliken Optimize i lookup-omvandlingen för att skapa uppsättningar med data som passar bättre i minnet per arbets plats.
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Ansluta till](data-flow-join.md) och [Exists](data-flow-exists.md) transformationer utföra liknande aktiviteter i ADF mappning Data flödar. Ta en titt på dessa transformationer nästa.
+[Anslut](data-flow-join.md) och [existerar](data-flow-exists.md) transformeringar utför liknande uppgifter i data flöden för ADF-mappning. Ta en titt på dessa omvandlingar härnäst.

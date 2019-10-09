@@ -14,12 +14,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 7833b5d6b9b94ddcd4b94d96201ccc85497f2529
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 8a58b73f3f3acb8d7c6ced9e0086687b54fff734
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60234202"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72029807"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Skapa ett Azure App Configuration-arkiv
 
@@ -51,6 +51,7 @@ az group create --name $myResourceGroupName --location eastus
 # Create the Azure AppConfig Service resource and query the hostName
 appConfigHostname=$(az appconfig create \
   --name $myAppConfigStoreName \
+  --location eastus \
   --resource-group $myResourceGroupName \
   --query hostName \
   -o tsv)

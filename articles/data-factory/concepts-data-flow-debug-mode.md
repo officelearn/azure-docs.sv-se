@@ -7,26 +7,26 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/06/2019
-ms.openlocfilehash: 7d1023f6c46c15b6f982193350923f5c91cdc4b9
-ms.sourcegitcommit: b7b0d9f25418b78e1ae562c525e7d7412fcc7ba0
+ms.openlocfilehash: 925e52f9f62860d8cd0951b9e72af09cbb7800fc
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/08/2019
-ms.locfileid: "70801699"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72027814"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mappa fel söknings läge för data flöde
 
-[!INCLUDE [notes](../../includes/data-factory-data-flow-preview.md)]
+
 
 ## <a name="overview"></a>Översikt
 
 Med fel söknings läget Azure Data Factory mappnings data flödet kan du interaktivt titta på DataForm-transformeringen medan du skapar och felsöker dina data flöden. Felsökningssessionen kan användas både i data flödets design sessioner samt vid körning av pipeline-felsökning av data flöden. Om du vill aktivera fel söknings läge använder du knappen "fel sökning av data Flow" överst i design ytan.
 
-![Felsöka skjutreglage](media/data-flow/debugbutton.png "Felsöka skjutreglage")
+![](media/data-flow/debugbutton.png "Skjutreglage") för fel sökning av skjutreglage
 
-När du har aktiverat skjutreglaget uppmanas du att välja vilken integration runtime-konfiguration som du vill använda. Om du väljer AutoResolveIntegrationRuntime, kommer ett kluster med åtta kärnor i allmän beräkning med en tid på 60 minuter att leva upp. Mer information om data flödes integrerings körningar finns i [prestanda för data flöde](concepts-data-flow-performance.md#increase-size-of-your-compute-engine-in-azure-integration-runtime).
+När du har aktiverat skjutreglaget uppmanas du att välja vilken integration runtime-konfiguration som du vill använda. Om du väljer AutoResolveIntegrationRuntime, kommer ett kluster med åtta kärnor i allmän beräkning med en tid på 60 minuter att leva upp. Mer information om data flödes integrerings körningar finns i [prestanda för data flöde](concepts-data-flow-performance.md#increasing-compute-size-in-azure-integration-runtime).
 
-![FELSÖK IR-val](media/data-flow/debugbutton2.png "FELSÖK IR-val")
+![FELSÖKA IR-val](media/data-flow/debugbutton2.png "Felsöka IR-val")
 
 När fel söknings läget är aktiverat kan du interaktivt bygga ditt data flöde med ett aktivt Spark-kluster. Sessionen stängs när du har aktiverat fel sökning i Azure Data Factory. Du bör vara medveten om de timkostnad som Azure Databricks under tiden som du har aktiverat felsökningssessionen.
 
@@ -42,17 +42,17 @@ När du är färdig med fel sökningen aktiverar du fel söknings knappen så at
 
 Du kan redigera fel söknings inställningar genom att klicka på "Felsök inställningar" i verktygsfältet data flödes arbets yta. Du kan välja den rad gräns eller fil källa som ska användas för varje käll omvandling här. Rad begränsningarna i den här inställningen gäller bara för den aktuella felsökningssessionen. Du kan också välja den mellanlagrade länkade tjänsten som ska användas för en SQL DW-källa. 
 
-![Fel söknings inställningar](media/data-flow/debug-settings.png "Fel söknings inställningar")
+![Felsöka inställningar](media/data-flow/debug-settings.png "") för fel söknings inställningar
 
 Om du har parametrar i ditt data flöde eller någon av dess refererade data uppsättningar, kan du ange vilka värden som ska användas vid fel sökning genom att välja fliken **parametrar** .
 
-![Parametrar för fel söknings inställningar](media/data-flow/debug-settings2.png "Parametrar för fel söknings inställningar")
+![Parametrar]för felsöka inställningar(media/data-flow/debug-settings2.png "Felsöka inställningar")
 
 ## <a name="data-preview"></a>Data för hands version
 
 Vid fel sökning på visas fliken Data förhands granskning på den nedre panelen. Utan fel söknings läge på visar data flödet bara aktuella metadata i och ut ur var och en av dina omvandlingar på fliken Granska. Data förhands granskningen kommer bara att fråga antalet rader som du har angett som gräns i fel söknings inställningarna. Klicka på **Uppdatera** för att hämta data förhands granskningen.
 
-![Data för hands version](media/data-flow/datapreview.png "Data för hands version")
+(media/data-flow/datapreview.png "Förhands granskning") av ![data för hands version]
 
 > [!NOTE]
 > Fil källor begränsar bara de rader som visas, inte raderna som läses. För mycket stora data mängder rekommenderar vi att du tar en liten del av filen och använder den för testning. Du kan välja en temporär fil i fel söknings inställningar för varje källa som är en fil data uppsättnings typ.
@@ -63,19 +63,19 @@ När du kör i fel söknings läge i data flöde kommer dina data inte att skriv
 
 Se till att du använder en liten uppsättning kända data för ditt test när du vill testa kopplingar, finns eller söka omvandlingar. Du kan använda alternativet för fel söknings inställningar ovan för att ange en temporär fil som ska användas för testningen. Detta är nödvändigt eftersom när du begränsar eller raderar rader från en stor data uppsättning kan du inte förutsäga vilka rader och vilka nycklar som ska läsas in i flödet för testning. Resultatet är icke-deterministiskt, vilket innebär att anslutnings villkoren inte kan fungera.
 
-### <a name="quick-actions"></a>Snabbåtgärder
+### <a name="quick-actions"></a>Snabb åtgärder
 
 När du ser data förhands granskningen kan du generera en snabb omvandling till typecast, ta bort eller göra en ändring i en kolumn. Klicka på kolumn rubriken och välj sedan ett av alternativen i verktygsfältet för förhands granskning.
 
-![Snabb åtgärder](media/data-flow/quick-actions1.png "Snabb åtgärder")
+Snabb(media/data-flow/quick-actions1.png "åtgärder") för ![snabb]åtgärder
 
 När du har valt en ändring uppdateras data förhands granskningen omedelbart. Klicka på **Bekräfta** i det övre högra hörnet för att generera en ny omvandling.
 
-![Snabb åtgärder](media/data-flow/quick-actions2.png "Snabb åtgärder")
+Snabb(media/data-flow/quick-actions2.png "åtgärder") för ![snabb]åtgärder
 
 **Typecast** och **ändra** genererar en härledd kolumn omvandling och **tar bort** genererar en SELECT-omvandling.
 
-![Snabb åtgärder](media/data-flow/quick-actions3.png "Snabb åtgärder")
+Snabb(media/data-flow/quick-actions3.png "åtgärder") för ![snabb]åtgärder
 
 > [!NOTE]
 > Om du redigerar ditt data flöde måste du hämta data förhands granskningen igen innan du lägger till en snabb omvandling.
@@ -84,7 +84,7 @@ När du har valt en ändring uppdateras data förhands granskningen omedelbart. 
 
 Genom att markera en kolumn på fliken Data förhands granskning och klicka på **statistik** i verktygsfältet för förhands granskning visas ett diagram längst till höger i data rutnätet med detaljerad statistik om varje fält. Azure Data Factory görs ett avgörande baserat på data samplingen för vilken typ av diagram som ska visas. Fält med hög kardinalitet kommer att standardvärdet är NULL/NOT NULL-diagram medan kategoriska och numeriska data som har låg kardinalitet visar stapeldiagram med data värdes frekvens. Du kan också se max längd längd på sträng fält, minsta/högsta värden i numeriska fält, standard utveckling, percentiler, antal och genomsnitt.
 
-![Kolumn statistik](media/data-flow/stats.png "Kolumn statistik")
+Kolumn ![statistik](media/data-flow/stats.png "kolumn statistik")
 
 ## <a name="next-steps"></a>Nästa steg
 

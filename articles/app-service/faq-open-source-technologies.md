@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 941a218dbda2c27a598e5a53f2b947184ee78085
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: b92fe0a8073437d2cf0e908b4e734a0c01c342eb
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71121226"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169689"
 ---
 # <a name="open-source-technologies-faqs-for-web-apps-in-azure"></a>Vanliga frågor och svar om öppen källkod för Web Apps i Azure
 
@@ -36,10 +36,10 @@ Så här aktiverar du PHP-loggning:
 2. På den översta menyn väljer du **Felsök konsol** > **cmd**.
 3. Välj mappen **plats** .
 4. Välj mappen **wwwroot** .
-5. Välj ikonen och välj sedan **ny fil.** **+**
+5. Välj ikonen **+** och välj sedan **ny fil**.
 6. Ange fil namnet till **. user. ini**.
 7. Välj Penn ikonen bredvid **. user. ini**.
-8. Lägg till den här koden i filen:`log_errors=on`
+8. I filen lägger du till följande kod: `log_errors=on`
 9. Välj **Spara**.
 10. Välj Penn ikonen bredvid **wp-config. php**.
 11. Ändra texten till följande kod:
@@ -78,7 +78,7 @@ Om du vill ändra versionen för Node. js-programmet kan du använda något av f
   Distributions processen för Azure käll kontroll omfattar följande steg:
   1. Flyttar innehåll till Azure-webbappen.
   2. Skapar ett standard skript för distribution, om det inte finns en (Deploy. cmd,. distributions-filer) i rotmappen för webbappar.
-  3. Kör ett distributions skript där det skapar en iisnode. YML-fil om du nämner Node. js-versionen i filen Package. JSON-fil > motor`"engines": {"node": "5.9.1","npm": "3.7.3"}`
+  3. Kör ett distributions skript där det skapar en iisnode. YML-fil om du nämner Node. js-versionen i Package. JSON-filen > motor `"engines": {"node": "5.9.1","npm": "3.7.3"}`
   4. Filen iisnode. yml har följande kodrad:
       ```yml
       nodeProcessCommandLine: "D:\Program Files (x86)\nodejs\5.9.1\node.exe"
@@ -144,7 +144,7 @@ Så här löser du felet:
 
 1. Ta bort filen sqljdbc*. jar från mappen app/lib.
 2. Om du använder den anpassade Tomcat eller Tomcat webb server för Azure Marketplace kopierar du den här jar-filen till mappen Tomcat lib.
-3. Om du aktiverar Java från Azure Portal (Välj **Java 1,8** > **Tomcat-Server**) kopierar du jar-filen sqljdbc. * i mappen som är parallell med din app. Lägg sedan till följande classpath-inställning i filen Web. config:
+3. Om du aktiverar Java från Azure Portal (Välj **java 1,8** >  Tomcat-**Server**) kopierar du jar-filen sqljdbc. * i mappen som är parallell med din app. Lägg sedan till följande classpath-inställning i filen Web. config:
 
     ```xml
     <httpPlatform>
@@ -187,24 +187,24 @@ App Service har ingen inbyggd e-postfunktion. En del användbara alternativ för
 
 Om du nyligen har migrerat till Azure kan WordPress omdirigera till den gamla domän-URL: en. Detta orsakas av en inställning i MySQL-databasen.
 
-WordPress kompis + är ett Azure-webbplats tillägg som du kan använda för att uppdatera URL: en för omdirigering direkt i databasen. Mer information om hur du använder WordPress kompis + finns i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+WordPress kompis + är ett Azure-webbplats tillägg som du kan använda för att uppdatera URL: en för omdirigering direkt i databasen. Mer information om hur du använder WordPress kompis + finns i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-Om du föredrar att manuellt uppdatera omdirigerings-URL: en med hjälp av SQL-frågor eller phpMyAdmin [, se WordPress: Omdirigerar till fel URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
+Alternativt, om du vill uppdatera omdirigerings-URL: en manuellt med hjälp av SQL-frågor eller PHPMyAdmin, se [WordPress: Omdirigerar till fel URL @ no__t-0.
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Hur gör jag för att ändra inloggnings lösen ordet för ditt WordPress?
 
-Om du har glömt ditt lösen ord för WordPress-inloggning kan du använda WordPress kompis + för att uppdatera det. Om du vill återställa lösen ordet installerar du WordPress kompis + Azure Site extension och slutför sedan stegen som beskrivs i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+Om du har glömt ditt lösen ord för WordPress-inloggning kan du använda WordPress kompis + för att uppdatera det. Om du vill återställa lösen ordet installerar du WordPress kompis + Azure Site extension och slutför sedan stegen som beskrivs i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 ## <a name="i-cant-sign-in-to-wordpress-how-do-i-resolve-this"></a>Jag kan inte logga in på WordPress. Hur gör jag för att du lösa detta?
 
-Om du upptäcker att du har låst av WordPress efter att du nyligen har installerat ett plugin-program kan du ha en felaktig plugin. WordPress kompis + är ett Azure-webbplats tillägg som kan hjälpa dig att inaktivera plugin-program i WordPress. Mer information finns i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/).
+Om du upptäcker att du har låst av WordPress efter att du nyligen har installerat ett plugin-program kan du ha en felaktig plugin. WordPress kompis + är ett Azure-webbplats tillägg som kan hjälpa dig att inaktivera plugin-program i WordPress. Mer information finns i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
 ## <a name="how-do-i-migrate-my-wordpress-database"></a>Hur gör jag för att migrera min WordPress-databas?
 
 Du har flera alternativ för att migrera MySQL-databasen som är ansluten till din WordPress-webbplats:
 
 * Utvecklare: Använda [kommando tolken eller phpMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
-* Icke-utvecklare: Använd [WordPress kompis +](https://blogs.msdn.microsoft.com/azureossds/2016/12/21/wordpress-tools-and-mysql-migration-with-wordpress-buddy/)
+* Icke-utvecklare: Använd [WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Hur gör jag för att hjälp till att göra WordPress säkrare?
 

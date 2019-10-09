@@ -8,14 +8,14 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 53c93b4e0184468ddee75613b48b887c9d07f751
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 0564763b05dd44eb908ec00f98a97e9d4970099f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963795"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177589"
 ---
-# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudier: Använd exporterad mall från Azure Portal
+# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudiekurs: Använd exporterad mall från Azure Portal
 
 I den här själv studie serien har du skapat en mall för att distribuera ett Azure Storage-konto. I de kommande två självstudierna lägger du till en *App Service plan* och en *webbplats*. I stället för att skapa mallar från grunden får du lära dig hur du exporterar mallar från Azure Portal och hur du använder exempel mallar från [Azures snabb starts mallar](/resources/templates/). Du anpassar mallarna efter din användning. Den här självstudien fokuserar på att exportera mallar och anpassa resultatet för din mall. Det tar ungefär **14 minuter** att slutföra.
 
@@ -46,13 +46,13 @@ Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske
     - **Namn**: Ange ett namn för App Service-planen.
     - **Operativ system**: Välj **Linux**.
     - **Region**: Välj en Azure-plats. Välj till exempel **USA, centrala**.
-    - **Pris nivå**: om du vill spara kostnader ändrar du SKU till **Basic**.
+    - **Pris nivå**: om du vill spara kostnader ändrar du SKU till **Basic B1** (under utveckling/testning).
 
     ![Exportera mall-Portal för Resource Manager-mall](./media/template-tutorial-export-template/resource-manager-template-export.png)
 1. Välj **Granska och skapa**.
 1. Välj **Skapa**. Det tar en stund att skapa resursen.
 
-## <a name="export-template"></a>Exportera mall
+## <a name="export-the-template"></a>Exportera mallen
 
 1. Välj **Gå till resurs**.
 
@@ -62,7 +62,7 @@ Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske
 
     ![Exportera mall för Resource Manager-mall](./media/template-tutorial-export-template/resource-manager-template-export-template.png)
 
-   Funktionen Exportera mall tar det aktuella läget för en resurs och skapar en mall för att distribuera den. Det kan vara praktiskt att exportera en mall för att snabbt få den JSON du behöver för att distribuera en resurs.
+   Funktionen Exportera mall tar det aktuella läget för en resurs och skapar en mall för att distribuera den. Att exportera en mall kan vara ett användbart sätt att snabbt hämta den JSON du behöver för att distribuera en resurs.
 
 1. Kopiera **Microsoft. Web/Server grupper** -definitionen och parameter definitionen till mallen.
 
@@ -71,7 +71,7 @@ Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske
 > [!IMPORTANT]
 > Normalt är den exporterade mallen mer utförlig än du kanske vill när du skapar en mall. Till exempel har SKU-objektet i den exporterade mallen fem egenskaper. Den här mallen fungerar, men du kan bara använda egenskapen **namn** . Du kan börja med den exporterade mallen och sedan ändra den så att den passar dina behov.
 
-## <a name="revise-existing-template"></a>Ändra befintlig mall
+## <a name="revise-the-existing-template"></a>Ändra den befintliga mallen
 
 Den exporterade mallen ger dig merparten av den JSON du behöver, men du måste anpassa den för din mall. Var särskilt uppmärksam på skillnader i parametrar och variabler mellan mallen och den exporterade mallen. Det är självklart att export processen inte känner till de parametrar och variabler som du redan har definierat i mallen.
 
@@ -81,7 +81,7 @@ Kopiera hela filen och ersätt din mall med dess innehåll.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/export-template/azuredeploy.json?range=1-77&highlight=28-31,50-69)]
 
-## <a name="deploy-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
 Använd antingen Azure CLI eller Azure PowerShell för att distribuera en mall.
 

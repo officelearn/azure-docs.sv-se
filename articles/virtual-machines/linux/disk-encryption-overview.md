@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 61c85d17e88016e5e9067d4be86e1cd290b4b12a
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 053c52d7d1a0282d72ad76408b77c96aa3b0e3e4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948189"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174694"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Azure Disk Encryption för virtuella Linux-datorer 
 
@@ -32,7 +32,7 @@ Du kan lära dig grunderna i Azure Disk Encryption för Linux på bara några mi
 
 ### <a name="supported-vm-sizes"></a>VM-storlekar som stöds
 
-Virtuella Linux-datorer är tillgängliga i [flera storlekar](sizes.md). Azure Disk Encryption är inte tillgänglig på virtuella datorer med [Basic, A-serien](/pricing/details/virtual-machines/series/)eller på virtuella datorer som inte uppfyller de minsta minnes kraven:
+Virtuella Linux-datorer är tillgängliga i [flera storlekar](sizes.md). Azure Disk Encryption är inte tillgänglig på virtuella datorer med [Basic, A-serien](https://azure.microsoft.com/pricing/details/virtual-machines/series/)eller på virtuella datorer som inte uppfyller de minsta minnes kraven:
 
 | Virtuell dator | Minsta minnes krav |
 |--|--|

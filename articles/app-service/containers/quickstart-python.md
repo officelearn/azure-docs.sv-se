@@ -13,12 +13,14 @@ ms.tgt_pltfrm: na
 ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: cephalin
-ms.openlocfilehash: d4f1cd5193f29e929c822966ca427c6e6ebf67de
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+experimental: true
+experiment_id: 1e304dc9-5add-4b
+ms.openlocfilehash: ed7e0df77abb39c07bea8946381247539afb3134
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70070961"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177017"
 ---
 # <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Skapa en python-app i Azure App Service på Linux
 
@@ -56,12 +58,6 @@ source venv/bin/activate
 pip install -r requirements.txt
 FLASK_APP=application.py flask run
 
-# In PowerShell
-py -3 -m venv env
-env\scripts\activate
-pip install -r requirements.txt
-Set-Item Env:FLASK_APP ".\application.py"
-flask run
 ```
 
 Öppna en webbläsare och gå till exempel appen på `http://localhost:5000/`.
@@ -100,11 +96,11 @@ Unpacking objects: 100% (43/43), done.
 Checking connectivity... done.
 ```
 
-## <a name="create-a-web-app"></a>Skapa en webbapp
+## <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 Ändra till den katalog som innehåller exempelkoden och kör `az webapp up` kommandot.
 
-I följande `<app-name>` exempel ersätter du med ett globalt unikt app-namn (*giltiga tecken är `a-z`, `0-9`och `-`* ).
+I följande exempel ersätter du `<app-name>` med ett globalt unikt namn på appen (*giltiga tecken är `a-z`, `0-9` och `-`* ).
 
 ```bash
 cd python-docs-hello-world
@@ -157,7 +153,7 @@ Python-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
 
 ## <a name="update-locally-and-redeploy-the-code"></a>Uppdatera lokalt och distribuera om koden
 
-I Cloud Shell anger `code application.py` du för att öppna Cloud Shell redigeraren.
+I Cloud Shell anger `code application.py` för att öppna Cloud Shell redigeraren.
 
 ![application.py-kod](media/quickstart-python/code-applicationpy.png)
 
@@ -169,7 +165,7 @@ return "Hello Azure!"
 
 Spara dina ändringar och avsluta redigeraren. Använd kommandot `^S` för att spara och `^Q` för att avsluta.
 
-Distribuera om appen med hjälp [`az webapp up`](/cli/azure/webapp#az-webapp-up) av kommandot. Ersätt namnet på din app för `<app-name>`och ange en plats för `<location-name>` (med ett av värdena som visas i [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) kommandot).
+Distribuera om appen med kommandot [`az webapp up`](/cli/azure/webapp#az-webapp-up) . Ersätt namnet på din app för `<app-name>` och ange en plats för `<location-name>` (med ett av värdena som visas i kommandot [`az account list-locations`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) ).
 
 ```bash
 az webapp up -n <app-name> -l <location-name>
@@ -198,10 +194,10 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudier: Python-webbapp (django) med PostgreSQL](tutorial-python-postgresql-app.md)
+> [Självstudiekurs: Python-webbapp (django) med PostgreSQL @ no__t-0
 
 > [!div class="nextstepaction"]
 > [Konfigurera python-app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Självstudier: Kör python-app i anpassad behållare](tutorial-custom-docker-image.md)
+> [Självstudiekurs: Kör python-app i den anpassade behållaren @ no__t-0

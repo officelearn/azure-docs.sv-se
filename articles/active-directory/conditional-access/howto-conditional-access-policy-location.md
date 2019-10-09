@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b31fc3aed0d412646d9924e87170dffcd5145409
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: c782c8bb2807017053375b45560685acf78161e7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576607"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169972"
 ---
 # <a name="conditional-access-block-access-by-location"></a>Villkorlig åtkomst: Blockera åtkomst efter plats
 
@@ -24,7 +24,7 @@ Med plats villkoret i villkorlig åtkomst kan du styra åtkomsten till dina moln
 
 ## <a name="define-locations"></a>Definiera platser
 
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. Välj **ny plats**.
 1. Namnge din plats.
@@ -37,7 +37,7 @@ Mer information om plats villkoret i villkorlig åtkomst finns i artikeln, [Vad 
 
 ## <a name="create-a-conditional-access-policy"></a>Skapa en princip för villkorlig åtkomst
 
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
@@ -49,8 +49,8 @@ Mer information om plats villkoret i villkorlig åtkomst finns i artikeln, [Vad 
    1. **Konfigurera** till **Ja**
    1. **Inkludera** utvalda **valda platser**
    1. Välj den blockerade plats som du har skapat för din organisation.
-   1. Klicka på **Välj** > har > **slutförts**.
-1. Under**blockera** **åtkomst kontroller** > och välj **Välj**.
+   1. Klicka på **välj**@no__t-**1 @no__t**-3 har**gjorts**.
+1. Under **åtkomst kontroller** > -**block**och välj **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.
 

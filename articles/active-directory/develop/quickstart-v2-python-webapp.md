@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 587e7a82e2a9cde8ff6d08274928ab22aa969061
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 85a1de992be7b5bbdcec8fd415f60ae10190c11a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309613"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170033"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabbstart: Lägg till inloggning med Microsoft i en python-webbapp
 
@@ -37,7 +37,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 Om du vill köra det här exemplet behöver du:
 
 - [Python 2.7 +](https://www.python.org/downloads/release/python-2713) eller [python 3 +](https://www.python.org/downloads/release/python-364/)
-- [Kolv](http://flask.pocoo.org/), [kolv](https://pythonhosted.org/Flask-Session/), [förfrågningar](https://2.python-requests.org/en/master/)
+- [Kolv](http://flask.pocoo.org/), [kolv](https://pythonhosted.org/Flask-Session/), [förfrågningar](https://requests.kennethreitz.org//en/master/)
 - [MSAL python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
 - En Azure Active Directory-klient (Azure AD). Mer information om hur du skaffar en Azure AD-klient finns i [så här skaffar du en Azure AD-klient.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
 
@@ -67,7 +67,7 @@ Om du vill köra det här exemplet behöver du:
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >      - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `python-webapp`.
 >      - Under **Kontotyper som stöds** väljer du **Accounts in any organizational directory and personal Microsoft accounts** (Konton i alla organisationskataloger och personliga Microsoft-konton).
->      - Under avsnittet omdirigerings- **URI** väljer du **webb** plattformen i list rutan och anger värdet till `http://localhost:5000/getAToken`.
+>      - Under avsnittet **omdirigerings-URI** väljer du **webb** plattformen i list rutan och anger värdet till `http://localhost:5000/getAToken`.
 >      - Välj **Registrera**. På sidan **Översikt över** appar noterar du **programmets (klient) ID-** värde för senare användning.
 > 1. På den vänstra menyn väljer du **certifikat & hemligheter** och klickar på **ny klient hemlighet** i avsnittet **klient hemligheter** :
 >
@@ -82,7 +82,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > För att kod exemplet för den här snabb starten ska fungera måste du:
 >
-> 1. Lägg till en svars `http://localhost:5000/getAToken`-URL som.
+> 1. Lägg till en svars-URL som `http://localhost:5000/getAToken`.
 > 1. Skapa en klient hemlighet.
 >
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
@@ -106,10 +106,10 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 ```
 
 > [!div renderon="docs"]
-> Där:
+> Var:
 >
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
-> - `Enter_the_Client_Secret_Here`– är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
+> - `Enter_the_Client_Secret_Here`-är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
 
 #### <a name="step-4-run-the-code-sample"></a>Steg 4: Kör kod exemplet
 
@@ -130,6 +130,6 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 Läs mer om webbappar som loggar in användare och som anropar webb-API: er:
 
 > [!div class="nextstepaction"]
-> [Scenario: Webb program som loggar in användare](scenario-web-app-sign-user-overview.md)
+> [Scenario: Webbappar som loggar in användare @ no__t-0
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/26/2019
 ms.author: bwren
-ms.openlocfilehash: 39691c0efbac7b7a48dd844641d63e0ca178e95f
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 957df2d03352756c74a5450de240afde2615e50b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327469"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177623"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Anpassade loggar i Azure Monitor
 
@@ -74,7 +74,7 @@ Om en tidsbegränsare för tidsstämpel används fylls egenskapen TimeGenerated 
 4. Ändra avgränsaren som används för att identifiera en ny post och välj den avgränsare som bäst identifierar posterna i logg filen.
 5. Klicka på **Nästa**.
 
-### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till sökvägar till loggsamling
+### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till logg samlings Sök vägar
 Du måste definiera en eller flera sökvägar på agenten där den kan hitta den anpassade loggen.  Du kan antingen ange en speciell sökväg och ett namn för logg filen, eller så kan du ange en sökväg med ett jokertecken för namnet. Detta stöder program som skapar en ny fil varje dag eller när en fil når en viss storlek. Du kan också ange flera sökvägar för en enskild loggfil.
 
 Ett program kan till exempel skapa en loggfil varje dag med datumet som ingår i namnet som i log20100316. txt. Ett mönster för en sådan logg kan vara *log\*.txt* som gäller för alla loggfiler som följer programmets namngivnings schema.
@@ -146,7 +146,7 @@ Vi tillhandahåller en av loggfilerna och kan se de händelser som den kommer at
 
 ![Ladda upp och parsa en exempel logg](media/data-sources-custom-logs/delimiter.png)
 
-### <a name="add-log-collection-paths"></a>Lägg till sökvägar till loggsamling
+### <a name="add-log-collection-paths"></a>Lägg till logg samlings Sök vägar
 Loggfilerna finns i *C:\MyApp\Logs*.  En ny fil skapas varje dag med ett namn som innehåller datumet i mönstret *appYYYYMMDD. log*.  Ett tillräckligt mönster för den här loggen skulle bli *C:\MyApp\Logs @ no__t-1\*.log*.
 
 ![Logg samlings Sök väg](media/data-sources-custom-logs/collection-path.png)
@@ -172,7 +172,7 @@ Vi använder en enkel fråga för *MyApp_CL* för att returnera alla poster frå
 I de fall där dina data inte kan samlas in med anpassade loggar bör du överväga följande alternativ strategier:
 
 - Använd ett anpassat skript eller någon annan metod för att skriva data till [Windows-händelser](data-sources-windows-events.md) eller [syslog](data-sources-syslog.md) som samlas in av Azure Monitor. 
-- Skicka data direkt till Azure Monitor med [http-API för data insamling](data-collector-api.md). Ett exempel som använder Runbooks i Azure Automation finns i [samla in loggdata i Azure monitor med en Azure Automation Runbook](runbook-datacollect.md).
+- Skicka data direkt till Azure Monitor med [http-API för data insamling](data-collector-api.md). 
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [parsa text data i Azure Monitor](../log-query/parse-text.md) för metoder för att parsa varje importerad loggpost till flera egenskaper.

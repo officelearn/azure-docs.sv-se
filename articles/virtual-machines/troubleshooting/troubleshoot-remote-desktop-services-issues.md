@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 9f7957fb0e6e888367c1f8ded1abfb3828697cbb
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7949bedec2d304cd87fb512b44cd61d6f0894638
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71087098"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168958"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Fjärrskrivbordstjänster som inte startar på en virtuell Azure-dator
 
@@ -65,7 +65,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
 ### <a name="use-serial-console"></a>Använd serie konsol
 
-1. Öppna [serie konsolen](serial-console-windows.md) genom att välja **Support & fel söknings** > **seriell konsol**. Om funktionen är aktive rad på den virtuella datorn kan du ansluta den virtuella datorn.
+1. Öppna [serie konsolen](serial-console-windows.md) genom att välja **Support & fel sökning** > **seriell konsol**. Om funktionen är aktive rad på den virtuella datorn kan du ansluta den virtuella datorn.
 
 2. Skapa en ny kanal för en CMD-instans. Ange **cmd** för att starta kanalen och hämta kanal namnet.
 
@@ -113,7 +113,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService-tjänsten har stoppats på grund av problem med nekad åtkomst
 
 1. Ansluta till [Seriekonsolen](serial-console-windows.md) och öppna en PowerShell-instans.
-2. Hämta det Övervakare för processen genom att köra följande skript:
+2. Hämta Process Monitor-verktyget genom att köra följande skript:
 
    ```
    remove-module psreadline  
@@ -141,16 +141,16 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
    procmon /Terminate 
    ```
 
-5. Samla in filen **c:\temp\ProcMonTrace.PML**:
+5. Samla in filen **c:\temp\ProcMonTrace.PML**:
 
     1. [Anslut en datadisk till den virtuella datorn](../windows/attach-managed-disk-portal.md
 ).
     2. Använd Seriekonsol som du kan kopiera filen till den nya enheten. Till exempel `copy C:\temp\ProcMonTrace.PML F:\`. I det här kommandot är F enhetsbokstaven för den anslutna disken.
     3. Koppla från data enheten och koppla den på en fungerande virtuell dator som har Process Monitor-ubstakke installerad.
 
-6. Öppna **ProcMonTrace. PML** genom att använda Process Monitor den aktiva virtuella datorn. Sedan filtrera efter **resultatet är NEKAD**, enligt följande skärmbild:
+6. Öppna **ProcMonTrace. PML** genom att använda Process Monitor den aktiva virtuella datorn. Filtrera efter **resultat är åtkomst nekad**, som visas på följande skärm bild:
 
-    ![Filtrera efter resultat i Övervakare för processen](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
+    ![Filtrera efter resultat i process övervakaren](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
 6. Åtgärda den registernycklar, mappar eller filer som finns på utdata. Det här problemet orsakas vanligtvis när den inloggning som används på tjänsten inte har ACL-behörighet att komma åt dessa objekt. Om du vill veta rätt ACL-behörighet för inloggnings kontot kan du kontrol lera en felfri virtuell dator. 

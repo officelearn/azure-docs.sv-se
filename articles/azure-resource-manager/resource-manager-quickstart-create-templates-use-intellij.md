@@ -13,12 +13,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: quickstart
 ms.author: yucwan
-ms.openlocfilehash: cbeaccf4cdea87d6f34d5ee77e6a08b32abd76b5
-ms.sourcegitcommit: 6ad03fa28a0f60cb6dce6144f728c2ceb56ff6e2
+ms.openlocfilehash: d25a5720e3aaa8ad6306a72d2db8d3ca2e89861b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68708349"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169451"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-intellij-idea"></a>Snabbstart: Skapa och Distribuera Azure Resource Manager-mallar med hjälp av IntelliJ-idén
 
@@ -40,7 +40,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 
 ## <a name="deploy-a-quickstart-template"></a>Distribuera en snabb starts mall
 
-I stället för att skapa en mall från början öppnar du en mall från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/). Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/) (Skapa ett standardlagringskonto). Den definierar en Azure Storage konto resurs. 
+I stället för att skapa en mall från början öppnar du en mall från [Azure-snabbstartsmallar](https://azure.microsoft.com/resources/templates/). Azure-snabbstartsmallar är lagringsplatser för Resource Manager-mallar. Den mall som används i den här snabbstarten kallas [Create a standard storage account](https://github.com/Azure/azure-quickstart-templates/tree/master/101-storage-account-create/) (Skapa ett standardlagringskonto). Den definierar en Azure Storage konto resurs.
 
 1. Högerklicka och spara [`azuredeploy.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json) och [`azuredeploy.parameters.json`](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.parameters.json) på den lokala datorn.
 
@@ -48,7 +48,7 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
     ![Resource Manager-mall Högerklicka för att skapa distribution](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-create-deployment-right-click.png)
 
-1. Konfigurera **distributions namn**, **prenumeration**, **resurs grupp**och **region**. Här distribuerar vi mallen till en ny resurs grupp `testRG`. Välj sedan sökväg för **resurs mal len** som `azuredeploy.json` och **resurs parametrar** när `azuredeploy.parameters.json` du laddade ned.
+1. Konfigurera **distributions namn**, **prenumeration**, **resurs grupp**och **region**. Här distribuerar vi mallen till en ny resurs grupp `testRG`. Välj sedan sökväg för **resurs mal len** som `azuredeploy.json` och **resurs parametrar** som `azuredeploy.parameters.json` som du har laddat ned.
 
     ![Resource Manager-mall Välj filer för att skapa distribution](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-create-deployment-select-files.png)
 
@@ -72,11 +72,11 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
     ![Redigera distribution av Resource Manager-mall](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-edit-deployment.png)
 
-1. Du kan redigera de två filerna på den här sidan och distribuera ändringarna till Azure. Här ändrar vi värdet för **storageAccountType** i parameter-filer från `Standard_LRS` till. `Standard_GRS` Klicka sedan på **Uppdatera distribution** längst ned och bekräfta uppdateringen.
+1. Du kan redigera de två filerna på den här sidan och distribuera ändringarna till Azure. Här ändrar vi värdet för **storageAccountType** i parameter-filer, från `Standard_LRS` till `Standard_GRS`. Klicka sedan på **Uppdatera distribution** längst ned och bekräfta uppdateringen.
 
     ![Redigera distribution av Resource Manager-mall](./media/resource-manager-quickstart-create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
-1. När uppdaterings distributionen har slutförts kan du kontrol lera på portalen att det skapade lagrings kontot `Standard_GRS`har ändrats till.
+1. När uppdaterings distributionen har slutförts kan du kontrol lera på portalen att det skapade lagrings kontot har ändrats till `Standard_GRS`.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
@@ -89,10 +89,10 @@ I stället för att skapa en mall från början öppnar du en mall från [Azure-
 
 ## <a name="next-steps"></a>Nästa steg
 
-Huvud fokus i den här snabb starten är att använda IntelliJ idé för att distribuera en befintlig mall från Azure snabb starts mallar. Du har också lärt dig hur du visar och uppdaterar en befintlig distribution på Azure. Snabbstartsmallarna i Azure kanske inte innehåller exakt det du behöver. Nästa självstudiekurs visar hur du hittar information i mallreferensen så att du kan skapa ett krypterat Azure Storage-konto.
+Huvud fokus i den här snabb starten är att använda IntelliJ idé för att distribuera en befintlig mall från Azure snabb starts mallar. Du har också lärt dig hur du visar och uppdaterar en befintlig distribution på Azure. Snabbstartsmallarna i Azure kanske inte innehåller exakt det du behöver. Mer information om hur du utvecklar mallar finns i vår nya nybörjar-serien:
 
 > [!div class="nextstepaction"]
-> [Skapa ett krypterat lagringskonto](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Nybörjar självstudier](./template-tutorial-create-first-template.md)
 
 > [!div class="nextstepaction"]
 > [Besök java på Azure dev Center](https://docs.microsoft.com/azure/java)

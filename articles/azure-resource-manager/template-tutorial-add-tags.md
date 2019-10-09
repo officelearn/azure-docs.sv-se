@@ -8,14 +8,14 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c8c882d819771473db2cf1c91fb39912883d144d
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 8b6ff50f7254a51bcdf37ecb0afd8f0041a2c5da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963746"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177571"
 ---
-# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Självstudier: Lägg till taggar i din Resource Manager-mall
+# <a name="tutorial-add-tags-in-your-resource-manager-template"></a>Självstudiekurs: Lägg till taggar i din Resource Manager-mall
 
 I den här självstudien får du lära dig hur du lägger till taggar i resurser i mallen. Med [taggar](resource-group-using-tags.md) kan du logiskt organisera dina resurser. De märkes värden som visas i kostnads rapporter. Den här självstudien tar **8 minuter** att slutföra.
 
@@ -35,15 +35,15 @@ När du har distribuerat dessa resurser kan du behöva spåra kostnader och hitt
 
 ## <a name="add-tags"></a>Lägga till taggar
 
-Du kan tagga resurser för att lägga till värden som hjälper dig att identifiera användningen. Du kan till exempel lägga till taggar som markerar miljön och projektet. Du kan lägga till taggar som identifierar ett kostnads ställe eller teamet som äger resursen. Lägg till värden som passar din organisation.
+Du kan tagga resurser för att lägga till värden som hjälper dig att identifiera användningen. Du kan till exempel lägga till taggar som visar miljön och projektet. Du kan lägga till taggar som identifierar ett kostnads ställe eller teamet som äger resursen. Lägg till värden som passar din organisation.
 
 I följande exempel visas ändringarna i mallen. Kopiera hela filen och ersätt din mall med dess innehåll.
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,78,100)]
 
-## <a name="deploy-template"></a>Distribuera mallen
+## <a name="deploy-the-template"></a>Distribuera mallen
 
-Det är dags att distribuera mallen och titta på det returnerade värdet.
+Det är dags att distribuera mallen och titta på resultaten.
 
 Om du inte har skapat resurs gruppen, se [skapa resurs grupp](template-tutorial-create-first-template.md#create-resource-group). Exemplet förutsätter att du har angett **templateFile** -variabeln till sökvägen till mallfilen, som du ser i den [första självstudien](template-tutorial-create-first-template.md#deploy-template).
 

@@ -8,14 +8,14 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0d06006e72405a53361d0551cf773488ec809762
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: fa29ea3d2f6edbbb016ce5c0c74415a5e765e85a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963823"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177558"
 ---
-# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Självstudier: Använd parameter-filer för att distribuera Resource Manager-mallen
+# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Självstudiekurs: Använd parameter-filer för att distribuera Resource Manager-mallen
 
 I den här självstudien får du lära dig hur du använder [parameter-filer](resource-manager-parameter-files.md) för att lagra de värden som du skickar i under distributionen. I de föregående självstudierna använde du infogade parametrar med ditt distributions kommando. Den här metoden fungerade för att testa din mall, men när du automatiserar distributionen kan det vara lättare att skicka en uppsättning värden för din miljö. Parameter-filer gör det lättare att paketera parameter värden för en speciell miljö. I den här självstudien skapar du parameterstyrda filer för utvecklings-och produktions miljöer. Det tar ungefär **12 minuter** att slutföra.
 
@@ -51,9 +51,9 @@ Den här filen är parameter filen för produktions miljön. Observera att den a
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Använd antingen Azure CLI eller Azure PowerShell för att distribuera en mall.
+Använd antingen Azure CLI eller Azure PowerShell för att distribuera mallen.
 
-Som det slutliga testet av mallen ska vi skapa två nya resurs grupper. En för utvecklings miljön och för produktions miljön.
+Vi skapar två nya resurs grupper som ett slutligt test av din mall. En för utvecklings miljön och en för produktions miljön.
 
 Först ska vi distribuera till utvecklings miljön.
 
@@ -83,7 +83,7 @@ az group deployment create \
   --name devenvironment \
   --resource-group myResourceGroupDev \
   --template-file $templateFile \
-  --parameters @azuredeploy.parameters.dev.json
+  --parameters azuredeploy.parameters.dev.json
 ```
 
 ---
@@ -114,14 +114,14 @@ az group deployment create \
   --name prodenvironment \
   --resource-group myResourceGroupProd \
   --template-file $templateFile \
-  --parameters @azuredeploy.parameters.prod.json
+  --parameters azuredeploy.parameters.prod.json
 ```
 
 ---
 
-## <a name="verify-deployment"></a>Verifiera distributionen
+## <a name="verify-the-deployment"></a>Verifiera distributionen
 
-Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
+Du kan kontrol lera distributionen genom att utforska resurs grupperna från Azure Portal.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.

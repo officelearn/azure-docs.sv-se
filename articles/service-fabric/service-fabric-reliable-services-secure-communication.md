@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 04/20/2017
-ms.author: chackdan
-ms.openlocfilehash: 193df34a092d9feea3e0cf370fe38543395dad92
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.author: pepogors
+ms.openlocfilehash: c252ec31a64fa3a11973db7a8de0a440d8eed6f5
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871736"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166564"
 ---
 # <a name="secure-service-remoting-communications-in-a-c-service"></a>Säker kommunikation mellan tjänster i en C# tjänst
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ Säkerhet är en av de viktigaste aspekterna av kommunikationen. Reliable Servic
 
 Följ dessa steg om du vill skydda en tjänst när du använder C# service Remoting med tjänster:
 
-1. Skapa ett gränssnitt, `IHelloWorldStateful`som definierar de metoder som ska vara tillgängliga för ett fjärran rop på tjänsten. Din tjänst kommer att `FabricTransportServiceRemotingListener`använda, som deklareras `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime` i namn området. Det här är `ICommunicationListener` en implementering som tillhandahåller funktioner för fjärr kommunikation.
+1. Skapa ett gränssnitt `IHelloWorldStateful`, som definierar de metoder som ska vara tillgängliga för ett fjärran rop på tjänsten. Tjänsten använder `FabricTransportServiceRemotingListener`, som deklareras i namn rymden `Microsoft.ServiceFabric.Services.Remoting.FabricTransport.Runtime`. Detta är en `ICommunicationListener`-implementering som tillhandahåller funktioner för fjärr kommunikation.
 
     ```csharp
     public interface IHelloWorldStateful : IService
@@ -99,7 +99,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder C# service Remot
        ```
    2. Ange dem med hjälp av ett [konfigurations paket](service-fabric-application-and-service-manifests.md):
 
-       Lägg till ett `TransportSettings` namngivet avsnitt i filen Settings. xml.
+       Lägg till ett namngivet `TransportSettings`-avsnitt i filen Settings. xml.
 
        ```xml
        <Section Name="HelloWorldStatefulTransportSettings">
@@ -115,7 +115,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder C# service Remot
        </Section>
        ```
 
-       I det här fallet `CreateServiceReplicaListeners` kommer metoden att se ut så här:
+       I det här fallet kommer metoden `CreateServiceReplicaListeners` att se ut så här:
 
        ```csharp
        protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -129,7 +129,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder C# service Remot
        }
        ```
 
-        Om du lägger till `TransportSettings` ett avsnitt i Settings. xml- `FabricTransportRemotingListenerSettings` filen, kommer alla inställningar från det här avsnittet att läsas in som standard.
+        Om du lägger till ett `TransportSettings`-avsnitt i Settings. XML-filen, kommer `FabricTransportRemotingListenerSettings` att läsa in alla inställningar från det här avsnittet som standard.
 
         ```xml
         <!--"TransportSettings" section .-->
@@ -137,7 +137,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder C# service Remot
             ...
         </Section>
         ```
-        I det här fallet `CreateServiceReplicaListeners` kommer metoden att se ut så här:
+        I det här fallet kommer metoden `CreateServiceReplicaListeners` att se ut så här:
 
         ```csharp
         protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -150,7 +150,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder C# service Remot
             };
         }
         ```
-3. När du anropar metoder på en säker tjänst med hjälp av fjärrstacken, i stället `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` för att använda klassen för att skapa en `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`Tjänstproxy, använder du. Skicka i `FabricTransportRemotingSettings`, som innehåller `SecurityCredentials`.
+3. När du anropar metoder på en säker tjänst med hjälp av Remoting-stacken, i stället för att använda klassen `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxy` för att skapa en Tjänstproxy, använder du `Microsoft.ServiceFabric.Services.Remoting.Client.ServiceProxyFactory`. Skicka in `FabricTransportRemotingSettings`, som innehåller `SecurityCredentials`.
 
     ```csharp
 
@@ -195,7 +195,7 @@ Följ dessa steg om du vill skydda en tjänst när du använder C# service Remot
 
     Om klienten inte körs som en del av en tjänst kan du skapa en client_name. Settings. XML-fil på samma plats som client_name. exe är. Skapa sedan en TransportSettings-sektion i filen.
 
-    Om du lägger till ett `TransportSettings` avsnitt i klient inställningar. XML/client_name. Settings. `FabricTransportRemotingSettings` XML i liknande tjänst, läses alla inställningar från det här avsnittet in som standard.
+    Om du lägger till ett `TransportSettings`-avsnitt i klient inställningar. XML/client_name. Settings. XML, `FabricTransportRemotingSettings` läser in alla inställningar från det här avsnittet som standard.
 
     I så fall är den tidigare koden ännu enklare:  
 

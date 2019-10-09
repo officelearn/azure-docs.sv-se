@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: 69e001530de238f5d38c46b0a238a087f4487d9c
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: d68934174c3bbb53bba4eb786ac79ab94725151b
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023674"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166219"
 ---
 # <a name="monitor-azure-database-for-mariadb-performance-with-query-store"></a>Övervaka Azure Database for MariaDB prestanda med Query Store
 
@@ -104,7 +104,7 @@ Följande alternativ gäller specifikt för väntande statistik.
 > [!NOTE]
 > För närvarande ersätter den här konfigurationen **query_store_capture_mode** , vilket innebär att både **query_store_capture_mode** och **query_store_wait_sampling_capture_mode** måste vara aktiverade för att väntande statistik ska fungera. Om **query_store_capture_mode** är inaktive rad inaktive ras väntande statistik, eftersom väntande statistik använder performance_schema aktive rad och query_text som fångats av frågearkivet.
 
-Använd [Azure Portal](howto-server-parameters.md) för att hämta eller ange ett annat värde för en parameter.
+Använd [Azure Portal](howto-server-parameters.md) för att hämta eller ange ett annat värde för en parameter.
 
 ## <a name="views-and-functions"></a>Vyer och funktioner
 
@@ -161,7 +161,7 @@ Den här vyn returnerar information om väntande händelser i Frågearkivet. Det
 | `count_star` | bigint (20) | NO| Antal väntande händelser som samplats under intervallet för frågan |
 | `sum_timer_wait_ms` | double | NO| Total vänte tid (i millisekunder) för den här frågan under intervallet |
 
-### <a name="functions"></a>Functions
+### <a name="functions"></a>Funktioner
 
 | **Namn**| **Beskrivning** |
 |---|---|

@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: tutorial
 ms.date: 9/27/2019
-ms.openlocfilehash: 5b9be86b0a3d17c9c325b565979fccbec92f5733
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: d8ea5a507cc110c92bb74491c3376f7b671638d9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71815880"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175995"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Branchning och kedjesammansättning av aktiviteter i en Data Factory-pipeline
 
@@ -38,7 +38,7 @@ Den här självstudien visar hur du utför följande uppgifter:
 > * Starta en pipelinekörning
 > * Övervaka pipelinen och aktivitetskörningar
 
-I den här självstudiekursen används .NET SDK. Du kan använda andra metoder för att interagera med Azure Data Factory. För Data Factory snabb starter, se [fem minuters snabb starter](https://docs.microsoft.com/azure/data-factory/#5-minute-quickstarts).
+I den här självstudiekursen används .NET SDK. Du kan använda andra metoder för att interagera med Azure Data Factory. För Data Factory snabb starter, se [fem minuters snabb starter](/azure/data-factory/quickstart-create-data-factory-portal).
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -77,7 +77,7 @@ Skapa ett C# .net-konsol program:
 
 ### <a name="install-nuget-packages"></a>Installera NuGet-paket
 
-1. Välj **verktyg** > **NuGet Package Manager** > Package Manager-**konsolen**.
+1. Välj **verktyg** > **NuGet Package Manager** > **Package Manager-konsolen**.
 1. Kör följande kommandon i **Package Manager Console** för att installera paket. Mer information finns i [Microsoft. Azure. Management. DataFactory NuGet-paketet](https://www.nuget.org/packages/Microsoft.Azure.Management.DataFactory/) .
 
    ```powershell

@@ -23,9 +23,9 @@
       href: storage-sync-files-extend-servers.md
 - name: Begrepp
   items:
-    - name: Om Azure Files
+    - name: Planera för distribution av Azure Files
       href: storage-files-planning.md
-    - name: Om Azure File Sync
+    - name: Planera för distribution av Azure File Sync
       href: storage-sync-files-planning.md
     - name: Om molnnivåindelning
       href: storage-sync-cloud-tiering.md

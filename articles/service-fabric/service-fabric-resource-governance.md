@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 8/9/2017
-ms.author: subramar
-ms.openlocfilehash: ed9ea8f9c340331fd9b8fcc014ab1af88e7b3bae
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.author: atsenthi
+ms.openlocfilehash: aa388a688e76b0ba69231d8a11aa1bfa686f7f51
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599229"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166553"
 ---
 # <a name="resource-governance"></a>Resursstyrning
 
@@ -32,14 +32,14 @@ När du kör flera tjänster på samma nod eller kluster är det möjligt att en
 
 Resurs styrning stöds i Service Fabric i enlighet med [tjänst paketet](service-fabric-application-model.md). De resurser som är tilldelade till tjänst paketet kan delas ytterligare mellan kod paket. Resurs gränserna som anges innebär också att resurserna reserveras. Service Fabric har stöd för att ange CPU och minne per tjänst paket, med två inbyggda [mått](service-fabric-cluster-resource-manager-metrics.md):
 
-* *CPU* (mått namn `servicefabric:/_CpuCores`): En logisk kärna som är tillgänglig på värddatorn. Alla kärnor på alla noder viktas likadant.
+* *Processor* (metric Name `servicefabric:/_CpuCores`): En logisk kärna som är tillgänglig på värddatorn. Alla kärnor på alla noder viktas likadant.
 
-* *Minne* (mått namn `servicefabric:/_MemoryInMB`): Minnet uttrycks i megabyte och det mappas till det fysiska minne som är tillgängligt på datorn.
+* *Minne* (metric Name `servicefabric:/_MemoryInMB`): Minnet uttrycks i megabyte och det mappas till det fysiska minne som är tillgängligt på datorn.
 
 För dessa två mått spårar [kluster resurs hanteraren](service-fabric-cluster-resource-manager-cluster-description.md) den totala kluster kapaciteten, belastningen på varje nod i klustret och återstående resurser i klustret. Dessa två mått motsvarar andra användare eller anpassade mått. Alla befintliga funktioner kan användas med dem:
 
 * Klustret kan [bal anse](service-fabric-cluster-resource-manager-balancing.md) ras enligt dessa två mått (standard beteende).
-* Klustret kan defragmentas enligt dessa två mått. [](service-fabric-cluster-resource-manager-defragmentation-metrics.md)
+* Klustret kan [defragmentas](service-fabric-cluster-resource-manager-defragmentation-metrics.md) enligt dessa två mått.
 * När du [beskriver ett kluster](service-fabric-cluster-resource-manager-cluster-description.md)kan du ange en buffrad kapacitet för dessa två mått.
 
 [Dynamisk inläsnings rapportering](service-fabric-cluster-resource-manager-metrics.md) stöds inte för dessa mått och belastningar för dessa mått definieras vid skapande tillfället.
@@ -133,7 +133,7 @@ Resurs styrnings gränser anges i avsnittet applikations manifest (service manif
   </ServiceManifestImport>
 ```
 
-I det här exemplet hämtar tjänst paketet som heter **ServicePackageA** en kärna på noderna där det placeras. Det här tjänst paketet innehåller två kod paket (**CodeA1** och **CodeA2**) och `CpuShares` båda anger parametern. Proportionen av CpuShares 512:256 delar upp kärnan i de två kod paketen.
+I det här exemplet hämtar tjänst paketet som heter **ServicePackageA** en kärna på noderna där det placeras. Det här tjänst paketet innehåller två kod paket (**CodeA1** och **CodeA2**) och båda anger parametern `CpuShares`. Proportionen av CpuShares 512:256 delar upp kärnan i de två kod paketen.
 
 I det här exemplet hämtar CodeA1 två tredjedelar av en kärna och CodeA2 får en tredjedel av en kärna (och en återreservation av mjuk garanti av samma). Om CpuShares inte anges för kod paket, dividerar Service Fabric kärnorna jämnt mellan dem.
 

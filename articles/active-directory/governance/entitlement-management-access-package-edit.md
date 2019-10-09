@@ -16,12 +16,12 @@ ms.date: 09/26/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a79cf166025ced6cb08d2f9e24801ea498fdc1c
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 864a6476ad894952a2ef877d534ffe8a86e07819
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326384"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170028"
 ---
 # <a name="edit-and-manage-an-existing-access-package-in-azure-ad-entitlement-management-preview"></a>Redigera och hantera ett befintligt Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -34,7 +34,7 @@ Med ett Access-paket kan du utföra en enstaka konfiguration av resurser och pri
 
 I den här artikeln beskrivs hur du redigerar och hanterar befintliga åtkomst paket.
 
-## <a name="add-resource-roles"></a>Lägg till resursroller
+## <a name="add-resource-roles"></a>Lägg till resurs roller
 
 En resurs roll är en samling behörigheter som är kopplade till en resurs. Hur du gör resurser som är tillgängliga för användare att begära är att lägga till resurs roller till ditt åtkomst paket. Du kan lägga till resurs roller för grupper, team, program och SharePoint-webbplatser.
 
@@ -82,7 +82,7 @@ Mer information finns i [Jämför grupper](/office365/admin/create-groups/compar
     | Säkerhet | Används för att bevilja åtkomst till resurser. |
     | Distribution | Används för att skicka aviseringar till en grupp med personer. |
     | O365 | Office 365-grupp som inte är team aktive rad. Används för samarbete mellan användare, både inom och utanför företaget. |
-    | Team | Office 365-grupp som är team aktiverade. Används för samarbete mellan användare, både inom och utanför företaget. |
+    | Dela | Office 365-grupp som är team aktiverade. Används för samarbete mellan användare, både inom och utanför företaget. |
 
 1. Välj **ägare** eller **medlem**i listan **roll** .
 
@@ -367,5 +367,4 @@ I hantering av rättigheter bearbetar Azure AD Mass ändringar för tilldelning 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägg till en katalog ägare eller en Access Package Manager](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
 - [Begär process och e-postmeddelanden](entitlement-management-process.md)

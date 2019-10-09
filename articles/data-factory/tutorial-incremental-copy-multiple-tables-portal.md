@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.date: 01/20/2018
 ms.author: yexu
-ms.openlocfilehash: d46c460f7158635e520b47517fb3aab005af94a2
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 44ae433040c2c9cab47567cb663d4e588311a4a1
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140756"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177420"
 ---
 # <a name="incrementally-load-data-from-multiple-tables-in-sql-server-to-an-azure-sql-database"></a>Läs in data stegvis från flera tabeller i SQL Server till en Azure SQL-databas
 I den här självstudiekursen kommer du att skapa en Azure-datafabrik med en pipeline som läser in deltadata från flera tabeller på en lokal SQL-server till en Azure SQL-databas.    
@@ -386,7 +386,7 @@ I det här steget skapar du datauppsättningar som representerar datakällan, da
    ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-dynamicContent.png)
 
    
- 1. När du klickar på **Finish** (Slutför) visas **@dataset().SinkTableName** som tabellens namn.
+ 1. När du **har**klickat på slutför visas **\@dataset (). SinkTableName** som tabell namn.
    
    ![Datauppsättning för mottagare – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/sink-dataset-connection-completion.png)
 
@@ -425,7 +425,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     ![Ny pipeline – meny](./media/tutorial-incremental-copy-multiple-tables-portal/new-pipeline-menu.png)
 1. På fliken **Allmänt** i fönstret **Egenskaper** skriver du **IncrementalCopyPipeline** som **namn**. 
 
-    ![Pipelinenamn](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
+    ![Namn på pipeline](./media/tutorial-incremental-copy-multiple-tables-portal/pipeline-name.png)
 1. Gör följande i fönstret **Egenskaper**: 
 
     1. Klicka på **+ Ny**. 
@@ -492,9 +492,9 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     ![Kopiera aktivitet – inställningar för mottagare](./media/tutorial-incremental-copy-multiple-tables-portal/copy-sink-settings.png)
 1. Gör så här:
 
-    1. I egenskapen **dataset** , för parametern **SinkTableName** , anger `@{item().TABLE_NAME}`du.
-    1. Som egenskap för **lagrad procedur namn** anger `@{item().StoredProcedureNameForMergeOperation}`du.
-    1. För egenskapen **tabell typ** anger `@{item().TableType}`du.
+    1. I egenskapen **dataset** anger du `@{item().TABLE_NAME}` för parametern **SinkTableName** .
+    1. I egenskapen **namn för lagrad procedur** anger du `@{item().StoredProcedureNameForMergeOperation}`.
+    1. För egenskapen **tabell typ** anger du `@{item().TableType}`.
 
 
         ![Kopieringsaktiviteten – parametrar](./media/tutorial-incremental-copy-multiple-tables-portal/copy-activity-parameters.png)

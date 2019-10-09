@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Skapa en ETL-pipeline från slut punkt till slut punkt för att härleda Sälj insikter'
+title: 'Självstudiekurs: Skapa en ETL-pipeline från slut punkt till slut punkt för att härleda Sälj insikter'
 description: Lär dig hur du använder skapa ETL-pipelines med Azure HDInsight för att härleda insikter från försäljnings data med Spark-kluster på begäran och Power BI.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -8,14 +8,14 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 09/30/2019
 ms.author: hrasheed
-ms.openlocfilehash: 07714575bb4adfccf5d72a093874852c1bfebcc8
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: b9bcaf4b7497e8beba377eb7e47a44a6eb061299
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71843793"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178012"
 ---
-# <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Självstudier: Skapa en pipeline från slut punkt till slut punkt för att härleda Sälj insikter
+# <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Självstudiekurs: Skapa en pipeline från slut punkt till slut punkt för att härleda Sälj insikter
 
 I den här självstudien skapar du en pipeline från slut punkt till slut punkt som utför åtgärder för att extrahera, transformera och läsa in (ETL). Pipelinen använder Apache Spark-och Apache Hive-kluster som körs på Azure HDInsight för att skicka frågor till och ändra data. Du använder också tekniker som Azure Data Lake Storage Gen2 för data lagring och Power BI för visualisering.
 
@@ -175,7 +175,7 @@ Du kan kontrol lera att pipelinerna har körts genom att utföra något av följ
 - Gå till **Monitor** -avsnittet i din data fabrik via portalen.
 - I Azure Storage Explorer går du till ditt Data Lake Storage gen 2-lagrings konto. Gå till fil systemet `files` och gå sedan till mappen `transformed` och kontrol lera dess innehåll för att se om pipelinen lyckades.
 
-Andra sätt att transformera data med hjälp av HDInsight finns i [den här artikeln om hur du använder Jupyter Notebook](/spark/apache-spark-load-data-run-query.md).
+Andra sätt att transformera data med hjälp av HDInsight finns i [den här artikeln om hur du använder Jupyter Notebook](/azure/hdinsight/spark/apache-spark-load-data-run-query).
 
 ### <a name="create-a-table-on-the-interactive-query-cluster-to-view-data-on-power-bi"></a>Skapa en tabell i det interaktiva fråga klustret om du vill visa data på Power BI
 
@@ -212,7 +212,7 @@ Det här skriptet skapar en hanterad tabell på det interaktiva Query-kluster so
 När data har lästs in kan du experimentera med den instrument panel som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
 
 * [Introduktion till instrument paneler för Power BI designers](https://docs.microsoft.com/power-bi/service-dashboards)
-* [Självstudier: Kom igång med Power BI-tjänst @ no__t-0
+* [Självstudiekurs: Kom igång med Power BI-tjänst @ no__t-0
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 1aad2284c0f64c92efaefe3f9145d95c4aabec67
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 457154a797a4b6d9853b1effe0d8121053653a99
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68839443"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174767"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Mappnings format som stöds Azure Maps
 Azure Maps stöder flera olika inbyggda kart format enligt beskrivningen nedan.
@@ -34,7 +34,7 @@ En **väg** karta är en standard karta som visar vägar, naturliga och artifici
 Kart formaten **blank** och **blank_accessible** är en tom arbets yta där du kan visualisera data på. **Blank_accessible** -formatet kommer fortsätta att tillhandahålla skärm läsar uppdateringar med plats information om var kartan finns, även om bas kartan inte visas.
 
 > [!Note]
-> I webb-SDK kan du ändra bakgrunds färgen för kartan genom att ange CSS `background-color` -formatet för Map DIV-elementet.
+> I webb-SDK kan du ändra bakgrunds färgen för kartan genom att ange CSS-`background-color`-formatet för elementet Map DIV.
 
 **Tillämpliga API: er:**
 * Kart kontroll för webb-SDK
@@ -96,3 +96,11 @@ en **nedtonad** avlastning är ett Azure Maps huvud format som har slutförts me
 * [Kart panel](https://docs.microsoft.com/rest/api/maps/render/getmaptile)
 * Kart kontroll för webb-SDK
 * Kontroll av Android-kartning
+
+
+## <a name="next-steps"></a>Nästa steg
+
+Lär dig mer om hur du anger ett kart format i Azure Maps:
+
+> [!div class="nextstepaction"]
+> [Välj en kart stil](https://docs.microsoft.com/en-us/azure/azure-maps/choose-map-style)

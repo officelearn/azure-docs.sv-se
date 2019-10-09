@@ -8,16 +8,16 @@ ms.service: azure-resource-manager
 ms.date: 05/23/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a42ccb1c0e60f5bf1568ccea13392186577f2875
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 97d9aa1ed9440011fdaab3aa8eb9d3942b5a8acf
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205708"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170369"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Distributionshanteraren för Azure med Resource Manager-mallar (offentlig förhandsversion)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudiekurs: Använda Azure Deployment Manager med Resource Manager-mallar (offentlig för hands version)
 
-Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. Om du föredrar en snabbare metod, [Distributionshanteraren för Azure-Snabbstart](https://github.com/Azure-Samples/adm-quickstart) skapar konfigurationerna som krävs i din prenumeration och anpassar artefakter för att distribuera ett program i flera regioner. Snabbstarten utför uppgifterna som i den här självstudien.
+Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. Om du föredrar en snabbare metod skapar [snabb starten av Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart) de konfigurationer som krävs i din prenumeration och anpassar artefakterna för att distribuera ett program över flera regioner. Snabb starten utför samma uppgifter som i den här självstudien.
 
 För att använda Deployment Manager måste du skapa två mallar:
 
@@ -25,7 +25,7 @@ För att använda Deployment Manager måste du skapa två mallar:
 * **En distributionsmall**: Beskriver stegen för att distribuera dina program.
 
 > [!IMPORTANT]
-> Om din prenumeration har markerats för Kanarieöarna att testa nya Azure-funktioner, kan du bara använda Distributionshanteraren för Azure för att distribuera till kontrollvärde regioner. 
+> Om din prenumeration har marker ATS för Kanarie för att testa nya Azure-funktioner kan du bara använda Azure Deployment Manager för att distribuera till Kanarie regionerna. 
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -43,8 +43,8 @@ Den här självstudien omfattar följande uppgifter:
 
 Ytterligare resurser:
 
-* Den [Azure Deployment Manager REST API-referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
-* [Självstudie: Använda hälsokontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+* [Azure Deployment Manager REST API referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Självstudiekurs: Använd hälso kontroll i Azure Deployment Manager @ no__t-0.
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -80,7 +80,7 @@ Det finns två tjänster som allokeras i regionen USA, västra och USA, östra. 
 
 ## <a name="download-the-tutorial-files"></a>Ladda ned filerna för självstudiekursen
 
-1. Ladda ned [mallarna och artefakterna](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) som används i den här självstudien.
+1. Ladda ned [mallarna och artefakterna](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) som används i den här självstudien.
 2. Packa upp filerna till dator på din plats.
 
 Det finns två mappar under rotmappen:
@@ -110,7 +110,7 @@ De två versionerna (1.0.0.0 och 1.0.0.1) är avsedda för [ändringsdistributio
 
     ![Azure Deployment Manager-självstudie om att skapa en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-packageuri.png)
 
-    Mallen anropar ett distributionspaket, som innehåller filerna för webbprogrammet. I de här självstudierna innehåller det komprimerade paketet endast en index.html-fil.
+    Mallen anropar ett distributionspaket, som innehåller filerna för webbprogrammet. I den här självstudien innehåller det komprimerade paketet bara en index. html-fil.
 3. Öppna **\ArtifactStore\templates\1.0.0.0\ServiceWUS\CreateWebApplicationParameters.json**.
 
     ![Azure Deployment Manager-självstudie om att skapa containerRoot och parametrar för en webbprogrammall](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-create-web-application-parameters-deploypackageuri.png)
@@ -311,7 +311,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
     ```
 
     > [!NOTE]
-    > `New-AzResourceGroupDeployment` är ett asynkront anrop. Lyckades visas endast innebär att distributionen har har startat. Se steg 2 och 4 i den här proceduren för att verifiera distributionen.
+    > `New-AzResourceGroupDeployment` är ett asynkront anrop. Meddelandet lyckades innebär att distributionen har startats. För att verifiera distributionen, se steg 2 och steg 4 i den här proceduren.
 
 2. Kontrollera att tjänsttopologin och de angivna resurserna har skapats på Azure-portalen:
 
@@ -340,7 +340,7 @@ Azure PowerShell kan användas för att distribuera mallarna.
         -Verbose
     ```
 
-    Du måste installera PowerShell-cmdlets för Deployment Manager innan du kan köra denna cmdlet. Se Förutsättningar. -Verbose växel kan användas för att se hela utdata.
+    Du måste installera PowerShell-cmdlets för Deployment Manager innan du kan köra denna cmdlet. Se Förutsättningar. -Verbose-växeln kan användas för att se hela utdata.
 
     Följande exempel visar körningsstatusen:
 
@@ -434,4 +434,4 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du använder Azure Deployment Manager. Om du vill integrera övervakning av säkerhetshälsa i Azure Deployment Manager, se [självstudien: Använda hälsokontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
+I den här självstudien har du lärt dig hur du använder Azure Deployment Manager. Information om hur du integrerar hälso övervakning i Azure Deployment Manager finns i [Tutorial: Använd hälso kontroll i Azure Deployment Manager @ no__t-0.

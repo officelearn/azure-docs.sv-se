@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 4/9/2019
 ms.author: mayg
-ms.openlocfilehash: 8c24352fdbc6b81e7d263ac8c511b7c61792e6ae
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907876"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178100"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverks mappning och IP-adressering för virtuella nätverk
 
@@ -33,7 +33,7 @@ Mappa nätverk på följande sätt:
 3. I **Lägg till nätverks mappning**väljer du käll-och mål platserna. I vårt exempel körs den virtuella käll datorn i Asien, östra region och replikeras till Sydostasien region.
 
     ![Välj källa och mål](./media/site-recovery-network-mapping-azure-to-azure/network-mapping2.png)
-3. Skapa nu en nätverks mappning i den motstående katalogen. I vårt exempel kommer källan nu att Sydostasiens och målet kommer att Asien, östra.
+3. Skapa nu en nätverks mappning i motsatt riktning. I vårt exempel kommer källan nu att Sydostasiens och målet kommer att Asien, östra.
 
     ![Fönstret Lägg till nätverks mappning – Välj käll-och mål platser för mål nätverket](./media/site-recovery-network-mapping-azure-to-azure/network-mapping3.png)
 
@@ -58,7 +58,7 @@ Under nätet för den virtuella mål datorn väljs baserat på namnet på under 
 
 - Om ett undernät med samma namn som käll-VM-undernätet är tillgängligt i mål nätverket, anges det under nätet för den virtuella mål datorn.
 - Om det inte finns något undernät med samma namn i mål nätverket, anges det första under nätet i den alfabetiska ordningen som mål under nätet.
-- Du kan ändra mål under nätet i beräknings- **och nätverks** inställningarna för den virtuella datorn.
+- Du kan ändra mål under nätet i **beräknings-och nätverks** inställningarna för den virtuella datorn.
 
     ![Fönstret beräknings egenskaper för beräkning och nätverk](./media/site-recovery-network-mapping-azure-to-azure/modify-subnet.png)
 

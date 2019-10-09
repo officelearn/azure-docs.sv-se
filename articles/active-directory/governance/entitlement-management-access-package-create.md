@@ -16,12 +16,12 @@ ms.date: 09/24/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1283549ce78535757b7ba42eaf7054538f0c9784
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: a99aa766ed4e6cacbe22933db226b2037d3e736d
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326347"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170000"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Skapa ett nytt Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -56,7 +56,7 @@ Följande diagram visar den övergripande processen för att skapa ett nytt Acce
 
 1. Klicka på **nytt Access-paket**.
 
-## <a name="basics"></a>Grundinställningar
+## <a name="basics"></a>Grundläggande inställningar
 
 På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken katalog som du vill skapa åtkomst paketet i.
 
@@ -126,5 +126,3 @@ På fliken **Granska + skapa** kan du granska dina inställningar och kontrol le
 ## <a name="next-steps"></a>Nästa steg
 
 - [Redigera och hantera ett befintligt åtkomstpaket](entitlement-management-access-package-edit.md)
-- [Lägg till en katalog ägare eller en Access Package Manager](entitlement-management-delegate.md#add-a-catalog-owner-or-an-access-package-manager)
-- [Skapa och hantera en katalog](entitlement-management-catalog-create.md)

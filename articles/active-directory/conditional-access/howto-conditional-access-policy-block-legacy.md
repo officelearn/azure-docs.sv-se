@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc7710619b8975064ec4ec60ed44ccede970ac34
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 3ef8ab4b24d223f372ae3704b00ba6ff090fb039
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200959"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169986"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Villkorlig åtkomst: Blockera äldre autentisering
 
@@ -26,7 +26,7 @@ På grund av den ökade risken som är associerad med äldre autentiseringsproto
 
 Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för att blockera äldre autentiseringsbegäranden.
 
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
+1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller villkorlig åtkomst administratör.
 1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
 1. Välj **ny princip**.
 1. Ge principen ett namn. Vi rekommenderar att organisationer skapar en meningsfull standard för namnen på deras principer.
@@ -38,9 +38,9 @@ Följande steg hjälper dig att skapa en princip för villkorlig åtkomst för a
    1. Om du måste utesluta vissa program från principen kan du välja dem från fliken **exkludera** under **Välj exkluderade molnappar** och välj **Välj**.
    1. Välj **Done** (Klar).
 1. Under **villkor** > **klient program (för hands version)** anger du **Konfigurera** till **Ja**.
-   1. Kontrol lera endast de **mobila apparna och skriv bords klienterna** > **andra klienter**.
+   1. Kontrol lera bara rutorna **mobilappar och skriv bords klienter** > **andra klienter**.
    2. Välj **Done** (Klar).
-1. Under **åtkomst kontroller** > **bevilja**väljer du **blockera åtkomst**.
+1. Under **åtkomst kontroller**@no__t 1-**tilldelning**väljer du **blockera åtkomst**.
    1. Välj **Välj**.
 1. Bekräfta inställningarna och ange **Aktivera princip** till **på**.
 1. Välj **skapa** för att skapa för att aktivera principen.

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: c488b96940cac03b9c392f0ac4bd1d32a15ba111
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: a53d5810b20aa8389c152889fed5d7f4e8cfc5b7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035277"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177662"
 ---
 # <a name="virtual-network-peering"></a>Virtuell nätverkspeering
 
@@ -34,7 +34,7 @@ Fördelar med att använda VNET-peering (avsett om den är lokal eller global):
 * Möjligheten att peer-koppla virtuella nätverk som har skapats via Azure Resource Manager eller att peer-koppla ett virtuellt nätverk som har skapats via Resource Manager till ett virtuellt nätverk som har skapats via den klassiska distributionsmodellen. Läs mer i avsnittet [om Azures distributionsmodeller](../azure-resource-manager/resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Inga driftstopp för resurser i de virtuella nätverken när du skapar peer-kopplingen eller när peer-kopplingen har skapats.
 
-## <a name="connectivity"></a>Anslutning
+## <a name="connectivity"></a>Anslutningsmöjlighet
 
 När virtuella nätverk har peer-kopplats kan resurser i de virtuella nätverken ansluta till resurser it det peer-kopplade virtuella nätverket.
 
@@ -90,7 +90,7 @@ Du kan läsa om behörigheterna som krävs för att skapa peering för ett virtu
 
 En nominell avgift tas ut för ingående och utgående trafik som använder en VNET-peeringanslutning. Mer information om prissättning för VNet-Peering och Global VNet-peering finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/virtual-network).
 
-Gateway-överföring är en peering-egenskap som gör att ett virtuellt nätverk kan använda en VPN/ExpressRoute-gateway i ett peer-kopplat virtuellt nätverk för anslutning mellan lokala platser eller VNet-till-VNet-anslutning. Mer information finns i [VPN gateway-avgifter](https://azure.microsoft.com/pricing/details/vpn-gateway/) eller ExpressRoute Gateway-kostnader och [VNet-peering-kostnader.](https://azure.microsoft.com/pricing/details/virtual-network)
+Gateway-överföring är en peering-egenskap som gör att ett virtuellt nätverk kan använda en VPN/ExpressRoute-gateway i ett peer-kopplat virtuellt nätverk för anslutning mellan lokala platser eller VNet-till-VNet-anslutning. Trafik till gatewayen (ingångs-eller utgångs händelser) i peer-kopplat VNet kommer att debiteras för VNet-peering. Mer information finns i [VPN gateway-avgifter](https://azure.microsoft.com/pricing/details/vpn-gateway/) eller ExpressRoute Gateway-kostnader och [VNet-peering-kostnader.](https://azure.microsoft.com/pricing/details/virtual-network)
 
 ## <a name="next-steps"></a>Nästa steg
 

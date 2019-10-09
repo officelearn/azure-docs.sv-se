@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: v-jysur
-ms.openlocfilehash: 31d9307d23d308192b362d9570911c86a7dd8372
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: eb9d803bcc9667c26acecbfd098a3022b7421478
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051828"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177651"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>Anslut Azure till ITSM-verktyg med Anslutningsprogram för hantering av IT-tjänster (ITSM)
 
@@ -32,7 +32,7 @@ ITSMC stöder anslutningar med följande ITSM-verktyg:
 
 -   ServiceNow
 -   System Center Service Manager
--   Provance
+-   Styrka
 -   Cherwell
 
 Med ITSMC kan du:
@@ -94,7 +94,7 @@ När du har beredd dina ITSM-verktyg följer du stegen nedan för att skapa en a
 
 1. Gå till **alla resurser**, Sök efter **Servicedesk (YourWorkspaceName)** .
 2. Under **arbets ytans data källor** i den vänstra rutan klickar du på **ITSM-anslutningar**.
-   ![ITSM-anslutningar](media/itsmc-overview/itsm-connections.png)
+   ![ITSM-anslutningar @ no__t-1
 
    Den här sidan visar listan över anslutningar.
 3. Klicka på **Lägg till anslutning**.
@@ -115,7 +115,7 @@ När du har beredd dina ITSM-verktyg följer du stegen nedan för att skapa en a
 
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Skapa ITSM arbets objekt från Azure-aviseringar
 
-När du har skapat din ITSM-anslutning kan du skapa arbets objekt i ITSM-verktyget baserat på Azure-aviseringar med hjälp av **åtgärden ITSM** i åtgärds **grupper**.
+När du har skapat din ITSM-anslutning kan du skapa arbets objekt i ITSM-verktyget baserat på Azure-aviseringar med hjälp av **åtgärden ITSM** i **Åtgärds grupper**.
 
 Med åtgärds grupper får du ett modulärt och återanvändbart sätt att utlösa åtgärder för dina Azure-aviseringar. Du kan använda åtgärds grupper med mått aviseringar, aktivitets logg aviseringar och Azure Log Analytics varningar i Azure Portal.
 
@@ -194,7 +194,7 @@ ServiceDeskWorkItemType_s="Incident"
 - Löst av
 - Stängd av
 - Source
-- Tilldelat till
+- Tilldelad till
 - Category
 - Titel
 - Beskrivning
@@ -215,7 +215,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Skapat av
 - Stängd av
 - Source
-- Tilldelat till
+- Tilldelad till
 - Titel
 - type
 - Category
@@ -226,7 +226,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Priority
 - Risk
 - Påverkan
-- Tilldelat till
+- Tilldelad till
 - Skapad datum
 - Stängningsdatum
 - Datum för senaste ändring
@@ -248,16 +248,16 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Impact_s |Påverkan|
 | Priority_s | Priority |
 | CreatedBy_s | Öppnad av |
-| ResolvedBy_s | Matchad av|
+| ResolvedBy_s | Löst av|
 | ClosedBy_s  | Stängd av |
 | Source_s| Kontakt typ |
-| AssignedTo_s | Tilldelat till  |
+| AssignedTo_s | Tilldelad  |
 | Category_s | Category |
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
-| CreatedDate_t|  Öppnat |
+| CreatedDate_t|  Inleddes |
 | ClosedDate_t| Stängd|
-| ResolvedDate_t|Löst|
+| ResolvedDate_t|Göras|
 | Computer  | Konfigurations objekt |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Utdata för en ServiceNow-ändringsbegäran
@@ -265,9 +265,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | Log Analytics | ServiceNow-fält |
 |:--- |:--- |
 | ServiceDeskId_s| Number |
-| CreatedBy_s | Efterfrågad av |
+| CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
-| AssignedTo_s | Tilldelat till  |
+| AssignedTo_s | Tilldelad  |
 | Title_s|  Kort beskrivning |
 | Type_s|  type |
 | Category_s|  Category |
@@ -287,7 +287,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Felsöka ITSM-anslutningar
-1. Om anslutningen Miss lyckas från den anslutna källans användar gränssnitt och ett **fel uppstod när anslutnings** meddelandet sparades, utför du följande steg:
+1. Om anslutningen Miss lyckas från den anslutna källans användar gränssnitt och ett **fel uppstod när anslutnings meddelandet sparades** , utför du följande steg:
    - För ServiceNow, Cherwell och uppstyrke anslutningar,  
    - kontrol lera att du har angett användar namn, lösen ord, klient-ID och klient hemlighet korrekt för varje anslutning.  
    - kontrol lera att du har tillräcklig behörighet i motsvarande ITSM-produkt för att upprätta anslutningen.  
@@ -297,7 +297,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 2. Om data från ServiceNow inte kommer att synkroniseras till Log Analytics, se till att ServiceNow-instansen inte är i vilo läge. ServiceNow dev-instanser går ibland till ström spar läge när de är inaktiva under en längre tid. Annars kan du rapportera problemet.
 3. Om Log Analytics-aviseringar om brand, men arbets objekt inte skapas i ITSM-produkten eller om konfigurations objekt inte skapas/länkas till arbets objekt eller för någon annan allmän information, tittar du på följande platser:
    -  ITSMC: Lösningen visar en sammanfattning av anslutningar/arbets objekt/datorer osv. Klicka på panelen som visar **kopplings status**, som gör att du kan **Logga sökningen** med den relevanta frågan. Mer information hittar du i logg posterna med LogType_S som fel.
-   - Sidan **loggs ökning** : Visa fel-/relaterad information direkt med frågan `*`ServiceDeskLog_CL`*`.
+   - Sidan **loggs ökning** : Visa fel-/relaterad information direkt med frågan `*`ServiceDeskLog_CL @ no__t-2.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution
 1.  Om det uppstår problem med distributionen av webbappar kontrollerar du att du har tillräcklig behörighet i prenumerationen som nämns skapa/distribuera resurser.
@@ -307,7 +307,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="contact-us"></a>Kontakta oss
 
-Om du har frågor eller feedback på Anslutningsprogram för hantering av IT-tjänster (ITSM) kan du kontakta oss [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)på.
+Kontakta oss på [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)om du har frågor eller feedback på anslutningsprogram för hantering av IT-tjänster (ITSM).
 
 ## <a name="next-steps"></a>Nästa steg
 [Lägg till ITSM produkter/tjänster i anslutningsprogram för hantering av IT-tjänster (ITSM)](../../azure-monitor/platform/itsmc-connections.md).

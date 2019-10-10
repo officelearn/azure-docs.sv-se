@@ -44,6 +44,8 @@
       href: expressroute-erdirect-about.md
     - name: Om ExpressRoute Global Reach
       href: expressroute-global-reach.md
+    - name: Om ExpressRoute-kryptering
+      href: expressroute-about-encryption.md
     - name: Ansluta Azure till ett offentligt moln
       href: expressroute-connect-azure-to-public-cloud.md
     - name: Interoperabilitet för serverdelsanslutning
@@ -121,6 +123,8 @@
           href: expressroute-howto-erdirect.md
         - name: Azure CLI
           href: expressroute-howto-expressroute-direct-cli.md
+    - name: Konfigurera MACsec för ExpressRoute Direct-portar
+      href: expressroute-howto-macsec.md
     - name: Konfigurera routningsfilter för Microsoft-peering
       items:
         - name: Azure Portal

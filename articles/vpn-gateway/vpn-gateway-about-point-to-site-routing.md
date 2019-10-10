@@ -1,102 +1,102 @@
 ---
-title: Om Azure punkt-till-plats-Routning | Microsoft Docs
-description: Den här artikeln hjälper dig att förstå hur punkt-till-plats VPN-routning fungerar.
+title: Om Azure punkt-till-plats-routning | Microsoft Docs
+description: Den här artikeln hjälper dig att förstå hur punkt-till-plats-VPN-routning beter sig.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: article
-ms.date: 01/28/2019
+ms.date: 10/08/2019
 ms.author: anzaman
-ms.openlocfilehash: 486a910226db5dc7b36aaf873e7bb8115eb78805
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: cb5969ccb4ee9780b597326a3811395c3b7d9971
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60653620"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168468"
 ---
 # <a name="about-point-to-site-vpn-routing"></a>Om VPN-routning från punkt till plats
 
-Den här artikeln hjälper dig att förstå hur Azure punkt-till-plats VPN-routning fungerar. P2S VPN-routning beteende beror på klientoperativsystem, protokollet som används för VPN-anslutningen och hur de virtuella nätverk (Vnet) är anslutna till varandra.
+Den här artikeln hjälper dig att förstå hur Azure punkt-till-plats-VPN-routning fungerar. Beteendet för P2S VPN-routning är beroende av klientens operativ system, protokollet som används för VPN-anslutningen och hur de virtuella nätverken (virtuella nätverk) är anslutna till varandra.
 
-Azure stöder för närvarande två protokoll för fjärråtkomst, IKEv2 och SSTP. IKEv2 stöds på många klientoperativsystem, inklusive Windows, Linux, MacOS, Android och iOS. SSTP stöds endast på Windows. Om du gör en ändring i topologin för ditt nätverk och har Windows VPN-klienter, måste VPN-klientpaketet för Windows-klienter hämtas och installeras igen för att ändringarna ska tillämpas på klienten.
+Azure har för närvarande stöd för två protokoll för fjärråtkomst, IKEv2 och SSTP. IKEv2 stöds på många klient operativ system, inklusive Windows, Linux, MacOS, Android och iOS. SSTP stöds endast i Windows. Om du gör en ändring i nätverkets topologi och har Windows VPN-klienter, måste VPN-klientprogrammet för Windows-klienter laddas ned och installeras igen för att ändringarna ska tillämpas på klienten.
 
 > [!NOTE]
-> Den här artikeln gäller bara för IKEv2.
+> Den här artikeln gäller endast IKEv2.
 >
 
-## <a name="diagrams"></a>Om diagrammen
+## <a name="diagrams"></a>Om diagram
 
-Det finns ett antal olika diagrammen i den här artikeln. Varje avsnitt visar en annan topologi eller konfiguration. För den här artikeln, plats-till-plats (S2S) och VNet-till-VNet-anslutningar att fungera på samma sätt, som båda är IPsec-tunnlar. Alla VPN-gatewayer i den här artikeln är routningsbaserad.
+Det finns ett antal olika diagram i den här artikeln. I varje avsnitt visas en annan topologi eller konfiguration. I den här artikeln fungerar plats-till-plats (S2S) och VNet-till-VNet-anslutningar på samma sätt, eftersom båda är IPsec-tunnlar. Alla VPN-gatewayer i den här artikeln är Route-baserade.
 
-## <a name="isolatedvnet"></a>Ett isolerat virtuellt nätverk
+## <a name="isolatedvnet"></a>Ett isolerat VNet
 
-Punkt-till-plats VPN gateway-anslutning i det här exemplet är för ett virtuellt nätverk som inte är ansluten eller peer-kopplat med ett annat virtuellt nätverk (VNet1). I det här exemplet kan klienter som använder SSTP eller IKEv2 åtkomst till VNet1.
+Punkt-till-plats-VPN gateway-anslutningen i det här exemplet är för ett VNet som inte är anslutet eller peer-kopplas till något annat virtuellt nätverk (VNet1). I det här exemplet kan klienterna komma åt VNet1.
 
-![isolerat virtuellt nätverk routning](./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolerat virtuellt nätverk Routning")
+![isolerad VNet]-routning för(./media/vpn-gateway-about-point-to-site-routing/1.jpg "isolerade") VNet-routning
 
 ### <a name="address-space"></a>Adressutrymme
 
-* VNet1: 10.1.0.0/16
+* VNet1:10.1.0.0/16
 
-### <a name="routes-added"></a>Vägar som har lagts till
+### <a name="routes-added"></a>Tillagda vägar
 
 * Vägar som lagts till i Windows-klienter: 10.1.0.0/16, 192.168.0.0/24
 
-* Vägar som lagts till i icke-Windows-klienter: 10.1.0.0/16, 192.168.0.0/24
+* Vägar som lagts till för klienter som inte kommer från Windows: 10.1.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Windows-klienter kan komma åt VNet1
+* Windows-klienter har åtkomst till VNet1
 
-* Icke-Windows-klienter kan komma åt VNet1
+* Icke-Windows-klienter har åtkomst till VNet1
 
-## <a name="multipeered"></a>Flera peer-kopplade virtuella nätverk
+## <a name="multipeered"></a>Flera peer-virtuella nätverk
 
-I det här exemplet är punkt-till-plats-VPN-gatewayanslutning för VNet1. VNet1 är peerkopplat med VNet2. 2 för virtuella nätverk är peerkopplat med VNet3. VNet1 är peerkopplat med VNet4. Det finns ingen direkt peering mellan VNet1 och VNet3. VNet1 har ”Tillåt gatewayöverföring” och VNet2 har ”Använd fjärrgateway” aktiverat.
+I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VNet1 är peer-kopplad med VNet2. VNet 2 är peer-kopplat med VNet3. VNet1 är peer-kopplad med VNet4. Det finns ingen direkt peering mellan VNet1 och VNet3. VNet1 har inställningen "Tillåt Gateway-överföring" och VNet2 "Använd fjärrgateway" aktiverat.
 
-Klienter som använder Windows kan komma åt direkt peerkopplade virtuella nätverk, men den VPN-klienten måste laddas ned igen om några ändringar görs i VNet-peering eller nätverkets topologi. Icke-Windows-klienter kan komma åt direkt peerkopplade virtuella nätverk. Åtkomst är inte transitiva och är begränsat till endast direkt peer-kopplade virtuella nätverk.
+Klienter som använder Windows kan komma åt direkt peer-virtuella nätverk, men VPN-klienten måste hämtas igen om några ändringar görs i VNet-peering eller nätverk sto pol Ogin. Icke-Windows-klienter kan komma åt direkt peer-virtuella nätverk. Åtkomsten är inte transitiv och är begränsad till endast direkt peer-virtuella nätverk.
 
-![flera peer-kopplade virtuella nätverk](./media/vpn-gateway-about-point-to-site-routing/2.jpg "flera peer-kopplade virtuella nätverk")
+![flera peer-virtuella nätverk](./media/vpn-gateway-about-point-to-site-routing/2.jpg "flera peer-virtuella nätverk")
 
-### <a name="address-space"></a>Adressutrymme:
+### <a name="address-space"></a>Adress utrymme:
 
-* VNet1: 10.1.0.0/16
+* VNet1:10.1.0.0/16
 
-* VNet2: 10.2.0.0/16
+* VNet2:10.2.0.0/16
 
-* VNet3: 10.3.0.0/16
+* VNet3:10.3.0.0/16
 
-* VNet4: 10.4.0.0/16
+* VNet4:10.4.0.0/16
 
-### <a name="routes-added"></a>Vägar som har lagts till
+### <a name="routes-added"></a>Tillagda vägar
 
 * Vägar som lagts till i Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
-* Vägar som lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
+* Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.4.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Windows-klienter kan komma åt VNet1, VNet2 och VNet4, men den VPN-klienten måste laddas ned igen för alla ändringar i nätverkstopologin ska börja gälla.
+* Windows-klienter kan komma åt VNet1, VNet2 och VNet4, men VPN-klienten måste laddas ned igen för att alla ändringar i miljön ska börja gälla.
 
 * Icke-Windows-klienter kan komma åt VNet1, VNet2 och VNet4
 
-## <a name="multis2s"></a>Flera virtuella nätverk som är anslutna via en S2S-VPN
+## <a name="multis2s"></a>Flera virtuella nätverk anslutna med en S2S VPN
 
-I det här exemplet är punkt-till-plats-VPN-gatewayanslutning för VNet1. Ansluts VNet1 till VNet2 med hjälp av en plats-till-plats-VPN-anslutning. VNet2 är ansluten till VNet3 med hjälp av en plats-till-plats-VPN-anslutning. Det finns ingen direkt peering eller plats-till-plats-VPN-anslutning mellan VNet1 och VNet3. Alla anslutningar för plats-till-plats körs inte BGP för routning.
+I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VNet1 är anslutet till VNet2 med en VPN-anslutning från plats till plats. VNet2 är anslutet till VNet3 med en VPN-anslutning från plats till plats. Det finns ingen direkt peering-eller plats-till-plats-VPN-anslutning mellan VNet1 och VNet3. Alla plats-till-plats-anslutningar kör inte BGP för routning.
 
-Klienter som använder Windows eller ett annat operativsystem som stöds, kan bara åtkomst till VNet1. BGP måste användas för att komma åt ytterligare virtuella nätverk.
+Klienter som använder Windows, eller ett annat operativ system som stöds, kan bara komma åt VNet1. BGP måste användas för att få åtkomst till ytterligare virtuella nätverk.
 
 ![flera virtuella nätverk och S2S](./media/vpn-gateway-about-point-to-site-routing/3.jpg "flera virtuella nätverk och S2S")
 
 ### <a name="address-space"></a>Adressutrymme
 
-* VNet1: 10.1.0.0/16
+* VNet1:10.1.0.0/16
 
-* VNet2: 10.2.0.0/16
+* VNet2:10.2.0.0/16
 
-* VNet3: 10.3.0.0/16
+* VNet3:10.3.0.0/16
 
-### <a name="routes-added"></a>Vägar som har lagts till
+### <a name="routes-added"></a>Tillagda vägar
 
 * Vägar som lagts till i Windows-klienter: 10.1.0.0/16, 192.168.0.0/24
 
@@ -106,29 +106,29 @@ Klienter som använder Windows eller ett annat operativsystem som stöds, kan ba
 
 * Windows-klienter kan endast komma åt VNet1
 
-* Icke-Windows-klienter kan komma åt VNet1 endast
+* Icke-Windows-klienter kan endast komma åt VNet1
 
 ## <a name="multis2sbgp"></a>Flera virtuella nätverk som är anslutna via en S2S VPN (BGP)
 
-I det här exemplet är punkt-till-plats-VPN-gatewayanslutning för VNet1. Ansluts VNet1 till VNet2 med hjälp av en plats-till-plats-VPN-anslutning. VNet2 är ansluten till VNet3 med hjälp av en plats-till-plats-VPN-anslutning. Det finns ingen direkt peering eller plats-till-plats-VPN-anslutning mellan VNet1 och VNet3. Alla anslutningar för plats-till-plats med BGP för routning.
+I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VNet1 är anslutet till VNet2 med en VPN-anslutning från plats till plats. VNet2 är anslutet till VNet3 med en VPN-anslutning från plats till plats. Det finns ingen direkt peering-eller plats-till-plats-VPN-anslutning mellan VNet1 och VNet3. Alla plats-till-plats-anslutningar kör BGP för routning.
 
-Klienter som använder Windows eller ett annat operativsystem som stöds, kan komma åt alla virtuella nätverk som är anslutna via en plats-till-plats-VPN-anslutning, men vägar till anslutna virtuella nätverk måste läggas till manuellt på Windows-klienter.
+Klienter som använder Windows, eller ett annat operativ system som stöds, har åtkomst till alla virtuella nätverk som är anslutna via en plats-till-plats-VPN-anslutning, men vägar till anslutna virtuella nätverk måste läggas till manuellt på Windows-klienterna.
 
-![flera virtuella nätverk och S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "flera virtuella nätverk och BGP för S2S")
+![flera virtuella nätverk och S2S (BGP)](./media/vpn-gateway-about-point-to-site-routing/4.jpg "flera virtuella nätverk och S2S BGP")
 
 ### <a name="address-space"></a>Adressutrymme
 
-* VNet1: 10.1.0.0/16
+* VNet1:10.1.0.0/16
 
-* VNet2: 10.2.0.0/16
+* VNet2:10.2.0.0/16
 
-* VNet3: 10.3.0.0/16
+* VNet3:10.3.0.0/16
 
-### <a name="routes-added"></a>Vägar som har lagts till
+### <a name="routes-added"></a>Tillagda vägar
 
 * Vägar som lagts till i Windows-klienter: 10.1.0.0/16
 
-* Vägar som lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
+* Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
@@ -136,47 +136,47 @@ Klienter som använder Windows eller ett annat operativsystem som stöds, kan ko
 
 * Icke-Windows-klienter kan komma åt VNet1, VNet2 och VNet3
 
-## <a name="vnetbranch"></a>Ett virtuellt nätverk och ett avdelningskontor
+## <a name="vnetbranch"></a>Ett VNet och ett avdelnings kontor
 
-I det här exemplet är punkt-till-plats-VPN-gatewayanslutning för VNet1. VNet1 är inte ansluten / peer-kopplat med ett annat virtuellt nätverk, men den är ansluten till en lokal plats via en plats-till-plats-VPN-anslutning som inte kör BGP.
+I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VNet1 är inte anslutet/peer-kopplas till andra virtuella nätverk, men är anslutet till en lokal plats via en VPN-anslutning från plats till plats som inte kör BGP.
 
-Windows- och icke-Windows-klienter kan endast få åtkomst till VNet1.
+Windows-och icke-Windows-klienter kan bara komma åt VNet1.
 
-![routning med ett virtuellt nätverk och ett avdelningskontor](./media/vpn-gateway-about-point-to-site-routing/5.jpg "routning med ett virtuellt nätverk och ett avdelningskontor")
+![routning med ett VNet och en lokal kontor]-(./media/vpn-gateway-about-point-to-site-routing/5.jpg "routning med ett VNet och ett avdelnings kontor")
 
 ### <a name="address-space"></a>Adressutrymme
 
-* VNet1: 10.1.0.0/16
+* VNet1:10.1.0.0/16
 
-* Site1: 10.101.0.0/16
+* Site1:10.101.0.0/16
 
-### <a name="routes-added"></a>Vägar som har lagts till
+### <a name="routes-added"></a>Tillagda vägar
 
 * Vägar som lagts till i Windows-klienter: 10.1.0.0/16, 192.168.0.0/24
 
-* Vägar som lagts till i icke-Windows-klienter: 10.1.0.0/16, 192.168.0.0/24
+* Vägar som lagts till för klienter som inte kommer från Windows: 10.1.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Windows-klienter kan komma åt endast VNet1
+* Windows-klienter har endast åtkomst till VNet1
 
-* Icke-Windows-klienter kan komma åt VNet1 endast
+* Icke-Windows-klienter kan endast komma åt VNet1
 
-## <a name="vnetbranchbgp"></a>Ett virtuellt nätverk och ett avdelningskontor (BGP)
+## <a name="vnetbranchbgp"></a>Ett VNet och ett avdelnings kontor (BGP)
 
-I det här exemplet är punkt-till-plats-VPN-gatewayanslutning för VNet1. VNet1 är inte ansluten eller peer-kopplat med ett annat virtuellt nätverk, men den är ansluten till en lokal plats (Site1) via en plats-till-plats-VPN-anslutning med BGP.
+I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VNet1 är inte anslutet eller peer-kopplas till andra virtuella nätverk, men är anslutet till en lokal plats (Site1) via en VPN-anslutning från plats till plats som kör BGP.
 
-Windows-klienter kan komma åt det virtuella nätverket och avdelningskontor (Site1), men vägarna till Site1 måste läggas till manuellt till klienten. Icke-Windows-klienter kan komma åt det virtuella nätverket, samt lokala filialkontoret.
+Windows-klienter kan komma åt VNet och avdelnings kontoret (Site1), men vägarna till Site1 måste läggas till manuellt i klienten. Icke-Windows-klienter kan komma åt VNet samt det lokala avdelnings kontoret.
 
-![ett virtuellt nätverk och ett avdelningskontor (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "ett virtuellt nätverk och ett avdelningskontor")
+![ett VNet och ett avdelnings kontor (BGP)](./media/vpn-gateway-about-point-to-site-routing/6.jpg "ett VNet och ett avdelnings kontor")
 
 ### <a name="address-space"></a>Adressutrymme
 
-* VNet1: 10.1.0.0/16
+* VNet1:10.1.0.0/16
 
-* Site1: 10.101.0.0/16
+* Site1:10.101.0.0/16
 
-### <a name="routes-added"></a>Vägar som har lagts till
+### <a name="routes-added"></a>Tillagda vägar
 
 * Vägar som lagts till i Windows-klienter: 10.1.0.0/16, 192.168.0.0/24
 
@@ -184,71 +184,71 @@ Windows-klienter kan komma åt det virtuella nätverket och avdelningskontor (Si
 
 ### <a name="access"></a>Access
 
-* Windows-klienter kan komma åt VNet1 och Site1, men vägar till Site1 måste läggas till manuellt.
+* Windows-klienter har åtkomst till VNet1 och Site1, men vägar till Site1 måste läggas till manuellt.
 
 * Icke-Windows-klienter kan komma åt VNet1 och Site1.
 
 
-## <a name="multivnets2sbranch"></a>Flera virtuella nätverk som är anslutna via S2S och ett avdelningskontor
+## <a name="multivnets2sbranch"></a>Flera virtuella nätverk anslutna med S2S och ett avdelnings kontor
 
-I det här exemplet är punkt-till-plats-VPN-gatewayanslutning för VNet1. Ansluts VNet1 till VNet2 med hjälp av en plats-till-plats-VPN-anslutning. VNet2 är ansluten till VNet3 med hjälp av en plats-till-plats-VPN-anslutning. Det finns ingen direkt peering eller plats-till-plats-VPN-tunnel mellan VNet1 och VNet3 nätverk. VNet3 är ansluten till ett filialkontor (Site1) med hjälp av en plats-till-plats-VPN-anslutning. Alla VPN-anslutningar inte igång BGP.
+I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VNet1 är anslutet till VNet2 med en VPN-anslutning från plats till plats. VNet2 är anslutet till VNet3 med en VPN-anslutning från plats till plats. Det finns ingen direkt peering-eller plats-till-plats-VPN-tunnel mellan VNet1-och VNet3-nätverken. VNet3 är anslutet till ett avdelnings kontor (Site1) med en VPN-anslutning från plats till plats. Alla VPN-anslutningar kör inte BGP.
 
-Alla klienter kan komma åt VNet1 endast.
+Alla klienter har endast åtkomst till VNet1.
 
-![Multi-VNet S2S och grenen office](./media/vpn-gateway-about-point-to-site-routing/7.jpg "multi-VNet S2S och grenen office")
-
-### <a name="address-space"></a>Adressutrymme
-
-* VNet1: 10.1.0.0/16
-
-* VNet2: 10.2.0.0/16
-
-* VNet3: 10.3.0.0/16
-
-* Site1: 10.101.0.0/16
-
-### <a name="routes-added"></a>Vägar som har lagts till
-
-* Vägar har lagts till klienter: 10.1.0.0/16, 192.168.0.0/24
-
-* Vägar som lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
-
-### <a name="access"></a>Access
-
-* Windows-klienter kan komma åt VNet1 endast
-
-* Icke-Windows-klienter kan komma åt VNet1 endast
-
-## <a name="multivnets2sbranchbgp"></a>Flera virtuella nätverk som är anslutna via S2S och ett avdelningskontor (BGP)
-
-I det här exemplet är punkt-till-plats-VPN-gatewayanslutning för VNet1. Ansluts VNet1 till VNet2 med hjälp av en plats-till-plats-VPN-anslutning. VNet2 är ansluten till VNet3 med hjälp av en plats-till-plats-VPN-anslutning. Det finns ingen direkt peering eller plats-till-plats-VPN-tunnel mellan VNet1 och VNet3 nätverk. VNet3 är ansluten till ett filialkontor (Site1) med hjälp av en plats-till-plats-VPN-anslutning. Alla VPN-anslutningar använder BGP.
-
-Klienter som använder Windows kan komma åt virtuella nätverk och platser som är anslutna via en plats-till-plats-VPN-anslutning, men vägarna till VNet2, VNet3 och Site1 måste läggas till manuellt till klienten. Icke-Windows-klienter kan komma åt virtuella nätverk och platser som är anslutna via en plats-till-plats-VPN-anslutning utan några manuella åtgärder. Åtkomst är transitiva och klienterna kan komma åt resurser i alla anslutna virtuella nätverk och platser (lokalt).
-
-![Multi-VNet S2S och grenen office](./media/vpn-gateway-about-point-to-site-routing/8.jpg "multi-VNet S2S och grenen office")
+S2S och avdelnings(./media/vpn-gateway-about-point-to-site-routing/7.jpg "kontor med") flera VNet-S2S ![och avdelnings]kontor
 
 ### <a name="address-space"></a>Adressutrymme
 
-* VNet1: 10.1.0.0/16
+* VNet1:10.1.0.0/16
 
-* VNet2: 10.2.0.0/16
+* VNet2:10.2.0.0/16
 
-* VNet3: 10.3.0.0/16
+* VNet3:10.3.0.0/16
 
-* Site1: 10.101.0.0/16
+* Site1:10.101.0.0/16
 
-### <a name="routes-added"></a>Vägar som har lagts till
+### <a name="routes-added"></a>Tillagda vägar
 
-* Vägar har lagts till klienter: 10.1.0.0/16, 192.168.0.0/24
+* Vägar tillagda klienter: 10.1.0.0/16, 192.168.0.0/24
 
-* Vägar som lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+* Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
 
 ### <a name="access"></a>Access
 
-* Windows-klienter kan komma åt VNet1, VNet2, VNet3 och Site1, men vägar till VNet2, VNet3 och Site1 måste läggas till manuellt till klienten.
+* Windows-klienterna har endast åtkomst till VNet1
+
+* Icke-Windows-klienter kan endast komma åt VNet1
+
+## <a name="multivnets2sbranchbgp"></a>Flera virtuella nätverk anslutna med S2S och ett avdelnings kontor (BGP)
+
+I det här exemplet är punkt-till-plats-VPN gateway-anslutningen för VNet1. VNet1 är anslutet till VNet2 med en VPN-anslutning från plats till plats. VNet2 är anslutet till VNet3 med en VPN-anslutning från plats till plats. Det finns ingen direkt peering-eller plats-till-plats-VPN-tunnel mellan VNet1-och VNet3-nätverken. VNet3 är anslutet till ett avdelnings kontor (Site1) med en VPN-anslutning från plats till plats. Alla VPN-anslutningar kör BGP.
+
+Klienter som använder Windows kan komma åt virtuella nätverk och platser som är anslutna via en plats-till-plats-VPN-anslutning, men vägarna till VNet2, VNet3 och Site1 måste läggas till manuellt i klienten. Icke-Windows-klienter kan komma åt virtuella nätverk och platser som är anslutna via en plats-till-plats-VPN-anslutning utan någon manuell åtgärd. Åtkomsten är transitiv och klienter kan komma åt resurser i alla anslutna virtuella nätverk och platser (lokalt).
+
+S2S och avdelnings(./media/vpn-gateway-about-point-to-site-routing/8.jpg "kontor med") flera VNet-S2S ![och avdelnings]kontor
+
+### <a name="address-space"></a>Adressutrymme
+
+* VNet1:10.1.0.0/16
+
+* VNet2:10.2.0.0/16
+
+* VNet3:10.3.0.0/16
+
+* Site1:10.101.0.0/16
+
+### <a name="routes-added"></a>Tillagda vägar
+
+* Vägar tillagda klienter: 10.1.0.0/16, 192.168.0.0/24
+
+* Vägar som har lagts till i icke-Windows-klienter: 10.1.0.0/16, 10.2.0.0/16, 10.3.0.0/16, 10.101.0.0/16, 192.168.0.0/24
+
+### <a name="access"></a>Access
+
+* Windows-klienterna har åtkomst till VNet1, VNet2, VNet3 och Site1, men vägar till VNet2, VNet3 och Site1 måste läggas till manuellt i klienten.
 
 * Icke-Windows-klienter kan komma åt VNet1, Vnet2, VNet3 och Site1.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se [skapa en P2S VPN-anslutning med Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) att börja skapa dina P2S-VPN.
+Se [skapa en P2s VPN med hjälp av Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md) för att börja skapa din P2s VPN.

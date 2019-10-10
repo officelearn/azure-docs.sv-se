@@ -19,6 +19,8 @@
   items:
     - name: Berättigandehantering
       items:
+        - name: Delegering och roller
+          href: entitlement-management-delegate.md
         - name: Process för begäran och e-postmeddelanden
           href: entitlement-management-process.md
     - name: Åtkomstgranskningar
@@ -36,17 +38,21 @@
       items:
         - name: Vanliga scenarier
           href: entitlement-management-scenarios.md
-        - name: Administratörer och avdelningschefer
+        - name: Administratörer
           items:
-            - name: Delegera uppgifter
-              href: entitlement-management-delegate.md
-            - name: Skapa en katalog med resurser
-              href: entitlement-management-catalog-create.md
+            - name: Delegera till katalogskapare
+              href: entitlement-management-delegate-catalog.md
             - name: Visa rapporter och loggar
               href: entitlement-management-reports.md
             - name: Felsöka
               href: entitlement-management-troubleshoot.md
-        - name: Projektledare
+        - name: Katalogägare
+          items:
+            - name: Skapa en katalog med resurser
+              href: entitlement-management-catalog-create.md
+            - name: Delegera till åtkomstpakethanterare
+              href: entitlement-management-delegate-managers.md
+        - name: Åtkomstpakethanterare
           items:
             - name: Skapa ett nytt åtkomstpaket
               href: entitlement-management-access-package-create.md

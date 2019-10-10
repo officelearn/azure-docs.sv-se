@@ -36,3 +36,5 @@
   items:
     - name: Öppna en supportbegäran
       href: hpc-cache-support-ticket.md
+    - name: Återställa från ett regionalt avbrott
+      href: hpc-region-recovery.md

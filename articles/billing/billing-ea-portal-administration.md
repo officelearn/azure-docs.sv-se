@@ -4,16 +4,16 @@ description: I den här artikeln förklaras några vanliga uppgifter som adminis
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/25/2019
+ms.date: 10/07/2019
 ms.topic: conceptual
 ms.service: billing
 manager: boalcsva
-ms.openlocfilehash: 87947fb29d8fa7dd86818caef139e776c04c7650
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 21e9d4af783ed5d9eb3ace1c8b5189163b89f8b0
+ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71308094"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72035216"
 ---
 # <a name="azure-ea-portal-administration"></a>Administration i Azure EA-portalen
 
@@ -87,10 +87,11 @@ Här är några andra saker du bör tänka på innan en kontoöverföring:
 - Du behöver godkännande från en EA-administratör för mål- och källregistreringen
   - I en del fall kan Microsoft begära ytterligare godkännande från en EA-administratör för källregistreringen
 - Om en kontoöverföring inte uppfyller dina behov kan du överväga en registreringsöverföring.
-- Vid en sådan överföring överförs alla tjänster, prenumerationer, konton, avdelningar och hela registreringsstrukturen, inklusive alla EA-avdelningsadministratörer.
-- Källregistreringens status sätts till _Överförd_. Den överförda registreringen är bara tillgänglig för rapporter om historisk användning.
-- Du kan inte lägga till roller eller prenumerationer i en registrering med statusen Överförd. Statusen förhindrar ytterligare användning mot registreringen.
-- Eventuella saldon för ekonomiska åtaganden i källregistreringen går förlorade, inklusive framtida avtal.
+- Kontoöverföringen överför alla tjänster och prenumerationer som tillhör aktuella konton.
+- När överföringen är slutförd visas det överförda kontot som inaktivt under källregistreringen.
+- Datum för kontoöverföring kan retroaktivt ändras till valfritt datum efter målregistreringens startdatum.
+- Kontot visar ett slutdatum som motsvarar aktuellt överföringsdatum för källregistreringen och startdatum för målregistreringen.
+- All användning som utförts på kontot innan det aktuella överföringsdatumet finns kvar under källregistreringen.
 
 
 ## <a name="transfer-enterprise-enrollment-to-a-new-one"></a>Överföra en företagsregistrering till en ny registrering

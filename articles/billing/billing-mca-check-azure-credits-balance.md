@@ -11,18 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: b8faf3801a2217e6ef7040a7c2b67c7e6fad8e60
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: ea3fc21891f1e4d4e744449032a4b2cfcdfbb2f0
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71709606"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177534"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Spåra Azure-kreditbalansen för Microsoft-kundavtal
 
 Du kan kontrollera Azure-kreditbalansen för Microsoft-kundavtal i Azure-portalen. Du använder krediter för att betala för avgifter som omfattas av krediterna.
 
-Du debiteras när du använder produkter som inte omfattas av krediterna eller när din användning överskrider ditt kreditbelopp. Mer information finns i [Produkter som inte omfattas av Azure-krediter.(#products-that-arent-covered-by-azure-credits).
+Du debiteras när du använder produkter som inte omfattas av krediterna eller när din användning överskrider ditt kreditbelopp. Mer information finns i [Produkter som inte omfattas av Azure-krediter](#products-that-arent-covered-by-azure-credits).
 
 Den här artikeln gäller ett faktureringskonto för ett Microsoft-kundavtal. [Kontrollera om du har åtkomst till ett Microsoft-kundavtal](#check-access-to-a-microsoft-customer-agreement).
 

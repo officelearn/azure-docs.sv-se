@@ -1,5 +1,5 @@
 ---
-title: Vad är Azure Custom Vision?
+title: Vad är Custom Vision?
 titleSuffix: Azure Cognitive Services
 description: Lär dig att använda Custom Vision Service för att skapa anpassade bildklassificerare i Azure-molnet.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: 033b0317b1738e24e4ac9c9ae2150b015cc5a8e5
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 9e455a42945ba4d6ce334d557b7390c3c50e7ff9
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68560964"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177815"
 ---
-# <a name="what-is-azure-custom-vision"></a>Vad är Azure Custom Vision?
+# <a name="what-is-custom-vision"></a>Vad är Custom Vision?
 
-Azure Custom Vision är en kognitiv tjänst som gör att du kan bygga, distribuera och förbättra dina egna avbildnings klassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar _klasser_) på bilder utefter deras visuella egenskaper. Till skillnad från tjänsten [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) gör Custom Vision att du kan bestämma vilka etiketter som ska appliceras.
+Custom Vision är en kognitiv tjänst som gör att du kan bygga, distribuera och förbättra dina egna avbildnings klassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar _klasser_) på bilder utefter deras visuella egenskaper. Till skillnad från tjänsten [Visuellt innehåll](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home) gör Custom Vision att du kan bestämma vilka etiketter som ska appliceras.
 
-## <a name="what-it-does"></a>Vad läget gör
+## <a name="what-it-does"></a>Vad verktyget gör
 
 Custom Vision-tjänsten använder en maskininlärningsalgoritm för att applicera etiketter på bilder. Du, utvecklaren, måste skicka in grupper av bilder som har respektive saknar de aktuella egenskaperna. Du märker själv bilderna när de skickas in. Sedan tränas algoritmen med dessa data och beräknar sin egen noggrannhet genom att testa sig på samma bilder. När algoritmen har tränats kan du testa, träna om och senare använda den för att klassificera nya avbildningar enligt appens behov. Du kan också exportera själva modellen för användning offline.
 

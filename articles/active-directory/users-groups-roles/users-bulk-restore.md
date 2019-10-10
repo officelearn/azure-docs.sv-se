@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f53ade09c5e2e7db0499122526a1de482af9378f
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: d392ae97a8325dd4a56acd807ebfb2b951216eae
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901625"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174256"
 ---
 # <a name="bulk-restore-deleted-users-preview-in-azure-active-directory"></a>Mass återställning borttagna användare (förhands granskning) i Azure Active Directory
 
@@ -26,18 +26,22 @@ Azure Active Directory (Azure AD) stöder Mass åtgärder för att skapa och ta 
 
 ## <a name="to-bulk-restore-users"></a>För Mass återställning av användare
 
-1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är en användar administratör i organisationen.
-1. I Azure AD väljer **du användare** > **borttagna**.
+1. [Logga in på din Azure AD-organisation](https://aad.portal.azure.com) med ett konto som är en användar administratör i Azure AD-organisationen.
+1. I Azure AD väljer **du användare** > **Borttaget**.
 1. På sidan **borttagna användare** väljer du **Mass återställning** för att ladda upp en giltig CSV-fil med egenskaper för de användare som ska återställas.
 
    ![Välj kommandot Mass återställning på sidan borttagna användare](./media/users-bulk-restore/bulk-restore.png)
 
-1. När du är klar med redigeringen av CSV-filen eller om du har en av dina egna redo att ladda upp, väljer du filen under **överför din CSV-fil** som ska verifieras.
+1. Öppna CSV-filen och Lägg till en rad för varje användare som du vill återställa. Det enda obligatoriska värdet är **ObjectID**. Spara sedan filen.
 
    ![Välj en lokal CSV-fil där du visar de användare som du vill lägga till](./media/users-bulk-restore/upload-button.png)
 
-1. När fil innehållet verifieras, korrigerar du fil informationen och skickar filen igen om det finns fel. När du skickar en giltig fil startas data överförings jobbet automatiskt.
-1. När CSV-filen har godkänts för verifiering väljer du **Skicka** för att starta Azure Batch-jobbet som återställer användarna. Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för Mass åtgärder. Filen innehåller orsaken för varje fel.
+1. På sidan **Mass återställning (för hands version)** , under **överför din CSV-fil**, bläddrar du till filen. När du väljer filen och klickar på **Skicka**, startar verifieringen av CSV-filen.
+1. När fil innehållet verifieras visas **filen har laddats upp**. Om det finns fel måste du åtgärda dem innan du kan skicka jobbet.
+1. När du har verifierat filen väljer du **Skicka** för att starta den Azure Mass åtgärd som återställer användarna.
+1. När återställningen är klar visas ett meddelande om att Mass åtgärden lyckades.
+
+Om det finns fel kan du hämta och Visa resultat filen på resultat sidan för **Mass åtgärder** . Filen innehåller orsaken för varje fel.
 
 ## <a name="check-status"></a>Kontrollera status
 

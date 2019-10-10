@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Övervaka Azure Backup med Azure Monitor'
+title: 'Azure Backup: övervaka Azure Backup med Azure Monitor'
 description: Övervaka Azure Backup arbets belastningar och skapa anpassade aviseringar med Azure Monitor.
 ms.reviewer: pullabhk
 author: dcurwin
@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/04/2019
 ms.author: dacurwin
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: ffc245402965cdcd62bb210d79bd95db5444f964
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: ba2288ecebbeda97b3cd9c24ae930be6af193ab8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68954627"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177723"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Övervaka i skala med hjälp av Azure Monitor
 
@@ -59,7 +59,7 @@ När data finns i arbets ytan Log Analytics distribuerar du [en GitHub-mall](htt
 
 När mallen har distribuerats visas lösningen för övervakning och rapportering i Azure Backup i området Sammanfattning för arbets yta. Gå till sammanfattningen genom att följa någon av följande sökvägar:
 
-- **Azure Monitor**: I avsnittet insikter väljer du **mer** och väljer sedan relevant arbets yta.
+- **Azure Monitor**: i avsnittet **insikter** väljer du **mer** och väljer sedan den relevanta arbets ytan.
 - **Log Analytics arbets ytor**: Välj relevant arbets yta och under **Allmänt**väljer du **arbets ytans Sammanfattning**.
 
 ![Panelerna Log Analytics övervakning och rapportering](media/backup-azure-monitoring-laworkspace/la-azurebackup-overview-dashboard.png)
@@ -236,7 +236,7 @@ Identifiera lämplig logg och skapa en avisering:
 1. Välj **ny varnings regel** för att öppna sidan **Skapa regel** . 
 1. Skapa en avisering genom att följa stegen i [skapa, Visa och hantera aktivitets logg aviseringar med hjälp av Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log).
 
-   ![Ny aviseringsregel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
+   ![Ny varnings regel](media/backup-azure-monitoring-laworkspace/new-alert-rule.png)
 
 Här är resursen själva Recovery Services själva valvet. Upprepa samma steg för alla valv där du vill bli meddelad via aktivitets loggarna. Villkoret har ingen tröskel, period eller frekvens eftersom den här aviseringen baseras på händelser. Så snart den relevanta aktivitets loggen har genererats, utlöses aviseringen.
 
@@ -246,9 +246,9 @@ Du kan visa alla aviseringar som skapats från aktivitets loggar och Log Analyti
 
 Även om du kan få aviseringar via aktivitets loggar rekommenderar vi starkt att du använder Log Analytics snarare än aktivitets loggar för övervakning i stor skala. Så här gör du:
 
-- **Begränsade scenarier**: Meddelanden via aktivitets loggar gäller bara för virtuella Azure-säkerhetskopieringar. Meddelandena måste konfigureras för varje Recovery Services valv.
-- **Definitions passning**: Den schemalagda säkerhets kopierings aktiviteten passar inte med den senaste definitionen av aktivitets loggarna. I stället justeras det med [diagnostikloggar](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview#what-you-can-do-with-diagnostic-logs). Den här justeringen orsakar oväntade effekter när de data som flödar genom aktivitets loggs kanalen ändras.
-- **Problem med aktivitets logg kanalen**: I Recovery Services valv följer aktivitets loggar som pumpas från Azure Backup en ny modell. Den här ändringen påverkar tyvärr genereringen av aktivitets loggar i Azure Government, Azure Germany och Azure Kina 21Vianet. Om användarna av dessa moln tjänster skapar eller konfigurerar aviseringar från aktivitets loggar i Azure Monitor utlöses inte aviseringarna. I alla offentliga Azure-regioner visas även dessa loggar om en användare [samlar in Recovery Services aktivitets loggar till en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs).
+- **Begränsade scenarier**: meddelanden via aktivitets loggar gäller endast för virtuella Azure-säkerhetskopieringar. Meddelandena måste konfigureras för varje Recovery Services valv.
+- **Definitions passning**: den schemalagda säkerhets kopierings aktiviteten passar inte med den senaste definitionen av aktivitets loggarna. I stället justeras det med [diagnostikloggar](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#what-you-can-do-with-resource-logs-in-a-workspace). Den här justeringen orsakar oväntade effekter när de data som flödar genom aktivitets loggs kanalen ändras.
+- **Problem med aktivitets logg kanalen**: i Recovery Services valv följer aktivitets loggar som pumpas från Azure Backup en ny modell. Den här ändringen påverkar tyvärr genereringen av aktivitets loggar i Azure Government, Azure Germany och Azure Kina 21Vianet. Om användarna av dessa moln tjänster skapar eller konfigurerar aviseringar från aktivitets loggar i Azure Monitor utlöses inte aviseringarna. I alla offentliga Azure-regioner visas även dessa loggar om en användare [samlar in Recovery Services aktivitets loggar till en Log Analytics arbets yta](https://docs.microsoft.com/azure/azure-monitor/platform/collect-activity-logs).
 
 Använd en Log Analytics arbets yta för övervakning och avisering i skala för alla arbets belastningar som skyddas av Azure Backup.
 

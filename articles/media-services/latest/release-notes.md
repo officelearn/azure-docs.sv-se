@@ -9,23 +9,23 @@ editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 10/07/2019
 ms.author: juliako
-ms.openlocfilehash: 2d01828cb61937b45665e953a13795b5346a5f1b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 34d68974366eb17704b4ea1291bd1d29a0eea95a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030526"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168621"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Viktig information om Azure Media Services v3
 
-Om du vill hålla dig uppdaterad med den senaste utvecklingen, innehåller den här artikeln information om:
+För att hålla dig uppdaterad med den senaste utvecklingen ger den här artikeln information om:
 
-* Den senaste versionen
+* De senaste versionerna
 * Kända problem
 * Felkorrigeringar
-* Inaktuell funktion
+* Föråldrade funktioner
 
 ## <a name="known-issues"></a>Kända problem
 
@@ -36,16 +36,38 @@ Mer information finns i [vägledning för migrering för att flytta från Media 
 
 ## <a name="september-2019"></a>September 2019
 
+###  <a name="media-services-v3"></a>Media Services v3  
+
+#### <a name="live-linear-encoding-of-live-events"></a>Direkt linjär kodning av Live-händelser
+
 Media Services v3 presenterar för hands versionen av 24 timmar x 365 dagar av direkt linjär kodning av direktsända händelser.
- 
+
+###  <a name="media-services-v2"></a>Media Services v2  
+
+#### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
+
+Vi presenterar utfasning av *Azure Media Indexer* och *Azure Media Indexer 2 för hands version*. [Azure Media Indexer](../previous/media-services-index-content.md) medie processorn kommer att dras tillbaka den 1 oktober 2020. Processorerna för för [hands versionen av Azure Media Indexer 2](../previous/media-services-process-content-with-indexer2.md) kommer att dras tillbaka den 1 januari 2020. [Azure Media Services video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) ersätter dessa äldre medie processorer.
+
+Mer information finns i [Migrera från Azure Media Indexer och Azure Media Indexer 2 till Azure Media Services video Indexer](../previous/migrate-indexer-v1-v2.md).
+
 ## <a name="august-2019"></a>2019 augusti
 
-### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Södra Afrika, regionala par är öppet för Media Services 
+###  <a name="media-services-v3"></a>Media Services v3  
+
+#### <a name="south-africa-regional-pair-is-open-for-media-services"></a>Södra Afrika, regionala par är öppet för Media Services 
 
 Media Services är nu tillgängligt i södra Afrika, norra och södra Afrika, västra regioner.
 
 Mer information finns i [moln och regioner där Media Services v3 finns](azure-clouds-regions.md).
 
+###  <a name="media-services-v2"></a>Media Services v2  
+
+#### <a name="deprecation-of-media-processors"></a>Utfasning av medie processorer
+
+Vi presenterar utfasningen av medie processorerna för *Windows Azure Media Encoder* (WAME) och *Azure Media Encoder* (amn), som dras tillbaka den 30 november 2019.
+
+Mer information finns i [MIGRERA WAME till Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101334) och [migrera amn till Media Encoder Standard](https://go.microsoft.com/fwlink/?LinkId=2101335).
+ 
 ## <a name="july-2019"></a>Juli 2019
 
 ### <a name="content-protection"></a>Innehållsskydd
@@ -187,7 +209,7 @@ I det här avsnittet beskrivs Azure Media Services (AMS) uppdateringar från okt
 
 [Rest v3 ga-versionen](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2018-07-01) innehåller fler API: er för manifest filter för Live, konto/till gångs nivå och DRM-stöd.
 
-#### <a name="azure-resource-management"></a>Azure Resource Management 
+#### <a name="azure-resource-management"></a>Resurs hantering i Azure 
 
 Stöd för Azure Resource Management möjliggör Unified Management och Operations-API (nu allt på ett ställe).
 
@@ -236,7 +258,7 @@ Du kan se följande Event Grid support förbättringar:
 
 Krypterings stöd för CMAF och CBCS för Apple HLS (iOS 11 +) och MPEG-STRECKs pelare som stöder CMAF.
 
-### <a name="video-indexer"></a>Video Indexer
+### <a name="video-indexer"></a>Videindexering
 
 Video Indexer GA-versionen presenterades i augusti. För ny information om funktioner som stöds för närvarande, se [Vad är video Indexer](../../cognitive-services/video-indexer/video-indexer-overview.md?toc=/azure/media-services/video-indexer/toc.json&bc=/azure/media-services/video-indexer/breadcrumb/toc.json). 
 

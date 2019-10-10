@@ -105,6 +105,8 @@
               href: map-add-line-layer.md
             - name: Lägg till ett polygonskikt
               href: map-add-shape.md
+            - name: Lägga till ett polygonskikt för extrudering
+              href: map-extruded-polygon.md
             - name: Lägga till ett heatmapskikt
               href: map-add-heat-map-layer.md
             - name: Lägg till ett popup-fönster

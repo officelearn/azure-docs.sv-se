@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 83f10eb9dadfda5b87f1da287718f59da17c5110
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71947603"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177769"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -25,7 +25,7 @@ Så här kan du använda diagnostikverktyget för virtuella Windows-datorer:
 - Skicka meddelande till aktiva användare på en angiven värd för sessionen.
 - Logga ut användare från en sessions värd.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste skapa en Azure Active Directory app-registrering och en Log Analytics arbets yta innan du kan distribuera Azure Resource Manager-mallen för verktyget. Du eller administratören behöver dessa behörigheter för att göra det:
 
@@ -109,7 +109,7 @@ Så här konfigurerar du de rekommenderade prestanda räknarna manuellt:
 4. Efter det navigerar du till **Data** > **prestanda räknare för Windows** och lägger till följande räknare:
 
     -   Logisk disk (\*) \|% ledigt utrymme
-    -   Logisk disk (C:) \\Avg. Diskkölängd
+    -   Logisk disk (C:) \\Avg. diskkölängd
     -   Minne (\*) \\Available MB
     -   Processor information (\*) \\Processor tid
     -   Fördröjning av användarindata per session (\*) \\Max-indata fördröjning
@@ -142,9 +142,9 @@ För att se till att din Log Analytics arbets yta har de förkonfigurerade Windo
 3. Därefter går du till **Data** > **prestanda räknare för Windows**.
 4. Kontrol lera att följande räknare är förkonfigurerade:
 
-   - Logisk disk (\*) \|% ledigt utrymme: Visar mängden ledigt utrymme för det totala användbara utrymmet på disken som en procent andel.
-   - Logisk disk (C:) \\Avg. Diskkölängd: Längden på disk överförings förfrågan för din C-enhet. Värdet får inte överstiga 2 under en kort tids period.
-   - Minne (\*) \\Available MB: Systemets tillgängliga minne i megabyte.
+   - Logisk disk (\*) \|% ledigt utrymme: visar mängden ledigt utrymme för det totala användbara utrymmet på disken som en procent andel.
+   - Logisk disk (C:) \\Avg. diskkölängd: längden på disk överförings förfrågan för enheten C. Värdet får inte överstiga 2 under en kort tids period.
+   - Minne (\*) \\Available MB: tillgängligt minne för systemet i megabyte.
    - Processor information (\*) \\Processor tid: procent andelen förfluten tid som processorn ägnat åt att köra en icke-inaktiv tråd.
    - Fördröjning av användarindata per session (\*) \\Max-indata fördröjning
 
@@ -197,7 +197,7 @@ Ange omdirigerings-URI: n:
 
 Innan du gör diagnostikverktyget tillgängligt för dina användare måste du kontrol lera att de har följande behörigheter:
 
-- Användare behöver Läs behörighet för Log Analytics. Mer information finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](/articles/azure-monitor/platform/roles-permissions-security.md).
+- Användare behöver Läs behörighet för Log Analytics. Mer information finns i [Kom igång med roller, behörigheter och säkerhet med Azure Monitor](/azure/azure-monitor/platform/roles-permissions-security).
 -  Användare behöver också Läs behörighet för den virtuella Windows-klienten för fjärr skrivbord (RDS-läsar rollen). Mer information finns i [delegerad åtkomst i Windows Virtual Desktop](delegated-access-virtual-desktop.md).
 
 Du måste också ge användarna följande information:
@@ -237,22 +237,22 @@ Du kan också interagera med användare på värd för sessionen:
 - Logisk disk (\*) \|% ledigt utrymme:
 
     - Visar procent andelen av det totala användbara utrymmet på den logiska disken som är kostnads fri.
-    - Fastställd Mindre än 20% har marker ATS som ohälsosamt.
+    - Tröskelvärde: mindre än 20% har marker ATS som ohälsosamt.
 
-- Logisk disk (C:) \\Avg. Diskkölängd:
+- Logisk disk (C:) \\Avg. diskkölängd:
 
     - Representerar lagrings systemets villkor.
-    - Fastställd Högre än 5 har marker ATS som ohälsosamt.
+    - Tröskelvärde: högre än 5 har marker ATS som ohälsosamt.
 
 - Minne (\*) \\Available MB:
 
     - Systemets tillgängliga minne.
-    - Fastställd Mindre än 500 megabyte har marker ATS som ohälsosamt.
+    - Tröskelvärde: mindre än 500 megabyte har marker ATS som ohälsosamt.
 
 - Processor information (\*) \\Processor tid:
 
-    - Fastställd Högre än 80% har marker ATS som ohälsosam.
+    - Tröskel: högre än 80% har marker ATS som ohälsosam.
 
 - [Fördröjning av användarindata per session (\*) \\Max för data fördröjning](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
 
-    - Fastställd Högre än 2000 MS har marker ATS som ohälsosamt.
+    - Tröskel: högre än 2000 MS har marker ATS som ohälsosam.

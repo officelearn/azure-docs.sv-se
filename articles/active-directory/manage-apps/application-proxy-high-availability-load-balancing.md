@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/24/2019
+ms.date: 10/08/2019
 ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff5f814eac095770990ecbc0c4b01d2e0cc6f931
-ms.sourcegitcommit: fecb6bae3f29633c222f0b2680475f8f7d7a8885
+ms.openlocfilehash: 014fcf37930800858cd70f15c19e3f494d3f3776
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68667202"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169806"
 ---
 # <a name="high-availability-and-load-balancing-of-your-application-proxy-connectors-and-applications"></a>Hög tillgänglighet och belastnings utjämning för dina Application Proxy-kopplingar och-program
 
@@ -81,16 +81,16 @@ I vissa situationer (t. ex. granskning, belastnings utjämning osv.) är det ett
 
 ## <a name="best-practices-for-load-balancing-among-multiple-app-servers"></a>Metod tips för belastnings utjämning mellan flera App-servrar
 När kopplings gruppen som är tilldelad till Application Proxy-programmet har två eller fler anslutningar och du kör backend-webbprogrammet på flera servrar (Server grupp) krävs en bra belastnings Utjämnings strategi. En lämplig strategi garanterar att servrar hämtar klient begär Anden jämnt och förhindrar över-eller under användningen av servrar i Server gruppen.
-### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Scenario 1: Backend-programmet kräver inte sessionens persistence
+### <a name="scenario-1-back-end-application-does-not-require-session-persistence"></a>Scenario 1: backend-appen kräver inte sessions-persistence
 Det enklaste scenariot är att Server delens webb program inte kräver session varaktighet (persistence). Alla begär Anden från användaren kan hanteras av alla program instanser i Server gruppen. Du kan använda en Layer 4-belastningsutjämnare och konfigurera den utan tillhörighet. Vissa alternativ är Microsoft NLB (utjämning av nätverks belastning) och Azure Load Balancer eller en belastningsutjämnare från en annan leverantör. Alternativt kan du konfigurera resursallokering med DNS.
-### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Scenario 2: Backend-programmet kräver överpersists av sessionen
+### <a name="scenario-2-back-end-application-requires-session-persistence"></a>Scenario 2: backend-program kräver överpersists av sessionen
 I det här scenariot kräver backend-webbprogrammet session varaktighet (persistence) under den autentiserade sessionen. Alla begär Anden från användaren måste hanteras av Server dels program instansen som körs på samma server i Server gruppen.
 Det här scenariot kan vara mer komplicerat eftersom klienten vanligt vis upprättar flera anslutningar till Application Proxy-tjänsten. Förfrågningar över olika anslutningar kan komma från olika anslutningar och servrar i Server gruppen. Eftersom varje anslutning använder sin egen IP-adress för den här kommunikationen kan belastningsutjämnaren inte garantera varaktighet baserat på anslutningarnas IP-adress. Källans IP-tillhörighet kan inte användas.
 Här följer några alternativ för scenario 2:
 
-- Alternativ 1: Basera sessionen på en sessions-cookie som angetts av belastningsutjämnaren. Det här alternativet rekommenderas eftersom belastningen kan spridas jämnt mellan backend-servrarna. Den kräver en Layer 7-belastningsutjämnare med den här funktionen och kan hantera HTTP-trafiken och avsluta SSL-anslutningen. Du kan använda Azure Application Gateway (tillhörighet mellan sessioner) eller en belastningsutjämnare från en annan leverantör.
+- Alternativ 1: basera sessionen på en sessions-cookie som angetts av belastningsutjämnaren. Det här alternativet rekommenderas eftersom belastningen kan spridas jämnt mellan backend-servrarna. Den kräver en Layer 7-belastningsutjämnare med den här funktionen och kan hantera HTTP-trafiken och avsluta SSL-anslutningen. Du kan använda Azure Application Gateway (tillhörighet mellan sessioner) eller en belastningsutjämnare från en annan leverantör.
 
-- Alternativ 2: Basera sessionen på den X-vidarebefordrade-för huvud fältet. Det här alternativet kräver en Layer 7-belastningsutjämnare med den här funktionen och som kan hantera HTTP-trafiken och avsluta SSL-anslutningen.  
+- Alternativ 2: basera sessionen på det X-vidarebefordrade – för huvud fältet. Det här alternativet kräver en Layer 7-belastningsutjämnare med den här funktionen och som kan hantera HTTP-trafiken och avsluta SSL-anslutningen.  
 
 - Alternativ 3: Konfigurera backend-programmet så att det inte kräver sessionens persistence.
 
@@ -98,7 +98,8 @@ Läs program varu leverantörens dokumentation för att förstå belastnings Utj
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Aktivera Application Proxy](application-proxy-add-on-premises-application.md)
+- [Aktivera programproxy](application-proxy-add-on-premises-application.md)
 - [Aktivera enkel inloggning](application-proxy-configure-single-sign-on-with-kcd.md)
 - [Aktivera villkorlig åtkomst](application-proxy-integrate-with-sharepoint-server.md)
-- [Felsöka problem med Application Proxy](application-proxy-troubleshoot.md)
+- [Felsök problem med Application Proxy](application-proxy-troubleshoot.md)
+- [Lär dig hur Azure AD-arkitekturen stöder hög tillgänglighet](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-architecture)

@@ -1,6 +1,6 @@
 ---
-title: Delegera aktiviteter i hantering av Azure AD-rättigheter (för hands version) – Azure Active Directory
-description: Lär dig mer om de roller som du kan tilldela för att delegera aktiviteter i Azure Active Directory rättighets hantering.
+title: Delegering och roller i hantering av Azure AD-rättigheter (för hands version) – Azure Active Directory
+description: Lär dig hur du delegerar åtkomst styrning från IT-administratörer till avdelnings chefer och projekt chefer så att de kan hantera åtkomst själva.
 services: active-directory
 documentationCenter: ''
 author: msaburnley
@@ -12,92 +12,110 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 07/10/2019
+ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6857697423e494c515bd052cb42af3ad1d9fe188
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 89cdab09e3ae03ddea6259eda657908f900f982e
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057783"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169838"
 ---
-# <a name="delegate-tasks-in-azure-ad-entitlement-management-preview"></a>Delegera aktiviteter i hantering av Azure AD-rättigheter (för hands version)
+# <a name="delegation-and-roles-in-azure-ad-entitlement-management-preview"></a>Delegering och roller i hantering av Azure AD-rättigheter (för hands version)
 
 > [!IMPORTANT]
 > Azure Active Directory (Azure AD) rättighets hantering är för närvarande en offentlig för hands version.
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Globala administratörer och användar administratörer kan som standard skapa och hantera alla aspekter av hantering av Azure AD-rättigheter. Användare i dessa roller kanske inte känner till alla scenarier där åtkomst paket krävs. Vanligt vis är det användare inom avdelningar som vet vem som behöver samar beta. 
+Globala administratörer och användar administratörer kan som standard skapa och hantera alla aspekter av hantering av Azure AD-rättigheter. Användare i dessa roller kan dock inte känna till alla situationer där åtkomst paket krävs. Vanligt vis är det användare inom respektive avdelningar, team eller projekt som vet vilka de samarbetar med, med hjälp av vilka resurser och hur länge. I stället för att ge användarna obegränsad behörighet till icke-administratörer, kan du ge användarna minst de behörigheter de behöver för att utföra sitt jobb och undvika att skapa motstridiga eller olämpliga åtkomst rättigheter.
 
-I stället för att ge användarna obegränsad behörighet till icke-administratörer, kan du ge användarna minst de behörigheter de behöver för att utföra sitt jobb och undvika att skapa motstridiga eller olämpliga åtkomst rättigheter. Den här artikeln beskriver de roller som du kan tilldela för att delegera olika aktiviteter i hantering av rättigheter. 
+Den här videon ger en översikt över hur du delegerar åtkomst styrning från IT-administratören till användare som inte är administratörer.
 
-## <a name="delegate-example-for-departmental-adoption"></a>Ombuds exempel för att införa en avdelning
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RE3Lq00]
 
-För att förstå hur du kan delegera aktiviteter i hantering av rättigheter, kan det vara ett exempel. 
+## <a name="delegate-example"></a>Ombuds exempel
 
-Anta att din organisation har följande fem användare:
+För att förstå hur du kan delegera åtkomst styrning i hantering av rättigheter, hjälper det till att överväga ett exempel. Anta att din organisation har följande administratör och chefer.
 
-| Användare | Avdelning | Anteckningar |
-| --- | --- | --- |
-| Alice | IT | Global administratör |
-| Bob | Forskning | Bob är också ägare av en Research grupp |
-| Carole | Forskning |  |
-| Dave | Marknadsföring |  |
-| Elisa | Marknadsföring | Elisa är också ägare till ett marknadsförings program |
+![Delegera från IT-administratören till chefer](./media/entitlement-management-delegate/delegate-admin-dept-managers.png)
 
-Både forskar-och marknadsförings avdelningen vill använda rättighets hantering för sina användare. Alice är ännu inte redo för andra avdelningar att använda rättighets hantering. Här är ett sätt som Alice kan delegera uppgifter till forskar-och marknadsförings avdelningarna.
+Som IT-administratör har Hana kontakter på varje avdelning – Mamta i marknadsföring, mark i ekonomi och Joe i juridisk person som ansvarar för deras avdelnings resurser och affärs kritiskt innehåll.
 
-1. Alice skapar en ny Azure AD-säkerhetsgrupp för katalog skapare och lägger till Bob, Carol, Dave och Elisa som medlemmar i gruppen.
+Med rättighets hantering kan du delegera åtkomst styrning till dessa icke-administratörer eftersom de är de som vet vilka användare som behöver åtkomst, för hur lång tid och vilka resurser. Detta säkerställer att rätt personer hanterar åtkomst för sina avdelningar.
 
-1. Alice använder inställningarna för rättighets hantering för att lägga till den gruppen i katalogens skapare roll.
+Här är ett sätt som Hana kan delegera åtkomst styrning till marknadsförings-, ekonomi-och juridiska avdelningar.
 
-1. Carol skapar en **forsknings** katalog och lägger till Bob som en medägare till katalogen. Bob lägger till den Research grupp han äger till katalogen som en resurs, så att den kan användas i ett Access-paket för forsknings samarbete.
+1. Hana skapar en ny Azure AD-säkerhetsgrupp och lägger till Mamta, markera och Johan som medlemmar i gruppen.
 
-1. Dave skapar en **marknadsförings** katalog och lägger till Elisa som en del ägare av katalogen. Elisa lägger till marknadsförings programmet hon äger till katalogen som en resurs, så att den kan användas i ett Access-paket för marknadsförings samarbete.
+1. Hana lägger till den gruppen i katalogens skapare roll.
 
-Nu kan forsknings-och marknadsförings avdelningen använda hantering av rättigheter. Bob, Carol, Dave och ELISA kan skapa och hantera åtkomst paket i sina respektive kataloger.
+    Mamta, mark och Johan kan nu skapa kataloger för sina avdelningar, lägga till resurser som deras avdelningar behöver och göra ytterligare delegering i katalogen.
+
+    Observera att Mamta, mark och Johan inte kan se var and Johan kataloger.
+
+1. Mamta skapar en **marknadsförings** katalog som är en behållare med resurser.
+
+1. Mamta lägger till de resurser som marknadsförings avdelningen äger till den här katalogen.
+
+1. Mamta kan lägga till fler personer från hennes avdelning som katalog ägare för den här katalogen. Detta hjälper dig att dela ansvars områden för katalog hantering.
+
+1. Mamta kan ytterligare delegera skapande och hantering av åtkomst paket i marknadsförings katalogen till projekt chefer på marknadsförings avdelningen. Hon kan göra detta genom att tilldela dem till Access Package Manager-rollen. En Access Package Manager kan skapa och hantera åtkomst paket. 
+
+I följande diagram visas kataloger med resurser för marknadsförings-, ekonomi-och juridisk avdelningen. Med hjälp av dessa kataloger kan projektledarna skapa åtkomst paket för sina team eller projekt.
 
 ![Ombuds exempel för rättighets hantering](./media/entitlement-management-delegate/elm-delegate.png)
 
+Efter delegeringen kan marknadsförings avdelningen ha roller som liknar följande tabell.
+
+| Användare | Jobbroll | Azure AD-roll | Rättighets hanterings roll |
+| --- | --- | --- | --- |
+| Hana | IT-administratör | Global administratör eller användar administratör |  |
+| Mamta | Marknadsförings chef | Användare | Katalog skapare och katalog ägare |
+| Bob | Marknads ledande kund | Användare | Katalog ägare |
+| Jessica | Marketing Project Manager | Användare | Åtkomst till paket hanteraren |
 
 ## <a name="entitlement-management-roles"></a>Rättighets hanterings roller
 
 Rättighets hantering har följande roller som är speciella för rättighets hantering.
 
-| Role | Beskrivning |
+| Rättighets hanterings roll | Beskrivning |
 | --- | --- |
 | Katalog skapare | Skapa och hantera kataloger. Vanligt vis en IT-administratör som inte är en global administratör eller en resurs ägare för en samling resurser. Personen som skapar en katalog blir automatiskt katalogens första katalog ägare och kan lägga till ytterligare katalog ägare. En katalog skapare kan inte hantera eller se kataloger som de inte äger och kan inte lägga till resurser som de inte äger i en katalog. Om katalog skaparen behöver hantera en annan katalog eller lägga till resurser som de inte äger, kan de begära att bli medägare till katalogen eller resursen. |
 | Katalog ägare | Redigera och hantera befintliga kataloger. Vanligt vis en IT-administratör eller resurs ägare, eller en användare som har tilldelats katalog ägaren. |
 | Åtkomst till paket hanteraren | Redigera och hantera alla befintliga åtkomst paket i en katalog. |
 
 Dessutom har en utsedd god kännare och en beställare av ett Access-paket även rättigheter, även om de inte är roller.
- 
-* God kännare Auktoriserad av en princip för att godkänna eller neka begär Anden om åtkomst till paket, även om de inte kan ändra definitioner för åtkomst paket.
-* Begär Ande Auktoriserad av en princip för ett Access-paket för att begära det Access-paketet.
 
-I följande tabell visas de aktiviteter som dessa roller kan utföra.
+| Right | Beskrivning |
+| --- | --- |
+| God kännare | Auktoriserad av en princip för att godkänna eller neka begär Anden om åtkomst till paket, även om de inte kan ändra definitioner för åtkomst paket. |
+| Begär Ande | Auktoriserad av en princip för ett Access-paket för att begära det Access-paketet. |
 
-| Uppgift | Katalog skapare | Katalog ägare | Åtkomst till paket hanteraren | Godkännare |
+I följande tabell visas de aktiviteter som rättighets hanterings rollerna kan utföra.
+
+| Aktivitet | Innehavaradministration | Katalog skapare | Katalog ägare | Åtkomst till paket hanteraren |
 | --- | :---: | :---: | :---: | :---: |
-| [Skapa en ny katalog](entitlement-management-catalog-create.md) | :heavy_check_mark: |  |  |  |
-| [Lägga till en resurs i en katalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | | :heavy_check_mark: | | |
-| [Redigera en katalog](entitlement-management-catalog-create.md#edit-a-catalog) |  | :heavy_check_mark: |  |  |
-| [Ta bort en katalog](entitlement-management-catalog-create.md#delete-a-catalog) |  | :heavy_check_mark: |  |  |
-| [Lägg till en katalog ägare eller en Access Package Manager i en katalog](#add-a-catalog-owner-or-an-access-package-manager) |  | :heavy_check_mark: |  |  |
-| [Skapa ett nytt Access-paket i en katalog](entitlement-management-access-package-create.md) |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
-| [Hantera resurs roller i ett Access-paket](entitlement-management-access-package-edit.md) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Skapa och redigera principer](entitlement-management-access-package-edit.md#add-a-new-policy) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Tilldela en användare direkt till ett Access-paket](entitlement-management-access-package-edit.md#directly-assign-a-user) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visa vem som har en tilldelning till ett Access-paket](entitlement-management-access-package-edit.md#view-who-has-an-assignment) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visa ett Access-pakets begär Anden](entitlement-management-access-package-edit.md#view-requests) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Visa leverans fel för en begäran](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Avbryt en väntande begäran](entitlement-management-access-package-edit.md#cancel-a-pending-request) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Dölj ett Access-paket](entitlement-management-access-package-edit.md#change-the-hidden-setting) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Ta bort ett Access-paket](entitlement-management-access-package-edit.md#delete) |  | :heavy_check_mark: | :heavy_check_mark: |  |
-| [Godkänn en åtkomstbegäran](entitlement-management-request-approve.md) |  |  |  | :heavy_check_mark: |
+| [Delegera till en katalog skapare](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
+| [Skapa en ny katalog](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
+| [Lägga till en resurs i en katalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Lägg till en katalog ägare](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Redigera en katalog](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Ta bort en katalog](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Delegera till en Access Package Manager](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Ta bort en Access Package Manager](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
+| [Skapa ett nytt Access-paket i en katalog](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
+| [Hantera resurs roller i ett Access-paket](entitlement-management-access-package-edit.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Skapa och redigera principer](entitlement-management-access-package-edit.md#add-a-new-policy) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Tilldela en användare direkt till ett Access-paket](entitlement-management-access-package-edit.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Visa vem som har en tilldelning till ett Access-paket](entitlement-management-access-package-edit.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Visa ett Access-pakets begär Anden](entitlement-management-access-package-edit.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Visa leverans fel för en begäran](entitlement-management-access-package-edit.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Avbryt en väntande begäran](entitlement-management-access-package-edit.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Dölj ett Access-paket](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| [Ta bort ett Access-paket](entitlement-management-access-package-edit.md#delete) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Nödvändiga roller för att lägga till resurser i en katalog
 
@@ -107,8 +125,8 @@ För en användare som inte är en global administratör eller en användar admi
 
 | Azure AD-katalog roll | Rättighets hanterings roll | Kan lägga till säkerhets grupp | Kan lägga till Office 365-gruppen | Kan lägga till app | Kan lägga till SharePoint Online-webbplats |
 | --- | :---: | :---: | :---: | :---: | :---: |
-| [Global administratör](../users-groups-roles/directory-assign-admin-roles.md) | Saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| [Användar administratör](../users-groups-roles/directory-assign-admin-roles.md) | Saknas |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Global administratör](../users-groups-roles/directory-assign-admin-roles.md) | Ej tillämpligt |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Användar administratör](../users-groups-roles/directory-assign-admin-roles.md) | Ej tillämpligt |  :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |  |
 | [Intune-administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare | :heavy_check_mark: | :heavy_check_mark: |  |  |
 | [Exchange-administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  | :heavy_check_mark: |  |  |
 | [Team tjänst administratör](../users-groups-roles/directory-assign-admin-roles.md) | Katalog ägare |  | :heavy_check_mark: |  |  |
@@ -119,49 +137,7 @@ För en användare som inte är en global administratör eller en användar admi
 
 Om du vill fastställa den lägsta privilegierade rollen för en aktivitet kan du också referera till [Administratörs roller efter administratörs uppgift i Azure Active Directory](../users-groups-roles/roles-delegate-by-task.md#entitlement-management).
 
-## <a name="add-a-catalog-creator"></a>Lägg till en katalog skapare
-
-Om du vill delegera skapandet av katalogen lägger du till användare i katalogens skapare roll.  Du kan lägga till enskilda användare eller så kan du lägga till en grupp, vars medlemmar sedan kan skapa kataloger. Följ dessa steg om du vill tilldela en användare rollen som katalog skapare.
-
-**Nödvändig roll:** Global administratör eller användar administratör
-
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
-
-1. På den vänstra menyn i avsnittet **rättighets hantering** klickar du på **Inställningar**.
-
-1. Klicka på **Redigera**.
-
-1. I avsnittet **delegera rättighets hantering** klickar du på **Lägg till katalog skapare** för att välja de användare eller grupper som ska vara medlemmar i den här rättighets hanterings rollen.
-
-1. Klicka på **Välj**.
-
-1. Klicka på **Spara**.
-
-## <a name="add-a-catalog-owner-or-an-access-package-manager"></a>Lägg till en katalog ägare eller en Access Package Manager
-
-Om du vill delegera hantering av en katalog eller åtkomst paket i katalogen lägger du till användare i katalog ägaren eller Access Package Manager-roller. Vem som skapar en katalog blir den första katalog ägaren. 
-
-Den tilldelade katalogen ägare eller åtkomst paket hanteraren måste vara bekant med projektet. Katalogens skapare bör skapa åtkomst paketet om det ingår i projektets dagliga drift och att de känner till följande information:
-- vilka resurser behövs
-- vem som behöver åtkomst
-- som behöver godkänna åtkomst
-- Hur länge projektet ska vara sist
-
-Katalogens skapare bör delegera uppgiften till projektets lead, som kommer att skapa och hantera åtkomst paketet, om detta inte är inblandat under den dagliga driften av projektet. Följ de här stegen för att tilldela en användare rollen katalog ägare eller Access Package Manager:
-
-**Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
-
-1. Klicka på **Azure Active Directory** i Azure Portal och klicka sedan på **identitets styrning**.
-
-1. Klicka på **kataloger** i den vänstra menyn och öppna den katalog som du vill lägga till administratörer i.
-
-1. På den vänstra menyn klickar du på **roller och administratörer**.
-
-1. Klicka på **Lägg till ägare** eller **Lägg till paket hanterare** för att välja medlemmar för dessa roller.
-
-1. Klicka på **Välj** för att lägga till dessa medlemmar.
-
 ## <a name="next-steps"></a>Nästa steg
 
-- [Lägg till god kännare](entitlement-management-access-package-edit.md#policy-request)
-- [Lägga till resurser i en katalog](entitlement-management-catalog-create.md#add-resources-to-a-catalog)
+- [Delegera åtkomst styrning till katalog skapare](entitlement-management-delegate-catalog.md)
+- [Skapa och hantera en katalog med resurser](entitlement-management-catalog-create.md)

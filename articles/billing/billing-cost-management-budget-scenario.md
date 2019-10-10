@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 10/01/2019
 ms.author: banders
-ms.openlocfilehash: 8ff402299b26637473f3fb762a3320255ea4df64
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: bc35ba74acb2ce807597230fee0685606a93a775
+ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719917"
+ms.lasthandoff: 10/04/2019
+ms.locfileid: "71958368"
 ---
 # <a name="manage-costs-with-azure-budgets"></a>Hantera kostnader med Azure Budgets
 
@@ -272,7 +272,7 @@ En åtgärdsgrupp är en samling aviseringsinställningar som du definierar. Nä
 När du skapar åtgärdsgruppen pekar du på logikappen som du skapade tidigare i den här självstudien.
 
 1.  Om du inte redan är inloggad på [Azure-portalen](https://portal.azure.com/) loggar du in och väljer **Alla tjänster** > **Monitor**.
-2.  Välj **Åtgärdsgrupper** i avsnittet **Inställning**.
+2.  Välj **Aviseringar** och sedan **Hantera åtgärder**.
 3.  Välj **Lägg till en åtgärdsgrupp** på bladet **Åtgärdsgrupper**.
 4.  Lägg till och verifiera följande objekt:
     - Namn på åtgärdsgrupp

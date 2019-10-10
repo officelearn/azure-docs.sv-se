@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c8a96a4557a500bd4726b8df44ada5df328b7c3
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71290892"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72169824"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -38,7 +38,7 @@ En Access Package Manager kan konfigurera principer för att kräva att använda
 
 Det första steget är att logga in på min åtkomst portal där du kan begära åtkomst till ett Access-paket.
 
-**Nödvändig roll:** Beställare
+**Nödvändig roll:** Begär Ande
 
 1. Sök efter ett e-postmeddelande eller ett meddelande från projektet eller Business Manager som du arbetar med. E-postmeddelandet ska innehålla en länk till åtkomst paketet som du behöver åtkomst till. Länken börjar med "åtkomst till", innehåller ett katalog tips och slutar med ett Access-paket-ID som liknar följande:
  
@@ -54,7 +54,7 @@ Det första steget är att logga in på min åtkomst portal där du kan begära 
 
 När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran.
 
-**Nödvändig roll:** Beställare
+**Nödvändig roll:** Begär Ande
 
 1. Hitta Access-paketet i listan.  Om det behövs kan du söka genom att skriva en Sök sträng och sedan välja filtret **namn**, **katalog**eller **resurser** .
 
@@ -83,7 +83,7 @@ När du har hittat Access-paketet i My Access-portalen kan du skicka en begäran
 
 Om du skickar en åtkomstbegäran och begäran fortfarande har statusen **väntar på godkännande** kan du avbryta begäran.
 
-**Nödvändig roll:** Beställare
+**Nödvändig roll:** Begär Ande
 
 1. I portalen My Access klickar du på **begär ande historik** för att se en lista över dina begär Anden och status.
 
@@ -99,7 +99,7 @@ Om du skickar en åtkomstbegäran och begäran fortfarande har statusen **vänta
 
 Om du begär åtkomst till ett Access-paket som har flera principer som gäller kan du bli ombedd att välja en princip. Till exempel kan en Access Package Manager Konfigurera ett Access-paket med två principer för två grupper av interna anställda. Den första principen kan ge åtkomst i 60 dagar och kräver godkännande. Den andra principen kan tillåta åtkomst i 2 dagar och kräver inte godkännande. Om du stöter på det här scenariot måste du välja den princip som du vill använda.
 
-**Nödvändig roll:** Beställare
+**Nödvändig roll:** Begär Ande
 
 ## <a name="next-steps"></a>Nästa steg
 

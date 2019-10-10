@@ -1,7 +1,7 @@
 ---
-title: 'Självstudier: Använda anpassad logotypdetektor för att känna igen Azure-tjänster – Custom Vision'
+title: 'Självstudie: Använd anpassad logo typ detektor för att identifiera Azure-tjänster – Custom Vision'
 titleSuffix: Azure Cognitive Services
-description: I de här självstudierna ska du gå igenom en exempelapp som använder Azure Custom Vision som en del av ett scenario för identifiering av logotyper. Lär dig hur Custom Vision ska användas med andra komponenter för att leverera ett program för slutpunkt till slutpunkt.
+description: I den här självstudien kommer du att gå igenom en exempel-app som använder Custom Vision som en del av ett scenario för att identifiera en logo typ. Lär dig hur Custom Vision ska användas med andra komponenter för att leverera ett program för slutpunkt till slutpunkt.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: bdcf8a0d63b880075cd22c73305afa8cf09a2e3b
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: b48d82354a8e733db5ddd0c86e34bab1fa9caa8d
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261976"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177793"
 ---
-# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudier: Identifiera Azure-tjänstens logotyper i bilder med kameran
+# <a name="tutorial-recognize-azure-service-logos-in-camera-pictures"></a>Självstudie: identifiera Azure-tjänstens logo typer i kamera bilder
 
-I de här självstudierna utforskar en exempelapp som använder Azure Custom Vision som en del av ett större scenario. Appen AI Visual Provision, en Xamarin.Forms-app för mobila plattformar, analyserar kamerabilder av Azure-tjänstens logotyper och distribuerar sedan de faktiska tjänsterna till användarens Azure-konto. Här lär du dig hur det använder Custom Vision tillsammans med andra komponenter för att leverera ett användbart slutpunkt till slutpunkt-program. Du kan köra hela appens scenario själv, eller så kan du bara slutföra Custom Vision delen av installationen och utforska hur appen använder den.
+I den här självstudien får du utforska en exempel-app som använder Custom Vision som en del av ett större scenario. Appen AI Visual Provision, en Xamarin.Forms-app för mobila plattformar, analyserar kamerabilder av Azure-tjänstens logotyper och distribuerar sedan de faktiska tjänsterna till användarens Azure-konto. Här lär du dig hur det använder Custom Vision tillsammans med andra komponenter för att leverera ett användbart slutpunkt till slutpunkt-program. Du kan köra hela appens scenario själv, eller så kan du bara slutföra Custom Vision delen av installationen och utforska hur appen använder den.
 
 De här självstudierna visar hur du:
 
@@ -30,7 +30,7 @@ De här självstudierna visar hur du:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Visual Studio 2017 eller senare](https://www.visualstudio.com/downloads/)
 - Xamarin-arbetsbelastningen för Visual Studio (se [Installera Xamarin](https://docs.microsoft.com/xamarin/cross-platform/get-started/installation/windows))
@@ -49,7 +49,7 @@ Logga in på [Custom Visions webbplats](https://customvision.ai/) och skapa ett 
 
 ## <a name="upload-and-tag-images"></a>Ladda upp och tagga bilder
 
-I nästa steg tränar du algoritmen för logotypidentifiering genom att ladda upp bilder på Azure-tjänstens logotyper och tagga dem manuellt. AIVisualProvision-lagringsplatsen innehåller en uppsättning inlärningsbilder som du kan använda. På webbplatsen väljer du knappen **Lägg till bilder** på fliken **Training Images** (Träningsbilder). Gå till mappen **Documents/Images/Training_DataSet** för databasen. Du måste manuellt tagga logotyperna i varje bild, så om du bara testar det här projektet kan det vara bra att ladda upp endast en delmängd av bilderna. Ladda upp minst 15 instanser av varje tagg som du tänker använda.
+I nästa steg tränar du algoritmen för logotypidentifiering genom att ladda upp bilder på Azure-tjänstens logotyper och tagga dem manuellt. AIVisualProvision-lagringsplatsen innehåller en uppsättning inlärningsbilder som du kan använda. På webbplatsen väljer du knappen **Lägg till avbildningar** på fliken **träna bilder** . Gå sedan till mappen **Documents/images/Training_DataSet** för lagrings platsen. Du måste manuellt tagga logotyperna i varje bild, så om du bara testar det här projektet kan det vara bra att ladda upp endast en delmängd av bilderna. Ladda upp minst 15 instanser av varje tagg som du tänker använda.
 
 När du har laddat upp träningsbilderna väljer du den första på skärmen. Taggnings fönstret visas. Rita rutor och tilldela taggar för en logotyp i varje bild. 
 
@@ -65,7 +65,7 @@ När du har taggat en bild går du till höger för att tagga nästa. Stäng tag
 
 I den vänstra rutan ställer du in reglaget **Taggar** på **Tagged** (Taggad) för att visa bilderna. Välj sedan den gröna knappen överst på sidan för att träna modellen. Algoritmen kommer att träna att identifiera samma Taggar i nya bilder. Det testar också modellen på några av dina befintliga bilder för att generera noggrannhetspoäng.
 
-![Custom Vision-webbplatsen, på fliken Training Images (Träningsbilder). I den här skärmbilden är knappen Träna markerad](media/azure-logo-tutorial/train-model.png)
+![Custom Vision webbplats på fliken träna bilder. I den här skärm bilden beskrivs knappen träna](media/azure-logo-tutorial/train-model.png)
 
 ## <a name="get-the-prediction-url"></a>Hämta URL:en för förutsägelse
 
@@ -160,7 +160,7 @@ Följ dessa steg om du vill köra appen:
     
     ![Appskärmen som visar fält för autentiseringsuppgifter för tjänstens huvudnamn](media/azure-logo-tutorial/app-credentials.png)
 
-1. På nästa skärm väljer du din Azure-prenumeration i den nedrullningsbara menyn. (Den här menyn bör innehålla alla prenumerationer som ditt tjänsthuvudnamn har åtkomst till.) Välj knappen **Fortsätt**. I det här läget kan appen uppmana dig att ge åtkomst till enhetens kamera och fotolagring. Bevilja åtkomstbehörigheterna.
+1. På nästa skärm väljer du din Azure-prenumeration i den nedrullningsbara menyn. (Den här menyn ska innehålla alla prenumerationer som tjänstens huvud namn har åtkomst till.) Välj knappen **Fortsätt** . I det här läget kan appen uppmana dig att ge åtkomst till enhetens kamera och fotolagring. Bevilja åtkomstbehörigheterna.
 
     ![Appskärmen som visar en listruta för mål-Azure-prenumeration](media/azure-logo-tutorial/app-az-subscription.png)
 

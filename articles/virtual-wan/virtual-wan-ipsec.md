@@ -1,27 +1,31 @@
 ---
-title: Azure virtuellt WAN-nätverk standard IPsec-principer | Microsoft Docs
-description: Den här artikeln innehåller information om IPsec-principer för virtuellt WAN-nätverk.
+title: IPsec-standardprinciper för virtuella Azure-nätverk | Microsoft Docs
+description: Den här artikeln innehåller information om IPsec-principer för virtuellt WAN.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 05/28/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: fcc9979b9f6d2efcdcbb575f3fd149d8df9c20b0
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5533e35a632f2d58bd8af8f52aafa11d1b677cb9
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66307219"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168399"
 ---
-# <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Virtuellt WAN standardprinciper för IPsec-anslutning
+# <a name="virtual-wan-default-policies-for-ipsec-connectivity"></a>Standard principer för virtuella WAN-nätverk för IPsec-anslutning
 
-Den här artikeln visar kombinationerna som stöds IPSec-principen.
+Den här artikeln visar de kombinationer av IPsec-principer som stöds.
 
-## <a name="default-ipsec-policies"></a>Standard IPsec-principer
+## <a name="default-ipsec-policies"></a>Standard-IPsec-principer
 
 [!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
 
+## <a name="custom-ipsec-policies"></a>Anpassade IPsec-principer
+
+[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-custom-include.md)]
+
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om virtuellt WAN-nätverk finns i [om Azure virtuellt WAN-nätverk](virtual-wan-about.md) och [virtuellt WAN vanliga frågor om Azure](virtual-wan-faq.md).
+Mer information om virtuellt WAN finns i [om Azure Virtual WAN](virtual-wan-about.md) och [vanliga frågor och svar om Azure Virtual WAN](virtual-wan-faq.md).

@@ -196,6 +196,8 @@
               href: disk-encryption-cli-quickstart.md
             - name: VM-kryptering med Azure PowerShell
               href: disk-encryption-powershell-quickstart.md
+            - name: VM-kryptering med Azure Portal
+              href: disk-encryption-portal-quickstart.md
             - name: Nyckelvalv för Azure Disk Encryption
               href: disk-encryption-key-vault.md
             - name: Exempelskript för diskkryptering

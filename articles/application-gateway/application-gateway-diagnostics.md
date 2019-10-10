@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 3/28/2019
+ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: 896e1fb3e93fc0a542f0dca75cc1d87b3a2c237c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 36f26808b94893990ceec65e114b11113dbafd6f
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057900"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177488"
 ---
 # <a name="back-end-health-and-diagnostic-logs-for-application-gateway"></a>Server dels hälsa och diagnostikloggar för Application Gateway
 
@@ -20,7 +20,7 @@ Genom att använda Azure Application Gateway kan du övervaka resurser på följ
 
 * [Backend-hälsa](#back-end-health): Application Gateway ger möjlighet att övervaka servrarnas hälso tillstånd i backend-poolerna via Azure Portal och via PowerShell. Du kan också hitta hälso tillståndet för backend-poolerna via diagnostikloggar för prestanda.
 
-* [Loggar](#diagnostic-logging): Loggar gör att prestanda, åtkomst och andra data kan sparas eller förbrukas från en resurs i övervaknings syfte.
+* [Loggar](#diagnostic-logging): loggar gör det möjligt för prestanda, åtkomst och andra data att sparas eller förbrukas från en resurs i övervaknings syfte.
 
 * [Mått](application-gateway-metrics.md): Application Gateway har flera mått som hjälper dig att kontrol lera att systemet fungerar som förväntat.
 
@@ -38,7 +38,7 @@ Backend-hälsorapporten visar utdata från den Application Gateway hälso avsök
 
 ### <a name="view-back-end-health-through-the-portal"></a>Visa Server dels hälsa via portalen
 
-I portalen tillhandahålls Server dels hälsa automatiskt. I en befintlig Application Gateway väljer du **övervakning** > av**Server dels hälsa**. 
+I portalen tillhandahålls Server dels hälsa automatiskt. I en befintlig Application Gateway väljer du **övervakning** > **Server dels hälsa**. 
 
 Varje medlem i backend-poolen visas på den här sidan (oavsett om det är ett nätverkskort, en IP-adress eller ett fullständigt domän namn). Namn på backend-pool, port, backend-HTTP-inställningar och hälso status visas. Giltiga värden för hälso status är **felfria**, **felaktiga**och **okända**.
 
@@ -49,7 +49,7 @@ Varje medlem i backend-poolen visas på den här sidan (oavsett om det är ett n
 
 ### <a name="view-back-end-health-through-powershell"></a>Visa backend-hälsa via PowerShell
 
-Följande PowerShell-kod visar hur du visar backend-hälsa med hjälp `Get-AzApplicationGatewayBackendHealth` av cmdleten:
+Följande PowerShell-kod visar hur du visar backend-hälsa med hjälp av cmdleten `Get-AzApplicationGatewayBackendHealth`:
 
 ```powershell
 Get-AzApplicationGatewayBackendHealth -Name ApplicationGateway1 -ResourceGroupName Contoso
@@ -94,29 +94,29 @@ Följande fragment visar ett exempel på svaret:
 
 Du kan använda olika typer av loggar i Azure för att hantera och felsöka programgatewayer. Du kan komma åt vissa av de här loggarna via portalen. Alla loggar kan extraheras från Azure Blob Storage och visas i olika verktyg, till exempel [Azure Monitor loggar](../azure-monitor/insights/azure-networking-analytics.md), Excel och Power BI. Du kan lära dig mer om de olika typerna av loggar i följande lista:
 
-* **Aktivitets logg**: Du kan använda [Azure aktivitets loggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare kallade drift loggar och gransknings loggar) om du vill visa alla åtgärder som skickas till din Azure-prenumeration och deras status. Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
-* **Åtkomst logg**: Du kan använda den här loggen för att Visa Application Gateway åtkomst mönster och analysera viktig information. Detta inkluderar anroparens IP, begärd URL, svars svars tid, retur kod och byte in och ut. En åtkomst logg samlas in var 300: e sekund. Den här loggen innehåller en post per instans av Application Gateway. Application Gateway-instansen identifieras av egenskapen instanceId.
-* **Prestanda logg**: Du kan använda den här loggen för att se hur Application Gateway instanser presterar. Den här loggen samlar in prestanda information för varje instans, inklusive totalt antal betjänade begär Anden, data flöde i byte, totalt antal begär Anden, misslyckade begär Anden, antal misslyckade och felfria backend-instanser. En prestanda logg samlas in var 60: e sekund.
-* **Brand Väggs logg**: Du kan använda den här loggen för att visa de begär Anden som loggas via antingen identifierings-eller skydds läget för en Programgateway som är konfigurerad med brand väggen för webbaserade program.
+* **Aktivitets logg**: du kan använda [Azure aktivitets loggar](../monitoring-and-diagnostics/insights-debugging-with-events.md) (tidigare kallade drift loggar och gransknings loggar) för att visa alla åtgärder som skickas till din Azure-prenumeration och deras status. Aktivitetsloggposter samlas in som standard, och du kan visa dem i Azure Portal.
+* **Åtkomst logg**: du kan använda den här loggen för att Visa Application Gateway åtkomst mönster och analysera viktig information. Detta inkluderar anroparens IP, begärd URL, svars svars tid, retur kod och byte in och ut. En åtkomst logg samlas in var 300: e sekund. Den här loggen innehåller en post per instans av Application Gateway. Application Gateway-instansen identifieras av egenskapen instanceId.
+* **Prestanda logg**: du kan använda den här loggen för att se hur Application Gateway instanser presterar. Den här loggen samlar in prestanda information för varje instans, inklusive totalt antal betjänade begär Anden, data flöde i byte, totalt antal begär Anden, misslyckade begär Anden, antal misslyckade och felfria backend-instanser. En prestanda logg samlas in var 60: e sekund.
+* **Brand Väggs logg**: du kan använda den här loggen för att visa de begär Anden som loggas via antingen identifierings-eller skydds läget för en Programgateway som är konfigurerad med brand väggen för webbaserade program.
 
 > [!NOTE]
 > Loggar är endast tillgängliga för resurser som distribueras i Azure Resource Manager distributions modell. Du kan inte använda loggar för resurser i den klassiska distributions modellen. En bättre förståelse för de två modellerna finns i artikeln [förstå distribution av Resource Manager och klassisk distribution](../azure-resource-manager/resource-manager-deployment-model.md) .
 
 Du har tre alternativ för att lagra dina loggar:
 
-* **Lagringskonto**: Lagrings konton används bäst för loggar när loggar lagras under en längre tid och granskas vid behov.
-* **Event Hub**: Event Hub är ett bra alternativ för att integrera med andra verktyg för säkerhets informations-och händelse hantering (SIEM) för att få aviseringar om dina resurser.
-* **Azure Monitor loggar**: Azure Monitor loggar används bäst för allmänt real tids övervakning av ditt program eller tittar på trender.
+* **Storage-konto**: Storage-konton passar bäst när loggarna ska lagras en längre tid och granskas vid behov.
+* **Event Hub**: Event Hub är ett bra alternativ för att integrera med andra verktyg för säkerhets informations-och händelse hantering (Siem) för att få aviseringar för dina resurser.
+* **Azure Monitor loggar**: Azure Monitor loggar används bäst för allmän övervakning i real tid av ditt program eller tittar på trender.
 
 ### <a name="enable-logging-through-powershell"></a>Aktivera loggning via PowerShell
 
 Aktivitetsloggning är automatiskt aktiverad för alla Resource Manager-resurser. Du måste aktivera åtkomst-och prestanda loggning för att kunna börja samla in data som är tillgängliga via dessa loggar. Använd följande steg för att aktivera loggning:
 
-1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet är av formatet:/Subscriptions/\<subscriptionId\>/resourceGroups/\<resurs grupp namn\>/providers/Microsoft.Storage/storageAccounts/\<lagrings konto namn\>. Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal.
+1. Anteckna resurs-ID:t för det lagringskonto där loggdata lagras. Det här värdet är av formatet:/Subscriptions/\<subscriptionId @ no__t-1/resourceGroups/\<resource Group name @ no__t-3/providers/Microsoft. Storage/storageAccounts/\<storage konto namn @ no__t-5. Du kan använda valfritt lagringskonto i din prenumeration. Du hittar den här informationen i Azure Portal.
 
     ![Portal: resurs-ID för lagrings konto](./media/application-gateway-diagnostics/diagnostics1.png)
 
-2. Anteckna det resurs-ID för Application Gateway som loggning har Aktiver ATS för. Det här värdet är av formatet:/Subscriptions/\<subscriptionId\>/resourceGroups/\<resurs grupp namn\>/providers/Microsoft.Network/applicationGateways/\<Application Gateway Name \>. Du hittar den här informationen i Azure Portal.
+2. Anteckna det resurs-ID för Application Gateway som loggning har Aktiver ATS för. Det här värdet är av formatet:/Subscriptions/\<subscriptionId @ no__t-1/resourceGroups/\<resource Group name @ no__t-3/providers/Microsoft. Network/applicationGateways/\<application Gateway Name @ no__t-5. Du hittar den här informationen i Azure Portal.
 
     ![Portal: resurs-ID för Application Gateway](./media/application-gateway-diagnostics/diagnostics2.png)
 
@@ -157,14 +157,14 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 
 Åtkomst loggen skapas endast om du har aktiverat den på varje Application Gateway instans, enligt beskrivningen i föregående steg. Data lagras i det lagrings konto som du angav när du aktiverade loggningen. Varje åtkomst till Application Gateway loggas i JSON-format, som du ser i följande exempel för v1:
 
-|Value  |Beskrivning  |
+|Värde  |Beskrivning  |
 |---------|---------|
 |instanceId     | Application Gateway instans som hanterade begäran.        |
 |clientIP     | Ursprunglig IP för begäran.        |
 |clientPort     | Ursprunglig port för begäran.       |
 |httpMethod     | HTTP-metod som används av begäran.       |
 |requestUri     | URI för den mottagna begäran.        |
-|RequestQuery     | **Server-dirigerad**: Backend-tjänstinstans som skickade begäran.</br>**X-AzureApplicationGateway-LOG-ID**: Korrelations-ID som används för begäran. Den kan användas för att felsöka trafik problem på backend-servrarna. </br>**SERVER-STATUS**: HTTP-svarskod som Application Gateway tas emot från Server delen.       |
+|RequestQuery     | **Server-routad**: backend-instansen som skickade begäran.</br>**X-AzureApplicationGateway-log-ID**: KORRELATIONS-ID som används för begäran. Den kan användas för att felsöka trafik problem på backend-servrarna. </br>**Server status**: http-svarskod som Application Gateway emot från Server delen.       |
 |UserAgent     | Användar agent från rubriken HTTP-begäran.        |
 |httpStatus     | HTTP-statuskod som returnerades till klienten från Application Gateway.       |
 |httpVersion     | HTTP-version för begäran.        |
@@ -172,7 +172,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 |sentBytes| Storlek på paket som skickas, i byte.|
 |timeTaken| Tids längd (i millisekunder) som det tar för en begäran att bearbetas och dess svar ska skickas. Detta beräknas som intervallet från den tidpunkt då Application Gateway tar emot den första byten i en HTTP-begäran till den tidpunkt då åtgärden skicka svar slutförs. Det är viktigt att Observera att det tidsödande fältet vanligt vis innehåller den tid som paket för begäran och svar överförs över nätverket. |
 |sslEnabled| Huruvida kommunikationen med backend-pooler använder SSL. Giltiga värden är på och av.|
-|host| Det värdnamn som begäran har skickats till backend-servern. Om värd namnet för Server delen åsidosätts, kommer det här namnet att återspegla detta.|
+|värd| Det värdnamn som begäran har skickats till backend-servern. Om värd namnet för Server delen åsidosätts, kommer det här namnet att återspegla detta.|
 |originalHost| Det värdnamn som begäran togs emot av Application Gateway från klienten.|
 ```json
 {
@@ -201,7 +201,7 @@ Azure genererar aktivitets loggen som standard. Loggarna bevaras för 90 dagar i
 ```
 För Application Gateway och WAF v2 visar loggarna lite mer information:
 
-|Value  |Beskrivning  |
+|Värde  |Beskrivning  |
 |---------|---------|
 |instanceId     | Application Gateway instans som hanterade begäran.        |
 |clientIP     | Ursprunglig IP för begäran.        |
@@ -220,7 +220,7 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 |serverRouted| Backend-servern som Application Gateway dirigerar begäran till.|
 |serverStatus| HTTP-statuskod för backend-servern.|
 |serverResponseLatency| Svars tid för svaret från backend-servern.|
-|host| Adress som anges i värd rubriken för begäran.|
+|värd| Adress som anges i värd rubriken för begäran.|
 ```json
 {
     "resourceId": "/SUBSCRIPTIONS/{subscriptionId}/RESOURCEGROUPS/PEERINGTEST/PROVIDERS/MICROSOFT.NETWORK/APPLICATIONGATEWAYS/{applicationGatewayName}",
@@ -255,15 +255,15 @@ För Application Gateway och WAF v2 visar loggarna lite mer information:
 Prestanda loggen skapas endast om du har aktiverat den på varje Application Gateway instans, enligt beskrivningen i föregående steg. Data lagras i det lagrings konto som du angav när du aktiverade loggningen. Prestanda logg data genereras i intervall på 1 minut. Följande data loggas:
 
 
-|Value  |Beskrivning  |
+|Värde  |Beskrivning  |
 |---------|---------|
 |instanceId     |  Application Gateway instans som prestanda data ska skapas för. För en Application Gateway med flera instanser finns det en rad per instans.        |
 |healthyHostCount     | Antal felfria värdar i backend-poolen.        |
 |unHealthyHostCount     | Antalet värdar som inte är felfria i backend-poolen.        |
 |requestCount     | Antal begär Anden som hanteras.        |
-|svarstid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
+|Svars tid | Genomsnittlig svars tid (i millisekunder) för begär Anden från instansen till Server delen som hanterar begär Anden. |
 |failedRequestCount| Antal misslyckade förfrågningar.|
-|throughput| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
+|kapacitet| Genomsnittligt data flöde sedan den senaste loggen mätt i byte per sekund.|
 
 ```json
 {
@@ -292,7 +292,7 @@ Prestanda loggen skapas endast om du har aktiverat den på varje Application Gat
 Brand Väggs loggen skapas endast om du har aktiverat den för varje Application Gateway, enligt beskrivningen i föregående steg. Den här loggen kräver också att brand väggen för webb program är konfigurerad på en Programgateway. Data lagras i det lagrings konto som du angav när du aktiverade loggningen. Följande data loggas:
 
 
-|Value  |Beskrivning  |
+|Värde  |Beskrivning  |
 |---------|---------|
 |instanceId     | Application Gateway instans som brand Väggs data ska skapas för. För en Application Gateway med flera instanser finns det en rad per instans.         |
 |clientIp     |   Ursprunglig IP för begäran.      |
@@ -301,15 +301,15 @@ Brand Väggs loggen skapas endast om du har aktiverat den för varje Application
 |ruleSetType     | Regel uppsättnings typ. Det tillgängliga värdet är OWASP.        |
 |ruleSetVersion     | Regel uppsättnings version används. Tillgängliga värden är 2.2.9 och 3,0.     |
 |ruleId     | Regel-ID för Utlös ande händelse.        |
-|message     | Användarvänligt meddelande för händelsen som utlöses. Mer information finns i avsnittet information.        |
-|action     |  Åtgärd som vidtas på begäran. Tillgängliga värden är blockerade och tillåtna.      |
-|webbplats     | Platsen som loggen skapades för. För närvarande visas bara globala grupper eftersom reglerna är globala.|
-|details     | Information om händelsen som utlöses.        |
+|meddelande     | Användarvänligt meddelande för händelsen som utlöses. Mer information finns i avsnittet information.        |
+|åtgärd     |  Åtgärd som vidtas på begäran. Tillgängliga värden är blockerade och tillåtna.      |
+|plats     | Platsen som loggen skapades för. För närvarande visas bara globala grupper eftersom reglerna är globala.|
+|Information     | Information om händelsen som utlöses.        |
 |information. Message     | Beskrivning av regeln.        |
-|details.data     | Vissa data som finns i en begäran som matchade regeln.         |
+|information. data     | Vissa data som finns i en begäran som matchade regeln.         |
 |information. fil     | Konfigurations fil som innehåller regeln.        |
 |information. rad     | Rad nummer i konfigurations filen som utlöste händelsen.       |
-|värddatornamn   | Värdnamn eller IP-adress för Application Gateway.    |
+|Värdnamn   | Värdnamn eller IP-adress för Application Gateway.    |
 |transactionId  | Unikt ID för en specifik transaktion som hjälper till att gruppera flera regel överträdelser som inträffade inom samma begäran.   |
 
 ```json
@@ -346,8 +346,8 @@ Brand Väggs loggen skapas endast om du har aktiverat den för varje Application
 
 Du kan visa och analysera aktivitetsloggdata med någon av följande metoder:
 
-* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure CLI, Azure REST API eller Azure-portalen. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
-* **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med [innehållspaketet Azure aktivitetsloggar för Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) kan du analysera dina data på förkonfigurerade instrumentpaneler, som du både kan anpassa och använda i befintligt skick.
+* **Azure-verktyg**: Hämta information från aktivitetsloggen via Azure PowerShell, Azure-CLI:t, Azure REST-API:t eller Azure Portal. Det finns stegvisa instruktioner för respektive metod i artikeln [Aktivitetsåtgärder med Resource Manager](../azure-resource-manager/resource-group-audit.md).
+* **Power BI**: Om du inte redan har ett [Power BI](https://powerbi.microsoft.com/pricing)-konto kan du prova ett utan kostnad. Med hjälp av [appar för Power BI mallar](https://docs.microsoft.com/power-bi/service-template-apps-overview)kan du analysera dina data.
 
 ### <a name="view-and-analyze-the-access-performance-and-firewall-logs"></a>Visa och analysera loggar för åtkomst, prestanda och brand vägg
 

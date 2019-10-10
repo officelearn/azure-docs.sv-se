@@ -8,14 +8,14 @@ ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: 2f1ee5caf89af718d91abeac01730700c131ab41
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: bc7858aeceea7cbd35bc2d834ddfb4fb5d656321
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70048956"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174838"
 ---
-# <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Snabbstart: Använd en modell för enhets kapacitet för att skapa en IoT Plug and Play-enhet och ansluta den till ditt IoT Central-program
+# <a name="quickstart-use-a-device-capability-model-to-create-an-iot-plug-and-play-device-and-connect-it-to-your-iot-central-application"></a>Snabb start: Använd en enhets kapacitets modell för att skapa en IoT Plug and Play-enhet och ansluta den till ditt IoT Central-program
 
 [!INCLUDE [iot-central-pnp-original](../../includes/iot-central-pnp-original-note.md)]
 
@@ -25,7 +25,7 @@ En _enhets kapacitets modell_ (DCM) beskriver funktionerna i en [IoT plug and Pl
 * Kör enhets koden i Windows och se att den är ansluten till ditt IoT Central-program.
 * Visa den simulerade telemetri som enheten skickar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför snabb starten [skapa ett Azure IoT Central-program (förhands gransknings funktioner)](./quick-deploy-iot-central-pnp.md?toc=/azure/iot-central-pnp/toc.json&bc=/azure/iot-central-pnp/breadcrumb/toc.json) för att skapa ett IoT Central program med hjälp av program mal len för **hands version**
 
@@ -36,18 +36,18 @@ För att slutföra den här snabb starten måste du installera följande program
 * [Cmake](https://cmake.org/download/) – när du installerar **cmake**väljer du alternativet **Lägg till cmake i System Sök vägen**.
 * [Visual Studio Code](https://code.visualstudio.com/).
 * [Node.js](https://nodejs.org/)
-* `dps-keygen` Verktyget:
+* @No__t-0-verktyget:
 
     ```cmd/sh
     npm i -g dps-keygen
     ```
 
-### <a name="install-azure-iot-device-workbench"></a>Installera Azure IoT Device Workbench
+### <a name="install-azure-iot-tools"></a>Installera Azure IoT-verktyg
 
-Använd följande steg för att installera tillägget Azure IoT Device Workbench i VS Code:
+Använd följande steg för att installera tilläggs paketet för Azure IoT-verktyg i VS Code:
 
 1. I VS Code väljer du fliken **tillägg** .
-1. Sök efter **Azure IoT Device Workbench**.
+1. Sök efter **Azure IoT-verktyg**.
 1. Välj **Installera**.
 
 ## <a name="prepare-the-development-environment"></a>Förbereda utvecklingsmiljön
@@ -64,7 +64,7 @@ Förbered en utvecklings miljö som du kan använda för att skapa Azure IoT C-e
 
     Den här åtgärden kan förväntas ta flera minuter att slutföra.
 
-1. Skapa en `central_app` mapp i roten för den lokala klonen av lagrings platsen. Du använder den här mappen för enhets modellens filer och enhets koden stub.
+1. Skapa en mapp för `central_app` i roten för den lokala klonen av lagrings platsen. Du använder den här mappen för enhets modellens filer och enhets koden stub.
 
     ```cmd/sh
     cd azure-iot-sdk-c
@@ -79,7 +79,7 @@ Om du vill ansluta en enhet till ett IoT Central-program behöver du en enhets n
 
 1. Gå till **administrations** sidan och välj **enhets anslutning**.
 
-1. Anteckna omfångs **-ID** och **primär nyckel**. Du använder de här värdena senare i den här snabbstarten.
+1. Anteckna **omfångs-ID** och **primär nyckel**. Du använder de här värdena senare i den här snabbstarten.
 
     ![Enhets anslutning](./media/quick-create-pnp-device-pnp/device-connection.png)
 
@@ -89,17 +89,17 @@ Om du vill ansluta en enhet till ett IoT Central-program behöver du en enhets n
     dps-keygen  -di:mxchip-01 -mk:{Primary Key from previous step}
     ```
 
-    Anteckna den genererade enhets _nyckeln_, du använder det här värdet i ett senare steg i den här snabb starten.
+    Anteckna den genererade _enhets nyckeln_, du använder det här värdet i ett senare steg i den här snabb starten.
 
 ## <a name="download-your-model"></a>Ladda ned din modell
 
 I den här snabb starten använder du offentliga DCM för en MxChip IoT DevKit-enhet. Du behöver ingen faktisk DevKit-enhet för att köra koden, i den här snabb starten kompilerar du koden så att den körs i Windows.
 
-1. Öppna `azure-iot-sdk-c\central_app` en mapp med vs Code.
+1. Öppna `azure-iot-sdk-c\central_app`-mappen med VS Code.
 
 1. Använd **CTRL + SKIFT + P** för att öppna kommando paletten, ange **IoT plug and Play**och välj **Öppna modell lagrings plats**. Välj **offentlig lagrings plats**. VS Code visar en lista över DCMs i den offentliga modellens lagrings plats.
 
-1. Välj **MXChip IoT DevKit** DCM med ID `urn:mxchip:mxchip_iot_devkit:1`. Välj sedan **Ladda ned**. Nu har du en kopia av DCM i `central_app` mappen.
+1. Välj **MXChip IoT DevKit** DCM med ID `urn:mxchip:mxchip_iot_devkit:1`. Välj sedan **Ladda ned**. Nu har du en kopia av DCM i mappen `central_app`.
 
 ![Modell lagring och DCM](./media/quick-create-pnp-device-pnp/public-repository.png)
 
@@ -125,7 +125,7 @@ Nu har du **MXChip IoT-DevKit** DCM och tillhör ande gränssnitt, kan du genere
 
 1. Välj **via DPS (Device Provisioning service) symmetrisk nyckel** som anslutnings metod.
 
-1. VS Code öppnar ett nytt fönster med genererad enhets kod stub- `devkit_device` filer i mappen.
+1. VS Code öppnar ett nytt fönster med genererad enhets kod stub-filer i mappen `devkit_device`.
 
 ![Genererad enhets kod](./media/quick-create-pnp-device-pnp/generated-code.png)
 
@@ -145,15 +145,15 @@ Så här lägger du till anslutnings informationen till den genererade enhets ko
 
 Du kan använda enhets-SDK: n för att skapa den genererade enhets koden stub. Det program som du skapar simulerar en **MXChip IoT DevKit** -enhet och ansluter till ditt IoT Central-program. Programmet skickar telemetri och egenskaper och tar emot kommandon.
 
-1. I vs Code öppnar du `CMakeLists.txt` filen `azure-iot-sdk-c` i mappen. Se till att du öppnar `CMakeLists.txt` filen `azure-iot-sdk-c` i mappen, `devkit_device` inte den som finns i mappen.
+1. I VS Code öppnar du filen `CMakeLists.txt` i mappen `azure-iot-sdk-c`. Se till att du öppnar `CMakeLists.txt`-filen i mappen `azure-iot-sdk-c`, inte den som finns i mappen `devkit_device`.
 
-1. Lägg till raden nedan längst ned i `CMakeLists.txt` filen för att inkludera enhets koden stub-mapp när du kompilerar:
+1. Lägg till raden nedan längst ned i `CMakeLists.txt`-filen för att inkludera enhets koden stub-mapp när du kompilerar:
 
     ```txt
     add_subdirectory(central_app/devkit_device)
     ```
 
-1. Skapa en `cmake` mapp `azure-iot-sdk-c` i mappen och navigera till mappen i en kommando tolk:
+1. Skapa en mapp för `cmake` i mappen `azure-iot-sdk-c` och navigera till mappen i en kommando tolk:
 
     ```cmd\sh
     mkdir cmake

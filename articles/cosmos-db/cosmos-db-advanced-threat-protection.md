@@ -1,18 +1,18 @@
 ---
 title: Avancerat skydd för Azure Cosmos DB
 description: Lär dig hur Azure Cosmos DB tillhandahåller kryptering av data i vila och hur de implementeras.
-author: monhaber
+author: rkarlin
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: v-mohabe
+ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 035c7e9ed5ab33c89a2a55b1133294db434bfe81
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 2b12d639e734502113b6afdd7250fca6a520c687
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70123854"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176027"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db"></a>Avancerat skydd för Azure Cosmos DB
 
@@ -31,7 +31,7 @@ För en fullständig utredning av säkerhets aviseringar rekommenderar vi att du
 
 ### <a name="set-up-atp-using-the-portal"></a>Konfigurera ATP med portalen
 
-1. Starta Azure Portal på [https://portal.azure.com](https://portal.azure.com/).
+1. Starta Azure Portal vid [https://portal.azure.com](https://portal.azure.com/).
 
 2. Från Azure Cosmos DB-kontot går du till menyn **Inställningar** och väljer **avancerad säkerhet**.
 
@@ -88,7 +88,7 @@ När Azure Cosmos DB aktivitets avvikelser uppstår utlöses en säkerhets avise
 
  Från Azure Security Center kan du granska och hantera dina aktuella [säkerhets aviseringar](../security-center/security-center-alerts-overview.md).  Klicka på en avisering i [Security Center](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/0) om du vill visa möjliga orsaker och rekommenderade åtgärder för att undersöka och minimera det potentiella hotet. Följande bild visar ett exempel på aviserings information som finns i Security Center.
 
- ![Hotinformation](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png)
+ ![Hot information](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert-details.png)
 
 Ett e-postmeddelande skickas också med aviserings information och rekommenderade åtgärder. Följande bild visar ett exempel på ett e-postmeddelande om aviseringar.
 

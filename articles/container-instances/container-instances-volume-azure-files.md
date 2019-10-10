@@ -9,19 +9,22 @@ ms.topic: article
 ms.date: 07/08/2019
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 25cac6a66baeb1587e4b5ba3f0923ca9c4394706
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: 686c20aeb22c16298967aa6f73ee829472f4ea0c
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "68325493"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72175938"
 ---
 # <a name="mount-an-azure-file-share-in-azure-container-instances"></a>Montera en Azure-filresurs i Azure Container Instances
 
-Som standard är Azure Container Instances tillstånds lösa. Om behållaren kraschar eller stoppas, försvinner hela sitt tillstånd. Om du vill bevara tillstånd bortom behållarens livs längd måste du montera en volym från en extern lagrings plats. Den här artikeln visar hur du monterar en Azure-filresurs som skapats med [Azure Files](../storage/files/storage-files-introduction.md) för användning med Azure Container instances. Azure Files erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Med hjälp av en Azure-filresurs med Azure Container Instances får du fildelnings funktioner som liknar att använda en Azure-filresurs med Azure Virtual Machines.
+Som standard är Azure Container Instances tillstånds lösa. Om behållaren kraschar eller stoppas, försvinner hela sitt tillstånd. Om du vill bevara tillstånd bortom behållarens livs längd måste du montera en volym från en extern lagrings plats. Som du ser i den här artikeln kan Azure Container Instances montera en Azure-filresurs som skapats med [Azure Files](../storage/files/storage-files-introduction.md). Azure Files erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Med hjälp av en Azure-filresurs med Azure Container Instances får du fildelnings funktioner som liknar att använda en Azure-filresurs med Azure Virtual Machines.
 
 > [!NOTE]
-> Montering av en Azure Files-resurs är för närvarande begränsad till Linux-behållare. Medan vi arbetar för att hämta alla funktioner till Windows-behållare kan du hitta aktuella plattforms skillnader i [översikten](container-instances-overview.md#linux-and-windows-containers).
+> Montering av en Azure Files-resurs är för närvarande begränsad till Linux-behållare. Hitta aktuella plattforms skillnader i [översikten](container-instances-overview.md#linux-and-windows-containers).
+>
+> Montering av en Azure Files resurs till en behållar instans liknar en Docker [BIND-montering](https://docs.docker.com/storage/bind-mounts/). Tänk på att om du monterar en resurs i en behållar katalog där det finns filer eller kataloger döljs dessa filer eller kataloger av monteringen och är inte tillgängliga när behållaren körs.
+>
 
 ## <a name="create-an-azure-file-share"></a>Skapa en Azure-filresurs
 
@@ -79,7 +82,7 @@ az container create \
     --azure-file-volume-mount-path /aci/logs/
 ```
 
-`--dns-name-label` Värdet måste vara unikt i den Azure-region där du skapar behållar instansen. Uppdatera värdet i föregående kommando om du får ett fel meddelande om **DNS-namns etikett** när du kör kommandot.
+Värdet för `--dns-name-label` måste vara unikt i den Azure-region där du skapar behållar instansen. Uppdatera värdet i föregående kommando om du får ett fel meddelande om **DNS-namns etikett** när du kör kommandot.
 
 ## <a name="manage-files-in-mounted-volume"></a>Hantera filer på monterad volym
 
@@ -95,9 +98,9 @@ När du har sparat text med appen kan du använda [Azure Portal][portal] eller e
 
 Du kan också distribuera en behållar grupp och montera en volym i en behållare med Azure CLI och en [yaml-mall](container-instances-multi-container-yaml.md). Att distribuera med YAML-mall är den bästa metoden när du distribuerar behållar grupper som består av flera behållare.
 
-Följande yaml-mall definierar en behållar grupp med en behållare som `aci-hellofiles` skapats med avbildningen. Behållaren monterar *acishare* för Azure-filresursen som skapades tidigare som en volym. Ange namnet och lagrings nyckeln för det lagrings konto som är värd för fil resursen. 
+Följande YAML-mall definierar en behållar grupp med en behållare som skapats med avbildningen `aci-hellofiles`. Behållaren monterar *acishare* för Azure-filresursen som skapades tidigare som en volym. Ange namnet och lagrings nyckeln för det lagrings konto som är värd för fil resursen. 
 
-Som i CLI-exemplet måste `dnsNameLabel` värdet vara unikt i den Azure-region där du skapar behållar instansen. Uppdatera värdet i YAML-filen om det behövs.
+Som i CLI-exemplet måste `dnsNameLabel`-värdet vara unikt i den Azure-region där du skapar behållar instansen. Uppdatera värdet i YAML-filen om det behövs.
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -135,7 +138,7 @@ tags: {}
 type: Microsoft.ContainerInstance/containerGroups
 ```
 
-Om du vill distribuera med yaml-mallen sparar du föregående yaml till en fil `deploy-aci.yaml`med namnet och kör sedan kommandot [AZ container Create][az-container-create] med `--file` parametern:
+Om du vill distribuera med YAML-mallen sparar du föregående YAML till en fil med namnet `deploy-aci.yaml` och kör sedan kommandot [AZ container Create][az-container-create] med parametern `--file`:
 
 ```azurecli
 # Deploy with YAML template
@@ -145,13 +148,13 @@ az container create --resource-group myResourceGroup --file deploy-aci.yaml
 
 Förutom CLI-och YAML-distribution kan du distribuera en behållar grupp och montera en volym i en behållare med hjälp av en Azure [Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups).
 
-Fyll `volumes` först i matrisen i avsnittet behållar grupp `properties` i mallen. 
+Fyll först i `volumes`-matrisen i behållar grupps `properties`-avsnittet i mallen. 
 
-För varje behållare där du vill montera volymen fyller `volumeMounts` du sedan `properties` i matrisen i avsnittet i behållar definitionen.
+För varje behållare där du vill montera volymen fyller du i `volumeMounts`-matrisen i avsnittet `properties` i behållar definitionen.
 
-Följande Resource Manager-mall definierar en behållar grupp med en behållare som `aci-hellofiles` skapats med avbildningen. Behållaren monterar *acishare* för Azure-filresursen som skapades tidigare som en volym. Ange namnet och lagrings nyckeln för det lagrings konto som är värd för fil resursen. 
+Följande Resource Manager-mall definierar en behållar grupp med en behållare som skapats med `aci-hellofiles`-avbildningen. Behållaren monterar *acishare* för Azure-filresursen som skapades tidigare som en volym. Ange namnet och lagrings nyckeln för det lagrings konto som är värd för fil resursen. 
 
-Som i föregående exempel `dnsNameLabel` måste värdet vara unikt i den Azure-region där du skapar behållar instansen. Uppdatera värdet i mallen om det behövs.
+Som i de föregående exemplen måste värdet `dnsNameLabel` vara unikt i den Azure-region där du skapar behållar instansen. Uppdatera värdet i mallen om det behövs.
 
 ```JSON
 {
@@ -220,7 +223,7 @@ Som i föregående exempel `dnsNameLabel` måste värdet vara unikt i den Azure-
 }
 ```
 
-Om du vill distribuera med Resource Manager-mallen sparar du föregående JSON till en fil `deploy-aci.json`med namnet och kör sedan kommandot [AZ Group Deployment Create][az-group-deployment-create] med `--template-file` parametern:
+Om du vill distribuera med Resource Manager-mallen sparar du föregående JSON till en fil med namnet `deploy-aci.json` och kör sedan kommandot [AZ Group Deployment Create][az-group-deployment-create] med parametern `--template-file`:
 
 ```azurecli
 # Deploy with Resource Manager template
@@ -230,9 +233,9 @@ az group deployment create --resource-group myResourceGroup --template-file depl
 
 ## <a name="mount-multiple-volumes"></a>Montera flera volymer
 
-Om du vill montera flera volymer i en behållar instans måste du distribuera med hjälp av en [Azure Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups) eller en yaml-fil. Om du vill använda en mall eller en yaml-fil anger du resurs informationen och definierar volymerna `volumes` genom att fylla `properties` i matrisen i avsnittet i mallen. 
+Om du vill montera flera volymer i en behållar instans måste du distribuera med hjälp av en [Azure Resource Manager-mall](/azure/templates/microsoft.containerinstance/containergroups) eller en yaml-fil. Om du vill använda en mall eller en YAML-fil anger du resurs informationen och definierar volymerna genom att fylla i `volumes`-matrisen i avsnittet `properties` i mallen. 
 
-Om du till exempel har skapat två Azure Files-resurser med namnet *Share1* och *share2* i lagrings kontot `volumes` *myStorageAccount*, skulle matrisen i en Resource Manager-mall se ut ungefär så här:
+Om du till exempel har skapat två Azure Files-resurser med namnet *Share1* och *share2* i lagrings kontot *myStorageAccount*, ser @no__t 3-matrisen i en Resource Manager-mall ut ungefär så här:
 
 ```JSON
 "volumes": [{
@@ -253,7 +256,7 @@ Om du till exempel har skapat två Azure Files-resurser med namnet *Share1* och 
 }]
 ```
 
-Därefter, för varje behållare i den behållar grupp där du vill montera volymerna, fyller `volumeMounts` du `properties` i matrisen i avsnittet i behållar definitionen. Detta monterar till exempel de två volymerna, *myvolume1* och *myvolume2*, som tidigare definierats:
+Därefter, för varje behållare i den behållar grupp där du vill montera volymerna, fyller du i `volumeMounts`-matrisen i avsnittet `properties` i behållar definitionen. Detta monterar till exempel de två volymerna, *myvolume1* och *myvolume2*, som tidigare definierats:
 
 ```JSON
 "volumeMounts": [{
@@ -270,8 +273,8 @@ Därefter, för varje behållare i den behållar grupp där du vill montera voly
 
 Lär dig hur du monterar andra volym typer i Azure Container Instances:
 
-* [Montera en emptyDir volymen i Azure Container instanser](container-instances-volume-emptydir.md)
-* [Montera en gitRepo volym i Azure Container instanser](container-instances-volume-gitrepo.md)
+* [Montera en emptyDir volym i Azure Container Instances](container-instances-volume-emptydir.md)
+* [Montera en gitRepo volym i Azure Container Instances](container-instances-volume-gitrepo.md)
 * [Montera en hemlig volym i Azure Container Instances](container-instances-volume-secret.md)
 
 <!-- LINKS - External -->

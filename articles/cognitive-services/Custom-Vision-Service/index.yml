@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Dokumentation om Custom Vision
-summary: Azure Custom Vision är en kognitiv tjänst som du kan använda för att skapa, distribuera och förbättra dina egna bildklassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar klasser) på bilder utefter deras visuella egenskaper.
+summary: Custom Vision är en kognitiv tjänst som du kan använda för att skapa, distribuera och förbättra dina egna bildklassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar klasser) på bilder utefter deras visuella egenskaper.
 metadata:
   title: Dokumentation om Custom Vision
-  description: Azure Custom Vision är en kognitiv tjänst som du kan använda för att skapa, distribuera och förbättra dina egna bildklassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar klasser) på bilder utefter deras visuella egenskaper.
+  description: Custom Vision är en kognitiv tjänst som du kan använda för att skapa, distribuera och förbättra dina egna bildklassificerare. En bildklassificerare är en AI-tjänst som applicerar etiketter (som representerar klasser) på bilder utefter deras visuella egenskaper.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: custom-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 931f67bd0f5c73426781da39ded3bcfff0a8dea3
-  ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+  ms.openlocfilehash: 5be5dcd64345de32e37413932869574391573c60
+  ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 09/24/2019
-  ms.locfileid: "71211974"
+  ms.lasthandoff: 10/09/2019
+  ms.locfileid: "72176173"
 landingContent:
 - title: Om Custom Vision
   linkLists:

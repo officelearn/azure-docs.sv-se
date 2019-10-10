@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mikeray
-ms.openlocfilehash: 28819bc9d2eaf7d4b595bed59bcd1df8741b62a5
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 48848fbacdc0e205604bb163aa36bdafcd175b0b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101835"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173548"
 ---
 # <a name="extend-on-premises-always-on-availability-groups-to-azure"></a>Utöka alla lokala tillgänglighets grupper till Azure
 Always on-tillgänglighetsgrupper ger hög tillgänglighet för databas grupper genom att lägga till sekundära repliker. Dessa repliker tillåter att databaser Miss lyckas om det skulle uppstå ett problem. Dessutom kan de användas för att avlasta Läs arbets belastningar eller säkerhets kopierings aktiviteter.
@@ -33,21 +33,21 @@ Den här självstudien förutsätter att du har följande:
 * Anslutning mellan det lokala nätverket och det virtuella Azure-nätverket. Mer information om hur du skapar det här virtuella nätverket finns i [skapa en plats-till-plats-anslutning med hjälp av Azure Portal (klassisk)](../../../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md).
 
 > [!IMPORTANT] 
-> Azure har två olika distributionsmodeller som används för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
+> Azure har två olika distributions modeller för att skapa och arbeta med resurser: [Resource Manager och klassisk](../../../azure-resource-manager/resource-manager-deployment-model.md). Den här artikeln beskriver hur du använder den klassiska distributions modellen. Microsoft rekommenderar att de flesta nya distributioner använder Resource Manager-modellen.
 
 ## <a name="add-azure-replica-wizard"></a>Guiden Lägg till Azure-replik
 I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-replik** för att utöka din lösning för tillgänglighets grupp för alltid till att inkludera Azure-repliker.
 
 > [!IMPORTANT]
-> **Guiden Lägg till Azure-replik** stöder bara virtuella datorer som skapats med den klassiska distributions modellen. Nya distributioner av virtuella datorer bör använda den nyare Resource Manager-modellen. Om du använder virtuella datorer med Resource Manager måste du manuellt lägga till den sekundära Azure-repliken med hjälp av Transact-SQL commmands (visas inte här). Den här guiden fungerar inte i Resource Manager-scenariot.
+> **Guiden Lägg till Azure-replik** stöder bara virtuella datorer som skapats med den klassiska distributions modellen. Nya distributioner av virtuella datorer bör använda den nyare Resource Manager-modellen. Om du använder virtuella datorer med Resource Manager måste du manuellt lägga till den sekundära Azure-repliken med hjälp av Transact-SQL-kommandon (visas inte här). Den här guiden fungerar inte i Resource Manager-scenariot.
 
-1. Från SQL Server Management Studio, expandera Always on-**tillgänglighets grupper** >  **med hög tillgänglighet** >  **[namn på din tillgänglighets grupp]** .
+1. Från SQL Server Management Studio, expandera **Always on hög tillgänglighet** > **tillgänglighets grupper** >  **[namnet på din tillgänglighets grupp]** .
 2. Högerklicka på **tillgänglighets repliker**och klicka sedan på **Lägg till replik**.
-3. **Guiden Lägg till replik i tillgänglighets grupp** visas som standard. Klicka på **Nästa**.  Om du har valt alternativet **Visa inte den här sidan igen** längst ned på sidan under en tidigare lansering av guiden visas inte den här skärmen.
+3. **Guiden Lägg till replik i tillgänglighets grupp** visas som standard. Klicka på **Next**.  Om du har valt alternativet **Visa inte den här sidan igen** längst ned på sidan under en tidigare lansering av guiden visas inte den här skärmen.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742861.png)
 4. Du kommer att behöva ansluta till alla befintliga sekundära repliker. Du kan klicka på **Anslut...** bredvid varje replik eller så kan du klicka på **Anslut alla...** längst ned på skärmen. Efter autentisering klickar du på **Nästa** för att gå vidare till nästa skärm.
-5. På sidan **Ange repliker** visas flera flikar högst upp: **Repliker**, **slut punkter**, **säkerhets kopierings inställningar**och **lyssnare**. Klicka på Lägg till Azure-replik på fliken repliker **...** Starta guiden Lägg till Azure-replik.
+5. På sidan **Ange repliker** visas flera flikar överst: **repliker**, **slut punkter**, **Inställningar för säkerhets kopiering**och **lyssnare**. Klicka på **Lägg till Azure-replik** på fliken **repliker** ... Starta guiden Lägg till Azure-replik.
    
     ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742863.png)
 6. Välj ett befintligt hanterings certifikat för Azure från det lokala Windows-certifikatarkivet om du har installerat ett tidigare. Välj eller ange ID: t för en Azure-prenumeration om du har använt en tidigare. Du kan klicka på Hämta för att hämta och installera ett hanterings certifikat för Azure och ladda ned listan över prenumerationer med ett Azure-konto.
@@ -65,17 +65,17 @@ I det här avsnittet lär du dig hur du använder **guiden Lägg till Azure-repl
    | **Bekräfta lösen ord** |Bekräfta lösen ordet för det nya kontot |
    | **Virtual Network** |Ange det virtuella Azure-nätverket som den nya virtuella datorn ska använda. Mer information om virtuella nätverk finns i [Virtual Network översikt](../../../virtual-network/virtual-networks-overview.md). |
    | **Virtual Network undernät** |Ange det undernät för virtuellt nätverk som den nya virtuella datorn ska använda |
-   | **Domän** |Bekräfta att det förifyllda värdet för domänen är korrekt |
+   | **Domänsuffix** |Bekräfta att det förifyllda värdet för domänen är korrekt |
    | **Domän användar namn** |Ange ett konto som finns i den lokala administratörs gruppen på de lokala klusternoderna |
    | **Lösenord** |Ange lösen ordet för domän användar namnet |
 8. Verifiera distributions inställningarna genom att klicka på **OK** .
 9. Juridiska villkor visas härnäst. Läs och klicka på **OK** om du samtycker till dessa villkor.
-10. Sidan **Ange repliker** visas igen. Kontrol lera inställningarna för den nya Azure-replikenpå flikarna repliker, **slut punkter**och **säkerhets kopierings inställningar** . Ändra inställningarna så att de uppfyller dina affärs behov.  Mer information om de parametrar som finns på dessa flikar finns på [sidan Ange repliker (guiden Ny tillgänglighets grupp/Lägg till replik guiden)](https://msdn.microsoft.com/library/hh213088.aspx). Observera att lyssnare inte kan skapas med hjälp av fliken lyssnare för tillgänglighets grupper som innehåller Azure-repliker. Dessutom visas ett meddelande som anger att det inte stöds i Azure om en lyssnare redan har skapats innan du startar guiden. Vi ska titta på hur du skapar lyssnare i avsnittet **skapa en lyssnare för tillgänglighets grupp** .
+10. Sidan **Ange repliker** visas igen. Kontrol lera inställningarna för den nya Azure-repliken på flikarna **repliker**, **slut punkter**och **säkerhets kopierings inställningar** . Ändra inställningarna så att de uppfyller dina affärs behov.  Mer information om de parametrar som finns på dessa flikar finns på [sidan Ange repliker (guiden Ny tillgänglighets grupp/Lägg till replik guiden)](https://msdn.microsoft.com/library/hh213088.aspx). Observera att lyssnare inte kan skapas med hjälp av fliken lyssnare för tillgänglighets grupper som innehåller Azure-repliker. Dessutom visas ett meddelande som anger att det inte stöds i Azure om en lyssnare redan har skapats innan du startar guiden. Vi ska titta på hur du skapar lyssnare i avsnittet **skapa en lyssnare för tillgänglighets grupp** .
     
      ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742865.png)
-11. Klicka på **Nästa**.
+11. Klicka på **Next**.
 12. Välj den metod för data synkronisering som du vill använda på sidan **Välj inledande data synkronisering** och klicka på **Nästa**. I de flesta fall väljer du **fullständig datasynkronisering**. Mer information om metoder för data synkronisering finns i [Välj sidan för synkronisering av första data (alltid i guiderna för tillgänglighets grupper)](https://msdn.microsoft.com/library/hh231021.aspx).
-13. Granska resultaten på validerings sidan. Korrigera utestående problem och kör verifieringen igen om det behövs. Klicka på **Nästa**.
+13. Granska resultaten på **validerings** sidan. Korrigera utestående problem och kör verifieringen igen om det behövs. Klicka på **Next**.
     
      ![SQL](./media/virtual-machines-windows-classic-sql-onprem-availability/IC742866.png)
 14. Granska inställningarna på sidan **Sammanfattning** och klicka sedan på **Slutför**.

@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/23/2018
-ms.author: chackdan
-ms.openlocfilehash: f929ca1cd0fe6f2a94864ae3eb4df28e7b1927db
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.author: pepogors
+ms.openlocfilehash: cec134f9e71f86cd0ed17912f1a3c76adc9a4164
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200455"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167325"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric Node-typer och skalnings uppsättningar för virtuella datorer
 [Skalnings uppsättningar för virtuella datorer](/azure/virtual-machine-scale-sets) är en Azure Compute-resurs. Du kan använda skalnings uppsättningar för att distribuera och hantera en samling virtuella datorer som en uppsättning. Varje nodtyp som du definierar i ett Azure Service Fabric-kluster ställer in en separat skala.  Service Fabric Runtime installerat på varje virtuell dator i skalnings uppsättningen av tillägget Microsoft. Azure. ServiceFabric för virtuella datorer. Du kan skala upp eller ned varje nodtyp separat, ändra OS-SKU: n som körs på varje klusternod, ha olika portar öppna och använda olika kapacitets mått.
@@ -34,7 +34,7 @@ Som du ser i föregående bild, startar skalnings uppsättnings instanserna vid 
 När du skalar upp en skalnings uppsättning skapas en ny instans. Det nya instans namnet för skalnings uppsättningen är vanligt vis skalnings uppsättningens namn plus nästa instans nummer. I vårt exempel är det BackEnd_5.
 
 ## <a name="map-scale-set-load-balancers-to-node-types-and-scale-sets"></a>Mappa skal uppsättnings belastningsutjämnare till nodtyper och skalnings uppsättningar
-Om du har distribuerat klustret i Azure Portal eller använt exemplet Azure Resource Manager mall visas alla resurser under en resurs grupp. Du kan se belastnings utjämning för varje skalnings uppsättning eller nodtyp. Belastnings Utjämnings namnet har följande format: **Lb-&lt;Node-typnamn.&gt;** Ett exempel är LB-sfcluster4doc-0, som du ser i följande figur:
+Om du har distribuerat klustret i Azure Portal eller använt exemplet Azure Resource Manager mall visas alla resurser under en resurs grupp. Du kan se belastnings utjämning för varje skalnings uppsättning eller nodtyp. Belastnings Utjämnings namnet har följande format: **lb-&lt;node-typnamn @ no__t-2**. Ett exempel är LB-sfcluster4doc-0, som du ser i följande figur:
 
 ![Resurser][Resources]
 
@@ -77,19 +77,19 @@ Följande är egenskaps beskrivningarna:
 
 | **Namn** | **Tillåtna värden** | ** --- ** | **Vägledning eller kort beskrivning** |
 | --- | --- | --- | --- |
-| name | sträng | --- | unikt namn för tillägg |
-| type | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | --- | Identifierar OS-Service Fabric som startas |
-| autoUpgradeMinorVersion | Sant eller falskt | --- | Aktivera automatisk uppgradering av SF runtime minor-versioner |
-| publisher | Microsoft.Azure.ServiceFabric | --- | namnet på Service Fabric omfattnings utgivaren |
+| namn | sträng | --- | unikt namn för tillägg |
+| typ | "ServiceFabricLinuxNode" eller "ServiceFabricWindowsNode" | --- | Identifierar OS-Service Fabric som startas |
+| Aktiverat autoupgrademinorversion | Sant eller falskt | --- | Aktivera automatisk uppgradering av SF runtime minor-versioner |
+| Förläggare | Microsoft. Azure. ServiceFabric | --- | namnet på Service Fabric omfattnings utgivaren |
 | clusterEndpont | sträng | --- | URI: PORT till hanterings slut punkt |
 | nodeTypeRef | sträng | --- | namn på nodeType |
-| durabilityLevel | bronze, silver, gold, platinum | --- | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
+| durabilityLevel | brons, silver, guld, platina | --- | tid som tillåts för att pausa oåterkallelig Azure-infrastruktur |
 | enableParallelJobs | Sant eller falskt | --- | Aktivera Compute ParallelJobs som ta bort virtuell dator och starta om den virtuella datorn i samma skalnings uppsättning parallellt |
 | nicPrefixOverride | sträng | --- | Undernätsprefixet som "10.0.0.0/24" |
 | commonNames | sträng [] | --- | Vanliga namn på installerade kluster certifikat |
-| X509StoreName | sträng | --- | Namn på arkivet där det installerade kluster certifikatet finns |
+| x509StoreName | sträng | --- | Namn på arkivet där det installerade kluster certifikatet finns |
 | typeHandlerVersion | 1.1 | --- | Version av tillägget. 1,0 Classic-versionen av tillägget rekommenderas för att uppgradera till 1,1 |
-| DataPath | sträng | --- | Sökväg till enheten som används för att spara tillstånd för Service Fabric system tjänster och program data. 
+| dataPath | sträng | --- | Sökväg till enheten som används för att spara tillstånd för Service Fabric system tjänster och program data. 
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [översikten över funktionen "distribuera överallt" och en jämförelse med Azure-hanterade kluster](service-fabric-deploy-anywhere.md).

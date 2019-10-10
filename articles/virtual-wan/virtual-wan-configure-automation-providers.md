@@ -5,14 +5,14 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/07/2019
 ms.author: cherylmc
-ms.openlocfilehash: 430d90b2b372602072527c49796244c503778a3b
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 2f847d8db983303d46b465f4f80bff65eeff632f
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959011"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168497"
 ---
 # <a name="virtual-wan-partners"></a>Virtuella WAN-partner
 
@@ -27,7 +27,7 @@ En grenen het (en lokal VPN-enhet eller SDWAN CPE) använder vanligt vis en styr
 * Testa Portal upplevelsen av Azure Virtual WAN.
 * Bestäm sedan vilken del av anslutnings stegen du vill automatisera. Vi rekommenderar minst att du automatiserar:
 
-  * Åtkomstkontroll
+  * Access Control
   * Ladda upp information om gren enhet till Azure Virtual WAN
   * Hämta Azure-konfiguration och konfigurera anslutning från gren enheten till Azure Virtual WAN
 
@@ -97,7 +97,7 @@ Konfigurationsfilen för enheten innehåller de inställningarna du ska använda
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **Konfigurationsinformation för vpngatewayanslutning**, exempelvis BGP, i förväg delad nyckel osv. PSK är den i förväg delade nyckeln som genereras automatiskt åt dig. Du kan alltid redigera anslutningen på översiktssidan för en anpassad PSK.
+    * **Vpngateway anslutnings konfigurations information** som BGP, i förväg delad nyckel osv. PSK är den i förväg delade nyckeln som skapas automatiskt åt dig. Du kan alltid redigera anslutningen på översiktssidan för en anpassad PSK.
   
 **Exempel på enhets konfigurations fil**
 
@@ -215,11 +215,13 @@ Din lokala SDWAN/VPN-enhet eller SD-WAN-konfiguration måste matcha eller inneh�
 * IPsec-integritetsalgoritm
 * PFS-grupp
 
-### <a name="default"></a>Standard principer för IPsec-anslutning 
+### <a name="default"></a>Standard principer för IPsec-anslutning
 
-När du arbetar med standard principer kan Azure fungera både som initierare och svarare under en konfiguration av en IPsec-tunnel. Det finns inget stöd för Azure som en responder.
+[!INCLUDE [IPsec Default](../../includes/virtual-wan-ipsec-include.md)]
 
-[!INCLUDE [IPsec](../../includes/virtual-wan-ipsec-include.md)]
+### <a name="custom"></a>Anpassade principer för IPsec-anslutning
+
+[!INCLUDE [IPsec Custom](../../includes/virtual-wan-ipsec-custom-include.md)]
 
 ## <a name="next-steps"></a>Nästa steg
 

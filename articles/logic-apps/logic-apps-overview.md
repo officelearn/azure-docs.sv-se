@@ -1,6 +1,6 @@
 ---
-title: Integrera data och automatisera arbets flöden – Azure Logic Apps
-description: Bygg lösningar för att integrera data och automatisera aktiviteter, arbets flöden och processer i företaget eller organisationen för system integrering, EAI (Enterprise Application Integration) och Orchestration-scenarier.
+title: Automatisera uppgifter för företags integrering – Azure Logic Apps
+description: Lär dig mer om automatisering av arbets flöden som integrerar appar, data, tjänster och system med minimal kod för företags integrering med hjälp av Azure Logic Apps.
 services: logic-apps
 ms.service: logic-apps
 ms.suite: integration
@@ -11,12 +11,12 @@ ms.reviewer: klam, LADocs
 ms.topic: overview
 ms.custom: mvc
 ms.date: 06/29/2018
-ms.openlocfilehash: fdcf3d7bc0111530307a4bf30a437ab70c71bf83
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 85e2216e39658fde42f298dabc38c737621d6be4
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981720"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178026"
 ---
 # <a name="overview---what-is-azure-logic-apps"></a>Översikt – vad är Azure Logic Apps?
 
@@ -44,7 +44,7 @@ Varje gång utlösaren körs skapar Logic Apps-motorn en logikappinstans som kö
 
 ![Logikappdesigner – exempellogikapp](./media/logic-apps-overview/azure-logic-apps-overview.png)
 
-Du kan skapa logikappar visuellt med Logikappdesignern, som är tillgänglig på Azure Portal via webbläsaren och i Visual Studio. Om du behöver mer anpassade logikappar kan du skapa eller redigera logikappsdefinitioner i JavaScript Object Notation (JSON) genom att arbeta i ”kodvyn”. Du kan också använda Azure PowerShell-kommandon och Azure Resource Manager-mallar för utvalda aktiviteter. Logikappar distribueras och körs i molnet på Azure. En mer detaljerad introduktion finns i den här videon: [Använd Azure Enterprise Integration Services för att köra molnappar i stor skala](https://channel9.msdn.com/Events/Connect/2017/T119/)
+Du kan skapa logikappar visuellt med Logikappdesignern, som är tillgänglig på Azure Portal via webbläsaren och i Visual Studio. Om du behöver mer anpassade logikappar kan du skapa eller redigera logikappsdefinitioner i JavaScript Object Notation (JSON) genom att arbeta i ”kodvyn”. Du kan också använda Azure PowerShell-kommandon och Azure Resource Manager-mallar för utvalda aktiviteter. Logikappar distribueras och körs i molnet på Azure. En mer detaljerad introduktion finns i den här videon: [Use Azure Enterprise Integration Services to run cloud apps at scale](https://channel9.msdn.com/Events/Connect/2017/T119/) (Använda Azure Enterprise-integreringstjänster för att köra molnappar i skala)
 
 ## <a name="why-use-logic-apps"></a>Varför ska man använda Logic Apps?
 
@@ -130,13 +130,13 @@ Läs mer om Logic Apps med följande introduktionsvideor:
 
 * **Åtgärder**: Åtgärder är alla steg som sker efter utlösaren. Alla åtgärder mappar vanligtvis till en åtgärd som är definierad av en hanterad anslutning, anpassad API eller anpassad anslutning.
 
-* **Enterprise-integrationspaket**: För mer avancerade integrationsscenarier innehåller Logic Apps funktioner från BizTalk Server. Enterprise-integrationspaketet tillhandahåller anslutningsappar som hjälper logikappar att enkelt utföra verifiering, transformering med mera.
+* **Enterprise-integrationspaket**: Logic Apps innehåller funktioner från BizTalk Server för mer avancerade integrationsscenarier. Enterprise-integrationspaketet tillhandahåller anslutningsappar som hjälper logikappar att enkelt utföra verifiering, transformering med mera.
 
 ## <a name="how-does-logic-apps-differ-from-functions-webjobs-and-flow"></a>Hur skiljer sig Logic Apps från Functions, WebJobs och Flow?
 
 Alla dessa tjänster hjälper dig att ”sammanlänka” och ansluta olika system till varandra. Varje tjänst har sina fördelar, så om du snabbt vill skapa ett skalbart, komplett integreringssystem är det bästa sättet att kombinera deras funktioner. Mer information finns i [Välj mellan Flow, Logic Apps, Functions och WebJobs](../azure-functions/functions-compare-logic-apps-ms-flow-webjobs.md).
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
 Logic Apps är en av de många tjänsterna på Microsoft Azure. Innan du börjar behöver du en Azure-prenumeration. Om du inte har någon prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 

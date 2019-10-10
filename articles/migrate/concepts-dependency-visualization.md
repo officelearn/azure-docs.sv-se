@@ -6,14 +6,14 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 07/18/2019
 ms.author: hamusa
-ms.openlocfilehash: 33594e09778b9a629645e12357e6bafe561ad35e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 5b71146f0c2aff51a0c2498705b047e9fa4632c8
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202911"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72178120"
 ---
-# <a name="dependency-visualization"></a>Beroendevisualisering
+# <a name="dependency-visualization"></a>Visualisering av beroenden
 
 Azure Migrate: Server utvärderingen bedömer grupper med lokala datorer för migrering till Azure. Du kan använda funktionen för beroende visualisering i Server utvärdering för att skapa grupper. Den här artikeln innehåller information om den här funktionen.
 
@@ -27,8 +27,8 @@ Med beroende visualisering i Server utvärdering kan du skapa grupper med hög e
 ## <a name="before-you-start"></a>Innan du börjar
 
 - Se till att du har [skapat](how-to-add-tool-first-time.md) ett Azure Migrate-projekt.
-- Om du redan har skapat ett projekt ser du till att du har [lagt till](how-to-assess.md) Azure Migrate: Verktyget Server bedömning.
-- Kontrol lera att du har identifierat datorerna i Azure Migrate. Det kan du göra genom att konfigurera en Azure Migrate-enhet för [VMware](how-to-set-up-appliance-vmware.md) eller [Hyper-V](how-to-set-up-appliance-hyper-v.md). Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server Assessment. [Läs mer](migrate-appliance.md).
+- Om du redan har skapat ett projekt kontrollerar du att du har [lagt till](how-to-assess.md) Azure Migrate: Server utvärderings verktyget.
+- Kontrol lera att du har identifierat datorerna i Azure Migrate. Det kan du göra genom att konfigurera en Azure Migrate-enhet för [VMware](how-to-set-up-appliance-vmware.md) eller [Hyper-V](how-to-set-up-appliance-hyper-v.md). Enheten identifierar lokala datorer och skickar metadata-och prestanda data till Azure Migrate: Server utvärdering. [Läs mer](migrate-appliance.md).
 
 ## <a name="how-does-it-work"></a>Hur fungerar det?
 
@@ -36,12 +36,12 @@ Azure Migrate använder [tjänstkarta](../operations-management-suite/operations
 - Om du vill utnyttja beroende visualiseringen måste du associera en Log Analytics arbets yta, antingen ny eller befintlig, med ett Azure Migrate projekt.
 - Du kan bara skapa eller koppla en arbets yta i samma prenumeration där Azure Migrate projektet skapas.
 - Koppla en Log Analytics arbets yta till ett projekt:
-    1. På fliken **servrar** i **Azure Migrate: Panelen Server** bedömning klickar du på **Översikt**.
+    1. Klicka på **Översikt**i panelen **Azure Migrate: Server bedömning** på fliken **servrar** .
     2. I **Översikt**klickar du på nedpilen för att expandera **grunderna**.
-    3. I **OMS**-arbetsytan klickar du på **kräver konfiguration**.
+    3. I **OMS-arbetsytan**klickar du på **kräver konfiguration**.
     4. I **Konfigurera arbets yta**anger du om du vill skapa en ny arbets yta eller Använd en befintlig:
     
-    ![Lägg till arbetsyta](./media/how-to-create-group-machine-dependencies/workspace.png)
+    ![Lägg till arbets yta](./media/how-to-create-group-machine-dependencies/workspace.png)
 
 - När du kopplar en arbets yta får du möjlighet att skapa en ny arbets yta eller att koppla en befintlig:
   - När du skapar en ny arbets yta måste du ange ett namn för arbets ytan. Du kan välja den [region](https://azure.microsoft.com/global-infrastructure/regions/) där arbets ytan ska skapas.
@@ -51,10 +51,10 @@ Azure Migrate använder [tjänstkarta](../operations-management-suite/operations
   > När du har kopplat en arbets yta till ett projekt kan du inte ändra den senare.
 
   > [!NOTE]
-  > Azure Migrate har för närvarande stöd för att skapa OMS-arbetsyta i regionerna östra USA, Sydostasien och Europa, västra. Om arbets ytan har skapats utanför Azure Migrate i någon annan region, kan den för närvarande inte associeras med ett Azure Migrate-projekt. 
+  > Azure Migrate stöder för närvarande skapande eller Association av Log Analytics arbets ytor som finns i regionerna östra USA, Sydostasien och Västeuropa. Om arbets ytan har skapats utanför Azure Migrate i en region som inte stöds, kan den för närvarande inte kopplas till ett Azure Migrate-projekt. 
 
-- Den associerade arbets ytan är Taggad meddet här och värdet **projekt namn**, som du kan använda för att söka i Azure Portal.
-- Om du vill navigera till arbets ytan som är kopplad till projektet kan du gå till avsnittet Essentials på projekt **översikts** sidan och komma åt arbets ytan
+- Den associerade arbets ytan är Taggad med det här och värdet **projekt namn** **, som**du kan använda för att söka i Azure Portal.
+- Om du vill navigera till arbets ytan som är kopplad till projektet kan du gå till avsnittet **Essentials** på projekt **översikts** sidan och komma åt arbets ytan
 
     ![Navigera Log Analytics arbets ytan](./media/concepts-dependency-visualization/oms-workspace.png)
 

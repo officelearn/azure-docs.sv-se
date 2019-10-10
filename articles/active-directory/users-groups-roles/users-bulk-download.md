@@ -13,20 +13,16 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: jeffsta
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 38cc8fd4e063896bbd8843a54f0a01058462c618
-ms.sourcegitcommit: 3e7646d60e0f3d68e4eff246b3c17711fb41eeda
+ms.openlocfilehash: c59a0b40065be1554e79186227cd2e90d68e7222
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70901456"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72174196"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Hämta en lista med användare (förhands granskning) i Azure Active Directory Portal
 
 Azure Active Directory (Azure AD) stöder åtgärder för Mass import av användare (skapa).
-
-## <a name="bulk-download-service-limits"></a>Begränsningar för Mass nedladdnings tjänst
-
-Varje Mass aktivitet för att skapa en lista med användare kan köras i upp till en timme. På så sätt kan du skapa och ladda ned en lista med minst 500 000 användare.
 
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
@@ -45,6 +41,10 @@ Du måste vara inloggad med en användare som är tilldelad en eller flera admin
 Du kan se statusen för väntande Mass begär Anden på sidan för **Mass åtgärds resultat (förhands granskning)** .
 
    ![Kontrol lera uppladdnings status på sidan Mass åtgärds resultat](./media/users-bulk-download/bulk-center.png)
+
+## <a name="bulk-download-service-limits"></a>Begränsningar för Mass nedladdnings tjänst
+
+Varje Mass aktivitet för att skapa en lista med användare kan köras i upp till en timme. På så sätt kan du skapa och ladda ned en lista med minst 500 000 användare.
 
 ## <a name="next-steps"></a>Nästa steg
 

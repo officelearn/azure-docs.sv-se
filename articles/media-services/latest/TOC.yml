@@ -4,6 +4,8 @@
   items:
     - name: Om Media Services
       href: media-services-overview.md
+    - name: Nyheter i Media Services
+      href: release-notes.md
 - name: Självstudier
   expanded: true
   items:
@@ -343,8 +345,6 @@
           href: 'https://aka.ms/ams-v3-ruby-sdk'
     - name: Azure Media Services Explorer
       href: 'https://github.com/Azure/Azure-Media-Services-Explorer'
-    - name: Viktig information
-      href: release-notes.md
     - name: Kvoter och begränsningar
       href: limits-quotas-constraints.md
     - name: VANLIGA FRÅGOR OCH SVAR

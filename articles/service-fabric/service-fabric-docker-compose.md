@@ -1,6 +1,6 @@
 ---
 title: Azure Service Fabric Docker skapa förhands granskning av distribution
-description: Azure Service Fabric accepterar Docker-format för att göra det enklare att dirigera befintliga behållare med hjälp av Service Fabric. Det här stödet förhandsvisas just nu.
+description: Azure Service Fabric accepterar Docker-format för att göra det enklare att dirigera befintliga behållare med hjälp av Service Fabric. Detta stöd är för närvarande en för hands version.
 services: service-fabric
 documentationcenter: .net
 author: athinanthny
@@ -13,17 +13,17 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: de02c9a8580527ab708418aa266f1b56411fb95b
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.author: atsenthi
+ms.openlocfilehash: 726d04cdfbc21c21a52945f11d3b5097978c5d1d
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68599569"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72168837"
 ---
 # <a name="docker-compose-deployment-support-in-azure-service-fabric-preview"></a>Docker skapa distributions stöd i Azure Service Fabric (för hands version)
 
-Docker använder filen [filen Docker. yml](https://docs.docker.com/compose) för att definiera program med flera behållare. För att göra det lättare för kunder att bekanta sig med Docker för att dirigera befintliga behållar program på Azure Service Fabric har vi inkluderat för hands versions stöd för Docker-distribution inbyggt i plattformen. Service Fabric kan acceptera version 3 och senare av `docker-compose.yml` filer. 
+Docker använder filen [filen Docker. yml](https://docs.docker.com/compose) för att definiera program med flera behållare. För att göra det lättare för kunder att bekanta sig med Docker för att dirigera befintliga behållar program på Azure Service Fabric har vi inkluderat för hands versions stöd för Docker-distribution inbyggt i plattformen. Service Fabric kan acceptera version 3 och senare av `docker-compose.yml`-filer. 
 
 Eftersom detta stöds i för hands versionen stöds endast en delmängd av skapa-direktiv. Till exempel stöds inte program uppgraderingar. Du kan dock alltid ta bort och distribuera program i stället för att uppgradera dem.
 
@@ -35,7 +35,7 @@ Om du vill använda den här för hands versionen skapar du klustret med version
 
 ## <a name="deploy-a-docker-compose-file-on-service-fabric"></a>Distribuera en Docker-filfil på Service Fabric
 
-Följande kommandon skapar ett Service Fabric-program (med `fabric:/TestContainerApp`namnet) som du kan övervaka och hantera precis som andra Service Fabric program. Du kan använda det angivna program namnet för hälso frågor.
+Följande kommandon skapar ett Service Fabric-program (med namnet `fabric:/TestContainerApp`) som du kan övervaka och hantera precis som andra Service Fabric program. Du kan använda det angivna program namnet för hälso frågor.
 Service Fabric identifierar "DeploymentName" som identifierare för Skriv distributionen.
 
 ### <a name="use-powershell"></a>Använd PowerShell
@@ -46,7 +46,7 @@ Skapa en Service Fabric skapa en distribution från en filen Docker. YML-fil gen
 New-ServiceFabricComposeDeployment -DeploymentName TestContainerApp -Compose docker-compose.yml [-RegistryUserName <>] [-RegistryPassword <>] [-PasswordEncrypted]
 ```
 
-`RegistryUserName`och `RegistryPassword` se användar namn och lösen ord för behållar registret. När du har slutfört distributionen kan du kontrol lera statusen med hjälp av följande kommando:
+`RegistryUserName` och `RegistryPassword` refererar till användar namn och lösen ord för behållar registret. När du har slutfört distributionen kan du kontrol lera statusen med hjälp av följande kommando:
 
 ```powershell
 Get-ServiceFabricComposeDeploymentStatus -DeploymentName TestContainerApp
@@ -146,9 +146,9 @@ Ange antingen http-eller HTTPS-protokollet i avsnittet portar som ska användas 
 
 ## <a name="servicednsname-computation"></a>ServiceDnsName-beräkning
 
-Om tjänst namnet som du anger i en Skriv fil är ett fullständigt kvalificerat domän namn (det innehåller en punkt [.]), är `<ServiceName>` DNS-namnet som registreras av Service Fabric (inklusive punkten). Om inte, blir varje Sök vägs segment i program namnet en domän etikett i tjänstens DNS-namn, där det första Sök vägs segmentet blir den översta domän etiketten.
+Om tjänst namnet som du anger i en Skriv fil är ett fullständigt kvalificerat domän namn (det innehåller en punkt [.]), är DNS-namnet som registreras av Service Fabric `<ServiceName>` (inklusive punkten). Om inte, blir varje Sök vägs segment i program namnet en domän etikett i tjänstens DNS-namn, där det första Sök vägs segmentet blir den översta domän etiketten.
 
-Om det angivna program namnet till exempel är `fabric:/SampleApp/MyComposeApp`, `<ServiceName>.MyComposeApp.SampleApp` är det registrerade DNS-namnet.
+Om det angivna program namnet till exempel är `fabric:/SampleApp/MyComposeApp`, blir `<ServiceName>.MyComposeApp.SampleApp` det registrerade DNS-namnet.
 
 ## <a name="compose-deployment-instance-definition-versus-service-fabric-app-model-type-definition"></a>Skriv distribution (instans definition) jämfört med Service Fabric app Model (typ definition)
 

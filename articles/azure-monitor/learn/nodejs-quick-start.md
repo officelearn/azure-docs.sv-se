@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Övervaka med Azure Application Insights'
+title: 'Snabb start: övervaka med Azure Application insikter'
 description: Innehåller instruktioner för att snabbt konfigurera en Node.js-webbapp för övervakning med Application Insights
 services: application-insights
 keywords: ''
@@ -7,23 +7,23 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 07/12/2019
 ms.service: application-insights
-ms.custom: mvc, seo-javascript-september2019
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 1db26002167f4b7c5b4fc19699ddb021de8ac23d
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 79bd0ce90c76f95ce12662e0d496b481382e805a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703020"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177687"
 ---
-# <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Snabbstart: Börja övervaka Node. js-webbprogrammet med Azure Application insikter
-
-Med Azure Application Insights kan du enkelt övervaka en webbapp med avseende på tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Med SDK-version 0.20 och framåt kan du övervaka vanliga tredjepartspaket, till exempel MongoDB, MySQL och Redis.
+# <a name="quickstart-start-monitoring-your-nodejs-web-application-with-azure-application-insights"></a>Snabb start: börja övervaka Node. js-webbappen med Azure Application insikter
 
 Denna snabbstart guidar dig genom processen att lägga till version 0.22 av Application Insights SDK för Node.js för en befintlig Node.js-webbapp.
 
-## <a name="prerequisites"></a>Förutsättningar
+Med Azure Application Insights kan du enkelt övervaka en webbapp för tillgänglighet, prestanda och användning. Du kan också snabbt identifiera och diagnostisera fel i appen utan att vänta på att en användare rapporterar dem. Med SDK-version 0.20 och framåt kan du övervaka vanliga tredjepartspaket, till exempel MongoDB, MySQL och Redis.
+
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -35,7 +35,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="enable-application-insights"></a>Aktivera Application Insights
 
@@ -50,11 +50,11 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
    En konfigurations sida visas. Använd följande tabell för att fylla i inmatade fält. 
 
-    | Inställningar        | Value           | Beskrivning  |
+    | Inställningar        | Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Globalt unikt värde | Namn som identifierar appen du övervakar |
-   | **Programtyp** | Node.js-app | Typen av app du övervakar |
-   | **Location** | East US | Välj en plats nära dig eller nära där appen finns |
+   | **Programtyp** | Node.js-app | Typ av app som du övervakar |
+   | **Plats** | Östra USA | Välj en plats nära dig eller nära där appen finns |
 
 2. Välj **Skapa**.
 
@@ -86,13 +86,13 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 1. Nu kan du öppna sidan **Översikt** i Application Insights i Azure-portalen, där du hämtade instrumenteringsnyckeln, för att visa information om den app som körs.
 
-   ![översiktsvyn för Application Insights](./media/nodejs-quick-start/4overview.png)
+   ![Översiktsmenyn i Application Insights](./media/nodejs-quick-start/4overview.png)
 
 2. Välj **program karta** för en visuell layout av beroende relationerna mellan program komponenterna. För varje komponent visas KPI:er som belastning, prestanda, fel och varningar.
 
-   ![Programkarta](./media/nodejs-quick-start/5appmap.png)
+   ![Programavbildning](./media/nodejs-quick-start/5appmap.png)
 
-3. ![Välj ikonen programkartaförappAnalytics-ikoni](./media/nodejs-quick-start/006.png) **Analytics**.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
+3. Välj **app Analytics** -ikonen ![Application Map Icon @ no__t-2 **i Analytics**.  Då öppnas **Application Insights Analytics**, med ett funktionsrikt frågespråk för att analysera alla data som samlas in av Application Insights. I det här fallet skapas en fråga som återger antalet begäranden som ett diagram. Du kan skriva egna frågor för att analysera andra data.
 
    ![analysdiagram över användarbegäranden under en viss tidsperiod](./media/nodejs-quick-start/6analytics.png)
 
@@ -124,7 +124,7 @@ Application Insights kan samla in telemetridata från alla internetanslutna appa
 
 5. Välj **mått**till vänster. Använd Mät Utforskaren för att undersöka hälso tillståndet och användningen av resursen. Du kan välja **Lägg till nytt diagram** för att skapa ytterligare anpassade vyer eller välja **Redigera** för att ändra befintliga diagram typer, höjd, färgpalett, grupperingar och mått. Du kan till exempel skapa ett diagram som visar den genomsnittliga webb sidans inläsnings tid genom att välja "webbläsare sid inläsnings tid" från List rutan mått och "AVG" från aggregation. Mer information om Azure Metrics Explorer finns i [komma igång med azure Metrics Explorer](../../azure-monitor/platform/metrics-getting-started.md).
 
-   ![diagram med servermått](./media/nodejs-quick-start/8metrics.png)
+   ![Diagram för servermått](./media/nodejs-quick-start/8metrics.png)
 
 Mer information om hur du övervakar Node.js finns i [den ytterligare dokumentationen för App Insights Node.js](../../azure-monitor/app/nodejs.md).
 

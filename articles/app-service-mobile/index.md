@@ -9,14 +9,18 @@ ms.service: app-service-mobile
 ms.topic: landing-page
 ms.date: 05/25/2018
 ms.author: gwallace
-ms.openlocfilehash: 5526f7ce11722469909adfaad11773bc2c8e4b66
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 38b1acad5e8eb869d1ed2a8d218a2416bd3b8098
+ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610223"
+ms.lasthandoff: 10/08/2019
+ms.locfileid: "72024748"
 ---
 # <a name="mobile-apps-documentation"></a>Dokumentation om Mobile Apps
+
+> [!NOTE]
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+> Om du vill integrera molntjänster i ditt mobilprogram kan du registrera dig med App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) i dag.
 
 Lär dig hur du använder Mobile Apps i Azure App Service för att bygga interna iOS-, Android-, Windows- eller plattformsoberoende appar med hjälp av Xamarin eller Cordova. Självstudier, videor, klient-SDK-dokumentation och mycket mer visar hur du bygger och hanterar serverdelen för alla sorters mobilappar.
 

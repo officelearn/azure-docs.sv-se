@@ -11,21 +11,21 @@ ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ghogen
 ms.custom: seodec18
-ms.openlocfilehash: ff3ae9ec4a775e2450a552e414ec52597593dd39
-ms.sourcegitcommit: f10ae7078e477531af5b61a7fe64ab0e389830e8
+ms.openlocfilehash: e4308f98b6e547acd4adfb62ab78c0517247d905
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67604268"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177096"
 ---
 # <a name="use-connected-services-in-visual-studio-to-connect-to-the-computer-vision-api"></a>Använda Connected Services i Visual Studio för att ansluta till API för visuellt innehåll
 
-Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services API för visuellt innehåll. Funktionen är tillgänglig i Visual Studio 2017 15.7 och senare med Cognitive Services-tillägget installerat.
+Den här artikeln, och dess relaterade artiklar, innehåller information om hur man använder Visual Studios Connected Service-funktion för Cognitive Services API för visuellt innehåll. Funktionen är tillgänglig i Visual Studio 2017 15.7 eller senare, med Cognitive Services-tillägget installerat.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure-prenumeration. Om du inte har en prenumeration kan du registrera dig för ett [kostnadsfritt konto](https://azure.microsoft.com/pricing/free-trial/).
-- Visual Studio 2017 version 15.7 eller senare med den **webbutveckling** arbetsbelastning som är installerad. [Ladda ned det nu](https://visualstudio.microsoft.com/downloads/).
+- Visual Studio 2017 version 15,7 eller senare med arbets belastningen **webb utveckling** installerad. [Ladda ned nu](https://visualstudio.microsoft.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
@@ -36,15 +36,15 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
 1. I **Solution Explorer** väljer du **Lägg till** > **Ansluten tjänst**.
    Sidan Ansluten tjänst visas med tjänster som du kan lägga till i projektet.
 
-   ![Högerklicka på menyn i Visual Studio-projekt: Lägg till > Ansluten tjänst](../media/vs-common/Connected-Service-Menu.PNG)
+   ![Högerklicka på en meny i ett Visual Studio-projekt: Lägg till > anslutna tjänsten](../media/vs-common/Connected-Service-Menu.PNG)
 
 1. På menyn med tillgängliga tjänster väljer du **Cognitive Services API för visuellt innehåll**.
 
-   ![Anslutna tjänster-menyn: Analysera bilder... beskrivs](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
+   ![Meny för anslutna tjänster: analysera bilder... beskrivs](./media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-0.PNG)
 
-   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerad med ditt konto, visas en sida med en listruta med dina prenumerationer.
+   Om du har loggat in till Visual Studio och har en Azure-prenumeration som är associerade med ditt konto visas en sida med en listruta med dina prenumerationer.
 
-   ![API för visuellt innehåll datorfönstret med markerade listrutan prenumeration](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
+   ![API för visuellt innehåll fönstret med list rutan prenumeration markerad](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-1.PNG)
 
 1. Välj den prenumeration som du vill använda, välj ett namn för API:et för visuellt innehåll och välj sedan länken Redigera för att ändra det automatiskt genererade namnet. Välj sedan resursgrupp och prisnivå.
 
@@ -62,14 +62,14 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
    [4/26/2018 5:15:40.286 PM] Installing NuGet package 'Microsoft.Azure.CognitiveServices.Vision.ComputerVision' version 2.1.0.
    [4/26/2018 5:15:44.117 PM] Retrieving keys...
    [4/26/2018 5:15:45.602 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceKey=<service key>
-   [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.0
+   [4/26/2018 5:15:45.606 PM] Changing appsettings.json setting: ComputerVisionAPI_ServiceEndPoint=https://australiaeast.api.cognitive.microsoft.com/vision/v2.1
    [4/26/2018 5:15:45.609 PM] Changing appsettings.json setting: ComputerVisionAPI_Name=WebApplication-Core-ComputerVision_ComputerVisionAPI
    [4/26/2018 5:15:46.747 PM] Successfully added Computer Vision API to the project.
    ```
  
 ## <a name="use-the-computer-vision-api-to-detect-attributes-of-an-image"></a>Använd API:et för visuellt innehåll för att identifiera attribut för en bild
 
-1. Lägg till nedanstående med hjälp av instruktionerna i Startup.cs.
+1. Lägg till följande using-uttryck i Startup.cs.
  
    ```csharp
    using System.IO;
@@ -90,13 +90,13 @@ Den här artikeln, och dess relaterade artiklar, innehåller information om hur 
       }
    ```
 
-1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [API för visuellt innehåll-sidan](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Högerklicka på en av avbildningarna, spara till den lokala hårddisken och sedan i Solution Explorer, högerklicka på bildmappen och välj **Lägg till** > **befintligt objekt** att lägga till den i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer: 
+1. Lägg till en bildfil i mappen wwwroot i projektet och lägg till en bildfil i din wwwroot-mapp. Som exempel kan du använda en av bilderna på den här [API för visuellt innehåll-sidan](https://azure.microsoft.com/services/cognitive-services/computer-vision/). Högerklicka på en av avbildningarna, Spara på den lokala hård disken, högerklicka sedan på mappen bilder i Solution Explorer och välj **Lägg till** > **befintligt objekt** för att lägga till det i projektet. Ditt projekt bör se ut ungefär så här i Solution Explorer: 
   
    ![En skärmbild av Solution Explorer-vyn med en vald avbildningsfil](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-3.PNG) 
 
 1. Högerklicka på bildfilen, välj Egenskaper och välj sedan **Kopiera om nyare**. 
 
-   ![bild egenskapsfönstret; Kopiera till utdatakatalog inställd på Kopiera om nyare](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
+   ![fönstret bild egenskaper; Kopiera till utmatnings katalog uppsättning att kopiera om nyare](media/vs-computer-vision-connected-service/Cog-Vision-Connected-Service-5.PNG) 
  
 1. Ersätt konfigurationsmetoden med följande kod för att komma åt API:et för visuellt innehåll och testa en bild.
 
@@ -260,4 +260,4 @@ När den inte längre behövs tar du bort resursgruppen. Detta tar bort den kogn
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om API för visuellt innehåll genom att läsa den [dokumentation om API för visuellt innehåll](Home.md).
+Läs mer om API för visuellt innehåll genom att läsa [API för visuellt innehåll-dokumentationen](Home.md).

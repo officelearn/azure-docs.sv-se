@@ -1,5 +1,5 @@
 ---
-title: Ordna dina resurser med hanteringsgrupper i Azure – Azure Governance
+title: Organisera dina resurser med hanterings grupper – Azure-styrning
 description: Läs om hanteringsgrupperna, hur behörigheterna fungerar och hur du använder dem.
 author: rthorn17
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
@@ -7,12 +7,12 @@ ms.service: governance
 ms.date: 04/22/2019
 ms.author: rithorn
 ms.topic: overview
-ms.openlocfilehash: dba6334815f0c86a800b38ad09487f719857f993
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: aa4c5a7bfe7333c02fe79612b828df5680b83b26
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71341111"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254727"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Ordna resurser med hanteringsgrupper i Azure
 
@@ -90,7 +90,7 @@ RBAC-rollen VM-deltagare kan till exempel tilldelas till en hanteringsgrupp. Rol
 
 Följande diagram visar listan över roller och åtgärder som stöds för hanteringsgrupper.
 
-| RBAC-rollnamn             | Skapa | Byt namn | Flytta** | Ta bort | Tilldela åtkomst | Tilldela princip | Läsa  |
+| RBAC-rollnamn             | Create | Byt namn | Flytta** | Ta bort | Tilldela åtkomst | Tilldela princip | Läsa  |
 |:-------------------------- |:------:|:------:|:------:|:------:|:-------------:| :------------:|:-----:|
 |Ägare                       | X      | X      | X      | X      | X             | X             | X     |
 |Deltagare                 | X      | X      | X      | X      |               |               | X     |
@@ -101,7 +101,7 @@ Följande diagram visar listan över roller och åtgärder som stöds för hante
 |Administratör för användaråtkomst   |        |        |        |        | X             | X             |       |
 
 *: MG-deltagare och MG-läsare tillåter endast användare att utföra dessa åtgärder inom hanteringsgruppsomfånget.  
-**: Rolltilldelningar på rothanteringsgruppen krävs inte för att flytta en prenumeration eller hanteringsgrupp till och från den.  Läs [Hantera dina resurser med hanteringsgrupper](manage.md) för mer information om att flytta objekt inom hierarkin.
+\* *: Roll tilldelningar för rot hanterings gruppen krävs inte för att flytta en prenumeration eller hanterings grupp till och från den.  Läs [Hantera dina resurser med hanteringsgrupper](manage.md) för mer information om att flytta objekt inom hierarkin.
 
 ### <a name="custom-rbac-role-definition-and-assignment"></a>Definition och tilldelning av anpassad RBAC-roll
 

@@ -1,19 +1,19 @@
 ---
-title: Skapa en princip för icke-kompatibla resurser med Azure CLI
+title: Skapa en princip för granskning av resurser med Azure CLI
 description: Använd Azure CLI för att skapa en Azure Policy-tilldelning som identifierar icke-kompatibla resurser.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: azure-policy
-ms.openlocfilehash: 06b35bc9a0222247df5b4ab5c513df504cd45cac
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a7e65e304039c266f92f8068b796323197058cc1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980862"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255955"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Snabbstart: Skapa en principtilldelning för att identifiera icke-kompatibla resurser med Azure CLI
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-with-azure-cli"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med Azure CLI
 
 Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status.
 Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar.
@@ -28,7 +28,7 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 För den här snabbstarten måste du köra Azure CLI version 2.0.4 eller senare för att installera och använda CLI:t lokalt. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI](/cli/azure/install-azure-cli).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Registrera resurs leverantören för Azure Policy Insights med hjälp av Azure CLI. När du registrerar resursprovidern säkerställer du att din prenumeration fungerar med den. Om du vill registrera en resursprovider måste du ha behörighet att utföra åtgärden att registrera resursprovidern. Den här åtgärden ingår i rollerna Deltagare och Ägare. Registrera resursprovidern genom att köra följande kommando:
 
@@ -38,7 +38,7 @@ az provider register --namespace 'Microsoft.PolicyInsights'
 
 Läs mer om att registrera och visa resursprovidrar i [(Resursprovidrar och typer)](../../azure-resource-manager/resource-manager-supported-services.md)
 
-Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-begäranden till Azure Resource Manager-baserade API:er.
+Installera [ARMClient](https://github.com/projectkudu/ARMClient), om du inte redan gjort det. Det är ett verktyg som skickar HTTP-förfrågningar till Azure Resource Manager-baserade API:er.
 
 ## <a name="create-a-policy-assignment"></a>Skapa en principtilldelning
 
@@ -52,7 +52,7 @@ az policy assignment create --name 'audit-vm-manageddisks' --display-name 'Audit
 
 Föregående kommando använder följande information:
 
-- **Namn** – det faktiska namnet på tilldelningen. I det här exemplet användes *audit-vm-manageddisks*.
+- **Namn** - det faktiska namnet på tilldelningen. I det här exemplet användes *audit-vm-manageddisks*.
 - **Visningsnamn** – Visningsnamn för principtilldelningen. I det här fallet använder du *tilldelningen Granska virtuella datorer utan Managed Disks*.
 - **Policy** – Principdefinitions-ID:t som du använder som bas för att skapa tilldelningen. I det här fallet är principdefinitionens ID *Granska virtuella datorer som inte använder hanterade diskar*. För att hämta principdefinitionens ID kör du det här kommandot: `az policy definition list --query "[?displayName=='Audit VMs that do not use managed disks']"`
 - **Omfång** – Ett omfång avgör vilka resurser eller grupper med resurser som principtilldelningen används på. Det kan vara allt från en prenumeration till resursgrupper. Kom ihåg att ersätta &lt;omfång&gt; med namnet på din resursgrupp.

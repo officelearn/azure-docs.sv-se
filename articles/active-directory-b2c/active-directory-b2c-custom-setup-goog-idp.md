@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 09/20/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 9a1366b24e4e46a93af777753debb1cce7c0f0ce
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: cc7e7b334791194cd4f8ebbd2038e9c1877eb297
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71826956"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240223"
 ---
 # <a name="set-up-sign-in-with-a-google-account-using-custom-policies-in-azure-active-directory-b2c"></a>Konfigurera inloggning med ett Google-konto med anpassade principer i Azure Active Directory B2C
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Den här artikeln visar hur du aktiverar inloggning för användare från ett Google-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C).
+Den här artikeln visar hur du aktiverar inloggning för användare med ett Google-konto med hjälp av [anpassade principer](active-directory-b2c-overview-custom.md) i Azure Active Directory B2C (Azure AD B2C).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Slutför stegen i avsnittet [komma igång med anpassade principer i Active Directory B2C](active-directory-b2c-get-started-custom.md).
 - Om du inte redan har ett Google-konto skapar du ett i [skapa ditt Google-konto](https://accounts.google.com/SignUp).
@@ -36,10 +36,10 @@ Om du vill aktivera inloggning för användare från ett Google-konto måste du 
 2. Ange ett **projekt namn**, klicka på **skapa**och kontrol lera att du använder det nya projektet.
 3. Välj **autentiseringsuppgifter** på den vänstra menyn och välj sedan **skapa autentiseringsuppgifter > OAuth-klient-ID**.
 4. Välj **Konfigurera medgivande skärmen**.
-5. Välj eller ange en giltig **e-postadress**, ange ett **produkt namn** som visas för användarna `b2clogin.com` , ange i **godkända domäner**och klicka sedan på **Spara**.
+5. Välj eller ange en giltig **e-postadress**, ange **ett produkt namn** som visas för användarna, ange `b2clogin.com` i **godkända domäner**och klicka sedan på **Spara**.
 6. Under **program typ**väljer du **webb program**.
 7. Ange ett **namn** för ditt program.
-8. I **auktoriserade JavaScript**-ursprung `https://your-tenant-name.b2clogin.com` anger och i **auktoriserade omdirigerings-URI: er**, anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`du. Ersätt ditt-Tenant-namn med namnet på din klient. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
+8. I **auktoriserade JavaScript-ursprung**anger du `https://your-tenant-name.b2clogin.com` och i **auktoriserade omdirigerings-URI: er**, anger `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`. Ersätt ditt-Tenant-namn med namnet på din klient. Du måste använda små bokstäver när du anger ditt klient namn även om klienten har definierats med versaler i Azure AD B2C.
 8. Klicka på **Skapa**.
 9. Kopiera värdena för **klient-ID** och **klient hemlighet**. Du behöver båda dessa för att kunna konfigurera Google som en identitets leverantör i din klient organisation. Klient hemlighet är en viktig säkerhets autentiseringsuppgift.
 
@@ -47,15 +47,15 @@ Om du vill aktivera inloggning för användare från ett Google-konto måste du 
 
 Du måste lagra klient hemligheten som du tidigare registrerade i Azure AD B2C-klienten.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Kontrol lera att du använder den katalog som innehåller din Azure AD B2C-klient. Välj **katalog + prenumerations** filter på den översta menyn och välj den katalog som innehåller din klient.
-3. Välj **Alla tjänster** på menyn uppe till vänster i Azure Portal. Sök sedan efter och välj **Azure AD B2C**.
+3. Välj **Alla tjänster** på menyn högst upp till vänster i Azure-portalen och sök efter och välj **Azure AD B2C**.
 4. På sidan Översikt väljer du **ID för identitets miljö**.
 5. Välj **princip nycklar** och välj sedan **Lägg till**.
-6. För **alternativ**väljer `Manual`du.
-7. Ange ett **namn** för princip nyckeln. Till exempel `GoogleSecret`. Prefixet `B2C_1A_` läggs till automatiskt till namnet på din nyckel.
+6. För **alternativ**väljer du `Manual`.
+7. Ange ett **namn** för princip nyckeln. Till exempel `GoogleSecret`. Prefixet `B2C_1A_` läggs automatiskt till i namnet på din nyckel.
 8. I **hemlighet**anger du din klient hemlighet som du tidigare har spelat in.
-9. För **nyckel användning**väljer `Signature`du.
+9. För **nyckel användning**väljer du `Signature`.
 10. Klicka på **Skapa**.
 
 ## <a name="add-a-claims-provider"></a>Lägg till en anspråks leverantör
@@ -146,7 +146,7 @@ Nu har identitets leverantören kon figurer ATS, men den är inte tillgänglig p
 
 Nu när du har en knapp på plats måste du länka den till en åtgärd. Åtgärden, i det här fallet, är att Azure AD B2C kommunicera med ett Google-konto för att ta emot en token.
 
-1. Hitta **OrchestrationStep** som ingår `Order="2"` i användar resan.
+1. Hitta **OrchestrationStep** som innehåller `Order="2"` i användar resan.
 2. Lägg till följande **ClaimsExchange** -element och kontrol lera att du använder samma värde för ID som du använde för **TargetClaimsExchangeId**:
 
     ```XML
@@ -169,7 +169,7 @@ Uppdatera den förlitande parten (RP) som initierar användar resan som du har s
 
 1. Gör en kopia av *SignUpOrSignIn. XML* i din arbets katalog och Byt namn på den. Byt till exempel namnet till *SignUpSignInGoogle. XML*.
 2. Öppna den nya filen och uppdatera värdet för attributet **PolicyId** för **TrustFrameworkPolicy** med ett unikt värde. Till exempel `SignUpSignInGoogle`.
-3. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel`http://contoso.com/B2C_1A_signup_signin_google`
+3. Uppdatera värdet för **PublicPolicyUri** med URI: n för principen. Till exempel, `http://contoso.com/B2C_1A_signup_signin_google`
 4. Uppdatera värdet för attributet **ReferenceId** i **DefaultUserJourney** för att matcha ID för den nya användar resan som du skapade (SignUpSignGoogle).
 5. Spara ändringarna, ladda upp filen och välj sedan den nya principen i listan.
 6. Kontrol lera att Azure AD B2C programmet som du har skapat är markerat i fältet **Välj program** och testa det genom att klicka på **Kör nu**.

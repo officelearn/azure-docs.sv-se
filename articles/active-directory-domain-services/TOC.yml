@@ -25,6 +25,8 @@
       href: powershell-create-instance.md
 - name: Begrepp
   items:
+    - name: Grundläggande om administration
+      href: administration-concepts.md
     - name: Vanliga distributionsscenarier
       href: scenarios.md
     - name: Så här fungerar Azure AD DS-synkronisering

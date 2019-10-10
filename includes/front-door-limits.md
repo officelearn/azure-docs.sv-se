@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 05/09/2019
 ms.author: sharadag
 ms.custom: include file
-ms.openlocfilehash: deca0034996f6c8ddcac71cd4f191c1a0659b655
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 37ebe2f0c5cbbaca712e69ab4484379ecf0f4830
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "67333394"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72237470"
 ---
-| Resource | Standard/högsta gräns |
+| Resurs | Standard/högsta gräns |
 | --- | --- |
 | Azure frontend service-resurser per prenumeration | 100 |
 | Klient dels värdar som innehåller anpassade domäner per resurs | 100 |
@@ -24,7 +24,7 @@ ms.locfileid: "67333394"
 | Backend-ändar per backend-pool | 100 |
 | Sök vägs mönster som matchar en regel för routning | 25 |
 | Anpassade brand Väggs regler för webb program per princip | 10 |
-| Brand Väggs princip för webb program per resurs | 100 |
+| Brand Väggs princip för webb program per prenumeration | 100 |
 | Villkor för brand vägg för webbaserade programs matchning per anpassad regel | 10 |
 | Webb program brand vägg IP-adressintervall per matchnings villkor | 600 |
 | Webb programmets brand vägg sträng matchnings värden per matchnings villkor | 10 |
@@ -53,4 +53,5 @@ ms.locfileid: "67333394"
 | **Upp** |  Det finns ingen gräns så länge som varje common Table EXPRESSIONS uppladdning är mindre än 2 GB. | Storleken får inte vara större än 2 GB. |
 
 ### <a name="other-limits"></a>Andra gränser
-- Maximal URL-storlek – 8 192 byte-anger den högsta tillåtna längden för den råa URL: en (schema + värdnamn + port + sökväg + frågesträng för URL)-maximal Frågesträngs storlek-4 096 byte-anger den maximala längden på frågesträngen, i byte.
+- Maximal URL-storlek – 8 192 byte-anger den högsta tillåtna längden för den råa URL: en (schema + värdnamn + port + sökväg + frågesträng för URL)
+- Maximal Frågesträngs storlek – 4 096 byte-anger den maximala längden för frågesträngen, i byte.

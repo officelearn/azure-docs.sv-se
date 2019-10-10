@@ -16,12 +16,12 @@ ms.date: 09/11/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, jesakowi
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 1f4afe1c31ae964aab82664de12144185069af5a
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f7e9b738a55248678a207f0b298ef65e6c2761a4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71145662"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240151"
 ---
 # <a name="microsoft-identity-platform-best-practices-and-recommendations"></a>Metod tips och rekommendationer för Microsoft Identity Platform
 
@@ -31,7 +31,7 @@ Om du precis har kommit igång kan du läsa dokumentationen om autentisering i [
 
 Använd följande check lista för att se till att programmet är effektivt integrerat med [Microsoft Identity Platform](https://docs.microsoft.com/azure/active-directory/develop/).
 
-## <a name="basics"></a>Grundinställningar
+## <a name="basics"></a>Grundläggande inställningar
 
 |   |   |
 |---|---|
@@ -80,14 +80,14 @@ Använd följande check lista för att se till att programmet är effektivt inte
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Om de data som krävs för din app är tillgängliga via [Microsoft Graph](https://developer.microsoft.com/graph)kan du begära behörigheter för dessa data med hjälp av Microsoft Graph-slutpunkten i stället för enskilda API. |
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) |Titta inte på värdet för åtkomsttoken eller försök att parsa det som en klient.  De kan ändra värden, format eller till och med bli krypterade utan varning – Använd alltid id_token om klienten behöver lära sig något om användaren eller anropa Microsoft Graph.  Endast webb-API: er ska parsa åtkomsttoken (eftersom de är de som definierar formatet och ställer in krypterings nycklarna). |
 
-## <a name="end-user-experience"></a>Slutanvändarens upplevelse
+## <a name="end-user-experience"></a>Slut användar upplevelse
 
 |   |   |
 |---|---|
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | [Förstå medgivande upplevelsen](application-consent-experience.md) och konfigurera delarna i appens godkännande fråga så att slutanvändare och administratörer har tillräckligt med information för att avgöra om de litar på din app. |
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Minimera antalet gånger som en användare måste ange inloggnings uppgifter när de använder din app genom att försöka utföra tyst autentisering (tyst token-hämtning) innan interaktiva flöden. |
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Använd inte "prompt = medgivande" för varje inloggning. Använd inte prompt = medgivande om du har fastställt att du behöver be om ytterligare behörigheter (till exempel om du har ändrat appens nödvändiga behörigheter). |
-| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | I förekommande fall kan du utöka ditt program med användar data. Använd [Microsoft Graph API](https://developer.microsoft.com/graph) är ett enkelt sätt att göra detta. [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) -verktyget som kan hjälpa dig att komma igång. |
+| ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | I förekommande fall kan du utöka ditt program med användar data. Att använda [Microsoft Graph API](https://developer.microsoft.com/graph) är ett enkelt sätt att göra detta. [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) -verktyget som kan hjälpa dig att komma igång. |
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Registrera den fullständiga uppsättningen behörigheter som din app kräver så att administratörerna enkelt kan ge sitt medgivande till sina klienter. Använd ett [stegvist godkännande](azure-ad-endpoint-comparison.md#incremental-and-dynamic-consent) vid körning för att hjälpa användarna att förstå varför appen begär behörigheter som kan innebära eller förväxla användare när de begär det första starten. |
 | ![Rute](./media/active-directory-integration-checklist/checkbox-two.svg) | Implementera en [ren enkel inloggnings upplevelse](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/tree/master/1-WebApp-OIDC/1-6-SignOut). Det är en sekretess och ett säkerhets krav och ger en bättre användar upplevelse. |
 

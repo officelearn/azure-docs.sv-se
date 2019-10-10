@@ -12,17 +12,17 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/18/2019
+ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev
-ms.openlocfilehash: 82a5054a98a5b77cf996be1fddd6502b8f3146bc
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 8bb9073ccb4aef81b46b3b2b87730ddede5c0ff7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71120501"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240196"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabbstart: Lägg till inloggning med Microsoft i en Java-webbapp
+# <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en Java-webbapp
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -32,7 +32,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-java-webapp/java-quickstart.svg)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill köra det här exemplet behöver du:
 - [Java Development Kit (JDK)](https://openjdk.java.net/) 8 eller senare och [maven](https://maven.apache.org/).
@@ -47,21 +47,10 @@ Om du vill köra det här exemplet behöver du:
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
 > 
 >
-> #### <a name="step-1-download-the-code-sample"></a>Steg 1: Ladda ned kod exemplet
-> 
-> - [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
->
-> #### <a name="step-2-open-applicationproperties"></a>Steg 2: Öppna program. Properties
->
-> 1. Extrahera zip-filen till en lokal mapp.
-> 1. Valfritt Om du använder en Integrated Development Environment öppnar du exemplet i din favorit-IDE.
-> 1. Öppna filen *Application. Properties* . Du kommer att infoga värden `aad.clientId`för `aad.authority`, och `aad.secretKey` när du registrerar ditt program i nästa steg.
-
-
-> #### <a name="step-3-register-your-application"></a>Steg 3: Registrera ditt program
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
 > 1. Logga in på [Azure-portalen](https://portal.azure.com) med ett arbets- eller skolkonto eller ett personligt Microsoft-konto.
@@ -71,50 +60,55 @@ Om du vill köra det här exemplet behöver du:
 > 1. När sidan **Registrera ett program** visas anger du programmets registreringsinformation:
 >    - I avsnittet **Namn** anger du ett beskrivande programnamn som ska visas för appens användare, till exempel `java-webapp`.
 >    - Lämna **omdirigerings-URI** tomt för tillfället och välj **Registrera**.
-> 1. Hitta **programmets ID-värde (Client)** för programmet. Uppdatera värdet för `Enter_the_Application_Id_here` i filen *Application. Properties* .
-> 1. Hitta programmets **ID-värde för katalogen (klient)** . Uppdatera värdet för `Enter_the_Tenant_Info_Here` i filen *Application. Properties* . 
+> 1. Hitta **programmets ID-värde (Client)** för programmet. Kopiera det här värdet, du behöver det senare.
+> 1. Hitta programmets **ID-värde för katalogen (klient)** . Kopiera det här värdet, du behöver det senare.
 > 1. Välj menyn **Autentisering** och lägg sedan till följande information:
->    - I **omdirigerings**- `http://localhost:8080/msal4jsamples/secure/aad` URI `https://localhost:8080/msal4jsamples/graph/users`: er lägger du till och.
+>    - I **omdirigerings-URI: er**lägger du till `http://localhost:8080/msal4jsamples/secure/aad` och `https://localhost:8080/msal4jsamples/graph/users`.
 >    - Välj **Spara**.
 > 1. På den vänstra menyn väljer du **certifikat & hemligheter** och klickar på **ny klient hemlighet** i avsnittet **klient hemligheter** :
 >     
 >    - Ange en nyckel Beskrivning (av instansens program hemlighet).
 >    - Välj en nyckel varaktighet på om **1 år**.
 >    - När du klickar på **Lägg till**visas nyckelvärdet. 
->    - Kopiera värdet för nyckeln. Öppna filen *Application. Properties* som du laddade ned tidigare och uppdatera värdet för `Enter_the_Client_Secret_Here` med nyckel svärdet. 
+>    - Kopiera värdet för nyckeln. du kommer att behöva det senare.
 >
 > [!div class="sxs-lookup" renderon="portal"]
-> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera ditt program i Azure Portal
+> #### <a name="step-1-configure-your-application-in-the-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
 > För att kod exemplet för den här snabb starten ska fungera måste du:
-> 1. Lägg till svars `http://localhost:8080/msal4jsamples/secure/aad` - `https://localhost:8080/msal4jsamples/graph/users`URL: er som och.
+> 1. Lägg till svars-URL: er som `http://localhost:8080/msal4jsamples/secure/aad` och `https://localhost:8080/msal4jsamples/graph/users`.
 > 1. Skapa en klient hemlighet.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [Gör den här ändringen åt mig]()
 >
 > > [!div id="appconfigured" class="alert alert-info"]
-> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Programmet konfigureras med de här attributen.
-> 
-> #### <a name="step-2-download-the-code-sample"></a>Steg 2: Ladda ned kod exemplet
-> 
-> - [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
-> 
-> #### <a name="step-3-configure-the-code-sample"></a>Steg 3: Konfigurera kod exemplet 
-> 
-> 1. Extrahera zip-filen till en lokal mapp.
-> 1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
-> 1. Öppna filen **Application. Properties** , som du hittar i *src/main/Resources/* .
-> 1. Ersätt program egenskaper.
->   1. Hitta `aad.clientId` och uppdatera värdet för `Enter_the_Application_Id_here` med **programmets (klient) ID-** värdet för det program som du har registrerat. 
->   1. Hitta `aad.authority` och uppdatera värdet för `Enter_the_Tenant_Name_Here` med **katalog-ID-** värdet för det program som du har registrerat.
->   1. Hitta `aad.secretKey` och uppdatera värdet för `Enter_the_Client_Secret_Here` med den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
+> > ![Redan konfigurerad](media/quickstart-v2-aspnet-webapp/green-check.png) Appen konfigureras med de här attributen.
 
-#### <a name="step-4-run-the-code-sample"></a>Steg 4: Kör kod exemplet
-1. Kör kod exemplet och öppna en webbläsare och gå till *http://localhost:8080* .
+#### <a name="step-2-download-the-code-sample"></a>Steg 2: Hämta kod exemplet
+ 
+ [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-java-webapp/archive/master.zip)
+ 
+ #### <a name="step-3-configure-the-code-sample"></a>Steg 3: Konfigurera kod exemplet 
+ 
+ 1. Extrahera zip-filen till en lokal mapp.
+ 1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
+ 1. Öppna filen **Application. Properties** , som du hittar i *src/main/Resources/* .
+ 1. Ersätt program egenskaper.
+   1. Hitta `aad.clientId` och uppdatera värdet för `Enter_the_Application_Id_here` med **programmets (klient) ID** -värdet för det program som du har registrerat. 
+   1. Hitta `aad.authority` och uppdatera värdet för `Enter_the_Tenant_Name_Here` med **katalogens ID** -värde för det program som du har registrerat.
+   1. Hitta `aad.secretKey` och uppdatera värdet för `Enter_the_Client_Secret_Here` med den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
+
+> [!div renderon="docs"]
+> Var:
+>
+> - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
+> - `Enter_the_Client_Secret_Here`-är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
+
+#### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
+1. Kör kod exemplet och öppna en webbläsare och navigera till *http://localhost:8080* .
 1. Den första sidan innehåller en **inloggnings** knapp. Klicka på **inloggnings** knappen för att omdirigera till Azure Active Directory. Användaren uppmanas att ange sina autentiseringsuppgifter.  
 1. När du har autentiserat Azure Active Directory kommer de att omdirigeras till *http://localhost:8080/msal4jsamples/secure/aad* . De är officiellt inloggade i programmet och sidan ska visa information om det inloggade kontot. Den innehåller också knappar för: 
-    - *Logga ut*: Kommer att logga ut den aktuella användaren från programmet och dirigera om dem till start sidan.
-    - *Visa användare*: Kommer att hämta en token för Microsoft Graph och anropa sedan Microsoft Graph med token som är kopplad till begäran för att hämta alla användare i klient organisationen.
-
+    - *Logga ut*: loggar ut den aktuella användaren från programmet och dirigerar om dem till start sidan.
+    - *Visa användare*: hämtar en token för Microsoft Graph och anropa sedan Microsoft Graph med token som är kopplad till begäran för att hämta alla användare i klient organisationen.
 
 ## <a name="more-information"></a>Mer information
 
@@ -134,7 +128,7 @@ compile group: 'com.microsoft.azure', name: 'msal4j', version: '0.5.0-preview'
 ```
 
 
-### <a name="msal-initialization"></a>Msal-initiering
+### <a name="msal-initialization"></a>MSAL-initiering
 Du kan lägga till referensen i MSAL4J genom att lägga till följande kod överst i filen där du kommer att använda MSAL4J: 
 
 ```Java

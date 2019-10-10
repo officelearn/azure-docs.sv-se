@@ -1,19 +1,19 @@
 ---
-title: Kör din första fråga med Azure PowerShell
+title: Kör din första fråga med PowerShell
 description: Den här artikeln vägleder dig igenom stegen för att aktivera Resource Graph-modulen för Azure PowerShell och köra din första fråga.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 01/23/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 95cf19d4a782f9e4c866d31fac0da74aebff5d2d
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 9193b2e6cc00ef4c46afc72b041c12234af19299
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976775"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254544"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabbstart: Köra din första Resource Graph-fråga med hjälp av Azure PowerShell
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-powershell"></a>Snabb start: kör din första resurs diagram fråga med hjälp av Azure PowerShell
 
 Det första steget till att använda Azure Resource Graph är att kontrollera att modulen för Azure PowerShell är installerad. Denna snabbstart vägleder dig genom processen för att lägga till modulen i Azure PowerShell-installationen.
 

@@ -7,19 +7,19 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 5/31/2019
 ms.author: mlearned
-ms.custom: mvc
-ms.openlocfilehash: 0df60cac241151b5968c5ddfc01ca9c0515a5e6b
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.custom: mvc, seo-javascript-october2019
+ms.openlocfilehash: 86d7f74a5a7260c5feb9a41c6b9c3c93d61388a6
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996977"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255539"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Snabbstart: Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure Portal
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-portal"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure Portal
 
 Azure Kubernetes Service (AKS) är en hanterad Kubernetes-tjänst som gör att du snabbt kan distribuera och hantera kluster. I den här snabbstarten ska du distribuera ett AKS-kluster med hjälp av Azure-portalen. Ett flerbehållarprogram som består av en webbklientdel och en Redis-instans körs sedan i klustret. Då ser du hur du övervakar hälsotillståndet för klustret och poddar som kör programmet.
 
-![Bild som illustrerar hur du navigerar till Azure Vote-exempelprogram](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Bild som illustrerar hur du navigerar till Azure Vote-exempelprogram](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Kubernetes Core Concepts for Azure Kubernetes service (AKS)][kubernetes-concepts].
 
@@ -31,7 +31,7 @@ Logga in på Azure Portal på https://portal.azure.com.
 
 ## <a name="create-an-aks-cluster"></a>Skapa ett AKS-kluster
 
-I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs** > **behållare** >  **Kubernetes-tjänst**.
+I det övre vänstra hörnet av Azure Portal väljer du **+ skapa en resurs** > **behållare** >  **Kubernetes-tjänsten**.
 
 Du skapar ett AKS-kluster genom att slutföra följande steg:
 
@@ -43,7 +43,7 @@ Du skapar ett AKS-kluster genom att slutföra följande steg:
     
      ![Skapa AKS-kluster – ange grundläggande information](media/kubernetes-walkthrough-portal/create-cluster-basics.png)
 
-     Välj **Nästa: Skala** när den är klar.
+     Välj **Nästa: skala** när du är klar.
 
 2. Behåll standard alternativen på sidan **skala** . Längst ned på skärmen klickar du på **Nästa: autentisering**.
 > [!CAUTION]
@@ -62,7 +62,7 @@ Det tar några minuter att skapa AKS-klustret. När distributionen är klar klic
 
 Om du vill hantera ett Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommando rads klient. `kubectl`-klienten är förinstallerad i Azure Cloud Shell.
 
-Öppna Cloud Shell med `>_` knappen överst i Azure Portal.
+Öppna Cloud Shell med knappen `>_` överst i Azure Portal.
 
 ![Öppna Azure Cloud Shell i portalen](media/kubernetes-walkthrough-portal/aks-cloud-shell.png)
 
@@ -92,7 +92,7 @@ En Kubernetes-manifestfil definierar ett önskat tillstånd för klustret, till 
 > [!TIP]
 > I den här snabbstarten skapar och distribuerar du manuellt applikationsmanifest till AKS-klustret. I verkliga scenarier kan du använda [Azure dev Spaces][azure-dev-spaces] för att snabbt iterera och felsöka koden direkt i AKS-klustret. Du kan använda Dev Spaces på olika OS-plattformar och i olika utvecklingsmiljöer samt arbeta tillsammans med andra i ditt team.
 
-I Cloud Shell använder `nano` eller `vi` för att skapa en fil med namnet `azure-vote.yaml` och kopiera i följande yaml-definition:
+Använd `nano` eller `vi` i Cloud Shell för att skapa en fil med namnet `azure-vote.yaml` och kopiera i följande YAML-definition:
 
 ```yaml
 apiVersion: apps/v1
@@ -219,7 +219,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Om du vill se hur Azure Vote-appen fungerar i praktiken så öppnar du en webbläsare till den externa IP-adressen för din tjänst.
 
-![Bild som illustrerar hur du navigerar till Azure Vote-exempelprogram](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Bild som illustrerar hur du navigerar till Azure Vote-exempelprogram](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 ## <a name="monitor-health-and-logs"></a>Övervaka hälsotillstånd och loggar
 
@@ -236,11 +236,11 @@ Containrarna *bak-azure-vote* och *azure-vote-front* visas enligt följande exem
 
 ![Visa hälsan för containrar som körs i AKS](media/kubernetes-walkthrough-portal/monitor-containers.png)
 
-Om du vill se loggar `azure-vote-front` för pod, väljer du **Visa behållar loggar** i list rutan i listan behållare. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
+Om du vill se loggar för `azure-vote-front`-pod väljer du **Visa behållar loggar** i list rutan i listan behållare. Loggarna inkluderar strömmarna *stdout* och *stderr* från containern.
 
 ![Visa containerloggarna i AKS](media/kubernetes-walkthrough-portal/monitor-container-logs.png)
 
-## <a name="delete-cluster"></a>Ta bort kluster
+## <a name="delete-cluster"></a>Ta bort klustret
 
 När klustret inte längre behövs, kan du ta bort klusterresursen. Alla associerade resurser tas då också bort. Du kan göra detta i Azure-portalen genom att välja knappen **Ta bort** på AKS-klustrets instrumentpanel. Alternativt kan du använda kommandot [AZ AKS Delete][az-aks-delete] i Cloud Shell:
 

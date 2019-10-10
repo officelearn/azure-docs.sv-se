@@ -1,19 +1,19 @@
 ---
-title: Skapa en princip för icke-kompatibla resurser
+title: Skapa en princip för granskning av resurser med Portal-Azure Policy
 description: Den här artikeln beskriver stegen för att skapa en principdefinition för att identifiera icke-kompatibla resurser.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 12/06/2018
 ms.topic: quickstart
 ms.service: azure-policy
-ms.openlocfilehash: 5bbacb83e4275a513c53094c40508c3f13136658
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 6433c5f90b56489e92ec76aab5c9a0d0c6aeb508
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981513"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254820"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Snabbstart: Skapa en principtilldelning för att identifiera icke-kompatibla resurser
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser
 
 Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status.
 Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar.
@@ -59,7 +59,7 @@ I den här snabbstarten skapar du en principtilldelning och tilldelar policydefi
 1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet lämnar du *Granska virtuella datorer som inte använder hanterade diskar*. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.
    **Assigned by** (Tilldelats av) anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
-1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när principen eller initiativet omfattar en princip med effekten [deployIfNotExists](./concepts/effects.md#deployifnotexists). Eftersom principen som används för den här snabbstarten inte gör det kan du lämna det tomt. Mer information finns i avsnitten [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](./how-to/remediate-resources.md#how-remediation-security-works).
+1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när principen eller initiativet omfattar en princip med effekten [deployIfNotExists](./concepts/effects.md#deployifnotexists). Eftersom principen som används för den här snabbstarten inte gör det kan du lämna det tomt. Mer information finns i avsnitten om [hanterade identiteter](../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](./how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Klicka på **Tilldela**.
 
@@ -77,10 +77,10 @@ När ett villkor utvärderas mot de befintliga resurserna och visas vara korrekt
 
 | **Resurstillstånd** | **Effekt** | **Principutvärdering** | **Kompatibilitetstillstånd** |
 | --- | --- | --- | --- |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | Sant | Icke-kompatibel |
-| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Kompatibel |
-| Ny | Audit, AuditIfNotExist\* | Sant | Icke-kompatibel |
-| Ny | Audit, AuditIfNotExist\* | False | Kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | True | Icke-kompatibel |
+| Finns | Deny, Audit, Append\*, DeployIfNotExist\*, AuditIfNotExist\* | False | Uppfyller kraven |
+| Nytt | Audit, AuditIfNotExist\* | True | Icke-kompatibel |
+| Nytt | Audit, AuditIfNotExist\* | False | Uppfyller kraven |
 
 \* För åtgärderna Append, DeployIfNotExist och AuditIfNotExist måste IF-instruktionen är TRUE.
 Åtgärderna kräver också att villkoret Finns är FALSE för att vara icke-kompatibla. När det är TRUE utlöser IF-villkoret utvärdering av villkoret Finns för de relaterade resurserna.
@@ -100,7 +100,7 @@ Följ dessa steg för att ta bort tilldelningen som skapades:
 I den här snabbstarten har du tilldelat en principdefinition till ett omfång och utvärderat dess efterlevnadsrapport.
 Principdefinitionen kontrollerar att alla resurser i omfånget är kompatibla och identifierar vilka som inte är det.
 
-Om du vill ha mer information om tilldelning av principer för att kontrollera att de nya resurserna är kompatibla fortsätter du till självstudiekursen för att:
+Om du vill ha mer information om tilldelning av principer för att validera att de nya resurserna är kompatibla fortsätter du till självstudien för att:
 
 > [!div class="nextstepaction"]
 > [Skapa och hantera principer](./tutorials/create-and-manage.md)

@@ -1,6 +1,6 @@
 ---
-title: Snabbstart – distribuera Ansible-lösningsmall för Azure för att CentOS | Microsoft Docs
-description: I den här snabbstarten lär du dig hur du distribuerar Ansible-lösningsmallen på en CentOS-dator som körs på Azure, tillsammans med verktygen som konfigurerats för att fungera med Azure.
+title: Snabb start – distribuera Ansible lösnings mal len för Azure till CentOS
+description: I den här snabb starten lär du dig hur du distribuerar Ansible-lösningen på en virtuell CentOS-dator som finns på Azure, tillsammans med verktyg som kon figurer ATS för att fungera med Azure.
 keywords: ansible, azure, devops, solution template, virtual machine, managed identities for azure resources, centos, red hat
 ms.topic: quickstart
 ms.service: ansible
@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 58f28d5cf7d31a3fbddc8e1ca18be4dbcf617f61
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5ababe9eb1f680378e882970df2d0b008287a7c4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230995"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241719"
 ---
-# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Snabbstart: Distribuera Ansible-lösningsmallen för Azure till CentOS
+# <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>Snabb start: Distribuera Ansible lösnings mal len för Azure till CentOS
 
 Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-instans på en virtuell CentOS-dator med Ansible och en uppsättning verktyg som konfigurerats att fungera med Azure. Här är några av verktygen:
 
@@ -23,11 +23,11 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
 - **Azure Command-Line Interface (CLI) 2.0** – [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest) är en plattformsoberoende kommandoradsmiljö för hantering av Azure-resurser. 
 - **Hanterade identiteter för Azure-resurser** – Funktionen [Hanterade identiteter för Azure-resurser](/azure/active-directory/managed-identities-azure-resources/overview) hjälper dig att skydda autentiseringsuppgifterna för molnprogram.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
-## <a name="deploy-the-ansible-solution-template"></a>Distribuera lösningsmall Ansible
+## <a name="deploy-the-ansible-solution-template"></a>Distribuera mallen för Ansible-lösning
 
 1. Bläddra till [Ansible-lösningsmallen på Azure Marketplace](https://azuremarketplace.microsoft.com/en-%20%20us/marketplace/apps/azure-oss.ansible?tab=Overview).
 
@@ -89,4 +89,4 @@ Ansible-lösningsmallen för Azure är utformad att konfigurera en Ansible-insta
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Snabbstart: Konfigurera en Linux-dator i Azure med Ansible](/azure/virtual-machines/linux/ansible-create-vm)
+> [Snabb start: Konfigurera en virtuell Linux-dator i Azure med Ansible](/azure/virtual-machines/linux/ansible-create-vm)

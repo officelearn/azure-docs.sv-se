@@ -1,54 +1,54 @@
 ---
-title: Få support för Avere vFXT för Azure
-description: Förklaring av att öppna supportärenden om Avere vFXT för Azure
+title: Så här får du support för AVERT vFXT för Azure
+description: Förklaring till att öppna support ärenden om AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: d621511cbb6983f8ad57ea8305823039475f40d0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 068747fd51779bd8a20636355a9ce2b032f6151d
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409687"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255371"
 ---
-# <a name="get-help-with-your-system"></a>Få hjälp med ditt system
+# <a name="get-help-with-your-system"></a>Få hjälp med systemet
 
-Om du behöver hjälp med din Avere vFXT för Azure, är här de olika sätten att få support:
+Om du behöver hjälp med ditt AVERT vFXT för Azure kan du få support på olika sätt:
 
-* **Avere vFXT problemet** – använda Azure-portalen för att öppna ett supportärende för din Avere vFXT enligt beskrivningen [nedan](#open-a-support-ticket-for-your-avere-vfxt).
-* **Kvot** – om du har en kvot-relaterade problem [öka kvoten](#request-a-quota-increase)
-* **Dokumentation och exempel** – om du upptäcker problem med den här dokumentationen eller exempel, bläddra längst ned på sidan med problemet och Använd den **Feedback** avsnitt för att söka efter befintliga problem och en ny en if-filen behövs.  
+* **Aver vFXT-problem** – Använd Azure Portal för att öppna ett support ärende för ditt AVERT vFXT enligt beskrivningen [nedan](#open-a-support-ticket-for-your-avere-vfxt).
+* **Kvot** – om du har ett kvot problem kan du [begära en kvot ökning](#request-a-quota-increase)
+* **Dokumentation och exempel** – om du hittar problem med den här dokumentationen eller exemplen bläddrar du längst ned på sidan med problemet och använder **feedback** -avsnittet för att söka efter befintliga problem och sedan på en ny fil om det behövs.  
 
-## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Öppna ett supportärende för din Avere vFXT
+## <a name="open-a-support-ticket-for-your-avere-vfxt"></a>Öppna ett support ärende för ditt AVERT vFXT
 
-Om det uppstår problem när du distribuerar eller använder Avere vFXT be om hjälp via Azure-portalen.  
+Om du får problem när du distribuerar eller använder AVERT vFXT kan du be om hjälp via Azure Portal.  
 
-Följ dessa steg för att se till att ditt supportärende är taggade med en resurs från klustret. Tagga biljetten hjälper oss att dirigera till korrekt support-resurs. 
+Följ dessa steg för att se till att ditt support ärende är taggat med en resurs från klustret. Att tagga biljetten hjälper oss att vidarebefordra den till rätt support resurs. 
 
-1. Från [ https://portal.azure.com ](https://portal.azure.com)väljer **resursgrupper**.
+1. Från [https://portal.azure.com](https://portal.azure.com)väljer du **resurs grupper**.
 
-   ![Skärmbild av Azure portal vänstra meny med ”resursgrupper” inringade](media/avere-vfxt-ticket-rg.png)
+   ![skärm bild av Azure Portal vänstra menyn med "resurs grupper" inringade](media/avere-vfxt-ticket-rg.png)
 
-1. Bläddra till den resursgrupp som innehåller vFXT klustret där problemet uppstod och klicka på någon av de virtuella datorerna Avere.
+1. Bläddra till den resurs grupp som innehåller vFXT-klustret där problemet uppstod och klicka på något av de AVERT virtuella datorerna.
 
-    ![Skärmbild av Azure portal resource group ”översikt” panelen med en viss virtuell dator inringade](media/avere-vfxt-ticket-vm.png)
+    ![skärm bild av översikts panelen för Azure Portal resurs gruppen med en viss virtuell dator som är inringad](media/avere-vfxt-ticket-vm.png)
 
-1. Bläddra längst ned i den vänstra panelen i VM-sidan och klicka på **ny supportbegäran**.
+1. På sidan VM rullar du längst ned i den vänstra panelen och klickar på **ny supportbegäran**.
 
-    ![Skärmbild av Azure portal VM sidan för den virtuella datorn från föregående skärmbild. Den vänstra menyn rullas ned till botten och ”ny supportbegäran” är inringat.](media/avere-vfxt-ticket-request.png)
+    ![Skärm bild av den Azure Portal VM-sidan för den virtuella datorn från föregående skärm bild. Den vänstra menyn rullas längst ned och "New Support Request" är inringad.](media/avere-vfxt-ticket-request.png)
 
-1. Klicka på sidan en supportförfrågan **alla tjänster** och tittar du under **Storage** att välja **Avere vFXT**.
+1. På sidan en av support förfrågan klickar du på **alla tjänster** och tittar under **lagring** för att välja **aver vFXT**.
 
-    ![Skärmbild av skärmen begäran nya support för Azure-portalen med rubriken ”grundläggande” och en cirkel runt ”tjänst”-objekt. Knappen ”alla tjänster” är markerad och det nedrullningsbara menyn fältet har värdet ”Avere vFXT”](media/avere-vfxt-ticket-service.png)
+    ![skärm bild av den nya support förfrågan skärmen i Azure Portal med rubriken "grunder" och en cirkel runt "service"-objektet. Knappen alla tjänster är markerad och den nedrullningsbara meny fältet har värdet "aver vFXT"](media/avere-vfxt-ticket-service.png)
 
-1. På sidan två, väljer du typen av problem och kategori som bäst matchar ditt problem. Lägg till ett kort rubrik och en beskrivning som innehåller tiden problemet uppstod. 
+1. På sidan två väljer du den problem typ och kategori som bäst motsvarar ditt problem. Lägg till en kort rubrik och en beskrivning som innehåller den tidpunkt då problemet uppstod. 
 
-   ![Skärmbild av skärmen begäran nytt stöd för med rubriken ”Problem”, som innehåller många fält som behöver slutföras](media/avere-vfxt-ticket-problem.png)
+   ![skärm bild av den nya skärmen med support förfrågan med rubriken "problem", som innehåller många fält som måste fyllas i](media/avere-vfxt-ticket-problem.png)
 
-1. På sidan tre, Fyll i din kontaktinformation och klicka på **skapa**. Ett bekräftelse- och biljett tal kommer att skickas till din e-postadress och en medlem i personalen support kommer att kontakta dig.
+1. På sidan tre fyller du i din kontakt information och klickar på **skapa**. Ett bekräftelse-och biljett nummer skickas till din e-postadress och en support personal medlem kommer att kontakta dig.
 
-## <a name="request-a-quota-increase"></a>Öka kvoten
+## <a name="request-a-quota-increase"></a>Begär en kvot ökning
 
-Läs [kvot för klustret vFXT](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) vill veta vilka komponenter som krävs för att distribuera Avere vFXT för Azure. Du kan [öka kvoten](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) från Azure-portalen.
+Läs [kvoten för vFXT-klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster) för att lära dig vilka komponenter som behövs för att distribuera AVERT VFXT för Azure. Du kan [begära en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) från Azure Portal.

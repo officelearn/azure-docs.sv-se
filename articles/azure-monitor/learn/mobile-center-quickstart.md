@@ -11,18 +11,18 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: 40b3e0260e08ab5a8870c726042d06d80393fb15
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 2c198ce8af17912d3174269b6cced96b5c1ac8bd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68849084"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243237"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Börja analysera mobilappen med App Center och Application Insights
 
 Den här snabbstarten leder dig genom anslutning av appens App Center-instans till Application Insights. Med Application Insights kan du fråga, segmentera, filtrera och analysera telemetrin med mer kraftfulla verktyg än vad som finns i [Analytics](https://docs.microsoft.com/mobile-center/analytics/)-tjänsten i App Center.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -30,6 +30,9 @@ Följande krävs för att slutföra den här snabbstarten:
 - En app i iOS, Android, Xamarin, Universal Windows eller React Native.
  
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
+
+## <a name="sign-up-with-app-center"></a>Registrera dig med App Center
+Börja med att skapa ett konto och [Registrera dig med App Center](https://appcenter.ms/signup?utm_source=ApplicationInsights&utm_medium=Azure&utm_campaign=docs).
 
 ## <a name="onboard-to-app-center"></a>Publicera till App Center
 
@@ -67,7 +70,7 @@ Om du vill säkerställa att de anpassade händelserna tas emot går du till fli
 
 När appen skickar anpassade händelser och dessa händelser tas emot av App Center måste du skapa en Application Insights-resurs av App Center-typ i Azure-portalen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 2. Välj **Skapa en resurs** > **Utvecklarverktyg** > **Application Insights**.
 
     > [!NOTE]
@@ -75,11 +78,11 @@ När appen skickar anpassade händelser och dessa händelser tas emot av App Cen
 
     En konfigurationsruta visas. Använd tabellen nedan när du ska fylla i indatafälten.
 
-    | Inställningar        |  Value           | Beskrivning  |
+    | Inställningar        |  Värde           | Beskrivning  |
    | ------------- |:-------------|:-----|
    | **Namn**      | Ett globalt unikt värde, t.ex. ”myApp-iOS” | Namn som identifierar appen du övervakar |
      | **Resursgrupp**     | En ny resursgrupp eller en befintlig på menyn | Resursgruppen där den nya Application Insights-resursen ska skapas |
-   | **Location** | En plats på menyn | Välj en plats nära dig eller nära där appen finns |
+   | **Plats** | En plats på menyn | Välj en plats nära dig eller nära där appen finns |
 
 3. Klicka på **Skapa**.
 

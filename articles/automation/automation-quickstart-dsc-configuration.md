@@ -11,18 +11,18 @@ ms.date: 11/06/2018
 ms.topic: quickstart
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: 2c01172bf22fb286f790543b02a4c1e482b05fe7
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: d5eca6ffce8390b2f8b4deae589d43f40897756d
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68850554"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243464"
 ---
 # <a name="configure-a-virtual-machine-with-desired-state-configuration"></a>Konfigurera en virtuell dator med önskad tillstånds konfiguration
 
 Genom att aktivera önskat tillstånd-konfiguration, DSC (Desired State Configuration), kan du hantera och övervaka konfigurationerna för dina Windows- och Linux-servrar. Konfigurationer som avviker från den önskade konfigurationen kan identifieras och korrigeras automatiskt. Den här snabbstarten går igenom registrering på en virtuell Linux-dator och distribution av en LAMP-stack med DSC.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra den här snabbstarten:
 
@@ -42,7 +42,7 @@ Det finns många olika metoder för att registrera en dator och aktivera DSC. I 
 2. Klicka på **Lägg till** att öppna sidan för att välja virtuell dator.
 3. Leta reda på den virtuella dator du vill aktivera DSC för. Du kan använda sökfältet och filteralternativ för att hitta en viss virtuell dator.
 4. Klicka på den virtuella datorn och välj sedan **Anslut**
-5. Välj lämpliga DSC-inställningar för den virtuella datorn. Om du redan har förberett en konfiguration kan du ange den som *Nodkonfigurationsnamn*. Du kan ställa in [konfigurationsläget](https://docs.microsoft.com/powershell/dsc/metaconfig) på att styra datorns konfigurationsbeteende.
+5. Välj lämpliga DSC-inställningar för den virtuella datorn. Om du redan har förberett en konfiguration kan du ange den som *Nodkonfigurationsnamn*. Du kan ställa in [konfigurationsläget](https://docs.microsoft.com/powershell/scripting/dsc/managing-nodes/metaConfig) på att styra datorns konfigurationsbeteende.
 6. Klicka på **OK**
 
 ![Registrera en virtuell Azure-dator med DSC](./media/automation-quickstart-dsc-configuration/dsc-onboard-azure-vm.png)
@@ -64,7 +64,7 @@ Moduler innehåller DSC-resurser och många finns i [PowerShell-galleriet](https
 
 I den här snabbstarten används en DSC-konfiguration som konfigurerar Apache HTTP Server, MySQL och PHP på datorn.
 
-Information om DSC-konfigurationer finns i [DSC-konfigurationer](https://docs.microsoft.com/powershell/dsc/configurations).
+Information om DSC-konfigurationer finns i [DSC-konfigurationer](https://docs.microsoft.com/powershell/scripting/dsc/configurations/configurations).
 
 I en textredigerare skriver du följande och sparar lokalt som `LAMPServer.ps1`.
 
@@ -108,7 +108,7 @@ Importera konfigurationen:
 
 ## <a name="compile-a-configuration"></a>Kompilera en konfiguration
 
-DSC-konfigurationer måste kompileras till en nodkonfiguration (MOF-dokument) innan de tilldelas till en nod. Kompilering verifierar konfigurationen och tillåter indata för parametervärden. Mer information om hur du kompilerar en konfiguration finns i: [Kompilera konfigurationer i Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile)
+DSC-konfigurationer måste kompileras till en nodkonfiguration (MOF-dokument) innan de tilldelas till en nod. Kompilering verifierar konfigurationen och tillåter indata för parametervärden. Mer information om kompilering av en konfiguration finns i: [Compiling Configurations in Azure Automation DSC](https://docs.microsoft.com/azure/automation/automation-dsc-compile) (Kompilera konfigurationer i Azure Automation DSC)
 
 Kompilera konfigurationen:
 
@@ -142,7 +142,7 @@ I den här snabbstarten har du registrerat en virtuell Linux-dator med DSC, skap
 > [!div class="nextstepaction"]
 > [Continuous deployment to a VM using DSC and Chocolatey](./automation-dsc-cd-chocolatey.md) (Kontinuerlig distribution på en virtuell datorn med hjälp av DSC och Chocolatey)
 
-* Mer information om PowerShell DSC finns i [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/dsc/overview) (Översikt över PowerShell DSC).
+* Mer information om PowerShell DSC finns i [PowerShell Desired State Configuration Overview](https://docs.microsoft.com/powershell/scripting/dsc/overview/overview) (Översikt över PowerShell DSC).
 * Mer information om hur du hanterar Automation DSC från PowerShell finns i [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.automation/)
 * Information om hur du vidarebefordrar DSC-rapporter till Azure Monitor-loggar för rapportering och aviseringar finns i avsnittet om att [vidarekoppla DSC-rapporter till Azure Monitor-loggar](https://docs.microsoft.com/azure/automation/automation-dsc-diagnostics) 
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
 ms.custom: aaddev
-ms.openlocfilehash: 85a1de992be7b5bbdcec8fd415f60ae10190c11a
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: HT
+ms.openlocfilehash: 241935afa023162a35559cd3c46206efa7a7835f
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170033"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240188"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
@@ -38,8 +38,7 @@ Om du vill köra det här exemplet behöver du:
 
 - [Python 2.7 +](https://www.python.org/downloads/release/python-2713) eller [python 3 +](https://www.python.org/downloads/release/python-364/)
 - [Kolv](http://flask.pocoo.org/), [kolv](https://pythonhosted.org/Flask-Session/), [förfrågningar](https://requests.kennethreitz.org//en/master/)
-- [MSAL python](https://github.com/AzureAD/microsoft-authentication-library-for-python) 
-- En Azure Active Directory-klient (Azure AD). Mer information om hur du skaffar en Azure AD-klient finns i [så här skaffar du en Azure AD-klient.](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant)
+- [MSAL python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 
 > [!div renderon="docs"]
 >

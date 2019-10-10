@@ -16,16 +16,18 @@ ms.workload: media
 ms.date: 09/17/2019
 ms.author: juliako
 ms.custom: mvc
-ms.openlocfilehash: a752d7759386828e916f68e5903115220812f3e0
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: c6359cf2401ff198b0242243dbf6dfdf2e35ce47
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123031"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244024"
 ---
 # <a name="azure-media-services-v3-overview"></a>Översikt över Azure Media Services v3
 
 Azure Media Services är en molnbaserad plattform för att skapa lösningar för videor i sändningskvalitet för direktuppspelning, förbättra tillgängligheten och distributionen, analysera innehållet och mycket mer. Om du är en programutvecklare, ett callcenter, en myndighet eller ett underhållningsföretag kan Media Services hjälpa dig att skapa program som levererar medieupplevelser med fantastisk kvalitet för stora målgrupper på dagens populäraste mobila enheter och webbläsare. 
+
+Media Services v3-SDK: er baseras på [Media Services v3 openapi-specifikation (Swagger)](https://aka.ms/ams-v3-rest-sdk).
 
 > [!NOTE]
 > För närvarande kan du inte hantera v3-resurser med Azure-portalen. Använd [REST API](https://aka.ms/ams-v3-rest-ref), [CLI](https://aka.ms/ams-v3-cli-ref) eller en av [SDK:erna som stöds](media-services-apis-overview.md#sdks).
@@ -34,7 +36,7 @@ Azure Media Services är en molnbaserad plattform för att skapa lösningar för
 
 Media Services hjälper dig att skapa en mängd olika mediearbetsflöden i molnet. Följande är några exempel på vad som kan utföras med Media Services.  
 
-* Leverera video i olika format, så att de kan spelas upp på en mängd olika webbläsare och enheter. För både strömning på begäran och liveuppspelning till olika klienter (mobila enheter, TV, datorer, etc.), måste video- och ljudinnehållet vara kodat och paketerat korrekt. Information om hur du levererar och strömmar innehållet finns i [Snabbstart: Koda och strömma filer](stream-files-dotnet-quickstart.md).
+* Leverera video i olika format, så att de kan spelas upp på en mängd olika webbläsare och enheter. För både strömning på begäran och liveuppspelning till olika klienter (mobila enheter, TV, datorer, etc.), måste video- och ljudinnehållet vara kodat och paketerat korrekt. Information om hur du levererar och strömmar innehållet finns i [Snabbstart: koda och strömma filer](stream-files-dotnet-quickstart.md).
 * Strömma sporthändelser live till en stor online-publik, till exempel fotboll, baseball, universitets- och gymnasiesporter med mera. 
 * Sänd offentliga möten och händelser såsom för kommunalråd, statsråd och lagstiftande organ.
 * Analysera inspelat video- eller ljudinnehåll. För att till exempel uppnå högre kundnöjdhet kan organisationer extrahera tal till text och skapa sökindex och instrumentpaneler. De kan sedan extrahera information kring vanliga klagomål, källor till klagomål och andra relevanta data.
@@ -49,7 +51,7 @@ Media Services hjälper dig att skapa en mängd olika mediearbetsflöden i molne
 Lär dig hur du kodar och paketerar innehåll, strömmar videor på begäran, sänder live och analyserar dina videoklipp med Media Services v3. Självstudier, API-referenser och annan dokumentation visar hur du säkert levererar ljud- eller videoströmmar på begäran och live, som kan skalas till miljontals användare.
 
 > [!TIP]
-> Innan du börjar utveckla bör du gå igenom följande:<br/>* [Grundläggande begrepp](concepts-overview.md) (incudes viktiga begrepp: paketering, kodning, skydd osv.)<br/>* [Utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om åtkomst till API: er, namn konventioner osv.)
+> Innan du börjar utveckla bör du gå igenom följande:<br/>* [grundläggande begrepp](concepts-overview.md) (incudes viktiga begrepp: paketering, kodning, skydd osv.)<br/>* [utveckla med Media Services v3-API: er](media-services-apis-overview.md) (innehåller information om åtkomst till API: er, namn konventioner osv.)
 
 ### <a name="quickstarts"></a>Snabbstarter  
 
@@ -59,7 +61,7 @@ Snabb starterna visar grundläggande dags-1-instruktioner för nya kunder för a
 * [Strömma videofiler – CLI](stream-files-cli-quickstart.md)
 * [Strömma videofiler-Node. js](stream-files-nodejs-quickstart.md)
     
-### <a name="tutorials"></a>Självstudier 
+### <a name="tutorials"></a>Självstudiekurser 
 
 Självstudierna visar scenariobaserade procedurer för några av de främsta Media Services uppgifterna.
 

@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 09/03/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: cf4eade598de24e323a8c8647a64921f8797e3a2
-ms.sourcegitcommit: 6013bacd83a4ac8a464de34ab3d1c976077425c7
+ms.openlocfilehash: 311a9fc887db399cb16d6cbb2bcec665a7ddfce7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71686743"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72240107"
 ---
 # <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använda Key Vault referenser för App Service och Azure Functions (förhands granskning)
 
 > [!NOTE] 
-> Key Vault referenser finns för närvarande i för hands version.
+> Key Vault referenser finns för närvarande i för hands version och de stöds för närvarande inte av Linux-förbruknings planer.
 
 Det här avsnittet visar hur du arbetar med hemligheter från Azure Key Vault i din App Service eller Azure Functions program utan att behöva ändra kod. [Azure Key Vault](../key-vault/key-vault-overview.md) är en tjänst som tillhandahåller centraliserad hemligheter-hantering med fullständig kontroll över åtkomst principer och gransknings historik.
 
@@ -43,13 +43,13 @@ För att kunna läsa hemligheter från Key Vault måste ett valv skapas och ge d
 
 ## <a name="reference-syntax"></a>Syntax för referenser
 
-En Key Vault referens är av formuläret `@Microsoft.KeyVault({referenceString})`, där `{referenceString}` ersätts av något av följande alternativ:
+En Key Vault referens har formen `@Microsoft.KeyVault({referenceString})`, där `{referenceString}` ersätts av något av följande alternativ:
 
 > [!div class="mx-tdBreakAll"]
 > | Referens sträng                                                            | Beskrivning                                                                                                                                                                                 |
 > |-----------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-> | SecretUri=_secretUri_                                                       | **SecretUri** bör vara den fullständiga data Plans-URI: n för en hemlighet i Key Vault, inklusive en version, t. ex. https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
-> | VaultName=_vaultName_;SecretName=_secretName_;SecretVersion=_secretVersion_ | **VaultName** ska vara namnet på din Key Vault-resurs. **SecretName** ska vara namnet på mål hemligheten. **SecretVersion** bör vara den version av hemligheten som ska användas. |
+> | SecretUri =_SecretUri_                                                       | **SecretUri** bör vara den fullständiga data Plans-URI: n för en hemlighet i Key Vault, inklusive en version, t. ex. https://myvault.vault.azure.net/secrets/mysecret/ec96f02080254f109c51a1f14cdb1931  |
+> | VaultName =_VaultName_; SecretName =_SecretName_; SecretVersion =_SecretVersion_ | **VaultName** ska vara namnet på din Key Vault-resurs. **SecretName** ska vara namnet på mål hemligheten. **SecretVersion** bör vara den version av hemligheten som ska användas. |
 
 > [!NOTE] 
 > I den aktuella för hands versionen krävs versioner. När du roterar hemligheter måste du uppdatera versionen i program konfigurationen.
@@ -78,7 +78,7 @@ Om du vill använda en Key Vault referens för en program inställning anger du 
 
 ### <a name="azure-resource-manager-deployment"></a>Azure Resource Manager-distribution
 
-När du automatiserar resurs distributioner via Azure Resource Manager mallar kan du behöva sekvensera dina beroenden i en viss ordning för att den här funktionen ska fungera. Observera att du måste definiera dina program inställningar som sin egen resurs, i stället för att använda en `siteConfig` egenskap i plats definitionen. Detta beror på att platsen måste definieras först så att den systemtilldelade identiteten skapas med den och kan användas i åtkomst principen.
+När du automatiserar resurs distributioner via Azure Resource Manager mallar kan du behöva sekvensera dina beroenden i en viss ordning för att den här funktionen ska fungera. Observera att du måste definiera dina program inställningar som en egen resurs, i stället för att använda en `siteConfig`-egenskap i plats definitionen. Detta beror på att platsen måste definieras först så att den systemtilldelade identiteten skapas med den och kan användas i åtkomst principen.
 
 Ett exempel på en psuedo-mall för en Function-app kan se ut så här:
 
@@ -184,11 +184,11 @@ Ett exempel på en psuedo-mall för en Function-app kan se ut så här:
 ```
 
 > [!NOTE] 
-> I det här exemplet är käll kontroll distributionen beroende av program inställningarna. Detta är vanligt vis ett osäkert beteende eftersom uppdaterings inställningen för appen har asynkront. Men eftersom vi har inkluderat `WEBSITE_ENABLE_SYNC_UPDATE_SITE` program inställningen är uppdateringen synkron. Det innebär att käll kontroll distributionen endast startar när program inställningarna har uppdaterats fullständigt.
+> I det här exemplet är käll kontroll distributionen beroende av program inställningarna. Detta är vanligt vis ett osäkert beteende eftersom uppdaterings inställningen för appen har asynkront. Men eftersom vi har inkluderat program inställningen `WEBSITE_ENABLE_SYNC_UPDATE_SITE` är uppdateringen synkron. Det innebär att käll kontroll distributionen endast startar när program inställningarna har uppdaterats fullständigt.
 
 ## <a name="troubleshooting-key-vault-references"></a>Felsöka Key Vault referenser
 
-Om en referens inte löses korrekt, används referensvärdet i stället. Det innebär att en miljö variabel skapas vars värde har `@Microsoft.KeyVault(...)` syntaxen för program inställningar. Detta kan orsaka att programmet returnerar fel, eftersom det förväntar sig en hemlighet för en viss struktur.
+Om en referens inte löses korrekt, används referensvärdet i stället. Det innebär att en miljö variabel skapas vars värde har syntaxen `@Microsoft.KeyVault(...)` för program inställningar. Detta kan orsaka att programmet returnerar fel, eftersom det förväntar sig en hemlighet för en viss struktur.
 
 Oftast beror det på en felaktig konfiguration av [Key Vaults åtkomst princip](#granting-your-app-access-to-key-vault). Det kan dock också bero på en hemlighet som inte längre är befintlig eller syntaxfel i själva referensen.
 

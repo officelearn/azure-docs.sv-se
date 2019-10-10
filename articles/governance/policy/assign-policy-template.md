@@ -1,19 +1,19 @@
 ---
-title: Skapa en princip tilldelning med en Resource Manager-mall
+title: Skapa tilldelning med Resource Manager-mall
 description: Den här artikeln beskriver steg för steg hur du använder en Resource Manager-mall för att skapa en princip tilldelning som identifierar icke-kompatibla resurser.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/13/2019
 ms.topic: quickstart
 ms.service: azure-policy
-ms.openlocfilehash: 72d8fab39e8dd11cf46eb2977a9b9fe288ca2de1
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 842b29160e3abaea5edc4bfb4f2e1c345e3ffc85
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980804"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254814"
 ---
-# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Snabbstart: Skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av en Resource Manager-mall
+# <a name="quickstart-create-a-policy-assignment-to-identify-non-compliant-resources-by-using-a-resource-manager-template"></a>Snabb start: skapa en princip tilldelning för att identifiera icke-kompatibla resurser med hjälp av en Resource Manager-mall
 
 Det första steget mot att förstå kompatibilitet i Azure är att identifiera dina resursers status.
 Denna snabbstart vägleder dig genom processen för att skapa en principtilldelning som identifierar virtuella datorer som inte använder hanterade diskar.
@@ -40,11 +40,11 @@ Här är en kopia av mallen:
 
 1. Välj eller ange följande värden:
 
-   | Name | Value |
+   | Namn | Värde |
    |------|-------|
-   | Subscription | Välj din Azure-prenumeration. |
-   | Resource group | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. I skärm bilden är resurs gruppens namn *mypolicyquickstart @ no__t-1Date i MMDD > RG*. |
-   | Location | Välj en region. Välj till exempel **USA, centrala**. |
+   | Prenumeration | Välj din Azure-prenumeration. |
+   | Resursgrupp | Välj **Skapa ny**, ange ett namn och välj sedan **OK**. I skärm bilden är resurs gruppens namn *mypolicyquickstart @ no__t-1Date i MMDD > RG*. |
+   | Plats | Välj en region. Välj till exempel **USA, centrala**. |
    | Princip tilldelnings namn | Ange ett princip tilldelnings namn. Du kan använda princip definitions visningen om du vill. Granska till exempel **virtuella datorer som inte använder hanterade diskar**. |
    | RG namn | Ange ett resurs grupps namn som du vill tilldela principen till. I den här snabb starten använder du standardvärdet **[resourceGroup (). name]** . **[resourceGroup ()](../../azure-resource-manager/resource-group-template-functions-resource.md#resourcegroup)** är en mall-funktion som hämtar resurs gruppen. |
    | ID för princip definition | Ange **/providers/Microsoft.Authorization/policyDefinitions/0a914e76-4921-4c19-B460-a2d36003525a**. |
@@ -83,7 +83,7 @@ Följ dessa steg för att ta bort tilldelningen som skapades:
 
 I den här snabb starten har du tilldelat en inbyggd princip definition till ett definitions område och utvärderat dess Kompatibilitetsrapport. Principdefinitionen kontrollerar att alla resurser i omfånget är kompatibla och identifierar vilka som inte är det.
 
-Om du vill ha mer information om tilldelning av principer för att kontrollera att de nya resurserna är kompatibla fortsätter du till självstudiekursen för att:
+Om du vill ha mer information om tilldelning av principer för att validera att de nya resurserna är kompatibla fortsätter du till självstudien för att:
 
 > [!div class="nextstepaction"]
 > [Skapa och hantera principer](./tutorials/create-and-manage.md)

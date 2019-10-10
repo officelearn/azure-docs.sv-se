@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Distribuera ett Azure Kubernetes service-kluster'
+title: 'Snabb start: Distribuera ett Azure Kubernetes service-kluster'
 description: Lär dig hur du snabbt kan skapa ett Kubernetes-kluster, distribuera ett program och övervaka prestanda i Azure Kubernetes Service (AKS) med hjälp av Azure CLI.
 services: container-service
 author: mlearned
@@ -8,20 +8,20 @@ ms.topic: quickstart
 ms.date: 09/13/2019
 ms.author: mlearned
 ms.custom: H1Hack27Feb2017, mvc, devcenter, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 3a07186856fd05c65f583a94f324df05e348d24f
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 1d700afe36d51f0b939629f86d770e54072f47a9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960019"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255523"
 ---
-# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Snabbstart: Distribuera ett kluster med Azure Kubernetes Service (AKS) med hjälp av Azure CLI
+# <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>Snabb start: Distribuera ett Azure Kubernetes service-kluster (AKS) med Azure CLI
 
 I den här snabb starten distribuerar du ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI. AKS är en hanterad Kubernetes-tjänst som gör att du snabbt kan distribuera och hantera kluster. Ett flerbehållarprogram som består av en webbklientdel och en Redis-instans körs sedan i klustret. Då ser du hur du övervakar hälsotillståndet för klustret och poddar som kör programmet.
 
 Om du vill använda Windows Server-behållare (för närvarande i för hands version i AKS) kan du läsa [skapa ett AKS-kluster som stöder Windows Server-behållare][windows-container-cli].
 
-![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure röstnings app i praktiken](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 Den här snabbstarten förutsätter grundläggande kunskaper om Kubernetes-begrepp. Mer information finns i [Kubernetes Core Concepts for Azure Kubernetes service (AKS)][kubernetes-concepts].
 
@@ -230,7 +230,7 @@ azure-vote-front   LoadBalancer   10.0.37.27   52.179.23.131   80:30572/TCP   2m
 
 Om du vill se hur Azure Vote-appen fungerar i praktiken så öppnar du en webbläsare till den externa IP-adressen för din tjänst.
 
-![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Azure röstnings app i praktiken](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 När AKS-klustret skapades har [Azure Monitor för behållare](../azure-monitor/insights/container-insights-overview.md) Aktiver ATS för att avbilda hälso mått för både klusternoderna och poddar. De här hälsomåtten är tillgängliga i Azure-portalen.
 

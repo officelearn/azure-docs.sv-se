@@ -9,18 +9,18 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/04/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 2203f4ba5708728ea8300093bb980a2226e2ffa8
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: HT
+ms.openlocfilehash: 11e9fadc240b90ceb7e4a0e6690978dac9bae859
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170400"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255075"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal
 
 Med Azures våren Cloud kan du enkelt köra vår molnbaserade mikrotjänstprogram på Azure.
 
-Den här snabb starten visar hur du distribuerar ett befintligt våren Cloud-program till Azure. [Här är en länk](https://github.com/xscript/PiggyMetrics) till exempel programmets kod som används i den här självstudien. När du är klar kommer det angivna exempel programmet att vara tillgängligt online och redo att hanteras via Azure Portal.
+Den här snabb starten visar hur du distribuerar ett befintligt våren Cloud-program till Azure. [Här är en länk](https://github.com/Azure-Samples/PiggyMetrics) till exempel programmets kod som används i den här självstudien. När du är klar kommer det angivna exempel programmet att vara tillgängligt online och redo att hanteras via Azure Portal.
 
 Efter den här snabb starten får du lära dig att:
 
@@ -34,8 +34,7 @@ Efter den här snabb starten får du lära dig att:
 ## <a name="prerequisites"></a>Krav
 
 >[!Note]
-> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi kunderna att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud kan du [fylla i det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
-).
+> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi kunderna att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud kan du kontakta oss via e-post: azure-spring-cloud@service.microsoft.com.
 
 >[!TIP]
 > Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln.  Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, JDK, Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com) från Shell.Azure.com.  Du kan lära dig mer om Azure Cloud Shell genom att [läsa vår dokumentation](../cloud-shell/overview.md)
@@ -58,9 +57,9 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Etablera en tjänst instans på Azure Portal
 
-1. Öppna den [Azure Portal](https://portal.azure.com)i en webbläsare och logga in på ditt konto.
+1. Öppna [den här länken till Azure våren Cloud i den Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud)i en webbläsare.
 
-1. Sök efter **Azure våren-molnet** och välj att gå till översikts sidan. Välj knappen **skapa** för att komma igång.
+1. Välj **Azure våren Cloud** för att gå till översikts sidan. Välj sedan knappen **skapa** för att komma igång.
 
 1. Fyll i formuläret, med beaktande av följande rikt linjer:
     - Tjänst namn: Ange namnet på din tjänst instans.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
@@ -108,26 +107,26 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
     ```azurecli
     az configure --defaults group=<resource group name>
-    az configure --defaults asc=<service instance name>
+    az configure --defaults spring-cloud=<service instance name>
     ```
 
 1. Skapa programmet `gateway` och distribuera JAR-filen.
 
     ```azurecli
-    az asc app create -n gateway
-    az asc app deploy -n gateway --jar-path ./gateway/target/gateway.jar
+    az spring-cloud app create -n gateway
+    az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
 1. Med samma mönster skapar du `account-service`-och `auth-service`-program och distribuerar deras JAR-filer.
 
     ```cli
-    az asc app create -n account-service
-    az asc app deploy -n account-service --jar-path ./account-service/target/account-service.jar
-    az asc app create -n auth-service
-    az asc app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
+    az spring-cloud app create -n account-service
+    az spring-cloud app deploy -n account-service --jar-path ./account-service/target/account-service.jar
+    az spring-cloud app create -n auth-service
+    az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-1. Det tar några minuter att slutföra distributionen av programmen. För att bekräfta att de har distribuerats går du till **program instrument panelen** i Azure Portal. Du bör se en rad vart och ett av de tre programmen.
+1. Det tar några minuter att slutföra distributionen av programmen. För att bekräfta att de har distribuerats går du till bladet **appar** i Azure Portal. Du bör se en rad vart och ett av de tre programmen.
 
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Tilldela en offentlig slut punkt till gateway
 
@@ -146,8 +145,7 @@ I den här snabbstarten har du lärt dig att:
 > * Ange en konfigurations Server för en instans
 > * Bygg ett program för mikrotjänster lokalt
 > * Distribuera varje mikrotjänst
-> * Redigera miljövariabler för program
-> * Tilldela en offentlig IP-adress för din Application Gateway
+> * Tilldela en offentlig slut punkt för din Application Gateway
 
 > [!div class="nextstepaction"]
 > [Förbered ditt Azure våren Cloud-program för distribution](spring-cloud-tutorial-prepare-app-deployment.md)

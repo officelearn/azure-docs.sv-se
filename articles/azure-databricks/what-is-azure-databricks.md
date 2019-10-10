@@ -1,6 +1,6 @@
 ---
 title: Vad är Azure Databricks?
-description: Läs mer om Azure Databricks och hur det för in Spark på Databricks i Azure. Azure Databricks är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster.
+description: Lär dig mer om Azure Databricks och hur det ger Spark på Databricks till Azure. Azure Databricks är en Apache Spark-baserad analysplattform som är optimerad för Microsoft Azures plattform för molntjänster.
 services: azure-databricks
 author: mamccrea
 ms.reviewer: jasonh
@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 05/08/2019
 ms.author: mamccrea
 ms.custom: mvc
-ms.openlocfilehash: 0864db682141b1d7f8cb0c9ff14c9897fb02fe1b
-ms.sourcegitcommit: 300cd05584101affac1060c2863200f1ebda76b7
+ms.openlocfilehash: 149b83b9aacf23cde06a2b35aed06c164afe9647
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/08/2019
-ms.locfileid: "65412758"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243330"
 ---
 # <a name="what-is-azure-databricks"></a>Vad är Azure Databricks?
 
@@ -23,7 +23,7 @@ Azure Databricks är en Apache Spark-baserad analysplattform som är optimerad f
 
 ![Vad är Azure Databricks?](./media/what-is-azure-databricks/azure-databricks-overview.png "Vad är Azure Databricks?")
 
-Azure Databricks är en snabb och enkel Apache Spark-baserad analystjänst med samarbetsfunktioner. För en stordatapipeline matas data (rådata eller strukturerade data) in i Azure via Azure Data Factory i batchar eller strömmas i nära realtid med hjälp av Kafka, Event Hub eller IoT Hub. Dessa data hamnar i en datasjö för långsiktig beständig lagring i Azure Blob Storage eller Azure Data Lake Storage. Som en del av ditt analysarbetsflöde använder du Azure Databricks för att läsa data från flera datakällor såsom [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) eller [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) och omvandlar dem till banbrytande insikter med hjälp av Spark.
+Azure Databricks är en snabb och enkel Apache Spark-baserad analystjänst med samarbetsfunktioner. För en stordatapipeline matas data (rådata eller strukturerade data) in i Azure via Azure Data Factory i batchar eller strömmas i nära realtid med hjälp av Kafka, Event Hub eller IoT Hub. Dessa data hamnar i en datasjö för långsiktig beständig lagring i Azure Blob Storage eller Azure Data Lake Storage. Som en del av ditt analysarbetsflöde använder du Azure Databricks för att läsa data från flera datakällor såsom [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) eller [Azure SQL Data Warehouse](../sql-data-warehouse/index.yml) och omvandlar dem till banbrytande insikter med hjälp av Spark.
 
 ![Databricks-pipeline](./media/what-is-azure-databricks/databricks-pipeline.png)
 
@@ -33,7 +33,7 @@ Azure Databricks består av Apache Spark-klusterteknik och funktioner med helt �
 
 ![Apache Spark i Azure Databricks](./media/what-is-azure-databricks/apache-spark-ecosystem-databricks.png "Apache Spark i Azure Databricks")
 
-* **Spark SQL och DataFrames**: Spark SQL är Spark-modulen för arbete med strukturerade data. En DataFrame är en distribuerad datasamling som har ordnats i namngivna kolumner. Begreppsmässigt motsvarar den en tabell i en relationsdatabas eller en dataram i R/Python.
+* **Spark SQL och DataFrames**: Spark SQL är Spark-modulen för att arbeta med strukturerade data. En DataFrame är en distribuerad datasamling som har ordnats i namngivna kolumner. Begreppsmässigt motsvarar den en tabell i en relationsdatabas eller en dataram i R/Python.
 
 * **Strömning**: Realtidsbearbetning av data och analys för analysprogram och interaktiva program. Integreras med HDFS, Flume och Kafka.
 
@@ -88,14 +88,14 @@ Azure Databricks ger Azure-säkerhet i företagsklass, inklusive integrering av 
 
 ## <a name="integration-with-azure-services"></a>Integrering med Azure-tjänster
 
-Azure Databricks integreras djupt med Azure-databaser och -lager: SQL Data Warehouse, Cosmos DB, Data Lake Store och Blob Storage. 
+Azure Databricks kan integreras djupt med Azure-databaser och lager: SQL Data Warehouse, Cosmos DB, Data Lake Store och Blob Storage. 
 
 ## <a name="integration-with-power-bi"></a>Integrering med Power BI
 Genom omfattande integrering med Power BI gör Azure Databricks det möjligt att identifiera och dela dina effektfulla insikter snabbt och enkelt. Du kan även använda andra BI-verktyg, som Tableau Software via JDBC/ODBC-klusterslutpunkter.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* [Snabbstart: Köra ett Spark-jobb på Azure Databricks](quickstart-create-databricks-workspace-portal.md)
+* [Snabbstart: Kör ett Spark-jobb på Azure Databricks](quickstart-create-databricks-workspace-portal.md)
 * [Arbeta med Spark-kluster](https://docs.azuredatabricks.net/user-guide/clusters/index.html)
 * [Arbeta med bärbara datorer](https://docs.azuredatabricks.net/user-guide/notebooks/index.html)
 * [Skapa Spark-jobb](https://docs.azuredatabricks.net/user-guide/jobs.html)

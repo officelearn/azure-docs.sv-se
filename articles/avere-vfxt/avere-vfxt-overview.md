@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: avere-vfxt
 ms.topic: overview
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: 724352ae9f7c66dfeab293473ea79438e3b36254
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.author: rohogue
+ms.openlocfilehash: 70ae20daa81ab52d4054dcd4bea3c9432a5ceaeb
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60409433"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256167"
 ---
 # <a name="what-is-avere-vfxt-for-azure"></a>Vad är Avere vFXT för Azure? 
 
@@ -19,8 +19,8 @@ Avere vFXT för Azure är cachelagringslösning för filsystem för dataintensiv
 
 Avere vFXT stöder följande vanliga databehandlingsscenarier: 
 
-* Hybrid cloud-arkitektur: Avere vFXT för Azure kan arbeta med ett lagringssystem för maskinvara som erbjuder fördelen med molnet utan att behöva flytta filer. 
-* ”Cloud bursting”: Avere vFXT för Azure kan hjälpa dig att flytta dina data till molnet för ett enda projekt eller ”lift and shift” hela arbetsflödet permanent. 
+* Hybridmolnarkitektur: Avere vFXT för Azure kan fungera med maskinvarubaserade lagringssystem, där du får fördelarna med databehandling i molnet utan att behöva flytta filer. 
+* Kapacitetsstyrd omdirigering (cloud bursting): Avere vFXT för Azure kan hjälpa dig att flytta dina data till molnet för ett enstaka projekt, eller lyfta och föra över hela arbetsflödet permanent. 
 
 ![diagram som visar information om Avere vFXT-systemet i en Azure-prenumeration ansluten till bloblagring och till ett lokalt datacenter](media/avere-vfxt-hybrid.png)
 
@@ -57,7 +57,7 @@ Avere vFXT-systemet utgörs av minst tre virtuella Edge Filer-noder, konfigurera
 
 Avere vFXT-klustret cachelagrar filerna när de begärs. Upprepade begäranden kan hanteras från cachen i drygt 80 procent av gångerna.
 
-### <a name="compatibility"></a>Kompatibilitet 
+### <a name="compatibility"></a>Efterlevnad 
 
 * Kompatibelt med NAS-maskinvarusystem från NetApp eller Dell EMC Isilon
 * Kompatibelt med Azure Blob
@@ -67,7 +67,7 @@ Avere vFXT använder följande Azure-resurser:
 
 |Azure-komponent|   |
 |----------|-----------|
-|Virtuella datorer|3 eller fler E32s_v3|
+|Virtuella maskiner|3 eller flera E32s_v3|
 |Premium SSD-lagring|200 GB OS-utrymme plus 1 TB till 4 TB cacheutrymme per nod |
 |Lagringskonto (valfritt) |v2|
 |Datalagring i serverdel (valfritt) | En tom LRS Blob-container |

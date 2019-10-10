@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 093116a8def69e3f63af9aeb963abc60841cbe85
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.author: rohogue
+ms.openlocfilehash: bfbbcd2d7d1bb44e260bedda54ca38ed6860ea67
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71257019"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254481"
 ---
 # <a name="what-is-azure-hpc-cache-preview"></a>Vad är Azure HPC Cache? (Förhandsversion)
 
@@ -45,16 +45,16 @@ Azure HPC cache kan också användas för att förbättra effektiviteten i uppgi
 
 En Azure HPC cache-distribution kan hjälpa dig att påskynda kvantitativa analys beräkningar, riskhanterings arbets belastningar och Monte Carlo-simuleringar för att ge finansiella tjänste företag bättre insikt i att fatta strategiska beslut.
 
-## <a name="region-availability"></a>Regional tillgänglighet
+## <a name="region-availability"></a>Tillgänglighet för regioner
 
 Azure HPC-cache är tillgängligt i följande Azure-regioner:
 
-* East US
-* USA, östra 2
-* Norra Europa
-* Västra Europa
+* Östra USA
+* Östra USA 2
+* Nordeuropa
+* Västeuropa
 * Sydostasien
-* Västra USA 2
+* USA, västra 2
 
 På [produkt sidan för Azure HPC cache](https://azure.microsoft.com/services/hpc-cache) finns den senaste tillgängliga informationen.
 

@@ -127,7 +127,7 @@ Autoåterupptagande utlöses om något av följande villkor är uppfyllt när so
 |Funktion|Autoresume-utlösare|
 |---|---|
 |Autentisering och auktorisering|Logga in|
-|Identifiering av hot|Aktivera/inaktivera inställningar för hot identifiering på databas-eller server nivå.<br>Ändra inställningarna för hot identifiering på databas-eller server nivå.|
+|Hotidentifiering|Aktivera/inaktivera inställningar för hot identifiering på databas-eller server nivå.<br>Ändra inställningarna för hot identifiering på databas-eller server nivå.|
 |Dataidentifiering och -klassificering|Lägga till, ändra, ta bort eller Visa känslighets etiketter|
 |Granskning|Visa gransknings poster.<br>Uppdaterar eller visar gransknings principen.|
 |Datamaskning|Lägga till, ändra, ta bort eller Visa regler för data maskering|
@@ -172,7 +172,7 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
    |Parameter|Värde alternativ|Standardvärde|
    |---|---|---|---|
    |Minsta virtuella kärnor|Är beroende av Max virtuella kärnor konfigurerade – se [resurs gränser](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).|0,5 virtuella kärnor|
-   |Pausa fördröjning|Lägst 60 minuter (1 timme)<br>Maximihalter 10080 minuter (7 dagar)<br>Steg om 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
+   |Pausa fördröjning|Minst: 60 minuter (1 timme)<br>Max: 10080 minuter (7 dagar)<br>Steg: 60 minuter<br>Inaktivera autopausen:-1|60 minuter|
 
 > [!NOTE]
 > Att använda T-SQL för att flytta en befintlig databas till Server lös eller ändra dess beräknings storlek stöds inte för närvarande, men kan göras via Azure Portal eller PowerShell.
@@ -181,7 +181,7 @@ Att skapa en ny databas eller flytta en befintlig databas till en server lös be
 
 #### <a name="use-azure-portal"></a>Använd Azure Portal
 
-Gå till [Snabbstart: Skapa en enda databas i Azure SQL Database med hjälp av Azure Portal @ no__t-0.
+Se [snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal](sql-database-single-database-get-started.md).
 
 #### <a name="use-powershell"></a>Använd PowerShell
 
@@ -261,7 +261,7 @@ Resurspoolen är den inre resurs hanterings gränserna för en databas, oavsett 
 
 Mät värden för att övervaka resursanvändningen för Appaketet och poolen för en server lös databas visas i följande tabell:
 
-|Entitet|Mått|Beskrivning|Enheter|
+|Enhet|Mått|Beskrivning|Enheter|
 |---|---|---|---|
 |Appaket|app_cpu_percent|Procent andelen av virtuella kärnor som används av appen i förhållande till högsta tillåtna virtuella kärnor för appen.|Procent|
 |Appaket|app_cpu_billed|Mängden data som debiteras för appen under rapporterings perioden. Det belopp som betalas under perioden är produkten av det här måttet och vCore enhets pris. <br><br>Värdena för det här måttet bestäms genom agg regering över tid för maximalt CPU-använt och minne som används varje sekund. Om det använda beloppet är mindre än det lägsta belopp som har angetts som den lägsta virtuella kärnor och minsta mängden minne, faktureras det lägsta mängd som har allokerats. För att kunna jämföra CPU med minne i fakturerings syfte normaliseras minnet till enheter av virtuella kärnor genom att skala om mängden minne i GB med 3 GB per vCore.|vCore sekunder|
@@ -294,9 +294,9 @@ För resurs gränser, se [Server lös beräknings nivå](sql-database-vCore-reso
 
 Den mängd data som faktureras är det högsta antal CPU-som används och minne som används varje sekund. Om mängden använt CPU och använt minne är mindre än den lägsta mängd som har skapats för varje, faktureras det etablerade beloppet. För att kunna jämföra CPU med minne i fakturerings syfte normaliseras minnet till enheter av virtuella kärnor genom att skala om mängden minne i GB med 3 GB per vCore.
 
-- **Resurs debiterad**: CPU och minne
+- **Resurs fakturerad**: CPU och minne
 - **Fakturerat belopp**: vCore enhets pris * Max (min virtuella kärnor, virtuella kärnor som används, minimalt minne GB * 1/3, använt minnes utrymme * 1/3) 
-- **Fakturerings frekvens**: Per sekund
+- **Fakturerings frekvens**: per sekund
 
 Priset för vCore-enheten är kostnaden per vCore per sekund. Mer information finns på [sidan med Azure SQL Database priser](https://azure.microsoft.com/pricing/details/sql-database/single/) för vissa enhets priser i en specifik region.
 
@@ -304,7 +304,7 @@ Den totala mängden data som faktureras exponeras enligt följande mått:
 
 - **Mått**: App_cpu_billed (vCore sekunder)
 - **Definition**: Max (min-virtuella kärnor, virtuella kärnor som används, minimalt minne gb * 1/3, använt minnes utrymme * 1/3)
-- **Rapport frekvens**: Per minut
+- **Rapport frekvens**: per minut
 
 Den här kvantiteten beräknas varje sekund och sammanställs över 1 minut.
 
@@ -326,9 +326,9 @@ Anta att priset för beräknings enheten är $0.000073/vCore/Second.  Sedan debi
 
 ## <a name="available-regions"></a>Tillgängliga regioner
 
-Server lös beräknings nivån är tillgänglig i hela världen utom följande regioner: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, Storbritannien, norra, Storbritannien, södra 2, västra centrala USA och US Gov Central (Iowa).
+Server lös beräknings nivån är tillgänglig över hela världen utom följande regioner: Kina, östra, Kina, norra, Tyskland, centrala, Tyskland nordöstra, Storbritannien, norra, Storbritannien, södra 2, västra centrala USA och US Gov Central (Iowa).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- För att komma igång, se [Quickstart: Skapa en enda databas i Azure SQL Database med hjälp av Azure Portal @ no__t-0.
+- Information om hur du kommer igång finns i [snabb start: skapa en enda databas i Azure SQL Database med hjälp av Azure Portal](sql-database-single-database-get-started.md).
 - För resurs gränser, se [resurs gränser för Server lös beräknings nivå](sql-database-vCore-resource-limits-single-databases.md#general-purpose-service-tier-for-serverless-compute).

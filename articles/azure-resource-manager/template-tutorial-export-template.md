@@ -10,16 +10,16 @@ ms.topic: tutorial
 ms.author: jgao
 ms.openlocfilehash: 0564763b05dd44eb908ec00f98a97e9d4970099f
 ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177589"
 ---
-# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudiekurs: Använd exporterad mall från Azure Portal
+# <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudie: Använd exporterad mall från Azure Portal
 
 I den här själv studie serien har du skapat en mall för att distribuera ett Azure Storage-konto. I de kommande två självstudierna lägger du till en *App Service plan* och en *webbplats*. I stället för att skapa mallar från grunden får du lära dig hur du exporterar mallar från Azure Portal och hur du använder exempel mallar från [Azures snabb starts mallar](/resources/templates/). Du anpassar mallarna efter din användning. Den här självstudien fokuserar på att exportera mallar och anpassa resultatet för din mall. Det tar ungefär **14 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om utdata](template-tutorial-add-outputs.md), men det är inte obligatoriskt.
 
@@ -35,14 +35,14 @@ Den här mallen fungerar bra för att distribuera lagrings konton, men du kanske
 
 ## <a name="create-app-service-plan"></a>Skapa apptjänstplan
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **Skapa en resurs**.
 1. I **Sök på Marketplace**anger **App Service plan**och väljer sedan **App Service plan**.  Välj inte **App Service plan (klassisk)**
 1. Välj **Skapa**.
 1. Går
 
     - **Prenumeration**: Välj din Azure-prenumeration.
-    - **Resursgrupp**: Välj **Skapa nytt** och ange ett namn. Ange ett annat resurs grupps namn än det som du har använt i den här själv studie serien.
+    - **Resurs grupp**: Välj **Skapa ny** och ange sedan ett namn. Ange ett annat resurs grupps namn än det som du har använt i den här själv studie serien.
     - **Namn**: Ange ett namn för App Service-planen.
     - **Operativ system**: Välj **Linux**.
     - **Region**: Välj en Azure-plats. Välj till exempel **USA, centrala**.
@@ -114,7 +114,7 @@ az group deployment create \
 
 Du kan kontrol lera distributionen genom att utforska resurs gruppen från Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Välj den resurs grupp som du har distribuerat till.
 1. Resurs gruppen innehåller ett lagrings konto och en App Service plan.

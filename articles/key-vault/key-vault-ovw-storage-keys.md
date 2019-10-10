@@ -41,13 +41,13 @@ En Azure AD-klient tillhandahåller varje registrerat program med ett [huvud nam
 
 Key Vault är ett Microsoft-program som är förregistrerat i alla Azure AD-klienter. Key Vault registreras under samma program-ID i varje Azure-moln.
 
-| Klienter | Molnet | Program-ID:t |
+| Klienter | I molnet | Program-ID:t |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
 | Azure AD | Offentlig Azure- | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| Annat  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Övrigt  | Alla | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här guiden måste du först göra följande:
 
@@ -69,9 +69,9 @@ az login
 
 Använd kommandot [skapa roll tilldelning](/cli/azure/role/assignment?view=azure-cli-latest) för Azure CLI-AZ för att ge Key Vault åtkomst till ditt lagrings konto. Ange följande parameter värden för kommandot:
 
-- `--role`: Överför RBAC-rollen "lagrings kontots nyckel operatörs tjänst roll". Den här rollen begränsar åtkomstscope till ditt lagrings konto. För ett klassiskt lagrings konto skickar du i stället "klassisk lagrings kontots nyckel operatörs tjänst roll".
-- `--assignee-object-id`: Skicka värdet "93c27d83-f79b-4cb2-8dd4-4aa716542e74", vilket är objekt-ID: t för Key Vault i det offentliga Azure-molnet. (För att hämta objekt-ID för Key Vault i Azure Government molnet, se [program-ID för tjänstens huvud namn](#service-principal-application-id).)
-- `--scope`: Skicka ditt resurs-ID för lagrings kontot, som har formatet `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Du hittar ditt prenumerations-ID genom att använda kommandot Azure CLI [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) . Om du vill hitta resurs gruppen för ditt lagrings konto namn och lagrings konto använder du kommandot Azure CLI [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
+- `--role`: överför RBAC-rollen "lagrings kontots nyckel operatörs tjänst roll". Den här rollen begränsar åtkomstscope till ditt lagrings konto. För ett klassiskt lagrings konto skickar du i stället "klassisk lagrings kontots nyckel operatörs tjänst roll".
+- `--assignee-object-id`: skicka värdet "93c27d83-f79b-4cb2-8dd4-4aa716542e74", vilket är objekt-ID: t för Key Vault i det offentliga Azure-molnet. (För att hämta objekt-ID för Key Vault i Azure Government molnet, se [program-ID för tjänstens huvud namn](#service-principal-application-id).)
+- `--scope`: skicka ditt lagrings kontos resurs-ID, vilket är i formatet `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Du hittar ditt prenumerations-ID genom att använda kommandot Azure CLI [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) . Om du vill hitta resurs gruppen för ditt lagrings konto namn och lagrings konto använder du kommandot Azure CLI [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
 
 ```azurecli-interactive
 az role assignment create --role "Storage Account Key Operator Service Role" --assignee-object-id 93c27d83-f79b-4cb2-8dd4-4aa716542e74 --scope "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
@@ -81,9 +81,9 @@ az role assignment create --role "Storage Account Key Operator Service Role" --a
 
  Skapa ett Key Vault hanterat lagrings konto med hjälp av kommandot Azure CLI-AZ för nyckel [valv](/cli/azure/keyvault/storage?view=azure-cli-latest#az-keyvault-storage-add) . Ange en tids period på 90 dagar. Efter 90 dagar återskapar Key Vault `key1` och byter den aktiva nyckeln från `key2` till `key1`. `key1` markeras sedan som den aktiva nyckeln. Ange följande parameter värden för kommandot:
 
-- `--vault-name`: Skicka namnet på ditt nyckel valv. Om du vill hitta namnet på nyckel valvet använder du kommandot Azure CLI [AZ Key Vault List](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) .
-- `-n`: Skicka namnet på ditt lagrings konto. Du hittar namnet på ditt lagrings konto med kommandot Azure CLI [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
-- `--resource-id`: Skicka ditt resurs-ID för lagrings kontot, som har formatet `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Du hittar ditt prenumerations-ID genom att använda kommandot Azure CLI [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) . Om du vill hitta resurs gruppen för ditt lagrings konto namn och lagrings konto använder du kommandot Azure CLI [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
+- `--vault-name`: skicka namnet på ditt nyckel valv. Om du vill hitta namnet på nyckel valvet använder du kommandot Azure CLI [AZ Key Vault List](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-list) .
+- `-n`: skicka namnet på ditt lagrings konto. Du hittar namnet på ditt lagrings konto med kommandot Azure CLI [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
+- `--resource-id`: skicka ditt lagrings kontos resurs-ID, vilket är i formatet `/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>`. Du hittar ditt prenumerations-ID genom att använda kommandot Azure CLI [AZ Account List](/cli/azure/account?view=azure-cli-latest#az-account-list) . Om du vill hitta resurs gruppen för ditt lagrings konto namn och lagrings konto använder du kommandot Azure CLI [AZ Storage Account List](/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-list) .
    
  ```azurecli-interactive
 az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountName> --active-key-name key1 --auto-regenerate-key --regeneration-period P90D --resource-id "/subscriptions/<subscriptionID>/resourceGroups/<StorageAccountResourceGroupName>/providers/Microsoft.Storage/storageAccounts/<YourStorageAccountName>"
@@ -91,7 +91,7 @@ az keyvault storage add --vault-name <YourKeyVaultName> -n <YourStorageAccountNa
 
 ## <a name="shared-access-signature-tokens"></a>Token för signaturer för delad åtkomst
 
-Du kan också be Key Vault att generera token för signaturer för delad åtkomst. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt storage-konto. Du kan bevilja klienter åtkomst till resurser i ditt lagrings konto utan att dela dina konto nycklar. En signatur för delad åtkomst ger dig ett säkert sätt att dela dina lagrings resurser utan att kompromissa med dina konto nycklar.
+Du kan också be Key Vault att generera token för signaturer för delad åtkomst. En signatur för delad åtkomst ger delegerad åtkomst till resurser i ditt lagrings konto. Du kan bevilja klienter åtkomst till resurser i ditt lagrings konto utan att dela dina konto nycklar. En signatur för delad åtkomst ger dig ett säkert sätt att dela dina lagrings resurser utan att kompromissa med dina konto nycklar.
 
 Kommandona i det här avsnittet Slutför följande åtgärder:
 

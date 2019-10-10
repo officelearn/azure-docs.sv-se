@@ -94,4 +94,4 @@ Ta en titt på de här artiklarna om du vill ha mer information om routning av m
 
 * [Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter](iot-hub-devguide-messages-d2c.md)
 
-* [Självstudiekurs: IoT Hub routning @ no__t-0
+* [Självstudie: IoT Hub routning](tutorial-routing.md)

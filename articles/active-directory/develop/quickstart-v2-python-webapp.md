@@ -17,12 +17,12 @@ ms.author: abpati
 ms.custom: aaddev
 ms.openlocfilehash: 85a1de992be7b5bbdcec8fd415f60ae10190c11a
 ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72170033"
 ---
-# <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabbstart: Lägg till inloggning med Microsoft i en python-webbapp
+# <a name="quickstart-add-sign-in-with-microsoft-to-a-python-web-app"></a>Snabb start: lägga till inloggning med Microsoft i en python-webbapp
 
 [!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
@@ -32,7 +32,7 @@ När du har slutfört guiden kommer ditt program att godkänna inloggningar med 
 
 ![Visar hur exempel appen som genereras av den här snabb starten fungerar](media/quickstart-v2-python-webapp/python-quickstart.svg)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill köra det här exemplet behöver du:
 
@@ -54,9 +54,9 @@ Om du vill köra det här exemplet behöver du:
 > 1. Ange ett namn för programmet och välj **Registrera**.
 > 1. Följ anvisningarna för att ladda ned och konfigurera det nya programmet automatiskt.
 >
-> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet manuellt
+> ### <a name="option-2-register-and-manually-configure-your-application-and-code-sample"></a>Alternativ 2: Registrera och konfigurera programmet och kodexemplet
 >
-> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera ditt program
+> #### <a name="step-1-register-your-application"></a>Steg 1: Registrera din app
 >
 > Du registrerar programmet och lägger till appens registreringsinformationen i lösningen manuellt med hjälp av följande steg:
 >
@@ -78,7 +78,7 @@ Om du vill köra det här exemplet behöver du:
 >
 > [!div class="sxs-lookup" renderon="portal"]
 >
-> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app på Azure Portal
+> #### <a name="step-1-configure-your-application-in-azure-portal"></a>Steg 1: Konfigurera din app i Azure-portalen
 >
 > För att kod exemplet för den här snabb starten ska fungera måste du:
 >
@@ -94,7 +94,7 @@ Om du vill köra det här exemplet behöver du:
 
 [Ladda ned kod exemplet](https://github.com/Azure-Samples/ms-identity-python-webapp/archive/master.zip)
 
-#### <a name="step-3-configure-the-application"></a>Steg 3: Konfigurera programmet
+#### <a name="step-3-configure-the-application"></a>Steg 3: konfigurera programmet
 
 1. Extrahera zip-filen i en lokal mapp närmare rotkatalogen, till exempel **C:\Azure-Samples**
 1. Om du använder en Integrated Development Environment öppnar du exemplet i din favorit IDE (valfritt).
@@ -111,7 +111,7 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 > - `Enter_the_Application_Id_here` – är program-Id för programmet som du har registrerat.
 > - `Enter_the_Client_Secret_Here`-är den **klient hemlighet** som du skapade i **certifikat & hemligheter** för det program som du har registrerat.
 
-#### <a name="step-4-run-the-code-sample"></a>Steg 4: Kör kod exemplet
+#### <a name="step-4-run-the-code-sample"></a>Steg 4: kör kod exemplet
 
 1. Du måste installera MSAL python Library, kolv Framework, kolv-sessioner för hantering av Server sidan och begär Anden med hjälp av pip på följande sätt:
 
@@ -130,6 +130,6 @@ CLIENT_ID = "Enter_the_Application_Id_here"
 Läs mer om webbappar som loggar in användare och som anropar webb-API: er:
 
 > [!div class="nextstepaction"]
-> [Scenario: Webbappar som loggar in användare @ no__t-0
+> [Scenario: webbappar som loggar in användare](scenario-web-app-sign-user-overview.md)
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]

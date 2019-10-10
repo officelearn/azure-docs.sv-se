@@ -6,16 +6,16 @@ ms.service: sql-database
 ms.subservice: security
 ms.devlang: ''
 ms.topic: conceptual
-author: monhaber
-ms.author: v-mohabe
+author: rkarlin
+ms.author: rkarlin
 ms.reviewer: vanto
 ms.date: 03/31/2019
-ms.openlocfilehash: b8fc82ca8f4b42adf595680541042ef38efe1470
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: dc302d5435234b8cad9d79b5d626056e4d1e2cf2
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68569543"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170381"
 ---
 # <a name="advanced-data-security-for-azure-sql-database"></a>Avancerad data säkerhet för Azure SQL Database
 
@@ -25,7 +25,7 @@ Avancerad data säkerhet är ett enhetligt paket för avancerade SQL-säkerhetsf
 
 Avancerad data säkerhet (ADS) innehåller en uppsättning avancerade SQL-säkerhetsfunktioner, inklusive data identifiering & klassificering, sårbarhets bedömning och Avancerat skydd.
 
-- [Klassificering av data identifierings &](sql-database-data-discovery-and-classification.md) (för närvarande i för hands version) finns funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera och märka & skydda känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
+- [Data identifierings & klassificering](sql-database-data-discovery-and-classification.md) (för närvarande i för hands version) innehåller funktioner som är inbyggda i Azure SQL Database för att upptäcka, klassificera och märka & skydda känsliga data i dina databaser. Det kan användas för att ge insyn i tillståndet på din databasklassificering och för att spåra åtkomst till känsliga data i och utanför databasen.
 - [Sårbarhets bedömning](sql-vulnerability-assessment.md) är ett enkelt sätt att konfigurera en tjänst som kan upptäcka, spåra och hjälpa dig att åtgärda potentiella databas sårbarheter. Den ger inblick i dina säkerhetstillstånd och inkluderar lämpliga åtgärder för att lösa säkerhetsproblem och förbättra databasens skydd.
 - [Avancerat skydd](sql-database-threat-detection-overview.md) identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databasen. Den övervakar kontinuerligt databasen för misstänkta aktiviteter och ger omedelbara säkerhetsaviseringar om potentiella säkerhetsproblem, SQL-inmatningsattacker samt avvikande åtkomstmönster i databasen. Aviseringar för avancerat skydd ger information om den misstänkta aktiviteten och rekommenderar åtgärder för att undersöka och minimera hotet.
 
@@ -49,17 +49,17 @@ Aktivera annonser genom att gå till **Avancerad data säkerhet** under **säker
 > [!NOTE]
 > Kostnaden för annonser justeras med Azure Security Center standard pris per nod, där en nod är hela SQL Database servern eller en hanterad instans. Du betalar därför bara en gång för att skydda alla databaser på databas servern eller den hanterade instansen med annonser. Du kan prova att börja med att börja använda ADS med en kostnads fri utvärderings version.
 
-## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. Börja klassificera data, spåra sårbarheter och undersöka hot varningar
+## <a name="2-start-classifying-data-tracking-vulnerabilities-and-investigating-threat-alerts"></a>2. börja klassificera data, spåra sårbarheter och undersöka hot aviseringar
 
 Klicka på **klassificerings kortet data identifierings &** för att se rekommenderade känsliga kolumner för att klassificera och klassificera data med beständiga känslighets etiketter. Klicka på kortet för **sårbarhets bedömning** för att visa och hantera sårbarhets genomsökningar och rapporter och för att spåra din säkerhets datasekretesstandarder. Om säkerhets aviseringar har mottagits klickar du på kortet **Avancerat skydd** för att visa information om aviseringarna och visa en konsol IDE rad rapport om alla aviseringar i din Azure-prenumeration via sidan Azure Security Center säkerhets aviseringar.
 
-## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. Hantera ADS-inställningar på din SQL Database Server eller hanterad instans
+## <a name="3-manage-ads-settings-on-your-sql-database-server-or-managed-instance"></a>3. hantera ADS-inställningar på din SQL Database Server eller hanterad instans
 
 Om du vill visa och hantera ADS-inställningar går du till **Avancerad data säkerhet** under **säkerhets** rubriken för din SQL Database Server eller en hanterad instans. På den här sidan kan du aktivera eller inaktivera annonser och ändra inställningarna för sårbarhets bedömning och Avancerat skydd för hela SQL Database servern eller den hanterade instansen.
 
-![Serverinställningar](./media/sql-advanced-protection/server_settings.png) 
+![Server inställningar](./media/sql-advanced-protection/server_settings.png) 
 
-## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. Hantera ADS-inställningar för en SQL-databas
+## <a name="4-manage-ads-settings-for-a-sql-database"></a>4. hantera ADS-inställningar för en SQL-databas
 
 Om du vill åsidosätta ADS-inställningarna för en viss databas markerar du kryss rutan **aktivera avancerad data säkerhet på databas nivå** . Använd bara det här alternativet om du har ett visst krav för att ta emot separata varningar om Avancerat skydd eller sårbarhets bedömning för den enskilda databasen, i stället för de aviseringar och resultat som tagits emot för alla databaser på databas server eller hanterad instans.
 
@@ -69,7 +69,7 @@ När kryss rutan är markerad kan du konfigurera de relevanta inställningarna f
 
 Avancerade data säkerhets inställningar för din databas server eller hanterad instans kan också nås från fönstret ADS Database. Klicka på **Inställningar** i rutan huvud annonser och klicka sedan på **Visa avancerade data säkerhets Server inställningar**. 
 
-![Databasinställningar](./media/sql-advanced-protection/database_settings.png) 
+![Databas inställningar](./media/sql-advanced-protection/database_settings.png) 
 
 ## <a name="next-steps"></a>Nästa steg 
 

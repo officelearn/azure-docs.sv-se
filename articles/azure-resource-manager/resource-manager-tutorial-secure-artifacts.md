@@ -20,11 +20,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72170201"
 ---
-# <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Självstudie: Skydda artefakter i Azure Resource Manager-malldistributioner
+# <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>Självstudie: säkra artefakter i Azure Resource Manager mallar distributioner
 
-Lär dig hur du skyddar artefakter som används i Azure Resource Manager-mallar med hjälp av Azure Storage-konto med signaturer för delad åtkomst (SAS). Distributionsartefakter är vilka filer som helst, utöver den huvudsakliga mallfilen, som behövs för att slutföra en distribution. Som exempel: I [Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) skapar huvudmallen en Azure SQL-databas. Den anropar även en BACPAC-fil för att skapa tabeller och infoga data. BACPAC-filen är en artefakt. Artefakten lagras i ett Azure Storage-konto med offentlig åtkomst. I den här självstudien använder du SAS för att bevilja begränsad åtkomst till BACPAC-filen i ditt eget Azure Storage-konto. Mer information om SAS finns i [Använda signaturer för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Lär dig hur du skyddar artefakter som används i Azure Resource Manager-mallar med hjälp av Azure Storage-konto med signaturer för delad åtkomst (SAS). Distributionsartefakter är vilka filer som helst, utöver den huvudsakliga mallfilen, som behövs för att slutföra en distribution. I [själv studie kursen: importera SQL BACPAC-filer med Azure Resource Manager mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md)skapar huvudmallen en Azure SQL Database. den anropar också en BACPAC-fil för att skapa tabeller och infoga data. BACPAC-filen är en artefakt. Artefakten lagras i ett Azure Storage-konto med offentlig åtkomst. I den här självstudien använder du SAS för att bevilja begränsad åtkomst till BACPAC-filen i ditt eget Azure Storage-konto. Mer information om SAS finns i [Använda signaturer för delad åtkomst (SAS)](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
 
-Information om hur du skyddar en länkad mall finns i [Självstudie: Skapa länkade Azure Resource Manager-mallar](./resource-manager-tutorial-create-linked-templates.md).
+Information om hur du skyddar länkade mallar finns i [Självstudier: Skapa länkade Azure Resource Manager mallar](./resource-manager-tutorial-create-linked-templates.md).
 
 Den här självstudien omfattar följande uppgifter:
 
@@ -37,18 +37,18 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
 * [Visual Studio Code](https://code.visualstudio.com/) med verktygstillägget för Resource Manager. Se [Installera tillägget](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#prerequisites).
-* Granska [Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md). Den mall som används i den här självstudien är den som utvecklas i självstudien. En nedladdningslänk för den färdiga mallen finns i den här artikeln.
+* Granska [självstudie: importera SQL BACPAC-filer med Azure Resource Manager mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md). Den mall som används i den här självstudien är den som utvecklas i självstudien. En nedladdningslänk för den färdiga mallen finns i den här artikeln.
 * För att förbättra säkerheten bör du använda ett genererat lösenord för SQL-serverns administratörskonto. Här är ett exempel för att generera ett lösenord:
 
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="prepare-a-bacpac-file"></a>Förbereda en BACPAC-fil
 
@@ -74,10 +74,10 @@ Ladda ned [BACPAC-filen](https://github.com/Azure/azure-docs-json-samples/raw/ma
 2. Ange följande egenskaper:
 
     * **Prenumeration**: Välj din Azure-prenumeration.
-    * **Resursgrupp**: Välj **Skapa ny** och ge den ett namn. En resursgrupp är en container för Azure-resurser med hanteringssyfte. I den här självstudien kan du använda samma resursgrupp för lagringskontot och Azure SQL-databasen. Anteckna den här resursgruppens namn. Du behöver det när du skapar Azure SQL-databasen senare i självstudierna.
+    * **Resurs grupp**: Välj **Skapa ny** och ge den ett namn. En resursgrupp är en container för Azure-resurser med hanteringssyfte. I den här självstudien kan du använda samma resursgrupp för lagringskontot och Azure SQL-databasen. Anteckna den här resursgruppens namn. Du behöver det när du skapar Azure SQL-databasen senare i självstudierna.
     * **Plats**: Välj en region. Välj till exempel **USA, centrala**.
     * **Typ av lagringskonto**: använd standardvärdet, vilket är **Standard_LRS**.
-    * **Plats**: Använd standardvärdet, vilket är **[resursGrupp().plats]** . Det innebär att du använder resursgrupplatsen för lagringskontot.
+    * **Plats**: Använd standardvärdet, som är **[resourceGroup (). location]** . Det innebär att du använder resursgrupplatsen för lagringskontot.
     * **Jag godkänner villkoren ovan**: (valt)
 3. Välj **Köp**.
 4. Välj meddelandeikonen (klockikonen) i det övre högra hörnet av portalen för att se distributionsstatusen.
@@ -109,7 +109,7 @@ En blobcontainer krävs innan du kan ladda upp filer.
 1. Välj **Överför**.
 2. Ange följande värden:
 
-    * **Filer**: Följ instruktionerna för att välja den BACPAC-fil som du laddade ned tidigare. Standardnamnet är **SQLDatabaseExtension.bacpac**.
+    * **Filer**: Följ anvisningarna för att välja den BACPAC-fil som du laddade ned tidigare. Standardnamnet är **SQLDatabaseExtension.bacpac**.
     * **Autentiseringstyp**: Välj **SAS**.  *SAS* är standardvärdet.
 3. Välj **Överför**.  När filen har laddats upp bör filnamnet anges i containern.
 
@@ -118,23 +118,23 @@ En blobcontainer krävs innan du kan ladda upp filer.
 1. Högerklicka på **SQLDatabaseExtension.bacpac** från containern och välj sedan **Generera SAS**.
 2. Ange följande värden:
 
-    * **Behörighet**: Använd standardvärdet, **Läs**.
-    * **Datum/tid för start och utgång**: Med standardvärdet har du åtta timmar på dig att använda SAS-token. Om du behöver mer tid för att slutföra den här självstudien uppdaterar du **Förfallodatum**.
-    * **Tillåtna IP-adresser**: Lämna det här fältet tomt.
-    * **Tillåtna protokoll**: Använd standardvärdet: **HTTPS**.
-    * **Signeringsnyckel**: Använd standardvärdet: **Nyckel 1**.
+    * **Behörighet**: Använd standard filen **Read**.
+    * **Start-och utgångs datum/tid**: standardvärdet ger dig åtta timmar att använda SAS-token. Om du behöver mer tid för att slutföra den här självstudien uppdaterar du **Förfallodatum**.
+    * **Tillåtna IP-adresser**: lämna fältet tomt.
+    * **Tillåtna protokoll**: Använd standardvärdet: **https**.
+    * **Signerings nyckel**: Använd standardvärdet: **Key 1**.
 3. Välj **Generera blob-SAS-token och URL**.
 4. Skapa en kopia av **Blob-SAS-URL**. I mitten av URL:en finns filnamnet **SQLDatabaseExtension.bacpac**.  Filnamnet delar in URL:en i tre delar:
 
    - **Plats för artefakt**: https://xxxxxxxxxxxxxx.blob.core.windows.net/sqlbacpac/. Se till att platsen slutar med ett ”/”.
-   - **BACPAC-filnamn**: SQLDatabaseExtension.bacpac.
-   - **SAS-token för artefaktplats**: Se till att token föregås av ett ”?”.
+   - **BACPAC-fil namn**: SQLDatabaseExtension. bacpac.
+   - **SAS-token för artefakt plats**: kontrol lera att token föregås av "?."
 
      Du behöver dessa tre värden i [Distribuera mallen](#deploy-the-template).
 
 ## <a name="open-an-existing-template"></a>Öppna en befintlig mall
 
-I den här sessionen ändrar du den mall som du skapade i [Självstudie: Importera SQL BACPAC-filer med Azure Resource Manager-mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) för att anropa BACPAC-filen med en SAS-token.  Mallen som utvecklas i själv studie kursen för SQL-tillägg delas i [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
+I den här sessionen ändrar du mallen som du skapade i [själv studie kursen: importera SQL BACPAC-filer med Azure Resource Manager mallar](./resource-manager-tutorial-deploy-sql-extensions-bacpac.md) för att anropa BACPAC-filen med en SAS-token.  Mallen som utvecklas i själv studie kursen för SQL-tillägg delas i [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-sql-extension/azuredeploy.json).
 
 1. Från Visual Studio Code väljer du **Arkiv**>**Öppna fil**.
 2. I **Filnamn** klistrar du in följande URL:
@@ -152,7 +152,7 @@ I den här sessionen ändrar du den mall som du skapade i [Självstudie: Importe
    * `Microsoft.SQL/servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
    * `Microsoft.SQL/server/databases/extensions`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/2014-04-01/servers/databases/extensions).
 
-     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
 4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Redigera mallen

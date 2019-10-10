@@ -67,9 +67,9 @@ Växel aktiviteten ger samma funktioner som en switch-instruktion i programmerin
 
 Egenskap | Beskrivning | Tillåtna värden | Krävs
 -------- | ----------- | -------------- | --------
-name | Växel aktivitetens namn. | Sträng | Ja
-type | Måste anges för att *växla** | Sträng | Ja
-expression | Uttryck som måste utvärderas till sträng värde | Uttryck med resultat typs sträng | Ja
+namn | Växel aktivitetens namn. | Sträng | Ja
+typ | Måste anges för att *växla** | Sträng | Ja
+uttryck | Uttryck som måste utvärderas till sträng värde | Uttryck med resultat typs sträng | Ja
 fall | En uppsättning ärenden som innehåller ett värde och en uppsättning aktiviteter som ska köras när värdet matchar uttrycks utvärderingen. Måste innehålla minst ett fall. Det finns en Max gräns på 25 fall. | Matris med Case-objekt | Ja
 defaultActivities | Uppsättning aktiviteter som körs när uttrycks utvärderingen inte är uppfyllt. | Matris med aktiviteter | Ja
 

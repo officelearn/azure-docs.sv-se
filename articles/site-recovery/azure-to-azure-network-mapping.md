@@ -18,7 +18,7 @@ ms.locfileid: "72178100"
 
 Den här artikeln beskriver hur du mappar två instanser av virtuella Azure-nätverk (virtuella nätverk) som finns i olika Azure-regioner och hur du konfigurerar IP-adresser mellan nätverk. Nätverks mappning är ett standard beteende för val av mål nätverk baserat på käll nätverk vid tidpunkten för att aktivera replikering.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du mappar nätverk bör du ha [Azure-virtuella nätverk](../virtual-network/virtual-networks-overview.md) i Azure-regionerna källa och mål. 
 
@@ -67,8 +67,8 @@ Under nätet för den virtuella mål datorn väljs baserat på namnet på under 
 
 IP-adressen för varje nätverkskort på en virtuell mål dator konfigureras enligt följande:
 
-- **DHCP**: Om NÄTVERKSKORTet för den virtuella käll datorn använder DHCP, ställs även NÄTVERKSKORTet på den virtuella mål datorn in för att använda DHCP.
-- **Statisk IP-adress**: Om NÄTVERKSKORTet för den virtuella käll datorn använder statisk IP-adressering, använder den virtuella mål datorns nätverkskort även en statisk IP-adress.
+- **DHCP**: om nätverkskortet för den virtuella käll datorn använder DHCP, ställs även nätverkskortet på den virtuella mål datorn in för att använda DHCP.
+- **Statisk IP-adress**: om nätverkskortet för den virtuella käll datorn använder statisk IP-adressering, använder den virtuella mål datorns nätverkskort även en statisk IP-adress.
 
 
 ## <a name="ip-address-assignment-during-failover"></a>IP-adresstilldelning under redundans
@@ -85,8 +85,8 @@ Annat adress utrymme<br/><br/> Nästa tillgängliga IP-adress i mål under näte
 
 **Mål nätverk** | **Detaljer**
 --- | ---
-Mål nätverket är det virtuella nätverket med redundans | -Mål-IP-adressen är statisk, men inte samma IP-adress som reserverad för redundans.<br/><br/>  -Den tilldelade adressen är nästa tillgängliga adress från slutet av under nätets intervall.<br/><br/> Exempel: Om käll-IP-adressen är 10.0.0.19 och failover-nätverket använder intervallet 10.0.0.0/24, är nästa IP-adress som tilldelats den virtuella mål datorn 10.0.0.254.
-Mål nätverket är inte det virtuella nätverkets VNet | -Mål-IP-adressen kommer att vara statisk med samma IP-adress som reserver ATS för redundans.<br/><br/>  -Om samma IP-adress redan har tilldelats är IP-adressen nästa som är tillgänglig i slutet av under nätets intervall.<br/><br/> Exempel: Om den statiska käll-IP-adressen är 10.0.0.19 och redundansväxlingen finns i ett nätverk som inte är redundansklustret, med intervallet 10.0.0.0/24, blir den statiska IP-adressen 10.0.0.0.19 om den är tillgänglig och annars kommer den att vara 10.0.0.254.
+Mål nätverket är det virtuella nätverket med redundans | -Mål-IP-adressen är statisk, men inte samma IP-adress som reserverad för redundans.<br/><br/>  -Den tilldelade adressen är nästa tillgängliga adress från slutet av under nätets intervall.<br/><br/> Exempel: om käll-IP-adressen är 10.0.0.19 och redundansväxlingen använder intervallet 10.0.0.0/24, är nästa IP-adress som tilldelats den virtuella mål datorn 10.0.0.254.
+Mål nätverket är inte det virtuella nätverkets VNet | -Mål-IP-adressen kommer att vara statisk med samma IP-adress som reserver ATS för redundans.<br/><br/>  -Om samma IP-adress redan har tilldelats är IP-adressen nästa som är tillgänglig i slutet av under nätets intervall.<br/><br/> Exempel: om den statiska käll-IP-adressen är 10.0.0.19 och redundansväxlingen finns i ett nätverk som inte är redundansklustret, med intervallet 10.0.0.0/24, blir den statiska IP-adressen 10.0.0.0.19 om den är tillgänglig och annars kommer den att vara 10.0.0.254.
 
 - Redundansväxlingen VNet är det mål nätverk som du väljer när du konfigurerar haveri beredskap.
 - Vi rekommenderar att du alltid använder ett nätverk som inte är för produktion för redundanstest.

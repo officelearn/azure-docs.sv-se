@@ -15,16 +15,16 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: 3e954a6c714e525e5bbefe8f62c798cf8ac9a517
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71036386"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170258"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL Server-redundanskluster på Azure Virtual Machines
 
-Den här artikeln beskriver hur du skapar en SQL Server-FCI (failover Cluster instance) på virtuella Azure-datorer i Resource Manager-modellen. Den här lösningen använder [Windows Server 2016 Data Center \(Edition\) Lagringsdirigering S2D](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) som ett programvarubaserad virtuellt SAN-nätverk som synkroniserar lagringen (data diskar) mellan noderna (virtuella Azure-datorer) i ett Windows-kluster. S2D är nytt i Windows Server 2016.
+Den här artikeln beskriver hur du skapar en SQL Server-FCI (failover Cluster instance) på virtuella Azure-datorer i Resource Manager-modellen. Den här lösningen använder [Windows Server 2016 Data Center edition Lagringsdirigering \(S2D @ no__t-2](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview) som en PROGRAMVARUBASERAD virtuell San-server som synkroniserar lagringen (data diskar) mellan noderna (virtuella Azure-datorer) i ett Windows-kluster. S2D är nytt i Windows Server 2016.
 
 Följande diagram visar den kompletta lösningen på virtuella Azure-datorer:
 
@@ -43,7 +43,7 @@ Föregående diagram visar:
    >[!NOTE]
    >Alla Azure-resurser finns i diagrammet i samma resurs grupp.
 
-Mer information om S2D finns i [Windows Server 2016 Data Center Edition \(Lagringsdirigering\)S2D](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
+Mer information om S2D finns i [Windows Server 2016 Data Center edition Lagringsdirigering \(S2D @ no__t-2](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/storage-spaces-direct-overview).
 
 S2D stöder två typer av arkitekturer – konvergerade och Hyper-konvergerade. Arkitekturen i det här dokumentet är Hyper-konvergerad. En Hyper-konvergerad infrastruktur placerar lagringen på samma servrar som är värdar för det klustrade programmet. I den här arkitekturen finns lagringen på varje SQL Server FCI-nod.
 
@@ -81,7 +81,7 @@ Dessutom bör du ha en allmän förståelse för följande tekniker:
 - [Resurs grupper i Azure](../../../azure-resource-manager/manage-resource-groups-portal.md)
 
 > [!IMPORTANT]
-> För närvarande stöds inte [SQL Server IaaS agent Extension](virtual-machines-windows-sql-server-agent-extension.md) för SQL Server FCI på Azure. Vi rekommenderar att du avinstallerar tillägget från virtuella datorer som ingår i FCI. Det här tillägget har stöd för funktioner, till exempel automatisk säkerhets kopiering och uppdatering och vissa Portal funktioner för SQL. Dessa funktioner fungerar inte för virtuella SQL-datorer när agenten har avinstallerats.
+> För närvarande stöds SQL Server redundanskluster på Azure Virtual Machines endast med läget för [förenklad](virtual-machines-windows-sql-register-with-resource-provider.md#register-with-sql-vm-resource-provider) hantering i [SQL Server IaaS agent-tillägget](virtual-machines-windows-sql-server-agent-extension.md). Avinstallera det fullständiga tillägget från de virtuella datorer som ingår i redundansklustret och registrera dem sedan med resurs leverantören för SQL-VM i `lightweight`-läge. Det fullständiga tillägget har stöd för funktioner som automatisk säkerhets kopiering, uppdatering och avancerad Portal hantering. Dessa funktioner fungerar inte för virtuella SQL-datorer när agenten har installerats om i läget för förenklad hantering.
 
 ### <a name="what-to-have"></a>Vad ska jag ha
 
@@ -98,7 +98,7 @@ Innan du följer anvisningarna i den här artikeln bör du redan ha:
 
 Med dessa krav på plats kan du fortsätta med att skapa ett redundanskluster. Det första steget är att skapa de virtuella datorerna.
 
-## <a name="step-1-create-virtual-machines"></a>Steg 1: Skapa virtuella datorer
+## <a name="step-1-create-virtual-machines"></a>Steg 1: skapa virtuella datorer
 
 1. Logga in på [Azure Portal](https://portal.azure.com) med din prenumeration.
 
@@ -108,13 +108,13 @@ Med dessa krav på plats kan du fortsätta med att skapa ett redundanskluster. D
 
    Om du inte har skapat resurs gruppen för dina virtuella datorer gör du det när du skapar en Azures tillgänglighets uppsättning. Gör så här om du använder Azure Portal för att skapa tillgänglighets uppsättningen:
 
-   - Öppna Azure Marketplace genom att **+** Klicka på Azure Portal. Sök efter **tillgänglighets uppsättning**.
+   - Öppna Azure Marketplace genom att klicka på **+** i Azure Portal. Sök efter **tillgänglighets uppsättning**.
    - Klicka på **tillgänglighets uppsättning**.
    - Klicka på **Skapa**.
    - Ange följande värden på bladet **skapa tillgänglighets uppsättning** :
-      - **Namn på**: Ett namn på tillgänglighets uppsättningen.
-      - **Prenumeration**: Din Azure-prenumeration.
-      - **Resursgrupp**: Om du vill använda en befintlig grupp klickar du på **Använd befintlig** och väljer gruppen i den nedrullningsbara listan. Annars väljer du **Skapa ny** och skriver ett namn för gruppen.
+      - **Namn**: ett namn på tillgänglighets uppsättningen.
+      - **Prenumeration**: din Azure-prenumeration.
+      - **Resurs grupp**: om du vill använda en befintlig grupp klickar du på **Använd befintlig** och väljer gruppen i den nedrullningsbara listan. Annars väljer du **Skapa ny** och skriver ett namn för gruppen.
       - **Plats**: Ange den plats där du planerar att skapa virtuella datorer.
       - **Fel domäner**: Använd standardvärdet (3).
       - **Uppdaterings domäner**: Använd standardvärdet (5).
@@ -140,7 +140,7 @@ Med dessa krav på plats kan du fortsätta med att skapa ett redundanskluster. D
 
    Välj rätt bild enligt hur du vill betala för SQL Server-licensen:
 
-   - **Betala per användnings licensiering**: Kostnaden per sekund för de här avbildningarna omfattar SQL Server-licensen:
+   - **Betala per användning-licens**: kostnaden per sekund för de här avbildningarna omfattar SQL Server-licensiering:
       - **SQL Server 2016 Enterprise på Windows Server Data Center 2016**
       - **SQL Server 2016 standard på Windows Server Data Center 2016**
       - **SQL Server 2016-utvecklare på Windows Server Data Center 2016**
@@ -205,7 +205,7 @@ Nästa steg är att konfigurera redundansklustret med S2D. I det här steget ska
 1. Verifiera klustret
 1. Skapa redundansklustret
 1. Skapa moln vittnet
-1. Lägg till lagringsutrymme
+1. Lägg till lagring
 
 ### <a name="add-windows-failover-clustering-feature"></a>Lägg till funktion för redundanskluster i Windows
 
@@ -238,14 +238,14 @@ Verifiera klustret med användar gränssnittet genom att utföra följande steg 
 
 1. Klicka på **verktyg**i **Serverhanteraren**och klicka sedan på **Klusterhanteraren för växling vid fel**.
 1. I **Klusterhanteraren för växling vid fel**klickar du på **åtgärd**och sedan på **Verifiera konfiguration...** .
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.
 1. På **Välj servrar eller ett kluster**skriver du namnet på båda de virtuella datorerna.
-1. På **test alternativ**väljer **du kör endast test som jag väljer**. Klicka på **Nästa**.
+1. På **test alternativ**väljer **du kör endast test som jag väljer**. Klicka på **Next**.
 1. Ta med alla tester utom **lagring**vid **Val av test**. Se följande bild:
 
    ![Validera tester](./media/virtual-machines-windows-portal-sql-create-failover-cluster/10-validate-cluster-test.png)
 
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.
 1. Klicka på **Nästa**vid **bekräftelse**.
 
 Verifierings testen körs i **guiden Verifiera en konfiguration** .
@@ -277,7 +277,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 #### <a name="windows-server-2019"></a>Windows Server 2019
 
-Följande PowerShell skapar ett redundanskluster för Windows Server 2019.  Mer information finns i bloggens [kluster för växling vid fel: Kluster nätverks objekt](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).  Uppdatera skriptet med namnen på noderna (namnen på de virtuella datorerna) och en tillgänglig IP-adress från det virtuella Azure-nätverket:
+Följande PowerShell skapar ett redundanskluster för Windows Server 2019.  Mer information finns i bloggens [redundanskluster: kluster nätverks objekt](https://blogs.windows.com/windowsexperience/2018/08/14/announcing-windows-server-2019-insider-preview-build-17733/#W0YAxO8BfwBRbkzG.97).  Uppdatera skriptet med namnen på noderna (namnen på de virtuella datorerna) och en tillgänglig IP-adress från det virtuella Azure-nätverket:
 
 ```powershell
 New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAddress <n.n.n.n> -NoStorage -ManagementPointNetworkType Singleton 
@@ -296,11 +296,11 @@ Moln vittne är en ny typ av klusterkvorum som lagras i en Azure Storage Blob. D
 
 1. Konfigurera ett kvorumlogg för redundanskluster. Se [Konfigurera kvorumdisken i användar gränssnittet i användar gränssnittet](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) .
 
-### <a name="add-storage"></a>Lägg till lagringsutrymme
+### <a name="add-storage"></a>Lägg till lagring
 
 Diskarna för S2D måste vara tomma och utan partitioner eller andra data. Om du vill rensa diskar följer [du stegen i den här hand boken](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-34-clean-disks).
 
-1. [Aktivera lagrings dirigering \(med\)S2D](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Aktivera lagrings dirigering \(S2D @ no__t-2](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Följande PowerShell aktiverar lagrings dirigering.  
 
@@ -312,7 +312,7 @@ Diskarna för S2D måste vara tomma och utan partitioner eller andra data. Om du
 
 1. [Skapa en volym](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
 
-   En av funktionerna i S2D är att den automatiskt skapar en lagringspool när du aktiverar den. Nu är du redo att skapa en volym. PowerShell-kommandot `New-Volume` automatiserar skapande processen för volymer, inklusive formatering, tillägg till klustret och skapande av en klusterdelad volym (CSV). I följande exempel skapas en 800 gigabyte (GB) CSV.
+   En av funktionerna i S2D är att den automatiskt skapar en lagringspool när du aktiverar den. Nu är du redo att skapa en volym. PowerShell-kommandot `New-Volume` automatiserar processen för skapande av volym, inklusive formatering, tillägg i klustret och skapande av en klusterdelad volym (CSV). I följande exempel skapas en 800 gigabyte (GB) CSV.
 
    ```powershell
    New-Volume -StoragePoolFriendlyName S2D* -FriendlyName VDisk01 -FileSystem CSVFS_REFS -Size 800GB
@@ -324,11 +324,11 @@ Diskarna för S2D måste vara tomma och utan partitioner eller andra data. Om du
 
    ![ClusterSharedVolume](./media/virtual-machines-windows-portal-sql-create-failover-cluster/15-cluster-shared-volume.png)
 
-## <a name="step-3-test-failover-cluster-failover"></a>Steg 3: Testa redundans för kluster
+## <a name="step-3-test-failover-cluster-failover"></a>Steg 3: testa redundans för kluster
 
 I Klusterhanteraren för växling vid fel kontrollerar du att du kan flytta lagrings resursen till den andra klusternoden. Om du kan ansluta till redundansklustret med **Klusterhanteraren för växling vid fel** och flytta lagringen från en nod till en annan, är du redo att konfigurera FCI.
 
-## <a name="step-4-create-sql-server-fci"></a>Steg 4: Skapa SQL Server FCI
+## <a name="step-4-create-sql-server-fci"></a>Steg 4: skapa SQL Server FCI
 
 När du har konfigurerat redundansklustret och alla kluster komponenter, inklusive lagring, kan du skapa SQL Server FCI.
 
@@ -357,7 +357,7 @@ När du har konfigurerat redundansklustret och alla kluster komponenter, inklusi
    >[!NOTE]
    >Om du använde en Azure Marketplace-Galleri avbildning med SQL Server, inkluderades SQL Server verktyg tillsammans med avbildningen. Om du inte använde avbildningen installerar du SQL Server verktyg separat. Se [Ladda ned SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
 
-## <a name="step-5-create-azure-load-balancer"></a>Steg 5: Skapa en Azure Load Balancer
+## <a name="step-5-create-azure-load-balancer"></a>Steg 5: Skapa Azure Load Balancer
 
 På Azure Virtual Machines använder kluster en belastningsutjämnare för att lagra en IP-adress som måste finnas på en klusternod i taget. I den här lösningen innehåller belastningsutjämnaren IP-adressen för SQL Server FCI.
 
@@ -375,13 +375,13 @@ Så här skapar du belastningsutjämnaren:
 
 1. Konfigurera belastningsutjämnaren med:
 
-   - **Namn på**: Ett namn som identifierar belastningsutjämnaren.
-   - **Typ**: Belastningsutjämnaren kan vara antingen offentlig eller privat. Det går att få åtkomst till en privat belastningsutjämnare i samma VNET. De flesta Azure-program kan använda en privat belastningsutjämnare. Om ditt program behöver åtkomst till SQL Server direkt via Internet använder du en offentlig belastningsutjämnare.
-   - **Virtual Network**: Samma nätverk som de virtuella datorerna.
-   - **Undernät**: Samma undernät som de virtuella datorerna.
-   - **Privat IP-adress**: Samma IP-adress som du tilldelade SQL Server FCI-kluster nätverks resurs.
-   - **prenumeration**: Din Azure-prenumeration.
-   - **Resursgrupp**: Använd samma resurs grupp som dina virtuella datorer.
+   - **Namn**: ett namn som identifierar belastningsutjämnaren.
+   - **Typ**: belastningsutjämnaren kan vara antingen offentlig eller privat. Det går att få åtkomst till en privat belastningsutjämnare i samma VNET. De flesta Azure-program kan använda en privat belastningsutjämnare. Om ditt program behöver åtkomst till SQL Server direkt via Internet använder du en offentlig belastningsutjämnare.
+   - **Virtual Network**: samma nätverk som de virtuella datorerna.
+   - **Undernät**: samma undernät som de virtuella datorerna.
+   - **Privat IP-adress**: samma IP-adress som du tilldelade SQL Server FCI-kluster nätverks resurs.
+   - **prenumeration**: din Azure-prenumeration.
+   - **Resurs grupp**: Använd samma resurs grupp som dina virtuella datorer.
    - **Plats**: Använd samma Azure-plats som dina virtuella datorer.
    Se följande bild:
 
@@ -407,11 +407,11 @@ Så här skapar du belastningsutjämnaren:
 
 1. På bladet **Lägg till hälso avsökning** <a name="probe"> </a>anger du parametrar för hälso avsökning:
 
-   - **Namn på**: Ett namn på hälso avsökningen.
+   - **Namn**: ett namn för hälso avsökningen.
    - **Protokoll**: TCP.
    - **Port**: Ange till den port som du skapade i brand väggen för hälso avsökningen i [det här steget](#ports). I den här artikeln använder exemplet TCP-port `59999`.
    - **Intervall**: 5 sekunder.
-   - **Tröskelvärde för Ej felfri**: 2 efterföljande försök.
+   - **Tröskelvärde**för fel: 2 efterföljande fel.
 
 1. Klicka på OK.
 
@@ -423,17 +423,17 @@ Så här skapar du belastningsutjämnaren:
 
 1. Ange parametrar för belastnings Utjämnings regler:
 
-   - **Namn på**: Ett namn på belastnings Utjämnings reglerna.
+   - **Namn**: ett namn för belastnings Utjämnings reglerna.
    - **IP-adress för klient**del: Använd IP-adressen för SQL Server FCI-kluster nätverks resurs.
-   - **Port**: Anges för TCP-porten för SQL Server FCI. Standard instans porten är 1433.
-   - **Serverdelsport**: Värdet använder samma port som **port** värdet när du aktiverar **flytande IP (direkt Server retur)** .
-   - **Serverdelspool**: Använd det namn på backend-poolen som du konfigurerade tidigare.
-   - **Hälsoavsökning**: Använd den hälso avsökning som du konfigurerade tidigare.
-   - **Persistence för session**: Ingen.
+   - **Port**: anges för SQL Server FCI TCP-port. Standard instans porten är 1433.
+   - **Backend-port**: det här värdet använder samma port som **port** svärdet när du aktiverar **flytande IP (direkt Server retur)** .
+   - **Backend-pool**: Använd det Server dels namn som du konfigurerade tidigare.
+   - **Hälso avsökning**: Använd den hälso avsökning som du konfigurerade tidigare.
+   - **Persistence för session**: ingen.
    - **Tids gräns för inaktivitet (minuter)** : 4.
-   - **Flytande IP (direkt Server retur)** : Aktiverad
+   - **Flytande IP (direkt Server retur)** : aktive rad
 
-1. Klicka på **OK**.
+1. Klicka på **OK**
 
 ## <a name="step-6-configure-cluster-for-probe"></a>Steg 6: Konfigurera kluster för avsökning
 
@@ -454,13 +454,13 @@ Om du vill ange parametern för kluster avsöknings porten uppdaterar du variabl
 
 Ange värdena för din miljö i föregående skript. I följande lista beskrivs värdena:
 
-   - `<Cluster Network Name>`: Kluster namn för Windows Server-redundanskluster för nätverket. I **Klusterhanteraren för växling vid fel** > **nätverk**högerklickar du på nätverket och klickar på **Egenskaper**. Det korrekta värdet finns under **namn** på fliken **Allmänt** . 
+   - `<Cluster Network Name>`: kluster namn för Windows Server-redundanskluster för nätverket. I **Klusterhanteraren för växling vid fel** > **nätverk**högerklickar du på nätverket och klickar på **Egenskaper**. Det korrekta värdet finns under **namn** på fliken **Allmänt** . 
 
-   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP-adressens resurs namn. I **Klusterhanteraren för växling vid fel** > **roller**, under rollen SQL Server FCI, högerklickar du på IP-adressresursen under **Server namn**och klickar på **Egenskaper**. Det korrekta värdet finns under **namn** på fliken **Allmänt** . 
+   - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP-adressresurs. I **Klusterhanteraren för växling vid fel** > **roller**går du till SQL Server FCI-rollen och högerklickar på IP-adressresursen under **Server namn**och klickar på **Egenskaper**. Det korrekta värdet finns under **namn** på fliken **Allmänt** . 
 
-   - `<ILBIP>`: ILB IP-adress. Adressen är konfigurerad i Azure Portal som klient adress för ILB. Detta är också den SQL Server FCI-IP-adressen. Du hittar den i **Klusterhanteraren för växling vid fel** på samma egenskaps sida där du placerade `<SQL Server FCI IP Address Resource Name>`.  
+   - `<ILBIP>`: ILB IP-adress. Adressen är konfigurerad i Azure Portal som klient adress för ILB. Detta är också den SQL Server FCI-IP-adressen. Du hittar den i **Klusterhanteraren för växling vid fel** på samma egenskaps sida där du hittade `<SQL Server FCI IP Address Resource Name>`.  
 
-   - `<nnnnn>`: Är avsöknings porten som du konfigurerade i belastnings utjämningens hälso avsökning. En oanvänd TCP-port är giltig. 
+   - `<nnnnn>`: är avsöknings porten som du konfigurerade i belastnings utjämningens hälso avsökning. En oanvänd TCP-port är giltig. 
 
 >[!IMPORTANT]
 >Nät masken för kluster parametern måste vara TCP IP-broadcast-adressen: `255.255.255.255`.
@@ -471,7 +471,7 @@ När du har ställt in kluster avsökningen kan du se alla kluster parametrar i 
    Get-ClusterResource $IPResourceName | Get-ClusterParameter 
   ```
 
-## <a name="step-7-test-fci-failover"></a>Steg 7: Testa FCI redundans
+## <a name="step-7-test-fci-failover"></a>Steg 7: testa FCI redundans
 
 Testa redundansväxlingen av FCI för att verifiera kluster funktionen. Gör så här:
 

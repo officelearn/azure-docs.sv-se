@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
-ms.author: subramar
-ms.openlocfilehash: 82b6e701a5f76aa4c2cea78417ca9bcbeeb10308
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.author: atsenthi
+ms.openlocfilehash: a795e01d37504dad360dc094b6b2aea2955b6a4a
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68927697"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170442"
 ---
 # <a name="specify-resources-in-a-service-manifest"></a>Ange resurser i ett tjänstmanifest
 ## <a name="overview"></a>Översikt
@@ -56,7 +56,7 @@ Om det finns flera kod paket i ett enda tjänst paket måste kod paketet också 
 Läs mer om att [Konfigurera tillstånds känsliga Reliable Services](service-fabric-reliable-services-configuration.md) för att läsa mer om att referera till slut punkter från konfigurations filen för konfigurations paket (Settings. xml).
 
 ## <a name="example-specifying-an-http-endpoint-for-your-service"></a>Exempel: Ange en HTTP-slutpunkt för din tjänst
-Följande tjänst manifest definierar en resurs för TCP-slutpunkten och två http- &lt;slutpunkts resurser i resurs&gt; -elementet.
+Följande tjänst manifest definierar en resurs för TCP-slutpunkten och två HTTP-slutpunkter i elementet &lt;Resources @ no__t-1.
 
 HTTP-slutpunkter är automatiskt ACL med Service Fabric.
 
@@ -112,7 +112,7 @@ HTTPS-protokollet tillhandahåller serverautentisering och används även för k
 > 
 
 > [!WARNING] 
-> När du använder HTTPS ska du inte använda samma port och certifikat för olika tjänst instanser (oberoende av programmet) som distribueras till samma nod. Uppgradering av två olika tjänster med samma port i olika program instanser leder till ett uppgraderings haveri. Mer information finns i [uppgradera flera program med https ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints)-slutpunkter.
+> När du använder HTTPS ska du inte använda samma port och certifikat för olika tjänst instanser (oberoende av programmet) som distribueras till samma nod. Uppgradering av två olika tjänster med samma port i olika program instanser leder till ett uppgraderings haveri. Mer information finns i [uppgradera flera program med https-slutpunkter ](service-fabric-application-upgrade.md#upgrading-multiple-applications-with-https-endpoints).
 >
 
 Här är ett exempel på en ApplicationManifest som du måste ange för HTTPS. Tumavtryck för ditt certifikat måste anges. EndpointRef är en referens till EndpointResource i ServiceManifest som du ställer in HTTPS-protokollet för. Du kan lägga till fler än en EndpointCertificate.  
@@ -202,7 +202,7 @@ När du distribuerar programmet kan du överföra dessa värden som ApplicationP
 PS C:\> New-ServiceFabricApplication -ApplicationName fabric:/myapp -ApplicationTypeName "AppType" -ApplicationTypeVersion "1.0.0" -ApplicationParameter @{Port='1001'; Protocol='https'; Type='Input'; Port1='2001'; Protocol='http'}
 ```
 
-Anteckning: Om värdena för ApplicationParameters är tomma går vi tillbaka till det standardvärde som anges i ServiceManifest för motsvarande EndPointName.
+Obs! Om värdena för ApplicationParameters är tomma går vi tillbaka till det standardvärde som anges i ServiceManifest för motsvarande EndPointName.
 
 Exempel:
 
@@ -218,4 +218,4 @@ Om du har angett i ServiceManifest
 
 Och värdet PORT1 och Protocol1 för program parametrarna är null eller tomt. Porten bestäms fortfarande av ServiceFabric. Och protokollet kommer att TCP.
 
-Anta att du anger ett felaktigt värde. Precis som för porten angav du ett sträng värde "foo" i stället för en int.  Kommandot New-ServiceFabricApplication kommer inte att fungera med ett fel: Parametern override med namnet ServiceEndpoint1 PORT1 i avsnittet ResourceOverrides är ogiltig. Det angivna värdet är ' foo ' och måste vara ' int '.
+Anta att du anger ett felaktigt värde. Precis som för porten angav du ett sträng värde "foo" i stället för en int.  New-ServiceFabricApplication-kommandot Miss fungerar med ett fel: parametern override med namnet ServiceEndpoint1 PORT1 i avsnittet ResourceOverrides är ogiltig. Det angivna värdet är ' foo ' och måste vara ' int '.

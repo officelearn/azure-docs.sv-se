@@ -1,41 +1,41 @@
 ---
-title: Automatisk skalning och Zone-redundant Application Gateway v2
+title: Automatisk skalning och zonredundant Application Gateway v2
 description: Den här artikeln beskriver Azure Application Standard_v2 och WAF_v2 SKU, som innehåller funktioner för automatisk skalning och zon-redundanta funktioner.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 6/13/2019
+ms.date: 10/09/2019
 ms.author: victorh
-ms.openlocfilehash: b97dab0f41915ac6193c35cad9a6af812b16fd4a
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: f58ac4448f50e8e02f2838fef02c9f884f69266b
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104891"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177441"
 ---
-# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och Zone-redundant Application Gateway v2 
+# <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Automatisk skalning och zonredundant Application Gateway v2 
 
 Application Gateway och brand vägg för webbaserade program (WAF) är även tillgängliga under en Standard_v2-och WAF_v2-SKU. V2-SKU: n erbjuder prestanda förbättringar och ger stöd för viktiga nya funktioner som automatisk skalning, zon redundans och stöd för statiska VIP. Befintliga funktioner under standard-och WAF-SKU: n fortsätter att stödjas i den nya v2-SKU: n, med några undantag som anges i [jämförelse](#differences-with-v1-sku) avsnittet.
 
 Den nya v2-SKU: n innehåller följande förbättringar:
 
-- **Automatisk skalning**: Application Gateway-eller WAF-distributioner under SKU: n för automatisk skalning kan skalas upp eller ned baserat på ändrade trafik belastnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Den här SKU: n erbjuder verklig elastiskhet. I Standard_v2-och WAF_v2-SKU: n kan Application Gateway använda både fast kapacitet (automatisk skalning inaktive rad) och i autoskalning aktiverat läge. Läget för fast kapacitet är användbart för scenarier med konsekventa och förutsägbara arbets belastningar. Autoskalning-läget är fördelaktigt i program som ser varians i program trafik.
-- **Zon redundans**: En Application Gateway-eller WAF-distribution kan spänna över flera Tillgänglighetszoner och du tar bort behovet av att etablera separata Application Gateway instanser i varje zon med en Traffic Manager. Du kan välja en enskild zon eller flera zoner där Application Gateway instanser distribueras, vilket gör det mer flexibelt för zon haverit. Backend-poolen för program kan distribueras på samma sätt i tillgänglighets zoner.
+- Automatisk **skalning**: Application Gateway-eller WAF-distributioner under SKU: n för automatisk skalning kan skalas upp eller ned baserat på ändrade trafik belastnings mönster. Automatisk skalning tar även bort behovet av att välja distributionsstorlek eller instansantal under etablering. Den här SKU: n erbjuder verklig elastiskhet. I Standard_v2-och WAF_v2-SKU: n kan Application Gateway använda både fast kapacitet (automatisk skalning inaktive rad) och i autoskalning aktiverat läge. Läget för fast kapacitet är användbart för scenarier med konsekventa och förutsägbara arbets belastningar. Autoskalning-läget är fördelaktigt i program som ser varians i program trafik.
+- **Zon redundans**: en Application Gateway-eller WAF-distribution kan spänna över flera Tillgänglighetszoner och du tar bort behovet av att etablera separata Application Gateway instanser i varje zon med en Traffic Manager. Du kan välja en enskild zon eller flera zoner där Application Gateway instanser distribueras, vilket gör det mer flexibelt för zon haverit. Backend-poolen för program kan distribueras på samma sätt i tillgänglighets zoner.
 
   Zon redundans är bara tillgängligt där Azure-zoner är tillgängliga. I andra regioner stöds alla andra funktioner. Mer information finns i [Vad är Tillgänglighetszoner i Azure?](../availability-zones/az-overview.md#services-support-by-region)
 - **Statisk VIP**: Application Gateway v2 SKU stöder enbart statisk VIP-typ. Detta säkerställer att den VIP som är associerad med programgatewayen inte ändras för distributionens livs cykel, även efter en omstart.  Det finns ingen statisk VIP i v1, så du måste använda Application Gateway-URL: en i stället för IP-adressen för att routning av domän namn ska kunna App Services via programgatewayen.
-- **Omarbetning av huvud**: Med Application Gateway kan du lägga till, ta bort eller uppdatera HTTP-begäran och svars rubriker med v2 SKU. Mer information finns i [skriva om HTTP-huvuden med Application Gateway](rewrite-http-headers.md)
-- **Key Vault integration (för hands version)** : Application Gateway v2 stöder integrering med Key Vault (i offentlig för hands version) för Server certifikat som är anslutna till HTTPS-aktiverade lyssnare. Mer information finns i [SSL-avslutning med Key Vault certifikat](key-vault-certs.md).
-- Ingångs **kontroll för Azure Kubernetes service (för hands version)** : Application Gateway v2-styrenheten för ingångs kontroll gör att Azure Application Gateway kan användas som ingress för en Azure Kubernetes-tjänst (AKS) som kallas AKS-kluster. Mer information finns på [dokumentations sidan](https://azure.github.io/application-gateway-kubernetes-ingress/).
-- **Prestanda förbättringar**: V2-SKU: n erbjuder upp till 5X bättre prestanda för SSL-avläsning jämfört med standard-/WAF SKU: n.
+- **Omskrivning av rubrik**: Application Gateway låter dig lägga till, ta bort eller uppdatera http-begäran och svarshuvuden med v2-SKU. Mer information finns i [skriva om HTTP-huvuden med Application Gateway](rewrite-http-headers.md)
+- **Key Vault integration (för hands version)** : Application Gateway v2 stöder integrering med Key Vault (i offentlig för hands version) för Server certifikat som är anslutna till https-aktiverade lyssnare. Mer information finns i [SSL-avslutning med Key Vault certifikat](key-vault-certs.md).
+- Ingångs **styrenhet för Azure Kubernetes service (förhands granskning)** : Application Gateway v2 ingångs styrenheten tillåter att Azure Application Gateway används som ingångs punkt för en Azure Kubernetes service (AKS) som kallas AKS-kluster. Mer information finns på [dokumentations sidan](https://azure.github.io/application-gateway-kubernetes-ingress/).
+- **Prestanda förbättringar**: v2-SKU: n erbjuder upp till fem gånger bättre SSL-avläsnings prestanda jämfört med standard-/WAF SKU: n.
 - **Snabbare distribution och uppdaterings tid** V2-SKU: n ger snabbare distribution och uppdaterings tid jämfört med standard-/WAF SKU. Detta inkluderar även WAF konfigurations ändringar.
 
 ![](./media/application-gateway-autoscaling-zone-redundant/application-gateway-autoscaling-zone-redundant.png)
 
 ## <a name="supported-regions"></a>Regioner som stöds
 
-Standard_v2-och WAF_v2-SKU: n är tillgänglig i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, norra Europa, Västeuropa, Sydostasien, Frankrike Central, Storbritannien, västra, Östra Japan, västra Japan, östra Australien, sydöstra Australien, centrala Kanada, östra USA, Asien, östra, Korea Centrala, södra Korea, södra Indien, Storbritannien, södra, centrala Indien, västra Indien, södra Indien.
+Standard_v2-och WAF_v2-SKU: n är tillgänglig i följande regioner: Norra centrala USA, södra centrala USA, västra USA, västra USA 2, östra USA, östra USA 2, centrala USA, norra Europa, västra Europa, Sydostasien, Frankrike Central, Storbritannien, västra, Östra Japan, västra Japan, östra Australien , Sydöstra Australien, södra Brasilien, centrala Kanada, Östra Kanada, Asien, östra, Korea, centrala, Republiken Korea, södra Indien, Storbritannien, södra, centrala Indien, västra Indien, södra Indien.
 
 ## <a name="pricing"></a>Prissättning
 
@@ -44,7 +44,7 @@ Med v2-SKU: n drivs pris sättnings modellen av förbrukning och är inte längr
 - **Fast pris** – det här är ett Tim pris (eller delvis tim) för att etablera en Standard_v2-eller WAF_v2-Gateway.
 - **Pris för kapacitets enhet** – det här är en förbruknings-baserad kostnad som debiteras utöver den fasta kostnaden. Debiteringen av kapacitetsenheter beräknas per timme eller delvis utnyttjade timmar. Kapacitetsenheter har tre aspekter: beräkningsenheter, beständiga anslutningar och dataflöde. Beräkningsenheter mäter förbrukad processorkapacitet. Faktorer som påverkar beräknings enheten är TLS-anslutningar/s, URL-omskrivning och bearbetning av WAF-regler. Beständig anslutning är ett mått på upprättade TCP-anslutningar till Application Gateway under ett visst fakturerings intervall. Data flödet är Genomsnittligt antal megabitar/s som bearbetats av systemet under ett angivet fakturerings intervall.
 
-Varje kapacitetsenhet består som mest av: 1 Compute-enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-genomflöde.
+Varje kapacitets enhet består av högst: 1 beräknings enhet eller 2500 beständiga anslutningar eller 2,22 – Mbps-dataflöde.
 
 Vägledning för beräknings enhet:
 
@@ -112,7 +112,7 @@ Application Gateway-och WAF kan konfigureras för skalning i två lägen:
 
 I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 
-|                                                   | V1 SKU   | V2-SKU   |
+|                                                   | v1 SKU   | v2-SKU   |
 | ------------------------------------------------- | -------- | -------- |
 | Automatisk skalning                                       |          | &#x2713; |
 | Zon redundans                                   |          | &#x2713; |
@@ -129,7 +129,7 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 | Sessionstillhörighet                                  | &#x2713; | &#x2713; |
 | Anpassade felsidor                                | &#x2713; | &#x2713; |
 | WebSocket-stöd                                 | &#x2713; | &#x2713; |
-| Stöd för HTTP/2                                    | &#x2713; | &#x2713; |
+| HTTP/2-stöd                                    | &#x2713; | &#x2713; |
 | Anslutningstömning                               | &#x2713; | &#x2713; |
 
 > [!NOTE]
@@ -137,7 +137,7 @@ I följande tabell jämförs de funktioner som är tillgängliga med varje SKU.
 
 ## <a name="differences-with-v1-sku"></a>Skillnader med v1 SKU
 
-|Skillnad|Information|
+|Avvikelse|Information|
 |--|--|
 |Certifikat för autentisering|Stöds ej.<br>Mer information finns i [Översikt över slutpunkt-till-slutpunkt-SSL med Application Gateway](ssl-overview.md#end-to-end-ssl-with-the-v2-sku).|
 |Blanda Standard_v2 och standard Application Gateway i samma undernät|Stöds inte|
@@ -156,7 +156,7 @@ Det finns ett Azure PowerShell-skript i PowerShell-galleriet som hjälper dig at
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Snabbstart: Direkt webb trafik med Azure Application Gateway – Azure Portal](quick-create-portal.md)
+- [Snabb start: direkt webb trafik med Azure Application Gateway – Azure Portal](quick-create-portal.md)
 - [Skapa en automatisk skalning, en zon redundant Programgateway med en reserverad virtuell IP-adress med hjälp av Azure PowerShell](tutorial-autoscale-ps.md)
 - Läs mer om [Application Gateway](overview.md).
 - Läs mer om [Azure-brandväggen](../firewall/overview.md).

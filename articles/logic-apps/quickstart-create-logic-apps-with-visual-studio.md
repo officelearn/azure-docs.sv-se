@@ -12,14 +12,14 @@ ms.manager: carmonm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/25/2019
-ms.openlocfilehash: 194004362449f2f59a53d45e18e8dd72a29cc79a
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 47b7609fe111ecbe41a161bfbff1f7225ad66357
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029562"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72165919"
 ---
-# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabbstart: Skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio
+# <a name="quickstart-create-automated-tasks-processes-and-workflows-with-azure-logic-apps---visual-studio"></a>Snabb start: skapa automatiserade uppgifter, processer och arbets flöden med Azure Logic Apps-Visual Studio
 
 Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och Visual Studio kan du skapa arbetsflöden för att automatisera uppgifter och processer som integrerar appar, data, system och tjänster åt företag och organisationer. Den här snabb starten visar hur du kan utforma och skapa dessa arbets flöden genom att skapa Logi Kap par i Visual Studio och distribuera dessa appar till Azure. Även om du kan utföra dessa uppgifter i Azure Portal kan du med Visual Studio lägga till dina Logi Kap par i käll kontrollen, publicera olika versioner och skapa Azure Resource Manager mallar för olika distributions miljöer.
 
@@ -31,7 +31,7 @@ I den här snabb starten skapar du samma Logic-app med Visual Studio som Azure P
 
 <a name="prerequisites"></a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du heller inte har någon Azure-prenumeration kan du [registrera ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -59,6 +59,8 @@ I den här snabb starten skapar du samma Logic-app med Visual Studio som Azure P
     Du kan hämta och installera Azure Logic Apps Tools direkt från Visual Studio Marketplace, eller läsa mer om [hur du installerar tillägget från Visual Studio](https://docs.microsoft.com/visualstudio/ide/finding-and-using-visual-studio-extensions). 
     Se till att starta om Visual Studio när installationen är klar.
 
+* Om du vill arbeta med olika Azure-miljöer, till exempel Azure Government, kan du installera och använda tillägget för [Azures väljare för miljö väljare](https://marketplace.visualstudio.com/items?itemName=SteveMichelotti.AzureEnvironmentSelector) , vilket hjälper dig att växla enklare mellan miljöer. Mer information finns i [Introduktion till tillägget för Azures miljö väljare Visual Studio](https://devblogs.microsoft.com/azuregov/introducing-the-azure-environment-selector-visual-studio-extension/).
+
 * Tillgång till Internet när du använder den inbäddade Logic App Designer
 
   Designern behöver en Internet anslutning för att skapa resurser i Azure och läsa egenskaper och data från kopplingar i din Logic app. 
@@ -74,7 +76,7 @@ Kom igång genom att skapa ett [projekt för en Azure-resursgrupp](../azure-reso
 
 1. Starta Visual Studio. Logga in med ditt Azure-konto.
 
-1. Gå till **Arkiv**-menyn och välj **Nytt** > **Projekt**. PS/2-tangentbordet Ctrl + Shift + N)
+1. Gå till **Arkiv**-menyn och välj **Nytt** > **Projekt**. (Tangentbord: Ctrl+Skift+N)
 
    ![Skapa nytt Visual Studio-projekt](./media/quickstart-create-logic-apps-with-visual-studio/create-new-visual-studio-project.png)
 
@@ -106,7 +108,7 @@ Kom igång genom att skapa ett [projekt för en Azure-resursgrupp](../azure-reso
 
 När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **tomma Logic app** -mallen.
 
-1. Öppna snabb menyn **LogicApp. JSON** -filen i Solution Explorer. Välj **Öppna med Logic App Designer**. PS/2-tangentbordet CTRL + L)
+1. Öppna snabb menyn **LogicApp. JSON** -filen i Solution Explorer. Välj **Öppna med Logic App Designer**. (Tangentbord: Ctrl+L)
 
    ![Öppna filen LogicApp.json med Logic App Designer](./media/quickstart-create-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -122,9 +124,9 @@ När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **to
    | Inställning | Exempelvärde | Beskrivning |
    | ------- | ------------- | ----------- |
    | Lista med användarprofiler | Contoso <br> jamalhartnett@contoso.com | Som standard det konto som du använde för att logga in |
-   | **Prenumeration** | Betala per användning <br> (jamalhartnett@contoso.com) | Namnet på din Azure-prenumeration och det associerade kontot |
+   | **Prenumeration** | Användningsbaserad betalning <br> (jamalhartnett@contoso.com) | Namnet på din Azure-prenumeration och det associerade kontot |
    | **Resursgrupp** | MyLogicApp-RG <br> (Västra USA) | Azures resurs grupp och plats för att lagra och distribuera din Logic Apps resurser |
-   | **Location** | MyLogicApp-RG2 <br> (Västra USA) | En annan plats om du inte vill använda resursgruppens plats |
+   | **Plats** | MyLogicApp-RG2 <br> (Västra USA) | En annan plats om du inte vill använda resursgruppens plats |
    ||||
 
 1. Logic Apps designer öppnar en sida som visar en introduktions video och ofta använda utlösare. Rulla ned förbi videon och utlösarna till **mallar**och välj **Tom Logic app**.
@@ -136,7 +138,7 @@ När du har ett Azure-resurs grupps projekt skapar du din Logic app med den **to
 Lägg sedan till en RSS- [utlösare](../logic-apps/logic-apps-overview.md#logic-app-concepts) som utlöses när ett nytt flödes objekt visas. Varje Logic app börjar med en utlösare som utlöses när vissa villkor uppfylls. Varje gång utlösaren utlöses skapar Logic Apps-motorn en logikappinstans som kör ditt arbetsflöde.
 
 1. I Logic App Designer väljer du **alla**under sökrutan.
-Skriv "RSS" i rutan Sök. Välj den här utlösaren i listan utlösare: **När ett flödes objekt publiceras – RSS**
+Skriv "RSS" i rutan Sök. Välj den här utlösaren i listan utlösare: **när ett feed-objekt publiceras – RSS**
 
    ![Bygg din logikapp genom att lägga till en utlösare och åtgärder](./media/quickstart-create-logic-apps-with-visual-studio/add-trigger-logic-app.png)
 
@@ -144,7 +146,7 @@ Skriv "RSS" i rutan Sök. Välj den här utlösaren i listan utlösare: **När e
 
    ![Avsluta exempel på Logic app-arbetsflöde](./media/quickstart-create-logic-apps-with-visual-studio/finished-logic-app-workflow.png)
 
-1. Spara din Visual Studio-lösning. PS/2-tangentbordet CTRL + S)
+1. Spara din Visual Studio-lösning. (Tangentbord: Ctrl + S)
 
 <a name="deploy-to-Azure"></a>
 
@@ -189,11 +191,11 @@ När du har ett befintligt Azure Resource Group-projekt kan du lägga till en ny
 
 1. I menyn **Visa** väljer du en **annan Windows** > **JSON-disposition**.
 
-1. Om du vill lägga till en resurs i mallfilen väljer du **Lägg till resurs** längst upp i fönstret JSON-disposition. Eller högerklicka i JSON-disposition **resurser**, och välj **Lägg till ny resurs**.
+1. Om du vill lägga till en resurs i mallfilen väljer du **Lägg till resurs** längst upp i fönstret JSON-disposition. I fönstret JSON-disposition högerklickar du på **resurser**och väljer **Lägg till ny resurs**.
 
    ![Lägg till ny resurs i fönstret JSON-disposition](./media/quickstart-create-logic-apps-with-visual-studio/json-outline-window-add-resource.png)
 
-1. I den **Lägg till resurs** dialogrutan, lokaliserar och markerar **Logikapp**. Namnge logikappen och välj **Lägg till**.
+1. I dialog rutan **Lägg till resurs** letar du reda på och väljer **Logic app**. Namnge din Logic app och välj **Lägg till**.
 
    ![Lägg till ny Logic app-resurs i projektet](./media/quickstart-create-logic-apps-with-visual-studio/add-logic-app-resource.png)
 

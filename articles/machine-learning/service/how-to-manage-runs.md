@@ -29,7 +29,7 @@ Den här artikeln innehåller exempel på följande uppgifter:
 * Skapa underordnade körningar.
 * Tagga och hitta körningar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver följande objekt:
 
@@ -331,7 +331,7 @@ az ml run list --experiment-name experiment [?properties.author=='azureml-user' 
 
 Mer information om hur du frågar Azure CLI-resultat finns i [läsa utdata från Azure CLI-kommandot](https://docs.microsoft.com/cli/azure/query-azure-cli?view=azure-cli-latest).
 
-## <a name="example-notebooks"></a>Exempel-anteckningsböcker
+## <a name="example-notebooks"></a>Exempel på bärbara datorer
 
 Följande antecknings böcker demonstrerar begreppen i den här artikeln:
 

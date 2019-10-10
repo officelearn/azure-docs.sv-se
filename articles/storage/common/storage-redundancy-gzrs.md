@@ -49,7 +49,7 @@ När data skrivs till ett lagrings konto med GZRS eller RA-GZRS aktiverat, repli
 > [!IMPORTANT]
 > Asynkron replikering innebär en fördröjning mellan den tid som data skrivs till den primära regionen och när de replikeras till den sekundära regionen. I händelse av en regional katastrof kan ändringar som ännu inte har repliker ATS till den sekundära regionen gå förlorade om data inte kan återställas från den primära regionen.
 
-När du skapar ett lagrings konto anger du hur data i det kontot ska replikeras och du kan också ange den primära regionen för det kontot. Den kopplade sekundära regionen för ett geo-replikerat konto bestäms utifrån den primära regionen och kan inte ändras. Uppdaterad information om regioner som stöds av Azure finns i [Business kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner @ no__t-0. Information om hur du skapar ett lagrings konto med hjälp av GZRS eller RA-GZRS finns i [skapa ett lagrings konto](storage-quickstart-create-account.md).
+När du skapar ett lagrings konto anger du hur data i det kontot ska replikeras och du kan också ange den primära regionen för det kontot. Den kopplade sekundära regionen för ett geo-replikerat konto bestäms utifrån den primära regionen och kan inte ändras. Uppdaterad information om regioner som stöds av Azure finns i [verksamhets kontinuitet och haveri beredskap (BCDR): Azure-kopplade regioner](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Information om hur du skapar ett lagrings konto med hjälp av GZRS eller RA-GZRS finns i [skapa ett lagrings konto](storage-quickstart-create-account.md).
 
 ### <a name="use-ra-gzrs-for-high-availability"></a>Använd RA-GZRS för hög tillgänglighet
 
@@ -137,11 +137,11 @@ Om du vill begära en Direktmigrering använder du [Azure Portal](https://ms.por
 2. Slutför **grunderna** baserat på din konto information. I avsnittet **tjänst** väljer du **hantering av lagrings konto** och anger det konto som ska migreras.
 3. Välj **Nästa**.
 4. Ange följande värden i avsnittet **problem** :
-    - **Allvarlighets grad**: Låt standardvärdet vara kvar.
+    - **Allvarlighets grad**: låt standardvärdet vara.
     - **Problem typ**: Välj **datamigrering**.
-    - **Kategori**: Välj **migrera till (RA-) GZRS i en region**.
-    - **Rubrik**: Ange en beskrivande rubrik, till exempel **(RA-) GZRS för konto migrering**.
-    - **Information**: Skriv ytterligare information i **informations** rutan, till exempel "Jag vill MIGRERA till GZRS från [LRS, GRS] i regionen \_ @ no__t-2." eller "Jag vill migrera till RA-GZRS från [LRS, RA-GRS] i regionen \_ @ no__t-1."
+    - **Kategori**: Välj **MIGRERA till (RA-) GZRS i en region**.
+    - **Title**: Ange en beskrivande rubrik, till exempel **(RA-) GZRS för konto migrering**.
+    - **Information**: Skriv ytterligare information i **informations** rutan, till exempel "Jag vill migrera till GZRS från [LRS, GRS] i regionen \_ @ no__t-3." eller "Jag vill migrera till RA-GZRS från [LRS, RA-GRS] i regionen \_ @ no__t-1."
 5. Välj **Nästa**.
 6. Kontrol lera att kontakt informationen är korrekt på bladet med **kontakt information** .
 7. Välj **Skapa**.
@@ -151,5 +151,5 @@ En support representant kommer att kontakta dig för att få hjälp.
 ## <a name="see-also"></a>Se också
 
 - [Azure Storage-replikering](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
-- @no__t 0Locally redundant lagring (LRS): Data redundans för låg kostnad för Azure Storage @ no__t-0
-- [Zone-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet @ no__t-0 
+- [Lokalt redundant lagring (LRS): låg kostnads data redundans för Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
+- [Zone-redundant lagring (ZRS): Azure Storage program med hög tillgänglighet](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 

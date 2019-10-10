@@ -1,27 +1,27 @@
 ---
 title: Azure Data Share Preview-terminologi
-description: Azure Data Share Preview-terminologi
+description: Lär dig mer om vanliga termer som används för att beskriva resurser som används i för hands versionen av Azure Data Resource (dataprovider, data konsument, data resurs, resurs prenumeration, ögonblicks bild, inbjudan, mottagare.)
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: b78a1b250f46c2ddd2b36e19590c4a94ca3ab3fb
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: dd3235b7d87d8e02f44a440741b90f675263d147
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70844700"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166277"
 ---
 # <a name="azure-data-share-preview-concepts"></a>Förhands gransknings begrepp för Azure Data Share 
 
 I för hands versionen av Azure data sharing introduceras en del ny terminologi för data delning. I den här artikeln beskrivs några vanliga villkor som kan användas i hela tjänsten. 
 
-## <a name="data-provider"></a>Dataleverantör
+## <a name="data-provider"></a>Data leverantör
 
 En data leverantör är den organisation som delar data med sina konsumenter. Data leverantören kan vanligt vis vara en ägare eller en curator av data. Data leverantörer vill dela data av olika typer. Några exempel på data som en data leverantör kan vilja dela innehåller rå data, till exempel data punkter för försäljning eller tids serier. En DataProvider kan också vilja dela förbehandlade, granskade data som redan innehåller analyser och insikter. 
 
-## <a name="data-consumer"></a>Datakonsument 
+## <a name="data-consumer"></a>Data konsument 
 
 En data konsument är den organisation som tar emot data från en data leverantör. Data konsumenten kanske vill ansluta till delade data med sina egna data för att kunna härleda insikter. I vissa fall kan data konsumenten ta emot data som redan har bearbetats. 
 
@@ -47,7 +47,7 @@ En DataProvider kan aktivera en inställning för ögonblicks bilder för en dat
 
 Om en DataProvider aktiverar den här inställningen kan du välja ett upprepnings intervall. Upprepnings intervallet kan vara varje timme eller varje dag. 
 
-En data konsument har möjlighet att delta i ögonblicks bild scheman för att ta emot stegvisa uppdateringar som innehåller alla data som har ändrats sedan de först genererade en ny ögonblicks bild. 
+En data konsument har möjlighet att välja detta ögonblicks bild schema för att ta emot stegvisa uppdateringar som innehåller alla data som har ändrats sedan de först genererade en ny ögonblicks bild. 
 
 ## <a name="invitation"></a>Inbjudan
 
@@ -55,7 +55,7 @@ En DataProvider kan bjuda in flera mottagare till sina data resurser. De kan gö
 
 En DataProvider kan ta bort en inbjudan när den har skickats om den inte har accepterats. Om dataprovidern tar bort en inbjudan och den ännu inte har accepterats kommer data konsumenten inte att kunna acceptera den. 
 
-Inbjudningar kan skickas upp till 5 gånger per dag. 
+Inbjudningar kan skickas upp till fem gånger per dag. 
 
 ## <a name="recipient"></a>Mottagare
 

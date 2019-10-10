@@ -29,10 +29,10 @@ Azure Portal innehåller ett alternativ för att aktivera omvänd proxy när du 
 
 Om du vill konfigurera omvänd proxy när du [skapar ett kluster med hjälp av Azure Portal](./service-fabric-cluster-creation-via-portal.md), se till att göra följande:
 
-1. I **Step 2: Kluster konfiguration @ no__t-0, under **typ av nodtyp**väljer du **Aktivera omvänd proxy**.
+1. I **steg 2: kluster konfiguration**, under **typ av nodtyp**, väljer du **Aktivera omvänd proxy**.
 
    ![Aktivera omvänd proxy på portalen](./media/service-fabric-reverseproxy-setup/enable-rp-portal.png)
-2. Valfritt Om du vill konfigurera säker omvänd proxy måste du konfigurera ett SSL-certifikat. I **Step 3: Säkerhet @ no__t-0, Välj **anpassad**under **konfigurations typ**i **Konfigurera kluster säkerhets inställningar**. Under **reversed proxy SSL-certifikat**väljer du sedan **inkludera ett SSL-certifikat för omvänd proxy** och anger information om certifikatet.
+2. Valfritt Om du vill konfigurera säker omvänd proxy måste du konfigurera ett SSL-certifikat. I **steg 3: säkerhet**går du till **Konfigurera kluster säkerhets inställningar**, under **konfigurations typ**, och väljer **anpassad**. Under **reversed proxy SSL-certifikat**väljer du sedan **inkludera ett SSL-certifikat för omvänd proxy** och anger information om certifikatet.
 
    ![Konfigurera säker omvänd proxy på portalen](./media/service-fabric-reverseproxy-setup/configure-rp-certificate-portal.png)
 

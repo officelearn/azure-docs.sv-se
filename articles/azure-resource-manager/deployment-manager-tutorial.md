@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72170369"
 ---
-# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudiekurs: Använda Azure Deployment Manager med Resource Manager-mallar (offentlig för hands version)
+# <a name="tutorial-use-azure-deployment-manager-with-resource-manager-templates-public-preview"></a>Självstudier: Använda Azure Deployment Manager med Resource Manager-mallar (offentlig förhandsversion)
 
 Lär dig hur du använder [Azure Deployment Manager](./deployment-manager-overview.md) för att distribuera dina program i flera regioner. Om du föredrar en snabbare metod skapar [snabb starten av Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart) de konfigurationer som krävs i din prenumeration och anpassar artefakterna för att distribuera ett program över flera regioner. Snabb starten utför samma uppgifter som i den här självstudien.
 
@@ -44,13 +44,13 @@ Den här självstudien omfattar följande uppgifter:
 Ytterligare resurser:
 
 * [Azure Deployment Manager REST API referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
-* [Självstudiekurs: Använd hälso kontroll i Azure Deployment Manager @ no__t-0.
+* [Självstudie: Använd hälso kontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -69,7 +69,7 @@ För att kunna följa stegen i den här artikeln behöver du:
 Mallen för tjänsttopologin beskriver de Azure-resurser som utgör din tjänst och var de ska distribueras. Definitionen av tjänsttopologin har följande hierarki:
 
 * Tjänsttopologi
-  * Tjänster
+  * Services
     * Tjänstenheter
 
 Följande diagram visar tjänsttopologin som används i den här självstudien:
@@ -135,7 +135,7 @@ De två versionerna (1.0.0.0 och 1.0.0.1) är avsedda för [ändringsdistributio
 
 Mallartefakter används av tjänsttopologimallen och binära artefakter används av distributionsmallen. Både topologimallen och distributionsmallen definierar en Azure-resurs för en artefaktkälla, som är en resurs som används för att peka Resource Manager på mallen och de binära artefakterna som används i distributionen. För att förenkla självstudien används ett lagringskonto för att lagra både mallartefakterna och de binära artefakterna. Båda artefaktkällorna peka på samma lagringskonto.
 
-1. Skapa ett Azure-lagringskonto. Instruktionerna finns i [Snabbstart: Ladda upp, ladda ned och lista blobar med Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md).
+1. Skapa ett Azure-lagringskonto. Anvisningar finns i [Snabbstart: Ladda upp, ladda ned och lista blobar med hjälp av Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md).
 2. Skapa en blobcontainer i lagringskontot.
 3. Kopiera de två mapparna (binärfiler och mallar) och innehållet i de två mapparna till blobcontainern. [Microsoft Azure Storage Explorer](https://go.microsoft.com/fwlink/?LinkId=708343&clcid=0x409) stöder dra och släpp-funktionen.
 4. Hämta SAS-platsen för containern med hjälp av följande anvisningar:
@@ -180,13 +180,13 @@ Mallen innehåller följande parametrar:
 
 * **namePrefix**: Det här prefixet används för att skapa namnen för Deployment Manager-resurserna. Om du till exempel använder prefixet ”jdoe” är tjänsttopologins namn **jdoe**ServiceTopology.  Resursnamnen definieras i variabelavsnittet i den här mallen.
 * **azureResourcelocation**: För att förenkla självstudien delar alla resurser den här platsen om inget annat anges. För närvarande kan Azure Deployment Manager-resurser endast skapas i regionen **USA, centrala** eller **USA, östra 2**.
-* **artifactSourceSASLocation**: SAS-URI:n till den blobcontainer där filerna för tjänstenhetsmall och parametrar lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
-* **templateArtifactRoot**: Den förskjutna sökvägen från den blobcontainer där mallarna och parametrarna lagras. Standardvärdet är **templates/1.0.0.0**. Ändra inte det här värdet såvida du inte vill ändra mappstrukturen som beskrivs i [Förbereda artefakterna](#prepare-the-artifacts). Relativa sökvägar används i den här självstudien.  Den fullständiga sökvägen skapas genom att **artifactSourceSASLocation**, **templateArtifactRoot**, och **templateArtifactSourceRelativePath** (eller **parametersArtifactSourceRelativePath**) sammanfogas.
-* **targetSubscriptionID**: Det prenumerations-ID som Deployment Manager-resurserna kommer att distribueras och faktureras till. Använd ditt prenumerations-ID i den här självstudien.
+* **artifactSourceSASLocation**: SAS-URI:n till blobcontainern där filerna för tjänstenheterna och parametrarna lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
+* **templateArtifactRoot**: Offset-sökvägen från blobcontainern där mallarna och parametrarna lagras. Standardvärdet är **templates/1.0.0.0**. Ändra inte det här värdet såvida du inte vill ändra mappstrukturen som beskrivs i [Förbereda artefakterna](#prepare-the-artifacts). Relativa sökvägar används i den här självstudien.  Den fullständiga sökvägen skapas genom att **artifactSourceSASLocation**, **templateArtifactRoot**, och **templateArtifactSourceRelativePath** (eller **parametersArtifactSourceRelativePath**) sammanfogas.
+* **targetSubscriptionID**: Prenumerations-ID:t som Deployment Manager-resurserna kommer att distribueras och faktureras till. Använd ditt prenumerations-ID i den här självstudien.
 
 ### <a name="the-variables"></a>Variablerna
 
-Variabelavsnittet definierar namnen på resurserna, Azure-platserna för de två tjänsterna: **Service WUS** och **Service EUS** samt artefaktsökvägarna:
+Variabelavsnittet definierar namnen på resurserna, Azure-platserna för de två tjänsterna: **Service WUS** och **Service EUS**, samt artefaktsökvägarna:
 
 ![Azure Deployment Manager-självstudie om variabler för topologimallen](./media/deployment-manager-tutorial/azure-deployment-manager-tutorial-topology-template-variables.png)
 
@@ -217,9 +217,9 @@ Du skapar en parameterfil som används med topologimallen.
 
     * **namePrefix**: Ange en sträng med 4–5 tecken. Det här prefixet används för att skapa unika Azure-resursnamn.
     * **azureResourceLocation**: Om du inte är bekant med Azure-platser använder du **centralus** i den här självstudien.
-    * **artifactSourceSASLocation**: Ange SAS-URI till den rotkatalog (blobcontainern) där filerna för tjänstenhetsmall och parametrar lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
+    * **artifactSourceSASLocation**: Ange SAS-URI:n till rotkatalogen (blobcontainern) där filerna för tjänstenheterna och parametrarna lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
     * **templateArtifactRoot**: Såvida du inte ändrar mappstrukturen för artefakterna använder du **templates/1.0.0.0** i den här självstudien.
-    * **targetScriptionID**: Ange ditt Azure prenumerations-ID.
+    * **targetScriptionID**: Ange ditt prenumerations-ID för Azure.
 
 > [!IMPORTANT]
 > Topologimallen och distributionsmallen delar vissa vanliga parametrar. Dessa parametrar måste ha samma värden. Dessa parametrar är: **namePrefix**, **azureResourceLocation** och **artifactSourceSASLocation** (båda artefaktkällorna delar samma lagringskonto i den här självstudien).
@@ -236,9 +236,9 @@ Mallen innehåller följande parametrar:
 
 * **namePrefix**: Det här prefixet används för att skapa namnen för Deployment Manager-resurserna. Om du till exempel använder prefixet ”jdoe” är distributionsnamnet **jdoe**Rollout.  Namnen definieras i variabelavsnittet i mallen.
 * **azureResourcelocation**: För att förenkla självstudien delar alla Deployment Manager-resurser den här platsen om inget annat anges. För närvarande kan Azure Deployment Manager-resurser endast skapas i regionen **USA, centrala** eller **USA, östra 2**.
-* **artifactSourceSASLocation**: SAS-URI till den rotkatalog (blobcontainern) där filerna för tjänstenhetsmall och parametrar lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
-* **binaryArtifactRoot**:  Standardvärdet är **binaries/1.0.0.0**. Ändra inte det här värdet såvida du inte vill ändra mappstrukturen som beskrivs i [Förbereda artefakterna](#prepare-the-artifacts). Relativa sökvägar används i den här självstudien.  Den fullständiga sökvägen skapas genom att **artifactSourceSASLocation**, **binaryArtifactRoot**, och **deployPackageUri** som anges i CreateWebApplicationParameters.json sammanfogas.  Se [Förbereda artefakterna](#prepare-the-artifacts).
-* **managedIdentityID**: Den användartilldelade hanterade identitet som utför distributionsåtgärderna. Se [Skapa den användartilldelade hanterade identiteten](#create-the-user-assigned-managed-identity).
+* **artifactSourceSASLocation**: SAS-URI:n till rotkatalogen (blobcontainern) där filerna för tjänstenheterna och parametrarna lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
+* **binaryArtifactRoot**: Standardvärdet är **binaries/1.0.0.0**. Ändra inte det här värdet såvida du inte vill ändra mappstrukturen som beskrivs i [Förbereda artefakterna](#prepare-the-artifacts). Relativa sökvägar används i den här självstudien.  Den fullständiga sökvägen skapas genom att **artifactSourceSASLocation**, **binaryArtifactRoot**, och **deployPackageUri** som anges i CreateWebApplicationParameters.json sammanfogas.  Se [Förbereda artefakterna](#prepare-the-artifacts).
+* **managedIdentityID**: Den användartilldelade hanterade identiteten som utför distributionsåtgärderna. Se [Skapa den användartilldelade hanterade identiteten](#create-the-user-assigned-managed-identity).
 
 ### <a name="the-variables"></a>Variablerna
 
@@ -265,7 +265,7 @@ I följande skärmbild visas endast vissa delar av distributionsdefinitionen:
 * **dependsOn**: Distributionsresursen är beroende av resursen för artefaktkällan och de steg som har definierats.
 * **artifactSourceId**: Används för att associera resursen för artefaktkällan med distributionsresursen.
 * **targetServiceTopologyId**: Används för att associera resursen för tjänsttopologin med distributionsresursen.
-* **deploymentTargetId**: Det här är tjänstenhetens resurs-ID för tjänsttopologins resurs.
+* **deploymentTargetId**: Det här är ID:t för resursen för tjänstenheter för tjänsttopologiresursen.
 * **preDeploymentSteps** och **postDeploymentSteps**: Innehåller distributionsstegen. I mallen anropas ett wait-steg.
 * **dependsOnStepGroups**: Konfigurera beroendena mellan steggrupperna.
 
@@ -277,8 +277,8 @@ Du skapar en parameterfil som används med distributionsmallen.
 2. Fyll parametervärdena:
 
     * **namePrefix**: Ange en sträng med 4–5 tecken. Det här prefixet används för att skapa unika Azure-resursnamn.
-    * **azureResourceLocation**: För närvarande kan Azure Deployment Manager-resurser endast skapas i regionen **USA, centrala** eller **USA, östra 2**.
-    * **artifactSourceSASLocation**: Ange SAS-URI till den rotkatalog (blobcontainern) där filerna för tjänstenhetsmall och parametrar lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
+    * **azureResourceLocation**: För närvarande kan Deployment Manager-resurser endast skapas i regionen **USA,centrala** eller **USA, östra 2**.
+    * **artifactSourceSASLocation**: Ange SAS-URI:n till rotkatalogen (blobcontainern) där filerna för tjänstenheterna och parametrarna lagras för distribution.  Se [Förbereda artefakterna](#prepare-the-artifacts).
     * **binaryArtifactRoot**: Såvida du inte ändrar mappstrukturen för artefakterna använder du **binaries/1.0.0.0** i den här självstudien.
     * **managedIdentityID**: Ange den användartilldelade hanterade identiteten. Se [Skapa den användartilldelade hanterade identiteten](#create-the-user-assigned-managed-identity). Syntax:
 
@@ -434,4 +434,4 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här självstudien har du lärt dig hur du använder Azure Deployment Manager. Information om hur du integrerar hälso övervakning i Azure Deployment Manager finns i [Tutorial: Använd hälso kontroll i Azure Deployment Manager @ no__t-0.
+I den här självstudien har du lärt dig hur du använder Azure Deployment Manager. Information om hur du integrerar hälso övervakning i Azure Deployment Manager finns i [Självstudier: använda hälso kontroll i Azure Deployment Manager](./deployment-manager-tutorial-health-check.md).

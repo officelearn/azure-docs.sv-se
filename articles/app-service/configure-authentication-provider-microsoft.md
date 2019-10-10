@@ -43,7 +43,7 @@ Det här avsnittet visar hur du konfigurerar Azure App Service att använda Micr
 
 ## <a name="secrets"> </a>Lägg till information om Microsoft-konto till ditt App Service program
 
-1. Gå till ditt program i [Azure Portal].
+1. Gå till ditt program i [Azure-portalen].
 1. Välj **inställningar** > **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
 1. Under **autentiseringsproviders**väljer du **Microsoft-konto**. Klistra in det program (klient)-ID och klient hemlighet som du fick tidigare. Aktivera alla omfattningar som krävs av ditt program.
 1. Välj **OK**.
@@ -66,4 +66,4 @@ Du är nu redo att använda Microsoft-kontot för autentisering i din app.
 <!-- URLs. -->
 
 [My Applications]: https://go.microsoft.com/fwlink/p/?LinkId=262039
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/

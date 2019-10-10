@@ -21,7 +21,7 @@ Information om hur du lägger till data uppsättningar när du skapar en resurs 
 
 ## <a name="navigate-to-a-sent-data-share"></a>Navigera till en data resurs som skickats
 
-I för hands versionen av Azure Data Share navigerar du till den skickade resursen och väljer fliken **data uppsättningar** . Lägg till fler data uppsättningar genom att klicka på **+ Lägg till data uppsättningar** .
+I Azure Data repreview-förhandsgranskning navigerar du till den skickade resursen och väljer fliken **data uppsättningar** . Klicka på **+ Lägg till data uppsättningar** om du vill lägga till fler data uppsättningar.
 
 ![Lägg till data uppsättningar](./media/how-to/how-to-add-datasets/add-datasets.png)
 
@@ -29,7 +29,7 @@ I panelen till höger väljer du den data uppsättnings typ som du vill lägga t
 
 ![Lägg till data uppsättningar](./media/how-to/how-to-add-datasets/add-datasets-side.png)
 
-När du klickar på **Lägg till data uppsättningar**kommer data uppsättningarna att läggas till i din resurs. Obs! En ögonblicks bild måste utlösas av dina konsumenter för att de ska kunna se de nya data uppsättningarna. Om inställningarna för ögonblicks bilder har kon figurer ATS ser användarna de nya data uppsättningarna när nästa schemalagda ögonblicks bild har slutförts. Om inte inställningarna för ögonblicks bilder har kon figurer ATS måste konsumenten manuellt utlösa en fullständig eller stegvis kopia av data för att ta emot uppdateringarna. Mer information om ögonblicks bilder finns i [ögonblicks bilder](terminology.md).
+När du klickar på **Lägg till data uppsättningar**kommer data uppsättningarna att läggas till i din resurs. Obs! en ögonblicks bild måste utlösas av dina användare för att de ska kunna se de nya data uppsättningarna. Om inställningarna för ögonblicks bilder har kon figurer ATS ser användarna de nya data uppsättningarna när nästa schemalagda ögonblicks bild har slutförts. Om inte inställningarna för ögonblicks bilder har kon figurer ATS måste konsumenten manuellt utlösa en fullständig eller stegvis kopia av data för att ta emot uppdateringarna. Mer information om ögonblicks bilder finns i [ögonblicks bilder](terminology.md).
 
 ## <a name="next-steps"></a>Nästa steg
 Lär dig mer om hur du [lägger till mottagare i en befintlig data resurs](how-to-add-recipients.md).

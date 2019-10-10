@@ -32,15 +32,15 @@ I följande tabell jämförs begrepp och data strukturer mellan Splunk och Azure
  | --- | --- | --- | ---
  | Distributions enhet  | flernodskluster |  flernodskluster |  Azure Monitor tillåter godtyckliga kors kluster frågor. Splunk har inte det. |
  | Cachelagrade data |  buckets  |  Principer för cachelagring och bevarande |  Styr period-och lagrings nivå för data. Den här inställningen påverkar direkt prestanda för frågorna och kostnaden för distributionen. |
- | Logisk partition med data  |  index  |  database  |  Tillåter logisk avgränsning av data. Båda implementeringarna tillåter unioner och anslutning mellan dessa partitioner. |
- | Metadata för strukturerad händelse | Gäller inte | table |  Splunk har inte det koncept som exponeras för sökspråket för händelsens metadata. Azure Monitor loggar har en tabell som har kolumner. Varje händelse instans mappas till en rad. |
+ | Logisk partition med data  |  Tabbindex  |  databas  |  Tillåter logisk avgränsning av data. Båda implementeringarna tillåter unioner och anslutning mellan dessa partitioner. |
+ | Metadata för strukturerad händelse | Gäller inte | Partitionstabell |  Splunk har inte det koncept som exponeras för sökspråket för händelsens metadata. Azure Monitor loggar har en tabell som har kolumner. Varje händelse instans mappas till en rad. |
  | Data post | händelse | radhöjd |  Endast terminologi ändring. |
- | Datapost-attribut | Sidfält |  Kolumn |  I Azure Monitor är detta fördefinierat som en del av tabell strukturen. I Splunk har varje händelse en egen uppsättning fält. |
+ | Datapost-attribut | Sidfält |  Artikeln |  I Azure Monitor är detta fördefinierat som en del av tabell strukturen. I Splunk har varje händelse en egen uppsättning fält. |
  | Nodtyper | datatype |  datatype |  Azure Monitor data typer är mer explicita eftersom de är inställda på kolumnerna. Båda har möjlighet att arbeta dynamiskt med data typer och ungefär samma uppsättning data typer, inklusive JSON-stöd. |
- | Fråga och Sök  | Sök | query |  Begreppen är i stort sett samma mellan Azure Monitor och Splunk. |
+ | Fråga och Sök  | Sök | DocumentDB |  Begreppen är i stort sett samma mellan Azure Monitor och Splunk. |
  | Tid för händelse hämtning | System tid | ingestion_time() |  I Splunk hämtar varje händelse en tidsstämpel för systemet för den tidpunkt då händelsen indexerades. I Azure Monitor kan du definiera en princip med namnet ingestion_time som visar en system kolumn som kan refereras via funktionen ingestion_time (). |
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 I följande tabell anges funktioner i Azure Monitor som motsvarar Splunk-funktioner.
 
@@ -55,7 +55,7 @@ I följande tabell anges funktioner i Azure Monitor som motsvarar Splunk-funktio
 | substr | del sträng () | 81.1<br>Observera också att Splunk använder sig av ett-baserat index. Azure Monitor noterar noll-baserade index. |
 | tolower |  tolower() | 81.1 |
 | toupper | toupper() | 81.1 |
-| villkoren | matchar regex |  (2)  |
+| villkoren | matchar regex |  11.2  |
 | verifiering | matchar regex | I Splunk är `regex` en operator. I Azure Monitor är det en Relations operator. |
 | searchmatch | == | I Splunk kan `searchmatch` söka efter den exakta strängen.
 | slumpmässiga | rand ()<br>rand (n) | Splunk-funktionen returnerar ett tal från noll till 2<sup>31</sup>-1. Azure Monitor returnerar ett tal mellan 0,0 och 1,0, eller om en parameter har angetts, mellan 0 och n-1.
@@ -72,7 +72,7 @@ I följande avsnitt får du exempel på hur du kan använda olika operatorer mel
 > [!NOTE]
 > I följande _exempel mappas_ Splunk-till en tabell i Azure Monitor och Splunk standard-tidsstämpeln mappas till kolumnen loggar Analytics _ingestion_time ()_ .
 
-### <a name="search"></a>Search
+### <a name="search"></a>Sök
 I Splunk kan du utelämna nyckelordet `search` och ange en sträng med citat tecken. I Azure Monitor måste du starta varje fråga med `find`, en icke-Citerad sträng är ett kolumn namn och lookup-värdet måste vara en sträng med citat tecken. 
 
 | |  | |
@@ -81,7 +81,7 @@ I Splunk kan du utelämna nyckelordet `search` och ange en sträng med citat tec
 | Azure Monitor | **hitta** | <code>find Session.Id=="c8894ffd-e684-43c9-9125-42adc25cd3fc" and ingestion_time()> ago(24h)</code> |
 | | |
 
-### <a name="filter"></a>Filter
+### <a name="filter"></a>Filtrera
 Azure Monitor logg frågor börjar från en tabell resultat uppsättning där filtret. I Splunk är filtrering standard åtgärden för det aktuella indexet. Du kan också använda operatorn `where` i Splunk, men det rekommenderas inte.
 
 | |  | |
@@ -142,7 +142,7 @@ Splunk verkar inte ha en operatör som liknar `project-away`. Du kan använda an
 | |  | |
 |:---|:---|:---|
 | Splunk | **table** |  <code>Event.Rule=330009.2<br>&#124; table rule, state</code> |
-| Azure Monitor | **projektfilerna**<br>**project-away** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
+| Azure Monitor | **projektfilerna**<br>**projekt bort** | <code>Office_Hub_OHubBGTaskError<br>&#124; project exception, state</code> |
 | | |
 
 

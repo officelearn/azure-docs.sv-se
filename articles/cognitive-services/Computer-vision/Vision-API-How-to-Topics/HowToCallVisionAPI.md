@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 09/09/2019
 ms.author: kefre
 ms.custom: seodec18
-ms.openlocfilehash: 417ff7ac345b9a83b3d3f4c50e9fd141d74bc99c
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 298228eedb73298f00654f4f72c201d9ed671090
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103552"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177049"
 ---
 # <a name="call-the-computer-vision-api"></a>Anropa API:et för visuellt innehåll
 
@@ -25,12 +25,12 @@ Den här artikeln visar hur du anropar API för visuellt innehåll med hjälp av
 - Hämta taggar, en beskrivning och kategorier
 - Hämta domänbaserad information eller "kändisar"
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En bild-URL eller en sökväg till en lokalt lagrad avbildning
 - Indata metoder som stöds: en RAW-bildbinärfil i form av en program/oktett-Stream eller en bild-URL
 - Avbildnings fil format som stöds: JPEG, PNG, GIF och BMP
-- Storlek på bildfil: 4 MB eller mindre
+- Bild fils storlek: 4 MB eller mindre
 - Bild dimensioner: 50 &times; 50 pixlar eller mer
   
 I exemplen i den här artikeln demonstreras följande funktioner:
@@ -40,8 +40,8 @@ I exemplen i den här artikeln demonstreras följande funktioner:
 
 Funktionerna erbjuder följande alternativ:
 
-- **Alternativ 1**: Analys med omfång – analysera bara en angiven modell
-- **Alternativ 2**: Förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda [86-kategorier-taxonomi](../Category-Taxonomy.md)
+- **Alternativ 1**: analys med omfång – analysera bara en angiven modell
+- **Alternativ 2**: förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda [86-kategorier, taxonomi](../Category-Taxonomy.md)
   
 ## <a name="authorize-the-api-call"></a>Auktorisera API-anropet
 
@@ -56,7 +56,7 @@ Du kan skicka prenumerations nyckeln genom att göra något av följande:
 * Skicka den via en frågesträng, som i det här API för visuellt innehåll exempel:
 
   ```
-  https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+  https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
   ```
 
 * Ange den i rubriken HTTP-begäran:
@@ -83,7 +83,7 @@ Hämta Taggar och en beskrivning för en angiven avbildning med något av följa
 ### <a name="option-1-get-a-list-of-tags-and-a-description"></a>Alternativ 1: Hämta en lista över taggar och en beskrivning
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?visualFeatures=Description,Tags&subscription-key=<Your subscription key>
 ```
 
 ```csharp
@@ -100,19 +100,19 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 }
 ```
 
-### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>Alternativ 2: Hämta en lista med endast taggar eller endast en beskrivning
+### <a name="option-2-get-a-list-of-tags-only-or-a-description-only"></a>Alternativ 2: Hämta endast en lista med taggar eller en beskrivning
 
 Kör följande endast för Taggar:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/tag?subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/tag?subscription-key=<Your subscription key>
 var tagResults = await visionClient.TagImageAsync("http://contoso.com/example.jpg");
 ```
 
 För en beskrivning, kör:
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/describe?subscription-key=<Your subscription key>
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/describe?subscription-key=<Your subscription key>
 using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 {
   imageDescription = await visionClient.DescribeImageInStreamAsync(fs);
@@ -121,25 +121,25 @@ using (var fs = new FileStream(@"C:\Vision\Sample.jpg", FileMode.Open))
 
 ## <a name="get-domain-specific-analysis-celebrities"></a>Hämta domänbaserad analys (kändisar)
 
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Alternativ 1: Analys med omfång – analysera bara en angiven modell
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Alternativ 1: analys med omfång – analysera bara en angiven modell
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/models/celebrities/analyze
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/models/celebrities/analyze
 var celebritiesResult = await visionClient.AnalyzeImageInDomainAsync(url, "celebrities");
 ```
 
 För det här alternativet är alla andra frågeparametrar (visualFeatures, information) ogiltiga. Om du vill se alla modeller använder du:
 
 ```
-GET https://westus.api.cognitive.microsoft.com/vision/v2.0/models 
+GET https://westus.api.cognitive.microsoft.com/vision/v2.1/models 
 var models = await visionClient.ListModelsAsync();
 ```
 
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>Alternativ 2: Förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda 86-kategorier-taxonomi
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-86-categories-taxonomy"></a>Alternativ 2: förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda 86-kategorier, taxonomi
 
 För program där du vill hämta en allmän bild analys utöver information från en eller flera domänbaserade modeller utökar du v1-API: et genom att använda parametrarna för modeller.
 
 ```
-POST https://westus.api.cognitive.microsoft.com/vision/v2.0/analyze?details=celebrities
+POST https://westus.api.cognitive.microsoft.com/vision/v2.1/analyze?details=celebrities
 ```
 
 När du anropar den här metoden anropar du först [86-kategori-](../Category-Taxonomy.md) klassificeraren. Om någon av kategorierna stämmer överens med en känd eller matchande modell sker ett andra steg i klassificeringen av klassificeraren. Om t. ex. "information = all" eller "information" innehåller "kändisar" anropar du kändisar-modellen när du anropar klassificeraren 86-kategori. Resultatet inkluderar kategori personen. Till skillnad från alternativ 1 ökar den här metoden svars tiden för användare som är intresserade av kändisar.
@@ -177,19 +177,19 @@ Här är ett exempel:
 }
 ```
 
-Fält | type | Innehåll
+Fält | Typ | Innehåll
 ------|------|------|
-Tags  | `object` | Objektet på den översta nivån för en matris med taggar.
+Taggar  | `object` | Objektet på den översta nivån för en matris med taggar.
 tags[].Name | `string`  | Nyckelordet från taggarnas klassificerare.
 tags[].Score    | `number`  | Förtroende poängen, mellan 0 och 1.
-description  | `object` | Objektet på den översta nivån för en beskrivning.
+beskrivning  | `object` | Objektet på den översta nivån för en beskrivning.
 description.tags[] |    `string`    | Listan med taggar.  Om det inte finns tillräckligt med förtroende för möjligheten att skapa en bildtext kan taggarna vara den enda information som är tillgänglig för anroparen.
 description.captions[].text | `string`  | En mening som beskriver bilden.
 description.captions[].confidence   | `number`  | Förtroende poängen för frasen.
 
 ## <a name="retrieve-and-understand-the-json-output-of-domain-specific-models"></a>Hämta och förstå JSON-utdata för domänbaserade modeller
 
-### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Alternativ 1: Analys med omfång – analysera bara en angiven modell
+### <a name="option-1-scoped-analysis---analyze-only-a-specified-model"></a>Alternativ 1: analys med omfång – analysera bara en angiven modell
 
 Utdata är en matris med taggar, som du ser i följande exempel:
 
@@ -208,7 +208,7 @@ Utdata är en matris med taggar, som du ser i följande exempel:
 }
 ```
 
-### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>Alternativ 2: Förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda "86-Categories"-taxonomin
+### <a name="option-2-enhanced-analysis---analyze-to-provide-additional-details-by-using-the-86-categories-taxonomy"></a>Alternativ 2: förbättrad analys – analysera för att tillhandahålla ytterligare information genom att använda "86-Categories"-taxonomin
 
 För företagsspecifika modeller som använder alternativ 2 (utökad analys) utökas kategoriernas retur typ, som visas i följande exempel:
 
@@ -239,9 +239,9 @@ För företagsspecifika modeller som använder alternativ 2 (utökad analys) ut�
 
 Fältet kategorier är en lista över en eller flera av 86- [kategorierna](../Category-Taxonomy.md) i den ursprungliga taxonomin. Kategorier som slutar med ett under streck matchar den kategorin och dess underordnade (till exempel "people_" eller "people_group" för kändisar-modellen).
 
-Fält   | type  | Innehåll
+Fält   | Typ  | Innehåll
 ------|------|------|
-categories | `object`   | Objektet på den översta nivån.
+kategorier | `object`   | Objektet på den översta nivån.
 categories[].name    | `string` | Namnet från listan med taxonomier i 86-kategori.
 categories[].score  | `number`  | Förtroende poängen, mellan 0 och 1.
 categories[].detail  | `object?`      | Valfritt Objektet detaljerat.

@@ -1,17 +1,17 @@
 ---
 title: Roller och krav för för hands versionen av Azure Data Share
-description: Roller och krav för för hands versionen av Azure Data Share
+description: Lär dig mer om åtkomst kontroll roller och-krav för dataproviders och data konsumenter för att dela data i för hands versionen av Azure Data Share.
 author: joannapea
+ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: joanpo
-ms.openlocfilehash: 7bf98f8774551292574d4f1951eba44657fa7de0
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: c0841f6386440776c6ea719f9932a53cada9d9c4
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70307346"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166382"
 ---
 # <a name="roles-and-requirements-for-azure-data-share-preview"></a>Roller och krav för för hands versionen av Azure Data Share
 
@@ -30,9 +30,9 @@ Nedan visas en sammanfattning av de roller som har tilldelats till data resursen
 | |  |  |
 |---|---|---|
 |**Lagrings typ**|**Data providerns käll lagrings konto**|**Data konsument mål lagrings konto**|
-|Azure Blob Storage| Storage Blob Data-läsare | Storage Blob Data-deltagare
+|Azure Blob Storage| Storage BLOB data Reader | Storage BLOB data-deltagare
 |Azure Data Lake gen1 | Ägare | Stöds inte
-|Azure Data Lake Gen2 | Storage Blob Data-läsare | Storage Blob Data-deltagare
+|Azure Data Lake Gen2 | Storage BLOB data Reader | Storage BLOB data-deltagare
 |
 ### <a name="data-providers"></a>Data leverantörer 
 Om du vill lägga till en data uppsättning i en Azure-Dataresurs måste data leverantörs data dela resurs-hanterad identitet läggas till i rollen Storage BLOB data Reader. Detta görs automatiskt av Azure Data Share-tjänsten om användaren lägger till data uppsättningar via Azure och är ägare till lagrings kontot, eller är medlem i en anpassad roll som har tilldelats Microsoft. auktorisering/roll tilldelningar/Skriv behörighet. 
@@ -44,11 +44,11 @@ Om du delar data från Azure Data Lake gen1, måste roll tilldelningen göras ti
 Följ stegen nedan om du vill skapa en roll tilldelning för data resurs resursens hanterade identitet:
 
 1. Navigera till lagrings kontot.
-1. Välj **åtkomstkontroll (IAM)** .
+1. Välj **Access Control (IAM)** .
 1. Välj **Lägg till en roll tilldelning**.
 1. Under *roll*väljer du *Storage BLOB data Reader*.
 1. Under *Välj*anger du namnet på ditt Azure Data resurs konto.
-1. Klicka på *Spara*.
+1. Klicka på *Save* (Spara).
 
 ### <a name="data-consumers"></a>Data konsumenter
 För att ta emot data, måste data som förvaltas av resurs hanterade identiteter läggas till i rollen Storage BLOB data Contributor. Den här rollen krävs för att aktivera Azure Data Share-tjänsten för att kunna skriva till lagrings kontot. Detta görs automatiskt av Azure Data Share-tjänsten om användaren lägger till data uppsättningar via Azure och är ägare till lagrings kontot, eller är medlem i en anpassad roll som har tilldelats Microsoft. auktorisering/roll tilldelningar/Skriv behörighet. 
@@ -58,11 +58,11 @@ Alternativt kan användaren ha en Azure-administratör för att lägga till data
 Om du vill skapa en roll tilldelning för data resurs resursens hanterade identitet manuellt följer du stegen nedan:
 
 1. Navigera till lagrings kontot.
-1. Välj **åtkomstkontroll (IAM)** .
+1. Välj **Access Control (IAM)** .
 1. Välj **Lägg till en roll tilldelning**.
 1. Under *roll*väljer du *Storage BLOB data Contributor*. 
 1. Under *Välj*anger du namnet på ditt Azure Data resurs konto.
-1. Klicka på *Spara*.
+1. Klicka på *Save* (Spara).
 
 Om du delar data med hjälp av våra REST-API: er måste du skapa roll tilldelningarna manuellt genom att lägga till data resurs kontot i till lämpliga roller. 
 

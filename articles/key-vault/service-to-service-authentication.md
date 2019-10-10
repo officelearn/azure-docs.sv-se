@@ -24,7 +24,7 @@ Det kan vara svårt att hantera sådana autentiseringsuppgifter. Det är frestan
 
 @No__t-0-biblioteket hanterar autentisering automatiskt, vilket i sin tur gör att du kan fokusera på din lösning i stället för dina autentiseringsuppgifter. Den stöder lokal utveckling med Microsoft Visual Studio, Azure CLI eller Azure AD Integrated Authentication. När det distribueras till en Azure-resurs som har stöd för en hanterad identitet, använder biblioteket automatiskt [hanterade identiteter för Azure-resurser](../active-directory/msi-overview.md). Inga kod-eller konfigurations ändringar krävs. Biblioteket stöder också direkt användning av autentiseringsuppgifter för Azure AD- [klient](../azure-resource-manager/resource-group-authenticate-service-principal.md) när en hanterad identitet inte är tillgänglig, eller när utvecklarens säkerhets kontext inte kan fastställas under lokal utveckling.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - [Visual studio 2019](https://www.visualstudio.com/downloads/) eller [Visual Studio 2017 v 15.5](https://blogs.msdn.microsoft.com/visualstudio/2017/10/11/visual-studio-2017-version-15-5-preview/).
 
@@ -156,7 +156,7 @@ Det finns tre primära metoder för att använda ett huvud namn för tjänsten f
     Det här kommandot skapar en. PEM-fil (privat nyckel) som lagras i din Hem Katalog. Distribuera det här certifikatet till antingen *LocalMachine* -eller *CurrentUser* -butiken.
 
     > [!Important]
-    > CLI-kommandot genererar en. PEM-fil, men Windows tillhandahåller endast inbyggt stöd för PFX-certifikat. Om du vill generera ett PFX-certifikat i stället använder du PowerShell-kommandona som visas här: [Skapa tjänstens huvud namn med självsignerat certifikat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). Dessa kommandon distribuerar även certifikatet automatiskt.
+    > CLI-kommandot genererar en. PEM-fil, men Windows tillhandahåller endast inbyggt stöd för PFX-certifikat. Om du vill generera ett PFX-certifikat i stället använder du PowerShell-kommandona som visas här: [skapa tjänstens huvud namn med ett självsignerat certifikat](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate). Dessa kommandon distribuerar även certifikatet automatiskt.
 
 1. Ange en miljö variabel med namnet **AzureServicesAuthConnectionString** till följande värde:
 
@@ -229,7 +229,7 @@ Om du vill kontrol lera processen använder du en anslutnings sträng som skicka
 
 Följande alternativ stöds:
 
-| Alternativ för anslutnings sträng | Scenario | Kommentar|
+| Alternativ för anslutnings sträng | Scenario | Kommentarer|
 |:--------------------------------|:------------------------|:----------------------------|
 | `RunAs=Developer; DeveloperTool=AzureCli` | Lokal utveckling | `AzureServiceTokenProvider` använder AzureCli för att hämta token. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Lokal utveckling | `AzureServiceTokenProvider` använder Visual Studio för att hämta token. |

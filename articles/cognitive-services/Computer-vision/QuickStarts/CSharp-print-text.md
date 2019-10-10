@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Extrahera tryckt text (OCR) – REST, C#'
+title: 'Snabb start: extrahera utskriven text (OCR) – REST,C#'
 titleSuffix: Azure Cognitive Services
 description: I den här snabbstarten extraherar du tryckt text från en bild med hjälp av API:et för visuellt innehåll med C#.
 services: cognitive-services
@@ -18,13 +18,13 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177332"
 ---
-# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-c"></a>Snabbstart: Extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API ochC#
+# <a name="quickstart-extract-printed-text-ocr-using-the-computer-vision-rest-api-and-c"></a>Snabb start: extrahera utskriven text (OCR) med hjälp av Visuellt innehåll REST API ochC#
 
 I den här snabbstarten extraherar du tryckt text med optisk teckenläsning (OCR) från en bild med hjälp av REST API:et för visuellt innehåll. Med [OCR](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fc)-funktionen kan du identifiera tryckt text i en bild och extrahera de tecken som identifieras till en teckenström som kan användas på en dator.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Du måste ha [Visual Studio 2015](https://visualstudio.microsoft.com/downloads/) eller senare.
 - Du måste ha en prenumerationsnyckel för Visuellt innehåll. Du kan få en kostnads fri utvärderings nyckel från [Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision). Eller följ instruktionerna i [skapa ett Cognitive Services konto](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) för att prenumerera på visuellt innehåll och hämta din nyckel. Skapa sedan [miljövariabler](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckel-och tjänst slut punkts strängen, med namnet `COMPUTER_VISION_SUBSCRIPTION_KEY` och `COMPUTER_VISION_ENDPOINT`.
@@ -244,4 +244,4 @@ Ett svar som anger att åtgärden lyckades returneras i JSON. Exempelprogrammet 
 Utforska ett grundläggande Windows-program som använder Visuellt innehåll för att utföra optisk teckenläsning (OCR), skapa miniatyrbilder med smart beskärning och identifiera, kategorisera, tagga och beskriv visuella funktioner, inklusive ansikten, i en bild.
 
 > [!div class="nextstepaction"]
-> [API för visuellt innehåll med C# – Självstudie](../Tutorials/CSharpTutorial.md)
+> [Självstudie med API för visuellt innehåll och C#](../Tutorials/CSharpTutorial.md)

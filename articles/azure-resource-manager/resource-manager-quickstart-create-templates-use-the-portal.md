@@ -36,15 +36,15 @@ Att skapa en Resource Manager-mall från grunden är inte en enkel uppgift, sär
 
 Många erfarna mallar för utvecklare använder den här metoden för att skapa mallar när de försöker distribuera Azure-resurser som de inte är bekanta med. Mer information om hur du exporterar mallar med hjälp av portalen finns i [Exportera resurs grupper till mallar](./manage-resource-groups-portal.md#export-resource-groups-to-templates). Det andra sättet att hitta en fungerande mall är från [Azure snabb starts mallar](https://azure.microsoft.com/resources/templates/).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Skapa en resurs** > **Lagring** > **Lagringskonto – blob, fil, tabell, kö**.
 
     ![Skapa ett Azure-lagringskonto med hjälp av Azure-portalen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-create-storage-account-portal.png)
 3. Ange följande information:
 
-    |Name|Value|
+    |Namn|Värde|
     |----|----|
-    |**Resursgrupp**|Välj **Skapa ny** och ge resursgruppen ett namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser. |
+    |**Resursgrupp**|Välj **Skapa ny**och ange ett valfritt resurs grupps namn. På skärmbilden är namnet på resursgruppen *mystorage1016rg*. En resursgrupp är en container för Azure-resurser. Med resursgrupper är det enklare att hantera Azure-resurser. |
     |**Namn**|Ge lagringskontot ett unikt namn. Lagrings kontots namn måste vara unikt i hela Azure och det får bara innehålla gemena bokstäver och siffror. Namnet måste innehålla mellan 3 och 24 tecken. Om du får ett fel meddelande om att "lagrings konto namnet" mystorage1016 "redan är upptaget" försöker du med **&lt;your namn > Storage @ no__t-2Today's date i MMDD >** , till exempel **johndolestorage1016**. Mer information finns i [namngivnings regler och begränsningar](/azure/cloud-adoption-framework/ready/considerations/naming-and-tagging#resource-naming).|
 
     Du kan använda standardvärdena för resten av egenskaperna.
@@ -156,13 +156,13 @@ Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan mis
 8. Välj **Spara**.
 9. Ange följande värden:
 
-    |Name|Value|
+    |Namn|Värde|
     |----|----|
     |**Resursgrupp**|Välj det resurs grupps namn som du skapade i det sista avsnittet. |
-    |**Location**|Välj en plats för lagrings kontot. Välj till exempel **USA, centrala**. |
-    |**Kontotyp**|Ange **Standard_LRS** för den här snabbstarten. |
-    |**Metod**|Ange **StorageV2** för den här snabbstarten. |
-    |**Åtkomst nivå**|Ange **Frekvent** för den här snabbstarten. |
+    |**Plats**|Välj en plats för lagrings kontot. Välj till exempel **USA, centrala**. |
+    |**Kontotyp**|Ange **Standard_LRS** för den här snabb starten. |
+    |**Metod**|Ange **StorageV2** för den här snabb starten. |
+    |**Åtkomst nivå**|Ange **frekvent** för den här snabb starten. |
     |**HTTPS-trafik är bara aktive rad**| Välj **true** för den här snabbstarten. |
     |**Jag samtycker till de villkor som anges ovan**|Select|
 
@@ -179,7 +179,7 @@ Azure kräver att varje Azure-tjänst har ett unikt namn. Distributionen kan mis
 
     ![Resursgrupp för distribution av Azure Resource Manager-mallar](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
 
-    Du kan se att distributionen lyckades och att det bara finns ett lagringskonto i resursgruppen. Lagringskontots namn är en unik sträng som genereras av mallen. Mer information om hur du använder Azure-lagringskonton finns i [Snabbstart: Ladda upp, ladda ned och lista blobar med Azure-portalen](../storage/blobs/storage-quickstart-blobs-portal.md).
+    Du kan se att distributionen lyckades och att det bara finns ett lagringskonto i resursgruppen. Lagringskontots namn är en unik sträng som genereras av mallen. Mer information om hur du använder Azure Storage-konton finns i [Snabbstart: Ladda upp, ladda ned och lista blobar med Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

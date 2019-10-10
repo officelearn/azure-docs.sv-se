@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Starta ett program med maven – Azure våren Cloud'
+title: 'Snabb start: starta ett program med hjälp av maven – Azure våren Cloud'
 description: Starta ett exempel program med hjälp av maven
 services: spring-cloud
 author: v-vasuke
@@ -9,19 +9,20 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/05/2019
 ms.author: v-vasuke
-ms.openlocfilehash: d2b9592656d00b38c18b8c9e07540ccb5913766c
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 01140e94e8d0cc47570824970801bdd0043324d7
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72039058"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166516"
 ---
-# <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Snabbstart: Starta en Azure våren Cloud-App med maven-plugin-programmet
+# <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>Snabb start: starta en Azure våren Cloud-App med maven-plugin-programmet
 
 Med Azure våren Clouds maven-plugin-program kan du enkelt skapa och uppdatera Azure våren Cloud Service-programmen. Genom att i förväg definiera en konfiguration kan du distribuera program till din befintliga Azure våren Cloud-tjänst. I den här artikeln använder vi ett exempel program som heter PiggyMetrics för att demonstrera den här funktionen.
 
 >[!Note]
-> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi kunderna att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud kan du kontakta oss via e-post: azure-spring-cloud@service.microsoft.com.
+> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi kunderna att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud kan du [fylla i det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
+).
 
 >[!TIP]
 > Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln.  Den har ett förinstallerat vanligt Azure-verktyg, inklusive de senaste versionerna av Git, JDK, Maven och Azure CLI. Om du är inloggad på din Azure-prenumeration startar du [Azure Cloud Shell](https://shell.azure.com) från Shell.Azure.com.  Du kan lära dig mer om Azure Cloud Shell genom att [läsa vår dokumentation](../cloud-shell/overview.md)
@@ -49,10 +50,10 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 1. Sök efter **Azure våren-molnet** och välj att gå till översikts sidan. Välj knappen **skapa** för att komma igång.
 
 1. Fyll i formuläret, med beaktande av följande rikt linjer:
-    - Tjänstnamn: Ange namnet på din tjänst instans.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
+    - Tjänst namn: Ange namnet på din tjänst instans.  Namnet måste vara mellan 4 och 32 tecken långt och får bara innehålla gemena bokstäver, siffror och bindestreck.  Det första tecknet i tjänst namnet måste vara en bokstav och det sista tecknet måste vara en bokstav eller en siffra.
     - Prenumeration: Välj den prenumeration som du vill fakturera för den här resursen.  Se till att den här prenumerationen har lagts till i vår lista över tillåtna för Azure våren-molnet.
-    - Resursgrupp: Vi rekommenderar att du skapar nya resurs grupper för nya resurser.
-    - Plats: Välj plats för tjänst instansen. De platser som stöds för närvarande är USA, västra USA 2, Västeuropa och Sydostasien.
+    - Resurs grupp: skapa nya resurs grupper för nya resurser är en bra metod.
+    - Plats: Välj platsen för din tjänst instans. De platser som stöds för närvarande är USA, västra USA 2, Västeuropa och Sydostasien.
     
 Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distribuerats visas **översikts** sidan för tjänst instansen.
 

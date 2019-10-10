@@ -21,7 +21,7 @@ Den här artikeln beskriver hur du konfigurerar Dynamics 365 för kund engageman
 >[!Note]
 >Dessa instruktioner är specifika för Microsoft Hosted Cloud Dynamics 365 för kund engagemang miljö. Det finns för närvarande inte stöd för att ansluta direkt till en Dynamics lokal-miljö, men det finns andra alternativ för att ta emot leads, till exempel konfigurera en [https-slutpunkt](./commercial-marketplace-lead-management-instructions-https.md) eller en [Azure-tabell](./commercial-marketplace-lead-management-instructions-azure-table.md) för att ta emot leads.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande användar behörigheter krävs för att slutföra stegen i den här artikeln:
 
@@ -105,7 +105,7 @@ Använd följande steg för att konfigurera Azure Active Directory för Dynamics
 
     ![Skapa en ny användare](./media/commercial-marketplace-lead-management-instructions-dynamics/application-users.png)
 
-19. I **ny användare**kontrollerar du att användaren: PROGRAM användare har valts. Ange ett användar namn, fullständigt namn och e-postadress för den användare som du vill använda med den här anslutningen. Klistra också in **program-ID: t** för den app som du skapade i Azure Portal från steg 8. Klicka på **Spara och Stäng** för att slutföra tillägget av användaren.
+19. I **ny användare**ser du till att användaren: program användaren är markerad. Ange ett användar namn, fullständigt namn och e-postadress för den användare som du vill använda med den här anslutningen. Klistra också in **program-ID: t** för den app som du skapade i Azure Portal från steg 8. Klicka på **Spara och Stäng** för att slutföra tillägget av användaren.
 
     ![Ny användare](./media/commercial-marketplace-lead-management-instructions-dynamics/new-user-info.png)
 
@@ -147,7 +147,7 @@ Det sista steget är att aktivera den användare som du skapade för att skriva 
 
 5. Sök efter roll namnet "Microsoft Marketplace lead Writer" och välj den för att tilldela användaren rollen.
 
-    ![Hantera användarroller](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
+    ![Hantera användar roller](./media/commercial-marketplace-lead-management-instructions-dynamics/security-manage-user-roles.png)
 
     >[!Note]
     >Den här rollen skapas av den lösning som du har importerat och har bara behörighet att skriva leads och spåra lösnings versionen för att säkerställa kompatibiliteten.
@@ -156,11 +156,11 @@ Det sista steget är att aktivera den användare som du skapade för att skriva 
 
     ![Säkerhets roller](./media/commercial-marketplace-lead-management-instructions-dynamics/security-roles.png)
 
-7. När du är i säkerhets rollen väljer du fliken **kärn poster** . Sök efter entiteten användar gränssnitt för användar enheter och aktivera behörigheterna Skapa, läsa och skriv till användare (1/4 gul cirkel) för den entiteten genom att klicka en gång i varje motsvarande cirklar.
+7. När du är i säkerhets rollen väljer du fliken **kärn poster** . Sök efter entiteten användar gränssnitt för användar enheter och aktivera behörigheterna Skapa, läsa och skriv till användare (1/4 gul cirkel) för den entiteten genom att klicka en gång i var och en av motsvarande cirklar.
 
     ![Microsoft Marketplace lead Writer-Core-poster](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer.png)
 
-8. Gå nu till fliken **anpassning** . Sök Tor i entiteten "system jobb" och aktiverar Läs-, skriv-och AppendTo-behörighet till organisation (heldragen grön) för den entiteten genom att klicka fyra gånger i var och en av motsvarande cirklar.
+8. Navigera nu till fliken **anpassning** . Sök Tor i entiteten "system jobb" och gör Läs-, skriv-och AppendTo-behörighet till organisationen (solid grönt) för den entiteten genom att klicka fyra gånger i var och en av motsvarande cirklar.
 
     ![Microsoft Marketplace ledar skrivare – anpassning](./media/commercial-marketplace-lead-management-instructions-dynamics/marketplace-lead-writer-customization.png)
 

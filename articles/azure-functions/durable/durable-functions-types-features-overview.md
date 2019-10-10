@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: azfuncdf
 ms.openlocfilehash: 7b395bd6024beb52b9263ac4fe655b5328a8e662
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
+ms.lasthandoff: 10/09/2019
 ms.locfileid: "70933156"
 ---
 # <a name="durable-functions-types-and-features-azure-functions"></a>Durable Functions typer och funktioner (Azure Functions)
@@ -40,14 +40,14 @@ Till skillnad från Orchestrator Functions är aktivitets funktioner inte begrä
 > [!NOTE]
 > Eftersom aktivitets funktioner endast garanterar *minst en gång* , rekommenderar vi att du gör din aktivitets funktions logik *idempotenta* närhelst det är möjligt.
 
-Använd en [aktivitets utlösare](durable-functions-bindings.md#activity-trigger) för att definiera en aktivitets funktion. .NET Functions tar emot en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som en parameter. Du kan också binda utlösaren till alla andra JSON-serializeable-objekt för att överföra indata till funktionen. I Java Script kan du komma åt inmatade `<activity trigger binding name>` [ `context.bindings` objekt](../functions-reference-node.md#bindings)via egenskapen på objektet. Aktivitets funktioner kan bara ha ett enda värde. Om du vill skicka flera värden måste du använda tupler, matriser eller komplexa typer.
+Använd en [aktivitets utlösare](durable-functions-bindings.md#activity-trigger) för att definiera en aktivitets funktion. .NET Functions tar emot en [DurableActivityContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableActivityContext.html) som en parameter. Du kan också binda utlösaren till alla andra JSON-serializeable-objekt för att överföra indata till funktionen. I Java Script kan du komma åt inmatade objekt via egenskapen `<activity trigger binding name>` på [`context.bindings`-objektet](../functions-reference-node.md#bindings). Aktivitets funktioner kan bara ha ett enda värde. Om du vill skicka flera värden måste du använda tupler, matriser eller komplexa typer.
 
 > [!NOTE]
 > Du kan endast utlösa en aktivitets funktion från en Orchestrator-funktion.
 
 ## <a name="entity-functions"></a>Enhets funktioner
 
-Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd. Vi refererar ofta till dessa tillstånds känsliga entiteter som *varaktiga enheter*. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskildutlösnings typ, enhets utlösare. De kan också anropas från klient funktioner eller från Orchestrator-funktioner. Till skillnad från Orchestrator-funktioner har enhets funktioner inga speciella kod begränsningar. Enhets funktionerna hanterar också tillstånd explicit snarare än implicit som representerar tillstånd via kontroll flödet.
+Entitets funktioner definierar åtgärder för att läsa och uppdatera små delar av tillstånd. Vi refererar ofta till dessa tillstånds känsliga entiteter som *varaktiga enheter*. Precis som med Orchestrator Functions är enhets funktionerna funktioner med en särskild utlösnings typ, *enhets utlösare*. De kan också anropas från klient funktioner eller från Orchestrator-funktioner. Till skillnad från Orchestrator-funktioner har enhets funktioner inga speciella kod begränsningar. Enhets funktionerna hanterar också tillstånd explicit snarare än implicit som representerar tillstånd via kontroll flödet.
 
 > [!NOTE]
 > Enhets funktioner och relaterade funktioner är bara tillgängliga i Durable Functions 2,0 och senare. Enhets funktioner finns för närvarande i offentlig för hands version.

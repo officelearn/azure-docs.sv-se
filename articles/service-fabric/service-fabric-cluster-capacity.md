@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
-ms.author: chackdan
-ms.openlocfilehash: 2d13364093776028f96b75c5bfef252e2fdfc790
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.author: pepogors
+ms.openlocfilehash: 334ccbf64e32655b5e78ac6564abb65996ac53da
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68679403"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72167409"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Överväganden vid planering av Service Fabric kluster kapacitet
 För produktions distribution är kapacitets planering ett viktigt steg. Här följer några av de objekt som du måste ta hänsyn till som en del av processen.
@@ -62,7 +62,7 @@ Service Fabric system tjänster (till exempel kluster hanterarens tjänst eller 
 * **Minimi storleken på virtuella datorer** för den primära nodtypen bestäms av den **hållbarhets nivå** som du väljer. Standard nivån för hållbarhet är brons. Mer information finns i [klustrets hållbarhets egenskaper](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-durability-characteristics-of-the-cluster) .  
 * Det **minsta antalet virtuella datorer** för den primära nodtypen avgörs av den **Tillförlitlighets nivå** som du väljer. Standard nivån för tillförlitlighet är silver. Se [Tillförlitlighets egenskaperna för klustret](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) om du vill ha mer information.  
 
-Från Azure Resource Manager-mallen konfigureras den primära nodtypen med `isPrimary` attributet under [nodtypen definition](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
+Från Azure Resource Manager-mallen konfigureras den primära nodtypen med attributet `isPrimary` under [definitionen av nodtypen](https://docs.microsoft.com/azure/templates/microsoft.servicefabric/clusters#nodetypedescription-object).
 
 ### <a name="non-primary-node-type"></a>Typ av icke-primär nod
 
@@ -83,7 +83,7 @@ Hållbarhets nivån används för att ange systemet de privilegier som dina virt
 > [!WARNING]
 > Nodtyper som kör med brons hållbarhet får _inga privilegier_. Det innebär att infrastruktur jobb som påverkar dina tillstånds lösa arbets belastningar inte kommer att stoppas eller fördröjas, vilket kan påverka dina arbets belastningar. Använd endast brons för nodtyper som bara kör tillstånds lösa arbets belastningar. För produktions arbets belastningar rekommenderas att du kör silver eller högre. 
 > 
-> Oavsett vilken hållbarhets nivå som används [](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) förstörs klustret om du avallokerar en skalnings uppsättning för virtuella datorer
+> Oavsett vilken hållbarhets nivå som används förstörs klustret om du [avallokerar](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) en skalnings uppsättning för virtuella datorer
 
 **Fördelar med att använda silver eller Gold-hållbarhets nivåer**
  
@@ -108,7 +108,7 @@ Använd silver eller guld tålighet för alla nodtyper som är värdar för till
 ### <a name="operational-recommendations-for-the-node-type-that-you-have-set-to-silver-or-gold-durability-level"></a>Drift rekommendationer för nodtypen som du har angett till silver eller Gold-hållbarhets nivån.
 
 - Se till att ditt kluster och program är felfritt och se till att programmen svarar på alla [livs cykel händelser för tjänste repliken](service-fabric-reliable-services-lifecycle.md) (t. ex. replik i build är fastnat) inom rimlig tid.
-- Införa säkrare sätt att göra en VM-SKU-ändring (skala upp/ned): Att ändra den virtuella datorns SKU för en virtuell dators skalnings uppsättning måste ha ett antal steg och överväganden. Här följer processen som du kan följa för att undvika vanliga problem.
+- Införa säkrare sätt att göra en VM-SKU-ändring (skala upp/ned): om du ändrar en skalnings uppsättning för virtuella datorer måste du ha ett antal steg och överväganden. Här följer processen som du kan följa för att undvika vanliga problem.
     - **För icke-primära nodtyper:** Vi rekommenderar att du skapar en ny skalnings uppsättning för virtuella datorer, ändrar tjänst placerings begränsningen till att inkludera den nya skalnings uppsättningen för virtuella datorer/nodtypen och sedan minskar antalet gamla instanser av virtuell dators skalnings uppsättning till noll, en nod i taget (detta är att göra att borttagning av noderna inte påverkar tillförlitligheten för klustret.
     - **För typen av primär nod:** Om den virtuella datorns SKU som du har valt har kapacitet och du vill byta till en större VM-SKU följer du våra rikt linjer om [vertikal skalning för en primär nodtyp](https://docs.microsoft.com/azure/service-fabric/service-fabric-scale-up-node-type). 
 
@@ -168,7 +168,7 @@ För produktions arbets belastningar:
 - Virtuella datorer med låg prioritet stöds inte.
 
 > [!WARNING]
-> Ändra den primära nodens SKU-storlek i ett kluster som körs, är en skalnings åtgärd och dokumenterad i den virtuella datorns skalnings [uppsättning skala ut](virtual-machine-scale-set-scale-node-type-scale-out.md) dokumentation.
+> Ändra den primära nodens SKU-storlek i ett kluster som körs, är en skalnings åtgärd och dokumenterad i den [virtuella datorns skalnings uppsättning skala ut](virtual-machine-scale-set-scale-node-type-scale-out.md) dokumentation.
 
 ## <a name="non-primary-node-type---capacity-guidance-for-stateful-workloads"></a>Typ av icke-primär nodtyp – kapacitets vägledning för tillstånds känsliga arbets belastningar
 

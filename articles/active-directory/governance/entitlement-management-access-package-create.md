@@ -46,7 +46,7 @@ Följande diagram visar den övergripande processen för att skapa ett nytt Acce
 
 **Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 1. Klicka på **Azure Active Directory** och klicka sedan på **identitets styrning**.
 
@@ -73,7 +73,7 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
     Det åtkomst paket som du skapar och alla resurser som ingår i det kommer att läggas till i den nya katalogen. Du kan också lägga till ytterligare katalog ägare senare.
 
 
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.
 
 ## <a name="resource-roles"></a>Resursroller
 
@@ -95,7 +95,7 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
 
     ![Åtkomst paket – resurs roll val](./media/entitlement-management-access-package-create/resource-roles-role.png)
 
-1. Klicka på **Nästa**.
+1. Klicka på **Next**.
 
 ## <a name="policy"></a>Princip
 

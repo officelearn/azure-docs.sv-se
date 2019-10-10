@@ -30,7 +30,7 @@ De loggfiler som ska samlas in måste matcha följande kriterier.
 
 - Loggen måste antingen ha en enda post per rad eller använda en tidstämpel som matchar något av följande format i början av varje post.
 
-    ÅÅÅÅ-MM-DD HH: MM: SS<br>M/D/ÅÅÅÅ HH: MM: SS FM/EM<br>Mån DD, ÅÅÅÅ HH: MM: SS<br />yyMMdd HH:mm:ss<br />ddMMyy HH: mm: SS<br />MMM d hh: mm: SS<br />DD/MMM/åååå: HH: mm: SS ZZZ<br />yyyy-MM-ddTHH:mm:ssK
+    ÅÅÅÅ-MM-DD HH: MM: SS<br>M/D/ÅÅÅÅ HH: MM: SS FM/EM<br>Mån DD, ÅÅÅÅ HH: MM: SS<br />yyMMdd HH: mm: SS<br />ddMMyy HH: mm: SS<br />MMM d hh: mm: SS<br />DD/MMM/åååå: HH: mm: SS ZZZ<br />åååå-MM-ddTHH: mm: SSL
 
 - Logg filen får inte tillåta cirkulär loggning eller logg rotation, där filen skrivs över med nya poster.
 - Logg filen måste använda ASCII-eller UTF-8-kodning.  Andra format, till exempel UTF-16, stöds inte.
@@ -58,7 +58,7 @@ Guiden Anpassad logg körs i Azure Portal och gör att du kan definiera en ny an
 
 1. I Azure Portal väljer du **Log Analytics arbets ytor** > din arbets yta > **Avancerade inställningar**.
 2. Klicka på **Data** > **anpassade loggar**.
-3. Som standard skickas automatiskt alla konfigurationsändringar till alla agenter. För Linux-agenter skickas en konfigurations fil till den insamlade data insamlaren.
+3. Som standard flyttas alla konfigurations ändringar automatiskt till alla agenter. För Linux-agenter skickas en konfigurations fil till den insamlade data insamlaren.
 4. Klicka på **Lägg till +** för att öppna guiden Anpassad logg.
 
 ### <a name="step-2-upload-and-parse-a-sample-log"></a>Steg 2. Ladda upp och parsa en exempel logg
@@ -69,10 +69,10 @@ Du börjar med att ladda upp ett exempel på den anpassade loggen.  Guiden komme
 Om en tidsbegränsare för tidsstämpel används fylls egenskapen TimeGenerated för varje post som lagras i Azure Monitor med den datum/tid som angetts för posten i logg filen.  Om en ny rad avgränsare används fylls TimeGenerated med datum och tid som Azure Monitor samlade in posten.
 
 1. Klicka på **Bläddra** och bläddra till en exempel fil.  Observera att den här knappen kan vara märkt **Välj fil** i vissa webbläsare.
-2. Klicka på **Nästa**.
+2. Klicka på **Next**.
 3. Guiden Anpassad logg överför filen och listar de poster som den identifierar.
 4. Ändra avgränsaren som används för att identifiera en ny post och välj den avgränsare som bäst identifierar posterna i logg filen.
-5. Klicka på **Nästa**.
+5. Klicka på **Next**.
 
 ### <a name="step-3-add-log-collection-paths"></a>Steg 3. Lägg till logg samlings Sök vägar
 Du måste definiera en eller flera sökvägar på agenten där den kan hitta den anpassade loggen.  Du kan antingen ange en speciell sökväg och ett namn för logg filen, eller så kan du ange en sökväg med ett jokertecken för namnet. Detta stöder program som skapar en ny fil varje dag eller när en fil når en viss storlek. Du kan också ange flera sökvägar för en enskild loggfil.
@@ -81,7 +81,7 @@ Ett program kan till exempel skapa en loggfil varje dag med datumet som ingår i
 
 Följande tabell innehåller exempel på giltiga mönster för att ange olika loggfiler.
 
-| Beskrivning | `Path` |
+| Beskrivning | Sökväg |
 |:--- |:--- |
 | Alla filer i *: c:\Logs* med tillägget. txt i Windows-agenten |: C:\Logs @ no__t-0\*.txt |
 | Alla filer i *: c:\Logs* med ett namn som börjar med log och tillägget. txt i Windows-agenten |C:\Logs\ log\*.txt |
@@ -129,7 +129,7 @@ Anpassade logg poster har en typ med logg namnet som du anger och egenskaperna i
 | TimeGenerated |Datum och tid då posten samlades in av Azure Monitor.  Om loggen använder en tidsbaserad avgränsare är detta den tid som samlas in från posten. |
 | SourceSystem |Typ av agent som posten samlades in från. <br> OpsManager – Windows-agent, antingen direkt anslutning eller System Center Operations Manager <br> Linux – alla Linux-agenter |
 | RawData |Fullständig text för den insamlade posten. Du kommer förmodligen att vilja [parsa dessa data till enskilda egenskaper](../log-query/parse-text.md). |
-| ManagementGroupName |Namnet på hanterings gruppen för System Center-åtgärder hantera agenter.  För andra agenter är detta AOI -\<arbetsyte-ID\> |
+| ManagementGroupName |Namnet på hanterings gruppen för System Center-åtgärder hantera agenter.  För andra agenter är detta AOI-\<workspace-ID @ no__t-1 |
 
 
 ## <a name="sample-walkthrough-of-adding-a-custom-log"></a>Exempel på genom gång av hur du lägger till en anpassad logg
@@ -176,4 +176,4 @@ I de fall där dina data inte kan samlas in med anpassade loggar bör du överv�
 
 ## <a name="next-steps"></a>Nästa steg
 * Se [parsa text data i Azure Monitor](../log-query/parse-text.md) för metoder för att parsa varje importerad loggpost till flera egenskaper.
-* Lär dig mer om [logga frågor](../log-query/log-query-overview.md) att analysera data som samlas in från datakällor och lösningar.
+* Lär dig mer om [logg frågor](../log-query/log-query-overview.md) för att analysera data som samlas in från data källor och lösningar.

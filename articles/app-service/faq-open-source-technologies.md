@@ -113,13 +113,13 @@ Information om hur du installerar django finns i [distribuera en django-app till
 
 För Azure Marketplace och anpassade distributioner:
 
-* Plats för mapp: D:\home\site\wwwroot\bin\apache-tomcat-8.0.33\logs
+* Plats för mapp: D:\home\site\wwwroot\bin\apache-Tomcat-8.0.33\logs
 * Intressanta filer:
     * catalina. *åååå-mm-dd*. log
-    * host-manager.*yyyy-mm-dd*.log
-    * localhost.*yyyy-mm-dd*.log
+    * Host Manager. *åååå-mm-dd*. log
+    * värd. *åååå-mm-dd*. log
     * Cachehanteraren. *åååå-mm-dd*. log
-    * site_access_log.*yyyy-mm-dd*.log
+    * site_access_log. *åååå-mm-dd*. log
 
 
 För distributioner av Portal **app-inställningar** :
@@ -127,10 +127,10 @@ För distributioner av Portal **app-inställningar** :
 * Plats för mapp: D:\home\LogFiles
 * Intressanta filer:
     * catalina. *åååå-mm-dd*. log
-    * host-manager.*yyyy-mm-dd*.log
-    * localhost.*yyyy-mm-dd*.log
+    * Host Manager. *åååå-mm-dd*. log
+    * värd. *åååå-mm-dd*. log
     * Cachehanteraren. *åååå-mm-dd*. log
-    * site_access_log.*yyyy-mm-dd*.log
+    * site_access_log. *åååå-mm-dd*. log
 
 ## <a name="how-do-i-troubleshoot-jdbc-driver-connection-errors"></a>Hur gör jag för att felsöka anslutnings fel för JDBC-drivrutin?
 
@@ -189,7 +189,7 @@ Om du nyligen har migrerat till Azure kan WordPress omdirigera till den gamla do
 
 WordPress kompis + är ett Azure-webbplats tillägg som du kan använda för att uppdatera URL: en för omdirigering direkt i databasen. Mer information om hur du använder WordPress kompis + finns i [WordPress-verktyg och MySQL-migrering med WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/).
 
-Alternativt, om du vill uppdatera omdirigerings-URL: en manuellt med hjälp av SQL-frågor eller PHPMyAdmin, se [WordPress: Omdirigerar till fel URL @ no__t-0.
+Alternativt, om du vill uppdatera omdirigerings-URL: en manuellt med hjälp av SQL-frågor eller PHPMyAdmin, se [WordPress: omdirigera till fel URL](https://blogs.msdn.microsoft.com/azureossds/2016/07/12/wordpress-redirecting-to-wrong-url/).
 
 ## <a name="how-do-i-change-my-wordpress-sign-in-password"></a>Hur gör jag för att ändra inloggnings lösen ordet för ditt WordPress?
 
@@ -203,7 +203,7 @@ Om du upptäcker att du har låst av WordPress efter att du nyligen har installe
 
 Du har flera alternativ för att migrera MySQL-databasen som är ansluten till din WordPress-webbplats:
 
-* Utvecklare: Använda [kommando tolken eller phpMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
+* Utvecklare: använda [kommando tolken eller phpMyAdmin](https://blogs.msdn.microsoft.com/azureossds/2016/03/02/migrating-data-between-mysql-databases-using-kudu-console-azure-app-service/)
 * Icke-utvecklare: Använd [WordPress kompis +](https://sharepointforum.org/threads/wordpress-tools-and-mysql-migration-with-wordpress-buddy.82929/)
 
 ## <a name="how-do-i-help-make-wordpress-more-secure"></a>Hur gör jag för att hjälp till att göra WordPress säkrare?

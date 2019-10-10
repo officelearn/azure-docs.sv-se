@@ -34,18 +34,18 @@ När du försöker ansluta till en virtuell dator uppstår följande scenarier:
 
     ![Skärm bild av VM-status](./media/troubleshoot-remote-desktop-services-issues/login-page.png)
 
-- Du fjärrvisa händelseloggarna på den virtuella datorn med hjälp av Loggboken. Du ser att Fjärrskrivbordstjänster, TermService, inte startar eller inte startar. Följande logg är ett exempel:
+- Du visar händelse loggarna på den virtuella datorn via en fjärr anslutning med hjälp av Loggboken. Du ser att Fjärrskrivbordstjänster, TermService, inte startar eller inte startar. Följande logg är ett exempel:
 
-    **Logg namn**:      System </br>
-    **Källa**:        Tjänst kontroll hanterare </br>
-    **Datum**:          12/16/2017 11:19:36 AM</br>
-    **Händelse-ID**:      7022</br>
-    **Uppgifts kategori**: Inga</br>
-    **Nivå**:         Fel</br>
-    **Nyckelord**:      Klassisk</br>
-    **Användare**:          Gäller inte</br>
+    **Logg namn**: system </br>
+    **Källa**: tjänst kontroll hanteraren </br>
+    **Datum**: 12/16/2017 11:19:36 am</br>
+    **Händelse-ID**: 7022</br>
+    **Uppgifts kategori**: ingen</br>
+    **Nivå**: fel</br>
+    **Nyckelord**: klassisk</br>
+    **Användare**: ej tillämpligt</br>
     **Dator**: VM.contoso.com</br>
-    **Beskrivning**: Den Fjärrskrivbordstjänster tjänsten stannade vid start. 
+    **Beskrivning**: den Fjärrskrivbordstjänster tjänsten stannade vid start. 
 
     Du kan också använda funktionen för seriell åtkomst konsol för att söka efter dessa fel genom att köra följande fråga: 
 
@@ -98,21 +98,21 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
     |  Fel |  Förslag |
     |---|---|
-    |5 – ÅTKOMST NEKAD |Se [TermService-tjänsten har stoppats på grund av ett åtkomst nekad-fel](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
-    |1053 - ERROR_SERVICE_REQUEST_TIMEOUT  |Se [TermService-tjänsten är inaktive rad](#termservice-service-is-disabled).  |  
-    |1058 - ERROR_SERVICE_DISABLED  |Se [TermService-tjänsten kraschar eller låser sig](#termservice-service-crashes-or-hangs).  |
-    |1059 - ERROR_CIRCULAR_DEPENDENCY |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.|
-    |1067 - ERROR_PROCESS_ABORTED  |Se [TermService-tjänsten kraschar eller låser sig](#termservice-service-crashes-or-hangs).  |
-    |1068 - ERROR_SERVICE_DEPENDENCY_FAIL|[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.|
-    |1069 - ERROR_SERVICE_LOGON_FAILED  |Se [TermService-tjänsten Miss lyckas på grund av ett inloggnings fel](#termservice-service-fails-because-of-logon-failure) |
-    |1070 - ERROR_SERVICE_START_HANG   | Se [TermService-tjänsten kraschar eller låser sig](#termservice-service-crashes-or-hangs). |
-    |1077 - ERROR_SERVICE_NEVER_STARTED   | Se [TermService-tjänsten är inaktive rad](#termservice-service-is-disabled).  |
-    |1079 - ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt. |
+    |5-ÅTKOMST NEKAD |Se [TermService-tjänsten har stoppats på grund av ett åtkomst nekad-fel](#termservice-service-is-stopped-because-of-an-access-denied-problem). |
+    |1053 – ERROR_SERVICE_REQUEST_TIMEOUT  |Se [TermService-tjänsten är inaktive rad](#termservice-service-is-disabled).  |  
+    |1058 – ERROR_SERVICE_DISABLED  |Se [TermService-tjänsten kraschar eller låser sig](#termservice-service-crashes-or-hangs).  |
+    |1059 – ERROR_CIRCULAR_DEPENDENCY |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.|
+    |1067 – ERROR_PROCESS_ABORTED  |Se [TermService-tjänsten kraschar eller låser sig](#termservice-service-crashes-or-hangs).  |
+    |1068 – ERROR_SERVICE_DEPENDENCY_FAIL|[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.|
+    |1069 – ERROR_SERVICE_LOGON_FAILED  |Se [TermService-tjänsten Miss lyckas på grund av ett inloggnings fel](#termservice-service-fails-because-of-logon-failure) |
+    |1070 – ERROR_SERVICE_START_HANG   | Se [TermService-tjänsten kraschar eller låser sig](#termservice-service-crashes-or-hangs). |
+    |1077 – ERROR_SERVICE_NEVER_STARTED   | Se [TermService-tjänsten är inaktive rad](#termservice-service-is-disabled).  |
+    |1079 – ERROR_DIFERENCE_SERVICE_ACCOUNT   |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt. |
     |1753   |[Kontakta supporten](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) för att lösa problemet snabbt.   |
     
 #### <a name="termservice-service-is-stopped-because-of-an-access-denied-problem"></a>TermService-tjänsten har stoppats på grund av problem med nekad åtkomst
 
-1. Ansluta till [Seriekonsolen](serial-console-windows.md) och öppna en PowerShell-instans.
+1. Anslut till [serie konsolen](serial-console-windows.md) och öppna en PowerShell-instans.
 2. Hämta Process Monitor-verktyget genom att köra följande skript:
 
    ```
@@ -123,7 +123,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
    $wc.DownloadFile($source,$destination) 
    ```
 
-3. Nu startar en **procmon** spårning:
+3. Starta nu en **Procmon** -spårning:
 
    ```
    procmon /Quiet /Minimized /BackingFile c:\temp\ProcMonTrace.PML 
@@ -135,7 +135,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
    sc start TermService 
    ```
 
-   När det inte avsluta spårningen Övervakare för processen:
+   När det Miss lyckas avslutar du Process Monitor-spårningen:
 
    ```   
    procmon /Terminate 
@@ -143,9 +143,9 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
 5. Samla in filen **c:\temp\ProcMonTrace.PML**:
 
-    1. [Anslut en datadisk till den virtuella datorn](../windows/attach-managed-disk-portal.md
+    1. [Koppla en datadisk till den virtuella datorn](../windows/attach-managed-disk-portal.md
 ).
-    2. Använd Seriekonsol som du kan kopiera filen till den nya enheten. Till exempel `copy C:\temp\ProcMonTrace.PML F:\`. I det här kommandot är F enhetsbokstaven för den anslutna disken.
+    2. Använd en serie konsol du kan kopiera filen till den nya enheten. Till exempel `copy C:\temp\ProcMonTrace.PML F:\`. I det här kommandot är F driv rutins beteckningen för den anslutna data disken.
     3. Koppla från data enheten och koppla den på en fungerande virtuell dator som har Process Monitor-ubstakke installerad.
 
 6. Öppna **ProcMonTrace. PML** genom att använda Process Monitor den aktiva virtuella datorn. Filtrera efter **resultat är åtkomst nekad**, som visas på följande skärm bild:
@@ -153,11 +153,11 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
     ![Filtrera efter resultat i process övervakaren](./media/troubleshoot-remote-desktop-services-issues/process-monitor-access-denined.png)
 
  
-6. Åtgärda den registernycklar, mappar eller filer som finns på utdata. Det här problemet orsakas vanligtvis när den inloggning som används på tjänsten inte har ACL-behörighet att komma åt dessa objekt. Om du vill veta rätt ACL-behörighet för inloggnings kontot kan du kontrol lera en felfri virtuell dator. 
+6. Åtgärda de register nycklar, mappar eller filer som finns i utdata. Det här problemet uppstår vanligt vis när det inloggnings konto som används på tjänsten inte har ACL-behörighet för att komma åt dessa objekt. Om du vill veta rätt ACL-behörighet för inloggnings kontot kan du kontrol lera en felfri virtuell dator. 
 
 #### <a name="termservice-service-is-disabled"></a>TermService-tjänsten är inaktive rad
 
-1. Återställa tjänsten till dess standardvärde för start:
+1. Återställa tjänsten till standardvärdet start värde:
 
    ```
    sc config TermService start= demand 
@@ -191,7 +191,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 1. Om tjänstens status är fastnat i **starten** eller **stoppas**försöker du stoppa tjänsten: 
 
         sc stop TermService
-2. Isolera tjänsten på sin egen 'svchost ”-behållaren:
+2. Isolera tjänsten i en egen "svchost"-behållare:
 
         sc config TermService type= own
 3. Starta tjänsten:
@@ -203,9 +203,9 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
 
 #### <a name="attach-the-os-disk-to-a-recovery-vm"></a>Koppla OS-disken till en virtuell dator för återställning
 
-1. [Koppla OS-disk till virtuell återställningsdator](../windows/troubleshoot-recovery-disks-portal.md).
-2. Starta en fjärrskrivbordsanslutning till den Virtuella återställningsdatorn. Se till att den anslutna disken flaggas som **Online** i konsolen Diskhantering. Observera den enhetsbeteckning som är tilldelad till den anslutna OS-disken.
-3. Öppna en upphöjd kommandotolk-instans (**kör som administratör**). Kör sedan följande skript. Vi antar att enhets beteckningen som är kopplad till den anslutna OS-disken är **F**. Ersätt det med lämpligt värde i den virtuella datorn. 
+1. [Koppla OS-disken till en virtuell dator för återställning](../windows/troubleshoot-recovery-disks-portal.md).
+2. Starta en fjärr skrivbords anslutning till den virtuella återställnings datorn. Kontrol lera att den anslutna disken är flaggad som **online** i disk hanterings konsolen. Anteckna enhets beteckningen som är kopplad till den anslutna OS-disken.
+3. Öppna en upphöjd kommando tolks instans (**Kör som administratör**). Kör sedan följande skript. Vi antar att enhets beteckningen som är kopplad till den anslutna OS-disken är **F**. Ersätt det med lämpligt värde i den virtuella datorn. 
 
    ```
    reg load HKLM\BROKENSYSTEM F:\windows\system32\config\SYSTEM.hiv
@@ -219,7 +219,7 @@ Använd serie konsolen för att felsöka problemet. Du kan också [reparera den 
    reg add "HKLM\BROKENSYSTEM\ControlSet002\services\TermService" /v type /t REG_DWORD /d 16 /f
    ```
 
-4. [Koppla från den OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.
+4. [Koppla från OS-disken och återskapa den virtuella datorn](../windows/troubleshoot-recovery-disks-portal.md). Kontrol lera sedan om problemet är löst.
 
 ## <a name="need-help-contact-support"></a>Behöver du hjälp? Kontakta supporten
 

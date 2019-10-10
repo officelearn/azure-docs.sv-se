@@ -15,11 +15,11 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177558"
 ---
-# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Självstudiekurs: Använd parameter-filer för att distribuera Resource Manager-mallen
+# <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>Självstudie: använda parameter-filer för att distribuera Resource Manager-mallen
 
 I den här självstudien får du lära dig hur du använder [parameter-filer](resource-manager-parameter-files.md) för att lagra de värden som du skickar i under distributionen. I de föregående självstudierna använde du infogade parametrar med ditt distributions kommando. Den här metoden fungerade för att testa din mall, men när du automatiserar distributionen kan det vara lättare att skicka en uppsättning värden för din miljö. Parameter-filer gör det lättare att paketera parameter värden för en speciell miljö. I den här självstudien skapar du parameterstyrda filer för utvecklings-och produktions miljöer. Det tar ungefär **12 minuter** att slutföra.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Vi rekommenderar att du slutför [självstudien om Taggar](template-tutorial-add-tags.md), men det är inte obligatoriskt.
 
@@ -123,7 +123,7 @@ az group deployment create \
 
 Du kan kontrol lera distributionen genom att utforska resurs grupperna från Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Välj **resurs grupper**på den vänstra menyn.
 1. Du ser de två nya resurs grupper som du har distribuerat i den här självstudien.
 1. Välj antingen resurs grupp och Visa de distribuerade resurserna. Observera att de stämmer överens med de värden som du har angett i parameter filen för den miljön.

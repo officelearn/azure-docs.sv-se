@@ -64,7 +64,7 @@ Innan du kan skapa en anslutning måste du lägga till ITSM-anslutningsprogram-l
 3. I avsnittet **OMS-arbetsyta** väljer du den Azure Log Analytics-arbetsyta där du vill installera lösningen.
    >[!NOTE]
    > * Som en del av den pågående över gången från Microsoft Operations Management Suite (OMS) till Azure Monitor, kallas OMS-arbetsytor nu Log Analytics arbets ytor.
-   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: Östra USA, Västeuropa, Sydostasien, sydöstra Australien, västra centrala USA, Östra Japan, södra Storbritannien, centrala Indien, centrala Kanada.
+   > * ITSM-anslutningsprogram kan bara installeras i Log Analytics arbets ytor i följande regioner: östra USA, Västeuropa, Sydostasien, sydöstra Australien, västra centrala USA, Östra Japan, södra Storbritannien, centrala Indien, centrala Kanada.
 
 4. I avsnittet **Inställningar för OMS-arbetsyta** väljer du den ResourceGroup där du vill skapa lösnings resursen.
 
@@ -119,7 +119,7 @@ När du har skapat din ITSM-anslutning kan du skapa arbets objekt i ITSM-verktyg
 
 Med åtgärds grupper får du ett modulärt och återanvändbart sätt att utlösa åtgärder för dina Azure-aviseringar. Du kan använda åtgärds grupper med mått aviseringar, aktivitets logg aviseringar och Azure Log Analytics varningar i Azure Portal.
 
-Följ anvisningarna nedan:
+Följ dessa steg:
 
 1. Klicka på **övervaka**i Azure Portal.
 2. I den vänstra rutan klickar du på **Åtgärds grupper**. Fönstret **Lägg till åtgärds grupp** visas.
@@ -137,7 +137,7 @@ Följ anvisningarna nedan:
 
 6. Välj typ av **arbets objekt** på den nedrullningsbara menyn.
    Välj att använda en befintlig mall eller fyll i fälten som krävs av din ITSM-produkt.
-7. Klicka på **OK**.
+7. Klicka på **OK**
 
 När du skapar/redigerar en regel för Azure-avisering använder du en åtgärds grupp som har en ITSM-åtgärd. När aviseringen utlöses skapas/uppdateras arbets objekt i ITSM-verktyget.
 
@@ -164,7 +164,7 @@ Om du använder Tjänstkarta-lösningen kan du Visa Service Desk-objekten som sk
 
 ![Log Analytics skärm](media/itsmc-overview/itsmc-overview-integrated-solutions.png)
 
-Mer information: [Tjänstkarta](../../azure-monitor/insights/service-map.md)
+Mer information: [tjänstkarta](../../azure-monitor/insights/service-map.md)
 
 
 ## <a name="additional-information"></a>Ytterligare information
@@ -178,57 +178,57 @@ Följande information visar exempel på data som samlas in av ITSMC:
 >
 > Beroende på typen av arbets objekt som importer ATS till Log Analytics, innehåller **ServiceDesk_CL** följande fält:
 
-**Arbets objekt:** **Incidenter**  
-ServiceDeskWorkItemType_s="Incident"
+**Arbets objekt:** **incidenter**  
+ServiceDeskWorkItemType_s = "incident"
 
 **Fält**
 
 - ServiceDeskConnectionName
 - Service Desk-ID
-- State
-- Angelägenhetsgrad
+- Status
+- Nödfall
 - Påverkan
-- Priority
+- Prioritet
 - Eskalering
-- Skapat av
+- Skapad av
 - Löst av
 - Stängd av
-- Source
+- Källa
 - Tilldelad till
-- Category
-- Titel
+- Kategori
+- Rubrik
 - Beskrivning
 - Skapad datum
-- Stängningsdatum
-- Lösningsdatum
+- Stängnings datum
+- Löst datum
 - Datum för senaste ändring
-- Computer
+- Dator
 
 
-**Arbets objekt:** **Ändrings begär Anden**
+**Arbets objekt:** **ändrings begär Anden**
 
-ServiceDeskWorkItemType_s="ChangeRequest"
+ServiceDeskWorkItemType_s = "ändringsbegäran"
 
 **Fält**
 - ServiceDeskConnectionName
 - Service Desk-ID
-- Skapat av
+- Skapad av
 - Stängd av
-- Source
+- Källa
 - Tilldelad till
-- Titel
-- type
-- Category
-- State
+- Rubrik
+- Typ
+- Kategori
+- Status
 - Eskalering
 - Konflikt status
-- Angelägenhetsgrad
-- Priority
+- Nödfall
+- Prioritet
 - Risk
 - Påverkan
 - Tilldelad till
 - Skapad datum
-- Stängningsdatum
+- Stängnings datum
 - Datum för senaste ändring
 - Begärt datum
 - Planerat start datum
@@ -236,44 +236,44 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - Start datum för arbete
 - Slutdatum för arbete
 - Beskrivning
-- Computer
+- Dator
 
 ## <a name="output-data-for-a-servicenow-incident"></a>Utdata för en ServiceNow-incident
 
 | Log Analytics fält | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
-| IncidentState_s | State |
-| Urgency_s |Angelägenhetsgrad |
+| ServiceDeskId_s| Tal |
+| IncidentState_s | Status |
+| Urgency_s |Nödfall |
 | Impact_s |Påverkan|
-| Priority_s | Priority |
+| Priority_s | Prioritet |
 | CreatedBy_s | Öppnad av |
 | ResolvedBy_s | Löst av|
 | ClosedBy_s  | Stängd av |
 | Source_s| Kontakt typ |
 | AssignedTo_s | Tilldelad  |
-| Category_s | Category |
+| Category_s | Kategori |
 | Title_s|  Kort beskrivning |
 | Description_s|  Anteckningar |
 | CreatedDate_t|  Inleddes |
-| ClosedDate_t| Stängd|
+| ClosedDate_t| kopplade|
 | ResolvedDate_t|Göras|
-| Computer  | Konfigurations objekt |
+| Dator  | Konfigurations objekt |
 
 ## <a name="output-data-for-a-servicenow-change-request"></a>Utdata för en ServiceNow-ändringsbegäran
 
 | Log Analytics | ServiceNow-fält |
 |:--- |:--- |
-| ServiceDeskId_s| Number |
+| ServiceDeskId_s| Tal |
 | CreatedBy_s | Begärd av |
 | ClosedBy_s | Stängd av |
 | AssignedTo_s | Tilldelad  |
 | Title_s|  Kort beskrivning |
-| Type_s|  type |
-| Category_s|  Category |
-| CRState_s|  State|
-| Urgency_s|  Angelägenhetsgrad |
-| Priority_s| Priority|
+| Type_s|  Typ |
+| Category_s|  Kategori |
+| CRState_s|  Status|
+| Urgency_s|  Nödfall |
+| Priority_s| Prioritet|
 | Risk_s| Risk|
 | Impact_s| Påverkan|
 | RequestedDate_t  | Begärd efter datum |
@@ -283,7 +283,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | WorkStartDate_t  | Verkligt start datum |
 | WorkEndDate_t | Verkligt slutdatum|
 | Description_s | Beskrivning |
-| Computer  | Konfigurations objekt |
+| Dator  | Konfigurations objekt |
 
 
 ## <a name="troubleshoot-itsm-connections"></a>Felsöka ITSM-anslutningar
@@ -296,7 +296,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 2. Om data från ServiceNow inte kommer att synkroniseras till Log Analytics, se till att ServiceNow-instansen inte är i vilo läge. ServiceNow dev-instanser går ibland till ström spar läge när de är inaktiva under en längre tid. Annars kan du rapportera problemet.
 3. Om Log Analytics-aviseringar om brand, men arbets objekt inte skapas i ITSM-produkten eller om konfigurations objekt inte skapas/länkas till arbets objekt eller för någon annan allmän information, tittar du på följande platser:
-   -  ITSMC: Lösningen visar en sammanfattning av anslutningar/arbets objekt/datorer osv. Klicka på panelen som visar **kopplings status**, som gör att du kan **Logga sökningen** med den relevanta frågan. Mer information hittar du i logg posterna med LogType_S som fel.
+   -  ITSMC: lösningen visar en sammanfattning av anslutningar/arbets objekt/datorer osv. Klicka på panelen som visar **kopplings status**, som gör att du kan **Logga sökningen** med den relevanta frågan. Mer information hittar du i logg posterna med LogType_S som fel.
    - Sidan **loggs ökning** : Visa fel-/relaterad information direkt med frågan `*`ServiceDeskLog_CL @ no__t-2.
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Felsöka Service Manager Web App-distribution

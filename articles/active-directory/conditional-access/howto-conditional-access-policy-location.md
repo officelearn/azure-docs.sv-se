@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72169972"
 ---
-# <a name="conditional-access-block-access-by-location"></a>Villkorlig åtkomst: Blockera åtkomst efter plats
+# <a name="conditional-access-block-access-by-location"></a>Villkorlig åtkomst: blockera åtkomst efter plats
 
 Med plats villkoret i villkorlig åtkomst kan du styra åtkomsten till dina molnappar baserat på användarens nätverks plats. Plats villkoret används ofta för att blockera åtkomst från länder där organisationen vet att trafiken inte kommer från.
 

@@ -19,7 +19,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177662"
 ---
-# <a name="virtual-network-peering"></a>Virtuell nätverkspeering
+# <a name="virtual-network-peering"></a>VNET-peering
 
 Med peering för virtuella nätverk kan du sömlöst ansluta [virtuella](virtual-networks-overview.md)Azure-nätverk. När de virtuella nätverken har peer-kopplats visas de som ett nätverk för anslutningsändamål. Trafiken mellan virtuella datorer i peer-kopplade virtuella nätverk dirigeras via Microsoft-stamnätsinfrastrukturen på nästan samma sätt som trafik dirigeras mellan virtuella datorer i samma virtuella nätverk genom endast *privata* IP-adresser. Azure stöder:
 * VNet-peering – anslutning av virtuella nätverk i samma Azure-region
@@ -67,7 +67,7 @@ Gateway-överföring stöds för både VNet-peering och global VNet-peering. Gat
 
 När de virtuella nätverken som delar samma Azure ExpressRoute-anslutning är peer-kopplade går trafiken mellan dem genom peering-relationen (dvs. genom Azures stamnätverk). Du kan fortfarande använda lokala gateways i varje virtuellt nätverk för att ansluta till den lokala kretsen. Du kan även använda en delad gateway och konfigurera överföringen för lokala anslutningar.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 
 För att bekräfta peer-kopplingen för virtuella nätverk, kan du [kontrollera effektiva vägar](diagnose-network-routing-problem.md) för ett nätverksgränssnitt i alla undernät i ett virtuellt nätverk. Om peer-koppling för virtuellt nätverk finns har alla undernät i det virtuella nätverket vägar med nästa hopp-typ *VNet-peering* för varje adressutrymme i varje peer-kopplat virtuellt nätverk.
 
@@ -96,7 +96,7 @@ Gateway-överföring är en peering-egenskap som gör att ett virtuellt nätverk
 
 * Peering för virtuellt nätverk skapas mellan virtuella nätverk som skapats via samma eller olika distributionsmodeller som finns i samma eller olika prenumerationer. Genomför en självstudiekurs för något av följande scenarier:
 
-    |Azure-distributionsmodell             | Subscription  |
+    |Azure-distributionsmodell             | Prenumeration  |
     |---------                          |---------|
     |Båda Resource Manager              |[Samma](tutorial-connect-virtual-networks-portal.md)|
     |                                   |[Olika](create-peering-different-subscriptions.md)|

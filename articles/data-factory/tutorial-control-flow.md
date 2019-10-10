@@ -42,7 +42,7 @@ I den här självstudiekursen används .NET SDK. Du kan använda andra metoder f
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure Storage konto. Du använder Blob Storage som käll data lager. Om du inte har ett Azure Storage-konto kan du läsa [skapa ett lagrings konto](../storage/common/storage-quickstart-create-account.md).
 * Azure Storage Explorer. Information om hur du installerar det här verktyget finns [Azure Storage Explorer](https://storageexplorer.com/).
@@ -270,7 +270,7 @@ Observera att parametrarna för *FolderPath*används. `sourceBlobContainer` är 
 
 Skapa en C# klass med namnet `EmailRequest` i projektet. Den här klassen definierar vilka egenskaper som pipelinen skickar i Body-begäran när ett e-postmeddelande skickas. I den här självstudiekursen skickar pipelinen fyra egenskaper från pipelinen till e-postmeddelandet:
 
-* meddelande. E-postmeddelandets brödtext. För en lyckad kopiering innehåller den här egenskapen mängden data som skrivits. För en misslyckad kopia innehåller den här egenskapen information om felet.
+* Meddelande. E-postmeddelandets brödtext. För en lyckad kopiering innehåller den här egenskapen mängden data som skrivits. För en misslyckad kopia innehåller den här egenskapen information om felet.
 * Data fabriks namn. Namnet på data fabriken.
 * Pipeline-namn. Namnet på pipeline.
 * Mottagare. Parameter som passerar genom. Den här egenskapen anger mottagaren av e-postmeddelandet.
@@ -490,7 +490,7 @@ Webb aktiviteten tillåter ett anrop till alla REST-slutpunkter. Mer information
 
 I egenskapen `Url` klistrar du in **URL-** slutpunkterna för http post från dina Logic Apps-arbetsflöden. I egenskapen `Body` skickar du en instans av klassen `EmailRequest`. E-postbegäran innehåller följande egenskaper:
 
-* meddelande. Överför värdet för `@{activity('CopyBlobtoBlob').output.dataWritten`. Öppnar en egenskap för den tidigare kopierings aktiviteten och överför värdet för `dataWritten`. Vid ett fel skickas felutdata i stället för `@{activity('CopyBlobtoBlob').error.message`.
+* Meddelande. Överför värdet för `@{activity('CopyBlobtoBlob').output.dataWritten`. Öppnar en egenskap för den tidigare kopierings aktiviteten och överför värdet för `dataWritten`. Vid ett fel skickas felutdata i stället för `@{activity('CopyBlobtoBlob').error.message`.
 * Data Factory namn. Pass värde för `@{pipeline().DataFactory}` den här system variabeln gör att du kan komma åt motsvarande data fabriks namn. En lista över systemvariabler finns i [Systemvariabler](control-flow-system-variables.md).
 * Pipeline-namn. Överför värdet för `@{pipeline().Pipeline}`. Med den här system variabeln kan du komma åt motsvarande pipelines namn.
 * Mottagare. Överför värdet för `"@pipeline().parameters.receiver"`. Åtkomst till pipeline-parametrarna.

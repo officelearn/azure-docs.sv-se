@@ -30,7 +30,7 @@ Den här självstudien visar hur du skyddar din [App Service app](https://docs.m
 > App Service certifikat kan användas för alla Azure-och icke-Azure-tjänster och är inte begränsade till App Services. För att göra det måste du skapa en lokal PFX-kopia av ett App Service-certifikat som du kan använda det var du vill. Mer information finns i [skapa en lokal PFX-kopia av en app service Certificate](https://blogs.msdn.microsoft.com/benjaminperkins/2017/04/12/export-an-azure-app-service-certificate-pfx-powershell/).
 >
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att följa den här instruktions guiden:
 
@@ -49,10 +49,10 @@ Använd följande tabell som hjälp för att konfigurera certifikatet. Klicka p�
 
 | Inställning | Beskrivning |
 |-|-|
-| Name | Ett eget namn på ditt App Service certifikat. |
+| Namn | Ett eget namn på ditt App Service certifikat. |
 | Värddator namn för blott-domän | Ange rot domänen här. Det utfärdade certifikatet skyddar *både* rot domänen och under domänen `www`. I det utfärdade certifikatet innehåller fältet eget namn rot domänen och fältet Alternativt namn på certifikat mottagare innehåller domänen `www`. Om du bara vill skydda en under domän anger du det fullständigt kvalificerade domän namnet för under domänen här (till exempel `mysubdomain.contoso.com`).|
-| Subscription | Datacenter som är värd för webbappen. |
-| Resource group | Den resurs grupp som innehåller certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
+| Prenumeration | Datacenter som är värd för webbappen. |
+| Resursgrupp | Den resurs grupp som innehåller certifikatet. Du kan använda en ny resurs grupp eller välja samma resurs grupp som App Service-appen, till exempel. |
 | Certifikat-SKU | Bestämmer vilken typ av certifikat som ska skapas, om ett standard certifikat eller ett [jokertecken](https://wikipedia.org/wiki/Wildcard_certificate). |
 | Juridiska villkor | Klicka för att bekräfta att du godkänner de juridiska villkoren. Certifikaten hämtas från GoDaddy. |
 
@@ -60,7 +60,7 @@ Använd följande tabell som hjälp för att konfigurera certifikatet. Klicka p�
 
 När certifikat köpet har slutförts finns det några fler steg du måste slutföra innan du kan börja använda det här certifikatet. 
 
-Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och klicka sedan på **certifikat konfiguration** >  @ no__t-3Step 1: Lagra @ no__t-0.
+Välj certifikatet på sidan [app service certifikat](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders) och klicka sedan på **certifikat konfiguration** > **steg 1: lagra**.
 
 ![Infoga bild av redo att lagra i KV](./media/app-service-web-purchase-ssl-web-site/ReadyKV.png)
 
@@ -70,18 +70,18 @@ På sidan **Key Vault status** klickar du på **Key Vault lagrings plats** för 
 
 | Inställning | Beskrivning |
 |-|-|
-| Name | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
-| Resource group | Som en rekommendation väljer du samma resurs grupp som ditt App Service certifikat. |
-| Location | Välj samma plats som App Service-appen. |
+| Namn | Ett unikt namn som består av alfanumeriska tecken och bindestreck. |
+| Resursgrupp | Som en rekommendation väljer du samma resurs grupp som ditt App Service certifikat. |
+| Plats | Välj samma plats som App Service-appen. |
 | Prisnivå | Mer information finns [Azure Key Vault pris information](https://azure.microsoft.com/pricing/details/key-vault/). |
-| Åtkomstprinciper| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [bevilja flera program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md). |
+| Åtkomst principer| Definierar program och tillåten åtkomst till valv resurserna. Du kan konfigurera den senare genom att följa stegen i [bevilja flera program åtkomst till ett nyckel valv](../key-vault/key-vault-group-permissions-for-apps.md). |
 | Virtual Network åtkomst | Begränsa valv åtkomst till vissa virtuella Azure-nätverk. Du kan konfigurera den senare genom att följa stegen i [konfigurera Azure Key Vault brand väggar och virtuella nätverk](../key-vault/key-vault-network-security.md) |
 
 När du har valt valvet stänger du sidan **Key Vault-lagringsplats** . **Store** -alternativet ska visa en grön bock markering för lyckad. Låt sidan vara öppen för nästa steg.
 
 ## <a name="verify-domain-ownership"></a>Verifiera domän ägarskap
 
-Från sidan samma **certifikat konfiguration** som du använde i det sista steget klickar du på **step 2: Verifiera @ no__t-0.
+På sidan samma **certifikat konfiguration** som du använde i det sista steget klickar du på **steg 2: verifiera**.
 
 ![](./media/app-service-web-purchase-ssl-web-site/verify-domain.png)
 
@@ -166,4 +166,4 @@ När förnyelse åtgärden är klar klickar du på **Synkronisera**. Synkroniser
 * [Använda HTTPS](app-service-web-tutorial-custom-ssl.md#enforce-https)
 * [Framtvinga TLS 1.1/1.2](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Använd ett SSL-certifikat i program koden i Azure App Service](app-service-web-ssl-cert-load.md)
-* [FAQ: App Service certifikat @ no__t-0
+* [Vanliga frågor och svar: App Service certifikat](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/)

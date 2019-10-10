@@ -37,7 +37,7 @@ Ja. Kvoterna för varje prenumeration är:
 - Antal program: 5
 - Kärnor per program: 12
 - Totalt RAM-minne per program: 48 GB
-- Nätverks-och ingress-slut punkter: 5
+- Nätverks-och ingångs slut punkter: 5
 - Azure-volymer som du kan koppla: 10
 - Antal tjänst repliker: 3
 - Den största behållaren som du kan distribuera är begränsad till 4 kärnor och 16 GB RAM-minne.
@@ -124,7 +124,7 @@ Använd `{serviceName}.{applicationName}` i det lokala utvecklings klustret. I A
 
 Azure-nät stöder för närvarande inte DNS-matchning mellan program.
 
-För andra kända DNS-problem med att köra ett Service Fabric utvecklings kluster i Windows 10, se: [Felsök Windows-behållare](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) och [kända DNS-problem](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
+För andra kända DNS-problem med att köra ett Service Fabric utvecklings kluster i Windows 10, se: [Felsöka Windows-behållare](/azure/service-fabric/service-fabric-how-to-debug-windows-containers) och [kända DNS-problem](https://docs.microsoft.com/azure/service-fabric/service-fabric-dnsservice#known-issues).
 
 ### <a name="networking"></a>Nätverk
 

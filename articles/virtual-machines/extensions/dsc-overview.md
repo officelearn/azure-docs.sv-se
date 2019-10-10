@@ -36,18 +36,18 @@ Ingen kontinuerlig rapportering är tillgänglig, förutom lokalt på den virtue
 
 Den här artikeln innehåller information om båda scenarierna: använda DSC-tillägget för automatisering onboarding och använda DSC-tillägget som ett verktyg för att tilldela konfigurationer till virtuella datorer med hjälp av Azure SDK.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-- **Lokal dator**: Om du vill interagera med tillägget för Azure VM måste du antingen använda Azure Portal eller Azure PowerShell SDK.
-- **Gästa Gent**: Den virtuella Azure-datorn som konfigureras av DSC-konfigurationen måste vara ett operativ system som stöder Windows Management Framework (WMF) 4,0 eller senare. En fullständig lista över OS-versioner som stöds finns i [versions historik för DSC-tillägg](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Lokal dator**: om du vill interagera med tillägget för Azure VM måste du antingen använda Azure Portal eller Azure PowerShell SDK.
+- **Gästa Gent**: den virtuella Azure-dator som konfigureras av DSC-konfigurationen måste vara ett operativ system som stöder Windows Management Framework (WMF) 4,0 eller senare. En fullständig lista över OS-versioner som stöds finns i [versions historik för DSC-tillägg](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Termer och begrepp
 
 Den här guiden förutsätter att du är bekant med följande begrepp:
 
-- **Konfiguration**: Ett konfigurations dokument för DSC.
-- **Nod**: Ett mål för en DSC-konfiguration. I det här dokumentet refererar *noden* alltid till en virtuell Azure-dator.
-- **Konfigurations data**: En. psd1-fil med miljö data för en konfiguration.
+- **Konfiguration**: ett DSC-konfigurationsobjekt.
+- **Node**: ett mål för en DSC-konfiguration. I det här dokumentet refererar *noden* alltid till en virtuell Azure-dator.
+- **Konfigurations data**: en. psd1-fil med miljö data för en konfiguration.
 
 ## <a name="architecture"></a>Arkitektur
 
@@ -182,23 +182,23 @@ Så här konfigurerar du DSC i portalen:
 
 Portalen samlar in följande ingångar:
 
-- **Moduler eller skript för konfiguration**: Det här fältet är obligatoriskt (formuläret har inte uppdaterats för [standard konfigurations skriptet](#default-configuration-script)). Konfigurations moduler och-skript kräver en. ps1-fil som har ett konfigurations skript eller en. zip-fil med konfigurations skriptet. ps1 på roten. Om du använder en. zip-fil måste alla beroende resurser tas med i modulens mappar i. zip-filen. Du kan skapa. zip-filen med hjälp av cmdleten **Publish-AzureVMDscConfiguration-OutputArchivePath** som ingår i Azure PowerShell SDK. Zip-filen överförs till din användar-blob-lagring och skyddas av en SAS-token.
+- **Konfigurations moduler eller skript**: det här fältet är obligatoriskt (formuläret har inte uppdaterats för [standard konfigurations skriptet](#default-configuration-script)). Konfigurations moduler och-skript kräver en. ps1-fil som har ett konfigurations skript eller en. zip-fil med konfigurations skriptet. ps1 på roten. Om du använder en. zip-fil måste alla beroende resurser tas med i modulens mappar i. zip-filen. Du kan skapa. zip-filen med hjälp av cmdleten **Publish-AzureVMDscConfiguration-OutputArchivePath** som ingår i Azure PowerShell SDK. Zip-filen överförs till din användar-blob-lagring och skyddas av en SAS-token.
 
-- **Konfiguration av modulens kvalificerade namn**: Du kan inkludera flera konfigurations funktioner i en. ps1-fil. Ange namnet på Configuration. ps1-skriptet följt av \\ och namnet på konfigurations funktionen. Om t. ex. ps1-skriptet har namnet Configuration. ps1 och konfigurationen är **skriptet iisinstall**anger du **Configuration. ps1\IisInstall**.
+- **Konfiguration av modulens kvalificerade namn**: du kan inkludera flera konfigurations funktioner i en. ps1-fil. Ange namnet på Configuration. ps1-skriptet följt av \\ och namnet på konfigurations funktionen. Om t. ex. ps1-skriptet har namnet Configuration. ps1 och konfigurationen är **skriptet iisinstall**anger du **Configuration. ps1\IisInstall**.
 
-- **Konfigurations argument**: Om konfigurations funktionen tar argument anger du dem här i formatet **argumentName1 = värde1, argumentName2 = värde2**. Det här formatet är ett annat format där konfigurations argument godkänns i PowerShell-cmdletar eller Resource Manager-mallar.
+- **Konfigurations argument**: om konfigurations funktionen tar argument anger du dem här i formatet **argumentName1 = värde1, argumentName2 = värde2**. Det här formatet är ett annat format där konfigurations argument godkänns i PowerShell-cmdletar eller Resource Manager-mallar.
 
-- **PSD1-fil för konfigurations data**: Det här fältet är valfritt. Om konfigurationen kräver en konfigurations data fil i. psd1, använder du det här fältet för att välja data fältet och överföra det till din användar-blob-lagring. Konfigurations data filen skyddas av en SAS-token i Blob Storage.
+- **PSD1-fil för konfigurations data**: det här fältet är valfritt. Om konfigurationen kräver en konfigurations data fil i. psd1, använder du det här fältet för att välja data fältet och överföra det till din användar-blob-lagring. Konfigurations data filen skyddas av en SAS-token i Blob Storage.
 
-- **WMF-version**: Anger den version av Windows Management Framework (WMF) som ska installeras på den virtuella datorn. Om du anger den här egenskapen till senaste installeras den senaste versionen av WMF. För närvarande är de enda möjliga värdena för den här egenskapen 4,0, 5,0, 5,1 och senaste. Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är **senaste**.
+- **WMF-version**: anger den version av Windows Management Framework (WMF) som ska installeras på den virtuella datorn. Om du anger den här egenskapen till senaste installeras den senaste versionen av WMF. För närvarande är de enda möjliga värdena för den här egenskapen 4,0, 5,0, 5,1 och senaste. Dessa möjliga värden är beroende av uppdateringar. Standardvärdet är **senaste**.
 
-- **Data insamling**: Anger om tillägget ska samla in telemetri. Mer information finns i [data insamling för Azure DSC-tillägg](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
+- **Data insamling**: anger om tillägget ska samla in telemetri. Mer information finns i [data insamling för Azure DSC-tillägg](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
 
-- **Version**: Anger vilken version av DSC-tillägget som ska installeras. Information om versioner finns i [versions historik för DSC-tillägg](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Version**: anger vilken version av DSC-tillägget som ska installeras. Information om versioner finns i [versions historik för DSC-tillägg](/powershell/scripting/dsc/getting-started/azuredscexthistory).
 
-- **Lägre version för automatisk uppgradering**: Det här fältet mappar till **AutoUpdate** -växeln i-cmdletarna och gör det möjligt för tillägget att uppdateras automatiskt till den senaste versionen under installationen. **Ja** instruerar tilläggs hanteraren att använda den senaste tillgängliga versionen och **ingen** kommer att tvinga den angivna **versionen** att installeras. Att välja nej eller **Nej** är inte detsamma som att välja **Nej**.
+- **Del version för automatisk uppgradering**: det här fältet mappar till **AutoUpdate** -växeln i-cmdletarna och aktiverar tillägget till att uppdateras automatiskt till den senaste versionen under installationen. **Ja** instruerar tilläggs hanteraren att använda den senaste tillgängliga versionen och **ingen** kommer att tvinga den angivna **versionen** att installeras. Att välja nej eller **Nej** är inte detsamma som att välja **Nej**.
 
-## <a name="logs"></a>Logs
+## <a name="logs"></a>Loggar
 
 Loggar för tillägget lagras på följande plats: `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 

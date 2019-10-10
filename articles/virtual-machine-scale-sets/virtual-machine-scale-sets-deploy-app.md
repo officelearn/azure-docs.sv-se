@@ -1,6 +1,6 @@
 ---
-title: Distribuera ett program till en Azure VM-skalningsuppsättning | Microsoft Docs
-description: Lär dig hur du distribuerar program till Linux och Windows VM-instanser i en skalningsuppsättning
+title: Distribuera ett program till en skalnings uppsättning för en virtuell Azure-dator | Microsoft Docs
+description: Lär dig hur du distribuerar program till instanser av virtuella Linux-och Windows-datorer i en skalnings uppsättning
 services: virtual-machine-scale-sets
 documentationcenter: ''
 author: cynthn
@@ -15,46 +15,46 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 09145612821cb669e26e3ccb8d15611112eca700
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 996006c60e754437f8f863c7e7a72c929ed77f2c
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60618633"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166215"
 ---
-# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera ditt program i VM-skalningsuppsättningar
+# <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Distribuera ditt program på virtuella datorers skalnings uppsättningar
 
-Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. Den här artikeln beskrivs olika sätt att skapa en anpassad virtuell datoravbildning för instanser i en skalningsuppsättning eller automatiskt köra installationsskripten på befintliga VM-instanser. Du också lära dig hur du hanterar program eller uppdateringar av Operativsystemet i en skalningsuppsättning.
+Om du vill köra program på virtuella datorinstanser i en skalningsuppsättning, måste du först installera programkomponenter och nödvändiga filer. Den här artikeln beskriver hur du skapar en anpassad virtuell dator avbildning för instanser i en skalnings uppsättning eller kör installations skript automatiskt på befintliga VM-instanser. Du lär dig också hur du hanterar program-eller OS-uppdateringar i en skalnings uppsättning.
 
 
-## <a name="build-a-custom-vm-image"></a>Skapa en anpassad virtuell datoravbildning
-När du använder en Azure-plattformen avbildning skapar instanser i din skalningsuppsättning kan är inga ytterligare programvara installerad eller konfigurerad. Du kan automatisera installationen av dessa komponenter, men som lägger till den tid det tar för att etablera VM-instanser till dina skalningsuppsättningar. Om du använder många konfigurationsändringar för VM-instanser finns det av overhead med dessa konfigurationsskript och uppgifter.
+## <a name="build-a-custom-vm-image"></a>Bygg en anpassad VM-avbildning
+När du använder en av Azures plattforms avbildningar för att skapa instanserna i din skalnings uppsättning installeras eller konfigureras ingen ytterligare program vara. Du kan automatisera installationen av dessa komponenter, men det lägger till den tid det tar att etablera virtuella dator instanser i dina skalnings uppsättningar. Om du tillämpar många konfigurations ändringar på VM-instanserna finns det hanterings resurser för dessa konfigurations skript och-uppgifter.
 
-För att minska konfigurationshantering och tid för att etablera en virtuell dator kan skapa du en anpassad virtuell datoravbildning som är redo att köra programmet när en instans etableras i skalningsuppsättningen. Mer information om hur du skapar och använder en anpassad virtuell datoravbildning med en skala, se följande självstudiekurser:
+För att minska konfigurations hanteringen och tiden för att etablera en virtuell dator kan du skapa en anpassad VM-avbildning som är redo att köra ditt program så snart en instans etableras i skalnings uppsättningen. Mer information om hur du skapar och använder en anpassad VM-avbildning med en skalnings uppsättning finns i följande Självstudier:
 
 - [Azure CLI](tutorial-use-custom-image-cli.md)
 - [Azure PowerShell](tutorial-use-custom-image-powershell.md)
 
 
-## <a name="already-provisioned"></a>Installera en app med det anpassade Skripttillägget
-Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skript kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Mer information om hur du skapar och använder en anpassad virtuell datoravbildning med en skala, se följande självstudiekurser:
+## <a name="already-provisioned"></a>Installera en app med tillägget för anpassat skript
+Det anpassade skripttillägget laddar ner och kör skript på virtuella Azure-datorer. Det här tillägget är användbart för konfiguration efter distribution, programvaruinstallation eller andra konfigurerings-/hanteringsuppgifter. Skript kan laddas ned från Azure Storage eller GitHub, eller tillhandahållas via Azure Portal vid tilläggskörning. Mer information om hur du skapar och använder en anpassad VM-avbildning med en skalnings uppsättning finns i följande Självstudier:
 
 - [Azure CLI](tutorial-install-apps-cli.md)
 - [Azure PowerShell](tutorial-install-apps-powershell.md)
 - [Azure Resource Manager-mall](tutorial-install-apps-template.md)
 
 
-## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installera en app till en virtuell dator med PowerShell DSC för Windows
-[PowerShell Desired State Configuration (DSC)](https://msdn.microsoft.com/powershell/dsc/overview) är en hanteringsplattform för att definiera konfigurationen av måldatorer. DSC-konfigurationer definierar vad som ska installeras på en dator och hur du konfigurerar värden. En motor för lokala Configuration Manager (LCM) körs på varje målnoden som bearbetar begärda åtgärder baserat på pushade konfigurationer.
+## <a name="install-an-app-to-a-windows-vm-with-powershell-dsc"></a>Installera en app på en virtuell Windows-dator med PowerShell DSC
+[PowerShell Desired State Configuration (DSC)](/powershell/scripting/dsc/overview/overview) är en hanterings plattform för att definiera konfigurationen för mål datorer. DSC-konfigurationer definierar vad som ska installeras på en dator och hur du konfigurerar värden. En lokal Configuration Manager-motor (LCM) körs på varje målnod som bearbetar begärda åtgärder baserat på push-konfigurationer.
 
-PowerShell DSC-tillägget kan du anpassa VM-instanser i en skalningsuppsättning med PowerShell. I följande exempel:
+Med PowerShell DSC-tillägget kan du anpassa VM-instanser i en skalnings uppsättning med PowerShell. Följande exempel:
 
-- Instruerar VM-instanser för att ladda ned ett DSC-paket från GitHub- *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
-- Anger att köra ett installationsskript - tillägget `configure-http.ps1`
-- Hämtar information om en skalningsuppsättning med [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
-- Gäller tillägget för Virtuella datorer med [Update AzVmss](/powershell/module/az.compute/update-azvmss)
+- Instruerar de virtuella dator instanserna att hämta ett DSC-paket från GitHub- *https://github.com/Azure-Samples/compute-automation-configurations/raw/master/dsc.zip*
+- Ställer in tillägget för att köra ett installations skript – `configure-http.ps1`
+- Hämtar information om en skalnings uppsättning med [Get-AzVmss](/powershell/module/az.compute/get-azvmss)
+- Tillämpar tillägget på de virtuella dator instanserna med [Update-AzVmss](/powershell/module/az.compute/update-azvmss)
 
-DSC-tillägget tillämpas på den *myScaleSet* VM-instanser i resursgruppen med namnet *myResourceGroup*. Ange egna namn enligt följande:
+DSC-tillägget tillämpas på *myScaleSet* VM-instanser i resurs gruppen med namnet *myResourceGroup*. Ange dina egna namn enligt följande:
 
 ```powershell
 # Define the script for your Desired Configuration to download and run
@@ -88,17 +88,17 @@ Update-AzVmss `
     -VirtualMachineScaleSet $vmss
 ```
 
-Om uppgraderingen principen på din skalningsuppsättning är *manuell*, uppdatera dina VM-instanser med [uppdatering AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance). Denna cmdlet gäller konfigurationen för uppdaterade skalningsuppsättningen för VM-instanser och installerar programmet.
+Om uppgraderings principen på din skalnings uppsättning är *manuell*uppdaterar du VM-instanserna med [Update-AzVmssInstance](/powershell/module/az.compute/update-azvmssinstance). Denna cmdlet tillämpar den uppdaterade skalnings uppsättnings konfigurationen på VM-instanserna och installerar programmet.
 
 
-## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Installera en app till en Linux VM med cloud-init
+## <a name="install-an-app-to-a-linux-vm-with-cloud-init"></a>Installera en app på en virtuell Linux-dator med Cloud-Init
 [Cloud-init](https://cloudinit.readthedocs.io/en/latest/index.html) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init körs under hela den ursprungliga startprocessen finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.
 
 Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
-Mer information, inklusive ett exempel *cloud-init.txt* fil, se [använda cloud-init för att anpassa virtuella Azure-datorer](../virtual-machines/linux/using-cloud-init.md).
+Mer information, inklusive ett exempel på en *init. txt* -fil finns i [använda Cloud-Init för att anpassa virtuella Azure-datorer](../virtual-machines/linux/using-cloud-init.md).
 
-Om du vill skapa en skalningsuppsättning och använder en cloud-init-fil, lägger du till den `--custom-data` parametern till den [az vmss skapa](/cli/azure/vmss) kommandot och ange namnet på en cloud-init-fil. I följande exempel skapas en skalningsuppsättning med namnet *myScaleSet* i *myResourceGroup* och konfigurerar VM-instanser med en fil med namnet *cloud-init.txt*. Ange egna namn enligt följande:
+Om du vill skapa en skalnings uppsättning och använda en Cloud-Init-fil lägger du till parametern `--custom-data` i kommandot [AZ VMSS Create](/cli/azure/vmss) och anger namnet på en Cloud-Init-fil. I följande exempel skapas en skalnings uppsättning med namnet *myScaleSet* i *myResourceGroup* och konfigurerar virtuella dator instanser med en fil med namnet *init. txt*. Ange dina egna namn enligt följande:
 
 ```azurecli
 az vmss create \
@@ -113,10 +113,10 @@ az vmss create \
 
 
 ### <a name="install-applications-with-os-updates"></a>Installera program med OS-uppdateringar
-När nya OS-versioner är tillgängliga kan du kan använda eller skapa en ny anpassad avbildning och [distribuera OS-uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md) att en skalningsuppsättning. Varje virtuell datorinstans uppgraderas till den senaste avbildningen som du anger. Du kan använda en anpassad avbildning med programmet redan installerat tillägget för anpassat skript eller PowerShell DSC för att ha ditt program som är automatiskt tillgängligt när du utför uppgraderingen. Du kan behöva planera för programunderhåll när du utför den här processen för att säkerställa att det finns ingen version kompatibilitetsproblem.
+När nya OS-versioner är tillgängliga kan du använda eller skapa en ny anpassad avbildning och [distribuera OS-uppgraderingar](virtual-machine-scale-sets-upgrade-scale-set.md) till en skalnings uppsättning. Varje VM-instans uppgraderas till den senaste avbildning som du anger. Du kan använda en anpassad avbildning med programmet förinstallerat, det anpassade skript tillägget eller PowerShell DSC för att programmet ska vara automatiskt tillgängligt när du utför uppgraderingen. Du kan behöva planera för program underhåll när du utför den här processen för att säkerställa att det inte finns några kompatibilitetsproblem med versioner.
 
-Om du använder en anpassad virtuell datoravbildning med programmet redan är installerat, kan du integrera programuppdateringar med en pipeline för distribution och skapa nya avbildningar som du kan distribuera OS-uppgraderingar i skalningsuppsättningen. På så sätt kan pipelinen att hämta de senaste versioner av programmet, skapa och validera en VM-avbildning och sedan uppgradera de Virtuella datorinstanserna i skalningsuppsättningen. Om du vill köra en pipeline för distribution som skapar och distribuerar programuppdateringar över anpassade VM-avbildningar kan du [skapa en Packer-avbildning och distribuera med Azure DevOps-tjänsterna](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), eller använda en annan plattform som [Spinnaker](https://www.spinnaker.io/) eller [Jenkins](https://jenkins.io/).
+Om du använder en anpassad VM-avbildning med programmet förinstallerat kan du integrera program uppdateringarna med en distributions-pipeline för att skapa nya avbildningar och distribuera OS-uppgraderingar över skalnings uppsättningen. Med den här metoden kan pipelinen hämta de senaste versionerna av programmet, skapa och validera en VM-avbildning och sedan uppgradera de virtuella dator instanserna i skalnings uppsättningen. Om du vill köra en distributions pipeline som skapar och distribuerar program uppdateringar i anpassade VM-avbildningar kan du [skapa en paket avbildning och distribuera med Azure DevOps Services](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), eller använda en annan plattform som [Spinnaker](https://www.spinnaker.io/) eller [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Nästa steg
-När du skapar och distribuerar program till dina skalningsuppsättningar kan du granska den [skala ange Design översikt](virtual-machine-scale-sets-design-overview.md). Läs mer om hur du hanterar din skalningsuppsättning [Använd PowerShell för att hantera din skalningsuppsättning](virtual-machine-scale-sets-windows-manage.md).
+När du skapar och distribuerar program till dina skalnings uppsättningar kan du granska [skalnings uppsättningens design översikt](virtual-machine-scale-sets-design-overview.md). Mer information om hur du hanterar din skalnings uppsättning finns i [använda PowerShell för att hantera din skalnings uppsättning](virtual-machine-scale-sets-windows-manage.md).

@@ -86,7 +86,7 @@ when making changes in one don't forget the other two.
    | **Typ** | Kontinuerlig igenkänning | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **Skalning** | Flera instanser | Endast tillgängligt för kontinuerliga WebJobs. Bestämmer om programmet eller skriptet körs på alla instanser eller bara en instans. Alternativet att köra på flera instanser gäller inte för [pris nivåerna](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)kostnads fri eller delad. | 
 
-4. Klicka på **OK**.
+4. Klicka på **OK**
 
    Det nya webb jobbet visas på sidan **WebJobs** .
 
@@ -124,7 +124,7 @@ when making changes in one don't forget the other two.
    | **Typ** | Utlöses | [Webb jobbs typerna](#webjob-types) beskrivs tidigare i den här artikeln. |
    | **Utlösare** | Manuellt | |
 
-4. Klicka på **OK**.
+4. Klicka på **OK**
 
    Det nya webb jobbet visas på sidan **WebJobs** .
 
@@ -163,7 +163,7 @@ when making changes in one don't forget the other two.
    | **Utlösare** | Schemalagd | Aktivera funktionen Always on för att schemalägga arbetet på ett tillförlitligt sätt. Always On är bara tillgängligt på pris nivåerna Basic, standard och Premium.|
    | **CRON-uttryck** | 0 0/20 * * * * | [Cron-uttryck](#ncrontab-expressions) beskrivs i följande avsnitt. |
 
-4. Klicka på **OK**.
+4. Klicka på **OK**
 
    Det nya webb jobbet visas på sidan **WebJobs** .
 

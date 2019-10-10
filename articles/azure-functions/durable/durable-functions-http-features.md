@@ -8,12 +8,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 953558e34d41184f75d72baf5982e84eb51b1781
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e9b2967905bc927432d1ca4606bc2b2ba2ac4108
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694879"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72177364"
 ---
 # <a name="http-features"></a>HTTP-funktioner
 
@@ -55,7 +55,7 @@ I [artikeln om http-API: er](durable-functions-http-api.md) finns en fullständi
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/index.js)]
 
-#### <a name="functionjson"></a>function. JSON
+#### <a name="functionjson"></a>Function. JSON
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/HttpStart/function.json)]
 
@@ -210,6 +210,38 @@ Om någon av dessa begränsningar kan påverka ditt användnings fall bör du i 
 > Om du är .NET-utvecklare kan du undra varför den här funktionen använder **DurableHttpRequest** -och **DurableHttpResponse** -typerna i stället för de inbyggda .net- **HttpRequestMessage** -och **HttpResponseMessage** -typerna.
 >
 > Det här design valet är avsiktligt. Den främsta orsaken är att anpassade typer hjälper till att se till att användarna inte gör felaktiga antaganden om de funktioner som stöds av den interna HTTP-klienten. Typer som är speciella för Durable Functions också göra det möjligt att förenkla API-utformningen. De kan också enklare göra tillgängliga special funktioner som [hantering av identitets integrering](#managed-identities) och [utsöknings konsument mönster](#http-202-handling). 
+
+### <a name="extensibility-net-only"></a>Utökning (endast .NET)
+
+Det går att anpassa beteendet för dirigeringens interna HTTP-klient med hjälp av [Azure Functions .net-beroende inmatning](https://docs.microsoft.com/azure/azure-functions/functions-dotnet-dependency-injection). Den här funktionen kan vara användbar för att göra små beteende ändringar. Det kan också vara användbart för enhet som testar HTTP-klienten genom att mata in de blå objekten.
+
+I följande exempel demonstreras användningen av en beroende insprutning för att inaktivera verifiering av SSL-certifikat för Orchestrator-funktioner som anropar externa HTTP-slutpunkter.
+
+```csharp
+public class Startup : FunctionsStartup
+{
+    public override void Configure(IFunctionsHostBuilder builder)
+    {
+        // Register own factory
+        builder.Services.AddSingleton<
+            IDurableHttpMessageHandlerFactory,
+            MyDurableHttpMessageHandlerFactory>();
+    }
+}
+
+public class MyDurableHttpMessageHandlerFactory : IDurableHttpMessageHandlerFactory
+{
+    public HttpMessageHandler CreateHttpMessageHandler()
+    {
+        // Disable SSL certificate validation (not recommended in production!)
+        return new HttpClientHandler
+        {
+            ServerCertificateCustomValidationCallback =
+                HttpClientHandler.DangerousAcceptAnyServerCertificateValidator,
+        };
+    }
+}
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

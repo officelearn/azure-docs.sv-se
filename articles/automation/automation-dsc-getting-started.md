@@ -11,7 +11,7 @@ ms.topic: conceptual
 manager: carmonm
 ms.openlocfilehash: 55950892bec71fdff50cdd0e0b1aae107d845739
 ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72169737"
@@ -20,9 +20,9 @@ ms.locfileid: "72169737"
 
 I den här artikeln förklaras hur du utför de vanligaste uppgifterna med Azure Automation tillstånds konfiguration, till exempel skapa, importera och kompilera konfigurationer, onboarding-datorer som ska hanteras och Visa rapporter. En översikt över hur Azure Automation tillstånds konfiguration finns i [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md). För dokumentation om Desired State Configuration (DSC), se [Översikt över Desired State Configuration i Windows PowerShell](/powershell/dsc/overview).
 
-Den här artikeln innehåller en steg-för-steg-guide om hur du använder Azure Automation tillstånds konfiguration. Om du vill ha en exempel miljö som redan har kon figurer ATS utan att följa stegen som beskrivs i den här artikeln kan du använda följande Resource Manager-mall: [Mall för Azure Automation hanterad nod](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Den här mallen konfigurerar en slutförd konfigurations miljö för Azure Automation tillstånd, inklusive en virtuell Azure-dator som hanteras av Azure Automation tillstånds konfiguration.
+Den här artikeln innehåller en steg-för-steg-guide om hur du använder Azure Automation tillstånds konfiguration. Om du vill ha en exempel miljö som redan har kon figurer ATS utan att följa stegen som beskrivs i den här artikeln kan du använda följande Resource Manager-mall: [Azure Automation hanterad Node-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Den här mallen konfigurerar en slutförd konfigurations miljö för Azure Automation tillstånd, inklusive en virtuell Azure-dator som hanteras av Azure Automation tillstånds konfiguration.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att slutföra exemplen i den här artikeln:
 
@@ -67,7 +67,7 @@ Den här konfigurationen anropar en resurs i varje Node-block, den [WindowsFeatu
 
 Därefter importerar du konfigurationen till Automation-kontot.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På sidan **Automation-konto** väljer du **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **tillstånds konfiguration (DSC)** klickar du på fliken **konfigurationer** och sedan på **+ Lägg till**.
@@ -75,13 +75,13 @@ Därefter importerar du konfigurationen till Automation-kontot.
 
    ![Skärm bild av bladet * * import Configuration * *](./media/automation-dsc-getting-started/AddConfig.png)
 
-1. Klicka på **OK**.
+1. Klicka på **OK**
 
 ## <a name="viewing-a-configuration-in-azure-automation"></a>Visa en konfiguration i Azure Automation
 
 När du har importerat en konfiguration kan du Visa den i Azure Portal.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På sidan **Automation-konto** väljer du **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **tillstånds konfiguration (DSC)** klickar du på fliken **konfigurationer** och sedan på **TestConfig** (det här är namnet på den konfiguration som du importerade i föregående procedur).
@@ -96,7 +96,7 @@ När du har importerat en konfiguration kan du Visa den i Azure Portal.
 Innan du kan använda ett önskat tillstånd för en nod, måste en DSC-konfiguration som definierar det läget kompileras till ett eller flera nodkonfigurationer (MOF-dokument) och placeras på Automation DSC hämtnings Server. En mer detaljerad beskrivning av hur du kompilerar konfigurationer i Azure Automation tillstånds konfiguration finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
 Mer information om hur du kompilerar konfigurationer finns i [DSC-konfigurationer](/powershell/dsc/configurations).
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På sidan **Automation-konto** klickar du på **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **tillstånds konfiguration (DSC)** klickar du på fliken **konfigurationer** och sedan på **TestConfig** (namnet på den tidigare importerade konfigurationen).
@@ -111,7 +111,7 @@ Mer information om hur du kompilerar konfigurationer finns i [DSC-konfiguratione
 
 När du har startat en kompilering kan du Visa den på panelen för att **kompilera jobb** på **konfigurations** sidan. På panelen **Compilation Jobs** visas pågående, slutförda och misslyckade jobb. När du öppnar en Compilation-sida visas information om det jobbet, inklusive eventuella fel eller varningar som påträffats, indataparametrar som används i konfigurations-och kompilerings loggar.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På sidan **Automation-konto** klickar du på **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **tillstånds konfiguration (DSC)** klickar du på fliken **konfigurationer** och sedan på **TestConfig** (namnet på den tidigare importerade konfigurationen).
@@ -125,7 +125,7 @@ När du har startat en kompilering kan du Visa den på panelen för att **kompil
 
 Slutfört slut för ande av ett Compilation-jobb skapar en eller flera nya nodkonfigurationer. En Node-konfiguration är ett MOF-dokument som distribueras till pull-servern och är redo att hämtas och tillämpas av en eller flera noder. Du kan visa nodkonfigurationer i ditt Automation-konto på sidan för **tillstånds konfiguration (DSC)** . En Node-konfiguration har ett namn med formatet *ConfigurationName*. *Nodnamn*.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På bladet **Automation-konto** klickar du på **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **tillstånds konfiguration (DSC)** klickar du på fliken **kompilerade konfigurationer** .
@@ -138,7 +138,7 @@ Du kan använda Azure Automation tillstånds konfiguration för att hantera virt
 
 ### <a name="to-onboard-an-azure-resource-manager-vm-for-management-by-azure-automation-state-configuration"></a>För att publicera en Azure Resource Manager virtuell dator för hantering genom Azure Automation tillstånds konfiguration
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På bladet **Automation-konto** klickar du på **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan för **tillstånds konfiguration (DSC)** går du till fliken **noder** och klickar på **+ Lägg till**.
@@ -164,7 +164,7 @@ Azure startar processen med att onboarda den virtuella datorn. När den är klar
 
 Du kan visa listan över alla datorer som har registrerats för hantering i ditt Automation-konto på fliken **noder** på sidan för **tillstånds konfiguration (DSC)** .
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På bladet **Automation-konto** klickar du på **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **State Configuration (DSC)** klickar du på fliken **noder** .
@@ -173,7 +173,7 @@ Du kan visa listan över alla datorer som har registrerats för hantering i ditt
 
 Varje gången Azure Automation tillstånds konfiguration utför en konsekvens kontroll på en hanterad nod, skickar noden en status rapport tillbaka till hämtnings servern. Du kan visa rapporterna på sidan för noden.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På bladet **Automation-konto** klickar du på **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **State Configuration (DSC)** klickar du på fliken **noder** . Här kan du se en översikt över konfigurations status och information för varje nod.
@@ -203,7 +203,7 @@ Det kan ta lite tid efter att en nod har publicerats innan den första rapporten
 
 Du kan tilldela en nod till att använda en annan nods konfiguration än den som du ursprungligen tilldelade.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På bladet **Automation-konto** klickar du på **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **State Configuration (DSC)** klickar du på fliken **noder** .
@@ -220,7 +220,7 @@ Du kan tilldela en nod till att använda en annan nods konfiguration än den som
 
 Om du inte längre vill att en nod ska hanteras av Azure Automation DSC kan du avregistrera den.
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
 1. På bladet **Automation-konto** klickar du på **tillstånds konfiguration (DSC)** under **konfigurations hantering**.
 1. På sidan **State Configuration (DSC)** klickar du på fliken **noder** .

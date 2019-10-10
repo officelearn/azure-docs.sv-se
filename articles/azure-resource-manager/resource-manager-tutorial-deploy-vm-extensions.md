@@ -18,7 +18,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72169288"
 ---
-# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Självstudiekurs: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar
+# <a name="tutorial-deploy-virtual-machine-extensions-with-azure-resource-manager-templates"></a>Självstudie: Distribuera tillägg för virtuell dator med Azure Resource Manager-mallar
 
 Lär dig hur du använder [Azure-tillägg för virtuell dator](../virtual-machines/extensions/features-windows.md) för att utföra konfigurations- och automatiseringsuppgifter efter distribution på virtuella Azure-datorer. Det finns många olika VM-tillägg för användning med virtuella Azure-datorer. I den här självstudien distribuerar du ett anpassat skripttillägg från en Azure Resource Manager-mall för att köra ett PowerShell-skript på en virtuell Windows-dator.  Skriptet installerar webbserver på den virtuella datorn.
 
@@ -33,7 +33,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -44,7 +44,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     openssl rand -base64 32
     ```
 
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="prepare-a-powershell-script"></a>Förbereda ett PowerShell-skript
 
@@ -106,19 +106,19 @@ Lägg till en resurs för tillägg för virtuell dator i den befintliga mallen m
 
 Mer information om den här resursdefinitionen finns i [tilläggsreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions). Här följer några viktiga element:
 
-* **name**: eftersom tilläggsresursen är en underordnad resurs för det virtuella datorobjektet måste namnet ha den virtuella datorns namnprefix. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md).
-* **dependsOn**: skapa tilläggsresursen när du har skapat den virtuella datorn.
-* **fileUris**: det här är de platser där skriptfilerna lagras. Om du väljer att inte använda den angivna platsen måste du uppdatera värdena.
-* **commandToExecute**: det här kommandot kör skriptet.
+* **name** (namn): eftersom tilläggsresursen är en underordnad resurs för det virtuella datorobjektet måste namnet ha den virtuella datorns namnprefix. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md).
+* **dependsOn**: skapa tilläggs resursen när du har skapat den virtuella datorn.
+* **fileUris**: de platser där skriptfilerna lagras. Om du väljer att inte använda den angivna platsen måste du uppdatera värdena.
+* **commandToExecute**: det här kommandot anropar skriptet.
 
 ## <a name="deploy-the-template"></a>Distribuera mallen
 
-Mer information om distributionsproceduren finns i avsnittet ”Distribuera mallen” i [Självstudier: Skapa Azure Resource Manager-mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Du bör använda ett genererat lösenord för den virtuella datorns administratörskonto. Läs mer i avsnittet om [förutsättningar](#prerequisites) i den här artikeln.
+Information om distributions proceduren finns i avsnittet "distribuera mallen" i [Självstudier: skapa Azure Resource Manager mallar med beroende resurser](./resource-manager-tutorial-create-templates-with-dependent-resources.md#deploy-the-template). Du bör använda ett genererat lösenord för den virtuella datorns administratörskonto. Läs mer i avsnittet om [förutsättningar](#prerequisites) i den här artikeln.
 
 ## <a name="verify-the-deployment"></a>Verifiera distributionen
 
 1. Välj den virtuella datorn i Azure Portal.
-1. Kopiera IP-adressen i datoröversikten genom att välja **Klicka för att kopiera** och klistra in den i en webbläsarflik. Välkomstsidan för Internet Information Services (IIS) öppnas:
+1. I översikten för den virtuella datorn kopierar du IP-adressen genom att välja **Klicka för att kopiera**och klistra in den i en webbläsare-flik. Välkomst sidan för standard Internet Information Services (IIS) öppnas:
 
 ![Välkomstsida för Internet Information Services](./media/resource-manager-tutorial-deploy-vm-extensions/resource-manager-template-deploy-extensions-customer-script-web-server.png)
 

@@ -1,23 +1,27 @@
 ---
-title: Starta ditt våren Cloud-program från käll koden
+title: 'Snabb start: starta ditt våren Cloud-program från käll koden'
 description: Lär dig hur du startar ditt Azure våren Cloud-program direkt från din käll kod
 author: jpconnock
 ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 9/27/2019
 ms.author: jeconnoc
-ms.openlocfilehash: a161b38ab6d23ad86df1ef7e843640276ba486bf
-ms.sourcegitcommit: d773b5743cb54b8cbcfa5c5e4d21d5b45a58b081
+ms.openlocfilehash: 445cac1494828362d54a8c15e68d27f01b165841
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72038813"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72170536"
 ---
 # <a name="launch-your-spring-cloud-application-from-source-code"></a>Starta ditt våren Cloud-program från käll koden
 
 Med Azures våren Cloud kan du starta ditt program direkt från Java-källkoden eller från en redan utformad JAR. Den här artikeln vägleder dig genom de steg som krävs.
 
-## <a name="initial-requirements"></a>Inledande krav
+## <a name="prerequisites"></a>Krav
+
+>[!Note]
+> Innan du påbörjar den här snabb starten ska du se till att din Azure-prenumeration har åtkomst till Azure våren Cloud.  Som förhands gransknings tjänst ber vi dig att kontakta oss så att vi kan lägga till din prenumeration i vår lista över tillåtna.  Om du vill utforska funktionerna i Azure våren Cloud kan du [fylla i det här formuläret](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR-LA2geqX-ZLhi-Ado1LD3tUNDk2VFpGUzYwVEJNVkhLRlcwNkZFUFZEUS4u
+).
 
 Innan du börjar ska du se till att din Azure-prenumeration har de nödvändiga beroendena:
 

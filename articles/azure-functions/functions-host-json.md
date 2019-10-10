@@ -9,12 +9,12 @@ ms.service: azure-functions
 ms.topic: conceptual
 ms.date: 09/08/2018
 ms.author: glenga
-ms.openlocfilehash: 5a4bc05e0a0b0b6a2c1b859caea2aadc12b8e0e0
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 3ae75dc988ad70871efa45eb8c61db15804922ee
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096407"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176587"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x"></a>Host. JSON-referens för Azure Functions 2. x  
 
@@ -25,7 +25,7 @@ ms.locfileid: "70096407"
 *Host. JSON* -metadatafilen innehåller globala konfigurations alternativ som påverkar alla funktioner för en Function-app. I den här artikeln visas de inställningar som är tillgängliga för v2-körningen.  
 
 > [!NOTE]
-> Den här artikeln är för Azure Functions 2. x.  En referens för host.json i Functions 1.x, se [host.json-referens för Azure Functions 1.x](functions-host-json-v1.md).
+> Den här artikeln är för Azure Functions 2. x.  En referens för Host. json i functions 1. x finns i [Host. JSON-referensen för Azure Functions 1. x](functions-host-json-v1.md).
 
 Andra konfigurations alternativ för Function-appar hanteras i dina [app-inställningar](functions-app-settings.md).
 
@@ -115,8 +115,11 @@ Styr [samplings funktionen i Application Insights](./functions-monitoring.md#con
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|isEnabled|true|Aktiverar eller inaktiverar sampling.| 
+|isEnabled|sant|Aktiverar eller inaktiverar sampling.| 
 |maxTelemetryItemsPerSecond|5|Tröskelvärdet då samplingen börjar.| 
+|EnableLiveMetrics |sant|Aktiverar insamling av Live-mått.|
+|EnableDependencyTracking|sant|Aktiverar beroende spårning.|
+|EnablePerformanceCountersCollection|sant|Aktiverar insamling av kudu prestanda räknare.|
 
 ## <a name="cosmosdb"></a>cosmosDb
 
@@ -128,13 +131,13 @@ Konfigurations inställningen finns i [bindningar för Durable Functions](durabl
 
 ## <a name="eventhub"></a>eventHub
 
-Konfigurations inställningar finns i [Event Hub](functions-bindings-event-hubs.md#host-json)-utlösare och bindningar. 
+Konfigurations inställningar finns i [Event Hub-utlösare och bindningar](functions-bindings-event-hubs.md#host-json). 
 
 ## <a name="extensions"></a>tillägg
 
 Egenskap som returnerar ett objekt som innehåller alla bindande inställningar, till exempel [http](#http) och [eventHub](#eventhub).
 
-## <a name="functions"></a>funktioner
+## <a name="functions"></a>functions
 
 En lista med funktioner som jobb värden kör. En tom matris innebär att köra alla-funktioner. Endast avsedd att användas när du [Kör lokalt](functions-run-local.md). I Function-appar i Azure bör du i stället följa stegen i [så här inaktiverar du funktioner i Azure Functions](disable-function.md) för att inaktivera vissa funktioner i stället för att använda den här inställningen.
 
@@ -175,9 +178,9 @@ Konfigurations inställningar för [övervakaren av värd hälsa](https://github
 
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------| 
-|enabled|true|Anger om funktionen är aktive rad. | 
+|aktiva|sant|Anger om funktionen är aktive rad. | 
 |healthCheckInterval|10 sekunder|Tidsintervallet mellan de regelbundna hälso kontrollerna i bakgrunden. | 
-|healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med `healthCheckThreshold` inställningen.| 
+|healthCheckWindow|2 minuter|Ett glidande tids fönster som används tillsammans med inställningen `healthCheckThreshold`.| 
 |healthCheckThreshold|6|Maximalt antal gånger som hälso kontrollen kan återställas innan en återkallning av en värd initieras.| 
 |counterThreshold|0,80|Tröskelvärdet som en prestanda räknare kommer att anses vara ohälsosam.| 
 
@@ -210,11 +213,11 @@ Styr loggnings beteenden för Function-appen, inklusive Application Insights.
 |Egenskap  |Standard | Beskrivning |
 |---------|---------|---------|
 |fileLoggingMode|debugOnly|Definierar vilken nivå av fil loggning som är aktive rad.  Alternativen är `never`, `always`, `debugOnly`. |
-|logLevel|Saknas|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x följer ASP.NET Core layout för filtrering av loggnings kategorier. På så sätt kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
-|console|Saknas| Den [console](#console) inställning för aktivitetsloggning. |
-|applicationInsights|Saknas| Inställningen [applicationInsights](#applicationinsights) . |
+|logLevel|Ej tillämpligt|Objekt som definierar logg kategori filtrering för funktioner i appen. Version 2. x följer ASP.NET Core layout för filtrering av loggnings kategorier. På så sätt kan du filtrera loggning för vissa funktioner. Mer information finns i [logg filtrering](https://docs.microsoft.com/aspnet/core/fundamentals/logging/?view=aspnetcore-2.1#log-filtering) i ASP.net Core-dokumentationen. |
+|konsol|Ej tillämpligt| Loggnings inställningen för [konsolen](#console) . |
+|applicationInsights|Ej tillämpligt| Inställningen [applicationInsights](#applicationinsights) . |
 
-## <a name="console"></a>console
+## <a name="console"></a>konsol
 
 Den här inställningen är underordnad [loggning](#logging). Den styr konsol loggningen när det inte är i fel söknings läge.
 
@@ -240,9 +243,9 @@ Du hittar konfigurations inställningar i [utlösare och bindningar för lagring
 
 ## <a name="sendgrid"></a>sendGrid
 
-Det går att hitta konfigurations inställningen i SendGrid-utlösare [och bindningar](functions-bindings-sendgrid.md#host-json).
+Det går att hitta konfigurations inställningen i [SendGrid-utlösare och bindningar](functions-bindings-sendgrid.md#host-json).
 
-## <a name="servicebus"></a>serviceBus
+## <a name="servicebus"></a>Service Bus
 
 Du hittar konfigurations inställningen i [Service Bus utlösare och bindningar](functions-bindings-service-bus.md#host-json).
 
@@ -268,11 +271,11 @@ Konfigurations inställningar för beteendet singleton lock. Mer information fin
 |listenerLockPeriod|00:01:00|Den period som lyssnarens lås tas för.| 
 |listenerLockRecoveryPollingInterval|00:01:00|Det tidsintervall som används för återställning av lyssnar lås om det inte gick att hämta ett lyssnar lås vid start.| 
 |lockAcquisitionTimeout|00:01:00|Den maximala tid som körningen kommer att försöka hämta ett lås.| 
-|lockAcquisitionPollingInterval|Saknas|Intervallet mellan lås försök.| 
+|lockAcquisitionPollingInterval|Ej tillämpligt|Intervallet mellan lås försök.| 
 
 ## <a name="version"></a>version
 
-Versions strängen `"version": "2.0"` krävs för en Function-app som är riktad till v2-körningen.
+Versions strängen `"version": "2.0"` krävs för en Function-app som är riktad mot v2-körningen.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

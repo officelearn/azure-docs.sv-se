@@ -111,26 +111,26 @@ Nej. Virtuella datorer med låg prioritet stöds inte.
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>Vad är de kataloger och processer som jag behöver undanta när jag kör ett antivirus program i mitt kluster?
 
-| **Antivirus uteslutna kataloger** |
+| **Undantagna Antivirus kataloger** |
 | --- |
-| Program Files\Microsoft Service Fabric |
-| FabricDataRoot (från klusterkonfiguration) |
-| FabricLogRoot (från klusterkonfiguration) |
+| Program\Microsoft Service Fabric |
+| FabricDataRoot (från kluster konfiguration) |
+| FabricLogRoot (från kluster konfiguration) |
 
-| **Antivirus undantagna processer** |
+| **Undantagna Antivirus processer** |
 | --- |
-| Fabric.exe |
-| FabricHost.exe |
-| FabricInstallerService.exe |
-| FabricSetup.exe |
-| FabricDeployer.exe |
-| ImageBuilder.exe |
-| FabricGateway.exe |
-| FabricDCA.exe |
-| FabricFAS.exe |
-| FabricUOS.exe |
-| FabricRM.exe |
-| FileStoreService.exe |
+| Fabric. exe |
+| Fabrichost returnerar. exe |
+| FabricInstallerService. exe |
+| FabricSetup. exe |
+| FabricDeployer. exe |
+| ImageBuilder. exe |
+| FabricGateway. exe |
+| FabricDCA. exe |
+| FabricFAS. exe |
+| FabricUOS. exe |
+| FabricRM. exe |
+| FileStoreService. exe |
  
 ### <a name="how-can-my-application-authenticate-to-keyvault-to-get-secrets"></a>Hur kan mitt program autentisera till nyckel valv för att få hemligheter?
 Följande innebär att ditt program kan hämta autentiseringsuppgifter för autentisering till nyckel valv:

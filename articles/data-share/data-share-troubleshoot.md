@@ -41,9 +41,9 @@ Om du fortfarande inte kan se en datadelnings-inbjudan kontaktar du din dataprov
 
 ## <a name="error-when-creating-or-receiving-a-new-data-share"></a>Fel vid skapande eller mottagning av en ny data resurs
 
-Fels Åtgärden returnerade en ogiltig status kod ' BadRequest ' "
+Fel: åtgärden returnerade en ogiltig status kod BadRequest
 
-Fels AuthorizationFailed"
+"Fel: AuthorizationFailed"
 
 "Fel: roll tilldelningen till lagrings kontot"
 

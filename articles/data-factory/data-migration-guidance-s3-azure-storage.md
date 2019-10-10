@@ -138,7 +138,7 @@ Här är det uppskattade priset baserat på ovanstående antaganden:
 
 ### <a name="additional-references"></a>Ytterligare referenser 
 - [Amazon Simple Storage Service Connector](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)
-- [Azure Blob Storage-anslutningsapp](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
+- [Azure Blob Storage-anslutning](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Azure Data Lake Storage Gen2 koppling](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
 - [Prestanda justerings guide för kopierings aktivitet](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Skapa och konfigurera egen värd Integration Runtime](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)

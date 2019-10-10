@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/03/2019
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: 07612d325929468e3919b543d9b4ae0ad268036a
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: d2eeada500de0f174178234ab92b51bcf16b3502
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71938476"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176737"
 ---
 # <a name="prepare-on-premises-machines-for-migration-to-azure"></a>Förbered lokala datorer för migrering till Azure
 
@@ -44,7 +44,7 @@ Den här artikeln innehåller följande avsnitt:
 
 ## <a name="check-whats-supported"></a>Kontrol lera vad som stöds
 
-- För virtuella VMware-datorer stöder Azure Migrate Server-migreringen utan [agent eller med agent-baserad migrering](/server-migrate-overview.md). Kontrol lera krav för virtuella VMware-datorer/stöd för [agentbaserade](migrate-support-matrix-vmware.md#migration---limitations) och [agentbaserade](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) migreringar.
+- För virtuella VMware-datorer stöder Azure Migrate Server-migreringen utan [agent eller med agent-baserad migrering](server-migrate-overview.md). Kontrol lera krav för virtuella VMware-datorer/stöd för [agentbaserade](migrate-support-matrix-vmware.md#migration---limitations) och [agentbaserade](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) migreringar.
 - Kontrol lera [kraven för migrering och stöd](migrate-support-matrix-hyper-v.md#migration-hyper-v-vm-requirements) för virtuella Hyper-V-datorer.
 - Kontrol lera [kraven för migrering och stöd](migrate-support-matrix-vmware.md#agent-based-migration-vmware-vm-requirements) för lokala fysiska datorer eller andra virtualiserade servrar. Dessa krav liknar VMware VM-krav.
 
@@ -66,7 +66,7 @@ Datorer kan behöva Internet åtkomst under migreringen.
 
 Vissa virtuella datorer kan kräva ändringar så att de kan köras i Azure. Azure Migrate gör dessa ändringar automatiskt för virtuella datorer som kör dessa operativ system:
 - Red Hat Enterprise Linux 6.5 +, 7.0 +
-- CentOS 6.5+, 7.0+
+- CentOS 6.5 +, 7.0 +
 - SUSE Linux Enterprise Server 12 SP1 +
 - Ubuntu 14.04 LTS, 16.04 LTS, 18.04 LTS
 - Debian 7, 8

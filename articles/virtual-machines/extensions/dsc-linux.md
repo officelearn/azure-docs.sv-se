@@ -13,18 +13,18 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 6df6bb5c0be4bf1779541a815bd933965024809f
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e2faf444aa411f0e60f1b5c7b1f811abc2f6b63a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960395"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176676"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>DSC-tillägg för Linux (Microsoft. OSTCExtensions. DSCForLinux)
 
 Önskad tillstånds konfiguration (DSC) är en hanterings plattform som gör att du kan hantera din IT-och utvecklings infrastruktur med konfiguration som kod.
 
-> ! Observera DSC-tillägget för Linux och [Azure Monitor tillägget för virtuell dator för Linux för](/virtual-machines/extensions/oms-linux) närvarande finns en konflikt och stöds inte i en sida vid sida-konfiguration.  Det innebär att du inte bör använda de två lösningarna tillsammans på samma virtuella dator.
+> ! Observera DSC-tillägget för Linux och [Azure Monitor tillägget för virtuell dator för Linux för](/azure/virtual-machines/extensions/oms-linux) närvarande finns en konflikt och stöds inte i en sida vid sida-konfiguration.  Det innebär att du inte bör använda de två lösningarna tillsammans på samma virtuella dator.
 
 DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget installerar OMI-och DSC-agenten på virtuella Azure-datorer. DSC-tillägget kan också utföra följande åtgärder
 
@@ -37,11 +37,11 @@ DSCForLinux-tillägget har publicerats och stöds av Microsoft. Tillägget insta
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
-DSC Linux-tillägget stöder alla [Linux-distributioner](/virtual-machines/linux/endorsed-distros) som har godkänts på Azure, förutom:
+DSC Linux-tillägget stöder alla [Linux-distributioner](/azure/virtual-machines/linux/endorsed-distros) som har godkänts på Azure, förutom:
 
 | Distribution | Version |
 |---|---|
@@ -60,7 +60,7 @@ Här följer alla offentliga konfigurations parametrar som stöds:
 
 * `FileUri`: (valfri, sträng) URI för MOF-filen/meta MOF-filen/den anpassade resursens ZIP-fil.
 * `ResourceName`: (valfritt, sträng) namnet på den anpassade modulen
-* `ExtensionAction`: (valfritt, sträng) anger vad ett tillägg gör. giltiga värden: Registrera, skicka, Hämta, installera, ta bort. Om inget värde anges anses det som push-åtgärd som standard.
+* `ExtensionAction`: (valfritt, sträng) anger vad ett tillägg gör. giltiga värden: registrera, skicka, Hämta, installera, ta bort. Om inget värde anges anses det som push-åtgärd som standard.
 * `NodeConfigurationName`: (valfritt, sträng) namnet på den nod som ska tillämpas.
 * `RefreshFrequencyMins`: (valfritt, int) anger hur ofta (i minuter) DSC försöker hämta konfigurationen från hämtnings servern. 
        Om konfigurationen på hämtnings servern skiljer sig från den nuvarande på målnoden kopieras den till den väntande lagringen och tillämpas.
@@ -84,7 +84,7 @@ Här följer alla skyddade konfigurations parametrar som stöds:
 ## <a name="scenarios"></a>Scenarier
 
 ### <a name="register-to-azure-automation-account"></a>Registrera till Azure Automation konto
-protected.json
+skyddad. JSON
 ```json
 {
   "RegistrationUrl": "<azure-automation-account-url>",
@@ -120,7 +120,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>Tillämpa en MOF-konfigurationsfil (i Azure Storage-konto) på den virtuella datorn
 
-protected.json
+skyddad. JSON
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -168,7 +168,7 @@ $publicConfig = '{
 
 ### <a name="apply-a-meta-mof-configuration-file-in-azure-storage-account-to-the-vm"></a>Tillämpa en konfigurations fil för meta MOF (i Azure Storage-konto) på den virtuella datorn
 
-protected.json
+skyddad. JSON
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -214,7 +214,7 @@ $publicConfig = '{
 ```
 
 ### <a name="install-a-custom-resource-module-zip-file-in-azure-storage-account-to-the-vm"></a>Installera en anpassad resurspool (ZIP-fil i Azure Storage-konto) till den virtuella datorn
-protected.json
+skyddad. JSON
 ```json
 {
   "StorageAccountName": "<storage-account-name>",
@@ -276,7 +276,7 @@ $publicConfig = '{
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av distributions konfiguration, till exempel onboarding till Azure Automation. 
+Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av distributions konfiguration, till exempel onboarding till Azure Automation. 
 
 Exempel Resource Manager-mallen är [201-DSC-Linux-Azure-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-azure-storage-on-ubuntu) och [201-DSC-Linux-Public-Storage-on-Ubuntu](https://github.com/Azure/azure-quickstart-templates/tree/master/201-dsc-linux-public-storage-on-ubuntu).
 
@@ -285,7 +285,7 @@ Mer information om Azure Resource Manager mall finns i [redigera Azure Resource 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-### <a name="21-using-azure-cliazure-cli"></a>2.1. Använda [**Azure CLI**] [Azure-CLI]
+### <a name="21-using-azure-cliazure-cli"></a>2,1. Använda [**Azure CLI**] [Azure-CLI]
 Innan du distribuerar DSCForLinux-tillägget bör du konfigurera din `public.json` och `protected.json`, enligt de olika scenarierna i avsnitt 3.
 
 #### <a name="211-classic"></a>punkt. Klassisk
@@ -305,7 +305,7 @@ För att lära dig den senaste tilläggs versionen som är tillgänglig, kör:
 $ azure vm extension list
 ```
 
-#### <a name="212-resource-manager"></a>punkt. Resource Manager
+#### <a name="212-resource-manager"></a>punkt. Resurshanterare
 Du kan växla till Azure Resource Manager läge genom att köra:
 ```
 $ azure config mode arm
@@ -321,7 +321,7 @@ DSCForLinux Microsoft.OSTCExtensions <version> \
 > I Azure Resource Manager läge är `azure vm extension list` inte tillgängligt för tillfället.
 >
 
-### <a name="22-using-azure-powershellazure-powershell"></a>2.2. Använda [**Azure PowerShell**] [Azure-PowerShell]
+### <a name="22-using-azure-powershellazure-powershell"></a>2,2. Använda [**Azure PowerShell**] [Azure-PowerShell]
 
 #### <a name="221-classic"></a>2.2.1, klassisk
 
@@ -362,7 +362,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### <a name="222resource-manager"></a>2.2.2.Resource Manager
+#### <a name="222resource-manager"></a>2.2.2. Resource Manager
 
 Du kan logga in på ditt Azure-konto (Azure Resource Manager läge) genom att köra:
 
@@ -404,30 +404,30 @@ Set-AzVMExtension -ResourceGroupName $rgName -VMName $vmName -Location $location
   -TypeHandlerVersion $version -SettingString $publicConfig -ProtectedSettingString $privateConfig
 ```
 
-## <a name="troubleshoot-and-support"></a>Felsökning och support
+## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
-Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure CLI.
+Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Tillägget utförande-utdatan loggas till följande fil:
+Utökning av utdata loggas i följande fil:
 
 ```
 /var/log/azure/<extension-name>/<version>/extension.log file.
 ```
 
-Felkod: 51 representerar antingen ett distribution eller en tilläggs åtgärd som inte stöds.
-I vissa fall kan DSC Linux-tillägget inte installera OMI när den senare versionen av OMI redan finns på datorn. [fel svar: (000003) Nedgradering tillåts inte]
+Felkod: 51 representerar antingen en distribution som inte stöds eller en tilläggs åtgärd som inte stöds.
+I vissa fall kan DSC Linux-tillägget inte installera OMI när den senare versionen av OMI redan finns på datorn. [fel svar: (000003) nedgradering tillåts inte]
 
 
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/community/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/community/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om tillägg finns i [tillägg för virtuella datorer och funktioner för Linux](features-linux.md).

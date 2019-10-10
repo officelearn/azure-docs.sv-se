@@ -14,14 +14,15 @@ ms.topic: article
 ms.date: 09/02/2019
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: fcbb284a0807ef88c5f40a7c8b65398d45bf73d7
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: 917fa87a0cd0f7b0615a5139a7c15311f866739a
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232145"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72176973"
 ---
-# <a name="how-to-configure-your-app-service-application-to-use-google-login"></a>Så här konfigurerar du ditt App Service program så att Google-inloggning används
+# <a name="configure-your-app-service-app-to-use-google-login"></a>Konfigurera din App Service-app att använda Google-inloggning
+
 [!INCLUDE [app-service-mobile-selector-authentication](../../includes/app-service-mobile-selector-authentication.md)]
 
 I det här avsnittet visas hur du konfigurerar Azure App Service att använda Google som en autentiseringsprovider.
@@ -29,31 +30,35 @@ I det här avsnittet visas hur du konfigurerar Azure App Service att använda Go
 För att slutföra proceduren i det här avsnittet måste du ha ett Google-konto som har en verifierad e-postadress. Gå till [accounts.google.com](https://go.microsoft.com/fwlink/p/?LinkId=268302) om du vill skapa ett nytt Google-konto.
 
 ## <a name="register"> </a>Registrera ditt program med Google
-1. Följ Google-dokumentationen på [Google-inloggningen för appar på Server sidan](https://developers.google.com/identity/sign-in/web/server-side-flow) för att skapa ett klient-ID och klient hemlighet, med följande information (du behöver inte göra några kod ändringar):
-    - För **behöriga JavaScript-ursprung**använder `https://<app-name>.azurewebsites.net` du med namnet på din app i  *\<App-Name->* .
-    - Använd`https://<app-name>.azurewebsites.net/.auth/login/google/callback`för auktoriserad omdirigerings- **URI**.
-1. När klient-ID och klient hemligheter har skapats kopierar du deras värden.
+
+1. Följ Google-dokumentationen på [Google-inloggningen för appar på Server sidan](https://developers.google.com/identity/sign-in/web/server-side-flow) för att skapa ett klient-ID och klient hemlighet. Du behöver inte göra några kod ändringar. Använd bara följande information:
+    - För **behöriga JavaScript-ursprung**använder du `https://<app-name>.azurewebsites.net` med namnet på din app i *\<app-Name >* .
+    - Använd `https://<app-name>.azurewebsites.net/.auth/login/google/callback` för **auktoriserad omdirigerings-URI**.
+1. Kopiera app-ID och appens hemliga värden.
 
     > [!IMPORTANT]
-    > Klient hemligheten är en viktig säkerhets autentiseringsuppgift. Dela inte den här hemligheten med någon eller distribuera den i ett klient program.
-
+    > Appens hemlighet är en viktig säkerhets autentiseringsuppgift. Dela inte den här hemligheten med någon eller distribuera den i ett klient program.
 
 ## <a name="secrets"> </a>Lägga till Google information till ditt program
-1. Gå till din App Service-app i [Azure Portal]. Välj **autentisering/auktorisering**på den vänstra menyn.
-2. Om funktionen autentisering/auktorisering inte är aktive rad aktiverar du växeln till **på**.
-3. Klicka på **Google**. Klistra in i app-ID: t och de hemliga värdena för appen som du har fått tidigare och eventuellt aktivera alla omfattningar som programmet kräver. Klicka sedan på **OK**.
+
+1. Gå till din App Service-app i [Azure-portalen].
+1. Välj **inställningar** > **autentisering/auktorisering**och se till att **App Service autentisering** är **aktiverat**.
+1. Välj **Google**och klistra in i app-ID och appens hemliga värden som du har fått tidigare. Aktivera alla omfattningar som krävs av ditt program.
+1. Välj **OK**.
 
    App Service tillhandahåller autentisering men begränsar inte tillåten åtkomst till webbplatsens innehåll och API: er. Mer information finns i [auktorisera eller neka användare](app-service-authentication-how-to.md#authorize-or-deny-users).
-4. Valfritt Om du vill begränsa åtkomsten till din webbplats till endast användare som autentiserats av Google, anger **du åtgärd som ska vidtas när begäran inte autentiseras** till **Google**. Detta kräver att alla begär Anden autentiseras och att alla oautentiserade begär Anden omdirigeras till Google för autentisering.
 
-    > [!NOTE]
-    > Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som vill ha en offentligt tillgänglig start sida, som i många program med en enda sida. För sådana program kan du **tillåta anonyma begär Anden (ingen åtgärd)** , med appen manuellt startar inloggningen, enligt beskrivningen [här](overview-authentication-authorization.md#authentication-flow).
-    
-5. Klicka på **Spara**.
+1. Valfritt För att begränsa plats åtkomsten enbart till användare som autentiserats av Google, ange **åtgärd som ska vidtas när begäran inte autentiseras** till **Google**. När du ställer in den här funktionen kräver appen att alla begär Anden autentiseras. Det omdirigerar också alla oautentiserade begär anden till Google för autentisering.
+
+    > [!CAUTION]
+    > Att begränsa åtkomsten på det här sättet gäller alla anrop till appen, vilket kanske inte är önskvärt för appar som har en offentligt tillgänglig start sida, som i många program med en enda sida. För sådana program **tillåts anonyma begär Anden (ingen åtgärd)** , så att appen manuellt startar själva autentiseringen. Mer information finns i [Authentication Flow](overview-authentication-authorization.md#authentication-flow).
+
+1. Välj **Spara**.
 
 Du är nu redo att använda Google för autentisering i din app.
 
-## <a name="related-content"> </a>Relaterat innehåll
+## <a name="related-content"> </a>Nästa steg
+
 [!INCLUDE [app-service-mobile-related-content-get-started-users](../../includes/app-service-mobile-related-content-get-started-users.md)]
 
 <!-- Anchors. -->
@@ -67,5 +72,5 @@ Du är nu redo att använda Google för autentisering i din app.
 
 [Google apis]: https://go.microsoft.com/fwlink/p/?LinkId=268303
 
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 

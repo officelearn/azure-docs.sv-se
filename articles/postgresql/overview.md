@@ -15,7 +15,7 @@ ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177953"
 ---
 # <a name="what-is-azure-database-for-postgresql"></a>Vad är Azure Database for PostgreSQL?
-Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molnet som skapats för utvecklare. Den baseras på community-versionen av [postgresql](https://www.postgresql.org/) Database Engine med öppen källkod och är tillgänglig i två distributions alternativ: Enskild server och storskalig (citus) (för hands version).
+Azure Database for PostgreSQL är en Relations databas tjänst i Microsoft-molnet som skapats för utvecklare. Den är baserad på community-versionen av [postgresql](https://www.postgresql.org/) Database Engine med öppen källkod och är tillgänglig i två distributions alternativ: Single Server och Scale (citus) (för hands version).
 
 ## <a name="azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-enskild server
 Distributions alternativet för enskild server ger:
@@ -30,7 +30,7 @@ Distributions alternativet för enskild server ger:
 
 Alla dessa funktioner kräver nästan ingen administration och de tillhandahålls utan extra kostnad. De gör att du kan fokusera på snabb program utveckling och påskynda din tid till marknaden, i stället för att ägna värdefull tid och resurser för att hantera virtuella datorer och infrastruktur. Du kan fortsätta att utveckla ditt program med de verktyg med öppen källkod och plattform som du väljer utan att behöva lära dig nya kunskaper.
 
-Distributions alternativet för enskild server har tre pris nivåer: Grundläggande, generell användning och minnesoptimerad. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-pricing-tiers.md).
+Distributions alternativet för enskild server har tre pris nivåer: Basic, Generell användning och Minnesoptimerade. Varje nivå erbjuder olika resursfunktioner som har stöd för arbetsbelastningar för databaser. Du kan skapa din första app i en liten databas för några kronor i månaden och sedan justera skalan för att bemöta lösningens behov. Dynamisk skalbarhet gör att databasen reagerar transparent på resurskrav som ändras snabbt. Du betalar bara för de resurser du behöver och endast när du behöver dem. Mer information finns i  [Prisnivåer](concepts-pricing-tiers.md).
 
 ## <a name="azure-database-for-postgresql---hyperscale-citus-preview"></a>Azure Database for PostgreSQL-Scale (citus) (för hands version)
 Alternativet för skalning (citus) skalar horisontellt frågor över flera datorer med hjälp av horisontell partitionering. Dess frågemotor parallelizes inkommande SQL-frågor över dessa servrar för snabbare svar på stora data mängder. Den hanterar program som kräver större skalning och prestanda, vanligt vis arbets belastningar som närmar sig – eller som redan är större än 100 GB data.
@@ -50,7 +50,7 @@ Azure Database for PostgreSQL överlagrar Azure Database Services-tradition av d
 
 Tjänsten Azure Database for PostgreSQL använder FIPS 140-2-validerade kryptografisk modul för lagrings kryptering av data i vila. Data, inklusive säkerhets kopior, krypteras på disk med undantag för tillfälliga filer som skapas vid körning av frågor. Tjänsten använder AES 256-bit-chiffer som ingår i Azure Storage-kryptering och nycklarna hanteras av systemet. Lagringskrypteringen är alltid igång och kan inte inaktiveras. Som standard kräver Azure Database for PostgreSQL tjänsten säkra anslutningar för data i rörelse både i nätverket och mellan databasen och klient programmet.
 
-## <a name="contacts"></a>Kontakter
+## <a name="contacts"></a>Contacts
 Om du har frågor eller förslag om hur du arbetar med Azure Database for PostgreSQL skickar du ett e-postmeddelande till Azure Database for PostgreSQL-teamet ([@Ask Azure dB för postgresql](mailto:AskAzureDBforPostgreSQL@service.microsoft.com)). Den här adressen är för allmänna frågor snarare än support biljetter.
 
 Tänk också på dessa kontakt punkter efter behov:
@@ -60,4 +60,4 @@ Tänk också på dessa kontakt punkter efter behov:
 ## <a name="next-steps"></a>Nästa steg
 - På [prissättningssidan](https://azure.microsoft.com/pricing/details/postgresql/) finns kostnadsjämförelser och kostnadsberäknare.
 - Kom igång genom att skapa din första Azure Database for PostgreSQL [enskild server](./quickstart-create-server-database-portal.md) eller [storskalig (citus) (för hands version)](./quickstart-create-hyperscale-portal.md)
-- Skapa din första app i Python, PHP, Ruby, C\#, Java, Node.js: [Anslutningsbibliotek](./concepts-connection-libraries.md)
+- Skapa den första appen i Python, PHP, Ruby, C\#, Java, Node.js: [anslutningsbibliotek](./concepts-connection-libraries.md)

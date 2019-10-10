@@ -21,7 +21,7 @@ Lär dig hur du skapar ett [Apache HBase](https://hbase.apache.org/) -program i 
 
 Stegen i det här dokumentet använder [Apache maven](https://maven.apache.org/) för att skapa och bygga projektet. Maven är ett verktyg för program varu projektledning och förståelse som gör att du kan bygga program vara, dokumentation och rapporter för Java-projekt.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache HBase-kluster i HDInsight. Se [Kom igång med Apache HBase](./apache-hbase-tutorial-get-started-linux.md).
 
@@ -58,9 +58,9 @@ cd C:\HDI
 
     Det här kommandot skapar en katalog med namnet `hbaseapp` på den aktuella platsen, som innehåller ett Basic Maven-projekt. Det andra kommandot ändrar arbets katalogen till `hbaseapp`. Det tredje kommandot skapar en ny katalog `conf`, som kommer att användas senare. Katalogen `hbaseapp` innehåller följande objekt:
 
-    * `pom.xml`:  Projekt objekts modellen ([Pom](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information och konfigurations information som används för att bygga projektet.
-    * `src\main\java\com\microsoft\examples`: Innehåller din program kod.
-    * `src\test\java\com\microsoft\examples`: Innehåller tester för ditt program.
+    * `pom.xml`: projekt objekts modellen ([Pom](https://maven.apache.org/guides/introduction/introduction-to-the-pom.html)) innehåller information och konfigurations information som används för att bygga projektet.
+    * `src\main\java\com\microsoft\examples`: innehåller din program kod.
+    * `src\test\java\com\microsoft\examples`: innehåller tester för ditt program.
 
 2. Ta bort den genererade exempel koden. Ta bort de genererade test-och programfilerna `AppTest.java` och `App.java` genom att ange följande kommandon:
 
@@ -101,8 +101,8 @@ Det här avsnittet anger att projektet behöver **HBase-client-** och **Phoenix-
 
 | HDInsight-kluster version | Apache HBase-version som ska användas |
 | --- | --- |
-| 3.6 | 1.1.2 |
-| 4.0 | 2.0.0 |
+| 3,6 | 1.1.2 |
+| 4,0 | 2.0.0 |
 
 Mer information om HDInsight-versioner och-komponenter finns i [Vad är de olika Apache Hadoops komponenter som är tillgängliga med HDInsight](../hdinsight-component-versioning.md).
 

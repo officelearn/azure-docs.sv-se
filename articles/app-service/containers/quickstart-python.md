@@ -17,7 +17,7 @@ experimental: true
 experiment_id: 1e304dc9-5add-4b
 ms.openlocfilehash: ed7e0df77abb39c07bea8946381247539afb3134
 ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177017"
@@ -28,7 +28,7 @@ I den här snabb starten distribuerar du en enkel python-app till [app service p
 
 ![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här snabbstarten behöver du:
 
@@ -194,10 +194,10 @@ Menyn till vänster innehåller olika sidor för att konfigurera appen.
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Python-webbapp (django) med PostgreSQL @ no__t-0
+> [Självstudie: python (django)-webbapp med PostgreSQL](tutorial-python-postgresql-app.md)
 
 > [!div class="nextstepaction"]
 > [Konfigurera python-app](how-to-configure-python.md)
 
 > [!div class="nextstepaction"]
-> [Självstudiekurs: Kör python-app i den anpassade behållaren @ no__t-0
+> [Självstudie: köra python-app i en anpassad behållare](tutorial-custom-docker-image.md)

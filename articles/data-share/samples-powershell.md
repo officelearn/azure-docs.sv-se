@@ -1,20 +1,19 @@
 ---
-title: Azure PowerShell exempel för Azure Data-resurs | Microsoft Docs
-description: Azure PowerShell exempel – skript som hjälper dig att skapa och hantera data resurser.
-services: data-share
+title: Azure PowerShell exempel för Azure Data Share
+description: Lär dig mer om Azure PowerShell exempel skript som hjälper dig att skapa och hantera data resurser i för hands versionen av Azure Data reresurs.
 ms.service: data-share
 ms.workload: data-services
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 07/6/2019
+ms.devlang: powershell
 author: joannapea
 ms.author: joanpo
-ms.openlocfilehash: 90b23da3ae911038c67dc1d99c5b98d04b935281
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.date: 07/6/2019
+ms.openlocfilehash: a694ced2697cba8cc50e3c7b5b14f712527e1cd9
+ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70243105"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72166336"
 ---
 # <a name="azure-powershell-samples-for-azure-data-share"></a>Azure PowerShell exempel för Azure Data Share
 
@@ -33,9 +32,3 @@ Följande tabell innehåller länkar till exempel Azure PowerShell skript för A
 |[Visa information om en data resurs](scripts/powershell/view-share-details-powershell.md)| Det här exemplet på PowerShell-skript listar och hämtar information om data resurser. |
 |[Övervaka användningen av delade data](scripts/powershell/monitor-usage-powershell.md)| Det här exemplet på PowerShell-skriptet övervakar användningen av skickade delade data. |
 |[Skapa och Visa ögonblicks bild utlösare](scripts/powershell/create-view-trigger-powershell.md)| Det här exemplet på PowerShell-skriptet skapar ögonblicks bild utlösare för en resurs.
-
-
-
-
-
-

@@ -9,7 +9,7 @@ ms.date: 10/07/2019
 ms.author: cherylmc
 ms.openlocfilehash: 4e07274f7abf87360c054edd3fe0ade1c09907a7
 ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72178597"
@@ -134,4 +134,4 @@ I det här läget är MACsec inaktiverat på ExpressRoute Direct-portarna på Mi
 ## <a name="next-steps"></a>Nästa steg
 1. [Skapa en ExpressRoute-krets på ExpressRoute Direct](expressroute-howto-erdirect.md)
 2. [Länka en ExpressRoute-krets till ett virtuellt Azure-nätverk](expressroute-howto-linkvnet-arm.md)
-3. [Kontrollera ExpressRoute-anslutningen](expressroute-troubleshooting-expressroute-overview.md)
+3. [Verifiera ExpressRoute-anslutningen](expressroute-troubleshooting-expressroute-overview.md)

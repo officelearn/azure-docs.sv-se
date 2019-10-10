@@ -64,7 +64,7 @@ Här är några viktiga steg för att skapa den här lösningen:
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://azure.microsoft.com/free/) konto innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **SQL Server**. Du använder en lokal SQL Server-databas som källdatalager i den här självstudien. 
 * **Azure SQL Database**. Du använder en SQL-databas som måldatalager. Om du inte har någon SQL Database kan du läsa om hur du skapar en i [Skapa en Azure SQL-databas](../sql-database/sql-database-get-started-portal.md). 
 
@@ -400,9 +400,9 @@ I det här steget skapar du en datauppsättning för att lagra ett värde för e
 
    ![Välja Azure SQL Database](./media/tutorial-incremental-copy-multiple-tables-portal/select-azure-sql-database.png)
 1. Längst ned på fliken **Allmänt** i fönstret Egenskaper skriver du **WatermarkDataset** som **namn**.
-1. Växla till fliken **Anslutning** och gör följande: 
+1. Välj fliken **Anslutning** och gör följande: 
 
-    1. Välj **AzureSqlDatabaseLinkedService** som **Länkad tjänst**.
+    1. Välj **AzureSqlDatabaseLinkedService** som **länkad tjänst**.
     1. Välj **[dbo].[watermarktable]** för **Tabell**.
 
        ![Vattenmärkesdatauppsättning – anslutning](./media/tutorial-incremental-copy-multiple-tables-portal/watermark-dataset-connection.png)
@@ -513,7 +513,7 @@ Den här pipelinen tar en lista med tabellnamn som en parameter. ForEach-aktivit
     1. Välj **Importera parameter**. 
     1. Ange följande värden för parametrarna: 
 
-        | Name | Typ | Value | 
+        | Namn | Typ | Värde | 
         | ---- | ---- | ----- |
         | LastModifiedtime | DateTime | `@{activity('LookupNewWaterMarkActivity').output.firstRow.NewWatermarkvalue}` |
         | TableName | Sträng | `@{activity('LookupOldWaterMarkActivity').output.firstRow.TableName}` |

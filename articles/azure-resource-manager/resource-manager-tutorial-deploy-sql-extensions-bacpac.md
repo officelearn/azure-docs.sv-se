@@ -35,7 +35,7 @@ Den här självstudien omfattar följande uppgifter:
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -45,7 +45,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     ```azurecli-interactive
     openssl rand -base64 32
     ```
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="prepare-a-bacpac-file"></a>Förbereda en BACPAC-fil
 
@@ -69,7 +69,7 @@ Mallen som används i den här självstudien lagras i [GitHub](https://raw.githu
    * `Microsoft.SQL/servers/securityAlertPolicies`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/securityalertpolicies).
    * `Microsoft.SQL.servers/databases`.  Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases).
 
-     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
 4. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="edit-the-template"></a>Redigera mallen
@@ -127,7 +127,7 @@ Lägg till två ytterligare resurser i mallen.
 
     Information om resursdefinitionen finns i [tilläggsreferensen för SQL Database](https://docs.microsoft.com/azure/templates/microsoft.sql/servers/databases/extensions). Här följer några viktiga element:
 
-    * **dependsOn**: Tilläggsresursen måste skapas efter att SQL-databasen har skapats.
+    * **dependsOn**: tilläggsresursen måste skapas efter att SQL-databasen har skapats.
     * **storageKeyType**: Typ av lagringsnyckel som ska användas. Värdet kan vara antingen `StorageAccessKey` eller `SharedAccessKey`. Eftersom den angivna BACPAC-filen delas på ett Azure Storage-konto med offentlig åtkomst används ”SharedAccessKey” här.
     * **storageKey**: Lagringsnyckeln som ska användas. Om lagringsnyckeltypen är SharedAccessKey måste den föregås av ett ”?”.
     * **storageUri**: Lagrings-URI:n som ska användas. Om du väljer att inte använda BACPAC-filen som angavs måste du uppdatera värdena.

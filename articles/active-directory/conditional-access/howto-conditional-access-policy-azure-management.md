@@ -22,7 +22,7 @@ ms.locfileid: "72170102"
 
 Organisationer använder en mängd olika Azure-tjänster och hanterar dem från Azure Resource Manager baserade verktyg som:
 
-* Azure Portal
+* Azure portal
 * Azure PowerShell
 * Azure CLI
 

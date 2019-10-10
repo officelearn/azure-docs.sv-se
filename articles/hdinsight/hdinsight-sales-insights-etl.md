@@ -1,5 +1,5 @@
 ---
-title: 'Självstudiekurs: Skapa en ETL-pipeline från slut punkt till slut punkt för att härleda Sälj insikter'
+title: 'Självstudie: skapa en ETL-pipeline från slut punkt till slut punkt för att härleda Sälj insikter'
 description: Lär dig hur du använder skapa ETL-pipelines med Azure HDInsight för att härleda insikter från försäljnings data med Spark-kluster på begäran och Power BI.
 author: hrasheed-msft
 ms.reviewer: jasonh
@@ -15,7 +15,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72178012"
 ---
-# <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Självstudiekurs: Skapa en pipeline från slut punkt till slut punkt för att härleda Sälj insikter
+# <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights"></a>Självstudie: skapa en pipeline från slut punkt till slut punkt för att härleda Sälj insikter
 
 I den här självstudien skapar du en pipeline från slut punkt till slut punkt som utför åtgärder för att extrahera, transformera och läsa in (ETL). Pipelinen använder Apache Spark-och Apache Hive-kluster som körs på Azure HDInsight för att skicka frågor till och ändra data. Du använder också tekniker som Azure Data Lake Storage Gen2 för data lagring och Power BI för visualisering.
 
@@ -23,7 +23,7 @@ Den här datapipelinen kombinerar data från olika butiker, tar bort alla oönsk
 
 ![ETL-arkitektur](./media/hdinsight-sales-insights-etl/architecture.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -33,7 +33,7 @@ Hämta [Power BI Desktop](https://www.microsoft.com/download/details.aspx?id=453
 
 ### <a name="clone-the-repository-with-scripts-and-data"></a>Klona lagrings platsen med skript och data
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Öppna Azure Cloud Shell från den översta meny raden. Välj din prenumeration för att skapa en fil resurs om Cloud Shell uppmanas till det.
 
    ![Öppna Azure Cloud Shell](./media/hdinsight-sales-insights-etl/hdinsight-sales-insights-etl-click-cloud-shell.png)
@@ -212,7 +212,7 @@ Det här skriptet skapar en hanterad tabell på det interaktiva Query-kluster so
 När data har lästs in kan du experimentera med den instrument panel som du vill skapa. Se följande länkar för att komma igång med Power BI-instrumentpaneler:
 
 * [Introduktion till instrument paneler för Power BI designers](https://docs.microsoft.com/power-bi/service-dashboards)
-* [Självstudiekurs: Kom igång med Power BI-tjänst @ no__t-0
+* [Självstudie: kom igång med Power BI-tjänst](https://docs.microsoft.com/power-bi/service-get-started)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

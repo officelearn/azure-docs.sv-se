@@ -7,18 +7,18 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/18/2019
 ms.author: rajanaki
-ms.openlocfilehash: f6e2fedf3f2f8384d4a6062852888c312e8285a1
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: ecfe993a137ca63c84438870ec54ac1e6d6707da
+ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212863"
+ms.lasthandoff: 10/09/2019
+ms.locfileid: "72173485"
 ---
 # <a name="add-azure-automation-runbooks-to-recovery-plans"></a>Lägg till Azure Automation runbooks i återställnings planer
 
 I den här artikeln beskrivs hur du integrerar Azure Automation runbooks för att utöka [Azure Site Recovery](site-recovery-overview.md) återställnings planer. Vi visar dig hur du automatiserar grundläggande uppgifter som annars skulle behöva åtgärdas manuellt och hur du konverterar en multi-Step-återställning till en åtgärd med enkel klickning.
 
-## <a name="recovery-plans"></a>Återställningsplaner 
+## <a name="recovery-plans"></a>Återställnings planer 
 
 Du kan använda återställnings planer när du växlar över lokala datorer eller virtuella Azure-datorer. Med återställnings planer kan du definiera en systematisk återställnings process som definierar hur datorer växlar över och hur de startar och återställer efter redundansväxlingen. 
 
@@ -99,7 +99,7 @@ Aman- [Sharma finns ett](http://harvestingclouds.com) användbart exempel på et
 
 - Om du inte har använt Azure Automation kan du [Registrera dig](https://azure.microsoft.com/services/automation/) och [Hämta exempel skript](https://azure.microsoft.com/documentation/scripts/).
 - Se till att Automation-kontot har följande moduler:
-    - AzureRM.profile
+    - AzureRM. Profile
     - AzureRM.Resources
     - AzureRM.Automation
     - AzureRM.Network
@@ -112,14 +112,14 @@ Aman- [Sharma finns ett](http://harvestingclouds.com) användbart exempel på et
 ## <a name="customize-the-recovery-plan"></a>Anpassa återställnings planen
 
 1. I valvet väljer du **återställnings planer (Site Recovery)**
-2. Klicka på **+ återställnings plan**för att skapa en återställnings plan. [Läs mer](/site-recovery-create-recovery-plans.md). Om du redan har en återställnings plan väljer du att öppna den.
+2. Klicka på **+ återställnings plan**för att skapa en återställnings plan. [Läs mer](site-recovery-create-recovery-plans.md). Om du redan har en återställnings plan väljer du att öppna den.
 3. På sidan återställnings plan klickar du på **Anpassa**.
 
     ![Klicka på knappen anpassa](media/site-recovery-runbook-automation-new/custom-rp.png)
 
-2. Klicka på ellipserna (...) bredvid **grupp 1: Starta**Lägg > **till post-åtgärd**.
+2. Klicka på ellipserna (...) bredvid **grupp 1: starta** > **Lägg till post-åtgärd**.
 3. I **Infoga åtgärd**kontrollerar du att **skript** är markerat och anger ett namn för skriptet (**Hello World**).
-4. Ange ett Automation-konto och välj en Runbook. Klicka på **OK**om du vill spara skriptet. Skriptet läggs till i **grupp 1: Post-steg**.
+4. Ange ett Automation-konto och välj en Runbook. Klicka på **OK**om du vill spara skriptet. Skriptet läggs till i **grupp 1: post-steg**.
 
 
 ## <a name="reuse-a-runbook-script"></a>Återanvänd ett Runbook-skript

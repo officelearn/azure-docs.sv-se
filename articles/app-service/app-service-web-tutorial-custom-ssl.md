@@ -22,7 +22,7 @@ ms.contentlocale: sv-SE
 ms.lasthandoff: 10/09/2019
 ms.locfileid: "72177034"
 ---
-# <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>Självstudiekurs: Ladda upp och bind SSL-certifikat till Azure App Service
+# <a name="tutorial-upload-and-bind-ssl-certificates-to-azure-app-service"></a>Självstudie: Ladda upp och bind SSL-certifikat till Azure App Service
 
 Med [Azure App Service](overview.md) får du en automatiskt uppdaterad webbvärdtjänst med hög skalbarhet. Den här självstudien visar hur du skyddar en anpassad domän i App Service med ett certifikat som du har köpt från en betrodd certifikat utfärdare. Det visar också hur du laddar upp privata och offentliga certifikat som appen behöver. När du är klar så kommer du att ha åtkomst till din app på HTTPS-slutpunkten för din anpassade DNS-domän.
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 > * Använda TLS 1.1/1.2
 > * Automatisera hantering av TLS med skript
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 

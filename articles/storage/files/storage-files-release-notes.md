@@ -23,7 +23,7 @@ Den här artikeln innehåller viktig information om versioner av Azure File Sync
 ## <a name="supported-versions"></a>Versioner som stöds
 Följande versioner av Azure File Sync-agenten stöds:
 
-| Gränser | Agentversionsnummer | Utgivningsdatum | State |
+| Gränser | Agentversionsnummer | Utgivningsdatum | Status |
 |----|----------------------|--------------|------------------|
 | V8-version – [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 8 oktober 2019 | Stöds |
 | Samlad uppdatering 2019 – [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 24 juli 2019 | Stöds |
@@ -422,7 +422,7 @@ Följande viktig information gäller version 4.1.0.0 av Azure File Sync agent so
 
 Lista med problem som korrigeras i den här versionen:  
 - Servern kanske slutar svara på grund av en minnes läcka på molnnivå.  
-- Agent installationen Miss lyckas med följande fel: Fel 1921. Det gick inte att stoppa tjänsten för synkronisering av FileSyncSvc (lagrings agent).  Kontrol lera att du har behörighet att stoppa system tjänster.  
+- Agent installationen Miss lyckas med följande fel: fel 1921. Det gick inte att stoppa tjänsten för synkronisering av FileSyncSvc (lagrings agent).  Kontrol lera att du har behörighet att stoppa system tjänster.  
 - FileSyncSvc-tjänsten (Storage Sync agent) kan krascha när minnes användningen är hög.  
 - Diverse förbättringar av tillförlitlighet för moln nivåer och synkronisering.
 

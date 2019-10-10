@@ -1342,8 +1342,8 @@
             - name: Använda Apache Spark-mått
               href: /azure/databricks/kb/metrics/spark-metrics
               maintainContext: true
-            - name: Notebooks
-              items: null
+        - name: Notebooks
+          items:
             - name: Kontrollera om en Spark-egenskap kan ändras
               href: /azure/databricks/kb/notebooks/check-spark-property-modifiable
               maintainContext: true

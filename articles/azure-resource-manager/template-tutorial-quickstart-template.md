@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: e1ef6dd913958f963cb62b4014c09a47903831aa
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
-ms.translationtype: HT
+ms.openlocfilehash: a29d86d105579dda7c12b885e2977406f7b598a4
+ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71963851"
+ms.lasthandoff: 10/07/2019
+ms.locfileid: "72001480"
 ---
 # <a name="tutorial-use-azure-quickstart-templates"></a>Självstudier: Använda Azure snabb starts mallar
 
@@ -50,7 +50,7 @@ Slå samman snabb starts mal len med den befintliga mallen:
 
 [!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json?range=1-108&highlight=32-45,49,85-100)]
 
-Webapp-namnet måste vara unikt i Azure. För att förhindra dubblettnamn har **webAppPortalName** -variabeln uppdaterats från **"webAppPortalName": "[concat (parameters (" webAppName "),"-webapp ")]"** till **"webAppPortalName": "[concat (parameters (" webAppName "). uniqueString (resourceGroup (). ID)]]** .
+WebApp-namnet måste vara unikt i Azure. För att förhindra dubblettnamn har **webAppPortalName** -variabeln uppdaterats från **"webAppPortalName": "[concat (parameters (" webAppName "),"-webapp ")]"** till **"webAppPortalName": "[concat (parameters (" webAppName "). uniqueString (resourceGroup (). ID)]** .
 
 Lägg till ett kommatecken i slutet av `Microsoft.Web/serverfarms`-definitionen för att avgränsa resurs definitionen från `Microsoft.Web/sites`-definitionen.
 

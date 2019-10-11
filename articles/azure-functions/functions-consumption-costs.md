@@ -7,18 +7,18 @@ ms.date: 9/20/2019
 ms.topic: conceptual
 ms.service: azure-functions
 manager: gwallace
-ms.openlocfilehash: fa35e5bea7b0d7f2435a8ad31b9195d2fd35a45c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 0ff41eb511ad4513fc9bf5a2ded7ef47b08d12ab
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181267"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243310"
 ---
 # <a name="estimating-consumption-plan-costs"></a>Uppskatta förbruknings Plans kostnader
 
 Det finns för närvarande tre typer av värd planer för en app som körs i Azure Functions, med varje plan med en egen pris modell: 
 
-| Planera | Beskrivning |
+| Plan | Beskrivning |
 | ---- | ----------- |
 | [**Bruk**](functions-scale.md#consumption-plan) | Du debiteras bara för den tid som din Function-App körs. Den här planen innehåller en[pris sida] för [gratis beviljande av bidrag]per prenumeration.|
 | [**Denaturering**](functions-scale.md#premium-plan) | Ger dig samma funktioner och skalnings funktion som förbruknings planen, men med förbättrad prestanda och VNET-åtkomst. Kostnaden baseras på din valda pris nivå. Läs mer i [Azure Functions Premium-plan](functions-premium-plan.md). |
@@ -30,11 +30,11 @@ Den här artikeln behandlar endast förbruknings planen eftersom den här planen
 
 Durable Functions kan också köras i en förbruknings plan. Mer information om kostnads överväganden när du använder Durable Functions finns i [Durable Functions fakturering](./durable/durable-functions-billing.md).
 
-## <a name="consumption-plan-costs"></a>Förbruknings Plans kostnader
+## <a name="consumption-plan-costs"></a>Kostnader för förbrukningsplan
 
 Körnings *kostnaden* för en enskild funktions körning mäts i *GB-sekunder*. Körnings kostnaden beräknas genom att kombinera minnes användningen med dess körnings tid. En funktion som körs för längre kostnader, precis som en funktion som använder mer minne. 
 
-Tänk på ett fall där mängden minne som används av funktionen förblir konstant. I det här fallet är beräkningen av kostnaden Enkel multiplikation. Anta till exempel att din funktion förbrukade 0,5 GB i 3 sekunder. Därefter är `0.5GB * 3s = 1.5 GB-seconds`körnings kostnaden. 
+Tänk på ett fall där mängden minne som används av funktionen förblir konstant. I det här fallet är beräkningen av kostnaden Enkel multiplikation. Anta till exempel att din funktion förbrukade 0,5 GB i 3 sekunder. Sedan är körnings kostnaden `0.5GB * 3s = 1.5 GB-seconds`. 
 
 Eftersom minnes användning ändras med tiden, är beräkningen i grunden minnes användningen över tid.  Systemet utför den här beräkningen genom att sampla processens minnes användning (tillsammans med underordnade processer) med jämna mellanrum. Som vi nämnt på [sidan prissättning]avrundas minnes användningen uppåt till närmaste 128-MB-Bucket. När din process använder 160 MB debiteras du för 256 MB. Beräkningen tar hänsyn till samtidighet i kontot, vilket är flera samtidiga funktions körningar i samma process.
 
@@ -59,33 +59,33 @@ När du uppskattar den totala kostnaden för din Function-app och relaterade tj�
 
 Följande beteenden för dina funktioner kan påverka körnings tiden:
 
-+ **Utlösare och bindningar**: Den tid det tar att läsa indata från och skriva utdata till [funktions bindningarna](functions-triggers-bindings.md) räknas som körnings tid. Om din funktion exempelvis använder en utgående bindning för att skriva ett meddelande till en Azure Storage-kö, innehåller din körnings tid den tid det tar att skriva meddelandet till kön, som ingår i beräkningen av funktions kostnaden. 
++ **Utlösare och bindningar**: den tid det tar att läsa indata från och skriva utdata till [funktions bindningarna](functions-triggers-bindings.md) räknas som körnings tid. Om din funktion exempelvis använder en utgående bindning för att skriva ett meddelande till en Azure Storage-kö, innehåller din körnings tid den tid det tar att skriva meddelandet till kön, som ingår i beräkningen av funktions kostnaden. 
 
-+ **Asynkron körning**: Den tid som funktionen väntar på att resultatet av en asynkron begäran (`await` i C#) räknas som körnings tid. Beräkningen på GB-sekunden baseras på Start-och slut tiden för funktionen och minnes användningen under den perioden. Vad som händer under den tiden i förhållande till processor aktivitet är inte en faktor i beräkningen. Du kanske kan minska kostnaderna under asynkrona åtgärder med hjälp av [Durable Functions](durable/durable-functions-overview.md). Du faktureras inte för tid som ägnats åt att vänta i Orchestrator-funktioner.
++ **Asynkron körning**: den tid som funktionen väntar på att resultatet av en asynkron begäran (`await` in C#) räknas som körnings tid. Beräkningen på GB-sekunden baseras på Start-och slut tiden för funktionen och minnes användningen under den perioden. Vad som händer under den tiden i förhållande till processor aktivitet är inte en faktor i beräkningen. Du kanske kan minska kostnaderna under asynkrona åtgärder med hjälp av [Durable Functions](durable/durable-functions-overview.md). Du faktureras inte för tid som ägnats åt att vänta i Orchestrator-funktioner.
 
 ## <a name="view-execution-data"></a>Visa körnings data
 
-I [din faktura](/billing/billing-download-azure-invoice.md)kan du Visa kostnads relaterade data för **Totalt antal körningar – funktioner** och **körnings tid**, tillsammans med de faktiska fakturerade kostnaderna. Dessa faktura data är dock en månatlig samling för en tidigare faktura period. 
+I [din faktura](/azure/billing/billing-download-azure-invoice)kan du Visa kostnads relaterade data för **Totalt antal körningar – funktioner** och **körnings tid**, tillsammans med de faktiska fakturerade kostnaderna. Dessa faktura data är dock en månatlig samling för en tidigare faktura period. 
 
-Om du vill få bättre förståelse för dina funktioner kan du använda Azure Monitor för att visa kostnads relaterade mått som för närvarande genereras av dina funktions appar. Du kan använda antingen [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) i [Azure Portal] eller REST-API: er för att hämta dessa data.
+Om du vill få bättre förståelse för dina funktioner kan du använda Azure Monitor för att visa kostnads relaterade mått som för närvarande genereras av dina funktions appar. Du kan använda antingen [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) i [Azure-portalen] eller REST-API: er för att hämta dessa data.
 
 ### <a name="monitor-metrics-explorer"></a>Övervaka Metrics Explorer
 
 Använd [Azure Monitor Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md) för att visa kostnads relaterade data för dina förbruknings Plans funktions program i ett grafiskt format. 
 
-1. Överst i [Azure Portal] i **Sök tjänster, resurser och dokument söker du** efter `monitor` och väljer **övervaka** under **tjänster**.
+1. Överst i [Azure-portalen] i **Sök tjänster, resurser och dokument** Sök efter `monitor` och välj **övervaka** under **tjänster**.
 
-1. Till vänster väljer du **mått** > **Välj en resurs**och använder sedan inställningarna under bilden för att välja din Function-app.
+1. Till vänster väljer du **mått** > **Välj en resurs**och Använd sedan inställningarna under avbildningen för att välja din Function-app.
 
     ![Välj din Function-app-resurs](media/functions-consumption-costing/select-a-resource.png)
 
       
     |Inställning  |Föreslaget värde  |Beskrivning  |
     |---------|---------|---------|
-    | Subscription    |  Din prenumeration  | Prenumerationen med din Function-app.  |
-    | Resource group     | Din resurs grupp  | Resurs gruppen som innehåller din Function-app.   |
+    | Prenumeration    |  Din prenumeration  | Prenumerationen med din Function-app.  |
+    | Resursgrupp     | Din resurs grupp  | Resurs gruppen som innehåller din Function-app.   |
     | Resurstyp     |  App Services | Function-appar visas som App Services instanser i övervakaren. |
-    | Resource     |  Din Function-app  | Function-appen som ska övervakas.        |
+    | Resurs     |  Din Function-app  | Function-appen som ska övervakas.        |
 
 1. Välj **tillämpa** för att välja din funktions-app som den resurs som ska övervakas.
 
@@ -101,13 +101,13 @@ Det resulterande diagrammet innehåller summan för båda körnings måtten inom
 
 Eftersom antalet körnings enheter är så mycket större än antalet körningar visar diagrammet bara körnings enheter.
 
-Det här diagrammet visar totalt 1 110 000 000 `Function Execution Units` som använts under en period på två timmar mätt i MB-millisekunder. Om du vill konvertera till GB-sekunder dividerar du med 1024000. I det här exemplet förbrukade `1110000000 / 1024000 = 1083.98` Function-appen GB – sekunder. Du kan ta detta värde och multiplicera det med det aktuella priset för körnings tid på prissättnings sidan för [funktioner prissättning][sidan prissättning]ger dig kostnaden för dessa två timmar, förutsatt att du redan har använt kostnads fria bidrag för körnings tid. 
+Det här diagrammet visar totalt 1 110 000 000 `Function Execution Units` som använts under en period på två timmar, mätt i MB-millisekunder. Om du vill konvertera till GB-sekunder dividerar du med 1024000. I det här exemplet förbrukade Function-appen `1110000000 / 1024000 = 1083.98` GB-sekunder. Du kan ta detta värde och multiplicera det med det aktuella priset för körnings tid på prissättnings sidan för [funktioner prissättning][sidan prissättning]ger dig kostnaden för dessa två timmar, förutsatt att du redan har använt kostnads fria bidrag för körnings tid. 
 
 ### <a name="azure-cli"></a>Azure CLI
 
 [Azure CLI](/cli/azure/) innehåller kommandon för att hämta mått. Du kan använda CLI från en lokal kommando miljö eller direkt från portalen med [Azure Cloud Shell](../cloud-shell/overview.md). Följande AZ för övervakning av [mått lista](/cli/azure/monitor/metrics#az-monitor-metrics-list) returnerar till exempel Tim data över samma tids period som används tidigare.
 
-Ersätt `<AZURE_SUBSCRIPTON_ID>` med ditt Azure-prenumerations-ID genom att köra kommandot.
+Se till att ersätta `<AZURE_SUBSCRIPTON_ID>` med ditt Azure-prenumerations-ID som kör kommandot.
 
 ```azurecli-interactive
 az monitor metrics list --resource /subscriptions/<AZURE_SUBSCRIPTION_ID>/resourceGroups/metrics-testing-consumption/providers/Microsoft.Web/sites/metrics-testing-consumption --metric FunctionExecutionUnits,FunctionExecutionCount --aggregation Total --interval PT1H --start-time 2019-09-11T21:46:00Z --end-time 2019-09-11T23:18:00Z
@@ -192,7 +192,7 @@ Det här kommandot returnerar en JSON-nyttolast som ser ut som i följande exemp
   ]
 }
 ```
-Detta specifika svar visar att från `2019-09-11T21:46` till `2019-09-11T23:18`, under vilken appen förbrukade 1110000000 MB-millisekunder (1083,98 GB-sekunder).
+Detta specifika svar visar att från `2019-09-11T21:46` till `2019-09-11T23:18`, då appen förbrukade 1110000000 MB-millisekunder (1083,98 GB-sekunder).
 
 ## <a name="determine-memory-usage"></a>Fastställa minnes användning
 
@@ -210,14 +210,14 @@ performanceCounters
 
 Resultatet ser ut som i följande exempel:
 
-| tidsstämpel \[UTC\]          | name          | value       |
+| tidsstämpel \[UTC @ no__t-1          | namn          | värde       |
 |----------------------------|---------------|-------------|
-| 9/12/2019, 1:05:14\.947 AM | Privata byte | 209 932 288 |
-| 9/12/2019, 1:06:14\.994 AM | Privata byte | 212 189 184 |
-| 9/12/2019 1:06:30\.010 AM | Privata byte | 231 714 816 |
-| 9/12/2019, 1:07:15\.040 AM | Privata byte | 210 591 744 |
-| 9/12/2019, 1:12:16\.285 AM | Privata byte | 216 285 184 |
-| 9/12/2019, 1:12:31\.376 AM | Privata byte | 235 806 720 |
+| 9/12/2019, 1:05:14 @ no__t – 0947 | Privata byte | 209 932 288 |
+| 9/12/2019, 1:06:14 @ no__t – 0994 AM | Privata byte | 212 189 184 |
+| 9/12/2019, 1:06:30 @ no__t – 0010 | Privata byte | 231 714 816 |
+| 9/12/2019, 1:07:15 @ no__t – 0040 | Privata byte | 210 591 744 |
+| 9/12/2019, 1:12:16 @ no__t – 0285 AM | Privata byte | 216 285 184 |
+| 9/12/2019, 1:12:31 @ no__t – 0376 AM | Privata byte | 235 806 720 |
 
 ## <a name="function-level-metrics"></a>Mått på funktions nivå
 
@@ -230,11 +230,11 @@ customMetrics
 | summarize averageDurationMilliseconds=avg(averageDuration) by name
 ```
 
-| name                       | averageDurationMilliseconds |
+| namn                       | averageDurationMilliseconds |
 |----------------------------|-----------------------------|
-| QueueTrigger AvgDurationMs | 16\.087                     |
-| QueueTrigger MaxDurationMs | 90\.249                     |
-| QueueTrigger MinDurationMs | 8\.522                      |
+| QueueTrigger AvgDurationMs | 16 @ no__t-0087                     |
+| QueueTrigger MaxDurationMs | 90 @ no__t – 0249                     |
+| QueueTrigger MinDurationMs | 8 @ no__t – 0522                      |
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -242,4 +242,4 @@ customMetrics
 > [Lär dig mer om att övervaka Function-appar](functions-monitoring.md)
 
 [Sidan prissättning]: https://azure.microsoft.com/pricing/details/functions/
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

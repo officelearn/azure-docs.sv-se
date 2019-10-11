@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 76637c566d85816b3af6d0ed457031e7d4cd4068
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 075eaaa188307e4320337ef21fd0875942e9e7e7
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327673"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249358"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planera för distribution av Azure Files
 
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. Eftersom Azure Files är fullständigt hanterat är det mycket enklare att distribuera den i produktions scenarier än att distribuera och hantera en fil server eller NAS-enhet. Den här artikeln handlar om de ämnen som du bör tänka på när du distribuerar en Azure-filresurs för produktions användning i din organisation.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet enligt bransch standard. Eftersom Azure Files är fullständigt hanterat är det mycket enklare att distribuera den i produktions scenarier än att distribuera och hantera en fil server eller NAS-enhet. Den här artikeln handlar om de ämnen som du bör tänka på när du distribuerar en Azure-filresurs för produktions användning i din organisation.
 
 ## <a name="management-concepts"></a>Hanterings begrepp
 
@@ -24,15 +24,15 @@ ms.locfileid: "71327673"
 
 ![Filstruktur](./media/storage-files-introduction/files-concepts.png)
 
-* **Lagrings konto**: All åtkomst till Azure Storage görs via ett lagrings konto. Se [Skalbarhets- och prestandamål](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för information om kapacitet för lagringskonton.
+* **Lagringskonto**: All åtkomst till Azure Storage görs genom ett lagringskonto. Se [Skalbarhets- och prestandamål](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för information om kapacitet för lagringskonton.
 
-* **Dela**: En File Storage resurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en överordnad resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till fil resursens totala kapacitet. För standard fil resurser är den totala kapaciteten upp till 5 TiB (GA) eller 100 TiB (för hands version) för Premium-filresurser, den totala kapaciteten är upp till 100 TiB.
+* **Resurs**: En File Storage-resurs är en SMB-filresurs i Azure. Alla kataloger och filer måste skapas i en överordnad resurs. Ett konto kan innehålla ett obegränsat antal resurser och en resurs kan lagra ett obegränsat antal filer, upp till fil resursens totala kapacitet. För standard fil resurser är den totala kapaciteten upp till 5 TiB (GA) eller 100 TiB (för hands version) för Premium-filresurser, den totala kapaciteten är upp till 100 TiB.
 
-* **Katalog**: En valfri hierarki med kataloger.
+* **Katalog:** En valfri hierarki med kataloger.
 
-* **Fil**: En fil i resursen. En fil kan vara upp till 1 TiB storlek.
+* **Fil:** En fil i resursen. En fil kan vara upp till 1 TiB storlek.
 
-* **URL-format**: För begär anden till en Azure-filresurs som har skapats med fil REST-protokollet kan filerna adresseras med hjälp av följande URL-format:
+* **URL-format**: för begär anden till en Azure-filresurs som görs med fil rest-protokollet kan filerna adresseras med hjälp av följande URL-format:
 
     ```
     https://<storage account>.file.core.windows.net/<share>/<directory>/<file>
@@ -42,26 +42,26 @@ ms.locfileid: "71327673"
 
 Azure Files erbjuder två inbyggda, smidiga data åtkomst metoder som du kan använda separat eller i kombination med varandra för att få åtkomst till dina data:
 
-1. **Direkt åtkomst till molnet**: Alla Azure-filresurser kan monteras av [Windows](storage-how-to-use-files-windows.md), [MacOS](storage-how-to-use-files-mac.md)och/eller [Linux](storage-how-to-use-files-linux.md) med Server Message Block-protokollet (Server Message Block) i branschen eller via filen REST API. Med SMB görs läsningar och skrivningar till filer på resursen direkt på fil resursen i Azure. SMB-klienten i operativ systemet måste ha stöd för minst SMB 2,1 för att monteras av en virtuell dator i Azure. För att montera lokalt, till exempel på en användares arbets Station, måste SMB-klienten som stöds av arbets stationen ha stöd för minst SMB 3,0 (med kryptering). Förutom SMB kan nya program eller tjänster komma åt fil resursen direkt via filen REST, vilket ger en enkel och skalbar application programming interface för program utveckling.
-2. **Azure File Sync**: Med Azure File Sync kan resurser replikeras till Windows-servrar lokalt eller i Azure. Dina användare skulle kunna komma åt fil resursen via Windows Server, t. ex. via en SMB-eller NFS-resurs. Detta är användbart för scenarier där data kommer att kommas åt och ändras långt bort från ett Azure-datacenter, t. ex. i ett scenario med ett avdelnings kontor. Data kan replikeras mellan flera Windows Server-slutpunkter, till exempel mellan flera avdelnings kontor. Slutligen kan data ligga i nivå till Azure Files, så att alla data fortfarande är tillgängliga via servern, men servern har ingen fullständig kopia av data. I stället anropas data sömlöst när användaren öppnar den.
+1. **Direkt åtkomst till molnet**: alla Azure-filresurser kan monteras av [Windows](storage-how-to-use-files-windows.md), [MacOS](storage-how-to-use-files-mac.md)och/eller [Linux](storage-how-to-use-files-linux.md) med SMB-protokollet (Server Message Block) eller via filen REST API. Med SMB görs läsningar och skrivningar till filer på resursen direkt på fil resursen i Azure. SMB-klienten i operativ systemet måste ha stöd för minst SMB 2,1 för att monteras av en virtuell dator i Azure. För att montera lokalt, till exempel på en användares arbets Station, måste SMB-klienten som stöds av arbets stationen ha stöd för minst SMB 3,0 (med kryptering). Förutom SMB kan nya program eller tjänster komma åt fil resursen direkt via filen REST, vilket ger en enkel och skalbar application programming interface för program utveckling.
+2. **Azure File Sync**: med Azure File Sync kan resurser replikeras till Windows-servrar lokalt eller i Azure. Dina användare skulle kunna komma åt fil resursen via Windows Server, t. ex. via en SMB-eller NFS-resurs. Detta är användbart för scenarier där data kommer att kommas åt och ändras långt bort från ett Azure-datacenter, t. ex. i ett scenario med ett avdelnings kontor. Data kan replikeras mellan flera Windows Server-slutpunkter, till exempel mellan flera avdelnings kontor. Slutligen kan data ligga i nivå till Azure Files, så att alla data fortfarande är tillgängliga via servern, men servern har ingen fullständig kopia av data. I stället anropas data sömlöst när användaren öppnar den.
 
 I följande tabell visas hur dina användare och program kan komma åt din Azure-fil resurs:
 
 | | Direkt åtkomst till molnet | Azure File Sync |
 |------------------------|------------|-----------------|
 | Vilka protokoll behöver du använda? | Azure Files stöder SMB 2,1, SMB 3,0 och File REST API. | Få åtkomst till Azure-filresursen via alla protokoll som stöds på Windows Server (SMB, NFS, FTPS osv.) |  
-| Var kör du arbets belastningen? | **I Azure**: Azure Files ger direkt åtkomst till dina data. | **Lokalt med långsamt nätverk**: Windows-, Linux-och macOS-klienter kan montera en lokal Windows-filresurs som ett snabbt cacheminne för Azure-filresursen. |
+| Var kör du arbets belastningen? | **I Azure**: Azure Files ger direkt åtkomst till dina data. | **Lokalt med långsamt nätverk**: Windows-, Linux-och MacOS-klienter kan montera en lokal lokal Windows-filresurs som ett snabbt cacheminne för Azure-filresursen. |
 | Vilken nivå av ACL: er behöver du? | Delnings-och filnivå. | Delnings-, fil-och användar nivå. |
 
 ## <a name="data-security"></a>Datasäkerhet
 
 Azure Files har flera inbyggda alternativ för att säkerställa data säkerhet:
 
-* Stöd för kryptering i både över-och högsta protokoll: SMB 3,0-kryptering och fil REST över HTTPS. Som standard: 
+* Stöd för kryptering i både över-kabel-protokoll: SMB 3,0-kryptering och fil REST över HTTPS. Som standard: 
     * Klienter som stöder SMB 3,0-kryptering skickar och tar emot data via en krypterad kanal.
     * Klienter som inte har stöd för SMB 3,0 med kryptering kan kommunicera inom data Center via SMB 2,1 eller SMB 3,0 utan kryptering. SMB-klienter får inte kommunicera mellan data Center via SMB 2,1 eller SMB 3,0 utan kryptering.
     * Klienter kan kommunicera via fil REST med antingen HTTP eller HTTPS.
-* Kryptering vid vila ([Azure Storage tjänst kryptering](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): Kryptering för lagringstjänst (SSE) har Aktiver ATS för alla lagrings konton. Data i vila krypteras med fullständigt hanterade nycklar. Kryptering i vila ökar inte lagrings kostnaderna eller minskar prestandan. 
+* Kryptering vid vila ([Azure Storage tjänst kryptering](../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)): kryptering för lagringstjänst (SSE) har Aktiver ATS för alla lagrings konton. Data i vila krypteras med fullständigt hanterade nycklar. Kryptering i vila ökar inte lagrings kostnaderna eller minskar prestandan. 
 * Valfritt krav på krypterad data överföring: när det här alternativet är markerat nekar Azure Files åtkomst till data via okrypterade kanaler. Mer specifikt tillåts endast HTTPS och SMB 3,0 med krypterings anslutningar.
 
     > [!Important]  
@@ -90,7 +90,7 @@ Premium fil resurser backas upp av solid state-hårddiskar (SSD). Premium-filres
 
 Azure Backup är tillgängligt för Premium-filresurser och Azure Kubernetes-tjänsten stöder Premium-filresurser i version 1,13 och senare.
 
-Om du vill lära dig hur du skapar en Premium-filresurs, se vår artikel om ämnet: [Skapa ett Azure Premium File Storage-konto](storage-how-to-create-premium-fileshare.md).
+Om du vill lära dig hur du skapar en Premium-filresurs, se vår artikel på ämnes raden: [så här skapar du ett Azure Premium File Storage-konto](storage-how-to-create-premium-fileshare.md).
 
 För närvarande kan du inte direkt konvertera mellan en standard fil resurs och en Premium-filresurs. Om du vill växla till någon av nivåerna måste du skapa en ny fil resurs på den nivån och manuellt kopiera data från den ursprungliga resursen till den nya resurs som du har skapat. Du kan göra detta med hjälp av någon av de Azure Files kopierings verktyg som stöds, till exempel Robocopy eller AzCopy.
 
@@ -126,12 +126,12 @@ I följande tabell visas några exempel på dessa formler för de allokerade res
 |---------|---------|---------|---------|---------|
 |100         | 100     | Upp till 300     | 66   | 44   |
 |500         | 500     | Upp till 1 500   | 90   | 60   |
-|1,024       | 1,024   | Upp till 3 072   | 122   | 81   |
+|1 024       | 1 024   | Upp till 3 072   | 122   | 81   |
 |5 120       | 5 120   | Upp till 15 360  | 368   | 245   |
 |10 240      | 10 240  | Upp till 30 720  | 675 | 450   |
 |33 792      | 33 792  | Upp till 100 000 | 2 088 | 1 392   |
 |51 200      | 51 200  | Upp till 100 000 | 3 132 | 2 088   |
-|102 400     | 100,000 | Upp till 100 000 | 6 204 | 4 136   |
+|102 400     | 100 000 | Upp till 100 000 | 6 204 | 4 136   |
 
 > [!NOTE]
 > Fil resursernas prestanda är beroende av dator nätverks begränsningar, tillgänglig nätverks bandbredd, i/o-storlekar, parallellitet, bland många andra faktorer. För att uppnå maximal prestanda skalning sprider du belastningen över flera virtuella datorer. Se [fel söknings guiden](storage-troubleshooting-files-performance.md) för några vanliga prestanda problem och lösningar.
@@ -171,7 +171,7 @@ I följande avsnitt beskrivs skillnaderna mellan olika alternativ för redundans
 
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-ZRS.md)]
 
-### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring
+### <a name="geo-redundant-storage"></a>Geografiskt redundant lagring.
 
 > [!Warning]  
 > Om du använder Azure-filresursen som en moln slut punkt i ett GRS lagrings konto bör du inte initiera redundans för lagrings konto. Om du gör det upphör synkroniseringen att fungera och det kan också leda till oväntad data förlust när det gäller nynivåbaserade filer. Om en Azure-region förloras utlöser Microsoft lagrings kontots redundans på ett sätt som är kompatibelt med Azure File Sync.
@@ -184,7 +184,7 @@ GRS replikerar dina data till ett annat data Center i en sekundär region, men d
 
 För ett lagrings konto med GRS aktiverat replikeras alla data först med lokalt redundant lagring (LRS). En uppdatering allokeras först till den primära platsen och replikeras med hjälp av LRS. Uppdateringen replikeras sedan asynkront till den sekundära regionen med hjälp av GRS. När data skrivs till den sekundära platsen replikeras de också inom den platsen med hjälp av LRS.
 
-Både den primära och sekundära regionen hanterar repliker mellan olika fel domäner och uppgraderings domäner inom en lagrings skalnings enhet. Enhetens skalnings enhet är den grundläggande replikeringstjänsten i data centret. Replikering på den här nivån tillhandahålls av LRS; Mer information finns i [lokalt redundant lagring (LRS): Dataredundans med låg kostnad för Azure Storage](../common/storage-redundancy-lrs.md).
+Både den primära och sekundära regionen hanterar repliker mellan olika fel domäner och uppgraderings domäner inom en lagrings skalnings enhet. Enhetens skalnings enhet är den grundläggande replikeringstjänsten i data centret. Replikering på den här nivån tillhandahålls av LRS; Mer information finns i [Lokalt Redundant lagring (LRS): låg kostnads data redundans för Azure Storage](../common/storage-redundancy-lrs.md).
 
 Tänk på följande när du bestämmer vilket replikeringsalternativ som ska användas:
 
@@ -211,19 +211,19 @@ Standard fil resurser är tillgängliga i alla regioner upp till 5 TiB. I vissa 
 |Region |Redundans stöds |Stöder befintliga lagrings konton |Portal support * |
 |-------|---------|---------|---------|
 |Östra Australien |LRS     |Nej    |Ja|
-|Sydöstra Australien|LRS     |Nej    |Inte ännu|
-|Indien, centrala  |LRS     |Nej    |Inte ännu|
-|Östasien      |LRS     |Nej    |Inte ännu|
-|East US        |LRS     |Nej    |Inte ännu|
-|Frankrike, centrala |LRS, ZRS|Nej    |LRS – Ja, ZRS – inte ännu|
+|Sydöstra Australien|LRS |Nej    |Ja|
+|Centrala Indien  |LRS     |Nej    |Ja|
+|Östasien      |LRS     |Nej    |Ja|
+|Östra USA        |LRS     |Nej    |Ja|
+|Centrala Frankrike |LRS, ZRS|Nej    |Ja|
 |Frankrike, södra   |LRS     |Nej    |Ja|
-|Norra Europa   |LRS     |Nej    |Inte ännu|
-|Indien, södra    |LRS     |Nej    |Inte ännu|
+|Nordeuropa   |LRS     |Nej    |Inte ännu|
+|Södra Indien    |LRS     |Nej    |Ja|
 |Sydostasien |LRS, ZRS|Nej    |Ja|
-|Västra centrala USA|LRS     |Nej    |Inte ännu|
-|Västra Europa    |LRS, ZRS|Nej    |Ja|
-|Västra USA        |LRS     |Nej    |Inte ännu|
-|Västra USA 2      |LRS, ZRS|Nej    |Ja|
+|USA, västra centrala|LRS     |Nej    |Ja|
+|Västeuropa    |LRS, ZRS|Nej    |Ja|
+|Västra USA        |LRS     |Nej    |Ja|
+|USA, västra 2      |LRS, ZRS|Nej    |Ja|
 
 
 \* För regioner utan Portal stöd kan du fortfarande använda PowerShell eller Azure Command Line Interface (CLI) för att skapa större än 5 TiB-resurser. Du kan också skapa en ny resurs via portalen utan att ange kvot. Då skapas en resurs med standard storleken 100 TiB, som kan uppdateras senare via PowerShell eller Azure CLI.
@@ -271,8 +271,8 @@ Det går att synkronisera flera Azure-filresurser till en enda Windows-fil serve
 
 Det finns många enkla alternativ för att överföra data från en befintlig fil resurs, till exempel en lokal fil resurs, till Azure Files. Några populära exempel är (ej fullständig lista):
 
-* **Azure File Sync**: Som en del av en första synkronisering mellan en Azure-filresurs (en "moln slut punkt") och ett namn område i Windows-katalogen (en "Server slut punkt") kommer Azure File Sync att replikera alla data från den befintliga fil resursen till Azure Files.
-* **[Import/export i Azure](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : Med tjänsten Azure import/export kan du på ett säkert sätt överföra stora mängder data till en Azure-filresurs genom att leverera hård diskar till ett Azure-datacenter. 
+* **Azure File Sync**: som en del av en första synkronisering mellan en Azure-filresurs (en "moln slut punkt") och ett namn område i Windows-katalogen (en "Server slut punkt") replikerar Azure File Sync alla data från den befintliga fil resursen till Azure Files.
+* **[Azure import/export](../common/storage-import-export-service.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : tjänsten Azure import/export gör att du på ett säkert sätt kan överföra stora mängder data till en Azure-filresurs genom att leverera hård diskar till ett Azure-datacenter. 
 * **[Robocopy](https://technet.microsoft.com/library/cc733145.aspx)** : Robocopy är ett välkänt kopierings verktyg som levereras med Windows och Windows Server. Robocopy kan användas för att överföra data till Azure Files genom att montera fil resursen lokalt och sedan använda den monterade platsen som mål i Robocopy-kommandot.
 * **[AzCopy](../common/storage-use-azcopy-v10.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)** : AzCopy är ett kommando rads verktyg som utformats för att kopiera data till och från Azure Files, samt Azure Blob Storage med hjälp av enkla kommandon med optimala prestanda.
 

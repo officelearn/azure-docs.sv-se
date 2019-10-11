@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/24/2019
 ms.author: memildin
-ms.openlocfilehash: 28761b78b49ad0774594b45db4587c710fc7d810
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: 060a5a6a356574e04a3492cdeadd93ddf9a38535
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996720"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255237"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Anpassad nätverks härdning i Azure Security Center
 Lär dig hur du konfigurerar anpassad nätverks härdning i Azure Security Center.
@@ -38,18 +38,18 @@ Anta till exempel att den befintliga NSG-regeln är att tillåta trafik från 14
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visa aviseringar och regler för anpassad nätverks härdning
 
 1. I Security Center väljer du **nätverk** -> **anpassad nätverks härdning**. De virtuella nätverks datorerna visas under tre separata flikar:
-   * **Felaktiga resurser**: Virtuella datorer som för närvarande har rekommendationer och aviseringar som har utlösts genom att köra algoritmen för anpassad nätverks härdning. 
-   * **Felfria resurser**: Virtuella datorer utan aviseringar och rekommendationer.
-   * Ej **genomsökta resurser**: Virtuella datorer som den anpassningsbara algoritmen för nätverks härdning inte kan köras på på grund av någon av följande orsaker:
-      * **Virtuella datorer är klassiska virtuella datorer**: Endast Azure Resource Manager virtuella datorer stöds.
-      * **Det finns inte tillräckligt med data**: För att skapa korrekta rekommendationer för trafik härdning måste Security Center minst 30 dagars trafik data.
-      * **Den virtuella datorn skyddas inte av ASC-standarden**: Endast virtuella datorer som är inställda på Security Center standard pris nivån är berättigade till den här funktionen.
+   * **Felaktiga resurser**: virtuella datorer som för närvarande har rekommendationer och aviseringar som har utlösts genom att köra algoritmen för anpassad nätverks härdning. 
+   * **Felfria resurser**: virtuella datorer utan aviseringar och rekommendationer.
+   * Ej **genomsökta resurser**: virtuella datorer som den anpassningsbara algoritmen för nätverks härdning inte kan köras på på grund av någon av följande orsaker:
+      * **Virtuella datorer är klassiska virtuella**datorer: endast Azure Resource Manager virtuella datorer stöds.
+      * Det finns **inte tillräckligt med data**: för att skapa korrekta rekommendationer för trafik härdning måste Security Center minst 30 dagars trafik data.
+      * Den **virtuella datorn skyddas inte av ASC-standarden**: endast virtuella datorer som är inställda på Security Center standard pris nivån är berättigade till den här funktionen.
 
      ![resurser som inte är felfria](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
 2. På fliken **ohälsosama resurser** väljer du en virtuell dator för att visa aviseringar och de rekommenderade regler för härdning som ska tillämpas.
 
-    ![härdning av aviseringar](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+    ![härdning av aviseringar](./media/security-center-adaptive-network-hardening/anh-recommendation-rules.png)
 
 
 ## <a name="review-and-apply-adaptive-network-hardening-recommended-rules"></a>Granska och tillämpa rekommenderade regler för anpassad nätverks härdning

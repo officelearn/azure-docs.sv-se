@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 6ec258bc52513772716fa8fe1078653575c923f3
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: 5a0d462f08e88ae4d26e1c684cfaf772910d2220
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68882027"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242855"
 ---
 # <a name="create-video-reviews-using-net"></a>Skapa video granskningar med .NET
 
@@ -27,7 +27,7 @@ Den här artikeln innehåller information och kod exempel som hjälper dig att s
 - Hämta status och information om granskningen
 - Publicera granskningen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Logga in eller skapa ett konto på webbplatsen för Content Moderator [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) .
 - Den här artikeln förutsätter att du har förändrat [videon (se snabb start)](video-moderation-api.md) och har svars data. Du behöver den för att skapa inramade granskningar för mänskliga moderatorer.
@@ -45,7 +45,7 @@ Om du använder den nyckeln för den kostnadsfria utvärderingsversionen som gen
 Video-och exempel video bild rutorna som ska granskas måste publiceras online eftersom du behöver deras URL: er.
 
 > [!NOTE]
-> Programmet använder manuellt sparade skärm bilder från videon med slumpmässiga vuxen/vågat resultat för att illustrera användningen av gransknings-API: et. I en verklig situation använder du videoinspelningens [utdata](video-moderation-api.md#run-the-program-and-review-the-output) för att skapa bilder och tilldela poäng. 
+> Programmet använder manuellt sparade skärm bilder från videon med slumpmässiga vuxen/vågat resultat för att illustrera användningen av gransknings-API: et. I en verklig situation använder du [videoinspelningens utdata](video-moderation-api.md#run-the-program-and-review-the-output) för att skapa bilder och tilldela poäng. 
 
 För videon behöver du en strömnings slut punkt så att gransknings verktyget spelar videon i vyn spelare.
 
@@ -86,8 +86,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading;
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 ```
 
@@ -166,7 +165,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 **CreateVideoReviews** har följande obligatoriska parametrar:
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON." 
 1. Namnet på din Content Moderator-grupp.
-1. Ett **ilist\<CreateVideoReviewsBodyItem->** -objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
+1. Ett **ilist @ no__t-1CreateVideoReviewsBodyItem >-** objekt. Varje **CreateVideoReviewsBodyItem** -objekt representerar en video granskning. Den här snabb starten skapar en granskning i taget.
 
 **CreateVideoReviewsBodyItem** har flera egenskaper. Du kan minst ange följande egenskaper:
 - **Innehåll**. URL till den video som ska granskas.
@@ -174,7 +173,7 @@ Skapa en video granskning med **ContentModeratorClient. Reviews. CreateVideoRevi
 - **Status**. Ställ in värdet på "unpublished". Om du inte anger det används som standard "väntar", vilket innebär att video granskningen publiceras och väntar på mänsklig granskning. När en video granskning har publicerats kan du inte längre lägga till video bild rutor, en avskrift eller ett avskrifts redigerings resultat.
 
 > [!NOTE]
-> **CreateVideoReviews** returnerar en ilist\<-sträng >. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** . 
+> **CreateVideoReviews** returnerar en ilist @ no__t-1string->. Var och en av de här strängarna innehåller ett ID för en video granskning. Dessa ID: n är GUID och är inte samma som värdet för egenskapen **ContentId** . 
 
 Lägg till följande metod definition i namn området VideoReviews, klass program.
 
@@ -212,30 +211,30 @@ private static string CreateReview(ContentModeratorClient client, string id, str
 ```
 
 > [!NOTE]
-> Content Moderator-tjänstnyckeln har en gräns för antal begäranden per sekund (RPS). Om du överskrider gränsen genererar SDK:t ett undantag med en 429-felkod.
+> Din Content Moderator-tjänstnyckel har en frekvensgräns för antal begäranden per sekund (RPS), och om du överskrider gränsen genererar SDK:t ett undantag med en 429-felkod.
 >
-> En nyckel på den kostnadsfria nivån har en gräns på en RPS.
+> En nyckel på den kostnadsfria nivån har en hastighetsgräns på en RPS.
 
 ## <a name="add-video-frames-to-the-video-review"></a>Lägg till video bild rutor i video granskningen
 
-Du lägger till video bild rutor i en video granskning med **ContentModeratorClient. Reviews. AddVideoFrameUrl** (om dina video bild rutor är online) eller **ContentModeratorClient.** res. AddVideoFrameStream (om dina video ramar finns lokalt). Den här snabb starten förutsätter att dina video bild rutor är online och använder **AddVideoFrameUrl**. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
+Du lägger till video bild rutor i en video granskning med **ContentModeratorClient. Reviews. AddVideoFrameUrl** (om dina video bild rutor är online) eller **ContentModeratorClient. res. AddVideoFrameStream** (om dina video ramar finns lokalt). Den här snabb starten förutsätter att dina video bild rutor är online och använder **AddVideoFrameUrl**. Mer information finns i [API-referensen](https://westus2.dev.cognitive.microsoft.com/docs/services/580519463f9b070e5c591178/operations/59e7b76ae7151f0b10d451fd).
 
 **AddVideoFrameUrl** har följande obligatoriska parametrar:
 1. En sträng som innehåller en MIME-typ, vilket ska vara "Application/JSON."
 1. Namnet på din Content Moderator-grupp.
 1. Video gransknings-ID: t som returnerades av **CreateVideoReviews**.
-1. Ett **ilist\<VideoFrameBodyItem->** -objekt. Varje **VideoFrameBodyItem** -objekt representerar en video bild ruta.
+1. Ett **ilist @ no__t-1VideoFrameBodyItem >-** objekt. Varje **VideoFrameBodyItem** -objekt representerar en video bild ruta.
 
 **VideoFrameBodyItem** har följande egenskaper:
 - **Tidsstämpel**. En sträng som innehåller, i sekunder, den tid i videon som video ramen togs ifrån.
 - **FrameImage**. Video ramens URL.
-- **Metadata**. En ilist\<VideoFrameBodyItemMetadataItem->. **VideoFrameBodyItemMetadataItem** är bara ett nyckel/värde-par. Giltiga nycklar är:
+- **Metadata**. En IList @ no__t-0VideoFrameBodyItemMetadataItem->. **VideoFrameBodyItemMetadataItem** är bara ett nyckel/värde-par. Giltiga nycklar är:
 - **reviewRecommended**. Sant om en mänsklig granskning av video ramen rekommenderas.
 - **adultScore**. Ett värde mellan 0 och 1 som mäter allvarlighets graden för det vuxna innehållet i video ramen.
 - **a**. Sant om videon innehåller innehåll som är vuxen.
 - **racyScore**. Ett värde mellan 0 och 1 som mäter allvarlighets graden för vågat innehåll i video ramen.
 - **r**. True om video ramen innehåller vågat-innehåll.
-- **ReviewerResultTags**. An IList\<VideoFrameBodyItemReviewerResultTagsItem>. **VideoFrameBodyItemReviewerResultTagsItem** är bara ett nyckel/värde-par. Ett program kan använda dessa taggar för att organisera video bild rutor.
+- **ReviewerResultTags**. En IList @ no__t-0VideoFrameBodyItemReviewerResultTagsItem->. **VideoFrameBodyItemReviewerResultTagsItem** är bara ett nyckel/värde-par. Ett program kan använda dessa taggar för att organisera video bild rutor.
 
 > [!NOTE]
 > Den här snabb starten genererar slumpmässiga värden för egenskaperna **adultScore** och **racyScore** . I ett produktions program hämtar du dessa värden från [video moderator tjänsten](video-moderation-api.md)som distribueras som en Azure Media-tjänst.
@@ -550,7 +549,7 @@ Press any key to close the application.
 
 ## <a name="check-out-your-video-review"></a>Kolla in din video granskning
 
-Slutligen visas video granskningen i kontot för Content moderator granska verktyg på skärmen **Granska**>**video** .
+Slutligen visas video granskningen i Content Moderator granska verktygs kontot på skärmen **granska**>-**video** .
 
 ![Video granskning för mänskliga moderatorer](images/ams-video-review.PNG)
 
@@ -558,6 +557,6 @@ Slutligen visas video granskningen i kontot för Content moderator granska verkt
 
 Hämta [Content moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) och [Visual Studio-lösningen](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) för den här och andra Content moderator snabb starter för .net.
 
-Lär dig hur du lägger till avskrifts [redigering](video-transcript-moderation-review-tutorial-dotnet.md) i video granskningen. 
+Lär dig hur du lägger till [avskrifts redigering](video-transcript-moderation-review-tutorial-dotnet.md) i video granskningen. 
 
 Kolla in den detaljerade självstudien om hur du utvecklar en [komplett video redigerings lösning](video-transcript-moderation-review-tutorial-dotnet.md).

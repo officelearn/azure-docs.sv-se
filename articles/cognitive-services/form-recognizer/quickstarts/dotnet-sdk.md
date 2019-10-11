@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Formulär tolkens klient bibliotek för .NET | Microsoft Docs'
+title: 'Snabb start: formulär tolkens klient bibliotek för .NET | Microsoft Docs'
 description: Kom igång med formulär tolkens klient bibliotek för .NET.
 services: cognitive-services
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: ce1cdadcdc69fb5539394aa9bf402aa9463311e9
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: fc0964508f3031efd91db827524042bf0577ab5e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057662"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242518"
 ---
-# <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabbstart: Formulär tolkens klient bibliotek för .NET
+# <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabb start: formulär tolkens klient bibliotek för .NET
 
 Kom igång med formulär tolkens klient bibliotek för .NET. Formulär tolken är en kognitiv tjänst som använder maskin inlärnings teknik för att identifiera och extrahera nyckel/värde-par och tabell data från formulär dokument. Sedan returnerar tjänsten strukturerade data som innehåller relationerna i den ursprungliga filen. Följ de här stegen för att installera SDK-paketet och prova exempel koden för grundläggande uppgifter.
 
@@ -28,13 +28,14 @@ Använd formulär tolkens klient bibliotek för .NET för att:
 * [Hämta en lista över anpassade modeller](#get-a-list-of-custom-models)
 * [Ta bort en anpassad modell](#delete-a-custom-model)
 
-[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [bibliotek käll kods](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | [paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
+[Referens dokumentation](https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/formrecognizer?view=azure-dotnet-preview) | [biblioteks käll kod](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/cognitiveservices/Vision.FormRecognizer) | -[paket (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.FormRecognizer/)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
+* Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
+* En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta samman dina tränings data. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten.
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
-* En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta samman dina tränings data. 
 
 ## <a name="setting-up"></a>Konfigurera
 
@@ -42,11 +43,11 @@ Använd formulär tolkens klient bibliotek för .NET för att:
 
 [!INCLUDE [create resource](../includes/create-resource.md)]
 
-När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln, `FORM_RECOGNIZER_KEY`med namnet.
+När du har fått en nyckel från din utvärderings prenumeration eller resurs [skapar du en miljö variabel](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) för nyckeln med namnet `FORM_RECOGNIZER_KEY`.
 
 ### <a name="create-a-new-c-application"></a>Skapa ett nytt C# program
 
-I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du `dotnet new` kommandot för att skapa en ny konsol app med namnet. `formrecognizer-quickstart` Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda källfil: _Program.cs_. 
+I ett konsol fönster (till exempel cmd, PowerShell eller bash) använder du kommandot `dotnet new` för att skapa en ny konsol-app med namnet `formrecognizer-quickstart`. Det här kommandot skapar ett enkelt "Hello World C# "-projekt med en enda käll fil: _program.cs_. 
 
 ```console
 dotnet new console -n formrecognizer-quickstart
@@ -90,7 +91,7 @@ Om du använder Visual Studio IDE är klient biblioteket tillgängligt som ett n
 
 Följande klasser hanterar huvud funktionerna i formulär igenkännings-SDK: n.
 
-|Name|Beskrivning|
+|Namn|Beskrivning|
 |---|---|
 |[FormRecognizerClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.formrecognizerclient?view=azure-dotnet-preview)|Den här klassen krävs för alla formulär igenkännings funktioner. Du instansierar det med din prenumerations information och använder den för att skapa instanser av andra klasser.|
 |[TrainRequest](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.formrecognizer.models.trainrequest?view=azure-dotnet-preview)| Du använder den här klassen för att träna en anpassad formulär igenkännings modell med hjälp av egna utbildnings indata. |
@@ -120,13 +121,13 @@ De här kodfragmenten visar hur du utför följande uppgifter med formulär tolk
 Innan du definierar några metoder lägger du till följande variabel definitioner överst i **program** klassen. Du måste fylla i några av variablerna själv. 
 
 * Du kan hitta tjänstens slut punkts värde i **översikts** avsnittet i Azure Portal. 
-* Om du vill hämta SAS-URL: en för dina utbildnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Om du vill hämta SAS-URL: en för dina utbildnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det ska ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 
 ## <a name="authenticate-the-client"></a>Autentisera klienten
 
-Under metoden definierar du uppgiften som refereras till i `Main`. `Main` Här autentiserar du klient-objektet med hjälp av de prenumerations variabler som du definierade ovan. Du ska definiera andra metoder senare.
+Under metoden `Main` definierar du den uppgift som refereras i `Main`. Här autentiserar du klient-objektet med hjälp av de prenumerations variabler som du definierade ovan. Du ska definiera andra metoder senare.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_maintask)]
 
@@ -173,7 +174,7 @@ Använd följande metod om du vill ta bort den anpassade modellen från ditt kon
 
 ## <a name="run-the-application"></a>Köra programmet
 
-Kör programmet genom att anropa `dotnet run` kommandot från program katalogen.
+Kör programmet genom att anropa kommandot `dotnet run` från program katalogen.
 
 ```console
 dotnet run
@@ -183,7 +184,7 @@ dotnet run
 
 Om du vill rensa och ta bort en Cognitive Services prenumeration kan du ta bort resursen eller resurs gruppen. Om du tar bort resurs gruppen raderas även andra resurser som är kopplade till den.
 
-* [Portal](../../cognitive-services-apis-create-account.md#clean-up-resources)
+* [Portalen](../../cognitive-services-apis-create-account.md#clean-up-resources)
 * [Azure CLI](../../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 Om du har tränat en anpassad modell som du vill ta bort från ditt konto kör du dessutom metoden i [ta bort en anpassad modell](#delete-a-custom-model).

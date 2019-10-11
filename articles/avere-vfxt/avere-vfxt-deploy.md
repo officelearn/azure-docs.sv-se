@@ -1,155 +1,155 @@
 ---
-title: Distribuera Avere vFXT för Azure
-description: Steg för att distribuera Avere vFXT kluster i Azure
+title: Distribuera aver vFXT för Azure
+description: Steg för att distribuera ett AVERT vFXT-kluster i Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 04/05/2019
-ms.author: v-erkell
-ms.openlocfilehash: 7ded66c29f12b8f68746726ca6c126bffbc51f0d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 6ddf950bf2d138a94675ee394109a0d227ea206b
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410331"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255452"
 ---
 # <a name="deploy-the-vfxt-cluster"></a>Distribuera vFXT-klustret
 
-Den här proceduren beskriver hur du använder distributionsguiden från Azure Marketplace. Guiden distribuerar automatiskt klustret med hjälp av en Azure Resource Manager-mall. När du har angett parametrarna i formuläret och klicka på **skapa**, Azure automatiskt utföra dessa steg:
+Den här proceduren vägleder dig genom att använda distributions guiden som finns på Azure Marketplace. Guiden distribuerar automatiskt klustret med hjälp av en Azure Resource Manager mall. När du har angett parametrarna i formuläret och klickar på **skapa**, slutför Azure automatiskt de här stegen:
 
-* Skapar klustret styrenhet, vilket är en grundläggande virtuell dator som innehåller den programvara som krävs för att distribuera och hantera klustret.
-* Ställer in resursgrupp och virtuell nätverksinfrastruktur, inklusive att skapa nya element.
-* Skapar klustret noden virtuella datorer och konfigurerar dem som Avere-klustret.
-* Vid begäran, skapar en ny Azure Blob-behållare och konfigurerar det som ett kluster core-filer.
+* Skapar kluster styrenheten, som är en grundläggande virtuell dator som innehåller den program vara som krävs för att distribuera och hantera klustret.
+* Konfigurerar resurs grupp och virtuell nätverks infrastruktur, inklusive att skapa nya element.
+* Skapar de virtuella klusternoderna och konfigurerar dem som ett AVERT-kluster.
+* Om det begärs skapas en ny Azure Blob-behållare och konfigureras som ett kluster kärnor.
 
-När du har följt anvisningarna i det här dokumentet har du ett virtuellt nätverk, ett undernät, en domänkontrollant och ett vFXT kluster som du ser i följande diagram. Det här diagrammet visar valfritt Azure Blob core filservern, som innehåller en ny Blob storage-behållare (i ett nytt lagringskonto, som inte visas) och en tjänstslutpunkt för Microsoft storage i undernätet. 
+När du har gått igenom anvisningarna i det här dokumentet kommer du att ha ett virtuellt nätverk, ett undernät, en kontrollant och ett vFXT-kluster som visas i följande diagram. Det här diagrammet visar de valfria Azure Blob core-filer som innehåller en ny Blob Storage-behållare (i ett nytt lagrings konto, inte visas) och en tjänst slut punkt för Microsoft-lagring i under nätet. 
 
-![diagram som visar tre koncentriska rektanglar med Avere klusterkomponenter. Yttre rektangeln är märkt ”resursgrupp” och innehåller en sexhörning som är märkt ”Blob storage (valfritt)”. Nästa rektangeln i är märkt ”virtuellt nätverk: 10.0.0.0/16 ”och innehåller inte några unika komponenter. Den innersta rektangeln är märkt ”Subnet:10.0.0.0/24” och innehåller en virtuell dator som är märkt kluster-styrenhet, en stack för tre virtuella datorer som är märkt ”vFXT noder (vFXT kluster)” och en sexhörning märkta Service-slutpunkt. Det finns en pil som ansluter till tjänsteslutpunkt (som är i undernätet) och blob-lagringen (som är utanför undernät och vnet, i resursgruppen). Pilen passerar genom undernät och virtuella nätverksgränser.](media/avere-vfxt-deployment.png)  
+![diagram som visar tre koncentriska rektanglar med AVERT kluster komponenter. Den yttre rektangeln har etiketten resurs grupp och innehåller en sexhörning med etiketten Blob Storage (valfritt). Nästa rektangel i har etiketten "virtuellt nätverk: 10.0.0.0/16" och innehåller inga unika komponenter. Den innersta rektangeln har etiketten "undernät: 10.0.0.0/24" och innehåller en virtuell dator med namnet "Cluster Controller", en stack med tre virtuella datorer med namnet "vFXT Nodes (vFXT Cluster)" och en sexhörning med etiketten "tjänstens slut punkt". Det finns en pil som ansluter tjänst slut punkten (som finns i under nätet) och blob-lagringen (som ligger utanför under nätet och VNET i resurs gruppen). Pilen passerar genom under nätet och virtuella nätverks gränser.](media/avere-vfxt-deployment.png)  
 
-Kontrollera att du har åtgärdat förutsättningarna innan du använder mallen skapas:  
+Innan du använder mallen för att skapa måste du kontrol lera att du har åtgärdat följande krav:  
 
 1. [Ny prenumeration](avere-vfxt-prereqs.md#create-a-new-subscription)
-1. [Ägarbehörighet för prenumeration](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
-1. [Kvoten för vFXT klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
-1. [Slutpunkt för lagring av tjänsten (vid behov)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – krävs för distribuerar med hjälp av ett befintligt virtuellt nätverk och skapa blob-lagring
+1. [Ägar behörigheter för prenumeration](avere-vfxt-prereqs.md#configure-subscription-owner-permissions)
+1. [Kvot för vFXT-klustret](avere-vfxt-prereqs.md#quota-for-the-vfxt-cluster)
+1. [Storage Service-slutpunkt (vid behov)](avere-vfxt-prereqs.md#create-a-storage-service-endpoint-in-your-virtual-network-if-needed) – krävs för distributioner med hjälp av ett befintligt virtuellt nätverk och skapande av Blob Storage
 
-Mer information om distributionssteg för klustret och planera [planera datorn Avere vFXT](avere-vfxt-deploy-plan.md) och [distributionsöversikt](avere-vfxt-deploy-overview.md).
+Mer information om steg och planering för kluster distribution finns [i planera ditt AVERT vFXT-system](avere-vfxt-deploy-plan.md) och [distributions översikt](avere-vfxt-deploy-overview.md).
 
-## <a name="create-the-avere-vfxt-for-azure"></a>Skapa Avere vFXT för Azure
+## <a name="create-the-avere-vfxt-for-azure"></a>Skapa ett AVERT-vFXT för Azure
 
-Komma åt mallen skapas i Azure portal genom att söka efter Avere och välja ”Avere vFXT för Azure ARM-mall”. 
+Öppna mallen skapa i Azure Portal genom att söka efter aver och välja "aver vFXT for Azure ARM-mall". 
 
-![Webbläsarfönster som visar Azure-portalen med bröd smulor ”Ny > Marketplace > allt”. Allt har sidan sökfältet markeras termen ”avere” och det andra resultatet ”Avere vFXT för Azure ARM-mall” i rött att markera den.](media/avere-vfxt-template-choose.png)
+![Webbläsarfönstret som visar Azure Portal med bröd Crumbs "ny > Marketplace > allt". På sidan allt innehåller Sök fältet termen "AVERT" och det andra resultatet, "aver vFXT for Azure ARM-mall" visas i rött för att markera det.](media/avere-vfxt-template-choose.png)
 
-När du har läst om Avere vFXT för ARM-mall för Azure-sidan, klickar du på **skapa** att börja. 
+När du har läst informationen på sidan aver vFXT för Azure ARM-mall klickar du på **skapa** för att börja. 
 
-![Azure marketplace med den första sidan i distributionen mall som visar](media/avere-vfxt-deploy-first.png)
+![Azure Marketplace med den första sidan i distributions mal len som visar](media/avere-vfxt-deploy-first.png)
 
-Mallen är uppdelad i fyra steg - två informationsinsamlingen sidor, plus validering och bekräftelse steg. 
+Mallen är uppdelad i fyra steg – två informations insamlings sidor, plus validerings-och bekräftelse steg. 
 
-* Sidan fokuserar på inställningarna för kluster-styrenhet VM. 
-* Sidan två samlar in parametrar för att skapa klustret och associerade resurser som undernät och lagring. 
-* Den tredje sidan sammanfattas inställningarna och verifierar konfigurationen. 
-* Sidan fyra förklarar licensvillkor för programvara och villkor och låter dig starta klustret skapas. 
+* Sida ett fokuserar på inställningarna för den virtuella kluster styrenheten. 
+* Sida två samlar in parametrar för att skapa klustret och associerade resurser, t. ex. undernät och lagring. 
+* Sidan tre sammanfattar inställningarna och validerar konfigurationen. 
+* Sida fyra förklarar program villkor och gör att du kan starta processen för att skapa klustret. 
 
-## <a name="page-one-parameters---cluster-controller-information"></a>Sidan en parametrar – domänkontrollant klusterinformation
+## <a name="page-one-parameters---cluster-controller-information"></a>Sidan med en parameter – information om kluster styrenhet
 
-Den första sidan i distributionsmallen samlar in information om kluster-domänkontrollant. 
+Den första sidan i distributions mal len samlar in information om kluster styrenheten. 
 
-![Första sidan i mallen för distribution](media/avere-vfxt-deploy-1.png)
+![Första sidan i distributions mal len](media/avere-vfxt-deploy-1.png)
 
 Fyll i följande information:
 
-* **Klustret Kontrollnamn** – ange namnet för kontrollanten kluster VM.
+* **Kluster styrenhets namn** – ange namnet på den virtuella kluster styrenheten.
 
-* **Controller användarnamn** – Fyll i rot-användarnamnet för kluster-styrenheten VM. 
+* **Kontrollant användar namn** – Fyll i rot användar namnet för den virtuella kluster styrenheten. 
 
-* **Autentiseringstyp** -Välj lösenord eller SSH autentisering med offentlig nyckel för att ansluta till hanteringsstyrenheten. SSH offentlig nyckel metoden rekommenderas; läsa [hur du skapar och använder SSH-nycklar](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) om du behöver hjälp.
+* **Autentiseringstyp** – Välj antingen lösen ord eller autentisering med offentlig SSH-nyckel för att ansluta till kontrollanten. Metoden för offentlig SSH-nyckel rekommenderas. Läs om [hur du skapar och använder SSH-nycklar](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) om du behöver hjälp.
 
-* **Lösenordet** eller **offentlig SSH-nyckel** -beroende på den autentiseringstyp som du har valt, måste du ange en offentlig RSA-nyckel eller ett lösenord i fälten nästa. Den här autentiseringsuppgiften används med det användarnamn som angavs tidigare.
+* **Lösen ord** eller **Offentlig SSH-nyckel** – beroende på vilken autentiseringstyp du valde måste du ange en offentlig RSA-nyckel eller ett lösen ord i nästa fält. Den här autentiseringsuppgiften används med användar namnet som angavs tidigare.
 
-* **Prenumeration** – Välj prenumerationen för Avere vFXT. 
+* **Prenumeration** – Välj prenumerationen för aver-vFXT. 
 
-* **Resursgrupp** – Välj en befintlig tom resursgrupp för Avere vFXT klustret, eller klicka på ”Skapa ny” och ange ett nytt resursgruppnamn. 
+* **Resurs grupp** – Välj en befintlig tom resurs grupp för det Avera vFXT-klustret eller klicka på Skapa ny och ange ett nytt resurs grupps namn. 
 
-* **Plats** – Välj Azure-plats för ditt kluster och resurser.
+* **Plats** – Välj Azure-platsen för ditt kluster och dina resurser.
 
-Klicka på **OK** när du är klar. 
+Klicka på **OK** när du är färdig. 
 
 > [!NOTE]
-> Skapa ett nytt virtuellt nätverk för klustret i stället för att välja ett befintligt nätverk om du vill att kontrollanten kluster har en offentlig IP-adress. Den här inställningen finns på sidan.
+> Om du vill att kluster styrenheten ska ha en offentlig IP-adress skapar du ett nytt virtuellt nätverk för klustret i stället för att välja ett befintligt nätverk. Den här inställningen finns på sidan två.
 
-## <a name="page-two-parameters---vfxt-cluster-information"></a>Sidan två parametrar – vFXT klusterinformation
+## <a name="page-two-parameters---vfxt-cluster-information"></a>Page två parametrar-vFXT Cluster information
 
-Den andra sidan i mallen för distribution kan du ange klusterstorleken, nodtyp, cachestorlek och storage-parametrar, bland annat inställningar. 
+På den andra sidan i distributions mal len kan du ange kluster storlek, nodtyp, cachestorlek och lagrings parametrar bland andra inställningar. 
 
-![Andra sidan i mallen för distribution](media/avere-vfxt-deploy-2.png)
+![Andra sidan i distributions mal len](media/avere-vfxt-deploy-2.png)
 
-* **Avere vFXT antalet klusternoder** – Välj antalet noder i klustret. Minimum är tre noder och högsta tolv. 
+* **AVERT vFXT antal klusternoder** – Välj antalet noder som ska användas i klustret. Minimivärdet är tre noder och det högsta värdet är 12. 
 
-* **Lösenord för administration av klustret** -lösenord för administration av klustret. Det här lösenordet används tillsammans med användarnamnet ```admin``` att logga in på Kontrollpanelen för klustret att övervaka klustret och konfigurera inställningarna.
+* **Kluster administrations lösen ord** – skapa lösen ordet för kluster administration. Det här lösen ordet används med användar namnet ```admin``` för att logga in på kluster kontroll panelen för att övervaka klustret och konfigurera inställningar.
 
-* **Avere vFXT klusternamnet** -ge ett unikt namn för klustret. 
+* **Aver vFXT-kluster namn** – ge klustret ett unikt namn. 
 
-* **Storlek** – det här avsnittet visas den typ av virtuell dator som ska användas för klusternoderna. Även om det finns bara ett rekommenderade alternativ, den **ändra storleken på** länken öppnas en tabell med information om den här Instanstypen och en länk till en priskalkylator.  
+* **Storlek** – det här avsnittet visar den VM-typ som ska användas för klusternoderna. Även om det bara finns ett rekommenderat alternativ öppnar länken **ändra storlek** en tabell med information om den här instans typen och en länk till en pris kalkylator.  
 
-* **Cachestorlek per nod** -kluster-cache fördelas mellan noderna i klustret så cacheminnets totala storlek i Avere vFXT klustret blir cachestorlek per nod multiplicerat med antalet noder. 
+* **Cachestorlek per nod** – klustrets cacheminne sprids över klusternoderna, så den totala cachestorleken i ditt AVERT vFXT-kluster kommer att vara cache-storlek per nod multiplicerat med antalet noder. 
 
-  Den rekommenderade konfigurationen är att använda 4 TB per nod för Standard_E32s_v3 noder.
+  Den rekommenderade konfigurationen är att använda 4 TB per nod för Standard_E32s_v3-noder.
 
-* **Virtuellt nätverk** – definiera ett nytt virtuellt nätverk för att rymma både klustret eller välj ett befintligt vnet som uppfyller de krav som beskrivs i [planera Avere vFXT systemet](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure). 
+* **Virtuellt nätverk** – definiera ett nytt VNet för att House klustret, eller Välj ett befintligt VNet som uppfyller de krav som beskrivs i [planera ditt aver vFXT-system](avere-vfxt-deploy-plan.md#resource-group-and-network-infrastructure). 
 
   > [!NOTE]
-  > Om du skapar ett nytt vnet har kontrollanten kluster en offentlig IP-adress så att du kan använda det nya privata nätverket. Om du väljer ett befintligt vnet har kontrollanten kluster konfigurerats utan en offentlig IP-adress. 
+  > Om du skapar ett nytt VNet, kommer kluster styrenheten ha en offentlig IP-adress så att du kan komma åt det nya privata nätverket. Om du väljer ett befintligt VNet konfigureras kluster styrenheten utan en offentlig IP-adress. 
   > 
-  > En offentligt IP-adress på kontrollanten kluster ger enklare åtkomst till klustret vFXT, men skapar en liten säkerhetsrisk. 
-  >  * En offentlig IP-adress på kontrollanten kluster kan du använda den som en jump-värd för att ansluta till Avere vFXT klustret från utanför privat undernät.
-  >  * Om du inte ställer in en offentlig IP-adress på kontrollanten, måste du använda en annan jump-värd, en VPN-anslutning eller ExpressRoute för åtkomst till klustret. Till exempel skapa kontrollanten inom ett virtuellt nätverk som redan har en VPN-anslutning som har konfigurerats.
-  >  * Om du skapar en domänkontrollant med en offentlig IP-adress, bör du skydda kontrollanten VM med en nätverkssäkerhetsgrupp. Som standard Avere vFXT för Azure-distribution som skapar en nätverkssäkerhetsgrupp och begränsar inkommande åtkomsten till endast port 22 för styrenheter med offentliga IP-adresser. Du kan ytterligare skydda systemet genom att låsa åtkomst till ditt intervall med IP-källadresser – det vill säga Tillåt endast anslutningar från datorer som du planerar att använda för åtkomst till klustret.
+  > En offentligt synlig IP-adress på kluster styrenheten ger enklare åtkomst till vFXT-klustret, men skapar en liten säkerhets risk. 
+  >  * Med en offentlig IP-adress på kluster styrenheten kan du använda den som en hopp värd för att ansluta till det vFXT-kluster som ligger utanför det privata under nätet.
+  >  * Om du inte konfigurerar en offentlig IP-adress på kontrollanten måste du använda en annan hopp värd, en VPN-anslutning eller ExpressRoute för att få åtkomst till klustret. Skapa till exempel kontrollanten i ett virtuellt nätverk som redan har en konfigurerad VPN-anslutning.
+  >  * Om du skapar en kontrollant med en offentlig IP-adress bör du skydda den virtuella datorns kontrollant med en nätverks säkerhets grupp. Som standard skapar vFXT för Azure-distribution en nätverks säkerhets grupp och begränsar inkommande åtkomst till port 22 för kontrollanter med offentliga IP-adresser. Du kan skydda systemet ytterligare genom att låsa åtkomsten till ditt utbud av IP-adresser – det vill säga bara tillåta anslutningar från datorer som du vill använda för kluster åtkomst.
 
-  Distribuera mallen konfigurerar också det nya vnet med en tjänstslutpunkt för lagring för Azure Blob storage och åtkomstkontroll för nätverk är låst till endast IP-adresser från undernätet på klustret. 
+  Distributions mal len konfigurerar också det nya VNet med en lagrings tjänst slut punkt för Azure Blob Storage och med nätverks åtkomst kontroll låst till endast IP-adresser från klustrets undernät. 
 
-* **Undernät** – Välj ett undernät från det befintliga virtuella nätverket eller skapa en ny. 
+* **Undernät** – Välj ett undernät från det befintliga virtuella nätverket eller skapa ett nytt. 
 
-* **Skapa och använda blob storage** -Välj **SANT** att skapa en ny Azure Blob-behållare och konfigurera den som backend-lagring för det nya Avere vFXT klustret. Det här alternativet skapar även ett nytt lagringskonto i samma resursgrupp som klustret och en Microsoft storage tjänstslutpunkt i undernät för klustret. 
+* **Skapa och Använd Blob Storage** – Välj **Sant** om du vill skapa en ny Azure Blob-behållare och konfigurera den som backend-lagring för det nya AVERT vFXT-klustret. Det här alternativet skapar också ett nytt lagrings konto i samma resurs grupp som klustret och en Microsoft Storage Service-slutpunkt i klustrets undernät. 
   
-  Om du anger ett befintligt virtuellt nätverk måste den ha en slutpunkt för lagring innan du skapar klustret. (Mer information finns i [planera Avere vFXT systemet](avere-vfxt-deploy-plan.md).)
+  Om du anger ett befintligt virtuellt nätverk måste det ha en lagrings tjänst slut punkt innan du skapar klustret. (Mer information finns i [planera ditt AVERT vFXT-system](avere-vfxt-deploy-plan.md).)
 
-  Ange fältet till **FALSKT** om du inte vill skapa en ny behållare. I så fall måste du bifoga och konfigurera lagring när du har skapat klustret. Läs [konfigurerar du lagring](avere-vfxt-add-storage.md) anvisningar. 
+  Ange det här fältet till **falskt** om du inte vill skapa en ny behållare. I det här fallet måste du ansluta och konfigurera lagring när du har skapat klustret. Läs [Konfigurera lagring](avere-vfxt-add-storage.md) för instruktioner. 
 
-* **(Ny) Storage-konto** – om du skapar en ny Azure Blob-behållare, ange ett namn för det nya lagringskontot. 
+* **(Nytt) lagrings konto** – om du skapar en ny Azure Blob-behållare anger du ett namn för det nya lagrings kontot. 
 
-## <a name="validation-and-purchase"></a>Validering och köp
+## <a name="validation-and-purchase"></a>Validering och Köp
 
-Den tredje sidan sammanfattas konfigurationen och kontroll av parametrarna. När verifieringen lyckas klickar du på den **OK** för att gå vidare. 
+Sidan tre sammanfattar konfigurationen och validerar parametrarna. När verifieringen har slutförts klickar du på knappen **OK** för att gå vidare. 
 
-![Tredje sidan i Distributionsmall - verifiering](media/avere-vfxt-deploy-3.png)
+![Tredje sidan i distributions mal len-verifiering](media/avere-vfxt-deploy-3.png)
 
-På sidan fyra kan ange all nödvändig kontaktinformation och klicka på den **skapa** knappen för att acceptera villkoren och skapa Avere vFXT för Azure-kluster. 
+På sidan fyra anger du nödvändig kontakt information och klickar på knappen **skapa** för att acceptera villkoren och skapa ett AVERT-VFXT för Azure-kluster. 
 
-![Fjärde sidan i Distributionsmall - villkor och bestämmelser, skapa knapp](media/avere-vfxt-deploy-4.png)
+![Fjärde sidan i distributions mal len – villkor, knappen Skapa](media/avere-vfxt-deploy-4.png)
 
-Klusterdistribution tar 15-20 minuter.
+Kluster distributionen tar 15-20 minuter.
 
-## <a name="gather-template-output"></a>Samla in mallutdata
+## <a name="gather-template-output"></a>Samla in mallens utdata
 
-När mallen Avere vFXT är klar skapar klustret utdata viss information om det nya klustret. 
+När vFXT-mallen för att skapa klustret har slutförts, kommer viktig information om det nya klustret att matas ut. 
 
 > [!TIP]
-> Se till att kopiera IP-adress för hantering av mallen. Du behöver den här adressen för att administrera klustret.
+> Se till att kopiera hanterings-IP-adressen från mallens utdata. Du behöver den här adressen för att administrera klustret.
 
 Följ den här proceduren för att hitta den här informationen:
 
-1. Gå till resursgruppen för din kluster-styrenhet.
+1. Gå till resurs gruppen för kluster styrenheten.
 
-1. På vänster sida klickar du på **distributioner**, och sedan **microsoft-avere.vfxt-template**.
+1. På vänster sida klickar du på **distributioner**och sedan **Microsoft-AVERT. vfxt-Template**.
 
-   ![Resursgrupp portalsidan med distributioner som har valts till vänster och microsoft-avere.vfxt-mallar som visar i en tabell under distributionsnamn](media/avere-vfxt-outputs-deployments.png)
+   ![Sidan resurs grupp Portal med distributioner markerat till vänster och Microsoft-AVERT. vfxt – mall som visas i en tabell under distributions namn](media/avere-vfxt-outputs-deployments.png)
 
-1. På vänster sida klickar du på **utdata**. Kopiera värdena i varje fält. 
+1. På vänster sida klickar du på **utdata**. Kopiera värdena i vart och ett av fälten. 
 
-   ![matar ut sidan som visar SSHSTRING, RESOURCE_GROUP, plats, NETWORK_RESOURCE_GROUP, nätverk, UNDERNÄT, SUBNET_ID, VSERVER_IPs och MGMT_IP värden i fälten till höger om etiketter](media/avere-vfxt-outputs-values.png)
+   ![Sidan utdata visar SSHSTRING-, RESOURCE_GROUP-, LOCATION-, NETWORK_RESOURCE_GROUP-, NETWORK-, SUBNET-, SUBNET_ID-, VSERVER_IPs-och MGMT_IP-värden i fält till höger om etiketterna](media/avere-vfxt-outputs-values.png)
 
 ## <a name="next-step"></a>Nästa steg
 
-Nu när klustret körs och du vet att dess IP-adress för hantering, kan du [ansluta till klustret konfigurationsverktyget](avere-vfxt-cluster-gui.md) lägga till lagring för att aktivera stöd för, om det behövs och anpassa inställningarna för andra.
+Nu när klustret körs och du känner till dess hanterings-IP-adress kan du [ansluta till kluster konfigurations verktyget](avere-vfxt-cluster-gui.md) för att aktivera stöd, lägga till lagring vid behov och anpassa andra kluster inställningar.

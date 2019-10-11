@@ -1,6 +1,6 @@
 ---
-title: Anslut Symantec AWS-data till Azure Sentinel | Microsoft Docs
-description: Lär dig hur du ansluter Symantec AWS-data till Azure Sentinel.
+title: Anslut AWS CloudTrail till Azure Sentinel | Microsoft Docs
+description: Lär dig hur du ansluter AWS CloudTrail-data till Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: rkarlin
@@ -14,18 +14,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 46ad8f6478e632cd57c009700de182993ce01be1
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 61bee1618092788da33549ec322dc4ab7130de16
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240869"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244686"
 ---
 # <a name="connect-azure-sentinel-to-aws-cloudtrail"></a>Ansluta Azure Sentinel till AWS CloudTrail
 
 Använd AWS-anslutningen för att strömma alla dina AWS CloudTrail-händelser till Azure Sentinel. Den här anslutnings processen delegerar åtkomst för Azure Sentinel till dina AWS-resurs loggar och skapar en förtroende relation mellan AWS CloudTrail och Azure Sentinel. Detta görs på AWS genom att skapa en roll som ger behörighet till Azure Sentinel för att få åtkomst till dina AWS-loggar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du måste ha Skriv behörighet på Azure Sentinel-arbetsytan.
 

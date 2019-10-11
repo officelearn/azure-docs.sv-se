@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: memildin
-ms.openlocfilehash: 763349c11a7777bfc807a60e1806c3bb4010245e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 7e45dffd15cdf2acf15c7d46ed0cf42fc5997a6a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202577"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244564"
 ---
 # <a name="threat-detection-for-data-services-in-azure-security-center"></a>Hot identifiering för data tjänster i Azure Security Center
 
@@ -27,9 +27,9 @@ ms.locfileid: "71202577"
 
 ## SQL Database och SQL Data Warehouse<a name="data-sql"></a>
 
-SQL hot identifiering identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. Security Center analyserar SQL-gransknings loggarna och körs internt i SQL-motorn.
+SQL hot identifiering identifierar avvikande aktiviteter som visar ovanliga och potentiellt skadliga försök att komma åt eller utnyttja databaser. 
 
-|Varning|Beskrivning|
+|Avisering|Beskrivning|
 |---|---|
 |**Sårbarhet för SQL-inmatning**|Ett program har genererat en felaktig SQL-instruktion i databasen. Detta kan tyda på en möjlig sårbarhet vid SQL-injektering. Det finns två möjliga orsaker till en felaktig instruktion. Ett fel i program koden kan ha konstruerat den felaktiga SQL-instruktionen. Eller, program kod eller lagrade procedurer har inte sanerat användarindata vid konstruktion av den felaktiga SQL-instruktionen, som kan utnyttjas för SQL-inmatning.|
 |**Potentiell SQL-inmatning**|En aktiv sårbarhet har inträffat mot ett identifierat program som är sårbart för SQL-inmatning. Det innebär att en angripare försöker mata in skadliga SQL-uttryck med hjälp av den sårbara program koden eller lagrade procedurer.|
@@ -51,7 +51,7 @@ Security Center analyserar diagnostiska loggar med Läs-, skriv-och borttagnings
 
 > [!div class="mx-tableFixed"]
 
-|Varning|Beskrivning|
+|Avisering|Beskrivning|
 |---|---|
 |**Ovanlig plats åtkomst avvikelse**|Analys av exempel på nätverks trafik upptäckte avvikande RDP-kommunikation (utgående Remote Desktop Protocol) som härstammar från en resurs i distributionen. Den här aktiviteten betraktas som onormal för den här miljön. Det kan betyda att din resurs har komprometterats och att den nu används för att bryta Force-angrepp till en extern RDP-slutpunkt. Observera att den här typen av aktivitet kan orsaka att din IP-adress flaggas som skadlig av externa entiteter.|
 |**Åtkomst avvikelse för program**|Indikerar att ett ovanligt program har åtkomst till det här lagrings kontot. En möjlig orsak är att en angripare har åtkomst till ditt lagrings konto med hjälp av ett nytt program.|
@@ -73,7 +73,7 @@ Mer information om aviseringar för lagring finns i [Avancerat skydd mot Azure S
 
 Följande aviseringar genereras av ovanliga och potentiellt skadliga försök att komma åt eller utnyttja Azure Cosmos DB-konton:
 
-|Varning|Beskrivning|
+|Avisering|Beskrivning|
 |---|---|
 |**Åtkomst från ovanlig plats**|Anger att åtkomst mönstret har ändrats till ett Azure Cosmos DB-konto. Någon har använt det här kontot från en okänd IP-adress jämfört med senaste aktivitet. Antingen har en angripare åtkomst till kontot eller så har en legitim användare åtkomst till den från en ny och ovanlig geografisk plats. Ett exempel på den senare är fjärrunderhåll från ett nytt program eller en ny utvecklare.|
 |**Ovanliga data exfiltrering**|Indikerar att det har ändrats ett data extraherings mönster från ett Azure Cosmos DB konto. Någon har extraherat en ovanlig mängd data jämfört med senaste aktivitet. En angripare kan ha extraherat en stor mängd data från en Azure Cosmos DB databas (till exempel data exfiltrering eller läckage eller en obehörig överföring av data). Eller så kanske en legitim användare eller ett program har extraherat en ovanlig mängd data från en behållare (till exempel för aktiviteten underhålls säkerhets kopiering).|

@@ -1,17 +1,17 @@
 ---
-title: Exempel – Granska inställningen av hotidentifiering på servernivå
+title: Exempel – granska hot identifiering på server nivå
 description: Den här exempelprincipdefinitionen granskar principer för SQL-serversäkerhetsaviseringar om principerna inte är inställda på det angivna tillståndet.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 25504b558a930ae6dcea710ee850ae296c63c4ae
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0c5cfe2d30668102a356224b5efd141746ab0866
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977253"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254758"
 ---
 # <a name="sample---audit-server-level-threat-detection-setting"></a>Exempel – Granska inställningen av hotidentifiering på servernivå
 
@@ -68,4 +68,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure-principexempel](index.md)
+- Granska fler exempel under [Exempel på Azure-princip](index.md)

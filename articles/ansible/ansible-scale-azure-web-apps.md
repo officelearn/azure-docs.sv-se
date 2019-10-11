@@ -1,6 +1,6 @@
 ---
-title: Självstudie – skala appar i Azure App Service med Ansible | Microsoft Docs
-description: Lär dig att skala upp en app i Azure App Service
+title: Självstudie – Skala appar i Azure App Service med Ansible
+description: Lär dig hur du skalar upp en app i Azure App Service
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, scale, Java
 ms.topic: tutorial
 ms.service: ansible
@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d63708cd87afa426f2712da6d0fcb11c84590798
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 0adcddb8afa4f0e3d0b9288f351dae7d77922612
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230959"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241495"
 ---
-# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Självstudier: Skala appar i Azure App Service med Ansible
+# <a name="tutorial-scale-apps-in-azure-app-service-using-ansible"></a>Självstudie: Skala appar i Azure App Service med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -26,22 +26,22 @@ ms.locfileid: "65230959"
 > [!div class="checklist"]
 >
 > * Hämta fakta om en befintlig App Service-plan
-> * Skala upp App Service-planen s2 med tre Worker
+> * Skala upp App Service plan till S2 med tre arbetare
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
-- **Azure App Service-app** – om du inte har en Azure App Service-app, [konfigurera en app i Azure App Service med Ansible](ansible-create-configure-azure-web-apps.md).
+- **Azure App Service app** – om du inte har en Azure App Service-app [konfigurerar du en app i Azure App Service med Ansible](ansible-create-configure-azure-web-apps.md).
 
 ## <a name="scale-up-an-app"></a>Skala upp en app
 
-Det finns två arbetsflöden för att skala: *skala upp* och *skala ut*.
+Det finns två arbets flöden för skalning: *skala upp* och *skala ut*.
 
-**Skala upp:** Om du vill skala upp innebär det att skaffa fler resurser. Dessa resurser inkluderar CPU, minne, diskutrymme, virtuella datorer och mycket mer. Du skala upp en app genom att ändra prisnivån för App Service-plan som appen tillhör. 
-**Skala ut:** Om du vill skala ut innebär det att öka antalet VM-instanser som kör din app. Beroende på din App Service-plan som prisnivå kan skala du ut till upp till 20 instanser. [Automatisk skalning](/azure/azure-monitor/platform/autoscale-get-started) gör att du kan skala instansantalet automatiskt baserat på fördefinierade regler och scheman.
+**Skala upp:** För att skala upp innebär att du får fler resurser. Bland dessa resurser ingår processor, minne, disk utrymme, virtuella datorer och mycket annat. Du skalar upp en app genom att ändra pris nivån för den App Service plan som appen tillhör. 
+**Skala ut:** För att skala ut innebär att öka antalet VM-instanser som kör din app. Beroende på din App Service plan pris nivå kan du skala upp till så många som 20 instanser. Med automatisk [skalning](/azure/azure-monitor/platform/autoscale-get-started) kan du skala antalet instanser automatiskt baserat på fördefinierade regler och scheman.
 
-Spelboken koden i det här avsnittet definierar följande åtgärd:
+Spelbok-koden i det här avsnittet definierar följande åtgärd:
 
 * Hämta fakta om en befintlig App Service-plan
 * Uppdatera App Service-planen till S2 med tre arbetare
@@ -84,13 +84,13 @@ Spara följande spelbok som `webapp_scaleup.yml`:
       var: facts.appserviceplans[0].sku
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook webapp_scaleup.yml
 ```
 
-När strategiboken, kan du se utdata som liknar följande resultat:
+När du har kört Spelbok visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 

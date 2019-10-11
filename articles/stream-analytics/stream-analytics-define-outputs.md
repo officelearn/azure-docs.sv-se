@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/8/2019
-ms.openlocfilehash: d867cceb3e7261f658e2406617144c9150e36f2a
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: 20da8abff943e71deb5d5ec8b7bd6411c176e2e3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72173443"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244555"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Förstå utdata från Azure Stream Analytics
 
@@ -104,7 +104,7 @@ När du använder Blob Storage som utdata skapas en ny fil i blobben i följande
 
 ## <a name="event-hubs"></a>Händelsehubbar
 
-[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) -tjänsten är en mycket skalbar händelse för att publicera prenumerationer. Den kan samla in miljon tals händelser per sekund. En användning av en Event Hub som utdata är när utdata från ett Stream Analytics jobb blir indata för ett annat strömmande jobb.
+[Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/) -tjänsten är en mycket skalbar händelse för att publicera prenumerationer. Den kan samla in miljon tals händelser per sekund. En användning av en Event Hub som utdata är när utdata från ett Stream Analytics jobb blir indata för ett annat strömmande jobb. Information om maximal meddelande storlek och optimering av batch-storlek finns i avsnittet [utdata för batch](#output-batch-size) -storlek.
 
 Du behöver några parametrar för att konfigurera data strömmar från Event Hub som utdata.
 
@@ -119,7 +119,7 @@ Du behöver några parametrar för att konfigurera data strömmar från Event Hu
 | Format för händelse serialisering | Serialiserings formatet för utdata. JSON, CSV och Avro stöds. |
 | Encoding | För CSV och JSON är UTF-8 det enda kodnings format som stöds just nu. |
 | Avgränsare | Gäller endast för CSV-serialisering. Stream Analytics stöder ett antal vanliga avgränsare för serialisering av data i CSV-format. Värden som stöds är komma, semikolon, blank steg, TABB och lodrätt fält. |
-| Format | Gäller endast för JSON-serialisering. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. **Matris** anger att utdata är formaterad som en matris med JSON-objekt. Matrisen stängs bara när jobbet stoppas eller Stream Analytics har flyttats vidare till nästa tids period. I allmänhet är det bättre att använda line-separerad JSON, eftersom det inte kräver någon särskild hantering medan utdatafilen fortfarande skrivs till. Mer information finns i avsnittet [utdata för batch-storlek](#output-batch-size) . |
+| Format | Gäller endast för JSON-serialisering. **Raden separerad** anger att utdata är formaterade genom att ha varje JSON-objekt avgränsat med en ny rad. **Matris** anger att utdata är formaterad som en matris med JSON-objekt.  |
 | Egenskaps kolumner | Valfri. Kommaavgränsade kolumner som måste bifogas som användar egenskaper för det utgående meddelandet i stället för nytto lasten. Mer information om den här funktionen finns i avsnittet [anpassade metadata för utdata](#custom-metadata-properties-for-output). |
 
 ## <a name="power-bi"></a>Power BI

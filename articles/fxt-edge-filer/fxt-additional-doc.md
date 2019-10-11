@@ -1,35 +1,35 @@
 ---
-title: Microsoft Azure-Filer för Edge av FXT - ytterligare dokumentation
-description: Ytterligare referensdokument för installation av Azure FXT Edge Filer
+title: Microsoft Azure FXT Edge-filer – ytterligare dokumentation
+description: Ytterligare referens dokument för installation av Azure FXT Edge-filer
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 6b04537da7c26cdeff6cac9f262e138c29bee37a
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.author: rohogue
+ms.openlocfilehash: e3205827f9603545b0a99b064a53e50fc94c374e
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67453871"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254912"
 ---
 # <a name="additional-documentation"></a>Ytterligare dokumentation 
 
-Vissa resurser utanför den här webbplatsen docs.microsoft.com kan hjälpa dig att förstå och arbeta med din Microsoft Azure FXT Edge Filer hybrid cache.
+Vissa resurser utanför den här docs.microsoft.com-webbplatsen kan hjälpa dig att förstå och arbeta med din Microsoft Azure FXT Edge-hybrid cache.
 
-## <a name="avere-vfxt-for-azure-cache-documentation"></a>Avere vFXT för Azure cache-dokumentation
+## <a name="avere-vfxt-for-azure-cache-documentation"></a>Aver vFXT för Azure cache-dokumentation
 
-[Avere vFXT för Azure](https://docs.microsoft.com/azure/avere-vfxt/) är en liknande cache produkt för kluster som använder virtuella noder i Microsoft Azure. Det har skapats med Azure-portalen, men använder samma konfigurationsprogramvara för versionskontroll panelen som Azure FXT Edge Filer maskinvara cache. 
+[Aver vFXT for Azure](https://docs.microsoft.com/azure/avere-vfxt/) är en liknande kluster-cache-produkt som använder virtuella noder i Microsoft Azure. Den skapas med Azure Portal, men använder samma konfigurations program för kontroll panelen som Azure FXT Edge-cachelagring. 
 
-## <a name="legacy-hardware-documentation"></a>Äldre maskinvara dokumentation 
+## <a name="legacy-hardware-documentation"></a>Äldre maskin varu dokumentation 
 
-Den här tekniken har använts tidigare i produkter från Avere system. Användardokumentation för dessa äldre produkter finns på den [Avere äldre dokumentationswebbplats](https://azure.github.io/Avere/). 
+Den här tekniken användes tidigare i produkter från AVERT-system. Användar dokumentation för de äldre produkterna finns på [webbplatsen AVERT Legacy documentation](https://azure.github.io/Avere/). 
 
-De här dokumenten eventuellt särskilt viktig information:
+Mer specifikt kan dessa dokument ha nyttig information:
 
-* [Kluster-konfigurationsguide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) – innehåller översiktlig information om vanliga kluster installation och hantering av uppgifter och har detaljerade förklaringar av inställningssidorna kluster 
+* [Guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) – innehåller översikts information om vanliga kluster konfigurations-och hanterings uppgifter och innehåller detaljerade förklaringar på sidan kluster inställningar 
 
-* [Instrumentpanel för](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html) -beskriver funktionerna i Kontrollpanelen **instrumentpanelen** fliken
+* [Instrument panels guide](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html) – förklarar funktionerna på fliken **instrument panel** i kontroll panelen
 
-* [FXT klustret skapas Guide](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) -kluster skapas guide från föregående produkter
+* [Guiden skapa kluster för FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) – guiden skapa kluster från föregående produkter
 

@@ -1,51 +1,51 @@
 ---
-title: Självstudie – konfigurera labb i Azure DevTest Labs med Ansible | Microsoft Docs
-description: Lär dig hur du konfigurerar ett labb i Azure DevTest Labs med Ansible
+title: Självstudie – konfigurera labb i Azure DevTest Labs med Ansible
+description: Lär dig hur du konfigurerar ett labb i Azure DevTest Labs att använda Ansible
 ms.service: ansible
-keywords: ansible, azure, devops, bash, playbook, labb
+keywords: Ansible, Azure, DevOps, bash, Spelbok, DevTest Labs
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: c6bc4d50e4db52f772a137495658492018ee5360
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: d035c76a811df45af5ed8183b86e14a2ee6218b7
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230970"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241664"
 ---
-# <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Självstudier: Konfigurera labb i Azure DevTest Labs med Ansible
+# <a name="tutorial-configure-labs-in-azure-devtest-labs-using-ansible"></a>Självstudie: Konfigurera labb i Azure DevTest Labs med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) gör att utvecklare kan automatisera skapandet av VM-miljöer för sina appar. De här miljöerna kan konfigureras för appar som utveckling, testning och utbildning. 
+Med [Azure DevTest Labs](/azure/lab-services/devtest-lab-overview) kan utvecklare automatisera skapandet av VM-miljöer för sina appar. De här miljöerna kan konfigureras för utveckling, testning och utbildning av appar. 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Skapa ett labb
-> * Ange principer för labbet
-> * Ange lab-scheman
-> * Skapa det virtuella nätverket lab
-> * Definiera en artefakt källa för övningen
+> * Ange labb principer
+> * Ställ in labb scheman
+> * Skapa det virtuella labb nätverket
+> * Definiera en artefakt källa för labbet
 > * Skapa en virtuell dator i labbet
-> * Lista lab artefaktkällor och artefakter
-> * Hämta Azure Resource Manager-information för artefaktkällor
-> * Skapa labbmiljön
-> * Skapa labb-avbildning
+> * Visa en lista med Labbets artefakt källor och artefakter
+> * Hämta Azure Resource Manager information för artefakt källorna
+> * Skapa labb miljön
+> * Skapa labb avbildningen
 > * Ta bort labbet
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-resource-group"></a>Skapa en resursgrupp
+## <a name="create-resource-group"></a>Skapa resursgrupp
 
-I exemplet spelbok kodfragment skapar en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Exemplet Spelbok-kodfragmentet skapar en Azure-resurs grupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 ```yml
   - name: Create a resource group
@@ -56,7 +56,7 @@ I exemplet spelbok kodfragment skapar en Azure-resursgrupp. En resursgrupp är e
 
 ## <a name="create-the-lab"></a>Skapa labbet
 
-Härnäst skapar exemplet labbet.
+Nästa uppgift skapar exempel labbet.
 
 ```yml
 - name: Create the lab
@@ -69,18 +69,18 @@ Härnäst skapar exemplet labbet.
   register: output_lab
 ```
 
-## <a name="set-the-lab-policies"></a>Ange principer för labbet
+## <a name="set-the-lab-policies"></a>Ange labb principer
 
-Du kan ställa in labbet principinställningar. Följande värden kan anges:
+Du kan ställa in inställningar för labb principer. Följande värden kan anges:
 
 - `user_owned_lab_vm_count` är antalet virtuella datorer som en användare kan äga
-- `user_owned_lab_premium_vm_count` är antalet virtuella datorer i premium en användare kan äga
-- `lab_vm_count` är det maximala antalet virtuella datorer i labb
-- `lab_premium_vm_count` är det maximala antalet lab virtuella datorer i premium
-- `lab_vm_size` är den tillåtna lab VMs storlek
-- `gallery_image` är tillåtna galleri-avbildningar
-- `user_owned_lab_vm_count_in_subnet` är det maximala antalet användarens virtuella datorer i ett undernät
-- `lab_target_cost` kostar labbet mål
+- `user_owned_lab_premium_vm_count` är antalet Premium-datorer som en användare kan äga
+- `lab_vm_count` är det maximala antalet virtuella labb datorer
+- `lab_premium_vm_count` är det maximala antalet virtuella labb datorer för labb Premium
+- `lab_vm_size` är de tillåtna virtuella datorernas storlek (s)
+- `gallery_image` är tillåtna Galleri avbildningar
+- `user_owned_lab_vm_count_in_subnet` är det maximala antalet användares virtuella datorer i ett undernät
+- `lab_target_cost` är testets mål kostnad
 
 ```yml
 - name: Set the lab policies
@@ -93,11 +93,11 @@ Du kan ställa in labbet principinställningar. Följande värden kan anges:
     threshold: 5
 ```
 
-## <a name="set-the-lab-schedules"></a>Ange lab-scheman
+## <a name="set-the-lab-schedules"></a>Ställ in labb scheman
 
-Exempelaktivitet i det här avsnittet konfigurerar lab-schema. 
+Exempel aktiviteten i det här avsnittet konfigurerar labb schemat. 
 
-I följande kodavsnitt i `lab_vms_startup` värde används för att ange starttiden för virtuell dator. På samma sätt kan ställa in den `lab_vms_shutdown` värdet upprättar lab VM-avstängningstid.
+I följande kodfragment används värdet `lab_vms_startup` för att ange start tiden för den virtuella datorn. På samma sätt fastställer värdet för `lab_vms_shutdown` det virtuella Labbets avstängnings tid för labb.
 
 ```yml
 - name: Set the lab schedule
@@ -110,9 +110,9 @@ I följande kodavsnitt i `lab_vms_startup` värde används för att ange startti
   register: output
 ```
 
-## <a name="create-the-lab-virtual-network"></a>Skapa det virtuella nätverket lab
+## <a name="create-the-lab-virtual-network"></a>Skapa det virtuella labb nätverket
 
-Den här följande uppgift skapar virtuellt standardnätverk labb.
+Följande uppgift skapar det virtuella standard nätverket för labb.
 
 ```yml
 - name: Create the lab virtual network
@@ -125,9 +125,9 @@ Den här följande uppgift skapar virtuellt standardnätverk labb.
   register: output
 ```
 
-## <a name="define-an-artifact-source-for-the-lab"></a>Definiera en artefakt källa för övningen
+## <a name="define-an-artifact-source-for-the-lab"></a>Definiera en artefakt källa för labbet
 
-En artefakter källan är en korrekt strukturerad GitHub-lagringsplats som innehåller artefakt definitions- och Azure Resource Manager-mallar. Varje labb levereras med fördefinierade offentliga artefakter. Följ uppgifter visar hur du skapar en artefakt källa för ett labb.
+En artefakt källa är en korrekt strukturerad GitHub-lagringsplats som innehåller artefakt definitioner och Azure Resource Manager mallar. Varje labb levereras med fördefinierade offentliga artefakter. I följande uppgifter visas hur du skapar en artefakt källa för ett labb.
 
 ```yml
 - name: Define the lab artifacts source
@@ -173,9 +173,9 @@ Skapa en virtuell dator i labbet.
     expiration_date: "2029-02-22T01:49:12.117974Z"
 ```
 
-## <a name="list-the-labs-artifact-sources-and-artifacts"></a>Lista lab artefaktkällor och artefakter
+## <a name="list-the-labs-artifact-sources-and-artifacts"></a>Visa en lista med Labbets artefakt källor och artefakter
 
-Om du vill visa alla standard- och källor för anpassade artefakter i laboratoriet, använder du följande:
+Om du vill visa en lista med alla standard-och anpassade artefakt källor i labbet använder du följande uppgift:
 
 ```yml
 - name: List the artifact sources
@@ -187,7 +187,7 @@ Om du vill visa alla standard- och källor för anpassade artefakter i laborator
     var: output
 ```
 
-Följande uppgift visar en lista över alla artefakter:
+Följande aktivitet visar alla artefakter:
 
 ```yml
 - name: List the artifact facts
@@ -200,9 +200,9 @@ Följande uppgift visar en lista över alla artefakter:
     var: output
 ```
 
-## <a name="get-azure-resource-manager-information-for-the-artifact-sources"></a>Hämta Azure Resource Manager-information för artefaktkällor
+## <a name="get-azure-resource-manager-information-for-the-artifact-sources"></a>Hämta Azure Resource Manager information för artefakt källorna
 
-Visa en lista över alla Azure Resource Manager-mallar i `public environment repository`, fördefinierade databasen med mallar:
+För att visa en lista över alla Azure Resource Manager mallar i `public environment repository`, den fördefinierade lagrings platsen med mallar:
 
 ```yml
 - name: List the Azure Resource Manager template facts
@@ -214,7 +214,7 @@ Visa en lista över alla Azure Resource Manager-mallar i `public environment rep
     var: output
 ```
 
-Och följande uppgift hämtar information om en specifik Azure Resource Manager-mall från databasen:
+Följande uppgift hämtar information om en speciell Azure Resource Manager-mall från databasen:
 
 ```yml
 - name: Get Azure Resource Manager template facts
@@ -228,9 +228,9 @@ Och följande uppgift hämtar information om en specifik Azure Resource Manager-
     var: output
 ```
 
-## <a name="create-the-lab-environment"></a>Skapa labbmiljön
+## <a name="create-the-lab-environment"></a>Skapa labb miljön
 
-Följande uppgift skapar laboratoriemiljön baserat på en av mallarna från offentliga miljön lagringsplats.
+Följande aktivitet skapar labb miljön baserat på en av mallarna från den offentliga miljöns lagrings plats.
 
 ```yml
 - name: Create the lab environment
@@ -244,9 +244,9 @@ Följande uppgift skapar laboratoriemiljön baserat på en av mallarna från off
       register: output
 ```
 
-## <a name="create-the-lab-image"></a>Skapa labb-avbildning
+## <a name="create-the-lab-image"></a>Skapa labb avbildningen
 
-Följande uppgift skapar en avbildning från en virtuell dator. Avbildningen kan du skapa identiska virtuella datorer.
+Följande aktivitet skapar en avbildning från en virtuell dator. Med avbildningen kan du skapa identiska virtuella datorer.
 
 ```yml
 - name: Create the lab image
@@ -260,7 +260,7 @@ Följande uppgift skapar en avbildning från en virtuell dator. Avbildningen kan
 
 ## <a name="delete-the-lab"></a>Ta bort labbet
 
-Om du vill ta bort labbet, använder du följande:
+Om du vill ta bort labbet använder du följande uppgift:
 
 ```yml
 - name: Delete the lab
@@ -275,11 +275,11 @@ Om du vill ta bort labbet, använder du följande:
       - output.changed
 ```
 
-## <a name="get-the-sample-playbook"></a>Hämta exemplet spelbok
+## <a name="get-the-sample-playbook"></a>Hämta exempel Spelbok
 
-Det finns två sätt att hämta hela exemplet spelboken:
-- [Ladda ned spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) och spara den i `devtestlab-create.yml`.
-- Skapa en ny fil med namnet `devtestlab-create.yml` och kopiera in följande innehåll:
+Det finns två sätt att hämta det fullständiga exemplet Spelbok:
+- [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/devtestlab-create.yml) och spara den till `devtestlab-create.yml`.
+- Skapa en ny fil med namnet `devtestlab-create.yml` och kopiera den till följande innehåll:
 
 ```yml
 ---
@@ -444,15 +444,15 @@ Det finns två sätt att hämta hela exemplet spelboken:
         state: absent
 ```
 
-## <a name="run-the-playbook"></a>Kör spelboken
+## <a name="run-the-playbook"></a>Kör Spelbok
 
-I det här avsnittet kör du spelboken för att testa olika funktioner som visas i den här artikeln.
+I det här avsnittet kör du Spelbok för att testa olika funktioner som visas i den här artikeln.
 
-Innan du kör spelboken måste du göra följande ändringar:
-- I den `vars` avsnittet, ersätter den `{{ resource_group_name }}` platshållare med namnet på resursgruppen.
-- Store GitHub-token som miljövariabeln `GITHUB_ACCESS_TOKEN`.
+Innan du kör Spelbok gör du följande ändringar:
+- I avsnittet `vars` ersätter du plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
+- Lagra GitHub-token som en miljö variabel med namnet `GITHUB_ACCESS_TOKEN`.
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook devtestlab-create.yml
@@ -460,7 +460,7 @@ ansible-playbook devtestlab-create.yml
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort de resurser som skapades i den här artikeln. 
+Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
 
 Spara följande kod som `cleanup.yml`:
 
@@ -476,7 +476,7 @@ Spara följande kod som `cleanup.yml`:
         state: absent
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook cleanup.yml

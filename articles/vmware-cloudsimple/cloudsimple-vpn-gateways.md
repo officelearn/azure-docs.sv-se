@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8b7b02c164021ac084dccf5663122620b2af1b15
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 662fa342b3a18f726b418c496ff3fda937445301
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972890"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244772"
 ---
 # <a name="vpn-gateways-overview"></a>Översikt över VPN-gatewayer
 
@@ -52,7 +52,7 @@ En plats-till-plats-VPN-anslutning använder följande kryptografiska standard p
 | Hash-algoritm| SHA 256 | SHA 256 | SHA 1 |
 | Diffie Hellman-grupp (DH-grupp) | 2 | 2 | 2 |
 | Livs längd | 28 800 sekunder | 28 800 sekunder | 28 800 sekunder |
-| Datastorlek | 4 GB | 4 GB | 4 GB |
+| Data storlek | 4 GB | 4 GB | 4 GB |
 
 #### <a name="phase-2-proposals"></a>Fas 2-förslag
 
@@ -60,9 +60,13 @@ En plats-till-plats-VPN-anslutning använder följande kryptografiska standard p
 |-----------|------------|------------|------------|
 | Kryptering | AES 128 | AES 256 | AES 256 |
 | Hash-algoritm| SHA 256 | SHA 256 | SHA 1 |
-| PFS-grupp (Perfect Forward Secrecy) | Inga | Ingen | Inga |
+| PFS-grupp (Perfect Forward Secrecy) | Inget | Inget | Inget |
 | Livs längd | 1 800 sekunder | 1 800 sekunder | 1 800 sekunder |
-| Datastorlek | 4 GB | 4 GB | 4 GB |
+| Data storlek | 4 GB | 4 GB | 4 GB |
+
+
+> [!IMPORTANT]
+> Ange TCP MSS-ihopfogning vid 1200 på VPN-enheten. Eller om VPN-enheterna inte stöder MSS-ihopfogning kan du i stället ange MTU för tunnel gränssnittet till 1240 byte.
 
 ## <a name="point-to-site-vpn-gateway"></a>Punkt-till-plats-VPN-gateway
 

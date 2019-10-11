@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 58aa310316a31eb63ca8dd614b60fb4bad73d997
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3d9c6c9b73f8887d4fdb85da277b2e27d8f5221c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959994"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243568"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>Kompilera DSC-konfigurationer i Azure Automation tillstånds konfiguration
 
@@ -124,7 +124,7 @@ Information om hur du skickar PSCredentials som parametrar finns i [behörighets
 
 ### <a name="compiling-configurations-in-azure-automation-that-contain-composite-resources"></a>Kompilera konfigurationer i Azure Automation som innehåller sammansatta resurser
 
-Med **sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration. På så sätt kan du tillämpa flera konfigurationer på en enskild resurs. Se [Composite-resurser: Använd en DSC-konfiguration som resurs @ no__t-0 om du vill veta mer om **sammansatta resurser**.
+Med **sammansatta resurser** kan du använda DSC-konfigurationer som kapslade resurser i en konfiguration. På så sätt kan du tillämpa flera konfigurationer på en enskild resurs. Se [sammansatta resurser: använda en DSC-konfiguration som en resurs](/powershell/scripting/dsc/resources/authoringresourcecomposite) för att lära dig mer om **sammansatta resurser**.
 
 > [!NOTE]
 > För att konfigurationer som innehåller **sammansatta resurser** ska kunna kompileras korrekt måste du först se till att alla DSC-resurser som den sammansatta förlitar sig på först importeras i till Azure Automation.
@@ -160,7 +160,7 @@ Configuration ConfigurationDataSample
 }
 ```
 
-Du kan kompilera föregående DSC-konfiguration med Windows PowerShell. Följande skript lägger till två nodkonfigurationer i hämtnings tjänsten för Azure Automation tillstånds konfiguration: **ConfigurationDataSample. MyVM1** och **ConfigurationDataSample. MyVM3**:
+Du kan kompilera föregående DSC-konfiguration med Windows PowerShell. Följande skript lägger till två nodkonfigurationer till hämtnings tjänsten för Azure Automation tillstånds konfiguration: **ConfigurationDataSample. MyVM1** och **ConfigurationDataSample. MyVM3**:
 
 ```powershell
 $ConfigData = @{
@@ -246,7 +246,7 @@ Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -A
 ```
 
 > [!NOTE]
-> När kompileringen är klar kan du få ett fel meddelande om att: **Modulen Microsoft. PowerShell. Management importerades inte eftersom snapin-modulen Microsoft. PowerShell. Management redan har importer ATS.** Den här varningen kan ignoreras.
+> När kompileringen är klar kan du få ett fel meddelande om **att modulen Microsoft. PowerShell. Management inte har importer ATS eftersom snapin-modulen Microsoft. PowerShell. Management redan har importer ATS.** Den här varningen kan ignoreras.
 
 ## <a name="compiling-configurations-in-windows-powershell-and-publishing-to-azure-automation"></a>Kompilera konfigurationer i Windows PowerShell och publicera till Azure Automation
 
@@ -277,7 +277,7 @@ MOF-filen eller filerna som skapas genom kompilering av konfigurationen kan seda
    ![Bläddra efter lokal fil](./media/automation-dsc-compile/import-browse.png)
 
 1. Ange ett namn i text rutan **konfigurations namn** . Det här namnet måste matcha namnet på den konfiguration från vilken nodkonfigurationer kompilerades.
-1. Klicka på **OK**.
+1. Klicka på **OK**
 
 ### <a name="importing-a-node-configuration-with-azure-powershell"></a>Importera en nods konfiguration med Azure PowerShell
 

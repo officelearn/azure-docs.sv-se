@@ -1,17 +1,17 @@
 ---
-title: Ändra, ta bort eller hantera hanterings grupper – Azure-styrning
+title: Arbeta med hanterings grupper – Azure-styrning
 description: Lär dig att visa, underhålla, uppdatera och ta bort en hierarki för hanterings grupper.
 author: rthorn17
 ms.service: governance
 ms.date: 05/22/2019
 ms.author: rithorn
 ms.topic: conceptual
-ms.openlocfilehash: 28bfabd5c28fe833050551e7be690c0ea3d1e6a0
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 57695157119b81580777c0581adccb267e7e9faa
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338935"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255924"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Hantera dina resurser med hanterings grupper
 
@@ -29,7 +29,7 @@ Du kan ändra namnet på hanterings gruppen med hjälp av portalen, PowerShell e
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **alla tjänst** > **hanterings grupper**.
+1. Välj **alla tjänster** > **hanterings grupper**.
 
 1. Välj den hanterings grupp som du vill byta namn på.
 
@@ -77,7 +77,7 @@ Om du vill ta bort en hanterings grupp måste följande krav uppfyllas:
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **alla tjänst** > **hanterings grupper**.
+1. Välj **alla tjänster** > **hanterings grupper**.
 
 1. Välj den hanterings grupp som du vill ta bort.
 
@@ -120,13 +120,13 @@ Du kan visa en hanterings grupp som har en direkt eller ärvd RBAC-roll på.
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **alla tjänst** > **hanterings grupper**.
+1. Välj **alla tjänster** > **hanterings grupper**.
 
 1. Sidan för hanterings gruppens hierarki kommer att läsas in. På den här sidan kan du utforska alla hanterings grupper och prenumerationer som du har åtkomst till. Om du väljer grupp namnet tar du en nivå i hierarkin. Navigeringen fungerar på samma sätt som i Utforskaren.
 
 1. Om du vill se information om hanterings gruppen väljer du länken **(information)** bredvid rubriken för hanterings gruppen. Om den här länken inte är tillgänglig har du inte behörighet att visa den hanterings gruppen.
 
-   ![Huvud](./media/main.png)
+   ![Huvudtillg](./media/main.png)
 
 ### <a name="view-in-powershell"></a>Visa i PowerShell
 
@@ -219,7 +219,7 @@ Om du vill se vilka behörigheter du har i Azure Portal väljer du hanterings gr
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **alla tjänst** > **hanterings grupper**.
+1. Välj **alla tjänster** > **hanterings grupper**.
 
 1. Välj den hanterings grupp som du planerar att vara överordnad.
 
@@ -235,7 +235,7 @@ Om du vill se vilka behörigheter du har i Azure Portal väljer du hanterings gr
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **alla tjänst** > **hanterings grupper**.
+1. Välj **alla tjänster** > **hanterings grupper**.
 
 1. Välj den hanterings grupp som du planerar som är den aktuella överordnade.  
 
@@ -287,7 +287,7 @@ När du flyttar en överordnad hanterings grupp flyttas hierarkin under den grup
 
 1. Logga in på [Azure Portal](https://portal.azure.com).
 
-1. Välj **alla tjänst** > **hanterings grupper**.
+1. Välj **alla tjänster** > **hanterings grupper**.
 
 1. Välj den hanterings grupp som du planerar att vara överordnad.
 

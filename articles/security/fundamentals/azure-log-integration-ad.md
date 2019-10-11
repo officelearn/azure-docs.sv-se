@@ -16,12 +16,12 @@ ums.workload: na
 ms.date: 05/28/2019
 ms.author: barclayn
 ms.custom: azlog
-ms.openlocfilehash: 0820ca227a4d0e8c71ed3f35cd8fa2841163d38f
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: e7f3a9bc9aade5f8ade857e9c2f14f8e9898a7da
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727654"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244676"
 ---
 # <a name="integrate-azure-active-directory-audit-logs"></a>Integrera Azure Active Directory gransknings loggar
 
@@ -74,7 +74,7 @@ Du kan också öppna en [support förfrågan](../../azure-supportability/how-to-
 ## <a name="next-steps"></a>Nästa steg
 Mer information om Azure Log Integration finns i:
 
-* [Microsoft Azure log integration för Azure-loggar](https://www.microsoft.com/download/details.aspx?id=53324): Den här Download Center-sidan innehåller information, system krav och Installationsinstruktioner för Azure Log Integration.
-* [Introduktion till Azure log integration](azure-log-integration-overview.md): Den här artikeln beskriver hur du Azure Log Integration, dess viktiga funktioner och hur det fungerar.
-* [Azure log integration vanliga frågor och svar](azure-log-integration-faq.md): Den här artikeln ger svar på frågor om Azure Log Integration.
-* [Nya funktioner för Azure-diagnostik och Azures gransknings loggar](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): I det här blogg inlägget får du en introduktion till Azures gransknings loggar och andra funktioner som hjälper dig att få insikter om driften av dina Azure-resurser.
+* [Microsoft Azure log integration för Azure-loggar](https://azure.microsoft.com/services/monitor/): den här Download Center-sidan innehåller information, system krav och installationsinstruktioner för Azure log integration.
+* [Introduktion till Azure log integration](azure-log-integration-overview.md): den här artikeln beskriver hur du Azure log integration, dess viktiga funktioner och hur det fungerar.
+* [Azure log integration vanliga frågor och](azure-log-integration-faq.md)svar: den här artikeln svarar på frågor om Azure log integration.
+* [Nya funktioner för Azure-diagnostik och gransknings loggar i Azure](https://azure.microsoft.com/blog/new-features-for-azure-diagnostics-and-azure-audit-logs/): i det här blogg inlägget får du en introduktion till Azures gransknings loggar och andra funktioner som hjälper dig att få insikter om driften av dina Azure-resurser.

@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 04/18/2019
 ms.author: chadam
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 288fa54a1a6dd4eb05f953a4490bf7736d6d7ff8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 9bea8da4f0d694be3a39a8f5dfaca8e54ce2773d
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931254"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255660"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Använda Azure Monitor-arbetsböcker för Azure Active Directory rapporter
 
@@ -41,7 +41,7 @@ Den här artikeln:
  
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill använda övervaknings arbets böcker behöver du:
 
@@ -49,11 +49,18 @@ Om du vill använda övervaknings arbets böcker behöver du:
 
 - En [Log Analytics-arbetsyta](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
 
+- [Åtkomst](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) till Log Analytics-arbetsytan
+- Följande roller i Azure Active Directory (om du får åtkomst till Log Analytics via Azure Active Directory Portal)
+    - Säkerhetsadministratör
+    - Säkerhets läsare
+    - Rapport läsare
+    - Global administratör
+
 ## <a name="roles"></a>Roller
 Du måste vara i någon av följande roller och ha [åtkomst till underliggande Log Analytics](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) arbets yta för att hantera arbets böckerna:
 -   Global administratör
 -   Säkerhetsadministratör
--   Säkerhetsläsare
+-   Säkerhets läsare
 -   Rapport läsare
 -   Program administratör
 
@@ -62,7 +69,7 @@ Du måste vara i någon av följande roller och ha [åtkomst till underliggande 
 
 För att få åtkomst till arbets böcker:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 
 2. I det vänstra navigerings fönstret väljer du **Azure Active Directory**.
 
@@ -83,9 +90,9 @@ I den här arbets boken visas följande trender:
 
 - Alla inloggningar
 
-- Klart
+- Lyckades
 
-- Väntande åtgärd från användare
+- Väntande användar åtgärd
 
 - Fel
 
@@ -102,7 +109,7 @@ Du kan filtrera varje trend enligt följande kategorier:
 
 För varje trend får du en uppdelning med följande kategorier:
 
-- Location
+- Plats
 
     ![Inloggningar efter plats](./media/howto-use-azure-monitor-workbooks/45.png)
 
@@ -120,7 +127,7 @@ I den här arbets boken visas följande trender:
 
 - Alla inloggningar
 
-- Klart
+- Lyckades
 
 
 Du kan filtrera varje trend enligt följande kategorier:
@@ -181,7 +188,7 @@ Den här arbets boken visar följande inaktiverade inloggnings trender:
 
 - Kräv sekretess policy
 
-- Annat
+- Övrigt
 
 
 Du kan filtrera varje trend enligt följande kategorier:
@@ -217,7 +224,7 @@ I den här arbets boken visas följande trender:
 
 - Alla inloggningar
 
-- Klart
+- Lyckades
 
 - Väntande åtgärd
 

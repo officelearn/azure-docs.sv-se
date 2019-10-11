@@ -1,5 +1,5 @@
 ---
-title: Distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön
+title: Distribuera till Azure Kubernetes-tjänsten med hjälp av Jenkins och det blå/gröna distributions mönstret
 description: Lär dig att distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön.
 ms.service: jenkins
 keywords: jenkins, azure, devops, kubernetes, k8s, aks, blue green deployment, kontinuerlig leverans, cd
@@ -7,13 +7,13 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 10/11/2018
-ms.openlocfilehash: 93f2ac284931ba664e0965e537e515c824e6f7a6
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 10/09/2019
+ms.openlocfilehash: de9088333f69a22246fe5873d6e09ddb7ba3044a
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60642132"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249396"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Distribuera till Azure Kubernetes Service (AKS) med hjälp av Jenkins och distributionsmönstret blå/grön
 
@@ -30,12 +30,12 @@ I den här självstudien utför du följande åtgärder:
 > * Konfigurera ett Kubernetes-kluster manuellt
 > * Skapa och kör ett Jenkins-jobb
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
-- [GitHub-konto](https://github.com) : Du behöver ett GitHub-konto för att klona exempellagringsplatsen.
-- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) : Du använder Azure CLI 2.0 för att skapa Kubernetes-klustret.
-- [Chocolatey](https://chocolatey.org): En pakethanterare som du använder för att installera kubectl.
-- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): Ett kommandoradsgränssnitt som du använder för att köra kommandon mot Kubernetes-kluster.
-- [jq](https://stedolan.github.io/jq/download/): En enkel kommandoradsbaserad JSON-processor.
+## <a name="prerequisites"></a>Krav
+- [GitHub-konto](https://github.com): du behöver ett GitHub-konto för att kunna klona lagringsplatsexemplet.
+- [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): du använder Azure CLI 2.0 för att skapa Kubernetes-klustret.
+- [Chocolatey](https://chocolatey.org): en pakethanterare som du använder för att installera kubectl.
+- [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/): ett kommandoradsgränssnitt som du använder för att köra kommandon mot Kubernetes-kluster.
+- [jq](https://stedolan.github.io/jq/download/): en enkel JSON-processor på kommandoraden.
 
 ## <a name="clone-the-sample-app-from-github"></a>Klona exempelappen från GitHub
 
@@ -147,7 +147,7 @@ Du kan ställa in en blå/grön distribution i AKS manuellt eller med ett konfig
     kubectl apply -f  test-endpoint-green.yml
     ```
 
-1. Uppdatera DNS-namnet för den offentliga slutpunkten och testslutpunkterna. När du skapar ett Kubernetes-kluster skapar du också en [ytterligare resursgrupp](https://github.com/Azure/AKS/issues/3) med namngivningsmönstret **MC_&lt;ditt-resursgruppnamn>_&lt; ditt-kubernetes-klusternamn>_&lt;din-plats>**.
+1. Uppdatera DNS-namnet för den offentliga slutpunkten och testslutpunkterna. När du skapar ett Kubernetes-kluster skapar du också en [ytterligare resursgrupp](https://github.com/Azure/AKS/issues/3) med namngivningsmönstret **MC_&lt;ditt-resursgruppnamn> _&lt; ditt-kubernetes-klusternamn>_ &lt;din-plats>** .
 
     Leta rätt på de offentliga IP-adresserna i resursgruppen.
 
@@ -259,7 +259,7 @@ I det här avsnittet lär du dig att förbereda Jenkins-servern för kompilering
 
 ## <a name="run-the-job"></a>Kör jobbet
 
-1. Kontrollera att du kan köra projektet i din lokala miljö. Så här gör du: [Kör projektet på den lokala datorn](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
+1. Kontrollera att du kan köra projektet i din lokala miljö. Gör så här: [Kör projektet på den lokala datorn](https://github.com/Microsoft/todo-app-java-on-azure/blob/master/README.md#run-it).
 
 1. Kör Jenkins-jobbet. Första gången du kör jobbet distribuerar Jenkins todo-appen till den blå miljön, det vill säga den inaktiva standardmiljön. 
 
@@ -284,7 +284,7 @@ När du inte längre behöver de resurser som skapades i den här självstudien 
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Om du stöter på buggar med Jenkins-plugin-programmet kan du rapportera problemet i [Jenkins JIRA](https://issues.jenkins-ci.org/) för en viss komponent.
 

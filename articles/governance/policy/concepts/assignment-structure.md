@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/23/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 5326e765701a42323ea62df8d35128c4117b2ed9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: a75c64ebb6ba3eeffeccd98cf41365fe96218573
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981423"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255891"
 ---
 # <a name="azure-policy-assignment-structure"></a>Tilldelningsstruktur i Azure Policy
 
@@ -19,8 +19,8 @@ Princip tilldelningar används av Azure Policy för att definiera vilka resurser
 
 Du använder JSON för att skapa en princip tilldelning. Princip tilldelningen innehåller element för:
 
-- Visningsnamn
-- description
+- visnings namn
+- beskrivning
 - metadata
 - tvingande läge
 - princip definition
@@ -52,21 +52,20 @@ Följande JSON visar till exempel en princip tilldelning i _DoNotEnforce_ -läge
 
 Alla Azure Policys exempel finns på [Azure policy exempel](../samples/index.md).
 
-## <a name="display-name-and-description"></a>Namn och beskrivning
+## <a name="display-name-and-description"></a>Visnings namn och beskrivning
 
 Du kan använda **DisplayName** och **Description** för att identifiera princip tilldelningen och tillhandahålla kontext för dess användning med en speciell uppsättning resurser. **DisplayName** får innehålla högst _128_ tecken och **beskrivningen** får bestå av högst _512_ tecken.
 
 ## <a name="enforcement-mode"></a>Tvingande läge
 
-Egenskapen **enforcementMode** ger kunderna möjlighet att testa resultatet av en princip på befintliga resurser utan att initiera princip påverkan eller utlösa poster i [Azure aktivitets loggen](../../../azure-monitor/platform/activity-logs-overview.md).
-Det här scenariot kallas vanligt vis "What If" och anpassas till säkra distributions metoder.
+Egenskapen **enforcementMode** ger kunderna möjlighet att testa resultatet av en princip på befintliga resurser utan att initiera princip påverkan eller utlösa poster i [Azure aktivitets loggen](../../../azure-monitor/platform/activity-logs-overview.md). Det här scenariot kallas vanligt vis "What If" och anpassas till säkra distributions metoder. **enforcementMode** skiljer sig från den [inaktiverade](./effects.md#disabled) inställningen, eftersom den här inställningen förhindrar att resurs utvärderingen sker alls.
 
 Den här egenskapen har följande värden:
 
-|Läge |JSON-värde |type |Åtgärda manuellt |Aktivitets logg post |Beskrivning |
+|Läge |JSON-värde |Typ |Åtgärda manuellt |Aktivitets logg post |Beskrivning |
 |-|-|-|-|-|-|
-|Aktiverad |Standard |sträng |Ja |Ja |Princip påverkan tillämpas när en resurs skapas eller uppdateras. |
-|Inaktiverad |DoNotEnforce |sträng |Ja |Nej | Princip påverkan tillämpas inte när en resurs skapas eller uppdateras. |
+|Enabled |Standard |sträng |Ja |Ja |Princip påverkan tillämpas när en resurs skapas eller uppdateras. |
+|Disabled |DoNotEnforce |sträng |Ja |Nej | Princip påverkan tillämpas inte när en resurs skapas eller uppdateras. |
 
 Om **enforcementMode** inte anges i en princip eller initiativ definition används värdet _default_ . [Reparations uppgifter](../how-to/remediate-resources.md) kan startas för [deployIfNotExists](./effects.md#deployifnotexists) -principer, även när **enforcementMode** har angetts till _DoNotEnforce_.
 

@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mlearned
-ms.openlocfilehash: ab744efd205d826cb7ae2c3eda7bba28f4a9bee0
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: d9d432c073872e7bb7f3562979e78989faea65eb
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71097808"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241098"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Autentisera med Azure Container Registry från Azure Kubernetes-tjänsten
 
@@ -39,7 +39,7 @@ az aks create -n myAKSCluster -g myResourceGroup --attach-acr <acr-name-or-resou
 ```
 **Ett ACR resurs-ID har följande format:** 
 
-/Subscriptions/<prenumeration-d>/resourceGroups/<resurs-grupp-Name>/providers/Microsoft.ContainerRegistry/registries/{name} 
+/Subscriptions/\<subscription-ID @ no__t-1/resourceGroups/\<resource-Group-name @ no__t-3/providers/Microsoft. ContainerRegistry/Registration/\<name @ no__t-5 
   
 Det här steget kan ta flera minuter att slutföra.
 
@@ -61,7 +61,7 @@ az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 
 ## <a name="log-in-to-your-acr"></a>Logga in på din ACR
 
-Använd följande kommando för att logga in på din ACR.  <acrname> Ersätt parametern med ditt ACR-namn.  Standardvärdet är till exempel **aks < resurs gruppen > ACR**.
+Använd följande kommando för att logga in på din ACR.  Ersätt parametern <acrname> med ditt ACR-namn.  Standardvärdet är till exempel **aks < resurs gruppen > ACR**.
 
 ```azurecli
 az acr login -n <acrName>

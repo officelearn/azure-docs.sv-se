@@ -1,17 +1,17 @@
 ---
-title: Förstå hur du granskar innehållet i en virtuell dator
+title: Lär dig Azure Policy för Azure Kubernetes service
 description: Lär dig hur Azure Policy använder Rego och öppna princip agenten för att hantera kluster i Azure Kubernetes-tjänsten.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: 9af29495fca4c8197040a5556de0ea6966b3d68d
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 56bc8934db86bb03446a6d2637bd54daaf2b5fb9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981432"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254740"
 ---
 # <a name="understand-azure-policy-for-azure-kubernetes-service"></a>Förstå Azure Policy för Azure Kubernetes-tjänsten
 
@@ -34,7 +34,7 @@ Utför följande åtgärder för att aktivera och använda Azure Policy för AKS
 
 Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst funktionerna måste prenumerationen aktivera **Microsoft. container service** Resource Provider och **Microsoft. PolicyInsights** Resource Provider och sedan godkännas till delta i förhands granskningen. Om du vill delta i förhands granskningen följer du de här stegen i antingen Azure Portal eller med Azure CLI:
 
-- Azure-portalen:
+- Azure Portal:
 
   1. Registrera resurs leverantörerna **Microsoft. container service** och **Microsoft. PolicyInsights** . Anvisningar finns i [resurs leverantörer och typer](../../../azure-resource-manager/resource-manager-supported-services.md#azure-portal).
 
@@ -63,9 +63,22 @@ Innan du installerar Azure Policy tillägg eller aktiverar någon av tjänst fun
 
   # Feature register: enables installing the add-on
   az feature register --namespace Microsoft.ContainerService --name AKS-AzurePolicyAutoApprove
-
+  
+  # Use the following to confirm the feature has registered
+  az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/AKS-AzurePolicyAutoApprove')].{Name:name,State:properties.state}"
+  
+  # Once the above shows 'Registered' run the following to propagate the update
+  az provider register -n Microsoft.ContainerService
+  
   # Feature register: enables the add-on to call the Azure Policy resource provider
   az feature register --namespace Microsoft.PolicyInsights --name AKS-DataplaneAutoApprove
+  
+  # Use the following to confirm the feature has registered
+  az feature list -o table --query "[?contains(name, 'Microsoft.PolicyInsights/AKS-DataPlaneAutoApprove')].{Name:name,State:properties.state}"
+  
+  # Once the above shows 'Registered' run the following to propagate the update
+  az provider register -n Microsoft.PolicyInsights
+  
   ```
 
 ## <a name="azure-policy-add-on"></a>Azure Policy tillägg
@@ -79,7 +92,7 @@ _Azure policy-tillägget_ för Kubernetes ansluter tjänsten Azure policy till G
 
 ### <a name="installing-the-add-on"></a>Installerar tillägget
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
 Innan du installerar tillägget i ditt AKS-kluster måste du installera för hands versions tillägget. Det här steget görs med Azure CLI:
 
@@ -113,7 +126,7 @@ Innan du installerar tillägget i ditt AKS-kluster måste du installera för han
 
 När förutsättningarna har slutförts installerar du Azure Policy-tillägget i det AKS-kluster som du vill hantera.
 
-- Azure Portal
+- Azure portal
 
   1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 
@@ -193,7 +206,7 @@ Om du vill visa loggar från GateKeeper-behållare följer du stegen i [Aktivera
 
 Om du vill ta bort Azure Policy-tillägget från AKS-klustret använder du antingen Azure Portal eller Azure CLI:
 
-- Azure Portal
+- Azure portal
 
   1. Starta AKS-tjänsten i Azure Portal genom att klicka på **alla tjänster**och sedan söka efter och välja **Kubernetes-tjänster**.
 

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: sajagtap
-ms.openlocfilehash: 8c9f8b3733a4b2491c4199f041ba6b24efbb0224
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: e3b36eae4f6dc4343828a38fa4ffe3920a83f589
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68881903"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242873"
 ---
 # <a name="create-human-reviews-net"></a>Skapa mänsklig granskning (.NET)
 
@@ -24,7 +24,7 @@ Granskar lagring och visning av innehåll för de mänskliga moderatorerna att u
 - Skapa en uppsättning granskningar för mänskliga moderatorer
 - Hämta status för befintliga granskningar för mänskliga moderatorer
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Logga in eller skapa ett konto på webbplatsen för Content Moderator [gransknings verktyget](https://contentmoderator.cognitive.microsoft.com/) .
 
@@ -59,8 +59,7 @@ Installera följande NuGet-paket:
 
 ```csharp
 using Microsoft.Azure.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator;
-using Microsoft.CognitiveServices.ContentModerator.Models;
+using Microsoft.Azure.CognitiveServices.ContentModerator.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -157,7 +156,7 @@ Lägg till följande klass till **Program**-klassen. Använd den här klassen f�
 > [!NOTE]
 > Din Content Moderator-tjänstnyckel har en frekvensgräns för antal begäranden per sekund (RPS), och om du överskrider gränsen genererar SDK:t ett undantag med en 429-felkod.
 >
-> En nyckel på den kostnadsfria nivån har en gräns på en RPS.
+> En nyckel på den kostnadsfria nivån har en hastighetsgräns på en RPS.
 
 #### <a name="add-the-following-constants-to-the-program-class-in-programcs"></a>Lägg till följande konstanter i **program** klassen i program.CS
 

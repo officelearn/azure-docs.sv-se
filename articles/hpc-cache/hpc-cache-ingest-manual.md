@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: v-erkell
-ms.openlocfilehash: e1ca6fa4ea1ae4a5bf5996e88d32e1e00416f067
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: 7e29cbd202b32897026bed074743de543d3fd587
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299976"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254463"
 ---
 # <a name="azure-hpc-cache-preview-data-ingest---manual-copy-method"></a>Data inmatning för Azure HPC cache (för hands version) – manuell kopierings metod
 
@@ -23,7 +23,7 @@ Läs mer om hur du flyttar data till Blob Storage för Azure HPC cache genom att
 
 Du kan manuellt skapa en flertrådad kopia på en klient genom att köra fler än ett kopierings kommando på en gång i bakgrunden mot fördefinierade uppsättningar av filer eller sökvägar.
 
-Kommandot Linux/UNIX ``cp`` innehåller argumentet ``-p`` för att bevara ägarskap och mtime metadata. Att lägga till det här argumentet i kommandona nedan är valfritt. (Om du lägger till argumentet ökar antalet fil system anrop som skickas från klienten till mål fil systemet för ändring av metadata.)
+Kommandot Linux/UNIX ``cp`` inkluderar argumentet ``-p`` för att bevara ägarskap och mtime metadata. Att lägga till det här argumentet i kommandona nedan är valfritt. (Om du lägger till argumentet ökar antalet fil system anrop som skickas från klienten till mål fil systemet för ändring av metadata.)
 
 I det här enkla exemplet kopieras två filer parallellt:
 
@@ -31,13 +31,13 @@ I det här enkla exemplet kopieras två filer parallellt:
 cp /mnt/source/file1 /mnt/destination1/ & cp /mnt/source/file2 /mnt/destination1/ &
 ```
 
-När det här kommandot `jobs` har utfärdats visar kommandot att två trådar körs.
+När det här kommandot har utfärdats visar kommandot `jobs` att två trådar körs.
 
 ## <a name="copy-data-with-predictable-file-names"></a>Kopiera data med förutsägbara fil namn
 
 Om dina fil namn är förutsägbara kan du använda uttryck för att skapa parallella kopierings trådar. 
 
-Om din katalog till exempel innehåller 1000 filer som är numrerade från `0001` till `1000`kan du använda följande uttryck för att skapa tio parallella trådar som varje kopia 100-filer:
+Om din katalog till exempel innehåller 1000 filer som numreras sekventiellt från `0001` till `1000`, kan du använda följande uttryck för att skapa tio parallella trådar som varje kopia 100-filer:
 
 ```bash
 cp /mnt/source/file0* /mnt/destination1/ & \
@@ -56,7 +56,7 @@ cp /mnt/source/file9* /mnt/destination1/
 
 Om fil namns strukturen inte är förutsägbar, kan du gruppera filer efter katalog namn. 
 
-Det här exemplet samlar in hela kataloger som ska ``cp`` skickas till kommandon som körs som bakgrunds aktiviteter:
+Det här exemplet samlar in hela kataloger som ska skickas till ``cp``-kommandon som körs som bakgrunds aktiviteter:
 
 ```bash
 /root
@@ -92,7 +92,7 @@ När detta inträffar kan du lägga till monterings punkter på klient sidan til
 10.1.1.103:/nfs on /mnt/destination3type nfs (rw,vers=3,proto=tcp,addr=10.1.1.103)
 ```
 
-Genom att lägga till monterings punkter på klient sidan kan du förgrena ut ytterligare kopierings kommandon till ytterligare `/mnt/destination[1-3]` monterings punkter, vilket ger ytterligare parallellitet.  
+Genom att lägga till monterings punkter på klient sidan kan du förgreningar av ytterligare kopierings kommandon till ytterligare `/mnt/destination[1-3]` monterings punkter, vilket ger ytterligare parallellitet.  
 
 Om filerna t. ex. är mycket stora kan du definiera kopierings kommandona för att använda olika mål Sök vägar, vilket skickar ut fler kommandon parallellt från den klient som utför kopian.
 
@@ -136,9 +136,9 @@ Client4: cp -R /mnt/source/dir3/dir3d /mnt/destination/dir3/ &
 
 ## <a name="create-file-manifests"></a>Skapa fil manifest
 
-När du har lärt dig mer om metoderna ovan (flera Copy-threads per mål, flera mål per klient, flera klienter per nätverks åtkomligt käll fil system), bör du tänka på följande rekommendation: Bygg fil manifest och Använd dem sedan med kopiera kommandon på flera klienter.
+När du har lärt dig mer om metoderna ovan (flera Copy-threads per mål, flera mål per klient, flera klienter per nätverks åtkomligt käll fil system), bör du tänka på följande rekommendation: Bygg fil manifest och Använd dem sedan med kopiera kommandon över flera klienter.
 
-I det här scenariot ``find`` används Unix-kommandot för att skapa manifest med filer eller kataloger:
+I det här scenariot används UNIX-``find``-kommandot för att skapa manifest med filer eller kataloger:
 
 ```bash
 user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
@@ -153,7 +153,7 @@ user@build:/mnt/source > find . -mindepth 4 -maxdepth 4 -type d
 ./atj5b55c53be6-02/support/trace/rolling
 ```
 
-Omdirigera det här resultatet till en fil:`find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
+Omdirigera det här resultatet till en fil: `find . -mindepth 4 -maxdepth 4 -type d > /tmp/foo`
 
 Sedan kan du iterera genom manifestet med hjälp av BASH-kommandon för att räkna filer och fastställa storlekarna för under katalogerna:
 
@@ -214,7 +214,7 @@ Och för sex.... Extrapolera vid behov.
 for i in 1 2 3 4 5 6; do sed -n ${i}~6p /tmp/foo > /tmp/client${i}; done
 ```
 
-Du får *N* resulterande filer, en för var och en av dina *N* -klienter som har Sök vägs namnen på nivå fyra kataloger som erhålls som en del av `find` utdata från kommandot. 
+Du får *N* resulterande filer, en för var och en av dina *N* -klienter med Sök vägs namnen på nivå fyra kataloger som erhålls som en del av utdata från kommandot `find`. 
 
 Använd varje fil för att bygga kopierings kommandot:
 

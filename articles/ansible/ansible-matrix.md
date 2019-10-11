@@ -1,31 +1,31 @@
 ---
-title: Ansible-modulen och version matris för Azure | Microsoft Docs
+title: Ansible-moduler och versioner för Azure
 description: Ansible-moduler och versioner för Azure
-keywords: ansible, roles, matrix, version, azure, devops
+keywords: Ansible, roller, matris, version, Azure, DevOps
 ms.topic: reference
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: b3396b2f4639cc7298b77810dbaafadd308d6b24
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 18654500a78178c46e72f9f6cd01e8507fa179f0
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65230993"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241547"
 ---
-# <a name="ansible-module-and-version-matrix"></a>Ansible-modulen och version matris
+# <a name="ansible-module-and-version-matrix"></a>Ansible-moduler och versionsmatriser
 
-Ansible innehåller en uppsättning moduler för användning i etablering och konfigurera Azure-resurser. Dessa resurser inkluderar virtuella datorer, skalningsuppsättningar, networking services och container services. Den här artikeln visar de olika Ansible-modulerna för Azure och Ansible-versioner som de skickar.
+Ansible innehåller en uppsättning moduler som används vid etablering och konfiguration av Azure-resurser. Bland dessa resurser ingår virtuella datorer, skalnings uppsättningar, nätverks tjänster och behållar tjänster. Den här artikeln innehåller de olika Ansible-modulerna för Azure och de Ansible-versioner där de levereras.
 
 ## <a name="ansible-modules-for-azure"></a>Ansible-moduler för Azure
 
-Följande moduler kan köras direkt på fjärrvärdar eller via spelböcker.
+Följande moduler kan köras direkt på fjärranslutna värdar eller via spel böcker.
 
-Dessa moduler är tillgängliga från den officiella versionen Ansible och från följande Microsoft-spelboksroller.
+Dessa moduler är tillgängliga från den officiella versionen av Ansible och från följande Microsoft Spelbok-roller.
 
-| Ansible-modulen för Azure                   |  Ansible 2.4 |  Ansible 2.5 |  Ansible 2.6 | Ansible 2.7 | Ansible 2.8 | Ansible-roll | 
+| Ansible-modul för Azure                   |  Ansible 2,4 |  Ansible 2,5 |  Ansible 2,6 | Ansible 2,7 | Ansible 2,8 | Ansible-roll | 
 |---------------------------------------------|--------------|--------------|-----------------------------|-------------------------------------|--------------|--------------| 
 | **Compute**                    |           |                          |                          |                            |           |           |
 | azure_rm_availabilityset                    | Ja          | Ja                         | Ja          | Ja          | Ja          | Ja          |
@@ -151,7 +151,7 @@ Dessa moduler är tillgängliga från den officiella versionen Ansible och från
 | azure_rm_sqlserver_facts                    | -            | Ja                         | Ja          | Ja          | Ja          | Ja          |
 | **Analys**                    |           |                          |                          |                             |           |           |
 | azure_rm_hdinsightcluster                   | -            | -                           | -            | -            | Ja          | Ja          |
-| **Integrering**                    |           |                          |                          |                             |           |           |
+| **Samordning**                    |           |                          |                          |                             |           |           |
 | azure_rm_servicebus                         | -            | -                           | -            | -            | Ja          | Ja          |
 | azure_rm_servicebus_facts                   | -            | -                           | -            | -            | Ja          | Ja          |
 | azure_rm_servicebusqueue                    | -            | -                           | -            | -            | Ja          | Ja          |
@@ -188,12 +188,12 @@ Dessa moduler är tillgängliga från den officiella versionen Ansible och från
 | azure_rm_loganalyticsworkspace              | -            | -                           | -            | -            | Ja          | Ja          |
 | azure_rm_loganalyticsworkspace_facts        | -            | -                           | -            | -            | Ja          | Ja          |
 
-## <a name="introduction-to-playbook-role-for-azure"></a>Introduktion till spelbok rollen för Azure
+## <a name="introduction-to-playbook-role-for-azure"></a>Introduktion till Spelbok-rollen för Azure
 
-Den [azure_preview_module spelbok rollen](https://galaxy.ansible.com/Azure/azure_preview_modules/) innehåller alla de senaste Azure-modulerna. Uppdateringar och korrigeringar av fel är klar i mer tid än den officiella Ansible-versionen. Om du använder Ansible för Azure-resurs etablering syften, är du rekommenderas att installera den `azure_preview_module` spelbok roll.
+[Azure_preview_module Spelbok-rollen](https://galaxy.ansible.com/Azure/azure_preview_modules/) innehåller alla de senaste Azure-modulerna. Uppdateringarna och fel korrigeringarna görs i mer tid än den officiella Ansible-versionen. Om du använder Ansible för Azure-resurs etablerings syfte uppmanas du att installera `azure_preview_module` Spelbok-rollen.
 
-Den `azure_preview_module` spelbok rollen släpps var tredje vecka.
+Spelbok-rollen för `azure_preview_module` släpps var tredje vecka.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Läs mer om spelboksroller [skapa återanvändbara spelböcker](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 
+Mer information om Spelbok-roller finns i [skapa återanvändbara spel böcker](https://docs.ansible.com/ansible/latest/playbooks_reuse.html). 

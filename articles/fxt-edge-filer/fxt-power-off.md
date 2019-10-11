@@ -1,39 +1,39 @@
 ---
-title: Hur du stänger en Filer för Microsoft Azure FXT Edge-enhet
-description: Procedurer för nystartade företag och säker nedstängning av en Azure FXT Edge Filer-nod
+title: Stänga av en Microsoft Azure FXT Edge-enhet
+description: Procedurer för start och säker avstängning av en Azure FXT Edge-nod
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 07/01/2019
-ms.author: v-erkell
-ms.openlocfilehash: 6921e7a52e43a63055b59242c02cc6ca3b8c5313
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.author: rohogue
+ms.openlocfilehash: 91445c4219abaa67385105f52515f52c87e2cf06
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67620088"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255999"
 ---
-# <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Hur du säkert stänga av Azure FXT Edge Filer maskinvara
+# <a name="how-to-safely-power-off-azure-fxt-edge-filer-hardware"></a>Hur man på ett säkert sätt stänger av maskin vara från Azure FXT Edge-filer
 
-Men du kan använda fysiska strömknappen för att växla till en enskild nod, bör du inte använda den för att stängas av enhet under normala omständigheter.
+Även om du kan använda den fysiska strömbrytaren för att växla på en enskild nod bör du inte använda den för att stänga av enheten under normala omständigheter.
 
-När en nod i Azure FXT Edge Filer är på som en del av ett kluster, bör du använda Kontrollpanelen klusterprogramvaran för att stänga av maskinvaran. 
+När en Azure FXT Edge-nod används som en del av ett kluster, bör du använda kluster kontroll panelens program vara för att stänga av maskin varan. 
 
 > [!NOTE] 
-> För att undvika dataförlust eller skadade data kan alltid använda Kontrollpanelen programmet för att stänga av en Azure FXT Edge-Filer. Använd inte knappen fysisk strömkälla för avstängning, om du inte uppmanas att göra detta av Microsofts kundservice och Support.
+> För att undvika data förlust eller skada bör du alltid använda program varan på kontroll panelen för att stänga av en Azure FXT Edge-filer. Använd inte den fysiska ström knappen för avstängning om du inte uppmanas att göra det av Microsofts kund service och support.
 > 
-> Koppla från strömkablar eller Använd dina data i nödfall elektriska Centers elektricitet koppla från mekanism.
+> I en elektrisk nöd situation kan du koppla bort ström sladdarna eller använda data centrets mekanism för el från koppling.
 
-## <a name="shut-down-a-node-from-the-control-panel"></a>Stänga av en nod från Kontrollpanelen
+## <a name="shut-down-a-node-from-the-control-panel"></a>Stänga av en nod från kontroll panelen
 
-Följ dessa instruktioner för att säkert stänga av en nod i Azure FXT Edge Filer:
+Följ de här anvisningarna för att säkert stänga av en Azure FXT Edge-nod:
 
-1. Logga in på klustret på Kontrollpanelen. (Anvisningarna i [öppna inställningssidorna](fxt-cluster-create.md#open-the-settings-pages))
-1. Klicka på den **inställningar** och sedan läsa in den **kluster** > **FXT noder** sidan.
-1. I listan över klusternoder, hittar du det du vill stänga av. Klicka på den **Stäng** knappen i dess **åtgärder** kolumn. 
-1. Vänta en stund. Noden stängs av och Stäng av sig själv.
+1. Logga in på kluster kontroll panelen. (Riktningar i [Öppna inställnings sidorna](fxt-cluster-create.md#open-the-settings-pages))
+1. Klicka på fliken **Inställningar** och Läs in sidan **kluster** > **FXT noder** .
+1. Leta upp den som du vill stänga av i listan över klusternoder. Klicka på knappen **ström** i kolumnen **åtgärder** . 
+1. Vänta en stund. Noden stängs av och stängs av.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om status-led: ar och andra indikatorer [övervaka Azure FXT Edge Filer maskinvarustatus](fxt-monitor.md).
-* Läs mer om Azure FXT Edge Filer power på lämnar [ansluta strömkablar](fxt-network-power.md#connect-power-cables).
+* Läs om status lampor och andra indikatorer i [övervaka maskin varu status för Azure FXT Edge](fxt-monitor.md)-filer.
+* Läs mer om Azure FXT Edge-material med strömförsörjning i [ansluta ström kablar](fxt-network-power.md#connect-power-cables).

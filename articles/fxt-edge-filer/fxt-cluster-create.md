@@ -1,397 +1,397 @@
 ---
-title: Microsoft Azure FXT Edge Filer klustret har skapats
-description: Så här skapar du ett cachekluster för lagring av hybrid med Azure FXT Edge-Filer
+title: Microsoft Azure FXT Edge-kluster skapande
+description: Så här skapar du ett cache-kluster med hybrid Storage med Azure FXT Edge-filer
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 07/01/2019
-ms.author: v-erkell
-ms.openlocfilehash: 94ec2b088940f4f1f683a4f88ae312879d909bc1
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 54d70f60d4b7290b60c864817c756648fef1f481
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543579"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256081"
 ---
-# <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Självstudier: Skapa Filer för Azure FXT Edge-kluster
+# <a name="tutorial-create-the-azure-fxt-edge-filer-cluster"></a>Självstudie: Skapa Azure FXT Edge-kluster
 
-När du installerar och initiera maskinvarunoder Azure FXT Edge Filer för ditt cacheminne, använder du FXT klusterprogramvaran för att skapa cacheklustret. 
+När du har installerat och initierat Azure FXT Edge-filer för ditt cacheminne använder du kluster program varan FXT för att skapa cache-klustret. 
 
-Den här självstudien vägleder dig genom stegen för att konfigurera din maskinvarunoder som ett kluster. 
+Den här självstudien vägleder dig genom stegen för att konfigurera dina maskinvarukonfigurationer som ett kluster. 
 
 I den här kursen lär du dig: 
 
 > [!div class="checklist"]
 > * Vilken information som krävs innan du börjar skapa klustret
-> * Skillnaden mellan klustrets hanteringsnätverk, ett klusternätverk och klientinriktade nätverk
-> * Hur du ansluter till en klusternod 
-> * Så här skapar du ett första-kluster med en nod i Azure FXT Edge Filer
-> * Logga in i klustret på Kontrollpanelen för att konfigurera klusterinställningarna
+> * Skillnaden mellan klustrets hanterings nätverk, kluster nätverket och det klientbaserade nätverket
+> * Så här ansluter du till en klusternod 
+> * Så här skapar du ett första kluster med en Azure FXT Edge-nod
+> * Så här loggar du in på kluster kontroll panelen för att konfigurera kluster inställningarna
 
-Den här proceduren tar mellan 15 och 45 minuter beroende på hur mycket forskning som du behöver göra för att identifiera IP-adresser och nätverksresurser.
+Den här proceduren tar mellan 15 och 45 minuter, beroende på hur mycket forskning du behöver göra för att identifiera IP-adresser och nätverks resurser.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Slutföra förutsättningarna innan du påbörjar den här självstudiekursen:
+Slutför de här förutsättningarna innan du börjar den här självstudien:
 
-* Installera din Azure FXT Edge Filer maskinvarusystem i ditt datacenter 
+* Installera dina Azure FXT Edge-postsystem i ditt data Center 
 
-  Du behöver bara en nod för att skapa klustret, men du behöver [lägga till minst två noder](fxt-add-nodes.md) innan du kan konfigurera klustret och redo att använda. 
+  Du behöver bara en nod för att skapa klustret, men du måste [lägga till minst två noder](fxt-add-nodes.md) innan du kan konfigurera klustret och bli redo att använda. 
 
-* Anslut lämplig kraft och nätverk-kablar i systemet  
-* Starta minst en nod i Azure FXT Edge Filer och [Ställ in dess rotlösenordet](fxt-node-password.md)
+* Anslut lämpliga strömförsörjnings-och nätverks kablar till systemet  
+* Starta minst en Azure FXT Edge-nod och [Ange rot lösen ordet](fxt-node-password.md)
 
 ## <a name="gather-information-for-the-cluster"></a>Samla in information för klustret 
 
-Du behöver följande information för att skapa klustret Azure FXT Edge Filer:
+Du behöver följande information för att skapa Azure FXT Edge-kluster:
 
 * Klusternamn
 
-* Lösenordet för administratörer att ange för klustret
+* Administratörs lösen ord för att ange för klustret
 
 * IP-adresser:
 
-  * En IP-adress för hantering av kluster, och nätmask och router för hanteringsnätverket
-  * De första och sista IP-adresserna i ett sammanhängande intervall av IP-adresser för klusterkommunikation (nod till nod). Se [IP-adress-distribution](#ip-address-distribution)nedan för information. 
-  * (Klientinriktade IP-adresser anges när klustret har skapats.)
+  * En enda IP-adress för kluster hantering och nät masken och routern som ska användas för hanterings nätverket
+  * Den första och sista IP-adressen i ett sammanhängande intervall med IP-adresser för kluster (nod till nod)-kommunikation. Mer information finns i [IP-adress distribution](#ip-address-distribution)nedan. 
+  * (Klientbaserade IP-adresser anges när klustret har skapats.)
 
-* Information om nätverk infrastruktur:
+* Information om nätverks infrastruktur:
 
   * IP-adressen för en DNS-server för klustret
-  * Namnet på DNS-domän för klustret
-  * Namn eller IP-adress för klustret NTP-servrar (antingen en server eller tre eller fler) 
-  * Om du vill aktivera IEEE 802.1ax-2008 länka sammanställningar för klustrets gränssnitt
-  * Om du aktiverar Länkaggregering, om du använder IEEE 802.3ad (LACP) eller inte dynamisk sammansättning
+  * Namnet på DNS-domänen för klustret
+  * Namnet eller IP-adressen för klustrets NTP-servrar (antingen en server eller tre eller flera) 
+  * Om du vill aktivera IEEE 802.1 AX-2008 länk agg regering på klustrets gränssnitt
+  * Om du aktiverar länk agg regering, om du vill använda en dynamisk agg regering för IEEE 802.3 AD (LACP)
 
-Du kan konfigurera dessa nätverk infrastruktur när du skapar klustret, men det är bättre att göra det vid tidpunkten för skapandet. 
+Du kan konfigurera dessa objekt för nätverks infrastruktur efter att du har skapat klustret, men det är bättre att göra det när det skapas. 
 
-### <a name="ip-address-distribution"></a>IP-adress-distribution
+### <a name="ip-address-distribution"></a>IP-adress distribution
 
-Azure FXT Edge Filer hybrid lagringsklustret cache använder IP-adresser i tre kategorier:
+Azure FXT Edge-filer med hybrid Storage cache-kluster använder IP-adresser i tre kategorier:
 
-* Hantering av IP: En IP-adress för klusterhantering
+* Hanterings-IP: en enskild IP-adress för kluster hantering
 
-  Den här adressen fungerar som startpunkt för att få åtkomst till konfigurationsverktygen kluster (webbaserade Kontrollpanelen eller XML-RPC-API). Den här adressen tilldelas automatiskt till den primära noden i klustret och den flyttas automatiskt om den primära noden ändras.
+  Den här adressen fungerar som start punkt för att komma åt kluster konfigurations verktygen (den webbaserade kontroll panelen eller XML-RPC-API). Den här adressen tilldelas automatiskt till den primära noden i klustret och den flyttas automatiskt om den primära noden ändras.
 
-  Andra IP-adresser kan användas för åtkomst till Kontrollpanelen, men den IP-adressen för hantering har utformats för att ge åtkomst även om enskilda noder växlar över.
+  Andra IP-adresser kan användas för att få åtkomst till kontroll panelen, men hanterings-IP-adressen är utformad för att ge åtkomst även om enskilda noder växlar över.
 
-* Klusternätverk: Ett intervall med IP-adresser för klusterkommunikation
+* Kluster nätverk: ett intervall med IP-adresser för kluster kommunikation
 
-  Klusternätverket används för kommunikation mellan klusternoder och att hämta filer från serverdelslagring (core-filter).
+  Kluster nätverket används för kommunikation mellan klusternoder och för att hämta filer från Server dels lagringen (Core-filer).
 
-  **Rekommendation:** Tilldela en IP-adress per fysiska port som används för klusterkommunikation på varje nod i Azure FXT Edge Filer. Klustret tilldelar automatiskt adresser i det angivna intervallet till enskilda noder.
+  **Bästa praxis:** Allokera en IP-adress per fysisk port som används för kluster kommunikation på varje Azure FXT Edge-nod. Klustret tilldelar automatiskt adresserna i det angivna intervallet till enskilda noder.
 
-* Klientinriktade nätverk: Intervall med IP-adresser som klienter använder för begäran och skriva filer
+* Klient nätverk: det intervall med IP-adresser som klienter använder för att begära och skriva filer
 
-  Klienten nätverksadresser som används av klienter på dataåtkomst core filer i klustret. Till exempel kan en NFS-klient montera någon av dessa adresser.
+  Klientens nätverks adresser används av klienter för att komma åt kärn informationen i klustret. Till exempel kan en NFS-klient montera en av dessa adresser.
 
-  **Rekommendation:** Tilldela en IP-adress per fysiska port som används för klientkommunikation i varje FXT Series-nod.
+  **Bästa praxis:** Tilldela en IP-adress per fysisk port som används för klient kommunikation på varje FXT-serie nod.
 
-  Klustret distribuerar klientinriktade IP-adresser i dess ingående noder så jämnt som möjligt.
+  Klustret distribuerar IP-adresser som riktas mot klienter över dess ingående noder så jämnt som möjligt.
 
-  För enkelhetens skull konfigurera många administratörer ett enda DNS-namn med resursallokering DNS (RRDNS) konfiguration för att göra det enklare att distribuera klientbegäranden över adressintervallet. Den här konfigurationen kan också alla klienter använder samma mount-kommando för åtkomst till klustret. Läs [konfigurera DNS](fxt-configure-network.md#configure-dns-for-load-balancing) för mer information.
+  För enkelhetens skull konfigurerar många administratörer ett enda DNS-namn med Round-Robin DNS-konfiguration (RRDNS) för att göra det enklare att distribuera klient begär anden över adress intervallet. Den här inställningen gör det också möjligt för alla klienter att använda samma Mount-kommando för att komma åt klustret. Läs [Konfigurera DNS](fxt-configure-network.md#configure-dns-for-load-balancing) om du vill ha mer information.
 
-Hantering av IP-adress och en intervallet av nätverksadresser för klustret måste anges för att skapa ett nytt kluster. Klientinriktade adresser anges när klustret har skapats.
+Hanterings-IP-adressen och ett intervall med kluster nätverks adresser måste anges för att skapa ett nytt kluster. Klienternas adresser anges efter att klustret har skapats.
 
-## <a name="connect-to-the-first-node"></a>Ansluta till den första noden
+## <a name="connect-to-the-first-node"></a>Anslut till den första noden
 
-Du kan ansluta till någon av de installera FXT noderna och använda dess OS-programmet för att konfigurera klustret.
+Du kan ansluta till någon av de installerade FXT-noderna och använda dess OS-programvara för att konfigurera klustret.
 
-Om du inte redan har gjort det, ström på minst en av noderna FXT för klustret, och kontrollera att den har en nätverksanslutning och en IP-adress. Du måste ange ett nytt rotlösenord för att aktivera noden, så Följ stegen i [ange maskinvara lösenord](fxt-node-password.md) om du inte redan har gjort.
+Om du inte redan har gjort det, kan du sätta på minst en av FXT-noderna för klustret och kontrol lera att den har en nätverks anslutning och en IP-adress. Du måste ange ett nytt rot lösen ord för att aktivera noden, så följ stegen i [Ange maskin varu lösen ord](fxt-node-password.md) om du inte redan har gjort det.
 
-Se till att nodens nätverkslänken led: ar belyses (och eventuellt indikatorer på nätverket växla till som den är ansluten) om du vill kontrollera nätverksanslutningen. Övervakningsindikatorer beskrivs i [övervaka Azure FXT Edge Filer maskinvarustatus](fxt-monitor.md).
+Kontrol lera nätverks anslutningen genom att se till att nodens indikatorer för nätverks länken är upplysta (och vid behov indikatorer på nätverks växeln som den är kopplad till). Indikator lampor beskrivs i [övervaka maskin varu status för Azure FXT Edge](fxt-monitor.md)-filer.
 
-När noden startar den kommer att begära en IP-adress. Om den är ansluten till en DHCP-server, godkänner IP-adress har angetts via DHCP. (Den här IP-adressen är tillfällig. Den ändras när du skapar klustret.)
+När noden startas, kommer den att begära en IP-adress. Om den är ansluten till en DHCP-server godkänner den IP-adressen som tillhandahålls av DHCP. (Den här IP-adressen är tillfällig. Det kommer att ändras när du skapar klustret.)
 
-Om den inte är ansluten till en DHCP-server eller ett svar inte emot använder noden Bonjour programvara för att ange en egen tilldelade IP-adress i formatet 169.254. \*. \*. Dock bör du ange en tillfällig statisk IP-adress på en av nodens nätverkskort innan du använder det för att skapa ett kluster. Instruktioner finns i den här äldre dokumentet. Kontakta Microsoft Service och Support för uppdaterad information: [Bilaga A: Ange en statisk IP-adress på en nod FXT](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
+Om den inte är ansluten till en DHCP-server eller inte får något svar, använder noden Bonjour-programvara för att ange en självtilldelad IP-adress i formatet 169,254. \*. \*. Du bör dock ange en tillfällig statisk IP-adress på en av nodens nätverkskort innan du använder den för att skapa ett kluster. Instruktioner finns i det äldre dokumentet. Kontakta Microsofts tjänst och support för uppdaterad information: [bilaga A: Ange en statisk IP-adress på en FXT-nod](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
 
-### <a name="find-the-ip-address"></a>Hitta IP-adress
+### <a name="find-the-ip-address"></a>Hitta IP-adressen
 
-Ansluta till noden Azure FXT Edge Filer att hitta dess IP-adress. Du kan använda en seriekabel direkt anslutning till USB- och VGA-portar, eller ansluta via en KVM-växel. (Portanslutning information finns i [Ange inledande lösenord](fxt-node-password.md).)
+Anslut till noden Azure FXT Edge-filer för att hitta dess IP-adress. Du kan använda en seriell kabel, direkt anslutning till USB-och VGA-portarna eller ansluta via en KVM-växel. (Information om port anslutning finns i [Ange initiala lösen ord](fxt-node-password.md).)
 
-När du ansluter kan logga in med användarnamnet `root` och lösenordet som du angav när du startade noden för första gången.  
+När du har anslutit loggar du in med användar namnet `root` och lösen ordet som du angav när du startade noden för första gången.  
 
-Efter inloggningen måste du bestämma nodens IP-adress.
+När du har loggat in måste du bestämma nodens IP-adress.
 
-Använd kommandot `ifconfig` att se de adresserna som tilldelats till det här systemet.
+Använd kommandot `ifconfig` om du vill se de adresser som har tilldelats systemet.
 
-Till exempel kommandot `ifconfig | grep -B5 inet` söker efter portar med internet-adresser och ger fem rader med kontext för att visa identifieraren.
+Till exempel kan kommandot `ifconfig | grep -B5 inet` söka efter portar med Internet adresser och ger fem olika kontexter för att Visa port identifieraren.
 
-Anteckna IP-adresser visas i ifconfig-rapporten. Adresser som visas i listan med portnamn som e0a eller e0b alternativen är bra. Använd inte alla IP-adresser som visas i listan med e7 * namn, eftersom dessa namn används bara för iDRAC/IPMI tjänstportar.  
+Skriv ned alla IP-adresser som visas i ifconfig-rapporten. Adresser i listan med port namn som e0a eller e0b är lämpliga alternativ. Använd inte några IP-adresser i listan med E7 *-namn eftersom dessa namn bara används för iDRAC/IPMI-tjänstens portar.  
 
-## <a name="load-the-cluster-configuration-wizard"></a>Läsa in guiden Konfigurera kluster
+## <a name="load-the-cluster-configuration-wizard"></a>Läs in kluster konfigurations guiden
 
-Använd konfigurationsverktyget webbläsarbaserade kluster för att skapa klustret. 
+Använd det webbläsarbaserade kluster konfigurations verktyget för att skapa klustret. 
 
-Ange IP-adressen för noden i en webbläsare. Om webbläsaren ger ett meddelande om webbplatsen är betrodd, fortsätter du till webbplatsen ändå. (Noder för enskilda Azure FXT Edge Filer har inte CA-angivna säkerhetscertifikat.)
+Ange IP-adressen för noden i en webbläsare. Om webbläsaren visar ett meddelande om att webbplatsen inte är betrodd fortsätter du till platsen. (Enskilda Azure FXT Edge-noder har inte CA-angivna säkerhetscertifikat.)
 
-![Kontrollpanelen på inloggningssidan i webbläsarfönster](media/fxt-cluster-create/unconfigured-node-gui.png)
+![Kontroll panelens inloggnings sida i webbläsarfönstret](media/fxt-cluster-create/unconfigured-node-gui.png)
 
-Lämna den **användarnamn** och **lösenord** fält tomt. Klicka på **inloggning** att läsa in sidan för att skapa klustret.
+Lämna fälten **användar namn** och **lösen ord** tomma. Klicka på **Logga** in för att läsa in sidan klustret skapas.
 
-![Inledande konfiguration av företagsåtkomst för en Okonfigurerade nod webbläsarbaserade GUI på Kontrollpanelen. Den visar alternativ för att uppdatera programvara, konfigurera ett kluster manuellt eller konfigurera ett kluster från en installationsfil.](media/fxt-cluster-create/setup-first-screen.png)
+![Första installations skärmen för en ej konfigurerad nod i den webbläsarbaserade GUI-Kontrollpanelen. Det visar alternativ för att uppdatera program vara, konfigurera ett kluster manuellt eller konfigurera ett kluster från en installations fil.](media/fxt-cluster-create/setup-first-screen.png)
 
 ## <a name="create-the-cluster"></a>Skapa klustret
 
-Kluster-konfigurationsverktyget vägleder dig genom en uppsättning skärmar för att skapa klustret Azure FXT Edge Filer. Kontrollera att du har den [nödvändig information](#gather-information-for-the-cluster) redo innan du börjar. 
+Kluster konfigurations verktyget vägleder dig genom en uppsättning skärmar för att skapa Azure FXT Edge-klustret. Kontrol lera att du har [nödvändig information](#gather-information-for-the-cluster) som är klar innan du startar. 
 
 ### <a name="creation-options"></a>Alternativ för att skapa
 
-Den första skärmen finns tre alternativ. Använd alternativet för manuell konfiguration om du inte har särskilda instruktioner från supportpersonalen.
+Den första skärmen innehåller tre alternativ. Använd alternativet Manuell konfiguration om du inte har särskilda instruktioner från support personalen.
 
-Klicka på **jag konfigurerar klustret manuellt** att läsa in det nya klustret alternativ konfigurationsskärmen. 
+Klicka på **Jag konfigurerar klustret manuellt** för att läsa in den nya sidan kluster konfigurations alternativ. 
 
 De andra alternativen används sällan:
 
-* ”Uppdatera en operativsystemavbildning” uppmanas du att installera nya OS-programvara innan du skapar klustret. (Den aktuella installerade programvaruversionen visas överst på skärmen.) Du måste ange paketfilen programvara – antingen en URL och användarnamn/lösenord eller genom att överföra en fil från datorn. 
+* "Uppdatera system avbildningen" kräver att du installerar nya OS-program innan du skapar klustret. (Den aktuella installerade program versionen visas överst på skärmen.) Du måste ange programpaket filen – antingen en URL och ett användar namn/lösen ord, eller genom att ladda upp en fil från datorn. 
 
-* Klustret filen installationsalternativet används ibland av Microsofts kundservice och Support. 
+* Alternativet kluster installations fil används ibland av Microsofts kund tjänst och support. 
 
-## <a name="cluster-options"></a>Klusteralternativ
+## <a name="cluster-options"></a>Kluster alternativ
 
-Nästa sida uppmanas du att konfigurera alternativ för det nya klustret.
+På nästa skärm uppmanas du att konfigurera alternativ för det nya klustret.
 
-Sidan är uppdelad i två huvudavsnitt **grundkonfiguration** och **nätverkskonfiguration**. Konfigurationsavsnittet nätverk har också underavsnitt: en för den **Management** nätverk och en för den **kluster** nätverk.
+Sidan är indelad i två huvud avsnitt, **grundläggande konfiguration** och **nätverks konfiguration**. Avsnittet nätverks konfiguration innehåller också underavsnitt: ett för **hanterings** nätverket och ett för **kluster** nätverket.
 
 ### <a name="basic-configuration"></a>Grundläggande konfiguration
 
-I det översta avsnittet fyller du i grundläggande information för det nya klustret.
+I det övre avsnittet fyller du i grundläggande information för det nya klustret.
 
-![Information om ”grundläggande” konfigurationsavsnittet i Webbläsarsida GUI. Den visar tre fält (klustrets namn, administratörslösenord, bekräfta lösenord)](media/fxt-cluster-create/basic-configuration.png) 
+![Information om avsnittet grundläggande konfiguration i webb läsar sidans GUI-sida. Det visar tre fält (kluster namn, administratörs lösen ord, bekräfta lösen ord)](media/fxt-cluster-create/basic-configuration.png) 
 
-* **Klusternamn** -ange ett unikt namn för klustret.
+* **Kluster namn** – ange ett unikt namn för klustret.
 
-  Klusternamnet måste uppfylla följande kriterier:
+  Kluster namnet måste uppfylla följande kriterier:
   
-  * Längden på 1 och 16 tecken
-  * Kan innehålla bokstäver, siffror och bindestreck (-) och understreck (_) 
+  * Längden på 1 till 16 tecken
+  * Kan innehålla bokstäver, siffror och bindestreck (-) och under streck (_) 
   * Får inte innehålla andra skiljetecken eller specialtecken
   
-  Du kan ändra det här namnet senare på den **kluster** > **allmänna installationsalternativ** konfigurationssidan. (Mer information om inställningarna för den [kluster konfigurationsguide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), som inte är en del av den här dokumentationsuppsättningen.)
+  Du kan ändra det här namnet senare på sidan konfiguration av **kluster** > **allmän** konfiguration. (Mer information om kluster inställningarna finns i [guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html), som inte ingår i den här dokumentationen.)
 
   > [!NOTE] 
-  > Klusternamnet används för att identifiera systeminformation som laddats upp för att ge stöd för övervakning och felsökning, så är det bra att inkludera namnet på ditt företag.
+  > Kluster namnet används för att identifiera system information som har överförts till stöd för övervakning eller fel sökning, så det är användbart att inkludera ditt företags namn.
 
-* **Adminlösenord** -ange lösenordet för den administrativa användaren i standard `admin`.
+* **Administratörs lösen ord** – ange lösen ordet för den administrativa standard användaren `admin`.
   
-  Du bör konfigurera enskilda användarkonton för varje person som administrerar klustret, men du kan inte ta bort användaren `admin`. Logga in som `admin` om du vill skapa ytterligare användare.
+  Du bör konfigurera enskilda användar konton för varje person som administrerar klustret, men du kan inte ta bort användaren `admin`. Logga in som `admin` om du behöver skapa ytterligare användare.
  
-  Du kan ändra lösenordet för `admin` i den **Administration** > **användare** inställningssidan i klustret på Kontrollpanelen. Mer information finns i **användare** dokumentationen i den [kluster konfigurationsguide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
+  Du kan ändra lösen ordet för `admin` på sidan **Administration** > **användar** inställningar i kluster kontroll panelen. Mer information finns i dokumentationen för **användare** i [guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_users.html).
 
 <!-- to do: update "legacy" URLs when docs are ported to Microsoft site -->
 
 ### <a name="network-configuration"></a>Nätverkskonfiguration
 
-Den **nätverk** avsnittet uppmanas du att ange nätverksinfrastrukturen som klustret ska använda. 
+I avsnittet **nätverk** uppmanas du att ange vilken nätverks infrastruktur som ska användas i klustret. 
 
-Det finns två separata nätverk för att konfigurera:
+Det finns två separata nätverk att konfigurera:
 
-* Den *hanteringsnätverket* ger administratören tillgång till klustret för konfiguration och övervakning. IP-adressen som anges här används när du ansluter till Kontrollpanelen eller för SSH-åtkomst. 
+* *Hanterings nätverket* ger administratörs åtkomst till klustret för konfiguration och övervakning. Den IP-adress som anges här används vid anslutning till kontroll panelen eller för SSH-åtkomst. 
 
-  De flesta kluster använda endast en enda IP-adress för hantering, men om du vill lägga till gränssnitt kan du göra det när du har skapat klustret.
+  De flesta kluster använder bara en enda hanterings-IP-adress, men om du vill lägga till gränssnitt kan du göra det när du har skapat klustret.
 
-* Den *klusternätverk* används för kommunikation mellan klusternoder och mellan klusternoder och backend-lagring (core-filter).
+* *Kluster nätverket* används för kommunikation mellan klusternoder och mellan klusternoder och backend-lagring (Core-filer).
 
-Klientinriktade nätverket konfigureras senare, när klustret har skapats.
+Klient nätverks nätverket konfigureras senare efter att klustret har skapats.
 
-Det här avsnittet innehåller även konfigurationen för DNS- och NTP-servrar som används av båda nätverken.
+Det här avsnittet innehåller också konfiguration för DNS-och NTP-servrar som används av båda nätverken.
 
-### <a name="configure-the-management-network"></a>Konfigurera hanteringsnätverket
+### <a name="configure-the-management-network"></a>Konfigurera hanterings nätverket
 
-Inställningarna i den **Management** avsnittet avser det nätverk som tillhandahåller administratörsåtkomst till klustret.
+Inställningarna i avsnittet **hantering** är för det nätverk som ger administratörs åtkomst till klustret.
 
-![information om ”Management”-avsnittet, med fält för 5 alternativ och en kryssruta för 1Gb hanteringsnätverket](media/fxt-cluster-create/management-network-filled.png)
+![detaljerad information om avsnittet "hantering" med fält för 5 alternativ och en kryss ruta för 1 GB hanterings nätverk](media/fxt-cluster-create/management-network-filled.png)
 
-* **Hantering av IP** -IP-adressen som du använder för att få åtkomst till klustret på Kontrollpanelen. Den här adressen kommer att krävas av klustrets primära noden, men den flyttas automatiskt till en felfri nod om den ursprungliga primära noden blir otillgänglig.
+* **Hanterings-IP** – ange den IP-adress som du ska använda för att få åtkomst till kluster kontroll panelen. Den här adressen kommer att begäras av klustrets primära nod, men den flyttas automatiskt till en felfri nod om den ursprungliga primära noden blir otillgänglig.
 
-  De flesta kluster använda endast en IP-adress för hantering. Om du vill ha mer än en, du kan lägga till dem när du har skapat klustret med hjälp av den **kluster** > **administrativa nätverket** inställningssidan. Läs mer i den [kluster konfigurationsguide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html).
+  De flesta kluster använder bara en IP-adress för hantering. Om du vill ha mer än en kan du lägga till dem när du har skapat klustret med hjälp av **kluster** >  sidan Inställningar för**Administration av nätverk** . Läs mer i [guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html).
 
-* **Nätmask** – ange nätmasken för hanteringsnätverket.
+* **Nätmask** – ange nät masken för hanterings nätverket.
 
-* **Router** -Ange standard-gateway-adress som används av hanteringsnätverket.
+* **Router** – ange den standardgateway-adress som används av hanterings nätverket.
 
-* **VLAN-tagg (valfritt)** – om klustret använder VLAN-taggar, ange taggen för hanteringsnätverket.
+* **VLAN-tagg (valfritt)** – om klustret använder VLAN-Taggar anger du taggen för hanterings nätverket.
 
-  Ytterligare VLAN-inställningar har konfigurerats i den **kluster** > **VLAN** inställningssidan. Läs [arbeta med VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) och [kluster > VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vlan.html) i klustret konfigurationsguide vill veta mer.
+  Ytterligare VLAN-inställningar konfigureras på sidan **kluster** > **VLAN** -inställningar. Läs mer om hur du [arbetar med VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/network_overview.html#vlan-overview) och [kluster > VLAN](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vlan.html) i kluster konfigurations guiden.
 
-* **MTU** – om det behövs justera den högsta överföringsenheten (MTU) för hantering av klusternätverk.
+* **MTU** – om det behövs justerar du den högsta överförings enheten (MTU) för klustrets hanterings nätverk.
 
-* **Använd 1Gb mgmt nätverk** – den här kryssrutan om du vill tilldela två 1GbE nätverket portar på dina FXT noder till hanteringsnätverket endast. (Du måste ha 25GbE/10 GbE-portar som är tillgängliga för all annan trafik.) Om du inte markerar kryssrutan, använder hanteringsnätverket det högsta hastighet portnummer som är tillgängliga. 
+* **Använd 1 GB hanterings nätverk** – Markera den här kryss rutan om du vill tilldela de två 1GbE-nätverks portarna på dina FXT-noder enbart till hanterings nätverket. (Du måste ha 25GbE-eller 10 ports portar tillgängliga för all annan trafik.) Om du inte markerar den här kryss rutan använder hanterings nätverket den högsta tillgängliga hastighets porten. 
 
-### <a name="configure-the-cluster-network"></a>Konfigurera klusternätverket 
+### <a name="configure-the-cluster-network"></a>Konfigurera kluster nätverket 
 
-Nätverksinställningarna för klustret gäller för trafik mellan noder i klustret och mellan klusternoder och core filter.
+Kluster nätverks inställningarna gäller för trafik mellan klusternoderna och mellan klusternoder och Core-filer.
 
-![information om ”kluster”-avsnittet, med fält som ska ange sex värden](media/fxt-cluster-create/cluster-network-filled.png)
+![information om "kluster"-avsnittet med fält för att ange sex värden](media/fxt-cluster-create/cluster-network-filled.png)
 
-* **Första IP-Adressen** och **senaste IP** – ange de IP-adresser som definierar adressintervallet som ska användas för intern klusterkommunikation. IP-adresser som används här måste vara sammanhängande och inte tilldelad av DHCP.
+* **Första IP** -adress och **sista IP** -ange de IP-adresser som definierar intervallet som ska användas för intern kluster kommunikation. De IP-adresser som används här måste vara sammanhängande och inte tilldelas av DHCP.
 
-  Du kan lägga till fler IP-adresser när du har skapat klustret. Använd den **kluster** > **klusternätverk** inställningssidan ([kluster konfigurationsguide dokumentation](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)).
+  Du kan lägga till fler IP-adresser när du har skapat klustret. Använd inställnings sidan **kluster**nätverk  > **kluster nätverk** ([dokumentation om kluster konfigurations guiden](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_networks.html#gui-cluster-networks)).
 
-  Värdet i **tal med IP-adresser i intervallet** beräknas och visas automatiskt.
+  Värdet i **antal IP-adresser i intervallet** beräknas och visas automatiskt.
 
-* **Icke-mgmt-nätmask (valfritt)** – ange nätmasken för ett klusternätverk. 
+* **Icke-hantering av nätmask (valfritt)** – ange nät masken för kluster nätverket. 
 
-  Systemet föreslår automatiskt nätmaskvärdet för som du angav för hanteringsnätverket; ändra det om det behövs.
+  Systemet föreslår automatiskt det netmask-värde som du angav för hanterings nätverket. ändra det om det behövs.
 
-* **Kluster-router (valfritt)** -ange standardgatewayadressen som används av nätverket för klustret. 
+* **Cluster router (valfritt)** – ange den standardgateway-adress som används av kluster nätverket. 
 
-  Systemet föreslår automatiskt samma gatewayadress som du angav för hanteringsnätverket.
+  Systemet föreslår automatiskt samma Gateway-adress som du angav för hanterings nätverket.
 
-* **Kluster-VLAN-tagg (valfritt)** – om klustret använder VLAN-taggar, ange taggen för nätverket för klustret.
+* **Kluster-VLAN-tagg (valfritt)** – om klustret använder VLAN-Taggar anger du taggen för kluster nätverket.
 
-* **Icke-mgmt-MTU (valfritt)** – om det behövs justera maximal överföringsenhet (MTU) för ditt klusternätverk.
+* **Icke-hanterings-MTU (valfritt)** – om det behövs justerar du den högsta överförings enheten (MTU) för kluster nätverket.
 
-### <a name="configure-cluster-dns-and-ntp"></a>Konfigurera DNS-och NTP 
+### <a name="configure-cluster-dns-and-ntp"></a>Konfigurera kluster-DNS och NTP 
 
-Under den **kluster** avsnittet det finns fält för att ange DNS- och NTP-servrar och för att aktivera Länkaggregering. Dessa inställningar gäller för alla nätverk som klustret använder.
+Under **kluster** avsnittet finns det fält för att ange DNS-och NTP-servrar och för att aktivera länk agg regering. De här inställningarna gäller för alla nätverk som används i klustret.
 
-![Detalj i avsnittet för DNS-/ NTP-konfiguration, med tre fält för DNS-servrar, fält för DNS-domän och DNS-sökning, tre fält för NTP-servrar, och en nedrullningsbar meny för aggregering Länkalternativen](media/fxt-cluster-create/dns-ntp-filled.png)
+![Avsnitt för DNS-/NTP-konfiguration, med tre fält för DNS-servrar, fält för DNS-domän och DNS-sökning, tre fält för NTP-servrar och en nedrullningsbar meny för länk agg regerings alternativ](media/fxt-cluster-create/dns-ntp-filled.png)
 
-* **DNS-servrar** – ange IP-adressen för en eller flera domain name system DNS-servrar.
+* **DNS** -servrar – Ange IP-adressen till en eller flera DNS-servrar (Domain Name System).
 
-  DNS är rekommenderas för alla kluster och krävs om du vill använda SMB, AD- eller Kerberos. 
+  DNS rekommenderas för alla kluster och krävs om du vill använda SMB, AD eller Kerberos. 
   
-  För optimala prestanda, konfigurera klustrets DNS-server för belastningsutjämning (round-robin) enligt beskrivningen i [konfigurera DNS för Azure FXT Edge Filer klustret](fxt-configure-network.md#configure-dns-for-load-balancing).
+  För bästa prestanda konfigurerar du klustrets DNS-server för belastnings utjämning med resursallokering enligt beskrivningen i [Konfigurera DNS för Azure FXT Edge-kluster](fxt-configure-network.md#configure-dns-for-load-balancing).
 
-* **DNS-domän** -ange domännamnet nätverk i klustret ska använda.
+* **DNS-domän** – ange det nätverks domän namn som klustret ska använda.
 
-* **DNS-sökning** – du kan också ange ytterligare domännamn som systemet ska söka för att matcha DNS-frågor. Du kan lägga till upp till sex domännamn, avgränsade med blanksteg.
+* **DNS-sökning** – alternativt kan du ange ytterligare domän namn som systemet ska söka efter för att lösa DNS-frågor. Du kan lägga till upp till sex domän namn, avgränsade med blank steg.
 
-* **NTP-servrar** -ange ett eller tre network time protocol (NTP) servrar i fälten. Du kan använda värdnamn eller IP-adresser.
+* **NTP** -servrar – Ange antingen en eller tre NTP-servrar (Network Time Protocol) i de angivna fälten. Du kan använda värdnamn eller IP-adresser.
 
-* **Länka aggregering** -Link aggregation kan du anpassa hur ethernet-portar på noderna i FXT hanterar olika typer av trafik. Mer information, [Link Aggregation](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_general_setup.html#link-aggregation) i konfigurationsguiden för klustret.
+* Med **länk agg regering** – länk agg regering kan du anpassa hur Ethernet-portarna på klustrets FXT-noder hanterar olika typer av trafik. Om du vill veta mer kan du läsa [länk agg regering](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_cluster_general_setup.html#link-aggregation) i guiden kluster konfiguration.
 
-### <a name="click-the-create-button"></a>Klicka på Skapa
+### <a name="click-the-create-button"></a>Klicka på knappen Skapa
 
-När du har angett alla nödvändiga inställningar i formuläret klickar du på den **Skapa kluster** knappen.
+När du har angett alla nödvändiga inställningar i formuläret klickar du på knappen **skapa kluster** .
 
-![längst ned på ifyllda formuläret med markören över knappen Skapa längst ned till höger](media/fxt-cluster-create/create-cluster.png)
+![nederst i slutfört formulär med markör över knappen Skapa längst ned till höger](media/fxt-cluster-create/create-cluster.png)
 
-Ett meddelande visas när du skapade klustret.
+Systemet visar ett meddelande när klustret skapas.
 
-![klustret configuration statusmeddelande i webbläsaren: ”Noden FXT är nu att skapa klustret. Detta kan ta flera minuter. När klustret har skapats Besök den här länken om du vill slutföra konfigurationen ”. med hyperlänk på ”Gå till den här länken”](media/fxt-cluster-create/creating-message.png)
+![status meddelande för kluster konfiguration i webbläsaren: "FXT-noden skapar nu klustret. Detta tar flera minuter. När klustret har skapats kan du gå till den här länken för att slutföra konfigurationen. " med hyperlänk på "besök den här länken"](media/fxt-cluster-create/creating-message.png)
 
-Efter en liten stund kan du klicka på länken i meddelandet för att gå till Kontrollpanelen-klustret. (Den här länken tar dig till IP-adressen som du angav i **hantering IP**.) Det tar 15 sekunder till en minut för att länken ska aktiveras när du klickar på knappen Skapa. Om webbgränssnittet läses inte in, vänta flera sekunder och sedan klickar du på länken igen. 
+Efter en liten stund kan du klicka på länken i meddelandet för att gå till kluster kontroll panelen. (Den här länken tar dig till den IP-adress som du angav i **hanterings-IP**.) Det tar 15 sekunder till en minut innan länken aktive ras när du klickar på knappen Skapa. Om webb gränssnittet inte läses in väntar du flera sekunder och klickar sedan på länken igen. 
 
-Skapa kluster tar en minut eller mer, men du kan logga in på Kontrollpanelen när processen pågår. Det är normalt i Kontrollpanelen instrumentpanelssidan att visa varningar tills klusterskapningsprocessen har slutförts. 
+Skapande av kluster tar en minut eller mer, men du kan logga in på kontroll panelen medan processen pågår. Det är normalt att kontroll panelens instrument panels sida visar varningar tills kluster skapande processen har slutförts. 
 
-## <a name="open-the-settings-pages"></a>Öppna Inställningssidorna 
+## <a name="open-the-settings-pages"></a>Öppna inställnings sidorna 
 
-Du behöver anpassa konfigurationen för ditt nätverk och ett arbetsflöde när du har skapat klustret. 
+När du har skapat klustret måste du anpassa konfigurationen för ditt nätverk och arbets flöde. 
 
-Använda Kontrollpanelen Webbgränssnitt för att ställa in det nya klustret. Följ länken från skärmen med registreringsstatus ditt kluster skapas eller bläddra till hantering av IP-adressen som du angett för klustret.
+Använd kontroll panelens webb gränssnitt för att konfigurera det nya klustret. Följ länken från skärmen för att skapa ett kluster eller bläddra till den hanterings-IP-adress som du har angett i klustret.
 
-Logga in på webbgränssnitt med användarnamnet `admin` och lösenordet som du anger när du skapar klustret.
+Logga in på webb gränssnittet med användar namnet `admin` och det lösen ord som du angav när du skapade klustret.
 
-![webbläsaren och visar panelen inloggningen fält för kontroll](media/fxt-cluster-create/admin-login.png)
+![webbläsare som visar kontroll panelens inloggnings fält](media/fxt-cluster-create/admin-login.png)
 
-Kontrollpanelen öppnas och visar den **instrumentpanelen** sidan. Eftersom det är klar att skapa ett kluster, avmarkera alla varningsmeddelanden som visas.
+Kontroll panelen öppnas och sidan **instrument panel** visas. När klustret har skapats klart bör eventuella varnings meddelanden tas bort från visningen.
 
-Klicka på den **inställningar** fliken för att konfigurera klustret.
+Klicka på fliken **Inställningar** för att konfigurera klustret.
 
-På den **inställningar** fliken i vänster Sidopanel visas en meny med konfigurationssidor. Sidorna är ordnade efter kategori. Klicka på + eller - kontroll högst upp på kategorinamn för att visa eller dölja enskilda sidor.
+På fliken **Inställningar** visar den vänstra sid panelen en meny med konfigurations sidor. Sidorna är ordnade efter kategori. Klicka på + eller-kontrollen överst i kategori namnet för att expandera eller dölja enskilda sidor.
 
-![Inställningsfliken i Kontrollpanelen (i webbläsaren) med klustret > Allmänt-konfigurationssidan läses in](media/fxt-cluster-create/settings-tab-populated.png)
+![Fliken Inställningar på kontroll panelen (i webbläsaren) med kluster > sidan allmän installations sida har lästs in](media/fxt-cluster-create/settings-tab-populated.png)
 
-## <a name="cluster-setup-steps"></a>Steg för konfiguration av kluster
+## <a name="cluster-setup-steps"></a>Steg för kluster konfiguration
 
-I det här läget i processen är ditt kluster finns, men den har endast en nod, inga klientinriktade IP-adresser och ingen backend-lagring. Steg för ytterligare konfiguration krävs för att gå från ett nyskapat kluster till ett cache-system som är redo att hantera ditt arbetsflöde.
+I det här skedet finns klustret, men det har bara en nod, inga IP-adresser som riktas mot klienter och ingen backend-lagring. Ytterligare installations steg krävs för att gå från ett nytt kluster till ett cache-system som är redo att hantera ditt arbets flöde.
 
-### <a name="required-configuration"></a>Konfiguration som krävs
+### <a name="required-configuration"></a>Obligatorisk konfiguration
 
-Dessa steg behövs för de flesta eller alla kluster. 
+De här stegen behövs för de flesta eller alla kluster. 
 
-* Lägga till noder i klustret 
+* Lägg till noder i klustret 
 
-  Tre noder som är standard, men många produktionskluster har mer – upp till högst 24 noder.
+  Tre noder är standard, men många produktions kluster har mer upp till högst 24 noder.
 
-  Läs [lägger till klusternoder](fxt-add-nodes.md) att lära dig hur du lägger till andra Filer för Azure FXT Edge-enheter i ditt kluster och aktivera hög tillgänglighet.
+  Läs [Lägg till klusternoder](fxt-add-nodes.md) för att lära dig hur du lägger till andra Azure FXT Edge-enheter i klustret och aktiverar hög tillgänglighet.
 
-* Ange backend-lagring
+* Ange server dels lagring
 
-  Lägg till *viktiga filer* definitioner för varje backend-lagringssystemet som klustret ska använda. Läs [lägga till backend-lagring och konfigurera virtuella namnområde](fxt-add-storage.md#about-back-end-storage) vill veta mer.
+  Lägg till definitioner för *kärn* filer för varje server dels lagrings system som klustret ska använda. Läs [Lägg till Server dels lagring och konfigurera virtuell namnrymd](fxt-add-storage.md#about-back-end-storage) för mer information.
 
-* Konfigurera klientåtkomst och virtuella namnområdet 
+* Konfigurera klient åtkomst och det virtuella namn området 
 
-  Skapa minst en virtuell server (vserver) och tilldela den ett IP-adressintervall för klientdatorer som du använder. Du måste också konfigurera kluster-namnområdet (kallas ibland globala Namespace eller GN), ett virtuellt filsystem-funktion som du kan mappa backend-lagring exporter till virtuella sökvägar. Kluster-namnområde ger klienter en konsekvent och komma åt filsystemet struktur även om du växlar backend-lagringsmedia. Namnområdet kan också tillhandahålla en användarvänliga virtuell lagring hierarki för Azure Blob-behållare eller andra stöds molnobjektlagring.
+  Skapa minst en virtuell server (vserver) och tilldela den ett IP-adressintervall för klient datorer som ska användas. Du måste också konfigurera kluster namn området (kallas ibland globalt namn område eller GNS), en funktion för virtuella fil system som gör att du kan mappa Server dels lagrings export till virtuella sökvägar. Kluster namn området ger klienterna en konsekvent och tillgänglig fil system struktur även om du växlar Server dels lagrings medier. Namn området kan också tillhandahålla en användarvänlig virtuell lagrings-hierarki för Azure Blob-behållare eller annan moln objekts lagring som stöds.
 
-  Läs [konfigurera namnområdet](fxt-add-storage.md#configure-the-namespace) mer information. Det här steget omfattar:
-  * Skapa vservers
-  * Konfigurera vägkorsningar mellan nätverk-klienten visar och backend-lagring 
-  * Definiera vilka klient-IP hanteras adresser av varje vserver
+  Läs [Konfigurera namn området](fxt-add-storage.md#configure-the-namespace) för mer information. I det här steget ingår:
+  * Skapar vservers
+  * Konfigurera Knut punkter mellan klientens nätverks visning och Server dels lagring 
+  * Definiera vilka klient-IP-adresser som hanteras av varje vserver
 
   > [!Note] 
-  > Betydande planera rekommenderas innan du börjar konfigurera klustrets GN. Läs den [med hjälp av en Global Namespace](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) och [skapa och arbeta med VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers) avsnitt i konfigurationsguiden för klustret om du behöver hjälp.
+  > En betydande planering rekommenderas innan du börjar konfigurera klustrets GNS. Läs avsnittet [använda ett globalt namn område](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html) och [skapa och arbeta med VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers) avsnitt i guiden kluster konfiguration för att få hjälp.
 
-* [Justera nätverksinställningar](fxt-configure-network.md)
+* [Justera nätverks inställningar](fxt-configure-network.md)
 
-  Det finns flera nätverksrelaterade inställningar som ska verifieras eller som är anpassad efter ett nytt kluster. Läs [justera nätverksinställningar](fxt-configure-network.md) mer information om de här objekten:
+  Det finns flera nätverksrelaterade inställningar som bör verifieras eller anpassas för ett nytt kluster. Läs [Justera nätverks inställningar](fxt-configure-network.md) för information om dessa objekt:
 
-  * Verifiera DNS- och NTP-konfiguration 
-  * Konfigurera katalogtjänster, om det behövs 
-  * Konfigurera virtuella lokala nätverk
-  * Konfigurera proxy-servrar
-  * Att lägga till IP-adresser till ett klusternätverk
-  * Lagra krypteringscertifikat
+  * Verifierar DNS-och NTP-konfiguration 
+  * Konfigurera katalog tjänster, om det behövs 
+  * Konfigurera VLAN
+  * Konfigurera proxyservrar
+  * Lägga till IP-adresser i kluster nätverket
+  * Lagra krypterings certifikat
 
-* [Konfigurera stöd för övervakning](#enable-support)
+* [Konfigurera support övervakning](#enable-support)
 
-  Du måste acceptera sekretesspolicy för configuration tool och bör du konfigurera dina inställningar för överföring av support på samma gång.
+  Du måste acceptera sekretess policyn för konfigurations verktyget och du bör konfigurera inställningarna för överförings överföring på samma tidpunkt.
 
-  Klustret kan automatiskt ladda upp felsökning data om ditt kluster, inklusive statistik och felsökning filer. Dessa överföringar kan Microsofts kundservice och Support som ger bästa möjliga service. Du kan anpassa vad övervakas och välja att aktivera proaktiv support och felsökning fjärrtjänsten.  
+  Klustret kan automatiskt ladda upp fel söknings data om klustret, inklusive statistik och fel sökning av filer. De här överföringarna gör att Microsofts kund service och support tillhandahåller bästa möjliga tjänst. Du kan anpassa vad som övervakas och eventuellt aktivera förebyggande fel söknings tjänsten.  
 
 ### <a name="optional-configuration"></a>Valfri konfiguration
 
-Dessa steg krävs inte för alla kluster. De krävs för vissa typer av arbetsflöden eller för vissa format för hantering av kluster. 
+De här stegen krävs inte för alla kluster. De behövs för vissa typer av arbets flöden eller för vissa kluster hanterings format. 
 
-* Anpassa inställningar för noden
+* Anpassa Node-inställningar
 
-  Du kan ange nodnamn och konfigurera noden IPMI portar på ett kluster hela nivå eller individuellt. Om du konfigurerar inställningarna innan du lägger till noder i klustret, kan de nya noderna ta över inställningarna automatiskt när de ansluter. Alternativen beskrivs i dokumentet för äldre kluster skapas [Anpassa inställningar för noden](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
+  Du kan ange nodnamn och konfigurera nod-IPMI-portar på en nivå med hela klustret eller individuellt. Om du konfigurerar de här inställningarna innan du lägger till noder i klustret, kan de nya noderna hämta inställningarna automatiskt när de ansluter. Alternativen beskrivs i det äldre dokumentet för att skapa kluster [anpassar Node-inställningarna](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/config_node.html).
 
   > [!TIP]
-  > Viss dokumentation för den här produkten ännu inte finns tillgänglig på webbplatsen Microsoft Azure-dokumentationen. Länkar till den [kluster konfigurationsguide](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) och den äldre versionen av den [Guide för skapande av kluster](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) tar dig till en separat GitHub-värdbaserade webbplats. 
+  > Viss dokumentation för den här produkten är ännu inte tillgänglig på Microsoft Azure dokumentations webbplats. Länkar till [guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/ops_conf_index.html) och den äldre versionen av [guiden skapa kluster](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/create_index.html) tar dig till en separat GitHub-värd webbplats. 
 
 * Konfigurera SMB
 
-  Om du vill tillåta SMB-åtkomst till ditt kluster, samt NFS, måste du konfigurera SMB och aktivera den. SMB (kallas ibland CIFS) används vanligtvis för Microsoft Windows-klienter.
+  Om du vill tillåta SMB-åtkomst till klustret samt NFS måste du konfigurera SMB och aktivera det. SMB (ibland kallat CIFS) används vanligt vis för att stödja Microsoft Windows-klienter.
 
-  Planera och konfigurera SMB innebär att mer än att klicka på några knappar i Kontrollpanelen. Beroende på systemkrav, SMB kan påverka hur du definierar core filter, hur många vservers som du skapar, hur du konfigurerar din vägkorsningar och namnrymd, behörigheter och andra inställningar.
+  Planering och konfiguration av SMB omfattar mer än att klicka på några knappar på kontroll panelen. Beroende på system kraven kan SMB påverka hur du definierar Core-, hur många vservers du skapar, hur du konfigurerar dina Knut punkter och namn område, åtkomst behörigheter och andra inställningar.
 
-  Mer information finns i konfigurationsguiden för klustret [konfigurera SMB-åtkomst](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/smb_overview.html) avsnittet.
+  Mer information finns i konfigurations guiden för kluster [Konfigurera SMB-åtkomst](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/smb_overview.html) .
 
 * Installera ytterligare licenser
 
-  Om du vill använda molnlagring än Azure Blob, måste du installera en ytterligare funktion-licens. Kontakta din Microsoft-representant för mer information om hur du köper en FlashCloud<sup>TM</sup> licens. Information om beskrivs i [lägga till backend-lagring och konfigurera virtuella namnområde](fxt-add-storage.md#about-back-end-storage).
+  Om du vill använda en annan moln lagring än Azure Blob måste du installera en ytterligare funktions licens. Kontakta din Microsoft-representant om du vill ha mer information om att köpa en FlashCloud<sup>TM</sup> -licens. Information beskrivs i [Lägg till backend-lagring och konfigurera virtuell namnrymd](fxt-add-storage.md#about-back-end-storage).
 
 
-### <a name="enable-support"></a>Aktivera stöd för
+### <a name="enable-support"></a>Aktivera stöd
 
-Azure FXT Edge Filer klustret kan automatiskt ladda upp supportinformation om ditt kluster. Dessa överföringar kan personal som ger bästa möjliga kundservice.
+Azure FXT Edge-klustret kan automatiskt överföra support data om klustret. De här överföringarna gör att personalen ger bästa möjliga kund tjänst.
 
-Följ dessa steg för att konfigurera stöd för överföringar.
+Följ de här stegen för att konfigurera support överföringar.
 
-1. Navigera till den **kluster** > **Support** inställningssidan. Godkänn sekretesspolicyn. 
+1. Gå till sidan för **kluster** > **support** inställningar. Godkänn sekretess policyn. 
 
-   ![Skärmbild som visar på Kontrollpanelen och popup-fönster med bekräfta-knappen för att acceptera sekretesspolicy](media/fxt-cluster-create/fxt-privacy-policy.png)
+   ![Skärm bild som visar kontroll panelen och popup-fönstret med knappen Bekräfta för att godkänna sekretess policyn](media/fxt-cluster-create/fxt-privacy-policy.png)
 
-1. Klicka på triangeln till vänster om **kundinformation** att expandera avsnittet.
-1. Klicka på den **Revalidate överföringsinformation** knappen.
-1. Ange klusternamnet stöd i **unika klusternamnet** – Kontrollera att den identifierar ditt kluster för att stödja personal.
-1. Markera kryssrutorna för **statistik övervakning**, **allmän Information överför**, och **krascha ladda upp Information**.
+1. Klicka på triangeln till vänster om **kund information** för att expandera avsnittet.
+1. Klicka på knappen **Verifiera om upload information** .
+1. Ange klustrets support namn i **unikt kluster namn** – se till att det unikt identifierar klustret så att det stöder personal.
+1. Markera kryss rutorna för **statistik övervakning**, **allmän informations uppladdning**och **krasch informations uppladdning**.
 1. Klicka på **Skicka**.  
 
-   ![Skärmbild som innehåller slutfört kunden info-avsnittet i inställningssidan för support](media/fxt-cluster-create/fxt-support-info.png)
+   ![Skärm bild som innehåller avsnittet om slutförd kund information på sidan support inställningar](media/fxt-cluster-create/fxt-support-info.png)
 
-1. Klicka på triangeln till vänster om **skydda proaktiv Support (Service Pack)** att expandera avsnittet.
-1. Markera kryssrutan för **aktivera Service Pack-länk**.
+1. Klicka på triangeln till vänster om **Secure proactive support (SPS)** för att expandera avsnittet.
+1. Markera kryss rutan **Aktivera SPS-länk**.
 1. Klicka på **Skicka**.
 
-   ![Skärmbild som innehåller slutfört skydda proaktiv stöder avsnittet på inställningssidan för support](media/fxt-cluster-create/fxt-support-sps.png)
+   ![Skärm bild som innehåller ett slutfört Secure proactive support-avsnitt på sidan stöd inställningar](media/fxt-cluster-create/fxt-support-sps.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har skapat grundläggande klustret och accepterat sekretesspolicy, lägga till resten av noderna i klustret. 
+När du har skapat det grundläggande klustret och godkänt sekretess policyn lägger du till resten av klusternoderna. 
 
 > [!div class="nextstepaction"]
 > [Lägga till klusternoder](fxt-add-nodes.md)

@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.service: container-service
 ms.topic: article
 ms.date: 05/08/2019
-ms.openlocfilehash: 86875643950e11f1e5030676c1ab3825039749ed
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 8f7349310f72c8cccc7b1906239ece3038dd7861
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203534"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249220"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Vanliga frågor och svar om Azure Red Hat
 
@@ -39,7 +39,7 @@ Nej. Men du kan ansluta ett Azure Red Hat OpenShift-kluster till ett befintligt 
 
 ## <a name="what-cluster-operations-are-available"></a>Vilka kluster åtgärder är tillgängliga?
 
-Du kan bara skala upp eller ned antalet datornoder. Inga andra ändringar tillåts för resursen när `Microsoft.ContainerService/openShiftManagedClusters` den har skapats. Det maximala antalet datornoder är begränsat till 20.
+Du kan bara skala upp eller ned antalet datornoder. Inga andra ändringar tillåts för resursen `Microsoft.ContainerService/openShiftManagedClusters` när den har skapats. Det maximala antalet datornoder är begränsat till 20.
 
 ## <a name="what-virtual-machine-sizes-can-i-use"></a>Vilka storlekar för virtuella datorer kan jag använda?
 
@@ -59,7 +59,7 @@ Nej, inte vid aktuell tid.
 
 ## <a name="is-the-docker-registry-available-externally-so-i-can-use-tools-such-as-jenkins"></a>Är Docker-registret tillgängligt externt så att jag kan använda verktyg som Jenkins?
 
-Docker-registret är tillgängligt `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` , men det finns ingen stark garanti för lagrings utrymme. Du kan också använda [Azure Container Registry](https://azure.microsoft.com/services/container-registry/).
+Docker-registret är tillgängligt från `https://docker-registry.apps.<clustername>.<region>.azmosa.io/` men det finns ingen stark garanti för lagring av lagrings utrymme. Du kan också använda [Azure Container Registry](https://azure.microsoft.com/services/container-registry/).
 
 ## <a name="is-cross-namespace-networking-supported"></a>Stöds anslutningar mellan namnrymder?
 
@@ -71,7 +71,7 @@ Ja. En administratör med en Red Hat OpenShift-administratör kan hantera använ
 
 ## <a name="can-i-restrict-a-cluster-to-only-certain-azure-ad-users"></a>Kan jag begränsa ett kluster till endast vissa Azure AD-användare?
 
-Ja. Du kan begränsa vilka Azure AD-användare som kan logga in i ett kluster genom att konfigurera Azure AD-programmet. Mer information finns i [How to: Begränsa din app till en uppsättning användare](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
+Ja. Du kan begränsa vilka Azure AD-användare som kan logga in i ett kluster genom att konfigurera Azure AD-programmet. Mer information finns i så här gör du för att [: begränsa appen till en uppsättning användare](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users)
 
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>Kan ett kluster ha Compute-noder över flera Azure-regioner?
 
@@ -85,15 +85,15 @@ Nej. Alla resurser, inklusive kluster huvud, körs i din kund prenumeration. De 
 
 Ja. Du kan använda OSBA med Azure Red Hat OpenShift. Mer information finns i [öppna Service Broker för Azure](https://github.com/Azure/open-service-broker-azure#openshift-project-template) .
 
-## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Jag försöker att peer-koppla till ett virtuellt nätverk i en annan prenumeration men `Failed to get vnet CIDR` får ett fel meddelande.
+## <a name="i-am-trying-to-peer-into-a-virtual-network-in-a-different-subscription-but-getting-failed-to-get-vnet-cidr-error"></a>Jag försöker använda peer-datorer i ett virtuellt nätverk i en annan prenumeration men får `Failed to get vnet CIDR`-fel.
 
-I prenumerationen som har det virtuella nätverket, se till att registrera `Microsoft.ContainerService` providern med`az provider register -n Microsoft.ContainerService --wait` 
+I prenumerationen som har det virtuella nätverket, se till att registrera `Microsoft.ContainerService`-Provider med `az provider register -n Microsoft.ContainerService --wait` 
 
 ## <a name="what-is-the-azure-red-hat-openshift-aro-maintenance-process"></a>Vad är underhålls processen för Azure Red Hat OpenShift (ARO)?
 
 Det finns tre typer av underhåll för ARO: uppgraderingar, säkerhets kopiering och återställning av etcd-data och underhåll av moln leverantörer.
 
-+ Uppgraderingar är bland annat program varu uppgraderingar och CVEs. CVE-reparation sker vid start genom att `yum update` köra och ger omedelbar minskning.  Parallellt skapas en ny avbildning som skapas för framtida kluster.
++ Uppgraderingar är bland annat program varu uppgraderingar och CVEs. CVE-reparation sker vid start genom att köra `yum update` och ger omedelbar minskning.  Parallellt skapas en ny avbildning som skapas för framtida kluster.
 
 + Säkerhets kopiering och hantering av etcd-data är en automatiserad process som kan kräva kluster avbrott beroende på åtgärd. Om etcd-databasen återställs från en säkerhets kopia kommer det att vara stillestånds tid. Vi säkerhetskopierar etcd varje timme och behåller de senaste 6 timmarna med säkerhets kopior.
 
@@ -129,9 +129,9 @@ Den är inte krypterad på etcd-nivån. Det finns för närvarande inte stöd f�
 
 Syslog, Docker-loggar, journal och dmesg hanteras av den hanterade tjänsten och exponeras inte för kunder.
 
-## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Hur kan en kund få till gång till mått som processor/minne på nodnivå för att vidta åtgärder för skalning, fel söknings problem osv. Jag kan inte köra `kubectl top` på ett Aro-kluster.
+## <a name="how-can-a-customer-get-access-to-metrics-like-cpumemory-at-the-node-level-to-take-action-to-scale-debug-issues-etc-i-cannot-seem-to-run-kubectl-top-on-an-aro-cluster"></a>Hur kan en kund få till gång till mått som processor/minne på nodnivå för att vidta åtgärder för skalning, fel söknings problem osv. Jag kan inte köra `kubectl top` i ett ARO-kluster.
 
-`kubectl top`är inte tillgängligt i Red Hat OpenShift. Den kräver en säkerhets kopierings källa, antingen Heapster (inaktuell) eller mått-Server (inkuberad eller alpha), som inte ingår i OpenShift-övervaknings stacken.
+`kubectl top` är inte tillgängligt i Red Hat OpenShift. Den kräver en säkerhets kopierings källa, antingen Heapster (inaktuell) eller mått-Server (inkuberad eller alpha), som inte ingår i OpenShift-övervaknings stacken.
 
 ## <a name="what-is-the-default-pod-scheduler-configuration-for-aro"></a>Vad är standard Scheduler-konfigurationen för Pod för ARO?
 
@@ -189,9 +189,9 @@ Detta kan uppnås via Azure AD-integrering. 
 
 Varje Azure Red Hat OpenShift-kluster är dedikerad till en bestämd kund och är i kund prenumerationen. 
 
-## <a name="can-we-choose-any-persistent-storage-solution-ocs"></a>Kan vi välja valfri beständig lagrings lösning. OCS? 
+## <a name="can-we-choose-any-persistent-storage-solution-like-ocs"></a>Kan vi välja vilken beständig lagrings lösning som helst, t. ex. OCS? 
 
-Det finns två lagrings klasser att välja mellan: Azure-disk och Azure-fil.
+Det finns två lagrings klasser att välja mellan: Azure disk och Azure-fil.
 
 ## <a name="how-is-a-cluster-updated-including-majors-and-minors-due-to-vulnerabilities"></a>Hur uppdateras ett kluster (inklusive huvud och minderåriga på grund av sårbarheter)?
 

@@ -1,17 +1,17 @@
 ---
 title: Exempel – ISO 27001 skiss – distribuera steg
-description: Distribuera steg i ISO 27001-skiss exemplet.
+description: Distribuera steg för det fristående ISO 27001-skiss exemplet inklusive information om skiss artefakt parameter.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: fc91206f63d4a53113642f3258eb36cd47c5ba5a
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 338741cc2d5bc019c5a33fdeb20ada6b05f3eef9
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981532"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248409"
 ---
 # <a name="deploy-the-iso-27001-blueprint-sample"></a>Distribuera exempel på ISO 27001-skissen
 
@@ -39,7 +39,7 @@ Börja med att implementera skiss exemplet genom att skapa en ny skiss i din mil
    - **Skiss namn**: Ange ett namn för din kopia av exempel på ISO 27001-skissen.
    - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj fliken _artefakter_ överst på sidan eller **Next: Artefakter @ no__t-0 längst ned på sidan.
+1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
 
 1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
@@ -65,10 +65,10 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundinställningar
+   - Grundläggande inställningar
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
-     - **Tilldelnings namn**: Namnet är ifyllt för dig baserat på namnet på skissen.
+     - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
        Ändra vid behov eller lämna det som är.
      - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
@@ -85,9 +85,9 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
      De parametrar som definieras i det här avsnittet används av många av artefakterna i skiss definitionen för att ge konsekvens.
 
-     - **Tillåten plats för resurser och resurs grupper**: Värde som anger tillåtna platser för resurs grupper och resurser.
+     - **Tillåten plats för resurser och resurs grupper**: värde som anger tillåtna platser för resurs grupper och resurser.
 
-   - Artefaktparametrar
+   - Artefakt parametrar
 
      De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
 
@@ -100,19 +100,19 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 I följande tabell visas en lista över Skissernas artefakt parametrar:
 
-|Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
+|Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
 |\[Preview @ no__t-1: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Log Analytics arbets yta för Linux VM Scale Sets (VMSS)|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfång|En tom matris kan användas för att indikera inga valfria parametrar: \[ @ no__t-1|
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för Linux VM Scale Sets (VMSS)|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget|En tom matris kan användas för att indikera inga valfria parametrar: \[ @ no__t-1|
 |\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Log Analytics arbets yta för virtuella Linux-datorer|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfång|En tom matris kan användas för att indikera inga valfria parametrar: \[ @ no__t-1|
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Linux-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Linux-operativsystem som ska läggas till i omfånget|En tom matris kan användas för att indikera inga valfria parametrar: \[ @ no__t-1|
 |\[Preview @ no__t-1: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Log Analytics arbets yta för Windows VM Scale Sets (VMSS)|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att indikera inga valfria parametrar: \[ @ no__t-1|
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för Windows VM Scale Sets (VMSS)|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att indikera inga valfria parametrar: \[ @ no__t-1|
 |\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Log Analytics arbets yta för virtuella Windows-datorer|Om den här arbets ytan ligger utanför tilldelnings omfånget måste du manuellt bevilja behörigheten Log Analytics deltagare (eller liknande) till princip tilldelningens huvud-ID.|
-|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: Lista över VM-avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att indikera inga valfria parametrar: \[ @ no__t-1|
-|Tillåtna SKU:er för lagringskonto|Principtilldelning|Lista över tillåtna lagrings-SKU:er|Listan över SKU: er som kan anges för lagrings konton.|
-|Tillåtna SKU:er för virtuella datorer|Principtilldelning|Lista över tillåtna SKU: er för virtuella datorer|Listan över SKU: er som kan anges för virtuella datorer.|
-|Skissinitiativ för ISO 27001|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
+|\[Preview @ no__t-1: Distribuera Log Analytics agent för virtuella Windows-datorer|Principtilldelning|Valfritt: lista över virtuella dator avbildningar som har stöd för Windows OS som ska läggas till i omfånget|En tom matris kan användas för att indikera inga valfria parametrar: \[ @ no__t-1|
+|Tillåtna SKU:er för lagringskonto|Principtilldelning|Lista över tillåtna lagrings-SKU: er|Listan över SKU: er som kan anges för lagrings konton.|
+|Tillåtna SKU: er för virtuella datorer|Principtilldelning|Lista över tillåtna SKU: er för virtuella datorer|Listan över SKU: er som kan anges för virtuella datorer.|
+|Skiss initiativ för ISO 27001|Principtilldelning|Lista över resurs typer som ska ha diagnostiska loggar aktiverade|Lista över resurs typer som ska granskas om diagnostisk logg inställning inte är aktive rad. Du hittar giltiga värden i [Azure Monitor-diagnostiska loggar scheman](../../../../azure-monitor/platform/diagnostic-logs-schema.md#supported-log-categories-per-resource-type).|
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -1,106 +1,113 @@
 ---
 title: Skapa ett kunskaps lager med hjälp av REST-Azure Search
-description: Skapa en Azure Search kunskaps lager för att spara innehåll från kognitiv Sök pipelinen med hjälp av REST API och Postman.
+description: Använd REST API och Postman för att skapa ett Azure Search kunskaps lager för att bevara anrikninger från en kognitiv Sök pipeline.
 author: lobrien
 services: search
 ms.service: search
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: laobri
-ms.openlocfilehash: 26dc66474eecffd7f5a34bcfcaf93fd49f59606c
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: b67f0cf60d279c7bc52b4114d29c37847f5c57f1
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936504"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244472"
 ---
-# <a name="create-an-azure-search-knowledge-store-using-rest"></a>Skapa en Azure Search kunskaps lager med hjälp av REST
+# <a name="create-an-azure-search-knowledge-store-by-using-rest"></a>Skapa en Azure Search kunskaps lager med hjälp av REST
 
-Kunskap Store är en funktion i Azure Search som sparar utdata från en AI-pipeline för senare analys eller annan efterföljande bearbetning. En AI-fördefinierad pipeline tar emot bildfiler eller ostrukturerade textfiler, indexerar dem med hjälp av Azure Search, tillämpar AI-anrikninger från Cognitive Services (till exempel bild analys och naturlig språk bearbetning) och sparar sedan resultaten i ett kunskaps lager i Azure lagrings. Du kan sedan använda verktyg som Power BI eller Storage Explorer för att utforska kunskaps lagret.
+Kunskaps lagrings funktionen i Azure Search sparar utdata från en AI-pipeline för senare analys eller annan efterföljande bearbetning. En AI-fördefinierad pipeline tar emot bildfiler eller ostrukturerade textfiler, indexerar dem med hjälp av Azure Search, tillämpar AI-anrikninger från Azure Cognitive Services (till exempel bild analys och naturlig språk bearbetning) och sparar sedan resultatet i en kunskap lagra i Azure Storage. Du kan använda verktyg som Power BI eller Storage Explorer i Azure Portal för att utforska kunskaps lagret.
 
-I den här artikeln ska du använda REST API-gränssnittet för att mata in, indexera och tillämpa AI-berikare i en uppsättning Hotell recensioner. Hotell granskningarna importeras till Azure Blob Storage och resultaten sparas som ett kunskaps lager i Azure Table Storage.
+I den här artikeln använder du REST API-gränssnittet för att mata in, indexera och tillämpa AI-berikare i en uppsättning Hotell recensioner. Hotell granskningarna importeras till Azure Blob Storage. Resultaten sparas som ett kunskaps lager i Azure Table Storage.
 
-När du har skapat kunskaps lagret kan du lära dig mer om att komma åt det här kunskaps lagret med hjälp av [Storage Explorer](knowledge-store-view-storage-explorer.md) eller [Power BI](knowledge-store-connect-power-bi.md).
+När du har skapat kunskaps lagret kan du lära dig mer om hur du kommer åt kunskaps lagret med hjälp av [Storage Explorer](knowledge-store-view-storage-explorer.md) eller [Power BI](knowledge-store-connect-power-bi.md).
 
-## <a name="1---create-services"></a>1 – skapa tjänster
+## <a name="create-services"></a>Skapa tjänster
 
-+ [Skapa en Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) under din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här självstudien.
+Skapa följande tjänster:
 
-+ [Skapa ett Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempel data och kunskaps lagret. Ditt lagrings konto måste använda samma plats (till exempel västra USA) för din Azure Search-tjänst. *Konto typen* måste vara *StorageV2 (generell användning v2)* (standard) eller *Storage (generell användning v1)* .
+- Skapa en [Azure Search tjänst](search-create-service-portal.md) eller [hitta en befintlig tjänst](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) i din aktuella prenumeration. Du kan använda en kostnads fri tjänst för den här självstudien.
 
-+ Rekommenderat: [Postman Desktop-appen](https://www.getpostman.com/) för att skicka begär anden till Azure Search. Du kan använda REST API med valfritt verktyg som kan arbeta med HTTP-förfrågningar och-svar. Postman är ett bra alternativ för att utforska REST-API: er och används i den här artikeln. Dessutom innehåller [käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) för den här artikeln en Postman-samling med begär Anden. 
+- Skapa ett [Azure Storage-konto](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) för att lagra exempel data och kunskaps lagret. Ditt lagrings konto måste använda samma plats (till exempel västra USA) för din Azure Search-tjänst. Värdet för **konto typen** måste vara **StorageV2 (generell användning v2)** (standard) eller **Storage (generell användning v1)** .
 
-## <a name="2---store-the-data"></a>2 – lagra data
+- Rekommenderat: Hämta [appen Postman Desktop](https://www.getpostman.com/) för att skicka begär anden till Azure Search. Du kan använda REST API med ett verktyg som kan arbeta med HTTP-förfrågningar och-svar. Postman är ett bra alternativ för att utforska REST-API: er. Vi använder Postman i den här artikeln. [Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) för den här artikeln innehåller också en Postman-samling med begär Anden. 
+
+## <a name="store-the-data"></a>Lagra data
 
 Läs in CSV-filen för hotell granskningar i Azure Blob Storage så att den kan nås av en Azure Search-indexerare och matas genom AI-anrikningen.
 
-### <a name="create-an-azure-blob-container-with-the-data"></a>Skapa en Azure Blob-behållare med data
+### <a name="create-a-blob-container-by-using-the-data"></a>Skapa en BLOB-behållare med hjälp av data
 
-1. [Ladda ned hotell gransknings data som sparats i en CSV-fil (HotelReviews_Free. csv)](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D). Dessa data härstammar från Kaggle.com och innehåller kundfeedback om hotell.
-1. [Logga](https://portal.azure.com)in på Azure Portal och navigera till ditt Azure Storage-konto.
-1. [Skapa en BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Skapa behållaren genom att klicka på **blobbar**i det vänstra navigerings fältet för ditt lagrings konto och klicka sedan på **+ container** i kommando fältet.
-1. För det nya behållar **namnet**anger `hotel-reviews`du.
-1. Välj valfri **offentlig åtkomst nivå**. Vi använde standardvärdet.
-1. Skapa Azure Blob-behållaren genom att klicka på **OK** .
-1. Öppna den nya `hotels-review` behållaren, klicka på **Ladda upp**och välj den **HotelReviews-Free. csv** -fil som du laddade ned i det första steget.
+1. Ladda ned [hotell gransknings data](https://knowledgestoredemo.blob.core.windows.net/hotel-reviews/HotelReviews_Free.csv?st=2019-07-29T17%3A51%3A30Z&se=2021-07-30T17%3A51%3A00Z&sp=rl&sv=2018-03-28&sr=c&sig=LnWLXqFkPNeuuMgnohiz3jfW4ijePeT5m2SiQDdwDaQ%3D) som sparats i en CSV-fil (HotelReviews_Free. csv). Dessa data härstammar från Kaggle.com och innehåller kundfeedback om hotell.
+1. Logga in på [Azure Portal](https://portal.azure.com) och gå till ditt Azure Storage-konto.
+1. Skapa en [BLOB-behållare](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). Om du vill skapa behållaren går du till den vänstra menyn för ditt lagrings konto, väljer **blobbar**och väljer sedan **container**.
+1. Ange **hotell granskning**för det nya behållar **namnet**.
+1. För **offentlig åtkomst nivå**väljer du ett värde. Vi använde standardvärdet.
+1. Välj **OK** för att skapa BLOB-behållaren.
+1. Öppna behållaren ny **hotell-granska** , Välj **Ladda upp**och välj sedan den HotelReviews-Free. csv-fil som du laddade ned i det första steget.
 
-    ![Överför data](media/knowledge-store-create-portal/upload-command-bar.png "Ladda upp Hotell recensioner")
+    ![Överför data](media/knowledge-store-create-portal/upload-command-bar.png "Ladda upp hotell recensionerna")
 
-1. Klicka på **överför** för att importera CSV-filen till Azure Blob Storage. Den nya behållaren kommer att visas.
+1. Välj **överför** för att importera CSV-filen till Azure Blob Storage. Den nya behållaren visas:
 
-    ![Skapa Azure Blob-behållaren](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "Skapa Azure Blob-behållaren")
+    ![Skapa BLOB-behållaren](media/knowledge-store-create-portal/hotel-reviews-blob-container.png "skapa BLOB-behållaren")
 
-## <a name="3---configure-postman"></a>3 – Konfigurera PostMan
+## <a name="configure-postman"></a>Konfigurera Postman
 
-Ladda ned [käll koden för Postman-samlingen](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) och importera den till Postman med hjälp av **fil, importera.** .. Växla till fliken **samlingar** och klicka på knappen **...** och välj **Redigera**. 
+Installera och konfigurera Postman.
 
-![Postman-app som visar navigering](media/knowledge-store-create-rest/postman-edit-menu.png "navigera till redigerings menyn i Postman")
+### <a name="download-and-install-postman"></a>Hämta och installera Postman
 
-Gå till fliken **variabler** i dialog rutan för redigering. 
+1. Hämta [käll koden för Postman-samlingen](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json).
+1. Välj **File** > **import** för att importera käll koden till Postman.
+1. Välj fliken **samlingar** och välj sedan knappen **...** (ellips).
+1. Välj **Redigera**. 
+   
+   ![Postman-appen som visar navigering](media/knowledge-store-create-rest/postman-edit-menu.png "gå till redigerings menyn i Postman")
+1. I dialog rutan **Redigera** väljer du fliken **variabler** . 
 
-Med fliken **variabler** kan du lägga till värden som Postman växlar i varje gång det påträffar dem inom dubbla klammerparenteser. Postman ersätter exempelvis symbolen `{{admin-key}}` med det "aktuella värdet" för `admin-key`. Postman kommer att göra den här ersättningen i URL: er, sidhuvuden, begär ande texten och så vidare. 
+På fliken **variabler** kan du lägga till värden som Postman växlar i varje gång det påträffar en speciell variabel inom dubbla klammerparenteser. Postman ersätter exempelvis symbolen `{{admin-key}}` med det aktuella värde som du angav för `admin-key`. Postman gör ersättningen i URL: er, sidhuvuden, begär ande texten och så vidare. 
 
-Du hittar värdet för `admin-key` på fliken **nycklar** i search service. Du måste ändra `search-service-name` och `storage-account-name` till de värden som du valde i [steg 1](#1---create-services). Ange `storage-connection-string` från värdet på fliken **åtkomst nycklar** för lagrings kontot. De andra värdena du kan lämna oförändrade.
+Om du vill hämta värdet för `admin-key` går du till tjänsten Azure Search och väljer fliken **nycklar** . ändra `search-service-name` och `storage-account-name` till de värden som du valde i [skapa tjänster](#create-services). Ange `storage-connection-string` med hjälp av värdet på fliken **åtkomst nycklar** för lagrings kontot. Du kan lämna standardvärdena för de andra värdena.
 
 ![Fliken Postman app-variabler](media/knowledge-store-create-rest/postman-variables-window.png "Boxman-fönstret variabler")
 
 
 | Variabel    | Var du får den |
 |-------------|-----------------|
-| `admin-key` | Search Service, fliken **nycklar**              |
-| `api-version` | Lämna som "2019-05-06-för hands version" |
-| `datasource-name` | Lämna som "Hotell-recensioner-DS" | 
-| `indexer-name` | Lämna som "Hotell – recensioner-IXR" | 
-| `index-name` | Lämna som "Hotell – recensioner-IX" | 
-| `search-service-name` | Search Service, huvud namn. URL: en är `https://{{search-service-name}}.search.windows.net` | 
-| `skillset-name` | Lämna som "Hotell-recensioner-SS" | 
-| `storage-account-name` | Lagrings konto, huvud namn | 
-| `storage-connection-string` | Lagrings konto, fliken **åtkomst nycklar** , **KEY1** - **anslutningssträng** | 
-| `storage-container-name` | Lämna som "Hotell – recensioner" | 
+| `admin-key` | På fliken **nycklar** i Azure Searchs tjänsten.  |
+| `api-version` | Lämna som **2019-05-06-för hands version**. |
+| `datasource-name` | Lämna som **Hotell – recensioner – DS**. | 
+| `indexer-name` | Lämna som **Hotell – recensioner – IXR**. | 
+| `index-name` | Lämna som **Hotell – recensioner – IX**. | 
+| `search-service-name` | Azure Search tjänstens huvud namn. URL: en är `https://{{search-service-name}}.search.windows.net`. | 
+| `skillset-name` | Lämna som **Hotell – recensioner – SS**. | 
+| `storage-account-name` | Lagrings kontots huvud namn. | 
+| `storage-connection-string` | I lagrings kontot på fliken **åtkomst nycklar** väljer du **KEY1** > -**anslutningssträng**. | 
+| `storage-container-name` | Lämna som **Hotell – recensioner**. | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Granska Request-samlingen i Postman
 
-När du skapar ett kunskaps lager måste du skicka fyra HTTP-förfrågningar: 
+När du skapar ett kunskaps lager måste du utfärda fyra HTTP-förfrågningar: 
 
-1. En skicka-begäran för att skapa indexet. Det här indexet innehåller de data som används och returnerades av Azure Search.
-1. En POST-begäran för att skapa data källan. Den här data källan ansluter ditt Azure Search beteende till data och kunskaps lagerets lagrings konto. 
-1. En skicka begäran om att skapa färdigheter. Färdigheter anger hur många som ska användas för dina data och kunskaps lagrets struktur.
-1. En skicka-begäran för att skapa indexeraren. Att köra indexeraren läser data, tillämpar färdigheter och lagrar resultaten. Du måste köra den här begäran senast.
+- **Skicka begäran om att skapa indexet**: det här indexet innehåller de data som Azure Search använder och returnerar.
+- **Post-begäran för att skapa data källan**: den här data källan ansluter ditt Azure Search beteende till data och kunskaps lagrets lagrings konto. 
+- **Skicka begäran om att skapa färdigheter**: färdigheter anger de anrikninger som används för dina data och kunskaps lagrets struktur.
+- **Skicka begäran om att skapa indexeraren**: att köra indexeraren läser data, tillämpar färdigheter och lagrar resultaten. Du måste köra den här begäran senast.
 
-[Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) innehåller en Postman-samling med dessa fyra förfrågningar. Om du vill utfärda begär Anden växlar du till begärans flik i Postman och lägger till `api-key`-och `Content-Type`-begärandehuvuden. Ange värdet för `api-key` till `{{admin-key}}`. Ange värdet `Content-type` till `application/json`. 
+[Käll koden](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/knowledge-store/KnowledgeStore.postman_collection.json) innehåller en Postman-samling som har fyra begär Anden. Om du vill utfärda förfrågningarna väljer du fliken för begäran i Postman. Lägg sedan till `api-key`-och `Content-Type`-begärandehuvuden. Ange värdet för `api-key` till `{{admin-key}}`. Ange värdet `Content-type` till `application/json`. 
 
-> [!div class="mx-imgBorder"]
-> ![Screenshot som visar Postman-gränssnittet för huvuden @ no__t-1
+![Skärm bild som visar Postman gränssnitt för rubriker](media/knowledge-store-create-rest/postman-headers-ui.png)
 
 > [!Note]
-> Du måste ange `api-key`-och `Content-type`-huvuden i alla dina begär Anden. Om en variabel identifieras av Postman, kommer den att återges i orange text, precis som med `{{admin-key}}` i skärm bilden. Om variabeln är felstavad kommer den att återges i röd text.
+> Du måste ange `api-key`-och `Content-type`-huvuden i alla dina begär Anden. Om Postman identifierar en variabel, visas variabeln i orange text, precis som med `{{admin-key}}` i föregående skärm bild. Om variabeln är felstavad visas den i röd text.
 >
 
-## <a name="4---create-an-azure-search-index"></a>4 – skapa ett Azure Search-index
+## <a name="create-an-azure-search-index"></a>Skapa ett Azure Search-index
 
-Du måste skapa ett Azure Search-index för att representera data som du är intresse rad av att söka i, filtrera och göra förbättringar. Du skapar indexet genom att utfärda en skicka begäran till `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman ersätter symboler som omges av dubbla klammerparenteser, till exempel `{{search-service-name}}`, `{{index-name}}` och `{{api-version}}` med de värden som anges i [steg 3](#3---configure-postman). Om du använder ett annat verktyg för att utfärda REST-kommandon måste du ersätta dessa variabler själv.
+Skapa ett Azure Search-index som representerar de data som du är intresse rad av att söka, filtrera och tillämpa förbättringar i. Skapa indexet genom att utfärda en skicka begäran till `https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}?api-version={{api-version}}`. Postman ersätter symboler som omges av dubbla klammerparenteser (till exempel `{{search-service-name}}`, `{{index-name}}` och `{{api-version}}`) med de värden som du anger i [Konfigurera PostMan](#configure-postman). Om du använder ett annat verktyg för att utfärda REST-kommandon måste du ersätta dessa variabler själv.
 
-Ange strukturen för Azure Search indexet i bröd texten i begäran. I Postman efter att du har angett `api-key`-och `Content-type`-huvudena, växlar du till **text** rutan i begäran. Du bör se följande JSON, men om inte väljer du **RAW** och **JSON (Application/JSON)** och klistrar in följande kod som brödtext:
+Ange strukturen för Azure Search indexet i bröd texten i begäran. När du har ställt in `api-key`-och `Content-type`-huvudena i Postman går du till **text** rutan i begäran. Du bör se följande JSON. Om du inte gör det väljer du **Raw** > **JSON (Application/JSON)** och klistrar sedan in följande kod som brödtext:
 
 ```JSON
 {
@@ -135,15 +142,15 @@ Ange strukturen för Azure Search indexet i bröd texten i begäran. I Postman e
 
 ```
 
-Du ser att denna index definition är en kombination av data som du vill presentera för användaren (namnet på hotellet, granska innehåll, datum osv.), sökmetadata och AI-förbättringar (sentiment, tangentkombinationer och språk).
+Den här index definitionen är en kombination av data som du vill presentera för användaren (namnet på hotellet, granska innehåll, datum), sökmetadata och AI-förbättringar (sentiment, diskussions fraser och språk).
 
-Tryck på knappen **Skicka** för att skicka en begäran om placering. Du bör få status meddelandet `201 - Created`. Om du får en annan status visas ett JSON-svar med ett fel meddelande i fönstret **brödtext** . 
+Välj **Skicka** för att skicka begäran om placering. Du bör se status `201 - Created`. Om du ser en annan status i **text** rutan söker du efter ett JSON-svar som innehåller ett fel meddelande. 
 
-## <a name="5---create-the-datasource"></a>5 – skapa data källan
+## <a name="create-the-datasource"></a>Skapa data källan
 
-Nu måste du ansluta Azure Search till de hotell data som du sparade i [steg 2](#2---store-the-data). Att skapa data källan görs med ett inlägg i `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Återigen måste du ange `api-key`-och `Content-Type`-huvudena som du har angett tidigare. 
+Anslut sedan Azure Search till de hotell data som du har lagrat i [lagra data](#store-the-data). Om du vill skapa data källan skickar du en POST-begäran till `https://{{search-service-name}}.search.windows.net/datasources?api-version={{api-version}}`. Du måste ange `api-key`-och `Content-Type`-huvuden enligt beskrivningen ovan. 
 
-Öppna begäran "skapa DataSource" i Postman. Växla till fönstret **brödtext** , som bör ha följande kod:
+I Postman går du till begäran om att **skapa DataSource** och sedan till **text** rutan. Du bör se följande kod:
 
 ```json
 {
@@ -155,18 +162,17 @@ Nu måste du ansluta Azure Search till de hotell data som du sparade i [steg 2](
 }
 ```
 
-Tryck på knappen **Skicka** för att utfärda post-begäran. 
+Välj **Skicka** för att skicka en post-begäran. 
 
-## <a name="6---create-the-skillset"></a>6 – skapa färdigheter 
+## <a name="create-the-skillset"></a>Skapa färdigheter 
 
-Nästa steg är att ange färdigheter, som anger både de förbättringar som ska tillämpas och det kunskaps lager där resultatet ska lagras. Öppna fliken "skapa färdigheter" i Postman. Den här begäran skickar en placering till `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`.
-Ange `api-key`-och `Content-type`-huvuden som du har gjort tidigare. 
+Nästa steg är att ange färdigheter, som anger både de förbättringar som ska tillämpas och det kunskaps lager där resultatet ska lagras. I Postman väljer du fliken **skapa färdigheter** . Den här begäran skickar en placering till `https://{{search-service-name}}.search.windows.net/skillsets/{{skillset-name}}?api-version={{api-version}}`. Ange `api-key`-och `Content-type`-huvuden som du gjorde tidigare. 
 
-Det finns två stora objekt på översta nivån: `"skills"` och `"knowledgeStore"`. Varje objekt i `"skills"`-objektet är en anriknings tjänst. Varje anriknings tjänst har `"inputs"` och `"outputs"`. Observera att `LanguageDetectionSkill` har en utmatnings `targetName` av `"Language"`. Värdet för den här noden används av de flesta andra färdigheter som inmatade med källan som `document/Language`. Den här funktionen för att använda utdata från en nod som indata till en annan är ännu tydligare i `ShaperSkill`, som anger hur data ska flöda till kunskaps lagrets tabeller.
+Det finns två stora objekt på översta nivån: `skills` och `knowledgeStore`. Varje objekt i `skills`-objektet är en anriknings tjänst. Varje anriknings tjänst har `inputs` och `outputs`. @No__t-0 har utdata `targetName` av `Language`. Värdet för den här noden används av de flesta andra färdigheter som inmatade. Källan är `document/Language`. Möjligheten att använda utdata från en nod som indata till en annan är ännu tydligare i `ShaperSkill`, som anger hur data flödar till kunskaps lagrets tabeller.
 
-@No__t-0-objektet ansluts till lagrings kontot via variabeln `{{storage-connection-string}}` Postman. Sedan innehåller den en uppsättning mappningar mellan det förbättrade dokument och de tabeller och kolumner som kommer att vara tillgängliga i själva kunskaps lagret. 
+@No__t-0-objektet ansluts till lagrings kontot via variabeln `{{storage-connection-string}}` Postman. `knowledge_store` innehåller en uppsättning mappningar mellan det förbättrade dokumentet och tabeller och kolumner i kunskaps lagret. 
 
-Om du vill generera färdigheter ska du placera begäran genom att trycka på knappen **Skicka** i Postman.
+Om du vill generera färdigheter väljer du knappen **Skicka** i Postman för att placera begäran:
 
 ```json
 {
@@ -294,13 +300,13 @@ Om du vill generera färdigheter ska du placera begäran genom att trycka på kn
 }
 ```
 
-## <a name="7---create-the-indexer"></a>7 – skapa indexeraren
+## <a name="create-the-indexer"></a>Skapa indexeraren
 
-Det sista steget är att skapa indexeraren, som faktiskt läser data och aktiverar färdigheter. I Postman växlar du till begäran om att "skapa indexerare" och granskar bröd texten. Som du kan se refererar definitionen av indexeraren till flera andra resurser som du redan har skapat – data källan, indexet och färdigheter. 
+Det sista steget är att skapa indexeraren. Indexeraren läser data och aktiverar färdigheter. I Postman väljer du begäran om att **skapa indexerare** och granskar sedan bröd texten. Definitionen av indexeraren avser flera andra resurser som du redan har skapat: data källan, indexet och färdigheter. 
 
-Objektet `"parameters/configuration"` styr hur indexeraren matar in data. I det här fallet finns indata i ett enda dokument med en rubrik rad och kommaavgränsade värden. Dokument nyckeln är en unik identifierare för dokumentet, som innan kodning är URL: en för käll dokumentet. Slutligen mappas färdigheter som språk kod, sentiment och nyckel fraser till lämpliga platser i dokumentet. Observera att även om det finns ett enda värde för `Language`, används `Sentiment` för varje element i matrisen med `pages`. `Keyphrases` är i sig en matris och används även för varje element i `pages`-matrisen.
+Objektet `parameters/configuration` styr hur indexeraren matar in data. I det här fallet är indata i ett enda dokument som har en rubrik rad och kommaavgränsade värden. Dokument nyckeln är en unik identifierare för dokumentet. Före kodningen är dokument nyckeln URL: en för käll dokumentet. Slutligen är färdigheter-utdataparametrar, som språk kod, sentiment och nyckel fraser mappade till deras platser i dokumentet. Även om det finns ett enda värde för `Language`, används `Sentiment` för varje element i matrisen med `pages`. `Keyphrases` är en matris som också används för varje element i `pages`-matrisen.
 
-När du har angett `api-key`-och `Content-type`-huvuden och bekräftat att bröd texten i begäran liknar käll koden som följer, trycker du på **Skicka** i Postman. Postman kommer att skicka begäran till `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Search skapar och kör indexeraren. 
+När du har angett `api-key`-och `Content-type`-huvuden och bekräfta att bröd texten i begäran liknar följande källkod väljer du **Skicka** i Postman. Postman skickar en skicka-begäran till `https://{{search-service-name}}.search.windows.net/indexers/{{indexer-name}}?api-version={{api-version}}`. Azure Search skapar och kör indexeraren. 
 
 ```json
 {
@@ -331,22 +337,22 @@ När du har angett `api-key`-och `Content-type`-huvuden och bekräftat att bröd
 }
 ```
 
-## <a name="8---run-the-indexer"></a>8 – kör indexeraren 
+## <a name="run-the-indexer"></a>Köra indexeraren 
 
-I Azure Portal går du till Search Service **Översikt** och väljer fliken **indexerare** . Klicka på den **hotell-Review-IXR** som du skapade i föregående steg. Om indexeraren inte redan har körts trycker du på knappen **Kör** . Indexerings aktiviteten kan orsaka varningar som rör språk igenkänning när data innehåller vissa granskningar skrivna på språk som ännu inte stöds av kognitiva färdigheter. 
+I Azure Portal går du till **översikts** sidan för Azure Searchs tjänsten. Välj fliken **indexerare** och välj sedan **Hotels-Reviews-IXR**. Om indexeraren inte redan har körts väljer du **Kör**. Indexerings aktiviteten kan generera vissa varningar som rör språk igenkänning. Data innehåller vissa granskningar som är skrivna på språk som ännu inte stöds av kognitiva färdigheter. 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har berikat dina data med kognitiva tjänster och projicerat resultaten i ett kunskaps lager, kan du använda Storage Explorer eller Power BI för att utforska din omfattande data uppsättning.
+Nu när du har berikat dina data genom att använda Cognitive Services och projicerat resultaten till ett kunskaps lager, kan du använda Storage Explorer eller Power BI för att utforska din omfattande data uppsättning.
 
-Information om hur du utforskar det här kunskaps lagret med hjälp av Storage Explorer finns i följande genom gång.
+Information om hur du utforskar det här kunskaps lagret med hjälp av Storage Explorer finns i den här genom gången:
 
 > [!div class="nextstepaction"]
 > [Visa med Storage Explorer](knowledge-store-view-storage-explorer.md)
 
-Information om hur du ansluter det här kunskaps lagret till Power BI finns i följande genom gång.
+Information om hur du ansluter det här kunskaps lagret till Power BI finns i den här genom gången:
 
 > [!div class="nextstepaction"]
 > [Anslut med Power BI](knowledge-store-connect-power-bi.md)
 
-Om du vill upprepa den här övningen eller testa en annan AI-förhands granskning tar du bort indexet *hotell reidxrs-* . Om du tar bort indexeraren återställs den kostnads fria dagliga transaktions räknaren tillbaka till noll.
+Om du vill upprepa den här övningen eller testa en annan AI-förhands granskning tar du bort indexet **hotell reidxrs-** . Om du tar bort indexeraren återställs den kostnads fria dagliga transaktions räknaren till noll.

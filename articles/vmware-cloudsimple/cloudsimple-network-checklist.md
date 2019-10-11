@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: a83112c1555d50976e5a20106b877f5c0099a5f3
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: bfb170036293dc9f519259dc92737f30380aa84a
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178148"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244828"
 ---
 # <a name="networking-prerequisites-for-azure-vmware-solution-by-cloudsimple"></a>Nätverks krav för Azure VMware-lösning av CloudSimple
 
@@ -58,6 +58,7 @@ En punkt-till-plats-VPN-anslutning ger åtkomst till CloudSimple-nätverket frå
 
 ## <a name="next-steps"></a>Nästa steg
 
+* [Installation av lokala brand väggar för att komma åt ditt privata moln](on-premises-firewall-configuration.md)
 * [Snabb start – skapa en CloudSimple-tjänst](quickstart-create-cloudsimple-service.md)
 * [Snabb start – konfigurera ett privat moln](quickstart-create-private-cloud.md)
 * Läs mer om [Azures nätverks anslutningar](cloudsimple-azure-network-connection.md)

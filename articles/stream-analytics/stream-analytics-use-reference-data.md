@@ -7,13 +7,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 06/21/2019
-ms.openlocfilehash: 3bf90812abcef30b6bf300ba00ebd9f4186229cb
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.date: 10/8/2019
+ms.openlocfilehash: d058fdd48b8a271c8a2db7d327267de053c02c44
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000403"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244864"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Använda referens data för sökningar i Stream Analytics
 
@@ -33,13 +33,13 @@ Om du vill konfigurera dina referens data måste du först skapa en indata som �
 |---------|---------|
 |Indataalias   | Ett eget namn som ska användas i jobb frågan för att referera till den här indatamängden.   |
 |Lagringskonto   | Namnet på det lagrings konto där blobarna finns. Om det är i samma prenumeration som ditt Stream Analytics jobb kan du välja det från List rutan.   |
-|Lagringskontonyckel   | Den hemliga nyckeln som är associerade med lagringskontot. Detta fylls i automatiskt om lagrings kontot finns i samma prenumeration som ditt Stream Analytics-jobb.   |
-|Storage-behållare   | Behållare är en logisk gruppering för blobbar som lagras i Microsoft Azure Blob-tjänsten. När du laddar upp en blob till Blob-tjänsten måste du ange en behållare för blobben.   |
-|Sökvägsmönster   | Den sökväg som används för att hitta dina blobbar i den angivna behållaren. I sökvägen kan du välja att ange en eller flera instanser av följande två variabler:<BR>{date}, {time}<BR>Exempel 1: Products/{date}/{time}/Product-List. csv<BR>Exempel 2: Products/{date}/Product-List. csv<BR>Exempel 3: Product-List. csv<BR><br> Om blobben inte finns på den angivna sökvägen kommer Stream Analytics jobbet att vänta oändligt för att blobben ska bli tillgängligt.   |
+|Lagrings konto nyckel   | Den hemliga nyckeln som är kopplad till lagrings kontot. Detta fylls i automatiskt om lagrings kontot finns i samma prenumeration som ditt Stream Analytics-jobb.   |
+|Lagrings behållare   | Behållare tillhandahåller en logisk gruppering för blobbar som lagras i Microsoft Azure Blob Service. När du laddar upp en blob till Blob Service måste du ange en behållare för denna blob.   |
+|Sökvägsmönster   | Den sökväg som används för att hitta dina blobbar i den angivna behållaren. I sökvägen kan du välja att ange en eller flera instanser av följande två variabler:<BR>{Date}, {Time}<BR>Exempel 1: Products/{date}/{time}/Product-List. csv<BR>Exempel 2: Products/{date}/Product-List. csv<BR>Exempel 3: Product-List. csv<BR><br> Om blobben inte finns på den angivna sökvägen kommer Stream Analytics jobbet att vänta oändligt för att blobben ska bli tillgängligt.   |
 |Datum format [valfritt]   | Om du har använt {date} inom Sök vägs mönstret som du har angett kan du välja det datum format som dina blobbar är ordnade i list rutan med format som stöds.<BR>Exempel: ÅÅÅÅ/MM/DD, MM/DD/ÅÅÅÅ, osv.   |
 |Tids format [valfritt]   | Om du har använt {Time} inom Sök vägs mönstret som du har angett kan du välja det tids format som dina blobbar organiseras från i list rutan med format som stöds.<BR>Exempel: HH, HH/mm eller HH-mm.  |
 |Format för händelse serialisering   | För att se till att dina frågor fungerar som du förväntar dig måste Stream Analytics veta vilket serialiserat format du använder för inkommande data strömmar. För referens data är de format som stöds CSV och JSON.  |
-|Kodning   | UTF-8 är det enda kodformat som stöds för närvarande.  |
+|Encoding   | UTF-8 är det enda kodnings format som stöds just nu.  |
 
 ### <a name="static-reference-data"></a>Statiska referens data
 
@@ -60,7 +60,7 @@ Azure Stream Analytics söker automatiskt efter uppdaterade referens data blobba
 > 
 > Ett undantag till detta är när jobbet måste bearbeta data igen i tid eller när jobbet startas första gången. Vid start tiden söker jobbet efter den senaste blob som producerats innan jobbets start tid har angetts. Detta görs för att se till att det finns en **icke-tom** referens data uppsättning när jobbet startas. Om det inte går att hitta någon, visar jobbet följande diagnostik: `Initializing input without a valid reference data blob for UTC time <start time>`.
 
-[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan användas för att dirigera uppgiften att skapa de uppdaterade blobbar som krävs av Stream Analytics för att uppdatera referens data definitioner. Data Factory är en molnbaserad dataintegreringstjänst som samordnar och automatiserar förflyttning och transformering av data. Data Factory har stöd för [att ansluta till ett stort antal molnbaserade och lokala data lager](../data-factory/copy-activity-overview.md) och flytta data enkelt enligt ett regelbundet schema som du anger. Mer information och stegvisa anvisningar om hur du konfigurerar en Data Factory pipeline för att generera referens data för Stream Analytics som uppdateras i ett fördefinierat schema, finns i det här [GitHub exemplet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
+[Azure Data Factory](https://azure.microsoft.com/documentation/services/data-factory/) kan användas för att dirigera uppgiften att skapa de uppdaterade blobbar som krävs av Stream Analytics för att uppdatera referens data definitioner. Data Factory är en molnbaserad dataintegreringstjänst som automatiserar flytt och omvandling av data. Data Factory har stöd för [att ansluta till ett stort antal molnbaserade och lokala data lager](../data-factory/copy-activity-overview.md) och flytta data enkelt enligt ett regelbundet schema som du anger. Mer information och stegvisa anvisningar om hur du konfigurerar en Data Factory pipeline för att generera referens data för Stream Analytics som uppdateras i ett fördefinierat schema, finns i det här [GitHub exemplet](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ReferenceDataRefreshForASAJobs).
 
 ### <a name="tips-on-refreshing-blob-reference-data"></a>Tips om att uppdatera BLOB-referenser
 
@@ -91,10 +91,10 @@ Du kan använda [Azure SQL Database Hanterad instans](https://docs.microsoft.com
 |**Egenskaps namn**|**Beskrivning**  |
 |---------|---------|
 |Inmatat alias|Ett eget namn som ska användas i jobb frågan för att referera till den här indatamängden.|
-|Subscription|Välj din prenumeration|
+|Prenumeration|Välj din prenumeration|
 |Databas|Azure SQL Database som innehåller dina referens data. För Azure SQL Database Hanterad instans måste du ange port 3342. Till exempel *sampleserver. public. Database. Windows. net, 3342*|
 |Användarnamn|Det användar namn som är associerat med din Azure SQL Database.|
-|lösenordsinställning|Lösen ordet som är kopplat till Azure SQL Database.|
+|Lösenord|Lösen ordet som är kopplat till Azure SQL Database.|
 |Uppdatera regelbundet|Med det här alternativet kan du välja ett uppdaterings intervall. Om du väljer "på" kan du ange uppdaterings frekvensen i DD: HH: MM.|
 |Ögonblicks bild fråga|Detta är standard alternativet fråga som hämtar referens data från SQL Database.|
 |Delta fråga|För avancerade scenarier med stora data uppsättningar och en kort uppdaterings takt väljer du att lägga till en delta fråga.|
@@ -111,11 +111,11 @@ Stream Analytics stöder referens data med **maximal storlek på 300 MB**. Grän
 
 Att öka antalet strömnings enheter för ett jobb bortom 6 ökar inte den maximala storleken för referens data som stöds.
 
-Stöd för komprimering är inte tillgängligt för referensdata. 
+Det finns inte stöd för komprimering för referens data. 
 
 ## <a name="next-steps"></a>Nästa steg
 > [!div class="nextstepaction"]
-> [Snabbstart: Skapa ett Stream Analytics jobb genom att använda Azure Portal @ no__t-0
+> [Snabb start: skapa ett Stream Analytics jobb genom att använda Azure Portal](stream-analytics-quick-create-portal.md)
 
 <!--Link references-->
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md

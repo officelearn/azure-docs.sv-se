@@ -1,27 +1,27 @@
 ---
-title: Azure Resource Manager-vCPU-kvoten öka begäranden | Microsoft Docs
-description: Azure Resource Manager-vCPU förfrågningar om att öka kvoten
+title: Azure Resource Manager vCPU-begäran om kvot ökning | Microsoft Docs
+description: Azure Resource Manager vCPU-begäran om kvot ökning
 author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9a997af984b92ea59cc02d99fbd66d8967ca31bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c3248b10b4ad343e8776056d42ec153130f0061f
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67076814"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248656"
 ---
 # <a name="quota-increase-requests"></a>Begäranden om att öka kvoten
 
-Resource Manager vCPU-kvoter för virtuella datorer och VM-skalningsuppsättningar tillämpas på två nivåer för varje prenumeration i varje region. 
+Resource Manager-vCPU kvoter för virtuella datorer och skalnings uppsättningar för virtuella datorer tillämpas på två nivåer för varje prenumeration i varje region. 
 
-Den första nivån är gränsen för totalt antal regionala virtuella processorer (för alla VM-serier) och det andra lagret är den per VM vcpu: er gräns (till exempel D-serien virtuella processorer). Varje gång en ny virtuell dator är att distribueras, får summan av nya och befintliga virtuella processorer användning för VM serien inte överskrida vCPU-kvoten som godkänts för den specifika VM-serie. Dessutom kan får den antal för totalt antal nya och befintliga virtuella processorer som distribueras över alla VM-serier inte överstiga Totalt antal regionala kvoten för virtuella processorer som godkänts för prenumerationen. Om något av dessa kvoter överskrids får inte VM-distributionen.
-Du kan begära en ökning av virtuella processorer kvotgränsen för VM-serierna från Azure-portalen. En ökning av kvoten för VM-serie ökar automatiskt gränsen för totalt antal regionala virtuella processorer med samma belopp. 
+Den första nivån är den totala regionala virtuella processorer-gränsen (i alla VM-serien) och den andra nivån är virtuella processorer-gränsen för VM-serien (till exempel D-serien virtuella processorer). När du vill distribuera en ny virtuell dator måste summan av den nya och befintliga virtuella processorer-användningen för den virtuella dator serien inte överskrida vCPU-kvoten som har godkänts för den aktuella VM-serien. Dessutom bör det totala antalet nya och befintliga vCPU som distribueras över alla VM-serien inte överskrida den totala regionala virtuella processorer-kvoten som har godkänts för prenumerationen. Om någon av dessa kvoter överskrids, kommer distributionen av virtuella datorer inte att tillåtas.
+Du kan begära en ökning av virtuella processorer kvot gräns för VM-serien från Azure Portal. En ökning av kvoten för VM-serien ökar automatiskt den totala regionala virtuella processorer-gränsen med samma belopp. 
 
-När en ny prenumeration skapas, kanske Totalt antal regionala virtuella processorer standard inte lika med summan av standard vCPU-kvoter för alla enskilda VM-serier. Detta kan resultera i en prenumeration med tillräckligt stor kvot för varje enskild VM-serie som du vill distribuera, men inte tillräcklig kvot för totalt antal regionala virtuella processorer för alla distributioner. I det här fallet behöver du ansöka om att öka gränsen för totalt antal regionala virtuella processorer uttryckligen. Totalt antal regionala virtuella processorer gränsen får inte överskrida summan av godkända kvot för alla VM-serier för regionen.
+När en ny prenumeration skapas får den totala regionala virtuella processorer inte vara lika med summan av standard kvoter för vCPU för alla enskilda VM-serier. Detta kan resultera i en prenumeration med tillräcklig kvot för varje enskild VM-serie som du vill distribuera, men inte tillräckligt med kvot för den totala regionala virtuella processorer för alla distributioner. I så fall måste du skicka en begäran om att öka den totala regionala virtuella processorer-gränsen explicit. Den totala regionala virtuella processorer-gränsen får inte överstiga summan av den godkända kvoten över alla VM-serier för regionen.
 
-Läs mer om kvoter på den [VM vCPU-kvoter sidan](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) och [Azure-prenumeration och tjänstbegränsningar](https://aka.ms/quotalimits) sidan. 
+Läs mer om kvoter på sidan för [vCPU kvoter för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) och sidan för [Azure-prenumeration och tjänst begränsningar](https://aka.ms/quotalimits) . 
 

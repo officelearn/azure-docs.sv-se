@@ -1,43 +1,43 @@
 ---
-title: Självstudie – konfigurera Azure Cosmos DB-konton med Ansible | Microsoft Docs
-description: Lär dig hur du använder Ansible för att skapa och konfigurera ett Azure Cosmos DB
-keywords: ansible, azure, devops, bash, playbook, cosmo db, database
+title: Självstudie – konfigurera Azure Cosmos DB konton med Ansible
+description: Lär dig hur du använder Ansible för att skapa och konfigurera en Azure Cosmos DB
+keywords: Ansible, Azure, DevOps, bash, Spelbok, Cosmo DB, databas
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 06d416358c1886f09b0b2336cc1ea53ce89947ae
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 82cb29cfe3aeb7b6ca43fceca4c900b2eeb148c2
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230821"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242075"
 ---
-# <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Självstudier: Konfigurera Azure Cosmos DB-konton med Ansible
+# <a name="tutorial-configure-azure-cosmos-db-accounts-using-ansible"></a>Självstudie: Konfigurera Azure Cosmos DB konton med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
-[Azure Cosmos DB](/azure/cosmos-db/) är en databas som har stöd för flera typer av databaser. Dessa typer av databaser omfattar dokument, nyckelvärden, breda kolumner och en graf. Med Ansible kan automatisera du distributionen och konfigurationen av resurser i din miljö.
+[Azure Cosmos DB](/azure/cosmos-db/) är en databas tjänst som stöder flera databas typer. Dessa databas typer omfattar dokument, nyckel värde, bred kolumn och diagram. Med hjälp av Ansible kan du automatisera distributionen och konfigurationen av resurser i din miljö.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Skapa ett konto
-> * Hämta kontonycklar
+> * Hämta konto nycklar
 > * Ta bort kontot
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="create-a-random-postfix"></a>Skapa en slumpmässig postfix
+## <a name="create-a-random-postfix"></a>Skapa ett slumpmässigt postfix
 
-I exemplet spelbok kodfragment skapar en slumpmässig postfix. Postfixen används som en del av namnet på Azure Cosmos DB-kontot.
+Exemplet Spelbok-kodfragmentet skapar en slumpmässig postfix. Postfixet används som en del av namnet på Azure Cosmos DB kontot.
 
 ```yml
   - hosts: localhost
@@ -48,9 +48,9 @@ I exemplet spelbok kodfragment skapar en slumpmässig postfix. Postfixen använd
         run_once: yes
 ```
 
-## <a name="create-resource-group"></a>Skapa en resursgrupp 
+## <a name="create-resource-group"></a>Skapa resursgrupp 
 
-I exemplet spelbok kodfragment skapar en Azure-resursgrupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
+Exemplet Spelbok-kodfragmentet skapar en Azure-resurs grupp. En resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
 ```yml
   - name: Create a resource group
@@ -61,7 +61,7 @@ I exemplet spelbok kodfragment skapar en Azure-resursgrupp. En resursgrupp är e
 
 ## <a name="create-virtual-network-and-subnet"></a>Skapa virtuellt nätverk och undernät
 
-Följande kod skapar ett virtuellt nätverk och undernät för Azure Cosmos DB-kontot:
+Följande kod skapar ett virtuellt nätverk och ett undernät för det Azure Cosmos DB kontot:
 
 ```yml
   - name: Create virtual network
@@ -85,7 +85,7 @@ Följande kod skapar ett virtuellt nätverk och undernät för Azure Cosmos DB-k
 
 ## <a name="create-an-azure-cosmos-db-account"></a>Skapa ett Azure Cosmos DB-konto
 
-Följande kod skapar Cosmos DB-konto:
+Följande kod skapar Cosmos DB-kontot:
 
 ```yml
   - name: Create instance of Cosmos DB Account
@@ -110,11 +110,11 @@ Följande kod skapar Cosmos DB-konto:
       enable_automatic_failover: yes
 ```
 
-Skapa konto tar några minuter att slutföra.
+Det tar några minuter innan kontot har skapats.
 
 ## <a name="retrieve-the-keys"></a>Hämta nycklarna
 
-Följande kod hämtar nycklarna som ska användas i din app.
+Följande kod hämtar de nycklar som ska användas i din app.
 
 ```yml
   - name: Get Cosmos DB Account facts with keys
@@ -129,9 +129,9 @@ Följande kod hämtar nycklarna som ska användas i din app.
       var: output
 ```
 
-## <a name="delete-the-azure-cosmos-db-account"></a>Ta bort Azure Cosmos DB-konto
+## <a name="delete-the-azure-cosmos-db-account"></a>Ta bort Azure Cosmos DB kontot
 
-Slutligen visar det senaste kodfragmentet hur du tar bort ett Azure Cosmos DB-konto.
+Slutligen visar det sista kodfragmentet hur du tar bort ett Azure Cosmos DB-konto.
 
 ```yml
   - name: Delete instance of Cosmos DB Account
@@ -141,11 +141,11 @@ Slutligen visar det senaste kodfragmentet hur du tar bort ett Azure Cosmos DB-ko
       state: absent
 ```
 
-## <a name="get-the-sample-playbook"></a>Hämta exemplet spelbok
+## <a name="get-the-sample-playbook"></a>Hämta exempel Spelbok
 
-Det finns två sätt att hämta hela exemplet spelboken:
-- [Ladda ned spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/cosmosdb_create.yml) och spara den i `cosmosdb.yml`.
-- Skapa en ny fil med namnet `cosmosdb.yml` och kopiera in följande innehåll:
+Det finns två sätt att hämta det fullständiga exemplet Spelbok:
+- [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/cosmosdb_create.yml) och spara den till `cosmosdb.yml`.
+- Skapa en ny fil med namnet `cosmosdb.yml` och kopiera den till följande innehåll:
 
 ```yml
 ---
@@ -229,15 +229,15 @@ Det finns två sätt att hämta hela exemplet spelboken:
         state: absent
 ```
 
-## <a name="run-the-sample-playbook"></a>Köra exemplet spelbok
+## <a name="run-the-sample-playbook"></a>Kör exemplet Spelbok
 
-I det här avsnittet kör du spelboken för att testa olika funktioner som visas i den här artikeln.
+I det här avsnittet kör du Spelbok för att testa olika funktioner som visas i den här artikeln.
 
-Innan du kör spelboken måste du göra följande ändringar:
-- I den `vars` avsnittet, ersätter den `{{ resource_group_name }}` platshållare med namnet på resursgruppen.
-- Se till att den ' cosmosdbaccount_name innehåller endast gemener och är globalt unikt.
+Innan du kör Spelbok gör du följande ändringar:
+- I avsnittet `vars` ersätter du plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
+- Se till att "cosmosdbaccount_name" endast innehåller gemener och är globalt unik.
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook cosmosdb.yml
@@ -245,7 +245,7 @@ ansible-playbook cosmosdb.yml
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort de resurser som skapades i den här artikeln. 
+Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
 
 Spara följande kod som `cleanup.yml`:
 
@@ -261,7 +261,7 @@ Spara följande kod som `cleanup.yml`:
         state: absent
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook cleanup.yml

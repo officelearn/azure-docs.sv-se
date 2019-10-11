@@ -1,5 +1,5 @@
 ---
-title: Självstudie – konfigurera ett kluster i Azure HDInsight med Ansible | Microsoft Docs
+title: Självstudie – konfigurera ett kluster i Azure HDInsight med Ansible
 description: Lär dig hur du använder Ansible för att skapa och ändra storlek på ett Azure HDInsight
 keywords: Ansible, Azure, DevOps, bash, Spelbok, Apache Hadoop, HDInsight
 ms.topic: tutorial
@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: ff135473443589650d90bfb7f3e5aa248f72e821
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: ad17e6ff4cbf5b583e3a4be410847c1349c9edce
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861274"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241952"
 ---
-# <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Självstudier: Konfigurera ett kluster i Azure HDInsight med Ansible
+# <a name="tutorial-configure-a-cluster-in-azure-hdinsight-using-ansible"></a>Självstudie: Konfigurera ett kluster i Azure HDInsight med Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
@@ -30,7 +30,7 @@ ms.locfileid: "70861274"
 > * Ändra storlek på ett kluster
 > * Ta bort ett kluster
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
@@ -144,7 +144,7 @@ Det kan ta flera minuter att slutföra instansen.
 
 När klustret har skapats är den enda inställningen du kan ändra antalet arbetsnoder. 
 
-Spelbok-koden i det här avsnittet ökar antalet arbetsnoder genom att uppdatera `target_instance_count` i. `workernode`
+Spelbok-koden i det här avsnittet ökar antalet arbetsnoder genom att uppdatera `target_instance_count` inom `workernode`.
 
 ```yml
 - name: Resize cluster
@@ -205,8 +205,8 @@ Spelbok-koden i det här avsnittet tar bort klustret.
 ## <a name="get-the-sample-playbook"></a>Hämta exempel Spelbok
 
 Det finns två sätt att hämta det fullständiga exemplet Spelbok:
-- [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) och spara den på `hdinsight_create.yml`.
-- Skapa en ny fil med `hdinsight_create.yml` namnet och kopiera den till följande innehåll:
+- [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/hdinsight_create.yml) och spara den till `hdinsight_create.yml`.
+- Skapa en ny fil med namnet `hdinsight_create.yml` och kopiera den till följande innehåll:
 
 ```yml
 ---
@@ -353,9 +353,9 @@ Det finns två sätt att hämta det fullständiga exemplet Spelbok:
 I det här avsnittet kör du Spelbok för att testa olika funktioner som visas i den här artikeln.
 
 Innan du kör Spelbok gör du följande ändringar:
-- I avsnittet ersätter du `{{ resource_group_name }}` plats hållaren med namnet på din resurs grupp. `vars`
+- I avsnittet `vars` ersätter du plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
 
-Kör Spelbok med `ansible-playbook` kommandot:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook hdinsight.yml
@@ -379,7 +379,7 @@ Spara följande kod som `cleanup.yml`:
         state: absent
 ```
 
-Kör Spelbok med `ansible-playbook` kommandot:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook cleanup.yml

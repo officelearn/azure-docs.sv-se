@@ -1,109 +1,109 @@
 ---
-title: Hantera Avere vFXT kluster – Azure
-description: Hur du hantera Avere kluster – lägga till eller ta bort noder, starta om, stoppa eller förstör klustret vFXT
+title: Hantera ditt AVERT vFXT-kluster – Azure
+description: Hantera AVERT kluster – lägga till eller ta bort noder, starta om, stoppa eller förstöra vFXT-klustret
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.author: v-erkell
-ms.openlocfilehash: be9205fdf7fec0661d7382ed0d1bedf47487b15e
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: bcdba7f14147714c5e29c13bfe9e20fa44a27ef9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409778"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256201"
 ---
 # <a name="manage-the-avere-vfxt-cluster"></a>Hantera Avere vFXT-klustret
 
-När du har skapat klustret, kan du behöva lägga till noder eller stoppa eller starta om klustret. Och när projektet är klar måste du veta hur du stoppar och permanent ta bort klustret. 
+När du har skapat klustret kan du behöva lägga till klusternoder eller stoppa eller starta om klustret. När projektet är klart måste du veta hur du stoppar och tar bort klustret permanent. 
 
-Beroende på hanteringsaktivitet kluster kan du behöva använda Kontrollpanelen Avere vfxt.py kommandoraden kluster Skapandeskriptet eller Azure-portalen för att göra det. 
+Beroende på kluster hanterings aktiviteten kan du behöva använda åtgärds fönstret AVERT, vfxt.py kommando rads kluster för att skapa skript eller Azure Portal. 
 
-Den här tabellen innehåller en översikt av vilka verktyg kan användas för varje aktivitet. 
+Den här tabellen ger en översikt över vilka verktyg som kan användas för varje uppgift. 
 
-| Åtgärd | Avere Kontrollpanelen | vfxt.py  | Azure Portal |
+| Åtgärd | AVERT kontroll panel | vfxt.py  | Azure portal |
 | --- | --- | --- | --- |
-| Lägg till noder | nej | ja | nej |
-| Tar bort klusternoder | ja | nej | nej |
-| Stoppa en klusternod | Ja (kan också starta om tjänsterna eller omstart) | nej | stänga av en nod VM från portalen tolkas som ett nodfel |
+| Lägg till klusternoder | nej | ja | nej |
+| Ta bort klusternoder | ja | nej | nej |
+| Stoppa en klusternod | Ja (kan också starta om tjänster eller starta om) | nej | att stänga av en virtuell Node-dator från portalen tolkas som ett nodfel |
 | Starta en stoppad nod | nej | nej | ja |
-| Ta bort en enskild klusternod | nej | nej | ja |
+| Förstör en enskild klusternod | nej | nej | ja |
 | Starta om klustret |  |  |  |
-| Stäng av eller stoppa klustret på ett säkert sätt | ja | ja | nej |
-| Förstör klustret  | nej | ja | Ja, men är inte att garantera dataintegriteten |
+| Stänga av eller stoppa klustret på ett säkert sätt | ja | ja | nej |
+| Förstör klustret  | nej | ja | Ja, men data integriteten är inte garanterad |
 
-Detaljerade anvisningar för varje verktyg finns nedan.
+Detaljerade instruktioner för varje verktyg finns nedan.
 
-## <a name="about-stopped-instances-in-azure"></a>Om stoppad instanser i Azure
+## <a name="about-stopped-instances-in-azure"></a>Om stoppade instanser i Azure
 
-När du stänger ner eller stoppa alla virtuella Azure-datorer stoppas ådrar sig några beräkningskostnader, men du måste betala för sin lagring. Om du stänger en vFXT nod eller hela vFXT klustret och du inte planerar att starta om den, bör du använda Azure-portalen för att ta bort de relaterade virtuella datorerna. 
+När du stänger av eller stoppar en virtuell Azure-dator slutar den att debiteras för beräknings kostnader, men du måste fortfarande betala för lagringen. Om du stänger av en vFXT-nod eller hela vFXT-klustret och du inte tänker starta om den, bör du använda Azure Portal för att ta bort de relaterade virtuella datorerna. 
 
-I Azure-portalen en *stoppats* noden (som kan startas) visar statusen **stoppats** i Azure-portalen; en *bort* noden visar statusen **stoppas (frigjord)**  och det inte längre tillkommer avgifter för beräkning eller lagring.
+I Azure Portal visar en *stoppad* nod (som kan startas om) statusen **stoppad** i Azure Portal; en *borttagen* nod visar statusen **stoppad (Frigjord)** och den tar inte längre betalt för beräknings-eller lagrings kostnader.
 
-Kontrollera att alla ändrade data har skrivit från cachen till backend-lagring med hjälp av alternativen Avere på Kontrollpanelen eller vfxt.py att stoppa eller stänga av klustret innan du tar bort den virtuella datorn.
+Innan du tar bort den virtuella datorn måste du kontrol lera att alla ändrade data har skrivits från cacheminnet till backend-lagring med hjälp av alternativen aver-kontroll panel eller vfxt.py för att stoppa eller stänga av klustret.
 
-## <a name="manage-the-cluster-with-avere-control-panel"></a>Hantera kluster med Avere Kontrollpanelen 
+## <a name="manage-the-cluster-with-avere-control-panel"></a>Hantera klustret med aver på kontroll panelen 
 
-Kontrollpanelen för Avere kan användas för dessa uppgifter: 
+Kontroll panelen aver kan användas för följande uppgifter: 
 
 * Stoppa eller starta om enskilda noder
 * Ta bort en nod från klustret
 * Stoppa eller starta om hela klustret
 
-Avere Kontrollpanelen prioriterar dataintegritet, så görs ett försök att skriva ändrade data till serverdelslagring innan en eventuellt destruktiv åtgärd. Detta gör det till en säkrare alternativ än Avere-portalen. 
+Aver på kontroll panelen prioriterar data integritet, så att det försöker skriva alla ändrade data till Server dels lagringen före en eventuellt destruktiv åtgärd. Detta gör det ett säkrare alternativ än aver-portalen. 
 
-Åtkomst till Avere Kontrollpanelen från en webbläsare. Följ instruktionerna i [åtkomst till klustret vFXT](avere-vfxt-cluster-gui.md) om du behöver hjälp.
+Åtkomst till AVERT kontroll panel från en webbläsare. Följ instruktionerna i [komma åt vFXT-klustret](avere-vfxt-cluster-gui.md) om du behöver hjälp.
 
-### <a name="manage-nodes-with-avere-control-panel"></a>Hantera noder med Avere Kontrollpanelen
+### <a name="manage-nodes-with-avere-control-panel"></a>Hantera noder med AVERT kontroll panel
 
-Den **FXT noder** inställningssidan har kontroller för att hantera enskilda noder.
+Sidan Inställningar för **FXT-noder** har kontroller för att hantera enskilda noder.
 
-Om du vill stänga av, starta om eller ta bort en nod, hitta noden i listan på den **FXT noder** sidan och klicka på lämplig i dess **åtgärder** kolumn.
+Om du vill stänga av, starta om eller ta bort en nod, letar du upp noden i listan på sidan **FXT noder** och klickar på motsvarande knapp i kolumnen **åtgärder** .
 
 > [!NOTE] 
-> IP-adresser kan också flytta mellan klusternoderna när antalet aktiva noder ändras.
+> IP-adresser kan flyttas mellan klusternoder när antalet aktiva noder ändras.
 
-Läs [kluster > noder FXT](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) i Avere kluster inställningar för mer information.
+Läs [kluster > FXT-noder](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html#gui-fxt-nodes>) i guiden för kluster inställningar i aver-klustret för mer information.
 
-### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Stoppa eller starta om klustret med Avere Kontrollpanelen
+### <a name="stop-or-reboot-the-cluster-with-avere-control-panel"></a>Stoppa eller starta om klustret med aver kontroll panel
 
-Den **systemunderhåll** inställningssidan har kommandon för att starta om klustertjänsterna, starta om klustret eller på ett säkert sätt behöva stänga klustret av. Läs [Administration > systemunderhåll](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (i Avere kluster inställningar guide) för information.
+Sidan **system underhålls** inställningar innehåller kommandon för att starta om kluster tjänster, starta om klustret eller på ett säkert sätt stänga av klustret. Mer information finns i [administrations > system underhåll](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_system_maintenance.html#gui-system-maintenance>) (i guiden aver kluster inställningar).
 
-När ett kluster stängs av, den publicerar meddelanden till den **instrumentpanelen** fliken först. Efter en liten stund svarar Avere Kontrollpanelen sessionen, vilket innebär att klustret har avslutats.
+När ett kluster stängs av, skickar det tillstånds meddelanden till fliken **instrument panel** först. Efter en liten stund slutar-kontroll panelens session att svara, vilket innebär att klustret har stängts av.
 
-## <a name="manage-the-cluster-with-vfxtpy"></a>Hantera kluster med vfxt.py
+## <a name="manage-the-cluster-with-vfxtpy"></a>Hantera klustret med vfxt.py
 
-vfxt.PY är ett kommandoradsverktyg för att skapa och hantera kluster. 
+vfxt.py är ett kommando rads verktyg för att skapa och hantera kluster. 
 
-vfxt.PY förinstallerats på kontrollanten kluster VM. Om du vill installera det på ett annat system finns i dokumentationen på <https://github.com/Azure/AvereSDK>.
+vfxt.py är förinstallerat på den virtuella kluster styrenheten. Läs dokumentationen på <https://github.com/Azure/AvereSDK> om du vill installera den på ett annat system.
 
-Skriptet vfxt.py kan användas för dessa hanteringsaktiviteter för klustret:
+Vfxt.py-skriptet kan användas för följande kluster hanterings aktiviteter:
 
-* Lägga till nya noder i ett kluster
+* Lägg till nya noder i ett kluster
 * Stoppa eller starta ett kluster  
-* Ta bort ett kluster
+* Förstör ett kluster
 
-Vfxt.py operations försöker kontrollera ändrade data lagras permanent på backend-storage innan du stänger av eller förstöra det kluster eller en nod som Avere på Kontrollpanelen. Detta gör det till en säkrare alternativ än Avere-portalen.
+Som AVERT på kontroll panelen försöker vfxt.py-åtgärder se till att ändrade data lagras permanent på Server dels lagringen innan du stänger av eller förstör klustret eller noden. Detta gör det ett säkrare alternativ än aver-portalen.
 
-En fullständig vfxt.py användningsguiden finns på GitHub: [Hantering av molnet med vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
+En fullständig användnings guide för vfxt.py finns på GitHub: [moln kluster hantering med vfxt.py](https://github.com/azure/averesdk/blob/master/docs/README.md)
 
-### <a name="add-cluster-nodes-with-vfxtpy"></a>Lägg till noder med vfxt.py
+### <a name="add-cluster-nodes-with-vfxtpy"></a>Lägg till klusternoder med vfxt.py
 
-Ett kommandoskript för att lägga till noder i klustret ska tas med på kontrollanten kluster. Leta upp ``./add-nodes`` på kontrollanten och öppna den i en textredigerare för att anpassa den med din klusterinformation. 
+Ett exempel på kommando skript för att lägga till klusternoder finns på kluster styrenheten. Leta upp ``./add-nodes`` på styrenheten och öppna den i ett redigerings program för att anpassa den med din kluster information. 
 
-Klustret måste köras för att använda det här kommandot. 
+Klustret måste köras för att kunna använda det här kommandot. 
 
 Ange följande värden: 
 
-* Resursgruppens namn för klustret, samt för nätverk och lagringsresurser om de inte är samma som klustret
-* Klusterplats
-* Klusternätverk och undernät 
-* Klusterrollen noden åtkomst (Använd den inbyggda rollen [Avere operatorn](../role-based-access-control/built-in-roles.md#avere-operator))
-* Klustrets IP-adress för hantering och administrativa lösenord 
-* Antalet noder för att lägga till (1, 2 eller 3)
-* Noden instans typ och cache storlek värden 
+* Resurs grupp namn för klustret och även för nätverks-och lagrings resurser om de inte är samma som klustret
+* Kluster plats
+* Kluster nätverk och undernät 
+* Åtkomst roll för klusternod (Använd den inbyggda rollen " [aver operator](../role-based-access-control/built-in-roles.md#avere-operator)")
+* Kluster hanteringens IP-adress och administratörs lösen ord 
+* Antal noder som ska läggas till (1, 2 eller 3)
+* Värden för Nodinstans och cache-storlek 
 
-Om du inte använder prototypen, måste du skapa ett kommando som i följande, inklusive alla uppgifter som beskrivs ovan. 
+Om du inte använder prototypen måste du skapa ett kommando som följande, inklusive all information som beskrivs ovan. 
 
 ```bash
    vfxt.py --cloud-type azure --from-environment \
@@ -117,7 +117,7 @@ Om du inte använder prototypen, måste du skapa ett kommando som i följande, i
    --log ~/vfxt.log
 ```
 
-Mer information finns i [lägga till noder i ett kluster](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) i guiden vfxt.py användning.
+Mer information finns i [lägga till noder i ett kluster](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#add-nodes-to-a-cluster) i användnings guiden för vfxt.py.
 
 ### <a name="stop-a-cluster-with-vfxtpy"></a>Stoppa ett kluster med vfxt.py
 
@@ -131,82 +131,82 @@ vfxt.py --cloud-type azure --from-environment --stop --resource-group GROUPNAME 
 vfxt.py --cloud-type azure --from-environment --start --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --instances INSTANCE1_ID INSTANCE2_ID INSTANCE3_ID ...
 ```    
 
-Eftersom klustret har stoppats, måste du ange instans-ID: n för att ange klusternoderna. Läs [anger vilka kluster för att ändra](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) i guiden vfxt.py användning om du vill veta mer.
+Eftersom klustret har stoppats måste du skicka instans identifierare för att ange klusternoderna. Läs [Ange vilket kluster som ska ändras](https://github.com/Azure/AvereSDK/blob/master/docs/using_vfxt_py.md#specifying-which-cluster-to-modify) i användnings guiden för vfxt.py för mer information.
 
-### <a name="destroy-a-cluster-with-vfxtpy"></a>Ta bort ett kluster med vfxt.py
+### <a name="destroy-a-cluster-with-vfxtpy"></a>Förstöra ett kluster med vfxt.py
 
 ```bash
 vfxt.py --cloud-type azure --from-environment --destroy --resource-group GROUPNAME --admin-password PASSWORD --management-address ADMIN_IP --location LOCATION --azure-network NETWORK --azure-subnet SUBNET --management-address ADMIN_IP
 ```
 
-Alternativet ``--quick-destroy`` kan användas om du inte vill skriva ändrade data från kluster-cachen.
+Alternativet ``--quick-destroy`` kan användas om du inte vill skriva ändrade data från klustrets cacheminne.
 
-Läs den [vfxt.py användningsguiden](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) för ytterligare information.  
+Mer information finns i [användnings hand boken för vfxt.py](<https://github.com/Azure/AvereSDK/blob/master/docs/README.md>) .  
 
-## <a name="manage-cluster-vms-from-the-azure-portal"></a>Hantera kluster virtuella datorer från Azure portal 
+## <a name="manage-cluster-vms-from-the-azure-portal"></a>Hantera virtuella kluster datorer från Azure Portal 
 
-Azure-portalen kan användas för att ta bort klustret virtuella datorer separat, men dataintegritet är inte säkert om klustret inte stänga av strömmen först. 
+Azure Portal kan användas för att förstöra klustrade virtuella datorer individuellt, men data integriteten är inte garanterad om klustret inte stängs av korrekt. 
 
-Azure-portalen kan användas för dessa hanteringsaktiviteter för klustret: 
+Azure Portal kan användas för dessa kluster hanterings aktiviteter: 
 
 * Starta en stoppad vFXT-nod
-* Stoppa en nod för enskilda vFXT (klustret tolkar det som ett nodfel)
-* Ta bort ett kluster för vFXT *om* du inte behöver så att ändrade data i cacheminnet för klustret är avsedd att core-filer
-* Ta bort permanent vFXT noder och andra resurser i klustret när de har stängts av på ett säkert sätt
+* Stoppa en enskild vFXT-nod (klustret tolkar detta som nodfel)
+* Förstör ett vFXT-kluster *om* du inte behöver se till att ändrade data i klustrets cache skrivs till kärn filen
+* Ta bort vFXT-noder och andra kluster resurser permanent när de har stängts av på ett säkert sätt
 
-### <a name="restart-vfxt-instances-from-the-azure-portal"></a>Starta om vFXT instanser från Azure portal
+### <a name="restart-vfxt-instances-from-the-azure-portal"></a>Starta om vFXT-instanser från Azure Portal
 
-Om du måste starta om en stoppad nod, måste du använda Azure-portalen. Välj **virtuella datorer** i den vänstra menyn och sedan klicka på VM-namnet i listan för att öppna dess översiktssidan.
+Om du behöver starta om en stoppad nod måste du använda Azure Portal. Välj **virtuella datorer** på den vänstra menyn och klicka sedan på namnet på den virtuella datorn i listan för att öppna dess översikts sida.
 
-Klicka på den **starta** längst upp på översiktssidan för att återaktivera den virtuella datorn.
+Klicka på knappen **Start** överst på sidan Översikt för att återaktivera den virtuella datorn.
 
-![Azure portal skärmbild som visar alternativet att starta en stoppad virtuell dator](media/avere-vfxt-start-stopped-incurring-annot.png)
+![Azure Portal skärmen som visar alternativet att starta en stoppad virtuell dator](media/avere-vfxt-start-stopped-incurring-annot.png)
 
-### <a name="delete-cluster-nodes"></a>Ta bort noder
+### <a name="delete-cluster-nodes"></a>Ta bort klusternoder
 
-Om du vill ta bort en nod från klustret vFXT men behålla resten av klustret bör du först [ta bort noden från klustret](#manage-nodes-with-avere-control-panel) med Avere på Kontrollpanelen.
+Om du vill ta bort en nod från vFXT-klustret men behålla resten av klustret bör du först [ta bort noden från klustret](#manage-nodes-with-avere-control-panel) med hjälp av kontroll panelen aver.
 
 > [!CAUTION]
-> Om du tar bort en nod utan att ta bort den först från vFXT klustret kan data gå förlorade.
+> Om du tar bort en nod utan att först ta bort den från vFXT-klustret kan data gå förlorade.
 
-För att permanent ta bort en eller flera instanser som används som vFXT nod, använder du Azure portal.
-Välj **virtuella datorer** i den vänstra menyn och sedan klicka på VM-namnet i listan för att öppna dess översiktssidan.
+Om du vill förstöra en eller flera instanser som används som vFXT-nod permanent använder du Azure Portal.
+Välj **virtuella datorer** på den vänstra menyn och klicka sedan på namnet på den virtuella datorn i listan för att öppna dess översikts sida.
 
-Klicka på den **ta bort** längst upp på översiktssidan att permanent ta bort den virtuella datorn.
+Klicka på knappen **ta bort** högst upp på sidan Översikt för att ta bort den virtuella datorn permanent.
 
-Du kan använda den här metoden om du permanent ta bort noder när de har stängts av på ett säkert sätt. 
+Du kan använda den här metoden för att permanent ta bort klusternoder när de har stängts av på ett säkert sätt. 
 
-### <a name="destroy-the-cluster-from-the-azure-portal"></a>Förstör klustret från Azure portal
+### <a name="destroy-the-cluster-from-the-azure-portal"></a>Förstör klustret från Azure Portal
 
 > [!NOTE] 
-> Om du vill att alla återstående klientändringar i cacheminnet som ska skrivas till backend-lagring antingen använda vfxt.py `--destroy` alternativet eller använda Avere på Kontrollpanelen för att stänga av klustret korrekt innan du tar bort noden-instanser i Azure-portalen.
+> Om du vill att eventuella återstående klient ändringar i cacheminnet ska skrivas till backend-lagring, antingen använder du alternativet vfxt.py `--destroy` eller använder värdet aver på kontroll panelen för att stänga klustret på ett städat sätt innan du tar bort Node-instanserna i Azure Portal.
 
-Du kan ta bort noden instanser permanent genom att ta bort dem i Azure-portalen. Du kan ta bort dem en i taget som beskrivs ovan, eller du kan använda den **virtuella datorer** sidan för att hitta alla virtuella datorer i klustret, markerar du dem med kryssrutorna och klicka på den **ta bort** knappen Ta bort dem alla en åtgärd.
+Du kan ta bort instanser av noder genom att ta bort dem i Azure Portal. Du kan ta bort dem en i taget enligt beskrivningen ovan, eller så kan du använda sidan **Virtual Machines** för att hitta alla de virtuella datorerna i klustret, markera dem med kryss rutorna och klicka på knappen **ta bort** för att ta bort alla i en åtgärd.
 
-![Lista över virtuella datorer i portalen, filtreras efter termen ”kluster”, med tre av fyra kontrolleras och markerat](media/avere-vfxt-multi-vm-delete.png)
+![Lista över virtuella datorer i portalen, filtrerat efter termen "kluster", med tre av de fyra markerade och markerade](media/avere-vfxt-multi-vm-delete.png)
 
-### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Ta bort ytterligare klusterresurser från Azure portal
+### <a name="delete-additional-cluster-resources-from-the-azure-portal"></a>Ta bort ytterligare kluster resurser från Azure Portal
 
-Om du har skapat ytterligare resurser specifikt för klustret vFXT kanske du vill ta bort dem som en del av man bryta ner klustret. Förstör inte element som innehåller data som du behöver eller alla objekt som delas med andra projekt.
+Om du har skapat ytterligare resurser specifikt för vFXT-klustret kanske du vill ta bort dem som en del av avrivningen av klustret. Förstör inte element som innehåller data du behöver eller objekt som delas med andra projekt.
 
-Överväg att ta bort dessa komponenter utöver tar bort noder i klustret: 
+Förutom att ta bort klusternoderna bör du ta bort dessa komponenter: 
 
-* Kluster-controller VM
-* Datadiskar kopplade klusternoder
-* Nätverksgränssnitt och offentliga IP-adresser som är associerade med klusterkomponenter
+* Den virtuella kluster styrenheten
+* Data diskar som är kopplade till klusternoder
+* Nätverks gränssnitt och offentliga IP-adresser som är kopplade till kluster komponenter
 * Virtuella nätverk
-* Storage-konton (**endast** om de innehåller inga viktiga data)
+* Lagrings konton (**endast** om de inte innehåller viktiga data)
 * Tillgänglighetsuppsättning 
 
-![Azure-portalen ”alla resurser” lista över resurser som skapats för ett testkluster](media/avere-vfxt-all-resources-list.png)
+![Azure Portal listan alla resurser som visar resurser som har skapats för ett test kluster](media/avere-vfxt-all-resources-list.png)
 
-### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Ta bort resursgruppen i ett kluster från Azure portal
+### <a name="delete-a-clusters-resource-group-from-the-azure-portal"></a>Ta bort ett klusters resurs grupp från Azure Portal
 
-Om du har skapat en resursgrupp specifikt för att rymma både klustret kan du förstöra alla relaterade resurser för klustret genom att förstöra resursgruppen. 
+Om du har skapat en resurs grupp specifikt för att dela klustret kan du förstöra alla relaterade resurser för klustret genom att förstöra resurs gruppen. 
 
 > [!Caution] 
-> Ta bort resursgruppen bara om du är säker på att inget värde finns i gruppen. Kontrollera exempelvis att du har flyttat alla nödvändiga data från alla storage-behållare i resursgruppen.  
+> Förstör bara resurs gruppen om du är säker på att inget värde finns i gruppen. Kontrol lera till exempel att du har flyttat alla nödvändiga data från alla lagrings behållare i resurs gruppen.  
 
-Ta bort en resursgrupp genom att klicka på **resursgrupper** på den vänstra menyn i portalen och filtrera listan över resursgrupper för att ta reda på vilken du skapade för vFXT-klustret. Välj resursgruppen och klicka på de tre punkterna till höger i panelen. Välj **Ta bort resursgrupp**. Portalen uppmanas du att bekräfta borttagningen, som inte går att ångra.  
+Om du vill ta bort en resurs grupp klickar du på **resurs grupper** i portalens vänstra meny och filtrerar listan över resurs grupper för att hitta den som du skapade för vFXT-klustret. Välj resurs gruppen och klicka på de tre punkterna till höger i panelen. Välj **Ta bort resursgrupp**. Portalen uppmanar dig att bekräfta borttagningen, vilket inte kan ångras.  
 
-![Resursgruppen som visar ”ta bort resursgrupp”-åtgärd](media/avere-vfxt-delete-resource-group.png)
+![Resurs grupp som visar åtgärden ta bort resurs grupp](media/avere-vfxt-delete-resource-group.png)

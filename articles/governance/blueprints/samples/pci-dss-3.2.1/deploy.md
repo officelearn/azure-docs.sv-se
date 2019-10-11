@@ -1,18 +1,18 @@
 ---
 title: Exempel-PCI-DSS v 3.2.1 skiss – distribuera steg
-description: Distribuera steg för betalnings kortet bransch Data Security Standard v 3.2.1 skiss exempel.
+description: Distribuera steg för betalnings kortet bransch Data Security Standard v 3.2.1-exempel, inklusive information om skiss artefakt parameter.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: f95f9a592085fd93fba5e6b11a1a75609eb70295
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: fa409b873ea1dd0c0970ebc694ad68673df4d033
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980932"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248864"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuera skiss exemplet PCI-DSS v 3.2.1
 
@@ -37,10 +37,10 @@ Börja med att implementera skiss exemplet genom att skapa en ny skiss i din mil
 
 1. Ange _grunderna_ för skiss exemplet:
 
-   - **Skiss namn**: Ange ett namn för din kopia av skiss exemplet för PCI-DSS v 3.2.1.
+   - **Skiss namn**: Ange ett namn för din kopia av provet för PCI-DSS v 3.2.1-skissen.
    - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj fliken _artefakter_ överst på sidan eller **Next: Artefakter @ no__t-0 längst ned på sidan.
+1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
 
 1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
@@ -66,10 +66,10 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundinställningar
+   - Grundläggande inställningar
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
-     - **Tilldelnings namn**: Namnet är ifyllt för dig baserat på namnet på skissen.
+     - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
        Ändra vid behov eller lämna det som är.
      - **Plats**: Välj en region som den hanterade identiteten ska skapas i. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../../active-directory/managed-identities-azure-resources/overview.md).
      - **Ritnings definitions version**: Välj en **publicerad** version av din kopia av skiss exemplet.
@@ -82,7 +82,7 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
      Lämna alternativet standard _tilldelade_ hanterade identiteter.
 
-   - Artefaktparametrar
+   - Artefakt parametrar
 
      De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
 
@@ -95,13 +95,13 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 I följande tabell visas en lista över Skissernas artefakt parametrar:
 
-|Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
+|Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
 |\[Preview @ no__t-1 audit PCI v 3.2.1:2018 kontrollerar och distribuerar särskilda VM-tillägg så att de stöder gransknings krav|Principtilldelning|Lista över resurs typer | Granska diagnostikinställningar för valda resurs typer. Standardvärdet är alla resurser markerade| 
 |Tillåtna platser|Principtilldelning|Lista över tillåtna platser|Lista över data Center platser som tillåts för alla resurser som ska distribueras till. Den här listan kan anpassas till önskade Azure-platser globalt. Välj de platser som du vill tillåta.| 
 |Tillåtna platser för resurs grupper|Principtilldelning |Tillåten plats |Med den här principen kan du begränsa vilka platser som organisationen kan skapa resurs grupper i. Den används för att genomdriva kraven på geo-efterlevnad.| 
-|Distribuera Granskning på SQL-servrar|Principtilldelning|Kvarhållningsdagar|Data bevarande i antal dagar. Standardvärdet är 180 men PCI kräver 365.| 
-|Distribuera Granskning på SQL-servrar|Principtilldelning|Resurs grupp namn för lagrings konto|Granskning skriver databas händelser till en Gransknings logg i ditt Azure Storage konto (ett lagrings konto skapas i varje region där ett SQL Server skapas som kommer att delas av alla servrar i den regionen).| 
+|Distribuera granskning på SQL-servrar|Principtilldelning|Kvarhållning dagar|Data bevarande i antal dagar. Standardvärdet är 180 men PCI kräver 365.| 
+|Distribuera granskning på SQL-servrar|Principtilldelning|Resurs grupp namn för lagrings konto|Granskning skriver databas händelser till en Gransknings logg i ditt Azure Storage konto (ett lagrings konto skapas i varje region där ett SQL Server skapas som kommer att delas av alla servrar i den regionen).| 
 
 ## <a name="next-steps"></a>Nästa steg
 

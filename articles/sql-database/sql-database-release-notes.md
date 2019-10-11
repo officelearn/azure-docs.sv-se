@@ -9,12 +9,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: sstein
-ms.openlocfilehash: 90be253a4763aebd31b663aa0e765c187c8bff92
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: f1450399dc027a6977f4c99507e2e15b301272c4
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266427"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249392"
 ---
 # <a name="sql-database-release-notes"></a>Viktig information om SQL Database
 
@@ -31,7 +31,7 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 |Ungefärligt antal distinkta|Mer information finns i [Ungefärlig Count DISTINCT](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#approximate-query-processing).|
 |Batch-läge på Rowstore (under kompatibilitetsnivå 150)|Mer information finns i [batch-läge på Rowstore](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#batch-mode-on-rowstore).|
 | Dataidentifiering och -klassificering  |Mer information finns i [Azure SQL Database och SQL Data Warehouse data identifiering & klassificering](sql-database-data-discovery-and-classification.md).|
-| Elastic Database-jobb | Mer information finns i [skapa, konfigurera och hantera elastiska jobb](elastic-jobs-overview.md). |
+| Elastiska databasjobb | Mer information finns i [skapa, konfigurera och hantera elastiska jobb](elastic-jobs-overview.md). |
 | Elastiska frågor | Mer information finns i [Översikt över elastiska frågor](sql-database-elastic-query-overview.md). |
 | Elastiska transaktioner | [Distribuerade transaktioner över moln databaser](sql-database-elastic-transactions-overview.md). |
 |Feedback om minnes tilldelning (rad läge) (under kompatibilitetsnivå 150)|Mer information finns i [minnes beviljande feedback (rad läge)](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing#row-mode-memory-grant-feedback).|
@@ -46,11 +46,12 @@ Den här artikeln innehåller SQL Database funktioner som för närvarande finns
 
 | Funktion | Information |
 | ---| --- |
+| <a href="/azure/sql-database/sql-database-managed-instance-connectivity-architecture#service-aided-subnet-configuration-public-preview-in-east-us-and-west-us">Konfiguration av tjänstens konfiguration för under nätet</a> | Ett säkert och bekvämt sätt att hantera under näts konfiguration. |
 | <a href="/azure/sql-database/sql-database-instance-pools">Instans-pooler</a> | Ett bekvämt och kostnads effektivt sätt att migrera mindre SQL-instanser till molnet. |
-| <a href="https://aka.ms/managed-instance-tde-byok">Transparent data kryptering (TDE) med Bring Your Own Key (BYOK)</a> |Mer information finns [i Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
+| <a href="https://aka.ms/managed-instance-tde-byok">Transparent data kryptering (TDE) med Bring Your Own Key (BYOK)</a> |Mer information finns i [Azure SQL Transparent datakryptering med Kundhanterade nycklar i Azure Key Vault: Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).|
 | <a href="https://aka.ms/managed-instance-aadlogins">Azure AD server-huvudobjekt på instans nivå (inloggningar)</a> | Skapa inloggningar på server nivå med hjälp av instruktionen <a href="https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Skapa inloggning från extern provider</a> . |
 | [Transaktionsreplikering](sql-database-managed-instance-transactional-replication.md) | Replikera ändringarna från dina tabeller till andra databaser som har placerats på hanterade instanser, enskilda databaser eller SQL Server instanser eller uppdatera tabeller när vissa rader ändras i andra hanterade instanser eller SQL Server instans. Mer information finns i [Konfigurera replikering i en Azure SQL Database Hanterad instans databas](replication-with-sql-database-managed-instance.md). |
-| Identifiering av hot |Mer information finns i [Konfigurera hot identifiering i Azure SQL Database Hanterad instans](sql-database-managed-instance-threat-detection.md).|
+| Hotidentifiering |Mer information finns i [Konfigurera hot identifiering i Azure SQL Database Hanterad instans](sql-database-managed-instance-threat-detection.md).|
 | Återskapa förlorade databaser med hanterade instanser |Mer information finns i [Återskapa förlorade databaser i Azure SQL Managed instance](https://medium.com/azure-sqldb-managed-instance/re-create-dropped-databases-in-azure-sql-managed-instance-dc369ed60266).|
 | &nbsp; |
 
@@ -73,7 +74,7 @@ Följande funktioner är aktiverade i distributions modellen för hanterade inst
   - Konfigurera instanser för att använda [offentliga slut punkter](sql-database-managed-instance-public-endpoint-configure.md), en [proxy-Åsidosätt](sql-database-connectivity-architecture.md#connection-policy) anslutning för att få bättre nätverks prestanda, <a href="https://aka.ms/four-cores-sql-mi-update">4 virtuella kärnor på Gen5-maskinvarukompatibilitet</a> eller <a href="https://aka.ms/managed-instance-configurable-backup-retention">Konfigurera kvarhållning av säkerhets kopior upp till 35 dagar</a> för återställning vid tidpunkter. Långsiktig kvarhållning av säkerhets kopior (upp till 10 år) är fortfarande inte aktiverat så att du kan använda kopierings <a href="https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server">bara säkerhets kopior</a> som ett alternativ.
   - Med nya funktioner kan du <a href="https://medium.com/@jocapc/geo-restore-your-databases-on-azure-sql-instances-1451480e90fa">geo-återställa databasen till ett annat data Center med hjälp av PowerShell</a>, [byta namn på databas](https://azure.microsoft.com/updates/azure-sql-database-managed-instance-database-rename-is-supported/), [ta bort virtuellt kluster](sql-database-managed-instance-delete-virtual-cluster.md).
   - Den nya inbyggda [rollen instans deltagar roll](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#sql-managed-instance-contributor) möjliggör separering av tull (SOD) efterlevnad av säkerhets principer och efterlevnad av företags standarder.
-  - Hanterad instans är tillgänglig i följande Azure Government regioner till GA (US Gov, Texas, US Gov, Arizona) och i Kina, norra 2 och Kina, östra 2. Den är också tillgänglig i följande offentliga regioner: Australien, centrala, Australien, centrala 2, södra Brasilien, västra Frankrike, Förenade Arabemiraten Central, Förenade Arabemiraten Nord, Sydafrika, norra, södra Afrika.
+  - Hanterad instans är tillgänglig i följande Azure Government regioner till GA (US Gov, Texas, US Gov, Arizona) och i Kina, norra 2 och Kina, östra 2. Den är också tillgänglig i följande offentliga regioner: Australien, centrala, Australien, centrala, södra Frankrike, södra Förenade Arabemiraten Central, Förenade Arabemiraten Nord, Sydafrika, norra, södra Afrika, västra.
 
 ## <a name="fixed-known-issues"></a>Fasta kända problem
 

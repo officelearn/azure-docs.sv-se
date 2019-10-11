@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 7c163dd48e53a3116d58cb94988f2822ddede5e5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 24c7f6c1488d7a78a16aafef88177f7045eb2492
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71169118"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244660"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Översikt över Azure Virtual Machine agent
 Den Microsoft Azure virtuella dator agenten (VM-agenten) är en säker, lätt process som hanterar interaktionen mellan virtuella datorer (VM) med Azure Fabric-styrenheten. VM-agenten har en primär roll för att aktivera och köra tillägg för virtuella Azure-datorer. Med VM-tillägg kan du konfigurera virtuella datorer efter distributionen, till exempel installera och konfigurera program vara. VM-tillägg möjliggör också återställnings funktioner som att återställa det administrativa lösen ordet för en virtuell dator. Utan Azure VM-agenten kan VM-tillägg inte köras.
@@ -67,8 +67,8 @@ Du kan installera VM-agenten genom att dubbelklicka på Windows Installer-filen.
 msiexec.exe /i WindowsAzureVmAgent.2.7.1198.778.rd_art_stable.160617-1120.fre /quiet
 ```
 
-### <a name="prerequisites"></a>Förutsättningar
-Windows VM-agenten måste ha minst Windows Server 2008 R2 (64 bitar) för att kunna köras med .NET Framework 4,0.
+### <a name="prerequisites"></a>Krav
+Windows VM-agenten måste ha minst Windows Server 2008 R2 (64 bitar) för att kunna köras med .NET Framework 4,0. Se [lägsta versions stöd för virtuella dator agenter i Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 ## <a name="detect-the-vm-agent"></a>Identifiera VM-agenten
 
@@ -110,6 +110,8 @@ När du är inloggad på en virtuell Windows-dator kan du använda aktivitets ha
 ## <a name="upgrade-the-vm-agent"></a>Uppgradera VM-agenten
 Azure VM-agenten för Windows uppgraderas automatiskt. När nya virtuella datorer distribueras till Azure får de den senaste virtuella dator agenten vid etablerings tiden för den virtuella datorn. Anpassade VM-avbildningar ska uppdateras manuellt för att inkludera den nya VM-agenten när avbildningen skapas.
 
+## <a name="windows-guest-agent-automatic-logs-collection"></a>Samling med automatiska loggar i Windows gästa Gent
+Windows gästa Gent har en funktion för att automatiskt samla in vissa loggar. Den här funktionen är kontrollant av processen CollectGuestLogs. exe. Det finns för både PaaS-Cloud Services och IaaS Virtual Machines och målet är att snabbt & automatiskt samla in vissa diagnostikloggar från en virtuell dator – så att de kan användas för offline-analys. De insamlade loggarna är händelse loggar, OS-loggar, Azure-loggar och vissa register nycklar. Den skapar en ZIP-fil som överförs till den virtuella datorns värd. Den här ZIP-filen kan sedan ses av teknik team och support tekniker för att undersöka problem på begäran av kunden som äger den virtuella datorn.
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om tillägg för virtuella datorer finns i [Översikt över virtuella Azure-datorer och funktioner](overview.md).

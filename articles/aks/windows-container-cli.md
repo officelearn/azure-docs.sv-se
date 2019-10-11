@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 06/17/2019
 ms.author: mlearned
-ms.openlocfilehash: 8e00053d5ce7c481b026d2fe0ce590d7b8799d8a
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: ff4367194f06a8a6895c9c16252b01c3b94995d3
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075459"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241246"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>För hands version – skapa en Windows Server-behållare i ett Azure Kubernetes service-kluster (AKS) med hjälp av Azure CLI
 
@@ -69,7 +69,7 @@ Det tar några minuter för registreringen att slutföras. Kontrol lera registre
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-När registrerings statusen är `Registered`trycker du på CTRL-C för att stoppa övervakning av status.  Uppdatera sedan registreringen av *Microsoft. container service* Resource Provider med hjälp av [AZ Provider register][az-provider-register] kommando:
+När registrerings statusen är `Registered`, trycker du på CTRL + C för att stoppa övervakningen av tillstånd.  Uppdatera sedan registreringen av *Microsoft. container service* Resource Provider med hjälp av [AZ Provider register][az-provider-register] kommando:
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -141,7 +141,7 @@ az aks create \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
-    --vm-set-type VirtualMachineScaleSets \
+    --enable-vmss \
     --network-plugin azure
 ```
 
@@ -153,7 +153,7 @@ Efter några minuter slutförs kommandot och returnerar JSON-formaterad informat
 
 ## <a name="add-a-windows-server-node-pool"></a>Lägga till en pool för Windows Server-noder
 
-Som standard skapas ett AKS-kluster med en Node-pool som kan köra Linux-behållare. Använd `az aks nodepool add` kommandot för att lägga till ytterligare en Node-pool som kan köra Windows Server-behållare.
+Som standard skapas ett AKS-kluster med en Node-pool som kan köra Linux-behållare. Använd `az aks nodepool add`-kommandot för att lägga till ytterligare en adresspool som kan köra Windows Server-behållare.
 
 ```azurecli
 az aks nodepool add \
@@ -165,11 +165,11 @@ az aks nodepool add \
     --kubernetes-version 1.14.6
 ```
 
-Kommandot ovan skapar en ny Node-pool med namnet *npwin* och lägger till den i *myAKSCluster*. När du skapar en Node-pool för att köra Windows Server-behållare, är standardvärdet för *Node-VM-storlek* *Standard_D2s_v3*. Om du väljer att ange parametern *Node-VM-size* kontrollerar du listan över [begränsade VM-storlekar][restricted-vm-sizes]. Den minsta rekommenderade storleken är *Standard_D2s_v3*. Kommandot ovan använder också standard under nätet i det virtuella nätverk som skapas när det `az aks create`körs.
+Kommandot ovan skapar en ny Node-pool med namnet *npwin* och lägger till den i *myAKSCluster*. När du skapar en Node-pool för att köra Windows Server-behållare, är standardvärdet för *Node-VM-storlek* *Standard_D2s_v3*. Om du väljer att ange parametern *Node-VM-size* kontrollerar du listan över [begränsade VM-storlekar][restricted-vm-sizes]. Den minsta rekommenderade storleken är *Standard_D2s_v3*. Kommandot ovan använder också standard under nätet i standard-VNet som skapas när du kör `az aks create`.
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-Om du vill hantera ett Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommando rads klient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Installera `kubectl` lokalt genom att använda kommandot [AZ AKS install-CLI][az-aks-install-cli] :
+Om du vill hantera ett Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommando rads klient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Om du vill installera `kubectl` lokalt använder du kommandot [AZ AKS install-CLI][az-aks-install-cli] :
 
 ```azurecli
 az aks install-cli
@@ -289,7 +289,7 @@ Om du vill se exempel appen i praktiken öppnar du en webbläsare till den exter
 
 ![Bild av bläddring till ASP.NET exempel program](media/windows-container/asp-net-sample-app.png)
 
-## <a name="delete-cluster"></a>Ta bort kluster
+## <a name="delete-cluster"></a>Ta bort klustret
 
 När klustret inte längre behövs kan du använda kommandot [AZ Group Delete][az-group-delete] för att ta bort resurs gruppen, behållar tjänsten och alla relaterade resurser.
 

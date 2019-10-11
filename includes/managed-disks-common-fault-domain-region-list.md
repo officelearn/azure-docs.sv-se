@@ -4,30 +4,30 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 11/25/2018
 ms.author: cynthn
-ms.openlocfilehash: 40f0a667ffa23010ef00ed105454ab305171cc19
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: 11924b44a51767df68372cd94c581b2feaa8ac25
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67812573"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72247112"
 ---
 ### <a name="number-of-fault-domains-per-region"></a>Antalet feldomäner per region
 
 | Region              | Max antal feldomäner  |
 |---------------------|-------------------------|
-| East US             | 3                       |
-| USA, östra 2           | 3                       |
+| Östra USA             | 3                       |
+| Östra USA 2           | 3                       |
 | Västra USA             | 3                       |
-| Västra USA 2           | 2                       |
+| USA, västra 2           | 2                       |
 | Centrala USA          | 3                       |
 | Norra centrala USA    | 3                       |
 | Södra centrala USA    | 3                       |
-| Västra centrala USA     | 2                       |
-| Centrala Kanada      | 3                      |
+| USA, västra centrala     | 2                       |
+| Centrala Kanada      | 3                       |
 | Östra Kanada         | 2                       |
 |                     |                         |
-| Norra Europa        | 3                       |
-| Västra Europa         | 3                       |
+| Nordeuropa        | 3                       |
+| Västeuropa         | 3                       |
 | Storbritannien, södra            | 2                       |
 | Storbritannien, västra             | 2                       |
 |                     |                         |
@@ -36,21 +36,26 @@ ms.locfileid: "67812573"
 | Östra Japan          | 2                       |
 | Västra Japan          | 2                       |
 | Södra Indien         | 2                       |
-| Indien, centrala       | 2                       |
-| Indien, västra          | 2                       |
+| Centrala Indien       | 2                       |
+| Västra Indien          | 2                       |
 | Sydkorea, centrala       | 2                       |
 | Sydkorea, södra         | 2                       |
 | Förenade Arabemiraten, norra           | 2                       |
 |                     |                         |
+| Östra Kina          | 2                       |
+| Kina, östra 2        | 2                       |
+| Norra Kina         | 2                       |
+| Kina, norra 2       | 2                       |
+|
 | Östra Australien      | 2                       |
 | Sydöstra Australien | 2                       |
 | Australien, centrala   | 2                       |
-| Australien, centrala 2 | 2                       |
+| Centrala Australien 2 | 2                       |
 |                     |                         |
 | Södra Brasilien        | 2                       |
 |                     |                         |
-| Virginia (USA-förvaltad region)     | 2                       |
+| USA Gov Virginia     | 2                       |
 | Texas (USA-förvaltad region)        | 2                       |
 | Arizona (USA-förvaltad region)      | 2                       |
 | US DoD, centrala      | 2                       |
-| US DoD, östra         | 2                       |
+| USA DoD östra         | 2                       |

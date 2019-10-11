@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: ff23b27b73918734e10a481cbe9b1f77519b8764
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 508c67f73bc0e11330b5772b1c1ba3f9bee5e231
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68847269"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255682"
 ---
 # <a name="use-azure-data-box-to-migrate-data-from-an-on-premises-hdfs-store-to-azure-storage"></a>Använd Azure Data Box för att migrera data från en lokal HDFS-lagring till Azure Storage
 
@@ -27,7 +27,7 @@ Den här artikeln hjälper dig att utföra följande uppgifter:
 > * Skicka tillbaka enheten till Microsoft.
 > * Flytta data till Data Lake Storage Gen2.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver dessa saker för att slutföra migreringen.
 
@@ -57,13 +57,13 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
 
     ![Sidan "Anslut och kopiera"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connect-rest.png)
 
-2. I dialog rutan åtkomst till lagrings konto och ladda upp data kopierar du **BLOB service slut punkten** och **lagrings konto nyckeln**. Från BLOB service-slutpunkten utelämnar `https://` och avslutande snedstreck.
+2. I dialog rutan åtkomst till lagrings konto och ladda upp data kopierar du **BLOB service slut punkten** och **lagrings konto nyckeln**. Från BLOB service-slutpunkten utelämnar du `https://` och avslutande snedstreck.
 
     I det här fallet är slut punkten: `https://mystorageaccount.blob.mydataboxno.microsoftdatabox.com/`. Värd delen av den URI som du ska använda är: `mystorageaccount.blob.mydataboxno.microsoftdatabox.com`. Ett exempel finns i så här [ansluter du till rest över http](/azure/databox/data-box-deploy-copy-data-via-rest). 
 
      ![Dialog rutan "åtkomst till lagrings konto och uppladdning av data"](media/data-lake-storage-migrate-on-premises-HDFS-cluster/data-box-connection-string-http.png)
 
-3. Lägg till slut punkten och data Box-enhet-eller data Box Heavy nodens IP `/etc/hosts` -adress till på varje nod.
+3. Lägg till slut punkten och Data Box-enhet-eller Data Box Heavy nodens IP-adress för att `/etc/hosts` på varje nod.
 
     ```    
     10.128.5.42  mystorageaccount.blob.mydataboxno.microsoftdatabox.com
@@ -71,9 +71,9 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
 
     Om du använder någon annan mekanism för DNS bör du se till att Data Box-enhet-slutpunkten kan lösas.
 
-4. Ställ in Shell- `azjars` variabeln på platsen `hadoop-azure` för- `azure-storage` och jar-filerna. Du hittar dessa filer under installations katalogen för Hadoop.
+4. Ställ in Shell-variabeln `azjars` till platsen för jar-filerna `hadoop-azure` och @no__t 2. Du hittar dessa filer under installations katalogen för Hadoop.
 
-    Använd följande kommando för att ta reda på om filerna finns: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. `<hadoop_install_dir>` Ersätt plats hållaren med sökvägen till den katalog där du har installerat Hadoop. Se till att du använder fullständigt kvalificerade sökvägar.
+    Använd följande kommando för att ta reda på om filerna finns: `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. Ersätt plats hållaren `<hadoop_install_dir>` med sökvägen till den katalog där du har installerat Hadoop. Se till att du använder fullständigt kvalificerade sökvägar.
 
     Exempel:
 
@@ -88,13 +88,13 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
     -mkdir -p  wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * `<blob_service_endpoint>` Ersätt plats hållaren med namnet på din BLOB service-slutpunkt.
+    * Ersätt plats hållaren `<blob_service_endpoint>` med namnet på din BLOB service-slutpunkt.
 
-    * `<account_key>` Ersätt plats hållaren med åtkomst nyckeln för ditt konto.
+    * Ersätt plats hållaren `<account_key>` med åtkomst nyckeln för ditt konto.
 
-    * `<container-name>` Ersätt plats hållaren med namnet på din behållare.
+    * Ersätt `<container-name>`-plats hållaren med namnet på din behållare.
 
-    * `<destination_directory>` Ersätt plats hållaren med namnet på den katalog som du vill kopiera data till.
+    * Ersätt `<destination_directory>`-plats hållaren med namnet på den katalog som du vill kopiera data till.
 
 6. Kör ett List kommando för att se till att din behållare och katalog har skapats.
 
@@ -105,11 +105,11 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
     -ls -R  wasb://<container_name>@<blob_service_endpoint>/
     ```
 
-   * `<blob_service_endpoint>` Ersätt plats hållaren med namnet på din BLOB service-slutpunkt.
+   * Ersätt plats hållaren `<blob_service_endpoint>` med namnet på din BLOB service-slutpunkt.
 
-   * `<account_key>` Ersätt plats hållaren med åtkomst nyckeln för ditt konto.
+   * Ersätt plats hållaren `<account_key>` med åtkomst nyckeln för ditt konto.
 
-   * `<container-name>` Ersätt plats hållaren med namnet på din behållare.
+   * Ersätt `<container-name>`-plats hållaren med namnet på din behållare.
 
 7. Kopiera data från Hadoop HDFS till Data Box-enhet Blob Storage i den behållare som du skapade tidigare. Om den katalog som du kopierar till inte hittas skapas den automatiskt.
 
@@ -123,21 +123,21 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
            wasb://<container_name>@<blob_service_endpoint>/<destination_directory>
     ```
 
-    * `<blob_service_endpoint>` Ersätt plats hållaren med namnet på din BLOB service-slutpunkt.
+    * Ersätt plats hållaren `<blob_service_endpoint>` med namnet på din BLOB service-slutpunkt.
 
-    * `<account_key>` Ersätt plats hållaren med åtkomst nyckeln för ditt konto.
+    * Ersätt plats hållaren `<account_key>` med åtkomst nyckeln för ditt konto.
 
-    * `<container-name>` Ersätt plats hållaren med namnet på din behållare.
+    * Ersätt `<container-name>`-plats hållaren med namnet på din behållare.
 
-    * `<exlusion_filelist_file>` Ersätt plats hållaren med namnet på den fil som innehåller listan över fil undantag.
+    * Ersätt plats hållaren `<exlusion_filelist_file>` med namnet på den fil som innehåller listan över fil undantag.
 
-    * `<source_directory>` Ersätt plats hållaren med namnet på den katalog som innehåller de data som du vill kopiera.
+    * Ersätt plats hållaren `<source_directory>` med namnet på den katalog som innehåller de data som du vill kopiera.
 
-    * `<destination_directory>` Ersätt plats hållaren med namnet på den katalog som du vill kopiera data till.
+    * Ersätt `<destination_directory>`-plats hållaren med namnet på den katalog som du vill kopiera data till.
 
-    Alternativet används för att `hadoop-azure*.jar` göra och beroende `azure-storage*.jar` filerna tillgängliga för `distcp`. `-libjars` Detta kan redan inträffa i vissa kluster.
+    Alternativet `-libjars` används för att göra `hadoop-azure*.jar`-och de beroende `azure-storage*.jar`-filerna tillgängliga för `distcp`. Detta kan redan inträffa i vissa kluster.
 
-    I följande exempel visas hur `distcp` kommandot används för att kopiera data.
+    I följande exempel visas hur kommandot `distcp` används för att kopiera data.
 
     ```
      hadoop distcp \
@@ -153,7 +153,7 @@ Följ dessa steg om du vill kopiera data via REST-API: er för BLOB/objekt-lagri
 
     * Försök att ändra antalet mappningar. (Exemplet ovan använder `m` = 4 mappningar.)
 
-    * Testa att köra `distcp` flera parallellt.
+    * Försök att köra flera `distcp` parallellt.
 
     * Kom ihåg att stora filer fungerar bättre än små filer.
 
@@ -167,7 +167,7 @@ Följ de här stegen för att förbereda och leverera Data Box-enhet-enheten til
 
 3. Stäng av enheten och ta bort kablarna.
 
-4. Schemalägg hämtning med UPS.
+4. Schemalägg en upphämtning med UPS.
 
     * För Data Box-enhet enheter, se [leverera din data Box-enhet](https://docs.microsoft.com/azure/databox/data-box-deploy-picked-up).
 
@@ -194,23 +194,23 @@ Du kan kopiera data med hjälp av Azure Data Factory eller genom att använda di
     hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
     ```
 
-    * Ersätt plats hållarna `<dest_account>`ochmed namnen på käll-och mål lagrings kontona. `<source_account>`
+    * Ersätt plats hållarna `<source_account>` och `<dest_account>` med namnen på käll-och mål lagrings kontona.
 
-    * Ersätt plats hållarna `<dest_container>`ochmed namnen på käll-och mål behållarna. `<source_container>`
+    * Ersätt plats hållarna `<source_container>` och `<dest_container>` med namnen på käll-och mål behållarna.
 
-    * Ersätt plats hållarna `<dest_path>`ochmed käll-och mål katalog Sök vägar. `<source_path>`
+    * Ersätt plats hållarna `<source_path>` och `<dest_path>` med sökvägen till käll-och mål katalogen.
 
-    * `<source_account_key>` Ersätt plats hållaren med åtkomst nyckeln för det lagrings konto som innehåller data.
+    * Ersätt plats hållaren `<source_account_key>` med åtkomst nyckeln för det lagrings konto som innehåller data.
 
     Detta kommando kopierar både data och metadata från ditt lagrings konto till ditt Data Lake Storage Gen2 lagrings konto.
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Skapa ett huvud namn för tjänsten för ditt Azure Data Lake Storage Gen2-konto
 
-Information om hur du skapar ett huvud [namn för tjänsten finns i How to: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Information om hur du skapar ett huvud namn för tjänsten finns i [How to: använda portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 * När du utför stegen i avsnittet [Tilldela programmet till en roll](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) i artikeln ska du tilldela rollen **Storage Blob Data-deltagare** till tjänstens huvudnamn.
 
-* När du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) i artikeln, program-ID: t och klientens hemliga värden till en textfil. Du kommer att behöva dem snart.
+* När du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln sparar du program-ID: t och klientens hemliga värden i en textfil. Du kommer att behöva dem snart.
 
 ### <a name="generate-a-list-of-copied-files-with-their-permissions"></a>Generera en lista över kopierade filer med deras behörigheter
 
@@ -228,7 +228,7 @@ Det här kommandot genererar en lista över kopierade filer med deras behörighe
 
 ### <a name="generate-a-list-of-identities-and-map-them-to-azure-active-directory-add-identities"></a>Generera en lista med identiteter och mappa dem till Azure Active Directory (lägga till) identiteter
 
-1. `copy-acls.py` Hämta skriptet. Se [skript för hämtnings hjälp och konfigurera Edge-noden för att köra dem](#download-helper-scripts) i den här artikeln.
+1. Ladda ned `copy-acls.py`-skriptet. Se [skript för hämtnings hjälp och konfigurera Edge-noden för att köra dem](#download-helper-scripts) i den här artikeln.
 
 2. Kör det här kommandot för att generera en lista över unika identiteter.
 
@@ -237,11 +237,11 @@ Det här kommandot genererar en lista över kopierade filer med deras behörighe
    ./copy-acls.py -s ./filelist.json -i ./id_map.json -g
    ```
 
-   Det här skriptet skapar en fil `id_map.json` med namnet som innehåller de identiteter som du behöver mappa till lägga till-baserade identiteter.
+   Det här skriptet skapar en fil med namnet `id_map.json` som innehåller de identiteter som du behöver mappa till lägga till-baserade identiteter.
 
-3. `id_map.json` Öppna filen i en text redigerare.
+3. Öppna `id_map.json`-filen i en text redigerare.
 
-4. För varje JSON-objekt som visas i filen uppdaterar du `target` attributet för antingen AAD-användarens huvud namn (UPN) eller ObjectId (OID) med lämplig mappad identitet. När du är klar sparar du filen. Du behöver den här filen i nästa steg.
+4. För varje JSON-objekt som visas i filen uppdaterar du attributet `target` för antingen ett AAD-användares huvud namn (UPN) eller ObjectId (OID) med lämplig mappad identitet. När du är klar sparar du filen. Du behöver den här filen i nästa steg.
 
 ### <a name="apply-permissions-to-copied-files-and-apply-identity-mappings"></a>Tillämpa behörigheter på kopierade filer och tillämpa identitets mappningar
 
@@ -253,11 +253,11 @@ Kör det här kommandot för att tillämpa behörigheter på de data som du kopi
 
 * Ersätt platshållaren `<storage-account-name>` med namnet på ditt lagringskonto.
 
-* `<container-name>` Ersätt plats hållaren med namnet på din behållare.
+* Ersätt `<container-name>`-plats hållaren med namnet på din behållare.
 
-* Ersätt plats hållarna `<client-secret>`ochmed det program-ID och den klient hemlighet som du samlade in när du skapade tjänstens huvud namn. `<application-id>`
+* Ersätt plats hållarna `<application-id>` och `<client-secret>` med det program-ID och den klient hemlighet som du samlade in när du skapade tjänstens huvud namn.
 
-## <a name="appendix-split-data-across-multiple-data-box-devices"></a>Fjärde Dela data över flera Data Box-enhet enheter
+## <a name="appendix-split-data-across-multiple-data-box-devices"></a>Bilaga: dela data över flera Data Box-enhet enheter
 
 Innan du flyttar dina data till en Data Box-enhet-enhet måste du ladda ned vissa hjälp skript, se till att dina data är ordnade för att få plats på en Data Box-enhet enhet och undanta alla onödiga filer.
 
@@ -303,7 +303,7 @@ Om storleken på dina data överskrider storleken på en enskild Data Box-enhet 
 
 Om dina data inte överskrider storleken på en enkel Data Box-enhet enhet kan du fortsätta till nästa avsnitt.
 
-1. Med utökade behörigheter kör `generate-file-list` du skriptet som du laddade ned genom att följa anvisningarna i föregående avsnitt.
+1. Med utökade behörigheter kör du det `generate-file-list`-skript som du laddade ned genom att följa anvisningarna i föregående avsnitt.
 
    Här är en beskrivning av kommando parametrarna:
 

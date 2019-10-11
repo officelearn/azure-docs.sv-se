@@ -1,85 +1,85 @@
 ---
-title: Övervaka Azure FXT Edge-Filer
-description: Så här övervakar du maskinvarustatus för Azure FXT Edge Filer hybrid storage cache
+title: Övervaka Azure FXT Edge-filer
+description: Övervaka maskin varu status för Azure FXT Edge-filer hybrid Storage cache
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: conceptual
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: e6afd90c4e5a1b0759b3de7789ec37db4c04f2c7
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.author: rohogue
+ms.openlocfilehash: 3f422339af2040ad81c585c0e193e6cb3667b135
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67827446"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254882"
 ---
-# <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Övervaka Azure FXT Edge Filer maskinvarustatus
+# <a name="monitor-azure-fxt-edge-filer-hardware-status"></a>Övervaka maskin varu status för Azure FXT Edge-filer
 
-Azure FXT Edge Filer hybrid lagringssystemet cache har flera status lamporna inbyggd i chassi för att hjälpa administratörer att förstå hur maskinvaran fungerar.
+Azure FXT Edge-filer hybrid Storage cache-systemet har flera status lampor som är inbyggda i chassit för att hjälpa administratörer att förstå hur maskin varan fungerar.
 
-## <a name="system-health-status"></a>Hälsostatus för system
+## <a name="system-health-status"></a>System hälso status
 
-Du kan övervaka cache-åtgärder på en högre nivå genom att använda program på Kontrollpanelen **instrumentpanelen** sidan, enligt beskrivningen i den [Kontrollpanelen Dashboard Guide](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html)
+Om du vill övervaka cache-åtgärder på en högre nivå, använder du kontroll panelens **instrument** panels sida, enligt beskrivningen i [kontroll panelens instrument panels guide](https://azure.github.io/Avere/legacy/dashboard/4_7/html/ops_dashboard_index.html)
 
-## <a name="hardware-status-leds"></a>Maskinvarustatus led: ar
+## <a name="hardware-status-leds"></a>Maskin varu status lampor
 
-Det här avsnittet beskrivs olika statuslamporna inbyggda i Azure FXT Edge Filer maskinvara.
+I det här avsnittet beskrivs de olika status lampor som är inbyggda i Azure FXT Edge-maskin vara.
 
-### <a name="hard-drive-status-leds"></a>Hårddisken status led: ar
+### <a name="hard-drive-status-leds"></a>Status lampor för hård disk
 
-![Bild av hårddisken front, horisontell, med bildtext etiketter 2 (övre vänstra hörnet), 1 (längst ned till vänster) och 3 (höger sida)](media/fxt-monitor/fxt-drive-callouts.png)
+![bild av hård disk, vågrätt, med bild text etiketter 2 (övre vänstra hörnet), 1 (nedre vänstra hörnet) och 3 (höger sida)](media/fxt-monitor/fxt-drive-callouts.png)
 
-Varje enhet operatör har två status led: ar: en indikator för aktiviteten (1) och en statusindikator (2). 
+Varje enhets bärare har två status lampor: en aktivitets indikator (1) och en status indikator (2). 
 
-* Aktiviteten LEDDE (1) lamporna när enheten används.  
-* Statusen LED (2) anger villkoret för enheten med koder i tabellen nedan.
+* Aktivitetens lysdiod (1) tänds när enheten används.  
+* Status LAMPAn (2) anger enhetens villkor genom att använda koderna i tabellen nedan.
 
-| Driv status LED tillstånd              | Betydelse  |
+| Status för enhets status              | Betydelse  |
 |-------------------------------------|----------------------------------------------------------|
-| Gånger grön två gånger per sekund      | Identifiera enhet *eller* <br> Förbereda enheten för borttagning  |
-| Inaktivera (Obelyst)                         | Systemet har inte slutförts Start *eller* <br>Enheten är redo att tas bort |
-| Gånger grönt, gul, och inaktiverad       | Enhetsfel förväntas   |
-| Gånger gul fyra gånger per sekund | Enheten misslyckades   |
-| Fast grönt                         | Enheten är online |
+| Blinkar grönt två gånger per sekund      | Identifiera enhet *eller* <br> Enheten förbereds för borttagning  |
+| Av (unlit)                         | Systemet har inte slutat att starta *eller* <br>Enheten är redo att tas bort |
+| Blinkar grönt, gult och av       | Enhets haveri förutsägs   |
+| Blinkar fyra gånger per sekund | Enheten misslyckades   |
+| Solid grönt                         | Enheten är online |
 
-Höger sida av enheten (3) är märkt med enhetens kapacitet och annan information.
+Enhetens högra sida (3) är märkt med enhetens kapacitet och annan information.
 
-Enheten siffror trycks på utrymmet på enheter. Enheten 0 är längst ned till vänster enhet i Azure FXT Edge filservern, och enheten 1 är direkt under den. Numrering fortsätter i mönstret. 
+Enhets nummer skrivs ut på utrymmet mellan enheter. I Azure FXT Edge-filer är enhet 0 den övre vänstra enheten och enhet 1 är direkt under den. Numreringen fortsätter i det mönstret. 
 
-![Foto av en hårddisk fack i FXT chassi, som visar enheten siffror och kapacitet etiketter](media/fxt-drives-photo.png)
+![Foto av ett hård disk fack i FXT-chassit, som visar enhets nummer och kapacitets etiketter](media/fxt-drives-photo.png)
 
-## <a name="left-control-panel"></a>Vänstra Kontrollpanelen
+## <a name="left-control-panel"></a>Vänster kontroll panel
 
-Vänstra front Kontrollpanelen har olika LED indikatorer (1) och en indikator för hälsotillstånd stora upplysta system (2). 
+Den vänstra kontroll panelen har olika status indikator indikatorer (1) och en stor ljus indikator för system hälsa (2). 
 
-![vänstra statuspanel med 1 märkning indikatorer till vänster och 2 märkning stora systemindikatorn för hälsotillstånd lätta till höger](media/fxt-monitor/fxt-control-panel-left.jpg)
+![vänster status panel, med 1 etikettering av status indikatorer till vänster och 2 som anger att indikatorn för stora system hälso indikatorer visas till höger](media/fxt-monitor/fxt-control-panel-left.jpg)
 
-### <a name="control-panel-status-indicators"></a>Indikatorer för Kontrollpanelen status 
+### <a name="control-panel-status-indicators"></a>Kontroll panels status indikatorer 
 
-Statusindikatorer till vänster visar en solid gult ljus om det finns ett fel i systemet. Tabellen nedan beskrivs möjliga orsaker och lösningar för felen. 
+Status indikatorerna till vänster visar en solid gul lampa om det uppstår ett fel i systemet. I tabellen nedan beskrivs möjliga orsaker och lösningar på felen. 
 
-Om du fortfarande har felet när du har försökt dessa lösningar [supporten](fxt-support-ticket.md) om du behöver hjälp. 
+Om felet kvarstår när du har försökt med dessa lösningar kan du [kontakta supporten](fxt-support-ticket.md) för hjälp. 
 
-| Ikon | Beskrivning | Feltillstånd | Möjliga lösningar |
+| Icon | Beskrivning | Feltillstånd | Möjliga lösningar |
 |----------------|---------------|--------------------|----------------------|
-| ![enhetsikon](media/fxt-monitor/fxt-hd-icon.jpg) | Status för enheten | Enhetsfel | Kontrollera systemhändelseloggen för att avgöra om enheten har ett fel, eller <br>Kör lämplig online diagnostiktest; Starta om systemet och kör embedded diagnostik (ePSA), eller <br>Om enheterna som har konfigurerats i en RAID-matris, startar om systemet och ange värden nätverkskort konfigurationsprogrammet-verktyget |
-|![ikon för temperatur](media/fxt-monitor/fxt-temp-icon.jpg) | Status för temperatur | Termiska fel – till exempel en fläkt har misslyckats eller temperatur ligger utanför intervallet | Sök efter följande adresserbara villkor: <br>En fläkten saknas eller har misslyckats <br>Systemets cover i luften shroud minnesmodulen tomt eller tillbaka information hakparentes tas bort <br>Den omgivande temperaturen är för hög <br>Externa luftflödet hindras |
-|![elektricitet ikon](media/fxt-monitor/fxt-electric-icon.jpg) | Elektriska status | Det gick inte att elektriska fel – till exempel spänning utanför intervallet, PSU eller en misslyckad spänning regulator |  Kontrollera systemhändelseloggen eller systemmeddelanden för det specifika felet. Om det finns ett problem med PSU, kontrollera status för PSU LED och sätt tillbaka PSU om det behövs. | 
-|![ikon för minne](media/fxt-monitor/fxt-memory-icon.jpg) | Minnesstatus | Minnesfel | Kontrollera systemhändelseloggen eller systemmeddelanden för platsen för det misslyckade minnet; Placera minnesmodulen. |
-|![PCIe-ikon](media/fxt-monitor/fxt-pcie-icon.jpg) | PCIe-status | PCIe kortfel | Starta om systemet. Uppdatera PCIe drivrutiner; installera om kortet |
+| ![enhets ikon](media/fxt-monitor/fxt-hd-icon.jpg) | Enhets status | Enhets fel | Kontrol lera systemets händelse logg för att avgöra om enheten har ett fel eller <br>Kör lämpligt test för online-diagnostik; Starta om systemet och kör Embedded Diagnostics (ePSA) eller <br>Om enheterna har kon figurer ATS i en RAID-matris startar du om systemet och anger verktyget för konfiguration av värd korts program |
+|![temperatur ikon](media/fxt-monitor/fxt-temp-icon.jpg) | Temperatur status | Termiskt fel – en fläkt har fel eller så ligger den omgivande temperaturen utanför intervallet | Sök efter följande adresser bara villkor: <br>En fläkt fläkt saknas eller har misslyckats <br>Systemets Cover, Air-Shroud, minnesmodulen tom eller backa filler-hakparentesen tas bort <br>Omgivnings temperaturen är för hög <br>Externt luft flöde är blockerat |
+|![El-ikon](media/fxt-monitor/fxt-electric-icon.jpg) | Elektrisk status | Elektriskt fel – till exempel spänning utanför intervallet, misslyckade PSU eller en misslyckad spännings regulator |  Kontrol lera systemets händelse logg eller system meddelanden för det aktuella problemet. Om det uppstår ett PSU problem kontrollerar du status LAMPAn för PSU och flyttar PSU igen om det behövs. | 
+|![minnes ikon](media/fxt-monitor/fxt-memory-icon.jpg) | Minnes status | Minnes fel | Kontrol lera systemets händelse logg eller system meddelanden för att se platsen för det misslyckade minnet. Placera om minnesmodulen. |
+|![PCIe-ikon](media/fxt-monitor/fxt-pcie-icon.jpg) | PCIe-status | PCIe-kort fel | Starta om systemet. uppdatera driv rutiner för PCIe-kort; installera om kortet |
 
 
-### <a name="system-health-status-indicator"></a>Status som indikerar systemets hälsa
+### <a name="system-health-status-indicator"></a>Status indikator för system hälsa
 
-Den stora upplysta knappen längst till höger i den vänstra Kontrollpanelen visar övergripande status för system och även används som en enhet positionerare ljus i läget för system-ID: T.
+Den stora lit-knappen till höger om den vänstra kontroll panelen anger allmän system status och används också som enhets lokaliserings ljus i system-ID-läge.
 
-Tryck på systemhälsa och ID-knappen för att växla mellan system-ID och system health läge.
+Tryck på knappen system hälsa och ID för att växla mellan system-ID-läge och system hälso läge.
 
-|Status för system hälsotillstånd | Tillstånd |
+|Tillstånd för system hälso status | Tillstånd |
 |-------------------------------------------|-----------------------------------------------|
-| Heltäckande blått | Normal drift: systemet är aktiverad, fungerar normalt, och läget för system-ID är inte aktiv. <br/>Tryck på systemhälsa och ID-knappen om du vill växla till läget för system-ID: T. |
-| Blinkande blå | System-ID-läget är aktivt. Tryck på systemhälsa och system-ID knappen om du vill växla till läget för system hälsotillstånd. |
-| Solid gul | Systemet är i felsäkert läge. Om problemet kvarstår [kontakta Microsofts kundservice och Support](fxt-support-ticket.md). |
-| Blinkande gul | Fel. Kontrollera systemhändelseloggen efter specifika felmeddelanden. Se sidan kod felsökning på qrl.dell.com information om händelse- och felmeddelanden som genereras av systemets inbyggda programvara och agenter som övervakar systemkomponenter. |
+| Heldragen blå | Normal drift: systemet är aktiverat, fungerar normalt och system-ID-läget är inte aktivt. <br/>Tryck på knappen system hälsa och ID om du vill växla till system-ID-läge. |
+| Blinkande blå | System-ID-läget är aktivt. Tryck på knappen system hälsa och system-ID om du vill växla till system hälso läge. |
+| Solid gul | Systemet är i fel säkert läge. [Kontakta Microsofts kund service och support](fxt-support-ticket.md)om problemet kvarstår. |
+| Blinkande gul | Systemfel. Se efter i system händelse loggen om det finns några fel meddelanden. Information om händelse-och fel meddelanden som genereras av den inbyggda program varan och agenter som övervakar system komponenter finns i Sök sidan för felkoder på qrl.dell.com. |
 
 

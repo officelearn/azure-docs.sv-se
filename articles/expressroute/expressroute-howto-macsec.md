@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 4e07274f7abf87360c054edd3fe0ade1c09907a7
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: eeaa709b88ca795d906fe3688301b4cd7d8c726e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178597"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244118"
 ---
 # <a name="configure-macsec-on-expressroute-direct-ports"></a>Konfigurera MACsec på ExpressRoute Direct-portar
 
@@ -130,6 +130,9 @@ Set-AzExpressRoutePort -ExpressRoutePort $erDirect
 ```
 
 I det här läget är MACsec inaktiverat på ExpressRoute Direct-portarna på Microsoft-sidan.
+
+### <a name="test-connectivity"></a>Testa anslutning
+När du har konfigurerat MACsec (inklusive MACsec Key Update) på dina ExpressRoute Direct-portar, [kontrollerar](expressroute-troubleshooting-expressroute-overview.md) du om BGP-sessionerna för kretsarna är igång. Om du inte har någon krets på portarna ännu, skapar du en först och konfigurerar Azures privata peering eller Microsoft-peering av kretsen. Om MACsec är felkonfigurerat, inklusive MACsec-nyckel matchning mellan dina nätverks enheter och Microsofts nätverks enheter, ser du inte ARP-matchning i Layer 2 och BGP-etablering på nivå 3. Om allt är korrekt konfigurerat bör du se att BGP-vägarna annonseras korrekt i båda riktningarna och ditt program data flöde i enlighet med ExpressRoute.
 
 ## <a name="next-steps"></a>Nästa steg
 1. [Skapa en ExpressRoute-krets på ExpressRoute Direct](expressroute-howto-erdirect.md)

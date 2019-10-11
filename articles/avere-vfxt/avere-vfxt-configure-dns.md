@@ -1,54 +1,53 @@
 ---
-title: Avere vFXT DNS - Azure
-description: Konfigurera en DNS-server för resursallokering-belastningsutjämning med Avere vFXT för Azure
+title: Aver vFXT DNS-Azure
+description: Konfigurera en DNS-server för Round-Robin-belastnings utjämning med AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: 9fd9eaf1e62d063026e0e656346baaaade87064f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: c28189bf227a6a81ae9e72e889a0dc598cd7949e
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60410146"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256277"
 ---
 # <a name="avere-cluster-dns-configuration"></a>Konfiguration av DNS för Avere-kluster
 
-Det här avsnittet förklarar grunderna för att konfigurera en DNS-systemet för belastningsutjämning Avere vFXT klustret. 
+I det här avsnittet beskrivs grunderna i hur du konfigurerar ett DNS-system för belastnings utjämning av ditt AVERT vFXT-kluster. 
 
-Det här dokumentet *omfattar inte* instruktioner för att konfigurera och hantera en DNS-server i Azure-miljön. 
+Det här dokumentet *innehåller inte* instruktioner för att konfigurera och hantera en DNS-server i Azure-miljön. 
 
-Istället för att använda resursallokering DNS för att belastningsutjämna ett vFXT-kluster i Azure, Överväg att använda manuella metoder för att tilldela IP-adresser jämnt mellan klienter när de är monterade. Flera metoder beskrivs i [montera Avere klustret](avere-vfxt-mount-clients.md). 
+I stället för att använda Round-Robin-DNS för att belastningsutjämna ett vFXT-kluster i Azure bör du överväga att använda manuella metoder för att tilldela IP-adresser jämnt mellan klienter när de monteras. Det finns flera metoder som beskrivs i [montera ett AVERT-kluster](avere-vfxt-mount-clients.md). 
 
-Ha detta i åtanke när du bestämmer huruvida du ska använda en DNS-server: 
+Tänk på följande när du bestämmer om du vill använda en DNS-Server: 
 
-* Om datorn används av NFS-klienter, med hjälp av DNS är inte obligatoriskt – det är möjligt att ange alla adresser i nätverket med hjälp av numeriska IP-adresser. 
+* Om systemet endast används av NFS-klienter krävs det inte att du använder DNS. det är möjligt att ange alla nätverks adresser genom att använda numeriska IP-adresser. 
 
-* Om systemet har stöd för SMB (CIFS) åtkomst, krävs DNS, eftersom du måste ange en DNS-domän för Active Directory-servern.
+* Om systemet har stöd för SMB-åtkomst, krävs DNS, eftersom du måste ange en DNS-domän för Active Directory-servern.
 
 * DNS krävs om du vill använda Kerberos-autentisering.
 
 ## <a name="load-balancing"></a>Belastningsutjämning
 
-Konfigurera din DNS-domän för att använda belastningsutjämning med resursallokering för klientinriktade IP-adresser för att distribuera den allmänna belastningen.
+Om du vill distribuera den övergripande belastningen konfigurerar du din DNS-domän så att den använder resursallokering med resursallokering (Round-Robin) för IP-adresser.
 
-## <a name="configuration-details"></a>Konfigurationsinformation
+## <a name="configuration-details"></a>Konfigurations information
 
-När klienter har åtkomst till klustret, balanserar RRDNS automatiskt sina begäranden mellan alla tillgängliga gränssnitt.
+När klienter får åtkomst till klustret, balanserar RRDNS automatiskt sina förfrågningar mellan alla tillgängliga gränssnitt.
 
-Konfigurera din DNS-server för att hantera klientinriktade kluster-adresser som du ser i följande diagram för optimala prestanda.
+För optimala prestanda konfigurerar du DNS-servern så att den hanterar klientbaserade kluster adresser som visas i följande diagram.
 
-En kluster-vserver visas till vänster och IP-adresser visas i mitten och till höger. Konfigurera varje klientåtkomstpunkt med A-poster och pekare som på bilden.
+Ett kluster vserver visas till vänster och IP-adresser visas i mitten och till höger. Konfigurera varje klient åtkomst punkt med en post och pekare som illustreras.
 
-![Avere kluster resursallokering DNS-diagram](media/avere-vfxt-rrdns-diagram.png) 
-<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
+![Avere Cluster Round-Robin DNS-diagram @ no__t-1<!--- separate text description file provided  [diagram text description](avere-vfxt-rrdns-alt-text.md) -->
 
-Varje klientinriktade IP-adress måste ha ett unikt namn för intern användning av klustret. (I det här diagrammet klientens IP-adresser är namngivna vs1-klient - IP-* för tydlighetens skull, men i produktion bör du välja något kortare, som klienten *.)
+Varje klient riktad IP-adress måste ha ett unikt namn för intern användning av klustret. (I det här diagrammet heter klientens IP-adresser VS1-client-IP-* för tydlighetens skull, men i produktion bör du förmodligen använda något mer koncis, som klient *.)
 
-Klienter montera klustret med namnet vserver som argumentet server. 
+Klienter monterar klustret med namnet vserver som server argument. 
 
-Ändra din DNS-server ``named.conf`` fil att ange cykliskt för frågor till dina vserver. Det här alternativet innebär att alla tillgängliga värden gås igenom. Lägg till en instruktion som liknar följande:
+Ändra DNS-serverns ``named.conf``-fil för att ange cyklisk ordning för frågor till din vserver. Det här alternativet säkerställer att alla tillgängliga värden går igenom. Lägg till en instruktion som följande:
 
 ```
 options {
@@ -58,7 +57,7 @@ options {
 };
 ```
 
-Följande kommandon för nsupdate ge ett exempel på hur du konfigurerar DNS korrekt:
+Följande nsupdate-kommandon innehåller ett exempel på hur du konfigurerar DNS korrekt:
 
 ```
 update add vserver1.example.com. 86400 A 10.0.0.10
@@ -72,14 +71,14 @@ update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
 update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
 ```
 
-## <a name="cluster-dns-settings"></a>Klustret DNS-inställningar
+## <a name="cluster-dns-settings"></a>Kluster-DNS-inställningar
 
-Ange DNS-server som vFXT klustret använder i den **kluster** > **administrativa nätverket** inställningssidan. Inställningarna på sidan innefattar:
+Ange den DNS-server som vFXT-klustret använder på sidan för**administrativa nätverks** inställningar på **kluster** > . Inställningarna på sidan är:
 
 * DNS-serveradress
 * DNS-domännamn
-* DNS search domains
+* DNS-sökdomäner
 
-Läs [DNS-inställningarna](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) i Avere kluster-konfigurationsguide för mer information om hur du använder den här sidan.
+Läs [DNS-inställningarna](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) i kluster konfigurations guiden för AVERT om du vill ha mer information om hur du använder den här sidan.
 
 

@@ -1,113 +1,113 @@
 ---
-title: Monteras klienter i Microsoft Azure FXT Edge Filer klustret
-description: Hur NFS-klientdatorer kan montera Azure FXT Edge Filer hybrid storage cache
+title: Montera klienter på Microsoft Azure FXT Edge-kluster
+description: Hur NFS-klientdatorer kan montera Azure FXT Edge-filer hybrid Storage cache
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 5471bf4041275d5988414def99dd2130f51fbb80
-ms.sourcegitcommit: 441e59b8657a1eb1538c848b9b78c2e9e1b6cfd5
+ms.author: rohogue
+ms.openlocfilehash: ac1263b352e7fdde57dfee6515a8b22400f22b06
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67828024"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256034"
 ---
-# <a name="tutorial-mount-the-cluster"></a>Självstudier: Montera klustret
+# <a name="tutorial-mount-the-cluster"></a>Självstudie: montera klustret
 
-Den här självstudien lär du dig hur du monterar NFS-klienterna i Azure FXT Edge Filer-klustret. Klienter montera virtuella namnområde sökvägarna som du valde när du har lagt till backend-lagring. 
+I den här självstudien lär du dig hur du monterar NFS-klienter till Azure FXT Edge-kluster. Klienter monterar de virtuella namn rymds Sök vägarna som du tilldelade när du La till backend-lagring. 
 
-Den här självstudien Lär: 
+Den här självstudien lär sig följande: 
 
 > [!div class="checklist"]
-> * Strategier för att läsa in belastningsutjämning klienter över olika klientinriktade IP-adresser
-> * Hur du skapar en monteringssökväg från klientinriktade IP-adress och namnområde knutpunkt
-> * Vilka argument som ska användas i ett mount-kommando
+> * Strategier för belastnings Utjämnings klienter inom intervallet för IP-adresser som riktas mot klienter
+> * Så här skapar du en monterings Sök väg från en klient som riktad IP-adress och namn områdes Knut
+> * Vilka argument som ska användas i ett monterings kommando
 
-Den här kursen tar cirka 45 minuter att slutföra.
+Den här självstudien tar cirka 45 minuter att slutföra.
 
 ## <a name="steps-to-mount-the-cluster"></a>Steg för att montera klustret
 
-Följ dessa steg för att ansluta klientdatorer till ditt kluster i Azure FXT Edge Filer.
+Följ de här stegen för att ansluta klient datorer till ditt Azure FXT Edge-kluster.
 
-1. Bestäm hur du belastningsutjämnar klienttrafik mellan klusternoderna. Läs [saldo klientbelastningen](#balance-client-load)nedan för information. 
-1. Identifiera kluster IP-adress och knutpunkt sökvägen att montera.
-1. Visa klientinriktade sökvägen för monterings.
-1. Problem i [monteringskommando](#use-recommended-mount-command-options), med rätt argument.
+1. Bestäm hur du ska belastningsutjämna klient trafik mellan klusternoderna. Läs [utjämning klient belastning](#balance-client-load)nedan för mer information. 
+1. Identifiera klustrets IP-adress och Knut punkts Sök väg för montering.
+1. Ta reda på den klient-riktade sökvägen för monteringen.
+1. Utfärda [monterings kommandot](#use-recommended-mount-command-options)med lämpliga argument.
 
-## <a name="balance-client-load"></a>Belastningsutjämna klientbelastningen
+## <a name="balance-client-load"></a>Utjämna klient belastning
 
-För att belastningsutjämna klientbegäranden mellan noderna i klustret, ska du ansluta klienter till en fullständig uppsättning klientinriktade IP-adresser. Det finns flera sätt att automatisera den här uppgiften.
+För att balansera klient begär Anden mellan alla noder i klustret, bör du montera klienter till alla IP-adresser som klienten riktas mot. Det finns flera sätt att automatisera den här uppgiften.
 
-Läs om resursallokering DNS belastningsutjämning för klustret, [konfigurera DNS för Azure FXT Edge Filer klustret](fxt-configure-network.md#configure-dns-for-load-balancing). Om du vill använda den här metoden måste du ha en DNS-server som inte beskrivs i de här artiklarna.
+Om du vill veta mer om resursallokering med DNS-belastning för klustret läser du [Konfigurera DNS för Azure FXT Edge-kluster](fxt-configure-network.md#configure-dns-for-load-balancing). Om du vill använda den här metoden måste du underhålla en DNS-server, som inte förklaras i dessa artiklar.
 
-En enklare metod för små installationer är att använda ett skript för att tilldela IP-adresser i hela intervallet på monteringspunkten klienttid. 
+En enklare metod för små installationer är att använda ett skript för att tilldela IP-adresser inom intervallet vid klientens monterings tid. 
 
-Andra metoder för belastningsutjämning kan vara lämpligt för stora eller komplicerade system. Kontakta ditt Microsoft-representativa eller öppna en [supportförfrågan](fxt-support-ticket.md) om du behöver hjälp. (Azure Load Balancer är för närvarande *stöds inte* med Azure FXT Edge Filer.)
+Andra metoder för belastnings utjämning kan vara lämpliga för stora eller komplicerade system. Kontakta din Microsoft-representant eller öppna en [support förfrågan](fxt-support-ticket.md) om du behöver hjälp. (Azure Load Balancer stöds för närvarande *inte* med Azure FXT Edge-filer.)
 
-## <a name="create-the-mount-command"></a>Skapa mount-kommando 
+## <a name="create-the-mount-command"></a>Skapa monterings kommandot 
 
-Från klienten den ``mount`` kommandot mappar den virtuella servern (vserver) på klustret Azure FXT Edge Filer till en sökväg i det lokala filsystemet. 
+Från klienten mappar kommandot ``mount`` den virtuella servern (vserver) på Azure FXT Edge-klustret till en sökväg i det lokala fil systemet. 
 
 Formatet är ``mount <FXT cluster path> <local path> {options}``
 
-Det finns tre element i mount-kommandot: 
+Monterings kommandot innehåller tre element: 
 
-* kluster-sökväg - en kombination av IP-adress och namnområde knutpunkt sökväg som beskrivs nedan
-* lokal sökväg - sökväg på klienten 
-* Montera kommandoalternativ - (anges i [bör du använda kommandot monteringsalternativ](#use-recommended-mount-command-options))
+* kluster Sök väg – en kombination av sökväg för IP-adress och namespace-förgrening som beskrivs nedan
+* lokal sökväg – sökvägen till klienten 
+* Monterings kommando alternativ – (anges i [Använd rekommenderade monterings kommando alternativ](#use-recommended-mount-command-options))
 
-### <a name="create-the-cluster-path"></a>Skapa kluster-sökväg
+### <a name="create-the-cluster-path"></a>Skapa kluster Sök vägen
 
-Kluster-sökvägen är en kombination av vserver *IP-adress* plus sökvägen till en *namnområde knutpunkt*. Knutpunkt för namnområdet är en virtuell sökväg som du angav när du [har lagts till lagringssystemet](fxt-add-storage.md#create-a-junction).
+Kluster Sök vägen är en kombination av vserver *-IP-adressen* plus sökvägen till en *Knut punkt för namn områden*. Namn områdes knuten är en virtuell sökväg som du definierade när du [lade till lagrings systemet](fxt-add-storage.md#create-a-junction).
 
-Exempel: Om du använde ``/fxt/files`` som sökväg för namnområdet klienterna monterar *IP-adress*: / fxt/filer till deras lokala monteringspunkt. 
+Om du till exempel använde ``/fxt/files`` som namn områdes Sök väg skulle dina klienter montera *IP*-adress:/FXT/Files till sin lokala monterings punkt. 
 
-![”Lägg till ny knutpunkt” dialogen med/avere/filer i sökvägsfältet namnområde](media/fxt-mount/fxt-junction-example.png)
+![Dialog rutan Lägg till ny Knut punkt med/avere/Files i fältet namn områdes Sök väg](media/fxt-mount/fxt-junction-example.png)
 
-IP-adressen är en av de IP-adresser för klientinriktade som definierats för vserver. Du kan hitta intervallet för IP-adresser på två platser i klustret på Kontrollpanelen för klientinriktade:
+IP-adressen är en av klientens IP-adresser som har definierats för vserver. Du hittar intervallet för klientbaserade IP-adresser på två platser i kluster kontroll panelen:
 
-* **VServers** tabell (fliken instrumentpanel) - 
+* **VServers** -tabell (fliken instrument panel) – 
 
-  ![Fliken instrumentpanel i Kontrollpanelen med fliken VServer markerad i tabellen nedan i diagrammet och IP-adressavsnitt inringade](media/fxt-mount/fxt-ip-addresses-dashboard.png)
+  ![Fliken instrument panel på kontroll panelen med fliken VServer markerad i data tabellen under grafen och avsnittet IP-adress inringat](media/fxt-mount/fxt-ip-addresses-dashboard.png)
 
-* **Inför klientnätverk** inställningssidan - 
+* Sidan **klient nätverks** inställningar- 
 
-  ![Inställningar > VServer > konfigurationssidan för klienten som riktas mot nätverket med en inringad avsnittet adressintervall i tabellen för en viss vserver](media/fxt-mount/fxt-ip-addresses-settings.png)
+  ![Inställningar > VServer > klient med en cirkel runt avsnittet adress intervall i tabellen för en viss vserver](media/fxt-mount/fxt-ip-addresses-settings.png)
 
-Kombinera IP-adressen och namnområdessökvägen för att bilda klustret sökvägen för monteringskommandot. 
+Kombinera IP-adressen och namn områdets sökväg för att skapa kluster Sök vägen för monterings kommandot. 
 
-Klienten montera kommando: ``mount 10.0.0.12:/sd-access /mnt/fxt {options}``
+Exempel på klient monterings kommando: ``mount 10.0.0.12:/sd-access /mnt/fxt {options}``
 
 ### <a name="create-the-local-path"></a>Skapa den lokala sökvägen
 
-Den lokala sökvägen för monteringskommandot är upp till dig. Du kan ange valfri sökväg-struktur som du vill som en del av det virtuella namnområdet. Skapa ett namnområde och en lokal sökväg som passar ditt klient-arbetsflöde. 
+Den lokala sökvägen för monterings kommandot är upp till dig. Du kan ange valfri Sök vägs struktur som du vill använda som en del av det virtuella namn området. Skapa ett namn område och en lokal sökväg som är lämplig för ditt klient arbets flöde. 
 
-Mer information om klientinriktade namnområdet finns i konfigurationsguiden för klustret [namnområde översikt](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html).
+Mer information om det klient-motstående namn området finns i Översikt över kluster konfigurations guidens [namn område](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html).
 
-Förutom sökvägar, inkludera den [montera kommandoalternativ](#use-recommended-mount-command-options) beskrivs nedan när du monterar varje klient.
+Förutom Sök vägarna inkluderar du [kommando alternativen för montering](#use-recommended-mount-command-options) som beskrivs nedan när du monterar varje klient.
 
-### <a name="use-recommended-mount-command-options"></a>Använd kommandot för rekommenderade monteringsalternativ
+### <a name="use-recommended-mount-command-options"></a>Använd rekommenderade monterings kommando alternativ
 
-För att säkerställa en smidig klienten montering, skicka dessa inställningar och argumenten i mount-kommando: 
+För att säkerställa en sömlös klient montering måste du överföra dessa inställningar och argument i monterings kommandot: 
 
 ``mount -o hard,nointr,proto=tcp,mountproto=tcp,retry=30 ${VSERVER_IP_ADDRESS}:/${NAMESPACE_PATH} ${LOCAL_FILESYSTEM_MOUNT_POINT}``
 
 | Nödvändiga inställningar | |
 --- | --- 
-``hard`` | Mjuk monterar till klustret Azure FXT Edge Filer är associerade med programfel och förlust av data. 
-``proto=netid`` | Det här alternativet stöder lämplig hantering av NFS-nätverksfel.
-``mountproto=netid`` | Det här alternativet stöder lämplig hantering av nätverksfel för mount-åtgärder.
-``retry=n`` | Ange ``retry=30`` att undvika tillfälliga montera fel. (Ett annat värde rekommenderas i förgrunden monterar.)
+``hard`` | Mjuka monteringar till Azure FXT Edge-klustret är kopplade till program fel och eventuell data förlust. 
+``proto=netid`` | Det här alternativet stöder lämplig hantering av NFS-nätverks fel.
+``mountproto=netid`` | Det här alternativet stöder lämplig hantering av nätverks fel för monterings åtgärder.
+``retry=n`` | Ange ``retry=30`` för att undvika tillfälliga monterings problem. (Ett annat värde rekommenderas i förgrunds monteringar.)
 
 | Önskade inställningar  | |
 --- | --- 
-``nointr``            | Om klienterna använder äldre OS-kernel (före April 2008) som har stöd för det här alternativet kan du använda den. Alternativet ”intro” är standardvärdet.
+``nointr``            | Om klienterna använder äldre OS-kernel (före 2008) som har stöd för det här alternativet använder du det. Alternativet "intr" är standardvärdet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du har monterat klienter, du kan testa ditt arbetsflöde och kom igång med ditt kluster.
+När du har monterat klienter kan du testa arbets flödet och komma igång med ditt kluster.
 
-Om du behöver flytta data till en ny cloud core filer kan dra nytta av cache-strukturen med hjälp av parallella mata in. Några strategier beskrivs i [flytta data till ett kluster med vFXT](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest). (Avere vFXT för Azure är en molnbaserad produkt som använder cachelagringsteknik liknar Azure FXT Edge-Filer.)
+Om du behöver flytta data till en ny Cloud core-filer, kan du utnyttja cache-strukturen genom att använda Parallel data inmatning. Vissa strategier beskrivs i [Flytta data till ett vFXT-kluster](https://docs.microsoft.com/azure/avere-vfxt/avere-vfxt-data-ingest). (Aver vFXT for Azure är en molnbaserad produkt som använder teknik för cachelagring som är mycket likt Azure FXT Edge-filer.)
 
-Läs [övervaka Azure FXT Edge Filer maskinvarustatus](fxt-monitor.md) om du behöver felsöka eventuella problem med hårdvaran. 
+Läs [övervaka maskin varu status för Azure FXT Edge](fxt-monitor.md) -filer om du behöver felsöka eventuella maskin varu problem. 

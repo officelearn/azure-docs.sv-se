@@ -1,6 +1,6 @@
 ---
-title: Självstudie – automatisk skalning VM scale sets i Azure med Ansible | Microsoft Docs
-description: Lär dig hur du använder Ansible för att skala VM scale sets med automatisk skalning i Azure
+title: Självstudie – skala skalnings uppsättningar för virtuella datorer i Azure med Ansible
+description: Lär dig hur du använder Ansible för att skala skalnings uppsättningar för virtuella datorer med autoskalning i Azure
 keywords: ansible, azure, devops, bash, playbook, scale, autoscale, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.service: ansible
@@ -8,44 +8,44 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 4f2cd66b7460fc6fe48cb55f45bf4bc309ae054c
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 784cb532c11b16c820336ceeaf8d38f0225c832f
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231277"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242097"
 ---
-# <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Självstudier: Skala VM scale sets i Azure med Ansible
+# <a name="tutorial-autoscale-virtual-machine-scale-sets-in-azure-using-ansible"></a>Självstudie: skala skalnings uppsättningar för virtuella datorer i Azure med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
 [!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
 
-Funktionen för att automatiskt justera antalet Virtuella datorinstanser kallas [Autoskala](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). Fördelen med automatisk skalning är det minskar hanteringsomkostnaderna för att övervaka och optimera prestanda för ditt program. Automatisk skalning kan konfigureras vid behov eller enligt ett definierat schema. Med Ansible kan ange du regler för automatisk skalning som definierar acceptabel prestanda för en positiv kundupplevelse.
+Funktionen för automatisk justering av antalet virtuella dator instanser kallas för automatisk [skalning](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview). Fördelen med autoskalning är att det minskar hanterings omkostnaderna för att övervaka och optimera programmets prestanda. Autoskalning kan konfigureras som svar på begäran eller enligt ett definierat schema. Med Ansible kan du ange regler för autoskalning som definierar acceptabla prestanda för en positiv kund upplevelse.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
 > * Definiera en autoskalningsprofil
-> * Automatisk skalning baserat på ett återkommande schema
-> * Automatisk skalning baserat på prestanda
-> * Hämta information om automatisk skalning 
-> * Inaktivera en autoskalningsinställning
+> * Autoskalning baserat på ett återkommande schema
+> * Autoskalning baserat på App-prestanda
+> * Hämta information om autoskalning-inställningar 
+> * Inaktivera en inställning för autoskalning
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)] 
 [!INCLUDE [ansible-prereqs-vm-scale-set.md](../../includes/ansible-prereqs-vm-scale-set.md)]
 
-## <a name="autoscale-based-on-a-schedule"></a>Automatisk skalning baserat på ett schema
+## <a name="autoscale-based-on-a-schedule"></a>Autoskalning baserat på ett schema
 
 Om du vill aktivera autoskalning för en skalningsuppsättning börjar du med att definiera en autoskalningsprofil. Den här profilen definierar skalningsuppsättningens förvalda, lägsta och högsta kapacitet. Med hjälp av dessa restriktioner kan du begränsa kostnaderna genom att inte skapa VM-instanser kontinuerligt, samtidigt som du kan balansera godtagbara prestanda med minsta antal instanser som bevaras vid en nedskalning. 
 
-Ansible kan du skala dina skalningsuppsättningar på ett visst datum eller återkommande schema.
+Med Ansible kan du skala skalnings uppsättningarna på ett visst datum eller återkommande schema.
 
-Spelboken koden i det här avsnittet ökar antalet Virtuella datorinstanser till tre kl. 10:00 varje måndag.
+Spelbok-koden i det här avsnittet ökar antalet virtuella dator instanser till tre vid 10:00 varje måndag.
 
 Spara följande spelbok som `vmss-auto-scale.yml`:
 
@@ -81,22 +81,22 @@ Spara följande spelbok som `vmss-auto-scale.yml`:
               - '10'
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook vmss-auto-scale.yml
 ```
 
-## <a name="autoscale-based-on-performance-data"></a>Automatisk skalning baserat på prestandadata
+## <a name="autoscale-based-on-performance-data"></a>Autoskalning baserat på prestanda data
 
-Om dina programkrav ökar, ökar även belastningen på VM-instanserna i dina skalningsuppsättningar. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen. När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via lastbalanseraren. Ansible kan du styra vilka mått som ska övervakas, till exempel CPU-användning och diskanvändning app-inläsningstid. Du kan skala i och skala ut i skala anger baserat på prestanda tröskelmått, genom ett återkommande schema eller genom att ett visst datum. 
+Om dina programkrav ökar, ökar även belastningen på VM-instanserna i dina skalningsuppsättningar. Om den här ökade belastningen är konsekvent istället för bara en kortsiktig efterfrågan, kan du konfigurera regler för automatisk skalning för att öka antalet virtuella datorinstanser i skalningsuppsättningen. När dessa virtuella datorinstanser skapas och dina program distribueras, börjar skalningsuppsättningen att distribuera trafik till dem via lastbalanseraren. Med Ansible kan du kontrol lera vilka mått som ska övervakas, till exempel processor användning, disk användning och inläsnings tid för appar. Du kan skala in och skala ut i skalnings uppsättningar baserat på tröskelvärden för prestanda mått, med ett återkommande schema eller ett visst datum. 
 
-Spelboken koden i det här avsnittet kontrollerar CPU-belastningen för tidigare 10 minuter vid 18:00 varje måndag. 
+Spelbok-koden i det här avsnittet kontrollerar CPU-arbetsbelastningen under de senaste 10 minuterna vid 18:00 varje måndag. 
 
-Spelboken gör baserat på mått för CPU-procentandel, något av följande åtgärder:
+Spelbok gör någon av följande åtgärder baserat på måtten för PROCESSORns procents ATS:
 
-- Skalar ut antalet VM-instanser till fyra
-- Skalar in antalet VM-instanser till en
+- Skalar ut antalet virtuella dator instanser till fyra
+- Skalar i antal VM-instanser till en
 
 Spara följande spelbok som `vmss-auto-scale-metrics.yml`:
 
@@ -175,15 +175,15 @@ Spara följande spelbok som `vmss-auto-scale-metrics.yml`:
             value: '1'
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook vmss-auto-scale-metrics.yml
 ```
 
-## <a name="get-autoscale-settings-information"></a>Hämta information om inställningar för automatisk skalning 
+## <a name="get-autoscale-settings-information"></a>Hämta information om autoskalning-inställningar 
 
-Spelboken koden i det här avsnittet använder de `azure_rm_autoscale_facts` modul för att hämta information om autoskalningsinställningen.
+Spelbok-koden i det här avsnittet använder modulen `azure_rm_autoscale_facts` för att hämta information om inställningen för autoskalning.
 
 Spara följande spelbok som `vmss-auto-scale-get-settings.yml`:
 
@@ -203,17 +203,17 @@ Spara följande spelbok som `vmss-auto-scale-get-settings.yml`:
         var: autoscale_query.autoscales[0]
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook vmss-auto-scale-get-settings.yml
 ```
 
-## <a name="disable-autoscale-settings"></a>Inaktivera inställningarna för automatisk skalning
+## <a name="disable-autoscale-settings"></a>Inaktivera inställningar för autoskalning
 
-Det finns två sätt att inaktivera inställningarna för automatisk skalning. Ett sätt är att ändra den `enabled` nyckel från `true` till `false`. Det andra sättet är att ta bort inställningen.
+Det finns två sätt att inaktivera inställningar för autoskalning. Ett sätt är att ändra `enabled`-nyckeln från `true` till `false`. Det andra sättet är att ta bort inställningen.
 
-Spelboken koden i det här avsnittet tar du bort inställningen för automatisk skalning. 
+Spelbok-koden i det här avsnittet tar bort den automatiska skalnings inställningen. 
 
 Spara följande spelbok som `vmss-auto-scale-delete-setting.yml`:
 
@@ -230,7 +230,7 @@ Spara följande spelbok som `vmss-auto-scale-delete-setting.yml`:
          state: absent
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 vmss-auto-scale-delete-setting.yml
@@ -239,4 +239,4 @@ vmss-auto-scale-delete-setting.yml
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Självstudie: Update anpassad avbildning av Azure VM scale sets med Ansible](./ansible-vmss-update-image.md)
+> [Självstudie: uppdatera anpassad avbildning av skalnings uppsättningar för virtuella Azure-datorer med Ansible](./ansible-vmss-update-image.md)

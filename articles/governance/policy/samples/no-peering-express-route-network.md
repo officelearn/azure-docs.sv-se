@@ -1,17 +1,17 @@
 ---
-title: Exempel – Ingen nätverkspeering till Express Route-nätverk
+title: Exempel – ingen nätverks-peering till Express Route
 description: Den här exempelprincipdefinitionen förhindrar att en nätverkspeering associeras till ett nätverk i en angiven resursgrupp.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 21149cb1dce03b358d4fc36e0038ea8c5267b3d1
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 7cd3dde826e79bc38f257d0c8b58e4faf0bef3d4
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980453"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255707"
 ---
 # <a name="sample---no-network-peering-to-express-route-network"></a>Exempel – Ingen nätverkspeering till Express Route-nätverk
 
@@ -68,4 +68,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure-principexempel](index.md)
+- Granska fler exempel under [Exempel på Azure-princip](index.md)

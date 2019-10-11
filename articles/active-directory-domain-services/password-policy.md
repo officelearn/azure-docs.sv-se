@@ -9,20 +9,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: article
-ms.date: 08/08/2019
+ms.date: 10/08/2019
 ms.author: iainfou
-ms.openlocfilehash: 19a618bd576687fcb0d92f8e35613e4cdc749e70
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: 3876c6f80e9f18059ab4abac67732cdbf2ca24fa
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71320446"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248313"
 ---
 # <a name="password-and-account-lockout-policies-on-managed-domains"></a>Principer för lösen ords-och konto utelåsning på hanterade domäner
 
-Om du vill hantera konto säkerhet i Azure Active Directory Domain Services (Azure AD DS) kan du definiera detaljerade lösen ords principer som styr inställningar som minsta längd på lösen ord, lösen ordets giltighets tid eller lösen ords komplexitet. En standard lösen ords princip används för alla användare i en Azure AD DS-hanterad domän. För att ge detaljerad kontroll och uppfylla specifika krav för affärs-eller efterlevnad kan ytterligare principer skapas och tillämpas på specifika användar grupper.
+Om du vill hantera användar säkerhet i Azure Active Directory Domain Services (Azure AD DS) kan du definiera detaljerade lösen ords principer som styr inställningarna för konto utelåsning eller minsta längd och komplexitet för lösen ord. En standard detaljerad lösen ords princip skapas och tillämpas på alla användare i en Azure AD DS-hanterad domän. För att ge detaljerad kontroll och uppfylla specifika krav för affärs-eller efterlevnad kan ytterligare principer skapas och tillämpas på specifika användar grupper.
 
-Den här artikeln visar hur du skapar och konfigurerar en detaljerad lösen ords princip med hjälp av Active Directory Administrationscenter.
+Den här artikeln visar hur du skapar och konfigurerar en detaljerad lösen ords princip i Azure AD DS med hjälp av Active Directory Administrationscenter.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
@@ -38,65 +38,68 @@ För att slutföra den här artikeln behöver du följande resurser och behörig
   * Om det behövs kan du slutföra självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 * Ett användar konto som är medlem i *Administratörs gruppen för Azure AD DC* i din Azure AD-klient.
 
-## <a name="fine-grained-password-policies-fgpp-overview"></a>Översikt över detaljerade lösen ords principer (FGPP)
+## <a name="default-password-policy-settings"></a>Standard princip inställningar för lösen ord
 
-Med detaljerade lösen ords principer (FGPP) kan du använda vissa begränsningar för lösen ord och konto utelåsnings principer för olika användare i en domän. För att skydda privilegierade konton kan du till exempel använda striktare lösen ords inställningar än vanliga icke-privilegierade konton. Du kan skapa flera FGPP för att ange lösen ords principer inom en Azure AD DS-hanterad domän.
+Med detaljerade lösen ords principer (FGPP) kan du använda vissa begränsningar för lösen ord och konto utelåsnings principer för olika användare i en domän. För att skydda privilegierade konton kan du till exempel använda striktare konto utelåsnings inställningar än vanliga icke-privilegierade konton. Du kan skapa flera FGPP i en Azure AD DS-hanterad domän och ange prioritetsordningen som ska användas för användarna.
 
-Följande inställningar för lösen ord kan konfigureras med FGPP:
+Principer distribueras via grupp Association i en hanterad Azure AD DS-domän och alla ändringar som du gör tillämpas vid nästa användar inloggning. Att ändra principen låser inte upp ett användar konto som redan är låst.
 
-* Minsta lösenordslängd
-* Lösen ords historik
-* Lösen ord måste uppfylla komplexitets kraven
-* Lägsta lösenordsålder
-* Högsta ålder för lösenord
-* Princip för konto utelåsning
-  * Konto Utelåsningens varaktighet
-  * Antal misslyckade inloggnings försök som tillåts
-  * Återställ antal misslyckade inloggnings försök efter
+Lösen ords principer beter sig lite annorlunda beroende på hur det användar konto som de tillämpas på har skapats. Det finns två sätt att skapa ett användar konto i Azure AD DS:
 
-FGPP påverkar endast användare som skapats i Azure AD DS. Moln användare och domän användare som synkroniseras till den hanterade Azure AD DS-domänen från Azure AD påverkas inte av lösen ords principerna.
+* Användar kontot kan synkroniseras i från Azure AD. Detta inkluderar endast molnbaserade användar konton som skapas direkt i Azure och hybrid användar konton som synkroniseras från en lokal AD DS-miljö med hjälp av Azure AD Connect.
+    * Majoriteten av användar kontona i Azure AD DS skapas genom synkroniseringsprocessen från Azure AD.
+* Användar kontot kan skapas manuellt i en Azure AD DS-hanterad domän och finns inte i Azure AD.
 
-Principer distribueras via grupp associationen i den hanterade domänen i Azure AD DS, och alla ändringar du gör tillämpas vid nästa användar inloggning. Att ändra principen låser inte upp ett användar konto som redan är låst.
-
-## <a name="default-fine-grained-password-policy-settings"></a>Standardinställningar för detaljerade lösen ords principer
-
-I en Azure AD DS-hanterad domän konfigureras följande lösen ords principer som standard och tillämpas på alla användare:
-
-* **Minsta längd på lösen ord (tecken):** 7
-* **Högsta ålder för lösen ord (livs längd):** 90 dagar
-* **Lösen ord måste uppfylla komplexitets kraven**
-
-Följande principer för konto utelåsning konfigureras sedan som standard:
+Alla användare, oavsett hur de har skapats, har följande principer för konto utelåsning som används av standard lösen ords principen i Azure AD DS:
 
 * **Varaktighet för konto utelåsning:** 30
 * **Antal misslyckade inloggnings försök som tillåts:** 5
 * **Återställ antal misslyckade inloggnings försök efter:** 30 minuter
+* **Högsta ålder för lösen ord (livs längd):** 90 dagar
 
 Med dessa standardinställningar är användar konton utelåsta i 30 minuter om fem ogiltiga lösen ord används inom två minuter. Konton låses automatiskt upp efter 30 minuter.
 
-Du kan inte ändra eller ta bort standard den inbyggda detaljerade lösen ords principen. I stället kan medlemmar i *Administratörs* gruppen för AAD-domänkontrollanter skapa anpassade FGPP och konfigurera den att åsidosätta (prioriteras framför) den inbyggda standard FGPP som visas i nästa avsnitt.
+Konto utelåsning sker bara i den hanterade domänen. Användar konton är bara utelåsta i Azure AD DS och endast på grund av misslyckade inloggnings försök mot den hanterade domänen. Användar konton som synkroniserats i från Azure AD eller lokalt är inte utelåsta i sina käll kataloger, bara i Azure AD DS.
 
-## <a name="create-a-custom-fine-grained-password-policy"></a>Skapa en egen detaljerad lösen ords princip
+Om du har en lösen ords princip för Azure AD som anger en högsta ålder för lösen ord som är större än 90 dagar tillämpas lösen ordets ålder på standard principen i Azure AD DS. Du kan konfigurera en anpassad lösen ords princip för att definiera en annan högsta ålder för lösen ord i Azure AD DS. Var försiktig om du har en kortare högsta ålder för lösen ord som kon figurer ATS i en Azure AD DS-lösenord än i Azure AD eller i en lokal AD DS-miljö. I det scenariot kan en användares lösen ord gå ut i Azure AD DS innan de uppmanas att ändra i Azure AD på en lokal AD DS-miljö.
 
-När du skapar och program i Azure kanske du vill konfigurera en anpassad FGPP. Några exempel på behovet av att skapa en anpassad FGPP är att ange en annan princip för konto utelåsning eller konfigurera en standard inställning för lösen ords livs längd för den hanterade domänen.
+För användar konton som skapats manuellt i en Azure AD DS-hanterad domän, tillämpas följande ytterligare lösen ords inställningar också från standard principen. Dessa inställningar gäller inte för användar konton som synkroniserats i från Azure AD, eftersom en användare inte kan uppdatera sitt lösen ord direkt i Azure AD DS.
 
-Du kan skapa en anpassad FGPP och tillämpa den på vissa grupper i din Azure AD DS-hanterade domän. Den här konfigurationen åsidosätter en standard FGPP. Du kan också skapa egna detaljerade lösen ords principer och tillämpa dem på alla anpassade organisationsenheter som du skapar i den hanterade domänen i Azure AD DS.
+* **Minsta längd på lösen ord (tecken):** 7
+* **Lösen ord måste uppfylla komplexitets kraven**
 
-Om du vill skapa en detaljerad lösen ords princip använder du Active Directory administrations verktyg från en domänansluten virtuell dator. Med Active Directory Administrationscenter kan du Visa, redigera och skapa resurser i en hanterad Azure AD DS-domän, inklusive organisationsenheter.
+Du kan inte ändra konto utelåsnings-eller lösen ords inställningarna i standard lösen ords principen. I stället kan medlemmar i *Administratörs* gruppen för AAD-domänkontrollanter skapa anpassade lösen ords principer och konfigurera den att åsidosätta (prioriteras framför) den inbyggda standard principen, som visas i nästa avsnitt.
+
+## <a name="create-a-custom-password-policy"></a>Skapa en anpassad lösen ords princip
+
+När du skapar och kör program i Azure kanske du vill konfigurera en anpassad lösen ords princip. Du kan till exempel skapa en princip för att ange olika princip inställningar för konto utelåsning.
+
+Anpassade lösen ords principer tillämpas på grupper i en Azure AD DS-hanterad domän. Den här konfigurationen åsidosätter standard principen.
+
+Om du vill skapa en anpassad lösen ords princip använder du Active Directory administrations verktyg från en domänansluten virtuell dator. Med Active Directory Administrationscenter kan du Visa, redigera och skapa resurser i en hanterad Azure AD DS-domän, inklusive organisationsenheter.
 
 > [!NOTE]
-> Om du vill skapa en detaljerad lösen ords princip i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
+> Om du vill skapa en anpassad lösen ords princip i en Azure AD DS-hanterad domän måste du vara inloggad på ett användar konto som är medlem i *Administratörs gruppen för AAD-domänkontrollanten* .
 
 1. Välj **administrations verktyg**på Start skärmen. En lista över tillgängliga hanterings verktyg visas som har installerats i självstudien för att [skapa en virtuell hanterings dator][tutorial-create-management-vm].
 1. Om du vill skapa och hantera organisationsenheter väljer du **Active Directory Administrationscenter** i listan över administrations verktyg.
 1. I den vänstra rutan väljer du din Azure AD DS-hanterade domän, till exempel *contoso.com*.
-1. Öppna **system** behållaren, sedan behållaren med **lösen ords inställningar** .
+1. Öppna **system** behållaren, sedan **Password Settings Container**.
 
-    En inbyggd FGPP för den hanterade Azure AD DS-domänen visas. Du kan inte ändra den här inbyggda FGPP. Skapa i stället en ny anpassad FGPP för att åsidosätta standardvärdet för FGPP.
+    En inbyggd lösen ords princip för den hanterade Azure AD DS-domänen visas. Du kan inte ändra den här inbyggda principen. Skapa i stället en anpassad lösen ords princip som åsidosätter standard principen.
+
+    ![Skapa en lösen ords princip i Active Directory Administrationscenter](./media/password-policy/create-password-policy-adac.png)
+
 1. I **aktivitets** panelen till höger väljer du **nytt > lösen ords inställningar**.
-1. I dialog rutan **skapa lösen ords inställningar** anger du ett namn för principen, till exempel *MyCustomFGPP*. Ställ in prioriteten på lämpligt sätt om du vill åsidosätta standard-FGPP (som är *200*), till exempel *1*.
+1. I dialog rutan **skapa lösen ords inställningar** anger du ett namn för principen, till exempel *MyCustomFGPP*.
+1. När det finns flera lösen ords principer tillämpas principen med högst prioritet, eller prioritet, för en användare. Ju lägre siffra, desto högre prioritet. Standard lösen ords principen har prioritet *200*.
 
-    Redigera andra inställningar för lösen ords principer som du vill, till exempel **tillämpa lösen ords historik** för att kräva att användaren skapar ett lösen ord som skiljer sig från de föregående *24* lösen orden.
+    Ange prioriteten för din anpassade lösen ords princip för att åsidosätta standardvärdet, till exempel *1*.
+
+1. Redigera andra inställningar för lösen ords principer som du vill. Kom ihåg följande viktiga punkter:
+
+    * Inställningar som lösen ords komplexitet, ålder eller förfallo tid endast för användare som skapats manuellt i en Azure AD DS-hanterad domän.
+    * Inställningarna för konto utelåsning gäller alla användare, men börjar bara gälla i den hanterade domänen.
 
     ![Skapa en egen detaljerad lösen ords princip](./media/how-to/custom-fgpp.png)
 
@@ -105,7 +108,7 @@ Om du vill skapa en detaljerad lösen ords princip använder du Active Directory
 
     ![Välj de användare och grupper som lösen ords principen ska tillämpas på](./media/how-to/fgpp-applies-to.png)
 
-1. Detaljerade lösen ords principer kan bara tillämpas på grupper. I dialog rutan **platser** expanderar du domän namnet, till exempel *contoso.com*, och väljer sedan en organisationsenhet, till exempel **AADDC-användare**. Om du har en anpassad ORGANISATIONSENHET som innehåller en grupp med användare som du vill tillämpa väljer du den ORGANISATIONSENHETen.
+1. Lösen ords principer kan bara tillämpas på grupper. I dialog rutan **platser** expanderar du domän namnet, till exempel *contoso.com*, och väljer sedan en organisationsenhet, till exempel **AADDC-användare**. Om du har en anpassad ORGANISATIONSENHET som innehåller en grupp med användare som du vill tillämpa väljer du den ORGANISATIONSENHETen.
 
     ![Välj den ORGANISATIONSENHET som gruppen tillhör](./media/how-to/fgpp-container.png)
 
@@ -117,7 +120,7 @@ Om du vill skapa en detaljerad lösen ords princip använder du Active Directory
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om detaljerade lösen ords principer och hur du använder Active Directory administrations centret finns i följande artiklar:
+Mer information om lösen ords principer och hur du använder Active Directory administrations Center finns i följande artiklar:
 
 * [Lär dig mer om detaljerade lösen ords principer](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc770394(v=ws.10))
 * [Konfigurera detaljerade lösen ords principer med hjälp av administrations Center för AD](/windows-server/identity/ad-ds/get-started/adac/introduction-to-active-directory-administrative-center-enhancements--level-100-#fine_grained_pswd_policy_mgmt)

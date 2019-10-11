@@ -1,17 +1,17 @@
 ---
 title: Exempel – Tillåtna SKU:er för SQL DB
-description: Den här exempelprincipdefinitionen kräver att SQL-databaser använder en godkänd SKU.
+description: Den här exempelprincipdefinitionen kräver att SQL-databaser använder en godkänd SKU. Nya resurser som inte uppfyller kravet nekas.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/23/2019
 ms.author: dacoulte
-ms.openlocfilehash: 4d20986e6bb3f9dc8e1d19a141716bdc66abd13e
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 812ba137bad052e9ee784504151d2a52f99fb9a8
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977717"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244196"
 ---
 # <a name="sample---allowed-sql-database-skus"></a>Exempel – tillåtna SQL Database SKU: er
 
@@ -68,4 +68,4 @@ az group delete --name myResourceGroup --yes
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Granska fler exempel på [Azure-principexempel](index.md)
+- Granska fler exempel under [Exempel på Azure-princip](index.md)

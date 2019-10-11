@@ -1,6 +1,6 @@
 ---
-title: Självstudie – konfigurera VM-skalningsuppsättningar i Azure med Ansible | Microsoft Docs
-description: Lär dig hur du använder Ansible för att skapa och konfigurera VM-skalningsuppsättningar i Azure
+title: Självstudie – konfigurera skalnings uppsättningar för virtuella datorer i Azure med Ansible
+description: Lär dig hur du använder Ansible för att skapa och konfigurera skalnings uppsättningar för virtuella datorer i Azure
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.service: ansible
@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 41ef6103a899970142df1a6beee0ad428419f3df
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 1d9b8cd207596aefa01af852627f11cb9b4ce5dc
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230740"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241736"
 ---
-# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Självstudier: Konfigurera VM-skalningsuppsättningar i Azure med Ansible
+# <a name="tutorial-configure-virtual-machine-scale-sets-in-azure-using-ansible"></a>Självstudie: Konfigurera skalnings uppsättningar för virtuella datorer i Azure med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -26,30 +26,30 @@ ms.locfileid: "65230740"
 > [!div class="checklist"]
 >
 > * Konfigurera resurser för en virtuell dator
-> * Konfigurera en skalningsuppsättning
-> * Skala skalningsuppsättning genom att öka sin VM-instanser 
+> * Konfigurera en skalnings uppsättning
+> * Skala skalnings uppsättningen genom att öka dess VM-instanser 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
-## <a name="configure-a-scale-set"></a>Konfigurera en skalningsuppsättning
+## <a name="configure-a-scale-set"></a>Konfigurera en skalnings uppsättning
 
-Spelboken koden i det här avsnittet definierar följande resurser:
+Spelbok-koden i det här avsnittet definierar följande resurser:
 
-* **Resursgrupp** dit alla dina resurser kommer att distribueras.
+* **Resurs grupp** som alla dina resurser ska distribueras till.
 * **Virtuellt nätverk** i adressutrymmet 10.0.0.0/16
 * **Undernät** i det virtuella nätverket
 * **Offentlig IP-adress** som gör att du kan få åtkomst till resurser via Internet
-* **Nätverkssäkerhetsgrupp** som styr flödet av nätverkstrafik till och från din skalningsuppsättning
+* **Nätverks säkerhets grupp** som styr flödet av nätverks trafik in i och ut ur din skalnings uppsättning
 * **Lastbalanseraren** som distribuerar trafik över en uppsättning definierade virtuella datorer med hjälp av regler för lastbalanseraren
 * **Skalningsuppsättning för virtuell dator** som använder alla resurser som har skapats
 
-Det finns två sätt att hämta exemplet spelboken:
+Det finns två sätt att hämta exempel Spelbok:
 
-* [Ladda ned spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) och spara den i `vmss-create.yml`.
-* Skapa en ny fil med namnet `vmss-create.yml` och kopiera in följande innehåll:
+* [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-create.yml) och spara den till `vmss-create.yml`.
+* Skapa en ny fil med namnet `vmss-create.yml` och kopiera den till följande innehåll:
 
 ```yml
 - hosts: localhost
@@ -145,17 +145,17 @@ Det finns två sätt att hämta exemplet spelboken:
             caching: ReadOnly
 ```
 
-Se följande information innan du kör spelboken:
+Se följande anmärkningar innan du kör Spelbok:
 
-* I den `vars` avsnittet, ersätter den `{{ admin_password }}` med ditt eget lösenord.
+* I avsnittet `vars` ersätter du plats hållaren `{{ admin_password }}` med ditt eget lösen ord.
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook vmss-create.yml
 ```
 
-När strategiboken, kan du se utdata som liknar följande resultat:
+När du har kört Spelbok visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 
@@ -191,21 +191,21 @@ localhost                  : ok=8    changed=7    unreachable=0    failed=0
 
 ## <a name="view-the-number-of-vm-instances"></a>Visa antalet VM-instanser
 
-Den [konfigurerats skalningsuppsättning](#configure-a-scale-set) för närvarande har två instanser. Följande steg används för att bekräfta detta värde:
+Den [konfigurerade skalnings uppsättningen](#configure-a-scale-set) har för närvarande två instanser. Följande steg används för att bekräfta att värdet:
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Gå till skalningsuppsättningen som du har konfigurerat.
+1. Navigera till den skalnings uppsättning som du konfigurerade.
 
-1. Du kan se namn med antalet instanser för skalningsuppsättningen inom parentes: `Standard_DS1_v2 (2 instances)`
+1. Du ser namnet på skalnings uppsättningen med antalet instanser i parentes: `Standard_DS1_v2 (2 instances)`
 
-1. Du kan också kontrollera hur många instanser med den [Azure Cloud Shell](https://shell.azure.com/) genom att köra följande kommando:
+1. Du kan också kontrol lera antalet instanser med [Azure Cloud Shell](https://shell.azure.com/) genom att köra följande kommando:
 
     ```azurecli-interactive
     az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
     ```
 
-    Resultatet av att köra Azure CLI-kommando i Cloud Shell visar att det nu finns tre instanser: 
+    Resultatet av att köra Azure CLI-kommandot i Cloud Shell visar att tre instanser nu finns: 
 
     ```bash
     {
@@ -213,14 +213,14 @@ Den [konfigurerats skalningsuppsättning](#configure-a-scale-set) för närvaran
     }
     ```
 
-## <a name="scale-out-a-scale-set"></a>Skala ut en skalningsuppsättning
+## <a name="scale-out-a-scale-set"></a>Skala ut en skalnings uppsättning
 
-Spelboken koden i det här avsnittet hämtar information om skalningsuppsättningen och ändrar sin kapacitet från två till tre.
+Spelbok-koden i det här avsnittet hämtar information om skalnings uppsättningen och ändrar dess kapacitet från två till tre.
 
-Det finns två sätt att hämta exemplet spelboken:
+Det finns två sätt att hämta exempel Spelbok:
 
-* [Ladda ned spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) och spara den i `vmss-scale-out.yml`.
-* Skapa en ny fil med namnet `vmss-scale-out.yml` och kopiera in följande innehåll:
+* [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss/vmss-scale-out.yml) och spara den till `vmss-scale-out.yml`.
+* Skapa en ny fil med namnet `vmss-scale-out.yml` och kopiera den till följande innehåll:
 
 ```yml
 - hosts: localhost
@@ -247,13 +247,13 @@ Det finns två sätt att hämta exemplet spelboken:
       azure_rm_virtualmachinescaleset: "{{ body }}"
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook vmss-scale-out.yml
 ```
 
-När strategiboken, kan du se utdata som liknar följande resultat:
+När du har kört Spelbok visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 
@@ -289,15 +289,15 @@ PLAY RECAP
 localhost                  : ok=5    changed=1    unreachable=0    failed=0
 ```
 
-## <a name="verify-the-results"></a>Kontrollera resultatet
+## <a name="verify-the-results"></a>Verifiera resultaten
 
-Kontrollera resultatet av arbetet via Azure portal:
+Verifiera resultatet av ditt arbete via Azure Portal:
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
 
-1. Gå till skalningsuppsättningen som du har konfigurerat.
+1. Navigera till den skalnings uppsättning som du konfigurerade.
 
-1. Du kan se namn med antalet instanser för skalningsuppsättningen inom parentes: `Standard_DS1_v2 (3 instances)` 
+1. Du ser namnet på skalnings uppsättningen med antalet instanser i parentes: `Standard_DS1_v2 (3 instances)` 
 
 1. Du kan även verifiera ändringen med [Azure Cloud Shell](https://shell.azure.com/) genom att köra följande kommando:
 
@@ -305,7 +305,7 @@ Kontrollera resultatet av arbetet via Azure portal:
     az vmss show -n myScaleSet -g myResourceGroup --query '{"capacity":sku.capacity}' 
     ```
 
-    Resultatet av att köra Azure CLI-kommando i Cloud Shell visar att det nu finns tre instanser: 
+    Resultatet av att köra Azure CLI-kommandot i Cloud Shell visar att tre instanser nu finns: 
 
     ```bash
     {
@@ -316,4 +316,4 @@ Kontrollera resultatet av arbetet via Azure portal:
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"] 
-> [Självstudie: Distribuera appar till skalningsuppsättningar för virtuella datorer i Azure med Ansible](./ansible-deploy-app-vmss.md)
+> [Självstudie: distribuera appar till skalnings uppsättningar för virtuella datorer i Azure med Ansible](./ansible-deploy-app-vmss.md)

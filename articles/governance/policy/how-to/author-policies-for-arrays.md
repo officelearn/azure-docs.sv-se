@@ -1,17 +1,17 @@
 ---
-title: Redigera principer för mat ris egenskaper på Azure-resurser
+title: Redigera principer för mat ris egenskaper för resurser
 description: Lär dig att skapa mat ris parametrar, skapa regler för matrisens språk uttryck, utvärdera [*]-aliaset och lägga till element i en befintlig matris med Azure Policy definitions regler.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/06/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: e5b90eb975d0d495723a70095b447d37e051fc0b
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 33607d790f564075623d6f61d1b7b8b70a119f98
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978041"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255804"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Redigera principer för mat ris egenskaper på Azure-resurser
 
@@ -96,9 +96,9 @@ Parameter värdets format skiljer sig från Azure CLI, Azure PowerShell eller RE
 
 Använd följande kommandon om du vill använda den här strängen med varje SDK:
 
-- Azure CLI: Kommando [AZ princip tilldelning skapa](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) med parameter **parametrar**
-- Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) med parametern **PolicyParameter**
-- REST API: I åtgärden _Lägg_ till [skapa](/rest/api/resources/policyassignments/create) som en del av begär ande texten som värde för egenskapen **Properties. Parameters**
+- Azure CLI: kommando [AZ princip tilldelning skapa](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) med parameter **parametrar**
+- Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) med parametern **PolicyParameter**
+- REST API: i åtgärden _Lägg_ till [skapa](/rest/api/resources/policyassignments/create) som en del av begär ande texten som värde för egenskapen **Properties. Parameters**
 
 ## <a name="policy-rules-and-arrays"></a>Princip regler och matriser
 
@@ -141,7 +141,7 @@ Den förväntade **typen** av villkor `equals` är en _sträng_. Eftersom **allo
 
 ### <a name="evaluating-the--alias"></a>Utvärdera [*]-aliaset
 
-Alias som har **[\*]** som är kopplade till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen gör **[\*]** det möjligt att utvärdera varje element i matrisen. Det finns tre scenarier som det är praktiskt att utvärdera per objekt i: Ingen, alla och alla.
+Alias som har **[\*]** som är kopplade till sitt namn anger att **typen** är en _matris_. I stället för att utvärdera värdet för hela matrisen gör **[\*]** det möjligt att utvärdera varje element i matrisen. Det finns tre scenarier denna utvärdering av objekt är användbar i: ingen, alla och alla.
 
 Princip motorn utlöser **effekterna** i **sedan** bara när **IF** -regeln utvärderas som sant.
 Detta faktum är viktigt att förstå i kontexten för hur **[\*]** utvärderar varje enskilt element i matrisen.

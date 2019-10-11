@@ -9,16 +9,16 @@ ms.author: robreed
 ms.date: 04/15/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 55950892bec71fdff50cdd0e0b1aae107d845739
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
-ms.translationtype: HT
+ms.openlocfilehash: f943aac4a91217983963fac6f8d0b2b3ba6895a1
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169737"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243611"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Komma igång med konfiguration av Azure Automation tillstånd
 
-I den här artikeln förklaras hur du utför de vanligaste uppgifterna med Azure Automation tillstånds konfiguration, till exempel skapa, importera och kompilera konfigurationer, onboarding-datorer som ska hanteras och Visa rapporter. En översikt över hur Azure Automation tillstånds konfiguration finns i [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md). För dokumentation om Desired State Configuration (DSC), se [Översikt över Desired State Configuration i Windows PowerShell](/powershell/dsc/overview).
+I den här artikeln förklaras hur du utför de vanligaste uppgifterna med Azure Automation tillstånds konfiguration, till exempel skapa, importera och kompilera konfigurationer, onboarding-datorer som ska hanteras och Visa rapporter. En översikt över hur Azure Automation tillstånds konfiguration finns i [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md). För dokumentation om Desired State Configuration (DSC), se [Översikt över Desired State Configuration i Windows PowerShell](/powershell/scripting/dsc/overview/overview).
 
 Den här artikeln innehåller en steg-för-steg-guide om hur du använder Azure Automation tillstånds konfiguration. Om du vill ha en exempel miljö som redan har kon figurer ATS utan att följa stegen som beskrivs i den här artikeln kan du använda följande Resource Manager-mall: [Azure Automation hanterad Node-mall](https://github.com/Azure/azure-quickstart-templates/tree/master/101-automation-configuration). Den här mallen konfigurerar en slutförd konfigurations miljö för Azure Automation tillstånd, inklusive en virtuell Azure-dator som hanteras av Azure Automation tillstånds konfiguration.
 
@@ -31,7 +31,7 @@ Följande krävs för att slutföra exemplen i den här artikeln:
 
 ## <a name="creating-a-dsc-configuration"></a>Skapa en DSC-konfiguration
 
-Du kan skapa en enkel [DSC-konfiguration](/powershell/dsc/configurations) som garanterar antingen närvaron eller frånvaron av Windows-funktionen i **Web Server** (IIS), beroende på hur du tilldelar noder.
+Du kan skapa en enkel [DSC-konfiguration](/powershell/scripting/dsc/configurations/configurations) som garanterar antingen närvaron eller frånvaron av Windows-funktionen i **Web Server** (IIS), beroende på hur du tilldelar noder.
 
 1. Starta [VSCode](https://code.visualstudio.com/docs) (eller valfri text redigerare).
 1. Skriv följande text:
@@ -61,7 +61,7 @@ Du kan skapa en enkel [DSC-konfiguration](/powershell/dsc/configurations) som ga
     ```
 1. Spara filen som `TestConfig.ps1`.
 
-Den här konfigurationen anropar en resurs i varje Node-block, den [WindowsFeature-resurs](/powershell/dsc/windowsfeatureresource)som garanterar antingen närvaron eller frånvaron av **webb server** funktionen.
+Den här konfigurationen anropar en resurs i varje Node-block, den [WindowsFeature-resurs](/powershell/scripting/dsc/reference/resources/windows/windowsfeatureresource)som garanterar antingen närvaron eller frånvaron av **webb server** funktionen.
 
 ## <a name="importing-a-configuration-into-azure-automation"></a>Importera en konfiguration till Azure Automation
 
@@ -94,7 +94,7 @@ När du har importerat en konfiguration kan du Visa den i Azure Portal.
 ## <a name="compiling-a-configuration-in-azure-automation"></a>Kompilera en konfiguration i Azure Automation
 
 Innan du kan använda ett önskat tillstånd för en nod, måste en DSC-konfiguration som definierar det läget kompileras till ett eller flera nodkonfigurationer (MOF-dokument) och placeras på Automation DSC hämtnings Server. En mer detaljerad beskrivning av hur du kompilerar konfigurationer i Azure Automation tillstånds konfiguration finns i [kompilera konfigurationer i Azure Automation tillstånds konfiguration](automation-dsc-compile.md).
-Mer information om hur du kompilerar konfigurationer finns i [DSC-konfigurationer](/powershell/dsc/configurations).
+Mer information om hur du kompilerar konfigurationer finns i [DSC-konfigurationer](/powershell/scripting/dsc/configurations/configurations).
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 1. Klicka på **alla resurser** till vänster och sedan på namnet på ditt Automation-konto.
@@ -195,7 +195,7 @@ På bladet för en enskild rapport kan du se följande status information för m
 - Nodens namn, IP-adress och konfigurations läge.
 
 Du kan också klicka på **Visa rå rapport** om du vill se de faktiska data som noden skickar till servern.
-Mer information om hur du använder dessa data finns i [använda en DSC-rapport Server](/powershell/dsc/reportserver).
+Mer information om hur du använder dessa data finns i [använda en DSC-rapport Server](/powershell/scripting/dsc/pull-server/reportserver).
 
 Det kan ta lite tid efter att en nod har publicerats innan den första rapporten är tillgänglig. Du kan behöva vänta upp till 30 minuter för den första rapporten när du har publicerat en nod.
 
@@ -233,6 +233,6 @@ Om du inte längre vill att en nod ska hanteras av Azure Automation DSC kan du a
 
 - [Översikt över Azure Automation tillstånds konfiguration](automation-dsc-overview.md)
 - [Onboarding-datorer för hantering genom Azure Automation tillstånds konfiguration](automation-dsc-onboarding.md)
-- [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/dsc/overview)
+- [Översikt över önskad tillstånds konfiguration i Windows PowerShell](/powershell/scripting/dsc/overview/overview)
 - [Cmdletar för Azure Automation tillstånds konfiguration](/powershell/module/azurerm.automation/#automation)
 - [Prissättning för Azure Automations tillstånds konfiguration](https://azure.microsoft.com/pricing/details/automation/)

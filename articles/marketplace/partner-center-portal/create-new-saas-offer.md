@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: 48ef7aeb1804aca9001288f6babd302b9c3a8347
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: d035f26e4b550eb1e5d2cca161f14880814a15f6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71969542"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244171"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -36,13 +36,13 @@ Dialog rutan **nytt erbjudande** visas.
 
 ## <a name="offer-id-and-alias"></a>Erbjudande-ID och alias
 
-- **Erbjudande-ID**: Unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet och Azure Resource Manager mallar (om tillämpligt). Erbjudande-ID måste vara gemener, alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg). Detta är begränsat till 50 tecken och kan inte ändras när du har valt *skapa*.  
+- **Erbjudande-ID**: unik identifierare för varje erbjudande i ditt konto. Detta ID visas för kunder i URL-adressen för Marketplace-erbjudandet och Azure Resource Manager mallar (om tillämpligt). Erbjudande-ID måste vara gemener, alfanumeriska tecken (inklusive bindestreck och under streck, men inget blank steg). Detta är begränsat till 50 tecken och kan inte ändras när du har valt *skapa*.  
 Exempel: test-erbjudande-1
 <br>Resulterar i URL: en: `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`
 
-- **Erbjud alias**: Namnet som används för att referera till erbjudandet i Partner Center-portalen. Det här namnet används inte på Marketplace och skiljer sig från namnet på *erbjudandet* och andra värden som ska visas för kunderna. Det går inte att ändra det här värdet när du har valt *skapa*.
+- **Erbjud alias**: namnet som används för att referera till erbjudandet i Partner Center-portalen. Det här namnet används inte på Marketplace och skiljer sig från namnet på *erbjudandet* och andra värden som ska visas för kunderna. Det går inte att ändra det här värdet när du har valt *skapa*.
 
-<br>Exempel: Test erbjudande 1&#8482;
+<br>Exempel: test erbjudande 1&#8482;
 
 Välj **Skapa**.  Sidan **erbjudande översikt** skapas för det här erbjudandet.  
 
@@ -102,7 +102,7 @@ I följande tabell visas ett exempel på uppdelning av kostnader och utbetalning
 - Partner som har kvalificerat sig för den **minskade service avgiften för Marketplace** ser en reducerad transaktions avgift på SaaS-erbjudandena från maj 2019 till och med juni 2020. I det här scenariot faktureras Microsoft $100,00 för din program varu licens och du betalar ut $90,00 till utgivaren.
 
 > [!NOTE]
-> **Minskad service avgift för Marketplace**: För vissa SaaS-erbjudanden som du har publicerat på vår kommersiella marknads plats kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För att ditt erbjudande ska bli kvalificerat, måste minst ett av dina erbjudanden ha utsetts av Microsoft som en prioriterad eller IP-samkund i samma skick.  Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att få denna minskade service avgift för Marketplace för månaden.  Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella marknads plats.  Den minskade service avgiften för Marketplace kommer bara att vara tillgänglig för kvalificerade erbjudanden för licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020.  Efter den här tiden kommer Marketplace-tjänstens avgift att återgå till sin normala mängd. 
+> **Minskad service avgift för Marketplace**: för vissa SaaS-erbjudanden som du har publicerat på vår kommersiella marknads plats kommer Microsoft att minska sin service avgift för Marketplace från 20% (enligt beskrivningen i Microsoft Publisher Agreement) till 10%. För att ditt erbjudande ska bli kvalificerat, måste minst ett av dina erbjudanden ha utsetts av Microsoft som en prioriterad eller IP-samkund i samma skick.  Berättigande måste uppfyllas minst fem (5) arbets dagar före slutet av varje kalender månad för att få denna minskade service avgift för Marketplace för månaden.  Den minskade service avgiften för Marketplace gäller inte för virtuella datorer, hanterade appar eller andra produkter som görs tillgängliga via vår kommersiella marknads plats.  Den minskade service avgiften för Marketplace kommer bara att vara tillgänglig för kvalificerade erbjudanden för licens avgifter som samlas in av Microsoft mellan den 1 maj 2019 och 30 juni 2020.  Efter den här tiden kommer Marketplace-tjänstens avgift att återgå till sin normala mängd. 
 
 
 
@@ -110,7 +110,7 @@ I följande tabell visas ett exempel på uppdelning av kostnader och utbetalning
 #### <a name="csp-program-opt-in"></a>Deltagande i CSP-programmet
 [Cloud Solution Provider (CSP)-](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) programmet gör det möjligt för program erbjudanden att uppnå miljon tals kvalificerade Microsoft-kunder med minimal marknadsföring och försäljnings investeringar.
 
-- **Channels: Gör mitt erbjudande tillgängligt i CSP-programmet @ no__t-0 (kryss ruta)
+- **Kanaler: gör mitt erbjudande tillgängligt i CSP-programmet** (kryss ruta)
 
 Om du väljer att göra ditt erbjudande tillgängligt i CSP-programmet kan moln lösnings leverantörer sälja din produkt som en del av en samlad lösning till sina kunder. 
 
@@ -146,12 +146,12 @@ Genom att aktivera test enheten uppmanas du att konfigurera en demonstrations mi
 
 ### <a name="type-of-test-drive"></a>Typ av test enhet
 
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : En distributionsmall som innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser.
-- **[Dynamics 365 för företag, Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ett företags organisations planerings system för företag (finans, drift, leverans kedja, CRM osv.).  
-- **[Dynamics 365 för kund engagemang](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ett kund engagemang system (Sales, service, Project service, Field service osv.).  
-- **[Dynamics 365 för åtgärder](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ett ekonomi-och drift företags resurs planerings system (finans, drift, tillverkning, leverans kedja osv.). 
-- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : En distributions mall som omfattar alla komplexa lösnings arkitekturer. Alla anpassade produkter bör använda den här typen av test enhet.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : En inbäddad länk till en anpassad instrument panel. Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt bör använda den här typen av test enhet. Allt du behöver ladda upp här är din inbäddade Power BI-URL.
+- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : en distributions mall som innehåller alla Azure-resurser som utgör din lösning. Produkter som passar det här scenariot använder bara Azure-resurser.
+- **[Dynamics 365 för företag, Central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ett företags huvud företags resurs planerings system (finans, Operations, service Chain, CRM osv.).  
+- **[Dynamics 365 för kund engagemang](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft är värd för och underhåller tjänsten Test Drive (inklusive etablering och distribution) för ett kund engagemang system (Sales, service, Project service, Field service osv.).  
+- **[Dynamics 365 for Operations](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft är värd för och underhåller Test Drive-tjänsten (inklusive etablering och distribution) för ekonomi-och drift företags resurs planerings system (finans, drift, tillverkning, leverans kedja osv.). 
+- **[Logic app](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : en distributions mall som omfattar alla komplexa lösnings arkitekturer. Alla anpassade produkter bör använda den här typen av test enhet.
+- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : en inbäddad länk till en anpassad instrument panel. Produkter som vill demonstrera ett interaktivt Power BI visuellt objekt bör använda den här typen av test enhet. Allt du behöver ladda upp här är din inbäddade Power BI-URL.
 
 #### <a name="additional-test-drive-resources"></a>Ytterligare resurser för enhets test
 - [Test Drive tekniska metod tips](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
@@ -160,18 +160,7 @@ Genom att aktivera test enheten uppmanas du att konfigurera en demonstrations mi
 
 ## <a name="connect-lead-management"></a>Anslut lead-hantering
 
-Anslut till kunder direkt genom att ange ditt erbjudande i Marketplace och koppla upp ditt kund Relations hanterings system (CRM) så att du kan ta emot kund kontakt uppgifter direkt efter att en kund har ett intresse eller distribuerar din momsproduktbokföringsmallar.
-
-- **Välj ett mål för lead** (nedrullningsbar meny): Ange anslutnings information till det CRM-system där du vill att vi ska skicka kund leads. 
-
-Partner Center stöder följande CRM-system för hantering av leads. Välj länken för installations anvisningar.
-
-- Azure Blob – ange e-postadressen för kontakt, container namn och lagrings konto anslutnings sträng. 
-- [Azure-tabell](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-azure-table) – ange anslutnings sträng för kontakt-och lagrings konto. 
-- [Dynamics CRM Online](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-dynamics) – ange e-postadress till kontakt, URL och autentiseringsläge (Office 365 eller Azure Active Directory).
-- [Https-slutpunkt](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-https) – ange URL för kontakt-e-postadress och HTTPS-slutpunkt. 
-- [Marketo](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-marketo) – ange e-postadress, formulär-ID, Munchkin-konto-ID och Server-ID.
-- [Salesforce](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cloud-partner-portal-lead-management-instructions-salesforce) – ange kontakt-e-post och organisations-ID. 
+[!INCLUDE [Connect lead management](./includes/connect-lead-management-a.md)]
 
 #### <a name="additional-lead-management-resources"></a>Ytterligare resurser för ledar hantering
 - [Vanliga frågor och svar om lead management](https://docs.microsoft.com/azure/marketplace/lead-management-for-cloud-marketplace#frequently-asked-questions)
@@ -180,12 +169,12 @@ Partner Center stöder följande CRM-system för hantering av leads. Välj länk
 
 Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Egenskaper
 På fliken **Egenskaper** uppmanas du att definiera de kategorier och branscher som används för att gruppera ditt erbjudande på Marketplace, de juridiska avtalen som stöder ditt erbjudande och din app-version. 
 
 Välj **Spara** när du är klar med fälten. 
 
-### <a name="category"></a>Category
+### <a name="category"></a>Kategori
 Välj minst en (1) och högst tre (3) kategorier som används för att gruppera ditt erbjudande i lämpliga sökområden för Marketplace. Ta reda på hur ditt erbjudande stöder dessa kategorier i beskrivningen av erbjudandet. 
 
 ### <a name="industry"></a>Bransch
@@ -223,12 +212,12 @@ På fliken erbjudande lista visas de språk (och marknader) där ditt erbjudande
 
 Ange information som ska visas på Marketplace, inklusive beskrivningar av ditt erbjudande och marknadsförings till gångar.
 
-- **Namn** (obligatoriskt): Namnet som definieras här visas som rubrik på din erbjudande lista på de Marketplace som du har valt. Namnet är förifyllt baserat på din föregående **nya erbjudande** post.  Detta kan vara ett varumärke.  Detta får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
-- **Sammanfattning** (krävs): Ange en kort beskrivning av ditt erbjudande som ska användas i Sök resultaten för Marketplace-listor. Upp till 100 tecken text kan anges i det här fältet.
+- **Namn** (obligatoriskt): det namn som definieras här visas som rubrik på din erbjudande lista på de Marketplace som du har valt. Namnet är förifyllt baserat på din föregående **nya erbjudande** post.  Detta kan vara ett varumärke.  Detta får inte innehålla emojis (om de inte är varumärken och Copyright-symboler) och måste vara begränsade till 50 tecken.
+- **Sammanfattning** (krävs): Ange en kort beskrivning av ditt erbjudande som ska användas i Sök Resultat för Marketplace-listor. Upp till 100 tecken text kan anges i det här fältet.
 - **Beskrivning** (krävs): Ange en beskrivning av ditt erbjudande som ska visas i Översikt över Marketplace-listor. Överväg att inkludera ett värde förslag, viktiga fördelar, eventuella kategori-eller bransch associationer, inköps möjligheter för appar, eventuella obligatoriska upplysningar och en länk till mer information.
 Upp till 3 000 tecken text kan anges i det här fältet. Ytterligare tips finns i artikeln [skriva en bra app-Beskrivning](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description).
-- **Sök efter nyckelord**: Ange upp till tre sökord som kunder kan använda för att hitta ditt erbjudande i Marketplace.
-- **Instruktioner för att komma igång** (krävs): Förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet. 
+- **Sök Nyckelord**: ange upp till tre Sök nyckelord som kunder kan använda för att hitta ditt erbjudande i Marketplace.
+- **Komma igång-instruktioner** (krävs): förklara hur du konfigurerar och börjar använda din app för potentiella kunder.  Den här snabb starten kan innehålla länkar till mer detaljerad onlinedokumentation. Upp till 3 000 tecken text kan anges i det här fältet. 
 
 #### <a name="description"></a>**Beskrivning**
 
@@ -280,7 +269,7 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
 1. Om du vill använda **fetstil** lägger du till `<b>` i början av den text som du vill använda fetstil och lägger till `</b>` i slutet av den text som du vill använda fetstil. 
 
-    **Exempel**: `<b>` KOSTNADS FRI UTVÄRDERINGS VERSION `</b>`
+    **Exempel**: @no__t – 1 kostnads fri utvärderings version `</b>`
     
     Ovanstående skulle medföra att den kostnads fria utvärderings versionen är fet i beskrivningen av erbjudandet i butik. 
 
@@ -313,25 +302,25 @@ Om du vill göra din erbjudande Beskrivning mer engagerande kan du använda HTML
 
 #### <a name="links"></a>Länkar
 
-- **Sekretess policy** (krävs): Länk till din organisations sekretess policy. Du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy
-- **Program marknadsförings material för CSP** (valfritt): Du måste ange en länk till marknadsförings material om du väljer att utöka erbjudandet till programmet för [Cloud Solution Provider (CSP)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
-- **Användbara länkar** (valfritt): Valfria kompletterande online-dokument om din app eller relaterade tjänster som listas genom att tillhandahålla en **rubrik** och **URL**. Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en URL**.
+- **Sekretess policy** (krävs): länka till din organisations sekretess policy. Du ansvarar för att se till att appen uppfyller sekretess lagar och föreskrifter och att tillhandahålla en giltig sekretess policy
+- **CSP-program marknadsförings material** (valfritt): du måste ange en länk till marknadsförings material om du väljer att utöka ditt erbjudande till [CSP-programmet (Cloud Solution Provider)](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers) . CSP utökar erbjudandet till ett bredare utbud av kvalificerade kunder genom att göra det möjligt för CSP-partner att paketera, marknadsföra och sälja ditt erbjudande. Dessa åter försäljare behöver åtkomst till material för marknadsföring av ditt erbjudande. Mer information finns i [Go-to-Marketing-tjänster](https://partner.microsoft.com/reach-customers/gtm).
+- **Användbara länkar** (valfritt): valfria kompletterande online-dokument om din app eller relaterade tjänster som listas genom att tillhandahålla en **rubrik** och **URL**. Lägg till ytterligare användbara länkar genom att klicka på **+ Lägg till en URL**.
 
 #### <a name="contact-information"></a>Kontaktinformation
 
 - **Kontakter**: Ange ett **namn** på en anställd, **telefonnummer**och **e-** postadress för varje kund kontakt.  (De *kommer inte* att visas offentligt). Det krävs också en **Support-URL** för **support kontakt** gruppen.  (Den här informationen *kommer* att visas offentligt).
 
-**Support kontakt** (krävs): För allmänna supportfrågor.
+**Support kontakt** (krävs): för allmänna supportfrågor.
 
-**Teknisk kontakt** (krävs): För tekniska frågor.
+Teknisk **kontakt** (krävs): för tekniska frågor.
 
-**Kanal hanterare, kontakt** (krävs): För åter försäljar frågor som är relaterade till CSP-programmet.
+**Kanal chefs kontakt** (krävs): för åter försäljar frågor som är relaterade till CSP-programmet.
 
 #### <a name="files-and-images"></a>Filer och avbildningar
 
-- **Dokument** (krävs): Lägg till relaterade marknadsförings dokument för ditt erbjudande i PDF-format, och ange minst ett (1) och högst tre (3) dokument per erbjudande.
-- **Avbildningar** (valfritt): Det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser, vilket kräver följande storlekar – liten: 48 x 48 pixlar _(krävs),_ medel: 90 x 90 pixlar, stor: 216 x 216 pixlar _(krävs),_ bred: 255 x 115 pixlar och hjälte: 815 x 290 bild punkter. Alla avbildningar måste vara i. PNG-format.
-- **Skärm dum par** (krävs): Lägg till skärm bilder som demonstrerar ditt erbjudande. Högst fem (5) skärm bilder kan läggas till och ska vara i storlek med 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
+- **Dokument** (krävs): Lägg till relaterade marknadsförings dokument för ditt erbjudande i PDF-format, vilket ger minst ett (1) och högst tre (3) dokument per erbjudande.
+- **Avbildningar** (valfritt): det finns flera platser där ditt erbjudandes Logo bilder kan visas på alla platser, vilket kräver följande storlekar – liten: 48 x 48 pixlar _(krävs),_ Medium: 90 x 90 pixlar, stor: 216 x 216 bild punkter _( krävs),_ bred: 255 x 115 pixlar och hjälte: 815 x 290 bild punkter. Alla avbildningar måste vara i. PNG-format.
+- **Skärm bilder** (krävs): Lägg till skärm bilder som demonstrerar ditt erbjudande. Högst fem (5) skärm bilder kan läggas till och ska vara i storlek med 1280 x 720 pixlar. Alla avbildningar måste vara i. PNG-format.
 - **Videor** (valfritt): Lägg till länkar till videor som demonstrerar ditt erbjudande. Du kan använda länkar till YouTube och/eller Vimeo-videor som visas tillsammans med ditt erbjudande till kunder. Du måste också ange en miniatyr bild av videon, med en storlek på 1280 x 720 pixlar i PNG-format. Du kan visa högst fyra videor per erbjudande.
 
 Kom ihåg att **Spara** innan du går vidare till nästa avsnitt!
@@ -348,7 +337,7 @@ På fliken **förhands granskning** kan du definiera en begränsad **förhands g
 > [!IMPORTANT]
 > Du måste välja **Go Live** innan ditt erbjudande publiceras Live till offentlig Marketplace-publik när du har kontrollerat ditt erbjudande i för hands versionen.
 
-- @no__t – 0Define en förhands gransknings mål grupp: Lägg till ett enda AAD/MSA-konto per rad, tillsammans med en valfri beskrivning. **
+- **Definiera en förhands gransknings mål grupp: Lägg till ett enda AAD/MSA-konto per rad, tillsammans med en valfri beskrivning.**
 
 Lägg till upp till tio (10) e-postadresser manuellt, eller 20 (20) om du överför en CSV-fil, för befintligt Microsoft-konto (MSA) eller Azure Active Directory-konton som hjälper dig att verifiera ditt erbjudande innan du publicerar Live. Genom att lägga till dessa konton definierar du en mål grupp som ska få för hands versions åtkomst till ditt erbjudande innan den publiceras på Marketplace (s). Om erbjudandet redan är Live kan du fortfarande definiera en förhands gransknings grupp för att testa ändringar eller uppdateringar av ditt erbjudande.
 
@@ -359,13 +348,13 @@ Lägg till upp till tio (10) e-postadresser manuellt, eller 20 (20) om du överf
 
 På fliken **teknisk konfiguration** definieras den tekniska informationen (URL-sökväg, webhook, klient-ID och app-ID) som används för att ansluta till ditt erbjudande. Med den här anslutningen kan vi tillhandahålla ditt erbjudande för slutanvändaren om de väljer att förvärva det. Diagram som beskriver användningen av de insamlade fälten finns i dokumentationen för [API: er för SaaS-utförande](https://docs.microsoft.com/azure/marketplace/partner-center-portal/pc-saas-fulfillment-api-v2).
 
-- **URL för landnings sidan** (krävs): Definiera webbplats-URL: en som kunderna hamnar på efter att ha skaffat ditt erbjudande från Marketplace. Den här URL: en är slut punkten som tar emot en token när en kund dirigeras till sidan. Denna token kan bytas ut mot etablerings information med hjälp av lösa i API: er som uppfyller kraven. Informationen och andra som du samlar in kan användas som en del av en kundinteraktiv webb sida som skapats i din upplevelse för att slutföra registreringen och aktivera köpet.
+- **Landnings sidans URL** (krävs): definiera den plats-URL som kunderna ska landa efter när ditt erbjudande har hämtats från Marketplace. Den här URL: en är slut punkten som tar emot en token när en kund dirigeras till sidan. Denna token kan bytas ut mot etablerings information med hjälp av lösa i API: er som uppfyller kraven. Informationen och andra som du samlar in kan användas som en del av en kundinteraktiv webb sida som skapats i din upplevelse för att slutföra registreringen och aktivera köpet.
 
-- **Anslutningens webhook** (krävs): För alla asynkrona händelser som Microsoft behöver skicka till dig för kundens räkning (exempel: SaaS-prenumerationen är ogiltig), vi kräver att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https: \//Prod-1westus. Logic. Azure. com: 443/arbete ). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
+- **Anslutning-webhook** (krävs): för alla asynkrona händelser som Microsoft behöver skicka till dig för kunden (exempel: SaaS-prenumerationen är ogiltig), så kräver vi att du anger en anslutning-webhook. Om du inte redan har ett webhook-system på plats är den enklaste konfigurationen att ha en HTTP-slutpunkt som lyssnar efter händelser som skickas till den och sedan hantera dem på rätt sätt (t. ex. https: \//Prod-1westus. Logic. Azure. com: 443/arbete ). Mer information finns i [anropa, utlösa eller kapsla arbets flöden med HTTP-slutpunkter i Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-http-endpoint).
 
-- **Azure AD-klient-ID** (krävs): Inom Azure Portal kräver vi att du [skapar en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (t. ex. 50c464d3-4930-494c-963c-1e951d15360e).
+- **Azure AD-klient-ID** (krävs): inuti Azure Portal måste du [skapa en Azure Active Directory (AD)-app](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) så att vi kan verifiera anslutningen mellan våra två tjänster bakom en autentiserad kommunikation. Du hittar [klient-ID: t](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in)genom att gå till din Azure Active Directory och välja **Egenskaper**och leta efter **katalog-ID** -numret i listan (t. ex. 50c464d3-4930-494c-963c-1e951d15360e).
 
-- **ID för Azure AD-App** (krävs): Du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID** som anges (t. ex. 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
+- **ID för Azure AD-App** (krävs): du behöver också ditt [program-ID](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) och en autentiseringsnyckel. Om du vill hämta dessa värden går du till Azure Active Directory och väljer **Appregistreringar**och letar sedan efter det **program-ID** som anges (t. ex. 50c464d3-4930-494c-963c-1e951d15360e). Om du vill hitta autentiseringsnyckel går du till **Inställningar** och väljer **nycklar**. Du måste ange en beskrivning och varaktighet och kommer sedan att tillhandahålla ett Number-värde.
 
  Observera att Azure-programmets ID är associerat med ditt utgivar-ID, så se till att samma program-ID används i alla dina erbjudanden.
 
@@ -383,7 +372,7 @@ Vilka **åtgärder** som är tillgängliga i **plan översikten** varierar beroe
 **Skapa en ny plan** (minst en plan för de som väljer att sälja via Microsoft)
 
 - **Plan-ID:** Skapa ett unikt plan-ID för varje plan i det här erbjudandet. Detta ID visas för kunder i produkt-URL och Azure Resource Manager mallar (om tillämpligt). Använd endast gemener, alfanumeriska tecken, bindestreck eller under streck. Högst 50 tecken tillåts för det här plan-ID: t. Observera att ID: t inte kan ändras när du har valt skapa.
-- **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (t. ex. Erbjudandets namn: Windows Server; utgå Windows Server 2016, Windows Server 2019).
+- **Plan namn:** Kunder ser det här namnet när du bestämmer vilken plan du vill välja i erbjudandet. Skapa ett unikt erbjudande namn för varje plan i det här erbjudandet. Plan namnet används för att särskilja program varu planer som kan vara en del av samma erbjudande (t. ex. Namn på erbjudande: Windows Server; planer: Windows Server 2016, Windows Server 2019).
 
 ### <a name="plan-listing"></a>Plan lista
 
@@ -393,7 +382,7 @@ På fliken **plan lista** visas de språk (och marknader) där ditt abonnemang �
 
 Om du väljer ett av plan språken visas **planens registrerings** information, inklusive **namn** och **Beskrivning.**
 
-- **Namn på**: Fylls i automatiskt baserat på din förhands gransknings **nya plan** och visas som rubrik för ditt erbjudandes "program plan" på Marketplace.
+- **Namn**: förifyllt baserat på din förhands gransknings **nya plan** post och visas som rubrik för ditt erbjudandes "program varu plan" på Marketplace.
 - **Beskrivning:** Den här beskrivningen är en möjlighet att förklara vad som gör att den här program varu planen är unik och eventuella skillnader jämfört med andra program varu planer i erbjudandet. Får innehålla upp till 500 tecken.
 
 Välj **Spara** när du är klar med fälten.
@@ -432,7 +421,7 @@ Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en 
 
 #### <a name="pricing"></a>Prissättning
 
-- **Pris modell**: Fast pris eller plats baserad
+- **Pris modell**: fast pris eller plats baserad
 
 **Fast pris:** Ge åtkomst till ditt erbjudande med ett enkelt pris per månad eller årligt pris. Detta kallas ibland för platsbaserade priser. Med den här pris sättnings modellen kan du välja att definiera förmätnings planer som använder API: et för avläsning av program vara för att debitera kunder enligt andra enheter än standard enheter.  Mer information om avgiftsbelagd fakturering finns i [mäta fakturering med Marketplace-avläsning](./saas-metered-billing.md).
 
@@ -440,14 +429,14 @@ Om du redan har angett priser för din plan i USA dollar (USD) och lagt till en 
 
 När du har publicerat det kan du inte ändra fakturerings pris modellen. Dessutom måste alla planer för samma erbjudande dela samma pris modell.
 
-- **Fakturerings period**: Månatlig eller årlig
+- **Fakturerings period**: varje månad eller per år
 
 Välj den frekvens som kunderna måste betala i det angivna priset. Minst ett månatligt eller årligt pris måste tillhandahållas, eller så kan båda alternativen göras tillgängliga för kunderna.
 
 - **Pris**: USD per månad eller USD per år
 
 Priser som anges i lokal valuta (USD = USA dollar) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna som är tillgängliga under installationen. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar du och importerar pris kalkyl bladet. Du ansvarar för att verifiera priset och äga dessa inställningar.
-* *Du måste först spara dina pris ändringar för att möjliggöra export av pris information.*
+**du måste först spara dina pris ändringar för att möjliggöra export av pris information.*
 
 Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begränsningar för vad som kan ändras när en plan publiceras:
 

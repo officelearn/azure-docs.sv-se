@@ -3,18 +3,18 @@ title: Ord lista med termer – IoT Plug and Play Preview | Microsoft Docs
 description: Koncept – en ord lista med vanliga villkor som rör IoT Plug and Play Preview.
 author: ChrisGMsft
 ms.author: chrisgre
-ms.date: 08/29/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 7b37912c58312644059f3990b4776514e081a4bb
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: a5c9d2d54fcce1179e43c38027db23c3d7e557e8
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70858842"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249304"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>Ord lista med villkor för för hands versionen av IoT Plug and Play
 
@@ -38,7 +38,7 @@ Azure CLI är ett plattforms oberoende kommando rads verktyg för att hantera Az
 - Anropa enhets [kommandon](#commands).
 - Hantera [modell databaser](#model-repository), [gränssnitt](#interface)och [enhets kapacitets modeller](#device-capability-model).
 
-## <a name="azure-iot-central"></a>Azure IoT Central
+## <a name="azure-iot-central"></a>Utforska IoT Central
 
 Azure IoT Central är en fullständigt hanterad lösning för program vara som en tjänst som gör det enkelt att ansluta, övervaka och hantera dina [IoT plug and Play-enheter](#iot-plug-and-play-device). Du kan använda [enhets kapacitets modeller](#device-capability-model) för att automatiskt konfigurera ett IoT Central program för att övervaka och hantera dina enheter.
 
@@ -97,6 +97,7 @@ En anslutnings sträng kapslar in den information som krävs för att ansluta ti
 
 - Anslutnings strängar för enheter gör att [IoT plug and Play-enheter](#iot-plug-and-play-device) kan ansluta till enhetens slut punkter på en IoT-hubb. Klient koden på en enhet använder anslutnings strängen för att upprätta en säker anslutning till en IoT-hubb.
 - IoT Hub anslutnings strängar möjliggör backend-lösningar och-verktyg för att ansluta säkert till tjänsteorienterade slut punkter på en IoT-hubb. Dessa lösningar och verktyg hanterar IoT-hubben och de enheter som är anslutna till den.
+- Anslutnings strängar för företags modellens databas möjliggör Server dels lösningar och verktyg för att ansluta säkert till en [företags modell databas](#company-model-repository). Dessa lösningar och verktyg använder eller hanterar [enhetens kapacitets modeller](#device-capability-model) och [gränssnitt](#interface) i lagrings platsen.
 
 ## <a name="device-capability-model"></a>Enhets kapacitets modell
 
@@ -114,7 +115,7 @@ En enhets utvecklare använder en [modell för enhets kapacitet](#device-capabil
 
 En [enhets utvecklare](#device-developer) använder ett [digitalt definitions språk](#digital-twin-definition-language) för att modellera funktionerna i en [IoT plug and Play-enhet](#iot-plug-and-play-device). Modellen kan delas med hjälp av en modell databas. En enhets utvecklare kan generera Skeleton enhets kod från modellen. En [lösnings utvecklare](#solution-developer) kan konfigurera en IoT-lösning från modellen.
 
-## <a name="device-provisioning-service"></a>Enhetsetableringstjänst
+## <a name="device-provisioning-service"></a>Enhets etablerings tjänst
 
 [Azure IoT Central](#azure-iot-central) använder enhets etablerings tjänsten för att hantera all enhets registrering och anslutning. Mer information finns i [enhets anslutning i Azure IoT Central](../iot-central/concepts-connectivity-pnp.md). Du kan också använda enhets etablerings tjänsten för att hantera enhets registrering och anslutning till din IoT Hub-baserade IoT-lösning. Mer information finns i avsnittet [om att konfigurera enheter med Azure IoT Hub Device Provisioning service](../iot-dps/about-iot-dps.md).
 
@@ -170,7 +171,7 @@ En modell databas lagrar [enhets kapacitets modeller](#device-capability-model) 
 
 Ett API för att hantera och interagera med modell databaser. Du kan till exempel använda API: et för att lägga till [enhets kapacitets modeller](#device-capability-model) och söka efter kapacitets modeller.
 
-## <a name="properties"></a>properties
+## <a name="properties"></a>Egenskaper
 
 Egenskaper är data fält som definierats i ett [gränssnitt](#interface) och som representerar status för en digital, dubbel. Du kan deklarera egenskaper som skrivskyddade eller skrivbara. Skrivskyddade egenskaper, till exempel serie nummer, anges med kod som körs på [IoT plug and Play själva enheten](#iot-plug-and-play-device) .  Skrivbara egenskaper, till exempel ett larm tröskelvärde, anges vanligt vis från den molnbaserade IoT-lösningen.
 
@@ -182,7 +183,7 @@ Det finns en enda offentlig modell databas som lagrar [enhets kapacitets modelle
 
 Ett registrerings-ID identifierar unikt en enhet i [enhets etablerings tjänsten](#device-provisioning-service). Detta ID är inte samma som enhets-ID: t som är en unik identifierare för en enhet i en [IoT-hubb](#azure-iot-hub).
 
-## <a name="scope-id"></a>Omfångs-id
+## <a name="scope-id"></a>Omfattnings-ID
 
 Omfattnings-ID: t identifierar unikt en instans av [enhets etablerings tjänsten](#device-provisioning-service) .
 

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: API för värd RESTful med CORS-Azure App Service'
+title: 'Självstudie: värd-RESTful-API med CORS-Azure App Service'
 description: Lär dig hur Azure App Service hjälper dig att vara värd för dina RESTful-API:er med CORS-stöd.
 services: app-service\api
 documentationcenter: dotnet
@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 11/21/2018
 ms.author: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 137b569820ea7394b6a3beb24129c905a2efd123
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.openlocfilehash: f13b390047ea4d8280b106f3b02a8f18944a6f99
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743866"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255164"
 ---
 # <a name="tutorial-host-a-restful-api-with-cors-in-azure-app-service"></a>Självstudie: Vara värd för en RESTful-API med CORS i Azure App Service
 
@@ -37,7 +37,7 @@ Du kan följa stegen i den här självstudien i macOS, Linux och Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
@@ -72,7 +72,7 @@ dotnet run
 
 Gå till `http://localhost:5000/swagger` i en webbläsare för att testa användargränssnittet för Swagger.
 
-![ASP.NET Core-API som körs lokalt](./media/app-service-web-tutorial-rest-api/local-run.png)
+![ASP.NET Core-API som körs lokalt](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
 Gå till `http://localhost:5000/api/todo` och se en lista med ToDo JSON-objekt.
 
@@ -98,7 +98,7 @@ I det här steget distribuerar du din SQL Database-anslutna .NET Core-app till A
 
 [!INCLUDE [Create app service plan](../../includes/app-service-web-create-app-service-plan-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa en webbapp
+### <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 [!INCLUDE [Create web app](../../includes/app-service-web-create-web-app-dotnetcore-win-no-h.md)] 
 
@@ -136,7 +136,7 @@ To https://<app_name>.scm.azurewebsites.net/<app_name>.git
 
 Gå till `http://<app_name>.azurewebsites.net/swagger` i en webbläsare och testa användargränssnittet för Swagger.
 
-![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-rest-api/azure-run.png)
+![ASP.NET Core-API som körs i Azure App Service](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 Gå till `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` för att se _swagger.json_ för din distribuerade API.
 
@@ -158,9 +158,9 @@ Kör exempelappen igen i ditt lokala terminalfönster.
 dotnet run
 ```
 
-Gå till webbläsarappen på `http://localhost:5000`. Öppna fönstret med utvecklingsverktyg i webbläsaren (`Ctrl`+`Shift`+`i` i Chrome för Windows) och kontrollera fliken **Konsol**. Du bör nu se felmeddelandet `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+Gå till webbläsarappen på `http://localhost:5000`. Öppna fönstret utvecklarverktyg i webbläsaren (`Ctrl` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 i Chrome för Windows) och granska fliken **konsol** . Du bör nu se fel meddelandet `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-![CORS-fel i webbläsarklienten](./media/app-service-web-tutorial-rest-api/cors-error.png)
+![CORS-fel i webbläsarklienten](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
 På grund av domänmatchningsfel mellan webbläsarappen (`http://localhost:5000`) och fjärresursen (`http://<app_name>.azurewebsites.net`), samt det faktum att din API i App Service inte skickar `Access-Control-Allow-Origin`-huvudet, har din webbläsare förhindrat att innehåll från flera domäner blir inlästa i din webbläsarapp.
 
@@ -177,13 +177,13 @@ az resource update --name web --resource-group myResourceGroup --namespace Micro
 Du kan ange fler än en klient-URL i `properties.cors.allowedOrigins` (`"['URL1','URL2',...]"`). Du kan också aktivera alla klient-URL:er med `"['*']"`.
 
 > [!NOTE]
-> Om din app kräver att autentiseringsuppgifter såsom cookies eller autentiseringstoken skickas kan webbläsaren kräva huvudet `ACCESS-CONTROL-ALLOW-CREDENTIALS` i svaret. Om du vill aktivera det här i App Service anger du `properties.cors.supportCredentials` till `true` in CORS-konfigurationen. Detta kan inte aktiveras när `allowedOrigins` innehåller `'*'`.
+> Om din app kräver att autentiseringsuppgifter såsom cookies eller autentiseringstoken skickas kan webbläsaren kräva huvudet `ACCESS-CONTROL-ALLOW-CREDENTIALS` i svaret. Om du vill aktivera detta i App Service anger du `properties.cors.supportCredentials` till `true` i CORS-konfigurationen. Detta kan inte aktive ras när `allowedOrigins` innehåller `'*'`.
 
 ### <a name="test-cors-again"></a>Testa CORS igen
 
 Uppdatera webbläsarappen i `http://localhost:5000`. Felmeddelandet i fönstret **Konsol** är nu borta och du kan se data från den distribuerade API:n samt interagera med den. Fjärr-API:n har nu stöd för CORS i webbläsarappen som körs lokalt. 
 
-![CORS finns nu i webbläsarklienten](./media/app-service-web-tutorial-rest-api/cors-success.png)
+![CORS finns nu i webbläsarklienten](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 Grattis! Du kör en API i Azure App Service med CORS-stöd.
 

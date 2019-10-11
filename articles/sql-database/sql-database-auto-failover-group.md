@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 09/06/2019
-ms.openlocfilehash: 6f5d865b5a12ce8989631deee7ebda49dbe1ab12
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.date: 10/09/2019
+ms.openlocfilehash: b876fba2ae10c4f8b973ad1bb0c98bfa95c7f481
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103184"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249323"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Använd grupper för automatisk redundans för att aktivera transparent och samordnad redundansväxling av flera databaser
 
@@ -32,8 +32,8 @@ Dessutom tillhandahåller grupper för automatisk redundans skrivskyddade och sk
 När du använder grupper för automatisk redundans med automatisk redundansväxling, resulterar alla avbrott som påverkar databaser i SQL Database-servern eller hanterade instanser i automatisk redundans. Du kan hantera gruppen för automatisk redundans med:
 
 - [Azure Portal](sql-database-implement-geo-distributed-database.md)
-- [PowerShell Redundans grupp](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
-- [REST API: Failover-](https://docs.microsoft.com/rest/api/sql/failovergroups)grupp.
+- [PowerShell: redundans grupp](scripts/sql-database-add-single-db-to-failover-group-powershell.md)
+- [REST API: grupp växling vid fel](https://docs.microsoft.com/rest/api/sql/failovergroups).
 
 Efter redundansväxlingen kontrollerar du att autentiseringskrav för servern och databasen har kon figurer ATS på den nya primära servern. Mer information finns i [SQL Database säkerhet efter haveri beredskap](sql-database-geo-replication-security-config.md).
 
@@ -46,7 +46,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
   En grupp för växling vid fel är en namngiven grupp databaser som hanteras av en enda SQL Database Server eller inom en enda hanterad instans som kan redundansväxla som en enhet till en annan region, om alla eller vissa primära databaser blir otillgängliga på grund av ett avbrott i den primära regionen. När det skapas för hanterade instanser innehåller en redundans grupp alla användar databaser i instansen och därför kan bara en failover-grupp konfigureras på en instans.
   
   > [!IMPORTANT]
-  > Namnet på gruppen för redundans måste vara globalt unikt inom `.database.windows.net` domänen.
+  > Namnet på gruppen för redundans måste vara globalt unikt inom `.database.windows.net`-domänen.
 
 - **SQL Database servrar**
 
@@ -80,11 +80,11 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Läs-och skriv lyssnare för redundans**
 
-  En DNS CNAME-post som pekar på den aktuella primära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter att den skrivskyddade SQL-arbetsbelastningen transparent återansluter till den primära databasen när den primära ändringen sker efter redundansväxlingen. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: `<fog-name>.database.windows.net`en. När gruppen redundans skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: `<fog-name>.zone_id.database.windows.net`en.
+  En DNS CNAME-post som pekar på den aktuella primära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter att den skrivskyddade SQL-arbetsbelastningen transparent återansluter till den primära databasen när den primära ändringen sker efter redundansväxlingen. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.database.windows.net`. När gruppen för växling vid fel skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.zone_id.database.windows.net`.
 
 - **Skrivskyddad lyssnare för redundans grupp**
 
-  En DNS CNAME-post som pekar på den skrivskyddade lyssnare som pekar på den sekundära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter skrivskyddad SQL-arbetsbelastning att transparent ansluta till den sekundära med de angivna reglerna för belastnings utjämning. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: `<fog-name>.secondary.database.windows.net`en. När gruppen redundans skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: `<fog-name>.zone_id.secondary.database.windows.net`en.
+  En DNS CNAME-post som pekar på den skrivskyddade lyssnare som pekar på den sekundära URL: en. Den skapas automatiskt när gruppen för växling vid fel skapas och tillåter skrivskyddad SQL-arbetsbelastning att transparent ansluta till den sekundära med de angivna reglerna för belastnings utjämning. När gruppen för växling vid fel skapas på en SQL Database-Server skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.secondary.database.windows.net`. När gruppen för växling vid fel skapas på en hanterad instans, skapas DNS CNAME-posten för lyssnar-URL: en som `<fog-name>.zone_id.secondary.database.windows.net`.
 
 - **Princip för automatisk redundansväxling**
 
@@ -92,7 +92,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Princip för skrivskyddad redundans**
 
-  Som standard är redundansväxlingen av den skrivskyddade lyssnaren inaktive rad. Det garanterar att den primära prestandan inte påverkas när den sekundära är offline. Det innebär dock också att skrivskyddade sessioner inte kan ansluta förrän den sekundära återställningen har återställts. Om du inte kan tolerera stillestånds tiden för de skrivskyddade sessionerna och är OK för att tillfälligt använda den primära för både skrivskyddad och Läs-och Skriv trafik på kostnaderna för den potentiella prestanda försämringen av den primära, kan du aktivera redundans för den skrivskyddade lyssnaren genom att `AllowReadOnlyFailoverToPrimary` konfigurera egenskapen. I så fall omdirigeras den skrivskyddade trafiken automatiskt till den primära om den sekundära inte är tillgänglig.
+  Som standard är redundansväxlingen av den skrivskyddade lyssnaren inaktive rad. Det garanterar att den primära prestandan inte påverkas när den sekundära är offline. Det innebär dock också att skrivskyddade sessioner inte kan ansluta förrän den sekundära återställningen har återställts. Om du inte kan tolerera stillestånds tiden för de skrivskyddade sessionerna och är OK för att tillfälligt använda den primära för både skrivskyddad och Läs-och Skriv trafik på kostnaderna för den potentiella prestanda försämringen av den primära, kan du aktivera redundans för den skrivskyddade lyssnaren genom att konfigurera egenskapen `AllowReadOnlyFailoverToPrimary`. I så fall omdirigeras den skrivskyddade trafiken automatiskt till den primära om den sekundära inte är tillgänglig.
 
 - **Planerad redundans**
 
@@ -112,7 +112,7 @@ För att uppnå verklig affärs kontinuitet är det bara en del av lösningen at
 
 - **Respitperiod med data förlust**
 
-  Eftersom de primära och sekundära databaserna synkroniseras med hjälp av asynkron replikering kan redundansväxlingen leda till data förlust. Du kan anpassa principen för automatisk redundans så att den återspeglar programmets tolerans för data förlust. Genom att `GracePeriodWithDataLossHours`konfigurera kan du kontrol lera hur lång tid systemet väntar innan redundansväxlingen initieras som kan leda till data förlust.
+  Eftersom de primära och sekundära databaserna synkroniseras med hjälp av asynkron replikering kan redundansväxlingen leda till data förlust. Du kan anpassa principen för automatisk redundans så att den återspeglar programmets tolerans för data förlust. Genom att konfigurera `GracePeriodWithDataLossHours` kan du styra hur lång tid systemet väntar innan redundansväxlingen initieras, vilket kan leda till data förlust.
 
 - **Flera failover-grupper**
 
@@ -151,11 +151,11 @@ När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa a
 
 - **Använd Läs-och skriv lyssnare för OLTP-arbetsbelastning**
 
-  När du utför OLTP-åtgärder `<fog-name>.database.windows.net` ska du använda som server-URL och anslutningarna dirigeras automatiskt till den primära. URL: en ändras inte efter redundansväxlingen. Observera att redundansväxlingen innebär att du uppdaterar DNS-posten så att klient anslutningarna omdirigeras till den nya primära primären först efter det att klient-DNS-cachen har uppdaterats.
+  När du utför OLTP-åtgärder ska du använda `<fog-name>.database.windows.net` som server-URL och anslutningarna dirigeras automatiskt till den primära. URL: en ändras inte efter redundansväxlingen. Observera att redundansväxlingen innebär att du uppdaterar DNS-posten så att klient anslutningarna omdirigeras till den nya primära primären först efter det att klient-DNS-cachen har uppdaterats.
 
 - **Använd skrivskyddad lyssnare för skrivskyddad arbets belastning**
 
-  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. För skrivskyddade sessioner använder `<fog-name>.secondary.database.windows.net` du som server-URL och anslutningen dirigeras automatiskt till den sekundära. Vi rekommenderar också att du anger i anslutnings strängens läsnings avsikt med `ApplicationIntent=ReadOnly`. Om du vill kontrol lera att den skrivskyddade arbets belastningen kan återansluta efter en redundansväxling eller om den sekundära servern kopplas från, måste du konfigurera `AllowReadOnlyFailoverToPrimary` egenskapen för redundansväxlingen. 
+  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. För skrivskyddade sessioner använder du `<fog-name>.secondary.database.windows.net` som server-URL och anslutningen dirigeras automatiskt till den sekundära. Vi rekommenderar också att du anger i anslutnings strängens läsnings avsikt genom att använda `ApplicationIntent=ReadOnly`. Om du vill kontrol lera att den skrivskyddade arbets belastningen kan återansluta efter en redundansväxling eller om den sekundära servern kopplas från, måste du konfigurera egenskapen `AllowReadOnlyFailoverToPrimary` för redundansväxlingen. 
 
 - **Förbered dig för prestanda försämring**
 
@@ -166,7 +166,7 @@ När du utformar en tjänst med affärs kontinuitet i åtanke följer du dessa a
 
 - **Förbered för data förlust**
 
-  Om ett avbrott upptäcks väntar SQL på den period som du har angett `GracePeriodWithDataLossHours`. Standardvärdet är 1 timme. Om du inte kan erbjuda data förlust, se till att `GracePeriodWithDataLossHours` ange ett tillräckligt stort antal, till exempel 24 timmar. Använd manuell grupp växling vid fel för att återställa från den sekundära till den primära.
+  Om ett avbrott upptäcks väntar SQL på den period som du angav i `GracePeriodWithDataLossHours`. Standardvärdet är 1 timme. Om du inte kan erbjuda data förlust, se till att ange `GracePeriodWithDataLossHours` till ett tillräckligt stort antal, till exempel 24 timmar. Använd manuell grupp växling vid fel för att återställa från den sekundära till den primära.
 
   > [!IMPORTANT]
   > Elastiska pooler med 800 eller färre DTU: er och fler än 250 databaser som använder geo-replikering kan stöta på problem, inklusive längre planerade redundanser och försämrade prestanda.  De här problemen är mer sannolika för Skriv intensiva arbets belastningar när geo-replikeringens slut punkter är mycket åtskilda med geografi eller när flera sekundära slut punkter används för varje databas.  Symptom på de här problemen anges när fördröjningen för geo-replikering ökar med tiden.  Den här fördröjningen kan övervakas med hjälp av [sys. DM _geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database).  Om dessa problem inträffar, kan du öka antalet DTU: er eller minska antalet geo-replikerade databaser i samma pool.
@@ -186,7 +186,7 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
 - **Skapa den sekundära instansen i samma DNS-zon som den primära instansen**
 
-  För att säkerställa icke-avbruten anslutning till den primära instansen efter redundans måste båda de primära och sekundära instanserna finnas i samma DNS-zon. Det garanterar att samma certifikat för flera domäner (SAN) kan användas för att autentisera klient anslutningarna till någon av de två instanserna i gruppen redundans. När programmet är redo för produktions distribution skapar du en sekundär instans i en annan region och kontrollerar att den delar DNS-zonen med den primära instansen. Du kan göra det genom att ange `DNS Zone Partner` en valfri parameter med hjälp av Azure Portal, PowerShell eller REST API. 
+  För att säkerställa icke-avbruten anslutning till den primära instansen efter redundans måste båda de primära och sekundära instanserna finnas i samma DNS-zon. Det garanterar att samma certifikat för flera domäner (SAN) kan användas för att autentisera klient anslutningarna till någon av de två instanserna i gruppen redundans. När programmet är redo för produktions distribution skapar du en sekundär instans i en annan region och kontrollerar att den delar DNS-zonen med den primära instansen. Du kan göra det genom att ange en `DNS Zone Partner` valfri parameter med hjälp av Azure Portal, PowerShell eller REST API. 
 
 > [!IMPORTANT]
 > Första instansen som skapades i under nätet bestämmer DNS-zonen för alla efterföljande instanser i samma undernät. Det innebär att två instanser från samma undernät inte kan tillhöra olika DNS-zoner.   
@@ -199,7 +199,7 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
 - **Skapa en failover-grupp mellan hanterade instanser i olika prenumerationer**
 
-  Du kan skapa en failover-grupp mellan hanterade instanser i två olika prenumerationer. När du använder PowerShell API kan du göra det genom att `PartnerSubscriptionId` ange parametern för den sekundära instansen. När du använder REST API kan varje instans-ID som `properties.managedInstancePairs` ingår i parametern ha sitt eget subscriptionID. 
+  Du kan skapa en failover-grupp mellan hanterade instanser i två olika prenumerationer. När du använder PowerShell API kan du göra det genom att ange parametern `PartnerSubscriptionId` för den sekundära instansen. När du använder REST API kan varje instans-ID som ingår i parametern `properties.managedInstancePairs` ha sitt eget subscriptionID. 
   
   > [!IMPORTANT]
   > Azure Portal har inte stöd för redundansväxla grupper över olika prenumerationer.
@@ -214,16 +214,16 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
 - **Använd Läs-och skriv lyssnare för OLTP-arbetsbelastning**
 
-  När du utför OLTP-åtgärder `<fog-name>.zone_id.database.windows.net` ska du använda som server-URL och anslutningarna dirigeras automatiskt till den primära. URL: en ändras inte efter redundansväxlingen. Redundansväxlingen innebär att du uppdaterar DNS-posten, så att klient anslutningarna omdirigeras till den nya primära primären först efter det att klient-DNS-cachen har uppdaterats. Eftersom den sekundära instansen delar DNS-zonen med den primära, kommer klient programmet att kunna återansluta till den med samma SAN-certifikat.
+  När du utför OLTP-åtgärder ska du använda `<fog-name>.zone_id.database.windows.net` som server-URL och anslutningarna dirigeras automatiskt till den primära. URL: en ändras inte efter redundansväxlingen. Redundansväxlingen innebär att du uppdaterar DNS-posten, så att klient anslutningarna omdirigeras till den nya primära primären först efter det att klient-DNS-cachen har uppdaterats. Eftersom den sekundära instansen delar DNS-zonen med den primära, kommer klient programmet att kunna återansluta till den med samma SAN-certifikat.
 
 - **Anslut direkt till geo-replikerad sekundär för skrivskyddade frågor**
 
-  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. Om du vill ansluta direkt till den geo-replikerade sekundära `server.secondary.zone_id.database.windows.net` använder du som server-URL och anslutningen görs direkt till den geo-replikerade sekundära.
+  Om du har en logiskt isolerad skrivskyddad arbets belastning som är tolerant till viss föråldrade data kan du använda den sekundära databasen i programmet. Om du vill ansluta direkt till den geo-replikerade sekundära använder du `server.secondary.zone_id.database.windows.net` som server-URL och anslutningen görs direkt till den geo-replikerade sekundära.
 
   > [!NOTE]
-  > I vissa tjänst nivåer Azure SQL Database stöder användning av [skrivskyddade repliker](sql-database-read-scale-out.md) för att belastningsutjämna skrivskyddade arbets belastningar med en skrivskyddad repliks kapacitet och med hjälp `ApplicationIntent=ReadOnly` av parametern i anslutnings strängen. När du har konfigurerat en geo-replikerad sekundär kan du använda den här funktionen för att ansluta till antingen en skrivskyddad replik på den primära platsen eller på den geo-replikerade platsen.
-  > - Använd `<fog-name>.zone_id.database.windows.net`om du vill ansluta till en skrivskyddad replik på den primära platsen.
-  > - Använd `<fog-name>.secondary.zone_id.database.windows.net`om du vill ansluta till en skrivskyddad replik på den sekundära platsen.
+  > I vissa tjänst nivåer Azure SQL Database stöder användning av [skrivskyddade repliker](sql-database-read-scale-out.md) för att belastningsutjämna skrivskyddade arbets belastningar med en skrivskyddad repliks kapacitet och med hjälp av parametern `ApplicationIntent=ReadOnly` i anslutnings strängen. När du har konfigurerat en geo-replikerad sekundär kan du använda den här funktionen för att ansluta till antingen en skrivskyddad replik på den primära platsen eller på den geo-replikerade platsen.
+  > - Använd `<fog-name>.zone_id.database.windows.net` om du vill ansluta till en skrivskyddad replik på den primära platsen.
+  > - Använd `<fog-name>.secondary.zone_id.database.windows.net` om du vill ansluta till en skrivskyddad replik på den sekundära platsen.
 
 - **Förbered dig för prestanda försämring**
 
@@ -231,7 +231,7 @@ Om programmet använder hanterad instans som datanivå, följer du dessa allmän
 
 - **Förbered för data förlust**
 
-  Om ett avbrott upptäcks utlöser SQL automatiskt Read-Write-redundans om det inte finns någon data förlust till det bästa av vår kunskap. Annars väntar den på den period som du har angett `GracePeriodWithDataLossHours`. Om du har `GracePeriodWithDataLossHours`angett ska du förbereda för data förlust. I allmänhet prioriterar Azure tillgänglighet under drifts störningar. Om du inte kan erbjuda data förlust, se till att ange GracePeriodWithDataLossHours till ett tillräckligt stort antal, till exempel 24 timmar.
+  Om ett avbrott upptäcks utlöser SQL automatiskt Read-Write-redundans om det inte finns någon data förlust till det bästa av vår kunskap. Annars väntar den för den period som du angav i `GracePeriodWithDataLossHours`. Om du har angett `GracePeriodWithDataLossHours` ska du förbereda för data förlust. I allmänhet prioriterar Azure tillgänglighet under drifts störningar. Om du inte kan erbjuda data förlust, se till att ange GracePeriodWithDataLossHours till ett tillräckligt stort antal, till exempel 24 timmar.
 
   DNS-uppdateringen av Läs-och skriv lyssnaren sker omedelbart efter det att redundansväxlingen initierats. Den här åtgärden kommer inte att resultera i data förlust. Processen med att växla databas roller kan dock ta upp till 5 minuter under normala förhållanden. När den är klar är vissa databaser i den nya primära instansen fortfarande skrivskyddade. Om redundansväxlingen initieras med hjälp av PowerShell, är hela åtgärden synkron. Om den initieras med hjälp av Azure Portal, visar användar gränssnittet slut för ande status. Om den är initierad med REST API använder du standard Azure Resource Managers avsöknings funktion för att övervaka slut för ande.
 
@@ -304,15 +304,12 @@ Den här sekvensen rekommenderas särskilt för att undvika problemet där den s
 > [!NOTE]
 > Om du har skapat en sekundär databas som en del av konfigurationen av redundanskonfiguration bör du inte nedgradera den sekundära databasen. Detta är för att säkerställa att data nivån har tillräckligt med kapacitet för att bearbeta din normala arbets belastning När redundansväxlingen har Aktiver ATS.
 
-> [!IMPORTANT]
-> Det finns för närvarande inte stöd för att uppgradera eller nedgradera en hanterad instans som är medlem i en failover-grupp.
-
 ## <a name="preventing-the-loss-of-critical-data"></a>Förhindra förlust av kritiska data
 
-På grund av den höga svars tiden för Wide Area Networks använder kontinuerlig kopiering en metod för asynkron replikering. Asynkron replikering gör att data kan gå förlorade om ett fel uppstår. Vissa program kan dock kräva ingen data förlust. För att skydda dessa viktiga uppdateringar kan en programutvecklare anropa system proceduren [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) direkt efter att transaktionen har genomförts. Anrop `sp_wait_for_database_copy_sync` blockerar anrops tråden tills den senaste genomförda transaktionen har överförts till den sekundära databasen. Det väntar dock inte på att överförda transaktioner ska spelas upp och allokeras på den sekundära. `sp_wait_for_database_copy_sync`är begränsad till en bestämd kontinuerlig kopierings länk. Alla användare med anslutnings behörighet till den primära databasen kan anropa den här proceduren.
+På grund av den höga svars tiden för Wide Area Networks använder kontinuerlig kopiering en metod för asynkron replikering. Asynkron replikering gör att data kan gå förlorade om ett fel uppstår. Vissa program kan dock kräva ingen data förlust. För att skydda dessa viktiga uppdateringar kan en programutvecklare anropa system proceduren [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) direkt efter att transaktionen har genomförts. Anrop av `sp_wait_for_database_copy_sync` blockerar den anropande tråden tills den senaste genomförda transaktionen har överförts till den sekundära databasen. Det väntar dock inte på att överförda transaktioner ska spelas upp och allokeras på den sekundära. `sp_wait_for_database_copy_sync` är begränsad till en bestämd kontinuerlig kopierings länk. Alla användare med anslutnings behörighet till den primära databasen kan anropa den här proceduren.
 
 > [!NOTE]
-> `sp_wait_for_database_copy_sync`förhindrar data förlust efter redundansväxlingen, men garanterar inte fullständig synkronisering för Läs behörighet. Fördröjningen som orsakas av `sp_wait_for_database_copy_sync` ett procedur anrop kan vara betydande och beror på storleken på transaktions loggen vid tidpunkten för anropet.
+> `sp_wait_for_database_copy_sync` förhindrar data förlust efter redundansväxlingen, men garanterar inte fullständig synkronisering för Läs behörighet. Fördröjningen som orsakas av ett `sp_wait_for_database_copy_sync`-procedur anrop kan vara betydande och beror på storleken på transaktions loggen vid tidpunkten för anropet.
 
 ## <a name="failover-groups-and-point-in-time-restore"></a>Redundansväxla grupper och återställning av tidpunkt
 
@@ -320,11 +317,11 @@ Information om hur du använder återställning av punkt-till-tid med failover-g
 
 ## <a name="programmatically-managing-failover-groups"></a>Hantera failover-grupper program mässigt
 
-Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview)-cmdletar. Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [Azure Role-Based Access Control](../role-based-access-control/overview.md).
+Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replikering också hanteras program mässigt med hjälp av Azure PowerShell och REST API. I följande tabeller beskrivs en uppsättning kommandon som är tillgängliga. Aktiv geo-replikering innehåller en uppsättning Azure Resource Manager-API: er för hantering, inklusive [Azure SQL Database REST API](https://docs.microsoft.com/rest/api/sql/) och [Azure PowerShell-cmdletar](https://docs.microsoft.com/powershell/azure/overview). Dessa API: er kräver användning av resurs grupper och stöd för rollbaserad säkerhet (RBAC). Mer information om hur du implementerar åtkomst roller finns i [Azure Role-Based Access Control](../role-based-access-control/overview.md).
 
-### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: Hantera SQL Database-redundans med enkla databaser och elastiska pooler
+### <a name="powershell-manage-sql-database-failover-with-single-databases-and-elastic-pools"></a>PowerShell: hantera SQL Database-redundans med enkla databaser och elastiska pooler
 
-| Cmdlet: | Beskrivning |
+| Cmdlet | Beskrivning |
 | --- | --- |
 | [New-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabasefailovergroup) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [Remove-AzSqlDatabaseFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabasefailovergroup) | Tar bort gruppen för redundans från servern och tar bort alla sekundära databaser som ingår i gruppen |
@@ -338,9 +335,9 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 > Ett exempel skript finns i [Konfigurera och redundansväxla en failover-grupp för en enskild databas](scripts/sql-database-add-single-db-to-failover-group-powershell.md).
 >
 
-### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell: Hantera failover-grupper för SQL-databas med hanterade instanser 
+### <a name="powershell-managing-sql-database-failover-groups-with-managed-instances"></a>PowerShell: hantera failover-grupper för SQL-databas med hanterade instanser 
 
-| Cmdlet: | Beskrivning |
+| Cmdlet | Beskrivning |
 | --- | --- |
 | [New-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Det här kommandot skapar en redundans grupp och registrerar den på både primära och sekundära servrar|
 | [Set-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/set-azsqldatabaseinstancefailovergroup) |Ändrar konfigurationen för redundans gruppen|
@@ -349,7 +346,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 | [Remove-AzSqlDatabaseInstanceFailoverGroup](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqldatabaseinstancefailovergroup) | Tar bort en failover-grupp|
 |  | |
 
-### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: Hantera failover-grupper för SQL-databas med enkla databaser och databaser i pooler
+### <a name="rest-api-manage-sql-database-failover-groups-with-single-and-pooled-databases"></a>REST API: hantera SQL Database-redundanskluster med enkla databaser och databaser i pooler
 
 | API | Beskrivning |
 | --- | --- |
@@ -362,7 +359,7 @@ Som tidigare nämnts kan grupper för automatisk redundans och aktiv geo-replike
 | [Uppdatera redundans grupp](https://docs.microsoft.com/rest/api/sql/failovergroups/update) | Uppdaterar en failover-grupp. |
 |  | |
 
-### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>REST API: Hantera failover-grupper med hanterade instanser
+### <a name="rest-api-manage-failover-groups-with-managed-instances"></a>REST API: hantera Redundansrelationer med hanterade instanser
 
 | API | Beskrivning |
 | --- | --- |

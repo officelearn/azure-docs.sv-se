@@ -1,47 +1,47 @@
 ---
-title: Aktivera stöd för Avere vFXT - Azure
-description: Så här aktiverar du stöd för filöverföringar från Avere vFXT för Azure
+title: Aktivera stöd för AVERT vFXT – Azure
+description: Så här aktiverar du support överföringar från AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: fe096b2e2a75cc89e3ce5ef905d8e4c347cc153a
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: ac7db46a681fcde6bfcbb7695e2d66724f738918
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409861"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256226"
 ---
 # <a name="enable-support-uploads"></a>Aktivera stöd för uppladdningar
 
-Avere vFXT för Azure kan automatiskt ladda upp supportinformation om ditt kluster. Dessa överföringar kan supportpersonal ger bästa möjliga kundservice.
+AVERT vFXT för Azure kan automatiskt överföra support data om klustret. De här överföringarna gör att support personalen ger bästa möjliga kund service.
 
 ## <a name="steps-to-enable-uploads"></a>Steg för att aktivera uppladdningar
 
-Följ dessa steg från Kontrollpanelen Avere att aktivera stöd för. (Läs [åtkomst till klustret vFXT](avere-vfxt-cluster-gui.md) och lär dig att öppna Avere på Kontrollpanelen.)
+Följ de här stegen på kontroll panelen aver för att aktivera stöd. (Läs [åtkomst till vFXT-klustret](avere-vfxt-cluster-gui.md) för att lära dig hur du öppnar AVERT-kontroll panelen.)
 
-1. Navigera till den **inställningar** fliken högst upp.
-1. Klicka på den **Support** länka till vänster och Godkänn sekretesspolicyn.
+1. Gå till fliken **Inställningar** längst upp.
+1. Klicka på **support** länken till vänster och godkänn sekretess policyn.
 
-   ![Skärmbild som visar Avere på Kontrollpanelen och popup-fönster med bekräfta-knappen för att acceptera sekretesspolicy](media/avere-vfxt-privacy-policy.png)
+   ![Skärm bild som visar fliken "Ange kontroll panel" och popup-fönster med knappen Bekräfta för att godkänna sekretess policyn](media/avere-vfxt-privacy-policy.png)
 
-1. Klicka på triangeln till vänster om **kundinformation** att expandera avsnittet.
-1. Klicka på den **Revalidate överföringsinformation** knappen.
-1. Ange klusternamnet stöd i **unika klusternamnet** – Kontrollera att den identifierar ditt kluster för att stödja personal.
-1. Markera kryssrutorna för **statistik övervakning**, **allmän Information överför**, och **krascha ladda upp Information**.
+1. Klicka på triangeln till vänster om **kund information** för att expandera avsnittet.
+1. Klicka på knappen **Verifiera om upload information** .
+1. Ange klustrets support namn i **unikt kluster namn** – se till att det unikt identifierar klustret så att det stöder personal.
+1. Markera kryss rutorna för **statistik övervakning**, **allmän informations uppladdning**och **krasch informations uppladdning**.
 1. Klicka på **Skicka**.
 
-   ![Skärmbild som innehåller slutfört kunden info-avsnittet i inställningssidan för support](media/avere-vfxt-support-info.png)
+   ![Skärm bild som innehåller avsnittet om slutförd kund information på sidan support inställningar](media/avere-vfxt-support-info.png)
 
-1. Klicka på triangeln till vänster om **skydda proaktiv Support (Service Pack)** att expandera avsnittet.
-1. Markera kryssrutan för **aktivera Service Pack-länk**.
+1. Klicka på triangeln till vänster om **Secure proactive support (SPS)** för att expandera avsnittet.
+1. Markera kryss rutan **Aktivera SPS-länk**.
 1. Klicka på **Skicka**.
 
-   ![Skärmbild som innehåller slutfört skydda proaktiv stöder avsnittet på inställningssidan för support](media/avere-vfxt-support-sps.png)
+   ![Skärm bild som innehåller ett slutfört Secure proactive support-avsnitt på sidan stöd inställningar](media/avere-vfxt-support-sps.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du behöver lägga till en lokal eller befintliga cloud storage-system i klustret, följer du anvisningarna i [konfigurerar du lagring](avere-vfxt-add-storage.md). 
+Om du behöver lägga till ett lokalt eller befintligt moln lagrings system i klustret följer du anvisningarna i [Konfigurera lagring](avere-vfxt-add-storage.md). 
 
-Om du är redo att börja ansluta klienter till klustret, läsa [montera Avere vFXT klustret](avere-vfxt-mount-clients.md).
+Om du är redo att börja ansluta klienter till klustret kan du läsa [det Avera vFXT-klustret](avere-vfxt-mount-clients.md).

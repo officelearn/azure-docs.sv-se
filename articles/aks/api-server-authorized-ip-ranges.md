@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 59e64b7c84e589da57ea28d6655c9305f4fdc101
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5819a6c6d73b2ee51fc72d2b56d99b0efb3ea0be
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058351"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241140"
 ---
 # <a name="preview---secure-access-to-the-api-server-using-authorized-ip-address-ranges-in-azure-kubernetes-service-aks"></a>För hands version – säker åtkomst till API-servern med behöriga IP-adressintervall i Azure Kubernetes service (AKS)
 
@@ -77,7 +77,7 @@ Följande begränsningar gäller när du konfigurerar tillåtna IP-intervall fö
 
 ## <a name="overview-of-api-server-authorized-ip-ranges"></a>Översikt över tillåtna IP-intervall för API-Server
 
-Kubernetes-API-servern är hur de underliggande Kubernetes-API: erna exponeras. Den här komponenten ger interaktion för hanterings verktyg, till `kubectl` exempel eller Kubernetes-instrumentpanelen. AKS tillhandahåller en kluster hanterare för en enda klient, med en dedikerad API-Server. Som standard tilldelas API-servern en offentlig IP-adress och du bör kontrol lera åtkomst med hjälp av rollbaserad åtkomst kontroll (RBAC).
+Kubernetes-API-servern är hur de underliggande Kubernetes-API: erna exponeras. Den här komponenten ger interaktion för hanterings verktyg, till exempel `kubectl` eller Kubernetes-instrumentpanelen. AKS tillhandahåller en kluster hanterare för en enda klient, med en dedikerad API-Server. Som standard tilldelas API-servern en offentlig IP-adress och du bör kontrol lera åtkomst med hjälp av rollbaserad åtkomst kontroll (RBAC).
 
 Du kan aktivera och använda auktoriserade IP-intervall för att skydda åtkomsten till den allmänt tillgängliga AKS kontroll planet/API-servern. Dessa auktoriserade IP-adressintervall tillåter endast att definierade IP-adressintervall kommunicerar med API-servern. En begäran till API-servern från en IP-adress som inte tillhör dessa auktoriserade IP-intervall är blockerad. Du bör fortsätta att använda RBAC för att sedan auktorisera användare och de åtgärder som de begär.
 
@@ -228,7 +228,7 @@ Om du vill aktivera API-serverns auktoriserade IP-intervall anger du en lista ö
 
 Använd kommandot [AZ AKS Update][az-aks-update] och ange *--API-Server-auktoriserat IP-intervall* att tillåta. Dessa IP-adressintervall är vanligt vis adress intervall som används av dina lokala nätverk. Lägg till den offentliga IP-adressen för din egen Azure-brandvägg som hämtades i föregående steg, till exempel *20.42.25.196/32*.
 
-I följande exempel aktive ras API-servern auktoriserade IP-intervall i klustret med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*. De IP-adressintervall som ska auktoriseras är *20.42.25.196/32* (Azure FIREWALL offentlig IP-adress), sedan *172.0.0.0/16* och *168.10.0.0/18*:
+I följande exempel aktive ras API-servern auktoriserade IP-intervall i klustret med namnet *myAKSCluster* i resurs gruppen med namnet *myResourceGroup*. De IP-adressintervall som ska auktoriseras är *20.42.25.196/32* (Azure FIREWALL offentlig IP-adress), därefter *172.0.0.0/16* (Pod/Node-adressintervall) och *168.10.0.0/18* (ServiceCidr):
 
 ```azurecli-interactive
 az aks update \
@@ -236,6 +236,13 @@ az aks update \
     --name myAKSCluster \
     --api-server-authorized-ip-ranges 20.42.25.196/32,172.0.0.0/16,168.10.0.0/18
 ```
+
+> [!NOTE]
+> Du bör lägga till dessa intervall i en lista över tillåtna:
+> - Brand väggens offentliga IP-adress
+> - Service-CIDR
+> - Adress intervallet för under näten med noderna och poddar
+> - Alla intervall som representerar nätverk som du ska administrera klustret från
 
 ## <a name="update-or-disable-authorized-ip-ranges"></a>Uppdatera eller inaktivera auktoriserade IP-intervall
 

@@ -1,32 +1,32 @@
 ---
-title: Avere vFXT icke-ägarnoder lösning – Azure
-description: En lösning för att tillåta användare utan prenumeration ägarbehörighet för att distribuera Avere vFXT för Azure
+title: Aver vFXT-lösning för icke-ägare – Azure
+description: Lösning för att tillåta användare utan prenumerations ägare behörighet att distribuera AVERT vFXT för Azure
 author: ekpgh
 ms.service: avere-vfxt
 ms.topic: conceptual
 ms.date: 10/31/2018
-ms.author: v-erkell
-ms.openlocfilehash: e72e6d969649de09389ee38b94e874fad98ee08f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohogue
+ms.openlocfilehash: 77fc5a53c8bdc389c24cd1e6406415eefc3f167b
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60409217"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256181"
 ---
 # <a name="authorize-non-owners-to-deploy-avere-vfxt"></a>Auktorisera icke-ägare för att distribuera Avere vFXT
 
-Dessa instruktioner är en lösning som låter en användare utan prenumeration ägare behörighet för att skapa en Avere vFXT för Azure-systemet.
+Dessa instruktioner är en lösning som gör att en användare utan prenumerations ägare kan skapa ett AVERT vFXT för Azure-systemet.
 
-(Det rekommenderade sättet att distribuera Avere vFXT system är att låta en användare med ägarprivilegier gör att skapa steg som beskrivs i [förberedelser för att skapa Avere vFXT](avere-vfxt-prereqs.md).)  
+(Det rekommenderade sättet att distribuera det Avera vFXT systemet är att låta en användare med ägar behörighet utföra stegen som beskrivs i [förbereda för att skapa ett AVERT vFXT](avere-vfxt-prereqs.md).)  
 
-Lösningen innebär att du skapar en roll för ytterligare åtkomst som ger användarna behörighet att installera klustret. Rollen måste skapas av en prenumerationsägare och en ägare måste tilldela den till rätt användare. 
+I lösningen ingår att skapa ytterligare en åtkomst roll som ger användare behörighet att installera klustret. Rollen måste skapas av en prenumerations ägare, och en ägare måste tilldela den till lämpliga användare. 
 
-En prenumerant måste också [godkänna användningsvillkoren](avere-vfxt-prereqs.md) för Avere vFXT marketplace-avbildning. 
+En prenumerations ägare måste också [acceptera användnings villkoren](avere-vfxt-prereqs.md) för den Avera vFXT Marketplace-avbildningen. 
 
 > [!IMPORTANT] 
-> Alla dessa steg vidtas av en användare med ägarprivilegier för prenumerationen som ska användas för klustret.
+> Alla dessa steg måste utföras av en användare med ägar behörighet för den prenumeration som ska användas för klustret.
 
-1. Kopiera dessa rader och spara dem i en fil (till exempel `averecreatecluster.json`). Använd ditt prenumerations-ID i den `AssignableScopes` instruktionen.
+1. Kopiera dessa rader och spara dem i en fil (till exempel `averecreatecluster.json`). Använd ditt prenumerations-ID i `AssignableScopes`-instruktionen.
 
    ```json
    {
@@ -58,7 +58,7 @@ En prenumerant måste också [godkänna användningsvillkoren](avere-vfxt-prereq
    }
    ```
 
-1. Kör följande kommando för att skapa rollen:
+1. Kör det här kommandot för att skapa rollen:
 
    `az role definition create --role-definition <PATH_TO_FILE>`
 
@@ -67,12 +67,12 @@ En prenumerant måste också [godkänna användningsvillkoren](avere-vfxt-prereq
     az role definition create --role-definition ./averecreatecluster.json
     ```
 
-1. Tilldela den här rollen till användaren som skapar klustret:
+1. Tilldela den här rollen till den användare som ska skapa klustret:
 
    `az role assignment create --assignee <USERNAME> --scope /subscriptions/<SUBSCRIPTION_ID> --role 'avere-create-cluster'`
 
-Alla användare som tilldelats den här rollen har följande behörigheter för prenumerationen efter den här proceduren: 
+Efter den här proceduren har alla användare som tilldelats rollen följande behörigheter för prenumerationen: 
 
-* Skapa och konfigurera nätverksinfrastrukturen
-* Skapa kluster-kontrollant
-* Kör skripten för att skapa klustret från kluster-kontrollanten för att skapa klustret
+* Skapa och konfigurera nätverks infrastrukturen
+* Skapa kluster styrenheten
+* Kör skript för att skapa kluster från kluster styrenheten för att skapa klustret

@@ -8,16 +8,16 @@ ms.service: azure-resource-manager
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 0564763b05dd44eb908ec00f98a97e9d4970099f
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: 6e4f246cac0ecc1ab5942e522595f59c3625db8f
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177589"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243211"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Självstudie: Använd exporterad mall från Azure Portal
 
-I den här själv studie serien har du skapat en mall för att distribuera ett Azure Storage-konto. I de kommande två självstudierna lägger du till en *App Service plan* och en *webbplats*. I stället för att skapa mallar från grunden får du lära dig hur du exporterar mallar från Azure Portal och hur du använder exempel mallar från [Azures snabb starts mallar](/resources/templates/). Du anpassar mallarna efter din användning. Den här självstudien fokuserar på att exportera mallar och anpassa resultatet för din mall. Det tar ungefär **14 minuter** att slutföra.
+I den här själv studie serien har du skapat en mall för att distribuera ett Azure Storage-konto. I de kommande två självstudierna lägger du till en *App Service plan* och en *webbplats*. I stället för att skapa mallar från grunden får du lära dig hur du exporterar mallar från Azure Portal och hur du använder exempel mallar från [Azures snabb starts mallar](https://azure.microsoft.com/resources/templates/). Du anpassar mallarna efter din användning. Den här självstudien fokuserar på att exportera mallar och anpassa resultatet för din mall. Det tar ungefär **14 minuter** att slutföra.
 
 ## <a name="prerequisites"></a>Krav
 

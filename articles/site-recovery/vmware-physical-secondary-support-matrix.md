@@ -6,14 +6,14 @@ manager: carmonm
 ms.service: site-recovery
 services: site-recovery
 ms.topic: article
-ms.date: 08/22/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: c330afb2c5d315b3d386d1477669f1aab2f6e6f9
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: 908d681b271aa8acdb0898676c33d396461d8f9a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972084"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255198"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till en sekundär plats
 
@@ -25,6 +25,17 @@ I den här artikeln sammanfattas vad som stöds när du använder [Azure Site Re
 > [!NOTE]
 > Replikering av lokala virtuella VMware-datorer och fysiska servrar tillhandahålls av InMage Scout. InMage Scout ingår i Azure Site Recovery tjänst prenumerationen.
 
+## <a name="end-of-support-announcement"></a>Slut på support meddelande
+Site Recovery scenariot för replikering mellan lokala VMware-eller fysiska data Center når slut för and support.
+
+- Från augusti 2018 går det inte att konfigurera scenariot i Recovery Services-valvet och InMage Scout-programvaran kan inte laddas ned från valvet. Befintliga distributioner kommer att stödjas.
+- - Från december 31 2020 stöds inte scenariot.
+Befintliga partners kan publicera nya kunder till scenariot tills supporten upphör.
+- Under 2018 och 2019 publiceras två uppdateringar:
+
+    - Uppdatering 7: åtgärdar problem med nätverks konfiguration och efterlevnad och ger stöd för TLS 1,2.
+    - Uppdatering 8: lägger till stöd för Linux-operativsystem RHEL/CentOS 7.3/7.4/7.5 och för SUSE 12
+    - Efter uppdatering 8 kommer inga ytterligare uppdateringar att släppas. Det finns ett begränsat stöd för snabb korrigeringar för de operativ system som har lagts till i uppdatering 8 och fel korrigeringar baserade på bästa möjliga ansträngning.
 
 ## <a name="host-servers"></a>Värd servrar
 
@@ -59,7 +70,7 @@ Endast Linux-datorer med följande lagring kan replikeras:
 --- | --- 
 Värd-NIC-teamning | Ja 
 Värd-VLAN | Ja 
-Host - IPv4 | Ja 
+Värd-IPv4 | Ja 
 Värd-IPv6 | Nej 
 Gäst-VM – NIC Teaming | Nej
 Gäst-VM – IPv4 | Ja
@@ -68,7 +79,7 @@ Gäst-VM – Windows/Linux-statisk IP-adress | Ja
 Gäst-VM-Multi-NIC | Ja
 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 
 ### <a name="host-storage"></a>Värd lagring
 

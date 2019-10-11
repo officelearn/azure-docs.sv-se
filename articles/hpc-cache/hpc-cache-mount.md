@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: ea23331ebc75b5ede22c9f7357a9e0de12d819e2
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: 3257cf92c628650fc50e0a36ec37fcab920aba2f
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299972"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254564"
 ---
 # <a name="mount-the-azure-hpc-cache-preview"></a>Montera Azure HPC cache (för hands version)
 
@@ -25,7 +25,7 @@ Monterings kommandot består av två element:
 ![skärm bild av översikts sidan för Azure HPC-instansen med en markerings ruta runt monterings adress listan längst ned till höger](media/hpc-cache-mount-addresses.png)
 
 > [!NOTE] 
-> Cachens cache-adresser motsvarar nätverks gränssnitten i cachens undernät. I en resurs grupp visas dessa nätverkskort med namn som slutar med `-cluster-nic-` och ett tal. Ändra inte eller ta bort dessa gränssnitt, annars blir cachen otillgänglig.
+> Cachens cache-adresser motsvarar nätverks gränssnitten i cachens undernät. I en resurs grupp visas dessa nätverkskort med namn som slutar på `-cluster-nic-` och ett tal. Ändra inte eller ta bort dessa gränssnitt, annars blir cachen otillgänglig.
 
 De virtuella namn Rymdernas sökvägar visas på sidan **lagrings mål** . Klicka på ett enskilt lagrings mål namn om du vill se information om den, inklusive sammansatta namn rymds sökvägar.
 
@@ -45,7 +45,7 @@ root@test-client:/tmp# sudo mount 10.0.0.28:/blob-demo-0722 ./hpccache/ -orw,tcp
 root@test-client:/tmp# 
 ```
 
-När det här kommandot har slutförts ska innehållet i lagrings exporten visas i ``hpccache`` katalogen på klienten.
+När det här kommandot har slutförts ska innehållet i lagrings exporten visas i katalogen ``hpccache`` på klienten.
 
 > [!NOTE] 
 > Klienterna måste kunna få åtkomst till det virtuella nätverket och under nätet som är hus din cache. Du kan till exempel skapa virtuella klient datorer i samma virtuella nätverk eller använda en slut punkt, gateway eller annan lösning i det virtuella nätverket för åtkomst från utanför. Kom ihåg att det inte finns något annat som kan finnas i cachens undernät.

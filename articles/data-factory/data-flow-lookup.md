@@ -3,20 +3,17 @@ title: Azure Data Factory mappning av data flödes uppslags omvandling
 description: Azure Data Factory mappning av data flödes uppslags omvandling
 author: kromerm
 ms.author: makromer
-ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 02/03/2019
-ms.openlocfilehash: ef72b7aed12afd1cee47b11bc7584d1e53bf2af5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.date: 10/03/2019
+ms.openlocfilehash: d762bddbe098e30cbf9e9c02da3c06073a358b12
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029338"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249253"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning av data flödes uppslags omvandling
-
-
 
 Använd lookup för att lägga till referens data från en annan källa till ditt data flöde. Uppslags transformeringen kräver en definierad källa som pekar på din referens tabell och matchar nyckel fält.
 
@@ -24,7 +21,9 @@ Använd lookup för att lägga till referens data från en annan källa till dit
 
 Välj de nyckel fält som du vill matcha på mellan inkommande data Ströms fält och fälten från referens källan. Du måste först ha skapat en ny källa på data flödets design arbets yta som ska användas som den högra sidan för sökningen.
 
-När matchningar hittas kommer de resulterande raderna och kolumnerna från referens källan att läggas till i ditt data flöde. Du kan välja vilka fält av intresse som du vill ta med i din mottagare i slutet av ditt data flöde.
+När matchningar hittas kommer de resulterande raderna och kolumnerna från referens källan att läggas till i ditt data flöde. Du kan välja vilka fält av intresse som du vill ta med i din mottagare i slutet av ditt data flöde. Du kan också använda en SELECT-omvandling efter sökningen för att rensa fält listan så att endast de fält från båda strömmar som du vill behålla lagras.
+
+Transformationen lookup utför motsvarigheten till en vänster yttre koppling. Så du ser att alla rader från din vänstra källa kombineras med matchningar från din högra sida. Om du har flera matchande värden i sökningen, eller om du vill anpassa uppslags uttrycket, är det bättre att växla till en kopplings omvandling och använda en kors koppling. På så sätt undviker du eventuella kartesiska produkt fel vid körning.
 
 ## <a name="match--no-match"></a>Matcha/ingen matchning
 
@@ -38,7 +37,7 @@ I Data Factory körs data flöden i uppskalade Spark-miljöer. Om din data upps�
 
 ### <a name="broadcast-join"></a>Sändnings anslutning
 
-Välj vänster och/eller höger sändnings anslutning för att begära ADF för att skicka hela data uppsättningen från endera sidan av Sök relationen till minnet.
+Välj vänster och/eller höger sändnings anslutning för att begära ADF för att skicka hela data uppsättningen från endera sidan av Sök relationen till minnet. För mindre data uppsättningar kan detta förbättra dina uppslags prestanda avsevärt.
 
 ### <a name="data-partitioning"></a>Datapartitionering
 

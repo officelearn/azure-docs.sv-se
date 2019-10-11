@@ -1,17 +1,17 @@
 ---
-title: Exempel – Granska nyckelvalv som saknar slutpunkter för virtuella nätverk
+title: Exempel – nyckel valv utan vNet-slutpunkter
 description: Den här exempelprincipdefinitionen granskar Key Vault-valv för att identifiera instanser som saknar tjänstslutpunkter för virtuella nätverk.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 01/26/2019
 ms.author: dacoulte
-ms.openlocfilehash: ccfba0eae8d3c51cf153f58d554dc09b574d3873
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 7bcbcdf68b3c8f882a1e0fbb9953fea575f96556
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976969"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255721"
 ---
 # <a name="sample---key-vault-vaults-with-no-virtual-network-endpoints"></a>Exempel – Key Vault-valv utan slutpunkter för virtuella nätverk
 
@@ -22,7 +22,7 @@ Du kan distribuera det här exemplet med hjälp av:
 - [Azure Portal](#azure-portal)
 - [Azure PowerShell](#azure-powershell)
 - [Azure CLI](#azure-cli)
-- [REST-API](#rest-api)
+- [REST API](#rest-api)
 
 [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
@@ -47,7 +47,7 @@ Det JSON som definierar principens regler, som används av Azure CLI och Azure P
 
 Inga parametrar har definierats i det här exemplet av en principdefinition.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 [![Deploy till azure](https://azuredeploy.net/deploybutton.png)](https://portal.azure.com/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
 [![Deploy princip exemplet till Azure gov](https://docs.microsoft.com/azure/governance/policy/media/deploy/deployGovbutton.png)](https://portal.azure.us/#blade/Microsoft_Azure_Policy/CreatePolicyDefinitionBlade/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-policy%2Fmaster%2Fsamples%2FKeyVault%2Faudit-keyvault-vnet-rules%2Fazurepolicy.json)
@@ -177,7 +177,7 @@ Det finns flera verktyg som kan användas för att interagera med Resource Manag
 
 ### <a name="rest-api-explanation"></a>REST API-förklaring
 
-| Tjänsten | Grupp | Åtgärd | Anteckningar |
+| Tjänst | Grupp | Åtgärd | Anteckningar |
 |---|---|---|---|
 | Resurshantering | Principdefinitioner | [Skapa](/rest/api/resources/policydefinitions/createorupdate) | Skapar en ny Azure Policy-definition vid en prenumeration. Alternativ: [Skapa vid hanteringsgrupp](/rest/api/resources/policydefinitions/createorupdateatmanagementgroup) |
 | Resurshantering | Principtilldelningar | [Skapa](/rest/api/resources/policyassignments/create) | Skapar en ny Azure Policy-tilldelning. I det här exemplet ges den en definition, men den kan också ta emot ett initiativ. |

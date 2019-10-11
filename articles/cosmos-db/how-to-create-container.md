@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 9805ff9aa4932c262db13c47fd2e442b3d3d676f
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 911f56cef58e5d9c161a3ba947850bcfff073200
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811726"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242414"
 ---
 # <a name="create-an-azure-cosmos-container"></a>Skapa en Azure Cosmos-container
 
@@ -21,7 +21,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
 ### <a id="portal-sql"></a>SQL-API
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-sql-api-dotnet.md#create-account)eller Välj ett befintligt konto.
 
@@ -37,7 +37,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
 ### <a id="portal-mongodb"></a>API för Azure Cosmos DB för MongoDB
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-mongodb-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
@@ -53,7 +53,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
 ### <a id="portal-cassandra"></a>API för Cassandra
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-cassandra-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
@@ -72,7 +72,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
 ### <a id="portal-gremlin"></a>Gremlin-API
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-graph-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
@@ -89,7 +89,7 @@ I den här artikeln beskrivs olika sätt att skapa en Azure Cosmos-behållare (s
 
 ### <a id="portal-table"></a>Tabell-API
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. [Skapa ett nytt Azure Cosmos-konto](create-table-dotnet.md#create-a-database-account)eller Välj ett befintligt konto.
 
@@ -111,10 +111,10 @@ Länkarna nedan visar hur du skapar behållar resurser för Azure Cosmos DB med 
 För en lista över alla Azure CLI-exempel i alla Azure Cosmos DB API: er, se [SQL API](cli-samples.md), [API för Cassandra](cli-samples-cassandra.md), [MongoDB-API](cli-samples-mongodb.md), [Gremlin-API](cli-samples-gremlin.md)och [tabell-API](cli-samples-table.md)
 
 * [Skapa en behållare med Azure CLI](manage-with-cli.md#create-a-container)
-* [Skapa en samling för Azure Cosmos DB för MongoDB-API med Azure CLI](/scripts/cli/mongodb/create.md)
-* [Skapa en Cassandra-tabell med Azure CLI](/scripts/cli/cassandra/create.md)
-* [Skapa en Gremlin-graf med Azure CLI](/scripts/cli/gremlin/create.md)
-* [Skapa en Tabell-API tabell med Azure CLI](/scripts/cli/table/create.md)
+* [Skapa en samling för Azure Cosmos DB för MongoDB-API med Azure CLI](./scripts/cli/mongodb/create.md)
+* [Skapa en Cassandra-tabell med Azure CLI](./scripts/cli/cassandra/create.md)
+* [Skapa en Gremlin-graf med Azure CLI](./scripts/cli/gremlin/create.md)
+* [Skapa en Tabell-API tabell med Azure CLI](./scripts/cli/table/create.md)
 
 ## Skapa en behållare med PowerShell<a id="ps-sql"></a>-@no__t-<a id="ps-cassandra"></a>1 <a id="ps-gremlin"><a id="ps-table"></a>
 
@@ -123,10 +123,10 @@ Länkarna nedan visar hur du skapar behållar resurser för Azure Cosmos DB med 
 För en lista över alla Azure CLI-exempel i alla Azure Cosmos DB API: er, se [SQL API](powershell-samples-sql.md), [API för Cassandra](powershell-samples-cassandra.md), [MongoDB-API](powershell-samples-mongodb.md), [Gremlin-API](powershell-samples-gremlin.md)och [tabell-API](powershell-samples-table.md)
 
 * [Skapa en behållare med PowerShell](manage-with-powershell.md#create-container)
-* [Skapa en samling för Azure Cosmos DB för MongoDB-API med PowerShell](/scripts/powershell/mongodb/ps-mongodb-create.md)
-* [Skapa en Cassandra-tabell med PowerShell](/scripts/powershell/cassandra/ps-cassandra-create.md)
-* [Skapa ett Gremlin-diagram med PowerShell](/scripts/powershell/gremlin/ps-gremlin-create.md)
-* [Skapa en Tabell-API tabell med PowerShell](/scripts/powershell/table/ps-table-create.md)
+* [Skapa en samling för Azure Cosmos DB för MongoDB-API med PowerShell](./scripts/powershell/mongodb/ps-mongodb-create.md)
+* [Skapa en Cassandra-tabell med PowerShell](./scripts/powershell/cassandra/ps-cassandra-create.md)
+* [Skapa ett Gremlin-diagram med PowerShell](./scripts/powershell/gremlin/ps-gremlin-create.md)
+* [Skapa en Tabell-API tabell med PowerShell](./scripts/powershell/table/ps-table-create.md)
 
 ## <a name="create-a-container-using-net-sdk"></a>Skapa en container med hjälp av .NET SDK
 

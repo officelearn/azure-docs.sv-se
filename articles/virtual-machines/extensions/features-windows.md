@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a19b6bd8da82498aae45657d30883db14efd9343
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71174074"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244596"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -35,14 +35,14 @@ Den här artikeln innehåller en översikt över VM-tillägg, krav för att anv�
 Flera olika Azure VM-tillägg är tillgängliga, var och en med ett särskilt användnings fall. Några exempel är:
 
 - Använd PowerShell Desired State Configurations på en virtuell dator med DSC-tillägget för Windows. Mer information finns i [tillägget Azure Desired State Configuration](dsc-overview.md).
-- Konfigurera övervakning av en virtuell dator med det virtuella dator tillägget för Microsoft Monitoring Agent. Mer information finns i [ansluta virtuella Azure-datorer till Azure Monitor loggar](../../log-analytics/log-analytics-azure-vm-extension.md).
+- Konfigurera övervakning av en virtuell dator med det virtuella Log Analytics agent-tillägget. Mer information finns i [ansluta virtuella Azure-datorer till Azure Monitor loggar](../../log-analytics/log-analytics-azure-vm-extension.md).
 - Konfigurera en virtuell Azure-dator med hjälp av chef. Mer information finns i [Automatisera distribution av virtuella Azure-datorer med chef](../windows/chef-automation.md).
 - Konfigurera övervakning av din Azure-infrastruktur med Datadog-tillägget. Mer information finns i Datadog- [bloggen](https://www.datadoghq.com/blog/introducing-azure-monitoring-with-one-click-datadog-deployment/).
 
 
 Förutom process-/regionsspecifika tillägg är ett anpassat skript tillägg tillgängligt för virtuella Windows-och Linux-datorer. Med tillägget för anpassat skript för Windows kan du köra alla PowerShell-skript på en virtuell dator. Anpassade skript är användbara för att utforma Azure-distributioner som kräver konfiguration utöver vad interna Azure-verktyg kan tillhandahålla. Mer information finns i [anpassat skript tillägg för Windows VM](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill hantera tillägget på den virtuella datorn behöver du Azure Windows-agenten installerad. Vissa enskilda tillägg har krav, till exempel åtkomst till resurser eller beroenden.
 
@@ -65,14 +65,14 @@ Vissa tillägg stöds inte för alla operativ system och genererar *felkod 51, O
 
 #### <a name="network-access"></a>Nätverksåtkomst
 
-Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version som [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) av agenterna behöver du inte tillåta åtkomst till Azure Storage i den virtuella dator regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation. Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
+Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version som [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) av agenterna behöver du inte tillåta åtkomst till Azure Storage i VM-regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation (HostGAPlugin-funktionen via privilegie rad kanal för privat IP-168.63.129.16). Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
 
 > [!IMPORTANT]
-> Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen, kommer tilläggen att fungera oberoende av ovanstående.
+> Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen eller med en proxy, kommer tilläggen att fungera oberoende av ovanstående. Portarna 80, 443 och 32526 krävs.
 
-Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage kan du tillåta åtkomst med hjälp av Azure NSG service-taggar för [lagring](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+Agenter kan bara användas för att hämta tilläggs paket och rapporterings status. Om ett tillägg till exempel måste ladda ned ett skript från GitHub (anpassat skript) eller behöver åtkomst till Azure Storage (Azure Backup), måste ytterligare brand Väggs-och nätverks säkerhets grupps portar öppnas. Olika tillägg har olika krav, eftersom de är program i sin egen rätt. För tillägg som kräver åtkomst till Azure Storage eller Azure Active Directory kan du tillåta åtkomst med [Azure NSG service-Taggar](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) till Storage eller AzureActiveDirectory.
 
-Windows gäst-agenten har inte stöd för proxyserver för att omdirigera begär Anden om agent trafik via.
+Windows gästa Gent har inte stöd för att dirigera om agent trafik begär Anden via, vilket innebär att gäst agenten i Windows förlitar sig på din anpassade proxy (om du har en) för att få åtkomst till resurser på Internet eller på värden via IP 168.63.129.16.
 
 ## <a name="discover-vm-extensions"></a>Identifiera VM-tillägg
 
@@ -137,10 +137,10 @@ Set-AzVMAccessExtension -ResourceGroupName "myResourceGroup" -VMName "myVM" -Nam
     -Password $cred.GetNetworkCredential().Password -typeHandlerVersion "2.0"
 ```
 
-`Set-AzVMExtension` Kommandot kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
+Kommandot `Set-AzVMExtension` kan användas för att starta alla VM-tillägg. Mer information finns i [set-AzVMExtension-referensen](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension).
 
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 VM-tillägg kan tillämpas på en befintlig virtuell dator via Azure Portal. Välj den virtuella datorn i portalen, Välj **tillägg**och välj sedan **Lägg till**. Välj det tillägg du vill använda i listan över tillgängliga tillägg och följ anvisningarna i guiden.
 
@@ -262,7 +262,7 @@ När det finns en tillgänglig uppdatering installeras den bara på den virtuell
 - Tillägg
 - Behållare för startdiagnostik
 - Gäst operativ system hemligheter
-- Storlek på virtuell dator
+- VM-storlek
 - Nätverks profil
 
 Utgivare gör uppdateringar tillgängliga för regioner vid olika tidpunkter, så det är möjligt att du kan ha virtuella datorer i olika regioner i olika versioner.
@@ -351,7 +351,7 @@ Följande fel söknings steg gäller för alla VM-tillägg.
 
 1. Om du vill kontrol lera loggen för Windows gäst agent tittar du på aktiviteten när ditt tillägg har allokerats i *C:\WindowsAzure\Logs\WaAppAgent.txt*
 
-2. Se de faktiska tilläggs loggarna för mer information *i\<C:\WindowsAzure\Logs\Plugins tillägg >*
+2. Se de faktiska tilläggs loggarna för mer information i *C:\WindowsAzure\Logs\Plugins @ no__t-1extensionName >*
 
 3. Sök efter felkoder, kända problem och fel söknings avsnitt för specifika dokumentation
 
@@ -417,7 +417,7 @@ Du kan också ta bort ett tillägg i Azure Portal på följande sätt:
 4. Välj **Avinstallera**.
 
 ## <a name="common-vm-extensions-reference"></a>Common VM Extensions-referens
-| Namn på tillägg | Beskrivning | Mer information |
+| Tilläggs namn | Beskrivning | Mer information |
 | --- | --- | --- |
 | Anpassat skript tillägg för Windows |Kör skript mot en virtuell Azure-dator |[Anpassat skript tillägg för Windows](custom-script-windows.md) |
 | DSC-tillägg för Windows |PowerShell DSC (Desired State Configuration)-tillägg |[DSC-tillägg för Windows](dsc-overview.md) |

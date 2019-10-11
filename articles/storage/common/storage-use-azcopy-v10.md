@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: bb816658faff9fb924d075e0fca17e9643c18e40
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 980156284b27478163760b1f833a91ba7cddec21
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694750"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244791"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -73,7 +73,7 @@ Använd den här tabellen som en guide:
 |**Blob Storage (hierarki-namnrymd)** | Azure AD & SAS |
 |**Fil lagring** | Endast SAS |
 
-### <a name="option-1-use-azure-active-directory"></a>Alternativ 1: Använda Azure Active Directory
+### <a name="option-1-use-azure-active-directory"></a>Alternativ 1: Använd Azure Active Directory
 
 Med hjälp av Azure Active Directory kan du ange autentiseringsuppgifter en gång i stället för att behöva lägga till en SAS-token i varje kommando.  
 
@@ -95,8 +95,8 @@ De här rollerna kan tilldelas till säkerhets objekt i alla dessa omfattningar:
 
 - Behållare (fil system)
 - Lagringskonto
-- Resource group
-- Subscription
+- Resursgrupp
+- Prenumeration
 
 Information om hur du verifierar och tilldelar roller finns i [bevilja åtkomst till Azure blob och Queue data med RBAC i Azure Portal](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
@@ -139,7 +139,7 @@ Innan du kör ett skript måste du logga in interaktivt minst en tid så att du 
 
 Du kan logga in på ditt konto med hjälp av en klient hemlighet eller genom att använda lösen ordet för ett certifikat som är kopplat till tjänstens huvud namn för appens registrering.
 
-Mer information om hur du skapar tjänstens huvud namn finns i [How till: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+Mer information om hur du skapar tjänstens huvud namn finns i [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
 Om du vill veta mer om tjänstens huvud namn i allmänhet, se [program-och tjänst huvud objekt i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
 
@@ -239,7 +239,7 @@ azcopy login --identity --identity-resource-id "<resource-id>"
 
 Ersätt plats hållaren `<resource-id>` med resurs-ID för den användare som tilldelats den hanterade identiteten.
 
-### <a name="option-2-use-a-sas-token"></a>Alternativ 2: Använda en SAS-token
+### <a name="option-2-use-a-sas-token"></a>Alternativ 2: Använd en SAS-token
 
 Du kan lägga till en SAS-token för varje käll-eller mål-URL som används i dina AzCopy-kommandon.
 
@@ -287,7 +287,7 @@ URL: en visas i kommandots utdata. Skriptet kan sedan hämta AzCopy med hjälp a
 
 | Operativsystem  | Kommando |
 |--------|-----------|
-| **Linux** | `wget -O azcopyv10.tar https://azcopyvnext.azureedge.net/release20190301/azcopy_linux_amd64_10.0.8.tar.gz tar -xf azcopyv10.tar --strip-components=1 ./azcopy` |
+| **Linux** | `wget -O azcopy_v10.tar.gz https://aka.ms/downloadazcopy-v10-linux && tar -xf azcopy_v10.tar.gz --strip-components=1` |
 | **Windows** | `Invoke-WebRequest https://azcopyvnext.azureedge.net/release20190517/azcopy_windows_amd64_10.1.2.zip -OutFile azcopyv10.zip <<Unzip here>>` |
 
 ### <a name="escape-special-characters-in-sas-tokens"></a>Escape-specialtecken i SAS-token

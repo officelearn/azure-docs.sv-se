@@ -1,6 +1,6 @@
 ---
-title: Självstudie – konfigurera appar i Azure App Service med Ansible | Microsoft Docs
-description: Lär dig hur du skapar en app i Azure App Service med Java 8 och Tomcat-behållare runtime
+title: Självstudie – konfigurera appar i Azure App Service med Ansible
+description: Lär dig hur du skapar en app i Azure App Service med Java 8 och Tomcat container runtime
 keywords: ansible, azure, devops, bash, playbook, Azure App Service, Web App, Java
 ms.topic: tutorial
 ms.service: ansible
@@ -8,14 +8,14 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: aed09baf410ce25f2e5383aa746344a440e2a052
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 5104db6bd7fa57600c7212e041263971ca4c91d4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231239"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242054"
 ---
-# <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Självstudier: Konfigurera appar i Azure App Service med Ansible
+# <a name="tutorial-configure-apps-in-azure-app-service-using-ansible"></a>Självstudie: konfigurera appar i Azure App Service med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-27-note.md)]
 
@@ -25,21 +25,21 @@ ms.locfileid: "65231239"
 
 > [!div class="checklist"]
 >
-> * Skapa en app i Azure App Service med Java 8 och Tomcat-behållare runtime
+> * Skapa en app i Azure App Service med Java 8 och Tomcat container runtime
 > * Skapa en Azure Traffic Manager-profil
-> * Definiera en Traffic Manager-slutpunkten med hjälp av skapade appen
+> * Definiera en Traffic Manager slut punkt med den skapade appen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-basic-app-service"></a>Skapa en grundläggande app service
 
-Spelboken koden i det här avsnittet definierar följande resurser:
+Spelbok-koden i det här avsnittet definierar följande resurser:
 
-* Azure-resursgrupp som App Service-plan och appen distribueras
-* App service i Linux med Java 8 och Tomcat-behållare runtime
+* Azure-resurs grupp inom vilken App Service plan och app distribueras
+* App Service i Linux med Java 8 och Tomcat container runtime
 
 Spara följande spelbok som `firstwebapp.yml`:
 
@@ -75,13 +75,13 @@ Spara följande spelbok som `firstwebapp.yml`:
               java_container_version: 8.5
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook firstwebapp.yml
 ```
 
-När strategiboken, kan du se utdata som liknar följande resultat:
+När du har kört Spelbok visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 
@@ -101,20 +101,20 @@ PLAY RECAP
 localhost                  : ok=3    changed=2    unreachable=0    failed=0
 ```
 
-## <a name="create-an-app-and-use-azure-traffic-manager"></a>Skapa en app och använda Azure Traffic Manager
+## <a name="create-an-app-and-use-azure-traffic-manager"></a>Skapa en app och Använd Azure Traffic Manager
 
-[Med Azure Traffic Manager](/azure/app-service/web-sites-traffic-manager) kan du styra hur begäranden från webbklienter distribueras till appar i Azure App Service. När App Service-slutpunkter läggs till i en Azure Traffic Manager-profil spårar Traffic Manager statusen för dina App Service-appar. Statusvärden är körs, stoppad och borttagen. Traffic Manager används för att bestämma vilka slutpunkter som ska ta emot trafik.
+Med [Azure Traffic Manager](/azure/app-service/web-sites-traffic-manager) kan du styra hur förfrågningar från webb klienter distribueras till appar i Azure App Service. När App Service-slutpunkter läggs till i en Azure Traffic Manager-profil spårar Traffic Manager statusen för dina App Service-appar. Statusvärden är körs, stoppad och borttagen. Traffic Manager används för att bestämma vilka slut punkter som ska ta emot trafiken.
 
-I App Service körs en app i en [App Service-plan](/azure/app-service/overview-hosting-plans). En App Service-plan definierar en uppsättning beräkningsresurser för en app ska köras. Du kan hantera din App Service-plan och webbapp i olika grupper.
+I App Service körs en app i en [App Service-plan](/azure/app-service/overview-hosting-plans). En App Service plan definierar en uppsättning beräknings resurser för en app som ska köras. Du kan hantera din App Service-plan och webbapp i olika grupper.
 
-Spelboken koden i det här avsnittet definierar följande resurser:
+Spelbok-koden i det här avsnittet definierar följande resurser:
 
-* Azure-resursgrupp som har distribuerats för App Service-planen
+* Azure-resurs grupp inom vilken App Service plan distribueras
 * App Service-plan
-* Azure-resursgrupp där appen har distribuerats
-* App service i Linux med Java 8 och Tomcat-behållare runtime
+* Azure-resurs grupp inom vilken appen distribueras
+* App Service i Linux med Java 8 och Tomcat container runtime
 * Traffic Manager-profil
-* Traffic Manager-slutpunkt med hjälp av skapade appen
+* Traffic Manager slut punkt med den skapade appen
 
 Spara följande spelbok som `webapp.yml`:
 
@@ -199,13 +199,13 @@ Spara följande spelbok som `webapp.yml`:
       target_resource_id: "{{ webapp.webapps[0].id }}"
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook webapp.yml
 ```
 
-När strategiboken, kan du se utdata som liknar följande resultat:
+När du har kört Spelbok visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 

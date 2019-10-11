@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: c9b6f6cf52d71451d2e1de27d0637eeb749b1e0b
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 55ded9a733baaac7fbc78621bd625d57d1d37ad1
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71349057"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255491"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>Använda en standard-SKU-belastningsutjämnare i Azure Kubernetes service (AKS)
 
@@ -96,7 +96,7 @@ Efter några minuter slutförs kommandot och returnerar JSON-formaterad informat
 
 ## <a name="connect-to-the-cluster"></a>Anslut till klustret
 
-Om du vill hantera ett Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommando rads klient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Installera `kubectl` lokalt genom att använda kommandot [AZ AKS install-CLI][az-aks-install-cli] :
+Om du vill hantera ett Kubernetes-kluster använder du [kubectl][kubectl], Kubernetes kommando rads klient. Om du använder Azure Cloud Shell är `kubectl` redan installerat. Om du vill installera `kubectl` lokalt använder du kommandot [AZ AKS install-CLI][az-aks-install-cli] :
 
 ```azurecli
 az aks install-cli
@@ -145,7 +145,7 @@ Kontrol lera att egenskapen *loadBalancerSku* visar som *standard*.
 
 Om du vill använda belastnings utjämning i klustret skapar du ett tjänst manifest med tjänst typen *Loadbalancer*. Om du vill visa belastnings Utjämnings arbetet skapar du ett annat manifest med ett exempel program som ska köras i klustret. Det här exempel programmet exponeras via belastningsutjämnaren och kan visas via en webbläsare.
 
-Skapa ett manifest som `sample.yaml` heter som det visas i följande exempel:
+Skapa ett manifest med namnet `sample.yaml` som visas i följande exempel:
 
 ```yaml
 apiVersion: apps/v1
@@ -221,7 +221,7 @@ spec:
           value: "azure-vote-back"
 ```
 
-Ovanstående manifest konfigurerar två distributioner: *Azure-rösta-framtill* och *Azure-rösta – tillbaka*. Om du vill konfigurera *Azure-röst-front-* distribution som ska exponeras med belastningsutjämnaren skapar du ett manifest `standard-lb.yaml` som heter som visas i följande exempel:
+Ovanstående manifest konfigurerar två distributioner: *Azure-rösta-framtill* och *Azure-rösta – tillbaka*. Om du vill konfigurera *Azure-röst-front-* distribution som ska exponeras med belastningsutjämnaren skapar du ett manifest med namnet `standard-lb.yaml` som visas i följande exempel:
 
 ```yaml
 apiVersion: v1
@@ -245,7 +245,7 @@ kubectl apply -f sample.yaml
 kubectl apply -f standard-lb.yaml
 ```
 
-*Standard* -SKU: n är nu konfigurerad för att exponera exempel programmet. Visa tjänst informationen för *Azure-röstning-frontend* med [kubectl Hämta][kubectl-get] för att se belastnings UTJÄMNINGENS offentliga IP-adress. Belastnings utjämningens offentliga IP-adress visas i kolumnen *extern IP-* adress. Det kan ta en minut eller två för IP-adressen att ändras från *\<väntar\>* till en faktisk extern IP-adress, som visas i följande exempel:
+*Standard* -SKU: n är nu konfigurerad för att exponera exempel programmet. Visa tjänst informationen för *Azure-röstning-frontend* med [kubectl Hämta][kubectl-get] för att se belastnings UTJÄMNINGENS offentliga IP-adress. Belastnings utjämningens offentliga IP-adress visas i kolumnen *extern IP-* adress. Det kan ta en minut eller två att ändra IP-adressen från *\<pending @ no__t-2* till en faktisk extern IP-adress, som visas i följande exempel:
 
 ```
 $ kubectl get service azure-vote-front
@@ -254,9 +254,9 @@ NAME                TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)       
 azure-vote-front    LoadBalancer   10.0.227.198   52.179.23.131   80:31201/TCP   16s
 ```
 
-Navigera till den offentliga IP-adressen i en webbläsare och kontrol lera att du ser exempel programmet. I exemplet ovan är `52.179.23.131`den offentliga IP-adressen.
+Navigera till den offentliga IP-adressen i en webbläsare och kontrol lera att du ser exempel programmet. I exemplet ovan är den offentliga IP-adressen `52.179.23.131`.
 
-![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-vote.png)
+![Bild som illustrerar hur du navigerar till Azure Vote](media/container-service-kubernetes-walkthrough/azure-voting-application.png)
 
 > [!NOTE]
 > Du kan också konfigurera belastningsutjämnaren så att den är intern och inte exponera en offentlig IP-adress. Om du vill konfigurera belastningsutjämnaren som intern lägger du till `service.beta.kubernetes.io/azure-load-balancer-internal: "true"` som en anteckning till *Loadbalancer* -tjänsten. Du kan se ett exempel på yaml-manifest och mer information om en intern belastningsutjämnare [här][internal-lb-yaml].
@@ -276,7 +276,7 @@ az aks update \
 
 Exemplet ovan anger antalet hanterade utgående offentliga IP-adresser till *2* för *myAKSCluster* -klustret i *myResourceGroup*. 
 
-Du kan också använda parametern *belastningsutjämnare-hanterade-IP-antal* för att ange det ursprungliga antalet hanterade, offentliga IP-adresser när du skapar klustret genom att lägga till `--load-balancer-managed-outbound-ip-count` parametern och ställa in den på önskat värde. Standardvärdet för hanterade utgående offentliga IP-adresser är 1.
+Du kan också använda parametern *belastningsutjämnare-hanterade-IP-antal* för att ange det ursprungliga antalet hanterade, offentliga IP-adresser när du skapar klustret genom att lägga till parametern `--load-balancer-managed-outbound-ip-count` och ange önskat värde. Standardvärdet för hanterade utgående offentliga IP-adresser är 1.
 
 ## <a name="optional---provide-your-own-public-ips-or-prefixes-for-egress"></a>Valfritt – ange egna offentliga IP-adresser eller prefix för utgående trafik
 

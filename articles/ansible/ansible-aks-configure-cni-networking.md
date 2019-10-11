@@ -1,32 +1,32 @@
 ---
-title: Självstudie – konfigurera Azure CNI nätverk i Azure Kubernetes Service (AKS) med Ansible | Microsoft Docs
-description: Lär dig hur du använder Ansible för att konfigurera kubenet nätverk i klustret i Azure Kubernetes Service (AKS)
-keywords: ansible, azure, devops, bash, cloudshell, playbook, aks, container, aks, kubernetes
+title: Självstudie – konfigurera Azure CNI Networking i Azure Kubernetes service (AKS) med hjälp av Ansible
+description: Lär dig hur du använder Ansible för att konfigurera Kubernetes-nätverk i Azure Kubernetes service (AKS)-kluster
+keywords: Ansible, Azure, DevOps, bash, cloudshell, Spelbok, AKS, container, AKS, Kubernetes
 ms.topic: tutorial
 ms.service: ansible
 author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 2d43b1ffbb7910b16c81df2ff5b21e67dbcb0193
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 04da0e8fb06d0a32c8e8bdc39d7722fc1c3fcdba
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65231354"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72242038"
 ---
-# <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudier: Konfigurera Azure CNI nätverk i Azure Kubernetes Service (AKS) med Ansible
+# <a name="tutorial-configure-azure-cni-networking-in-azure-kubernetes-service-aks-using-ansible"></a>Självstudie: Konfigurera Azure CNI Networking i Azure Kubernetes service (AKS) med hjälp av Ansible
 
 [!INCLUDE [ansible-28-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-aks.md](../../includes/open-source-devops-intro-aks.md)]
 
-Med AKS kan distribuera du ett kluster med följande nätverk modeller:
+Med AKS kan du distribuera ett kluster med hjälp av följande nätverks modeller:
 
-- [Kubenet nätverk](/azure/aks/configure-kubenet) -nätverksresurser vanligtvis skapas och konfigureras enligt AKS-klustret distribueras.
-- [Azure CNI nätverk](/azure/aks/configure-azure-cni) -AKS-kluster är ansluten till befintliga resurser för virtuella nätverk (VNET) och konfigurationer.
+- [Kubernetes nätverk](/azure/aks/configure-kubenet) – nätverks resurser skapas och konfigureras vanligt vis när AKS-klustret distribueras.
+- [Azure cni Network](/azure/aks/configure-azure-cni) – AKS-klustret är anslutet till befintliga virtuella nätverks resurser och konfigurationer.
 
-Läs mer om nätverk till dina program i AKS [Network begrepp för program i AKS](/azure/aks/concepts-network).
+Mer information om nätverk till dina program i AKS finns i [nätverks begrepp för program i AKS](/azure/aks/concepts-network).
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -35,7 +35,7 @@ Läs mer om nätverk till dina program i AKS [Network begrepp för program i AKS
 > * Skapa ett AKS-kluster
 > * Konfigurera Azure CNI-nätverk
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -43,7 +43,7 @@ Läs mer om nätverk till dina program i AKS [Network begrepp för program i AKS
 
 ## <a name="create-a-virtual-network-and-subnet"></a>Skapa ett virtuellt nätverk och ett undernät
 
-Exempelkod för spelbok i det här avsnittet används för att:
+Exempel koden Spelbok i det här avsnittet används för att:
 
 - Skapa ett virtuellt nätverk
 - Skapa ett undernät i det virtuella nätverket
@@ -69,7 +69,7 @@ Spara följande spelbok som `vnet.yml`:
 
 ## <a name="create-an-aks-cluster-in-the-virtual-network"></a>Skapa ett AKS-kluster i det virtuella nätverket
 
-Exempelkod för spelbok i det här avsnittet används för att:
+Exempel koden Spelbok i det här avsnittet används för att:
 
 - Skapa ett AKS-kluster i ett virtuellt nätverk.
 
@@ -106,21 +106,21 @@ Spara följande spelbok som `aks.yml`:
   register: aks
 ```
 
-Här följer kommentarer att tänka på när du arbetar med exempel-strategibok:
+Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
-- Använd den `azure_rm_aks_version` modul för att hitta versionen som stöds.
-- Den `vnet_subnet_id` är det undernät som skapats i föregående avsnitt.
-- Spelboken har lästs in `ssh_key` från `~/.ssh/id_rsa.pub`. Om du ändrar den använda enradigt format - börjar med ”ssh-rsa” (utan citattecken).
-- Den `client_id` och `client_secret` värden har lästs in från `~/.azure/credentials`, vilket är standardfilen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvudnamn eller läsa in dessa värden från miljövariabler:
+- Använd modulen `azure_rm_aks_version` för att hitta den version som stöds.
+- @No__t-0 är det undernät som skapades i föregående avsnitt.
+- Spelbok läser in `ssh_key` från `~/.ssh/id_rsa.pub`. Om du ändrar det använder du det enkla formatet – från och med "SSH-RSA" (utan citationstecken).
+- Värdena `client_id` och `client_secret` läses in från `~/.azure/credentials`, vilket är standard filen för autentiseringsuppgifter. Du kan ange dessa värden till tjänstens huvud namn eller läsa in dessa värden från miljövariablerna:
 
     ```yml
     client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
     client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
     ```
 
-## <a name="run-the-sample-playbook"></a>Köra exemplet spelbok
+## <a name="run-the-sample-playbook"></a>Kör exemplet Spelbok
 
-Exempelkod för spelbok i det här avsnittet används för att testa olika funktioner som visas i den här självstudien.
+Exempel koden för Spelbok i det här avsnittet används för att testa olika funktioner som visas i den här självstudien.
 
 Spara följande spelbok som `aks-azure-cni.yml`:
 
@@ -150,19 +150,19 @@ Spara följande spelbok som `aks-azure-cni.yml`:
            var: aks
 ```
 
-Här följer kommentarer att tänka på när du arbetar med exempel-strategibok:
+Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
-- Ändra den `aksansibletest` värde som namn på resursgruppen.
-- Ändra den `aksansibletest` värde till ditt AKS-namn.
-- Ändra den `eastus` värde till din plats för resursgruppen.
+- Ändra värdet `aksansibletest` till resurs gruppens namn.
+- Ändra värdet `aksansibletest` till ditt AKS-namn.
+- Ändra värdet `eastus` till resurs gruppens plats.
 
-Kör spelbok med hjälp av kommandot ansible-spelbok:
+Kör Spelbok med kommandot Ansible-Spelbok:
 
 ```bash
 ansible-playbook aks-azure-cni.yml
 ```
 
-När strategiboken, kan du se utdata som liknar följande resultat:
+När du har kört Spelbok visas utdata som liknar följande resultat:
 
 ```Output
 PLAY [localhost] 
@@ -248,11 +248,11 @@ localhost                  : ok=9    changed=4    unreachable=0    failed=0    s
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort de resurser som skapades i den här artikeln. 
+Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
 
-Exempelkod för spelbok i det här avsnittet används för att:
+Exempel koden Spelbok i det här avsnittet används för att:
 
-- Ta bort en resursgrupp som anges i den `vars` avsnittet.
+- Ta bort en resurs grupp som refereras till i avsnittet `vars`.
 
 Spara följande spelbok som `cleanup.yml`:
 
@@ -269,12 +269,12 @@ Spara följande spelbok som `cleanup.yml`:
             force: yes
 ```
 
-Här följer kommentarer att tänka på när du arbetar med exempel-strategibok:
+Här följer några viktiga kommentarer att tänka på när du arbetar med exemplet Spelbok:
 
-- Ersätt den `{{ resource_group_name }}` platshållare med namnet på resursgruppen.
-- Alla resurser inom den angivna resursgruppen tas bort.
+- Ersätt plats hållaren `{{ resource_group_name }}` med namnet på din resurs grupp.
+- Alla resurser i den angivna resurs gruppen tas bort.
 
-Kör spelbok med hjälp av kommandot ansible-spelbok:
+Kör Spelbok med kommandot Ansible-Spelbok:
 
 ```bash
 ansible-playbook cleanup.yml

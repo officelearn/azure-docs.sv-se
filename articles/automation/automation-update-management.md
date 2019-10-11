@@ -9,12 +9,12 @@ ms.author: robreed
 ms.date: 05/22/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 253fc940cfb42aa9bf7e93dd631d2ca596f7db6f
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 3e2781229974ed872d477579d6c738822f910df6
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71677873"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243517"
 ---
 # <a name="update-management-solution-in-azure"></a>Uppdateringshantering lösning i Azure
 
@@ -59,7 +59,7 @@ Du kan distribuera och installera programuppdateringar på datorer som kräver u
 
 Den schemalagda distributionen definierar vilka mål datorer som får tillämpliga uppdateringar, antingen genom att uttryckligen ange datorer eller genom att välja en [dator grupp](../azure-monitor/platform/computer-groups.md) som baseras på loggs ökningar av en specifik uppsättning datorer eller en [Azure-fråga](#azure-machines) som dynamiskt väljer virtuella Azure-datorer baserat på angivna villkor. De här grupperna skiljer sig från [omfattnings konfigurationen](../azure-monitor/insights/solution-targeting.md), som endast används för att avgöra vilka datorer som får hanterings paketen som aktiverar lösningen.
 
-Du kan också ange ett schema för godkännande och ange en tids period då uppdateringar kan installeras. Den här tids perioden kallas underhålls perioden. Tio minuter i underhålls perioden är reserverat för omstarter om en omstart krävs och du valt lämpligt alternativ för omstart. Om korrigeringen tar längre tid än förväntat och det finns mindre än tio minuter i underhålls perioden görs ingen omstart.
+Du kan också ange ett schema för godkännande och ange en tids period då uppdateringar kan installeras. Den här tids perioden kallas underhålls perioden. 20 minuter i underhålls perioden är reserverad för omstarter om en omstart krävs och du valt lämpligt alternativ för omstart. Om korrigeringen tar längre tid än förväntat och det finns mindre än tjugo minuter i underhålls perioden görs ingen omstart.
 
 Uppdateringar installeras av runbooks i Azure Automation. Du kan inte visa dessa Runbooks och Runbooks kräver ingen konfiguration. När en uppdaterings distribution skapas skapar uppdaterings distributionen ett schema som startar en huvud uppdaterings-Runbook vid den angivna tidpunkten för de datorer som ingår. Huvud-Runbook startar en underordnad Runbook på varje agent för att installera nödvändiga uppdateringar.
 
@@ -69,7 +69,7 @@ En dator som är registrerad för Uppdateringshantering i fler än en Log Analyt
 
 ## <a name="clients"></a>Klienter
 
-### <a name="supported-client-types"></a>Stöds klienttyper
+### <a name="supported-client-types"></a>Klient typer som stöds
 
 I följande tabell visas en lista över operativ system som stöds för utvärdering av uppdateringar. Uppdatering kräver en Hybrid Runbook Worker. Information om Hybrid Runbook Worker krav finns i installations guiderna för [Windows-HRW](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) och [Linux-HRW](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker).
 
@@ -85,13 +85,13 @@ I följande tabell visas en lista över operativ system som stöds för utvärde
 > Skalnings uppsättningar för virtuella Azure-datorer kan hanteras med Uppdateringshantering. Uppdateringshantering fungerar på själva instanserna och inte på bas avbildningen. Du måste schemalägga uppdateringarna på ett stegvist sätt, eftersom du inte vill uppdatera alla VM-instanser samtidigt.
 > Du kan lägga till VMSS-noder genom att följa stegen under [publicera en dator som inte är en Azure-dator](automation-tutorial-installed-software.md#onboard-a-non-azure-machine).
 
-### <a name="unsupported-client-types"></a>Klientappar typer
+### <a name="unsupported-client-types"></a>Klient typer som inte stöds
 
-I följande tabell visas operativsystem som inte stöds:
+I följande tabell visas de operativ system som inte stöds:
 
 |Operativsystem  |Anteckningar  |
 |---------|---------|
-|Windows-klient     | Klientoperativsystem (till exempel Windows 7 och Windows 10) stöds inte.        |
+|Windows-klient     | Klient operativ system (t. ex. Windows 7 och Windows 10) stöds inte.        |
 |Windows Server 2016 Nano Server     | Stöds ej.       |
 |Azure Kubernetes service-noder | Stöds ej. Använd korrigerings processen som beskrivs i [tillämpa säkerhets-och kernel-uppdateringar på Linux-noder i Azure Kubernetes service (AKS)](../aks/node-updates-kured.md)|
 
@@ -99,7 +99,7 @@ I följande tabell visas operativsystem som inte stöds:
 
 #### <a name="windows"></a>Windows
 
-Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller så måste de ha åtkomst till Microsoft Update. Du kan använda Uppdateringshantering med System Center Configuration Manager. Mer information om integrations scenarier finns i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows](../azure-monitor/platform/agent-windows.md) -agenten krävs. Agenten installeras automatiskt om du registrerar en virtuell Azure-dator.
+Windows-agenter måste konfigureras för att kommunicera med en WSUS-server, eller så måste de ha åtkomst till Microsoft Update. Du kan använda Uppdateringshantering med System Center Configuration Manager. Mer information om integrations scenarier finns i [integrera System Center Configuration Manager med uppdateringshantering](oms-solution-updatemgmt-sccmintegration.md#configuration). [Windows-agenten](../azure-monitor/platform/agent-windows.md) krävs. Agenten installeras automatiskt om du registrerar en virtuell Azure-dator.
 
 > [!NOTE]
 > Det är möjligt för en användare att ändra grupprincip så att omstarter av datorn bara kan utföras av användaren, inte av systemet. Hanterade datorer kan fastna, om Uppdateringshantering inte har behörighet att starta om datorn utan manuell interaktion från användaren.
@@ -176,7 +176,7 @@ På en Windows-dator kan du granska följande information för att verifiera age
 1. Öppna **Microsoft Monitoring Agent**i kontroll panelen. På fliken **Azure-Log Analytics** visar agenten följande meddelande: **Microsoft Monitoring Agent har anslutit till Log Analytics**.
 2. Öppna händelse loggen i Windows. Gå till **program-och tjänst loggar \ Operations Manager** och Sök efter händelse-ID 3000 och händelse-ID 5002 från käll **tjänst anslutningen**. Dessa händelser anger att datorn har registrerats med Log Analytics-arbetsytan och tar emot konfiguration.
 
-Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux](../log-analytics/log-analytics-agent-linux.md)-agenten.
+Om agenten inte kan kommunicera med Azure Monitor loggar och agenten är konfigurerad för att kommunicera med Internet via en brand vägg eller proxyserver, kontrollerar du att brand väggen eller proxyservern har kon figurer ATS korrekt. Information om hur du verifierar att brand väggen eller proxyservern har kon figurer ATS korrekt finns i [nätverks konfiguration för Windows-agent](../azure-monitor/platform/agent-windows.md) eller [nätverks konfiguration för Linux-agenten](../log-analytics/log-analytics-agent-linux.md).
 
 > [!NOTE]
 > Om Linux-systemen har kon figurer ATS för att kommunicera med en proxy eller Log Analytics gateway och du registrerar den här lösningen uppdaterar du *proxyn. conf* -behörighet för att ge behörigheten omiuser Group Läs behörighet för filen genom att använda följande kommandon:
@@ -198,7 +198,7 @@ I följande tabell beskrivs de anslutna källor som stöds av den här lösninge
 | --- | --- | --- |
 | Windows-agenter |Ja |Lösningen samlar in information om system uppdateringar från Windows-agenter och initierar sedan installationen av nödvändiga uppdateringar. |
 | Linux-agenter |Ja |Lösningen samlar in information om system uppdateringar från Linux-agenter och initierar sedan installationen av nödvändiga uppdateringar på distributioner som stöds. |
-| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanteringsgruppen till Log Analytics-arbetsytan. |
+| Operations Manager-hanteringsgrupp |Ja |Lösningen samlar in information om systemuppdateringar från agenter i en ansluten hanteringsgrupp.<br/>En direkt anslutning från Operations Manager agent till Azure Monitor loggar krävs inte. Data vidarebefordras från hanterings gruppen till Log Analytics-arbetsytan. |
 
 ### <a name="collection-frequency"></a>Insamlingsfrekvens
 
@@ -235,17 +235,17 @@ Virtuella datorer som har skapats från RHEL-avbildningar (på begäran Red Hat 
 
 Om du vill skapa en ny uppdaterings distribution väljer du **Schemalägg uppdaterings distribution**. Sidan **ny uppdaterings distribution** öppnas. Ange värden för egenskaperna som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-| Egenskap | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
-| Name |Unikt namn som identifierar uppdateringsdistributionen. |
+| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
 | Grupper att uppdatera |För Azure-datorer definierar du en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i distributionen. </br></br>För datorer som inte är Azure-datorer väljer du en befintlig sparad sökning för att välja en grupp datorer som inte är Azure-datorer att inkludera i distributionen. </br></br>Mer information finns i [Dynamiska grupper](automation-update-management.md#using-dynamic-groups)|
 | Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../azure-monitor/platform/computer-groups.md) |
-|Uppdatera klassificeringar|Välj alla uppdaterings klassificeringar som du behöver|
+|Uppdaterings klassificeringar|Välj alla uppdaterings klassificeringar som du behöver|
 |Inkludera/exkludera uppdateringar|Då öppnas sidan **Inkludera/exkludera** . Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras och finns i [inkluderingsbeteende](automation-update-management.md#inclusion-behavior) |
-|Schemainställningar|Välj tid för start och välj antingen en gång eller återkommande för upprepningen|
+|Schema inställningar|Välj tid för start och välj antingen en gång eller återkommande för upprepningen|
 | Före skript + efter skript|Välj de skript som ska köras före och efter distributionen|
-| Underhållsperiod |Antal minuter som har angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
+| Underhålls period |Antal minuter som har angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
 | Starta om kontroll| Fastställer hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
 Uppdaterings distributioner kan också skapas program mässigt. Information om hur du skapar en uppdaterings distribution med REST API finns i [program uppdaterings konfiguration – skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempel-Runbook som kan användas för att skapa en veckovis uppdaterings distribution. Mer information om denna Runbook finns i [skapa en veckovis uppdaterings distribution för en eller flera virtuella datorer i en resurs grupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).
@@ -264,8 +264,8 @@ Windows-underhåll styr den tids period som tillåts för att installera uppdate
 
 ### <a name="multi-tenant"></a>Uppdaterings distributioner mellan klienter
 
-Om du har datorer i en annan Azure-klient rapporterar att Uppdateringshantering att du behöver korrigera, måste du använda följande lösning för att få dem schemalagda. Du kan använda cmdleten [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) med växeln `-ForUpdate` för att skapa ett schema och använda [cmdleten New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
-) och skicka datorerna i den andra klient till `-NonAzureComputer` parametern. I följande exempel visas ett exempel på hur du gör detta:
+Om du har datorer i en annan Azure-klient rapporterar att Uppdateringshantering att du behöver korrigera, måste du använda följande lösning för att få dem schemalagda. Du kan använda cmdleten [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) med växeln `-ForUpdate` om du vill skapa ett schema och använda cmdleten [New-AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
+) och skicka datorerna i den andra klienten till parametern `-NonAzureComputer`. I följande exempel visas ett exempel på hur du gör detta:
 
 ```azurepowershell-interactive
 $nonAzurecomputers = @("server-01", "server-02")
@@ -283,13 +283,13 @@ Välj **saknade uppdateringar** om du vill visa en lista med uppdateringar som s
 
 ## <a name="view-update-deployments"></a>Visa uppdaterings distributioner
 
-Välj fliken **uppdaterings distributioner** om du vill visa en lista över befintliga uppdaterings distributioner. Välj någon av uppdaterings distributionerna i tabellen för att öppna körnings fönstret för **uppdaterings distribution** för den uppdaterings distributionen. Jobb loggar lagras i högst 30 dagar.
+Välj fliken **uppdaterings distributioner** om du vill visa en lista över befintliga uppdaterings distributioner. Välj någon av uppdaterings distributionerna i tabellen för att öppna **körnings fönstret för uppdaterings distribution** för den uppdaterings distributionen. Jobb loggar lagras i högst 30 dagar.
 
 ![Översikt över resultat av uppdaterings distribution](./media/automation-update-management/update-deployment-run.png)
 
 Om du vill visa en uppdaterings distribution från REST API, se [konfiguration av program uppdaterings konfiguration](/rest/api/automation/softwareupdateconfigurationruns).
 
-## <a name="update-classifications"></a>Uppdatera klassificeringar
+## <a name="update-classifications"></a>Uppdaterings klassificeringar
 
 I följande tabeller visas uppdaterings klassificeringarna i Uppdateringshantering, med en definition för varje klassificering.
 
@@ -301,7 +301,7 @@ I följande tabeller visas uppdaterings klassificeringarna i Uppdateringshanteri
 |Säkerhetsuppdateringar     | En uppdatering för en produktspecifik, säkerhetsrelaterad fråga.        |
 |Samlade uppdateringar     | En kumulativ uppsättning snabb korrigeringar som är paketerade tillsammans för enkel distribution.        |
 |Funktionspaket     | Nya produkt funktioner som distribueras utanför en produkt lansering.        |
-|Service Pack     | En kumulativ uppsättning snabb korrigeringar som tillämpas på ett program.        |
+|Service pack     | En kumulativ uppsättning snabb korrigeringar som tillämpas på ett program.        |
 |Definitionsuppdateringar     | En uppdatering av virus-eller andra definitionsfiler.        |
 |Verktyg     | Ett verktyg eller en funktion som hjälper till att slutföra en eller flera uppgifter.        |
 |Uppdateringar     | En uppdatering av ett program eller en fil som är installerad för närvarande.        |
@@ -339,7 +339,7 @@ $WUSettings.Save()
 
 ### <a name="disable-automatic-installation"></a>Inaktivera automatisk installation
 
-Virtuella Azure-datorer har automatisk installation av uppdateringar som är aktiverade som standard. Detta kan medföra att uppdateringar installeras innan du schemalägger dem att installeras av Uppdateringshantering. Du kan inaktivera det här beteendet genom `NoAutoUpdate` att ange register `1`nyckeln till. Följande PowerShell-kodfragment visar ett sätt att göra detta.
+Virtuella Azure-datorer har automatisk installation av uppdateringar som är aktiverade som standard. Detta kan medföra att uppdateringar installeras innan du schemalägger dem att installeras av Uppdateringshantering. Du kan inaktivera det här beteendet genom att ange register nyckeln `NoAutoUpdate` till `1`. Följande PowerShell-kodfragment visar ett sätt att göra detta.
 
 ```powershell
 $AutoUpdatePath = "HKLM:SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU"
@@ -359,19 +359,19 @@ $ServiceManager.AddService2($ServiceId,7,"")
 
 ## <a name="third-party"></a>Uppdateringar från tredje part på Windows
 
-Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen för att korrigera Windows-system som stöds. Detta är antingen WSUS eller Windows Update. Med verktyg [som](/sccm/sum/tools/updates-publisher
-) System Center Updates Publisher (Updates Publisher) kan du publicera anpassade uppdateringar i WSUS. Med det här scenariot kan Uppdateringshantering korrigera datorer som använder System Center Configuration Manager som sitt uppdaterings lager med program vara från tredje part. Information om hur du konfigurerar Updates Publisher finns i [Installera Updates Publisher](/sccm/sum/tools/install-updates-publisher).
+Uppdateringshantering använder den lokalt konfigurerade uppdaterings databasen för att korrigera Windows-system som stöds. Detta är antingen WSUS eller Windows Update. Med verktyg som [System Center Updates Publisher](/sccm/sum/tools/updates-publisher
+) (Updates Publisher) kan du publicera anpassade uppdateringar i WSUS. Med det här scenariot kan Uppdateringshantering korrigera datorer som använder System Center Configuration Manager som sitt uppdaterings lager med program vara från tredje part. Information om hur du konfigurerar Updates Publisher finns i [Installera Updates Publisher](/sccm/sum/tools/install-updates-publisher).
 
 ## <a name="ports"></a>Nätverks planering
 
 Följande adresser krävs specifikt för Uppdateringshantering. Kommunikationen med de här adresserna sker via port 443.
 
-|Azure Public  |Azure Government  |
+|Offentlig Azure-  |Azure Government  |
 |---------|---------|
-|*.ods.opinsights.azure.com     |*.ods.opinsights.azure.us         |
-|*.oms.opinsights.azure.com     | *.oms.opinsights.azure.us        |
-|*.blob.core.windows.net|*.blob.core.usgovcloudapi.net|
-|*.azure-automation.net|*.azure-automation.us|
+|*.ods.opinsights.azure.com     |*. ods.opinsights.azure.us         |
+|*.oms.opinsights.azure.com     | *. oms.opinsights.azure.us        |
+|*.blob.core.windows.net|*. blob.core.usgovcloudapi.net|
+|*.azure-automation.net|*. azure-automation.us|
 
 För Windows-datorer måste du också tillåta trafik till alla slut punkter som krävs av Windows Update.  Du hittar en uppdaterad lista med nödvändiga slut punkter i [problem som rör http/proxy](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy). Om du har en lokal [Windows Update-Server](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)måste du också tillåta trafik till servern som anges i [WSUS-nyckeln](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
@@ -383,20 +383,20 @@ Vi rekommenderar att du använder de adresser som anges när du definierar undan
 
 Följ anvisningarna i [ansluta datorer utan Internet åtkomst](../azure-monitor/platform/gateway.md) för att konfigurera datorer som inte har till gång till Internet.
 
-## <a name="search-logs"></a>Sök i loggar
+## <a name="search-logs"></a>Sök loggar
 
 Utöver den information som finns i Azure Portal kan du söka efter loggarna. På lösnings sidorna väljer du **Log Analytics**. Fönstret **loggs ökning** öppnas.
 
-Du kan också lära dig hur du anpassar frågorna eller använder dem från olika klienter och mer genom att besöka:  [Log Analytics Search API-](
-https://dev.loganalytics.io/)dokumentation.
+Du kan också lära dig hur du anpassar frågorna eller använder dem från olika klienter och mer genom att besöka: [Log Analytics Search API-dokumentation](
+https://dev.loganalytics.io/).
 
-### <a name="sample-queries"></a>Exempelfrågor
+### <a name="sample-queries"></a>Exempel frågor
 
 Följande avsnitt innehåller exempel på logg frågor för uppdaterings poster som samlas in av den här lösningen:
 
 #### <a name="single-azure-vm-assessment-queries-windows"></a>Enskilda utvärderings frågor för Azure VM (Windows)
 
-Ersätt VMUUID-värdet med VM-GUID för den virtuella dator som du frågar. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor loggar:`Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
+Ersätt VMUUID-värdet med VM-GUID för den virtuella dator som du frågar. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor loggar: `Update | where Computer == "<machine name>" | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Sammanfattning av saknade uppdateringar
 
@@ -425,7 +425,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Enkla Azure VM Assessment-frågor (Linux)
 
-För vissa Linux-distributioner, finns det ett värde för [endian](https://en.wikipedia.org/wiki/Endianness) -fel med VMUUID-värdet som kommer från Azure Resource Manager och vad som lagras i Azure Monitor loggar. Följande fråga söker efter en matchning på antingen endian. Ersätt VMUUID-värdena med big-endian-och lite-endian-formatet för GUID för att returnera resultaten korrekt. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor loggar:`Update | where Computer == "<machine name>"
+För vissa Linux-distributioner, finns det ett värde för [endian](https://en.wikipedia.org/wiki/Endianness) -fel med VMUUID-värdet som kommer från Azure Resource Manager och vad som lagras i Azure Monitor loggar. Följande fråga söker efter en matchning på antingen endian. Ersätt VMUUID-värdena med big-endian-och lite-endian-formatet för GUID för att returnera resultaten korrekt. Du kan hitta VMUUID som ska användas genom att köra följande fråga i Azure Monitor loggar: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Sammanfattning av saknade uppdateringar
@@ -608,10 +608,10 @@ Uppdateringshantering ger möjlighet att rikta en dynamisk grupp med virtuella A
 
 Dessa grupper definieras av en fråga, när en uppdaterings distribution börjar, utvärderas medlemmarna i gruppen. Dynamiska grupper fungerar inte med klassiska virtuella datorer. När du definierar din fråga kan följande objekt användas tillsammans för att fylla i den dynamiska gruppen
 
-* Subscription
+* Prenumeration
 * Resursgrupper
 * Platser
-* Tags
+* Taggar
 
 ![Välj grupper](./media/automation-update-management/select-groups.png)
 
@@ -635,7 +635,7 @@ Information om hur du integrerar hanterings lösningen med System Center Configu
 
 Med uppdaterings inkludering kan du ange vilka uppdateringar som ska tillämpas. Korrigeringar eller paket som ingår är installerade. När korrigeringar eller paket ingår och en klassificering har valts, installeras även de objekt och objekt som ingår i klassificeringen.
 
-Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*`, installeras inga korrigeringar eller paket eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer om ett paket ingår men har ett beroende paket som uteslutits, installeras inte paketet.
+Det är viktigt att veta att undantagen åsidosätter inkluderingar. Om du till exempel definierar en undantags regel för `*` installeras inga korrigeringar eller paket eftersom de undantas. Undantagna uppdateringar visas fortfarande som saknas på datorn. För Linux-datorer om ett paket ingår men har ett beroende paket som uteslutits, installeras inte paketet.
 
 ## <a name="patch-linux-machines"></a>Korrigera Linux-datorer
 
@@ -645,7 +645,7 @@ I följande avsnitt beskrivs eventuella problem med Linux-korrigeringar.
 
 På vissa Linux-varianter, till exempel Red Hat Enterprise Linux, kan uppgraderingar av operativ Systems nivå ske via paket. Detta kan leda till att Uppdateringshantering körs där versions numret för operativ systemet ändras. Eftersom Uppdateringshantering använder samma metoder för att uppdatera paket som en administratör använder lokalt på Linux-datorn, är detta avsiktligt avsiktligt.
 
-Använd undantags funktionen om du vill undvika att uppdatera operativ system versionen via uppdateringshantering körs.
+Använd **undantags** funktionen om du vill undvika att uppdatera operativ system versionen via uppdateringshantering körs.
 
 I Red Hat Enterprise Linux är paket namnet som ska undantas RedHat-release-Server. x86_64.
 
@@ -665,7 +665,7 @@ Distribution av uppdateringar efter uppdaterings klassificering fungerar inte p�
 
 Så här tar du bort en virtuell dator från Uppdateringshantering:
 
-* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen för omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
+* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
 * Ta bort [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics agent för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg

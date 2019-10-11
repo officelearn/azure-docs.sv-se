@@ -1,60 +1,60 @@
 ---
-title: Automatisera installationen av Azure Site Recovery-Mobilitetstjänsten för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av System Center Configuration Manager | Microsoft Docs
-description: Den här artikeln kan du automatisera installationen av Mobilitetstjänsten med System Center Configuration Manager för haveriberedskap för virtuella VMware-datorer och fysiska servrar till Azure med Site Recovery.
+title: Automatisera installationen av tjänsten Azure Site Recovery mobilitet för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av System Center Configuration Manager | Microsoft Docs
+description: Den här artikeln hjälper dig att automatisera installationen av mobilitets tjänsten med System Center Configuration Manager för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure med hjälp av Site Recovery.
 author: Rajeswari-Mamilla
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 04/14/2019
 ms.author: ramamill
-ms.openlocfilehash: 35c317c4b73e9a22e3b0d6192abcfc2a596066b8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: ee92ad6e0687018f69044bf3edde76b9f98cee52
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60598073"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255583"
 ---
-# <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatisera installation av Mobilitetstjänsten med System Center Configuration Manager
+# <a name="automate-mobility-service-installation-with-system-center-configuration-manager"></a>Automatisera mobilitets tjänst installationen med System Center Configuration Manager
 
-Mobilitetstjänsten installeras på virtuella VMware-datorer och fysiska servrar som du vill replikera till Azure med [Azure Site Recovery](site-recovery-overview.md)
+Mobilitets tjänsten är installerad på virtuella VMware-datorer och fysiska servrar som du vill replikera till Azure med hjälp av [Azure Site Recovery](site-recovery-overview.md)
 
-Den här artikeln innehåller ett exempel på hur du kan använda System Center Configuration Manager för att distribuera Azure Site Recovery-Mobilitetstjänsten på en VMware-VM. Med ett programdistributionsverktyg som Configuration Manager har följande fördelar:
+Den här artikeln innehåller ett exempel på hur du kan använda System Center Configuration Manager för att distribuera Azure Site Recovery mobilitets tjänsten på en virtuell VMware-dator. Användning av ett program distributions verktyg som Configuration Manager har följande fördelar:
 
-* Schemalägga nya installationer och uppgraderingar under planerade underhållsperiod för programuppdateringar
-* Skala distributionen till hundratals servrar samtidigt
+* Schemalägga nya installationer och uppgraderingar under den planerade underhålls perioden för program uppdateringar
+* Skala distribution till hundratals servrar samtidigt
 
-Den här artikeln använder System Center Configuration Manager 2012 R2 för att demonstrera aktiviteten distribution. Vi förutsätter att du använder version **9.9.4510.1** eller senare av mobilitetstjänsten.
+Den här artikeln använder System Center Configuration Manager 2012 R2 för att demonstrera distributions aktiviteten. Vi förutsätter att du använder version **9.9.4510.1** eller högre av mobilitets tjänsten.
 
-Alternativt kan du automatisera installationen av Mobilitetstjänsten med [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
+Alternativt kan du automatisera mobilitets tjänst installationen med [Azure Automation DSC](vmware-azure-mobility-deploy-automation-dsc.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-1. Ett programdistributionsverktyg, som Konfigurationshanteraren, som redan har distribuerats i din miljö.
-2. Du bör skapa två [enhetssamlingar](https://technet.microsoft.com/library/gg682169.aspx), en för alla **Windows-servrar**, och en annan för alla **Linux-servrar**, som du vill skydda med hjälp av Site Recovery.
-3. En konfigurationsserver som redan har registrerats i Recovery Services-valvet.
-4. En säker nätverksfilresurs (SMB-resurs) som kan nås av configuration manager-datorn.
+1. Ett verktyg för program varu distribution, till exempel Configuration Manager, som redan har distribuerats i din miljö.
+2. Du bör skapa två [enhets samlingar](https://technet.microsoft.com/library/gg682169.aspx), en för alla **Windows-servrar**och en annan för alla Linux- **servrar**som du vill skydda med hjälp av Site Recovery.
+3. En konfigurations server som redan är registrerad i Recovery Services-valvet.
+4. En säker nätverks fil resurs (SMB-resurs) som kan nås av Configuration Manager-datorn.
 
 ## <a name="deploy-on-windows-machines"></a>Distribuera på Windows-datorer
 > [!NOTE]
-> Den här artikeln förutsätter att IP-adressen för konfigurationsservern är 192.168.3.121 och att det är säkert nätverksfilresursen \\\ContosoSecureFS\MobilityServiceInstallers.
+> Den här artikeln förutsätter att konfigurations serverns IP-adress är 192.168.3.121 och att den säkra nätverks fil resursen är \\ \ ContosoSecureFS\MobilityServiceInstallers.
 
-### <a name="prepare-for-deployment"></a>Förbereda för distribution
-1. Skapa en mapp på nätverksresursen och ge den namnet **MobSvcWindows**.
-2. Logga in på konfigurationsservern och öppna en administrativ kommandotolk.
-3. Kör följande kommandon för att generera en lösenfras-fil:
+### <a name="prepare-for-deployment"></a>Förbered för distribution
+1. Skapa en mapp på nätverks resursen och ge den namnet **MobSvcWindows**.
+2. Logga in på konfigurations servern och öppna en administrativ kommando tolk.
+3. Kör följande kommandon för att skapa en lösen fras fil:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-4. Kopiera den **MobSvc.passphrase** filen till den **MobSvcWindows** mapp på nätverksresursen.
-5. Bläddra till installationsprogrammet för databasen på konfigurationsservern genom att köra följande kommando:
+4. Kopiera filen **MobSvc. lösen fras** till mappen **MobSvcWindows** på din nätverks resurs.
+5. Bläddra till installations platsen för installations programmet på konfigurations servern genom att köra följande kommando:
 
    `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
-6. Kopiera den **Microsoft ASR\_UA\_*version*\_Windows\_GA\_*datum*\_Release.exe**  till den **MobSvcWindows** mapp på nätverksresursen.
-7. Kopiera följande kod och spara den som **install.bat** till den **MobSvcWindows** mapp.
+6. Kopiera **Microsoft-ASR @ no__t-1UA @ no__t-2-*versionen*\_Windows @ no__t-5GA @ no__t-6*date*@no__t -8Release. exe** till mappen **MobSvcWindows** på din nätverks resurs.
+7. Kopiera följande kod och spara den som **install. bat** i mappen **MobSvcWindows**
 
    > [!NOTE]
-   > Ersätt platshållarna [CSIP] i skriptet med de faktiska värdena för IP-adressen för konfigurationsservern.
+   > Ersätt [CSIP]-plats hållarna i det här skriptet med de faktiska värdena för IP-adressen för konfigurations servern.
 
 ```DOS
 Time /t >> C:\Temp\logfile.log
@@ -156,93 +156,90 @@ IF NOT %ERRORLEVEL% EQU 0 (
 ### <a name="create-a-package"></a>Skapa ett paket
 
 1. Logga in på Configuration Manager-konsolen.
-2. Bläddra till **Programvarubibliotek** > **programhantering** > **paket**.
-3. Högerklicka på **paket**, och välj **skapa paket**.
+2. Gå till **program bibliotek** > **program hantering** > **paket**.
+3. Högerklicka på **paket**och välj **skapa paket**.
 4. Ange värden för namn, beskrivning, tillverkare, språk och version.
-5. Välj den **det här paketet innehåller källfiler** markerar du kryssrutan.
-6. Klicka på **Bläddra**, och välj den nätverksresurs där installationsprogrammet lagras (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
+5. Markera kryss rutan det **här paketet innehåller källfiler** .
+6. Klicka på **Bläddra**och välj den nätverks resurs där installations programmet lagras (\\ \ ContosoSecureFS\MobilityServiceInstaller\MobSvcWindows).
 
-   ![Skärmbild av skapa paket och Program-Guiden](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
+   ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package.png)
 
-7. På den **väljer du den typ av program som du vill skapa** väljer **standardprogram**, och klicka på **nästa**.
+7. På sidan **Välj den program typ som du vill skapa väljer du** **standard program**och klickar sedan på **Nästa**.
 
-   ![Skärmbild av skapa paket och Program-Guiden](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
-8. På den **anger du information om det här standardprogrammet** anger följande indata, och klicka på **nästa**. (Du kan använda standardvärdena för andra indata.)
+8. På sidan **Ange information om det här standard programmet** anger du följande indata och klickar på **Nästa**. (Andra indata kan använda standardvärdena.)
 
    | **Parameternamn** | **Värde** |
    |--|--|
-   | Namn | Installera Mobilitetstjänsten för Microsoft Azure (Windows) |
-   | Kommandorad | install.bat |
-   | Programmet kan köras | Om en användare är inloggad |
+   | Namn | Installera Microsoft Azure Mobility Service (Windows) |
+   | Kommandoraden | Installera. bat |
+   | Programmet kan köra | Huruvida en användare är inloggad eller inte |
 
-   ![Skärmbild av skapa paket och Program-Guiden](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
+   ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties.png)
 
-9. Välj måloperativsystem på nästa sida. Mobilitetstjänsten kan installeras endast på Windows Server 2012 R2, Windows Server 2012 och Windows Server 2008 R2.
-
-   ![Skärmbild av skapa paket och Program-Guiden](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2.png)
-
-10. Slutför guiden genom att klicka på **nästa** två gånger.
+9. På nästa sida väljer du mål operativ system. 
+10. Slutför guiden genom att klicka på **Nästa** två gånger.
 
 
 > [!NOTE]
-> Skriptet har stöd för både nya installationer av Mobilitetstjänsten agenter och uppdateringar av agenter som redan är installerade.
+> Skriptet stöder både nya installationer av mobilitets tjänst agenter och uppdateringar av agenter som redan har installerats.
 
 ### <a name="deploy-the-package"></a>Distribuera paketet
 1. Högerklicka på ditt paket i Configuration Manager-konsolen och välj **distribuera innehåll**.
-   ![Skärmbild av Configuration Manager-konsolen](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Välj den **[distributionsplatser](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** in som paket ska kopieras.
-3. Slutför guiden. Paketet startar sedan replikeras till de angivna Distributionsplatserna.
-4. När paketet distributionen är klar, högerklicka på paketet och välj **distribuera**.
-   ![Skärmbild av Configuration Manager-konsolen](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. Välj den Windows Server-enhetssamling som du skapade i kravavsnittet som målsamlingen för distributionen.
+   ![Screenshot för Configuration Manager-konsolen @ no__t-1
+2. Välj de **[distributions platser](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** som paketen ska kopieras till.
+3. Slutför guiden. Paketet börjar sedan replikeras till de angivna distributions platserna.
+4. När paket distributionen är färdig högerklickar du på paketet och väljer **distribuera**.
+   ![Screenshot för Configuration Manager-konsolen @ no__t-1
+5. Välj den Windows Server-enhets samling som du skapade i avsnittet förutsättningar som mål samling för distribution.
 
-   ![Guiden Distribuera programvara skärmbild](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
+   ![Skärm bild av guiden distribuera program vara](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection.png)
 
-6. På den **ange innehållsmålet** väljer din **distributionsplatser**.
-7. På den **ange för att styra hur programvaran distribueras** kontrollerar du att syftet är **krävs**.
+6. På sidan **Ange innehålls målet** väljer du dina **distributions platser**.
+7. På sidan **Ange inställningar för att styra hur program varan distribueras** , måste du se till att syftet är **obligatoriskt**.
 
-   ![Guiden Distribuera programvara skärmbild](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![Skärm bild av guiden distribuera program vara](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-8. På den **ange schemat för den här distributionen** anger du ett schema. Mer information finns i [schemaläggning paket](https://technet.microsoft.com/library/gg682178.aspx).
-9. På den **distributionsplatser** konfigurerar egenskaper enligt behoven i ditt datacenter. Slutför sedan guiden.
+8. Ange ett schema på sidan **Ange schema för den här distributionen** . Mer information finns i [Schemalägga paket](https://technet.microsoft.com/library/gg682178.aspx).
+9. På sidan **distributions platser** konfigurerar du egenskaperna enligt dina data centers behov. Slutför sedan guiden.
 
 > [!TIP]
-> Schemalägga installationen under din månatligt underhåll eller fönstret för uppdateringar av programvara för att undvika onödiga omstarter.
+> Du kan undvika onödiga omstarter genom att schemalägga paket installationen i fönstret för månatlig underhåll eller fönstret program uppdateringar.
 
-Du kan övervaka förloppet för distributionen med hjälp av Configuration Manager-konsolen. Gå till **övervakning** > **distributioner** >  *[package name]* .
+Du kan övervaka distributions förloppet med hjälp av Configuration Manager-konsolen. Gå till **övervakning** > **distributioner** >  *[ditt paket namn]* .
 
-  ![Skärmbild av Configuration Manager kan övervaka distributioner](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
+  ![Skärm bild av Configuration Manager alternativ för att övervaka distributioner](./media/vmware-azure-mobility-install-configuration-mgr/report.PNG)
 
 ## <a name="deploy-on-linux-machines"></a>Distribuera på Linux-datorer
 > [!NOTE]
-> Den här artikeln förutsätter att IP-adressen för konfigurationsservern är 192.168.3.121 och att det är säkert nätverksfilresursen \\\ContosoSecureFS\MobilityServiceInstallers.
+> Den här artikeln förutsätter att konfigurations serverns IP-adress är 192.168.3.121 och att den säkra nätverks fil resursen är \\ \ ContosoSecureFS\MobilityServiceInstallers.
 
-### <a name="prepare-for-deployment"></a>Förbereda för distribution
-1. Skapa en mapp på nätverksresursen och ger den namnet **MobSvcLinux**.
-2. Logga in på konfigurationsservern och öppna en administrativ kommandotolk.
-3. Kör följande kommandon för att generera en lösenfras-fil:
+### <a name="prepare-for-deployment"></a>Förbered för distribution
+1. Skapa en mapp på nätverks resursen och ge den namnet **MobSvcLinux**.
+2. Logga in på konfigurations servern och öppna en administrativ kommando tolk.
+3. Kör följande kommandon för att skapa en lösen fras fil:
 
     `cd %ProgramData%\ASR\home\svsystems\bin`
 
     `genpassphrase.exe -v > MobSvc.passphrase`
-4. Kopiera den **MobSvc.passphrase** filen till den **MobSvcLinux** mapp på nätverksresursen.
-5. Bläddra till installationsprogrammet för databasen på konfigurationsservern genom att köra kommandot:
+4. Kopiera filen **MobSvc. lösen fras** till mappen **MobSvcLinux** på din nätverks resurs.
+5. Bläddra till installations platsen för installations programmet på konfigurations servern genom att köra kommandot:
 
    `cd %ProgramData%\ASR\home\svsystems\pushinstallsvc\repository`
 
-6. Kopiera följande filer till den **MobSvcLinux** mapp på din nätverksresurs:
-   * Microsoft-ASR\_UA\*RHEL6-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*RHEL7-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*SLES11-SP3-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*SLES11-SP4-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*OL6-64\*release.tar.gz
-   * Microsoft-ASR\_UA\*UBUNTU-14.04-64\*release.tar.gz
+6. Kopiera följande filer till mappen **MobSvcLinux** på din nätverks resurs:
+   * Microsoft-ASR @ no__t-0UA @ no__t-1RHEL6-64 * release. tar. gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1RHEL7-64\*release.tar.gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1SLES11-SP3-64\*release.tar.gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1SLES11-SP4-64\*release.tar.gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1OL6-64\*release.tar.gz
+   * Microsoft-ASR @ no__t-0UA @ no__t-1UBUNTU-14.04-64\*release.tar.gz
 
 
-7. Kopiera följande kod och spara den som **install_linux.sh** till den **MobSvcLinux** mapp.
+7. Kopiera följande kod och spara den som **install_linux. sh** i mappen **MobSvcLinux**
    > [!NOTE]
-   > Ersätt platshållarna [CSIP] i skriptet med de faktiska värdena för IP-adressen för konfigurationsservern.
+   > Ersätt [CSIP]-plats hållarna i det här skriptet med de faktiska värdena för IP-adressen för konfigurations servern.
 
 ```Bash
 #!/usr/bin/env bash
@@ -381,60 +378,60 @@ cd /tmp
 ### <a name="create-a-package"></a>Skapa ett paket
 
 1. Logga in på Configuration Manager-konsolen.
-2. Bläddra till **Programvarubibliotek** > **programhantering** > **paket**.
-3. Högerklicka på **paket**, och välj **skapa paket**.
+2. Gå till **program bibliotek** > **program hantering** > **paket**.
+3. Högerklicka på **paket**och välj **skapa paket**.
 4. Ange värden för namn, beskrivning, tillverkare, språk och version.
-5. Välj den **det här paketet innehåller källfiler** markerar du kryssrutan.
-6. Klicka på **Bläddra**, och välj den nätverksresurs där installationsprogrammet lagras (\\\ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
+5. Markera kryss rutan det **här paketet innehåller källfiler** .
+6. Klicka på **Bläddra**och välj den nätverks resurs där installations programmet lagras (\\ \ ContosoSecureFS\MobilityServiceInstaller\MobSvcLinux).
 
-   ![Skärmbild av skapa paket och Program-Guiden](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
+   ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/create_sccm_package-linux.png)
 
-7. På den **väljer du den typ av program som du vill skapa** väljer **standardprogram**, och klicka på **nästa**.
+7. På sidan **Välj den program typ som du vill skapa väljer du** **standard program**och klickar sedan på **Nästa**.
 
-   ![Skärmbild av skapa paket och Program-Guiden](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
+   ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-standard-program.png)
 
-8. På den **anger du information om det här standardprogrammet** anger följande indata, och klicka på **nästa**. (Du kan använda standardvärdena för andra indata.)
+8. På sidan **Ange information om det här standard programmet** anger du följande indata och klickar på **Nästa**. (Andra indata kan använda standardvärdena.)
 
     | **Parameternamn** | **Värde** |
    |--|--|
-   | Namn | Installera Mobilitetstjänsten för Microsoft Azure (Linux) |
-   | Kommandorad | ./install_linux.sh |
-   | Programmet kan köras | Om en användare är inloggad |
+   | Namn | Installera Microsoft Azure Mobility Service (Linux) |
+   | Kommandoraden | ./install_linux.sh |
+   | Programmet kan köra | Huruvida en användare är inloggad eller inte |
 
-   ![Skärmbild av skapa paket och Program-Guiden](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
+   ![Skärm bild av guiden Skapa paket och program](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-linux.png)
 
-9. På nästa sida väljer **det här programmet kan köras på alla plattformar**.
-   ![Skärmbild av skapa paket och Program-Guiden](./media/vmware-azure-mobility-install-configuration-mgr/sccm-program-properties-page2-linux.png)
+9. På nästa sida väljer **du det här programmet kan köras på valfri plattform**.
+   ![Screenshot för guiden Skapa paket och program @ no__t-1
 
-10. Slutför guiden genom att klicka på **nästa** två gånger.
+10. Slutför guiden genom att klicka på **Nästa** två gånger.
 
 > [!NOTE]
-> Skriptet har stöd för både nya installationer av Mobilitetstjänsten agenter och uppdateringar av agenter som redan är installerade.
+> Skriptet stöder både nya installationer av mobilitets tjänst agenter och uppdateringar av agenter som redan har installerats.
 
 ### <a name="deploy-the-package"></a>Distribuera paketet
 1. Högerklicka på ditt paket i Configuration Manager-konsolen och välj **distribuera innehåll**.
-   ![Skärmbild av Configuration Manager-konsolen](./media/vmware-azure-mobility-install-configuration-mgr/sccm_distribute.png)
-2. Välj den **[distributionsplatser](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** in som paket ska kopieras.
-3. Slutför guiden. Paketet startar sedan replikeras till de angivna Distributionsplatserna.
-4. När paketet distributionen är klar, högerklicka på paketet och välj **distribuera**.
-   ![Skärmbild av Configuration Manager-konsolen](./media/vmware-azure-mobility-install-configuration-mgr/sccm_deploy.png)
-5. Välj den enhetssamling för Linux-Server som du skapade i kravavsnittet som målsamlingen för distributionen.
+   ![Screenshot för Configuration Manager-konsolen @ no__t-1
+2. Välj de **[distributions platser](https://technet.microsoft.com/library/gg712321.aspx#BKMK_PlanForDistributionPoints)** som paketen ska kopieras till.
+3. Slutför guiden. Paketet börjar sedan replikeras till de angivna distributions platserna.
+4. När paket distributionen är färdig högerklickar du på paketet och väljer **distribuera**.
+   ![Screenshot för Configuration Manager-konsolen @ no__t-1
+5. Välj den Linux server-enhets samling som du skapade i avsnittet förutsättningar som mål samling för distribution.
 
-   ![Guiden Distribuera programvara skärmbild](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
+   ![Skärm bild av guiden distribuera program vara](./media/vmware-azure-mobility-install-configuration-mgr/sccm-select-target-collection-linux.png)
 
-6. På den **ange innehållsmålet** väljer din **distributionsplatser**.
-7. På den **ange för att styra hur programvaran distribueras** kontrollerar du att syftet är **krävs**.
+6. På sidan **Ange innehålls målet** väljer du dina **distributions platser**.
+7. På sidan **Ange inställningar för att styra hur program varan distribueras** , måste du se till att syftet är **obligatoriskt**.
 
-   ![Guiden Distribuera programvara skärmbild](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
+   ![Skärm bild av guiden distribuera program vara](./media/vmware-azure-mobility-install-configuration-mgr/sccm-deploy-select-purpose.png)
 
-8. På den **ange schemat för den här distributionen** anger du ett schema. Mer information finns i [schemaläggning paket](https://technet.microsoft.com/library/gg682178.aspx).
-9. På den **distributionsplatser** konfigurerar egenskaper enligt behoven i ditt datacenter. Slutför sedan guiden.
+8. Ange ett schema på sidan **Ange schema för den här distributionen** . Mer information finns i [Schemalägga paket](https://technet.microsoft.com/library/gg682178.aspx).
+9. På sidan **distributions platser** konfigurerar du egenskaperna enligt dina data centers behov. Slutför sedan guiden.
 
-Mobilitetstjänsten installeras på Enhetssamling för Linux-Server enligt det schema som du har konfigurerat.
+Mobilitets tjänsten installeras på enhets samlingen för Linux-servern enligt det schema som du har konfigurerat.
 
 
-## <a name="uninstall-the-mobility-service"></a>Avinstallera mobilitetstjänsten
-Du kan skapa paket för Configuration Manager om du vill avinstallera Mobilitetstjänsten. Använd följande skript för att göra detta:
+## <a name="uninstall-the-mobility-service"></a>Avinstallera mobilitets tjänsten
+Du kan skapa Configuration Manager paket för att avinstallera mobilitets tjänsten. Använd följande skript för att göra det:
 
 ```
 Time /t >> C:\logfile.log
@@ -458,4 +455,4 @@ IF  %ERRORLEVEL% EQU 1 (GOTO :INSTALL) ELSE GOTO :UNINSTALL
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-Du är nu redo att [skyddsaktivering](vmware-azure-enable-replication.md) för dina virtuella datorer.
+Du är nu redo att [Aktivera skydd](vmware-azure-enable-replication.md) för dina virtuella datorer.

@@ -5,13 +5,13 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 09/24/2019
-ms.author: v-erkell
-ms.openlocfilehash: 68ae316dff1518dd8115006764c6cc3036f59e4a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.author: rohogue
+ms.openlocfilehash: fa6408d33504c6ac73eacec079e9c08acd4cece2
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299926"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255263"
 ---
 # <a name="plan-the-aggregated-namespace"></a>Planera det aggregerade namnområdet
 
@@ -42,7 +42,7 @@ De data som ska analyseras har kopierats till en Azure Blob Storage-behållare m
 
 Överväg att skapa lagrings mål med dessa sökvägar för virtuella namn områden för att tillåta enkel åtkomst via cachen:
 
-| Server dels lagrings system <br/> (NFS-filsökväg eller BLOB-behållare) | Sökväg för virtuellt namnområde |
+| Server dels lagrings system <br/> (NFS-filsökväg eller BLOB-behållare) | Sökväg för virtuell namnrymd |
 |-----------------------------------------|------------------------|
 | /goldline/templates/acme2017/sku798     | /templates/sku798      |
 | /goldline/templates/acme2017/sku980     | /templates/sku980      |
@@ -52,12 +52,12 @@ Ett NFS-lagrings mål kan ha flera sökvägar för virtuella namn områden, så 
 
 Eftersom NFS-källans sökvägar är under kataloger för samma export, måste du definiera flera namn områdes Sök vägar från samma lagrings mål.
 
-| Värdnamn för lagrings mål  | NFS-exportsökväg      | Sökväg till underkatalog | Sökväg till namnrymd    |
+| Värdnamn för lagrings mål  | Sökväg till NFS-export      | Sökväg till under Katalog | Sökväg till namnrymd    |
 |--------------------------|----------------------|-------------------|-------------------|
 | *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku798   | /templates/sku798 |
 | *IP-adress eller värdnamn* | /goldline/templates  | acme2017/sku980   | /templates/sku980 |
 
-Ett klient program kan montera cachen och enkelt komma åt de aggregerade Sök vägarna ``/source``för ``/templates/sku798``namn rymds filen, och ``/templates/sku980``.
+Ett klient program kan montera cachen och enkelt komma åt de aggregerade Sök vägarna för namn områden ``/source``, ``/templates/sku798`` och ``/templates/sku980``.
 
 ## <a name="next-steps"></a>Nästa steg
 

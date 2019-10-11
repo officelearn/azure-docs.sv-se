@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: dacurwin
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: d5f3b98048cb04eab15479c3a9f5d27f16df1f3a
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
+ms.openlocfilehash: 242eaf06b9cd0b3783a626ab13eb0cb92300652f
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309758"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249059"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure--vms-with-powershell"></a>Säkerhetskopiera och återställa SQL-databaser i virtuella Azure-datorer med PowerShell
 
@@ -194,7 +194,7 @@ Name                 WorkloadType       BackupManagementType BackupTime         
 NewSQLPolicy         MSSQL              AzureWorkload        3/15/2019 01:30:00 AM      Daily                                    False                True
 ```
 
-## <a name="enable-backup"></a>Aktivera säkerhetskopiering
+## <a name="enable-backup"></a>Aktivera säkerhets kopiering
 
 ### <a name="registering-the-sql-vm"></a>Registrerar den virtuella SQL-datorn
 
@@ -261,7 +261,7 @@ Eftersom instruktionen är att säkerhetskopiera alla framtida databaser görs �
 
 ```powershell
 $SQLInstance = Get-AzRecoveryServicesBackupProtectableItem -workloadType MSSQL -ItemType SQLInstance -VaultId $targetVault.ID -Name "<Protectable Item name>" -ServerName "<Server Name>"
-Enable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupManagementType AzureWorkload -WorkloadType MSSQL -Policy $targetPolicy -VaultId $targetvault.ID
+Enable-AzRecoveryServicesBackupAutoProtection -InputItem $SQLInstance -BackupManagementType AzureWorkload -WorkloadType MSSQL -Policy $NewSQLPolicy -VaultId $targetvault.ID
 ```
 
 När avsikten med autoskydd har angetts sker förfrågan om att hämta nyligen tillagda databaser i en schemalagd bakgrunds aktivitet var åttonde timme.
@@ -501,7 +501,7 @@ Register-AzRecoveryServicesBackupContainer -Container $SQLContainer -BackupManag
 
 ### <a name="stop-protection"></a>Stoppa skydd
 
-#### <a name="retain-data"></a>Kvarhåll data
+#### <a name="retain-data"></a>Behåll data
 
 Om användaren vill stoppa skyddet kan de använda cmdleten [disable-AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/Disable-AzRecoveryServicesBackupProtection?view=azps-1.5.0) PS. Detta stoppar schemalagda säkerhets kopieringar men data som säkerhets kopie ras tills nu kvarhålls för alltid.
 

@@ -7,12 +7,12 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 544e5e5eb9884a91fde3898464aa7ce839658a80
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 8dab466c9d45f1c06ddce955c097af40fbba44d8
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981698"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243960"
 ---
 # <a name="deploy-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Distribuera skiss exemplet Microsoft Cloud adoption Framework för Azure Foundation
 
@@ -40,7 +40,7 @@ Börja med att implementera skiss exemplet genom att skapa en ny skiss i din mil
    - **Skiss namn**: Ange ett namn för din kopia av CAF Foundation skiss-exemplet.
    - **Definitions plats**: Använd ellipsen och välj den hanterings grupp där du vill spara din kopia av exemplet.
 
-1. Välj fliken _artefakter_ överst på sidan eller **Next: Artefakter @ no__t-0 längst ned på sidan.
+1. Välj fliken _artefakter_ överst på sidan eller **Nästa: artefakter** längst ned på sidan.
 
 1. Granska listan över artefakter som utgör skiss exemplet. Många av artefakterna har parametrar som vi definierar senare. Välj **Spara utkast** när du är klar med att granska skiss exemplet.
 
@@ -66,9 +66,9 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 1. Ange parameter värden för skiss tilldelningen:
 
-   - Grundinställningar
+   - Grundläggande inställningar
        - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen som du sparade din kopia av skiss exemplet till. Om du väljer fler än en prenumeration skapas en tilldelning för varje användning av de angivna parametrarna.
-     - **Tilldelnings namn**: Namnet är ifyllt för dig baserat på namnet på skissen.
+     - **Tilldelnings namn**: namnet fylls i automatiskt för dig baserat på namnet på skissen.
        Ändra vid behov eller lämna det som är.
      - **Plats**: Välj en region som den hanterade identiteten ska skapas i.
      - Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen.
@@ -89,9 +89,9 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
      - **Organisation**: Ange organisationens namn, till exempel contoso, måste vara unikt.
      - **Azure-region**: Välj Azure-regionen för distribution.
-     - **Tillåtna platser**: Vilka Azure-regioner kommer du att tillåta att resurser skapas i?
+     - **Tillåtna platser**: vilka Azure-regioner kommer du att tillåta att resurser skapas?
      
-   - Artefaktparametrar
+   - Artefakt parametrar
 
      De parametrar som definieras i det här avsnittet gäller för den artefakt som den definieras under. Dessa parametrar är [dynamiska parametrar](../../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. En fullständig lista eller artefakt parametrar och deras beskrivningar finns i [tabellen artefakt parametrar](#artifact-parameters-table).
 
@@ -104,13 +104,13 @@ När kopieringen av skiss exemplet har **publicerats**kan den tilldelas en prenu
 
 I följande tabell visas en lista över Skissernas artefakt parametrar:
 
-|Namn på artefakt|Artefakttyp|Parameternamn|Beskrivning|
+|Artefakt namn|Artefakt typ|Parameternamn|Beskrivning|
 |-|-|-|-|
 |Tillåtna SKU:er för lagringskonto|Principtilldelning|Policy_Allowed-StorageAccount-SKU: er|SKU som används i konton för diagnostisk logg lagring|
-|Tillåtna SKU:er för virtuella datorer|Principtilldelning|Policy_Allowed-VM-SKU: er|Tillåtna SKU:er för virtuella datorer|
+|Tillåtna SKU: er för virtuella datorer|Principtilldelning|Policy_Allowed-VM-SKU: er|Tillåtna SKU: er för virtuella datorer|
 |Lägg till CostCenter-TAGGEN i resurs grupper|Principtilldelning|Policy_CostCenter_Tag|Lägg till CostCenter-TAGGEN och dess värde från resurs gruppen|
 |Resurs typer som du inte vill tillåta i din miljö|Principtilldelning|Princip _Allowed – resurs typer|Vilka Azure-resurser du vill tillåta i din miljö|
-|Distribuera nyckelvalv|Resource Manager-mall|KV – Access policy|**Låst** – Azure AD Group eller User <Object ID> för att bevilja behörighet till i Key Vault|
+|Distribuera Key Vault|Resource Manager-mall|KV – Access policy|**Låst** – Azure AD Group eller User <Object ID> för att bevilja behörighet till i Key Vault|
 |Distribuera Log Analytics|Resource Manager-mall|LogAnalytics_DataRetention|**Låst** – antal dagar som data kommer att behållas i Log Analytics|
 |Distribuera Log Analytics|Resource Manager-mall|LogAnalytics_Location|**Låst** – region som används vid etablering av arbets ytan|
 

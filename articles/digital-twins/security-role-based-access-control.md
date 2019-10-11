@@ -8,16 +8,16 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 1d4243457f51f11db5bc9681b29d27293fbc6250
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: e89a8f98d92e92fa8afe93340576b14ff1dd5051
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71949032"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249204"
 ---
 # <a name="role-based-access-control-in-azure-digital-twins"></a>Rollbaserad åtkomst kontroll i Azure Digitals dubbla
 
-Azure Digitals dubbla ger exakt åtkomst kontroll till specifika data, resurser och åtgärder i din spatialdata. Det gör det genom detaljerad roll-och behörighets hantering som kallas rollbaserad åtkomst kontroll (RBAC). RBAC består av _roller_ och _roll tilldelningar_. Roller identifierar behörighets nivån. Roll tilldelningar associerar en roll med en användare eller enhet.
+Azure Digitals-dubbla ger exakt åtkomst kontroll över specifika data, resurser och åtgärder i din spatialdata. Det gör det genom detaljerad roll-och behörighets hantering som kallas [rollbaserad åtkomst kontroll](https://docs.microsoft.com/azure/role-based-access-control/) (RBAC). RBAC består av _roller_ och _roll tilldelningar_. Roller identifierar behörighets nivån. Roll tilldelningar associerar en roll med en användare eller enhet.
 
 Med RBAC kan du bevilja behörighet till:
 
@@ -84,3 +84,5 @@ Om du vill bevilja behörighet till en mottagare skapar du en roll tilldelning. 
 ## <a name="next-steps"></a>Nästa steg
 
 - Om du vill veta mer om hur du skapar och hanterar Azure Digitals sammanflätade roll tilldelningar läser du [skapa och hantera roll tilldelningar](./security-create-manage-role-assignments.md).
+
+- Läs mer om [RBAC för Azure](https://docs.microsoft.com/azure/role-based-access-control/).

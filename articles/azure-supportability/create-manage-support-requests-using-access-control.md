@@ -5,14 +5,14 @@ author: ganganarayanan
 ms.author: gangan
 ms.date: 1/31/2017
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 3cf17f6e391608af9d17591a81c579a1db779a6a
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 94f21e973063dc627ef1424ca5393dd85aedd671
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967797"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248843"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Rollbaserad Access Control i Azure (RBAC) för att kontrol lera åtkomst behörighet för att skapa och hantera support förfrågningar
 
@@ -20,7 +20,7 @@ ms.locfileid: "68967797"
 Supportbegäran att skapa i Azure Portal, [Portal.Azure.com](https://portal.azure.com), använder Azures RBAC-modell för att definiera vem som kan skapa och hantera support förfrågningar.
 Åtkomst beviljas genom att tilldela lämplig RBAC-roll till användare, grupper och program i ett visst omfång, som kan vara en prenumeration, en resurs grupp eller en resurs.
 
-Låt oss ta ett exempel: Som en resurs grupps ägare med Läs behörighet i prenumerations omfånget kan du hantera alla resurser under resurs gruppen, t. ex. webbplatser, virtuella datorer och undernät.
+Låt oss ta ett exempel: som en resurs grupps ägare med Läs behörighet i prenumerations omfattningen, kan du hantera alla resurser under resurs gruppen, t. ex. webbplatser, virtuella datorer och undernät.
 Men när du försöker skapa en support förfrågan mot den virtuella dator resursen, uppstår följande fel
 
 ![Prenumerations fel](./media/create-manage-support-requests-using-access-control/subscription-error.png)
@@ -75,7 +75,7 @@ Du vill ge åtkomst till din peer, Joe, möjlighet att skapa och hantera support
 
 3. När du har valt roll namnet klickar du på Lägg till användare och anger inloggnings uppgifter för Johan e-post. Klicka på ”Välj”
 
-    ![Lägg till användare](./media/create-manage-support-requests-using-access-control/add-users.png)
+    ![Lägga till användare](./media/create-manage-support-requests-using-access-control/add-users.png)
 
 4. Klicka på OK för att fortsätta
 
@@ -91,7 +91,7 @@ Du vill ge åtkomst till din peer, Joe, möjlighet att skapa och hantera support
 
     ![Ny supportbegäran](./media/create-manage-support-requests-using-access-control/new-support-request.png)
 
-8. Om du klickar på "alla support förfrågningar" visas en lista över de support förfrågningar som har ![skapats för den här vyn för prenumerationens ärende information](./media/create-manage-support-requests-using-access-control/case-details-view.png)
+8. Om du klickar på alla support förfrågningar visas en lista över de support förfrågningar som skapats för den här prenumerationen ![Case information View @ no__t-1
 
 ## <a name="remove-support-request-access-in-the-azure-portal"></a>Ta bort support begär ande åtkomst i Azure Portal
 

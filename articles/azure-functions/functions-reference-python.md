@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 04/16/2018
 ms.author: glenga
-ms.openlocfilehash: d74d1c33816b3c028a26335af4c6d5b23b7a2046
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 4fd73f528ac823a8e794a880f87dd5f8872e1251
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958475"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243282"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Guide för Azure Functions python-utvecklare
 
@@ -176,7 +176,7 @@ def main(req: func.HttpRequest,
 När funktionen anropas skickas HTTP-begäran till funktionen som `req`. En post hämtas från Azure-Blob Storage baserat på _ID: t_ i väg-URL: en och görs tillgänglig som `obj` i funktions texten.  Här är det angivna lagrings kontot den anslutnings sträng som finns i, vilket är samma lagrings konto som används av Function-appen.
 
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Utdata
 
 Utdata kan uttryckas både i retur värde och utdataparametrar. Om det bara finns en utmatning rekommenderar vi att du använder det returnerade värdet. För flera utdata måste du använda utdataparametrar.
 
@@ -331,7 +331,7 @@ def main(req: azure.functions.HttpRequest,
     return f'{context.invocation_id}'
 ```
 
-[**Kontext**](/python/api/azure-functions/azure.functions.context?view=azure-python) klassen har följande metoder:
+[**Kontext**](/python/api/azure-functions/azure.functions.context?view=azure-python) klassen har följande String-attribut:
 
 `function_directory`  
 Katalogen där funktionen körs.

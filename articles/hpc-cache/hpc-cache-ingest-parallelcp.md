@@ -5,23 +5,23 @@ author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.author: v-erkell
-ms.openlocfilehash: 852b4e692a4316c7701c8c179039104bee561949
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.author: rohogue
+ms.openlocfilehash: 4899f946cb358693c969def3fa740af64675d934
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180950"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254529"
 ---
 # <a name="azure-hpc-cache-preview-data-ingest---parallel-copy-script-method"></a>Azure HPC cache (för hands version) data inmatning – parallell kopiering skript metod
 
-Den här artikeln innehåller instruktioner för hur ``parallelcp`` du skapar skriptet och använder det för att flytta data till en Blob Storage-behållare för användning med Azure HPC-cache.
+Den här artikeln innehåller anvisningar för att skapa ett ``parallelcp``-skript och använda det för att flytta data till en Blob Storage-behållare för användning med Azure HPC-cache.
 
 Läs mer om hur du flyttar data till Blob Storage för Azure HPC cache genom att läsa [Flytta data till Azure Blob Storage för Azure HPC cache](hpc-cache-ingest.md).
 
 ## <a name="create-the-parallelcp-script"></a>Skapa parallelcp-skriptet
 
-Skriptet nedan lägger till den körbara `parallelcp`filen. (Det här skriptet är utformat för Ubuntu. om du använder en annan distribution måste ``parallel`` du installera separat.)
+Skriptet nedan lägger till den körbara filen `parallelcp`. (Det här skriptet är utformat för Ubuntu. om du använder en annan distribution måste du installera ``parallel`` separat.)
 
 ```bash
 sudo touch /usr/bin/parallelcp && sudo chmod 755 /usr/bin/parallelcp && sudo sh -c "/bin/cat >/usr/bin/parallelcp" <<EOM 
@@ -75,11 +75,11 @@ EOM
 
 ## <a name="parallel-copy-example"></a>Exempel på parallell kopiering
 
-I det här exemplet används skriptet för parallell kopiering ``glibc`` för att kompilera med källfiler i Azure HPC-cachen.
+I det här exemplet används skriptet för parallell kopiering för att kompilera ``glibc`` med källfiler i Azure HPC-cachen.
 
 Källfilerna cachelagras i Azure HPC cache-monterings punkten och objekten lagras på den lokala hård disken.
 
-I det här exemplet används skriptet för parallell kopiering med ``-j`` alternativet ``make`` och för att få parallellisering.
+I det här exemplet används skriptet för parallell kopiering med alternativet ``-j`` och ``make`` för att få parallellisering.
 
 ```bash
 sudo apt-get update

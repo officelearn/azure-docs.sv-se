@@ -5,21 +5,21 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 10/09/2019
 ms.author: cherylmc
-ms.openlocfilehash: 904dbed711a0ae4d072ea888e7bd83211e68ab16
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
-ms.translationtype: HT
+ms.openlocfilehash: 650e45ca9092b9c81b2127eb995a0297745410a4
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178675"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244144"
 ---
 # <a name="expressroute-encryption"></a>ExpressRoute-kryptering
  
 ExpressRoute stöder en par krypterings tekniker som garanterar konfidentialitet och integritet för data som passerar mellan ditt nätverk och Microsofts nätverk.
 
 ## <a name="point-to-point-encryption-by-macsec-faq"></a>Vanliga frågor och svar om punkt-till-punkt-kryptering av MACsec
-MACsec är en [IEEE-standard](https://1.ieee802.org/security/802-1ae/). Den krypterar data på MAC-nivån (Media Access Control) eller nätverks nivå 2. Du kan använda MACsec för att kryptera de fysiska länkarna mellan dina nätverks enheter och Microsofts nätverks enheter när du ansluter till Microsoft via ExpressRoute Direct. MACsec är inaktiverat på ExpressRoute Direct-portar som standard. Du tar med din egen MACsec-nyckel för kryptering och lagrar den i Azure Key Vault. Du bestämmer när du vill rotera nyckeln. Se andra vanliga frågor och svar nedan.
+MACsec är en [IEEE-standard](https://1.ieee802.org/security/802-1ae/). Den krypterar data på MAC-nivån (Media Access Control) eller nätverks nivå 2. Du kan använda MACsec för att kryptera de fysiska länkarna mellan dina nätverks enheter och Microsofts nätverks enheter när du ansluter till Microsoft via [ExpressRoute Direct](expressroute-erdirect-about.md). MACsec är inaktiverat på ExpressRoute Direct-portar som standard. Du tar med din egen MACsec-nyckel för kryptering och lagrar den i [Azure Key Vault](../key-vault/key-vault-overview.md). Du bestämmer när du vill rotera nyckeln. Se andra vanliga frågor och svar nedan.
 ### <a name="can-i-enable-macsec-on-my-expressroute-circuit-provisioned-by-an-expressroute-provider"></a>Kan jag aktivera MACsec på min ExpressRoute-krets som tillhandahålls av en ExpressRoute-Provider?
 Nej. MACsec krypterar all trafik på en fysisk länk med en nyckel som ägs av en entitet (d.v.s. kund). Därför är den bara tillgänglig på ExpressRoute Direct.
 ### <a name="can-i-encrypt-some-of-the-expressroute-circuits-on-my-expressroute-direct-ports-and-leave-other-circuits-on-the-same-ports-unencrypted"></a>Kan jag kryptera några av ExpressRoute-kretsarna på mina ExpressRoute Direct-portar och lämna andra kretsar på samma portar okrypterade? 
@@ -27,9 +27,11 @@ Nej. När MACsec har Aktiver ATS är all nätverks kontroll trafik, t. ex. BGP-d
 ### <a name="when-i-enabledisable-macsec-or-update-macsec-key-will-my-on-premises-network-lose-connectivity-to-microsoft-over-expressroute"></a>När jag aktiverar/inaktiverar MACsec eller uppdaterar MACsec nyckel kommer mitt lokala nätverk att förlora anslutningen till Microsoft via ExpressRoute?
 Ja. För MACsec-konfigurationen stöder vi bara det i förväg delade nyckel läget. Det innebär att du måste uppdatera nyckeln på både enheterna och på Microsofts (via vår API). Den här ändringen är inte atomisk, så du förlorar anslutningen när det finns ett nyckel matchnings fel mellan de två sidorna. Vi rekommenderar starkt att du schemalägger en underhålls period för konfigurations ändringen. För att minimera stillestånds tiden rekommenderar vi att du uppdaterar konfigurationen på en länk av ExpressRoute direkt i taget när du har växlat nätverks trafiken till den andra länken.  
 ### <a name="will-traffic-continue-to-flow-if-theres-a-mismatch-in-macsec-key-between-my-devices-and-microsofts"></a>Kommer trafiken fortsätta att flöda om det finns ett matchnings fel i MACsec-nyckeln mellan mina enheter och Microsoft?
-Nej. Om MACsec har kon figurer ATS och ett matchnings fel i nyckeln inträffar förlorar du anslutningen till Microsoft. Det innebär att det inte går att återgå till en okrypterad anslutning, vilket visar dina data. 
+Nej. Om MACsec har kon figurer ATS och en nyckel avvikelse uppstår förlorar du anslutningen till Microsoft. Det innebär att det inte går att återgå till en okrypterad anslutning, vilket visar dina data. 
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>Kommer MACsec att aktivera på ExpressRoute direkt försämra nätverks prestanda?
 MACsec kryptering och dekryptering sker i maskin vara på de routrar som vi använder. Det finns ingen inverkan på vår sida. Du bör dock kontrol lera med nätverks leverantören för de enheter du använder och se om MACsec har några prestanda indirekt.
+### <a name="which-cipher-suites-are-supported-for-encryption"></a>vilka chiffersviter stöds för kryptering?
+Vi stöder AES128 (GCM – AES-128) och AES256 (GCM – AES – 256).
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Vanliga frågor och svar från slut punkt till slut punkt för IPsec
 IPsec är en [IETF-standard](https://tools.ietf.org/html/rfc6071). Den krypterar data på Internet Protocol (IP) eller nätverks nivå 3. Du kan använda IPsec för att kryptera en slutpunkt-till-slutpunkt-anslutning mellan ditt lokala nätverk och ditt virtuella nätverk (VNET) i Azure. Se andra vanliga frågor och svar nedan.

@@ -1,6 +1,6 @@
 ---
-title: Självstudie – uppdatera den anpassade avbildningen på Azure VM scale sets med Ansible | Microsoft Docs
-description: Lär dig hur du använder Ansible för att uppdatera VM-skalningsuppsättningar i Azure med anpassad avbildning
+title: Självstudie – uppdatera den anpassade avbildningen av skalnings uppsättningar för virtuella Azure-datorer med Ansible
+description: Lär dig hur du använder Ansible för att uppdatera skalnings uppsättningar för virtuella datorer i Azure med anpassad avbildning
 keywords: ansible, azure, devops, bash, playbook, virtual machine, virtual machine scale set, vmss
 ms.topic: tutorial
 ms.service: ansible
@@ -8,20 +8,20 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: d3eedc5b83190af46669b9b5df8643f3c80e9bb1
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 3b7baffe6ce0fadbac2dd56b9c8296c80546fa72
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230848"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241335"
 ---
-# <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Självstudier: Uppdatera den anpassade avbildningen på Azure VM scale sets med Ansible
+# <a name="tutorial-update-the-custom-image-of-azure-virtual-machine-scale-sets-using-ansible"></a>Självstudie: uppdatera den anpassade avbildningen av skalnings uppsättningar för virtuella Azure-datorer med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
 
 [!INCLUDE [open-source-devops-intro-vmss.md](../../includes/open-source-devops-intro-vmss.md)]
 
-När en virtuell dator har distribuerats kan du konfigurera den virtuella datorn med programvaran behoven för dina appar. I stället för att göra konfigurationsåtgärden för varje virtuell dator, kan du skapa en anpassad avbildning. En anpassad avbildning är en ögonblicksbild av en befintlig virtuell dator som innehåller alla installerade program. När du [konfigurera en skalningsuppsättning](./ansible-create-configure-vmss.md), du anger avbildningen som ska användas för virtuella datorer som skalningsuppsättningen. Genom att använda en anpassad avbildning kan konfigureras identiskt varje VM-instans för din app. Ibland kan du behöva uppdatera din skalningsuppsättning anpassad avbildning. Aktiviteten är fokus i den här självstudien.
+När en virtuell dator har distribuerats konfigurerar du den virtuella datorn med den program vara som appen behöver. I stället för att utföra den här konfigurations åtgärden för varje virtuell dator kan du skapa en anpassad avbildning. En anpassad avbildning är en ögonblicks bild av en befintlig virtuell dator som innehåller all installerad program vara. När du [konfigurerar en skalnings uppsättning](./ansible-create-configure-vmss.md)anger du den avbildning som ska användas för den skalnings uppsättningens virtuella datorer. Genom att använda en anpassad avbildning är varje VM-instans identiskt konfigurerad för din app. Ibland kan du behöva uppdatera din skalnings uppsättnings anpassade avbildning. Den uppgiften är fokus i den här självstudien.
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
@@ -29,29 +29,29 @@ När en virtuell dator har distribuerats kan du konfigurera den virtuella datorn
 >
 > * Konfigurera två virtuella datorer med HTTPD
 > * Skapa en anpassad avbildning från en befintlig virtuell dator
-> * Skapa en skalningsuppsättning från en avbildning
+> * Skapa en skalnings uppsättning från en bild
 > * Uppdatera den anpassade avbildningen
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="configure-two-vms"></a>Konfigurera två virtuella datorer
 
-Spelboken koden i det här avsnittet skapar två virtuella datorer med installerade på både HTTPD. 
+Spelbok-koden i det här avsnittet skapar två virtuella datorer med HTTPD installerade på båda. 
 
-Den `index.html` sidan för varje virtuell dator visas en test-sträng:
+Sidan `index.html` för varje virtuell dator visar en test sträng:
 
 * Första virtuella datorn visar värdet `Image A`
-* Andra virtuella datorn visar värdet `Image B`
+* Den andra virtuella datorn visar värdet `Image B`
 
-Den här strängen är avsedd att efterlikna konfigurera varje virtuell dator med annan programvara.
+Den här strängen är avsedd att imitera konfigurationen av varje virtuell dator med en annan program vara.
 
-Det finns två sätt att hämta exemplet spelboken:
+Det finns två sätt att hämta exempel Spelbok:
 
-* [Ladda ned spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml) och spara den i `create_vms.yml`.
-* Skapa en ny fil med namnet `create_vms.yml` och kopiera in följande innehåll:
+* [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/01-create-vms.yml) och spara den till `create_vms.yml`.
+* Skapa en ny fil med namnet `create_vms.yml` och kopiera den till följande innehåll:
 
 ```yml
 - name: Create two VMs (A and B) with HTTPS
@@ -167,39 +167,39 @@ Det finns två sätt att hämta exemplet spelboken:
       msg: "Public IP Address B: {{ pip_output.results[1].state.ip_address }}"
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando, ersätta `myrg` med namn på resursgruppen:
+Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med resurs gruppens namn:
 
 ```bash
 ansible-playbook create-vms.yml --extra-vars "resource_group=myrg"
 ```
 
-Eftersom den `debug` avsnitt på strategibok den `ansible-playbook` kommando skriver ut IP-adressen för varje virtuell dator. Kopiera dessa IP-adresser för senare användning.
+På grund av `debug`-avsnitten i Spelbok kommer kommandot `ansible-playbook` skriva ut IP-adressen för varje virtuell dator. Kopiera de här IP-adresserna för senare användning.
 
-![Virtuella IP-adresser](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
+![IP-adresser för virtuella datorer](media/ansible-vmss-update-image/vmss-update-vms-ip-addresses.png)
 
 ## <a name="connect-to-the-two-vms"></a>Ansluta till de två virtuella datorerna
 
-I det här avsnittet kan du ansluta till varje virtuell dator. Som vi nämnde i det föregående avsnittet strängarna `Image A` och `Image B` efterlikna har två olika virtuella datorer med olika konfigurationer.
+I det här avsnittet ansluter du till varje virtuell dator. Som nämnts i föregående avsnitt är strängarna `Image A` och `Image B`-härmare med två olika virtuella datorer med olika konfigurationer.
 
-Anslut till båda virtuella datorerna med IP-adresser från föregående avsnitt:
+Använd IP-adresserna från föregående avsnitt och Anslut till båda virtuella datorerna:
 
-![Skärmbild från virtuell dator A](media/ansible-vmss-update-image/vmss-update-browser-vma.png)
+![Skärm bild från virtuell dator A](media/ansible-vmss-update-image/vmss-update-browser-vma.png)
 
-![Skärmbild från virtuell dator B](media/ansible-vmss-update-image/vmss-update-browser-vmb.png)
+![Skärm bild från virtuell dator B](media/ansible-vmss-update-image/vmss-update-browser-vmb.png)
 
 ## <a name="create-images-from-each-vm"></a>Skapa avbildningar från varje virtuell dator
 
-Nu har du två virtuella datorer med lite olika konfigurationer (sina `index.html` filer).
+Nu har du två virtuella datorer med något annorlunda konfigurationer (deras `index.html`-filer).
 
-Spelboken koden i det här avsnittet skapar en anpassad avbildning för varje virtuell dator:
+Spelbok-koden i det här avsnittet skapar en anpassad avbildning för varje virtuell dator:
 
-* `image_vmforimageA` – Anpassad avbildning som har skapats för den virtuella datorn som visar `Image A` på dess startsida.
-* `image_vmforimageB` – Anpassad avbildning som har skapats för den virtuella datorn som visar `Image B` på dess startsida.
+* `image_vmforimageA` – en anpassad avbildning som skapats för den virtuella datorn som visar `Image A` på Start sidan.
+* `image_vmforimageB` – en anpassad avbildning som skapats för den virtuella datorn som visar `Image B` på Start sidan.
 
-Det finns två sätt att hämta exemplet spelboken:
+Det finns två sätt att hämta exempel Spelbok:
 
-* [Ladda ned spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml) och spara den i `capture-images.yml`.
-* Skapa en ny fil med namnet `capture-images.yml` och kopiera in följande innehåll:
+* [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/02-capture-images.yml) och spara den till `capture-images.yml`.
+* Skapa en ny fil med namnet `capture-images.yml` och kopiera den till följande innehåll:
 
 ```yml
 - name: Capture VM Images
@@ -228,24 +228,24 @@ Det finns två sätt att hämta exemplet spelboken:
       - B
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando, ersätta `myrg` med namn på resursgruppen:
+Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med resurs gruppens namn:
 
 ```bash
 ansible-playbook capture-images.yml --extra-vars "resource_group=myrg"
 ```
 
-## <a name="create-scale-set-using-image-a"></a>Skapa en skalningsuppsättning med avbildningen A
+## <a name="create-scale-set-using-image-a"></a>Skapa skalnings uppsättning med bild A
 
-I det här avsnittet används en spelbok för att konfigurera följande Azure-resurser:
+I det här avsnittet används en Spelbok för att konfigurera följande Azure-resurser:
 
 * Offentlig IP-adress
-* Lastbalanserare
-* Skalningsuppsättning som refererar till `image_vmforimageA`
+* Load Balancer
+* Skalnings uppsättning som refererar `image_vmforimageA`
 
-Det finns två sätt att hämta exemplet spelboken:
+Det finns två sätt att hämta exempel Spelbok:
 
-* [Ladda ned spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) och spara den i `create-vmss.yml`.
-* Skapa en ny fil med namnet `create-vmss.yml` och kopiera in följande innehåll ”:
+* [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/03-create-vmss.yml) och spara den till `create-vmss.yml`.
+* Skapa en ny fil med namnet `create-vmss.yml` och kopiera den till följande innehåll: "
 
 ```yml
 ---
@@ -311,40 +311,40 @@ Det finns två sätt att hämta exemplet spelboken:
         msg: "Scale set public IP address: {{ pip_output.state.ip_address }}"
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando, ersätta `myrg` med namn på resursgruppen:
+Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med resurs gruppens namn:
 
 ```bash
 ansible-playbook create-vmss.yml --extra-vars "resource_group=myrg"
 ```
 
-Eftersom den `debug` avsnitt på strategibok den `ansible-playbook` kommando skriver ut IP-adressen för skalningsuppsättningen. Kopiera den här IP-adressen för senare användning.
+På grund av `debug`-avsnittet i Spelbok kommer kommandot `ansible-playbook` skriva ut IP-adressen för skalnings uppsättningen. Kopiera den här IP-adressen för senare användning.
 
 ![Offentlig IP-adress](media/ansible-vmss-update-image/vmss-update-vmss-public-ip.png)
 
-## <a name="connect-to-the-scale-set"></a>Ansluta till skalningsuppsättningen
+## <a name="connect-to-the-scale-set"></a>Anslut till skalnings uppsättningen
 
-I det här avsnittet kan du ansluta till skalningsuppsättningen. 
+I det här avsnittet ansluter du till skalnings uppsättningen. 
 
-Anslut till skalningsuppsättningen med IP-adressen i föregående avsnitt.
+Använd IP-adressen från föregående avsnitt och Anslut till skalnings uppsättningen.
 
-Som vi nämnde i det föregående avsnittet strängarna `Image A` och `Image B` efterlikna har två olika virtuella datorer med olika konfigurationer.
+Som nämnts i föregående avsnitt är strängarna `Image A` och `Image B`-härmare med två olika virtuella datorer med olika konfigurationer.
 
-Skaluppsättningen refererar till den anpassade avbildningen med namnet `image_vmforimageA`. Anpassad avbildning `image_vmforimageA` skapades från den virtuella datorn vars startsidan visar `Image A`.
+Skalnings uppsättningen refererar till den anpassade bilden med namnet `image_vmforimageA`. Anpassad avbildning `image_vmforimageA` skapades från den virtuella datorn vars start sida visar `Image A`.
 
-Därför kan du se en sidan som visar `Image A`:
+Därför visas en start sida som visar `Image A`:
 
-![Skalningsuppsättningen är associerad med den första virtuella datorn.](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
+![Skalnings uppsättningen är associerad med den första virtuella datorn.](media/ansible-vmss-update-image/vmss-update-browser-initial-vmss.png)
 
-Lämna webbläsarfönstret öppen när du fortsätter till nästa avsnitt.
+Lämna ditt webbläsarfönster öppet när du fortsätter till nästa avsnitt.
 
-## <a name="change-custom-image-in-scale-set-and-upgrade-instances"></a>Ändra en anpassad avbildning i skala ange och uppgradera instanser
+## <a name="change-custom-image-in-scale-set-and-upgrade-instances"></a>Ändra anpassad avbildning i skalnings uppsättning och uppgraderings instanser
 
-Spelboken-kod i det här avsnittet ändrar den skalningsuppsättning bild - från `image_vmforimageA` till `image_vmforimageB`. Dessutom uppdateras alla aktuella virtuella datorer som distribueras av skalningsuppsättningen.
+Spelbok-koden i det här avsnittet ändrar skalnings uppsättningens bild – från `image_vmforimageA` till `image_vmforimageB`. Dessutom uppdateras alla aktuella virtuella datorer som distribueras av skalnings uppsättningen.
 
-Det finns två sätt att hämta exemplet spelboken:
+Det finns två sätt att hämta exempel Spelbok:
 
-* [Ladda ned spelboken](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml) och spara den i `update-vmss-image.yml`.
-* Skapa en ny fil med namnet `update-vmss-image.yml` och kopiera in följande innehåll:
+* [Ladda ned Spelbok](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss_images/04-update-vmss-image.yml) och spara den till `update-vmss-image.yml`.
+* Skapa en ny fil med namnet `update-vmss-image.yml` och kopiera den till följande innehåll:
 
 ```yml
 - name: Update scale set image reference
@@ -395,7 +395,7 @@ Det finns två sätt att hämta exemplet spelboken:
     with_items: "{{ instances.instances }}"
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando, ersätta `myrg` med namn på resursgruppen:
+Kör Spelbok med kommandot `ansible-playbook` och ersätt `myrg` med resurs gruppens namn:
 
 ```bash
 ansible-playbook update-vmss-image.yml --extra-vars "resource_group=myrg"
@@ -403,13 +403,13 @@ ansible-playbook update-vmss-image.yml --extra-vars "resource_group=myrg"
 
 Gå tillbaka till webbläsaren och uppdatera sidan. 
 
-Du ser att den virtuella datorns underliggande anpassad avbildning uppdateras.
+Du ser att den virtuella datorns underliggande anpassade avbildning uppdateras.
 
-![Skalningsuppsättningen är associerad med den andra virtuella datorn](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
+![Skalnings uppsättningen är associerad med den andra virtuella datorn](media/ansible-vmss-update-image/vmss-update-browser-updated-vmss.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När den inte längre behövs kan du ta bort de resurser som skapades i den här artikeln. 
+Ta bort de resurser som skapats i den här artikeln när de inte längre behövs. 
 
 Spara följande kod som `cleanup.yml`:
 
@@ -425,7 +425,7 @@ Spara följande kod som `cleanup.yml`:
         state: absent
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook cleanup.yml

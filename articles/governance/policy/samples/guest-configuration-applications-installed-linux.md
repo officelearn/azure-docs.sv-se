@@ -1,17 +1,17 @@
 ---
-title: Exempel – granska om program inte är installerade i virtuella Linux-datorer
+title: Exempel – granska saknade program på virtuella Linux-datorer
 description: Detta exempel på principer för gäst konfiguration och definitioner granskar om de angivna programmen inte är installerade på virtuella Linux-datorer.
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: sample
 ms.date: 05/02/2019
 ms.author: dacoulte
-ms.openlocfilehash: ef2ab4bebf2247b08cdc80ed74bbe17a67c5baae
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 5f4d4f4c1102c4409d891bb20b54788dc8ed40ee
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71977039"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255741"
 ---
 # <a name="sample---audit-if-specified-applications-arent-installed-inside-linux-vms"></a>Exempel – granska om de angivna programmen inte är installerade i virtuella Linux-datorer
 
@@ -44,7 +44,7 @@ Initiativet skapas genom att du ansluter till **gransknings** -och **deployIfNot
 
 ### <a name="initiative-parameters"></a>Initiativparametrar
 
-|Name |Typ |Beskrivning |
+|Namn |Typ |Beskrivning |
 |---|---|---|
 |applicationName |Sträng |Program namn. Exempel: python, PowerShell eller en kommaavgränsad lista, till exempel python, PowerShell. Använd \* för matchning av jokertecken, t. ex. Power @ no__t-1. |
 
@@ -79,29 +79,29 @@ JSON som definierar reglerna för **deployIfNotExists** -princip definitionen.
 
 |Utgivare |Erbjudande |SKU |
 |-|-|-|
-|OpenLogic |CentOS\* |Alla utom 6 @ no__t-0 |
+|OpenLogic |CentOS @ no__t-0 |Alla utom 6 @ no__t-0 |
 |Redhat |RHEL |Alla utom 6 @ no__t-0 |
-|Redhat |osa | Alla |
+|Redhat |luft | Alla |
 |credativ |Debian | Alla utom 7 @ no__t-0 |
-|SUSE |SLES @ NO__T-0 |Alla utom 11 @ no__t-0 |
+|SUSE |SLES @ no__t-0 |Alla utom 11 @ no__t-0 |
 |Canonical| UbuntuServer |Alla utom 12 @ no__t-0 |
-|microsoft-dsvm |linux-data-science-vm-ubuntu |Alla |
-|microsoft-dsvm |azureml |Alla |
+|Microsoft-dsvm |Linux-data-science-VM-Ubuntu |Alla |
+|Microsoft-dsvm |azureml |Alla |
 |Cloudera |Cloudera-CentOS-OS |Alla utom 6 @ no__t-0 |
 |Cloudera |Cloudera-Altus-CentOS-OS |Alla |
-|microsoft-ads |linux\* |Alla |
-|microsoft-aks |Alla |Alla |
+|Microsoft-Ads |Linux @ no__t-0 |Alla |
+|Microsoft-AKS |Alla |Alla |
 |AzureDatabricks |Alla |Alla |
 |qubole-Inc |Alla |Alla |
-|datastax |Alla |Alla |
+|DataStax |Alla |Alla |
 |Couchbase |Alla |Alla |
 |scalegrid |Alla |Alla |
-|tidszon |Alla |Alla |
+|Tidszon |Alla |Alla |
 |paloaltonetworks |Alla |Alla |
 
 **Distributions** delen av regeln överför _installedApplication_ -parametern till gäst konfigurations agenten på den virtuella datorn. Den här konfigurationen gör att agenten kan utföra verifieringarna och rapportera efterlevnaden genom **gransknings** princip definitionen.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 När du har skapat **gransknings** -och **deployIfNotExists** -definitionerna i portalen rekommenderar vi att du grupperar dem till ett [initiativ](../concepts/definition-structure.md#initiatives) för tilldelning.
 

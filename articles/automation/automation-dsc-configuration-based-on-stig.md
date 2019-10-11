@@ -10,16 +10,16 @@ ms.author: migreene
 ms.date: 08/08/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 967a4542b3910b563dc30bde674e12fffdd12f48
-ms.sourcegitcommit: a6888fba33fc20cc6a850e436f8f1d300d03771f
+ms.openlocfilehash: 685b6bda09026e64154590afd66bdfbec43b8b1e
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69559393"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72243532"
 ---
-# <a name="configuration-based-on-stig"></a>Konfiguration baserat på STIG
+# <a name="configuration-based-on-stig"></a>Konfiguration baserad på STIG
 
-> Gäller för: Windows PowerShell 5.1
+> Gäller för: Windows PowerShell 5,1
 
 Det kan vara svårt att skapa konfigurations innehåll för första gången.
 I många fall är målet att automatisera konfigurationen av servrar som följer en "bas linje" som förhoppnings vis anpassas till en bransch rekommendation.
@@ -36,7 +36,7 @@ Att hantera bas linjer är mer komplicerat än det låter.
 Många organisationer behöver [dokumentera undantag](https://github.com/microsoft/powerstig#powerstigdata) för regler och hantera dessa data i stor skala.
 PowerSTIG löser problemet genom att tillhandahålla [sammansatta resurser](https://github.com/microsoft/powerstig#powerstigdsc) för att adressera varje område i konfigurationen i stället för att försöka hantera hela intervallet med inställningar i en stor fil.
 
-När konfigurationerna har genererats kan du använda DSC- [konfigurations skript](/powershell/dsc/configurations) för att generera MOF-filer och [Ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
+När konfigurationerna har genererats kan du använda DSC- [konfigurations skript](/powershell/scripting/dsc/configurations/configurations) för att generera MOF-filer och [Ladda upp MOF-filerna till Azure Automation](/azure/automation/tutorial-configure-servers-desired-state#create-and-upload-a-configuration-to-azure-automation).
 Registrera sedan dina servrar från antingen [lokalt](/azure/automation/automation-dsc-onboarding#physicalvirtual-windows-machines-on-premises-or-in-a-cloud-other-than-azureaws) eller [i Azure](/azure/automation/automation-dsc-onboarding#azure-virtual-machines) för att hämta konfigurationer.
 
 Om du vill testa PowerSTIG går du till [PowerShell-galleriet](http://www.powershellgallery.com) och laddar ned lösningen eller klickar på "Project site" för att visa [dokumentationen](https://github.com/microsoft/powerstig).

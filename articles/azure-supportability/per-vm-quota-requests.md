@@ -5,14 +5,14 @@ author: sowmyavenkat86
 ms.author: svenkat
 ms.date: 06/07/2019
 ms.topic: article
-ms.service: azure
+ms.service: azure-supportability
 ms.assetid: ce37c848-ddd9-46ab-978e-6a1445728a3b
-ms.openlocfilehash: 9caf82d2fa4683e845d23b5496f9e7b8f9682ec7
-ms.sourcegitcommit: b2db98f55785ff920140f117bfc01f1177c7f7e2
+ms.openlocfilehash: e99bdd92d4a1aab833a95943b22aaabe7f0daa1d
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68234823"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248664"
 ---
 # <a name="vm-series-vcpu-limit-increase"></a>Utökad vCPU-gräns för VM-serie
 
@@ -23,7 +23,7 @@ Du kan begära en ökning av virtuella processorer kvot gräns för VM-serien fr
 
 Läs mer om kvoter på sidan för [vCPU kvoter för virtuell dator](https://docs.microsoft.com/azure/virtual-machines/windows/quotas) och sidan för [Azure-prenumeration och tjänst begränsningar](https://aka.ms/quotalimits) . 
 
-Nu kan du begära en ökning via bladet **Hjälp + Support** eller bladet användnings-och **kvot** i portalen. 
+Nu kan du begära en ökning via bladet **Hjälp + Support** eller bladet **användnings** -och kvot i portalen. 
 
 ## <a name="request-per-vm-series-vcpu-quota-increase-at-subscription-level-using-the-help--support-blade"></a>Begäran per VM-serien vCPU kvot ökning på prenumerations nivå med **Hjälp + Support** -bladet
 
@@ -76,7 +76,7 @@ Följ instruktionerna nedan för att skapa en support förfrågan via Azures bla
 
 2. Välj den prenumeration som behöver en ökad kvot.
 
-   ![Välj en prenumeration](./media/resource-manager-core-quotas-request/select-subscription.png)
+   ![Välj prenumeration](./media/resource-manager-core-quotas-request/select-subscription.png)
 
 3. Välj **användning + kvoter**
 

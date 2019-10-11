@@ -1,22 +1,22 @@
 ---
-title: Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery? | Microsoft Docs
+title: Om haveri beredskap för lokala appar med Azure Site Recovery
 description: Beskriver de arbetsbelastningar som kan skyddas med haveriberedskap med Azure Site Recovery-tjänsten.
 author: rayne-wiselman
 ms.service: site-recovery
 services: site-recovery
 ms.topic: conceptual
-ms.date: 09/03/2019
+ms.date: 10/10/2019
 ms.author: raynew
-ms.openlocfilehash: f3ff6e5e05cab9aab5257d810c6785e7691bae45
-ms.sourcegitcommit: 2aefdf92db8950ff02c94d8b0535bf4096021b11
+ms.openlocfilehash: ad989a28e150635637a477d07803107a9fefff63
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/03/2019
-ms.locfileid: "70232187"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255555"
 ---
-# <a name="what-workloads-can-you-protect-with-azure-site-recovery"></a>Vilka arbetsbelastningar kan jag skydda med Azure Site Recovery?
+# <a name="about-disaster-recovery-for-on-premises-apps"></a>Om haveriberedskap för lokala appar
 
-Den här artikeln beskriver arbets belastningar och program som du kan skydda för haveri beredskap med [Azure Site Recovery](site-recovery-overview.md) -tjänsten.
+Den här artikeln beskriver lokala arbets belastningar och appar som du kan skydda för haveri beredskap med [Azure Site Recovery](site-recovery-overview.md) -tjänsten.
 
 
 
@@ -45,17 +45,17 @@ Site Recovery kan replikera alla appar som körs på en dator som stöds. Dessut
 
 | **Arbetsbelastning** |**Replikera virtuella Azure-datorer till Azure** |**Replikera Hyper-V-VM:ar till en sekundär plats** | **Replikera Hyper-V-VM:ar till Azure** | **Replikera VMware-VM:ar till en sekundär plats** | **Replikera VMware-VM:ar till Azure** |
 | --- | --- | --- | --- | --- |---|
-| Active Directory, DNS |J |J |J |J |J|
-| Webbappar (IIS, SQL) |J |J |J |J |J|
-| System Center Operations Manager |J |J |J |J |J|
-| SharePoint |J |J |J |J |J|
+| Active Directory, DNS |Y |Y |Y |Y |Y|
+| Webbappar (IIS, SQL) |Y |Y |Y |Y |Y|
+| System Center Operations Manager |Y |Y |Y |Y |Y|
+| SharePoint |Y |Y |Y |Y |Y|
 | SAP<br/><br/>Replikera en SAP-plats till Azure för icke-kluster |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft)|
-| Exchange (icke-DAG) |J |J |J |J |J|
-| Fjärrskrivbord/VDI |J |J |J |J |J|
+| Exchange (icke-DAG) |Y |Y |Y |Y |Y|
+| Fjärrskrivbord/VDI |Y |Y |Y |Y |Y|
 | Linux (operativsystem och appar) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft) |Y (har testats av Microsoft)|
-| Dynamics AX |J |J |J |J |J|
-| Windows-filserver |J |J |J |J |J|
-| Citrix XenApp och XenDesktop |J|Gäller inte |J |Gäller inte |J |
+| Dynamics AX |Y |Y |Y |Y |Y|
+| Windows-filserver |Y |Y |Y |Y |Y|
+| Citrix XenApp och XenDesktop |Y|Gäller inte |Y |Gäller inte |Y |
 
 ## <a name="replicate-active-directory-and-dns"></a>Replikera Active Directory och DNS
 En Active Directory- och DNS-infrastruktur är fundamentalt för de flesta företagsappar. Vid haveriberedskap, behöver du skydda och återställa de här infrastrukturkomponenterna innan du återställer dina arbetsbelastningar och appar.

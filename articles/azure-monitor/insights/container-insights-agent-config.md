@@ -11,14 +11,14 @@ ms.service: azure-monitor
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/07/2019
+ms.date: 10/08/2019
 ms.author: magoedte
-ms.openlocfilehash: ada573cc919d775af52abc5a75004866aebbeddb
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: dfa823955cccba4ac7ec6859894a4562f0810d76
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72033947"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248760"
 ---
 # <a name="configure-agent-data-collection-for-azure-monitor-for-containers"></a>Konfigurera agent data insamling för Azure Monitor för behållare
 
@@ -41,7 +41,7 @@ En mall ConfigMap-fil tillhandahålls som gör att du enkelt kan redigera den me
 
 Följande är de inställningar som kan konfigureras för att styra data insamling.
 
-|Nyckel |Datatyp |Value |Beskrivning |
+|Nyckel |Datatyp |Värde |Beskrivning |
 |----|----------|------|------------|
 |`schema-version` |Sträng (Skift läges känslig) |v1 |Det här är den schema version som används av agenten vid parsning av den här ConfigMap. Schema version som stöds för närvarande är v1. Det finns inte stöd för att ändra det här värdet och kommer att avvisas när ConfigMap utvärderas.|
 |`config-version` |Sträng | | Stöder möjlighet att hålla koll på den här konfigurations filens version i käll kontroll systemet/lagrings platsen. Maximalt antal tillåtna tecken är 10 och alla andra tecken trunkeras. |
@@ -64,13 +64,13 @@ Aktiv kasse ring av mått från Prometheus utförs från ett av två perspektiv:
 
 | Slutpunkt | Omfång | Exempel |
 |----------|-------|---------|
-| Pod-anteckning | Hela klustret | anteckningar <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000" <br>prometheus.io/scheme: "http"` |
+| Pod-anteckning | Hela klustret | anteckningar <br>`prometheus.io/scrape: "true"` <br>`prometheus.io/path: "/mymetrics"` <br>`prometheus.io/port: "8000"` <br>`prometheus.io/scheme: "http"` |
 | Kubernetes-tjänst | Hela klustret | `http://my-service-dns.my-namespace:9100/metrics` <br>`https://metrics-server.kube-system.svc.cluster.local/metrics` |
 | URL/slut punkt | Per nod och/eller över hela klustret | `http://myurl:9101/metrics` |
 
 När en URL anges, kommer Azure Monitor för behållare bara att kassera slut punkten. När Kubernetes-tjänsten anges, matchas tjänst namnet med klustrets DNS-server för att hämta IP-adressen och sedan kasseras den lösta tjänsten.
 
-|Omfång | Nyckel | Datatyp | Value | Beskrivning |
+|Omfång | Nyckel | Datatyp | Värde | Beskrivning |
 |------|-----|-----------|-------|-------------|
 | Hela klustret | | | | Ange en av följande tre metoder för att kassera slut punkter för mått. |
 | | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en speciell Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
@@ -79,9 +79,9 @@ När en URL anges, kommer Azure Monitor för behållare bara att kassera slut pu
 | | `prometheus.io/scrape` | Boolesk | Sant eller falskt | Aktiverar kassation av pod. `monitor_kubernetes_pods` måste anges till `true`. |
 | | `prometheus.io/scheme` | Sträng | http eller https | Används som standard för skrotning över HTTP. Om det behövs anger du till `https`. | 
 | | `prometheus.io/path` | Sträng | Kommaavgränsad matris | Den HTTP-resurs Sök väg som måtten ska hämtas från. Om måtten Path inte är `/metrics` definierar du den med den här anteckningen. |
-| | `prometheus.io/port` | Sträng | 9102 | Ange en port att lyssna på. Om porten inte har angetts är den standard 9102. |
+| | `prometheus.io/port` | Sträng | 9102 | Ange en port att kassera från. Om porten inte har angetts är den standard 9102. |
 | Node-wide | `urls` | Sträng | Kommaavgränsad matris | HTTP-slutpunkt (antingen IP-adress eller giltig URL-sökväg har angetts). Till exempel: `urls=[$NODE_IP/metrics]`. ($NODE _IP är en speciell Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler.) |
-| Hela noden eller hela klustret | `interval` | Sträng | 60 s | Samlings intervallets standardvärdet är en minut (60 sekunder). Du kan ändra samlingen för antingen *[prometheus_data_collection_settings. node]* och/eller *[prometheus_data_collection_settings. Cluster]* till Time units, t. ex. ns, US (eller Âμs), MS, s, m, h. |
+| Hela noden eller hela klustret | `interval` | Sträng | 60 s | Samlings intervallets standardvärdet är en minut (60 sekunder). Du kan ändra samlingen för antingen *[prometheus_data_collection_settings. node]* och/eller *[prometheus_data_collection_settings. Cluster]* till Time units, t. ex. s, m, h. |
 | Hela noden eller hela klustret | `fieldpass`<br> `fielddrop`| Sträng | Kommaavgränsad matris | Du kan ange att vissa mått ska samlas in eller inte från slut punkten genom att ange List rutan Tillåt (`fieldpass`) och neka (`fielddrop`). Du måste först ange listan över tillåtna. |
 
 ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämpas på agenten. Det går inte att ha en annan ConfigMaps över samlingarna.
@@ -91,7 +91,8 @@ ConfigMaps är en global lista och det kan bara finnas en ConfigMap som tillämp
 Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigurationsfil till klustret.
 
 1. [Hämta](https://github.com/microsoft/OMS-docker/blob/ci_feature_prod/Kubernetes/container-azm-ms-agentconfig.yaml) mallen ConfigMap yaml File och spara den som container-AZM-MS-agentconfig. yaml.  
-1. Redigera ConfigMap yaml-filen med dina anpassningar.
+
+2. Redigera ConfigMap yaml-filen med dina anpassningar för att samla in STDOUT-, stderr-och/eller miljövariabler.
 
     - Om du vill undanta vissa namn rymder för STDOUT-logg samling konfigurerar du nyckeln/värdet med hjälp av följande exempel: `[log_collection_settings.stdout] enabled = true exclude_namespaces = ["my-namespace-1", "my-namespace-2"]`.
     
@@ -99,48 +100,67 @@ Utför följande steg för att konfigurera och distribuera din ConfigMap-konfigu
     
     - Om du vill inaktivera stderr-logg samling i hela klustret konfigurerar du nyckeln/värdet med hjälp av följande exempel: `[log_collection_settings.stderr] enabled = false`.
     
-    - I följande exempel visas hur du konfigurerar ConfigMap-filmåtten från ett globalt URL-kluster, från en agents DameonSet Node-wide och genom att ange en POD-anteckning
+3. Konfigurera en samling av Kubernetes Services-klustret genom att konfigurera ConfigMap-filen med hjälp av följande exempel.
 
-        - Kassera Prometheus mått från en viss URL i klustret.
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] 
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    kubernetes_services = ["http://my-service-dns.my-namespace:9102/metrics"]
+    ```
+
+4. Om du vill konfigurera kassation av Prometheus-mått från en viss URL i klustret konfigurerar du ConfigMap-filen med hjälp av följande exempel.
+
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings
+    [prometheus_data_collection_settings.cluster] 
+    interval = "1m"  ## Valid time units are s, m, h.
+    fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
+    fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
+    urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+    ```
+
+5. Om du vill konfigurera kasse ring av Prometheus-mått från en agents DaemonSet för varje enskild nod i klustret konfigurerar du följande i ConfigMap:
+    
+    ```
+    prometheus-data-collection-settings: |- 
+    # Custom Prometheus metrics data collection settings 
+    [prometheus_data_collection_settings.node] 
+    interval = "1m"  ## Valid time units are s, m, h. 
+    urls = ["http://$NODE_IP:9103/metrics"] 
+    fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
+    fielddrop = ["metric_to_drop"] 
+    ```
+
+    >[!NOTE]
+    >$NODE _IP är en speciell Azure Monitor för container parameter och kan användas i stället för nodens IP-adress. Måste vara alla versaler. 
+
+6. Utför följande steg för att konfigurera kasse ring av Prometheus-mått genom att ange en POD-anteckning:
+
+    1. I ConfigMap anger du följande:
 
         ```
          prometheus-data-collection-settings: |- 
          # Custom Prometheus metrics data collection settings
          [prometheus_data_collection_settings.cluster] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h.
-         fieldpass = ["metric_to_pass1", "metric_to_pass12"] ## specify metrics to pass through 
-         fielddrop = ["metric_to_drop"] ## specify metrics to drop from collecting
-         urls = ["http://myurl:9101/metrics"] ## An array of urls to scrape metrics from
+         interval = "1m"  ## Valid time units are s, m, h
+         monitor_kubernetes_pods = true 
         ```
 
-        - Kassera Prometheus-mått från en agents DaemonSet som körs i varje nod i klustret.
+    2. Ange följande konfiguration för Pod-anteckningar:
 
         ```
-         prometheus-data-collection-settings: |- 
-         # Custom Prometheus metrics data collection settings 
-         [prometheus_data_collection_settings.node] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h. 
-         # Node level scrape endpoint(s). These metrics will be scraped from agent's DaemonSet running in every node in the cluster 
-         urls = ["http://$NODE_IP:9103/metrics"] 
-         fieldpass = ["metric_to_pass1", "metric_to_pass2"] 
-         fielddrop = ["metric_to_drop"] 
+         - prometheus.io/scrape:"true" #Enable scraping for this pod 
+         - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+         - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
+         - prometheus.io/port:"8000" #If port is not 9102 use this annotation
         ```
 
-        - Kassera Prometheus mått genom att ange en POD-anteckning.
-
-        ```
-         prometheus-data-collection-settings: |- 
-         # Custom Prometheus metrics data collection settings
-         [prometheus_data_collection_settings.cluster] 
-         interval = "1m"  ## Valid time units are ns, us (or µs), ms, s, m, h
-         monitor_kubernetes_pods = true #replicaset will scrape Kubernetes pods for the following prometheus annotations: 
-          - prometheus.io/scrape:"true" #Enable scraping for this pod 
-          - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
-          - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
-          - prometheus.io/port:"8000" #If port is not 9102 use this annotation
-        ```
-
-1. Skapa ConfigMap genom att köra följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>`.
+7. Skapa ConfigMap genom att köra följande kubectl-kommando: `kubectl apply -f <configmap_yaml_file.yaml>`.
     
     Exempel: `kubectl apply -f container-azm-ms-agentconfig.yaml`. 
     
@@ -186,29 +206,32 @@ Utdata ser ut ungefär så här med antecknings schema versioner:
                     schema-versions=v1 
 ```
 
-## <a name="review-prometheus-data-usage"></a>Granska Prometheus data användning
+## <a name="query-prometheus-metrics-data"></a>Fråga Prometheus Metrics-data
 
 Om du vill visa Prometheus-mått som har klippts av Azure Monitor anger du "Prometheus" som namn område. Här är en exempel fråga för att Visa Prometheus-mått från namn området `default` Kubernetes.
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | extend tags=parse_json(Tags)
-| where tostring(tags.namespace) == "default" 
+| summarize count() by Name
 ```
 
 Prometheus-data kan också direkt frågas efter namn.
 
 ```
 InsightsMetrics 
+| where Namespace == "prometheus"
 | where Name contains "some_prometheus_metric"
 ```
+
+## <a name="review-prometheus-data-usage"></a>Granska Prometheus data användning
 
 Följande fråga tillhandahålls för att identifiera inmatnings volymen för varje mått storlek i GB per dag för att förstå om den är hög.
 
 ```
 InsightsMetrics 
-| where Namespace contains "prometheus"
+| where Namespace == "prometheus"
 | where TimeGenerated > ago(24h)
 | summarize VolumeInGB = (sum(_BilledSize) / (1024 * 1024 * 1024)) by Name
 | order by VolumeInGB desc
@@ -239,6 +262,6 @@ Mer information om hur du övervakar data användning och analys av kostnader fi
 
 Azure Monitor för behållare innehåller inte en fördefinierad uppsättning aviseringar. Mer information om hur du skapar rekommenderade aviseringar för hög processor-och minnes användning finns i avsnittet [skapa prestanda aviseringar med Azure Monitor för behållare](container-insights-alerts.md) som stöder DevOps eller operativa processer och procedurer
 
-- Om du vill lära dig hur du använder Azure Monitor och övervaka andra aspekter av AKS-klustret går [visa Azure Kubernetes Service health](container-insights-analyze.md).
+- Om du vill fortsätta lära dig hur du använder Azure Monitor och övervakar andra aspekter av ditt AKS-kluster kan du läsa mer i [Visa Azure Kubernetes service Health](container-insights-analyze.md).
 
 - Visa [exempel på logg frågor](container-insights-log-search.md#search-logs-to-analyze-data) för att se fördefinierade frågor och exempel för att utvärdera eller anpassa för aviseringar, visualisering eller analys av klustren.

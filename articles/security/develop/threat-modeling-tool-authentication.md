@@ -15,21 +15,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: eb4f0e26d1795abc3392e9736e71093fab79aae2
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 1bef73e6be4bdbe8828e1d20ea6e684759984627
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68967932"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244639"
 ---
-# <a name="security-frame-authentication--mitigations"></a>Säkerhets ram: Autentisering | Åtgärder 
+# <a name="security-frame-authentication--mitigations"></a>Säkerhets ram: autentisering | Åtgärder 
 
 | Produkt/tjänst | Artikel |
 | --------------- | ------- |
 | **Webb program**    | <ul><li>[Överväg att använda en standardmekanism för autentisering för att autentisera till webb program](#standard-authn-web-app)</li><li>[Program måste hantera misslyckade verifierings scenarier på ett säkert sätt](#handle-failed-authn)</li><li>[Aktivera steg-till-eller anpassad autentisering](#step-up-adaptive-authn)</li><li>[Se till att de administrativa gränssnitten är korrekt låsta](#admin-interface-lockdown)</li><li>[Implementera glömt lösen ords funktioner på ett säkert sätt](#forgot-pword-fxn)</li><li>[Kontrol lera att lösen ordet och konto principen implementeras](#pword-account-policy)</li><li>[Implementera kontroller för att förhindra uppräkning av användar namn](#controls-username-enum)</li></ul> |
 | **Databas** | <ul><li>[Använd Windows-autentisering när det är möjligt för att ansluta till SQL Server](#win-authn-sql)</li><li>[När det är möjligt använder Azure Active Directory autentisering för att ansluta till SQL Database](#aad-authn-sql)</li><li>[När SQL-autentiseringsläge används, se till att konto-och lösen ords principen tillämpas på SQL Server](#authn-account-pword)</li><li>[Använd inte SQL-autentisering i inneslutna databaser](#autn-contained-db)</li></ul> |
 | **Azure Event Hub** | <ul><li>[Använd autentiseringsuppgifter för autentisering per enhet med SaS-token](#authn-sas-tokens)</li></ul> |
-| **Azure Trust-gränser** | <ul><li>[Aktivera Azure Multi-Factor Authentication för Azure-administratörer](#multi-factor-azure-admin)</li></ul> |
+| **Azure Trust-gränser** | <ul><li>[Aktivera Azure-Multi-Factor Authentication för Azure-administratörer](#multi-factor-azure-admin)</li></ul> |
 | **Service Fabric förtroende gränser** | <ul><li>[Begränsa anonym åtkomst till Service Fabric kluster](#anon-access-cluster)</li><li>[Se till att Service Fabric klient-till-nod-certifikat skiljer sig från nod-till-nod-certifikat](#fabric-cn-nn)</li><li>[Använd AAD för att autentisera klienter för Service Fabric-kluster](#aad-client-fabric)</li><li>[Se till att Service Fabric-certifikat hämtas från en godkänd certifikat utfärdare (CA)](#fabric-cert-ca)</li></ul> |
 | **Identitets Server** | <ul><li>[Använd standard scenarier för autentisering som stöds av identitets servern](#standard-authn-id)</li><li>[Åsidosätt standardvärdet för Identity Server-token med ett skalbart alternativ](#override-token)</li></ul> |
 | **Datorns förtroende gränser** | <ul><li>[Kontrol lera att de distribuerade programmets binärfiler är digitalt signerade](#binaries-signed)</li></ul> |
@@ -42,21 +42,21 @@ ms.locfileid: "68967932"
 
 ## <a id="standard-authn-web-app"></a>Överväg att använda en standardmekanism för autentisering för att autentisera till webb program
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
-| Information | <p>Autentisering är den process där en entitet bevisar sin identitet, vanligt vis via autentiseringsuppgifter, till exempel användar namn och lösen ord. Det finns flera tillgängliga autentiseringsprotokoll som kan beaktas. En del av dem visas nedan:</p><ul><li>Klientcertifikat</li><li>Windows-baserad</li><li>Formulär som baseras</li><li>Federation-ADFS</li><li>Federation – Azure AD</li><li>Federations identitets Server</li></ul><p>Överväg att använda en standardmekanism för autentisering för att identifiera käll processen</p>|
+| Information | <p>Autentisering är den process där en entitet bevisar sin identitet, vanligt vis via autentiseringsuppgifter, till exempel användar namn och lösen ord. Det finns flera tillgängliga autentiseringsprotokoll som kan beaktas. En del av dem visas nedan:</p><ul><li>Klient certifikat</li><li>Windows-baserad</li><li>Formulär som baseras</li><li>Federation-ADFS</li><li>Federation – Azure AD</li><li>Federations identitets Server</li></ul><p>Överväg att använda en standardmekanism för autentisering för att identifiera käll processen</p>|
 
 ## <a id="handle-failed-authn"></a>Program måste hantera misslyckade verifierings scenarier på ett säkert sätt
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -64,10 +64,10 @@ ms.locfileid: "68967932"
 
 ## <a id="step-up-adaptive-authn"></a>Aktivera steg-till-eller anpassad autentisering
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -75,10 +75,10 @@ ms.locfileid: "68967932"
 
 ## <a id="admin-interface-lockdown"></a>Se till att de administrativa gränssnitten är korrekt låsta
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -86,10 +86,10 @@ ms.locfileid: "68967932"
 
 ## <a id="forgot-pword-fxn"></a>Implementera glömt lösen ords funktioner på ett säkert sätt
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -97,21 +97,21 @@ ms.locfileid: "68967932"
 
 ## <a id="pword-account-policy"></a>Kontrol lera att lösen ordet och konto principen implementeras
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
-| Information | <p>Lösen ord och konto principer i enlighet med organisations principen och bästa praxis bör implementeras.</p><p>För att skydda mot brute-force och Dictionary-baserad gissning: Principen för starka lösen ord måste implementeras för att se till att användarna skapar ett komplext lösen ord (t. ex. 12 tecken minimilängd, alfanumeriska tecken och specialtecken).</p><p>Principer för konto utelåsning kan implementeras på följande sätt:</p><ul><li>**Mjukt lås ut:** Detta kan vara ett användbart alternativ för att skydda dina användare mot brute force-attacker. När användaren till exempel anger fel lösen ord tre gånger kan programmet låsa kontot för en minut för att sakta ned processen att tvinga sitt lösen ord att göra det mindre lönsamt för angriparen att gå vidare. Om du skulle implementera hårda motåtgärder för att låsa upp i det här exemplet skulle du få en "DoS" genom att permanent låsa ut konton. Alternativt kan programmet generera ett eng ång slö sen ord (ett lösen ord) och skicka det out-of-band (via e-post, SMS osv.) till användaren. En annan metod kan vara att implementera CAPTCHA när ett tröskel antal misslyckade försök har nåtts.</li><li>**Hård låsning:** Den här typen av utelåsning bör tillämpas när du identifierar en användare som angriper ditt program och räknar dem genom att permanent låsa upp sitt konto tills ett svars team har tid att göra sina data utredning. Efter den här processen kan du välja att ge användaren tillbaka sitt konto eller vidta ytterligare juridiska åtgärder mot dem. Den här typen av metod förhindrar att angriparen ytterligare tränger in ditt program och din infrastruktur.</li></ul><p>Kontrol lera att alla nycklar och lösen ord är utbytbara och att de genereras eller ersätts efter installations tiden för att skydda mot attacker som är standard och förutsägbara konton.</p><p>Om programmet måste generera lösen ord automatiskt måste du se till att de genererade lösen orden är slumpmässiga och har hög entropi.</p>|
+| Information | <p>Lösen ord och konto principer i enlighet med organisations principen och bästa praxis bör implementeras.</p><p>För att skydda mot brute-force och Dictionary-baserad gissning: principen för starka lösen ord måste implementeras för att säkerställa att användarna skapar ett komplext lösen ord (t. ex. 12 tecken, minimilängd, alfanumeriska tecken och specialtecken).</p><p>Principer för konto utelåsning kan implementeras på följande sätt:</p><ul><li>**Mjukt lås ut:** Detta kan vara ett användbart alternativ för att skydda dina användare mot brute force-attacker. När användaren till exempel anger fel lösen ord tre gånger kan programmet låsa kontot för en minut för att sakta ned processen att tvinga sitt lösen ord att göra det mindre lönsamt för angriparen att gå vidare. Om du skulle implementera hårda motåtgärder för att låsa upp i det här exemplet skulle du få en "DoS" genom att permanent låsa ut konton. Alternativt kan programmet generera ett eng ång slö sen ord (ett lösen ord) och skicka det out-of-band (via e-post, SMS osv.) till användaren. En annan metod kan vara att implementera CAPTCHA när ett tröskel antal misslyckade försök har nåtts.</li><li>**Hård låsning:** Den här typen av utelåsning bör tillämpas när du identifierar en användare som angriper ditt program och räknar dem genom att permanent låsa upp sitt konto tills ett svars team har tid att göra sina data utredning. Efter den här processen kan du välja att ge användaren tillbaka sitt konto eller vidta ytterligare juridiska åtgärder mot dem. Den här typen av metod förhindrar att angriparen ytterligare tränger in ditt program och din infrastruktur.</li></ul><p>Kontrol lera att alla nycklar och lösen ord är utbytbara och att de genereras eller ersätts efter installations tiden för att skydda mot attacker som är standard och förutsägbara konton.</p><p>Om programmet måste generera lösen ord automatiskt måste du se till att de genererade lösen orden är slumpmässiga och har hög entropi.</p>|
 
 ## <a id="controls-username-enum"></a>Implementera kontroller för att förhindra uppräkning av användar namn
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webbprogram | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -119,10 +119,10 @@ ms.locfileid: "68967932"
 
 ## <a id="win-authn-sql"></a>Använd Windows-autentisering när det är möjligt för att ansluta till SQL Server
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | OnPrem |
 | **Dokumentattribut**              | SQL-version – alla |
 | **Reference**              | [SQL Server-Välj ett autentiseringsläge](https://msdn.microsoft.com/library/ms144284.aspx) |
@@ -130,21 +130,21 @@ ms.locfileid: "68967932"
 
 ## <a id="aad-authn-sql"></a>När det är möjligt använder Azure Active Directory autentisering för att ansluta till SQL Database
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | SQL Azure |
-| **Dokumentattribut**              | SQL Version - V12 |
+| **Dokumentattribut**              | SQL-version – V12 |
 | **Reference**              | [Ansluta till SQL Database med Azure Active Directory autentisering](https://azure.microsoft.com/documentation/articles/sql-database-aad-authentication/) |
 | **Steg** | **Lägsta version:** Azure SQL Database V12 krävs för att Azure SQL Database ska kunna använda AAD-autentisering mot Microsoft-katalogen |
 
 ## <a id="authn-account-pword"></a>När SQL-autentiseringsläge används, se till att konto-och lösen ords principen tillämpas på SQL Server
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [SQL Server lösen ords princip](https://technet.microsoft.com/library/ms161959(v=sql.110).aspx) |
@@ -152,10 +152,10 @@ ms.locfileid: "68967932"
 
 ## <a id="autn-contained-db"></a>Använd inte SQL-autentisering i inneslutna databaser
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Databas | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | OnPrem, SQL Azure |
 | **Dokumentattribut**              | SQL-version – MSSQL2012, SQL-version – V12 |
 | **Reference**              | [Rekommenderade säkerhets metoder med inneslutna databaser](https://msdn.microsoft.com/library/ff929055.aspx) |
@@ -163,18 +163,18 @@ ms.locfileid: "68967932"
 
 ## <a id="authn-sas-tokens"></a>Använd autentiseringsuppgifter för autentisering per enhet med SaS-token
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
-| **Komponent**               | Azure händelsehubb | 
-| **SDL-fas**               | Utveckla |  
+| **Komponent**               | Azure Event Hub | 
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Översikt över Event Hubs autentisering och säkerhets modell](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
 | **Steg** | <p>Event Hubs säkerhets modellen baseras på en kombination av SAS-token (signatur för delad åtkomst) och händelse utgivare. Utgivar namnet representerar den DeviceID som tar emot token. På så sätt kan du associera de token som genereras med respektive enheter.</p><p>Alla meddelanden är taggade med upphovs man på tjänst sidan som gör det möjligt att identifiera inbetalnings försök med ursprung i nytto Last. När du autentiserar enheter genererar du en SaS-token per enhet som är begränsad till en unik utgivare.</p>|
 
-## <a id="multi-factor-azure-admin"></a>Aktivera Azure Multi-Factor Authentication för Azure-administratörer
+## <a id="multi-factor-azure-admin"></a>Aktivera Azure-Multi-Factor Authentication för Azure-administratörer
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Trust-gränser | 
 | **SDL-fas**               | Distribution |  
@@ -185,18 +185,18 @@ ms.locfileid: "68967932"
 
 ## <a id="anon-access-cluster"></a>Begränsa anonym åtkomst till Service Fabric kluster
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric förtroende gränser | 
 | **SDL-fas**               | Distribution |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Miljö – Azure  |
-| **Reference**              | [Säkerhetsscenarier för Service Fabric-kluster](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
+| **Reference**              | [Service Fabric kluster säkerhets scenarier](https://azure.microsoft.com/documentation/articles/service-fabric-cluster-security) |
 | **Steg** | <p>Kluster bör alltid skyddas för att förhindra att obehöriga användare ansluter till klustret, särskilt när de har produktions arbets belastningar som körs på den.</p><p>När du skapar ett Service Fabric-kluster ser du till att säkerhets läget är inställt på "säker" och konfigurerar det obligatoriska X. 509-servercertifikatet. Om du skapar ett "osäker" kluster kan alla anonyma användare ansluta till det om det exponerar hanterings slut punkter för det offentliga Internet.</p>|
 
 ## <a id="fabric-cn-nn"></a>Se till att Service Fabric klient-till-nod-certifikat skiljer sig från nod-till-nod-certifikat
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric förtroende gränser | 
 | **SDL-fas**               | Distribution |  
@@ -207,7 +207,7 @@ ms.locfileid: "68967932"
 
 ## <a id="aad-client-fabric"></a>Använd AAD för att autentisera klienter för Service Fabric-kluster
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric förtroende gränser | 
 | **SDL-fas**               | Distribution |  
@@ -218,7 +218,7 @@ ms.locfileid: "68967932"
 
 ## <a id="fabric-cert-ca"></a>Se till att Service Fabric-certifikat hämtas från en godkänd certifikat utfärdare (CA)
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Service Fabric förtroende gränser | 
 | **SDL-fas**               | Distribution |  
@@ -229,10 +229,10 @@ ms.locfileid: "68967932"
 
 ## <a id="standard-authn-id"></a>Använd standard scenarier för autentisering som stöds av identitets servern
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitets Server | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [IdentityServer3 – stor bild](https://identityserver.github.io/Documentation/docsv2/overview/bigPicture.html) |
@@ -240,7 +240,7 @@ ms.locfileid: "68967932"
 
 ## <a id="override-token"></a>Åsidosätt standardvärdet för Identity Server-token med ett skalbart alternativ
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Identitets Server | 
 | **SDL-fas**               | Distribution |  
@@ -251,7 +251,7 @@ ms.locfileid: "68967932"
 
 ## <a id="binaries-signed"></a>Kontrol lera att de distribuerade programmets binärfiler är digitalt signerade
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Datorns förtroende gränser | 
 | **SDL-fas**               | Distribution |  
@@ -262,17 +262,17 @@ ms.locfileid: "68967932"
 
 ## <a id="msmq-queues"></a>Aktivera autentisering vid anslutning till MSMQ-köer i WCF
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Allmänt, NET Framework 3 |
 | **Dokumentattribut**              | Gäller inte |
 | **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx) |
 | **Steg** | Det gick inte att aktivera autentisering vid anslutning till MSMQ-köer, en angripare kan skicka meddelanden anonymt till kön för bearbetning. Om autentisering inte används för att ansluta till en MSMQ-kö som används för att leverera ett meddelande till ett annat program, kan en angripare skicka ett anonymt meddelande som är skadligt.|
 
 ### <a name="example"></a>Exempel
-`<netMsmqBinding/>` Elementet i WCF-konfigurationsfilen nedan instruerar WCF att inaktivera autentisering vid anslutning till en MSMQ-kö för meddelande leverans.
+Elementet `<netMsmqBinding/>` i WCF-konfigurationsfilen nedan instruerar WCF att inaktivera autentisering vid anslutning till en MSMQ-kö för meddelande leverans.
 ```
 <bindings>
     <netMsmqBinding>
@@ -287,7 +287,7 @@ ms.locfileid: "68967932"
 Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering hela tiden för inkommande eller utgående meddelanden.
 
 ### <a name="example"></a>Exempel
-`<netMsmqBinding/>` Elementet i WCF-konfigurationsfilen nedan instruerar WCF att aktivera certifikatautentisering vid anslutning till en MSMQ-kö. Klienten autentiseras med hjälp av X. 509-certifikat. Klient certifikatet måste finnas i certifikat arkivet på servern.
+Elementet `<netMsmqBinding/>` i WCF-konfigurationsfilen nedan instruerar WCF att aktivera certifikatautentisering vid anslutning till en MSMQ-kö. Klienten autentiseras med hjälp av X. 509-certifikat. Klient certifikatet måste finnas i certifikat arkivet på servern.
 ```
 <bindings>
     <netMsmqBinding>
@@ -302,13 +302,13 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 
 ## <a id="message-none"></a>WCF – Ställ inte in meddelande-clientCredentialType på none
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | .NET Framework 3 |
 | **Dokumentattribut**              | Typ av klient behörighet – ingen |
-| **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_message_client) |
+| **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Steg** | Avsaknad av autentisering innebär att alla kan komma åt den här tjänsten. En tjänst som inte autentiserar sina klienter ger åtkomst till alla användare. Konfigurera programmet att autentisera mot klientautentiseringsuppgifter. Detta kan göras genom att ange meddelandets clientCredentialType till Windows eller certifikat. |
 
 ### <a name="example"></a>Exempel
@@ -318,13 +318,13 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 
 ## <a id="transport-none"></a>WCF – Ställ inte in transport-clientCredentialType till none
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | WCF | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Allmän, .NET Framework 3 |
 | **Dokumentattribut**              | Typ av klient behörighet – ingen |
-| **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY](https://vulncat.fortify.com/en/detail?id=desc.semantic.dotnet.wcf_misconfiguration_anonymous_transport_client) |
+| **Reference**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [FORTIFY](https://community.microfocus.com/t5/UFT-Discussions/UFT-API-Test-with-WCF-wsHttpBinding/m-p/600927) |
 | **Steg** | Avsaknad av autentisering innebär att alla kan komma åt den här tjänsten. En tjänst som inte autentiserar sina klienter ger alla användare åtkomst till sina funktioner. Konfigurera programmet att autentisera mot klientautentiseringsuppgifter. Detta kan göras genom att ange transport clientCredentialType till Windows eller certifikat. |
 
 ### <a name="example"></a>Exempel
@@ -334,32 +334,32 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 
 ## <a id="authn-secure-api"></a>Se till att standard teknikerna för autentisering används för att säkra webb-API: er
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Webb-API | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Autentisering och auktorisering i ASP.net webb-API](https://www.asp.net/web-api/overview/security/authentication-and-authorization-in-aspnet-web-api), [external Authentication Services med ASP.net WebC#API ()](https://www.asp.net/web-api/overview/security/external-authentication-services) |
-| **Steg** | <p>Autentisering är den process där en entitet bevisar sin identitet, vanligt vis via autentiseringsuppgifter, till exempel användar namn och lösen ord. Det finns flera tillgängliga autentiseringsprotokoll som kan beaktas. En del av dem visas nedan:</p><ul><li>Klientcertifikat</li><li>Windows-baserad</li><li>Formulär som baseras</li><li>Federation-ADFS</li><li>Federation – Azure AD</li><li>Federations identitets Server</li></ul><p>Länkar i avsnittet referenser innehåller information på låg nivå om hur vart och ett av autentiseringsmetoderna kan implementeras för att skydda ett webb-API.</p>|
+| **Steg** | <p>Autentisering är den process där en entitet bevisar sin identitet, vanligt vis via autentiseringsuppgifter, till exempel användar namn och lösen ord. Det finns flera tillgängliga autentiseringsprotokoll som kan beaktas. En del av dem visas nedan:</p><ul><li>Klient certifikat</li><li>Windows-baserad</li><li>Formulär som baseras</li><li>Federation-ADFS</li><li>Federation – Azure AD</li><li>Federations identitets Server</li></ul><p>Länkar i avsnittet referenser innehåller information på låg nivå om hur vart och ett av autentiseringsmetoderna kan implementeras för att skydda ett webb-API.</p>|
 
 ## <a id="authn-aad"></a>Använd standard scenarier för autentisering som stöds av Azure Active Directory
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Autentiserings scenarier för Azure AD](https://azure.microsoft.com/documentation/articles/active-directory-authentication-scenarios/), [Azure Active Directory kod exempel](https://azure.microsoft.com/documentation/articles/active-directory-code-samples/), [Azure Active Directory Developer ' s guide](https://azure.microsoft.com/documentation/articles/active-directory-developers-guide/) |
-| **Steg** | <p>Azure Active Directory (Azure AD) fören klar autentiseringen för utvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect. Nedan visas de fem primära program scenarier som stöds av Azure AD:</p><ul><li>Webbläsare till webb program: En användare måste logga in på ett webb program som skyddas av Azure AD</li><li>SPA (Single Page Application): En användare måste logga in på ett enda sid-program som skyddas av Azure AD</li><li>Inbyggt program till webb-API: Ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att få resurser från ett webb-API som skyddas av Azure AD</li><li>Webb program till webb-API: Ett webb program måste hämta resurser från ett webb-API som skyddas av Azure AD</li><li>Daemon-eller Server program till webb-API: Ett daemon-program eller ett serverprogram utan webb användar gränssnitt behöver hämta resurser från ett webb-API som skyddas av Azure AD</li></ul><p>Se länkarna i avsnittet referenser för implementerings information på låg nivå</p>|
+| **Steg** | <p>Azure Active Directory (Azure AD) fören klar autentiseringen för utvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect. Nedan visas de fem primära program scenarier som stöds av Azure AD:</p><ul><li>Webbläsare till webb program: en användare måste logga in på ett webb program som skyddas av Azure AD</li><li>SPA (Single Page Application): en användare måste logga in på ett enda sid program som skyddas av Azure AD</li><li>Inbyggt program till webb-API: ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att få resurser från ett webb-API som skyddas av Azure AD</li><li>Webb program till webb-API: ett webb program måste hämta resurser från ett webb-API som skyddas av Azure AD</li><li>Daemon-eller serverprogram till webb-API: ett daemon-program eller ett serverprogram utan webb användar gränssnitt behöver få resurser från ett webb-API som skyddas av Azure AD</li></ul><p>Se länkarna i avsnittet referenser för implementerings information på låg nivå</p>|
 
 ## <a id="adal-scalable"></a>Åsidosätt standardvärdet för ADAL token med ett skalbart alternativ
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Modern autentisering med Azure Active Directory för webb program](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/), [med hjälp av Redis som ADAL token cache](https://blogs.msdn.microsoft.com/mrochon/2016/09/19/using-redis-as-adal-token-cache/)  |
@@ -367,10 +367,10 @@ Konfigurera MSMQ för att kräva Windows-domän eller certifikatautentisering he
 
 ## <a id="tokenreplaycache-adal"></a>Se till att TokenReplayCache används för att förhindra uppspelning av ADAL-autentiseringstoken
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [Modern autentisering med Azure Active Directory för webb program](https://blogs.msdn.microsoft.com/microsoft_press/2016/01/04/new-book-modern-authentication-with-azure-active-directory-for-web-applications/) |
@@ -424,14 +424,14 @@ OpenIdConnectOptions openIdConnectOptions = new OpenIdConnectOptions
 }
 ```
 
-Observera att du kan testa effektiviteten för den här konfigurationen, logga in i det lokala OIDC-skyddade programmet och avbilda begäran till `"/signin-oidc"` slut punkten i Fiddler. När skyddet inte är på plats kan du spela upp den här begäran i Fiddler för att ange en ny cookie för session. När begäran spelas upp när TokenReplayCache-skyddet har lagts till, kommer programmet att utlösa ett undantag på följande sätt:`SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
+Observera att du kan testa effektiviteten för den här konfigurationen, logga in i det lokala OIDC-skyddade programmet och avbilda begäran till `"/signin-oidc"`-slutpunkt i Fiddler. När skyddet inte är på plats kan du spela upp den här begäran i Fiddler för att ange en ny cookie för session. När begäran spelas upp när TokenReplayCache-skyddet har lagts till, kommer programmet att utlösa ett undantag på följande sätt: `SecurityTokenReplayDetectedException: IDX10228: The securityToken has previously been validated, securityToken: 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNBVGZNNXBPWWlKSE1iYTlnb0VLWSIsImtpZCI6Ik1uQ1......`
 
 ## <a id="adal-oauth2"></a>Använd ADAL-bibliotek för att hantera Tokenbegäran från OAuth2-klienter till AAD (eller lokalt AD)
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure AD | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | [ADAL](https://azure.microsoft.com/documentation/articles/active-directory-authentication-libraries/) |
@@ -439,10 +439,10 @@ Observera att du kan testa effektiviteten för den här konfigurationen, logga i
 
 ## <a id="authn-devices-field"></a>Autentisera enheter som ansluter till fält-gatewayen
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT-fält Gateway | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte  |
 | **Reference**              | Gäller inte  |
@@ -450,14 +450,14 @@ Observera att du kan testa effektiviteten för den här konfigurationen, logga i
 
 ## <a id="authn-devices-cloud"></a>Se till att enheter som ansluter till en moln-Gateway autentiseras
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk, C#Node. js,  |
 | **Dokumentattribut**              | Ej tillämpligt, Gateway-val – Azure IoT Hub |
 | **Reference**              | Ej tillämpligt, [Azure IoT Hub med .net](https://azure.microsoft.com/documentation/articles/iot-hub-csharp-csharp-getstarted/), [komma igång med IoT Hub och Node JS](https://azure.microsoft.com/documentation/articles/iot-hub-node-node-getstarted), vilket [skyddar IoT med SAS och certifikat](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/), [git-lagringsplats](https://github.com/Azure/azure-iot-sdks/tree/master/node) |
-| **Steg** | <ul><li>**Generisk** Autentisera enheten med hjälp av Transport Layer Security (TLS) eller IPSec. Infrastrukturen bör ha stöd för användning av i förväg delad nyckel (PSK) på de enheter som inte kan hantera fullständig asymmetrisk kryptering. Utnyttja Azure AD, OAuth.</li><li>**C#:** När du skapar en DeviceClient-instans skapar metoden Create som standard en DeviceClient-instans som använder AMQP-protokollet för att kommunicera med IoT Hub. Om du vill använda HTTPS-protokollet använder du åsidosättningen av Create-metoden som gör att du kan ange protokollet. Om du använder HTTPS-protokollet bör du också lägga till `Microsoft.AspNet.WebApi.Client` NuGet-paketet i projektet för att `System.Net.Http.Formatting` inkludera namn området.</li></ul>|
+| **Steg** | <ul><li>**Allmänt:** Autentisera enheten med hjälp av Transport Layer Security (TLS) eller IPSec. Infrastrukturen bör ha stöd för användning av i förväg delad nyckel (PSK) på de enheter som inte kan hantera fullständig asymmetrisk kryptering. Utnyttja Azure AD, OAuth.</li><li>**C#:** När du skapar en DeviceClient-instans skapar metoden Create som standard en DeviceClient-instans som använder AMQP-protokollet för att kommunicera med IoT Hub. Om du vill använda HTTPS-protokollet använder du åsidosättningen av Create-metoden som gör att du kan ange protokollet. Om du använder HTTPS-protokollet bör du också lägga till `Microsoft.AspNet.WebApi.Client` NuGet-paketet i projektet för att ta med namn området `System.Net.Http.Formatting`.</li></ul>|
 
 ### <a name="example"></a>Exempel
 ```csharp
@@ -475,7 +475,7 @@ await deviceClient.SendEventAsync(message);
 ```
 
 ### <a name="example"></a>Exempel
-**Node. JS: Anspråksautentisering**
+**Node. JS: autentisering**
 #### <a name="symmetric-key"></a>Symmetrisk nyckel
 * Skapa en IoT-hubb på Azure
 * Skapa en post i enhets identitets registret
@@ -493,7 +493,7 @@ await deviceClient.SendEventAsync(message);
     ```
   #### <a name="sas-token"></a>SAS-token
 * Skapas internt när symmetrisk nyckel används men vi kan generera och använda det explicit
-* Definiera ett protokoll:`var Http = require('azure-iot-device-http').Http;`
+* Definiera ett protokoll: `var Http = require('azure-iot-device-http').Http;`
 * Skapa en SAS-token:
     ```javascript
     resourceUri = encodeURIComponent(resourceUri.toLowerCase()).toLowerCase();
@@ -550,10 +550,10 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="authn-cred"></a>Använd autentiseringsuppgifter för autentisering per enhet
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | IoT Cloud Gateway  | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gateway-val – Azure-IoT Hub |
 | **Reference**              | [Azure IoT Hub säkerhetstoken](https://azure.microsoft.com/documentation/articles/iot-hub-sas-tokens/) |
@@ -561,22 +561,22 @@ await deviceClient.SendEventAsync(message);
 
 ## <a id="req-containers-anon"></a>Se till att endast nödvändiga behållare och blobbar får anonym Läs behörighet
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | StorageType-BLOB |
-| **Reference**              | [Hantera anonym Läs åtkomst till behållare och blobbar](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [signaturer för delad åtkomst, del 1: Förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
-| **Steg** | <p>Som standard kan en behållare och alla blobbar i den endast nås av ägare av lagrings kontot. För att ge anonyma användare Läs behörighet till en behållare och dess blobbar, kan en ange behållar behörighet att tillåta offentlig åtkomst. Anonyma användare kan läsa blobbar i en offentligt tillgänglig behållare utan att autentisera begäran.</p><p>Behållare innehåller följande alternativ för att hantera container åtkomst:</p><ul><li>Fullständig offentlig Läs behörighet: Behållare och BLOB-data kan läsas via anonym begäran. Klienter kan räkna upp blobar i behållaren via anonym begäran, men kan inte räkna upp behållare i lagrings kontot.</li><li>Offentlig Läs behörighet för blobbar: BLOB-data i den här behållaren kan läsas via en anonym begäran, men behållar data är inte tillgängliga. Klienter kan inte räkna upp blobar i behållaren via anonym begäran</li><li>Ingen offentlig Läs behörighet: Endast kontots ägare kan läsa behållare och BLOB-data</li></ul><p>Anonym åtkomst är bäst för scenarier där vissa blobbar alltid ska vara tillgängliga för anonym Läs åtkomst. En bättre och mer detaljerad kontroll är att skapa en signatur för delad åtkomst, som gör att du kan delegera begränsad åtkomst med olika behörigheter och under ett angivet tidsintervall. Se till att behållare och blobbar som potentiellt kan innehålla känsliga data inte ges anonym åtkomst av misstag</p>|
+| **Reference**              | [Hantera anonym Läs åtkomst till behållare och blobbar](https://azure.microsoft.com/documentation/articles/storage-manage-access-to-resources/), [signaturer för delad åtkomst, del 1: förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/) |
+| **Steg** | <p>Som standard kan en behållare och alla blobbar i den endast nås av ägare av lagrings kontot. För att ge anonyma användare Läs behörighet till en behållare och dess blobbar, kan en ange behållar behörighet att tillåta offentlig åtkomst. Anonyma användare kan läsa blobbar i en offentligt tillgänglig behållare utan att autentisera begäran.</p><p>Behållare innehåller följande alternativ för att hantera container åtkomst:</p><ul><li>Fullständig offentlig Läs behörighet: behållare och BLOB-data kan läsas via anonym begäran. Klienter kan räkna upp blobar i behållaren via anonym begäran, men kan inte räkna upp behållare i lagrings kontot.</li><li>Offentlig Läs behörighet för blobbar: BLOB-data i den här behållaren kan läsas via anonym begäran, men behållar data är inte tillgängliga. Klienter kan inte räkna upp blobar i behållaren via anonym begäran</li><li>Ingen offentlig Läs behörighet: behållare och BLOB-data kan bara läsas av konto ägaren</li></ul><p>Anonym åtkomst är bäst för scenarier där vissa blobbar alltid ska vara tillgängliga för anonym Läs åtkomst. En bättre och mer detaljerad kontroll är att skapa en signatur för delad åtkomst, som gör att du kan delegera begränsad åtkomst med olika behörigheter och under ett angivet tidsintervall. Se till att behållare och blobbar som potentiellt kan innehålla känsliga data inte ges anonym åtkomst av misstag</p>|
 
 ## <a id="limited-access-sas"></a>Bevilja begränsad åtkomst till objekt i Azure Storage med SAS eller SAP
 
-| Titel                   | Information      |
+| Rubrik                   | Information      |
 | ----------------------- | ------------ |
 | **Komponent**               | Azure Storage | 
-| **SDL-fas**               | Utveckla |  
+| **SDL-fas**               | Version |  
 | **Tillämpliga tekniker** | Generisk |
 | **Dokumentattribut**              | Gäller inte |
-| **Reference**              | [Signaturer för delad åtkomst, del 1: Förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [signaturer för delad åtkomst, del 2: Skapa och Använd en SAS med Blob Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [så här delegerar du åtkomst till objekt i ditt konto med hjälp av signaturer för delad åtkomst och lagrade åtkomst principer](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
+| **Reference**              | [Signaturer för delad åtkomst, del 1: förstå SAS-modellen](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/), [signaturer för delad åtkomst, del 2: skapa och använda en SAS med Blob Storage](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-2/), [så här delegerar du åtkomst till objekt i ditt konto med hjälp av signaturer för delad åtkomst och lagrad åtkomst Principer](https://azure.microsoft.com/documentation/articles/storage-security-guide/#_how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies) |
 | **Steg** | <p>Att använda en signatur för delad åtkomst (SAS) är ett kraftfullt sätt att ge begränsad åtkomst till objekt i ett lagrings konto till andra klienter, utan att behöva exponera konto åtkomst nyckel. SAS är en URI som omfattar den information som krävs för autentiserad åtkomst till en lagrings resurs i dess frågeparametrar. För att få åtkomst till lagrings resurser med SAS måste klienten bara skicka in SAS till lämplig konstruktor eller metod.</p><p>Du kan använda en SAS när du vill ge åtkomst till resurser i ditt lagrings konto till en klient som inte är betrodd med konto nyckeln. Dina lagrings konto nycklar innehåller både en primär och sekundär nyckel, som båda ger administrativ åtkomst till ditt konto och alla resurser i den. Genom att exponera någon av dina konto nycklar öppnas ditt konto för möjligheten att använda skadlig eller försumlig användning. Signaturer för delad åtkomst är ett säkert alternativ som gör det möjligt för andra klienter att läsa, skriva och ta bort data i ditt lagrings konto enligt de behörigheter som du har beviljat, och utan att behöva konto nyckeln.</p><p>Om du har en logisk uppsättning parametrar som liknar varje gång, är det en bättre idé att använda en princip för lagrade åtkomst principer (SAP). Eftersom användning av en SAS som härletts från en lagrad åtkomst princip ger dig möjlighet att återkalla SAS omedelbart, är det rekommenderade bästa praxis att alltid använda lagrade åtkomst principer när det är möjligt.</p>|

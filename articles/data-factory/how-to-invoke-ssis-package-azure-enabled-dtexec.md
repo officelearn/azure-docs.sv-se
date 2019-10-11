@@ -12,21 +12,21 @@ author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: craigg
-ms.openlocfilehash: 80d4bd2f4f9ea4c451f312f05fd42fbc1ba433ab
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.openlocfilehash: 740e53728356755bcc42e1e0aafb64992b30e113
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71181332"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249020"
 ---
 # <a name="run-sql-server-integration-services-ssis-packages-with-azure-enabled-dtexec-utility"></a>Köra SQL Server Integration Services-paket (SSIS) med Azure-aktiverat Dtexec-verktyget
 Den här artikeln beskriver kommando tolks verktyget för Azure-aktiverad **Dtexec** (**AzureDTExec**).  Den används för att köra SSIS-paket på Azure-SSIS Integration Runtime (IR) i Azure Data Factory (ADF).
 
 Det traditionella **Dtexec** -verktyget innehåller SQL Server finns i dokumentationen till [Dtexec-verktyget](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017) för mer information.  De anropas ofta av Orchestration-och Scheduler-scheman i tredje part, till exempel aktiv batch, kontroll-M osv., för att köra SSIS-paket lokalt.  Verktyget modern **AzureDTExec** levereras med SQL Server Management Studio (SSMS).  Den kan också anropas av Orchestration-/Scheduler-program från tredje part för att köra SSIS-paket i Azure.  Det underlättar lyftet & Shift/migrering av dina SSIS-paket till molnet.  Efter migreringen, om du vill fortsätta att använda tredjepartsleverantörer/schedulers från tredje part i din dagliga verksamhet, kan de nu anropa **AzureDTExec** i stället för **Dtexec**.
 
-**AzureDTExec** kommer att köra dina paket som kör SSIS-paket aktiviteter i ADF-pipeliner, se [köra SSIS-paket som ADF-aktiviteter](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) artikel för mer information.  Den kan konfigureras via SSMS till att använda ett Azure Active Directory-program (AAD) som genererar pipelines i din ADF.  Den kan också konfigureras för att komma åt fil system/fil resurser/Azure Files där du lagrar dina paket.  Baserat på de värden som du anger för sina anrops alternativ genererar **AzureDTExec** och kör en unik ADF-pipeline med AKTIVITETEN kör SSIS-paket.  Om du anropar **AzureDTExec** med samma värden för dess alternativ kommer den befintliga pipeline att köras igen.  Om du anropar **AzureDTExec** med nya värden för dess alternativ skapas en ny pipeline.
+**AzureDTExec** kommer att köra dina paket som kör SSIS-paket aktiviteter i ADF-pipeliner, se [köra SSIS-paket som ADF-aktiviteter](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) artikel för mer information.  Den kan konfigureras via SSMS till att använda ett Azure Active Directory-program (AAD) som genererar pipelines i din ADF.  Den kan också konfigureras för att komma åt fil system/fil resurser/Azure Files där du lagrar dina paket.  Baserat på de värden som du anger för sina anrops alternativ genererar **AzureDTExec** och kör en unik ADF-pipeline med AKTIVITETEN kör SSIS-paket.  Om du anropar **AzureDTExec** med samma värden för dess alternativ kommer den befintliga pipeline att köras igen.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Om du vill använda **AzureDTExec**hämtar och installerar du den senaste SSMS (version 18,3 eller senare) [härifrån.](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017)
 
 ## <a name="configure-azuredtexec-utility"></a>Konfigurera AzureDTExec-verktyget
@@ -40,7 +40,7 @@ Den här åtgärden öppnar **AzureDTExecConfig** -fönstret som måste öppnas 
 
 I fönstret **AzureDTExecConfig** kan du ange konfigurations inställningarna enligt följande:
 
-- **ApplicationId**: Ange den unika identifieraren för AAD-appen som du skapar med rätt behörigheter för att generera pipelines i din ADF, se [skapa en AAD-app och tjänstens huvud namn via Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) artikel för mer information.
+- **ApplicationId**: Ange den unika identifieraren för AAD-appen som du skapar med rätt behörigheter för att generera pipeliner i din ADF. mer information finns i [skapa en AAD-app och tjänstens huvud namn via Azure Portal](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) artikel för mer information.
 
 - **AuthenticationKey**: Ange autentiseringsnyckel för din AAD-app.
 
@@ -50,53 +50,65 @@ I fönstret **AzureDTExecConfig** kan du ange konfigurations inställningarna en
 
 - **ResourceGroup**: Ange namnet på Azure-resurs gruppen där din ADF skapades.
 
-- **DataFactory**:  Ange namnet på din ADF, där unika pipelines med kör SSIS-paket-aktivitet genereras baserat på värdena för de alternativ som anges vid anrop av **AzureDTExec**.
+- **DataFactory**: Ange namnet på din ADF, där unika pipelines med AKTIVITETEN kör SSIS-paket genereras baserat på värdena för de alternativ som visas när du anropar **AzureDTExec**.
 
-- **IRName**: Ange namnet på Azure-SSIS IR i din ADF, där de paket som anges i deras Universal Naming Convention (UNC)-sökväg när du anropar **AzureDTExec** ska köras.
+- **IRName**: Ange namnet på Azure-SSIS IR i din ADF, där de paket som anges i deras Universal NAMING Convention (UNC)-sökväg när du anropar **AzureDTExec** körs.
 
 - **PackageAccessDomain**: Ange domänens autentiseringsuppgifter för att komma åt dina paket i UNC-sökvägen som anges när du anropar **AzureDTExec**.
 
-- **PackageAccessUserName**:  Ange autentiseringsuppgifterna för användar namn för att komma åt dina paket i UNC-sökvägen som anges när du anropar **AzureDTExec**.
+- **PackageAccessUserName**: Ange användar namnet som autentiseringsuppgifter för att komma åt dina paket i UNC-sökvägen som anges när du anropar **AzureDTExec**.
 
 - **PackageAccessPassword**: Ange lösen ordets autentiseringsuppgifter för att komma åt dina paket i UNC-sökvägen som anges när du anropar **AzureDTExec**.
 
-- **LogPath**:  Ange UNC-sökvägen till loggmappen där loggfiler från paket körningarna på Azure-SSIS IR ska skrivas.
+- **LogPath**: ange UNC-sökvägen till loggmappen där loggfiler från paket körningarna på Azure-SSIS IR skrivs.
 
-- **LogLevel**:  Ange det valda omfånget för loggning **från fördefinierade**/,**grundläggande**/**utförliga**/**prestanda** alternativ för dina paket körningar på Azure-SSIS IR.
+- **LogLevel**: Ange det valda omfånget för loggning från fördefinierade **Null**/**grundläggande**/**utförliga**/**prestanda** alternativ för dina paket körningar på Azure-SSIS IR.
 
-- **LogAccessDomain**: Ange domänens autentiseringsuppgifter för att komma åt loggmappen i UNC-sökvägen när du skriver loggfiler, krävs när **LogPath** har angetts och **LogLevel** inte är **Null**.
+- **LogAccessDomain**: Ange domänens autentiseringsuppgifter för att komma åt din loggfil i UNC-sökvägen när loggfiler skrivs, krävs när **LogPath** har angetts och **LogLevel** inte är **Null**.
 
-- **LogAccessUserName**: Ange inloggnings uppgifter för att komma åt loggmappen i UNC-sökvägen när du skriver loggfiler, krävs när **LogPath** anges och **LogLevel** inte är **Null**.
+- **LogAccessUserName**: Ange användar namnet som autentiseringsuppgifter för att komma åt LOGGMAPPEN i UNC-sökvägen när du skriver loggfiler, krävs när **LogPath** har angetts och **LogLevel** inte är **Null**.
 
-- **LogAccessPassword**: Ange lösen ordets autentiseringsuppgifter för att komma åt loggmappen i UNC-sökvägen när du skriver loggfiler, krävs när **LogPath** anges och **LogLevel** inte är **Null**.
+- **LogAccessPassword**: Ange lösen ordets autentiseringsuppgifter för att komma åt din loggfil i UNC-sökvägen när loggfiler skrivs, krävs när **LogPath** har angetts och **LogLevel** inte är **Null**.
 
-- **PipelineNameHashStrLen**: Ange längden på hash-strängarna som ska genereras från värdena för de alternativ som du anger när du anropar **AzureDTExec**.  Strängarna används för att skapa unika namn för ADF-pipeliner som kör dina paket på Azure-SSIS IR.  Det räcker med en längd på 32 tecken.
+- **PipelineNameHashStrLen**: ange längden på hash-strängarna som ska genereras från värdena för de alternativ som du anger när du anropar **AzureDTExec**.  Strängarna används för att skapa unika namn för ADF-pipeliner som kör dina paket på Azure-SSIS IR.  Det räcker vanligt vis en längd på 32 tecken.
 
 Om du planerar att lagra dina paket och loggfiler i fil system/fil resurser lokalt, bör du ansluta dina Azure-SSIS IR till ett virtuellt nätverk som är anslutet till ditt lokala nätverk, så att du kan hämta dina paket och skriva dina loggfiler, se [ansluta Azure-SSIS IR till ett VNet](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network) artikeln för mer information.
 
 För att undvika att Visa känsliga värden som skrivs i **AzureDTExec. Settings** -filen i oformaterad text kodas de till strängar av base64-kodning.  När du anropar **AzureDTExec**, avkodas alla base64-kodade strängar tillbaka till sina ursprungliga värden.  Du kan skydda **AzureDTExec. Settings** -filen ytterligare genom att begränsa de konton som har åtkomst till den.
 
 ## <a name="invoke-azuredtexec-utility"></a>Anropa AzureDTExec-verktyget
-Du kan anropa **AzureDTExec** i kommando tolken och ange relevanta värden för specifika alternativ i scenariot för användnings fall, till exempel:
+Du kan anropa **AzureDTExec** i kommando tolken och ange relevanta värden för specifika alternativ i scenariot för användnings fall.
 
-`AzureDTExec.exe
-  /F \\MyStorageAccount.file.core.windows.net\MyFileShare\MyPackage.dtsx
-  /Conf \\MyStorageAccount.file.core.windows.net\MyFileShare\MyConfig.dtsConfig
-  /Conn "MyConnectionManager;Data Source=MyDatabaseServer.database.windows.net;User ID=MyAdminUsername;Password=MyAdminPassword;Initial Catalog=MyDatabase"
-  /Set \package.variables[MyVariable].Value;MyValue
-  /De MyEncryptionPassword`
+Verktyget installeras på `{SSMS Folder}\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn`. Du kan lägga till sökvägen till miljövariabeln PATH för att den ska anropas från var som helst.
+
+```dos
+> cd "C:\Program Files (x86)\Microsoft SQL Server Management Studio 18\Common7\IDE\CommonExtensions\Microsoft\SSIS\150\Binn"
+> AzureDTExec.exe  ^
+  /F \\MyStorageAccount.file.core.windows.net\MyFileShare\MyPackage.dtsx  ^
+  /Conf \\MyStorageAccount.file.core.windows.net\MyFileShare\MyConfig.dtsConfig  ^
+  /Conn "MyConnectionManager;Data Source=MyDatabaseServer.database.windows.net;User ID=MyAdminUsername;Password=MyAdminPassword;Initial Catalog=MyDatabase"  ^
+  /Set \package.variables[MyVariable].Value;MyValue  ^
+  /De MyEncryptionPassword
+```
 
 När du anropar **AzureDTExec** finns liknande alternativ som när du anropar **Dtexec**. mer information finns i dokumentationen för [Dtexec-verktyget](https://docs.microsoft.com/sql/integration-services/packages/dtexec-utility?view=sql-server-2017) .  Här följer de alternativ som stöds för närvarande:
 
-- **/F [Il]** : Läser in ett paket som lagras i fil system/fil resurs/Azure Files.  Som värde för det här alternativet kan du ange UNC-sökvägen för paket filen i fil system/fil resurs/Azure Files med dess dtsx-tillägg.  Om UNC-sökvägen som anges innehåller ett blank steg måste du ange citat tecken runt hela sökvägen.
+- **/F [Il]** : läser in ett paket som lagras i fil system/fil resurs/Azure Files.  Som värde för det här alternativet kan du ange UNC-sökvägen för paket filen i fil system/fil resurs/Azure Files med dess dtsx-tillägg.  Om UNC-sökvägen som anges innehåller ett blank steg måste du ange citat tecken runt hela sökvägen.
 
-- **/Conf [igFile]** : Anger en konfigurations fil som värden ska extraheras från.  Med det här alternativet kan du ange en körnings konfiguration för ditt paket som skiljer sig från det som anges i design läge.  Du kan lagra olika inställningar i en XML-konfigurationsfil och sedan läsa in dem innan du kör paketet.  Mer information finns i artikeln [SSIS Package Configurations](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017) .  Som värde för det här alternativet kan du ange UNC-sökvägen för konfigurations filen i fil system/fil resurs/Azure Files med dess dtsConfig-tillägg.  Om UNC-sökvägen som anges innehåller ett blank steg måste du ange citat tecken runt hela sökvägen.
+- **/Conf [igFile]** : anger en konfigurations fil för extrahering av värden från.  Med det här alternativet kan du ange en körnings konfiguration för ditt paket som skiljer sig från det som anges i design läge.  Du kan lagra olika inställningar i en XML-konfigurationsfil och sedan läsa in dem innan du kör paketet.  Mer information finns i artikeln [SSIS Package Configurations](https://docs.microsoft.com/sql/integration-services/packages/package-configurations?view=sql-server-2017) .  Som värde för det här alternativet kan du ange UNC-sökvägen för konfigurations filen i fil system/fil resurs/Azure Files med dess dtsConfig-tillägg.  Om UNC-sökvägen som anges innehåller ett blank steg måste du ange citat tecken runt hela sökvägen.
 
-- **/Conn [et]** : Anger anslutnings strängar för befintliga anslutnings hanterare i paketet.  Med det här alternativet kan du ange körnings anslutnings strängar för befintliga anslutnings hanterare i ditt paket som skiljer sig från de som anges i design läge.  Som värde för det här alternativet kan du ange det på följande sätt: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
+- **/Conn [et]** : anger anslutnings strängar för befintliga anslutnings hanterare i paketet.  Med det här alternativet kan du ange körnings anslutnings strängar för befintliga anslutnings hanterare i ditt paket som skiljer sig från de som anges i design läge.  Som värde för det här alternativet kan du ange det på följande sätt: `connection_manager_name_or_id;connection_string [[;connection_manager_name_or_id;connection_string]...]`.
 
-- **/Set**: Åsidosätter konfigurationen av en parameter, variabel, egenskap, behållare, loggpost, uppräknare eller anslutning i ditt paket.  Det här alternativet kan anges flera gånger.  Som värde för det här alternativet kan du ange det enligt följande: `property_path;value`, till exempel `\package.variables[counter].Value;1` åsidosätter värdet för `counter` variabeln som 1.  Du kan använda guiden paket konfiguration för att hitta, kopiera och klistra in värdet `property_path` för objekt i ditt paket vars värde du vill åsidosätta. mer information finns i dokumentationen för [paket konfigurations guiden](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014) .
+- **/Set**: åsidosätter konfigurationen av en parameter, variabel, egenskap, container, log Provider, uppräknare för uppräknare eller anslutning i ditt paket.  Det här alternativet kan anges flera gånger.  Som värde för det här alternativet kan du ange det enligt följande: `property_path;value`, till exempel `\package.variables[counter].Value;1` åsidosätter värdet för `counter`-variabeln som 1.  Du kan använda guiden paket konfiguration för att söka efter, kopiera och klistra in värdet för `property_path` för objekt i ditt paket vars värde du vill åsidosätta, se dokumentationen för [paket konfigurations guiden](https://docs.microsoft.com/sql/integration-services/package-configuration-wizard-ui-reference?view=sql-server-2014) för mer information.
 
-- **/De [crypt]** : Ställer in dekrypterings lösen ordet för ditt paket som har kon figurer ATS med **EncryptAllWithPassword**/**EncryptSensitiveWithPassword** -skydds nivå.
+- **/De [crypt]** : anger avkrypterings lösen ordet för ditt paket som är konfigurerat med **EncryptAllWithPassword**/-**EncryptSensitiveWithPassword** skydds nivå.
+
+> [!NOTE]
+> Om du anropar **AzureDTExec** med nya värden för dess alternativ skapas en ny pipeline förutom alternativet **/de [kript]** .
 
 ## <a name="next-steps"></a>Nästa steg
-När unika pipeliner med kör SSIS-paket-aktivitet genereras och körs efter att ha anropat **AzureDTExec**, kan de redige ras och eller köras på ADF-portalen, se [köra SSIS-paket som ADF-aktiviteter](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) artikel för mer information.
+
+När unika pipeliner med kör SSIS-paket-aktivitet genereras och körs efter att ha anropat **AzureDTExec**, kan de övervakas på ADF-portalen. Mer information finns i artikeln om att [köra SSIS-paket som ADF-aktiviteter](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) .
+
+> [!WARNING]
+> Den genererade pipelinen förväntas användas endast av **AzureDTExec**. Egenskaperna/parametrarna kan ändras i framtiden, så du bör inte ändra/återanvända dem i något annat syfte, vilket kan bryta **AzureDTExec**. Om detta händer kan du alltid ta bort pipelinen och **AzureDTExec** genererar en ny pipeline nästa gången den anropas.

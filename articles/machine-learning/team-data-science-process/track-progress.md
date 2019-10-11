@@ -1,52 +1,53 @@
 ---
-title: Spårning av dataforskningsprojekt - Team Data Science Process
-description: Hur data science gruppchefer team lånet och projektet leads kan följa förloppet för ett datavetenskapsprojekt.
+title: Spåra förloppet för process projekt för team data vetenskap
+description: Hur data vetenskaps grupps chefer, grupp ledare och projekt ledare kan följa förloppet för ett data vetenskaps projekt.
 author: marktab
 manager: cgronlun
 editor: cgronlun
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/28/2017
+ms.date: 09/26/2019
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7745a53084f4477f7b736ea9d130ffd3eed771f4
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 28bd3e558294c000ba65a1c60fe227bbae7e82dd
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60252581"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244066"
 ---
-# <a name="tracking-the-progress-of-data-science-projects"></a>Spårning av dataforskningsprojekt
+# <a name="track-the-progress-of-data-science-projects"></a>Spåra förloppet för data vetenskaps projekt
 
-Data science gruppchefer gruppledare och projekt leads behovet av att följa förloppet för sina projekt, arbetet som har gjorts på dem och av vem och kvar på att göra-listor. 
+Data vetenskaps grupps chefer, grupp ledare och projekt ledare kan följa förloppet för sina projekt, till exempel vad det är som har utförts, vem som gjorde arbetet och vilket arbete som är kvar. 
 
 ## <a name="azure-devops-dashboards"></a>Azure DevOps-instrumentpaneler
-Om du använder Azure DevOps, kan du skapa instrumentpaneler för att spåra aktiviteter och arbetsobjekt som är associerade med ett visst flexibel projekt. 
 
-Mer information om hur du skapar och anpassar instrumentpaneler och widgetar på Azure DevOps finns i följande uppsättningar med instruktioner:
+Om du använder Azure DevOps kan du bygga instrument paneler för att spåra de aktiviteter och arbets objekt som är associerade med ett angivet Agile-projekt. Mer information om instrument paneler finns i [instrument paneler, rapporter och widgetar](/azure/devops/report/dashboards/).
 
-- [Lägga till och hantera instrumentpaneler](https://docs.microsoft.com/azure/devops/report/dashboards/dashboards)
-- [Lägga till widgetar i en instrumentpanel](https://docs.microsoft.com/azure/devops/report/dashboards/add-widget-to-dashboard).
+Instruktioner för hur du skapar och anpassar instrument paneler och widgetar i Azure DevOps finns i följande snabb starter:
 
-## <a name="example-dashboard"></a>Instrumentpanelen för exemplet
+- [Lägga till och hantera instrument paneler](/azure/devops/report/dashboards/dashboards)
+- [Lägga till widgetar i en instrument panel](/azure/devops/report/dashboards/add-widget-to-dashboard)
 
-Här är ett enkelt exempel instrumentpanel som har utformats för att spåra sprint aktiviteter för en flexibel datavetenskapsprojekt, samt antal incheckningar till tillhörande databaser. Den **vänster överkant** panelen visar:
+## <a name="example-dashboard"></a>Exempel instrument panel
 
-- den aktuella sprint nedräkning 
-- Antal incheckningar för varje databas under de senaste 7 dagarna
-- arbetsobjekt för specifika användare. 
+Här är ett enkelt exempel på en instrument panel som spårar Sprint aktiviteter i ett flexibelt data vetenskaps projekt, inklusive antalet incheckningar till tillhör ande databaser. 
 
-Panelerna återstående visar den ackumulerade Flödesdiagram (CFD) och burndown burnup för ett projekt:
+- **Nedräknings** panelen visar antalet dagar som finns kvar i aktuell Sprint. 
 
-- **Längst ned till vänster**:  CFD mängden arbete i en viss status, som visar godkända grå utförts i blått och gjort i grönt.
-- **Överst till höger**: burndown-diagram arbetet kvar för att slutföra jämfört med återstående tid).
-- **Nedre högra hörnet**: burnup diagrammets det arbete som har slutförts och den totala mängden arbete.
+- De två **kod panelerna** visar antalet incheckningar i de två projekt databaserna under de senaste sju dagarna. 
 
-![instrumentpanel](./media/track-progress/dashboard.png)
+- **Arbets objekt för TDSP kund projekt** visar resultatet av en fråga för alla arbets objekt och deras status. 
 
-En beskrivning av hur du skapar dessa diagram finns i snabbstarter och självstudier på [instrumentpaneler](https://docs.microsoft.com/azure/devops/report/dashboards/).
- 
+- Ett **ackumulerat flödes diagram** (CFD) visar antalet stängda och aktiva arbets objekt.
+
+- **Burndown-diagrammet** visar att arbete fortfarande slutförs mot den återstående tiden i sprinten.
+
+- **Burnup-diagrammet** visar slutfört arbete jämfört med den totala mängden arbete i Sprint.
+
+![Instrumentpanel](./media/track-progress/dashboard.png)
+
 ## <a name="next-steps"></a>Nästa steg
 
-Genomgångar som visar alla steg i processen för **specifika scenarier** tillhandahålls också. De visas och som är kopplad till miniatyrbilder beskrivningarna i den [exempel genomgångar](walkthroughs.md) artikeln. De visar hur du kombinerar molnlösningar, lokala verktyg och tjänster i ett arbetsflöde eller en pipeline för att skapa ett intelligenta program. 
+Genom gångar som används för att [köra team data science-processen](walkthroughs.md) visas genom gång som demonstrerar alla steg i processen för olika scenarier, med länkar och miniatyr beskrivningar. De länkade scenarierna illustrerar hur du kombinerar molnet och lokala verktyg och tjänster i arbets flöden eller pipelines för att skapa intelligenta program. 

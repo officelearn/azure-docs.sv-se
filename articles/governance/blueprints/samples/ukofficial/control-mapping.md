@@ -1,18 +1,18 @@
 ---
 title: Exempel på officiella och UK NHS-ritningar – kontroll mappning
-description: Kontroll mappning av NHS i Storbritannien och Storbritannien.
+description: Kontroll mappning av NHS i Storbritannien och Storbritannien. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 services: blueprints
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 823b890f1898de5006b965ffa19520016aceb121
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 9001e752c9b0f79d7c688e0b13fd7133004ff4ad
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980884"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72248786"
 ---
 # <a name="control-mapping-of-the-uk-official-and-uk-nhs-blueprint-samples"></a>Kontroll mappning av NHS i Storbritannien och Storbritannien i Storbritannien
 
@@ -90,7 +90,7 @@ Den här skissen tilldelar också Azure Policy definitioner till gransknings kon
 
 Den här skissen tilldelar också en Azure Policy-definition som granskar Linux VM lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här designen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
 
-- \[Preview @ no__t-1: Granska virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
+- \[Preview @ no__t-1: granskning av virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela Azure Policy definitioner som granskar virtuella Windows-datorer som inte uppfyller minimi kraven och andra lösen ords krav. Om de virtuella datorerna strider mot principen för lösen ords säkerhet kan du vidta åtgärder för att säkerställa att lösen ord för alla VM-användarkonton är kompatibla med principen.
 
@@ -99,18 +99,18 @@ Den här skissen hjälper dig att använda starka lösen ord genom att tilldela 
 - \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
 - \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
 - \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
-- \[Preview @ no__t-1: Granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
-- \[Preview @ no__t-1: Granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[Preview @ no__t-1: Granska virtuella Windows-datorer som inte har en minsta ålder på lösen ord på 1 dag
-- \[Preview @ no__t-1: Granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[Preview @ no__t-1: Granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte har inställningen för lösen ords komplexitet aktiverat
+- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[Preview @ no__t-1: granska virtuella Windows-datorer som saknar lägsta ålder för lösen ord på 1 dag
+- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[Preview @ no__t-1: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 
 Den här skissen hjälper dig också att styra åtkomsten till Azure-resurser genom att tilldela Azure Policy definitioner. Dessa principer granskar användningen av resurs typer och konfigurationer som kan tillåta mer åtkomst till resurser. Att förstå resurser som strider mot dessa principer kan hjälpa dig att vidta lämpliga åtgärder för att säkerställa åtkomst till Azure-resurser som är begränsade till behöriga användare.
 
 - \[Preview @ no__t-1: Distribuera krav för att granska virtuella Linux-datorer som har konton utan lösen ord
 - \[Preview @ no__t-1: Distribuera krav för att granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
-- \[Preview @ no__t-1: Granska virtuella Linux-datorer som har konton utan lösen ord
-- \[Preview @ no__t-1: Granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
+- \[Preview @ no__t-1: granska virtuella Linux-datorer som har konton utan lösen ord
+- \[Preview @ no__t-1: granska virtuella Linux-datorer som tillåter fjärr anslutningar från konton utan lösen ord
 - Lagrings konton ska migreras till nya Azure Resource Manager resurser
 - Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
 - Granska virtuella datorer som inte använder hanterade diskar
@@ -147,7 +147,7 @@ Den här skissen tilldelar också Azure Policy definitioner till gransknings kon
 
 Den här skissen tilldelar också en Azure Policy-definition som granskar Linux VM lösen ords fil behörigheter för att varna om de är felaktigt inställda. Med den här designen kan du vidta lämpliga åtgärder för att säkerställa att autentiserare inte komprometteras.
 
-- \[Preview @ no__t-1: Granska virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
+- \[Preview @ no__t-1: granskning av virtuella Linux-/etc/passwd fil behörigheter har angetts till 0644
 
 ## <a name="13-audit-information-for-users"></a>13 gransknings information för användare
 

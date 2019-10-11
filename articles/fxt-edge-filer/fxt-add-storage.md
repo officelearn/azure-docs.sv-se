@@ -1,164 +1,164 @@
 ---
-title: Lägga till backend-lagringsenheter i klustret för Microsoft Azure FXT Edge Filer
-description: Konfigurera backend-lagring och klientinriktade pseudonamespace för Azure FXT Edge Filer
+title: Lägg till Server dels lagring till Microsoft Azure FXT Edge-kluster
+description: Så här konfigurerar du Server dels lagring och klient-och pseudonamespace för Azure FXT Edge-filer
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: 4a69aa7838e08c83b47c5f0248e821edf86b3990
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: ecc246368cae74440ada782940931b3588193975
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543274"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72256060"
 ---
-# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Självstudier: Lägg till backend-lagring och konfigurera virtuella namnområdet 
+# <a name="tutorial-add-back-end-storage-and-configure-the-virtual-namespace"></a>Självstudie: Lägg till Server dels lagring och konfigurera det virtuella namn området 
 
-Den här självstudien beskrivs hur du lägger till tillbaka-edge-lagring för din cachelagring och hur du ställer in klientinriktade virtuellt filsystem. 
+I den här självstudien beskrivs hur du lägger till lagring på Server sidan för din cache och hur du konfigurerar klientens virtuella fil system. 
 
-Klustret ansluts till backend-lagringssystem att komma åt databegäran för klienter och för att lagra ändringar mer permanent än i cachen. 
+Klustret ansluter till Server dels lagrings system för att få åtkomst till begäran om data klienter och för att lagra ändringar mer permanent än i cachen. 
 
-Namnområdet är klientinriktade pseudo filsystemet där du kan byta ut backend-lagring utan att ändra på klientsidan arbetsflöden. 
+Namn området är det klientbaserade pseudo-fil systemet som gör att du kan byta ut backend-lagring utan att ändra arbets flöden på klient sidan. 
 
 I den här självstudien lär du dig: 
 
 > [!div class="checklist"]
-> * Hur du lägger till backend-lagring till Azure FXT Edge Filer-kluster 
-> * Hur du definierar klientinriktade sökväg för lagring
+> * Så här lägger du till Server dels lagring i Azure FXT Edge-kluster 
+> * Så här definierar du sökvägen till klienten för lagring
 
-## <a name="about-back-end-storage"></a>Om backend-lagring
+## <a name="about-back-end-storage"></a>Om Server dels lagring
 
-Azure FXT Edge Filer klustret använder en *viktiga filer* definitionen för att länka en backend-lagringssystemet till FXT-klustret.
+Azure FXT Edge-kluster använder en definition av *kärn* filer för att länka ett Server dels lagrings system till FXT-klustret.
 
-Azure FXT Edge-Filer är kompatibel med flera populära NAS maskinvarusystem och kan använda tom behållare från Azure Blob eller andra molnlagring. 
+Azure FXT Edge-filer är kompatibla med flera populära NAS-maskinvarusystem och kan använda tomma behållare från Azure Blob eller annan moln lagring. 
 
-Cloud storage-behållare måste vara tom när du lägger till så att operativsystemet FXT helt kan hantera alla data på lagringsvolymen för molnet. Du kan flytta dina befintliga data till molnbehållaren för när du lägger till behållaren i klustret som en core-filer.
+Moln lagrings behållare måste vara tomma när de läggs till så att operativ systemet FXT kan hantera alla data i moln lagrings volymen fullständigt. Du kan flytta dina befintliga data till moln behållaren när du har lagt till behållaren i klustret som en kärn post.
 
-Använd Kontrollpanelen för att lägga till en core-filer i systemet.
+Använd kontroll panelen för att lägga till en kärn-filer i systemet.
 
 > [!NOTE]
 > 
-> Om du vill använda Amazon AWS eller Google Cloud storage måste du installera en FlashCloud<sup>TM</sup> funktionen licens. Kontakta din Microsoft-representant för en licensnyckel och följ sedan instruktionerna i den äldre konfigurationsguiden för [när du lägger till eller ta bort funktionen licenser](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/install_licenses.html#install-licenses).
+> Om du vill använda Amazon AWS eller Google Cloud Storage måste du installera en FlashCloud<sup>TM</sup> -funktions licens. Kontakta din Microsoft-representant om du vill ha en licens nyckel och följ sedan anvisningarna i den äldre konfigurations guiden för [att lägga till eller ta bort funktions licenser](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/install_licenses.html#install-licenses).
 > 
-> Support för Azure Blob storage ingår i Azure FXT Edge Filer programvarulicensen. 
+> Stöd för Azure Blob Storage ingår i licensen för Azure FXT Edge-program. 
 
-Mer detaljerad information om att lägga till grundläggande filter finns i dessa avsnitt ur i konfigurationsguiden för klustret:
+Mer detaljerad information om hur du lägger till Core-filläsare finns i följande avsnitt i guiden kluster konfiguration:
 
-* För mer information om att välja och förbereder för att lägga till en core-filer, läsa [arbeta med Core filter](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/core_filer_overview.html#core-filer-overview).
-* Detaljerade krav och stegvisa anvisningar finns i de här artiklarna:
+* Mer information om att välja och förbereda för att lägga till en kärn-filer finns i [arbeta med Core](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/core_filer_overview.html#core-filer-overview)-.
+* Detaljerade krav och stegvisa anvisningar finns i följande artiklar:
 
-  * [Att lägga till en ny NAS Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html#create-core-filer-nas)
-  * [Att lägga till en ny Cloud Core Filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#create-core-filer-cloud)
+  * [Lägga till en ny NAS core-filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_nas.html#create-core-filer-nas)
+  * [Lägga till en ny Cloud core-filer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#create-core-filer-cloud)
 
-När du lägger till en core-filer kan du uppdatera sina inställningar på sidan Inställningar Core Filer information.
+När du har lagt till en kärn fil fil kan du uppdatera dess inställningar på sidan core-filer för information inställningar.
 
-## <a name="add-a-core-filer"></a>Lägg till en core-filer
+## <a name="add-a-core-filer"></a>Lägg till en kärn-filer
 
-Definiera en core-filer genom att klicka på den **skapa** knappen på den **Core Filer** > **hantera Core filter** inställningssidan.
+Definiera en kärna genom att klicka på knappen **skapa** på sidan **core**-filer  > **Hantera Core-Filskydd** .
 
-![Klicka på knappen Skapa ovanför listan med core filter på sidan Hantera grundläggande filter](media/fxt-cluster-config/create-core-filer-button.png)
+![Klicka på knappen Skapa ovanför listan över Core-på sidan Hantera core-filer](media/fxt-cluster-config/create-core-filer-button.png)
 
-Den **lägga till nya Core Filer** guiden vägleder dig genom processen att skapa en core-filer som länkar till backend-lagringen. Konfigurationsguide för kluster har steg för steg-beskrivning av processen, vilket skiljer sig för NFS/NAS-lagring och för molnlagring (länkar är ovan). 
+Guiden **Lägg till nya kärnor** vägleder dig genom processen att skapa en kärn-filer som länkar till Server dels lagringen. Kluster konfigurations guiden innehåller stegvisa beskrivningar av processen, som skiljer sig för NFS/NAS-lagring och för moln lagring (länkarna ovan). 
 
-Underuppgifter är:
+Under aktiviteter är:
 
-* Ange vilken typ av core-filer (NAS eller i molnet)
+* Ange typ av kärn filer (NAS eller moln)
 
-  ![Första sidan i maskinvara NAS core filer guiden Ny. Alternativet för ”cloud core filer” är inaktiverad och visar ett felmeddelande visas om saknade licens.](media/fxt-cluster-config/new-nas-1.png)
+  ![Första sidan i guiden Ny Core-åtkomst för maskin vara. Alternativet för "Cloud core-filer" är inaktiverat och visar ett fel meddelande om licensen som saknas.](media/fxt-cluster-config/new-nas-1.png)
 
-* Ange namnet på filservern core. Välj ett namn som hjälper dig att klusteradministratörer förstå vilka lagringssystemet som representerar.
+* Ange namnet på kärn filen. Välj ett namn som hjälper kluster administratörer att förstå vilket lagrings system den representerar.
 
-* Ange fullständigt kvalificerade domännamnet (FQDN) eller IP-adress för NAS core filter. FQDN är rekommenderas för alla kärnor filter och krävs för SMB-åtkomst.
+* För NAS Core-anger du det fullständigt kvalificerade domän namnet (FQDN) eller IP-adressen. FQDN rekommenderas för alla core-filer och krävs för SMB-åtkomst.
 
-* Välj en princip för cache - den andra sidan i guiden visas tillgänglig cache-principer för den nya core-filer. Mer information finns i [cachelagra principavsnittet i guiden för konfiguration av kluster](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html). 
+* Välj en princip för cachelagring – den andra sidan i guiden listar tillgängliga cache-principer för de nya kärnorna. Mer information finns i [avsnittet om cache-principer i guiden kluster konfiguration](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_manage_cache_policies.html). 
 
-  ![Andra sidan i en maskinvara NAS core filer guiden Ny; listrutan princip är öppen, och flera inaktiverade alternativ och alternativ för tre giltig cache (kringgå, läsa cachelagring och skrivbar cachelagring).](media/fxt-cluster-config/new-nas-choose-cache-policy.png)
+  ![Andra sidan i en maskinvaru-NAS ny Core-filguide; List rutan cacheinställningar är öppen, visar flera inaktiverade alternativ och tre giltiga alternativ för cache-princip (kringgå, läsbegäran och läsning/skrivning av cachelagring).](media/fxt-cluster-config/new-nas-choose-cache-policy.png)
 
-* Du måste ange de cloud service och autentiseringsuppgifterna för åtkomst, bland andra parametrar för molnlagring. Mer information finns [molnbaserad tjänst och protokoll](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) i konfigurationsguiden för klustret.
+* För moln lagring måste du ange moln tjänsten och autentiseringsuppgifter för åtkomst, bland andra parametrar. Mer information finns i [moln tjänst och protokoll](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/new_core_filer_cloud.html#cloud-service-and-protocol) i guiden kluster konfiguration.
 
-  ![Viktig information för filer i guiden Ny Core-Filer i molnet](media/fxt-cluster-config/new-core-filer-cloud3.png) 
+  ![Cloud Core-information i guiden nya kärnor](media/fxt-cluster-config/new-core-filer-cloud3.png) 
   
-  Om du redan har lagt till molnautentiseringsuppgifter för det här klustret som de visas i listan. Uppdatera och lägga till autentiseringsuppgifter i den **kluster** > **Molnautentiseringsuppgifter** inställningssidan. 
+  Om du redan har lagt till autentiseringsuppgifter för moln åtkomst för det här klustret visas de i listan. Uppdatera och Lägg till autentiseringsuppgifter på sidan Inställningar för**moln-autentiseringsuppgifter** på **kluster** > . 
 
-När du har fyllt i alla de nödvändiga inställningarna i guiden klickar du på den **lägga till Filer** knapp för att skicka ändringen.
+När du har fyllt i alla nödvändiga inställningar i guiden klickar du på knappen **Lägg till** filer för att skicka ändringen.
 
-Efter en liten stund lagringssystemet som visas på den **instrumentpanelen** core filter lista och kan nås via core inställningssidor för filer.
+Efter en liten stund visas lagrings systemet i listan **instrument panel** core-filer och kan nås via sidor med inställningar för kärn filer.
 
-![Core filer ”hektisk tid NAS” på inställningssidan hantera Core filter med Detaljvyn filer expanderas](media/fxt-cluster-config/core-filer-in-manage-page.png)
+![Core-filer "Flurry-NAS" på sidan Hantera Core-inställningar, där vyn information visas](media/fxt-cluster-config/core-filer-in-manage-page.png)
 
-Core-filer i den här skärmbilden saknar en vserver. Du måste länka core-filer till en vserver och skapa en förgrening så att klienter har åtkomst till lagringen. De här stegen beskrivs nedan i [konfigurera namnområdet](#configure-the-namespace).
+Kärnorna i den här skärm bilden saknar en vserver. Du måste länka kärn filer till en vserver och skapa en Knut punkt så att klienterna kan komma åt lagringen. De här stegen beskrivs nedan i [Konfigurera namn området](#configure-the-namespace).
 
-## <a name="configure-the-namespace"></a>Konfigurera namnområdet
+## <a name="configure-the-namespace"></a>Konfigurera namn området
 
-Azure FXT Edge Filer-klustret skapar ett virtuellt filsystem som kallas den *kluster namnområde* som gör det enklare för klientåtkomst till data som lagras på skilda backend-system. Eftersom klienter begär filer med hjälp av en virtuell sökväg, lagringssystem läggs till eller ersättas utan att ändra klient-arbetsflödet. 
+Azure FXT Edge-kluster skapar ett virtuellt fil system med namnet *kluster namn området* som fören klar klient åtkomsten till data som lagras på olika Server dels system. Eftersom klienter begär filer med hjälp av en virtuell sökväg kan du lägga till eller ersätta lagrings system utan att behöva ändra klient arbets flödet. 
 
-Namnområdet kluster kan du presentera moln- och NAS-lagringssystem i en liknande filstruktur. 
+Kluster namn området gör det också möjligt att presentera moln-och NAS-lagringssystem i en liknande fil struktur. 
 
-Klustrets vservers Underhåll namnområdet och hämta innehåll till klienter. Det finns två steg för att skapa kluster-namnområde: 
+Klustrets vservers upprätthåller namn området och betjänar innehåll till klienter. Det finns två steg för att skapa kluster namn området: 
 
 1. Skapa en vserver 
-1. Konfigurera vägkorsningar mellan backend-lagringssystem och klientinriktade filsystem-sökvägar 
+1. Konfigurera Knut punkter mellan server dels lagrings system och sökvägar för klient-Facing-filsystem 
 
 ### <a name="create-a-vserver"></a>Skapa en vserver
 
-VServers är virtuella filservrar som styr hur data flödar mellan klienten och klustrets core filter:
+VServers är virtuella fil servrar som styr hur data flödar mellan klienten och klustrets kärn-filer:
 
-* VServers värden klientinriktade IP-adresser
-* VServers skapa namnområdet och definiera vägkorsningar som mappar klientinriktade virtuell katalogstruktur till export på backend-lagring
-* VServers framtvinga filen åtkomstkontroller, däribland core filer export principer och användaren autentiseringssystem
-* VServers tillhandahåller en SMB-infrastruktur
+* VServers IP-adresser för värd klienten
+* VServers skapa namn området och definiera Knut punkter som mappar den klient-riktade virtuella katalog strukturen till export på backend-slutpunkt
+* VServers tillämpa fil åtkomst kontroller, inklusive kärn filer för export och användar verifierings system
+* VServers tillhandahåller SMB-infrastruktur
 
-Innan du börjar konfigurera ett kluster vserver, Läs länkade dokumentationen och kontakta din Microsoft-representant för hjälp med att förstå namnområde och vservers. Om du använder VLAN [skapa dem](fxt-configure-network.md#adjust-network-settings) innan du skapar vserver. 
+Innan du börjar konfigurera ett kluster vserver läser du den länkade dokumentationen och kontaktar din Microsoft-representant om du vill ha hjälp med att förstå namnrymd och vservers. Om du använder VLAN [skapar du dem](fxt-configure-network.md#adjust-network-settings) innan du skapar vserver. 
 
-Dessa avsnitt ur i klustret konfigurationsguiden hjälper dig att bekanta dig med de FXT vserver och globalt namnområde funktioner:
+I de här avsnitten i guiden kluster konfiguration kan du bekanta dig med funktionerna för FXT-vserver och globala namn områden:
 
 * [Skapa och arbeta med VServers](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/settings_overview.html#creating-and-working-with-vservers)
-* [Med hjälp av en Global Namespace](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html)
+* [Använda ett globalt namn område](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gns_overview.html)
 * [Skapa en VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver)
 
 Du behöver minst en vserver för klustret. 
 
-Om du vill skapa en ny vserver, behöver du följande information:
+Om du vill skapa en ny vserver behöver du följande information:
 
-* Namnet som ska anges för vserver
+* Det namn som ska anges för vserver
 
-* Intervallet för klientinriktade IP-adresser som hanterar vserver
+* Intervallet för klient-IP-adresser som vserver ska hantera
 
-  Du måste ange ett enda antal sammanhängande IP-adresser när du skapar vserver. Du kan lägga till fler adresser senare med hjälp av den **som riktas mot klientnätverk** inställningssidan.
+  Du måste ange en enda uppsättning sammanhängande IP-adresser när du skapar vserver. Du kan lägga till fler adresser senare genom att använda sidan klient inställningar för **nätverks åtkomst** .
 
-* Om nätverket innehåller VLAN, vilka VLAN för det här vserver
+* Om nätverket har VLAN, vilket VLAN som ska användas för den här vserver
 
-Använd den **VServer** > **hantera VServers** inställningssidan för att skapa en ny vserver. Läs [skapar en VServer](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) i konfigurationsguiden för klustret. 
+Använd sidan **VServer** > **Hantera VServers** -inställningar för att skapa en ny vserver. Mer information finns i [skapa en vserver](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_vserver_manage.html#creating-a-vserver) i guiden kluster konfiguration. 
 
-![popup-fönstret för att skapa en ny vserver](media/fxt-cluster-config/new-vserver.png)
+![popup-fönster för att skapa en ny vserver](media/fxt-cluster-config/new-vserver.png)
 
-### <a name="create-a-junction"></a>Skapa en förgrening
+### <a name="create-a-junction"></a>Skapa en Knut punkt
 
-En *knutpunkt* mappar en backend-lagringssökväg till namnområdet synligt för klienten.
+En *Knut* punkt mappar en lagrings Sök väg på Server sidan till det synliga namn området för klienter.
 
-Du kan använda det här systemet att förenkla den sökväg som användes i klienten monteringspunkter och skala kapaciteten sömlöst eftersom en virtuell sökväg kan hantera lagring från flera kärnor filter.
+Du kan använda det här systemet för att förenkla den sökväg som används i klient monterings punkter och skala kapaciteten sömlöst eftersom en virtuell sökväg kan hantera lagring från flera core-Filskydd.
 
-![Lägg till ny knutpunkt sida i guiden med inställningar som fyllts](media/fxt-cluster-config/add-junction-full.png)
+![Guiden Lägg till ny Knut sida med inställningar ifyllda](media/fxt-cluster-config/add-junction-full.png)
 
-Referera till [ **VServer** > **Namespace** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) i klustret konfigurationsguide för fullständig information om hur du skapar ett namnområde knutpunkt.
+Mer information om hur du skapar en namn områdes Knut punkt finns i [ **vserver** > -**namnrymden** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_namespace.html) i kluster konfigurations guiden.
 
-![VServer > Namespace inställningssidan som visar information för en knutpunkt](media/fxt-cluster-config/namespace-populated.png)
+![Sidan VServer > namn områdes inställningar som visar information om en förgrening](media/fxt-cluster-config/namespace-populated.png)
 
-## <a name="configure-export-rules"></a>Konfigurera regler för export
+## <a name="configure-export-rules"></a>Konfigurera export regler
 
-När du har både en vserver och arkiverar core kan du anpassa regler för export och exportera principer som styr hur klienterna kan komma åt filer på core filer export.
+När du har både en vserver och en kärn fil, bör du anpassa export reglerna och export principerna som styr hur klienter kan komma åt filer på kärn filerna.
 
-Använd först den **VServer** > **exportera regler** sidan för att lägga till nya regler att ändra standardprincipen eller skapa egna anpassade export-princip.
+Använd först sidan **VServer** > **export regler** för att lägga till nya regler, ändra standard principen eller skapa en egen anpassad export princip.
 
-Sedan använder den **VServer** > **exportera principer** att gälla din core filer export när nås via den vserver den anpassade principen.
+Sedan använder du sidan **VServer** > **export policys** för att tillämpa den anpassade principen på dina kärn-filers exporter vid åtkomst via den vserver.
 
-Läs guiden för konfiguration av kluster-artikeln [styra åtkomst till Core Filer export](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) mer information.
+Mer information finns i artikeln kluster konfigurations guiden för att [kontrol lera åtkomst till viktiga](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/export_rules_overview.html) filer.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-Efter att lägga till och konfigurera klientinriktade namnområdet kan slutföra installationen för ditt kluster: 
+När du har lagt till lagring och konfigurerat klientens namn område, slutför du klustrets första konfiguration: 
 
 > [!div class="nextstepaction"]
 > [Konfigurera klustrets nätverksinställningar](fxt-configure-network.md)

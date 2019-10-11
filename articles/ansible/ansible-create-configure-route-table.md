@@ -1,6 +1,6 @@
 ---
-title: Självstudie – konfigurera Azure-routningstabeller med Ansible | Microsoft Docs
-description: Lär dig att skapa, ändra och ta bort Azure-routningstabeller med Ansible
+title: Självstudie – konfigurera Azure Route-tabeller med Ansible
+description: Lär dig att skapa, ändra och ta bort Azure Route-tabeller med Ansible
 keywords: ansible, azure, devops, bash, playbook, nätverk, väg, routningstabell
 ms.topic: tutorial
 ms.service: ansible
@@ -8,33 +8,33 @@ author: tomarchermsft
 manager: jeconnoc
 ms.author: tarcher
 ms.date: 04/30/2019
-ms.openlocfilehash: 846ff510603c0ed0888ec92ece8b86fad0354c19
-ms.sourcegitcommit: 2ce4f275bc45ef1fb061932634ac0cf04183f181
+ms.openlocfilehash: 14753af58a179ddf4011cb29c7ed08faab62875c
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/07/2019
-ms.locfileid: "65230886"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72241781"
 ---
-# <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Självstudier: Konfigurera Azure-routningstabeller med Ansible
+# <a name="tutorial-configure-azure-route-tables-using-ansible"></a>Självstudie: Konfigurera Azure Route-tabeller med Ansible
 
 [!INCLUDE [ansible-27-note.md](../../includes/ansible-28-note.md)]
 
-Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk och lokala nätverk. Om du behöver mer kontroll över routning i din miljö kan du skapa en [routningstabellen](/azure/virtual-network/virtual-networks-udr-overview). 
+Azure dirigerar automatiskt trafik mellan Azure-undernät, virtuella nätverk och lokala nätverk. Om du behöver mer kontroll över din miljös routning kan du [skapa en routningstabell](/azure/virtual-network/virtual-networks-udr-overview). 
 
 [!INCLUDE [ansible-tutorial-goals.md](../../includes/ansible-tutorial-goals.md)]
 
 > [!div class="checklist"]
 >
-> Skapa en routningstabell skapa ett virtuellt nätverk och undernät associera en routningstabell med ett undernät ta bort association med en routningstabell från ett undernät skapa och ta bort dirigerar fråga en routningstabell ta bort en routningstabell
+> Skapa en routningstabell skapa ett virtuellt nätverk och ett undernät associera en routningstabell med ett undernät ta bort koppling från en routningstabell från ett undernät skapa och ta bort vägar fråga en routningstabell ta bort en routningstabell
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
 
 ## <a name="create-a-route-table"></a>Skapa en routningstabell
 
-Spelboken koden i det här avsnittet skapar en routningstabell. Information om routningstabellen begränsningar finns i [Azure-gränser](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
+Spelbok-koden i det här avsnittet skapar en routningstabell. Information om begränsningar för väg tabeller finns i [Azure-gränser](/azure/azure-subscription-service-limits#azure-resource-manager-virtual-networking-limits). 
 
 Spara följande spelbok som `route_table_create.yml`:
 
@@ -50,7 +50,7 @@ Spara följande spelbok som `route_table_create.yml`:
         resource_group: "{{ resource_group }}"
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook route_table_create.yml
@@ -58,25 +58,25 @@ ansible-playbook route_table_create.yml
 
 ## <a name="associate-a-route-table-to-a-subnet"></a>Associera en routningstabell till ett undernät
 
-Spelboken koden i det här avsnittet:
+Spelbok-koden i det här avsnittet:
 
 * Skapar ett virtuellt nätverk
 * Skapar ett undernät i det virtuella nätverket
-* Associerar en routningstabell till undernätet
+* Kopplar en routningstabell till under nätet
 
-Routningstabeller är inte kopplad till virtuella nätverk. I stället är routningstabeller associerade med undernät för ett virtuellt nätverk.
+Routningstabeller är inte kopplade till virtuella nätverk. Routningstabeller är i stället kopplade till under nätet för ett virtuellt nätverk.
 
-Den virtuella nätverk och dirigera tabellen måste finnas i samma Azure-plats och prenumeration.
+Det virtuella nätverket och routningstabellen måste finnas på samma Azure-plats och i samma Azure-prenumeration.
 
-Undernät och routningstabeller har en en-till-många-relation. Ett undernät kan du definiera utan associerad routningstabell eller en routningstabell. Routningstabeller kan associeras med ingen, en eller flera undernät. 
+Undernät och routningstabeller har en en-till-många-relation. Ett undernät kan definieras utan någon kopplad routningstabell eller en routningstabell. Routningstabeller kan associeras med ingen, en eller flera undernät. 
 
-Trafik från undernätet dirigeras baserat på:
+Trafik från under nätet dirigeras utifrån:
 
 - vägar som definierats i routningstabeller
-- [Standardvägar](/azure/virtual-network/virtual-networks-udr-overview#default)
+- [standard vägar](/azure/virtual-network/virtual-networks-udr-overview#default)
 - vägar som sprids från ett lokalt nätverk
 
-Det virtuella nätverket måste vara ansluten till en Azure virtuell nätverksgateway. Det kan vara ExpressRoute eller VPN om använder BGP med en VPN-gateway.
+Det virtuella nätverket måste vara anslutet till en virtuell Azure-nätverksgateway. Gatewayen kan vara ExpressRoute eller VPN om du använder BGP med en VPN-gateway.
 
 Spara följande spelbok som `route_table_associate.yml`:
 
@@ -107,7 +107,7 @@ Spara följande spelbok som `route_table_associate.yml`:
         route_table: "{ route_table_name }"
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook route_table_associate.yml
@@ -115,9 +115,9 @@ ansible-playbook route_table_associate.yml
 
 ## <a name="dissociate-a-route-table-from-a-subnet"></a>Avassociera en routningstabell från ett undernät
 
-Spelboken koden i det här avsnittet dissociates en routningstabell från ett undernät.
+Spelbok-koden i det här avsnittet kopplar bort en routningstabell från ett undernät.
 
-När du kopplar bort en routningstabell från ett undernät, ställa in den `route_table` för undernätet för att `None`. 
+När du kopplar bort en routningstabell från ett undernät anger du `route_table` för under nätet till `None`. 
 
 Spara följande spelbok som `route_table_dissociate.yml`:
 
@@ -136,7 +136,7 @@ Spara följande spelbok som `route_table_dissociate.yml`:
         address_prefix_cidr: "10.1.0.0/24"
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook route_table_dissociate.yml
@@ -144,7 +144,7 @@ ansible-playbook route_table_dissociate.yml
 
 ## <a name="create-a-route"></a>Skapa en väg
 
-Spelboken koden i det här avsnittet en väg i en routningstabell. 
+Spelbok-koden i det här avsnittet en väg i en routningstabell. 
 
 Spara följande spelbok som `route_create.yml`:
 
@@ -164,12 +164,12 @@ Spara följande spelbok som `route_create.yml`:
         route_table_name: "{{ route_table_name }}"
 ```
 
-Se följande information innan du kör spelboken:
+Se följande anmärkningar innan du kör Spelbok:
 
-* `virtual_network_gateway` definieras som `next_hop_type`. Mer information om hur Azure väljer vägar finns i [routningsöversikten](/azure/virtual-network/virtual-networks-udr-overview).
+* `virtual_network_gateway` definieras som `next_hop_type`. Mer information om hur Azure väljer vägar finns i [routning – översikt](/azure/virtual-network/virtual-networks-udr-overview).
 * `address_prefix` definieras som `10.1.0.0/16`. Prefixet kan inte dupliceras i routningstabellen.
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook route_create.yml
@@ -177,7 +177,7 @@ ansible-playbook route_create.yml
 
 ## <a name="delete-a-route"></a>Ta bort en väg
 
-Spelboken koden i det här avsnittet tar bort en väg från en routningstabell.
+Spelbok-koden i det här avsnittet tar bort en väg från en routningstabell.
 
 Spara följande spelbok som `route_delete.yml`:
 
@@ -196,15 +196,15 @@ Spara följande spelbok som `route_delete.yml`:
         state: absent
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook route_delete.yml
 ```
 
-## <a name="get-route-table-information"></a>Hämta tabell flödesinformation
+## <a name="get-route-table-information"></a>Hämta information om routningstabell
 
-Spelboken koden i det här avsnittet använder Ansible-modulen `azure_rm_routetable_facts` att hämta flödesinformation för tabellen.
+Spelbok-koden i det här avsnittet använder Ansible-modulen `azure_rm_routetable_facts` för att hämta information om routningstabellen.
 
 Spara följande spelbok som `route_table_facts.yml`:
 
@@ -224,7 +224,7 @@ Spara följande spelbok som `route_table_facts.yml`:
          var: query.route_tables[0]
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook route_table_facts.yml
@@ -232,11 +232,11 @@ ansible-playbook route_table_facts.yml
 
 ## <a name="delete-a-route-table"></a>Ta bort en routningstabell
 
-Spelboken koden i det här avsnittet en routningstabell.
+Spelbok-koden i det här avsnittet en routningstabell.
 
-När en routningstabell tas bort, tas alla dess vägar också bort.
+När en routningstabell tas bort, tas även alla vägar bort.
 
-En routningstabell kan inte tas bort om det är associerat med ett undernät. [Koppla bort routningstabellen från undernät](#dissociate-a-route-table-from-a-subnet) innan du försöker ta bort routningstabellen. 
+Det går inte att ta bort en routningstabell om den är associerad med ett undernät. Koppla bort [routningstabellen från alla undernät](#dissociate-a-route-table-from-a-subnet) innan du försöker ta bort routningstabellen. 
 
 Spara följande spelbok som `route_table_delete.yml`:
 
@@ -253,7 +253,7 @@ Spara följande spelbok som `route_table_delete.yml`:
         state: absent
 ```
 
-Kör en spelbok med hjälp av den `ansible-playbook` kommando:
+Kör Spelbok med kommandot `ansible-playbook`:
 
 ```bash
 ansible-playbook route_table_delete.yml

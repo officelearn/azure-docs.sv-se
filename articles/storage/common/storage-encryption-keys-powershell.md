@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/16/2019
+ms.date: 10/09/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 982996bdbc5e618cf90aa4b028c0585a7898f465
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 30fed5a75e368e9d87da54d4c75e6f69759813e7
+ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670964"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72249277"
 ---
 # <a name="configure-customer-managed-keys-for-azure-storage-encryption-from-powershell"></a>Konfigurera Kundhanterade nycklar för Azure Storage kryptering från PowerShell
 
@@ -23,7 +23,7 @@ ms.locfileid: "71670964"
 Den här artikeln visar hur du konfigurerar ett nyckel valv med Kundhanterade nycklar med hjälp av PowerShell.
 
 > [!IMPORTANT]
-> Om du använder Kundhanterade nycklar med Azure Storage kryptering måste nyckel valvet ha två obligatoriska egenskaper konfigurerade, **mjuk borttagning** och **Rensa inte**. De här egenskaperna är aktiverade som standard när du skapar ett nytt nyckel valv i Azure Portal. Men om du behöver aktivera dessa egenskaper i ett befintligt nyckel valv måste du använda antingen PowerShell eller Azure CLI.
+> Om du använder Kundhanterade nycklar med Azure Storage kryptering måste du ange två egenskaper för nyckel valvet, **mjuk borttagning** och **Rensa inte**. De här egenskaperna är inte aktiverade som standard. Om du vill aktivera dessa egenskaper använder du antingen PowerShell eller Azure CLI.
 > Endast RSA-nycklar och nyckel storlek 2048 stöds.
 
 ## <a name="assign-an-identity-to-the-storage-account"></a>Tilldela lagrings kontot en identitet

@@ -1,6 +1,6 @@
 ---
-title: Sökfrågor i Azure Monitor-loggarna | Microsoft Docs
-description: Den här artikeln innehåller en självstudie för att komma igång med sökning i Azure Monitor log-frågor.
+title: Sök frågor i Azure Monitor loggar | Microsoft Docs
+description: Den här artikeln innehåller en självstudie för att komma igång med sökning i Azure Monitor logg frågor.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -13,30 +13,30 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
-ms.openlocfilehash: b118740f3a57e168c5dfb071c199bcf424bd5113
-ms.sourcegitcommit: 2d3b1d7653c6c585e9423cf41658de0c68d883fa
+ms.openlocfilehash: a0ceb5aa82b0d38ab5d2567689e3e131ba781ce9
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/20/2019
-ms.locfileid: "67295564"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72255004"
 ---
-# <a name="search-queries-in-azure-monitor-logs"></a>Sökfrågor i Azure Monitor-loggar
-Azure Monitor log-frågor kan börja med ett tabellnamn eller ett sökkommando. Den här självstudien tar upp search-baserade frågor. Det finns fördelar med att varje metod.
+# <a name="search-queries-in-azure-monitor-logs"></a>Sök frågor i Azure Monitor loggar
+Azure Monitors logg frågor kan inledas med antingen ett tabell namn eller ett Sök kommando. I den här självstudien beskrivs sökbaserade frågor. Det finns fördelar med varje metod.
 
-Tabell-baserade frågor starta genom att ange omfång frågan och därmed tenderar att vara effektivare än sökfrågor. Sökfrågor är mindre strukturerade vilket gör dem ett bättre val när du söker efter ett specifikt värde över kolumner eller tabeller. **Sök** söka igenom alla kolumner i en viss tabell eller i alla tabeller för det angivna värdet. Mängden data som bearbetas kan vara enorma, vilket är anledningen till de här frågorna kan ta längre tid att slutföra och kan returnera mycket stora resultatmängder.
+Tabellbaserade frågor börjar genom att omfånget av frågan och därför tenderar att bli effektivare än Sök frågor. Sök frågor är mindre strukturerade och gör dem till bättre val när du söker efter ett bestämt värde i kolumner eller tabeller. **Sök** kan söka igenom alla kolumner i en viss tabell, eller i alla tabeller, för det angivna värdet. Mängden data som bearbetas kan vara enorma, vilket är orsaken till att dessa frågor kan ta längre tid att slutföra och kan returnera mycket stora resultat uppsättningar.
 
 ## <a name="search-a-term"></a>Sök efter en term
-Den **search** normalt används för att söka efter en viss tidsperiod. Alla kolumner i alla tabeller genomsöks efter termen ”error” i exemplet nedan:
+Kommandot **search** används vanligt vis för att söka efter en speciell term. I följande exempel genomsöks alla kolumner i alla tabeller efter termen "fel":
 
 ```Kusto
 search "error"
 | take 100
 ```
 
-När de inte är lätt att använda sökndexet frågor som den visade ovan är inte effektiva och är många irrelevanta sökresultatet. En bättre metod är att söka i den aktuella tabellen eller även en viss kolumn.
+Även om de är enkla att använda, är det inte effektivt att använda begränsade frågor som de som visades ovan, och de kan förmodligen returnera många irrelevanta resultat. En bättre praxis är att söka i relevant tabell eller till och med en speciell kolumn.
 
-### <a name="table-scoping"></a>Tabellen omfång
-Om du vill söka efter en term i en viss tabell, lägger du till `in (table-name)` precis efter den **search** operator:
+### <a name="table-scoping"></a>Tabell omfattning
+Om du vill söka i en term i en speciell tabell lägger du till `in (table-name)` strax efter **Sök** operatorn:
 
 ```Kusto
 search in (Event) "error"
@@ -49,8 +49,8 @@ search in (Event, SecurityEvent) "error"
 | take 100
 ```
 
-### <a name="table-and-column-scoping"></a>Tabell- och kolumnen omfång
-Som standard **search** utvärderas alla kolumner i datauppsättningen. Om du vill söka i bara en viss kolumn, använder du följande syntax:
+### <a name="table-and-column-scoping"></a>Tabell-och kolumn omfång
+Som standard utvärderas alla kolumner i data uppsättningen av **sökningen** . Om du bara vill söka i en speciell kolumn (namngiven *källa* i exemplet nedan) använder du följande syntax:
 
 ```Kusto
 search in (Event) Source:"error"
@@ -58,75 +58,75 @@ search in (Event) Source:"error"
 ```
 
 > [!TIP]
-> Om du använder `==` i stället för `:`, resultatet skulle innehålla poster där den *källa* kolumnen har det exakta värdet ”fel”, och i den här skiftlägeskänsligt. Med hjälp av ':' innehåller poster där *källa* har värden som ”felkoden 404” eller ”Error”.
+> Om du använder `==` i stället för `:`, innehåller resultaten poster där *käll* kolumnen har det exakta värdet "Error" och i det här fallet. Om du använder ":" inkluderas poster där *källan* har värden som "Felkod 404" eller "fel".
 
-## <a name="case-sensitivity"></a>Skiftlägeskänslighet
-Termen search är skiftlägeskänslig som standard, så söker ”dns” kan ge resultat som DNS-”,” dns ”eller” Dns ”. För att göra sökningen skiftlägeskänsliga, använda den `kind` alternativet:
+## <a name="case-sensitivity"></a>Skift läges känslighet
+Som standard är terms ökning Skift läges känsligt, så sökning efter DNS kan ge resultat som "DNS", "DNS" eller "DNS". Om du vill göra sökningen Skift läges känslig använder du alternativet `kind`:
 
 ```Kusto
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
 
-## <a name="use-wild-cards"></a>Använda jokertecken
-Den **search** kommandot stöder jokertecken i början, slut eller mitten av en term.
+## <a name="use-wild-cards"></a>Använd jokertecken
+Kommandot **search** stöder jokertecken, i början, i slutet eller mitten av en term.
 
-Så här söker villkor som börjar med ”win”:
+För att söka efter termer som börjar med "win":
 ```Kusto
 search in (Event) "win*"
 | take 100
 ```
 
-Så här söker villkor som slutar med ”.com”:
+För att söka efter termer som slutar med ". com":
 ```Kusto
 search in (Event) "*.com"
 | take 100
 ```
 
-Så här söker villkor som innehåller ”www”:
+För att söka efter termer som innehåller "www":
 ```Kusto
 search in (Event) "*www*"
 | take 100
 ```
 
-Sök efter villkor som börjar med ”corp” och slutar med ”.com”, till exempel ”corp.mydomain.com” ”
+För att söka efter termer som börjar med "Corp" och slutar i ". com", t. ex. "corp.mydomain.com".
 
 ```Kusto
 search in (Event) "corp*.com"
 | take 100
 ```
 
-Du kan också få allt i en tabell med bara ett jokertecken: `search in (Event) *`, men den detsamma som att skriva bara `Event`.
+Du kan också hämta allt i en tabell med bara ett jokertecken: `search in (Event) *`, men det är detsamma som att skriva `Event`.
 
 > [!TIP]
-> Du kan använda `search *` för att hämta varje kolumn från varje tabell, rekommenderar vi att du alltid begränsa dina frågor till specifika tabeller. Sökndexet frågor kan ta en stund att slutföra och kan returnera för många resultat.
+> Även om du kan använda `search *` för att hämta alla kolumner från varje tabell, rekommenderar vi att du alltid omfångerar dina frågor till vissa tabeller. Det kan ta en stund att slutföra frågor som inte omfattas och kan returnera för många resultat.
 
-## <a name="add-and--or-to-search-queries"></a>Lägg till *och* / *eller* att söka efter frågor
-Använd **och** att söka efter poster som innehåller flera villkor:
+## <a name="add-and--or-to-search-queries"></a>Lägg till *och* / *eller* för att söka efter frågor
+Använd **och** för att söka efter poster som innehåller flera termer:
 
 ```Kusto
 search in (Event) "error" and "register"
 | take 100
 ```
 
-Använd **eller** att hämta poster som innehåller minst ett av villkoren:
+Använda **eller** för att hämta poster som innehåller minst en av villkoren:
 
 ```Kusto
 search in (Event) "error" or "register"
 | take 100
 ```
 
-Om du har flera sökvillkor kan kombinera du dem i samma fråga med hjälp av parenteser:
+Om du har flera Sök villkor kan du kombinera dem till samma fråga med hjälp av parenteser:
 
 ```Kusto
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
 
-Resultatet av det här exemplet är poster som innehåller termen ”error” och även innehålla antingen ”registrera” eller något som börjar med ”konvertering”.
+Resultatet av det här exemplet är poster som innehåller termen "fel" och som även innehåller antingen "Registrera" eller något som börjar med "Marshal".
 
-## <a name="pipe-search-queries"></a>Skicka sökfrågor
-Precis som andra kommandon, **search** kan skickas så sökresultat kan filtreras, sorteras och aggregeras. Till exempel för att få en *händelse* poster som innehåller ”win”:
+## <a name="pipe-search-queries"></a>Sök frågor för pipe
+Precis som andra kommandon kan **sökningen** vara skickas så att Sök resultaten kan filtreras, sorteras och aggregeras. Till exempel för att hämta antalet *händelse* poster som innehåller "win":
 
 ```Kusto
 search in (Event) "win"
@@ -138,4 +138,4 @@ search in (Event) "win"
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Se ytterligare självstudier på den [Kusto-fråga webbplats](/azure/kusto/query/).
+- Se fler självstudier på [webbplatsen för Kusto-frågespråk](/azure/kusto/query/).

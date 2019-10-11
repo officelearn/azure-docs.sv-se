@@ -1,116 +1,116 @@
 ---
-title: Microsoft Azure FXT Edge Filer klusterkonfiguration – lägga till noder
-description: Lägga till noder till lagringscache Azure FXT Edge Filer
+title: Microsoft Azure FXT Edge-kluster konfiguration – Lägg till noder
+description: Så här lägger du till noder i lagrings cachen för Azure FXT Edge
 author: ekpgh
 ms.service: fxt-edge-filer
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.author: v-erkell
-ms.openlocfilehash: d84b98b4ab936bbb6978144eb2e89b5e19df7069
-ms.sourcegitcommit: 5bdd50e769a4d50ccb89e135cfd38b788ade594d
+ms.author: rohogue
+ms.openlocfilehash: 85ab9aaa3e184af7aa71a31eb3d8de1a20639c2a
+ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/03/2019
-ms.locfileid: "67543229"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72254922"
 ---
-# <a name="tutorial-add-cluster-nodes"></a>Självstudier: Lägg till noder 
+# <a name="tutorial-add-cluster-nodes"></a>Självstudie: Lägg till klusternoder 
 
-Ett nytt kluster i Azure FXT Edge Filer skapas med endast en nod. Du bör lägga till minst två noder och aktivera hög tillgänglighet innan du gör en annan konfiguration. 
+Ett nytt Azure FXT Edge-kluster skapas med bara en nod. Du bör lägga till minst två noder och aktivera hög tillgänglighet innan du gör en annan konfiguration. 
 
-Den här självstudien beskrivs hur du lägger till klusternoder och aktivera funktionen för hög tillgänglighet (HA). 
+I den här självstudien beskrivs hur du lägger till klusternoder och aktiverar funktionen hög tillgänglighet (HA). 
 
 I den här kursen lär du dig: 
 
 > [!div class="checklist"]
-> * Lägga till noder i klustret FXT
-> * Så här aktiverar du hög tillgänglighet
+> * Så här lägger du till noder i FXT-klustret
+> * Så här aktiverar du HA
 
-Stegen i den här självstudiekursen tar cirka 45 minuter att slutföra.
+Stegen i den här självstudien tar cirka 45 minuter att slutföra.
 
-Innan du börjar den här självstudien, sätter på de noder som du vill lägga till och [Ange lösenorden inledande](fxt-node-password.md). 
+Innan du börjar den här självstudien kan du använda de noder som du vill lägga till och [Ange de ursprungliga lösen orden](fxt-node-password.md). 
 
-## <a name="1-load-the-cluster-nodes-page"></a>1. Läsa in sidan klusternoder
+## <a name="1-load-the-cluster-nodes-page"></a>1. Läs in sidan klusternoder
 
-Öppna Kontrollpanelen för klustrets i en webbläsare och logga in som administratör. (Detaljerade anvisningar finns i översiktsartikeln under [öppna inställningssidorna](fxt-cluster-create.md#open-the-settings-pages).)
+Öppna klustrets kontroll panel i en webbläsare och logga in som administratör. (Detaljerade instruktioner finns i översikts artikeln under [Öppna sidan Inställningar](fxt-cluster-create.md#open-the-settings-pages).)
 
-I Kontrollpanelen visas den **instrumentpanelen** fliken när den öppnas. 
+Fliken **instrument panel** visas på kontroll panelen när den öppnas. 
 
-![Kontrollera panelen instrumentpanelen (fliken först)](media/fxt-cluster-config/dashboard-1-node.png)
+![Instrument panel för kontroll panelen (första fliken)](media/fxt-cluster-config/dashboard-1-node.png)
 
-Den här bilden visar instrumentpanelen för ett nyskapat kluster med en enda nod.
+Den här bilden visar instrument panelen för ett nyskapat kluster, med en enda nod.
 
-## <a name="2-locate-the-node-to-add"></a>2. Leta rätt på noden för att lägga till
+## <a name="2-locate-the-node-to-add"></a>2. Leta upp noden som ska läggas till
 
-Om du vill lägga till noder, klickar du på den **inställningar** och välj den **FXT noder** sidan i den **kluster** avsnittet.
+Om du vill lägga till noder klickar du på fliken **Inställningar** och väljer sidan **FXT noder** i **kluster** avsnittet.
 
-![Inställningar för Kontrollpanel fliken (andra fliken) med kluster > FXT noder som lästs in](media/fxt-cluster-config/settings-fxt-nodes.png)
+![Fliken Inställningar på kontroll panelen (andra fliken) med > FXT-noder för kluster som har lästs in](media/fxt-cluster-config/settings-fxt-nodes.png)
 
-Den **FXT noder – kopplas** listan visar alla otilldelade FXT noderna (de flesta Datacenter har bara några. Hitta de FXT noder som du vill lägga till i klustret.
+I **FXT-noderna** visas alla otilldelade FXT-noder (de flesta data Center har bara några. Hitta de FXT-noder som du vill lägga till i klustret.
 
 > [!Tip] 
-> Om du inte hittar nod du vill ha på de **Unjoined** listan, kontrollera att den uppfyller dessa krav:
+> Om du inte hittar den nod som du vill använda i listan över **frånkopplade** , kontrollerar du att den uppfyller följande krav:
 > 
-> * Den är påslagen och har haft en [rot lösenordsändring](fxt-node-password.md).
-> * Den är ansluten till ett nätverk som du kan komma åt. Om du använder virtuella lokala nätverk, måste den vara på samma VLAN som klustret.
+> * Den är påslagen och har fått en [rot lösen ords uppsättning](fxt-node-password.md).
+> * Den är ansluten till ett nätverk som du har åtkomst till. Om du använder VLAN måste det finnas i samma VLAN som klustret.
 > * Den kan identifieras med Bonjour-protokollet. 
 >
->   Vissa brandväggsinställningar blockera TCP/UDP-portar som används av Bonjour, vilket förhindrar att operativsystemet FXT identifieras automatiskt noderna.
+>   Vissa brand Väggs inställningar blockerar TCP/UDP-portarna som används av Bonjour, vilket förhindrar att operativ systemet FXT identifierar noderna automatiskt.
 > 
-> Om den nod som du vill lägga till inte finns i listan, försök med följande: 
+> Om den nod som du vill lägga till inte finns med i listan kan du prova följande lösningar: 
 > 
-> * Klicka på den **manuell identifiera** för att hitta efter IP-adress.
+> * Klicka på knappen **manuell identifiering** för att hitta den via IP-adress.
 > 
-> * Manuellt tilldela tillfälliga IP-adresser. Detta är ovanligt men kan behövas om du använder taggade virtuella lokala nätverk och noderna inte är ansluten till rätt nätverk eller nätverket tillåter inte själva tilldelade IP-adresser. Följ instruktionerna i den äldre versionen av det här dokumentet till [manuellt ange en statisk IP-adress](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
+> * Tilldela temporära IP-adresser manuellt. Detta är sällsynt men kan behövas om du använder taggade VLAN och noderna inte finns i rätt nätverk, eller om nätverket inte tillåter självtilldelade IP-adresser. Följ anvisningarna i den äldre versionen av det här dokumentet om du vill [Ange en statisk IP-adress manuellt](https://azure.github.io/Avere/legacy/create_cluster/4_8/html/static_ip.html).
 
-Nodnamnet, IP-adress, programvaruversion och berättigande status visas i listan. Normalt den **Status** kolumn som antingen står ”vill gå med i” eller beskriver ett problem med system- eller maskinvara som gör noden inte berättigade att ansluta till klustret.
+Nodens namn, IP-adress, program varu version och status för berättigande visas i listan. Normalt säger kolumnen **status** "vill du ansluta" eller beskriver ett system-eller maskin varu problem som gör att noden inte är tillgänglig för att ansluta till klustret.
 
-Den **åtgärder** kolumnen har knappar som låter dig lägga till noden i klustret eller uppdatera sin programvara. Uppdateringsknappen installerar automatiskt programvaruversion som matchar noder redan i klustret.
+Kolumnen **åtgärder** innehåller knappar som låter dig lägga till noden i klustret eller uppdatera dess program vara. Uppdaterings knappen installerar automatiskt den program varu version som matchar noderna som redan finns i klustret.
 
-Alla noder i ett kluster måste använda samma version av Operativsystemet, men du behöver inte uppdatera programmet innan du lägger till en nod. När du klickar på den **Tillåt att Join** knappen processen på klustret kontrollerar och installerar automatiskt OS-programvara som matchar versionen på klustret.
+Alla noder i ett kluster måste använda samma version av operativ systemet, men du behöver inte uppdatera program vara innan du lägger till en nod. När du klickar på knappen **Tillåt att ansluta** , kontrollerar kluster kopplings processen automatiskt och installerar den OS-programvara som matchar versionen i klustret.
 
-Mer information om alternativen på den här sidan [ **kluster** > **FXT noder** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) i konfigurationsguiden för klustret.
+Mer information om alternativen på den här sidan finns i [ **kluster** > **FXT noder** ](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_fxt_nodes.html) i guiden kluster konfiguration.
 
-## <a name="3-click-the-allow-to-join-button"></a>3. Klicka på knappen ”Tillåt att anslutning till” 
+## <a name="3-click-the-allow-to-join-button"></a>3. Klicka på knappen "Tillåt att ansluta" 
 
-Klicka på den **tillåta att ansluta till*** knappen i den **åtgärder** kolumnen för den nod som du vill lägga till.
+Klicka på knappen **Tillåt att ansluta till*** i kolumnen **åtgärder** för den nod som du vill lägga till.
 
-När du klickar på knappen kan nodens status ändras när programvaran som uppdateras som förberedelse för att lägga till den i klustret. 
+När du klickar på knappen kan nodens status ändras när dess program vara uppdateras i förberedelse för att lägga till den i klustret. 
 
-Bilden nedan visar en nod som håller på att ansluta till klustret (troligen, den får en uppdatering av operativsystem innan du läggs). Inga knappar som visas i den **åtgärder** kolumn för noder som håller på att läggas till i klustret.
+Bilden nedan visar en nod som håller på att ansluta till klustret (förmodligen hämtas en OS-uppdatering innan den läggs till). Inga knappar visas i kolumnen **åtgärder** för noder som håller på att läggas till i klustret.
 
-![en rad i tabellen nod, som visar en nodens namn, IP-adress, programvaruversion, meddelandet ”tillåts att ansluta till” och en tom sista kolumnen](media/fxt-cluster-config/node-join-in-process.png)
+![en rad i tabellen Node som visar en nods namn, IP-adress, program varu version, meddelandet "tillåten att ansluta" och en tom sista kolumn](media/fxt-cluster-config/node-join-in-process.png)
 
-Efter en liten stund visas den nya noden i listan över klusternoder överst i den **FXT noder** inställningssidan. 
+Efter en liten stund ska den nya noden visas i listan över klusternoder överst på **FXT** -nodens inställnings sida. 
 
-Upprepa proceduren för att lägga till de andra noderna i klustret. Du behöver inte vänta tills en nod och slutför ansluta till klustret innan du startar en annan.
+Upprepa processen för att lägga till de andra noderna i klustret. Du behöver inte vänta på att en nod ska sluta ansluta till klustret innan du påbörjar en ny.
 
 ## <a name="enable-high-availability"></a>Aktivera hög tillgänglighet
 
-När du har lagt till en andra nod i klustret, kan du se ett varningsmeddelande på Kontrollpanelen instrumentpanel som funktionen för hög tillgänglighet inte är konfigurerad. 
+När du har lagt till en andra nod i klustret kan du se ett varnings meddelande på kontroll panelens instrument panel att funktionen hög tillgänglighet inte har kon figurer ATS. 
 
-Hög tillgänglighet (HA) gör att noderna i klustret att kompensera för varandra om en kraschar. Hög tillgänglighet är inte aktiverat som standard.
+Hög tillgänglighet (HA) gör det möjligt för klusternoderna att kompensera för varandra om den ena slutar. HA är inte aktiverat som standard.
 
-![Fliken instrumentpanel med meddelandet ”klustret har fler än en nod, men hög tillgänglighet är inte aktiverat...” i tabellen villkor](media/fxt-cluster-config/no-ha-2-nodes.png)
+![Fliken instrument panel med meddelandet "klustret har fler än en nod, men HA inte Aktiver ATS..." i villkors tabellen](media/fxt-cluster-config/no-ha-2-nodes.png)
 
 > [!Note] 
 > Aktivera inte HA förrän du har minst tre noder i klustret.
 
-Följ den här proceduren för att aktivera hög tillgänglighet: 
+Följ den här proceduren för att aktivera HA: 
 
-1. Belastningen på **hög tillgänglighet** sidan i den **kluster** delen av den **inställningar** fliken.
+1. Läs in sidan med **hög tillgänglighet** i **kluster** -avsnittet på fliken **Inställningar** .
 
-   ![Konfigurationssidan för hög tillgänglighet (kluster > hög tillgänglighet). ”Aktivera hög tillgänglighet” kryssrutan är högst upp och skickaknappen som finns längst ned.](media/fxt-cluster-config/enable-ha.png)
+   ![Sidan HA konfiguration (kluster > hög tillgänglighet). Kryss rutan "Aktivera HA" visas längst upp och knappen Skicka visas längst ned.](media/fxt-cluster-config/enable-ha.png)
 
-2. Klicka på rutan **Aktivera hög tillgänglighet** och klicka på den **skicka** knappen. 
+2. Klicka på rutan **Aktivera ha** och klicka på knappen **Skicka** . 
 
-En varning visas på den **instrumentpanelen** att bekräfta att hög tillgänglighet är aktiverat.
+En avisering visas på **instrument panelen** för att bekräfta att ha Aktiver ATS.
 
-![Instrumentpanelen tabell som visar meddelandet ”hög tillgänglighet är nu fullständigt konfigurerad”](media/fxt-cluster-config/ha-configured-alert.png)
+![Instrument panels tabell som visar meddelandet "HA är fullständigt konfigurerat"](media/fxt-cluster-config/ha-configured-alert.png)
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-När du lägger till alla noder i klustret kan fortsätta installationen genom att konfigurera ditt kluster långsiktig lagring.
+När du har lagt till alla noder i klustret fortsätter du installationen genom att konfigurera klustrets långsiktiga lagring.
 
 > [!div class="nextstepaction"]
-> [Lägg till backend-lagring och konfigurera virtuella namnområdet](fxt-add-storage.md)
+> [Lägg till Server dels lagring och konfigurera det virtuella namn området](fxt-add-storage.md)

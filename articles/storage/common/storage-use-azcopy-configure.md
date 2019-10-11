@@ -8,12 +8,12 @@ ms.date: 07/25/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 8a96c5b2d39967c8ee82f48e880bac9270a58c36
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 3843eb2e906e3fb8d390e509e17117b7849ac220
+ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68844799"
+ms.lasthandoff: 10/10/2019
+ms.locfileid: "72244704"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>Konfigurera, optimera och felsöka AzCopy
 
@@ -28,11 +28,11 @@ AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobba
 
 ## <a name="configure-proxy-settings"></a>Konfigurera proxyinställningar
 
-Om du vill konfigurera proxyinställningarna för AzCopy anger du `https_proxy` miljövariabeln. Om du kör AzCopy i Windows identifierar AzCopy automatiskt proxyinställningar, så du behöver inte använda den här inställningen i Windows. Om du väljer att använda den här inställningen i Windows kommer den att åsidosätta automatisk identifiering.
+Om du vill konfigurera proxyinställningarna för AzCopy anger du miljövariabeln `https_proxy`. Om du kör AzCopy i Windows identifierar AzCopy automatiskt proxyinställningar, så du behöver inte använda den här inställningen i Windows. Om du väljer att använda den här inställningen i Windows kommer den att åsidosätta automatisk identifiering.
 
 | Operativsystem | Kommando  |
 |--------|-----------|
-| **Windows** | Använd följande i en kommando tolk:`set https_proxy=<proxy IP>:<proxy port>`<br> I PowerShell använder du:`$env:https_proxy="<proxy IP>:<proxy port>"`|
+| **Windows** | I en kommando tolk använder du: `set https_proxy=<proxy IP>:<proxy port>`<br> I PowerShell använder du: `$env:https_proxy="<proxy IP>:<proxy port>"`|
 | **Linux** | `export https_proxy=<proxy IP>:<proxy port>` |
 | **MacOS** | `export https_proxy=<proxy IP>:<proxy port>` |
 
@@ -40,13 +40,13 @@ För närvarande stöder AzCopy inte proxyservrar som kräver autentisering med 
 
 ## <a name="optimize-throughput"></a>Optimera data flödet
 
-Du kan använda `cap-mbps` flaggan för att placera ett tak på data flödets data hastighet. Till exempel följande kommando CAPS data flöde till `10` megabit (MB) per sekund.
+Du kan använda flaggan `cap-mbps` för att placera ett tak på data flödets data hastighet. Till exempel kan följande kommando CapsLock till `10` megabit (MB) per sekund.
 
 ```azcopy
 azcopy cap-mbps 10
 ```
 
-Data flödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ställa in `AZCOPY_CONCURRENCY_VALUE` miljövariabeln. Den här variabeln anger antalet samtidiga begär Anden som kan utföras.  Om datorn har färre än 5 processorer anges värdet för den här variabeln till `32`. Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här `300`variabeln är, men du kan manuellt ange det här värdet högre eller lägre.
+Data flödet kan minska vid överföring av små filer. Du kan öka data flödet genom att ange miljövariabeln `AZCOPY_CONCURRENCY_VALUE`. Den här variabeln anger antalet samtidiga begär Anden som kan utföras.  Om datorn har färre än 5 processorer anges värdet för den här variabeln till `32`. Annars är standardvärdet lika med 16 multiplicerat med antalet processorer. Det maximala standardvärdet för den här variabeln är `300`, men du kan ange det här värdet högre eller lägre.
 
 | Operativsystem | Kommando  |
 |--------|-----------|
@@ -54,11 +54,11 @@ Data flödet kan minska vid överföring av små filer. Du kan öka data flödet
 | **Linux** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 | **MacOS** | `export AZCOPY_CONCURRENCY_VALUE=<value>` |
 
-`azcopy env` Använd för att kontrol lera det aktuella värdet för den här variabeln.  Om värdet är tomt `AZCOPY_CONCURRENCY_VALUE` anges variabeln till `300`standardvärdet.
+Använd `azcopy env` för att kontrol lera det aktuella värdet för den här variabeln.  Om värdet är tomt anges variabeln `AZCOPY_CONCURRENCY_VALUE` till standardvärdet för `300`.
 
 ## <a name="change-the-location-of-the-log-files"></a>Ändra platsen för loggfilerna
 
-Som standard finns loggfiler i `%USERPROFILE\\.azcopy` katalogen på Windows eller `$HOME\\.azcopy` i katalogen på Mac och Linux. Du kan ändra den här platsen om du behöver med hjälp av dessa kommandon.
+Som standard finns loggfiler i katalogen `%USERPROFILE%\.azcopy` i Windows eller i `$HOME\\.azcopy`-katalogen på Mac och Linux. Du kan ändra den här platsen om du behöver med hjälp av dessa kommandon.
 
 | Operativsystem | Kommando  |
 |--------|-----------|
@@ -66,28 +66,28 @@ Som standard finns loggfiler i `%USERPROFILE\\.azcopy` katalogen på Windows ell
 | **Linux** | `export AZCOPY_LOG_LOCATION=<value>` |
 | **MacOS** | `export AZCOPY_LOG_LOCATION=<value>` |
 
-`azcopy env` Använd för att kontrol lera det aktuella värdet för den här variabeln. Om värdet är tomt skrivs loggar till standard platsen.
+Använd `azcopy env` för att kontrol lera det aktuella värdet för den här variabeln. Om värdet är tomt skrivs loggar till standard platsen.
 
 ## <a name="change-the-default-log-level"></a>Ändra standard logg nivån
 
-Som standard är logg nivån för AzCopy inställd på `INFO`. Om du vill minska loggens utförlighet för att spara disk utrymme skriver du över den här inställningen med hjälp ``--log-level`` av alternativet. 
+Som standard har logg nivån AzCopy angetts till `INFO`. Om du vill minska loggens utförlighet för att spara disk utrymme skriver du över den här inställningen med alternativet ``--log-level``. 
 
-Tillgängliga logg nivåer är: `DEBUG`, `INFO`, `WARNING` `ERROR` `FATAL`, ,och.`PANIC`
+Tillgängliga logg nivåer är: `DEBUG`, `INFO`, `WARNING`, `ERROR`, `PANIC` och `FATAL`.
 
 ## <a name="troubleshoot-issues"></a>Felsöka problem
 
 AzCopy skapar logg-och plan-filer för varje jobb. Du kan använda loggarna för att undersöka och felsöka eventuella problem. 
 
-Loggarna innehåller status för felen (`UPLOADFAILED`, `COPYFAILED`, och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till problemet.
+Loggarna innehåller status för ett haveri (`UPLOADFAILED`, `COPYFAILED` och `DOWNLOADFAILED`), den fullständiga sökvägen och orsaken till problemet.
 
-Som standard finns logg-och plan-filerna i katalogen på `%USERPROFILE\\.azcopy` Windows eller `$HOME\\.azcopy` i en katalog på Mac och Linux.
+Som standard finns logg-och plan-filerna i katalogen `%USERPROFILE\\.azcopy` i Windows-eller `$HOME\\.azcopy`-katalogen på Mac och Linux.
 
 > [!IMPORTANT]
 > När du skickar en begäran till Microsoft Support (eller fel sökning av problemet som berör tredje part) delar du den avvisade versionen av kommandot som du vill köra. Detta säkerställer att SAS inte delas av misstag med vem. Du kan hitta den avvisade versionen i början av logg filen.
 
 ### <a name="review-the-logs-for-errors"></a>Granska loggarna för fel
 
-Följande kommando får alla fel med `UPLOADFAILED` status `04dc9ca9-158f-7945-5933-564021086c79` från loggen:
+Följande kommando får alla fel med status `UPLOADFAILED` från `04dc9ca9-158f-7945-5933-564021086c79`-loggen:
 
 **Windows (PowerShell)**
 

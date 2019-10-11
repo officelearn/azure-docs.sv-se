@@ -432,6 +432,8 @@
           href: control-flow-get-metadata-activity.md
         - name: If-villkorsaktivitet
           href: control-flow-if-condition-activity.md
+        - name: Växlingsaktivitet
+          href: control-flow-switch-activity.md
         - name: Sökningsaktivitet
           href: control-flow-lookup-activity.md
         - name: Ange variabelaktivitet
@@ -598,6 +600,8 @@
           href: ssis-integration-runtime-management-troubleshoot.md
         - name: Körning av felsökningspaket i Azure-SSIS IR
           href: ssis-integration-runtime-ssis-activity-faq.md
+        - name: Felsöka dataflöden
+          href: data-flow-troubleshoot-guide.md
 - name: Scenarier
   items:
     - name: Datamigrering för datasjöar och EDW

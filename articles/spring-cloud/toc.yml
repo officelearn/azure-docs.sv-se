@@ -2,7 +2,9 @@
   href: index.yml
   displayName: Azure Spring Cloud
 - name: Översikt
-  href: spring-cloud-overview.md
+  items:
+    - name: Vad är Azure Spring Cloud?
+      href: spring-cloud-overview.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -12,7 +14,7 @@
       href: spring-cloud-quickstart-launch-app-cli.md
     - name: Starta din Spring Cloud-app från källan
       href: spring-cloud-launch-from-source.md
-    - name: Starta en Java Spring-app med hjälp av Maven
+    - name: Starta din Spring Cloud-app med hjälp av Maven
       href: spring-cloud-quickstart-launch-app-maven.md
 - name: Självstudier
   items:

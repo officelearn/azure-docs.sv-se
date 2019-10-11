@@ -1,0 +1,97 @@
+### YamlMime:Landing
+title: Azure SQL Data Warehouse
+summary: Lär dig hur du använder Azure SQL Data Warehouse, som kombinerar SQL-relationsdatabaser med massivt parallell bearbetning (Massively Parallel Processing, MPP). Självstudier och annan dokumentation visar dig hur du utformar, läser in, hanterar och analyserar data med hjälp av ett informationslager.
+metadata:
+  title: Azure SQL Data Warehouse
+  description: beskrivning
+  services: sql-data-warehouse
+  ms.service: sql-data-warehouse
+  ms.subservice: design
+  ms.topic: landing-page
+  ms.collection: collection
+  author: julieMSFT
+  ms.author: jrasnick
+  ms.date: 10/03/2019
+  ms.openlocfilehash: ffb90d5d15b83570511c3f70b39f9f83f000ab35
+  ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/10/2019
+  ms.locfileid: "72245855"
+landingContent:
+- title: Om SQL Data Warehouse
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är SQL Data Warehouse?
+      url: sql-data-warehouse-overview-what-is.md
+  - linkListType: architecture
+    links:
+    - text: SQL Data Warehouse – MPP-arkitektur
+      url: massively-parallel-processing-mpp-architecture.md
+    - text: Tips och metodtips för ditt informationslager
+      url: cheat-sheet.md
+- title: Komma igång
+  linkLists:
+  - linkListType: deploy
+    links:
+    - text: Skapa ett SQL Data Warehouse
+      url: create-data-warehouse-portal.md
+- title: Läsa in data
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Utforma en PolyBase-strategi för datainläsning
+      url: design-elt-data-loading.md
+    - text: Metodtips för datainläsning
+      url: guidance-for-loading-data.md
+  - linkListType: how-to-guide
+    links:
+    - text: 'Läsa in data från Azure Data Lake Storage:'
+      url: sql-data-warehouse-load-from-azure-data-lake-store.md
+  - linkListType: tutorial
+    links:
+    - text: Läsa in data från Azure Blob Storage
+      url: load-data-from-azure-blob-storage-using-polybase.md
+- title: Prestandajustering
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Metodtips för SQL Data Warehouse
+      url: sql-data-warehouse-best-practices.md
+    - text: Indexjustering för grupperad kolumnlagring
+      url: performance-tuning-ordered-cci.md
+    - text: Använda materialiserade vyer för arbetsbelastningsjustering
+      url: performance-tuning-materialized-views.md
+  - linkListType: how-to-guide
+    links:
+    - text: Analysera din arbetsbelastning
+      url: analyze-your-workload.md
+- title: Hantera och övervaka din SQL Data Warehouse
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Lär dig att hantera och övervaka din SQL Data Warehouse
+      url: sql-data-warehouse-overview-manageability-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: Övervaka din arbetsbelastning med DMV:er
+      url: sql-data-warehouse-manage-monitor.md
+    - text: Hantera och övervaka arbetsbelastningsprioritet
+      url: sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md
+- title: Skydda SQL Data Warehouse
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Förstå grunderna för att skydda din SQL Data Warehouse
+      url: sql-data-warehouse-overview-manage-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Konfigurera Azure Active Directory-autentisering
+      url: /azure/sql-database/sql-database-aad-authentication-configure?toc=/azure/sql-data-warehouse/toc.json&bc=/azure/sql-data-warehouse/breadcrumb/toc.json
+- title: Resurser
+  linkLists:
+  - linkListType: video
+    links:
+    - text: Titta på de senaste videorna om Azure SQL Data Warehouse
+      url: sql-data-warehouse-videos.md

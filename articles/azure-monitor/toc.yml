@@ -119,6 +119,10 @@
           href: app/troubleshoot-faq.md
 - name: Instruktionsguider
   items:
+    - name: Övervakningsscenarier
+      items:
+        - name: Övervaka Azure-tjänsten
+          href: insights/monitor-azure-resource.md
     - name: Hantera Azure Monitor
       items:
         - name: Designa en arbetsyta för distribution

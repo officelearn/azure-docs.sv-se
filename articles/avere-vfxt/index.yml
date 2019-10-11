@@ -8,10 +8,10 @@ metadata:
   author: ekpgh
   ms.service: avere-vfxt
   ms.topic: landing-page
-  ms.date: 10/31/2018
-  ms.author: v-erkell
+  ms.date: 10/09/2019
+  ms.author: rohogue
 abstract:
-  description: "Avere vFXT för Azure tillhandahåller ett molnbaserat cachelager för dataintensiva uppgifter med databehandling med höga prestanda. Genom att cachelagra filer nära beräkningsnoderna påskyndar Avere vFXT inläsningstiderna så att du kan arbeta smidigare även vid toppbelastning. Avere vFXT fungerar bäst med system som har mellan 1\_000 och 40\_000 klientkärnor. <p>Avere vFXT kan arbeta med din befintliga lokala datalagring för att ge Azure-baserade beräkningsresurser lokal åtkomst till aktiva filer som lagras långsiktigt i datacentret."
+  description: "Avere vFXT för Azure tillhandahåller ett molnbaserat cachelager för dataintensiva uppgifter med databehandling med höga prestanda. Genom att cachelagra filer nära beräkningsnoderna påskyndar Avere vFXT inläsningstiderna så att du kan arbeta smidigare även vid toppbelastning. Avere vFXT fungerar bäst med system som har mellan 1\_000 och 40\_000 klientkärnor. <p>Avere vFXT används med din befintliga datalagring för att flytta filer närmare Azure-baserade datorresurser. Aktiva filer lagras fortfarande långsiktigt i ditt datacenter."
 sections:
   - title: Kom igång med Avere vFXT för Azure
     items:

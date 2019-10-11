@@ -25,7 +25,7 @@
       items:
         - name: Skapa ett Kubernetes-kluster med AKS
           href: terraform-create-k8s-cluster-with-tf-and-aks.md
-        - name: Skapa ett Kubernetes-kluster med Application Gateway som en inkommande kontrollant med AKS
+        - name: 'Skapa en Application Gateway, inkommande styrenhet i AKS'
           href: terraform-create-k8s-cluster-with-aks-applicationgateway-ingress.md
     - name: Infrastruktur
       items:

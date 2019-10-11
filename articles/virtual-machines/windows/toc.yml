@@ -234,6 +234,10 @@
       items:
         - name: Säkerhet och principer
           href: security-policy.md
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Inbyggda säkerhetskontroller
+          href: virtual-machines-windows-security-controls.md
     - name: Tillstånd och livscykel
       href: states-lifecycle.md
     - name: Övervakning
@@ -242,8 +246,6 @@
       href: backup-recovery.md
     - name: Infrastrukturexempel
       href: infrastructure-example.md
-    - name: Inbyggda säkerhetskontroller
-      href: virtual-machines-windows-security-controls.md
 - name: Instruktionsguider
   items:
     - name: 'Skapa VM:ar'
@@ -286,8 +288,31 @@
         - name: Just-in-time-åtkomst
           href: ../../security-center/security-center-just-in-time.md
         - name: Kryptera
-          href: encrypt-disks.md
-          displayName: encryption
+          items:
+            - name: Diskkrypteringsscenarier för Windows
+              href: disk-encryption-windows.md
+            - name: VM-kryptering med Azure CLI
+              href: disk-encryption-cli-quickstart.md
+            - name: VM-kryptering med Azure PowerShell
+              href: disk-encryption-powershell-quickstart.md
+            - name: VM-kryptering med Azure Portal
+              href: disk-encryption-portal-quickstart.md
+            - name: Nyckelvalv för Azure Disk Encryption
+              href: disk-encryption-key-vault.md
+            - name: Exempelskript för diskkryptering
+              href: disk-encryption-sample-scripts.md
+            - name: Felsökning för diskkryptering
+              href: disk-encryption-troubleshooting.md
+            - name: Vanliga frågor och svar om diskkryptering
+              href: disk-encryption-faq.md
+            - name: Diskkryptering – föregående version (AAD)
+              items:
+                - name: Översikt
+                  href: disk-encryption-overview-aad.md
+                - name: Nyckelvalv för Azure Disk Encryption
+                  href: disk-encryption-key-vault-aad.md
+                - name: Diskkrypteringsscenarier för Windows
+                  href: disk-encryption-windows-aad.md
         - name: Använda WinRM
           href: winrm.md
         - name: Använda åtkomstkontroller

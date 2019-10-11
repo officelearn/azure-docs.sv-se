@@ -98,7 +98,7 @@
             - name: Autentisera från Azure Container Instances
               href: container-registry-auth-aci.md
             - name: Autentisera från Azure Kubernetes Service (AKS)
-              href: container-registry-auth-aks.md
+              href: ../aks/cluster-container-registry-integration.md
         - name: Roller och behörigheter
           href: container-registry-roles.md
         - name: Förtroende för innehåll

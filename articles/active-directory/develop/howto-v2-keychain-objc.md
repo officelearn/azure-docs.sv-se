@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e85fc5e6e907e32c0ad67af339c48cf84ef4764
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 46dc3a44041acd90dbab449215138eeecbda7105
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269043"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264191"
 ---
-# <a name="configure-keychain"></a>Konfigurera nyckel Ring
+# <a name="configure-keychain"></a>Konfigurera nyckelring
 
-När [Microsoft Authentication Library för iOS och MacOS](msal-overview.md) (MSAL) loggar in en användare eller uppdaterar en token försöker det att cachelagra tokens i nyckel ringen. Genom att cachelagra tokens i nyckel ringen kan MSAL tillhandahålla tyst enkel inloggning (SSO) mellan flera appar som distribueras av samma Apple-utvecklare. SSO uppnås via funktionen åtkomst grupper för nyckel ringar (se [Apples dokumentation](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc))
+När [Microsoft Authentication Library för iOS och MacOS](msal-overview.md) (MSAL) loggar in en användare eller uppdaterar en token försöker det att cachelagra tokens i nyckel ringen. Med cachelagring av tokens i nyckel ringen kan MSAL tillhandahålla tyst enkel inloggning (SSO) mellan flera appar som distribueras av samma Apple-utvecklare. SSO uppnås via funktionen åtkomst grupper för nyckel ringar. Mer information finns i dokumentationen till Apples [nyckel rings objekt](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps?language=objc).
 
 Den här artikeln beskriver hur du konfigurerar app-rättigheter så att MSAL kan skriva cachelagrade tokens till iOS-och macOS-nyckel.
 
@@ -34,21 +34,21 @@ Den här artikeln beskriver hur du konfigurerar app-rättigheter så att MSAL ka
 
 ### <a name="ios"></a>iOS
 
-MSAL på iOS använder `com.microsoft.adalcache` åtkomst gruppen som standard. Det här är den delade åtkomst gruppen som används av både MSAL-och ADAL-SDK: er (Azure AD Authentication Library) och säkerställer den bästa funktionen för enkel inloggning mellan flera appar från samma utgivare.
+MSAL på iOS använder sig av åtkomst gruppen `com.microsoft.adalcache` som standard. Det här är den delade åtkomst gruppen som används av både MSAL-och ADAL-SDK: er (Azure AD Authentication Library) och säkerställer den bästa funktionen för enkel inloggning mellan flera appar från samma utgivare.
 
-På iOS lägger du `com.microsoft.adalcache` till nyckel rings gruppen i appens rättighet i Xcode under **projekt inställningar** > **kapacitet** > för**nyckel delning**
+På iOS lägger du till gruppen `com.microsoft.adalcache`-nyckel Ring till appens rättighet i XCode under **projekt inställningar**@no__t 2**funktioner** >  delning av**nyckel ringar**
 
 ### <a name="macos"></a>macOS
 
-MSAL på MacOS använder `com.microsoft.identity.universalstorage` åtkomst gruppen som standard.
+MSAL på macOS använder `com.microsoft.identity.universalstorage`-åtkomst grupp som standard.
 
-På grund av begränsningar i nyckel ringar, `access group` översätts MSAL inte direkt till åtkomst gruppens attribut för nyckel ringar (se [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) på MacOS 10,14 och tidigare. Det fungerar dock på samma sätt från ett SSO-perspektiv genom att se till att flera program som distribueras av samma Apple-utvecklare kan ha tyst SSO.
+På grund av begränsningar i nyckel ringar, MSAL `access group` översätts inte direkt till åtkomst gruppens attribut för nyckel ringar (se [kSecAttrAccessGroup](https://developer.apple.com/documentation/security/ksecattraccessgroup?language=objc)) på MacOS 10,14 och tidigare. Det fungerar dock på samma sätt från ett SSO-perspektiv genom att se till att flera program som distribueras av samma Apple-utvecklare kan ha tyst SSO.
 
 På macOS 10,15 och senare (macOS Catalina) använder MSAL-attributet för nyckel ringar för att uppnå tyst SSO, på samma sätt som för iOS.
 
 ## <a name="custom-keychain-access-group"></a>Anpassad nyckel rings åtkomst grupp
 
-Om du vill använda en annan åtkomst grupp för nyckel ringar kan du skicka den anpassade gruppen när du skapar `MSALPublicClientApplicationConfig` `MSALPublicClientApplication`den, så här:
+Om du vill använda en annan åtkomst grupp för nyckel ringar kan du skicka den anpassade gruppen när du skapar `MSALPublicClientApplicationConfig` innan du skapar `MSALPublicClientApplication`, så här:
 
 Mål-C:
 

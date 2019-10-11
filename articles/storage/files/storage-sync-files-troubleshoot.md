@@ -4,15 +4,15 @@ description: Felsök vanliga problem med Azure File Sync.
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/29/2019
+ms.date: 10/10/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 6771164c26c51e40d80d0c82b42f04c4f95c4c37
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 31a9eda0e17083aac25be071c1d1a3ab84049e39
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255104"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274888"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Felsök Azure File Sync
 Använd Azure File Sync för att centralisera organisationens fil resurser i Azure Files, samtidigt som du behåller flexibilitet, prestanda och kompatibilitet för en lokal fil server. Windows Server omvandlas av Azure File Sync till ett snabbt cacheminne för Azure-filresursen. Du kan använda alla protokoll som är tillgängliga på Windows Server för att komma åt dina data lokalt, inklusive SMB, NFS och FTPS. Du kan ha så många cacheminnen som du behöver över hela världen.
@@ -797,6 +797,17 @@ Lös problemet genom att ta bort och återskapa Sync-gruppen genom att utföra f
 4. Om moln skiktning har Aktiver ATS på en server slut punkt tar du bort de överblivna filerna på servern genom att utföra stegen som dokumenteras i de [skiktade filerna är inte tillgängliga på servern när du har tagit bort ett Server slut punkts](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) avsnitt.
 5. Återskapa Sync-gruppen.
 
+<a id="-2145844941"></a>**Synkroniseringen misslyckades eftersom HTTP-begäran omdirigerades**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80190133 |
+| **HRESULT (decimal)** | – 2145844941 |
+| **Fel sträng** | HTTP_E_STATUS_REDIRECT_KEEP_VERB |
+| **Reparation krävs** | Ja |
+
+Felet beror på att Azure File Sync inte stöder HTTP-omdirigering (3xx status kod). Lös problemet genom att inaktivera HTTP-omdirigering på proxyservern eller nätverks enheten.
+
 ### <a name="common-troubleshooting-steps"></a>Vanliga fel söknings steg
 <a id="troubleshoot-storage-account"></a>**Kontrol lera att lagrings kontot finns.**  
 # <a name="portaltabazure-portal"></a>[Portalen](#tab/azure-portal)
@@ -1008,7 +1019,7 @@ Om filerna inte kan återkallas:
         - Kör `fltmc` i en upphöjd kommando tolk. Kontrol lera att fil system filter driv rutinerna StorageSync. sys och StorageSyncGuard. sys finns med i listan.
 
 > [!NOTE]
-> Händelse-ID 9006 loggas en gång per timme i händelse loggen för telemetri om en fil inte kan återkallas (en händelse loggas per felkod). Händelse loggarna för drift och diagnostik ska användas om ytterligare information behövs för att diagnostisera ett problem.
+> Händelse-ID 9006 loggas en gång per timme i händelse loggen för telemetri om en fil inte kan återkallas (en händelse loggas per felkod). Kontrol lera avsnittet [återkalla fel och reparation](#recall-errors-and-remediation) för att se om reparations stegen visas för felkoden.
 
 ### <a name="recall-errors-and-remediation"></a>Återkalla fel och reparation
 
@@ -1018,8 +1029,12 @@ Om filerna inte kan återkallas:
 | 0x80070036 | – 2147024842 | ERROR_NETWORK_BUSY | Det gick inte att återkalla filen på grund av ett nätverks problem.  | Om felet kvarstår kontrollerar du nätverks anslutningen till Azure-filresursen. |
 | 0x80c80037 | – 2134376393 | ECS_E_SYNC_SHARE_NOT_FOUND | Det gick inte att återkalla filen eftersom Server slut punkten har tagits bort. | Information om hur du löser det här problemet finns i [skiktade filer är inte tillgängliga på servern när du har tagit bort en server slut punkt](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint). |
 | 0x80070005 | – 2147024891 | ERROR_ACCESS_DENIED | Det gick inte att återkalla filen på grund av ett nekat åtkomst fel. Det här problemet kan uppstå om inställningarna för brand väggen och det virtuella nätverket på lagrings kontot är aktiverade och servern inte har åtkomst till lagrings kontot. | Lös problemet genom att lägga till serverns IP-adress eller virtuella nätverk genom att följa stegen som beskrivs i avsnittet [Konfigurera brand vägg och inställningar för virtuella nätverk](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings) i distributions guiden. |
-| 0x80c86002 | – 2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Det gick inte att återkalla filen eftersom den inte är tillgänglig i Azure-filresursen. | Lös problemet genom att kontrol lera att filen finns i Azure-filresursen. Om filen finns i Azure-filresursen uppgraderar du till den senaste versionen av Azure File Sync agent. |
-| 0x80c8305f | – 2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Det gick inte att återkalla filen på grund av ett auktoriseringsfel till lagrings kontot. | Lös problemet genom att kontrol lera [Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
+| 0x80c86002 | – 2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Det gick inte att återkalla filen eftersom den inte är tillgänglig i Azure-filresursen. | Lös problemet genom att kontrol lera att filen finns i Azure-filresursen. Om filen finns i Azure-filresursen uppgraderar du till den senaste versionen av Azure File Sync [agent](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions). |
+| 0x80c8305f | – 2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | Det gick inte att återkalla filen på grund av ett auktoriseringsfel till lagrings kontot. | Lös problemet genom att kontrol lera [Azure File Sync har åtkomst till lagrings kontot](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac). |
+| 0x80c86030 | – 2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Det gick inte att återkalla filen eftersom Azure-filresursen inte är tillgänglig. | Kontrol lera att fil resursen finns och att den är tillgänglig. Om fil resursen har tagits bort och återskapats utför du stegen som dokumenteras i [synkroniseringen eftersom Azure-filresursen togs bort och återskapas](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) för att ta bort och återskapa synkroniseringsresursen. |
+| 0x800705aa | – 2147023446 | ERROR_NO_SYSTEM_RESOURCES | Det gick inte att återkalla filen på grund av insuffcient system resurser. | Om felet kvarstår bör du undersöka vilken program-eller kernel-lägesinstallation som förbrukar system resurser. |
+| 0x8007000e | – 2147024882 | ERROR_OUTOFMEMORY | Filen kunde inte återkallas på grund av insuffcient-minne. | Om felet kvarstår bör du undersöka vilken program-eller kernel-läge driv rutin som orsakar det låga minnes tillståndet. |
+| 0x80070070 | – 2147024784 | ERROR_DISK_FULL | Filen kunde inte återkallas på grund av otillräckligt disk utrymme. | Lös problemet genom att frigöra utrymme på volymen genom att flytta filer till en annan volym, öka storleken på volymen eller tvinga filer till nivån genom att använda cmdleten Invoke-StorageSyncCloudTiering. |
 
 ### <a name="tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint"></a>Skiktade filer är inte tillgängliga på servern efter borttagning av en server slut punkt
 Nivåbaserade filer på en server blir otillgängliga om filerna inte återkallas innan du tar bort en server slut punkt.

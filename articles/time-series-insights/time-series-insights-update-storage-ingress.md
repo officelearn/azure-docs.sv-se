@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 98baa8d3f951a8922bcd1f40449fa26840f3a3c4
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: 9af53728ee038a6511c434aeedfdb9afdab6d04b
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051470"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273886"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Data lagring och Inträng i Azure Time Series Insights för hands version
 
@@ -25,7 +25,7 @@ I den här artikeln beskrivs ändringar av data lagring och inträngande från A
 
 Azure Time Series Insights data ingress-principer bestämmer var data kan hämtas från och i vilket format.
 
-[![Översikt över tids serie modell](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
+[Översikt över modell för @no__t 1Time-serien](media/v2-update-storage-ingress/tsi-data-ingress.png)](media/v2-update-storage-ingress/tsi-data-ingress.png#lightbox)
 
 ### <a name="ingress-policies"></a>Ingress-principer
 
@@ -34,7 +34,7 @@ Time Series Insights för hands versionen stöder samma händelse källor och fi
 - [Azure IoT Hub](../iot-hub/about-iot-hub.md)
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md)
   
-Azure Time Series Insights stöder JSON som skickas via Azure IoT Hub eller Azure Event Hubs. Om du vill optimera dina IoT JSON-data, lär du dig [hur du formar JSON](./time-series-insights-send-events.md#json).
+Azure Time Series Insights stöder JSON som skickas via Azure IoT Hub eller Azure Event Hubs. Om du vill optimera dina IoT JSON-data, lär du dig [hur du formar JSON](./time-series-insights-send-events.md#supported-json-shapes).
 
 ### <a name="data-storage"></a>Datalagring
 
@@ -72,7 +72,7 @@ Time Series Insights valde Parquet eftersom det tillhandahåller effektiva data 
 
 Mer information om filtypen Parquet finns i Parquet- [dokumentationen](https://parquet.apache.org/documentation/latest/).
 
-Mer information om fil formatet Parquet i Azure finns i filtyper [som stöds i Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#parquet-format).
+Mer information om fil formatet Parquet i Azure finns i [filtyper som stöds i Azure Storage](https://docs.microsoft.com/azure/data-factory/supported-file-formats-and-compression-codecs#parquet-format).
 
 ### <a name="event-structure-in-parquet"></a>Händelse struktur i Parquet
 
@@ -89,15 +89,15 @@ Time Series Insights skapar och lagrar kopior av blobbar i följande två format
     * Minsta tids stämpling för händelse i en BLOB för BLOB-partitionerade med Time Series ID.
 
 > [!NOTE]
-> * `<YYYY>`mappar till en 4-siffrig års representation.
-> * `<MM>`mappar till en månads representation i två siffror.
-> * `<YYYYMMDDHHMMSSfff>`mappar till en tidsstämpel-representation med fyrsiffrigt år (`YYYY`), 2-siffrig månad (`MM`), 2-siffrig dag (`DD`), 2-siffrig timme (`HH`), 2-siffrig minut (`MM`), 2-siffrig sekund (`SS`) och 3 siffror millisekunder`fff`().
+> * `<YYYY>` mappar till en 4-siffrig års representation.
+> * `<MM>` mappar till en 2-siffrig månads representation.
+> * `<YYYYMMDDHHMMSSfff>` mappar till en tidstämpel med fyrsiffrigt årtal (`YYYY`). tvåsiffrig månad (`MM`), 2-siffrig dag (`DD`), 2-siffrig timme (`HH`), 2-siffrig minut (`MM`), 2-siffrig sekund (`SS`) och 3-siffrig MS (`fff`).
 
 Time Series Insights händelser mappas till Parquet fil innehåll på följande sätt:
 
 * Varje händelse mappas till en enda rad.
 * Inbyggd **timestamp** -kolumn med en händelse-tidsstämpel. Egenskapen timestamp är aldrig null. Den är som standard **händelse källans köade tid** om egenskapen timestamp inte anges i händelse källan. Tidsstämpeln är UTC. 
-* Alla andra egenskaper som är mappade till kolumner slutar `_string` med (sträng) `_bool` , (Boolean) `_datetime` , (datetime) och `_double` (Double), beroende på egenskaps typ.
+* Alla andra egenskaper som är mappade till kolumner slutar med `_string` (sträng), `_bool` (Boolean), `_datetime` (datetime) och `_double` (Double), beroende på egenskaps typ.
 * Det är mappnings schema för den första versionen av fil formatet, som vi refererar till som **V = 1**. När den här funktionen utvecklas ökar namnet till **v = 2**, **V = 3**och så vidare.
 
 ## <a name="azure-storage"></a>Azure Storage
@@ -130,7 +130,7 @@ Du kanske vill komma åt data som lagras i Time Series Insights Preview Explorer
 Du kan komma åt dina data på tre sätt:
 
 * I Time Series Insights Preview Explorer: du kan exportera data som en CSV-fil från Time Series Insights Preview Explorer. Mer information finns i [Time Series Insights Preview Explorer](./time-series-insights-update-explorer.md).
-* Från Time Series Insights för hands versions-API: er kan API- `/getRecorded`slutpunkten nås. Mer information om det här API: et finns i [tids serie frågor](./time-series-insights-update-tsq.md).
+* Från Time Series Insights Preview-API: er: API-slutpunkten kan nås vid `/getRecorded`. Mer information om det här API: et finns i [tids serie frågor](./time-series-insights-update-tsq.md).
 * Direkt från ett Azure Storage-konto (nedan).
 
 #### <a name="from-an-azure-storage-account"></a>Från ett Azure Storage-konto
@@ -171,8 +171,8 @@ En fysisk partition är en Block-Blob som lagras i ditt lagrings konto. Den fakt
 
 En logisk partition är en partition i en fysisk partition som lagrar alla data som är associerade med ett enda nyckel värde för en partition. Time Series Insights för hands version logiskt partitionerar varje BLOB baserat på två egenskaper:
 
-* **Tids serie-ID**: Partitionsnyckel för alla Time Series Insights data i händelse strömmen och modellen.
-* **Tidsstämpel**: Tiden baserat på inledande ingångs datum.
+* **Time Series-ID**: partitionsnyckel för alla Time Series Insights data i händelse strömmen och modellen.
+* **Tidsstämpel**: tid baserat på inledande ingångs datum.
 
 I förhands granskningen Time Series Insights finns de frågor som baseras på dessa två egenskaper. Dessa två egenskaper ger också den mest effektiva metoden för att leverera Time Series Insights data snabbt.
 

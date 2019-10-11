@@ -215,8 +215,6 @@
               href: azure-ad-integration.md
         - name: Använda Kubernetes RBAC med Azure AD-integrering
           href: azure-ad-rbac.md
-        - name: Autentisera med ACR
-          href: ../container-registry/container-registry-auth-aks.md
           maintainContext: true
     - name: Övervakning och loggning
       items:

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
-ms.date: 12/18/2018
-ms.openlocfilehash: cc59d7cb1ce09aad834130818e5af533719e04c1
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/10/2019
+ms.openlocfilehash: 4e896fae0d8459629c58dfd0bbdfbb32b90b1cac
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568605"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264229"
 ---
 # <a name="report-across-scaled-out-cloud-databases-preview"></a>Rapport över utskalade moln databaser (förhands granskning)
 
@@ -26,14 +26,14 @@ Om du har en befintlig databas, se [migrera befintliga databaser för att skala 
 
 Information om vilka SQL-objekt som krävs för att fråga finns i [fråga över vågrätt partitionerade databaser](sql-database-elastic-query-horizontal-partitioning.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Hämta och kör [exemplet komma igång med Elastic Database verktyg](sql-database-elastic-scale-get-started.md).
 
 ## <a name="create-a-shard-map-manager-using-the-sample-app"></a>Skapa en Shard Map Manager med hjälp av exempel appen
 Här kommer du att skapa en Shard Map Manager tillsammans med flera Shards, följt av infogning av data i Shards. Om du redan har Shards-installationen med shardade-data kan du hoppa över följande steg och gå vidare till nästa avsnitt.
 
-1. Skapa och kör exempel programmet för att **komma igång med Elastic Database tools** . Följ stegen tills steg 7 i avsnittet [Hämta och kör exempel programmet](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app). I slutet av steg 7 visas följande kommando tolk:
+1. Skapa och kör exempel programmet för att **komma igång med Elastic Database verktyg** genom att följa stegen i artikel avsnittet [Hämta och köra exempel appen](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app-1). När du har slutfört alla steg visas följande kommando tolk:
 
     ![kommando tolk][1]
 2. Skriv "1" i kommando fönstret och tryck på **RETUR**. Detta skapar Shard Map Manager och lägger till två Shards på servern. Skriv "3" och tryck på **RETUR**; Upprepa åtgärden fyra gånger. Detta infogar exempel data rader i din Shards.
@@ -62,15 +62,15 @@ Dessa används för att ansluta till Shard Map Manager och Shards:
 1. Öppna SQL Server Management Studio eller SQL Server Data Tools i Visual Studio.
 2. Anslut till ElasticDBQuery-databasen och kör följande T-SQL-kommandon:
 
-        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<password>';
+        CREATE MASTER KEY ENCRYPTION BY PASSWORD = '<master_key_password>';
 
         CREATE DATABASE SCOPED CREDENTIAL ElasticDBQueryCred
         WITH IDENTITY = '<username>',
         SECRET = '<password>';
 
-    "username" och "Password" måste vara samma som inloggnings information som används i steg 6 i [Hämta och köra exempel programmet](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) i [komma igång med elastiska databas verktyg](sql-database-elastic-scale-get-started.md).
+    "username" och "Password" måste vara samma som inloggnings information som används i steg 3 i avsnittet [Ladda ned och köra exempel appen](sql-database-elastic-scale-get-started.md#download-and-run-the-sample-app) i artikeln **komma igång med Elastic Database verktyg** .
 
-### <a name="external-data-sources"></a>Externa datakällor
+### <a name="external-data-sources"></a>Externa data källor
 Om du vill skapa en extern data källa kör du följande kommando på ElasticDBQuery-databasen:
 
     CREATE EXTERNAL DATA SOURCE MyElasticDBQueryDataSrc WITH
@@ -104,7 +104,7 @@ Kör den här frågan på ElasticDBQuery-databasen:
 
 Du kommer att märka att frågan sammanställer resultat från alla Shards och ger följande utdata:
 
-![Utdatainformation][4]
+![Information om utdata][4]
 
 ## <a name="import-elastic-database-query-results-to-excel"></a>Importera resultat från Elastic Database-fråga till Excel
  Du kan importera resultaten från en fråga till en Excel-fil.
@@ -133,8 +133,8 @@ Pris information finns [SQL Database pris information](https://azure.microsoft.c
 * En översikt över elastisk fråga finns i [Översikt över elastiska frågor](sql-database-elastic-query-overview.md).
 * En lodrät partitionerings guide finns i [komma igång med kors databas fråga (lodrät partitionering)](sql-database-elastic-query-getting-started-vertical.md).
 * För syntax och exempel frågor för lodrätt partitionerade data, se [fråga lodrätt partitionerade data)](sql-database-elastic-query-vertical-partitioning.md)
-* För syntax och exempel frågor för vågrätt partitionerade data, se [fråga](sql-database-elastic-query-horizontal-partitioning.md) efter vågrätt partitionerade data)
-* Se [SP\_EXECUTE \_Remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema med vågrät partitionering.
+* För syntax och exempel frågor för vågrätt partitionerade data, se [fråga efter vågrätt partitionerade data)](sql-database-elastic-query-horizontal-partitioning.md)
+* Se [SP @ no__t-1execute \_remote](https://msdn.microsoft.com/library/mt703714) för en lagrad procedur som kör ett Transact-SQL-uttryck på en enskild fjärr Azure SQL Database eller uppsättning databaser som fungerar som Shards i ett schema för vågrät partitionering.
 
 
 <!--Image references-->

@@ -1,60 +1,60 @@
 ---
-title: Självstudie – distribuera från GitHub till Azure Kubernetes Service (AKS) med Jenkins
-description: Konfigurera Jenkins för kontinuerlig integrering (CI) från GitHub och distribution (CD) till Azure Kubernetes Service (AKS)
+title: Självstudie – distribuera från GitHub till Azure Kubernetes service (AKS) med Jenkins
+description: Konfigurera Jenkins för kontinuerlig integrering (CI) från GitHub och kontinuerlig distribution (CD) till Azure Kubernetes service (AKS)
 services: container-service
 ms.service: container-service
 author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: 7a81f26b4dad5f7257e5c3fd012dffaf06d573bb
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: e46e2c2933ee9afda860b68b10c135ac75a5d247
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65073789"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263922"
 ---
-# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Självstudier: Distribuera från GitHub till Azure Kubernetes Service (AKS) med Jenkins kontinuerlig integrering och distribution
+# <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>Självstudie: Distribuera från GitHub till Azure Kubernetes service (AKS) med Jenkins kontinuerlig integrering och distribution
 
-Den här självstudien distribuerar en exempelapp från GitHub till en [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) kluster genom att konfigurera kontinuerlig integrering (CI) och kontinuerlig distribution (CD) i Jenkins. När du uppdaterar din app genom att skicka incheckningar till GitHub, Jenkins automatiskt körs en ny version av behållare, push-meddelanden behållaravbildningar till Azure Container Registry (ACR) och kör din app i AKS. 
+Den här självstudien distribuerar en exempel-app från GitHub till ett [Azure Kubernetes service-kluster (AKS)](/azure/aks/intro-kubernetes) genom att konfigurera kontinuerlig integrering (CI) och kontinuerlig distribution (CD) i Jenkins. När du uppdaterar din app genom att överföra incheckningar till GitHub kör Jenkins automatiskt en ny behållar version, push-överför behållar avbildningar till Azure Container Registry (ACR) och kör sedan appen i AKS. 
 
 I den här självstudien får du utföra följande uppgifter:
 
 > [!div class="checklist"]
-> * Distribuera en exempelapp för Azure voting till ett AKS-kluster.
-> * Skapa en grundläggande Jenkins-projektet.
-> * Ställ in autentiseringsuppgifter för Jenkins kan interagera med ACR.
-> * Skapa en Jenkins-byggjobb och GitHub-webbhook för automatiserade versioner.
-> * Testa CI/CD-pipeline för att uppdatera ett program i AKS baserat på GitHub-incheckningar kod.
+> * Distribuera ett exempel på en Azure-röstning till ett AKS-kluster.
+> * Skapa ett Basic Jenkins-projekt.
+> * Konfigurera autentiseringsuppgifter för Jenkins att interagera med ACR.
+> * Skapa ett Jenkins build-jobb och en GitHub-webhook för automatiska versioner.
+> * Testa CI/CD-pipeline för att uppdatera ett program i AKS baserat på GitHub kod skrivningar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du följande objekt:
 
-- Grundläggande förståelse för Kubernetes, Git, CI/CD och container-avbildningar
+- Grundläggande förståelse för Kubernetes, git, CI/CD och behållar avbildningar
 
-- En [AKS-kluster] [ aks-quickstart] och `kubectl` konfigurerats med den [autentiseringsuppgifter för AKS-kluster][aks-credentials]
+- Ett [AKS-kluster][aks-quickstart] och `kubectl` som kon figurer ATS med [AKS-autentiseringsuppgifter för kluster][aks-credentials]
 
-- En [Azure Container Registry (ACR) registret][acr-quickstart], namnet på ACR-inloggningsservern och AKS-kluster som har konfigurerats att [autentisera med ACR-registret][acr-authentication]
+- Ett [Azure Container Registry-register (ACR)][acr-quickstart], ACR-inloggnings serverns namn och det AKS-kluster som har kon figurer ATS för att [autentisera med ACR-registret][acr-authentication]
 
-- Azure CLI version 2.0.46 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa  [Installera Azure CLI 2.0][install-azure-cli].
+- Azure CLI-versionen 2.0.46 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-- [Docker installerat] [ docker-install] i utvecklingssystemet
+- [Docker installerat][docker-install] i utvecklings systemet
 
-- En GitHub-konto, [personlig åtkomsttoken för GitHub][git-access-token], och Git-klient installerad i utvecklingssystemet
+- Ett GitHub-konto, [GitHub-personlig åtkomsttoken][git-access-token]och git-klient installerad i utvecklings systemet
 
-- Om du anger din egen Jenkins-instans i stället för att det här exemplet skriptade sätt att distribuera Jenkins kan Jenkins-instans behov [Docker installerat och konfigurerat] [ docker-install] och [kubectl][kubectl-install].
+- Om du anger din egen Jenkins-instans i stället för att använda det här exemplet för att distribuera Jenkins, behöver din Jenkins-instans [Docker installeras och konfigureras][docker-install] och [kubectl][kubectl-install].
 
-## <a name="prepare-your-app"></a>Förbereda din app
+## <a name="prepare-your-app"></a>Förbered din app
 
-I den här artikeln använder du ett exempelprogram för Azure voting som innehåller ett webbgränssnitt som finns i en eller flera poddar och en andra pod som är värd för Redis för tillfällig lagring. Innan du integrerar Jenkins och AKS för automatisk distribution, först manuellt förbereda och distribuera programmet Azure voting till AKS-klustret. Den här manuell distribution är versionen av programmet och kan du se hur programmet fungerar i praktiken.
+I den här artikeln använder du ett exempel på ett Azure-röstnings program som innehåller ett webb gränssnitt som finns i en eller flera poddar, och en andra Pod som är värd för Redis för tillfällig data lagring. Innan du integrerar Jenkins och AKS för automatiserade distributioner måste du först förbereda och distribuera Azures röst program manuellt till ditt AKS-kluster. Den här manuella distributionen är version ett av programmet och låter dig se hur programmet fungerar.
 
 > [!NOTE]
-> Exemplet Azure vote-programmet använder en Linux-pod som är schemalagda att köras på en Linux-nod. Flödet som beskrivs i den här artikeln fungerar även för en Windows Server-pod schemalagda på en Windows Server-nod.
+> I Azures exempel Azure-röstning används en Linux-Pod som är schemalagd att köras på en Linux-nod. Det flöde som beskrivs i den här artikeln fungerar också för en Windows Server-Pod som är schemalagd på en Windows Server-nod.
 
-Förgrena följande GitHub-lagringsplatsen för exempelprogrammet - [ https://github.com/Azure-Samples/azure-voting-app-redis ](https://github.com/Azure-Samples/azure-voting-app-redis). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet.
+Delar in följande GitHub-lagringsplats för exempel programmet- [https://github.com/Azure-Samples/azure-voting-app-redis](https://github.com/Azure-Samples/azure-voting-app-redis). Om du vill förgrena lagringsplatsen till ditt eget GitHub-konto väljer du knappen **Fork** (Förgrening) i det övre högra hörnet.
 
-Klona förgreningen till utvecklingssystemet. Kontrollera att du använder URL: en för din förgrening när Kloningen av den här lagringsplatsen:
+Klona gaffel till utvecklings systemet. Se till att du använder URL: en för din förgrening vid kloning av denna lagrings platsen:
 
 ```console
 git clone https://github.com/<your-github-account>/azure-voting-app-redis.git
@@ -66,13 +66,13 @@ git clone https://github.com/<your-github-account>/azure-voting-app-redis.git
 cd azure-voting-app-redis
 ```
 
-Du kan skapa behållaravbildningar som behövs för exempelprogrammet med den *docker compose.yaml* med `docker-compose`:
+Om du vill skapa de behållar avbildningar som behövs för exempel programmet använder du *Docker-yaml-* filen med `docker-compose`:
 
 ```console
 docker-compose up -d
 ```
 
-Nödvändiga Källavbildningen hämtas och programbehållare som byggts. Du kan sedan använda den [dockeravbildning] [ docker-images] kommando för att se den skapa avbildningen. Tre avbildningar har hämtats eller skapats. `azure-vote-front`-avbildningen innehåller programmet och använder `nginx-flask`-avbildningen som bas. Den `redis` avbildningen används för att starta en Redis-instans:
+De nödvändiga bas avbildningarna hämtas och program behållarna skapas. Sedan kan du använda kommandot [Docker images][docker-images] för att se den skapade avbildningen. Tre avbildningar har hämtats eller skapats. `azure-vote-front`-avbildningen innehåller programmet och använder `nginx-flask`-avbildningen som bas. @No__t-0-avbildningen används för att starta en Redis-instans:
 
 ```
 $ docker images
@@ -83,27 +83,27 @@ redis                        latest     a1b99da73d05        7 days ago          
 tiangolo/uwsgi-nginx-flask   flask      788ca94b2313        9 months ago        694MB
 ```
 
-Innan du kan skicka den *azure-vote-front* behållaravbildning för ACR, hämta ACR-inloggningsserver med den [az acr list] [ az-acr-list] kommando. I följande exempel hämtas serveradress för ACR-inloggning för ett register i resursgruppen med namnet *myResourceGroup*:
+Innan du kan push-överföra en *Azure-röst-front* behållar avbildning till ACR hämtar du ACR-inloggnings servern med kommandot [AZ ACR List][az-acr-list] . I följande exempel hämtas inloggnings Server adressen för ACR för ett register i resurs gruppen med namnet *myResourceGroup*:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Använd den [dockertagg] [ docker-tag] kommando för att tagga avbildningen med namnet på ACR-inloggningsservern och versionsnumret `v1`. Ange din egen `<acrLoginServer>` namn som hämtades i föregående steg:
+Använd kommandot [Docker tag][docker-tag] för att tagga avbildningen med ACR-inloggnings serverns namn och versions numret `v1`. Ange ett eget `<acrLoginServer>`-namn som hämtades i föregående steg:
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
 ```
 
-Slutligen kan skicka den *azure-vote-front* avbildningen till ACR-registret. Ersätter `<acrLoginServer>` med namnet på inloggningsservern för dina egna ACR-registret som `myacrregistry.azurecr.io`:
+Skicka slutligen den *Azure-röstbaserade* avbildningen till ACR-registret. Ersätt `<acrLoginServer>` med inloggnings Server namnet för ditt eget ACR-register, till exempel `myacrregistry.azurecr.io`:
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v1
 ```
 
-## <a name="deploy-the-sample-application-to-aks"></a>Distribuera exempelprogrammet till AKS
+## <a name="deploy-the-sample-application-to-aks"></a>Distribuera exempel programmet till AKS
 
-Du kan använda Kubernetes-manifestfilen i roten av lagringsplatsen för Azure vote-databasen för att distribuera exempelprogrammet för att AKS-klustret. Öppna den *azure-vote-all-in-one-redis.yaml* manifestfilen med en redigerare som `vi`. Ersätt `microsoft` med namnet på din ACR-inloggningsserver. Det här värdet finns på rad **47** för manifestfilen:
+Om du vill distribuera exempel programmet till ditt AKS-kluster kan du använda Kubernetes-manifest filen i roten i Azures lagrings platsen för Azure-röstning. Öppna manifest filen *Azure-rösta-all-in-One-Redis. yaml* med ett redigerings program, till exempel `vi`. Ersätt `microsoft` med namnet på din ACR-inloggningsserver. Det här värdet finns på rad **47** i manifest filen:
 
 ```yaml
 containers:
@@ -111,13 +111,13 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-Använd sedan den [kubectl gäller] [ kubectl-apply] kommando för att distribuera programmet till AKS-klustret:
+Använd sedan kommandot [kubectl Apply][kubectl-apply] för att distribuera programmet till ditt AKS-kluster:
 
 ```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-En Kubernetes load balancer-tjänsten har skapats för att exponera till internet. Den här processen kan ta ett par minuter. Du kan övervaka förloppet för load balancer distributionen genom att använda den [kubectl hämta tjänst] [ kubectl-get] med den `--watch` argumentet. När *EXTERNAL-IP*-adressen har ändrats från *pending* till en *IP-adress* använder du `Control + C` för att stoppa kubectl-övervakningsprocessen.
+En Kubernetes för belastnings utjämning skapas för att exponera programmet på Internet. Den här processen kan ta ett par minuter. Använd kommandot [kubectl get service][kubectl-get] med argumentet `--watch` för att övervaka förloppet för distributionen av belastningsutjämnaren. När *EXTERNAL-IP*-adressen har ändrats från *pending* (väntar) till en *IP-adress* använder du `Control + C` för att stoppa kubectl-övervakningsprocessen.
 
 ```console
 $ kubectl get service azure-vote-front --watch
@@ -127,25 +127,25 @@ azure-vote-front   LoadBalancer   10.0.215.27   <pending>     80:30747/TCP   22s
 azure-vote-front   LoadBalancer   10.0.215.27   40.117.57.239   80:30747/TCP   2m
 ```
 
-Öppna en webbläsare på den externa IP-adressen för din tjänst om du vill se hur programmet fungerar i praktiken. Programmet Azure voting visas som i följande exempel:
+Om du vill se hur programmet fungerar öppnar du en webbläsare till den externa IP-adressen för din tjänst. Röst programmet för Azure visas, som du ser i följande exempel:
 
-![Exempel på Azure vote-programmet som körs i AKS](media/aks-jenkins/azure-vote.png)
+![Azure exempel röstnings program som körs i AKS](media/aks-jenkins/azure-vote.png)
 
-## <a name="deploy-jenkins-to-an-azure-vm"></a>Distribuera Jenkins till en Azure virtuell dator
+## <a name="deploy-jenkins-to-an-azure-vm"></a>Distribuera Jenkins till en virtuell Azure-dator
 
-För att snabbt distribuera Jenkins för användning i den här artikeln kan använda du följande skript för att distribuera en Azure virtuell dator, konfigurera åtkomst till nätverket och slutföra en grundläggande installation av Jenkins. För autentisering mellan Jenkins och AKS-kluster kopierar skriptet Kubernetes-konfigurationsfil från utvecklingssystemet till Jenkins-system.
+För att snabbt distribuera Jenkins för användning i den här artikeln kan du använda följande skript för att distribuera en virtuell Azure-dator, konfigurera nätverks åtkomst och slutföra en grundläggande installation av Jenkins. För autentisering mellan Jenkins och AKS-klustret kopierar skriptet Kubernetes-konfigurationsfilen från utvecklings systemet till Jenkins-systemet.
 
 > [!WARNING]
-> Det här exempelskriptet är för demo att snabbt etablera en Jenkins-miljö som körs på en virtuell Azure-dator. Azure det anpassade skripttillägget används för att konfigurera en virtuell dator och visar sedan autentiseringsuppgifterna som krävs. Din *~/.kube/config* kopieras till Jenkins VM.
+> Det här exempel skriptet är i demonstrations syfte för att snabbt etablera en Jenkins-miljö som körs på en virtuell Azure-dator. Det använder Azures anpassade skript tillägg för att konfigurera en virtuell dator och sedan Visa de autentiseringsuppgifter som krävs. Din *~/.Kube/config* kopieras till den virtuella Jenkins-datorn.
 
-Kör följande kommandon för att ladda ned och kör skriptet. Du bör granska innehållet i alla skript innan du kör den- [ https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh ](https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh).
+Kör följande kommandon för att ladda ned och köra skriptet. Du bör granska innehållet i alla skript innan du kör det – [https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh](https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh).
 
 ```console
 curl https://raw.githubusercontent.com/Azure-Samples/azure-voting-app-redis/master/jenkins-tutorial/deploy-jenkins-vm.sh > azure-jenkins.sh
 sh azure-jenkins.sh
 ```
 
-Det tar några minuter att skapa den virtuella datorn och distribuera de nödvändiga komponenterna för Docker och Jenkins. När skriptet har slutförts, visar en adress för Jenkins-servern och en nyckel för att låsa upp instrumentpanelen som visas i följande Exempelutdata:
+Det tar några minuter att skapa den virtuella datorn och distribuera de komponenter som krävs för Docker och Jenkins. När skriptet har slutförts, matar den ut en adress för Jenkins-servern och en nyckel för att låsa upp instrument panelen, som visas i följande exempel på utdata:
 
 ```
 Open a browser to http://40.115.43.83:8080
@@ -153,33 +153,33 @@ Enter the following to Unlock Jenkins:
 667e24bba78f4de6b51d330ad89ec6c6
 ```
 
-Öppna en webbläsare på den URL som visas och ange Lås upplåsningsnyckeln. Följ den anvisningarna på skärmen för att slutföra Jenkins-konfigurationen:
+Öppna en webbläsare till den URL som visas och ange upplåsnings nyckeln. Slutför Jenkins-konfigurationen genom att följa anvisningarna på skärmen:
 
-- Välj **installera föreslagna plugin-program**
-- Skapa den första administratörsanvändaren. Ange ett användarnamn som *azureuser*, ange ditt eget säkra lösenord. Skriv slutligen ett fullständigt namn och e-postadress.
+- Välj **Installera föreslagna plugin** -program
+- Skapa den första administratörsanvändaren. Ange ett användar namn, till exempel *azureuser*, och ange sedan ditt eget säkra lösen ord. Skriv slutligen ett fullständigt namn och e-postadress.
 - Välj **Spara och Slutför**
 - När Jenkins är klar, väljer du **Börja använda Jenkins**
-    - Om en tom sida visas i din webbläsare när du börjar använda Jenkins, starta om Jenkins-tjänsten. Starta om tjänsten, SSH till den offentliga IP-adressen av Jenkins-instansen och skriv `sudo service jenkins restart`. När tjänsten har startats om, uppdaterar du webbläsaren.
-- Logga in på Jenkins med det användarnamn och lösenord som du skapade i installationen.
+    - Om en tom sida visas i din webbläsare när du börjar använda Jenkins, starta om Jenkins-tjänsten. För att starta om tjänsten, SSH till den offentliga IP-adressen för din Jenkins-instans och skriv `sudo service jenkins restart`. Uppdatera din webbläsare när tjänsten har startats om.
+- Logga in på Jenkins med det användar namn och lösen ord som du skapade i installations processen.
 
-## <a name="create-a-jenkins-environment-variable"></a>Skapa en Jenkins-miljövariabel
+## <a name="create-a-jenkins-environment-variable"></a>Skapa en Jenkins-miljö variabel
 
-En Jenkins-miljövariabeln är används för att lagra namnet på ACR-inloggningsservern. Den här variabeln refereras till under Jenkins-byggjobb. Om du vill skapa den här miljövariabeln, gör du följande:
+En Jenkins-miljövariabel används för att lagra ACR-inloggnings Server namnet. Den här variabeln refereras till i Jenkins build-jobbet. Utför följande steg för att skapa den här miljövariabeln:
 
-- På vänster sida av Jenkins-portalen, väljer **hantera Jenkins** > **konfigurera System**
-- Under **globala egenskaper**väljer **miljövariabler**. Lägg till en variabel med namnet `ACR_LOGINSERVER` och värdet för din ACR-inloggningsserver.
+- På vänster sida av Jenkins-portalen väljer du **Hantera Jenkins** > **Konfigurera system**
+- Under **globala egenskaper**väljer du **miljövariabler**. Lägg till en variabel med namnet `ACR_LOGINSERVER` och värdet för din ACR-inloggnings Server.
 
     ![Jenkins-miljövariabler](media/aks-jenkins/env-variables.png)
 
-- När du är klar klickar du på **spara** längst ned på sidan för konfiguration av Jenkins.
+- När du är klar klickar du på **Spara** längst ned på konfigurations sidan för Jenkins.
 
 ## <a name="create-a-jenkins-credential-for-acr"></a>Skapa en Jenkins-autentiseringsuppgift för ACR
 
-Om du vill tillåta Jenkins att skapa och skicka sedan uppdaterade behållaravbildningar till ACR, måste du ange autentiseringsuppgifter för ACR. Den här autentiseringen kan använda Azure Active Directory-tjänstobjekt. I de obligatoriska stegen du har konfigurerat tjänstens huvudnamn för din AKS-kluster med *läsare* behörigheter till ACR-registret. De här behörigheterna tillåter AKS-kluster till *pull* avbildningar från ACR-registret. Under CI/CD-processen Jenkins skapar nya behållaravbildningar baserat på programuppdateringar och måste sedan *push* dessa avbildningar till ACR-registret. Åtskillnad av roller och behörigheter, nu konfigurera ett huvudnamn för tjänsten för Jenkins med *deltagare* behörigheter till ACR-registret.
+För att Jenkins ska kunna bygga och sedan push-överföra uppdaterade behållar avbildningar till ACR måste du ange autentiseringsuppgifter för ACR. Den här autentiseringen kan använda Azure Active Directory tjänstens huvud namn. I för hands krav konfigurerade du tjänstens huvud namn för ditt AKS-kluster med *läsar* behörighet till ACR-registret. Med dessa behörigheter kan AKS-klustret *Hämta* avbildningar från ACR-registret. Under CI/CD-processen skapar Jenkins nya behållar avbildningar baserat på program uppdateringar och måste sedan *push* -överföra avbildningarna till ACR-registret. För att åtskilja roller och behörigheter konfigurerar du nu ett tjänst huvud namn för Jenkins med *deltagar* behörighet till ACR-registret.
 
-### <a name="create-a-service-principal-for-jenkins-to-use-acr"></a>Skapa ett tjänstobjekt för Jenkins att använda ACR
+### <a name="create-a-service-principal-for-jenkins-to-use-acr"></a>Skapa ett huvud namn för tjänsten för Jenkins för att använda ACR
 
-Börja med att skapa ett tjänstobjekt med den [az ad sp create-for-rbac] [ az-ad-sp-create-for-rbac] kommando:
+Börja med att skapa ett huvud namn för tjänsten med hjälp av kommandot [AZ AD SP Create-for-RBAC][az-ad-sp-create-for-rbac] :
 
 ```azurecli
 $ az ad sp create-for-rbac --skip-assignment
@@ -193,54 +193,54 @@ $ az ad sp create-for-rbac --skip-assignment
 }
 ```
 
-Anteckna den *appId* och *lösenord* visas i dina utdata. De här värdena används i följande steg för att konfigurera credential-resurs i Jenkins.
+Anteckna *appId* och *lösen ordet* som visas i dina utdata. Dessa värden används i följande steg för att konfigurera resursen för autentiseringsuppgifter i Jenkins.
 
-Hämta resurs-ID för din ACR-registret med den [az acr show] [ az-acr-show] kommandot och spara den som en variabel. Ange ditt resursgruppens namn och en ACR-namn:
+Hämta resurs-ID för ACR-registret med kommandot [AZ ACR show][az-acr-show] och lagra det som en variabel. Ange resurs gruppens namn och ACR namn:
 
 ```azurecli
 ACR_ID=$(az acr show --resource-group myResourceGroup --name <acrLoginServer> --query "id" --output tsv)
 ```
 
-Skapa nu en rolltilldelning för att tilldela tjänstobjektet *deltagare* rättigheter till ACR-registret. I följande exempel anger egna *appId* visas i utdata en föregående kommando för att skapa tjänstens huvudnamn:
+Skapa nu en roll tilldelning för att tilldela tjänstens huvud *deltagar* rättigheter till ACR-registret. I följande exempel anger du ditt eget *appId* som visas i kommandot utdata ett tidigare för att skapa tjänstens huvud namn:
 
 ```azurecli
 az role assignment create --assignee 626dd8ea-042d-4043-a8df-4ef56273670f --role Contributor --scope $ACR_ID
 ```
 
-### <a name="create-a-credential-resource-in-jenkins-for-the-acr-service-principal"></a>Skapa en resurs för autentiseringsuppgifter i Jenkins för ACR-tjänsten huvudnamn
+### <a name="create-a-credential-resource-in-jenkins-for-the-acr-service-principal"></a>Skapa en resurs för autentiseringsuppgifter i Jenkins för ACR-tjänstens huvud namn
 
-Med den rolltilldelning som skapats i Azure, nu lagra din ACR-autentiseringsuppgifter i ett Jenkins-autentiseringsuppgiftsobjekt. Refererar till dessa autentiseringsuppgifter under Jenkins-byggjobb.
+När roll tilldelningen har skapats i Azure lagrar nu dina ACR-autentiseringsuppgifter i ett Jenkins-objekt för autentiseringsuppgifter. Autentiseringsuppgifterna refereras till i Jenkins build-jobbet.
 
-Tillbaka på vänster sida av Jenkins-portalen klickar du på **autentiseringsuppgifter** > **Jenkins** > **globala autentiseringsuppgifter (obegränsad)**  >  **Lägg till autentiseringsuppgifter**
+Tillbaka till vänster i Jenkins-portalen klickar du på **autentiseringsuppgifter** > **Jenkins** > **globala autentiseringsuppgifter (obegränsad)**  > **Lägg till autentiseringsuppgifter**
 
-Se till att credential-typ är **användarnamn med lösenord** och ange följande:
+Se till att autentiseringstypen är ett **användar namn med lösen ordet** och ange följande objekt:
 
-- **Användarnamn** – *appId* för tjänstens huvudnamn som skapats för autentisering med ACR-registret.
-- **Lösenordet** – *lösenord* för tjänstens huvudnamn som skapats för autentisering med ACR-registret.
-- **ID** -autentiseringsuppgift identifierare som *acr-autentiseringsuppgifter*
+- **Användar namn** – *appId* för tjänstens huvud namn som skapats för autentisering med ACR-registret.
+- **Password** – *lösen ordet* för tjänstens huvud namn som skapats för autentisering med ACR-registret.
+- **ID – ID** för autentiseringsuppgift, till exempel *ACR-* credentials
 
-När du är klar formuläret autentiseringsuppgifter ser ut som i följande exempel:
+När du är klar ser formuläret autentiseringsuppgifter ut som i följande exempel:
 
-![Skapa ett Jenkins-autentiseringsuppgiftsobjekt med information om tjänstens huvudnamn](media/aks-jenkins/acr-credentials.png)
+![Skapa ett Jenkins-objekt för autentiseringsuppgifter med tjänstens huvud namns information](media/aks-jenkins/acr-credentials.png)
 
 Klicka på **OK** och gå tillbaka till Jenkins-portalen.
 
 ## <a name="create-a-jenkins-project"></a>Skapa ett Jenkins-projekt
 
-Startsidan för din Jenkins-portalen, väljer du **nytt objekt** på vänster sida:
+På Start sidan i Jenkins-portalen väljer du **nytt objekt** på den vänstra sidan:
 
-1. Ange *azure-vote* som jobbnamn. Välj **Freestyle-projekt**och välj sedan **OK**
-1. Under den **Allmänt** väljer **GitHub-projektet** och ange din förgrenade lagringsplats-URL, till exempel *https:\//github.com/\<your-github-konto\>/azure-voting-app-redis*
-1. Under den **Källkodshantering** väljer **Git**, ange din förgrenade lagringsplats *.git* URL, till exempel *https:\//github.com/\<your-github-konto\>/azure-voting-app-redis.git*
+1. Ange *Azure-rösta* som jobbnamn. Välj **Freestyle-projekt**och välj sedan **OK**
+1. Under avsnittet **Allmänt** väljer du **GitHub-projekt** och anger din förgrenade lagrings platsen-URL, t. ex *. https: \//GitHub. com/\<your-GitHub-Account @ no__t-5/Azure-röstning-app-Redis*
+1. Under avsnittet **käll kods hantering** väljer du **git**, anger din förgrenade lagrings platsen *. git* -URL, t. ex. *https: \//GitHub. com/\<your-GitHub-Account @ no__t-6/Azure-Voting-app-Redis. git*
 
-1. Under den **Build-utlösare** väljer **GitHub hook trigger för GITscm-avsökning**
-1. Under **kompileringsmiljö**väljer **använda hemliga texter eller filer**
-1. Under **bindningar**väljer **Lägg till** > **användarnamn och lösenord (avgränsade)**
-   - Ange `ACR_ID` för den **Användarnamnsvariabeln**, och `ACR_PASSWORD` för den **Lösenordsvariabel**
+1. Under avsnittet **build-utlösare** väljer du **GitHub Hook-utlösare för gitscm polling (-avsökning**
+1. Under **build-miljö**väljer du **Använd hemliga texter eller filer**
+1. Under **bindningar**väljer du **Lägg till** > **användar namn och lösen ord (separerade)**
+   - Ange `ACR_ID` för **variabeln username**och `ACR_PASSWORD` för **lösen ords variabeln**
 
      ![Jenkins-bindningar](media/aks-jenkins/bindings.png)
 
-1. Välj att lägga till en **skapa steg** av typen **köra shell** och Använd följande text. Det här skriptet skapar en ny behållaravbildning och skickas till ACR-registret.
+1. Välj att lägga till ett **build-steg** av typen **execute Shell** och Använd följande text. Det här skriptet skapar en ny behållar avbildning och skickar den till ACR-registret.
 
     ```bash
     # Build new image and push to ACR.
@@ -250,7 +250,7 @@ Startsidan för din Jenkins-portalen, väljer du **nytt objekt** på vänster si
     docker push $WEB_IMAGE_NAME
     ```
 
-1. Lägg till en annan **skapa steg** av typen **köra shell** och Använd följande text. Det här skriptet uppdaterar programdistribution i AKS med den nya behållaravbildningen från ACR.
+1. Lägg till ett annat **build-steg** av typen **execute Shell** och Använd följande text. Det här skriptet uppdaterar program distributionen i AKS med den nya behållar avbildningen från ACR.
 
     ```bash
     # Update kubernetes deployment with new image.
@@ -258,44 +258,44 @@ Startsidan för din Jenkins-portalen, väljer du **nytt objekt** på vänster si
     kubectl set image deployment/azure-vote-front azure-vote-front=$WEB_IMAGE_NAME --kubeconfig /var/lib/jenkins/config
     ```
 
-1. När du har slutförts, klickar du på **spara**.
+1. När du är klar klickar du på **Spara**.
 
-## <a name="test-the-jenkins-build"></a>Testa Jenkins build
+## <a name="test-the-jenkins-build"></a>Testa Jenkins-versionen
 
-Innan du automatisera jobb baserat på GitHub-incheckningar först manuellt testa Jenkins build. Den här manuell bygger verifierar att jobbet har konfigurerats korrekt, rätt autentiseringsfilen för Kubernetes är på plats och att autentiseringen med ACR fungerar.
+Innan du automatiserar jobbet baserat på GitHub incheckningar ska du först testa Jenkins-versionen manuellt. Den här manuella versionen verifierar att jobbet har kon figurer ATS korrekt, att rätt Kubernetes-autentiseringsnyckel är på plats och att autentiseringen med ACR fungerar.
 
-På den vänstra menyn för projektet väljer **skapa nu**.
+På den vänstra menyn i projektet väljer du **Bygg nu**.
 
-![Jenkins testa build](media/aks-jenkins/test-build.png)
+![Jenkins test version](media/aks-jenkins/test-build.png)
 
-Den första versionen tar en minut eller två som Docker-avbildningslager är hämtade Jenkins-servern. Efterföljande versioner kan använda cachelagrade avbildningslager för att förbättra build gånger.
+Den första versionen tar en minut eller två eftersom Docker-avbildnings lagren hämtas till Jenkins-servern. Efterföljande versioner kan använda cachelagrade bild lager för att förbättra Bygg tiderna.
 
-När du skapar klona GitHub-lagringsplatsen Jenkins build-servern. En ny behållaravbildning bygger och skickas till ACR-registret. Dessutom uppdateras Azure vote-programmet som körs på AKS-klustret för att använda den nya avbildningen. Eftersom inga ändringar har gjorts till programkoden, ändras inte programmet om du visar exempelappen i en webbläsare.
+Under skapande processen klonas GitHub-lagringsplatsen till Jenkins-build-servern. En ny behållar avbildning skapas och skickas till ACR-registret. Slutligen uppdateras Azures röst program som körs på AKS-klustret för att använda den nya avbildningen. Eftersom inga ändringar har gjorts i program koden, ändras inte programmet om du visar exempel appen i en webbläsare.
 
-När build-jobbet har slutförts, klickar du på **skapa #1** under versionshistorik. Välj **Konsolutdata** och visa utdata från skapandeprocessen. Den sista raden ska ange en version.
+När build-jobbet är klart klickar du på **build #1** under versions historik. Välj **konsol utdata** och visa utdata från bygg processen. Den sista raden ska visa en lyckad version.
 
 ## <a name="create-a-github-webhook"></a>Skapa en GitHub-webhook
 
-Med en manuell version fullständig, nu integrera GitHub i Jenkins build. En webhook kan användas för att köra varje gång en kodgenomförande görs i GitHub för Jenkins-byggjobb. För att skapa GitHub-webhook, gör du följande:
+När en lyckad manuell version är klar integrerar du GitHub i Jenkins-versionen. En webhook kan användas för att köra Jenkins build-jobbet varje gången ett kod genomförande görs i GitHub. Utför följande steg för att skapa GitHub-webhooken:
 
-1. Bläddra till den förgrenade GitHub-databasen i en webbläsare.
+1. Bläddra till din förgrenade GitHub-lagringsplats i en webbläsare.
 1. Välj **Inställningar** och sedan **Webhooks** på vänster sida.
-1. Välja att **Lägg till webhook**. För den *nyttolast-URL*, ange `http://<publicIp:8080>/github-webhook/`, där `<publicIp>` är IP-adressen för Jenkins-servern. Se till att du inkluderar avslutande /. Lämna andra standardinställningar för innehållstyp och utlösare på *push* händelser.
+1. Välj att **lägga till webhook**. För *nytto lastens URL*anger du `http://<publicIp:8080>/github-webhook/`, där `<publicIp>` är IP-adressen för Jenkins-servern. Se till att ta med efterföljande/. Lämna de andra standardvärdena för innehålls typ och Utlös vid *push* -händelser.
 1. Välj **Lägg till webhook**.
 
-    ![Skapa en webhook i GitHub för Jenkins](media/aks-jenkins/webhook.png)
+    ![Skapa en GitHub-webhook för Jenkins](media/aks-jenkins/webhook.png)
 
-## <a name="test-the-complete-cicd-pipeline"></a>Testa den fullständiga CI/CD-pipelinen
+## <a name="test-the-complete-cicd-pipeline"></a>Testa hela CI/CD-pipeline
 
-Nu kan du testa hela CI/CD-pipeline. När du skickar en kod till GitHub, händer följande:
+Nu kan du testa hela CI/CD-pipeline. När du push-överför en kod till GitHub sker följande steg:
 
-1. GitHub-webhook når till Jenkins.
-1. Jenkins startar build-jobbet och hämtar den senaste kodgenomförande från GitHub.
-1. En Docker-version har startats med hjälp av den uppdaterade koden och den nya behållaravbildningen märks med senaste build-nummer.
-1. Den här nya behållaravbildningen skickas till Azure Container Registry.
-1. Programmet distribueras till Azure Kubernetes Service-uppdateringar med den senaste behållaravbildningen från Azure Container Registry-registret.
+1. GitHub-webbhooken når Jenkins.
+1. Jenkins startar Bygg jobbet och hämtar den senaste koden som bekräftas från GitHub.
+1. En Docker-version startas med den uppdaterade koden och den nya behållar avbildningen märks med det senaste versions numret.
+1. Den här nya behållar avbildningen skickas till Azure Container Registry.
+1. Ditt program distribueras till Azure Kubernetes service-uppdateringar med den senaste behållar avbildningen från Azure Container Registry-registret.
 
-Öppna den klonade appen med en Kodredigerare på din utvecklingsdator. Under den */azure-vote/azure-vote* katalog, öppna filen med namnet **config_file.cfg**. Uppdatera röst värdena i den här filen till något än katter och hundar, som visas i följande exempel:
+Öppna det klonade programmet med en kod redigerare på din utvecklings dator. Öppna filen med namnet **config_file. cfg**under */Azure-Vote/Azure-Vote* -katalogen. Uppdatera röst värden i den här filen till något annat än katter och hundar, som du ser i följande exempel:
 
 ```
 # UI Configurations
@@ -305,15 +305,15 @@ VOTE2VALUE = 'Purple'
 SHOWHOST = 'false'
 ```
 
-När uppdaterades, spara filen, spara ändringarna och skicka dem till din förgrening av GitHub-lagringsplatsen. GitHub-webhook utlöser ett nytt build-jobb i Jenkins. Övervaka skapandeprocessen i web Jenkins-instrumentpanelen. Det tar några sekunder att hämta den senaste koden, skapa och skicka den uppdaterade avbildningen och distribuera det uppdaterade programmet i AKS.
+När du har uppdaterat sparar du filen, genomför ändringarna och skickar dem till din förgrening av GitHub-lagringsplatsen. GitHub-webhook utlöser ett nytt build-jobb i Jenkins. I Jenkins-webbinstrumentpanelen övervakar du Bygg processen. Det tar några sekunder att hämta den senaste koden, skapa och pusha den uppdaterade avbildningen och distribuera det uppdaterade programmet i AKS.
 
-Uppdatera din webbläsare i exempelprogrammet för Azure voting när versionen har slutförts. Ändringarna visas, enligt följande exempel:
+När build-versionen har slutförts uppdaterar du webbläsaren för Azures exempel programmet Azure-röstning. Ändringarna visas, som du ser i följande exempel:
 
-![Exemplet Azure rösta i AKS uppdaterad av Jenkins-byggjobb](media/aks-jenkins/azure-vote-updated.png)
+![Exempel på Azure-röstning i AKS som uppdaterats av Jenkins-build-jobbet](media/aks-jenkins/azure-vote-updated.png)
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln lärde du dig att använda Jenkins som en del av en CI/CD-lösning. AKS kan integreras med andra CI/CD-lösningar och verktyg för automatisering som den [Azure DevOps-projekt] [ azure-devops] eller [skapar ett AKS-kluster med Ansible] [ aks-ansible].
+I den här artikeln har du lärt dig hur du använder Jenkins som en del av en CI/CD-lösning. AKS kan integreras med andra CI/CD-lösningar och automatiserings verktyg, till exempel [Azure DevOps-projektet][azure-devops] eller [skapa ett AKS-kluster med Ansible][aks-ansible].
 
 <!-- LINKS - external -->
 [docker-images]: https://docs.docker.com/engine/reference/commandline/images/
@@ -326,7 +326,7 @@ I den här artikeln lärde du dig att använda Jenkins som en del av en CI/CD-l�
 
 <!-- LINKS - internal -->
 [az-acr-list]: /cli/azure/acr#az-acr-list
-[acr-authentication]: ../container-registry/container-registry-auth-aks.md#grant-aks-access-to-acr
+[acr-authentication]: cluster-container-registry-integration.md
 [acr-quickstart]: ../container-registry/container-registry-get-started-azure-cli.md
 [aks-credentials]: /cli/azure/aks#az-aks-get-credentials
 [aks-quickstart]: kubernetes-walkthrough.md

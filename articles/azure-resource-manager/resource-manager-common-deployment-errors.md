@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 10/04/2019
 ms.author: tomfitz
-ms.openlocfilehash: 185570992ad0308b500da30bca212a0495bcb0fa
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: bba59d024e253c8d05aa75123be5e3f13699f72e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001633"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263039"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Felsök vanliga problem med Azure-distribution med Azure Resource Manager
 
@@ -35,6 +35,7 @@ Om du letar efter information om en felkod och informationen inte finns i den h�
 | BadRequest | Du skickade distributions värden som inte matchar det som förväntas av Resource Manager. Kontrol lera meddelandet om inre status för att få hjälp med fel sökning. | [Referera till mallar](/azure/templates/) och [platser som stöds](resource-location.md) |
 | Uppstod | Du begär en åtgärd som inte är tillåten i resursens aktuella tillstånd. Till exempel tillåts disk storleks ändring bara när du skapar en virtuell dator eller när den virtuella datorn frigörs. | |
 | DeploymentActiveAndUneditable | Vänta tills en samtidig distribution till den här resurs gruppen har slutförts. | |
+| DeploymentFailedCleanUp | När du distribuerar i fullständigt läge tas alla resurser som inte finns i mallen bort. Du får det här felet när du inte har tillräcklig behörighet för att ta bort alla resurser som inte finns i mallen. Undvik felet genom att ändra distributions läget till stegvist. | [Azure Resource Manager distributions lägen](deployment-modes.md) |
 | DeploymentNameInvalidCharacters | Distributions namnet får bara innehålla bokstäver, siffror, "-", "." eller "_". | |
 | DeploymentNameLengthLimitExceeded | Distributions namnen är begränsade till 64 tecken.  | |
 | DeploymentFailed | DeploymentFailed-felet är ett allmänt fel som inte innehåller den information du behöver för att lösa problemet. Se fel informationen för en felkod som innehåller mer information. | [Hitta felkod](#find-error-code) |
@@ -131,7 +132,7 @@ Du ser felmeddelandet och felkoderna. Observera att det finns två felkoder. Den
 
 ![fel information](./media/resource-manager-common-deployment-errors/error-details.png)
 
-## <a name="enable-debug-logging"></a>Aktivera felsökningsloggning
+## <a name="enable-debug-logging"></a>Aktivera fel söknings loggning
 
 Ibland behöver du mer information om begäran och svar för att lära dig vad som gått fel. Under distributionen kan du begära att ytterligare information loggas under en distribution.
 
@@ -246,11 +247,11 @@ I vissa fall är det enklaste sättet att felsöka din mall att testa delar av d
 }
 ```
 
-Eller anta att du påträffar distributions fel som du tror är relaterade till felaktigt inställda beroenden. Testa mallen genom att dela upp den i förenklade mallar. Börja med att skapa en mall som endast distribuerar en enskild resurs (som en SQL Server). När du är säker på att resursen är korrekt definierad lägger du till en resurs som är beroende av den (t. ex. en SQL Database). När de här två resurserna är korrekt definierade lägger du till andra beroende resurser (t. ex. gransknings principer). I mellan varje test distribution tar du bort resurs gruppen för att kontrol lera att du testar beroendena på ett korrekt sätt.
+Eller, anta att du får distributions fel som du tror är relaterade till felaktigt inställda beroenden. Testa mallen genom att dela upp den i förenklade mallar. Börja med att skapa en mall som endast distribuerar en enskild resurs (som en SQL Server). När du är säker på att resursen är korrekt definierad lägger du till en resurs som är beroende av den (t. ex. en SQL Database). När de här två resurserna är korrekt definierade lägger du till andra beroende resurser (t. ex. gransknings principer). I mellan varje test distribution tar du bort resurs gruppen för att kontrol lera att du testar beroendena på ett korrekt sätt.
 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du går igenom en fel söknings kurs finns i [Tutorial: Felsöka distributioner av Resource Manager-mallar @ no__t-0
+* Information om hur du går igenom en fel söknings kurs finns i [Självstudier: Felsöka Resource Manager-mallar distributioner](./resource-manager-tutorial-troubleshoot.md)
 * Mer information om gransknings åtgärder finns i [gransknings åtgärder med Resource Manager](resource-group-audit.md).
 * Information om åtgärder för att fastställa felen under distributionen finns i [Visa distributions åtgärder](resource-manager-deployment-operations.md).

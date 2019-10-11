@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 04/23/2018
 ms.author: danlep
-ms.openlocfilehash: d2099de9ad909b23b79a92a831d7730b1cf126e3
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: b11f88cbb29016032cbf536a2c970573eda82152
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311643"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72262858"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-container-instances"></a>Autentisera med Azure Container Registry från Azure Container Instances
 
@@ -33,7 +33,7 @@ Tjänstens huvud namn bör också användas när register [Administratörs anvä
 
 ## <a name="authenticate-using-the-service-principal"></a>Autentisera med hjälp av tjänstens huvud namn
 
-Om du vill starta en behållare i Azure Container instances med ett huvud namn för tjänsten anger `--registry-username`du dess ID för och `--registry-password`lösen ordet för.
+Om du vill starta en behållare i Azure Container Instances med ett huvud namn för tjänsten anger du dess ID för `--registry-username` och dess lösen ord för `--registry-password`.
 
 ```azurecli-interactive
 az container create \
@@ -57,7 +57,7 @@ Du kan hitta de föregående exempel skripten för Azure CLI på GitHub, och äv
 Följande artiklar innehåller ytterligare information om hur du arbetar med tjänstens huvud namn och ACR:
 
 * [Azure Container Registry autentisering med tjänstens huvud namn](container-registry-auth-service-principal.md)
-* [Autentisera med Azure Container Registry från Azure Kubernetes service (AKS)](container-registry-auth-aks.md)
+* [Autentisera med Azure Container Registry från Azure Kubernetes service (AKS)](../aks/cluster-container-registry-integration.md)
 
 <!-- IMAGES -->
 

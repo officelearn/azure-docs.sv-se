@@ -1,11 +1,11 @@
 ---
-title: 'Självstudier: Azure Active Directory integration med Check Point CloudGuard Dome9 båge | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med Check Point CloudGuard Dome9 Arc | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Check Point CloudGuard Dome9 båge.
 services: active-directory
 documentationCenter: na
 author: jeevansd
 manager: mtillman
-ms.reviewer: celested
+ms.reviewer: barbkess
 ms.assetid: 4c12875f-de71-40cb-b9ac-216a805334e5
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/14/2019
+ms.date: 09/24/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 240d962d56e4a2dc0758f3170c51b343d22ef98d
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: fb47d60f609e63e5a17fd8abd3efe420ea7fd187
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68944574"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264095"
 ---
-# <a name="tutorial-integrate-check-point-cloudguard-dome9-arc-with-azure-active-directory"></a>Självstudier: Integrera Check Point CloudGuard Dome9 båge med Azure Active Directory
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-check-point-cloudguard-dome9-arc"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med Check Point CloudGuard Dome9 båge
 
 I den här självstudien får du lära dig hur du integrerar Check Point CloudGuard Dome9 Arc med Azure Active Directory (Azure AD). När du integrerar Check Point CloudGuard Dome9 båge med Azure AD kan du:
 
@@ -33,7 +33,7 @@ I den här självstudien får du lära dig hur du integrerar Check Point CloudGu
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
@@ -42,7 +42,12 @@ För att komma igång behöver du följande objekt:
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö. Check Point CloudGuard Dome9-båge stöder **SP-och IDP** -initierad SSO.
+I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+
+* Check Point CloudGuard Dome9-båge stöder **SP-och IDP** -INITIERAd SSO
+
+> [!NOTE]
+> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
 
 ## <a name="adding-check-point-cloudguard-dome9-arc-from-the-gallery"></a>Lägga till Check Point CloudGuard Dome9 båge från galleriet
 
@@ -55,20 +60,20 @@ Om du vill konfigurera integreringen av Check Point CloudGuard Dome9-bågen i Az
 1. I avsnittet **Lägg till från galleriet** skriver du **Check Point CloudGuard Dome9 Arc** i sökrutan.
 1. Välj **Check Point CloudGuard Dome9 båge** från panelen resultat och Lägg sedan till appen. Vänta några sekunder medan appen läggs till i din klient organisation.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Konfigurera och testa Azure AD enkel inloggning
+## <a name="configure-and-test-azure-ad-single-sign-on-for-check-point-cloudguard-dome9-arc"></a>Konfigurera och testa enkel inloggning med Azure AD för Check Point CloudGuard Dome9 båge
 
 Konfigurera och testa Azure AD SSO med Check Point CloudGuard Dome9 båge med en test användare som kallas **B. Simon**. För att SSO ska fungera måste du upprätta en länk relation mellan en Azure AD-användare och den relaterade användaren i Check Point CloudGuard Dome9 Arc.
 
 Om du vill konfigurera och testa Azure AD SSO med Check Point CloudGuard Dome9 Arc slutför du följande Bygg stenar:
 
-1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** så att användarna kan använda den här funktionen.
-2. Konfigurera **[Check Point CloudGuard Dome9 båge](#configure-check-point-cloudguard-dome9-arc)** för att konfigurera SSO-inställningarna på program sidan.
-3. **[Skapa en Azure AD](#create-an-azure-ad-test-user)** -testanvändare för att testa enkel inloggning i Azure AD med B. Simon.
-4. **[Tilldela Azure AD](#assign-the-azure-ad-test-user)** -testanvändaren att aktivera B. Simon för att använda enkel inloggning i Azure AD.
-5. **[Skapa Check Point CloudGuard Dome9 Arc test User](#create-check-point-cloudguard-dome9-arc-test-user)** för att ha en motsvarighet till B. Simon i Check Point CloudGuard Dome9-båge som är länkad till Azure AD-representation av användare.
-6. **[Testa SSO](#test-sso)** för att kontrol lera om konfigurationen fungerar.
+1. **[Konfigurera Azure AD SSO](#configure-azure-ad-sso)** – så att användarna kan använda den här funktionen.
+    1. **[Skapa en Azure AD-test](#create-an-azure-ad-test-user)** för att testa enkel inloggning med Azure AD med B. Simon.
+    1. **[Tilldela Azure AD-testuser](#assign-the-azure-ad-test-user)** -för att aktivera B. Simon för att använda enkel inloggning med Azure AD.
+1. **[Konfigurera Check Point CloudGuard Dome9 båge SSO](#configure-check-point-cloudguard-dome9-arc-sso)** – om du vill konfigurera inställningar för enkel inloggning på program sidan.
+    1. **[Skapa Check Point CloudGuard Dome9 Arc test User](#create-check-point-cloudguard-dome9-arc-test-user)** -för att få en motsvarighet till B. Simon i Check Point CloudGuard Dome9-båge som är länkad till Azure AD-representation av användare.
+1. **[Testa SSO](#test-sso)** – för att kontrol lera om konfigurationen fungerar.
 
-### <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
+## <a name="configure-azure-ad-sso"></a>Konfigurera Azure AD SSO
 
 Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
@@ -78,61 +83,73 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
    ![Redigera grundläggande SAML-konfiguration](common/edit-urls.png)
 
-4. Om du vill konfigurera programmet i **IDP**-initierat läge gör du följande i avsnittet **Grundläggande SAML-konfiguration**:
+1. I avsnittet **grundläggande SAML-konfiguration** , om du vill konfigurera programmet i **IDP** initierat läge, anger du värdena för följande fält:
 
-    a. I textrutan **Identifierare** skriver du en URL med följande mönster: `https://secure.dome9.com/`
+    a. I textrutan **Identifierare** skriver du in en URL: `https://secure.dome9.com/`
 
-    b. I textrutan **Svars-URL** skriver du in en URL med följande mönster: `https://secure.dome9.com/sso/saml/yourcompanyname`
+    b. I textrutan **svars-URL** skriver du en URL med följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
     > Du väljer värdet för ditt företagsnamn i dome9-administratörsportalen, vilket förklaras senare i den här självstudien.
 
-5. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
+1. Klicka på **Ange ytterligare URL:er** och gör följande om du vill konfigurera appen i **SP**-initierat läge:
 
     I textrutan **Inloggnings-URL** skriver du in en URL med följande mönster: `https://secure.dome9.com/sso/saml/<yourcompanyname>`
 
     > [!NOTE]
     > Dessa värden är inte verkliga. Uppdatera dessa värden med den faktiska svars-URL:en och inloggnings-URL:en. Kontakta [Check Point CloudGuard Dome9 Arc client support team](mailto:Dome9@checkpoint.com) för att hämta dessa värden. Du kan även se mönstren som visas i avsnittet **Grundläggande SAML-konfiguration** i Azure-portalen.
 
-6. Check Point CloudGuard Dome9 Arc-appen förväntar sig SAML-intyg i ett särskilt format, vilket kräver att du lägger till anpassade mappningar till dina SAML token-konfiguration av attribut. I följande skärmbild visas listan över standardattribut. Klicka på ikonen**Redigera** för att öppna dialogrutan Användarattribut.
-
-    ![image](common/edit-attribute.png)
-
-7. Utöver ovan förväntar sig CloudGuard Dome9 ARC-programmet fler attribut att skickas tillbaka i SAML-svar. I avsnittet **Användaranspråk** i dialogrutan **Användarattribut** utför du följande steg för att lägga till SAML-tokenattributet enligt det som visas i tabellen nedan: 
-
-    | Namn |  Källattribut|
-    | ---------------| --------------- |
-    | memberof | user.assignedroles |
-
-    a. Klicka på **Lägg till nytt anspråk** för att öppna dialogrutan **Hantera användaranspråk**.
-
-    ![image](common/new-save-attribute.png)
-
-    ![image](common/new-attribute-details.png)
-
-    b. I textrutan **Namn** skriver du det attributnamn som visas för den raden.
-
-    c. Lämna **Namnrymd** tom.
-
-    d. Välj Källa som **Attribut**.
-
-    e. Från listan över **Källattribut** skriver du det attributvärde som visas för den raden.
-
-    f. Klicka på **Ok**
-
-    g. Klicka på **Spara**.
+1. Check Point CloudGuard Dome9-båge kräver att roller konfigureras i Azure AD. Roll anspråk är förkonfigurerat så att du inte behöver konfigurera det, men du måste fortfarande skapa dem i Azure AD med hjälp av den här [artikeln](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management).
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , Sök efter **certifikat (base64)** och välj **Ladda ned** för att ladda ned certifikatet och spara det på din dator.
 
-   ![Länk för hämtning av certifikat](common/certificatebase64.png)
+    ![Länk för nedladdning av certifikatet](common/certificatebase64.png)
 
 1. I avsnittet **Konfigurera Check Point CloudGuard Dome9 Arc** kopierar du lämpliga URL: er baserat på ditt krav.
 
-   ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
 
-### <a name="configure-check-point-cloudguard-dome9-arc"></a>Konfigurera Check Point CloudGuard Dome9 båge
+### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
-1. Logga in på check punkten CloudGuard Dome9 Arc Company site som administratör i ett annat webbläsarfönster.
+I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
+
+1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
+1. Välj **Ny användare** överst på skärmen.
+1. I **användar** egenskaperna följer du de här stegen:
+   1. I **Namn**-fältet skriver du `B.Simon`.  
+   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
+   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
+   1. Klicka på **Skapa**.
+
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
+
+I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Check Point CloudGuard Dome9 båge.
+
+1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
+1. I listan program väljer du **Check Point CloudGuard Dome9 båge**.
+1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
+
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
+
+1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
+
+    ![Länken Lägg till användare](common/add-assign-user.png)
+
+1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
+1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+
+## <a name="configure-check-point-cloudguard-dome9-arc-sso"></a>Konfigurera Check Point CloudGuard Dome9 båge SSO
+
+1. Om du vill automatisera konfigurationen inom Check Point CloudGuard Dome9 Arc måste du installera **webb läsar tillägget Mina appar med säker inloggning** genom att klicka på **installera tillägget**.
+
+    ![Mina Apps-tillägg](common/install-myappssecure-extension.png)
+
+2. När du har lagt till tillägg i webbläsaren klickar du på **installations kontroll punkt CloudGuard Dome9 båge** dirigerar dig till Check Point CloudGuard Dome9 båg Application. Därifrån anger du administratörsautentiseringsuppgifter för att logga in på Check Point CloudGuard Dome9 Arc. Webb läsar tillägget kommer automatiskt att konfigurera programmet åt dig och automatisera steg 3-6.
+
+    ![Konfigurera konfiguration](common/setup-sso.png)
+
+3. Om du vill installera Check Point CloudGuard Dome9 båge manuellt, öppnar du ett nytt webbläsarfönster och loggar in på Check Point CloudGuard Dome9 Arc Company site som administratör och utför följande steg:
 
 2. Klicka på **profilinställningarna** uppe i högra hörnet och klicka sedan på **Account Settings** (Kontoinställningar). 
 
@@ -148,43 +165,13 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
     a. Ange företagets namn i textrutan **Account ID** (Konto-ID). Det här värdet ska användas i svars-URL: en som nämns i avsnittet Azure Portal **grundläggande SAML-konfiguration** .
 
-    b. I text rutan utfärdare klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal.
+    b. I text rutan **utfärdare** klistrar du in värdet för **Azure AD-identifierare**, som du har kopierat från Azure Portal.
 
     c. I textrutan **Idp endpoint url** (url till Idp-slutpunkt) klistrar du in värdet för den **inloggnings-URL** som du har kopierat från Azure-portalen.
 
     d. Öppna ditt Base64-kodade certifikat i Anteckningar, kopiera innehållet till Urklipp och klistra sedan in det i textrutan **X.509 certificate** (X.509-certifikat).
 
-    e. Klicka på **Spara**.
-
-### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
-
-I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
-
-1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
-1. I **användar** egenskaperna följer du de här stegen:
-   1. I **Namn**-fältet skriver du `B.Simon`.  
-   1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
-   1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
-   1. Klicka på **Skapa**.
-
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
-
-I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Check Point CloudGuard Dome9 båge.
-
-1. I Azure Portal väljer du **företags program**och väljer sedan **alla program**.
-1. I listan program väljer du **Check Point CloudGuard Dome9 båge**.
-1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
-
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
-
-1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
-
-    ![Länken Lägg till användare](common/add-assign-user.png)
-
-1. I dialog rutan **användare och grupper** väljer du **B. Simon** från listan användare och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. Om du förväntar dig ett roll värde i SAML Assertion, i dialog rutan **Välj roll** , väljer du lämplig roll för användaren i listan och klickar sedan på knappen **Välj** längst ned på skärmen.
-1. I dialogrutan **Lägg till tilldelning** klickar du på knappen **Tilldela**.
+    e. Klicka på **Save** (Spara).
 
 ### <a name="create-check-point-cloudguard-dome9-arc-test-user"></a>Skapa Check Point CloudGuard Dome9 Arc test User
 
@@ -211,7 +198,7 @@ Om du vill att Azure AD-användare ska kunna logga in till Check Point CloudGuar
 
     a. I textrutan **E-post** skriver du e-postadressen för användaren, till exempel B.Simon@contoso.com.
 
-    b. I text rutan Förnamn skriver du förnamn för användaren som B.
+    b. I text rutan **förnamn** skriver du förnamn för användaren som B.
 
     c. I textrutan för **efternamn** skriver du efternamnet, till exempel Simon.
 
@@ -219,14 +206,19 @@ Om du vill att Azure AD-användare ska kunna logga in till Check Point CloudGuar
 
     e. Klicka på **SKAPA**.
 
-### <a name="test-sso"></a>Testa SSO
+## <a name="test-sso"></a>Testa SSO 
 
-När du väljer ikonen Check Point CloudGuard Dome9 båge på åtkomst panelen, bör du loggas in automatiskt på den Check Point CloudGuard Dome9-båge som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
+
+När du klickar på ikonen för kontroll punktens CloudGuard Dome9 båge på åtkomst panelen, bör du loggas in automatiskt på den Check Point CloudGuard Dome9-båge som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 
-- [Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [ Lista över självstudier om hur du integrerar SaaS-appar med Azure Active Directory ](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Vad är programåtkomst och enkel inloggning med Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Vad är programåtkomst och enkel inloggning med Azure Active Directory? ](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Vad är villkorsstyrd åtkomst i Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+
+- [Prova Check Point CloudGuard Dome9 båge med Azure AD](https://aad.portal.azure.com/)
+

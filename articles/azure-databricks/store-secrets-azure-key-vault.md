@@ -1,5 +1,5 @@
 ---
-title: Få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault självstudie
+title: Åtkomst till Blob Storage med Key Vault – Azure Databricks
 description: I den här självstudien beskrivs hur du får åtkomst till Azure Blob Storage från Azure Databricks med hemligheter som lagras i ett nyckel valv.
 author: mamccrea
 ms.author: mamccrea
@@ -7,14 +7,14 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: tutorial
 ms.date: 07/19/2019
-ms.openlocfilehash: 45c5be8b203daf21697f3cb6dad4ecadb6449339
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 1e44a1f1be6dcadac937d641e00c99994af0c651
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976520"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274088"
 ---
-# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Självstudier: Få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault
+# <a name="tutorial-access-azure-blob-storage-from-azure-databricks-using-azure-key-vault"></a>Självstudie: få åtkomst till Azure Blob Storage från Azure Databricks med Azure Key Vault
 
 I den här självstudien beskrivs hur du får åtkomst till Azure Blob Storage från Azure Databricks med hemligheter som lagras i ett nyckel valv.
 
@@ -26,13 +26,13 @@ I den här guiden får du lära dig att:
 > * Skapa en Azure Databricks arbets yta och Lägg till ett hemligt område
 > * Få åtkomst till din BLOB-behållare från Azure Databricks
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com/).
+Logga in på [Azure-portalen](https://portal.azure.com/).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -74,12 +74,12 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 3. Ange följande information på sidan **skapa nyckel valv** och behåll standardvärdena för återstående fält:
 
-   |Egenskap|Description|
+   |Egenskap|Beskrivning|
    |--------|-----------|
    |Namn|Ett unikt namn för nyckel valvet.|
-   |Subscription|Välj en prenumeration.|
-   |Resource group|Välj en resurs grupp eller skapa en ny.|
-   |Location|Välj en plats.|
+   |Prenumeration|Välj en prenumeration.|
+   |Resursgrupp|Välj en resurs grupp eller skapa en ny.|
+   |Plats|Välj en plats.|
 
    ![Egenskaper för Azure Key Vault](./media/store-secrets-azure-key-vault/create-key-vault-properties.png)
 
@@ -91,11 +91,11 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 5. Ange följande information på sidan **skapa en hemlig** enhet och behåll standardvärdena för de återstående fälten:
 
-   |Egenskap|Value|
+   |Egenskap|Värde|
    |--------|-----------|
-   |Uppladdningsalternativ|Manuell|
+   |Överförings alternativ|Manuellt|
    |Namn|Eget namn för din lagrings konto nyckel.|
-   |Value|KEY1 från ditt lagrings konto.|
+   |Värde|KEY1 från ditt lagrings konto.|
 
    ![Egenskaper för nytt Key Vault-hemlighet](./media/store-secrets-azure-key-vault/create-storage-secret.png)
 
@@ -105,7 +105,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
 ## <a name="create-an-azure-databricks-workspace-and-add-a-secret-scope"></a>Skapa en Azure Databricks arbets yta och Lägg till ett hemligt område
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
     ![Databricks på Azure Portal](./media/store-secrets-azure-key-vault/azure-databricks-on-portal.png)
 
@@ -113,10 +113,10 @@ Logga in på [Azure Portal](https://portal.azure.com/).
 
    |Egenskap  |Beskrivning  |
    |---------|---------|
-   |Namn på arbetsyta     | Ange ett namn för Databricks-arbetsytan        |
-   |Subscription     | I listrutan väljer du din Azure-prenumeration.        |
-   |Resource group     | Välj samma resurs grupp som innehåller nyckel valvet. |
-   |Location     | Välj samma plats som Azure Key Vault. För alla tillgängliga regioner, se [Azure-tjänster tillgängliga per region](https://azure.microsoft.com/regions/services/).        |
+   |Namn på arbets yta     | Ange ett namn för Databricks-arbetsytan        |
+   |Prenumeration     | I listrutan väljer du din Azure-prenumeration.        |
+   |Resursgrupp     | Välj samma resurs grupp som innehåller nyckel valvet. |
+   |Plats     | Välj samma plats som Azure Key Vault. För alla tillgängliga regioner, se [Azure-tjänster tillgängliga per region](https://azure.microsoft.com/regions/services/).        |
    |Prisnivå     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
    ![Egenskaper för Databricks-arbetsyta](./media/store-secrets-azure-key-vault/create-databricks-service.png)
@@ -166,7 +166,7 @@ Logga in på [Azure Portal](https://portal.azure.com/).
    ```
 
    * **Mount-Name** är en DBFS-sökväg som representerar var Blob Storage containern eller en mapp i behållaren (anges i källan) ska monteras.
-   * **conf-nyckeln** kan vara antingen `fs.azure.account.key.<\your-storage-account-name>.blob.core.windows.net` eller`fs.azure.sas.<\your-container-name>.<\your-storage-account-name>.blob.core.windows.net`
+   * **conf-nyckeln** kan vara antingen `fs.azure.account.key.<\your-storage-account-name>.blob.core.windows.net` eller `fs.azure.sas.<\your-container-name>.<\your-storage-account-name>.blob.core.windows.net`
    * **omfång – namn** är namnet på det hemliga omfång som du skapade i föregående avsnitt. 
    * **nyckel namn** är namnet på de hemligheter som du skapade för lagrings konto nyckeln i ditt nyckel valv.
 
@@ -211,4 +211,4 @@ Om du inte kommer att fortsätta att använda det här programmet tar du bort he
 
 Gå vidare till nästa artikel om du vill lära dig hur du implementerar en VNet-Databricks miljö med en tjänst slut punkt som är aktive rad för Cosmos DB.
 > [!div class="nextstepaction"]
-> [Självstudier: Implementera Azure Databricks med en Cosmos DB-slutpunkt](service-endpoint-cosmosdb.md)
+> [Självstudie: implementera Azure Databricks med en Cosmos DB-slutpunkt](service-endpoint-cosmosdb.md)

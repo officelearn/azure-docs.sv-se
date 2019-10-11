@@ -8,18 +8,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/15/2019
-ms.openlocfilehash: 316ddbf662a5418e54f37cb335475a86c50118c7
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.openlocfilehash: 20da2d54ea54674656b2c1006d094c63133baf79
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71131446"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264488"
 ---
 # <a name="use-azure-data-factory-command-activity-to-run-azure-data-explorer-control-commands"></a>Använd Azure Data Factory kommando aktivitet för att köra Azure Datautforskaren Control-kommandon
 
 [Azure Data Factory](/azure/data-factory/) (ADF) är en molnbaserad data integrerings tjänst som gör att du kan utföra en kombination av aktiviteter på data. Använd ADF för att skapa data drivna arbets flöden för att dirigera och automatisera data förflyttning och data omvandling. Med **azure datautforskaren kommando** aktiviteten i Azure Data Factory kan du köra [Azure datautforskaren kontroll kommandon](/azure/kusto/concepts/#control-commands) i ett ADF-arbetsflöde. Den här artikeln lär dig hur du skapar en pipeline med en söknings aktivitet och en förgrunds aktivitet som innehåller en Azure Datautforskaren-kommando aktivitet.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Ett Azure Datautforskaren-kluster och-databas](create-cluster-database-portal.md)
@@ -34,6 +34,8 @@ ms.locfileid: "71131446"
    ![Skapa ny pipeline](media/data-factory-command-activity/create-pipeline.png)
 
 ## <a name="create-a-lookup-activity"></a>Skapa en söknings aktivitet
+
+En [söknings aktivitet](/azure/data-factory/control-flow-lookup-activity) kan hämta en data uppsättning från alla Azure Data Factory-stödda data källor. Utdata från lookup-aktiviteten kan användas i en eller flera aktiviteter.
 
 1. I rutan **aktiviteter** under **Allmänt**väljer du **Lookup** -aktiviteten. Dra och släpp det i huvud arbets ytan till höger.
  
@@ -83,13 +85,13 @@ ms.locfileid: "71131446"
     * Välj **test anslutning** för att testa den länkade tjänst anslutningen som du skapade. Om du kan ansluta till installationen visas en grön bock- **anslutning** som är klar.
     * Klicka på **Slutför** om du vill slutföra skapandet av länkade tjänster.
 
-1. När du har konfigurerat en länkad tjänst lägger du till **tabell** namn i **AzureDataExplorerTable** > -**anslutning**. Välj **Förhandsgranska data**för att se till att data visas korrekt.
+1. När du har konfigurerat en länkad tjänst går du till **AzureDataExplorerTable** > -**anslutning**och lägger till **tabell** namn. Välj **Förhandsgranska data**för att se till att data visas korrekt.
 
    Din data uppsättning är nu klar och du kan fortsätta att redigera din pipeline.
 
 ### <a name="add-a-query-to-your-lookup-activity"></a>Lägg till en fråga till din söknings aktivitet
 
-1. I **pipeline-4-dokument** > **Inställningar** Lägg till en fråga i text rutan **fråga** , till exempel:
+1. I **pipeline – 4-dokument** > **Inställningar** Lägg till en fråga i text rutan **fråga** , till exempel:
 
     ```kusto
     ClusterQueries
@@ -103,7 +105,9 @@ ms.locfileid: "71131446"
 
 ## <a name="create-a-for-each-activity"></a>Skapa en for-each-aktivitet 
 
-1. Sedan lägger du till en for-each-aktivitet i pipelinen. Den här aktiviteten bearbetar data som returneras från söknings aktiviteten. 
+[For-each-](/azure/data-factory/control-flow-for-each-activity) aktiviteten används för att iterera över en samling och köra angivna aktiviteter i en slinga. 
+
+1. Nu lägger du till en for-each-aktivitet till pipelinen. Den här aktiviteten bearbetar data som returneras från söknings aktiviteten. 
     * I rutan **aktiviteter** under **iteration & villkorliger** **väljer du aktiviteten** för aktiviteter och drar och släpper den på arbets ytan.
     * Rita en linje mellan resultatet av uppslags aktiviteten och indata för den förgrunds aktiviteten på arbets ytan för att ansluta dem.
 
@@ -112,7 +116,7 @@ ms.locfileid: "71131446"
 1.  Välj aktiviteten förgrunds aktivitet på arbets ytan. På fliken **Inställningar** nedan:
     * Markera kryss rutan **sekventiell** för sekventiell bearbetning av Sök resultaten eller lämna den omarkerad för att skapa parallell bearbetning.
     * Ange **antal batchar**.
-    * I **objekt**anger du följande referens till värdet output:  *@activity(' Lookup1 '). output. Value*
+    * I **objekt**, anger du följande referens till utdata-värdet: *@activity (' Lookup1 '). output. Value*
 
        ![ForEach-aktivitetsinställning](media/data-factory-command-activity/for-each-activity-settings.png)
 
@@ -166,7 +170,7 @@ Strukturen på kommando aktivitetens utdata beskrivs nedan. Dessa utdata kan anv
 
 ### <a name="returned-value-of-a-non-async-control-command"></a>Returnerade värdet för ett icke-asynkront kontroll kommando
 
-I ett icke-asynkront kontroll kommando är strukturen för det returnerade värdet detsamma som strukturen för Sök aktivitetens resultat. `count` Fältet visar antalet returnerade poster. Ett fast mat ris `value` fält innehåller en lista med poster. 
+I ett icke-asynkront kontroll kommando är strukturen för det returnerade värdet detsamma som strukturen för Sök aktivitetens resultat. I fältet `count` anges antalet returnerade poster. Ett fast mat ris fält `value` innehåller en lista med poster. 
 
 ```json
 { 
@@ -188,7 +192,7 @@ I ett icke-asynkront kontroll kommando är strukturen för det returnerade värd
  
 ### <a name="returned-value-of-an-async-control-command"></a>Returnerade värdet för ett asynkront kontroll kommando
 
-I ett kommando för asynkron kontroll avsöker aktiviteten Operations-tabellen i bakgrunden, tills den asynkrona åtgärden har slutförts eller är timeout. Det returnerade värdet kommer därför att innehålla resultatet av `.show operations OperationId` för den aktuella **OperationId** -egenskapen. Kontrol lera värdena för **tillstånd** och **status** egenskaper för att kontrol lera att åtgärden har slutförts.
+I ett kommando för asynkron kontroll avsöker aktiviteten Operations-tabellen i bakgrunden, tills den asynkrona åtgärden har slutförts eller är timeout. Det returnerade värdet kommer därför att innehålla resultatet från `.show operations OperationId` för den aktuella **OperationId** -egenskapen. Kontrol lera värdena för **tillstånd** och **status** egenskaper för att kontrol lera att åtgärden har slutförts.
 
 ```json
 { 

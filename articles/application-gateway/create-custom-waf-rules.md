@@ -1,33 +1,33 @@
 ---
 title: Skapa och Använd Azure Web Application Firewall (WAF) v2 anpassade regler
-description: Den här artikeln innehåller information om hur du skapar anpassade regler för brand vägg för webbaserade program (WAF) v2 i Azure Application Gateway.
+description: Den här artikeln beskriver hur du skapar anpassade regler för brand vägg för webbaserade program (WAF) v2 i Azure Application Gateway.
 services: application-gateway
 ms.topic: article
 author: vhorne
 ms.service: application-gateway
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: bfd2154216e679b3074d36ea3b49c69ff5a92da8
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 8cf82ce9ed4a9dc701c016f15224d6adfa299736
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937186"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263582"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules"></a>Skapa och använda anpassade regler för brand vägg för webbaserade program v2
 
-Azure Application Gateway Web Application Firewall (WAF) v2 tillhandahåller skydd för webb program. Det här skyddet tillhandahålls av OWASP (Open Web Application Security Project) Core regel set (DATORISERAt). I vissa fall kan du behöva skapa egna anpassade regler för att uppfylla dina specifika behov. Mer information om anpassade regler för WAF finns i [Översikt över anpassade brand Väggs regler för webb program](custom-waf-rules-overview.md).
+Azure Application Gateway Web Application Firewall (WAF) v2 tillhandahåller skydd för webb program. Detta skydd tillhandahålls av OWASP-kärn regel uppsättningen (Open Web Application Security Project). I vissa fall kan du behöva skapa egna anpassade regler för att uppfylla dina specifika behov. Mer information om anpassade WAF-regler finns i [Översikt: anpassade brand Väggs regler för webb program](custom-waf-rules-overview.md).
 
-I den här artikeln visas några exempel på anpassade regler som du kan skapa och använda med din v2-WAF. Information om hur du distribuerar en WAF med en anpassad regel med hjälp av Azure PowerShell finns i [Konfigurera anpassade regler för brand vägg för webbaserade program med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
+I den här artikeln visas några exempel på anpassade regler som du kan skapa och använda med WAF v2. Information om hur du distribuerar WAF med en anpassad regel med hjälp av Azure PowerShell finns i [Konfigurera anpassade regler för brand vägg för webbaserade program med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
 
->[!NOTE]
+> [!NOTE]
 > Om din Application Gateway inte använder WAF-nivån visas alternativet för att uppgradera programgatewayen till WAF-nivån i den högra rutan.
 
 ![Aktivera WAF][fig1]
 
 ## <a name="example-1"></a>Exempel 1
 
-Du vet att det finns en robot med namnet *evilbot* som du vill blockera från att crawla din webbplats. I det här fallet blockerar du *evilbot* för användar agenten i begärandehuvuden.
+Du vet att det finns en robot med namnet *evilbot* som du vill blockera från att crawla din webbplats. I det här exemplet blockerar du *evilbot* för användar agenten i begärandehuvuden.
 
 Logik: p
 
@@ -51,7 +51,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Här är motsvarande JSON:
+Här är motsvarande JSON-kod:
 
 ```json
   {
@@ -75,11 +75,11 @@ Här är motsvarande JSON:
   }
 ```
 
-En WAF som distribueras med den här anpassade regeln finns i [Konfigurera en anpassad regel för brand vägg för webbaserade program med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
+Om du vill visa en WAF som har distribuerats med den här anpassade regeln går du till [Konfigurera en anpassad regel för brand vägg för webbaserade program med hjälp av Azure PowerShell](configure-waf-custom-rules.md).
 
 ### <a name="example-1a"></a>Exempel 1a
 
-Du kan utföra samma sak med ett reguljärt uttryck:
+Du kan utföra samma sak genom att använda ett reguljärt uttryck:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable `
@@ -101,7 +101,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Och motsvarande JSON:
+Här är motsvarande JSON-kod:
 
 ```json
   {
@@ -129,7 +129,7 @@ Och motsvarande JSON:
 
 Du vill blockera alla förfrågningar från IP-adresser i intervallet 198.168.5.0/24.
 
-I det här exemplet ska du blockera all trafik som kommer från ett IP-adressintervall. Namnet på regeln är *myrule1* och prioriteten är inställd på 100.
+I det här exemplet blockerar du all trafik som kommer från ett intervall med IP-adresser. Namnet på regeln är *myrule1*och prioriteten anges till 100.
 
 Logik: p
 
@@ -151,7 +151,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Här är motsvarande JSON:
+Här är motsvarande JSON-kod:
 
 ```json
   {
@@ -175,13 +175,15 @@ Här är motsvarande JSON:
   }
 ```
 
-Motsvarande regel för boknings system:`SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
+Här är motsvarande regel uppsättning för kärn regel:
+
+  `SecRule REMOTE_ADDR "@ipMatch 192.168.5.0/24" "id:7001,deny"`
 
 ## <a name="example-3"></a>Exempel 3
 
-I det här exemplet vill du blockera *evilbot*för användar agent och trafik i intervallet 192.168.5.0/24. För att åstadkomma detta kan du skapa två separata matchnings villkor och lägga dem både i samma regel. Detta säkerställer att om båda *evilbot* i användar agentens huvud- **och** IP-adresser från intervallet 192.168.5.0/24 matchas, blockeras begäran.
+I det här exemplet vill du blockera *evilbot*för användar agent och trafik i intervallet 192.168.5.0/24. För att uppnå det här resultatet kan du skapa två separata matchnings villkor och lägga dem både i samma regel. Den här metoden säkerställer att om båda *evilbot* i användar agentens huvud- *och* IP-adresser från intervallet 192.168.5.0/24 matchas, blockeras begäran.
 
-Logik: p **och** q
+Logik: p *och* q
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -212,7 +214,7 @@ $condition2 = New-AzApplicationGatewayFirewallCondition `
    -Action Block
 ```
 
-Här är motsvarande JSON:
+Här är motsvarande JSON-kod:
 
 ```json
 { 
@@ -251,9 +253,9 @@ Här är motsvarande JSON:
 
 ## <a name="example-4"></a>Exempel 4
 
-I det här exemplet vill du blockera om begäran antingen ligger utanför IP-adressintervallet *192.168.5.0/24*, eller om användar agent strängen inte är *Chrome* (vilket innebär att användaren inte använder Chrome-webbläsaren). Eftersom den här logiken använder **eller**, är de två villkoren i separata regler som visas i följande exempel. *myrule1* och *myrule2* måste båda matcha för att blockera trafiken.
+I det här exemplet vill du blockera om begäran ligger utanför IP-adressintervallet *192.168.5.0/24*, eller om användar agent strängen inte är *Chrome* (det vill säga användaren inte använder Chrome-webbläsaren). Eftersom den här logiken använder *eller*, är de två villkoren i separata regler, som du ser i följande exempel. Både *myrule1* och *myrule2* måste matcha för att kunna blockera trafiken.
 
-Logik: **inte** (p **och** q) = **inte** p **eller inte** q.
+Logik: *inte* (p *och* q) = *inte* p *eller inte* q.
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -291,7 +293,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Och motsvarande JSON:
+Här är motsvarande JSON-kod:
 
 ```json
 {
@@ -338,9 +340,9 @@ Och motsvarande JSON:
 
 ## <a name="example-5"></a>Exempel 5
 
-Du vill blockera anpassade SQLI. Eftersom logiken som används här är **eller**, och alla värden finns i *RequestUri*, kan alla *MatchValues* finnas i en kommaavgränsad lista.
+Du vill blockera anpassade SQLI. Eftersom den logik som används här är *eller* och alla värden finns i *RequestUri*, kan alla *MatchValues* finnas i en kommaavgränsad lista.
 
-Logik: p **eller** q **eller** r
+Logik: p *eller* q *eller* r
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -359,7 +361,7 @@ $rule1 = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Motsvarande JSON:
+Här är motsvarande JSON-kod:
 
 ```json
   {
@@ -385,7 +387,7 @@ Motsvarande JSON:
   }
 ```
 
-Alternativ Azure PowerShell:
+Här är den alternativa Azure PowerShell koden:
 
 ```azurepowershell
 $variable1 = New-AzApplicationGatewayFirewallMatchVariable `
@@ -436,7 +438,7 @@ $rule3 = New-AzApplicationGatewayFirewallCustomRule `
    -Action Block
 ```
 
-Motsvarande JSON:
+Här är motsvarande JSON-kod:
 
 ```json
   {

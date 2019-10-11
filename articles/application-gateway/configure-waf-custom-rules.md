@@ -1,45 +1,44 @@
 ---
-title: Konfigurera brandväggen för webbaserade program v2 anpassade regler med hjälp av Azure PowerShell
-description: Lär dig hur du konfigurerar WAF v2 anpassade regler med hjälp av Azure PowerShell
+title: Konfigurera anpassade regler för brand vägg för webbaserade program v2 med hjälp av Azure PowerShell
+description: Lär dig hur du konfigurerar anpassade regler för brand vägg för webbaserade program v2 med hjälp av Azure PowerShell
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
 ms.date: 6/18/2019
 ms.author: victorh
-ms.openlocfilehash: f4d2fd7342e0efe95a1bc69e0dba77692053cf14
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.openlocfilehash: 9e50b47e22f5760c213cd0cafad82ecca592dec8
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/17/2019
-ms.locfileid: "67164737"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263743"
 ---
-# <a name="configure-web-application-firewall-v2--with-a-custom-rule-using-azure-powershell"></a>Konfigurera brandväggen för webbaserade program v2 med en anpassad regel med hjälp av Azure PowerShell
+# <a name="configure-web-application-firewall-v2-custom-rules-by-using-azure-powershell"></a>Konfigurera anpassade regler för brand vägg för webbaserade program v2 med hjälp av Azure PowerShell
 
 <!--- If you make any changes to the PowerShell in this article, also make the change in the corresponding Sample file: azure-docs-powershell-samples/application-gateway/waf-rules/waf-custom-rules.ps1 --->
 
-Anpassade regler kan du skapa dina egna regler som utvärderas för varje begäran som skickas via Web Application Firewall (WAF) v2. Dessa regler har högre prioritet än resten av reglerna i hanterade regeluppsättning. Anpassade regler har en åtgärd (för att tillåta eller blockera), ett matchningsvillkor och en operatör att tillåta fullständig anpassning.
+Med anpassade regler kan du skapa egna regler som utvärderas för varje begäran som passerar genom brand väggen för webbaserade program (WAF). Dessa regler innehåller högre prioritet än resten av reglerna i de hanterade regel uppsättningarna. För att tillåta fullständig anpassning har de anpassade reglerna en åtgärd (för att tillåta eller blockera), ett matchnings villkor och en operator.
 
-Den här artikeln skapar en Application Gateway WAF-v2 som använder en anpassad regel. Anpassad regel som blockerar trafik om huvudet för begäran innehåller användaragent *evilbot*.
+Den här artikeln skapar en Azure Application Gateway WAF v2 som använder en anpassad regel. Den anpassade regeln blockerar trafik om begär ande huvudet innehåller användar agentens *evilbot*.
 
-Du hittar fler exempel på Anpassad regel i [skapa och använda anpassade brandväggsregler för webbaserade program](create-custom-waf-rules.md)
+Om du vill visa fler anpassade regel exempel, se [skapa och använda anpassade brand Väggs regler för webb program](create-custom-waf-rules.md).
 
-Om du vill köra Azure PowerShell i den här artikeln i en kontinuerlig skript som du kan kopiera, klistra in och köra, läsa [Azure Application Gateway PowerShell-exempel](powershell-samples.md).
+Om du vill köra Azure PowerShells koden i den här artikeln i ett kontinuerligt skript som du kan kopiera, klistra in och köra, se [Azure Application Gateway PowerShell-exempel](powershell-samples.md).
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
+* [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-### <a name="azure-powershell-module"></a>Azure PowerShell-modul
+* Du behöver en Azure PowerShell-modul. Om du väljer att installera och använda Azure PowerShell lokalt kräver det här skriptet Azure PowerShell-modulens version 2.1.0 eller senare. Gör följande:
 
-Om du väljer att installera och använda Azure PowerShell lokalt, i det här skriptet kräver Azure PowerShell-Modulversion 2.1.0 eller senare.
-
-1. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
-2. Skapa en anslutning med Azure genom att köra `Connect-AzAccount`.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+  1. Kör `Get-Module -ListAvailable Az` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/install-az-ps) (Installera Azure PowerShell-modul).
+  2. Skapa en anslutning med Azure genom att köra `Connect-AzAccount`.
 
 ## <a name="example-script"></a>Exempelskript
 
-### <a name="set-up-variables"></a>Ställ in variabler
+### <a name="set-up-variables"></a>Konfigurera variabler
+
+Kör följande kod:
 
 ```azurepowershell
 $rgname = "CustomRulesTest"
@@ -51,11 +50,15 @@ $appgwName = "WAFCustomRules"
 
 ### <a name="create-a-resource-group"></a>Skapa en resursgrupp
 
+Kör följande kod:
+
 ```azurepowershell
 $resourceGroup = New-AzResourceGroup -Name $rgname -Location $location
 ```
 
-### <a name="create-a-vnet"></a>Skapa ett virtuellt nätverk
+### <a name="create-a-virtual-network"></a>Skapa ett virtuellt nätverk
+
+Kör följande kod:
 
 ```azurepowershell
 $sub1 = New-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -AddressPrefix "10.0.0.0/24"
@@ -68,12 +71,16 @@ $vnet = New-AzvirtualNetwork -Name "Vnet1" -ResourceGroupName $rgname -Location 
 
 ### <a name="create-a-static-public-vip"></a>Skapa en statisk offentlig VIP
 
+Kör följande kod:
+
 ```azurepowershell
 $publicip = New-AzPublicIpAddress -ResourceGroupName $rgname -name "AppGwIP" `
   -location $location -AllocationMethod Static -Sku Standard
 ```
 
-### <a name="create-pool-and-frontend-port"></a>Skapa poolen och frontend-port
+### <a name="create-a-pool-and-front-end-port"></a>Skapa en pool och klient dels port
+
+Kör följande kod:
 
 ```azurepowershell
 $gwSubnet = Get-AzVirtualNetworkSubnetConfig -Name "appgwSubnet" -VirtualNetwork $vnet
@@ -88,7 +95,9 @@ $pool = New-AzApplicationGatewayBackendAddressPool -Name "pool1" `
 $fp01 = New-AzApplicationGatewayFrontendPort -Name "port1" -Port 80
 ```
 
-### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Skapa en lyssnare, http-inställning, regel och automatisk skalning
+### <a name="create-a-listener-http-setting-rule-and-autoscale"></a>Skapa en lyssnare, HTTP-inställning, regel och autoskalning
+
+Kör följande kod:
 
 ```azurepowershell
 $listener01 = New-AzApplicationGatewayHttpListener -Name "listener1" -Protocol Http `
@@ -105,7 +114,9 @@ $autoscaleConfig = New-AzApplicationGatewayAutoscaleConfiguration -MinCapacity 3
 $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 ```
 
-### <a name="create-the-custom-rule-and-apply-it-to-waf-policy"></a>Skapa den anpassade regeln och tillämpa den på WAF-princip
+### <a name="create-the-custom-rule-and-apply-it-to-waf-policy"></a>Skapa den anpassade regeln och tillämpa den på WAF-principen
+
+Kör följande kod:
 
 ```azurepowershell
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestHeaders -Selector User-Agent
@@ -119,7 +130,9 @@ $wafPolicy = New-AzApplicationGatewayFirewallPolicy -Name wafPolicy -ResourceGro
 $wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention"
 ```
 
-### <a name="create-the-application-gateway"></a>Skapa Application Gateway
+### <a name="create-an-application-gateway"></a>Skapa en Application Gateway
+
+Kör följande kod:
 
 ```azurepowershell
 $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
@@ -134,4 +147,4 @@ $appgw = New-AzApplicationGateway -Name $appgwName -ResourceGroupName $rgname `
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Mer information om Brandvägg för webbaserade program](waf-overview.md)
+[Läs mer om brand vägg för webbaserade program](waf-overview.md)

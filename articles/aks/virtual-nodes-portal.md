@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 8752d888e24e7135d488be6d1b377070a30fe4eb
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: ab0aebf0b66ac01e19699795b14063df31cb9621
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67613830"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263753"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-in-the-azure-portal"></a>Skapa och konfigurera ett Azure Kubernetes Services-kluster (AKS) för att använda virtuella noder i Azure Portal
 
@@ -68,7 +68,7 @@ Funktioner för virtuella noder är kraftigt beroende av ACI funktions uppsättn
 * Init-behållare
 * [Värd Ali Aset](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
 * [Argument](../container-instances/container-instances-exec.md#restrictions) för exec i Aci
-* [Daemonsets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) kommer inte att distribuera poddar till den virtuella noden
+* [DaemonSets](concepts-clusters-workloads.md#statefulsets-and-daemonsets) kommer inte att distribuera poddar till den virtuella noden
 * [Windows Server-noder (för närvarande i för hands version i AKS)](windows-container-cli.md) stöds inte tillsammans med virtuella noder. Du kan använda virtuella noder för att schemalägga Windows Server-behållare utan att behöva använda Windows Server-noder i ett AKS-kluster.
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
@@ -83,10 +83,10 @@ På sidan **grundläggande** inställningar konfigurerar du följande alternativ
 
 - *PROJEKTINFORMATION*: Välj en Azure-prenumeration och välj sedan eller skapa en Azure-resursgrupp, till exempel *myResourceGroup*. Ange ett **Kubernetes-klusternamn**, till exempel *myAKSCluster*.
 - *KLUSTERINFORMATION*: Välj en region, en Kubernetes-version och ett DNS-namnprefix för AKS-klustret.
-- *PRIMÄR NODE-POOL*: Välj en storlek på virtuell dator för AKS-noderna. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats.
+- *Primär Node-pool*: Välj en VM-storlek för AKS-noderna. VM-storleken **kan inte** ändras efter att ett AKS-kluster har distribuerats.
      - Välj även det antal noder som ska distribueras till klustret. I den här artikeln ställer du in **antal noder** på *1*. Antalet noder **kan** justeras efter att klustret har distribuerats.
 
-Klicka på **Nästa: Skala**.
+Klicka på **Nästa: skala**.
 
 På sidan **skala** väljer du *aktive rad* under **virtuella noder**.
 
@@ -106,7 +106,7 @@ Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att u
 
 Om du vill öppna Cloud Shell väljer du **testa den** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/bash](https://shell.azure.com/bash). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
-Använd kommandot [AZ AKS get-credentials][az-aks-get-credentials] för att `kubectl` konfigurera för att ansluta till ditt Kubernetes-kluster. I följande exempel hämtas autentiseringsuppgifterna för klusternamnet *myAKSCluster* i den resursgrupp som heter *myResourceGroup*:
+Använd kommandot [AZ AKS get-credentials][az-aks-get-credentials] för att konfigurera `kubectl` för att ansluta till ditt Kubernetes-kluster. I följande exempel hämtas autentiseringsuppgifterna för klusternamnet *myAKSCluster* i den resursgrupp som heter *myResourceGroup*:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
@@ -130,7 +130,7 @@ aks-agentpool-14693408-0       Ready     agent     32m       v1.11.2
 
 ## <a name="deploy-a-sample-app"></a>Distribuera en exempel App
 
-I Azure Cloud Shell skapar du en fil med namnet `virtual-node.yaml` och kopierar i följande yaml. Om du vill schemalägga behållaren på noden definieras [][node-selector] en avsökning [][toleration] och tolererande. Med de här inställningarna kan Pod schemaläggas på den virtuella noden och bekräfta att funktionen har Aktiver ATS.
+I Azure Cloud Shell skapar du en fil med namnet `virtual-node.yaml` och kopierar i följande YAML. Om du vill schemalägga behållaren på noden definieras [en][node-selector] avsökning och [tolererande][toleration] . Med de här inställningarna kan Pod schemaläggas på den virtuella noden och bekräfta att funktionen har Aktiver ATS.
 
 ```yaml
 apiVersion: apps/v1
@@ -169,7 +169,7 @@ Kör programmet med kommandot [kubectl Apply][kubectl-apply] .
 kubectl apply -f virtual-node.yaml
 ```
 
-Använd kommandot [kubectl get poddar][kubectl-get] med `-o wide` argumentet för att mata ut en lista över poddar och den schemalagda noden. Observera att `virtual-node-helloworld` Pod har schemalagts `virtual-node-linux` på noden.
+Använd kommandot [kubectl get poddar][kubectl-get] med argumentet `-o wide` för att mata ut en lista över poddar och den schemalagda noden. Observera att `virtual-node-helloworld`-pod har schemalagts på noden `virtual-node-linux`.
 
 ```
 $ kubectl get pods -o wide
@@ -181,7 +181,7 @@ virtual-node-helloworld-9b55975f-bnmfl   1/1       Running   0          4m      
 Pod tilldelas en intern IP-adress från Azure Virtual Network-undernätet delegerad för användning med virtuella noder.
 
 > [!NOTE]
-> Om du använder avbildningar som lagras i Azure Container Registry [konfigurerar och använder du en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning av virtuella noder är att du inte kan använda integrerad autentisering för Azure AD-tjänstens huvud namn. Om du inte använder en hemlighet kan poddar schemalagda på virtuella noder inte starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
+> Om du använder avbildningar som lagras i Azure Container Registry [konfigurerar och använder du en Kubernetes-hemlighet][acr-aks-secrets]. En aktuell begränsning av virtuella noder är att du inte kan använda integrerad autentisering för Azure AD-tjänstens huvud namn. Om du inte använder en hemlighet kan poddar som schemalagts på virtuella noder inte starta och rapportera felet `HTTP response status code 400 error code "InaccessibleImage"`.
 
 ## <a name="test-the-virtual-node-pod"></a>Testa den virtuella noden Pod
 
@@ -197,7 +197,7 @@ Installera `curl` i pod med `apt-get`:
 apt-get update && apt-get install -y curl
 ```
 
-Nu kan du få åtkomst till adressen till `curl`din POD med *http://10.241.0.4* , till exempel. Ange din egna interna IP-adress som visas i `kubectl get pods` föregående kommando:
+Nu kan du komma åt adressen till din POD med hjälp av `curl`, till exempel *http://10.241.0.4* . Ange din egna interna IP-adress som visas i föregående `kubectl get pods`-kommando:
 
 ```azurecli-interactive
 curl -L http://10.241.0.4
@@ -215,7 +215,7 @@ $ curl -L 10.241.0.4
 [...]
 ```
 
-Stäng terminalfönstret för test Pod med `exit`. När sessionen är slut tas Pod bort.
+Stäng sessionen till test-Pod med `exit`. När sessionen är slut tas Pod bort.
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -238,6 +238,7 @@ Virtuella noder är en komponent i en skalnings lösning i AKS. Mer information 
 [aks-github]: https://github.com/azure/aks/issues]
 [virtual-node-autoscale]: https://github.com/Azure-Samples/virtual-node-autoscale
 [virtual-kubelet-repo]: https://github.com/virtual-kubelet/virtual-kubelet
+[acr-aks-secrets]: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
 
 <!-- LINKS - internal -->
 [aks-network]: ./networking-overview.md
@@ -245,5 +246,4 @@ Virtuella noder är en komponent i en skalnings lösning i AKS. Mer information 
 [aks-hpa]: tutorial-kubernetes-scale.md
 [aks-cluster-autoscaler]: cluster-autoscaler.md
 [aks-basic-ingress]: ingress-basic.md
-[acr-aks-secrets]: ../container-registry/container-registry-auth-aks.md#access-with-kubernetes-secret
 [az-provider-list]: /cli/azure/provider#az-provider-list

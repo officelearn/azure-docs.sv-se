@@ -8,14 +8,14 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 85471323a7f8918d80b7c0944fe5c255e9fa836a
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: cc01b12e493f3e0d3cd63786c27819d4704f97f4
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "69018919"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263871"
 ---
-# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Självstudier: Köra program i Azure Kubernetes Service (AKS)
+# <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Självstudie: Köra program i Azure Kubernetes Service (AKS)
 
 Kubernetes tillhandahåller en distribuerad plattform för containerbaserade program. Du kan bygga och distribuera dina egna program och tjänster till ett Kubernetes-kluster och låta klustret hantera tillgänglighet och anslutningsfunktioner. I den här självstudien, som är del fyra av sju, distribuerar du ett exempelprogram till ett Kubernetes-kluster. Lär dig att:
 
@@ -34,7 +34,7 @@ I tidigare självstudier paketerades ett program i en behållaravbildning, avbil
 
 I den här självstudien behöver du Kubernetes-manifestfilen `azure-vote-all-in-one-redis.yaml` som skapats i förväg. Den här filen laddades ned med källkoden för programmet i en tidigare självstudie. Verifiera att du har klonat lagringsplatsen och att du har ändrat katalogerna i den klonade lagringsplatsen. Om du inte har utfört dessa steg och vill följa med, börjar du med [självstudie 1 – Skapa behållar avbildningar][aks-tutorial-prepare-app].
 
-Den här självstudien kräver att du kör Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
+I den här självstudien måste du köra Azure CLI version 2.0.53 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][azure-cli-install].
 
 ## <a name="update-the-manifest-file"></a>Uppdatera manifestfilen
 
@@ -105,7 +105,7 @@ Till en början visas *EXTERNAL-IP* för *azure-vote-front*-tjänsten som *vänt
 azure-vote-front   LoadBalancer   10.0.34.242   <pending>     80:30676/TCP   5s
 ```
 
-När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress, använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
+När *EXTERNAL-IP*-adressen ändras från *väntande* till en faktisk offentlig IP-adress använder du `CTRL-C` för att stoppa `kubectl`-övervakningsprocessen. Följande exempelutdata visar en giltig offentlig IP-adress som har tilldelats tjänsten:
 
 ```
 azure-vote-front   LoadBalancer   10.0.34.242   52.179.23.131   80:30676/TCP   67s
@@ -115,7 +115,7 @@ Om du vill se hur programmet fungerar i praktiken så öppnar du en webbläsare 
 
 ![Bild av Kubernetes-kluster i Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Om det inte gick att läsa in programmet så kan det bero på ett auktoriseringsproblem med ditt avbildningsregister. Du kan visa statusen för dina containrar med hjälp av kommandot `kubectl get pods`. Om det inte går att hämta containeravbildningarna så kan du se [Tillåta åtkomst till Container Registry med en Kubernetes-hemlighet](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Om det inte gick att läsa in programmet så kan det bero på ett auktoriseringsproblem med ditt avbildningsregister. Du kan visa statusen för dina containrar med hjälp av kommandot `kubectl get pods`. Om behållar avbildningarna inte kan hämtas, se [autentisera med Azure Container Registry från Azure Kubernetes-tjänsten](cluster-container-registry-integration.md).
 
 ## <a name="next-steps"></a>Nästa steg
 

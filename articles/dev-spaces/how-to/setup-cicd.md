@@ -10,34 +10,34 @@ ms.topic: conceptual
 manager: gwallace
 description: Snabb Kubernetes-utveckling med containrar och mikrotjänster i Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, behållare
-ms.openlocfilehash: 01e1401c5054eb56d4e2313b5e03ce5a36d1b301
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 7058806e58dbc2d9a196062c129688e6a96c5f31
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67704071"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264451"
 ---
-# <a name="use-cicd-with-azure-dev-spaces"></a>Använda CI/CD med Azure Dev blanksteg
+# <a name="use-cicd-with-azure-dev-spaces"></a>Använda CI/CD med Azure dev Spaces
 
-Den här artikeln hjälper dig att konfigurera kontinuerlig integrering/kontinuerlig distribution (CI/CD) till Azure Kubernetes Service (AKS) Dev blanksteg aktiverat. CI/CD till AKS kan appuppdateringar distribueras automatiskt när allokerade koden skickas till centrallagret. Med CI/CD tillsammans med en Dev-blanksteg är aktiverade klustret användbart eftersom det kan hålla en baslinje för programmet uppdaterad för teamet att arbeta med.
+Den här artikeln vägleder dig genom att konfigurera kontinuerlig integrering/kontinuerlig distribution (CI/CD) till Azure Kubernetes service (AKS) med dev-utrymmen aktiverade. Med CI/CD till AKS distribueras uppdateringar automatiskt när allokerad kod skickas till käll lagrings platsen. Att använda CI/CD tillsammans med ett dev Spaces-kluster är användbart eftersom det kan hålla en bas linje i programmet uppdaterat för att teamet ska arbeta med.
 
 ![CI/CD-exempeldiagram](../media/common/ci-cd-simple.png)
 
-Även om den här artikeln hjälper dig med Azure DevOps, skulle samma koncept gäller för CI/CD-system som Jenkins, TeamCity, osv.
+Även om den här artikeln vägleder dig med Azure DevOps, gäller samma koncept för CI/CD-system som Jenkins, TeamCity osv.
 
-## <a name="prerequisites"></a>Förutsättningar
-* [Azure Kubernetes Service (AKS)-kluster med Azure Dev blanksteg aktiverat](../get-started-netcore.md)
-* [Azure CLI för utveckling blanksteg installerat](upgrade-tools.md)
+## <a name="prerequisites"></a>Krav
+* [Azure Kubernetes service-kluster (AKS) med Azure dev-platser aktiverat](../get-started-netcore.md)
+* [Azure dev Spaces CLI installerat](upgrade-tools.md)
 * [Azure DevOps-organisation med ett projekt](https://docs.microsoft.com/azure/devops/user-guide/sign-up-invite-teammates?view=vsts)
 * [Azure Container Registry (ACR)](../../container-registry/container-registry-get-started-azure-cli.md)
-    * Azure Container Registry [administratörskontot](../../container-registry/container-registry-authentication.md#admin-account) information som är tillgängliga
-* [Auktorisera AKS-kluster för att hämta från Azure Container Registry](../../container-registry/container-registry-auth-aks.md)
+    * Azure Container Registry information om [Administratörs kontot](../../container-registry/container-registry-authentication.md#admin-account) tillgängliga
+* [Auktorisera ditt AKS-kluster för att hämta från din Azure Container Registry](../../aks/cluster-container-registry-integration.md)
 
-## <a name="download-sample-code"></a>Hämta exempelkoden
-Nu ska vi skapa en förgrening i vårt exempel kod GitHub-lagringsplatsen för tiden. Gå till https://github.com/Azure/dev-spaces och välj **förgrening**. När Förgrena processen är klar, **klona** din förgrenade lagringsplatsen lokalt-version. Som standard den _master_ gren checkas ut, men vi har inkluderat några tidsbesparande ändringar i den _azds_updates_ grenen, vilket bör också har överförts under din förgrening. Den _azds_updates_ grenen innehåller uppdateringar som vi be dig att göra manuellt i avsnitten Dev blanksteg självstudiekursen, samt vissa fördefinierade YAML och JSON-filer för att förenkla distributionen av CI/CD-system. Du kan använda ett kommando som `git checkout -b azds_updates origin/azds_updates` att checka ut den _azds_updates_ gren i din lokala lagringsplats.
+## <a name="download-sample-code"></a>Hämta exempel kod
+Nu ska vi skapa en förgrening av vår exempel kod GitHub-lagringsplats. Gå till https://github.com/Azure/dev-spaces och välj **förgrening**. När processen är klar kan du **klona** den förgrenade versionen av lagrings platsen lokalt. Som standard är _huvud_ grenen utcheckad, men vi har inkluderat några tids besparingar i _azds_updates_ -grenen, som också bör ha överförts under din förgrening. _Azds_updates_ -grenen innehåller uppdateringar som vi ber dig att göra manuellt i själv studie kursen om dev Spaces, samt vissa fördefinierade yaml-och JSON-filer för att effektivisera distributionen av CI/CD-systemet. Du kan använda ett kommando som `git checkout -b azds_updates origin/azds_updates` för att ta en titt på _azds_updates_ -grenen i din lokala lagrings plats.
 
-## <a name="dev-spaces-setup"></a>Dev blanksteg installationen
-Skapa en ny sida som kallas _dev_ med hjälp av den `azds space select` kommando. Den _dev_ utrymme som ska användas av din CI/CD-pipeline för att skicka dina ändringar i koden. Det kommer också användas för att skapa _underordnade blanksteg_ utifrån _dev_.
+## <a name="dev-spaces-setup"></a>Installation av dev Spaces
+Skapa ett nytt Space med namnet _dev_ med kommandot `azds space select`. _Dev_ -utrymmet kommer att användas av CI/CD-pipeline för att skicka kod ändringarna. Den kommer också att användas för att skapa _underordnade utrymmen_ baserat på _dev_.
 
 ```cmd
 azds space select -n dev
@@ -45,7 +45,7 @@ azds space select -n dev
 
 När du uppmanas att välja ett överordnat utvecklingsutrymme väljer du _\<none\>_ (inget).
 
-När du har skapat ditt dev-utrymme som du behöver avgöra suffixet som värd. Använd den `azds show-context` kommando för att visa Azure Dev blanksteg Ingress-kontrollant värd-suffix.
+När du har skapat ditt utvecklings utrymme måste du bestämma suffixet för värden. Använd kommandot `azds show-context` för att Visa värd suffixet för Azure dev Spaces-kontrollanten.
 
 ```cmd
 $ azds show-context
@@ -54,91 +54,91 @@ Name   ResourceGroup    DevSpace  HostSuffix
 MyAKS  MyResourceGroup  dev       fedcba098.eus.azds.io
 ```
 
-I exemplet ovan är suffixet som värd _fedcba098.eus.azds.io_. Det här värdet används senare när du skapar din versionsdefinition.
+I ovanstående exempel är värd suffixet _fedcba098.EUs.azds.io_. Det här värdet används senare när du skapar en versions definition.
 
-Den _dev_ utrymme kommer alltid att innehålla det senaste tillståndet för databasen, baslinje, så att utvecklare kan skapa _underordnade blanksteg_ från _dev_ att testa ändringarna isolerade inom ramen för större appen. Detta begrepp beskrivs i detalj i Dev blanksteg självstudier.
+_Dev_ -området innehåller alltid det senaste tillstånd för lagrings platsen, en bas linje, så att utvecklare kan skapa _underordnade utrymmen_ från _dev_ för att testa sina isolerade ändringar inom ramen för den större appen. Det här konceptet beskrivs mer detaljerat i självstudierna för dev Spaces.
 
-## <a name="creating-the-build-definition"></a>Skapa build-definition
-Öppna projektet Azure DevOps-team i en webbläsare och navigera till den _Pipelines_ avsnittet. Klicka på ditt profilfoto uppe till höger på webbplatsen Azure DevOps, öppna funktioner förhandsgranskningsfönstret, och inaktivera den _upplevelse för nya YAML pipeline när du skapar_:
+## <a name="creating-the-build-definition"></a>Skapar build-definitionen
+Öppna ditt Azure DevOps team-projekt i en webbläsare och gå till avsnittet _pipelines_ . Börja med att klicka på ditt profil Foto längst upp till höger på Azure DevOps-webbplatsen, öppna fönstret för hands versions funktioner och inaktivera den _nya upplevelsen för att skapa yaml pipeline_:
 
-![Funktioner för att öppna förhandsgranskning](../media/common/preview-feature-open.png)
+![Öppna fönstret för hands versions funktioner](../media/common/preview-feature-open.png)
 
-Du kan inaktivera:
+Alternativet att inaktivera:
 
-![Skapa en ny YAML pipeline appalternativ](../media/common/yaml-pipeline-preview-feature.png)
+![Nya alternativ för att skapa YAML pipelines](../media/common/yaml-pipeline-preview-feature.png)
 
 > [!Note]
-> Azure DevOps _upplevelse för nya YAML pipeline när du skapar_ förhandsversion funktionen står i konflikt med att skapa fördefinierade skapa pipeliner just nu. Du måste inaktivera den för tillfället för att distribuera vår fördefinierade build-pipeline.
+> Azure DevOps _New yaml pipeline för skapande av pipeliner_ är i konflikt med att skapa fördefinierade Bygg pipeliner just nu. Du måste inaktivera det för tillfället för att kunna distribuera vår fördefinierade build-pipeline.
 
-I den _azds_updates_ gren som vi har inkluderat en enkel [Azure Pipeline YAML](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) som definierar build steg som krävs för *mywebapi* och *webfrontend* .
+I _azds_updates_ -grenen har vi inkluderat en enkel [Azure pipeline-yaml](https://docs.microsoft.com/azure/devops/pipelines/yaml-schema?view=vsts&tabs=schema) som definierar de build-steg som krävs för *mywebapi* och *webfrontend*.
 
-Beroende på vilket språk som du har valt har pipelinen YAML incheckade vid en sökväg som liknar: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
+Beroende på vilket språk du har valt har pipelinen YAML checkats in i en sökväg som liknar: `samples/dotnetcore/getting-started/azure-pipelines.dotnetcore.yml`
 
-Skapa en Pipeline från den här filen:
-1. På din DevOps-projekt huvudsidan, navigerar du till en pipeline > bygger.
-1. Välj alternativet för att skapa en **New** skapa pipeline.
-1. Välj **GitHub** som källa, auktorisera dig med ditt GitHub-konto om nödvändigt och väljer den _azds_updates_ gren från din förgrenade version av dev-blanksteg exempelapp för databasen.
-1. Välj **konfiguration som kod**, eller **YAML**, som din mall.
-1. Nu visas en konfigurationssida för build-pipeline. Som nämnts ovan navigera till språkspecifik sökväg för den **YAML-filsökväg** med hjälp av den **...**  knappen. Till exempel `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
-1. Gå till den **variabler** fliken.
-1. Lägg till manuellt _dockerId_ som en variabel, vilket är användarnamnet för din [administratörskontot för Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). (Beskrivs i artikeln krav)
-1. Lägg till manuellt _dockerPassword_ som en variabel, vilket är lösenordet för din [administratörskontot för Azure Container Registry](../../container-registry/container-registry-authentication.md#admin-account). Se till att ange _dockerPassword_ som en hemlighet (genom att välja låsikonen) av säkerhetsskäl.
-1. Välj **spara och köa**.
+Så här skapar du en pipeline från den här filen:
+1. På DevOps-projektets huvud sida navigerar du till pipelines > builds.
+1. Välj alternativet för att skapa en **ny** versions pipeline.
+1. Välj **GitHub** som källa, auktorisera med ditt GitHub-konto om det behövs och välj _azds_updates_ -grenen från den förgrenade versionen av exempel program lagrings platsen för _dev-Spaces_ .
+1. Välj **konfiguration som kod**eller **yaml**som mall.
+1. Nu visas en konfigurations sida för din build-pipeline. Som vi nämnt ovan navigerar du till den språkspecifika sökvägen för sökvägen till **yaml-filen** med hjälp av **...** -knappen. Till exempel `samples/dotnetcore/getting-started/azure-pipelines.dotnet.yml`.
+1. Gå till fliken **variabler** .
+1. Lägg till _dockerId_ manuellt som en variabel, vilket är användar namnet för ditt [Azure Container Registry administratörs konto](../../container-registry/container-registry-authentication.md#admin-account). (Anges i artikel förutsättningar)
+1. Lägg till _dockerPassword_ manuellt som en variabel, vilket är lösen ordet för ditt [Azure Container Registry administratörs konto](../../container-registry/container-registry-authentication.md#admin-account). Se till att ange _dockerPassword_ som en hemlighet (genom att välja Lås ikonen) av säkerhets synpunkt.
+1. Välj **spara & kö**.
 
-Nu har du en CI-lösning som bygger automatiskt *mywebapi* och *webfrontend* för en uppdatering som skickas till den _azds_updates_ gren i din GitHub-förgrening. Du kan kontrollera Docker-avbildningar har överförts genom att gå till Azure-portalen, väljer Azure Container Registry och bläddra i **databaser** fliken. Det kan ta flera minuter för bilder för att skapa och visas i ditt behållarregister.
+Nu har du en CI-lösning som automatiskt skapar *mywebapi* och *webfrontend* för alla uppdateringar som skickas till _Azds_updates_ -grenen för GitHub-gaffel. Du kan kontrol lera att Docker-avbildningarna har flyttats genom att gå till Azure Portal, välja din Azure Container Registry och bläddra i fliken **databaser** . Det kan ta flera minuter innan avbildningarna skapas och visas i behållar registret.
 
 ![Azure Container Registry-databaser](../media/common/ci-cd-images-verify.png)
 
-## <a name="creating-the-release-definition"></a>Skapa versionsdefinitionen
+## <a name="creating-the-release-definition"></a>Skapar versions definitionen
 
-1. På din DevOps-projekt huvudsidan, navigerar du till en pipeline > versioner
-1. Om du arbetar i en helt ny DevOps-projekt som ännu inte innehåller en versionsdefinition, måste du först skapa en tom versionsdefinition innan du fortsätter. Import-alternativet visas inte i Användargränssnittet förrän du har en befintlig versionsdefinition.
-1. Till vänster, klicka på den **+ ny** knappen och klicka sedan på **importera en pipeline**.
-1. Klicka på **Bläddra** och välj `samples/release.json` från ditt projekt.
-1. Klicka på **OK**. Observera rutan Pipeline har lästs in med sidan Redigera versionen definition. Observera att det finns även vissa red varning ikoner som anger klusterspecifika information som fortfarande måste konfigureras.
-1. Till vänster i fönstret pipelinen klickar du på den **lägga till en artefakt** bubbeldiagram.
-1. I den **källa** listrutan Välj bygget pipeline du skapade tidigare.
-1. För den **standardversion**, Välj **senaste från build pipeline standardgrenen med taggar**.
-1. Lämna **taggar** tom.
-1. Ange den **källa alias** till `drop`. Den **källa alias** värdet används av de fördefinierade publiceringsuppgifter så måste anges.
+1. På huvud sidan för DevOps-projektet navigerar du till pipelines >-versioner
+1. Om du arbetar i ett helt nytt DevOps-projekt som ännu inte innehåller en versions definition måste du först skapa en tom versions definition innan du fortsätter. Alternativet importera visas inte i användar gränssnittet förrän du har en befintlig versions definition.
+1. Klicka på knappen **+ ny** till vänster och klicka sedan på **Importera en pipeline**.
+1. Klicka på **Bläddra** och välj `samples/release.json` från projektet.
+1. Klicka på **OK** Lägg märke till att pipeline-fönstret har lästs in med sidan för versions definitions redigering. Observera också att det finns några röda varnings ikoner som anger kluster information som fortfarande måste konfigureras.
+1. Klicka på bubblan **Lägg till en artefakt** till vänster i rutan pipelines.
+1. I list rutan **källa** väljer du den versions pipeline som du skapade tidigare.
+1. För **standard versionen**väljer du **senaste från standard grenen build pipeline med Taggar**.
+1. Lämna **taggar** tomma.
+1. Ange **käll Ali Aset** till `drop`. Värdet för **käll Ali Aset** används av de fördefinierade versions aktiviteterna så att det måste anges.
 1. Klicka på **Lägg till**.
-1. Klicka på blixtikonen på den nyligen skapade `drop` artefakt källa, enligt nedan:
+1. Klicka nu på blixt ikonen på den nyligen skapade artefakt källan `drop`, som du ser nedan:
 
-    ![Viktig artefakt kontinuerlig distribution installationen](../media/common/release-artifact-cd-setup.png)
-1. Aktivera den **utlösare av kontinuerlig distribution**.
-1. Hovra över den **uppgifter** fliken bredvid **Pipeline** och klicka på _dev_ att redigera den _dev_ mellanlagra uppgifter.
-1. Kontrollera **Azure Resource Manager** är markerat under **anslutningstyp.** och du ser de tre listrutekontroller markerat i rött: ![Inställning av versionen](../media/common/release-setup-tasks.png)
-1. Ange den prenumeration du använder Azure Dev blanksteg. Du kan också behöva klicka på **auktorisera**.
-1. Välj resursgrupp och kluster som du använder Azure Dev blanksteg.
-1. Klicka på **agentjobbet**.
-1. Välj **finns Ubuntu 1604** under **agentpoolen**.
-1. Hovra över den **uppgifter** Väljaren överst på sidan klickar du på _prod_ att redigera den _prod_ mellanlagra uppgifter.
-1. Kontrollera **Azure Resource Manager** är markerat under **anslutningstyp.** och välj den Azure-prenumeration, resursgrupp och kluster som du använder Azure Dev blanksteg.
-1. Klicka på **agentjobbet**.
-1. Välj **finns Ubuntu 1604** under **agentpoolen**.
-1. Klicka på den **variabler** fliken för att uppdatera variablerna för din version.
-1. Uppdatera värdet för **DevSpacesHostSuffix** från **UPDATE_ME** till värd-suffixet. Värd-suffix visas när du körde den `azds show-context` kommandot tidigare.
-1. Klicka på **spara** i det övre högra hörnet, och **OK**.
-1. Klicka på **+ Release** (bredvid knappen Spara) och **skapa en version**.
-1. Under **artefakter**, kontrollera den senaste versionen från build-pipeline har valts.
+    ![Installations program för kontinuerlig distribution av versions artefakt](../media/common/release-artifact-cd-setup.png)
+1. Aktivera den **kontinuerliga distributions utlösaren**.
+1. Hovra över fliken **aktiviteter** bredvid **pipelinen** och klicka på _dev_ för att redigera aktiviteterna för _dev_ -fasen.
+1. Verifiera **Azure Resource Manager** har marker ATS under **Anslutnings typ.** och du ser de tre List rutorna markerade i rött: ![Release definition setup @ no__t-1
+1. Välj den Azure-prenumeration du använder med Azure dev Spaces. Du kan också behöva klicka på **auktorisera**.
+1. Välj den resurs grupp och det kluster som du använder med Azure dev Spaces.
+1. Klicka på **Agent jobb**.
+1. Välj **värdbaserad Ubuntu 1604** under **agenten**.
+1. Hovra över **aktivitets** väljaren överst, klicka på _Prod_ för att redigera uppgifterna för _produktions_ stadiet.
+1. Verifiera **Azure Resource Manager** har marker ATS under **Anslutnings typ.** och välj den Azure-prenumeration, resurs grupp och det kluster som du använder med Azure dev Spaces.
+1. Klicka på **Agent jobb**.
+1. Välj **värdbaserad Ubuntu 1604** under **agenten**.
+1. Klicka på fliken **variabler** om du vill uppdatera variablerna för din version.
+1. Uppdatera värdet för **DevSpacesHostSuffix** från **UPDATE_ME** till ditt värdnamn. Värddatorns suffix visas när du körde kommandot `azds show-context` tidigare.
+1. Klicka på **Spara** längst upp till höger och **OK**.
+1. Klicka på **+ släpp** (bredvid knappen Spara) och **skapa en version**.
+1. Under **artefakter**kontrollerar du att den senaste versionen från din build-pipeline är markerad.
 1. Klicka på **Skapa**.
 
-En automatiserad lanseringsprocessen kommer nu att börja, distribuera den *mywebapi* och *webfrontend* diagram till Kubernetes-kluster i den _dev_ översta utrymme. Du kan övervaka förloppet för din version på webbportalen Azure DevOps:
+En automatiserad versions process börjar nu, distribuerar *mywebapi* -och *webfrontend* -diagrammen till ditt Kubernetes-kluster i den översta nivån i _dev_ -området. Du kan övervaka förloppet för din version på webb portalen för Azure DevOps:
 
-1. Navigera till den **versioner** avsnittet **Pipelines**.
-1. Klicka på releasepipeline för exempelprogrammet.
+1. Gå till avsnittet **versioner** under **pipelines**.
+1. Klicka på versions pipelinen för exempel programmet.
 1. Klicka på namnet på den senaste versionen.
-1. Hovra över **dev** rutan **faser** och klicka på **loggar**.
+1. Hovra över **dev** Box under **faser** och klicka på **loggar**.
 
-Versionen är klar när alla aktiviteter har slutförts.
+Versionen görs när alla aktiviteter har slutförts.
 
 > [!TIP]
-> Om din version misslyckas med ett felmeddelande som *det gick inte att uppgradera: Tidsgränsen uppnåddes vid väntan villkoret*, försök att kontrollera poddarna i ditt kluster [med hjälp av Kubernetes-instrumentpanelen](../../aks/kubernetes-dashboard.md). Om du ser poddarna misslyckas att börja med felmeddelanden som *det gick inte att hämta avbildningen ”azdsexample.azurecr.io/mywebapi:122”: RPC-fel: kod = okänt desc = felsvar från daemon: Hämta https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: obehörig: autentisering krävs*, det kan bero på att klustret inte har auktoriserats för att hämta från Azure Container Registry. Kontrollera att du har slutfört den [auktorisera AKS-kluster för att hämta från Azure Container Registry](../../container-registry/container-registry-auth-aks.md) krav.
+> Om din version Miss lyckas med ett fel meddelande som *uppgradering misslyckades: tids gränsen*nåddes i väntan på villkoret, försök att inspektera poddar i klustret [med hjälp av Kubernetes-instrumentpanelen](../../aks/kubernetes-dashboard.md). Om du ser att poddar Miss lyckas med att starta med fel meddelanden som *det inte gick att hämta avbildningen "azdsexample.azurecr.io/mywebapi:122": RPC-fel: kod = okänd DESC = fel svar från daemon: Get https://azdsexample.azurecr.io/v2/mywebapi/manifests/122: obehörig: autentisering krävs*, det kan vara eftersom klustret inte har behörighet att hämta från din Azure Container Registry. Se till att du har slutfört [auktoriseringen av ditt AKS-kluster för att hämta från din Azure Container Registry](../../aks/cluster-container-registry-integration.md) -förutsättning.
 
-Nu har du en helt automatiserad CI/CD-pipeline för GitHub-förgreningen över exempelappar Dev blanksteg. Varje gång du verkställa och push kod, skapa pipelinen skapar och skicka den *mywebapi* och *webfrontend* bilder till din anpassade ACR-instansen. Sedan versionspipelinen ska distribuera Helm-diagram för varje app till den _dev_ utrymme på klustret Dev blanksteg-aktiverade.
+Nu har du en helt automatiserad CI/CD-pipeline för GitHub-delen av dev Spaces-exempel appar. Varje gång du genomför och push-koden skapar och skickar du en pipeline för att bygga och push- *mywebapi* och *webfrontend* -avbildningar till din anpassade ACR-instans. Sedan distribuerar pipelinen Helm-diagrammet för varje app till _dev_ -utrymmet på ditt dev Spaces-aktiverade kluster.
 
-## <a name="accessing-your-dev-services"></a>Åtkomst till din _dev_ tjänster
-Efter distributionen kan den _dev_ version av *webfrontend* kan nås med en offentlig URL som: `http://dev.webfrontend.fedcba098.eus.azds.io`. Du hittar Webbadressen genom att köra den `azds list-uri` kommando: 
+## <a name="accessing-your-_dev_-services"></a>Åtkomst till dina _utvecklings_ tjänster
+Efter distributionen kan du komma åt _dev_ -versionen av *webfrontend* med en offentlig URL som: `http://dev.webfrontend.fedcba098.eus.azds.io`. Du kan hitta den här URL: en genom att köra kommandot `azds list-uri`: 
 
 ```cmd
 $ azds list-uris
@@ -148,21 +148,21 @@ Uri                                           Status
 http://dev.webfrontend.fedcba098.eus.azds.io  Available
 ```
 
-## <a name="deploying-to-production"></a>Distribuera det till produktion
+## <a name="deploying-to-production"></a>Distribuera till produktion
 
-Att manuellt flytta upp en viss version till _prod_ med CI/CD-system som skapats i den här självstudien:
-1. Navigera till den **versioner** avsnittet **Pipelines**.
-1. Klicka på releasepipeline för exempelprogrammet.
+För att manuellt befordra en viss version till _Prod_ med hjälp av CI/CD-systemet som skapats i den här självstudien:
+1. Gå till avsnittet **versioner** under **pipelines**.
+1. Klicka på versions pipelinen för exempel programmet.
 1. Klicka på namnet på den senaste versionen.
-1. Hovra över den **prod** rutan **faser** och klicka på **distribuera**.
-    ![Skicka till produktion](../media/common/prod-promote.png)
-1. Hovra över **prod** rutan igen **faser** och klicka på **loggar**.
+1. Hovra över rutan **Prod** under **etapper** och klicka på **distribuera**.
+    ![Promote till produktion @ no__t-1
+1. Hovra över rutan **Prod** igen under **steg** och klicka på **loggar**.
 
-Versionen är klar när alla aktiviteter har slutförts.
+Versionen görs när alla aktiviteter har slutförts.
 
-Den _prod_ steg för CI/CD-pipeline använder en belastningsutjämnare i stället för Dev blanksteg Ingress-kontrollanten för att ge åtkomst till _prod_ tjänster. Tjänster som distribueras i den _prod_ scenen är tillgängliga som IP-adresser i stället för DNS-namn. I en produktionsmiljö kan du välja att skapa egna Ingress-kontrollanten ska vara värd för dina tjänster baserat på din egen DNS-konfiguration.
+I _produktions_ fasen för CI/CD-pipelinen används en belastningsutjämnare i stället för en ingångs enhet för dev-utrymmen för att ge åtkomst till _produktions_ tjänsterna. Tjänster som distribueras i _produktions_ stadiet är tillgängliga som IP-adresser i stället för DNS-namn. I en produktions miljö kan du välja att skapa en egen ingångs kontroll som är värd för dina tjänster baserat på din egen DNS-konfiguration.
 
-Du kan fastställa IP-Adressen för tjänsten webfrontend genom att klicka på den **skriva ut webfrontend offentlig IP-adress** steg för att expandera loggutdata. Använd IP-adress som visas i loggen för utgående åtkomst till den **webfrontend** program.
+Om du vill fastställa IP-adressen för webfrontend-tjänsten klickar du på det **offentliga IP-steget Skriv ut webfrontend** för att expandera loggens utdata. Använd IP-adressen som visas i loggens utdata för att få åtkomst till **webfrontend** -programmet.
 
 ```cmd
 ...
@@ -171,21 +171,21 @@ Du kan fastställa IP-Adressen för tjänsten webfrontend genom att klicka på d
 ...
 ```
 
-## <a name="dev-spaces-instrumentation-in-production"></a>Dev blanksteg instrumentation i produktion
-Även om utveckling blanksteg instrumentation har utformats för _inte_ för att komma i vägen för normal drift av ditt program, rekommenderar vi att körs dina produktionsarbetsbelastningar i ett Kubernetes-namnområde som inte är aktiverad Dev blanksteg. Med hjälp av den här typen av Kubernetes namnområdes innebär att du ska skapa din produktion namnområde med hjälp av den `kubectl` CLI, eller kan CI/CD-systemet att skapa den under den första Helm-distributionen. _Att välja_ eller annat skapa ett utrymme med utveckling blanksteg verktyg lägger till Dev blanksteg instrumentation i det här namnområdet.
+## <a name="dev-spaces-instrumentation-in-production"></a>Dev Spaces instrumentering i produktion
+Även om dev Spaces instrumentering har utformats för att _inte_ komma i vägen för normal drift av ditt program, rekommenderar vi att du kör produktions arbets belastningar i ett Kubernetes-namnområde som inte är aktiverat med dev Spaces. Med den här typen av Kubernetes-namnrymd kan du antingen skapa ditt produktions namn område med hjälp av `kubectl` CLI eller tillåta att ditt CI/CD-system skapar det under den första distributionen av Helm. Om du _väljer_ eller på annat sätt skapar ett blank steg med verktyget dev Spaces läggs det till i namn området.
 
-Här är ett exempel namnområdesstruktur som har stöd för funktionen, ”utveckling”-miljön, _och_ produktion, allt i ett Kubernetes-kluster:
+Här är ett exempel på en namn områdes struktur som stöder funktions utveckling, utvecklings miljön _och_ produktion, allt i ett enda Kubernetes-kluster:
 
-![Exempel namnområdesstruktur](../media/common/cicd-namespaces.png)
+![Exempel på namn områdes struktur](../media/common/cicd-namespaces.png)
 
 > [!Tip]
-> Om du redan har skapat en `prod` utrymme, och skulle bara som ska undantas från instrumentation Dev blanksteg (utan att ta bort det!), kan du göra det med följande Dev blanksteg CLI-kommando:
+> Om du redan har skapat ett `prod`-utrymme och bara vill undanta det från dev Spaces Instrumentation (utan att ta bort det!) kan du göra det med följande dev Spaces CLI-kommando:
 >
 > `azds space remove -n prod --no-delete`
 >
-> Du kan behöva ta bort alla poddar i den `prod` namnområde när du har gjort detta så att de kan skapas på nytt utan Dev blanksteg instrumentation.
+> Du kan behöva ta bort alla poddar i namn området `prod` när du har gjort detta så att de kan återskapas utan dev Spaces Instrumentation.
 
 ## <a name="next-steps"></a>Nästa steg
 
 > [!div class="nextstepaction"]
-> [Lär dig mer om utveckling i grupp med Azure Dev blanksteg](../team-development-netcore.md)
+> [Lär dig mer om team utveckling med Azure dev Spaces](../team-development-netcore.md)

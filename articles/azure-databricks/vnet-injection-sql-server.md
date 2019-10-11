@@ -1,6 +1,6 @@
 ---
-title: Fråga en SQL Server Linux Docker-behållare i ett virtuellt nätverk från en Azure Databricks-anteckningsbok
-description: Den här artikeln beskriver hur du distribuerar Azure Databricks till ditt virtuella nätverk, även kallat VNet-inmatning.
+title: Fråga en SQL Server Linux Docker-behållare med Azure Databricks
+description: Den här artikeln beskriver hur du distribuerar Azure Databricks till ditt virtuella nätverk, även kallat VNet-injektering.
 services: azure-databricks
 author: mamccrea
 ms.author: mamccrea
@@ -8,27 +8,27 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 04/02/2019
-ms.openlocfilehash: 345e07fac30f4ad0c8e9918cb8a1ff0fb8aeb811
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 773ffe264446e6a4d9ef2e88634e4f2c9b8aeb45
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60770829"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72273976"
 ---
-# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Självstudier: Fråga en SQL Server Linux Docker-behållare i ett virtuellt nätverk från en Azure Databricks-anteckningsbok
+# <a name="tutorial-query-a-sql-server-linux-docker-container-in-a-virtual-network-from-an-azure-databricks-notebook"></a>Självstudie: fråga en SQL Server Linux Docker-behållare i ett virtuellt nätverk från en Azure Databricks Notebook
 
-Den här självstudien lär du dig hur du integrerar Azure Databricks med en SQL Server Linux Docker-behållare i ett virtuellt nätverk. 
+I den här självstudien lär du dig att integrera Azure Databricks med en SQL Server Linux Docker-behållare i ett virtuellt nätverk. 
 
 I den här guiden får du lära dig att:
 
 > [!div class="checklist"]
 > * Distribuera en Azure Databricks-arbetsyta till ett virtuellt nätverk
-> * Installera en Linux-dator i ett offentligt nätverk
+> * Installera en virtuell Linux-dator i ett offentligt nätverk
 > * Installera Docker
-> * Installera Microsoft SQL Server på Linux docker-behållare
-> * Fråga SQL Server med JDBC från en Databricks notebook
+> * Installera Microsoft SQL Server på Linux Docker-behållaren
+> * Fråga SQL Server med JDBC från en Databricks-anteckningsbok
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * Skapa en [Databricks-arbetsyta i ett virtuellt nätverk](quickstart-create-databricks-workspace-vnet-injection.md).
 
@@ -38,68 +38,68 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-a-linux-virtual-machine"></a>Skapa en virtuell Linux-dator
 
-1. I Azure-portalen väljer du ikonen för **virtuella datorer**. Välj **+ Lägg till**.
+1. I Azure Portal väljer du ikonen för **Virtual Machines**. Välj sedan **+ Lägg till**.
 
-    ![Lägg till nya Azure-dator](./media/vnet-injection-sql-server/add-virtual-machine.png)
+    ![Lägg till ny virtuell Azure-dator](./media/vnet-injection-sql-server/add-virtual-machine.png)
 
-2. På den **grunderna** fliken väljer Ubuntu Server 16.04 LTS. Ändra VM-storleken till B1ms som har en virtuella processorer och 2 GB RAM-minne. Minimikravet för en Linux SQL Server Docker-behållare är 2 GB. Välj en administratör användarnamn och lösenord.
+2. På fliken **grundläggande** väljer du Ubuntu Server 16,04 LTS. Ändra storleken på den virtuella datorn till B1ms, som har ett virtuella processorer och 2 GB RAM-minne. Minimi kravet för en Linux SQL Server Docker-behållare är 2 GB. Välj ett administratörs användar namn och lösen ord.
 
-    ![Grunderna i fliken Konfiguration av ny virtuell dator](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
+    ![Fliken grunder i den nya konfigurationen för virtuell dator](./media/vnet-injection-sql-server/create-virtual-machine-basics.png)
 
-3. Navigera till den **nätverk** fliken. Välj det virtuella nätverket och den offentliga undernät som inkluderar Azure Databricks-kluster. Välj **granska + skapa**, sedan **skapa** att distribuera den virtuella datorn.
+3. Gå till fliken **nätverk** . Välj det virtuella nätverk och det offentliga undernät som innehåller ditt Azure Databricks-kluster. Välj **Granska + skapa**och sedan **skapa** för att distribuera den virtuella datorn.
 
-    ![Nätverksfliken med ny konfiguration av virtuell dator](./media/vnet-injection-sql-server/create-virtual-machine-networking.png)
+    ![Fliken nätverk i den nya konfigurationen för virtuell dator](./media/vnet-injection-sql-server/create-virtual-machine-networking.png)
 
-4. När distributionen är färdig, gå till den virtuella datorn. Lägg märke till offentliga IP-adressen och virtuella nätverk/undernät i den **översikt**. Välj den **offentlig IP-adress**
+4. När distributionen är klar navigerar du till den virtuella datorn. Lägg märke till den offentliga IP-adressen och det virtuella nätverket/under nätet i **översikten**. Välj den **offentliga IP-adressen**
 
-    ![Översikt över virtuella datorer](./media/vnet-injection-sql-server/virtual-machine-overview.png)
+    ![Översikt över virtuell dator](./media/vnet-injection-sql-server/virtual-machine-overview.png)
 
-5. Ändra den **tilldelning** till **statiska** och ange en **DNS-Namnetiketten**. Välj **spara**, och starta om den virtuella datorn.
+5. Ändra **tilldelningen** till **statisk** och ange en **DNS-** benämning. Välj **Spara**och starta om den virtuella datorn.
 
-    ![Offentliga IP-adresskonfigurationen](./media/vnet-injection-sql-server/virtual-machine-staticip.png)
+    ![Konfiguration av offentlig IP-adress](./media/vnet-injection-sql-server/virtual-machine-staticip.png)
 
-6. Välj den **nätverk** fliken **inställningar**. Observera att nätverkssäkerhetsgruppen som skapades under distributionen av Azure Databricks är associerad med den virtuella datorn. Välj **Lägg till regel för inkommande portar**.
+6. Välj fliken **nätverk** under **Inställningar**. Observera att den nätverks säkerhets grupp som skapades under Azure Databricks distributionen är kopplad till den virtuella datorn. Välj **Lägg till regel för inkommande port**.
 
 7. Lägg till en regel för att öppna port 22 för SSH. Använd följande inställningar:
     
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |source|IP-adresser|IP-adresser anger den inkommande trafiken från en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
-    |Käll-IP-adresser|< din offentliga IP-adress\>|Ange den offentliga IP-adressen. Du kan hitta din offentliga IP-adress genom att besöka [bing.com](https://www.bing.com/) och söka efter **”Min IP-adress”** .|
-    |Källportintervall|*|Tillåta trafik från alla portar.|
-    |Mål|IP-adresser|IP-adresser anger den utgående trafiken för en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
-    |Mål-IP-adresser|< din vm offentlig IP-adress\>|Ange den virtuella datorns offentliga IP-adressen. Du hittar den på den **översikt** sidan för den virtuella datorn.|
-    |Målportsintervall|22|Öppna port 22 för SSH.|
-    |Prioritet|290|Ge regeln ett prioritet.|
-    |Namn|ssh-databricks-tutorial-vm|Ge regeln ett namn.|
+    |Källa|IP-adresser|IP-adresser anger att inkommande trafik från en specifik käll-IP-adress ska tillåtas eller nekas av den här regeln.|
+    |Käll-IP-adresser|< din offentliga IP @ no__t-0|Ange din offentliga IP-adress. Du kan hitta din offentliga IP-adress genom att besöka [Bing.com](https://www.bing.com/) och söka efter **"min IP"** .|
+    |Källportintervall|*|Tillåt trafik från vilken port som helst.|
+    |Mål|IP-adresser|IP-adresser anger att utgående trafik för en speciell käll-IP-adress ska tillåtas eller nekas av den här regeln.|
+    |Mål-IP-adresser|< din offentliga IP-adress för VM @ no__t-0|Ange den virtuella datorns offentliga IP-adress. Du hittar detta på sidan **Översikt** på den virtuella datorn.|
+    |Målportintervall|22|Öppna port 22 för SSH.|
+    |Prioritet|290|Ge regeln en prioritet.|
+    |Namn|SSH-databricks – självstudie – VM|Ge regeln ett namn.|
 
 
-    ![Lägg till ingående Säkerhetsregel för port 22](./media/vnet-injection-sql-server/open-port.png)
+    ![Lägg till inkommande säkerhets regel för port 22](./media/vnet-injection-sql-server/open-port.png)
 
 8. Lägg till en regel för att öppna port 1433 för SQL med följande inställningar:
 
     |Inställning|Föreslaget värde|Beskrivning|
     |-------|---------------|-----------|
-    |source|IP-adresser|IP-adresser anger den inkommande trafiken från en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
-    |Käll-IP-adresser|10.179.0.0/16|Ange adressintervallet för det virtuella nätverket.|
-    |Källportintervall|*|Tillåta trafik från alla portar.|
-    |Mål|IP-adresser|IP-adresser anger den utgående trafiken för en viss källa IP-adress ska tillåtas eller nekas av den här regeln.|
-    |Mål-IP-adresser|< din vm offentlig IP-adress\>|Ange den virtuella datorns offentliga IP-adressen. Du hittar den på den **översikt** sidan för den virtuella datorn.|
-    |Målportsintervall|1433|Öppna port 22 för SQL Server.|
-    |Prioritet|300|Ge regeln ett prioritet.|
-    |Namn|sql-databricks-tutorial-vm|Ge regeln ett namn.|
+    |Källa|IP-adresser|IP-adresser anger att inkommande trafik från en specifik käll-IP-adress ska tillåtas eller nekas av den här regeln.|
+    |Käll-IP-adresser|10.179.0.0/16|Ange adress intervallet för det virtuella nätverket.|
+    |Källportintervall|*|Tillåt trafik från vilken port som helst.|
+    |Mål|IP-adresser|IP-adresser anger att utgående trafik för en speciell käll-IP-adress ska tillåtas eller nekas av den här regeln.|
+    |Mål-IP-adresser|< din offentliga IP-adress för VM @ no__t-0|Ange den virtuella datorns offentliga IP-adress. Du hittar detta på sidan **Översikt** på den virtuella datorn.|
+    |Målportintervall|1433|Öppna port 22 för SQL Server.|
+    |Prioritet|300|Ge regeln en prioritet.|
+    |Namn|SQL-databricks – självstudie – VM|Ge regeln ett namn.|
 
-    ![Lägg till ingående Säkerhetsregel för port 1433](./media/vnet-injection-sql-server/open-port2.png)
+    ![Lägg till inkommande säkerhets regel för port 1433](./media/vnet-injection-sql-server/open-port2.png)
 
 ## <a name="run-sql-server-in-a-docker-container"></a>Kör SQL Server i en Docker-behållare
 
-1. Öppna [Ubuntu för Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab), eller något annat verktyg som gör att du kan SSH till den virtuella datorn. Navigera till den virtuella datorn i Azure portal och väljer **Connect** att hämta SSH-kommandot måste du ansluta.
+1. Öppna [Ubuntu för Windows](https://www.microsoft.com/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab)eller andra verktyg som gör det möjligt att använda SSH i den virtuella datorn. Navigera till den virtuella datorn i Azure Portal och välj **Anslut** för att hämta det SSH-kommando som du behöver ansluta.
 
     ![Ansluta till den virtuella datorn](./media/vnet-injection-sql-server/vm-ssh-connect.png)
 
-2. Ange kommandot i terminalen Ubuntu och ange administratörslösenordet som du skapade när du har konfigurerat den virtuella datorn.
+2. Ange kommandot i Ubuntu-terminalen och ange det administratörs lösen ord som du skapade när du konfigurerade den virtuella datorn.
 
-    ![Ubuntu terminal SSH logga in](./media/vnet-injection-sql-server/vm-login-terminal.png)
+    ![Ubuntu Terminal SSH-inloggning](./media/vnet-injection-sql-server/vm-login-terminal.png)
 
 3. Använd följande kommando för att installera Docker på den virtuella datorn.
 
@@ -107,7 +107,7 @@ I den här guiden får du lära dig att:
     sudo apt-get install docker.io
     ```
 
-    Kontrollera installationen av Docker med följande kommando:
+    Verifiera installationen av Docker med följande kommando:
 
     ```bash
     sudo docker --version
@@ -119,7 +119,7 @@ I den här guiden får du lära dig att:
     sudo docker pull mcr.microsoft.com/mssql/server:2017-latest
     ```
 
-    Kontrollera bilderna.
+    Kontrol lera avbildningarna.
 
     ```bash
     sudo docker images
@@ -131,7 +131,7 @@ I den här guiden får du lära dig att:
     sudo docker run -e 'ACCEPT_EULA=Y' -e 'SA_PASSWORD=Password1234' -p 1433:1433 --name sql1  -d mcr.microsoft.com/mssql/server:2017-latest
     ```
 
-    Kontrollera att behållaren körs.
+    Kontrol lera att behållaren körs.
 
     ```bash
     sudo docker ps -a
@@ -139,11 +139,11 @@ I den här guiden får du lära dig att:
 
 ## <a name="create-a-sql-database"></a>Skapa en SQL-databas
 
-1. Öppna SQL Server Management Studio och Anslut till servern med servernamnet och SQL-autentisering. Logga in användarnamn är **SA** och lösenordet är det lösenord som anges i kommandot Docker. Lösenordet i detta kommando är `Password1234`.
+1. Öppna SQL Server Management Studio och Anslut till servern med Server namnet och SQL-autentisering. Inloggnings-username är **sa** och lösen ordet är lösen ordet som anges i Docker-kommandot. Lösen ordet i exempel kommandot är `Password1234`.
 
-    ![Ansluta till SQL Server med SQL Server Management Studio](./media/vnet-injection-sql-server/ssms-login.png)
+    ![Anslut till SQL Server med SQL Server Management Studio](./media/vnet-injection-sql-server/ssms-login.png)
 
-2. När du har anslutit väljer **ny fråga** och ange följande kodavsnitt för att skapa en databas, en tabell och infoga vissa poster i tabellen.
+2. När du har anslutit väljer du **ny fråga** och anger följande kodfragment för att skapa en databas, en tabell och infoga några poster i tabellen.
 
     ```SQL
     CREATE DATABASE MYDB;
@@ -157,29 +157,29 @@ I den här guiden får du lära dig att:
     GO
     ```
 
-    ![Fråga för att skapa en SQL Server-databas](./media/vnet-injection-sql-server/create-database.png)
+    ![Fråga för att skapa en SQL Server databas](./media/vnet-injection-sql-server/create-database.png)
 
-## <a name="query-sql-server-from-azure-databricks"></a>Fråga SQLServer från Azure Databricks
+## <a name="query-sql-server-from-azure-databricks"></a>Fråga SQL Server från Azure Databricks
 
-1. Gå till Azure Databricks-arbetsytan och kontrollera att du har skapat ett kluster som en del av förutsättningarna. Välj **skapa en anteckningsbok**. Ge anteckningsboken ett namn, Välj *Python* som språk och väljer det kluster som du skapade.
+1. Gå till arbets ytan Azure Databricks och kontrol lera att du har skapat ett kluster som en del av kraven. Välj sedan **skapa en antecknings bok**. Ge antecknings boken ett namn, Välj *python* som språk och välj det kluster som du har skapat.
 
-    ![Nya Databricks notebook-inställningarna](./media/vnet-injection-sql-server/create-notebook.png)
+    ![Nya inställningar för Databricks Notebook](./media/vnet-injection-sql-server/create-notebook.png)
 
-2. Använder du följande kommando för att pinga den interna IP-adressen för SQL Server-datorn. Den här pingen ska lyckas. Annars kan du kontrollera att behållaren körs och granska nätverkskonfigurationen security nätverkssäkerhetsgrupper (NSG).
+2. Använd följande kommando för att pinga den interna IP-adressen för den SQL Server virtuella datorn. Pingen ska lyckas. Om inte, verifierar du att behållaren körs och kontrollerar konfigurationen för nätverks säkerhets gruppen (NSG).
 
     ```python
     %sh
     ping 10.179.64.4
     ```
 
-    Du kan också använda nslookup-kommando för att granska.
+    Du kan också använda nslookup-kommandot för att granska.
 
     ```python
     %sh
     nslookup databricks-tutorial-vm.westus2.cloudapp.azure.com
     ```
 
-3. När du har har en SQL Server, kan du fråga databasen och tabeller. Kör följande python-kod:
+3. När du har skickat SQL Server kan du fråga databasen och tabellerna. Kör följande python-kod:
 
     ```python
     jdbcHostname = "10.179.64.4"
@@ -195,14 +195,14 @@ I den här guiden får du lära dig att:
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-Ta bort resursgruppen, Azure Databricks-arbetsytan och alla relaterade resurser när de inte längre behövs. Tar bort jobbet undviker onödiga fakturering. Om du planerar att använda Azure Databricks-arbetsytan i framtiden kan du stoppa klustret och sedan starta det igen. Om du inte tänker fortsätta att använda den här Azure Databricks-arbetsytan, ta bort alla resurser som du skapade i den här självstudien med hjälp av följande steg:
+Ta bort resurs gruppen, Azure Databricks arbets ytan och alla relaterade resurser när de inte längre behövs. Om du tar bort jobbet undviks onödig fakturering. Om du planerar att använda arbets ytan Azure Databricks i framtiden kan du stoppa klustret och starta om det senare. Om du inte kommer att fortsätta att använda den här Azure Databricks arbets ytan tar du bort alla resurser som du skapade i den här självstudien med hjälp av följande steg:
 
-1. I den vänstra menyn i Azure portal, klickar du på **resursgrupper** och klicka sedan på namnet på resursgruppen som du skapade.
+1. Klicka på **resurs grupper** på den vänstra menyn i Azure Portal och klicka sedan på namnet på den resurs grupp som du skapade.
 
-2. På sidan med resursgrupper, väljer **ta bort**, skriver du namnet på resursen som ska tas bort i textrutan och välj sedan **ta bort** igen.
+2. På sidan resurs grupp väljer du **ta bort**, skriver in namnet på resursen som ska tas bort i text rutan och väljer sedan **ta bort** igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Gå vidare till nästa artikel om hur du extrahera, transformera och läsa in data med Azure Databricks.
+Gå vidare till nästa artikel om du vill lära dig att extrahera, transformera och läsa in data med hjälp av Azure Databricks.
 > [!div class="nextstepaction"]
-> [Självstudie: Extrahera, transformera och läsa in data med hjälp av Azure Databricks](databricks-extract-load-sql-data-warehouse.md)
+> [Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks](databricks-extract-load-sql-data-warehouse.md)

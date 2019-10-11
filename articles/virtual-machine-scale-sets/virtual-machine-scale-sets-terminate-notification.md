@@ -3,7 +3,7 @@ title: Avsluta meddelandet för instanser av skalnings uppsättningar för virtu
 description: Lär dig hur du aktiverar uppsägnings meddelanden för instanser av skalnings uppsättningar för virtuella Azure-datorer
 services: virtual-machine-scale-sets
 documentationcenter: ''
-author: mayanknayar
+author: shandilvarun
 manager: drewm
 editor: ''
 tags: azure-resource-manager
@@ -14,13 +14,13 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2019
-ms.author: manayar
-ms.openlocfilehash: de303032fcbbde30534c802e3d5185aedf05cb98
-ms.sourcegitcommit: 82499878a3d2a33a02a751d6e6e3800adbfa8c13
+ms.author: vashan
+ms.openlocfilehash: 7269c76236b7cbe60995d84e85857da596bec961
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70076243"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264674"
 ---
 # <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Avsluta avisering för instanser av skalnings uppsättningar för virtuella Azure-datorer (för hands version)
 Skalnings uppsättnings instanser kan välja att ta emot meddelanden om instans avslutning och ange en fördefinierad fördröjnings-timeout för åtgärden avsluta. Uppsägnings meddelandet skickas via Azure Metadata Service – [schemalagda händelser](../virtual-machines/windows/scheduled-events.md), som innehåller aviseringar för och fördröjning av påverkan på åtgärder som omstarter och omdistribueras. För hands versions lösningen lägger till en annan händelse – Avbryt – till listan över Schemalagda händelser och den associerade fördröjningen av händelsen avbryts beror på den fördröjnings gräns som anges av användarna i deras skal uppsättnings modell konfiguration.
@@ -160,12 +160,12 @@ Du kan också referera till exempel skript för frågor och svar på händelser 
 -   Godkänn alla väntande borttagningar – om det finns en väntande borttagning på VM_1 som inte har godkänts, och du har godkänt en annan avbrotts händelse på VM_2, så tas VM_2 inte bort förrän händelsen Avsluta händelse för VM_1 har godkänts eller om tids gränsen har gått ut. När du godkänner händelsen Avsluta för VM_1 raderas både VM_1 och VM_2.
 -   Godkänn alla samtidiga borttagningar – genom att utöka exemplet ovan, om VM_1 och VM_2 har samma *NotBefore* -tid, måste båda säga upp-händelserna godkännas eller så tas ingen virtuell dator bort innan tids gränsen upphör att gälla.
 
-## <a name="troubleshoot"></a>Felsöka
+## <a name="troubleshoot"></a>Felsökning
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>Det gick inte att aktivera scheduledEventsProfile
 Om du får ett "BadRequest"-fel med meddelandet "Det gick inte att hitta medlemmen" scheduledEventsProfile "för objekt av typen" VirtualMachineProfile "", kontrol lera den API-version som används för skalnings uppsättnings åtgärderna. Compute API version **2019-03-01** eller senare krävs för den här för hands versionen.
 
 ### <a name="failure-to-get-terminate-events"></a>Det gick inte att hämta avslutande händelser
-Om du inte får några avbrotts händelser via Schemalagda händelser kontrollerar du den API-version som används för att hämta händelserna. Metadata Service-API version **2019-01-01** eller högre krävs för att avsluta händelser.
+Om du inte får några **avbrotts** händelser via schemalagda händelser kontrollerar du den API-version som används för att hämta händelserna. Metadata Service-API version **2019-01-01** eller högre krävs för att avsluta händelser.
 >'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 '
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>Avbryter händelsen med felaktig NotBefore-tid  

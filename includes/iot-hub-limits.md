@@ -4,16 +4,16 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: 689322614e2cea4e59a5a573b72bfeb2aafda847
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: f0de7aedc3883978582da1950e95aaabac9a1695
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71148501"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72272998"
 ---
 I följande tabell visas de gränser som är associerade med de olika tjänst nivåerna S1, S2, S3 och F1. Information om kostnaden för varje *enhet* i varje nivå finns i [Azure IoT Hub prissättning](https://azure.microsoft.com/pricing/details/iot-hub/).
 
-| Resource | S1 Standard | S2 Standard | S3 Standard | F1 Kostnadsfri |
+| Resurs | S1 Standard | S2 Standard | S3 Standard | F1 Kostnadsfri |
 | --- | --- | --- | --- | --- |
 | Meddelanden per dag |400,000 |6,000,000 |300,000,000 |8,000 |
 | Maximalt antal enheter |200 |200 |10 |1 |
@@ -25,7 +25,7 @@ I följande tabell visas de gränser som är associerade med de olika tjänst ni
 
 I följande tabell visas de begränsningar som gäller för IoT Hub resurser.
 
-| Resource | Gräns |
+| Resurs | Gräns |
 | --- | --- |
 | Maximalt antal betalda IoT-hubbar per Azure-prenumeration |50 |
 | Maximalt antal kostnadsfria IoT-hubbar per Azure-prenumeration |1 |
@@ -33,7 +33,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub resurser.
 | Maximalt antal enhetsidentiteter<br/> som returneras i ett enskilt anrop |1,000 |
 | Maximal kvarhållning av IoT Hub-meddelanden för enhet-till-moln-meddelanden |7 dagar |
 | Maximal storlek för enhet-till-moln-meddelande |256 kB |
-| Maximal storlek för enhet-till-moln-batch |AMQP och HTTP: 256 KB för hela batchen <br/>MQTT 256 KB för varje meddelande |
+| Maximal storlek för enhet-till-moln-batch |AMQP och HTTP: 256 KB för hela batchen <br/>MQTT: 256 KB för varje meddelande |
 | Maximalt antal meddelanden för enhet-till-moln-batch |500 |
 | Maximal storlek för moln-till-enhet-meddelande |64 kB |
 | Maximalt TTL-värde för moln-till-enhet-meddelanden |2 dagar |
@@ -67,7 +67,7 @@ IoT Hub begränsnings begär anden när följande kvoter överskrids.
 | Sändningar enhet-till-moln |6000/SEK/enhet (för S3), 120/SEK/enhet (för S2), 12/SEK per enhet (för S1). <br/>Minst 100 per sekund. |
 | Sändningar moln-till-enhet | 83.33 per sekund per enhet (5000/min/enhet) (för S3), 1.67/SEK/enhet (100 per minut/enhet) (för S1 och S2). |
 | Mottagningar moln-till-enhet |833.33 per sekund per enhet (50000/min/enhet) (för S3), 16.67/SEK/enhet (1000 per minut/enhet) (för S1 och S2). |
-| Filöverföringsåtgärder |83,33 fil överförings aviseringar/SEK per enhet (5000 per minut/enhet) (för S3), 1,67 fil överförings meddelanden/SEK/enhet (100 per minut/enhet) (för S1 och S2). <br/> 10 000 SAS-URI: er kan ligga ut för ett Azure Storage-konto i taget.<br/> 10 SAS URI:er/enheten kan vara ute vid ett och samma tillfälle. |
+| Filöverföringsåtgärder |83,33 fil överförings initieringar/SEK per enhet (5000/min/enhet) (för S3), 1,67 fil överförings initieringar/SEK/enhet (100 per minut/enhet) (för S1 och S2). <br/> 10 000 SAS-URI: er kan ligga ut för ett Azure Storage-konto i taget.<br/> 10 SAS URI:er/enheten kan vara ute vid ett och samma tillfälle. |
 | Direkta metoder | 24 MB/SEK per enhet (för S3), 480 KB/SEK/enhet (för S2), 160 KB/SEK/enhet (för S1).<br/> Baserat på 8 KB begränsnings skalans begränsnings storlek. |
 | Läsoperationer för enhetstvilling | 500 per sekund per enhet (för S3): högst 100 per sekund eller 10 per sekund per enhet (för S2), 100/SEK (för S1) |
 | Uppdateringar för enhetstvilling | 250 per sekund per enhet (för S3), högst 50 per sekund eller 5/SEK per enhet (för S2), 50/SEK (för S1) |

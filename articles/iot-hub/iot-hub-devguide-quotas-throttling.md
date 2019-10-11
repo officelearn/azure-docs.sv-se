@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 0e60607d50722a4496dc8f4ad7d609cdf9fd5792
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 4941e7af000e97e4ace0a9e90a187ed92409942d
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877174"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264636"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -38,12 +38,12 @@ I följande tabell visas de tvingade begränsningarna. Värden refererar till en
 
 | Begränsning | Gratis, B1 och S1 | B2 och S2 | B3 och S3 | 
 | -------- | ------- | ------- | ------- |
-| [Identitets register åtgärder](#identity-registry-operations-throttle) (skapa, Hämta, Visa, uppdatera, ta bort) | 1.67 per sekund/enhet (100 per minut/enhet) | 1.67 per sekund/enhet (100 per minut/enhet) | 83.33 per sekund per enhet (5000 per minut/enhet) |
-| [Nya enhets anslutningar](#device-connections-throttle) (den här gränsen gäller för antalet _nya anslutningar_, inte det totala antalet anslutningar) | Större än 100 per sekund eller 12 per sekund/enhet <br/> Till exempel är två S1-enheter 2\*12 = 24 nya anslutningar/SEK, men du har minst 100 nya anslutningar/SEK över dina enheter. Med nio S1-enheter har du 108 nya anslutningar/SEK (9\*12) över dina enheter. | 120 nya anslutningar/SEK/enhet | 6 000 nya anslutningar/SEK/enhet |
-| Sändningar enhet-till-moln | Högst 100 sändnings åtgärder/SEK eller 12 sändnings åtgärder/SEK/enhet <br/> Till exempel är två S1-enheter 2\*12 = 24/SEK, men du har minst 100 skicka-åtgärder per sekund för dina enheter. Med nio S1-enheter har du 108 skicka åtgärder/SEK (9\*12) över dina enheter. | 120 skicka åtgärder/SEK/enhet | 6 000 skicka åtgärder/SEK/enhet |
+| [Identitets register åtgärder](#identity-registry-operations-throttle) (skapa, Hämta, lista, uppdatera, ta bort) | 1.67 per sekund/enhet (100 per minut/enhet) | 1.67 per sekund/enhet (100 per minut/enhet) | 83.33 per sekund per enhet (5000 per minut/enhet) |
+| [Nya enhets anslutningar](#device-connections-throttle) (denna gräns gäller för antalet _nya anslutningar_, inte det totala antalet anslutningar) | Större än 100 per sekund eller 12 per sekund/enhet <br/> Till exempel är två S1-enheter 2 @ no__t-012 = 24 nya anslutningar/s, men du har minst 100 nya anslutningar per sekund i dina enheter. Med nio S1-enheter har du 108 nya anslutningar/SEK (9 @ no__t-012) över dina enheter. | 120 nya anslutningar/SEK/enhet | 6 000 nya anslutningar/SEK/enhet |
+| Sändningar enhet-till-moln | Högst 100 sändnings åtgärder/SEK eller 12 sändnings åtgärder/SEK/enhet <br/> Till exempel är två S1-enheter 2 @ no__t-012 = 24/SEK, men du har minst 100 skicka-åtgärder per sekund i dina enheter. Med nio S1-enheter har du 108 skicka åtgärder/SEK (9 @ no__t-012) över dina enheter. | 120 skicka åtgärder/SEK/enhet | 6 000 skicka åtgärder/SEK/enhet |
 | Skicka från moln till enhet<sup>1</sup> | 1,67 skicka åtgärder/SEK/enhet (100 meddelanden/min/enhet) | 1,67 skicka åtgärder/SEK/enhet (100 skicka åtgärder/min/enhet) | 83,33 skicka åtgärder/SEK/enhet (5 000 skicka åtgärder/min/enhet) |
 | Ta emot från moln till enhet<sup>1</sup> <br/> (endast när enheten använder HTTPS)| 16,67 Receive-åtgärder/SEK/enhet (1 000 Receive-åtgärder/min/enhet) | 16,67 Receive-åtgärder/SEK/enhet (1 000 Receive-åtgärder/min/enhet) | 833,33 Receive-åtgärder/SEK/enhet (50 000 Receive-åtgärder/min/enhet) |
-| Filuppladdning | 1,67 fil överförings meddelanden/SEK/enhet (100 per minut/enhet) | 1,67 fil överförings meddelanden/SEK/enhet (100 per minut/enhet) | 83,33 fil överförings meddelanden/SEK/enhet (5000 per minut/enhet) |
+| Fil uppladdning | 1,67 fil överförings initieringar/SEK per enhet (100 per minut/enhet) | 1,67 fil överförings initieringar/SEK per enhet (100 per minut/enhet) | 83,33 fil överförings initieringar/SEK per enhet (5000 per minut/enhet) |
 | Direkta metoder<sup>1</sup> | 160KB per sekund/enhet<sup>2</sup> | 480KB per sekund/enhet<sup>2</sup> | 24MB per sekund/enhet<sup>2</sup> | 
 | Frågor | 20 per minut/enhet | 20 per minut/enhet | 1000 per minut/enhet |
 | Dubbla (enhet och modul) läser<sup>1</sup> | 100/SEK | Högre på 100/SEK eller 10/SEK/per enhet | 500 per sekund per enhet |
@@ -77,7 +77,7 @@ I följande tabell visas de tvingade begränsningarna. Värden refererar till en
 
 För att kunna hantera burst-trafik accepterar IoT Hub begär Anden ovanför begränsningen under en begränsad tid. De första av dessa begär Anden bearbetas omedelbart. Men om antalet förfrågningar fortsätter strider mot begränsningen börjar IoT Hub att placera begär anden i en kö och bearbetas enligt begränsnings hastigheten. Den här effekterna kallas för *trafik form*. Dessutom är storleken på den här kön begränsad. Om begränsnings överträdelsen fortsätter kan kön fyllas och IoT Hub börjar avvisa begär Anden med `429 ThrottlingException`.
 
-Du kan till exempel använda en simulerad enhet för att skicka 200 enhet-till-moln-meddelanden per sekund till din S1-IoT Hub (som har en gräns på 100/SEK D2C-sändningar). För den första minuten eller två bearbetas meddelandena direkt. Men eftersom enheten fortsätter att skicka fler meddelanden än begränsnings gränsen börjar IoT Hub endast bearbeta 100 meddelanden per sekund och placerar resten i en kö. Du börjar märker ökad svars tid. Slutligen börjar du få `429 ThrottlingException` medan kön fyller upp och "antalet begränsnings fel" i IoT Hubs [mått](iot-hub-metrics.md) börjar öka.
+Du kan till exempel använda en simulerad enhet för att skicka 200 enhet-till-moln-meddelanden per sekund till din S1-IoT Hub (som har en gräns på 100/SEK D2C-sändningar). För den första minuten eller två bearbetas meddelandena direkt. Men eftersom enheten fortsätter att skicka fler meddelanden än begränsnings gränsen börjar IoT Hub endast bearbeta 100 meddelanden per sekund och placerar resten i en kö. Du börjar märker ökad svars tid. Slutligen börjar du få `429 ThrottlingException` medan kön fylls och "antalet begränsnings fel" i [IoT Hubs mått](iot-hub-metrics.md) börjar öka.
 
 ### <a name="identity-registry-operations-throttle"></a>Åtgärds begränsningar för identitets registret
 
@@ -96,7 +96,7 @@ IoT Hub tillämpar andra drift gränser:
 | Åtgärd | Gräns |
 | --------- | ----- |
 | Enheter | Det maximala antalet enheter som du kan ansluta till en enda IoT-hubb är 1 000 000. Det enda sättet att öka den här gränsen är att kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).|
-| Filöverföringar | 10 samtidiga fil överföringar per enhet. |
+| Fil överföringar | 10 samtidiga fil överföringar per enhet. |
 | Jobb<sup>1</sup> | Maximalt antal samtidiga jobb är 1 (kostnads fritt och S1), 5 (för S2) och 10 (för S3). Dock är det maximala antalet samtidiga [enhets import/export-jobb](iot-hub-bulk-identity-mgmt.md) 1 för alla nivåer. <br/>Jobb historiken behålls upp till 30 dagar. |
 | Ytterligare slut punkter | Betalda SKU-hubbar kan ha 10 ytterligare slut punkter. De kostnads fria SKU-hubbarna kan ha en ytterligare slut punkt. |
 | Frågor för meddelanderoutning | Betalda SKU-hubbar kan ha 100-routnings frågor. De kostnads fria SKU-hubbarna kan ha fem Dirigerings frågor. |

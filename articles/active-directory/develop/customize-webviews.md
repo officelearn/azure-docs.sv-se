@@ -17,16 +17,16 @@ ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c1b7417de8de6fb063de18fe670ef474a3b486d0
-ms.sourcegitcommit: 263a69b70949099457620037c988dc590d7c7854
+ms.openlocfilehash: 0dd5be3944bdff459f6d920b358ae08efedcc431
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71269082"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264195"
 ---
-# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Anvisningar: Anpassa webbläsare och webbvy för iOS/macOS
+# <a name="how-to-customize-browsers-and-webviews-for-iosmacos"></a>Gör så här: anpassa webbläsare och webbvy för iOS/macOS
 
-En webbläsare krävs för interaktiv autentisering. I iOS använder Microsoft Authentication Library (MSAL) en system webbläsare som standard (som kan visas överst i appen) för att utföra interaktiv autentisering för inloggning av användare. Att använda system webbläsare har stor nytta av att dela läget för enkel inloggning (SSO) med andra program och med webb program.
+En webbläsare krävs för interaktiv autentisering. I iOS använder Microsoft Authentication Library (MSAL) systemets webbläsare som standard (som kan visas ovanpå appen) för att göra interaktiva autentisering att logga in användare. Med hjälp av system webbläsaren kan du dela läget för enkel inloggning (SSO) med andra program och med webb program.
 
 Du kan ändra upplevelsen genom att anpassa konfigurationen till andra alternativ för att Visa webb innehåll, till exempel:
 
@@ -40,13 +40,13 @@ För iOS och macOS:
 
 - [WKWebView](https://developer.apple.com/documentation/webkit/wkwebview?language=objc).
 
-MSAL för macOS stöder `WKWebView`bara.
+MSAL för macOS stöder bara `WKWebView`.
 
 ## <a name="system-browsers"></a>System webbläsare
 
-För iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession`, och `SFSafariViewController` betraktas system webbläsare. I allmänhet delar system webbläsare cookies och andra webbplats data med webb programmet Safari.
+För iOS, `ASWebAuthenticationSession`, `SFAuthenticationSession` och `SFSafariViewController` betraktas som system webbläsare. I allmänhet delar system webbläsare cookies och andra webbplats data med webb programmet Safari.
 
-Som standard kommer MSAL att identifiera iOS-versionen dynamiskt och välja den rekommenderade system webbläsaren som är tillgänglig i den versionen. På iOS 12 + är `ASWebAuthenticationSession`det. 
+Som standard kommer MSAL att identifiera iOS-versionen dynamiskt och välja den rekommenderade system webbläsaren som är tillgänglig i den versionen. På iOS 12 + blir det `ASWebAuthenticationSession`. 
 
 | Version | Webbläsare |
 |:-------------:|:-------------:|
@@ -56,8 +56,8 @@ Som standard kommer MSAL att identifiera iOS-versionen dynamiskt och välja den 
 
 Utvecklare kan också välja en annan system webbläsare för MSAL-appar:
 
-- `SFAuthenticationSession`är iOS 11-versionen av `ASWebAuthenticationSession`.
-- `SFSafariViewController`är mer generell användning och innehåller ett gränssnitt för att surfa på webben och kan även användas för inloggnings ändamål. I iOS 9 och 10 delas cookies och andra webbplats data med Safari – men inte i iOS 11 och senare.
+- `SFAuthenticationSession` är iOS 11-versionen av `ASWebAuthenticationSession`.
+- `SFSafariViewController` är ett allmänt syfte och innehåller ett gränssnitt för att surfa på webben och kan även användas för inloggnings ändamål. I iOS 9 och 10 delas cookies och andra webbplats data med Safari – men inte i iOS 11 och senare.
 
 ## <a name="in-app-browser"></a>Webbläsare i app
 
@@ -67,7 +67,7 @@ Utvecklare kan också välja en annan system webbläsare för MSAL-appar:
 
 Den webbläsare du använder påverkar SSO-upplevelsen på grund av hur de delar cookies. I följande tabeller sammanfattas SSO-upplevelser per webbläsare.
 
-| Teknik    | Typ av webbläsare  | tillgänglighet för iOS | macOS-tillgänglighet | Delar cookies och andra data  | MSAL tillgänglighet | SSO |
+| Teknik    | Typ av webbläsare  | tillgänglighet för iOS | macOS-tillgänglighet | Delar cookies och andra data  | MSAL tillgänglighet | DEFINITION |
 |:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|:-------------:|-------------:|
 | [ASWebAuthenticationSession](https://developer.apple.com/documentation/authenticationservices/aswebauthenticationsession) | System | iOS12 och upp | macOS 10,15 och uppåt | Ja | endast iOS | b/Safari-instanser
 | [SFAuthenticationSession](https://developer.apple.com/documentation/safariservices/sfauthenticationsession) | System | iOS11 och upp | Gäller inte | Ja | endast iOS |  b/Safari-instanser
@@ -87,9 +87,9 @@ Du kan använda en webbläsare i appen eller en speciell system webbläsare, ber
 
 ## <a name="change-per-interactive-request"></a>Ändra per interaktiv begäran
 
-Varje begäran kan konfigureras att åsidosätta standard webbläsaren genom att ändra `MSALInteractiveTokenParameters.webviewParameters.webviewType` egenskapen innan den skickas `acquireTokenWithParameters:completionBlock:` till API: et.
+Varje begäran kan konfigureras att åsidosätta standard webbläsaren genom att ändra egenskapen `MSALInteractiveTokenParameters.webviewParameters.webviewType` innan du skickar den till API: et för @no__t 1.
 
-Dessutom stöder MSAL överföring i en anpassad `WKWebView` genom att `MSALInteractiveTokenParameters.webviewParameters.customWebView` ange egenskapen.
+Dessutom stöder MSAL överföring i en anpassad `WKWebView` genom att ange egenskapen `MSALInteractiveTokenParameters.webviewParameters.customWebView`.
 
 Exempel:
 
@@ -104,7 +104,7 @@ MSALInteractiveTokenParameters *interactiveParameters = [[MSALInteractiveTokenPa
     
 [app acquireTokenWithParameters:interactiveParameters completionBlock:completionBlock];
 ```
-SWIFT
+Swift
 ```swift
 let myParentController: UIViewController = ...
 let myCustomWebView: WKWebView = ...

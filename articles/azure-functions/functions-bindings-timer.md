@@ -5,19 +5,19 @@ services: functions
 documentationcenter: na
 author: craigshoemaker
 manager: gwallace
-keywords: Azure functions, funktioner, händelsebearbetning, dynamisk beräkning, serverlös arkitektur
+keywords: Azure Functions, functions, Event Processing, dynamisk beräkning, Server lös arkitektur
 ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
 ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: ''
-ms.openlocfilehash: 57b4f018cd044b4f516266dcf9776e82252f7f22
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 6ac83a054b146b9d515386332779c4fe94cde7c3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937114"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263428"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timer-utlösare för Azure Functions 
 
@@ -25,13 +25,13 @@ Den här artikeln förklarar hur du arbetar med timer-utlösare i Azure Function
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
-## <a name="packages---functions-1x"></a>Paket - instruktion i 1.x-funktioner
+## <a name="packages---functions-1x"></a>Paket-funktioner 1. x
 
 Timer-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version 2. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/v2.x/src/WebJobs.Extensions/Extensions/Timers/) lagringsplatsen.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
-## <a name="packages---functions-2x"></a>Paket - fungerar 2.x
+## <a name="packages---functions-2x"></a>Paket-funktioner 2. x
 
 Timer-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet-paketet, version 3. x. Käll koden för paketet finns i [Azure-WebJobs-SDK-Extensions GitHub-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/) lagringsplatsen.
 
@@ -39,10 +39,10 @@ Timer-utlösaren finns i [Microsoft. Azure. WebJobs. Extensions](https://www.nug
 
 ## <a name="example"></a>Exempel
 
-Se exempel språkspecifika:
+Se språkspecifika exempel:
 
 * [C#](#c-example)
-* [C#-skript (.csx)](#c-script-example)
+* [C#skript (. CSX)](#c-script-example)
 * [F#](#f-example)
 * [Java](#java-example)
 * [JavaScript](#javascript-example)
@@ -68,7 +68,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 I följande exempel visas en timer-utlösare bindning i en *Function. JSON* -fil och en [ C# skript funktion](functions-reference-csharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionen ska anropas på grund av en utebliven schema förekomst. [@No__t-1-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objektet skickas till funktionen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -79,7 +79,7 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-Här är C#-skriptkoden:
+Här är C# skript koden:
 
 ```csharp
 public static void Run(TimerInfo myTimer, ILogger log)
@@ -96,7 +96,7 @@ public static void Run(TimerInfo myTimer, ILogger log)
 
 I följande exempel visas en timer-utlösare bindning i en *Function. JSON* -fil och en [ F# skript funktion](functions-reference-fsharp.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionen ska anropas på grund av en utebliven schema förekomst. [@No__t-1-](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) objektet skickas till funktionen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -107,7 +107,7 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-Här är den F# skript kod:
+Här är F# skript koden:
 
 ```fsharp
 let Run(myTimer: TimerInfo, log: ILogger ) =
@@ -136,7 +136,7 @@ public void keepAlive(
 
 I följande exempel visas en timer-utlösare bindning i en *Function. JSON* -fil och en [JavaScript-funktion](functions-reference-node.md) som använder bindningen. Funktionen skriver en logg som anger om den här funktionen ska anropas på grund av en utebliven schema förekomst. Ett [Timer-objekt](#usage) skickas till funktionen.
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -147,7 +147,7 @@ Här är bindningsdata i den *function.json* fil:
 }
 ```
 
-Här är JavaScript-kod:
+Här är JavaScript-koden:
 
 ```JavaScript
 module.exports = function (context, myTimer) {
@@ -167,7 +167,7 @@ module.exports = function (context, myTimer) {
 
 I följande exempel används en timerupplösning-bindning vars konfiguration beskrivs i filen *Function. JSON* . Den faktiska [python-funktionen](functions-reference-python.md) som använder bindningen beskrivs i filen  *__init__. py* . Objektet som har skickats till funktionen är av typen [Azure. functions. TimerRequest-objekt](/python/api/azure-functions/azure.functions.timerrequest). Funktions logiken skriver till loggarna som anger om det aktuella anropet beror på en utebliven schema förekomst. 
 
-Här är bindningsdata i den *function.json* fil:
+Här är bindnings data i *Function. JSON* -filen:
 
 ```json
 {
@@ -213,17 +213,17 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
     }
     log.LogInformation($"C# Timer trigger function executed at: {DateTime.Now}");
 }
- ```
+```
 
 ## <a name="configuration"></a>Konfiguration
 
-I följande tabell förklaras konfigurationsegenskaper för bindning som du anger i den *function.json* fil och `TimerTrigger` attribut.
+I följande tabell förklaras de egenskaper för bindnings konfiguration som du anger i filen *Function. JSON* och attributet `TimerTrigger`.
 
-|Function.JSON egenskap | Attributegenskapen |Beskrivning|
+|function. JSON-egenskap | Attributets egenskap |Beskrivning|
 |---------|---------|----------------------|
-|**type** | Saknas | Måste vara inställd på "timerTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen.|
-|**riktning** | Saknas | Måste anges till ”in”. Den här egenskapen anges automatiskt när du skapar utlösaren i Azure-portalen. |
-|**Namn** | Saknas | Namnet på variabeln som representerar timer-objektet i funktions koden. | 
+|**typ** | Ej tillämpligt | Måste vara inställd på "timerTrigger". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal.|
+|**riktning** | Ej tillämpligt | Måste vara inställt på "in". Den här egenskapen anges automatiskt när du skapar utlösaren i Azure Portal. |
+|**Namn** | Ej tillämpligt | Namnet på variabeln som representerar timer-objektet i funktions koden. | 
 |**schedule**|**ScheduleExpression**|Ett [cron-uttryck](#ncrontab-expressions) eller ett [TimeSpan](#timespan) -värde. En `TimeSpan` kan bara användas för en Function-app som körs i en App Service-plan. Du kan lägga till schema uttrycket i en app-inställning och ange den här egenskapen till appens inställnings namn omslutet i **%-** tecken, som i det här exemplet: "% ScheduleAppSetting%". |
 |**runOnStartup**|**RunOnStartup**|Om `true` anropas funktionen när körningen startar. Till exempel startar körningen när funktions programmet aktive ras efter inaktivitet på grund av inaktivitet. När Function-appen startas om på grund av funktions ändringar och när funktions programmet skalas ut. Så **runOnStartup** bör sällan om det skulle vara inställt på `true`, särskilt i produktion. |
 |**useMonitor**|**UseMonitor**|Ange till `true` eller `false` för att ange om schemat ska övervakas. Schema övervakningen har kvar schema förekomster för att se till att schemat upprätthålls korrekt även när Function App-instanser startas om. Om detta inte anges uttryckligen är standardvärdet `true` för scheman som har ett upprepnings intervall som är större än eller lika med 1 minut. För scheman som utlöses mer än en gång per minut är standardvärdet `false`.
@@ -260,13 +260,13 @@ Azure Functions använder [NCronTab](https://github.com/atifaziz/NCrontab) -bibl
 
 Varje fält kan ha en av följande typer av värden:
 
-|type  |Exempel  |Utlöses av  |
+|Typ  |Exempel  |Utlöses av  |
 |---------|---------|---------|
 |Ett speciellt värde |<nobr>"0 5 * * * *"</nobr>|i hh: 05:00 där HH är varje timme (en gång i timmen)|
 |Alla värden (`*`)|<nobr>"0 * 5 * * *"</nobr>|5: mm: 00 varje dag, där mm är varje minut i timmen (60 gånger per dag)|
-|Ett intervall (`-` operator)|<nobr>"5-7 * * * *"</nobr>|vid HH: mm: 05, hh: mm: 06 och HH: mm: 07 där hh: mm är varje minut i varje timme (3 gånger per minut)|  
-|En uppsättning värden (`,` operator)|<nobr>"5,8,10 * * * * *"</nobr>|vid tt: mm: 05, hh: mm: 08 och HH: mm: 10 där hh: mm är varje minut i varje timme (tre gånger per minut)|
-|Ett intervall värde (`/` operator)|<nobr>"0 */5 * * * *"</nobr>|i hh: 05:00, hh: 10:00, hh: 15:00, och så vidare till och med hh: 55:00 där HH är varje timme (12 gånger i timmen)|
+|En intervall (`-`-operator)|<nobr>"5-7 * * * *"</nobr>|vid HH: mm: 05, hh: mm: 06 och HH: mm: 07 där hh: mm är varje minut i varje timme (3 gånger per minut)|
+|En uppsättning värden (`,`-operator)|<nobr>"5, 8, 10 * * * * *"</nobr>|vid tt: mm: 05, hh: mm: 08 och HH: mm: 10 där hh: mm är varje minut i varje timme (tre gånger per minut)|
+|Ett intervall värde (`/`-operator)|<nobr>"0 */5 * * *"</nobr>|i hh: 05:00, hh: 10:00, hh: 15:00, och så vidare till och med hh: 55:00 där HH är varje timme (12 gånger i timmen)|
 
 [!INCLUDE [functions-cron-expressions-months-days](../../includes/functions-cron-expressions-months-days.md)]
 
@@ -305,7 +305,7 @@ Eller skapa en app-inställning för din Function-app med namnet `WEBSITE_TIME_Z
 
 När du använder `WEBSITE_TIME_ZONE` justeras tiden för tid ändringar i den angivna tids zonen, t. ex. sommar tid. 
 
-## <a name="timespan"></a>TimeSpan
+## <a name="timespan"></a>Intervall
 
  En `TimeSpan` kan bara användas för en Function-app som körs i en App Service-plan.
 
@@ -318,7 +318,7 @@ Uttrycks som en sträng är `TimeSpan`-formatet `hh:mm:ss` när `hh` är mindre 
 |"01:00:00" | varje timma        |
 |"00:01:00"|varje minut         |
 |"24:00:00" | var 24 dag        |
-|"1,00:00:00" | varje dag        |
+|"1,00:00:00" | Varje dag        |
 
 ## <a name="scale-out"></a>Skalbarhet
 
@@ -326,13 +326,22 @@ Om en Function-app skalar ut till flera instanser, körs bara en instans av en t
 
 ## <a name="function-apps-sharing-storage"></a>Function Apps delning lagring
 
-Om du delar ett lagrings konto över flera Function-appar, se till att varje Function-app har en annan `id` i *Host. JSON*. Du kan utelämna `id` egenskapen eller manuellt ange varje funktions `id` program till ett annat värde. Timer-utlösaren använder ett lagrings lås för att säkerställa att det bara kommer att finnas en timer-instans när en Function-app skalar ut till flera instanser. Om två Functions-appar delar `id` samma och var och en använder en timer-utlösare, kommer bara en timer att köras.
+Om du delar lagrings konton över Function-appar som inte har distribuerats till App Service kan du uttryckligen behöva tilldela värd-ID till varje app.
+
+| Funktions version | Inställning                                              |
+| ----------------- | ---------------------------------------------------- |
+| 2x               | variabeln `AzureFunctionsWebHost__hostid` |
+| 1.x               | `id` i *Host. JSON*                                  |
+
+Du kan utelämna identifiering svärdet eller manuellt ange varje funktions programmets identifierings konfiguration till ett annat värde.
+
+Timer-utlösaren använder ett lagrings lås för att säkerställa att det bara finns en timer-instans när en Function-app skalar ut till flera instanser. Om två Functions-appar delar samma identifierings konfiguration och använder en timer-Utlösare körs bara en timer.
 
 ## <a name="retry-behavior"></a>Omprövnings beteende
 
 Till skillnad från kön utlöses inte timer-utlösaren igen när en funktion Miss lyckas. När en funktion Miss lyckas anropas den inte igen förrän nästa gång enligt schemat.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Information om vad som ska göras när timer-utlösaren inte fungerar som förväntat finns i [undersöka och rapportera problem med timer-utlösta funktioner som inte kan utlösas](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 
@@ -342,4 +351,4 @@ Information om vad som ska göras när timer-utlösaren inte fungerar som förv�
 > [Gå till en snabb start som använder en timer-utlösare](functions-create-scheduled-function.md)
 
 > [!div class="nextstepaction"]
-> [Läs mer om Azure functions-utlösare och bindningar](functions-triggers-bindings.md)
+> [Lär dig mer om Azure Functions-utlösare och bindningar](functions-triggers-bindings.md)

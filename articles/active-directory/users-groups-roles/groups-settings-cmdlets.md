@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0f2d3f8d8d2298ec00532205e359ed6f8dbc87a
-ms.sourcegitcommit: 9fba13cdfce9d03d202ada4a764e574a51691dcd
+ms.openlocfilehash: 18fbaad8ce15ab4eb9a08d5edc273098e7fb372e
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71315683"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72263960"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>Azure Active Directory-cmdletar för att konfigurera gruppinställningar
 Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets för Azure Active Directory (Azure AD) för att skapa och uppdatera grupper. Det här innehållet gäller endast för Office 365-grupper (kallas ibland enhetliga grupper). 
@@ -28,7 +28,7 @@ Den här artikeln innehåller instruktioner för att använda PowerShell-cmdlets
 > [!IMPORTANT]
 > Vissa inställningar kräver en licens för Azure Active Directory Premium P1. Mer information finns i tabellen [mall inställningar](#template-settings) .
 
-Mer information om hur du hindrar icke-administratörer från att skapa säkerhets grupper får du genom `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False` att ange enligt beskrivningen i [set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
+Mer information om hur du förhindrar användare som inte är administratörer att skapa säkerhets grupper får du genom att ange @ no__t-0 enligt beskrivningen i [set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0).
 
 Inställningarna för Office 365-grupper konfigureras med ett inställnings objekt och ett SettingsTemplate-objekt. Inlednings vis ser du inte några inställnings objekt i katalogen, eftersom din katalog är konfigurerad med standardinställningarna. Om du vill ändra standardinställningarna måste du skapa ett nytt inställnings objekt med hjälp av en mall för inställningar. Inställningar mallar definieras av Microsoft. Det finns flera olika inställnings mallar. Om du vill konfigurera inställningar för Office 365-grupper för din katalog använder du mallen "Group. Unified". Om du vill konfigurera inställningar för Office 365-grupper i en enskild grupp använder du mallen "Group. Unified. Guest". Den här mallen används för att hantera gäst åtkomst till en Office 365-grupp. 
 
@@ -50,11 +50,12 @@ Se till att avinstallera äldre versioner av Azure Active Directory PowerShell f
   
    ``` PowerShell
    Install-Module AzureADPreview
+   ```
+   
+## <a name="create-settings-at-the-directory-level"></a>Skapa inställningar på katalog nivå
+De här stegen skapar inställningar på katalog nivå, som gäller för alla Office 365-grupper i katalogen. Cmdlet: en get-AzureADDirectorySettingTemplate är bara tillgänglig i [för hands versionen av Azure AD PowerShell för Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
 
-## Create settings at the directory level
-These steps create settings at directory level, which apply to all Office 365 groups in the directory. The Get-AzureADDirectorySettingTemplate cmdlet is available only in the [Azure AD PowerShell Preview module for Graph](https://www.powershellgallery.com/packages/AzureADPreview/2.0.0.137).
-
-1. In the DirectorySettings cmdlets, you must specify the ID of the SettingsTemplate you want to use. If you do not know this ID, this cmdlet returns the list of all settings templates:
+1. I DirectorySettings-cmdletar måste du ange ID: t för den SettingsTemplate som du vill använda. Om du inte känner till det här ID: t returnerar denna cmdlet listan över alla mallar för inställningar:
   
    ```powershell
    Get-AzureADDirectorySettingTemplate
@@ -112,19 +113,19 @@ Här är inställningarna som definierats i gruppen. Unified SettingsTemplate. O
 
 | **Inställning** | **Beskrivning** |
 | --- | --- |
-|  <ul><li>EnableGroupCreation<li>Ange: Boolesk<li>Objekt Sant |Flaggan indikerar om Office 365-gruppen ska kunna skapas i katalogen av användare som inte är administratörer. Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
-|  <ul><li>GroupCreationAllowedGroupId<li>Ange: Sträng<li>Standard: "" |GUID för den säkerhets grupp för vilken medlemmarna får skapa Office 365-grupper även när EnableGroupCreation = = false. |
-|  <ul><li>UsageGuidelinesUrl<li>Ange: Sträng<li>Standard: "" |En länk till rikt linjerna för grupp användning. |
-|  <ul><li>ClassificationDescriptions<li>Ange: Sträng<li>Standard: "" | En kommaavgränsad lista över klassificerings beskrivningar. Värdet för ClassificationDescriptions är endast giltigt i det här formatet:<br>$setting ["ClassificationDescriptions"] = "klassificering: Beskrivning, klassificering: Beskrivning"<br>där klassificering matchar strängarna i ClassificationList.|
-|  <ul><li>DefaultClassification<li>Ange: Sträng<li>Standard: "" | Klassificeringen som ska användas som standard klassificering för en grupp om inget har angetts.|
-|  <ul><li>PrefixSuffixNamingRequirement<li>Ange: Sträng<li>Standard: "" | Sträng med en maximal längd på 64 tecken som definierar den namngivnings konvention som har kon figurer ATS för Office 365-grupper. Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](groups-naming-policy.md). |
-| <ul><li>CustomBlockedWordsList<li>Ange: Sträng<li>Standard: "" | Kommaavgränsad sträng med fraser som användarna inte får använda i grupp namn eller alias. Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](groups-naming-policy.md). |
-| <ul><li>EnableMSStandardBlockedWords<li>Ange: Boolesk<li>Objekt ! | Använd inte
-|  <ul><li>AllowGuestsToBeGroupOwner<li>Ange: Boolesk<li>Objekt False | Booleskt värde som anger om en gäst användare kan vara ägare till grupper. |
-|  <ul><li>AllowGuestsToAccessGroups<li>Ange: Boolesk<li>Objekt Sant | Booleskt värde som anger om en gäst användare får åtkomst till Office 365-grupp innehåll.  Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
-|  <ul><li>GuestUsageGuidelinesUrl<li>Ange: Sträng<li>Standard: "" | URL-adressen till en länk till gäst användnings rikt linjerna. |
-|  <ul><li>AllowAddGuests<li>Ange: Boolesk<li>Objekt Sant | Ett booleskt värde som anger om gäster ska läggas till i katalogen eller inte.|
-|  <ul><li>ClassificationList<li>Ange: Sträng<li>Standard: "" |En kommaavgränsad lista över giltiga klassificerings värden som kan tillämpas på Office 365-grupper. |
+|  <ul><li>EnableGroupCreation<li>Typ: boolesk<li>Standard: sant |Flaggan indikerar om Office 365-gruppen ska kunna skapas i katalogen av användare som inte är administratörer. Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
+|  <ul><li>GroupCreationAllowedGroupId<li>Typ: Sträng<li>Standard: "" |GUID för den säkerhets grupp för vilken medlemmarna får skapa Office 365-grupper även när EnableGroupCreation = = false. |
+|  <ul><li>UsageGuidelinesUrl<li>Typ: Sträng<li>Standard: "" |En länk till rikt linjerna för grupp användning. |
+|  <ul><li>ClassificationDescriptions<li>Typ: Sträng<li>Standard: "" | En kommaavgränsad lista över klassificerings beskrivningar. Värdet för ClassificationDescriptions är endast giltigt i det här formatet:<br>$setting ["ClassificationDescriptions"] = "klassificering: Beskrivning, klassificering: Beskrivning"<br>där klassificering matchar strängarna i ClassificationList.|
+|  <ul><li>DefaultClassification<li>Typ: Sträng<li>Standard: "" | Klassificeringen som ska användas som standard klassificering för en grupp om inget har angetts.|
+|  <ul><li>PrefixSuffixNamingRequirement<li>Typ: Sträng<li>Standard: "" | Sträng med en maximal längd på 64 tecken som definierar den namngivnings konvention som har kon figurer ATS för Office 365-grupper. Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](groups-naming-policy.md). |
+| <ul><li>CustomBlockedWordsList<li>Typ: Sträng<li>Standard: "" | Kommaavgränsad sträng med fraser som användarna inte får använda i grupp namn eller alias. Mer information finns i [framtvinga en namngivnings princip för Office 365-grupper](groups-naming-policy.md). |
+| <ul><li>EnableMSStandardBlockedWords<li>Typ: boolesk<li>Standard: "falskt" | Använd inte
+|  <ul><li>AllowGuestsToBeGroupOwner<li>Typ: boolesk<li>Standard: falskt | Booleskt värde som anger om en gäst användare kan vara ägare till grupper. |
+|  <ul><li>AllowGuestsToAccessGroups<li>Typ: boolesk<li>Standard: sant | Booleskt värde som anger om en gäst användare får åtkomst till Office 365-grupp innehåll.  Den här inställningen kräver inte en licens för Azure Active Directory Premium P1.|
+|  <ul><li>GuestUsageGuidelinesUrl<li>Typ: Sträng<li>Standard: "" | URL-adressen till en länk till gäst användnings rikt linjerna. |
+|  <ul><li>AllowAddGuests<li>Typ: boolesk<li>Standard: sant | Ett booleskt värde som anger om gäster ska läggas till i katalogen eller inte.|
+|  <ul><li>ClassificationList<li>Typ: Sträng<li>Standard: "" |En kommaavgränsad lista över giltiga klassificerings värden som kan tillämpas på Office 365-grupper. |
 
 ## <a name="example-configure-guest-policy-for-groups-at-the-directory-level"></a>Exempel: Konfigurera gäst princip för grupper på katalog nivå
 1. Hämta alla mallar för inställningar:
@@ -283,7 +284,7 @@ Det här steget tar bort inställningar på katalog nivå, som gäller för alla
 ## <a name="cmdlet-syntax-reference"></a>Cmdlet-syntax-referens
 Du kan hitta mer Azure Active Directory PowerShell-dokumentation på [Azure Active Directory-cmdletar](/powershell/azure/install-adv2?view=azureadps-2.0).
 
-## <a name="additional-reading"></a>Ytterligare resurser
+## <a name="additional-reading"></a>Ytterligare läsning
 
 * [Hantera åtkomst till resurser med Azure Active Directory-grupper](../fundamentals/active-directory-manage-groups.md)
 * [Integrera dina lokala identiteter med Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

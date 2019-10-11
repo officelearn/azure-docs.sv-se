@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/07/2019
 ms.author: anavin
-ms.openlocfilehash: a53d5810b20aa8389c152889fed5d7f4e8cfc5b7
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 728d32ddb63658d24e932e8eeef4a3f50371ccc3
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177662"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72265044"
 ---
 # <a name="virtual-network-peering"></a>VNET-peering
 
@@ -91,6 +91,9 @@ Du kan läsa om behörigheterna som krävs för att skapa peering för ett virtu
 En nominell avgift tas ut för ingående och utgående trafik som använder en VNET-peeringanslutning. Mer information om prissättning för VNet-Peering och Global VNet-peering finns på [prissättningssidan](https://azure.microsoft.com/pricing/details/virtual-network).
 
 Gateway-överföring är en peering-egenskap som gör att ett virtuellt nätverk kan använda en VPN/ExpressRoute-gateway i ett peer-kopplat virtuellt nätverk för anslutning mellan lokala platser eller VNet-till-VNet-anslutning. Trafik till gatewayen (ingångs-eller utgångs händelser) i peer-kopplat VNet kommer att debiteras för VNet-peering. Mer information finns i [VPN gateway-avgifter](https://azure.microsoft.com/pricing/details/vpn-gateway/) eller ExpressRoute Gateway-kostnader och [VNet-peering-kostnader.](https://azure.microsoft.com/pricing/details/virtual-network)
+
+>[!NOTE]
+> En tidigare version av det här dokumentet angav att avgifter för VNet-peering inte skulle gälla med Gateway-överföring. Detta har uppdaterats för att avspegla korrekt pris per prissättnings sida.
 
 ## <a name="next-steps"></a>Nästa steg
 

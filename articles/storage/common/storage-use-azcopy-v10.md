@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/08/2019
 ms.author: normesta
 ms.subservice: common
-ms.openlocfilehash: 980156284b27478163760b1f833a91ba7cddec21
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: f4523b2aa580d0fd237c15e23b06b44593cbf055
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244791"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274642"
 ---
 # <a name="get-started-with-azcopy"></a>Kom igång med AzCopy
 
@@ -29,7 +29,8 @@ AzCopy är ett kommando rads verktyg som du kan använda för att kopiera blobba
 
 Börja med att ladda ned den körbara filen AzCopy v10 till valfri katalog på datorn. AzCopy v10 är bara en körbar fil, så det finns inget att installera.
 
-- [Windows](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows 64-bitars](https://aka.ms/downloadazcopy-v10-windows) (zip)
+- [Windows 32-bitars](https://aka.ms/downloadazcopy-v10-windows-32bit) (zip)
 - [Linux](https://aka.ms/downloadazcopy-v10-linux) (tar)
 - [MacOS](https://aka.ms/downloadazcopy-v10-mac) (zip)
 

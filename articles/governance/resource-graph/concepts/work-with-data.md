@@ -3,15 +3,15 @@ title: Arbeta med stora datamängder
 description: Lär dig hur du hämtar och styr stora data uppsättningar när du arbetar med Azures resurs diagram.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 04/01/2019
+ms.date: 10/10/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 4da890a5ef7acb44d0e8628dc4ec3904f6a065e4
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 0ecd0ea997520947b766912f834de2a0c2e64429
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980329"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274230"
 ---
 # <a name="working-with-large-azure-resource-data-sets"></a>Arbeta med stora Azure-resurs data uppsättningar
 
@@ -68,7 +68,7 @@ När det är nödvändigt att dela upp en resultat uppsättning i mindre mängde
 
 När **resultTruncated** är **true**anges egenskapen **$skipToken** i svaret. Det här värdet används med samma fråge-och prenumerations värden för att hämta nästa uppsättning poster som matchar frågan.
 
-I följande exempel visas hur du **hoppar över** de första 3000 posterna och returnerar de **första** 1000-posterna när de hoppades över med Azure CLI och Azure PowerShell:
+I följande exempel visas hur du **hoppar över** de första 3000 posterna och returnerar de **första** 1000 posterna när posterna hoppades över med Azure CLI och Azure PowerShell:
 
 ```azurecli-interactive
 az graph query -q "project id, name | order by id asc" --first 1000 --skip 3000
@@ -82,6 +82,90 @@ Search-AzGraph -Query "project id, name | order by id asc" -First 1000 -Skip 300
 > Frågan måste **projicera** fältet **ID** för att sid brytning ska fungera. Om det saknas i frågan, innehåller svaret inte **$skipToken**.
 
 Ett exempel finns i [Nästa sida fråga](/rest/api/azureresourcegraph/resources/resources#next-page-query) i REST API dokumenten.
+
+## <a name="formatting-results"></a>Formatering av resultat
+
+Resultatet av en resurs diagram fråga finns i två format, _tabell_ -och _ObjectArray_. Formatet konfigureras med parametern **resultFormat** som en del av alternativen för begäran. _Tabell_ formatet är standardvärdet för **resultFormat**.
+
+Resultatet från Azure CLI finns som standard i JSON. Resultat i Azure PowerShell är som standard en **PSCustomObject** , men de kan snabbt konverteras till JSON med hjälp av `ConvertTo-Json`-cmdleten. I andra SDK: er kan frågeresultaten konfigureras för att skriva ut _ObjectArray_ -formatet.
+
+### <a name="format---table"></a>Format – tabell
+
+Standardformat, _tabell_, returnerar resultat i ett JSON-format som är utformat för att markera kolumn design och rad värden för de egenskaper som returneras av frågan. Det här formatet liknar data som definierats i en strukturerad tabell eller ett kalkyl blad med kolumner som identifieras först och sedan varje rad som representerar data som är justerade för dessa kolumner.
+
+Här är ett exempel på ett frågeresultat med _tabellformatering_ :
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": {
+        "columns": [{
+                "name": "name",
+                "type": "string"
+            },
+            {
+                "name": "type",
+                "type": "string"
+            },
+            {
+                "name": "location",
+                "type": "string"
+            },
+            {
+                "name": "subscriptionId",
+                "type": "string"
+            }
+        ],
+        "rows": [
+            [
+                "veryscaryvm2-nsg",
+                "microsoft.network/networksecuritygroups",
+                "eastus",
+                "11111111-1111-1111-1111-111111111111"
+            ]
+        ]
+    },
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+### <a name="format---objectarray"></a>Format – ObjectArray
+
+_ObjectArray_ -formatet returnerar också resultat i JSON-format. Den här designen motsvarar dock den nyckel/värde-par-relation som är gemensam i JSON där kolumnen och raddata matchas i mat ris grupper.
+
+Här är ett exempel på ett frågeresultat med _ObjectArray_ formatering:
+
+```json
+{
+    "totalRecords": 47,
+    "count": 1,
+    "data": [{
+        "name": "veryscaryvm2-nsg",
+        "type": "microsoft.network/networksecuritygroups",
+        "location": "eastus",
+        "subscriptionId": "11111111-1111-1111-1111-111111111111"
+    }],
+    "facets": [],
+    "resultTruncated": "true"
+}
+```
+
+Här följer några exempel på hur du ställer in **resultFormat** för att använda _ObjectArray_ -formatet:
+
+```csharp
+var requestOptions = new QueryRequestOptions( resultFormat: ResultFormat.ObjectArray);
+var request = new QueryRequest(subscriptions, "limit 1", options: requestOptions);
+```
+
+```python
+request_options = QueryRequestOptions(
+    result_format=ResultFormat.object_array
+)
+request = QueryRequest(query="limit 1", subscriptions=subs_list, options=request_options)
+response = client.resources(request)
+```
 
 ## <a name="next-steps"></a>Nästa steg
 

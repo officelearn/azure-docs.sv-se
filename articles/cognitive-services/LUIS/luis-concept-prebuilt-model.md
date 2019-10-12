@@ -1,7 +1,7 @@
 ---
 title: Färdiga modeller – LUIS
 titleSuffix: Azure Cognitive Services
-description: Fördefinierade modeller ger domäner, avsikter, yttranden och entiteter. Du kan påbörja din app med en fördefinierade domän eller lägga till en domän som är relevanta för din app senare.
+description: Färdiga modeller tillhandahåller domäner, avsikter, yttranden och entiteter. Du kan starta din app med en fördefinierad domän eller lägga till en relevant domän i appen senare.
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -11,58 +11,58 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: b072e265204bba3caa1388576008d5e41adcc33d
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: b88801ded3dea7c7514ff117361feba3e95444ed
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619708"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264383"
 ---
-# <a name="prebuilt-domain-intent-and-entity-models"></a>Fördefinierade modeller för domänen och avsikt entitet
+# <a name="prebuilt-domain-intent-and-entity-models"></a>Fördefinierad domän, avsikt och enhets modeller
 
-Fördefinierade modeller ger domäner, avsikter, yttranden och entiteter. Du kan påbörja din app med en fördefinierade domän eller lägga till en domän som är relevanta för din app senare. 
+Färdiga modeller tillhandahåller domäner, avsikter, yttranden och entiteter. Du kan starta din app med en fördefinierad domän eller lägga till en relevant domän i appen senare. 
 
-## <a name="types-of-prebuilt-models"></a>Typer av fördefinierade modeller
+## <a name="types-of-prebuilt-models"></a>Typer av förbyggda modeller
 
-Det finns 3 typer av fördefinierade modeller LUIS tillhandahåller. Varje modell kan läggas till i din app när som helst. 
+Det finns tre typer av förbyggda modeller LUIS tillhandahåller. Varje modell kan när som helst läggas till i din app. 
 
-|Modelltypen|Inkluderar|
+|Modell typ|Innehåller|
 |--|--|
-|Domain|Avsikter yttranden, entiteter|
-|Avsikter|Avsikter yttranden|
+|Domain|Avsikter, yttranden, entiteter|
+|Avsikter|Avsikter, yttranden|
 |Entiteter|Endast entiteter| 
 
 ## <a name="prebuilt-domains"></a>Fördefinierade domäner
 
-Språkförståelse (LUIS) erbjuder *fördefinierade domäner*, som är färdiga uppsättningar [avsikter](luis-how-to-add-intents.md) och [entiteter](luis-concept-entity-types.md) som fungerar tillsammans för domäner eller vanliga kategorier av klientprogram. 
+Language Understanding (LUIS) innehåller *fördefinierade domäner*, som är färdiga uppsättningar av [avsikter](luis-how-to-add-intents.md) och [entiteter](luis-concept-entity-types.md) som fungerar tillsammans för domäner eller vanliga kategorier av klient program. 
 
-Fördefinierade domäner är tränade och redo att lägga till i din LUIS-app. Avsikter och entiteter i en fördefinierade domän är helt anpassningsbar när du har lagt till dem i din app. 
+De förinställda domänerna är utbildade och redo att läggas till i LUIS-appen. Avsikter och entiteter i en fördefinierad domän är helt anpassningsbara när du har lagt till dem i din app. 
 
-Om du startar från att anpassa en hel fördefinierade domän, ta bort avsikter och entiteter som din app inte behöver använda. Du kan också lägga till vissa avsikter eller entiteter som redan innehåller fördefinierade domänen. Exempel: Om du använder den **händelser** fördefinierade domänen för en händelse sport-app, kan du för att lägga till entiteter för sportklubbar. När du startar [att tillhandahålla yttranden](luis-how-to-add-example-utterances.md) till LUIS, ingår villkor som är specifika för din app. LUIS lär sig att identifiera dem och anpassar fördefinierade domänens avsikter och entiteter till appens behov. 
+Om du börjar anpassa en hel fördefinierad domän tar du bort de avsikter och entiteter som din app inte behöver använda. Du kan också lägga till några avsikter eller entiteter i uppsättningen som redan har skapats i den inbyggda domänen. Om du till exempel **använder en** fördefinierad domän för en idrotts Event-app kan du lägga till entiteter för idrotts lag lag. När du börjar [tillhandahålla yttranden](luis-how-to-add-example-utterances.md) till Luis inkluderar du termer som är speciella för din app. LUIS lär sig att identifiera dem och skapa färdiga domän intentor och entiteter för din apps behov. 
 
 > [!TIP]
-> Avsikter och entiteter i en fördefinierade domän fungerar bäst tillsammans. Är det bättre att kombinera avsikter och entiteter från samma domän när det är möjligt.
-> Den färdiga verktyg-domänen har avsikter som du kan anpassa för användning i valfri domän. Du kan till exempel lägga till `Utilities.Repeat` till din app och träna identifiera vilka åtgärder som användaren kanske vill upprepa i ditt program. 
+> Avsikter och entiteter i en fördefinierad domän fungerar bäst tillsammans. Det är bättre att kombinera avsikter och entiteter från samma domän när det är möjligt.
+> De verktyg som är inbyggda i den färdiga domänen har intenter som du kan anpassa för användning i vilken domän som helst. Du kan till exempel lägga till `Utilities.Repeat` till din app och träna den att identifiera vilka åtgärder som användaren kan vilja upprepa i ditt program. 
 
-### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Ändra beteendet för en fördefinierade domän avsikt
+### <a name="changing-the-behavior-of-a-prebuilt-domain-intent"></a>Ändra beteendet för en fördefinierad domän avsikt
 
-Du kanske upptäcker att en fördefinierade domän innehåller ett intent som liknar ett intent som du vill ha i din LUIS-app, men du vill att den fungerar på olika sätt. Till exempel den **platser** fördefinierade domänen innehåller en `MakeReservation` avsikt för att göra en restaurang reservation, men du vill att din app att använda den avsikten för att göra hotell reservationer. I så fall kan du kan ändra beteendet för detta syfte genom att tillhandahålla yttranden till LUIS om att skapa hotell reservationer och märkning dem med hjälp av den `MakeReservation` avsiktlig, så sedan LUIS kan vara modellkomponenten för att identifiera den `MakeReservation` avsikt i en begäran om att boka ett hotell .
+Du kanske upptäcker att en fördefinierad domän innehåller en avsikt som liknar en avsikt som du vill ha i din LUIS-app, men du vill att den ska bete sig annorlunda. **Till exempel** tillhandahåller en fördefinierad domän en @no__t 1-avsikt för att göra en restaurang reservation, men du vill att din app ska använda den avsikten för att göra hotell reservationer. I så fall kan du ändra beteendet för avsikten genom att tillhandahålla yttranden till LUIS om att göra Hotell Bokningar och etikettera dem med hjälp av metoden `MakeReservation`, så LUIS kan sedan återanvändas för att identifiera `MakeReservation` avsikten i en begäran om att boka ett hotell.
 
-Du hittar en fullständig lista över fördefinierade domäner i den [fördefinierade domäner referens](./luis-reference-prebuilt-domains.md).
+Du hittar en fullständig lista över de förinställda domänerna i den [fördefinierade domän referensen](./luis-reference-prebuilt-domains.md).
 
-## <a name="prebuilt-intents"></a>Fördefinierade avsikter
+## <a name="prebuilt-intents"></a>Färdiga avsikter
 
-LUIS innehåller fördefinierade avsikter och deras yttranden. Avsikter kan läggas till utan att lägga till hela domänen. Att lägga till en avsikt är processen att lägga till en avsikt och sitt yttranden. Både avsiktlig namn och uttryck listan kan ändras.  
+LUIS tillhandahåller färdiga syften och deras yttranden. Avsikter kan läggas till utan att du lägger till hela domänen. När du lägger till ett avsikts sätt är processen att lägga till en avsikt och dess yttranden. Både namnet på avsikten och uttryck-listan kan ändras.  
 
 ## <a name="prebuilt-entities"></a>Fördefinierade entiteter
 
-LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera vanliga typer av information som datum, tider, nummer, mätning av faktisk användning och valuta. Fördefinierade entitet support varierar beroende på kultur LUIS-appen. En fullständig lista över de fördefinierade entiteter som LUIS stöder, bland annat stöd av kulturen, finns i den [fördefinierade Entitetsreferens](./luis-reference-prebuilt-entities.md).
+LUIS innehåller en uppsättning fördefinierade entiteter för att identifiera vanliga typer av information, t. ex. datum, tid, siffror, mätningar och valuta. Stöd för inbyggd entitet varierar beroende på LUIS-appens kultur. En fullständig lista över de färdiga entiteter som LUIS stöder, inklusive stöd för kultur, finns i den [fördefinierade enhets referensen](./luis-reference-prebuilt-entities.md).
 
-När en entitet som är färdiga ingår i ditt program, med dess förutsägelser i ditt publicerade program. Beteendet för förskapade entiteter är förtränade och **kan** ändras. Följ dessa steg om du vill se hur det fungerar en fördefinierade entitet:
+När en fördefinierad entitet ingår i ditt program inkluderas dess förutsägelser i ditt publicerade program. Beteendet för förinställda entiteter är förtränat och **kan inte** ändras. 
 
 > [!NOTE]
-> **Builtin.datetime** är inaktuell. Ersätter [ **builtin.datetimeV2**](luis-reference-prebuilt-datetimev2.md), som tillhandahåller igenkänning av datum- och tidsintervall, samt bättre tolkning av tvetydiga datum och tider.
+> **Builtin. DateTime** är föråldrad. Den ersätts av [**Builtin. datetimeV2**](luis-reference-prebuilt-datetimev2.md), som ger igenkänning av datum-och tidsintervall, samt förbättrad igenkänning av tvetydiga datum och tider.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Lär dig hur du [Lägg till fördefinierade entiteter](luis-prebuilt-entities.md) till din app.
+Lär dig hur du [lägger till fördefinierade entiteter](luis-prebuilt-entities.md) i din app.

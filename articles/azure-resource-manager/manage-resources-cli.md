@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 78dd51c023bc46ed09219acc3df7e4ee7006ac2b
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 6b8adad033aeeb334c57970035e65bf706beef5a
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001545"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274254"
 ---
 # <a name="manage-azure-resources-by-using-azure-cli"></a>Hantera Azure-resurser med hjälp av Azure CLI
 
@@ -26,7 +26,7 @@ Andra artiklar om att hantera resurser:
 
 ## <a name="deploy-resources-to-an-existing-resource-group"></a>Distribuera resurser till en befintlig resurs grupp
 
-Du kan distribuera Azure-resurser direkt genom att använda Azure PowerShell eller distribuera en Resource Manager-mall för att skapa Azure-resurser.
+Du kan distribuera Azure-resurser direkt med hjälp av Azure CLI eller distribuera en Resource Manager-mall för att skapa Azure-resurser.
 
 ### <a name="deploy-a-resource"></a>Distribuera en resurs
 
@@ -45,7 +45,7 @@ az storage account show --resource-group $resourceGroupName --name $storageAccou
 
 ### <a name="deploy-a-template"></a>Distribuera en mall
 
-Följande skript skapar distribution av en snabb starts mall för att skapa ett lagrings konto. Mer information finns i [ Snabbstart: Skapa Azure Resource Manager-mallar med Visual Studio Code @ no__t-0.
+Följande skript skapar distribution av en snabb starts mall för att skapa ett lagrings konto. Mer information finns i [snabb start: skapa Azure Resource Manager mallar med Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md?tabs=PowerShell).
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&

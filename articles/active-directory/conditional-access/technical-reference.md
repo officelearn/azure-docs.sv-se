@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d56b1f800c71a5bbef7ffb1155d05e096113e2c
-ms.sourcegitcommit: a7a9d7f366adab2cfca13c8d9cbcf5b40d57e63a
+ms.openlocfilehash: 834b13c512bca1b7c43c3c8e93a72383a82db198
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71162418"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274180"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Referens för Azure Active Directory villkorlig åtkomst inställningar
 
@@ -55,7 +55,7 @@ Du kan tilldela en princip för villkorlig åtkomst till följande molnappar fr�
 - Microsoft Flow
 - Microsoft Forms
 - Microsoft Intune
-- Microsoft Intune-registrering
+- Microsoft Intune registrering
 - Microsoft Planner
 - Microsoft PowerApps
 - Microsoft Search i Bing
@@ -66,13 +66,12 @@ Du kan tilldela en princip för villkorlig åtkomst till följande molnappar fr�
 - Office 365 SharePoint Online
 - Office 365 Yammer
 - Office Delve
-- Office Sway
+- Office-Sway
 - Outlook Groups
 - Power BI tjänst
 - Project Online
 - Skype för företag – Online
 - Virtuellt privat nätverk (VPN)
-- Visual Studio App Center
 - Windows Defender ATP
 
 ### <a name="other-applications"></a>Andra program
@@ -82,7 +81,7 @@ Förutom Microsoft Cloud Apps kan du tilldela en princip för villkorlig åtkoms
 - Azure AD-anslutna program
 - Förintegrerad program vara för SaaS (federerat program vara som en tjänst)
 - Program som använder enkel inloggning (SSO) för lösen ord
-- Line-of-business-program
+- Branschspecifika program
 - Program som använder Azure AD-programproxy
 
 ## <a name="device-platform-condition"></a>Enhets plattforms villkor
@@ -103,7 +102,7 @@ Om du blockerar äldre autentisering med hjälp av **andra klient** villkor kan 
 
 I din princip för villkorlig åtkomst kan du konfigurera villkor för [klient program](conditions.md#client-apps) så att de binder till den klient app som har initierat ett åtkomst försök. Ange villkor för klient program för att bevilja eller blockera åtkomst när ett åtkomst försök görs från följande typer av klient program:
 
-- Browser
+- Webbläsare
 - Mobilappar och skrivbordsappar
 
 ![Kontrol lera åtkomst för klient program](./media/technical-reference/03.png)
@@ -143,19 +142,19 @@ Skapa följande register nyckel för att automatiskt distribuera tillägget till
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
-| Name | 1 |
-| Type | REG_SZ (sträng) |
-| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https\://clients2.Google.com/service/update2/CRX |
+| Sökväg | HKEY_LOCAL_MACHINE\Software\Policies\Google\Chrome\ExtensionInstallForcelist |
+| Namn | 1 |
+| Typ | REG_SZ (sträng) |
+| Data | ppnbnpeolgkicgegkbkbjmhlideopiji; https @ no__t-0//clients2. Google. com/service/update2/CRX |
 
 Skapa följande register nyckel för Chrome-stöd i **Windows 8,1 och 7**:
 
 |    |    |
 | --- | --- |
-| `Path` | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
-| Name | 1 |
-| Type | REG_SZ (sträng) |
-| Data | {"pattern":"https://device.login.microsoftonline.com","filter":{"ISSUER":{"CN":"MS-Organization-Access"}}} |
+| Sökväg | HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Google\Chrome\AutoSelectCertificateForUrls |
+| Namn | 1 |
+| Typ | REG_SZ (sträng) |
+| Data | {"mönster": "https://device.login.microsoftonline.com", "filter": {"UTFÄRDAre": {"CN": "MS-Organization-Access"}}} |
 
 Dessa webbläsare har stöd för enhetsautentisering, så att enheten kan identifieras och verifieras mot en princip. Enhets kontrollen Miss lyckas om webbläsaren körs i privat läge.
 
@@ -167,7 +166,7 @@ I din princip för villkorlig åtkomst kan du välja **mobilappar och skriv bord
 
 Den här inställningen påverkar åtkomst försök som görs från följande mobilappar och skriv bords klienter:
 
-| Klientappar | Mål tjänst | Plattform |
+| Klient program | Mål tjänst | Plattform |
 | --- | --- | --- |
 | Dynamics CRM-App | Dynamics CRM | Windows 10, Windows 8,1, iOS och Android |
 | E-post/kalender/Peoples-app, Outlook 2016, Outlook 2013 (med modern autentisering)| Office 365 Exchange Online | Windows 10 |
@@ -211,9 +210,9 @@ Den här inställningen gäller för följande klient program:
 - Microsoft Excel
 - Microsoft Flow
 - Microsoft Intune Managed Browser
-- Microsoft fakturering
+- Microsoft Invoicing
 - Microsoft Kaizala
-- Startprogram för Microsoft
+- Microsoft Launcher
 - Microsoft OneDrive
 - Microsoft OneNote
 - Microsoft Outlook

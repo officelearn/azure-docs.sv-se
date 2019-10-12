@@ -8,20 +8,20 @@ editor: ''
 ms.service: app-service
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 09/03/2019
+ms.date: 10/09/2019
 ms.author: mahender
 ms.custom: seodec18
-ms.openlocfilehash: 311a9fc887db399cb16d6cbb2bcec665a7ddfce7
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 49bf7984efe74edd2a19909509e0c6b9564fc2e9
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72240107"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274431"
 ---
-# <a name="use-key-vault-references-for-app-service-and-azure-functions-preview"></a>Använda Key Vault referenser för App Service och Azure Functions (förhands granskning)
+# <a name="use-key-vault-references-for-app-service-and-azure-functions"></a>Använd Key Vault referenser för App Service och Azure Functions
 
 > [!NOTE] 
-> Key Vault referenser finns för närvarande i för hands version och de stöds för närvarande inte av Linux-förbruknings planer.
+> Key Vault referenser är för närvarande inte tillgängliga i Linux-förbruknings planer.
 
 Det här avsnittet visar hur du arbetar med hemligheter från Azure Key Vault i din App Service eller Azure Functions program utan att behöva ändra kod. [Azure Key Vault](../key-vault/key-vault-overview.md) är en tjänst som tillhandahåller centraliserad hemligheter-hantering med fullständig kontroll över åtkomst principer och gransknings historik.
 
@@ -52,7 +52,7 @@ En Key Vault referens har formen `@Microsoft.KeyVault({referenceString})`, där 
 > | VaultName =_VaultName_; SecretName =_SecretName_; SecretVersion =_SecretVersion_ | **VaultName** ska vara namnet på din Key Vault-resurs. **SecretName** ska vara namnet på mål hemligheten. **SecretVersion** bör vara den version av hemligheten som ska användas. |
 
 > [!NOTE] 
-> I den aktuella för hands versionen krävs versioner. När du roterar hemligheter måste du uppdatera versionen i program konfigurationen.
+> Versioner är för närvarande nödvändiga. När du roterar hemligheter måste du uppdatera versionen i program konfigurationen.
 
 En fullständig referens skulle till exempel se ut så här:
 
@@ -192,7 +192,9 @@ Om en referens inte löses korrekt, används referensvärdet i stället. Det inn
 
 Oftast beror det på en felaktig konfiguration av [Key Vaults åtkomst princip](#granting-your-app-access-to-key-vault). Det kan dock också bero på en hemlighet som inte längre är befintlig eller syntaxfel i själva referensen.
 
-Om syntaxen är korrekt kan du Visa andra orsaker till felet genom att kontrol lera den aktuella lösnings statusen med hjälp av en inbyggd detektor.
+Om syntaxen är korrekt kan du Visa andra orsaker till felet genom att kontrol lera den aktuella lösnings statusen i portalen. Gå till program inställningar och välj "redigera" för referensen i fråga. Under inställnings konfigurationen bör du se statusinformation, inklusive eventuella fel. Avsaknad av detta innebär att referensens syntax är ogiltig.
+
+Du kan också använda en av de inbyggda identifierarna för att få ytterligare information.
 
 ### <a name="using-the-detector-for-app-service"></a>Använda detektorn för App Service
 

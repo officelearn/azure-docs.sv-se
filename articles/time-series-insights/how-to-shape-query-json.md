@@ -6,15 +6,15 @@ author: ashannon7
 manager: cshankar
 ms.service: time-series-insights
 ms.topic: article
-ms.date: 08/09/2019
+ms.date: 10/09/2019
 ms.author: dpalled
 ms.custom: seodec18
-ms.openlocfilehash: 48e09a64812f7552bd79c529138db693df283790
-ms.sourcegitcommit: 124c3112b94c951535e0be20a751150b79289594
+ms.openlocfilehash: 4916397d05ad9d5fcae7624bf558eb7dc5be940f
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/10/2019
-ms.locfileid: "68947150"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274412"
 ---
 # <a name="shape-json-to-maximize-query-performance"></a>Form-JSON för att maximera prestanda för frågor 
 
@@ -26,10 +26,11 @@ Den här artikeln innehåller rikt linjer för hur du formar JSON för att maxim
 
 > [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
+
 Tänk på hur du skickar händelser till Time Series Insights. Det vill säga att du alltid:
 
-1. Skicka data via nätverket så effektivt som möjligt.
+1. Skicka data över nätverket så effektivt som möjligt.
 1. Se till att dina data lagras på ett sätt så att du kan utföra agg regeringar som passar ditt scenario.
 1. Se till att du inte når Time Series Insights maximala egenskaps gränserna för:
    - 600 egenskaper (kolumner) för S1-miljöer.
@@ -41,8 +42,8 @@ Följande rikt linjer hjälper dig att säkerställa bästa möjliga prestanda f
 1. Skicka inte onödiga egenskaper. Om en frågeparameter inte krävs är det bäst att inte skicka den. På så sätt undviker du lagrings begränsningarna.
 1. Använd [referens data](time-series-insights-add-reference-data-set.md) för att undvika att skicka statiska data över nätverket.
 1. Dela dimensions egenskaper mellan flera händelser för att skicka data över nätverket mer effektivt.
-1. Använd inte djupgående matris kapsling. Time Series Insights stöder upp till två nivåer av kapslade matriser som innehåller objekt. Time Series Insights fören klar matriserna i meddelandena till flera händelser med egenskaps värde par.
-1. Om bara det finns några åtgärder för alla eller de flesta händelser, är det bättre att skicka dessa åtgärder som separata egenskaper inom samma objekt. Att skicka dem separat minskar antalet händelser och kan förbättra frågans prestanda eftersom färre händelser behöver bearbetas. När det finns flera mått kan du skicka dem som värden i en enda egenskap och minimera möjligheten att nå den maximala egenskaps gränsen.
+1. Använd inte djup mat ris kapsling. Time Series Insights stöder upp till två nivåer av kapslade matriser som innehåller objekt. Time Series Insights fören klar matriserna i meddelandena till flera händelser med egenskaps värde par.
+1. Om det bara finns några mått för alla eller de flesta händelser är det bättre att skicka dessa mått som separata egenskaper inom samma objekt. Att skicka dem separat minskar antalet händelser och kan förbättra frågans prestanda eftersom färre händelser behöver bearbetas. När det finns flera mått kan du skicka dem som värden i en enda egenskap och minimera möjligheten att nå den maximala egenskaps gränsen.
 
 ## <a name="example-overview"></a>Exempel översikt
 
@@ -50,16 +51,17 @@ Följande två exempel visar hur du skickar händelser för att markera föregå
 
 Exemplen bygger på ett scenario där flera enheter skickar mätningar eller signaler. Mått eller signaler kan vara flödes takt, motor olje tryck, temperatur och fuktighet. I det första exemplet finns det några mått på alla enheter. Det andra exemplet har många enheter och varje enhet skickar många unika mått.
 
-## <a name="scenario-one-only-a-few-measurements-exist"></a>Scenario ett: Det finns bara några mätningar
+## <a name="scenario-one-only-a-few-measurements-exist"></a>Scenario ett: det finns bara några mätningar
 
 > [!TIP]
 > Vi rekommenderar att du skickar varje mått eller signal som en separat egenskap eller kolumn.
 
 I följande exempel finns ett enda Azure IoT Hub-meddelande där den yttre matrisen innehåller ett delat avsnitt av vanliga dimensions värden. Den yttre matrisen använder referens data för att öka effektiviteten för meddelandet. Referens data innehåller metadata för enheten som inte ändras med varje händelse, men den innehåller användbara egenskaper för data analys. Att gruppera vanliga dimensions värden och använda referens data sparas på byte som skickas via kabeln, vilket gör meddelandet mer effektivt.
 
-Exempel på JSON-nytto last:
+Tänk på följande JSON-nyttolast som skickas till din Time Series Insights GA-miljö med hjälp av ett [meddelande objekt i IoT-enheten](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.message?view=azure-dotnet) som är serialiserat i JSON när det skickas till Azure-molnet:
 
-```json
+
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -90,35 +92,34 @@ Exempel på JSON-nytto last:
 
 * Referens data tabell som har Key Property **deviceId**:
 
-   | deviceId | messageId | deviceLocation |
+   | deviceId | Meddelande | deviceLocation |
    | --- | --- | --- |
-   | FXXX | LINE\_DATA | EU |
-   | FYYY | LINE\_DATA | US |
+   | FXXX | RAD @ no__t-0DATA | EU |
+   | FYYY | RAD @ no__t-0DATA | USA |
 
 * Time Series Insights händelse tabell efter förenkling:
 
-   | deviceId | messageId | deviceLocation | timestamp | serie. Flow hastighet ft3/s | serie. Motorn olja tryck psi |
+   | deviceId | Meddelande | deviceLocation | tidsstämpel | serien. Flödes frekvens ft3/s | serien. Motor Oil-tryck psi |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34.7 |
-   | FXXX | LINE\_DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49.2 |
-   | FYYY | LINE\_DATA | US | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22.2 |
+   | FXXX | RAD @ no__t-0DATA | EU | 2018-01-17T01:17:00Z | 1.0172575712203979 | 34,7 |
+   | FXXX | RAD @ no__t-0DATA | EU | 2018-01-17T01:17:00Z | 2.445906400680542 | 49,2 |
+   | FYYY | RAD @ no__t-0DATA | USA | 2018-01-17T01:18:00Z | 0.58015072345733643 | 22,2 |
 
-Anteckningar om dessa två tabeller:
+> [!NOTE]
+> - Kolumnen **deviceId** fungerar som kolumn rubrik för de olika enheterna i en flotta. Att göra **deviceId** -värdet till ett eget egenskaps namn begränsar det totala antalet enheter till 595 (för S1-miljöer) eller 795 (för S2-miljöer) med de andra fem kolumnerna.
+> - Onödiga egenskaper undviks (till exempel märke och modell information). Eftersom det inte går att fråga efter egenskaper i framtiden ger det bättre nätverks-och lagrings effektivitet.
+> - Referens data används för att minska antalet byte som överförs via nätverket. De två attributen **messageId** och **deviceLocation** kopplas ihop med nyckel egenskap **deviceId**. Dessa data är kopplade till telemetridata vid ingångs tiden och lagras sedan i Time Series Insights för frågor.
+> - Två lager kapsling används, vilket är den maximala kapslings mängden som stöds av Time Series Insights. Det är viktigt att undvika djupt kapslade matriser.
+> - Måtten skickas som separata egenskaper inom samma objekt eftersom det finns några mått. Här, **serien. PSI och serie för flödes frekvens** **. Motor olja-tryck ft3/s** är unika kolumner.
 
-- Kolumnen **deviceId** fungerar som kolumn rubrik för de olika enheterna i en flotta. Att göra deviceId-värdet till ett eget egenskaps namn begränsar det totala antalet enheter till 595 (för S1-miljöer) eller 795 (för S2-miljöer) med de andra fem kolumnerna.
-- Onödiga egenskaper undviks, till exempel märke och modell information. Eftersom det inte går att fråga efter egenskaper i framtiden ger det bättre nätverks-och lagrings effektivitet.
-- Referens data används för att minska antalet byte som överförs via nätverket. De två attributen **messageId** och **deviceLocation** kopplas ihop med nyckel egenskap **deviceId**. Dessa data är kopplade till telemetridata vid ingångs tiden och lagras sedan i Time Series Insights för frågor.
-- Två lager kapsling används, vilket är den maximala kapslings mängden som stöds av Time Series Insights. Det är viktigt att undvika djupt kapslade matriser.
-- Måtten skickas som separata egenskaper inom samma objekt eftersom det finns några mått. Här, **serien. PSI** och serie för flödes frekvens **. Motor olja-tryck ft3/s** är unika kolumner.
-
-## <a name="scenario-two-several-measures-exist"></a>Scenario två: Det finns flera åtgärder
+## <a name="scenario-two-several-measures-exist"></a>Scenario två: det finns flera mått
 
 > [!TIP]
 > Vi rekommenderar att du skickar mått som "Type", "Unit" och "value"-tupler.
 
 Exempel på JSON-nytto last:
 
-```json
+```JSON
 [
     {
         "deviceId": "FXXX",
@@ -161,30 +162,29 @@ Exempel på JSON-nytto last:
 
 * Referens data tabell som innehåller nyckel egenskaperna **deviceId** och **serien. tagId**:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | enhet |
+   | deviceId | serie. tagId | Meddelande | deviceLocation | typ | processor |
    | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s |
-   | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi |
-   | FYYY | pumpRate | LINE\_DATA | US | Flödes hastighet | ft3/s |
-   | FYYY | oilPressure | LINE\_DATA | US | Motor Oil-tryck | psi |
+   | FXXX | pumpRate | RAD @ no__t-0DATA | EU | Flödes hastighet | ft3/s |
+   | FXXX | oilPressure | RAD @ no__t-0DATA | EU | Motor Oil-tryck | psi |
+   | FYYY | pumpRate | RAD @ no__t-0DATA | USA | Flödes hastighet | ft3/s |
+   | FYYY | oilPressure | RAD @ no__t-0DATA | USA | Motor Oil-tryck | psi |
 
 * Time Series Insights händelse tabell efter förenkling:
 
-   | deviceId | series.tagId | messageId | deviceLocation | type | enhet | timestamp | serie. Value |
+   | deviceId | serie. tagId | Meddelande | deviceLocation | typ | processor | tidsstämpel | serie. Value |
    | --- | --- | --- | --- | --- | --- | --- | --- |
-   | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
-   | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34.7 |
-   | FXXX | pumpRate | LINE\_DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
-   | FXXX | oilPressure | LINE\_DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 49.2 |
-   | FYYY | pumpRate | LINE\_DATA | US | Flödes hastighet | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
-   | FYYY | oilPressure | LINE\_DATA | US | Motor Oil-tryck | psi | 2018-01-17T01:18:00Z | 22.2 |
+   | FXXX | pumpRate | RAD @ no__t-0DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 1.0172575712203979 | 
+   | FXXX | oilPressure | RAD @ no__t-0DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 34,7 |
+   | FXXX | pumpRate | RAD @ no__t-0DATA | EU | Flödes hastighet | ft3/s | 2018-01-17T01:17:00Z | 2.445906400680542 | 
+   | FXXX | oilPressure | RAD @ no__t-0DATA | EU | Motor Oil-tryck | psi | 2018-01-17T01:17:00Z | 49,2 |
+   | FYYY | pumpRate | RAD @ no__t-0DATA | USA | Flödes hastighet | ft3/s | 2018-01-17T01:18:00Z | 0.58015072345733643 |
+   | FYYY | oilPressure | RAD @ no__t-0DATA | USA | Motor Oil-tryck | psi | 2018-01-17T01:18:00Z | 22,2 |
 
-Anteckningar om dessa två tabeller:
-
-- Kolumnerna **deviceId** och **serien. tagId** fungerar som kolumn rubriker för de olika enheterna och taggarna i en flotta. Om du använder varje as-attribut begränsas frågan till 594 (för S1-miljöer) eller 794 (för S2-miljöer) totalt enheter med de andra sex kolumnerna.
-- Onödiga egenskaper förhindrades, på grund av orsaken i det första exemplet.
-- Referens data används för att minska antalet byte som överförs via nätverket genom att introducera **deviceId**, som används för det unika paret **messageId** och **deviceLocation**. Den sammansatta nyckel **serien. tagId** används för det unika paret av **typen** och **enheten**. Den sammansatta nyckeln tillåter att **tagId** -paret för **deviceId** och Series används för att referera till fyra värden: **messageId, deviceLocation, Type** och **Unit**. Dessa data är kopplade till telemetridata vid ingångs tiden. Den lagras sedan i Time Series Insights för frågor.
-- Två kapslings nivåer används för den orsak som anges i det första exemplet.
+> [!NOTE]
+> - Kolumnerna **deviceId** och **serien. tagId** fungerar som kolumn rubriker för de olika enheterna och taggarna i en flotta. Om du använder varje as-attribut begränsas frågan till 594 (för S1-miljöer) eller 794 (för S2-miljöer) totalt enheter med de andra sex kolumnerna.
+> - Onödiga egenskaper förhindrades, på grund av orsaken i det första exemplet.
+> - Referens data används för att minska antalet byte som överförs via nätverket genom att introducera **deviceId**, som används för det unika paret **messageId** och **deviceLocation**. Den sammansatta nyckel **serien. tagId** används för det unika paret av **typen** och **enheten**. Den sammansatta nyckeln tillåter att **tagId** -paret för **deviceId** och Series används för att referera till fyra värden: **messageId, deviceLocation, Type** och **Unit**. Dessa data är kopplade till telemetridata vid ingångs tiden. Den lagras sedan i Time Series Insights för frågor.
+> - Två kapslings nivåer används för den orsak som anges i det första exemplet.
 
 ### <a name="for-both-scenarios"></a>För båda scenarierna
 
@@ -195,5 +195,8 @@ För en egenskap med ett stort antal möjliga värden är det bäst att skicka s
 
 ## <a name="next-steps"></a>Nästa steg
 
+- Läs mer om [att skicka IoT Hub enhets meddelanden till molnet](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-messages-construct).
+
 - Läs [Azure Time Series Insights frågesyntaxen](https://docs.microsoft.com/rest/api/time-series-insights/ga-query-syntax) för att lära dig mer om frågesyntaxen för Time Series Insights data åtkomst REST API.
+
 - Lär dig [hur du formar händelser](./time-series-insights-send-events.md).

@@ -1,6 +1,6 @@
 ---
-title: SaaS-självstudier för program integrering för användning med Azure AD | Microsoft Docs
-description: Konfigurera Azure Active Directory enkel inloggning med en rad program från tredje part som tjänst program.
+title: SSO-och SCIM-etablering SaaS program integrations guider för användning med Azure AD | Microsoft Docs
+description: Konfigurera Azure Active Directory enkel inloggning (SSO) och SCIM-integrering med en mängd program från tredje part som tjänst program.
 services: active-directory
 documentationcenter: ''
 author: jeevansd
@@ -17,18 +17,18 @@ ms.author: jeedes
 ms.custom: it-pro
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4594d54f245c8fb96e62d7f193816e1031138ec0
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 267efd103c3cfdca1aa6d3db10977bac9739f641
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026147"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274449"
 ---
 # <a name="tutorials-for-integrating-saas-applications-with-azure-active-directory"></a>Självstudier för att integrera SaaS-program med Azure Active Directory
 
 Vi har utvecklat en samling med självstudier som vägleder dig genom konfigurationen för att integrera [SaaS-program (program vara som en tjänst](https://azure.microsoft.com/overview/what-is-saas/) i molnet) med Azure Active Directory.
 
-En lista över alla SaaS-appar som har förintegrerats i Azure AD finns på [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps).
+En lista över alla SaaS-appar som har förintegrerats i Azure AD finns på [Active Directory Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps). Klicka [här](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) för att begära att en app läggs till i program galleriet. 
 
 ## <a name="quick-links"></a>Snabblänkar
 
@@ -65,7 +65,7 @@ Använd innehålls förteckningen till vänster om du vill ha fler självstudier
 | ![Microsofts](./media/tutorial-list/active-directory-saas-freshservice-tutorial.png)| [Freshservice](freshservice-tutorial.md)|     |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-jamfprosamlconnector-tutorial.png)| [JAMF Pro](jamfprosamlconnector-tutorial.md)|     |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-knowlwdge-anywhere-lms-tutorial.png)| [Kunskap överallt, LMS](knowledge-anywhere-lms-tutorial.md)|     |
-| ![Microsofts](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight-CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|       |
+| ![Microsofts](./media/tutorial-list/active-directory-saas-soloinsight-cloudgate-sso-tutorial.png)| [Soloinsight – CloudGate SSO](soloinsight-cloudgate-sso-tutorial.md)|       |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-xaitporter-tutorial.png)| [XaitPorter](xaitporter-tutorial.md)|       |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-yodeck-tutorial.png)| [Yodeck](yodeck-tutorial.md)|        |
 | ![Microsofts](./media/tutorial-list/active-directory-saas-zendesk-tutorial.png)| [Zendesk](zendesk-tutorial.md)|        |

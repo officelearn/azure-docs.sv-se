@@ -9,27 +9,27 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/06/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: d3e22df76124185c1e23f04f59145e12a1fec023
-ms.sourcegitcommit: 19a821fc95da830437873d9d8e6626ffc5e0e9d6
+ms.openlocfilehash: b3aa6d06add1d80512eda0e62888b4a36760e98c
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70164248"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274794"
 ---
 # <a name="create-time-series-insights-resources-using-azure-resource-manager-templates"></a>Skapa Time Series Insights resurser med Azure Resource Manager-mallar
 
-Den här artikeln beskriver hur du skapar och distribuerar Time Series Insights-resurser med hjälp av Azure Resource Manager mallar, PowerShell och Time Series Insights resurs leverantören.
+Den här artikeln beskriver hur du skapar och distribuerar Time Series Insights-resurser med hjälp av [Azure Resource Manager mallar](https://docs.microsoft.com/azure/azure-resource-manager/), PowerShell och Time Series Insights resurs leverantören.
 
 Time Series Insights stöder följande resurser:
 
-   | Resource | Beskrivning |
+   | Resurs | Beskrivning |
    | --- | --- |
    | Miljö | En Time Series Insightss miljö är en logisk gruppering av händelser som läses från händelse hanterare, lagras och görs tillgängliga för frågor. Mer information finns i [Planera din Azure Time Series Insights-miljö](time-series-insights-environment-planning.md) |
    | Händelsekälla | En händelse källa är en anslutning till en händelse hanterare som Time Series Insights läser och matar in händelser i miljön. Händelse källor som stöds för närvarande är IoT Hub och Händelsehubben. |
    | Referens data uppsättning | Referens data uppsättningar innehåller metadata om händelserna i miljön. Metadata i referens data uppsättningar kommer att kopplas till händelser vid ingångar. Referens data uppsättningar definieras som resurser efter deras händelse nyckel egenskaper. De faktiska metadata som utgör referens data uppsättningen överförs eller ändras via API: er för data plan. |
-   | Åtkomstprincip | Åtkomst principer beviljar behörigheter för att utfärda data frågor, manipulera referens data i miljön och dela sparade frågor och perspektiv som är associerade med miljön. Mer information finns i [bevilja åtkomst till en Time Series Insights miljö med Azure Portal](time-series-insights-data-access.md) |
+   | Åtkomst princip | Åtkomst principer beviljar behörigheter för att utfärda data frågor, manipulera referens data i miljön och dela sparade frågor och perspektiv som är associerade med miljön. Mer information finns i [bevilja åtkomst till en Time Series Insights miljö med Azure Portal](time-series-insights-data-access.md) |
 
 En Resource Manager-mall är en JSON-fil som definierar infrastrukturen och konfigurationen av resurser i en resurs grupp. I följande dokument beskrivs mallfiler i större detalj:
 
@@ -47,7 +47,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Installera Azure PowerShell genom att följa anvisningarna i [komma igång med Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps).
 
-1. Klona eller kopiera mallen [201-timeseriesinsights-Environment-with-eventhub](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) från GitHub.
+1. Klona eller kopiera mallen [201-timeseriesinsights-Environment-with-eventhub](https://github.com/Azure/azure-quickstart-templates/blob/master/201-timeseriesinsights-environment-with-eventhub/azuredeploy.json) från GitHub.
 
    * Skapa en parameter fil
 
@@ -63,9 +63,9 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
      | --- | --- |
      | eventHubNamespaceName | Namn området för käll händelse navet. |
      | eventHubName | Namnet på käll händelse navet. |
-     | consumerGroupName | Namnet på den konsument grupp som Time Series Insights tjänsten använder för att läsa data från händelsehubben. **Obs!** För att undvika resurs konkurrens måste den här konsument gruppen vara dedikerad till Time Series Insights tjänsten och inte delas med andra läsare. |
-     | environmentName | Namnet på miljön. Namnet får inte innehålla: `<` `%`, `>` `&` ,,`/`,, ,,ocheventuellakontrolltecken.`\\` `:` `?` Alla andra tecken tillåts.|
-     | eventSourceName | Namnet på den underordnade resursen för händelse källan. Namnet får inte innehålla: `<` `%`, `>` `&` ,,`/`,, ,,ocheventuellakontrolltecken.`\\` `:` `?` Alla andra tecken tillåts. |
+     | consumerGroupName | Namnet på den konsument grupp som Time Series Insights tjänsten använder för att läsa data från händelsehubben. **Obs:** För att undvika resurs konkurrens måste den här konsument gruppen vara dedikerad till Time Series Insights tjänsten och inte delas med andra läsare. |
+     | environmentName | Namnet på miljön. Namnet får inte innehålla: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` och eventuella kontroll tecken. Alla andra tecken tillåts.|
+     | eventSourceName | Namnet på den underordnade resursen för händelse källan. Namnet får inte innehålla: `<`, `>`, `%`, `&`, `:`, `\\`, `?`, `/` och eventuella kontroll tecken. Alla andra tecken tillåts. |
 
     <div id="optional-parameters"></div>
 
@@ -73,7 +73,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
      | Parameter | Beskrivning |
      | --- | --- |
-     | existingEventHubResourceId | Ett valfritt resurs-ID för en befintlig händelsehubben som ska anslutas till Time Series Insightss miljön via händelse källan. **Obs!** Användaren som distribuerar mallen måste ha behörighet att utföra åtgärden listnycklar i Händelsehubben. Om inget värde skickas skapas en ny händelsehubben av mallen. |
+     | existingEventHubResourceId | Ett valfritt resurs-ID för en befintlig händelsehubben som ska anslutas till Time Series Insightss miljön via händelse källan. **Obs:** Användaren som distribuerar mallen måste ha behörighet att utföra åtgärden listnycklar i Händelsehubben. Om inget värde skickas skapas en ny händelsehubben av mallen. |
      | environmentDisplayName | Ett valfritt eget namn som ska visas i verktygs-eller användar gränssnitt i stället för miljö namnet. |
      | environmentSkuName | Namnet på SKU:n. Mer information finns på sidan med [Time Series Insights priser](https://azure.microsoft.com/pricing/details/time-series-insights/).  |
      | environmentSkuCapacity | Enhets kapaciteten för SKU: n. Mer information finns på sidan med [Time Series Insights priser](https://azure.microsoft.com/pricing/details/time-series-insights/).|
@@ -166,7 +166,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Testa distributionen.
 
-   * Verifiera distributionen genom att `Test-AzResourceGroupDeployment` köra cmdleten. När du testar distributionen ska du ange parametrar exakt som du skulle göra när du utför distributionen.
+   * Verifiera distributionen genom att köra cmdleten `Test-AzResourceGroupDeployment`. När du testar distributionen ska du ange parametrar exakt som du skulle göra när du utför distributionen.
 
      ```powershell
      Test-AzResourceGroupDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -TemplateParameterFile <path to parameters file>\azuredeploy.parameters.json
@@ -174,7 +174,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
 
 1. Skapa distributionen
 
-    * Skapa den nya distributionen genom att köra `New-AzResourceGroupDeployment` cmdleten och ange nödvändiga parametrar när du uppmanas att göra det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet incremental. Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/deployment-modes.md).
+    * Skapa den nya distributionen genom att köra cmdleten `New-AzResourceGroupDeployment` och ange nödvändiga parametrar när du uppmanas att göra det. Parametrarna innehåller ett namn för din distribution, namnet på din resurs grupp och sökvägen eller URL: en till mallfilen. Om parametern **mode** inte anges används standardvärdet **incremental** . Mer information finns i [stegvisa och fullständiga distributioner](../azure-resource-manager/deployment-modes.md).
 
     * Följande kommando efterfrågar de fem obligatoriska parametrarna i PowerShell-fönstret:
 
@@ -194,7 +194,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
       New-AzResourceGroupDeployment -Name MyDemoDeployment -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json -parameterName "parameterValue"
       ```
 
-    * Om du vill köra en [fullständig](../azure-resource-manager/deployment-modes.md) distribution anger du att parametern **läge** ska slutföras:
+    * Om du vill köra en [fullständig](../azure-resource-manager/deployment-modes.md) distribution anger du att parametern **läge** ska **slutföras**:
 
       ```powershell
       New-AzResourceGroupDeployment -Name MyDemoDeployment -Mode Complete -ResourceGroupName MyDemoRG -TemplateFile <path to template file>\azuredeploy.json
@@ -208,7 +208,7 @@ Följande procedur beskriver hur du använder PowerShell för att distribuera en
        DeploymentName          : MyDemoDeployment
        ResourceGroupName       : MyDemoRG
        ProvisioningState       : Succeeded
-       Timestamp               : 5/8/2019 10:28:34 PM
+       Timestamp               : 10/11/2019 3:20:37 AM
        Mode                    : Incremental
        TemplateLink            :
        Parameters              :

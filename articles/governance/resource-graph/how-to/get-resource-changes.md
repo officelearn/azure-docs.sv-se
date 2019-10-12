@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 10/09/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 13e2a848f9d178fc6554062c324c951102e1343b
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4858d803b4fccdc6ae4d5a790721bad60d218313
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244103"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274199"
 ---
 # <a name="get-resource-changes"></a>Hämta resursändringar
 
@@ -30,6 +30,7 @@ Resurser ändras genom daglig användning, omkonfiguration och till och med omdi
 - Förstå vilka andra egenskaper som kan ha ändrats när en resurs ändrade kompatibilitetstillstånd. Utvärdering av dessa ytterligare egenskaper kan ge insikter om andra egenskaper som kan behöva hanteras via en Azure Policy-definition.
 
 Den här artikeln visar hur du samlar in den här informationen via resurs Diagramets SDK. Information om hur du kan se den här informationen i Azure Portal finns i Azure Policys [ändrings historik](../../policy/how-to/determine-non-compliance.md#change-history-preview) eller [ändrings historik](../../../azure-monitor/platform/activity-log-view.md#azure-portal)för Azure aktivitets loggen.
+Mer information om ändringar i dina program från infrastruktur skiktet hela vägen till program distribution finns i [använda program ändrings analys (för hands version)](../../../azure-monitor/app/change-analysis.md) i Azure Monitor.
 
 > [!NOTE]
 > Ändrings informationen i resurs diagrammet är för Resource Manager-egenskaper. Information om hur du spårar ändringar i en virtuell dator finns i Azure Automation [ändrings spårning](../../../automation/automation-change-tracking.md) eller Azure policys [gäst konfiguration för virtuella datorer](../../policy/concepts/guest-configuration.md).

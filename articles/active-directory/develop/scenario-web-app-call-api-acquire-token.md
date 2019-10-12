@@ -15,23 +15,23 @@ ms.date: 09/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8fd66dcd6e3845aad79ebffb3cad656d0a14c1a6
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: f30194592989b74aca96a5a483e9128cd3a86eb5
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71720223"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274471"
 ---
 # <a name="web-app-that-calls-web-apis---acquire-a-token-for-the-app"></a>Webbapp som anropar webb-API: er – hämta en token för appen
 
 Nu när du har skapat ett klient program objekt använder du det för att hämta en token för att anropa ett webb-API. Anropa ett webb-API i ASP.NET eller ASP.NET Core och sedan utföras i kontrollanten. Det är ungefär:
 
-- Hämta en token för webb-API: et med hjälp av token cache. Om du vill hämta den här token anropar `AcquireTokenSilent`du.
+- Hämta en token för webb-API: et med hjälp av token cache. Om du vill hämta denna token anropar du `AcquireTokenSilent`.
 - Anropar det skyddade API: t med åtkomsttoken.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-Styrenhets metoderna skyddas av ett `[Authorize]` attribut som tvingar användare att autentiseras att använda webbappen. Här är den kod som anropar Microsoft Graph.
+Styrenhets metoderna skyddas av ett `[Authorize]`-attribut som tvingar användare att autentiseras att använda webbappen. Här är den kod som anropar Microsoft Graph.
 
 ```CSharp
 [Authorize]
@@ -61,10 +61,10 @@ public async Task<IActionResult> Profile()
  string[] scopes = new string[]{"user.read"};
  string accessToken = await tokenAcquisition.GetAccessTokenOnBehalfOfUserAsync(scopes);
 
-// use the access token to call a protected web API
-HttpClient client = new HttpClient();
-client.DefaultRequestHeaders.Add("Authorization", result.CreateAuthorizationHeader());
-string json = await client.GetStringAsync(url);
+ // use the access token to call a protected web API
+ HttpClient client = new HttpClient();
+ client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+ string json = await client.GetStringAsync(url);
 }
 ```
 
@@ -83,7 +83,7 @@ Saker liknar varandra i ASP.NET:
 
 - En kontroll enhets åtgärd som skyddas av ett [auktorisera]-attribut extraherar klient-ID: t och användar-ID: t för kontrollantens `ClaimsPrincipal`-medlem. (ASP.NET använder `HttpContext.User`.)
 - Därifrån skapar den en MSAL.NET `IConfidentialClientApplication`.
-- Slutligen anropar `AcquireTokenSilent` den metoden för det konfidentiella klient programmet.
+- Slutligen anropar den `AcquireTokenSilent`-metoden i det konfidentiella klient programmet.
 
 Koden liknar den kod som visas för ASP.NET Core.
 

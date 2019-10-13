@@ -4,15 +4,15 @@ description: Azure-delegerad resurs hantering möjliggör hantering av flera inn
 author: JnHs
 ms.service: lighthouse
 ms.author: jenhayes
-ms.date: 09/25/2019
+ms.date: 10/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: ab0362af9a3eec698150c135fd98283c9db2c833
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
-ms.translationtype: HT
+ms.openlocfilehash: 0c6fed9cd83f18df0fe0a77d57a76c60cd570c21
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286621"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300995"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -58,6 +58,7 @@ För närvarande stöder hanterings upplevelsen för flera innehavare följande 
 - Visa aviseringar för delegerade prenumerationer i Azure Portal eller program mässigt via REST API-anrop, med möjlighet att visa aviseringar i alla prenumerationer
 - Visa aktivitets logg information för delegerade prenumerationer
 - Log Analytics: fråga efter data från fjärranslutna kund arbets ytor i flera klienter
+- Skapa aviseringar i kund klienter som utlöser automatisering, till exempel Azure Automation runbooks eller Azure Functions, i tjänst leverantörens klient organisation via Webhooks
 
 [Azure policy](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -65,7 +66,7 @@ För närvarande stöder hanterings upplevelsen för flera innehavare följande 
 - Skapa och redigera princip definitioner i en delegerad prenumeration
 - Tilldela kunddefinierade princip definitioner inom den delegerade prenumerationen
 - Kunder ser principer som skapats av tjänst leverantören tillsammans med eventuella principer som de har skapat själva
-- Kan åtgärda deployIfNotExists-tilldelningar inom kundens klienter om kunden har konfigurerat den hanterade identiteten och *roleDefinitionIds* för princip tilldelningen
+- Kan [åtgärda deployIfNotExists eller ändra tilldelningar inom kund innehavaren](../how-to/deploy-policy-remediation.md)
 
 [Azure-resurs diagram](https://docs.microsoft.com/azure/governance/resource-graph/):
 

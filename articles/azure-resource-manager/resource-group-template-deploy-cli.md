@@ -4,18 +4,18 @@ description: Använd Azure Resource Manager och Azure CLI för att distribuera r
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/21/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: bef9d0490ce9109a960b69febf2970a289c25e40
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: c5a07d8b52e83215b2fdc220d76557ca45e1eae9
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71973393"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286025"
 ---
 # <a name="deploy-resources-with-resource-manager-templates-and-azure-cli"></a>Distribuera resurser med Resource Manager-mallar och Azure CLI
 
-Den här artikeln förklarar hur du använder Azure CLI med Resource Manager-mallar för att distribuera dina resurser till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar kan du läsa [Azure Resource Manager översikt](resource-group-overview.md).  
+Den här artikeln förklarar hur du använder Azure CLI med Resource Manager-mallar för att distribuera dina resurser till Azure. Om du inte är bekant med principerna för att distribuera och hantera dina Azure-lösningar kan du läsa [Azure Resource Manager översikt](resource-group-overview.md).
 
 [!INCLUDE [sample-cli-install](../../includes/sample-cli-install.md)]
 
@@ -49,7 +49,7 @@ När du distribuerar resurser till Azure:
 2. Skapa en resurs grupp som fungerar som behållare för de distribuerade resurserna. Namnet på resurs gruppen får bara innehålla alfanumeriska tecken, punkter, under streck, bindestreck och parenteser. Det kan vara upp till 90 tecken. Det får inte sluta med en punkt.
 3. Distribuera till resurs gruppen med mallen som definierar vilka resurser som ska skapas
 
-En mall kan innehålla parametrar som gör att du kan anpassa distributionen. Du kan till exempel ange värden som är anpassade för en viss miljö (till exempel utveckling, testning och produktion). Exempel mal len definierar en parameter för lagrings kontots SKU. 
+En mall kan innehålla parametrar som gör att du kan anpassa distributionen. Du kan till exempel ange värden som är anpassade för en viss miljö (till exempel utveckling, testning och produktion). Exempel mal len definierar en parameter för lagrings kontots SKU.
 
 I följande exempel skapas en resurs grupp och en mall distribueras från den lokala datorn:
 
@@ -149,9 +149,31 @@ az group deployment create \
   --parameters @storage.parameters.json
 ```
 
+## <a name="handle-extended-json-format"></a>Hantera utökat JSON-format
+
+Om du vill distribuera en mall med strängar eller kommentarer med flera rader måste du använda växeln `--handle-extended-json-format`.  Exempel:
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
 ## <a name="test-a-template-deployment"></a>Testa en mall distribution
 
-Om du vill testa mallen och parameter värden utan att behöva distribuera några resurser använder du [AZ Group Deployment validate](/cli/azure/group/deployment#az-group-deployment-validate). 
+Om du vill testa mallen och parameter värden utan att behöva distribuera några resurser använder du [AZ Group Deployment validate](/cli/azure/group/deployment#az-group-deployment-validate).
 
 ```azurecli-interactive
 az group deployment validate \
@@ -176,8 +198,8 @@ Om ett fel upptäcks returnerar kommandot ett fel meddelande. Om du till exempel
   "error": {
     "code": "InvalidTemplate",
     "details": null,
-    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter 
-      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed 
+    "message": "Deployment template validation failed: 'The provided value 'badSKU' for the template parameter
+      'storageAccountType' at line '13' and column '20' is not valid. The parameter value is not part of the allowed
       value(s): 'Standard_LRS,Standard_ZRS,Standard_GRS,Standard_RAGRS,Premium_LRS'.'.",
     "target": null
   },

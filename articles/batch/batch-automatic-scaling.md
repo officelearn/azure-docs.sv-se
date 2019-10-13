@@ -14,12 +14,12 @@ ms.workload: multiple
 ms.date: 10/08/2019
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017,fasttrack-edit
-ms.openlocfilehash: 9c02db01d7b95f3178d73602089b30029fb0db9f
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
-ms.translationtype: HT
+ms.openlocfilehash: a788226ad5bd3f8cd6416ad032fc439e860fd713
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274823"
+ms.locfileid: "72286692"
 ---
 # <a name="create-an-automatic-formula-for-scaling-compute-nodes-in-a-batch-pool"></a>Skapa en automatisk formel för skalning av Compute-noder i en batch-pool
 
@@ -207,7 +207,7 @@ Dessa fördefinierade **funktioner** är tillgängliga som du kan använda för 
 | LG (Double) |double |Returnerar logg basen 2 för Double. |
 | LG (doubleVecList) |doubleVec |Returnerar komponentens logg bas 2 i doubleVecList. En VEC (Double) måste uttryckligen skickas för parametern. Annars antas dubbelt LG-version (Double). |
 | ln (dubbel) |double |Returnerar den naturliga loggen för Double. |
-| ln (doubleVecList) |doubleVec |Returnerar komponentens logg bas 2 i doubleVecList. En VEC (Double) måste uttryckligen skickas för parametern. Annars antas dubbelt LG-version (Double). |
+| ln (doubleVecList) |doubleVec |Returnerar den naturliga loggen för Double. |
 | logg (dubbel) |double |Returnerar logg basen 10 för Double. |
 | logg (doubleVecList) |doubleVec |Returnerar komponentens logg bas 10 i doubleVecList. En VEC (Double) måste uttryckligen skickas för enkel dubbel parameter. I annat fall antas dubbel-och dubbel logg version (Double). |
 | Max (doubleVecList) |double |Returnerar det maximala värdet i doubleVecList. |

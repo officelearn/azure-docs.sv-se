@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/30/2019
 ms.author: robinsh
-ms.openlocfilehash: b53bb0f04bf6a739b588b14febd622f6bf7a6a63
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 7f7e957502419b766f7da63048e8168192ea20da
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68354891"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286648"
 ---
 # <a name="communicate-with-your-iot-hub-by-using-the-amqp-protocol"></a>Kommunicera med din IoT Hub med hjälp av AMQP-protokollet
 
@@ -26,12 +26,12 @@ För att ansluta till en IoT-hubb med hjälp av AMQP kan en klient använda aute
 
 Följande information krävs för tjänst klienten:
 
-| Information | Value |
+| Information | Värde |
 |-------------|--------------|
 | Värdnamn för IoT Hub | `<iot-hub-name>.azure-devices.net` |
-| Nyckelnamn | `service` |
+| Nyckel namn | `service` |
 | Åtkomstnyckel | En primär eller sekundär nyckel som är associerad med tjänsten |
-| Signatur för delad åtkomst | En signatur för delad åtkomst med kort livs längd i följande format `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`:. För att hämta koden för att generera den här signaturen, se [kontrol lera åtkomst till IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Signatur för delad åtkomst | En signatur för delad åtkomst med kort livs längd i följande format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. För att hämta koden för att generera den här signaturen, se [kontrol lera åtkomst till IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
 
 I följande kodfragment används UAMQP- [biblioteket i python](https://github.com/Azure/azure-uamqp-python) för att ansluta till en IoT-hubb via en Sender-länk.
 
@@ -67,8 +67,8 @@ Om du vill veta mer om moln-till-enhet-meddelande utbytet mellan tjänsten och I
 
 | Skapad av | Länktyp | Länk Sök väg | Beskrivning |
 |------------|-----------|-----------|-------------|
-| Tjänsten | Sender-länk | `/messages/devicebound` | Meddelanden från moln till enhet som är avsedda för enheter skickas till den här länken av tjänsten. Meddelanden som skickas via den här länken `To` har sina egenskaper inställt på mål enhetens mottagare `/devices/<deviceID>/messages/devicebound`länk Sök väg. |
-| Tjänsten | Mottagar länk | `/messages/serviceBound/feedback` | Avslutnings-, avvisande-och överförings meddelanden från enheter som tas emot via den här länken av tjänsten. Mer information om feedback-meddelanden finns i [skicka meddelanden från moln till enhet från en IoT-hubb](./iot-hub-devguide-messages-c2d.md#message-feedback). |
+| Tjänst | Sender-länk | `/messages/devicebound` | Meddelanden från moln till enhet som är avsedda för enheter skickas till den här länken av tjänsten. Meddelanden som skickas via den här länken har egenskapen `To` inställt på mål enhetens mottagar länk Sök väg `/devices/<deviceID>/messages/devicebound`. |
+| Tjänst | Mottagar länk | `/messages/serviceBound/feedback` | Avslutnings-, avvisande-och överförings meddelanden från enheter som tas emot via den här länken av tjänsten. Mer information om feedback-meddelanden finns i [skicka meddelanden från moln till enhet från en IoT-hubb](./iot-hub-devguide-messages-c2d.md#message-feedback). |
 
 Följande kodfragment visar hur du skapar ett meddelande från moln till enhet och skickar det till en enhet med hjälp av [uAMQP-biblioteket i python](https://github.com/Azure/azure-uamqp-python).
 
@@ -128,11 +128,11 @@ for msg in batch:
 
 Som det visas i föregående kod har ett meddelande om att en moln-till-enhet-feedback har innehålls typen *Application/VND. Microsoft. iothub. feedback. JSON*. Du kan använda egenskaperna i meddelandets JSON-brödtext för att härleda leverans status för det ursprungliga meddelandet:
 
-* Nyckeln `statusCode` i feedback-texten har något av följande värden: *Lyckades*, *har upphört att gälla*, *DeliveryCountExceeded*, avvisat eller *rensat*.
+* Key `statusCode` i feedback-texten har något av följande värden: *lyckades*, *har upphört att gälla*, *DeliveryCountExceeded*, *avvisats*eller *rensats*.
 
-* Nyckeln `deviceId` i feedback-texten har ID för mål enheten.
+* Nyckel `deviceId` i feedback-texten har ID: t för mål enheten.
 
-* Nyckeln `originalMessageId` i feedback-texten innehåller ID: t för det ursprungliga meddelandet från molnet till enheten som skickades av tjänsten. Du kan använda den här leverans statusen för att korrelera feedback till meddelanden från molnet till enheten.
+* Key `originalMessageId` i feedback-texten har ID: t för det ursprungliga molnet till enhet-meddelandet som skickades av tjänsten. Du kan använda den här leverans statusen för att korrelera feedback till meddelanden från molnet till enheten.
 
 ### <a name="receive-telemetry-messages-service-client"></a>Ta emot telemetri meddelanden (tjänst klient)
 
@@ -222,11 +222,11 @@ Om du vill ansluta till en IoT-hubb med hjälp av AMQP kan en enhet använda [an
 
 Följande information krävs för enhets klienten:
 
-| Information | Value |
+| Information | Värde |
 |-------------|--------------|
 | Värdnamn för IoT Hub | `<iot-hub-name>.azure-devices.net` |
 | Åtkomstnyckel | En primär eller sekundär nyckel som är associerad med enheten |
-| Signatur för delad åtkomst | En signatur för delad åtkomst med kort livs längd i följande format `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`:. För att hämta koden för att generera den här signaturen, se [kontrol lera åtkomst till IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
+| Signatur för delad åtkomst | En signatur för delad åtkomst med kort livs längd i följande format: `SharedAccessSignature sig={signature-string}&se={expiry}&skn={policyName}&sr={URL-encoded-resourceURI}`. För att hämta koden för att generera den här signaturen, se [kontrol lera åtkomst till IoT Hub](./iot-hub-devguide-security.md#security-token-structure).
 
 I följande kodfragment används UAMQP- [biblioteket i python](https://github.com/Azure/azure-uamqp-python) för att ansluta till en IoT-hubb via en Sender-länk.
 
@@ -262,12 +262,12 @@ Följande länk Sök vägar stöds som enhets åtgärder:
 | Skapad av | Länktyp | Länk Sök väg | Beskrivning |
 |------------|-----------|-----------|-------------|
 | Enheter | Mottagar länk | `/devices/<deviceID>/messages/devicebound` | Meddelanden från moln till enhet som är avsedda för enheter tas emot på den här länken av varje mål enhet. |
-| Enheter | Sender-länk | `/devices/<deviceID>messages/events` | Meddelanden från enhet till moln som skickas från en enhet skickas via den här länken. |
+| Enheter | Sender-länk | `/devices/<deviceID>/messages/events` | Meddelanden från enhet till moln som skickas från en enhet skickas via den här länken. |
 | Enheter | Sender-länk | `/messages/serviceBound/feedback` | Feedback från moln till enhet skickas till tjänsten via den här länken av enheter. |
 
 ### <a name="receive-cloud-to-device-commands-device-client"></a>Ta emot kommandon från moln till enhet (enhets klient)
 
-Moln-till-enhet-kommandon som skickas till enheter tas emot på `/devices/<deviceID>/messages/devicebound` en länk. Enheter kan ta emot dessa meddelanden i batchar och använda meddelandets data nytto Last, meddelande egenskaper, anteckningar eller program egenskaper i meddelandet efter behov.
+Moln-till-enhet-kommandon som skickas till enheter tas emot på en `/devices/<deviceID>/messages/devicebound`-länk. Enheter kan ta emot dessa meddelanden i batchar och använda meddelandets data nytto Last, meddelande egenskaper, anteckningar eller program egenskaper i meddelandet efter behov.
 
 I följande kodfragment används UAMQP- [biblioteket i python](https://github.com/Azure/azure-uamqp-python)för att ta emot meddelanden från molnet till enheten på en enhet.
 
@@ -368,7 +368,7 @@ for result in results:
 
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information om AMQP-protokollet finns i [AMQP v 1.0](https://www.amqp.org/sites/amqp.org/files/amqp.pdf)-specifikationen.
+Mer information om AMQP-protokollet finns i [AMQP v 1.0-specifikationen](https://www.amqp.org/sites/amqp.org/files/amqp.pdf).
 
 Mer information om IoT Hub meddelanden finns i:
 

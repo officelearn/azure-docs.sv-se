@@ -9,14 +9,14 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: c872b10d7819fb95d614664ed32831f410349760
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 32bd0438afa63212222acb84c0194bbc1f4816ce
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122908"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286679"
 ---
-# <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudier: Utveckla en C# IoT Edge-modul för Windows-enheter
+# <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>Självstudie: utveckla en C# IoT Edge-modul för Windows-enheter
 
 Använd Visual Studio för att C# utveckla kod och distribuera den till en Windows-enhet som kör Azure IoT Edge. 
 
@@ -28,7 +28,7 @@ Du kan använda Azure IoT Edge-moduler för att distribuera kod som implementera
 > * distribuera modulen till din IoT Edge-enhet
 > * visa genererade data.
 
-IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som genereras av enheten. Den skickar enbart meddelanden uppströms om temperaturen överskrider ett angivet tröskelvärde. Den här typen av analys vid kanten är användbar när du vill minska mängden data som skickas till och lagras i molnet. 
+IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som genereras av enheten. Den skickar enbart meddelanden uppströms om temperaturen överskrider ett angivet tröskelvärde. Den här typen av analys är användbar för att minska mängden data som kommuniceras till och lagras i molnet. 
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -36,14 +36,14 @@ IoT Edge-modulen du skapar i den här självstudien filtrerar temperaturdata som
 
 Den här självstudien visar hur du utvecklar **C#** en modul i med hjälp av **Visual Studio 2019**och hur du distribuerar den till en **Windows-enhet**. Om du utvecklar moduler för Linux-enheter går du till [utveckla en C# IoT Edge modul för Linux-enheter](tutorial-csharp-module.md) i stället. 
 
-Använd följande tabell för att förstå alternativen för att utveckla och distribuera C-moduler till Windows-enheter: 
+Använd följande tabell för att förstå alternativen för att utveckla och distribuera C# moduler till Windows-enheter: 
 
-| C# | Visual Studio-koden | Visual Studio 2017/2019 | 
+| C# | Visual Studio-kod | Visual Studio 2017/2019 | 
 | -- | ------------------ | ------------------ |
 | **Windows AMD64-utveckling** | ![Utveckla C# moduler för WINAMD64 i vs Code](./media/tutorial-c-module/green-check.png) | ![Utveckla C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 | **Windows AMD64-felsökning** |   | ![Felsöka C# moduler för WinAMD64 i Visual Studio](./media/tutorial-c-module/green-check.png) |
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du påbörjar den här självstudien bör du ha gått igenom föregående självstudie för att konfigurera din utvecklings miljö, [utveckla en IoT Edge modul för en Windows-enhet](tutorial-develop-for-windows.md). När du har slutfört den här självstudien bör du redan ha följande krav: 
 
@@ -66,7 +66,7 @@ Azure IoT Edge-verktygen innehåller projektmallar för alla språk som stöds I
 
 1. Starta Visual Studio 2019 och välj **Skapa nytt projekt**.
 
-2. I fönstret nytt projekt söker du **IoT Edge** projekt och väljer **Azure IoT Edge (Windows amd64)-** projektet. Klicka på **Nästa**. 
+2. I fönstret nytt projekt söker du **IoT Edge** projekt och väljer **Azure IoT Edge (Windows amd64)-** projektet. Klicka på **Next**. 
 
    ![Skapa ett nytt Azure IoT Edge-projekt](./media/tutorial-csharp-module-windows/new-project.png)
 
@@ -76,7 +76,7 @@ Azure IoT Edge-verktygen innehåller projektmallar för alla språk som stöds I
 
 4. I fönstret IoT Edge program och modul konfigurerar du ditt projekt med följande värden: 
 
-   | Fält | Value |
+   | Fält | Värde |
    | ----- | ----- |
    | Välj en mall | Välj  **C# modul**. | 
    | Modulnamn projekt namn | Ge modulen namnet **CSharpModule**. | 
@@ -289,7 +289,7 @@ Koden för standardmodulen tar emot meddelanden i en indatakö och skickar dem v
 
 ## <a name="build-and-push-your-module"></a>Bygga och pusha din modul
 
-I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSharpModule** som filtrerar bort meddelanden där den rapporterade maskintemperaturen ligger under det godkända tröskelvärdet. Nu behöver du skapa lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
+I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSharpModule** som filtrerar bort meddelanden där den rapporterade maskintemperaturen ligger under det godkända tröskelvärdet. Nu behöver du bygga lösningen som en containeravbildning och push-överföra den till ditt containerregister. 
 
 1. Använd följande kommando för att logga in på Docker på din utvecklings dator. Använd användar namnet, lösen ordet och inloggnings servern från Azure Container Registry. Du kan hämta dessa värden från avsnittet **åtkomst nycklar** i registret i Azure Portal.
 
@@ -297,13 +297,13 @@ I föregående avsnitt skapade du en IoT Edge-lösning och lade till kod i **CSh
    docker login -u <ACR username> -p <ACR password> <ACR login server>
    ```
 
-   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin`. Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i inloggnings [](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) referens för Docker.
+   Du kan få en säkerhets varning som rekommenderar att du använder `--password-stdin`. Det bästa tillvägagångs sättet rekommenderas för produktions scenarier, men det ligger utanför omfånget för den här självstudien. Mer information finns i [inloggnings referens för Docker](https://docs.docker.com/engine/reference/commandline/login/#provide-a-password-using-stdin) .
 
 2. Högerklicka på det projekt namn som du vill bygga i Visual Studio-Solution Explorer. Standard namnet är **AzureIotEdgeApp1** och eftersom du skapar en Windows-modul bör tillägget vara **Windows. amd64**. 
 
 3. Välj **build-och push-IoT Edge moduler**. 
 
-   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** och som innehåller det fullständiga distributions manifestet, och bygger ut information i distributions mal len och andra filer i lösningen. Sedan körs `docker build` den för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` den för att skicka avbildnings lagrings platsen till behållar registret. 
+   Kommandot build och push startar tre åtgärder. Först skapar den en ny mapp i lösningen som heter **config** och som innehåller det fullständiga distributions manifestet, och bygger ut information i distributions mal len och andra filer i lösningen. För det andra körs `docker build` för att bygga behållar avbildningen baserat på lämpliga Dockerfile för din mål arkitektur. Sedan körs `docker push` för att push-överföra avbildnings lagrings platsen till behållar registret. 
 
 ## <a name="deploy-modules-to-device"></a>Distribuera moduler till enhet
 
@@ -351,7 +351,7 @@ Vi använde CSharpModule-modulen för att ange temperatur tröskeln vid 25 grade
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 
-Om du planerar att fortsätta med nästa rekommenderade artikel kan du behålla de resurser och konfigurationer som du skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
+Om du tänker fortsätta till nästa rekommenderade artikel kan du behålla de resurser och konfigurationer du har skapat och använda dem igen. Du kan även fortsätta att använda samma IoT Edge-enhet som en testenhet. 
 
 Annars kan du ta bort de lokala konfigurationerna och de Azure-resurser som du använde i den här artikeln för att undvika avgifter. 
 
@@ -365,4 +365,4 @@ I den här självstudien skapade du en IoT Edge-modul med kod för att filtrera 
 > [Functions](tutorial-deploy-function.md)
 > [Stream Analytics](tutorial-deploy-stream-analytics.md)
 > [Machine Learning](tutorial-deploy-machine-learning.md)
-> [Custom Vision Service](tutorial-deploy-custom-vision.md)
+> [Custom vision service](tutorial-deploy-custom-vision.md)

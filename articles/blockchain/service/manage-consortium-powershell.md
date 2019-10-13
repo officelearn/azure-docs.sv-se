@@ -5,23 +5,23 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/10/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 9f76597a91c0e22f57d1ba66ff1a16eea9002af0
-ms.sourcegitcommit: a6873b710ca07eb956d45596d4ec2c1d5dc57353
+ms.openlocfilehash: 3e149a4a8e5ce7c82f0c9bf951bf9625763b30af
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68250094"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285997"
 ---
 # <a name="manage-consortium-members-in-azure-blockchain-service-by-using-powershell"></a>Hantera konsortiums medlemmar i Azure blockchain-tjänsten med hjälp av PowerShell
 
 Du kan använda PowerShell för att hantera blockchain Consortium-medlemmar för din Azure blockchain-tjänst. Medlemmar som har administratörs behörighet kan bjuda in, lägga till, ta bort och ändra roller för alla deltagare i blockchain-konsortiet. Medlemmar som har användar behörighet kan visa alla deltagare i blockchain-konsortiet och ändra deras medlems visnings namn.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Skapa en blockchain-medlem med hjälp av [Azure Portal](create-member.md).
 * Mer information om konsortier, medlemmar och noder finns i [Azure blockchain service Consortium](consortium.md).
@@ -61,35 +61,35 @@ $MemberAccount = Import-Web3Account -ManagedAccountAddress '<Member account addr
 $ContractConnection = Import-ConsortiumManagementContracts -RootContractAddress '<RootContract address>' -Web3Client $Connection
 ```
 
-*Ersätt\<medlems konto lösen\> ordet* med det medlems konto lösen ord som du använde när du skapade medlemmen.
+Ersätt *@no__t 1Member Account Password @ no__t-2* med det medlems konto lösen ord som du använde när du skapade medlemmen.
 
 Hitta de andra värdena i Azure Portal:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-1. Gå till din standard översikts sida för blockchain-tjänst medlemmar.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+1. Gå till din standard **översikts** sida för blockchain-tjänst medlemmar.
 
     ![Medlems översikt](./media/manage-consortium-powershell/member-overview.png)
 
-    *Ersätt\<medlemskonto\>* och *RootContract-\> adress med värdena från portalen. \<*
+    Ersätt *\<Member Account @ no__t-2* och *\<RootContract Address @ no__t-5* med värdena från portalen.
 
 1. För slut punkts adress väljer du **Transaction**Nodes och väljer sedan **noden standard transaktion**. Standardnoden har samma namn som blockchain-medlemmen.
 1. Välj **anslutnings strängar**.
 
     ![Anslutningssträngar](./media/manage-consortium-powershell/connection-strings.png)
 
-    *Ersätt\<slut punkts adressen\>* med värdet från **https (åtkomst nyckel 1)** eller **https (åtkomst nyckel 2)** .
+    Ersätt *\<Endpoint-adressen @ no__t-2* med värdet från **https (åtkomst nyckel 1)** eller **https (åtkomst nyckel 2)** .
 
 ## <a name="manage-the-network-and-smart-contracts"></a>Hantera nätverket och smarta kontrakt
 
 Använd cmdletarna Network och smart-kontrakt för att upprätta en anslutning till blockchain-slutpunktens smarta kontrakt som är ansvariga för hantering av konsortiet.
 
-### <a name="import-consortiummanagementcontracts"></a>Import-ConsortiumManagementContracts
+### <a name="import-consortiummanagementcontracts"></a>Importera – ConsortiumManagementContracts
 
 Använd denna cmdlet för att ansluta till konsortiets hanterings smarta kontrakt. Dessa kontrakt används för att hantera och genomdriva medlemmar i konsortiet.
 
 `Import-ConsortiumManagementContracts -RootContractAddress <String> -Web3Client <IClient>`
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
 | RootContractAddress | Adress till rot kontrakt för de smarta avtalen för konsortiet Management | Ja |
 | Web3Client | Web3Client-objekt som hämtats från New-Web3Connection | Ja |
@@ -106,7 +106,7 @@ Använd denna cmdlet för att skapa ett objekt för att lagra informationen för
 
 `Import-Web3Account -ManagedAccountAddress <String> -ManagedAccountPassword <String>`
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
 | ManagedAccountAddress | Blockchain medlems konto adress | Ja |
 | ManagedAccountPassword | Konto adress lösen ord | Ja |
@@ -123,7 +123,7 @@ Använd denna cmdlet för att upprätta en anslutning till RPC-slutpunkten för 
 
 `New-Web3Connection [-RemoteRPCEndpoint <String>]`
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
 | RemoteRPCEndpoint | Blockchain medlems slut punkts adress | Ja |
 
@@ -143,13 +143,15 @@ Använd denna cmdlet för att hämta medlems information eller lista medlemmar i
 
 `Get-BlockchainMember [[-Name] <String>] -Members <IContract> -Web3Client <IClient>`
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
-| Name | Namnet på den blockchain-tjänst medlem som du vill hämta information om. När ett namn anges returneras medlemmens information. När ett namn utelämnas returneras en lista över alla konsortiums medlemmar. | Nej |
-| Members | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
+| Namn | Namnet på den blockchain-tjänst medlem som du vill hämta information om. När ett namn anges returneras medlemmens information. När ett namn utelämnas returneras en lista över alla konsortiums medlemmar. | Nej |
+| ledamöter | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Client | Web3Client-objekt som hämtats från New-Web3Connection | Ja |
 
 #### <a name="example"></a>Exempel
+
+[Upprätta en Web3-anslutning](#establish-a-web3-connection) för att ange variabeln $ContractConnection.
 
 ```powershell-interactive
 $ContractConnection | Get-BlockchainMember -Name <Member Name>
@@ -172,14 +174,16 @@ Använd denna cmdlet för att ta bort en blockchain-medlem.
 
 `Remove-BlockchainMember -Name <String> -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>`
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
-| Name | Medlems namn att ta bort | Ja |
-| Members | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
+| Namn | Medlems namn att ta bort | Ja |
+| ledamöter | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account-objekt som hämtats från import-Web3Account | Ja |
 | Web3Client | Web3Client-objekt som hämtats från New-Web3Connection | Ja |
 
 #### <a name="example"></a>Exempel
+
+[Upprätta en Web3-anslutning](#establish-a-web3-connection) för att ange $ContractConnection och $MemberAccount variabler.
 
 ```powershell-interactive
 $ContractConnection | Remove-BlockchainMember -Name <Member Name> -Web3Account $MemberAccount
@@ -196,16 +200,18 @@ Set-BlockchainMember -Name <String> [-DisplayName <String>] [-AccountAddress <St
  -Members <IContract> -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
-| Name | Namnet på blockchain-medlemmen | Ja |
+| Namn | Namnet på blockchain-medlemmen | Ja |
 | DisplayName | Nytt visnings namn | Nej |
 | AccountAddress | Konto adress | Nej |
-| Members | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
+| ledamöter | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account-objekt som hämtats från import-Web3Account | Ja |
 | Web3Client |  Web3Client-objekt som hämtats från New-Web3Connection| Ja |
 
 #### <a name="example"></a>Exempel
+
+[Upprätta en Web3-anslutning](#establish-a-web3-connection) för att ange $ContractConnection och $MemberAccount variabler.
 
 ```powershell-interactive
 $ContractConnection | Set-BlockchainMember -Name <Member Name> -DisplayName <Display name> -Web3Account $MemberAccount
@@ -224,15 +230,17 @@ New-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-prenumerations-ID för medlemmen att bjuda in | Ja |
-| Role | Konsortiet-rollen. Värden kan vara ADMIN eller användare. ADMIN är rollen som konsortiet administratör. ANVÄNDAREN är konsortiets medlems roll. | Ja |
-| Members | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
+| Roll | Konsortiet-rollen. Värden kan vara ADMIN eller användare. ADMIN är rollen som konsortiet administratör. ANVÄNDAREN är konsortiets medlems roll. | Ja |
+| ledamöter | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account-objekt som hämtats från import-Web3Account | Ja |
 | Web3Client | Web3Client-objekt som hämtats från New-Web3Connection | Ja |
 
 #### <a name="example"></a>Exempel
+
+[Upprätta en Web3-anslutning](#establish-a-web3-connection) för att ange $ContractConnection och $MemberAccount variabler.
 
 ```powershell-interactive
 $ContractConnection | New-BlockchainMemberInvitation -SubscriptionId <Azure Subscription ID> -Role USER -Web3Account $MemberAccount
@@ -244,13 +252,15 @@ Använd denna cmdlet för att hämta eller Visa en medlems status för en konsor
 
 `Get-BlockchainMemberInvitation [[-SubscriptionId] <String>] -Members <IContract> -Web3Client <IClient>`
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-prenumerations-ID för den medlem som ska bjudas in. Om prenumerations-ID: t anges returnerar det prenumerations-ID: t för inbjudan. Om prenumerations-ID: t utelämnas returneras en lista över alla medlems inbjudningar. | Nej |
-| Members | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
+| ledamöter | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Client | Web3Client-objekt som hämtats från New-Web3Connection | Ja |
 
 #### <a name="example"></a>Exempel
+
+[Upprätta en Web3-anslutning](#establish-a-web3-connection) för att ange variabeln $ContractConnection.
 
 ```powershell-interactive
 $ContractConnection | Get-BlockchainMemberInvitation – SubscriptionId <Azure subscription ID>
@@ -273,14 +283,16 @@ Remove-BlockchainMemberInvitation -SubscriptionId <String> -Members <IContract> 
  -Web3Client <IClient>
 ```
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-prenumerations-ID för den medlem som ska återkallas | Ja |
-| Members | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
+| ledamöter | Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account-objekt som hämtats från import-Web3Account | Ja |
 | Web3Client | Web3Client-objekt som hämtats från New-Web3Connection | Ja |
 
 #### <a name="example"></a>Exempel
+
+[Upprätta en Web3-anslutning](#establish-a-web3-connection) för att ange $ContractConnection och $MemberAccount variabler.
 
 ```powershell-interactive
 $ContractConnection | Remove-BlockchainMemberInvitation -SubscriptionId <Subscription ID> -Web3Account $MemberAccount
@@ -295,15 +307,17 @@ Set-BlockchainMemberInvitation -SubscriptionId <String> -Role <String> -Members 
  -Web3Account <IAccount> -Web3Client <IClient>
 ```
 
-| Parameter | Beskrivning | Obligatorisk |
+| Parameter | Beskrivning | Krävs |
 |-----------|-------------|:--------:|
 | SubscriptionId | Azure-prenumerations-ID för medlemmen att bjuda in | Ja |
-| Role | Ny konsortiums roll för inbjudan. Värden kan vara **användare** eller **administratör**. | Ja |
-| Members |  Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
+| Roll | Ny konsortiums roll för inbjudan. Värden kan vara **användare** eller **administratör**. | Ja |
+| ledamöter |  Medlemmar som hämtats från import-ConsortiumManagementContracts | Ja |
 | Web3Account | Web3Account-objekt som hämtats från import-Web3Account | Ja |
 | Web3Client | Web3Client-objekt som hämtats från New-Web3Connection | Ja |
 
 #### <a name="example"></a>Exempel
+
+[Upprätta en Web3-anslutning](#establish-a-web3-connection) för att ange $ContractConnection och $MemberAccount variabler.
 
 ```powershell-interactive
 $ContractConnection | Set-BlockchainMemberInvitation -SubscriptionId <Azure subscription ID> -Role USER -Web3Account $MemberAccount

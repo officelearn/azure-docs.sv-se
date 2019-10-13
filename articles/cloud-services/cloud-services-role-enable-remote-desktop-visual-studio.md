@@ -1,5 +1,5 @@
 ---
-title: Aktivera Anslutning till fjärrskrivbord för en roll i Azure Cloud Services
+title: Använd Visual Studio för att aktivera fjärr skrivbord för en roll (Azure Cloud Services)
 description: Så här konfigurerar du Azure Cloud Service-programmet för att tillåta fjärr skrivbords anslutningar
 services: cloud-services
 author: ghogen
@@ -12,17 +12,17 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 6a6d045513e3e91c5a8b2004e47378a097be8963
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ms.openlocfilehash: 96f71306c060a6a533a3ab1c0c54b49d74e5cd82
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69515911"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298399"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Aktivera Anslutning till fjärrskrivbord för en roll i Azure Cloud Services med Visual Studio
 
 > [!div class="op_single_selector"]
-> * [Azure Portal](cloud-services-role-enable-remote-desktop-new-portal.md)
+> * [Azure-portalen](cloud-services-role-enable-remote-desktop-new-portal.md)
 > * [PowerShell](cloud-services-role-enable-remote-desktop-powershell.md)
 > * [Visual Studio](cloud-services-role-enable-remote-desktop-visual-studio.md)
 
@@ -47,13 +47,13 @@ När du använder Visual Studio 2017 version 15,4 och tidigare kan du använda a
    > [!Note]
    > De certifikat som du behöver för en fjärr skrivbords anslutning skiljer sig från de certifikat som du använder för andra Azure-åtgärder. Remote Access-certifikatet måste ha en privat nyckel.
 
-5. Välj ett certifikat i listan eller Välj  **&lt;skapa... &gt;** . Om du skapar ett nytt certifikat anger du ett eget namn för det nya certifikatet när du uppmanas till det och väljer **OK**. Det nya certifikatet visas i list rutan.
+5. Välj ett certifikat i listan eller Välj **&lt;Create... &gt;** . Om du skapar ett nytt certifikat anger du ett eget namn för det nya certifikatet när du uppmanas till det och väljer **OK**. Det nya certifikatet visas i list rutan.
 
 6. Ange ett användar namn och ett lösen ord. Du kan inte använda ett befintligt konto. Använd inte "administratör" som användar namn för det nya kontot.
 
 7. Välj ett datum då kontot ska förfalla och efter vilket fjärr skrivbords anslutningar som ska blockeras.
 
-8. När du har angett all information som krävs väljer du **OK**. Visual Studio lägger till fjärr skrivbords inställningar till ditt projekt `.cscfg` och `.csdef` filer, inklusive lösen ordet som krypteras med det valda certifikatet.
+8. När du har angett all information som krävs väljer du **OK**. Visual Studio lägger till fjärr skrivbords inställningar till projektets `.cscfg`-och `.csdef`-filer, inklusive lösen ordet som krypteras med det valda certifikatet.
 
 9. Slutför alla återstående steg med knappen **Nästa** och välj sedan **publicera** när du är redo att publicera din moln tjänst. Om du inte är redo att publicera väljer du **Avbryt** och svarar **Ja** när du uppmanas att spara ändringarna. Du kan publicera moln tjänsten senare med de här inställningarna.
 
@@ -86,18 +86,18 @@ Du kan distribuera ett Cloud Service-projekt från en build-Server (till exempel
 
 Om du vill använda RDP-tillägget från Azure DevOps Services inkluderar du följande information i din build-pipeline:
 
-1. Ta `/p:ForceRDPExtensionOverPlugin=true` med i dina MSBuild-argument för att se till att distributionen fungerar med RDP-tillägget i stället för RDP-plugin-programmet. Exempel:
+1. Ta med `/p:ForceRDPExtensionOverPlugin=true` i dina MSBuild-argument för att se till att distributionen fungerar med RDP-tillägget i stället för RDP-plugin-programmet. Exempel:
 
     ```
     msbuild AzureCloudService5.ccproj /t:Publish /p:TargetProfile=Cloud /p:DebugType=None
         /p:SkipInvalidConfigurations=true /p:ForceRDPExtensionOverPlugin=true
     ```
 
-1. När du har skapat stegen lägger du till distributions steget **Azure Cloud Service** och anger dess egenskaper.
+1. När du har skapat stegen lägger du till **distributions steget Azure Cloud Service** och anger dess egenskaper.
 
-1. Efter distributions steget lägger du till ett **Azure PowerShell** -steg, anger egenskapen **visnings namn** till "Azure-distribution: Aktivera RDP-tillägg (eller ett annat lämpligt namn) och välj lämplig Azure-prenumeration.
+1. Efter distributions steget lägger du till ett **Azure PowerShell** -steg, anger egenskapen **visnings namn** till "Azure-distribution: aktivera RDP-tillägg" (eller ett annat lämpligt namn) och väljer lämplig Azure-prenumeration.
 
-1. Ange **skript typ** som "infogad" och klistra in koden nedan i fältet infogat **skript** . (Du kan också skapa en `.ps1` fil i projektet med det här skriptet, ange **skript typ** till "skript fil Sök väg" och ange **skript Sök vägen** så att den pekar på filen.)
+1. Ange **skript typ** som "infogad" och klistra in koden nedan i fältet infogat **skript** . (Du kan också skapa en `.ps1`-fil i projektet med det här skriptet, ange **skript typ** till "skript fil Sök väg" och ange **skript Sök vägen** så att den pekar på filen.)
 
     ```ps
     Param(

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: robb
 ms.subservice: alerts
-ms.openlocfilehash: 34997c130094b7e8b209b3ad3030038670d0a254
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.openlocfilehash: 19f17aff4f915f8a16ccf9d69b12a845d9493e96
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71702978"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299297"
 ---
 # <a name="action-rules-preview"></a>Åtgärds regler (förhands granskning)
 
@@ -67,13 +67,13 @@ Du kan också definiera filter för att begränsa dem till en viss delmängd av 
 
 Tillgängliga filter är: 
 
-* **Allvarlighets grad**: Alternativet för att välja en eller flera aviserings allvarlighets grader. **Allvarlighets grad = Sev1** innebär att åtgärds regeln gäller för alla aviseringar som angetts till Sev1.
-* **Övervaka tjänst**: Ett filter baserat på den ursprungliga övervaknings tjänsten. Det här filtret är också flera-Välj. Exempel: **Monitor Service = "Application Insights"** innebär att åtgärds regeln gäller för alla Application Insights-baserade aviseringar.
-* **Resurs typ**:  Ett filter baserat på en speciell resurs typ. Det här filtret är också flera-Välj. Till exempel innebär **resurs typ = "Virtual Machines"** att åtgärds regeln gäller för alla virtuella datorer.
-* **Varnings regel-ID**: Ett alternativ för att filtrera efter vissa aviserings regler med hjälp av Resource Manager-ID för varnings regeln.
-* **Övervaknings villkor**:  Ett filter för varnings instanser med antingen **utlöst** eller **löst** som övervaknings villkor.
-* **Beskrivning**: Ett regex-matchnings uttryck (reguljära uttryck) som definierar en sträng matchning mot beskrivningen, definierat som en del av varnings regeln. Beskrivningen innehåller t. ex. **"Prod"** att matcha alla aviseringar som innehåller strängen "Prod" i deras beskrivningar.
-* **Aviserings kontext (nytto Last)** : En regex-matchning som definierar en sträng matchning mot aviserings kontext fälten i en aviserings nytto Last. Till exempel **innehåller aviserings kontext (nytto Last) "Computer-01"** och matchar alla aviseringar vars nytto laster innehåller strängen "Computer-01".
+* **Allvarlighets grad**: möjlighet att välja en eller flera aviserings allvarlighets grader. **Allvarlighets grad = Sev1** innebär att åtgärds regeln gäller för alla aviseringar som angetts till Sev1.
+* **Övervaka tjänst**: ett filter som baseras på den ursprungliga övervaknings tjänsten. Det här filtret är också flera-Välj. Exempel: **Monitor Service = "Application Insights"** innebär att åtgärds regeln gäller för alla Application Insights-baserade aviseringar.
+* **Resurs typ**: ett filter baserat på en speciell resurs typ. Det här filtret är också flera-Välj. Till exempel innebär **resurs typ = "Virtual Machines"** att åtgärds regeln gäller för alla virtuella datorer.
+* **Varnings regel-ID**: ett alternativ för att filtrera efter vissa aviserings regler med hjälp av Resource Manager-ID för varnings regeln.
+* **Övervaknings villkor**: ett filter för varnings instanser med antingen **utlöst** eller **löst** som övervaknings villkor.
+* **Beskrivning**: ett regex-matchning (reguljärt uttryck) som definierar en sträng matchning mot beskrivningen, definierad som en del av varnings regeln. Beskrivningen innehåller t. ex. **"Prod"** att matcha alla aviseringar som innehåller strängen "Prod" i deras beskrivningar.
+* **Aviserings kontext (nytto Last)** : en regex-matchning som definierar en sträng matchning mot aviserings kontext fälten i en aviserings nytto Last. Till exempel **innehåller aviserings kontext (nytto Last) "Computer-01"** och matchar alla aviseringar vars nytto laster innehåller strängen "Computer-01".
 
 Dessa filter används tillsammans med varandra. Om du till exempel anger **resurs typen ' = Virtual Machines** och **allvarlighets grad ' = Sev0**har du filtrerat för alla **Sev0** -aviseringar endast på dina virtuella datorer. 
 
@@ -83,16 +83,16 @@ Dessa filter används tillsammans med varandra. Om du till exempel anger **resur
 
 Konfigurera sedan åtgärds regeln för antingen aviserings under tryckning eller stöd för åtgärds grupp. Du kan inte välja båda. Konfigurationen fungerar på alla aviserings instanser som matchar det tidigare definierade omfånget och filtren.
 
-#### <a name="suppression"></a>Åsidosättning
+#### <a name="suppression"></a>Under tryckning
 
 Om du väljer under **tryckning**konfigurerar du varaktigheten för under tryckning av åtgärder och aviseringar. Välj ett av följande alternativ:
-* **Från nu (alltid)** : Ignorerar alla meddelanden på obestämd tid.
-* **Vid en schemalagd tidpunkt**: Undertrycker aviseringar inom en uppdelad varaktighet.
-* **Med en upprepning**: Undertrycker ett återkommande schema för varje dag, varje vecka eller månad.
+* **Från nu (alltid)** : ignorerar alla meddelanden på obestämd tid.
+* **Vid en schemalagd tidpunkt**: undertrycker meddelanden inom en gränsad varaktighet.
+* **Med en upprepning**: ignorerar meddelanden på ett återkommande schema för varje dag, varje vecka eller månad.
 
 ![Under tryckning av åtgärds regel](media/alerts-action-rules/action-rules-new-rule-creation-flow-suppression.png)
 
-#### <a name="action-group"></a>Åtgärdsgrupp
+#### <a name="action-group"></a>Åtgärds grupp
 
 Om du väljer **Åtgärds grupp** i växlingen, lägger du till en befintlig åtgärds grupp eller skapar en ny. 
 
@@ -104,13 +104,13 @@ Om du väljer **Åtgärds grupp** i växlingen, lägger du till en befintlig åt
 ### <a name="action-rule-details"></a>Åtgärds regel information
 
 Konfigurera senast följande information för åtgärds regeln:
-* Name
+* Namn
 * Resurs grupp där den sparas
 * Beskrivning 
 
 ## <a name="example-scenarios"></a>Exempelscenarier
 
-### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Scenario 1: Under tryckning av aviseringar baserat på allvarlighets grad
+### <a name="scenario-1-suppression-of-alerts-based-on-severity"></a>Scenario 1: under tryckning av aviseringar baserat på allvarlighets grad
 
 Contoso vill ignorera aviseringar för alla Sev4-aviseringar på alla virtuella datorer i prenumerationens **ContosoSub** varje helg.
 
@@ -121,7 +121,7 @@ Contoso vill ignorera aviseringar för alla Sev4-aviseringar på alla virtuella 
     * Resurs typ = **Virtual Machines**
 * Under tryckning med upprepning inställd på veckovis, och **lördag** och **söndag** har marker ATS
 
-### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Scenario 2: Under tryckning av aviseringar baserat på aviserings kontext (nytto Last)
+### <a name="scenario-2-suppression-of-alerts-based-on-alert-context-payload"></a>Scenario 2: under tryckning av aviseringar baserat på aviserings kontext (nytto Last)
 
 Contoso vill undertrycka aviseringar för alla logg aviseringar som genererats för **dator-01** i **ContosoSub** i den oändliga som det går genom att underhålla.
 
@@ -132,7 +132,7 @@ Contoso vill undertrycka aviseringar för alla logg aviseringar som genererats f
     * Aviserings kontext (nytto Last) innehåller **dator-01**
 * Under tryckning har angetts till **från nu (alltid)**
 
-### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: Åtgärds grupp definierad i en resurs grupp
+### <a name="scenario-3-action-group-defined-at-a-resource-group"></a>Scenario 3: åtgärds grupp definierad i en resurs grupp
 
 Contoso har definierat [en mått avisering på en prenumerations nivå](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-overview#monitoring-at-scale-using-metric-alerts-in-azure-monitor). Men det vill definiera de åtgärder som utlöser specifikt för aviseringar som genereras från resurs gruppen **conto sorg**.
 
@@ -152,7 +152,7 @@ Du kan visa och hantera dina åtgärds regler från List visningen:
 
 Härifrån kan du aktivera, inaktivera eller ta bort åtgärds regler i skala genom att markera kryss rutan bredvid dem. När du väljer en åtgärds regel öppnas konfigurations sidan. Sidan hjälper dig att uppdatera åtgärds regelns definition och aktivera eller inaktivera den.
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
 Logg aviseringar som du skapar med alternativet [antal resultat](alerts-unified-log.md) genererar en enskild varnings instans genom att använda hela Sök resultatet (som kan sträcka sig över flera datorer). I det här scenariot, om en åtgärds regel använder filtret för **aviserings kontext (nytto Last)** , fungerar det på varnings instansen så länge det finns en matchning. I scenario 2, som beskrivs tidigare, om Sök resultaten för den genererade logg aviseringen innehåller både **dator-01** och **dator-02**, ignoreras hela meddelandet. Ingen avisering har genererats för **dator-02** alls.
 
@@ -162,16 +162,16 @@ Om du vill använda logg aviseringar med åtgärds regler skapar du logg aviseri
 
 ![Åtgärds regler och logg aviseringar (antal resultat)](media/alerts-action-rules/action-rules-log-alert-metric-measurement.png)
 
-## <a name="faq"></a>VANLIGA FRÅGOR OCH SVAR
+## <a name="faq"></a>FAQ
 
 ### <a name="while-im-configuring-an-action-rule-id-like-to-see-all-the-possible-overlapping-action-rules-so-that-i-avoid-duplicate-notifications-is-it-possible-to-do-that"></a>När jag konfigurerar en åtgärds regel skulle jag vilja se alla eventuella överlappande åtgärds regler så att jag undviker dubbla meddelanden. Är det möjligt att göra detta?
 
 När du har definierat ett omfång när du konfigurerar en åtgärds regel kan du se en lista över åtgärds regler som överlappar samma omfång (om det finns några). Denna överlappning kan vara något av följande alternativ:
 
-* En exakt matchning: Till exempel finns åtgärds regeln som du definierar och den överlappande åtgärds regeln i samma prenumeration.
-* En delmängd: Till exempel är åtgärds regeln som du definierar en prenumeration och den överlappande åtgärds regeln finns i en resurs grupp i prenumerationen.
-* En supermängd: Till exempel är åtgärds regeln som du definierar i en resurs grupp och den överlappande åtgärds regeln finns i den prenumeration som innehåller resurs gruppen.
-* En skärningspunkt: Till exempel finns åtgärds regeln som du definierar på **VM1** och **VM2**och den överlappande åtgärds regeln är på **VM2** och **VM3**.
+* En exakt matchning: till exempel den åtgärds regel som du definierar och den överlappande åtgärds regeln finns i samma prenumeration.
+* En delmängd: den åtgärds regel som du definierar är en prenumeration och den överlappande åtgärds regeln finns i en resurs grupp i prenumerationen.
+* En supermängd: till exempel är åtgärds regeln som du definierar i en resurs grupp och den överlappande åtgärds regeln finns i den prenumeration som innehåller resurs gruppen.
+* Ett snitt: till exempel är den åtgärds regel som du definierar för **VM1** och **VM2**, och den överlappande åtgärds regeln är på **VM2** och **VM3**.
 
 ![Överlappande åtgärds regler](media/alerts-action-rules/action-rules-overlapping.png)
 
@@ -179,10 +179,10 @@ När du har definierat ett omfång när du konfigurerar en åtgärds regel kan d
 
 När du har definierat mål resursen för aviserings regeln kan du se en lista över åtgärds regler som agerar på samma omfång (om det finns några) genom att välja **Visa konfigurerade åtgärder** under avsnittet **åtgärder** . Den här listan fylls i baserat på följande scenarier för omfånget:
 
-* En exakt matchning: Till exempel är aviserings regeln som du definierar och åtgärds regeln i samma prenumeration.
-* En delmängd: Varnings regeln som du definierar är till exempel en prenumeration och åtgärds regeln finns i en resurs grupp i prenumerationen.
-* En supermängd: Varnings regeln som du definierar är till exempel en resurs grupp och åtgärds regeln finns på den prenumeration som innehåller resurs gruppen.
-* En skärningspunkt: Varnings regeln som du definierar är till exempel på **VM1** och **VM2**och åtgärds regeln finns på **VM2** och **VM3**.
+* En exakt matchning: till exempel den varnings regel som du definierar och åtgärds regeln är i samma prenumeration.
+* En delmängd: den varnings regel du definierar är en prenumeration och åtgärds regeln finns i en resurs grupp i prenumerationen.
+* En supermängd: till exempel är den varnings regel du definierar en resurs grupp och åtgärds regeln finns i den prenumeration som innehåller resurs gruppen.
+* Ett snitt: till exempel är varnings regeln du definierar på **VM1** och **VM2**och åtgärds regeln finns på **VM2** och **VM3**.
     
 ![Överlappande åtgärds regler](media/alerts-action-rules/action-rules-alert-rule-overlapping.png)
 
@@ -198,22 +198,22 @@ Under tryckning prioriteras alltid i samma omfång.
 
 ### <a name="what-happens-if-i-have-a-resource-thats-monitored-in-two-separate-action-rules-do-i-get-one-or-two-notifications-for-example-vm2-in-the-following-scenario"></a>Vad händer om jag har en resurs som övervakas i två separata åtgärds regler? Får jag ett eller två meddelanden? Till exempel **VM2** i följande scenario:
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1
-      action rule AR2 defined for VM2 and VM3 with action group AG1"
+      action rule AR1 defined for VM1 and VM2 with action group AG1
+      action rule AR2 defined for VM2 and VM3 with action group AG1
 
 För varje varning på VM1 och VM3 utlöses åtgärds grupp AG1 en gång. För varje varning på **VM2**skulle åtgärds gruppen AG1 utlösas två gånger, eftersom åtgärds regler inte deduplicerar åtgärder. 
 
 ### <a name="what-happens-if-i-have-a-resource-monitored-in-two-separate-action-rules-and-one-calls-for-action-while-another-for-suppression-for-example-vm2-in-the-following-scenario"></a>Vad händer om jag har en resurs som övervakas i två separata åtgärds regler och ett anrop för åtgärd medan en annan för under tryckning? Till exempel **VM2** i följande scenario:
 
-      "action rule AR1 defined for VM1 and VM2 with action group AG1 
-      action rule AR2 defined for VM2 and VM3 with suppression"
+      action rule AR1 defined for VM1 and VM2 with action group AG1 
+      action rule AR2 defined for VM2 and VM3 with suppression
 
 För varje varning på VM1 skulle åtgärds gruppen AG1 utlösas en gång. Åtgärder och aviseringar för varje varning på VM2 och VM3 ignoreras. 
 
 ### <a name="what-happens-if-i-have-an-alert-rule-and-an-action-rule-defined-for-the-same-resource-calling-different-action-groups-for-example-vm1-in-the-following-scenario"></a>Vad händer om jag har en varnings regel och en åtgärds regel som definierats för samma resurs som anropar olika åtgärds grupper? Till exempel **VM1** i följande scenario:
 
-      "alert rule rule1 on VM1 with action group AG2
-      action rule AR1 defined for VM1 with action group AG1" 
+      alert rule rule1 on VM1 with action group AG2
+      action rule AR1 defined for VM1 with action group AG1 
  
 För varje varning på VM1 skulle åtgärds gruppen AG1 utlösas en gång. När varnings regeln "regel 1" utlöses, kommer den också att utlösa AG2. Åtgärds grupper som definieras i åtgärds regler och varnings regler fungerar oberoende, utan deduplicering. 
 

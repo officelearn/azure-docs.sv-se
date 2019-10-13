@@ -9,12 +9,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/04/2019
 ms.author: v-vasuke
-ms.openlocfilehash: 11e9fadc240b90ceb7e4a0e6690978dac9bae859
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 59770bccec57220560eeb5a5204e574ce172fc80
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255075"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296446"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-application-using-the-azure-portal"></a>Snabb start: starta ett Azure våren Cloud-program med hjälp av Azure Portal
 
@@ -59,6 +59,8 @@ az extension add -y --source https://azureclitemp.blob.core.windows.net/spring-c
 
 1. Öppna [den här länken till Azure våren Cloud i den Azure Portal](https://ms.portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=AppPlatformExtension#blade/Microsoft_Azure_Marketplace/MarketplaceOffersBlade/selectedMenuItemId/home/searchQuery/Azure%20Spring%20Cloud)i en webbläsare.
 
+    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/goto-portal.png)
+
 1. Välj **Azure våren Cloud** för att gå till översikts sidan. Välj sedan knappen **skapa** för att komma igång.
 
 1. Fyll i formuläret, med beaktande av följande rikt linjer:
@@ -74,6 +76,8 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 1. Gå till sidan tjänst **Översikt** och välj **konfigurations Server**.
 
 1. I avsnittet **standard databas** ställer du in **URI** till "https://github.com/Azure-Samples/piggymetrics", anger **etikett** till "config" och väljer **tillämpa** för att spara ändringarna.
+
+    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
 ## <a name="build-and-deploy-microservice-applications"></a>Utveckla och distribuera program för mikrotjänster
 
@@ -130,10 +134,15 @@ Det tar ungefär 5 minuter för tjänsten att distribueras.  När den har distri
 
 ## <a name="assign-a-public-endpoint-to-gateway"></a>Tilldela en offentlig slut punkt till gateway
 
-1. Öppna sidan för **program instrument panelen** .
-2. Välj programmet `gateway` för att visa sidan med **programinformation** .
-3. Välj **tilldela domän** för att tilldela en offentlig slut punkt till gateway. Detta kan några minuter. 
-4. Ange den tilldelade offentliga IP-adressen i webbläsaren för att visa det program som körs.
+1. Öppna fliken **appar** på menyn till vänster.
+2. Välj programmet `gateway` för att visa **översikts** sidan.
+3. Välj **tilldela domän** för att tilldela en offentlig slut punkt till gateway. Detta kan några minuter.
+
+    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
+
+1. Ange den tilldelade offentliga slut punkten (med etiketten **URL**) i webbläsaren för att visa programmet som körs.
+
+    ![Skärm bild av ASC-portalen](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 
 
 ## <a name="next-steps"></a>Nästa steg

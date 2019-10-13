@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 10/13/2019
 ms.author: rkarlin
-ms.openlocfilehash: b3ca93d9e70456d25d5f78b2ca1fde8e4ea24f8d
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: 5142204db86158937c16d19bf52fb677099598a5
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240206"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72284653"
 ---
 # <a name="connect-your-barracuda-appliance"></a>Anslut din Barracuda-apparat 
 
@@ -37,10 +37,7 @@ Barracuda WebApplication-brandvägg kan integrera och exportera loggar direkt ti
 1. Gå till [Barracuda WAF Configuration Flow](https://campus.barracuda.com/product/webapplicationfirewall/doc/73696965/configure-the-barracuda-web-application-firewall-to-integrate-with-the-oms-server-and-export-logs/)och följ anvisningarna för att konfigurera anslutningen med följande parametrar:
     - **Arbetsyte-ID**: kopiera värdet för ditt arbetsyte-ID från Azure Sentinel Barracuda Connector-sidan.
     - **Primär nyckel**: kopiera värdet för din primär nyckel från anslutnings sidan för Azure Sentinel Barracuda.
-2. På Azure Sentinel-portalen går du till arbets ytan där du distribuerade Azure Sentinel och väljer ellipsen (...) i slutet av raden och väljer **Avancerade inställningar**. 
-1. Välj **data** och sedan **syslog**.
-1. Se till att den funktion som du ställer in i Barracuda finns och ange allvarlighets grad och klicka på **Spara**.
-6. Om du vill använda det relevanta schemat i Log Analytics för Barracuda-händelserna söker du efter **CommonSecurityLog** och **barracuda_CL**.
+1. Om du vill använda det relevanta schemat i Log Analytics för Barracuda-händelserna söker du efter **CommonSecurityLog** och **barracuda_CL**.
 
 
 ## <a name="validate-connectivity"></a>Verifiera anslutning

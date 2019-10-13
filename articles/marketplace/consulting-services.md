@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.topic: article
 ms.date: 10/29/2018
 ms.author: pabutler
-ms.openlocfilehash: bc2be73f85ebec7785b9aa06d6152447eee7e33e
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: e23a83ab3a5b110f74ab4ac203dfc020e8920c24
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147292"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285977"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Konsult tjänster för Azure Marketplace och AppSource
 Konsult tjänster i Azure Marketplace och AppSource ger Microsoft-partner målet att ansluta kunder med tjänster för att stödja och utöka användningen av Azure och affärs mål. 
@@ -30,7 +30,7 @@ Marketplace-butiker justeras med mål grupper och Microsofts moln produkter som 
 |Relevans för lösning     |Tekniska appar som skapats för eller bygger på Azure|Affärsappar som utnyttjar/utökar D365, Power BI, O365, Azure. (Appar för att lägga till eller lägga till färdiga appar)|
 |Publicerings alternativ     |Kontakta mig, utvärderings version, Transact eller tjänster för Azure|Kontakta mig, utvärderings version eller tjänster för Dynamics 365 och Power BI|
 |I produkt miljö      |Hanteringsportalen för Azure|Dynamics 365, Office 365, Office-klientprogram| 
-|Annat      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics och Power BI|
+|Övrigt      |Lokal publicering via Azure Stack, konsult tjänster för Azure, hanterade tjänster för Azure|Konsult tjänster för Dynamics och Power BI|
 
 Konsult tjänster erbjuder som baseras på Microsoft Dynamics 365 och Power BI är berättigade att listas på Microsoft AppSource. Mer information finns i [rikt linjer för Microsoft AppSource Consulting Services-registrering](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf). 
 
@@ -52,8 +52,8 @@ Partner måste ha en silver- **eller guld kompetens** i det relevanta avsnittet 
 |Skaffa  |Lösnings områden  |
 |---------|---------|
 |Moln plattform och infrastruktur     |   Moln plattform, data Center      |
-|Program utveckling och ISV     |  Application Development, Application Integration, DevOps       |
-|Datahantering och analys    |  Data Analytics, Data Platform       |
+|Program utveckling och ISV     |  Program utveckling, program integrering, DevOps       |
+|Datahantering och analys    |  Data analys, data plattform       |
 
 
 **De kvalificerade kompetenserna anges i följande tabell för AppSource:**
@@ -64,7 +64,7 @@ Partner måste ha en silver- **eller guld kompetens** i det relevanta avsnittet 
 |Dynamics 365 för finanser och drift, Enterprise Edition  |  Silver-eller Gold- [företags resurs planerings](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) kompetens och en minimi inkomst på $25K i moln drift under de efterföljande 12 månaderna.       |
 |Dynamics 365 för finanser och drift, Business Edition  |  Tjäna som [moln tjänst leverantör (CSP)](https://partner.microsoft.com/cloud-solution-provider) eller [digital partner of Record (DPOR)](https://partner.microsoft.com/membership/digital-partner-of-record) för minst en kund      |
 |Power BI Power BI anpassade visuella objekt | Uppfyller [villkoren för lösnings partner](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf).|
-|PowerApps | Ha en presentations lösning med publicerad [partner](https://appsource.microsoft.com/partners)
+|PowerApps | Ha en [presentations](https://appsource.microsoft.com/partners) lösning med publicerad partner
 
 <b>Mer information finns i avsnittet om [kompetenser via Microsoft Partner Network](https://partner.microsoft.com/membership/competencies).</b>
  
@@ -73,13 +73,12 @@ Partner måste ha en silver- **eller guld kompetens** i det relevanta avsnittet 
 
 |Berättigade länder/regioner |   |   |   |
 |---------|----------|----------|----------|
-|Australien |Frankrike  |     Mexico          |Spanien       |
+|Australien |Frankrike  |     Mexiko          |Spanien       |
 |Belgien   |Tyskland |     Nederländerna     |Sverige       |
-|Kanada    |Indien   |     Nya Zeeland     |Storbritannien och Nordirland  |
+|Kanada    |Indien   |     Nya Zeeland     |Storbritannien  |
 |Danmark   |Italien   |     Norge          |USA |
 |Finland   |Japan   |     Polen          
 
-Lanseringen av konsult tjänster går live i en speciell geo-region. Första lanseringen är: USA, Kanada, Storbritannien och Australien. Katalogerna för andra länder/regioner börjar gälla efter ett meningsfullt antal och övertygande val av tjänst erbjudanden har skickats av partner och godkänts av Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Så här registrerar du för konsult tjänster i Azure Marketplace och AppSource
 Börja med att [Registrera](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/azureisv) företags informationen på Marketplace. Utgivare kan referera till [en utgivare på Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher)för en fullständig check lista över registrerings krav. 
@@ -114,44 +113,44 @@ Innan registreringen kan du börja samla in och förbereda det innehåll som hj�
 ## <a name="publishing-process"></a>Publicerings process
 Att lista ditt konsult tjänst erbjudande på Azure Marketplace och AppSource omfattar följande steg:
 
-1. **Lista**: Börja att skapa en ny erbjudande lista genom att logga in på ditt [Cloud Partner Portal](https://cloudpartner.azure.com) -konto. Välj "nytt erbjudande" och "konsult tjänster" på den nedrullningsbara menyn. Ange din lista artefakt och publicera.
-2. **Verifiering**: Din begäran granskas för att säkerställa att du uppfyller villkoren för berättigande. Vi skickar sedan instruktioner för att lista ditt konsult tjänst erbjudande. 
+1. **Lista**: börja skapa en ny erbjudande lista genom att logga in på ditt [Cloud Partner Portal](https://cloudpartner.azure.com) -konto. Välj "nytt erbjudande" och "konsult tjänster" på den nedrullningsbara menyn. Ange din lista artefakt och publicera.
+2. **Verifiering**: din begäran granskas för att säkerställa att du uppfyller villkoren för berättigande. Vi skickar sedan instruktioner för att lista ditt konsult tjänst erbjudande. 
 3. **Skicka**: Ange nödvändig information som anges i anvisningarna. Allt innehåll och stöd material måste skickas på engelska. 
-4. **Granska**: Vår marknadsförings-och redaktionell-grupp granskar ditt bidrag och optimerar den för läsbarhet, grammatik och effektivitet. 
-5. **Mellanlagring**: Ditt bidrag mellanlagras för din granskning. 
-6. **Publicera**: När du och Microsoft är nöjd med det mellanlagrade innehållet är registreringen redo att användas i Marketplace. Hur Live-datumet för din lista är beror på vilket land/region som anges i ditt erbjudande. Om katalogen för det valda landet/regionen redan finns på Azure Marketplace eller AppSource visas din lista inom några timmar. Annars visas listan så fort katalogen är Live.
+4. **Granska**: vår marknadsförings-och redaktionell-grupp granskar ditt bidrag och optimerar den för läsbarhet, grammatik och effektivitet. 
+5. **Mellanlagring**: ditt bidrag mellanlagras för din granskning. 
+6. **Publicera**: när du och Microsoft är nöjd med det mellanlagrade innehållet är registreringen redo att användas i Marketplace. Hur Live-datumet för din lista är beror på vilket land/region som anges i ditt erbjudande. Om katalogen för det valda landet/regionen redan finns på Azure Marketplace eller AppSource visas din lista inom några timmar. Annars visas listan så fort katalogen är Live.
 
 ## <a name="offer-listings-and-content-review-criteria"></a>Erbjudande listor och innehålls gransknings kriterier
 Erbjudanden måste vara av någon av följande fem tjänst typer (du kan lista fler än en): 
 
-* **Utvärdering**: En utvärdering av kundens miljö för att fastställa tillämpligheten för en lösning och ge en uppskattning av kostnader och tids inställningar. 
-* **Kort**: En introduktion till en lösning eller en konsult tjänst som kan dra nytta av kundernas intresse genom att använda ramverk, demonstrationer och kund exempel. 
-* **Implementering**: En fullständig installation som resulterar i en helt fungerande lösning. Vi rekommenderar att du begränsar det till lösningar som kan implementeras på två veckor eller mindre. 
-* **Koncept bevis**: En begränsad omfattning för att avgöra om en lösning uppfyller kundens krav. 
-* **Workshop**: Ett interaktivt engagemang som utförs på en kunds lokala. Det kan omfatta utbildning, kortfattade, utvärderingar eller demonstrationer som bygger på kundens data eller miljö. 
+* **Utvärdering**: en utvärdering av en kunds miljö för att fastställa tillämpligheten för en lösning och ge en uppskattning av kostnader och tids inställningar. 
+* **Kort**: en introduktion till en lösning eller en konsult tjänst för att dra nytta av kundernas intresse genom att använda ramverk, demonstrationer och kund exempel. 
+* **Implementering**: en fullständig installation som resulterar i en helt fungerande lösning. Vi rekommenderar att du begränsar det till lösningar som kan implementeras på två veckor eller mindre. 
+* **Koncept bevis**: en begränsad omfattning för att avgöra om en lösning uppfyller kundens krav. 
+* **Workshop**: ett interaktivt engagemang som utförs på en kunds lokala. Det kan omfatta utbildning, kortfattade, utvärderingar eller demonstrationer som bygger på kundens data eller miljö. 
 
-**Obs:** Med undantag för *den specifika* tjänst typen kan konsult tjänster erbjudas personligen (dvs. på plats på en kunds plats eller på en partners anläggning) eller i stort sett (dvs. via telefon konferens, webb konferens eller fjärrimplementering). Kort måste erbjudas personligen.
+**Obs:** *Med undantag för den specifika* tjänst typen kan konsult tjänster erbjudas personligen (dvs. på plats på en kunds plats eller på en partners anläggning) eller i stort sett (dvs. via telefon konferens, webb konferens eller fjärrimplementering). Kort måste erbjudas personligen.
 
 När du har konfigurerat de element som anges ovan, kontrollerar innehålls gransknings teamet att din erbjudande beskrivning är informativ och slutförd för mål gruppen. 
 
 #### <a name="listing-title"></a>Rubrik för registrering
 
-Rubrik fältet innehåller en gräns på 50 tecken och måste överföra erbjudandet för varaktighet och tjänst för att kunna maximera optimering av sökmotor. Det begärda formatet är följande: NAMN: VARAKTIGHETS TYP
+Rubrik fältet innehåller en gräns på 50 tecken och måste överföra erbjudandet för varaktighet och tjänst för att kunna maximera optimering av sökmotor. Det begärda formatet är följande: namn: VARAKTIGHETs typ
 
 Exempel:
 
 
 |Exempel rubrik  |Felaktigt format  |
 |---------|---------|
-|Komma igång med Azure IoT i tillverkning    |   IoT-tillverkning: Utvärderings period på två dagar      |
-|Workshop på smarta popups        |  Smarta popups: 1 – veckor workshop       |
+|Komma igång med Azure IoT i tillverkning    |   IoT för produktion: 2 dagars utvärdering      |
+|Workshop på smarta popups        |  Smarta popup-användare: 1 – veckor workshop       |
 |  PoC för SQL Server migrering    | SQL-migrering: 3 – veckor proof of Concept        |
 
 #### <a name="listing-summaries-and-descriptions"></a>Visa sammanfattningar och beskrivningar
 
 När du ska granska erbjudande beskrivningar och erbjudande sammanfattningar, kommer teamet att tillämpa följande kriterier:
 
-|Erbjudandetyp  |Obligatorisk |Rekommenderas  |
+|Erbjudandetyp  |Krävs |Rekommenderad  |
 |---------|---------|---------|
 |**Utvärdering**    |   Ta med en detaljerad agenda för flera dagar eller flera vecko bedömningar, och tydliggör vilken slut produkt som kunden kan förväntar sig      |    Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering     |
 |**Genom gång**    |   Tydliggör vilken slut produkt som kunden kan förväntar sig. Kom ihåg att du måste erbjuda en person. Om du tillhandahåller en virtuell tjänst väljer du en annan erbjudande typ    |  Optimera din erbjudande Sammanfattning med dina bästa nyckelord för sökmotor optimering       |

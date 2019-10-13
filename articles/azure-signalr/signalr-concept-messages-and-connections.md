@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: zhshang
-ms.openlocfilehash: e82ce8f5c97aed7e2cb832d8e808ff84691f7c9e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2785d85db47ed3b214044e673566a2837b83e984
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61401210"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285484"
 ---
 # <a name="messages-and-connections-in-azure-signalr-service"></a>Meddelanden och anslutningar i Azure SignalR Service
 
@@ -20,7 +20,7 @@ Faktureringsmodellen för Azure SignalR Service baseras på antalet anslutningar
 
 ## <a name="message-formats"></a>Meddelandeformat 
 
-Azure SignalR Service stöder samma format som ASP.NET Core SignalR: [JSON](https://www.json.org/) och [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
+Azure SignalR service stöder samma format som ASP.NET Core Signalerare: [JSON](https://www.json.org/) och [MessagePack](/aspnet/core/signalr/messagepackhubprotocol).
 
 ## <a name="message-size"></a>Meddelandestorlek
 
@@ -42,13 +42,15 @@ Det antal meddelanden som visas i Azure-portalen förblir 0 tills det överstige
 
 ## <a name="how-connections-are-counted"></a>Så räknas anslutningar
 
-Det finns serveranslutningar och klientanslutningar. Som standard har varje programserver fem anslutningar per hubb med Azure SignalR Service, och varje klient har en klientanslutning med Azure SignalR Service.
+Det finns Server anslutningar och klient anslutningar med Azure SignalR-tjänsten. Som standard startar varje program server med fem första anslutningar per hubb och varje klient har en klient anslutning.
 
 Det antal anslutningar som visas i Azure-portalen omfattar både serveranslutningar och klientanslutningar.
 
-Anta som exempel att du har två programservrar och att du definierar fem hubbar i kod. Antalet serveranslutningar blir då 50: 2 appservrar * 5 hubbar * 5 anslutningar per hubb.
+Anta som exempel att du har två programservrar och att du definierar fem hubbar i kod. Antalet Server anslutningar är 50:2 App-servrar * 5 hubbar * 5 anslutningar per hubb.
 
-ASP.NET SignalR beräknar serveranslutningar på ett annat sätt. Det omfattar en standardhubb utöver de hubbar som du definierar. Som standard behöver varje programserver fem fler serveranslutningar. Antalet anslutningar för standardhubben hålls konsekvent med antalet för de andra hubbarna.
+ASP.NET SignalR beräknar serveranslutningar på ett annat sätt. Det omfattar en standardhubb utöver de hubbar som du definierar. Som standard behöver varje program Server fem fler inledande Server anslutningar. Det första antalet anslutningar för standard navet förblir konsekvent med det andra hubbens.
+
+Under program serverns livs längd behåller tjänsten och program servern synkroniseringens anslutnings status och gör justeringar till Server anslutningar för bättre prestanda och service stabilitet. Så du kan se ändringar av serverns anslutnings nummer från tid till tid.
 
 ## <a name="how-inboundoutbound-traffic-is-counted"></a>Så räknas inkommande/utgående trafik
 

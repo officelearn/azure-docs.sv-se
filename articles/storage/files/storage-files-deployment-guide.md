@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 05/22/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 802b4deb91f1df784ac0aed2952d3f915b54ce73
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 3ce754a67643f4506fa825f0780969dc4a06f826
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699705"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299580"
 ---
 # <a name="how-to-deploy-azure-files"></a>Så här distribuerar du Azure Files
-[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade filresurser i molnet som är tillgängliga via SMB-protokollet som är branschstandard. I den här artikeln får du se hur du praktiskt taget distribuerar Azure Files i din organisation.
+[Azure Files](storage-files-introduction.md) erbjuder fullständigt hanterade fil resurser i molnet som är tillgängliga via SMB-protokollet enligt bransch standard. I den här artikeln får du se hur du praktiskt taget distribuerar Azure Files i din organisation.
 
 Vi rekommenderar starkt att du [planerar att läsa en Azure Files distribution](storage-files-planning.md) innan du följer stegen i den här artikeln.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 Den här artikeln förutsätter att du redan har slutfört följande steg:
 
 - Skapade ett Azure Storage-konto med önskade återhämtnings-och krypterings alternativ i den region som du vill använda. Se [skapa ett lagrings konto](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) för steg-för-steg-instruktioner om hur du skapar ett lagrings konto.
@@ -63,9 +63,9 @@ Följande steg kommer att importera data från en lokal plats till Azure-filresu
     "F:\shares\scratch\","MyAzureFileShare/",file,rename,"None",None
     ```
 
-    Du kan ange flera resurser med ett lagrings konto. Mer information finns i [förbereda CSV-filen för data mängden](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-the-dataset-csv-file) .
+    Du kan ange flera resurser med ett lagrings konto. Mer information finns i [förbereda CSV-filen för data mängden](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
 
-5. Skapa CSV-filen driveset. Driveset CSV-filen listar de diskar som är tillgängliga för den lokala export agenten. Till exempel innehåller följande driveset CSV-fil listor `X:`, `Y:`och `Z:` enheter som ska användas i det lokala export jobbet:
+5. Skapa CSV-filen driveset. Driveset CSV-filen listar de diskar som är tillgängliga för den lokala export agenten. Till exempel visar följande driveset CSV-fil `X:`, `Y:` och @no__t 2 enheter som ska användas i det lokala export jobbet:
 
     ```
     DriveLetter,FormatOption,SilentOrPromptOnFormat,Encryption,ExistingBitLockerKey
@@ -74,7 +74,7 @@ Följande steg kommer att importera data från en lokal plats till Azure-filresu
     Z,Format,SilentMode,Encrypt,
     ```
     
-    Mer information finns i [förbereda CSV-filen för driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#prepare-initialdriveset-or-additionaldriveset-csv-file) .
+    Mer information finns i [förbereda CSV-filen för driveset](../common/storage-import-export-tool-preparing-hard-drives-import.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) .
 
 6. Använd [WAImportExport-verktyget](https://www.microsoft.com/download/details.aspx?id=55280) för att kopiera dina data till en eller flera hård diskar.
 
@@ -90,7 +90,7 @@ Följande steg kommer att importera data från en lokal plats till Azure-filresu
 ### <a name="robocopy"></a>Robocopy
 Robocopy är ett välkänt kopierings verktyg som levereras med Windows och Windows Server. Robocopy kan användas för att överföra data till Azure Files genom att montera fil resursen lokalt och sedan använda den monterade platsen som mål i Robocopy-kommandot. Det är ganska enkelt att använda Robocopy:
 
-1. [Montera Azure](storage-how-to-use-files-windows.md)-filresursen. För optimala prestanda rekommenderar vi att du monterar Azure-filresursen lokalt på den server som innehåller data. I vissa fall, till exempel när den fil server som hanterar data är en NAS-enhet, är det inte säkert att det är möjligt. I så fall är det perfekt att montera Azure-filresursen på en dator. I det här exemplet `net use` används på kommando raden för att montera fil resursen:
+1. [Montera Azure-filresursen](storage-how-to-use-files-windows.md). För optimala prestanda rekommenderar vi att du monterar Azure-filresursen lokalt på den server som innehåller data. I vissa fall, till exempel när den fil server som hanterar data är en NAS-enhet, är det inte säkert att det är möjligt. I så fall är det perfekt att montera Azure-filresursen på en dator. I det här exemplet används `net use` på kommando raden för att montera fil resursen:
 
     ```
     net use <desired-drive-letter>: \\<storage-account-name>.file.core.windows.net\<share-name> <storage-account-key> /user:Azure\<storage-account-name>
@@ -129,7 +129,7 @@ För att ersätta en lokal fil resurs är det bra att Förmontera resurserna på
 > Att montera en Azure-filresurs kräver att du använder lagrings konto nyckeln som lösen ord, och därför rekommenderar vi bara montering i betrodda miljöer. 
 
 ### <a name="windows"></a>Windows
-PowerShell kan användas för att köra monterings kommandot på flera datorer. I följande exempel `$computers` fylls manuellt i, men du kan skapa en lista med datorer som ska monteras automatiskt. Du kan till exempel fylla i den här variabeln med resultat från Active Directory.
+PowerShell kan användas för att köra monterings kommandot på flera datorer. I följande exempel fylls `$computers` av manuellt, men du kan skapa en lista med datorer som ska monteras automatiskt. Du kan till exempel fylla i den här variabeln med resultat från Active Directory.
 
 ```powershell
 $computer = "MyComputer1", "MyComputer2", "MyComputer3", "MyComputer4"
@@ -137,7 +137,7 @@ $computer | ForEach-Object { Invoke-Command -ComputerName $_ -ScriptBlock { net 
 ```
 
 ### <a name="linux"></a>Linux
-Ett enkelt bash-skript kombinerat med SSH kan ge samma resultat i följande exempel. `$computer` Variabeln lämnas på samma sätt som användaren fyller i:
+Ett enkelt bash-skript kombinerat med SSH kan ge samma resultat i följande exempel. Den `$computer`-variabeln lämnas på samma sätt som användaren fyller i:
 
 ```
 computer = ("MyComputer1" "MyComputer2" "MyComputer3" "MyComputer4")

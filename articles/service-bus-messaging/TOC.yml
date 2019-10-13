@@ -91,6 +91,8 @@
       href: service-bus-async-messaging.md
     - name: Hantera avbrott och katastrofer
       href: service-bus-outages-disasters.md
+    - name: Begränsning
+      href: service-bus-throttling.md
     - name: Säkerhet
       items:
         - name: Autentisering och auktorisering

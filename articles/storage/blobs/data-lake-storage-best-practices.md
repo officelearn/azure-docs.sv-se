@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: normesta
 ms.reviewer: sachins
-ms.openlocfilehash: 1f1db1c347709ed7c8587ed8b5523a231e373999
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: ac4e126c7ecbd1fc781db74e5b19635b273bbb34
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69991875"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299670"
 ---
 # <a name="best-practices-for-using-azure-data-lake-storage-gen2"></a>Metod tips för att använda Azure Data Lake Storage Gen2
 
-I den här artikeln får du lära dig mer om bästa praxis och överväganden för att arbeta med Azure Data Lake Storage Gen2. Den här artikeln innehåller information kring säkerhet, prestanda, återhämtning och övervakning för Data Lake Storage Gen2. Innan Data Lake Storage Gen2 arbetar du med verkligt stor data i tjänster som Azure HDInsight var komplex. Du var tvungen att Shard data över flera Blob Storage-konton så att petabyte-lagring och optimala prestanda vid denna skala skulle kunna uppnås. Med Data Lake Storage Gen2 tas de flesta hård gränserna för storlek och prestanda bort. Det finns dock fortfarande vissa överväganden som beskrivs i den här artikeln så att du kan få bästa möjliga prestanda med Data Lake Storage Gen2.
+I den här artikeln får du lära dig mer om bästa praxis och överväganden för att arbeta med Azure Data Lake Storage Gen2. Den här artikeln innehåller information kring säkerhet, prestanda, återhämtning och övervakning för Data Lake Storage Gen2. Innan Data Lake Storage Gen2 arbetar du med verkligt stor data i tjänster som Azure HDInsight var komplex. Du var tvungen att Shard data över flera Blob Storage-konton så att petabyte-lagring och optimala prestanda vid denna skala skulle kunna uppnås. Data Lake Storage Gen2 stöder enskilda fil storlekar så högt som 5TB och de flesta hård gränserna för prestanda har tagits bort. Det finns dock fortfarande vissa överväganden som beskrivs i den här artikeln så att du kan få bästa möjliga prestanda med Data Lake Storage Gen2.
 
 ## <a name="security-considerations"></a>Säkerhetsöverväganden
 
@@ -39,7 +39,7 @@ Azure Active Directory tjänstens huvud namn används vanligt vis av tjänster s
 
 ### <a name="enable-the-data-lake-storage-gen2-firewall-with-azure-service-access"></a>Aktivera Data Lake Storage Gen2 brand vägg med åtkomst till Azure-tjänsten
 
-Data Lake Storage Gen2 stöder möjligheten att aktivera en brand vägg och begränsa åtkomsten till Azure-tjänster, vilket rekommenderas för att begränsa den externa attackens vektor. Brand väggen kan aktive ras på ett lagrings konto i Azure Portal via **brand väggen** > **Aktivera brand vägg (på)**  > **Tillåt åtkomst till alternativen för Azure-tjänster** .
+Data Lake Storage Gen2 stöder möjligheten att aktivera en brand vägg och begränsa åtkomsten till Azure-tjänster, vilket rekommenderas för att begränsa den externa attackens vektor. Brand väggen kan aktive ras på ett lagrings konto i Azure Portal via **brand väggs** > **Aktivera brand vägg (på)**  > **Tillåt åtkomst till Azure-tjänster** .
 
 Om du vill komma åt ditt lagrings konto från Azure Databricks distribuerar du Azure Databricks till ditt virtuella nätverk och lägger sedan till det virtuella nätverket i brand väggen. Se [konfigurera Azure Storage brand väggar och virtuella nätverk](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
@@ -47,7 +47,7 @@ Om du vill komma åt ditt lagrings konto från Azure Databricks distribuerar du 
 
 När du skapar ett system med Data Lake Storage Gen2 eller en moln tjänst måste du ta hänsyn till dina tillgänglighets krav och hur du svarar på potentiella avbrott i tjänsten. Ett problem kan lokaliseras till den aktuella instansen eller till och med hela regionen, så det är viktigt att du har en plan för båda. Beroende på återställnings tid och återställnings punkt mål service avtal för din arbets belastning kan du välja en mer eller mindre aggressiv strategi för hög tillgänglighet och haveri beredskap.
 
-### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och haveriberedskap
+### <a name="high-availability-and-disaster-recovery"></a>Hög tillgänglighet och katastrofåterställning
 
 Hög tillgänglighet (HA) och haveri beredskap (DR) kan ibland kombineras tillsammans, även om var och en har en annorlunda strategi, särskilt när den kommer till data. Data Lake Storage Gen2 hanterar redan 3x-replikering under huven för att skydda mot lokaliserade maskin varu problem. Dessutom kan andra replikeringsalternativ, till exempel ZRS eller GZRS (för hands version), förbättra HA, medan GRS & RA-GRS förbättra DR. När du skapar en plan för HA, i händelse av en tjänst avbrott, behöver arbets belastningen till gång till den senaste informationen så snabbt som möjligt genom att växla över till en separat replikerad instans lokalt eller i en ny region.
 
@@ -65,7 +65,7 @@ Kopierings jobb kan utlösas av Apache Oozie-arbetsflöden med frekvens eller da
 
 Azure Data Factory kan också användas för att schemalägga kopierings jobb med en kopierings aktivitet och kan till och med konfigureras på en frekvens via guiden Kopiera. Tänk på att Azure Data Factory har en gräns för moln data förflyttnings enheter (DMUs) och till och med till och med till och med för stora data arbets belastningar. Dessutom erbjuder Azure Data Factory för närvarande inte delta uppdateringar mellan Data Lake Storage Gen2-konton, så kataloger som Hive-tabeller kräver en fullständig kopiering för att replikeras. Mer information om hur du kopierar med Data Factory hittar du i [artikeln Data Factory](../../data-factory/load-azure-data-lake-storage-gen2.md) .
 
-## <a name="monitoring-considerations"></a>Överväganden för övervakning
+## <a name="monitoring-considerations"></a>Övervaknings överväganden
 
 Data Lake Storage Gen2 tillhandahåller mått i Azure Portal under Data Lake Storage Gen2-kontot och i Azure Monitor. Tillgängligheten för Data Lake Storage Gen2 visas i Azure Portal. För att få den senaste tillgängliga tillgängligheten för ett Data Lake Storage Gen2-konto måste du köra dina egna syntetiska tester för att verifiera tillgänglighet. Andra mått, till exempel den totala lagrings användningen, Läs-och skriv förfrågningar och ingående/utgående, är tillgängliga för användning av övervakningsprogram och kan även utlösa aviseringar när tröskelvärden (till exempel genomsnittlig svars tid eller antal fel per minut) överskrids.
 

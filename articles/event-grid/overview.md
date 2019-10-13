@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 05/25/2019
 ms.author: babanisa
 ms.custom: seodec18
-ms.openlocfilehash: b262a06bc3d80bd1f8105c6629bbc07e6ccd34eb
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c00c1ecf001162964b01a3e858534fa502b7484c
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67077146"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285855"
 ---
 # <a name="what-is-azure-event-grid"></a>Vad är Azure Event Grid?
 
@@ -22,7 +22,7 @@ Med Azure Event Grid kan du enkelt skapa program med händelsebaserade arkitektu
 
 Du kan använda filter för att dirigera specifika händelser till olika slutpunkter, använda multicast till flera slutpunkter och kontrollera att din händelser levereras på ett tillförlitligt sätt.
 
-Azure Event Grid distribueras för att maximera tillgängligheten genom att sprida internt via flera feldomäner i varje region och mellan tillgänglighetszoner (i regioner som stöder dem). Azure Event Grid är för närvarande tillgängligt i alla offentliga regioner. Det är inte ännu tillgängliga i Azure Germany, Azure Kina 21Vianet eller Azure Government-moln.
+Azure Event Grid distribueras för att maximera tillgängligheten genom att sprida sig internt över flera fel domäner i varje region, och över tillgänglighets zoner (i regioner som stöder dem). En lista över regioner som stöds av Event Grid finns i [produkt tillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/?products=event-grid&regions=all).
 
 Den här artikeln innehåller en översikt för Azure Event Grid. Om du vill komma igång med Event Grid kan du läsa [Skapa och dirigera anpassade händelser med Azure Event Grid](custom-event-quickstart.md). 
 
@@ -34,15 +34,15 @@ Den här bilden illustrerar hur Event Grid ansluter källor och hanterare och ä
 
 Fullständig information om funktionerna för varje källa samt relaterade artiklar finns i avsnittet om [händelsekällor](event-sources.md). För närvarande stöder följande Azure-tjänster att skicka händelser till Event Grid:
 
-* [Azure-prenumerationer (åtgärder)](event-sources.md#azure-subscriptions)
+* [Azure-prenumerationer (hanterings åtgärder)](event-sources.md#azure-subscriptions)
 * [Container Registry](event-sources.md#container-registry)
 * [Anpassade ämnen](event-sources.md#custom-topics)
 * [Event Hubs](event-sources.md#event-hubs)
 * [IoT Hub](event-sources.md#iot-hub)
 * [Media Services](event-sources.md#media-services)
-* [Resursgrupper (åtgärder)](event-sources.md#resource-groups)
+* [Resurs grupper (hanterings åtgärder)](event-sources.md#resource-groups)
 * [Service Bus](event-sources.md#service-bus)
-* [Storage Blob](event-sources.md#storage)
+* [Storage BLOB](event-sources.md#storage)
 * [Azure Maps](event-sources.md#maps)
 
 ## <a name="event-handlers"></a>Händelsehanterare
@@ -56,10 +56,10 @@ Fullständig information om funktionerna för varje hanterare samt relaterade ar
 * [Logic Apps](event-handlers.md#logic-apps)
 * [Microsoft Flow](https://preview.flow.microsoft.com/connectors/shared_azureeventgrid/azure-event-grid/)
 * [Queue Storage](event-handlers.md#queue-storage)
-* [Service Bus](event-handlers.md#service-bus-queue-preview) (förhandsversion)
+* [Service Bus](event-handlers.md#service-bus-queue-preview) (för hands version)
 * [WebHooks](event-handlers.md#webhooks)
 
-## <a name="concepts"></a>Begrepp
+## <a name="concepts"></a>Koncept
 
 Det finns fem begrepp i Azure Event Grid som hjälper dig igång:
 
@@ -71,7 +71,7 @@ Det finns fem begrepp i Azure Event Grid som hjälper dig igång:
 
 Mer information om de här begreppen finns i [Begrepp i Azure Event Grid](concepts.md).
 
-## <a name="capabilities"></a>Funktioner
+## <a name="capabilities"></a>Kapacitet
 
 Här följer några viktiga funktioner i Azure Event Grid:
 
@@ -102,7 +102,7 @@ Event Grid kopplar samman datakällor och händelsehanterare. Använd till exemp
 
 Event Grid ger snabbare automatisering och enklare principtillämpning. Använd till exempel Event Grid för att meddela Azure Automation när en virtuell dator eller SQL-databas skapas. Använd de här händelserna för att automatiskt kontrollera att tjänstkonfigurationer följer standard, placera metadata i åtgärdsverktyg, tagga virtuella datorer eller arkivera arbetsobjekt.
 
-### <a name="application-integration"></a>Integrering av program
+### <a name="application-integration"></a>Integrering av applikationer
 
 ![Integrering av program med Azure](./media/overview/app_integration.png)
 

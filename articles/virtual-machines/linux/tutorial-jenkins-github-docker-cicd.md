@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 03/27/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 3d0b67227c8e80f23f111ec889f8cb1541b15f94
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 875285b6a168d9aa9820d660d9c366a36545d319
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100773"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299421"
 ---
 # <a name="tutorial-create-a-development-infrastructure-on-a-linux-vm-in-azure-with-jenkins-github-and-docker"></a>Självstudier: Skapa en infrastruktur för utveckling på en virtuell Linux-dator i Azure med Jenkins, GitHub och Docker
 
@@ -34,7 +34,7 @@ Om du vill automatisera versionen och testfasen i programutvecklingen kan du anv
 > * Skapa en Docker-avbildning för appen
 > * Verifiera att GitHub-incheckningar skapar ny Docker-avbildning och att uppdateringar kör appen
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 

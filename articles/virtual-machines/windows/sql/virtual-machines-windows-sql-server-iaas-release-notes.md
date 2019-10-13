@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/01/2019
-ms.openlocfilehash: f680eae7f8c4cc2b57e3238a14b793f9b4298a79
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: f5f8985a0b9a97c559016add2567a936220aa910
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828597"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300095"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Dokumentations ändringar för SQL Server på Azure Virtual Machines
 
@@ -26,14 +26,15 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="october-2019"></a>Oktober 2019
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Prestandaoptimerad lagrings konfiguration** | Du kan nu [helt anpassa lagrings konfigurationen](virtual-machines-windows-sql-server-storage-configuration.md#new-vms) när du skapar en ny SQL Server VM. |
+| **Premium-filresurs för FCI** | Nu kan du skapa en instans av ett kluster för växling vid fel med [Premium-filresursen](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md) i stället för den ursprungliga [Lagringsdirigerings](virtual-machines-windows-portal-sql-create-failover-cluster.md)metoden. 
 | &nbsp; | &nbsp; |
 
 ## <a name="august-2019"></a>2019 augusti
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Dedikerad Azure-värd** | Du kan köra SQL Server VM på en [dedikerad Azure-värd](virtual-machines-windows-sql-dedicated-host.md). |
 | &nbsp; | &nbsp; |
@@ -42,7 +43,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 ## <a name="july-2019"></a>Juli 2019
 
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Flytta SQL VM till en annan region** | Använd Azure Site Recovery för att [migrera SQL Server VM från en region till en annan](virtual-machines-windows-sql-move-different-region.md). |
 | &nbsp; | &nbsp; |
@@ -50,7 +51,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 ## <a name="june-2019"></a>2019 juni
 
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Nya installations lägen för SQL-IaaS** | Nu är det möjligt att installera SQL Server IaaS-tillägget i [lättviktigt läge](virtual-machines-windows-sql-server-agent-extension.md) för att undvika att starta om tjänsten SQL Server.  |
 | **Ändring av SQL Servers utgåva** | Nu kan du ändra [egenskapen version](virtual-machines-windows-sql-change-edition.md) för SQL Server VM. |
@@ -61,7 +62,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="may-2019"></a>Maj 2019
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Ny SQL Server VM hantering i Azure Portal** | Det finns nu ett sätt att hantera dina SQL Server VM i Azure Portal. Mer information finns i [hantera SQL Server virtuella datorer i Azure Portal](virtual-machines-windows-sql-manage-portal.md).  | 
 | &nbsp; | &nbsp; |
@@ -70,7 +71,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="april-2019"></a>April 2019
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Utökat stöd för SQL Server 2008/2008 R2** | [Utöka stödet](virtual-machines-windows-sql-server-2008-eos-extend-support.md) för SQL Server 2008 och SQL Server 2008 R2 genom att migrera *som* en virtuell Azure-dator. | 
 | &nbsp; | &nbsp; |
@@ -78,7 +79,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="march-2019"></a>Mars 2019
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Anpassad avbildnings support** | Nu kan du installera [SQL Server IaaS-tillägget](virtual-machines-windows-sql-server-agent-extension.md#installation) för anpassade OS-och SQL-avbildningar, som erbjuder begränsade funktioner i [flexibel licensiering](virtual-machines-windows-sql-ahb.md). När du registrerar din anpassade avbildning med SQL-adressresursen anger du licens typen "AHUB". Annars Miss kommer registreringen. | 
 | **Stöd för namngiven instans** | Du kan nu använda [tillägget SQL Server IaaS](virtual-machines-windows-sql-server-agent-extension.md#installation) med en namngiven instans, om standard instansen har avinstallerats på rätt sätt. | 
@@ -88,7 +89,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ## <a name="february-2019"></a>Februari 2019
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Portal förbättring** | Det är nu möjligt att ändra licensierings modellen för en SQL Server VM från betala per användning för att få en egen licens genom att använda [Azure Portal](virtual-machines-windows-sql-ahb.md#change-the-license-for-vms-already-registered-with-the-resource-provider).|
 |**Förenkling av tillgänglighets grupps distribution med Azure SQL Server VM CLI** | Nu är det enklare än någonsin att distribuera en tillgänglighets grupp till en SQL Server VM i Azure. Du kan använda [Azure CLI](/cli/azure/sql/vm?view=azure-cli-2018-03-01-hybrid) för att skapa Windows-redundanskluster, en intern belastningsutjämnare och tillgänglighets grupps lyssnare från kommando raden. Mer information finns i [använda Azure SQL Server VM CLI för att konfigurera en Always on-tillgänglighets grupp för SQL Server på en virtuell Azure-dator](virtual-machines-windows-sql-availability-group-cli.md). | 
@@ -99,7 +100,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ### <a name="december-2018"></a>December 2018
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Ny resurs leverantör för ett SQL Server kluster** | En ny Resource Provider (Microsoft. SqlVirtualMachine/SqlVirtualMachineGroups) definierar metadata för Windows-redundansklustret. När du ansluter en SQL Server VM till *SqlVirtualMachineGroups* startar du WSFC-tjänsten (Windows Server failover Cluster) och ansluter den virtuella datorn till klustret.  |
 |**Automatiserad installation av en tillgänglighets grupps distribution med Azure snabb starts mallar** |Nu kan du skapa Windows-redundansklustret, ansluta SQL Server virtuella datorer till den, skapa lyssnaren och konfigurera den interna belastningsutjämnaren med två Azure snabb starts mallar. Mer information finns i [använda Azures snabb starts mallar för att konfigurera en tillgänglighets grupp som alltid är tillgänglig för SQL Server på en virtuell Azure-dator](virtual-machines-windows-sql-availability-group-quickstart-template.md). | 
@@ -109,7 +110,7 @@ Med Azure kan du distribuera en virtuell dator (VM) med en avbildning av SQL Ser
 
 ### <a name="november-2018"></a>November 2018
 
-| Ändringar | Information |
+| Något | Information |
 | --- | --- |
 | **Ny provider för SQL VM-resurs** |  En ny Resource Provider (Microsoft. SqlVirtualMachine) ger bättre hantering av dina SQL Server virtuella datorer. Mer information om hur du registrerar dina virtuella datorer finns i [Registrera en SQL Server virtuell dator i Azure med providern för SQL VM-resurs](virtual-machines-windows-sql-register-with-resource-provider.md). |
 |**Växla licensierings modell** | Nu kan du växla mellan modellerna betala per användning och hämta egna licenser för din SQL Server VM med hjälp av Azure CLI eller PowerShell. Mer information finns i [så här ändrar du licensierings modellen för en SQL Server virtuell dator i Azure](virtual-machines-windows-sql-ahb.md). | 

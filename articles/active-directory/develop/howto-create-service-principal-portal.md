@@ -16,14 +16,14 @@ ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a28354f54978e8ba776d8b0da294652ff462a05f
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 14c3f90918d246a63d50af7b3542e8e74d5fbcf1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68853445"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295516"
 ---
-# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser
+# <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser
 
 Den här artikeln visar hur du skapar ett nytt Azure Active Directory (Azure AD)-program och tjänstens huvud namn som kan användas med rollbaserad åtkomst kontroll. När du har kod som behöver åtkomst till eller ändra resurser kan du skapa en identitet för appen. Den här identiteten kallas tjänstens huvudnamn. Du kan sedan tilldela de behörigheter som krävs för tjänstens huvud namn. Den här artikeln visar hur du använder portalen för att skapa tjänstens huvud namn. Den fokuserar på ett program med en enda klient där programmet är avsett att köras endast inom en organisation. Du använder vanligt vis program med en enda klient för branschspecifika program som körs i din organisation.
 
@@ -38,7 +38,7 @@ Nu ska vi gå direkt till att skapa identiteten. Om du stöter på ett problem k
 1. Välj **Azure Active Directory**.
 1. Välj **Appregistreringar**.
 1. Välj **ny registrering**.
-1. Ge programmet ett namn. Välj en kontotyp som stöds, vilket avgör vem som kan använda programmet. Under omdirigerings- **URI**väljer du **webb** för den typ av program som du vill skapa. Ange URI: n där åtkomsttoken skickas till. Du kan inte skapa autentiseringsuppgifter för ett [internt program](../manage-apps/application-proxy-configure-native-client-application.md). Du kan inte använda den typen för ett automatiskt program. När du har angett värdena väljer du **Registrera**.
+1. Ge programmet ett namn. Välj en kontotyp som stöds, vilket avgör vem som kan använda programmet. Under **omdirigerings-URI**väljer du **webb** för den typ av program som du vill skapa. Ange URI: n där åtkomsttoken skickas till. Du kan inte skapa autentiseringsuppgifter för ett [internt program](../manage-apps/application-proxy-configure-native-client-application.md). Du kan inte använda den typen för ett automatiskt program. När du har angett värdena väljer du **Registrera**.
 
    ![Ange ett namn för ditt program](./media/howto-create-service-principal-portal/create-app.png)
 
@@ -48,9 +48,9 @@ Du har skapat ditt Azure AD-program och tjänstens huvud namn.
 
 Du måste tilldela programmet till en roll för att få åtkomst till resurser i din prenumeration. Bestäm vilken roll som har rätt behörigheter för programmet. Mer information om tillgängliga roller finns i [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md).
 
-Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre nivåer av omfång. Om du till exempel lägger till ett program till rollen läsare för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller.
+Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resursen. Behörigheter ärvs till lägre omfattnings nivåer. Om du till exempel lägger till ett program till rollen läsare för en resurs grupp innebär det att den kan läsa resurs gruppen och alla resurser som den innehåller.
 
-1. Navigera till den omfattnings nivå som du vill tilldela programmet till. Om du till exempel vill tilldela en roll i prenumerations omfånget väljer du **alla tjänster** och prenumerationer.
+1. Navigera till den omfattnings nivå som du vill tilldela programmet till. Om du till exempel vill tilldela en roll i prenumerations omfånget väljer du **alla tjänster** och **prenumerationer**.
 
    ![Tilldela till exempel en roll i prenumerations omfånget](./media/howto-create-service-principal-portal/select-subscription.png)
 
@@ -60,13 +60,13 @@ Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resurs
 
    Om du inte ser den prenumeration du letar efter väljer du **globala prenumerations filter**. Kontrol lera att den prenumeration du vill använda är vald för portalen.
 
-1. Välj **åtkomstkontroll (IAM)** .
-1. Välj **Lägg till rolltilldelning**.
+1. Välj **Åtkomstkontroll (IAM)** .
+1. Välj **Lägg till roll tilldelning**.
 1. Välj den roll som du vill tilldela till programmet. Om du vill tillåta att programmet kör åtgärder som **starta om**, **Starta** och **stoppa** instanser väljer du **deltagar** rollen. Som standard visas inte Azure AD-program i de tillgängliga alternativen. Du hittar ditt program genom att söka efter namnet och välja det.
 
    ![Välj den roll som ska tilldelas programmet](./media/howto-create-service-principal-portal/select-role.png)
 
-1. Välj **spara** Slutför tilldela rollen. Du ser ditt program i listan över användare som har tilldelats en roll för det omfånget.
+1. Välj **Spara** för att slutföra tilldelningen av rollen. Du ser ditt program i listan över användare som har tilldelats en roll för det omfånget.
 
 Tjänstens huvud namn har kon figurer ATS. Du kan börja använda den för att köra skript eller appar. Nästa avsnitt visar hur du hämtar värden som behövs när du loggar in program mässigt.
 
@@ -132,7 +132,7 @@ Om inställningen för appens registrering är inställd på **Nej**kan endast a
 
 ### <a name="check-azure-subscription-permissions"></a>Kontrol lera behörigheter för Azure-prenumeration
 
-I din Azure-prenumeration måste ditt konto ha `Microsoft.Authorization/*/Write` åtkomst för att tilldela en AD-App till en roll. Den här åtgärden beviljas genom rollen [Ägare](../../role-based-access-control/built-in-roles.md#owner) eller [Administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator). Om ditt konto har tilldelats rollen **deltagare** , har du inte tillräcklig behörighet. Du får ett fel meddelande när du försöker tilldela tjänstens huvud namn till en roll.
+I din Azure-prenumeration måste ditt konto ha `Microsoft.Authorization/*/Write`-åtkomst för att tilldela en AD-App till en roll. Den här åtgärden beviljas genom rollen [Ägare](../../role-based-access-control/built-in-roles.md#owner) eller [Administratör för användaråtkomst](../../role-based-access-control/built-in-roles.md#user-access-administrator). Om ditt konto har tilldelats rollen **deltagare** , har du inte tillräcklig behörighet. Du får ett fel meddelande när du försöker tilldela tjänstens huvud namn till en roll.
 
 Så här kontrollerar du dina prenumerations behörigheter:
 
@@ -150,6 +150,5 @@ Så här kontrollerar du dina prenumerations behörigheter:
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Information om hur du konfigurerar ett program för flera innehavare finns i [Developer ' s Guide to Authorization with Azure Resource Manager API](../../azure-resource-manager/resource-manager-api-authentication.md).
 * Information om hur du anger säkerhets principer finns i [Azure Role-based Access Control](../../role-based-access-control/role-assignments-portal.md).  
 * En lista över tillgängliga åtgärder som kan beviljas eller nekas till användare finns i [Azure Resource Manager Resource Provider-åtgärder](../../role-based-access-control/resource-provider-operations.md).

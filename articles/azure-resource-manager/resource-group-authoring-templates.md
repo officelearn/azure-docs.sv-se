@@ -4,14 +4,14 @@ description: Beskriver strukturen och egenskaperna för Azure Resource Manager m
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 09/30/2019
+ms.date: 10/09/2019
 ms.author: tomfitz
-ms.openlocfilehash: b6d479935bc9e4bd731b93d3e027644b9ca4dbe0
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: e5ef3dcd7c2eec08237d5eb31fb95a0e450d9ac9
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694981"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286713"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Förstå strukturen och syntaxen för Azure Resource Manager mallar
 
@@ -36,16 +36,16 @@ I sin enklaste struktur har en mall följande element:
 }
 ```
 
-| Elementnamn | Krävs | Beskrivning |
+| Element namn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| $schema |Ja |Platsen för JSON-schemafilen som beskriver versionen av mallens språk.<br><br> För resurs grupps distributioner använder du:`https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>För prenumerations distributioner använder du:`https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
+| $schema |Ja |Platsen för JSON-schemafilen som beskriver versionen av mallens språk.<br><br> För resurs grupps distributioner använder du: `https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#`<br><br>För prenumerations distributioner använder du: `https://schema.management.azure.com/schemas/2018-05-01/subscriptionDeploymentTemplate.json#` |
 | contentVersion |Ja |Version av mallen (till exempel 1.0.0.0). Du kan ange valfritt värde för det här elementet. Använd det här värdet om du vill dokumentera viktiga ändringar i mallen. När du distribuerar resurser med hjälp av mallen kan det här värdet användas för att se till att rätt mall används. |
 | apiProfile |Nej | En API-version som fungerar som en samling av API-versioner för resurs typer. Använd det här värdet för att undvika att behöva ange API-versioner för varje resurs i mallen. När du anger en API-profil version och inte anger en API-version för resurs typen, använder Resource Manager API-versionen för den resurs typ som definieras i profilen.<br><br>Egenskapen API Profile är särskilt användbar när du distribuerar en mall till olika miljöer, till exempel Azure Stack och globala Azure. Använd API Profile-versionen för att kontrol lera att din mall automatiskt använder versioner som stöds i båda miljöerna. En lista över aktuella API-profiler och de resurs-API-versioner som definierats i profilen finns i [API-profil](https://github.com/Azure/azure-rest-api-specs/tree/master/profile).<br><br>Mer information finns i [spåra versioner med hjälp av API-profiler](templates-cloud-consistency.md#track-versions-using-api-profiles). |
 | [parameters](#parameters) |Nej |Värden som anges när distributionen körs för att anpassa resurs distributionen. |
-| [variables](#variables) |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallarnas språk uttryck. |
+| [användarvariabler](#variables) |Nej |Värden som används som JSON-fragment i mallen för att förenkla mallarnas språk uttryck. |
 | [funktionen](#functions) |Nej |Användardefinierade funktioner som är tillgängliga i mallen. |
-| [resources](#resources) |Ja |Resurs typer som distribueras eller uppdateras i en resurs grupp eller prenumeration. |
-| [outputs](#outputs) |Nej |Värden som returneras efter distribution. |
+| [resurser](#resources) |Ja |Resurs typer som distribueras eller uppdateras i en resurs grupp eller prenumeration. |
+| [utdata](#outputs) |Nej |Värden som returneras efter distribution. |
 
 Varje element har egenskaper som du kan ange. I den här artikeln beskrivs mallens avsnitt mer detaljerat.
 
@@ -66,23 +66,23 @@ Tillgängliga egenskaper för en parameter är:
     "minLength": <minimum-length-for-string-or-array>,
     "maxLength": <maximum-length-for-string-or-array-parameters>,
     "metadata": {
-      "description": "<description-of-the parameter>" 
+      "description": "<description-of-the parameter>"
     }
   }
 }
 ```
 
-| Elementnamn | Krävs | Beskrivning |
+| Element namn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| parameter-Name |Ja |Parameterns namn. Måste vara en giltig JavaScript-identifierare. |
-| type |Ja |Typ av parameter värde. De tillåtna typerna och värdena är **String**, **SecureString**, **int**, **bool**, **Object**, **secureObject**och **array**. Se [data typer](#data-types). |
-| defaultValue |Nej |Standardvärdet för parametern, om det inte finns något värde för parametern. |
+| parameter-Name |Ja |Parameterns namn. Måste vara ett giltigt JavaScript-ID. |
+| typ |Ja |Typ av parameter värde. De tillåtna typerna och värdena är **String**, **SecureString**, **int**, **bool**, **Object**, **secureObject**och **array**. Se [data typer](#data-types). |
+| Standar |Nej |Standardvärdet för parametern, om det inte finns något värde för parametern. |
 | allowedValues |Nej |Matris med tillåtna värden för parametern för att kontrol lera att rätt värde har angetts. |
 | minValue |Nej |Det minsta värdet för int-typ parametrar, detta värde är inkluderat. |
 | maxValue |Nej |Det maximala värdet för int-typ parametrar, detta värde är inkluderat. |
 | minLength |Nej |Den minsta längden för parametrar av typen sträng, säker sträng och mat ris typ, detta värde är inkluderat. |
-| maxLength |Nej |Den maximala längden för parametrar av typen sträng, säker sträng och mat ris typ, detta värde är inkluderat. |
-| description |Nej |Beskrivning av den parameter som visas för användarna via portalen. Mer information finns i [kommentarer i mallar](#comments). |
+| Max |Nej |Den maximala längden för parametrar av typen sträng, säker sträng och mat ris typ, detta värde är inkluderat. |
+| beskrivning |Nej |Beskrivning av den parameter som visas för användarna via portalen. Mer information finns i [kommentarer i mallar](#comments). |
 
 Exempel på hur du använder parametrar finns [i parametrar i Azure Resource Manager mallar](template-parameters.md).
 
@@ -107,8 +107,8 @@ I följande exempel visas tillgängliga alternativ för att definiera en variabe
 ```json
 "variables": {
   "<variable-name>": "<variable-value>",
-  "<variable-name>": { 
-    <variable-complex-type-value> 
+  "<variable-name>": {
+    <variable-complex-type-value>
   },
   "<variable-object-name>": {
     "copy": [
@@ -129,11 +129,11 @@ I följande exempel visas tillgängliga alternativ för att definiera en variabe
 }
 ```
 
-Information om hur du `copy` använder för att skapa flera värden för en variabel finns i [variabel iteration](resource-group-create-multiple.md#variable-iteration).
+Information om hur du använder `copy` för att skapa flera värden för en variabel finns i [variabel iteration](resource-group-create-multiple.md#variable-iteration).
 
 Exempel på hur du använder variabler finns [i variabler i Azure Resource Manager mall](template-variables.md).
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
 I mallen kan du skapa egna funktioner. Dessa funktioner är tillgängliga för användning i din mall. Vanligt vis definierar du komplicerade uttryck som du inte vill upprepa i hela mallen. Du kan skapa användardefinierade funktioner från uttryck och [funktioner](resource-group-template-functions.md) som stöds i mallar.
 
@@ -167,13 +167,13 @@ När du definierar en användar funktion finns det vissa begränsningar:
 ],
 ```
 
-| Elementnamn | Krävs | Beskrivning |
+| Element namn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
 | namnområde |Ja |Namn område för anpassade funktioner. Används för att undvika namn konflikter med mall funktioner. |
-| funktions namn |Ja |Namnet på den anpassade funktionen. När du anropar funktionen kombinerar du funktions namnet med namn området. Om du till exempel vill anropa en funktion med namnet uniqueName i namn området contoso `"[contoso.uniqueName()]"`, använder du. |
+| funktions namn |Ja |Namnet på den anpassade funktionen. När du anropar funktionen kombinerar du funktions namnet med namn området. Om du till exempel vill anropa en funktion med namnet uniqueName i namn området contoso, använder du `"[contoso.uniqueName()]"`. |
 | parameter-Name |Nej |Namnet på parametern som ska användas i den anpassade funktionen. |
 | parameter-värde |Nej |Typ av parameter värde. De tillåtna typerna och värdena är **String**, **SecureString**, **int**, **bool**, **Object**, **secureObject**och **array**. |
-| typ av utdata |Ja |Typ av utdatavärde. Utmatnings värden har stöd för samma typer som indataparametrarna för funktionen. |
+| typ av utdata |Ja |Typ av utmatnings värde. Utmatnings värden har stöd för samma typer som indataparametrarna för funktionen. |
 | utmatnings värde |Ja |Mallens språk uttryck som utvärderas och returneras från funktionen. |
 
 Exempel på hur du använder anpassade funktioner finns i [användardefinierade funktioner i Azure Resource Manager mall](template-user-defined-functions.md).
@@ -238,28 +238,28 @@ Du definierar resurser med följande struktur:
 ]
 ```
 
-| Elementnamn | Krävs | Beskrivning |
+| Element namn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| condition | Nej | Booleskt värde som anger om resursen ska tillhandahållas under distributionen. När `true`skapas resursen under distributionen. När `false`hoppas resursen över för den här distributionen. Se [villkor](conditional-resource-deployment.md). |
+| moduletype | Nej | Booleskt värde som anger om resursen ska tillhandahållas under distributionen. När `true` skapas resursen under distributionen. När `false` hoppas resursen över för den här distributionen. Se [villkor](conditional-resource-deployment.md). |
 | apiVersion |Ja |Den version av REST API som ska användas för att skapa resursen. Information om vilka värden som är tillgängliga finns i [referens för mallar](/azure/templates/). |
-| type |Ja |Typ av resurs. Det här värdet är en kombination av resurs leverantörens namn område och resurs typ (till exempel **Microsoft. Storage/storageAccounts**). Information om vilka värden som är tillgängliga finns i [referens för mallar](/azure/templates/). För en underordnad resurs är formatet för typen beroende av om den är kapslad i den överordnade resursen eller definieras utanför den överordnade resursen. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
-| name |Ja |Namnet på resursen. Namnet måste följa de URI-komponentparametrar som definierats i RFC3986. Azure-tjänster som visar resurs namnet för utomstående parter verifierar namnet för att se till att det inte är ett försök att använda en annan identitet. För en underordnad resurs är formatet på namnet beroende av om det är kapslat i den överordnade resursen eller definierats utanför den överordnade resursen. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
+| typ |Ja |Typ av resurs. Det här värdet är en kombination av resurs leverantörens namn område och resurs typ (till exempel **Microsoft. Storage/storageAccounts**). Information om vilka värden som är tillgängliga finns i [referens för mallar](/azure/templates/). För en underordnad resurs är formatet för typen beroende av om den är kapslad i den överordnade resursen eller definieras utanför den överordnade resursen. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
+| namn |Ja |Namn på resursen. Namnet måste följa de URI-komponentparametrar som definierats i RFC3986. Azure-tjänster som visar resurs namnet för utomstående parter verifierar namnet för att se till att det inte är ett försök att använda en annan identitet. För en underordnad resurs är formatet på namnet beroende av om det är kapslat i den överordnade resursen eller definierats utanför den överordnade resursen. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
 | location |Varierar |Geo-platser som stöds för den angivna resursen. Du kan välja någon av de tillgängliga platserna, men vanligt vis är det bra att välja en som är nära dina användare. Vanligt vis är det också bra att placera resurser som interagerar med varandra i samma region. De flesta resurs typer kräver en plats, men vissa typer (till exempel en roll tilldelning) kräver ingen plats. Se [Ange resurs plats](resource-location.md). |
-| taggar |Nej |Taggar som är associerade med resursen. Använd taggar för att logiskt organisera resurser i din prenumeration. |
+| tags |Nej |Taggar som är associerade med resursen. Använd taggar för att logiskt organisera resurser i din prenumeration. |
 | Comment |Nej |Dina anteckningar om att dokumentera resurserna i mallen. Mer information finns i [kommentarer i mallar](resource-group-authoring-templates.md#comments). |
-| kopiera |Nej |Om fler än en instans behövs, antalet resurser som ska skapas. Standard läget är parallellt. Ange serie läge när du inte vill att alla eller resurserna ska distribueras samtidigt. Mer information finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
+| exemplar |Nej |Om fler än en instans behövs, antalet resurser som ska skapas. Standard läget är parallellt. Ange serie läge när du inte vill att alla eller resurserna ska distribueras samtidigt. Mer information finns i [skapa flera instanser av resurser i Azure Resource Manager](resource-group-create-multiple.md). |
 | dependsOn |Nej |Resurser som måste distribueras innan den här resursen distribueras. Resource Manager utvärderar beroenden mellan resurser och distribuerar dem i rätt ordning. När resurserna inte är beroende av varandra distribueras de parallellt. Värdet kan vara en kommaavgränsad lista över resurs namn eller resurs unika identifierare. Endast List resurser som har distribuerats i den här mallen. Resurser som inte har definierats i den här mallen måste redan finnas. Undvik att lägga till onödiga beroenden eftersom de kan minska distributionen och skapa cirkulära beroenden. Anvisningar om hur du ställer in beroenden finns i [definiera beroenden i Azure Resource Manager mallar](resource-group-define-dependencies.md). |
 | properties |Nej |Resurs-/regionsspecifika konfigurations inställningar. Värdena för egenskaperna är desamma som de värden som du anger i begär ande texten för åtgärden REST API (metoden sätt) för att skapa resursen. Du kan också ange en kopierad matris för att skapa flera instanser av en egenskap. Information om vilka värden som är tillgängliga finns i [referens för mallar](/azure/templates/). |
 | sku | Nej | Vissa resurser tillåter värden som definierar SKU: n som ska distribueras. Du kan till exempel ange typen av redundans för ett lagrings konto. |
-| type | Nej | Vissa resurser tillåter ett värde som definierar vilken typ av resurs du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB som ska skapas. |
-| plan | Nej | Vissa resurser tillåter värden som definierar den plan som ska distribueras. Du kan till exempel ange Marketplace-avbildningen för en virtuell dator. | 
-| resurser |Nej |Underordnade resurser som är beroende av den resurs som definieras. Ange endast resurs typer som tillåts av schemat för den överordnade resursen. Beroendet av den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
+| metod | Nej | Vissa resurser tillåter ett värde som definierar vilken typ av resurs du distribuerar. Du kan till exempel ange vilken typ av Cosmos DB som ska skapas. |
+| projektplan | Nej | Vissa resurser tillåter värden som definierar den plan som ska distribueras. Du kan till exempel ange Marketplace-avbildningen för en virtuell dator. |
+| Resurser |Nej |Underordnade resurser som är beroende av den resurs som definieras. Ange endast resurs typer som tillåts av schemat för den överordnade resursen. Beroendet av den överordnade resursen är inte underförstådd. Du måste uttryckligen definiera det beroendet. Se [Ange namn och typ för underordnade resurser](child-resource-name-type.md). |
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Utdata
 
-I Outputs-avsnittet anger du värden som returneras från distributionen. Normalt returnerar du värden från resurser som har distribuerats.
+I avsnittet utdata anger du värden som returneras från distributionen. Normalt returnerar du värden från resurser som har distribuerats.
 
-I följande exempel visar strukturen för en utdata-definition:
+I följande exempel visas strukturen för en utmatnings definition:
 
 ```json
 "outputs": {
@@ -271,12 +271,12 @@ I följande exempel visar strukturen för en utdata-definition:
 }
 ```
 
-| Elementnamn | Krävs | Beskrivning |
+| Element namn | Krävs | Beskrivning |
 |:--- |:--- |:--- |
-| utmatnings namn |Ja |Namnet på värdet. Måste vara en giltig JavaScript-identifierare. |
-| condition |Nej | Booleskt värde som anger om det här värdet returneras. När `true`är värdet inkluderat i utdata för distributionen. När `false`ignoreras värdet för utdata för den här distributionen. Om inget värde anges är `true`standardvärdet. |
-| type |Ja |Typ av utdatavärde. Utdatavärden stöder samma datatyper som mall indataparametrar. Om du anger **SecureString** för utdatatypen visas inte värdet i distributions historiken och kan inte hämtas från en annan mall. Om du vill använda ett hemligt värde i fler än en mall lagrar du hemligheten i en Key Vault och refererar till hemligheten i parameter filen. Mer information finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](resource-manager-keyvault-parameter.md). |
-| value |Ja |Mallspråksuttrycket som utvärderas och returneras som utdatavärde. |
+| utmatnings namn |Ja |Namn på utdata. Måste vara ett giltigt JavaScript-ID. |
+| moduletype |Nej | Booleskt värde som anger om det här värdet returneras. När `true` inkluderas värdet i utdata för distributionen. När `false` hoppas värdet utdata över för den här distributionen. Om inget värde anges är standardvärdet `true`. |
+| typ |Ja |Typ av utmatnings värde. Utmatnings värden har stöd för samma typer som indataparametrarna för mallar. Om du anger **SecureString** för utdatatypen visas inte värdet i distributions historiken och kan inte hämtas från en annan mall. Om du vill använda ett hemligt värde i fler än en mall lagrar du hemligheten i en Key Vault och refererar till hemligheten i parameter filen. Mer information finns i [använda Azure Key Vault för att skicka ett säkert parameter värde under distributionen](resource-manager-keyvault-parameter.md). |
+| värde |Ja |Mallens språk uttryck som utvärderas och returneras som utdata-värde. |
 
 Exempel på hur du använder utdata finns [i utdata i Azure Resource Manager mall](template-outputs.md).
 
@@ -286,7 +286,7 @@ Exempel på hur du använder utdata finns [i utdata i Azure Resource Manager mal
 
 Du har några alternativ för att lägga till kommentarer och metadata till din mall.
 
-Du kan lägga till `metadata` ett objekt nästan var som helst i mallen. Resource Manager ignorerar objektet, men JSON-redigeraren kan varna dig om att egenskapen inte är giltig. I objektet definierar du de egenskaper du behöver.
+Du kan lägga till ett `metadata`-objekt nästan var som helst i din mall. Resource Manager ignorerar objektet, men JSON-redigeraren kan varna dig om att egenskapen inte är giltig. I objektet definierar du de egenskaper du behöver.
 
 ```json
 {
@@ -298,7 +298,7 @@ Du kan lägga till `metadata` ett objekt nästan var som helst i mallen. Resourc
   },
 ```
 
-För **parametrar**lägger du till `metadata` ett objekt med `description` en egenskap.
+För **parametrar**lägger du till ett `metadata`-objekt med en `description`-egenskap.
 
 ```json
 "parameters": {
@@ -314,7 +314,7 @@ När du distribuerar mallen via portalen används den text som du anger i beskri
 
 ![Visa parameter tips](./media/resource-group-authoring-templates/show-parameter-tip.png)
 
-För **resurser**lägger du till `comments` ett-element eller ett metadataobjekt. I följande exempel visas både ett kommentars element och ett metadataobjekt.
+För **resurser**lägger du till ett `comments`-element eller ett metadataobjekt. I följande exempel visas både ett kommentars element och ett metadataobjekt.
 
 ```json
 "resources": [
@@ -355,7 +355,10 @@ För **utdata**lägger du till ett metadataobjekt till utdata-värdet.
 
 Det går inte att lägga till ett metadataobjekt i användardefinierade funktioner.
 
-För infogade kommentarer kan du använda `//` men den här syntaxen fungerar inte med alla verktyg. Du kan inte använda Azure CLI för att distribuera mallen med infogade kommentarer. Och du kan inte använda redigeraren för Portal mal len för att arbeta med mallar med infogade kommentarer. Om du lägger till den här typen av kommentar måste du se till att de verktyg du använder stöder infogade JSON-kommentarer.
+För infogade kommentarer kan du använda antingen `//` eller `/* ... */`, men den här syntaxen fungerar inte med alla verktyg. Du kan inte använda Portal mal len redigeraren för att arbeta med mallar med infogade kommentarer. Om du lägger till den här typen av kommentar måste du se till att de verktyg du använder stöder infogade JSON-kommentarer.
+
+> [!NOTE]
+> Om du vill distribuera mallar med kommentarer med hjälp av Azure CLI måste du använda växeln `--handle-extended-json-format`.
 
 ```json
 {
@@ -363,7 +366,7 @@ För infogade kommentarer kan du använda `//` men den här syntaxen fungerar in
   "name": "[variables('vmName')]", // to customize name, change it in variables
   "location": "[parameters('location')]", //defaults to resource group location
   "apiVersion": "2018-10-01",
-  "dependsOn": [ // storage account and network interface must be deployed first
+  "dependsOn": [ /* storage account and network interface must be deployed first */
     "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
     "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
   ],
@@ -377,10 +380,34 @@ I VS Code kan du ange språk läget till JSON med kommentarer. De infogade komme
 
    ![Välj språk läge](./media/resource-group-authoring-templates/select-json-comments.png)
 
+## <a name="multi-line-strings"></a>Strängar med flera rader
+
+Du kan dela upp en sträng i flera rader. Till exempel egenskapen location och en av kommentarerna i följande JSON-exempel.
+
+```json
+{
+  "type": "Microsoft.Compute/virtualMachines",
+  "name": "[variables('vmName')]", // to customize name, change it in variables
+  "location": "[
+    parameters('location')
+    ]", //defaults to resource group location
+  "apiVersion": "2018-10-01",
+  /*
+    storage account and network interface
+    must be deployed first
+  */
+  "dependsOn": [
+    "[resourceId('Microsoft.Storage/storageAccounts/', variables('storageAccountName'))]",
+    "[resourceId('Microsoft.Network/networkInterfaces/', variables('nicName'))]"
+  ],
+```
+
+Om du vill distribuera mallar med strängar med flera rader med hjälp av Azure CLI måste du använda växeln `--handle-extended-json-format`.
+
 ## <a name="next-steps"></a>Nästa steg
 
 * Om du vill visa kompletta mallar för många olika typer av lösningar kan du se [Azure-snabbstartsmallar](https://azure.microsoft.com/documentation/templates/).
-* Mer information om de funktioner du kan använda från inom en mall finns i [Azure Resource Manager-Mallfunktioner](resource-group-template-functions.md).
+* Mer information om vilka funktioner du kan använda i en mall finns i [Azure Resource Manager Template Functions](resource-group-template-functions.md).
 * Information om hur du kombinerar flera mallar under distributionen finns i [använda länkade mallar med Azure Resource Manager](resource-group-linked-templates.md).
 * Rekommendationer om hur du skapar mallar finns i [metod tips för Azure Resource Manager mallar](template-best-practices.md).
 * Rekommendationer för att skapa Resource Manager-mallar som du kan använda i alla Azure-miljöer och Azure Stack finns i [utveckla Azure Resource Manager mallar för moln konsekvens](templates-cloud-consistency.md).

@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/11/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: jackyhsu
 manager: femila
-ms.openlocfilehash: 6f27dd199cc054d128a4f46b222c7207d5975efb
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 2990917243507d93cb6a86da11cf771f3a42eebd
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70241012"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298427"
 ---
 # <a name="azure-blockchain-service-development-overview"></a>Översikt över Azure blockchain service-utveckling
 
@@ -39,7 +39,7 @@ För att utveckla avancerade lösningar för företags blockchain krävs ett utv
 
 Truffle är ett populärt blockchain Development Framework för att skriva, kompilera, distribuera och testa decentraliserade program på Ethereum Blockchains. Du kan också tänka på Truffle som ett ramverk som försöker sömlöst integrera Smart kontrakt utveckling och traditionell webb utveckling.
 
-Även det minsta projektet interagerar med minst två blockchain-noder: En på utvecklarens dator och den andra som representerar nätverket där utvecklaren distribuerar sitt program. Till exempel det huvudsakliga offentliga Ethereum-nätverket eller Azure blockchain-tjänsten. Truffle tillhandahåller ett system för hantering av kompilator-och distributions artefakter för varje nätverk och gör det på ett sätt som fören klar den slutliga program distributionen. Mer information finns i [ Snabbstart: Använd Truffle för att ansluta till ett Azure blockchain service-](connect-truffle.md)nätverk.
+Även det minsta projektet interagerar med minst två blockchain-noder: en på Developer-datorn och den andra som representerar nätverket där utvecklaren distribuerar sitt program. Till exempel det huvudsakliga offentliga Ethereum-nätverket eller Azure blockchain-tjänsten. Truffle tillhandahåller ett system för hantering av kompilator-och distributions artefakter för varje nätverk och gör det på ett sätt som fören klar den slutliga program distributionen. Mer information finns i [snabb start: använda Truffle för att ansluta till ett Azure blockchain service-nätverk](connect-truffle.md).
 
 ## <a name="ethereum-quorum-private-transaction"></a>Privat transaktion för Ethereum-kvorum
 
@@ -51,13 +51,13 @@ Kvorum är ett Ethereum distribuerat redovisnings protokoll med transaktion plus
 * Peer-behörighet – nod-och peer-behörighet med smarta kontrakt, vilket garanterar att endast kända parter kan ansluta till nätverket
 * Högre prestanda – kvorum ger högre prestanda än offentliga Geth
 
-Se [Självstudier: Skicka en transaktion med Azure blockchain-](send-transaction.md) tjänsten för ett exempel på en privat transaktion.
+Se [självstudie: skicka en transaktion med Azure blockchain-tjänsten](send-transaction.md) för ett exempel på en privat transaktion.
 
 ## <a name="block-explorers"></a>Blockera Explorer
 
 Blockera Explorer är online blockchain webbläsare som visar enskilda block innehåll, transaktions adress data och historik. Grundläggande block information är tillgänglig via Azure Monitor i Azure blockchain-tjänsten, men om du behöver mer detaljerad information under utvecklingen kan det vara praktiskt att blockera Explorer.  Det finns populära block Explorer med öppen källkod som du kan använda. Följande är en lista över blockerade Utforskare som fungerar med Azure blockchain-tjänsten:
 
-* [Azure blockchain service Explorer](https://web3labs.com/azure-offer) från Web3 Labs
+* [Epirus Azure blockchain service Explorer](https://azuremarketplace.microsoft.com/marketplace/apps/blk-technologies.azure-blockchain-explorer-template?tab=Overview) från Web3 Labs
 * [BlockScout](https://github.com/Azure-Samples/blockchain/blob/master/ledger/template/ethereum-on-azure/technology-samples/blockscout/README.md)
 
 ## <a name="tps-measurement"></a>TPS-mått
@@ -66,4 +66,4 @@ Eftersom blockchain används i fler företags scenarier är det viktigt att du a
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Snabbstart: Använda Truffle för att ansluta till ett Azure blockchain service-nätverk](connect-truffle.md)
+[Snabb start: använda Truffle för att ansluta till ett Azure blockchain service-nätverk](connect-truffle.md)

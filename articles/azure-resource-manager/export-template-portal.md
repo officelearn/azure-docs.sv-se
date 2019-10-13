@@ -4,14 +4,14 @@ description: Använd Azure Portal för att exportera en Azure Resource Manager m
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 06/19/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 15f527dfe517dcb3329b8b61243d7c5054eedb56
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 6b37b61bea63ec626bfd709a40f177f43d1dfe03
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959703"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300487"
 ---
 # <a name="single-and-multi-resource-export-to-a-template-in-azure-portal"></a>Exportera en och flera resurser till en mall i Azure Portal
 
@@ -48,39 +48,36 @@ Exportera mallen före distribution eller från historiken när:
 * Du vill ha en lätt att återanvända mall.
 * Du behöver inte inkludera ändringar som du har gjort efter den ursprungliga distributionen.
 
-## <a name="export-template-from-resource-group"></a>Exportera mall från resurs grupp
+## <a name="export-template-from-a-resource-group"></a>Exportera mall från en resurs grupp
 
 Så här exporterar du en eller flera resurser från en resurs grupp:
 
 1. Välj den resurs grupp som innehåller de resurser som du vill exportera.
 
-1. Om du vill exportera alla resurser i resurs gruppen väljer du alla och sedan **Exportera mall**. Alternativet för att **Exportera mall** aktive ras bara när du har valt minst en resurs.
+1. Välj en eller flera resurser genom att markera kryss rutorna.  Markera kryss rutan till vänster om du vill markera **alla.** Meny alternativet **Exportera mall** aktive ras bara när du har valt minst en resurs.
 
    ![Exportera alla resurser](./media/export-template-portal/select-all-resources.png)
 
-1. Om du vill välja vissa resurser för export markerar du kryss rutorna bredvid resurserna. Välj sedan **Exportera mall**.
+    På skärm bilden är bara lagrings kontot markerat.
+1. Välj **Exportera mall**.
 
-   ![Välj vilka resurser som ska exporteras](./media/export-template-portal/select-resources.png)
-
-1. Den exporterade mallen visas och är tillgänglig för hämtning.
+1. Den exporterade mallen visas och är tillgänglig för hämtning och distribution.
 
    ![Visa mall](./media/export-template-portal/show-template.png)
 
-## <a name="export-template-from-resource"></a>Exportera mall från resurs
+## <a name="export-template-from-a-resource"></a>Exportera mall från en resurs
 
 Så här exporterar du en resurs:
 
 1. Välj den resurs grupp som innehåller den resurs som du vill exportera.
 
-1. Välj den resurs som ska exporteras.
-
-   ![Välj resurs](./media/export-template-portal/select-link-resource.png)
+1. Välj den resurs som du vill exportera för att öppna resursen.
 
 1. För resursen väljer du **Exportera mall** i det vänstra fönstret.
 
    ![Exportera resurs](./media/export-template-portal/export-single-resource.png)
 
-1. Den exporterade mallen visas och är tillgänglig för hämtning. Mallen innehåller bara den enskilda resursen.
+1. Den exporterade mallen visas och är tillgänglig för hämtning och distribution. Mallen innehåller bara den enskilda resursen.
 
 ## <a name="export-template-before-deployment"></a>Exportera mall före distribution
 
@@ -92,9 +89,8 @@ Så här exporterar du en resurs:
 
    ![Ladda ned mall](./media/export-template-portal/download-before-deployment.png)
 
-1. Mallen visas och är tillgänglig för hämtning.
+1. Mallen visas och är tillgänglig för hämtning och distribution.
 
-   ![Visa mall](./media/export-template-portal/show-template-before-deployment.png)
 
 ## <a name="export-template-after-deployment"></a>Exportera mall efter distribution
 

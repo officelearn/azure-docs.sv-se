@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 09/19/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 4781126bc4fcfb6391db42a75553a13e0e4cc4f9
-ms.sourcegitcommit: 116bc6a75e501b7bba85e750b336f2af4ad29f5a
+ms.openlocfilehash: c358c728f7fe008ee8d9138cd081932524e7eaf9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71155137"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300296"
 ---
 # <a name="publish-a-managed-services-offer-to-azure-marketplace"></a>Publicera ett erbjudande för hanterade tjänster på Azure Marketplace
 
@@ -34,7 +34,7 @@ När en kund lägger till erbjudandet kommer de att kunna delegera en eller fler
 
 1. Logga in på [Cloud Partner Portal](https://cloudpartner.azure.com/).
 2. I den vänstra navigerings menyn väljer du **nytt erbjudande**och väljer sedan **hanterade tjänster**.
-3. Du ser ett **redigerings** avsnitt för ditt erbjudande med fyra delar att fylla i: **Erbjud inställningar**, **planer**, **Marketplace**och **support**. Läs vidare för vägledning om hur du utför dessa avsnitt.
+3. Du ser ett **redigerings** avsnitt för ditt erbjudande med fyra delar som du kan fylla i: **erbjudanden**, **planer**, **Marketplace**och **support**. Läs vidare för vägledning om hur du utför dessa avsnitt.
 
 ## <a name="enter-offer-settings"></a>Ange inställningar för erbjudandet
 
@@ -70,10 +70,10 @@ Slutför Slutligen avsnittet **manifest information** . Detta skapar ett manifes
 - Ange sedan **klient-ID: t**. Detta är ett GUID som är kopplat till organisationens Azure Active Directory-ID (dvs. den klient som du kommer att arbeta i för att hantera kundernas resurser). Om du inte har det här är praktiskt kan du hitta det genom att hovra över ditt konto namn längst upp till höger i Azure Portal eller genom att välja **Växla katalog**. 
 - Slutligen lägger du till en eller flera **Authorization** -poster i planen. Auktoriseringar definierar de entiteter som har åtkomst till resurser och prenumerationer för kunder som köper planen. Du måste ange den här informationen för att få åtkomst till resurser för kundens räkning med Azure-delegerad resurs hantering.
   Ange följande för varje auktorisering. Du kan sedan välja **ny auktorisering** så många gånger som behövs för att lägga till fler användare/roll definitioner.
-  - **Objekt-ID för Azure AD**: Azure AD-identifieraren för en användare, en användar grupp eller ett program som kommer att beviljas vissa behörigheter (som beskrivs av roll definitionen) till dina kunders resurser.
-  - **Visnings namn för Azure AD-objekt**: Ett eget namn som hjälper kunden att förstå syftet med den här auktoriseringen. Kunden ser det här namnet när resurser delegeras.
-  - **Rolldefinition**: Välj en av de tillgängliga inbyggda Azure AD-rollerna i listan. Den här rollen avgör de behörigheter som användaren i fältet **Azure AD-objekt-ID** kommer att ha på dina kunders resurser. Information om dessa roller finns i [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
-  - **Tilldelnings bara roller**: Detta krävs endast om du har valt administratör för användar åtkomst i **roll definitionen** för den här auktoriseringen. I så fall måste du lägga till en eller flera tilldelnings bara roller här. Användaren i fältet **Azure AD-objekt-ID** kommer att kunna tilldela dessa tilldelnings bara **roller** till [hanterade identiteter](https://docs.microsoft.com/azure/managed-applications/publish-managed-identity). Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren. Om du inte väljer en eller flera roller här skickas inte certifieringen. (Om du inte har valt administratör för användar åtkomst för den här användarens roll definition har det här fältet ingen inverkan.)
+  - **Azure AD-objekt-ID**: Azure AD-identifieraren för en användare, användar grupp eller ett program som kommer att beviljas vissa behörigheter (som beskrivs av roll definitionen) till dina kunders resurser.
+  - **Visnings namn för Azure AD-objekt**: ett eget namn som hjälper kunden att förstå syftet med den här auktoriseringen. Kunden ser det här namnet när resurser delegeras.
+  - **Roll definition**: Välj en av de tillgängliga inbyggda Azure AD-rollerna i listan. Den här rollen avgör de behörigheter som användaren i fältet **Azure AD-objekt-ID** kommer att ha på dina kunders resurser. Information om dessa roller finns i [inbyggda roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles).
+  - **Tilldelnings bara roller**: detta krävs endast om du har valt administratör för användar åtkomst i **roll definitionen** för den här auktoriseringen. I så fall måste du lägga till en eller flera tilldelnings bara roller här. Användaren i fältet **Azure AD-objekt-ID** kommer att kunna tilldela dessa tilldelnings bara **roller** till [hanterade identiteter](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview). Observera att inga andra behörigheter som normalt är kopplade till rollen administratör för användar åtkomst gäller för den här användaren. Om du inte väljer en eller flera roller här skickas inte certifieringen. (Om du inte har valt administratör för användar åtkomst för den här användarens roll definition har det här fältet ingen inverkan.)
 
 > [!TIP]
 > I de flesta fall vill du tilldela behörigheter till en användar grupp eller ett tjänst huvud namn i Azure AD, i stället för till en serie med enskilda användar konton. På så sätt kan du lägga till eller ta bort åtkomst för enskilda användare utan att behöva uppdatera och publicera om planen när dina åtkomst krav ändras.
@@ -92,14 +92,14 @@ Ange information för följande fält i **översikts** avsnittet:
 |**Sammanfattning**     | Kort syfte eller funktion för ditt erbjudande. Detta visas vanligt vis under rubriken. Maximal längd på 100 tecken.        |
 |**Lång Sammanfattning**     | En längre sammanfattning av ditt erbjudandes syfte eller funktion. Maximal längd på 256 tecken.        |
 |**Beskrivning**     | Mer information om ditt erbjudande. Det här fältet innehåller den maximala längden på 3000 tecken och stöder enkel HTML-formatering. Du måste inkludera orden "hanterad tjänst" eller "hanterade tjänster" någonstans i beskrivningen.       |
-|**Marknadsförings-ID**     | En unik identifierare för URL-vänlighet. den kommer att användas i Marketplace-URL: er för det här erbjudandet. Om ditt utgivar-ID t *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* . ex. är *contoso* och din marknadsförings-ID är *fråga*, blir URL: en för ditt erbjudande på Azure Marketplace.        |
+|**Marknadsförings-ID**     | En unik identifierare för URL-vänlighet. den kommer att användas i Marketplace-URL: er för det här erbjudandet. Om ditt utgivar-ID t. ex. är *contoso* och din marknadsförings-ID är *fråga*, kommer URL: en för ditt erbjudande i Azure Marketplace att *https://azuremarketplace.microsoft.com/marketplace/apps/contoso.sampleApp* .        |
 |**Förhandsgranska prenumerations-ID: n**     | Lägg till en till 100 prenumerations-ID: n. De kunder som är kopplade till dessa prenumerationer kommer att kunna se erbjudandet på Azure Marketplace innan det går live. Vi rekommenderar att du inkluderar dina egna prenumerationer här så att du kan förhandsgranska hur ditt erbjudande visas på Azure Marketplace innan du gör det tillgängligt för kunderna.  (Microsoft support-och teknik team kommer också att kunna se ditt erbjudande under för hands perioden.)   |
 |**Användbara länkar**     | URL: er som är relaterade till ditt erbjudande, till exempel dokumentation, viktig information, vanliga frågor och svar.        |
 |**Föreslagna kategorier (max 5)**     | En eller flera kategorier (upp till fem) som gäller för ditt erbjudande. De här kategorierna hjälper kunder att upptäcka ditt erbjudande i Azure Marketplace och Azure Portal.        |
 
 I avsnittet **marknadsförings artefakter** kan du ladda upp logo typer och andra till gångar som ska visas med ditt erbjudande. Du kan också ladda upp skärm bilder eller länkar till videor som hjälper kunderna att förstå ditt erbjudande.
 
-Fyra logo typ storlekar krävs: **Liten (40x40)** , **medium (90x90)** , **Large (115x115)** och **wide (255x155)** . Följ dessa rikt linjer för dina logo typer:
+Fyra logo typer krävs: **liten (40x40)** , **medium (90x90)** , **Large (115x115)** och **wide (255x155)** . Följ dessa rikt linjer för dina logo typer:
 
 - Azure-designen har en enkel färgpalett. Begränsa antalet primära och sekundära färger i logotypen.
 - Portalens temafärger är svart och vitt. Använd inte de färgerna som bakgrundsfärg för logotypen. Använd en färg som gör att logotyp framträder tydligt i portalen. Vi rekommenderar enkla primärfärger.
@@ -138,7 +138,7 @@ Innan en prenumeration (eller resurs grupper inom en prenumeration) kan registre
 
 Kunden kan sedan bekräfta att prenumerationen är redo för onboarding på något av följande sätt.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. I Azure Portal väljer du prenumerationen.
 1. Välj **Resursprovidrar**.

@@ -228,8 +228,6 @@
           href: resource-group-delete.md
         - name: Lås resurser
           href: resource-group-lock-resources.md
-        - name: Autentiserings-API för att få åtkomst till prenumerationer
-          href: resource-manager-api-authentication.md
         - name: Skapa EA-prenumerationer
           href: programmatically-create-subscription.md
         - name: Bevilja åtkomst för att skapa EA-prenumerationer

@@ -11,14 +11,14 @@ ms.service: virtual-machines-windows
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: lahugh
-ms.openlocfilehash: e4572ac6041caffc6c77d74dcbb2cf52f9f0aed0
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 314056b6e55838d32c70d81570cdeaf7a84b6671
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71173812"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300633"
 ---
 # <a name="support-for-generation-2-vms-preview-on-azure"></a>Stöd för virtuella datorer i generation 2 (för hands version) på Azure
 
@@ -55,24 +55,24 @@ Virtuella datorer i generation 1 stöds av alla VM-storlekar i Azure. Azure erbj
 
 Virtuella datorer i generation 2 stöder följande Marketplace-avbildningar:
 
-* Windows Server 2019 Datacenter
+* Windows Server 2019 Data Center
 * Windows Server 2016 Datacenter
 * Windows Server 2012 R2 Datacenter
 * Windows Server 2012 Datacenter
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 
-## <a name="on-premises-vs-azure-generation-2-vms"></a>Lokalt eller Virtuella Azure-datorer i generation 2
+## <a name="on-premises-vs-azure-generation-2-vms"></a>Lokala eller Azure generation 2-datorer
 
 Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V stöder för virtuella datorer i generation 2.
 
 | Generation 2-funktion                | Lokal Hyper-V | Azure |
 |-------------------------------------|---------------------|-------|
-| Säker start                         | :heavy_check_mark:  | :x:   |
-| Avskärmad virtuell dator                         | :heavy_check_mark:  | :x:   |
-| vTPM                                | :heavy_check_mark:  | :x:   |
-| Virtualiseringsbaserad säkerhet (VBS) | :heavy_check_mark:  | :x:   |
-| VHDX-format                         | :heavy_check_mark:  | :x:   |
+| Säker start                         | :heavy_check_mark:  | röntgen   |
+| Avskärmad virtuell dator                         | :heavy_check_mark:  | röntgen   |
+| vTPM                                | :heavy_check_mark:  | röntgen   |
+| Virtualiseringsbaserad säkerhet (VBS) | :heavy_check_mark:  | röntgen   |
+| VHDX-format                         | :heavy_check_mark:  | röntgen   |
 
 ## <a name="features-and-capabilities"></a>Funktioner och funktioner
 
@@ -80,21 +80,21 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 | Funktion | Generation 1 | Generation 2 |
 |---------|--------------|--------------|
-| Starta             | PCAT                      | UEFI                               |
+| Start             | PCAT                      | UEFI                               |
 | Disk styrenheter | IDE                       | SCSI                               |
 | VM-storlekar         | Alla VM-storlekar | Endast virtuella datorer som stöder Premium Storage |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funktioner för generation 1 vs. generation 2
 
-| Funktion | Generation 1 | Generation 2 |
+| Kapacitet | Generation 1 | Generation 2 |
 |------------|--------------|--------------|
-| OS-disk > 2 TB                    | :x:                | :heavy_check_mark: |
+| OS-disk > 2 TB                    | röntgen                | :heavy_check_mark: |
 | Anpassad disk/avbildning/växla OS         | :heavy_check_mark: | :heavy_check_mark: |
 | Stöd för skalnings uppsättning för virtuell dator | :heavy_check_mark: | :heavy_check_mark: |
-| Azure Site Recovery               | :heavy_check_mark: | :x:                |
+| Azure Site Recovery               | :heavy_check_mark: | röntgen                |
 | Säkerhets kopiering/återställning                    | :heavy_check_mark: | :heavy_check_mark: |
-| Delat bildgalleri              | :heavy_check_mark: | :x:                |
-| Azure Disk Encryption             | :heavy_check_mark: | :x:                |
+| Galleri för delad avbildning              | :heavy_check_mark: | :heavy_check_mark: |
+| Azure Disk Encryption             | :heavy_check_mark: | röntgen                |
 
 ## <a name="creating-a-generation-2-vm"></a>Skapar en virtuell dator i generation 2
 
@@ -102,7 +102,7 @@ Azure stöder för närvarande inte några av de funktioner som lokala Hyper-V s
 
 I Azure Portal eller Azure CLI kan du skapa virtuella datorer i generation 2 från en Marketplace-avbildning som stöder UEFI-start.
 
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 
 Generation 2-avbildningar för Windows och SLES ingår i samma server erbjudande som gen1-avbildningarna. Vad det innebär från ett flödes perspektiv är att du väljer erbjudandet och SKU: n från portalen för din virtuella dator. Om SKU: n stöder både generation 1 och generation 2-avbildningar kan du välja att skapa en virtuell dator i generation 2 från fliken *Avancerat* i flödet för att skapa virtuella datorer.
 
@@ -121,7 +121,7 @@ När du väljer en Windows Server-SKU som erbjudande finns det ett alternativ f�
 
 Du kan också använda PowerShell för att skapa en virtuell dator genom att referera till SKU för generation 1 eller generation 2.
 
-Använd till exempel följande PowerShell-cmdlet för att hämta en lista över SKU: er i `WindowsServer` erbjudandet.
+Använd till exempel följande PowerShell-cmdlet för att hämta en lista över SKU: er i `WindowsServer`-erbjudandet.
 
 ```powershell
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
@@ -140,11 +140,11 @@ I avsnittet [funktioner och funktioner](#features-and-capabilities) finns en akt
 
 Du kan skapa en virtuell dator i generation 2 från en hanterad avbildning eller en hanterad disk på samma sätt som du skapar en virtuell dator i generation 1.
 
-### <a name="virtual-machine-scale-sets"></a>Virtual Machine Scale Sets
+### <a name="virtual-machine-scale-sets"></a>VM-skalningsuppsättningar
 
 Du kan också skapa virtuella datorer i generation 2 med hjälp av skalnings uppsättningar för virtuella datorer. I Azure CLI använder du Azure Scale set för att skapa virtuella datorer i generation 2.
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 * **Är generation 2 virtuella datorer tillgängliga i alla Azure-regioner?**  
     Ja. Men alla [VM-storlekar i generation 2](#generation-2-vm-sizes) är inte tillgängliga i varje region. Tillgängligheten för den virtuella datorn i generation 2 beror på tillgängligheten för VM-storleken.

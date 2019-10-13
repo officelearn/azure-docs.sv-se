@@ -10,17 +10,20 @@ ms.service: azure-monitor
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2019
+ms.date: 10/08/2019
 ms.author: bwren
-ms.openlocfilehash: f8a86c0b71a5248164ea522472f9f2ecb2ce36bc
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: dc7d839c81edd67d69e1525d219f87ee70f17502
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827356"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300516"
 ---
 # <a name="azure-monitor-naming-and-terminology-changes"></a>Azure Monitor namngivnings-och terminologi ändringar
 Betydande ändringar har gjorts i Azure Monitor nyligen, med olika tjänster som sammanställs för att förenkla övervakningen av Azure-kunder. I den här artikeln beskrivs nya namn-och terminologi ändringar i Azure Monitor-dokumentationen.
+
+## <a name="october-2019---diagnostic-log-to-resource-log"></a>Oktober 2019 – diagnostisk logg till resurs loggen
+Diagnostikloggar ändrades till "resurs loggar" för att bättre matcha vad som faktiskt samlas in. Termen "diagnostikinställningar" förblir desamma.  
 
 ## <a name="february-2019---log-analytics-terminology"></a>Februari 2019-Log Analytics terminologi
 Efter konsolideringen av olika tjänster under Azure Monitor tar vi nästa steg genom att ändra terminologin i vår dokumentation för att bättre beskriva Azure Monitor tjänsten och dess olika komponenter. 
@@ -49,10 +52,10 @@ Andra funktioner som ansågs vara en del av Log Analytics, till exempel agenter 
 Operations Management Suite (OMS) var ett sammanslag av följande Azure-hanterings tjänster i licens syfte:
 
 - Application Insights
-- Azure Automation
+- Azure Automatisering
 - Azure Backup
 - Log Analytics
-- Site Recovery
+- Webbplatsåterställning
 
 [Nya priser har introducerats för dessa tjänster](https://azure.microsoft.com/blog/introducing-a-new-way-to-purchase-azure-monitoring-services/)och OMS-databuntarna är inte längre tillgängliga för nya kunder. Ingen av de tjänster som var en del av OMS har ändrats, förutom konsolideringen i Azure Monitor som beskrivs ovan. 
 

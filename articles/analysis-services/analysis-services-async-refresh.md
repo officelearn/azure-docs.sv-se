@@ -2,18 +2,17 @@
 title: Asynkron uppdatering av Azure Analysis Servicess modeller | Microsoft Docs
 description: Lär dig hur du kodar asynkron uppdatering med hjälp av REST API.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 05/09/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 82e40f756e0d8e0b5627b7c8856bd25fa98adbcb
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: daa25ecd12cb4c3b6ba72164c36cef01001448cf
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932302"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301158"
 ---
 # <a name="asynchronous-refresh-with-the-rest-api"></a>Asynkron uppdatering med REST API
 
@@ -23,7 +22,7 @@ Data uppdaterings åtgärder kan ta lite tid beroende på flera faktorer, inklus
 
 REST API för Azure Analysis Services gör att data uppdaterings åtgärder kan utföras asynkront. Genom att använda den REST API är tids krävande HTTP-anslutningar från klient program inte nödvändiga. Det finns även andra inbyggda funktioner för tillförlitlighet, till exempel automatiska återförsök och batch-incheckningar.
 
-## <a name="base-url"></a>Grundläggande URL
+## <a name="base-url"></a>Bas-URL
 
 Bas-URL: en följer detta format:
 
@@ -57,12 +56,12 @@ Du kan till exempel använda verbet POST i samlingen uppdaterings samling för a
 https://westus.asazure.windows.net/servers/myserver/models/AdventureWorks/refreshes
 ```
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2) i Authorization-huvudet och måste uppfylla följande krav:
 
 - Token måste antingen vara en användartoken eller ett huvud namn för program tjänsten.
-- Token måste ha rätt mål grupp inställt på `https://*.asazure.windows.net`.
+- Token måste ha rätt mål grupp inställd på `https://*.asazure.windows.net`.
 - Användaren eller programmet måste ha tillräcklig behörighet på servern eller modellen för att kunna göra det begärda anropet. Behörighets nivån bestäms av roller i modellen eller administratörs gruppen på servern.
 
     > [!IMPORTANT]
@@ -100,11 +99,11 @@ Du behöver inte ange parametrar. Standardvärdet används.
 
 | Namn             | Typ  | Beskrivning  |Standard  |
 |------------------|-------|--------------|---------|
-| `Type`           | Räkning  | Typ av bearbetning som ska utföras. Typerna justeras med kommando typerna TMSL [Refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) : full, clearValues, beräkning, dataOnly, Automatic och defragmentering. Det finns inte stöd för att lägga till typen.      |   Autokorrigering      |
-| `CommitMode`     | Räkning  | Anger om objekt ska allokeras i batchar eller bara när de är slutförda. Lägena är: standard, transaktionell, partialBatch.  |  transaktions       |
-| `MaxParallelism` | Int   | Det här värdet anger det maximala antalet trådar som bearbetnings kommandon ska köras parallellt för. Det här värdet justeras med egenskapen MaxParallelism som kan anges i kommandot TMSL [Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) eller med andra metoder.       | 10        |
-| `RetryCount`     | Int   | Anger hur många gånger åtgärden ska försöka utföras innan fel.      |     0    |
-| `Objects`        | Array | En matris med objekt som ska bearbetas. Varje-objekt innehåller: "Tabell" när hela tabellen eller "table" och "partition" bearbetas vid bearbetning av en partition. Om inga objekt anges uppdateras hela modellen. |   Bearbeta hela modellen      |
+| `Type`           | Enum  | Typ av bearbetning som ska utföras. Typerna justeras med kommando typerna TMSL [Refresh](https://docs.microsoft.com/bi-reference/tmsl/refresh-command-tmsl) : full, clearValues, beräkning, dataOnly, Automatic och defragmentering. Det finns inte stöd för att lägga till typen.      |   Autokorrigering      |
+| `CommitMode`     | Enum  | Anger om objekt ska allokeras i batchar eller bara när de är slutförda. Lägena är: standard, transaktionell, partialBatch.  |  transaktions       |
+| `MaxParallelism` | int   | Det här värdet anger det maximala antalet trådar som bearbetnings kommandon ska köras parallellt för. Det här värdet justeras med egenskapen MaxParallelism som kan anges i kommandot TMSL [Sequence](https://docs.microsoft.com/bi-reference/tmsl/sequence-command-tmsl) eller med andra metoder.       | 10        |
+| `RetryCount`     | int   | Anger hur många gånger åtgärden ska försöka utföras innan fel.      |     0    |
+| `Objects`        | Matris | En matris med objekt som ska bearbetas. Varje-objekt innehåller: "Tabell" när hela tabellen eller "table" och "partition" bearbetas vid bearbetning av en partition. Om inga objekt anges uppdateras hela modellen. |   Bearbeta hela modellen      |
 
 CommitMode är lika med partialBatch. Den används när du gör en första belastning av stora data uppsättningar som kan ta flera timmar. Om uppdaterings åtgärden Miss lyckas efter att du har utfört en eller flera batchar fortsätter de genomförda batcharna att bli allokerade (den kommer inte att återställa genomförda batchar).
 
@@ -113,7 +112,7 @@ CommitMode är lika med partialBatch. Den används när du gör en första belas
 
 ## <a name="get-refreshesrefreshid"></a>Hämta/refreshes/\<refreshId >
 
-Om du vill kontrol lera status för en uppdaterings åtgärd använder du hämta verbet i uppdaterings-ID: t. Här är ett exempel på svars texten. Om åtgärden pågår returneras statusen i status.
+Om du vill kontrol lera status för en uppdaterings åtgärd använder du hämta verbet i uppdaterings-ID: t. Här är ett exempel på svars texten. Om åtgärden pågår **returneras statusen** i status.
 
 ```
 {
@@ -161,7 +160,7 @@ Om du vill hämta en lista över historiska uppdaterings åtgärder för en mode
 ]
 ```
 
-## <a name="delete-refreshesrefreshid"></a>Ta bort\</refreshes/refreshId >
+## <a name="delete-refreshesrefreshid"></a>TA bort/refreshes/\<refreshId >
 
 Om du vill avbryta en pågående uppdatering använder du DELETE-verbet på uppdaterings-ID: t.
 
@@ -186,10 +185,10 @@ Om du vill kontrol lera statusen för en Sync-åtgärd använder du GET-verbet s
 
 Värden för `syncstate`:
 
-- 0: Replikera. Databasfiler replikeras till en målmapp.
-- 1: Återuppväcks. Databasen reserveras på skrivskyddade Server instanser.
-- 2: Har slutförts. Synkroniseringsåtgärden har slutförts.
-- 3: Misslyckades. Synkroniseringsåtgärden misslyckades.
+- 0: replikerar. Databasfiler replikeras till en målmapp.
+- 1: återuppväcks. Databasen reserveras på skrivskyddade Server instanser.
+- 2: slutförd. Synkroniseringsåtgärden har slutförts.
+- 3: misslyckades. Synkroniseringsåtgärden misslyckades.
 - 4: Slutför. Synkroniseringsåtgärden har slutförts men rensnings stegen utförs.
 
 ## <a name="code-sample"></a>Kodexempel
@@ -203,18 +202,18 @@ Här är ett C# kod exempel som hjälper dig att komma igång, [RestApiSample p�
 
 Kod exemplet använder autentisering av [tjänstens huvud namn](#service-principal) .
 
-### <a name="service-principal"></a>Tjänstens huvudnamn
+### <a name="service-principal"></a>Tjänstens huvud namn
 
 Se [skapa tjänstens huvud namn – Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md) och [lägga till ett huvud namn för tjänsten i rollen Server administratör](analysis-services-addservprinc-admins.md) för mer information om hur du konfigurerar ett huvud namn för tjänsten och tilldelar de nödvändiga behörigheterna i Azure som. När du har slutfört stegen utför du följande steg:
 
 1.  I kod exemplet letar du reda på **sträng auktoritet =...** , ersätter **common** med organisationens klient-ID.
-2.  Kommentera/ta bort kommentaren så att ClientCredential-klassen används för att instansiera objektet cred. Se till att \< app-ID>ochappKey>värdenanvändspåettsäkertsättellerAnvändcertifikatbaseradautentiseringförtjänstens\<huvud namn.
+2.  Kommentera/ta bort kommentaren så att ClientCredential-klassen används för att instansiera objektet cred. Se till att \<App-ID >-och \<App-nyckel > värden kan nås på ett säkert sätt eller använda certifikatbaserad autentisering för tjänstens huvud namn.
 3.  Kör exemplet.
 
 
 ## <a name="see-also"></a>Se också
 
 [Exempel](analysis-services-samples.md)   
-[REST-API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)   
 
 

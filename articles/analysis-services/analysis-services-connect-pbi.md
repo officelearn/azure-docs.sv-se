@@ -2,18 +2,17 @@
 title: Anslut till Azure Analysis Services med Power BI | Microsoft Docs
 description: Lär dig hur du ansluter till en Azure Analysis Services-server med hjälp av Power BI.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eadba5397655809dc4f3e6d5f9d6c79addde68a6
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: 181a63fda1feddfb654eb32f46632f0656febb82
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619296"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295291"
 ---
 # <a name="connect-with-power-bi"></a>Anslut med Power BI
 
@@ -45,9 +44,9 @@ När du har skapat en server i Azure och distribuerat en tabell modell till den,
 ## <a name="connect-in-power-bi-service"></a>Anslut i Power BI (tjänst)
 
 1. Skapa en Power BI Desktop-fil som har en Live-anslutning till din modell på servern.
-2. I [Power BI](https://powerbi.microsoft.com)klickar du > på Hämta datafiler och letar upp och väljer din. pbix-fil.
+2. I [Power BI](https://powerbi.microsoft.com)klickar du på **Hämta data** > **filer**och letar sedan upp och väljer din. pbix-fil.
 
 ## <a name="see-also"></a>Se också
-[Anslut till Azure Analysis Services](analysis-services-connect.md)   
+[Ansluta till Azure Analysis Services](analysis-services-connect.md)   
 [Klientbibliotek](analysis-services-data-providers.md)
 

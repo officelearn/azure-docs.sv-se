@@ -7,32 +7,32 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: be77ae932ec72239bea04fce298d7f1b84e5e4d8
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 35d3451327a0ce7bcaf567f93c48d532842b4f25
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240655"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285909"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Data inmatning för Azure Datautforskaren
 
 Data inmatning är den process som används för att läsa in data poster från en eller flera källor för att skapa eller uppdatera en tabell i Azure Datautforskaren. Data blir tillgängliga för fråga när de har matats in. Diagrammet nedan visar flödet från slut punkt till slut punkt för arbete i Azure Datautforskaren, inklusive data inmatning.
 
-![Dataflöde](media/ingest-data-overview/data-flow.png)
+![Data flöde](media/ingest-data-overview/data-flow.png)
 
 Tjänsten Azure Datautforskaren data management, som är ansvarig för data inmatning, innehåller följande funktioner:
 
 1. **Data hämtning**: Hämta data från externa källor (Event Hubs) eller begäran om läsning av begäran från en Azure-kö.
 
-1. **Batching**: Batch-data flödar till samma databas och tabell för att optimera inmatnings flödet.
+1. **Batching**: batch-data flödar till samma databas och tabell för att optimera inmatnings data flödet.
 
-1. **Verifiering**: Preliminär verifiering och format konvertering vid behov.
+1. **Verifiering**: preliminär verifiering och format konvertering vid behov.
 
-1. **Data manipulation**: Matchning av schema, organisera, indexera, koda och komprimera data.
+1. **Datamanipulering**: matcha schema, organisera, indexera, koda och komprimera data.
 
-1. **Beständig punkt i**inmatnings flödet: Hantera inmatnings belastningen på motorn och hantera återförsök vid tillfälliga haverier.
+1. **Beständig punkt i**inmatnings flödet: hantera inmatnings belastning på motorn och hantera återförsök vid tillfälliga haverier.
 
-1. **Genomför data inmatningen**: Gör data tillgängliga för fråga.
+1. **Genomför data inmatningen**: gör data tillgängliga för fråga.
 
 ## <a name="ingestion-methods"></a>Inmatnings metoder
 
@@ -70,13 +70,13 @@ Kusto erbjuder klient-SDK som kan användas för att mata in och fråga data med
 
 * [Node SDK](/azure/kusto/api/node/kusto-node-client-library)
 
-* [REST-API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
+* [REST API](/azure/kusto/api/netfx/kusto-ingest-client-rest)
 
 **Metoder**för att mata in program vara:
 
 * Inmatning av data via Azure Datautforskaren data Management Service (hög genom strömning och tillförlitlig inmatning):
 
-    [**Batch**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) -inmatning (tillhandahålls av SDK): klienten överför data till Azure Blob Storage (som anges av Azure Datautforskaren data Management-tjänsten) och skickar ett meddelande till en Azure-kö. Batch-inmatning är den rekommenderade tekniken för data inmatning med hög volym, tillförlitlig och billig.
+    [**Batch**](/azure/kusto/api/netfx/kusto-ingest-queued-ingest-sample) -inmatning (tillhandahålls av SDK): klienten överför data till Azure Blob Storage (som anges av Azure datautforskaren data Management-tjänsten) och skickar ett meddelande till en Azure-kö. Batch-inmatning är den rekommenderade tekniken för data inmatning med hög volym, tillförlitlig och billig.
 
 * Mata in data direkt i Azure Datautforskaren-motorn (passar bäst för utforskning och prototyper):
 
@@ -90,7 +90,7 @@ Kusto erbjuder klient-SDK som kan användas för att mata in och fråga data med
 
 | Metod | Svarstid |
 | --- | --- |
-| **Infogad inmatning** | Omedelbar |
+| **Infogad inmatning** | Direkt |
 | **Mata in från fråga** | Tid för fråga + bearbetnings tid |
 | **Mata in från lagring** | Hämtnings tid + bearbetnings tid |
 | **Inhämtning i kö** | Tid för batch + bearbetnings tid |
@@ -119,7 +119,7 @@ För organisationer med en befintlig infrastruktur som baseras på en meddelande
 
 För alla inmatnings metoder förutom inmatning från fråga formaterar du data så att Azure Datautforskaren kan parsa det. De data format som stöds är:
 
-* CSV, TSV, TSVE, PSV, SCSV, SOH
+* TXT, CSV, TSV, TSVE, PSV, SCSV, SOH
 * JSON (tabbavgränsad, flerradig), Avro
 * ZIP och GZIP 
 
@@ -136,7 +136,7 @@ För alla inmatnings metoder förutom inmatning från fråga formaterar du data 
 Schema mappning hjälper till att binda käll data fält till mål tabell kolumner.
 
 * [CSV-mappning](/azure/kusto/management/mappings?branch=master#csv-mapping) (valfritt) fungerar med alla ordinal-baserade format. Det kan utföras med hjälp av kommando parametern för att mata in eller [skapas i tabellen](/azure/kusto/management/tables?branch=master#create-ingestion-mapping) och refereras till i kommando parametern för intag.
-* [JSON-mappning](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatoriskt) och [Avro-mappning](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatoriskt) kan utföras med hjälp av kommando parametern för intag. De kan också [skapas i förväg i tabellen](/azure/kusto/management/tables#create-ingestion-mapping) och refereras till i kommando parametern för intag.
+* [JSON-mappning](/azure/kusto/management/mappings?branch=master#json-mapping) (obligatorisk) och [Avro-mappning](/azure/kusto/management/mappings?branch=master#avro-mapping) (obligatorisk) kan utföras med hjälp av kommando parametern intag. De kan också [skapas i förväg i tabellen](/azure/kusto/management/tables#create-ingestion-mapping) och refereras till i kommando parametern för intag.
 
 ## <a name="next-steps"></a>Nästa steg
 

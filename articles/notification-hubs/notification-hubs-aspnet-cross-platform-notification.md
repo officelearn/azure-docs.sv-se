@@ -12,36 +12,38 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 09/30/2019
 ms.author: sethm
 ms.reviewer: jowargo
-ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: cea0d63c20af781fcfc6ba5d7c06061b12992702
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.lastreviewed: 10/02/2019
+ms.openlocfilehash: 8f4de88ed79ee802866579448681cfe6cee3e654
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212021"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293429"
 ---
 # <a name="send-cross-platform-notifications-to-users-with-notification-hubs"></a>Skicka meddelanden mellan plattformar till användare med Notification Hubs
 
-I en tidigare självstudie kan du [meddela användare med Notification Hubs], och du har lärt dig hur du skickar meddelanden till alla enheter som är registrerade för en speciell autentiserad användare. I den här självstudien krävdes flera begär Anden för att skicka ett meddelande till varje klient plattform som stöds. Azure Notification Hubs stöder mallar, där du kan ange hur en speciell enhet vill ta emot meddelanden. Den här metoden fören klar sändningen av plattforms oberoende meddelanden.
+Den här självstudien bygger på föregående självstudie och [Skicka meddelanden till vissa användare med hjälp av Azure Notification Hubs]. I den här självstudien beskrivs hur du skickar meddelanden till alla enheter som är registrerade för en speciell autentiserad användare. Den metoden kräver flera förfrågningar för att skicka ett meddelande till varje klient plattform som stöds. Azure Notification Hubs stöder mallar, där du kan ange hur en speciell enhet vill ta emot meddelanden. Den här metoden fören klar sändningen av plattforms oberoende meddelanden.
 
-Den här artikeln visar hur du kan dra nytta av mallar för att skicka, i en enda begäran, ett oberoende meddelande som är riktat mot alla plattformar. Mer detaljerad information om mallar finns i [Översikt över Azure Notification Hubs][Templates].
+Den här artikeln visar hur du kan dra nytta av mallar för att skicka ett meddelande som är riktat mot alla plattformar. Den här artikeln använder en enskild begäran om att skicka en plattforms oberoende avisering. Mer detaljerad information om mallar finns i [Notification Hubs översikt][Templates].
 
 > [!IMPORTANT]
-> Windows Phone Project 8,1 och tidigare stöds inte i Visual Studio 2017. Mer information finns i [Visual Studio 2017 Platform Targeting and Compatibility](https://www.visualstudio.com/en-us/productinfo/vs2017-compatibility-vs) (Visual Studio 2017 – målplattform och plattformskompatibilitet).
+> Windows Phone Project 8,1 och tidigare stöds inte i Visual Studio 2019. Mer information finns i [plattforms anpassning och kompatibilitet för Visual Studio 2019-plattformen](/visualstudio/releases/2019/compatibility).
 
 > [!NOTE]
-> Med Notification Hubs kan en enhet registrera flera mallar med samma tagg. I det här fallet resulterar ett inkommande meddelande som är mål för taggen i flera meddelanden som skickas till enheten, en för varje mall. Med den här processen kan du visa samma meddelande i flera visuella meddelanden, till exempel båda som en skylt och som ett popup-meddelande i en Windows Store-app.
+> Med Notification Hubs kan en enhet registrera flera mallar med samma tagg. I det här fallet skickas ett inkommande meddelande som riktar sig till taggen i flera meddelanden som skickas till enheten, en för varje mall. Med den här processen kan du visa samma meddelande i flera visuella meddelanden, till exempel båda som en skylt och som ett popup-meddelande i en Windows Store-app.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>Skicka meddelanden mellan plattformar med mallar
 
-Om du vill skicka meddelanden mellan plattformar med hjälp av mallar gör du följande:
+I det här avsnittet används den exempel kod som du skapade i [skicka meddelanden till vissa användare med hjälp av Azure Notification Hubs] själv studie kursen. Du kan hämta exemplet från [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
-1. I Solution Explorer i Visual Studio expanderar du mappen **kontrollanter** och öppnar sedan filen RegisterController.cs.
+Gör så här om du vill skicka meddelanden mellan plattformar med hjälp av mallar:
 
-2. Leta upp kod blocket i `Put` -metoden som skapar en ny registrering och `switch` ersätt sedan innehållet med följande kod:
+1. I Visual Studio i **Solution Explorer**expanderar du mappen **kontrollanter** och öppnar sedan filen *RegisterController.cs* .
+
+1. Leta upp kod blocket i metoden `Put` som skapar en ny registrering och ersätt sedan `switch`-innehållet med följande kod:
 
     ```csharp
     switch (deviceUpdate.Platform)
@@ -74,7 +76,7 @@ Om du vill skicka meddelanden mellan plattformar med hjälp av mallar gör du f�
 
     Den här koden anropar den plattformsspecifika metoden för att skapa en mall registrering i stället för en intern registrering. Eftersom mallens registreringar härleds från interna registreringar behöver du inte ändra befintliga registreringar.
 
-3. Ersätt metoden med följande kod i kontrollenheten:`Notifications` `sendNotification`
+1. Öppna *NotificationsController.cs* -filen i mappen **kontrollanter** i **Solution Explorer**. Ersätt metoden `Post` med följande kod:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()
@@ -89,21 +91,20 @@ Om du vill skicka meddelanden mellan plattformar med hjälp av mallar gör du f�
     }
     ```
 
-    Den här koden skickar ett meddelande till alla plattformar samtidigt, utan att du behöver ange en intern nytto Last. Notification Hubs skapar och levererar rätt nytto Last till varje enhet med det angivna *taggnamnet* , som anges i de registrerade mallarna.
+    Den här koden skickar ett meddelande till alla plattformar på samma tid. Du har inte angett någon intern nytto Last. Notification Hubs skapar och levererar rätt nytto Last till varje enhet med det angivna taggnamnet, som anges i de registrerade mallarna.
 
-4. Publicera om ditt WebApi-backend-projekt.
+1. Publicera om ditt webb-API-projekt.
 
-5. Kör klient programmet igen och kontrol lera att registreringen är klar.
+1. Kör klient programmet igen för att kontrol lera att registreringen har slutförts.
 
-6. Valfritt Distribuera klient programmet till en andra enhet och kör sedan appen.
-    Ett meddelande visas på varje enhet.
+1. Du kan också distribuera klient programmet till en andra enhet och sedan köra appen. Ett meddelande visas på varje enhet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har slutfört den här självstudien får du lära dig mer om Notification Hubs och mallar i följande avsnitt:
+Nu när du har slutfört den här självstudien får du lära dig mer om Notification Hubs och mallar i de här artiklarna:
 
-* [Use Notification Hubs to send breaking news]: Demonstrates another scenario for using templates.
-* [Översikt över Azure-Notification Hubs][Templates]: Innehåller mer detaljerad information om mallar.
+* Ett annat scenario för att använda mallar finns i självstudierna [push-meddelanden till vissa Windows-enheter som kör universell Windows-plattform program][Use Notification Hubs to send breaking news] .
+* Mer detaljerad information om mallar finns i [Notification Hubs översikt][Templates].
 
 <!-- Anchors. -->
 
@@ -112,10 +113,10 @@ Nu när du har slutfört den här självstudien får du lära dig mer om Notific
 <!-- URLs. -->
 [Push to users ASP.NET]: notification-hubs-aspnet-backend-ios-apple-apns-notification.md
 [Push to users Mobile Services]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
-[Visual Studio 2012 Express for Windows 8]: https://go.microsoft.com/fwlink/?LinkId=257546
+[Visual Studio 2012 Express for Windows 8]: https://visualstudio.microsoft.com/downloads/
 
 [Use Notification Hubs to send breaking news]: notification-hubs-windows-notification-dotnet-push-xplat-segmented-wns.md
 [Azure Notification Hubs]: https://go.microsoft.com/fwlink/p/?LinkId=314257
-[Meddela användare med Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
+[Skicka meddelanden till vissa användare med hjälp av Azure Notification Hubs]: notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md
 [Templates]: https://go.microsoft.com/fwlink/p/?LinkId=317339
 [Notification Hub How to for Windows Store]: https://msdn.microsoft.com/library/windowsazure/jj927172.aspx

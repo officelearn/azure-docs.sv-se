@@ -15,25 +15,25 @@ ms.workload: infrastructure
 ms.date: 12/13/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 58d751628bf667949487832c9352aeb6a972faf8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: ee88eee7c4618306f86b4338a94f81c1403e3120
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71348829"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299355"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Självstudier: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure CLI
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-the-azure-cli"></a>Självstudie: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure CLI
 
 Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för startkonfigurationer, till exempel förinläsning av program, programkonfigurationer och andra OS-konfigurationer. I den här självstudien skapar du en egen anpassad avbildning av en virtuell Azure-dator. Lär dig att:
 
 > [!div class="checklist"]
 > * Avetablera och generalisera virtuella datorer
-> * Skapa en anpassad avbildning
+> * Skapa en egen avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -43,7 +43,7 @@ Stegen nedan visar hur du tar en befintlig virtuell dator och omvandlar den till
 
 Du måste ha en befintlig virtuell dator för att kunna utföra exemplet i självstudien. Om det behövs kan du skapa en med detta [skriptexempel](../scripts/virtual-machines-linux-cli-sample-create-vm-nginx.md). När du använder självstudien ersätter du namn på resursgrupp och VM där det behövs.
 
-## <a name="create-a-custom-image"></a>Skapa en anpassad avbildning
+## <a name="create-a-custom-image"></a>Skapa en egen avbildning
 
 Om du vill skapa en avbildning av en virtuell dator måste du förbereda den virtuella datorn genom att avetablera, frigöra och markera den virtuella källdatorn som generaliserad. Du kan skapa en avbildning när den virtuella datorn har förberetts.
 
@@ -138,7 +138,7 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Avetablera och generalisera virtuella datorer
-> * Skapa en anpassad avbildning
+> * Skapa en egen avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning

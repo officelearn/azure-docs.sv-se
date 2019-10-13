@@ -8,12 +8,12 @@ ms.service: container-registry
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: b365c914db0ce43da5dac4c5b889c854c0ea0639
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: cfa8efe0b73811474b1e50a7d2fb1e9abe9045c6
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827410"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286506"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Vanliga frågor och svar om Azure Container Registry
 
@@ -39,7 +39,7 @@ Ja. Se dokumentationen från [twistlock](https://www.twistlock.com/2016/11/07/tw
 
 ### <a name="how-do-i-configure-kubernetes-with-azure-container-registry"></a>Hur gör jag för att konfigurera Kubernetes med Azure Container Registry?
 
-Se dokumentationen för [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) och steg för [Azure Kubernetes-tjänsten](container-registry-auth-aks.md).
+Se dokumentationen för [Kubernetes](https://kubernetes.io/docs/user-guide/images/#using-azure-container-registry-acr) och steg för [Azure Kubernetes-tjänsten](../aks/cluster-container-registry-integration.md).
 
 ### <a name="how-do-i-get-admin-credentials-for-a-container-registry"></a>Hur gör jag för att få administratörsautentiseringsuppgifter för ett behållar register?
 
@@ -127,7 +127,7 @@ För PowerShell:
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
-Obs! Du kan lägga `-y` till i kommandot Ta bort för att hoppa över bekräftelsen.
+Obs: du kan lägga till `-y` i kommandot DELETE för att hoppa över bekräftelsen.
 
 Mer information finns i [ta bort behållar avbildningar i Azure Container Registry](container-registry-delete.md).
 
@@ -172,7 +172,7 @@ Du måste köra Azure CLI-behållaren genom att montera Docker-socketen:
 docker run -it -v /var/run/docker.sock:/var/run/docker.sock azuresdk/azure-cli-python:dev
 ```
 
-I behållaren installerar `docker`du:
+I behållaren installerar du `docker`:
 
 ```bash
 apk --update add docker
@@ -198,22 +198,22 @@ Ja, du kan använda betrodda avbildningar i Azure Container Registry, eftersom [
 Under `~/.docker/trust/tuf/myregistry.azurecr.io/myrepository/metadata`:
 
 * Offentliga nycklar och certifikat för alla roller (förutom Delegerings roller) lagras i `root.json`.
-* Offentliga nycklar och certifikat för Delegerings rollen lagras i JSON-filen för den överordnade rollen (till exempel `targets.json` `targets/releases` för rollen).
+* Offentliga nycklar och certifikat för Delegerings rollen lagras i JSON-filen för den överordnade rollen (till exempel `targets.json` för rollen `targets/releases`).
 
 Vi rekommenderar att du verifierar dessa offentliga nycklar och certifikat efter den övergripande TUF-verifieringen som gjorts av Docker-och Notary-klienten.
 
 ### <a name="how-do-i-grant-access-to-pull-or-push-images-without-permission-to-manage-the-registry-resource"></a>Hur gör jag för att bevilja du åtkomst till pull-eller push-avbildningar utan behörighet att hantera register resursen?
 
-ACR stöder [anpassade roller](container-registry-roles.md) som ger olika behörighets nivåer. Specifikt, `AcrPull` och `AcrPush` roller gör det möjligt för användare att ta emot och/eller push-avbildningar utan behörighet att hantera register resursen i Azure.
+ACR stöder [anpassade roller](container-registry-roles.md) som ger olika behörighets nivåer. Mer specifikt kan `AcrPull`-och `AcrPush`-roller tillåta att användare hämtar och/eller push-avbildningar utan behörighet att hantera register resursen i Azure.
 
-* Azure-portalen: Ditt register > Access Control (IAM) – > Lägg till (Välj `AcrPull` eller `AcrPush` för rollen).
-* Azure CLI: Hitta resurs-ID: t för registret genom att köra följande kommando:
+* Azure Portal: ditt register-> Access Control (IAM)-> Lägg till (Välj `AcrPull` eller `AcrPush` för rollen).
+* Azure CLI: hitta resurs-ID för registret genom att köra följande kommando:
 
   ```azurecli
   az acr show -n myRegistry
   ```
   
-  Sedan kan du tilldela `AcrPull` rollen eller `AcrPush` till en användare (följande exempel använder `AcrPull`):
+  Sedan kan du tilldela rollen `AcrPull` eller `AcrPush` till en användare (följande exempel använder `AcrPull`):
 
   ```azurecli
     az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
@@ -245,7 +245,7 @@ Den tilldelas sedan kan autentisera och komma åt avbildningar i registret.
   docker pull myregistry.azurecr.io/hello-world
   ```
 
-Om du bara `AcrPull` använder rollen eller `AcrPush` , har den tilldelade tilldelas inte behörighet att hantera register resursen i Azure. Till exempel `az acr list` eller `az acr show -n myRegistry` visar inte registret.
+Om du bara använder rollen `AcrPull` eller `AcrPush` har den tilldelade tilldelas inte behörighet att hantera register resursen i Azure. Till exempel kan `az acr list` eller `az acr show -n myRegistry` inte visa registret.
 
 ### <a name="how-do-i-enable-automatic-image-quarantine-for-a-registry"></a>Hur gör jag för att aktivera automatisk avbildnings karantän för ett register?
 
@@ -253,7 +253,7 @@ Bild karantänen är för närvarande en förhands gransknings funktion i ACR. D
 
 ## <a name="diagnostics-and-health-checks"></a>Diagnostik-och hälso kontroller
 
-- [Kontrol lera hälsa med`az acr check-health`](#check-health-with-az-acr-check-health)
+- [Kontrol lera hälsa med `az acr check-health`](#check-health-with-az-acr-check-health)
 - [Docker-pull misslyckades med felet: net/http: begäran avbröts under väntan på anslutning (klienten. tids gränsen överskreds vid väntan på huvuden)](#docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers)
 - [Docker-push lyckades men Docker pull Miss lyckas med felet: obehörig: autentisering krävs](#docker-push-succeeds-but-docker-pull-fails-with-error-unauthorized-authentication-required)
 - [Aktivera och hämta fel söknings loggarna i Docker daemon](#enable-and-get-the-debug-logs-of-the-docker-daemon) 
@@ -263,15 +263,15 @@ Bild karantänen är för närvarande en förhands gransknings funktion i ACR. D
 - [Varför kan Azure Portal inte hämta databaser eller Taggar?](#why-does-the-azure-portal-fail-to-fetch-repositories-or-tags)
 - [Hur gör jag för att samla in http-spårningar i Windows?](#how-do-i-collect-http-traces-on-windows)
 
-### <a name="check-health-with-az-acr-check-health"></a>Kontrol lera hälsa med`az acr check-health`
+### <a name="check-health-with-az-acr-check-health"></a>Kontrol lera hälsa med `az acr check-health`
 
 Information om fel sökning av vanliga problem med miljö och register finns i [kontrol lera hälso tillståndet för ett Azure Container Registry](container-registry-check-health.md).
 
 ### <a name="docker-pull-fails-with-error-nethttp-request-canceled-while-waiting-for-connection-clienttimeout-exceeded-while-awaiting-headers"></a>Docker-pull misslyckades med felet: net/http: begäran avbröts under väntan på anslutning (klienten. tids gränsen överskreds vid väntan på huvuden)
 
  - Om det här felet är ett tillfälligt problem lyckas försök igen.
- - Om `docker pull` det Miss lyckas kontinuerligt kan det uppstå problem med Docker daemon. Problemet kan vanligt vis minimeras genom att du startar om Docker daemon. 
- - Om du fortsätter att se det här problemet efter att du har startat om Docker daemon, kan problemet vara problem med nätverks anslutningen på datorn. Kontrol lera om det allmänna nätverket på datorn är felfritt genom att köra följande kommando för att testa slut punkts anslutningen. Den lägsta `az acr` version som innehåller den här anslutnings kontroll kommandot är 2.2.9. Uppgradera Azure CLI om du använder en äldre version.
+ - Om `docker pull` Miss lyckas kontinuerligt kan det uppstå problem med Docker-daemonen. Problemet kan vanligt vis minimeras genom att du startar om Docker daemon. 
+ - Om du fortsätter att se det här problemet efter att du har startat om Docker daemon, kan problemet vara problem med nätverks anslutningen på datorn. Kontrol lera om det allmänna nätverket på datorn är felfritt genom att köra följande kommando för att testa slut punkts anslutningen. Den lägsta `az acr`-version som innehåller den här anslutnings kontroll kommandot är 2.2.9. Uppgradera Azure CLI om du använder en äldre version.
  
    ```azurecli
     az acr check-health -n myRegistry
@@ -298,7 +298,7 @@ Till exempel har Fedora 28-servern följande Docker daemon-alternativ:
 OPTIONS='--selinux-enabled --log-driver=journald --live-restore'
 ```
 
-Som `--signature-verification=false` saknar, `docker pull` Miss lyckas med ett fel som liknar:
+Om `--signature-verification=false` saknas, `docker pull` Miss lyckas med ett fel som liknar:
 
 ```bash
 Trying to pull repository myregistry.azurecr.io/myimage ...
@@ -306,7 +306,7 @@ unauthorized: authentication required
 ```
 
 Så här löser du felet:
-1. Lägg till alternativet `--signature-verification=false` i konfigurations filen `/etc/sysconfig/docker`för Docker daemon. Exempel:
+1. Lägg till alternativet `--signature-verification=false` i konfigurations filen för Docker daemon `/etc/sysconfig/docker`. Exempel:
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -321,7 +321,7 @@ Information om `--signature-verification` kan hittas genom att köra `man docker
 
 ### <a name="enable-and-get-the-debug-logs-of-the-docker-daemon"></a>Aktivera och hämta fel söknings loggarna i Docker daemon  
 
-`dockerd` Börja`debug` med alternativet. Först skapar du konfigurations filen för Docker daemon`/etc/docker/daemon.json`() om den inte finns och `debug` lägger till alternativet:
+Starta `dockerd` med alternativet `debug`. Först skapar du konfigurations filen för Docker daemon (`/etc/docker/daemon.json`) om den inte finns och lägger till alternativet `debug`:
 
 ```json
 {   
@@ -335,10 +335,10 @@ Starta sedan om daemon. Till exempel med Ubuntu 14,04:
 sudo service docker restart
 ```
 
-Information finns i Docker- [dokumentationen](https://docs.docker.com/engine/admin/#enable-debugging). 
+Information finns i [Docker-dokumentationen](https://docs.docker.com/engine/admin/#enable-debugging). 
 
- * Loggarna kan genereras på olika platser, beroende på ditt system. För Ubuntu 14,04 är `/var/log/upstart/docker.log`det till exempel.   
-Mer information finns i Docker- [dokumentationen](https://docs.docker.com/engine/admin/#read-the-logs) .    
+ * Loggarna kan genereras på olika platser, beroende på ditt system. För Ubuntu 14,04 är det till exempel `/var/log/upstart/docker.log`.   
+Mer information finns i [Docker-dokumentationen](https://docs.docker.com/engine/admin/#read-the-logs) .    
 
  * För Docker för Windows genereras loggarna under% LOCALAPPDATA%/Docker/. Det kan dock innehålla all fel söknings information än.   
 
@@ -350,21 +350,21 @@ Mer information finns i Docker- [dokumentationen](https://docs.docker.com/engine
     docker run --net=host --ipc=host --uts=host --pid=host -it --security-opt=seccomp=unconfined --privileged --rm -v /:/host alpine /bin/sh
     chroot /host
     ```
-    Nu har du åtkomst till alla filer på den virtuella datorn som `dockerd`kör. Loggen är på `/var/log/docker.log`.
+    Nu har du åtkomst till alla filer på den virtuella datorn som kör `dockerd`. Loggen är på `/var/log/docker.log`.
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>Nya användar behörigheter kanske inte träder i kraft omedelbart efter uppdateringen
 
 När du tilldelar nya behörigheter (nya roller) till ett huvud namn för tjänsten kanske ändringen inte träder i kraft omedelbart. Det finns två möjliga orsaker:
 
 * Azure Active Directory roll tilldelnings fördröjning. Normalt är det snabbt, men det kan ta minuter på grund av spridnings fördröjning.
-* Behörighets fördröjning på ACR-token-Server. Detta kan ta upp till 10 minuter. Du kan `docker logout` åtgärda problemet och sedan autentisera igen med samma användare efter 1 minut:
+* Behörighets fördröjning på ACR-token-Server. Detta kan ta upp till 10 minuter. Du kan undvika detta genom att `docker logout` och sedan autentisera igen med samma användare efter 1 minut:
 
   ```bash
   docker logout myregistry.azurecr.io
   docker login myregistry.azurecr.io
   ```
 
-ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen är att ta med hemreplikeringen skapa i mallen men hoppa över den genom att lägga `"condition": false` till enligt nedan:
+ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen är att ta med hemreplikeringen skapa i mallen men hoppa över den genom att lägga till `"condition": false` som visas nedan:
 
 ```json
 {
@@ -382,8 +382,8 @@ ACR har inte stöd för att ta bort hemreplikering av användarna. Lösningen ä
 
 ### <a name="authentication-information-is-not-given-in-the-correct-format-on-direct-rest-api-calls"></a>Autentiseringsinformation anges inte i rätt format för direkta REST API-anrop
 
-Du kan stöta `InvalidAuthenticationInfo` på `curl` ett fel, särskilt med `--location` verktyget med alternativet `-L`(för att följa omdirigeringar).
-Till exempel hämtar bloben med `curl` alternativet with `-L` Basic Authentication:
+Du kan stöta på ett `InvalidAuthenticationInfo`-fel, särskilt med `curl`-verktyget med alternativet `-L`, `--location` (för att följa omdirigeringar).
+Till exempel hämtar bloben med hjälp av `curl` med alternativet `-L` och grundläggande autentisering:
 
 ```bash
 curl -L -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest
@@ -398,9 +398,9 @@ RequestId:00000000-0000-0000-0000-000000000000
 Time:2019-01-01T00:00:00.0000000Z</Message></Error>
 ```
 
-Rotor saken är att vissa `curl` implementeringar följer omdirigeringar med huvuden från den ursprungliga begäran.
+Rotor saken är att vissa `curl`-implementeringar följer omdirigeringar med huvuden från den ursprungliga begäran.
 
-För att lösa problemet måste du följa omdirigeringar manuellt utan sidhuvuden. Skriv ut svarshuvuden med `-D -` `curl` alternativet `Location` och extrahera sedan:-rubriken:
+För att lösa problemet måste du följa omdirigeringar manuellt utan sidhuvuden. Skriv ut svarshuvuden med alternativet `-D -` för `curl` och extrahera sedan: `Location`-huvudet:
 
 ```bash
 redirect_url=$(curl -s -D - -H "Authorization: basic $credential" https://$registry.azurecr.io/v2/$repository/blobs/$digest | grep "^Location: " | cut -d " " -f2 | tr -d '\r')
@@ -420,14 +420,14 @@ Webbläsaren kanske inte kan skicka begäran om att hämta databaser eller tagga
 * Ad-blockerare
 * DNS-fel
 
-Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen och din anslutning. Dessutom kan du också försöka med en Incognito eller privat session i webbläsaren för att undvika inaktuella webbläsares cacheminnen eller cookies.
+Kontakta nätverks administratören eller kontrol lera nätverks konfigurationen och din anslutning. Prova att köra `az acr check-health -n yourRegistry` med hjälp av Azure CLI för att kontrol lera om din miljö kan ansluta till Container Registry. Dessutom kan du också försöka med en Incognito eller privat session i webbläsaren för att undvika inaktuella webbläsares cacheminnen eller cookies.
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Hur gör jag för att samla in http-spårningar i Windows?
 
-#### <a name="prerequisites"></a>Förutsättningar
+#### <a name="prerequisites"></a>Krav
 
-- Aktivera dekryptering av https i Fiddler:<https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
-- Aktivera Docker att använda en proxy via Docker-gränssnittet:<https://docs.docker.com/docker-for-windows/#proxies>
+- Aktivera dekryptering av https i Fiddler: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
+- Aktivera Docker för att använda en proxy via Docker-gränssnittet: <https://docs.docker.com/docker-for-windows/#proxies>
 - Var noga med att återställa när du är klar.  Docker fungerar inte med den här funktionen och Fiddler körs inte.
 
 #### <a name="windows-containers"></a>Windows-containrar
@@ -444,7 +444,7 @@ Hitta IP-adressen för den virtuella växeln Docker VM:
 
 Konfigurera Docker-proxyn till utdata från föregående kommando och port 8888 (till exempel 10.0.75.1:8888)
 
-## <a name="tasks"></a>Aktiviteter
+## <a name="tasks"></a>Uppgifter
 
 - [Vill du avbryta körningen av batch Hur gör jag för att batch?](#how-do-i-batch-cancel-runs)
 - [Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?](#how-do-i-include-the-git-folder-in-az-acr-build-command)
@@ -460,13 +460,13 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 ### <a name="how-do-i-include-the-git-folder-in-az-acr-build-command"></a>Hur gör jag för att inkludera mappen. git i AZ ACR build-kommandot?
 
-Om du skickar en lokal källmapp till `az acr build` kommandot `.git` undantas mappen från det överförda paketet som standard. Du kan skapa en `.dockerignore` fil med följande inställning. Den meddelar kommandot att återställa alla filer under `.git` i det överförda paketet. 
+Om du skickar en lokal källmapp till kommandot `az acr build`, undantas mappen `.git` från det överförda paketet som standard. Du kan skapa en `.dockerignore`-fil med följande inställning. Den meddelar kommandot att återställa alla filer under `.git` i det överförda paketet. 
 
 ```
 !.git/**
 ```
 
-Den här inställningen gäller även för `az acr run` kommandot.
+Den här inställningen gäller även för kommandot `az acr run`.
 
 ## <a name="cicd-integration"></a>CI/CD-integrering
 

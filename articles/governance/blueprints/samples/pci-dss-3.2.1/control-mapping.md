@@ -1,5 +1,5 @@
 ---
-title: Exempel-PCI-DSS v 3.2.1 skiss-kontroll mappning
+title: PCI-DSS v 3.2.1 skiss exempel – kontroll mappning
 description: Kontroll mappning av betalnings kortet bransch Data Security Standard v 3.2.1 skiss exempel till Azure Policy och RBAC.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: fca86163cdfc8790da007a1f0f9264534b512cdd
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 8c8dbc8534720189c40624cfda97ce09a612e453
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981490"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297196"
 ---
 # <a name="control-mapping-of-the-pci-dss-v321-blueprint-sample"></a>Kontroll mappning för PCI-DSS v 3.2.1-skiss exemplet
 
@@ -34,8 +34,8 @@ Den här skissen hjälper dig att hantera och styra nätverk genom att tilldela 
 
 Den här skissen hjälper dig att genomdriva principen med hjälp av kryptografiska kontroller genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som tillämpar vissa kryptografiska kontroller och gransknings användningen av svaga kryptografiska inställningar. Att förstå var dina Azure-resurser kan ha icke-optimala kryptografiska konfigurationer kan hjälpa dig att vidta korrigerande åtgärder för att säkerställa att resurserna konfigureras i enlighet med din informations säkerhets princip. Mer specifikt kräver principerna som tilldelats av den här skissen transparent data kryptering på SQL-databaser. granska saknad kryptering på lagrings konton och variabler för Automation-konto. Det finns också principer för att hantera oskyddade anslutningar till lagrings konton, Function-appar, WebApp, API Apps och Redis Cache och granska okrypterade Service Fabric-kommunikation.
 
-- Funktionen App bör enbart vara åtkomliga via HTTPS
-- Webbprogram bör enbart vara åtkomliga via HTTPS
+- Funktionsapp bör endast vara tillgängligt via HTTPS
+- Webb program bör endast vara tillgängliga via HTTPS
 - API-appen bör bara vara tillgänglig via HTTPS
 - transparent datakryptering på SQL-databaser ska aktive ras
 - Disk kryptering bör tillämpas på virtuella datorer
@@ -100,11 +100,11 @@ Azure implementerar rollbaserad åtkomst kontroll (RBAC) för att hjälpa dig at
 
 Den här skissen hjälper dig att använda starka lösen ord genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar virtuella Windows-datorer som inte uppfyller minimi kraven och andra lösen ords krav. Om de virtuella datorerna strider mot principen för lösen ords säkerhet kan du vidta åtgärder för att säkerställa att lösen ord för alla VM-användarkonton är kompatibla med principen.
 
-- \[Preview @ no__t-1: Granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
+- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
 - \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte har en högsta ålder för lösen ord på 70 dagar
-- \[Preview @ no__t-1: Granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
+- \[Preview @ no__t-1: granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
 - \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som inte begränsar minsta längd på lösen ord till 14 tecken
-- \[Preview @ no__t-1: Granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
+- \[Preview @ no__t-1: granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 - \[Preview @ no__t-1: Distribuera krav för att granska virtuella Windows-datorer som tillåter åter användning av de tidigare 24 lösen orden
 
 ## <a name="103-and-1054-audit-generation"></a>10,3 och 10.5.4 audit generation
@@ -115,7 +115,7 @@ Diagnostikloggar ger inblick i åtgärder som utfördes i Azure-resurser. Azure-
 - Granskning ska aktive ras för avancerade data säkerhets inställningar på SQL Server
 - Granska diagnostikinställning
 - Granska gransknings inställningar för SQL Server-nivå
-- Distribuera Granskning på SQL-servrar
+- Distribuera granskning på SQL-servrar
 - Lagrings konton ska migreras till nya Azure Resource Manager resurser
 - Virtuella datorer ska migreras till nya Azure Resource Manager-resurser
 
@@ -124,7 +124,7 @@ Diagnostikloggar ger inblick i åtgärder som utfördes i Azure-resurser. Azure-
 Den här skissen hjälper dig att hantera och kontrol lera nätverket genom att tilldela [Azure policy](../../../policy/overview.md) definitioner som granskar de acceptabla nätverks platserna och de godkända företags produkter som tillåts för miljön. Dessa kan anpassas efter varje företag genom princip parametrarna i var och en av dessa principer.
 
 - Tillåtna platser
-- Tillåtna platser för resursgrupper
+- Tillåtna platser för resurs grupper
 
 ## <a name="next-steps"></a>Nästa steg
 

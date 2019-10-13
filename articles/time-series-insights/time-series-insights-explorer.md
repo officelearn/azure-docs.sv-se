@@ -12,12 +12,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 3a6bebfa11294821ff717f221e3e0ddfd68cd65c
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: aa04b2508f89b9658d904624e884bf9133caf3b7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948217"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299528"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights Explorer
 
@@ -37,11 +37,11 @@ Azure Time Series Insights är en fullständigt hanterad tjänst för analys, la
 >[!NOTE]
 >Se föregående video <a href="https://www.youtube.com/watch?v=6ehNf6AJkFo">"komma igång med Time Series Insights med hjälp av en Azure IoT Solution Accelerator".</a>
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du kan använda Time Series Insights Explorer måste du:
 
-- Skapa en Time Series Insights-miljö. Mer information finns i [så här kommer du igång med Time Series Insights](./time-series-insights-get-started.md).
+- Skapa en Time Series Insightss miljö. Mer information finns i [så här kommer du igång med Time Series Insights](./time-series-insights-get-started.md).
 - [Ge åtkomst](time-series-insights-data-access.md) till ditt konto i-miljön.
 - Lägg till en händelse källa för [IoT Hub](time-series-insights-how-to-add-an-event-source-iothub.md) eller [Event Hub](time-series-insights-how-to-add-an-event-source-eventhub.md) .
 
@@ -61,21 +61,21 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
 1. Därefter ser du ett diagram som visar antalet händelser under det valda tidsintervallet. Här har du ett antal kontroller:
 
-    - **Panelen villkors redigerare**: Termen utrymme är den plats där du frågar din miljö. Den finns på vänster sida av skärmen:
-      - **Mått**: I den här List rutan visas alla numeriska kolumner (**dubbla**).
-      - **Dela efter**: I den här List rutan visas kategoriska kolumner (**strängar**).
+    - **Panelen villkors redigerare**: term området är den plats där du frågar din miljö. Den finns på vänster sida av skärmen:
+      - **Mått**: den här List rutan visar alla numeriska kolumner (**dubbla**tal).
+      - **Dela efter**: den här List rutan visar kategoriska kolumner (**strängar**).
       - Du kan aktivera steg-interpolation, Visa minsta och högsta och justera y-axeln från kontroll panelen bredvid **mått**. Du kan också justera om data som visas är antal, medelvärde eller summan av data.
       - Du kan lägga till upp till fem villkor för att visa på samma x-axel. Använd **kopierings** knappen för att lägga till ytterligare en term, eller Välj **Lägg** till för att lägga till en ny term.
 
         [![Terms redigerings panel](media/time-series-insights-explorer/explorer2.png)](media/time-series-insights-explorer/explorer2.png#lightbox)
 
-      - **Predikat**: Använd predikatet för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja eller klicka på, uppdateras predikatet automatiskt utifrån sökningen. Operandtyperna som stöds är:
+      - **Predikat**: Använd predikatet för att snabbt filtrera händelser med hjälp av en uppsättning operander som anges i följande tabell. Om du utför en sökning genom att välja eller klicka på, uppdateras predikatet automatiskt utifrån sökningen. Operands typer som stöds är:
 
          |Åtgärd  |Typer som stöds  |Anteckningar  |
          |---------|---------|---------|
          |`<`, `>`, `<=`, `>=`     |  Double, DateTime, TimeSpan       |         |
-         |`=`, `!=`, `<>`     | Sträng, Bool, Double, DateTime, TimeSpan, NULL        |         |
-         |IN     | Sträng, Bool, Double, DateTime, TimeSpan, NULL        |  Alla operander bör vara av samma typ eller vara konstanten NULL.        |
+         |`=`, `!=`, `<>`     | Sträng, bool, Double, DateTime, TimeSpan, NULL        |         |
+         |IN     | Sträng, bool, Double, DateTime, TimeSpan, NULL        |  Alla operander ska vara av samma typ eller vara NULL-konstant.        |
          |HADE     | Sträng        |  Endast strängar med konstanta strängar är tillåtna på höger sida. En tom sträng och NULL är inte tillåtet.       |
 
       - **Exempel på frågor**
@@ -116,8 +116,8 @@ I minuter när du ansluter din händelse källa till din Time Series Insights-mi
 
 1. Välj fliken **statistik** när du har utforskat händelser för att exponera mönster och kolumn statistik.
 
-    - **Mönster**: Den här funktionen utvärderar de mest statistiskt signifikanta mönstren i ett valt data område. Du behöver inte titta på tusentals händelser för att förstå vilka mönster som kräver mest tid och energi. Med Time Series Insights kan du gå direkt till dessa statistiskt betydande mönster för att fortsätta utföra en analys. Den här funktionen är också användbar för obduktions undersökningar i historiska data.
-    - **Kolumn statistik**: Kolumn statistik innehåller diagram och tabeller som avbryter data från varje kolumn i den valda data serien under det valda tidsintervallet.
+    - **Mönster**: den här funktionen utvärderar de mest statistiskt signifikanta mönstren i ett valt data område. Du behöver inte titta på tusentals händelser för att förstå vilka mönster som kräver mest tid och energi. Med Time Series Insights kan du gå direkt till dessa statistiskt betydande mönster för att fortsätta utföra en analys. Den här funktionen är också användbar för obduktions undersökningar i historiska data.
+    - **Kolumn statistik**: kolumn statistik innehåller diagram och tabeller som avbryter data från varje kolumn i den valda data serien under det valda tidsintervallet.
 
       [![STATS](media/time-series-insights-explorer/explorer8.png)](media/time-series-insights-explorer/explorer8.png#lightbox)
 
@@ -126,4 +126,5 @@ Nu har du sett de olika funktioner och alternativ som är tillgängliga i Time S
 ## <a name="next-steps"></a>Nästa steg
 
 - Lär dig hur du [diagnostiserar och löser problem](time-series-insights-diagnose-and-solve-problems.md) i din Time Series Insightss miljö.
+
 - Ta den guidade guidade visningen av [Azure Time Series Insights](time-series-quickstart.md) .

@@ -12,20 +12,20 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: ASP.NET Core
 ms.workload: tbd
-ms.date: 02/24/2019
+ms.date: 10/11/2019
 ms.author: yegu
-ms.openlocfilehash: a2764c8e634fd8d827cba9fa7ec9cb61cc6c40af
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 4e08192788329e7a835ddb0b6b3f1aa01b2c73e1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035295"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299936"
 ---
-# <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabbstart: Skapa en ASP.NET Core-app med Azure App Configuration
+# <a name="quickstart-create-an-aspnet-core-app-with-azure-app-configuration"></a>Snabb start: skapa en ASP.NET Core-app med Azure App konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en ASP.NET Core-app för att centralisera lagring och hantering av program inställningar separat från din kod. ASP.NET Core skapar ett enda nyckelbaserade konfigurations objekt genom att använda inställningar från en eller flera data källor som anges av ett program. Dessa data källor kallas för *konfigurations leverantörer*. Eftersom app Configurations .NET Core-klient implementeras som en sådan Provider, visas tjänsten som en annan data källa.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
@@ -36,7 +36,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en ASP.NET Core
 
 6. Välj **Configuration Explorer** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:BackgroundColor | Vit |
     | TestApp:Settings:FontSize | 24 |
@@ -53,7 +53,9 @@ Du använder [.net Core kommando rads gränssnitt (CLI)](https://docs.microsoft.
 
 2. I den nya mappen kör du följande kommando för att skapa ett nytt ASP.NET Core MVC-webbprogram-projekt:
 
+    ```CLI
         dotnet new mvc --no-https
+    ```
 
 ## <a name="add-secret-manager"></a>Lägga till Secret Manager
 
@@ -83,19 +85,23 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
 1. Lägg till en referens till `Microsoft.Azure.AppConfiguration.AspNetCore` NuGet-paketet genom att köra följande kommando:
 
+    ```CLI
         dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-010060003-1250
-
+    ```
 2. Kör följande kommando för att återställa paket för ditt projekt:
 
+    ```CLI
         dotnet restore
-
+    ```
 3. Lägg till en hemlighet med namnet *ConnectionStrings:AppConfig* i Secret Manager.
 
     Den här hemligheten innehåller anslutnings strängen för att komma åt appens konfigurations arkiv. Ersätt värdet i följande kommando med anslutnings strängen för appens konfigurations arkiv.
 
     Det här kommandot måste köras i samma katalog som *.csproj*-filen.
 
+    ```CLI
         dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
+    ```
 
     > [!IMPORTANT]
     > Vissa gränssnitt kommer att trunkera anslutnings strängen om den inte omges av citat tecken. Se till att utdata från kommandot `dotnet user-secrets` visar hela anslutnings strängen. Om den inte gör det kör du kommandot på nytt, så att anslutnings strängen stängs av i citat tecken.
@@ -111,6 +117,11 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
     ```
 
 5. Uppdatera metoden `CreateWebHostBuilder` för att använda app-konfiguration genom att anropa metoden `config.AddAzureAppConfiguration()`.
+    
+    > [!IMPORTANT]
+    > `CreateHostBuilder` ersätter `CreateWebHostBuilder` i .NET Core 3,0.  Välj rätt syntax baserat på din miljö.
+
+    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>Uppdatera `CreateWebHostBuilder` för .NET Core 2. x
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -123,9 +134,23 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
             .UseStartup<Startup>();
     ```
 
+    ### <a name="update-createhostbuilder-for-net-core-3x"></a>Uppdatera `CreateHostBuilder` för .NET Core 3. x
+
+    ```csharp
+    public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+        .ConfigureWebHostDefaults(webBuilder =>
+        webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+        {
+            var settings = config.Build();
+            config.AddAzureAppConfiguration(settings["ConnectionStrings:AppConfig"]);
+        })
+        .UseStartup<Startup>());
+    ```
+
 6. Öppna *index. cshtml* i vyerna > Home Directory och ersätt innehållet med följande kod:
 
-    ```html
+    ```HTML
     @using Microsoft.Extensions.Configuration
     @inject IConfiguration Configuration
 
@@ -144,7 +169,7 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
 7. Öppna *_Layout. cshtml* i vyerna > delade katalogen och ersätt innehållet med följande kod:
 
-    ```html
+    ```HTML
     <!DOCTYPE html>
     <html>
     <head>
@@ -173,11 +198,15 @@ Verktyget Secret Manager lagrar känsliga uppgifter för utvecklingsarbete utanf
 
 1. Om du vill skapa appen med hjälp av .NET Core CLI kör du följande kommando i kommando gränssnittet:
 
-        dotnet build
+    ```CLI
+       dotnet build
+    ```
 
 2. När skapandet har slutförts kör du följande kommando för att köra webbappen lokalt:
 
+    ```CLI
         dotnet run
+    ```
 
 3. Öppna ett webbläsarfönster och gå till `http://localhost:5000`, vilket är standard-URL: en för webbappen som finns lokalt.
 

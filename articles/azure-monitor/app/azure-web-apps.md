@@ -9,12 +9,12 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1a00a487713458e4221f1832b2a4840ebd0d0375
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: ec741c0051ccd8020b7d7ab689e15add3ad716bd
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71972962"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286174"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Övervaka Azure App Service prestanda
 
@@ -37,7 +37,7 @@ Det finns två sätt att aktivera program övervakning för Azure App Services-v
     * Om du behöver göra anpassade API-anrop för att spåra händelser/beroenden som inte har registrerats som standard med en agent-baserad övervakning, behöver du använda den här metoden. Mer information finns i [artikeln om API för anpassade händelser och mått](https://docs.microsoft.com/azure/azure-monitor/app/api-custom-events-metrics) .
 
 > [!NOTE]
-> Om både agentbaserade övervakning och manuellt SDK-baserad Instrumentation identifieras, kommer de manuella Instrumentation inställningarna att påverkas. Detta är för att förhindra att duplicerade data skickas. Mer information om det här finns i [fel söknings avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) nedan.
+> Om både agentbaserade övervakning och manuellt SDK-baserad Instrumentation identifieras, kommer endast de manuella Instrumentation-inställningarna att användas. Detta är för att förhindra att duplicerade data skickas. Mer information om detta finns i [fel söknings avsnittet](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting) nedan.
 
 ## <a name="enable-agent-based-monitoring-for-net-applications"></a>Aktivera agent-baserad övervakning av .NET-program
 
@@ -100,7 +100,7 @@ Att rikta in sig på hela ramverket från .NET Core, fristående distribution oc
 
 Övervakning på klient sidan är valbar för ASP.NET. Aktivera övervakning på klient sidan:
 
-* Välj **inställningar**>** **program inställningar** **
+* Välj **inställningar** > * * * * program inställningar * * * *
    * Under program inställningar lägger du till ett nytt namn och **värde**för **appens inställning** :
 
      Namn: `APPINSIGHTS_JAVASCRIPT_ENABLED`
@@ -138,7 +138,7 @@ För att kunna aktivera telemetri-samling med Application Insights, behöver du 
 
 ### <a name="application-settings-definitions"></a>Definitioner av program inställningar
 
-|Namn på App-inställning |  Definition | Value |
+|Namn på App-inställning |  Definition | Värde |
 |-----------------|:------------|-------------:|
 |ApplicationInsightsAgent_EXTENSION_VERSION | Huvud tillägg som styr körnings övervakning. | `~2` |
 |XDT_MicrosoftApplicationInsights_Mode |  I standard läget är de viktigaste funktionerna aktiverade för att säkerställa optimala prestanda. | `default` eller `recommended`. |
@@ -319,7 +319,7 @@ Från och med version 2.8.9 används det förinstallerade webbplats tillägget. 
 
 Om uppgraderingen görs från en version före 2.5.1 kontrollerar du att DLL-filerna för ApplicationInsigths tas bort från mappen för program bin [se fel söknings steg](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting).
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad övervakning av .NET-och .NET Core-baserade program som körs på Azure App Services.
 
@@ -350,14 +350,14 @@ Nedan visas vår stegvisa fel söknings guide för tillägg/agent-baserad överv
 
 Tabellen nedan innehåller en mer detaljerad förklaring av vad dessa värden innebär, deras underliggande orsaker och rekommenderade korrigeringar:
 
-|Problem värde|Förklaring|Korrigera
+|Problem värde|Förklaring|Löser
 |---- |----|---|
 | `AppAlreadyInstrumented:true` | Det här värdet anger att tillägget har identifierat att en aspekt av SDK: n redan finns i programmet och kommer att stängas av. Det kan bero på en referens till `System.Diagnostics.DiagnosticSource`, `Microsoft.AspNet.TelemetryCorrelation` eller `Microsoft.ApplicationInsights`  | Ta bort referenserna. Vissa av dessa referenser läggs till som standard från vissa Visual Studio-mallar och äldre versioner av Visual Studio kan lägga till referenser till `Microsoft.ApplicationInsights`.
 |`AppAlreadyInstrumented:true` | Om programmet är riktat mot .NET Core 2,1 eller 2,2, och refererar till [Microsoft. AspNetCore. all](https://www.nuget.org/packages/Microsoft.AspNetCore.All) meta-paket, kommer det att finnas i Application Insights och tillägget kommer att återställas. | Kunder på .NET Core 2.1, 2.2 [rekommenderar](https://github.com/aspnet/Announcements/issues/287) att du använder Microsoft. AspNetCore. app-meta-paketet i stället.|
-|`AppAlreadyInstrumented:true` | Det här värdet kan också orsakas av förekomsten av ovanstående DLL-filer i mappen app från en tidigare distribution. | Rensa mappen app för att se till att dessa DLL-filer tas bort. Kontrol lera både den lokala appens bin-katalog och katalogen wwwroot på App Service. (För att kontrol lera katalogen wwwroot i App Service-webbappen: Avancerade verktyg (kudu) > fel söknings konsolen > CMD > home\site\wwwroot).
+|`AppAlreadyInstrumented:true` | Det här värdet kan också orsakas av förekomsten av ovanstående DLL-filer i mappen app från en tidigare distribution. | Rensa mappen app för att se till att dessa DLL-filer tas bort. Kontrol lera både den lokala appens bin-katalog och katalogen wwwroot på App Service. (Om du vill kontrol lera katalogen wwwroot i App Service webbappen: avancerade verktyg (kudu) > fel söknings konsolen > CMD > home\site\wwwroot).
 |`AppContainsAspNetTelemetryCorrelationAssembly: true` | Det här värdet anger att tillägget har identifierat referenser till `Microsoft.AspNet.TelemetryCorrelation` i programmet och kommer att återställas. | Ta bort referensen.
 |`AppContainsDiagnosticSourceAssembly**:true`|Det här värdet anger att tillägget har identifierat referenser till `System.Diagnostics.DiagnosticSource` i programmet och kommer att återställas.| Ta bort referensen.
-|`IKeyExists:false`|Det här värdet anger att Instrumentation-nyckeln inte finns i AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Möjliga orsaker: Värdena kan ha tagits bort av misstag, glömde att ange värden i Automation-skriptet osv. | Kontrol lera att inställningen finns i App Service programmets inställningar.
+|`IKeyExists:false`|Det här värdet anger att Instrumentation-nyckeln inte finns i AppSetting, `APPINSIGHTS_INSTRUMENTATIONKEY`. Möjliga orsaker: värdena kan ha tagits bort av misstag och har glömt att ange värden i Automation-skriptet osv. | Kontrol lera att inställningen finns i App Service programmets inställningar.
 
 ### <a name="appinsights_javascript_enabled-and-urlcompression-is-not-supported"></a>APPINSIGHTS_JAVASCRIPT_ENABLED och urlCompression stöds inte
 

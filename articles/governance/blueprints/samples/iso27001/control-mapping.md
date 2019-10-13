@@ -1,17 +1,17 @@
 ---
-title: Exempel – ISO 27001 skiss-kontroll mappning
+title: ISO 27001 skiss exempel – kontroll mappning
 description: Kontroll mappning av ISO 27001-skiss exemplet. Varje kontroll mappas till en eller flera Azure-principer som hjälper till med utvärderingen.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 07/22/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: f381cb2beff0dd828e7ab1e5661857d826c49ecf
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 57636db9eb341bad2e0caca83a2c413320847aae
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248874"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297514"
 ---
 # <a name="control-mapping-of-the-iso-27001-blueprint-sample"></a>Kontroll mappning av ISO 27001-skiss exemplet
 

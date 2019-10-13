@@ -2,18 +2,17 @@
 title: Lokal datagateway för Azure Analysis Services | Microsoft Docs
 description: En lokal gateway krävs om din Analysis Services-server i Azure ska ansluta till lokala data källor.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: b783e6b709700104985ef3f052443cf1284bf2d6
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 8d9df32070ff252dff791650788888d1d9a6ce84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678395"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294936"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-on-premises-data-gateway"></a>Ansluta till lokala data källor med lokal datagateway
 
@@ -32,7 +31,7 @@ För Azure Analysis Services hämtar installationen med gatewayen första gånge
 ## <a name="how-it-works"> </a>Så här fungerar det
 Den gateway som du installerar på en dator i din organisation körs som en Windows-tjänst, **lokal datagateway**. Den här lokala tjänsten är registrerad i Gateway-moln tjänsten via Azure Service Bus. Sedan skapar du en lokal datagateway-resurs för din Azure-prenumeration. Dina Azure Analysis Services-servrar ansluts sedan till din Azure gateway-resurs. När modeller på servern måste ansluta till dina lokala data källor för frågor eller bearbetning, passerar en fråga och ett data flöde Gateway-resursen, Azure Service Bus, lokal datagateway-tjänst och data källor. 
 
-![Hur det fungerar](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
+![Så här fungerar det](./media/analysis-services-gateway/aas-gateway-how-it-works.png)
 
 Frågor och data flöde:
 
@@ -43,7 +42,7 @@ Frågor och data flöde:
 5. Gatewayen skickar frågan till data källan för körning.
 6. Resultaten skickas från data källan tillbaka till gatewayen och sedan till moln tjänsten och servern.
 
-## <a name="installing"></a>Installerar
+## <a name="installing"></a>Installera
 
 När du installerar för en Azure Analysis Services-miljö är det viktigt att du följer stegen som beskrivs i [Installera och konfigurera en lokal datagateway för Azure Analysis Services](analysis-services-gateway-install.md). Den här artikeln är unik för Azure Analysis Services. Den innehåller ytterligare steg som krävs för att konfigurera en lokal datagateway-resurs i Azure och ansluta din Azure Analysis Services-server till resursen.
 
@@ -55,24 +54,24 @@ Du kan behöva vitlista IP-adresser för ditt data område i brand väggen. Du k
 
 Följande är fullständigt kvalificerade domän namn som används av gatewayen.
 
-| Domännamn | Utgående portar | Beskrivning |
+| Domän namn | Utgående portar | Beskrivning |
 | --- | --- | --- |
-| *.powerbi.com |80 |HTTP som används för att hämta installations programmet. |
-| *.powerbi.com |443 |HTTPS |
+| *. powerbi.com |80 |HTTP som används för att hämta installations programmet. |
+| *. powerbi.com |443 |HTTPS |
 | *. analysis.windows.net |443 |HTTPS |
 | *. login.windows.net, login.live.com, aadcdn.msauth.net |443 |HTTPS |
 | *.servicebus.windows.net |5671-5672 |Advanced Message Queueing Protocol (AMQP) |
 | *.servicebus.windows.net |443, 9350-9354 |Lyssnare på Service Bus Relay över TCP (kräver 443 för hämtning av Access Control-token) |
-| *.frontend.clouddatahub.net |443 |HTTPS |
-| *.core.windows.net |443 |HTTPS |
+| *. frontend.clouddatahub.net |443 |HTTPS |
+| *. core.windows.net |443 |HTTPS |
 | login.microsoftonline.com |443 |HTTPS |
-| *.msftncsi.com |443 |Används för att testa Internet anslutning om gatewayen inte kan kontaktas av Power BI-tjänst. |
-| *.microsoftonline-p.com |443 |Används för autentisering beroende på konfiguration. |
+| *. msftncsi.com |443 |Används för att testa Internet anslutning om gatewayen inte kan kontaktas av Power BI-tjänst. |
+| *. microsoftonline-p.com |443 |Används för autentisering beroende på konfiguration. |
 | dc.services.visualstudio.com  |443 |Används av AppInsights för att samla in telemetri. |
 
 ### <a name="force-https"></a>Tvinga HTTPS-kommunikation med Azure Service Bus
 
-Du kan tvinga gatewayen att kommunicera med Azure Service Bus genom att använda HTTPS i stället för direkt TCP. Det kan dock försämra prestanda avsevärt. Du kan ändra *Microsoft. powerbi. DataMovement. pipeline. GatewayCore. dll. config* -filen genom att ändra värdet från `AutoDetect` till. `Https` Den här filen finns vanligt vis i *C:\Program Files\On-premises data Gateway*.
+Du kan tvinga gatewayen att kommunicera med Azure Service Bus genom att använda HTTPS i stället för direkt TCP. Det kan dock försämra prestanda avsevärt. Du kan ändra *Microsoft. powerbi. DataMovement. pipeline. GatewayCore. dll. config* -filen genom att ändra värdet från `AutoDetect` till `Https`. Den här filen finns vanligt vis i *C:\Program Files\On-premises data Gateway*.
 
 ```
 <setting name="ServiceBusSystemConnectivityModeString" serializeAs="String">

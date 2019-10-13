@@ -15,16 +15,16 @@ ms.topic: tutorial
 ms.date: 08/24/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8857e93aec883dc4b7fe0b71093184c3b604b24a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 10458e3c5f1e4dc9034206470fdfec19e13417fb
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103581"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299444"
 ---
-# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Självstudier: Skapa och distribuera virtuella datorer med hög tillgänglighet med Azure CLI
+# <a name="tutorial-create-and-deploy-highly-available-virtual-machines-with-the-azure-cli"></a>Självstudie: Skapa och distribuera virtuella datorer med hög tillgänglighet med Azure CLI
 
-I den här självstudien får du lära dig hur du ökar tillgängligheten och tillförlitligheten för dina VM-lösningar i Azure med en funktion som heter ”Tillgänglighetsuppsättningar”. Tillgänglighetsuppsättningarna ser till att de virtuella datorer som du distribuerar i Azure distribueras över flera isolerade maskinvarukluster. Detta innebär att endast en del av de virtuella datorerna påverkas om det skulle uppstå ett maskinvaru- eller programvarufel i Azure, och att din lösning fortfarande är tillgänglig och fungerar.
+I den här kursen får du lära dig hur du ökar tillgängligheten och tillförlitligheten för dina VM-lösningar i Azure med en funktion som heter ”tillgänglighetsuppsättningar”. Tillgänglighetsuppsättningarna ser till att de virtuella datorer som du distribuerar i Azure distribueras över flera isolerade maskinvarukluster. Detta innebär att endast en del av de virtuella datorerna påverkas om det skulle uppstå ett maskinvaru- eller programvarufel i Azure, och att din lösning fortfarande är tillgänglig och fungerar.
 
 I den här guiden får du lära dig att:
 
@@ -33,7 +33,7 @@ I den här guiden får du lära dig att:
 > * Skapa en virtuell dator i en tillgänglighetsuppsättning
 > * Kontrollera tillgängliga VM-storlekar
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -50,7 +50,7 @@ Nu ska vi titta en typisk VM-baserad lösning där du kan ha fyra klientdelswebb
 
 ### <a name="availability-zone-overview"></a>Översikt över tillgänglighets zon
 
-Tillgänglighetszoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Tillgänglighetszoner är unika, fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. Det finns minst tre separata zoner i alla aktiverade regioner för att garantera återhämtning. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zoner – redundanta tjänster replikerar dina program och data över Tillgänglighetszoner för att skydda från enskilda platser. Med Tillgänglighetszoner erbjuder Azure en branschens bästa 99,99% SLA för VM-drift tid.
+Tillgänglighetszoner är ett erbjudande med hög tillgänglighet som skyddar dina program och data från data Center problem. Tillgänglighetszoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. Det finns minst tre separata zoner i alla aktiverade regioner för att garantera återhämtning. Den fysiska avgränsningen av tillgänglighetszonerna inom en region skyddar program och data mot datacenterfel. Zoner – redundanta tjänster replikerar dina program och data över Tillgänglighetszoner för att skydda från enskilda platser. Med Tillgänglighetszoner erbjuder Azure en branschens bästa 99,99% SLA för VM-drift tid.
 
 På liknande sätt som tillgänglighets uppsättningar kan vi ta en typisk VM-baserad lösning där du kan ha fyra frontend-webbservrar och använda två virtuella backend-datorer som är värdar för en databas. Precis som med tillgänglighets uppsättningar ska du distribuera dina virtuella datorer i två olika tillgänglighets zoner: en tillgänglighets zon för nivån "webb" och en tillgänglighets zon för "databas"-nivån. När du skapar en ny virtuell dator och anger tillgänglighets zonen som en parameter för kommandot AZ VM Create, garanterar Azure automatiskt att de virtuella datorer som du skapar är isolerade i helt olika tillgänglighets zoner. Om hela data centret som en av dina webb server-eller databas Server-datorer körs på har ett problem, vet du att de andra instanserna av webb servern och de virtuella datorerna i databasen fortsätter att köras eftersom de körs på helt separata data Center.
 
@@ -120,7 +120,7 @@ I den här självstudiekursen lärde du dig att:
 > * Skapa en virtuell dator i en tillgänglighetsuppsättning
 > * Kontrollera tillgängliga VM-storlekar
 
-Gå vidare till nästa självstudie om du vill veta mer om VM-skalningsuppsättningar.
+Gå vidare till nästa kurs vill veta mer om VM-skalningsuppsättningar.
 
 > [!div class="nextstepaction"]
 > [Skapa en VM-skalningsuppsättning](tutorial-create-vmss.md)

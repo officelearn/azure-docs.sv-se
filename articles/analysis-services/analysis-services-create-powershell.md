@@ -2,24 +2,23 @@
 title: Snabbstart – Skapa en Azure Analysis Services-server med hjälp av PowerShell | Microsoft Docs
 description: Lär dig hur du skapar en Azure Analysis Services-server med PowerShell
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: quickstart
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8159cc8d0e00e830f52e1814ac770c4a16f6b957
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: a5517d62e0fa4070411a087e241cad9d82f379b2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68619335"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72295089"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Snabbstart: Skapa en server – PowerShell
 
 I den här snabbstarten beskrivs hur du använder PowerShell från kommandoraden för att skapa en Azure Analysis Services-server i din Azure-prenumeration.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -73,6 +72,6 @@ Remove-AzAnalysisServicesServer -Name "myserver" -ResourceGroupName "myResourceG
 I den här snabbstarten har du lärt dig hur du skapar en server i Azure-prenumerationen med hjälp av PowerShell. Nu när du har en server kan du skydda den genom att konfigurera en serverbrandvägg (valfritt). Du kan även lägga till en grundläggande exempeldatamodell till servern direkt från portalen. Att använda en exempelmodell är en bra idé om du vill lära dig mer om hur man konfigurerar modelldatabasroller och testar klientanslutningar. Fortsätt till och lägg till en exempelmodell om du vill lära dig mer.
 
 > [!div class="nextstepaction"]
-> [Snabbstart: Konfigurera serverbrandväggen – portalen](analysis-services-qs-firewall.md)      
+> [Snabbstart: Konfigurera serverbrandvägg – portalen](analysis-services-qs-firewall.md)      
 > [!div class="nextstepaction"]
-> [Självstudie: Lägg till en exempelmodell på servern](analysis-services-create-sample-model.md)
+> [Självstudier: Lägg till en exempelmodell till servern](analysis-services-create-sample-model.md)

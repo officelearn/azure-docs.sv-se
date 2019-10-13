@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: abnarain
-ms.openlocfilehash: b571ba8d259a5e3b3b049ad66d4718e9e85d488b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: ca5a98fb4fd0fd07cd0e2557840a2e0aed6901e5
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931257"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285600"
 ---
 #  <a name="security-considerations-for-data-movement-in-azure-data-factory"></a>Säkerhets överväganden för data förflyttning i Azure Data Factory
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
@@ -46,12 +46,12 @@ Data Factory har certifierats för:
 | **[SOC 1, 2, 3](https://www.microsoft.com/trustcenter/compliance/soc)** |
 | **[HIPAA BAA](https://www.microsoft.com/trustcenter/compliance/hipaa)** |
 
-Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen infrastruktur kan du gå till [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). För den senaste listan över alla Azure Compliance- https://aka.ms/AzureCompliance erbjudanden kontrollerar du.
+Om du är intresse rad av Azure-kompatibilitet och hur Azure skyddar sin egen infrastruktur kan du gå till [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/default.aspx). Den senaste listan över alla Azure Compliance-erbjudanden finns i https://aka.ms/AzureCompliance.
 
 I den här artikeln granskar vi säkerhets aspekter i följande två scenarier för data förflyttning: 
 
-- **Moln scenario**: I det här scenariot är både din källa och ditt mål offentligt tillgängliga via Internet. Dessa omfattar hanterade moln lagrings tjänster som Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster som Salesforce och webb protokoll som FTP och OData. Hitta en fullständig lista över data källor som stöds i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
-- **Hybrid scenario**: I det här scenariot finns antingen din källa eller ditt mål bakom en brand vägg eller i ett lokalt företags nätverk. Eller så är data lagret i ett privat nätverk eller virtuellt nätverk (oftast källan) och är inte offentligt tillgänglig. Databas servrar som är värdar för virtuella datorer omfattas också av det här scenariot.
+- **Moln scenario**: i det här scenariot är både din källa och ditt mål offentligt tillgängliga via Internet. Dessa omfattar hanterade moln lagrings tjänster som Azure Storage, Azure SQL Data Warehouse, Azure SQL Database, Azure Data Lake Store, Amazon S3, Amazon Redshift, SaaS-tjänster som Salesforce och webb protokoll som FTP och OData. Hitta en fullständig lista över data källor som stöds i [data lager och format som stöds](copy-activity-overview.md#supported-data-stores-and-formats).
+- **Hybrid scenario**: i det här scenariot finns antingen din källa eller ditt mål bakom en brand vägg eller i ett lokalt företags nätverk. Eller så är data lagret i ett privat nätverk eller virtuellt nätverk (oftast källan) och är inte offentligt tillgänglig. Databas servrar som är värdar för virtuella datorer omfattas också av det här scenariot.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -85,7 +85,7 @@ Transparent datakryptering (TDE) i Azure SQL Data Warehouse skyddar mot hot mot 
 #### <a name="azure-sql-database"></a>Azure SQL Database
 Azure SQL Database stöder även transparent data kryptering (TDE), som hjälper till att skydda mot hot från skadlig aktivitet genom att utföra kryptering och dekryptering i real tid av data, utan att kräva ändringar i programmet. Det här beteendet är transparent för klienten. Mer information finns i [transparent data kryptering för SQL Database och informations lager](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql).
 
-#### <a name="azure-data-lake-store"></a>Azure Data Lake Store
+#### <a name="azure-data-lake-store"></a>Azure-datasjölagring
 Azure Data Lake Store innehåller även kryptering för data som lagras i kontot. När den är aktive rad krypteras Data Lake Store automatiskt data innan de behålls och dekrypteras innan de kan hämtas, vilket gör det transparent för klienten som har åtkomst till data. Mer information finns [i säkerhet i Azure Data Lake Store](../data-lake-store/data-lake-store-security-overview.md). 
 
 #### <a name="azure-blob-storage-and-azure-table-storage"></a>Azure Blob Storage och Azure Table Storage
@@ -110,7 +110,7 @@ Kommando kanalen tillåter kommunikation mellan data flyttnings tjänster i Data
 ### <a name="on-premises-data-store-credentials"></a>Autentiseringsuppgifter för lokal data lager
 Autentiseringsuppgifterna kan lagras i data fabriken eller [refereras till av Data Factory](store-credentials-in-key-vault.md) under körningen från Azure Key Vault. Om du lagrar autentiseringsuppgifter i Data Factory, lagras det alltid krypterat i integration runtime med egen värd. 
  
-- **Lagra autentiseringsuppgifter lokalt**. Om du direkt använder cmdleten **set-AzDataFactoryV2LinkedService** med anslutnings strängarna och AUTENTISERINGSUPPGIFTERNA i JSON, krypteras den länkade tjänsten och lagras på integration runtime med egen värd.  I det här fallet flödar autentiseringsuppgifterna via Azure backend-tjänsten, som är i händelse av en händelse som är i en egen värd, där den är finally Encrpted och lagras. Den egna värdbaserade integrerings körningen använder Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) för att kryptera känsliga data och autentiseringsinformation.
+- **Lagra autentiseringsuppgifter lokalt**. Om du direkt använder cmdleten **set-AzDataFactoryV2LinkedService** med anslutnings strängarna och AUTENTISERINGSUPPGIFTERNA i JSON, krypteras den länkade tjänsten och lagras på integration runtime med egen värd.  I det här fallet överförs autentiseringsuppgifterna via Azure backend-tjänsten, som är mycket säkert, till den egen värdbaserade integrations datorn där den slutligen krypteras och lagras. Den egna värdbaserade integrerings körningen använder Windows [DPAPI](https://msdn.microsoft.com/library/ms995355.aspx) för att kryptera känsliga data och autentiseringsinformation.
 
 - **Lagra autentiseringsuppgifter i Azure Key Vault**. Du kan också lagra data lagrets autentiseringsuppgifter i [Azure Key Vault](https://azure.microsoft.com/services/key-vault/). Data Factory hämtar autentiseringsuppgifterna under körningen av en aktivitet. Mer information finns i [lagra autentiseringsuppgifter i Azure Key Vault](store-credentials-in-key-vault.md).
 
@@ -136,11 +136,11 @@ Azure Virtual Network är en logisk representation av ditt nätverk i molnet. Du
 
 I följande tabell sammanfattas konfigurations rekommendationerna för nätverk och lokal integrerings körning baserat på olika kombinationer av käll-och mål platser för Hybrid data förflyttning.
 
-| Source      | Mål                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
+| Källa      | Mål                              | Nätverkskonfiguration                    | Installation av Integration Runtime                |
 | ----------- | ---------------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
-| Lokal | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering)           | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
-| Lokal | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (Microsoft-peering)            | Integration runtime med egen värd kan installeras lokalt eller på en virtuell Azure-dator. |
+| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | IPSec VPN (punkt-till-plats eller plats-till-plats) | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
+| Lokalt | Virtuella datorer och moln tjänster som distribueras i virtuella nätverk | ExpressRoute (privat peering)           | Integration runtime med egen värd bör installeras på en virtuell Azure-dator i det virtuella nätverket.  |
+| Lokalt | Azure-baserade tjänster som har en offentlig slut punkt | ExpressRoute (Microsoft-peering)            | Integration runtime med egen värd kan installeras lokalt eller på en virtuell Azure-dator. |
 
 I följande avbildningar visas användningen av integration runtime med egen värd för att flytta data mellan en lokal databas och Azure-tjänster med hjälp av ExpressRoute och IPSec VPN (med Azure Virtual Network):
 
@@ -152,24 +152,17 @@ I följande avbildningar visas användningen av integration runtime med egen vä
 
 ![IPSec VPN med Gateway](media/data-movement-security-considerations/ipsec-vpn-for-gateway.png)
 
-### <a name="firewall-configurations-and-whitelisting-ip-address-of-gateway"></a>Brand Väggs konfigurationer och vit listning IP-adresser
+### <a name="firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway"></a>Brand Väggs konfigurationer och lista över tillåtna inställningar för IP-adresser
 
 #### <a name="firewall-requirements-for-on-premisesprivate-network"></a>Brand Väggs krav för lokalt/privat nätverk  
 I ett företag körs en företags brand vägg på den centrala routern i organisationen. Windows-brandväggen körs som en daemon på den lokala datorn där den lokala integrerings körningen är installerad. 
 
 Följande tabell innehåller utgående port-och domän krav för företags brand väggar:
 
-| Domännamn                  | Utgående portar | Beskrivning                              |
-| ----------------------------- | -------------- | ---------------------------------------- |
-| `*.servicebus.windows.net`    | 443            | Krävs av integration runtime med egen värd för att ansluta till data flytt tjänster i Data Factory. |
-| `*.frontend.clouddatahub.net` | 443            | Krävs av integration runtime med egen värd för att ansluta till tjänsten Data Factory. |
-| `download.microsoft.com`    | 443            | Krävs av den egna värdbaserade integrerings körningen för att ladda ned uppdateringarna. Om du har inaktiverat automatisk uppdatering kan du hoppa över detta. |
-| `*.core.windows.net`          | 443            | Används av integration runtime med egen värd för att ansluta till Azure Storage-kontot när du använder funktionen för [mellanlagrad kopiering](copy-activity-performance.md#staged-copy) . |
-| `*.database.windows.net`      | 1433           | Valfritt Krävs när du kopierar från eller till Azure SQL Database eller Azure SQL Data Warehouse. Använd funktionen för mellanlagrad kopiering för att kopiera data till Azure SQL Database eller Azure SQL Data Warehouse utan att öppna port 1433. |
-| `*.azuredatalakestore.net`<br>`login.microsoftonline.com/<tenant>/oauth2/token`    | 443            | Valfritt Krävs när du kopierar från eller till Azure Data Lake Store. |
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
 > [!NOTE] 
-> Du kanske måste hantera portar eller vit listning-domäner på företags brand Väggs nivån som krävs av respektive data källa. I den här tabellen används endast Azure SQL Database, Azure SQL Data Warehouse och Azure Data Lake Store som exempel.   
+> Du kan behöva hantera portar eller ställa in listan över tillåtna för domäner på företags brand Väggs nivå enligt de respektive data källorna. I den här tabellen används endast Azure SQL Database, Azure SQL Data Warehouse och Azure Data Lake Store som exempel.   
 
 Följande tabell innehåller krav på inkommande portar för Windows-brand väggen:
 
@@ -179,10 +172,10 @@ Följande tabell innehåller krav på inkommande portar för Windows-brand vägg
 
 ![Krav för Gateway-port](media/data-movement-security-considerations/gateway-port-requirements.png) 
 
-#### <a name="ip-configurations-and-whitelisting-in-data-stores"></a>IP-konfigurationer och vit listning i data lager
-Vissa data lager i molnet kräver också att du vitlista IP-adressen för datorn som ansluter till butiken. Kontrol lera att IP-adressen för den egen värdbaserade integration runtime-datorn är vit listas eller konfigurerad i brand väggen på lämpligt sätt.
+#### <a name="ip-configurations-and-allow-list-setting-up-in-data-stores"></a>IP-konfigurationer och lista över tillåtna inställningar i data lager
+Vissa data lager i molnet kräver också att du tillåter IP-adressen för den dator som ansluter till butiken. Kontrol lera att IP-adressen för den egen värdbaserade integration runtime-datorn tillåts eller konfigureras i brand väggen på lämpligt sätt.
 
-Följande moln data lager kräver att du vitlista IP-adressen för den egen värdbaserade integration runtime-datorn. Vissa av dessa data lager kan som standard inte kräva vit listning. 
+Följande moln data lager kräver att du tillåter IP-adressen för den egen värdbaserade integration runtime-datorn. Vissa av dessa data lager kan som standard inte kräva listan över tillåtna. 
 
 - [Azure SQL Database](../sql-database/sql-database-firewall-configure.md) 
 - [Azure SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
@@ -190,7 +183,7 @@ Följande moln data lager kräver att du vitlista IP-adressen för den egen vär
 - [Azure Cosmos DB](../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 **Kan den egen värdbaserade integrerings körningen delas mellan olika data fabriker?**
 
@@ -198,7 +191,7 @@ Ja. Mer information finns [här](https://azure.microsoft.com/blog/sharing-a-self
 
 **Vilka är port kraven för integration runtime med egen värd att fungera?**
 
-Den egen värdbaserade integrerings körningen gör HTTP-baserade anslutningar till Internet. De utgående portarna 443 måste öppnas för integration runtime med egen värd för att ansluta. Öppna endast inkommande port 8060 på dator nivå (inte företags brand Väggs nivå) för Autentiseringshanteraren-program. Om Azure SQL Database eller Azure SQL Data Warehouse används som källa eller mål, behöver du även öppna port 1433. Mer information finns i avsnittet om [brand Väggs konfiguration och vit listning IP-adresser](#firewall-configurations-and-whitelisting-ip-address-of-gateway) . 
+Den egen värdbaserade integrerings körningen gör HTTP-baserade anslutningar till Internet. De utgående portarna 443 måste öppnas för integration runtime med egen värd för att ansluta. Öppna endast inkommande port 8060 på dator nivå (inte företags brand Väggs nivå) för Autentiseringshanteraren-program. Om Azure SQL Database eller Azure SQL Data Warehouse används som källa eller mål, behöver du även öppna port 1433. Mer information finns i avsnittet om [brand Väggs konfiguration och lista över tillåtna inställningar för IP-adresser](#firewall-configurations-and-allow-list-setting-up-for-ip-address-of-gateway) . 
 
 
 ## <a name="next-steps"></a>Nästa steg

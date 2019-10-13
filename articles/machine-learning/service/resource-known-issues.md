@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 08/09/2019
 ms.custom: seodec18
-ms.openlocfilehash: 8fbb09ecf09008c25c84a11c7b43dfb26450e30a
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: ee7bbff8ab501a1159030a8ee9c57f1c5a64ea22
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338756"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286543"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>Kända problem och fel söknings Azure Machine Learning
 
@@ -37,13 +37,13 @@ Du kanske vill köra ett experiment endast innehåller data uppsättning för at
  
 Före korrigeringen kan du ansluta data uppsättningen till en datatransformerings-modul (Välj kolumner i data uppsättning, redigera metadata, dela data osv.) och köra experimentet. Sedan kan du visualisera data uppsättningen. 
 
-Bilden nedan visar hur: ![visulize-data](./media/resource-known-issues/aml-visualize-data.png)
+Bilden nedan visar hur: ![visulize-data @ no__t-1
 
-## <a name="sdk-installation-issues"></a>SDK-installationsproblem
+## <a name="sdk-installation-issues"></a>Installations problem för SDK
 
-**Felmeddelande: Det går inte att avinstallera ' PyYAML '**
+**Fel meddelande: det går inte att avinstallera ' PyYAML '**
 
-Azure Machine Learning SDK för python: PyYAML är ett distutils-installerat projekt. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta installerar denna SDK när du ignorera det här felet, använder du:
+Azure Machine Learning SDK för python: PyYAML är ett distutils-installerat projekt. Därför kan vi inte korrekt avgöra vilka filer som tillhör den om det finns en delvis avinstallation. Om du vill fortsätta att installera SDK och ignorera det här felet använder du:
 
 ```Python
 pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
@@ -57,21 +57,21 @@ conda create -n <env-name> python=3.7.3
 ```
 Som skapar en Conda-miljö med python 3.7.3, som inte har installations problemet som finns i 3.7.4.
 
-## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa beräkning av Azure Machine Learning
+## <a name="trouble-creating-azure-machine-learning-compute"></a>Problem med att skapa Azure Machine Learning Compute
 
-Det finns en ovanligt risk att vissa användare som skapade sin Azure Machine Learning-arbetsyta från Azure-portalen innan GA-versionen kan inte skapa beräkning av Azure Machine Learning på arbetsytan. Du kan generera en supportförfrågan mot tjänsten, eller så kan du skapa en ny arbetsyta via portalen eller SDK, för att avblockera själv omedelbart.
+Det är en sällsynt risk att vissa användare som har skapat sin Azure Machine Learning-arbetsyta från Azure Portal innan GA-versionen inte kan skapa Azure Machine Learning beräkning på den arbets ytan. Du kan antingen utlösa en supportbegäran mot tjänsten eller skapa en ny arbets yta via portalen eller SDK för att häva blockeringen direkt.
 
-## <a name="image-building-failure"></a>Bild byggnad fel
+## <a name="image-building-failure"></a>Det gick inte att skapa bild
 
-Bild för att skapa fel när du distribuerar webbtjänsten. Lösningen är att lägga till ”pynacl == 1.2.1” som ett pip beroende till Conda-fil för konfiguration av avbildningen.
+Det gick inte att skapa bild när du distribuerar webb tjänsten. Lösning är att lägga till "pynacl = = 1.2.1" som ett pip-beroende av Conda-filen för avbildnings konfiguration.
 
 ## <a name="deployment-failure"></a>Distributions problem
 
-Om du `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`ser ändrar du SKU: n för virtuella datorer som används i distributionen till en som har mer minne.
+Om du ser `['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>` ändrar du SKU: n för virtuella datorer som används i distributionen till en som har mer minne.
 
-## <a name="fpgas"></a>FPGA
+## <a name="fpgas"></a>FPGA:er
 
-Du kommer inte att kunna distribuera modeller på FPGA förrän du har begärt och godkänts för FPGA kvot. För att begära åtkomst, fyller du i formuläret för begäran av kvot: https://aka.ms/aml-real-time-ai
+Du kommer inte att kunna distribuera modeller på FPGAs förrän du har begärt och godkänts för FPGA-kvoten. Om du vill begära åtkomst fyller du i formuläret kvot förfrågan: https://aka.ms/aml-real-time-ai
 
 ## <a name="automated-machine-learning"></a>Automatiserad maskininlärning
 
@@ -83,7 +83,7 @@ Binära klassificerings diagram (precisions återkallning, ROC, kurva osv.) som 
 
 ## <a name="databricks"></a>Databricks
 
-Databricks och Azure Machine Learning-problem.
+Databricks-och Azure Machine Learning problem.
 
 ### <a name="failure-when-installing-packages"></a>Det gick inte att installera paket
 
@@ -101,7 +101,7 @@ När du använder automatiserade maskin inlärnings funktioner på Azure Databri
 
 ### <a name="10-iterations-for-automated-machine-learning"></a>> 10 iterationer för automatisk maskin inlärning
 
-Om du har fler än 10 iterationer i automatiska inställningar för maskin inlärning anger `show_output` du till `False` när du skickar körningen.
+I automatiska inställningar för maskin inlärning, om du har fler än 10 iterationer, anger du `show_output` till `False` när du skickar körningen.
 
 ### <a name="widget-for-the-azure-machine-learning-sdkautomated-machine-learning"></a>Widget för Azure Machine Learning SDK/Automatisk maskin inlärning
 
@@ -111,7 +111,7 @@ Widgeten Azure Machine Learning SDK stöds inte i en Databricks Notebook efterso
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
 ```
 
-### <a name="import-error-no-module-named-pandascoreindexes"></a>Import fel: Ingen modul med namnet "Pandas. Core. indexs"
+### <a name="import-error-no-module-named-pandascoreindexes"></a>Import fel: ingen modul med namnet Pandas. Core. indexs
 
 Om du ser det här felet när du använder automatisk maskin inlärning:
 
@@ -128,19 +128,19 @@ Om de här stegen inte löser problemet kan du försöka med att starta om klust
 
 ### <a name="failtosendfeather"></a>FailToSendFeather
 
-Om du ser ett `FailToSendFeather` fel när du läser data på Azure Databricks kluster, se följande lösningar:
+Om du ser ett `FailToSendFeather`-fel vid läsning av data på Azure Databricks-kluster, se följande lösningar:
 
-* Uppgradera `azureml-sdk[automl_databricks]` paketet till den senaste versionen.
-* Lägg `azure-dataprep` till version 1.1.8 eller senare.
-* Lägg `pyarrow` till version 0,11 eller senare.
+* Uppgradera `azureml-sdk[automl_databricks]`-paketet till den senaste versionen.
+* Lägg till `azure-dataprep` version 1.1.8 eller senare.
+* Lägg till `pyarrow` version 0,11 eller senare.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
-Om du går direkt för att visa din arbetsyta från en delningslänk från SDK: N eller portalen kan du inte visa normala översikt översiktssidan med prenumerationsinformation i tillägget. Du kommer inte heller att kunna växla till en annan arbetsyta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Portal](https://portal.azure.com) och söka efter namnet på arbets ytan.
+Om du går direkt till att visa din arbets yta från en resurs länk från SDK eller portalen, kan du inte visa sidan för normal översikt med prenumerations information i tillägget. Du kommer inte heller att kunna byta till en annan arbets yta. Om du behöver visa en annan arbets yta är lösningen att gå direkt till [Azure Portal](https://portal.azure.com) och söka efter namnet på arbets ytan.
 
 ## <a name="diagnostic-logs"></a>Diagnostikloggar
 
-Ibland kan det vara bra om du kan ange diagnostisk information när du frågar om du behöver hjälp. Om du vill se några loggar går du till [Azure Portal](https://portal.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  Du kan också hitta den här informationen i avsnittet **experiment** i [landnings sidan för arbets ytan (för hands version)](https://ml.azure.com).
+Ibland kan det vara bra om du kan ange diagnostikinformation när du ber om hjälp. Om du vill se några loggar går du till [Azure Portal](https://portal.azure.com) och går till din arbets yta och väljer **arbets yta > Experiment > Kör > loggar**.  Du kan också hitta den här informationen i avsnittet **experiment** i [landnings sidan för arbets ytan (för hands version)](https://ml.azure.com).
 
 > [!NOTE]
 > Azure Machine Learning loggar information från en rad olika källor under utbildningen, till exempel AutoML eller Docker-behållaren som kör övnings jobbet. Många av dessa loggar dokumenteras inte. Om du stöter på problem och kontaktar Microsoft-supporten kan det hända att de kan använda dessa loggar under fel sökning.
@@ -153,7 +153,7 @@ Några av de här åtgärderna visas i området __aktiviteter__ i din arbets yta
 
 ## <a name="resource-quotas"></a>Resurskvoter
 
-Lär dig mer om den [resurskvoter](how-to-manage-quotas.md) som kan uppstå när du arbetar med Azure Machine Learning.
+Lär dig mer om [resurs kvoter](how-to-manage-quotas.md) som du kan stöta på när du arbetar med Azure Machine Learning.
 
 ## <a name="authentication-errors"></a>Autentiseringsfel
 
@@ -171,13 +171,13 @@ Till exempel visas ett fel meddelande om du försöker skapa eller ansluta ett b
 
 ## <a name="overloaded-azurefile-storage"></a>Överlagrad AzureFile-lagring
 
-Använd följande lösningar om du `Unable to upload project files to working directory in AzureFile because the storage is overloaded`får ett fel meddelande.
+Använd följande lösningar om du får ett fel meddelande `Unable to upload project files to working directory in AzureFile because the storage is overloaded`.
 
 Om du använder fil resurs för andra arbets belastningar, till exempel data överföring, är rekommendationen att använda blobbar så att fil resursen är kostnads fri att användas för att skicka körningar. Du kan också dela upp arbets belastningen mellan två olika arbets ytor.
 
 ## <a name="webservices-in-azure-kubernetes-service-failures"></a>Webservice i Azure Kubernetes service-problem 
 
-Många WebService-fel i Azure Kubernetes-tjänsten kan felsökas genom att ansluta till klustret med `kubectl`hjälp av. Du kan hämta `kubeconfig.json` ett Azure Kubernetes service-kluster genom att köra
+Många WebService-fel i Azure Kubernetes-tjänsten kan felsökas genom att ansluta till klustret med hjälp av `kubectl`. Du kan hämta `kubeconfig.json` för ett Azure Kubernetes service-kluster genom att köra
 
 ```bash
 az aks get-credentials -g <rg> -n <aks cluster name>
@@ -185,7 +185,12 @@ az aks get-credentials -g <rg> -n <aks cluster name>
 
 ## <a name="updating-azure-machine-learning-components-in-aks-cluster"></a>Uppdatera Azure Machine Learning-komponenter i AKS-kluster
 
-Uppdateringar av Azure Machine Learning-komponenter som är installerade i ett Azure Kubernetes service-kluster måste appliceras manuellt. Du kan tillämpa dessa uppdateringar genom att koppla från klustret från arbets ytan Azure Machine Learning och sedan koppla klustret till arbets ytan igen. Om SSL är aktiverat i klustret måste du ange SSL-certifikatet och den privata nyckeln när du ansluter klustret igen. 
+Uppdateringar av Azure Machine Learning-komponenter som är installerade i ett Azure Kubernetes service-kluster måste appliceras manuellt. 
+
+> [!WARNING]
+> Innan du utför följande åtgärder kontrollerar du versionen av Azure Kubernetes service-klustret. Om kluster versionen är lika med eller större än 1,14 kommer du inte att kunna ansluta klustret till Azure Machine Learning-arbetsytan.
+
+Du kan tillämpa dessa uppdateringar genom att koppla från klustret från arbets ytan Azure Machine Learning och sedan koppla klustret till arbets ytan igen. Om SSL är aktiverat i klustret måste du ange SSL-certifikatet och den privata nyckeln när du ansluter klustret igen. 
 
 ```python
 compute_target = ComputeTarget(workspace=ws, name=clusterWorkspaceName)
@@ -206,14 +211,14 @@ compute_target = ComputeTarget.attach(workspace=ws, name=args.clusterWorkspaceNa
 compute_target.wait_for_completion(show_output=True)
 ```
 
-Om du inte längre har SSL-certifikatet och den privata nyckeln, eller om du använder ett certifikat som har genererats av Azure Machine Learning, kan du hämta filerna innan du kopplar från klustret genom att ansluta till `kubectl` klustret med hjälp av och hämta hemligheten `azuremlfessl`.
+Om du inte längre har SSL-certifikatet och den privata nyckeln, eller om du använder ett certifikat som har genererats av Azure Machine Learning, kan du hämta filerna innan du kopplar från klustret genom att ansluta till klustret med `kubectl` och hämta hemligheten `azuremlfessl`.
 
 ```bash
 kubectl get secret/azuremlfessl -o yaml
 ```
 
 >[!Note]
->Kubernetes lagrar hemligheterna i Base-64-kodat format. Du behöver Base-64-avkoda `cert.pem` -och `key.pem` -komponenterna i hemligheterna `attach_config.enable_ssl`innan du ger dem. 
+>Kubernetes lagrar hemligheterna i Base-64-kodat format. Du måste ange Base-64-avkoda `cert.pem`-och `key.pem`-komponenterna i hemligheterna innan de kan `attach_config.enable_ssl`. 
 
 ## <a name="recommendations-for-error-fix"></a>Rekommendationer för fel korrigering
 Här följer Azure ML-rekommendationer för att åtgärda några av de vanliga felen i Azure ML, baserat på allmän observation.

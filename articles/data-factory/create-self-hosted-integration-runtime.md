@@ -11,12 +11,12 @@ ms.date: 06/18/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: be59f5fd34c52397b54146a8aeaf51f4d594452f
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 8ea6a365b0c7bc6c254c1313445bb54231e161ae
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70383356"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285639"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Skapa och konfigurera en integration runtime med egen värd
 Integrerings körningen (IR) är den beräknings infrastruktur som Azure Data Factory använder för att tillhandahålla funktioner för data integrering i olika nätverks miljöer. Mer information om IR finns i [Översikt över integration runtime](concepts-integration-runtime.md).
@@ -72,17 +72,17 @@ Här är ett högnivå data flöde för en sammanfattning av stegen för att kop
 - Du måste använda integration runtime med egen värd även om data lagret finns i molnet på en virtuell Azure IaaS-dator.
 - Aktiviteter kan Miss Miss kan utföras i en integration runtime med egen värd som är installerad på en Windows-Server där FIPS-kompatibel kryptering är aktive rad. Undvik det här problemet genom att inaktivera FIPS-kompatibel kryptering på servern. Om du vill inaktivera FIPS-kompatibel kryptering ändrar du följande register värde från 1 (aktiverat) till 0 (inaktiverat): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled`.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - De operativ system versioner som stöds är Windows 7 Service Pack 1, Windows 8,1, Windows 10, Windows Server 2008 R2 SP1, Windows Server 2012, Windows Server 2012 R2, Windows Server 2016 och Windows Server 2019. Installation av integration runtime med egen värd på en domänkontrollant stöds inte.
 - .NET Framework 4.6.1 eller senare krävs. Om du installerar integration runtime med egen värd på en dator med Windows 7 installerar du .NET Framework 4.6.1 eller senare. Mer information finns i [.NET Framework system krav](/dotnet/framework/get-started/system-requirements) .
 - Den rekommenderade konfigurationen för den egen värdbaserade integration runtime-datorn är minst 2 GHz, fyra kärnor, 8 GB RAM-minne och en 80 GB-disk.
 - Om värd datorn försätts i vilo läge svarar inte den egna värdbaserade integrerings körningen med data begär Anden. Konfigurera ett lämpligt energi schema på datorn innan du installerar integration runtime med egen värd. Om datorn är konfigurerad att försättas i vilo läge visas ett meddelande om att installationen av den egna värdbaserade integrerings körningen sker.
 - Du måste vara administratör på datorn för att installera och konfigurera integration runtime med egen värd.
-- Kopierings aktiviteten körs på en angiven frekvens. Resursanvändningen (CPU, minne) på datorn följer samma mönster med hög belastning och låg belastnings tid. Resursutnyttjande beror också kraftigt på mängden data som flyttas. När flera kopierings jobb pågår, ser du att resursanvändningen går upp under hög belastnings tider.
+- Kopierings aktiviteten körs på en angiven frekvens. Resursanvändningen (CPU, minne) på datorn följer samma mönster med hög belastning och låg belastnings tid. Resursutnyttjande beror också på mängden data som flyttas. När flera kopierings jobb pågår, ser du att resursanvändningen går upp under hög belastnings tider.
 - Aktiviteter kan Miss lyckas om data extraheras i Parquet-, ORC-eller Avro-format. Att skapa filer körs på den lokala integrations datorn och kräver att följande förutsättningar fungerar som förväntat (se [Parquet-format i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/format-parquet#using-self-hosted-integration-runtime)).
     - [Visual C++ 2010 Redistributable](https://download.microsoft.com/download/3/2/2/3224B87F-CFA0-4E70-BDA3-3DE650EFEBA5/vcredist_x64.exe) Package (x64)
-    - Java Runtime (JRE) version 8 från en JRE-Provider, till exempel [anta openjdk](https://adoptopenjdk.net/), vilket `JAVA_HOME` säkerställer att miljövariabeln har angetts.
+    - Java Runtime (JRE) version 8 från en JRE-Provider, till exempel [anta openjdk](https://adoptopenjdk.net/), vilket säkerställer att miljövariabeln `JAVA_HOME` har angetts.
 
 ## <a name="installation-best-practices"></a>Metod tips för installation
 Du kan installera integration runtime med egen värd genom att ladda ned ett MSI-installationspaketet från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=39717). Se [Flytta data mellan lokala och moln artiklar](tutorial-hybrid-copy-powershell.md) för stegvisa instruktioner.
@@ -122,7 +122,7 @@ Du kan installera integration runtime med egen värd genom att ladda ned ett MSI
 
 Du kan använda kommando raden för att konfigurera eller hantera en befintlig egen IR. Detta kan användas särskilt för att automatisera installationen, registrering av IR-noder med egen värd. 
 
-**Dmgcmd. exe** ingår i den självbetjänings installation som vanligt vis finns: C:\Program\Microsoft integration Runtime\3.0\Shared\-mappen. Detta stöder olika parametrar och kan anropas via kommando tolken med hjälp av batch-skript för Automation. 
+**Dmgcmd. exe** ingår i den självbetjänings installation som vanligt vis finns: C:\Program Files\Microsoft integration Runtime\3.0\Shared\ Folder. Detta stöder olika parametrar och kan anropas via kommando tolken med hjälp av batch-skript för Automation. 
 
 *Användningsvyn* 
 
@@ -132,24 +132,24 @@ dmgcmd [ -RegisterNewNode "<AuthenticationKey>" -EnableRemoteAccess "<port>" ["<
 
  *Information (parametrar/egenskap):* 
 
-| Egenskap                                                    | Beskrivning                                                  | Obligatorisk |
+| Egenskap                                                    | Beskrivning                                                  | Krävs |
 | ----------------------------------------------------------- | ------------------------------------------------------------ | -------- |
 | RegisterNewNode "`<AuthenticationKey>`"                     | Registrera Integration Runtime (lokal installation) nod med den angivna autentiseringsnyckel | Nej       |
 | EnableRemoteAccess "`<port>`" ["`<thumbprint>`"]            | Aktivera fjärråtkomst på den aktuella noden för att konfigurera ett kluster med hög tillgänglighet och/eller aktivera inställning av autentiseringsuppgifter direkt mot den lokala IR-filen (utan att gå via ADF-tjänsten) med  **New-AzDataFactoryV2LinkedServiceEncryptedCredential-** cmdlet från en fjärrdator i samma nätverk. | Nej       |
 | EnableRemoteAccessInContainer "`<port>`" ["`<thumbprint>`"] | Aktivera fjärråtkomst till den aktuella noden när noden körs i behållaren | Nej       |
 | DisableRemoteAccess                                         | Inaktivera fjärråtkomst till den aktuella noden. Fjärråtkomst krävs för installation med flera noder. PowerShell-cmdleten New-**AzDataFactoryV2LinkedServiceEncryptedCredential** fungerar fortfarande även om fjärråtkomst är inaktive rad så länge som den körs på samma dator som den lokala IR-noden. | Nej       |
 | Nyckel "`<AuthenticationKey>`"                                 | Skriv över/uppdatera föregående autentiseringsnyckel. Var noga med att det kan leda till att din tidigare IR-nod med egen värd blir offline, om nyckeln är en ny integrerings körning. | Nej       |
-| GenerateBackupFile "`<filePath>``<password>`" "            | Skapa säkerhets kopia för den aktuella noden, innehåller säkerhets kopian den nod-och autentiseringsuppgifter för data lager | Nej       |
-| ImportBackupFile "`<filePath>``<password>`" "              | Återställa noden från en säkerhets kopia                          | Nej       |
+| GenerateBackupFile "`<filePath>`" "`<password>`"            | Skapa säkerhets kopia för den aktuella noden, innehåller säkerhets kopian den nod-och autentiseringsuppgifter för data lager | Nej       |
+| ImportBackupFile "`<filePath>`" "`<password>`"              | Återställa noden från en säkerhets kopia                          | Nej       |
 | Starta om                                                     | Starta om Integration Runtime (lokal installation) värd tjänsten   | Nej       |
 | Start                                                       | Starta Integration Runtime (lokal installation) värd tjänsten     | Nej       |
-| Stoppa                                                        | Stoppa Integration Runtime (lokal installation) uppdaterings tjänst        | Nej       |
+| Stopp                                                        | Stoppa Integration Runtime (lokal installation) uppdaterings tjänst        | Nej       |
 | StartUpgradeService                                         | Starta Integration Runtime (lokal installation) uppdaterings tjänst       | Nej       |
 | StopUpgradeService                                          | Stoppa Integration Runtime (lokal installation) uppdaterings tjänst        | Nej       |
 | TurnOnAutoUpdate                                            | Aktivera Integration Runtime (lokal installation) automatisk uppdatering        | Nej       |
 | TurnOffAutoUpdate                                           | Inaktivera Integration Runtime (lokal installation) automatisk uppdatering       | Nej       |
 | SwitchServiceAccount "< domän \ användare >" ["lösen ord"]           | Ange dia Host service som ska köras som ett nytt konto. Använd ett tomt lösen ord ("") för system konto eller virtuellt konto | Nej       |
-| LogLevel`<logLevel>`                                       | Ange ETW-loggnings nivå (av, fel, utförlig eller alla). Används vanligt vis av Microsofts support vid fel sökning. | Nej       |
+| LogLevel `<logLevel>`                                       | Ange ETW-loggnings nivå (av, fel, utförlig eller alla). Används vanligt vis av Microsofts support vid fel sökning. | Nej       |
 
    
 
@@ -165,7 +165,7 @@ Du kan associera flera noder genom att installera program varan för egen värd 
 > Du behöver inte skapa en ny egen värd för integration runtime för att associera varje nod. Du kan installera integration runtime med egen värd på en annan dator och registrera den med samma autentiseringsnyckel. 
 
 > [!NOTE]
-> Innan du lägger till en annan nod för hög tillgänglighet och skalbarhet måste du kontrol lera att alternativet **fjärråtkomst till intranät** är aktiverat på den första noden (**Microsoft integration runtime Configuration Manager** > **Inställningar**  >  **Fjärråtkomst till intranät**). 
+> Innan du lägger till en annan nod för hög tillgänglighet och skalbarhet måste du kontrol lera att alternativet **fjärråtkomst till intranät** är aktiverat på den första noden (**Microsoft integration runtime Configuration Manager**@no__t 2**Inställningar** >  **Fjärråtkomst till intranät**). 
 
 ### <a name="scale-considerations"></a>Skalnings överväganden
 
@@ -204,7 +204,7 @@ Om du vill visa en 12-minuters introduktion och demonstration av den här funkti
 
 ### <a name="terminology"></a>Terminologi
 
-- **Delad IR**: Den ursprungliga egen IR-IR som körs på en fysisk infrastruktur.  
+- **Delad IR**: den ursprungliga lokala IR som körs på en fysisk infrastruktur.  
 - **Länkad IR**: IR som refererar till en annan delad IR. Det här är en logisk IR och använder infrastrukturen för en annan egen värd-IR (delad).
 
 ### <a name="high-level-steps-for-creating-a-linked-self-hosted-ir"></a>Steg på hög nivå för att skapa en länkad IR med egen värd
@@ -267,19 +267,15 @@ Det finns två brand väggar att tänka på: *företags brand väggen* som körs
 
 På *företags brand Väggs* nivå måste du konfigurera följande domäner och utgående portar:
 
-Domännamn | Portar | Beskrivning
------------- | ----- | ------------
-*.servicebus.windows.net | 443 | Används för kommunikation med backend-tjänsten för data förflyttning
-*.core.windows.net | 443 | Används för mellanlagrad kopiering via Azure Blob Storage (om det kon figurer ATS)
-*.frontend.clouddatahub.net | 443 | Används för kommunikation med backend-tjänsten för data förflyttning
-download.microsoft.com | 443 | Används för att ladda ned uppdateringar
+[!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
+
 
 På *Windows brand Väggs* nivå (dator nivå) är dessa utgående portar normalt aktiverade. Om inte kan du konfigurera domänerna och portarna på motsvarande sätt på en egen värd för integration runtime-datorn.
 
 > [!NOTE]
-> Utifrån din källa och dina mottagare kan du behöva vitlista ytterligare domäner och utgående portar i företags brand väggen eller Windows-brandväggen.
+> Utifrån din källa och dina mottagare kan du behöva tillåta ytterligare domäner och utgående portar i företags brand väggen eller Windows-brandväggen.
 >
-> För vissa molndatabaser (som Azure SQL Database och Azure Data Lake), kan du behöva placera IP-adresser för de lokala integrationskörningsdatorernas brandväggskonfiguration i listan över tillåtna.
+> För vissa moln databaser (till exempel Azure SQL Database och Azure Data Lake) kan du behöva tillåta IP-adresser för datorer med egen värd integrerings körning i brand Väggs konfigurationen.
 
 ### <a name="copy-data-from-a-source-to-a-sink"></a>Kopiera data från en källa till en mottagare
 Kontrol lera att brand Väggs reglerna är korrekt aktiverade i företags brand väggen, Windows-brandväggen på den lokala datorn för integration Runtime och själva data lagret. Genom att aktivera dessa regler kan integrerings körning med egen värd ansluta till både källan och mottagaren. Aktivera regler för varje data lager som ingår i kopierings åtgärden.
@@ -304,9 +300,9 @@ När det konfigureras använder den egen värdbaserade integrerings körningen p
 
 Det finns tre konfigurations alternativ:
 
-- **Använd inte proxy**: Den egna värdbaserade integrerings körningen använder inte uttryckligen någon proxy för att ansluta till moln tjänster.
-- **Använd systemproxy**: Den egna värdbaserade integrerings körningen använder den proxyinställningar som är konfigurerad i diahost. exe. config och diawp. exe. config. Om ingen proxy har kon figurer ATS i diahost. exe. config och diawp. exe. config ansluter den egna värdbaserade integrerings körningen till moln tjänsten direkt utan att gå via en proxy.
-- **Använd anpassad proxy**: Konfigurera inställningen för HTTP-proxy som ska användas för integration runtime med egen värd i stället för konfigurationer i diahost. exe. config och diawp. exe. config. **Adress** och **port** måste anges. **Användar namn** och **lösen ord** är valfria beroende på proxyns autentiseringsinställningar. Alla inställningar krypteras med Windows DPAPI på integration runtime med egen värd och lagras lokalt på datorn.
+- **Använd inte proxy**: den egna värdbaserade integrerings körningen använder inte uttryckligen någon proxy för att ansluta till moln tjänster.
+- **Använd systemproxy**: den egna värdbaserade integrerings körningen använder den proxyserver som kon figurer ATS i diahost. exe. config och diawp. exe. config. Om ingen proxy har kon figurer ATS i diahost. exe. config och diawp. exe. config ansluter den egna värdbaserade integrerings körningen till moln tjänsten direkt utan att gå via en proxy.
+- **Använd anpassad proxy**: konfigurera inställningen för http-proxy som ska användas för integration runtime med egen värd i stället för konfigurationer i diahost. exe. config och diawp. exe. config. **Adress** och **port** måste anges. **Användar namn** och **lösen ord** är valfria beroende på proxyns autentiseringsinställningar. Alla inställningar krypteras med Windows DPAPI på integration runtime med egen värd och lagras lokalt på datorn.
 
 Värd tjänsten för integration runtime startas om automatiskt när du har sparat de uppdaterade proxyinställningarna.
 
@@ -346,7 +342,7 @@ Om du väljer inställningen **Använd systemproxy** för HTTP-proxyn använder 
     </system.net>
     ```
 
-    Ytterligare egenskaper tillåts i proxy-taggen för att ange de inställningar som `scriptLocation`krävs. Se [proxy-elementet (nätverks inställningar)](https://msdn.microsoft.com/library/sa91de1e.aspx) för syntax.
+    Ytterligare egenskaper tillåts i proxy-taggen för att ange nödvändiga inställningar som `scriptLocation`. Se [proxy-elementet (nätverks inställningar)](https://msdn.microsoft.com/library/sa91de1e.aspx) för syntax.
 
     ```xml
     <proxy autoDetect="true|false|unspecified" bypassonlocal="true|false|unspecified" proxyaddress="uriString" scriptLocation="uriString" usesystemdefault="true|false|unspecified "/>
@@ -360,13 +356,13 @@ Om du väljer inställningen **Använd systemproxy** för HTTP-proxyn använder 
 > [!IMPORTANT]
 > Glöm inte att uppdatera både diahost. exe. config och diawp. exe. config.
 
-Du måste också se till att Microsoft Azure finns i företagets vitlista. Du kan ladda ned listan över giltiga Microsoft Azure IP-adresser från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
+Du måste också se till att Microsoft Azure finns i företagets lista över tillåtna. Du kan ladda ned listan över giltiga Microsoft Azure IP-adresser från [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=41653).
 
 ### <a name="possible-symptoms-for-firewall-and-proxy-server-related-issues"></a>Möjliga problem för brand Väggs-och proxy server-relaterade problem
 Om du stöter på fel som liknar följande kan det bero på felaktig konfiguration av brand väggen eller proxyservern, vilket blockerar den egna värdbaserade integrerings körningen från att ansluta till Data Factory att autentisera sig själv. Se föregående avsnitt för att kontrol lera att din brand vägg och proxyserver är korrekt konfigurerade.
 
 * När du försöker registrera den egna värdbaserade integrerings körningen får du följande fel meddelande: "Det gick inte att registrera den här Integration Runtime noden! Bekräfta att autentiseringsnyckel är giltig och att värd tjänsten för integrations tjänsten körs på den här datorn. "
-* När du öppnar Integration Runtime Configuration Manager visas statusen **frånkopplad** eller **ansluten**. När du visar händelse loggar för Windows, under **Loggboken** > **program-och tjänst loggar** > **Microsoft integration runtime**, visas fel meddelanden som detta:
+* När du öppnar Integration Runtime Configuration Manager visas statusen **frånkopplad** eller **ansluten**. När du visar Windows-händelseloggar, under **Loggboken** > **program-och tjänst loggar** > **Microsoft integration runtime**, visas fel meddelanden som detta:
 
     ```
     Unable to connect to the remote server

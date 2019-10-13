@@ -1,5 +1,5 @@
 ---
-title: Komma igång med Azure Storage och Visual Studio Connected Services (webbjobb-projekt)
+title: Komma igång med Azure Storage med Visual Studio (webbjobb-projekt)
 description: Komma igång med Azure Table Storage i ett Azure WebJobs-projekt i Visual Studio efter anslutning till ett lagrings konto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 8875f680c8bb83c2375d6fe767f376cbb35d5a0a
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 042f2659d3691e8c51e092bf69473187b8615ee6
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510678"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299964"
 ---
 # <a name="getting-started-with-azure-storage-azure-webjob-projects"></a>Komma igång med Azure Storage (Azure webbjobb-projekt)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -30,7 +31,7 @@ Med tjänsten Azure Table Storage kan du lagra stora mängder strukturerade data
 Några av kodfragmenten visar det **tabellattribut** som används i funktioner som anropas manuellt, det vill säga inte genom att använda ett av utlösarens attribut.
 
 ## <a name="how-to-add-entities-to-a-table"></a>Så här lägger du till entiteter i en tabell
-Om du vill lägga till entiteter i en tabell använder du **Table** -attributet med en **ICollector\<t >** eller **IAsyncCollector\<t >** parameter där **t** anger schemat för de entiteter som du vill lägga till. Attributet konstruktorn använder en sträng parameter som anger namnet på tabellen.
+Om du vill lägga till entiteter i en tabell använder du **Table** -attributet med en **ICollector @ no__t-2T >** eller **IAsyncCollector @ no__t-4T >** parameter där **t** anger schemat för de entiteter som du vill lägga till. Attributet konstruktorn använder en sträng parameter som anger namnet på tabellen.
 
 Följande kod exempel lägger till **person** entiteter i en tabell med namnet *ingress*.
 
@@ -49,7 +50,7 @@ Följande kod exempel lägger till **person** entiteter i en tabell med namnet *
             }
         }
 
-Vanligt vis är den typ som du använder med **ICollector** härledd från **TableEntity** eller implementerar **ITableEntity**, men det behöver inte. Någon av följande klasser fungerar med koden som visas i föregående **ingress** -metod.
+Vanligt vis är den typ som du använder med **ICollector** härledd från **TableEntity** eller implementerar **ITableEntity**, men det behöver inte. Någon **av följande klasser** fungerar med koden som visas i föregående **ingress** -metod.
 
         public class Person : TableEntity
         {
@@ -79,7 +80,7 @@ När funktionen slutförs rapporterar sidan med **anrops information** antalet r
 ![Ingångs funktion avslutad](./media/vs-storage-webjobs-getting-started-tables/ingresssuccess.png)
 
 ## <a name="how-to-read-multiple-entities-from-a-table"></a>Läsa flera entiteter från en tabell
-Om du vill läsa en tabell använder du **Table** -attributet med en **\<IQueryable-T >** parameter där typ **T** härleds från **TableEntity** eller implementerar **ITableEntity**.
+Om du vill läsa en tabell använder du **Table** -attributet med en **IQueryable @ no__t-2T >** parameter där typ **t** härleds från **TableEntity** eller implementerar **ITableEntity**.
 
 Följande kod exempel läser och loggar alla rader från **ingress** -tabellen:
 
@@ -98,7 +99,7 @@ Följande kod exempel läser och loggar alla rader från **ingress** -tabellen:
 ### <a name="how-to-read-a-single-entity-from-a-table"></a>Läsa en enskild entitet från en tabell
 Det finns en konstruktor för **Table** -attribut med två ytterligare parametrar som låter dig ange partitionsnyckel och rad nyckel när du vill binda till en enskild tabell enhet.
 
-Följande kod exempel läser en tabell rad för en entitet som baseras på partitionsnyckel och rad nyckel värden som tas emot i ett köat meddelande:  
+Följande kod exempel läser en tabell rad för **en entitet som** baseras på partitionsnyckel och rad nyckel värden som tas emot i ett köat meddelande:  
 
         public static void ReadTableEntity(
             [QueueTrigger("inputqueue")] Person personInQueue,

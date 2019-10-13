@@ -4,14 +4,14 @@ description: Förstå hur indexering fungerar i Azure Cosmos DB.
 author: ThomasWeiss
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 10/11/2019
 ms.author: thweiss
-ms.openlocfilehash: 4d961f8635a52a09011543b793ce8a87eaa4ea9e
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: d679208914eb7d1f74bfaec77fbcff196909a2f4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914200"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299784"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indexering i Azure Cosmos DB – översikt
 
@@ -64,9 +64,11 @@ När ett objekt skrivs, indexerar Azure Cosmos DB effektivt varje egenskaps bana
 
 ## <a name="index-kinds"></a>Index typer
 
-Azure Cosmos DB stöder för närvarande tre typer av index:
+Azure Cosmos DB stöder för närvarande tre typer av index.
 
-**Intervall** index typen används för:
+### <a name="range-index"></a>Intervall index
+
+**Intervall** indexet baseras på en ordnad träd struktur. Intervall index typen används för:
 
 - Likhets frågor:
 
@@ -74,20 +76,41 @@ Azure Cosmos DB stöder för närvarande tre typer av index:
    SELECT * FROM container c WHERE c.property = 'value'
    ```
 
+   ```sql
+   SELECT * FROM c WHERE c.property IN ("value1", "value2", "value3")
+   ```
+
+   Likhets matchning för ett mat ris element
+   ```sql
+    SELECT * FROM c WHERE ARRAY_CONTAINS(c.tags, "tag1”)
+    ```
+
 - Intervall frågor:
 
    ```sql
    SELECT * FROM container c WHERE c.property > 'value'
    ```
-  (fungerar för `>`, `<`, `>=` ,`<=`, )`!=`
+  (fungerar för `>`, `<`, `>=`, `<=`, `!=`)
 
-- `ORDER BY`skickar
+- Söker efter en egenskap:
 
-   ```sql 
+   ```sql
+   SELECT * FROM c WHERE IS_DEFINED(c.property)
+   ```
+
+- Standardvärden för String (innehåller nyckelordet använder inte intervall indexet):
+
+   ```sql
+   SELECT * FROM c WHERE STARTSWITH(c.property, "value")
+   ```
+
+- `ORDER BY` frågor:
+
+   ```sql
    SELECT * FROM container c ORDER BY c.property
    ```
 
-- `JOIN`skickar
+- `JOIN` frågor:
 
    ```sql
    SELECT child FROM container c JOIN child IN c.properties WHERE child = 'value'
@@ -95,31 +118,41 @@ Azure Cosmos DB stöder för närvarande tre typer av index:
 
 Intervall index kan användas för skalära värden (sträng eller tal).
 
-Typ av **rums** index används för:
+### <a name="spatial-index"></a>Rums index
 
-- Geospatiala avstånds frågor: 
+Med **rums** index kan du skapa effektiva frågor om geospatiala objekt som-punkter, linjer, polygoner och multipolygoner. Dessa frågor använder ST_DISTANCE-, ST_WITHIN-, ST_INTERSECTS-nyckelord. Följande är några exempel som använder spatial index typ:
+
+- Geospatiala avstånds frågor:
 
    ```sql
    SELECT * FROM container c WHERE ST_DISTANCE(c.property, { "type": "Point", "coordinates": [0.0, 10.0] }) < 40
    ```
 
-- Geospatial inom frågor: 
+- Geospatial inom frågor:
 
    ```sql
    SELECT * FROM container c WHERE ST_WITHIN(c.property, {"type": "Point", "coordinates": [0.0, 10.0] } })
    ```
 
+- Geospatiala skärnings frågor:
+
+   ```sql
+   SELECT * FROM c WHERE ST_INTERSECTS(c.property, { 'type':'Polygon', 'coordinates': [[ [31.8, -5], [32, -5], [31.8, -5] ]]  })  
+   ```
+
 Rums index kan användas på korrekt formaterade geospatiala [JSON](geospatial.md) -objekt. Punkter, lin Est rings, polygoner och multipolygoner stöds för närvarande.
 
-Den **sammansatta** index typen används för:
+### <a name="composite-indexes"></a>Sammansatta index
 
-- `ORDER BY`frågor om flera egenskaper:
+**Sammansatta** index ökar effektiviteten när du utför åtgärder på flera fält. Den sammansatta index typen används för:
+
+- `ORDER BY` frågor om flera egenskaper:
 
 ```sql
  SELECT * FROM container c ORDER BY c.property1, c.property2
 ```
 
-- Frågor med ett filter och `ORDER BY`. Dessa frågor kan använda ett sammansatt index om filter egenskapen har lagts till `ORDER BY` i-satsen.
+- Frågor med ett filter och `ORDER BY`. Dessa frågor kan använda ett sammansatt index om filter egenskapen har lagts till i `ORDER BY`-satsen.
 
 ```sql
  SELECT * FROM container c WHERE c.property1 = 'value' ORDER BY c.property1, c.property2
@@ -131,16 +164,23 @@ Den **sammansatta** index typen används för:
  SELECT * FROM container c WHERE c.property1 = 'value' AND c.property2 > 'value'
 ```
 
+Så länge ett filter predikat använder på index typen, kommer frågesyntaxen att utvärderas först innan resten görs. Om du till exempel har en SQL-fråga som `SELECT * FROM c WHERE c.firstName = "Andrew" and CONTAINS(c.lastName, "Liu")`
+
+* Ovanstående fråga filtreras först efter poster där firstName = "Anders" med hjälp av indexet. Sedan skickar du alla poster för firstName = "Anders" genom en efterföljande pipeline för att utvärdera innehåller filtervärdet.
+
+* Du kan påskynda frågor och undvika fullständig genomsökning av behållare när du använder funktioner som inte använder indexet (t. ex. innehåller) genom att lägga till ytterligare filter-predikat som använder indexet. Ordningen på filter satserna är inte viktig. Frågemotor är ett sätt att ta reda på vilka predikat som är selektivt selektivt och köra frågan på motsvarande sätt.
+
+
 ## <a name="querying-with-indexes"></a>Fråga med index
 
-De sökvägar som extraherades vid indexering av data gör det enkelt att söka efter indexet när en fråga bearbetas. Genom att matcha `WHERE` -satsen i en fråga med listan över indexerade sökvägar är det möjligt att identifiera de objekt som matchar frågespråket mycket snabbt.
+De sökvägar som extraherades vid indexering av data gör det enkelt att söka efter indexet när en fråga bearbetas. Genom att matcha `WHERE`-satsen i en fråga med listan över indexerade sökvägar, är det möjligt att identifiera de objekt som matchar frågespråket mycket snabbt.
 
 Överväg till exempel följande fråga: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Frågans predikat (filtrering av objekt, där alla platser har "Frankrike" som sitt land), matchar sökvägen som marker ATS i rött nedan:
 
 ![Matcha en angiven sökväg inom ett träd](./media/index-overview/matching-path.png)
 
 > [!NOTE]
-> En `ORDER BY` sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss betes om sökvägen den refererar till inte har en. På samma sätt behöver `ORDER BY` en fråga som order by flera egenskaper *alltid* ett sammansatt index.
+> En `ORDER BY`-sats som sorteras efter en enskild egenskap behöver *alltid* ett intervall index och kommer att Miss lägea om sökvägen den refererar till inte har en. På samma sätt behöver en `ORDER BY`-fråga som order av flera egenskaper *alltid* ett sammansatt index.
 
 ## <a name="next-steps"></a>Nästa steg
 

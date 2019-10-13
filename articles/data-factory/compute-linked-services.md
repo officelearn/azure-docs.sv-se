@@ -7,16 +7,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 01/15/2019
+ms.date: 10/10/2019
 author: nabhishek
 ms.author: abnarain
 manager: craigg
-ms.openlocfilehash: 2daae1637c568b72d548330abbcb73da21b12683
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: ae3350b14ca1073a5fbb1a353b9301c57e7f1ea4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72176860"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298320"
 ---
 # <a name="compute-environments-supported-by-azure-data-factory"></a>Beräknings miljöer som stöds av Azure Data Factory
 I den här artikeln beskrivs olika beräknings miljöer som du kan använda för att bearbeta eller transformera data. Den innehåller också information om olika konfigurationer (på begäran eller ta med din egen) som stöds av Data Factory när du konfigurerar länkade tjänster som länkar dessa beräknings miljöer till en Azure Data Factory.
@@ -27,7 +27,8 @@ Följande tabell innehåller en lista över beräknings miljöer som stöds av D
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | [HDInsight-kluster på begäran](#azure-hdinsight-on-demand-linked-service) eller [ditt eget HDInsight-kluster](#azure-hdinsight-linked-service) | [Hive](transform-data-using-hadoop-hive.md), [gris](transform-data-using-hadoop-pig.md), [Spark](transform-data-using-spark.md), [MapReduce](transform-data-using-hadoop-map-reduce.md), [Hadoop-direktuppspelning](transform-data-using-hadoop-streaming.md) |
 | [Azure Batch](#azure-batch-linked-service)                   | [Anpassat](transform-data-using-dotnet-custom-activity.md)     |
-| [Azure Machine Learning](#azure-machine-learning-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning Studio](#azure-machine-learning-studio-linked-service) | [Machine Learning-aktiviteter: batchkörning och resursuppdatering](transform-data-using-machine-learning.md) |
+| [Azure Machine Learning tjänst](#azure-machine-learning-service-linked-service) | [Azure Machine Learning kör pipeline](transform-data-machine-learning-service.md) |
 | [Azure Data Lake Analytics](#azure-data-lake-analytics-linked-service) | [Data Lake Analytics U-SQL](transform-data-using-data-lake-analytics.md) |
 | [Azure SQL](#azure-sql-database-linked-service), [Azure SQL Data Warehouse](#azure-sql-data-warehouse-linked-service) [SQL Server](#sql-server-linked-service) | [Lagrad procedur](transform-data-using-stored-procedure.md) |
 | [Azure Databricks](#azure-databricks-linked-service)         | [Notebook](transform-data-databricks-notebook.md), [jar](transform-data-databricks-jar.md), [python](transform-data-databricks-python.md) |
@@ -354,8 +355,8 @@ Se följande avsnitt om du är nybörjare på Azure Batch-tjänsten:
 | linkedServiceName | Namnet på den länkade tjänsten Azure Storage som är kopplad till den här Azure Batch länkade tjänsten. Den här länkade tjänsten används för uppsamlingsfiler som krävs för att köra aktiviteten. | Ja      |
 | connectVia        | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Nej       |
 
-## <a name="azure-machine-learning-linked-service"></a>Azure Machine Learning länkad tjänst
-Du skapar en Azure Machine Learning länkad tjänst för att registrera en Machine Learning slut punkt för batch-poäng till en data fabrik.
+## <a name="azure-machine-learning-studio-linked-service"></a>Azure Machine Learning Studio länkad tjänst
+Du skapar en Azure Machine Learning Studio länkad tjänst för att registrera en Machine Learning slut punkt för batch-poäng till en data fabrik.
 
 ### <a name="example"></a>Exempel
 
@@ -385,11 +386,55 @@ Du skapar en Azure Machine Learning länkad tjänst för att registrera en Machi
 | Typ                   | Egenskapen Type ska anges till: **azureml**. | Ja                                      |
 | mlEndpoint             | URL för batch-poäng.                   | Ja                                      |
 | apiKey                 | Den publicerade arbets ytans modells API.     | Ja                                      |
-| updateResourceEndpoint | Uppdaterings resursens URL för en Azure ML-webbtjänsts slut punkt som används för att uppdatera den förutsägbara webb tjänsten med utbildad modell fil | Nej                                       |
+| updateResourceEndpoint | Uppdaterings resursens URL för en Azure Machine Learning-webbtjänstens slut punkt som används för att uppdatera den förutsägbara webb tjänsten med utbildad modell fil | Nej                                       |
 | servicePrincipalId     | Ange programmets klient-ID.     | Krävs om updateResourceEndpoint har angetts |
 | servicePrincipalKey    | Ange programmets nyckel.           | Krävs om updateResourceEndpoint har angetts |
 | innehav                 | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Krävs om updateResourceEndpoint har angetts |
 | connectVia             | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Nej                                       |
+
+## <a name="azure-machine-learning-service-linked-service"></a>Länkad tjänst för Azure Machine Learning tjänsten
+Du skapar en länkad tjänst för Azure Machine Learning tjänsten för att ansluta en Azure Machine Learning service-arbetsyta till en data fabrik.
+
+> [!NOTE]
+> För närvarande stöds endast autentisering av tjänstens huvud namn för den länkade tjänsten Azure Machine Learning tjänsten.
+
+### <a name="example"></a>Exempel
+
+```json
+{
+    "name": "AzureMLServiceLinkedService",
+    "properties": {
+        "type": "AzureMLService",
+        "typeProperties": {
+            "subscriptionId": "subscriptionId",
+            "resourceGroupName": "resourceGroupName",
+            "mlWorkspaceName": "mlWorkspaceName",
+            "servicePrincipalId": "service principal id",
+            "servicePrincipalKey": {
+                "value": "service principal key",
+                "type": "SecureString"
+            },
+            "tenant": "tenant ID"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime?",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+### <a name="properties"></a>Egenskaper
+| Egenskap               | Beskrivning                              | Krävs                                 |
+| ---------------------- | ---------------------------------------- | ---------------------------------------- |
+| Typ                   | Egenskapen Type ska anges till: **AzureMLService**. | Ja                                      |
+| subscriptionId         | ID för Azure-prenumeration              | Ja                                      |
+| resourceGroupName      | namn | Ja                                      |
+| mlWorkspaceName        | Namn på Azure Machine Learning service-arbetsyta | Ja  |
+| servicePrincipalId     | Ange programmets klient-ID.     | Nej |
+| servicePrincipalKey    | Ange programmets nyckel.           | Nej |
+| innehav                 | Ange den klient information (domän namn eller klient-ID) som programmet finns under. Du kan hämta det genom att hovra musen i det övre högra hörnet av Azure Portal. | Krävs om updateResourceEndpoint har angetts | Nej |
+| connectVia             | Integration Runtime som ska användas för att skicka aktiviteter till den här länkade tjänsten. Du kan använda Azure Integration Runtime eller egen värd Integration Runtime. Om inget värde anges används standard Azure Integration Runtime. | Nej |    
 
 ## <a name="azure-data-lake-analytics-linked-service"></a>Azure Data Lake Analytics länkad tjänst
 Du skapar en **Azure Data Lake Analytics** länkad tjänst för att länka en Azure Data Lake Analytics Compute-tjänst till en Azure Data Factory. Data Lake Analytics U-SQL-aktiviteten i pipelinen refererar till den här länkade tjänsten. 
@@ -410,7 +455,7 @@ Du skapar en **Azure Data Lake Analytics** länkad tjänst för att länka en Az
                 "type": "SecureString"
             },
             "tenant": "tenant ID",
-            "subscriptionId": "<optional, subscription id of ADLA>",
+            "subscriptionId": "<optional, subscription ID of ADLA>",
             "resourceGroupName": "<optional, resource group name of ADLA>"
         },
         "connectVia": {

@@ -2,18 +2,17 @@
 title: Använd lokal datagateway för Azure Virtual Network data källor | Microsoft Docs
 description: Lär dig hur du konfigurerar en server att använda en gateway för data källor i VNet.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 675d8ecd3d6a3310a9b102df37df18bed02df3de
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d1993996c0f982624d6976b50871fa8c4592e2f6
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70958813"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301212"
 ---
 # <a name="use-gateway-for-data-sources-on-an-azure-virtual-network-vnet"></a>Använda Gateway för data källor på en Azure-Virtual Network (VNet)
 
@@ -30,7 +29,7 @@ Azure SQL Database hanterade instans data källor körs i Azure VNet med en priv
 
 ## <a name="configure-alwaysusegateway-property"></a>Konfigurera egenskapen AlwaysUseGateway
 
-1. I SSMS > Server > **Egenskaper** > **Allmänt**väljer du **Visa avancerade egenskaper (alla)** .
+1. I SSMS > Server > **egenskaper** > **Allmänt**väljer du **Visa avancerade (alla) egenskaper**.
 2. I **ASPaaS\AlwaysUseGateway**väljer du **Sant**.
 
     ![Använd alltid Gateway-egenskap](media/analysis-services-vnet-gateway/aas-ssms-always-property.png)
@@ -39,5 +38,5 @@ Azure SQL Database hanterade instans data källor körs i Azure VNet med en priv
 ## <a name="see-also"></a>Se också
 [Ansluta till lokala data källor](analysis-services-gateway.md)   
 [Installera och konfigurera en lokal datagateway](analysis-services-gateway-install.md)   
-[Azure Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md)   
+[Azure-Virtual Network (VNET)](../virtual-network/virtual-networks-overview.md)   
 

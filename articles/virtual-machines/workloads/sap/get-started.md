@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 10/01/2019
+ms.date: 10/11/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ab6139e1f87938edaa0a8a94453faa213d39e23f
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: e0d6c8b4dc94728e3b4943b6ed411ef3b47bb7a0
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719016"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300572"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Använd Azure för att vara värd för och köra SAP-arbetsbelastnings scenarier
 
@@ -59,7 +59,7 @@ I det här avsnittet av dokumentationen beskrivs olika aspekter av SAP HANA. Som
 
 Information om HANA i Azure finns i följande artiklar och deras under artiklar:
 
-- [Snabbstart: Manuell installation av SAP HANA med en instans på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
+- [Snabb start: manuell installation av en instans SAP HANA på virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-get-started)
 - [Distribuera SAP S/4HANA eller BW/4HANA på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h)
 - [Konfigurationer och åtgärder för SAP HANA i Azure-infrastrukturer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations)
 - [SAP HANA hög tillgänglighet för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)
@@ -103,12 +103,12 @@ Det här dokumentet pekar på olika dokument för arkitektur och scenarier. I se
 
 Information om integration mellan Azure Active Directory (Azure AD) och SAP-tjänster och enkel inloggning finns i:
 
-- [Självstudier: Azure Active Directory integration med SAP Cloud för kunden](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory integration med SAP Cloud Platform Identity Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory integrering med SAP Cloud Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory integrering med SAP NetWeaver](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory integration med SAP Business ByDesign](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
-- [Självstudier: Azure Active Directory integration med SAP HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudie: Azure Active Directory integration med SAP Cloud för kunden](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-customer-cloud-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudie: Azure Active Directory integration med SAP Cloud Platform Identity Authentication](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-identity-authentication-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudie: Azure Active Directory integration med SAP Cloud Platform](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-hana-cloud-platform-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudie: Azure Active Directory integrering med SAP NetWeaver](https://docs.microsoft.com/azure/active-directory/saas-apps/sap-netweaver-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudie: Azure Active Directory integration med SAP Business ByDesign](https://docs.microsoft.com/azure/active-directory/saas-apps/sapbusinessbydesign-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
+- [Självstudie: Azure Active Directory integration med SAP HANA](https://docs.microsoft.com/azure/active-directory/saas-apps/saphana-tutorial?toc=%2fazure%2fvirtual-machines%2fworkloads%2fsap%2ftoc.json)
 - [Din S/4HANA-miljö: Fiori starter SAML enkel inloggning med Azure AD](https://blogs.sap.com/2017/02/20/your-s4hana-environment-part-7-fiori-launchpad-saml-single-sing-on-with-azure-ad/)
 
 Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
@@ -120,18 +120,19 @@ Information om hur du integrerar Azure-tjänster i SAP-komponenter finns i:
 
 
 ## <a name="change-log"></a>Ändringslogg
-- 10/01/2019: Ändring av grafik för [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) för att få mer klarhet
-- 10/01/2019: Ändra i [SAP HANA infrastruktur konfiguration och åtgärder på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) för att rätta till instruktioner kring en hög tillgänglig NFS-resurs för/Hana/Shared. 
-- 09/28/2019: Ändra i [ställa in pacemaker på Red Hat Enterprise Linux i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att klargöra SBD som en avgränsnings funktion stöds inte på RHEL-kluster  
-- 09/17/2019: Ändring i planerings-och distributions guiden i NetWeaver för att förena villkoren runt VM-tillägget för SAP  
-- 08/22/2019: Ändringar i [ställa in pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att uppdatera URL: erna för att skapa en anpassad roll  
-- 08/16/2019: Ändringar i [ställa in pacemaker på Red Hat Enterprise Linux i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att påminna kunder om att uppdatera åtgärderna i den anpassade rollen, om de uppdateras till den nya versionen av Azure stängsel-agenten  
-- 08/15/2019: Ändringar i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) för att avspegla allmän tillgänglighet för Ultra disk (tidigare Ultra SSD)
-- 08/01/2019: Ändringar av att konfigurera [pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att integrera ändringar specifikt för SLES 15 
-- 07/23/2019: Ändringar i [kluster en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure](sap-high-availability-guide-wsfc-file-share.md) för att återspegla stöd för lagrings utrymme direkt av Azure Site Recovery Services
-- 07/14/2019: Version av [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md)
-- 07/11/2019: Ändringar i olika dokument täcker HANA-stora instanser för att täcka revidering 4 av HANA-stora instanser
-- 07/09/2019: Version av ny guide för [IBM DB2 hadr i Red Hat Enterprise Server](high-availability-guide-rhel-ibm-db2-luw.md)
-- 06/13/2019: Version av [hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program](high-availability-guide-rhel-netapp-files.md)
+- 10/11/2019: ändringar av konfigurationer med Ultra disk Storage och introduktion av ANF i [SAP HANA Storage-konfigurationer för virtuella Azure-datorer](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage)
+- 10/01/2019: ändring av grafik för [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) för att få mer klarhet
+- 10/01/2019: ändra i [SAP HANA infrastruktur konfiguration och åtgärder på Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) för att korrigera instruktioner kring en hög tillgänglig NFS-resurs för/Hana/Shared. 
+- 09/28/2019: ändring av [pacemaker på Red Hat Enterprise Linux i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att klargöra SBD som en avgränsnings funktion stöds inte på RHEL-kluster  
+- 09/17/2019: ändring i NetWeaver planering och distributions guide för att förena villkoren kring VM-tillägget för SAP  
+- 08/22/2019: ändringar i [ställa in pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att uppdatera URL: erna för att skapa en anpassad roll  
+- 08/16/2019: ändringar i [ställa in pacemaker på Red Hat Enterprise Linux i Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-pacemaker) för att påminna kunder om att uppdatera åtgärderna i den anpassade rollen, om de uppdateras till den nya versionen av Azure stängsel-agenten  
+- 08/15/2019: ändringar i [SAP HANA lagrings konfiguration för virtuella Azure-datorer](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) som motsvarar allmän tillgänglighet för Ultra disk (tidigare Ultra SSD)
+- 08/01/2019: ändringar i [konfiguration av pacemaker på SUSE Linux Enterprise Server i Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) för att integrera ändringar specifikt för SLES 15 
+- 07/23/2019: ändringar i [kluster en SAP ASCS/SCS-instans i ett Windows-redundanskluster med hjälp av en fil resurs i Azure](sap-high-availability-guide-wsfc-file-share.md) för att återspegla stöd för lagrings utrymme direkt av Azure Site Recovery Services
+- 07/14/2019: versioner av [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program](sap-proximity-placement-scenarios.md)
+- 07/11/2019: ändringar i olika dokument täcker HANA-stora instanser för att täcka revidering 4 av HANA-stora instanser
+- 07/09/2019: version av ny guide för [IBM DB2 hadr i Red Hat Enterprise Server](high-availability-guide-rhel-ibm-db2-luw.md)
+- 06/13/2019: version av [hög tillgänglighet för SAP NetWeaver på Red Hat Enterprise Linux med Azure NetApp Files för SAP-program](high-availability-guide-rhel-netapp-files.md)
 
 

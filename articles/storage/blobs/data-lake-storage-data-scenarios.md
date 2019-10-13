@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/23/2019
+ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 9eb10260573978355a3b6996a6f06c0c612abe4c
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: eba0c6a8932a8c6d50bd98d94712c95516519274
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350023"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300325"
 ---
 # <a name="using-azure-data-lake-storage-gen2-for-big-data-requirements"></a>Använda Azure Data Lake Storage Gen2 för Big data-krav
 
@@ -27,19 +27,21 @@ Det finns fyra viktiga steg i stor data bearbetning:
 
 Börja med att skapa ett lagrings konto och en behållare. Ge sedan åtkomst till data. De första avsnitten i den här artikeln hjälper dig att utföra dessa uppgifter. I de återstående avsnitten ska vi markera alternativen och verktygen för varje bearbetnings fas.
 
+En fullständig lista över Azure-tjänster som du kan använda med Azure Data Lake Storage Gen2 finns i [integrera Azure Data Lake Storage med Azure-tjänster](data-lake-store-integrate-with-azure-services.md)
+
 ## <a name="create-a-data-lake-storage-gen2-account"></a>Skapa ett Data Lake Storage Gen2 konto
 
 Ett Data Lake Storage Gen2 konto är ett lagrings konto som har ett hierarkiskt namn område. 
 
-Information om hur du skapar ett finns i [Quickstart: Skapa ett Azure Data Lake Storage Gen2 lagrings](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)konto.
+Om du vill skapa en, se [snabb start: skapa ett Azure Data Lake Storage Gen2 lagrings konto](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="create-a-container"></a>Skapa en container
 
 Här är en lista med verktyg som du kan använda för att skapa en behållare för dina filer.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
-|Azure Lagringsutforskaren | [Skapa en behållare med hjälp av Storage Explorer](data-lake-storage-explorer.md#create-a-container) |
+|Azure Storage Explorer | [Skapa en behållare med hjälp av Storage Explorer](data-lake-storage-explorer.md#create-a-container) |
 |AzCopy | [Skapa en BLOB-behållare eller fil resurs med hjälp av AzCopyV10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10#transfer-files)|
 |Kommando rads gränssnitt för Hadoop container (HDFS) med HDInsight |[Skapa en behållare med hjälp av HDFS med HDInsight](data-lake-storage-use-hdfs-data-lake-storage.md#create-a-container) |
 |Kod i en Azure Databricks Notebook|[Skapa en lagrings konto behållare (Scala)](data-lake-storage-quickstart-create-databricks-account.md#create-storage-account-container) <br><br> [Skapa en behållare och montera den (python)](data-lake-storage-use-databricks-spark.md#create-a-container-and-mount-it)|
@@ -66,14 +68,14 @@ Det finns tre sätt att bevilja åtkomst:
 
 Den här tabellen visar hur du beviljar åtkomst för varje Azure-tjänst eller-verktyg.
 
-|Verktyg | Bevilja åtkomst | Riktlinjer |
+|Verktyg | Bevilja åtkomst | Vägledning |
 |---|--|---|
 |Storage Explorer| Tilldela en roll till användare och grupper | [Tilldela roller som administratör och icke-administratör till användare med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal) |
 |AzCopy| Tilldela en roll till användare och grupper <br>**eller**<br> Använda en SAS-token| [Tilldela roller som administratör och icke-administratör till användare med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal)<br><br>[Skapa enkelt en SAS för att ladda ned en fil från Azure Storage – med Azure Storage Explorer](https://blogs.msdn.microsoft.com/jpsanders/2017/10/12/easily-create-a-sas-to-download-a-file-from-azure-storage-using-azure-storage-explorer/)|
 |Apache DistCp | Tilldela en roll till en användare som tilldelats en hanterad identitet | [Skapa ett HDInsight-kluster med Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
 |Azure Data Factory| Tilldela en roll till en användardefinierad hanterad identitet<br>**eller**<br> Tilldela en roll till ett huvud namn för tjänsten<br>**eller**<br> Använd en lagrings konto nyckel | [Egenskaper för länkad tjänst](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#linked-service-properties) |
 |Azure HDInsight| Tilldela en roll till en användare som tilldelats en hanterad identitet | [Skapa ett HDInsight-kluster med Data Lake Storage Gen2](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2)|
-|Azure Databricks| Tilldela en roll till ett huvud namn för tjänsten | [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
+|Azure Databricks| Tilldela en roll till ett huvud namn för tjänsten | [Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)|
 
 Information om hur du beviljar åtkomst till vissa filer och mappar finns i de här artiklarna.
 
@@ -87,7 +89,7 @@ Information om hur du konfigurerar andra säkerhets aspekter finns [Azure Data L
 
 I det här avsnittet beskrivs de olika data källorna och de olika sätt som data kan matas in i ett Data Lake Storage Gen2-konto.
 
-Mata ![in data i data Lake Storage Gen2](./media/data-lake-storage-data-scenarios/ingest-data.png "Mata in data i data Lake Storage Gen2")
+Mata in ![data i data Lake Storage Gen2]mata(./media/data-lake-storage-data-scenarios/ingest-data.png "in data i data Lake Storage Gen2")
 
 ### <a name="ad-hoc-data"></a>Ad hoc-data
 
@@ -95,18 +97,18 @@ Detta representerar mindre data uppsättningar som används för prototypering a
 
 Här är en lista med verktyg som du kan använda för att mata in ad hoc-data.
 
-| Datakälla | Mata in den med |
+| Data Källa | Mata in den med |
 | --- | --- |
 | Lokal dator |[Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)<br><br>[AzCopy-verktyg](../common/storage-use-azcopy-v10.md)|
 | Azure Storage Blob |[Azure Data Factory](../../data-factory/connector-azure-data-lake-store.md)<br><br>[AzCopy-verktyg](../common/storage-use-azcopy-v10.md)<br><br>[DistCp som körs på HDInsight-kluster](data-lake-storage-use-distcp.md)|
 
 ### <a name="streamed-data"></a>Strömmade data
 
-Detta representerar data som kan genereras av olika källor, till exempel program, enheter, sensorer osv. Dessa data kan matas in i Data Lake Sorage Gen2 med en rad olika verktyg. Dessa verktyg samlar vanligt vis in och bearbetar data baserat på händelse i real tid och skriver sedan händelserna i batchar till Data Lake Storage Gen2 så att de kan bearbetas ytterligare.
+Detta representerar data som kan genereras av olika källor, till exempel program, enheter, sensorer osv. Dessa data kan matas in i Data Lake Storage Gen2 av flera olika verktyg. Dessa verktyg samlar vanligt vis in och bearbetar data baserat på händelse i real tid och skriver sedan händelserna i batchar till Data Lake Storage Gen2 så att de kan bearbetas ytterligare.
 
 Här är en lista med verktyg som du kan använda för att mata in strömmade data.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure HDInsight Storm | [Skriv till Apache Hadoop HDFS från Apache Storm på HDInsight](https://docs.microsoft.com/azure/hdinsight/storm/apache-storm-write-data-lake-store) |
 
@@ -116,7 +118,7 @@ Du kan också källdata från Relations databaser. Under en viss tids period sam
 
 Här är en lista med verktyg som du kan använda för att mata in relations data.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 
@@ -126,7 +128,7 @@ Den här typen av data uppsättning kallas särskilt för att analysera webb ser
 
 Här är en lista med verktyg som du kan använda för att mata in data från webb server loggar.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview)  |
 
@@ -138,7 +140,7 @@ De flesta typer av HDInsight-kluster (Hadoop, HBase, Storm) stöder Data Lake St
 
 Här är en lista med verktyg som du kan använda för att mata in data som är associerade med HDInsight-kluster.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |
 |AzCopy-verktyg | [Överföra data med AzCopy](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10) |
@@ -148,7 +150,7 @@ Här är en lista med verktyg som du kan använda för att mata in data som är 
 
 Stora mängder data kan lagras i befintliga Hadoop-kluster, lokalt på datorer som använder HDFS. Hadoop-klustren kan finnas i en lokal distribution eller vara i ett IaaS-kluster på Azure. Det kan finnas krav på att kopiera sådana data till Azure Data Lake Storage Gen2 för ett engångs sätt eller på ett återkommande sätt. Det finns olika alternativ som du kan använda för att åstadkomma detta. Nedan visas en lista med alternativ och tillhör ande kompromisser.
 
-| Metoden | Information | Fördelar | Överväganden |
+| Form | Information | Fördelar | Överväganden |
 | --- | --- | --- | --- |
 | Använd Azure Data Factory (ADF) för att kopiera data direkt från Hadoop-kluster till Azure Data Lake Storage Gen2 |[ADF stöder HDFS som en data Källa](../../data-factory/connector-hdfs.md) |ADF tillhandahåller direkt support för HDFS och den första klassens slut punkt till slut punkt-hantering och övervakning |Kräver att Data Management Gateway distribueras lokalt eller i IaaS-klustret |
 | Använd Distcp för att kopiera data från Hadoop till Azure Storage. Kopiera sedan data från Azure Storage till Data Lake Storage Gen2 med lämplig mekanism. |Du kan kopiera data från Azure Storage till Data Lake Storage Gen2 med: <ul><li>[Azure Data Factory](../../data-factory/copy-activity-overview.md)</li><li>[AzCopy-verktyg](../common/storage-use-azcopy-v10.md)</li><li>[Apache-DistCp som körs på HDInsight-kluster](data-lake-storage-use-distcp.md)</li></ul> |Du kan använda verktyg med öppen källkod. |Multi-Step-process som omfattar flera tekniker |
@@ -167,10 +169,10 @@ När data är tillgängliga i Data Lake Storage Gen2 kan du köra analyser av de
 
 Här är en lista med verktyg som du kan använda för att köra data analys jobb på data som lagras i Data Lake Storage Gen2.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure HDInsight | [Använda Azure Data Lake Storage Gen2 med Azure HDInsight-kluster](https://docs.microsoft.com/azure/hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2) |
-|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Snabbstart: Analysera data i Azure Data Lake Storage Gen2 med Azure Databricks @ no__t-0<br><br>[Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks @ no__t-0|
+|Azure Databricks | [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html)<br><br>[Snabb start: analysera data i Azure Data Lake Storage Gen2 med Azure Databricks](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-quickstart-create-databricks-account?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)<br><br>[Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/databricks-extract-load-sql-data-warehouse?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 
 ## <a name="visualize-the-data"></a>Visualisera datan
 
@@ -193,7 +195,7 @@ Du kanske också vill hämta eller flytta data från Azure Data Lake Storage Gen
 
 Här är en lista med verktyg som du kan använda för att hämta data från Data Lake Storage Gen2.
 
-|Verktyg | Riktlinjer |
+|Verktyg | Vägledning |
 |---|--|
 |Azure Data Factory | [Kopieringsaktivitet i Azure Data Factory](https://docs.microsoft.com/azure/data-factory/copy-activity-overview) |
 |Apache DistCp | [Använd DistCp för att kopiera data mellan Azure Storage blobbar och Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-use-distcp) |

@@ -1,5 +1,5 @@
 ---
-title: Rollbaserad Access Control i Azure (RBAC) för att kontrol lera åtkomst behörighet för att skapa och hantera support förfrågningar | Microsoft Docs
+title: Åtkomst kontroll för att skapa support förfrågningar i Azure
 description: Rollbaserad Access Control i Azure (RBAC) för att kontrol lera åtkomst behörighet för att skapa och hantera support förfrågningar
 author: ganganarayanan
 ms.author: gangan
@@ -7,14 +7,18 @@ ms.date: 1/31/2017
 ms.topic: article
 ms.service: azure-supportability
 ms.assetid: 58a0ca9d-86d2-469a-9714-3b8320c33cf5
-ms.openlocfilehash: 94f21e973063dc627ef1424ca5393dd85aedd671
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 328f4928aff6a892849ce3e08fe794578b5e03a4
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248843"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299253"
 ---
 # <a name="azure-role-based-access-control-rbac-to-control-access-rights-to-create-and-manage-support-requests"></a>Rollbaserad Access Control i Azure (RBAC) för att kontrol lera åtkomst behörighet för att skapa och hantera support förfrågningar
+
+> [!IMPORTANT]
+> Den här manuella metoden för att kontrol lera åtkomst behörighet till support förfrågan i Azure har ersatts av en inbyggd roll. Mer information finns i [support ärende deltagare](../role-based-access-control/built-in-roles.md#support-request-contributor). 
 
 [Rollbaserad Access Control (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview) möjliggör detaljerad åtkomst hantering för Azure.
 Supportbegäran att skapa i Azure Portal, [Portal.Azure.com](https://portal.azure.com), använder Azures RBAC-modell för att definiera vem som kan skapa och hantera support förfrågningar.

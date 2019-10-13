@@ -2,17 +2,16 @@
 title: Uppdatera med Logic Apps för Azure Analysis Servicess modeller | Microsoft Docs
 description: Lär dig hur du kodar asynkron uppdatering med hjälp av Azure Logic Apps.
 author: chrislound
-manager: kfile
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/26/2019
 ms.author: chlound
-ms.openlocfilehash: 2234a2c6cd42be45a2b2e7784c1dd5aec8839cb9
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: acf31bf3e7e8c3a0835640dee36f8435a1eba625
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311739"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294616"
 ---
 # <a name="refresh-with-logic-apps"></a>Uppdatera med Logic Apps
 
@@ -20,7 +19,7 @@ Genom att använda Logic Apps-och REST-anrop kan du utföra automatiserade data 
 
 Mer information om hur du använder REST-API: er med Azure Analysis Services finns i [asynkron uppdatering med REST API](analysis-services-async-refresh.md).
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>Autentisering
 
 Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth 2).  I exemplen i den här artikeln används ett tjänst huvud namn (SPN) för att autentisera till Azure Analysis Services. Läs mer i [skapa ett tjänst huvud namn med hjälp av Azure Portal](../active-directory/develop/howto-create-service-principal-portal.md).
 
@@ -29,7 +28,7 @@ Alla anrop måste autentiseras med en giltig Azure Active Directory-token (OAuth
 > [!IMPORTANT]
 > I följande exempel förutsätter vi att Azure Analysis Services brand väggen är inaktive rad.  Om brand väggen är aktive rad måste den offentliga IP-adressen för den begär ande initieraren vara vit listas i Azure Analysis Services brand väggen. Om du vill veta mer om Logic app IP-intervall per region, se [gränser och konfigurations information för Azure Logic Apps](../logic-apps/logic-apps-limits-and-config.md#firewall-configuration-ip-addresses).
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 
 #### <a name="create-a-service-principal-spn"></a>Skapa ett huvud namn för tjänsten (SPN)
 
@@ -65,15 +64,15 @@ Konfigurera HTTP-aktiviteten enligt följande:
 
 |Egenskap  |Värde  |
 |---------|---------|
-|**Metod**     |POST         |
-|**URI**     | https://*Your Server region*/servers/*AAS Server Name*/Models/*ditt databas namn*/refreshes <br /> <br /> Till exempel: https:\//westus.asazure.Windows.net/servers/myserver/Models/AdventureWorks/refreshes|
+|**Metod**     |EFTER         |
+|**URI**     | https://*Your Server region*/servers/*AAS Server Name*/Models/*ditt databas namn*/refreshes <br /> <br /> Exempel: https: \//Väst. i Azure. Windows. net/servers/server/modeller/AdventureWorks/uppdateringar|
 |**Headers**     |   Innehålls typ, Application/JSON <br /> <br />  ![Rubriker](./media/analysis-services-async-refresh-logic-app/6.png)    |
 |**Brödtext**     |   Mer information om hur du skapar begär ande texten finns i [asynkron uppdatering med REST API-post/refreshes](analysis-services-async-refresh.md#post-refreshes). |
 |**Autentisering**     |Active Directory OAuth         |
 |**Innehav**     |Fyll i din Azure Active Directory TenantId         |
-|**Filmen**     |https://*.asazure.windows.net         |
+|**Filmen**     |https://*., Azure. Windows. net         |
 |**Klient-ID**     |Ange tjänstens huvud namn ClientID         |
-|**Autentiseringstyp**     |Secret         |
+|**Autentiseringstyp**     |Hemlighet         |
 |**Hemlighet**     |Ange hemligheten för tjänstens huvud namn         |
 
 Exempel:
@@ -117,4 +116,4 @@ Spara Logic-appen.
 ## <a name="next-steps"></a>Nästa steg
 
 [Exempel](analysis-services-samples.md)  
-[REST-API](https://docs.microsoft.com/rest/api/analysisservices/servers)
+[REST API](https://docs.microsoft.com/rest/api/analysisservices/servers)

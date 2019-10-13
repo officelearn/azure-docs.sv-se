@@ -2,18 +2,17 @@
 title: Automatisera Azure Analysis Services uppgifter med tjänstens huvud namn | Microsoft Docs
 description: Lär dig hur du skapar tjänstens huvud namn för att automatisera Azure Analysis Services uppgifter.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4bfa969089407a35658160cf05a6407f8c717714
-ms.sourcegitcommit: e72073911f7635cdae6b75066b0a88ce00b9053b
+ms.openlocfilehash: 94f1313825b21b3adf7173b56798fce22736ea87
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68347970"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294577"
 ---
 # <a name="automation-with-service-principals"></a>Automatisering med tjänstens huvudnamn
 
@@ -21,7 +20,7 @@ Tjänstens huvudnamn är en programresurs för Azure Active Directory som du ska
 
 I Analysis Services används tjänstens huvud namn med Azure Automation, PowerShell obevakat läge, anpassade klient program och webbappar för att automatisera vanliga uppgifter. Till exempel kan etablering av servrar, distribution av modeller, data uppdatering, skala upp/ned och pausa/återuppta kan automatiseras med hjälp av tjänstens huvud namn. Behörigheter tilldelas tjänstens huvud namn via roll medlemskap, ungefär som vanliga Azure AD UPN-konton.
 
-Analysis Services stöder också åtgärder som utförs av hanterade identiteter med tjänstens huvud namn. Läs mer i hanterade [identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) och [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
+Analysis Services stöder också åtgärder som utförs av hanterade identiteter med tjänstens huvud namn. Läs mer i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md) och [Azure-tjänster som stöder Azure AD-autentisering](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-analysis-services).
 
 ## <a name="create-service-principals"></a>Skapa tjänsthuvudnamn
  
@@ -49,9 +48,9 @@ SPN-namn och lösen ord eller certifikat för tjänstens huvud namn kan använda
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Använda modulen AZ. AnalysisServices
+#### <a name="a-nameazmodule-using-azanalysisservices-module"></a><a name="azmodule" />Using AZ. AnalysisServices-modul
 
-Använd`Connect-AzAccount` cmdlet när du använder ett huvud namn för tjänsten för resurs hanterings åtgärder med modulen [AZ. AnalysisServices](/powershell/module/az.analysisservices) . 
+Använd `Connect-AzAccount`-cmdlet när du använder ett huvud namn för tjänsten för resurs hanterings åtgärder med modulen [AZ. AnalysisServices](/powershell/module/az.analysisservices) . 
 
 I följande exempel används appID och ett lösen ord för att utföra kontroll Plans åtgärder för synkronisering till skrivskyddade repliker och skala upp/ut:
 
@@ -93,9 +92,9 @@ Invoke-ProcessTable -Server "asazure://westcentralus.asazure.windows.net/myserve
 
 ### <a name="amo-and-adomd"></a>AMO och ADOMD 
 
-När du ansluter med klient program och webbappar kan du använda [AMO-och ADOMD-klient bibliotek](analysis-services-data-providers.md) , versions hanterings paket och högre Installerbara paket från NuGet-tjänstens `app:AppID` huvud namn i anslutnings strängar med följande syntax: och lösen ord eller `cert:thumbprint`. 
+När du ansluter med klient program och webbappar kan du använda [AMO-och ADOMD-klient bibliotek](analysis-services-data-providers.md) , versions hanterings paket och högre Installerbara paket från NuGet-tjänstens huvud namn i anslutnings strängar med följande syntax: `app:AppID` och lösen ord eller @no__ t-2. 
 
-I följande exempel `appID` och a `password` används för att utföra en uppdaterings åtgärd för modell databasen:
+I följande exempel används `appID` och en `password` för att utföra en uppdaterings åtgärd för modell databasen:
 
 ```csharp
 string appId = "xxx";

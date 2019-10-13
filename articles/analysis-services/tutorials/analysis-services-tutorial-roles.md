@@ -2,20 +2,19 @@
 title: Självstudie – Konfigurera administratörs- och användarroller för Azure Analysis Services | Microsoft Docs
 description: Lär dig hur du konfigurerar Azure Analysis Services-roller.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 01/09/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: b36541cde457b7faf8b3a020cdde01f049ceb652
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: b70d1502985a1ffc0ebdf6fcb487cda3992d1c19
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932220"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294431"
 ---
-# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera roller för serveradministratör och användare
+# <a name="tutorial-configure-server-administrator-and-user-roles"></a>Självstudie: Konfigurera serveradministratörs- och användarroller
 
  I den här självstudien använder du SQL Server Management Studio (SSMS) för att ansluta till din server i Azure och konfigurera serveradministratörs- och modelldatabasroller. Du får också en introduktion till [TMSL (Tabular Model Scripting Language)](https://docs.microsoft.com/analysis-services/tabular-model-programming-compatibility-level-1200/tabular-model-programming-for-compatibility-level-1200). TMSL är ett JSON-baserat skriptspråk för tabellmodeller på kompatibilitetsnivå 1 200 och högre. Det kan användas för att automatisera många tabellmodelleringsuppgifter. TMSL används ofta med PowerShell, men i den här kursen använder du XMLA-frågeredigeraren i SSMS. I den här självstudien får du utföra följande uppgifter: 
   
@@ -28,7 +27,7 @@ ms.locfileid: "68932220"
 
 Mer information om användarsäkerhet i Azure Analysis Services finns i [Autentisering och användarbehörigheter](../analysis-services-manage-users.md). 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - En Azure Active Directory i din prenumeration.
 - Du måste ha skapat en [Azure Analysis Services-server](../analysis-services-create-server.md) i din prenumeration.
@@ -53,7 +52,7 @@ För de återstående uppgifterna använder du SSMS för att ansluta till och ha
 
 1. I SSMS > **Object Explorer** klickar du på **Anslut** > **Analysis Services**.
 
-    ![Anslut](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
+    ![Connect](./media/analysis-services-tutorial-roles/aas-ssms-connect.png)
 
 2. I **Server name** (Servernamn) i dialogrutan **Connect to Server** (Anslut till server) klistrar du in servernamnet som du kopierade från Portal. I **Authentication** (Autentisering) väljer du **Active Directory Universal with MFA Support** (Active Directory Universal med MFA-stöd). Ange ditt användarkonto och tryck sedan på **Connect** (Anslut).
    
@@ -144,5 +143,5 @@ Ta bort användarkonton, gruppkonton och roller när du inte lägre behöver dem
 I den här självstudien fick du lära dig hur du ansluter till en Azure AS-server och utforskar adventureworks-exempelmodelldatabaser och egenskaper i SSMS. Du har också fått lära dig hur du använder SSMS och TMSL-skript för att lägga till användare och grupper i befintliga och nya roller. Nu när du har konfigurerat användarbehörigheter för servern och exempelmodelldatabasen kan du och andra användare ansluta till den via klientprogram som Power BI. Fortsätt med nästa självstudie om du vill lära dig mer. 
 
 > [!div class="nextstepaction"]
-> [Självstudie: Anslut med Power BI Desktop](analysis-services-tutorial-pbid.md)
+> [Självstudie: Ansluta med Power BI Desktop](analysis-services-tutorial-pbid.md)
 

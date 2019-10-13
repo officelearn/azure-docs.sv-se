@@ -2,18 +2,17 @@
 title: Azure Analysis Services resurs-och objekt gränser | Microsoft Docs
 description: Beskriver Azure Analysis Services resurs-och objekt begränsningar.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 40a5b68a12724f2574af19bb10c276c54c5afba0
-ms.sourcegitcommit: 4b8a69b920ade815d095236c16175124a6a34996
+ms.openlocfilehash: 9fe43602c66af72357e16822ee9d4b5a741d3f86
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69997593"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298697"
 ---
 # <a name="analysis-services-resource-and-object-limits"></a>Analysis Services resurs-och objekt gränser
 
@@ -27,11 +26,11 @@ För QPU-och minnes gränser för nivåerna Developer, Basic och standard, se [s
 
 Dessa gränser är teoretiska. Prestandan minskas med lägre siffror.
 
-|Object|Max storlek/siffror|  
+|Objekt|Max storlek/siffror|  
 |------------|----------------------------|  
-|Databaser i en instans|16,000|  
-|Kombinerat antal tabeller och kolumner i en databas|16,000|  
-|Rader i en tabell|Obegränsat<br /><br /> **Honom** Med begränsningen ingen enskild kolumn i tabellen kan ha mer än 1 999 999 997 distinkta värden.|  
+|Databaser i en instans|16 000|  
+|Kombinerat antal tabeller och kolumner i en databas|16 000|  
+|Rader i en tabell|Obegränsat<br /><br /> **Varning:** Med begränsningen ingen enskild kolumn i tabellen kan ha mer än 1 999 999 997 distinkta värden.|  
 |Hierarkier i en tabell|15 999|  
 |Nivåer i en hierarki|15 999|  
 |Relationer|8,000|  

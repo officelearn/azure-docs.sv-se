@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.date: 10/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 2bdff6195a0dcf93bfc3a596189b062bf4f3ab12
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: b381c4be5d0c56e14ccd01657542ef3bff2f8894
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254985"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285680"
 ---
 # <a name="tutorial-use-health-check-in-azure-deployment-manager-public-preview"></a>Självstudie: använda hälso kontroll i Azure Deployment Manager (offentlig för hands version)
 
@@ -38,8 +38,8 @@ Den här självstudien omfattar följande uppgifter:
 
 Ytterligare resurser:
 
-- [Azure Deployment Manager REST API referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
-- [Ett exempel på en Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
+* [Azure Deployment Manager REST API referens](https://docs.microsoft.com/rest/api/deploymentmanager/).
+* [Ett exempel på en Azure Deployment Manager](https://github.com/Azure-Samples/adm-quickstart).
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -48,7 +48,16 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 För att kunna följa stegen i den här artikeln behöver du:
 
 * Slutför [Använd Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md).
-* Ladda ned [mallarna och de artefakter](https://armtutorials.blob.core.windows.net/admtutorial/ADMTutorial.zip) som används i den här självstudien.
+
+## <a name="install-the-artifacts"></a>Installera artefakterna
+
+Hämta [mallarna och artefakterna](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMTutorial.zip) och zippa upp den lokalt om du inte har gjort det. Och kör sedan PowerShell-skriptet som påträffades vid [förberedelse av artefakterna](./deployment-manager-tutorial.md#prepare-the-artifacts). Skriptet skapar en resurs grupp, skapar en lagrings behållare, skapar en BLOB-behållare, laddar ned de hämtade filerna och skapar sedan en SAS-token.
+
+Gör en kopia av URL: en med SAS-token. URL-adressen krävs för att fylla i ett fält i de två parametervärdena, filen Topology Parameters och filen för distributions parametrar.
+
+Öppna CreateADMServiceTopology. Parameters. JSON och uppdatera värdena för **projectName** och **artifactSourceSASLocation**.
+
+Öppna CreateADMRollout. Parameters. JSON och uppdatera värdena för **projectName** och **artifactSourceSASLocation**.
 
 ## <a name="create-a-health-check-service-simulator"></a>Skapa en tjänst Simulator för hälso kontroll
 
@@ -56,21 +65,12 @@ I produktion använder du vanligt vis en eller flera övervaknings leverantörer
 
 Följande två filer används för att distribuera Azure-funktionen. Du behöver inte hämta de här filerna för att gå igenom självstudien.
 
-* En Resource Manager-mall som finns på [https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json](https://armtutorials.blob.core.windows.net/admtutorial/deploy_hc_azure_function.json). Du distribuerar den här mallen för att skapa en Azure-funktion.
-* En zip-fil med käll koden för Azure Function [https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip](https://armtutorials.blob.core.windows.net/admtutorial/ADMHCFunction0417.zip). Detta zip-namn anropas av Resource Manager-mallen.
+* En Resource Manager-mall som finns på [https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json). Du distribuerar den här mallen för att skapa en Azure-funktion.
+* En zip-fil med käll koden för Azure Function [https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip](https://github.com/Azure/azure-docs-json-samples/raw/master/tutorial-adm/ADMHCFunction0417.zip). Detta zip-namn anropas av Resource Manager-mallen.
 
 Om du vill distribuera Azure-funktionen väljer du **prova** att öppna Azure Cloud Shell och klistrar in följande skript i Shell-fönstret.  Om du vill klistra in koden högerklickar du på Shell-fönstret och väljer **Klistra in**.
 
-> [!IMPORTANT]
-> **projectName** i PowerShell-skriptet används för att generera namn för de Azure-tjänster som distribueras i den här självstudien. Använd samma **namePrefix** -värde som du använde i [använda Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md) för projectName.  Olika Azure-tjänster har olika krav på namnen. Om du vill se till att distributionen lyckas väljer du ett namn med färre än 12 tecken och bara gemena bokstäver och siffror.
-> Spara en kopia av projekt namnet. Du använder samma projectName i självstudien.
-
-```azurepowershell-interactive
-$projectName = Read-Host -Prompt "Enter a project name that is used to generate Azure resource names"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$resourceGroupName = "${projectName}rg"
-
-New-AzResourceGroup -Name $resourceGroupName -Location $location
+```azurepowershell
 New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/tutorial-adm/deploy_hc_azure_function.json" -projectName $projectName
 ```
 
@@ -236,13 +236,6 @@ Syftet med det här avsnittet är att visa hur du inkluderar ett hälso kontroll
 Kör följande PowerShell-skript för att distribuera topologin. Du behöver samma **CreateADMServiceTopology. JSON** och **CreateADMServiceTopology. Parameters. JSON** som du använde i [använda Azure Deployment Manager med Resource Manager-mallar](./deployment-manager-tutorial.md).
 
 ```azurepowershell
-$projectName = Read-Host -Prompt "Enter the same project name used earlier in this tutorial"
-$location = Read-Host -Prompt "Enter the location (i.e. centralus)"
-$filePath = Read-Host -Prompt "Enter the file path to the downloaded tutorial files"
-
-$resourceGroupName = "${projectName}rg"
-
-
 # Create the service topology
 New-AzResourceGroupDeployment `
     -ResourceGroupName $resourceGroupName `
@@ -369,9 +362,9 @@ När Azure-resurserna inte längre behövs rensar du de resurser som du har dist
 1. Från Azure-portalen väljer du **Resursgrupp** från den vänstra menyn.
 2. Använd fältet **Filtrera efter namn** för att visa resursgrupperna som skapats i den här självstudien. De bör vara 3–4:
 
-    * **&lt;namePrefix>rg**: Innehåller Deployment Manager-resurserna.
-    * **&lt;namePrefix>ServiceWUSrg**: Innehåller resurserna som definieras av ServiceWUS.
-    * **&lt;namePrefix>ServiceEUSrg**: Innehåller resurserna som definieras av ServiceEUS.
+    * **&lt;projectName > RG**: innehåller Deployment Manager-resurserna.
+    * **&lt;projectName > ServiceWUSrg**: innehåller de resurser som definierats av ServiceWUS.
+    * **&lt;projectName > ServiceEUSrg**: innehåller de resurser som definierats av ServiceEUS.
     * Resursgruppen för den användardefinierade hanterade identiteten.
 3. Välj resursgruppens namn.
 4. Välj **Ta bort resursgrupp** från menyn längst upp.

@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Queue Storage och Visual Studio Connected Services (ASP.NET Core) | Microsoft Docs
+title: Kom igång med Queue Storage med hjälp av Visual Studio (ASP.NET Core)
 description: Komma igång med Azure Queue Storage i ett ASP.NET Core projekt i Visual Studio
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: d8e370c6f7c59da8522bb4fb1403b6107a9c9c41
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5cdf6f2644788674df91b533c9444fc88ab30b09
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510976"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300018"
 ---
 # <a name="get-started-with-queue-storage-and-visual-studio-connected-services-aspnet-core"></a>Kom igång med Queue Storage och Visual Studio Connected Services (ASP.NET Core)
 
@@ -35,7 +36,7 @@ Några av de Azure Storage API: erna är asynkrona och koden i den här artikeln
 
 Om du vill komma åt köer i ASP.NET Core-projekt inkluderar du följande C# objekt i alla käll filer som har åtkomst till Azure Queue Storage. Använd all den här koden framför koden i de avsnitt som följer.
 
-1. Lägg till de `using` nödvändiga instruktionerna:
+1. Lägg till nödvändiga `using`-uttryck:
     ```cs
     using Microsoft.Framework.Configuration;
     using Microsoft.WindowsAzure.Storage;
@@ -44,20 +45,20 @@ Om du vill komma åt köer i ASP.NET Core-projekt inkluderar du följande C# obj
     using LogLevel = Microsoft.Framework.Logging.LogLevel;
     ```
 
-1. Hämta ett `CloudStorageAccount` objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen:
+1. Hämta ett `CloudStorageAccount`-objekt som representerar lagrings konto informationen. Använd följande kod för att hämta lagrings anslutnings strängen och lagrings konto informationen från Azure-tjänst konfigurationen:
 
     ```cs
     CloudStorageAccount storageAccount = CloudStorageAccount.Parse(
         CloudConfigurationManager.GetSetting("<storage-account-name>_AzureStorageConnectionString"));
     ```
 
-1. Hämta ett `CloudQueueClient` objekt för att referera till köobjektet i ditt lagrings konto:
+1. Hämta ett `CloudQueueClient`-objekt för att referera till köobjektet i ditt lagrings konto:
 
     ```cs
     // Create the CloudQueueClient object for the storage account.
     CloudQueueClient queueClient = storageAccount.CreateCloudQueueClient();
     ```
-1. Hämta ett `CloudQueue` objekt för att referera till en speciell kö:
+1. Hämta ett `CloudQueue`-objekt för att referera till en speciell kö:
 
     ```cs
     // Get a reference to the CloudQueue named "messagequeue"
@@ -66,7 +67,7 @@ Om du vill komma åt köer i ASP.NET Core-projekt inkluderar du följande C# obj
 
 ### <a name="create-a-queue-in-code"></a>Skapa en kö i kod
 
-Om du vill skapa Azure-kön i kod `CreateIfNotExistsAsync`anropar du:
+Anropa `CreateIfNotExistsAsync` om du vill skapa Azure-kön i kod:
 
 ```cs
 // Create the CloudQueue if it does not exist.
@@ -75,7 +76,7 @@ await messageQueue.CreateIfNotExistsAsync();
 
 ## <a name="add-a-message-to-a-queue"></a>Lägga till ett meddelande i en kö
 
-Om du vill infoga ett meddelande i en befintlig kö, skapar `CloudQueueMessage` du ett nytt objekt och `AddMessageAsync` anropar sedan metoden. Ett `CloudQueueMessage` objekt kan skapas från antingen en sträng (i UTF-8-format) eller en byte mat ris.
+Om du vill infoga ett meddelande i en befintlig kö, skapar du ett nytt `CloudQueueMessage`-objekt och anropar sedan metoden `AddMessageAsync`. Ett `CloudQueueMessage`-objekt kan skapas antingen från en sträng (i UTF-8-format) eller en byte mat ris.
 
 ```cs
 // Create a message and add it to the queue.
@@ -85,7 +86,7 @@ await messageQueue.AddMessageAsync(message);
 
 ## <a name="read-a-message-in-a-queue"></a>Läsa ett meddelande i en kö
 
-Du kan titta på meddelandet överst i en kö utan att ta bort det från kön genom att anropa `PeekMessageAsync` metoden:
+Du kan titta på meddelandet överst i en kö utan att ta bort det från kön genom att anropa metoden `PeekMessageAsync`:
 
 ```cs
 // Peek the next message in the queue.
@@ -96,10 +97,10 @@ CloudQueueMessage peekedMessage = await messageQueue.PeekMessageAsync();
 
 Din kod kan ta bort (ta bort kön) ett meddelande från en kö i två steg.
 
-1. Anrop `GetMessageAsync` för att hämta nästa meddelande i en kö. Ett meddelande som returnerades från `GetMessageAsync` blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder.
-1. Om du vill slutföra borttagningen av meddelandet från kön `DeleteMessageAsync`anropar du.
+1. Anropa `GetMessageAsync` om du vill hämta nästa meddelande i en kö. Ett meddelande som returnerades från `GetMessageAsync` blir osynligt för all annan kod som läser meddelanden från den här kön. Som standard är det här meddelandet osynligt i 30 sekunder.
+1. Om du vill slutföra borttagningen av meddelandet från kön anropar du `DeleteMessageAsync`.
 
-Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Följande kod anrop `DeleteMessageAsync` direkt efter att meddelandet har bearbetats:
+Den här tvåstegsprocessen för att ta bort ett meddelande säkerställer att om din kod inte kan bearbeta ett meddelande på grund av ett maskin- eller programvarufel så kan en annan instans av koden hämta samma meddelande och försöka igen. Följande kod anropar `DeleteMessageAsync` direkt efter att meddelandet har bearbetats:
 
 ```cs
 // Get the next message in the queue.
@@ -113,7 +114,7 @@ await messageQueue.DeleteMessageAsync(retrievedMessage);
 
 ## <a name="additional-options-for-dequeuing-messages"></a>Ytterligare alternativ för demsmq-meddelanden
 
-Det finns två sätt att anpassa meddelande hämtning från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kod exempel används `GetMessages` metoden för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en `foreach` loop. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att timern på fem minuter startar för alla meddelanden samtidigt, så att alla meddelanden som inte har tagits bort blir synliga igen när fem minuter har passerat.
+Det finns två sätt att anpassa meddelande hämtning från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tidsgräns för osynlighet för att ge koden mer eller mindre tid att bearbeta klart varje meddelande. I följande kod exempel används metoden `GetMessages` för att få 20 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med en `foreach`-slinga. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande. Observera att timern på fem minuter startar för alla meddelanden samtidigt, så att alla meddelanden som inte har tagits bort blir synliga igen när fem minuter har passerat.
 
 ```cs
 // Retrieve 20 messages at a time, keeping those messages invisible for 5 minutes, 
@@ -128,7 +129,7 @@ foreach (CloudQueueMessage message in messageQueue.GetMessages(20, TimeSpan.From
 
 ## <a name="get-the-queue-length"></a>Hämta kölängden
 
-Du kan hämta en uppskattning av antalet meddelanden i en kö. `FetchAttributes` Metoden uppmanar Queue Service att hämta attributen för kön, inklusive antalet meddelanden. Egenskapen returnerar det sista värdet `FetchAttributes` som hämtades av metoden, utan att köa tjänsten anropas. `ApproximateMethodCount`
+Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden `FetchAttributes` uppmanar Queue Service att hämta attributen för kön, inklusive antalet meddelanden. Egenskapen `ApproximateMethodCount` returnerar det sista värdet som hämtades av metoden `FetchAttributes`, utan att köa tjänsten anropas.
 
 ```cs
 // Fetch the queue attributes.
@@ -143,7 +144,7 @@ Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="use-the-async-await-pattern-with-common-queue-apis"></a>Använda det asynkrona await-mönstret med vanliga API: er för kö
 
-Det här exemplet visar hur du använder det asynkrona await-mönstret med vanliga kö- `Async`API: er som slutar med. När en async-metod används pausar det asynkrona await-mönstret den lokala körningen tills anropet har slutförts. Med det här beteendet kan den aktuella tråden utföra annat arbete som hjälper till att undvika prestanda Flask halsar och förbättra programmets övergripande svars tid.
+Det här exemplet visar hur du använder det asynkrona await-mönstret med vanliga Queue-API: er som slutar med `Async`. När en async-metod används pausar det asynkrona await-mönstret den lokala körningen tills anropet har slutförts. Med det här beteendet kan den aktuella tråden utföra annat arbete som hjälper till att undvika prestanda Flask halsar och förbättra programmets övergripande svars tid.
 
 ```cs
 // Create a message to add to the queue.
@@ -164,7 +165,7 @@ Console.WriteLine("Deleted message");
 
 ## <a name="delete-a-queue"></a>Ta bort en kö
 
-Om du vill ta bort en kö och alla meddelanden som finns i den `Delete` anropar du metoden i objektet köobjekt:
+Om du vill ta bort en kö och alla meddelanden som finns i den anropar du metoden `Delete` på objektet köobjekt:
 
 ```cs
 // Delete the queue.

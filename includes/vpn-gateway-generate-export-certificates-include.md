@@ -1,0 +1,102 @@
+---
+title: ta med fil
+description: ta med fil
+services: vpn-gateway
+author: cherylmc
+ms.service: vpn-gateway
+ms.topic: include
+ms.date: 10/10/2019
+ms.author: cherylmc
+ms.custom: include file
+ms.openlocfilehash: cf384f29bcc82c80c94e1408f535c592b8b728cb
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.translationtype: MT
+ms.contentlocale: sv-SE
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285727"
+---
+## <a name="rootcert"></a>Skapa ett självsignerat rot certifikat
+
+Använd cmdleten New-SelfSignedCertificate för att skapa ett självsignerat rot certifikat. Mer parameter information finns i [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+
+1. Från en dator som kör Windows 10 eller Windows Server 2016 öppnar du en Windows PowerShell-konsol med utökade privilegier. Dessa exempel fungerar inte i Azure Cloud Shell "testa". Du måste köra dessa exempel lokalt.
+2. Använd följande exempel för att skapa det självsignerade rot certifikatet. I följande exempel skapas ett självsignerat rot certifikat med namnet ' P2SRootCert ' som installeras automatiskt i ' certificates-Current User\Personal\Certificates '. Du kan visa certifikatet genom att öppna *certmgr. msc*eller *hantera användar certifikat*.
+
+   ```powershell
+   $cert = New-SelfSignedCertificate -Type Custom -KeySpec Signature `
+   -Subject "CN=P2SRootCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" -KeyUsageProperty Sign -KeyUsage CertSign
+   ```
+
+## <a name="clientcert"></a>Generera ett klient certifikat
+
+Varje klientdator som ansluter till ett virtuellt nätverk med punkt-till-plats måste ha ett klientcertifikat installerat. Du genererar ett klient certifikat från det självsignerade rot certifikatet och exporterar och installerar sedan klient certifikatet. Autentiseringen Miss lyckas om klient certifikatet inte är installerat. 
+
+Följande steg beskriver hur du skapar ett klient certifikat från ett självsignerat rot certifikat. Du kan generera flera klient certifikat från samma rot certifikat. När du genererar klient certifikat med stegen nedan installeras klient certifikatet automatiskt på den dator som du använde för att generera certifikatet. Om du vill installera ett klient certifikat på en annan klient dator kan du exportera certifikatet.
+
+Exemplen använder cmdleten New-SelfSignedCertificate för att generera ett klient certifikat som upphör att gälla om ett år. För ytterligare parameter information, till exempel att ange ett annat förfallo värde för klient certifikatet, se [New-SelfSignedCertificate](https://technet.microsoft.com/itpro/powershell/windows/pkiclient/new-selfsignedcertificate).
+
+### <a name="example-1"></a>Exempel 1
+
+Använd det här exemplet om du inte har stängt PowerShell-konsolen efter att du har skapat det självsignerade rot certifikatet. Det här exemplet fortsätter från föregående avsnitt och använder den deklarerade $cert variabeln. Om du stängde PowerShell-konsolen efter att du har skapat det självsignerade rot certifikatet, eller om du skapar ytterligare klient certifikat i en ny PowerShell-konsolsession, använder du stegen i [exempel 2](#ex2).
+
+Ändra och kör exemplet för att generera ett klient certifikat. Om du kör följande exempel utan att ändra det, är resultatet ett klient certifikat med namnet ' P2SChildCert '.  Om du vill namnge det underordnade certifikatet något annat ändrar du värdet för CN. Ändra inte TextExtension när du kör det här exemplet. Det klient certifikat som du skapar installeras automatiskt i "certificates-Current User\Personal\Certificates" på din dator.
+
+```powershell
+New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
+-Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+-HashAlgorithm sha256 -KeyLength 2048 `
+-CertStoreLocation "Cert:\CurrentUser\My" `
+-Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+```
+
+### <a name="ex2"></a>Exempel 2
+
+Använd följande steg om du skapar ytterligare klient certifikat eller inte använder samma PowerShell-session som du använde för att skapa ett självsignerat rot certifikat:
+
+1. Identifiera det självsignerade rot certifikatet som är installerat på datorn. Den här cmdleten returnerar en lista över certifikat som är installerade på datorn.
+
+   ```powershell
+   Get-ChildItem -Path “Cert:\CurrentUser\My”
+   ```
+2. Leta upp ämnes namnet i den returnerade listan och kopiera sedan det tumavtryck som finns bredvid den till en textfil. I följande exempel finns det två certifikat. CN-namnet är namnet på det självsignerade rot certifikat som du vill skapa ett underordnat certifikat från. I det här fallet "P2SRootCert".
+
+   ```
+   Thumbprint                                Subject
+  
+   AED812AD883826FF76B4D1D5A77B3C08EFA79F3F  CN=P2SChildCert4
+   7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655  CN=P2SRootCert
+   ```
+3. Deklarera en variabel för rot certifikatet med tumavtrycket från föregående steg. Ersätt TUMAVTRYCKET med tumavtrycket för det rot certifikat som du vill skapa ett underordnat certifikat från.
+
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\THUMBPRINT"
+   ```
+
+   Om du till exempel använder tumavtrycket för P2SRootCert i föregående steg ser variabeln ut så här:
+
+   ```powershell
+   $cert = Get-ChildItem -Path "Cert:\CurrentUser\My\7181AA8C1B4D34EEDB2F3D3BEC5839F3FE52D655"
+   ```
+4. Ändra och kör exemplet för att generera ett klient certifikat. Om du kör följande exempel utan att ändra det, är resultatet ett klient certifikat med namnet ' P2SChildCert '. Om du vill namnge det underordnade certifikatet något annat ändrar du värdet för CN. Ändra inte TextExtension när du kör det här exemplet. Det klient certifikat som du skapar installeras automatiskt i "certificates-Current User\Personal\Certificates" på din dator.
+
+   ```powershell
+   New-SelfSignedCertificate -Type Custom -DnsName P2SChildCert -KeySpec Signature `
+   -Subject "CN=P2SChildCert" -KeyExportPolicy Exportable `
+   -HashAlgorithm sha256 -KeyLength 2048 `
+   -CertStoreLocation "Cert:\CurrentUser\My" `
+   -Signer $cert -TextExtension @("2.5.29.37={text}1.3.6.1.5.5.7.3.2")
+   ```
+
+## <a name="cer"></a>Exportera den offentliga nyckeln för rot certifikatet (. cer)
+
+[!INCLUDE [Export public key](vpn-gateway-certificates-export-public-key-include.md)]
+
+### <a name="export-the-self-signed-root-certificate-and-private-key-to-store-it-optional"></a>Exportera det självsignerade rot certifikatet och den privata nyckeln för att lagra det (valfritt)
+
+Du kanske vill exportera det självsignerade rot certifikatet och lagra det säkert som säkerhets kopiering. Om det behövs kan du senare installera det på en annan dator och generera fler klient certifikat. Om du vill exportera det självsignerade rot certifikatet som en. pfx väljer du rot certifikatet och använder samma steg som beskrivs i [Exportera ett klient certifikat](#clientexport).
+
+## <a name="clientexport"></a>Exportera klient certifikatet
+
+[!INCLUDE [Export client certificate](vpn-gateway-certificates-export-client-cert-include.md)]

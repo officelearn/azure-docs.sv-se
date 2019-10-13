@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/17/2019
+ms.date: 10/11/2019
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 471e3008c25ddef83dd9b502dd8f677ae31cc71b
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 9767282b3dd764a45f25a14d62af70a13c80b0ac
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70259379"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300263"
 ---
 # <a name="multi-protocol-access-on-azure-data-lake-storage-preview"></a>Åtkomst till flera protokoll på Azure Data Lake Storage (för hands version)
 
@@ -22,11 +22,11 @@ BLOB-API: er fungerar nu med konton som har ett hierarkiskt namn område. Detta 
 Tills nyligen har du kanske haft för att ha haft separata lagrings lösningar för objekt lagring och analys lagring. Det beror på att Azure Data Lake Storage Gen2 har begränsat stöd för eko systemet. Det hade också begränsad åtkomst till Blob Service funktioner som diagnostisk loggning. En fragmenterad lagrings lösning är svår att underhålla eftersom du måste flytta data mellan konton för att utföra olika scenarier. Du behöver inte längre göra det.
 
 > [!NOTE]
-> Åtkomst till flera protokoll på Data Lake Storage finns i en offentlig för hands version och är tillgänglig i [dessa regioner](#region-availability). Information om hur du granskar begränsningar finns i artikeln om [kända problem](data-lake-storage-known-issues.md) . För att registrera dig i för hands versionen, se [den här sidan](https://aka.ms/blobinteropsignup).
+> Åtkomst till flera protokoll på Data Lake Storage finns i offentlig för hands version och är tillgänglig i alla regioner. Du behöver inte registrera i den offentliga för hands versionen eftersom den automatiskt är tillgänglig för alla konton som har ett hierarkiskt namn område. Information om hur du granskar begränsningar finns i artikeln om [kända problem](data-lake-storage-known-issues.md) .
 
 ## <a name="use-the-entire-ecosystem-of-applications-tools-and-services"></a>Använd hela eko systemet för program, verktyg och tjänster
 
-Om du registrerar dig i för hands versionen av åtkomst till flera protokoll på Data Lake Storage kan du arbeta med alla dina data med hjälp av hela eko systemet för verktyg, program och tjänster. Detta inkluderar Azure-tjänster som [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [IOT Hub](https://docs.microsoft.com/azure/iot-hub/), [Power BI](https://docs.microsoft.com/power-bi/desktop-data-sources)och många andra. 
+Med åtkomst med flera protokoll på Data Lake Storage kan du arbeta med alla dina data med hjälp av hela eko systemet med verktyg, program och tjänster. Detta inkluderar Azure-tjänster som [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-introduction), [IOT Hub](https://docs.microsoft.com/azure/iot-hub/), [Power BI](https://docs.microsoft.com/power-bi/desktop-data-sources)och många andra. En fullständig lista finns i [integrera Azure Data Lake Storage med Azure-tjänster](data-lake-store-integrate-with-azure-services.md).
 
 Detta inkluderar även verktyg och program från tredje part. Du kan peka dem på konton som har ett hierarkiskt namn område utan att behöva ändra dem. Dessa program fungerar *som de är* även om de anropar BLOB-API: er, eftersom BLOB-API: er nu kan köras på data i konton som har ett hierarkiskt namn område.
 
@@ -47,20 +47,6 @@ BLOB-API: er och Data Lake Storage Gen2-API: er kan köras på samma data i lagr
 ![Åtkomst till flera protokoll på Data Lake Storage konceptuell](./media/data-lake-storage-interop/interop-concept.png) 
 
 Befintliga verktyg och program som använder BLOB API får dessa fördelar automatiskt. Utvecklare behöver inte ändra dem. Data Lake Storage Gen2 konsekvent tillämpar katalog-och fil nivå åtkomst kontrol listor oavsett vilket protokoll som verktyg och program använder för att komma åt data. 
-
-<a id="region-availability" />
-
-## <a name="region-availability"></a>Regional tillgänglighet
-
-Åtkomst till flera protokoll på Azure Data Lake Storage (för hands version) är tillgänglig i följande regioner:
-
-|||||
-|-|-|-|-|
-|Centrala USA|Västra centrala USA|Centrala Kanada|
-|East US|Östasien|Norra Europa|
-|USA, östra 2|Sydostasien|Västra Europa|
-|Västra USA|Östra Australien|Östra Japan|
-|Västra USA 2|Södra Brasilien||
 
 ## <a name="next-steps"></a>Nästa steg
 

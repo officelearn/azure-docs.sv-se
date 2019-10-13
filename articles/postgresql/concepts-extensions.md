@@ -5,21 +5,21 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/26/2019
-ms.openlocfilehash: 467a8b1de3f6c234d9dfdfaf6132025688757997
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.date: 10/11/2019
+ms.openlocfilehash: 4f81b23378427faa522071f4a20e07485f5c3387
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327120"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296414"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql---single-server"></a>PostgreSQL-tillägg i Azure Database for PostgreSQL-enskild server
 PostgreSQL ger möjlighet att utöka funktionerna i databasen med hjälp av tillägg. Tillägg buntar samman flera relaterade SQL-objekt i ett enda paket som kan läsas in eller tas bort från databasen med ett enda kommando. Efter att ha lästs in i databasen, fungerar utöknings funktionen som inbyggda funktioner.
 
 ## <a name="how-to-use-postgresql-extensions"></a>Använda PostgreSQL-tillägg
-PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du kommandot [skapa tillägg](https://www.postgresql.org/docs/current/sql-createextension.html) från psql-verktyget för att läsa in de paketerade objekten i databasen.
+PostgreSQL-tillägg måste vara installerade i databasen innan du kan använda dem. Om du vill installera ett visst tillägg kör du verktyget [create extension](https://www.postgresql.org/docs/current/sql-createextension.html) command från psql för att läsa in de paketerade objekten i databasen.
 
-Azure Database for PostgreSQL stöder en delmängd av nyckel tillägg som anges nedan. Den här informationen är också tillgänglig genom `SELECT * FROM pg_available_extensions;`att köra. Tillägg utöver de som anges i listan stöds inte. Du kan inte skapa ditt eget tillägg i Azure Database for PostgreSQL.
+Azure Database for PostgreSQL stöder en delmängd av nyckel tillägg som anges nedan. Den här informationen är också tillgänglig genom att köra `SELECT * FROM pg_available_extensions;`. Tillägg utöver de som anges i listan stöds inte. Du kan inte skapa ditt eget tillägg i Azure Database for PostgreSQL.
 
 ## <a name="postgres-11-extensions"></a>Postgres 11-tillägg
 
@@ -33,7 +33,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[btree_gin](https://www.postgresql.org/docs/11/btree-gin.html)                    | 1.3             | stöd för indexering av vanliga data typer i GIN|
 > |[btree_gist](https://www.postgresql.org/docs/11/btree-gist.html)                   | 1.5             | stöd för indexering av vanliga data typer i registret|
 > |[citext](https://www.postgresql.org/docs/11/citext.html)                       | 1.5             | datatyp för Skift läges känsliga sträng strängar|
-> |[cube](https://www.postgresql.org/docs/11/cube.html)                         | 1.4             | datatyp för flerdimensionella kuber|
+> |[kuben](https://www.postgresql.org/docs/11/cube.html)                         | 1,4             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/11/dblink.html)                       | 1.2             | ansluta till andra PostgreSQL-databaser inifrån en databas|
 > |[dict_int](https://www.postgresql.org/docs/11/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
 > |[earthdistance](https://www.postgresql.org/docs/11/earthdistance.html)                | 1.1             | beräkna suveräna cirkel avstånd på jordens yta|
@@ -44,7 +44,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[inte är](https://www.postgresql.org/docs/11/isn.html)                          | 1.2             | data typer för internationella standarder för produkt nummer|
 > |[ltree](https://www.postgresql.org/docs/11/ltree.html)                        | 1.1             | datatyp för hierarkiska träd strukturer|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funktioner och operatorer som emulerar en delmängd funktioner och paket från kommersiella RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | tillhandahåller gransknings funktioner|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.3.1             | tillhandahåller gransknings funktioner|
 > |[pgcrypto](https://www.postgresql.org/docs/11/pgcrypto.html)                     | 1.3             | kryptografiska funktioner|
 > |[pgrouting](https://pgrouting.org/)                    | 2.6.2           | pgRouting-tillägg|
 > |[pgrowlocks](https://www.postgresql.org/docs/11/pgrowlocks.html)                   | 1.2             | Visa lås information på radnivå|
@@ -52,8 +52,8 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[pg_buffercache](https://www.postgresql.org/docs/11/pgbuffercache.html)               | 1.3             | granska cacheminnet för den delade bufferten|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 4.0.0           | Tillägg för att hantera partitionerade tabeller efter tid eller ID|
 > |[pg_prewarm](https://www.postgresql.org/docs/11/pgprewarm.html)                   | 1.2             | Förvärm Relations data|
-> |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1.6             | spåra körnings statistik för alla SQL-instruktioner som körs|
-> |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1.4             | text likhets mätning och indexs ökning baserat på trigrams|
+> |[pg_stat_statements](https://www.postgresql.org/docs/11/pgstatstatements.html)           | 1,6             | spåra körnings statistik för alla SQL-instruktioner som körs|
+> |[pg_trgm](https://www.postgresql.org/docs/11/pgtrgm.html)                      | 1,4             | text likhets mätning och indexs ökning baserat på trigrams|
 > |[plpgsql](https://www.postgresql.org/docs/11/plpgsql.html)                      | 1.0             | PL/pgSQL Procedure language|
 > |[plv8](https://plv8.github.io/)                         | 2.3.11          | PL/Java Script (V8) Trusted Procedure language|
 > |[postgis](https://www.postgis.net/)                      | 2.5.1           | PostGIS geometri, geografi och raster avstånds typer och funktioner|
@@ -63,7 +63,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[postgres_fdw](https://www.postgresql.org/docs/11/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[tablefunc](https://www.postgresql.org/docs/11/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
 > |[timescaledb](https://docs.timescale.com/latest)                    | 1.3.2             | Möjliggör skalbara infogningar och komplexa frågor för Time Series-data|
-> |[unaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
+> |[avaccent](https://www.postgresql.org/docs/11/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/11/uuid-ossp.html)                    | 1.1             | generera globalt unika identifierare (UUID)|
 
 ## <a name="postgres-10-extensions"></a>Postgres 10-tillägg 
@@ -78,19 +78,19 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[btree_gin](https://www.postgresql.org/docs/10/btree-gin.html)                    | 1.3             | stöd för indexering av vanliga data typer i GIN|
 > |[btree_gist](https://www.postgresql.org/docs/10/btree-gist.html)                   | 1.5             | stöd för indexering av vanliga data typer i registret|
 > |[chkpass](https://www.postgresql.org/docs/10/chkpass.html)                       | 1.0             | datatyp för automatiskt krypterade lösen ord|
-> |[citext](https://www.postgresql.org/docs/10/citext.html)                       | 1.4             | datatyp för Skift läges känsliga sträng strängar|
-> |[cube](https://www.postgresql.org/docs/10/cube.html)                         | 1.2             | datatyp för flerdimensionella kuber|
+> |[citext](https://www.postgresql.org/docs/10/citext.html)                       | 1,4             | datatyp för Skift läges känsliga sträng strängar|
+> |[kuben](https://www.postgresql.org/docs/10/cube.html)                         | 1.2             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/10/dblink.html)                       | 1.2             | ansluta till andra PostgreSQL-databaser inifrån en databas|
 > |[dict_int](https://www.postgresql.org/docs/10/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
 > |[earthdistance](https://www.postgresql.org/docs/10/earthdistance.html)                | 1.1             | beräkna suveräna cirkel avstånd på jordens yta|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/10/fuzzystrmatch.html)                | 1.1             | Bestäm likheter och avstånd mellan strängar|
-> |[hstore](https://www.postgresql.org/docs/10/hstore.html)                       | 1.4             | datatyp för lagring av uppsättningar av (nyckel, värde) par|
+> |[hstore](https://www.postgresql.org/docs/10/hstore.html)                       | 1,4             | datatyp för lagring av uppsättningar av (nyckel, värde) par|
 > |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | Hypotetiska index för PostgreSQL|
 > |[intarray](https://www.postgresql.org/docs/10/intarray.html)                     | 1.2             | funktioner, operatörer och index stöd för en 1d-matris med heltal|
 > |[inte är](https://www.postgresql.org/docs/10/isn.html)                          | 1.1             | data typer för internationella standarder för produkt nummer|
 > |[ltree](https://www.postgresql.org/docs/10/ltree.html)                        | 1.1             | datatyp för hierarkiska träd strukturer|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funktioner och operatorer som emulerar en delmängd funktioner och paket från kommersiella RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | tillhandahåller gransknings funktioner|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.2             | tillhandahåller gransknings funktioner|
 > |[pgcrypto](https://www.postgresql.org/docs/10/pgcrypto.html)                     | 1.3             | kryptografiska funktioner|
 > |[pgrouting](https://pgrouting.org/)                    | 2.5.2           | pgRouting-tillägg|
 > |[pgrowlocks](https://www.postgresql.org/docs/10/pgrowlocks.html)                   | 1.2             | Visa lås information på radnivå|
@@ -98,7 +98,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[pg_buffercache](https://www.postgresql.org/docs/10/pgbuffercache.html)               | 1.3             | granska cacheminnet för den delade bufferten|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Tillägg för att hantera partitionerade tabeller efter tid eller ID|
 > |[pg_prewarm](https://www.postgresql.org/docs/10/pgprewarm.html)                   | 1.1             | Förvärm Relations data|
-> |[pg_stat_statements](https://www.postgresql.org/docs/10/pgstatstatements.html)           | 1.6             | spåra körnings statistik för alla SQL-instruktioner som körs|
+> |[pg_stat_statements](https://www.postgresql.org/docs/10/pgstatstatements.html)           | 1,6             | spåra körnings statistik för alla SQL-instruktioner som körs|
 > |[pg_trgm](https://www.postgresql.org/docs/10/pgtrgm.html)                      | 1.3             | text likhets mätning och indexs ökning baserat på trigrams|
 > |[plpgsql](https://www.postgresql.org/docs/10/plpgsql.html)                      | 1.0             | PL/pgSQL Procedure language|
 > |[plv8](https://plv8.github.io/)                         | 2.1.0          | PL/Java Script (V8) Trusted Procedure language|
@@ -109,7 +109,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[postgres_fdw](https://www.postgresql.org/docs/10/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[tablefunc](https://www.postgresql.org/docs/10/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
 > |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Möjliggör skalbara infogningar och komplexa frågor för Time Series-data|
-> |[unaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
+> |[avaccent](https://www.postgresql.org/docs/10/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/10/uuid-ossp.html)                    | 1.1             | generera globalt unika identifierare (UUID)|
 
 ## <a name="postgres-96-extensions"></a>Postgres 9,6-tillägg 
@@ -125,26 +125,26 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[btree_gist](https://www.postgresql.org/docs/9.6/btree-gist.html)                   | 1.2             | stöd för indexering av vanliga data typer i registret|
 > |[chkpass](https://www.postgresql.org/docs/9.6/chkpass.html)                       | 1.0             | datatyp för automatiskt krypterade lösen ord|
 > |[citext](https://www.postgresql.org/docs/9.6/citext.html)                       | 1.3             | datatyp för Skift läges känsliga sträng strängar|
-> |[cube](https://www.postgresql.org/docs/9.6/cube.html)                         | 1.2             | datatyp för flerdimensionella kuber|
+> |[kuben](https://www.postgresql.org/docs/9.6/cube.html)                         | 1.2             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/9.6/dblink.html)                       | 1.2             | ansluta till andra PostgreSQL-databaser inifrån en databas|
 > |[dict_int](https://www.postgresql.org/docs/9.6/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
 > |[earthdistance](https://www.postgresql.org/docs/9.6/earthdistance.html)                | 1.1             | beräkna suveräna cirkel avstånd på jordens yta|
 > |[fuzzystrmatch](https://www.postgresql.org/docs/9.6/fuzzystrmatch.html)                | 1.1             | Bestäm likheter och avstånd mellan strängar|
-> |[hstore](https://www.postgresql.org/docs/9.6/hstore.html)                       | 1.4             | datatyp för lagring av uppsättningar av (nyckel, värde) par|
+> |[hstore](https://www.postgresql.org/docs/9.6/hstore.html)                       | 1,4             | datatyp för lagring av uppsättningar av (nyckel, värde) par|
 > |[hypopg](https://hypopg.readthedocs.io/en/latest/)                       | 1.1.1           | Hypotetiska index för PostgreSQL|
 > |[intarray](https://www.postgresql.org/docs/9.6/intarray.html)                     | 1.2             | funktioner, operatörer och index stöd för en 1d-matris med heltal|
 > |[inte är](https://www.postgresql.org/docs/9.6/isn.html)                          | 1.1             | data typer för internationella standarder för produkt nummer|
 > |[ltree](https://www.postgresql.org/docs/9.6/ltree.html)                        | 1.1             | datatyp för hierarkiska träd strukturer|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funktioner och operatorer som emulerar en delmängd funktioner och paket från kommersiella RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | tillhandahåller gransknings funktioner|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.1.2             | tillhandahåller gransknings funktioner|
 > |[pgcrypto](https://www.postgresql.org/docs/9.6/pgcrypto.html)                     | 1.3             | kryptografiska funktioner|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.2           | pgRouting-tillägg|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.6/pgrowlocks.html)                   | 1.2             | Visa lås information på radnivå|
-> |[pgstattuple](https://www.postgresql.org/docs/9.6/pgstattuple.html)                  | 1.4             | Visa statistik på tuple nivå|
+> |[pgstattuple](https://www.postgresql.org/docs/9.6/pgstattuple.html)                  | 1,4             | Visa statistik på tuple nivå|
 > |[pg_buffercache](https://www.postgresql.org/docs/9.6/pgbuffercache.html)               | 1.2             | granska cacheminnet för den delade bufferten|
 > |[pg_partman](https://github.com/pgpartman/pg_partman)                   | 2.6.3           | Tillägg för att hantera partitionerade tabeller efter tid eller ID|
 > |[pg_prewarm](https://www.postgresql.org/docs/9.6/pgprewarm.html)                   | 1.1             | Förvärm Relations data|
-> |[pg_stat_statements](https://www.postgresql.org/docs/9.6/pgstatstatements.html)           | 1.4             | spåra körnings statistik för alla SQL-instruktioner som körs|
+> |[pg_stat_statements](https://www.postgresql.org/docs/9.6/pgstatstatements.html)           | 1,4             | spåra körnings statistik för alla SQL-instruktioner som körs|
 > |[pg_trgm](https://www.postgresql.org/docs/9.6/pgtrgm.html)                      | 1.3             | text likhets mätning och indexs ökning baserat på trigrams|
 > |[plpgsql](https://www.postgresql.org/docs/9.6/plpgsql.html)                      | 1.0             | PL/pgSQL Procedure language|
 > |[plv8](https://plv8.github.io/)                         | 2.1.0          | PL/Java Script (V8) Trusted Procedure language|
@@ -155,7 +155,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[postgres_fdw](https://www.postgresql.org/docs/9.6/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[tablefunc](https://www.postgresql.org/docs/9.6/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
 > |[timescaledb](https://docs.timescale.com/latest)                    | 1.1.1             | Möjliggör skalbara infogningar och komplexa frågor för Time Series-data|
-> |[unaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
+> |[avaccent](https://www.postgresql.org/docs/9.6/unaccent.html)                     | 1.1             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/9.6/uuid-ossp.html)                    | 1.1             | generera globalt unika identifierare (UUID)|
 
 ## <a name="postgres-95-extensions"></a>Postgres 9,5-tillägg 
@@ -171,7 +171,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[btree_gist](https://www.postgresql.org/docs/9.5/btree-gist.html)                   | 1.1             | stöd för indexering av vanliga data typer i registret|
 > |[chkpass](https://www.postgresql.org/docs/9.5/chkpass.html)                       | 1.0             | datatyp för automatiskt krypterade lösen ord|
 > |[citext](https://www.postgresql.org/docs/9.5/citext.html)                       | 1.1             | datatyp för Skift läges känsliga sträng strängar|
-> |[cube](https://www.postgresql.org/docs/9.5/cube.html)                         | 1.0             | datatyp för flerdimensionella kuber|
+> |[kuben](https://www.postgresql.org/docs/9.5/cube.html)                         | 1.0             | datatyp för flerdimensionella kuber|
 > |[dblink](https://www.postgresql.org/docs/9.5/dblink.html)                       | 1.1             | ansluta till andra PostgreSQL-databaser inifrån en databas|
 > |[dict_int](https://www.postgresql.org/docs/9.5/dict-int.html)                     | 1.0             | mall för text Sök lexikon för heltal|
 > |[earthdistance](https://www.postgresql.org/docs/9.5/earthdistance.html)                | 1.0             | beräkna suveräna cirkel avstånd på jordens yta|
@@ -182,7 +182,7 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[inte är](https://www.postgresql.org/docs/9.5/isn.html)                          | 1.0             | data typer för internationella standarder för produkt nummer|
 > |[ltree](https://www.postgresql.org/docs/9.5/ltree.html)                        | 1.0             | datatyp för hierarkiska träd strukturer|
 > |[orafce](https://github.com/orafce/orafce)                       | 3.7             | Funktioner och operatorer som emulerar en delmängd funktioner och paket från kommersiella RDBMS|
-> |[pgaudit](https://www.pgaudit.org/)                     | 1.3             | tillhandahåller gransknings funktioner|
+> |[pgaudit](https://www.pgaudit.org/)                     | 1.0.7             | tillhandahåller gransknings funktioner|
 > |[pgcrypto](https://www.postgresql.org/docs/9.5/pgcrypto.html)                     | 1.2             | kryptografiska funktioner|
 > |[pgrouting](https://pgrouting.org/)                    | 2.3.0           | pgRouting-tillägg|
 > |[pgrowlocks](https://www.postgresql.org/docs/9.5/pgrowlocks.html)                   | 1.1             | Visa lås information på radnivå|
@@ -199,13 +199,13 @@ Följande tillägg är tillgängliga i Azure Database for PostgreSQL servrar som
 > |[postgis_topology](https://postgis.net/docs/Topology.html)             | 2.3.0           | Spatiala typer och funktioner för PostGIS-topologi|
 > |[postgres_fdw](https://www.postgresql.org/docs/9.5/postgres-fdw.html)                 | 1.0             | sekundär data omslutning för fjärranslutna PostgreSQL-servrar|
 > |[tablefunc](https://www.postgresql.org/docs/9.5/tablefunc.html)                    | 1.0             | funktioner som ändrar hela tabeller, inklusive kors|
-> |[unaccent](https://www.postgresql.org/docs/9.5/unaccent.html)                     | 1.0             | texts öknings ord lista som tar bort accenttecken|
+> |[avaccent](https://www.postgresql.org/docs/9.5/unaccent.html)                     | 1.0             | texts öknings ord lista som tar bort accenttecken|
 > |[UUID – ossp](https://www.postgresql.org/docs/9.5/uuid-ossp.html)                    | 1.0             | generera globalt unika identifierare (UUID)|
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements
 Pg_stat_statements-tillägget är förinstallerat på alla Azure Database for PostgreSQL Server för att ge dig möjlighet att spåra körnings statistik för SQL-uttryck.
-Inställningen `pg_stat_statements.track`, som styr vilka instruktioner som räknas av tillägget, är standardvärdet, `top`vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna `none` är `all`och. Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
+Inställningen `pg_stat_statements.track`, som styr vilka instruktioner som räknas av tillägget, är standardvärdet `top`, vilket innebär att alla instruktioner som utfärdas direkt av klienter spåras. De två andra spårnings nivåerna är `none` och `all`. Den här inställningen kan konfigureras som en server parameter via [Azure Portal](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-portal) eller [Azure CLI](https://docs.microsoft.com/azure/postgresql/howto-configure-server-parameters-using-cli).
 
 Det finns en kompromiss mellan information om pg_stat_statements tillhandahåller och påverkan på Server prestanda när varje SQL-sats loggas. Om du inte aktivt använder pg_stat_statements-tillägget rekommenderar vi att du anger `pg_stat_statements.track` till `none`. Observera att vissa övervaknings tjänster från tredje part kan förlita sig på pg_stat_statements för att leverera frågor om prestanda insikter, så kontrol lera om detta är fallet för dig eller inte.
 
@@ -215,7 +215,7 @@ med dbLink och postgres_fdw kan du ansluta från en PostgreSQL-server till en an
 För närvarande stöds inte utgående anslutningar från Azure Database for PostgreSQL, förutom för anslutningar till andra Azure Database for PostgreSQL-servrar.
 
 ## <a name="uuid"></a>uuid
-Om du planerar att använda `uuid_generate_v4()` från UUID-ossp-tillägget kan du jämföra med med `gen_random_uuid()` pgcrypto-tillägget för prestanda förmåner.
+Om du planerar att använda `uuid_generate_v4()` från UUID-ossp-tillägget kan du jämföra med `gen_random_uuid()` från pgcrypto-tillägget för prestanda förmåner.
 
 
 ## <a name="pgaudit"></a>pgAudit
@@ -227,7 +227,7 @@ TimescaleDB är en databas för tids serier som är paketerad som ett tillägg f
 [Lär dig mer om TimescaleDB](https://docs.timescale.com/latest), ett registrerat varumärke som tillhör [tids skala, Inc.](https://www.timescale.com/)
 
 ### <a name="installing-timescaledb"></a>Installerar TimescaleDB
-Om du vill installera TimescaleDB måste du ta med den i serverns delade preload-bibliotek. En ändring av postgres `shared_preload_libraries` -parametern kräver att en omstart av **servern** börjar gälla. Du kan ändra parametrar med hjälp av [Azure Portal](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).
+Om du vill installera TimescaleDB måste du ta med den i serverns delade preload-bibliotek. En ändring av postgres-parameterns `shared_preload_libraries`-parameter kräver att en **omstart av servern** börjar gälla. Du kan ändra parametrar med hjälp av [Azure Portal](howto-configure-server-parameters-using-portal.md) eller [Azure CLI](howto-configure-server-parameters-using-cli.md).
 
 Använda [Azure Portal](https://portal.azure.com/):
 
@@ -235,7 +235,7 @@ Använda [Azure Portal](https://portal.azure.com/):
 
 2. Välj **Server parametrar**på sid panelen.
 
-3. Sök efter `shared_preload_libraries` parametern.
+3. Sök efter parametern `shared_preload_libraries`.
 
 4. Välj **TimescaleDB**.
 

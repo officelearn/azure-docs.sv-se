@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1ec83541c62d93eee91348531797ecdeb8c9fc6e
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: 42a2b2d7962f3efd71639f65e9e6f6f5d6783afb
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873471"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286420"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Hantera IoT Central från Azure CLI
 
@@ -21,7 +21,7 @@ ms.locfileid: "70873471"
 
 I stället för att skapa och hantera IoT Central-program på webbplatsen för [azure IoT Central Application Manager](https://aka.ms/iotcentral) kan du använda [Azure CLI](/cli/azure/) för att hantera dina program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -53,16 +53,16 @@ Dessa kommandon skapar först en resurs grupp i regionen USA, östra för progra
 | Parameter         | Beskrivning |
 | ----------------- | ----------- |
 | resource-group    | Resurs gruppen som innehåller programmet. Den här resurs gruppen måste redan finnas i din prenumeration. |
-| location          | Som standard använder detta kommando platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i regionerna **östra USA**, **västra USA**, **Nord Europa**eller Västeuropa **, Västeuropa eller** **Australien** . |
-| name              | Namnet på programmet i Azure Portal. |
-| Under domän         | Under domänen i programmets URL. I exemplet är https://mysubdomain.azureiotcentral.com programmets URL. |
+| location          | Som standard använder detta kommando platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i regionerna **östra USA**, **västra USA**, **Nord Europa**eller Västeuropa **, Västeuropa eller** i regionerna **Australien** eller **Asien och Stillahavsområdet** . |
+| namn              | Namnet på programmet i Azure Portal. |
+| Under domän         | Under domänen i programmets URL. I exemplet är programmets URL https://mysubdomain.azureiotcentral.com. |
 | sku               | För närvarande är det enda värdet **S1** (standard nivån). Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 | mall          | Den program mal len som ska användas. Mer information finns i följande tabell: |
 | visnings namn      | Namnet på programmet som det visas i användar gränssnittet. |
 
 **Programmallar**
 
-| Mallnamn            | Beskrivning |
+| Mallens namn            | Beskrivning |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
 | iotc-demo@1.0.0          | Skapar ett program som innehåller en mall för enheter som redan har skapats för en kylande varuautomat. Använd den här mallen för att börja utforska Azure IoT Central. |

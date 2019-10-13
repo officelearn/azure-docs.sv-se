@@ -2,69 +2,68 @@
 title: Hantera Azure Analysis Services | Microsoft Docs
 description: Lär dig hur du hanterar en Analysis Services-server i Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 0bae06d46c2c96ba9dd058e9c2d380379523811c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 63591da8d7661f7f3a29b321c20a2e05351c71fd
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61065207"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298602"
 ---
 # <a name="manage-analysis-services"></a>Manage Analysis Services
-När du har skapat en Analysis Services-server i Azure, kan det finnas vissa administration och hantering av uppgifter du behöver utföra direkt eller någon gång ned vägen. Till exempel bearbetning för att uppdatera data, styra vem som kan komma åt modeller på servern eller övervaka hälsa för din server. Vissa hanteringsuppgifter kan endast utföras i Azure-portalen, andra i SQL Server Management Studio (SSMS), och vissa aktiviteter kan göras antingen.
+När du har skapat en Analysis Services-server i Azure kan det finnas några administrations-och hanterings uppgifter som du behöver utföra direkt eller vid en stund. Du kan till exempel köra bearbetning av uppdatera data, kontrol lera vem som har åtkomst till modellerna på servern eller övervaka serverns hälsa. Vissa hanterings uppgifter kan endast utföras i Azure Portal, andra i SQL Server Management Studio (SSMS) och vissa uppgifter kan göras i båda.
 
-## <a name="azure-portal"></a>Azure Portal
-[Azure-portalen](https://portal.azure.com/) är där du kan skapa och ta bort servrar, övervaka serverresurser, ändra storlek på och hantera vem som har åtkomst till dina servrar.  Om du har några problem, kan du även skicka en supportförfrågan.
+## <a name="azure-portal"></a>Azure portal
+[Azure Portal](https://portal.azure.com/) är där du kan skapa och ta bort servrar, övervaka server resurser, ändra storlek och hantera vem som har åtkomst till dina servrar.  Om du har problem kan du också skicka in en support förfrågan.
 
 ![Hämta servernamnet i Azure](./media/analysis-services-manage/aas-manage-portal.png)
 
 ## <a name="sql-server-management-studio"></a>SQL Server Management Studio
-Ansluta till din server i Azure är precis som ansluter till en server-instans i din organisation. Från SSMS, kan du utföra många av uppgifterna som till exempel bearbeta data eller skapa ett skript för bearbetning, hantera roller och använder PowerShell.
+Att ansluta till din server i Azure är precis som att ansluta till en Server instans i din organisation. Från SSMS kan du utföra många av samma uppgifter, till exempel process data eller skapa ett bearbetnings skript, hantera roller och använda PowerShell.
   
 ![SQL Server Management Studio](./media/analysis-services-manage/aas-manage-ssms.png)
 
-### <a name="download-and-install-ssms"></a>Ladda ned och installera SSMS
-För att få de senaste funktionerna och jämnaste upplevelsen när du ansluter till Azure Analysis Services-servern kan vara säker på att du använder den senaste versionen av SSMS. 
+### <a name="download-and-install-ssms"></a>Hämta och installera SSMS
+Se till att du använder den senaste versionen av SSMS för att få alla de senaste funktionerna och den smidigaste upplevelsen vid anslutning till din Azure Analysis Services-server. 
 
 [Ladda ned SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 
-### <a name="to-connect-with-ssms"></a>Att ansluta med SSMS
- När du använder SSMS, innan du ansluter till servern för första gången måste du kontrollera ditt användarnamn som ingår i gruppen Analysis Services-administratörer. Mer information finns i [serveradministratörer och databasanvändare](#server-administrators-and-database-users) senare i den här artikeln.
+### <a name="to-connect-with-ssms"></a>Så här ansluter du till SSMS
+ När du använder SSMS innan du ansluter till servern första gången, måste du se till att ditt användar namn ingår i gruppen Analysis Services admins. Mer information finns i [Server administratörer och databas användare](#server-administrators-and-database-users) senare i den här artikeln.
 
-1. Innan du ansluter måste du hämta servernamnet. Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera servernamnet.
+1. Innan du ansluter måste du hämta server namnet. Välj **Azure Portal** > server > **Översikt** > **Servernamn** och kopiera servernamnet.
    
     ![Hämta servernamnet i Azure](./media/analysis-services-deploy/aas-deploy-get-server-name.png)
 2. I SSMS > **Object Explorer** klickar du på **Anslut** > **Analysis Services**.
-3. I den **Anslut till Server** dialogrutan Klistra in servernamnet, och sedan i **autentisering**, väljer du något av följande autentiseringstyper av:   
+3. I dialog rutan **Anslut till Server** klistrar du in namnet på servern och väljer sedan någon av följande autentiseringstyper i **autentisering**:   
     > [!NOTE]
-    > Autentiseringstyp, **Active Directory - Universal med stöd för MFA**, rekommenderas.
+    > Autentiseringstypen, **Active Directory-Universal med MFA-support**, rekommenderas.
 
     > [!NOTE]
-    > Lämna lösenordsfältet tomt om du loggar in med en Account, Live ID, Yahoo, Gmail, osv. Du uppmanas ange ett lösenord när du klickar på Anslut.
+    > Om du loggar in med ett Microsoft-konto, Live ID, Yahoo, Gmail osv. lämnar du fältet lösen ord tomt. Du uppmanas att ange ett lösen ord när du har klickat på Anslut.
 
-    **Windows-autentisering** att använda dina Windows-autentiseringsuppgifter i domän\användarnamn och lösenord.
+    **Windows-autentisering** för att använda Windows-autentiseringsuppgifter för domän \ användar namn och lösen ord.
 
-    **Active Directory-lösenordsautentisering** att använda ett organisationskonto. Till exempel ansluta från en icke-domän när domänansluten dator.
+    **Active Directory** lösenordsautentisering för att använda ett organisations konto. Till exempel när du ansluter från en dator som inte är domänansluten.
 
-    **Active Directory – Universal med stöd för MFA** att använda [icke-interaktivt eller Multi-Factor authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
+    **Active Directory-universell med MFA-stöd** för att använda [icke-interaktiv eller Multi-Factor Authentication](../sql-database/sql-database-ssms-mfa-authentication.md). 
    
     ![Ansluta i SSMS](./media/analysis-services-manage/aas-manage-connect-ssms.png)
 
-## <a name="server-administrators-and-database-users"></a>Server-administratörer och användare
-Det finns två typer av användare, server-administratörer och användare i Azure Analysis Services. Båda typerna av användare måste vara i Azure Active Directory och måste anges med organisationens e-postadress eller UPN. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
+## <a name="server-administrators-and-database-users"></a>Server administratörer och databas användare
+I Azure Analysis Services finns det två typer av användare, Server administratörer och databas användare. Båda typerna av användare måste finnas i din Azure Active Directory och måste anges med organisationens e-postadress eller UPN. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
 
 
-## <a name="troubleshooting-connection-problems"></a>Felsökning av anslutningsproblem
-När du ansluter med hjälp av SSMS, om du stöter på problem, kan du behöva rensa cacheminnet för inloggning. Inget cachelagras skivan. Om du vill rensa cacheminnet, stänga och starta om connect-processen. 
+## <a name="troubleshooting-connection-problems"></a>Felsöka anslutnings problem
+Om du stöter på problem när du ansluter med SSMS kan du behöva rensa inloggnings-cachen. Inget cachelagras på skivan. Om du vill rensa cacheminnet stänger du och startar om anslutnings processen. 
 
 ## <a name="next-steps"></a>Nästa steg
-Om du inte redan har distribuerat en tabellmodell till den nya servern, nu är ett bra tillfälle. Läs mer i [Distribuera till Azure Analysis Services](analysis-services-deploy.md).
+Om du inte redan har distribuerat en tabell modell till den nya servern, är det nu en lämplig tid. Läs mer i [Distribuera till Azure Analysis Services](analysis-services-deploy.md).
 
-Om du har distribuerat en modell till servern, är du redo att ansluta till den med hjälp av en klient eller en webbläsare. Mer information finns i [hämta data från Azure Analysis Services-servern](analysis-services-connect.md).
+Om du har distribuerat en modell till servern är du redo att ansluta till den med hjälp av en klient eller webbläsare. Läs mer i [Hämta data från Azure Analysis Services server](analysis-services-connect.md).
 

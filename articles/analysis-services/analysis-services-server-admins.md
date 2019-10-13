@@ -2,29 +2,28 @@
 title: Hantera Server administratörer i Azure Analysis Services | Microsoft Docs
 description: Lär dig hur du hanterar Server administratörer för en Analysis Services-server i Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: eb5248d374fa6212398ad652b4db1496833473ae
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: fbb7d339c5c3c12990a49d6ebd53760e101f4eb7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696315"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301092"
 ---
 # <a name="manage-server-administrators"></a>Hantera serveradministratörer
 
 Server administratörer måste vara en giltig användare eller säkerhets grupp i Azure Active Directory (Azure AD) för den klient där-servern finns. Du kan använda **Analysis Services administratörer** för servern i Azure Portal, Server egenskaper i SSMS, PowerShell eller REST API för att hantera Server administratörer. 
 
-**Säkerhets grupper** måste vara [e](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) -postaktiverade `MailEnabled` med egenskapen inställd `True`på. När du anger en grupp per e- `obj:groupid@tenantid`postadress använder du.
+**Säkerhets grupper** måste vara [e-postaktiverade](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) med egenskapen `MailEnabled` inställd på `True`. Använd `obj:groupid@tenantid` när du anger en grupp per e-postadress.
 
 ## <a name="to-add-server-administrators-by-using-azure-portal"></a>Lägga till Server administratörer med hjälp av Azure Portal
 
 1. Klicka på **Analysis Services administratörer**på din server i portalen.
-2. **I\<Server namn >-Analysis Services administratörer**klickar du på **Lägg till**.
+2. I **\<servername >-Analysis Services administratörer**klickar du på **Lägg till**.
 3. I **Lägg till Server administratörer**väljer du användar konton från din Azure AD eller bjuder in externa användare via e-postadress.
 
     ![Server administratörer i Azure Portal](./media/analysis-services-server-admins/aas-manage-users-admins.png)

@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Table Storage och Visual Studio Connected Services (Cloud Services) | Microsoft Docs
+title: Kom igång med Table Storage med hjälp av Visual Studio (Cloud Services)
 description: Komma igång med Azure Table Storage i ett moln tjänst projekt i Visual Studio efter anslutning till ett lagrings konto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 5e8c1a92e79eea61e2807c7007ccaea5819e8529
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 5c42d65b5e2c46fcdbe1b0725f2ebce881722db3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510721"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299986"
 ---
 # <a name="getting-started-with-azure-table-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Table Storage och anslutna Visual Studio-tjänster (Cloud Services-projekt)
 [!INCLUDE [storage-try-azure-tools-tables](../../includes/storage-try-azure-tools-tables.md)]
@@ -27,9 +28,9 @@ Den här artikeln beskriver hur du kommer igång med Azure Table Storage i Visua
 
 Med tjänsten Azure Table Storage kan du lagra stora mängder strukturerade data. Tjänsten är ett NoSQL-datalager som accepterar autentiserade anrop inifrån och utanför Azure-molnet. Azure-tabeller passar utmärkt för att lagra strukturerade, icke-relationella data.
 
-För att komma igång måste du först skapa en tabell i ditt lagrings konto. Vi visar dig hur du skapar en Azure-tabell i kod och hur du utför grundläggande tabell-och entitets åtgärder, till exempel att lägga till, ändra, läsa och läsa tabell enheter. Exemplen skrivs i C\# -kod och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+För att komma igång måste du först skapa en tabell i ditt lagrings konto. Vi visar dig hur du skapar en Azure-tabell i kod och hur du utför grundläggande tabell-och entitets åtgärder, till exempel att lägga till, ändra, läsa och läsa tabell enheter. Exemplen skrivs i C @ no__t-0-kod och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
-**Obs!** Några av de API: er som utför anrop till Azure Storage är asynkrona. Se [asynkron programmering med async och await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden nedan förutsätter att asynkrona programmerings metoder används.
+**Obs:** Några av de API: er som utför anrop till Azure Storage är asynkrona. Se [asynkron programmering med async och await](https://msdn.microsoft.com/library/hh191443.aspx) för mer information. Koden nedan förutsätter att asynkrona programmerings metoder används.
 
 * Se [Kom igång med Azure Table Storage med hjälp av .net](../storage/storage-dotnet-how-to-use-tables.md) om du vill ha mer information om program mässigt manipulera tabeller.
 * Se [lagrings dokumentation](https://azure.microsoft.com/documentation/services/storage/) för allmän information om Azure Storage.

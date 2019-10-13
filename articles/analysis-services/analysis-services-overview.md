@@ -2,18 +2,17 @@
 title: Vad är Azure Analysis Services? | Microsoft Docs
 description: Få en helhetsbild av Analysis Services i Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 08/27/2019
+ms.date: 10/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 1f3552fe574291bf696e3b4418924c7e005d713e
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 25366a550887461c6d36d4870a2c9062120ede47
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71259537"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294765"
 ---
 # <a name="what-is-azure-analysis-services"></a>Vad är Azure Analysis Services?
 
@@ -23,13 +22,13 @@ Azure Analysis Services är en fullständigt hanterad plattform som tjänst (Paa
 
 ![Datakällor](./media/analysis-services-overview/aas-overview-overall.png)
 
-**Video:** Mer information om hur Azure Analysis Services passar in med Microsofts övergripande BI-funktioner finns i [Översikt över Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4).
+**Video:** Se [översikt av Azure Analysis Services](https://sec.ch9.ms/ch9/d6dd/a1cda46b-ef03-4cea-8f11-68da23c5d6dd/AzureASoverview_high.mp4) för mer information om hur Azure Analysis Services passar in med Microsofts övergripande BI-funktioner.
 
 ## <a name="get-up-and-running-quickly"></a>Kom igång snabbt
 
 På Azure Portal kan du [skapa en server](analysis-services-create-server.md) på några minuter. Och du kan skapa servrar med hjälp av en deklarativ mall med Azure Resource Manager-[mallar](../azure-resource-manager/resource-manager-create-first-template.md) och PowerShell. Du kan distribuera serverresurser tillsammans med andra Azure-komponenter såsom lagringskonton och Azure Functions, med en enda mall. 
 
-**Video:** Mer information om hur du kan använda Azure Automation för att snabbare skapa servrar finns i [Automatiseringsdistribution](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation).
+**Video:** Se [Automatiseringsdistribution](https://channel9.msdn.com/series/Azure-Analysis-Services/AzureAnalysisServicesAutomation) för mer information om hur du kan använda Azure Automation för att snabbare skapa servrar.
 
 Azure Analysis Services integreras med många Azure-tjänster vilket gör att du kan skapa lösningar för avancerade analyser. Integreringen med [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) ger dig säker, rollbaserad åtkomst till dina viktiga data. Integrera i en [Azure Data Factory](../data-factory/introduction.md)-pipeline genom att omfatta en aktivitet som läser in data i modellen. [Azure Automation](../automation/automation-intro.md) och [Azure Functions](../azure-functions/functions-overview.md) kan användas för att utföra enkel orkestrering av modeller med anpassad kod. 
 
@@ -41,25 +40,25 @@ Azure Analysis Services är tillgängligt på nivåerna **Developer**, **Basic**
 
 Den här nivån rekommenderas för utvärderings-, utvecklings- och testscenarier. En enskild plan inkluderar samma funktioner som på Standard-nivån, men funktionerna för processorkraft, QPU:er och minnesstorlek är begränsade. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Den här nivån omfattas inte av något serviceavtal.
 
-|Planera  |QPU:er  |Minne (GB)  |
+|Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |D1    |    20     |    3     |
 
 
-### <a name="basic-tier"></a>Basnivå
+### <a name="basic-tier"></a>Basic-nivå
 
 Nivån rekommenderas för produktionslösningar med mindre tabellmodeller, begränsad användarsamtidighet och enkla krav för datauppdatering. Skalning av frågerepliker *är inte tillgängligt* på den här nivån. Perspektiv, flera partitioner och DirectQuery-funktioner för tabellmodeller *stöds inte* på den här nivån.  
 
-|Planera  |QPU:er  |Minne (GB)  |
+|Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |B1    |    40     |    10     |
 |B2    |    80     |    16     |
 
-### <a name="standard-tier"></a>Standardnivå
+### <a name="standard-tier"></a>Standard-nivå
 
 Den här nivån passar bäst för verksamhetskritiska produktionsprogram som kräver elastisk användarsamtidighet och har snabbväxande datamodeller. Den har stöd för avancerad datauppdatering för datamodellsuppdateringar i nära realtid och stöder alla funktioner för tabellmodeller.
 
-|Planera  |QPU:er  |Minne (GB)  |
+|Plan  |QPU:er  |Minne (GB)  |
 |---------|---------|---------|
 |S0    |    40     |    10     |
 |S1    |    100     |    25     |
@@ -82,13 +81,13 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |---------|---------|:---------:|
 |Södra Brasilien     |    B1, B2, S0, S1, S2, S4, D1     |     1    |
 |Centrala Kanada    |     B1, B2, S0, S1, S2, S4, D1    |     1    |
-|East US     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
-|USA, östra 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
-|USA, östra 2     |     S8, S9, S8v2, S9v2   |    1    |
+|Östra USA     |     B1, B2, S0, S1, S2, S4, D1    |    1     |
+|Östra USA 2     |     B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Östra USA 2     |     S8, S9, S8v2, S9v2   |    1    |
 |Norra centrala USA     |     B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 |Södra centrala USA     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
-|Västra centrala USA   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
+|USA, västra centrala   |     B1, B2, S0, S1, S2, S4, D1    |    3     |
 |Västra USA     |    B1, B2, S0, S1, S2, S4, D1    |    7   |
 |Västra USA     |    S8, S9, S8v2, S9v2   |    2  |
 |USA, västra 2    |    B1, B2, S0, S1, S2, S4, D1    |    3   |
@@ -98,11 +97,11 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 
 |Region  | Planer som stöds | Frågerepliker (endast standardplaner) |
 |---------|---------|:---------:|
-|Norra Europa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
-|Norra Europa     |    S8v2, S9v2      |    3     |
+|Nordeuropa     |    B1, B2, S0, S1, S2, S4, D1      |    7     |
+|Nordeuropa     |    S8v2, S9v2      |    3     |
 |Storbritannien, södra     |    B1, B2, S0, S1, S2, S4, D1      |     1    |
-|Västra Europa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
-|Västra Europa    |   S8, S9, S8v2, S9v2  |  1  |
+|Västeuropa     |    B1, B2, S0, S1, S2, S4, D1   |    7    |
+|Västeuropa    |   S8, S9, S8v2, S9v2  |  1  |
 
 ### <a name="asia-pacific"></a>Asien och stillahavsområdet 
 
@@ -113,13 +112,13 @@ Azure Analysis Services stöds i regioner över hela världen. Planer som stöds
 |Sydöstra Australien     | B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Östra Japan     |   B1, B2, S0, S1, S2, S4, D1       |    1     |
 |Sydostasien     |     B1, B2, S0, S1, S2, S4, S8, S9, S8v2, S9v2, D1     |   1      |
-|Indien, västra     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
+|Västra Indien     |    B1, B2, S0, S1, S2, S4, D1     |    1     |
 
 ## <a name="scale-to-your-needs"></a>Skala efter behov
 
 ### <a name="scale-updown-pause-and-resume"></a>Skala upp\ner, pausa och återuppta
 
-Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Betala endast för det du använder.  
+Gå upp, ned eller pausa din server. Använd Azure Portal eller få fullständig kontroll direkt med hjälp av PowerShell. Du betalar bara för det du använder.  
 
 ### <a name="scale-out-resources-for-fast-query-responses"></a>Skala ut resurser för snabba frågesvar
 
@@ -147,9 +146,9 @@ DirectQuery-läget* använder serverdelens relationsdatabas för lagring och fr�
 
 Tabellmodeller i Azure Analysis Services stöder en mängd olika datakällor från enkla textfiler till stordata i Azure Data Lake Store. Läs mer i avsnittet [Datakällor som stöds i Azure Analysis Services](analysis-services-datasource.md).
 
-## <a name="compatibility-level"></a>Kompatibilitetsnivå
+## <a name="compatibility-level"></a>Efterlevnadsnivå
 
-Kompatibilitetsnivån avser release-/regionsspecifika beteenden i Analysis Services-motorn. Azure Analysis Services stöder tabell modeller på kompatibilitetsnivån 1200 och högre. Mer information finns i [kompatibilitetsnivån för Analysis Services tabell modeller](analysis-services-compat-level.md).
+Kompatibilitetsnivån avser release-/regionsspecifika beteenden i Analysis Services-motorn. Azure Analysis Services stöder tabell modeller på kompatibilitetsnivån 1200 och högre. Mer information finns i [kompatibilitetsnivån för tabell modeller](https://docs.microsoft.com/analysis-services/tabular-models/compatibility-level-for-tabular-models-in-analysis-services).
 
 
 ## <a name="your-data-is-secure"></a>Dina data är skyddade
@@ -162,7 +161,7 @@ På servernivå har Analysis Services en brandvägg, Azure-autentisering, server
 
 Azure Analysis Services brandvägg blockerar alla klientanslutningar förutom IP-adresserna som anges i regler. Som standard aktiveras inte brandväggsskydd för nya servrar. Vi rekommenderar att brandväggsskyddet är aktiverat och att regler konfigureras som en del av serverns etableringsskript eller i portalen omedelbart efter att servern har skapats. Konfigurera regler för tillåtna IP-adresser av enskilda klient-IP-adresser eller av intervaller. Power BI (service)-anslutningar kan också tillåtas eller blockeras. Konfigurera brandväggen och regler i portalen eller med hjälp av PowerShell. Läs mer i [Konfigurera en serverbrandvägg](analysis-services-qs-firewall.md).
 
-### <a name="authentication"></a>Authentication
+### <a name="authentication"></a>Autentisering
 
 Användarautentisering hanteras av [Azure Active Directory (AAD)](../active-directory/fundamentals/active-directory-whatis.md). Vid inloggning använder användare en organisationskontoidentitet med rollbaserad åtkomst till databasen. Användaridentiteter måste vara medlemmar i standard-Azure Active Directory för den prenumeration som servern finns i. Mer information finns i [Autentisering och användarbehörigheter](analysis-services-manage-users.md).
 
@@ -190,7 +189,7 @@ Tabellmodeller på kompatibilitetsnivån 1400 stöder säkerhet på objektnivå,
 
 Tjänstens huvudnamn är en programresurs för Azure Active Directory som du skapar i din klient för att utföra obevakade åtgärder på resurs- och tjänstnivå. Tjänstens huvudnamn används med Azure Automation, obevakat läge i PowerShell, anpassade klientprogram och webbprogram för att automatisera vanliga uppgifter som datauppdatering, skala upp/ned och pausa/återuppta. Behörigheter tilldelas till tjänstens huvudnamn via rollmedlemskap. Läs mer i [Automatisering med tjänstens huvudnamn](analysis-services-service-principal.md).
 
-### <a name="azure-governance"></a>Azure-styrning
+### <a name="azure-governance"></a>Azure Governance
 
 Azure Analysis Services lyder under [villkoren för Microsoft Online Services](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) och [Microsofts sekretesspolicy](https://privacy.microsoft.com/privacystatement).
 Mer information om säkerhet i Azure finns på [Microsoft Trust Center](https://www.microsoft.com/trustcenter).

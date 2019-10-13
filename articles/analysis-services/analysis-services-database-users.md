@@ -2,18 +2,17 @@
 title: Hantera databas roller och användare i Azure Analysis Services | Microsoft Docs
 description: Lär dig hur du hanterar databas roller och användare på en Analysis Services-server i Azure.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 07/29/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 2a6c63c4ae58079c79a9d344f1e2550e4768088f
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 426b69173994fc94a52ef0fcccb0dbc6315de14a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932247"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72301144"
 ---
 # <a name="manage-database-roles-and-users"></a>Hantera databas roller och användare
 
@@ -26,9 +25,9 @@ Roll behörigheter är:
 *  **Process** -användare kan ansluta till och utföra process åtgärder på databasen och analysera modell databas data.
 *  **Read** -Users kan använda ett klient program för att ansluta till och analysera modell databas data.
 
-När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i SQL Server Data Tools (SSDT). När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)-cmdletar eller TMSL ( [tabell modell skript språk](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) för att lägga till eller ta bort roller och användar medlemmar.
+När du skapar ett tabell modell projekt skapar du roller och lägger till användare eller grupper i rollerna med hjälp av roll hanteraren i SQL Server Data Tools (SSDT). När du har distribuerat till en server använder du SQL Server Management Studio (SSMS), [Analysis Services PowerShell-cmdletar](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)eller TMSL ( [tabell modell skript språk](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) ) för att lägga till eller ta bort roller och användar medlemmar.
 
-**Säkerhets grupper** måste vara [e](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) -postaktiverade `MailEnabled` med egenskapen inställd `True`på. När du anger en grupp per e- `obj:groupid@tenantid`postadress använder du.
+**Säkerhets grupper** måste vara [e-postaktiverade](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) med egenskapen `MailEnabled` inställd på `True`. Använd `obj:groupid@tenantid` när du anger en grupp per e-postadress.
 
 
 ## <a name="to-add-or-manage-roles-and-users-in-ssdt"></a>Lägga till eller hantera roller och användare i SSDT  
@@ -80,7 +79,7 @@ Om du vill lägga till roller och användare i en distribuerad modell databas m�
   
 4. Klicka på **medlemskap**och ange sedan en användare eller grupp i din klient organisations Azure AD via e-postadress.
 
-     ![Lägg till användare](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
+     ![Lägga till användare](./media/analysis-services-database-users/aas-roles-adduser-ssms.png)
 
 5. Om rollen som du skapar har Läs behörighet kan du lägga till rad filter genom att använda en DAX-formel. Klicka på **rad filter**, Välj en tabell och skriv sedan en DAX-formel i fältet **DAX-filter** . 
 
@@ -122,7 +121,7 @@ I det här exemplet läggs en extern B2B-användare och en grupp till i analytik
 
 [SQLServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) -modulen innehåller verksamhetsspecifika databas hanterings-cmdletar och den allmänna cmdleten Invoke-ASCmd som accepterar en fråga eller ett skript för tabell modell skript språk (TMSL). Följande cmdletar används för att hantera databas roller och användare.
   
-|Cmdlet:|Beskrivning|
+|Cmdlet|Beskrivning|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lägg till en medlem i en databas roll.| 
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Ta bort en medlem från en databas roll.|   
@@ -140,8 +139,8 @@ Rad filter gäller för de angivna raderna och relaterade rader. När en tabell 
   
 |Tabell|DAX-uttryck|  
 |-----------|--------------------|  
-|Region|=Region[Country]="USA"|  
-|ProductCategory|=ProductCategory[Name]="Bicycles"|  
+|Region|= Region [land] = "USA"|  
+|ProductCategory|= ProductCategory [Name] = "cyklar"|  
 |Transaktioner|= Transaktioner [Year] = 2016|  
   
  Netto resultatet är att medlemmar kan fråga rader med data där kunden är i USA, produkt kategorin är cyklar och året är 2016. Användare kan inte fråga transaktioner utanför USA, transaktioner som inte är cyklar eller transaktioner som inte är i 2016, om de inte är medlemmar i en annan roll som ger behörighet.

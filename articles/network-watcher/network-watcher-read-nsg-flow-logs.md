@@ -1,6 +1,6 @@
 ---
-title: Läs NSG-flödesloggar | Microsoft Docs
-description: Den här artikeln visar hur du Parsar NSG-flödesloggar
+title: Läs NSG Flow-loggar | Microsoft Docs
+description: Den här artikeln visar hur du tolkar NSG Flow-loggar
 services: network-watcher
 documentationcenter: na
 author: KumudD
@@ -13,33 +13,33 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/13/2017
 ms.author: kumud
-ms.openlocfilehash: becae0f085fcaf4b0d0c7b29e102aaa3186fb85e
-ms.sourcegitcommit: cf438e4b4e351b64fd0320bf17cc02489e61406a
+ms.openlocfilehash: edc4cc32cd358bd37fdab46e323c59ec207b2d5a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/08/2019
-ms.locfileid: "67653746"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293475"
 ---
 # <a name="read-nsg-flow-logs"></a>Läs NSG-flödesloggar
 
-Lär dig mer om att läsa NSG flödet loggar poster med PowerShell.
+Lär dig hur du läser NSG flödes loggar med PowerShell.
 
-NSG-flödesloggar lagras i ett lagringskonto i [blockblobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Blockblobar består av mindre block. Varje logg är en separat blockblob som genereras varje timme. Nya loggar genereras varje timme, loggarna är uppdaterade med nya poster med några minuters mellanrum med den senaste informationen. Du lära dig hur du läser delar av flödesloggar i den här artikeln.
+NSG flödes loggar lagras i ett lagrings konto i [block-blobbar](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Block blobbar består av mindre block. Varje logg är en separat Block-Blob som genereras varje timme. Nya loggar genereras varje timme, loggarna uppdateras med nya poster med några minuters mellanrum med den senaste informationen. I den här artikeln får du lära dig hur du läser delar av flödes loggarna.
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="scenario"></a>Scenario
 
-I följande scenario har du en exempel-flödeslogg som lagras i ett lagringskonto. Du lär dig hur du selektivt läsa de senaste händelserna i NSG-flödesloggar. I den här artikeln använder du PowerShell, men de begrepp som beskrivs i artikeln är inte begränsad till programmeringsspråket och gäller för alla språk som stöds av Azure Storage-API: er.
+I följande scenario har du en exempel flödes logg som lagras i ett lagrings konto. Du lär dig hur du selektivt läser de senaste händelserna i NSG Flow-loggar. I den här artikeln använder du PowerShell, men begreppen som beskrivs i artikeln är inte begränsade till programmeringsspråket och gäller för alla språk som stöds av Azure Storage API: er.
 
 ## <a name="setup"></a>Konfiguration
 
-Du måste ha Network Security grupp Flow Logging har aktiverats på en eller flera Nätverkssäkerhetsgrupper i ditt konto innan du börjar. Mer information om hur du aktiverar flödesloggar för nätverkssäkerhet finns i följande artikel: [Introduktion till flödesloggar för Nätverkssäkerhetsgrupper](network-watcher-nsg-flow-logging-overview.md).
+Innan du börjar måste du ha nätverks säkerhets gruppens flödes loggning aktiverat på en eller flera nätverks säkerhets grupper i ditt konto. Anvisningar om hur du aktiverar nätverks säkerhets flödes loggar finns i följande artikel: [Introduktion till flödes loggning för nätverks säkerhets grupper](network-watcher-nsg-flow-logging-overview.md).
 
-## <a name="retrieve-the-block-list"></a>Hämta listan över blockerade
+## <a name="retrieve-the-block-list"></a>Hämta blockeringslistan
 
-Följande PowerShell ställer in variabler som krävs för att fråga efter NSG flow log blob och listar block i den [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) blockblob. Uppdatera skript för att innehålla giltiga värden för din miljö.
+Följande PowerShell konfigurerar de variabler som krävs för att skicka frågor till NSG Flow-logaritmen och listar blocken inom [CloudBlockBlob](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.blob.cloudblockblob) block-bloben. Uppdatera skriptet så att det innehåller giltiga värden för din miljö.
 
 ```powershell
 function Get-NSGFlowLogCloudBlockBlob {
@@ -70,8 +70,8 @@ function Get-NSGFlowLogCloudBlockBlob {
         # Gets the storage blog
         $Blob = Get-AzStorageBlob -Context $ctx -Container $ContainerName -Blob $BlobName
 
-        # Gets the block blog of type 'Microsoft.WindowsAzure.Storage.Blob.CloudBlob' from the storage blob
-        $CloudBlockBlob = [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
+        # Gets the block blog of type 'Microsoft.Azure.Storage.Blob.CloudBlob' from the storage blob
+        $CloudBlockBlob = [Microsoft.Azure.Storage.Blob.CloudBlockBlob] $Blob.ICloudBlob
 
         #Return the Cloud Block Blob
         $CloudBlockBlob
@@ -81,7 +81,7 @@ function Get-NSGFlowLogCloudBlockBlob {
 function Get-NSGFlowLogBlockList  {
     [CmdletBinding()]
     param (
-        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
+        [Microsoft.Azure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
     )
     process {
         # Stores the block list in a variable from the block blob.
@@ -98,7 +98,7 @@ $CloudBlockBlob = Get-NSGFlowLogCloudBlockBlob -subscriptionId "yourSubscription
 $blockList = Get-NSGFlowLogBlockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Den `$blockList` variabeln returnerar en lista över block i blob. Varje blockblob innehåller minst två block.  Det första blocket som har en längd på `12` byte, det här blocket innehåller inledande hakparentes av json-loggen. Andra blocket är högerparenteser och har en längd på `2` byte.  Som du ser i följande exempel-loggen innehåller sju poster, var och en är en enskild post. Alla nya poster i loggen har lagts till i slutet strax innan det sista blocket.
+Variabeln `$blockList` returnerar en lista över blocken i blobben. Varje Block-Blob innehåller minst två block.  Det första blocket har en längd på `12` byte, det här blocket innehåller inledande hakparenteser i JSON-loggen. Det andra blocket är de avslutande hakparenteserna och har en längd på `2` byte.  Som du kan se i följande exempel logg har sju poster, var och en för enskilda poster. Alla nya poster i loggen läggs till i slutet till höger före det sista blocket.
 
 ```
 Name                                         Length Committed
@@ -114,16 +114,16 @@ Mzk1YzQwM2U0ZWY1ZDRhOWFlMTNhYjQ3OGVhYmUzNjk=   2675      True
 ZjAyZTliYWE3OTI1YWZmYjFmMWI0MjJhNzMxZTI4MDM=      2      True
 ```
 
-## <a name="read-the-block-blob"></a>Läsa blockblob
+## <a name="read-the-block-blob"></a>Läsa block-bloben
 
-Sedan måste du läsa den `$blocklist` variabeln för att hämta data. I det här exemplet vi gå igenom den på blockeringslistan läsa byte från varje block och artikel dem i en matris. Använd den [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) metod för att hämta data.
+Härnäst måste du läsa variabeln `$blocklist` för att hämta data. I det här exemplet itererar vi genom blockeringslistan. Läs igenom byte från varje block och berättelse i en matris. Använd [DownloadRangeToByteArray](/dotnet/api/microsoft.azure.storage.blob.cloudblob.downloadrangetobytearray) -metoden för att hämta data.
 
 ```powershell
 function Get-NSGFlowLogReadBlock  {
     [CmdletBinding()]
     param (
         [System.Array] [Parameter(Mandatory=$true)] $blockList,
-        [Microsoft.WindowsAzure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
+        [Microsoft.Azure.Storage.Blob.CloudBlockBlob] [Parameter(Mandatory=$true)] $CloudBlockBlob
 
     )
     # Set the size of the byte array to the largest block
@@ -160,7 +160,7 @@ function Get-NSGFlowLogReadBlock  {
 $valuearray = Get-NSGFlowLogReadBlock -blockList $blockList -CloudBlockBlob $CloudBlockBlob
 ```
 
-Nu den `$valuearray` matris som innehåller strängvärdet för varje block. Om du vill verifiera posten, hämta andra till det senaste värdet från matrisen genom att köra `$valuearray[$valuearray.Length-2]`. Du vill inte att det sista värdet eftersom det är den avslutande hakparentesen.
+Nu innehåller matrisen `$valuearray` ett sträng värde för varje block. För att verifiera posten, hämta den andra till det sista värdet från matrisen genom att köra `$valuearray[$valuearray.Length-2]`. Du vill inte ha det sista värdet eftersom det är den avslutande hakparentesen.
 
 Resultatet av det här värdet visas i följande exempel:
 
@@ -184,10 +184,10 @@ A","1497646742,10.0.0.4,168.62.32.14,44942,443,T,O,A","1497646742,10.0.0.4,52.24
         }
 ```
 
-Det här scenariot är ett exempel på hur du läser posterna i NSG-flödesloggar utan att behöva parsa hela loggen. Du kan läsa nya poster i loggen som de är skrivna med hjälp av block-ID eller genom att spåra hur lång block som lagras i blockblob. På så sätt kan du läsa endast nya poster.
+Det här scenariot är ett exempel på hur du kan läsa poster i NSG Flow-loggar utan att behöva parsa hela loggen. Du kan läsa nya poster i loggen när de skrivs med hjälp av block-ID eller genom att spåra längden på block som lagras i block-bloben. På så sätt kan du bara läsa de nya posterna.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Besök [Använd Elastic Stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Använd Grafana](network-watcher-nsg-grafana.md), och [Använd Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) mer information om olika sätt att visa NSG-flödesloggar. En öppen källkod Azure Function-metod för att förbrukar blobarna direkt och sänder till olika log analytics-kunder finns här: [Azure Network Watcher NSG Flödesloggarna Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
+Besök [Använd elastisk stack](network-watcher-visualize-nsg-flow-logs-open-source-tools.md), [Använd Grafana](network-watcher-nsg-grafana.md)och [Använd Graylog](network-watcher-analyze-nsg-flow-logs-graylog.md) för att lära dig mer om hur du kan visa NSG flödes loggar. En Azure-funktion med öppen källkod som använder blobarna direkt och skickas till olika Log Analytics-konsumenter kan hittas här: [Azure Network WATCHER NSG Flow logs Connector](https://github.com/Microsoft/AzureNetworkWatcherNSGFlowLogsConnector).
 
-Om du vill veta finns mer om storage-blobbar: [Azure Functions Blob storage-bindningar](../azure-functions/functions-bindings-storage-blob.md)
+Läs mer om Storage blobbar på: [Azure Functions Blob Storage-bindningar](../azure-functions/functions-bindings-storage-blob.md)

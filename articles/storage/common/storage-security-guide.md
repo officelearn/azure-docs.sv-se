@@ -9,12 +9,12 @@ ms.date: 03/21/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 548f37d6a0d4390fb98ceaee7b59314400debb38
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: 2847a25411ed0125f4af0a84f30cd3d9d630eb84
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68986555"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299617"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage säkerhets guide
 
@@ -43,7 +43,7 @@ Här följer de avsnitt som beskrivs i den här artikeln:
   I det här avsnittet beskrivs hur du skyddar data när du överför dem till eller från Azure Storage. Vi pratar om den rekommenderade användningen av HTTPS och kryptering som används av SMB 3,0 för Azure-filresurser. Vi tar också en titt på kryptering på klient sidan, vilket gör att du kan kryptera data innan de överförs till lagringen i ett klient program och dekryptera data när de har överförts från lagrings utrymmet.
 * [Kryptering i vila](#encryption-at-rest)
 
-  Vi kommer att prata om Kryptering för lagringstjänst (SSE), som nu aktive ras automatiskt för nya och befintliga lagrings konton. Vi kommer också att se hur du kan använda Azure Disk Encryption och utforska de grundläggande skillnaderna och fallen av disk kryptering jämfört med SSE jämfört med kryptering på klient sidan. Vi ska kort se FIPS-kompatibiliteten för amerikanska Myndighets datorer.
+  Vi kommer att prata om Kryptering för lagringstjänst (SSE), som nu aktive ras automatiskt för nya och befintliga lagrings konton. Vi kommer också att se hur du kan använda Azure Disk Encryption och utforska de grundläggande skillnaderna och fallen av disk kryptering jämfört med SSE jämfört med kryptering på klient sidan. Vi ska kort se FIPS-kompatibiliteten för amerikanska myndighets datorer.
 * Använda [Lagringsanalys](#storage-analytics) för att granska åtkomst till Azure Storage
 
   I det här avsnittet beskrivs hur du hittar information i Storage Analytics-loggarna för en begäran. Vi tar en titt på Real Storage Analytics-loggdata och se hur du fram om en begäran görs med lagrings konto nyckeln, med en signatur för delad åtkomst eller anonymt, och om den lyckades eller misslyckades.
@@ -90,7 +90,7 @@ Här är de viktigaste punkterna som du behöver känna till om att använda RBA
 * [Azure Active Directory rollbaserad åtkomstkontroll](../../role-based-access-control/role-assignments-portal.md)
 
   Den här artikeln förklarar Azure Active Directorys rollbaserade åtkomstkontroll och hur den fungerar.
-* [RBAC Inbyggda roller](../../role-based-access-control/built-in-roles.md)
+* [RBAC: inbyggda roller](../../role-based-access-control/built-in-roles.md)
 
   I den här artikeln beskrivs alla inbyggda roller som är tillgängliga i RBAC.
 * [Förstå Resource Manager-distribution och klassisk distribution](../../azure-resource-manager/resource-manager-deployment-model.md)
@@ -102,9 +102,7 @@ Här är de viktigaste punkterna som du behöver känna till om att använda RBA
 * [Referens för REST-API för Azure Storage Resource Provider](https://msdn.microsoft.com/library/azure/mt163683.aspx)
 
   Denna API-referens beskriver de API: er som du kan använda för att hantera ditt lagrings konto program mässigt.
-* [Använd API för Resource Manager-autentisering för att få åtkomst till prenumerationer](../../azure-resource-manager/resource-manager-api-authentication.md)
 
-  Den här artikeln visar hur du autentiserar med hjälp av Resource Manager-API: er.
 * [Rollbaserad åtkomstkontroll i Microsoft Azure från Ignite](https://channel9.msdn.com/events/Ignite/2015/BRK2707)
 
   Det här är en länk till en video på Channel 9 från 2015 MS Ignite-konferensen. I den här sessionen talar de om åtkomsthantering och rapporteringsfunktioner i Azure och utforskar bästa praxis när det gäller att säkra åtkomst till Azure-prenumerationer med Azure Active Directory.
@@ -169,7 +167,7 @@ Lagrings konto nycklar är 512-bitars strängar som skapats av Azure och som, ti
 
 Du kan till exempel läsa blobbar, skriva till köer, skapa tabeller och ändra filer. Många av de här åtgärderna kan utföras via Azure Portal eller med ett av många Storage Explorer-program. Du kan också skriva kod för att använda REST API eller ett av lagrings klient biblioteken för att utföra dessa åtgärder.
 
-Som beskrivs i avsnittet om hanterings [planens säkerhet](#management-plane-security)kan åtkomst till lagrings nycklarna för ett klassiskt lagrings konto beviljas genom att ge fullständig åtkomst till Azure-prenumerationen. Åtkomst till lagrings nycklarna för ett lagrings konto med hjälp av Azure Resource Manager modellen kan styras via rollbaserad Access Control (RBAC).
+Som beskrivs i avsnittet om [hanterings planens säkerhet](#management-plane-security)kan åtkomst till lagrings nycklarna för ett klassiskt lagrings konto beviljas genom att ge fullständig åtkomst till Azure-prenumerationen. Åtkomst till lagrings nycklarna för ett lagrings konto med hjälp av Azure Resource Manager modellen kan styras via rollbaserad Access Control (RBAC).
 
 ### <a name="how-to-delegate-access-to-objects-in-your-account-using-shared-access-signatures-and-stored-access-policies"></a>Så här delegerar du åtkomst till objekt i ditt konto med hjälp av signaturer för delad åtkomst och lagrade åtkomst principer
 En signatur för delad åtkomst är en sträng som innehåller en säkerhetstoken som kan kopplas till en URI som gör att du kan delegera åtkomst till lagrings objekt och ange begränsningar, till exempel behörigheter och datum/tid-intervallet för åtkomst.
@@ -188,7 +186,7 @@ Dessutom kan du ange att förfrågningar som görs med hjälp av en SAS är begr
 #### <a name="definition-of-a-shared-access-signature"></a>Definition av signaturen för delad åtkomst
 En signatur för delad åtkomst är en uppsättning frågeparametrar som läggs till i URL: en som pekar på resursen
 
-ger information om åtkomst tillåten och hur länge åtkomst tillåts. Här är ett exempel. Denna URI ger Läs behörighet till en BLOB i fem minuter. Observera att SAS-frågeparametrar måste vara URL-kodade, till exempel% 3A för kolon (:) eller% 20 för ett blank steg.
+ger information om åtkomst tillåten och hur länge åtkomst tillåts. Här är ett exempel. Denna URI ger Läs behörighet till en BLOB i fem minuter. Observera att SAS-frågeparametrar måste vara URL-kodade, till exempel% 3A för kolon (:) eller %20 för ett blank steg.
 
 ```
 http://mystorage.blob.core.windows.net/mycontainer/myblob.txt (URL to the blob)
@@ -239,7 +237,7 @@ Mer detaljerad information om hur du använder signaturer för delad åtkomst oc
   * [Skapa en tjänst-SAS](https://msdn.microsoft.com/library/dn140255.aspx)
   * [Skapa ett konto SAS](https://msdn.microsoft.com/library/mt584140.aspx)
 
-* Authentication
+* Autentisering
 
   * [Autentisering för Azure Storage-tjänsterna](https://msdn.microsoft.com/library/azure/dd179428.aspx)
 * Signaturer för delad åtkomst Komma igång självstudie
@@ -302,7 +300,7 @@ Med Azure Disk Encryption kan du kryptera de OS-diskar och data diskar som anvä
 Lösningen har stöd för följande scenarier för virtuella IaaS-datorer när de är aktiverade i Microsoft Azure:
 
 * Integrering med Azure Key Vault
-* Virtuella datorer på standard nivå: [A, D, DS, G, GS och så vidare-serien IaaS VM: ar](https://azure.microsoft.com/pricing/details/virtual-machines/)
+* Virtuella datorer på standard nivå: [A, D, DS, G, GS och så vidare serien IaaS VM](https://azure.microsoft.com/pricing/details/virtual-machines/) : ar
 * Aktivera kryptering för virtuella Windows-och Linux IaaS-datorer
 * Inaktivera kryptering på operativ system och data enheter för virtuella Windows IaaS-datorer
 * Inaktivera kryptering på data enheter för virtuella Linux IaaS-datorer
@@ -323,7 +321,7 @@ Lösningen har inte stöd för följande scenarier, funktioner och teknik i vers
 
 
 > [!NOTE]
-> Disk kryptering för Linux OS stöds för närvarande på följande Linux-distributioner: RHEL 7,2, CentOS 7,2 n och Ubuntu 16,04.
+> Linux OS disk Encryption stöds för närvarande på följande Linux-distributioner: RHEL 7,2, CentOS 7,2 n och Ubuntu 16,04.
 >
 >
 
@@ -391,7 +389,7 @@ En artikel som listas i resurserna nedan innehåller en lista över de många f�
 
 ![Ögonblicks bild av fält i en loggfil](./media/storage-security-guide/image3.png)
 
-Vi är intresserade av posterna för GetBlob, och hur de är auktoriserade, så vi måste leta efter poster med åtgärds typ "Get-BLOB" och kontrol lera status för begäran (fjärde</sup> kolumnen) och typen Authorization (åttonde</sup> kolumnen).
+Vi är intresserade av posterna för GetBlob och hur de är auktoriserade, så vi måste leta efter poster med åtgärds typen "Get-BLOB" och kontrol lera status för begäran (fjärde @ no__t-0-kolumnen) och kolumnen Authorization (åttonde @ no__t-1).
 
 I de första raderna i listan ovan är till exempel begäran-status "lyckades" och behörighets typen är "autentiserad". Det innebär att begäran auktoriserades med hjälp av lagrings konto nyckeln.
 
@@ -404,7 +402,7 @@ Vi har tre fall som vi är intresserade av.
 2. Blobben är privat och användes med en signatur för delad åtkomst. I det här fallet är förfrågan-status "SASSuccess" och behörighets typen "SAS".
 
    1.0; 2015-11-16T18:30:05.6556115 Z; GetBlob **SASSuccess**; 200; 416; 64; **SAS**;; Mina lagrings enheter...
-3. Blobben är privat och lagrings nyckeln användes för att komma åt den. I det här fallet är Request-status "**lyckades**" och behörighets typen är "autentiserad".
+3. Blobben är privat och lagrings nyckeln användes för att komma åt den. I det här fallet är Request-status "**lyckades**" och behörighets typen är "**autentiserad**".
 
    1.0; 2015-11-16T18:32:24.3174537 Z; GetBlob **Lyckades**; 206; 59; 22; **autentiserad**; lagring...
 
@@ -459,9 +457,9 @@ Som standard är CORS inaktive rad på alla tjänster. Du kan aktivera CORS geno
 
 Så här betyder varje rad:
 
-* **AllowedOrigins** Detta anger vilka icke-matchande domäner som kan begära och ta emot data från lagrings tjänsten. Detta säger att både contoso.com och fabrikam.com kan begära data från Blob Storage för ett särskilt lagrings konto. Du kan också ställa in detta till ett jokertecken (\*) för att tillåta att alla domäner får åtkomst till begär Anden.
+* **AllowedOrigins** Detta anger vilka icke-matchande domäner som kan begära och ta emot data från lagrings tjänsten. Detta säger att både contoso.com och fabrikam.com kan begära data från Blob Storage för ett särskilt lagrings konto. Du kan också ställa in detta till ett jokertecken (\*) så att alla domäner får åtkomst till begär Anden.
 * **AllowedMethods** Detta är listan över metoder (HTTP-begär verb) som kan användas när du gör en begäran. I det här exemplet tillåts endast placering och GET. Du kan ställa in detta till ett jokertecken (\*) för att tillåta att alla metoder används.
-* **AllowedHeaders** Detta är begärandehuvuden som ursprungs domänen kan ange när begäran görs. I det här exemplet är alla metadata-huvuden som börjar med x-MS-meta-data, x-MS-meta-Target och x-MS-Meta-ABC tillåtna. Jokertecknet (\*) visar att alla sidhuvuden som börjar med det angivna prefixet är tillåtna.
+* **AllowedHeaders** Detta är begärandehuvuden som ursprungs domänen kan ange när begäran görs. I det här exemplet är alla metadata-huvuden som börjar med x-MS-meta-data, x-MS-meta-Target och x-MS-Meta-ABC tillåtna. Jokertecknet (\*) anger att alla sidhuvuden som börjar med det angivna prefixet är tillåtna.
 * **ExposedHeaders** Detta anger vilka svarshuvuden som ska visas av webbläsaren till begär ande utfärdaren. I det här exemplet kommer alla sidhuvuden som börjar med "x-MS-meta-" att visas.
 * **MaxAgeInSeconds** Detta är den maximala tid som en webbläsare cachelagrar begäran om preflight-alternativ. (Mer information om preflight-begäran finns i den första artikeln nedan.)
 
@@ -486,9 +484,9 @@ Om du vill ha mer information om CORS och hur du aktiverar den, kan du ta en tit
    Om du kan använda HTTPS, som tillhandahåller säkerhet på transport nivå, är det redundant och onödigt att använda MD5-kontrollen.
 
    Mer information finns i [Översikt över Azure Blob MD5](https://blogs.msdn.com/b/windowsazurestorage/archive/2011/02/18/windows-azure-blob-md5-overview.aspx).
-2. **Vad gäller FIPS-kompatibilitet för USA Stat?**
+2. **Vad gäller FIPS-efterlevnad för amerikanska myndigheter?**
 
-   FIPS (USA Federal Information Processing Standard) definierar krypteringsalgoritmer som godkänts för användning av amerikanska Federala myndighets dator system för skydd av känsliga data. Att aktivera FIPS-läge på en Windows-Server eller skriv bord visar vilket operativ system som endast ska användas av FIPS-validerade kryptografiska algoritmer. Om ett program använder icke-kompatibla algoritmer avbryts programmen. With.NET Framework-versioner 4.5.2 eller senare växlar programmet automatiskt till krypteringsalgoritmerna för att använda FIPS-kompatibla algoritmer när datorn är i FIPS-läge.
+   FIPS (USA Federal Information Processing Standard) definierar kryptografiska algoritmer som godkänns för användning av amerikanska federala myndighets dator system för skydd av känsliga data. Att aktivera FIPS-läge på en Windows-Server eller skriv bord visar vilket operativ system som endast ska användas av FIPS-validerade kryptografiska algoritmer. Om ett program använder icke-kompatibla algoritmer avbryts programmen. With.NET Framework-versioner 4.5.2 eller senare växlar programmet automatiskt till krypteringsalgoritmerna för att använda FIPS-kompatibla algoritmer när datorn är i FIPS-läge.
 
    Microsoft lämnar dem till varje kund för att bestämma om FIPS-läge ska aktive ras. Vi tror att det inte finns något övertygande skäl för kunder som inte omfattas av myndighets bestämmelser för att aktivera FIPS-läge som standard.
 
@@ -498,7 +496,7 @@ Om du vill ha mer information om CORS och hur du aktiverar den, kan du ta en tit
   Den här blogg artikeln ger en översikt över FIPS och förklarar varför de inte aktiverar FIPS-läge som standard.
 * [FIPS 140-validering](https://technet.microsoft.com/library/cc750357.aspx)
 
-  Den här artikeln innehåller information om hur Microsoft-produkter och-kryptografiska moduler följer FIPS-standarden för USA Federala myndigheter.
-* ["System kryptografi: Använd FIPS-kompatibla algoritmer för kryptering, hashing och signering av säkerhets inställnings effekter i Windows XP och senare versioner av Windows](https://support.microsoft.com/kb/811833)
+  Den här artikeln innehåller information om hur Microsoft-produkter och-kryptografiska moduler följer FIPS-standarden för amerikanska federala myndigheter.
+* ["System kryptografi: Använd FIPS-kompatibla algoritmer för kryptering, hashing och signering" säkerhets inställnings effekter i Windows XP och senare versioner av Windows](https://support.microsoft.com/kb/811833)
 
   Den här artikeln pratar om användningen av FIPS-läge på äldre Windows-datorer.

@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: e91d2d487a8b3409c53a0a0731700c39cf56dd63
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: b31470b329c0f63d186e5babfac3c0d8e6767538
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71066361"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286224"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Hantera IoT Central från Azure PowerShell
 
@@ -21,7 +21,7 @@ ms.locfileid: "71066361"
 
 I stället för att skapa och hantera IoT Central-program på webbplatsen för [Azure IoT Central Application Manager](https://aka.ms/iotcentral) kan du använda [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) för att hantera dina program.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -66,16 +66,16 @@ Skriptet skapar först en resurs grupp i regionen USA, östra för programmet. I
 |Parameter         |Beskrivning |
 |------------------|------------|
 |ResourceGroupName |Resurs gruppen som innehåller programmet. Den här resurs gruppen måste redan finnas i din prenumeration. |
-|Location |Som standard använder denna cmdlet platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i regionerna **östra USA**, **västra USA**, **Nord Europa**eller Västeuropa **, Västeuropa eller** **Australien** . |
-|Name              |Namnet på programmet i Azure Portal. |
-|Underdomän         |Under domänen i programmets URL. I exemplet är https://mysubdomain.azureiotcentral.com programmets URL. |
-|SKU               |För närvarande är det enda värdet **S1** (standard nivån). Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
+|Plats |Som standard använder denna cmdlet platsen från resurs gruppen. För närvarande kan du skapa ett IoT Central-program i regionerna **östra USA**, **västra USA**, **Nord Europa**eller Västeuropa **, Västeuropa eller** i regionerna **Australien** eller **Asien och Stillahavsområdet** .  |
+|Namn              |Namnet på programmet i Azure Portal. |
+|Under domän         |Under domänen i programmets URL. I exemplet är programmets URL https://mysubdomain.azureiotcentral.com. |
+|Sku               |För närvarande är det enda värdet **S1** (standard nivån). Se [priser för Azure IoT Central](https://azure.microsoft.com/pricing/details/iot-central/). |
 |Mall          | Den program mal len som ska användas. Mer information finns i följande tabell: |
 |DisplayName       |Namnet på programmet som det visas i användar gränssnittet. |
 
 **Programmallar**
 
-|Mallnamn  |Beskrivning |
+|Mallens namn  |Beskrivning |
 |---------------|------------|
 |iotc-default@1.0.0 |Skapar ett tomt program som du kan fylla med dina egna enhetsmallar och enheter. |
 |iotc-demo@1.0.0    |Skapar ett program som innehåller en mall för enheter som redan har skapats för en kylande varuautomat. Använd den här mallen för att börja utforska Azure IoT Central. |

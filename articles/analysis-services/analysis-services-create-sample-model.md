@@ -2,20 +2,19 @@
 title: Självstudie – Lägga till en exempelmodell till en Azure Analysis Services-server | Microsoft Docs
 description: I den här självstudiekursen lär du dig hur du lägger till en exempelmodell i Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: tutorial
 ms.date: 03/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 32c46f0a488d775275b3a367aa2913f034569041
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 9a9721b05fbd478d108f06c36017ee444f721d28
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61026340"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298688"
 ---
-# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Självstudie: Lägga till en exempelmodell från portalen
+# <a name="tutorial-add-a-sample-model-from-the-portal"></a>Självstudiekurs: Lägga till en exempelmodell från portalen
 
 I den här självstudiekursen får du lägga till en exempeldatabas för Adventure Works tabellmodell på servern. Exempelmodellen är en fullständig version av exempelmodellen Adventure Works Internet Sales (1200). En exempelmodell är praktisk för att testa modellhantering, anslutning med verktygs- och klientprogram, samt för att köra frågor till datamodellen. I självstudiekursen används [Azure Portal](https://portal.azure.com) och [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) för att: 
 
@@ -74,6 +73,6 @@ I de här anvisningarna beskrivs det hur du tar bort en modell från en server m
 I den här självstudiekursen har du lärt dig hur du lägger till en grundläggande exempelmodell på din server. Nu när du har en modelldatabas kan du ansluta till den från SQL Server Management Studio och lägga till användarroller. Fortsätt med nästa självstudiekurs om du vill veta mer.
 
 > [!div class="nextstepaction"]
-> [Självstudie: Konfigurera roller för serveradministratör och användare](analysis-services-database-users.md)
+> [Självstudiekurs: Konfigurera roller för serveradministratör och användare](analysis-services-database-users.md)
 
 

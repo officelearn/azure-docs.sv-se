@@ -2,18 +2,17 @@
 title: Klient bibliotek som krävs för att ansluta till Azure Analysis Services | Microsoft Docs
 description: Beskriver klient bibliotek som krävs för klient program och-verktyg för att ansluta Azure Analysis Services
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/11/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9e597b03abfdeda01d74986b7b30c14de46fd3f1
-ms.sourcegitcommit: 65131f6188a02efe1704d92f0fd473b21c760d08
+ms.openlocfilehash: 1ea14f141ed4fa698a21da8030878b04a81f1d08
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70861130"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298658"
 ---
 # <a name="client-libraries-for-connecting-to-azure-analysis-services"></a>Klient bibliotek för anslutning till Azure Analysis Services
 
@@ -21,23 +20,23 @@ Klient bibliotek krävs för klient program och-verktyg för att ansluta till An
 
 ## <a name="download-the-latest-client-libraries-windows-installer"></a>Hämta de senaste klient biblioteken (Windows Installer)  
 
-|Ladda ned  |Produktversion  | 
+|Ladda ned  |Produkt version  | 
 |---------|---------|
-|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.1.25    |
-|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.1.25       |
-|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.5.0    |
-|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.5.0     |
+|[MSOLAP (amd64)](https://go.microsoft.com/fwlink/?linkid=829576)    |    15.1.5.15    |
+|[MSOLAP (x86)](https://go.microsoft.com/fwlink/?linkid=829575)     |     15.1.5.15       |
+|[AMO](https://go.microsoft.com/fwlink/?linkid=829578)     |   18.0.9.0    |
+|[ADOMD](https://go.microsoft.com/fwlink/?linkid=829577)     |    18.0.9.0     |
 
 ## <a name="amo-and-adomd-nuget-packages"></a>AMO och ADOMD (NuGet-paket)
 
 Analysis Services Management Objects (AMO) och ADOMD-klient bibliotek är tillgängliga som Installerbara paket från [NuGet.org](https://www.nuget.org/). Vi rekommenderar att du migrerar till NuGet-referenser i stället för att använda Windows Installer. 
 
-|Paket  | Produktversion  | 
+|Paket  | Produkt version  | 
 |---------|---------|
-|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.5     |
-|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.5      |
+|[AMO](https://www.nuget.org/packages/Microsoft.AnalysisServices.retail.amd64/)    |    18.0.9     |
+|[ADOMD](https://www.nuget.org/packages/Microsoft.AnalysisServices.AdomdClient.retail.amd64/)     |   18.0.9      |
 
-NuGet paket sammansättningar AssemblyVersion följa semantisk versions hantering: VIKTIGASTE. DEL. 9.0A. NuGet-referenser läser in den förväntade versionen även om det finns en annan version i GAC (som orsakas av MSI-installation). KORRIGERINGen ökar för varje version. AMO-och ADOMD-versionerna hålls synkroniserade.
+NuGet paket sammansättningar AssemblyVersion följer semantisk versions hantering: MAJOR. Del. 9.0a. NuGet-referenser läser in den förväntade versionen även om det finns en annan version i GAC (som orsakas av MSI-installation). KORRIGERINGen ökar för varje version. AMO-och ADOMD-versionerna hålls synkroniserade.
 
 ## <a name="understanding-client-libraries"></a>Förstå klient bibliotek
 
@@ -55,11 +54,11 @@ Klient bibliotek för klient anslutningar skiljer sig från data leverantörer s
   
  Analysis Services OLE DB-provider installeras automatiskt av de flesta verktyg och klient program som används för att få åtkomst till Analysis Services-databaser. Den måste installeras på datorer som används för att komma åt Analysis Services data.  
   
- OLE DB-providers anges ofta i anslutnings strängar. En Analysis Services anslutnings sträng använder en annan nomenklatur för att referera till OLE DB providern: MSOLAP.\<version>.dll.
+ OLE DB-providers anges ofta i anslutnings strängar. En Analysis Services anslutnings sträng använder en annan nomenklatur för att referera till OLE DB provider: MSOLAP. \<Version >. dll.
 
 ### <a name="amo"></a>AMO  
 
- AMO är ett hanterat klient bibliotek som används för Server Administration och data definition. Den installeras och används av verktyg och klient program. Exempel: SQL Server Management Studio (SSMS) använder AMO för att ansluta till Analysis Services. En anslutning med AMO är vanligt vis minimal, bestående `"data source=\<servername>"`av. När en anslutning har upprättats använder du API: et för att arbeta med databas samlingar och större objekt. Både SSDT och SSMS använder AMO för att ansluta till en Analysis Services-instans.  
+ AMO är ett hanterat klient bibliotek som används för Server Administration och data definition. Den installeras och används av verktyg och klient program. Exempel: SQL Server Management Studio (SSMS) använder AMO för att ansluta till Analysis Services. En anslutning med AMO är vanligt vis minimal, bestående av `"data source=\<servername>"`. När en anslutning har upprättats använder du API: et för att arbeta med databas samlingar och större objekt. Både SSDT och SSMS använder AMO för att ansluta till en Analysis Services-instans.  
 
   
 ### <a name="adomd"></a>ADOMD
@@ -75,7 +74,7 @@ Klient bibliotek för klient anslutningar skiljer sig från data leverantörer s
   
 1.  Gå till `C:\Program Files\Microsoft Analysis Services\AS OLEDB\`. Om du har mer än en mapp väljer du det högre talet.
   
-2.  Högerklicka på **MSOLAP. dll** > **Egenskaper** > **information**. Om fil namnet är msolap140. dll, är det äldre än den senaste versionen och bör uppgraderas.
+2.  Högerklicka på **MSOLAP. dll** > **Egenskaper** > **Detaljer**. Om fil namnet är msolap140. dll, är det äldre än den senaste versionen och bör uppgraderas.
     
     ![Information om klient bibliotek](media/analysis-services-data-providers/aas-msolap-details.png)
     
@@ -83,12 +82,12 @@ Klient bibliotek för klient anslutningar skiljer sig från data leverantörer s
 ### <a name="amo"></a>AMO
 
 1. Gå till `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices\`. Om du har mer än en mapp väljer du det högre talet.
-2. Högerklicka på Egenskaper för **Microsoft. AnalysisServices** > -**Egenskaper** >  **.**  
+2. Högerklicka på **Microsoft. AnalysisServices** > **Egenskaper** > **Detaljer**.  
 
 ### <a name="adomd"></a>ADOMD
 
 1. Gå till `C:\Windows\Microsoft.NET\assembly\GAC_MSIL\Microsoft.AnalysisServices.AdomdClient\`. Om du har mer än en mapp väljer du det högre talet.
-2. Högerklicka på**Egenskaper** > förMicrosoft. > AnalysisServices. AdomdClient.  
+2. Högerklicka på **Microsoft. AnalysisServices. AdomdClient** > **Egenskaper** > **Detaljer**.  
 
 
 ## <a name="next-steps"></a>Nästa steg

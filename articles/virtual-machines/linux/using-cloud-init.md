@@ -13,44 +13,45 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 08/20/2019
+ms.date: 10/11/2019
 ms.author: danis
-ms.openlocfilehash: 7e22aaf2ead4dd618c2907f8659455e1862110a5
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: b0300dd91876b651015ae78c53dbc1e72bf8dd68
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650108"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285690"
 ---
 # <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Cloud-Init-stöd för virtuella datorer i Azure
 Den här artikeln beskriver det stöd som finns för [Cloud-Init](https://cloudinit.readthedocs.io) för att konfigurera en virtuell dator (VM) eller skalnings uppsättningar för virtuella datorer vid etablerings tiden i Azure. Dessa Cloud-Init-skript körs vid första start när resurserna har etablerats av Azure.  
 
 ## <a name="cloud-init-overview"></a>Översikt över Cloud-init
-[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom cloud-init anropas under den ursprungliga startprocessen, finns det inga fler steg eller obligatoriska agenter att tillämpa för konfigurationen.  Mer information om hur du formaterar korrekt din `#cloud-config` filer, finns i den [cloud-init dokumentationswebbplats](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config` är i base64-kodade textfiler.
+[Cloud-init](https://cloudinit.readthedocs.io) är ett vanligt sätt att anpassa en virtuell Linux-dator när den startas för första gången. Du kan använda cloud-init till att installera paket och skriva filer eller för att konfigurera användare och säkerhet. Eftersom Cloud-Init anropas under den första start processen finns det inga ytterligare steg eller nödvändiga agenter för att tillämpa konfigurationen.  Mer information om hur du formaterar dina `#cloud-config`-filer korrekt finns i [dokumentations webbplatsen för Cloud-Init](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data).  `#cloud-config`-filer är textfiler kodade i base64.
 
 Cloud-init fungerar med olika distributioner. Du använder till exempel inte **apt-get install** eller **yum install** när du vill installera ett paket. I stället definierar du en lista med paket att installera. Cloud-init använder automatiskt rätt pakethanteringsverktyg för den distribution du valt.
 
-Vi arbetar aktivt med våra godkända Linux-distribution partner för att få cloud-init aktiverat-avbildningarna i Azure marketplace. De här avbildningarna gör att dina Cloud-Init-distributioner och-konfigurationer fungerar sömlöst med virtuella datorer och skalnings uppsättningar för virtuella datorer. I följande tabell beskrivs de aktuella cloud-init aktiverat avbildningar tillgängligheten på Azure-plattformen:
+Vi arbetar aktivt med våra godkända Linux distribution-partner för att få moln-init-aktiverade avbildningar tillgängliga på Azure Marketplace. De här avbildningarna gör att dina Cloud-Init-distributioner och-konfigurationer fungerar sömlöst med virtuella datorer och skalnings uppsättningar för virtuella datorer. I följande tabell beskrivs de aktuella moln-init-aktiverade avbildnings tillgängligheterna på Azure-plattformen:
 
-| Utgivare | Erbjudande | SKU | Version | cloud-init är klara |
+| Utgivare | Erbjudande | SKU | Version | moln-init Ready |
 |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |latest |ja | 
+|Canonical |UbuntuServer |18.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |16.04-LTS |senaste |ja | 
 |Canonical |UbuntuServer |14.04.5-LTS |senaste |ja |
 |CoreOS |CoreOS |Stable |senaste |ja |
-|OpenLogic 7,6 |CentOS |7-CI |senaste |förhandsversion |
+|OpenLogic 7,7 |CentOS |7-CI |7.7.20190920 |förhandsversion |
 |RedHat 7,6 |RHEL |7-RAW-CI |7.6.2019072418 |ja |
 |RedHat 7,7 |RHEL |7-RAW-CI |7.7.2019081601 |förhandsversion |
     
 För närvarande har Azure Stack inte stöd för etablering av RHEL 7. x och CentOS 7. x med Cloud-init.
 
 * För RHEL 7,6, Cloud-Init-paket, är det paket som stöds: *18.2 -1. el7 _ 6.2* 
-* För RHEL 7,7 (för hands version), Cloud-Init-paket, är det paket som stöds: *18.5-3.el7*
+* För RHEL 7,7 (för hands version), Cloud-Init-paket, är för hands versionen: *18.5 -3. el7*
+* För CentOS 7,7 (för hands version), Cloud-Init-paket, är för hands versionen: *18.5 -3. el7. CentOS*
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>Vad är skillnaden mellan Cloud-Init och Linux-agenten (WALA)?
 WALA är en Azure Platform-Specific-agent som används för att etablera och konfigurera virtuella datorer och hantera Azure-tillägg. Vi förbättrar uppgiften att konfigurera virtuella datorer för att använda Cloud-Init i stället för Linux-agenten för att tillåta att befintliga Cloud-Init-kunder använder sina aktuella moln-init-skript.  Om du har befintliga investeringar i Cloud-Init-skript för att konfigurera Linux-system finns det **inga ytterligare inställningar som krävs** för att aktivera dem. 
 
-Om du inte inkluderar Azure CLI `--custom-data` -växeln vid etablerings tiden tar Wala minsta etablerings parametrar för virtuella datorer som krävs för att etablera den virtuella datorn och slutföra distributionen med standardvärdena.  Om du refererar till Cloud-Init `--custom-data` -växeln kommer det som finns i dina anpassade data (enskilda inställningar eller fullständigt skript) att åsidosätta standardvärdena för Wala. 
+Om du inte inkluderar Azure CLI-växeln `--custom-data` vid etablerings tiden tar WALA minsta etablerings parametrar för virtuella datorer som krävs för att etablera den virtuella datorn och slutföra distributionen med standardvärdena.  Om du refererar till Cloud-Init `--custom-data`-växeln kommer det som finns i dina anpassade data (enskilda inställningar eller fullständiga skript) att åsidosätta standardvärdena för WALA. 
 
 WALA-konfigurationer för virtuella datorer är tidsbegränsade att fungera inom den maximala etablerings tiden för VM.  Cloud-Init-konfigurationer som tillämpas på virtuella datorer har inga tidsbegränsningar och kommer inte att leda till att en distribution upphör genom timeout. 
 
@@ -72,7 +73,7 @@ package_upgrade: true
 packages:
   - httpd
 ```
-Tryck `ctrl-X` på för att stänga filen, `y` Skriv för att spara filen och `enter` Klicka för att bekräfta fil namnet vid avslut.
+Tryck på `ctrl-X` om du vill avsluta filen, skriv `y` för att spara filen och tryck på `enter` för att bekräfta fil namnet vid avslutning.
 
 Det sista steget är att skapa en virtuell dator med kommandot [AZ VM Create](/cli/azure/vm) . 
 
@@ -90,10 +91,10 @@ az vm create \
 När den virtuella datorn har skapats visar Azure CLI information som är unik för din distribution. Anteckna `publicIpAddress`. Den här adressen används för att få åtkomst till den virtuella datorn.  Det tar lite tid för den virtuella datorn att skapas, paketen som ska installeras och appen att starta. Det finns bakgrundsaktiviteter som fortsätter att köras när Azure CLI återgår till kommandotolken. Du kan använda SSH i den virtuella datorn och använda stegen som beskrivs i avsnittet fel sökning för att Visa Cloud-Init-loggarna. 
 
 ## <a name="troubleshooting-cloud-init"></a>Felsöka Cloud-Init
-När den virtuella datorn har etablerats kommer Cloud-Init att köras genom alla moduler och skript som definierats i `--custom-data` för att konfigurera den virtuella datorn.  Om du behöver felsöka fel eller utelämnanden från konfigurationen måste du söka efter modulnamnet (`disk_setup` eller `runcmd` till exempel) i den Cloud-Init-logg som finns i **/var/log/Cloud-init.log**.
+När den virtuella datorn har etablerats kommer Cloud-Init att köras genom alla moduler och skript som definierats i `--custom-data` för att konfigurera den virtuella datorn.  Om du behöver felsöka fel eller utelämnade undantag från konfigurationen måste du söka efter modulnamnet (`disk_setup` eller `runcmd` till exempel) i **/var/log/Cloud-init.log**för Cloud-Init-loggen.
 
 > [!NOTE]
-> Alla fel i moduler resulterar inte i ett oåterkalleligt Cloud-Init-övergripande konfigurations fel. Om skriptet till exempel Miss `runcmd` lyckas med modulen, kommer Cloud-Init fortfarande att rapportera etableringen eftersom runcmd-modulen kördes.
+> Alla fel i moduler resulterar inte i ett oåterkalleligt Cloud-Init-övergripande konfigurations fel. Till exempel, med modulen `runcmd`, om skriptet Miss lyckas, rapporterar Cloud-Init fortfarande att etableringen har slutförts eftersom runcmd-modulen kördes.
 
 Mer information om Cloud-Init-loggning finns i dokumentationen om [Cloud-Init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html) 
 

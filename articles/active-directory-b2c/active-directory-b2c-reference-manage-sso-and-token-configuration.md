@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/09/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 966386bfed5f94556f145afab1c665eb3c90546a
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 36a95b502c13ccf360ba4ac56b4837d41ee487c8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71065561"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72296404"
 ---
 # <a name="manage-sso-and-token-customization-using-custom-policies-in-azure-active-directory-b2c"></a>Hantera SSO-och token-anpassning med anpassade principer i Azure Active Directory B2C
 
@@ -56,7 +56,7 @@ Följande värden anges i föregående exempel:
 - **Giltighets tid** för uppdateringstoken – värdet för uppdateringstoken anges med **refresh_token_lifetime_secs** metadata-objekt. Standardvärdet är 1209600 sekunder (14 dagar).
 - **Uppdatera token glidande fönster livs längd** – om du vill ange en varaktighet för en glidande period till din uppdateringstoken anger du värdet för **rolling_refresh_token_lifetime_secs** . Standardvärdet är 7776000 (90 dagar). Om du inte vill framtvinga en glidande fönster livs längd ersätter du objektet med `<Item Key="allow_infinite_rolling_refresh_token">True</Item>`.
 - **Issuer-anspråk (ISS)** -anspråket Issuer (ISS) anges med **IssuanceClaimPattern** metadata-objekt. Tillämpliga värden är `AuthorityAndTenantGuid` och `AuthorityWithTfp`.
-- **Inställning av anspråk som representerar princip-ID** – alternativen för att ange `TFP` det här värdet är (förtroende `ACR` Ramverks princip) och (referens för autentisering). `TFP`är det rekommenderade värdet. Ange **AuthenticationContextReferenceClaimPattern** med värdet för `None`.
+- **Inställning av anspråk som representerar princip-ID** – alternativen för att ange det här värdet är `TFP` (förtroende Ramverks princip) och `ACR` (autentisering av autentiseringsuppgifter). `TFP` är det rekommenderade värdet. Ange **AuthenticationContextReferenceClaimPattern** med värdet för `None`.
 
     Lägg till följande element i **ClaimsSchema** -elementet:
 
@@ -75,7 +75,7 @@ Följande värden anges i föregående exempel:
 
     Ta bort **AuthenticationContextReferenceClaimPattern** -objektet för ACR.
 
-- **Subject (sub)-anspråk** – det här alternativet är standardvärdet ObjectID, om du vill växla den `Not Supported`här inställningen till ersätter du den här raden:
+- **Subject (sub)-anspråk** – det här alternativet är standardvärdet ObjectID, om du vill växla den här inställningen till `Not Supported` ersätter du den här raden:
 
     ```XML
     <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub" />
@@ -101,6 +101,6 @@ Om du vill ändra sessionens beteende och SSO-konfigurationer lägger du till et
 
 Följande värden har kon figurer ATS i föregående exempel:
 
-- **Enkel inloggning (SSO)** – enkel inloggning har kon figurer ATS med **SingleSignOn**. Tillämpliga `Tenant`värden är `Application` ,`Policy`, och `Suppressed`.
-- **Web App session livs längd (minuter)** – webbappens sessions livs längd anges med **SessionExpiryInSeconds** -elementet. Standardvärdet är 86400 sekunder (1440 minuter).
+- **Enkel inloggning (SSO)** – enkel inloggning har kon figurer ATS med **SingleSignOn**. Tillämpliga värden är `Tenant`, `Application`, `Policy` och `Suppressed`.
 - Timeout för webbapp – webbappens sessions **-** timeout anges med **SessionExpiryType** -elementet. Tillämpliga värden är `Absolute` och `Rolling`.
+- **Web App-sessionens livs längd** – webbappens sessions livs längd anges med **SessionExpiryInSeconds** -elementet. Standardvärdet är 86400 sekunder (1440 minuter).

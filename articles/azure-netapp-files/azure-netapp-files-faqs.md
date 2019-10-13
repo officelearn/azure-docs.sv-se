@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/25/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: ec0fa0ba7c7cad698cda0f7b440415c3dbb0236a
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: eefa54806d9f5ec9ef3a0c02e4abbaf6b4bf22e2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299626"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298483"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Vanliga frågor och svar om Azure NetApp Files
 
@@ -50,7 +50,7 @@ Ja, du kan, om du skapar nödvändiga DNS-poster. Azure NetApp Files tillhandah�
 
 ### <a name="can-the-network-traffic-between-the-azure-vm-and-the-storage-be-encrypted"></a>Kan nätverks trafiken mellan den virtuella Azure-datorn och lagringen krypteras?
 
-Data trafik (trafik från NFSv3-eller SMBv3-klienten till Azure NetApp Files-volymer) är inte krypterad. Men trafiken från en virtuell Azure-dator (som kör en NFS-eller SMB-klient) till Azure NetApp Files är lika säker som vilken annan Azure-VM-till-VM-trafik som helst. Den här trafiken är lokal i Azure Data Center-nätverket. 
+Data trafik (trafik från NFSv3-, NFSv 4.1-eller SMBv3-klienten till Azure NetApp Files-volymer) är inte krypterad. Men trafiken från en virtuell Azure-dator (som kör en NFS-eller SMB-klient) till Azure NetApp Files är lika säker som vilken annan Azure-VM-till-VM-trafik som helst. Den här trafiken är lokal i Azure Data Center-nätverket. 
 
 ### <a name="can-the-storage-be-encrypted-at-rest"></a>Kan lagringen krypteras i vila?
 
@@ -103,7 +103,7 @@ Azure NetApp Files tillhandahåller volym prestanda mått. Du kan också använd
 
 ### <a name="i-want-to-have-a-volume-mounted-automatically-when-an-azure-vm-is-started-or-rebooted--how-do-i-configure-my-host-for-persistent-nfs-volumes"></a>Jag vill att en volym ska monteras automatiskt när en virtuell Azure-dator startas eller startas om.  Hur gör jag för att konfigurerar du min värd för beständiga NFS-volymer?
 
-Om en NFS-volym ska monteras automatiskt vid start eller omstart av virtuella datorer lägger du `/etc/fstab` till en post i filen på värden. 
+Om en NFS-volym ska monteras automatiskt vid start eller omstart av virtuella datorer lägger du till en post i `/etc/fstab`-filen på värden. 
 
 Exempel: `$ANFIP:/$FILEPATH      /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
@@ -120,7 +120,11 @@ Volym storleken som rapporteras i DF är den maximala storlek som Azure NetApp F
 
 ### <a name="what-nfs-version-does-azure-netapp-files-support"></a>Vilken NFS-version stöder Azure NetApp Files?
 
-Azure NetApp Files stöder för närvarande NFSv3.
+Azure NetApp Files stöder NFSv3 och NFSv 4.1. Du kan skapa en volym med hjälp av antingen NFS-versionen. 
+
+> [!IMPORTANT] 
+> Åtkomst till NFSv 4.1-funktionen kräver vit listning.  Skicka en begäran till <anffeedback@microsoft.com> om du vill begära vit listning. 
+
 
 ### <a name="how-do-i-enable-root-squashing"></a>Hur gör jag för att aktivera rot-squashing?
 
@@ -140,7 +144,7 @@ Azure NetApp Files stöder för närvarande en Active Directory anslutning per p
 
 Både [Azure Active Directory (AD) Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/overview) och [Active Directory Domain Services (AD DS)](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) stöds. Du kan använda befintliga Active Directory domänkontrollanter med Azure NetApp Files. Domänkontrollanter kan finnas i Azure som virtuella datorer eller lokalt via ExpressRoute eller S2S VPN. Azure NetApp Files stöder inte AD Join för [Azure Active Directory](https://azure.microsoft.com/resources/videos/azure-active-directory-overview/) för tillfället.
 
-Om du använder Azure NetApp Files med Azure Active Directory Domain Services är `OU=AADDC Computers` organisationsenhetens sökväg när du konfigurerar Active Directory för ditt NetApp-konto.
+Om du använder Azure NetApp Files med Azure Active Directory Domain Services, är organisationsenhetens sökväg `OU=AADDC Computers` när du konfigurerar Active Directory för ditt NetApp-konto.
 
 ### <a name="what-versions-of-windows-server-active-directory-are-supported"></a>Vilka versioner av Windows Server Active Directory stöds?
 

@@ -1,5 +1,5 @@
 ---
-title: Hanterings upplevelser mellan klienter med Azure Lighthouse
+title: Miljöer för hantering av flera klienter
 description: Azure-delegerad resurs hantering möjliggör hantering av flera innehavare.
 author: JnHs
 ms.service: lighthouse
@@ -7,12 +7,12 @@ ms.author: jenhayes
 ms.date: 09/25/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 17a32d50e2e0330218ff51b849cb4f3aeadb3d13
-ms.sourcegitcommit: 0486aba120c284157dfebbdaf6e23e038c8a5a15
-ms.translationtype: MT
+ms.openlocfilehash: ab0362af9a3eec698150c135fd98283c9db2c833
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71309657"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286621"
 ---
 # <a name="cross-tenant-management-experiences"></a>Miljöer för hantering av flera klienter
 
@@ -57,7 +57,7 @@ För närvarande stöder hanterings upplevelsen för flera innehavare följande 
 
 - Visa aviseringar för delegerade prenumerationer i Azure Portal eller program mässigt via REST API-anrop, med möjlighet att visa aviseringar i alla prenumerationer
 - Visa aktivitets logg information för delegerade prenumerationer
-- Log Analytics: Fråga efter data från fjärranslutna kund arbets ytor i flera klienter
+- Log Analytics: fråga efter data från fjärranslutna kund arbets ytor i flera klienter
 
 [Azure policy](https://docs.microsoft.com/azure/governance/policy/):
 
@@ -67,7 +67,7 @@ För närvarande stöder hanterings upplevelsen för flera innehavare följande 
 - Kunder ser principer som skapats av tjänst leverantören tillsammans med eventuella principer som de har skapat själva
 - Kan åtgärda deployIfNotExists-tilldelningar inom kundens klienter om kunden har konfigurerat den hanterade identiteten och *roleDefinitionIds* för princip tilldelningen
 
-[Azure Resource Graph](https://docs.microsoft.com/azure/governance/resource-graph/):
+[Azure-resurs diagram](https://docs.microsoft.com/azure/governance/resource-graph/):
 
 - Innehåller nu klient-ID: t i returnerade frågeresultat, så att du kan identifiera om en prenumeration tillhör kunden eller tjänst leverantörens klient organisation
 
@@ -108,7 +108,7 @@ För närvarande stöder hanterings upplevelsen för flera innehavare följande 
 - Få åtkomst till virtuella datorer med serie konsolen i kund klienter
 - Observera att du inte kan använda Azure Active Directory för fjärrinloggning till en virtuell dator och du kan inte integrera en virtuell dator med en Key Vault för lösen ord, hemligheter eller kryptografiska nycklar för disk kryptering
 
-[Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
+[Azure-Virtual Network](https://docs.microsoft.com/azure/virtual-network/):
 
 - Distribuera och hantera virtuella nätverk och virtuella nätverks gränssnitts kort (virtuella nätverkskort) i kund klienter
 
@@ -119,7 +119,7 @@ Support förfrågningar:
 ## <a name="current-limitations"></a>Aktuella begränsningar
 Tänk på följande nuvarande begränsningar i alla scenarier:
 
-- Begär Anden som hanteras av Azure Resource Manager kan utföras med Azure-delegerad resurs hantering. Åtgärds-URI: erna för dessa `https://management.azure.com`begär Anden börjar med. Förfrågningar som hanteras av en instans av en resurs typ (till exempel åtkomst till nyckel valv hemligheter eller åtkomst till lagrings data) stöds dock inte med Azure-delegerad resurs hantering. Åtgärds-URI: erna för dessa begär Anden börjar vanligt vis med en adress som är unik för `https://myaccount.blob.core.windows.net` din `https://mykeyvault.vault.azure.net/`instans, till exempel eller. De sistnämnda är också vanliga data åtgärder i stället för hanterings åtgärder. 
+- Begär Anden som hanteras av Azure Resource Manager kan utföras med Azure-delegerad resurs hantering. Åtgärds-URI: erna för dessa begär Anden börjar med `https://management.azure.com`. Förfrågningar som hanteras av en instans av en resurs typ (till exempel åtkomst till nyckel valv hemligheter eller åtkomst till lagrings data) stöds dock inte med Azure-delegerad resurs hantering. Åtgärds-URI: erna för dessa begär Anden börjar vanligt vis med en adress som är unik för din instans, till exempel `https://myaccount.blob.core.windows.net` eller `https://mykeyvault.vault.azure.net/`. De sistnämnda är också vanliga data åtgärder i stället för hanterings åtgärder. 
 - Roll tilldelningar måste använda [Inbyggda RBAC-roller](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)(rollbaserad åtkomst kontroll). Alla inbyggda roller stöds för närvarande med Azure-delegerad resurs hantering förutom för ägare, användar åtkomst administratör eller inbyggda roller med [DataActions](https://docs.microsoft.com/azure/role-based-access-control/role-definitions#dataactions) -behörighet. Rollerna anpassade roller och [klassisk prenumerations administratör](https://docs.microsoft.com/azure/role-based-access-control/classic-administrators) stöds inte heller.
 - För närvarande kan du inte publicera en prenumeration (eller resurs grupp i en prenumeration) för Azure-delegerad resurs hantering om prenumerationen använder Azure Databricks. Om en prenumeration har registrerats för onboarding med **Microsoft. ManagedServices** Resource Provider kan du inte heller skapa en Databricks-arbetsyta för den prenumerationen just nu.
 

@@ -5,20 +5,20 @@ services: dns
 author: vhorne
 ms.service: dns
 ms.topic: quickstart
-ms.date: 10/05/2019
+ms.date: 10/11/2019
 ms.author: victorh
-ms.openlocfilehash: 79b626ef6beaad3a8f15da08b882fc7d596540b0
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: fe12a1a9f954718dfacb59ae0ed54e69309da650
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960388"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72293797"
 ---
-# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Snabbstart: Skapa en privat Azure-DNS-zon med hjälp av Azure Portal
+# <a name="quickstart-create-an-azure-private-dns-zone-using-the-azure-portal"></a>Snabb start: skapa en privat Azure-DNS-zon med hjälp av Azure Portal
 
 Den här snabb starten vägleder dig genom stegen för att skapa din första privata DNS-zon och-post med hjälp av Azure Portal.
 
-En DNS-zon används som värd åt DNS-posterna för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
+En DNS-zon används som värd för DNS-poster för en viss domän. Om du vill låta Azure DNS vara värd för din domän så måste du skapa en DNS-zon för det domännamnet. Varje DNS-post för din domän skapas sedan i den här DNS-zonen. Om du vill publicera en privat DNS-zon i det virtuella nätverket anger du den lista över virtuella nätverk som får lösa poster i zonen.  Dessa kallas *länkade* virtuella nätverk. När autoregistrering har Aktiver ATS uppdaterar Azure DNS även zon posterna när en virtuell dator skapas, ändrar dess IP-adress eller raderas.
 
 I den här snabbstarten lär du dig att:
 
@@ -48,8 +48,8 @@ En DNS-zon innehåller DNS-poster för en domän. Om du vill låta Azure DNS var
 
 1. På sidan **skapa privat DNS zon** skriver eller väljer du följande värden:
 
-   - **Resursgrupp**: Välj **Skapa ny**, ange *MyAzureResourceGroup*och välj **OK**. Resursgruppens namn måste vara unikt inom Azure-prenumerationen. 
-   -  **Namn på**: Skriv *Private.contoso.com* i det här exemplet.
+   - **Resurs grupp**: Välj **Skapa ny**, ange *MyAzureResourceGroup*och välj **OK**. Resursgruppens namn måste vara unikt inom Azure-prenumerationen. 
+   -  **Namn**: Skriv *Private.contoso.com* i det här exemplet.
 1. För **resurs gruppens plats**väljer du **västra centrala USA**.
 
 1. Välj **Granska + Skapa**.
@@ -70,7 +70,7 @@ Det kan ta några minuter att skapa zonen.
 
 Om du vill länka den privata DNS-zonen till ett virtuellt nätverk skapar du en länk till ett virtuellt nätverk.
 
-![Lägg till virtuell nätverkslänk](media/private-dns-portal/dns-add-virtual-network-link.png)
+![Lägg till virtuellt nätverks länk](media/private-dns-portal/dns-add-virtual-network-link.png)
 
 1. Öppna resurs gruppen **MyAzureResourceGroup** och välj den privata **Private.contoso.com** -zonen.
 2. I det vänstra fönstret väljer du **länkar till virtuella nätverk**.
@@ -92,10 +92,10 @@ Nu skapar du två virtuella datorer så att du kan testa din privata DNS-zon:
 2. Skriv **Azure12345678** som lösen ord och bekräfta lösen ordet.
 
 5. För **offentliga inkommande portar**väljer du **Tillåt valda portar**och väljer sedan **RDP (3389)** för **Välj inkommande portar**.
-10. Godkänn de andra standardvärdena för sidan och klicka sedan på **Next: Diskar >** .
-11. Godkänn standardvärdena på sidan **diskar** och klicka sedan på **Next: Nätverks >** .
+10. Godkänn de andra standardvärdena för sidan och klicka sedan på **Nästa: diskar >** .
+11. Godkänn standardvärdena på sidan **diskar** och klicka sedan på **nästa: nätverks >** .
 1. Kontrol lera att **myAzureVNet** har valts för det virtuella nätverket.
-1. Godkänn de andra standardvärdena för sidan och klicka sedan på **Next: Hanterings >** .
+1. Godkänn de andra standardvärdena för sidan och klicka sedan på **Nästa: hanterings >** .
 2. För **startdiagnostik**väljer du **av**, godkänner de andra standardvärdena och väljer sedan **Granska + skapa**.
 1. Granska inställningarna och klicka sedan på **skapa**.
 

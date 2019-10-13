@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/02/2019
+ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: bd00c04ecfc211ae4ed410e886c0fe6553bea241
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 94fc4906478e44365d03e9c8eeadd7cb1946a43a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827510"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300540"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Skapa en SMB-volym för Azure NetApp Files
 
@@ -40,25 +40,25 @@ Ett undernät måste delegeras till Azure NetApp Files.
 * Rätt portar måste vara öppna på den aktuella Windows Active Directory-servern (AD).  
     De portar som krävs är följande: 
 
-    |     Tjänsten           |     Port     |     Protocol     |
+    |     Tjänst           |     Port     |     Protokoll     |
     |-----------------------|--------------|------------------|
     |    AD-webbtjänster    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
-    |    DNS                |    53        |    UDP           |
+    |    DNS                |    53        |    -           |
     |    ICMPv4             |    Gäller inte       |    Eko svar    |
-    |    Kerberos           |    464       |    TCP           |
-    |    Kerberos           |    464       |    UDP           |
-    |    Kerberos           |    88        |    TCP           |
-    |    Kerberos           |    88        |    UDP           |
-    |    LDAP               |    389       |    TCP           |
-    |    LDAP               |    389       |    UDP           |
-    |    LDAP               |    3268      |    TCP           |
-    |    NetBIOS-namn       |    138       |    UDP           |
+    |    Paket           |    464       |    TCP           |
+    |    Paket           |    464       |    -           |
+    |    Paket           |    88        |    TCP           |
+    |    Paket           |    88        |    -           |
+    |    VIA               |    389       |    TCP           |
+    |    VIA               |    389       |    -           |
+    |    VIA               |    3268      |    TCP           |
+    |    NetBIOS-namn       |    138       |    -           |
     |    SAM/LSA            |    445       |    TCP           |
-    |    SAM/LSA            |    445       |    UDP           |
+    |    SAM/LSA            |    445       |    -           |
     |    Säkert LDAP        |    636       |    TCP           |
     |    Säkert LDAP        |    3269      |    TCP           |
-    |    W32Time            |    123       |    UDP           |
+    |    W32Time            |    123       |    -           |
 
 * Platstopologi för mål Active Directory Domain Services måste följa bästa praxis, särskilt det virtuella Azure-VNet där Azure NetApp Files distribueras.  
 
@@ -86,9 +86,9 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
     * **Primär DNS**  
         Detta är den DNS som krävs för åtgärderna för att Active Directory domän anslutning och SMB-autentisering. 
-    * **Secondary DNS**   
+    * **Sekundär DNS**-   
         Det här är den sekundära DNS-servern för att säkerställa redundanta namn tjänster. 
-    * **Domän**  
+    * **Domänsuffix**  
         Detta är domän namnet för din Active Directory Domain Services som du vill ansluta till.
     * **Prefix för SMB-server (dator konto)**  
         Detta är namngivnings prefixet för dator kontot i Active Directory som Azure NetApp Files används för att skapa nya konton.
@@ -100,7 +100,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
     * **Sökväg till organisationsenhet**  
         Det här är LDAP-sökvägen för organisationsenheten (OU) där SMB-serverns dator konton kommer att skapas. Det vill säga OU = den andra nivån, OU = första nivån. 
 
-        Om du använder Azure NetApp Files med Azure Active Directory Domain Services är `OU=AADDC Computers` organisationsenhetens sökväg när du konfigurerar Active Directory för ditt NetApp-konto.
+        Om du använder Azure NetApp Files med Azure Active Directory Domain Services, är organisationsenhetens sökväg `OU=AADDC Computers` när du konfigurerar Active Directory för ditt NetApp-konto.
         
     * Autentiseringsuppgifter, inklusive ditt **användar namn** och **lösen ord**
 
@@ -111,6 +111,9 @@ Ett undernät måste delegeras till Azure NetApp Files.
     Active Directory anslutningen som du skapade visas.
 
     ![Active Directory anslutningar](../media/azure-netapp-files/azure-netapp-files-active-directory-connections-created.png)
+
+> [!NOTE] 
+> Du kan redigera fälten användar namn och lösen ord när du har sparat Active Directory anslutningen. Inga andra värden kan redige ras efter att anslutningen har sparats. Om du behöver ändra andra värden måste du först ta bort alla distribuerade SMB-volymer och sedan ta bort och återskapa Active Directory anslutningen.
 
 ## <a name="add-an-smb-volume"></a>Lägg till en SMB-volym
 
@@ -127,7 +130,7 @@ Ett undernät måste delegeras till Azure NetApp Files.
 
         Ett volym namn måste vara unikt inom varje pool för kapacitet. Det måste innehålla minst tre tecken. Du kan använda alla alfanumeriska tecken.   
 
-        Du kan inte `default` använda som volym namn.
+        Du kan inte använda `default` som volym namn.
 
     * **Pool för kapacitet**  
         Ange den pool där du vill att volymen ska skapas.

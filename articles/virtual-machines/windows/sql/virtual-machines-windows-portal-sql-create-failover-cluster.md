@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/11/2018
 ms.author: mikeray
-ms.openlocfilehash: b30ccbcba0b2126d1fe1abce9ae67a55ce25f601
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 92623377daa80efe08b260745fa1d9443366cb8a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170258"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300581"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-on-azure-virtual-machines"></a>Konfigurera SQL Server-redundanskluster på Azure Virtual Machines
 
@@ -375,14 +375,15 @@ Så här skapar du belastningsutjämnaren:
 
 1. Konfigurera belastningsutjämnaren med:
 
-   - **Namn**: ett namn som identifierar belastningsutjämnaren.
-   - **Typ**: belastningsutjämnaren kan vara antingen offentlig eller privat. Det går att få åtkomst till en privat belastningsutjämnare i samma VNET. De flesta Azure-program kan använda en privat belastningsutjämnare. Om ditt program behöver åtkomst till SQL Server direkt via Internet använder du en offentlig belastningsutjämnare.
-   - **Virtual Network**: samma nätverk som de virtuella datorerna.
-   - **Undernät**: samma undernät som de virtuella datorerna.
-   - **Privat IP-adress**: samma IP-adress som du tilldelade SQL Server FCI-kluster nätverks resurs.
-   - **prenumeration**: din Azure-prenumeration.
+   - **Prenumeration**: din Azure-prenumeration.
    - **Resurs grupp**: Använd samma resurs grupp som dina virtuella datorer.
-   - **Plats**: Använd samma Azure-plats som dina virtuella datorer.
+   - **Namn**: ett namn som identifierar belastningsutjämnaren.
+   - **Region**: Använd samma Azure-plats som dina virtuella datorer.
+   - **Typ**: belastningsutjämnaren kan vara antingen offentlig eller privat. Det går att få åtkomst till en privat belastningsutjämnare i samma VNET. De flesta Azure-program kan använda en privat belastningsutjämnare. Om ditt program behöver åtkomst till SQL Server direkt via Internet använder du en offentlig belastningsutjämnare.
+   - **SKU**: SKU för din belastningsutjämnare bör vara standard. 
+   - **Virtual Network**: samma nätverk som de virtuella datorerna.
+   - **Tilldelning av IP-adress**: IP-adresstilldelning ska vara statisk. 
+   - **Privat IP-adress**: samma IP-adress som du tilldelade SQL Server FCI-kluster nätverks resurs.
    Se följande bild:
 
    ![CreateLoadBalancer](./media/virtual-machines-windows-portal-sql-create-failover-cluster/30-load-balancer-create.png)

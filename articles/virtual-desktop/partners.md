@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: helohr
-ms.openlocfilehash: 485aad245df7feae4ca4ee2c68a29ff20afb3ece
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f4eeecccb3815ebfef9cdf79ac14f3dd3bd5e77a
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937507"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300216"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integration av Windows-partner för virtuella skriv bord
 
@@ -62,6 +62,16 @@ När det används med Windows Virtual Desktop tillhandahåller ControlUp ytterli
 - [Se lösningen för att ansluta till kort](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3PUit).
 - [Gå till partner webbplatsen](https://www.controlup.com/solutions/ms_wvd/).
 
+## <a name="devicetrust"></a>deviceTRUST
+
+![deviceTRUST-logotyp](./media/partners/devicetrust.png)
+
+deviceTRUST är en Windows-Provider för mervärdes tjänster för virtuella datorer som contextualizes företags företaget, vilket gör det möjligt för användarna att få åtkomst till sina virtuella Windows-datorer från valfri plats, på valfri enhet, över alla nätverk, samtidigt som de ger dem avdelningar den information och kontroll de behöver för att uppfylla sina styrnings krav. 
+
+deviceTRUST utökar värdet för virtuella Windows-datorer med deras sammanhangsbaserade säkerhets teknik. deviceTRUST möjliggör villkorlig åtkomst för en säker åtkomst till virtuella Windows-datorer, villkorlig program åtkomst i Windows Virtual Desktop och att tillämpa villkorliga Windows-principer för virtuella skriv bord utan ytterligare infrastruktur. Med deviceTRUST kan du använda en mobil, flexibel arbets yta som uppfyller alla krav på säkerhet, efterlevnad och regler. 
+
+- [Gå till partner webbplatsen](https://devicetrust.com/wvd).
+
 ## <a name="lakeside-software"></a>Lakeside-programvara
 
 ![Lakeside program varu logo typ](./media/partners/lakeside.png)
@@ -84,6 +94,14 @@ Likviditets Essentials utökar värdet för virtuella Windows-datorer genom att 
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1).
 - [Gå till partner webbplatsen](https://www.liquidware.com/solutions/solutions-platform/microsoft).
 
+## <a name="login-vsi"></a>Logga in VSI
+
+![Logo typ för inloggning VSI](./media/partners/loginvsi.png)
+
+Login VSI är en Windows Virtual Desktop-leverantör med mervärdes tjänster och Microsoft-partner som levererar program vara för program prestanda testning i Windows-miljöer för virtuella skriv bord. Kunder som flyttar sina lokala företags tjänster till Windows Virtual Desktop använder inloggning VSI Enterprise Edition för att utvärdera och upprätthålla optimala prestanda, skalbarhet och tillgänglighet för Windows 10 Enterprise multi-session, Windows 10 Enterprise och Windows 7 har Aktiver ATS med affärs kritiska program.
+
+- [Gå till partner webbplatsen](https://www.loginvsi.com).
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Nerdio-logotyp](./media/partners/nerdio.png)
@@ -94,6 +112,26 @@ Nerdio utökar värdet för virtuella Windows-datorer genom att göra det enkelt
 
 - [Se den gemensamma lösningen i korthet](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Gå till partner webbplatsen](https://getnerdio.com/windows-virtual-desktop/).
+
+## <a name="policypak"></a>PolicyPak
+
+![PolicyPak-logotyp](./media/partners/policypak.png)
+
+PolicyPak-programvaran är en Windows-partner för virtuella datorer som utför total inställnings hantering för program, skriv bords-, webbläsare-, Java-och säkerhets inställningar. PolicyPak håller dina Skriv bords-, system-och säkerhets inställningar kompatibla. PolicyPak förbättrar värdet för det virtuella Windows-skrivbordet genom att lägga till en serie komponenter för att förbättra Windows inbyggda administration. Använd din befintliga Active Directory grupprincip och/eller Windows Intune för att leverera PolicyPak inställningar och öka administratörernas möjlighet att hantera sina Windows 10-datorer. 
+
+De vanligaste användnings fallen för PolicyPak är att ta bort lokala administratörs rättigheter och lösa UAC-prompter, blockera utpressnings bara filer, hantera flera webbläsare, hantera Internet Explorers företags-och kompatibilitetsläge, minska antalet grup princip objekt, hantera Windows 10-filassociationer, hantera Windows 10-startmenyn och aktivitets fältet och hantera Windows 10-funktioner och valfria funktioner.  
+
+- [Gå till partner webbplatsen](https://www.policypak.com/integration/policypak-windows-virtual-desktop.html).
+
+## <a name="printerlogic"></a>PrinterLogic
+
+![PrinterLogic-logotyp](./media/partners/printerlogic.png)
+
+PrinterLogic är en Windows Virtual Desktop-tjänst för mervärdes tjänst leverantör som gör det möjligt för IT-proffs att ta bort alla utskrifts servrar och leverera en server lös utskrifts infrastruktur med hög tillgänglighet. PrinterLogic utökar värdet för virtuella Windows-datorer och Azure genom att göra det enkelt att centralt hantera och distribuera skrivar objekt till valfri skrivare eller slut punkts operativ system.   
+
+PrinterLogic-plattformen är tillgänglig som SaaS eller som en webbstack i ditt eget privata moln, men-plattformen ser till att användarna alltid har rätt skrivare de behöver i sina virtuella sessioner baserat på användar-ID, enhets namn eller plats. Den här funktionen kompletteras av en fullständig uppsättning funktioner för utskrifts hantering i företags form, till exempel utskrifts spårning och rapportering, mobil utskrift och säker utskrift av säkerhet för bricka. 
+
+- [Gå till partner webbplatsen](https://www.printerlogic.com).
 
 ## <a name="thinprint"></a>ThinPrint
 

@@ -10,17 +10,17 @@ ms.topic: conceptual
 author: jovanpop-msft
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 06/10/2019
-ms.openlocfilehash: 226b0c1cb11fc872cb7759e0d0e49275b9c2d9bf
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.date: 10/11/2019
+ms.openlocfilehash: 0307a905c1d3d7d9bc707fbda87fb8f3fd6d2aee
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68568157"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299708"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL Database
 
-Målet med hög tillgänglighets arkitekturen i Azure SQL Database är att garantera att databasen är igång och är igång 99,99% av tiden, utan att oroa dig över påverkan av underhålls åtgärder och avbrott. Azure hanterar automatiskt kritiska underhålls uppgifter, till exempel korrigeringar, säkerhets kopieringar, Windows-och SQL-uppgraderingar, samt oplanerade händelser som underliggande maskin vara, program vara eller nätverks fel.  När den underliggande SQL-instansen har korrigerats eller växlar över, märks inte stillestånds tiden om du [använder logik](sql-database-develop-overview.md#resiliency) för omprövning i din app. Azure SQL Database kan snabbt återställas även under de mest kritiska omständigheterna för att se till att dina data alltid är tillgängliga.
+Målet med hög tillgänglighets arkitekturen i Azure SQL Database är att garantera att databasen är igång och är igång 99,99% av tiden, utan att oroa dig över påverkan av underhålls åtgärder och avbrott. Azure hanterar automatiskt kritiska underhålls uppgifter, till exempel korrigeringar, säkerhets kopieringar, Windows-och SQL-uppgraderingar, samt oplanerade händelser som underliggande maskin vara, program vara eller nätverks fel.  När den underliggande SQL-instansen har korrigerats eller växlar över, märks inte stillestånds tiden om du [använder logik för omprövning](sql-database-develop-overview.md#resiliency) i din app. Azure SQL Database kan snabbt återställas även under de mest kritiska omständigheterna för att se till att dina data alltid är tillgängliga.
 
 Lösningen för hög tillgänglighet är utformad för att säkerställa att allokerade data aldrig går förlorade på grund av problem, att underhålls åtgärder inte påverkar din arbets belastning och att databasen inte är en enskild felpunkt i din program varu arkitektur. Det finns inga underhålls perioder som kräver att du stoppar arbets belastningen medan databasen uppgraderas eller underhålls. 
 
@@ -39,7 +39,7 @@ Dessa tjänst nivåer utnyttjar standard arkitekturen för tillgänglighet. Föl
 
 Standard tillgänglighets modellen innehåller två lager:
 
-- Ett tillstånds löst beräknings lager som kör `sqlserver.exe` processen och bara innehåller temporära och cachelagrade data på anslutna SSD, till exempel tempdb, modell databas, planera cache, resurspool och Column Store-pool. Den här tillstånds lösa noden drivs av Azure-Service Fabric som `sqlserver.exe`initierar, kontrollerar nodens hälsa och utför redundans till en annan nod vid behov.
+- Ett tillstånds löst beräknings lager som kör `sqlservr.exe`-processen och bara innehåller temporära och cachelagrade data, till exempel TempDB, modell databaser på anslutna SSD och planera cache, buffer och columnstore-pool i minnet. Den här tillstånds lösa noden drivs av Azure-Service Fabric som initierar `sqlservr.exe`, styr hälsan för noden och utför redundans till en annan nod vid behov.
 - Ett tillstånds känsligt data lager med databasfiler (. MDF/. ldf) som lagras i Azure Blob Storage. Azure Blob Storage har inbyggd data tillgänglighet och en redundans funktion. Det garanterar att alla poster i logg filen eller sidan i data filen kommer att bevaras även om SQL Server process kraschar.
 
 När databas motorn eller operativ systemet uppgraderas, eller om ett problem upptäcks, kommer Azure Service Fabric flytta processen utan tillstånd SQL Server till en annan tillstånds lös Compute-nod med tillräckligt med ledigt utrymme. Data i Azure Blob Storage påverkas inte av flyttningen och data-/loggfilerna bifogas till den nyligen initierade SQL Server processen. Den här processen garanterar 99,99% tillgänglighet, men en kraftig arbets belastning kan uppleva viss prestanda försämring under över gången sedan den nya SQL Server-instansen börjar med kall cache.
@@ -52,16 +52,34 @@ Premium-och Affärskritisk tjänst nivåerna utnyttjar Premium Availability-mode
 
 De underliggande databasfilerna (. MDF/. ldf) placeras på den anslutna SSD-lagringen för att tillhandahålla mycket låg latens i/o för din arbets belastning. Hög tillgänglighet implementeras med hjälp av en teknik som liknar SQL Server [Always on-tillgänglighetsgrupper](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/overview-of-always-on-availability-groups-sql-server). Klustret innehåller en enda primär replik (SQL Server process) som är tillgänglig för kundens arbets belastningar med Läs-och skriv åtgärder och upp till tre sekundära repliker (data bearbetning och lagring) som innehåller kopior av data. Den primära noden skickar konstanter ändringar till de sekundära noderna i ordning och säkerställer att data synkroniseras till minst en sekundär replik innan varje transaktion bekräftas. Den här processen garanterar att om den primära noden kraschar av någon anledning finns det alltid en helt synkroniserad nod att redundansväxla till. Redundansväxlingen initieras av Azure-Service Fabric. När den sekundära repliken blir den nya primära noden skapas en annan sekundär replik för att säkerställa att klustret har tillräckligt många noder (kvorumkonfigurationen). När redundansväxlingen är klar omdirigeras SQL-anslutningar automatiskt till den nya primära noden.
 
-Som en extra förmån innehåller Premium Availability-modellen möjligheten att omdirigera skrivskyddade SQL-anslutningar till en av de sekundära replikerna. Den här funktionen kallas för [Läs](sql-database-read-scale-out.md)utskalning. Den ger 100% ytterligare beräknings kapacitet utan extra kostnad för att inaktivera Läs åtgärder, till exempel analytiska arbets belastningar, från den primära repliken.
+Som en extra förmån innehåller Premium Availability-modellen möjligheten att omdirigera skrivskyddade SQL-anslutningar till en av de sekundära replikerna. Den här funktionen kallas för [Läs utskalning](sql-database-read-scale-out.md). Den ger 100% ytterligare beräknings kapacitet utan extra kostnad för att inaktivera Läs åtgärder, till exempel analytiska arbets belastningar, från den primära repliken.
+
+## <a name="hyperscale-service-tier-availability"></a>Tillgänglighet för storskalig Service Tier
+
+Den storskaliga Service Tier-arkitekturen beskrivs i [arkitekturen distribuerade funktioner](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#distributed-functions-architecture). 
+
+![Funktions arkitektur för skala](./media/sql-database-hyperscale/hyperscale-architecture.png)
+
+Tillgänglighets modellen i storskalig innehåller fyra lager:
+
+- Ett tillstånds löst beräknings lager som kör `sqlservr.exe`-processer och bara innehåller tillfälliga och cachelagrade data, till exempel icke-omfattande RBPEX cache, TempDB, modell databas osv. på anslutna SSD och planera cache, resurspool och columnstore-pool i minnet. Detta tillstånds lösa lager inkluderar den primära beräknings repliken och eventuellt ett antal sekundära beräknings repliker som kan fungera som redundans.
+- Ett tillstånds löst lagrings lager som bildas av sid servrar. Det här lagret är den distribuerade lagrings motorn för de `sqlservr.exe`-processer som körs på beräknings replikerna. Varje Page Server innehåller bara tillfälliga och cachelagrade data, till exempel för att täcka RBPEX-cache på anslutna SSD och data sidor som cachelagras i minnet. Varje sid Server har en länkad sid server i en aktiv-aktiv konfiguration för att tillhandahålla belastnings utjämning, redundans och hög tillgänglighet.
+- Ett tillstånds känsligt lagrings lager för transaktions logg som bildas av Compute-noden som kör logg tjänst processen, landnings zonen för transaktions loggen och transaktions loggen långsiktig lagring. Landnings zon och långsiktig lagring använder Azure Storage, vilket ger tillgänglighet och [redundans](https://docs.microsoft.com/azure/storage/common/storage-redundancy) för transaktions loggen, vilket garanterar data hållbarhet för genomförda transaktioner.
+- Ett tillstånds känsligt data lagrings lager med databasfilerna (MDF/. NDF) som lagras i Azure Storage och som uppdateras av sid servrar. Det här lagret använder data tillgänglighet och [redundanta](https://docs.microsoft.com/azure/storage/common/storage-redundancy) funktioner i Azure Storage. Det garanterar att varje sida i en datafil kommer att bevaras även om processer i andra lager av arkitektur krascher i stor skala, eller om det inte går att beräkna noder.
+
+Compute-noder i alla storskaliga lager körs på Azure Service Fabric, som kontrollerar hälso tillståndet för varje nod och utför redundans till tillgängliga felfria noder vid behov.
+
+Mer information om hög tillgänglighet i hög tillgänglighet finns i [databas hög tillgänglighet i hög skala](https://docs.microsoft.com/azure/sql-database/sql-database-service-tier-hyperscale#database-high-availability-in-hyperscale).
 
 ## <a name="zone-redundant-configuration"></a>Redundant zon konfiguration
 
-Som standard skapas klustret av noder för Premium Availability-modellen i samma data Center. Med introduktionen av [Azure-tillgänglighetszoner](../availability-zones/az-overview.md)kan SQL Database placera olika repliker i klustret till olika tillgänglighets zoner i samma region. För att eliminera en enskild felpunkt dupliceras också kontroll ringen över flera zoner som tre Gateway-ringar (GW). Routningen till en angiven Gateway-ring styrs av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Eftersom zonens redundanta konfiguration i Premium-eller Affärskritisk tjänst nivåerna inte skapar ytterligare databas-redundans, kan du aktivera den utan extra kostnad. Genom att välja en redundant konfiguration av zonen kan du göra dina Premium-eller Affärskritisk-databaser flexibla till en större mängd olika problem, inklusive oåterkalleliga Data Center avbrott, utan några ändringar i program logiken. Du kan också konvertera befintliga Premium-eller Affärskritisk-databaser eller pooler till zonens redundanta konfiguration.
+Som standard skapas klustret av noder för Premium Availability-modellen i samma data Center. Med introduktionen av [Azure-tillgänglighetszoner](../availability-zones/az-overview.md)kan SQL Database placera olika repliker av affärskritisk-databasen till olika tillgänglighets zoner i samma region. För att eliminera en enskild felpunkt dupliceras också kontroll ringen över flera zoner som tre Gateway-ringar (GW). Routningen till en angiven Gateway-ring styrs av [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Eftersom zonens redundanta konfiguration i Premium-eller Affärskritisk tjänst nivåerna inte skapar ytterligare databas-redundans, kan du aktivera den utan extra kostnad. Genom att välja en redundant konfiguration av zonen kan du göra dina Premium-eller Affärskritisk-databaser flexibla till en större mängd olika problem, inklusive oåterkalleliga Data Center avbrott, utan några ändringar i program logiken. Du kan också konvertera befintliga Premium-eller Affärskritisk-databaser eller pooler till zonens redundanta konfiguration.
 
 Eftersom zonens redundanta databaser har repliker i olika data Center med lite avstånd mellan dem, kan den ökade nätverks fördröjningen öka genomförande tiden och därmed påverka prestanda för vissa OLTP-arbetsbelastningar. Du kan alltid återgå till konfigurationen med en zon genom att inaktivera inställningen zon redundans. Den här processen är en online-åtgärd som liknar uppgraderingen av Service nivån. I slutet av processen migreras databasen eller poolen från en zon redundant ring till en enskild zon ring eller vice versa.
 
 > [!IMPORTANT]
 > Zon redundanta databaser och elastiska pooler stöds för närvarande bara i Premium-och Affärskritisk tjänst nivåerna i utvalda regioner. När du använder Affärskritisk nivån är zonens redundant konfiguration bara tillgänglig när Gen5 Compute-maskinvaran är vald. För uppdaterad information om de regioner som har stöd för zonens redundanta databaser, se [tjänster support per region](../availability-zones/az-overview.md#services-support-by-region).  
+> Den här funktionen är inte tillgänglig i en hanterad instans.
 
 Zonens redundanta version av hög tillgänglighets arkitektur illustreras med följande diagram:
 

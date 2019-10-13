@@ -4,14 +4,14 @@ description: Beskriver hur Azure Resource Manager hanterar autentiseringsbegära
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/07/2019
+ms.date: 10/11/2019
 ms.author: tomfitz
-ms.openlocfilehash: 625a17156eaf199af0d51151c6fd37769b8f7b4a
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: b85ed32ac333402caeca4901e4d91bbe4d1d112c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68848758"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300342"
 ---
 # <a name="authenticate-requests-across-tenants"></a>Autentisera begär anden över klienter
 
@@ -23,8 +23,8 @@ Begäran har följande värden för Authentication-huvud:
 
 | Huvudnamn | Beskrivning | Exempelvärde |
 | ----------- | ----------- | ------------ |
-| Authorization | Primär token | &lt;Primär token för Bearer&gt; |
-| x-ms-authorization-auxiliary | Extra token | &gt; &lt;&gt;Bearer-token1, EncryptedBearer-tillägg – token2, Bearer &lt;-token3 &lt;&gt; |
+| Autentisering | Primär token | Bearer &lt;primary-token @ no__t-1 |
+| x-MS-Authorization-extra | Extra token | Bearer &lt;auxiliary-token1 @ no__t-1, EncryptedBearer &lt;auxiliary-token2 @ no__t-3, Bearer &lt;auxiliary-token3 @ no__t-5 |
 
 Tilläggs huvudet kan innehålla upp till tre hjälp-token. 
 
@@ -37,5 +37,6 @@ När din app skickar en begäran till Resource Manager, körs begäran under ide
 När begäran refererar till en resurs från en annan klient kontrollerar Resource Manager de extra token för att avgöra om begäran kan bearbetas. Alla extra token i huvudet måste vara giltiga och har inte gått ut. Om någon token har upphört att gälla returnerar Resource Manager en 401-svarskod. Svaret innehåller klient-ID och klient-ID från den token som inte är giltig. Om tilläggs huvudet innehåller en giltig token för klienten, bearbetas begäran om flera innehavare.
 
 ## <a name="next-steps"></a>Nästa steg
-* Information om hur du skickar autentiseringsbegäranden med Azure Resource Manager-API: er finns i [använda Resource Manager Authentication API för att få åtkomst till prenumerationer](resource-manager-api-authentication.md).
-* Mer information om tokens finns [Azure Active Directory åtkomsttoken](/azure/active-directory/develop/access-tokens).
+
+* Mer information om autentiseringsbegäranden finns i [autentiserings flöden och program scenarier](../active-directory/develop/authentication-flows-app-scenarios.md).
+* Mer information om tokens finns [Azure Active Directory åtkomsttoken](../active-directory/develop/access-tokens.md).

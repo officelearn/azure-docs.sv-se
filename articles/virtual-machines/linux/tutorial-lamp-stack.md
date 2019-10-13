@@ -15,16 +15,16 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 01/30/2019
 ms.author: cynthn
-ms.openlocfilehash: 66b7d7692d9143c8db813ad135b0b9c70b8869d2
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 893fba20af12bbbeeab2f0393177cd6f0daa6452
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67708594"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299429"
 ---
 # <a name="tutorial-install-a-lamp-web-server-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Installera en LAMP-webbserver på en virtuell Linux-dator i Azure
 
-I den här artikeln får du veta hur du distribuerar en Apache-webbserver, MySQL och PHP (LAMP-stacken) på en virtuell Ubuntu-dator i Azure. Om du föredrar NGINX-webbservern finns mer information i självstudierna om [LEMP-stacken](tutorial-lemp-stack.md). Om du vill se LAMP-servern i praktiken kan du installera och konfigurera en WordPress-webbplats. I den här självstudiekursen får du lära du dig att:
+I den här artikeln får du veta hur du distribuerar en Apache-webbserver, MySQL och PHP (LAMP-stacken) på en virtuell Ubuntu-dator i Azure. Om du föredrar NGINX-webbservern finns mer information i självstudierna om [LEMP-stacken](tutorial-lemp-stack.md). Om du vill se LAMP-servern i praktiken kan du installera och konfigurera en WordPress-webbplats. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa en virtuell Ubuntu-dator (L:et i LAMP-stacken)
@@ -35,7 +35,7 @@ I den här artikeln får du veta hur du distribuerar en Apache-webbserver, MySQL
 
 Den här installationen är avsedd för snabbtester och konceptbevis. Mer information om LAMP-stacken samt rekommendationer kring produktionsmiljön finns i [dokumentationen om Ubuntu](https://help.ubuntu.com/community/ApacheMySQLPHP).
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 

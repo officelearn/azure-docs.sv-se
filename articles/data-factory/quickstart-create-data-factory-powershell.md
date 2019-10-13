@@ -13,20 +13,20 @@ ms.devlang: powershell
 ms.topic: quickstart
 ms.date: 01/22/2018
 ms.author: jingwang
-ms.openlocfilehash: d4376632b8f912cd76f3af5e9a8819b75f8144b6
-ms.sourcegitcommit: dcea3c1ab715a79ebecd913885fbf9bbee61606a
+ms.openlocfilehash: 06171dbedb55b4a80e2b27b9314247331d65ed97
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70209483"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72286471"
 ---
-# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Snabbstart: Skapa en Azure-datafabrik med hjälp av PowerShell
+# <a name="quickstart-create-an-azure-data-factory-using-powershell"></a>Snabb start: skapa en Azure-datafabrik med hjälp av PowerShell
 
 > [!div class="op_single_selector" title1="Välj den version av Data Factory-tjänsten som du använder:"]
 > * [Version 1](v1/data-factory-copy-data-from-azure-blob-storage-to-sql-database.md)
 > * [Aktuell version](quickstart-create-data-factory-powershell.md)
 
-Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Azure-datafabrik. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. En självstudie om hur du **transformerar** data med hjälp av Azure Data Factory finns i [Självstudie: Transformera data med Spark](transform-data-using-spark.md).
+Den här snabbstarten beskriver hur du använder PowerShell till att skapa en Azure-datafabrik. Den pipeline du skapar i den här datafabriken **kopierar** data från en mapp till en annan mapp i Azure Blob Storage. Om du vill se en självstudie som visar hur du **omvandlar** data med Azure Data Factory går du till [Tutorial: Transform data using Spark](transform-data-using-spark.md) (Självstudie: Omvandla data med Spark).
 
 > [!NOTE]
 > Den här artikeln ger inte någon detaljerad introduktion till Azure Data Factory-tjänsten. En introduktion till Azure Data Factory-tjänsten finns i [Introduktion till Azure Data Factory](introduction.md).
@@ -105,14 +105,14 @@ Observera följande punkter:
 
 * Om du vill skapa Data Factory-instanser måste det användarkonto du använder för att logga in på Azure vara medlem av rollerna **deltagare** eller **ägare**, eller vara **administratör** för Azure-prenumerationen.
 
-* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Produkttillgänglighet per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
+* Om du vill se en lista med Azure-regioner där Data Factory är tillgängligt för närvarande markerar du de regioner du är intresserad av på följande sida. Expandera sedan **Analytics** och leta rätt på **Data Factory**: [Tillgängliga produkter per region](https://azure.microsoft.com/global-infrastructure/services/). Datalagren (Azure Storage, Azure SQL Database osv.) och beräkningarna (HDInsight osv.) som används i Data Factory kan finnas i andra regioner.
 
 
 ## <a name="create-a-linked-service"></a>Skapa en länkad tjänst
 
 Skapa länkade tjänster i en datafabrik för att länka ditt datalager och beräkna datafabrik-tjänster. I den här snabbstarten skapar du en länkad Azure Storage-tjänst som lagrar både källa och mottagare. Den länkade tjänsten har anslutningsinformationen som Data Factory-tjänsten använder vid körning för att ansluta till den.
 
-1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll: (Skapa mappen ADFv2QuickStartPSH om den inte redan finns.)
+1. Skapa en JSON-fil med namnet **AzureStorageLinkedService.json** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll: (skapa mappen ADFv2QuickStartPSH om den inte redan finns.).
 
     > [!IMPORTANT]
     > Ersätt &lt;accountName&gt; och &lt;accountKey&gt; med namnet och nyckeln för ditt Azure Storage-konto innan du sparar filen.
@@ -157,7 +157,7 @@ Skapa länkade tjänster i en datafabrik för att länka ditt datalager och ber�
 
 ## <a name="create-datasets"></a>Skapa datauppsättningar
 
-I den här proceduren skapar du två datamängder: **InputDataset** och **OutputDataset**. Dessa data uppsättningar är av typen **Binary**. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt.
+I den här proceduren skapar du två datauppsättningar: **InputDataset** och **OutputDataset**. Dessa data uppsättningar är av typen **Binary**. De refererar till den länkade Azure Storage-tjänst du skapade i föregående avsnitt.
 Datauppsättningen för indata representerar källdata i indatamappen. I definitionen av datauppsättningen för indata anger du blobcontainern (**adftutorial**), mappen (**input**) och filen (**emp.txt**) som innehåller källdata.
 Datauppsättningen för utdata representerar de data som kopieras till målet. I definitionen av datauppsättningen för utdata anger du blobcontainern (**adftutorial**), mappen (**output**) och filen som data ska kopieras till. 
 1. Skapa en JSON-fil med namnet **InputDataset. JSON** i mappen **C:\ADFv2QuickStartPSH** med följande innehåll:
@@ -184,7 +184,7 @@ Datauppsättningen för utdata representerar de data som kopieras till målet. I
     }
     ```
 
-2. Så här skapar du datamängden: **InputDataset**kör du cmdleten **set-AzDataFactoryV2Dataset** .
+2. Om du vill skapa data uppsättningen: **InputDataset**kör du cmdleten **set-AzDataFactoryV2Dataset** .
 
     ```powershell
     Set-AzDataFactoryV2Dataset -DataFactoryName $DataFactory.DataFactoryName `
@@ -300,7 +300,7 @@ I den här proceduren skapar du en pipeline med en kopierings aktivitet som anv�
     }
     ```
 
-2. Så här skapar du pipelinen: **Adfv2QuickStartPipeline**kör du cmdleten **set-AzDataFactoryV2Pipeline** .
+2. Om du vill skapa pipelinen: **Adfv2QuickStartPipeline**kör du cmdleten **set-AzDataFactoryV2Pipeline** .
 
     ```powershell
     $DFPipeLine = Set-AzDataFactoryV2Pipeline `
@@ -316,12 +316,12 @@ I det här steget skapar du en pipeline-körning.
 
 Kör cmdleten **Invoke-AzDataFactoryV2Pipeline** för att skapa en pipeline-körning. Cmdleten samlar även in pipelinekörningens ID för kommande övervakning.
 
-    ```powershell
-    $RunId = Invoke-AzDataFactoryV2Pipeline `
-        -DataFactoryName $DataFactory.DataFactoryName `
-        -ResourceGroupName $ResGrp.ResourceGroupName `
-        -PipelineName $DFPipeLine.Name 
-    ```
+  ```powershell
+$RunId = Invoke-AzDataFactoryV2Pipeline `
+    -DataFactoryName $DataFactory.DataFactoryName `
+    -ResourceGroupName $ResGrp.ResourceGroupName `
+    -PipelineName $DFPipeLine.Name 
+```
 
 ## <a name="monitor-the-pipeline-run"></a>Övervaka pipelinekörningen
 

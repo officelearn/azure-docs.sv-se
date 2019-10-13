@@ -123,6 +123,8 @@
               href: automation-scenario-source-control-integration-with-VSTS.md
     - name: Felsöka
       items:
+        - name: Data som du behöver samla in när du öppnar ett ärende för Microsoft Azure Automation
+          href: troubleshoot/collect-data-microsoft-azure-automation-case.md
         - name: Felsöka Hybrid Runbook Worker
           href: troubleshoot/hybrid-runbook-worker.md
           displayName: 'troubleshoot, HRW, hybrid worker'

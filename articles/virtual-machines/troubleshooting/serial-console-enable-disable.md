@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 8/20/2019
 ms.author: alsin
-ms.openlocfilehash: 1c1fe208c77142351a786fa636896e64a8a467d7
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: f48fe94504d8012affb77c4fd5d39df2537d72b3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129658"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300123"
 ---
 # <a name="enable-and-disable-the-azure-serial-console"></a>Aktivera och inaktivera Azures serie konsol
 
@@ -27,11 +27,11 @@ Precis som med andra resurser kan Azures serie konsol aktive ras och inaktive ra
 
 Du kan också inaktivera en serie konsol för en enskild virtuell dator eller en virtuell dators skalnings uppsättnings instans genom att inaktivera startdiagnostik. Du måste ha åtkomst till deltagar nivå eller mer på både virtuell dator/virtuell dators skalnings uppsättning och ditt lagrings konto för startdiagnostik.
 
-## <a name="vm-level-disable"></a>Inaktivera för VM-nivå
-Serie konsolen kan inaktive ras för en angiven virtuell dator eller en virtuell dators skalnings uppsättning genom att inaktivera inställningen för startdiagnostik. Inaktivera startdiagnostik från Azure Portal för att inaktivera serie konsolen för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn. Om du använder en seriell konsol på en skalnings uppsättning för virtuella datorer måste du uppgradera de virtuella datorernas skalnings uppsättnings instanser till den senaste modellen.
+## <a name="vm-level-disable"></a>Inaktivera VM-nivå
+Serie konsolen kan inaktive ras för en angiven virtuell dator eller en virtuell dators skalnings uppsättning genom att inaktivera inställningen för startdiagnostik. Inaktivera startdiagnostik från Azure-portalen för att inaktivera serie konsolen för den virtuella datorn eller skalnings uppsättningen för den virtuella datorn. Om du använder en seriell konsol på en skalnings uppsättning för virtuella datorer måste du uppgradera de virtuella datorernas skalnings uppsättnings instanser till den senaste modellen.
 
 
-## <a name="subscription-level-disable"></a>Prenumerationsnivå inaktivera
+## <a name="subscription-level-disable"></a>Inaktivera prenumerations nivå
 
 ### <a name="azure-cli"></a>Azure CLI
 
@@ -39,23 +39,23 @@ Seriell konsol kan inaktive ras och aktive ras för en hel prenumeration med hj�
 
 Om du vill inaktivera en serie konsol för en prenumeration använder du följande kommandon:
 ```azurecli-interactive
-subscriptionId=$(az account show -o=json | jq -r .id)
+subscriptionId=$(az account show --output=json | jq -r .id)
 
-az resource invoke-action --action disableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default"
+az resource invoke-action --action disableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
 Om du vill aktivera en prenumerations serie konsol använder du följande kommandon:
 ```azurecli-interactive
-subscriptionId=$(az account show -o=json | jq -r .id)
+subscriptionId=$(az account show --output=json | jq -r .id)
 
-az resource invoke-action --action enableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default"
+az resource invoke-action --action enableConsole --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --api-version="2018-05-01"
 ```
 
 Använd följande kommandon för att hämta den aktuella aktiverade/inaktiverade statusen för en prenumerations serie konsol:
 ```azurecli-interactive
-subscriptionId=$(az account show -o=json | jq -r .id)
+subscriptionId=$(az account show --output=json | jq -r .id)
 
-az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" -o=json | jq .properties
+az resource show --ids "/subscriptions/$subscriptionId/providers/Microsoft.SerialConsole/consoleServices/default" --output=json --api-version="2018-05-01" | jq .properties
 ```
 
 ### <a name="powershell"></a>PowerShell

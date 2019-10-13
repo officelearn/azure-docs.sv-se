@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1bd84a40236b54d799efcf04eae707aea9c6c945
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b38779681dfe612369fefb9d752389395965e7b4
+ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828933"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72285780"
 ---
 # <a name="quickstart---configure-a-private-cloud-environment"></a>Snabb start – konfigurera en privat moln miljö
 
@@ -47,7 +47,7 @@ Privata moln hanteras via CloudSimple-portalen. De har sina egna vCenter-servrar
 
     ![Skapa privat moln – grundläggande information](media/create-private-cloud-basic-info.png)
 
-9. Klicka på **Nästa: Avancerade alternativ**.
+9. Klicka på **Nästa: avancerade alternativ**.
 10. Ange CIDR-intervallet för vSphere/virtuellt San-undernät. Se till att CIDR-intervallet inte överlappar något av dina lokala eller andra Azure-undernät (virtuella nätverk) eller med Gateway-undernätet.
 
     **Alternativ för CIDR-intervall:** /24,/23,/22 eller/21. Ett/24 CIDR-intervall stöder upp till 26 noder, ett/23 CIDR-intervall stöder upp till 58 noder och ett/22-och/21 CIDR-intervall stöder 64-noder (det maximala antalet noder i ett privat moln).  Mer information och VLAN och undernät finns i [Översikt över VLAN och undernät](cloudsimple-vlans-subnets.md).
@@ -55,7 +55,7 @@ Privata moln hanteras via CloudSimple-portalen. De har sina egna vCenter-servrar
       > [!IMPORTANT]
       > IP-adresser i CIDR-intervallet vSphere/virtuellt San är reserverade för användning av den privata moln infrastrukturen.  Använd inte IP-adressen i det här intervallet på någon virtuell dator.
 
-11. Klicka på **Nästa: Granska och skapa**.
+11. Klicka på **Nästa: granska och skapa**.
 12. Granska inställningarna. Om du behöver ändra några inställningar klickar du på **föregående**.
 13. Klicka på **Skapa**.
 
@@ -116,7 +116,7 @@ VPN-klienten krävs för att ansluta till CloudSimple från din dator.  Ladda ne
 4. Välj **användare**.
 5. Klicka på **Hämta min VPN-konfiguration**.
 
-    ![Ladda ned VPN-anslutning](media/download-p2s-vpn-configuration.png)
+    ![Ladda ned VPN-konfiguration](media/download-p2s-vpn-configuration.png)
 
 6. Importera konfigurationen på VPN-klienten.
 
@@ -159,7 +159,7 @@ Nu kan du logga in på vCenter för att konfigurera virtuella datorer och princi
 
 2. Välj önskad vSphere-klient för att komma åt vCenter och logga in med ditt användar namn och lösen ord.  Standardvärdena är:
     * Användar namn: **CloudOwner@cloudsimple.local**
-    * Ords **CloudSimple123!**  
+    * Lösen ord: **CloudSimple123!**  
 
 VCenter-skärmarna i nästa procedur är från vSphere-klienten (HTML5).
 
@@ -168,13 +168,13 @@ VCenter-skärmarna i nästa procedur är från vSphere-klienten (HTML5).
 CloudSimple rekommenderar att du ändrar ditt lösen ord första gången du loggar in på vCenter.  
 Det lösen ord som du anger måste uppfylla följande krav:
 
-* Högsta livstid: Lösen ordet måste ändras var 365 dag
-* Begränsa åter användning: Användare kan inte återanvända något av de föregående fem lösen orden
+* Högsta livstid: lösen ordet måste ändras var 365: e dag
+* Begränsa åter användning: användarna kan inte återanvända något av de föregående fem lösen orden
 * Längd: 8-20 tecken
-* Specialtecken: Minst ett specialtecken
-* Alfabetiska tecken: Minst en versal, A-Z och minst en gemen, a-z
-* Nummer Minst ett numeriskt tecken, 0-9
-* Maximalt antal identiska intilliggande tecken: Tre
+* Specialtecken: minst ett specialtecken
+* Alfabetiska tecken: minst ett versal tecken, A-Z och minst ett gement tecken, a-z
+* Siffror: minst ett numeriskt tecken, 0-9
+* Maximalt antal identiska intilliggande tecken: tre
 
     Exempel: CC eller kopia är acceptabelt som en del av lösen ordet, men CCCC är inte.
 
@@ -183,12 +183,12 @@ Om du anger ett lösen ord som inte uppfyller kraven:
 * Om du använder vSphere Flash-klienten rapporterar den ett fel
 * Om du använder HTML5-klienten rapporteras inget fel. Klienten accepterar inte ändringen och det gamla lösen ordet fortsätter att fungera.
 
-## <a name="change-nsx-administrator-password"></a>Ändra NSX administratörs lösen ord
+## <a name="access-nsx-manager"></a>Åtkomst till NSX Manager
 
-NSX Manager distribueras med ett standard lösen ord.  Vi rekommenderar att du ändrar lösen ordet när du har skapat ditt privata moln.
+NSX Manager distribueras med ett standard lösen ord. 
 
 * Användar namn: **admin**
-* Ords **CloudSimple123!**
+* Lösen ord: **CloudSimple123!**
 
 Du kan hitta det fullständigt kvalificerade domän namnet (FQDN) och IP-adressen för NSX Manager på CloudSimple-portalen.
 
@@ -198,8 +198,6 @@ Du kan hitta det fullständigt kvalificerade domän namnet (FQDN) och IP-adresse
 4. Använd FQDN eller IP-adressen för **NSX Manager** och Anslut med en webbläsare.
 
     ![Hitta NSX Manager FQDN](media/private-cloud-nsx-manager-fqdn.png)
-
-Om du vill ändra lösen ordet följer du anvisningarna i [installationen av NSX Manager](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.2/com.vmware.nsxt.install.doc/GUID-A65FE3DD-C4F1-47EC-B952-DEDF1A3DD0CF.html).
 
 ## <a name="create-a-port-group"></a>Skapa en port grupp
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/22/2019
 ms.author: magattus
 ms.custom: ''
-ms.openlocfilehash: f677d6b8edfe60646c6368acce9d47b23a35237d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 95b85aa11d99ddd48c90c8d9fa28789e79ee979f
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71146879"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299248"
 ---
 # <a name="retrieve-the-current-pop-ip-list-for-azure-cdn"></a>Hämta den aktuella POP IP-listan för Azure CDN
 
@@ -37,11 +37,10 @@ Om du vill låsa ditt program för att endast acceptera trafik från Azure CDN f
 Konfigurera IP-ACLing för dina Server delar för att acceptera trafik från Azure CDN från Microsofts server dels IP-adressutrymme och Azures infrastruktur tjänster. 
 
 * Azure CDN från Microsofts IPv4-backend-IP-utrymme: 147.243.0.0/16
-* Azure CDN från Microsofts IP-utrymme för IPv6-Server delen: 2a01:111:2050::/44
+* Azure CDN från Microsofts IPv6-backend-IP-utrymme: 2a01:111:2050::/44
 
 IP-adressintervall och service märken för Microsoft-tjänster hittar du [här](https://www.microsoft.com/download/details.aspx?id=56519)
 
-Filtrera på värdena för det inkommande huvudet X-forwarded-Host som skickats av Azure CDN från Microsoft. De enda tillåtna värdena för rubriken måste vara alla slut punkts värdar som definieras i CDN-konfigurationen. I själva verket är det bara de värdnamn för vilka du vill acceptera trafik från, på detta specifika ursprung.
 
 ## <a name="typical-use-case"></a>Vanligt användningsfall
 

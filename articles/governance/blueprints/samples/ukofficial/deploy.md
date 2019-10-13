@@ -1,5 +1,5 @@
 ---
-title: Exempel – Storbritannien och Storbritannien NHS skiss – distribuera steg
+title: Storbritannien, officiella & Storbritannien NHS-skiss-exempel – distribuera steg
 description: Distribuera steg för de officiella och brittiska NHS-skiss exemplen, inklusive information om skiss artefakt parameter.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/26/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: c2c6089d9c600626a93906e460ef1c662c32cb59
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: ea58ef49aa4d901339bf87343f0eea8eb517011d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248280"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299028"
 ---
 # <a name="deploy-the-uk-official-and-uk-nhs-blueprint-samples"></a>Distribuera de NHSa skiss exemplen från Storbritannien och Storbritannien
 

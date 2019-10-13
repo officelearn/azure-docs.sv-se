@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Syntetisera tal, Java (Windows, Linux, macOS) – tal service'
+title: 'Snabb start: syntetisera tal, Java (Windows, Linux, macOS) – tal service'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten lär du dig att skapa ett enkelt Java-program som fångar in och syntetiserar tal från text och spelar upp det med standard talare.
 services: cognitive-services
@@ -10,14 +10,14 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/19/2019
 ms.author: yulili
-ms.openlocfilehash: 832525ae1441fca85f8df661b4a187c0be8d91dc
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c66e321618b46d52f791f95dab570e3721e806a9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803987"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299221"
 ---
-# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-java"></a>Snabbstart: Syntetisera tal med talet SDK för Java
+# <a name="quickstart-synthesize-speech-with-the-speech-sdk-for-java"></a>Snabb start: syntetisera tal med tal-SDK för Java
 
 Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-java-jre.md), [tal-till-tal-översättning](quickstart-translate-speech-java-jre.md)och [röst-och första virtuella assistent](quickstart-virtual-assistant-java-jre.md).
 
@@ -26,14 +26,14 @@ I den här artikeln ska du skapa ett Java-konsolprogram med hjälp av [Speech SD
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten krävs:
 
-* Operativsystem: 64-bitars Windows, 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) eller macOS 10,13 eller senare
+* Operativ system: 64-bitars Windows, 64-bitars Linux (Ubuntu 16,04, Ubuntu 18,04, Debian 9) eller macOS 10,13 eller senare
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) eller [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
-* En Azure-prenumerationsnyckel för taltjänsten. [Skaffa en kostnadsfritt](get-started.md).
+* En Azure-prenumerationsnyckel för Speech Service. [Skaffa en utan kostnad](get-started.md).
 
 Om du kör Linux kontrollerar du att dessa beroenden är installerade innan du startar Sol förmörkelse.
 
@@ -79,18 +79,18 @@ Om du kör Windows (64-bitars) bör du kontrol lera att du har installerat C++ M
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 
 Tryck på F11 eller välj **Kör** > **Felsök**.
-Mata in en text när den höjs och du kommer att kunna spela upp det syntetiserade ljudet från standard talare.
+Ange en text när du uppmanas att lyssna på det syntetiserade ljudet som spelas upp från standard talare.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Ytterligare exempel, till exempel att läsa tal från en ljudfil, finns på GitHub.
+Ytterligare exempel, till exempel hur man läser tal från en ljudfil, finns på GitHub.
 
 > [!div class="nextstepaction"]
 > [Utforska Java-exempel på GitHub](https://aka.ms/csspeech/samples)
 
 ## <a name="see-also"></a>Se också
 
-- [Snabbstart: Identifiera tal, Java (Windows, Linux, macOS) ](quickstart-java-jre.md)
-- [Snabbstart: Översätt tal, Java (Windows, Linux, macOS) ](quickstart-translate-speech-java-jre.md)
+- [Snabb start: identifiera tal, Java (Windows, Linux, macOS)](quickstart-java-jre.md)
+- [Snabb start: Översätt tal, Java (Windows, Linux, macOS)](quickstart-translate-speech-java-jre.md)
 - [Anpassa röst teckensnitt](how-to-customize-voice-font.md)
 - [Spela in röst exempel](record-custom-voice-samples.md)

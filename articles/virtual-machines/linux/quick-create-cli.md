@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 0208e72263991daceed52073bcce8b3e01f8e8c2
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 440ba2cd7ac9cea19f903dff493790194962e1e8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174283"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299484"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Linux-dator med Azure CLI
 
@@ -107,7 +107,7 @@ När du är klar avslutar du SSH-sessionen genom att skriva `exit`.
 
 Använd valfri webbläsare för att visa välkomstsidan för NGINX. Använd den virtuella datorns offentliga IP-adress som webbadress. Följande exempel visar NGINX-standardwebbplatsen:
 
-![NGINX-standardwebbplats](./media/quick-create-cli/nginx.png)
+![NGINX standard sida för Välkommen](./media/quick-create-cli/nginix-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

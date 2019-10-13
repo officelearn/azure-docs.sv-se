@@ -101,6 +101,8 @@
           href: 'https://go.microsoft.com/fwlink/?linkid=2091601'
 - name: Resurser
   items:
+    - name: Prissättning
+      href: 'https://azure.microsoft.com/en-us/pricing/details/app-configuration/'
     - name: Videoklipp
       items:
         - name: Komma igång

@@ -2,18 +2,17 @@
 title: Data källor som stöds i Azure Analysis Services | Microsoft Docs
 description: Beskriver data källor som stöds för data modeller i Azure Analysis Services.
 author: minewiskan
-manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 81fc73ffd61a49eae1c4f107733b6f9f53efbb4f
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 79346f0bf80386fb83f55daccda8790652ff8541
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70993393"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298637"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Data källor som stöds i Azure Analysis Services
 
@@ -39,7 +38,7 @@ Data källor och anslutningar som visas i guiden hämta data eller importera i V
 <a name="gen2">4</a> -ADLS Gen2 stöds inte för närvarande.
 
 
-**CSP**   
+**Provider**   
 InMemory-och DirectQuery-modeller som ansluter till Azure-datakällor använder .NET Framework Data Provider för SQL Server.
 
 ## <a name="other-data-sources"></a>Andra data källor
@@ -51,7 +50,7 @@ Anslutning till lokala data källor från och Azure AS Server kräver en lokal g
 |Datakälla | InMemory-Provider | DirectQuery-Provider |
 |  --- | --- | --- |
 | SQL Server |SQL Server Native Client 11,0, Microsoft OLE DB Provider för SQL Server .NET Framework Data Provider för SQL Server | .NET Framework data leverantör för SQL Server |
-| SQL Server Data Warehouse |SQL Server Native Client 11,0, Microsoft OLE DB Provider för SQL Server .NET Framework Data Provider för SQL Server | .NET Framework data leverantör för SQL Server |
+| SQL Server informations lager |SQL Server Native Client 11,0, Microsoft OLE DB Provider för SQL Server .NET Framework Data Provider för SQL Server | .NET Framework data leverantör för SQL Server |
 | Oracle | OLE DB Provider för Oracle, Oracle Data Provider för .NET |Oracle Data Provider för .NET |
 | Teradata |OLE DB Provider för Teradata, Teradata Data Provider för .NET |Teradata Data Provider för .NET |
 | | | |
@@ -77,7 +76,7 @@ Anslutning till lokala data källor från och Azure AS Server kräver en lokal g
 |ODBC-fråga     | 
 |OLE DB     |   
 |PostgreSQL databas<sup>[1](#tab1400b)</sup>    | 
-|Salesforce Objects<sup>[1](#tab1400b)</sup> |  
+|Salesforce-objekt<sup>[1](#tab1400b)</sup> |  
 |Salesforce-rapporter<sup>[1](#tab1400b)</sup> |
 |SAP HANA<sup>[1](#tab1400b)</sup>    |  
 |SAP Business Warehouse<sup>[1](#tab1400b)</sup>    |  
@@ -92,15 +91,15 @@ Anslutning till lokala data källor från och Azure AS Server kräver en lokal g
 
 ## <a name="specifying-a-different-provider"></a>Ange en annan provider
 
-Data modeller i Azure Analysis Services kan kräva olika data leverantörer vid anslutning till vissa data källor. I vissa fall kan tabell modeller som ansluter till data källor med inbyggda leverantörer som SQL Server Native Client (SQLNCLI11) returnera ett fel. Om du använder andra inbyggda providers än SQLOLEDB kan du se fel meddelandet: **Providern "SQLNCLI 11.1" är inte registrerad**. Eller, om du har en DirectQuery-modell som ansluter till lokala data källor och använder inbyggda providers, kan du se fel meddelandet: **Det gick inte att skapa OLE DB rad uppsättning. Felaktig syntax nära LIMIT**.
+Data modeller i Azure Analysis Services kan kräva olika data leverantörer vid anslutning till vissa data källor. I vissa fall kan tabell modeller som ansluter till data källor med inbyggda leverantörer som SQL Server Native Client (SQLNCLI11) returnera ett fel. Om du använder andra inbyggda providers än SQLOLEDB kan du se fel meddelandet: **providern ' SQLNCLI 11.1 ' är inte registrerad**. Eller, om du har en DirectQuery-modell som ansluter till lokala data källor och använder inbyggda providers, kan du se fel meddelandet: det **gick inte att skapa OLE DB rad uppsättning. Felaktig syntax nära LIMIT**.
 
 När du migrerar en lokal SQL Server Analysis Services tabell modell till Azure Analysis Services kan du behöva ändra providern.
 
 **Ange en provider**
 
-1. I SSDT > **tabell modell Utforskaren** > **data källor**högerklickar du på en anslutning till data källa och klickar sedan på **Redigera data källa**.
+1. I SSDT > **tabell modell utforskaren** > **data källor**högerklickar du på en anslutning till en data källa och klickar sedan på **Redigera data källa**.
 2. I **Redigera anslutning**klickar du på **Avancerat** för att öppna fönstret avancerade egenskaper.
-3. I **Ange avancerade egenskaper** > **leverantörer**väljer du lämplig Provider.
+3. I **Ange avancerade egenskaper** > -**providers**väljer du lämplig Provider.
 
 ## <a name="impersonation"></a>Personifiering
 I vissa fall kan det vara nödvändigt att ange ett annat konto för personifiering. Personifierings konto kan anges i Visual Studio (SSDT) eller SSMS.

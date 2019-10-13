@@ -1,5 +1,5 @@
 ---
-title: Exempel-PCI-DSS v 3.2.1 skiss – distribuera steg
+title: PCI-DSS v 3.2.1 skiss exempel – distribuera steg
 description: Distribuera steg för betalnings kortet bransch Data Security Standard v 3.2.1-exempel, inklusive information om skiss artefakt parameter.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 06/24/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: fa409b873ea1dd0c0970ebc694ad68673df4d033
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 85f9eab29411ac896f73eed7aba607c733e4b95e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248864"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299039"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>Distribuera skiss exemplet PCI-DSS v 3.2.1
 
@@ -100,7 +100,7 @@ I följande tabell visas en lista över Skissernas artefakt parametrar:
 |\[Preview @ no__t-1 audit PCI v 3.2.1:2018 kontrollerar och distribuerar särskilda VM-tillägg så att de stöder gransknings krav|Principtilldelning|Lista över resurs typer | Granska diagnostikinställningar för valda resurs typer. Standardvärdet är alla resurser markerade| 
 |Tillåtna platser|Principtilldelning|Lista över tillåtna platser|Lista över data Center platser som tillåts för alla resurser som ska distribueras till. Den här listan kan anpassas till önskade Azure-platser globalt. Välj de platser som du vill tillåta.| 
 |Tillåtna platser för resurs grupper|Principtilldelning |Tillåten plats |Med den här principen kan du begränsa vilka platser som organisationen kan skapa resurs grupper i. Den används för att genomdriva kraven på geo-efterlevnad.| 
-|Distribuera granskning på SQL-servrar|Principtilldelning|Kvarhållning dagar|Data bevarande i antal dagar. Standardvärdet är 180 men PCI kräver 365.| 
+|Distribuera granskning på SQL-servrar|Principtilldelning|Kvarhållning dagar|Data kvarhållning i antal dagar. Standardvärdet är 180 men PCI kräver 365.| 
 |Distribuera granskning på SQL-servrar|Principtilldelning|Resurs grupp namn för lagrings konto|Granskning skriver databas händelser till en Gransknings logg i ditt Azure Storage konto (ett lagrings konto skapas i varje region där ett SQL Server skapas som kommer att delas av alla servrar i den regionen).| 
 
 ## <a name="next-steps"></a>Nästa steg

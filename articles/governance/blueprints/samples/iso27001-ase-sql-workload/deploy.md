@@ -1,17 +1,17 @@
 ---
-title: Exempel – ISO 27001 ASE/SQL arbets belastnings skiss – distribuera steg
+title: ISO 27001 ASE/SQL arbets belastning skiss exempel – distribuera steg
 description: Distribuera steg i exemplet ISO 27001 App Service-miljön/SQL Database arbets belastnings skiss, inklusive information om skiss artefakt parameter.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: 48c4aa703739d76aa565f3692706f87d2a1c705a
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: bd85a65d3e4d8aa1a16bb57dc5981d661a83d412
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72248941"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297629"
 ---
 # <a name="deploy-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Distribuera exempel på arbets belastnings skiss för ISO 27001 App Service-miljön/SQL Database
 

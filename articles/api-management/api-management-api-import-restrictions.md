@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/26/2019
 ms.author: apimpm
-ms.openlocfilehash: d1c80e2ab9ae6a893b1adea6bd68e9b585288d8b
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 0bf52b45bc315874c58be50bccbffa49090d554d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074963"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72294342"
 ---
 # <a name="api-import-restrictions-and-known-issues"></a>API import-begränsningar och kända problem
 
@@ -33,12 +33,13 @@ Om du får fel när du importerar OpenAPI-dokumentet ser du till att du har vali
 ### <a name="open-api-general"> </a>Allmän
 
 -   Obligatoriska parametrar i både sökväg och fråga måste ha unika namn. (I OpenAPI måste parameter namnet bara vara unikt inom en plats, till exempel sökväg, fråga, rubrik. Men i API Management tillåter vi att åtgärder diskrimineras av både sökväg och frågeparametrar (som OpenAPI inte stöder). Därför kräver vi att parameter namn är unika inom hela URL-mallen.)
--   referens punkter kan inte referera till externa filer.  **\$**
+-   **\$ref** pekare kan inte referera till externa filer.
 -   **x-MS – sökvägar** och **x-servrar** är de enda tillägg som stöds.
 -   Anpassade tillägg ignoreras vid import och sparas eller bevaras inte för export.
 -   **Rekursion** – API Management stöder inte definitioner som definierats rekursivt (till exempel scheman som refererar till sig själva).
 -   Käll filens URL (om tillgänglig) används för relativa server-URL: er.
 -   Säkerhets definitioner ignoreras.
+-   Infogade schema definitioner för API-åtgärder stöds inte. Schema definitioner definieras i API-omfånget och kan refereras till i API-åtgärder för begäran eller svars omfattningar.
 
 ### <a name="open-api-v2"> </a>Openapi version 2
 

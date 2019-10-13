@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Blob Storage och anslutna Visual Studio-tjänster (webb jobbs projekt) | Microsoft Docs
+title: Kom igång med Blob Storage med Visual Studio (webbjobb-projekt)
 description: Hur du kommer igång med Blob Storage i ett webbjobb-projekt efter att ha anslutit till en Azure-lagring med hjälp av Visual Studio Connected Services.
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 1e951fde7e47ccfcce5f64db4ef27ac767d63480
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 90aa824b7df575eb2783ece5bd88322f0b55f0a2
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510648"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299974"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-webjob-projects"></a>Kom igång med Azure Blob Storage och anslutna Visual Studio-tjänster (webb jobb projekt)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
@@ -49,9 +50,9 @@ Du kan ange ett namn mönster med plats hållaren för BLOB-namn, som du ser i f
             output = input.ReadToEnd();
         }
 
-Den här koden kopierar endast blobbar som har namn som börjar med "original". Till exempel kopieras *original-Blob1. txt* i behållaren för indata till *copy-Blob1. txt* i behållaren *utdata* .
+Den här koden kopierar endast blobbar som har namn som börjar med "original". Till exempel kopieras *original-Blob1. txt* i behållaren för *indata* till *copy-Blob1. txt* i behållaren *utdata* .
 
-Om du behöver ange ett namn mönster för BLOB-namn som har klammerparenteser i namnet, så dubbla klammerparenteser. Om du till exempel vill hitta blobbar i behållaren avbildningar som har namn som detta:
+Om du behöver ange ett namn mönster för BLOB-namn som har klammerparenteser i namnet, så dubbla klammerparenteser. Om du till exempel vill hitta blobbar i behållaren *avbildningar* som har namn som detta:
 
         {20140101}-soundfile.mp3
 
@@ -62,7 +63,7 @@ Använd detta för ditt mönster:
 I exemplet skulle *namnet* placeholder vara *Soundfile. mp3*.
 
 ### <a name="separate-blob-name-and-extension-placeholders"></a>Separata plats hållare för BLOB-namn och tillägg
-Följande kod exempel ändrar fil namns tillägget när blobbar kopieras som visas i behållaren indata till behållaren *utdata* . Koden loggar tillägget för bloben för *indata* och anger utökningen för bloben *output* till *. txt*.
+Följande kod exempel ändrar fil namns tillägget när blobbar kopieras som visas i behållaren *indata* till behållaren *utdata* . Koden loggar tillägget för bloben för *indata* och anger utökningen för bloben *output* till *. txt*.
 
         public static void CopyBlobToTxtFile([BlobTrigger("input/{name}.{ext}")] TextReader input,
             [Blob("output/{name}.txt")] out string output,
@@ -78,7 +79,7 @@ Följande kod exempel ändrar fil namns tillägget när blobbar kopieras som vis
 ## <a name="types-that-you-can-bind-to-blobs"></a>Typer som du kan binda till blobbar
 Du kan använda attributet **en** på följande typer:
 
-* **string**
+* **nollängd**
 * **TextReader**
 * **Skicka**
 * **ICloudBlob**
@@ -101,7 +102,7 @@ Om text-blobbar förväntas kan **en** tillämpas på en **sträng** parameter. 
         }
 
 ## <a name="getting-serialized-blob-content-by-using-icloudblobstreambinder"></a>Hämta serialiserat BLOB-innehåll med hjälp av ICloudBlobStreamBinder
-I följande kod exempel används en klass som implementerar **ICloudBlobStreamBinder** för att göra det möjligt för **en** -attributet att binda en blob till webavbildnings typen.
+I följande kod exempel används en klass som implementerar **ICloudBlobStreamBinder** för att göra det möjligt för **en** -attributet att binda en blob till **webavbildnings** typen.
 
         public static void WaterMark(
             [BlobTrigger("images3/{name}")] WebImage input,
@@ -120,7 +121,7 @@ I följande kod exempel används en klass som implementerar **ICloudBlobStreamBi
             output = input.Resize(width, height);
         }
 
-Bindnings koden för webavbildningen finns i en **WebImageBinder** -klass som härleds från **ICloudBlobStreamBinder**.
+Bindnings koden för **Webavbildningen** finns i en **WebImageBinder** -klass som härleds från **ICloudBlobStreamBinder**.
 
         public class WebImageBinder : ICloudBlobStreamBinder<WebImage>
         {
@@ -144,11 +145,11 @@ Det maximala antalet återförsök kan konfigureras. Samma **MaxDequeueCount** -
 
 Queue-meddelandet för Poison-blobbar är ett JSON-objekt som innehåller följande egenskaper:
 
-* FunctionId (i formatet *{webb namn för webb namn}* . Funktionen. *{Funktions namn}* , till exempel: WebJob1.Functions.CopyBlob)
+* FunctionId (i formatet *{webb namn för webb namn}* . Funktionen. *{Funktions namn}* , till exempel: WebJob1. functions. CopyBlob)
 * BlobType ("BlockBlob" eller "PageBlob")
 * ContainerName
 * BlobName
-* ETag (en BLOB-versions identifierare, till exempel: "0x8D1DC6E70A277EF")
+* ETag (en BLOB versions identifierare, till exempel: "0x8D1DC6E70A277EF")
 
 I följande kod exempel har funktionen **CopyBlob** kod som gör att den Miss kan köras varje gång den anropas. När SDK anropar den för maximalt antal återförsök skapas ett meddelande i den skadliga BLOB-kön och meddelandet bearbetas av **LogPoisonBlob** -funktionen.
 
@@ -189,15 +190,15 @@ För att identifiera nya eller ändrade blobbar efter att programmet har startat
 Det finns ett undantag för blobbar som du skapar med hjälp av **BLOB** -attributet. När WebJobs SDK skapar en ny BLOB, skickar den den nya blobben omedelbart till alla matchande **en** -funktioner. Om du har en kedja av BLOB-indata och utdata, kan SDK: n bearbeta dem effektivt. Men om du vill ha låg latens för att köra BLOB-bearbetningen för blobbar som skapas eller uppdateras på annat sätt, rekommenderar vi att du använder **QueueTrigger** i stället för **en**.
 
 ### <a name="blob-receipts"></a>BLOB-kvitton
-WebJobs SDK ser till att ingen **en** -funktion anropas mer än en gång för samma nya eller uppdaterade blob. Det gör detta genom att underhålla *BLOB* -kvitton för att avgöra om en specifik blob-version har bearbetats.
+WebJobs SDK ser till att ingen **en** -funktion anropas mer än en gång för samma nya eller uppdaterade blob. Det gör detta genom att underhålla *BLOB-kvitton* för att avgöra om en specifik blob-version har bearbetats.
 
 BLOB-kvitton lagras i en behållare med namnet *Azure-WebJobs-hosts* i Azure Storage-kontot som anges av AzureWebJobsStorage-anslutnings strängen. Ett BLOB-kvitto har följande information:
 
-* Funktionen som anropades för blobben (" *{webb namn}* . Funktionen. *{Function Name}* ", till exempel: "WebJob1.Functions.CopyBlob")
+* Funktionen som anropades för blobben (" *{webb namn}* . Funktionen. *{Function Name}* ", till exempel:" WebJob1. functions. CopyBlob ")
 * Behållarens namn
 * Blob-typ ("BlockBlob" eller "PageBlob")
 * BLOB-namnet
-* ETag (en BLOB-versions identifierare, till exempel: "0x8D1DC6E70A277EF")
+* ETag (en BLOB versions identifierare, till exempel: "0x8D1DC6E70A277EF")
 
 Om du vill framtvinga en ombearbetning av en BLOB kan du manuellt ta bort BLOB-kvittot för denna BLOB från behållaren *Azure-WebJobs-hosts* .
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 81d0469645281f63527db5cf600f157d8d6b29d7
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: ebdaa9aafa884a266ef8cf8d75d1d5fb326c690e
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968366"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300649"
 ---
 # <a name="attach-a-data-disk-to-a-windows-vm-with-powershell"></a>Koppla en datadisk till en virtuell Windows-dator med PowerShell
 
@@ -23,9 +23,7 @@ Börja med att gå igenom följande tips:
 * Storleken på den virtuella datorn styr hur många data diskar du kan koppla. Mer information finns i [storlekar för virtuella datorer](sizes.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 * Om du vill använda Premium-SSD behöver du en [Premium Storage-aktiverad VM-typ](sizes-memory.md), t. ex. den virtuella datorn DS-serien eller GS-serien.
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+Den här artikeln använder PowerShell i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 ## <a name="add-an-empty-data-disk-to-a-virtual-machine"></a>Lägg till en tom datadisk till en virtuell dator
 
@@ -51,7 +49,7 @@ Update-AzVM -VM $vm -ResourceGroupName $rgName
 
 ### <a name="using-managed-disks-in-an-availability-zone"></a>Använda hanterade diskar i en tillgänglighets zon
 
-Om du vill skapa en disk i en tillgänglighets zon använder du [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) med `-Zone` parametern. I följande exempel skapas en disk i zon *1*.
+Om du vill skapa en disk i en tillgänglighets zon använder du [New-AzDiskConfig](https://docs.microsoft.com/powershell/module/az.compute/new-azdiskconfig) med parametern `-Zone`. I följande exempel skapas en disk i zon *1*.
 
 ```powershell
 $rgName = 'myResourceGroup'

@@ -15,31 +15,31 @@ ms.workload: infrastructure
 ms.date: 08/08/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 856e3e41e624844f1d7cbf5bf4cd1611bc10ecbb
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 5a1d1f738d8f32777bc4a6ea7d04fb0abf2accf7
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70081529"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300800"
 ---
 # <a name="tutorial-create-a-mongodb-express-angularjs-and-nodejs-mean-stack-on-a-linux-virtual-machine-in-azure"></a>Självstudier: Skapa en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure
 
 Den här självstudiekursen beskriver hur du implementerar en stack för MongoDB, Express, AngularJS och Node.js (MEAN) på en virtuell Linux-dator i Azure. MEAN-stacken som du skapar gör det möjligt att lägga till, ta bort och lista böcker i en databas. Lär dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell Linux-dator
+> * Skapa ett Linux VM
 > * Installera Node.js
 > * Installera MongoDB och konfigurera servern
 > * Installera Express och konfigurera vägar till servern
 > * Få åtkomst till vägar med AngularJS
 > * Köra programmet
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
 
-## <a name="create-a-linux-vm"></a>Skapa en virtuell Linux-dator
+## <a name="create-a-linux-vm"></a>Skapa ett Linux VM
 
 Skapa en resursgrupp med kommandot [az group create](https://docs.microsoft.com/cli/azure/group) och skapa en virtuell Linux-dator med kommandot [az vm create](https://docs.microsoft.com/cli/azure/vm). En Azure-resursgrupp är en logisk container där Azure-resurser distribueras och hanteras.
 
@@ -323,7 +323,7 @@ sudo apt-get install -y nodejs
     nodejs server.js
     ```
 
-2. Öppna en webbläsare på den adress som du registrerade för den virtuella datorn. Till exempel *http:\//13.72.77.9:3300*. Du bör se något som liknar följande sida:
+2. Öppna en webbläsare på den adress som du registrerade för den virtuella datorn. Till exempel *http: \//13.72.77.9:3300*. Du bör se något som liknar följande sida:
 
     ![Bokpost](media/tutorial-mean/meanstack-init.png)
 
@@ -342,7 +342,7 @@ sudo apt-get install -y nodejs
 I den här självstudiekursen har du skapat ett webbprogram som håller koll på bokposter med hjälp av en MEAN-stack på en virtuell Linux-dator. Du har lärt dig att:
 
 > [!div class="checklist"]
-> * Skapa en virtuell Linux-dator
+> * Skapa ett Linux VM
 > * Installera Node.js
 > * Installera MongoDB och konfigurera servern
 > * Installera Express och konfigurera vägar till servern

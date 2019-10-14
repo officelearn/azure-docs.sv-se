@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Queue Storage och Visual Studio Connected Services (Cloud Services) | Microsoft Docs
+title: Kom igång med Queue Storage med hjälp av Visual Studio (Cloud Services)
 description: Komma igång med Azure Queue Storage i ett moln tjänst projekt i Visual Studio efter anslutning till ett lagrings konto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 5ea0af23ef8cf41b20de033d38e4d8652f9f8310
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 603bb2b9a862ad4ed2cbde63e2d82b9a82fbeaa1
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510687"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298790"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Komma igång med Azure Queue Storage och Visual Studio Connected Services (Cloud Services-projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -57,7 +58,7 @@ Om du vill komma åt köer i Visual Studio-Cloud Services-projekt måste du inkl
         // Get a reference to a queue named "messageQueue"
         CloudQueue messageQueue = queueClient.GetQueueReference("messageQueue");
 
-**Obs!** Använd all ovanstående kod framför koden i följande exempel.
+**Obs:** Använd all ovanstående kod framför koden i följande exempel.
 
 ## <a name="create-a-queue-in-code"></a>Skapa en kö i kod
 Om du vill skapa kön i kod lägger du bara till ett anrop till **CreateIfNotExists**.
@@ -129,7 +130,7 @@ Du kan hämta en uppskattning av antalet meddelanden i en kö. **FetchAttributes
     Console.WriteLine("Number of messages in queue: " + cachedMessageCount);
 
 ## <a name="use-the-async-await-pattern-with-common-azure-queue-apis"></a>Använd det asynkrona await-mönstret med vanliga Azure Queue-API: er
-Det här exemplet visar hur du använder det asynkrona await-mönstret med vanliga Azure Queue-API: er. Exemplet anropar den asynkrona versionen av var och en av de metoder som anges. Detta kan ses av den asynkrona efter korrigeringen av varje metod. När en async-metod används pausar async-await-mönstret den lokala körningen tills anropet har slutförts. Med det här beteendet kan den aktuella tråden utföra annat arbete som hjälper till att undvika prestanda Flask halsar och förbättra programmets övergripande svars tid. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
+Det här exemplet visar hur du använder det asynkrona await-mönstret med vanliga Azure Queue-API: er. Exemplet anropar den asynkrona versionen av var och en av de metoder som anges. Detta kan ses av den **asynkrona** efter korrigeringen av varje metod. När en async-metod används pausar async-await-mönstret den lokala körningen tills anropet har slutförts. Med det här beteendet kan den aktuella tråden utföra annat arbete som hjälper till att undvika prestanda Flask halsar och förbättra programmets övergripande svars tid. Mer information om hur du använder Async-Await-mönstret i .NET finns i [Async och Await (C# och Visual Basic)](https://msdn.microsoft.com/library/hh191443.aspx)
 
     // Create a message to put in the queue
     CloudQueueMessage cloudQueueMessage = new CloudQueueMessage("My message");

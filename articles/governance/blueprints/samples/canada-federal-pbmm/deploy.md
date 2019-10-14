@@ -1,5 +1,5 @@
 ---
-title: Exempel på federala PBMM-skiss – distribuera steg
+title: Kanadas federala PBMM skiss-exempel – distribuera steg
 description: Distribuera steg för det federala PBMM skiss-exemplet, inklusive information om skiss artefakt parameter.
 services: blueprints
 author: DCtheGeek
@@ -7,12 +7,12 @@ ms.author: dacoulte
 ms.date: 09/05/2019
 ms.topic: conceptual
 ms.service: blueprints
-ms.openlocfilehash: 0e799de92f25c688b41d3ac5718fe3a2b7a8aba0
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: e2c061b69771214a770b3b42626d28672bd9fe77
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249017"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297821"
 ---
 # <a name="deploy-the-canada-federal-pbmm-blueprint-samples"></a>Distribuera de federala PBMM-skiss exemplen i Kanada
 

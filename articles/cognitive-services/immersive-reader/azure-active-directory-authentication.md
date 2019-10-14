@@ -10,22 +10,22 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: e4b792a04b4926fdb56f37c089e73b90cde905d3
-ms.sourcegitcommit: 5b76581fa8b5eaebcb06d7604a40672e7b557348
+ms.openlocfilehash: d51c27b90113679c1547f2d030459a03cc22c80c
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68990150"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299800"
 ---
 # <a name="use-azure-active-directory-azure-ad-authentication-with-the-immersive-reader-service"></a>Använd Azure Active Directory (Azure AD)-autentisering med fördjupad läsar tjänsten
 
-I följande avsnitt ska du använda antingen Azure Cloud Shells miljön eller Azure CLI för att skapa en ny fördjupad läsar resurs med en anpassad under domän och sedan konfigurera Azure AD i din Azure-klient. När du har slutfört den inledande konfigurationen kommer du att anropa Azure AD för att få en åtkomsttoken, på samma sätt som när du använder SDK: n för avancerad läsare. Om du har fastnat finns länkar i varje avsnitt med alla tillgängliga alternativ för vart och ett av Azure CLI-kommandona.
+I följande avsnitt kommer du att använda antingen Azure Cloud Shells miljön eller Azure PowerShell för att skapa en ny fördjupad läsar resurs med en anpassad under domän och sedan konfigurera Azure AD i din Azure-klient. När du har slutfört den inledande konfigurationen kommer du att anropa Azure AD för att få en åtkomsttoken, på samma sätt som när du använder SDK: n för avancerad läsare. Om du har fastnat finns länkar i varje avsnitt med alla tillgängliga alternativ för de Azure PowerShell kommandona.
 
 ## <a name="create-an-immersive-reader-resource-with-a-custom-subdomain"></a>Skapa en fördjupad läsar resurs med en anpassad under domän
 
 1. Börja med att öppna [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). [Välj en prenumeration](https://docs.microsoft.com/powershell/module/servicemanagement/azure/select-azuresubscription?view=azuresmps-4.0.0#description):
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    Select-AzSubscription -SubscriptionName <YOUR_SUBSCRIPTION>
    ```
 
@@ -36,12 +36,12 @@ I följande avsnitt ska du använda antingen Azure Cloud Shells miljön eller Az
 
    -SkuName kan vara F0 (kostnads fri nivå) eller S0 (standard nivån, även kostnads fritt under den offentliga för hands versionen). S0-nivån har en högre anrops frekvens gräns och ingen månatlig kvot för antalet anrop.
 
-   -Location kan vara något av `eastus`följande: `australiaeast`, `japaneast` `westus` `centralindia` ,,,`northeurope`,`westeurope`
+   – Plats kan vara något av följande: `eastus`, `westus`, `australiaeast`, `centralindia`, `japaneast`, `northeurope`, `westeurope`
 
    -CustomSubdomainName måste vara globalt unikt och får inte innehålla specialtecken, till exempel: ".", "!", ",".
 
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $resource = New-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <RESOURCE_NAME> -Type ImmersiveReader -SkuName S0 -Location <REGION> -CustomSubdomainName <UNIQUE_SUBDOMAIN>
 
    // Display the Resource info
@@ -54,11 +54,11 @@ I följande avsnitt ska du använda antingen Azure Cloud Shells miljön eller Az
 
 
    >[!NOTE]
-   > Om du skapar en resurs i Azure Portal används resursen "namn" som den anpassade under domänen. Du kan kontrol lera namnet på under domänen i portalen genom att gå till resurs översikts sidan och söka efter under domänen i slut punkten som visas där, till `https://[SUBDOMAIN].cognitiveservices.azure.com/`exempel. Du kan också kontrol lera detta senare när du behöver hämta under domänen för integrering med SDK.
+   > Om du skapar en resurs i Azure Portal används resursen "namn" som den anpassade under domänen. Du kan kontrol lera namnet på under domänen i portalen genom att gå till resurs översikts sidan och söka efter under domänen i slut punkten som visas där, till exempel `https://[SUBDOMAIN].cognitiveservices.azure.com/`. Du kan också kontrol lera detta senare när du behöver hämta under domänen för integrering med SDK.
 
    Om resursen skapades i portalen kan du också [Hämta en befintlig resurs](https://docs.microsoft.com/powershell/module/az.cognitiveservices/get-azcognitiveservicesaccount?view=azps-1.8.0) nu.
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $resource = Get-AzCognitiveServicesAccount -ResourceGroupName <RESOURCE_GROUP_NAME> -name <RESOURCE_NAME>
 
    // Display the Resource info
@@ -74,7 +74,7 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, måste 
    >[!NOTE]
    > Lösen ordet, även kallat klient hemlighet, kommer att användas när du hämtar autentiseringstoken.
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $password = "<YOUR_PASSWORD>"
    $secureStringPassword = ConvertTo-SecureString -String $password -AsPlainText -Force
    $aadApp = New-AzADApplication -DisplayName ImmersiveReaderAAD -IdentifierUris http://ImmersiveReaderAAD -Password $secureStringPassword
@@ -87,7 +87,7 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, måste 
 
 2. Därefter måste du [skapa ett huvud namn för tjänsten](https://docs.microsoft.com/powershell/module/az.resources/new-azadserviceprincipal?view=azps-1.8.0) för Azure AD-programmet.
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $principal = New-AzADServicePrincipal -ApplicationId $aadApp.ApplicationId
 
    // Display the service principal info
@@ -99,7 +99,7 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, måste 
 
 3. Det sista steget är att [tilldela rollen "Cognitive Services användare"](https://docs.microsoft.com/powershell/module/az.Resources/New-azRoleAssignment?view=azps-1.8.0) till tjänstens huvud namn (omfattas av resursen). Genom att tilldela en roll beviljar du tjänstens huvud namn åtkomst till den här resursen. Du kan ge samma tjänst huvud namn åtkomst till flera resurser i din prenumeration.
 
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    New-AzRoleAssignment -ObjectId $principal.Id -Scope $resource.Id -RoleDefinitionName "Cognitive Services User"
    ```
 
@@ -112,13 +112,13 @@ Nu när du har en anpassad under domän som är kopplad till din resurs, måste 
 I det här exemplet används ditt lösen ord för att autentisera tjänstens huvud namn för att hämta en Azure AD-token.
 
 1. Hämta ditt **TenantId**:
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $context = Get-AzContext
    $context.Tenant.Id
    ```
 
 2. Hämta en token:
-   ```azurecli-interactive
+   ```azurepowershell-interactive
    $authority = "https://login.windows.net/" + $context.Tenant.Id
    $resource = "https://cognitiveservices.azure.com/"
    $authContext = New-Object "Microsoft.IdentityModel.Clients.ActiveDirectory.AuthenticationContext" -ArgumentList $authority
@@ -134,7 +134,7 @@ Alternativt kan tjänstens huvud namn autentiseras med ett certifikat. Förutom 
 
 ## <a name="next-steps"></a>Nästa steg
 
-* I självstudien om [Node. js](./tutorial-nodejs.md) kan du se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
-* Visa [python](./tutorial-python.md) -självstudien för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
-* Se snabb [](./tutorial-ios-picture-immersive-reader.md) självstudien för att se vad mer du kan göra med avancerad läsar-SDK med Swift
+* I [självstudien Om Node. js](./tutorial-nodejs.md) kan du se vad mer du kan göra med avancerad läsar-SDK med hjälp av Node. js
+* Visa [python-självstudien](./tutorial-python.md) för att se vad mer du kan göra med avancerad läsar-SDK med hjälp av python
+* Se snabb [självstudien](./tutorial-ios-picture-immersive-reader.md) för att se vad mer du kan göra med avancerad läsar-SDK med Swift
 * Utforska SDK: [n för avancerad läsare](https://github.com/microsoft/immersive-reader-sdk) och [Avancerad läsare SDK-referens](./reference.md)

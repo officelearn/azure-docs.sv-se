@@ -14,19 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: cynthn
-ms.openlocfilehash: 891eade6aaaf8db9813566d10cdceed113560dc7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 223a5a5b77ded9eb26a5cf3f0003bc9d393615db
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70091884"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300855"
 ---
 # <a name="install-mysql-on-a-virtual-machine-running-opensuse-linux-in-azure"></a>Installera MySQL på en virtuell dator som kör OpenSUSE Linux i Azure
 
 [MySQL](https://www.mysql.com) är en populär SQL-databas med öppen källkod. Den här självstudien visar hur du skapar en virtuell dator som kör OpenSUSE Linux och sedan installerar MySQL.
 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Om du väljer att installera och använda CLI-gränssnittet lokalt måste du ha Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -104,7 +102,7 @@ sudo reboot
 
 ## <a name="mysql-password"></a>MySQL-lösenord
 
-Efter installationen är MySQL-rot lösen ordet tomt som standard. Kör skriptet **MySQL\_Secure\_installation** för att skydda MySQL. Skriptet gör att du kan ändra MySQL-rot lösen ordet, ta bort anonyma användar konton, inaktivera fjärrinloggning, ta bort test databaser och läsa in behörighets tabellen igen. 
+Efter installationen är MySQL-rot lösen ordet tomt som standard. Kör skriptet **MySQL @ no__t-1secure @ no__t-2installation** för att skydda MySQL. Skriptet gör att du kan ändra MySQL-rot lösen ordet, ta bort anonyma användar konton, inaktivera fjärrinloggning, ta bort test databaser och läsa in behörighets tabellen igen. 
 
 När servern har startats om, SSH till den virtuella datorn igen.
 
@@ -139,7 +137,7 @@ Semikolon (;) i slutet av raden är det viktigt att du avslutar kommandot.
 ## <a name="create-a-database"></a>Skapa en databas
 
 
-Skapa en databas och bevilja `mysqluser` användar behörigheterna.
+Skapa en databas och bevilja användar behörigheterna `mysqluser`.
 
 ```sql
 CREATE DATABASE testdatabase;

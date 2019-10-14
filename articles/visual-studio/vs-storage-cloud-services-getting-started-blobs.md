@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Blob Storage och anslutna Visual Studio-tjänster (moln tjänster) | Microsoft Docs
+title: Kom igång med Blob Storage med hjälp av Visual Studio (Cloud Services)
 description: Komma igång med Azure Blob Storage i ett moln tjänst projekt i Visual Studio efter anslutning till ett lagrings konto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
@@ -12,18 +12,19 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 56aceb4c782c15f69c7994df787b4b950523e8b5
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d151e55f627166d8ad7d8affa53740e86cd1e501
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510702"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298803"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-cloud-services-projects"></a>Kom igång med Azure Blob Storage-och Visual Studio-anslutna tjänster (Cloud Services-projekt)
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
 ## <a name="overview"></a>Översikt
-Den här artikeln beskriver hur du kommer igång med Azure Blob Storage när du har skapat eller refererat till ett Azure Storage-konto med hjälp av Visual Studio dialog rutan **Lägg till anslutna tjänster** i ett projekt i Visual Studio Cloud Services. Vi visar dig hur du får åtkomst till och skapar BLOB-behållare och hur du utför vanliga åtgärder som att ladda upp, lista och hämta blobbar. Exemplen skrivs i C\# och använder [Microsoft Azure Storage klient biblioteket för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
+Den här artikeln beskriver hur du kommer igång med Azure Blob Storage när du har skapat eller refererat till ett Azure Storage-konto med hjälp av Visual Studio dialog rutan **Lägg till anslutna tjänster** i ett projekt i Visual Studio Cloud Services. Vi visar dig hur du får åtkomst till och skapar BLOB-behållare och hur du utför vanliga åtgärder som att ladda upp, lista och hämta blobbar. Exemplen skrivs i C @ no__t-0 och använder [Microsoft Azure Storage klient bibliotek för .net](https://msdn.microsoft.com/library/azure/dn261237.aspx).
 
 Azure Blob Storage är en tjänst för att lagra stora mängder ostrukturerade data som kan nås från var som helst i världen via HTTP eller HTTPS. En enda BLOB kan vara vilken storlek som helst. Blobbar kan vara saker som bilder, ljud-och videofiler, rå data och dokument-filer.
 

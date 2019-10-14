@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Azure Blob Storage och ASP.NET (Visual Studio Connected Services) | Microsoft Docs
+title: Kom igång med Azure Blob Storage med hjälp av Visual Studio (ASP.NET)
 description: Komma igång med Azure Blob Storage i ett ASP.NET-projekt i Visual Studio, efter att ha anslutit till ett lagrings konto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
@@ -11,12 +11,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 12/07/2017
 ms.author: ghogen
-ms.openlocfilehash: 7fede4a554fc2fd97b5b786a483f6da4f4336248
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: d6591cdb8f19484c87bb05f9007521adc34778f9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69512375"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298864"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet"></a>Kom igång med Azure Blob Storage och ASP.NET (Visual Studio Connected Services)
 
@@ -30,7 +31,7 @@ Den här självstudien visar hur du skriver ASP.NET-kod för några vanliga scen
 
 [!INCLUDE [storage-try-azure-tools-blobs](../../includes/storage-try-azure-tools-blobs.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
 
@@ -52,7 +53,7 @@ Den här självstudien visar hur du skriver ASP.NET-kod för några vanliga scen
 
     ![Skärm bild av dialog rutan Lägg till kontrollant](./media/vs-storage-aspnet-getting-started-blobs/add-controller-name.png)
 
-1. Lägg till följande `using` direktiv `BlobsController.cs` i filen:
+1. Lägg till följande `using`-direktiv i filen `BlobsController.cs`:
 
     ```csharp
     using Microsoft.WindowsAzure;
@@ -82,13 +83,13 @@ Följande steg skapar en metod för att ansluta till lagrings kontot med hjälp 
     ```
 
 > [!NOTE]
-> Även om *test-BLOB-containern* inte finns, skapar den här koden en referens till den. Detta är så att behållaren kan skapas med den `CreateIfNotExists` metod som visas i nästa steg.
+> Även om *test-BLOB-containern* inte finns, skapar den här koden en referens till den. Detta är så att behållaren kan skapas med metoden `CreateIfNotExists` som visas i nästa steg.
 
 ## <a name="create-a-blob-container"></a>Skapa en blobcontainer
 
 Följande steg visar hur du skapar en BLOB-behållare:
 
-1. Lägg till en metod `CreateBlobContainer` som kallas som `ActionResult`returnerar en.
+1. Lägg till en metod som heter `CreateBlobContainer` som returnerar en `ActionResult`.
 
     ```csharp
     public ActionResult CreateBlobContainer()
@@ -99,13 +100,13 @@ Följande steg visar hur du skapar en BLOB-behållare:
     }
     ```
  
-1. Hämta ett `CloudBlobContainer` objekt som representerar en referens till önskat BLOB container-namn. 
+1. Hämta ett `CloudBlobContainer`-objekt som representerar en referens till önskat BLOB container-namn. 
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. `CloudBlobContainer.CreateIfNotExists` Anropa metoden för att skapa behållaren om den inte redan finns. Metoden returnerar true om behållaren inte finns och har skapats. `CloudBlobContainer.CreateIfNotExists` Annars returnerar metoden false.    
+1. Anropa metoden `CloudBlobContainer.CreateIfNotExists` för att skapa behållaren, om den inte redan finns. Metoden `CloudBlobContainer.CreateIfNotExists` returnerar **True** om behållaren inte finns och har skapats. Annars returnerar metoden **false**.    
 
     ```csharp
     ViewBag.Success = container.CreateIfNotExists();
@@ -117,7 +118,7 @@ Följande steg visar hur du skapar en BLOB-behållare:
     ViewBag.BlobContainerName = container.Name;
     ```
     
-    Följande visar den slutförda `CreateBlobContainer` metoden:
+    Nedan visas den färdiga metoden `CreateBlobContainer`:
 
     ```csharp
     public ActionResult CreateBlobContainer()
@@ -132,15 +133,15 @@ Följande steg visar hur du skapar en BLOB-behållare:
 
 1. I **Solution Explorer**högerklickar du på mappen **vyer** .
 
-1. Om det inte finns någon blobs-mapp skapar du en. I snabb menyn väljer du **Lägg till** > **ny mapp**. Namnge den nya Folder- *blobben*. 
+1. Om det inte finns någon **blobs** -mapp skapar du en. I snabb menyn väljer du **Lägg till** > **ny mapp**. Namnge den nya Folder- *blobben*. 
  
 1. I **Solution Explorer**expanderar du mappen **vyer** och högerklickar på **blobbar**.
 
-1. Välj **Lägg till** > **vy**från snabb menyn.
+1. I snabb menyn väljer du **Lägg till** > -**vy**.
 
 1. I dialog rutan **Lägg till vy** anger du **CreateBlobContainer** som namn på vyn och väljer **Lägg till**.
 
-1. Öppna `CreateBlobContainer.cshtml`och ändra det så att det ser ut som i följande kodfragment:
+1. Öppna `CreateBlobContainer.cshtml` och ändra det så att det ser ut som i följande kodfragment:
 
     ```csharp
     @{
@@ -152,7 +153,7 @@ Följande steg visar hur du skapar en BLOB-behållare:
     Creation of @ViewBag.BlobContainerName @(ViewBag.Success == true ? "succeeded" : "failed")
     ```
 
-1. I **Solution Explorer**, expanderar > du den**delade** mappen vyer och `_Layout.cshtml`öppnar.
+1. I **Solution Explorer**expanderar du **vyer** > **delad** mapp och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -164,7 +165,7 @@ Följande steg visar hur du skapar en BLOB-behållare:
   
     ![Skärm bild av skapa BLOB-behållare](./media/vs-storage-aspnet-getting-started-blobs/create-blob-container-results.png)
 
-    Som tidigare `CloudBlobContainer.CreateIfNotExists` nämnts returnerar metoden **True** bara när behållaren inte finns och skapas. Om appen körs när behållaren finns returnerar metoden **falskt**.
+    Som tidigare nämnts returnerar metoden `CloudBlobContainer.CreateIfNotExists` bara **True** när behållaren inte finns och skapas. Om appen körs när behållaren finns returnerar metoden **falskt**.
 
 ## <a name="upload-a-blob-into-a-blob-container"></a>Ladda upp en blob till en BLOB-behållare
 
@@ -172,7 +173,7 @@ När [BLOB-behållaren skapas](#create-a-blob-container)laddar du upp filer i de
 
 1. Öppna filen `BlobsController.cs`.
 
-1. Lägg till en metod `UploadBlob` som kallas som returnerar en sträng.
+1. Lägg till en metod som heter `UploadBlob` som returnerar en sträng.
 
     ```csharp
     public string UploadBlob()
@@ -183,13 +184,13 @@ När [BLOB-behållaren skapas](#create-a-blob-container)laddar du upp filer i de
     }
     ```
  
-1. I- `CloudBlobContainer` metoden kan du hämta ett objekt som representerar en referens till önskat BLOB container-namn. `UploadBlob` 
+1. I metoden `UploadBlob` får du ett `CloudBlobContainer`-objekt som representerar en referens till det önskade BLOB container namnet. 
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Azure Storage har stöd för olika BLOB-typer. I den här självstudien används block blobbar. Anropa `CloudBlobContainer.GetBlockBlobReference` metoden för att hämta en referens till en Block-Blob.
+1. Azure Storage har stöd för olika BLOB-typer. I den här självstudien används block blobbar. Anropa metoden `CloudBlobContainer.GetBlockBlobReference` om du vill hämta en referens till en Block-Blob.
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
@@ -198,7 +199,7 @@ När [BLOB-behållaren skapas](#create-a-blob-container)laddar du upp filer i de
     > [!NOTE]
     > BLOB-namnet är en del av den URL som används för att hämta en blob och kan vara valfri sträng, inklusive namnet på filen.
 
-1. När det finns en BLOB-referens kan du ladda upp alla data strömmar till den genom att anropa `UploadFromStream` metoden blobb referens objekt. `UploadFromStream` Metoden skapar blobben om den inte finns, eller skriver över den om den finns. (Ändra  *&lt;fil till uppladdning >* till en fullständigt kvalificerad sökväg till en fil som ska överföras.)
+1. När det finns en BLOB-referens kan du ladda upp alla data strömmar till den genom att anropa metoden `UploadFromStream` för BLOB-objektet. Metoden `UploadFromStream` skapar blobben om den inte finns, eller skriver över den om den finns. (Ändra *&lt;file till upload >* till en fullständigt kvalificerad sökväg till en fil som ska överföras.)
 
     ```csharp
     using (var fileStream = System.IO.File.OpenRead(@"<file-to-upload>"))
@@ -207,7 +208,7 @@ När [BLOB-behållaren skapas](#create-a-blob-container)laddar du upp filer i de
     }
     ```
     
-    Nedan visas den slutförda `UploadBlob` metoden (med en fullständigt kvalificerad sökväg för filen som ska överföras):
+    Nedan visas den färdiga metoden `UploadBlob` (med en fullständigt kvalificerad sökväg för filen som ska överföras):
 
     ```csharp
     public string UploadBlob()
@@ -222,7 +223,7 @@ När [BLOB-behållaren skapas](#create-a-blob-container)laddar du upp filer i de
     }
     ```
 
-1. I **Solution Explorer**, expanderar > du den**delade** mappen vyer och `_Layout.cshtml`öppnar.
+1. I **Solution Explorer**expanderar du **vyer** > **delad** mapp och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -240,7 +241,7 @@ I det här avsnittet beskrivs hur du visar en lista över blobarna i en BLOB-beh
 
 1. Öppna filen `BlobsController.cs`.
 
-1. Lägg till en metod `ListBlobs` som kallas som `ActionResult`returnerar en.
+1. Lägg till en metod som heter `ListBlobs` som returnerar en `ActionResult`.
 
     ```csharp
     public ActionResult ListBlobs()
@@ -250,13 +251,13 @@ I det här avsnittet beskrivs hur du visar en lista över blobarna i en BLOB-beh
     }
     ```
  
-1. I- `CloudBlobContainer` metoden kan du hämta ett objekt som representerar en referens till BLOB-behållaren. `ListBlobs` 
+1. I metoden `ListBlobs` får du ett `CloudBlobContainer`-objekt som representerar en referens till BLOB-behållaren. 
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
    
-1. Om du vill visa blobarna i en BLOB-behållare använder `CloudBlobContainer.ListBlobs` du-metoden. `IListBlobItem` `CloudBlockBlob` `CloudPageBlob`Metoden returnerar ett objekt som kan omvandlas till ett-,-eller `CloudBlobDirectory` -objekt. `CloudBlobContainer.ListBlobs` Följande kodfragment räknar upp alla blobar i en BLOB-behållare. Varje Blob omvandlas till lämpligt objekt, baserat på dess typ. Dess namn (eller URI när det gäller en **CloudBlobDirectory**) läggs till i en lista.
+1. Om du vill visa blobarna i en BLOB-behållare använder du metoden `CloudBlobContainer.ListBlobs`. Metoden `CloudBlobContainer.ListBlobs` returnerar ett `IListBlobItem`-objekt som kan omvandlas till ett @no__t-, `CloudPageBlob`-eller `CloudBlobDirectory`-objekt. Följande kodfragment räknar upp alla blobar i en BLOB-behållare. Varje Blob omvandlas till lämpligt objekt, baserat på dess typ. Dess namn (eller URI när det gäller en **CloudBlobDirectory**) läggs till i en lista.
 
     ```csharp
     List<string> blobs = new List<string>();
@@ -289,7 +290,7 @@ I det här avsnittet beskrivs hur du visar en lista över blobarna i en BLOB-beh
         dir1/bar.png
         dir2/baz.png
 
-    Med föregående kod exempel innehåller blobs -sträng listan värden som liknar följande:
+    Med föregående kod exempel innehåller **blobs** -sträng listan värden som liknar följande:
 
         foo.png
         <storage-account-url>/test-blob-container/dir1
@@ -341,11 +342,11 @@ I det här avsnittet beskrivs hur du visar en lista över blobarna i en BLOB-beh
 
 1. I **Solution Explorer**expanderar du mappen **vyer** och högerklickar på **blobbar**.
 
-2. Välj **Lägg till** > **vy**från snabb menyn.
+2. I snabb menyn väljer du **Lägg till** > -**vy**.
 
-1. I dialog rutan **Lägg till vy** anger `ListBlobs` du för visnings namnet och väljer **Lägg till**.
+1. I dialog rutan **Lägg till vy** anger du `ListBlobs` som vynamn och väljer **Lägg till**.
 
-1. Öppna `ListBlobs.cshtml`och ersätt innehållet med följande kod:
+1. Öppna `ListBlobs.cshtml` och ersätt innehållet med följande kod:
 
     ```html
     @model List<string>
@@ -363,7 +364,7 @@ I det här avsnittet beskrivs hur du visar en lista över blobarna i en BLOB-beh
     </ul>
     ```
 
-1. I **Solution Explorer**, expanderar > du den**delade** mappen vyer och `_Layout.cshtml`öppnar.
+1. I **Solution Explorer**expanderar du **vyer** > **delad** mapp och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -381,7 +382,7 @@ I det här avsnittet beskrivs hur du laddar ned en blob. Du kan antingen behåll
 
 1. Öppna filen `BlobsController.cs`.
 
-1. Lägg till en metod `DownloadBlob` som kallas som returnerar en sträng.
+1. Lägg till en metod som heter `DownloadBlob` som returnerar en sträng.
 
     ```csharp
     public string DownloadBlob()
@@ -392,19 +393,19 @@ I det här avsnittet beskrivs hur du laddar ned en blob. Du kan antingen behåll
     }
     ```
  
-1. I- `CloudBlobContainer` metoden kan du hämta ett objekt som representerar en referens till BLOB-behållaren. `DownloadBlob`
+1. I metoden `DownloadBlob` får du ett `CloudBlobContainer`-objekt som representerar en referens till BLOB-behållaren.
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Hämta ett BLOB-referens objekt genom att `CloudBlobContainer.GetBlockBlobReference` anropa-metoden. 
+1. Hämta ett BLOB-referens objekt genom att anropa metoden `CloudBlobContainer.GetBlockBlobReference`. 
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. Använd `CloudBlockBlob.DownloadToStream` -metoden för att ladda ned en blob. Följande kod överför en blobs innehåll till ett Stream-objekt. Objektet sparas sedan i en lokal fil. (Ändra  *&lt;namnet på den lokala filen >* till det fullständiga fil namnet som representerar var blobben ska laddas ned.) 
+1. Om du vill hämta en BLOB använder du metoden `CloudBlockBlob.DownloadToStream`. Följande kod överför en blobs innehåll till ett Stream-objekt. Objektet sparas sedan i en lokal fil. (Ändra *&lt;local-File-name >* till det fullständigt kvalificerade fil namnet som representerar var blobben ska laddas ned.) 
 
     ```csharp
     using (var fileStream = System.IO.File.OpenWrite(<local-file-name>))
@@ -413,7 +414,7 @@ I det här avsnittet beskrivs hur du laddar ned en blob. Du kan antingen behåll
     }
     ```
     
-    Nedan visas den slutförda `DownloadBlob` metoden (med en fullständigt kvalificerad sökväg för den lokala filen som skapas):
+    Nedan visas den färdiga metoden `DownloadBlob` (med en fullständigt kvalificerad sökväg för den lokala filen som skapas):
     
     ```csharp
     public string DownloadBlob()
@@ -428,7 +429,7 @@ I det här avsnittet beskrivs hur du laddar ned en blob. Du kan antingen behåll
     }
     ```
 
-1. I **Solution Explorer**, expanderar > du den**delade** mappen vyer och `_Layout.cshtml`öppnar.
+1. I **Solution Explorer**expanderar du **vyer** > **delad** mapp och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -436,7 +437,7 @@ I det här avsnittet beskrivs hur du laddar ned en blob. Du kan antingen behåll
     <li>@Html.ActionLink("Download blob", "DownloadBlob", "Blobs")</li>
     ```
 
-1. Kör programmet och välj **Ladda ned BLOB** för att ladda ned blobben. Den blob som anges i `CloudBlobContainer.GetBlockBlobReference` metod anropet hämtas till den plats som anges `File.OpenWrite` i metod anropet.  Texten *lyckades!* ska visas i webbläsaren. 
+1. Kör programmet och välj **Ladda ned BLOB** för att ladda ned blobben. Den blob som anges i metod anropet `CloudBlobContainer.GetBlockBlobReference` laddar ned till den plats som anges i anropet `File.OpenWrite`.  Texten *lyckades!* ska visas i webbläsaren. 
 
 ## <a name="delete-blobs"></a>Ta bort blobbar
 
@@ -444,7 +445,7 @@ Följande steg illustrerar hur du tar bort en BLOB:
 
 1. Öppna filen `BlobsController.cs`.
 
-1. Lägg till en metod `DeleteBlob` som kallas som returnerar en sträng.
+1. Lägg till en metod som heter `DeleteBlob` som returnerar en sträng.
 
     ```csharp
     public string DeleteBlob()
@@ -455,25 +456,25 @@ Följande steg illustrerar hur du tar bort en BLOB:
     }
     ```
 
-1. I- `CloudBlobContainer` metoden kan du hämta ett objekt som representerar en referens till BLOB-behållaren. `DeleteBlob`
+1. I metoden `DeleteBlob` får du ett `CloudBlobContainer`-objekt som representerar en referens till BLOB-behållaren.
    
     ```csharp
     CloudBlobContainer container = GetCloudBlobContainer();
     ```
 
-1. Hämta ett BLOB-referens objekt genom att `CloudBlobContainer.GetBlockBlobReference` anropa-metoden. 
+1. Hämta ett BLOB-referens objekt genom att anropa metoden `CloudBlobContainer.GetBlockBlobReference`. 
 
     ```csharp
     CloudBlockBlob blob = container.GetBlockBlobReference("myBlob");
     ```
 
-1. Använd `Delete` -metoden för att ta bort en blob.
+1. Om du vill ta bort en BLOB använder du metoden `Delete`.
 
     ```csharp
     blob.Delete();
     ```
     
-    Den färdiga `DeleteBlob` metoden bör se ut så här:
+    Den slutförda `DeleteBlob`-metoden bör se ut så här:
     
     ```csharp
     public string DeleteBlob()
@@ -485,7 +486,7 @@ Följande steg illustrerar hur du tar bort en BLOB:
     }
     ```
 
-1. I **Solution Explorer**, expanderar > du den**delade** mappen vyer och `_Layout.cshtml`öppnar.
+1. I **Solution Explorer**expanderar du **vyer** > **delad** mapp och öppnar `_Layout.cshtml`.
 
 1. Efter den sista **HTML. ActionLink**lägger du till följande **HTML. ActionLink**:
 
@@ -493,7 +494,7 @@ Följande steg illustrerar hur du tar bort en BLOB:
     <li>@Html.ActionLink("Delete blob", "DeleteBlob", "Blobs")</li>
     ```
 
-1. Kör programmet och välj **ta bort BLOB** för att ta bort den blob som anges `CloudBlobContainer.GetBlockBlobReference` i metod anropet. Texten *lyckades!* ska visas i webbläsaren. Välj knappen **bakåt** i webbläsaren och välj sedan **list blobbar** för att kontrol lera att blobben inte längre finns i behållaren.
+1. Kör programmet och välj **ta bort BLOB** för att ta bort den blob som anges i metod anropet `CloudBlobContainer.GetBlockBlobReference`. Texten *lyckades!* ska visas i webbläsaren. Välj knappen **bakåt** i webbläsaren och välj sedan **list blobbar** för att kontrol lera att blobben inte längre finns i behållaren.
 
 ## <a name="next-steps"></a>Nästa steg
 

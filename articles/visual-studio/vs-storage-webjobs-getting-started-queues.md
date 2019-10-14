@@ -1,5 +1,5 @@
 ---
-title: Komma igång med Queue Storage och Visual Studio Connected Services (webb jobbs projekt) | Microsoft Docs
+title: Komma igång med Queue Storage med Visual Studio (webbjobb-projekt)
 description: Hur du kommer igång med Azure Queue Storage i ett webbjobb-projekt efter att ha anslutit till ett lagrings konto med hjälp av Visual Studio Connected Services.
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: article
 ms.date: 12/02/2016
 ms.author: ghogen
-ms.openlocfilehash: 0afed158f5a19f3d82a3953f828f2b5566a6d5ff
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: ffba203bafaf3837cd2d7fc1a6fd962a6926b186
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69510801"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298744"
 ---
 # <a name="getting-started-with-azure-queue-storage-and-visual-studio-connected-services-webjob-projects"></a>Komma igång med Azure Queue Storage och Visual Studio Connected Services (webb jobb projekt)
 [!INCLUDE [storage-try-azure-tools-queues](../../includes/storage-try-azure-tools-queues.md)]
@@ -72,7 +73,7 @@ public async static Task ProcessQueueMessageAsync([QueueTrigger("logqueue")] str
 }
 ```
 
-Asynkrona funktioner kan ta en token för [uppsägning](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)som visas i följande exempel som kopierar en blob. (En förklaring av **queueTrigger** -plats hållaren finns i [](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) avsnittet blobs.)
+Asynkrona funktioner kan ta en [token för uppsägning](https://www.asp.net/mvc/overview/performance/using-asynchronous-methods-in-aspnet-mvc-4#CancelToken)som visas i följande exempel som kopierar en blob. (En förklaring av **queueTrigger** -plats hållaren finns i avsnittet [blobs](#how-to-read-and-write-blobs-and-tables-while-processing-a-queue-message) .)
 
 ```csharp
 public async static Task ProcessQueueMessageAsyncCancellationToken(
@@ -88,9 +89,9 @@ public async static Task ProcessQueueMessageAsyncCancellationToken(
 ## <a name="types-the-queuetrigger-attribute-works-with"></a>Skriver QueueTrigger-attributet fungerar med
 Du kan använda **QueueTrigger** med följande typer:
 
-* **string**
+* **nollängd**
 * En POCO-typ serialiserad som JSON
-* **byte[]**
+* **byte []**
 * **CloudQueueMessage**
 
 ## <a name="polling-algorithm"></a>Avsöknings algoritm
@@ -190,7 +191,7 @@ Mer information finns i [WebJobs reshutdown](http://blog.amitapple.com/post/2014
 Om du vill skriva en funktion som skapar ett nytt Queue meddelande, använder du attributet **Queue** . Som **QueueTrigger**skickar du i könamnet som en sträng, eller så kan du [Ange könamnet dynamiskt](#how-to-set-configuration-options).
 
 ### <a name="string-queue-messages"></a>String Queue-meddelanden
-Följande kod exempel för icke-asynkrona kod skapar ett nytt Queue-meddelande i kön med namnet "outputqueue" med samma innehåll som det Queue meddelande som togs emot i kön med namnet "inputqueue". (För asynkrona funktioner **används\<IAsyncCollector T >** som visas senare i det här avsnittet.)
+Följande kod exempel för icke-asynkrona kod skapar ett nytt Queue-meddelande i kön med namnet "outputqueue" med samma innehåll som det Queue meddelande som togs emot i kön med namnet "inputqueue". (För asynkrona funktioner används **IAsyncCollector @ no__t-1T >** som visas senare i det här avsnittet.)
 
 ```csharp
 public static void CreateQueueMessage(
@@ -216,7 +217,7 @@ public static void CreateQueueMessage(
 SDK: n serialiserar automatiskt objektet till JSON. Ett Queue-meddelande skapas alltid, även om objektet är null.
 
 ### <a name="create-multiple-messages-or-in-async-functions"></a>Skapa flera meddelanden eller i asynkrona funktioner
-Om du vill skapa flera meddelanden ska du ange parameter typen för **\<ICollector t >** eller **IAsyncCollector\<t >** , som du ser i följande exempel.
+Om du vill skapa flera meddelanden ska du använda parameter typen för kön **ICollector @ no__t-1T >** eller **IAsyncCollector @ no__t-3T >** , som du ser i följande exempel.
 
 ```csharp
 public static void CreateQueueMessages(
@@ -235,10 +236,10 @@ Varje Queue-meddelande skapas omedelbart när metoden **Add** anropas.
 ### <a name="types-that-the-queue-attribute-works-with"></a>Typer som attributet Queue fungerar med
 Du kan använda attributet **Queue** i följande parameter typer:
 
-* **out-sträng** (Queue meddelande skapas om parametervärdet är icke-null när funktionen slutar)
+* **out-sträng** (skapar Queue meddelande om parametervärdet är icke-null när funktionen slutar)
 * **ut byte []** (fungerar som **sträng**)
-* **ut CloudQueueMessage** (fungerar som **sträng**)
-* **ut Poco** (en serialiserbar typ skapar ett meddelande med ett null-objekt om parametern är null när funktionen slutar)
+* **ut CloudQueueMessage** (fungerar som en **sträng**)
+* **out-Poco** (en serialiserbar typ skapar ett meddelande med ett null-objekt om parametern är null när funktionen slutar)
 * **ICollector**
 * **IAsyncCollector**
 * **CloudQueue** (för att skapa meddelanden manuellt med Azure Storage-API: et direkt)
@@ -324,14 +325,14 @@ Om du behöver göra lite arbete i din funktion innan du binder en blob till ett
 ### <a name="types-you-can-use-the-blob-attribute-with"></a>Typer du kan använda BLOB-attributet med
 **BLOB** -attributet kan användas med följande typer:
 
-* **Strömma** (läsning eller skrivning, anges med parametern FileAccess konstruktor)
+* **Stream** (läsning eller skrivning, anges med parametern fileaccess-konstruktor)
 * **TextReader**
-* **TextWriter**
-* **sträng** Läs
+* **Writer**
+* **sträng** (Läs)
 * **out-sträng** (Write; skapar bara en BLOB om sträng parametern är icke-null när funktionen returnerar)
 * POCO (läsa)
 * out-POCO (Write; skapar alltid en BLOB, skapar som null-objekt om POCO-parametern är null när funktionen returnerar)
-* **CloudBlobStream** Skriv
+* **CloudBlobStream** (skrivning)
 * **ICloudBlob** (Läs eller skriv)
 * **CloudBlockBlob** (Läs eller skriv)
 * **CloudPageBlob** (Läs eller skriv)
@@ -480,7 +481,7 @@ static void Main(string[] args)
 **Obs:** Kö-, tabell-och blob-namn löses varje gång en funktion anropas, men BLOB container-namn matchas endast när programmet startas. Du kan inte ändra namnet på en BLOB-behållare medan jobbet körs.
 
 ## <a name="how-to-trigger-a-function-manually"></a>Så här utlöser du en funktion manuellt
-Om du vill utlösa en funktion manuellt använder du anrops-eller **CallAsync** -metoden i **JobHost** -objektet och attributet **NoAutomaticTrigger** i funktionen, som du ser i följande exempel.
+Om du vill utlösa en funktion manuellt använder du **anrops** -eller **CallAsync** -metoden i **JobHost** -objektet och attributet **NoAutomaticTrigger** i funktionen, som du ser i följande exempel.
 
 ```csharp
 public class Program
@@ -534,7 +535,7 @@ public static void WriteLog(
 }
 ```
 
-I instrument panelen för WebJobs-SDK visas utdata från objektet TextWriter när du går till sidan för ett visst funktions anrop och väljer **Växla utdata**:
+I instrument panelen för WebJobs-SDK visas utdata från objektet **TextWriter** när du går till sidan för ett visst funktions anrop och väljer **Växla utdata**:
 
 ![Anrops länk](./media/vs-storage-webjobs-getting-started-queues/dashboardinvocations.png)
 
@@ -550,7 +551,7 @@ I ett kontinuerligt webbjobb visas program loggar i/data/Jobs/Continuous/ *{webj
         [09/26/2014 21:01:13 > 491e54: ERR ] Console.Error - Hello world!
         [09/26/2014 21:01:13 > 491e54: INFO] Console.Out - Hello world!
 
-I en Azure-Blob ser program loggarna ut så här: 2014-09-26T21:01:13, information, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 17, Console. Write-Hello World!, 2014-09-26T21:01:13, fel, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 19, konsol. error-Hello World!, 2014-09-26T21 : 01:13, information, contosoadsnew, 491e54, 635473620738529920, 0, 17404, 17, Console. out-Hello World!,
+I en Azure-Blob ser program loggarna ut så här: 2014-09-26T21:01:13, information, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 17, Console. Write-Hello World!, 2014-09-26T21:01:13, fel, contosoadsnew, 491e54, 635473620738373502, 0, 17404, 19, konsol. error-Hello World!, 2014-09-26T21:01:13, information, contosoadsnew, 491e54, 635473620738529920, 0, 17404, 17, konsol. out-Hello World!,
 
 Och i en Azure-tabell visas **konsolen. ut** och **konsolen. fel** loggar ser ut så här:
 

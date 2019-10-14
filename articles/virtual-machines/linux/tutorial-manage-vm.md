@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 03/23/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1df278c67c8f84648d2fc7ab3818656cfb9de74a
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 11c12058229a2eadfdc3834d311c085c2365b17d
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70100704"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300790"
 ---
-# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudier: Skapa och hantera virtuella Linux-datorer med Azure CLI
+# <a name="tutorial-create-and-manage-linux-vms-with-the-azure-cli"></a>Självstudie: Skapa och hantera virtuella Linux-datorer med Azure CLI
 
 Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel datormiljö. I den här självstudien beskrivs den grundläggande distributionen av virtuella Azure-datorer, till exempel att välja en VM-storlek, välja en VM-avbildning och distribuera en virtuell dator. Lär dig att:
 
@@ -30,10 +30,10 @@ Med virtuella Azure-datorer får du en fullständigt konfigurerbar och flexibel 
 > * Skapa och ansluta till en virtuell dator
 > * Välja och använda VM-avbildningar
 > * Visa och använda specifika VM-storlekar
-> * Ändra storlek på en virtuell dator
+> * Ändra storlek på en VM
 > * Visa och förstå tillstånd för virtuella datorer
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -154,12 +154,12 @@ Storleken på den virtuella datorn avgör hur mycket av beräkningsresurser som 
 
 I följande tabell kategoriseras storlekarna i användningsfall.  
 
-| type                     | Normala storlekar           |    Beskrivning       |
+| Typ                     | Normala storlekar           |    Beskrivning       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [Generellt syfte](sizes-general.md)         |B, Dsv3, Dv3, DSv2, Dv2, Av2, DC| Balanserat förhållande mellan processor och minne. Perfekt för utveckling eller test samt små till medelstora lösningar för program och data.  |
 | [Beräkningsoptimerad](sizes-compute.md)   | Fsv2          | Högt förhållande mellan processor och minne. Bra för program med medelhög trafik, nätverkstillämpningar och batchprocesser.        |
 | [Minnesoptimerad](sizes-memory.md)    | Esv3, Ev3, M, DSv2, Dv2  | Högt förhållande mellan minne och kärna. Utmärkt för relationsdatabaser, mellanstora till stora cacheminnen och minnesinterna analyser.                 |
-| [Lagringsoptimerad](sizes-storage.md)      | Lsv2, Ls              | Högt diskgenomflöde och I/O. Perfekt för stordata, SQL- och NoSQL-databaser.                                                         |
+| [Lagringsoptimerad](sizes-storage.md)      | Lsv2, LS              | Högt diskdataflöde och I/O. Perfekt för stordata, SQL och NoSQL-databaser.                                                         |
 | [GPU](sizes-gpu.md)          | NV, NVv2, NC, NCv2, NCv3, ND            | Virtuella specialdatorer som är avsedda för tung grafisk rendering och videoredigering.       |
 | [Höga prestanda](sizes-hpc.md) | H        | Virtuella datorer med de kraftfullaste processorerna och nätverksgränssnitt för stora dataflöden (RDMA). |
 
@@ -208,7 +208,7 @@ az vm create \
     --generate-ssh-keys
 ```
 
-### <a name="resize-a-vm"></a>Ändra storlek på en virtuell dator
+### <a name="resize-a-vm"></a>Ändra storlek på en VM
 
 När en virtuell dator har distribuerats kan storleken ändras för att öka eller minska resurstilldelningen. Kommandot [az vm show](/cli/azure/vm) visar den virtuella datorns aktuella storlek:
 
@@ -280,7 +280,7 @@ ode                DisplayStatus    Level
 PowerState/running  VM running       Info
 ```
 
-## <a name="management-tasks"></a>Hanteringsuppgifter
+## <a name="management-tasks"></a>Administrativa uppgifter
 
 Under livscykeln för en virtuell dator kan du vilja utföra administrativa uppgifter som att starta, stoppa eller ta bort en virtuell dator. Dessutom kanske du vill skapa skript för att automatisera repetitiva och komplicerade uppgifter. Med Azure CLI kan många vanliga administrativa uppgifter köras från kommandoraden eller i skript. 
 
@@ -320,7 +320,7 @@ I den här självstudien har du lärt dig om grundläggande VM-skapande och hant
 > * Skapa och ansluta till en virtuell dator
 > * Välja och använda VM-avbildningar
 > * Visa och använda specifika VM-storlekar
-> * Ändra storlek på en virtuell dator
+> * Ändra storlek på en VM
 > * Visa och förstå tillstånd för virtuella datorer
 
 Gå vidare till nästa självstudie om du vill lära dig mer om diskar i virtuella dator.  

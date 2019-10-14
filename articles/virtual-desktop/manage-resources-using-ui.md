@@ -7,14 +7,14 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/04/2019
 ms.author: helohr
-ms.openlocfilehash: f07403d8d0b2c6d0dd7a6b851a87b47b0c32501a
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 175c5173091bee85a5c9fc4a50e9df5d3f73da13
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679491"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300912"
 ---
-# <a name="tutorial-deploy-a-management-tool"></a>Självstudier: Distribuera ett hanteringsverktyg
+# <a name="tutorial-deploy-a-management-tool"></a>Självstudie: Distribuera ett hanterings verktyg
 
 Hanterings verktyget tillhandahåller ett användar gränssnitt för hantering av Microsoft-resurser för virtuella skriv bord. I den här självstudien får du lära dig hur du distribuerar och ansluter till hanterings verktyget.
 
@@ -26,6 +26,12 @@ Hanterings verktyget tillhandahåller ett användar gränssnitt för hantering a
 Eftersom appen kräver medgivande för att interagera med Windows Virtual Desktop, stöder det här verktyget inte Business-to-Business-scenarier (B2B). Varje Azure Active Directory (AAD)-klient organisations prenumeration måste ha en egen separat distribution av hanterings verktyget.
 
 Det här hanterings verktyget är ett exempel. Microsoft kommer att tillhandahålla viktiga säkerhets-och kvalitets uppdateringar. [Käll koden finns i GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy). Kunder och partner uppmanas att anpassa verktyget så att det passar deras affärs behov.
+
+Följande webbläsare är kompatibla med hanterings verktyget:
+- Google Chrome 68 eller senare
+- Microsoft Edge 40,15063 eller senare
+- Mozilla Firefox 52,0 eller senare
+- Safari 10 eller senare (endast macOS)
 
 ## <a name="what-you-need-to-run-the-azure-resource-manager-template"></a>Vad du behöver för att köra Azure Resource Manager-mallen
 

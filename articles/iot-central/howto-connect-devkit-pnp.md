@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: jeffya
-ms.openlocfilehash: f3cfb892fc116640df5dd30abf857bde6e196224
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: b7d2e1b08653cb8023ef6a5190ab53ecc3d568a6
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69880116"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297037"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Ansluta en MXChip IoT DevKit-enhet till ditt Azure IoT Central-program
 
@@ -25,7 +25,7 @@ I den här instruktions artikeln kan du:
 - Förbered enheten och Anslut den till ditt IoT Central-program.
 - Visa telemetri och egenskaper från enheten i IoT Central.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra stegen i den här artikeln behöver du följande resurser:
 
@@ -34,7 +34,7 @@ För att slutföra stegen i den här artikeln behöver du följande resurser:
 
 ## <a name="get-device-connection-details"></a>Hämta information om enhets anslutning
 
-I ditt Azure IoT Central-program väljer du fliken **Administration** och sedan **enhets anslutning**. Anteckna omfångs **-ID** och **primär nyckel**.
+I ditt Azure IoT Central-program väljer du fliken **Administration** och sedan **enhets anslutning**. Anteckna **ID-omfånget** och **primär nyckeln**.
 
 ![Anslutnings information för enhets grupp](media/howto-connect-devkit-pnp/device-group-connection-details.png)
 
@@ -61,7 +61,7 @@ I ditt Azure IoT Central-program väljer du fliken **Administration** och sedan 
 
     - Namnet på ditt WiFi-nätverk (SSID).
     - Ditt WiFi-nätverks lösen ord.
-    - Anslutnings information: det **enhets-ID** som du kan välja själv och det **omfångs-ID** och den **primära SAS-nyckeln för gruppen** som du antecknade tidigare.
+    - Anslutnings information: det **enhets-ID** som du kan välja själv och **ID-omfånget** och **primär grupp SAS-nyckeln** som du antecknade tidigare.
 
     > [!NOTE]
     > IoT-DevKit kan för närvarande bara ansluta till 2,4 GHz Wi-Fi, 5 GHz stöds inte på grund av maskin varu begränsningar.
@@ -86,7 +86,7 @@ Välj fliken **enheter** i ditt IoT Central program och välj den enhet som du h
 
 ## <a name="review-the-code"></a>Granska koden
 
-Om du vill granska koden eller ändra och kompilera den går du till [MXChip IoT DevKit exempel Code GitHub](https://github.com/MXCHIP/IoTDevKit/tree/master/pnp)-lagringsplatsen.
+Om du vill granska koden eller ändra och kompilera den går du till [kod exemplen](https://docs.microsoft.com/samples/azure-samples/mxchip-iot-devkit-pnp/sample/).
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -9,13 +9,13 @@ ms.subservice: data-science-vm
 author: gvashishtha
 ms.author: gopalv
 ms.topic: overview
-ms.date: 09/27/2019
-ms.openlocfilehash: 68c48bd4288b80d6cab515aa981d0f72461c0849
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.date: 10/10/2019
+ms.openlocfilehash: 70fa1bd2f33d3a6e58b12b9d2da617e8129c8da9
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035259"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299719"
 ---
 # <a name="what-tools-are-included-on-the-azure-data-science-virtual-machine"></a>Vilka verktyg ingår i Azure-Data Science Virtual Machine?
 
@@ -33,8 +33,8 @@ Nedan finns en uppdaterad lista med verktyg som finns på Data Science Virtual M
 | Databasverktyg                                                       |  SQL Server Management Studio <br/> SQL Server Integration Services<br/> [BCP, SQLCMD](https://docs.microsoft.com/sql/tools/command-prompt-utility-reference-database-engine)<br />  ODBC/JDBC-drivrutiner|  [SQUIRREL SQL](http://squirrel-sql.sourceforge.net/) (frågeverktyg), <br />  BCP, SQLCMD <br />  ODBC/JDBC-drivrutiner| |
 | Skalbar databas analys med SQL Server Machine Learning-tjänster (R, python) |<span class='green-check'>&#9989;</span>    | <span class='red-x'>&#10060;</span>                | |
 | [Jupyter Notebook Server](https://jupyter.org/) med följande kernels:                                  |<span class='green-check'>&#9989;</span></br> 5\.5.0   |<span class='green-check'>&#9989;</span> | [Jupyter Notebook exempel](./dsvm-samples-and-walkthroughs.md) | 
-|     &nbsp; @ NO__T-1 @ NO__T-2 @ NO__T-3 R |<span class='green-check'>&#9989;</span></br> (3.4.3) |<span class='green-check'>&#9989;</span></br> (3.4.3) | [R Jupyter-exempel](./dsvm-samples-and-walkthroughs.md#r-language) |
-|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 python |<span class='green-check'>&#9989;</span></br> (3) |<span class='green-check'>&#9989;</span> | [Python Jupyter-exempel](./dsvm-samples-and-walkthroughs.md#python-language) |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 R |<span class='green-check'>&#9989;</span></br> (3.4.3) |<span class='green-check'>&#9989;</span></br> (3.4.3) | [R Jupyter-exempel](./dsvm-samples-and-walkthroughs.md#r-language) |
+|     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 python |<span class='green-check'>&#9989;</span></br> 3 |<span class='green-check'>&#9989;</span> | [Python Jupyter-exempel](./dsvm-samples-and-walkthroughs.md#python-language) |
 |     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Julia |<span class='green-check'>&#9989;</span></br> (0.6.4) |<span class='green-check'>&#9989;</span></br> (0.6.2) | [Julia Jupyter-exempel](./dsvm-samples-and-walkthroughs.md#julia-language) |
 |     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 PySpark |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> | [pySpark Jupyter-exempel](./dsvm-samples-and-walkthroughs.md#sparkml)
 |     &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Sparkmagic](https://github.com/jupyter-incubator/sparkmagic) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (Endast Ubuntu) | |
@@ -44,9 +44,9 @@ Nedan finns en uppdaterad lista med verktyg som finns på Data Science Virtual M
 | Utvecklings verktyg, IDE: er och kod redigerare:| | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Visual Studio 2017 (Community Edition)](https://www.visualstudio.com/community/) med git-plugin, Azure HDInsight (Hadoop), Azure Data Lake, SQL Server Data Tools, [Node. js](https://github.com/Microsoft/nodejstools), [python](https://aka.ms/ptvs)och [R Tools för Visual Studio (RTVS)](https://microsoft.github.io/RTVS-docs/) |<span class='green-check'>&#9989;</span> |<span class='red-x'>&#10060;</span>   | [Visual Studio på DSVM](./dsvm-tools-development.md#visual-studio-2017) |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Visual Studio Code](https://code.visualstudio.com/) |<span class='green-check'>&#9989;</span></br> (1.31.1) |<span class='green-check'>&#9989;</span></br> (1,31) | [Visual Studio Code på DSVM](./dsvm-tools-development.md#visual-studio-code) |
-| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) |<span class='green-check'>&#9989;</span></br> (1.1.463) |<span class='green-check'>&#9989;</span></br> (1.1.456) | [RStudio Desktop på DSVM](./dsvm-tools-development.md#rstudio--desktop) |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio Desktop](https://www.rstudio.com/products/rstudio/#Desktop) |<span class='green-check'>&#9989;</span></br> (1.2.50 XX) |<span class='green-check'>&#9989;</span></br> (1.1.456) | [RStudio Desktop på DSVM](./dsvm-tools-development.md#rstudio--desktop) |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [RStudio-Server](https://www.rstudio.com/products/rstudio/#Server) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span> | [RStudio-server på DSVM](./dsvm-tools-development.md#rstudio--server)
-| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [pycharm med Community Edition](https://www.jetbrains.com/pycharm/) |<span class='green-check'>&#9989;</span></br> (2018.1.4)  |<span class='green-check'>&#9989;</span></br> (2018.2.3) | [Pycharm med på DSVM](./dsvm-tools-development.md#pycharm)
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [pycharm med Community Edition](https://www.jetbrains.com/pycharm/) |<span class='green-check'>&#9989;</span></br> (19.2.3)  |<span class='green-check'>&#9989;</span></br> (2018.2.3) | [Pycharm med på DSVM](./dsvm-tools-development.md#pycharm)
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Atom](https://atom.io/) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> (1.26.1) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Juno (Julia IDE)](https://junolab.org/)|<span class='green-check'>&#9989;</span> |<span class='red-x'>&#10060;</span> | [Juno på DSVM](./dsvm-tools-development.md#juno)
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [vim](https://www.vim.org) |<span class='green-check'>&#9989;</span></br> (8.1.5) |<span class='green-check'>&#9989;</span></br> (7.4.1689) | |
@@ -54,10 +54,10 @@ Nedan finns en uppdaterad lista med verktyg som finns på Data Science Virtual M
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [git](https://git-scm.com/) och git bash |<span class='green-check'>&#9989;</span></br> (2.20.1) |<span class='green-check'>&#9989;</span></br> (0.6.2) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [openjdk](https://openjdk.java.net) |<span class='green-check'>&#9989;</span></br> (1.8.0_201) |<span class='green-check'>&#9989;</span></br> (1.8.0_222) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 .NET Framework |<span class='green-check'>&#9989;</span></br> (4.7.2) |<span class='red-x'>&#10060;</span>   | |
-| [Power BI Desktop](https://powerbi.microsoft.com/en-us/) |<span class='green-check'>&#9989;</span></br> (2.65.5313.1381) |<span class='red-x'>&#10060;</span>   |
+| [Power BI Desktop](https://powerbi.microsoft.com/en-us/) |<span class='green-check'>&#9989;</span></br> (2.73.55 XX) |<span class='red-x'>&#10060;</span>   |
 | SDK:er för åtkomst till Azure och Cortana Intelligence Suite med tjänster |<span class='green-check'>&#9989;</span> |<span class='green-check'>&#9989;</span> | [Power BI Skriv bordet på DSVM](./dsvm-tools-development.md#power-bi-desktop) |
 | Data förflyttning och hanterings verktyg: | | |
-| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) |<span class='green-check'>&#9989;</span></br> 1\.6.2 |<span class='green-check'>&#9989;</span></br> (0.7.20160129.1) | |
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Azure Storage Explorer](https://azure.microsoft.com/en-us/features/storage-explorer/) |<span class='green-check'>&#9989;</span></br> (1.10.1) |<span class='green-check'>&#9989;</span></br> (0.7.20160129.1) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [Azure CLI](https://docs.microsoft.com/cli/azure) |<span class='green-check'>&#9989;</span></br> (2.0.56) |<span class='green-check'>&#9989;</span></br> (2.0.58) | |
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [AzCopy](https://docs.microsoft.com/azure/storage/storage-use-azcopy) |<span class='green-check'>&#9989;</span></br> (8.1.0) |<span class='red-x'>&#10060;</span>   | [AzCopy på DSVM](./dsvm-tools-ingestion.md#azcopy)
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 [BLOB-säkrings driv rutin](https://github.com/Azure/azure-storage-fuse) |<span class='red-x'>&#10060;</span>   |<span class='green-check'>&#9989;</span></br> 1\.0.2 | [blobfuse på DSVM](./dsvm-tools-ingestion.md#blobfuse)

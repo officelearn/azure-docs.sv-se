@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 05/10/2017
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 5355144720eef886dbf6da9c3c00eca05ccf03b4
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: b2255e75843f4ddadd44e7780054de4fc45e6449
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70103577"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300723"
 ---
-# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Självstudier: Skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer med Azure CLI
+# <a name="tutorial-create-and-manage-azure-virtual-networks-for-linux-virtual-machines-with-the-azure-cli"></a>Självstudie: Skapa och hantera virtuella Azure-nätverk för virtuella Linux-datorer med Azure CLI
 
 Azures virtuella datorer använder Azure-nätverk för intern och extern nätverkskommunikation. Den här självstudien visar hur du distribuerar två virtuella datorer och konfigurerar Azure-nätverk för dem. Exemplen i den här självstudien förutsätter att de virtuella datorerna är värd för ett webbprogram med databasens serverdel, men något program behöver inte ha distribuerats i självstudien. I den här guiden får du lära dig att:
 
@@ -30,10 +30,10 @@ Azures virtuella datorer använder Azure-nätverk för intern och extern nätver
 > * Skapa ett virtuellt nätverk och ett undernät
 > * Skapa en offentlig IP-adress
 > * Skapa en virtuell dator för klientdelen
-> * Skydda nätverkstrafiken
+> * Skydda nätverkstrafik
 > * Skapa en virtuell dator för serverdelen
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+I den här självstudien används CLI i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), som uppdateras kontinuerligt till den senaste versionen. Om du vill öppna Cloud Shell väljer du **testa den** överst i ett kodblock.
 
 Om du väljer att installera och använda CLI lokalt krävs Azure CLI version 2.0.30 eller senare för att du ska kunna genomföra den här självstudiekursen. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli).
 
@@ -146,7 +146,7 @@ az vm create \
   --generate-ssh-keys
 ```
 
-## <a name="secure-network-traffic"></a>Skydda nätverkstrafiken
+## <a name="secure-network-traffic"></a>Skydda nätverkstrafik
 
 En nätverkssäkerhetsgrupp (NSG) innehåller en lista över säkerhetsregler som tillåter eller nekar nätverkstrafik till resurser som är anslutna till virtuella Azure-nätverk (VNet). NSG:er kan vara associerade med undernät eller separata nätverksgränssnitt. När en NSG är associerad med ett nätverksgränssnitt, tillämpar den bara den associerade virtuella datorn. När en nätverkssäkerhetsgrupp är kopplad till ett undernät gäller reglerna för alla resurser som är anslutna till undernätet. 
 
@@ -298,7 +298,7 @@ I den här självstudien har du skapat och skyddat Azure-nätverk som är relate
 > * Skapa ett virtuellt nätverk och ett undernät
 > * Skapa en offentlig IP-adress
 > * Skapa en virtuell dator för klientdelen
-> * Skydda nätverkstrafiken
+> * Skydda nätverkstrafik
 > * Skapa en virtuell dator för serverdelen
 
 Gå vidare till nästa självstudie för att lära dig att skydda data på virtuella datorer med Azures säkerhetskopiering. 

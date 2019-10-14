@@ -6,15 +6,15 @@ keywords: Encoding; encoders; Media
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 08/08/2019
+ms.date: 10/10/2019
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: 6b9cb325f2bb7419e32efd5bde4705786c5dbeb5
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: aa5eae3e40b8578f826b1b275995bbb3d346e586
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68934935"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300942"
 ---
 # <a name="recommended-live-streaming-encoders"></a>Rekommenderade kodare för direkt uppspelning
 
@@ -31,12 +31,13 @@ Detaljerad information om Live encoding med Media Services finns i [direkt uppsp
 
 ## <a name="live-encoders-that-output-rtmp"></a>Live-kodare som utdata av RTMP
 
-Media Services rekommenderar att du använder någon av följande livekodare som har RTMP som utdata. URL-scheman som stöds `rtmp://` är `rtmps://`eller.
+Media Services rekommenderar att du använder någon av följande livekodare som har RTMP som utdata. URL-scheman som stöds är `rtmp://` eller `rtmps://`.
 
 > [!NOTE]
 > Vid direktuppspelning via RTMP ska du kontrollera inställningarna för brandvägg och /eller proxy för att bekräfta att de utgående TCP-portarna 1935 och 1936 är öppna.
 
 - Adobe Flash Media Live Encoder 3.2
+- [Cambria Live 4,3](https://www.capellasystems.net/products/cambria-live/)
 - Haivision KB
 - Haivision Makito X HEVC
 - OBS Studio
@@ -51,7 +52,7 @@ Media Services rekommenderar att du använder någon av följande livekodare som
 
 ## <a name="live-encoders-that-output-fragmented-mp4"></a>Live-kodare som utdata fragmenterade MP4
 
-Media Services rekommenderar att du använder någon av följande Live-kodare med multi-bit-Smooth Streaming (fragmenterad MP4) som utdata. URL-scheman som stöds `http://` är `https://`eller.
+Media Services rekommenderar att du använder någon av följande Live-kodare med multi-bit-Smooth Streaming (fragmenterad MP4) som utdata. URL-scheman som stöds är `http://` eller `https://`.
 
 - Ateme TITAN Live
 - Cisco Digital Media Encoder 2200
@@ -73,9 +74,9 @@ Om du vill spela upp innehåll måste både ljud-och video strömmar finnas. Det
 
 ### <a name="configuration-tips"></a>Konfigurations tips
 
-- När det är möjligt använda ett inbyggt internet-anslutning.
+- Använd alltid en Hardwired Internet anslutning när det är möjligt.
 - När du bestämmer bandbredds kraven kan du dubblera bit hastigheterna för strömmande data. Även om detta inte är obligatoriskt bidrar den här enkla regeln till att minimera påverkan av nätverks belastning.
-- När du använder programvarubaserad kodare kan du stänga alla onödiga program.
+- När du använder programvarubaserade kodare, Stäng alla onödiga program.
 - Om du ändrar konfigurationen för konfigurationen efter det att sändningen har startat, har det negativa effekter på evenemanget. Konfigurations ändringar kan orsaka att händelsen blir instabil. 
 - Se till att du ger dig tid att konfigurera evenemanget. För storskaliga händelser rekommenderar vi att du startar installationen en timme före evenemanget.
 
@@ -86,13 +87,13 @@ Som en Azure Media Services lokal Encoder-partner Media Services befordrar din p
 ### <a name="pass-through-live-event-verification"></a>Direkt händelse verifiering
 
 1. Kontrol lera att **slut punkten för direkt uppspelning** körs i ditt Media Services konto. 
-2. Skapa och starta direkt sändnings evenemanget. <br/> Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
+2. Skapa och starta direkt **sändnings** evenemanget. <br/> Mer information finns i [livehändelsetillstånd och fakturering](live-event-states-billing.md).
 3. Hämta URL: en för inmatning och konfigurera din lokala kodare för att använda URL: en för att skicka en Live-dataström med flera bit hastigheter till Media Services.
 4. Hämta för hands versionen av URL: en och Använd den för att kontrol lera att inmatarna faktiskt tas emot.
 5. Skapa ett nytt **till gångs** objekt.
 6. Skapa en **Live-utdata** och Använd namnet på den till gång som du skapade.
 7. Skapa en **strömmande lokaliserare** med de inbyggda typer av **strömmande principer** .
-8. Visa en lista över Sök vägarna för den strömmande lokaliseraren för att få tillbaka de webb adresser som ska användas.
+8. Visa en lista över Sök vägarna för den **strömmande lokaliseraren** för att få tillbaka de webb adresser som ska användas.
 9. Hämta värd namnet för den **slut punkt för direkt uppspelning** som du vill strömma från.
 10. Kombinera URL: en från steg 8 med värd namnet i steg 9 för att få den fullständiga URL: en.
 11. Kör din Live-kodare i cirka 10 minuter.
@@ -111,7 +112,7 @@ Som en Azure Media Services lokal Encoder-partner Media Services befordrar din p
 5. Skapa ett nytt **till gångs** objekt.
 6. Skapa en **Live-utdata** och Använd namnet på den till gång som du skapade.
 7. Skapa en **strömmande lokaliserare** med de inbyggda typer av **strömmande principer** .
-8. Visa en lista över Sök vägarna för den strömmande lokaliseraren för att få tillbaka de webb adresser som ska användas.
+8. Visa en lista över Sök vägarna för den **strömmande lokaliseraren** för att få tillbaka de webb adresser som ska användas.
 9. Hämta värd namnet för den **slut punkt för direkt uppspelning** som du vill strömma från.
 10. Kombinera URL: en från steg 8 med värd namnet i steg 9 för att få den fullständiga URL: en.
 11. Kör din Live-kodare i cirka 10 minuter.
@@ -127,7 +128,7 @@ Följ samma steg som i direkt [sändnings händelse verifiering](#pass-through-l
 
 ### <a name="email-your-recorded-settings"></a>E-posta dina inspelade inställningar
 
-Skicka sedan dina inspelade inställningar och Live Archive-parametrarna till amshelp@microsoft.com Azure Media Services vid ett meddelande om att alla själv verifierings kontroller har slutförts. Ta även med din kontakt information för alla följare. Du kan kontakta Azure Media Servicess teamet och få frågor om den här processen.
+Skicka e-post till dina inspelade inställningar och Live Archive-parametrarna till Azure Media Services vid amshelp@microsoft.com som ett meddelande om att alla själv verifierings kontroller har slutförts. Ta även med din kontakt information för alla följare. Du kan kontakta Azure Media Servicess teamet och få frågor om den här processen.
 
 ## <a name="next-steps"></a>Nästa steg
 

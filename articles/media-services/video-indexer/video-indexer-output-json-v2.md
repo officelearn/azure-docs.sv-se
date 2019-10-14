@@ -1,54 +1,54 @@
 ---
-title: Granska Azure Media Services Video Indexer-utdata som genereras av v2 API
+title: 'Granska Azure Media Services Video Indexer utdata som skapats av v2-API: et'
 titlesuffix: Azure Media Services
-description: Det här avsnittet undersöker Video Indexer-utdata som genereras av v2 API.
+description: 'Det här avsnittet undersöker Video Indexer utdata som genereras av v2-API: et.'
 services: media-services
 author: Juliako
 manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 10/11/2019
 ms.author: juliako
-ms.openlocfilehash: 205dc7d9e69788ea29a48ff342844a4b74e143bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 20a973e5386cd9cad7d090236f021ced9a64cafc
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65799071"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300921"
 ---
-# <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer-utdata som genereras av API
+# <a name="examine-the-video-indexer-output-produced-by-api"></a>Granska Video Indexer utdata som skapats av API
 
-När du anropar den **hämta Video Index** API och svarsstatusen är OK, du får detaljerad JSON-utdata som svarsinnehållet. JSON-innehållet innehåller information om de angivna videoinsikter. Insikterna som inkluderar dimensioner som: avskrifter OCRs, ansikten, ämnen, block osv. Dimensionerna har instanser av tidsintervall som visar när varje dimension som visades i videon.  
+När du anropar API: et för att **Hämta video index** och svars statusen är OK får du ett detaljerat JSON-utdata som svars innehåll. JSON-innehållet innehåller information om de angivna video insikterna. Insikterna innehåller dimensioner som: avskrifter, OCRs, ansikten, ämnen, block osv. Dimensionerna har instanser av tidsintervall som visas när varje dimension visas i videon.  
 
-Du kan också visuellt undersöka videons sammanfattade insikter genom att trycka på den **spela upp** knappen på videon på den [Video Indexer](https://www.videoindexer.ai/) webbplats. Mer information finns i [visa och redigera videoinsikter](video-indexer-view-edit.md).
+Du kan också visuellt undersöka videoklippets sammanfattade insikter genom att trycka på **uppspelnings** knappen på videon på [video Indexer](https://www.videoindexer.ai/) webbplats. Mer information finns i [Visa och redigera video insikter](video-indexer-view-edit.md).
 
 ![Insikter](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-Den här artikeln undersöker JSON-innehåll som returneras av den **hämta Video Index** API. 
+I den här artikeln granskas JSON-innehållet som returneras av API: t **Get video index** . 
 
 > [!NOTE]
-> Förfallodatum för åtkomsttoken i Video Indexer är en timme.
+> Förfallo datum för alla åtkomsttoken i Video Indexer är en timme.
 
 
-## <a name="root-elements"></a>Rotelement
+## <a name="root-elements"></a>Rot element
 
 |Namn|Beskrivning|
 |---|---|
-|accountId|Till spellistan VI konto-ID.|
-|id|Till spellistan-ID.|
-|name|Till spellistan namn.|
-|description|Till spellistan beskrivning.|
-|userName|Namnet på användaren som skapade listan.|
-|Skapat|Skapandetid för till spellistan.|
-|privacyMode|Till spellistan sekretess-läge (privata/offentliga).|
-|state|Till spellistan (överförda, bearbetning, bearbetade, misslyckades, har satts i karantän).|
-|isOwned|Anger om listan har skapats av den aktuella användaren.|
-|isEditable|Anger om den aktuella användaren har behörighet att redigera spelningslistan.|
-|isBase|Anger om listan är en grundläggande spelningslista (en video) eller en spellista som består av andra videor (härledd).|
-|durationInSeconds|Den totala varaktigheten för listan.|
+|accountId|Spel listans konto-ID.|
+|id|Spelnings listans ID.|
+|namn|Spel listans namn.|
+|beskrivning|Spelnings listans beskrivning.|
+|Användar|Namnet på den användare som skapade spelnings listan.|
+|Create|Tid för skapande av spelnings lista.|
+|privacyMode|Spelnings listans sekretess läge (privat/offentlig).|
+|state|Spelnings listans (överförd, bearbetning, bearbetad, misslyckad, karantän).|
+|isOwned|Anger om spelnings listan skapades av den aktuella användaren.|
+|isEditable|Anger om den aktuella användaren har behörighet att redigera spelnings listan.|
+|isBase|Anger om spelnings listan är en grundläggande spelnings lista (en video) eller en spelnings lista med andra videor (härlett).|
+|durationInSeconds|Spelnings listans totala varaktighet.|
 |summarizedInsights|Innehåller en [summarizedInsights](#summarizedinsights).
-|Videor|En lista över [videor](#videos) konstruera spelningslistan.<br/>Om du skapar den här spelningslista av tidsintervall för andra videoklipp (härledd), videor i den här listan innehåller endast data från de inkluderade tidsintervall.|
+|Videos|En lista med [videor](#videos) som konstruerar spelnings listan.<br/>Om den här spelnings listan med tidsintervaller som skapats av andra videor (härlett), kommer videor i den här listan endast innehålla data från de inkluderade tidsintervallen.|
 
 ```json
 {
@@ -71,52 +71,52 @@ Den här artikeln undersöker JSON-innehåll som returneras av den **hämta Vide
 
 ## <a name="summarizedinsights"></a>summarizedInsights
 
-Det här avsnittet visas en sammanfattning av insikterna.
+I det här avsnittet visas en sammanfattning av insikterna.
 
 |Attribut | Beskrivning|
 |---|---|
-|name|Namnet på videon. Till exempel Azure Monitor.|
+|namn|Namnet på videon. Till exempel Azure Monitor.|
 |id|ID för videon. Till exempel 63c6d532ff.|
-|privacyMode|Din analys på detaljnivå kan ha något av följande lägen: **Privata**, **offentliga**. **Offentliga** -videon är synlig för alla i ditt konto och vem som helst som har en länk till videon. **Privata** -videon är synlig för alla i ditt konto.|
-|Varaktighet|Innehåller en varaktighet som beskriver den tid som en insikt inträffade. Varaktighet är i sekunder.|
-|thumbnailVideoId|ID för videon som miniatyren togs.
-|thumbnailId|Videons miniatyr-ID. För att få den faktiska miniatyrbilden kan anropa [Get-miniatyr](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) och skickar den thumbnailVideoId och thumbnailId.|
-|ansikten|Kan innehålla noll eller flera ansikten. Mer information finns i [ansikten](#faces).|
-|nyckelord|Kan innehålla noll eller flera nyckelord. Mer information finns i [nyckelord](#keywords).|
-|sentiment|Kan innehålla noll eller flera sentiment. Mer information finns i [sentiment](#sentiments).|
-|audioEffects| Kan innehålla noll eller flera audioEffects. Mer information finns i [audioEffects](#audioEffects).|
-|etiketter| Kan innehålla noll eller fler etiketter. Detaljerad information finns i [etiketter](#labels).|
-|varumärken| Kan innehålla noll eller flera varumärken. Mer information finns i [varumärken](#brands).|
-|statistik | Mer information finns i [statistik](#statistics).|
-|känslor| Kan innehålla noll eller flera känslor. Mer information finns i [känslor](#emotions).|
-|ämnen|Kan innehålla noll eller flera avsnitt. Den [ämnen](#topics) dimension.|
+|privacyMode|Din uppdelning kan ha ett av följande lägen: **privat**, **offentlig**. **Offentligt** – videon är synlig för alla i ditt konto och alla som har en länk till videon. **Privat** – videon är synlig för alla i ditt konto.|
+|Giltighet|Innehåller en varaktighet som beskriver tiden en insikt inträffade. Varaktigheten är i sekunder.|
+|thumbnailVideoId|ID för videon från vilken miniatyren togs.
+|thumbnailId|Videons miniatyr-ID. För att få den faktiska miniatyr bilden, anropa [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) och pass IT ThumbnailVideoId och thumbnailId.|
+|ytor|Kan innehålla noll eller flera ansikten. Mer detaljerad information finns i [ansikten](#faces).|
+|reserverade|Kan innehålla noll eller flera nyckelord. Mer detaljerad information finns i [nyckelord](#keywords).|
+|sentiment|Kan innehålla noll eller flera sentiment. Mer detaljerad information finns i [sentiment](#sentiments).|
+|audioEffects| Kan innehålla noll eller flera audioEffects. Mer detaljerad information finns i [audioEffects](#audioEffects).|
+|Etiketter| Får innehålla noll eller flera etiketter. Mer information finns i [Etiketter](#labels).|
+|varumärken| Kan innehålla noll eller flera varumärken. Mer detaljerad information finns i [varumärken](#brands).|
+|uppgifterna | Mer detaljerad information finns i [statistik](#statistics).|
+|känslor| Kan innehålla noll eller flera känslor. Mer detaljerad information finns i [känslor](#emotions).|
+|avsnitt|Kan innehålla noll eller flera ämnen. [Ämnes](#topics) dimensionen.|
 
-## <a name="videos"></a>Videor
+## <a name="videos"></a>Videos
 
 |Namn|Beskrivning|
 |---|---|
-|accountId|Videons VI konto-ID.|
-|id|Videons-ID.|
-|name|Videons namn.
-|state|Videons tillstånd (överförda, bearbetning, bearbetade, misslyckades, har satts i karantän).|
-|processingProgress|Bearbetningsförlopp under bearbetningen (t.ex, 20%).|
-|failureCode|Felkod om kunde inte bearbeta (till exempel UnsupportedFileType).|
-|failureMessage|Felmeddelande om det gick inte att bearbeta.|
-|externalId|Videons externt ID (om det angetts av användaren).|
-|externalUrl|Videons extern url (om det angetts av användaren).|
-|metadata|Videons externa metadata (om det angetts av användaren).|
-|isAdult|Anger om videon manuellt har granskat och identifieras som en video som är olämpligt för barn.|
-|insights|Insights-objekt. Mer information finns i [insights](#insights).|
-|thumbnailId|Videons miniatyr-ID. Att hämta det faktiska miniatyr anropet [Get-miniatyr](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) och skickar den video-ID och thumbnailId.|
-|publishedUrl|En url som används för att strömma videon.|
-|publishedUrlProxy|En url som används för att strömma video från (för Apple-enheter).|
-|viewToken|En kort livslängd visa token för strömning av videon.|
-|sourceLanguage|Videons källspråk.|
-|language|Videons språkspecifika (translation).|
-|indexingPreset|Den förinställning som används för att indexera videon.|
-|streamingPreset|Den förinställning som används för att publicera videon.|
-|linguisticModelId|CRIS modellen används för att transkribera videon.|
-|statistik | Mer information finns i [statistik](#statistics).|
+|accountId|Videons konto-ID.|
+|id|Videons ID.|
+|namn|Videons namn.
+|state|Videons tillstånd (överförd, bearbetning, bearbetad, misslyckad, karantän).|
+|processingProgress|Bearbetnings förlopp under bearbetning (till exempel 20%).|
+|failureCode|Felkoden om det inte gick att bearbeta (till exempel "UnsupportedFileType").|
+|failureMessage|Fel meddelandet om det inte gick att bearbeta.|
+|externalId|Videons externa ID (om det anges av användaren).|
+|externalUrl|Videons externa URL (om den anges av användaren).|
+|metadata|Videons externa metadata (om de anges av användaren).|
+|isAdult|Anger om videon granskades manuellt och identifierats som en vuxen video.|
+|Insights|Insights-objektet. Mer information finns i [insikter](#insights).|
+|thumbnailId|Videons miniatyr-ID. Hämta det faktiska miniatyr samtalet [Get-thumbnail](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Thumbnail) och skicka det till video-ID och thumbnailId.|
+|publishedUrl|En URL för att strömma videon.|
+|publishedUrlProxy|En URL för att strömma videon från (för Apple-enheter).|
+|viewToken|En kort livs längd Visa token för att strömma videon.|
+|sourceLanguage|Videons käll språk.|
+|language|Videons faktiska språk (översättning).|
+|indexingPreset|Den för inställning som används för att indexera videon.|
+|streamingPreset|Den för inställning som används för att publicera videon.|
+|linguisticModelId|CRI: er-modellen som används för att skriva av videon.|
+|uppgifterna | Mer information finns i [statistik](#statistics).|
 
 ```json
 {
@@ -143,30 +143,30 @@ Det här avsnittet visas en sammanfattning av insikterna.
     }],
 }
 ```
-### <a name="insights"></a>insights
+### <a name="insights"></a>Insights
 
-Insikterna är en uppsättning dimensioner (till exempel avskrift rader, ansikten, varumärken, osv.), där varje dimension är en lista över unika element (till exempel face1, bild2, -bild3), och varje element har sin egen metadata och en lista över dess instanser (som är tidsintervall med ytterligare valfria metadata).
+Insikterna är en uppsättning dimensioner (till exempel avskrifts rader, ansikten, varumärken osv.), där varje dimension är en lista över unika element (till exempel face1, face2, face3) och varje element har sina egna metadata och en lista över dess instanser (som är tidsintervall med ytterligare valfria metadata).
 
-Ett ansikte kan ha ett ID, ett namn, en miniatyrbild, andra metadata och en lista över dess temporala instanser (till exempel: 00: 00:05 – 10:00:00, 00:01:00-00:02:30 och 00:41:21 – 00:41:49.) Varje temporala instans kan ha ytterligare metadata. Till exempel samordnar den ansiktsrektangeln (20,230,60,60).
+En ansikte kan ha ett ID, ett namn, en miniatyr bild, andra metadata och en lista över dess temporala instanser (till exempel: 00:00:05 – 00:00:10, 00:01:00-00:02:30 och 00:41:21 – 00:41:49.) Varje temporal instans kan ha ytterligare metadata. Till exempel är facets Rectangle-koordinater (20230, 60, 60).
 
-|Version|Code-versionen|
+|Version|Kod versionen|
 |---|---|
-|sourceLanguage|Videons källspråk (förutsatt att ett master språk). I form av en [BCP-47](https://tools.ietf.org/html/bcp47) sträng.|
-|language|Insights-språk (översätts från källspråk). I form av en [BCP-47](https://tools.ietf.org/html/bcp47) sträng.|
-|avskrift|Den [avskrift](#transcript) dimension.|
-|OCR|Den [OCR](#ocr) dimension.|
-|nyckelord|Den [nyckelord](#keywords) dimension.|
-|block|Kan innehålla en eller flera [block](#blocks)|
-|ansikten|Den [ansikten](#faces) dimension.|
-|etiketter|Den [etiketter](#labels) dimension.|
-|skärmbilder|Den [skärmbilder](#shots) dimension.|
-|varumärken|Den [varumärken](#brands) dimension.|
-|audioEffects|Den [audioEffects](#audioEffects) dimension.|
-|sentiment|Den [sentiment](#sentiments) dimension.|
-|visualContentModeration|Den [visualContentModeration](#visualcontentmoderation) dimension.|
-|textualContentModeration|Den [textualContentModeration](#textualcontentmoderation) dimension.|
-|känslor| Den [känslor](#emotions) dimension.|
-|ämnen|Den [ämnen](#topics) dimension.|
+|sourceLanguage|Videons käll språk (vi antar ett huvud språk). I form av en [BCP-47-](https://tools.ietf.org/html/bcp47) sträng.|
+|language|Insights-språket (översatt från käll språket). I form av en [BCP-47-](https://tools.ietf.org/html/bcp47) sträng.|
+|avskrifts|[Avskrifts](#transcript) dimensionen.|
+|stöd|[OCR](#ocr) -dimensionen.|
+|reserverade|Dimensionen [nyckelord](#keywords) .|
+|Delar|Kan innehålla ett eller flera [block](#blocks)|
+|ytor|Dimensionen [ansikten](#faces) .|
+|Etiketter|Dimensionen [Etiketter](#labels) .|
+|bilder|Dimensionen [dum par](#shots) .|
+|varumärken|Dimensionen [varumärkes](#brands) .|
+|audioEffects|[AudioEffects](#audioEffects) -dimensionen.|
+|sentiment|[Sentiment](#sentiments) -dimensionen.|
+|visualContentModeration|[VisualContentModeration](#visualcontentmoderation) -dimensionen.|
+|textualContentModeration|[TextualContentModeration](#textualcontentmoderation) -dimensionen.|
+|känslor| [Känslor](#emotions) -dimensionen.|
+|avsnitt|[Ämnes](#topics) dimensionen.|
 
 Exempel:
 
@@ -189,21 +189,21 @@ Exempel:
 }
 ```
 
-#### <a name="blocks"></a>block
+#### <a name="blocks"></a>Delar
 
 Attribut | Beskrivning
 ---|---
 id|ID för blocket.|
-instanser|En lista över tidsintervall i det här blocket.|
+instanser|En lista över tidsintervallen för det här blocket.|
 
-#### <a name="transcript"></a>avskrift
+#### <a name="transcript"></a>avskrifts
 
 |Namn|Beskrivning|
 |---|---|
 |id|Rad-ID.|
-|text|Avskriften.|
-|language|Avskriften-språk. Avser att stödja avskrift där varje rad kan ha ett annat språk.|
-|instanser|En lista över tidsintervall där den här raden visas. Om-instansen är avskrift, har endast 1 instans.|
+|text|Själva avskriften.|
+|language|Avskrifts språket. Avsett att stödja avskrifter där varje rad kan ha ett annat språk.|
+|instanser|En lista med tidsintervaller där denna rad visades. Om instansen avskrifts har den bara en instans.|
 
 Exempel:
 
@@ -234,19 +234,19 @@ Exempel:
 ] 
 ```
 
-#### <a name="ocr"></a>OCR
+#### <a name="ocr"></a>stöd
 
 |Namn|Beskrivning|
 |---|---|
-|id|OCR rad-ID.|
+|id|ID för OCR-linje.|
 |text|OCR-text.|
-|förtroende|Igenkänning av förtroende.|
-|language|OCR-språk.|
-|instanser|En lista över tidsintervall där den här OCR visades (samma OCR kan visas flera gånger).|
-|Höjd|Höjden på OCR-rektangel|
-|längst upp|Den översta platsen i bildpunkter|
-|Vänster| Den vänstra platsen i bildpunkter|
-|Bredd|Bredden på OCR-rektangel|
+|tillit|Igenkännings förtroendet.|
+|language|OCR-språket.|
+|instanser|En lista med tidsintervall där denna OCR visades (samma OCR kan förekomma flera gånger).|
+|Våghöjd|Höjden på OCR-rektangeln|
+|översta|Den översta platsen i px|
+|från| Den vänstra platsen i px|
+|LED|Bredden på OCR-rektangeln|
 
 ```json
 "ocr": [
@@ -269,15 +269,15 @@ Exempel:
   ],
 ```
 
-#### <a name="keywords"></a>nyckelord
+#### <a name="keywords"></a>reserverade
 
 |Namn|Beskrivning|
 |---|---|
-|id|Nyckelordet-ID.|
-|text|Nyckelordstexten.|
-|förtroende|Den nyckelordet igenkänning av förtroende.|
-|language|Nyckelordet språk (vid översättning).|
-|instanser|En lista över tidsintervall där det här nyckelordet visas (ett nyckelord kan visas flera gånger).|
+|id|Nyckelords-ID: t.|
+|text|Nyckelords texten.|
+|tillit|Nyckelordets tolknings säkerhet.|
+|language|Nyckelords språket (vid översättning).|
+|instanser|En lista med tidsintervall där det här nyckelordet visades (ett nyckelord kan visas flera gånger).|
 
 ```json
 {
@@ -300,21 +300,21 @@ Exempel:
 }
 ```
 
-#### <a name="faces"></a>ansikten
+#### <a name="faces"></a>ytor
 
 |Namn|Beskrivning|
 |---|---|
 |id|Ansikts-ID.|
-|name|Namnet på ansiktet. Det kan vara ”okänt #0, en identifierade kändisar eller en kund utbildad person.|
-|förtroende|Face ID förtroende.|
-|description|En beskrivning av kändisar. |
-|thumbnailId|ID för miniatyrbilden för den sida.|
+|namn|Namnet på FACET. Det kan vara okänt #0, en identifierad kändis eller en kundutbildad person.|
+|tillit|Förtroende för ansikts identifiering.|
+|beskrivning|En beskrivning av kändis. |
+|thumbnailId|ID för miniatyr bilden för den aktuella ytan.|
 |knownPersonId|Om det är en känd person, dess interna ID.|
-|referenceId|Om det är en Bing kändisar, dess Bing-ID.|
-|referenceType|För närvarande bara Bing.|
-|title|Om det är en kändisar, dess rubrik (till exempel ”Microsofts VD”).|
-|imageUrl|Om det är en kändisar, dess bild-url.|
-|instanser|Dessa är instanser av där ansiktet visas i det angivna tidsintervallet. Varje instans har också en thumbnailsId. |
+|referenceId|Om det är en Bing-kändis, dess Bing-ID.|
+|referenceType|För närvarande, bara Bing.|
+|title|Om det är en kändis, dess titel (till exempel "Microsofts VD").|
+|imageUrl|Om det är en kändis, dess bild-URL.|
+|instanser|Detta är instanser av där ytan fanns inom det aktuella tidsintervallet. Varje instans har också en thumbnailsId. |
 
 ```json
 "faces": [{
@@ -345,14 +345,14 @@ Exempel:
 }]
 ```
 
-#### <a name="labels"></a>etiketter
+#### <a name="labels"></a>Etiketter
 
 |Namn|Beskrivning|
 |---|---|
-|id|Etikett-ID.|
-|name|Etikettnamn (till exempel ”dator”, ”TV”).|
-|language|Etiketten namn språk (vid översättning). BCP-47|
-|instanser|En lista över tidsintervall där den här etiketten visas (en etikett kan visas flera gånger). Varje instans har ett förtroende-fält. |
+|id|Etikett-ID: t.|
+|namn|Etikett namnet (till exempel "dator", "TV").|
+|language|Etikettens namn språk (vid översättning). BCP-47|
+|instanser|En lista med tidsintervall där etiketten visas (en etikett kan visas flera gånger). Varje instans har ett konfidens fält. |
 
 
 ```json
@@ -404,12 +404,12 @@ Exempel:
   ] 
 ```
 
-#### <a name="scenes"></a>scener
+#### <a name="scenes"></a>scen
 
 |Namn|Beskrivning|
 |---|---|
-|id|Scen-ID.|
-|instanser|En lista över tidsintervall i det här scen (en scen kan endast ha 1 instans).|
+|id|Scen-ID: t.|
+|instanser|En lista med tidsintervall för den här scenen (en scen kan bara ha 1 instans).|
 
 ```json
 "scenes":[  
@@ -437,13 +437,13 @@ Exempel:
 ]
 ```
 
-#### <a name="shots"></a>skärmbilder
+#### <a name="shots"></a>bilder
 
 |Namn|Beskrivning|
 |---|---|
-|id|Som ID.|
-|Nyckelrutor|En lista över nyckelbildrutorna i på nedan (var och en har ett ID och en lista över instanser tidsintervall). Varje instans av bildrutan har ett thumbnailId fält, som innehåller den bildrutan miniatyr-ID.|
-|instanser|En lista över tidsintervall för den här som visar (en som visar kan endast ha 1 instans).|
+|id|Bild-ID.|
+|Nyckel rutor|En lista med nyckel rutor i bilden (var och en har ett ID och en lista över instanser av instans intervallet). Varje instans av en nyckel ruta har ett thumbnailId-fält som innehåller nyckel rutans miniatyr-ID.|
+|instanser|En lista över tidsintervallen för den här instansen (en skärmdump kan bara ha en instans).|
 
 ```json
 "shots":[  
@@ -487,18 +487,18 @@ Exempel:
 
 #### <a name="brands"></a>varumärken
 
-Företag och produkten namn har identifierats i tal till textavskrift och/eller Video OCR. Detta inkluderar inte visuell igenkänning av varumärken eller logotyp identifiering.
+Företags-och produkt märkes namn identifieras i tal till text avskrift och/eller video-OCR. Detta omfattar inte visuell igenkänning av varumärken eller logo typ identifiering.
 
 |Namn|Beskrivning|
 |---|---|
-|id|Varumärke-ID.|
-|name|Namnet varumärken.|
-|referenceId | Suffix för varumärke wikipedias url. Till exempel ”Target_Corporation” är suffixet för [ https://en.wikipedia.org/wiki/Target_Corporation ](https://en.wikipedia.org/wiki/Target_Corporation).
-|referenceUrl | Varumärket är Wikipedias url, om det finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description|Varumärken beskrivning.|
-|taggar|En lista över fördefinierade taggar som är kopplade till den här varumärke.|
-|förtroende|Förtroende-värdet för Video Indexer varumärke detektor (0-1).|
-|instanser|En lista över tidsintervall för den här varumärke. Varje instans har en brandType som anger om den här varumärke visades i avskriften eller OCR.|
+|id|Varumärkes-ID.|
+|namn|Namn på varumärken.|
+|referenceId | Suffixet för varumärkes Wikipedia-URL: en. Till exempel är "Target_Corporation" suffixet för [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|referenceUrl | Varumärkets Wikipedia-URL, om sådan finns. Till exempel [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
+|beskrivning|Beskrivningen av varumärkena.|
+|tags|En lista med fördefinierade taggar som har associerats med det här varumärket.|
+|tillit|Konfidens värdet för Video Indexer varumärkes detektor (0-1).|
+|instanser|En lista med tidsintervall för det här varumärket. Varje instans har en brandType, som anger om detta varumärke visas i avskriften eller i OCR.|
 
 ```json
 "brands": [
@@ -546,23 +546,23 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 ]
 ```
 
-#### <a name="statistics"></a>statistik
+#### <a name="statistics"></a>uppgifterna
 
 |Namn|Beskrivning|
 |---|---|
-|CorrespondenceCount|Antal svaren i videon.|
+|CorrespondenceCount|Antal korrespondens i videon.|
 |SpeakerWordCount|Antalet ord per talare.|
-|SpeakerNumberOfFragments|Mängden fragment talaren har i en video.|
-|SpeakerLongestMonolog|Talarens längsta monolog. Om talaren har silences inuti monolog ingår den. Åsidosatt inaktivitet i början och slutet av monolog tas bort.| 
-|SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt talarens monolog (utan intervallet mellan) dividerat med den totala tiden för videon. Tiden avrundas till tredje decimaltecknet.|
+|SpeakerNumberOfFragments|Mängden fragment som talare har i en video.|
+|SpeakerLongestMonolog|Föredragets längsta monolog. Om högtalaren har tystnad i monolog är den inkluderad. Tystnad i början och slutet av monolog tas bort.| 
+|SpeakerTalkToListenRatio|Beräkningen baseras på den tid som ägnats åt högtalar monolog (utan tystnad mellan) dividerat med videons totala tid. Tiden avrundas till det tredje decimal tecknet.|
 
 #### <a name="a-idaudioeffectsaudioeffects"></a><a id="audioEffects"/>audioEffects
 
 |Namn|Beskrivning|
 |---|---|
-|id|Ljud effekt-ID.|
-|type|Typ av ljud effekt (till exempel applåder, tal, tystnad).|
-|instanser|En lista över tidsintervall där detta ljud visades.|
+|id|Ljudets effekter-ID.|
+|typ|Ljud påverkans typen (till exempel Clapping, tal, tystnad).|
+|instanser|En lista med tidsintervaller där den här ljud påverkan visades.|
 
 ```json
 "audioEffects": [
@@ -585,14 +585,14 @@ Företag och produkten namn har identifierats i tal till textavskrift och/eller 
 
 #### <a name="sentiments"></a>sentiment
 
-Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ). Till exempel 0 0.1, 0.1 0.2.
+Sentiment sammanställs av deras sentimentType-fält (positiv/neutral/negativ). Till exempel 0-0,1, 0,1-0,2.
 
 |Namn|Beskrivning|
 |---|---|
 |id|Sentiment-ID.|
-|averageScore |Medelvärdet för samtliga värden i alla instanser av den typ av sentiment – positiv/Neutral/negativ|
-|instanser|En lista över tidsintervall där den här sentiment visades.|
-|sentimentType |Typen kan vara ”positiva', 'Neutral' eller 'Negativt”.|
+|averageScore |Medelvärdet av alla resultat från alla instanser av sentiment-typ positiv/neutral/negativ|
+|instanser|En lista med tidsintervaller där denna sentiment visades.|
+|sentimentType |Typen kan vara "positiv", "neutral" eller "negativ".|
 
 ```json
 "sentiments": [
@@ -622,16 +622,16 @@ Sentiment sammanställs efter deras sentimentType fält (positiv/Neutral/negativ
 
 #### <a name="visualcontentmoderation"></a>visualContentModeration
 
-VisualContentModeration blocket innehåller tidsintervall som Video Indexer hittas ha potentiellt vuxet innehåll. Om visualContentModeration är tom, finns det inga vuxet innehåll som har identifierats.
+VisualContentModeration-blocket innehåller tidsintervall som Video Indexer hittade för att potentiellt ha vuxen innehåll. Om visualContentModeration är tomt finns det inget olämpligt innehåll som identifierats.
 
-Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga för privata vyn. Användare har möjlighet att skicka en begäran om en mänsklig granskning av innehållet, i vilket fall IsAdult attributet innehåller resultatet av mänsklig granskning.
+Videor som innehåller vuxen eller vågat innehåll kan endast vara tillgängliga för privat vy. Användare har möjlighet att skicka en begäran om en mänsklig granskning av innehållet, i så fall kan IsAdult-attributet innehålla resultatet av mänsklig granskning.
 
 |Namn|Beskrivning|
 |---|---|
-|id|Visual innehållsmoderering-ID.|
-|adultScore|Poäng för Vuxeninnehåll (från content moderator).|
-|racyScore|Poäng för vågat (från innehållsmoderering).|
-|instanser|En lista över tidsintervall där den här visual innehållsmoderering visades.|
+|id|ID för moderator för visuellt innehåll.|
+|adultScore|Den vuxen poängen (från Content moderator).|
+|racyScore|Vågat-poängen (från innehålls redigering).|
+|instanser|En lista med tidsintervaller där den här visuella innehålls kontrollanten visades.|
 
 ```json
 "VisualContentModeration": [
@@ -664,19 +664,19 @@ Videor som finns för vuxet eller olämpligt innehåll kan vara tillgängliga f�
 
 |Namn|Beskrivning|
 |---|---|
-|id|Textbaserade innehållsmoderering-ID.|
-|bannedWordsCount |Antal otillåtna orden.|
-|bannedWordsRatio |Förhållandet från totala antalet ord.|
+|id|ID för text innehållets moderator.|
+|bannedWordsCount |Antalet förbjudna ord.|
+|bannedWordsRatio |Förhållandet från det totala antalet ord.|
 
 #### <a name="emotions"></a>känslor
 
-Video Indexer identifierar känslor baserat på tal- och ljud tips. Identifierade känslor kan vara: nu ett, sorg, ilska eller behöva betala.
+Video Indexer identifierar känslor baserat på tal-och ljud signaler. Den identifierade känslo kan vara: Joy, ledsenhet, ilska eller frukt.
 
 |Namn|Beskrivning|
 |---|---|
 |id|Känslo-ID.|
-|type|Känslo-och som har identifierats utifrån tal- och ljud. Känslan kan vara: glädje, sorg, ilska eller rädsla.|
-|instanser|En lista över tidsintervall där den här känslor visades.|
+|typ|Känslo som identifierades baserat på tal-och ljud signaler. Känslo kan vara: Joy, ledsenhet, ilska eller frukt.|
+|instanser|En lista med tidsintervaller där denna känslo visades.|
 
 ```json
 "emotions": [{
@@ -758,19 +758,19 @@ Video Indexer identifierar känslor baserat på tal- och ljud tips. Identifierad
 ],
 ```
 
-#### <a name="topics"></a>ämnen
+#### <a name="topics"></a>avsnitt
 
-Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är möjligt på servernivå 1 [IPTC](https://iptc.org/standards/media-topics/) taxonomi ingår. 
+Video Indexer gör det lättare att utföra huvud ämnena i avskrifter. När det är möjligt ingår [IPTC](https://iptc.org/standards/media-topics/) -taxonomi på andra nivån. 
 
 |Namn|Beskrivning|
 |---|---|
-|id|Avsnittet-ID.|
-|name|Ämnesnamnet, till exempel: "Pharmaceuticals".|
-|referenceId|Spår återger ämnen-hierarkin. Exempel: ”Hälsa och välbefinnande / medicin och healthcare / Pharmaceuticals”.|
-|förtroende|Förtroendepoäng i intervallet [0,1]. Är högre tryggare.|
-|language|Språket som används i avsnittet.|
-|iptcName|IPTC media koda namn, om identifieras.|
-|instanser |Video Indexer för närvarande inte indexera ett ämne därför att tidsintervall, så att hela videon används som intervall.|
+|id|Avsnitts-ID.|
+|namn|Ämnes namnet, till exempel: "farmaceutiska".|
+|referenceId|Spår som reflekterar ämnes hierarkin. Till exempel: "hälsa och välbefinnande/medicin, sjukvård/farmaceutiska".|
+|tillit|Förtroende poängen i intervallet [0, 1]. Högre är mer tryggare.|
+|language|Det språk som används i ämnet.|
+|iptcName|IPTC-mediets kod namn, om det upptäcks.|
+|instanser |För närvarande kan Video Indexer inte indexera ett ämne till tidsintervall, så hela videon används som intervall.|
 
 ```json
 "topics": [{
@@ -805,7 +805,7 @@ Video Indexer gör inferens av viktigaste avsnitten från avskrifter. Om det är
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Video Indexer Developer Portal](https://api-portal.videoindexer.ai)
+[Video Indexer Developer-portalen](https://api-portal.videoindexer.ai)
 
-Information om hur du bäddar in widgetar i ditt program finns i [bädda in Video Indexer widgetar i dina program](video-indexer-embed-widgets.md). 
+Information om hur du bäddar in widgetar i programmet finns i [bädda in video Indexer-widgetar i dina program](video-indexer-embed-widgets.md). 
 

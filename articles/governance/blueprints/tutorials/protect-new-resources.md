@@ -1,19 +1,19 @@
 ---
-title: Självstudie – skydda nya resurser med skiss resurs lås
+title: Skydda nya resurser med skiss lås
 description: I den här självstudien får du lära dig att använda alternativen för resurs lås i Azure-ritningar som skrivskyddade och ta inte bort för att skydda nyligen distribuerade resurser.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/28/2019
 ms.topic: tutorial
 ms.service: blueprints
-ms.openlocfilehash: a82b24f89cea580a1c79a1dec60996629b7b14f3
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 2f66677df7cd1c6fbde9c0467b4d7f2094509ee8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978134"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297009"
 ---
-# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Självstudier: Skydda nya resurser med resurs lås för Azure-ritningar
+# <a name="tutorial-protect-new-resources-with-azure-blueprints-resource-locks"></a>Självstudie: skydda nya resurser med resurs lås för Azure-ritningar
 
 Med [resurs lås](../concepts/resource-locking.md)för Azure-ritningar kan du skydda nyligen distribuerade resurser från att manipuleras, även genom ett konto med _ägar_ rollen. Du kan lägga till det här skyddet i skiss definitionerna för resurser som skapats av en Resource Manager-mall artefakt.
 
@@ -26,7 +26,7 @@ I den här självstudien utför du följande steg:
 > - Granska den nya resurs gruppen
 > - Ta bort tilldelningen för att ta bort låsen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en Azure-prenumeration för att kunna utföra stegen i den här självstudiekursen. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
 
@@ -46,7 +46,7 @@ Börja med att skapa skiss definitionen.
    - **Skiss Beskrivning**: Lägg till en beskrivning för skiss definitionen. Används **för att testa skiss resurs låsning på distribuerade resurser**.
    - **Definitions plats**: Välj knappen med tre punkter (...) och välj sedan den hanterings grupp eller prenumeration som du vill spara din skiss definition till.
 
-1. Välj fliken **artefakter** högst upp på sidan eller Välj **Next: Artefakter @ no__t-0 längst ned på sidan.
+1. Välj fliken **artefakter** överst på sidan eller Välj **Nästa: artefakter** längst ned på sidan.
 
 1. Lägg till en resurs grupp på prenumerations nivån:
    1. Välj raden **Lägg till artefakt** under **prenumeration**.
@@ -137,7 +137,7 @@ När skiss definitionen har publicerats kan du tilldela den till en prenumeratio
    - **Grundläggande inställningar**
 
      - **Prenumerationer**: Välj en eller flera av de prenumerationer som finns i hanterings gruppen där du sparade skiss definitionen. Om du väljer fler än en prenumeration skapas en tilldelning för varje prenumeration med hjälp av de parametrar som du anger.
-     - **Tilldelnings namn**: Namnet fylls i i förväg baserat på namnet på skiss definitionen. Vi vill att den här tilldelningen ska representera låsning av den nya resurs gruppen, så ändra tilldelnings namnet till **tilldelningen-Locked-storageaccount-TestingBPLocks**.
+     - **Tilldelnings namn**: namnet fylls i i förväg baserat på skiss definitionens namn. Vi vill att den här tilldelningen ska representera låsning av den nya resurs gruppen, så ändra tilldelnings namnet till **tilldelningen-Locked-storageaccount-TestingBPLocks**.
      - **Plats**: Välj en region där du vill skapa den hanterade identiteten. Azure Blueprint använder den här hanterade identiteten för att distribuera alla artefakter i den tilldelade skissen. Mer information finns i [Hanterade identiteter för Azure-resurser](../../../active-directory/managed-identities-azure-resources/overview.md).
        I den här självstudien väljer du **USA, östra 2**.
      - **Ritnings definitions version**: Välj den publicerade versionen **1,0** av skiss definitionen.
@@ -148,16 +148,16 @@ När skiss definitionen har publicerats kan du tilldela den till en prenumeratio
 
    - **Hanterad identitet**
 
-     Använd standard alternativet: **Tilldelat system**. Mer information finns i [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md).
+     Använd standard alternativet: **systemtilldelad**. Mer information finns i [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md).
 
    - **Artefakt parametrar**
 
      De parametrar som definieras i det här avsnittet gäller för den artefakt under vilken de har definierats. Dessa parametrar är [dynamiska parametrar](../concepts/parameters.md#dynamic-parameters) eftersom de definieras när skissen tilldelas. För varje artefakt anger du parametervärdet till det som visas i kolumnen **värde** .
 
-     |Namn på artefakt|Artefakttyp|Parameternamn|Value|Beskrivning|
+     |Artefakt namn|Artefakt typ|Parameternamn|Värde|Beskrivning|
      |-|-|-|-|-|
-     |Resurs grupp för RGtoLock|Resource group|Name|TestingBPLocks|Definierar namnet på den nya resurs grupp som skissen ska användas på.|
-     |Resurs grupp för RGtoLock|Resource group|Location|Västra USA 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|
+     |Resurs grupp för RGtoLock|Resursgrupp|Namn|TestingBPLocks|Definierar namnet på den nya resurs grupp som skissen ska användas på.|
+     |Resurs grupp för RGtoLock|Resursgrupp|Plats|USA, västra 2|Definierar platsen för den nya resurs gruppen som skissen ska användas i.|
      |StorageAccount|Resource Manager-mall|storageAccountType (StorageAccount)|Standard_GRS|SKU för lagring. Standardvärdet är _Standard_LRS_.|
 
 1. När du har angett alla parametrar väljer du **tilldela** längst ned på sidan.

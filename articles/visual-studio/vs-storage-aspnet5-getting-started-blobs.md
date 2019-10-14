@@ -1,5 +1,5 @@
 ---
-title: Kom igång med Blob Storage och anslutna Visual Studio-tjänster (ASP.NET Core) | Microsoft Docs
+title: Kom igång med Blob Storage med hjälp av Visual Studio (ASP.NET Core)
 description: Komma igång med Azure Blob Storage i ett Visual Studio-ASP.NET Core projekt när du har skapat ett lagrings konto med hjälp av Visual Studio Connected Services
 services: storage
 author: ghogen
@@ -12,12 +12,13 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ghogen
-ms.openlocfilehash: c0f4124ffdb03a7a193791515444c4c7001378d7
-ms.sourcegitcommit: 0e59368513a495af0a93a5b8855fd65ef1c44aac
+ROBOTS: NOINDEX,NOFOLLOW
+ms.openlocfilehash: 81df41470c893f569fd17345e8bdf4b29641ec64
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69511564"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72298830"
 ---
 # <a name="get-started-with-azure-blob-storage-and-visual-studio-connected-services-aspnet-core"></a>Kom igång med Azure Blob Storage och anslutna Visual Studio-tjänster (ASP.NET Core)
 
@@ -27,7 +28,7 @@ Den här artikeln beskriver hur du kommer igång med Azure Blob Storage i Visual
 
 Azure Blob Storage är en tjänst för att lagra stora mängder ostrukturerade data som kan nås från var som helst i världen via HTTP eller HTTPS. En enda BLOB kan vara vilken storlek som helst. Blobbar kan vara saker som bilder, ljud-och videofiler, rå data och dokument-filer. Den här artikeln beskriver hur du kommer igång med Blob Storage när du har skapat ett Azure Storage-konto med hjälp av Visual Studio **Connected Services** i ett ASP.net Core-projekt.
 
-Precis som filer Live i mappar, Storage blobbar i behållare. När du har skapat en BLOB skapar du en eller flera behållare i denna blob. I en blob med namnet "klipp bok" kan du till exempel skapa behållare som kallas "bilder" för att lagra bilder och en annan som kallas "ljud" för att lagra ljudfiler. När du har skapat behållarna kan du överföra enskilda filer till dem. Gå till [Snabbstart: Ladda upp, ladda ned och lista blobar med](../storage/blobs/storage-quickstart-blobs-dotnet.md) hjälp av .net om du vill ha mer information om program mässigt manipulera blobbar.
+Precis som filer Live i mappar, Storage blobbar i behållare. När du har skapat en BLOB skapar du en eller flera behållare i denna blob. I en blob med namnet "klipp bok" kan du till exempel skapa behållare som kallas "bilder" för att lagra bilder och en annan som kallas "ljud" för att lagra ljudfiler. När du har skapat behållarna kan du överföra enskilda filer till dem. Se [snabb start: Ladda upp, ladda ned och lista blobar med hjälp av .net](../storage/blobs/storage-quickstart-blobs-dotnet.md) för mer information om program mässigt manipulera blobbar.
 
 Några av de Azure Storage API: erna är asynkrona och koden i den här artikeln förutsätter att asynkrona metoder används. Mer information finns i [asynkron programmering](https://docs.microsoft.com/dotnet/csharp/async) .
 
@@ -35,7 +36,7 @@ Några av de Azure Storage API: erna är asynkrona och koden i den här artikeln
 
 För att program mässigt få åtkomst till blobbar i ASP.NET Core-projekt måste du lägga till följande kod om den inte redan finns:
 
-1. Lägg till de `using` nödvändiga instruktionerna:
+1. Lägg till nödvändiga `using`-uttryck:
 
     ```cs
     using Microsoft.Extensions.Configuration;
@@ -45,7 +46,7 @@ För att program mässigt få åtkomst till blobbar i ASP.NET Core-projekt måst
     using LogLevel = Microsoft.Extensions.Logging.LogLevel;
     ```
 
-1. Hämta ett `CloudStorageAccount` objekt som representerar lagrings konto informationen. Använd följande kod för att hämta information om lagrings anslutnings strängen och lagrings kontot från Azure-tjänst konfigurationen:
+1. Hämta ett `CloudStorageAccount`-objekt som representerar lagrings konto informationen. Använd följande kod för att hämta information om lagrings anslutnings strängen och lagrings kontot från Azure-tjänst konfigurationen:
 
     ```cs
      CloudStorageAccount storageAccount = new CloudStorageAccount(
@@ -54,7 +55,7 @@ För att program mässigt få åtkomst till blobbar i ASP.NET Core-projekt måst
         "<access-key>"), true);
     ```
 
-1. Använd ett `CloudBlobClient` objekt för att hämta `CloudBlobContainer` en referens till en befintlig behållare i ditt lagrings konto:
+1. Använd ett `CloudBlobClient`-objekt för att hämta en `CloudBlobContainer`-referens till en befintlig behållare i ditt lagrings konto:
 
     ```cs
     // Create a blob client.
@@ -66,7 +67,7 @@ För att program mässigt få åtkomst till blobbar i ASP.NET Core-projekt måst
 
 ## <a name="create-a-container-in-code"></a>Skapa en behållare i kod
 
-Du kan också använda `CloudBlobClient` för att skapa en behållare i ditt lagrings konto genom att anropa: `CreateIfNotExistsAsync`
+Du kan också använda `CloudBlobClient` för att skapa en behållare i ditt lagrings konto genom att anropa `CreateIfNotExistsAsync`:
 
 ```cs
 // Create a blob client.
@@ -90,7 +91,7 @@ await container.SetPermissionsAsync(new BlobContainerPermissions
 
 ## <a name="upload-a-blob-into-a-container"></a>Ladda upp en blob till en container
 
-Om du vill överföra en BLOB-fil till en behållare hämtar du en behållar referens och använder den för att hämta en BLOB-referens. Ladda sedan upp data strömmar till referensen genom att anropa `UploadFromStreamAsync` -metoden. Den här åtgärden skapar blobben om den inte redan finns där, och skriver över en befintlig blob. 
+Om du vill överföra en BLOB-fil till en behållare hämtar du en behållar referens och använder den för att hämta en BLOB-referens. Ladda sedan upp data strömmar till den referensen genom att anropa metoden `UploadFromStreamAsync`. Den här åtgärden skapar blobben om den inte redan finns där, och skriver över en befintlig blob. 
 
 ```cs
 // Get a reference to a blob named "myblob".
@@ -106,7 +107,7 @@ using (var fileStream = System.IO.File.OpenRead(@"path\myfile"))
 
 ## <a name="list-the-blobs-in-a-container"></a>Visa en lista över blobarna i en container
 
-Om du vill visa en lista över blobarna i en behållare, hämtar du först en behållar referens och anropar sedan dess `ListBlobsSegmentedAsync` metod för att hämta blobbar och/eller kataloger i den. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder `IListBlobItem`för en returnerad, `CloudBlockBlob`omvandla den till `CloudBlobDirectory` ett-, `CloudPageBlob`-eller-objekt. Om du inte känner till BLOB-typen använder du en typ kontroll för att avgöra vilken du vill omvandla den till.
+Om du vill visa en lista över blobarna i en behållare, hämtar du först en behållar referens och anropar sedan dess `ListBlobsSegmentedAsync`-metod för att hämta blobbar och/eller kataloger i den. För att få åtkomst till den omfattande uppsättningen med egenskaper och metoder för en returnerad `IListBlobItem`, omvandla den till ett `CloudBlockBlob`-, @no__t-eller `CloudBlobDirectory`-objekt. Om du inte känner till BLOB-typen använder du en typ kontroll för att avgöra vilken du vill omvandla den till.
 
 ```cs
 BlobContinuationToken token = null;
@@ -140,11 +141,11 @@ do
 } while (token != null);
 ```
 
-Gå till [Snabbstart: Ladda upp, ladda ned och lista blobar med](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) .net för andra sätt att visa innehållet i en BLOB-behållare.
+Se [snabb start: Ladda upp, ladda ned och lista blobar med .net](../storage/blobs/storage-quickstart-blobs-dotnet.md#list-the-blobs-in-a-container) för andra sätt att visa innehållet i en BLOB-behållare.
 
 ## <a name="download-a-blob"></a>Ladda ned en blob
 
-Hämta en BLOB genom att först hämta en referens till bloben och anropa `DownloadToStreamAsync` sedan metoden. I följande exempel används `DownloadToStreamAsync` metoden för att överföra BLOB-innehållet till ett Stream-objekt som du sedan kan spara som en lokal fil.
+Hämta en BLOB genom att först hämta en referens till bloben och anropa sedan metoden `DownloadToStreamAsync`. I följande exempel används metoden `DownloadToStreamAsync` för att överföra BLOB-innehållet till ett Stream-objekt som du sedan kan spara som en lokal fil.
 
 ```cs
 // Get a reference to a blob named "photo1.jpg".
@@ -157,11 +158,11 @@ using (var fileStream = System.IO.File.OpenWrite(@"path\myfile"))
 }
 ```
 
-Gå till [Snabbstart: Ladda upp, ladda ned och lista blobar med](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) .net för andra sätt att spara blobbar som filer.
+Se [snabb start: Ladda upp, ladda ned och lista blobar med .net](../storage/blobs/storage-quickstart-blobs-dotnet.md#download-blobs) för andra sätt att spara blobbar som filer.
 
 ## <a name="delete-a-blob"></a>Ta bort en blob
 
-Om du vill ta bort en BLOB måste du först hämta en referens till bloben `DeleteAsync` och sedan anropa metoden:
+Om du vill ta bort en BLOB måste du först hämta en referens till bloben och sedan anropa metoden `DeleteAsync`:
 
 ```cs
 // Get a reference to a blob named "myblob.txt".

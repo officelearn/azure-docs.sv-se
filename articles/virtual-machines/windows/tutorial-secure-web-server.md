@@ -15,16 +15,16 @@ ms.workload: infrastructure
 ms.date: 02/09/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 8742700f472f5cedcf5de307f1b151634303a0be
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: bf4c21616da0b27fb253bbbd24a6bf4e9acd0bf3
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101628"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72300053"
 ---
 # <a name="tutorial-secure-a-web-server-on-a-windows-virtual-machine-in-azure-with-ssl-certificates-stored-in-key-vault"></a>Självstudier: Skydda en webbserver på en virtuell Windows-dator i Azure med SSL-certifikat som lagras i Key Vault
 
-När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Windows-datorer i Azure. I den här självstudiekursen får du lära du dig att:
+När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure Sockets Layer) för att kryptera webbtrafik. SSL-certifikat går att lagra i Azure Key Vault och tillåter säker distribuering av certifikat till virtuella Windows-datorer i Azure. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa ett Azure Key Vault
@@ -32,7 +32,6 @@ När du ska skydda dina webbservrar kan du använda ett SSL-certifikat (Secure S
 > * Skapa en virtuell dator och installera IIS-webbservern
 > * Mata in certifikatet i den virtuella datorn och konfigurera IIS med en SSL-bindning
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
@@ -90,7 +89,7 @@ Ange ett administratörsanvändarnamn och lösenord för den virtuella datorn me
 $cred = Get-Credential
 ```
 
-Nu kan du skapa den virtuella datorn med [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVM* på platsen *EastUS* (Östra USA). Stödnätverksresurser skapas, om de inte redan finns. För att tillåta säker webbtrafik öppnar cmdleten även port *443*.
+Nu kan du skapa den virtuella datorn med hjälp av [New-AzVM](https://docs.microsoft.com/powershell/module/az.compute/new-azvm). I följande exempel skapas en virtuell dator med namnet *myVM* på platsen *EastUS* (Östra USA). Stödnätverksresurser skapas, om de inte redan finns. För att tillåta säker webbtrafik öppnar cmdleten även port *443*.
 
 ```azurepowershell-interactive
 # Create a VM

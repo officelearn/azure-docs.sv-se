@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 24404d6b55f83f96d8e2601afd35b2dec00cc7e9
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 0872d3c798bd5bd94e425869822602e8123517b4
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099722"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303618"
 ---
 # <a name="sap-hana-large-instances-network-architecture"></a>SAP HANA (stora instanser) nätverks arkitektur
 
@@ -73,9 +73,9 @@ Skillnaderna med SAP-distributioner i Azure är:
 - SAP-programarkitekturen är mer känslig för nätverks fördröjningar än vanliga scenarier där data utbyts mellan lokala platser och Azure.
 - Azure ExpressRoute-gatewayen har minst två ExpressRoute-anslutningar. En krets som är ansluten från lokal plats och en som är ansluten från HANA-stora instanser. Detta lämnar bara utrymme för ytterligare två kretsar från olika msee för att ansluta till ExpressRoute-Gateway. Den här begränsningen är oberoende av användningen av ExpressRoute snabb väg. Alla anslutna kretsar delar den maximala bandbredden för inkommande data för ExpressRoute-gatewayen.
 
-Med revision 3 av HANA stor instans-stämplar kan nätverks fördröjningen mellan virtuella datorer och HANA stora instans enheter vara högre än en typisk fördröjning för VM-till-VM-nätverk. Värdena som är beroende av Azure-regionen kan överstiga 0,7-MS tur och retur-svars tiden som klassificeras som [under genomsnitt i SAP Obs #1100926 – vanliga frågor och svar: Nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E). Beroende av Azure-region och-verktyg för att mäta fördröjningar i nätverks fördröjningar mellan en virtuell Azure-dator och HANA stor instans enhet, kan den uppmätta svars tiden vara upp till och omkring 2 millisekunder. Kunder distribuerar dock SAP HANA-baserade produktion SAP-program på SAP HANA stor instans. Se till att testa dina affärs processer noggrant i Azure HANA stor instans. En ny funktion, som kallas ExpressRoute snabb sökväg, kan minska nätverks fördröjningen mellan HANA-stora instanser och virtuella program på virtuella datorer i Azure i huvudsak (se nedan). 
+Med revision 3 av HANA stor instans-stämplar kan nätverks fördröjningen mellan virtuella datorer och HANA stora instans enheter vara högre än en typisk fördröjning för VM-till-VM-nätverk. Värdena som är beroende av Azure-regionen kan överstiga 0,7-MS tur och retur-svars tiden som klassificeras som under genomsnitt i [SAP obs #1100926 – vanliga frågor och svar: nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E). Beroende av Azure-region och-verktyg för att mäta fördröjningar i nätverks fördröjningar mellan en virtuell Azure-dator och HANA stor instans enhet, kan den uppmätta svars tiden vara upp till och omkring 2 millisekunder. Kunder distribuerar dock SAP HANA-baserade produktion SAP-program på SAP HANA stor instans. Se till att testa dina affärs processer noggrant i Azure HANA stor instans. En ny funktion, som kallas ExpressRoute snabb sökväg, kan minska nätverks fördröjningen mellan HANA-stora instanser och virtuella program på virtuella datorer i Azure i huvudsak (se nedan). 
 
-Med revision 4 av Hana-stora instans stämplar, är nätverks fördröjningen mellan virtuella Azure-datorer som distribueras i närheten av den stora instans stämpeln för Hana och har erfarenhet av att uppfylla genomsnittet eller bättre än [den genomsnittliga klassificeringen enligt beskrivningen i SAP Obs! #1100926 – VANLIGA FRÅGOR OCH SVAR: Nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E) om Azure ExpressRoute snabb sökväg har kon figurer ATS (se nedan). För att kunna distribuera virtuella Azure-datorer i nära närhet till HANA stora instans enheter av revision 4 måste du utnyttja [Azure närhets placerings grupper](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Hur närhets placerings grupper kan användas för att hitta SAP-program skiktet i samma Azure-datacenter som den revision 4 värdbaserade HANA-enheten beskrivs i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program ](sap-proximity-placement-scenarios.md).
+Med revision 4 av HANA stora instanser av HANA, är nätverks fördröjningen mellan virtuella Azure-datorer som distribueras i närheten av den stora instans stämpeln i den stora instansen för att uppfylla genomsnittet eller bättre än den genomsnittliga klassificeringen enligt beskrivningen i [SAP obs #1100926 – vanliga frågor och svar: Nätverks prestanda](https://launchpad.support.sap.com/#/notes/1100926/E) om Azure ExpressRoute snabb sökväg har kon figurer ATS (se nedan). För att kunna distribuera virtuella Azure-datorer i nära närhet till HANA stora instans enheter av revision 4 måste du utnyttja [Azure närhets placerings grupper](https://docs.microsoft.com/azure/virtual-machines/linux/co-location). Hur närhets placerings grupper kan användas för att hitta SAP-program skiktet i samma Azure-datacenter som den revision 4 värdbaserade HANA-enheten beskrivs i [Azure närhets placerings grupper för optimal nätverks fördröjning med SAP-program ](sap-proximity-placement-scenarios.md).
 
 För att tillhandahålla deterministisk nätverks fördröjning mellan virtuella datorer och HANA stor instans är valet av SKU för ExpressRoute-Gateway nödvändigt. Till skillnad från trafik mönster mellan lokala och virtuella datorer kan trafik mönstret mellan virtuella datorer och HANA stor instans utveckla små men höga burst-sändningar för begär Anden och data volymer som ska överföras. För att hantera sådana burst-fel rekommenderar vi starkt att du använder UltraPerformance Gateway-SKU: n. För typ II-klassen för HANA stor instans-SKU: er är det obligatoriskt att använda UltraPerformance Gateway-SKU: n som en ExpressRotue-Gateway.
 
@@ -138,7 +138,14 @@ Som standard är tre nätverks Dirigerings överväganden viktiga för SAP HANA 
 * SAP HANA på Azure-enheter (stora instanser) har en tilldelad IP-adress från adress intervallet för serverns IP-adresspool som du skickade när du begärde den stora distribution av HANA-instanser. Mer information finns i [SAP HANA (stora instanser) infrastruktur och anslutning på Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Den här IP-adressen är tillgänglig via de Azure-prenumerationer och-kretsar som ansluter virtuella Azure-nätverk till HANA-stora instanser. Den IP-adress som har tilldelats från IP-adresspoolen för serverns IP-adress intervall tilldelas direkt till maskin varu enheten. Den är *inte* tilldelad till NAT längre, vilket var fallet i de första distributionerna av den här lösningen. 
 
 ### <a name="direct-routing-to-hana-large-instances"></a>Direkt routning till HANA-stora instanser
-Som standard fungerar inte den transitiva routningen mellan HANA stor instans enheter och lokalt eller mellan HANA-routning med stora instanser som distribueras i två olika regioner. Det finns flera möjligheter att aktivera en sådan transitiv routning.
+
+Den transitiva routningen fungerar som standard inte i följande scenarier:
+
+* Mellan HANA-stora instans enheter och en lokal distribution.
+
+* Mellan HANA-stor instans routning som distribueras i två olika regioner.
+
+Det finns tre sätt att aktivera transitiv routning i dessa scenarier:
 
 - En omvänd proxy för att dirigera data till och från. Till exempel F5 BIG-IP, NGINX med Traffic Manager distribuerat i det virtuella Azure-nätverket som ansluter till HANA-stora instanser och till lokalt som en virtuell brand vägg/trafik lösning.
 - Använda [program varan iptables-regler](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) i en virtuell Linux-dator för att aktivera routning mellan lokala platser och Hana stora instans enheter, eller mellan Hana-stora instans enheter i olika regioner. Den virtuella datorn som kör program varan iptables måste distribueras i det virtuella Azure-nätverket som ansluter till HANA-stora instanser och till lokalt. Den virtuella datorn måste ha en storlek enligt detta, så att nätverks data flödet på den virtuella datorn räcker för den förväntade nätverks trafiken. Mer information om bandbredd för virtuella datorer finns i artikel [storlekarna för virtuella Linux-datorer i Azure](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json).

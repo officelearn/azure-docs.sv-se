@@ -1,33 +1,31 @@
 ---
 title: Köra bakgrunds aktiviteter med webbjobb – Azure App Service
 description: Lär dig hur du använder WebJobs för att köra bakgrunds aktiviteter i Azure App Service webbappar, API Apps eller mobilappar.
-services: app-service
 author: ggailey777
-manager: jeconnoc
-editor: jimbe
-ms.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
+manager: wgallace
+s.assetid: af01771e-54eb-4aea-af5f-f883ff39572b
 ms.service: app-service
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: glenga
 ms.reviewer: msangapu;david.ebbo;suwatch;pbatum;naren.soni
 ms.custom: seodec18
-ms.openlocfilehash: 53f808570a298c8e576b6df7b4654196ffc56813
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 2d97f826f4288d13589a2fb9da8148d58a2c5e1e
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177491"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303574"
 ---
 # <a name="run-background-tasks-with-webjobs-in-azure-app-service"></a>Kör bakgrunds aktiviteter med WebJobs i Azure App Service
 
+Den här artikeln visar hur du distribuerar WebJobs med hjälp av [Azure Portal](https://portal.azure.com) för att ladda upp en körbar fil eller ett skript. Information om hur du utvecklar och distribuerar WebJobs med hjälp av Visual Studio finns i [Distribuera WebJobs med Visual Studio](webjobs-dotnet-deploy-vs.md).
+
 ## <a name="overview"></a>Översikt
-WebJobs är en funktion i [Azure App Service](https://docs.microsoft.com/azure/app-service/) som gör att du kan köra ett program eller skript i samma kontext som en WEBBAPP, API-app eller mobilapp. Det kostar inget extra att använda WebJobs.
+WebJobs är en funktion i [Azure App Service](index.yml) som gör att du kan köra ett program eller skript i samma kontext som en WEBBAPP, API-app eller mobilapp. Det kostar inget extra att använda WebJobs.
 
 > [!IMPORTANT]
 > WebJobs stöds ännu inte för App Service i Linux.
-
-Den här artikeln visar hur du distribuerar WebJobs med hjälp av [Azure Portal](https://portal.azure.com) för att ladda upp en körbar fil eller ett skript. Information om hur du utvecklar och distribuerar WebJobs med hjälp av Visual Studio finns i [Distribuera WebJobs med Visual Studio](webjobs-dotnet-deploy-vs.md).
 
 Azure WebJobs SDK kan användas med WebJobs för att förenkla många programmerings aktiviteter. Mer information finns i [Vad är WebJobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki).
 
@@ -180,6 +178,8 @@ Du kan ange ett [NCRONTAB-uttryck](../azure-functions/functions-bindings-timer.m
 ```
 
 Mer information finns i [Schemalägga ett utlöst webb jobb](webjobs-dotnet-deploy-vs.md#scheduling-a-triggered-webjob).
+
+[!INCLUDE [webjobs-cron-timezone-note](../../includes/webjobs-cron-timezone-note.md)]
 
 ## <a name="ViewJobHistory"></a>Visa jobb historiken
 

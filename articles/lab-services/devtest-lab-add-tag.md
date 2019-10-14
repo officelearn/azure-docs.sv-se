@@ -12,47 +12,50 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 10/13/2019
 ms.author: spelluru
-ms.openlocfilehash: e4d9aeb527461cc7292235fef1de0abdfa4242bd
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 1d7175d000eebd3f68665e7f097bbe3f68025bc8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311376"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302794"
 ---
 # <a name="add-tags-to-a-lab-in-azure-devtest-labs"></a>Lägga till taggar i ett labb i Azure DevTest Labs
 
-Du kan skapa anpassade taggar och tillämpa dem på dina labb-resurser för att kategorisera logiskt dina resurser. Senare kan du snabbt och se enkelt alla resurser i din prenumeration som har den taggen. Taggar är användbara när du behöver organisera resurser för fakturering eller hantering.
+Du kan skapa anpassade taggar och tillämpa dem på dina DevTest Labs-resurser för att logiskt kategorisera dina resurser. Senare kan du snabbt och enkelt se alla resurser i din prenumeration som har den taggen. Taggar är användbara när du behöver organisera resurser för fakturering eller hantering.
 
 Resurser som stöds av taggar är
 
-* Compute virtuella datorer
+* Beräkna virtuella datorer
 * Nätverkskort
 * IP-adresser
 * Lastbalanserare
 * Lagringskonton
-* Hanterade diskar
+* Managed Disks
 
-Du kan använda taggar när du [skapa ett labb](devtest-lab-create-lab.md) och hantera dem senare via bladet taggar under konfiguration och inställningar.
+Du kan använda taggar när du [skapar ett labb](devtest-lab-create-lab.md) och senare hanterar dem via bladet Taggar under konfiguration och inställningar.
 
-Varje tagg består av en **namn**/**värdet** par. Du kan till exempel skapa en tagg med namnet *costcenter* som har värdet *34543*. En tagg som detta kan hjälpa dig att senare identifiera labbresurser som debiteras till den här viss del av din organisation. Du får välja namn och värden som passar för hur du vill organisera din prenumeration.
+Varje tagg består av ett **namn**@no__t **-1-värdepar.** Du kan till exempel skapa en tagg med namnet *CostCenter* som har värdet *34543*. En tagg som detta kan hjälpa dig att senare identifiera labb resurser som är fakturerbara i det här avsnittet av din organisation. Du kan välja namn och värden som passar för hur du vill organisera din prenumeration.
 
-## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Steg för att hantera taggar i en befintlig labb
+## <a name="steps-to-manage-tags-in-an-existing-lab"></a>Steg för att hantera Taggar i ett befintligt labb
 
-1. Logga in på [Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040).
-1. Om det behövs väljer **alla tjänster**, och välj sedan **DevTest Labs** i listan. Labbet kanske redan visas på instrumentpanelen under **alla resurser**.
-1. I listan över labbar Välj labb där du vill lägga till eller hantera taggar.
-1. På testmiljön **översikt** Välj **konfiguration och principer**.
+1. Logga in på [Azure-portalen](https://go.microsoft.com/fwlink/p/?LinkID=525040).
+1. Om det behövs väljer du **alla tjänster**och väljer sedan **DevTest Labs** i listan. Ditt labb kanske redan visas på instrument panelen under **alla resurser**.
+1. I listan med labb väljer du det labb i vilket du vill lägga till eller hantera taggar.
+1. I labb **översikts** avsnittet väljer du **konfiguration och principer**.
 
-    ![Knappen för konfiguration och principer](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
+    ![Knappen konfiguration och principer](./media/devtest-lab-add-tag/devtestlab-config-and-policies.png)
 
-1. Till vänster under **hantera**väljer **taggar**.
-1. Om du vill skapa en ny post för den här övningen, ange en **namn**/**värdet** parkopplas och välj **spara**. Du kan också välja en befintlig tagg från listan för att visa eller hantera resurser som är associerade med taggen.
+1. Välj **taggar**till vänster under **Hantera**.
+1. Om du vill skapa en ny tagg för det här labbet anger du ett **namn**@no__t **-1 värdepar** och väljer **Spara**. Du kan också välja en befintlig tagg från listan för att visa eller hantera de resurser som är kopplade till den taggen.
 
-    ![Hantera taggar](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
+    ![Hantera Taggar](./media/devtest-lab-add-tag/devtestlab-manage-tags.png)
 
-## <a name="understanding-limitations-to-tags"></a>Förstå begränsningar för taggar
+> [!NOTE]
+> Taggar som skapats på labb nivå flödet genom alla fakturerbara resurser som labbet snurrar upp i din prenumeration. Till exempel kan taggar på labb nivå flöda till de underliggande virtuella datorerna för virtuella datorer med labb. du kan använda taggar i samband med kostnads hantering. Labb nivå taggar visas i tag-filtret för Cost Management.
+
+## <a name="understanding-limitations-to-tags"></a>Förstå begränsningar för Taggar
 
 Följande begränsningar gäller för taggar:
 
@@ -60,10 +63,10 @@ Följande begränsningar gäller för taggar:
 * Taggnamnet är begränsat till 512 tecken och taggvärdet är begränsat till 256 tecken. För lagringskonton är taggnamnet begränsat till 128 tecken och taggvärdet till 256 tecken.
 * Taggar som lagts till för en resursgrupp ärvs inte av resurserna i den resursgruppen.
 
-[Använd taggar för att organisera Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) innehåller bättre information om hur du använder taggar i Azure, inklusive hur du hanterar taggar med PowerShell eller Azure CLI.
+[Använd taggar för att organisera dina Azure-resurser](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) ger mer information om hur du använder taggar i Azure, inklusive hur du hanterar Taggar med PowerShell eller Azure CLI.
 
 [!INCLUDE [devtest-lab-try-it-out](../../includes/devtest-lab-try-it-out.md)]
 
 ## <a name="next-steps"></a>Nästa steg
-* Du kan använda begränsningar och konventioner på din prenumeration med hjälp av anpassade principer. En princip som du definierar kan kräva att alla resurser har ett värde för en viss tagg. Mer information finns i [ange principer och scheman](devtest-lab-set-lab-policy.md).
-* Utforska den [DevTest Labs Azure Resource Manager QuickStart mallgalleriet](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).
+* Du kan tillämpa begränsningar och konventioner i din prenumeration genom att använda anpassade principer. En princip som du definierar kan kräva att alla resurser har ett värde för en viss tagg. Mer information finns i [ange principer och scheman](devtest-lab-set-lab-policy.md).
+* Utforska [DevTest Labs Azure Resource Manager snabb starts galleriet](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates).

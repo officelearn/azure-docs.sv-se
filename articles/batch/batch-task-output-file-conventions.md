@@ -14,18 +14,18 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: lahugh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4446b92a8998f05aae47a3bab6a2cea4785fddf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a2970c46c7cbc978bf6d7491c9258dcccc5404bd
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094572"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302674"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Spara jobb-och uppgifts data till Azure Storage med bibliotek för batch-fil konventioner för .NET
 
 [!INCLUDE [batch-task-output-include](../../includes/batch-task-output-include.md)]
 
-Ett sätt att spara uppgifts data är att använda [biblioteket för Azure batch fil konventioner för .net][nuget_package]. Biblioteket fil konventioner fören klar processen att lagra Uppgiftsutdata för att Azure Storage och hämta den. Du kan använda biblioteket fil konventioner i både aktivitets-och klient &mdash; kod i uppgifts koden för att spara filer, och i klient kod till lista och hämta dem. Din uppgifts kod kan också använda biblioteket för att hämta utdata från överordnade aktiviteter, till exempel i ett scenario med [aktivitets beroenden](batch-task-dependencies.md) .
+Ett sätt att spara uppgifts data är att använda [biblioteket för Azure batch fil konventioner för .net][nuget_package]. Biblioteket fil konventioner fören klar processen att lagra Uppgiftsutdata för att Azure Storage och hämta den. Du kan använda biblioteket fil konventioner i både aktivitets-och klient kod &mdash; i uppgifts koden för att spara filer, och i klient kod till lista och hämta dem. Din uppgifts kod kan också använda biblioteket för att hämta utdata från överordnade aktiviteter, till exempel i ett scenario med [aktivitets beroenden](batch-task-dependencies.md) .
 
 Om du vill hämta utdatafiler med biblioteket med fil konventioner kan du hitta filerna för ett jobb eller en aktivitet genom att ange dem efter ID och syfte. Du behöver inte känna till namn eller platser för filerna. Du kan till exempel använda biblioteket fil konventioner för att visa en lista över alla mellanliggande filer för en specifik uppgift eller hämta en förhands gransknings fil för ett specifikt jobb.
 
@@ -63,18 +63,18 @@ Om du vill spara utdata för att Azure Storage med hjälp av biblioteket fil kon
 
 ## <a name="persist-output-data"></a>Spara utdata
 
-Om du vill spara jobb-och uppgifts utmatnings data med biblioteket fil konventioner skapar du en behållare i Azure Storage och sparar sedan utdata i behållaren. Använd [Azure Storage klient bibliotek för .net](https://www.nuget.org/packages/WindowsAzure.Storage) i din uppgifts kod för att överföra Uppgiftsutdata till behållaren. 
+Om du vill spara jobb-och uppgifts utmatnings data med biblioteket fil konventioner skapar du en behållare i Azure Storage och sparar sedan utdata i behållaren. Använd [Azure Storage klient bibliotek för .net](https://www.nuget.org/packages/WindowsAzure.Storage) i din uppgifts kod för att överföra Uppgiftsutdata till behållaren.
 
 Mer information om hur du arbetar med behållare och blobbar i Azure Storage finns i [komma igång med Azure Blob Storage med hjälp av .net](../storage/blobs/storage-dotnet-how-to-use-blobs.md).
 
 > [!WARNING]
-> Alla utdata för jobb och uppgifter sparas i biblioteket med fil konventioner, lagras i samma behållare. Om ett stort antal aktiviteter försöker spara filer samtidigt, kan begränsningar för lagrings [begränsningen](../storage/common/storage-performance-checklist.md#blobs) tillämpas.
+> Alla utdata för jobb och uppgifter sparas i biblioteket med fil konventioner, lagras i samma behållare. Om ett stort antal aktiviteter försöker spara filer samtidigt kan Azure Storage begränsnings gränser vara tvingande. Mer information om begränsnings gränser finns i [Check lista för prestanda och skalbarhet för Blob Storage](../storage/blobs/storage-performance-checklist.md).
 
-### <a name="create-storage-container"></a>Skapa lagringscontainer
+### <a name="create-storage-container"></a>Skapa en lagringscontainer
 
 Om du vill spara Uppgiftsutdata för att Azure Storage ska du först skapa en behållare genom att anropa [CloudJob][net_cloudjob]. [PrepareOutputStorageAsync][net_prepareoutputasync]. Den här tilläggs metoden tar ett [CloudStorageAccount][net_cloudstorageaccount] -objekt som en parameter. Den skapar en behållare som heter enligt standard fil konventionerna, så att innehållet kan identifieras av Azure Portal och de hämtnings metoder som beskrivs senare i artikeln.
 
-Normalt placerar du koden för att skapa en behållare i klient programmet &mdash; som skapar dina pooler, jobb och uppgifter.
+Normalt placerar du koden för att skapa en behållare i klient programmet &mdash; det program som skapar pooler, jobb och uppgifter.
 
 ```csharp
 CloudJob job = batchClient.JobOperations.CreateJob(
@@ -109,7 +109,7 @@ await taskOutputStorage.SaveAsync(TaskOutputKind.TaskOutput, "frame_full_res.jpg
 await taskOutputStorage.SaveAsync(TaskOutputKind.TaskPreview, "frame_low_res.jpg");
 ```
 
-Parametern för TaskOutputStorage. [](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage) `kind` [ Metoden SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) kategoriserar de sparade filerna. Det finns fyra fördefinierade [TaskOutputKind][net_taskoutputkind] -typer `TaskOutput`: `TaskPreview`, `TaskLog`, och `TaskIntermediate.` du kan också definiera anpassade kategorier av utdata.
+Parametern `kind` för [TaskOutputStorage](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage). Metoden [SaveAsync](/dotnet/api/microsoft.azure.batch.conventions.files.taskoutputstorage.saveasync#overloads) kategoriserar de sparade filerna. Det finns fyra fördefinierade [TaskOutputKind][net_taskoutputkind] -typer: `TaskOutput`, `TaskPreview`, `TaskLog` och `TaskIntermediate.` du kan också definiera anpassade kategorier av utdata.
 
 Med dessa typer av utdata kan du ange vilken typ av utdata som ska visas när du kör en fråga i batch för de sparade utdata för en specifik aktivitet. Med andra ord kan du filtrera listan på en av utdatatyperna när du listar utdata för en aktivitet. Till exempel "ge mig för *hands* utdata för uppgift *109*". Mer information om att visa och hämta utdata visas i Hämta utdata senare i artikeln.
 
@@ -134,7 +134,7 @@ Precis som med **TaskOutputKind** -typen för Uppgiftsutdata använder du typen 
 
 ### <a name="store-task-logs"></a>Lagra aktivitets loggar
 
-Förutom att spara en fil till varaktig lagring när en aktivitet eller ett jobb slutförs, kan du behöva spara filer som uppdateras under körningen av en aktivitets &mdash; logg eller `stdout.txt` och `stderr.txt`till exempel. För det här ändamålet innehåller biblioteket för Azure Batch fil konventioner [TaskOutputStorage][net_taskoutputstorage]. [SaveTrackedAsync][net_savetrackedasync] -metod. Med [SaveTrackedAsync][net_savetrackedasync]kan du spåra uppdateringar till en fil på noden (med ett intervall som du anger) och spara uppdateringarna till Azure Storage.
+Förutom att spara en fil till varaktig lagring när en aktivitet eller ett jobb slutförs, kan du behöva spara filer som uppdateras under körningen av en aktivitet &mdash; loggfiler eller `stdout.txt` och @no__t 2, till exempel. För det här ändamålet innehåller biblioteket för Azure Batch fil konventioner [TaskOutputStorage][net_taskoutputstorage]. [SaveTrackedAsync][net_savetrackedasync] -metod. Med [SaveTrackedAsync][net_savetrackedasync]kan du spåra uppdateringar till en fil på noden (med ett intervall som du anger) och spara uppdateringarna till Azure Storage.
 
 I följande kodfragment använder vi [SaveTrackedAsync][net_savetrackedasync] för att uppdatera `stdout.txt` i Azure Storage var 15: e sekund under körningen av uppgiften:
 
@@ -161,9 +161,9 @@ using (ITrackedSaveOperation stdout =
 }
 ```
 
-Avsnittet `Code to process data and produce output file(s)` kommenterad är en plats hållare för koden som din aktivitet normalt utför. Du kan till exempel ha kod som laddar ned data från Azure Storage och utför omvandling eller beräkning på den. Den viktiga delen av det här kodfragmentet demonstrerar hur du kan figursätta sådan kod `using` i ett block för att regelbundet uppdatera en fil med [SaveTrackedAsync][net_savetrackedasync].
+Det kommenterade avsnittet `Code to process data and produce output file(s)` är en plats hållare för koden som din aktivitet normalt utför. Du kan till exempel ha kod som laddar ned data från Azure Storage och utför omvandling eller beräkning på den. Den viktiga delen av det här kodfragmentet demonstrerar hur du kan figursätta sådan kod i ett `using`-block för att regelbundet uppdatera en fil med [SaveTrackedAsync][net_savetrackedasync].
 
-Node agent är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-Control-gränssnittet mellan noden och batch-tjänsten. Anropet krävs i slutet av det här `using` blocket för att säkerställa att Node-agenten har tid att rensa innehållet i standard ut till filen STDOUT. txt på noden. `Task.Delay` Utan denna fördröjning är det möjligt att förlora de senaste sekunderna utdata. Den här fördröjningen kanske inte krävs för alla filer.
+Node agent är ett program som körs på varje nod i poolen och tillhandahåller kommando-och-Control-gränssnittet mellan noden och batch-tjänsten. Anropet `Task.Delay` krävs i slutet av det här `using`-blocket för att säkerställa att Node-agenten har tid att rensa innehållet i standard ut till filen STDOUT. txt på noden. Utan denna fördröjning är det möjligt att förlora de senaste sekunderna utdata. Den här fördröjningen kanske inte krävs för alla filer.
 
 > [!NOTE]
 > När du aktiverar fil spårning med **SaveTrackedAsync**sparas bara *tillägg* till den spårade filen Azure Storage. Använd endast den här metoden för att spåra icke-roterande loggfiler eller andra filer som skrivs till med åtgärderna Lägg till i slutet av filen.
@@ -192,14 +192,14 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>Visa utdatafiler i Azure Portal
 
-I Azure Portal visas Uppgiftsutdata och loggar som är beständiga till ett länkat Azure Storage-konto med hjälp av satserna för [fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Du kan implementera dessa konventioner själv på valfritt språk, eller så kan du använda biblioteket fil konventioner i dina .NET-program.
+I Azure Portal visas Uppgiftsutdata och loggar som är beständiga till ett länkat Azure Storage-konto med hjälp av [satserna för fil konventioner som standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). Du kan implementera dessa konventioner själv på valfritt språk, eller så kan du använda biblioteket fil konventioner i dina .NET-program.
 
 Om du vill aktivera visning av dina utdatafiler i portalen måste du uppfylla följande krav:
 
 1. Länka ett Azure Storage-konto till ditt batch-konto.
 1. Följ de fördefinierade namngivnings konventionerna för lagrings behållare och filer när du sparar utdata. Du hittar definitionen av dessa konventioner i filen Conventions Library [README][github_file_conventions_readme]. Om du använder biblioteket för [Azure batch fil konventioner][nuget_package] för att spara utdata, sparas filerna i enlighet med fil konventions standarden.
 
-Om du vill visa Uppgiftsutdata och loggar i Azure Portal navigerar du till den aktivitet vars utdata du är intresse rad av och klickar sedan på antingen **sparade** utdatafiler eller **sparade loggar**. Den här bilden visar **sparade** utdatafiler för uppgiften med ID "007":
+Om du vill visa Uppgiftsutdata och loggar i Azure Portal navigerar du till den aktivitet vars utdata du är intresse rad av och klickar sedan på antingen **sparade utdatafiler** eller **sparade loggar**. Den här bilden visar **sparade utdatafiler** för uppgiften med ID "007":
 
 ![Bladet uppgifter utdata i Azure Portal][2]
 
@@ -209,8 +209,8 @@ Om du vill visa Uppgiftsutdata och loggar i Azure Portal navigerar du till den a
 
 1. Öppna projektet i **Visual Studio 2019**.
 2. Lägg till dina autentiseringsuppgifter för batch-och lagrings **konto** i **AccountSettings. Settings** i Microsoft. Azure. batch. Samples. common Project.
-3. **Bygg** (men kör inte) lösningen. Återställ eventuella NuGet-paket om du uppmanas att göra det.
-4. Använd Azure Portal för att ladda upp [](batch-application-packages.md) ett programpaket för **PersistOutputsTask**. Ta med `PersistOutputsTask.exe` och dess beroende sammansättningar i. zip-paketet, ange program-ID till "PersistOutputsTask" och programpaket versionen till "1,0".
+3. **Skapa** (men kör inte) lösningen. Återställ eventuella NuGet-paket om du uppmanas att göra det.
+4. Använd Azure Portal för att ladda upp ett [programpaket](batch-application-packages.md) för **PersistOutputsTask**. Inkludera `PersistOutputsTask.exe` och dess beroende sammansättningar i. zip-paketet, ange program-ID till "PersistOutputsTask" och programpaket versionen till "1,0".
 5. **Starta** (kör) **PersistOutputs** -projektet.
 6. När du uppmanas att välja den beständiga teknik som ska användas för att köra exemplet anger du **1** för att köra exemplet med hjälp av biblioteket fil konventioner för att spara Uppgiftsutdata. 
 

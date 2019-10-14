@@ -7,12 +7,12 @@ ms.service: lighthouse
 ms.date: 07/11/2019
 ms.topic: overview
 manager: carmonm
-ms.openlocfilehash: 8163bcb4189cbec545544b7d43ba7142d34e29dd
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 53aabc4dc6c0d3fcef28aab16ea598cbbf6dbd55
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286153"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302737"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>Visa och hantera kunder och delegerade resurser
 
@@ -37,7 +37,7 @@ Du kan visa följande information från den här sidan:
 
 - Om du vill se alla prenumerationer, erbjudanden och delegeringar som är associerade med en kund väljer du kundens namn.
 - Om du vill se mer information om ett erbjudande och dess delegeringar väljer du namnet på erbjudandet.
-- Om du vill visa mer information om acrolecess-tilldelningar för delegerade prenumerationer eller resurs grupper väljer du posten i kolumnen **delegeringar** .
+- Om du vill visa mer information om roll tilldelningar för delegerade prenumerationer eller resurs grupper väljer du posten i kolumnen **delegeringar** .
 
 ## <a name="view-delegations"></a>Visa delegeringar
 

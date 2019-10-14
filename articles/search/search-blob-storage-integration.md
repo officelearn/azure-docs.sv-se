@@ -1,22 +1,21 @@
 ---
-title: Lägg till fullständig texts ökning i Azure Blob Storage – Azure Search
-description: Crawla text innehåll i Azure Blob Storage för Azure Search indexering i kod med hjälp av HTTP-REST API.
-services: search
+title: Lägg till fullständig texts ökning i Azure Blob Storage
+titleSuffix: Azure Search
+description: Extrahera innehåll och Lägg till strukturen i Azure-blobbar när du skapar ett fullständigt texts öknings index i Azure Search.
+manager: nitinme
+author: HeidiSteen
+ms.author: heidist
 ms.service: search
 ms.topic: conceptual
-ms.date: 03/01/2019
-author: mgottein
-manager: nitinme
-ms.author: magottei
-ms.custom: seodec2018
-ms.openlocfilehash: f0801931b57302ae1d627dab783a40d2407c19ac
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.date: 10/09/2019
+ms.openlocfilehash: 7e5eb73cc6abc72689bbc674b29f4d288dd66b6f
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69650090"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302903"
 ---
-# <a name="searching-blob-storage-with-azure-search"></a>Söka i Blob Storage med Azure Search
+# <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>Lägg till fullständig texts ökning i Azure blob-data med Azure Search
 
 Det kan vara svårt att söka igenom olika innehålls typer som lagras i Azure Blob Storage. Du kan dock indexera och söka i innehållet i dina blobbar på bara några få klick med Azure Search. Att söka via Blob Storage kräver etablering av en Azure Search-tjänst. De olika tjänst gränserna och pris nivåerna för Azure Search hittar du på [sidan med priser](https://aka.ms/azspricing).
 
@@ -45,7 +44,7 @@ Azure Search kan konfigureras för att extrahera strukturerat innehåll som finn
 
 JSON-parsning kan för närvarande inte konfigureras via portalen. [Läs mer om JSON-parsning i Azure Search.](https://aka.ms/azsjsonblobindexing)
 
-## <a name="quick-start"></a>Snabbstart
+## <a name="quickstart"></a>Snabbstart
 Azure Search kan läggas till i blobbar direkt från sidan Blob Storage Portal.
 
 ![](./media/search-blob-storage-integration/blob-blade.png)

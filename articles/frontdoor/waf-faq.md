@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/10/2019
 ms.author: kumud
 ms.reviewer: tyao
-ms.openlocfilehash: f7d205920704ce8aedf3b2e3c07bd429b3c64964
-ms.sourcegitcommit: aebe5a10fa828733bbfb95296d400f4bc579533c
+ms.openlocfilehash: f6e0ea7ca5b9b131a8d7d7c2c6546130a7d020b3
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70375350"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302841"
 ---
 # <a name="frequently-asked-questions-for-azure-web-application-firewall"></a>Vanliga frågor och svar om Azure Web Application-brandvägg
 
@@ -31,7 +31,7 @@ En Azure WAF-princip kan tillämpas på webb program som finns på Application G
 
 ## <a name="what-is-waf-for-azure-front-door-service"></a>Vad är WAF för Azures frontend-tjänst? 
 
-Azures front dörr är ett mycket skalbart, globalt distribuerat program och Content Delivery Network. Azure WAF, när det är integrerat med front dörren, stoppar denial-of-service-och mål program attacker på Azures nätverks gräns, nära angrepps källor innan de går in i ditt virtuella nätverk, ger skydd utan att offra prestanda.
+Azures front dörr är ett mycket skalbart, globalt distribuerat program och Content Delivery Network. När Azure-WAF är integrerat med Azures frontend stoppas tjänsten för DOS-attacker och mål program vid gränsen i Azure-nätverket. Det här skyddet sker nära källan till attackerna innan de har möjlighet att ange ditt vitrual-nätverk. WAF för Azures frontend-tjänst ger skydd utan att offra prestanda.
 
 ## <a name="does-azure-waf-support-https"></a>Stöder Azure WAF HTTPS?
 

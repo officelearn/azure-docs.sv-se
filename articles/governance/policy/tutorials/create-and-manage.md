@@ -6,14 +6,14 @@ ms.author: dacoulte
 ms.date: 02/04/2019
 ms.topic: tutorial
 ms.service: azure-policy
-ms.openlocfilehash: 82c56a01d7f14f1eeae26dfa784f3545552bf6b9
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 43d39039d01b22e7d918755e9557d6a1030ef7a8
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981393"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302870"
 ---
-# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudier: Skapa och hantera principer för att använda kompatibilitet
+# <a name="tutorial-create-and-manage-policies-to-enforce-compliance"></a>Självstudie: skapa och hantera principer för att genomdriva efterlevnad
 
 Det är viktigt att du förstår hur du skapar och hanterar principer i Azure för att du ska fortsätta att efterleva företagets standarder och servicenivåavtal. I den här självstudien lär du dig att använda Azure Policy för att utföra några av de vanligaste uppgifterna som att skapa, tilldela och hantera principer i organisationen, exempelvis:
 
@@ -56,7 +56,7 @@ Det första steget för att tillämpa efterlevnad av Azure Policy är att tillde
 1. **Tilldelningsnamn** fylls i automatiskt med namnet på principen som du valde, men du kan ändra det om du vill. I det här exemplet låter du *Kräv SQL Server version 12.0* vara kvar. Du kan också lägga till en valfri **Beskrivning**. Beskrivningen innehåller information om den här principtilldelningen.
    **Tilldelad av** fylls automatiskt i baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
-1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när den princip eller det initiativ som tilldelas omfattar en princip med effekten [deployIfNotExists](../concepts/effects.md#deployifnotexists). Eftersom den princip som används för den här självstudien inte gör det kan du lämna den tom. Mer information finns i avsnitten [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när den princip eller det initiativ som tilldelas omfattar en princip med effekten [deployIfNotExists](../concepts/effects.md#deployifnotexists). Eftersom den princip som används för den här självstudien inte gör det kan du lämna den tom. Mer information finns i avsnitten om [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Klicka på **Tilldela**.
 
@@ -108,7 +108,7 @@ Nu när du har tilldelat en inbyggd principdefinition kan du göra mer med Azure
    }
    ```
 
-   Egenskapen *fält* i principregeln måste vara något av följande värden: Namn, Typ, Plats, Taggar eller ett alias. Ett exempel på ett alias kan vara `"Microsoft.Compute/VirtualMachines/Size"`.
+   *Fält* egenskapen i princip regeln måste vara något av följande värden: namn, typ, plats, taggar, eller ett alias. Ett exempel på ett alias kan vara `"Microsoft.Compute/VirtualMachines/Size"`.
 
    Fler Azure-principexempel finns i [Azure Policy-mallar](../samples/index.md).
 
@@ -336,7 +336,7 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Ange **Namn** och **Beskrivning** för initiativet.
 
-   Det här exemplet kontrollerar att resurser efterlever principdefinitioner om säkerhet. Namnge initiativet **Get Secure** och ange beskrivningen som: **Det här initiativet har skapats för att hantera principdefinitioner associerade med att skydda resurser**.
+   Det här exemplet kontrollerar att resurser efterlever principdefinitioner om säkerhet. Namnge initiativet **Bli säker** och ange beskrivningen som: **Det här initiativet har skapats för att hantera principdefinitioner associerade med att säkra resurser**.
 
 1. Välj bland befintliga alternativ eller skapa en ny kategori i **Kategori**.
 
@@ -359,13 +359,13 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
    > [!NOTE]
    > När det gäller vissa parametrar av typen `strongType` går det inte att automatiskt fastställa listan med värden. I de här fallen visas en ellips till höger om parameterraden. Om du klickar på den så öppnas sidan Parameteromfång (&lt;Parameternamn&gt;). På den här sidan väljer du den prenumeration som ska användas för att tillhandahålla värdealternativen. Det här parameterområdet används bara när initiativdefinitionen skapas. Den påverkar inte principutvärderingen eller initiativets omfattning efter tilldelningen.
 
-1. Klicka på **Spara**.
+1. Klicka på **Save** (Spara).
 
 ### <a name="assign-an-initiative-definition"></a>Tilldela en initiativdefinition
 
 1. Välj **Definitioner** under **Redigering** till vänster på sidan Azure Policy.
 
-1. Leta upp initiativdefinitionen **Bli säker** som du skapade tidigare och markera den. Välj **Tilldela** överst på sidan för att öppna sidan **Get Secure: Assign initiative** (Tilldela initiativ).
+1. Leta upp initiativdefinitionen **Bli säker** som du skapade tidigare och markera den. Välj **Tilldela** överst på sidan för att öppna sidan **Bli säker: tilldela initiativ**.
 
    ![Tilldela en definition från sidan initiativ definition](../media/create-and-manage/assign-definition.png)
 
@@ -375,14 +375,14 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Fyll i sidan **Get Secure: Assign Initiative** genom att ange följande exempelinformation. Du kan använda din egen information.
 
-   - Omfång: Den hanteringsgrupp eller prenumeration som du sparade initiativet till blir standard.
+   - Omfång: hanteringsgruppen eller prenumerationen som du sparade initiativet till blir standard.
      Du kan ändra omfånget för att tilldela initiativet till en prenumeration eller resursgrupp inom lagringsplatsen.
    - Undantag: Konfigurera några resurser inom omfånget för att förhindra att initiativtilldelningen tillämpas på dem.
-   - Initiativdefinition och tilldelningsnamn: Get Secure (förifylld som namnet på det initiativ som tilldelas).
+   - Initiativdefinition och tilldelningsnamn: Get Secure (förifylld med namnet på initiativet som tilldelats).
    - Beskrivning: Initiativtilldelningen är skräddarsydd för att tillämpa den här gruppen med principdefinitioner.
-   - Tilldelad av: Anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
+   - Tilldelad av: anges automatiskt baserat på vem som är inloggad. Det här fältet är valfritt, så du kan ange anpassade värden.
 
-1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när den princip eller det initiativ som tilldelas omfattar en princip med effekten [deployIfNotExists](../concepts/effects.md#deployifnotexists). Eftersom den princip som används för den här självstudien inte gör det kan du lämna den tom. Mer information finns i avsnitten [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
+1. Lämna **Skapa en hanterad identitet** avmarkerat. Den här rutan _måste_ markeras när den princip eller det initiativ som tilldelas omfattar en princip med effekten [deployIfNotExists](../concepts/effects.md#deployifnotexists). Eftersom den princip som används för den här självstudien inte gör det kan du lämna den tom. Mer information finns i avsnitten om [hanterade identiteter](../../../active-directory/managed-identities-azure-resources/overview.md) och [hur reparationssäkerhet fungerar](../how-to/remediate-resources.md#how-remediation-security-works).
 
 1. Klicka på **Tilldela**.
 
@@ -390,7 +390,7 @@ Med en initiativdefinition kan du gruppera flera principdefinitioner för att up
 
 1. Välj **Efterlevnad** till vänster på Azure Policy-sidan.
 
-1. Leta upp initiativet **Hämta källan**. Det är sannolikt fortfarande i _Efterlevnadstillståndet_ **Inte startat**.
+1. Leta upp **säkerhets initiativet get** . Det är sannolikt fortfarande i _Efterlevnadstillståndet_ **Inte startat**.
    Klicka på initiativet att få fullständig information om förloppet för tilldelningen.
 
    ![Sidan krav på initiativ-utvärderingar har inte startats](../media/create-and-manage/compliance-status-not-started.png)
@@ -408,7 +408,7 @@ Följande exempel tillåter alla SQL-serverversioner i en enskild resursgrupp. E
 
 En distribution som har förhindrats av en tilldelad princip eller ett initiativ kan visas på två platser:
 
-- I den resursgrupp som är mål för distributionen: Välj **Distributioner** till vänster på sidan och klicka på **Distributionsnamn** för den misslyckade distributionen. Resursen som nekades visas med statusen _Förbjuden_. För att fastställa den princip, det initiativ och den tilldelning som har nekat resursen, klickar du på **Misslyckades. Klicka här för information ->** på sidan Distributionsöversikt. Ett fönster öppnas till höger om sidan med felinformationen. Under **Felinformation** finns GUID för de relaterade principobjekten.
+- I resurs gruppen som mål för distributionen: Välj **distributioner** till vänster på sidan och klicka på **distributions namnet** för den misslyckade distributionen. Resursen som nekades visas med statusen _Förbjuden_. Klicka på misslyckades för att fastställa principen eller initiativet och tilldelningen som nekade resursen **. Klicka här om du vill ha mer information – >** på sidan distributions översikt. Ett fönster öppnas till höger om sidan med felinformationen. Under **Felinformation** finns GUID för de relaterade principobjekten.
 
   ![Distributionen nekas av principtilldelningen](../media/create-and-manage/rg-deployment-denied.png)
 

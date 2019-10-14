@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 10/12/2019
 ms.author: b-juche
-ms.openlocfilehash: 9676b10eafbc72a04cb68fc828a72f77e6c3916f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d3035572e629bc11207cc473b51e3edb4f6a5a13
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298568"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302820"
 ---
 # <a name="quickstart-set-up-azure-netapp-files-and-create-an-nfs-volume"></a>Snabb start: Konfigurera Azure NetApp Files och skapa en NFS-volym 
 
@@ -255,10 +255,12 @@ Den här instruktions artikeln kräver Azure PowerShell module AZ version 2.6.0 
     * Välj **NFS** som protokoll typ för volymen.  
     * Ange **myfilepath1** som den fil Sök väg som ska användas för att skapa export Sök vägen för volymen.  
     * Välj NFS-version (**NFSv3** eller **nfsv 4.1**) för volymen.  
+      Se [överväganden](azure-netapp-files-create-volumes.md#considerations) och [bästa praxis](azure-netapp-files-create-volumes.md#best-practice) om NFS-versioner. 
+      
 > [!IMPORTANT] 
 > Åtkomst till NFSv 4.1-funktionen kräver vit listning.  Skicka en begäran till <anffeedback@microsoft.com> om du vill begära vit listning. 
 
-    ![Specify NFS protocol for quickstart](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
+  ![Ange NFS-protokoll för snabb start](../media/azure-netapp-files/azure-netapp-files-quickstart-protocol-nfs.png)
 
 5. Klicka på **Granska + skapa**.
 

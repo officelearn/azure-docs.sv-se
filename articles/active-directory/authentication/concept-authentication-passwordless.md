@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab48579c6eda085d77e2a6ab080b0a4a1ce806bd
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: dfcd46f06035e356f6528a79b749350627541121
+ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72000326"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72303519"
 ---
 # <a name="what-is-passwordless"></a>Vad är lösenordsfritt?
 
@@ -28,7 +28,7 @@ Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation,
 
 Varje organisation har olika behov när den kommer till autentiseringen. Microsoft erbjuder för närvarande Windows Hello för våra Windows-datorer. Vi lägger till Microsoft Authenticator-appen och FIDO2-säkerhetsnycklarna i den lösenordsskyddade familjen.
 
-## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator-appen
+## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator app
 
 Tillåt din anställdas telefon att bli en metod för lösen ords lös autentisering. Du kanske redan använder Microsoft Authenticator-appen som ett bekvämt alternativ för Multi-Factor Authentication förutom ett lösen ord. Men nu är det tillgängligt som ett lösen ords utan alternativ.
 
@@ -55,13 +55,13 @@ En säkerhets nyckel **måste** implementera följande funktioner och tillägg f
 | 3 | HMAC-hemlighet | Det här tillägget garanterar att du kan logga in på enheten när den är offline eller i flyg Plans läge. |
 | 4 | Flera konton per RP | Den här funktionen garanterar att du kan använda samma säkerhets nyckel för flera tjänster som Microsoft-konto och Azure Active Directory. |
 
-Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer som är kända för att vara kompatibla med paswordless-upplevelsen. Microsoft uppmuntrar kunderna att utvärdera säkerhets egenskaperna för dessa nycklar genom att kontakta leverantören och FIDO Alliance.
+Följande leverantörer ger FIDO2 säkerhets nycklar för olika form faktorer som är kända för att vara kompatibla med den lösen ords fri upplevelsen. Microsoft uppmuntrar kunderna att utvärdera säkerhets egenskaperna för dessa nycklar genom att kontakta leverantören och FIDO Alliance.
 
-| Leverantör | Kontakta |
+| Leverantör | Kontakt |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |
-| HID | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
+| Dold | [https://www.hidglobal.com/contact-us](https://www.hidglobal.com/contact-us) |
 | Ensurity | [https://www.ensurity.com/contact](https://www.ensurity.com/contact) |
 | eWBM | [https://www.ewbm.com/page/sub1_5](https://www.ewbm.com/page/sub1_5) |
 
@@ -75,8 +75,8 @@ FIDO2-säkerhetsnycklar är ett bra alternativ för företag som är mycket kän
 - Administratörer kan rikta alla användare eller välja användare/grupper inom sin klient organisation för varje metod
 - Slutanvändare kan registrera och hantera dessa metoder för lösen ords kryptering i sin konto Portal
 - Slutanvändare kan logga in med dessa metoder för lösen ords kryptering
-   - Microsoft Authenticator app: Fungerar i scenarier där Azure AD-autentisering används, inklusive i alla webbläsare, under installationen av Windows 10 out-of-Box (OOBE) och med integrerade mobilappar på alla operativ system.
-   - Säkerhets nycklar: Fungerar på Lås skärmen för Windows 10 version 1809 eller senare och webben i webbläsare som stöds, t. ex. Microsoft Edge.
+   - Microsoft Authenticator app: fungerar i scenarier där Azure AD-autentisering används, inklusive i alla webbläsare, under installationen av OOBE-installationen (Windows 10 out of Box) och med integrerade mobilappar på alla operativ system.
+   - Säkerhets nycklar: fungerar på Lås skärmen för Windows 10 version 1809 eller senare och webben i webbläsare som stöds, t. ex. Microsoft Edge.
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -8,19 +8,19 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: b175c34f131a7a0f172c7be0dda083fbfda3dc1e
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: 692c943e48c08771b5f1c60b66412270081cf0e6
+ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68721445"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72302965"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Använda Queue Storage från PHP
+
 [!INCLUDE [storage-selector-queue-include](../../../includes/storage-selector-queue-include.md)]
 
 [!INCLUDE [storage-try-azure-tools-queues](../../../includes/storage-try-azure-tools-queues.md)]
 
-## <a name="overview"></a>Översikt
 Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Queue Storage-tjänsten. Exemplen skrivs via klasser från [Azure Storage klient bibliotek för php][download]. De scenarier som beskrivs är att infoga, granska, hämta och ta bort Kömeddelanden, samt skapa och ta bort köer.
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
@@ -28,12 +28,15 @@ Den här guiden visar hur du utför vanliga scenarier med hjälp av Azure Queue 
 [!INCLUDE [storage-create-account-include](../../../includes/storage-create-account-include.md)]
 
 ## <a name="create-a-php-application"></a>Skapa ett PHP-program
+
 Det enda kravet för att skapa ett PHP-program som har åtkomst till Azure Queue Storage är referensen till klasser i [Azure Storage klient bibliotek för php][download] inifrån din kod. Du kan använda valfritt utvecklingsverktyg för att skapa programmet, inklusive Anteckningar.
 
-I den här guiden använder du funktionerna i kö Storage service som kan anropas i ett PHP-program lokalt eller i kod som körs i en Azure-webbroll, arbets roll eller webbplats.
+I den här guiden använder du funktionerna i kö Storage service som kan anropas i ett PHP-program lokalt eller i kod som körs i ett webb program i Azure.
 
 ## <a name="get-the-azure-client-libraries"></a>Hämta Azures klient bibliotek
+
 ### <a name="install-via-composer"></a>Installera via Composer
+
 1. Skapa en fil med namnet **Compose. JSON** i roten i projektet och Lägg till följande kod i den:
    
     ```json
@@ -53,6 +56,7 @@ I den här guiden använder du funktionerna i kö Storage service som kan anropa
 Du kan också gå till [Azure Storage php-klientprogrammet][download] på GitHub för att klona käll koden.
 
 ## <a name="configure-your-application-to-access-queue-storage"></a>Konfigurera ditt program till att komma åt Queue Storage
+
 Om du vill använda API: erna för Azure Queue Storage måste du:
 
 1. Referera till den automatiska inläsnings filen med instruktionen [require_once] .
@@ -65,9 +69,10 @@ require_once 'vendor/autoload.php';
 use MicrosoftAzure\Storage\Queue\QueueRestProxy;
 ```
 
-I följande exempel `require_once` visas instruktionen alltid, men endast de klasser som krävs för att exemplet ska kunna köras refereras till.
+I följande exempel visas uttrycket `require_once` Always, men endast de klasser som krävs för att exemplet ska kunna köras refereras till.
 
 ## <a name="set-up-an-azure-storage-connection"></a>Konfigurera en Azure Storage-anslutning
+
 Om du vill instansiera en Azure Queue Storage-klient måste du först ha en giltig anslutnings sträng. Formatet för anslutnings strängen för Queue Service är följande.
 
 För åtkomst till en Live-tjänst:
@@ -98,6 +103,7 @@ $queueClient = QueueRestProxy::createQueueService($connectionString);
 ```
 
 ## <a name="create-a-queue"></a>Skapa en kö
+
 Med ett **QueueRestProxy** -objekt kan du skapa en kö med hjälp av **createQueue** -metoden. När du skapar en kö kan du ange alternativ för kön, men detta krävs inte. (Exemplet nedan visar hur du ställer in metadata i en kö.)
 
 ```php
@@ -137,6 +143,7 @@ catch(ServiceException $e){
 > 
 
 ## <a name="add-a-message-to-a-queue"></a>Lägga till ett meddelande i en kö
+
 Om du vill lägga till ett meddelande i en kö använder du **QueueRestProxy-> createMessage**. Metoden tar köns namn, meddelande texten och meddelande alternativen (som är valfria).
 
 ```php
@@ -166,6 +173,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="peek-at-the-next-message"></a>En titt på nästa meddelande
+
 Du kan titta på ett meddelande (eller meddelanden) längst fram i kön utan att ta bort det från kön genom att anropa **QueueRestProxy-> peekMessages**. Som standard returnerar metoden **peekMessage** ett enskilt meddelande, men du kan ändra värdet med hjälp av **PeekMessagesOptions-> setNumberOfMessages-** metoden.
 
 ```php
@@ -214,6 +222,7 @@ else{
 ```
 
 ## <a name="de-queue-the-next-message"></a>Ta bort nästa meddelande från kön
+
 Koden tar bort ett meddelande från en kö i två steg. Först anropar du **QueueRestProxy-> listMessages**, vilket gör meddelandet osynligt för all annan kod som läser från kön. Som standard är det här meddelandet osynligt i 30 sekunder. (Om meddelandet inte tas bort under den här tids perioden blir det synligt i kön igen.) Om du vill slutföra borttagningen av meddelandet från kön måste du anropa **QueueRestProxy-> deleteMessage**. Den här två stegs processen för att ta bort ett meddelande säkerställer att när din kod inte kan bearbeta ett meddelande på grund av maskin-eller program varu fel, kan en annan instans av koden Hämta samma meddelande och försöka igen. Din kod anropar **deleteMessage** direkt efter att meddelandet har bearbetats.
 
 ```php
@@ -255,6 +264,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="change-the-contents-of-a-queued-message"></a>Ändra innehållet i ett meddelande i kön
+
 Du kan ändra innehållet i ett meddelande på plats i kön genom att anropa **QueueRestProxy-> updateMessage**. Om meddelandet representerar en arbetsuppgift kan du använda den här funktionen för att uppdatera arbetsuppgiftens status. Följande kod uppdaterar meddelandet i kön med nytt innehåll, och anger tids gränsen för synlighet så att den utökar ytterligare 60 sekunder. Detta sparar det arbete som är associerat med meddelandet och ger klienten en ytterligare minut att fortsätta arbeta med meddelandet. Du kan använda den här tekniken för att spåra arbetsflöden med flera steg i kömeddelanden, utan att behöva börja om från början om ett bearbetningssteg misslyckas på grund av maskin- eller programvarufel. Normalt räknar du även antalet omförsök och tar bort meddelandet om fler än *n* försök misslyckas. Detta skyddar mot meddelanden som utlöser ett programfel varje gång de bearbetas.
 
 ```php
@@ -300,6 +310,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="additional-options-for-de-queuing-messages"></a>Ytterligare alternativ för meddelanden i kön
+
 Det finns två sätt som du kan anpassa meddelande hämtningen från en kö. För det första kan du hämta en grupp med meddelanden (upp till 32). För det andra kan du ange en längre eller kortare tids gräns för synlighet, så att koden får mer eller mindre tid att bearbeta varje meddelande fullständigt. I följande kod exempel används metoden **GetMessage** för att hämta 16 meddelanden i ett anrop. Sedan bearbetar den varje meddelande med hjälp av en **for** -slinga. Koden ställer också in tidsgränsen för osynlighet till fem minuter för varje meddelande.
 
 ```php
@@ -350,6 +361,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="get-queue-length"></a>Hämta Kölängd
+
 Du kan hämta en uppskattning av antalet meddelanden i en kö. Metoden **QueueRestProxy-> getQueueMetadata** ber Queue Service att returnera metadata om kön. Anrop av **getApproximateMessageCount** -metoden för det returnerade objektet ger ett antal av hur många meddelanden som finns i en kö. Antalet är bara ungefärlig eftersom meddelanden kan läggas till eller tas bort när Queue Service svarar på din begäran.
 
 ```php
@@ -381,6 +393,7 @@ echo $approx_msg_count;
 ```
 
 ## <a name="delete-a-queue"></a>Ta bort en kö
+
 Om du vill ta bort en kö och alla meddelanden i den, anropar du metoden **QueueRestProxy-> deleteQueue** .
 
 ```php
@@ -409,6 +422,7 @@ catch(ServiceException $e){
 ```
 
 ## <a name="next-steps"></a>Nästa steg
+
 Nu när du har lärt dig grunderna i Azure Queue Storage kan du följa dessa länkar för att lära dig mer om komplexa lagrings uppgifter:
 
 * Besök [API-referensen för klient biblioteket för Azure Storage php](https://azure.github.io/azure-storage-php/)
@@ -420,4 +434,3 @@ Mer information finns även i [php Developer Center](https://azure.microsoft.com
 [require_once]: https://www.php.net/manual/en/function.require-once.php
 [Azure Portal]: https://portal.azure.com
 [composer-phar]: https://getcomposer.org/composer.phar
-

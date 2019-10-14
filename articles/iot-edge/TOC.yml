@@ -177,6 +177,8 @@
       href: how-to-configure-proxy-support.md
     - name: Lagra data på gränsen
       items:
+        - name: Ge moduler åtkomst till en enhets lokala lagring
+          href: how-to-access-host-storage-from-module.md
         - name: Azure Blob Storage på IoT Edge
           href: how-to-store-data-blob.md
         - name: Distribuera bloblagringsmoduler

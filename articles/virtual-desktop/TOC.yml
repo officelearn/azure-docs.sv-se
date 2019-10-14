@@ -74,6 +74,8 @@
       href: host-pool-load-balancing.md
     - name: FSLogix-profilcontainrar och Azure-filer
       href: fslogix-containers-azure-files.md
+    - name: Lagringsalternativ för FSLogix-profilcontainrar
+      href: store-fslogix-profile.md
     - name: Partnerintegrering
       href: partners.md
     - name: Vanliga frågor och svar om flera sessioner för Windows 10 Enterprise

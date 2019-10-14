@@ -606,6 +606,8 @@
                   href: insights/vminsights-overview.md
                 - name: Kända problem
                   href: insights/vminsights-known-issues.md
+                - name: Vanliga frågor och svar om allmän tillgänglighet
+                  href: insights/vminsights-ga-release-faq.md
                 - name: VANLIGA FRÅGOR OCH SVAR
                   href: insights/vminsights-faq.md
                 - name: Aktivera övervakning

@@ -6,13 +6,13 @@ ms.author: nakhanha
 ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 04/29/2019
-ms.openlocfilehash: 8a946a75a2dbd487494d70d0fd195a5becf5bd5a
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.date: 10/08/2019
+ms.openlocfilehash: 440820b7772d8edeb43ce328b8393789d7ba2973
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122212"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264311"
 ---
 # <a name="integrate-apache-spark-and-apache-hive-with-the-hive-warehouse-connector"></a>Integrera Apache Spark och Apache Hive med Hive-lagrets koppling
 
@@ -38,49 +38,52 @@ Några av de åtgärder som stöds av Hive-lager kopplingen är:
 
 Följ dessa steg om du vill konfigurera Hive-lagrets koppling mellan ett Spark-och Interactive Query-kluster i Azure HDInsight:
 
-1. Skapa ett HDInsight Spark 4,0-kluster med hjälp av Azure Portal med ett lagrings konto och ett anpassat virtuellt Azure-nätverk. Information om hur du skapar ett kluster i ett virtuellt Azure-nätverk finns i [lägga till HDInsight i ett befintligt virtuellt nätverk](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
-1. Skapa ett LLAP-kluster (Interactive HDInsight Query) 4,0 med hjälp av Azure Portal med samma lagrings konto och virtuella Azure-nätverk som Spark-klustret.
-1. Kopiera innehållet i `/etc/hosts` filen på headnode0 för ditt interaktiva fråga-kluster `/etc/hosts` till filen på headnode0 i Spark-klustret. Det här steget gör att ditt Spark-kluster kan matcha IP-adresser för noderna i det interaktiva fråga klustret. Visa innehållet i den uppdaterade filen med `cat /etc/hosts`. Utdata bör se ut ungefär så som visas på skärm bilden nedan.
+### <a name="create-clusters"></a>Skapa kluster
 
-    ![Hive lager koppling Hosts-fil](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
+1. Skapa ett HDInsight Spark **4,0** -kluster med ett lagrings konto och ett anpassat virtuellt Azure-nätverk. Information om hur du skapar ett kluster i ett virtuellt Azure-nätverk finns i [lägga till HDInsight i ett befintligt virtuellt nätverk](../../hdinsight/hdinsight-plan-virtual-network-deployment.md#existingvnet).
 
-1. Konfigurera inställningarna för Spark-klustret genom att utföra följande steg: 
-    1. Gå till Azure Portal, Välj HDInsight-kluster och klicka sedan på klustrets namn.
-    1. Välj **Ambari start**på höger sida under **kluster instrument paneler**.
-    1. I Ambari-webbgränssnittet klickar du på **SPARK2** > **configs** > **anpassade SPARK2-default**.
+1. Skapa ett LLAP-kluster (Interactive HDInsight Query) **4,0** med samma lagrings konto och virtuella Azure-nätverk som Spark-klustret.
 
-        ![Apache Ambari Spark2-konfiguration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+### <a name="modify-hosts-file"></a>Ändra hosts-filen
 
-    1. Ange `spark.hadoop.hive.llap.daemon.service.hosts` samma värde som egenskapen **Hive. LLAP. daemon. service. hosts** under * * Advanced Hive-Interactive-site * *. Till exempel, `@llap0`
+Kopiera Node-informationen från `/etc/hosts`-filen på headnode0 av ditt interaktiva fråge kluster och sammanfoga informationen till `/etc/hosts`-filen på headnode0 i Spark-klustret. Det här steget gör att ditt Spark-kluster kan matcha IP-adresser för noderna i det interaktiva fråga klustret. Visa innehållet i den uppdaterade filen med `cat /etc/hosts`. Slutgiltiga utdata bör se ut ungefär som på skärm bilden nedan.
 
-    1. Anges `spark.sql.hive.hiveserver2.jdbc.url` till anslutnings strängen JDBC, som ansluter till Hiveserver2 i det interaktiva fråga klustret. Anslutnings strängen för klustret kommer att se ut som URI nedan. `CLUSTERNAME`är namnet på ditt Spark-kluster och `user` parametrarna och `password` har angetts till rätt värden för klustret.
+![Hive lager koppling Hosts-fil](./media/apache-hive-warehouse-connector/hive-warehouse-connector-hosts-file.png)
 
-        ```
-        jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2
-        ```
+### <a name="gather-preliminary-information"></a>Samla in preliminär information
 
-        > [!Note]
-        > JDBC-URL: en ska innehålla autentiseringsuppgifter för att ansluta till Hiveserver2, inklusive användar namn och lösen ord.
+#### <a name="from-your-interactive-query-cluster"></a>Från ditt interaktiva Query-kluster
 
-    1. Ange `spark.datasource.hive.warehouse.load.staging.dir` en lämplig HDFS-kompatibel uppsamlings katalog. Om du har två olika kluster bör mellanlagringsplatsen vara en mapp i uppsamlings katalogen för LLAP-klustrets lagrings konto så att HiveServer2 har åtkomst till den. Till exempel `wasb://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp` där `STORAGE_ACCOUNT_NAME` är namnet på det lagrings konto som används av klustret och `STORAGE_CONTAINER_NAME` är namnet på lagrings behållaren.
+1. Gå till klustrets start sida för Apache-Ambari med `https://LLAPCLUSTERNAME.azurehdinsight.net` där `LLAPCLUSTERNAME` är namnet på ditt interaktiva fråga-kluster.
 
-    1. Anges `spark.datasource.hive.warehouse.metastoreUri` med värdet för metaarkiv-URI: n för det interaktiva fråga klustret. Du hittar metastoreUri för ditt LLAP-kluster genom att leta efter egenskapen **Hive. metaarkiv. URI** i Ambari-gränssnittet för ditt LLAP-kluster under **Hive** > **Advanced** > **General**. Värdet ser ut ungefär som följande URI:
+1. Navigera till **Hive** > **config** > **Advanced** > **Avancerad Hive-site** > **Hive. Zookeeper. kvorum** och anteckna värdet. Värdet kan vara ungefär så här: `zk0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181,zk4-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:2181`.
 
-        ```
-        thrift://hn0-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083,
-        thrift://hn1-hwclla.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:9083
-        ```
+1. Gå till **hive** > **config** > **Advanced** > **General** > **Hive. metaarkiv. URI: er** och anteckna värdet. Värdet kan vara ungefär så här: `thrift://hn0-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083,thrift://hn1-iqgiro.rekufuk2y2cezcbowjkbwfnyvd.bx.internal.cloudapp.net:9083`.
 
-    1. Ange `spark.security.credentials.hiveserver2.enabled` till`false` för garn-klientens distributions läge.
-    1. Ange `spark.hadoop.hive.zookeeper.quorum` till Zookeeper-kvorumet för ditt LLAP-kluster. Du hittar Zookeeper-kvorumet för ditt LLAP-kluster genom att leta efter egenskapen **Hive. Zookeeper. kvorum** i Ambari-gränssnittet för ditt LLAP-kluster under **Hive** > **Avancerad** > **Avancerad Hive-plats**. Värdet ser ut ungefär så här:
+#### <a name="from-your-apache-spark-cluster"></a>Från Apache Spark-klustret
 
-        ```
-        zk1-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
-        zk4-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181,
-        zk6-nkhvne.0iv2nyrmse1uvp2caa4e34jkmf.cx.internal.cloudapp.net:2181
-        ```
+1. Gå till klustrets start sida för Apache-Ambari med `https://SPARKCLUSTERNAME.azurehdinsight.net` där `SPARKCLUSTERNAME` är namnet på ditt Apache Spark-kluster.
 
-Om du vill testa konfigurationen av Hive-lager kopplingen följer du stegen i avsnittet [ansluta och köra frågor](#connecting-and-running-queries).
+1. Navigera till **Hive**- > **konfigurationerna** > **Advanced** > **Avancerad Hive – interaktiv plats** > **Hive. LLAP. daemon. service. hosts** och noterar värdet. Värdet kan vara ungefär så här: `@llap0`.
+
+### <a name="configure-spark-cluster-settings"></a>Konfigurera inställningar för Spark-kluster
+
+Från ditt Spark Ambari-webbgränssnitt navigerar du till **Spark2** > **configs** > **anpassade Spark2-standardvärden**.
+
+![Apache Ambari Spark2-konfiguration](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark2-ambari.png)
+
+Välj **Lägg till egenskap...** vid behov för att lägga till/uppdatera följande:
+
+| Nyckel | Värde |
+|----|----|
+|`spark.hadoop.hive.llap.daemon.service.hosts`|Värdet du hämtade tidigare från **Hive. LLAP. daemon. service. hosts**.|
+|`spark.sql.hive.hiveserver2.jdbc.url`|`jdbc:hive2://LLAPCLUSTERNAME.azurehdinsight.net:443/;user=admin;password=PWD;ssl=true;transportMode=http;httpPath=/hive2`. Anges till anslutnings strängen JDBC, som ansluter till Hiveserver2 i det interaktiva fråga klustret. Ersätt `LLAPCLUSTERNAME` med namnet på ditt interaktiva fråga-kluster. Ersätt `PWD` med det faktiska lösen ordet.|
+|`spark.datasource.hive.warehouse.load.staging.dir`|`wasbs://STORAGE_CONTAINER_NAME@STORAGE_ACCOUNT_NAME.blob.core.windows.net/tmp`. Ange en lämplig HDFS-kompatibel uppsamlings katalog. Om du har två olika kluster bör mellanlagringsplatsen vara en mapp i uppsamlings katalogen för LLAP-klustrets lagrings konto så att HiveServer2 har åtkomst till den.  Ersätt `STORAGE_ACCOUNT_NAME` med namnet på det lagrings konto som används av klustret och `STORAGE_CONTAINER_NAME` med namnet på lagrings behållaren.|
+|`spark.datasource.hive.warehouse.metastoreUri`|Det värde som du hämtade tidigare från **Hive. metaarkiv. URI: er**.|
+|`spark.security.credentials.hiveserver2.enabled`|`false` för ett GARNs klient distributions läge.|
+|`spark.hadoop.hive.zookeeper.quorum`|Värdet som du hämtade tidigare från **Hive. Zookeeper. kvorum**.|
+
+Spara ändringar och starta om komponenter efter behov.
 
 ## <a name="using-the-hive-warehouse-connector"></a>Använda Hive-lagrets koppling
 
@@ -90,7 +93,7 @@ Du kan välja mellan några olika metoder för att ansluta till ditt interaktiva
 
 * [Spark-Shell](../spark/apache-spark-shell.md)
 * PySpark
-* spark-submit
+* Spark-Submit
 * [Zeppelin](../spark/apache-spark-zeppelin-notebook.md)
 * [Livy](../spark/apache-spark-livy-rest-interface.md)
 
@@ -98,17 +101,17 @@ Alla exempel som anges i den här artikeln körs via Spark-Shell.
 
 Gör så här för att starta en spark-Shell-session:
 
-1. SSH till huvudnoden för klustret. Mer information om hur du ansluter till klustret med SSH finns i [ansluta till HDInsight (Apache Hadoop) med SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
-1. Ändra till rätt katalog genom att skriva `cd /usr/hdp/current/hive_warehouse_connector` eller ange den fullständiga sökvägen till alla jar-filer som används som parametrar i Spark-Shell-kommandot.
+1. SSH till huvudnoden för ditt Apache Spark-kluster. Mer information om hur du ansluter till klustret med SSH finns i [ansluta till HDInsight (Apache Hadoop) med SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+
 1. Ange följande kommando för att starta Spark-gränssnittet:
 
     ```bash
     spark-shell --master yarn \
-    --jars /usr/hdp/3.0.1.0-183/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.1.0-183.jar \
+    --jars /usr/hdp/current/hive_warehouse_connector/hive-warehouse-connector-assembly-1.0.0.3.0.2.1-8.jar \
     --conf spark.security.credentials.hiveserver2.enabled=false
     ```
 
-1. Ett välkomst meddelande visas och en `scala>` fråga där du kan ange kommandon.
+    Ett välkomst meddelande visas och en `scala>`-prompt där du kan ange kommandon.
 
 1. När du har startat Spark-Shell kan du starta en Hive-instans med hjälp av följande kommandon:
 
@@ -121,8 +124,10 @@ Gör så här för att starta en spark-Shell-session:
 
 Enterprise Security Package (ESP) tillhandahåller funktioner i företags klass som Active Directory-baserad autentisering, stöd för flera användare och rollbaserad åtkomst kontroll för Apache Hadoop kluster i Azure HDInsight. Mer information om ESP finns i [använda Enterprise Security Package i HDInsight](../domain-joined/apache-domain-joined-architecture.md).
 
-1. Följ de första stegen 1 och 2 under [ansluta och köra frågor](#connecting-and-running-queries).
+1. SSH till huvudnoden för ditt Apache Spark-kluster. Mer information om hur du ansluter till klustret med SSH finns i [ansluta till HDInsight (Apache Hadoop) med SSH](../../hdinsight/hdinsight-hadoop-linux-use-ssh-unix.md).
+
 1. Skriv `kinit` och logga in med en domän användare.
+
 1. Starta Spark-Shell med den fullständiga listan över konfigurations parametrar som visas nedan. Alla värden i versaler mellan vinkelparenteser måste anges baserat på klustret. Om du behöver ta reda på värdena för indata för någon av parametrarna nedan kan du läsa avsnittet om [konfiguration av Hive-anslutningsprogrammet](#hive-warehouse-connector-setup).:
 
     ```bash
@@ -152,21 +157,25 @@ Resultatet av frågan är Spark-DataFrames, som kan användas med Spark-bibliote
 
 Spark stöder inte internt skrivning till Hive-tabeller med hanterade syror. Med INSTANSEN kan du dock skriva ut valfri DataFrame till en Hive-tabell. Du kan se den här funktionen på jobbet i följande exempel:
 
-1. Skapa en tabell med `sampletable_colorado` namnet och ange dess kolumner med följande kommando:
+1. Skapa en tabell med namnet `sampletable_colorado` och ange dess kolumner med följande kommando:
 
     ```scala
     hive.createTable("sampletable_colorado").column("clientid","string").column("querytime","string").column("market","string").column("deviceplatform","string").column("devicemake","string").column("devicemodel","string").column("state","string").column("country","string").column("querydwelltime","double").column("sessionid","bigint").column("sessionpagevieworder","bigint").create()
     ```
 
-2. Filtrera tabellen `hivesampletable` där kolumnen `state` är lika med `Colorado`. Den här frågan av Hive-tabellen returneras som en spark-DataFrame. Sedan sparas DataFrame i Hive-tabellen `sampletable_colorado` med hjälp av `write` funktionen.
+1. Filtrera tabellen `hivesampletable` där kolumnen `state` är lika med `Colorado`. Den här frågan av Hive-tabellen returneras som en spark-DataFrame. Sedan sparas DataFrame i Hive-tabellen `sampletable_colorado` med hjälp av funktionen `write`.
 
     ```scala
     hive.table("hivesampletable").filter("state = 'Colorado'").write.format(HiveWarehouseSession.HIVE_WAREHOUSE_CONNECTOR).option("table","sampletable_colorado").save()
     ```
 
-Du kan se den resulterande tabellen i skärm bilden nedan.
+1. Visa resultaten med följande kommando:
 
-![Hive-dist. lager koppling visar Hive-tabell](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
+    ```scala
+    hive.table("sampletable_colorado").show()
+    ```
+    
+    ![Hive-dist. lager koppling visar Hive-tabell](./media/apache-hive-warehouse-connector/hive-warehouse-connector-show-hive-table.png)
 
 ### <a name="structured-streaming-writes"></a>Strukturerade strömmande skrivningar
 
@@ -174,40 +183,48 @@ Med hjälp av Hive Warehouse Connector kan du använda Spark-direktuppspelning f
 
 Följ stegen nedan för att skapa ett Hive-exempel för Hive-anslutning som matar in data från en spark-dataström på localhost-port 9999 i en Hive-tabell.
 
-1. Öppna en Terminal i Spark-klustret.
+1. Följ stegen för att [ansluta och köra frågor](#connecting-and-running-queries).
+
 1. Starta Spark-dataströmmen med följande kommando:
 
     ```scala
-    val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9988).load()
+    val lines = spark.readStream.format("socket").option("host", "localhost").option("port",9999).load()
     ```
 
 1. Generera data för Spark-dataströmmen som du skapade genom att utföra följande steg:
-    1. Öppna en annan terminal i samma Spark-kluster.
-    1. Skriv `nc -lk 9999`i kommando tolken. Det här kommandot använder verktyget netcat för att skicka data från kommando raden till den angivna porten.
-    1. Skriv in de ord som du vill att Spark-dataströmmen ska mata in, följt av vagn RETUR.
+    1. Öppna en andra SSH-session i samma Spark-kluster.
+    1. Skriv `nc -lk 9999` i kommando tolken. Det här kommandot använder verktyget netcat för att skicka data från kommando raden till den angivna porten.
 
-        ![Mata in data till Apache Spark Stream](./media/apache-hive-warehouse-connector/hive-warehouse-connector-spark-stream-data-input.png)
-
-1. Skapa en ny Hive-tabell för att lagra strömmande data. I Spark-Shell skriver du följande kommandon:
+1. Gå tillbaka till den första SSH-sessionen och skapa en ny Hive-tabell för att lagra strömmande data. I Spark-Shell anger du följande kommando:
 
     ```scala
     hive.createTable("stream_table").column("value","string").create()
     ```
 
-1. Skriv strömmande data till den nyligen skapade tabellen med hjälp av följande kommando:
+1. Skriv sedan strömmande data till den nyligen skapade tabellen med hjälp av följande kommando:
 
     ```scala
     lines.filter("value = 'HiveSpark'").writeStream.format(HiveWarehouseSession.STREAM_TO_STREAM).option("database", "default").option("table","stream_table").option("metastoreUri",spark.conf.get("spark.datasource.hive.warehouse.metastoreUri")).option("checkpointLocation","/tmp/checkpoint1").start()
     ```
 
     >[!Important]
-    > Alternativen `metastoreUri` och`database` måste anges manuellt på grund av ett känt problem i Apache Spark. Mer information om det här problemet finns i [Spark-25460](https://issues.apache.org/jira/browse/SPARK-25460).
+    > Alternativen `metastoreUri` och `database` måste anges manuellt på grund av ett känt problem i Apache Spark. Mer information om det här problemet finns i [Spark-25460](https://issues.apache.org/jira/browse/SPARK-25460).
 
-1. Du kan visa de data som infogats i tabellen med följande kommando:
+1. Gå tillbaka till den andra SSH-sessionen och ange följande värden:
+
+    ```bash
+    foo
+    HiveSpark
+    bar
+    ```
+
+1. Gå tillbaka till den första SSH-sessionen och anteckna den korta aktiviteten. Använd följande kommando för att visa data:
 
     ```scala
     hive.table("stream_table").show()
     ```
+
+Använd **CTRL + C** för att stoppa netcat på den andra SSH-sessionen. Använd `:q` om du vill avsluta Spark-Shell på den första SSH-sessionen.
 
 ### <a name="securing-data-on-spark-esp-clusters"></a>Skydda data i Spark ESP-kluster
 
@@ -220,7 +237,7 @@ Följ stegen nedan för att skapa ett Hive-exempel för Hive-anslutning som mata
     INSERT INTO demo VALUES ('InteractiveQuery');
     ```
 
-1. Visa tabellens innehåll med följande kommando. Innan du tillämpar principen `demo` visas den fullständiga kolumnen i tabellen.
+1. Visa tabellens innehåll med följande kommando. Innan du tillämpar principen visas den fullständiga kolumnen i tabellen `demo`.
 
     ```scala
     hive.executeQuery("SELECT * FROM demo").show()
@@ -231,13 +248,13 @@ Följ stegen nedan för att skapa ett Hive-exempel för Hive-anslutning som mata
 1. Använd en kolumn Maskerings princip som bara visar de sista fyra tecknen i kolumnen.  
     1. Gå till gränssnittet Ranger admin på `https://CLUSTERNAME.azurehdinsight.net/ranger/`.
     1. Klicka på Hive-tjänsten för klustret under **Hive**.
-        ![Ranger Service Manager](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-service-manager.png)
+        ![ranger Service Manager @ no__t-1
     1. Klicka på fliken **maskering** och **Lägg sedan till ny princip**
 
         ![Hive-princip lista för Hive-lager kopplings Ranger](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-hive-policy-list.png)
 
-    a. Ange ett önskat princip namn. Välj databas: **Standard**, Hive-tabell: **demo**, Hive-kolumn: **namn**, användare: **Rsadmin2**, åtkomst typer: **Select**och **partiell mask: Visa sista 4** från menyn **Välj maskande alternativ** . Klicka på **Lägg till**.
-                ![Skapa princip](./media/apache-hive-warehouse-connector/hive-warehouse-connector-ranger-create-policy.png)
+    a. Ange ett önskat princip namn. Välj databas: **standard**, Hive-tabell: **demo**, Hive-kolumn: **namn**, användare: **Rsadmin2**, åtkomst typer: **Select**och **partiell mask: Visa sista 4** från menyn **Välj masknings alternativ** . Klicka på **Lägg till**.
+                ![create-princip @ no__t-1
 1. Visa tabellens innehåll igen. När du har tillämpat Ranger-principen ser vi bara de sista fyra tecknen i kolumnen.
 
     ![demo tabell efter användning av Ranger-policy](./media/apache-hive-warehouse-connector/hive-warehouse-connector-table-after-ranger-policy.png)

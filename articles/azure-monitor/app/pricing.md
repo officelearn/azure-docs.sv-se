@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 3e0bdd42ea19b7029d3f3df4ff9a5a275aec0271
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 51caf34d0030fd404cd7f7c1868a0e2945c75b35
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71936684"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264419"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
@@ -40,7 +40,7 @@ Priserna för [Azure Application insikter][start] är en modell där du betalar 
 > [!NOTE]
 > Alla priser som visas i skärm bilder i den här artikeln är till exempel endast avsedda. För aktuella priser i din valuta och region, se [Application Insights priser][pricing].
 
-### <a name="multi-step-web-tests"></a>Webbtester med flera steg
+### <a name="multi-step-web-tests"></a>Flerstegstest för webbplatser
 
 [Webbtester med flera steg](../../azure-monitor/app/availability-multistep.md) debiteras ytterligare en kostnad. Webbtester med flera steg är webbtester som utför en sekvens med åtgärder.
 
@@ -56,7 +56,7 @@ Det finns två sätt att åtgärda detta: användning av standard övervakning o
 
 Med ASP.NET SDK: s [anpassningsbara sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)justeras data volymen automatiskt så att den behålls inom en angiven högsta trafik hastighet för standard Application Insights övervakning. Om programmet genererar en liten mängd telemetri, till exempel vid fel sökning eller på grund av låg användning, kommer objekten inte att släppas av samplings processorn så länge volymen är lägre än de konfigurerade händelserna per sekund. För ett program med hög volym, med standard tröskelvärdet på 5 händelser per sekund, begränsar adaptiv sampling antalet dagliga händelser till 432 000. Med en typisk genomsnittlig händelse storlek på 1 KB motsvarar detta 13,4 GB telemetri per 31-dagars månad per nod som är värd för ditt program (eftersom samplingen görs lokal för varje nod.) 
 
-För SDK: er som inte stöder anpassningsbar sampling kan du använda [inmatnings sampling) [https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling ] som kan användas för att receved data Application Insights baserat på en procent andel data som ska behållas, eller [sampling med fast pris för ASP.net, ASP.net Core och Java webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) för att minska trafiken som skickas från din webb server och webbläsare
+För SDK: er som inte stöder anpassningsbar sampling kan du använda [samplings sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) , som kan användas när data receveds av Application Insights baserat på en procent andel av data som ska behållas, eller [sampling med fast pris för ASP.net, ASP.net Core och Java webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) för att minska trafiken som skickas från din webb server och webbläsare
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Lär dig från vilka liknande kunder samlar in
 
@@ -92,7 +92,7 @@ För att förstå hur mycket data din app skickar kan du:
 
 * Gå till fönstret **användning och uppskattad kostnad** för att se diagrammet över dagliga data volymer. 
 * I Metrics Explorer lägger du till ett nytt diagram. För diagram måttet väljer du **data punkts volym**. Aktivera **gruppering**och gruppera sedan efter **datatyp**.
-* `systemEvents` Använd data typen. Om du till exempel vill se data volymen som matats in under den senaste dagen skulle frågan bli:
+* Använd data typen `systemEvents`. Om du till exempel vill se data volymen som matats in under den senaste dagen skulle frågan bli:
 
 ```kusto
 systemEvents 
@@ -107,19 +107,19 @@ Den här frågan kan användas i en [Azure logg avisering](https://docs.microsof
 
 Mängden data som du skickar kan hanteras på tre sätt:
 
-* **Sampling**: Du kan använda sampling för att minska mängden telemetri som skickas från servern och klientens appar, med minimal snedvridning av mått. Sampling är det primära verktyget som du kan använda för att justera mängden data som du skickar. Lär dig mer om [samplings funktioner](../../azure-monitor/app/sampling.md).
+* **Sampling**: du kan använda sampling för att minska mängden telemetri som skickas från servern och klientens appar, med minimal snedvridning av mått. Sampling är det primära verktyget som du kan använda för att justera mängden data som du skickar. Lär dig mer om [samplings funktioner](../../azure-monitor/app/sampling.md).
  
-* **Dagligt tak**: När du skapar en Application Insights-resurs i Azure Portal är den dagliga gränsen inställd på 100 GB/dag. När du skapar en Application Insights resurs i Visual Studio är standardvärdet liten (endast 32,3 MB/dag). Standardvärdet för dagligt tak är inställt för att under lätta testning. Det är avsett att användaren får den dagliga gränsen innan du distribuerar appen till produktion. 
+* **Dagligt tak**: när du skapar en Application Insights-resurs i Azure Portal anges den dagliga gränsen till 100 GB/dag. När du skapar en Application Insights resurs i Visual Studio är standardvärdet liten (endast 32,3 MB/dag). Standardvärdet för dagligt tak är inställt för att under lätta testning. Det är avsett att användaren får den dagliga gränsen innan du distribuerar appen till produktion. 
 
     Den största gränsen är 1 000 GB/dag om du inte begär en högre gräns för ett program med hög trafik. 
     
-    Varnings meddelanden om den dagliga gränsen skickas till konton som är medlemmar i dessa roller för din Application Insights-resurs: "ServiceAdmin", "AccountAdmin", "medadministratör", "ägare".
+    Varnings meddelanden om den dagliga gränsen skickas till konton som är medlemmar i dessa roller för din Application Insights-resurs: "ServiceAdmin", "AccountAdmin", "innehavaradministratör", "ägare".
 
     Använd försiktighet när du anger den dagliga gränsen. Avsikten bör vara att *aldrig träffa den dagliga*gränsen. Om du når den dagliga gränsen förlorar du data för resten av dagen och du kan inte övervaka ditt program. Om du vill ändra den dagliga begränsningen använder du alternativet för **daglig volym begränsning** . Du kan komma åt det här alternativet i fönstret **användning och uppskattade kostnader** (detta beskrivs mer detaljerat längre fram i artikeln).
     
     Vi har tagit bort begränsningen för vissa prenumerations typer som har kredit som inte kan användas för Application Insights. Om prenumerationen har en utgifts gräns har den dagliga Cap-dialog rutan instruktioner för att ta bort utgifts gränsen och göra det möjligt att öka den dagliga gränsen för mer än 32,3 MB/dag.
     
-* **Begränsning**: Begränsning begränsar data hastigheten till 32 000 händelser per sekund, i genomsnitt över 1 minut per Instrumentation-nyckel. Den data mängd som din app skickar utvärderas varje minut. Om det överstiger den per sekund som genomsnitts priset under minuten, vägrar-servern vissa begär Anden. SDK buffrar data och försöker sedan skicka det igen. Den sprider en överspänning på flera minuter. Om din app kontinuerligt skickar data med mer än begränsnings frekvensen kommer vissa data att tas bort. (ASP.NET-, Java-och JavaScript-SDK: er försöker skicka data på det här sättet igen. andra SDK: er kanske bara släpper begränsade data.) Om det uppstår en begränsning visas en varning om att ett meddelande har inträffat.
+* **Begränsning**: begränsning begränsar data hastigheten till 32 000 händelser per sekund, i genomsnitt över 1 minut per Instrumentation-nyckel. Den data mängd som din app skickar utvärderas varje minut. Om det överstiger den per sekund som genomsnitts priset under minuten, vägrar-servern vissa begär Anden. SDK buffrar data och försöker sedan skicka det igen. Den sprider en överspänning på flera minuter. Om din app kontinuerligt skickar data med mer än begränsnings frekvensen kommer vissa data att tas bort. (ASP.NET-, Java-och JavaScript-SDK: er försöker skicka data på det här sättet igen. andra SDK: er kanske bara släpper begränsade data.) Om det uppstår en begränsning visas en varning om att ett meddelande har inträffat.
 
 ## <a name="reduce-your-data-volume"></a>Minska din data volym
 
@@ -137,9 +137,9 @@ Du kan använda den dagliga volym begränsningen för att begränsa de data som 
 
 I stället för att använda den dagliga volym gränsen använder du [sampling](../../azure-monitor/app/sampling.md) för att justera data volymen till önskad nivå. Använd sedan den dagliga begränsningen endast som "sista utväg" om ditt program inte börjar att skicka mycket större telemetri.
 
-### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga datagräns definiera
+### <a name="identify-what-daily-data-limit-to-define"></a>Identifiera vilka dagliga data gränser som ska definieras
 
-Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör ses med försiktighet, eftersom du inte längre att övervaka dina resurser när gränsen har nåtts. 
+Granska Application Insights användning och beräknade kostnader för att förstå data inmatnings trenden och det dagliga volym taket för att definiera. Det bör övervägas varsamt eftersom du inte kan övervaka dina resurser när gränsen har uppnåtts. 
 
 ### <a name="set-the-daily-cap"></a>Ange dagligt tak
 
@@ -147,7 +147,7 @@ Om du vill ändra den dagliga belastningen går du till avsnittet **Konfigurera*
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-003.png)
 
-Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är `dailyQuota`egenskapen som ska ändras.  Via Azure Resource Manager kan du också ställa in `dailyQuotaResetTime` och använda det dagliga `warningThreshold`taket. 
+Om du vill [ändra den dagliga gränsen via Azure Resource Manager](../../azure-monitor/app/powershell.md)är egenskapen att ändra `dailyQuota`.  Via Azure Resource Manager kan du också ange `dailyQuotaResetTime` och den dagliga Cap-`warningThreshold`. 
 
 ## <a name="sampling"></a>Sampling
 [Sampling](../../azure-monitor/app/sampling.md) är en metod för att minska den hastighet som telemetri skickas till din app, samtidigt som du behåller möjligheten att hitta relaterade händelser under diagnostiska sökningar. Du behåller också korrekta antal händelser.
@@ -173,9 +173,9 @@ Använd en [analys fråga](analytics.md)för att identifiera den faktiska sampli
     | summarize 100/avg(itemCount) by bin(timestamp, 1h)
     | render areachart
 
-I varje kvarhållen post `itemCount` anger antalet ursprungliga poster som den representerar. Det är lika med 1 + antalet tidigare borttagna poster. 
+I varje kvarhållen post anger `itemCount` antalet ursprungliga poster som den representerar. Det är lika med 1 + antalet tidigare borttagna poster. 
 
-## <a name="change-the-data-retention-period"></a>Ändra kvarhållningsperioden för data
+## <a name="change-the-data-retention-period"></a>Ändra data lagrings perioden
 
 Standard kvarhållning av Application Insights resurser är 90 dagar. Olika bevarande perioder kan väljas för varje Application Insights resurs. Den fullständiga uppsättningen tillgängliga kvarhållningsperiod är 30, 60, 90, 120, 180, 270, 365, 550 eller 730 dagar. 
 
@@ -183,7 +183,7 @@ Om du vill ändra kvarhållning går du till sidan **användning och uppskattade
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
 
-Kvarhållning kan också [ställas in via arm](https://docs.microsoft.com/azure/azure-monitor/app/powershell) med parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här funktionen exponeras bara via ARM. 
+Kvarhållning kan också [ställas in program mässigt med PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/powershell/set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här rensnings funktionen exponeras bara via ARM och bör användas med extrem noggrannhet. 
 
 När faktureringen börjar för längre kvarhållning i början av december 2019 faktureras data som är längre än 90 dagar som samma pris som för närvarande faktureras för Azure Log Analytics data kvarhållning. Läs mer på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Håll dig uppdaterad om varierande behållnings förlopp genom [röstning för det här förslaget](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 
@@ -241,7 +241,7 @@ Eftersom den här nivån bara gäller för kunder med en Operations Management S
 |:---------------------------------------|:----------------:|
 | 1 program med 3 Azure App Service instanser och 1 virtuell server | 4 |
 | 3 program som körs på två virtuella datorer; Application Insights resurser för dessa program finns i samma prenumeration och i per nod-nivå | 2 | 
-| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13.33 | 
+| 4 program vars program Insights-resurser finns i samma prenumeration. varje program som kör två instanser under 16 timmar med låg belastning och fyra instanser under 8 högsta timmar | 13,33 | 
 | Moln tjänster med 1-arbets roll och 1 webbroll, varje som kör 2 instanser | 4 | 
 | Ett Azure Service Fabric-kluster med 5 noder som kör 50 mikrotjänster; varje mikrotjänst som kör 3 instanser | 5|
 

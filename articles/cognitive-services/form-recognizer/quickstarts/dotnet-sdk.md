@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/12/2019
 ms.author: pafarley
-ms.openlocfilehash: fc0964508f3031efd91db827524042bf0577ab5e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 74bb062713eac44310edcc8d1cdaed605e964681
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242518"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264433"
 ---
 # <a name="quickstart-form-recognizer-client-library-for-net"></a>Snabb start: formulär tolkens klient bibliotek för .NET
 
@@ -34,7 +34,7 @@ Använd formulär tolkens klient bibliotek för .NET för att:
 
 * Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/).
 * Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
-* En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta samman dina tränings data. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten.
+* En Azure Storage-blob som innehåller en uppsättning tränings data. Se [skapa en tränings data uppsättning för en anpassad modell](../build-training-data-set.md) för tips och alternativ för att sätta samman dina tränings data. I den här snabb starten kan du använda filerna under mappen **träna** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
 * Den aktuella versionen av [.net Core](https://dotnet.microsoft.com/download/dotnet-core).
 
 ## <a name="setting-up"></a>Konfigurera
@@ -122,6 +122,7 @@ Innan du definierar några metoder lägger du till följande variabel definition
 
 * Du kan hitta tjänstens slut punkts värde i **översikts** avsnittet i Azure Portal. 
 * Om du vill hämta SAS-URL: en för dina utbildnings data öppnar du Microsoft Azure Storage Explorer, högerklickar på behållaren och väljer **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det ska ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Om du behöver ett exempel formulär för att analysera kan du använda en av filerna under mappen **test** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451). I den här guiden används endast PDF-formulär.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/Program.cs?name=snippet_variables)]
 

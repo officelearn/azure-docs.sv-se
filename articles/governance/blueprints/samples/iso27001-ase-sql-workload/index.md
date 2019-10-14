@@ -1,17 +1,17 @@
 ---
-title: Exempel – Översikt över skissexemplet ISO 27001 ASE/SQL-arbetsbelastning
+title: Exempel på ISO 27001 ASE/SQL-arbetsbelastningsskiss – översikt
 description: Översikt och arkitektur för skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning.
 author: DCtheGeek
 ms.author: dacoulte
 ms.date: 03/14/2019
 ms.topic: sample
 ms.service: blueprints
-ms.openlocfilehash: e2f95cb28d14359955a0fbec1d402b08b911a59c
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 066df6b0fc7516777e2edf523bef226c09c80263
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978324"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72299142"
 ---
 # <a name="overview-of-the-iso-27001-app-service-environmentsql-database-workload-blueprint-sample"></a>Översikt över skissexemplet ISO 27001 App Service-miljön/SQL Database-arbetsbelastning
 

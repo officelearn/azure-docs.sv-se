@@ -116,7 +116,7 @@
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
         - name: Skapa en robot med QnA Maker och LUIS
           href: Tutorials/integrate-qnamaker-luis.md
-        - name: Skapa en kunskapsbas på ett annat språk
+        - name: Val av språk
           href: How-To/language-knowledge-base.md
         - name: Migrera en kunskapsbas
           href: Tutorials/migrate-knowledge-base.md
@@ -141,6 +141,12 @@
           href: How-To/business-continuity-plan.md
 - name: Referens
   items:
+    - name: Språk
+      href: Overview/language-support.md
+    - name: Begränsningar
+      href: limits.md
+    - name: Felsökning
+      href: troubleshooting.md
     - name: Referens för REST API
       items:
         - name: 'Redigera API:er'
@@ -150,10 +156,6 @@
         - name: Tränings-API
           href: 'https://docs.microsoft.com/rest/api/cognitiveservices/qnamakerruntime/runtime/train'
       href: 'https://go.microsoft.com/fwlink/?linkid=2092179'
-    - name: Felsökning
-      href: troubleshooting.md
-    - name: Begränsningar
-      href: limits.md
     - name: Exempel
       items:
         - name: Hjälprobot för QnA Maker
@@ -206,8 +208,6 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Priser och begränsningar
       href: 'https://aka.ms/qnamaker-pricing'
-    - name: Stöd för språk
-      href: Overview/language-support.md
     - name: Stack Overflow
       href: 'https://stackoverflow.com/questions/tagged/QnAMaker'
     - name: UserVoice

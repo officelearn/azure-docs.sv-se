@@ -9,15 +9,15 @@ ms.author: estfan
 ms.reviewers: klam, LADocs
 manager: carmonm
 ms.assetid: 566924a4-0988-4d86-9ecd-ad22507858c0
-ms.topic: article
-ms.date: 09/06/2019
+ms.topic: conceptual
+ms.date: 10/11/2019
 tags: connectors
-ms.openlocfilehash: 668e815f1dc1ead0ad38264bdc71fc3c315b751c
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 6062ca1ce09eb243825b1fb9ae4ecb3d5ac95d1a
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71122720"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264360"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Ta emot och svara på inkommande HTTPS-anrop genom att använda Azure Logic Apps
 
@@ -27,9 +27,10 @@ Med [Azure Logic Apps](../logic-apps/logic-apps-overview.md) och den inbyggda be
 * Utlös ett arbets flöde när en extern webhook-händelse inträffar.
 * Ta emot och svara på ett HTTPS-anrop från en annan Logic app.
 
-Utlösaren för begär Anden stöder *endast* https. Använd den inbyggda [http-utlösaren eller åtgärden](../connectors/connectors-native-http.md)om du vill göra utgående http-eller https-anrop i stället.
+> [!NOTE]
+> Begär ande utlösare stöder *endast* Transport Layer Security (TLS) 1,2 för inkommande anrop. Utgående samtal fortsätter att stödja TLS 1,0, 1,1 och 1,2. Om du ser fel i SSL-handskakning kontrollerar du att du använder TLS 1,2.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Azure-prenumeration. Om du inte har någon prenumeration kan du [Registrera dig för ett kostnads fritt Azure-konto](https://azure.microsoft.com/free/).
 
@@ -41,7 +42,7 @@ Utlösaren för begär Anden stöder *endast* https. Använd den inbyggda [http-
 
 Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bara* får ta emot inkommande HTTPS-begäranden. När den här händelsen inträffar utlöses utlösaren och kör Logic-appen. Mer information om utlösarens underliggande JSON-definition och hur du anropar den här utlösaren finns i [begäran om utlösare](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) och [anrop, utlösare eller kapslade arbets flöden med http-slutpunkter i Azure Logic Apps](../logic-apps/logic-apps-http-endpoint.md).
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Skapa en tom logikapp.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Skapa en tom logikapp.
 
 1. När Logic App Designer öppnas i sökrutan anger du "http-förfrågan" som filter. I listan utlösare väljer du alternativet **när en HTTP-begäran tas emot** , vilket är det första steget i ditt Logic app-arbetsflöde.
 
@@ -51,7 +52,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    ![Begär utlösare](./media/connectors-native-reqres/request-trigger.png)
 
-   | Egenskapsnamn | JSON-egenskaps namn | Obligatorisk | Beskrivning |
+   | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **HTTP POST-URL** | alternativet | Ja | Slut punkts-URL: en som genereras efter att du har sparat Logic-appen och som används för att anropa din Logic app |
    | **Begär ande text JSON-schema** | `schema` | Nej | JSON-schemat som beskriver egenskaperna och värdena i den inkommande begär ande texten |
@@ -107,7 +108,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
    }
    ```
 
-   När du anger ett JSON-schema visar designern en påminnelse om att inkludera `Content-Type` sidhuvudet i din begäran och ange värdet som huvud `application/json`värde till. Mer information finns i [Hantera innehålls typer](../logic-apps/logic-apps-content-type.md).
+   När du anger ett JSON-schema, visar designern en påminnelse om att inkludera `Content-Type`-huvudet i din begäran och ange värdet `application/json`. Mer information finns i [Hantera innehålls typer](../logic-apps/logic-apps-content-type.md).
 
    ![Påminnelse om att inkludera rubriken "Content-Type"](./media/connectors-native-reqres/include-content-type.png)
 
@@ -150,7 +151,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
 1. Om du vill ange ytterligare egenskaper öppnar du listan **Lägg till ny parameter** och väljer de parametrar som du vill lägga till.
 
-   | Egenskapsnamn | JSON-egenskaps namn | Obligatorisk | Beskrivning |
+   | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **Metod** | `method` | Nej | Metoden som inkommande begäran måste använda för att anropa Logic-appen |
    | **Relativ sökväg** | `relativePath` | Nej | Den relativa sökvägen för den parameter som den logiska appens slut punkts-URL kan acceptera |
@@ -168,7 +169,7 @@ Den här inbyggda utlösaren skapar en manuellt anropad HTTPS-slutpunkt som *bar
 
    Du kan till exempel svara på begäran genom att [lägga till en svars åtgärd](#add-response), som du kan använda för att returnera ett anpassat svar och beskrivs senare i det här avsnittet.
 
-   Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
+   Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Annars, om din Logic app inte innehåller någon svars åtgärd, returnerar din Logic app omedelbart ett `202 ACCEPTED`-svar till anroparen.
 
 1. När du är klar sparar du din Logic app. I verktygsfältet designer väljer du **Spara**. 
 
@@ -184,8 +185,8 @@ Här är mer information om utdata från begär ande utlösare:
 
 | JSON-egenskaps namn | Datatyp | Beskrivning |
 |--------------------|-----------|-------------|
-| `headers` | Object | Ett JSON-objekt som beskriver huvudena från begäran |
-| `body` | Object | Ett JSON-objekt som beskriver bröd innehållet från begäran |
+| `headers` | Objekt | Ett JSON-objekt som beskriver huvudena från begäran |
+| `body` | Objekt | Ett JSON-objekt som beskriver bröd innehållet från begäran |
 ||||
 
 <a name="add-response"></a>
@@ -194,7 +195,7 @@ Här är mer information om utdata från begär ande utlösare:
 
 Du kan använda svars åtgärden för att svara med en nytto Last (data) till en inkommande HTTPS-begäran, men endast i en Logic-app som utlöses av en HTTPS-begäran. Du kan lägga till svars åtgärden när som helst i arbets flödet. Mer information om den underliggande JSON-definitionen för den här utlösaren finns i [Åtgärds typen svar](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
 
-Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Om din Logic app inte innehåller någon svars åtgärd returnerar din Logi Kap app omedelbart ett `202 ACCEPTED` svar till anroparen.
+Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Förutsatt att ditt Logic app-arbetsflöde innehåller en svars åtgärd, om Logic app inte returnerar ett svar efter den här tiden, returnerar din Logic app en `504 GATEWAY TIMEOUT` till anroparen. Annars, om din Logic app inte innehåller någon svars åtgärd, returnerar din Logic app omedelbart ett `202 ACCEPTED`-svar till anroparen.
 
 1. I Logic App Designer, under steget där du vill lägga till en svars åtgärd väljer du **nytt steg**.
 
@@ -214,7 +215,7 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Fö
 
    I vissa fält öppnas listan med dynamiskt innehåll genom att klicka inuti rutorna. Du kan sedan välja tokens som representerar tillgängliga utdata från föregående steg i arbets flödet. Egenskaperna från det schema som anges i det tidigare exemplet visas nu i listan med dynamiskt innehåll.
 
-   Till exempel för **rubrik** rutan, Lägg `Content-Type` till som nyckel namn och ange nyckelvärdet till `application/json` som tidigare nämnts i det här avsnittet. I rutan **brödtext** kan du välja utlösare för text i listan med dynamiskt innehåll.
+   Exempel: för rutan **rubriker** inkluderar du `Content-Type` som nyckel namn och anger nyckelvärdet till `application/json` som nämnts tidigare i det här avsnittet. I rutan **brödtext** kan du välja utlösare för text i listan med dynamiskt innehåll.
 
    ![Information om svars åtgärd](./media/connectors-native-reqres/response-details.png)
 
@@ -224,7 +225,7 @@ Din Logi Kap par ser till att inkommande begäran endast öppnas i en minut. Fö
 
    Här är mer information om de egenskaper som du kan ange i svars åtgärden. 
 
-   | Egenskapsnamn | JSON-egenskaps namn | Obligatorisk | Beskrivning |
+   | Egenskapsnamn | JSON-egenskaps namn | Krävs | Beskrivning |
    |---------------|--------------------|----------|-------------|
    | **Statuskod** | `statusCode` | Ja | Status koden som ska returneras i svaret |
    | **Headers** | `headers` | Nej | Ett JSON-objekt som beskriver en eller flera huvuden som ska inkluderas i svaret |

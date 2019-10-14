@@ -410,10 +410,12 @@
           href: transform-data-using-spark.md
         - name: HDInsight-strömningsaktivitet
           href: transform-data-using-hadoop-streaming.md
-        - name: ML-batchkörningsaktivitet
+        - name: Machine Learning Batch-körningsaktivitet
           href: transform-data-using-machine-learning.md
-        - name: ML-uppdateringsresursaktivitet
+        - name: Machine Learning-uppdateringsresursaktivitet
           href: update-machine-learning-models.md
+        - name: Aktiviteten Kör pipeline i Machine Learning
+          href: transform-data-machine-learning-service.md
         - name: Lagrad proceduraktivitet
           href: transform-data-using-stored-procedure.md
         - name: Länkade tjänster för Compute

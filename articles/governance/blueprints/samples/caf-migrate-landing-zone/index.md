@@ -1,5 +1,5 @@
 ---
-title: Exempel – skiss för CAF Migration-landningszon – översikt
+title: Exempel på skiss för CAF Migration-landningszon – översikt
 description: Översikt och arkitektur för skissexemplet för CAF Migration-landningszonen.
 author: DCtheGeek
 ms.author: dacoulte
@@ -7,16 +7,16 @@ ms.date: 08/20/2019
 ms.topic: sample
 ms.service: blueprints
 ms.custom: fasttrack-new
-ms.openlocfilehash: 469ddfa647a2ee739756414ba1bad87c983057c6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: c74ec9f425b99bb11011fce7b0b7bdca98005ad8
+ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
 ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243972"
+ms.lasthandoff: 10/13/2019
+ms.locfileid: "72297872"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Översikt över skissexemplet för Microsoft Cloud Adoption Framework for Azure Migration-landningszonen
 
-Skissen för Microsoft Cloud Adoption Framework for Azure (CAF) Migration-landningszonen är infrastruktursuppsättning som hjälper dig att förbereda migrering av din första arbetsbelastning samt hantera din molnegendom i enlighet med CAF.
+Skissen för Microsoft Cloud Adoption Framework for Azure (CAF) Migration-landningszonen är en infrastrukturuppsättning som hjälper dig att förbereda migreringen av din första arbetsbelastning och att hantera din molnegendom i enlighet med CAF.
 
 [CAF Foundation](../caf-foundation/index.md)-skissexemplet bygger vidare på det här exemplet.
 
@@ -47,7 +47,7 @@ Mer information finns i [Microsoft Cloud Adoption Framework for Azure – migrer
 Du har läst översikten och arkitekturen för skissexemplet för CAF Migrate-landningszonen.
 
 > [!div class="nextstepaction"]
->  [Skiss för CAF Migrate-landningszon – distributionssteg](./deploy.md)
+>  [Skiss för CAF Migration-landningszon – distributionssteg](./deploy.md)
 
 Ytterligare artiklar om skisser och hur de används:
 

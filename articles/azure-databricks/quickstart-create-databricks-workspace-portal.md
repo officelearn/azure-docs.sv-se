@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal'
+title: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 description: Snabbstarten visar hur du använder Azure-portalen för att skapa en arbetsyta för Azure Databricks och ett Apache Spark-kluster och kör ett Spark-jobb.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,24 +10,24 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.date: 05/08/2019
 ms.custom: mvc
-ms.openlocfilehash: 3570325880b4c8d8eb311f00477262126a2b18ad
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 1cc6d6236b940cf898651bdfdd47f4db1ac53851
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68932568"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274166"
 ---
 # <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-portal"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Portal
 
 I den här snabb starten använder du Azure Portal för att skapa en Azure Databricks arbets yta med ett Apache Spark-kluster. Du kör ett jobb i klustret och använder anpassade diagram för att skapa rapporter i real tid från säkerhets data i Boston.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com).
+Logga in på [Azure-portalen](https://portal.azure.com).
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -37,11 +37,11 @@ Logga in på [Azure Portal](https://portal.azure.com).
 
 I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
     ![Databricks på Azure-portalen](./media/quickstart-create-databricks-workspace-portal/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
-2. Under **Azure Databricks-tjänst** anger du värden för att skapa en Databricks-arbetsyta.
+2. Under **Azure Databricks Service** (Azure Databricks-tjänsten) fyller du i värdena för att skapa en Databricks-arbetsyta.
 
     ![Skapa en arbetsyta för Azure Databricks](./media/quickstart-create-databricks-workspace-portal/create-databricks-workspace.png "Skapa en arbetsyta för Azure Databricks")
 
@@ -52,7 +52,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure-portalen.
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
-    |**Plats**     | Välj **USA, västra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
+    |**Plats**     | Välj **Västra USA 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
     |**Prisnivå**     |  Välj mellan **standard**, **Premium**eller **utvärdering**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
     Markera **Fäst på instrumentpanelen** och klicka sedan på **Skapa**.
@@ -136,15 +136,15 @@ Utför följande uppgifter för att skapa en antecknings bok i Databricks, konfi
 
 5. Du ser en tabellvy som i följande skärmbild (endast vissa kolumner visas):
 
-    ![Exempel data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "Exempel på JSON-data")
+    ![Exempel på data](./media/quickstart-create-databricks-workspace-portal/databricks-sample-csv-data.png "exempel JSON-data")
 
-6. Nu skapar du en visuell representation av dessa data för att visa hur många säkerhets händelser som rapporteras med hjälp av medborgarna Anslut app-och stads Worker-appen i stället för andra källor. Längst ned i tabellens utdata väljer du stapeldiagram och klickar sedan på **rit alternativ**.
+6. Nu skapar du en visuell representation av dessa data för att visa hur många säkerhets händelser som rapporteras med hjälp av medborgarna Anslut app-och stads Worker-appen i stället för andra källor. Längst ned i tabellens utdata **väljer du stapeldiagram** och klickar sedan på **rit alternativ**.
 
     ![Skapa stapeldiagram](./media/quickstart-create-databricks-workspace-portal/create-plots-databricks-notebook.png "Skapa stapeldiagram")
 
 8. I **Anpassa ritning** drar och släpper du värden enligt skärmbilden.
 
-    ![Anpassa cirkel diagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
+    Anpassa ![cirkel diagram](./media/quickstart-create-databricks-workspace-portal/databricks-notebook-customize-plot.png "Anpassa stapeldiagram")
 
    * Ange **nycklar** till **källa**.
    * Ange **värden** för att **< \id >** .
@@ -155,7 +155,7 @@ Utför följande uppgifter för att skapa en antecknings bok i Databricks, konfi
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med artikeln kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+När du är klar med artikeln kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
 
 ![Stoppa ett Databricks-kluster](./media/quickstart-create-databricks-workspace-portal/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 

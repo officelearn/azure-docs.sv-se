@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Träna en modell och extrahera formulär data med hjälp av REST API med python-formulär tolken'
+title: 'Snabb start: träna en modell och extrahera formulär data med hjälp av REST API med python-formulär tolken'
 titleSuffix: Azure Cognitive Services
 description: I den här snabb starten använder du formulär tolken REST API med python för att träna en modell och extrahera data från formulär.
 author: PatrickFarley
@@ -9,24 +9,24 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 07/03/2019
 ms.author: pafarley
-ms.openlocfilehash: e7a63d09c3116c7504e9d409b32a44be140d8fe4
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: 5739827f1f6cf65cfe5c4aa8303c9f37eb569854
+ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71074146"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72264399"
 ---
-# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabbstart: Träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python
+# <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>Snabb start: träna en formulär igenkännings modell och extrahera formulär data med hjälp av REST API med python
 
 I den här snabb starten använder du Azures formulär tolken REST API med python för att träna och Poäng Forms för att extrahera nyckel/värde-par och tabeller.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 För att slutföra den här snabb starten måste du ha:
 - Åtkomst till för hands versionen av formulär igenkännings begränsad åtkomst. För att få åtkomst till förhands granskningen, fyller du i och skickar [formulär tolken formulär för åtkomst förfrågan](https://aka.ms/FormRecognizerRequestAccess) .
 - [Python](https://www.python.org/downloads/) installerat (om du vill köra exemplet lokalt).
-- En uppsättning minst fem formulär av samma typ. Du kommer att använda dessa data för att träna modellen. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Överför data till roten för en Blob Storage-behållare i ett Azure Storage-konto.
+- En uppsättning minst fem formulär av samma typ. Du kommer att använda dessa data för att träna modellen. Du kan använda en [exempel data uppsättning](https://go.microsoft.com/fwlink/?linkid=2090451) för den här snabb starten. Ladda upp utbildnings filen till roten för en Blob Storage-behållare i ett Azure Storage-konto.
 
 ## <a name="create-a-form-recognizer-resource"></a>Skapa en formulär igenkännings resurs
 
@@ -40,7 +40,7 @@ Om du vill träna en formulär tolknings modell med dokumenten i din Azure Blob-
 
 1. Ersätt `<Endpoint>` med slut punkts-URL: en för formulär igenkännings resursen.
 1. Ersätt `<Subscription key>` med den prenumerations nyckel som du kopierade från föregående steg.
-1. Ersätt `<SAS URL>` med Azure Blob Storage-behållarens URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Den bör ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+1. Ersätt `<SAS URL>` med Azure Blob Storages behållares URL för signatur för delad åtkomst (SAS). Hämta SAS-URL: en genom att öppna Microsoft Azure Storage Explorer, högerklicka på behållaren och välja **Hämta signatur för delad åtkomst**. Kontrol lera att **Läs** -och **list** behörigheterna är markerade och klicka på **skapa**. Kopiera sedan värdet i **URL** -avsnittet. Det ska ha formatet: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 
     ```python
     ########### Python Form Recognizer Train #############
@@ -67,7 +67,7 @@ Om du vill träna en formulär tolknings modell med dokumenten i din Azure Blob-
 1. Öppna ett kommandotolksfönster.
 1. Kör exemplet i kommandotolken med kommandot `python`. Till exempel `python form-recognize-train.py`.
 
-Du får ett `200 (Success)` svar med följande JSON-utdata:
+Du får ett `200 (Success)`-svar med följande JSON-utdata:
 
 ```json
 {
@@ -108,16 +108,16 @@ Du får ett `200 (Success)` svar med följande JSON-utdata:
 }
 ```
 
-`"modelId"` Anteckna värdet. Du behöver den för att utföra följande steg.
+Observera värdet `"modelId"`. Du behöver den för att utföra följande steg.
   
 ## <a name="extract-key-value-pairs-and-tables-from-forms"></a>Extrahera nyckel/värde-par och tabeller från formulär
 
 Härnäst ska du analysera ett dokument och extrahera nyckel/värde-par och tabeller från det. Anropa **modell-** API: et för analys genom att köra python-skriptet som följer. Innan du kör kommandot gör du följande ändringar:
 
-1. Ersätt `<Endpoint>` med den slut punkt som du fick med ditt formulärs igenkännings prenumerations nyckel. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
-1. Ersätt `<path to your form>` med fil Sök vägen för ditt formulär (till exempel C:\temp\file.pdf).
+1. Ersätt `<Endpoint>` med den slut punkt som du fick med din prenumerations nyckel för formulär igenkänning. Du hittar det på fliken **Översikt** i formulärets tolknings resurs.
+1. Ersätt `<path to your form>` med fil Sök vägen för ditt formulär (till exempel C:\temp\file.pdf). I den här snabb starten kan du använda filerna under mappen **test** i [exempel data uppsättningen](https://go.microsoft.com/fwlink/?linkid=2090451).
 1. Ersätt `<modelID>` med modell-ID: t som du fick i föregående avsnitt.
-1. Ersätt `<file type>` med filtypen. Typer som stöds `application/pdf`: `image/jpeg`, `image/png`,.
+1. Ersätt `<file type>` med filtypen. Typer som stöds: `application/pdf`, `image/jpeg`, `image/png`.
 1. Ersätt `<subscription key>` med din prenumerationsnyckel.
 
     ```python

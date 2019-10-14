@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Köra ett Spark-jobb på Azure Databricks med en Resource Manager-mall '
+title: Skapa en Azure Databricks arbets yta med Azure Resource Manager
 description: Snabbstarten visar hur du använder Azure Resource Manager-mallen för att skapa en arbetsyta för Azure Databricks, sedan skapa ett Apache Spark-kluster och därefter köra ett Spark-jobb.
 services: azure-databricks
 ms.service: azure-databricks
@@ -10,24 +10,24 @@ ms.workload: big-data
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 07/12/2019
-ms.openlocfilehash: 8d4cfb2be687f258255379d93fd60028dcd2eb2c
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 5f22c9e7b7f040a0e6b957cbc184720918ce9222
+ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "68932602"
+ms.lasthandoff: 10/11/2019
+ms.locfileid: "72274155"
 ---
-# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Köra ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
+# <a name="quickstart-run-a-spark-job-on-azure-databricks-using-the-azure-resource-manager-template"></a>Snabbstart: Kör ett Spark-jobb på Azure Databricks med Azure Resource Manager-mallen
 
 I den här snabb starten använder du en Azure Resource Manager-mall för att skapa en Azure Databricks arbets yta med ett Apache Spark-kluster. Du kör ett jobb i klustret och använder anpassade diagram för att skapa rapporter i real tid från en kostnads fri/betald användning baserat på demografiska.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 
 ## <a name="sign-in-to-the-azure-portal"></a>Logga in på Azure Portal
 
-Logga in på [Azure Portal](https://portal.azure.com). 
+Logga in på [Azure-portalen](https://portal.azure.com). 
 
 > [!Note]
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
@@ -51,7 +51,7 @@ I det här avsnittet skapar du en Azure Databricks-arbetsyta med Azure Resource 
    |---------|---------|
    |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
    |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
-   |**Location**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
+   |**Plats**     | Välj **USA, östra 2**. För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).        |
    |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan        |
    |**Prisnivå**     |  Välj mellan **Standard** och **Premium**. Mer information om de här nivåerna finns på [prissättningssidan för Databricks](https://azure.microsoft.com/pricing/details/databricks/).       |
 
@@ -178,7 +178,7 @@ Utför följande uppgifter för att skapa en anteckningsbok i Databricks, konfig
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När du är klar med artikeln kan du avsluta klustret. Det gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
+När du är klar med artikeln kan du avsluta klustret. Detta gör du genom att välja **Kluster** i det vänstra fönstret i Azure Databricks-arbetsytan. Gå till klustret som du vill avsluta och rör markören över de tre punkterna under kolumnen **Åtgärder**. Välj sedan ikonen **Avsluta**.
 
 ![Stoppa ett Databricks-kluster](./media/quickstart-create-databricks-workspace-resource-manager-template/terminate-databricks-cluster.png "Stoppa ett Databricks-kluster")
 

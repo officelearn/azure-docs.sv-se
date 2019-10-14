@@ -66,6 +66,8 @@
           href: analysis-services-addservprinc-admins.md
     - name: Modell
       items:
+        - name: Tabellmodellering
+          href: 'https://docs.microsoft.com/analysis-services/tabular-models/tabular-models-ssas'
         - name: Distribuera från Visual Studio (SSDT)
           href: analysis-services-deploy.md
         - name: Uppdatera med REST API

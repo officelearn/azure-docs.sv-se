@@ -100,8 +100,10 @@
                   href: virtual-machines-windows-portal-sql-ps-alwayson-int-listener.md
         - name: Redundansklusterinstans
           items:
-            - name: Konfigurera
+            - name: Med Lagringsdirigering
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
+            - name: Med premiumfillagring
+              href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
 - name: Referens
   items:
     - name: Azure PowerShell

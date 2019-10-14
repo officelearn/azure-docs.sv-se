@@ -44,6 +44,8 @@
     - name: Visa och hantera tjänstleverantörer
       displayName: 'managed services offer, azure marketplace, publish'
       href: ./how-to/view-manage-service-providers.md
+    - name: Distribuera en princip som kan åtgärdas
+      href: ./how-to/deploy-policy-remediation.md
 - name: Referens
   items:
     - name: Azure CLI

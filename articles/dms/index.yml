@@ -5,15 +5,15 @@ metadata:
   description: " Lär dig hur du använder Azure Database Migration Service för att migrera sömlöst från flera databaskällor till Azures dataplattformar med minimal stilleståndstid."
   author: HJToland3
   ms.author: jtoland
-  ms.date: 10/04/2019
+  ms.date: 10/12/2019
   ms.service: dms
   ms.topic: landing-page
-  ms.openlocfilehash: 41b2733152a93705c81134ccbb75866bf6f0af1b
-  ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+  ms.openlocfilehash: bb2eec4e07eb444549c5b8491799d491a1960250
+  ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
   ms.translationtype: HT
   ms.contentlocale: sv-SE
-  ms.lasthandoff: 10/03/2019
-  ms.locfileid: "71842997"
+  ms.lasthandoff: 10/13/2019
+  ms.locfileid: "72293790"
 landingContent:
 - title: Om Azure Database Migration Service
   linkLists:
@@ -31,14 +31,6 @@ landingContent:
     links:
     - text: Skapa en tjänst – portalen
       url: quickstart-create-data-migration-service-portal.md
-  - linkListType: how-to-guide
-    links:
-    - text: Övervaka migreringsaktiviteter
-      url: how-to-monitor-migration-activity.md
-    - text: Felsöka vanliga problem och fel
-      url: known-issues-troubleshooting-dms.md
-    - text: Felsöka problem som gäller anslutning till källdatabaser
-      url: known-issues-troubleshooting-dms-source-connectivity.md
   - linkListType: video
     links:
     - text: Introduktion till Azure Data Migration Service
@@ -47,10 +39,8 @@ landingContent:
       url: https://azure.microsoft.com/resources/videos/how-to-use-the-azure-database-migration-guide/
     - text: Migreringsprocessen och rekommenderade verktyg/tjänster
       url: https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/
-    - text: Åtgärda krav och skapa en DMS-instans
+    - text: Adresskrav och skapa en Azure Data Migration Service-instans
       url: https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/
-    - text: Övervaka en onlinemigrering och utföra snabb migrering
-      url: https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/
   - linkListType: whats-new
     links:
     - text: Ta en titt på bloggen
@@ -59,95 +49,59 @@ landingContent:
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Migrera SQL Server till en enskild Azure SQL DB-databas online
+    - text: Migrera Oracle till Azure SQL Database – enkel databas – online
       url: tutorial-sql-server-azure-sql-online.md
-    - text: Migrera SQL Server till en enskild Azure SQL DB-databas offline
+    - text: Migrera Oracle till Azure SQL Database – enkel databas – offline
       url: tutorial-sql-server-to-azure-sql.md
-    - text: Migrera SQL Server till en hanterad Azure SQL DB-instans online
+    - text: Migrera till SQL Database – hanterad instans – online
       url: tutorial-sql-server-managed-instance-online.md
-    - text: Migrera SQL Server till en hanterad Azure SQL DB-instans offline
+    - text: Migrera till SQL Database – hanterad instans – offline
       url: tutorial-sql-server-to-managed-instance.md
-    - text: Migrera RDS SQL Server till en enskild Azure SQL DB-databas eller till en hanterad Azure SQL DB-instans online
+    - text: Migrera RDS SQL Server till SQL Database – enkel databas/hanterad instans – online
       url: tutorial-rds-sql-server-azure-sql-and-managed-instance-online.md
-  - linkListType: how-to-guide
+  - linkListType: reference
     links:
-    - text: Använda PowerShell för att migrera SQL Server till en enskild Azure SQL DB-databas
-      url: howto-sql-server-to-azure-sql-powershell.md
-    - text: Använda PowerShell för att migrera SQL Server till en hanterad Azure SQL DB-instans
-      url: howto-sql-server-to-azure-sql-mi-powershell.md
-    - text: Distribuera om SSIS-paket till en enskild Azure SQL Database-databas
-      url: how-to-migrate-ssis-packages.md
-    - text: Distribuera om SSI-paket till en hanterad Azure SQL Database-instans
-      url: how-to-migrate-ssis-packages-managed-instance.md
-  - linkListType: concept
-    links:
-    - text: Kända problem – Onlinemigrering till en enskild Azure SQL DB-databas
+    - text: 'Kända problem: Onlinemigrering till SQL Database – enkel databas'
       url: known-issues-azure-sql-online.md
-    - text: Nätverkstopologier för migrering av hanterade Azure SQL DB-instanser
+    - text: Nätverkstopologier för migrering av SQL Database – hanterad instans
       url: resource-network-topologies.md
   - linkListType: video
     links:
-    - text: Migrera SQL Server 2008 till en hanterad Azure SQL Database-instans
+    - text: Migrera SQL Server 2008 till SQL Database – hanterad instans
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/
-- title: Migrera PostgreSQL till Azure Database for PostgreSQL
+- title: Migrera databaser med öppen källkod till Azure
   linkLists:
   - linkListType: tutorial
     links:
-    - text: Migrera PostgreSQL till Azure DB for PostgreSQL – enskild server online
+    - text: Migrera till Azure Database for PostgreSQL – enskild server – online
       url: tutorial-postgresql-azure-postgresql-online.md
-    - text: Migrera RDS PostgreSQL till Azure Database for PostgreSQL – enskild server online
+    - text: Migrera RDS PostgreSQL till Azure Database for PostgreSQL – enskild server – online
       url: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
-  - linkListType: concept
-    links:
-    - text: Kända problem – Onlinemigrering från PostgreSQL till Azure DB for PostgreSQL – enskild server
-      url: known-issues-azure-postgresql-online.md
-  - linkListType: video
-    links:
-    - text: Migrera PostgreSQL till Azure Database for PostgreSQL
-      url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
-- title: Migrera MySQL till Azure Database for MySQL
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Migrera MySQL till Azure DB för MySQL online
+    - text: Migrera till Azure Database for MySQL – online
       url: tutorial-mysql-azure-mysql-online.md
-    - text: Migrera RDS MySQL till Azure DB for MySQL online
+    - text: Migrera RDS MySQL till Azure Database for MySQL – online
       url: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-  - linkListType: concept
-    links:
-    - text: Kända problem – Onlinemigrering till Azure DB för MySQL
-      url: known-issues-azure-mysql-online.md
-- title: Migrera MongoDB till Azure Cosmos DB
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Migrera MongoDB till Azure Cosmos DB online
+    - text: Migrera till Azure Cosmos DB Mongo API – online
       url: tutorial-mongodb-cosmos-db-online.md
-    - text: Migrera MongoDB till Azure Cosmos DB offline
+    - text: Migrera till Azure Cosmos DB Mongo API – offline
       url: tutorial-mongodb-cosmos-db.md
+  - linkListType: reference
+    links:
+    - text: 'Kända problem: Onlinemigrering till Azure Database for PostgreSQL – enskild server'
+      url: known-issues-azure-postgresql-online.md
+    - text: 'Kända problem: Onlinemigrering till Azure Database for MySQL'
+      url: known-issues-azure-mysql-online.md
   - linkListType: video
     links:
-    - text: Migrera MongoDB till Azure Cosmos DB
+    - text: Migrera PostgreSQL till Azure Database for PostgreSQL – enskild server
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/
+    - text: Migrera till Azure Cosmos DB Mongo API
       url: https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/
-- title: Migrera Oracle till Azure
-  linkLists:
-  - linkListType: tutorial
-    links:
-    - text: Migrera Oracle till Azure DB for PostgreSQL – enskild server online
-      url: tutorial-oracle-azure-postgresql-online.md
-  - linkListType: concept
-    links:
-    - text: Kända problem – Onlinemigrering från Oracle till Azure DB for PostgreSQL – enskild server
-      url: known-issues-oracle-azure-postgresql-online.md
-  - linkListType: video
-    links:
-    - text: Migrera Oracle till Azure SQL Database – enskild databas
-      url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/
 - title: Verktyg och vägledning
   linkLists:
   - linkListType: reference
     links:
-    - text: Tillgängliga tjänster och verktyg för datamigreringsscenarier
+    - text: Tjänst och verktyg baserat på datamigreringsscenario
       url: dms-tools-matrix.md
     - text: Guide för databasmigrering
       url: https://datamigration.microsoft.com/
@@ -159,3 +113,17 @@ landingContent:
       url: https://docs.microsoft.com/sql/dea/database-experimentation-assistant-overview?view=sql-server-2017
     - text: Verktyg för migrering av dataåtkomst
       url: https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit
+- title: Migrera Oracle till Azure
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Migrera till Azure Database for PostgreSQL – enskild server – online
+      url: tutorial-oracle-azure-postgresql-online.md
+  - linkListType: reference
+    links:
+    - text: 'Kända problem: Onlinemigrering till Azure Database for PostgreSQL – enskild server'
+      url: known-issues-oracle-azure-postgresql-online.md
+  - linkListType: video
+    links:
+    - text: Migrera Oracle till Azure SQL Database – enkel databas
+      url: https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/

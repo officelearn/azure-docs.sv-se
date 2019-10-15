@@ -1,32 +1,28 @@
 ---
 title: Lägg till en Azure Storage Queue-bindning till python-funktionen
-description: Lär dig hur du lägger till en Azure Storage utgående bindning för en python-funktion med hjälp av Azure CLI-och Functions Core-verktyg.
-services: functions
-keywords: ''
+description: Lär dig hur du lägger till en Azure Storage utgående bindning för en python-funktion.
 author: ggailey777
 ms.author: glenga
-ms.date: 04/24/2019
+ms.date: 10/02/2019
 ms.topic: quickstart
 ms.service: azure-functions
-ms.custom: mvc
-ms.devlang: python
-manager: jeconnoc
-ms.openlocfilehash: 92ee9b0a8a0906bca31d7dcb1730c3464d0d6cbc
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+manager: gwallace
+ms.openlocfilehash: 2307a296453247a5deee082aadb474f3641cce88
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71839182"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329739"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Lägg till en Azure Storage Queue-bindning till python-funktionen
 
-Med Azure Functions kan du ansluta Azure-tjänster och andra resurser till funktioner utan att behöva skriva din egen integrerings kod. Dessa *bindningar*, som representerar både indata och utdata, deklareras i funktions definitionen. Data från bindningar tillhandahålls till funktionen som parametrar. En *utlösare* är en särskild typ av ingående bindning. Även om en funktion bara har en utlösare, kan den ha flera indata och utdata-bindningar. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 Den här artikeln visar hur du integrerar funktionen som du skapade i [föregående snabb starts artikel](functions-create-first-function-python.md) med en Azure Storage kö. Den utgående bindning som du lägger till i den här funktionen skriver data från en HTTP-begäran till ett meddelande i kön.
 
 De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra anslutningen enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot finns redan i en app-inställning med namnet `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här artikeln slutför du stegen i [del 1 av python-snabb](functions-create-first-function-python.md)starten.
 
@@ -34,7 +30,7 @@ Innan du börjar den här artikeln slutför du stegen i [del 1 av python-snabb](
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
-[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
+[!INCLUDE [functions-app-settings-download-cli](../../includes/functions-app-settings-download-local-cli.md)]
 
 ## <a name="enable-extension-bundles"></a>Aktivera tilläggs paket
 
@@ -63,7 +59,7 @@ func host start
 ```
 
 > [!NOTE]  
-> Eftersom i den tidigare snabb starten som du har aktiverat tillägg i Host. JSON laddades [lagrings bindnings tillägget](functions-bindings-storage-blob.md#packages---functions-2x) ned och installerades åt dig under starten, tillsammans med de andra Microsoft binding-tilläggen.
+> Eftersom du har aktiverat tilläggs paket i Host. JSON laddades [lagrings bindnings tillägget](functions-bindings-storage-blob.md#packages---functions-2x) ned och installerades åt dig under starten, tillsammans med de andra Microsoft binding-tilläggen.
 
 Kopiera URL:en till din funktion `HttpTrigger` från körtidutdatan och klistra in den i webbläsarens adressfält. Lägg till frågesträngen `?name=<yourname>` till denna URL och kör begäran. Du bör se samma svar i webbläsaren som du gjorde i föregående artikel.
 
@@ -71,17 +67,17 @@ Den här gången skapar bindningen för utdata också en kö med namnet `outqueu
 
 Sedan använder du Azure CLI för att visa den nya kön och kontrol lera att ett meddelande har lagts till. Du kan också visa din kö med hjälp av [Microsoft Azure Storage Explorer][Azure Storage Explorer] eller i [Azure Portal](https://portal.azure.com).
 
-### <a name="set-the-storage-account-connection"></a>Ange lagrings konto anslutningen
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### <a name="query-the-storage-queue"></a>Fråga lagrings kön
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
-Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
+### <a name="redeploy-the-project"></a>Distribuera om projektet 
 
-[!INCLUDE [functions-publish-project](../../includes/functions-publish-project.md)]
+Om du vill uppdatera din publicerade app använder du kommandot [`func azure functionapp publish`](functions-run-local.md#project-file-deployment) Core Tools för att distribuera projekt koden till Azure. I det här exemplet ersätter du `<APP_NAME>` med namnet på din app.
+
+```command
+func azure functionapp publish <APP_NAME> --build remote
+```
 
 Igen kan du använda en sväng eller en webbläsare för att testa den distribuerade funktionen. Som tidigare lägger du till frågesträngen `&name=<yourname>` till URL: en, som i det här exemplet:
 
@@ -89,7 +85,7 @@ Igen kan du använda en sväng eller en webbläsare för att testa den distribue
 curl https://myfunctionapp.azurewebsites.net/api/httptrigger?code=cCr8sAxfBiow548FBDLS1....&name=<yourname>
 ```
 
-Du kan kontrol lera [lagrings köns meddelande](#query-the-storage-queue) för att kontrol lera att utgående bindningen igen genererar ett nytt meddelande i kön.
+Du kan [Granska lagrings köns meddelande](#query-the-storage-queue) igen för att kontrol lera att utmatnings bindningen genererar ett nytt meddelande i kön som förväntat.
 
 [!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
 

@@ -149,6 +149,8 @@
               href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/create-index-transact-sql?view=sql-server-2017#examples--and-'
         - name: Cachelagring för resultatuppsättningar
           items:
+            - name: Översikt
+              href: sql-data-warehouse-result-set-caching-overview.md
             - name: Ange för en databas
               href: 'https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest'
             - name: Ange för en session

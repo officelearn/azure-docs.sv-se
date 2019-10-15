@@ -9,26 +9,26 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 82fbaa35d8d06cdb1999a76a36fb4a1dade017e9
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 1d0c6edf250e49fe966388253617181ed2b3dff1
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883885"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329645"
 ---
-# <a name="create-your-first-function-from-the-command-line"></a>Skapa din första funktion från kommandoraden
+# <a name="quickstart-create-your-first-function-from-the-command-line-using-azure-cli"></a>Snabb start: skapa din första funktion från kommando raden med hjälp av Azure CLI
 
 I den här snabbstarten får du hjälp med att skapa din första funktion från kommandoraden eller terminalen. Du kan använda Azure CLI till att skapa en funktionsapp, som är den [serverfria](https://azure.microsoft.com/solutions/serverless/) infrastruktur som är värd för funktionen. Funktionskodprojektet genereras från en mall med hjälp av [Azure Functions Core Tools](functions-run-local.md) som också används för att distribuera funktionsapprojektet till Azure.
 
 Du kan följa stegen nedan på en Mac-, Windows- eller Linux-dator.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du kör exemplet måste du ha följande:
 
 + Installera [Azure Functions Core tools](./functions-run-local.md#v2) version 2.6.666 eller senare.
 
-+ Installera [Azure CLI]( /cli/azure/install-azure-cli). Den här artikeln kräver Azure CLI version 2.0 eller senare. Kör `az --version` för att se vilken version du har. Du kan också använda [Azure Cloud Shell](https://shell.azure.com/bash).
++ Installera [Azure CLI](/cli/azure/install-azure-cli). Den här artikeln kräver Azure CLI version 2,0 eller senare. Kör `az --version` för att se vilken version du har. Du kan också använda [Azure Cloud Shell](https://shell.azure.com/bash).
 
 + En aktiv Azure-prenumeration.
 

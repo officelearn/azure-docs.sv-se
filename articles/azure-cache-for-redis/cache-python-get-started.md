@@ -1,5 +1,5 @@
 ---
-title: Snabbstart för att skapa en Python-app som använder Azure Cache for Redis | Microsoft Docs
+title: 'Snabb start: skapa en python-app som använder Azure cache för Redis'
 description: I den här snabbstarten lär du dig hur du skapar en Python-app som använder Azure Cache for Redis
 services: cache
 documentationcenter: ''
@@ -14,19 +14,21 @@ ms.tgt_pltfrm: cache
 ms.workload: tbd
 ms.date: 05/11/2018
 ms.author: yegu
-ms.custom: mvc
-ms.openlocfilehash: fcb5d74305375c9883f2d601a2ab7d2d9a50b9cb
-ms.sourcegitcommit: 86d49daccdab383331fc4072b2b761876b73510e
+ms.custom:
+- mvc
+- seo-python-october2019
+ms.openlocfilehash: 87c22d3497765fca6f0dcae445152e6e2923510e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70743936"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329869"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Snabbstart: Använda Azure Cache for Redis med Python
+# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Snabb start: Använd Azure cache för Redis med python
 
-I den här snabb starten införlivar du Azure cache för Redis i en python-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
+I den här artikeln införlivar du Azure cache för Redis i en python-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Python 2 eller 3](https://www.python.org/downloads/)
@@ -108,7 +110,7 @@ Om du ska fortsätta till nästa självstudie kan du behålla resurserna som du 
 Om du är klar med exempelappen för snabbstart kan du ta bort Azure-resurserna som du skapade i snabbstarten för att undvika kostnader. 
 
 > [!IMPORTANT]
-> Det går inte att ångra borttagningen av en resursgrupp och resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
+> Det går inte att ångra borttagningen av en resursgrupp och att resursgruppen och alla resurser i den tas bort permanent. Kontrollera att du inte av misstag tar bort fel resursgrupp eller resurser. Om du har skapat resurserna som värd för det här exemplet i en befintlig resursgrupp som innehåller resurser som du vill behålla, kan du ta bort varje resurs separat från deras respektive blad istället för att ta bort resursgruppen.
 >
 
 Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgrupper**.

@@ -1,36 +1,36 @@
 ---
-title: Fråga Azure SQL Database med Python | Microsoft Docs
+title: 'Snabb start: Använd python för att fråga Azure SQL Database'
 description: Det här avsnittet visar hur du använder Python för att skapa ett program som ansluter till en Azure SQL-databas och frågar den med hjälp av Transact-SQL-uttryck.
 services: sql-database
 ms.service: sql-database
 ms.subservice: development
-ms.custom: ''
+ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/25/2019
-ms.openlocfilehash: 659f6333d16f84cc35be45c45b7a7119e53fd0d0
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 32861fa8f8756c4e8d30c055582789d41a92fe7c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70764290"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331861"
 ---
-# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Snabbstart: Fråga Azure SQL Database med Python
+# <a name="quickstart-use-python-to-query-an-azure-sql-database"></a>Snabbstart: Använda Python för att köra frågor mot en Azure SQL-databas
 
- Den här snabbstarten visar hur du använder [Python](https://python.org) för att ansluta till en Azure SQL-databas och hur du använder Transact-SQL-uttryck för att köra frågor mot data. Ytterligare SDK-information finns i vår [referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/sql), [pyodbc-lagringsplatsen på GitHub](https://github.com/mkleehammer/pyodbc/wiki/) och i ett [pyodbc-exempel](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
+ Den här artikeln visar hur du använder [python](https://python.org) för att ansluta till en Azure SQL-databas och använder Transact-SQL-uttryck för att fråga data. Ytterligare SDK-information finns i vår [referensdokumentation](https://docs.microsoft.com/python/api/overview/azure/sql), [pyodbc-lagringsplatsen på GitHub](https://github.com/mkleehammer/pyodbc/wiki/) och i ett [pyodbc-exempel](https://github.com/mkleehammer/pyodbc/wiki/Getting-started).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Kontrollera att du har följande så att du kan genomföra den här snabbstarten:
 
 - En Azure SQL-databas. Du kan använda någon av dessa snabbstarter för att skapa och därefter konfigurera en databas i Azure SQL Database:
 
-  || Enskild databas | Hanterad instans |
+  || Enkel databas | Hanterad instans |
   |:--- |:--- |:---|
-  | Skapa| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
+  | Create| [Portalen](sql-database-single-database-get-started.md) | [Portalen](sql-database-managed-instance-get-started.md) |
   || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
   || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
   | Konfigurera | [IP-brandväggsregel på servernivå](sql-database-server-level-firewall-rule.md)| [Anslutning från en virtuell dator](sql-database-managed-instance-configure-vm.md)|
@@ -44,21 +44,21 @@ Kontrollera att du har följande så att du kan genomföra den här snabbstarten
   
 - Python och relaterad programvara för ditt operativsystem:
   
-  - **MacOS**: Först installerar du Homebrew och Python, sedan ODBC-drivrutinen och SQLCMD och sedan installerar du Python-drivrutinen för SQL Server. Se steg 1.2, 1.3 och 2.1 i [Create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/) (Skapa Python-appar med SQL Server på macOS). Mer information finns i [Install the Microsoft ODBC Driver on Linux and macOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server) (Installera Microsoft ODBC-drivrutinen i Linux och macOS).
+  - **MacOS**: installera homebrew och python, installera ODBC-drivrutinen och sqlcmd och installera python-drivrutinen för SQL Server. Se steg 1.2, 1.3 och 2.1 i [Create Python apps using SQL Server on macOS](https://www.microsoft.com/sql-server/developer-get-started/python/mac/) (Skapa Python-appar med SQL Server på macOS). Mer information finns i [Install the Microsoft ODBC Driver on Linux and macOS](https://docs.microsoft.com/sql/connect/odbc/linux-mac/installing-the-microsoft-odbc-driver-for-sql-server) (Installera Microsoft ODBC-drivrutinen i Linux och macOS).
 
-  - **Ubuntu**: Installera Python och andra paket som krävs med `sudo apt-get install python python-pip gcc g++ build-essential`. Ladda ned och installera ODBC-drivrutinen, SQLCMD och Python-drivrutinen för SQL Server. Anvisningar finns i [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux) (Konfigurera en utvecklingsmiljö för utveckling med Python och pyodbc).
+  - **Ubuntu**: installera python och andra nödvändiga paket med `sudo apt-get install python python-pip gcc g++ build-essential`. Ladda ned och installera ODBC-drivrutinen, SQLCMD och Python-drivrutinen för SQL Server. Anvisningar finns i [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#linux) (Konfigurera en utvecklingsmiljö för utveckling med Python och pyodbc).
 
-  - **Windows**: Installera Python, ODBC-drivrutinen och SQLCMD, samt Python-drivrutinen för SQL Server. Anvisningar finns i [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows) (Konfigurera en utvecklingsmiljö för utveckling med Python och pyodbc).
+  - **Windows**: installera python, ODBC-drivrutinen och sqlcmd och python-drivrutinen för SQL Server. Anvisningar finns i [Configure a development environment for pyodbc Python development](/sql/connect/python/pyodbc/step-1-configure-development-environment-for-pyodbc-python-development#windows) (Konfigurera en utvecklingsmiljö för utveckling med Python och pyodbc).
 
 ## <a name="get-sql-server-connection-information"></a>Hämta anslutningsinformation för en SQL-server
 
 Skaffa den anslutningsinformation du behöver för att ansluta till Azure SQL-databasen. Du behöver det fullständiga servernamnet eller värdnamnet, databasnamnet och inloggningsinformationen för de kommande procedurerna.
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 2. Gå till sidan **SQL-databaser** eller **SQL-hanterade instanser** .
 
-3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och väljer ikonen **Kopiera**.
+3. På **översiktssidan** granskar du det fullständigt kvalificerade servernamnet bredvid **Servernamn** för en enkel databas eller det fullständigt kvalificerade servernamnet bredvid **Värd** för en hanterad instans. Om du vill kopiera servernamnet eller värdnamnet hovrar du över det och markerar ikonen **Kopiera**.
 
 ## <a name="create-code-to-query-your-sql-database"></a>Skapa kod för att fråga din SQL-databas 
 

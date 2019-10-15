@@ -1,8 +1,6 @@
 ---
 title: Skapa din första funktion i Azure med Visual Studio
 description: Skapa och publicera en HTTP-utlöst Azure Function med Visual Studio.
-services: functions
-documentationcenter: na
 author: ggailey777
 manager: gwallace
 keywords: azure functions, functions, event processing, compute, serverless architecture
@@ -12,12 +10,12 @@ ms.topic: quickstart
 ms.date: 07/19/2019
 ms.author: glenga
 ms.custom: mvc, devcenter, vs-azure, 23113853-34f2-4f
-ms.openlocfilehash: 9a2978bc181fd4c50665b6178d22d19eeb9e2568
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 1d798be3a0cde39de208105c4b3d4458fa5b124c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70096571"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329497"
 ---
 # <a name="create-your-first-function-using-visual-studio"></a>Skapa din första funktion med Visual Studio
 
@@ -27,7 +25,7 @@ I den här artikeln får du lära dig hur du använder Visual Studio 2019 för a
 
 ![Svar för funktion-localhost i webbläsaren](./media/functions-create-your-first-function-visual-studio/functions-create-your-first-function-visual-studio-browser-local-final.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien måste du först installera [Visual Studio 2019](https://azure.microsoft.com/downloads/). Kontrollera att även arbetsbelastningen **Azure-utveckling** är installerad.
 
@@ -39,7 +37,7 @@ För att slutföra den här självstudien måste du först installera [Visual St
 
 [!INCLUDE [Create a project using the Azure Functions template](../../includes/functions-vstools-create.md)]
 
-Visual Studio skapar ett projekt och en klass som innehåller en exempel kod för funktionen HTTP-utlösare. Attributet i metoden anger namnet på funktionen, som som standard är `HttpTrigger`. `FunctionName` `HttpTrigger` Attributet anger att funktionen utlöses av en http-begäran. Den formaterade exempelkoden skickar ett HTTP-svar som innehåller ett värde från förfrågan eller frågesträngen.
+Visual Studio skapar ett projekt och en klass som innehåller en exempel kod för funktionen HTTP-utlösare. Attributet `FunctionName` i metoden anger namnet på funktionen, som standard är `HttpTrigger`. Attributet `HttpTrigger` anger att funktionen utlöses av en HTTP-begäran. Den formaterade exempelkoden skickar ett HTTP-svar som innehåller ett värde från förfrågan eller frågesträngen.
 
 Du kan utöka funktionerna i din funktion med hjälp av in-och utdata-bindningar genom att använda lämpliga attribut för-metoden. Mer information finns i avsnittet [Triggers and bindings](functions-dotnet-class-library.md#triggers-and-bindings) (Utlösare och bindningar) i [Azure Functions C# developer reference](functions-dotnet-class-library.md) (Azure Functions C#-referens för utvecklare).
 
@@ -73,7 +71,7 @@ Du måste ha en funktionsapp i din Azure-prenumeration innan du kan publicera pr
 
 ## <a name="next-steps"></a>Nästa steg
 
-Du har använt Visual Studio för att skapa och publicera C# en Function-app i Azure med en enkel http-utlöst funktion. Mer information om hur du utvecklar funktioner som .NET-klass bibliotek finns i [ C# Azure Functions Developer Reference](functions-dotnet-class-library.md).
+Du har använt Visual Studio för att skapa och publicera C# en Function-app i Azure med en enkel http-utlöst funktion. Mer information om hur du utvecklar funktioner som .NET-klass bibliotek finns i [Azure Functions C# Developer Reference](functions-dotnet-class-library.md).
 
 > [!div class="nextstepaction"]
 > [Lägg till en Azure Storage Queue-bindning till din funktion](functions-add-output-binding-storage-queue-vs.md)

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Ansluta en Node.js MongoDB-app till Azure Cosmos DB'
+title: 'Snabb start: Anslut en Node. js MongoDB-app till Azure Cosmos DB'
 description: Den här snabbstarten visar hur du ansluter en befintlig MongoDB-app som skrivits i Node.js till Azure Cosmos DB.
 author: rimman
 ms.author: rimman
@@ -8,15 +8,15 @@ ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/21/2019
-ms.custom: seo-javascript-september2019
-ms.openlocfilehash: 7fd74e31b0527b256f6bb9f17029a02aaf41568b
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.custom: seo-javascript-september2019, seo-javascript-october2019
+ms.openlocfilehash: b9cadbf35680953058bd38d7db26a6e6c684836b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70931810"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327296"
 ---
-# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Snabbstart: Migrera en befintlig MongoDB Node.js-webbapp till Azure Cosmos DB 
+# <a name="quickstart-migrate-an-existing-mongodb-nodejs-web-app-to-azure-cosmos-db"></a>Snabb start: Migrera en befintlig MongoDB Node. js-webbapp till Azure Cosmos DB 
 
 > [!div class="op_single_selector"]
 > * [NET](create-mongodb-dotnet.md)
@@ -27,9 +27,9 @@ ms.locfileid: "70931810"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB. 
+Den här snabb starten visar hur du använder en befintlig MongoDB-app som skrivits i Node. js och ansluter den till din Azure Cosmos-databas, som stöder MongoDB-klienten. Med andra ord är det tydligt för programmet att data lagras i en Cosmos-databas.
 
-Den här snabbstarten visar hur du använder en befintlig MongoDB-app som skrivits i Node.js och ansluter den till din Cosmos-databas, som stöder MongoDB-klient. Med andra ord är det tydligt för programmet att data lagras i en Cosmos-databas.
+Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Cosmos DB.
 
 När du är klar har du ett MEAN-program (MongoDB, Express, Angular och Node.js) som körs på [Cosmos DB](https://azure.microsoft.com/services/cosmos-db/). 
 
@@ -40,7 +40,7 @@ När du är klar har du ett MEAN-program (MongoDB, Express, Angular och Node.js)
 
 Om du väljer att installera och använda CLI lokalt måste du köra Azure CLI version 2.0 eller senare. Kör `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI]( /cli/azure/install-azure-cli). 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter 
+## <a name="prerequisites"></a>Krav 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar. 
 [!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
 
@@ -256,4 +256,4 @@ git commit -m "configured MongoDB connection string"
 I den här snabbstarten har du lärt dig hur du skapar ett Cosmos-konto, skapar en samling och kör en konsolapp. Du kan nu importera ytterligare data till din Cosmos-databas. 
 
 > [!div class="nextstepaction"]
-> [Importera MongoDB-data till Azure Cosmos DB](mongodb-migrate.md)
+> [Importera MondoDB-data till Azure Cosmos DB](mongodb-migrate.md)

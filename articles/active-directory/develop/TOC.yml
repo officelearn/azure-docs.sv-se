@@ -553,7 +553,7 @@
         - name: Autentisering
           items:
             - name: Grundläggande om autentisering
-              href: authentication-scenarios.md
+              href: v1-authentication-scenarios.md
             - name: OAuth 2.0- och OpenID Connect-protokoll
               items:
                 - name: OpenID Connect

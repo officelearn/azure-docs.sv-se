@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: aa48ebe573736349cab519b5181af10f6d03bc46
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: d8d7c0232110d3d5b040debc3a24941988d4ee29
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285966"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372246"
 ---
 # <a name="create-a-private-endpoint-using-azure-portal"></a>Skapa en privat slut punkt med hjälp av Azure Portal
 
@@ -115,8 +115,8 @@ I det här avsnittet ska du skapa en SQL Database-Server i Azure.
     | **INSTANSINFORMATION** |  |
     | Databasnamn  | Ange min *databas*. Om det här namnet tas skapar du ett unikt namn. |
     |||
-5. I **Server**väljer du **Skapa ny**. 
-6. I **ny server**anger eller väljer du den här informationen:
+5. I **Server**väljer du **Skapa ny**. 
+6. I **ny server**anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -125,9 +125,9 @@ I det här avsnittet ska du skapa en SQL Database-Server i Azure.
     | Lösenord | Ange ett valfritt lösenord. Lösen ordet måste vara minst 8 tecken långt och uppfylla de definierade kraven. |
     | Plats | Välj en Azure-region där du vill att din SQL Server ska finnas. |
     
-7. Välj **OK**. 
-8. Välj **Granska + skapa**. Du kommer till **granskningen + skapa** Page där Azure validerar konfigurationen. 
-9. När du ser meddelandet valideringen har skickats väljer du **skapa**. 
+7. Välj **OK**. 
+8. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
+9. När du ser meddelandet valideringen har skickats väljer du **skapa**. 
 10. När du ser meddelandet valideringen har skickats väljer du skapa. 
 
 ## <a name="create-a-private-endpoint"></a>Skapa en privat slut punkt
@@ -147,18 +147,18 @@ I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut p
     | Namn | Ange * myPrivateEndpoint*. Om det här namnet tas skapar du ett unikt namn. |
     |Region|Välj **WestCentralUS**.|
     |||
-5. Välj **Nästa: resurs**.
-6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
+5. Välj **Nästa: resurs**.
+6. I **skapa en privat slut punkt – resurs**, anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
     |Anslutningsmetod  | Välj Anslut till en Azure-resurs i min katalog.|
     | Prenumeration| Välj din prenumeration. |
-    | Resurstyp | Välj **Microsoft. SQL/Servers**. |
+    | Resurstyp | Välj **Microsoft. SQL/Servers**. |
     | Resurs |Välj *Server*|
     |Mål under resurs |Välj *sqlServer*|
     |||
-7. Välj **Nästa: konfiguration**.
+7. Välj **Nästa: konfiguration**.
 8. I **skapa en privat slut punkt (för hands version) – konfiguration**, anger eller väljer du den här informationen:
 
     | Inställning | Värde |
@@ -167,12 +167,12 @@ I det här avsnittet ska du skapa en SQL-Server och lägga till en privat slut p
     | Virtuellt nätverk| Välj *MyVirtualNetwork*. |
     | Undernät | Välj *undernät*. |
     |**PRIVAT DNS-INTEGRERING**||
-    |Integrera med privat DNS-zon |Välj **Ja**. |
+    |Integrera med privat DNS-zon |Välj **Ja**. |
     |Privat DNS zon |Välj *(ny) privatelink. Database. Windows. net* |
     |||
 
-1. Välj **Granska + skapa**. Du kommer till **granskningen + skapa** Page där Azure validerar konfigurationen. 
-2. När du ser den **verifiering som skickades** message väljer du **skapa**. 
+1. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
+2. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
  
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>Ansluta till en virtuell dator med hjälp av fjärr skrivbord (RDP)
 
@@ -217,7 +217,7 @@ När du har skapat **myVm*ansluter du till den från Internet på följande sät
     ```
 3. Installera [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-2017).
 
-4. I **Anslut till Server**anger eller väljer du den här informationen:
+4. I **Anslut till Server**anger eller väljer du den här informationen:
 
     | Inställning | Värde |
     | ------- | ----- |
@@ -227,16 +227,16 @@ När du har skapat **myVm*ansluter du till den från Internet på följande sät
     |Lösenord |Ange ett lösen ord som du angav när du skapade SQL-servern. |
     |Kom ihåg lösen ord|Välj **Ja**.|
     |||
-1. Välj **Anslut**.
+1. Välj **Anslut**.
 2. Bläddra bland databaser från menyn till vänster.
 3. Du kan också Skapa eller fråga efter information från databasen.
 4. Stäng fjärr skrivbords anslutningen till *myVm*. 
 
 ## <a name="clean-up-resources"></a>Rensa resurser 
 När du är klar med den privata slut punkten, SQL Server och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller: 
-1. Skriv *myResourceGroup*@no__t – 1in **Sök** box överst i portalen och välj *myResourceGroup* from Sök resultatet. 
-2. Välj **ta bort resurs grupp**. 
-3. Ange myResourceGroup för **Skriv resurs gruppens namn** And Välj **ta bort**.
+1. Ange *myResourceGroup*@no__t – 1in sökrutan överst i portalen och välj *myResourceGroup*@no__t- **4from Sök resultaten** . 
+2. Välj **Ta bort resursgrupp**. 
+3. Ange myResourceGroup för **Skriv resurs gruppens namn** och välj **ta bort**.
 
 ## <a name="next-steps"></a>Nästa steg
 

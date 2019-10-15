@@ -5,19 +5,19 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/11/2019
+ms.date: 10/14/2019
 ms.topic: quickstart
 ms.service: cost-management
 manager: micflan
 ms.custom: seodec18
-ms.openlocfilehash: 2ca0c0741ea543b30695303d473389979f2e1045
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: f2e1d19f69b426cee870d2ede489b7c458404704
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68855051"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374776"
 ---
-# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabbstart: Utforska och analysera kostnader med kostnads analys
+# <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>Snabb start: utforska och analysera kostnader med kostnads analys
 
 För att kunna kontrollera och optimera dina Azure-kostnader på rätt sätt behöver du förstå var kostnaderna har sitt ursprung i organisationen. Det är också användbart att veta hur mycket pengar dina tjänster kostar och vilka som har stöd för vilka miljöer och system. Insyn i hela spektrumet av kostnader är mycket viktigt för kunna förstå organisationens utgiftsmönster. Du kan använda utgifts mönster för att tillämpa mekanismer för styrning av kostnader, till exempel budgetar.
 
@@ -30,20 +30,11 @@ I den här snabbstarten lär du dig att:
 - Ladda ned kostnadsanalysdata
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Kostnads analys stöder olika typer av typer av Azure-konton. Om du vill se hela listan med kontotyper som stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto.
+Kostnads analys stöder olika typer av typer av Azure-konton. Om du vill visa en fullständig lista över typer av stöds kan du läsa [Förstå Cost Management-data](understand-cost-mgt-data.md). Om du vill visa kostnadsdata behöver du minst läsbehörighet för ditt Azure-konto.
 
-För [EA-kunder (Enterprise Agreement)](https://azure.microsoft.com/pricing/enterprise-agreement/) måste du minst ha skrivskyddad åtkomst till ett eller flera av följande omfång för att visa kostnadsdata.
-
-- Faktureringskonto
-- Avdelning
-- Registreringskonto
-- Hanteringsgrupp
-- Subscription
-- Resource group
-
-Mer information om hur du tilldelar åtkomst till Azure Cost Management data finns i [tilldela åtkomst till data](assign-access-acm-data.md).
+Information om hur du tilldelar åtkomst till Azure Cost Management data finns i [tilldela åtkomst till data](assign-access-acm-data.md).
 
 ## <a name="sign-in-to-azure"></a>Logga in på Azure
 
@@ -51,23 +42,23 @@ Mer information om hur du tilldelar åtkomst till Azure Cost Management data fin
 
 ## <a name="review-costs-in-cost-analysis"></a>Granska kostnader i kostnadsanalys
 
-Om du vill granska kostnaderna i kostnads analyser öppnar du omfånget i Azure Portal och väljer **kostnads analys** i menyn. Gå till exempel till **prenumerationer**, Välj en prenumeration i listan och välj sedan **kostnads analys** i menyn. Använd omfånget Pill för att växla till ett annat omfång i kostnads analys. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
+Om du vill granska kostnaderna i kostnads analyser öppnar du omfånget i Azure Portal och väljer **kostnads analys** i menyn. Gå till exempel till **prenumerationer**, Välj en prenumeration i listan och välj sedan **kostnads analys** i menyn. Använd reglaget **Omfång** för att växla till ett annat omfång i kostnadsanalysen. Mer information om omfattningar finns i [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 Det omfång du väljer används i hela Cost Management för att tillhandahålla data konsolidering och kontrol lera åtkomsten till kostnads information. När du använder omfång så använder du inte flerval för dem. I stället väljer du ett större omfång, som andra samlar in till och filtrerar sedan ned till de kapslade omfattningar som du behöver. Den här metoden är viktig att förstå eftersom vissa personer kanske inte har åtkomst till en enda överordnad omfattning, som täcker flera kapslade områden.
 
 Vyn inledande kostnads analys innehåller följande områden.
 
-**Ackumulerad kostnads vy**: Representerar konfigurationen för den fördefinierade vyn för kostnads analys. Varje vy innehåller inställningar för datum intervall, granularitet, gruppera efter och filter. Standardvyn visar ackumulerade kostnader för den aktuella fakturerings perioden, men du kan ändra till andra inbyggda vyer. Mer information finns i [Anpassa Cost views](#customize-cost-views).
+**Ackumulerad kostnadsallokering**: representerar konfigurationen för den fördefinierade vyn för kostnads analys. Varje vy innehåller inställningar för datum intervall, granularitet, gruppera efter och filter. Standardvyn visar ackumulerade kostnader för den aktuella fakturerings perioden, men du kan ändra till andra inbyggda vyer. Mer information finns i [Anpassa Cost views](#customize-cost-views).
 
-**Faktisk kostnad**: Visar den totala förbruknings-och inköps kostnaden för den aktuella månaden, allteftersom de påförs och visas på fakturan.
+**Verklig kostnad**: visar den totala förbrukningen och inköps kostnaden för den aktuella månaden, allteftersom de påförs och visas på fakturan.
 
-**Prognos**: Visar de totala prognostiserade kostnaderna för den tids period som du väljer. (Prognosen är i för hands version.)
+**Prognos**: visar den totala beräknade kostnaden för den tids period som du väljer. (Prognosen är i för hands version.)
 
-**Budget**: Visar den planerade utgifts gränsen för det valda omfånget, om det är tillgängligt.
+**Budget**: visar den planerade utgifts gränsen för det valda omfånget, om det är tillgängligt.
 
-**Ackumulerad granularitet**: Visar total summan för dagliga kostnader från början av fakturerings perioden. När du har [skapat en budget](tutorial-acm-create-budgets.md) för ditt faktureringskonto eller din prenumeration kan du snabbt se din utgiftstrend jämfört med budgeten. Hovra över ett datum om du vill visa den ackumulerade kostnaden för den dagen.
+**Ackumulerad granularitet**: visar total summan för dagliga kostnader, från början av fakturerings perioden. När du har [skapat en budget](tutorial-acm-create-budgets.md) för ditt faktureringskonto eller din prenumeration kan du snabbt se din utgiftstrend jämfört med budgeten. Hovra över ett datum om du vill visa den ackumulerade kostnaden för den dagen.
 
-**Pivot-diagram (Ring diagram)** : Ange dynamiska Pivot-värden och dela upp den totala kostnaden med en gemensam uppsättning standard egenskaper. De visar de största till minsta kostnaderna för den aktuella månaden. Du kan ändra pivotdiagram när som helst genom att välja en annan pivot. Kostnaderna kategoriseras efter tjänst (mätar kategori), plats (region) och underordnad omfattning som standard. Registrerings konton är till exempel under fakturerings konton, resurs grupper under prenumerationer och resurser under resurs grupper.
+**Pivot-diagram (Ring diagram)** : ge dynamiska Pivot-scheman och dela upp den totala kostnaden med en gemensam uppsättning standard egenskaper. De visar de största till minsta kostnaderna för den aktuella månaden. Du kan ändra pivotdiagram när som helst genom att välja en annan pivot. Kostnaderna kategoriseras efter tjänst (mätar kategori), plats (region) och underordnad omfattning som standard. Registrerings konton är till exempel under fakturerings konton, resurs grupper under prenumerationer och resurser under resurs grupper.
 
 ![Startvyn för kostnadsanalys på Azure Portal](./media/quick-acm-cost-analysis/cost-analysis-01.png)
 
@@ -79,8 +70,8 @@ Visa | Besvara frågor som
 --- | ---
 Ackumulerad kostnad | Hur mycket har jag använt hittills den här månaden? Följer jag budgeten?
 Daglig kostnad | Har det funnits några ökade kostnader per dag under de senaste 30 dagarna?
-Kostnad efter tjänst | Hur skiljer sig min månatliga användning över de tre senaste fakturorna?
-Kostnad efter resurs | Vilka resurser kostar mest hittills den här månaden?
+Kostnad per tjänst | Hur skiljer sig min månatliga användning över de tre senaste fakturorna?
+Kostnad per resurs | Vilka resurser kostar mest hittills den här månaden?
 
 ![Visa väljare som visar ett exempel val för den här månaden](./media/quick-acm-cost-analysis/view-selector.png)
 
@@ -101,7 +92,7 @@ Det finns även den **dagsvyn**, som visar kostnaderna för varje dag. Dagsvyn v
 När dina dagliga kostnader är konsekventa över den uppskattade dagliga budgeten kan du behöva överskrida din månads budget. Den uppskattade dagliga budgeten är ett sätt att hjälpa dig att visualisera budgeten på en lägre nivå. När det förekommer variationer i de dagliga kostnaderna är jämförelsen mellan den uppskattade dagliga budgeten och den månatliga budgeten mindre exakt.
 
 Här är en daglig vy över de senaste utgifterna med utgifts prognos som är aktive rad.
-![Daglig vy som visar exempel dagliga kostnader för den aktuella månaden](./media/quick-acm-cost-analysis/daily-view.png)
+![Daily visar exempel dagliga kostnader för den aktuella månaden @ no__t-1
 
 När du stänger av utgifts prognosen visas inte planerade utgifter för framtida datum. När du tittar på kostnader för tidigare tids perioder visar kostnads prognosen inga kostnader.
 
@@ -110,13 +101,13 @@ I allmänhet kan du vänta på att se data eller meddelanden för förbrukade re
 
 **Gruppera efter** gemensamma egenskaper för att dela upp kostnader och identifiera de flesta bidrags givare. Om du till exempel vill gruppera efter resurs Taggar väljer du den etikett nyckel som du vill gruppera efter. Kostnaderna uppdelas efter varje tagg värde, med ett extra segment för resurser som inte har taggen tillämpad.
 
-De flesta [Azure-resurser har stöd](../azure-resource-manager/tag-support.md)för taggning. Vissa taggar är dock inte tillgängliga i Cost Management och fakturering. Dessutom stöds inte resursgrupptaggar. Cost Management stöder endast resurstaggar från det datum då taggarna tillämpas direkt på resursen. Se [hur du kan läsa tag-principer med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video för att lära dig mer om att använda Azure tag-principer för att förbättra kostnads data synlighet.
+De flesta [Azure-resurser har stöd för taggning](../azure-resource-manager/tag-support.md). Vissa taggar är dock inte tillgängliga i Cost Management och fakturering. Dessutom stöds inte resursgrupptaggar. Cost Management stöder endast resurstaggar från det datum då taggarna tillämpas direkt på resursen. Se [hur du kan läsa tag-principer med Azure Cost Management](https://www.youtube.com/watch?v=nHQYcYGKuyw) video för att lära dig mer om att använda Azure tag-principer för att förbättra kostnads data synlighet.
 
 Här är en vy över Azure service-kostnader för den aktuella månaden.
 
 ![Grupperad daglig ackumulerad vy som visar exempel på kostnader för Azure-tjänster för den senaste månaden](./media/quick-acm-cost-analysis/grouped-daily-accum-view.png)
 
-Som standard visar kostnads analys alla användnings-och inköps kostnader när de påförs och visas på din faktura, även kallat **verklig kostnad**. Det är idealiskt att visa den faktiska kostnaden för att stämma av din faktura. Köp toppar i kostnad kan dock vara Alarme när du håller ett öga på utgifts avvikelser och andra förändringar i kostnad. Om du vill förenkla utökningar som orsakas av reservations inköps kostnader byter du till **periodiserad kostnad**. 
+Som standard visar kostnads analys alla användnings-och inköps kostnader när de påförs och visas på din faktura, även kallat **verklig kostnad**. Det är idealiskt att visa den faktiska kostnaden för att stämma av din faktura. Köp toppar i kostnad kan dock vara Alarme när du håller ett öga på utgifts avvikelser och andra förändringar i kostnad. Om du vill förenkla utökningar som orsakas av reservations inköps kostnader byter du till **periodiserad kostnad**.
 
 ![Ändra mellan faktisk och periodiserad kostnad för att se uppslag av reservationer på villkoret och allokeras till de resurser som använde reservationen](./media/quick-acm-cost-analysis/metric-picker.png)
 
@@ -145,11 +136,11 @@ Du kan Visa fullständig data uppsättning för alla vyer. De val eller filter s
 
 I följande tabell visas några av de vanligaste grupperings-och filtrerings alternativen och när du ska använda dem.
 
-| Egenskap | När du ska använda detta |
+| Egenskap | Används till att |
 | --- | --- |
 | **Fakturerings period** | Dela upp kostnader per faktura månad. Det här alternativet är viktigt för att betala per användning och utveckling/test-prenumerationer som inte är kopplade till kalender månader. EA/MCA-konton kan använda Kalender månader i datum väljaren eller månads kornig het för att utföra samma mål. |
 | **Avgifts typ** | Bryt ned användningen, Köp, åter betalning och outnyttjade reservations kostnader. Köp och åter betalningar av reservationer är bara tillgängliga när du använder åtgärds kostnader och inte när du använder periodiserade kostnader. Oanvända reservations kostnader är bara tillgängliga när du tittar på periodiserade kostnader. |
-| **Molnet** | Dela upp kostnader med AWS och Azure. AWS-kostnader är bara tillgängliga från hanterings grupper, externa fakturerings konton och externa prenumerationer. |
+| **Moln** | Dela upp kostnader med AWS och Azure. AWS-kostnader är bara tillgängliga från hanterings grupper, externa fakturerings konton och externa prenumerationer. |
 | **Avdelnings** / **faktura avsnitt** | Dela upp kostnader efter EA-eller MCA-faktura-avsnittet. Det här alternativet är endast tillgängligt för EA/MCA-fakturerings konton och MCA-fakturerings profiler. |
 | **Registrerings konto** | Dela upp kostnader efter EA-kontots ägare. Det här alternativet är endast tillgängligt för EA-fakturerings konton och-avdelningar. |
 | **Frekvens** | Bryt ned användnings-baserade, engångs-och återkommande kostnader. |
@@ -169,11 +160,11 @@ Mer information om villkor finns i [förstå de termer som används i filen för
 
 ## <a name="saving-and-sharing-customized-views"></a>Spara och dela anpassade vyer
 
-Spara och dela anpassade vyer med andra genom att fästa kostnads analys på Azure Portal instrument panelen eller genom att kopiera en länk till kostnads analys. 
+Spara och dela anpassade vyer med andra genom att fästa kostnads analys på Azure Portal instrument panelen eller genom att kopiera en länk till kostnads analys.
 
 För att fästa kostnads analys väljer du ikonen fäst i det övre högra hörnet. När du fäster kostnads analys sparas endast huvud diagram-eller tabellvy. Dela instrument panelen för att ge andra åtkomst till panelen. Observera att detta endast delar konfigurationen på instrument panelen och ger inte andra åtkomst till underliggande data. Om du inte har till gång till kostnader men har åtkomst till en delad instrument panel visas ett meddelande om "åtkomst nekad".
 
-Om du vill dela en länk till kostnads analys väljer du **dela** överst på bladet. En anpassad URL visas, som öppnar den här vyn för det aktuella omfånget. Om du inte har kostnads åtkomst och får den här URL: en visas meddelandet "åtkomst nekad". 
+Om du vill dela en länk till kostnads analys väljer du **dela** överst på bladet. En anpassad URL visas, som öppnar den här vyn för det aktuella omfånget. Om du inte har kostnads åtkomst och får den här URL: en visas meddelandet "åtkomst nekad".
 
 Läs mer om hur du beviljar åtkomst till kostnader för varje omfattning som stöds genom att läsa [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
@@ -181,16 +172,16 @@ Läs mer om hur du beviljar åtkomst till kostnader för varje omfattning som st
 
 Det finns tillfällen när du behöver hämta data för ytterligare analys, sammanfoga dem med dina egna data eller integrera dem i dina egna system. Cost Management erbjuder några olika alternativ. Som start punkt, om du behöver en ad hoc-sammanfattning på hög nivå, t. ex. vad du får inom kostnads analys, bygger du den vy du behöver. Sedan kan du hämta den genom att välja **Exportera** och välja **Hämta data till CSV** eller **Hämta data till Excel**. Excel-nedladdningen ger ytterligare kontext för den vy som du använde för att generera hämtningen, t. ex. omfång, frågeinställningar, total och datum som genereras.
 
-Om du behöver den fullständiga, icke-aggregerade data uppsättningen kan du ladda ned den från fakturerings kontot. Sedan går du till **Cost Management + fakturering**från listan över tjänster i portalens vänstra navigerings fönster. Välj ditt fakturerings konto, om det är tillämpligt. Gå till **förbrukning + kostnader**och välj sedan nedladdnings ikonen för önskad fakturerings period.
+Om du behöver den fullständiga, icke-aggregerade data uppsättningen kan du ladda ned den från fakturerings kontot. Sedan går du till **Cost Management + fakturering**från listan över tjänster i portalens vänstra navigerings fönster. Välj ditt fakturerings konto, om det är tillämpligt. Gå till **förbrukning + kostnader**och välj sedan **nedladdnings** ikonen för önskad fakturerings period.
 
-Använd en liknande metod för att automatisera hanteringen av kostnads data. Använd [fråge-API](/rest/api/cost-management/query) för bättre analys med dynamisk filtrering, gruppering och agg regering, eller Använd UsageDetails- [API: et](/rest/api/consumption/usageDetails) för den fullständiga, icke-aggregerade data uppsättningen. Den allmänna tillgänglighets versionen för dessa API: er är 2019-01-01. Använd **2019-04-01 – för hands version** för att få åtkomst till för hands versionen av reservations-och Marketplace-köp inom dessa API: er. 
+Använd en liknande metod för att automatisera hanteringen av kostnads data. Använd [fråge-API](/rest/api/cost-management/query) för bättre analys med dynamisk filtrering, gruppering och agg regering, eller Använd UsageDetails- [API: et](/rest/api/consumption/usageDetails) för den fullständiga, icke-aggregerade data uppsättningen. Den allmänna tillgänglighets versionen för dessa API: er är 2019-01-01. Använd **2019-04-01 – för hands version** för att få åtkomst till för hands versionen av reservations-och Marketplace-köp inom dessa API: er.
 
 Följande är till exempel en sammanställd vy över periodiserade kostnader uppdelade efter debiterings typ (användning, inköp eller åter betalning), utgivar typ (Azure eller Marketplace), resurs grupp (tom för inköp) och reservation (tom om ej tillämpligt).
 
 ```
 POST https://management.azure.com/{scope}/providers/Microsoft.CostManagement/query?api-version=2019-04-01-preview
 Content-Type: application/json
- 
+
 {
   "type": "AmortizedCost",
   "timeframe": "Custom",
@@ -220,8 +211,8 @@ Och om du inte behöver agg regeringen och föredrar fullständig data uppsättn
 GET https://management.azure.com/{scope}/providers/Microsoft.Consumption/usageDetails?metric=AmortizedCost&$filter=properties/usageStart+ge+'2019-04-01'+AND+properties/usageEnd+le+'2019-04-30'&api-version=2019-04-01-preview
 ```
 
-Om du behöver faktiska kostnader för att Visa inköp när de påförs, ändra **typ**/**mått** till **ActualCost**. Mer information om dessa API: er finns i [fråge](/rest/api/cost-management/query) -och [UsageDetails](/rest/api/consumption/usageDetails) API-dokumentationen. Observera att de publicerade dokumenten är till för GA-versionen. De båda fungerar dock på samma sätt för *2019-04-01-för hands* versions-API-versionen utanför det nya typ/metriska attributet och ändrade egenskaps namn. (Läs mer om egenskaps namnen nedan.)
- 
+Om du behöver faktiska kostnader för att Visa inköp när de påförs, ändra **typ**/-**mått** till **ActualCost**. Mer information om dessa API: er finns i [fråge](/rest/api/cost-management/query) -och [UsageDetails](/rest/api/consumption/usageDetails) API-dokumentationen. Observera att de publicerade dokumenten är till för GA-versionen. De båda fungerar dock på samma sätt för *2019-04-01-för hands* versions-API-versionen utanför det nya typ/metriska attributet och ändrade egenskaps namn. (Läs mer om egenskaps namnen nedan.)
+
 Cost Management-API: er fungerar över alla omfattningar över resurser: resurs grupp, prenumeration och hanterings grupp via Azure RBAC-åtkomst, EA-fakturerings konton (registreringar), avdelningar och registrerings konton via EA Portal åtkomst. Lär dig mer om omfattningar, inklusive hur du fastställer ditt scope-ID eller hantera åtkomst, i [förstå och arbeta med omfattningar](understand-work-scopes.md).
 
 ## <a name="next-steps"></a>Nästa steg

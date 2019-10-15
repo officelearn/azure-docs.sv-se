@@ -8,12 +8,12 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 ms.topic: overview
 ms.date: 09/24/2018
-ms.openlocfilehash: 0dcca2175d6ccc35a51bccb1e47f75d25cb8b11f
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 66a972e66c35cdd5b8dedceefbe3dbd008380da9
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299199"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327145"
 ---
 # <a name="apache-cassandra-features-supported-by-azure-cosmos-db-cassandra-api"></a>Apache Cassandra-funktioner som stöds av Azure Cosmos DB Cassandra-API 
 
@@ -94,9 +94,9 @@ Azure Cosmos DB Cassandra-API:et stöder följande CQL-funktioner:
   
 
 
-## <a name="cassandra-query-language-limits"></a>Begränsningar för Cassandra-frågespråket
+## <a name="cassandra-api-limits"></a>API för Cassandra gränser
 
-Det finns inga begränsningar i Azure Cosmos DB Cassandra API för storleken på data som lagras i en tabell. Hundratals terabyte eller petabyte data kan lagras samtidigt om partitionsnyckelgränserna respekteras. På samma sätt har varje entitet eller motsvarande rad inga begränsningar för antalet kolumner, men den totala storleken på entiteten får innehålla högst 2 MB.
+Det finns inga begränsningar i Azure Cosmos DB Cassandra API för storleken på data som lagras i en tabell. Hundratals terabyte eller petabyte data kan lagras samtidigt om partitionsnyckelgränserna respekteras. Samma sak som varje entitet eller rad motsvarighet har inte några begränsningar för antalet kolumner, men den totala storleken på entiteten bör inte överstiga 2 MB. Data per partitionsnyckel får inte överstiga 10 GB som i alla andra API: er.
 
 ## <a name="tools"></a>Verktyg 
 
@@ -130,7 +130,7 @@ cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NA
 
 Azure Cosmos DB stöder följande databaskommandon på alla Cassandra API-konton.
 
-* SKAPA ett tecken utrymme (replikeringsinställningarna för det här kommandot ignoreras, systemet använder underliggande [Azure Cosmos DBS replikeringspartner](global-dist-under-the-hood.md). Om du behöver data mellan regioner kan du aktivera det på konto nivå med PowerShell, CLI eller portal, och se [hur du lägger till eller tar bort regioner för din konto](how-to-manage-database-account.md#addremove-regions-from-your-database-account) artikel.
+* SKAPA ett disk utrymme (replikeringsinställningarna för det här kommandot ignoreras)
 * CREATE TABLE 
 * ALTER TABLE 
 * USE 
@@ -157,21 +157,32 @@ foreach (string key in insertResult.Info.IncomingPayload)
 
 ## <a name="consistency-mapping"></a>Mappning av konsekvens 
 
-Azure Cosmos DB Cassandra-API innehåller val av konsekvens för läsåtgärder.  Konsekvens mappningen är detaljerad [här [(https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
+Azure Cosmos DB Cassandra-API innehåller val av konsekvens för läsåtgärder.  Konsekvens mappningen beskrivs [här](https://docs.microsoft.com/azure/cosmos-db/consistency-levels-across-apis#cassandra-mapping).
 
 ## <a name="permission-and-role-management"></a>Behörighets- och rollhantering
 
-Azure Cosmos DB stöder rollbaserad åtkomst kontroll (RBAC) för etablering, rotation av nycklar, visning av mått och skriv-och skrivskyddade lösen ord/nycklar som kan hämtas via [Azure Portal](https://portal.azure.com). Azure Cosmos DB stöder inte roller för CRUD-aktiviteter. 
+Azure Cosmos DB stöder rollbaserad åtkomst kontroll (RBAC) för etablering, rotation av nycklar, visning av mått och skriv-och skrivskyddade lösen ord/nycklar som kan hämtas via [Azure Portal](https://portal.azure.com). Azure Cosmos DB stöder inte roller för CRUD-aktiviteter.
 
 ## <a name="keyspace-and-table-options"></a>Alternativ för tecken utrymme och tabell
 
-Alternativen för region namn, klass, replication_factor, data Center i Create respace-kommandot ignoreras vid tillfället. Systemet använder underliggande Azure Cosmos DB [globala distribution](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) om du lägger till obligatoriska regioner. Om du behöver data mellan regioner kan du aktivera det på konto nivå med PowerShell, CLI eller portal, och läsa mer i det här dokumentet: https://docs.microsoft.com/en-us/azure/cosmos-db/how-to-manage-database-account#addremove-regions-from-your-database-account. Durable_writes kan inte inaktive ras eftersom Cosmos DB säkerställer att varje skrivning är varaktig. I varje region Cosmos DB replikerar data över REPLICASET som består av 4 repliker och den här REPLICASET- [konfigurationen](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) kan inte ändras. Alla alternativ för att skapa tabeller ignoreras, utom gc_grace_seconds som ska vara noll.
-Ett tecken utrymme och en tabell har extra alternativ-cosmosdb_provisioned_throughput med det lägsta värdet på 400. Genom att använda genomflöde i ett flöde kan du dela data flöde i flera tabeller och användbart för scenarier när alla tabeller inte använder data flödet. Alter Table tillåter att det etablerade data flödet ändras i regionerna. Skapa sampleks med replikering = {' Class ': ' SimpleStrategy '} och cosmosdb_provisioned_throughput = 2000;  
-CREATE TABLE sampleks. T1 (user_id int PRIMARY KEY, LastName text) med cosmosdb_provisioned_throughput = 2000; ALTER TABLE gks1. T1 med cosmosdb_provisioned_throughput = 10000;
+Alternativen för region namn, klass, replication_factor och data Center i kommandot "skapa inloggnings utrymme" ignoreras för närvarande. Systemet använder den underliggande Azure Cosmos DBens [globala distributions](https://docs.microsoft.com/en-us/azure/cosmos-db/global-dist-under-the-hood) Metod för att lägga till regionerna. Om du behöver data över flera regioner kan du aktivera det på konto nivå med PowerShell, CLI eller portal för mer information. mer information finns i artikeln [så här lägger](how-to-manage-database-account.md#addremove-regions-from-your-database-account) du till regioner. Durable_writes kan inte inaktive ras eftersom Azure Cosmos DB säkerställer att varje skrivning är varaktig. I varje region replikerar Azure Cosmos DB data över replik uppsättningen som består av 4 repliker och den här replik uppsättnings [konfigurationen](global-dist-under-the-hood.md) kan inte ändras.
+ 
+Alla alternativ ignoreras när tabellen skapas, förutom gc_grace_seconds som ska anges till noll.
+Det finns ett extra alternativ med namnet "cosmosdb_provisioned_throughput" med det minsta värdet på 400 RU/s. Genom strömningen med hjälp av det här flödet kan du dela data flöde över flera tabeller och det är användbart för scenarier när alla tabeller inte använder det etablerade data flödet. Alter Table-kommandot tillåter ändring av det etablerade data flödet i regionerna. 
+
+```
+CREATE  KEYSPACE  sampleks WITH REPLICATION = {  'class' : 'SimpleStrategy'}   AND cosmosdb_provisioned_throughput=2000;  
+
+CREATE TABLE sampleks.t1(user_id int PRIMARY KEY, lastname text) WITH cosmosdb_provisioned_throughput=2000; 
+
+ALTER TABLE gks1.t1 WITH cosmosdb_provisioned_throughput=10000 ;
+
+```
+
 
 ## <a name="usage-of-cassandra-retry-connection-policy"></a>Användning av anslutnings princip för Cassandra-försök
 
-Azure Cosmos DB är resurs styrt system. Detta innebär att du kan utföra ett visst antal åtgärder i en viss sekund som är begränsad av det etablerade data flödet baserat på enheter för programbegäran som används av åtgärder. Om programmet överskrider den gränsen i en specifik frekvens för begränsning av andra begär Anden kommer undantag att returneras. Cosmos DB API för Cassandra, översätter dessa undantag till överbelastade fel på det Cassandra ursprungliga protokollet. För att se till att ditt program kan fånga upp och göra ett nytt försök för hastighets begränsning kan en [Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) -och [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) -hjälp tillhandahållas. Om du använder andra SDK: er för att komma åt API för Cassandra av Cosmos DB ska du skapa en anslutnings princip för att försöka hämta de här undantagen. 
+Azure Cosmos DB är ett resurs styrt system. Det innebär att du kan utföra ett visst antal åtgärder i en viss sekund baserat på de enheter för enheter som används av åtgärderna. Om ett program överskrider den gränsen inom en viss sekund kommer begär Anden att bli avgiftsbelagda och undantag kommer att genereras. API för Cassandra i Azure Cosmos DB översätter dessa undantag till överbelastade fel på det inbyggda Cassandra-protokollet. För att säkerställa att ditt program kan fånga upp och försöka utföra begär anden i fall begränsningen, [Spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) -och [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) -tilläggen tillhandahålls. Om du använder andra SDK: er för att komma åt API för Cassandra i Azure Cosmos DB skapar du en anslutnings princip för att försöka igen med dessa undantag.
 
 ## <a name="next-steps"></a>Nästa steg
 

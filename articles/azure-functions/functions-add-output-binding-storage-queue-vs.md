@@ -8,30 +8,28 @@ ms.topic: quickstart
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 6ef6f4ae86f0f732164603bd8b38dc1bbef95dd9
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 383401c1486bcbebc39b64d5794f8bdc660d2778
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68600261"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329610"
 ---
 # <a name="connect-functions-to-azure-storage-using-visual-studio"></a>Ansluta funktioner till Azure Storage med hjälp av Visual Studio
 
-Med Azure Functions kan du ansluta funktioner till Azure-tjänster och andra resurser utan att behöva skriva din egen integrerings kod. Dessa fördefinierade anslutningar kallas för *bindningar*. Bindningar gör att en funktion kan använda Azure-tjänster och andra resurser som indata och utdata till en funktion.
-
-Funktions körning startas av en enda utlösare. En utlösare är en särskild typ av ingående bindning. Även om en funktion bara har en utlösare, kan den ha flera indata och utdata-bindningar. Mer information finns i [Azure Functions utlösare och bindningar begrepp](functions-triggers-bindings.md).
+[!INCLUDE [functions-add-storage-binding-intro](../../includes/functions-add-storage-binding-intro.md)]
 
 Den här artikeln visar hur du använder Visual Studio för att ansluta den funktion som du skapade i [föregående snabb starts artikel] till Azure Storage. Den utgående bindning som du lägger till i den här funktionen skriver data från HTTP-begäran till ett meddelande i en kö för Azure Queue Storage. 
 
-De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot är redan lagrad i en app- `AzureWebJobsStorage`inställning med namnet.  
+De flesta bindningar kräver en lagrad anslutnings sträng som används för att få åtkomst till den kopplade tjänsten. För att göra det enklare använder du det lagrings konto som du skapade med din Function-app. Anslutningen till det här kontot finns redan i en app-inställning med namnet `AzureWebJobsStorage`.  
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Innan du börjar den här artikeln måste du: 
 
  - Slutför [del 1 av Visual Studio snabb start] [./Functions-Create-First-Function-vs-Code.MD]. 
 
-- Logga in på din Azure-prenumeration från Visual Studio
+- Logga in på din Azure-prenumeration från Visual Studio.
 
 ## <a name="download-the-function-app-settings"></a>Ladda ned appens funktions inställningar
 
@@ -43,9 +41,9 @@ I [föregående snabb starts artikel](functions-create-first-function-vs-code.md
 
     ![Redigera program inställningarna](media/functions-add-output-binding-storage-queue-vs/edit-app-settings.png)
 
-1. Under **AzureWebJobsStorage**, kopierar du värdet för **fjärrsträng till** **lokalt**och väljer sedan **OK**. 
+1. Under **AzureWebJobsStorage**, kopierar du **värdet för fjärrsträng till** **lokalt**och väljer sedan **OK**. 
 
-Lagrings bindningen, som använder `AzureWebJobsStorage` inställningen för anslutningen, kan nu ansluta till din Queue Storage när den körs lokalt.
+Lagrings bindningen, som använder inställningen `AzureWebJobsStorage` för anslutningen, kan nu ansluta till din Queue Storage när den körs lokalt.
 
 ## <a name="register-binding-extensions"></a>Registrera bindningstillägg
 
@@ -67,7 +65,7 @@ Nu kan du lägga till bindningen för Storage-utdata i projektet.
 
 ## <a name="add-code-that-uses-the-output-binding"></a>Lägg till kod som använder utdatabindning
 
-När bindningen har definierats kan du använda `name` bindningen för att komma åt den som ett attribut i Function-signaturen. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
+När bindningen har definierats kan du använda `name` för bindningen för att komma åt den som ett attribut i funktions under skriften. Genom att använda en utgående bindning behöver du inte använda den Azure Storage SDK-koden för autentisering, hämta en Queue referens eller skriva data. Bindningarna Functions Runtime och Queue output utför dessa uppgifter åt dig.
 
 [!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
 
@@ -75,17 +73,17 @@ När bindningen har definierats kan du använda `name` bindningen för att komma
 
 [!INCLUDE [functions-run-function-test-local-vs](../../includes/functions-run-function-test-local-vs.md)]
 
-En ny kö med `outqueue` namnet skapas i ditt lagrings konto av Functions-körningen när data bindningen först används. Du använder Cloud Explorer för att kontrol lera att kön har skapats tillsammans med det nya meddelandet.
+En ny kö med namnet `outqueue` skapas i ditt lagrings konto av Functions-körningen när data bindningen först används. Du använder Cloud Explorer för att kontrol lera att kön har skapats tillsammans med det nya meddelandet.
 
 ## <a name="examine-the-output-queue"></a>Granska utdatakö
 
 1. I Visual Studio från menyn **Visa** väljer du **Cloud Explorer**.
 
-1. Expandera dina Azure-prenumerationer och lagrings **konton**i **Cloud Explorer**och expandera sedan det lagrings konto som används av din funktion. Om du inte kommer ihåg namnet på lagrings kontot kontrollerar `AzureWebJobsStorage` du inställningen för anslutnings strängen i filen *Local. Settings. JSON* .  
+1. Expandera dina Azure-prenumerationer och **lagrings konton**i **Cloud Explorer**och expandera sedan det lagrings konto som används av din funktion. Om du inte kan komma ihåg lagrings kontots namn kontrollerar du inställningen för anslutnings strängen `AzureWebJobsStorage` i filen *Local. Settings. JSON* .  
 
-1. Expandera noden **köer** och dubbelklicka sedan på kön med namnet disqueue  för att visa innehållet i kön i Visual Studio. 
+1. Expandera noden **köer** och dubbelklicka sedan på kön med namnet **disqueue** för att visa innehållet i kön i Visual Studio. 
 
-   Kön innehåller meddelandet som köutdatabindningen skapade när du körde den HTTP-utlösta funktionen. Om du startade en funktion med standardvärdet `name` för *Azure*, kommer kömeddelandet att vara *Namn som skickats till funktionen: Azure*.
+   Kön innehåller meddelandet som köutdatabindningen skapade när du körde den HTTP-utlösta funktionen. Om du startade en funktion med standardvärdet `name` för *Azure* så är kömeddelandet *Name passed to the function: Azure* (Namn som skickats till funktionen: Azure).
 
     ![Köa meddelande visas i Azure Storage Explorer](./media/functions-add-output-binding-storage-queue-vs-code/function-queue-storage-output-view-queue.png)
 
@@ -97,7 +95,7 @@ Nu är det dags att publicera om den uppdaterade Function-appen till Azure.
 
 1. I **Solution Explorer**högerklickar du på projektet och väljer **publicera**. Välj sedan **publicera** för att publicera projektet på Azure igen.
 
-1. När distributionen är klar kan du använda webbläsaren igen för att testa den omdistribuerade funktionen. Som tidigare lägger du till frågesträngen `&name=<yourname>` i URL: en.
+1. När distributionen är klar kan du använda webbläsaren igen för att testa den omdistribuerade funktionen. Som tidigare lägger du till frågesträngen `&name=<yourname>` till URL: en.
 
 1. [Visa meddelandet i lagrings kön](#examine-the-output-queue) igen för att kontrol lera att utgående bindningen igen genererar ett nytt meddelande i kön.
 

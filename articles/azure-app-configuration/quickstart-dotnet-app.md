@@ -3,8 +3,8 @@ title: Snabbstart för Azure App Configuration med .NET Framework | Microsoft Do
 description: En snabbstart för användning av Azure App Configuration med .NET Framework-appar
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
-manager: balans
+author: lisaguthrie
+manager: maiye
 editor: ''
 ms.assetid: ''
 ms.service: azure-app-configuration
@@ -12,32 +12,32 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.tgt_pltfrm: .NET
 ms.workload: tbd
-ms.date: 02/24/2019
-ms.author: yegu
-ms.openlocfilehash: 8aa8c8132220965d55097c4fed8ba1b2e9501301
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.date: 10/09/2019
+ms.author: lcozzens
+ms.openlocfilehash: 17b2e7272d499ce99d40d2ee52de1c7a5a1d0d04
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68326532"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329801"
 ---
-# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Snabbstart: Skapa en .NET Framework-app med Azure App Configuration
+# <a name="quickstart-create-a-net-framework-app-with-azure-app-configuration"></a>Snabb start: skapa en .NET Framework-app med Azure App konfiguration
 
 I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framework-baserad konsolsession för att centralisera lagring och hantering av program inställningar separat från din kod.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 - Azure-prenumeration – [skapa en kostnads fritt](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.1](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>Skapa ett appkonfigurationsarkiv
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. Välj **konfigurations Utforskaren** >  **+ skapa** för att lägga till följande nyckel/värde-par:
+6. Välj **Configuration Explorer** >  **+ skapa** för att lägga till följande nyckel/värde-par:
 
-    | Nyckel | Value |
+    | Nyckel | Värde |
     |---|---|
     | TestApp:Settings:Message | Data från Azure App Configuration |
 
@@ -45,9 +45,11 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
 ## <a name="create-a-net-console-app"></a>Skapa en .NET-konsolapp
 
-1. Starta Visual Studio och välj **fil** > **nytt** > **projekt**.
+1. Starta Visual Studio och välj **fil** > **nytt** > -**projekt**.
 
-2. I **nytt projekt**väljer du **installerat** >   > **Visual C#**  **Windows Desktop**. Välj **konsol program (.NET Framework)** och ange ett namn för projektet. Välj **.NET Framework 4.7.1** eller uppåt och välj **OK**.
+1. I **skapa ett nytt projekt**filtrerar du på projekt typen **konsol** och klickar på **konsol program (.NET Framework)** . Klicka på **Next**.
+
+1. Ange ett projekt namn i **Konfigurera ditt nya projekt**. Under **ramverk**väljer du **.NET Framework 4.7.1** eller högre. Klicka på **Skapa**.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Anslut till ett konfigurations Arkiv för appen
 
@@ -56,9 +58,10 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
     ```
     Microsoft.Configuration.ConfigurationBuilders.AzureAppConfiguration 1.0.0 preview or later
     Microsoft.Configuration.ConfigurationBuilders.Environment 2.0.0 preview or later
+    System.Configuration.ConfigurationManager version 4.6.0 or later
     ```
 
-2. Uppdatera filen *app. config* för projektet enligt följande:
+1. Uppdatera filen *app. config* för projektet enligt följande:
 
     ```xml
     <configSections>
@@ -78,14 +81,14 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
     </appSettings>
     ```
 
-   Anslutnings strängen för appens konfigurations lager läses från miljövariabeln `ConnectionString`. Lägg till `MyConfigStore` `configBuilders`konfigurations verktyget före`appSettings` i egenskapen för avsnittet. `Environment`
+   Anslutnings strängen för appens konfigurations lager läses från miljövariabeln `ConnectionString`. Lägg till konfigurations verktyget `Environment` före `MyConfigStore` i egenskapen `configBuilders` i avsnittet `appSettings`.
 
-3. Öppna *program.cs*och uppdatera `Main` metoden för att använda app-konfiguration genom att `ConfigurationManager`anropa.
+1. Öppna *program.cs*och uppdatera `Main`-metoden för att använda app-konfiguration genom att anropa `ConfigurationManager`.
 
     ```csharp
     static void Main(string[] args)
     {
-        string message = ConfigurationManager.AppSettings["TestApp:Settings:Message"];
+        string message = System.Configuration.ConfigurationManager.AppSettings["TestApp:Settings:Message"];
 
         Console.WriteLine(message);
     }
@@ -101,7 +104,7 @@ I den här snabb starten inkluderar du Azure App konfiguration i en .NET Framewo
 
         $Env:ConnectionString = "connection-string-of-your-app-configuration-store"
 
-2. Starta om Visual Studio om du vill att ändringen ska börja gälla. Tryck på Ctrl + F5 för att skapa och köra-konsol programmet.
+1. Starta om Visual Studio om du vill att ändringen ska börja gälla. Tryck på Ctrl + F5 för att skapa och köra-konsol programmet.
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

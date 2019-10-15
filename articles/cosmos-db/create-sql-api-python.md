@@ -1,5 +1,5 @@
 ---
-title: 'Azure Cosmos DB: Skapa en app med Python och SQL API'
+title: 'Snabb start: bygga en python-app med Azure Cosmos DB SQL API-konto'
 description: Presenterar ett Python-kodexempel som du kan använda för att ansluta till och fråga Azure Cosmos DB SQL API:t
 author: SnehaGunda
 ms.service: cosmos-db
@@ -8,14 +8,18 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 05/21/2019
 ms.author: sngun
-ms.openlocfilehash: f085ca6de2c04caa90c34bc1293da1210d2883eb
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom:
+- seodec18
+- seo-javascript-september2019
+- seo-python-october2019
+ms.openlocfilehash: f00d0e4f659c1ebe104dac1a25ea3688c9a1f2e5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020164"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327251"
 ---
-# <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Skapa ett Python-program med hjälp av Azure Cosmos DB SQL API-konto
+# <a name="azure-cosmos-db-build-a-python-application-using-azure-cosmos-db-sql-api-account"></a>Azure Cosmos DB: Bygg ett python-program med Azure Cosmos DB SQL API-konto
 
 > [!div class="op_single_selector"]
 > * [NET](create-sql-api-dotnet.md)
@@ -31,9 +35,9 @@ Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* [Python 3,6](https://www.python.org/downloads/)med den `python` `PATH`körbara filen som är tillgänglig i.
+* [Python 3,6](https://www.python.org/downloads/), med den körbara filen `python` tillgänglig i `PATH`.
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Python-tillägg för Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python#overview)
 
@@ -45,7 +49,7 @@ Den här snabbstarten visar hur du skapar ett [SQL API](sql-api-introduction.md)
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-create-collection.md)]
 
-## <a name="add-sample-data"></a>Lägg till exempeldata
+## <a name="add-sample-data"></a>Lägga till exempeldata
 
 [!INCLUDE [cosmos-db-create-sql-api-add-sample-data](../../includes/cosmos-db-create-sql-api-add-sample-data.md)]
 
@@ -86,9 +90,9 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 1. I [Azure Portal](https://portal.azure.com/), i ditt Azure Cosmos-konto, i det vänstra navigeringset väljer du **nycklar**. Använd kopieringsknapparna till höger för att kopiera **URI** och **Primärnyckel** till filen `CosmosGetStarted.py` i nästa steg.
 
-    ![Visa och kopiera åtkomstnyckeln i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
+    ![Visa och kopiera en åtkomstnyckel i Azure Portal, bladet Nycklar](./media/create-sql-api-dotnet/keys.png)
 
-2. `CosmosGetStarted.py` Öppna filen i \git-samples\azure-Cosmos-DB-python-Getting-Started i Visual Studio Code.
+2. Öppna filen `CosmosGetStarted.py` i \git-samples\azure-Cosmos-DB-python-Getting-Started i Visual Studio Code.
 
 3. Kopiera ditt **URI**-värde från portalen (med kopieringsknappen) och gör det till värdet för **slutpunktsnyckeln** i ``CosmosGetStarted.py``. 
 
@@ -175,7 +179,7 @@ Följande kodavsnitt är alla hämtade från filen `CosmosGetStarted.py`.
 
 1. Gå till Visual Studio Code och välj **Visa** > **Kommandopalett**. 
 
-2. Vid kommandotolken anger du **Python: Välj tolk** och välj sedan den version av Python som ska användas.
+2. I kommandotolken anger du **Python: Välj tolk** och välj sedan den version av Python som ska användas.
 
     Sidfoten i Visual Studio Code uppdateras för att ange vilken tolk som valts. 
 

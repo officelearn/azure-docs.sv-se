@@ -1,5 +1,5 @@
 ---
-title: Azure Snabbstart – Köra Batch-jobb – Python
+title: 'Snabb start: köra ett Azure Batch jobb – python API'
 description: Kör snabbt ett Batch-jobb och aktiviteter med hjälp av Batch Python-klientbiblioteket.
 services: batch
 author: laurenhughes
@@ -9,13 +9,15 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 11/27/2018
 ms.author: lahugh
-ms.custom: mvc
-ms.openlocfilehash: 77ccfc1a67fabca7fde47edac9094c6a68191f0f
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.custom:
+- seo-python-october2019
+- mvc
+ms.openlocfilehash: e5ec131e73c40e72862122d360574bb4ee5d3cda
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71090771"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329362"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snabbstart: Kör ditt första Batch-jobb med Python-API
 
@@ -25,7 +27,7 @@ Denna snabbstart kör ett Azure Batch-jobb från en app som bygger på Azure Bat
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 * [Python 2.7 eller 3.3 eller senare](https://www.python.org/downloads/)
 
@@ -41,7 +43,7 @@ Logga in på Azure Portal på [https://portal.azure.com](https://portal.azure.co
 
 ## <a name="download-the-sample"></a>Hämta exemplet
 
-[Ladda ned eller klona exempelappen](https://github.com/Azure-Samples/batch-python-quickstart) från GitHub. Om du vill klona exempellagringsplatsen med en Git-klient använder du följande kommando:
+[Hämta eller klona exempelappen](https://github.com/Azure-Samples/batch-python-quickstart) från GitHub. Om du vill klona exempellagringsplatsen med en Git-klient använder du följande kommando:
 
 ```bash
 git clone https://github.com/Azure-Samples/batch-python-quickstart.git
@@ -174,7 +176,7 @@ batch_service_client.pool.add(new_pool)
 
 ### <a name="create-a-batch-job"></a>Skapa ett Batch-jobb
 
-Ett Batch-jobb är en logisk gruppering av en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Appen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) lägger till ett jobb till det angivna batch-kontot. Från början har jobbet inga aktiviteter.
+Ett Batch-jobb är en logisk gruppering av en eller flera aktiviteter. Ett jobb omfattar inställningar som är gemensamma för aktiviteter, till exempel prioritet och vilken pool som aktiviteterna ska köras på. Appen använder klassen [JobAddParameter](/python/api/azure-batch/azure.batch.models.jobaddparameter) för att skapa ett jobb på din pool. Metoden [Job. Add](/python/api/azure-batch/azure.batch.operations.joboperations) lägger till ett jobb till det angivna batch-kontot. Från början har jobbet inga uppgifter.
 
 ```python
 job = batch.models.JobAddParameter(
@@ -183,7 +185,7 @@ job = batch.models.JobAddParameter(
 batch_service_client.job.add(job)
 ```
 
-### <a name="create-tasks"></a>Skapa aktiviteter
+### <a name="create-tasks"></a>Skapa uppgifter
 
 Appen skapar en lista med aktivitetsobjekt med hjälp av klassen [TaskAddParameter](/python/api/azure-batch/azure.batch.models.taskaddparameter). Varje aktivitet bearbetar ett indata `resource_files`-objekt med en `command_line`-parameter. I det här exemplet kör kommandoraden Bash-gränssnittskommandot `cat` för att visa textfilen. Detta kommando är ett enkelt exempel i demonstrationssyfte. När du använder Batch är det på kommandoraden som du anger din app eller ditt skript. Batch tillhandahåller ett antal sätt att distribuera appar och skript till beräkningsnoder.
 
@@ -203,7 +205,7 @@ for idx, input_file in enumerate(input_files):
 batch_service_client.task.add_collection(job_id, tasks)
 ```
 
-### <a name="view-task-output"></a>Visa aktivitetens utdata
+### <a name="view-task-output"></a>Visa utdata för uppgiften
 
 Appen övervakar aktivitetstillståndet för att säkerställa att aktiviteterna slutförs. Sedan visar appen den `stdout.txt`-fil som skapats av varje slutförd aktivitet. När aktiviteten körs skrivs utdata från aktivitetskommandot till `stdout.txt`:
 

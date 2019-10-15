@@ -169,7 +169,7 @@
           href: search-howto-complex-data-types.md
         - name: Modeller med relationsdata
           href: index-sql-relational-data.md
-    - name: Läsa in data
+    - name: Indexera valfria data
       items:
         - name: Översikt över dataimport
           href: search-what-is-data-import.md
@@ -181,7 +181,21 @@
           href: search-howto-large-index.md
         - name: Hantera samtidiga uppdateringar
           href: search-howto-concurrency.md
-    - name: Läsa in data med indexerare
+    - name: Indexera Azure Blob-data
+      items:
+        - name: Använda AI med blobdata
+          href: search-blob-ai-integration.md
+        - name: Lägga till fulltextsökning
+          href: search-blob-storage-integration.md
+        - name: Konfigurera en blobindexerare
+          href: search-howto-indexing-azure-blob-storage.md
+        - name: Indexera en-till-många blobar
+          href: search-howto-index-one-to-many-blobs.md
+        - name: Indexera CSV-blobar
+          href: search-howto-index-csv-blobs.md
+        - name: Indexera JSON-blobar
+          href: search-howto-index-json-blobs.md
+    - name: Indexera med ”indexerare”
       items:
         - name: Översikt över indexerare
           href: search-indexer-overview.md
@@ -191,16 +205,6 @@
           href: search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md
         - name: Azure Cosmos DB-indexeraren
           href: search-howto-index-cosmosdb.md
-        - name: Azure Blob Storage-indexerare
-          items:
-            - name: Konfigurera en blobindexerare
-              href: search-howto-indexing-azure-blob-storage.md
-            - name: Indexera en-till-många blobar
-              href: search-howto-index-one-to-many-blobs.md
-            - name: Indexera CSV-blobar
-              href: search-howto-index-csv-blobs.md
-            - name: Indexera JSON-blobar
-              href: search-howto-index-json-blobs.md
         - name: Schema för indexerare
           href: search-howto-schedule-indexers.md
         - name: Mappa fält

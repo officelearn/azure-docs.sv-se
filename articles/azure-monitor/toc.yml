@@ -206,6 +206,8 @@
                   items:
                     - name: Node.js
                       href: app/nodejs.md
+                    - name: Python
+                      href: app/opencensus-python.md
                 - name: Webbsidor
                   items:
                     - name: JavaScript för klientsidan
@@ -280,6 +282,9 @@
                 - name: Tester i flera steg
                   displayname: 'availability, GSM, visual studio web test, web test'
                   href: app/availability-multistep.md
+                - name: Tillgänglighet + Azure Functions
+                  href: app/availability-azure-functions.md
+                  displayname: 'availability,azure functions,TrackAvailability(), timer function, azure gov, azure china, custom test, customized tests, contentmatch'
                 - name: Tillgänglighetsaviseringar
                   displayname: 'alerts, global, alerting'
                   href: app/availability-alerts.md
@@ -297,8 +302,6 @@
                   displayname: 'correlation headers, w3c, distributed tracing, tracing'
                 - name: Lokal vidarebefordrare
                   href: app/opencensus-local-forwarder.md
-                - name: Python
-                  href: app/opencensus-python.md
                 - name: Go
                   href: app/opencensus-go.md
             - name: Live Metric Stream

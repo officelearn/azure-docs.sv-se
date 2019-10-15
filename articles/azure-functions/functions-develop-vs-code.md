@@ -336,7 +336,7 @@ Du kan också publicera inställningar genom att **använda Azure Functions: Lad
 
 Om den lokala filen är krypterad dekrypteras den, publiceras och krypteras igen. Om det finns inställningar som innehåller motstridiga värden på de två platserna, uppmanas du att välja hur du vill fortsätta.
 
-Visa befintliga app-inställningar i **Azure: Funktions områden genom att expandera din prenumeration, din Function-app och **program inställningar.****
+Visa befintliga app-inställningar i **Azure: Funktions** områden genom att expandera din prenumeration, din Function-app och **program inställningar**.
 
 ![Visa funktions program inställningar i Visual Studio Code](./media/functions-develop-vs-code/view-app-settings.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 839faa4cf2455ee2b0de38046a464ce824f007cd
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301872"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311871"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera SQL Server kluster instans med Premium-filresurs på Azure Virtual Machines
 
@@ -37,7 +37,7 @@ Du bör ha en drifts förståelse för följande tekniker:
 - [Windows kluster tekniker](/windows-server/failover-clustering/failover-clustering-overview)
 - [SQL Server instanser av kluster för växling vid fel](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server).
 
-En viktig skillnad är att i ett Azure IaaS VM-redundanskluster rekommenderar vi ett enda nätverkskort per server (klusternod) och ett enda undernät. Azures nätverk har fysisk redundans, vilket innebär att det inte behövs fler nätverkskort och undernät för gästkluster på virtuella Azure IaaS-datorer. Även om kluster verifierings rapporten utfärdar en varning om att noderna bara kan användas i ett enda nätverk, kan den här varningen ignoreras på ett säkert sätt i Azure IaaS VM-redundanskluster. 
+En viktig skillnad är att i ett Azure IaaS VM-redundanskluster rekommenderar vi ett enda nätverkskort per server (klusternod) och ett enda undernät. Azure-nätverk har fysisk redundans som gör att ytterligare nätverkskort och undernät inte behövs på ett gäst kluster för en Azure IaaS-dator. Även om kluster verifierings rapporten utfärdar en varning om att noderna bara kan användas i ett enda nätverk, kan den här varningen ignoreras på ett säkert sätt i Azure IaaS VM-redundanskluster. 
 
 Dessutom bör du ha en allmän förståelse för följande tekniker:
 
@@ -165,34 +165,20 @@ När de virtuella datorerna har skapats och kon figurer ATS kan du konfigurera P
 1. Logga in på [Azure Portal](https://portal.azure.com) och gå till ditt lagrings konto.
 1. Gå till **fil resurser** under **fil tjänst** och välj den Premium-filresurs som du vill använda för din SQL-lagring. 
 1. Välj **Anslut** för att ta fram anslutnings strängen för din fil resurs. 
-1. Välj den enhets beteckning som du vill använda från List rutan och kopiera sedan de två PowerShell-kommandona från de två kommando blocken för PowerShell.  Klistra in dem i en text redigerare, till exempel Anteckningar. 
+1. Välj den enhets beteckning som du vill använda från List rutan och kopiera sedan båda kod blocken till ett anteckningar.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/premium-file-storage-commands.png" alt-text="Kopiera båda PowerShell-kommandona från fil resursen Connect-portalen":::
 
 1. RDP i SQL Server VM med det konto som din SQL Server-FCI kommer att använda för tjänst kontot. 
 1. Starta en administrativ PowerShell-kommandorad. 
-1. Kör kommandot `Test-NetConnection` för att testa anslutningen till lagrings kontot. Kör inte kommandot `cmdkey` från det första kod blocket. 
+1. Kör kommandona från portalen som du sparade tidigare. 
+1. Navigera till resursen med antingen Utforskaren eller dialog rutan **Kör** (Windows-tangenten + r) med hjälp av nätverks sök vägen `\\storageaccountname.file.core.windows.net\filesharename`. Exempel: `\\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare`
 
-   ```console
-   example: Test-NetConnection -ComputerName  sqlvmstorageaccount.file.core.windows.net -Port 445
-   ```
-
-1. Kör kommandot `cmdkey` från det *andra* kod blocket för att montera fil resursen som en enhet och spara den. 
-
-   ```console
-   example: cmdkey /add:sqlvmstorageaccount.file.core.windows.net /user:Azure\sqlvmstorageaccount /pass:+Kal01QAPK79I7fY/E2Umw==
-   net use M: \\sqlvmstorageaccount.file.core.windows.net\sqlpremiumfileshare /persistent:Yes
-   ```
-
-1. Öppna **Utforskaren** och gå till **den här datorn**. Fil resursen visas under nätverks platser: 
-
-   :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage/file-share-as-storage.png" alt-text="Fil resursen visas som lagring i Utforskaren":::
-
-1. Öppna den nyss mappade enheten och skapa minst en mapp här för att placera dina SQL-datafiler i. 
+1. Skapa minst en mapp på den nyligen anslutna fil resursen för att placera dina SQL-datafiler i. 
 1. Upprepa de här stegen på varje SQL Server VM som ska ingå i klustret. 
 
   > [!IMPORTANT]
-  > Använd inte samma fil resurs för både datafiler och säkerhets kopior. Använd samma steg för att konfigurera en sekundär fil resurs för säkerhets kopior om du vill säkerhetskopiera databaserna till en fil resurs. 
+  > Överväg att använda en separat fil resurs för säkerhets kopierings filer för att spara IOPS och storleks kapaciteten för den här resursen för data och loggfil. Du kan antingen använda en Premium-eller standard fil resurs för säkerhets kopierings filer
 
 ## <a name="step-3-configure-failover-cluster-with-file-share"></a>Steg 3: Konfigurera redundanskluster med fil resurs 
 
@@ -349,7 +335,7 @@ Så här skapar du belastningsutjämnaren:
    - **Namn**: ett namn som identifierar belastningsutjämnaren.
    - **Region**: Använd samma Azure-plats som dina virtuella datorer.
    - **Typ**: belastningsutjämnaren kan vara antingen offentlig eller privat. Det går att få åtkomst till en privat belastningsutjämnare i samma VNET. De flesta Azure-program kan använda en privat belastningsutjämnare. Om ditt program behöver åtkomst till SQL Server direkt via Internet använder du en offentlig belastningsutjämnare.
-   - **SKU**: SKU för din belastningsutjämnare bör vara standard. 
+   - **SKU**: SKU: n för belastningsutjämnaren ska vara standard. 
    - **Virtual Network**: samma nätverk som de virtuella datorerna.
    - **Tilldelning av IP-adress**: IP-adresstilldelning ska vara statisk. 
    - **Privat IP-adress**: samma IP-adress som du tilldelade SQL Server FCI-kluster nätverks resurs.

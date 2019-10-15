@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 84707c72e62bed7621d94dbd1ec65607cfcfd2d6
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 56bb5a1ac3c4003eca6ebe8392fc5b97f36a3317
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303046"
+ms.locfileid: "72311128"
 ---
 # <a name="performance-and-scalability-checklist-for-blob-storage"></a>Check lista för prestanda och skalbarhet för Blob Storage
 
@@ -45,6 +45,9 @@ Den här artikeln ordnar beprövade metoder för prestanda i en check lista som 
 | &nbsp; |Verktyg |[Använder du de senaste versionerna av Microsoft-tillhandahållna klient bibliotek och verktyg?](#client-libraries-and-tools) |
 | &nbsp; |Antal försök |[Använder du en princip för återförsök med en exponentiell backoff för begränsning av fel och tids gränser?](#timeout-and-server-busy-errors) |
 | &nbsp; |Antal försök |[Kan programmet undvika nya försök för fel som inte kan återförsökas?](#non-retryable-errors) |
+| &nbsp; |Kopiera blobbar |[Kopierar du blobbar på det mest effektiva sättet?](#blob-copy-apis) |
+| &nbsp; |Kopiera blobbar |[Använder du den senaste versionen av AzCopy för Mass kopierings åtgärder?](#use-azcopy) |
+| &nbsp; |Kopiera blobbar |[Använder du Azure Data Box-familjen för att importera stora mängder data?](#use-azure-data-box) |
 | &nbsp; |Innehålls distribution |[Använder du ett CDN för innehålls distribution?](#content-distribution) |
 | &nbsp; |Använd metadata |[Lagrar du ofta använda metadata om blobbar i deras metadata?](#use-metadata) |
 | &nbsp; |Ladda upp snabbt |[Kommer du att ladda upp block parallellt när du försöker ladda upp en BLOB snabbt?](#upload-one-large-blob-quickly) |
@@ -183,7 +186,7 @@ Mer information om prestanda förbättringar i .NET Core finns i följande blogg
 
 ### <a name="increase-default-connection-limit"></a>Öka standard anslutnings gränsen
 
-I .NET ökar följande kod standard anslutnings gränsen (vanligt vis 2 i en klient miljö eller 10 i en Server miljö) till 100. Normalt bör du ange värdet till ungefär så många trådar som används av ditt program. Ange anslutnings gränsen innan du öppnar några anslutningar.
+I .NET ökar följande kod standard anslutnings gränsen (vanligt vis två i en klient miljö eller tio i en Server miljö) till 100. Normalt bör du ange värdet till ungefär så många trådar som används av ditt program. Ange anslutnings gränsen innan du öppnar några anslutningar.
 
 ```csharp
 ServicePointManager.DefaultConnectionLimit = 100; //(Or More)  
@@ -227,9 +230,23 @@ Klient biblioteken hanterar nya försök med en medvetenhet om vilka fel som kan
 
 Mer information om Azure Storage felkoder finns i [status-och felkoder](/rest/api/storageservices/status-and-error-codes2).
 
-## <a name="transfer-data"></a>Överföra data
+## <a name="copying-and-moving-blobs"></a>Kopiera och flytta blobbar
 
-Information om hur du effektivt överför data till och från Blob Storage eller mellan lagrings konton finns i [Välj en Azure-lösning för data överföring](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+Azure Storage innehåller ett antal lösningar för att kopiera och flytta blobbar inom ett lagrings konto, mellan lagrings konton och mellan lokala system och molnet. I det här avsnittet beskrivs några av de här alternativen i förhållande till deras påverkan på prestanda. Information om hur du effektivt överför data till eller från Blob Storage finns i [Välj en Azure-lösning för data överföring](../common/storage-choose-data-transfer-solution.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+
+### <a name="blob-copy-apis"></a>BLOB Copy-API: er
+
+Om du vill kopiera blobbar över lagrings konton använder du åtgärden för att [blockera från URL](/rest/api/storageservices/put-block-from-url) . Den här åtgärden kopierar data synkront från en URL-källa till en Block-Blob. Med hjälp av åtgärden `Put Block from URL` kan du avsevärt minska nödvändig bandbredd när du migrerar data över lagrings konton. Eftersom kopierings åtgärden sker på tjänst sidan behöver du inte hämta och ladda upp data igen.
+
+Använd åtgärden [Kopiera BLOB](/rest/api/storageservices/Copy-Blob) för att kopiera data inom samma lagrings konto. Att kopiera data inom samma lagrings konto slutförs vanligt vis snabbt.  
+
+### <a name="use-azcopy"></a>Använda AzCopy
+
+Kommando rads verktyget AzCopy är ett enkelt och effektivt alternativ för Mass överföring av blobbar till, från och över lagrings konton. AzCopy är optimerat för det här scenariot och kan uppnå höga överföringshastigheter. AzCopy version 10 använder åtgärden `Put Block From URL` för att kopiera BLOB-data mellan lagrings konton. Mer information finns i [Kopiera eller flytta data till Azure Storage med hjälp av AzCopy v10](/azure/storage/common/storage-use-azcopy-v10).  
+
+### <a name="use-azure-data-box"></a>Använd Azure Data Box
+
+För att importera stora mängder data till Blob Storage bör du överväga att använda Azure Data Box-serien för offline-överföringar. Microsoft-tillhandahållna Data Box-enhet enheter är ett bra alternativ för att flytta stora mängder data till Azure när du är begränsad till tid, nätverks tillgänglighet eller kostnader. Mer information finns i dokumentationen för [Azure Data](/azure/databox/)Center.
 
 ## <a name="content-distribution"></a>Innehålls distribution
 
@@ -239,7 +256,7 @@ Mer information om Azure CDN finns i [Azure CDN](../../cdn/cdn-overview.md).
 
 ## <a name="use-metadata"></a>Använd metadata
 
-Blob Service stöder HEAD-begäranden som kan innehålla BLOB-egenskaper eller metadata. Om ditt program till exempel behöver EXIF-data (det går att byta bild format) från ett foto, kan det Hämta fotot och extrahera det. För att spara bandbredd och förbättra prestanda kan ditt program lagra EXIF-data i blobens metadata när programmet överför fotot. Du kan sedan hämta EXIF-data i metadata med bara en HEAD-begäran. Hämtning av endast metadata och inte det fullständiga innehållet i blobben sparar stor bandbredd och minskar bearbetnings tiden som krävs för att extrahera EXIF-data. Tänk på att endast 8 KB metadata kan lagras per blob.  
+Blob Service stöder HEAD-begäranden som kan innehålla BLOB-egenskaper eller metadata. Om ditt program till exempel behöver EXIF-data (det går att byta bild format) från ett foto, kan det Hämta fotot och extrahera det. För att spara bandbredd och förbättra prestanda kan ditt program lagra EXIF-data i blobens metadata när programmet överför fotot. Du kan sedan hämta EXIF-data i metadata med bara en HEAD-begäran. Hämtning av endast metadata och inte det fullständiga innehållet i blobben sparar stor bandbredd och minskar bearbetnings tiden som krävs för att extrahera EXIF-data. Kom ihåg att 8 KiB metadata kan lagras per blob.  
 
 ## <a name="upload-blobs-quickly"></a>Ladda upp blobbar snabbt
 

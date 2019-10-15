@@ -8,36 +8,29 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 7e5eb73cc6abc72689bbc674b29f4d288dd66b6f
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 1aec65ab08cd1c0711e51a222a8e674ef56ef508
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72302903"
+ms.locfileid: "72312197"
 ---
 # <a name="add-full-text-search-to-azure-blob-data-using-azure-search"></a>Lägg till fullständig texts ökning i Azure blob-data med Azure Search
 
-Det kan vara svårt att söka igenom olika innehålls typer som lagras i Azure Blob Storage. Du kan dock indexera och söka i innehållet i dina blobbar på bara några få klick med Azure Search. Att söka via Blob Storage kräver etablering av en Azure Search-tjänst. De olika tjänst gränserna och pris nivåerna för Azure Search hittar du på [sidan med priser](https://aka.ms/azspricing).
+Det kan vara svårt att söka igenom olika innehålls typer som lagras i Azure Blob Storage. Du kan dock indexera och söka i innehållet i dina blobbar på bara några få klick med [Azure Search](search-what-is-azure-search.md). Azure Search har inbyggd integrering för indexering av blob-lagring via en [*BLOB-indexerare*](search-howto-indexing-azure-blob-storage.md) som lägger till data käll känsliga funktioner för indexering.
 
-## <a name="what-is-azure-search"></a>Vad är Azure Search?
-[Azure Search](https://aka.ms/whatisazsearch) är en Sök tjänst som gör det enkelt för utvecklare att lägga till robusta full texts öknings upplevelser till webb-och mobil program. Som en tjänst tar Azure Search bort behovet av att hantera en Sök infrastruktur och erbjuder ett [service avtal på 99,9% drift tid](https://aka.ms/azuresearchsla).
+## <a name="supported-content-types"></a>Innehålls typer som stöds
 
-## <a name="index-and-search-enterprise-document-formats"></a>Indexera och Sök i företags dokument format
-Med stöd för [dokument extrahering](https://aka.ms/azsblobindexer) i Azure Blob Storage kan du indexera följande innehåll:
+Genom att köra en BLOB-indexerare över en behållare kan du extrahera text och metadata från följande innehålls typer med en enda fråga:
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-Genom att extrahera text och metadata från dessa filtyper kan du söka i flera fil format med en enda fråga. 
+Du kan också bifoga AI- [berikning](search-blob-ai-integration.md) i form av en *färdigheter* för att skapa ny information och struktur från blobbar, inklusive text representationer av bildfiler. Genom att lägga till AI-anrikning expanderar du innehålls typ listan så att den innehåller JPEG och PNG. Den lägger till bild bearbetnings färdigheter som [optisk tecken läsning (OCR)](cognitive-search-skill-ocr.md) och identifiering av [visuella funktioner](cognitive-search-skill-image-analysis.md) som gör det möjligt att indexera det visuella innehållet som finns i varje bild.
 
 ## <a name="search-through-your-blob-metadata"></a>Sök igenom dina BLOB-metadata
 Ett vanligt scenario som gör det enkelt att sortera genom blobbar av vilken innehålls typ som helst är att indexera både anpassade metadata och system egenskaper för varje blob. På så sätt indexeras information för alla blobbar oavsett dokument typ. Sedan kan du gå vidare till sortera, filtrera och fasett över allt Blob Storage-innehåll.
 
 [Läs mer om att indexera BLOB-metadata.](https://aka.ms/azsblobmetadataindexing)
-
-## <a name="image-search"></a>Bilds ökning
-Azure Search full texts ökning, fasett-navigering och sorterings funktioner kan nu användas för metadata för avbildningar som lagras i blobbar.
-
-Kognitiv sökning omfattar bild bearbetnings färdigheter som [optisk tecken läsning (OCR)](cognitive-search-skill-ocr.md) och identifiering av [visuella funktioner](cognitive-search-skill-image-analysis.md) som gör det möjligt att indexera det visuella innehållet som finns i varje bild.
 
 ## <a name="index-and-search-through-json-blobs"></a>Indexera och Sök via JSON-blobbar
 Azure Search kan konfigureras för att extrahera strukturerat innehåll som finns i blobbar som innehåller JSON. Azure Search kan läsa JSON-blobbar och parsa det strukturerade innehållet i lämpliga fält i ett Azure Search dokument. Azure Search kan också ta blobbar som innehåller en matris med JSON-objekt och mappa varje element till ett separat Azure Search-dokument.

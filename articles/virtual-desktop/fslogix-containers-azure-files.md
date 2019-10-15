@@ -7,16 +7,19 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 5e52275cc7215f6c54c2ff6a11faf82114c414b4
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: e651695055b9bfdbfbb5b6281af8c1d21235009b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676604"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311790"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix-profilcontainrar och Azure-filer
 
 Tjänsten Windows Virtual Desktop rekommenderar FSLogix profil behållare som en användar profil lösning. FSLogix är utformad för centrala profiler i fjärrdatorer, till exempel Windows Virtual Desktop. Den lagrar en fullständig användar profil i en enda behållare. Vid inloggningen är den här behållaren dynamiskt kopplad till dator miljön med inbyggd virtuell hård disk (VHD) och virtuell Hyper-V-hårddisk (VHDX) som stöds. Användar profilen är omedelbart tillgänglig och visas i systemet precis som en inbyggd användar profil. I den här artikeln beskrivs hur FSLogix profil behållare används med Azure Files-funktionen i det virtuella Windows-skrivbordet.
+
+>[!NOTE]
+>Om du letar efter jämförelse material om de olika lagrings alternativen för FSLogix Profile container på Azure, se [lagrings alternativ för FSLogix profil behållare](store-fslogix-profile.md).
 
 ## <a name="user-profiles"></a>Användarprofiler
 

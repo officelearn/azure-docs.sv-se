@@ -1,5 +1,5 @@
 ---
-title: Felsöka programproxyanslutningar - Azure Active Directory | Microsoft Docs
+title: Felsöka Application Proxy-kopplingar – Azure Active Directory | Microsoft Docs
 description: Felsöka problem med Azure Active Directory (Azure AD) Application Proxy-kopplingar.
 services: active-directory
 author: msmimart
@@ -11,52 +11,52 @@ ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: c3088ae777fe1a64be218105d36fdb9e01d7b798
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: c041578932bd33eb0a2d3afc18a35c2c0458dc8b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66172242"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311846"
 ---
-# <a name="debug-application-proxy-connector-issues"></a>Felsöka problem med Application Proxy-koppling 
+# <a name="debug-application-proxy-connector-issues"></a>Felsök problem med Application Proxy Connector 
 
-Den här artikeln hjälper dig att felsöka problem med Azure Active Directory (Azure AD) Application Proxy-kopplingar. Om du använder tjänsten Application Proxy för fjärråtkomst till ett webbprogram i en lokal, men du har problem med att ansluta till programmet, kan du använda den här flödesschema för att felsöka problem med anslutningen. 
+Den här artikeln hjälper dig att felsöka problem med Azure Active Directory (Azure AD) Application Proxy-kopplingar. Om du använder Application Proxy-tjänsten för fjärråtkomst till ett lokalt webb program, men du har problem med att ansluta till programmet, använder du det här flödesschemat för att felsöka anslutnings problem. 
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Den här artikeln förutsätter att du har installerat programproxy-kopplingen och har problem med. När du felsöker problem med Application Proxy rekommenderar vi att du börjar med det här flödet som felsökning för att avgöra om programproxyanslutningar är korrekt konfigurerade. Om du fortfarande har problem med att ansluta till programmet, följer du felsökning flödet i [felsöka programproxyn programproblem](application-proxy-debug-apps.md).  
+I den här artikeln förutsätter vi att du har installerat Application Proxy Connector och har ett problem. När du felsöker problem med programproxyn rekommenderar vi att du börjar med det här fel söknings flödet för att avgöra om Application Proxy-kopplingar är korrekt konfigurerade. Om du fortfarande har problem med att ansluta till programmet följer du fel söknings flödet i fel söknings program för [programproxy](application-proxy-debug-apps.md).  
 
 
-Mer information om Application Proxy och med hjälp av dess anslutningar finns:
+Mer information om Application Proxy och hur du använder dess anslutningar finns i:
 
 - [Fjärråtkomst till lokala program via programproxy](application-proxy.md)
-- [Anslutningar för programproxy](application-proxy-connectors.md)
-- [Installera och registrera en anslutningsapp](application-proxy-add-on-premises-application.md)
-- [Felsöka problem med Application Proxy och felmeddelanden](application-proxy-troubleshoot.md)
+- [Application Proxy-kopplingar](application-proxy-connectors.md)
+- [Installera och registrera en anslutning](application-proxy-add-on-premises-application.md)
+- [Felsök problem med programproxy och fel meddelanden](application-proxy-troubleshoot.md)
 
-## <a name="flowchart-for-connector-issues"></a>Flödesschema för problem med anslutningen
+## <a name="flowchart-for-connector-issues"></a>Flödes schema för anslutnings problem
 
-Det här flödesschemat vägleder dig genom stegen för felsökning av några av de vanliga connector problemen. Information om varje steg finns i tabellen som följer flödesscheman.
+Det här flödesschemat vägleder dig genom stegen för att felsöka några av de vanligaste anslutnings problemen. Mer information om varje steg finns i tabellen efter flödesschemat.
 
-![Flödesschema som visar stegen för att felsöka en anslutning](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
+![Flödes schema med steg för att felsöka en koppling](media/application-proxy-debug-connectors/application-proxy-connector-debugging-flowchart.png)
 
 |  | Åtgärd | Beskrivning | 
 |---------|---------|---------|
-|1 | Hitta anslutningsgruppen tilldelad till appen | Har du förmodligen en koppling installeras på flera servrar, i så fall anslutningarna bör vara [tilldelats anslutningsappgrupper](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Läs mer om anslutningsapp-grupper i [publicera program på separata nätverk och platser med hjälp av anslutningsappgrupper](application-proxy-connector-groups.md). |
-|2 | Installera connector och tilldela en grupp | Om du inte har en anslutning som är installerat, se [installera och registrera en koppling](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br>Om anslutningen inte är tilldelad till en grupp, se [tilldela anslutningen till en grupp](application-proxy-connector-groups.md#create-connector-groups).<br></br>Om programmet inte är tilldelad till en anslutningsprogramgrupp, se [tilldela programmet till en anslutningsgrupp](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
-|3 | Köra ett test för port på connector-server | Kör en port-test på connector-servern med hjälp av [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) eller andra port testning för att kontrollera att portarna 443 och 80 är öppen.|
-|4 | Konfigurera portar och domäner | [Se till att dina domäner och portar är korrekt konfigurerade](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) för att anslutningsappen ska fungera korrekt, det finns vissa portar som måste vara öppna och URL: er som din server måste kunna komma åt. |
-|5 | Kontrollera om det är en backend-proxy som används | Kontrollera om kopplingarna använder backend-proxyservrar eller kringgå dem. Mer information finns i [felsöka problem med anslutningen proxy och tjänsten anslutningsproblem](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
-|6 | Uppdatera anslutning och updater att använda backend-proxy | Om en backend-proxyserver används, ska du kontrollera att anslutningen använder samma proxy. Mer information om felsökning och konfiguration av kopplingar för att arbeta med proxy-servrar finns i [fungerar med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md). |
-|7 | Läsa in appens interna URL: en på anslutningsservern | Läsa in appens interna URL: en på connector-servern. |
-|8 | Kontrollera interna nätverksanslutningar | Det finns ett anslutningsproblem i det interna nätverket som det här felsökning flödet inte kan diagnostisera. Programmet måste vara tillgänglig internt för kopplingar ska fungera. Du kan aktivera och visa händelseloggar för anslutningen, enligt beskrivningen i [programproxyanslutningar](application-proxy-connectors.md#under-the-hood). |
-|9 | Förlänga timeout-värdet på serverdelen | I den **ytterligare inställningar** för ditt program, ändra den **tidsgräns för Backend-programmet** att ställa in **lång**. Se [lägga till en lokal app till Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). |
-|10 | Om problemen kvarstår så rikta specifikt flöde problem, granska app och SSO felsökning flöden | Använd den [felsöka programproxyn programproblem](application-proxy-debug-apps.md) felsöka flöde. |
+|1 | Hitta den kopplings grupp som har tilldelats appen | Du har förmodligen en anslutning som är installerad på flera servrar, i vilket fall kopplingarna ska [tilldelas till anslutnings grupper](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups). Läs mer om anslutnings grupper i [Publicera program i separata nätverk och platser med anslutnings grupper](application-proxy-connector-groups.md). |
+|2 | Installera anslutningen och tilldela en grupp | Om du inte har installerat en anslutning kan du läsa [Installera och registrera en anslutning](application-proxy-add-on-premises-application.md#install-and-register-a-connector).<br></br> Om du har problem med att installera anslutningen, se [problem med att installera anslutningen](application-proxy-connector-installation-problem.md).<br></br> Om kopplingen inte är kopplad till en grupp, se [tilldela kopplingen till en grupp](application-proxy-connector-groups.md#create-connector-groups).<br></br>Om programmet inte har tilldelats någon kopplings grupp, se [tilldela programmet till en kopplings grupp](application-proxy-connector-groups.md#assign-applications-to-your-connector-groups).|
+|3 | Köra ett port test på anslutnings servern | På kopplings servern kör du ett port test genom att använda [telnet](https://docs.microsoft.com/windows-server/administration/windows-commands/telnet) eller något annat port test verktyg för att kontrol lera om portarna 443 och 80 är öppna.|
+|4 | Konfigurera domäner och portar | [Kontrol lera att dina domäner och portar är korrekt konfigurerade](application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment) För att anslutningen ska fungera korrekt finns det vissa portar som måste vara öppna och URL: er som servern måste kunna komma åt. |
+|5 | Kontrol lera om en server dels proxyserver används | Kontrol lera om anslutningarna använder Server dels proxyservrar eller kringgå dem. Mer information finns i [Felsöka problem med anslutnings proxy och tjänst anslutnings problem](application-proxy-configure-connectors-with-proxy-servers.md#troubleshoot-connector-proxy-problems-and-service-connectivity-issues). |
+|6 | Uppdatera anslutningen och uppdateraren så att den använder Server dels proxyn | Om en backend-proxy används bör du kontrol lera att anslutningen använder samma proxy. Information om hur du felsöker och konfigurerar anslutningar för att arbeta med proxyservrar finns i [arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md). |
+|7 | Läs in appens interna URL på anslutnings servern | Läs in appens interna URL på kopplings servern. |
+|8 | Kontrol lera intern nätverks anslutning | Det finns ett anslutnings problem i det interna nätverket som det här fel söknings flödet inte kan diagnostisera. Programmet måste vara tillgängligt internt för att anslutningarna ska fungera. Du kan aktivera och Visa händelse loggar för Connector enligt beskrivningen i [Application Proxy-kopplingar](application-proxy-connectors.md#under-the-hood). |
+|9 | Förlänga timeout-värdet på Server delen | I de **ytterligare inställningarna** för ditt program ändrar du timeout-inställningen för **Server del programmet** till **lång**. Se [lägga till en lokal app i Azure AD](application-proxy-add-on-premises-application.md#add-an-on-premises-app-to-azure-ad). |
+|10 | Om problemen kvarstår kan du läsa mer om specifika flödes problem, granska fel söknings flöden för appar och SSO | Använd fel söknings programmet för [programproxy](application-proxy-debug-apps.md) för att felsöka flödet. |
 
 ## <a name="next-steps"></a>Nästa steg
 
 
-* [Publicera program på separata nätverk och platser med hjälp av anslutningsapp-grupper](application-proxy-connector-groups.md)
+* [Publicera program i separata nätverk och platser med anslutnings grupper](application-proxy-connector-groups.md)
 * [Arbeta med befintliga lokala proxyservrar](application-proxy-configure-connectors-with-proxy-servers.md)
-* [Felsöka Application Proxy och anslutning](application-proxy-troubleshoot.md)
-* [Tyst installation av Azure AD Application Proxy Connector](application-proxy-register-connector-powershell.md)
+* [Felsöka Application Proxy och anslutnings fel](application-proxy-troubleshoot.md)
+* [Tyst installation av Azure AD-programproxy Connector](application-proxy-register-connector-powershell.md)

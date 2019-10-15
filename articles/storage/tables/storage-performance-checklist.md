@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: cb9f37d5e2c33984189c90857b409d3a59e74e59
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: d9fe4ee761a7ff9570bf0df61a8990f82640b4f7
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303122"
+ms.locfileid: "72311603"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check lista för prestanda och skalbarhet för tabell lagring
 
@@ -47,15 +47,15 @@ Den här artikeln ordnar beprövade metoder för prestanda i en check lista som 
 | &nbsp; |Tabeller och partitioner |[Har du partitionerat dina data korrekt?](#schema) |
 | &nbsp; |Varma partitioner |[Undviker du tilläggs mönster för tillägg och lägga?](#append-only-and-prepend-only-patterns) |
 | &nbsp; |Varma partitioner |[Är dina infogningar/uppdateringar spridda över flera partitioner?](#high-traffic-data) |
-| &nbsp; |Fråge omfång |[Har du utformat ditt schema för att tillåta att punkt frågor används i de flesta fall och tabell frågor som ska användas sparsamt?](#query-scope) |
+| &nbsp; |Frågeomfång |[Har du utformat ditt schema för att tillåta att punkt frågor används i de flesta fall och tabell frågor som ska användas sparsamt?](#query-scope) |
 | &nbsp; |Frågans densitet |[Söker dina frågor normalt bara igenom och returnerar rader som programmet kommer att använda?](#query-density) |
 | &nbsp; |Begränsa returnerade data |[Använder du filtrering för att undvika att returnera entiteter som inte behövs?](#limiting-the-amount-of-data-returned) |
 | &nbsp; |Begränsa returnerade data |[Använder du projektion för att undvika att returnera egenskaper som inte behövs?](#limiting-the-amount-of-data-returned) |
 | &nbsp; |Denormalisering |[Har du avnormaliserat dina data så att du undviker ineffektiva frågor eller flera Läs begär anden när du försöker hämta data?](#denormalization) |
-| &nbsp; |Infoga/uppdatera/ta bort |[Är du batch-begäranden som måste vara transaktionella eller som kan utföras samtidigt för att minska antalet turer?](#batching) |
-| &nbsp; |Infoga/uppdatera/ta bort |[Undviker du att hämta en entitet bara för att avgöra om du vill anropa INSERT eller Update?](#upsert) |
-| &nbsp; |Infoga/uppdatera/ta bort |[Har du funderat på att lagra data serier som ofta hämtas tillsammans i en enskild entitet som egenskaper i stället för flera entiteter?](#storing-data-series-in-a-single-entity) |
-| &nbsp; |Infoga/uppdatera/ta bort |[För entiteter som alltid ska hämtas tillsammans och som kan skrivas i batchar (till exempel Time Series-data), har du funderat på att använda blobbar i stället för tabeller?](#storing-structured-data-in-blobs) |
+| &nbsp; |Infoga, uppdatera och ta bort |[Är du batch-begäranden som måste vara transaktionella eller som kan utföras samtidigt för att minska antalet turer?](#batching) |
+| &nbsp; |Infoga, uppdatera och ta bort |[Undviker du att hämta en entitet bara för att avgöra om du vill anropa INSERT eller Update?](#upsert) |
+| &nbsp; |Infoga, uppdatera och ta bort |[Har du funderat på att lagra data serier som ofta hämtas tillsammans i en enskild entitet som egenskaper i stället för flera entiteter?](#storing-data-series-in-a-single-entity) |
+| &nbsp; |Infoga, uppdatera och ta bort |[För entiteter som alltid ska hämtas tillsammans och som kan skrivas i batchar (till exempel Time Series-data), har du funderat på att använda blobbar i stället för tabeller?](#storing-structured-data-in-blobs) |
 
 ## <a name="scalability-targets"></a>Skalbarhets mål
 
@@ -254,7 +254,7 @@ Om klient programmet bara behöver en begränsad uppsättning egenskaper från e
 
 Till skillnad från att arbeta med relations databaser, är beprövade metoder för att effektivt fråga tabell data att avnormalisera dina data. Det innebär att duplicera samma data i flera entiteter (en för varje nyckel som du kan använda för att hitta data) för att minimera antalet entiteter som en fråga måste genomsökas för att hitta de data som klienten behöver, i stället för att behöva söka igenom ett stort antal entiteter för att hitta de data som din app ogrampool-behov. I en e-handelswebbplats kanske du till exempel vill hitta en order både i kund-ID: t (meddela mig till den här kundens order) och efter datumet (ge mig beställningar på ett datum). I Table Storage är det bäst att lagra entiteten (eller en referens till den) två gånger – en gång med tabell namn, PN och kund för att under lätta sökning efter kund-ID, en gång för att under lätta att hitta den med datumet.  
 
-### <a name="insertupdatedelete"></a>Infoga/uppdatera/ta bort
+### <a name="insert-update-and-delete"></a>Infoga, uppdatera och ta bort
 
 I det här avsnittet beskrivs beprövade metoder för att ändra entiteter som lagras i Table service.  
 

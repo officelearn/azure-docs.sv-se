@@ -1,5 +1,5 @@
 ---
-title: 'Azure Backup: Återställa virtuella datorer med hjälp av Azure Portal'
+title: 'Azure Backup: återställa virtuella datorer med hjälp av Azure Portal'
 description: Återställa en virtuell Azure-dator från en återställnings punkt med hjälp av Azure Portal
 ms.reviewer: geg
 author: dcurwin
@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: dacurwin
-ms.openlocfilehash: c479249a3a09b625e37fb80e7b73dcc8a1268622
-ms.sourcegitcommit: cd70273f0845cd39b435bd5978ca0df4ac4d7b2c
+ms.openlocfilehash: 759be3691ba44c92033ec71fd031f9c6e47d6cb4
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71098369"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311894"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Så här återställer du Azure VM-data i Azure Portal
 
@@ -22,7 +22,7 @@ Den här artikeln beskriver hur du återställer virtuella Azure-Datadata från 
 
 
 
-## <a name="restore-options"></a>Återställningsalternativ
+## <a name="restore-options"></a>Återställnings alternativ
 
 Azure Backup erbjuder ett antal olika sätt att återställa en virtuell dator.
 
@@ -42,12 +42,12 @@ Azure Backup erbjuder ett antal olika sätt att återställa en virtuell dator.
 
 Information om lagrings konton:
 
-- **Skapa virtuell dator**: När du skapar en ny virtuell dator placeras den virtuella datorn i det lagrings konto som du anger.
-- **Återställ disk**: När du återställer en disk kopieras disken till det lagrings konto som du anger. Återställnings jobbet genererar en mall som du kan hämta och använda för att ange anpassade VM-inställningar. Den här mallen placeras på det angivna lagrings kontot.
-- **Ersätt disk**: När du ersätter en disk på en befintlig virtuell dator tar Azure Backup en ögonblicks bild av den befintliga virtuella datorn innan disken ersätts. Ögonblicks bilden lagras på den mellanlagringsplats (lagrings konto) som du anger. Det här lagrings kontot används för att tillfälligt lagra ögonblicks bilden under återställnings processen och vi rekommenderar att du skapar ett nytt konto för att göra detta, vilket enkelt kan tas bort efteråt.
-- **Lagrings konto plats**: Lagrings kontot måste finnas i samma region som valvet. Endast dessa konton visas. Om det inte finns några lagrings konton på platsen måste du skapa ett.
-- **Lagrings typ**: Blob Storage stöds inte.
-- **Redundans för lagring**: ZRS (Zone redundant Storage) stöds inte. Information om replikering och redundans för kontot visas inom parentes efter konto namnet. 
+- **Skapa virtuell dator**: när du skapar en ny virtuell dator placeras den virtuella datorn i det lagrings konto som du anger.
+- **Återställ disk**: när du återställer en disk kopieras disken till det lagrings konto som du anger. Återställnings jobbet genererar en mall som du kan hämta och använda för att ange anpassade VM-inställningar. Den här mallen placeras på det angivna lagrings kontot.
+- **Ersätt disk**: när du ersätter en disk på en befintlig virtuell dator tar Azure Backup en ögonblicks bild av den befintliga virtuella datorn innan disken ersätts. Ögonblicks bilden lagras på den mellanlagringsplats (lagrings konto) som du anger. Det här lagrings kontot används för att tillfälligt lagra ögonblicks bilden under återställnings processen och vi rekommenderar att du skapar ett nytt konto för att göra detta, vilket enkelt kan tas bort efteråt.
+- **Lagrings konto plats**: lagrings kontot måste finnas i samma region som valvet. Endast dessa konton visas. Om det inte finns några lagrings konton på platsen måste du skapa ett.
+- **Lagrings typ**: blob-lagring stöds inte.
+- **Lagrings redundans**: zon redundant lagring (ZRS) stöds inte. Information om replikering och redundans för kontot visas inom parentes efter konto namnet. 
 - **Premium-lagring**:
     - När du återställer icke-Premium-datorer stöds inte Premium Storage-konton.
     - När du återställer hanterade virtuella datorer stöds inte Premium Storage-konton som kon figurer ATS med nätverks regler.
@@ -63,18 +63,18 @@ Om du inte har behörighet kan du [återställa en disk](#restore-disks)och seda
 
 ## <a name="select-a-restore-point"></a>Välj en återställnings punkt
 
-1. I valvet som är associerat med den virtuella dator som du vill återställa klickar du på **säkerhetskopiera objekt** > **Azure virtuell dator**.
+1. I valvet som är associerat med den virtuella dator som du vill återställa klickar du på **säkerhets kopierings objekt** > **virtuell Azure-dator**.
 2. Klicka på en virtuell dator. Återställnings punkter från de senaste 30 dagarna visas som standard på VM-instrumentpanelen. Du kan visa återställnings punkter som är äldre än 30 dagar eller filtrera för att hitta återställnings punkter baserat på datum, tidsintervall och olika typer av ögonblicks bilds konsekvens.
 3. Klicka på **Återställ virtuell dator**om du vill återställa den virtuella datorn.
 
-    ![Återställningspunkt](./media/backup-azure-arm-restore-vms/restore-point.png)
+    ![Återställnings punkt](./media/backup-azure-arm-restore-vms/restore-point.png)
 
 4. Välj en återställnings punkt som ska användas för återställningen.
 
 ## <a name="choose-a-vm-restore-configuration"></a>Välj en konfiguration för återställning av virtuell dator
 
 1. I **Återställ konfiguration**väljer du ett återställnings alternativ:
-    - **Skapa ny**: Använd det här alternativet om du vill skapa en ny virtuell dator. Du kan skapa en virtuell dator med enkla inställningar eller återställa en disk och skapa en anpassad virtuell dator.
+    - **Skapa nytt**: Använd det här alternativet om du vill skapa en ny virtuell dator. Du kan skapa en virtuell dator med enkla inställningar eller återställa en disk och skapa en anpassad virtuell dator.
     - **Ersätt befintlig**: Använd det här alternativet om du vill ersätta diskarna på en befintlig virtuell dator.
 
         ![Guiden Återställ konfiguration](./media/backup-azure-arm-restore-vms/restore-configuration.png)
@@ -85,7 +85,7 @@ Om du inte har behörighet kan du [återställa en disk](#restore-disks)och seda
 
 Som en av [återställnings alternativen](#restore-options)kan du snabbt skapa en virtuell dator med grundläggande inställningar från en återställnings punkt.
 
-1. I **Återställ konfiguration** > **Skapa ny** > **återställnings typ**väljer du **skapa en virtuell dator**.
+1. I **återställnings konfiguration** > **Skapa ny** **typ av återställning** >  väljer du **skapa en virtuell dator**.
 2. I **namn på virtuell dator**anger du en virtuell dator som inte finns i prenumerationen.
 3. I **resurs grupp**väljer du en befintlig resurs grupp för den nya virtuella datorn eller skapar en ny med ett globalt unikt namn. Om du tilldelar ett namn som redan finns tilldelar Azure gruppen samma namn som den virtuella datorn.
 4. I **virtuellt nätverk**väljer du det VNet som den virtuella datorn ska placeras i. Alla virtuella nätverk som är associerade med prenumerationen visas. Välj under nätet. Det första under nätet är valt som standard.
@@ -154,7 +154,7 @@ Det finns ett antal vanliga scenarier där du kan behöva återställa virtuella
 **Scenario** | **Riktlinjer**
 --- | ---
 **Återställa virtuella datorer med Hybrid Use-förmånen** | Om en virtuell Windows-dator använder [Hybrid Use Benefit (hubb)-licensiering](../virtual-machines/windows/hybrid-use-benefit-licensing.md), återställa diskarna och skapa en ny virtuell dator med hjälp av den angivna mallen (med **licens typen** inställd på **Windows_Server**) eller PowerShell.  Den här inställningen kan också användas när du har skapat den virtuella datorn.
-**Återställa virtuella datorer under en Azure Data Center-katastrof** | Om valvet använder GRS och det primära data centret för den virtuella datorn slutar fungera, kan Azure Backup återställa säkerhetskopierade virtuella datorer till det kopplade data centret. Du väljer ett lagrings konto i det kopplade data centret och återställer det som normalt. Azure Backup använder beräknings tjänsten på den kopplade platsen för att skapa den återställda virtuella datorn. [Läs mer](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) om data Center återhämtning.
+**Återställa virtuella datorer under en Azure Data Center-katastrof** | Om valvet använder GRS och det primära data centret för den virtuella datorn slutar fungera, kan Azure Backup återställa säkerhetskopierade virtuella datorer till det kopplade data centret. Du väljer ett lagrings konto i det kopplade data centret och återställer det som normalt. Azure Backup använder beräknings tjänsten i den kopplade regionen för att skapa den återställda virtuella datorn. [Läs mer](../resiliency/resiliency-technical-guidance-recovery-loss-azure-region.md) om data Center återhämtning.
 **Återställa en virtuell dator med en virtuell domänkontrollant i en enda domän** | Återställ den virtuella datorn som vilken annan virtuell dator som helst. Tänk på följande:<br/><br/> Från ett Active Directory perspektiv är den virtuella Azure-datorn precis som vilken annan virtuell dator som helst.<br/><br/> Återställnings läge för katalog tjänster (DSRM) är också tillgängligt, så alla Active Directory återställnings scenarier är lönsamma. [Läs mer](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/virtualized-domain-controllers-hyper-v) om säkerhets kopierings-och återställnings överväganden för virtualiserade domänkontrollanter.
 **Återställa flera virtuella datorer i en enda domän** | Om andra domänkontrollanter i samma domän kan nås över nätverket kan domänkontrollanten återställas på samma sätt som vilken virtuell dator som helst. Om det är den sista återstående domänkontrollanten i domänen, eller om en återställning i ett isolerat nätverk utförs, använder du en [skogs återställning](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
 **Återställa flera domäner i en skog** | Vi rekommenderar en [skogs återställning](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-single-domain-in-multidomain-recovery).
@@ -176,9 +176,9 @@ När du har utlöst återställnings åtgärden skapar säkerhets kopierings tj�
 
 2. Om du vill övervaka återställnings förloppet klickar du på återställnings jobb med statusen **pågår**. Förlopps indikatorn visas, som visar information om återställnings förloppet:
 
-    - **Beräknad återställnings tid**: I början tillhandahåller den tid som krävs för att slutföra återställnings åtgärden. När åtgärden fortskrider, minskar den tid det tar att minska och når noll när återställnings åtgärden slutförts.
+    - **Beräknad återställnings tid**: anger från början den tid som krävs för att slutföra återställnings åtgärden. När åtgärden fortskrider, minskar den tid det tar att minska och når noll när återställnings åtgärden slutförts.
     - **Procent andel av återställningen**. Visar procent andelen återställnings åtgärd som är klar.
-    - **Antal överförda byte**: Om du återställer genom att skapa en ny virtuell dator visas de byte som överfördes mot det totala antalet byte som ska överföras.
+    - **Antal överförda byte**: om du återställer genom att skapa en ny virtuell dator visas de byte som överfördes mot det totala antalet byte som ska överföras.
 
 ## <a name="post-restore-steps"></a>Steg efter återställning
 

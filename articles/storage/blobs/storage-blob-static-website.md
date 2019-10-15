@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 85f7ea11638278a010b2a94d9c6472857f51b687
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 8de36ea9f7bb77443b22e038172ee69bb8435b29
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710175"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311219"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Statisk webbplats som är värd för i Azure Storage
 
@@ -50,15 +50,15 @@ Du kan använda något av dessa verktyg för att ladda upp innehåll till **$Web
 
 Användare kan visa webbplats innehåll från en webbläsare med hjälp av den offentliga URL: en för webbplatsen. Du kan hitta URL: en med hjälp av Azure Portal, Azure CLI eller PowerShell. Använd den här tabellen som en guide.
 
-|Verktyg| Riktlinjer |
+|Verktyg| Vägledning |
 |----|----|
-|**Azure Portal** | [Hitta webbplats-URL: en med hjälp av Azure Portal](storage-blob-static-website-how-to.md#portal-find-url) |
+|**Azure-portalen** | [Hitta webbplats-URL: en med hjälp av Azure Portal](storage-blob-static-website-how-to.md#portal-find-url) |
 |**Azure CLI** | [Hitta webbplats-URL: en med hjälp av Azure CLI](storage-blob-static-website-how-to.md#cli-find-url) |
 |**Azure PowerShell modul** | [Hitta webbplats-URL: en med hjälp av PowerShell](storage-blob-static-website-how-to.md#powershell-find-url) |
 
 URL: en för din webbplats innehåller en regional kod. Till exempel URL: en `https://contosoblobaccount.z22.web.core.windows.net/` innehåller regional kod `z22`.
 
-Även om koden måste vara en webb adress är den bara för intern användning och du behöver inte använda koden på något annat sätt.
+Även om koden måste finnas i URL: en, är den bara för intern användning och du behöver inte använda koden på något annat sätt.
 
 Det index dokument som du anger när du aktiverar statisk webbplats värd visas när användarna öppnar platsen och inte anger en fil (till exempel: `https://contosoblobaccount.z22.web.core.windows.net`).  
 
@@ -89,7 +89,7 @@ När du uppdaterar din statiska webbplats måste du ta bort det cachelagrade inn
 >
 > Användning av anpassade domäner över HTTPS kräver att Azure CDN används just nu.
 
-## <a name="custom-domain-names"></a>Anpassade domännamn
+## <a name="custom-domain-names"></a>Egna domännamn
 
 Du kan göra din statiska webbplats tillgänglig via en anpassad domän. Mer information finns i [Konfigurera ett anpassat domän namn för ditt Azure Storage-konto](storage-custom-domain-name.md).
 
@@ -111,6 +111,6 @@ Om du vill aktivera mått på dina statiska webbplats sidor, se [Aktivera mått 
 * [Använda Azure CDN för att få åtkomst till blobbar med anpassade domäner över HTTPS](storage-https-custom-domain-cdn.md)
 * [Konfigurera ett anpassat domän namn för din BLOB eller webb slut punkt](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
+* [Azure Apptjänst](/azure/app-service/overview)
 * [Bygg din första server lös webbapp](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [Självstudier: Värd för din domän i Azure DNS @ no__t-0
+* [Självstudie: vara värd för din domän i Azure DNS](../../dns/dns-delegate-domain-azure-dns.md)

@@ -7,18 +7,21 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 9b187696524e96bc13254a24fd8f39d5aeb89e7d
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 0e7516fc4874e4cbc387f2f494efc6ef745d64f7
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676686"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311586"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>Skapa en profilcontainer för en värdpool med hjälp av en filresurs
 
 Tjänsten Windows Virtual Desktop tillhandahåller FSLogix profil behållare som den rekommenderade användar profil lösningen. Vi rekommenderar inte att du använder UPD-lösningen (User profile disk) som kommer att vara inaktuell i framtida versioner av Windows Virtual Desktop.
 
 I den här artikeln får du veta hur du konfigurerar en FSLogix profil behållar resurs för en adresspool med en virtuell dator baserad fil resurs. Mer FSLogix-dokumentation finns på [FSLogix-webbplatsen](https://docs.fslogix.com/).
+
+>[!NOTE]
+>Om du letar efter jämförelse material om de olika lagrings alternativen för FSLogix Profile container på Azure, se [lagrings alternativ för FSLogix profil behållare](store-fslogix-profile.md).
 
 ## <a name="create-a-new-virtual-machine-that-will-act-as-a-file-share"></a>Skapa en ny virtuell dator som fungerar som en fil resurs
 
@@ -62,10 +65,10 @@ Om du vill konfigurera de virtuella datorerna med FSLogix-programvaran gör du f
 6. Skapa en nyckel med namnet **profiler**.
 7. Skapa följande värden för profil nyckeln:
 
-| Name                | type               | Data/värde                        |
+| Namn                | Typ               | Data/värde                        |
 |---------------------|--------------------|-----------------------------------|
-| Aktiverad             | DWORD              | 1                                 |
+| Enabled             | DWORD              | 1                                 |
 | VHDLocations        | Värde med flera strängar | "Nätverks Sök väg för fil resurs"     |
 
 >[!IMPORTANT]
->Vi rekommenderar att du inte öppnar den inkommande port 3389 på dina virtuella datorer för att skydda din Windows-miljö för virtuella skriv bord i Azure. Virtuella Windows-datorer kräver inte en öppen inkommande port 3389 för att användare ska kunna komma åt värddatorns virtuella datorer. Om du måste öppna port 3389 för fel söknings syfte rekommenderar vi att du använder [just-in-Time VM-åtkomst](https://docs.microsoft.com/azure/security-center/security-center-just-in-time).
+>Vi rekommenderar att du inte öppnar den inkommande port 3389 på dina virtuella datorer för att skydda din Windows-miljö för virtuella skriv bord i Azure. Virtuella Windows-datorer kräver inte en öppen inkommande port 3389 för att användare ska kunna komma åt värddatorns virtuella datorer. Om du måste öppna port 3389 för fel söknings syfte rekommenderar vi att du använder [just-in-Time VM-åtkomst](../security-center/security-center-just-in-time.md).

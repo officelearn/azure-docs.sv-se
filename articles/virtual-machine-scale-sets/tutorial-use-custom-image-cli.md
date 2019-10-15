@@ -16,15 +16,15 @@ ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: aafec48f86ee032b112e9bb1100f82fbb3b363ed
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 6368a36eaa2e6832f22a13f20bc35d66c4425b4b
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66170490"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311578"
 ---
-# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudier: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
-När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här självstudiekursen får du lära du dig att:
+# <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Självstudie: Skapa och använd en anpassad avbildning för VM-skalningsuppsättningar med Azure CLI
+När du skapar en skalningsuppsättning, kan du ange en avbildning som ska användas när de virtuella datorinstanserna distribueras. Om du vill minska antalet uppgifter när de virtuella datorinstanserna distribueras, kan du använda en anpassad virtuell datoravbildning. Den här anpassade virtuella datoravbildningen inkluderar alla nödvändiga programinstallationer eller konfigurationer. Alla virtuella datorinstanser som skapats i skalningsuppsättningen använder den anpassade virtuella datoravbildningen och är redo att hantera din programtrafik. I den här guiden får du lära du dig hur man:
 
 > [!div class="checklist"]
 > * Skapa och anpassa en virtuell dator
@@ -98,6 +98,8 @@ az vm generalize --resource-group myResourceGroup --name myVM
 Det kan ta några minuter att frigöra och generalisera den virtuella datorn.
 
 Nu kan du skapa en avbildning av den virtuella datorn med [az image create](/cli//azure/image). Följande exempel skapar en avbildning med namnet *myImage* från din virtuella dator:
+
+> Lägg Om resurs gruppen och den virtuella datorns plats skiljer sig åt kan du lägga till parametern `--location` till nedanstående kommandon för att ange platsen för den virtuella käll datorn som används för att skapa avbildningen. 
 
 ```azurecli-interactive
 az image create \

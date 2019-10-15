@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/26/2019
 ms.author: helohr
-ms.openlocfilehash: dd3b68d600edcbbae73fff542e677d3ebc6b16ee
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 4e714b872ae43eb313efe549c77f5610342f430c
+ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390823"
+ms.lasthandoff: 10/14/2019
+ms.locfileid: "72311630"
 ---
 # <a name="create-an-fslogix-profile-container-for-a-host-pool-using-azure-netapp-files"></a>Skapa en FSLogix profil behållare för en värd-pool med hjälp av Azure NetApp Files
 
@@ -29,7 +29,10 @@ Anvisningarna i den här hand boken är specifika för användare av virtuella W
 >[!NOTE]
 >Den här artikeln beskriver inte metod tips för att skydda åtkomsten till Azure NetApp Filess resursen.
 
-## <a name="prerequisites"></a>Förutsättningar
+>[!NOTE]
+>Om du letar efter jämförelse material om de olika lagrings alternativen för FSLogix Profile container på Azure, se [lagrings alternativ för FSLogix profil behållare](store-fslogix-profile.md).
+
+## <a name="prerequisites"></a>Krav
 
 Innan du kan skapa en FSLogix profil behållare för en adresspool måste du:
 
@@ -41,7 +44,7 @@ Innan du kan skapa en FSLogix profil behållare för en adresspool måste du:
 
 För att komma igång måste du konfigurera ett Azure NetApp Files-konto.
 
-1. Logga in på [Azure Portal](https://portal.azure.com). Kontrol lera att ditt konto har behörighet som deltagare eller administratör.
+1. Logga in på [Azure-portalen](https://portal.azure.com). Kontrol lera att ditt konto har behörighet som deltagare eller administratör.
 
 2. Välj **Azure Cloud Shell ikonen** till höger om Sök fältet för att öppna Azure Cloud Shell.
 
@@ -131,7 +134,7 @@ Därefter måste du skapa en ny volym.
     - För **virtuellt nätverk**väljer du ett befintligt virtuellt nätverk som har anslutning till domänkontrollanten från den nedrullningsbara menyn.
     - Under **undernät**väljer du **Skapa nytt**. Tänk på att det här under nätet ska delegeras till Azure NetApp Files.
 
-3.  Välj **Nästa: Protokoll \> förattöppna** fliken protokoll och konfigurera dina volym åtkomst parametrar. \>
+3.  Välj **Nästa: protokoll \> @ no__t-2** för att öppna fliken protokoll och konfigurera dina volym åtkomst parametrar.
 
 ## <a name="configure-volume-access-parameters"></a>Konfigurera parametrar för volym åtkomst
 
@@ -157,7 +160,7 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 2. Zippa upp den hämtade filen.
 
-3. I filen går du till **x64** > -**versioner** och kör **FSLogixAppsSetup. exe**. Installations menyn öppnas.
+3. I filen går du till **x64**- > -**versioner** och kör **FSLogixAppsSetup. exe**. Installations menyn öppnas.
 
 4.  Om du har en produkt nyckel anger du den i text rutan produkt nyckel.
 
@@ -165,11 +168,11 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 6. Välj **Installera**.
 
-7. Gå till **C:\\program files\\FSLogix\\-appar** för att bekräfta att agenten är installerad.
+7. Gå till **C: \\Program-filer @ no__t-2FSLogix @ no__t-3Apps** för att bekräfta att agenten är installerad.
 
 8. Från Start-menyn kör du **regedit** som administratör.
 
-9. Navigera till **\\datorns\\HKEY_LOCAL_MACHINE\\-program vara FSLogix**.
+9. Navigera till **datorn @ no__t-1HKEY_LOCAL_MACHINE @ no__t-2software @ no__t-3FSLogix**.
 
 10. Skapa en nyckel med namnet **profiler**.
 
@@ -216,7 +219,7 @@ Det här avsnittet baseras på [skapa en profil behållare för en värdbaserad 
 
 5. Gå till fliken **Översikt** och bekräfta att FSLogix profil container använder utrymme.
 
-6. Anslut direkt till en virtuell dator del av den värdbaserade poolen med hjälp av fjärr skrivbord och öppna **Utforskaren.** Navigera sedan till **monterings Sök vägen** (i följande exempel är \\ \\monterings Sök vägen ANF-SMB-3863.gt1107.onmicrosoft.com\\ANF-VOL).
+6. Anslut direkt till en virtuell dator del av den värdbaserade poolen med hjälp av fjärr skrivbord och öppna **Utforskaren.** Navigera sedan till **monterings Sök vägen** (i följande exempel är monterings sök vägen @no__t -1\\anf-SMB-3863.gt1107.onmicrosoft.com @ no__t-3ANF-VOL).
 
    I den här mappen bör det finnas en profil-VHD (eller VHDX) som den som finns i följande exempel.
 

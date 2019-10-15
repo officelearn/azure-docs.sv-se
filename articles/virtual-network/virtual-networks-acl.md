@@ -34,7 +34,7 @@ ACL: er kan konfigureras med hjälp av antingen PowerShell eller Azure Portal. I
 Med hjälp av nätverks-ACL: er kan du göra följande:
 
 * Selektivt tillåta eller neka inkommande trafik baserat på IPv4-adress intervall för fjärr-undernät till en slut punkt för indata för virtuell dator.
-* Svartlista IP-adresser
+* Blockeringslista IP-adresser
 * Skapa flera regler per virtuell dator slut punkt
 * Använd regel ordning för att se till att rätt regel uppsättning tillämpas på en angiven virtuell dator slut punkt (från lägsta till högsta)
 * Ange en ACL för en speciell IPv4-adress för fjärr-undernät.

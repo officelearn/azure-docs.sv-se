@@ -150,7 +150,7 @@ Tiden och slutlig SSPK licenstagare kan skicka in tekniska frågor till [ smooth
 * SmarDTV S.A.
 * SoftAtHome
 * Sony Corporation
-* Begränsad TCL utländskt nummer marknadsföring (Offshore kommersiell Macao)
+* Begränsad TCL utländskt nummer marknadsföring (Offshore kommersiell Macao SAR)
 * Technicolor Delivery Technologies, SAS
 * Tongfang Global Ltd.
 * Översta Victory investeringar, Ltd.

@@ -56,8 +56,8 @@ Följande tabell innehåller information om täckning för Azure Maps-mobilitets
 |--------|---------|
 | Australien      | <p>Adelaide, Alice fjädrar, Björk, Brisbane, Bundaberg QLD, Burnie, Cairns, Canberra, Darwin, Gladstone, Hobart, Innisfail, Launceston, mackay serien, magnetiska Island, Maryborough Hervey Bay, Melbourne, New South Wales, Perth, RockHampton, södra östra Queensland, Sydney, Toowoomba, Townsville, Victoria, Warwick, Yeppoon</p> |
 | Kina | <p> Changchun, Changsha, Chengdu, Chongqing, Dalian, Datong, Dongguan, Hangzhou, Jiangyin, Jinan, Nanjing, Nantong, Ningbo, Pingdingshan, Qingdao, Shenyang, Suzhou, Tangshan, Tianjin, Weifang, Wuhan, Wuxi, Yantai, Yixing, Zhuhai, Shanghai, Beijing, Guangzhou, Shenzhen, Zhengzhou</P>| 
-| Hongkong SAR | Hongkong *|
-| Macao SAR | Macau*|
+| Hongkong SAR | Hongkong SAR *|
+| Macao SAR | Macao SAR*|
 | Indien | Ahmedabad, Bengaluru, Delhi, Mumbai, Mysuru|
 | Indonesien | Bandung, Banyuwangi, Batam, Denpasar, Jakarta, Kediri, Malang, Palembang, Semarang, Surabaya, Surakarta, Yogyakarta |
 | Japan | Shizuoka Prefecture, Tokyo, Wakkanai, Yamanashi Prefecture |

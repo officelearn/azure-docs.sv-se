@@ -99,7 +99,7 @@ Den här artikeln visar en lista över länder och regioner som används av den 
 
         - ME(Montenegro)
 
-        - MK (norra Makedonien)
+        - MK (Nordmakedonien)
 
         - MT(Malta)
 

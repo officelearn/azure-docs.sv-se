@@ -274,7 +274,7 @@ Maps har dock inte samma grad av information och Precision för alla regioner. F
 | Liechtenstein             | ✓ | ✓ |
 | Litauen                 | ✓ | ✓ |
 | Luxemburg                | ✓ | ✓ |
-| Norra Makedonien           | ✓ | ✓ |
+| Nordmakedonien           | ✓ | ✓ |
 | Malta                     | ✓ | ✓ |
 | Moldavien                   | ✓ | ✓ |
 | Monaco                    | ✓ | ✓ |

@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 09/09/2019
 ms.openlocfilehash: b48e0cddfe4880382147e7bfb634335f10d6f5f9
 ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: sv-SE
 ms.lasthandoff: 10/08/2019
 ms.locfileid: "72028845"
@@ -242,7 +242,7 @@ Du får ett popup-meddelande och ett e-postmeddelande som innehåller en länk t
 | Azure-licens typ: Betala per användning| Kund, order | Slutanvändaren debiterar Azure och Marketplace-erbjudandet genom ett "betala per användning"-avtal, undertecknat direkt med Microsoft.||
 | Moln instans namn| Beställa| Den Microsoft Cloud där en VM-distribution ägdes.||
 | Moln instans namn: Azure Global| Beställa| Det offentliga globala Microsoft-molnet.|| |
-| Moln instans namn: Azure Government | Beställa| Myndighets-/regionsspecifika Microsoft-moln för någon av följande myndigheter: Kina, Tyskland eller USA av Amerika.| |
+| Moln instans namn: Azure Government | Beställa| Myndighets-/regionsspecifika Microsoft-moln för någon av följande myndigheter: Kina, Tyskland eller USA.| |
 | Kund ort| Kunden| Orts namnet som tillhandahålls av kunden. Staden kan skilja sig från staden i en kunds Azure-prenumeration.||
 | Kundens kommunikations språk  | Kunden| Det språk som kunden föredrar för kommunikation.||
 | Kund företags namn | Kund, order | Företags namnet som tillhandahålls av kunden. Namnet får inte vara detsamma som staden i en kunds Azure-prenumeration.|  |

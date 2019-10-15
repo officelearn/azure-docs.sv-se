@@ -96,7 +96,7 @@ Företags distributioner har vanligt vis arbets belastningar som delas över fle
     - **Hubbens vNet-undernät**. Hubbens vNet har två undernät:
     - **NVA-undernät**: 10.10.10.0/25. Det här under nätet innehåller en NVA (10.10.10.10).
     - **Gateway-undernät**: 10.10.10.128/25. Det här under nätet innehåller en ExpressRoute-gateway som är ansluten till en ExpressRoute-anslutning som dirigerar till den lokala platsen via en privat peering-routningsdomän.
-- Det lokala data centret har en ExpressRoute-krets anslutning via en partner gräns i Hong Kong.
+- Det lokala data centret har en ExpressRoute-krets anslutning via en partner gräns i Hongkong SAR.
 - All routning styrs via Azure Route-tabeller (UDR).
 - All utgående trafik mellan virtuella nätverk eller det lokala data centret dirigeras via NVA.
 

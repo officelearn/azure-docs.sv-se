@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Skapa, träna och publicera kunskaps bas – QnA Maker'
+title: 'Snabb start: skapa, träna och publicera kunskaps bas – QnA Maker'
 titleSuffix: Azure Cognitive Services
 description: Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. QnA Maker kunskaps basen i det här exemplet skapas från en enkel webb sida med vanliga frågor och svar för att besvara frågor om återställning av BitLocker-nyckel.
 author: diberry
@@ -8,16 +8,16 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 10/04/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: aab64822730531acdcf5f3d91ed8bf028ce7cfd4
-ms.sourcegitcommit: c2e7595a2966e84dc10afb9a22b74400c4b500ed
+ms.openlocfilehash: 5d807f185a8cdb181093d37dac35ee2e467fdba9
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/05/2019
-ms.locfileid: "71971943"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328098"
 ---
-# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabbstart: Skapa, träna och publicera en QnA Maker-kunskapsbas
+# <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Snabb start: skapa, träna och publicera QnA Maker kunskaps bas
 
 Du kan skapa en QnA Maker-kunskapsbas (KB) av eget innehåll, till exempel vanliga frågor eller produkthandböcker. Den här artikeln innehåller ett exempel på hur du skapar en QnA Maker kunskaps bas från en enkel webb sida med vanliga frågor och svar om återställning av BitLocker-nyckel.
 
@@ -52,7 +52,7 @@ Ta med en användare av en CHI2TEST för att göra din kunskap mer engagerande m
 
 1. Lägg till  **_Professional_ CHI2TEST-chatt** till din KB. 
 
-1. Välj **skapa din Kunskapsbas**.
+1. Välj **skapa din KB**.
 
     Extraherings processen tar några minuter att läsa dokumentet och identifiera frågor och svar.
 

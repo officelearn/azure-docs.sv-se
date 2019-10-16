@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/27/2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c0c1bbbdf9b42dfe2b507f533ad1806e06991f33
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e7008a5909d8f530920628125fec1b826be3f984
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835414"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374194"
 ---
 # <a name="error-handling-best-practices-for-azure-active-directory-authentication-library-adal-clients"></a>Fel hantering av metod tips för ADAL-klienter (Azure Active Directory Authentication Library)
 
@@ -28,8 +28,8 @@ Den här artikeln ger vägledning om vilken typ av fel som utvecklare kan stöta
 
 I den här artikeln går vi igenom de specifika fallen för varje plattform som stöds av ADAL, och hur programmet kan hantera varje fall som det ska. Fel vägledningen delas upp i två bredare kategorier, baserat på mönstren för token som tillhandahålls av ADAL-API: er:
 
-- **AcquireTokenSilent**: Klienten försöker få en token tyst (inget gränssnitt) och kan Miss lyckas om ADAL Miss lyckas. 
-- **AcquireToken**: Klienten kan försöka med tyst förvärv, men kan även utföra interaktiva begär Anden som kräver inloggning.
+- **AcquireTokenSilent**: klienten försöker få en token tyst (inget gränssnitt) och kan Miss lyckas om ADAL Miss lyckas. 
+- **AcquireToken**: klienten kan försöka med tyst förvärv, men kan även utföra interaktiva begär Anden som kräver inloggning.
 
 > [!TIP]
 > Det är en bra idé att logga alla fel och undantag när du använder ADAL och Azure AD. Loggar är inte bara användbara för att förstå programmets övergripande hälso tillstånd, men är också viktiga vid fel sökning av bredare problem. Även om ditt program kan återställas från vissa fel, kan det vara en ledtråd vid bredare design problem som kräver kod ändringar för att lösa problemet. 
@@ -52,16 +52,16 @@ Det finns en uppsättning fel som genereras av operativ systemet, vilket kan kr�
 
 Grundläggande finns två fall av AcquireTokenSilent-fel:
 
-| Fall | Beskrivning |
+| Enskilt | Beskrivning |
 |------|-------------|
-| **Fall 1**: Felet kan matchas med en interaktiv inloggning | För fel som orsakas av brist på giltiga token krävs en interaktiv begäran. Mer specifikt kräver cache-sökning och en ogiltig/utgången uppdateringstoken kräver ett AcquireToken-anrop för att lösa problemet.<br><br>I dessa fall måste slutanvändaren uppmanas att logga in. Programmet kan välja att utföra en interaktiv begäran omedelbart efter slut användar interaktion (t. ex. genom att trycka på en knapp) eller senare. Valet beror på programmets önskade beteende.<br><br>Se koden i följande avsnitt för detta specialfall och de fel som diagnostiserar den.|
-| **Fall 2**: Felet kan inte matchas med en interaktiv inloggning | För nätverks-och tillfälliga/tillfälliga fel, eller andra fel, löser inte problemet med en interaktiv AcquireToken-begäran. Onödiga interaktiva inloggnings meddelanden kan också vara frustrerande för slutanvändare. ADAL försöker automatiskt med ett enda försök för de flesta fel på AcquireTokenSilent-fel.<br><br>Klient programmet kan också försöka igen vid ett senare tillfälle, men när och hur du gör det är det beroende av programmets beteende och önskad slut användar upplevelse. Programmet kan till exempel göra ett AcquireTokenSilent-försök igen efter ett par minuter eller som svar på vissa slut användar åtgärder. Ett omedelbart återförsök leder till att programmet begränsas och inte bör provas.<br><br>Ett senare försök med samma fel innebär inte att klienten bör göra en interaktiv begäran med AcquireToken, eftersom det inte löser felet.<br><br>Se koden i följande avsnitt för detta specialfall och de fel som diagnostiserar den. |
+| **Fall 1**: felet kan matchas med en interaktiv inloggning | För fel som orsakas av brist på giltiga token krävs en interaktiv begäran. Mer specifikt kräver cache-sökning och en ogiltig/utgången uppdateringstoken kräver ett AcquireToken-anrop för att lösa problemet.<br><br>I dessa fall måste slutanvändaren uppmanas att logga in. Programmet kan välja att utföra en interaktiv begäran omedelbart efter slut användar interaktion (t. ex. genom att trycka på en knapp) eller senare. Valet beror på programmets önskade beteende.<br><br>Se koden i följande avsnitt för detta specialfall och de fel som diagnostiserar den.|
+| **Fall 2**: det går inte att matcha fel med en interaktiv inloggning | För nätverks-och tillfälliga/tillfälliga fel, eller andra fel, löser inte problemet med en interaktiv AcquireToken-begäran. Onödiga interaktiva inloggnings meddelanden kan också vara frustrerande för slutanvändare. ADAL försöker automatiskt med ett enda försök för de flesta fel på AcquireTokenSilent-fel.<br><br>Klient programmet kan också försöka igen vid ett senare tillfälle, men när och hur är beroende av programmets beteende och önskad slut användar upplevelse. Programmet kan till exempel göra ett AcquireTokenSilent-försök igen efter ett par minuter eller som svar på vissa slut användar åtgärder. Ett omedelbart återförsök leder till att programmet begränsas och inte bör provas.<br><br>Ett senare försök med samma fel innebär inte att klienten bör göra en interaktiv begäran med AcquireToken, eftersom det inte löser felet.<br><br>Se koden i följande avsnitt för detta specialfall och de fel som diagnostiserar den. |
 
 ### <a name="net"></a>.NET
 
 Följande vägledning ger exempel på fel hantering tillsammans med ADAL-metoder: 
 
-- acquireTokenSilentAsync(…)
+- acquireTokenSilentAsync(...)
 - acquireTokenSilentSync(...) 
 - [inaktuell] acquireTokenSilent (...)
 - [inaktuell] acquireTokenByRefreshToken (...) 
@@ -188,7 +188,7 @@ Operativ systemet kan också generera en uppsättning fel som kräver fel hanter
   - Alla scenarier, inklusive på uppdrag av
   - På uppdrag av vissa scenarier
 
-### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Fel ärenden och åtgärds bara steg: Interna klient program
+### <a name="error-cases-and-actionable-steps-native-client-applications"></a>Fel ärenden och åtgärds bara steg: interna klient program
 
 Om du skapar ett internt klient program finns det några fel hanterings fall som är relaterade till nätverks problem, tillfälliga fel och andra plattformsspecifika fel. I de flesta fall ska ett program inte utföra omedelbara återförsök, utan att vänta på en slut användar interaktion som efterfrågar en inloggning. 
 
@@ -200,8 +200,8 @@ Fel hantering i interna program kan definieras i två fall:
 
 |  |  |
 |------|-------------|
-| **Fall 1**:<br>Fel som inte går att försöka igen (de flesta fall) | 1. Försök inte att köra omedelbara försök igen. Presentera användar gränssnittet för slutanvändaren baserat på det specifika fel som anropar ett återförsök ("försök att logga in igen", "Ladda ned Azure AD Broker-program" osv.). |
-| **Fall 2**:<br>Återförsöks fel | 1. Utför ett enda försök eftersom slutanvändaren kan ha angett ett tillstånd som resulterar i ett lyckat resultat.<br><br>2. Om ett nytt försök Miss lyckas, visar du slutanvändarens användar gränssnitt baserat på det särskilda felet som anropar ett återförsök ("försök att logga in igen", "Ladda ned Azure AD Broker-app" osv.). |
+| **Fall 1**:<br>Fel som inte går att försöka igen (de flesta fall) | 1. Försök inte att köra omedelbara försök igen. Presentera användar gränssnittet för slutanvändaren baserat på det specifika fel som anropar ett återförsök (till exempel "försök att logga in igen" eller "Ladda ned Azure AD Broker-program"). |
+| **Fall 2**:<br>Återförsöks fel | 1. utför ett enda försök eftersom slutanvändaren kan ha angett ett tillstånd som resulterar i ett lyckat resultat.<br><br>2. om det inte går att försöka igen visar du slutanvändarens användar gränssnitt baserat på det särskilda felet som anropar ett återförsök ("försök att logga in igen", "Ladda ned Azure AD Broker-app" osv.). |
 
 > [!IMPORTANT]
 > Om ett användar konto skickas till ADAL i ett tyst anrop och Miss lyckas, kan användaren logga in med ett annat konto genom att utföra den efterföljande interaktiva begäran. Efter en lyckad AcquireToken med ett användar konto måste programmet verifiera att den inloggade användaren matchar programmets lokala användar objekt. Ett matchnings fel genererar inget undantag (förutom i mål C), men bör beaktas i de fall där en användare är känd lokalt före autentiseringsbegäranden (t. ex. ett misslyckat tyst anrop).
@@ -212,8 +212,8 @@ Fel hantering i interna program kan definieras i två fall:
 Följande vägledning ger exempel på fel hantering tillsammans med alla icke-tysta AcquireToken (...) ADAL-metoder, *förutom*: 
 
 - AcquireTokenAsync(..., IClientAssertionCertification, ...)
-- AcquireTokenAsync(...,ClientCredential, ...)
-- AcquireTokenAsync(...,ClientAssertion, ...)
+- AcquireTokenAsync(..., ClientCredential, ...)
+- AcquireTokenAsync(..., ClientAssertion, ...)
 - AcquireTokenAsync (..., UserAssertion,...)   
 
 Koden ska implementeras på följande sätt:
@@ -341,7 +341,7 @@ Koden ska implementeras på följande sätt:
 }]
 ```
 
-### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Fel ärenden och åtgärds bara steg: Webb program som anropar ett resurs-API (.NET)
+### <a name="error-cases-and-actionable-steps-web-applications-that-call-a-resource-api-net"></a>Fel ärenden och åtgärds bara steg: webb program som anropar ett resurs-API (.NET)
 
 Om du skapar en .NET-webbapp som anropar en token med en auktoriseringskod för en resurs, är den enda kod som krävs en standard hanterare för det allmänna fallet. 
 
@@ -366,7 +366,7 @@ catch (AdalException e) {
 }
 ```
 
-### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Fel ärenden och åtgärds bara steg: Program med en sida (ADAL. js)
+### <a name="error-cases-and-actionable-steps-single-page-applications-adaljs"></a>Fel och åtgärds bara steg: program med en sida (ADAL. js)
 
 Om du skapar ett program med en enda sida med ADAL. js med AcquireToken, liknar fel hanterings koden samma som för ett typiskt tyst anrop. Särskilt i ADAL. js visar AcquireToken aldrig ett användar gränssnitt. 
 
@@ -374,8 +374,8 @@ En misslyckad AcquireToken har följande fall:
 
 |  |  |
 |------|-------------|
-| **Fall 1**:<br>Går att matcha med en interaktiv begäran | 1. Om inloggning () Miss lyckas ska du inte utföra omedelbara försök. Försök igen efter att användaren har angett ett nytt försök.|
-| **Fall 2**:<br>Går inte att matcha med en interaktiv begäran. Felet kan ha ett nytt försök. | 1. Utför ett enda försök eftersom slutanvändaren är större och har angett ett tillstånd som resulterar i ett lyckat resultat.<br><br>2. Om det inte går att försöka igen visas slutanvändaren med en åtgärd baserat på det särskilda fel som kan anropa ett nytt försök ("försök att logga in igen"). |
+| **Fall 1**:<br>Går att matcha med en interaktiv begäran | 1. Om inloggningen () Miss lyckas ska du inte utföra omedelbara försök. Försök igen efter att användaren har angett ett nytt försök.|
+| **Fall 2**:<br>Går inte att matcha med en interaktiv begäran. Felet kan ha ett nytt försök. | 1. utför ett enda försök eftersom slutanvändaren är större och har angett ett tillstånd som leder till att det lyckas.<br><br>2. om det inte går att försöka igen visas slutanvändaren med en åtgärd baserat på det särskilda fel meddelandet som kan anropa ett nytt försök ("försök att logga in igen"). |
 | **Fall 3**:<br>Går inte att matcha med en interaktiv begäran. Felet kan inte göras igen. | 1. Försök inte att köra omedelbara försök igen. Presentera slutanvändaren med en åtgärd baserat på det särskilda fel som kan anropa ett nytt försök ("försök att logga in igen"). |
 
 Koden ska implementeras på följande sätt:
@@ -482,8 +482,8 @@ Vi har skapat ett [komplett exempel](https://github.com/Azure-Samples/active-dir
 
 ## <a name="error-and-logging-reference"></a>Fel-och loggnings referens
 
-### <a name="logging-personal-identifiable-information-pii--organizational-identifiable-information-oii"></a>Logga personligt identifierbar information (PII) & organisations identifierbar information (OII)
-Som standard samlar ADAL inte in eller loggar av PII eller OII. Med biblioteket kan appar utvecklare aktivera detta genom en setter i klassen för loggning. Genom att aktivera PII eller OII, tar appen ansvar för säker hantering av mycket känsliga data och uppfyller alla myndighets krav.
+### <a name="logging-personal-identifiable-information--organizational-identifiable-information"></a>Logga personlig identifierbar information & organisations identifierbar information 
+Som standard samlar ADAL inte in eller loggar all personlig identifierbar information eller information som är identifierbar för organisationen. Med biblioteket kan appar utvecklare aktivera detta genom en setter i klassen för loggning. Genom att logga personlig identifierbar information eller organisations identifierbar information, tar appen ansvar för säker hantering av mycket känsliga data och uppfyller alla myndighets krav.
 
 ### <a name="net"></a>.NET
 
@@ -493,7 +493,7 @@ För att utforska vissa ADAL-fel är käll koden i [databasen Azure-ActiveDirect
 
 #### <a name="guidance-for-error-logging-code"></a>Vägledning för fel loggnings kod
 
-ADAL .NET-loggnings ändringar beroende på vilken plattform du arbetar på. Se loggnings [](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) -wikin för kod för att aktivera loggning.
+ADAL .NET-loggnings ändringar beroende på vilken plattform du arbetar på. Se [loggnings-wikin](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/Logging-in-ADAL.Net) för kod för att aktivera loggning.
 
 ### <a name="android"></a>Android
 
@@ -505,7 +505,7 @@ För att utforska vissa ADAL-fel är käll koden i [databasen Azure-ActiveDirect
 
 Android OS-fel exponeras via AuthenticationException i ADAL, är identifierade som "SERVER_INVALID_REQUEST" och kan användas mer detaljerad genom fel beskrivningarna. 
 
-En fullständig lista över vanliga fel och vilka steg du bör vidta när din app eller slutanvändare stöter på dem finns i [ADAL Android](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki)-wikin. 
+En fullständig lista över vanliga fel och vilka steg du bör vidta när din app eller slutanvändare stöter på dem finns i [ADAL Android-wikin](https://github.com/AzureAD/azure-activedirectory-library-for-android/wiki). 
 
 #### <a name="guidance-for-error-logging-code"></a>Vägledning för fel loggnings kod
 
@@ -546,7 +546,7 @@ För att utforska vissa ADAL-fel är käll koden i [databasen Azure-ActiveDirect
 
 iOS-fel kan uppstå under inloggningen när användarna använder webbvyer och typen av autentisering. Detta kan orsakas av villkor som SSL-fel, tids gränser eller nätverks fel:
 
-- För delning av rättigheter är inloggningar inte beständiga och cachen verkar vara tom. Du kan lösa problemet genom att lägga till följande kodrad i nyckel ringen:`[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
+- För delning av rättigheter är inloggningar inte beständiga och cachen verkar vara tom. Du kan lösa problemet genom att lägga till följande kodrad i nyckel ringen: `[[ADAuthenticationSettings sharedInstance] setSharedCacheKeychainGroup:nil];`
 - För den NsUrlDomain uppsättningen av fel ändras åtgärden beroende på appens logik. Se [NSURLErrorDomain Reference documentation](https://developer.apple.com/documentation/foundation/nsurlerrordomain#declarations) för vissa instanser som kan hanteras.
 - Se [ADAL OBJ-C vanliga problem](https://github.com/AzureAD/azure-activedirectory-library-for-objc#adauthenticationerror) för att visa en lista över vanliga fel som hanteras av ADAL-teamet för mål-c.
 
@@ -586,11 +586,11 @@ window.Logging = {
 
 Använd avsnittet kommentarer som följer för att ge feedback och hjälpa oss att förfina och forma vårt innehåll.
 
-[![Visar knappen "Logga in med Microsoft"][AAD-Sign-In]][AAD-Sign-In]
+[@no__t – 1Shows knappen "Logga in med Microsoft"][AAD-Sign-In]][AAD-Sign-In]
 <!--Reference style links -->
 
 [AAD-Auth-Libraries]: ./active-directory-authentication-libraries.md
-[AAD-Auth-Scenarios]:authentication-scenarios.md
+[AAD-Auth-Scenarios]:v1-authentication-scenarios.md
 [AAD-Dev-Guide]:azure-ad-developers-guide.md
 [AAD-Integrating-Apps]:quickstart-v1-integrate-apps-with-azure-ad.md
 [AZURE-portal]: https://portal.azure.com

@@ -1,6 +1,6 @@
 ---
 title: Välj en pris nivå eller SKU för Azure Search Service – Azure Search
-description: 'Azure Search kan tillhandahållas i följande SKU: er: Kostnads fri, Basic och standard, och standard, är tillgängliga i olika datorkonfigurationer och kapacitets nivåer.'
+description: 'Azure Search kan tillhandahållas i följande SKU: er: kostnads fri, Basic och standard, och standard är tillgängliga i olika datorkonfigurationer och kapacitets nivåer.'
 services: search
 author: HeidiSteen
 manager: nitinme
@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: heidist
-ms.openlocfilehash: 1c86649a989b16d928a46d322af3d805b6fbf832
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: 32ec97ce923c1cffd92fa6522f30abf7ea87fff7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69647350"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331199"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Välj en pris nivå för Azure Search
 
@@ -41,7 +41,7 @@ Nivån som du väljer avgör fakturerings priset. Följande skärm bild från Az
 
 **Kostnads fri** skapar en begränsad Sök tjänst i ett kluster som delas med andra prenumeranter. Du kan slutföra små projekt, inklusive snabb starter och självstudier, men du kan inte skala tjänsten eller köra betydande arbets belastningar. **Basic** och **standard** är de vanligaste fakturerbara nivåerna, med **standard standarden** .
 
-![Pris nivåer för Azure Search](media/search-sku-tier/tiers.png "Pris nivåer för Azure Search")
+![Pris nivåer för Azure Search](media/search-sku-tier/tiers.png "pris nivåer för Azure Search")
 
 Vissa nivåer är optimerade för vissa typer av arbete. Till exempel är **standard 3 hög densitet (S3 HD)** ett *värd läge* för S3, där den underliggande maskin varan är optimerad för ett stort antal mindre index och är avsedd för flera organisationers scenarier. S3 HD har samma kostnad per enhet som S3, men maskin varan är optimerad för snabba fil läsningar på ett stort antal mindre index.
 
@@ -81,7 +81,7 @@ För [AI-anrikning med Cognitive Services](cognitive-search-concept-intro.md)bö
 
 | Åtgärd | Fakturerings påverkan |
 |-----------|----------------|
-| Dokument sprickor, text extrahering | Lediga |
+| Dokument sprickor, text extrahering | Kostnadsfri |
 | Dokument sprickor, avbildnings extrahering | Faktureras enligt antalet bilder som har extraherats från dina dokument. I en [indexerare-konfiguration](https://docs.microsoft.com/rest/api/searchservice/create-indexer#indexer-parameters)är **imageAction** den parameter som utlöser avbildnings extrahering. Om **imageAction** är inställt på "ingen" (standard) debiteras du inte för avbildnings extrahering. Hastigheten för avbildnings extrahering dokumenteras på sidan med [pris information](https://azure.microsoft.com/pricing/details/search/) för Azure Search.|
 | [Förbyggda kognitiva färdigheter](cognitive-search-predefined-skills.md) | Faktureras enligt samma takt som om du har utfört uppgiften genom att använda Cognitive Services direkt. |
 | Anpassade färdigheter | En anpassad färdighet är funktioner som du anger. Kostnaden för att använda en anpassad färdighet beror helt på om anpassad kod anropar andra avgiftsbelagda tjänster. |
@@ -102,7 +102,7 @@ De flesta kunder tar bara en del av den totala kapaciteten online, där resten a
 
 ## <a name="how-to-manage-and-reduce-costs"></a>Hantera och minska kostnaderna
 
-Utöver följande förslag kan du gå till fakturerings- [och kostnads hantering](https://docs.microsoft.com/azure/billing/billing-getting-started).
+Utöver följande förslag kan du gå till [fakturerings-och kostnads hantering](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
 - Skapa alla resurser i samma region, eller i så få regioner som möjligt, för att minimera eller eliminera bandbredds kostnader.
 
@@ -191,7 +191,7 @@ Dedikerade resurser kan hantera större samplings-och bearbetnings tider för me
 
 1. [Bygg ett första index](search-create-index-portal.md) för att avgöra hur källdata översätts till ett index. Detta är det enda sättet att uppskatta index storleken.
 
-1. [Övervaka lagring, tjänst gränser, fråga volym och svars tid](search-monitor-usage.md) i portalen. Portalen visar frågor per sekund, begränsade frågor och Sök svars tid. Alla dessa värden kan hjälpa dig att avgöra om du har valt rätt nivå. Du kan också konfigurera djup övervakning av värden som genomklickning analys genom att aktivera [Sök trafik analys](search-traffic-analytics.md).
+1. [Övervaka lagring, tjänst gränser, fråga volym och svars tid](search-monitor-usage.md) i portalen. Portalen visar frågor per sekund, begränsade frågor och Sök svars tid. Alla dessa värden kan hjälpa dig att avgöra om du har valt rätt nivå. 
 
 Indexets nummer och storlek är lika viktiga för din analys. Detta beror på att max gränserna uppnås genom fullständig användning av lagrings utrymme (partitioner) eller av maximala gränser för resurser (index, indexerare och så vidare), beroende på vilket som kommer först. Portalen hjälper dig att hålla koll på båda, som visar aktuella användnings-och Max gränser sida vid sida på översikts sidan.
 
@@ -215,8 +215,6 @@ Den kostnads fria nivån och för hands versions funktionerna tillhandahåller i
 
 ## <a name="tips-for-tier-evaluation"></a>Tips för nivå utvärdering
 
-+ Lär dig hur du skapar effektiva index och lär dig vilka uppdaterings metoder som har minst effekt. Använd [Sök trafik analys](search-traffic-analytics.md) för att få insikter om frågans aktivitet.
-
 + Tillåt att mått skapas runt frågor och samla in data i användnings mönster (frågor under kontors tid, indexering under låg belastnings tider). Använd dessa data för att informera om tjänste etablerings beslut. Även om det inte är praktiskt vid en tim-eller daglig takt, kan du dynamiskt justera partitioner och resurser för att hantera planerade ändringar i frågornas volymer. Du kan också hantera oplanerad men varaktiga ändringar om nivåerna är tillräckligt långa för att motivera att vidta åtgärder.
 
 + Kom ihåg att det enda nack delen med underetablering är att du kan behöva riva av en tjänst om de faktiska kraven är större än dina förutsägelser. För att undvika avbrott i tjänsten skapar du en ny tjänst i samma prenumeration på en högre nivå och kör den sida vid sida tills alla appar och begär Anden riktar sig mot den nya slut punkten.
@@ -225,11 +223,11 @@ Den kostnads fria nivån och för hands versions funktionerna tillhandahåller i
 
 Börja med en kostnads fri nivå och skapa ett första index genom att använda en delmängd av dina data för att förstå dess egenskaper. Data strukturen i Azure Search är en inverterad index struktur. Storleken och komplexiteten för ett inverterat index avgörs av innehållet. Kom ihåg att mycket redundant innehåll leder till ett mindre index än innehåll som är mycket oregelbundet. Egenskaper för innehåll i stället för data uppsättningens storlek avgör index lagrings kraven.
 
-När du har en första uppskattning av index storleken kan du [etablera en fakturerings bar tjänst](search-create-service-portal.md) på en av de nivåer som beskrivs i den här artikeln: Basic, standard eller Storage är optimerat. Minska eventuella artificiella begränsningar för data storlek och [återskapa indexet](search-howto-reindex.md) så att det innehåller alla data som du vill ska vara sökbara.
+När du har en första uppskattning av index storleken kan du [etablera en fakturerings bar tjänst](search-create-service-portal.md) på en av de nivåer som beskrivs i den här artikeln: Basic, standard eller Storage optimerad. Minska eventuella artificiella begränsningar för data storlek och [återskapa indexet](search-howto-reindex.md) så att det innehåller alla data som du vill ska vara sökbara.
 
 [Allokera partitioner och repliker](search-capacity-planning.md) efter behov för att få den prestanda och skalning du behöver.
 
 Om prestanda och kapacitet är bra är du klar. Annars återskapar du en Sök tjänst på en annan nivå som passar bäst för dina behov.
 
 > [!NOTE]
-> Om du har frågor kan du publicera på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) eller [kontakta Azure](https://azure.microsoft.com/support/options/)-supporten.
+> Om du har frågor kan du publicera på [StackOverflow](https://stackoverflow.com/questions/tagged/azure-search) eller [kontakta Azure-supporten](https://azure.microsoft.com/support/options/).

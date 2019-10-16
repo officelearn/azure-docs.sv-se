@@ -8,12 +8,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: heidist
-ms.openlocfilehash: e50d88181a27dcc46da858f220404eb09ad9b4bd
-ms.sourcegitcommit: f176e5bb926476ec8f9e2a2829bda48d510fbed7
+ms.openlocfilehash: 55a9e06ad09c4c3635a2925956cac75c24b2c3c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70308971"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376387"
 ---
 # <a name="indexers-in-azure-search"></a>Indexerare i Azure Search
 
@@ -45,10 +45,12 @@ Alla åtgärder som rör indexerare, inklusive GET-begäranden för status eller
 
 Indexerare söker efter data lager i Azure.
 
-* [Azure SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Azure Blob Storage](search-howto-indexing-azure-blob-storage.md)
 * [Azure Table Storage](search-howto-indexing-azure-tables.md)
+* [Azure Cosmos DB](search-howto-index-cosmosdb.md)
+* [Azure SQL Database](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
+* [SQL Server på Azure Virtual Machines](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [SQL-hanterade instanser på Azure](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
 
 ## <a name="basic-configuration-steps"></a>Grundläggande konfigurationssteg
 Indexerare kan erbjuda funktioner som är unika för datakällan. I detta avseende varierar vissa aspekter av indexerarna och datakällskonfigurationen kan variera efter indexerartyp. Alla indexerare delar dock samma grundläggande sammansättning och krav. De steg som är gemensamma för alla indexerare beskrivs nedan.
@@ -64,7 +66,7 @@ En indexerare automatiserar vissa uppgifter som rör datapåfyllning, men att sk
 > [!Tip]
 > Indexerare kan inte generera ett index åt dig, men du kan få hjälp av guiden **Importera data** i portalen. I de flesta fall kan guiden härleda ett indexschema från befintliga metadata i källan, vilket skapar ett preliminärt indexschema som du kan redigera direkt när guiden är aktiv. När indexet har skapats i tjänsten är ytterligare redigeringar i portalen i huvudsak begränsade till tillägg av nya fält. Överväg att använda guiden för att skapa, men inte revidera, ett index. I [steg-för-steg-beskrivningen för portalen](search-get-started-portal.md) kan du få en praktisk genomgång.
 
-### <a name="step-3-create-and-schedule-the-indexer"></a>Steg 3: Skapa och Schemalägg indexeraren
+### <a name="step-3-create-and-schedule-the-indexer"></a>Steg 3: Skapa och schemalägg indexeraren
 Indexer-definitionen är en konstruktion som sammanställer alla element som är relaterade till data inmatning. De element som krävs är en data källa och ett index. Valfria element innehåller ett schema och fält mappningar. Fält mappning är bara valfritt om käll fält och index fält tydligt motsvarar. En indexerare referera till en datakälla från en annan tjänst så länge som den datakällan är från samma prenumeration. Mer information om att strukturera en indexerare finns i [Skapa et indexerare (REST-API för Azure Search)](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer).
 
 <a id="RunIndexer"></a>

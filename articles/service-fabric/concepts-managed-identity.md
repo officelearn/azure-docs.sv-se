@@ -7,12 +7,12 @@ ms.service: service-fabric
 ms.topic: conceptual
 ms.date: 07/25/2019
 ms.author: atsenthi
-ms.openlocfilehash: d63fd3d1b778c691d053f13fbf0fbb2ed5ccb3e3
-ms.sourcegitcommit: fbea2708aab06c19524583f7fbdf35e73274f657
+ms.openlocfilehash: edce98e6babb676ee72f1d254b929e557332dd75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/13/2019
-ms.locfileid: "70968271"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333127"
 ---
 # <a name="managed-identity-for-service-fabric-application-preview"></a>Hanterad identitet för Service Fabric program (förhands granskning)
 
@@ -45,7 +45,7 @@ Följande villkor används i dokumentations uppsättningen för hanterade identi
 
 ## <a name="supported-scenarios-for-service-fabric-applications"></a>Scenarier som stöds för Service Fabric program
 
-Hanterade identiteter för Service Fabric stöds bara i Azure-distribuerade Service Fabric-kluster och endast för program som distribueras som Azure-resurser. program som inte distribueras som en Azure-resurs kan inte tilldelas en identitet. Det är konceptuellt att prata, stöd för hanterade identiteter i Azure Service Fabric-klustret består av två faser:
+Hanterade identiteter för Service Fabric stöds bara i Azure-distribuerade Service Fabric-kluster och endast för program som distribueras som Azure-resurser. Det går inte att tilldela en identitet till ett program som inte har distribuerats som en Azure-resurs. Det är konceptuellt att prata, stöd för hanterade identiteter i Azure Service Fabric-klustret består av två faser:
 
 1. Tilldela program resursen en eller flera hanterade identiteter. ett program kan tilldelas en enda tilldelad system identitet och/eller upp till 32 användarspecifika identiteter.
 
@@ -63,6 +63,8 @@ Listan över scenarier som stöds för för hands versionen är följande:
 Följande scenarier stöds inte eller rekommenderas inte. Observera att de här åtgärderna inte blockeras, men kan leda till avbrott i dina program:
 
    - Ta bort eller ändra identiteter som har tilldelats till ett program. Om du måste göra ändringar måste du skicka in separata distributioner för att först lägga till en ny identitets tilldelning och sedan ta bort en tidigare tilldelad. Borttagning av en identitet från ett befintligt program kan ha oönskade effekter, inklusive att lämna programmet i ett tillstånd som inte kan uppgraderas. Det är säkert att ta bort programmet helt om det är nödvändigt att ta bort en identitet. OBS! detta tar bort den systemtilldelade identiteten (om den har definierats) som är associerad med programmet och tar bort alla associationer med de användardefinierade identiteter som tilldelats programmet.
+
+   - SF-stöd för hanterade identiteter är inte integrerat för närvarande i [AzureServiceTokenProvider](../key-vault/service-to-service-authentication.md); integrationen görs i slutet av för hands versions perioden för funktionen hanterad identitet.
 
 >
 > [!NOTE]

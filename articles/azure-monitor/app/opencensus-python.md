@@ -1,5 +1,5 @@
 ---
-title: Övervaka python-program med Azure Monitor | Microsoft Docs
+title: Övervaka python-program med Azure Monitor (för hands version) | Microsoft Docs
 description: Innehåller instruktioner för att ansluta till openräkningar python med Azure Monitor
 services: application-insights
 keywords: ''
@@ -10,14 +10,14 @@ ms.service: application-insights
 ms.topic: conceptual
 ms.reviewer: mbullwin
 manager: carmonm
-ms.openlocfilehash: 1316cf6808f6ccfc4165ad162c51421638b130be
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: ed61cb1bc88c48fe89c4a9390f04747749bd48c5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72293998"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329483"
 ---
-# <a name="set-up-azure-monitor-for-your-python-application"></a>Konfigurera Azure Monitor för ditt python-program
+# <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Konfigurera Azure Monitor för din python-app (för hands version)
 
 Azure Monitor stöder distribuerad spårning, Metric-insamling och loggning av python-program via integrering med [openräkning](https://opencensus.io). I den här artikeln får du stegvisa anvisningar genom processen för att ställa in openräkning för python och hämta övervaknings data till Azure Monitor.
 

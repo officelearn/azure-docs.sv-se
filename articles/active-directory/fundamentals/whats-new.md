@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/31/2019
+ms.date: 10/15/2019
 ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 616a637df20e43c20faadaf3db9243c28f94de34
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 096c5f06c53f1e93a0c661f856ab112236c0ec60
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72174736"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373552"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Vad är nytt i Azure Active Directory?
 
@@ -40,6 +40,16 @@ Den här sidan uppdateras varje månad, så du kan uppdatera den regelbundet. Om
 ---
 
 ## <a name="september-2019"></a>September 2019
+
+### <a name="deprecation-of-the-power-bi-content-packs"></a>Utfasning av Power BI innehålls paket
+
+**Typ:** Föråldrad  
+**Tjänste kategori:** Uppgiftslämn  
+**Produkt kapacitet:** Övervaka & rapportering
+
+Power BI är inaktuella innehålls paket från sina butiker och från och med den **1 oktober 2019**har vi inte längre stöd för Azure AD Power BI-innehålls paketet. Kunder som för närvarande använder innehålls paketet kan fortsätta att använda det även om de underliggande API: erna är äldre versioner. Som ett alternativ till detta innehålls paket kan du använda Azure AD-arbetsböcker (bygger på Log Analytics) för att få insikter om dina Azure AD-relaterade tjänster.
+
+Mer information om arbets böckerna finns i [så här använder du Azure Monitor-arbetsböcker för Azure Active Directory-rapporter](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-use-azure-monitor-workbooks). Mer information om utfasningen av innehålls paket finns i blogg inlägget om att [presentera Power BI Template Apps allmänt tillgänglighet](https://powerbi.microsoft.com/blog/announcing-power-bi-template-apps-general-availability/) .
 
 ### <a name="my-profile-is-re-naming-and-integrating-with-the-microsoft-office-account-page"></a>Min profil byter namn på och integreras med sidan Microsoft Office konto
 

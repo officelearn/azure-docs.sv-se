@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Scala maven-program för Spark med IntelliJ – Azure HDInsight'
+title: 'Självstudie: Scala maven Application för Spark med IntelliJ – Azure HDInsight'
 description: Självstudie – Skapa ett Spark-program skrivet i Scala med Apache maven som build-system och en befintlig maven archetype för Scala som tillhandahålls av IntelliJ-idén.
 author: hrasheed-msft
 ms.author: hrasheed
@@ -9,13 +9,13 @@ ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.date: 06/26/2019
 ms.openlocfilehash: 667590120bba4676cbedf3d3bb2ff08e31656e1d
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71147023"
 ---
-# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudier: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
+# <a name="tutorial-create-a-scala-maven-application-for-apache-spark-in-hdinsight-using-intellij"></a>Självstudie: Skapa ett Scala Maven-program för Apache Spark i HDInsight med hjälp av IntelliJ
 
 I den här självstudien lär du dig att skapa ett [Apache Spark](https://spark.apache.org/)-program som skrivits i [Scala](https://www.scala-lang.org/) med hjälp av [Apache Maven](https://maven.apache.org/) med IntelliJ IDEA. Artikeln använder Apache Maven som build-system och startar med en befintlig Maven-arketyp för Scala som tillhandahålls av IntelliJ IDEA.  Att skapa ett Scala-program i IntelliJ IDEA innefattar följande steg:
 
@@ -31,13 +31,13 @@ I den här guiden får du lära dig att:
 > * Använda IntelliJ till att utveckla ett Scala Maven-program
 > * Skapa ett fristående Scala-projekt
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Ett Apache Spark-kluster i HDInsight. Anvisningar finns i [Skapa Apache Spark-kluster i Azure HDInsight](apache-spark-jupyter-spark-sql.md).
 
 * [Oracle Java Development Kit](https://www.azul.com/downloads/azure-only/zulu/).  Den här kursen använder Java version 8.0.202.
 
-* En Java IDE. Den här artikeln använder [IntelliJ IDEA communityversion  2018.3.4](https://www.jetbrains.com/idea/download/).
+* En Java IDE. I den här artikeln används [INTELLIJ idé community ver.  2018.3.4](https://www.jetbrains.com/idea/download/).
 
 * Azure Toolkit for IntelliJ.  Se [Installera Azure Toolkit för IntelliJ](https://docs.microsoft.com/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app#installation-and-sign-in).
 
@@ -113,7 +113,7 @@ Installera Scala-plugin-programmet via följande steg:
 
 10. Kontrollera projektets namn och plats och välj sedan **Slutför**.  Projektet kan ta några minuter att importeras.
 
-11. När projektet har importerats går du i det vänstra fönstret till **SparkSimpleApp** > **src** > **test** > **scala** > **com** > **microsoft** > **spark** > **example**.  Högerklicka på **MySpec** och välj sedan **Ta bort...** . Du behöver inte den här filen för programmet.  Välj **OK** i dialogrutan.
+11. När projektet har importerats går du i det vänstra fönstret till **SparkSimpleApp** > **src** > **test** > **scala** > **com** > **microsoft** > **spark** > **example**.  Högerklicka på **specifikation**och välj sedan **ta bort...** . Du behöver inte den här filen för programmet.  Välj **OK** i dialogrutan.
   
 12. I efterföljande steg uppdaterar du **pom.xml** för att definiera beroenden för Spark Scala-programmet. För att dessa beroenden ska kunna laddas ner och hanteras automatiskt, måste du konfigurera Maven därefter.
 
@@ -210,7 +210,7 @@ Om du vill köra programmet på klustret, kan du använda följande metoder:
 
 Om du inte kommer att fortsätta att använda det här programmet, tar du bort det kluster som du skapade med följande steg:
 
-1. Logga in på [Azure Portal](https://portal.azure.com/).
+1. Logga in på [Azure-portalen](https://portal.azure.com/).
 
 1. I rutan **Sök** längst upp skriver du **HDInsight**.
 
@@ -220,7 +220,7 @@ Om du inte kommer att fortsätta att använda det här programmet, tar du bort d
 
 1. Välj **Ta bort**. Välj **Ja**.
 
-![HDInsight Azure Portal ta bort kluster](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "Ta bort HDInsight-kluster")
+![HDInsight Azure Portal ta bort kluster](./media/apache-spark-create-standalone-application/hdinsight-azure-portal-delete-cluster.png "ta bort HDInsight-kluster")
 
 ## <a name="next-step"></a>Nästa steg
 

@@ -1,23 +1,23 @@
 ---
-title: Skapa ett blockkedjeprogram i Azure Blockchain Workbench
+title: Skapa ett blockchain-program – Azure blockchain Workbench
 description: Själv studie kurs om hur du skapar ett blockchain-program i Azure blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: adc47ecb06c0e2dbfcae7b85aeec284027315e5b
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: a7d7c68840999772461655090d0213ada0997a7a
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845152"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329097"
 ---
-# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Självstudier: Skapa ett blockkedjeprogram i Azure Blockchain Workbench
+# <a name="tutorial-create-a-blockchain-application-in-azure-blockchain-workbench"></a>Självstudie: skapa ett blockchain-program i Azure blockchain Workbench
 
 Du kan använda Azure Blockchain Workbench för att skapa blockkedjeprogram som representerar arbetsflöden med flera parter som definieras av konfiguration och smart kontaktkod.
 
@@ -31,7 +31,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Blockchain Workbench-distribution. Mer information om distributioner finns i avsnittet om [Azure Blockchain Workbench-distributioner](deploy.md).
 * Azure Active Directory-användare i klientorganisationen som är associerade med Blockchain Workbench. Mer information finns i avsnittet om att [lägga till Azure AD-användare i Azure Blockchain Workbench](manage-users.md#add-azure-ad-users).
@@ -214,7 +214,7 @@ Början av konfigurationsfilen innehåller information om programmet, däribland
 
 Avsnittet med programroller definierar de användarroller som kan agera eller delta i blockkedjeprogrammet. Du definierar en uppsättning med olika roller som baseras på funktionalitet. I scenariot med begäran–svar finns det en distinktion mellan funktionaliteten hos entiteten begärare, som skapar begäranden, och entiteten svarare, som skapar svar.
 
-### <a name="workflows"></a>Workflows
+### <a name="workflows"></a>Arbetsflöden
 
 Arbetsflöden definierar en eller flera steg och åtgärder i kontraktet. I scenariot med begäran–svar är det första steget (tillståndet) i arbetsflödet att en begärare (roll) vidtar en åtgärd (övergång) för att skicka en begäran (funktion). Nästa steg (tillstånd) är att en svarare (roll) vidtar en åtgärd (övergång) för att skicka ett svar (funktion). Arbetsflödet för ett program kan omfatta egenskaper, funktioner och tillstånd som krävs för att beskriva flödet i ett kontrakt.
 
@@ -287,7 +287,7 @@ Lägg till konstruktorfunktionen i ditt kontrakt i filen `HelloBlockchain.sol` m
     }
 ```
 
-### <a name="functions"></a>Funktioner
+### <a name="functions"></a>Functions
 
 Funktioner är körbara enheter med affärslogik i ett kontrakt. Obligatoriska parametrar för funktionen definieras som funktionsparametrar i konfigurationsfilen. Antalet, ordningen och typen av parametrar måste stämma överens i båda filerna. Funktioner är associerade med övergångar i ett Blockchain Workbench-arbetsflöde i konfigurationsfilen. En övergång är en åtgärd som utförs för en flytt till nästa steg i ett programs arbetsflöde enligt vad som bestäms av kontraktet.
 

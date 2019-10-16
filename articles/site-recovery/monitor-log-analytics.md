@@ -1,20 +1,20 @@
 ---
-title: Övervaka Azure Site Recovery med Azure Monitor loggar (Log Analytics)
+title: Övervaka Azure Site Recovery med Azure Monitor loggar (Log Analytics) | Microsoft Docs
 description: Lär dig hur du övervakar Azure Site Recovery med Azure Monitors loggar (Log Analytics)
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/30/2019
+ms.date: 10/13/2019
 ms.author: raynew
-ms.openlocfilehash: 4eb88658437d3b29cc55d24bb83f73b660daea43
-ms.sourcegitcommit: a52f17307cc36640426dac20b92136a163c799d0
+ms.openlocfilehash: 889fa3bee17aa3b0300431b058332c5ec10d9faf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68718488"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331926"
 ---
-# <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor loggar
+# <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Övervaka Site Recovery med Azure Monitor-loggar
 
 Den här artikeln beskriver hur du övervakar datorer som replikeras av Azure [Site Recovery](site-recovery-overview.md), med hjälp av [Azure Monitor loggar](../azure-monitor/platform/data-platform-logs.md)och [Log Analytics](../azure-monitor/log-query/log-query-overview.md).
 
@@ -25,10 +25,14 @@ För Site Recovery kan du Azure Monitor loggar som hjälper dig att göra följa
 - **Övervaka Site Recovery hälsa och status**. Du kan till exempel övervaka replikeringsstatus, redundanstest, Site Recovery händelser, återställnings punkt mål (återställnings punkter) för skyddade datorer och ändrings takt för disk/data.
 - **Konfigurera aviseringar för Site Recovery**. Du kan till exempel konfigurera aviseringar för maskin hälso status, redundanstest eller Site Recovery jobb status.
 
-Användning av Azure Monitor-loggar med Site Recovery stöds för Azure till Azure-replikering och VMware VM/fysisk server till Azure-replikering.
+Användning av Azure Monitor-loggar med Site Recovery stöds för **Azure till Azure** -replikering och **VMware VM/fysisk server till Azure** -replikering.
+
+> [!NOTE]
+> Loggarna omsättnings data loggar och överförings hastighet är bara tillgängliga för virtuella Azure-datorer som replikeras till en sekundär Azure-region.
+
 ## <a name="before-you-start"></a>Innan du börjar
 
-Här är vad du behöver:
+Du behöver det här:
 
 - Minst en dator som skyddas i ett Recovery Services-valv.
 - En Log Analytics arbets yta för att lagra Site Recovery loggar. [Lär dig mer om](../azure-monitor/learn/quick-create-workspace.md) att konfigurera en arbets yta.
@@ -38,13 +42,14 @@ Vi rekommenderar att du läser igenom [vanliga övervaknings frågor](monitoring
 
 ## <a name="configure-site-recovery-to-send-logs"></a>Konfigurera Site Recovery för att skicka loggar
 
-1. I valvet klickar du på **diagnostiska inställningar** > **Lägg till diagnostisk inställning**.
+1. I valvet klickar du på **diagnostikinställningar** > **Lägg till diagnostisk inställning**.
 
     ![Välj diagnostisk loggning](./media/monitoring-log-analytics/add-diagnostic.png)
 
-2. I **diagnostikinställningar**anger du ett namn för logg åtgärden och väljer **Skicka till Log Analytics**.
+2. I **diagnostikinställningar**anger du ett namn och markerar kryss rutan **Skicka till Log Analytics**.
 3. Välj prenumerationen Azure Monitor loggar och Log Analytics arbets ytan.
-4. I listan logg väljer du alla loggar med prefixet **AzureSiteRecovery**. Klicka sedan på **OK**.
+4. Välj **Azure-diagnostik** i växla.
+5. I listan logg väljer du alla loggar med prefixet **AzureSiteRecovery**. Klicka på **OK**.
 
     ![Välj arbetsyta](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -61,7 +66,7 @@ Du hämtar data från loggar med hjälp av logg frågor som skrivits med [Kusto-
 
 ### <a name="query-replication-health"></a>Hälso tillstånd för fråga
 
-Den här frågan ritar ett cirkel diagram för den aktuella replikeringsstatus för alla skyddade virtuella Azure-datorer, uppdelade i tre tillstånd: Normal, varning eller kritiskt.
+Den här frågan ritar ett cirkel diagram för den aktuella replikeringsstatus för alla skyddade virtuella Azure-datorer, uppdelat i tre tillstånd: normal, varning eller kritisk.
 
 ```
 AzureDiagnostics  
@@ -88,7 +93,7 @@ AzureDiagnostics 
 
 ### <a name="query-rpo-time"></a>Återställnings tid för fråga
 
-Den här frågan ritar ett stapeldiagram med virtuella Azure-datorer som replikeras med Site Recovery, uppdelade efter återställnings punkt mål (återställnings punkt mål): Mindre än 15 minuter, mellan 15-30 minuter, mer än 30 minuter.
+Den här frågan ritar ett stapeldiagram med virtuella Azure-datorer som replikeras med Site Recovery, uppdelade efter återställnings punkt mål (återställnings punkt mål): mindre än 15 minuter, mellan 15-30 minuter, mer än 30 minuter.
 
 ```
 AzureDiagnostics 
@@ -171,7 +176,10 @@ AzureDiagnostics  
 
 ### <a name="query-data-change-rate-churn-for-a-vm"></a>Fråga om data ändrings takt (omsättning) för en virtuell dator
 
-Den här frågan ritar ett trend diagram för en viss virtuell Azure-dator (ContosoVM123) som spårar data ändrings takten (skrivna byte per sekund) och data överförings takten. Den här informationen är bara tillgänglig för virtuella Azure-datorer som replikeras till en sekundär Azure-region.
+> [!NOTE] 
+> Omsättnings informationen är bara tillgänglig för virtuella Azure-datorer som replikeras till en sekundär Azure-region.
+
+Den här frågan ritar ett trend diagram för en viss virtuell Azure-dator (ContosoVM123) som spårar data ändrings takten (skrivna byte per sekund) och data överförings takten. 
 
 ```
 AzureDiagnostics   
@@ -229,7 +237,7 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count() 
 ```
-Ange tröskelvärdet till 20 för aviseringen.
+Ange **tröskelvärdet** till 20 för aviseringen.
 
 ### <a name="single-machine-in-a-critical-state"></a>En enskild dator med kritiskt tillstånd
 
@@ -244,7 +252,7 @@ AzureDiagnostics  
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-Ange tröskelvärdet till 1 för aviseringen.
+Ange **tröskelvärdet** till 1 för aviseringen.
 
 ### <a name="multiple-machines-exceed-rpo"></a>Flera datorer överskrider återställnings punkt
 
@@ -258,7 +266,7 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-Ange tröskelvärdet till 20 för aviseringen.
+Ange **tröskelvärdet** till 20 för aviseringen.
 
 ### <a name="single-machine-exceeds-rpo"></a>En enskild dator överskrider återställnings punkt
 
@@ -274,7 +282,7 @@ AzureDiagnostics  
 | project name_s , rpoInSeconds_d   
 | summarize count()  
 ```
-Ange tröskelvärdet till 1 för aviseringen.
+Ange **tröskelvärdet** till 1 för aviseringen.
 
 ### <a name="test-failover-for-multiple-machines-exceeds-90-days"></a>Redundanstest för flera datorer överskrider 90 dagar
 
@@ -289,7 +297,7 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-Ange tröskelvärdet till 20 för aviseringen.
+Ange **tröskelvärdet** till 20 för aviseringen.
 
 ### <a name="test-failover-for-single-machine-exceeds-90-days"></a>Redundanstest för en enskild dator överskrider 90 dagar
 
@@ -304,7 +312,7 @@ AzureDiagnostics 
 | summarize hint.strategy=partitioned arg_max(TimeGenerated, *) by name_s   
 | summarize count()  
 ```
-Ange tröskelvärdet till 1 för aviseringen.
+Ange **tröskelvärdet** till 1 för aviseringen.
 
 ### <a name="site-recovery-job-fails"></a>Site Recovery jobbet Miss lyckas
 

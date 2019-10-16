@@ -1,21 +1,21 @@
 ---
 title: ORDER BY-sats i Azure Cosmos DB
-description: Läs mer om SQL ORDER BY-sats för Azure Cosmos DB. Använd SQL som ett Azure Cosmos DB JSON-frågespråket.
+description: Läs mer om SQL ORDER BY-satsen för Azure Cosmos DB. Använd SQL som Azure Cosmos DB JSON-frågespråk.
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: d0a1ed33d5848c3ed8d5f83af8b320d77fe0dc65
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 14f61d14b59dca4bcf2e0f4b93e918f101a61833
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342791"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326837"
 ---
-# <a name="order-by-clause"></a>ORDER BY-sats
+# <a name="order-by-clause-in-azure-cosmos-db"></a>ORDER BY-sats i Azure Cosmos DB
 
-Valfritt ORDER BY-satsen anger sorteringsordning för resultaten som returnerades av frågan.
+Den valfria ORDER BY-satsen anger sorterings ordningen för resultat som returneras av frågan.
 
 ## <a name="syntax"></a>Syntax
   
@@ -29,31 +29,31 @@ ORDER BY <sort_specification>
   
 - `<sort_specification>`  
   
-   Anger en egenskap eller ett uttryck som du vill sortera frågeresultatet. En sorteringskolumn kan anges som ett namn eller egenskapen alias.  
+   Anger en egenskap eller ett uttryck som resultatet av frågeresultatet ska sorteras efter. En sorterings kolumn kan anges som ett namn eller ett egenskaps-alias.  
   
-   Flera egenskaper kan anges. Egenskapsnamn måste vara unikt. Sekvens med egenskaperna sortera i ORDER BY-satsen definierar hur sorterade resultatuppsättningen. Det vill säga resultatet sorteras efter den första egenskapen och sedan den beställda listan sorteras efter den andra egenskapen och så vidare.  
+   Flera egenskaper kan anges. Egenskaps namn måste vara unika. Ordningen på sorterings egenskaperna i ORDER BY-satsen definierar organisationen för den sorterade resultat uppsättningen. Det vill säga resultat uppsättningen sorteras efter den första egenskapen och sedan sorteras den sorterade listan efter den andra egenskapen och så vidare.  
   
-   Egenskapsnamn som refereras i ORDER BY-satsen måste motsvara till antingen en egenskap i select-listan eller till en egenskap som definierats i den samling som har angetts i FROM-sats utan någon tvetydigheter.  
+   De egenskaps namn som refereras i ORDER BY-satsen måste motsvara antingen en egenskap i SELECT-listan eller till en egenskap som har definierats i mängden som anges i from-satsen utan tvetydigheter.  
   
 - `<sort_expression>`  
   
-   Anger en eller flera egenskaper eller uttryck som du vill sortera frågeresultatet.  
+   Anger en eller flera egenskaper eller uttryck som du kan använda för att sortera frågeresultatet.  
   
 - `<scalar_expression>`  
   
-   Se den [skaläruttryck](sql-query-scalar-expressions.md) information.  
+   Mer information finns i avsnittet [skalära uttryck](sql-query-scalar-expressions.md) .  
   
 - `ASC | DESC`  
   
-   Anger att värdena i den angivna kolumnen ska sorteras i stigande eller fallande ordning. ASC sorterar från det lägsta värdet för högsta värden. DESC sorterar från högsta värdet till lägsta värdet. ASC är standardsorteringsordning. Null-värden behandlas som de lägsta möjliga värdena.  
+   Anger att värdena i den angivna kolumnen ska sorteras i stigande eller fallande ordning. ASC sorterar från det lägsta värdet till det högsta värdet. DESC sorterar från det högsta värdet till det lägsta värdet. ASC är standard sorterings ordningen. Null-värden behandlas som lägsta möjliga värden.  
   
 ## <a name="remarks"></a>Kommentarer  
   
-   ORDER BY-satsen kräver att indexprincip inkluderar ett index för att sortera. Azure Cosmos DB-fråga runtime stöder sortering mot ett egenskapsnamn och inte mot beräknade egenskaper. Azure Cosmos DB stöder flera ORDER BY-egenskaper. För att köra en fråga med flera ORDER BY-egenskaper, bör du definiera en [sammansatta index](index-policy.md#composite-indexes) på att sortera.
+   ORDER BY-satsen kräver att indexerings principen inkluderar ett index för fälten som sorteras. Azure Cosmos DB Query runtime stöder sortering mot ett egenskaps namn och inte mot beräknade egenskaper. Azure Cosmos DB stöder flera ORDER BY-egenskaper. För att kunna köra en fråga med flera ORDER BY-egenskaper bör du definiera ett [sammansatt index](index-policy.md#composite-indexes) för fälten som sorteras.
 
 ## <a name="examples"></a>Exempel
 
-Här är till exempel en fråga som hämtar familjer i stigande ordning efter den fasta Ortnamn:
+Här är ett exempel på en fråga som hämtar familjer i stigande ordning efter den inhemska ortens namn:
 
 ```sql
     SELECT f.id, f.address.city
@@ -61,7 +61,7 @@ Här är till exempel en fråga som hämtar familjer i stigande ordning efter de
     ORDER BY f.address.city
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -76,7 +76,7 @@ Resultatet är:
     ]
 ```
 
-Följande fråga hämtar familj `id`s efter skapandedatum sina objekt. Objektet `creationDate` är ett tal som representerar den *epoktid*, eller förfluten tid sedan den 1 januari 1970 på några sekunder.
+Följande fråga hämtar serie `id`s i ordning efter deras objekts skapande datum. Objekt `creationDate` är ett tal som representerar den *Epoka tiden*, eller förfluten tid sedan Jan. 1, 1970 på några sekunder.
 
 ```sql
     SELECT f.id, f.creationDate
@@ -84,7 +84,7 @@ Följande fråga hämtar familj `id`s efter skapandedatum sina objekt. Objektet 
     ORDER BY f.creationDate DESC
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -99,7 +99,7 @@ Resultatet är:
     ]
 ```
 
-Dessutom kan du sortera efter flera egenskaper. En fråga som grupperas efter flera egenskaper kräver en [sammansatta index](index-policy.md#composite-indexes). Överväg följande fråga:
+Dessutom kan du sortera efter flera egenskaper. En fråga som sorteras efter flera egenskaper kräver ett [sammansatt index](index-policy.md#composite-indexes). Tänk på följande fråga:
 
 ```sql
     SELECT f.id, f.creationDate
@@ -107,10 +107,10 @@ Dessutom kan du sortera efter flera egenskaper. En fråga som grupperas efter fl
     ORDER BY f.address.city ASC, f.creationDate DESC
 ```
 
-Den här frågan hämtar familjen `id` i stigande ordning efter namnet på staden. Om flera objekt har samma stad namn kan frågan ska sortera efter den `creationDate` i fallande ordning.
+Den här frågan hämtar familjen `id` i stigande ordning efter Orts namnet. Om flera objekt har samma Orts namn, sorteras frågan efter `creationDate` i fallande ordning.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [SELECT-satsen](sql-query-select.md)
-- [GRÄNSEN för OFFSET-sats](sql-query-offset-limit.md)
+- [SELECT-sats](sql-query-select.md)
+- [OFFSET LIMIT-sats](sql-query-offset-limit.md)

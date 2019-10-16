@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: bonova, sstein
 ms.date: 05/10/2019
-ms.openlocfilehash: 6f1ea4e1053efd7522a9562a3229a0d3094da36b
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: bec70c6385c9d7ea09e1d8e41229b224423956ab
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72285804"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330971"
 ---
 # <a name="azure-sql-database-features"></a>Azure SQL Database funktioner
 
@@ -137,7 +137,7 @@ Azure-plattformen tillhandahåller ett antal PaaS-funktioner som läggs till som
 | [SQL-analys](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) | Ja | Ja |
 | [SQL Data Sync](sql-database-get-started-sql-data-sync.md) | Ja | Nej |
 | [SQL Server Analysis Services (SSAS)](https://docs.microsoft.com/sql/analysis-services/analysis-services) | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. | Nej, [Azure Analysis Services](https://azure.microsoft.com/services/analysis-services/) är en separat Azure-moln tjänst. |
-| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av Azure SQL Database och körs på Azure SSIS Integration Runtime (IR), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Information om hur du jämför SSIS-funktionerna i SQL Database Server och en hanterad instans finns i [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av hanterade instanser och körs på Azure SSIS Integration Runtime (IR), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Om du vill jämföra SSIS-funktionerna i SQL Database och hanterade instanser, se [jämför Azure SQL Database enstaka databaser/elastiska pooler och hanterade instanser](../data-factory/create-azure-ssis-integration-runtime.md#compare-sql-database-single-databaseelastic-pool-and-sql-database-managed-instance). |
+| [SQL Server Integration Services (SSIS)](https://docs.microsoft.com/sql/integration-services/sql-server-integration-services) | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av Azure SQL Database och körs på Azure SSIS Integration Runtime (IR), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Information om hur du jämför SSIS-funktionerna i SQL Database Server och en hanterad instans finns i [jämföra en Azure SQL Database enkel databas, elastisk pool och hanterad instans](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance). | Ja, med en hanterad SSIS i Azure Data Factory (ADF)-miljö, där paket lagras i SSISDB som hanteras av hanterade instanser och körs på Azure SSIS Integration Runtime (IR), se [skapa Azure-SSIS IR i ADF](https://docs.microsoft.com/azure/data-factory/create-azure-ssis-integration-runtime). <br/><br/>Information om hur du jämför SSIS-funktionerna i SQL Database och en hanterad instans finns i [jämföra en Azure SQL Database enkel databas, elastisk pool och hanterad instans](../data-factory/create-azure-ssis-integration-runtime.md#comparison-of-a-sql-database-single-database-elastic-pool-and-managed-instance). |
 | [SQL Server Reporting Services (SSRS)](https://docs.microsoft.com/sql/reporting-services/create-deploy-and-manage-mobile-and-paginated-reports) | No- [se Power BI](https://docs.microsoft.com/power-bi/) | No- [se Power BI](https://docs.microsoft.com/power-bi/) |
 | [Fråga prestanda insikter (QPI)](sql-database-query-performance.md) | Ja | Nej. Använd inbyggda rapporter i SQL Server Management Studio och Azure Data Studio. |
 | [VNet](../virtual-network/virtual-networks-overview.md) | Delvis, den ger begränsad åtkomst med [VNet-slutpunkter](sql-database-vnet-service-endpoint-rule-overview.md) | Ja, den hanterade instansen matas in i kundens VNet. Se [undernät](sql-database-managed-instance-transact-sql-information.md#subnet) och [VNet](sql-database-managed-instance-transact-sql-information.md#vnet) |

@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 11fda31cd06db67e0a11a68a02da8b91a77e04e1
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: c44006b20f4c0ef186f406e554ff555cda0c1dd8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68729222"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373394"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Aktivera automatisk användar etablering för ditt program för flera klienter
 
@@ -40,7 +40,7 @@ Program som kräver att en användar post finns i programmet innan en användare
 
 * Minska support kostnaderna genom att tillhandahålla omfattande loggar som hjälper kunderna att felsöka problem med användar etablering.
 
-* Öka synligheten för ditt program i [Azure AD App](https://azuremarketplace.microsoft.com/marketplace/apps)-galleriet.
+* Öka synligheten för ditt program i [Azure AD App-galleriet](https://azuremarketplace.microsoft.com/marketplace/apps).
 
 * Få en prioriterad lista på sidan med program självstudier.
 
@@ -67,7 +67,7 @@ För att avgöra vilket integrations alternativ som ska användas för programme
 | Funktioner som är aktiverade eller utökade genom automatisk etablering| Azure AD Provisioning-tjänst (SCIM 2,0)| Microsoft Graph API (OData v 4.0)| SAML JIT |
 |---|---|---|---|
 | Hantering av användare och grupper i Azure AD| √| √| Endast användare |
-| Hantera användare och grupper som synkroniseras från lokala Active Directory| √*| √*| Endast användare * |
+| Hantera användare och grupper som synkroniseras från lokala Active Directory| √| √| Endast användare * |
 | Få åtkomst till data utanför användare och grupper under etablerings åtkomst till O365-data (team, SharePoint, e-post, kalender, dokument osv.)| X +| √| X |
 | Skapa, läsa och uppdatera användare baserat på affärs regler| √| √| √ |
 | Ta bort användare baserat på affärs regler| √| √| X |
@@ -76,20 +76,20 @@ För att avgöra vilket integrations alternativ som ska användas för programme
 | Stöd gäst konton (B2B)| √| √| √ |
 | Stöd för icke-Enterprise-konton (B2C)| X| √| √ |
 
-<sup>*</sup>– Azure AD Connect installationen krävs för att synkronisera användare från AD till Azure AD.  
-<sup>+</sup >– Om du använder SCIM för etablering hindras du från att integrera ditt program med MIcrosoft Graph i andra syfte.
+<sup>*</sup> – Azure AD Connect installations programmet krävs för att synkronisera användare från AD till Azure AD.  
+<sup>+</sup >– genom att använda scim för etablering förhindrar du att du integrerar ditt program med Microsoft Graph i andra syfte.
 
-## <a name="azure-ad-provisioning-service"></a>Azure AD Provisioning-tjänst
+## <a name="azure-ad-provisioning-service-scim"></a>Azure AD Provisioning-tjänst (SCIM)
 
-Azure AD Provisioning Services använder SCIM, ett protokoll som stöds av många identitets leverantörer (IDP: er). Vi rekommenderar att du använder Azure AD Provisioning-tjänsten om du vill stödja IDP: er utöver Azure AD, eftersom alla SCIM-kompatibla IdP kan ansluta till din SCIM-slutpunkt.
+Azure AD Provisioning Services använder [SCIM] (https://aka.ms/SCIMOverview, ett protokoll som stöds av många identitets leverantörer (IDP: er). Vi rekommenderar att du använder Azure AD Provisioning-tjänsten om du vill stödja IDP: er utöver Azure AD, eftersom alla SCIM-kompatibla IdP kan ansluta till din SCIM-slutpunkt.
 
 Mer information om hur Azure AD Provisioning-tjänsten användare SCIM finns i: 
+
+* [Läs mer om SCIM-standarden](https://aka.ms/SCIMOverview)
 
 * [Använda systemet för SCIM (Cross-Domain Identity Management) för att automatiskt etablera användare och grupper från Azure Active Directory till program](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 * [Förstå Azure AD SCIM-implementeringen](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
-
-* [Bygg en SCIM-slutpunkt med Microsoft CLI-bibliotek](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
 
 ## <a name="microsoft-graph-for-provisioning"></a>Microsoft Graph för etablering
 

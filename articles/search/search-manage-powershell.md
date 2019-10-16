@@ -9,20 +9,20 @@ ms.devlang: powershell
 ms.topic: conceptual
 ms.date: 03/28/2019
 ms.author: heidist
-ms.openlocfilehash: 6090881cc2b94fa42fdac22220c858a0153ccc5c
-ms.sourcegitcommit: bb8e9f22db4b6f848c7db0ebdfc10e547779cccc
+ms.openlocfilehash: d56ddcd48f6a1907bed865d391e1d4e64da2999d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69648100"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331246"
 ---
 # <a name="manage-your-azure-search-service-with-powershell"></a>Hantera din Azure Search-tjänst med PowerShell
 > [!div class="op_single_selector"]
-> * [Portal](search-manage.md)
+> * [Portalen](search-manage.md)
 > * [PowerShell](search-manage-powershell.md)
-> * [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)-> 
 
 Du kan köra PowerShell-cmdlets och skript i Windows, Linux eller i [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview) för att skapa och konfigurera Azure Search. **AZ. search** -modulen utökar Azure PowerShell] med fullständig paritet till [Azure Search hantering REST-API: er](https://docs.microsoft.com/rest/api/searchmanagement). Med Azure PowerShell och **AZ. search**kan du utföra följande uppgifter:
 
@@ -40,7 +40,7 @@ Det finns inga dedikerade PowerShell-kommandon för innehålls hantering, men du
 
 Andra aktiviteter som inte stöds via PowerShell eller någon annan API (endast Portal) inkluderar:
 + [Koppla en kognitiv tjänst resurs](cognitive-search-attach-cognitive-services.md) för [AI-berikad indexering](cognitive-search-concept-intro.md). En kognitiv tjänst är kopplad till en färdigheter, inte en prenumeration eller tjänst.
-+ [Lösningar för övervakning av lösningar](search-monitor-usage.md#add-on-monitoring-solutions) eller [Sök trafik analys](search-traffic-analytics.md) som används för att övervaka Azure Search.
++ [Lösningar](search-monitor-usage.md#add-on-monitoring-solutions) för att övervaka Azure Search.
 
 <a name="check-versions-and-load"></a>
 
@@ -84,7 +84,7 @@ Om du har flera Azure-prenumerationer ställer du in din Azure-prenumeration. K�
 Get-AzSubscription | sort SubscriptionName | Select SubscriptionName
 ```
 
-Kör följande kommando för att ange prenumerationen. I följande exempel är `ContosoSubscription`prenumerations namnet.
+Kör följande kommando för att ange prenumerationen. I följande exempel är prenumerations namnet `ContosoSubscription`.
 
 ```azurepowershell-interactive
 Select-AzSubscription -SubscriptionName ContosoSubscription
@@ -94,7 +94,7 @@ Select-AzSubscription -SubscriptionName ContosoSubscription
 
 ## <a name="list-all-azure-search-services-in-your-subscription"></a>Visa alla Azure Search tjänster i din prenumeration
 
-Följande kommandon är från [**AZ.** ](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources)Resources, returnerar information om befintliga resurser och tjänster som redan har skapats i din prenumeration. Om du inte vet hur många Sök tjänster som redan har skapats, returnerar de här kommandona informationen och sparar en resa till portalen.
+Följande kommandon är från [**AZ. Resources**](https://docs.microsoft.com/powershell/module/az.resources/?view=azps-1.4.0#resources), returnerar information om befintliga resurser och tjänster som redan har skapats i din prenumeration. Om du inte vet hur många Sök tjänster som redan har skapats, returnerar de här kommandona informationen och sparar en resa till portalen.
 
 Det första kommandot returnerar alla Sök tjänster.
 
@@ -197,11 +197,11 @@ Tags
 
 [**New-AzSearchAdminKey**](https://docs.microsoft.com/powershell/module/az.search/new-azsearchadminkey?view=azps-1.4.0) används för att rulla över administrations- [API-nycklar](search-security-api-keys.md). Två administratörs nycklar skapas med varje tjänst för autentiserad åtkomst. Nycklar krävs på varje begäran. Båda administratörs nycklarna fungerar som likvärdiga, vilket ger fullständig Skriv behörighet till en Sök tjänst med möjlighet att hämta information eller skapa och ta bort objekt. Det finns två nycklar så att du kan använda en när du ersätter den andra. 
 
-Du kan bara återskapa en i taget, som antingen `primary` har angetts som eller `secondary` -nyckeln. Kom ihåg att uppdatera all klient kod för att använda en sekundär nyckel när du rullar över primär nyckeln för en oavbruten tjänst. Undvik att ändra nycklarna när åtgärderna är i flygning.
+Du kan bara återskapa en i taget, som har angetts som antingen `primary`-eller `secondary`-nyckel. Kom ihåg att uppdatera all klient kod för att använda en sekundär nyckel när du rullar över primär nyckeln för en oavbruten tjänst. Undvik att ändra nycklarna när åtgärderna är i flygning.
 
 Om du återskapar nycklar utan att uppdatera klient koden, kan det hända att förfrågningar som använder den gamla nyckeln Miss förväntas. Om du återskapar alla nya nycklar låses du inte permanent av tjänsten och du kan fortfarande komma åt tjänsten via portalen. När du har återskapat primära och sekundära nycklar kan du uppdatera klient koden för att använda de nya nycklarna och åtgärderna kommer att återupptas på motsvarande sätt.
 
-Värdena för API-nycklarna genereras av tjänsten. Det går inte att ange en anpassad nyckel för Azure Search som ska användas. Det finns på liknande sätt inget användardefinierat namn för Admin API-nycklar. Referenser till nyckeln är fasta strängar, antingen `primary` eller. `secondary` 
+Värdena för API-nycklarna genereras av tjänsten. Det går inte att ange en anpassad nyckel för Azure Search som ska användas. Det finns på liknande sätt inget användardefinierat namn för Admin API-nycklar. Referenser till nyckeln är fasta strängar, antingen `primary` eller `secondary`. 
 
 ```azurepowershell-interactive
 New-AzSearchAdminKey -ResourceGroupName <resource-group-name> -ServiceName <search-service-name> -KeyKind Primary

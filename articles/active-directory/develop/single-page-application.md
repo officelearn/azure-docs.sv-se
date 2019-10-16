@@ -1,6 +1,6 @@
 ---
-title: Enkelsidigt program i Azure Active Directory
-description: Beskriver vilka enkelsidigt program (SPA) är och grunderna på protocol flow, registrering och token upphör att gälla för den här apptypen.
+title: Program med en sida i Azure Active Directory
+description: Beskriver vilka SPAs (Single-Page Applications) som är och grunderna för protokoll flöde, registrering och token förfallo datum för den här typen av appar.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,55 +17,55 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f6f66779bec9ed4e38e5a662c2d3728ba2034b6
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 8afb226406c02f395c7112d485d4616bfbec140e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545304"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373856"
 ---
-# <a name="single-page-applications"></a>Enkelsidigt program
+# <a name="single-page-applications"></a>Program med en enda sida
 
-Enkelsidigt program (SPA) är vanligtvis strukturerade som en JavaScript-presentationslagret (klientdel) som körs i webbläsaren och en webb-API-serverdel som körs på en server och implementerar affärslogiken i programmet. Mer information om implicit auktoriseringsbeviljande och hjälper dig att avgöra om det är bäst för ditt program-scenario genom att se [förstå OAuth2 implicit ge flow i Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
+SPAs (Single-Page Applications) är vanligt vis strukturerade som ett JavaScript-presentations lager (klient del) som körs i webbläsaren och en server del för webb-API som körs på en server och implementerar programmets affärs logik. Om du vill veta mer om den implicita auktoriseringen och hjälpa dig att avgöra om det är rätt för ditt program scenario, se [förstå OAuth2 implicita bidrags flödet i Azure Active Directory](v1-oauth2-implicit-grant-flow.md).
 
-I det här scenariot, när användaren loggar in, JavaScript klientdelens slutliga användning [Active Directory Authentication Library för JavaScript (ADAL. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) och implicit auktoriseringsbeviljande att hämta ID-token (id_token) från Azure AD. Token cachelagras och klienten kopplas till den på begäran som ägartoken när anrop till dess webb-API-serverdel som skyddas med OWIN-mellanprogrammet.
+I det här scenariot använder Java Script-frontend [Active Directory-autentiseringsbibliotek för Java Script (ADAL) när användaren loggar in. JS)](https://github.com/AzureAD/azure-activedirectory-library-for-js) och det implicita auktoriserings bidraget för att hämta en ID-token (id_token) från Azure AD. Token cachelagras och klienten kopplar den till begäran som Bearer-token vid anrop till dess webb-API-Server del, som skyddas med OWIN mellanprogram.
 
 ## <a name="diagram"></a>Diagram
 
-![Diagram över enkelsidigt program](./media/authentication-scenarios/single_page_app.png)
+![Program diagram med en enda sida](./media/authentication-scenarios/single_page_app.png)
 
-## <a name="protocol-flow"></a>Protocol flow
+## <a name="protocol-flow"></a>Protokoll flöde
 
-1. Användaren navigerar till webbprogrammet.
-1. Programmet returnerar JavaScript klientdelen (presentationslagret) till webbläsaren.
-1. Användaren initierar inloggning, till exempel klickar du på länken logga in. Webbläsaren skickar en GET till auktoriseringsslutpunkten för Azure AD för att begära en ID-token. Den här begäran innehåller programmets ID och svars-URL i Frågeparametrar.
-1. Azure AD verifierar svars-URL mot registrerade svars-URL som har konfigurerats i Azure-portalen.
-1. Användaren loggar in på sidan logga in.
-1. Om autentiseringen lyckas, Azure AD skapar en ID-token och returnerar det som ett URL-fragment (#) till programmets svars-URL. För ett produktionsprogram måste svars-URL vara HTTPS. Den returnerade token innehåller anspråk om användaren och Azure AD som krävs av programmet för att validera token.
-1. JavaScript-klient-kod som körs i webbläsaren extraherar token från svaret som ska användas i skydda anrop till programmets web API tillbaka avslutas.
-1. Webbläsaren anropar programmets webb-API: et tillbaka sluta med ID-token i auktoriseringshuvudet. Azure AD-Autentiseringstjänsten utfärdar en ID-token som kan användas som en ägartoken om resursen är samma som klient-ID (i det här fallet detta gäller skick webb-API Apps egen backend).
+1. Användaren navigerar till webb programmet.
+1. Programmet returnerar Java Script front end (presentations lager) till webbläsaren.
+1. Användaren startar inloggningen, till exempel genom att klicka på en inloggnings länk. Webbläsaren skickar en GET till Azure AD Authorization-slutpunkten för att begära en ID-token. Den här begäran innehåller programmets ID och svars-URL i frågeparametrar.
+1. Azure AD verifierar svars-URL: en mot den registrerade svars-URL som konfigurerades i Azure Portal.
+1. Användaren loggar in på inloggnings sidan.
+1. Om autentiseringen lyckas skapar Azure AD en ID-token och returnerar den som ett URL-fragment (#) till programmets svars-URL. För ett produktions program ska denna svars-URL vara HTTPS. Den returnerade token innehåller anspråk om användaren och Azure AD som krävs av programmet för att validera token.
+1. Den JavaScript-klient kod som körs i webbläsaren extraherar token från det svar som ska användas för att säkra anrop till programmets webb-API-Server del.
+1. Webbläsaren anropar programmets webb-API-Server del med ID-token i Authorization-huvudet. Azure AD-Autentiseringstjänsten utfärdar en ID-token som kan användas som en Bearer-token om resursen är samma som klient-ID: t (i det här fallet gäller detta att webb-API: et är appens egen server del).
 
 ## <a name="code-samples"></a>Kodexempel
 
-Se den [kodexempel för ensidesapplikation scenarier](sample-v1-code.md#single-page-applications). Se till att Kom tillbaka ofta eftersom nya exempel läggs ofta.
+Se [kod exemplen för program scenarier med en enda sida](sample-v1-code.md#single-page-applications). Kom ihåg att kontrol lera tillbaka ofta när nya exempel läggs till ofta.
 
 ## <a name="app-registration"></a>Appregistrering
 
-* Enskild klient - om du skapar ett program för din organisation kan den registreras i företagets katalog med hjälp av Azure portal.
-* Flera innehavare - om du skapar ett program som kan användas av användare utanför organisationen, det måste vara registrerad i företagets katalog, men även måste registreras i varje organisations katalog som kommer att använda programmet. Du kan inkludera en registreringsprocess för dina kunder som gör det möjligt för dem att godkänna ditt program för att göra programmet tillgängligt i sin katalog. När de registrerar sig för ditt program, kommer de att visas en dialogruta som visar de behörigheter som programmet kräver och sedan alternativet för att godkänna. Beroende på behörigheterna som krävs kanske en administratör i den andra organisationen måste ge ditt medgivande. När användaren eller administratören godkänner, registreras programmet i sin katalog.
+* Enskild klient – om du skapar ett program precis för din organisation måste det registreras i företagets katalog med hjälp av Azure Portal.
+* Flera innehavare – om du skapar ett program som kan användas av användare utanför organisationen måste det registreras i företagets katalog, men måste också registreras i varje organisations katalog som ska använda programmet. Om du vill göra ditt program tillgängligt i sin katalog kan du inkludera en registrerings process för dina kunder som gör det möjligt för dem att godkänna ditt program. När de registrerar sig för ditt program visas en dialog ruta som visar de behörigheter programmet kräver, och sedan alternativet för att godkänna. Beroende på vilka behörigheter som krävs kan en administratör i den andra organisationen behöva ge sitt medgivande. När användaren eller administratören samtycker, registreras programmet i sin katalog.
 
-När du har registrerat programmet, måste den konfigureras för att använda implicit beviljande av OAuth 2.0-protokollet. Det här protokollet är inaktiverat för program som standard. Aktivera protokoll för OAuth2-implicit beviljande för ditt program, redigera dess programmanifestet från Azure-portalen och ange ”oauth2AllowImplicitFlow”-värdet till true. Mer information finns i [programmanifestet](reference-app-manifest.md).
+När du har registrerat programmet måste det konfigureras för att använda OAuth-protokollet OAuth 2,0. Som standard är det här protokollet inaktiverat för program. Om du vill aktivera OAuth2 implicita beviljande protokoll för ditt program redigerar du dess program manifest från Azure Portal och anger värdet "oauth2AllowImplicitFlow" till true. Mer information finns i [program manifestet](reference-app-manifest.md).
 
-## <a name="token-expiration"></a>Giltighetstid för token
+## <a name="token-expiration"></a>Förfallo datum för token
 
-Med hjälp av ADAL.js hjälper med:
+Med hjälp av ADAL. js kan du:
 
-* Uppdatera en utgångna token
-* begär en åtkomsttoken att anropa ett webb-API-resursen
+* Uppdaterar en utgången token
+* Begära en åtkomsttoken för att anropa en webb-API-resurs
 
-Efter en lyckad autentisering skriver en cookie i användarens webbläsare för att upprätta en session i Azure AD. Observera att sessionen finns mellan användare och Azure AD (inte mellan användaren och webbprogrammet). När en token upphör att gälla använder ADAL.js den här sessionen tyst hämtar en annan token. ADAL.js använder en dold iFrame för att skicka och ta emot begäran med implicit beviljande av OAuth-protokollet. ADAL.js kan också använda samma mekanism för att erhålla åtkomsttoken tyst för andra webb-API-resurser som programmet anropar så länge dessa resurser stöd för cross-origin resource sharing (CORS) har registrerats i katalogen för den användaren och alla nödvändiga tillstånd har anges av användaren under inloggning.
+Efter en lyckad autentisering skriver Azure AD en cookie i användarens webbläsare för att upprätta en session. Observera att sessionen finns mellan användaren och Azure AD (inte mellan användaren och webb programmet). När en token går ut använder ADAL. js den här sessionen för att hämta en annan token tyst. ADAL. js använder en dold iFrame för att skicka och ta emot begäran med hjälp av OAuth-protokollet för implicit tilldelning. ADAL. js kan också använda samma mekanism för att få åtkomst till tokens i bakgrunden för andra webb-API-resurser. programmet anropas så länge dessa resurser stöder resurs delning mellan ursprung (CORS), registreras i användarens katalog och alla nödvändiga medgivande var tilldelas av användaren under inloggningen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [programtyper och scenarier](app-types.md)
-* Lär dig mer om Azure AD [grunder](authentication-scenarios.md)
+* Läs mer om andra [program typer och scenarier](app-types.md)
+* Lär dig mer om grunderna i Azure AD- [autentisering](v1-authentication-scenarios.md)

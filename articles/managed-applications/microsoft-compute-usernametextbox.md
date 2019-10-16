@@ -1,6 +1,6 @@
 ---
-title: Azure UserNameTextBox UI-element | Microsoft Docs
-description: Beskriver Microsoft.Compute.UserNameTextBox UI-element för Azure-portalen.
+title: Användar gränssnitts element för Azure UserNameTextBox | Microsoft Docs
+description: Beskriver användar gränssnitts elementet Microsoft. Compute. UserNameTextBox för Azure Portal. Gör det möjligt för användare att ange Windows-eller Linux-användarnamn.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,18 +12,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 88ab13329a719ba1e1b8a7b5fba2f7a2d381eca2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 875c73c546fa52642959e2593d41f9af82c13797
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64700846"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331584"
 ---
-# <a name="microsoftcomputeusernametextbox-ui-element"></a>Microsoft.Compute.UserNameTextBox UI-element
-En textrutekontroll med inbyggda verifieringen för Windows och Linux-användarnamn.
+# <a name="microsoftcomputeusernametextbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. UserNameTextBox
+En text Rute kontroll med inbyggd verifiering för Windows-och Linux-användarnamn.
 
 ## <a name="ui-sample"></a>UI-exempel
-![Microsoft.Compute.UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
+![Microsoft. Compute. UserNameTextBox](./media/managed-application-elements/microsoft.compute.usernametextbox.png)
 
 ## <a name="schema"></a>Schema
 ```json
@@ -44,11 +44,11 @@ En textrutekontroll med inbyggda verifieringen för Windows och Linux-användarn
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- Om `constraints.required` är inställd på **SANT**, textrutan måste ha ett värde kan valideras. Standardvärdet är **SANT**.
+- Om `constraints.required` har angetts till **True**måste text rutan ha ett värde för att kunna verifiera. Standardvärdet är **True**.
 - `osPlatform` måste anges och kan vara antingen **Windows** eller **Linux**.
-- `constraints.regex` är en JavaScript-mönster för reguljärt uttryck. Om anges måste i textrutan värdet matcha mönstret kan valideras. Standardvärdet är **null**.
-- `constraints.validationMessage` är en sträng visas när textrutans värde misslyckas verifieringen som anges av `constraints.regex`. Om den inte anges används den textrutan inbyggda verifieringsmeddelanden. Standardvärdet är **null**.
-- Det här elementet har inbyggda verifiering som baseras på det angivna värdet för `osPlatform`. Inbyggda verifieringen kan användas tillsammans med ett anpassat reguljärt uttryck. Om ett värde för `constraints.regex` har angetts, både inbyggda och anpassade verifieringar utlöses.
+- `constraints.regex` är ett mönster för reguljära uttryck för Java Script. Om det här alternativet anges måste text rutans värde matcha mönstret för att kunna verifieras. Standardvärdet är **Null**.
+- `constraints.validationMessage` är en sträng som ska visas när text rutans värde inte uppfyller den verifiering som anges av `constraints.regex`. Om inget värde anges används text rutans inbyggda verifierings meddelanden. Standardvärdet är **Null**.
+- Det här elementet har en inbyggd verifiering som baseras på värdet som angetts för `osPlatform`. Den inbyggda verifieringen kan användas tillsammans med ett anpassat reguljärt uttryck. Om ett värde för `constraints.regex` anges utlöses båda de inbyggda och anpassade valideringarna.
 
 ## <a name="sample-output"></a>Exempel på utdata
 ```json
@@ -56,5 +56,5 @@ En textrutekontroll med inbyggda verifieringen för Windows och Linux-användarn
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

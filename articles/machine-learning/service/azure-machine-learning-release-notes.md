@@ -10,18 +10,63 @@ ms.author: jmartens
 author: j-martens
 ms.date: 08/19/2019
 ms.custom: seodec18
-ms.openlocfilehash: da0c674eaf3bc650beae0a05f8f8a0c3613fbeaf
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: f51b9c3032518fb66215126c5a8bf26ab9b59526
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177909"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331574"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Viktig information om Azure Machine Learning
 
 I den här artikeln får du lära dig mer om Azure Machine Learning-versioner.  Information om fullständiga SDK-referenser finns på Azure Machine Learning huvud sidan [**för SDK för python**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) -referens. 
 
 Se [listan över kända problem](resource-known-issues.md) för att lära dig om kända buggar och lösningar.
+
+## <a name="2019-10-14"></a>2019-10-14
+
+### <a name="azure-machine-learning-sdk-for-python-v1069"></a>Azure Machine Learning SDK för python v-1.0.69
+
++ **Fel korrigeringar och förbättringar**
+  + **azureml-automl-Core**
+    + Att begränsa modell förklaringar till bästa körning snarare än att beräkna förklaringar för varje körning. Gör den här funktionen ändring för lokal, fjärr-och ADB.
+    + Stöd har lagts till för modell förklaringar på begäran för användar gränssnittet
+    + Lade till psutil som ett beroende av automl och inkluderat psutil som ett Conda-beroende i amlcompute.
+    + Ett problem har åtgärd ATS med heuristisk lags och rullande fönster storlekar i prognos data uppsättningarna, en serie som kan orsaka linjära algebra-fel
+      + Lade till utskrift för de heuristiskt bestämda parametrarna i prognos körningarna.
+  + **azureml-contrib-datadrift**
+    + Skydd har lagts till när du skapar utmatnings mått om data uppsättnings nivån inte är i det första avsnittet.
+  + **azureml-contrib-tolka**
+    + azureml-contrib-förklara-modell paketet har bytt namn till azureml-contrib-tolka
+  + **azureml – kärna**
+    + API har lagts till för att avregistrera data uppsättningar. `dataset.unregister_all_versions()`
+    + Har lagt till data mängds-API för att kontrol lera ändrad data tid. `dataset.data_changed_time`.
+    + Att kunna använda `FileDataset` och `TabularDataset` som indata till `PythonScriptStep`, `EstimatorStep` och `HyperDriveStep` i Azure Machine Learning pipeline
+    + Prestanda för `FileDataset.mount` har förbättrats för mappar med ett stort antal filer
+    + URL: en har lagts till för kända fel rekommendationer i körnings information.
+    + En bugg har åtgärd ATS. Hämta _metrics där förfrågningar skulle uppstå om en körning hade för många underordnade
+    + Stöd har lagts till för autentisering i Arcadia-kluster.
+    + När du skapar ett experiment objekt hämtas eller skapas experimentet i Azure Machine Learning-arbetsytan för körning av historik spårning. Experiment-ID: t och den arkiverade tiden fylls i experiment-objektet när det skapas. Exempel: experiment = experiment (arbets yta, "nytt experiment") experiment_id = experiment.id Archive () och Reactivate () är funktioner som kan anropas för ett experiment för att dölja och återställa experimentet från att visas i UX eller returneras som standard i ett anrop för att Visa experiment. Om ett nytt experiment skapas med samma namn som ett arkiverat experiment, kan du byta namn på det arkiverade experimentet när du återaktiverar genom att skicka ett nytt namn. Det kan bara finnas ett aktivt experiment med ett angivet namn. Exempel: experiment1 = experiment (arbets yta, "aktivt experiment") experiment1. Archive () # skapa nytt aktivt experiment med samma namn som det arkiverade. experiment2. = Experiment (arbets yta, "aktivt experiment") experiment1. reaktivera (NEW_NAME = "tidigare aktivt experiment") den statiska metod listan () i experimentet kan ta ett namn filter och ViewType-filter. ViewType-värden är "ACTIVE_ONLY", "ARCHIVED_ONLY" och "ALL" exempel: archived_experiments = experiment. list (arbets yta, view_type = "ARCHIVED_ONLY") all_first_experiments = experiment. list (arbets yta, namn = "första experiment", view_type = "alla")
+    + Stöd för användning av miljö för modell distribution och tjänst uppdatering
+  + **azureml – datadrift**
+    + Attributet show i klassen DataDriftDector stöder inte det valfria argumentet with_details. Attributet show visar bara data drifts-och data drifts bidrag i funktions kolumnerna.
+    + DataDriftDetector-attributets get_output-beteende ändras:
+      + Indataparametern start_time, end_time är valfria i stället för obligatorisk;
+      + nput-start_time och/eller end_time med en speciell run_id i samma anrop leder till ett värde fel undantag eftersom de är ömsesidigt uteslutande 
+      + Genom att skriva in en speciell start_time och/eller end_time returneras endast resultat från schemalagda körningar. 
+      + Parametern "daily_latest_only" är föråldrad.
+    + Stöd för hämtning av data uppsättningar-baserade datautdata.
+  + **azureml – förklara-modell**
+    + Byter namn på AzureML-förklarar-Model-paket till AzureML-tolka, och behåller det gamla paketet för bakåtkompatibilitet för tillfället
+    + fast automl-bugg med obehandlade förklaringar har angetts till klassificerings uppgift i stället för regression som standard vid hämtning från ExplanationClient
+    + Lägg till stöd för `ScoringExplainer` som ska skapas direkt med `MimicWrapper`
+  + **azureml – pipeline – kärna**
+    + Bättre prestanda för att skapa stora pipeliner
+  + **azureml-träna-Core**
+    + Stöd för TensorFlow 2,0 har lagts till i TensorFlow-uppskattningen
+  + **azureml-träna-automl**
+    + Den överordnade körningen kommer inte längre att Miss lyckas när installationen iterationen misslyckades eftersom det redan tar hand om dirigeringen.
+    + Local-Docker och Local-Conda-stöd har lagts till för AutoML-experiment
 
 ## <a name="2019-10-08"></a>2019-10-08
 

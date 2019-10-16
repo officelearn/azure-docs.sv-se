@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/04/2019
 ms.author: spelluru
-ms.openlocfilehash: df24f846f1600685803fdd485f1810d66e32ae37
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9c11d4648635e62ebc2e68734e14dd2bdc028a7c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028674"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330672"
 ---
 # <a name="set-up-a-lab-to-teach-ethical-hacking-class"></a>Konfigurera ett labb för att lära dig etiska hackning-klassen 
 Den här artikeln visar hur du konfigurerar en klass som fokuserar på data utredning sida av etiska hackning. Testning av inträngning, en övning som används av den etiska hackning-communityn, inträffar när någon försöker få åtkomst till systemet eller nätverket för att Visa sårbarheter som en skadlig angripare kan utnyttja. 
@@ -28,13 +28,13 @@ I en etisk hackning-klass kan studenter lära sig moderna tekniker för att för
 Den här artikeln innehåller två huvud avsnitt. Det första avsnittet beskriver hur du skapar klass rummets labb. I det andra avsnittet beskrivs hur du skapar en mall med kapslad virtualisering aktive rad och de verktyg och bilder som behövs. I det här fallet en Metasploitable avbildning och en Kali Linux-avbildning på en dator som har Hyper-V aktiverat som värd för avbildningarna.
 
 ## <a name="lab-configuration"></a>Labb konfiguration
-Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt konto. Se följande självstudie för att skapa ett nytt labb konto: [Självstudie för att konfigurera ett labb konto](tutorial-setup-lab-account.md).
+Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har skaffat en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt konto. Se följande självstudie för att skapa ett nytt labb konto: [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).
 
 Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa ett nytt labb och Använd sedan följande inställningar:
 
-| Storlek på virtuell dator | Image |
+| Storlek på virtuell dator | Bild |
 | -------------------- | ----- | 
-| Medium (kapslad virtualisering) | Windows Server 2019 Datacenter |
+| Medium (kapslad virtualisering) | Windows Server 2019 Data Center |
 
 ## <a name="template-machine"></a>Mall dator 
 
@@ -141,7 +141,7 @@ Den här artikeln gick dig genom stegen för att skapa ett labb för en etisk ha
 Nästa steg är vanliga för att ställa in labb:
 
 - [Lägga till användare](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Ange kvot](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Ange kvot](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Ange ett schema](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [E-postregistrering länkar till studenter](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link). 
+- [E-postregistrering länkar till studenter](how-to-configure-student-usage.md#send-invitations-to-users). 
 

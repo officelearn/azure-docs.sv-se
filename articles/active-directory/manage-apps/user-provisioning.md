@@ -15,12 +15,12 @@ ms.date: 06/12/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ef652b05f62218ee1d0e72543bfa546f0c14abe
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: 5ff6d9e33e15aa04adfa03705172166492f87e30
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001704"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330027"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Automatisera användar etablering och avetablering för SaaS-program med Azure Active Directory
 
@@ -56,11 +56,11 @@ Några vanliga orsaker till att använda den här funktionen är:
 
 **Azure AD Provisioning-tjänsten** etablerar användare för att SaaS appar och andra system genom att ansluta till användar hanterings-API-slutpunkter som tillhandahålls av varje program leverantör. Dessa API-slutpunkter för användar hantering tillåter Azure AD att program mässigt skapa, uppdatera och ta bort användare. För valda program kan etablerings tjänsten också skapa, uppdatera och ta bort ytterligare ID-relaterade objekt, till exempel grupper och roller.
 
-![Azure AD Provisioning-tjänsten @ no__t-1 @ no__t-2Figure 1: Azure AD Provisioning-tjänsten @ no__t-0
+![Azure AD Provisioning-tjänsten @ no__t-1*bild 1: Azure AD Provisioning-tjänsten*
 
-![Outbound användar etablering arbets flöde @ no__t-1 @ no__t-2Figure 2: "Utgående" arbets flöde för användar etablering från Azure AD till populära SaaS-program @ no__t-0
+@no__t 0Outbound User Provisioning Workflow @ no__t-1*bild 2: "utgående" användar etablerings arbets flöde från Azure AD till populära SaaS-program*
 
-![Inbound användar etablering arbets flöde @ no__t-1 @ no__t-2Figure 3: "Inkommande" arbets flöde för användar etablering från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory @ no__t-0
+![Inbound användar etablering arbets flöde @ no__t-1*bild 3: "inkommande" användar etablerings arbets flöde från populära HCM-program (Human kapital Management) till Azure Active Directory och Windows Server Active Directory*
 
 ## <a name="what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning"></a>Vilka program och system kan jag använda med automatisk användar etablering i Azure AD?
 
@@ -99,7 +99,7 @@ Använd Azure Active Directory Portal för att konfigurera Azure AD Provisioning
 
 1. Välj det automatiska alternativet för **etablerings läget** för att ange inställningar för administratörs behörighet, mappningar, starta och stoppa och synkronisering.
 
-   - Expandera **administratörsautentiseringsuppgifter** för att ange de autentiseringsuppgifter som krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. I det här avsnittet kan du också aktivera e-postaviseringar om autentiseringsuppgifterna inte fungerar eller om etablerings jobbet placeras i [karantän](#quarantine).
+   - Expandera **administratörsautentiseringsuppgifter** för att ange de autentiseringsuppgifter som krävs för att Azure AD ska kunna ansluta till programmets användar hanterings-API. I det här avsnittet kan du också aktivera e-postaviseringar om autentiseringsuppgifterna inte fungerar eller om etablerings jobbet placeras i [karantän](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
    - Expandera **mappningar** för att visa och redigera användarattribut som flödar mellan Azure AD och mål programmet när användar konton har skapats eller uppdaterats. Om mål programmet stöder det kan du med hjälp av det här avsnittet Konfigurera etablering av grupper och användar konton. Välj en mappning i tabellen för att öppna mappnings redigeraren till höger, där du kan visa och anpassa användarattribut.
 
      **Omfångs filter** talar om för etablerings tjänsten vilka användare och grupper i käll systemet som ska etableras eller avetableras till mål systemet. I fönstret **attributmappning** väljer du **käll objekt omfång** för att filtrera efter vissa attributvärden. Du kan till exempel ange att endast användare med attributet ”Avdelning” för ”Försäljning” ska ingå i omfånget för etablering. Mer information finns i [Använda omfångsfilter](define-conditional-rules-for-provisioning-user-accounts.md).
@@ -125,7 +125,7 @@ När etablerings tjänsten startas kommer den första synkronisering som någons
 
 1. Fråga alla användare och grupper från käll systemet och hämta alla attribut som definierats i [mappningarna för attribut](customize-application-attributes.md).
 1. Filtrera de användare och grupper som returneras med hjälp av eventuella konfigurerade [tilldelningar](assign-user-or-group-access-portal.md) eller [attributbaserade definitions filter](define-conditional-rules-for-provisioning-user-accounts.md).
-1. När en användare tilldelas eller omfånget för etablering, frågar tjänsten mål systemet efter en matchande användare med de angivna [matchande attributen](customize-application-attributes.md#understanding-attribute-mapping-properties). Exempel: Om namnet på userPrincipal i käll systemet är det matchande attributet och mappas till användar namn i mål systemet, frågar etablerings tjänsten mål systemet efter användar namn som matchar userPrincipal Name-värden i käll systemet.
+1. När en användare tilldelas eller omfånget för etablering, frågar tjänsten mål systemet efter en matchande användare med de angivna [matchande attributen](customize-application-attributes.md#understanding-attribute-mapping-properties). Exempel: om namnet på userPrincipal i käll systemet är det matchande attributet och mappar till användar namn i mål systemet, frågar etablerings tjänsten mål systemet efter användar namn som matchar userPrincipal-namnens värden i käll systemet.
 1. Om en matchande användare inte hittas i mål systemet, skapas den med hjälp av de attribut som returneras från käll systemet. När användar kontot har skapats identifierar och cachelagrar etablerings tjänsten mål systemets ID för den nya användaren, som används för att köra alla framtida åtgärder på den användaren.
 1. Om det finns en matchande användare uppdateras den med hjälp av de attribut som anges av käll systemet. När användar kontot har matchats identifierar och cachelagrar etablerings tjänsten mål systemets ID för den nya användaren, som används för att köra alla framtida åtgärder på den användaren.
 1. Om attribut mappningarna innehåller "Reference"-attribut gör tjänsten ytterligare uppdateringar i mål systemet för att skapa och länka de refererade objekten. En användare kan till exempel ha ett "Manager"-attribut i mål systemet, som är länkat till en annan användare som skapats i mål systemet.
@@ -173,7 +173,7 @@ Om de flesta eller alla anrop som görs mot mål systemet inte fungerar konsekve
 
 När den är i karantän minskas frekvensen för stegvisa cykler till en gång per dag.
 
-Etablerings jobbet tas bort från karantänen när alla fel som är felaktiga har åtgärd ATS och nästa synkronisering startar. Om etablerings jobbet finns kvar i karantän i mer än fyra veckor inaktive ras etablerings jobbet.
+Etablerings jobbet tas bort från karantänen när alla fel som är felaktiga har åtgärd ATS och nästa synkronisering startar. Om etablerings jobbet finns kvar i karantän i mer än fyra veckor inaktive ras etablerings jobbet. Läs mer här om karantän status [här](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
 
 ## <a name="how-long-will-it-take-to-provision-users"></a>Hur lång tid tar det att etablera användare?
 
@@ -195,7 +195,7 @@ För scenariobaserade vägledning om hur du felsöker automatisk användar etabl
 
 Ett exempel på en steg-för-steg-distributions plan för utgående användar etablering till ett program finns i [identitets distributions guiden för användar etablering](https://aka.ms/userprovisioningdeploymentplan).
 
-## <a name="frequently-asked-questions"></a>Vanliga frågor och svar
+## <a name="frequently-asked-questions"></a>Vanliga frågor
 
 ### <a name="does-automatic-user-provisioning-to-saas-apps-work-with-b2b-users-in-azure-ad"></a>Fungerar automatisk användar etablering för SaaS-appar med B2B-användare i Azure AD?
 

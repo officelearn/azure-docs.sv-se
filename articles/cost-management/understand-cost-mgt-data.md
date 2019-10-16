@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 10/08/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 433bcd31399d8443355edcb2e8586993644174ca
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6870297eea194b89a84a89e1e8ef8decf5c1788e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72242366"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374535"
 ---
 # <a name="understand-cost-management-data"></a>Förstå Cost Management-data
 
@@ -34,6 +34,7 @@ Följande information visar de [Microsoft Azure erbjudanden](https://azure.micro
 | **Enterprise-avtal (EA)** | [Microsoft Azure Enterprise](https://azure.microsoft.com/offers/enterprise-agreement-support-upgrade) | EnterpriseAgreement_2014-09-01 | MS-AZR-0017P | Maj 2014<sup>1</sup> |
 | **Microsofts kund avtal** | [Microsoft Azure plan](https://azure.microsoft.com/offers/ms-azr-0017g) | EnterpriseAgreement_2014-09-01 | Gäller inte | Mars 2019<sup>3</sup> |
 | **Microsofts kund avtal** | [Microsoft Azure plan för utveckling/testning](https://azure.microsoft.com/offers/ms-azr-0148g) | MSDNDevTest_2014-09-01 | Gäller inte | Mars 2019<sup>3</sup> |
+| **Microsoft partner avtal** | Microsoft Azure Plan | CSP_2015-05-01, CSP_MG_2017-12-01, CSPDEVTEST_2018-05-01 | Gäller inte | Oktober 2019 |
 | **Microsoft Developer Network (MSDN)** | [MSDN-plattformar](https://azure.microsoft.com/offers/ms-azr-0062p)<sup>4</sup> | MSDN_2014-09-01 | MS-AZR-0062P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Betala per användning](https://azure.microsoft.com/offers/ms-azr-0003p)                  | PayAsYouGo_2014-09-01 | MS-AZR-0003P | 2 oktober 2018<sup>2</sup> |
 | **Betala per användning** | [Dev/Test – betala per användning](https://azure.microsoft.com/offers/ms-azr-0023p)         | MSDNDevTest_2014-09-01 | MS-AZR-0023P | 2 oktober 2018<sup>2</sup> |

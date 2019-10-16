@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 4/9/2019
+ms.date: 10/15/2019
 ms.author: mayg
-ms.openlocfilehash: 6249a3c1c8ea3be02ca802d6be7e720bd900f675
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 687c21170c0397b89270e9c3a6af1e994c758179
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72178100"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331115"
 ---
 # <a name="set-up-network-mapping-and-ip-addressing-for-vnets"></a>Konfigurera nätverks mappning och IP-adressering för virtuella nätverk
 
@@ -76,8 +76,7 @@ IP-adressen för varje nätverkskort på en virtuell mål dator konfigureras enl
 **Käll-och mål under nät** | **Detaljer**
 --- | ---
 Samma adress utrymme | IP-adressen för den virtuella käll datorn NIC har angetts som mål-IP-adress för VM-nätverkskort.<br/><br/> Om adressen inte är tillgänglig anges nästa tillgängliga IP-adress som mål.
-
-Annat adress utrymme<br/><br/> Nästa tillgängliga IP-adress i mål under nätet har angetts som den virtuella mål datorns NIC-adress.
+Annat adress utrymme | Nästa tillgängliga IP-adress i mål under nätet har angetts som den virtuella mål datorns NIC-adress.
 
 
 
@@ -85,8 +84,8 @@ Annat adress utrymme<br/><br/> Nästa tillgängliga IP-adress i mål under näte
 
 **Mål nätverk** | **Detaljer**
 --- | ---
-Mål nätverket är det virtuella nätverket med redundans | -Mål-IP-adressen är statisk, men inte samma IP-adress som reserverad för redundans.<br/><br/>  -Den tilldelade adressen är nästa tillgängliga adress från slutet av under nätets intervall.<br/><br/> Exempel: om käll-IP-adressen är 10.0.0.19 och redundansväxlingen använder intervallet 10.0.0.0/24, är nästa IP-adress som tilldelats den virtuella mål datorn 10.0.0.254.
-Mål nätverket är inte det virtuella nätverkets VNet | -Mål-IP-adressen kommer att vara statisk med samma IP-adress som reserver ATS för redundans.<br/><br/>  -Om samma IP-adress redan har tilldelats är IP-adressen nästa som är tillgänglig i slutet av under nätets intervall.<br/><br/> Exempel: om den statiska käll-IP-adressen är 10.0.0.19 och redundansväxlingen finns i ett nätverk som inte är redundansklustret, med intervallet 10.0.0.0/24, blir den statiska IP-adressen 10.0.0.0.19 om den är tillgänglig och annars kommer den att vara 10.0.0.254.
+Mål nätverket är det virtuella nätverket med redundans | -Mål-IP-adressen kommer att vara statisk med samma IP-adress. <br/><br/>  -Om samma IP-adress redan har tilldelats är IP-adressen nästa som är tillgänglig i slutet av under nätets intervall. Exempel: om käll-IP-adressen är 10.0.0.19 och redundansväxlingen använder intervallet 10.0.0.0/24, är nästa IP-adress som tilldelats den virtuella mål datorn 10.0.0.254.
+Mål nätverket är inte det virtuella nätverkets VNet | -Mål-IP-adressen kommer att vara statisk med samma IP-adress.<br/><br/>  -Om samma IP-adress redan har tilldelats är IP-adressen nästa som är tillgänglig i slutet av under nätets intervall.<br/><br/> Exempel: om den statiska käll-IP-adressen är 10.0.0.19 och redundansväxlingen finns i ett nätverk som inte är redundansklustret, med intervallet 10.0.0.0/24, blir den statiska IP-adressen 10.0.0.0.19 om den är tillgänglig och annars kommer den att vara 10.0.0.254.
 
 - Redundansväxlingen VNet är det mål nätverk som du väljer när du konfigurerar haveri beredskap.
 - Vi rekommenderar att du alltid använder ett nätverk som inte är för produktion för redundanstest.

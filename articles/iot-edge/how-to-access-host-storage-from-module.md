@@ -4,22 +4,24 @@ description: Använd miljövariabler och skapa alternativ för att aktivera modu
 author: kgremban
 manager: philmea
 ms.author: kgremban
-ms.date: 10/12/2019
+ms.date: 10/15/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 2526f33f0053b5805394a4a898af88d86187066c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 72fb7cfad5683edeb3b3335c28c53a7e693d00d5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301287"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330809"
 ---
 # <a name="give-modules-access-to-a-devices-local-storage"></a>Ge moduler åtkomst till en enhets lokala lagring
 
 Förutom att lagra data med hjälp av Azure Storage-tjänster eller i enhetens behållar lagring kan du också dedikera lagring på värden IoT Edge själva enheten för bättre tillförlitlighet, särskilt när du arbetar offline.
 
-Om du vill konfigurera lagring på värd systemet skapar du en miljö variabel för modulen som pekar på en lagringsmapp i behållaren. Använd sedan alternativen skapa för att binda den lagringsmappen till en mapp på värddatorn.
+## <a name="link-module-storage-to-device-storage"></a>Länka modulen lagring till enhets lagring
+
+Om du vill aktivera en länk från modul lagring till lagrings platsen på värd systemet skapar du en miljö variabel för modulen som pekar på en lagringsmapp i behållaren. Använd sedan alternativen skapa för att binda den lagringsmappen till en mapp på värddatorn.
 
 Om du till exempel vill aktivera IoT Edge hubben för att lagra meddelanden i enhetens lokala lagring och hämta dem senare, kan du konfigurera miljövariablerna och skapa alternativ i Azure Portal i **Konfigurera avancerade Edge runtime-inställningar** avsnittet.
 
@@ -80,3 +82,7 @@ sudo chmod 700 <HostStoragePath>
 ```
 
 Du hittar mer information om att skapa alternativ från [Docker-dokument](https://docs.docker.com/engine/api/v1.32/#operation/ContainerCreate).
+
+## <a name="next-steps"></a>Nästa steg
+
+Ett ytterligare exempel på hur du kan komma åt värd lagring från en modul finns i [lagra data på gränsen med Azure Blob Storage på IoT Edge](how-to-store-data-blob.md).

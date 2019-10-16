@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 2513825fcb275aeb3c4f0ca49ff5f2a6bd9441f0
-ms.sourcegitcommit: bd4198a3f2a028f0ce0a63e5f479242f6a98cc04
+ms.openlocfilehash: 5dc81f6e35f86c6dee77d44ff5c59c2657434a37
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303020"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376270"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>Använd AI för att förstå BLOB-data
 
@@ -48,7 +48,7 @@ När du lägger till Azure Search i ditt lagrings konto kan du följa standard p
 
 I följande avsnitt kommer vi att utforska fler komponenter och begrepp.
 
-## <a name="use-blob-indexers"></a>Använda BLOB-indexerare
+## <a name="begin-with-blob-indexers"></a>Börja med BLOB-indexerare
 
 AI-anrikning är ett tillägg till en indexerings pipeline, och i Azure Search skapas pipelinerna ovanpå en *indexerare*. En indexerare är en data källa medveten under tjänst som är utrustad med intern logik för att sampla data, läsa metadata, hämta data och serialisera data från interna format till JSON-dokument för efterföljande import. Indexerare används ofta av sig själva för import, separat från AI, men om du vill bygga en pipeline för AI-anrikning behöver du en indexerare och en färdigheter för att gå med den. I det här avsnittet ska vi fokusera på själva indexeraren.
 
@@ -76,30 +76,33 @@ Inbyggda kunskaper som backas upp av Cognitive Services kräver en [bifogad Cogn
 
 Om du bara använder anpassade kunskaper och inbyggda verktygs kunskaper, finns det inget beroende eller kostnader som är relaterade till Cognitive Services.
 
-## <a name="order-of-operations"></a>Åtgärds ordning
+<!-- ## Order of operations
 
-Nu har vi täckt indexerare, innehålls extrahering och kunskaper. vi kan ta en närmare titt på pipeline-mekanismer och drifts ordning.
+Now we've covered indexers, content extraction, and skills, we can take a closer look at pipeline mechanisms and order of operations.
 
-En färdigheter är en sammansättning av en eller flera kunskaper. När flera kunskaper är inblandade fungerar färdigheter som sekventiell pipeline och producerar beroende diagram där utdata från en färdighet blir indata till en annan. 
+A skillset is a composition of one or more skills. When multiple skills are involved, the skillset operates as sequential pipeline, producing dependency graphs, where output from one skill becomes input to another. 
 
-Till exempel kan en stor blob av ostrukturerad text vara en exempel ordning för åtgärder för text analys som är följande:
+For example, given a large blob of unstructured text, a sample order of operations for text analytics might be as follows:
 
-1. Använd text delning för att dela upp blobben i mindre delar.
-1. Använd Språkidentifiering för att avgöra om innehållet är engelskt eller ett annat språk.
-1. Använd text översättare för att hämta all text till ett gemensamt språk.
-1. Kör entitets igenkänning, Extrahering av diskussionsämne eller Attitydanalys på text segment. I det här steget skapas och fylls nya fält. Entiteter kan vara plats, personer, organisation, datum. Viktiga fraser är korta kombinationer av ord som verkar tillhöra varandra. Sentiment Poäng är en klassificering på Continuum för negativa (0) till positiva (1) sentiment.
-1. Använd text fusion för att färdigställa dokumentet från de mindre segmenten..
+1. Use Text Splitter to break the blob into smaller parts.
+1. Use Language Detection to determine if content is English or another language.
+1. Use Text Translator to get all text into a common language.
+1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
+1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
+## <a name="how-to-use-ai-enriched-content"></a>Så här använder du AI-berikat innehåll
 
-## <a name="outputs-and-use-cases"></a>Utdata och användnings fall
+Utdata från AI-anrikning är antingen ett sökindex på Azure Search eller ett kunskaps lager i Azure Storage.
 
-Ett berikat dokument i slutet av pipelinen skiljer sig från den ursprungliga indata-versionen genom förekomst av ytterligare fält som innehåller ny information som har extraherats eller genererats under berikning. Därför kan du arbeta med en kombination av ursprungliga och skapade värden på flera sätt.
+I Azure Search används ett sökindex för interaktiv utforskning med fri text och filtrerade frågor i en klient app. Omfattande dokument som skapats via AI formateras i JSON och indexeras på samma sätt som alla dokument indexeras i Azure Search, vilket utnyttjar alla fördelar som en indexerare tillhandahåller. Vid indexering, till exempel, refererar BLOB-indexeraren till konfigurations parametrar och inställningar för att använda alla fält mappningar eller logik för ändrings identifiering. Sådana inställningar är helt tillgängliga för regelbundna indexering och AI-berikade arbets belastningar. Efter indexeringen, när innehåll lagras på Azure Search, kan du bygga omfattande frågor och filter uttryck för att förstå ditt innehåll.
 
-Utmatnings formulären är ett sökindex på Azure Search eller ett kunskaps lager i Azure Storage.
+I Azure Storage har ett kunskaps lager två godsspecifikationer: en BLOB-behållare eller tabeller i Table Storage. 
 
-I Azure Search formateras omfattande dokument i JSON och kan indexeras på samma sätt som alla dokument är indexerade, med de fördelar som en indexerare tillhandahåller. Fält från berikade dokument mappas till ett index schema. Under indexeringen refererar BLOB-indexeraren till konfigurations parametrar och inställningar för att använda alla fält mappningar eller den ändrings identifierings logik som du har angett. Efter indexeringen, när innehåll lagras på Azure Search, kan du bygga omfattande frågor och filter uttryck för att förstå ditt innehåll.
++ En BLOB-behållare fångar omfattande dokument i sin helhet, vilket är användbart om du vill mata in i andra processer. 
 
-I Azure Storage har ett kunskaps lager två godsspecifikationer: en BLOB-behållare eller tabeller i Table Storage. En BLOB-behållare fångar omfattande dokument i sin helhet, vilket är användbart om du vill mata in i andra processer. Dessutom kan Table Storage hantera fysiska projektioner av förrikade dokument. Du kan skapa segment eller lager av omfattande dokument som inkluderar eller undantar vissa delar. För analys i Power BI blir tabellerna i Azure Table Storage data källan för ytterligare visualisering och utforskning.
++ Dessutom kan Table Storage hantera fysiska projektioner av förrikade dokument. Du kan skapa segment eller lager av omfattande dokument som inkluderar eller undantar vissa delar. För analys i Power BI blir tabellerna i Azure Table Storage data källan för ytterligare visualisering och utforskning.
+
+Ett berikat dokument i slutet av pipelinen skiljer sig från den ursprungliga indata-versionen genom förekomst av ytterligare fält som innehåller ny information som har extraherats eller genererats under berikning. Därför kan du arbeta med en kombination av ursprungligt och skapat innehåll, oavsett vilken utmatnings struktur du använder.
 
 ## <a name="next-steps"></a>Nästa steg
 

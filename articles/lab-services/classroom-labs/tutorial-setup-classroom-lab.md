@@ -12,27 +12,28 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/11/2019
+ms.date: 10/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 964ecca015e440439885bbbd85cb720a3abd10a9
-ms.sourcegitcommit: aa042d4341054f437f3190da7c8a718729eb675e
+ms.openlocfilehash: fe40eb27b07304aba48be4a47fb22168cb60434c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68883520"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332285"
 ---
-# <a name="tutorial-set-up-a-classroom-lab"></a>Självstudier: Konfigurera ett klassrumslabb 
+# <a name="tutorial-set-up-a-classroom-lab"></a>Självstudie: Konfigurera ett klassrumslabb 
 I självstudien konfigurerar du ett klassrumslabb med virtuella datorer som används av eleverna i klassrummet.  
 
-I de här självstudierna gör du följande:
+I den här självstudien gör du följande:
 
 > [!div class="checklist"]
 > * Skapa ett klassrumslabb
 > * Lägga till användare i labbet
-> * Skicka en registreringslänk till eleverna
+> * Ange schema för labbet
+> * Skicka inbjudan via e-post till studenter
 
-## <a name="prerequisites"></a>Förutsättningar
-Om du vill konfigurera ett klass rums labb i ett labb konto måste du vara medlem i någon av dessa roller i labb kontot: Ägare, Labbskaparen eller Deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen.
+## <a name="prerequisites"></a>Krav
+Om du vill konfigurera ett klass rums labb i ett labb konto måste du vara medlem i någon av dessa roller i labb kontot: ägare, labb skapare eller deltagare. Det konto som du använde för att skapa ett labbkonto läggs automatiskt till i ägarrollen.
 
 En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbägare lägger exempelvis till universitetslärare till rollen Labbskaparen. Sedan skapar universitetsläraren labbar med virtuella datorer för deras klasser. Elever använder registreringslänken som de får från universitetslärarna för att registrera sig i labbet. När de har registrerats kan de använda virtuella datorer i labbarna för att utföra klass- och hemarbete. Detaljerade anvisningar för att lägga till användare till rollen Labbskaparen finns i [Lägga till en användare till rollen Labbskaparen](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 
@@ -41,65 +42,60 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
 1. Gå till [webbplatsen för Azure Lab Services](https://labs.azure.com). Observera att Internet Explorer 11 inte stöds ännu. 
 2. Välj **Logga in** och ange dina autentiseringsuppgifter. Azure Lab Services har stöd för organisationskonton och Microsoft-konton. 
-3. Utför följande i fönstret **Nytt labb**: 
-    1. Ange ett **namn** på ditt labb. 
-    2. Ange maximalt **antal virtuella datorer** i labbet. Du kan öka eller minska antalet virtuella datorer när du har skapat labbet eller i ett befintligt labb. Mer information finns i avsnittet om att [uppdatera antalet virtuella datorer i ett labb](how-to-configure-student-usage.md#update-number-of-virtual-machines-in-lab)
-    6. Välj **Spara**.
+3. Välj **nytt labb**. 
+    
+    ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-button.png)
+4. Utför följande i fönstret **Nytt labb**: 
+    1. Ange ett **namn** på labbet och välj **Nästa**.  
 
         ![Skapa ett klassrumslabb](../media/tutorial-setup-classroom-lab/new-lab-window.png)
-4. På sidan för att **välja specifikationer för virtuell dator** utför du följande steg:
-    1. Välj en **storlek** för virtuella datorer (VM) som skapas i labbet. För närvarande tillåts **små**, **medel**, **medium (virtualisering)** , **stor**och **GPU** -storlek.
-    3. Välj den **VM-avbildning**  som ska användas för att skapa virtuella datorer i labbet. Om du väljer en Linux-avbildning ser du ett alternativ för att aktivera anslutning till fjärr skrivbord för det. Mer information finns i [aktivera anslutning till fjärr skrivbord för Linux](how-to-enable-remote-desktop-linux.md).
-    4. Välj **Nästa**.
 
-        ![Ange VM-specifikationer](../media/tutorial-setup-classroom-lab/select-vm-specifications.png)    
-5. På sidan **Ange autentiseringsuppgifter** anger du standardautentiseringsuppgifter för alla virtuella datorer i labbet. 
-    1. Ange **namnet på användaren** för alla virtuella datorer i labbet.
-    2. Ange **lösenordet** för användaren. 
+        Om du väljer en Linux-avbildning ser du ett alternativ för att aktivera anslutning till fjärr skrivbord för det. Mer information finns i [aktivera anslutning till fjärr skrivbord för Linux](how-to-enable-remote-desktop-linux.md).
+    2. På sidan **autentiseringsuppgifter för virtuell dator** anger du standardautentiseringsuppgifterna för alla virtuella datorer i labbet. Ange **namn** och **lösen ord** för användaren och välj sedan **Nästa**.  
+
+        ![Nytt labb fönster](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
 
         > [!IMPORTANT]
         > Anteckna namnet och lösenordet. De kommer inte att visas igen.
-    3. Välj **Skapa**. 
+    3. På sidan **labb principer** anger du det antal timmar som tilldelas för varje användare (**kvot för varje användare**) utanför den schemalagda tiden för labbet och väljer sedan **Slutför**. 
 
-        ![Ange autentiseringsuppgifter](../media/tutorial-setup-classroom-lab/set-credentials.png)
-6. På sidan **Konfigurera mall** kan du se statusen för labbskapandeprocessen. Det tar upp till 20 minuter att skapa mallen i labbet. 
+        ![Kvot för varje användare](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+5. Du bör se följande skärm bild som visar status för den mall för att skapa mallen. Det tar upp till 20 minuter att skapa mallen i labbet. 
 
-    ![Konfigurera mall](../media/tutorial-setup-classroom-lab/configure-template.png)
-7. När konfigurationen av mallen har slutförts visas följande sida: 
+    ![Status för skapande av mall för virtuell dator](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
+8. Utför följande steg på sidan **mall** : de här stegen är **valfria** för självstudierna.
 
-    ![Konfigurera mallsidan när det är klart](../media/tutorial-setup-classroom-lab/configure-template-after-complete.png)
-8. På sidan **Konfigurera mall** utför du följande steg: De här stegen är **valfria** för självstudien.
     2. Anslut till mallen för den virtuella datorn genom att välja **Anslut**. Om det är en virtuell Linux-mall kan du välja om du vill ansluta med SSH eller RDP (om RDP är aktiverat).
     1. Välj **Återställ lösen ord** för att återställa lösen ordet för den virtuella datorn. 
     1. Installera och konfigurera programvaran på mallen för den virtuella datorn. 
     1. **Stoppa** den virtuella datorn.  
     1. Ange en **beskrivning** för mallen
-9. Välj **Nästa** på mallsidan. 
-10. På sidan **Publicera mallen** utför du någon av följande åtgärder. 
-    1. Om du vill publicera mallen direkt väljer du **publicera**.  
+10. Välj **publicera** i verktygsfältet på sidan **mall** . 
 
-        > [!WARNING]
-        > När du väl har publicerat kan du inte ångra publiceringen. 
-    2. Om du vill publicera senare väljer **Spara till senare**. Du kan publicera mallen VM när guiden har slutförts. Mer information om hur du konfigurerar och publicerar när guiden har slutförts finns i avsnittet [publicera mallen](how-to-create-manage-template.md#publish-the-template-vm) i artikeln [Hantera klass rums labb](how-to-manage-classroom-labs.md) .
+    ![Knappen publicera mall](../media/tutorial-setup-classroom-lab/template-page-publish-button.png)
 
-        ![Publicera mall](../media/tutorial-setup-classroom-lab/publish-template.png)
-11. Du ser **förloppet för publiceringen**  av mallen. Den här processen kan ta upp till en timma. 
+    > [!WARNING]
+    > När du väl har publicerat kan du inte ångra publiceringen. 
+8. På sidan **publicera mall** anger du det antal virtuella datorer som du vill skapa i labbet och väljer sedan **publicera**. 
+
+    ![Publicera mall – antal virtuella datorer](../media/tutorial-setup-classroom-lab/publish-template-number-vms.png)
+11. Du ser **statusen för att publicera** mallen på sidan. Den här processen kan ta upp till en timma. 
 
     ![Publicera mall – förlopp](../media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. Du ser följande sida när mallen har publicerats. Välj **Done** (Klar).
-
-    ![Publicera mall – lyckades](../media/tutorial-setup-classroom-lab/publish-success.png)
-1. **Instrumentpanelen** för labbet visas. 
-    
-    ![Instrumentpanel för klassrumslabb](../media/tutorial-setup-classroom-lab/classroom-lab-home-page.png)
-4. Växla till sidan **Virtuella datorer** genom att välja Virtuella datorer på den vänstra menyn eller genom att välja panelen Virtuella datorer. Bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
+4. Växla till sidan **Virtual Machines-pool** genom att välja virtuella datorer på den vänstra menyn eller genom att välja panelen virtuella datorer. Bekräfta att du ser virtuella datorer som är i tillståndet **Otilldelad**. De här virtuella datorerna har inte tilldelats till studenter ännu. De måste vara i tillstånd **Stoppad**. Du kan starta en virtuell dator för studenter, ansluta till den virtuella datorn, stoppa den virtuella datorn och ta bort den virtuella datorn på den här sidan. Du kan starta dem på den här sidan eller låta studenterna starta de virtuella datorerna. 
 
     ![Virtuella datorer i stoppat tillstånd](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
+
+    Du utför följande åtgärder på den här sidan (utför inte de här stegen för självstudierna. De här stegen är endast för din information.): 
+    
+    1. Om du vill ändra labb kapaciteten (antal virtuella datorer i labbet) väljer du **labb kapacitet** i verktygsfältet.
+    2. Om du vill starta alla virtuella datorer samtidigt väljer du **starta alla** i verktygsfältet. 
+    3. Om du vill starta en speciell virtuell dator väljer du nedpilen i **status**och väljer sedan **Starta**. Du kan också starta en virtuell dator genom att välja en virtuell dator i den första kolumnen och sedan välja **Starta** i verktygsfältet.
 
 ## <a name="add-users-to-the-lab"></a>Lägga till användare i labbet
 
 1. Välj **Användare** på den vänstra menyn. Som standard är alternativet **Begränsa åtkomst** aktiverat. När den här inställningen är aktiverad kan inte användaren registrera med labbet även om användaren har registreringslänken, såvida inte användaren finns i listan över användare. Endast användare i listan kan registreras med labbet genom att använda registreringslänken som du skickar. I den här proceduren ska du lägga till användare i listan. Du kan också stänga av **Begränsa åtkomst**, vilket gör att användare registrerar sig med labbet så länge de har registreringslänken. 
-2. Välj **Lägg till användare** i verktygsfältet. 
+2. Välj **Lägg till användare** i verktygsfältet och välj sedan **Lägg till efter e-postadresser**. 
 
     ![Knappen Lägg till användare](../media/how-to-configure-student-usage/add-users-button.png)
 1. På sidan **Lägg till användare** anger du e-postadresser för användare i separata rader eller på en enda rad, avgränsade med semikolon. 
@@ -109,55 +105,42 @@ En labbägare kan lägga till andra användare i rollen **Labbskaparen**. Labbä
 
     ![Användarlista](../media/how-to-configure-student-usage/users-list-new.png)
 
-## <a name="set-quotas-for-users"></a>Ange kvoter för användare
-Du kan ange kvoter per användare med hjälp av följande steg: 
-
-1. Välj **användare** på den vänstra menyn om sidan inte redan är aktiv. 
-2. Välj **kvot per användare: 10 timmar** i verktygsfältet. 
-3. På sidan **kvot per användare** anger du antalet timmar som du vill ge varje användare (student): 
-    1. **Totalt antal labb timmar per användare**. Användare kan använda sina virtuella datorer för det angivna antalet timmar (anges för det här fältet) **utöver den schemalagda tiden**. Om du väljer det här alternativet anger du **antalet timmar** i text rutan. 
-
-        ![Antal timmar per användare](../media/how-to-configure-student-usage/number-of-hours-per-user.png). 
-    1. **0 timmar (endast schema)** . Användare kan endast använda sina virtuella datorer under den schemalagda tiden eller när du som labb ägare aktiverar virtuella datorer för dem.
-
-        ![Noll timmar – endast schemalagd tid](../media/how-to-configure-student-usage/zero-hours.png)
-    4. Välj **Spara**. 
-5. Nu visas ändrade värden i verktygsfältet: **Kvot per användare: &lt;antal timmar&gt;** . 
-
-    ![Kvot per användare](../media/how-to-configure-student-usage/quota-per-user.png)
-
 ## <a name="set-a-schedule-for-the-lab"></a>Ange ett schema för labbet
-Om du har konfigurerat kvot inställningen till **0 timmar (endast schema)** måste du ange ett schema för labbet. I den här självstudien ställer du in schemat som ett återkommande vecko schema.
+Skapa en schemalagd händelse för labbet så att virtuella datorer i labbet startas/stoppas automatiskt vid vissa tidpunkter. Användar kvoten du angav tidigare är den ytterligare tid som tilldelats varje användare utanför den schemalagda tiden. 
 
-1. Växla till sidan **scheman** och välj **Lägg till schema** i verktygsfältet. 
+1. Växla till sidan **scheman** och välj **Lägg till schemalagd händelse** i verktygsfältet. 
 
     ![Knappen Lägg till schema på sidan scheman](../media/how-to-create-schedules/add-schedule-button.png)
-2. På sidan **Lägg till schema** växlar du till **veckovis** överst. 
-3. I **schema dagar (obligatoriskt)** väljer du de dagar som du vill att schemat ska börja gälla. I följande exempel är måndag-fredag markerat. 
-4. I fältet **från** anger du schemats **start datum** eller väljer ett datum genom att välja knappen **kalender** . Det här fältet är obligatoriskt. 
-5. För **schema slutdatum**anger eller väljer du ett slutdatum som de virtuella datorerna ska stängas av. 
-6. För **Start tid**väljer du den tid då du vill att de virtuella datorerna ska startas. Start tiden måste anges om stopp tiden inte har angetts. Välj **ta bort start händelse** om du bara vill ange stopp tiden. Om **Start tiden** är inaktive rad väljer du **Lägg till Start händelse** bredvid den nedrullningsbara listan för att aktivera det. 
-7. För **stopp tid**väljer du den tid då du vill att de virtuella datorerna ska stängas av. Stopp tiden måste anges om start tiden inte har angetts. Välj **ta bort stopp händelse** om du bara vill ange start tiden. Om **stopp tiden** är inaktive rad väljer du **Lägg till stopp händelse** bredvid List rutan för att aktivera det.
-8. För **tidszon (krävs)** väljer du tids zonen för start-och stopp tider som du har angett.  
-9. För **anteckningar**anger du en beskrivning eller information om schemat. 
-10. Välj **Spara**. 
+2. Bekräfta att **standard** är valt **händelse typ**. Du väljer **Start bara** för att ange start tiden för de virtuella datorerna. Du väljer **stoppa endast** om du bara vill ange stopp tiden för de virtuella datorerna. 
+7. I avsnittet **Upprepa** väljer du det aktuella schemat. 
+
+    ![Knappen Lägg till schema på sidan scheman](../media/how-to-create-schedules/select-current-schedule.png)
+5. Utför följande steg i dialog rutan **Upprepa** :
+    1. Bekräfta att **varje vecka** har angetts för fältet **Upprepa** . 
+    3. Ange **start datum**.
+    4. Ange **Start tiden** då du vill att de virtuella datorerna ska startas.
+    5. Ange **stopp tiden** som de virtuella datorerna ska stängas av. 
+    6. Ange **tids zonen** för start-och stopp tider som du har angett. 
+    2. Välj de dagar som du vill att schemat ska börja gälla. I följande exempel är måndag-torsdag markerat. 
+    8. Välj **Spara**. 
+
+        ![Ange upprepnings schema](../media/how-to-create-schedules/set-repeat-schedule.png)
+
+3. På sidan **Lägg till schemalagd händelse** för **anteckningar (valfritt)** anger du eventuellt en beskrivning eller information om schemat. 
+4. På sidan **Lägg till schemalagd händelse** väljer du **Spara**. 
 
     ![Vecko schema](../media/how-to-create-schedules/add-schedule-page-weekly.png)
 
-## <a name="send-an-email-with-the-registration-link"></a>Skicka ett e-postmeddelande med registrerings länken
+## <a name="send-invitation-emails-to-students"></a>Skicka inbjudningar via e-post till studenter
 
-1. Växla till **användarvyn** om du inte är på sidan redan. 
-2. Välj vissa eller alla användare i listan. Markera kryss rutor i den första kolumnen i listan för att välja vissa användare. Markera kryss rutan framför rubriken för den första kolumnen (**namn**) eller markera alla kryss rutor för alla användare i listan för att markera alla användare. Du kan se status för Inbjudnings **tillståndet** i den här listan.  I följande bild har Inbjudnings läget för alla studenter angetts till inbjudan har **inte skickats**. 
+1. Växla till vyn **användare** om du inte redan är på sidan och välj **Bjud in alla** i verktygsfältet. 
 
-    ![Välj studenter](../media/tutorial-setup-classroom-lab/select-students.png)
-1. Välj **e-postikonen (kuvertet)** på en av raderna (eller) Välj **Skicka inbjudan** i verktygsfältet. Du kan också Hovra musen över ett elev namn i listan för att se e-postikonen. 
+    ![Välj studenter](../media/tutorial-setup-classroom-lab/invite-all-button.png)
+
+1. På sidan **Skicka inbjudan via e-post** anger du ett valfritt meddelande och väljer sedan **Skicka**. E-postmeddelandet innehåller automatiskt registrerings länken. Du kan hämta den här registrerings länken genom att välja **... (tre punkter)** i verktygsfältet och **registrerings länken**. 
 
     ![Skicka registrerings länk via e-post](../media/tutorial-setup-classroom-lab/send-email.png)
-4. Följ dessa steg på sidan **Skicka registrerings länk via e-post** : 
-    1. Skriv ett **valfritt meddelande** som du vill skicka till eleverna. E-postmeddelandet innehåller automatiskt registrerings länken. 
-    2. På sidan **Skicka registrerings länk via e-post** väljer du **Skicka**. Du ser status för inbjudan att ändra för att **Skicka inbjudan** och sedan för att **Skicka**inbjudan. 
-        
-        ![Inbjudningar har skickats](../media/tutorial-setup-classroom-lab/invitations-sent.png)
+4. Du ser status för **inbjudan** i listan **användare** . Statusen bör ändras till att **skickas** och sedan **skickas till &lt;date @ no__t-3**. 
 
 ## <a name="next-steps"></a>Nästa steg
 I självstudien skapade du ett klassrumslabb och konfigurerade labbet. Om du vill veta hur en elev kan få åtkomst till en virtuell dator i labbet med hjälp av registreringslänken, går du vidare till nästa självstudie:

@@ -8,26 +8,29 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: tutorial
-ms.date: 05/15/2019
+ms.date: 10/10/2019
 ms.author: juliako
-ms.openlocfilehash: fca8dc31a0f909a1602819a2830d9bebbbda0c88
-ms.sourcegitcommit: 36c50860e75d86f0d0e2be9e3213ffa9a06f4150
+ms.openlocfilehash: 9d89247740852b7bfc185fbcf864947efe30ef0f
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 05/16/2019
-ms.locfileid: "65799322"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372334"
 ---
-# <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Snabbstart: Så registrerar du dig och laddar upp din första video
+# <a name="quickstart-how-to-sign-up-and-upload-your-first-video"></a>Snabb start: så här registrerar du dig och laddar upp din första video
 
 Den här komma igång-självstudien visar hur du loggar in på Video Indexer-webbplatsen och laddar upp din första video.
 
-När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med betald alternativet kan du skapa en Video Indexer-konto som är [är ansluten till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till Azure Media Services-kontot. 
+När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med alternativet betald skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till Azure Media Services-kontot. 
 
 ## <a name="sign-up-for-video-indexer"></a>Registrera dig för Video Indexer
 
 När du vill börja utveckla med Video Indexer går du till [Video Indexer](https://www.videoindexer.com)-webbplatsen och registrerar dig.
 
 ## <a name="upload-a-video-using-the-video-indexer-website"></a>Ladda upp en video med hjälp av Video Indexer-webbplatsen
+
+> [!NOTE]
+> Ett namn på videon får inte vara större än 80 tecken.
 
 1. Logga in på [Video Indexer](https://www.videoindexer.ai/)-webbplatsen.
 2. Ladda upp en video genom att trycka på knappen eller länken **Ladda upp**.

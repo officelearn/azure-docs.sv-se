@@ -1,7 +1,7 @@
 ---
-title: 'Snabbstart: Identifiera tal-och mål-C-tal-tjänsten'
+title: 'Snabb start: identifiera tal, mål-C-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
-description: Lär dig hur du identifierar tal i Objective-C i iOS med hjälp av Speech SDK
+description: Lär dig att känna igen tal i mål-C på iOS med hjälp av tal-SDK
 services: cognitive-services
 author: chlandsi
 manager: nitinme
@@ -10,78 +10,82 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: chlandsi
-ms.openlocfilehash: d87fd06b45d1d3636c442d962daa79cf526e74f2
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: f943f47cdef901f80aa455d3d1e02a753e0f06e4
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803271"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327758"
 ---
-# <a name="quickstart-recognize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Identifiera tal i Objective-C i iOS med hjälp av Speech SDK
+# <a name="quickstart-recognize-speech-in-objective-c-on-ios-by-using-the-speech-sdk"></a>Snabb start: identifiera tal i mål-C på iOS med hjälp av tal-SDK
 
 Snabb Starter är också tillgängliga för [tal syntes](quickstart-text-to-speech-objectivec-ios.md).
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
-I den här artikeln får du lära dig hur du skapar en iOS-app i mål-C med Cognitive Services Speech SDK för att skriva tal till text från mikrofon eller från en fil med inspelat ljud.
+I den här artikeln får du lära dig hur du skapar en iOS-app i mål-C genom att använda Azure Cognitive Services Speech SDK för att skriva tal till text från en mikrofon eller från en fil med inspelat ljud.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Gå igenom den här listan med förhandskrav innan du sätter igång:
+Innan du börjar måste du ha:
 
-* En [prenumerationsnyckel](get-started.md) för Speech Service
-* En macOS-dator med [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) eller senare
-* Mål uppsättningen till iOS version 9,3 eller senare
+* En [prenumerations nyckel](get-started.md) för tal tjänsten.
+* En macOS-dator med [Xcode 9.4.1](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12) eller senare.
+* Mål uppsättningen till iOS version 9,3 eller senare.
 
 ## <a name="get-the-speech-sdk-for-ios"></a>Skaffa Speech SDK för iOS
 
-[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 Cognitive Services Speech SDK för iOS är för närvarande distribuerad som ett kakao-ramverk.
-Den kan hämtas [härifrån.](https://aka.ms/csspeech/iosbinary) Ladda ned filen till arbetskatalogen.
+Den kan hämtas från [den här webbplatsen](https://aka.ms/csspeech/iosbinary). Ladda ned filen till arbetskatalogen.
 
 ## <a name="create-an-xcode-project"></a>Skapa ett Xcode-projekt
 
-Starta Xcode och starta ett nytt projekt genom att klicka på **File** > **New** > **Project** (Arkiv > Nytt > Projekt).
-I dialogrutan för mallval väljer du mallen ”iOS Single View App”.
+Starta Xcode och starta ett nytt projekt genom att välja **fil** > **nytt** > -**projekt**.
+I dialog rutan Mallval väljer du app-mallen för **iOS-enkel vy** .
 
-I dialogrutorna som följer gör du följande val:
+Gör följande val i dialog rutorna som följer.
 
-1. Dialogrutan Project Options (Projektalternativ)
-    1. Ange namnet på snabbstartsappen, till exempel `helloworld`.
-    1. Ange ett lämpligt organisationsnamn och organisations-ID, om du redan har ett Apple Developer-konto. I testsyfte kan du välja vilket namn som helst, till exempel `testorg`. För att signera appen behöver du en korrekt etableringsprofil. Information finns på [Apple Developer-webbplatsen](https://developer.apple.com/).
-    1. Kontrollera att Objective-C har valts som språk för projektet.
-    1. Inaktivera alla kryssrutor för test och kärndata.
-    ![Projektinställningar](media/sdk/qs-objectivec-project-settings.png)
-1. Välja projektkatalog
-    1. Välj arbetskatalogen och spara projektet där. Då skapas en `helloworld`-katalog i arbetskatalogen som innehåller alla filer för Xcode-projektet.
-    1. Inaktivera skapandet av en Git-lagringsplats för det här exempelprojektet.
-    1. Justera sökvägarna till SDK:et i *Project Settings* (Projektinställningar).
-        1. Lägg till SDK-biblioteket som ett ramverk under rubriken **Embedded Binaries** (Inbäddade binära) på fliken **General** (Allmänt): **Add embedded binaries** > **Add other...** (Lägg till inbäddade binära > Lägg till annan) > navigera till arbetskatalogen och välj filen `MicrosoftCognitiveServicesSpeech.framework`. Det här lägger även automatiskt till SDK-biblioteket i rubriken **Länkat ramverk och bibliotek**.
-        ![Tillagt ramverk](media/sdk/qs-objectivec-framework.png)
-        1. Gå till fliken **Build Settings** (Versionsinställningar) och aktivera **All** (Alla).
-        1. Lägg till katalogen `$(SRCROOT)/..` i *Framework Search Paths* (Sökvägar för ramverket) under rubriken **Search Paths** (Sökvägar).
-        Inställning för ![Framework Search Path](media/sdk/qs-objectivec-framework-search-paths.png) (Sökväg för ramverket)
+1. I dialog rutan **projekt alternativ** :
+    1. Ange ett namn för snabb starts appen, till exempel *HelloWorld*.
+    1. Ange ett lämpligt organisations namn och organisations-ID om du redan har ett Apple Developer-konto. I test syfte kan du använda ett namn som *testorg*. För att signera appen behöver du en korrekt etableringsprofil. Mer information finns på webbplatsen för [Apple Developer](https://developer.apple.com/).
+    1. Kontrol lera att **mål-C** har valts som språk för projektet.
+    1. Avmarkera alla kryss rutor för test-och kärn data.
+
+    ![Projekt inställningar](media/sdk/qs-objectivec-project-settings.png)
+
+1. Välj en projekt katalog:
+   1. Välj arbetskatalogen och spara projektet där. Det här steget skapar en HelloWorld-katalog i din arbets katalog som innehåller alla filer för Xcode-projektet.
+   1. Inaktivera skapandet av en Git-lagringsplats för det här exempelprojektet.
+   1. Justera Sök vägarna till SDK: n på skärmen projekt inställningar.
+      1. På fliken **Allmänt** under rubriken **inbäddade binärfiler** lägger du till SDK-biblioteket som ett ramverk genom att välja **lägg till inbäddade binärfiler** > **Lägg till annan**. Gå till din Hem Katalog och välj filen `MicrosoftCognitiveServicesSpeech.framework`. Den här åtgärden lägger till SDK-biblioteket i sidhuvudet **och biblioteken som länkas** automatiskt.
+         ![Added Framework @ no__t-1
+      1. Gå till fliken **versions inställningar** och välj inställningen **alla** .
+      1. Lägg till katalogen $ (SRCROOT)/.. till **ramverk Sök vägar** under rubriken **Sök sökvägar** .
+
+      ![Inställning av Ramverks Sök vägar](media/sdk/qs-objectivec-framework-search-paths.png)
 
 ## <a name="set-up-the-ui"></a>Konfigurera användargränssnittet
 
-Exempelappen har ett mycket enkelt användargränssnitt: Två knappar för att starta taligenkänning från en fil eller från mikrofonindata och en textetikett för att visa resultatet.
-Användargränssnittet konfigureras i `Main.storyboard`-delen av projektet.
-Öppna XML-vyn av storyboarden genom att klicka på posten `Main.storyboard` i projektträdet och välja **Open As...**  > **Source Code** (Öppna som... > Källkod).
+Exempel appen har ett väldigt enkelt användar gränssnitt. Det finns två knappar för att starta tal igenkänning från en fil eller från mikrofon indata och en text etikett för att visa resultatet. Användargränssnittet konfigureras i `Main.storyboard`-delen av projektet. Öppna XML-vyn för storyboard genom att högerklicka på posten `Main.storyboard` i projekt trädet och välja **öppna som** > -**källkod**.
+
 Ersätt den automatiskt genererade XML:en med följande kod:
 
 [!code-xml[](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/Base.lproj/Main.storyboard)]
 
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
-1. Ladda ned [wav-exempelfilen](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) genom att högerklicka på länken och välja **Save target as...** (Spara mål som...). Lägg till wav-filen i projektet som en resurs genom att dra det från ett Finder-fönster till projektvyns rotnivå.
-   Klicka på **Finish** (Slutför) i följande dialogruta utan att ändra inställningarna.
-1. Ersätt innehållet i den automatiskt genererade `ViewController.m`-filen genom att göra följande:
+1. Hämta [exempel filen WAV](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-speech-sdk/f9807b1079f3a85f07cbb6d762c6b5449d536027/samples/cpp/windows/console/samples/whatstheweatherlike.wav) genom att högerklicka på länken och välja **Spara mål som**.
+   Lägg till wav-filen i projektet som en resurs genom att dra det från ett Finder-fönster till projektvyns rotnivå.
+   Välj **Slutför** i följande dialog ruta utan att ändra inställningarna.
+1. Ersätt innehållet i den automatiskt genererade `ViewController.m`-filen med följande kod:
 
-   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
+   [!code-objectivec[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.
-1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
-1. Lägg till begäran om åtkomst till mikrofonen. Högerklicka på posten `Info.plist` i projektträdet och välj **Öppna som...**  > **Källkod**. Lägg till följande rader i avsnittet `<dict>` och spara sedan filen.
+1. Ersätt strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration. Använd till exempel `westus` för den kostnads fria prov prenumerationen.
+1. Lägg till begäran om åtkomst till mikrofonen. Högerklicka på posten `Info.plist` i projekt trädet och välj **öppna som** > **käll kod**. Lägg till följande rader i avsnittet `<dict>` och spara sedan filen.
+
     ```xml
     <key>NSMicrophoneUsageDescription</key>
     <string>Need microphone access for speech recognition from microphone.</string>
@@ -89,14 +93,14 @@ Ersätt den automatiskt genererade XML:en med följande kod:
 
 ## <a name="build-and-run-the-sample"></a>Skapa och köra exempelappen
 
-1. Gör felsökningsresultatet synligt (**View** > **Debug Area** > **Activate Console**) (Visa > Felsökningsområde > Aktivera konsol).
+1. Gör fel söknings resultatet synligt genom att välja **visa** > **fel söknings sektion** > **Aktivera konsol**.
 1. Välj antingen iOS-simulatorn eller en iOS-enhet som är ansluten till utvecklings datorn som mål för appen från listan på**mål** menyn för **produkt** > .
-1. Skapa och kör exempelkoden i iOS-simulatorn genom att välja **Product** > **Run** (Produkt > Kör) på menyn eller genom att klicka på **uppspelningsknappen**.
-1. När du har klickat på knappen ”Recognize (File)” (Identifiera (fil)) i appen bör du se innehållet i ljudfilen ”What's the weather like?” (Vad är det för väder?) på den nedre delen av skärmen.
+1. Skapa och kör exempel koden i iOS-simulatorn genom att välja **produkt** > **Kör** på menyn. Du kan också välja knappen **spela upp** .
+1. När du har valt knappen **identifiera (fil)** i appen bör du se innehållet i ljud filen "Vad är väder som?" på den nedre delen av skärmen.
 
    ![Simulerad iOS-app](media/sdk/qs-objectivec-simulated-app.png)
 
-1. När du har klickat på knappen ”Recognize (Microphone)” (Identifiera (mikrofon)) i appen och säger några ord bör du se texten för det du har sagt på den nedre delen av skärmen.
+1. När du har valt knappen **identifiera (mikrofon)** i appen och sagt några ord bör du se texten du har talat om i den nedre delen av skärmen.
 
 ## <a name="next-steps"></a>Nästa steg
 

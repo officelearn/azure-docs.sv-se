@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/17/2019
 ms.author: memildin
-ms.openlocfilehash: 356bfc28984ecc1bc6990c10378a3df155593e94
-ms.sourcegitcommit: 9f330c3393a283faedaf9aa75b9fcfc06118b124
+ms.openlocfilehash: cce57053e265446a6307554509c34c5f802ed07f
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "71996701"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372596"
 ---
 # <a name="upgrade-to-security-centers-standard-tier-for-enhanced-security"></a>Uppgradera till Security Center standard nivå för ökad säkerhet
 Azure Security Center har en enhetlig säkerhetshantering och avancerat skydd mot hot för arbetsbelastningar som körs i Azure, lokalt och i andra moln. Den ger insyn och kontroll över hybrid moln arbets belastningar, aktiva försvar som minskar exponeringen för hot och intelligent identifiering som hjälper dig att hålla jämna steg med snabbt växande cyberhot-attacker.
 
 ## <a name="pricing-tiers"></a>Prisnivåer
-Security Center finns två nivåer:
+Security Center finns på två nivåer:
 
-- Den **kostnads fria** nivån aktive ras automatiskt på alla Azure-prenumerationer och innehåller säkerhets principer, kontinuerlig säkerhets utvärdering och åtgärds bara säkerhets rekommendationer som hjälper dig att skydda dina Azure-resurser.
+- Den **kostnads fria** nivån är aktive rad på alla dina Azure-prenumerationer när du besöker den Azure Security Center instrument panelen i Azure Portal för första gången, eller om aktive rad PROGREMMATICALY via API. Den kostnads fria nivån tillhandahåller säkerhets principer, kontinuerlig säkerhets utvärdering och åtgärds bara säkerhets rekommendationer som hjälper dig att skydda dina Azure-resurser.
 - **Standard** nivån utökar funktionerna i den kostnads fria nivån till arbets belastningar som körs i privata och andra offentliga moln, vilket ger enhetlig säkerhets hantering och skydd mot hot i dina hybrid moln arbets belastningar. På standard-nivån läggs även avancerade hot identifierings funktioner till, som använder inbyggd beteende analys och maskin inlärning för att identifiera attacker och användning av noll dagar, åtkomst och program kontroller för att minska exponeringen för nätverks attacker och skadlig kod. kraftfull. Du kan prova standard nivån kostnads fritt. Security Center standard stöder Azure-resurser, inklusive virtuella datorer, skalnings uppsättningar för virtuella datorer, App Service, SQL-servrar och lagrings konton. Om du har Azure Security Center standard kan du välja att få slut på support baserat på resurs typ. 
 
 
@@ -43,7 +43,7 @@ Så här hämtar du standard nivån:
 2. Välj den prenumeration som du vill uppgradera till standard.
 3. Välj **pris nivå**.
 4. Välj **standard** som ska uppgraderas.
-5. Klicka på **Spara**.
+5. Klicka på **Save** (Spara).
 
 (Priserna i bilden är till exempel endast avsedda.) ![Security Center-priser @ no__t-1
 

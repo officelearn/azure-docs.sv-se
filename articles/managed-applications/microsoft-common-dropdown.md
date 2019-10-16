@@ -1,6 +1,6 @@
 ---
-title: Azure DropDown-UI-element | Microsoft Docs
-description: Beskriver Microsoft.Common.DropDown UI-element för Azure-portalen.
+title: GRÄNSSNITTs element för Azure List Rute | Microsoft Docs
+description: Beskriver UI-elementet Microsoft. Common. list Rute gränssnitt för Azure Portal. Använd om du vill välja mellan tillgängliga alternativ när du distribuerar ett hanterat program.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e78fa419b067c0bad48229dcfd8d4e986fc16903
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5784b5df9b522f0489ca1f6087627b45cec5349d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62117309"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331745"
 ---
-# <a name="microsoftcommondropdown-ui-element"></a>Microsoft.Common.DropDown UI element
-En valet-kontroll med en listruta.
+# <a name="microsoftcommondropdown-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. list rutan
+En markerings kontroll med en nedrullningsbar lista.
 
 ## <a name="ui-sample"></a>UI-exempel
-![Microsoft.Common.DropDown](./media/managed-application-elements/microsoft.common.dropdown.png)
+![List rutan Microsoft. Common.](./media/managed-application-elements/microsoft.common.dropdown.png)
 
 ## <a name="schema"></a>Schema
 ```json
@@ -53,10 +53,10 @@ En valet-kontroll med en listruta.
 
 ## <a name="remarks"></a>Kommentarer
 
-- Etikett för `constraints.allowedValues` är texten som visas för ett objekt och dess värde är värdet av elementet när du har valt.
-- Om anges används standardvärdet måste vara en etikett som finns i `constraints.allowedValues`. Om inte anges det första objektet i `constraints.allowedValues` har valts. Standardvärdet är **null**.
+- Etiketten för `constraints.allowedValues` är visnings texten för ett objekt och dess värde är utdata-värdet för elementet när det är markerat.
+- Om det här alternativet anges måste standardvärdet vara en etikett som finns i `constraints.allowedValues`. Om det inte anges väljs det första objektet i `constraints.allowedValues`. Standardvärdet är **Null**.
 - `constraints.allowedValues` måste ha minst ett objekt.
-- För att emulera ett värde som inte krävs, lägger du till ett objekt med en etikett och värdet för `""` (tom sträng) till `constraints.allowedValues`.
+- För att emulera ett värde som inte krävs lägger du till ett objekt med etiketten och värdet `""` (tom sträng) till `constraints.allowedValues`.
 
 ## <a name="sample-output"></a>Exempel på utdata
 ```json
@@ -64,5 +64,5 @@ En valet-kontroll med en listruta.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

@@ -1,6 +1,6 @@
 ---
 title: Skriptexempel för Azure CLI – Hämta en hanterad resursgrupp och ändra storleken på virtuella datorer | Microsoft Docs
-description: Skriptexempel för Azure CLI – Hämta en hanterad resursgrupp och ändra storleken på virtuella datorer
+description: Innehåller exempel skript för Azure CLI som hämtar en hanterad resurs grupp i ett Azure-hanterat program. Skriptet ändrar storlek på virtuella datorer.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/25/2017
 ms.author: tomfitz
-ms.openlocfilehash: bbf03a0d53769c93a8aab304d3128ae0cc875a8f
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 7218e2fd033614b5e9f77cca34a5db82e3571094
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "61365902"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330133"
 ---
 # <a name="get-resources-in-a-managed-resource-group-and-resize-vms-with-azure-cli"></a>Hämta resurser från en hanterad resursgrupp och ändra storleken på virtuella datorer med Azure CLI
 

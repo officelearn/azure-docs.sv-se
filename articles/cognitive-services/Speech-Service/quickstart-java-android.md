@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera tal-, Java-(Android) – tal-service'
+title: 'Snabb start: identifiera tal-, Java-(Android) – tal-service'
 titleSuffix: Azure Cognitive Services
 description: Lär dig att känna igen tal i Java på Android med hjälp av Speech SDK
 services: cognitive-services
@@ -11,10 +11,10 @@ ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: wolfma
 ms.openlocfilehash: 2f728231c01056ecb8709f84f13e834ef3618dc8
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71803318"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-by-using-the-speech-sdk"></a>Snabbstart: Känna igen tal i Java på Android med hjälp av Speech SDK
@@ -30,7 +30,7 @@ Speech SDK är kompatibelt med Android-enheter med 32/64-bitars ARM-processorer 
 > [!NOTE]
 > Information om Speech Devices SDK och Roobo-enheten finns i [Speech Devices SDK](speech-devices-sdk.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Du behöver en prenumerations nyckel för tal tjänster för att slutföra den här snabb starten. Du kan skaffa en utan kostnad. Mer information finns i [testa tal tjänsterna kostnads fritt](get-started.md) .
 
@@ -70,7 +70,7 @@ Texten och den grafiska representationen av ditt användargränssnitt bör nu se
 
 1. Ersätt strängen `YourSubscriptionKey` i samma fil med din prenumerationsnyckel.
 
-1. Ersätt även strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri utvärderingsversion).
+1. Ersätt även strängen `YourServiceRegion` med den [region](regions.md) som är associerad med din prenumeration (till exempel `westus` för en kostnadsfri provprenumeration).
 
 ## <a name="build-and-run-the-app"></a>Skapa och kör appen
 

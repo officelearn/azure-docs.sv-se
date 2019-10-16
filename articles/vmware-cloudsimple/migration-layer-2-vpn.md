@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 9e0afd26b46fc6249b697c38983b9c219c42b1a0
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 34b26dd1b9b8990da9e84c8d7cfc993d8bbe85a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845489"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376295"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Migrera arbetsbelastningar med hjälp av stretchade Layer 2-nätverk
 
@@ -76,7 +76,7 @@ Mer information finns i [virtuella privata nätverk](https://docs.vmware.com/en/
 | **Objekt** | **Värde** |
 |------------|-----------------|
 | Nätverks namn | MGMT_NET_VLAN469 |
-| VLAN | 469 |
+| LOKALT | 469 |
 | CIDR| 10.250.0.0/24 |
 | IP-adress för fristående Edge-utrustning | 10.250.0.111 |
 | NAT IP-adress för fristående Edge-utrustning | 192.227.85.167 |
@@ -85,7 +85,7 @@ Mer information finns i [virtuella privata nätverk](https://docs.vmware.com/en/
 
 | **Objekt** | **Värde** |
 |------------|-----------------|
-| VLAN | 472 |
+| LOKALT | 472 |
 | CIDR| 10.250.3.0/24 |
 
 ### <a name="private-cloud-ip-schema-for-nsx-t-tier0-router-l2-vpn-serve"></a>IP-schema för privata moln för NSX-T Tier0-routern (L2-VPN fungerar)
@@ -101,22 +101,22 @@ Mer information finns i [virtuella privata nätverk](https://docs.vmware.com/en/
 
 | **Objekt** | **Värde** |
 |------------|-----------------|
-| VLAN | 712 |
+| LOKALT | 712 |
 | CIDR| 10.200.15.0/24 |
 
 ## <a name="fetch-the-logical-router-id-needed-for-l2vpn"></a>Hämta det logiska router-ID som krävs för L2VPN
 
 Följande steg visar hur du hämtar det logiska router-ID: t för Tier0 DR Logical router-instansen för IPsec-och L2VPN-tjänsterna. Det logiska router-ID: t krävs senare när du implementerar L2VPN.
 
-1. Logga in på NSX-t Manager https://*NSX-t-Manager-IP-Address* och Select **Network** > **routers** > **Provider-LR** > -**Översikt**. I **läget för hög tillgänglighet**väljer du **aktivt-standby**. Den här åtgärden öppnar ett popup-fönster som visar den virtuella Edge-dator där Tier0-routern för närvarande är aktiv.
+1. Logga in på NSX-T-hanteraren*https://NSX-t-Manager-IP-Address* och Select **Networking** > **routers** > **Provider-LR** > -**Översikt**. I **läget för hög tillgänglighet**väljer du **aktivt-standby**. Den här åtgärden öppnar ett popup-fönster som visar den virtuella Edge-dator där Tier0-routern för närvarande är aktiv.
 
     ![Välj Aktiv-standby](media/l2vpn-fetch01.png)
 
-2. Välj**kanter**för **Fabric** > -**noder** > . Anteckna hanterings-IP-adressen för den aktiva virtuella Edge-datorn (Edge-VM1) som identifierades i föregående steg.
+2. Välj **infrastruktur** > **noder** > **kanter**. Anteckna hanterings-IP-adressen för den aktiva virtuella Edge-datorn (Edge-VM1) som identifierades i föregående steg.
 
     ![Anmärkning för hantering av IP](media/l2vpn-fetch02.png)
 
-3. Öppna en SSH-session med hanterings-IP-adressen för den virtuella Edge-datorn. Kör kommandot med användar namnet **admin** och lösen ord **CloudSimple 123!.** ```get logical-router```
+3. Öppna en SSH-session med hanterings-IP-adressen för den virtuella Edge-datorn. Kör kommandot ```get logical-router``` med användar namnet **administratör** och lösen ord **CloudSimple 123!** .
 
     ![Hämta utdata för logiska routrar](media/l2vpn-fetch03.png)
 
@@ -130,14 +130,14 @@ Följande steg visar hur du hämtar det logiska router-ID: t för Tier0 DR Logic
 
     ![Bifoga dummy-växel](media/l2vpn-fetch05.png)
 
-7. `get logical-router` Kör kommandot igen på SSH-sessionen för den virtuella Edge-sessionen. UUID: t för den logiska routern "DR-Provider-LR" visas. Anteckna UUID, vilket krävs när du konfigurerar L2VPN.
+7. Kör kommandot `get logical-router` igen på SSH-sessionen för den virtuella Edge-sessionen. UUID: t för den logiska routern "DR-Provider-LR" visas. Anteckna UUID, vilket krävs när du konfigurerar L2VPN.
 
     ![Hämta utdata för logiska routrar](media/l2vpn-fetch06.png)
 
 ## <a name="fetch-the-logical-switch-id-needed-for-l2vpn"></a>Hämta det ID för logisk växel som krävs för L2VPN
 
 1. Logga in på [NSX-T-hanteraren](https://nsx-t-manager-ip-address).
-2. Välj **nätverks** >  **växlings** > växlar > * * < \Logical-växel > \ * * > **Översikt**.
+2. Välj **nätverk** > **växel** > **växlar** > * * < \Logical switch @ No__t-5 * * > **Översikt**.
 3. Anteckna UUID för den utsträckta logiska växeln, vilket krävs när du konfigurerar L2VPN.
 
     ![Hämta utdata för logiska routrar](media/l2vpn-fetch-switch01.png)
@@ -154,20 +154,20 @@ För att upprätta en IPsec Route-baserad VPN mellan NSX-T Tier0-routern och den
 
 ### <a name="advertise-the-loopback-interface-ip-to-the-underlay-network"></a>Annonsera IP-adressen för loopback-gränssnittet till Underlay-nätverket
 
-1. Skapa en null-väg för loopback-användargränssnittet. Logga in på NSX-T-hanteraren och välj providers för**routrar** > för **nätverks** > **routning** >  **– LR** > **routning** > **statiska vägar**. Klicka på **Lägg till**. För **nätverk**anger du IP-adressen för loopback-gränssnittet. För **nästa hopp**klickar du på **Lägg till**, anger NULL för nästa hopp och behåller standardvärdet 1 för administratörs avstånd.
+1. Skapa en null-väg för loopback-användargränssnittet. Logga in på NSX-T-hanteraren och välj **nätverk** > **routning** > **routrar** > **Provider-LR** > **routning** > **statiska vägar**. Klicka på **Lägg till**. För **nätverk**anger du IP-adressen för loopback-gränssnittet. För **nästa hopp**klickar du på **Lägg till**, anger NULL för nästa hopp och behåller standardvärdet 1 för administratörs avstånd.
 
     ![Lägg till statisk väg](media/l2vpn-routing-security01.png)
 
-2. Skapa en lista med IP-prefix. Logga in på NSX-T- > hanteraren och välj Provider för**routrar** > för **nätverks** > **routning** >  **– LR** > **IP-prefix**. Klicka på **Lägg till**. Ange ett namn för att identifiera listan. För **prefix**klickar du på **Lägg till** två gånger. På den första raden anger du ' 0.0.0.0/0 ' för **nätverk** och ' neka ' för **åtgärd**. På den andra raden väljer du **ett** för **nätverk** och **Åtgärds** **tillstånd** .
+2. Skapa en lista med IP-prefix. Logga in på NSX-T-hanteraren och välj **nätverk**@no__t-**1 routning**@no__t-**3 routrar** > **Provider-LR** > **routning** > **IP-prefix**. Klicka på **Lägg till**. Ange ett namn för att identifiera listan. För **prefix**klickar du på **Lägg till** två gånger. På den första raden anger du ' 0.0.0.0/0 ' för **nätverk** och ' neka ' för **åtgärd**. På den andra raden väljer du **ett** för **nätverk** och **Åtgärds** **tillstånd** .
 3. Koppla listan IP-prefix till både BGP-grannar (TOR). Om du kopplar listan IP-prefix till BGP-grannar förhindrar det att standard vägen annonseras i BGP till TOR-växlarna. En annan väg som inkluderar null-vägen annonserar dock IP-adressen för loopback-gränssnittet till TOR-växlarna.
 
     ![Skapa lista över IP-prefix](media/l2vpn-routing-security02.png)
 
-4. Logga in på NSX-T-hanteraren och välj Provider för**routrar** > för **nätverks** > **routning** >  **– LR** > **Routing** > **BGP**  >  **Grannar**. Välj den första grannen. Klicka på **Redigera** > **adress familjer**. För IPv4-serien redigerar du kolumnen **ut filter** och väljer listan IP-prefix som du har skapat. Klicka på **Spara**. Upprepa det här steget för den andra grannen.
+4. Logga in på NSX-T-hanteraren och **Välj nätverk** > **routning** > **routrar** > **Provider-LR** > **routning** > **BGP**1**grannar**. Välj den första grannen. Klicka på **redigera** > -**adress familjer**. För IPv4-serien redigerar du kolumnen **ut filter** och väljer listan IP-prefix som du har skapat. Klicka på **Save** (Spara). Upprepa det här steget för den andra grannen.
 
-    ![Koppla IP-prefix lista](media/l2vpn-routing-security03.png) 1 ![koppla IP-prefixlängd lista 2](media/l2vpn-routing-security04.png)
+    @no__t IP-0Attach lista 1 @ no__t-1 ![Attach IP-prefixlängd 2 @ no__t-3
 
-5. Distribuera om den statiska väg som är null i BGP. Om du vill annonsera loopback-Underlay till måste du distribuera om den null-statiska vägen till BGP. Logga in på NSX-T-hanteraren och välj Provider för**routrar** > för **nätverks** > **routning** >  **– LR** > **routning** > **omdistribution**  >  **Grannar**. Välj **Provider-LR-Route_Redistribution** och klicka på **Redigera**. Markera kryss rutan **statisk** och klicka på **Spara**.
+5. Distribuera om den statiska väg som är null i BGP. Om du vill annonsera loopback-Underlay till måste du distribuera om den null-statiska vägen till BGP. Logga in på NSX-T-hanteraren och **Välj nätverk**@no__t-**1 routning** > **routrar** > **Provider-LR** > **routning** > **omdistribution av väg** > 1**grannar**. Välj **Provider-LR-Route_Redistribution** och klicka på **Redigera**. Markera kryss rutan **statisk** och klicka på **Spara**.
 
     ![Distribuera om en null-statisk väg till BGP](media/l2vpn-routing-security05.png)
 
@@ -195,7 +195,7 @@ Logical-Port ID :
 Peer Code :
 ```
 
-För alla följande API-anrop ersätter du IP-adressen med din NSX-T Manager-IP-adress. Du kan köra alla dessa API-anrop från Postman-klienten eller med `curl` hjälp av kommandon.
+För alla följande API-anrop ersätter du IP-adressen med din NSX-T Manager-IP-adress. Du kan köra alla dessa API-anrop från POSTman-klienten eller med hjälp av `curl`-kommandon.
 
 ### <a name="enable-the-ipsec-vpn-service-on-the-logical-router"></a>Aktivera IPSec VPN-tjänsten på den logiska routern
 
@@ -211,7 +211,7 @@ POST   https://192.168.110.201/api/v1/vpn/ipsec/services/
 }
 ```
 
-### <a name="create-profiles-ike"></a>Skapa profiler: ÄVEN
+### <a name="create-profiles-ike"></a>Skapa profiler: IKE
 
 ```
 POST https://192.168.110.201/api/v1/vpn/ipsec/ike-profiles
@@ -240,7 +240,7 @@ POST  https://192.168.110.201/api/v1/vpn/ipsec/dpd-profiles
 }
 ```
 
-### <a name="create-profiles-tunnel"></a>Skapa profiler: Regel
+### <a name="create-profiles-tunnel"></a>Skapa profiler: tunnel
 
 ```
 POST  https://192.168.110.201/api/v1/vpn/ipsec/tunnel-profiles
@@ -428,9 +428,9 @@ Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler t
 
     ![Hämta fristående NSX Edge-klient](media/l2vpn-deploy-client01.png)
 
-2. Gå till mappen med alla extraherade filer. Välj alla VMDK: er (NSX-l2t-client-Large. MF och NSX-l2t-client-large. OVF för stor installations storlek eller NSX-l2t-client-XLarge. MF och NSX-l2t-client-Xlarge. OVF för extra stor storleks storlek). Klicka på **Nästa**.
+2. Gå till mappen med alla extraherade filer. Välj alla VMDK: er (NSX-l2t-client-Large. MF och NSX-l2t-client-large. OVF för stor installations storlek eller NSX-l2t-client-XLarge. MF och NSX-l2t-client-Xlarge. OVF för extra stor storleks storlek). Klicka på **Next**.
 
-    ![](media/l2vpn-deploy-client02.png) Välj mall Väljmall![](media/l2vpn-deploy-client03.png)
+    ![Select-mall @ no__t-1 ![Select Template @ no__t-3
 
 3. Ange ett namn för NSX-T fristående klienten och klicka på **Nästa**.
 
@@ -438,9 +438,9 @@ Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler t
 
 4. Klicka på **Nästa** för att komma till data lagrings inställningarna. Välj lämpligt data lager för NSX-T fristående klient och klicka på **Nästa**.
 
-    ![Välj datalager](media/l2vpn-deploy-client06.png)
+    ![Välj data lager](media/l2vpn-deploy-client06.png)
 
-5. Välj rätt port grupper för trunkering (trunk PG), offentlig (PG PG) och HA-gränssnitt (överordnad) för NSX-T fristående klienten. Klicka på **Nästa**.
+5. Välj rätt port grupper för trunkering (trunk PG), offentlig (PG PG) och HA-gränssnitt (överordnad) för NSX-T fristående klienten. Klicka på **Next**.
 
     ![Välj Port grupper](media/l2vpn-deploy-client07.png)
 
@@ -460,8 +460,7 @@ Innan du distribuerar bör du kontrol lera att dina lokala brand Väggs regler t
     * **Prefixlängd**. Ange prefixlängden för LAN/undernät för överordnad länk.
     * **CLI-administratör/aktivera/rot användar lösen ord**. Ange lösen ordet för administratörs kontot/Enable/root.
 
-      ![Anpassa mall](media/l2vpn-deploy-client08.png)
-      ![– anpassa mall – mer](media/l2vpn-deploy-client09.png)
+      ![Customize-mall @ no__t-1 @ no__t-2Customize-mall-More @ no__t-3
 
 7. Granska inställningarna och klicka på **Slutför**.
 

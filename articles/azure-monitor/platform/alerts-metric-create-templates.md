@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 9/27/2018
 ms.author: snmuvva
 ms.subservice: alerts
-ms.openlocfilehash: 70da3a518746d1989e8807cee9bc7c87cc634c27
-ms.sourcegitcommit: 23389df08a9f4cab1f3bb0f474c0e5ba31923f12
+ms.openlocfilehash: b08c7d1b91f89aba4c9cb8a23bb5c688521cb37e
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70873291"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372777"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Skapa en metrisk varning med en Resource Manager-mall
 
@@ -22,7 +22,7 @@ ms.locfileid: "70873291"
 Den här artikeln visar hur du kan använda en [Azure Resource Manager mall](../../azure-resource-manager/resource-group-authoring-templates.md) för att konfigurera [nya mått varningar](../../azure-monitor/platform/alerts-metric-near-real-time.md) i Azure Monitor. Med Resource Manager-mallar kan du konfigurera aviseringar via programmering på ett konsekvent och reproducerbart sätt i alla miljöer. Nya mått aviseringar är för närvarande tillgängliga i [den här uppsättningen resurs typer](../../azure-monitor/platform/alerts-metric-near-real-time.md#metrics-and-dimensions-supported).
 
 > [!IMPORTANT]
-> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (d.v.s.) `Microsoft.OperationalInsights/workspaces`kräver ytterligare steg. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resurs mal len för att skapa mått aviseringar för resurs typen: Azure Log Analytics-arbetsyta (d.v.s.) `Microsoft.OperationalInsights/workspaces`, kräver ytterligare åtgärder. Mer information finns i artikeln om [mått avisering för loggar-resurs mal len](../../azure-monitor/platform/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
 
 De grundläggande stegen är följande:
 
@@ -32,7 +32,7 @@ De grundläggande stegen är följande:
 
 ## <a name="template-for-a-simple-static-threshold-metric-alert"></a>Mall för en mått avisering för enkel statisk tröskel
 
-Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du `Microsoft.Insights/metricAlerts` en resurs av typen och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
+Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/metricAlerts` och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
 
 Spara JSON-filen nedan som simplestaticmetricalert. JSON för den här genom gången.
 
@@ -281,7 +281,7 @@ az group deployment create \
 
 ## <a name="template-for-a-simple-dynamic-thresholds-metric-alert"></a>Mall för en mått avisering för enkel dynamisk tröskel
 
-Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du `Microsoft.Insights/metricAlerts` en resurs av typen och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
+Om du vill skapa en avisering med hjälp av en Resource Manager-mall skapar du en resurs av typen `Microsoft.Insights/metricAlerts` och fyller i alla relaterade egenskaper. Nedan visas en exempel mall som skapar en regel för mått varningar.
 
 Spara JSON-filen nedan som simpledynamicmetricalert. JSON för den här genom gången.
 
@@ -2480,7 +2480,7 @@ Spara JSON-filen nedan som lista över virtuella datorer – statisk. JSON för 
                 "PT5M",
                 "PT15M",
                 "PT30M",
-                "PT1H""
+                "PT1H"
             ],
             "metadata": {
                 "description": "how often the metric alert is evaluated represented in ISO 8601 duration format"

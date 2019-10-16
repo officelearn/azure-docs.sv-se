@@ -6,14 +6,14 @@ manager: carmonm
 services: site-recovery
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/09/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8502e08db48700aefe51a6e4f0e79d1b08f6ca79
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.openlocfilehash: 9e45787e7ae39b62605f5d8a54afd4ad95c9cca7
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
-ms.locfileid: "70814441"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331903"
 ---
 # <a name="about-recovery-plans"></a>Om återställningsplaner
 
@@ -33,6 +33,9 @@ Med en återställnings plan kan du definiera en systematisk återställnings pr
 
 
 ## <a name="model-apps"></a>Modell program
+
+> [!NOTE]
+> Upp till 100 skyddade instanser kan läggas till i en återställnings plan.
 
 Du kan planera och skapa en återställnings grupp för att avbilda appar-/regionsspecifika egenskaper. Vi kan till exempel tänka på ett typiskt program på tre nivåer med en SQL Server-Server del, mellanprogram och en webb klient del. Normalt anpassar du återställnings planen så att datorerna på varje nivå startar i rätt ordning efter redundansväxlingen.
 
@@ -60,16 +63,16 @@ Med den här anpassningen på plats händer följande när du kör en redundansv
 
 Det kan vara en komplicerad uppgift att återskapa stora program. Manuella steg gör processen fel och den person som kör redundansväxlingen kanske inte är medveten om all app-erna. Du kan använda en återställnings plan för att införa order och automatisera de åtgärder som krävs i varje steg, använda Azure Automation runbooks för redundans till Azure eller skript. För uppgifter som inte kan automatiseras kan du infoga pauser för manuella åtgärder i återställnings planer. Det finns några typer av uppgifter som du kan konfigurera:
 
-* **Aktiviteter på den virtuella Azure-datorn efter redundansväxlingen**: När du växlar över till Azure behöver du vanligt vis utföra åtgärder så att du kan ansluta till den virtuella datorn efter redundansväxlingen. Exempel: 
+* **Aktiviteter på den virtuella Azure-datorn efter redundansväxlingen**: när du växlar över till Azure måste du vanligt vis utföra åtgärder så att du kan ansluta till den virtuella datorn efter redundansväxlingen. Exempel: 
     * Skapa en offentlig IP-adress på den virtuella Azure-datorn.
     * Tilldela en nätverks säkerhets grupp till nätverkskortet på den virtuella Azure-datorn.
     * Lägg till en belastningsutjämnare i en tillgänglighets uppsättning.
-* **Aktiviteter i VM efter redundans**: Dessa uppgifter omkonfigurerar vanligt vis appen som körs på datorn, så att den fortsätter att fungera korrekt i den nya miljön. Exempel:
+* **Aktiviteter i den virtuella datorn efter redundansväxlingen**: dessa aktiviteter omkonfigurerar vanligt vis appen som körs på datorn, så att den fortsätter att fungera korrekt i den nya miljön. Exempel:
     * Ändra databas anslutnings strängen i datorn.
     * Ändra webb Server konfigurationen eller reglerna.
 
 
-## <a name="test-failover"></a>Testa redundans
+## <a name="test-failover"></a>Redundanstest
 
 Du kan använda en återställnings plan för att utlösa redundanstest. Använd följande metod tips:
 

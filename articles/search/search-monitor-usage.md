@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 05/16/2019
 ms.author: heidist
-ms.openlocfilehash: d0c93d941047413c5056b3718f57b360357affbd
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: fe8061f8e99742f9dc5c1181235c4203aaad82ca
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71327143"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331215"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-search"></a>Övervaka resursförbrukning och fråga-aktivitet i Azure Search
 
@@ -30,8 +30,8 @@ Avsnitt om **användning** och **övervakning** som är inbyggda på översikts 
 
 På fliken **användning** visas resurs tillgänglighet i förhållande till aktuella [gränser](search-limits-quotas-capacity.md). Följande bild är avsedd för den kostnads fria tjänsten som är ett tak på 3 objekt av varje typ och 50 MB lagrings utrymme. En Basic-eller standard-tjänst har högre gränser, och om du ökar antalet partitioner, hamnar det maximala lagrings utrymmet proportionellt.
 
-![Användnings status i förhållande till effektiva gränser](./media/search-monitor-usage/usage-tab.png
- "Usage status relativt till gällande gränser @ no__t-2
+![Användnings status relativt mot gällande gränser](./media/search-monitor-usage/usage-tab.png
+ "användnings status i förhållande till effektiva gränser")
 
 ## <a name="queries-per-second-qps-and-other-metrics"></a>Frågor per sekund (frågor per sekund) och andra mått
 
@@ -56,9 +56,8 @@ Azure Search lagrar inga data utöver de objekt som hanteras, vilket innebär at
 
 I följande tabell jämförs alternativen för att lagra loggar och lägga till djupgående övervakning av tjänst åtgärder och fråga arbets belastningar via Application Insights.
 
-| Resource | Används för |
+| Resurs | Används för |
 |----------|----------|
-| [Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) | Loggade händelser och fråga mått baserat på scheman nedan, korrelerade med användar händelser i din app. Det här är den enda lösningen som utför användar åtgärder eller signalerar till konto, mappning av händelser från användarinitierade sökning, i stället för filter förfrågningar som skickats av program koden. Om du vill använda den här metoden kopierar du klistra in kod till källfilerna för att skicka information om begäran till Application Insights. Mer information finns i [Sök efter trafik analys](search-traffic-analytics.md). |
 | [Azure Monitor-loggar](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | Loggade händelser och fråga mått baserat på scheman nedan. Händelser loggas till en Log Analytics-arbetsyta. Du kan köra frågor mot en arbets yta för att returnera detaljerad information från loggen. Mer information finns i [Kom igång med Azure Monitor loggar](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
 | [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Loggade händelser och fråga mått baserat på scheman nedan. Händelser loggas till en BLOB-behållare och lagras i JSON-filer. Använd en JSON-redigerare för att visa fil innehåll.|
 | [Händelsehubb](https://docs.microsoft.com/azure/event-hubs/) | Loggade händelser och fråga om mått baserat på de scheman som dokumenteras i den här artikeln. Välj det här som en alternativ data insamlings tjänst för mycket stora loggar. |
@@ -81,7 +80,7 @@ I det här avsnittet får du lära dig hur du använder Blob Storage för att la
 
    ![Aktivera]övervakning(./media/search-monitor-usage/enable-monitoring.png "Aktivera övervakning")
 
-3. Välj de data som du vill exportera: Loggar, mått eller båda. Du kan kopiera det till ett lagrings konto, skicka det till en Event Hub eller exportera det till Azure Monitor loggar.
+3. Välj de data som du vill exportera: loggar, mått eller båda. Du kan kopiera det till ett lagrings konto, skicka det till en Event Hub eller exportera det till Azure Monitor loggar.
 
    Endast lagrings kontot måste finnas för arkivering till blob-lagring. Behållare och blobbar skapas som nödvändiga när loggdata exporteras.
 
@@ -93,10 +92,10 @@ I det här avsnittet får du lära dig hur du använder Blob Storage för att la
 
 Loggning aktive ras när du sparar profilen. Behållare skapas endast när det finns en aktivitet som ska loggas eller mätas. När data kopieras till ett lagrings konto formateras data som JSON och placeras i två behållare:
 
-* Insights-logs-operationlogs: för search trafikloggar
-* Insights-mått-pt1m: för mått
+* Insights-logs-operationlogs: för Sök trafik loggar
+* Insights-mått – pt1m: för mått
 
-**It tar en timme innan behållarna visas i Blob Storage. Det finns en BLOB, per timme, per behållare.**
+**Det tar en timme innan behållarna visas i Blob Storage. Det finns en BLOB, per timme, per behållare.**
 
 Du kan använda [Visual Studio Code](#download-and-open-in-visual-studio-code) eller en annan JSON-redigerare för att visa filerna. 
 
@@ -106,52 +105,52 @@ Du kan använda [Visual Studio Code](#download-and-open-in-visual-studio-code) e
 resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2018/m=12/d=25/h=01/m=00/name=PT1H.json
 ```
 
-## <a name="log-schema"></a>Log-schema
+## <a name="log-schema"></a>Logg schema
 Blobbar som innehåller dina Sök tjänst trafik loggar struktureras enligt beskrivningen i det här avsnittet. Varje Blob har ett rot objekt som kallas **poster** som innehåller en matris med logg objekt. Varje Blob innehåller poster för alla åtgärder som ägde rum under samma timme.
-
-| Name | Typ | Exempel | Anteckningar |
-| --- | --- | --- | --- |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |Tidsstämpel för åtgärden |
-| resourceId |sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESOURCEGROUPS-STANDARD-PROVIDERS /<br/> MICROSOFT. SÖK/SEARCHSERVICES/SEARCHSERVICE ” |Din resurs-ID |
-| operationName |sträng |”Query.Search” |Åtgärdens namn |
-| operationVersion |sträng |"2019-05-06" |Api-versionen som används |
-| category |sträng |”OperationLogs” |konstant |
-| resultType |sträng |”Lyckades” |Möjliga värden: Lyckades eller misslyckades |
-| resultSignature |int |200 |Resultatkod för HTTP |
-| . durationMS |int |50 |Varaktighet i millisekunder |
-| properties |objekt |Se följande tabell |Objekt som innehåller åtgärden-specifika data |
-
-**Egenskaper för schema**
 
 | Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
-| Beskrivning |sträng |”Hämta /indexes('content')/docs” |Åtgärdens slutpunkt |
-| Söka i data |sträng |"?search=AzureSearch&$count=true&api-version=2019-05-06" |Frågeparametrar |
-| Dokument |int |42 |Antal bearbetade dokument |
-| Indexnamn |sträng |”testindex” |Namnet på det index som är associerade med åtgärden |
+| time |datetime |"2018-12-07T00:00:43.6872559 Z" |Tidsstämpel för åtgärden |
+| resourceId |sträng |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/STANDARD/PROVIDERS/<br/> Utforskaren. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |Din ResourceId |
+| operationName |sträng |"Fråga. search" |Åtgärdens namn |
+| operationVersion |sträng |"2019-05-06" |Den API-version som används |
+| category |sträng |"OperationLogs" |konstant |
+| resultType |sträng |Resultatet |Möjliga värden: lyckades eller misslyckades |
+| resultSignature |int |200 |HTTP-resultat kod |
+| . Durationms |int |50 |Åtgärdens varaktighet i millisekunder |
+| properties |objekt |Se följande tabell |Objekt som innehåller åtgärds information |
 
-## <a name="metrics-schema"></a>Mått-schema
+**Egenskaps schema**
+
+| Namn | Typ | Exempel | Anteckningar |
+| --- | --- | --- | --- |
+| Beskrivning |sträng |"Hämta/Indexes (' Content ')/docs" |Åtgärdens slut punkt |
+| Söka i data |sträng |"? search = AzureSearch & $count = True & API-version = 2019-05-06" |Frågeparametrar |
+| Dokument |int |42 |Antal bearbetade dokument |
+| indexName |sträng |"testindex" |Namnet på det index som är associerat med åtgärden |
+
+## <a name="metrics-schema"></a>Mått schema
 
 Måtten fångas för fråge förfrågningar.
 
-| Name | Typ | Exempel | Anteckningar |
+| Namn | Typ | Exempel | Anteckningar |
 | --- | --- | --- | --- |
-| resourceId |sträng |”/ SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111 /<br/>RESOURCEGROUPS-STANDARD-PROVIDERS /<br/>MICROSOFT. SÖK/SEARCHSERVICES/SEARCHSERVICE ” |resurs-id |
-| MetricName |sträng |”Svarstiden” |namnet på måttet |
-| time |datetime |"2018-12-07T00:00:43.6872559Z" |åtgärdens tidsstämpel |
-| genomsnittligt |int |64 |Medelvärdet för raw-exempel i mått tidsintervallet |
-| min |int |37 |Det lägsta värdet på raw exempel i mått tidsintervallet |
-| max |int |78 |Det högsta värdet för raw-exempel i mått tidsintervallet |
-| totalt |int |258 |Det totala värdet av rådata exempel i mått tidsintervallet |
-| count |int |4 |Antalet raw exempel som används för att generera måttet |
-| timegrain |sträng |”PT1M” |Tidsenhet för mått i ISO 8601 |
+| resourceId |sträng |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/STANDARD/PROVIDERS/<br/>Utforskaren. SEARCH/SEARCHSERVICES/SEARCHSERVICE " |resurs-ID |
+| metricName |sträng |Svars tid |namnet på måttet |
+| time |datetime |"2018-12-07T00:00:43.6872559 Z" |åtgärdens tidsstämpel |
+| snitt |int |64 |Genomsnittligt värde för RAW-exemplen i Metric-tidsintervallet |
+| Lägst |int |37 |Det minimala värdet för RAW-exemplen i måttets tidsintervall |
+| Maximihalter |int |78 |Det maximala värdet för RAW-exemplen i måttets tidsintervall |
+| Totalt |int |258 |Det totala värdet för RAW-exemplen i måttets tidsintervall |
+| count |int |4 |Antalet RAW-exempel som används för att generera måttet |
+| timegrain |sträng |"PT1M" |Tids kornig het för måttet i ISO 8601 |
 
-Alla mått rapporteras i minuts intervall. Varje måttet visas lägsta, högsta och genomsnittliga värden per minut.
+Alla mått rapporteras i intervall på en minut. Varje mått visar de lägsta, högsta och genomsnittliga värdena per minut.
 
-För SearchQueriesPerSecond mått är minimivärdet det lägsta värdet för sökfrågor per sekund som registrerades under den minuten. Samma gäller för det högsta värdet. Genomsnittlig, är mängden för hela minuten.
-Tänk på hur det här scenariot under en minut: en sekund hög läsa in det vill säga maximalt för SearchQueriesPerSecond, följt av 58 sekunders genomsnittliga belastningen, och slutligen en sekund med enbart en fråga som är minst.
+För SearchQueriesPerSecond-måttet är minimivärdet det lägsta värdet för Sök frågor per sekund som registrerades under den minuten. Samma gäller för det högsta värdet. Average, är aggregatet över hela minuten.
+Tänk på det här scenariot under en minut: en sekund med hög belastning som är max för SearchQueriesPerSecond, följt av 58 sekunders genomsnittlig belastning och slutligen en sekund med bara en fråga, vilket är minimivärdet.
 
-För ThrottledSearchQueriesPercentage, lägsta, högsta, genomsnittlig och total, alla har samma värde: procentandelen sökfrågor som har begränsats från det totala antalet sökfrågor under en minut.
+För ThrottledSearchQueriesPercentage, lägsta, högsta, medelvärde och total, har alla samma värde: procent andelen Sök frågor som har begränsats från det totala antalet Sök frågor under en minut.
 
 ## <a name="download-and-open-in-visual-studio-code"></a>Ladda ned och öppna i Visual Studio Code
 
@@ -169,11 +168,11 @@ När filen har hämtats öppnar du den i en JSON-redigerare för att visa inneh�
 Både Azure Search REST API och .NET SDK ger programmerings åtkomst till tjänst statistik, index-och index information och dokument antal.
 
 * [Hämta tjänste statistik](/rest/api/searchservice/get-service-statistics)
-* [Hämta Indexstatistiken](/rest/api/searchservice/get-index-statistics)
-* [Antal dokument](/rest/api/searchservice/count-documents)
-* [Hämta Status för indexerare](/rest/api/searchservice/get-indexer-status)
+* [Hämta index statistik](/rest/api/searchservice/get-index-statistics)
+* [Räkna dokument](/rest/api/searchservice/count-documents)
+* [Hämta indexerings status](/rest/api/searchservice/get-indexer-status)
 
-Om du vill aktivera med PowerShell eller Azure CLI finns i dokumentationen [här](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
+Information om hur du aktiverar med PowerShell eller Azure CLI finns i dokumentationen [här](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-logs-overview).
 
 ## <a name="next-steps"></a>Nästa steg
 

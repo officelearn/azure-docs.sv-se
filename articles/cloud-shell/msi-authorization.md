@@ -1,54 +1,50 @@
 ---
-title: Använda hanterade identiteter för Azure-resurser i Azure Cloud Shell | Microsoft Docs
+title: Använda hanterade identiteter för resurser i Azure Cloud Shell
 description: Autentisera kod med MSI i Azure Cloud Shell
 services: azure
-documentationcenter: ''
 author: maertendMSFT
-manager: timlt
+ms.author: damaerte
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: azure
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
-ms.devlang: na
 ms.topic: article
 ms.date: 04/14/2018
-ms.author: damaerte
-ms.openlocfilehash: 7cadaaf67f9c6923ee9e9eb2596941aa8e1f0c9b
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60199490"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328719"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Använda hanterade identiteter för Azure-resurser i Azure Cloud Shell
 
-Azure Cloud Shell har stöd för auktorisering med hanterade identiteter för Azure-resurser. Använd detta för att hämta åtkomsttoken för att kommunicera säkert med Azure-tjänster.
+Azure Cloud Shell stöder auktorisering med hanterade identiteter för Azure-resurser. Använd detta för att hämta åtkomsttoken för att kommunicera säkert med Azure-tjänster.
 
 ## <a name="about-managed-identities-for-azure-resources"></a>Om hanterade identiteter för Azure-resurser
-En gemensam utmaning när är att skapa molnprogram på ett säkert sätt hantera autentiseringsuppgifterna som måste vara i din kod för att autentisera till molntjänster. I Cloud Shell kan du behöva autentisera hämtning från Key Vault för en autentiseringsuppgift som kan behöva ett skript.
+En vanlig utmaning när du bygger moln program är att på ett säkert sätt hantera de autentiseringsuppgifter som måste finnas i din kod för att autentisera till moln tjänster. I Cloud Shell kan du behöva autentisera hämtning från Key Vault för att få autentiseringsuppgifter som ett skript kan behöva.
 
-Hanterade identiteter för Azure-resurser kan lösa problemet enklare genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (AD Azure). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
+Hanterade identiteter för Azure-resurser gör det enklare att lösa det här problemet genom att ge Azure-tjänster en automatiskt hanterad identitet i Azure Active Directory (Azure AD). Du kan använda den här identiteten för att autentisera till alla tjänster som stöder Azure AD-autentisering, inklusive Key Vault, utan att behöva ha några autentiseringsuppgifter i koden.
 
 ## <a name="acquire-access-token-in-cloud-shell"></a>Hämta åtkomsttoken i Cloud Shell
 
-Kör följande kommandon för att ställa in din MSI-åtkomsttoken som en miljövariabel `access_token`.
+Kör följande kommandon för att ställa in din MSI-åtkomsttoken som en miljö variabel `access_token`.
 ```
 response=$(curl http://localhost:50342/oauth2/token --data "resource=https://management.azure.com/" -H Metadata:true -s)
 access_token=$(echo $response | python -c 'import sys, json; print (json.load(sys.stdin)["access_token"])')
 echo The MSI access token is $access_token
 ```
 
-## <a name="handling-token-expiration"></a>Hantera token upphör att gälla
+## <a name="handling-token-expiration"></a>Förfallo datum för hantering av token
 
-Lokala MSI-undersystemet cachelagrar token. Därför kan anropa du den så ofta du tycker och ett på ledare anrop till Azure AD resultat bara om:
-- en cachemiss inträffar på grund av ingen token i cacheminnet
+Det lokala MSI-undersystemet cachelagrar tokens. Därför kan du anropa det så ofta du vill, och ett anrop till Azure AD uppstår endast om:
+- det uppstår ett cacheminne på grund av ingen token i cachen
 - token har upphört att gälla
 
-Om du Cachelagra token i koden, bör du vara beredd på att hantera scenarier där resursen indikerar att token har upphört att gälla.
+Om du cachelagrar token i koden bör du vara beredd på att hantera scenarier där resursen indikerar att token har upphört att gälla.
 
-Om du vill hantera token fel finns i [MSI-sidan om curling MSI-åtkomsttoken](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
+Om du vill hantera token-fel går du till [MSI-sidan om hur du svänger MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling)-åtkomsttoken.
 
 ## <a name="next-steps"></a>Nästa steg
-[Mer information om MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[Hämta åtkomsttoken från MSI-datorer](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[Läs mer om MSI](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
+[Hämta åtkomsttoken från virtuella MSI-datorer](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)

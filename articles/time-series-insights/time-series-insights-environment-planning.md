@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 1e0fee903372668d30db0686f6a23dd913428454
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 659a6357736817f4a590b97e585230ec8c2b7dae
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68828181"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332929"
 ---
 # <a name="plan-your-azure-time-series-insights-ga-environment"></a>Planera din Azure Time Series Insights GA-miljö
 
@@ -29,19 +29,19 @@ Den här artikeln beskriver hur du planerar din Azure Time Series Insights gener
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
-För att komma igång med Time Series Insights är det bäst om du vet hur mycket data du förväntar dig att pusha per minut och hur länge du behöver lagra dina data.  
+För att komma igång med Azure Time Series Insights är det bäst om du vet hur mycket data du förväntar dig att pusha per minut och hur länge du behöver lagra dina data.  
 
 Mer information om kapacitet och kvarhållning för båda Time Series Insights SKU: er finns [Time Series Insights prissättning](https://azure.microsoft.com/pricing/details/time-series-insights/).
 
 Om du vill planera Time Series Insightss miljön för långsiktig framgång bör du tänka på följande attribut:
 
-- <a href="#storage-capacity">Lagringskapacitet</a>
-- <a href="#data-retention">Data lagrings period</a>
-- <a href="#ingress-capacity">Ingress-kapacitet</a>
-- <a href="#shape-your-events">Forma dina händelser</a>
-- <a href="#ensure-that-you-have-reference-data">Se till att du har referens data på plats</a>
+- [Lagringskapacitet](#storage-capacity)
+- [Data lagrings period](#data-retention)
+- [Ingress-kapacitet](#ingress-capacity)
+- [Forma dina händelser](#shape-your-events)
+- [Se till att du har referens data på plats](#ensure-that-you-have-reference-data)
 
 ## <a name="storage-capacity"></a>Lagringskapacitet
 
@@ -49,15 +49,17 @@ Som standard behåller Time Series Insights data baserat på mängden lagrings u
 
 ## <a name="data-retention"></a>Datakvarhållning
 
-Du kan ändra **tids** inställningen för datakvarhållning i Time Series Insightss miljön. Du kan aktivera upp till 400 dagars kvarhållning. 
+Du kan ändra tids inställningen för **datakvarhållning** i Azure Time Series Insightss miljön. Du kan aktivera upp till 400 dagars kvarhållning. 
 
-Time Series Insights har två lägen. Ett läge optimeras för att säkerställa att din miljö har de mest aktuella data. Det här läget är aktiverat som standard. 
+Azure Time Series Insights har två lägen:
 
-Det andra läget optimeras för att säkerställa att gräns värdena för kvarhållning är uppfyllda. I det andra läget pausas ingressen om den övergripande lagrings kapaciteten för miljön är uppfylld. 
+* Ett läge optimerar för de mest aktuella data. Den tillämpar en princip för att **Rensa gamla data** som lämnar de senaste data som är tillgängliga med instansen. Det här läget är aktiverat som standard. 
+* Den andra optimerar data så att de förblir under de konfigurerade gräns värdena. **Pausa** ingångar förhindrar att nya data inaktive ras när den har valts som **gräns för lagrings gränsen**. 
 
 Du kan justera kvarhållning och växla mellan de två lägena på miljöns konfigurations sida i Azure Portal.
 
-Du kan konfigurera högst 400 dagar av datakvarhållning i Time Series Insightss miljön.
+> [!IMPORTANT]
+> Du kan konfigurera högst 400 dagars data kvarhållning i Azure Time Series Insights GA-miljön.
 
 ### <a name="configure-data-retention"></a>Konfigurera datakvarhållning
 
@@ -67,14 +69,14 @@ Du kan konfigurera högst 400 dagar av datakvarhållning i Time Series Insightss
 
 1. Ange ett värde mellan 1 och 400 i rutan **data lagrings tid (i dagar)** .
 
-   [![Konfigurera kvarhållning](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
+   [@no__t kvarhållning av 1Configure](media/environment-mitigate-latency/configure-retention.png)](media/environment-mitigate-latency/configure-retention.png#lightbox)
 
 > [!TIP]
 > Mer information om hur du implementerar en lämplig bevarande princip för data finns i [så här konfigurerar du kvarhållning](./time-series-insights-how-to-configure-retention.md).
 
 ## <a name="ingress-capacity"></a>Ingress-kapacitet
 
-Den andra arean för att fokusera på att planera Time Series Insightss miljön är ingångs kapacitet. Ingress-kapaciteten är en derivat av tilldelningen per minut.
+Det andra utrymmet att fokusera på när du planerar Time Series Insightss miljön är *ingress-kapacitet*. Ingress-kapaciteten är en derivat av tilldelningen per minut.
 
 Från ett begränsnings perspektiv behandlas ett ingånget data paket som har en paket storlek på 32 KB som 32-händelser, varje 1 KB i storlek. Den största tillåtna händelse storleken är 32 KB. Data paket som är större än 32 KB trunkeras.
 
@@ -83,7 +85,7 @@ I följande tabell sammanfattas den ingående kapaciteten per enhet för varje T
 |SKU  |Antal händelser per månad  |Händelse storlek per månad  |Antal händelser per minut  |Händelse storlek per minut  |
 |---------|---------|---------|---------|---------|
 |S1     |   30 000 000     |  30 GB     |  720    |  720 KB   |
-|S2     |   300 000 000    |   300 GB   | 7 200   | 7 200 KB  |
+|S2     |   300 000 000    |   300 GB   | 7 200   | 7 200 KB  |
 
 Du kan öka kapaciteten för en S1-eller S2-SKU till 10 enheter i en enda miljö. Du kan inte migrera från en S1-miljö till en S2. Du kan inte migrera från en S2-miljö till S1.
 

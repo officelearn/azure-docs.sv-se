@@ -1,5 +1,5 @@
 ---
-title: Använda Azure Service Bus köer med python | Microsoft Docs
+title: 'Självstudie: använda Azure Service Bus köer med python'
 description: Lär dig hur du använder Azure Service Bus köer från python.
 services: service-bus-messaging
 documentationcenter: python
@@ -14,12 +14,13 @@ ms.devlang: python
 ms.topic: article
 ms.date: 04/10/2019
 ms.author: aschhab
-ms.openlocfilehash: 9bb53a8e68866e2ed346277171e2706f5907e8af
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.custom: seo-python-october2019
+ms.openlocfilehash: 3561d7e3569b31698fbbc5f8cf2518d9fe1fc398
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141918"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331131"
 ---
 # <a name="how-to-use-service-bus-queues-with-python"></a>Använda Service Bus köer med python
 
@@ -27,8 +28,8 @@ ms.locfileid: "70141918"
 
 I den här självstudien får du lära dig hur du skapar python-program för att skicka meddelanden till och ta emot meddelanden från en Service Bus kö. 
 
-## <a name="prerequisites"></a>Förutsättningar
-1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) -prenumeranter eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+## <a name="prerequisites"></a>Krav
+1. En Azure-prenumeration. Du behöver ett Azure-konto för att slutföra den här självstudien. Du kan aktivera dina [förmåner för MSDN-prenumeranter](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF) eller registrera dig för ett [kostnads fritt konto](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Följ stegen i [Azure Portal för att skapa en Service Bus Queue](service-bus-quickstart-portal.md) -artikel.
     1. Läs snabb **översikten** över Service Bus **köer**. 
     2. Skapa ett Service Bus- **namnområde**. 
@@ -45,7 +46,7 @@ Med **ServiceBusClient** -objektet kan du arbeta med köer. Lägg till följande
 from azure.servicebus import ServiceBusClient
 ```
 
-Följande kod skapar ett **ServiceBusClient** -objekt. Ersätt `<CONNECTION STRING>` med din Service Bus ConnectionString.
+Följande kod skapar ett **ServiceBusClient** -objekt. Ersätt `<CONNECTION STRING>` med din Service Bus-ConnectionString.
 
 ```python
 sb_client = ServiceBusClient.from_connection_string('<CONNECTION STRING>')
@@ -57,7 +58,7 @@ Du hittar värdena för SAS-nyckelns namn och värde i [Azure Portal][Azure port
 sb_client.create_queue("taskqueue")
 ```
 
-`create_queue` Metoden stöder också ytterligare alternativ som gör att du kan åsidosätta standardinställningar för kön, till exempel TTL (Time to Live) eller maximal kös Tor lek. I följande exempel anges maximal kös Tor lek till 5 GB och TTL-värdet till 1 minut:
+Metoden `create_queue` stöder också ytterligare alternativ, vilket gör att du kan åsidosätta standardinställningar för kön, till exempel TTL (Time to Live) eller maximal kös Tor lek. I följande exempel anges maximal kös Tor lek till 5 GB och TTL-värdet till 1 minut:
 
 ```python
 sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
@@ -67,9 +68,9 @@ sb_client.create_queue("taskqueue", max_size_in_megabytes=5120,
 Mer information finns i [Azure Service Bus python-dokumentation](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="send-messages-to-a-queue"></a>Skicka meddelanden till en kö
-Om du vill skicka ett meddelande till en Service Bus kö anropar `send` programmet metoden `ServiceBusClient` på objektet.
+Om du vill skicka ett meddelande till en Service Bus kö anropar programmet `send`-metoden på objektet `ServiceBusClient`.
 
-Följande exempel visar hur du skickar ett test meddelande till kön med namnet `taskqueue` med: `send_queue_message`
+Följande exempel visar hur du skickar ett test meddelande till kön med namnet `taskqueue` med `send_queue_message`:
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -88,7 +89,7 @@ Service Bus-köerna stöder en maximal meddelandestorlek på 256 kB på [standar
 Mer information finns i [Azure Service Bus python-dokumentation](/python/api/overview/azure/servicebus?view=azure-python).
 
 ## <a name="receive-messages-from-a-queue"></a>Ta emot meddelanden från en kö
-Meddelanden tas emot från en kö med hjälp `get_receiver` av metoden `ServiceBusService` på objektet:
+Meddelanden tas emot från en kö med hjälp av metoden `get_receiver` på objektet `ServiceBusService`:
 
 ```python
 from azure.servicebus import QueueClient, Message
@@ -112,7 +113,7 @@ Meddelanden tas bort från kön när de läses när parametern `peek_lock` har a
 
 Beteendet att läsa och ta bort meddelandet som en del av Receive-åtgärden är den enklaste modellen och fungerar bäst för scenarier där ett program kan tolerera att inte bearbeta ett meddelande i händelse av ett fel. För att förstå detta kan du föreställa dig ett scenario där konsumenten utfärdar en receive-begäran och sedan kraschar innan den kan bearbeta denna begäran. Eftersom Service Bus har markerat meddelandet som förbrukat, och när programmet startas om och börjar förbruka meddelanden igen, kommer det att ha missat meddelandet som förbrukades innan kraschen.
 
-Om parametern är inställd på Sant blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. `peek_lock` När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa **Delete** -metoden i objektet **Message** . Metoden **Delete** kommer att markera meddelandet som förbrukat och ta bort det från kön.
+Om parametern `peek_lock` har angetts till **True**blir mottagningen en åtgärd i två steg, vilket gör det möjligt att stödja program som inte kan tolerera meddelanden som saknas. När Service Bus tar emot en begäran letar det upp nästa meddelande som ska förbrukas, låser det för att förhindra att andra användare tar emot det och skickar sedan tillbaka det till programmet. När programmet har slutfört bearbetningen av meddelandet (eller lagrar det tillförlitligt för framtida bearbetning) slutförs det andra steget i Receive-processen genom att anropa **Delete** -metoden i objektet **Message** . Metoden **Delete** kommer att markera meddelandet som förbrukat och ta bort det från kön.
 
 ```python
 msg.delete()

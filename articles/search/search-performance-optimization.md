@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: liamca
 ms.custom: seodec2018
-ms.openlocfilehash: 97628535deb79733e9d286977534a6ea97ba60e6
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: 566c208ef415f6fc9f3ada419e2f9e9244bc066d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70182282"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333167"
 ---
 # <a name="deployment-strategies-and-best-practices-for-optimizing-performance-on-azure-search"></a>Distributions strategier och bästa praxis för att optimera prestanda på Azure Search
 
@@ -77,7 +77,7 @@ Målet för en geo-distribuerad uppsättning Sök tjänster är att två eller f
    ![Globala flikar för tjänster efter region][1]
 
 ### <a name="keeping-data-in-sync-across-multiple-azure-search-services"></a>Hålla data synkroniserade över flera Azure Search-tjänster
-Det finns två alternativ för att hålla dina distribuerade Sök tjänster synkroniserade, som består av antingen med hjälp av [Azure Search](search-indexer-overview.md) -indexeraren eller push-API: et (kallas även [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)).  
+Det finns två alternativ för att hålla dina distribuerade Sök tjänster synkroniserade, som består av antingen med hjälp av [Azure Search-indexeraren](search-indexer-overview.md) eller push-API: et (kallas även [Azure Search REST API](https://docs.microsoft.com/rest/api/searchservice/)).  
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Använd indexerare för att uppdatera innehåll på flera tjänster
 
@@ -94,11 +94,6 @@ Om du använder Azure Search REST API för att [skicka innehåll i ditt Azure Se
 Med [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) kan du dirigera begär anden till flera geo-placerade webbplatser som sedan backas upp av flera Azure Search-tjänster. En fördel med Traffic Manager är att den kan avsöka Azure Search för att säkerställa att den är tillgänglig och dirigera användare till alternativa Sök tjänster i händelse av drift stopp. Om du dirigerar Sök förfrågningar via Azure Web Sites kan du dessutom använda Azure Traffic Manager för att läsa in balans fall där webbplatsen är igång, men inte Azure Search. Här är ett exempel på vad arkitekturen som utnyttjar Traffic Manager.
 
    ![Över-fliken av tjänster efter region, med central Traffic Manager][3]
-
-## <a name="monitor-performance"></a>Övervaka prestanda
-Azure Search ger möjlighet att analysera och övervaka prestanda för tjänsten via [Sök trafik analys](search-traffic-analytics.md). När du aktiverar den här funktionen och lägger till instrumentering i din klient app, kan du även logga enskilda Sök åtgärder och aggregerade mått till ett Azure Storage konto som sedan kan bearbetas för analys eller visualisering i Power BI. Måtten fångar på det här sättet ger prestanda statistik, till exempel Genomsnittligt antal frågor eller svars tider för frågor. Dessutom kan du i åtgärds loggningen se mer information om vissa Sök åtgärder.
-
-Trafik analys är användbar för att förstå latens priser från det Azure Search perspektivet. Eftersom de inloggade frågeresultaten baseras på den tid som en fråga tar att bearbetas fullständigt i Azure Search (från den tidpunkt då den skickas ut) kan du använda det för att avgöra om svars tiden är från Azure Search tjänst sidan eller IDE för tjänsten, till exempel från nätverks fördröjning.  
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om pris nivåer och tjänst begränsningar för var och en finns i [tjänst gränser i Azure Search](search-limits-quotas-capacity.md).

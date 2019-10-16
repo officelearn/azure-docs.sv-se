@@ -18,12 +18,12 @@ ms.author: ryanwi
 ms.reviewer: bryanla
 ms.custom: aaddev, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: da694dd77186ce22bd7080540bd3b08e14f205b0
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 48be16827da21643af485d1fb94b9a7b76728325
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68835362"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374040"
 ---
 # <a name="integrating-with-azure-active-directory"></a>Integrera med Azure Active Directory
 
@@ -37,7 +37,7 @@ Det finns flera sätt för ditt program att integrera med Azure AD. Dra nytta av
 
 ### <a name="support-azure-ad-as-a-way-to-sign-in-to-your-application"></a>Stöd för Azure AD som ett sätt att logga in på ditt program
 
-**Sänk in friktionen och minska support kostnaderna.** Genom att använda Azure AD för att logga in i ditt program får användarna inget namn och lösen ord att komma ihåg. Som utvecklare har du ett mindre lösen ord för att lagra och skydda. Att inte behöva hantera återställningar av glömt lösen ord kan vara en betydande besparing. Azure AD har behörighet att logga in för några av världens mest populära moln program, inklusive Office 365 och Microsoft Azure. Med hundratals miljoner användare från miljon tals organisationer, är det troligt att användaren redan är inloggad i Azure AD. Läs mer om [att lägga till stöd för Azure AD-inloggning](authentication-scenarios.md).
+**Sänk in friktionen och minska support kostnaderna.** Genom att använda Azure AD för att logga in i ditt program får användarna inget namn och lösen ord att komma ihåg. Som utvecklare har du ett mindre lösen ord för att lagra och skydda. Att inte behöva hantera återställningar av glömt lösen ord kan vara en betydande besparing. Azure AD har behörighet att logga in för några av världens mest populära moln program, inklusive Office 365 och Microsoft Azure. Med hundratals miljoner användare från miljon tals organisationer, är det troligt att användaren redan är inloggad i Azure AD. Läs mer om [att lägga till stöd för Azure AD-inloggning](v1-authentication-scenarios.md).
 
 **Förenkla registreringen av ditt program.**  När du registrerar dig för ditt program kan Azure AD skicka viktig information om en användare så att du kan fylla i ditt registrerings formulär på förhand eller ta bort det helt. Användare kan registrera sig för ditt program med hjälp av sitt Azure AD-konto via en välbekant upplevelse som liknar dem som finns i sociala medier och mobila program. Alla användare kan registrera sig och logga in i ett program som är integrerat med Azure AD utan att behöva delta i det. Läs mer om [att signera ditt program för inloggning med Azure AD-konto](../../app-service/configure-authentication-provider-aad.md).
 
@@ -97,5 +97,5 @@ Integrering med Azure AD levereras med fördelar som inte kräver att du skriver
 
 [Kom igång med att skriva kod](v2-overview.md#getting-started).
 
-[Logga in användare med Microsoft Identity Platform](authentication-scenarios.md)
+[Logga in användare med Microsoft Identity Platform](v1-authentication-scenarios.md)
 

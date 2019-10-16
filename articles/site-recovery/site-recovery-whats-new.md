@@ -5,20 +5,35 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/18/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 8e034153a2e98a101527f411c78ace6e46b01b29
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 5c449136339a4c31cb1829b53f62e1724caa4736
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937528"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372260"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
 Tjänsten [Azure Site Recovery](site-recovery-overview.md) uppdateras och förbättras regelbundet. I den här artikeln får du information om de senaste versionerna, nya funktioner och nytt innehåll som hjälper dig att hålla dig uppdaterad. Den här sidan uppdateras regelbundet.
 
 Du kan följa och prenumerera på Site Recovery uppdaterings meddelanden i [Azure updates](https://azure.microsoft.com/updates/?product=site-recovery) -kanalen.
+
+## <a name="update-to-servicing-stack-updatesha-2"></a>Uppdatera för att underhålla stack Update/SHA-2
+
+Observera följande för katastrof återställning av virtuella Azure-datorer till en sekundär region eller lokala virtuella VMware-datorer eller fysiska servrar till Azure:
+
+- Från version 9.30. x av mobilitets tjänst tillägget (för virtuella Azure-datorer) och mobilitets tjänst agenten (för VMware/fysiska datorer) måste en del operativ system köra underhålls stack uppdateringen och SHA-2. Information visas i tabellen nedan.
+- Installera uppdateringen och SHA-2 i enlighet med länkat KB.
+- Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
+
+**Operativsystem** | **Virtuell Azure-dator** | **Virtuell VMware-dator/fysisk dator**
+--- | --- | ---
+**Windows 2008 R2 SP1** | [Uppdatering av underhålls stack](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Uppdatering av underhålls stack](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 2008 SP2** | [Uppdatering av underhålls stack](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Uppdatering av underhålls stack](https://support.microsoft.com/help/4493730)<br/> [SHA-2](https://support.microsoft.com/help/4474419)
+**Windows 7 SP1** | [Uppdatering av underhålls stack](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419)| [Uppdatering av underhålls stack](https://support.microsoft.com/help/4490628)<br/> [SHA-2](https://support.microsoft.com/help/4474419).
+
 
 ## <a name="supported-updates"></a>Uppdateringar som stöds
 

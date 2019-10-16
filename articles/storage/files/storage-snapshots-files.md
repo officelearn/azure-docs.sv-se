@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f3cbf740016a4c162c63343be4cb9cd577f85935
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: c05b79d2f1da8076b507ca9ee7a06504de21d5ea
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68699359"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333181"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Översikt över resurs ögonblicks bilder för Azure Files 
 Azure Files ger möjlighet att ta bort ögonblicks bilder av fil resurser. Dela ögonblicks bilder fångar resurs statusen vid den tidpunkten. I den här artikeln beskriver vi vilka funktioner som delar ögonblicks bilder och hur du kan dra nytta av dem i ditt anpassade användnings fall.
@@ -28,7 +28,7 @@ Tänk dig att du arbetar med en textfil i en fil resurs. När text filen har st�
 ### <a name="general-backup-purposes"></a>Allmänna säkerhets kopierings syfte
 När du har skapat en fil resurs kan du regelbundet skapa en resurs ögonblicks bild av fil resursen för att använda den för säkerhets kopiering av data. En resurs ögonblicks bild, när den tas med jämna mellanrum, hjälper till att underhålla tidigare versioner av data som kan användas för framtida gransknings krav eller katastrof återställning.
 
-## <a name="capabilities"></a>FUNKTIONER
+## <a name="capabilities"></a>Kapacitet
 En ögonblicks bild av en resurs är en skrivskyddad kopia av dina data vid en viss tidpunkt. Du kan skapa, ta bort och hantera ögonblicks bilder med hjälp av REST API. Samma funktioner är också tillgängliga i klient biblioteket, Azure CLI och Azure Portal. 
 
 Du kan visa ögonblicks bilder av en resurs med hjälp av både REST API och SMB. Du kan hämta listan över versioner av katalogen eller filen och du kan montera en speciell version direkt som en enhet (endast tillgänglig i Windows-se [gränser](#limits)). 
@@ -37,7 +37,7 @@ När en resurs ögonblicks bild har skapats kan den läsas, kopieras eller tas b
 
 Delning av ögonblicks bilder ges på fil resurs nivå. Hämtning ges på enskild filnivå, så att enskilda filer kan återställas. Du kan återställa en fullständig fil resurs med hjälp av SMB, REST API, portalen, klient biblioteket eller PowerShell/CLI-verktyget.
 
-En resurs ögonblicks bild av en fil resurs är identisk med bas fil resursen. Den enda skillnaden är att ett **datetime** -värde läggs till i resurs-URI: n för att ange den tid då resurs ögonblicks bilden togs. Om till exempel en fil resurs-URI är http://storagesample.core.file.windows.net/myshare, liknar resursens ögonblicks bilds-URI följande:
+En resurs ögonblicks bild av en fil resurs är identisk med bas fil resursen. Den enda skillnaden är att ett **datetime** -värde läggs till i resurs-URI: n för att ange den tid då resurs ögonblicks bilden togs. Om till exempel en fil resurs-URI är http://storagesample.core.file.windows.net/myshare, så liknar resursens ögonblicks bilds-URI följande:
 ```
 http://storagesample.core.file.windows.net/myshare?snapshot=2011-03-09T01:42:34.9360000Z
 ```
@@ -71,11 +71,11 @@ Du kan kopiera enskilda filer i en ögonblicks bild av en fil resurs till dess b
 
 Resurs ögonblicks bilden förblir intakt efter kopiering, men bas fil resursen skrivs över med en kopia av de data som var tillgängliga i ögonblicks bilden av resursen. Alla återställda filer räknas till "ändrat innehåll".
 
-Du kan kopiera en fil i en resurs ögonblicks bild till ett mål med ett annat namn. Den resulterande mål filen är en skrivbar fil och inte en resurs ögonblicks bild.
+Du kan kopiera en fil i en resurs ögonblicks bild till ett annat mål med ett annat namn. Den resulterande mål filen är en skrivbar fil och inte en resurs ögonblicks bild. I det här fallet kommer bas fil resursen att förbli intakt.
 
 När en målfil skrivs över med en kopia förblir alla resurs ögonblicks bilder som är associerade med den ursprungliga mål filen oförändrade.
 
-## <a name="general-best-practices"></a>Allmänna metod tips 
+## <a name="general-best-practices"></a>Allmän bästa praxis 
 När du kör en infrastruktur på Azure kan du automatisera säkerhets kopieringar för data återställning närhelst det är möjligt. Automatiserade åtgärder är mer pålitliga än manuella processer, vilket hjälper till att förbättra data skydd och återställning. Du kan använda REST API, klient-SDK eller skript för automatisering.
 
 Innan du distribuerar Schemaläggaren för resurs ögonblicks bilder bör du ta hänsyn till din resurs frekvens för ögonblicks bilder och inställningarna för kvarhållning för att undvika onödiga kostnader.

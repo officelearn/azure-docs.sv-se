@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: rkarlin
-ms.openlocfilehash: 18c11198f6b81e72e371b3ab06ed3a7330078c52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5d4c549eaded78c69d3e7fa7173b5ad9b1d82f2f
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72023781"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333149"
 ---
-# <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Självstudier: Skapa anpassade analys regler för att identifiera misstänkta hot
+# <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>Självstudie: skapa anpassade analys regler för att upptäcka misstänkta hot
 
 När du har [anslutit dina data källor](quickstart-onboard.md) To Azure Sentinel kan du skapa anpassade regler som kan söka efter vissa kriterier i din miljö och generera incidenter när villkoren matchas så att du kan undersöka dem. Den här självstudien hjälper dig att skapa anpassade regler för att identifiera hot med Azure Sentinel.
 
@@ -56,7 +56,7 @@ Du kan skapa anpassade analys regler som hjälper dig att söka efter de typer a
     \| make-series dcount(ResourceId)  default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller`
 
    > [!NOTE]
-   > Frågans längd måste vara mellan 1 och 1 0000 tecken och får inte innehålla "search \*" eller "union \*".
+   > Frågans längd ska vara mellan 1 och 1 000 tecken och får inte innehålla "search \*" eller "union \*".
 
     1. Under **schemaläggning av frågor**anger du följande parametrar:
 

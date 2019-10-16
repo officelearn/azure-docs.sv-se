@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 69fe370029cef391b8ee483ffdee5c588df41d58
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 147d3dba2e2dc271d5b7422d7ba2b28c04f583af
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030673"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330627"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Konfigurera ett labb för att lära sig använda Shell-skript i Linux
 Den här artikeln visar hur du konfigurerar ett labb för att lära sig att använda Shell-skript i Linux. Skript är en användbar del av system administration som gör det möjligt för administratörer att undvika repetitiva uppgifter. I det här exempel scenariot täcker klassen traditionella bash-skript och förbättrade skript. Förbättrade skript är skript som kombinerar bash-kommandon och Ruby. Med den här metoden kan ruby skicka data runt-och bash-kommandon för att interagera med gränssnittet. 
@@ -26,7 +26,7 @@ Den här artikeln visar hur du konfigurerar ett labb för att lära sig att anv�
 Studenter som använder dessa skript klasser får en virtuell Linux-dator för att lära sig grunderna i Linux och även bekanta dig med bash shell-skript. Den virtuella Linux-datorn har åtkomst till fjärr skrivbord och med text redigerarna [gedit](https://help.gnome.org/users/gedit/stable/) och [Visual Studio Code](https://code.visualstudio.com/) installerade.
 
 ## <a name="lab-configuration"></a>Labb konfiguration
-Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt labb konto. Se följande självstudie för att skapa ett nytt labb konto: [Självstudie för att konfigurera ett labb konto](tutorial-setup-lab-account.md).
+Du måste ha en Azure-prenumeration för att komma igång för att kunna konfigurera det här labbet. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar. När du har en Azure-prenumeration kan du antingen skapa ett nytt labb konto i Azure Lab Services eller använda ett befintligt labb konto. Se följande självstudie för att skapa ett nytt labb konto: [självstudier för att konfigurera ett labb konto](tutorial-setup-lab-account.md).
 
 När du har skapat labb kontot aktiverar du följande inställningar i labb kontot: 
 
@@ -40,7 +40,7 @@ Följ [den här självstudien](tutorial-setup-classroom-lab.md) för att skapa e
 | ------------ | ------------------ |
 | Storlek för virtuell dator (VM) | Liten  |
 | Avbildning av virtuell dator | [Ubuntu Server 18,04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/Canonical.UbuntuServer1804LTS) |
-| Aktivera anslutning till fjärr skrivbord | Använd. <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina virtuella datorer med hjälp av fjärr skrivbord (RDP). Mer information finns i [Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services](how-to-enable-remote-desktop-linux.md#teachers-connecting-to-the-template-vm-using-rdp). </p>|
+| Aktivera anslutning till fjärr skrivbord | Använd. <p>Om du aktiverar den här inställningen kan lärare och studenter ansluta till sina virtuella datorer med hjälp av fjärr skrivbord (RDP). Mer information finns i [Aktivera fjärr skrivbord för virtuella Linux-datorer i ett labb i Azure Lab Services](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm). </p>|
 
 
 ## <a name="install-desktop-and-xrdp"></a>Installera Desktop och xrdp
@@ -96,9 +96,9 @@ Den här artikeln gick dig genom stegen för att skapa ett labb för skript klas
 Nästa steg är vanliga för att ställa in labb:
 
 - [Lägga till användare](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
-- [Ange kvot](tutorial-setup-classroom-lab.md#set-quotas-for-users)
+- [Ange kvot](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Ange ett schema](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab) 
-- [E-postregistrering länkar till studenter](tutorial-setup-classroom-lab.md#send-an-email-with-the-registration-link). 
+- [E-postregistrering länkar till studenter](how-to-configure-student-usage.md#send-invitations-to-users). 
 
 
 

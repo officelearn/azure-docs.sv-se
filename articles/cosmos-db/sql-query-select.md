@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: d34b1c39d9789409dc365cd4cf07fdc3d5a780fd
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003519"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326795"
 ---
-# <a name="select-clause"></a>SELECT-sats
+# <a name="select-clause-in-azure-cosmos-db"></a>SELECT-sats i Azure Cosmos DB
 
 Varje fråga består av en SELECT-sats och [valfria from](sql-query-from.md) -och [WHERE](sql-query-where.md) -satser, enligt ANSI SQL-standarder. Normalt räknas källan i from-satsen och WHERE-satsen använder ett filter på källan för att hämta en delmängd av JSON-objekt. SELECT-satsen projekterar sedan de begärda JSON-värdena i SELECT-listan.
 
@@ -36,19 +36,19 @@ SELECT <select_specification>
   
 - `<select_specification>`  
 
-  Egenskaper för eller -värde som ska väljas för resultatuppsättningen.  
+  Egenskaper eller värde som ska väljas för resultat uppsättningen.  
   
 - `'*'`  
 
-  Anger att värdet ska hämtas utan några ändringar. Mer specifikt om bearbetade värdet är ett objekt, hämtas alla egenskaper.  
+  Anger att värdet ska hämtas utan att göra några ändringar. I synnerhet om det bearbetade värdet är ett objekt hämtas alla egenskaper.  
   
 - `<object_property_list>`  
   
-  Anger listan över egenskaper som ska hämtas. Varje returnerade värdet ska vara ett objekt med egenskaper som anges.  
+  Anger listan över egenskaper som ska hämtas. Varje returnerat värde är ett objekt med de angivna egenskaperna.  
   
 - `VALUE`  
 
-  Anger att JSON-värde ska hämtas i stället för det fullständiga JSON-objektet. Detta, till skillnad från `<property_list>` radbryts inte det beräknade värdet i ett objekt.  
+  Anger att JSON-värdet ska hämtas i stället för hela JSON-objektet. Detta, till skillnad från `<property_list>`, radbryts inte det beräknade värdet i ett objekt.  
  
 - `DISTINCT`
   
@@ -56,29 +56,29 @@ SELECT <select_specification>
 
 - `<scalar_expression>`  
 
-  Uttryck som representerar värdet som ska beräknas. Se [skaläruttryck](sql-query-scalar-expressions.md) information.  
+  Uttryck som representerar det värde som ska beräknas. Mer information finns i avsnittet om [skalära uttryck](sql-query-scalar-expressions.md) .  
 
 ## <a name="remarks"></a>Kommentarer
 
-Den `SELECT *` syntax är bara giltigt om FROM-satsen har deklarerats exakt ett alias. `SELECT *` innehåller en identity-projektion, som kan vara användbart om inga projektion krävs. Välj * är bara giltigt om FROM-satsen har angetts och införs bara en enda Indatakällan.  
+Syntaxen för `SELECT *` är endast giltig om FROM-satsen har deklarerat exakt ett alias. `SELECT *` ger en identitets projektion, vilket kan vara användbart om ingen projektion behövs. SELECT * är bara giltig om FROM-satsen anges och endast en enda indatakälla har introducerats.  
   
-Båda `SELECT <select_list>` och `SELECT *` är ”syntaktiska socker” och du kan också kan uttryckas med hjälp av enkla SELECT-instruktioner som visas nedan.  
+Både `SELECT <select_list>` och `SELECT *` är "syntaktisk socker" och kan uttryckas i enkla SELECT-uttryck som visas nedan.  
   
 1. `SELECT * FROM ... AS from_alias ...`  
   
-   motsvarar att:  
+   motsvarar:  
   
    `SELECT from_alias FROM ... AS from_alias ...`  
   
 2. `SELECT <expr1> AS p1, <expr2> AS p2,..., <exprN> AS pN [other clauses...]`  
   
-   motsvarar att:  
+   motsvarar:  
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
 ## <a name="examples"></a>Exempel
 
-Följande exempel på en urvals `address` fråga `Families` returnerar `id` från `AndersenFamily`vars matchningar:
+Följande exempel på URVALs fråga returnerar `address` från `Families` vars `id` matchar `AndersenFamily`:
 
 ```sql
     SELECT f.address
@@ -109,7 +109,7 @@ Du kan komma åt egenskaper med operatorn för citerad egenskap []. Till exempel
 
 ### <a name="nested-properties"></a>Kapslade egenskaper
 
-I följande exempel projekterar två kapslade `f.address.state` egenskaper `f.address.city`och.
+I följande exempel projekterar två kapslade egenskaper, `f.address.state` och `f.address.city`.
 
 ```sql
     SELECT f.address.state, f.address.city
@@ -147,7 +147,7 @@ Resultaten är:
     }]
 ```
 
-I föregående exempel måste SELECT-satsen skapa ett JSON-objekt och eftersom exemplet inte innehåller någon nyckel använder-satsen det implicita argumentet variabel namn `$1`. Följande fråga returnerar två implicita argument-variabler `$1` : `$2`och.
+I föregående exempel måste SELECT-satsen skapa ett JSON-objekt och eftersom exemplet inte innehåller någon nyckel använder satsen det implicita argumentet variabel namn `$1`. Följande fråga returnerar två implicita argument-variabler: `$1` och `$2`.
 
 ```sql
     SELECT { "state": f.address.state, "city": f.address.city },
@@ -174,4 +174,4 @@ Resultaten är:
 
 - [Komma igång](sql-query-getting-started.md)
 - [Azure Cosmos DB .NET-exempel](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [WHERE-satsen](sql-query-where.md)
+- [WHERE-sats](sql-query-where.md)

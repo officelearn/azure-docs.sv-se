@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 395e8b1bc92ea64c8a5cea114be443d6411c7412
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: c8fc6c552920cf7790bf5c89531fc04ad4c57d36
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170333"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333220"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>Bygga hög tillgängliga Azure Storage program med geo-Zone-redundant lagring (GZRS) (för hands version)
 
@@ -25,7 +25,7 @@ Microsoft rekommenderar att du använder GZRS för program som kräver konsekven
 
 ## <a name="about-the-preview"></a>Om för hands versionen
 
-Endast General-Purpose v2-lagrings konton stöder GZRS och RA-GZRS. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md). GZRS och RA-GZRS stöder block-blobbar, sid-blobar som inte är virtuella hård diskar, filer, tabeller och köer.
+Endast General-Purpose v2-lagrings konton stöder GZRS och RA-GZRS. Mer information om typer av lagringskonton finns i [Översikt över Azure Storage-konton](storage-account-overview.md). GZRS och RA-GZRS stöder block-blobbar, Page blobbar (som inte är VHD-diskar), filer, tabeller och köer.
 
 GZRS och RA-GZRS är för närvarande tillgängliga för förhands granskning i följande regioner:
 

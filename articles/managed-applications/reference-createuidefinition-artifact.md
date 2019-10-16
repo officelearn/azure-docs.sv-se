@@ -1,20 +1,20 @@
 ---
 title: Referens för Azure Managed Application createUiDefinition-artefakt
-description: Den här artikeln är en referens till createUiDefinition artefakt.
+description: Visar hur du skapar createUiDefinition-artefakten för ett Azure-hanterat program. Filen heter createUiDefinition. JSON.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: 5168e977a7bc289ec8981ef1df8cddd5cc6df678
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 09364a849926fc829a890bfcdc8b760c7c7e189c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336483"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330185"
 ---
-# <a name="reference-user-interface-elements-artifact"></a>Referens: Artefakt för användar gränssnitts element
+# <a name="reference-user-interface-elements-artifact"></a>Referens: artefakt för användar gränssnitts element
 
 Den här artikeln är en referens för en *createUiDefinition. JSON* -artefakt i Azure Managed Applications. Mer information om hur du redigerar användar gränssnitts element finns i [skapa användar gränssnitts element](create-uidefinition-elements.md).
 
@@ -83,6 +83,6 @@ Följande JSON visar ett exempel på *createUiDefinition. JSON* -fil för Azure 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Skapa hanterat program med anpassade åtgärder och resurser](tutorial-create-managed-app-with-custom-provider.md)
-- [Förhållande Artefakt för distributions mall](reference-main-template-artifact.md)
-- [Förhållande Visa definitions artefakt](reference-view-definition-artifact.md)
+- [Självstudie: skapa ett hanterat program med anpassade åtgärder och resurser](tutorial-create-managed-app-with-custom-provider.md)
+- [Referens: artefakt för distributions mal len](reference-main-template-artifact.md)
+- [Referens: Visa definitions artefakt](reference-view-definition-artifact.md)

@@ -11,17 +11,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/17/2019
+ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14c3f90918d246a63d50af7b3542e8e74d5fbcf1
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: a9f8163a3695260234107ad41cc7be125adc9091
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72295516"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72324729"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Gör så här: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som har åtkomst till resurser
 
@@ -62,7 +62,7 @@ Du kan ange omfång på nivån för prenumerationen, resurs gruppen eller resurs
 
 1. Välj **Åtkomstkontroll (IAM)** .
 1. Välj **Lägg till roll tilldelning**.
-1. Välj den roll som du vill tilldela till programmet. Om du vill tillåta att programmet kör åtgärder som **starta om**, **Starta** och **stoppa** instanser väljer du **deltagar** rollen. Som standard visas inte Azure AD-program i de tillgängliga alternativen. Du hittar ditt program genom att söka efter namnet och välja det.
+1. Välj den roll som du vill tilldela till programmet. Om du till exempel vill tillåta att programmet kör åtgärder som **starta om**, **Starta** och **stoppa** instanser väljer du rollen **deltagare** .  Läs mer om [tillgängliga roller](../../role-based-access-control/built-in-roles.md) som standard visas inte Azure AD-program i de tillgängliga alternativen. Du hittar ditt program genom att söka efter namnet och välja det.
 
    ![Välj den roll som ska tilldelas programmet](./media/howto-create-service-principal-portal/select-role.png)
 
@@ -89,7 +89,13 @@ Daemon-program kan använda två typer av autentiseringsuppgifter för att auten
 
 ### <a name="upload-a-certificate"></a>Ladda upp ett certifikat
 
-Du kan använda ett befintligt certifikat om du har ett.  Alternativt kan du skapa ett självsignerat certifikat för test ändamål. Öppna PowerShell och kör [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) med följande parametrar för att skapa ett självsignerat certifikat i användar certifikat arkivet på datorn: `$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature`.  Exportera det här certifikatet med hjälp av MMC-snapin-modulen [hantera användar certifikat](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) som är tillgänglig från kontroll panelen i Windows.
+Du kan använda ett befintligt certifikat om du har ett.  Alternativt kan du skapa ett självsignerat certifikat för test ändamål. Öppna PowerShell och kör [New-SelfSignedCertificate](/powershell/module/pkiclient/new-selfsignedcertificate) med följande parametrar för att skapa ett självsignerat certifikat i användar certifikat arkivet på datorn: 
+
+```powershell
+$cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
+```
+
+Exportera det här certifikatet till en fil med hjälp av MMC-snapin-modulen [hantera användar certifikat](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) som är tillgänglig från kontroll panelen i Windows.
 
 För att ladda upp certifikatet:
 
@@ -114,6 +120,14 @@ Om du väljer att inte använda ett certifikat kan du skapa en ny program hemlig
 
    ![Kopiera det hemliga värdet eftersom du inte kan hämta det senare](./media/howto-create-service-principal-portal/copy-secret.png)
 
+## <a name="configure-access-policies-on-resources"></a>Konfigurera åtkomst principer för resurser
+Kom ihåg att du kan behöva konfigurera tilläggs behörigheter för resurser som ditt program behöver ha åtkomst till. Till exempel måste du också [Uppdatera ett nyckel valvs åtkomst principer](/azure/key-vault/key-vault-secure-your-key-vault#data-plane-and-access-policies) för att ge programmet åtkomst till nycklar, hemligheter eller certifikat.  
+
+1. I [Azure Portal](https://portal.azure.com)navigerar du till ditt nyckel valv och väljer **åtkomst principer**.  
+1. Välj **Lägg till åtkomst princip**och välj sedan de nyckel-, hemlighet-och certifikat behörigheter som du vill ge ditt program.  Välj tjänstens huvud namn som du skapade tidigare.
+1. Välj **Lägg** till för att lägga till åtkomst principen och spara för att **Spara** ändringarna.
+    ![Add åtkomst princip @ no__t-1
+
 ## <a name="required-permissions"></a>Nödvändiga behörigheter
 
 Du måste ha behörighet att registrera ett program med din Azure AD-klient och tilldela programmet till en roll i din Azure-prenumeration.
@@ -125,7 +139,7 @@ Du måste ha behörighet att registrera ett program med din Azure AD-klient och 
 
    ![Hitta din roll. Om du är en användare ser du till att icke-administratörer kan registrera appar](./media/howto-create-service-principal-portal/view-user-info.png)
 
-1. Välj **användar inställningar**.
+1. Välj **användar inställningar**i det vänstra fönstret.
 1. Kontrol lera inställningen för **Appregistreringar** . Det här värdet kan bara anges av en administratör. Om det är inställt på **Ja**kan alla användare i Azure AD-klienten registrera en app.
 
 Om inställningen för appens registrering är inställd på **Nej**kan endast användare med en administratörs roll registrera dessa typer av program. Se [tillgängliga roller](../users-groups-roles/directory-assign-admin-roles.md#available-roles) och [roll behörigheter](../users-groups-roles/directory-assign-admin-roles.md#role-permissions) för att lära dig om tillgängliga administratörs roller och de särskilda behörigheter i Azure AD som ges till varje roll. Om ditt konto är tilldelat till användar rollen, men appens registrerings inställning är begränsad till administratörs användare, be administratören att antingen tilldela dig en av administratörs rollerna som kan skapa och hantera alla aspekter av app-registreringar, eller för att göra det möjligt för användare att registrera appar.

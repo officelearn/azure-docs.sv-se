@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 09/10/2019
 ms.author: juliako
-ms.openlocfilehash: 7233bea4a030b814a5332284a80f07a71f288dba
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: d6338f3840b6f8afe21f8115304ba00bba90c6ea
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70128207"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372381"
 ---
 # <a name="upload-and-index-your-videos"></a>Ladda upp och indexera dina videor  
 
@@ -29,14 +29,15 @@ Artikeln visar hur du använder [Ladda upp video](https://api-portal.videoindexe
 
 När videon har laddats upp Video Indexer kan du koda videon (beskrivs i artikeln). När du skapar ett Video Indexer-konto kan du välja ett kostnadsfritt utvärderingskonto (där du får ett visst antal kostnadsfria indexeringsminuter) eller ett betalalternativ (där du inte begränsas av kvoten). Med den kostnadsfria utvärderingen ger Video Indexer upp till 600 minuter kostnadsfri indexering för webbplatsanvändare och upp till 2 400 minuter kostnadsfri indexering för API-användare. Med alternativet betald skapar du ett Video Indexer-konto som är [anslutet till din Azure-prenumeration och ett Azure Media Services-konto](connect-to-azure.md). Du betalar för minuter som indexeras samt kostnader relaterade till mediekontot. 
 
-## <a name="uploading-considerations"></a>Att tänka på gällande uppladdning
+## <a name="uploading-considerations-and-limitations"></a>Att överföra överväganden och begränsningar
  
+- Ett namn på videon får inte vara större än 80 tecken.
 - När du laddar upp videon baserat på URL (önskad) måste slut punkten skyddas med TLS 1,2 (eller högre).
 - Uppladdnings storleken med URL-alternativet är begränsad till 30 GB.
 - Längden på fråge-URL: en är begränsad till 6144 tecken där Frågesträngens URL-längd är begränsad till 4096 tecken.
 - Uppladdnings storleken med alternativet byte mat ris är begränsad till 2 GB.
 - Tids gränsen nåddes för byte mat ris-alternativet efter 30 min.
-- Den URL som anges i `videoURL` param måste vara kodad.
+- URL: en som anges i parametern `videoURL` måste vara kodad.
 - Indexering av Media Services till gångar har samma begränsning som indexering från URL: en.
 - Video Indexer har en maximal tids gräns på 4 timmar för en enskild fil.
 
@@ -60,22 +61,22 @@ En URL som används för att meddela kunder (med en POST-begäran) om följande 
 - Indexering av tillståndsändring: 
     - Egenskaper:    
     
-        |Name|Beskrivning|
+        |Namn|Beskrivning|
         |---|---|
         |id|Video-ID|
         |state|Videotillståndet|  
-    - Exempel: https:\//test.com/notifyme?projectName=myProject&ID=1234ABCD&State=processed
+    - Exempel: https: \//test. com/notifyme? projectName = projekt &-ID = 1234ABCD & State = bearbetad
 - Person som identifierades i videon:
-  - properties
+  - Egenskaper
     
-      |Name|Beskrivning|
+      |Namn|Beskrivning|
       |---|---|
       |id| Video-ID|
       |faceId|Ansikts-ID som visas i videoindexet|
       |knownPersonId|Person-ID som är unikt inom en ansikts-modell|
       |personName|Namnet på personen|
         
-    - Exempel: https:\//test.com/notifyme?projectName=myProject&ID=1234ABCD&FaceID=12&knownPersonId=CCA84350-89B7-4262-861C-3CAC796542A5&personName=Inigo_Montoya 
+    - Exempel: https: \//test. com/notifyme? projectName = projekt & ID = 1234ABCD & FaceID = 12 & knownPersonId = CCA84350-89B7-4262-861C-3CAC796542A5 & personName = Inigo_Montoya 
 
 #### <a name="notes"></a>Anteckningar
 
@@ -92,9 +93,9 @@ Använd den här parametern om RAW-inspelningar eller externa inspelningar inneh
 
 Priset beror på det valda indexeringsalternativet.  
 
-### <a name="priority"></a>priority
+### <a name="priority"></a>prioritet
 
-Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard) och **hög**.
+Videor indexeras av Video Indexer enligt deras prioritet. Använd parametern **prioritet** för att ange prioritet för indexet. Följande värden är giltiga: **Låg**, **Normal** (standard), och **Hög**.
 
 **Prioritet**-parametern stöds endast för betalda konton.
 

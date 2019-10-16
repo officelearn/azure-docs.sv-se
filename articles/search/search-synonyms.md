@@ -10,12 +10,12 @@ ms.date: 05/02/2019
 manager: nitinme
 ms.author: brjohnst
 ms.custom: seodec2018
-ms.openlocfilehash: d9ddb5af42c538558a69ce68e7ea90161c947b12
-ms.sourcegitcommit: 7a6d8e841a12052f1ddfe483d1c9b313f21ae9e6
+ms.openlocfilehash: a17e2ae5313f9d0b662d343230a04dd3e726c16d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70186455"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331186"
 ---
 # <a name="synonyms-in-azure-search"></a>Synonymer i Azure Search
 
@@ -25,11 +25,11 @@ I Azure Search görs synonym expansion vid tidpunkten för frågan. Du kan lägg
 
 ## <a name="create-synonyms"></a>Skapa synonymer
 
-Det finns inget Portal stöd för att skapa synonymer, men du kan använda REST API eller .NET SDK. För att komma igång med REST rekommenderar vi att du [använder Postman](search-get-started-postman.md) och formulering av begär Anden med följande API: [Skapa synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). För C# utvecklare kan du komma igång med att [lägga till synonymer i Azure- C#sökning med ](search-synonyms-tutorial-sdk.md).
+Det finns inget Portal stöd för att skapa synonymer, men du kan använda REST API eller .NET SDK. För att komma igång med REST rekommenderar vi att du [använder Postman](search-get-started-postman.md) och formulering av begär Anden med följande API: [skapa synonym Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). För C# utvecklare kan du komma igång med att [lägga till synonymer i Azure- C#sökning med ](search-synonyms-tutorial-sdk.md).
 
-Om du använder Kundhanterade [nycklar](search-security-manage-encryption-keys.md) för tjänstens kryptering på plats kan du tillämpa det skyddet på innehållet i synonym kartan.
+Om du använder [Kundhanterade nycklar](search-security-manage-encryption-keys.md) för tjänstens kryptering på plats kan du tillämpa det skyddet på innehållet i synonym kartan.
 
-## <a name="use-synonyms"></a>Använda synonymer
+## <a name="use-synonyms"></a>Använd synonymer
 
 I Azure Search baseras synonym stödet på synonym Maps som du definierar och överför till din tjänst. Dessa kartor utgör en oberoende resurs (t. ex. index eller data källor) och kan användas av valfritt sökbart fält i alla index i Sök tjänsten.
 
@@ -40,6 +40,8 @@ Att införliva synonymer i sökprogrammet är en två stegs process:
 1.  Lägg till en synonym mappning till din Sök tjänst via API: erna nedan.  
 
 2.  Konfigurera ett sökbart fält att använda synonym mappningen i index definitionen.
+
+Du kan skapa flera synonym mappningar för ditt sökprogram (till exempel efter språk om ditt program stöder en flerspråkig kund bas). För närvarande kan ett fält endast använda en av dem. Du kan när som helst uppdatera ett fälts synonymMaps-egenskap.
 
 ### <a name="synonymmaps-resource-apis"></a>SynonymMaps-resurs-API: er
 
@@ -76,7 +78,7 @@ Du kan också använda Lägg till och ange synonym mappnings namnet på URI: n. 
 
 ##### <a name="apache-solr-synonym-format"></a>Formatet Apache Solr synonym
 
-Solr-formatet stöder motsvarande och explicita synonym mappningar. Mappnings regler följer synonym filter specifikationen med öppen källkod för Apache Solr, som beskrivs i det här dokumentet: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Nedan visas en exempel regel för motsvarande synonymer.
+Solr-formatet stöder motsvarande och explicita synonym mappningar. Mappnings reglerna följer synonym filter specifikationen med öppen källkod för Apache Solr, som beskrivs i det här dokumentet: [SynonymFilter](https://cwiki.apache.org/confluence/display/solr/Filter+Descriptions#FilterDescriptions-SynonymFilter). Nedan visas en exempel regel för motsvarande synonymer.
 ```
 USA, United States, United States of America
 ```
@@ -152,18 +154,11 @@ Synonym-funktionen gäller för Sök frågor och gäller inte för filter eller 
 
 Synonym expansionar gäller inte för sökord med jokertecken. termerna prefix, fuzzy och regex expanderas inte.
 
-Om du behöver göra en enskild fråga som använder synonym expansion och jokertecken, regex eller fuzzy-sökningar kan du kombinera frågorna med hjälp av eller-syntaxen. Om du t. ex. vill kombinera synonymer med jokertecken för enkel frågesyntax skulle termen vara `<query> | <query>*`.
+Om du behöver göra en enskild fråga som använder synonym expansion och jokertecken, regex eller fuzzy-sökningar kan du kombinera frågorna med hjälp av eller-syntaxen. Om du till exempel vill kombinera synonymer med jokertecken för enkel frågesyntax, skulle termen vara `<query> | <query>*`.
 
-## <a name="tips-for-building-a-synonym-map"></a>Tips för att skapa en synonym karta
-
-- En kortfattad och väldesignad synonym karta är mer effektiv än en fullständig lista över möjliga matchningar. Alltför stora eller komplexa ord listor tar längre tid att parsa och påverka svars tiden om frågan expanderar till många synonymer. I stället för att gissa dig över vilka villkor som kan användas kan du hämta de faktiska villkoren via en [analys rapport för Sök trafik](search-traffic-analytics.md).
-
-- Som både en preliminär och validerings övning kan du aktivera och sedan använda den här rapporten för att exakt avgöra vilka villkor som kommer att ha nytta av en synonym matchning, och sedan fortsätta att använda den som en verifiering av att synonym kartan ger ett bättre resultat. I den fördefinierade rapporten ger panelerna "de vanligaste Sök frågorna" och "noll-result Sök frågor" den information som krävs.
-
-- Du kan skapa flera synonym mappningar för ditt sökprogram (till exempel efter språk om ditt program stöder en flerspråkig kund bas). För närvarande kan ett fält endast använda en av dem. Du kan när som helst uppdatera ett fälts synonymMaps-egenskap.
+Om du har ett befintligt index i en utvecklings miljö (icke-produktion) kan du experimentera med en liten ord lista för att se hur tillägget av synonymer ändrar Sök upplevelsen, inklusive påverkan på bedömnings profiler, träff markering och förslag.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du har ett befintligt index i en utvecklings miljö (icke-produktion) kan du experimentera med en liten ord lista för att se hur tillägget av synonymer ändrar Sök upplevelsen, inklusive påverkan på bedömnings profiler, träff markering och förslag.
-
-- [Aktivera Sök trafik analys](search-traffic-analytics.md) och Använd den fördefinierade Power BI rapporten för att lära dig vilka termer som används mest och vilka som returnerar noll dokument. Väpnade med dessa insikter, ändra ord listan så att den innehåller synonymer för att få till exempel frågor som ska lösas till dokument i ditt index.
+> [!div class="nextstepaction"]
+> [Skapa en synonym karta](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)

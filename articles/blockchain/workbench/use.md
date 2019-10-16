@@ -1,23 +1,23 @@
 ---
-title: Använda program i Azure blockchain Workbench Preview
+title: Använda program i Azure Blockchain Workbench
 description: Självstudie om hur du använder program kontrakt i för hands versionen av Azure blockchain Workbench.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: e1ba09c4fbba6492e2d5f870a6c31a3d5a6d8956
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 1dee101ad87776a1c22b719274569df25c4e161d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70845136"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328958"
 ---
-# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Självstudier: Använda program i Azure Blockchain Workbench
+# <a name="tutorial-using-applications-in-azure-blockchain-workbench"></a>Självstudie: använda program i Azure blockchain Workbench
 
 Du kan använda Blockchain Workbench för att skapa och utföra åtgärder med kontrakt. Du kan också visa information om kontrakt, till exempel status och transaktionshistorik.
 
@@ -29,7 +29,7 @@ Du lär dig följande:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Blockchain Workbench-distribution. Mer information om distributioner finns i avsnittet om [Azure Blockchain Workbench-distributioner](deploy.md)
 * Ett distribuerat blockkedjeprogram i Blockchain Workbench. Mer information finns i avsnittet om hur du [skapar ett blockkedjeprogram i Azure Blockchain Workbench](create-app.md)
@@ -69,9 +69,9 @@ Beroende på kontraktets tillstånd kan medlemmarna utföra åtgärder för att 
 
     | Section  | Beskrivning  |
     |---------|---------|
-    | State | Visar den aktuella statusen i kontraktfaserna |
+    | Status | Visar den aktuella statusen i kontraktfaserna |
     | Information | De aktuella värdena för kontraktet |
-    | Action | Information om den senaste åtgärden |
+    | Åtgärd | Information om den senaste åtgärden |
     | Aktivitet | Kontraktets transaktionshistorik |
     
 3. I avsnittet **Åtgärd** väljer du **Vidta åtgärd**.

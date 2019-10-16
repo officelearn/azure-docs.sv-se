@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: f51263a91ca174a6c8108ed4414ff0f8b9745aff
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 39f04005776f3b451ad7c64c76f9aa5d8c4a7768
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311871"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330094"
 ---
 # <a name="configure-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Konfigurera SQL Server kluster instans med Premium-filresurs på Azure Virtual Machines
 
@@ -52,6 +52,8 @@ Dessutom bör du ha en allmän förståelse för följande tekniker:
 Premium-filresurser ger IOPS och alla kapaciteter som uppfyller behoven hos många arbets belastningar. För i/o-intensiva arbets belastningar kan du dock överväga [SQL Server FCI med Lagringsdirigering](virtual-machines-windows-portal-sql-create-failover-cluster.md) baserat på hanterade Premium diskar eller Ultra disks.  
 
 Kontrol lera IOPS-aktiviteten i din aktuella miljö och kontrol lera att Premium-filerna ger de IOPS du behöver innan du påbörjar en distribution eller migrering. Använd Windows prestanda övervakaren disk räknare och övervaka total IOPS (disk överföringar/s) och data flöde (Disk-byte/s) som krävs för att SQL Server data, logg och tillfälliga DB-filer. Många arbets belastningar har burst i/o, så det är en bra idé att kontrol lera under tung användnings perioder och notera Max IOPS samt genomsnittlig IOPS. Premium Files-resurser tillhandahåller IOPS baserat på resursens storlek. Premium-filer ger också en kostnads fri burst-överföring där du kan överföra ditt IO-värde till tredubbla bas linjen i upp till en timme. 
+
+Mer information om Premium-filresursens prestanda finns i [fil resurs prestanda nivåer](https://docs.microsoft.com/en-us/azure/storage/files/storage-files-planning#file-share-performance-tiers). 
 
 ### <a name="licensing-and-pricing"></a>Licensiering och priser
 

@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 9986f57b05032c1e12769d59781e8b7aca443abb
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: bf6788bac7003bec0ccfc171d622cd9b28bf43e0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72298976"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330891"
 ---
 # <a name="configuring-retention-in-time-series-insights"></a>Konfigurera kvarhållning i Time Series Insights
 
@@ -26,7 +26,7 @@ Den här artikeln beskriver hur du konfigurerar **tiden för datakvarhållning**
 
 Varje Azure Time Series Insights miljö har en inställning för att konfigurera **data lagrings tid**. Värdet sträcker sig från 1 till 400 dagar. Data tas bort baserat på miljöns lagrings kapacitet eller varaktigheten för kvarhållning (1-400), beroende på vilket som kommer först.
 
-Varje TSD-miljö har ytterligare ett **gräns värde för lagrings utrymme**som har överskridits. Den här inställningen styr ingångs-och rensnings beteende när den maximala kapaciteten för en miljö nås. Du kan välja mellan två beteenden:
+Varje Time Series Insights miljö har en ytterligare **gräns för lagrings utrymme**som har överskridits. Den här inställningen styr ingångs-och rensnings beteende när den maximala kapaciteten för en miljö nås. Du kan välja mellan två beteenden:
 
 - **Rensa gamla data** (standard)
 - **Pausa ingress**
@@ -49,10 +49,14 @@ Detaljerad information för att bättre förstå de här inställningarna finns 
 
 1. Växla inställningen för **lagrings gränsen överskreds** . Välj **Rensa gamla data** eller **pausa inträngande** beteende.
 
-    [![Data kvarhållning Godkänn och spara.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
+    [![Data kvarhållning – Godkänn och spara.](media/data-retention/2-accept-and-save.png)](media/data-retention/2-accept-and-save.png#lightbox)
 
 1. Acceptera kryss rutan som anger att du har granskat dokumentationen och förstår de potentiella riskerna med data förlust. Konfigurera ändringarna genom att välja **Spara** .
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Mer information finns [i förstå kvarhållning i Time Series Insights](time-series-insights-concepts-retention.md).
+
+- Lär dig [hur du skalar din Time Series Insightss miljö](time-series-insights-how-to-scale-your-environment.md).
+
+- Lär dig [att planera ut din miljö](time-series-insights-environment-planning.md).

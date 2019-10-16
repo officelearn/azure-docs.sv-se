@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.openlocfilehash: 0201cbdd05cd8aae4afb92b459bf58fb5ff6a142
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1dcc28313d1d8e59024fbc70738567cb59585d20
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026975"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326465"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Sammanställd transformering i mappnings data flödet 
 
@@ -30,7 +30,7 @@ Välj en befintlig kolumn eller skapa en ny beräknad kolumn som ska användas s
 ## <a name="aggregate-column"></a>Sammanställd kolumn 
 Välj fliken aggregator för att bygga agg regerings uttryck. Du kan antingen välja en befintlig kolumn och skriva över värdet med agg regeringen, eller skapa ett nytt fält med ett nytt namn. Agg regerings uttrycket anges i den högra rutan bredvid kolumn namns väljaren. Redigera uttrycket genom att klicka på text rutan för att öppna uttrycks verktyget. Om du vill lägga till ytterligare en agg regering hovrar du över ett befintligt uttryck och klickar på + för att skapa ett nytt agg regerings kolumn-eller [kolumn mönster](concepts-data-flow-column-pattern.md).
 
-![Mängd inställningar för sammanställd transformering](media/data-flow/agg2.png "Mängd inställningar för sammanställd transformering")
+Sammanställda(media/data-flow/agg2.png "mängd inställningar för") sammanställd ![transformering]
 
 > [!NOTE]
 > Varje agg regerings uttryck måste innehålla minst en mängd funktion.
@@ -44,6 +44,19 @@ Sammanställda transformeringar motsvarar i nära SQL agg regerings urvals fråg
 * Använd en mängd funktion för att inkludera ytterligare en kolumn, till exempel Last () eller First ()
 * Koppla ihop kolumnerna igen innan du börjar samla in med hjälp av [själv kopplings mönstret](https://mssqldude.wordpress.com/2018/12/20/adf-data-flows-self-join/).
 
+## <a name="data-flow-script"></a>Skript för data flöde
+
+Samlings(media/data-flow/aggdfs1.png "skript") för sammanställd ![data flödes skript]
+
+* ```MoviesYear```: härledd kolumn som definierar år och rubrik kolumner
+* ```AvgComedyRatingByYear```: aggregerad omvandling för genomsnittlig bedömning av Comedies grupperat per år
+* ```avgrating```: namnet på den nya kolumnen som skapas för att innehålla det sammanställda värdet
+
+```
+MoviesYear aggregate(groupBy(year),
+    avgrating = avg(toInteger(Rating))) ~> AvgComedyRatingByYear
+```
+  
 ## <a name="next-steps"></a>Nästa steg
 
 * Definiera Window-baserad agg regering med [fönster omvandlingen](data-flow-window.md)

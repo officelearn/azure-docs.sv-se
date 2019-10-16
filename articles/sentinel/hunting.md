@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/10/2019
 ms.author: rkarlin
-ms.openlocfilehash: b00f60394a24008ca39f3ac7b378b1936c46ef76
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.openlocfilehash: eca3a969d56d9b016afbf2d104aaf951cdbf6360
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240620"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372411"
 ---
 # <a name="hunt-for-threats-with-in-azure-sentinel"></a>Söker efter hot med i Azure Sentinel
 
@@ -35,20 +35,20 @@ En inbyggd fråga ger till exempel information om de mest ovanliga processerna s
 
 Med Azure Sentinel-jakt kan du dra nytta av följande funktioner:
 
-- Inbyggda frågor: För att komma igång innehåller en start sida förinstallerade fråge exempel utformade för att komma igång och bekanta dig med tabellerna och frågespråket. Dessa inbyggda jakt frågor utvecklas av Microsofts säkerhets forskare på en kontinuerlig basis, nya frågor och fin justering av befintliga frågor för att ge dig en start punkt för att söka efter nya identifieringar och ta reda på var du ska börja med börjar med nya attacker. 
+- Inbyggda frågor: för att komma igång innehåller en start sida förinstallerade fråge exempel utformade för att komma igång och bekanta dig med tabellerna och frågespråket. Dessa inbyggda jakt frågor utvecklas av Microsofts säkerhets forskare på en kontinuerlig basis, nya frågor och fin justering av befintliga frågor för att ge dig en start punkt för att söka efter nya identifieringar och ta reda på var du ska börja med börjar med nya attacker. 
 
-- Kraftfullt frågespråk med IntelliSense: Byggd ovanpå ett frågespråk som ger dig den flexibilitet du behöver för att kunna ta jakt till nästa nivå.
+- Kraftfullt frågespråk med IntelliSense: byggt ovanpå ett frågespråk som ger dig den flexibilitet du behöver för att ta jakt till nästa nivå.
 
-- Skapa egna bok märken: Under jakt processen kan du stöta på matchningar eller resultat, instrument paneler eller aktiviteter som ser ovanliga eller misstänkta. Använd bok märkes funktionen för att markera dessa objekt så att du kan komma tillbaka till dem i framtiden. Med bok märken kan du Spara poster för senare, som ska användas för att skapa en incident för undersökning. Mer information om bok märken finns [i använda bok märken i jakt](hunting.md).
-- Använd antecknings böcker för att automatisera undersökningen: Bärbara datorer är som steg-för-steg-spel böcker som du kan bygga för att gå igenom stegen i en undersökning och jakt.  Antecknings böcker kapslar in alla jakt steg i en återanvändbar Spelbok som kan delas med andra i din organisation. 
-- Fråga lagrade data: Du kan söka efter data i tabeller. Du kan till exempel skapa en fråga om process skapande, DNS-händelser och många andra händelse typer.
+- Skapa egna bok märken: under jakt processen kan du komma över matchningar eller resultat, instrument paneler eller aktiviteter som ser ovanliga eller misstänkta. Använd bok märkes funktionen för att markera dessa objekt så att du kan komma tillbaka till dem i framtiden. Med bok märken kan du Spara poster för senare, som ska användas för att skapa en incident för undersökning. Mer information om bok märken finns [i använda bok märken i jakt](hunting.md).
+- Använd antecknings böcker för att automatisera undersökningen: bärbara datorer är till exempel steg-för-steg-spel böcker som du kan bygga för att gå igenom stegen i en undersökning och söka.  Antecknings böcker kapslar in alla jakt steg i en återanvändbar Spelbok som kan delas med andra i din organisation. 
+- Fråga lagrade data: data är tillgängliga i tabeller som du kan fråga efter. Du kan till exempel skapa en fråga om process skapande, DNS-händelser och många andra händelse typer.
 
-- Länkar till community: Utnyttja kraften i den större communityn för att hitta fler frågor och data källor.
+- Länkar till community: utnyttja kraften i den större communityn för att hitta fler frågor och data källor.
  
 ## <a name="get-started-hunting"></a>Kom igång med jakt
 
 1. Klicka på **jakt**i Azure Sentinel-portalen.
-  ![Azure Sentinel startar jakt](media/tutorial-hunting/hunting-start.png)
+  ![Azure Sentinel börjar jakt @ no__t-1
 
 2. När du öppnar sidan **jakt** visas alla jakt frågor i en enda tabell. I tabellen visas alla frågor som har skrivits av Microsofts team med säkerhetsanalytiker och ytterligare frågor som du har skapat eller ändrat. Varje fråga innehåller en beskrivning av vad den söker efter och vilken typ av data som den körs på. De här mallarna grupperas efter deras olika taktiker – ikonerna till höger klassificerar typ av hot, till exempel initial åtkomst, persistence och exfiltrering. Du kan filtrera dessa jakt-fråge mallar med något av fälten. Du kan spara alla frågor till dina favoriter. Genom att spara en fråga till dina favoriter körs frågan automatiskt varje gång **jakt** sidan nås. Du kan skapa en egen jakt fråga eller klona och anpassa en befintlig jakt-frågegrupp. 
  
@@ -68,7 +68,7 @@ Med Azure Sentinel-jakt kan du dra nytta av följande funktioner:
 
 ## <a name="query-language"></a>Frågespråk 
 
-Jakt i Azure Sentinel baseras på Azure Log Analytics frågespråk. Mer information om frågespråket och operatörer som stöds finns i [frågespråk](https://docs.loganalytics.io/docs/Language-Reference/).
+Jakt i Azure Sentinel baseras på Kusto frågespråk. Mer information om frågespråket och operatörer som stöds finns i [frågespråk](https://docs.loganalytics.io/docs/Language-Reference/).
 
 ## <a name="public-hunting-query-github-repository"></a>Offentlig jakt fråga GitHub-lagringsplats
 

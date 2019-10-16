@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: 30994133b19c4f59ae9e8be26caffe14348638f6
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: 30394ba7b71d7dcb4233e5dca341dda47fd9ffa7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71219364"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376320"
 ---
 # <a name="create-a-private-endpoint-using-azure-cli"></a>Skapa en privat slut punkt med Azure CLI
 Privat slut punkt är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser. I den här snabb starten får du lära dig hur du skapar en virtuell dator i ett virtuellt nätverk, en SQL Database-Server med en privat slut punkt med hjälp av Azure CLI. Sedan kan du komma åt den virtuella datorn till och säkert komma åt den privata länk resursen (en privat Azure SQL Database Server i det här exemplet). 
@@ -39,7 +39,7 @@ az network vnet create \
  --subnet-name mySubnet
 ```
 ## <a name="disable-subnet-private-endpoint-policies"></a>Inaktivera privata slut punkts principer för undernät 
-Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa eller uppdatera under nätet för att inaktivera nätverks principer för privata slut punkter. Uppdatera en under näts konfiguration med namnet * mitt undernät * * med [AZ Network VNet Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
+Azure distribuerar resurser till ett undernät i ett virtuellt nätverk, så du måste skapa eller uppdatera under nätet för att inaktivera nätverks principer för privata slut punkter. Uppdatera en under näts konfiguration med namnet mina *undernät* with [AZ Network VNet Subnet Update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update):
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -81,7 +81,7 @@ az sql db create \
     --capacity 1 
 ```
 
-Observera att SQL Server-ID: t ```/subscriptions/subscriptionId/resourceGroups/myResourceGroup/providers/Microsoft.Sql/servers/myserver.``` liknar att du använder SQL Server-ID i nästa steg. 
+Observera att SQL Server-ID liknar @ no__t-0 du kommer att använda SQL Server-ID i nästa steg. 
 
 ## <a name="create-the-private-endpoint"></a>Skapa den privata slut punkten 
 Skapa en privat slut punkt för SQL Database-servern i Virtual Network: 
@@ -149,7 +149,7 @@ Anslut till VM- *myVm* från Internet på följande sätt:
 I det här avsnittet ska du ansluta till SQL Database servern från den virtuella datorn med hjälp av den privata slut punkten.
 
  1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
- 2. Ange nslookup-  myserver.Database.Windows.net du får ett meddelande som liknar detta: 
+ 2. Ange nslookup-Server. Database. Windows. net @ no__t-0 du får ett meddelande som liknar detta: 
 
 ```
       Server:  UnKnown 
@@ -160,9 +160,9 @@ I det här avsnittet ska du ansluta till SQL Database servern från den virtuell
       Aliases:  myserver.database.windows.net 
 ```
  3. Installera SQL Server Management Studio 
- 4. I Anslut till server anger eller väljer du den här informationen: Server Typ: Välj databas motor.
- Server Namn: Välj myserver.database.windows.net användar namn: Ange ett användar namn som angavs under skapandet.
- Ords Ange ett lösen ord som du angav när du skapade.
+ 4. I Anslut till server anger eller väljer du följande information: Server Typ: Välj databas motor.
+ Server Namn: Välj myserver.database.windows.net användar namn: Ange ett användar namn som angavs när du skapar.
+ Lösen ord: Ange ett lösen ord som anges när du skapar.
  Kom ihåg lösen ord: Välj Ja.
  
  5. Välj **Anslut**.

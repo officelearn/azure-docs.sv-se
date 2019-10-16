@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 01/12/2018
 ms.author: dacurwin
-ms.openlocfilehash: dc7745c7c1110bf3635b1621cecfd5e61488b9f9
-ms.sourcegitcommit: d470d4e295bf29a4acf7836ece2f10dabe8e6db2
+ms.openlocfilehash: 1835c6968bfdfcc3f3ce4d8a624e8f6bd62e224c
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/02/2019
-ms.locfileid: "70210409"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72375950"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Programkonsekvent säkerhets kopiering av virtuella Azure Linux-datorer
 
@@ -36,19 +36,19 @@ För skript anropar interna program-API: er, som ingick i IOs och tömde minnes 
 
 4. Se till att du har följande behörigheter för de här filerna:
 
-   - **VMSnapshotScriptPluginConfig.json**: Behörighet "600". Till exempel måste bara "rot" användaren ha behörigheterna Läs och skriv för den här filen, och ingen användare ska ha behörigheten "kör".
+   - **VMSnapshotScriptPluginConfig. JSON**: behörighet "600". Till exempel måste bara "rot" användaren ha behörigheterna Läs och skriv för den här filen, och ingen användare ska ha behörigheten "kör".
 
-   - **För skript fil**: Behörighet "700".  Till exempel måste bara "rot" användaren ha behörigheterna "läsa", "skriva" och "kör" för den här filen.
+   - **För skript fil**: behörighet "700".  Till exempel måste bara "rot" användaren ha behörigheterna "läsa", "skriva" och "kör" för den här filen.
 
    - **Efter skript** Behörighet "700". Till exempel måste bara "rot" användaren ha behörigheterna "läsa", "skriva" och "kör" för den här filen.
 
-   > [!Important]
+   > [!IMPORTANT]
    > Ramverket ger användarna mycket kraft. Skydda ramverket och se till att endast rot användaren har åtkomst till kritiska JSON-och skriptfiler.
    > Om kraven inte uppfylls, körs inte skriptet, vilket resulterar i en krasch och inkonsekvent säkerhets kopiering av fil systemet.
    >
 
 5. Konfigurera **VMSnapshotScriptPluginConfig. JSON** enligt beskrivningen här:
-    - **pluginName**: Lämna det här fältet som det är, eller så kanske skripten inte fungerar som förväntat.
+    - **pluginName**: lämna det här fältet som det är, eller så kanske dina skript inte fungerar som förväntat.
 
     - **preScriptLocation**: Ange den fullständiga sökvägen till för skriptet på den virtuella datorn som ska säkerhets kopie ras.
 
@@ -60,32 +60,35 @@ För skript anropar interna program-API: er, som ingick i IOs och tömde minnes 
 
     - **preScriptNoOfRetries**: Ange hur många gånger för skriptet ska provas om det uppstår något fel innan det avslutas. Noll innebär bara ett försök och inget nytt försök om det uppstår ett fel.
 
-    - **postScriptNoOfRetries**:  Ange hur många gånger det ska göras ett nytt försök att utföra det efter fel innan det avslutas. Noll innebär bara ett försök och inget nytt försök om det uppstår ett fel.
+    - **postScriptNoOfRetries**: Ange hur många gånger det ska göras ett nytt försök att utföra ett fel innan det avslutas. Noll innebär bara ett försök och inget nytt försök om det uppstår ett fel.
 
-    - **timeoutInSeconds**: Ange enskilda tids gränser för för skriptet och efter skriptet (högsta värde kan vara 1800).
+    - **timeoutInSeconds**: ange enskilda tids gränser för för skriptet och efter skriptet (maximalt värde kan vara 1800).
 
-    - **continueBackupOnFailure**: Ange värdet **Sant** om du vill att Azure Backup ska återgå till en konsekvent eller kraschad fil i fil systemet om det inte går att använda skript eller efter skript. Om värdet är **false** Miss lyckas säkerhets kopieringen i händelse av skript fel (förutom om du har en virtuell dator med en disk som går tillbaka till en kraschad säkerhets kopiering oberoende av den här inställningen).
+    - **continueBackupOnFailure**: Ange det här värdet till **Sant** om du vill att Azure Backup ska återgå till en konsekvent eller kraschad fil system-konsekvent säkerhets kopiering om det inte går att använda skript eller efter skript. Om värdet är **false** Miss lyckas säkerhets kopieringen i händelse av skript fel (förutom om du har en virtuell dator med en disk som går tillbaka till en kraschad säkerhets kopiering oberoende av den här inställningen).
 
     - **fsFreezeEnabled**: Ange om Linux-fsfreeze ska anropas när du tar ögonblicks bilden av den virtuella datorn för att säkerställa fil systemets konsekvens. Vi rekommenderar att den här inställningen är **True** , om inte programmet har ett beroende vid inaktive ring av fsfreeze.
 
+    - **ScriptsExecutionPollTimeSeconds**: Ange tiden som tillägget måste försättas i vilo läge mellan varje pollning till skript körningen. Om värdet till exempel är 2, kontrollerar tillägget om körningen av skript har slutförts var 2: e sekund. Det lägsta och högsta värdet kan ta 1 respektive 5. Värdet ska vara ett heltal.
+
 6. Skript ramverket har nu kon figurer ATS. Om säkerhets kopieringen av den virtuella datorn redan har kon figurer ATS anropar nästa säkerhets kopiering skripten och utlöser programkonsekvent säkerhets kopiering. Om säkerhets kopian av den virtuella datorn inte har kon figurer ATS konfigurerar du den med hjälp av [säkerhetskopiera virtuella Azure-datorer till Recovery Services valv.](https://docs.microsoft.com/azure/backup/backup-azure-vms-first-look-arm)
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 Se till att du lägger till lämplig loggning när du skriver ditt för skript och efter skript och granska skript loggarna för att åtgärda eventuella skript problem. Om du fortfarande har problem med att köra skript, se följande tabell för mer information.
 
 | Fel | Felmeddelande | Rekommenderad åtgärd |
 | ------------------------ | -------------- | ------------------ |
-| ScriptExecutionFailed |För skriptet returnerade ett fel, så säkerhets kopieringen kanske inte är programkonsekvent.   | Åtgärda problemet genom att titta på fel loggarna för skriptet.|  
-|   Efter ScriptExecutionFailed |    Efter skriptet returnerade ett fel som kan påverka program status. |    Granska fel loggarna för skriptet för att åtgärda problemet och kontrol lera program statusen. |
-| ScriptNotFound |  För skriptet hittades inte på den plats som anges i konfigurations filen **VMSnapshotScriptPluginConfig. JSON** . |   Kontrol lera att för skript finns på den sökväg som anges i konfigurations filen för att säkerställa programkonsekvent säkerhets kopiering.|
-| Efter ScriptNotFound | Det gick inte att hitta post script på den plats som anges i **VMSnapshotScriptPluginConfig. JSON** -konfigurationsfilen. |   Se till att efter skript finns på den sökväg som anges i konfigurations filen för att säkerställa programkonsekvent säkerhets kopiering.|
-| IncorrectPluginhostFile | **Pluginvärdfilen** -filen som medföljer VmSnapshotLinux-tillägget är skadad, så det går inte att köra för skript och post-script och säkerhets kopieringen kommer inte att vara konsekvent. | Avinstallera **VmSnapshotLinux** -tillägget och ominstalleras automatiskt med nästa säkerhets kopiering för att åtgärda problemet. |
+| ScriptExecutionFailed |För skriptet returnerade ett fel, så säkerhets kopieringen kanske inte är programkonsekvent.| Åtgärda problemet genom att titta på fel loggarna för skriptet.|  
+|Efter ScriptExecutionFailed |Efter skriptet returnerade ett fel som kan påverka program status. |Granska fel loggarna för skriptet för att åtgärda problemet och kontrol lera program statusen. |
+| ScriptNotFound |För skriptet hittades inte på den plats som anges i konfigurations filen **VMSnapshotScriptPluginConfig. JSON** . |Kontrol lera att för skript finns på den sökväg som anges i konfigurations filen för att säkerställa programkonsekvent säkerhets kopiering.|
+| Efter ScriptNotFound |Det gick inte att hitta post script på den plats som anges i **VMSnapshotScriptPluginConfig. JSON** -konfigurationsfilen. |Se till att efter skript finns på den sökväg som anges i konfigurations filen för att säkerställa programkonsekvent säkerhets kopiering.|
+| IncorrectPluginhostFile |**Pluginvärdfilen** -filen som medföljer VmSnapshotLinux-tillägget är skadad, så det går inte att köra för skript och post-script och säkerhets kopieringen kommer inte att vara konsekvent.| Avinstallera **VmSnapshotLinux** -tillägget och ominstalleras automatiskt med nästa säkerhets kopiering för att åtgärda problemet. |
 | IncorrectJSONConfigFile | **VMSnapshotScriptPluginConfig. JSON** -filen är felaktig, så för skript och efter skript kan inte köras och säkerhets kopieringen kommer inte att vara konsekvent. | Ladda ned kopian från [GitHub](https://github.com/MicrosoftAzureBackup/VMSnapshotPluginConfig) och konfigurera den igen. |
-| InsufficientPermissionforPre-Script | För att skript ska kunna köras måste rot användaren vara ägare till filen och filen ska ha "700"-behörigheter (det vill säga endast "ägare" måste ha behörigheterna "läsa", "skriva" och "köra"). | Se till att "rot" användaren är ägare till skript filen och att endast "ägare" har behörigheterna "läsa", "skriva" och "kör". |
+| InsufficientPermissionforPre – skript | För att skript ska kunna köras måste rot användaren vara ägare till filen och filen ska ha "700"-behörigheter (det vill säga endast "ägare" måste ha behörigheterna "läsa", "skriva" och "köra"). | Se till att "rot" användaren är ägare till skript filen och att endast "ägare" har behörigheterna "läsa", "skriva" och "kör". |
 | InsufficientPermissionforPost – skript | För att skript ska kunna köras bör rot användaren vara ägare till filen och filen ska ha "700"-behörigheter (det vill säga endast "ägare" måste ha behörigheterna "läsa", "skriva" och "köra"). | Se till att "rot" användaren är ägare till skript filen och att endast "ägare" har behörigheterna "läsa", "skriva" och "kör". |
-| Pre-ScriptTimeout | Tids gränsen nåddes för körning av programkonsekvent säkerhets kopiering för skript. | Kontrol lera skriptet och öka tids gränsen i filen **VMSnapshotScriptPluginConfig. JSON** som finns på **/etc/Azure**. |
+| Före-ScriptTimeout | Tids gränsen nåddes för körning av programkonsekvent säkerhets kopiering för skript. | Kontrol lera skriptet och öka tids gränsen i filen **VMSnapshotScriptPluginConfig. JSON** som finns på **/etc/Azure**. |
 | Post-ScriptTimeout | Tids gränsen nåddes för körningen av programkonsekvent säkerhets kopierings post-skriptet. | Kontrol lera skriptet och öka tids gränsen i filen **VMSnapshotScriptPluginConfig. JSON** som finns på **/etc/Azure**. |
 
 ## <a name="next-steps"></a>Nästa steg
+
 [Konfigurera VM-säkerhetskopiering till ett Recovery Services-valv](https://docs.microsoft.com/azure/backup/backup-azure-arm-vms)

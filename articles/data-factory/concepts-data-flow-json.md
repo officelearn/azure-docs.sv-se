@@ -1,35 +1,39 @@
 ---
-title: Azure Data Factory mappa JSON-koncept för data flöde
-description: Data Factory mappnings data flöde har inbyggda funktioner för att hantera JSON-dokument med hierarkier
+title: Använda JSON i data flödet för att mappa i Azure Data Factory
+description: Azure Data Factory mappnings data flöde har inbyggda funktioner för att hantera JSON-dokument med hierarkier
 author: kromerm
 ms.author: makromer
+ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 37db3e153e8dfcbc1120fcb1f6d2f77187edc78e
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 605564ed541c23a9060879706fb25f91e97a8eac
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029660"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326533"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mappa JSON-hantering för data flöde
 
+## <a name="creating-json-structures-in-derived-column"></a>Skapa JSON-strukturer i härledd kolumn
 
+Du kan lägga till en komplex kolumn i ditt data flöde via uttrycks verktyget härledd kolumn. I den härledda kolumn omvandlingen lägger du till en ny kolumn och öppnar uttrycks verktyget genom att klicka på den blå rutan. Om du vill göra en kolumn komplex kan du ange JSON-strukturen manuellt eller använda UX för att lägga till under kolumner interaktivt.
 
-## <a name="creating-json-structures-in-expression-editor"></a>Skapa JSON-strukturer i uttrycks redigeraren
-### <a name="derived-column-transformation"></a>Transformering av härledd kolumn
-Det blir enklare att lägga till en komplex kolumn i ditt data flöde genom den härledda kolumn uttrycks redigeraren. När du har lagt till en ny kolumn och öppnat redigeraren finns det två alternativ: Ange JSON-strukturen manuellt eller Använd användar gränssnittet för att lägga till under kolumner interaktivt.
+### <a name="using-the-expression-builder-ux"></a>Använda Expression Builder UX
 
-#### <a name="interactive-ui-json-design"></a>Design av interaktiva GRÄNSSNITTs-JSON
-Från fönstret utdata schema sida kan nya under kolumner läggas till med hjälp av `+`-menyn: ![Lägg]till under kolumn(media/data-flow/addsubcolumn.png "Lägg till under kolumn")
+Hovra över en kolumn i fönstret utdata schema och klicka på plus ikonen. Välj **Lägg till under kolumn** för att göra kolumnen till en komplex typ.
 
-Därifrån kan du lägga till nya kolumner och under kolumner på samma sätt. För varje icke-komplext fält kan ett uttryck läggas till i uttrycks redigeraren till höger.
+![Lägg]till under kolumn(media/data-flow/addsubcolumn.png "Lägg till under kolumn")
+
+Du kan lägga till ytterligare kolumner och under kolumner på samma sätt. För varje icke-komplext fält kan ett uttryck läggas till i uttrycks redigeraren till höger.
 
 Komplex ![kolumn](media/data-flow/complexcolumn.png "komplex kolumn")
 
-#### <a name="manual-json-design"></a>Manuell JSON-design
+### <a name="entering-the-json-structure-manually"></a>Ange JSON-strukturen manuellt
+
 Om du vill lägga till en JSON-struktur manuellt lägger du till en ny kolumn och anger uttrycket i redigeraren. Uttrycket följer följande allmänna format:
+
 ```
 @(
     field1=0,
@@ -38,7 +42,9 @@ Om du vill lägga till en JSON-struktur manuellt lägger du till en ny kolumn oc
     )
 )
 ```
-Om det här uttrycket har angetts för en kolumn med namnet "complexColumn" skrivs det till mottagaren som följande JSON:
+
+Om det här uttrycket angavs för en kolumn med namnet "complexColumn", skrivs det till mottagaren som följande JSON:
+
 ```
 {
     "complexColumn": {
@@ -77,7 +83,15 @@ Om det här uttrycket har angetts för en kolumn med namnet "complexColumn" skri
 ```
 
 ## <a name="source-format-options"></a>Käll format alternativ
+
+Genom att använda en JSON-datauppsättning som källa i ditt data flöde kan du ange fem ytterligare inställningar. De här inställningarna finns under inställningen för **JSON-inställningar** på fliken **käll alternativ** .  
+
+JSON(media/data-flow/json-settings.png "-Inställningar för") ![JSON]
+
 ### <a name="default"></a>Standard
+
+Som standard läses JSON-data in i följande format.
+
 ```
 { "json": "record 1" }
 { "json": "record 2" }
@@ -85,23 +99,10 @@ Om det här uttrycket har angetts för en kolumn med namnet "complexColumn" skri
 ```
 
 ### <a name="single-document"></a>Enstaka dokument
-* Alternativ ett
-```
-[
-    {
-        "json": "record 1"
-    },
-    {
-        "json": "record 2"
-    },
-    {
-        "json": "record 3"
-    }
-]
-```
 
-* Alternativ två
-```
+Om **ett enstaka dokument** är markerat, kan mappning av data flöda ett JSON-dokument från varje fil. 
+
+``` json
 File1.json
 {
     "json": "record 1"
@@ -117,6 +118,9 @@ File3.json
 ```
 
 ### <a name="unquoted-column-names"></a>Icke-citerade kolumn namn
+
+Om du väljer **icke-citerade kolumn namn** , läser mappningen av data flöden JSON-kolumner som inte omges av citat tecken. 
+
 ```
 { json: "record 1" }
 { json: "record 2" }
@@ -124,13 +128,19 @@ File3.json
 ```
 
 ### <a name="has-comments"></a>Har kommentarer
-```
+
+Välj **innehåller kommentarer** om JSON-data har C- C++ eller stil kommentarer.
+
+``` json
 { "json": /** comment **/ "record 1" }
 { "json": "record 2" }
 { /** comment **/ "json": "record 3" }
 ```
 
 ### <a name="single-quoted"></a>Enkelt citat tecken
+
+Välj **enkelt citat tecken** om JSON-fälten och-värdena använder enkla citat tecken i stället för dubbla citat tecken.
+
 ```
 { 'json': 'record 1' }
 { 'json': 'record 2' }
@@ -138,6 +148,9 @@ File3.json
 ```
 
 ### <a name="backslash-escaped"></a>Omvänt snedstreck Escaped
+
+Välj **enkelt citat** tecken om omvända snedstreck används för att undanta tecken i JSON-data.
+
 ```
 { "json": "record 1" }
 { "json": "\} \" \' \\ \n \\n record 2" }
@@ -145,38 +158,41 @@ File3.json
 ```
 
 ## <a name="higher-order-functions"></a>Funktioner med högre ordning
-## <a name="filter"></a>filter
+
+En funktion med högre ordning är en funktion som tar i en eller flera funktioner som ett argument. Nedan visas en lista över funktioner med högre ordning som stöds i mappa data flöden som aktiverar mat ris åtgärder.
+
+### <a name="filter"></a>Synkroniseringsfilter
 Filtrerar element utanför matrisen som inte uppfyller det angivna predikatet. Filter förväntar sig en referens till ett element i predikatet-funktionen som #item.
 
-### <a name="examples"></a>Exempel
+#### <a name="examples"></a>Exempel
 ```
 filter([1, 2, 3, 4], #item > 2) => [3, 4]
 filter(['a', 'b', 'c', 'd'], #item == 'a' || #item == 'b') => ['a', 'b']
 ```
 
-## <a name="map"></a>map
+### <a name="map"></a>map
 Mappar varje element i matrisen till ett nytt element med det angivna uttrycket. Kartan förväntar sig en referens till ett element i uttrycks funktionen som #item.
 
-### <a name="examples"></a>Exempel
+#### <a name="examples"></a>Exempel
 ```
 map([1, 2, 3, 4], #item + 2) => [3, 4, 5, 6]
 map(['a', 'b', 'c', 'd'], #item + '_processed') => ['a_processed', 'b_processed', 'c_processed', 'd_processed']
 ```
 
-## <a name="reduce"></a>minska
+### <a name="reduce"></a>minska
 Ackumulerar element i en matris. Om du minskar förväntas en referens till ett ackumulator värde och ett element i den första uttrycks funktionen som #acc och #item och det förväntar sig att det resulterande värdet är #result som ska användas i den andra uttrycks funktionen.
 
-### <a name="examples"></a>Exempel
+#### <a name="examples"></a>Exempel
 ```
 reduce([1, 2, 3, 4], 0, #acc + #item, #result) => 10
 reduce(['1', '2', '3', '4'], '0', #acc + #item, #result) => '01234'
 reduce([1, 2, 3, 4], 0, #acc + #item, #result + 15) => 25
 ```
 
-## <a name="sort"></a>Ordning
+### <a name="sort"></a>Ordning
 Sorterar matrisen med den angivna predikatet-funktionen. Sortering förväntar sig en referens till två på varandra följande element i uttrycks funktionen som #item1 och #item2.
 
-### <a name="examples"></a>Exempel
+#### <a name="examples"></a>Exempel
 ```
 sort([4, 8, 2, 3], compare(#item1, #item2)) => [2, 3, 4, 8]
 sort(['a3', 'b2', 'c1'],
@@ -185,10 +201,10 @@ sort(['a3', 'b2', 'c1'],
         iif(#item1 >= #item2, 1, -1)) => ['a3', 'b2', 'c1']
 ```
 
-## <a name="contains"></a>contains
+### <a name="contains"></a>ingår
 Returnerar true om något element i den angivna matrisen utvärderas som sant i angivet predikat. Contains förväntar sig en referens till ett element i predikatet-funktionen som #item.
 
-### <a name="examples"></a>Exempel
+#### <a name="examples"></a>Exempel
 ```
 contains([1, 2, 3, 4], #item == 3) => true
 contains([1, 2, 3, 4], #item > 5) => false

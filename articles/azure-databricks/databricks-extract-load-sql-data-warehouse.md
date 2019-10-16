@@ -8,14 +8,14 @@ ms.service: azure-databricks
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 06/20/2019
-ms.openlocfilehash: 172921dcb082f511d16394b7693f40edf8394821
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 228b0fff7231af811206d5c477b63ed70706939b
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68826046"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329759"
 ---
-# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudier: Extrahera, transformera och läsa in data med hjälp av Azure Databricks
+# <a name="tutorial-extract-transform-and-load-data-by-using-azure-databricks"></a>Självstudie: extrahera, transformera och läsa in data med hjälp av Azure Databricks
 
 I den här självstudien utför du en ETL-åtgärd (extrahera, transformera och läsa in data) med hjälp av Azure Databricks. Du kan extrahera data från Azure Data Lake Storage Gen2 till Azure Databricks, köra transformeringar av data i Azure Databricks och läsa in transformerade data i Azure SQL Data Warehouse.
 
@@ -43,19 +43,19 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](htt
 > Den här självstudien kan inte utföras med **Azures kostnads fri utvärderings prenumeration**.
 > Om du har ett kostnads fritt konto går du till din profil och ändrar din prenumeration till **betala per**användning. Mer information finns i [Kostnadsfritt Azure-konto](https://azure.microsoft.com/free/). Ta sedan [bort utgifts gränsen](https://docs.microsoft.com/azure/billing/billing-spending-limit#remove-the-spending-limit-in-account-center)och [begär en kvot ökning](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request) för virtuella processorer i din region. När du skapar din Azure Databricks arbets yta kan du välja pris nivån **utvärdering (Premium-14-dagar gratis DBU)** för att ge arbets ytan åtkomst till kostnads fria Premium Azure Databricks DBU i 14 dagar.
      
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Slutför de här uppgifterna innan du startar självstudien:
 
-* Skapa ett Azure SQL-informationslager, skapa en brandväggsregel på servernivå och anslut till servern som serveradministratör. Gå till [Snabbstart: Skapa och skicka frågor till ett Azure SQL Data Warehouse i](../sql-data-warehouse/create-data-warehouse-portal.md)Azure Portal.
+* Skapa ett Azure SQL Data Warehouse, skapa en brand Väggs regel på server nivå och Anslut till servern som en Server administratör. Se [snabb start: skapa och skicka frågor till ett Azure SQL Data Warehouse i Azure Portal](../sql-data-warehouse/create-data-warehouse-portal.md).
 
-* Skapa en databashuvudnyckel för Azure SQL-informationslagret. Se [Skapa en databashuvudnyckel](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
+* Skapa en huvud nyckel för Azure SQL Data Warehouse. Se [Skapa en databashuvudnyckel](https://docs.microsoft.com/sql/relational-databases/security/encryption/create-a-database-master-key).
 
-* Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Gå till [Snabbstart: Ladda upp, ladda ned och lista blobar med Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
+* Skapa ett Azure Blob Storage-konto och en container i det. Få dessutom åtkomst till lagringskontot genom att hämta åtkomstnyckeln. Se [snabb start: Ladda upp, ladda ned och lista blobar med Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
-* Skapa ett Azure Data Lake Storage Gen2-lagringskonto. Gå till [Snabbstart: Skapa ett Azure Data Lake Storage Gen2 lagrings](../storage/blobs/data-lake-storage-quickstart-create-account.md)konto.
+* Skapa ett Azure Data Lake Storage Gen2-lagringskonto. Se [snabb start: skapa ett Azure Data Lake Storage Gen2 lagrings konto](../storage/blobs/data-lake-storage-quickstart-create-account.md).
 
-* Skapa ett huvudnamn för tjänsten. Se [Anvisningar: Använd portalen för att skapa ett Azure AD-program och huvudnamn för tjänsten som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
+* Skapa ett huvudnamn för tjänsten. Se [så här gör du: Använd portalen för att skapa ett Azure AD-program och tjänstens huvud namn som kan komma åt resurser](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).
 
    Det finns några saker som du måste göra när du utför stegen i den här artikeln.
 
@@ -65,7 +65,7 @@ Slutför de här uppgifterna innan du startar självstudien:
 
    * När du utför stegen i avsnittet [Hämta värden för signering i](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) artikeln klistrar du in klient-ID, app-ID och lösen ords värden i en textfil. Du kommer att behöva dem snart.
 
-* Logga in på [Azure Portal](https://portal.azure.com/).
+* Logga in på [Azure-portalen](https://portal.azure.com/).
 
 ## <a name="gather-the-information-that-you-need"></a>Samla in den information som du behöver
 
@@ -73,23 +73,23 @@ Se till att du slutför kraven för den här självstudien.
 
    Innan du börjar bör du ha följande information:
 
-   :heavy_check_mark:  Databasens namn, databasserverns namn, användarnamn och lösenord för ditt Azure SQL-informationslager.
+   : heavy_check_mark: databasens namn, databas server namn, användar namn och lösen ord för ditt Azure SQL Data Warehouse.
 
-   :heavy_check_mark:  Åtkomstnyckeln för ditt Blog Storage-konto.
+   : heavy_check_mark: åtkomst nyckeln för ditt Blob Storage-konto.
 
-   :heavy_check_mark:  Namnet på ditt Data Lake Storage Gen2-lagringskonto.
+   : heavy_check_mark: namnet på ditt Data Lake Storage Gen2 lagrings konto.
 
-   :heavy_check_mark:  Klientorganisations-ID för din prenumeration.
+   : heavy_check_mark: klient-ID: t för din prenumeration.
 
-   :heavy_check_mark:  Program-ID för den app som du registrerade med Azure Active Directory (AD Azure).
+   : heavy_check_mark: program-ID för den app som du registrerade i Azure Active Directory (Azure AD).
 
-   :heavy_check_mark:  Autentiseringsnyckeln för den app som du registrerade med Azure AD.
+   : heavy_check_mark: nyckeln för den app som du registrerade med Azure AD.
 
 ## <a name="create-an-azure-databricks-service"></a>Skapa en Azure Databricks-tjänst
 
 I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
 
-1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure-portalen.
+1. Välj **Skapa en resurs** > **Analys** > **Azure Databricks** i Azure Portal.
 
     ![Databricks på Azure-portalen](./media/databricks-extract-load-sql-data-warehouse/azure-databricks-on-portal.png "Databricks på Azure-portalen")
 
@@ -100,7 +100,7 @@ I det här avsnittet skapar du en Azure Databricks-tjänst i Azure Portal.
     |**Namn på arbetsyta**     | Ange ett namn för Databricks-arbetsytan.        |
     |**Prenumeration**     | I listrutan väljer du din Azure-prenumeration.        |
     |**Resursgrupp**     | Ange om du vill skapa en ny resursgrupp eller använda en befintlig. En resursgrupp är en container som innehåller relaterade resurser för en Azure-lösning. Mer information finns i [översikten över Azure-resursgrupper](../azure-resource-manager/resource-group-overview.md). |
-    |**Plats**     | Välj **USA, västra 2**.  För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).      |
+    |**Plats**     | Välj **Västra USA 2**.  För andra tillgängliga regioner läser du informationen om [Azure-tjänsttillgänglighet per region](https://azure.microsoft.com/regions/services/).      |
     |**Prisnivå**     |  Välj **standard**.     |
 
 3. Det tar några minuter att skapa kontot. Du kan övervaka åtgärdsstatusen i förloppsindikatorn längst upp.
@@ -365,7 +365,7 @@ Som tidigare nämnts använder SQL Data Warehouse-anslutningen Azure Blob Storag
    ```
 
    > [!NOTE]
-   > Det här exemplet använder `forward_spark_azure_storage_credentials` -flaggan, som gör att SQL Data Warehouse kan komma åt data från Blob Storage med hjälp av en åtkomst nyckel. Detta är den enda autentiseringsmetoden som stöds.
+   > I det här exemplet används flaggan `forward_spark_azure_storage_credentials`, som gör att SQL Data Warehouse kan komma åt data från Blob Storage med hjälp av en åtkomst nyckel. Detta är den enda autentiseringsmetoden som stöds.
    >
    > Om din Azure-Blob Storage är begränsad till att välja virtuella nätverk behöver SQL Data Warehouse [hanterad tjänstidentitet i stället för åtkomst nycklar](../sql-database/sql-database-vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Detta kommer att orsaka felet "denna begäran har inte behörighet att utföra den här åtgärden."
 

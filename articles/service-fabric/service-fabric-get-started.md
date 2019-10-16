@@ -12,14 +12,14 @@ ms.devlang: dotNet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 08/22/2019
+ms.date: 10/03/2019
 ms.author: atsenthi
-ms.openlocfilehash: 0bc8a5bbecc4e7d58265e9c10c2c8a3351fcc312
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: cc77995e12d756c5878ee62ef6dd0f0229506d4c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036017"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333078"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Förbereda utvecklingsmiljön i Windows
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "70036017"
 
 Om du vill skapa och köra [Azure Service Fabric-program][1] på Windows Development-datorn installerar du Service Fabric runtime, SDK och verktyg. Du måste även [aktivera körning av Windows PowerShell-skript](#enable-powershell-script-execution) som ingår i SDK:n.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 ### <a name="supported-operating-system-versions"></a>Operativsystemversioner som stöds
 Följande operativsystemversioner stöds för utveckling:
 
@@ -69,8 +69,8 @@ Om du bara behöver SDK kan du installera det här paketet:
 * [Installera Microsoft Azure Service Fabric SDK][core-sdk]
 
 De aktuella versionerna är:
-* Service Fabric SDK och verktyg 3.4.664
-* Service Fabric runtime-6.5.664
+* Service Fabric SDK och verktyg 3.4.676
+* Service Fabric runtime-6.5.676
 * Service Fabric verktyg för Visual Studio 2015 2.5.20615.1
 * Visual Studio 2017 15,9 innehåller Service Fabric verktyg för Visual Studio-2.4.11024.1 
 * Visual Studio 2019 16,1 innehåller Service Fabric verktyg för Visual Studio-2.5.20423.3
@@ -93,7 +93,7 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted -Force -Scope CurrentUser
 Nu när du har konfigurerat utvecklingsmiljön ska du börja bygga och köra appar.
 
 * [Lär dig hur du skapar, distribuerar och hanterar program](service-fabric-tutorial-create-dotnet-app.md)
-* [Lär dig mer om programmerings modeller: Reliable Services och Reliable Actors](service-fabric-choose-framework.md)
+* [Lär dig mer om programmeringsmodeller: Reliable Services och Reliable Actors](service-fabric-choose-framework.md)
 * [Kolla in Service Fabric-kodexemplen på GitHub](https://aka.ms/servicefabricsamples)
 * [Visualisera ditt kluster med hjälp av Service Fabric Explorer](service-fabric-visualizing-your-cluster.md)
 * Lär dig mer om [Service Fabric-supportalternativen](service-fabric-support.md)

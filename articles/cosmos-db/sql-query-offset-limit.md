@@ -1,23 +1,23 @@
 ---
-title: GRÄNSEN för OFFSET-sats i Azure Cosmos DB
-description: Läs mer om GRÄNSEN för OFFSET-sats för Azure Cosmos DB.
+title: OFFSET LIMIT-sats i Azure Cosmos DB
+description: Läs mer om OFFSET LIMIT-satsen för Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: 60ac28c80e9f7cc72f4d6005c12cb5f68671341e
-ms.sourcegitcommit: a12b2c2599134e32a910921861d4805e21320159
+ms.openlocfilehash: 7aae56783f83f13b50321c88d69f07d910e589dd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/24/2019
-ms.locfileid: "67342620"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326878"
 ---
-# <a name="offset-limit-clause"></a>GRÄNSEN för OFFSET-sats
+# <a name="offset-limit-clause-in-azure-cosmos-db"></a>OFFSET LIMIT-sats i Azure Cosmos DB
 
-GRÄNSEN för OFFSET-sats är en valfri sats att hoppa över och sedan vidta vissa antal värden från frågan. Antalet förskjutning och GRÄNSEN för antal måste anges i instruktionen förskjutning GRÄNSEN.
+OFFSET LIMIT-satsen är en optional-sats att hoppa över och sedan ta ett visst antal värden från frågan. Antalet OFFSET och LIMIT-antalet krävs i OFFSET LIMIT-satsen.
 
-När GRÄNSEN för förskjutning används tillsammans med en ORDER BY-sats, skapas genom att göra hoppa över resultatuppsättningen och utför på sorterad värdena. Om någon ORDER BY-sats används, resulterar det i en deterministisk ordning med värden.
+När OFFSET-gränsen används tillsammans med en ORDER BY-sats skapas resultat uppsättningen genom att hoppa över och ta på de beställda värdena. Om ingen ORDER BY-sats används kommer den att resultera i en deterministisk ordning med värden.
 
 ## <a name="syntax"></a>Syntax
   
@@ -29,19 +29,19 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 - `<offset_amount>`
 
-   Anger antalet objekt som resultatet av frågan ska hoppa över heltal.
+   Anger det heltals antal objekt som frågeresultaten ska hoppa över.
 
 - `<limit_amount>`
   
-   Anger antalet objekt som resultatet av frågan ska innehålla heltal
+   Anger det heltals antal objekt som frågeresultaten ska innehålla
 
 ## <a name="remarks"></a>Kommentarer
   
-  Både antalet förskjutning och GRÄNSEN för antal måste anges i instruktionen förskjutning GRÄNSEN. Om en valfri `ORDER BY` satsen används, resultatuppsättningen skapas genom att göra den hoppa över de beställda värden. I annat fall returneras ett fast ordning med värden. För närvarande den här satsen stöds för frågor inom en enda partition, över partitioner frågor ännu stöd inte för den.
+  Både OFFSET-antalet och LIMIT-antalet krävs i OFFSET LIMIT-satsen. Om en valfri `ORDER BY`-sats används skapas resultat uppsättningen genom att hoppa över de beställda värdena. Annars returnerar frågan en fast ordning med värden. Den här satsen stöds för närvarande endast för frågor inom en enda partition, frågor över flera partitioner stöder inte den ännu.
 
 ## <a name="examples"></a>Exempel
 
-Här är till exempel en fråga som det första värdet och returnerar det andra värdet (i ordningen för fasta stadens namn):
+Här är ett exempel på en fråga som hoppar över det första värdet och returnerar det andra värdet (i den inhemska ortens namn):
 
 ```sql
     SELECT f.id, f.address.city
@@ -50,7 +50,7 @@ Här är till exempel en fråga som det första värdet och returnerar det andra
     OFFSET 1 LIMIT 1
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -61,7 +61,7 @@ Resultatet är:
     ]
 ```
 
-Här är en fråga som det första värdet och returnerar det andra värdet (utan att beställa):
+Här är en fråga som hoppar över det första värdet och returnerar det andra värdet (utan ordning):
 
 ```sql
    SELECT f.id, f.address.city
@@ -69,7 +69,7 @@ Här är en fråga som det första värdet och returnerar det andra värdet (uta
     OFFSET 1 LIMIT 1
 ```
 
-Resultatet är:
+Resultaten är:
 
 ```json
     [
@@ -83,5 +83,5 @@ Resultatet är:
 ## <a name="next-steps"></a>Nästa steg
 
 - [Komma igång](sql-query-getting-started.md)
-- [SELECT-satsen](sql-query-select.md)
+- [SELECT-sats](sql-query-select.md)
 - [ORDER BY-sats](sql-query-order-by.md)

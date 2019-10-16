@@ -1,5 +1,5 @@
 ---
-title: Python-webbapp (django) med PostgreSQL på Linux – Azure App Service | Microsoft Docs
+title: 'Självstudie: python (django)-webbapp med PostgreSQL på Linux – Azure App Service'
 description: Lär dig hur du kör en data driven python (django)-webbapp i Azure med anslutning till en PostgreSQL-databas.
 services: app-service\web
 documentationcenter: python
@@ -11,13 +11,16 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: seodec18
-ms.openlocfilehash: 1fc322cf7e425e35751369ab8daf1ef1809d5f07
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.custom:
+- mvc
+- seodec18
+- seo-python-october2019
+ms.openlocfilehash: c816d2ee76002f60963415b1027579eb6db94089
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203258"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329981"
 ---
 # <a name="build-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>Bygg en python-webbapp (django) med PostgreSQL i Azure App Service
 
@@ -41,7 +44,7 @@ Du kan följa stegen i den här artikeln i macOS, Linux-och Windows-instruktione
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att slutföra den här självstudien behöver du:
 
@@ -49,7 +52,7 @@ För att slutföra den här självstudien behöver du:
 2. [Installera Python](https://www.python.org/downloads/)
 3. [Installera och kör PostgreSQL](https://www.postgresql.org/download/)
 
-## <a name="test-local-postgresql-installation-and-create-a-database"></a>Testa en lokal PostgreSQL-installation och skapa en databas
+## <a name="test-local-postgresql-installation-and-create-a-database"></a>Testa lokal PostgreSQL-installation och skapa en databas
 
 I ett lokalt terminalfönster kör du `psql` för att ansluta till din lokala PostgreSQL-server.
 
@@ -166,7 +169,7 @@ I det här steget skapar du en PostgreSQL-databas i Azure. När appen har distri
 
 Skapa en PostgreSQL-server med kommandot [`az postgres server create`](/cli/azure/postgres/server?view=azure-cli-latest#az-postgres-server-create) i Cloud Shell.
 
-I följande exempel kommando ersätter  *\<du postgresql-Name >* med ett unikt server namn och ersätter  *\<admin-username >* och  *\<Admin-Password >* med önskade användarautentiseringsuppgifter. Autentiseringsuppgifterna är till databasadministratörens konto. Det här servernamnet används som en del av PostgreSQL-slutpunkten (`https://<postgresql-name>.postgres.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure.
+I följande exempel kommando ersätter du *\<postgresql-name >* med ett unikt server namn och ersätter *\<admin-username >* och *\<admin-Password >* med önskade användarautentiseringsuppgifter. Autentiseringsuppgifterna är till databasadministratörens konto. Det här servernamnet används som en del av PostgreSQL-slutpunkten (`https://<postgresql-name>.postgres.database.azure.com`), så namnet måste vara unikt för alla servrar i Azure.
 
 ```azurecli-interactive
 az postgres server create --resource-group myResourceGroup --name <postgresql-name> --location "West Europe" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
@@ -194,7 +197,7 @@ När den logiska Azure Database for PostgreSQL-servern har skapats visar Azure C
 ```
 
 > [!NOTE]
-> Kom \<ihåg admin-username > \<och Admin-Password > för senare. Du behöver dem för att kunna logga in på Postgre-servern och databaserna.
+> Kom ihåg \<admin-username > och \<admin-Password > för senare. Du behöver dem för att kunna logga in på Postgre-servern och databaserna.
 
 ### <a name="create-firewall-rules-for-the-postgresql-server"></a>Skapa brandväggsregler för PostgreSQL-servern
 
@@ -207,7 +210,7 @@ az postgres server firewall-rule create --resource-group myResourceGroup --serve
 > [!NOTE]
 > Den här inställningen tillåter nätverksanslutningar från alla IP-adresser i Azure-nätverket. För användning i produktion kan du försöka konfigurera de mest restriktiva brandväggsreglerna [med hjälp av endast de utgående IP-adresserna som din app använder](../overview-inbound-outbound-ips.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#find-outbound-ips).
 
-I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta  *\<IP-adressen >* med [din lokala IPv4 IP-adress](https://www.whatsmyip.org/).
+I Cloud Shell kör du kommandot igen för att tillåta åtkomst från den lokala datorn genom att ersätta *\<your-IP-address >* med [din lokala IPv4 IP-adress](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az postgres server firewall-rule create --resource-group myResourceGroup --server-name <postgresql-name> --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address> --name AllowLocalClient
@@ -328,7 +331,7 @@ git commit -am "configure for App Service"
 
 [!INCLUDE [Create app service plan](../../../includes/app-service-web-create-app-service-plan-linux-no-h.md)]
 
-### <a name="create-a-web-app"></a>Skapa en webbapp
+### <a name="create-a-web-app"></a>Skapa ett webbprogram
 
 [!INCLUDE [Create web app](../../../includes/app-service-web-create-web-app-python-linux-no-h.md)]
 
@@ -398,7 +401,7 @@ Gå till `<app-name>.azurewebsites.net` och logga in med samma administratörs a
 
 ## <a name="manage-your-app-in-the-azure-portal"></a>Hantera din app i Azure Portal
 
-Gå till [Azure-portalen](https://portal.azure.com) om du vill se den app du skapade.
+Gå till [Azure-portalen](https://portal.azure.com) för att se den app du skapade.
 
 Välj **app Services**på menyn till vänster och välj sedan namnet på din Azure-App.
 
@@ -424,7 +427,7 @@ I den här självstudiekursen lärde du dig att:
 Gå vidare till nästa självstudie för att läsa hur du mappar ett anpassat DNS-namn till din app.
 
 > [!div class="nextstepaction"]
-> [Självstudier: Mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
+> [Självstudie: mappa ett anpassat DNS-namn till din app](../app-service-web-tutorial-custom-domain.md)
 
 Eller kolla ut andra resurser:
 

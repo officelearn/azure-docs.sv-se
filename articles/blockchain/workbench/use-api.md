@@ -1,21 +1,21 @@
 ---
-title: Använda Azure blockchain Workbench Preview REST API
+title: Använda REST API för Azure Blockchain Workbench
 description: Scenarier för hur du använder för hands versionen av Azure blockchain Workbench REST API
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: 412b78363be70918969734cd8890a8ee940df431
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: 2f751cc4f0037b8d60034636a0c512989113e441
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843823"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328863"
 ---
 # <a name="using-the-azure-blockchain-workbench-preview-rest-api"></a>Använda Azure blockchain Workbench Preview REST API
 
@@ -210,8 +210,8 @@ Content-type: application/json
 
 När en användare bestämmer sig för att ta sig in i ett kontrakt kan blockchain-klienten Visa de tillgängliga användar åtgärderna enligt kontraktets status. I det här exemplet tittar användaren på alla tillgängliga åtgärder för ett nytt smart kontrakt som de skapat:
 
-* Gör Gör att användaren kan ändra en till gångs beskrivning och pris.
-* Avsluta Gör det möjligt för användaren att avsluta kontraktet för till gången.
+* Ändra: Låter användaren ändra beskrivning och pris för en tillgång.
+* Avsluta: tillåter att användaren avslutar kontraktet för till gången.
 
 Använd [POST API för kontraktsåtgärden](/rest/api/azure-blockchain-workbench/contractsv2/contractactionget):
 

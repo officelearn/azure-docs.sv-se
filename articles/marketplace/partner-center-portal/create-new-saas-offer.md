@@ -7,12 +7,12 @@ ms.author: v-qiwe
 ms.service: marketplace
 ms.topic: conceptual
 ms.date: 10/04/2019
-ms.openlocfilehash: d035f26e4b550eb1e5d2cca161f14880814a15f6
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 578904d40b1354dde99644cb2fc73e0a56223b34
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244171"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376293"
 ---
 # <a name="create-a-new-saas-offer"></a>Skapa ett nytt SaaS-erbjudande
 
@@ -436,7 +436,7 @@ Välj den frekvens som kunderna måste betala i det angivna priset. Minst ett m�
 - **Pris**: USD per månad eller USD per år
 
 Priser som anges i lokal valuta (USD = USA dollar) konverteras till den lokala valutan för alla valda marknader med de aktuella växelkurserna som är tillgängliga under installationen. Validera dessa priser innan du publicerar genom att exportera pris kalkyl bladet och granska priset på varje marknad. Om du vill ange anpassade priser på en enskild marknad ändrar du och importerar pris kalkyl bladet. Du ansvarar för att verifiera priset och äga dessa inställningar.
-**du måste först spara dina pris ändringar för att möjliggöra export av pris information.*
+*\*You måste först spara dina pris ändringar för att möjliggöra export av pris data.*
 
 Granska dina priser noggrant innan du publicerar, eftersom det finns vissa begränsningar för vad som kan ändras när en plan publiceras:
 

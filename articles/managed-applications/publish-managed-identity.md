@@ -1,6 +1,6 @@
 ---
-title: Azure-hanterade program med hanterad identitet
-description: Lär dig hur du konfigurerar ett hanterat program med en hanterad identitet. Hanterad identitet kan användas för att distribuera Managed Applications länkad till befintliga resurser, ge Managed Applications till att hantera Azure-resurser utanför den hanterade resursgruppen och ange en operational identiteten för hanterade program för aktivitetsloggen och andra tjänster i Azure.
+title: Azure-hanterat program med hanterad identitet
+description: Konfigurera hanterat program med hanterad identitet för länkning till befintliga resurser, hantering av Azure-resurser och tillhandahållande av drift identitet för aktivitets loggen.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
@@ -8,36 +8,36 @@ ms.reviewer: ''
 ms.author: jobreen
 author: jjbfour
 ms.date: 05/13/2019
-ms.openlocfilehash: 9fb5f7a4a62c2d323059f7c0b879482e93feef2f
-ms.sourcegitcommit: f56b267b11f23ac8f6284bb662b38c7a8336e99b
+ms.openlocfilehash: 9e1f5072921104c749a0acef95b7da09f1cbb662
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/28/2019
-ms.locfileid: "67434869"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330232"
 ---
-# <a name="azure-managed-application-with-managed-identity"></a>Azure-hanterade program med hanterad identitet
+# <a name="azure-managed-application-with-managed-identity"></a>Azure-hanterat program med hanterad identitet
 
 > [!NOTE]
-> Stöd för hanterade identiteter för Managed Applications förhandsvisas just nu. Använd api-versionen 2018-09-01-preview för att använda hanterade identiteter.
+> Stöd för hanterade identiteter för hanterade program finns för närvarande i för hands version. Använd 2018-09-01-Preview API-versionen för att använda hanterad identitet.
 
-Lär dig hur du konfigurerar ett hanterat program som innehåller en hanterad identitet. Hanterad identitet kan användas till att kunden kan ge det hanterade programmet åtkomsten till ytterligare befintliga resurser. Identiteten hanteras av Azure-plattformen och kräver inte att etablera eller rotera hemligheter. Mer information om hanterade identiteter i Azure Active Directory (AAD) finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
+Lär dig hur du konfigurerar ett hanterat program så att det innehåller en hanterad identitet. Hanterad identitet kan användas för att ge kunden möjlighet att ge hanterade program åtkomst till ytterligare befintliga resurser. Identiteten hanteras av Azure-plattformen och kräver inte att du etablerar eller roterar några hemligheter. Mer information om hanterade identiteter i Azure Active Directory (AAD) finns i [hanterade identiteter för Azure-resurser](../active-directory/managed-identities-azure-resources/overview.md).
 
 Ditt program kan beviljas två typer av identiteter:
 
-- En **systemtilldelade identiteter** är kopplad till ditt program och tas bort om din app har tagits bort. En app kan bara ha en systemtilldelad identitet.
-- En **Användartilldelad identitet** är ett fristående Azure-resurs som kan tilldelas till din app. En app kan ha flera användartilldelade identiteter.
+- En **systemtilldelad identitet** är kopplad till ditt program och tas bort om din app tas bort. En app kan bara ha en tilldelad identitet.
+- En **användardefinierad identitet** är en fristående Azure-resurs som kan tilldelas till din app. En app kan ha flera användare tilldelade identiteter.
 
-## <a name="how-to-use-managed-identity"></a>Hur du använder hanterade identiteter
+## <a name="how-to-use-managed-identity"></a>Använda hanterad identitet
 
-Hanterad identitet möjliggör många scenarier för hanterade program. Några vanliga scenarier som går att lösa är:
+Hanterad identitet möjliggör många scenarier för hanterade program. Några vanliga scenarier som kan lösas är:
 
-- Distribuera ett hanterat program som är länkad till befintliga Azure-resurser. Ett exempel är att distribuera en Azure-dator (VM) i det hanterade programmet som är kopplad till en [befintliga nätverksgränssnittet](../virtual-network/virtual-network-network-interface-vm.md).
-- Bevilja åtkomst för hanterade program och utgivare till Azure-resurser utanför den **hanterad resursgrupp**.
-- Att tillhandahålla Managed Applications operativa identitet för aktivitetsloggen och andra tjänster i Azure.
+- Distribuera ett hanterat program som är länkat till befintliga Azure-resurser. Ett exempel är att distribuera en virtuell Azure-dator (VM) i det hanterade programmet som är kopplat till ett [befintligt nätverks gränssnitt](../virtual-network/virtual-network-network-interface-vm.md).
+- Bevilja det hanterade programmet och Publisher åtkomst till Azure-resurser utanför den **hanterade resurs gruppen**.
+- Tillhandahålla en operationell identitet för hanterade program för aktivitets logg och andra tjänster i Azure.
 
-## <a name="adding-managed-identity"></a>Att lägga till hanterad identitet
+## <a name="adding-managed-identity"></a>Lägger till hanterad identitet
 
-Skapa ett hanterat program med en hanterad identitet kräver ytterligare en egenskap på Azure-resursen. I följande exempel visas ett exempel **identitet** egenskapen:
+Att skapa ett hanterat program med en hanterad identitet kräver att ytterligare en egenskap anges på Azure-resursen. I följande exempel visas en exempel på en **identitets** egenskap:
 
 ```json
 {
@@ -49,11 +49,11 @@ Skapa ett hanterat program med en hanterad identitet kräver ytterligare en egen
 }
 ```
 
-Det finns två vanliga sätt att skapa ett hanterat program med **identitet**: [CreateUIDefinition.json](./create-uidefinition-overview.md) och [Azure Resource Manager-mallar](../azure-resource-manager/resource-group-authoring-templates.md). Skapa scenarier för en enkel enskild, CreateUIDefinition bör användas för att aktivera hanterad identitet, eftersom det ger en rikare upplevelse. När du hanterar komplexa eller Avancerat system som kräver automatisk eller distribution av flera hanterade program, mallar kan användas.
+Det finns två vanliga sätt att skapa ett hanterat program med **identiteten**: [CreateUIDefinition. JSON](./create-uidefinition-overview.md) och [Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md). För enkla scenarier med enkel skapande bör CreateUIDefinition användas för att aktivera hanterad identitet, eftersom det ger en rikare upplevelse. Men när du hanterar avancerade eller komplexa system som kräver automatiserade eller flera hanterade program distributioner kan du använda mallarna.
 
-### <a name="using-createuidefinition"></a>Med CreateUIDefinition
+### <a name="using-createuidefinition"></a>Använda CreateUIDefinition
 
-Ett hanterat program kan konfigureras med hanterad identitet via den [CreateUIDefinition.json](./create-uidefinition-overview.md). I den [matar ut avsnittet](./create-uidefinition-overview.md#outputs), nyckeln `managedIdentity` kan användas för att åsidosätta identitetsegenskapen för mall för hanterade program. Exemplet nedan gör **systemtilldelade** identitet på hanterade programmet. Mer komplexa identitetsobjekt kan skapas med hjälp av CreateUIDefinition element be konsumenten för indata. Dessa indata som kan användas för att konstruera Managed Applications med **Användartilldelad identitet**.
+Ett hanterat program kan konfigureras med hanterad identitet via [CreateUIDefinition. JSON](./create-uidefinition-overview.md). I [avsnittet utdata](./create-uidefinition-overview.md#outputs)kan nyckel `managedIdentity` användas för att åsidosätta identitets egenskapen för mallen för hanterade program. Nedan kommer att aktivera **systemtilldelad** identitet i det hanterade programmet. Mer komplexa identitets objekt kan skapas med hjälp av CreateUIDefinition-element för att be konsumenterna om indata. Dessa indata kan användas för att skapa hanterade program med **användardefinierad identitet**.
 
 ```json
 "outputs": {
@@ -63,15 +63,15 @@ Ett hanterat program kan konfigureras med hanterad identitet via den [CreateUIDe
 
 #### <a name="when-to-use-createuidefinition-for-managed-identity"></a>När du ska använda CreateUIDefinition för hanterad identitet
 
-Nedan följer några rekommendationer för när du ska använda CreateUIDefinition för att aktivera hanterade identiteter på hanterade program.
+Nedan följer några rekommendationer när du ska använda CreateUIDefinition för att aktivera hanterad identitet för hanterade program.
 
-- Skapa för hanterade program går igenom Azure-portalen eller marketplace.
-- Hanterade identiteter kräver komplexa konsument indata.
-- Hanterad identitet krävs vid skapandet av hanterade program.
+- Skapandet av det hanterade programmet går via Azure Portal eller Marketplace.
+- Den hanterade identiteten kräver komplexa konsument ingångar.
+- Den hanterade identiteten krävs när det hanterade programmet skapas.
 
 #### <a name="systemassigned-createuidefinition"></a>SystemAssigned CreateUIDefinition
 
-En grundläggande CreateUIDefinition som möjliggör SystemAssigned identiteten för det hanterade programmet.
+En grundläggande CreateUIDefinition som aktiverar SystemAssigned-identiteten för det hanterade programmet.
 
 ```json
 {
@@ -93,7 +93,7 @@ En grundläggande CreateUIDefinition som möjliggör SystemAssigned identiteten 
 
 #### <a name="userassigned-createuidefinition"></a>UserAssigned CreateUIDefinition
 
-En grundläggande CreateUIDefinition som tar en **Användartilldelad identitet** resurs som indata och gör det möjligt UserAssigned identiteten för det hanterade programmet.
+En grundläggande CreateUIDefinition som tar en **tilldelad identitets** resurs som indata och aktiverar UserAssigned-identiteten för det hanterade programmet.
 
 ```json
 {
@@ -131,29 +131,29 @@ En grundläggande CreateUIDefinition som tar en **Användartilldelad identitet**
 }
 ```
 
-CreateUIDefinition.json ovan genererar skapa användarna en upplevelse som har en textruta för en konsument att ange den **Användartilldelad identitet** Azure-resurs-ID. Den genererade upplevelsen ser ut som:
+CreateUIDefinition. JSON ovan genererar en skapa användar upplevelse som har en text ruta för en konsument för att ange **användar tilldelad identitet** Azure-resurs-ID. Den genererade upplevelsen skulle se ut så här:
 
-![Exempel på Användartilldelad identitet CreateUIDefinition](./media/publish-managed-identity/user-assigned-identity.png)
+![Exempel på användardefinierad identitet CreateUIDefinition](./media/publish-managed-identity/user-assigned-identity.png)
 
-### <a name="using-azure-resource-manager-templates"></a>Med Azure Resource Manager-mallar
+### <a name="using-azure-resource-manager-templates"></a>Använda Azure Resource Manager mallar
 
 > [!NOTE]
-> Marketplace-mallar för hanterade program genereras automatiskt för kunder som ska via Azure portal skapa upplevelse.
-> Dessa scenarier kan de `managedIdentity` utdata nyckeln på CreateUIDefinition måste användas aktiverat identitet.
+> Marketplace-hanterade programmallar skapas automatiskt för kunder som går genom Azure Portal skapa upplevelse.
+> I dessa scenarion måste `managedIdentity`-CreateUIDefinition på användas för att aktivera identitet.
 
-Hanterad identitet kan även aktiveras via Azure Resource Manager-mallar. Exemplet nedan gör **systemtilldelade** identitet på hanterade programmet. Mer komplexa identitetsobjekt kan skapas med Azure Resource Manager-mallens parametrar för att ange indata. Dessa indata som kan användas för att konstruera Managed Applications med **Användartilldelad identitet**.
+Den hanterade identiteten kan också aktive ras via Azure Resource Manager mallar. Nedan kommer att aktivera **systemtilldelad** identitet i det hanterade programmet. Mer komplexa identitets objekt kan skapas med hjälp av Azure Resource Manager mallparametrar för att tillhandahålla indata. Dessa indata kan användas för att skapa hanterade program med **användardefinierad identitet**.
 
-#### <a name="when-to-use-azure-resource-manager-templates-for-managed-identity"></a>När du ska använda Azure Resource Manager-mallar för hanterad identitet
+#### <a name="when-to-use-azure-resource-manager-templates-for-managed-identity"></a>När du ska använda Azure Resource Manager mallar för hanterad identitet
 
-Nedan följer några rekommendationer för när du ska använda Azure Resource Manager-mallar för att aktivera hanterade identiteter på hanterade program.
+Nedan följer några rekommendationer när du ska använda Azure Resource Manager mallar för att aktivera hanterad identitet för hanterade program.
 
-- Hanterade program kan distribueras via programmering baserad på en mall.
-- Anpassade rolltilldelningar för hanterade identiteter behövs för att etablera hanterade programmet.
-- Hanterat program behöver inte Azure portal och marketplace skapa flödet.
+- Hanterade program kan distribueras program mässigt baserat på en mall.
+- Anpassade roll tilldelningar för den hanterade identiteten krävs för att etablera det hanterade programmet.
+- Det hanterade programmet behöver inte skapa Azure Portal och Marketplace.
 
-#### <a name="systemassigned-template"></a>SystemAssigned mall
+#### <a name="systemassigned-template"></a>SystemAssigned-mall
 
-En grundläggande Azure Resource Manager-mall som distribuerar ett hanterat program med **systemtilldelade** identitet.
+En grundläggande Azure Resource Manager-mall som distribuerar ett hanterat program med **systemtilldelad** identitet.
 
 ```json
 "resources": [
@@ -173,9 +173,9 @@ En grundläggande Azure Resource Manager-mall som distribuerar ett hanterat prog
 ]
 ```
 
-### <a name="userassigned-template"></a>UserAssigned mall
+### <a name="userassigned-template"></a>UserAssigned-mall
 
-En grundläggande Azure Resource Manager-mall som distribuerar ett hanterat program med en **Användartilldelad identitet**.
+En grundläggande Azure Resource Manager-mall som distribuerar ett hanterat program med en **tilldelad identitet**.
 
 ```json
 "resources": [
@@ -206,22 +206,22 @@ En grundläggande Azure Resource Manager-mall som distribuerar ett hanterat prog
 
 ## <a name="granting-access-to-azure-resources"></a>Bevilja åtkomst till Azure-resurser
 
-När ett hanterat program har beviljats en identitet, kan den beviljas åtkomst till befintliga azure-resurser. Den här processen kan göras via gränssnittet åtkomst åtkomstkontroll (IAM) i Azure-portalen. Namnet på den hanterade program eller **Användartilldelad identitet** kan sökas igenom för att lägga till en rolltilldelning.
+När ett hanterat program beviljas en identitet kan den beviljas åtkomst till befintliga Azure-resurser. Den här processen kan göras via gränssnittet åtkomst kontroll (IAM) i Azure Portal. Namnet på det hanterade programmet eller den **användardefinierade identiteten** kan sökas i för att lägga till en roll tilldelning.
 
-![Lägg till rolltilldelning för hanterade program](./media/publish-managed-identity/identity-role-assignment.png)
+![Lägg till roll tilldelning för hanterat program](./media/publish-managed-identity/identity-role-assignment.png)
 
 ## <a name="linking-existing-azure-resources"></a>Länka befintliga Azure-resurser
 
 > [!NOTE]
-> En **Användartilldelad identitet** måste vara [konfigurerats](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) innan du distribuerar det hanterade programmet. Dessutom länkad resursdistribution av hanterade program stöds bara för den **marketplace** slag.
+> En **användardefinierad identitet** måste [konfigureras](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) innan det hanterade programmet distribueras. Dessutom stöds endast länkad resurs distribution av hanterade program för **Marketplace** -typen.
 
-Hanterad identitet kan också användas för att distribuera ett hanterat program som kräver åtkomst till befintliga resurser under distributionen. När det hanterade programmet etableras av kunden, **användartilldelade identiteter** kan läggas till att tillhandahålla ytterligare tillstånd till den **mainTemplate** distribution.
+Hanterad identitet kan också användas för att distribuera ett hanterat program som kräver åtkomst till befintliga resurser under distributionen. När det hanterade programmet tillhandahålls av kunden kan **användardefinierade identiteter** läggas till för att ge ytterligare auktorisering till **mainTemplate** -distributionen.
 
 ### <a name="authoring-the-createuidefinition-with-a-linked-resource"></a>Redigera CreateUIDefinition med en länkad resurs
 
-När du länkar distribution av hanterade program i befintliga resurser, både befintliga Azure-resursen och en **Användartilldelad identitet** med rollen tillämpliga tilldelning av resursen måste anges.
+När du länkar distributionen av det hanterade programmet till befintliga resurser måste du ange både den befintliga Azure-resursen och en **tilldelad identitet** med lämplig roll tilldelning för den resursen.
 
- Ett sampel CreateUIDefinition som kräver två indatavärdena: ett nätverksgränssnitts resurs-ID och en Användartilldelad identitet resurs-id.
+ En exempel-CreateUIDefinition som kräver två indata: ett nätverks gränssnitt resurs-ID och en tilldelad identitets resurs-ID.
 
 ```json
 {
@@ -269,15 +269,15 @@ När du länkar distribution av hanterade program i befintliga resurser, både b
 }
 ```
 
-Den här CreateUIDefinition.json genererar en skapa användarvänligt gränssnitt som har två fält. Det första fältet gör att användaren kan ange i Azure-resurs-ID för den resurs som är länkad till programdistributionen som hanteras. Andra är för en konsument att ange den **Användartilldelad identitet** Azure-resurs-ID som har åtkomst till den länkade Azure-resursen. Den genererade upplevelsen ser ut som:
+Den här CreateUIDefinition. JSON genererar en skapa användar upplevelse som har två fält. Det första fältet låter användaren ange i Azure-resurs-ID: t för den resurs som länkas till distributionen av hanterade program. Det andra är för en konsument att ange **användar tilldelad identitet** Azure-resurs-ID som har åtkomst till den länkade Azure-resursen. Den genererade upplevelsen skulle se ut så här:
 
-![Exempel på CreateUIDefinition med två indatavärdena: ett nätverksgränssnitt resurs-ID och en Användartilldelad identitet resurs-ID](./media/publish-managed-identity/network-interface-cuid.png)
+![Exempel på CreateUIDefinition med två indata: ett nätverks gränssnitt resurs-ID och en tilldelad identitets resurs-ID](./media/publish-managed-identity/network-interface-cuid.png)
 
 ### <a name="authoring-the-maintemplate-with-a-linked-resource"></a>Redigera mainTemplate med en länkad resurs
 
-Förutom att uppdatera CreateUIDefinition måste huvudsakliga mallen också uppdateras för att godkänna den överförda i länkade resurs-ID. Den huvudsakliga mallen kan uppdateras för att godkänna den nya utdatan genom att lägga till en ny parameter. Eftersom den `managedIdentity` utdata åsidosätter värdet på den genererade mallen för hanterade program, skickas inte till den huvudsakliga mallen och ska inte ingå i avsnittet Parametrar.
+Förutom att uppdatera CreateUIDefinition, behöver huvud mal len också uppdateras för att godkänna det skickade länkade resurs-ID: t. Huvud mal len kan uppdateras för att godkänna de nya utdata genom att lägga till en ny parameter. Eftersom `managedIdentity`-utdata åsidosätter värdet i den genererade mallen för hanterade program, skickas det inte till huvudmallen och ska inte ingå i avsnittet parametrar.
 
-En huvudsakliga exempelmall som anger nätverksprofilen till en befintlig nätverksgränssnitt som tillhandahålls av CreateUIDefinition.
+Ett exempel på en huvudmall som anger nätverks profilen till ett befintligt nätverks gränssnitt som tillhandahålls av CreateUIDefinition.
 
 ```json
 {
@@ -309,17 +309,17 @@ En huvudsakliga exempelmall som anger nätverksprofilen till en befintlig nätve
 }
 ```
 
-### <a name="consuming-the-managed-application-with-a-linked-resource"></a>Använder det hanterade programmet med en länkad resurs
+### <a name="consuming-the-managed-application-with-a-linked-resource"></a>Konsumera det hanterade programmet med en länkad resurs
 
-När det hanterade programpaketet har skapats kan kan det hanterade programmet användas via Azure portal. Innan den kan användas, finns det flera nödvändiga steg.
+När det hanterade programpaketet har skapats kan det hanterade programmet förbrukas via Azure Portal. Innan det kan förbrukas finns det flera nödvändiga steg.
 
-- En instans av nödvändiga länkade Azure-resursen måste skapas.
-- Den **Användartilldelad identitet** måste vara [skapas och de angivna rolltilldelningar](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) till den länkade resursen.
-- Den befintliga länkade resurs-ID och **Användartilldelad identitet** ID tillhandahålls för att CreateUIDefinition.
+- En instans av den nödvändiga länkade Azure-resursen måste skapas.
+- Den **användare som tilldelats identiteten** måste [skapas och tilldelas roll tilldelningar](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) till den länkade resursen.
+- Det befintliga länkade resurs-ID: t och det **användardefinierade identitets** -ID: t anges till CreateUIDefinition.
 
-## <a name="accessing-the-managed-identity-token"></a>Åtkomst till den hanterade identiteter-token
+## <a name="accessing-the-managed-identity-token"></a>Åtkomst till den hanterade identitets-token
 
-Token för hanterade program kan nu kommas åt via den `listTokens` api från publisher-klient. En exempelbegäran kan se ut:
+Token för det hanterade programmet kan nu nås via `listTokens`-API: et från utgivarens klient organisation. En exempel förfrågan kan se ut så här:
 
 ``` HTTP
 POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.Solutions/applications/{applicationName}/listTokens?api-version=2018-09-01-preview HTTP/1.1
@@ -332,15 +332,15 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 }
 ```
 
-Brödtextparametrar för begäran:
+Begär ande text parametrar:
 
-Parameter | Obligatoriskt | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
-authorizationAudience | *no* | App-ID URI för målresursen. Det är också den `aud` (målgrupp) anspråk i utfärdade token. Standardvärdet är ”https://management.azure.com/”
-userAssignedIdentities | *no* | Lista över användartilldelade hanterade identiteter för att hämta en token för. Om inte anges `listTokens` returnerar token för systemtilldelade hanterad identitet.
+authorizationAudience | *Nej* | Mål resursens app-ID-URI. Det är också `aud`-anspråk (Audience) för Utfärdad token. Standardvärdet är "https://management.azure.com/"
+userAssignedIdentities | *Nej* | Listan över användarspecifika hanterade identiteter för att hämta en token för. Om inget anges returnerar `listTokens` token för den systemtilldelade hanterade identiteten.
 
 
-En exempelsvaret kan se ut:
+Ett exempel svar kan se ut så här:
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -361,16 +361,16 @@ Content-Type: application/json
 }
 ```
 
-Svaret innehåller en matris med token under den `value` egenskapen:
+Svaret kommer att innehålla en matris med tokens under egenskapen `value`:
 
 Parameter | Beskrivning
 ---|---
-access_token | Den begärda åtkomst-token.
-expires_in | Hur många sekunder som åtkomsttoken kommer att gälla.
-expires_on | Timespan när åtkomsttoken upphör att gälla. Detta visas i hur många sekunder från epoch.
-not_before | Timespan när åtkomsttoken träder i kraft. Detta visas i hur många sekunder från epoch.
-authorizationAudience | Den `aud` (målgrupp) åtkomsttoken har begäran om. Det här är samma som vad som har angetts i den `listTokens` begäran.
-resourceId | Azure-resurs-ID för utfärdade token. Det här är hanterade program-ID eller Användartilldelad identitet-ID.
+access_token | Den begärda åtkomsttoken.
+expires_in | Antalet sekunder som åtkomst-token är giltig.
+expires_on | TimeSpan när åtkomsttoken upphör att gälla. Detta representeras som antalet sekunder från epoken.
+not_before | TimeSpan när åtkomsttoken börjar gälla. Detta representeras som antalet sekunder från epoken.
+authorizationAudience | Den `aud` (mål grupp) som åtkomsttoken var begäran för. Detta är samma som det som angavs i `listTokens`-begäran.
+resourceId | Azure-resurs-ID för Utfärdad token. Detta är antingen det hanterade program-ID: t eller det användar-tilldelade identitets-ID: t.
 token_type | Typ av token.
 
 ## <a name="next-steps"></a>Nästa steg

@@ -1,6 +1,6 @@
 ---
 title: Användar gränssnitts element för Azure FileUpload | Microsoft Docs
-description: Beskriver elementet Microsoft. Common. FileUpload UI för Azure Portal.
+description: Beskriver elementet Microsoft. Common. FileUpload UI för Azure Portal. Gör det möjligt för användarna att behöva ladda upp filer när de distribuerar ett hanterat program.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b06134c6694e54cf246f9527d10147c573b95ad9
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: b7f73dcfe3e0e2827083feba906e2efcd0265305
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71828008"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331700"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Elementet Microsoft. Common. FileUpload UI
 En kontroll som låter en användare ange en eller flera filer som ska överföras.
 
 ## <a name="ui-sample"></a>UI-exempel
-![Microsoft.Common.FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
+![Microsoft. Common. FileUpload](./media/managed-application-elements/microsoft.common.fileupload.png)
 
 ## <a name="schema"></a>Schema
 ```json
@@ -49,7 +49,7 @@ En kontroll som låter en användare ange en eller flera filer som ska överför
 
 ## <a name="remarks"></a>Kommentarer
 - `constraints.accept` anger de typer av filer som visas i webbläsarens fil dialog ruta. Se [HTML5-specifikationen](https://html.spec.whatwg.org/multipage/input.html#attr-input-accept) för tillåtna värden. Standardvärdet är **Null**.
-- Om `options.multiple` har angetts till **True**tillåts användaren att välja fler än en fil i webbläsarens fil dialog ruta. Standardvärdet är **FALSKT**.
+- Om `options.multiple` har angetts till **True**tillåts användaren att välja fler än en fil i webbläsarens fil dialog ruta. Standardvärdet är **false**.
 - Det här elementet stöder överföring av filer i två lägen baserat på värdet för `options.uploadMode`. Om **filen** har angetts innehåller utdata innehållet i filen som en blob. Om **URL** anges överförs filen till en tillfällig plats och utdata har URL: en för blobben. Tillfälliga blobbar rensas efter 24 timmar. Standardvärdet är **File**.
 - En uppladdad fil är skyddad. URL: en för utdata innehåller en [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) för att komma åt filen under distributionen.
 - Värdet för `options.openMode` bestämmer hur filen läses. Om filen förväntas vara oformaterad text anger du **text**. Annars anger du **Binary**. Standardvärdet är **text**.

@@ -1,21 +1,21 @@
 ---
-title: Blockchain program versioner i Azure blockchain Workbench Preview
+title: Blockchain program Versioning – Azure blockchain Workbench
 description: Så här använder du program versioner i Azure blockchain Workbench Preview.
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/05/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: brendal
 manager: femila
-ms.openlocfilehash: 33ecb6dea48117edd876b90eda54768785f25c20
-ms.sourcegitcommit: adc1072b3858b84b2d6e4b639ee803b1dda5336a
+ms.openlocfilehash: f6edbb54962ff11b5ed1497b6a202b9010c67aae
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/10/2019
-ms.locfileid: "70843880"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328827"
 ---
 # <a name="azure-blockchain-workbench-preview-application-versioning"></a>Versions hantering av Azure blockchain Workbench Preview-program
 
@@ -23,7 +23,7 @@ Du kan skapa och använda flera versioner av en Azure blockchain Workbench Previ
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En Blockchain Workbench-distribution. Mer information om distributioner finns i avsnittet om [Azure Blockchain Workbench-distributioner](deploy.md)
 * Ett distribuerat blockkedjeprogram i Blockchain Workbench. Mer information finns i avsnittet om hur du [skapar ett blockkedjeprogram i Azure Blockchain Workbench](create-app.md)
@@ -32,7 +32,7 @@ Du kan skapa och använda flera versioner av en Azure blockchain Workbench Previ
 
 Om du vill lägga till en ny version laddar du upp den nya konfigurationen och smarta kontrakts filer till blockchain Workbench.
 
-1. I en webbläsare går du till webbadressen för Blockchain Workbench. Till exempel `https://{workbench URL}.azurewebsites.net/` information om hur du hittar din blockchain Workbench-webbadress, se [blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
+1. I en webbläsare går du till webbadressen för Blockchain Workbench. Exempel: `https://{workbench URL}.azurewebsites.net/` information om hur du hittar din blockchain Workbench-webbadress finns i [blockchain Workbench Web URL](deploy.md#blockchain-workbench-web-url)
 2. Logga in som [Blockchain Workbench-administratör](manage-users.md#manage-blockchain-workbench-administrators).
 3. Välj det blockchain-program som du vill uppdatera med en annan version.
 4. Välj **Lägg till version**. Fönstret **Lägg till version** visas.

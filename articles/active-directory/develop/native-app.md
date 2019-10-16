@@ -1,6 +1,6 @@
 ---
 title: Inbyggda appar i Azure Active Directory
-description: Beskriver vad som är inbyggda appar och grunderna på protocol flow, registrering och token upphör att gälla för den här apptypen.
+description: Beskriver vad inbyggda appar är och grunderna om protokoll flöde, registrering och token förfallo datum för den här typen av app.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,51 +17,51 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6bf24124c4b072a64ef59500b2f723ff6abbb0e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 0034668231d97e64602bdbdd0836bded97bb733d
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545847"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373873"
 ---
 # <a name="native-apps"></a>Inbyggda appar
 
-Inbyggda appar är program som anropar ett webb-API för en användares räkning. Det här scenariot är byggt på beviljandetypen för OAuth 2.0 auktorisering kod med en offentlig klient enligt beskrivningen i avsnitt 4.1 i den [OAuth 2.0-specifikationen](https://tools.ietf.org/html/rfc6749). Internt program hämtar en åtkomsttoken för användaren med hjälp av OAuth 2.0-protokollet. Den här åtkomst-token som sedan skickas i begäran till webb-API som ger användaren behörighet och returnerar önskad resurs.
+Inbyggda appar är program som anropar ett webb-API för en användares räkning. Det här scenariot bygger på en beviljande typ för OAuth 2,0-auktoriseringskod med en offentlig klient, enligt beskrivningen i avsnittet 4,1 i [OAuth 2,0-specifikationen](https://tools.ietf.org/html/rfc6749). Det interna programmet får en åtkomsttoken för användaren med hjälp av OAuth 2,0-protokollet. Denna åtkomsttoken skickas sedan i begäran till webb-API: et, som auktoriserar användaren och returnerar önskad resurs.
 
 ## <a name="diagram"></a>Diagram
 
-![Internt program för att webb-API-Diagram](./media/authentication-scenarios/native_app_to_web_api.png)
+![Inbyggt program i webb-API-diagram](./media/authentication-scenarios/native_app_to_web_api.png)
 
-## <a name="protocol-flow"></a>Protocol flow
+## <a name="protocol-flow"></a>Protokoll flöde
 
-Om du använder AD-Autentiseringsbibliotek, hanteras de flesta av protokolldetaljer som beskrivs nedan för dig, som popup-fönster i webbläsaren, tokencachelagring och hantering av uppdateringstoken.
+Om du använder AD Authentication-biblioteken hanteras de flesta protokoll detaljer som beskrivs nedan, till exempel webbläsarens popup-fönster, cachelagring av token och hantering av uppdateringstoken.
 
-1. Använd en webbläsare som popup internt program gör en begäran till slutpunkten för auktorisering i Azure AD. Den här begäran innehåller program-ID och omdirigerings-URI: N för internt program som visas i Azure-portalen och program-ID-URI för webb-API. Om användaren inte har redan har loggat in uppmanas de att logga in igen
-1. Azure AD autentiserar användaren. Om det är ett program med flera innehavare och medgivande som krävs för att använda programmet, måste användaren tillstånd om de inte redan gjort det. Efter att godkänna och efter lyckad autentisering, utfärdar Azure AD ett auktorisering kod svar tillbaka till klientprogrammets omdirigerings-URI.
-1. När Azure AD utfärdar ett auktorisering kod svar tillbaka till omdirigeringen-URI, klientprogrammet stoppar webbläsare interaktion och extraherar Auktoriseringskoden från svaret. Med den här auktoriseringskod klientprogrammet skickar en begäran till tokenslutpunkten för Azure AD som innehåller Auktoriseringskoden, information om klientprogrammet (program-ID och omdirigerings-URI) och önskad resurs (program-ID-URI för den webb-API).
-1. Auktoriseringskod och information om klient-API för program- och verifieras av Azure AD. Vid lyckad validering returnerar två token i Azure AD: en JWT-token för åtkomst och en uppdatering JWT-token. Dessutom kan returnerar Azure AD grundläggande information om användare, till exempel deras Visa namn och klient-ID.
-1. Över HTTPS använder klientprogrammet returnerade JWT-åtkomsttoken för att lägga till JWT-sträng med en ”ägar” beteckning i auktoriseringshuvudet för begäran till webb-API. Webb-API: verifierar JWT-token och om verifieringen lyckas, returnerar önskad resurs.
-1. När åtkomsttoken upphör att gälla får klientprogrammet ett felmeddelande som anger att användaren behöver för att autentisera igen. Om programmet har en giltig uppdateringstoken kan användas den för att få en ny åtkomsttoken utan att fråga användaren att logga in igen. Om uppdatera-token upphör att gälla, måste programmet för interaktiv autentisering användaren igen.
+1. Med hjälp av ett popup-fönster skickar det interna programmet en begäran till behörighets slut punkten i Azure AD. Den här begäran innehåller program-ID och omdirigerings-URI för det interna programmet som visas i Azure Portal och program-ID-URI: n för webb-API: et. Om användaren inte redan har loggat in uppmanas användaren att logga in igen
+1. Azure AD autentiserar användaren. Om det är ett program för flera innehavare och det krävs att du använder programmet, måste användaren godkänna om de inte redan har gjort det. Efter att ha beviljat medgivande och vid lyckad autentisering utfärdar Azure AD ett auktoriseringskod-svar tillbaka till klient programmets omdirigerings-URI.
+1. När Azure AD utfärdar ett auktoriseringskod tillbaka till omdirigerings-URI: n, stoppar klient programmet webb läsar interaktion och extraherar auktoriseringskod från svaret. Med den här auktoriseringskod skickar klient programmet en begäran till Azure ADs token-slutpunkt som innehåller auktoriseringskod, information om klient programmet (program-ID och omdirigerings-URI) och önskad resurs (program-ID-URI för webb-API).
+1. Auktoriseringskod och information om klient programmet och webb-API: n verifieras av Azure AD. Vid lyckad verifiering returnerar Azure AD två tokens: en JWT-åtkomsttoken och en JWT-uppdateringstoken. Dessutom returnerar Azure AD grundläggande information om användaren, till exempel visnings namn och klient-ID.
+1. Via HTTPS använder klient programmet den returnerade JWT-åtkomsttoken för att lägga till JWT-strängen med beteckningen "Bearer" i Authorization-huvudet för begäran till webb-API: et. Webb-API: et validerar sedan JWT-token och om verifieringen lyckas returneras den önskade resursen.
+1. När åtkomsttoken upphör att gälla får klient programmet ett fel meddelande som anger att användaren måste autentisera igen. Om programmet har en giltig uppdateringstoken kan den användas för att hämta en ny åtkomsttoken utan att användaren uppmanas att logga in igen. Om uppdateringstoken upphör att gälla måste programmet interaktivt autentisera användaren en gång.
 
 > [!NOTE]
-> Uppdateringstoken som utfärdats av Azure AD kan användas för åtkomst till flera resurser. Om du har ett klientprogram som har behörighet att anropa två webb-API: er kan till exempel uppdateringstoken användas för att hämta en åtkomsttoken till andra webb-API samt.
+> Uppdateringstoken som utfärdats av Azure AD kan användas för att få åtkomst till flera resurser. Om du till exempel har ett klient program som har behörighet att anropa två webb-API: er, kan uppdateringstoken användas för att hämta en åtkomsttoken till det andra webb-API: et.
 
 ## <a name="code-samples"></a>Kodexempel
 
-Se kodexempel för internt program till webb-API-scenarier. Och kom tillbaka ofta – vi lägga till nya exempel ofta. [Internt program till webb-API](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
+Se kod exemplen för inbyggt program i webb-API-scenarier. Och kom tillbaka ofta – vi lägger till nya exempel ofta. [Inbyggt program i webb-API](sample-v1-code.md#desktop-and-mobile-public-client-applications-calling-microsoft-graph-or-a-web-api).
 
 ## <a name="app-registration"></a>Appregistrering
 
-Om du vill registrera ett program med Azure AD v1.0 slutpunkten, se [registrera en app](quickstart-register-app.md).
+Information om hur du registrerar ett program med Azure AD v 1.0-slutpunkten finns i [Registrera en app](quickstart-register-app.md).
 
-* Enskild klient - internt program och webb-API måste vara registrerade i samma katalog i Azure AD. Webb-API kan konfigureras för att exponera en uppsättning behörigheter som används för att begränsa internt program åtkomst till dess resurser. Klientprogrammet sedan markerar önskade behörigheter i listrutan ”behörigheter till andra program” i Azure-portalen.
-* Flera innehavare - först internt program bara registrerad i utvecklaren eller utgivarens katalog. Andra har internt program konfigurerats för att ange de behörigheter som krävs ska fungera. Den här listan över behörigheter som krävs visas i en dialogruta när en användare eller administratör i målmappen ger du ditt medgivande till programmet, vilket gör dem tillgängliga för deras organisation. Vissa program kräver endast användarnivå behörigheter, som alla användare i organisationen kan godkänna. Andra program som kräver på administratörsnivå som en användare i organisationen inte kan godkänna. Endast en directory-administratören kan samtycka till program som kräver den här behörighetsnivån. När användaren eller administratören godkänner, registreras endast webb-API i sin katalog. 
+* En enskild klient – både det inbyggda programmet och webb-API: et måste registreras i samma katalog i Azure AD. Webb-API: et kan konfigureras för att visa en uppsättning behörigheter som används för att begränsa det ursprungliga programmets åtkomst till resurserna. Klient programmet väljer sedan önskade behörigheter från den nedrullningsbara menyn "behörigheter till andra program" i Azure Portal.
+* Med flera klient organisationer först registreras det interna programmet i utvecklaren eller utgivarens katalog. För det andra är det interna programmet konfigurerat för att ange de behörigheter som krävs för att fungera. Den här listan över nödvändiga behörigheter visas i en dialog ruta när en användare eller administratör i mål katalogen ger tillåtelse till programmet, vilket gör det tillgängligt för deras organisation. Vissa program kräver bara behörigheter på användar nivå, som alla användare i organisationen kan godkänna. Andra program kräver behörigheter på administratörs nivå, som en användare i organisationen inte kan godkänna. Endast en katalog administratör kan ge medgivande till program som kräver den här nivån av behörigheter. När användaren eller administratören samtycks, är det bara webb-API: et som är registrerat i deras katalog. 
 
-## <a name="token-expiration"></a>Giltighetstid för token
+## <a name="token-expiration"></a>Förfallo datum för token
 
-När internt program använder dess auktoriseringskod för att hämta en JWT åtkomsttoken, emot tas även en uppdatering JWT-token. Uppdateringstoken kan användas för att autentisera användaren igen utan att behöva logga in igen när åtkomsttoken upphör att gälla. Den här uppdateringstoken används sedan för att autentisera användaren, vilket innebär att en ny åtkomsttoken och uppdateringstoken.
+När det interna programmet använder sin auktoriseringskod för att hämta en JWT-åtkomsttoken får den också en JWT-uppdateringstoken. När åtkomsttoken upphör att gälla, kan uppdateringstoken användas för att autentisera användaren igen utan att behöva logga in igen. Denna uppdateringstoken används sedan för att autentisera användaren, vilket resulterar i en ny åtkomsttoken och en uppdaterad token.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om andra [programtyper och scenarier](app-types.md)
-- Lär dig mer om Azure AD [grunder](authentication-scenarios.md)
+- Läs mer om andra [program typer och scenarier](app-types.md)
+- Lär dig mer om grunderna i Azure AD- [autentisering](v1-authentication-scenarios.md)

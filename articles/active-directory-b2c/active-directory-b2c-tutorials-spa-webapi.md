@@ -10,14 +10,14 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 60fe9569b0e6e92ae161271439ecbf1b04788ed4
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 9ac95896e67338437325e8290a96b8e42b2fa3a7
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71694592"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374250"
 ---
-# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudier: Bevilja åtkomst till ett ASP.NET Core webb-API från en ensidesapp med hjälp av Azure Active Directory B2C
+# <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>Självstudie: bevilja åtkomst till ett ASP.NET Core webb-API från ett program med en sida med hjälp av Azure Active Directory B2C
 
 Den här självstudien visar hur du anropar en Azure Active Directory B2C (Azure AD B2C)-skyddad ASP.NET Core webb-API-resurs från ett program på en sida.
 
@@ -26,12 +26,12 @@ I den här guiden får du lära dig att:
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
 > * Konfigurera omfånget för ett webb-API
-> * Tilldela behörigheter till webb-API:et
+> * Ge behörigheter till webb-API:t
 > * Konfigurera exemplet för att använda programmet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* Slutför stegen och förutsättningarna i [Självstudie: Aktivera autentisering i ett program med en enda sida med](active-directory-b2c-tutorials-spa.md)hjälp av Azure Active Directory B2C.
+* Slutför stegen och kraven i [Självstudier: aktivera autentisering i ett program med en enda sida med hjälp av Azure Active Directory B2C](active-directory-b2c-tutorials-spa.md).
 * Visual Studio 2019 eller senare, eller Visual Studio Code
 * .NET Core 2,2 eller senare
 * Node.js
@@ -46,7 +46,7 @@ Omfång är ett sätt att styra åtkomsten till skyddade resurser. Omfång anvä
 
 [!INCLUDE [active-directory-b2c-scopes](../../includes/active-directory-b2c-scopes.md)]
 
-Registrera det **fullständiga värdet för omfattning** för `demo.read` det omfång som ska användas i ett senare steg när du konfigurerar ett program med en sida. Det fullständiga värdet för `https://yourtenant.onmicrosoft.com/api/demo.read`omfattning liknar.
+Registrera det **fullständiga värdet för omfattning** för `demo.read`-omfånget som ska användas i ett senare steg när du konfigurerar ett program med en sida. Det fullständiga värdet för omfång liknar `https://yourtenant.onmicrosoft.com/api/demo.read`.
 
 ## <a name="grant-permissions"></a>Bevilja behörigheter
 
@@ -62,7 +62,7 @@ Webb programmet med en sida är registrerat för att anropa det skyddade webb-AP
 
 När webb-API:t är registrerat och har ett definierat omfång måste du konfigurera webb-API-koden så att den använder din Azure AD B2C-klientorganisation. I den här självstudien konfigurerar du ett exempel på ett .NET Core-webbprogram som du hämtar från GitHub.
 
-[Hämta ett \*zip-arkiv](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) eller klona exempel webb-API-projektet från GitHub.
+[Hämta en @no__t -1. zip-arkiv](https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi/archive/master.zip) eller klona exempel webb-API-projektet från GitHub.
 
 ```console
 git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webapi.git
@@ -70,8 +70,8 @@ git clone https://github.com/Azure-Samples/active-directory-b2c-dotnetcore-webap
 
 ### <a name="configure-the-web-api"></a>Konfigurera webb-API
 
-1. Öppna filen *B2C-WebAPI/**appSettings. JSON** i* Visual Studio eller Visual Studio Code.
-1. `AzureAdB2C` Ändra blocket så att det återspeglar ditt klient namn, program-ID: t för webb-API-programmet, namnet på din registrerings-och inloggnings princip och de omfattningar som du definierade tidigare. Blocket bör se ut ungefär som i följande exempel (med `Tenant` lämpliga `ClientId` värden och värden):
+1. Öppna filen <em>B2C-WebAPI/**appSettings. JSON**</em>  i Visual Studio eller Visual Studio Code.
+1. Ändra `AzureAdB2C`-blocket för att avspegla ditt klient namn, program-ID: t för webb-API-programmet, namnet på din registrerings-och inloggnings princip och de omfattningar som du definierade tidigare. Blocket bör se ut ungefär som i följande exempel (med lämpliga `Tenant`-och `ClientId`-värden):
 
     ```json
     "AzureAdB2C": {
@@ -96,7 +96,7 @@ Du måste aktivera [CORS](https://docs.microsoft.com/aspnet/core/security/cors) 
         services.AddCors();
     ```
 
-1. I `ConfigureServices()` -metoden `jwtOptions.Authority` ställer du in värdet på följande URI för token-utfärdare.
+1. I metoden `ConfigureServices()` anger du även värdet för `jwtOptions.Authority` till följande token för token-utfärdare.
 
     Ersätt `<your-tenant-name>` med namnet på din B2C-klient.
 
@@ -104,7 +104,7 @@ Du måste aktivera [CORS](https://docs.microsoft.com/aspnet/core/security/cors) 
     jwtOptions.Authority = $"https://<your-tenant-name>.b2clogin.com/{Configuration["AzureAdB2C:Tenant"]}/{Configuration["AzureAdB2C:Policy"]}/v2.0";
     ```
 
-1. Konfigurera CORS i- metoden.`Configure()`
+1. Konfigurera CORS i metoden `Configure()`.
 
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -113,8 +113,8 @@ Du måste aktivera [CORS](https://docs.microsoft.com/aspnet/core/security/cors) 
             builder.WithOrigins("http://localhost:6420").AllowAnyHeader().AllowAnyMethod());
     ```
 
-1. (Endast Visual Studio) Under **Egenskaper** i Solution Explorer öppnar du filen *launchSettings. JSON* och letar `iisExpress` sedan upp blocket.
-1. (Endast Visual Studio) Uppdatera värdet med det port nummer du angav när du registrerade webapi1-programmet i ett tidigare steg. `applicationURL` Exempel:
+1. (Endast Visual Studio) Öppna filen *launchSettings. JSON* under **Egenskaper** i Solution Explorer och leta upp `iisExpress`-blocket.
+1. (Endast Visual Studio) Uppdatera värdet `applicationURL` med det port nummer du angav när du registrerade *webapi1* -programmet i ett tidigare steg. Exempel:
 
     ```json
     "iisExpress": {
@@ -133,10 +133,10 @@ I det här avsnittet ska du uppdatera det enkla programmet för att anropa det A
 
 1. Öppna filen *index. html* i [Active-Directory-B2C-JavaScript-msal-singlepageapp][github-js-spa] -projektet som du laddade ned eller klonade i föregående självstudie.
 1. Konfigurera exemplet med URI: n för *demonstrationen. Läs* omfattning som du skapade tidigare och URL: en för webb-API: et.
-    1. I definitionen ersätter du värdet med den fullständiga URI: n för omfattningen (det **fullständiga värdet** som du registrerade tidigare). `b2cScopes` `appConfig`
-    1. Ändra värdet till det `applicationURL` värde som du angav i föregående avsnitt. `webApi`
+    1. I `appConfig`-definitionen ersätter du värdet för `b2cScopes` med den fullständiga URI: n för omfånget (det **fullständiga värdet** som du registrerade tidigare).
+    1. Ändra värdet `webApi` till värdet `applicationURL` som du angav i föregående avsnitt.
 
-    Definitionen bör likna följande kodblock (med ditt klient namn i stället för `<your-tenant-name>`): `appConfig`
+    Definitionen av `appConfig` bör se ut ungefär som i följande kodblock (med ditt klient namn i stället för `<your-tenant-name>`):
 
     ```javascript
     // The current application coordinates were pre-registered in a B2C tenant.
@@ -156,15 +156,15 @@ Slutligen kör du både webb-API: et för ASP.NET Core och Node. js-programmet p
 
 I Visual Studio trycker du på **F5** för att bygga och felsöka lösningen *WebAPI. SLN* . När projektet startas visas en webb sida i din standard webbläsare som visar att webb-API: et är tillgängligt för förfrågningar.
 
-Om du föredrar att använda `dotnet` cli i stället för Visual Studio:
+Om du föredrar att använda `dotnet` CLI i stället för Visual Studio:
 
-1. Öppna ett konsol fönster och ändra till den katalog som innehåller  *\*. CSPROJ* -filen. Exempel:
+1. Öppna ett konsol fönster och ändra till den katalog som innehåller filen *@no__t -1. CSPROJ* . Exempel:
 
     `cd active-directory-b2c-dotnetcore-webapi/B2C-WebApi`
 
-1. Skapa och kör webb-API: et genom `dotnet run`att köra.
+1. Skapa och kör webb-API: et genom att köra `dotnet run`.
 
-    När API: et är igång bör du se utdata som liknar följande (för självstudien kan du ignorera eventuella `NETSDK1059` varningar):
+    När API: et är igång bör du se utdata som liknar följande (för självstudien kan du ignorera eventuella `NETSDK1059`-varningar):
 
     ```console
     $ dotnet run
@@ -193,8 +193,8 @@ Om du föredrar att använda `dotnet` cli i stället för Visual Studio:
     Listening on port 6420...
     ```
 
-1. Navigera till `http://localhost:6420` i webbläsaren om du vill visa programmet.
-1. Logga in med e-postadressen och lösen ordet som du använde i [föregående självstudie](active-directory-b2c-tutorials-spa.md). När inloggningen är klar bör du se `User 'Your Username' logged-in` meddelandet.
+1. Gå till `http://localhost:6420` i webbläsaren om du vill visa programmet.
+1. Logga in med e-postadressen och lösen ordet som du använde i [föregående självstudie](active-directory-b2c-tutorials-spa.md). Vid lyckad inloggning bör du se meddelandet `User 'Your Username' logged-in`.
 1. Klicka på knappen **anropa webb-API** . SPA får ett bemyndigande från Azure AD B2C och ansluter sedan till det skyddade webb-API: et för att visa innehållet på index sidan:
 
     ```Output
@@ -209,7 +209,7 @@ I den här självstudiekursen lärde du dig att:
 > [!div class="checklist"]
 > * Lägga till ett program för webb-API
 > * Konfigurera omfånget för ett webb-API
-> * Tilldela behörigheter till webb-API:et
+> * Ge behörigheter till webb-API:t
 > * Konfigurera exemplet för att använda programmet
 
 Nu när du har sett en SPA-begäran en resurs från ett skyddat webb-API, får du en djupare förståelse för hur dessa program typer interagerar med varandra och med Azure AD B2C.

@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Igenkänning av tal, Java Script (webbläsare) – tal service'
+title: 'Snabb start: identifiera tal, Java Script (webbläsare) – tal tjänst'
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om taligenkänning i JavaScript i en webbläsare med hjälp av Speech SDK
 services: cognitive-services
@@ -11,20 +11,20 @@ ms.topic: quickstart
 ms.date: 07/05/2019
 ms.author: fmegen
 ms.openlocfilehash: 77afdb491e4a6cee0a3d6861ea76f57502e56278
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71802436"
 ---
-# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Snabbstart: Taligenkänning i JavaScript i en webbläsare med hjälp av Speech SDK
+# <a name="quickstart-recognize-speech-in-javascript-in-a-browser-using-the-speech-sdk"></a>Snabb start: identifiera tal i Java Script i en webbläsare med hjälp av tal-SDK
 
 [!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 I den här artikeln lär du dig hur du skapar en webbplats med hjälp av JavaScript-bindningen i Cognitive Services Speech SDK för att transkribera tal till text.
 Programmet baseras på [tal-SDK för Java Script](https://aka.ms/csspeech/jsbrowserpackage).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En prenumerationsnyckel för taltjänsten. Se [testa tal tjänster kostnads fritt](get-started.md).
 * En PC eller Mac, med fungerande mikrofon.

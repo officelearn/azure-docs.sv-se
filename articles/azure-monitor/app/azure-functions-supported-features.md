@@ -12,16 +12,16 @@ ms.topic: reference
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
 ms.author: tilee
-ms.openlocfilehash: cf39c8b5e204493380c095519e0ff25c3ce19f68
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 46e7f5b5376622be9a05265942b6aceb38feebac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71959885"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372440"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Application Insights för Azure Functions stödda funktioner
 
-Azure Functions erbjuder [inbyggd integrering](https://docs.microsoft.com/azure/azure-functions/functions-monitoring) med Application Insights, som är tillgänglig via ILogger-gränssnittet. Nedan visas en lista över funktioner som stöds för närvarande. Granska Azure Functionss guide för att [komma igång](https://github.com/Azure/Azure-Functions/wiki/App-Insights).
+Azure Functions erbjuder [inbyggd integrering](../../azure-functions/functions-monitoring.md) med Application Insights, som är tillgänglig via ILogger-gränssnittet. Nedan visas en lista över funktioner som stöds för närvarande. Granska Azure Functionss guide för att [komma igång](../../azure-functions/functions-monitoring.md#enable-application-insights-integration).
 
 ## <a name="supported-features"></a>Funktioner som stöds
 
@@ -34,10 +34,10 @@ Azure Functions erbjuder [inbyggd integrering](https://docs.microsoft.com/azure/
 | &bull; undantag                   | Ja             | Ja               | 
 | &bull; prestanda räknare         | Ja             | Ja               |
 | &bull;-beroenden                   |                   |                   |               
-| &nbsp;&nbsp;&nbsp;&mdash; HTTP      |                 | Ja               | 
-| &nbsp;&nbsp;&nbsp;&mdash; ServiceBus|                 | Ja               | 
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 HTTP      |                 | Ja               | 
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 Service Bus|                 | Ja               | 
 | &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 EventHub  |                 | Ja               | 
-| &nbsp; @ NO__T-1 @ NO__T-2 @ NO__T-3 SQL       |                 | Ja               | 
+| &nbsp; @ no__t-1 @ no__t-2 @ no__t-3 SQL       |                 | Ja               | 
 | | | | 
 | **Funktioner som stöds**                |                   |                   |               
 | &bull; QuickPulse/LiveMetrics       | Ja             | Ja               | 
@@ -46,7 +46,7 @@ Azure Functions erbjuder [inbyggd integrering](https://docs.microsoft.com/azure/
 | &bull; pulsslag                   |                 | Ja               | 
 | | | | 
 | **Korrelation**                       |                   |                   |               
-| &bull; ServiceBus                     |                   | Ja               | 
+| &bull; Service Bus                     |                   | Ja               | 
 | EventHub-&bull;                       |                   | Ja               | 
 | | | | 
 | **Konfigurerbara**                      |                   |                   |           

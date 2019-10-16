@@ -5,14 +5,14 @@ author: mayurigupta13
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 10/03/2019
+ms.date: 10/13/2019
 ms.author: mayg
-ms.openlocfilehash: 182c93ea0b887242d142eda5aeb44b2749c7ac66
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: f535a681ac3508aafc2823bcc9b9ae7f22cc2d8e
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937562"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333035"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Ansluta till virtuella Azure-datorer efter redundansväxling från lokal plats 
 
@@ -77,8 +77,8 @@ Som ett alternativ till att tilldela en offentlig IP-adress manuellt till en vir
 
 Om du vill ange den interna IP-adressen för en virtuell Azure-dator efter redundansväxlingen har du ett par alternativ:
 
-- **Behåll samma IP-adress**: Du kan använda samma IP-adress på den virtuella Azure-datorn som den som du allokerat till den lokala datorn.
-- **Använd en annan IP-adress**: Du kan använda en annan IP-adress för den virtuella Azure-datorn.
+- **Behåll samma IP-adress**: du kan använda samma IP-adress på den virtuella Azure-datorn som den som du allokerat till den lokala datorn.
+- **Använd en annan IP-adress**: du kan använda en annan IP-adress för den virtuella Azure-datorn.
 
 
 ## <a name="retain-ip-addresses"></a>Behåll IP-adresser
@@ -91,7 +91,7 @@ Site Recovery låter dig behålla samma IP-adresser vid växling till Azure. Om 
 
 Att behålla IP-adresser kräver följande steg:
 
-- I egenskaperna för den lokala datorn anger du nätverks-och IP-adresser för den virtuella Azure-datorn för att spegla den lokala inställningen.
+- I beräknings &ens nätverks egenskaper för det replikerade objektet, anger du nätverks-och IP-adresser för den virtuella Azure-datorn för att spegla den lokala inställningen.
 - Undernät måste hanteras som en del av haveri återställnings processen. Du behöver ett Azure VNet för att matcha det lokala nätverket och efter att nätverks vägar för redundans måste ändras för att återspegla att under nätet har flyttats till Azure och nya IP-adress platser.  
 
 ### <a name="failover-example"></a>Exempel på redundans
@@ -120,7 +120,7 @@ För att behålla adresserna är det här det som de gör.
     > Beroende på program krav kan en VNet-till-VNet-anslutning konfigureras före redundans, som en manuell steg/skriptad steg-eller Azure Automation-Runbook i en Site Recovery [återställnings plan](site-recovery-create-recovery-plans.md)eller efter att redundansväxlingen har slutförts.
 
 4. Innan redundansväxlingen, på dator egenskaperna i Site Recovery, anger de mål-IP-adressen till den lokala datorns adress, enligt beskrivningen i nästa procedur.
-5. Efter redundansväxlingen skapas de virtuella Azure-datorerna med samma IP-adress. Sparbanken ansluter från **Azure-nätverket** till att **återställa nätverkets** VNet med en 
+5. Efter redundansväxlingen skapas de virtuella Azure-datorerna med samma IP-adress. Sparbanken ansluter från **Azure-nätverket** till att **återställa nätverks** -VNet med VNet-peering (med överförings anslutning aktiverat).
 6. På plats måste Sparbanken göra ändringar i nätverket, inklusive ändra vägar för att avspegla att 192.168.1.0/24 har flyttats till Azure.  
 
 **Infrastruktur före redundans**

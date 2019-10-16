@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 04/03/2019
+ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 57070b297446badb92ae1df4c435dd54cfe26823
-ms.sourcegitcommit: d4c9821b31f5a12ab4cc60036fde00e7d8dc4421
+ms.openlocfilehash: 622b4e53be68025ad9553ce604041d14885bb2b2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71710185"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330830"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>Förbereda och anpassa en VHD-huvudavbildning
 
@@ -62,11 +62,25 @@ Convert-VHD –Path c:\\test\\MY-VM.vhdx –DestinationPath c:\\test\\MY-NEW-VM.
 
 ## <a name="software-preparation-and-installation"></a>Förberedelse av program vara och installation
 
-Det här avsnittet beskriver hur du förbereder och installerar FSLogix, Windows Defender och andra vanliga program. 
+Det här avsnittet beskriver hur du förbereder och installerar FSLogix och Windows Defender, samt några grundläggande konfigurations alternativ för appar och din avbildnings register. 
 
-Om du installerar Office 365 ProPlus och OneDrive på den virtuella datorn, se [installera Office på en huvud-VHD-avbildning](install-office-on-wvd-master-image.md). Följ länken i nästa steg i artikeln för att gå tillbaka till den här artikeln och slutföra huvud-VHD-processen.
+Om du installerar Office 365 ProPlus och OneDrive på den virtuella datorn går du till [installera Office på en huvud-VHD-avbildning](install-office-on-wvd-master-image.md) och följer anvisningarna där du installerar apparna. När du är klar går du tillbaka till den här artikeln.
 
 Om dina användare behöver åtkomst till vissa LOB-program rekommenderar vi att du installerar dem när du har slutfört det här avsnittets instruktioner.
+
+### <a name="set-up-user-profile-container-fslogix"></a>Konfigurera användar profil behållare (FSLogix)
+
+Om du vill inkludera FSLogix-behållaren som en del av avbildningen följer du anvisningarna i [skapa en profil behållare för en adresspool med hjälp av en fil resurs](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i FSLogix-behållaren med [den här snabb](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)starten.
+
+### <a name="configure-windows-defender"></a>Konfigurera Windows Defender
+
+Om Windows Defender är konfigurerat på den virtuella datorn kontrollerar du att det har kon figurer ATS för att inte genomsöka hela innehållet i VHD-och VHDX-filer under bilagan.
+
+Den här konfigurationen tar bara bort skanning av VHD-och VHDX-filer under den bifogade filen, men påverkar inte genomsökningen i real tid.
+
+Mer detaljerad information om hur du konfigurerar Windows Defender på Windows Server finns i [Konfigurera Windows Defender Antivirus-undantag i Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
+
+Mer information om hur du konfigurerar Windows Defender för att undanta vissa filer från genomsökning finns i [Konfigurera och validera undantag baserat på fil namns tillägg och mappens plats](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="disable-automatic-updates"></a>Inaktivera automatiska uppdateringar
 
@@ -88,20 +102,6 @@ Kör det här kommandot för att ange en startlayout för Windows 10-datorer.
 ```batch
 reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer" /v SpecialRoamingOverrideAllowed /t REG_DWORD /d 1 /f
 ```
-
-### <a name="set-up-user-profile-container-fslogix"></a>Konfigurera användar profil behållare (FSLogix)
-
-Om du vill inkludera FSLogix-behållaren som en del av avbildningen följer du anvisningarna i [skapa en profil behållare för en adresspool med hjälp av en fil resurs](create-host-pools-user-profile.md#configure-the-fslogix-profile-container). Du kan testa funktionerna i FSLogix-behållaren med [den här snabb](https://docs.microsoft.com/en-us/fslogix/configure-cloud-cache-tutorial)starten.
-
-### <a name="configure-windows-defender"></a>Konfigurera Windows Defender
-
-Om Windows Defender är konfigurerat på den virtuella datorn kontrollerar du att det har kon figurer ATS för att inte genomsöka hela innehållet i VHD-och VHDX-filer under bilagan.
-
-Den här konfigurationen tar bara bort skanning av VHD-och VHDX-filer under den bifogade filen, men påverkar inte genomsökningen i real tid.
-
-Mer detaljerad information om hur du konfigurerar Windows Defender på Windows Server finns i [Konfigurera Windows Defender Antivirus-undantag i Windows Server](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus).
-
-Mer information om hur du konfigurerar Windows Defender för att undanta vissa filer från genomsökning finns i [Konfigurera och validera undantag baserat på fil namns tillägg och mappens plats](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus).
 
 ### <a name="configure-session-timeout-policies"></a>Konfigurera tids gräns principer för sessioner
 
@@ -225,7 +225,7 @@ Följande anvisningar visar hur du överför huvud avbildningen till ett Azure S
 Nu när du har en avbildning kan du skapa eller uppdatera värdar för pooler. Mer information om hur du skapar och uppdaterar värdbaserade pooler finns i följande artiklar:
 
 - [Skapa en värdbaserad pool med en Azure Resource Manager-mall](create-host-pools-arm-template.md)
-- [Självstudier: Skapa en värdbaserad pool med Azure Marketplace @ no__t-0
+- [Självstudie: skapa en värdbaserad pool med Azure Marketplace](create-host-pools-azure-marketplace.md)
 - [Skapa en värdbaserad pool med PowerShell](create-host-pools-powershell.md)
 - [Skapa en profil behållare för en värd-pool med en fil resurs](create-host-pools-user-profile.md)
 - [Konfigurera belastnings Utjämnings metoden för Windows Virtual Desktop](configure-host-pool-load-balancing.md)

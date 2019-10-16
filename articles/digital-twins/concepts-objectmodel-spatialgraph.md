@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 67a4aceb157ee3fe1b1d1553efd587a0f2838d88
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 1186fec8d50d7e986d1c613cd96f741c34ca181a
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950013"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372607"
 ---
 # <a name="understand-digital-twins-object-models-and-spatial-intelligence-graph"></a>Förstå digitala objekt modeller och spatial Intelligence-diagram
 
@@ -78,14 +78,14 @@ När du har distribuerat digitala dubbla från [Azure Portal](https://portal.azu
 https://YOUR_INSTANCE_NAME.YOUR_LOCATION.azuresmartspaces.net/management/swagger
 ```
 
-| Name | Ersätt med |
+| Namn | Ersätt med |
 | --- | --- |
 | YOUR_INSTANCE_NAME | Namnet på Digital Twins-instansen |
 | YOUR_LOCATION | Den serverregion som instansen finns i |
 
  Det fullständiga URL-formatet visas i den här bilden.
 
-(![Digitalt sammanflätade Portal hanterings-API](media/concepts/digital-twins-spatial-graph-management-api-url.png)] (Media/Concepts/Digital-Twins-spatial-Graph-Management-API-URL. png # Lightbox)
+[1Digital – dubbla Portal hanterings-API @no__t](media/concepts/digital-twins-spatial-graph-management-api-url.png)](media/concepts/digital-twins-spatial-graph-management-api-url.png#lightbox)
 
 Mer information om hur du använder spatialdata i spatial Intelligence finns i förhands granskning av Azure Digitals hanterings-API: er.
 

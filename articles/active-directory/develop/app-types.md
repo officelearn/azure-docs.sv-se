@@ -1,6 +1,6 @@
 ---
-title: Programtyper i v1.0 | Azure
-description: Beskriver vilka typer av appar och scenarier som stöds av Azure Active Directory v2.0-slutpunkten.
+title: Program typer i v 1.0 | Azure
+description: Beskriver de typer av appar och scenarier som stöds av Azure Active Directory v 2.0-slutpunkten.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,69 +17,69 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efed9e35aed729c9efa39b0772b681d8c53ba7b8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 72fab8a51f1ea1b9c7bda14d825dad538f96cde6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65540652"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374051"
 ---
-# <a name="application-types-in-v10"></a>Programtyper i v1.0
+# <a name="application-types-in-v10"></a>Program typer i v 1.0
 
-Azure Active Directory (Azure AD) stöder autentisering för en mängd olika moderna apparkitekturer alla baserat på branschstandardprotokollen OAuth 2.0 eller OpenID Connect.
+Azure Active Directory (Azure AD) stöder autentisering för en mängd moderna app-arkitekturer, som alla baseras på bransch standard protokollen OAuth 2,0 eller OpenID Connect.
 
-Följande diagram illustrerar scenarier och programtyper, och hur du kan lägga till olika komponenter:
+Följande diagram illustrerar scenarier och program typer och hur olika komponenter kan läggas till:
 
 ![Programtyper och scenarier](./media/authentication-scenarios/application_types_and_scenarios.png)
 
-Det här är de fem primära programmet scenarier som stöds av Azure AD:
+Det här är de fem primära program scenarier som stöds av Azure AD:
 
-- **[Ensidesapplikation (SPA)](single-page-application.md)** : En användare måste logga in på ett enkelsidigt program som skyddas av Azure AD.
-- **[Webbläsarens webbprogram](web-app.md)** : En användare måste logga in till ett webbprogram som skyddas av Azure AD.
-- **[Internt program till webb-API](native-app.md)** : Ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att hämta resurser från ett webb-API som skyddas av Azure AD.
-- **[Webbprogram till webb-API](web-api.md)** : Ett webbprogram måste hämta resurser från ett webb-API som skyddas av Azure AD.
-- **[Daemon eller ett serverprogram till webb-API](service-to-service.md)** : En daemon-program eller ett serverprogram utan användargränssnitt för web måste hämta resurser från ett webb-API som skyddas av Azure AD.
+- **[Spa (Single-Side Application)](single-page-application.md)** : en användare måste logga in på ett program med en enda sida som skyddas av Azure AD.
+- **[Webbläsare till webb program](web-app.md)** : en användare måste logga in på ett webb program som skyddas av Azure AD.
+- **[Inbyggt program till webb-API](native-app.md)** : ett internt program som körs på en telefon, surfplatta eller dator måste autentisera en användare för att få resurser från ett webb-API som skyddas av Azure AD.
+- **[Webb program till webb-API](web-api.md)** : ett webb program måste hämta resurser från ett webb-API som skyddas av Azure AD.
+- **[Daemon-eller serverprogram till webb-API](service-to-service.md)** : ett daemon-program eller ett serverprogram utan webb användar gränssnitt behöver få resurser från ett webb-API som skyddas av Azure AD.
 
-Följ länkarna för att lära dig mer om varje typ av app och förstå de övergripande scenarierna innan du börjar arbeta med kod. Du kan också läsa om skillnader som du behöver veta när du skriver en viss app som fungerar med v1.0 slutpunkten eller v2.0-slutpunkten.
+Följ länkarna för att lära dig mer om varje typ av app och förstå de övergripande scenarierna innan du börjar arbeta med koden. Du kan också lära dig om skillnaderna som du behöver känna till när du skriver en viss app som fungerar med slut punkten eller v 2.0-slutpunkten för v 1.0.
 
 > [!NOTE]
-> V2.0-slutpunkten stöder inte alla Azure AD-scenarier och funktioner. Läs mer om för att avgöra om du ska använda v2.0-slutpunkten, [v2.0 begränsningar](active-directory-v2-limitations.md).
+> V 2.0-slutpunkten har inte stöd för alla Azure AD-scenarier och-funktioner. Läs om [v 2.0-begränsningar](active-directory-v2-limitations.md)för att avgöra om du ska använda v 2.0-slut punkten.
 
-Du kan utveckla appar och scenarier som beskrivs här på olika språk och plattformar. De är kompletterade med fullständig kodexempel i guiden kod-exempel: [v1.0 kodexempel efter scenario](sample-v1-code.md) och [v2.0-kodexempel efter scenario](sample-v2-code.md). Du kan också hämta kodexemplen direkt från motsvarande [GitHub-lagringsplatser för exemplet](https://github.com/Azure-Samples?q=active-directory).
+Du kan utveckla alla appar och scenarier som beskrivs här med olika språk och plattformar. De backas upp av fullständiga kod exempel som finns i kod exempel guiden: [v 1.0-kod exempel enligt](sample-v1-code.md) scenariot och [v 2.0 kod exempel](sample-v2-code.md). Du kan också hämta kod exemplen direkt från motsvarande [GitHub-exempel Arkiv](https://github.com/Azure-Samples?q=active-directory).
 
-Dessutom, om ditt program kräver en viss typ eller segment i ett scenario för slutpunkt till slutpunkt, kan i de flesta fall att funktionerna läggas oberoende av varandra. Till exempel om du har ett internt program som anropar ett webb-API kan du kan enkelt lägga till ett webbprogram som också anropar webb-API.
+Om ditt program behöver en viss del av ett scenario från slut punkt till slut punkt, i de flesta fall kan du lägga till funktioner oberoende av varandra. Om du till exempel har ett internt program som anropar ett webb-API kan du enkelt lägga till ett webb program som också anropar webb-API: et.
 
 ## <a name="app-registration"></a>Appregistrering
 
-### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Registrera en app som använder Azure AD v1.0-slutpunkten
+### <a name="registering-an-app-that-uses-the-azure-ad-v10-endpoint"></a>Registrera en app som använder Azure AD v 1.0-slutpunkten
 
-Alla program som outsources autentisering till Azure AD måste registreras i en katalog. Det här steget ska du tala om Azure AD om ditt program, inklusive URL: en där den finns, URL: en att skicka svar efter autentisering, URI: N att identifiera ditt program och mycket mer. Den här informationen krävs för några viktiga skäl:
+Alla program som utvärderar autentisering till Azure AD måste vara registrerade i en katalog. Det här steget omfattar att berätta för Azure AD om ditt program, inklusive URL: en där den finns, URL: en för att skicka svar efter autentisering, URI: n för att identifiera ditt program och mycket mer. Den här informationen krävs för några viktiga orsaker:
 
-* Azure AD behöver kommunicera med programmet vid hantering av inloggnings- eller utbyte token. Informationen som skickas mellan Azure AD och programmet innehåller följande:
+* Azure AD måste kommunicera med programmet vid hantering av inloggnings-eller utbytes-token. Informationen som skickas mellan Azure AD och programmet innehåller följande:
   
-  * **Program-ID-URI** -ID för ett program. Det här värdet skickas till Azure AD under autentiseringen för att indikera vilket program anroparen vill ha en token för. Dessutom inkluderas det här värdet i token så att programmet vet att det var det avsedda målet.
-  * **Svars-URL** och **omdirigerings-URI** – för en webb-API eller ett webbprogram, svars-URL är den plats där Azure AD skickar autentiseringssvaret, inklusive en token om autentiseringen lyckades. För ett internt program är omdirigerings-URI en unik identifierare till vilken Azure AD omdirigerar användaragenten i ett OAuth 2.0-begäran.
-  * **Program-ID** -ID för ett program som genereras av Azure AD när programmet har registrerats. När du begär en auktoriseringskod eller token, skickas det program-ID och nyckel till Azure AD under autentiseringen.
-  * **Nyckeln** -nyckeln som ska skickas tillsammans med ett program-ID när du autentiserar till Azure AD att anropa ett webb-API.
-* Azure AD behöver att säkerställa att programmet har behörigheterna som krävs för att komma åt dina katalogdata, andra program i din organisation, och så vidare.
+  * **Program-ID-URI** -identifieraren för ett program. Det här värdet skickas till Azure AD under autentiseringen för att ange vilket program som anroparen vill ha en token för. Dessutom ingår det här värdet i token så att programmet vet att det är det avsedda målet.
+  * **Svars-URL** och **omdirigerings-URI** – för ett webb-API eller webb program är SVARs-URL: en den plats där Azure AD kommer att skicka autentiserings svaret, inklusive en token om autentiseringen lyckades. För ett internt program är omdirigerings-URI: n en unik identifierare som Azure AD ska omdirigera användar agenten till i en OAuth 2,0-begäran.
+  * **Program-ID** : ID för ett program, som genereras av Azure AD när programmet registreras. När du begär en auktoriseringskod eller token skickas programmets ID och nyckel till Azure AD under autentiseringen.
+  * **Nyckel** – nyckeln som skickas tillsammans med ett program-ID när du autentiserar till Azure AD för att anropa ett webb-API.
+* Azure AD måste se till att programmet har de behörigheter som krävs för att komma åt dina katalog data, andra program i din organisation och så vidare.
 
-Mer information lär du dig hur du [registrera en app](quickstart-register-app.md).
+Mer information finns i så här [registrerar du en app](quickstart-register-app.md).
 
-## <a name="single-tenant-and-multi-tenant-apps"></a>Appar för enstaka klientorganisationer och flera innehavare
+## <a name="single-tenant-and-multi-tenant-apps"></a>Appar för en enda klient och flera innehavare
 
-Etablering blir tydligare när du förstår att det finns två typer av program som kan utvecklas och integrerad med Azure AD:
+Etableringen blir tydligare när du förstår att det finns två kategorier av program som kan utvecklas och integreras med Azure AD:
 
-* **Program för klienter med enkel** – en enda klient-programmet är avsett att användas i en organisation. Det här är vanligtvis line-of-business (LoB) program som skrivits av företagsutvecklare. En enda klient behöver bara användas av användare i en katalog och därför kan den bara behöver etableras i en katalog. Programmen registreras vanligtvis av en utvecklare i organisationen.
-* **Program med flera innehavare** -program med flera innehavare är avsedd att användas i många organisationer är inte bara en organisation. Det kallas vanligen för SaaS-webbprogram (Software as a Service) och skrivs av en oberoende programvaruleverantör (ISV). Program för flera innehavare måste tillhandahållas i varje katalog där de ska användas, vilket kräver att användaren eller administratören tillstånd att registrera dem. Medgivandeprocessen startar när ett program har registrerats i katalogen och ges åtkomst till Graph API eller kanske någon annan webb-API. När en användare eller administratör från en annan organisation registrerar sig att använda programmet, visas en dialogruta som visar de behörigheter som programmet kräver. Användaren eller administratören kan sedan godkänna att programmet, vilket ger programmet åtkomst till den angivna data och slutligen registrerar programmet i sin katalog. Mer information finns i [översikt över ramverket för medgivande](consent-framework.md).
+* **Enda klient program** – ett enda klient program är avsett att användas i en organisation. Detta är vanligt vis branschspecifika program (LoB) som skrivits av en företags utvecklare. Ett enda klient program behöver bara användas av användare i en katalog och därför behöver det bara tillhandahållas i en katalog. De här programmen registreras vanligt vis av en utvecklare i organisationen.
+* **Program för flera innehavare** – ett program med flera innehavare är avsett att användas i många organisationer, inte bara en organisation. Det kallas vanligen för SaaS-webbprogram (Software as a Service) och skrivs av en oberoende programvaruleverantör (ISV). Program med flera klienter måste tillhandahållas i varje katalog där de ska användas, vilket kräver att användaren eller administratören registrerar sig för att registrera dem. Medgivandeprocessen startar när ett program har registrerats i katalogen och ges åtkomst till Graph API eller kanske någon annan webb-API. När en användare eller administratör från en annan organisation registrerar sig för att använda programmet visas en dialog ruta som visar de behörigheter som krävs för programmet. Användaren eller administratören kan sedan godkänna programmet, vilket ger programmet åtkomst till angivna data, och registrerar slutligen programmet i sin katalog. Mer information finns i [Översikt över medgivande ramverket](consent-framework.md).
 
-### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Ytterligare överväganden när du utvecklar en eller flera klient apps
+### <a name="additional-considerations-when-developing-single-tenant-or-multi-tenant-apps"></a>Ytterligare överväganden när du utvecklar en enskild klient eller appar för flera klient organisationer
 
-Vissa ytterligare överväganden uppstå när du utvecklar ett program för flera klienter i stället för en enskild klient-program. Till exempel om du gör ditt program tillgängligt för användare i flera kataloger, måste en mekanism för att avgöra vilken klientorganisation som de finns i. En enskild klient behöver bara titta i sin egen katalog för en användare, även om ett program för flera innehavare behöver identifiera en viss användare från alla kataloger i Azure AD. Om du vill utföra den här uppgiften, tillhandahåller Azure AD en gemensam autentiseringsslutpunkt där alla program med flera innehavare kan dirigera inloggningsförfrågningar, i stället för en klientspecifik slutpunkt. Den här slutpunkten är https://login.microsoftonline.com/common för alla kataloger i Azure AD, medan en klientspecifik slutpunkt kan vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Vanliga slutpunkten är särskilt viktigt att tänka på när du utvecklar ditt program eftersom du behöver den nödvändiga logiken för att hantera flera klienter under inloggning, utloggning, och tokenvalidering.
+Vissa ytterligare överväganden uppstår när du utvecklar ett program med flera klienter i stället för ett enda klient program. Om du till exempel gör ditt program tillgängligt för användare i flera kataloger, behöver du en mekanism för att avgöra vilken klient de befinner sig i. Ett enda klient program behöver bara titta i sin egen katalog för en användare, medan ett program med flera innehavare måste identifiera en viss användare från alla kataloger i Azure AD. För att utföra den här uppgiften tillhandahåller Azure AD en gemensam autentiserings-slutpunkt där ett program med flera klienter kan dirigera inloggnings begär Anden, i stället för en klient specifik slut punkt. Den här slut punkten är https://login.microsoftonline.com/common för alla kataloger i Azure AD, medan en klient särskild slut punkt kan vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Den vanliga slut punkten är särskilt viktig att tänka på när du utvecklar ditt program eftersom du behöver den nödvändiga logiken för att hantera flera klienter vid inloggning, utloggning och verifiering av token.
 
-Om du utvecklar för närvarande en enda klient-program, men vill göra den tillgänglig för många organisationer, kan du enkelt ändra programmet och dess konfiguration i Azure AD för att göra det flera innehavare kan. Dessutom använder Azure AD samma signeringsnyckeln för alla token i alla kataloger om du tillhandahåller autentisering i en enda klient eller program med flera innehavare.
+Om du för närvarande utvecklar ett enda klient program, men vill göra det tillgängligt för många organisationer, kan du enkelt göra ändringar i programmet och dess konfiguration i Azure AD så att det kan användas med flera innehavare. Dessutom använder Azure AD samma signerings nyckel för alla tokens i alla kataloger, oavsett om du tillhandahåller autentisering i en enda klient eller ett program för flera innehavare.
 
-Varje scenario som beskrivs i det här dokumentet innehåller ett avsnitt som beskriver dess etablering krav. Mer detaljerad information om att etablera ett program i Azure AD, samt skillnaderna mellan enstaka och flera innehavare program finns i [integrera program med Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md) för mer information. Läs vidare för att förstå de vanliga Programscenarier i Azure AD.
+Varje scenario som anges i det här dokumentet innehåller ett underavsnitt som beskriver dess etablerings krav. Mer detaljerad information om hur du konfigurerar ett program i Azure AD och skillnaderna mellan en och flera klient program finns i [integrera program med Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md) för mer information. Fortsätt att läsa för att förstå vanliga program scenarier i Azure AD.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om andra Azure AD [grunder](authentication-scenarios.md)
+- Lär dig mer om grunderna i Azure AD- [autentisering](v1-authentication-scenarios.md)

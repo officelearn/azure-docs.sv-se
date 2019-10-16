@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: troubleshooting
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: e7c5786f4510e11d431f9e80dd52d1ffc3adb410
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 78a991fb310c635648513e6472543b9f5c01119d
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129122"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330854"
 ---
 # <a name="diagnose-and-solve-issues-in-your-time-series-insights-environment"></a>Diagnostisera och lösa problem i din Time Series Insightss miljö
 
@@ -34,17 +34,17 @@ Inga data i [Azure Time Series Insights Explorer](https://insights.timeseries.az
 
 ### <a name="cause-a-event-source-data-isnt-in-json-format"></a>Orsak till: händelse källans data är inte i JSON-format
 
-Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns [stöds JSON-former](./how-to-shape-query-json.md).
+Azure Time Series Insights stöder endast JSON-data. JSON-exempel finns i [JSON-former som stöds](./how-to-shape-query-json.md).
 
 ### <a name="cause-b-the-event-source-key-is-missing-a-required-permission"></a>Orsak B: händelse käll nyckeln saknar en nödvändig behörighet
 
 * För en IoT-hubb i Azure IoT Hub måste du ange den nyckel som har behörighet för **tjänst anslutning** . Någon av **iothubowner** -eller **-tjänst** principerna fungerar eftersom de båda har behörigheter för **tjänst anslutning** .
 
-   [![IoT Hub service Connect-behörigheter](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
+   [anslutnings behörigheter för @no__t 1IoT Hub service](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png)](media/diagnose-and-solve-problems/iothub-serviceconnect-permissions.png#lightbox)
 
 * För en Event Hub i Azure Event Hubs måste du ange den nyckel som har **avlyssnings** behörigheter. Någon av metoderna för att **läsa** eller **Hantera** fungerar eftersom båda har **avlyssnings** behörighet.
 
-   [![Lyssnar behörigheter för Event Hub](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
+   [![Event Hub-lyssnings behörigheter](media/diagnose-and-solve-problems/eventhub-listen-permissions.png)](media/diagnose-and-solve-problems/eventhub-listen-permissions.png#lightbox)
 
 ### <a name="cause-c-the-consumer-group-provided-isnt-exclusive-to-time-series-insights"></a>Orsak C: den angivna konsument gruppen är inte exklusiv för Time Series Insights
 
@@ -69,7 +69,7 @@ Begränsnings gränsen tillämpas baserat på miljöns SKU-typ och kapacitet. Al
 
 Följande bild visar en Time Series Insights miljö som har en SKU av S1 och en kapacitet på 3. Det kan intränga 3 000 000 händelser per dag.
 
-[![Aktuell kapacitet för miljö-SKU](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
+[![Environment SKU aktuell kapacitet](media/diagnose-and-solve-problems/environment-sku-current-capacity.png)](media/diagnose-and-solve-problems/environment-sku-current-capacity.png#lightbox)
 
 Anta till exempel att en miljö matar in meddelanden från en händelsehubben. Den dagliga ingångs frekvensen är ~ 67 000 meddelanden. Den här hastigheten översätter cirka 46 meddelanden varje minut. 
 
@@ -105,16 +105,16 @@ Se till att egenskaps namnet och värdet för tidsstämpeln uppfyller följande 
 
 Det enklaste sättet att se till att namnet på Tidsstämpelns egenskap är infångat och fungerar korrekt är att använda Time Series Insights Explorer. I Time Series Insights Explorer, med hjälp av diagrammet, väljer du en tids period när du har angett namnet på Tidsstämpelns egenskap. Högerklicka på markeringen och välj sedan alternativet för att **utforska händelser** .
 
-Den första kolumn rubriken ska vara namnet på din timestamp-egenskap. Bredvid ordet tidsstämpelbör du se **($TS)** .
+Den första kolumn rubriken ska vara namnet på din timestamp-egenskap. Bredvid ordet **tidsstämpel**bör du se **($TS)** .
 
 Du bör inte se följande värden:
 
-- *(abc)* : Anger att Time Series Insights läser data värden som strängar.
-- *Kalender ikon*: Anger att Time Series Insights läser data värdet som *datetime*.
-- *#* : Anger att Time Series Insights läser data värden som ett heltal.
+- *(ABC)* : anger att Time Series Insights läser data värden som strängar.
+- *Kalender ikon*: anger att Time Series Insights läser data värdet som *datetime*.
+- *#* : anger att Time Series Insights läser data värden som ett heltal.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du behöver hjälp startar du en konversation i [MSDN-forumet](https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights) eller [Stack Overflow](https://stackoverflow.com/questions/tagged/azure-timeseries-insights).
+- Läs om [hur du minimerar svars tiden i Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).
 
-- Om du behöver support alternativ använder du [Azure](https://azure.microsoft.com/support/options/)-supporten.
+- Lär dig [hur du skalar din Time Series Insightss miljö](time-series-insights-how-to-scale-your-environment.md).

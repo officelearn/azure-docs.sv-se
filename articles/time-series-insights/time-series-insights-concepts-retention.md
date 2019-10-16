@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.custom: seodec18
-ms.openlocfilehash: 5799974581ba74d3265f0a5a66f9b081ded9f800
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: 2939e37c891a6ecc0421062493cab2e5d79223b5
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71948211"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330917"
 ---
 # <a name="understand-data-retention-in-azure-time-series-insights"></a>Förstå data kvarhållning i Azure Time Series Insights
 
@@ -28,32 +28,31 @@ I den här artikeln beskrivs två inställningar som påverkar datakvarhållning
 
 > [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
-Var och en av dina Azure Time Series-miljöer har en inställning som styr **tiden för kvarhållning av data**. Värdet sträcker sig från 1 till 400 dagar. Data tas bort baserat på miljöns lagrings kapacitet eller varaktigheten för kvarhållning, beroende på vilket som kommer först.
+Var och en av dina Azure Time Series Insights miljöer har en inställning som styr **tiden för data lagring**. Värdet sträcker sig från 1 till 400 dagar. Data tas bort baserat på miljöns lagrings kapacitet eller varaktigheten för kvarhållning, beroende på vilket som kommer först.
 
-Dessutom har din Azure Time Series-miljö en **gräns för lagrings gränsen överskreds** . Den styr ingångs-och rensnings beteende när den maximala kapaciteten för en miljö nås. Du kan välja mellan två beteenden när du konfigurerar den:
+Dessutom har Azure Time Series Insights miljön en gräns för **lagrings gränsen överskreds** . Den styr ingångs-och rensnings beteende när den maximala kapaciteten för en miljö nås. Du kan välja mellan två beteenden när du konfigurerar den:
 
 - **Rensa gamla data** (standard)  
 - **Pausa ingress**
 
 > [!NOTE]
 > Som standard konfigureras kvarhållning för att **Rensa gamla data**när du skapar en ny miljö. Den här inställningen kan växlas efter behov efter att du skapat den Azure Portal, på sidan **Konfigurera** i Time Series Insightss miljön.
+> * Information om hur du konfigurerar bevarande principer finns [i Konfigurera kvarhållning i Time Series Insights](time-series-insights-how-to-configure-retention.md).
 
-Information om hur du växlar kvarhållning av funktioner finns [i Konfigurera kvarhållning i Time Series Insights](time-series-insights-how-to-configure-retention.md).
-
-Jämför data lagrings beteendet:
+Båda principerna för data lagring beskrivs mer detaljerat nedan.
 
 ## <a name="purge-old-data"></a>Rensa gamla data
 
-- Detta är standard beteendet för Time Series Insights miljöer.  
-- Det här beteendet rekommenderas när användarna alltid vill se sina *senaste data* i sin Time Series Insightss miljö.
-- Med det här beteendet *rensas* data efter miljöns gränser (kvarhållning, storlek eller antal, beroende på vilket som kommer först). Kvarhållning är inställt på 30 dagar som standard.
-- De äldsta inmatade data rensas först (FIFO-metod).
+- **Rensa gamla data** är standardinställningen för Azure Time Series Insights miljöer.  
+- **Rensa gamla data** rekommenderas om användarna alltid vill se sina *senaste data* i sin Time Series Insightss miljö.
+- Inställningen **Rensa gammal data** *rensar* data när miljöns gränser (kvarhållning, storlek eller antal, beroende på vad som kommer först) har nåtts. Kvarhållning är inställt på 30 dagar som standard.
+- De äldsta inmatade data rensas först (metoden "först in först ut").
 
 ### <a name="example-one"></a>Exempel en
 
 Överväg en exempel miljö med kvarhållning, Fortsätt ingångs- **och rensa gamla data**:
 
-**Tiden för datakvarhållning** anges till 400 dagar. **Kapaciteten** anges till S1-enhet, som innehåller 30 GB total kapacitet.   Vi antar att inkommande data ackumuleras till 500 MB varje dag i genomsnitt. Den här miljön kan bara behålla 60 dagar av data som har fått frekvensen av inkommande data, eftersom den maximala kapaciteten uppnås med 60 dagar. Inkommande data ackumuleras som: 500 MB varje dag x 60 dagar = 30 GB.
+**Tiden för datakvarhållning** anges till 400 dagar. **Kapaciteten** anges till S1-enhet, som innehåller 30 GB total kapacitet. Vi antar att inkommande data ackumuleras till 500 MB varje dag i genomsnitt. Den här miljön kan bara behålla 60 dagar av data som har fått frekvensen av inkommande data, eftersom den maximala kapaciteten uppnås med 60 dagar. Inkommande data ackumuleras som: 500 MB varje dag x 60 dagar = 30 GB.
 
 På 61st dag visar miljön de nyaste data, men rensar de äldsta data som är äldre än 60 dagar. Rensningen gör plats för den nya data strömningen i, så att nya data kan fortsätta att utforskas. Om användaren vill behålla data längre kan de öka storleken på miljön genom att lägga till ytterligare enheter eller så kan de skicka mindre data.  
 
@@ -63,10 +62,10 @@ Betrakta en miljö som även konfigurerat kvarhållning, Fortsätt ingångs- **o
 
 När den här miljöns dagliga ingångs hastighet överskrider 0,166 GB per dag, kan data inte lagras i 180 dagar, eftersom vissa data rensas. Överväg samma miljö under tiden som tiden är upptagen. Anta att miljöns ingångs frekvens kan öka till en genomsnittlig 0,189 GB per dag. I den upptagna tids perioden behålls cirka 158 dagars data (30 GB/0.189 = 158,73 dagars kvarhållning). Den här tiden är kortare än den önskade tids perioden för datakvarhållning.
 
-## <a name="pause-ingress"></a>Pausa inkommande
+## <a name="pause-ingress"></a>Pausa ingress
 
 - Inställningen **pausa** inaktivitet är utformad för att säkerställa att data inte rensas om storlek och antal gränser uppnås före deras kvarhållningsperiod.  
-- **Pausa** ingångar ger ytterligare tid för användarna att öka kapaciteten för miljön innan data rensas på grund av överträdelse av kvarhållningsperioden
+- **Pausa** ingångar ger ytterligare tid för användarna att öka kapaciteten för miljön innan data rensas på grund av överträdelse av kvarhållningsperioden.
 - Det hjälper dig att skydda dig mot data förlust, men du kan skapa en möjlighet att förlora dina senaste data om ingressen pausas bortom händelse källans kvarhållningsperiod.
 - När en Miljös maximala kapacitet har nåtts pausar dock miljön data ingångs tiden tills följande ytterligare åtgärder inträffar:
 
@@ -93,8 +92,10 @@ I den påverkade Event Hubs bör du överväga att justera egenskapen för **kva
 
 Om inga egenskaper har kon figurer ATS på händelse källan (`timeStampPropertyName`) Time Series Insights standardvärdet för att ange tidsstämpeln för ankomst till händelsehubben som X-axeln. Om `timeStampPropertyName` har kon figurer ATS att vara något annat, söker miljön efter den konfigurerade `timeStampPropertyName` i data paketet när händelser parsas.
 
-Om du behöver skala upp din miljö för att hantera ytterligare kapacitet eller öka längden på kvarhållning, se [skala Time Series Insights-miljön](time-series-insights-how-to-scale-your-environment.md) för mer information.  
+Läs [hur du skalar din Time Series Insights-miljö](time-series-insights-how-to-scale-your-environment.md) för att skala din miljö för att hantera ytterligare kapacitet eller öka längden på kvarhållning.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - Information om hur du konfigurerar eller ändrar inställningar för datakvarhållning finns [i Konfigurera kvarhållning i Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+- Läs mer om hur du [minimerar svars tiden i Azure Time Series Insights](time-series-insights-environment-mitigate-latency.md).

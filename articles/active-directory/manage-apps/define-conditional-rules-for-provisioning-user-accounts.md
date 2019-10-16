@@ -16,10 +16,10 @@ ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 4bb1ed48d501ca3166e0b906c622507b59ef059a
-ms.sourcegitcommit: fa4852cca8644b14ce935674861363613cf4bfdf
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/09/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "70812681"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Attributbaserade program etablering med omfångs filter
@@ -65,7 +65,7 @@ Enligt det här omfångs filtret måste användarna uppfylla följande kriterier
 Definitions områdes filter konfigureras som en del av mappningar av mappar för varje Azure AD-anslutning för användar etablering. Följande procedur förutsätter att du redan har konfigurerat automatisk etablering för [ett av de program som stöds](../saas-apps/tutorial-list.md) och lägger till ett omfångs filter till det.
 
 ### <a name="create-a-scoping-filter"></a>Skapa ett omfångs filter
-1. I [Azure Portal](https://portal.azure.com)går du**till avsnittet** **Azure Active Directory** > **program för företags program** > .
+1. I [Azure Portal](https://portal.azure.com)går du till avsnittet **Azure Active Directory** > **företags program** > **alla program** .
 
 2. Välj det program som du har konfigurerat automatisk etablering för: till exempel "ServiceNow".
 
@@ -79,21 +79,21 @@ Definitions områdes filter konfigureras som en del av mappningar av mappar för
 
 7. Definiera en sats genom att välja ett källattribut **namn**, en **operator**och ett **Attributvärde** som ska matchas mot. Följande operatorer stöds:
 
-   a. **LIKA MED**. Sats returnerar true om det utvärderade attributet matchar värdet för Indatasträngen exakt (Skift läges känsligt).
+   a. **Lika med**. Sats returnerar true om det utvärderade attributet matchar värdet för Indatasträngen exakt (Skift läges känsligt).
 
-   b. **INTE LIKA MED**. Sats returnerar true om det utvärderade attributet inte matchar värdet för Indatasträngen (Skift läges känsligt).
+   b. **inte lika med**. Sats returnerar true om det utvärderade attributet inte matchar värdet för Indatasträngen (Skift läges känsligt).
 
-   c. **ÄR SANT**. Sats returnerar true om det utvärderade attributet innehåller det booleska värdet true.
+   c. **är sant**. Sats returnerar true om det utvärderade attributet innehåller det booleska värdet true.
 
-   d. **ÄR FALSKT**. Sats returnerar true om det utvärderade attributet innehåller ett booleskt värde falskt.
+   d. **är falskt**. Sats returnerar true om det utvärderade attributet innehåller ett booleskt värde falskt.
 
-   e. **ÄR NULL**. Sats returnerar true om det utvärderade attributet är tomt.
+   e. **är null**. Sats returnerar true om det utvärderade attributet är tomt.
 
-   f. **ÄR INTE NULL**. Sats returnerar true om det utvärderade attributet inte är tomt.
+   f. **är inte null**. Sats returnerar true om det utvärderade attributet inte är tomt.
 
-   g. **REGEX-MATCHNING**. Sats returnerar true om det utvärderade attributet matchar ett mönster för reguljära uttryck. Exempel: ([1-9] [0-9]) matchar alla siffror mellan 10 och 99.
+   g. **regex-matchning**. Sats returnerar true om det utvärderade attributet matchar ett mönster för reguljära uttryck. Exempel: ([1-9] [0-9]) matchar alla siffror mellan 10 och 99.
 
-   h. **INGEN REGEX-MATCHNING**. Sats returnerar true om det utvärderade attributet inte matchar ett mönster för reguljära uttryck.
+   h. **ingen regex-matchning**. Sats returnerar true om det utvärderade attributet inte matchar ett mönster för reguljära uttryck.
 
 8. Välj **Lägg till ny omfångs sats**.
 

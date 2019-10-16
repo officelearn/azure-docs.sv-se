@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 167d880f82314fc3b5ade299442f04d62b5dacb9
-ms.sourcegitcommit: f272ba8ecdbc126d22a596863d49e55bc7b22d37
+ms.openlocfilehash: a847ba7d782b332d9cae7f83bc1278fea58b8811
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72274485"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330827"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>Session för konfiguration av virtuell värddator
 
@@ -302,10 +302,17 @@ Om du loggar in på Windows 10 Enterprise multi-session med ett administratörs 
 
 Om tids gränsen löper ut visas ett fel meddelande om att "Fjärrsessionen kopplades från eftersom det inte finns några åtkomst licenser för fjärr skrivbords klienten tillgängliga för den här datorn."
 
-Om något av dessa meddelanden visas innebär det att avbildningen inte har de senaste Windows-uppdateringarna installerade eller att du ställer in fjärr skrivbords licensierings läget **per användare**. Ta bort alla konfigurationer som anger den här principen och följ sedan stegen för att identifiera versionen av Windows 10 Enterprise multi-session och installera motsvarande uppdatering.  
+Om något av dessa meddelanden visas innebär det att avbildningen inte har de senaste Windows-uppdateringarna installerade eller att du ställer in fjärr skrivbords licensierings läget via en grup princip. Följ stegen i nästa avsnitt för att kontrol lera grup princip inställningen, identifiera versionen av Windows 10 Enterprise multi-session och installera motsvarande uppdatering.  
 
 >[!NOTE]
 >Windows Virtual Desktop kräver bara en klient åtkomst licens för klient organisation (CAL) när din värddator innehåller Windows Server-sessionsbaserade värdar. Information om hur du konfigurerar en klient åtkomst licens för fjärr skrivbords tjänster finns i [licens för klient åtkomst licenser](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license).
+
+### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>Inaktivera grup princip inställningen för fjärr skrivbords licensierings läge
+
+Kontrol lera grup princip inställningen genom att öppna grupprincip redigeraren på den virtuella datorn och gå till **Administrativa mallar** > **Windows-komponenter** > **Fjärrskrivbordstjänster** > **värd**för fjärrskrivbordssession @no __t – 7**licens** > **Ange licensierings läget för fjärr skrivbord**. Om grup princip inställningen är **aktive rad**ändrar du den till **inaktive rad**. Om den redan är inaktive rad lämnar du den som den är.
+
+>[!NOTE]
+>Om du anger grup princip via din domän inaktiverar du den här inställningen för principer som riktar sig mot de här Windows 10 Enterprise-datorer med flera sessioner.
 
 ### <a name="identify-which-version-of-windows-10-enterprise-multi-session-youre-using"></a>Identifiera vilken version av Windows 10 Enterprise multi-session som du använder
 

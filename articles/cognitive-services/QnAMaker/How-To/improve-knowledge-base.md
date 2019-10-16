@@ -8,14 +8,14 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/26/2019
+ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: e605f2ab0e79fa3d7d3ee3735f47776654566cb6
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 83d60487922e3355aab8e34f6a8409c529901d14
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71802336"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72328018"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>Använda aktiv inlärning för att förbättra kunskapsbasen
 
@@ -71,7 +71,7 @@ Aktiv inlärning är inaktiverat som standard. Aktivera det om du vill se föres
 
 1. Hitta QnA Maker tjänsten och växla sedan **aktiv inlärning**. 
 
-    [![På sidan tjänst inställningar växlar du till funktionen aktiv inlärning. Om du inte kan växla funktionen kan du behöva uppgradera tjänsten.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
+    [![On på sidan tjänst inställningar växlar du till funktionen aktiv inlärning. Om du inte kan växla funktionen kan du behöva uppgradera tjänsten.](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png)](../media/improve-knowledge-base/turn-active-learning-on-at-service-setting.png#lightbox)
 
     > [!Note]
     > Den exakta versionen på föregående bild visas som ett exempel. Din version kan vara annorlunda. 
@@ -84,15 +84,15 @@ Active Learning ändrar kunskaps basen eller Search Service när du har godkänt
 
 1. Om du vill se de föreslagna frågorna går du till sidan **Redigera** kunskaps bas och väljer **visnings alternativ**. Välj sedan **Visa aktiva utbildnings förslag**. 
 
-    [![I redigera-avsnittet i portalen väljer du Visa förslag för att se de aktiva alternativen för inlärnings nya frågor.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
+    [@no__t – 1On redigera-avsnittet i portalen väljer du Visa förslag för att se de aktiva alternativen för inlärnings nya frågor.](../media/improve-knowledge-base/show-suggestions-button.png)](../media/improve-knowledge-base/show-suggestions-button.png#lightbox)
 
 1. Filtrera kunskaps basen med fråge-och svars par för att bara visa förslag genom att välja **Filtrera efter förslag**.
 
-    [![Använd alternativet filtrera efter förslag för att bara visa de aktiva inlärnings alternativ som föreslås av den aktuella frågan.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
+    [@no__t – 1Use filter by Suggestions för att bara visa de aktiva inlärnings alternativ som föreslås av den aktuella frågan.](../media/improve-knowledge-base/filter-by-suggestions.png)](../media/improve-knowledge-base/filter-by-suggestions.png#lightbox)
 
-1. Varje QNA-par föreslår den nya frågans alternativ med en bock `✔` markering, för att acceptera frågan `x` eller för att avvisa förslagen. Markera kryss rutan för att lägga till frågan. 
+1. Varje QnA-par föreslår den nya frågans alternativ med en bock markering, `✔`, för att acceptera frågan eller en `x` för att avvisa förslagen. Markera kryss rutan för att lägga till frågan. 
 
-    [![Välj eller avvisa den aktiva inlärningens föreslagna fråge alternativ genom att markera den gröna bocken eller det röda ta bort-märket.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
+    [![Select eller avvisa den aktiva inlärningens föreslagna alternativ genom att markera den gröna bocken eller det röda ta bort-märket.](../media/improve-knowledge-base/accept-active-learning-suggestions.png)](../media/improve-knowledge-base/accept-active-learning-suggestions.png#lightbox)
 
     Du kan lägga till eller ta bort _alla förslag_ genom att välja **Lägg till alla** eller **Ignorera alla** i kontext verktygsfältet.
 
@@ -109,7 +109,7 @@ Active Learning ändrar kunskaps basen eller Search Service när du har godkänt
 
 En robot eller något annat klient program bör använda följande arkitektur flöde för att använda aktiv inlärning:
 
-* Bot [hämtar svaret från kunskaps basen](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) med GenerateAnswer-API: et med hjälp `top` av egenskapen för att få ett antal svar.
+* Robot [hämtar svaret från kunskaps basen](#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers) med GenerateAnswer-API: et, med egenskapen `top` för att få ett antal svar.
 * Bot avgör explicit feedback:
     * Filtrera ut låga resultat med din egen [anpassade affärs logik](#use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user).
     * I robot-eller klient programmet visar du en lista över möjliga svar på användaren och får användarens valda svar.
@@ -118,7 +118,7 @@ En robot eller något annat klient program bör använda följande arkitektur fl
 
 ### <a name="use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers"></a>Använd egenskapen Top i GenerateAnswer-begäran för att få flera matchande svar
 
-När du skickar en fråga till QNA Maker för ett svar anger `top` egenskapen för JSON-texten antalet svar som ska returneras. 
+När du skickar en fråga till QnA Maker för ett svar anger egenskapen `top` för JSON-texten antalet svar som ska returneras. 
 
 ```json
 {
@@ -130,7 +130,7 @@ När du skickar en fråga till QNA Maker för ett svar anger `top` egenskapen f�
 
 ### <a name="use-the-score-property-along-with-business-logic-to-get-list-of-answers-to-show-user"></a>Använd score-egenskapen tillsammans med affärs logiken för att få en lista med svar för att visa användare
 
-När klient programmet (t. ex. en chat-robot) tar emot svaret returneras de tre främsta frågorna. `score` Använd egenskapen för att analysera avståndet mellan poängen. Det här närhets intervallet bestäms av din egen affärs logik. 
+När klient programmet (t. ex. en chat-robot) tar emot svaret returneras de tre främsta frågorna. Använd egenskapen `score` för att analysera avståndet mellan poängen. Det här närhets intervallet bestäms av din egen affärs logik. 
 
 ```json
 {
@@ -186,21 +186,21 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|Egenskap för HTTP-begäran|Name|type|Syfte|
+|Egenskap för HTTP-begäran|Namn|Typ|Syfte|
 |--|--|--|--|
 |URL-rutt parameter|Kunskaps bas-ID|sträng|Din kunskaps bas-GUID.|
 |Anpassad under domän|Resurs namn för QnAMaker|sträng|Resurs namnet används som anpassad under domän för QnA Maker. Detta är tillgängligt på sidan inställningar när du har publicerat kunskaps basen. Den visas som `host`.|
-|Huvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är:`application/json`|
-|Huvud|Authorization|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
+|Huvud|Content-Type|sträng|Medie typen för den brödtext som skickas till API: et. Standardvärdet är: `application/json`|
+|Huvud|Autentisering|sträng|Din slut punkts nyckel (EndpointKey XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX).|
 |Publicera brödtext|JSON-objekt|JSON|Feedback om utbildningen|
 
 JSON-texten har flera inställningar:
 
-|JSON-Body-egenskap|type|Syfte|
+|JSON-Body-egenskap|Typ|Syfte|
 |--|--|--|--|
-|`feedbackRecords`|array|Lista över feedback.|
-|`userId`|sträng|Användar-ID för den person som godkänner de föreslagna frågorna. Formatet för användar-ID är upp till dig. En e-postadress kan till exempel vara ett giltigt användar-ID i din arkitektur. Valfritt.|
-|`userQuestion`|sträng|Den exakta texten för användarens fråga. Obligatoriskt.|
+|`feedbackRecords`|matris|Lista över feedback.|
+|`userId`|sträng|Användar-ID för den person som godkänner de föreslagna frågorna. Formatet för användar-ID är upp till dig. En e-postadress kan till exempel vara ett giltigt användar-ID i din arkitektur. Valfri.|
+|`userQuestion`|sträng|Den exakta texten för användarens fråga. Krävs.|
 |`qnaID`|nummer|ID för fråga som finns i [GenerateAnswer-svaret](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Ett exempel på en JSON-text ser ut så här:
@@ -221,7 +221,7 @@ Ett lyckat svar returnerar statusen 204 och ingen JSON-svars text.
 
 ### <a name="batch-many-feedback-records-into-a-single-call"></a>Gruppera många återkopplings poster till ett enda anrop
 
-I program på klient sidan, till exempel en bot, kan du lagra data och sedan skicka många poster i en enda JSON-text i `feedbackRecords` matrisen. 
+I program på klient sidan, till exempel en bot, kan du lagra data och sedan skicka många poster i en enda JSON-text i matrisen `feedbackRecords`. 
 
 Ett exempel på en JSON-text ser ut så här:
 
@@ -368,9 +368,9 @@ async callTrain(stepContext){
 
 ## <a name="active-learning-is-saved-in-the-exported-knowledge-base"></a>Aktiv inlärning sparas i den exporterade kunskaps basen
 
-När du har aktiverat aktiv inlärning i appen och du exporterar appen, `SuggestedQuestions` behåller kolumnen i TSV-filen de aktiva inlärnings data. 
+När du har aktiverat aktiv inlärning i appen och du exporterar appen, behåller kolumnen `SuggestedQuestions` i TSV-filen de aktiva inlärnings data. 
 
-Kolumnen är ett JSON-objekt med information om implicit, `autosuggested`och explicit, `usersuggested` feedback. `SuggestedQuestions` Ett exempel på detta JSON-objekt för en enskild användare som har skickat `help` frågan av är:
+Kolumnen `SuggestedQuestions` är ett JSON-objekt med information om implicit, `autosuggested` och explicit `usersuggested`-feedback. Ett exempel på det här JSON-objektet för en enskild användare som har skickat en fråga om `help` är:
 
 ```JSON
 [
@@ -390,7 +390,7 @@ Kolumnen är ett JSON-objekt med information om implicit, `autosuggested`och exp
 ```
 
 Du kan också använda nedladdnings-API: et för att granska dessa ändringar, med hjälp av REST eller någon av de språkbaserade SDK: erna:
-* [REST-API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
+* [REST API](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc)
 * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.knowledge.qnamaker.alterationsextensions.getasync?view=azure-dotnet)
 
 
@@ -398,7 +398,7 @@ När du importerar om den här appen fortsätter den aktiva inlärningen att sam
 
 
 
-## <a name="best-practices"></a>Bästa praxis
+## <a name="best-practices"></a>Bästa metoder
 
 För bästa praxis när du använder aktiv inlärning, se [metod tips](../Concepts/best-practices.md#active-learning).
 

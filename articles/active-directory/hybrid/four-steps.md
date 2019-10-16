@@ -13,12 +13,12 @@ ms.date: 06/20/2019
 ms.subservice: hybrid
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 36433aef75d38418cb74fcd195dc1e9e902f24a8
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 08db59e26a66aca57d65458a302c3c1de2e34a7b
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70124932"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373488"
 ---
 # <a name="four-steps-to-a-strong-identity-foundation-with-azure-active-directory"></a>Fyra steg till en stark identitets grund med Azure Active Directory
 
@@ -81,9 +81,9 @@ Azure AD-programproxy erbjuder följande fördelar:
 
 I moderna företag är IT-avdelningar ofta inte medvetna om alla moln program som används av användarna för att utföra sitt arbete. När IT-administratörer tillfrågas om hur många molnappar som de tror att deras anställda använder, i genomsnitt blir det 30 eller 40. I verkligheten är genomsnittet över 1 000 separata appar som används av anställda i din organisation. 80% av anställda använder icke-sanktionerade appar som ingen har granskat och kanske inte är kompatibla med dina principer för säkerhet och efterlevnad.
 
-[Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) kan hjälpa dig att identifiera användbara appar som är populära med användare som det kan sanktionera och lägga till i galleriet för företags program, så att användarna får nytta av funktioner som SSO och villkorlig åtkomst.
+[Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/what-is-cloud-app-security) (MCAS) kan hjälpa dig att identifiera användbara appar som är populära med användare som det kan sanktionera och lägga till i galleriet för företags program, så att användarna får till gång till funktioner som SSO och villkorlig åtkomst.
 
-*" **Cloud App Security** hjälper oss att se till att våra personer på rätt sätt använder våra moln-och SaaS-program, på ett sätt som har stöd för de grundläggande säkerhets principerna som skyddar Accenture*." --- [John Blasi, hanterings chef, informations säkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
+<em>"**Cloud App Security** hjälper oss att se till att våra personer på rätt sätt använder våra moln-och SaaS-program, på ett sätt som stöder de grundläggande säkerhets principerna som skyddar Accenture."</em> --- [John Blasi, hantera regissör, informations säkerhet, Accenture](https://customers.microsoft.com/story/accenture-professional-services-cloud-app-security)
 
 Förutom att upptäcka skugg-IT kan MCAS också fastställa risk nivån för appar, förhindra obehörig åtkomst till företags data, möjliga data läckage och andra säkerhets risker i programmen.
 
@@ -143,7 +143,7 @@ Azure ger rapporter som du och din organisation kan använda för att se till at
 
 Rapporten MFA [-inloggningar](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-reporting) innehåller information om MFA-användning och ger dig insikter om hur MFA arbetar i din organisation. Att ha till gång till inloggnings aktivitet (och granskningar och risk identifieringar) för Azure AD är avgörande för fel sökning, användnings analys och data utredning undersökningar.
 
-På samma sätt kan du använda [rapporten för lösen ords hantering](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) med självbetjäning för att fastställa vem som har (eller inte har) registrerat för SSPR.
+På samma sätt kan du använda [rapporten för lösen ords hantering med självbetjäning](https://docs.microsoft.com/azure/active-directory/authentication/howto-sspr-reporting) för att fastställa vem som har (eller inte har) registrerat för SSPR.
 
 ### <a name="self-service-app-management"></a>Hantering av självbetjänings program
 
@@ -172,7 +172,7 @@ Säkerhets loggar och-rapporter ger dig en elektronisk post med misstänkta akti
 
 När du funderar på hur du använder åtgärder finns det ett par olika administrations nivåer att tänka på. På den första nivån placeras administrations belastningen på dina globala administratörer. Använd alltid rollen global administratör, kan vara lämplig för mindre företag. Men för större organisationer med support personal och administratörer som ansvarar för vissa uppgifter, kan det vara en säkerhets risk att tilldela rollen global administratör eftersom den ger användarna möjlighet att hantera uppgifter som är över och efter vad de ska kunna utföra.
 
-I detta fall bör du överväga nästa nivå av administration. Med hjälp av Azure AD kan du ange slutanvändare som "begränsade administratörer" som kan hantera uppgifter i roller med lägre privilegier. Du kan till exempel tilldela supportavdelningen rollen som [säkerhets läsare](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#security-reader) för att ge dem möjlighet att hantera säkerhetsrelaterade funktioner med skrivskyddad åtkomst. Eller så kanske det är klokt att tilldela [](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#authentication-administrator) rollen som administratörs roll till enskilda användare för att ge dem möjlighet att återställa autentiseringsuppgifter som inte är lösen ord eller läsa och konfigurera Azure Service Health.
+I detta fall bör du överväga nästa nivå av administration. Med hjälp av Azure AD kan du ange slutanvändare som "begränsade administratörer" som kan hantera uppgifter i roller med lägre privilegier. Du kan till exempel tilldela supportavdelningen rollen som [säkerhets läsare](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#security-reader) för att ge dem möjlighet att hantera säkerhetsrelaterade funktioner med skrivskyddad åtkomst. Eller så kanske det är klokt att tilldela rollen som [Administratörs](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles#authentication-administrator) roll till enskilda användare för att ge dem möjlighet att återställa autentiseringsuppgifter som inte är lösen ord eller läsa och konfigurera Azure Service Health.
 
 Mer information finns i [Administratörs roll behörigheter i Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles).
 
@@ -227,7 +227,7 @@ Vi hoppas att det här dokumentet är en bra översikt över att upprätta en st
 
 Vi rekommenderar att du skriver ut följande check lista som referens när du påbörjar resan till en mer solid Identity Foundation i din organisation.
 
-### <a name="today"></a>Idag
+### <a name="today"></a>Dagens
 
 |Klart?|Objekt|
 |:-|:-|

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: rkarlin
-ms.openlocfilehash: c1c374977460de04d2339ba8c93019cf9152dbe3
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 44b3830465bf2b5aa06612aa868b086b120f1ece
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262705"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372281"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>Anslut data från hot Intelligence-leverantörer
 
@@ -50,7 +50,7 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 - [ThreatConnect-plattform](https://threatconnect.com/solution/)
 
 
-## <a name="prerequisites"></a>Förutsättningar  
+## <a name="prerequisites"></a>Krav  
 
 - Azure AD-rollen för antingen global administratör eller säkerhets administratör för att ge behörighet till din TIP-produkt eller anpassade program som använder direkt integrering Microsoft Graph med tiIndicators-API: et för säkerhet.
 
@@ -60,9 +60,9 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
 
 1. [Registrera ett program](/graph/auth-v2-service#1-register-your-app) i Azure Active Directory för att hämta ett program-ID, program hemlighet och Azure Active Directory klient-ID. Du behöver dessa värden för när du konfigurerar din integrerade tips produkt eller app som använder direkt integrering med Microsoft Graph Security tiIndicators API.
 
-2. [Konfigurera API-behörigheter](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) för det registrerade programmet: Lägg till Microsoft Graph Application permission **ThreatIndicators. readwrite. OwnedBy** i det registrerade programmet.
+2. [Konfigurera API-behörigheter](/graph/auth-v2-service#2-configure-permissions-for-microsoft-graph) för det registrerade programmet: Lägg till behörigheten Microsoft Graph Application **ThreatIndicators. readwrite. OwnedBy** i det registrerade programmet.
 
-3. Be din Azure Active Directory klient administratör att bevilja administrativt medgivande till det registrerade programmet för din organisation. Från Azure Portal: **Azure Active Directory** > **Appregistreringar** ***appens*namnVisa>API-behörigheter bevilja administrativt medgivande för\<**  >  >  >  ***klient organisations namn*>. \<**
+3. Be din Azure Active Directory klient administratör att bevilja administrativt medgivande till det registrerade programmet för din organisation. Från Azure Portal: **Azure Active Directory** > **Appregistreringar** >  **\<-_appens namn_>**  > **Visa API-behörigheter**0**tilldela administratörs medgivande för 2_klient organisations namn_ 4**.
 
 4. Konfigurera TIP-produkten eller appen som använder direkt integrering med Microsoft Graph Security tiIndicators API för att skicka indikatorer till Azure Sentinel genom att ange följande:
     
@@ -72,11 +72,11 @@ Du kan strömma hot indikatorer till Azure Sentinel genom att använda en av de 
     
     c. Ange avisering för åtgärden.
 
-5. I Azure Portal går du till **Azure Sentinel** > **data Connectors** och väljer sedan **Hot information Platforms (för hands version)** Connector.
+5. I Azure Portal går du till **Azure Sentinel** > **data anslutningar** och väljer sedan **Hot information Platforms (för hands version)** .
 
 6. Välj **Öppna anslutnings sidan**och **Anslut**sedan.
 
-7. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-logs** > **SecurityInsights**och expanderar sedan **ThreatIntelligenceIndicator**.
+7. Om du vill visa de hot indikatorer som importeras till Azure Sentinel går du till **Azure Sentinel-Logs** > **SecurityInsights**och expanderar sedan **ThreatIntelligenceIndicator**.
 
 ## <a name="next-steps"></a>Nästa steg
 

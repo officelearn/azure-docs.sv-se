@@ -17,12 +17,12 @@ ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91f406198418571ec0d2c4d488909d3baaa494b1
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: e790728cbc7415532754d10773d466e9a0280422
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834663"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373914"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>Översikt över Azure Active Directory för utvecklare (v 1.0)
 
@@ -33,13 +33,13 @@ Azure Active Directory (Azure AD) är en molnbaserad identitetstjänst som utvec
 
 | | |
 | --- | --- |
-|[Grundläggande om autentisering](authentication-scenarios.md) | En introduktion till autentisering med Azure AD. |
+|[Grundläggande om autentisering](v1-authentication-scenarios.md) | En introduktion till autentisering med Azure AD. |
 |[Typer av program](app-types.md) | En översikt över de autentiseringsscenarier som stöds av Azure AD. |
 | | |
 
-## <a name="get-started"></a>Kom igång
+## <a name="get-started"></a>Kom i gång
 
-V 1.0 snabb starter och självstudier vägleder dig genom att skapa en app på önskad plattform med hjälp av Azure AD Authentication Library (ADAL) SDK. Se snabb starter och **v 1.0** -självstudierna för **v 1.0** i [Microsoft Identity Platform (Azure Active Directory för utvecklare)](index.yml) för att komma igång.
+V 1.0 snabb starter och självstudier vägleder dig genom att skapa en app på önskad plattform med hjälp av Azure AD Authentication Library (ADAL) SDK. Se **snabb starter** och **v 1.0-självstudierna** för v 1.0 i [Microsoft Identity Platform (Azure Active Directory för utvecklare)](index.yml) för att komma igång.
 
 ## <a name="how-to-guides"></a>Instruktionsguider
 

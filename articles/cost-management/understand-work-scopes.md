@@ -1,27 +1,27 @@
 ---
-title: Förstå och arbeta med Azure Cost Management omfattningar | Microsoft Docs
+title: Förstå och arbeta med Azure Cost Management omfattningar
 description: 'Den här artikeln hjälper dig att förstå omfattningarna för fakturering och resurs hantering i Azure och hur du använder omfattningarna i Cost Management och API: er.'
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 07/01/2019
+ms.date: 10/14/2019
 ms.topic: conceptual
 ms.service: cost-management
 manager: micflan
 ms.custom: ''
-ms.openlocfilehash: 41d83d4a6c5aad4c3b575513c6b3e2e25a425829
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 664307b64d5a2869130df9ab123119d869f36e21
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338637"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72374490"
 ---
 # <a name="understand-and-work-with-scopes"></a>Förstå och arbeta med omfång
 
 Den här artikeln hjälper dig att förstå omfattningarna för fakturering och resurs hantering i Azure och hur du använder omfattningarna i Cost Management och API: er.
 
-## <a name="scopes"></a>Scope
+## <a name="scopes"></a>Omfattningar
 
 Ett _omfång_ är en nod i Azure-hierarkistrukturen där Azure AD-användare får åtkomst till och hanterar tjänster. De flesta Azure-resurser skapas och distribueras till resurs grupper som ingår i prenumerationer. Microsoft erbjuder även två hierarkier över Azure-prenumerationer som har specialiserade roller för att hantera fakturerings data:
 - Fakturerings data, till exempel betalningar och fakturor
@@ -39,11 +39,11 @@ Azure stöder tre områden för resurs hantering. Varje omfattning stöder hante
 
 - [**Hanterings grupper**](../governance/management-groups/overview.md) – hierarkiska behållare, upp till åtta nivåer, för att organisera Azure-prenumerationer.
 
-    Resurs typ: [Microsoft.Management/managementGroups](/rest/api/resources/managementgroups)
+    Resurs typ: [Microsoft. Management/managementGroups](/rest/api/resources/managementgroups)
 
 - **Prenumerationer** – primära behållare för Azure-resurser.
 
-    Resurs typ: [Microsoft. Resources/subscriptions](/rest/api/resources/subscriptions)
+    Resurs typ: [Microsoft. Resources/Subscriptions](/rest/api/resources/subscriptions)
 
 - [**Resurs grupper**](../azure-resource-manager/resource-group-overview.md#resource-groups) – logiska grupperingar av relaterade resurser för en Azure-lösning som delar samma livs cykel. Till exempel resurser som distribueras och tas bort tillsammans.
 
@@ -106,7 +106,7 @@ Azure-prenumerationer som skapats från enskilda erbjudanden som betala per anv�
 
 - [**Fakturerings konto**](../billing/billing-view-all-accounts.md) – representerar en enda konto ägare för en eller flera Azure-prenumerationer. Den har för närvarande inte stöd för att bevilja åtkomst till flera personer eller åtkomst till sammanställda kostnads vyer.
 
-    Resurs typ: Inte tillämpligt
+    Resurs typ: inte tillämpligt
 
 Enskilda Azure-prenumerations konto administratörer kan visa och hantera fakturerings data, till exempel fakturor och betalningar, från [Azure-kontocenter](https://account.azure.com/subscriptions). De kan dock inte visa kostnads data eller hantera resurser i Azure Portal. Om du vill bevilja åtkomst till konto administratören använder du Cost Management roller som nämns ovan.
 
@@ -128,7 +128,10 @@ Fakturerings konton för Microsofts kund avtal har följande omfång:
 
     Resurs typ: `Microsoft.Billing/billingAccounts/invoiceSections`
 
+- **Kund** – representerar en grupp prenumerationer som är kopplade till en specifik kund som har publicerats till ett kund avtal från Microsoft per partner. Det här omfånget är begränsat till CSP.
+
 Till skillnad från EA-fakturerings omfattningar _är_ kund avtals fakturerings konton kopplade till en enda katalog och kan inte ha prenumerationer i flera Azure AD-kataloger.
+
 
 Fakturerings omfattningar för kund avtal har stöd för följande roller:
 
@@ -149,7 +152,7 @@ När AWS-integreringen är klar kan du läsa mer i [Konfigurera och konfigurera 
 - **Externt fakturerings konto** – representerar ett kund avtal med en tredjepartsleverantör. Det liknar fakturerings kontot för EA.
 
     Resurs typ: `Microsoft.CostManagement/externalBillingAccounts`
-    
+
 - **Extern prenumeration** – representerar ett kund drifts konto med en tredjepartsleverantör. Det liknar en Azure-prenumeration.
 
     Resurs typ: `Microsoft.CostManagement/externalSubscriptions`
@@ -166,7 +169,7 @@ Alla Cost Management vyer i Azure Portal innehåller en **omfattnings** markerin
 
 När du arbetar med Cost Management-API: er är det viktigt att känna till omfattningen. Använd följande information för att bygga rätt omfattnings-URI för Cost Management API: er.
 
-### <a name="billing-accounts"></a>Faktureringskonton
+### <a name="billing-accounts"></a>Fakturerings konton
 
 1. Öppna Azure Portal och gå sedan till **Cost Management + fakturering** i listan över tjänster.
 2. Välj **Egenskaper** på menyn fakturerings konto.
@@ -216,7 +219,7 @@ När du arbetar med Cost Management-API: er är det viktigt att känna till omfa
 3. Kopiera hanterings gruppens ID från tabellen.
 4. Ditt omfång är: `"/providers/Microsoft.Management/managementGroups/{id}"`
 
-### <a name="subscription"></a>Subscription
+### <a name="subscription"></a>Prenumeration
 
 1. Öppna Azure Portal och navigera till **prenumerationer** i listan över tjänster.
 2. Kopiera prenumerations-ID: t från tabellen.
@@ -234,4 +237,4 @@ Cost Management stöds för närvarande i [Azure Global](https://management.azur
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Om du inte har redan slutfört den första snabbstarten för kostnadshantering, kan du läsa den på [börja analysera kostnaderna](quick-acm-cost-analysis.md).
+- Om du inte redan har slutfört den första snabb starten för Cost Management läser du den för att [börja analysera kostnaderna](quick-acm-cost-analysis.md).

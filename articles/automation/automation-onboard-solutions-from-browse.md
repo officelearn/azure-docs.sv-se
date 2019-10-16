@@ -9,12 +9,12 @@ ms.date: 04/11/2019
 ms.topic: article
 manager: carmonm
 ms.custom: mvc
-ms.openlocfilehash: 5be247e8bb999ee5306d10e67c46c7273953dc71
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 3e56b44988dc6dbfed99f339795fee6d15c7dd57
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534697"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372792"
 ---
 # <a name="enable-update-management-change-tracking-and-inventory-solutions-on-multiple-vms"></a>Aktivera Uppdateringshantering-, Ändringsspårning-och inventerings lösningar på flera virtuella datorer
 
@@ -45,7 +45,7 @@ Listan över virtuella datorer är filtrerad för att endast visa de virtuella d
 
 ### <a name="resource-group-limit"></a>Onboarding-begränsningar
 
-Antalet resurs grupper som du kan använda för onboarding begränsas av distributions [gränserna för Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager-distributioner, ska inte förväxlas med uppdaterings distributioner, är begränsade till 5 resurs grupper per distribution. För att säkerställa integriteten för onboarding är 2 av dessa resurs grupper reserverade för att konfigurera Log Analytics arbets yta, Automation-konto och relaterade resurser. Detta gör att du har 3 resurs grupper att välja för distribution. Den här gränsen gäller bara för samtidiga onboarding, inte antalet resurs grupper som kan hanteras av en Automation-lösning.
+Antalet resurs grupper som du kan använda för onboarding begränsas av [distributions gränserna för Resource Manager](../azure-resource-manager/resource-manager-cross-resource-group-deployment.md). Resource Manager-distributioner, ska inte förväxlas med uppdaterings distributioner, är begränsade till 5 resurs grupper per distribution. För att säkerställa integriteten för onboarding är 2 av dessa resurs grupper reserverade för att konfigurera Log Analytics arbets yta, Automation-konto och relaterade resurser. Detta gör att du har 3 resurs grupper att välja för distribution. Den här gränsen gäller bara för samtidiga onboarding, inte antalet resurs grupper som kan hanteras av en Automation-lösning.
 
 Du kan också använda en Runbook för onboarding. mer information finns i [Uppdatera och ändra spårnings lösningar till Azure Automation](automation-onboard-solutions.md).
 
@@ -76,7 +76,7 @@ Följande lösningar är beroende av en Log Analytics arbets yta:
 
 * [Hantering av uppdateringar](automation-update-management.md)
 * [Spårning av ändringar](automation-change-tracking.md)
-* [Starta/stoppa virtuella datorer vid andra tider](automation-solution-vm-management.md)
+* [Starta/stoppa virtuella datorer när de inte används](automation-solution-vm-management.md)
 
 Om du inte längre vill integrera ditt Automation-konto med en Log Analytics arbets yta kan du ta bort länken till ditt konto direkt från Azure Portal. Innan du fortsätter måste du först ta bort de lösningar som nämns ovan, annars kommer den här processen att förhindras från att fortsätta. Läs artikeln för den specifika lösning som du har importerat för att förstå de steg som krävs för att ta bort den.
 
@@ -101,7 +101,7 @@ Om du använde Uppdateringshantering-lösningen kanske du vill ta bort följande
 
 * Hybrid Worker-grupper som har skapats för lösningen – var och en får samma namn som machine1. contoso. com _9ceb8108-26c9-4051-b6b3-227600d715c8).
 
-Om du använde lösningen starta/stoppa virtuella datorer vid låg belastnings tider kanske du vill ta bort följande objekt som inte längre behövs när du har tagit bort lösningen.
+Om du använde Starta/stoppa virtuella datorer när de inte används-lösningen kanske du vill ta bort följande objekt som inte längre behövs efter att du har tagit bort lösningen.
 
 * Starta och stoppa virtuella dator Runbook-scheman
 * Starta och stoppa VM-Runbooks
@@ -109,50 +109,57 @@ Om du använde lösningen starta/stoppa virtuella datorer vid låg belastnings t
 
 Alternativt kan du också ta bort länken till arbets ytan från ditt Automation-konto från din Log Analytics-arbetsyta. På arbets ytan väljer du **Automation-konto** under **relaterade resurser**. På sidan Automation-konto väljer du **ta bort länk till konto**.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 När flera datorer onboardas kan det finnas datorer som visas som **inte kan aktivera**. Det finns olika orsaker till att vissa datorer kanske inte är aktiverade. I följande avsnitt visas möjliga orsaker till **att det inte går att aktivera** tillstånd på en virtuell dator vid försök att publicera.
 
-### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM-rapporter till en annan arbets yta\<:\>' workspaceName '.  Ändra konfigurationen så att den används för att aktivera
+### <a name="vm-reports-to-a-different-workspace-workspacename--change-configuration-to-use-it-for-enabling"></a>VM-rapporter till en annan arbets yta: "\<workspaceName @ no__t-1".  Ändra konfigurationen så att den används för att aktivera
 
-**Orsak**: Det här felet visar att den virtuella datorn som du försöker publicera rapporter till en annan arbets yta.
+**Orsak**: det här felet visar att den virtuella datorn som du försöker publicera rapporter till en annan arbets yta.
 
 **Lösning**: Klicka på **Använd som konfiguration** för att ändra det riktade Automation-kontot och Log Analytics arbets ytan.
 
 ### <a name="vm-reports-to-a-workspace-that-is-not-available-in-this-subscription"></a>VM-rapporter till en arbets yta som inte är tillgänglig i den här prenumerationen
 
-**Orsak**: Arbets ytan som den virtuella datorn rapporterar till:
+**Orsak**: arbets ytan som den virtuella datorn rapporterar till:
 
 * Är i en annan prenumeration, eller
 * Finns inte längre eller
 * Finns i en resurs grupp har du inte åtkomst behörighet till
 
-**Lösning**: Hitta det Automation-konto som är kopplat till arbets ytan som den virtuella datorn rapporterar till och publicera den virtuella datorn genom att ändra omfattnings konfigurationen.
+**Lösning**: hitta det Automation-konto som är kopplat till arbets ytan som den virtuella datorn rapporterar till och publicera den virtuella datorn genom att ändra omfattnings konfigurationen.
 
 ### <a name="vm-operating-system-version-or-distribution-is-not-supported"></a>Version eller distribution av operativ system för virtuell dator stöds inte
 
-**Orsak** Lösningen stöds inte för alla Linux-distributioner eller alla versioner av Windows.
+**Orsak:** Lösningen stöds inte för alla Linux-distributioner eller alla versioner av Windows.
 
-**Lösa** Se [listan över klienter som stöds](automation-update-management.md#clients) för lösningen.
+**Lösning:** Se [listan över klienter som stöds](automation-update-management.md#clients) för lösningen.
 
 ### <a name="classic-vms-cannot-be-enabled"></a>Det går inte att aktivera klassiska virtuella datorer
 
-**Orsak**: Virtuella datorer som använder den klassiska distributions modellen stöds inte.
+**Orsak**: virtuella datorer som använder den klassiska distributions modellen stöds inte.
 
-**Lösning**: Migrera den virtuella datorn till distributions modellen för Resource Manager. Information om hur du gör detta finns i [migrera klassiska distributions modell resurser](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
+**Lösning**: migrera den virtuella datorn till distributions modellen för Resource Manager. Information om hur du gör detta finns i [migrera klassiska distributions modell resurser](../virtual-machines/windows/migration-classic-resource-manager-overview.md).
 
 ### <a name="vm-is-stopped-deallocated"></a>Den virtuella datorn har stoppats. frigjord
 
-**Orsak**: Den virtuella datorn är inte i ett **körnings** tillstånd.
+**Orsak**: den virtuella datorn är inte i ett **körnings** tillstånd.
 
-**Lösning**: För att kunna publicera en virtuell dator till en lösning måste den virtuella datorn köras. Starta den virtuella datorn genom att klicka på länken **starta den virtuella datorn** i inlednings fönstret utan att gå bort från sidan.
+**Lösning**: för att kunna publicera en virtuell dator till en lösning måste den virtuella datorn köras. Starta den virtuella datorn genom att klicka på länken **starta den virtuella datorn** i inlednings fönstret utan att gå bort från sidan.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Så här tar du bort en virtuell dator från Uppdateringshantering:
+
+* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
+* Ta bort [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics agent för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när lösningen är aktive rad för dina virtuella datorer går du till artikeln Uppdateringshantering översikt och lär dig hur du visar uppdaterings utvärderingen för dina datorer.
+Nu när lösningen är aktive rad för dina virtuella datorer går du till artikeln Uppdateringshantering översikt och lär dig hur du skapar en **uppdaterings distribution** för dina datorer.
 
 > [!div class="nextstepaction"]
-> [Uppdateringshantering-Visa uppdaterings bedömning](./automation-update-management.md#viewing-update-assessments)
+> [Uppdateringshantering-hantera uppdateringar och korrigeringar för dina virtuella Azure-datorer](./automation-tutorial-update-management.md)
 
 Ytterligare självstudier om lösningar och hur de används:
 

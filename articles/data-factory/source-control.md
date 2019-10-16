@@ -12,12 +12,12 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: craigg
-ms.openlocfilehash: fd8168b5786f669de0c5c2109c9e02b43c62c582
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: f3d443eed43cc1e131cd3dc47407ce2dfb023ce8
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933657"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72326388"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Käll kontroll i Azure Data Factory
 
@@ -25,6 +25,9 @@ Gränssnittet för Azure Data Factory användar gränssnitt (UX) har två upplev
 
 - Redigera direkt med Data Factory tjänsten
 - Redigera med Azure databaser git eller GitHub-integrering
+
+> [!NOTE]
+> Det finns bara stöd för redigering direkt med Data Factory tjänsten i Azure Government molnet.
 
 ## <a name="author-directly-with-the-data-factory-service"></a>Redigera direkt med Data Factory tjänsten
 
@@ -57,7 +60,7 @@ På Azure Data Factory start sida väljer du **Konfigurera kod lagrings plats**.
 
 ![Konfigurera en Azure databaser Code-lagringsplats](media/author-visually/configure-repo.png)
 
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfigurations metod 2: Redigerings arbets yta för UX
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfigurations metod 2: redigera arbets yta för UX
 I Azure Data Factory UX-redigerings arbets ytan väljer du den **Data Factory** list rutan och väljer sedan **Konfigurera kod lagrings plats**.
 
 ![Konfigurera kod lagrings inställningarna för UX-redigering](media/author-visually/configure-repo-2.png)
@@ -68,14 +71,14 @@ Båda metoderna öppnar konfigurations fönstret för lagrings inställningar.
 
 I konfigurations fönstret visas följande inställningar för Azure databaser Code-lagringsplatsen:
 
-| Inställning | Beskrivning | Value |
+| Inställning | Beskrivning | Värde |
 |:--- |:--- |:--- |
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen.<br/> | Azure DevOps git eller GitHub |
 | **Azure Active Directory** | Ditt Azure AD-klient namn. | `<your tenant name>` |
-| **Azure databaser-organisation** | Ditt Azure databaser-organisations namn. Du kan hitta ditt Azure databaser-organisations `https://{organization name}.visualstudio.com`namn på. Du kan [Logga in på din Azure databaser-organisation](https://www.visualstudio.com/team-services/git/) för att få åtkomst till din Visual Studio-profil och se dina databaser och projekt. | `<your organization name>` |
-| **ProjectName** | Ditt Azure databaser-projekt namn. Du kan hitta ditt Azure databaser-projekts `https://{organization name}.visualstudio.com/{project name}`namn på. | `<your Azure Repos project name>` |
+| **Azure databaser-organisation** | Ditt Azure databaser-organisations namn. Du kan hitta ditt Azure databaser-organisations namn på `https://{organization name}.visualstudio.com`. Du kan [Logga in på din Azure databaser-organisation](https://www.visualstudio.com/team-services/git/) för att få åtkomst till din Visual Studio-profil och se dina databaser och projekt. | `<your organization name>` |
+| **ProjectName** | Ditt Azure databaser-projekt namn. Du kan hitta ditt Azure databaser-projekt namn på `https://{organization name}.visualstudio.com/{project name}`. | `<your Azure Repos project name>` |
 | **RepositoryName** | Ditt namn på din Azure databaser Code-lagringsplats. Azure databaser-projekt innehåller git-lagringsplatser för att hantera din käll kod när projektet växer. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt projekt. | `<your Azure Repos code repository name>` |
-| **Samarbets gren** | Din Azure databaser Collaboration-gren som används för publicering. Som standard används dess `master`. Ändra den här inställningen om du vill publicera resurser från en annan gren. | `<your collaboration branch name>` |
+| **Samarbets gren** | Din Azure databaser Collaboration-gren som används för publicering. Som standard `master`. Ändra den här inställningen om du vill publicera resurser från en annan gren. | `<your collaboration branch name>` |
 | **Rotmapp** | Rotmappen i din Azure databaser-samarbets gren. | `<your root folder name>` |
 | **Importera befintliga Data Factory resurser till lagrings platsen** | Anger om befintliga data Factory-resurser ska importeras från UX **redigerings arbets ytan** till en Azure databaser git-lagringsplats. Markera rutan om du vill importera data Factory-resurser till den tillhör ande git-lagringsplatsen i JSON-format. Den här åtgärden exporterar varje resurs individuellt (det vill säga länkade tjänster och data uppsättningar exporteras till separata JSON-data). När den här rutan inte är markerad importeras inte de befintliga resurserna. | Vald (standard) |
 | **Gren att importera resurs till** | Anger i vilken gren Data Factory-resurserna (pipelines, data uppsättningar, länkade tjänster osv.) importeras. Du kan importera resurser till någon av följande grenar: a. Samarbete b. Skapa nytt c. Använd befintlig |  |
@@ -103,9 +106,9 @@ Mer information om hur du ansluter Azure-databaser till din organisations Active
 
 ## <a name="author-with-github-integration"></a>Redigera med GitHub-integrering
 
-Visuell redigering med GitHub-integrering stöder käll kontroll och samarbete för arbete på dina data Factory-pipeliner. Du kan associera en data fabrik med en GitHub-lagringsplats för käll kontroll, samarbete, versions hantering. Ett enskilt GitHub-konto kan ha flera databaser, men en GitHub-lagringsplats kan bara associeras med en data fabrik. Om du inte har ett GitHub-konto eller en lagrings plats, följer du [dessa anvisningar](https://github.com/join) för att skapa dina resurser.
+Visuell redigering med GitHub-integrering stöder käll kontroll och samarbete för arbete på dina data Factory-pipeliner. Du kan associera en data fabrik med en GitHub-lagringsplats för käll kontroll, samarbete, versions hantering. Ett enskilt GitHub-konto kan ha flera databaser, men en GitHub-lagringsplats kan bara associeras med en data fabrik. Om du inte har ett GitHub-konto eller en lagrings plats följer du [dessa anvisningar](https://github.com/join) to skapa dina resurser.
 
-GitHub-integreringen med Data Factory stöder både offentlig GitHub (det [https://github.com](https://github.com)vill säga) och GitHub Enterprise. Du kan använda både offentliga och privata GitHub-databaser med Data Factory så länge du har Läs-och Skriv behörighet till lagrings platsen i GitHub.
+GitHub-integreringen med Data Factory stöder både offentlig GitHub (det vill säga [https://github.com](https://github.com)) och GitHub Enterprise. Du kan använda både offentliga och privata GitHub-databaser med Data Factory så länge du har Läs-och Skriv behörighet till lagrings platsen i GitHub.
 
 Om du vill konfigurera en GitHub-lagrings platsen måste du ha administratörs behörighet för den Azure-prenumeration som du använder.
 
@@ -123,7 +126,7 @@ På Azure Data Factory start sida väljer du **Konfigurera kod lagrings plats**.
 
 ![Konfigurera en Azure databaser Code-lagringsplats](media/author-visually/configure-repo.png)
 
-#### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfigurations metod 2: Redigerings arbets yta för UX
+#### <a name="configuration-method-2-ux-authoring-canvas"></a>Konfigurations metod 2: redigera arbets yta för UX
 
 I Azure Data Factory UX-redigerings arbets ytan väljer du den **Data Factory** list rutan och väljer sedan **Konfigurera kod lagrings plats**.
 
@@ -140,7 +143,7 @@ I konfigurations fönstret visas följande inställningar för GitHub-lagringspl
 | **Typ av databas** | Typen av Azure databaser Code-lagringsplatsen. | GitHub |
 | **Använda GitHub Enterprise** | Kryss ruta för att välja GitHub Enterprise | omarkerat (standard) |
 | **GitHub Enterprise-URL** | GitHub Enterprise-rot-URL. Till exempel: https://github.mydomain.com. Krävs endast om **Använd GitHub Enterprise** är valt | `<your GitHub enterprise url>` |                                                           
-| **GitHub-konto** | Namnet på GitHub-kontot. Det här namnet kan hittas från https:\//GitHub.com/{account Name}/{repository Name}. Om du navigerar till den här sidan uppmanas du att ange GitHub OAuth-autentiseringsuppgifter för ditt GitHub-konto. | `<your GitHub account name>` |
+| **GitHub-konto** | Namnet på GitHub-kontot. Det här namnet kan hittas från https: \//GitHub. com/{konto namn}/{repository namn}. Om du navigerar till den här sidan uppmanas du att ange GitHub OAuth-autentiseringsuppgifter för ditt GitHub-konto. | `<your GitHub account name>` |
 | **Namn på databas**  | Ditt GitHub kod lagrings namn. GitHub-konton innehåller git-databaser för att hantera din käll kod. Du kan skapa en ny databas eller använda en befintlig databas som redan finns i ditt konto. | `<your repository name>` |
 | **Samarbets gren** | Din GitHub Collaboration-gren som används för publicering. Som standard är originalet. Ändra den här inställningen om du vill publicera resurser från en annan gren. | `<your collaboration branch>` |
 | **Rotmapp** | Rotmappen i din GitHub-samarbets gren. |`<your root folder name>` |
@@ -183,7 +186,7 @@ När du är redo att sammanfoga ändringarna från din funktions gren till samar
 
 ### <a name="configure-publishing-settings"></a>Konfigurera publicerings inställningar
 
-För att konfigurera publicerings grenen – det vill säga grenen där Resource Manager-mallar sparas – `publish_config.json` Lägg till en fil i rotmappen i samarbets grenen. Data Factory läser filen, letar efter fältet `publishBranch`och skapar en ny gren (om det inte redan finns) med det angivna värdet. Sedan sparas alla Resource Manager-mallar på den angivna platsen. Exempel:
+För att konfigurera publicerings grenen – det vill säga grenen där Resource Manager-mallar sparas – Lägg till en `publish_config.json`-fil i rotmappen i samarbets grenen. Data Factory läser filen, söker efter fältet `publishBranch` och skapar en ny gren (om det inte redan finns) med det angivna värdet. Sedan sparas alla Resource Manager-mallar på den angivna platsen. Exempel:
 
 ```json
 {
@@ -194,11 +197,11 @@ För att konfigurera publicerings grenen – det vill säga grenen där Resource
 När du anger en ny publicerings gren tar Data Factory inte bort den tidigare publicerings grenen. Om du vill fjärrans luta till den tidigare publicerings grenen tar du bort den manuellt.
 
 > [!NOTE]
-> Data Factory läser `publish_config.json` bara filen när den laddar fabriken. Om du redan har en fabrik som är inläst i portalen uppdaterar du webbläsaren för att ändringarna ska börja gälla.
+> Data Factory läser bara `publish_config.json`-filen när den laddar fabriken. Om du redan har en fabrik som är inläst i portalen uppdaterar du webbläsaren för att ändringarna ska börja gälla.
 
 ### <a name="publish-code-changes"></a>Publicera kod ändringar
 
-När du har sammanfogat ändringar i samarbets grenen`master` (är standard) klickar du på **publicera** för att manuellt publicera dina kod ändringar i huvud grenen till Data Factory tjänsten.
+När du har sammanfogat ändringar i samarbets grenen (`master` är standard) klickar du på **publicera** för att publicera kod ändringarna manuellt i huvud grenen till data Factorys tjänsten.
 
 ![Publicera ändringar i Data Factorys tjänsten](media/author-visually/publish-changes.png)
 

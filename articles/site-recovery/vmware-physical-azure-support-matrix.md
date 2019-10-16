@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 09/27/2019
+ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 0ff8fb7a2e03ccaccff4f84d77486238acba0ba5
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: b09639583c6147c4825b3d80ded421b4dc0cbc72
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350227"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372293"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>Stöd mat ris för haveri beredskap för virtuella VMware-datorer och fysiska servrar till Azure
 
@@ -45,7 +45,7 @@ Konfigurations servern är en lokal dator som kör Site Recovery-komponenter, in
 
 **Komponent** | **Krav**
 --- |---
-Processorkärnor | 8
+CPU-kärnor | 8
 RAM | 16 GB
 Antal diskar | 3 diskar<br/><br/> Diskarna innehåller OS-disken, cache-disken för processervern och lagrings enheten för återställning efter fel.
 Ledigt disk utrymme | 600 GB utrymme för processervern.
@@ -54,10 +54,10 @@ Operativsystem  | Windows Server 2012 R2 eller Windows Server 2016 med Skriv bor
 Nationella inställningar för operativsystem | Engelska (en-us)
 [PowerCLI](https://my.vmware.com/web/vmware/details?productId=491&downloadGroup=PCLI600R1) | Krävs inte för konfigurations Server version [9,14](https://support.microsoft.com/help/4091311/update-rollup-23-for-azure-site-recovery) eller senare. 
 Windows Server-roller | Aktivera inte Active Directory Domain Services; Internet Information Services (IIS) eller Hyper-V. 
-Grup principer| -Förhindra åtkomst till kommando tolken. <br/> -Förhindra åtkomst till verktyg för redigering av registret. <br/> – Förtroende logik för bifogade filer. <br/> – Aktivera skript körning. <br/> - [Lära sig mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
+Grup principer| -Förhindra åtkomst till kommando tolken. <br/> -Förhindra åtkomst till verktyg för redigering av registret. <br/> – Förtroende logik för bifogade filer. <br/> – Aktivera skript körning. <br/> - [Läs mer](https://technet.microsoft.com/library/gg176671(v=ws.10).aspx)|
 IIS | Kontrol lera att du:<br/><br/> -Har ingen befintlig standard webbplats <br/> -Aktivera [Anonym autentisering](https://technet.microsoft.com/library/cc731244(v=ws.10).aspx) <br/> -Aktivera [FastCGI](https://technet.microsoft.com/library/cc753077(v=ws.10).aspx) -inställning  <br/> -Har inte redan befintlig webbplats/app-lyssning på port 443<br/>
 Typ av nätverkskort | VMXNET3 (när den distribueras som en virtuell VMware-dator)
-IP-adresstyp | Static
+IP-adresstyp | Statisk
 Portar | 443 som används för kontroll av kanal dirigering<br/>9443 för data transport
 
 ## <a name="replicated-machines"></a>Replikerade datorer
@@ -68,14 +68,20 @@ Site Recovery stöder replikering av alla arbets belastningar som körs på en d
 --- | ---
 Dator inställningar | Datorer som replikeras till Azure måste uppfylla [Azure-kraven](#azure-vm-requirements).
 Dator arbets belastning | Site Recovery stöder replikering av alla arbets belastningar som körs på en dator som stöds. [Läs mer](https://aka.ms/asr_workload).
-Windows | – Windows Server 2019 (stöds från samlad [uppdatering 34](https://support.microsoft.com/help/4490016) (version 9,22 av mobilitets tjänsten) och senare.<br/> – Windows Server 2016 (64-bitars Server Core, server med Skriv bords miljö)<br/> – Windows Server 2012 R2, Windows Server 2012<br/> – Windows Server 2008 R2 med minst SP1.<br/> – Windows Server 2008, 64 och 32-bitars med minst SP2]. Stöds endast för migrering. [Läs mer](migrate-tutorial-windows-server-2008.md).<br/> -Windows 10, Windows 8,1, Windows 8, Windows 7 64-bitars (stöds från samlad [uppdatering 36](https://support.microsoft.com/help/4503156) (version 9,22 av mobilitets tjänsten och senare). Windows 7 RTM stöds inte. 
+Windows Server 2019 | Stöds från samlad [uppdatering 34](https://support.microsoft.com/help/4490016) (version 9,22 av mobilitets tjänsten) och senare.
+Windows Server 2016 64-bitars | Stöds för Server Core, server med Skriv bords miljö.
+Windows Server 2012 R2/Windows Server 2012 | Stöds.
+Windows Server 2008 R2 med SP1 och senare. | Stöds.<br/><br/> Från version 9.30. x av mobilitets tjänst agenten behöver du [underhålla stack uppdatering (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdateringen](https://support.microsoft.com/help/4474419) som är installerad på datorer som kör Windows 2008 R2 med SP1 eller senare. Om dessa inte är installerade kanske inte agenten installeras/uppgraderas som förväntat. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
+Windows Server 2008 med SP2 eller senare (64-bitars/32-bitars) |  Stöds endast för migrering. [Läs mer](migrate-tutorial-windows-server-2008.md).<br/><br/> Från version 9.30. x av mobilitets tjänst agenten behöver du [underhålla stack uppdatering (självbetjänings)](https://support.microsoft.com/help/4493730) och [SHA-2-uppdateringen](h https://support.microsoft.com/help/4474419) som är installerad på Windows 2008 SP2-datorer. Om uppdateringarna inte är installerade kanske inte agenten installeras/uppgraderas som förväntat. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
+Windows 10, Windows 8,1, Windows 8 | Stöds.
+Windows 7 med SP1 64-bitars | Stöds från samlad [uppdatering 36](https://support.microsoft.com/help/4503156) (version 9,22 av mobilitets tjänsten) och senare. </br></br> Från version 9.30. x av mobilitets tjänst agenten behöver du [underhålla stack uppdatering (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdateringen](https://support.microsoft.com/help/4474419) som är installerad på datorer med Windows 7 SP1.  Om uppdateringarna inte är installerade kanske inte agenten installeras/uppgraderas som förväntat. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
 Linux | Endast 64-bitars system stöds. 32-bitars system stöds inte.<br/><br/>Alla Linux-servrar måste ha en installation av [Linux Integration Services (LIS)-komponenter](https://www.microsoft.com/download/details.aspx?id=55106) . Det krävs för att starta-servern i Azure efter redundanstestning/redundans. Om LIS-komponenter saknas, se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för de datorer som ska startas i Azure. <br/><br/> Site Recovery dirigerar redundans till att köra Linux-servrar i Azure. Linux-leverantörer kan dock begränsa stödet till endast distributions versioner som inte har uppnått livs längd.<br/><br/> I Linux-distributioner stöds bara de lager kärnor som ingår i distributionens lägre versions version/uppdatering.<br/><br/> Det finns inte stöd för att uppgradera skyddade datorer över stora versioner av Linux-distribution. För att uppgradera, inaktivera replikering, uppgradera operativ systemet och aktivera sedan replikering igen.<br/><br/> [Läs mer](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) om stöd för Linux och teknik med öppen källkod i Azure.
-Linux Red Hat Enterprise | 5,2 till 5,11</b><br/> 6,1 till 6,10</b><br/> 7,0 till 7,6<br/> <br/> Servrar som kör Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 har inte välinstallerade [komponenterna för Linux integrations tjänster (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för datorerna för start i Azure.
-Linux: CentOS | 5,2 till 5,11</b><br/> 6,1 till 6,10</b><br/> 7,0 till 7,6<br/> <br/> Servrar som kör CentOS 5.2 – 5.11 & 6.1 – 6.10 har inte välinstallerade [komponenter för Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för datorerna för start i Azure.
+Linux Red Hat Enterprise | 5,2 till 5.11 @ no__t-0<br/> 6,1 till 6.10 @ no__t-0<br/> 7,0 till 7,6<br/> <br/> Servrar som kör Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10 har inte välinstallerade [komponenterna för Linux integrations tjänster (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för datorerna för start i Azure.
+Linux: CentOS | 5,2 till 5.11 @ no__t-0<br/> 6,1 till 6.10 @ no__t-0<br/> 7,0 till 7,6<br/> <br/> Servrar som kör CentOS 5.2 – 5.11 & 6.1 – 6.10 har inte välinstallerade [komponenter för Linux Integration Services (LIS)](https://www.microsoft.com/download/details.aspx?id=55106) . Se till att installera [komponenterna](https://www.microsoft.com/download/details.aspx?id=55106) innan du aktiverar replikering för datorerna för start i Azure.
 Ubuntu | Ubuntu 14,04 LTS [-Server (granska stödda kernel-versioner)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16,04 LTS [-Server (granska stödda kernel-versioner)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(granska stödda kernel-versioner)](#debian-kernel-versions)
 SUSE Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(granska de kernel-versioner som stöds)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3, SUSE Linux Enterprise Server 11 SP4<br/> Det finns inte stöd för att uppgradera replikerade datorer från SUSE Linux Enterprise Server 11 SP3 till SP4. Om du vill uppgradera inaktiverar du replikeringen och aktiverar den igen efter uppgraderingen.
-Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6<br/><br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5) 
+Oracle Linux | 6,4, 6,5, 6,6, 6,7, 6,8, 6,9, 6,10, 7,0, 7,1, 7,2, 7,3, 7,4, 7,5, 7,6<br/><br/> Köra Red Hat-kompatibel kernel eller Enterprise kernel release 3, 4 & 5 (UEK3, UEK4, UEK5) 
 
 
 ### <a name="ubuntu-kernel-versions"></a>Ubuntu kernel-versioner
@@ -85,12 +91,12 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 --- | --- | --- |
 14,04 LTS | [9,28][9.28 UR]| 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
 14,04 LTS | [9,27][9.27 UR]| 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
-14,04 LTS | [9.26][9.26 UR]| 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
+14,04 LTS | [9,26][9.26 UR]| 3.13.0-24-genered to 3.13.0-170-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0-21-genered to 4.4.0-148-genered,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1045 – Azure |
 14,04 LTS | [9,25][9.25 UR]  | 3.13.0 – 24-generisk till 3.13.0-169-Generic,<br/>3.16.0-25-genered to 3.16.0-77-Generic,<br/>3.19.0-18-genered till 3.19.0-80-genered,<br/>4.2.0-18-genered to 4.2.0-42-Generic,<br/>4.4.0 – 21-genered till 4.4.0-146--generisk,<br/>4.15.0 – 1023 – Azure till 4.15.0 – 1042 – Azure |
 |||
 16,04 LTS | [9,28][9.28 UR] | 4.4.0-21-genered to 4.4.0-159-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-58-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1055 – Azure|
 16,04 LTS | [9,27][9.27 UR] | 4.4.0 – 21-genered to 4.4.0-154-Generic,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-54-generic<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1050 – Azure|
-16,04 LTS | [9.26][9.26 UR] | 4.4.0-21-genered to 4.4.0-148-genered,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-50-genered<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1045 – Azure|
+16,04 LTS | [9,26][9.26 UR] | 4.4.0-21-genered to 4.4.0-148-genered,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-50-genered<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1045 – Azure|
 16,04 LTS | [9,25][9.25 UR] | 4.4.0 – 21-genered till 4.4.0-146--generisk,<br/>4.8.0-34-Generic to 4.8.0-58-Generic,<br/>4.10.0-14-generic to 4.10.0-42-Generic,<br/>4.11.0-13-genered to 4.11.0-14-generic,<br/>4.13.0-16-genered to 4.13.0-45-genered,<br/>4.15.0-13-genered to 4.15.0-48-genered<br/>4.11.0-1009 – Azure till 4.11.0-1016-Azure,<br/>4.13.0-1005 – Azure till 4.13.0 – 1018 – Azure <br/>4.15.0-1012 – Azure till 4.15.0-1042 – Azure|
 
 ### <a name="debian-kernel-versions"></a>Debian Kernel-versioner
@@ -110,14 +116,14 @@ Debian 8 | [9,25][9.25 UR], [9,26][9.26 UR] | 3.16.0 – 4-amd64 till 3.16.0-8-a
 --- | --- | --- |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,28][9.28 UR] | SP1 3.12.49-11-standard till 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.118-default</br></br> SP2 4.4.21-69 – standard till 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default till 4.4.121-92.117-default</br></br>SP3 4.4.73-5-default till 4.4.180-94.100-default</br></br>SP3 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br></br>SP4 4.12.14-94.41 – standard till 4.12.14-95.29-default</br>SP4 4.12.14 – 6.3 – Azure till 4.12.14 – 6.23 – Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,27][9.27 UR] | SP1 3.12.49-11-standard till 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.115-default</br></br> SP2 4.4.21-69 – standard till 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default till 4.4.121-92.114-default</br></br>SP3 4.4.73-5-default till 4.4.180-94.97-default</br></br>SP3 4.4.138-4,7-Azure till 4.4.180-4.31 – Azure</br></br>SP4 4.12.14-94.41 – standard till 4.12.14-95.19-default</br>SP4 4.12.14 – 6.3 – Azure till 4.12.14 – 6.15 – Azure |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9.26][9.26 UR] | SP1 3.12.49-11-standard till 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.110-default</br></br> SP2 4.4.21-69 – standard till 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default till 4.4.121-92.109-default</br></br>SP3 4.4.73-5-default till 4.4.178-94.91-default</br></br>SP3 4.4.138-4,7-Azure till 4.4.178-4.28 – Azure</br></br>SP4 4.12.14-94.41 – standard till 4.12.14-95.16-default</br>SP4 4.12.14 – 6.3 – Azure till 4.12.14 – 6,9 – Azure |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,26][9.26 UR] | SP1 3.12.49-11-standard till 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.110-default</br></br> SP2 4.4.21-69 – standard till 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default till 4.4.121-92.109-default</br></br>SP3 4.4.73-5-default till 4.4.178-94.91-default</br></br>SP3 4.4.138-4,7-Azure till 4.4.178-4.28 – Azure</br></br>SP4 4.12.14-94.41 – standard till 4.12.14-95.16-default</br>SP4 4.12.14 – 6.3 – Azure till 4.12.14 – 6,9 – Azure |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | [9,25][9.25 UR] | SP1 3.12.49-11-standard till 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default till 3.12.74-60.64.107-default</br></br> SP2 4.4.21-69 – standard till 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default till 4.4.121-92.104-default</br></br>SP3 4.4.73-5-default till 4.4.176-94.88-default</br></br>SP3 4.4.138-4,7-Azure till 4.4.176-4,25 – Azure</br></br>SP4 4.12.14-94.41 – standard till 4.12.14-95.13-default</br>SP4 4.12.14 – 6.3 – Azure till 4.12.14 – 6,9 – Azure |
 
 ## <a name="linux-file-systemsguest-storage"></a>Linux-filsystem/gäst lagring
 
 **Komponent** | **Stöds**
 --- | ---
-Filsystem | ext3, ext4, XFS
+Fil system | ext3, ext4, XFS
 Volym hanterare | -LVM stöds.<br/> -/Boot på LVM stöds från [Samlad uppdatering 31](https://support.microsoft.com/help/4478871/) (version 9,20 av mobilitets tjänsten) och senare. Den stöds inte i tidigare mobilitets tjänst versioner.<br/> -Flera operativ system diskar stöds inte.
 Paravirtualiserade lagrings enheter | Enheter som exporteras av paravirtualiserade drivrutiner stöds inte.
 Block-i/o-enheter med flera köer | Stöds ej.
@@ -126,7 +132,7 @@ Namngivnings konvention för enhet/monterings punkt | Enhets namnet eller monter
 Kataloger | Om du kör en tidigare version av mobilitets tjänsten än version 9,20 (Publicerad i [Samlad uppdatering 31](https://support.microsoft.com/help/4478871/)) gäller följande begränsningar:<br/><br/> – Dessa kataloger (om de har ställts in som separata partitioner/fil system) måste finnas på samma OS-disk på käll servern:/(rot),/boot,/usr,/usr/local,/var,/etc.</br> -/Boot-katalogen bör finnas på en diskpartition och inte vara en LVM-volym.<br/><br/> Dessa begränsningar gäller inte från version 9,20 och senare. 
 Start Katalog | – Start diskarna får inte vara i GPT-format. Detta är en begränsning för Azure-arkitekturen. GPT-diskar stöds som data diskar.<br/><br/> Det finns inte stöd för flera start diskar på en virtuell dator<br/><br/> -/Boot på en LVM-volym över mer än en disk stöds inte.<br/> -En dator utan en start disk kan inte replikeras.
 Krav på ledigt utrymme| 2 GB på/root-partitionen <br/><br/> 250 MB på installationsmappen
-XFSv5 | XFSv5-funktioner på XFS-filsystem, till exempel kontroll summa för metadata, stöds (mobilitets tjänst version 9,10 och senare).<br/> Använd verktyget xfs_info för att kontrol lera XFS-superblocket för partitionen. Om `ftype` är inställt på 1 används XFSv5-funktionerna.
+XFSv5 | XFSv5-funktioner på XFS-filsystem, till exempel kontroll summa för metadata, stöds (mobilitets tjänst version 9,10 och senare).<br/> Använd verktyget xfs_info för att kontrol lera XFS-superblocket för partitionen. Om `ftype` har angetts till 1 används XFSv5-funktionerna.
 BTRFS | BTRFS stöds från samlad [uppdatering 34](https://support.microsoft.com/help/4490016) (version 9,22 av mobilitets tjänsten) och senare. BTRFS stöds inte om:<br/><br/> -BTRFS fil systemets del volym ändras efter att skyddet Aktiver ATS.</br> -BTRFS fil system sprids över flera diskar.</br> -Fil systemet BTRFS har stöd för RAID.
 
 ## <a name="vmdisk-management"></a>Hantering av virtuell dator/disk
@@ -162,12 +168,12 @@ ELB | Ja
 Azure Traffic Manager | Ja
 Multi-NIC | Ja
 Reserverad IP-adress | Ja
-IPv4 | Ja
+IPv6 | Ja
 Behåll Källans IP-adress | Ja
 Tjänstslutpunkter för virtuellt nätverk i Azure<br/> | Ja
-Accelererat nätverk | Nej
+Snabbare nätverk | Nej
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>Lagring
 **Komponent** | **Stöds**
 --- | ---
 Dynamisk disk | OS-disken måste vara en standard disk. <br/><br/>Data diskar kan vara dynamiska diskar
@@ -204,18 +210,18 @@ Gäst/Server-EFI/UEFI-start | – Stöds när du kör mobilitets tjänst version
 |Seeding offline        |   Nej      |
 | Azure Data Box | Nej
 
-## <a name="azure-storage"></a>Azure-lagring
+## <a name="azure-storage"></a>Azure Storage
 
 **Komponent** | **Stöds**
 --- | ---
 Lokalt redundant lagring | Ja
-Geografiskt redundant lagring | Ja
+Geografiskt redundant lagring. | Ja
 Geo-redundant lagring med Läs behörighet | Ja
 Cool Storage | Nej
 Frekvent lagring| Nej
 Blockblob-objekt | Nej
 Kryptering vid vila (SSE)| Ja
-Premium Storage | Ja
+Premium-lagring | Ja
 Import/export-tjänst | Nej
 Azure Storage brand väggar för virtuella nätverk | Ja.<br/> Konfigurerat på mål lagring/cache lagrings konto (används för att lagra replikeringsdata).
 Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (transaktions kostnader är betydligt högre för v2 jämfört med v1)
@@ -227,7 +233,7 @@ Allmänna-syfte v2-lagrings konton (frekventa och låg frekventa nivåer) | Ja (
 Tillgänglighetsuppsättningar | Ja
 Tillgänglighetszoner | Nej
 ) | Ja
-Hanterade diskar | Ja
+Managed Disks | Ja
 
 ## <a name="azure-vm-requirements"></a>Krav för virtuell Azure-dator
 
@@ -292,9 +298,9 @@ Flytta lagring, nätverk, virtuella Azure-datorer inom och över prenumerationer
 
 **Namn** | **Beskrivning** | **Detaljer**
 --- | --- | ---
-Konfigurationsserver | Installerat lokalt.<br/> Koordinerar kommunikationen mellan lokala VMware-servrar eller fysiska datorer och Azure. | - [Läs mer om](vmware-physical-azure-config-process-server-overview.md) konfigurations servern.<br/> - [Lär dig mer om](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) att uppgradera till den senaste versionen.<br/> - [Lär dig hur](vmware-azure-deploy-configuration-server.md) du konfigurerar konfigurations servern. 
-Processerver | Installeras som standard på konfigurationsservern.<br/> Tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure.<br/> När distributionen växer kan du lägga till ytterligare process servrar för att hantera större volymer av replikeringstrafiken. | - [Lär dig mer om](vmware-physical-azure-config-process-server-overview.md) processervern.<br/> - [Lär dig mer om](vmware-azure-manage-process-server.md#upgrade-a-process-server) att uppgradera till den senaste versionen.<br/> - [Lär dig mer om](vmware-physical-large-deployment.md#set-up-a-process-server) att konfigurera skalbara process servrar.
-Mobilitetstjänsten | Installerat på virtuella VMware-datorer eller fysiska servrar som du vill replikera.<br/> Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure.| - [Lär dig mer om](vmware-physical-mobility-service-overview.md) mobilitets tjänsten.<br/> - [Lär dig mer om](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) att uppgradera till den senaste versionen.<br/> 
+Konfigurationsserver | Installerat lokalt.<br/> Koordinerar kommunikationen mellan lokala VMware-servrar eller fysiska datorer och Azure. | - [Läs mer om](vmware-physical-azure-config-process-server-overview.md) konfigurations servern.<br/> - [Lär dig](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server) att uppgradera till den senaste versionen.<br/> - [Lär dig hur](vmware-azure-deploy-configuration-server.md) du konfigurerar konfigurations servern. 
+Processerver | Installeras som standard på konfigurationsservern.<br/> Tar emot replikeringsdata, optimerar dem med cachelagring, komprimering och kryptering och skickar dem till Azure.<br/> När distributionen växer kan du lägga till ytterligare process servrar för att hantera större volymer av replikeringstrafiken. | - [Läs mer om](vmware-physical-azure-config-process-server-overview.md) processervern.<br/> - [Lär dig](vmware-azure-manage-process-server.md#upgrade-a-process-server) att uppgradera till den senaste versionen.<br/> - [Lär dig mer om](vmware-physical-large-deployment.md#set-up-a-process-server) att konfigurera skalbara process servrar.
+Mobilitets tjänst | Installerat på virtuella VMware-datorer eller fysiska servrar som du vill replikera.<br/> Samordnar replikering mellan lokala VMware-servrar/fysiska servrar och Azure.| - [Läs mer om](vmware-physical-mobility-service-overview.md) mobilitets tjänsten.<br/> - [Lär dig](vmware-physical-manage-mobility-service.md#update-mobility-service-from-azure-portal) att uppgradera till den senaste versionen.<br/> 
 
 
 

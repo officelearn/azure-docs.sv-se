@@ -1,20 +1,20 @@
 ---
 title: Referens för Azure Managed Application Deployment-mall
-description: Den här artikeln är en referens till artefakten för distributions mal len.
+description: Innehåller ett exempel på distributions mal len artefakt för Azure Managed Applications.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: fe2517a8cc2ddee6623f88b2ae5e46c9e5319567
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: ec59c9cde4f23b4a9d641d286e152ea737576534
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336496"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330172"
 ---
-# <a name="reference-deployment-template-artifact"></a>Referens: Artefakt för distributions mall
+# <a name="reference-deployment-template-artifact"></a>Referens: artefakt för distributions mal len
 
 Den här artikeln är en referens för en *mainTemplate. JSON* -artefakt i Azure Managed Applications. Mer information om distributions mal len för redigering finns i [Azure Resource Manager mallar](../azure-resource-manager/resource-group-authoring-templates.md).
 
@@ -191,6 +191,6 @@ Följande JSON visar ett exempel på *mainTemplate. JSON* -fil för Azure Manage
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Skapa hanterat program med anpassade åtgärder och resurser](tutorial-create-managed-app-with-custom-provider.md)
-- [Förhållande Artefakt för användar gränssnitts element](reference-createuidefinition-artifact.md)
-- [Förhållande Visa definitions artefakt](reference-view-definition-artifact.md)
+- [Självstudie: skapa ett hanterat program med anpassade åtgärder och resurser](tutorial-create-managed-app-with-custom-provider.md)
+- [Referens: artefakt för användar gränssnitts element](reference-createuidefinition-artifact.md)
+- [Referens: Visa definitions artefakt](reference-view-definition-artifact.md)

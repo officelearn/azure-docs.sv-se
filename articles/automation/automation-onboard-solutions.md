@@ -9,12 +9,12 @@ manager: carmonm
 ms.topic: tutorial
 ms.date: 05/10/2018
 ms.custom: mvc
-ms.openlocfilehash: d247369647106cf1671a8770a6dce21f1a34a4b9
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: cacd9206eb0213d410a11ee3a2dcf5c0e28989c6
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60739634"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372816"
 ---
 # <a name="onboard-update-and-change-tracking-solutions-to-azure-automation"></a>Publicera uppdateringar och spårning av ändringar i Azure Automation
 
@@ -27,7 +27,7 @@ I den här självstudien får du lära dig att automatiskt registrera lösningar
 > * Importera runbooken som ska publiceras
 > * Starta runbook
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Följande krävs för att genomföra kursen:
 
@@ -81,7 +81,7 @@ Nu när lösningarna är aktiverade kan du lägga till en virtuell Azure-dator t
    ![Aktivera uppdateringslösning för virtuell dator](media/automation-onboard-solutions/enable-update.png)
 
 > [!NOTE]
-> Om du inte vänta tills den andra lösningen slutförs och aktiverar nästa lösning visas ett meddelande om: *En annan lösning pågår på den här eller en annan virtuell dator. When that installation completes the Enable button is enabled, and you can request installation of the solution on this virtual machine (När installationen är klar aktiveras knappen Aktivera, och du kan begära installation av lösningen på den här virtuella datorn).*
+> Om du inte väntar på att den andra lösningen ska slutföras, när du aktiverar nästa lösning får du ett meddelande om att *installationen av en annan lösning pågår på den här eller en annan virtuell dator. När installationen är klar aktive ras knappen Aktivera och du kan begära installation av lösningen på den här virtuella datorn.*
 
 ## <a name="install-and-update-modules"></a>Installera och uppdatera moduler
 
@@ -130,6 +130,13 @@ Du måste ha publicerat antingen ändringsspårning eller uppdateringslösningar
 
 1. Välj **OK** för att starta runbookjobbet.
 1. Övervaka förlopp och eventuella fel på runbookjobbsidan.
+
+## <a name="clean-up-resources"></a>Rensa resurser
+
+Så här tar du bort en virtuell dator från Uppdateringshantering:
+
+* I arbets ytan Log Analytics tar du bort den virtuella datorn från den sparade sökningen efter omfattnings konfigurationen `MicrosoftDefaultScopeConfig-Updates`. Sparade sökningar hittar du under **Allmänt** på arbets ytan.
+* Ta bort [Microsoft Monitoring Agent](../azure-monitor/learn/quick-collect-windows-computer.md#clean-up-resources) eller [Log Analytics agent för Linux](../azure-monitor/learn/quick-collect-linux-computer.md#clean-up-resources).
 
 ## <a name="next-steps"></a>Nästa steg
 

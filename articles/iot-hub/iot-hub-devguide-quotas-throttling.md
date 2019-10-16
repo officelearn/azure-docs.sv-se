@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: 4941e7af000e97e4ace0a9e90a187ed92409942d
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 1ed1b105f64d109284de441af1bcaee5f0827d75
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264636"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331368"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referens – IoT Hub kvoter och begränsning
 
@@ -95,7 +95,7 @@ IoT Hub tillämpar andra drift gränser:
 
 | Åtgärd | Gräns |
 | --------- | ----- |
-| Enheter | Det maximala antalet enheter som du kan ansluta till en enda IoT-hubb är 1 000 000. Det enda sättet att öka den här gränsen är att kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).|
+| Enheter | Det totala antalet enheter plus moduler som kan registreras till en enda IoT-hubb är ett tak på 1 000 000. Det enda sättet att öka den här gränsen är att kontakta [Microsoft Support](https://azure.microsoft.com/support/options/).|
 | Fil överföringar | 10 samtidiga fil överföringar per enhet. |
 | Jobb<sup>1</sup> | Maximalt antal samtidiga jobb är 1 (kostnads fritt och S1), 5 (för S2) och 10 (för S3). Dock är det maximala antalet samtidiga [enhets import/export-jobb](iot-hub-bulk-identity-mgmt.md) 1 för alla nivåer. <br/>Jobb historiken behålls upp till 30 dagar. |
 | Ytterligare slut punkter | Betalda SKU-hubbar kan ha 10 ytterligare slut punkter. De kostnads fria SKU-hubbarna kan ha en ytterligare slut punkt. |

@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory-integrering med enkel inloggning (SSO) med rese-och utgifts hantering i Concur | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med rese-och utgifts hantering i Concur | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och Concur resor och kostnader.
 services: active-directory
 documentationCenter: na
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2019
+ms.date: 03/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75f933cf54b354475146c1291b486173e0b57dbb
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 9dddd9f6904aa5ef7840850792aeabf04666dddc
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72026716"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373427"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Självstudier: Azure Active Directory-integrering med enkel inloggning (SSO) med rese-och utgifts hantering i Concur
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-concur-travel-and-expense"></a>Självstudie: Azure Active Directory-integrering med enkel inloggning (SSO) med Concur rese-och utgifts hantering
 
 I den här självstudien får du lära dig hur du integrerar Concur resor och utgifter med Azure Active Directory (Azure AD). När du integrerar Concur-resor och-utgifter med Azure AD kan du:
 
@@ -33,21 +33,23 @@ I den här självstudien får du lära dig hur du integrerar Concur resor och ut
 
 Mer information om SaaS app integration med Azure AD finns i [Vad är program åtkomst och enkel inloggning med Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att komma igång behöver du följande objekt:
 
 * En Azure AD-prenumeration. Om du inte har någon prenumeration kan du få ett [kostnads fritt konto](https://azure.microsoft.com/free/).
-* Concur för resor och utgifter för enkel inloggning (SSO).
+* Concur rese-och utgifts prenumeration.
+* Rollen "företags administratör" under ditt Concur-användarkonto. Du kan testa om du har rätt åtkomst genom att gå till [Concur SSO Self-Service Tool](https://www.concursolutions.com/nui/authadmin/ssoadmin). Kontakta Concur-supporten eller implementerings projektledaren om du inte har åtkomst. 
 
 ## <a name="scenario-description"></a>Scenariobeskrivning
 
-I den här självstudien konfigurerar och testar du Azure AD SSO i en test miljö.
+I den här självstudien konfigurerar och testar du Azure AD SSO.
 
-* Concur resor och utgifter stöder **IDP** INITIERAd SSO
+* Concur resor och utgifter stöder **IDP** och **SP** -initierad SSO
+* Concur resor och utgifter stöder testning av SSO i både produktions-och implementerings miljö 
 
 > [!NOTE]
-> ID för det här programmet är ett fast sträng värde så att endast en instans kan konfigureras i en klient.
+> ID för det här programmet är ett fast sträng värde för var och en av de tre regionerna: USA, EMEA och Kina. Det går bara att konfigurera en instans för varje region i en klient organisation. 
 
 ## <a name="adding-concur-travel-and-expense-from-the-gallery"></a>Lägga till Concur-resor och utgifter från galleriet
 
@@ -85,27 +87,30 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. I avsnittet **grundläggande SAML-konfiguration** är programmet förkonfigurerat i **IDP** initierat läge och de nödvändiga URL: erna redan är i förväg ifyllda med Azure. Användaren måste spara konfigurationen genom att klicka på knappen **Spara** .
 
-1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned certifikatet och spara det på din dator.
+    > [!NOTE]
+    > Identifierare (entitets-ID) och svars-URL (intygets konsument tjänst-URL) är regions information. Välj baserat på data centret för din Concur-entitet. Om du inte känner till data centret för din Concur-enhet kontaktar du Concur-supporten. 
 
-    ![Länk för hämtning av certifikat](common/metadataxml.png)
+5. På sidan **Konfigurera enkel inloggning med SAML** klickar du på ikonen Redigera/Ritstift för **användare** för att redigera inställningarna. Den unika användar identifieraren måste matcha Concur User login_id. Normalt bör du ändra **User. UserPrincipalName** till **User. mail**.
 
-1. I avsnittet **Konfigurera Concur resor och utgifter** kopierar du lämpliga URL: er baserat på ditt krav.
+    ![Redigera användarattribut](common/edit-attribute.png)
 
-    ![Kopiera konfigurations-URL:er](common/copy-configuration-urls.png)
+6. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , letar du upp **XML för federationsmetadata** och väljer **Hämta** för att ladda ned metadata och spara dem på din dator.
+
+    ![Länk för nedladdning av certifikatet](common/metadataxml.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till Concur resor och kostnader.
 
@@ -113,7 +118,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I listan program väljer du **Concur resor och utgifter**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -125,17 +130,37 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 
 ## <a name="configure-concur-travel-and-expense-sso"></a>Konfigurera Concur resor och utgifter SSO
 
-Om du vill konfigurera enkel inloggning på **Concur rese-och utgifts** sida måste du skicka den hämtade **XML-metadata för federationsmetadata** och lämpliga kopierade url: er från Azure Portal till [Concur support team för rese-och utgifts support](https://www.concur.com/support). De ställer du in SAML SSO ansluta till korrekt inställda på båda sidorna.
+1. Om du vill konfigurera enkel inloggning på **Concur rese-och utgifts** sida måste du ladda upp den hämtade **XML-koden för FEDERATIONSMETADATA** till [Concur SSO-verktyget](https://www.concursolutions.com/nui/authadmin/ssoadmin) och logga in med ett konto med rollen företags administratör. 
+
+1. Klicka på **Lägg till**.
+1. Ange ett eget namn för din IdP, till exempel "Azure AD (US)". 
+1. Klicka på **Ladda upp XML-fil** och koppla **XML för federationsmetadata** som du laddade ned tidigare.
+1. Spara ändringen genom att klicka på **Lägg till metadata** .
+
+    ![Skärm bild för Concur SSO Self-Service Tool](./media/concur-travel-and-expense-tutorial/add-metadata-concur-self-service-tool.png)
 
 ### <a name="create-concur-travel-and-expense-test-user"></a>Skapa Concur för rese-och utgifts test
 
-I det här avsnittet skapar du en användare som heter B. Simon i Concur resor och utgifter. Arbeta med [Concur-teamet för rese-och utgifts support](https://www.concur.com/support) för att lägga till användare i Concur rese-och utgifts plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning.
+I det här avsnittet skapar du en användare som heter B. Simon i Concur resor och utgifter. Arbeta med Concur support team för att lägga till användare i Concur rese-och utgifts plattform. Användare måste skapas och aktiveras innan du använder enkel inloggning. 
+
+> [!NOTE]
+> B. Simons Concur-inloggnings-ID måste matcha B. Simons unika identifierare i Azure AD. Om till exempel B. Simon: s Azure AD Unique-identifierare är `B.Simon@contoso.com`. B. Simon: s Concur-inloggnings-ID måste vara `B.Simon@contoso.com`. 
+
+## <a name="configure-concur-mobile-sso"></a>Konfigurera Concur Mobile SSO
+Om du vill aktivera Concur Mobile SSO måste du ge Concur support team **User Access URL**. Följ stegen nedan för att hämta **URL för användar åtkomst** från Azure AD:
+1. Gå till **företags program**
+1. Klicka på **Concur resor och utgifter**
+1. Klicka på **Egenskaper**
+1. Kopiera **URL för användar åtkomst** och ge denna URL till Concur-stöd
+
+> [!NOTE]
+> Självbetjänings alternativet för att konfigurera SSO är inte tillgängligt så arbeta med Concur support team för att aktivera enkel inloggning på mobilen. 
 
 ## <a name="test-sso"></a>Testa SSO 
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på panelen Concur rese-och utgifts hantering i åtkomst panelen, bör du loggas in automatiskt på den Concur res och kostnad som du ställer in SSO för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på panelen Concur rese-och utgifts hantering i åtkomst panelen, bör du loggas in automatiskt på den Concur res och kostnad som du ställer in SSO för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

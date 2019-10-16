@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/09/2019
 ms.author: pepogors
-ms.openlocfilehash: 334ccbf64e32655b5e78ac6564abb65996ac53da
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 1cbbc1fde22262d5841766978d40487f812e0963
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72167409"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72333114"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Överväganden vid planering av Service Fabric kluster kapacitet
 För produktions distribution är kapacitets planering ett viktigt steg. Här följer några av de objekt som du måste ta hänsyn till som en del av processen.
@@ -81,7 +81,7 @@ Hållbarhets nivån används för att ange systemet de privilegier som dina virt
 | Brons           | 1                              | Virtuella datorer med minst 50 GB lokal SSD                                              | Kommer inte att fördröjas av Service Fabric-klustret           | Kan inte fördröjas under en viss tids period                                                    |
 
 > [!WARNING]
-> Nodtyper som kör med brons hållbarhet får _inga privilegier_. Det innebär att infrastruktur jobb som påverkar dina tillstånds lösa arbets belastningar inte kommer att stoppas eller fördröjas, vilket kan påverka dina arbets belastningar. Använd endast brons för nodtyper som bara kör tillstånds lösa arbets belastningar. För produktions arbets belastningar rekommenderas att du kör silver eller högre. 
+> Nodtyper som kör med brons hållbarhet får _inga privilegier_. Det innebär att infrastruktur jobb som påverkar dina tillstånds känsliga arbets belastningar inte kommer att stoppas eller fördröjas, vilket kan påverka dina arbets belastningar. Använd endast brons för nodtyper som bara kör tillstånds lösa arbets belastningar. För produktions arbets belastningar rekommenderas att du kör silver eller högre. 
 > 
 > Oavsett vilken hållbarhets nivå som används förstörs klustret om du [avallokerar](https://docs.microsoft.com/rest/api/compute/virtualmachinescalesets/deallocate) en skalnings uppsättning för virtuella datorer
 
@@ -123,7 +123,7 @@ Tillförlitlighets nivån används för att ange antalet repliker av de system t
 
 Tillförlitlighets nivån kan ha följande värden:
 
-* Platina – kör System tjänsterna med ett mål replik uppsättnings antal sju
+* Platina – kör System tjänsterna med ett mål replik uppsättnings antal nio
 * Guld – kör System tjänsterna med ett mål replik uppsättnings antal sju
 * Silver – kör System tjänsterna med ett mål replik uppsättnings antal fem 
 * Brons – kör System tjänsterna med ett mål replik uppsättnings antal tre

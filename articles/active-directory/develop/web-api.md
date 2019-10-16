@@ -1,6 +1,6 @@
 ---
 title: Webb-API-appar i Azure Active Directory
-description: Beskriver vilka API-webbprogram och grunderna på protocol flow, registrering och token upphör att gälla för den här apptypen.
+description: Beskriver vilka webb-API-program som är och grunderna om protokoll flöde, registrering och token förfallo datum för den här typen av app.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,68 +17,68 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 484e6b4c5f0e064254c957b07b8ba15ef98f2634
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: f4babb7e869f4fc83bcdb530a580a29dda234293
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65545216"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373778"
 ---
 # <a name="web-api"></a>Webb-API
 
-Webb-API-appar är webbprogram som måste hämta resurser från ett webb-API. I det här scenariot finns det två identitetstyper av som webbprogrammet kan använda för att autentisera och anropa webb-API:
+Webb-API-appar är webb program som behöver hämta resurser från ett webb-API. I det här scenariot finns det två identitets typer som webb programmet kan använda för att autentisera och anropa webb-API: et:
 
-- **Programidentitet** – det här scenariot använder OAuth 2.0-klientautentiseringsuppgifter för att autentisera sig som programmet och få åtkomst till webb-API. När du använder en Programidentitet, webb-API kan bara identifiera att webbprogrammet anropar det, eftersom webb-får API: et inte någon information om användaren. Om programmet tar emot information om användaren, så skickas den via programprotokollet och är inte signerat av Azure AD. Webb-API litar på att användaren autentiseras för webbprogrammet. Därför är det här mönstret kallas ett betrodda undersystem.
-- **Delegerad användaridentitet** – det här scenariot kan utföras på två sätt: OpenID Connect och OAuth 2.0-auktoriseringskod med en konfidentiell klient. Webbprogrammet hämtar en åtkomsttoken för användaren, vilket bevisar för webb-API som användaren har autentiserats till webbprogrammet och att webbprogrammet kunde erhålla en delegerad användaridentitet för att anropa webb-API. Den här åtkomsttoken skickas i begäran till webb-API som ger användaren behörighet och returnerar önskad resurs.
+- **Program identitet** – i det här scenariot används OAuth 2,0-klientautentiseringsuppgifter för autentisering som program och åtkomst till webb-API: et. När du använder en program identitet kan webb-API: et bara identifiera att webb programmet anropar det eftersom webb-API: n inte får någon information om användaren. Om programmet tar emot information om användaren kommer det att skickas via applikations protokollet och det är inte signerat av Azure AD. Webb-API-förtroenden som webb programmet autentiserat användaren. Därför kallas det här mönstret ett betrott under system.
+- **Delegerad användar identitet** – det här scenariot kan utföras på två sätt: OpenID Connect och OAuth 2,0-auktoriseringskod som ger en konfidentiell klient. Webb programmet hämtar en åtkomsttoken för användaren, som bevisar webb-API: et som användaren har autentiserat till webb programmet och att webb programmet kunde hämta en delegerad användar identitet för att anropa webb-API: et. Denna åtkomsttoken skickas i begäran till webb-API: et, som auktoriserar användaren och returnerar önskad resurs.
 
-Både program-ID och delegerad identitet användartyper diskuteras i flödet nedan. Den viktigaste skillnaden mellan dem är att måste den delegerade användaridentiteten först skaffa en auktoriseringskod innan användaren kan logga in och få åtkomst till webb-API.
+Både program identiteten och de delegerade användar identitets typerna beskrivs i flödet nedan. Den viktigaste skillnaden mellan dem är att den delegerade användar identiteten först måste hämta en auktoriseringskod innan användaren kan logga in och få åtkomst till webb-API: et.
 
 ## <a name="diagram"></a>Diagram
 
-![Webbprogram till webb-API-diagram](./media/authentication-scenarios/web_app_to_web_api.png)
+![Webb program till webb-API-diagram](./media/authentication-scenarios/web_app_to_web_api.png)
 
-## <a name="protocol-flow"></a>Protocol flow
+## <a name="protocol-flow"></a>Protokoll flöde
 
-### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Ge programmet identitet med hjälp av OAuth 2.0-klientautentiseringsuppgifter
+### <a name="application-identity-with-oauth-20-client-credentials-grant"></a>Program identitet med beviljande av OAuth 2,0-klientautentiseringsuppgifter
 
-1. En användare är inloggad i Azure AD i webbprogrammet (se den **Webbappar** avsnitt för mer information).
-1. Webbprogrammet måste hämta en åtkomsttoken så att den kan autentisera till webb-API och hämta önskad resurs. Den gör en begäran till tokenslutpunkten för Azure AD, ger autentiseringsuppgifter, program-ID och API: er webbprogram ID-URI.
-1. Azure AD autentiserar programmet och returnerar en JWT åtkomst-token som används för att anropa webb-API.
-1. Över HTTPS använder webbprogrammet returnerade JWT-åtkomsttoken för att lägga till JWT-sträng med en ”ägar” beteckning i auktoriseringshuvudet för begäran till webb-API. Webb-API: verifierar JWT-token och om verifieringen lyckas, returnerar önskad resurs.
+1. En användare är inloggad i Azure AD i webb programmet (mer information finns i avsnittet **Web Apps** ).
+1. Webb programmet måste skaffa en åtkomsttoken så att den kan autentisera till webb-API: et och hämta önskad resurs. Den skickar en begäran till Azure ADs token-slutpunkt, som tillhandahåller autentiseringsuppgifter, program-ID och webb-API: n för program-ID.
+1. Azure AD autentiserar programmet och returnerar en JWT-åtkomsttoken som används för att anropa webb-API: et.
+1. Via HTTPS använder webb programmet den returnerade JWT-åtkomsttoken för att lägga till JWT-strängen med beteckningen "Bearer" i Authorization-huvudet för begäran till webb-API: et. Webb-API: et validerar sedan JWT-token och om verifieringen lyckas returneras den önskade resursen.
 
-### <a name="delegated-user-identity-with-openid-connect"></a>Delegerad användaridentiteter med OpenID Connect
+### <a name="delegated-user-identity-with-openid-connect"></a>Delegerad användar identitet med OpenID Connect
 
-1. En användare är inloggad i ett webbprogram med Azure AD (se webbläsarens webbprogram ovan). Om användaren av webbprogrammet inte har ännu godkänt att så att det webbaserade programmet och anropa webb-API för dess räkning, måste användaren godkänna. Programmet visas de behörigheter som krävs och om någon av dessa finns på administratörsnivå normal användare i katalogen inte kommer att kunna godkänna. Förfarandet medgivande gäller endast för program för flera innehavare, inte enskild klient program, som programmet har redan behörighet. När användaren är inloggad, fick webbprogrammet ett ID-token med information om användaren, samt en auktoriseringskod.
-1. Med den auktoriseringskod som utfärdats av Azure AD kan skickar webbprogrammet en begäran till tokenslutpunkten för Azure AD som innehåller Auktoriseringskoden, information om klientprogrammet (program-ID och omdirigerings-URI) och önskad resurs (program-ID URI för webb-API).
-1. Auktoriseringskod och information om webbprogram och webb-API verifieras av Azure AD. Vid lyckad validering returnerar två token i Azure AD: en JWT-token för åtkomst och en uppdatering JWT-token.
-1. Över HTTPS använder webbprogrammet returnerade JWT-åtkomsttoken för att lägga till JWT-sträng med en ”ägar” beteckning i auktoriseringshuvudet för begäran till webb-API. Webb-API: verifierar JWT-token och om verifieringen lyckas, returnerar önskad resurs.
+1. En användare är inloggad på ett webb program med hjälp av Azure AD (se avsnittet webbläsare till webb program ovan). Om användaren av webb programmet ännu inte har samtyckt till att tillåta webb programmet att anropa webb-API: et för dess räkning måste användaren godkänna. Programmet kommer att visa de behörigheter som krävs, och om något av dessa är administratörs behörighet kan en normal användare i katalogen inte samtycka. Den här medgivande processen gäller endast för program med flera klienter, inte enskilda klient program, eftersom programmet redan har de behörigheter som krävs. När användaren är inloggad mottog webb programmet en ID-token med information om användaren, samt en auktoriseringskod.
+1. Med hjälp av auktoriseringskod som utfärdats av Azure AD skickar webb programmet en begäran till Azure ADs token-slutpunkt som innehåller auktoriseringskod, information om klient programmet (program-ID och omdirigerings-URI) och önskad resurs (program-ID URI för webb-API: et).
+1. Auktoriseringskod och information om webb programmet och webb-API: n verifieras av Azure AD. Vid lyckad verifiering returnerar Azure AD två tokens: en JWT-åtkomsttoken och en JWT-uppdateringstoken.
+1. Via HTTPS använder webb programmet den returnerade JWT-åtkomsttoken för att lägga till JWT-strängen med beteckningen "Bearer" i Authorization-huvudet för begäran till webb-API: et. Webb-API: et validerar sedan JWT-token och om verifieringen lyckas returneras den önskade resursen.
 
-### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Delegerad användaridentiteter med OAuth 2.0-auktoriseringskod
+### <a name="delegated-user-identity-with-oauth-20-authorization-code-grant"></a>Delegerad användar identitet med OAuth 2,0 Authorization Code Grant
 
-1. En användare är redan inloggad på ett webbprogram, vars autentiseringsmetod är oberoende av Azure AD.
-1. Webbprogrammet kräver en auktoriseringskod att hämta en åtkomsttoken, så att den skickar en begäran via webbläsaren till auktoriseringsslutpunkten för Azure AD, vilket ger det program-ID och omdirigerings-URI för det webbaserade programmet efter en lyckad autentisering. Användaren loggar in till Azure AD.
-1. Om användaren av webbprogrammet inte har ännu godkänt att så att det webbaserade programmet och anropa webb-API för dess räkning, måste användaren godkänna. Programmet visas de behörigheter som krävs och om någon av dessa finns på administratörsnivå normal användare i katalogen inte kommer att kunna godkänna. Den här medgivande gäller både enstaka och flera innehavare program. Enskild klient-om kan en administratör utföra admin medgivande till medgivande för sina användare. Detta kan göras med hjälp av den `Grant Permissions` knappen i den [Azure-portalen](https://portal.azure.com). 
-1. När användaren har godkänt får webbprogrammet auktoriseringskod som krävs för att hämta en åtkomsttoken.
-1. Med den auktoriseringskod som utfärdats av Azure AD kan skickar webbprogrammet en begäran till tokenslutpunkten för Azure AD som innehåller Auktoriseringskoden, information om klientprogrammet (program-ID och omdirigerings-URI) och önskad resurs (program-ID URI för webb-API).
-1. Auktoriseringskod och information om webbprogram och webb-API verifieras av Azure AD. Vid lyckad validering returnerar två token i Azure AD: en JWT-token för åtkomst och en uppdatering JWT-token.
-1. Över HTTPS använder webbprogrammet returnerade JWT-åtkomsttoken för att lägga till JWT-sträng med en ”ägar” beteckning i auktoriseringshuvudet för begäran till webb-API. Webb-API: verifierar JWT-token och om verifieringen lyckas, returnerar önskad resurs.
+1. En användare har redan loggat in på ett webb program, vars autentiseringsmekanism är oberoende av Azure AD.
+1. Webb programmet kräver en auktoriseringskod för att erhålla en åtkomsttoken, så den utfärdar en begäran via webbläsaren till Azure ADs Authorization-slutpunkt, vilket ger program-ID och omdirigerings-URI för webb programmet efter autentiseringen. Användaren loggar in på Azure AD.
+1. Om användaren av webb programmet ännu inte har samtyckt till att tillåta webb programmet att anropa webb-API: et för dess räkning måste användaren godkänna. Programmet kommer att visa de behörigheter som krävs, och om något av dessa är administratörs behörighet kan en normal användare i katalogen inte samtycka. Detta medgivande gäller för både en och flera klient program. I det enskilda klient fallet kan en administratör utföra administratörs medgivande för användarens räkning. Detta kan göras med hjälp av knappen `Grant Permissions` i [Azure Portal](https://portal.azure.com). 
+1. När användaren har samtyckt får webb programmet den auktoriseringskod som krävs för att hämta en åtkomsttoken.
+1. Med hjälp av auktoriseringskod som utfärdats av Azure AD skickar webb programmet en begäran till Azure ADs token-slutpunkt som innehåller auktoriseringskod, information om klient programmet (program-ID och omdirigerings-URI) och önskad resurs (program-ID URI för webb-API: et).
+1. Auktoriseringskod och information om webb programmet och webb-API: n verifieras av Azure AD. Vid lyckad verifiering returnerar Azure AD två tokens: en JWT-åtkomsttoken och en JWT-uppdateringstoken.
+1. Via HTTPS använder webb programmet den returnerade JWT-åtkomsttoken för att lägga till JWT-strängen med beteckningen "Bearer" i Authorization-huvudet för begäran till webb-API: et. Webb-API: et validerar sedan JWT-token och om verifieringen lyckas returneras den önskade resursen.
 
 ## <a name="code-samples"></a>Kodexempel
 
-Se kodexempel för webbprogram till webb-API-scenarier. Och kom tillbaka ofta – nya exempel läggs ofta. Web [program till webb-API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
+Se kod exemplen för webb program till webb-API-scenarier. Och kom tillbaka ofta – nya exempel läggs till ofta. Webb [program till webb-API](sample-v1-code.md#web-applications-signing-in-users-calling-microsoft-graph-or-a-web-api-with-the-users-identity).
 
 ## <a name="app-registration"></a>Appregistrering
 
-Om du vill registrera ett program med Azure AD v1.0 slutpunkten, se [registrera en app](quickstart-register-app.md).
+Information om hur du registrerar ett program med Azure AD v 1.0-slutpunkten finns i [Registrera en app](quickstart-register-app.md).
 
-* Enskild klient – för både programidentiteten och delegerade användaren identitet fall kan webbappen och webb-API måste registreras i samma katalog i Azure AD. Webb-API kan konfigureras för att exponera en uppsättning behörigheter som används för att begränsa webbprogrammets åtkomst till dess resurser. Om en delegerad användaridentitetstypen används webbprogrammet måste välja önskade behörigheter från den **behörigheter för andra program** nedrullningsbara menyn i Azure-portalen. Det här steget krävs inte om identitet programtyp som används.
-* Flera innehavare-först webbprogrammet har konfigurerats för att ange de behörigheter som krävs ska fungera. Den här listan över behörigheter som krävs visas i en dialogruta när en användare eller administratör i målmappen ger du ditt medgivande till programmet, vilket gör dem tillgängliga för deras organisation. Vissa program kräver endast användarnivå behörigheter, som alla användare i organisationen kan godkänna. Andra program som kräver på administratörsnivå som en användare i organisationen inte kan godkänna. Endast en directory-administratören kan samtycka till program som kräver den här behörighetsnivån. När användaren eller administratören godkänner, registreras webbappen och webb-API både i sin katalog.
+* Enskild klient – både för program identiteten och den delegerade användarens identitets fall måste webb programmet och webb-API: t vara registrerat i samma katalog i Azure AD. Webb-API: et kan konfigureras för att visa en uppsättning behörigheter som används för att begränsa webb programmets åtkomst till resurserna. Om en delegerad användar identitets typ används måste webb programmet välja önskade behörigheter från List rutan **behörigheter till andra program** i Azure Portal. Det här steget krävs inte om program identitets typen används.
+* För flera klient organisationer är webb programmet konfigurerat för att ange de behörigheter som krävs för att fungera. Den här listan över nödvändiga behörigheter visas i en dialog ruta när en användare eller administratör i mål katalogen ger tillåtelse till programmet, vilket gör det tillgängligt för deras organisation. Vissa program kräver bara behörigheter på användar nivå, som alla användare i organisationen kan godkänna. Andra program kräver behörigheter på administratörs nivå, som en användare i organisationen inte kan godkänna. Endast en katalog administratör kan ge medgivande till program som kräver den här nivån av behörigheter. När användaren eller administratören samtycks, är webb programmet och webb-API: et registrerade i deras katalog.
 
-## <a name="token-expiration"></a>Giltighetstid för token
+## <a name="token-expiration"></a>Förfallo datum för token
 
-När webbprogrammet använder dess auktoriseringskod för att hämta en JWT åtkomsttoken, emot tas även en uppdatering JWT-token. Uppdateringstoken kan användas för att autentiseras på nytt användaren utan att behöva logga in igen när åtkomsttoken upphör att gälla. Den här uppdateringstoken används sedan för att autentisera användaren, vilket innebär att en ny åtkomsttoken och uppdateringstoken.
+När webb programmet använder sin auktoriseringskod för att hämta en JWT-åtkomsttoken får den också en JWT-uppdateringstoken. När åtkomsttoken upphör att gälla, kan uppdateringstoken användas för att autentisera användaren igen utan att behöva logga in igen. Denna uppdateringstoken används sedan för att autentisera användaren, vilket resulterar i en ny åtkomsttoken och en uppdaterad token.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs mer om andra [programtyper och scenarier](app-types.md)
-- Lär dig mer om Azure AD [grunder](authentication-scenarios.md)
+- Läs mer om andra [program typer och scenarier](app-types.md)
+- Lär dig mer om grunderna i Azure AD- [autentisering](v1-authentication-scenarios.md)

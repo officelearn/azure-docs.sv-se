@@ -1,6 +1,6 @@
 ---
-title: Web apps i Azure Active Directory
-description: Beskriver vilka webbappar är och grunderna på protocol flow, registrering och token upphör att gälla för den här apptypen.
+title: Web Apps i Azure Active Directory
+description: Beskriver vilka webb program som är och grunderna för protokoll flöde, registrering och token som upphör att gälla för den här typen av app.
 services: active-directory
 documentationcenter: ''
 author: rwike77
@@ -17,44 +17,44 @@ ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur, andret
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d15d76f4c16fa89b41ebfc10c9617c4709203d38
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d41cd23d551e4834bf6b94f513e36ff46c1cd45
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65544728"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72373650"
 ---
 # <a name="web-apps"></a>Webbappar
 
-Webbappar är program som autentiserar en användare i en webbläsare till ett webbprogram. I det här scenariot uppmanar webbprogrammet användarens webbläsare att logga in dem till Azure AD. Azure AD returnerar ett svar via användarens webbläsare, som innehåller anspråk om användaren i en säkerhetstoken. Det här scenariot stöder inloggning med OpenID Connect, SAML 2.0 och WS-Federation-protokoll.
+Web Apps är program som autentiserar en användare i en webbläsare till ett webb program. I det här scenariot dirigerar webb programmet användarens webbläsare för att logga in på Azure AD. Azure AD returnerar ett inloggnings svar via användarens webbläsare, som innehåller anspråk om användaren i en säkerhetstoken. Det här scenariot stöder inloggning med hjälp av protokollen OpenID Connect, SAML 2,0 och WS-Federation.
 
 ## <a name="diagram"></a>Diagram
 
-![Autentiseringsflödet för webbläsaren till webbprogram](./media/authentication-scenarios/web_browser_to_web_api.png)
+![Autentiserings flöde för webbläsare till webb program](./media/authentication-scenarios/web_browser_to_web_api.png)
 
-## <a name="protocol-flow"></a>Protocol flow
+## <a name="protocol-flow"></a>Protokoll flöde
 
-1. När en användare besöker programmet och behöver logga in, omdirigeras via en begäran till autentiseringsslutpunkten för i Azure AD.
-1. Användaren loggar in på sidan logga in.
-1. Om autentiseringen lyckas skapar en autentiseringstoken Azure AD och returnerar ett svar till programmets svars-URL som har konfigurerats i Azure-portalen. För ett produktionsprogram måste svars-URL vara HTTPS. Den returnerade token innehåller anspråk om användaren och Azure AD som krävs av programmet för att validera token.
-1. Programmet verifierar token med hjälp av en offentlig signeringsnyckel och information om utfärdare är tillgänglig på federationsmetadatadokumentet för Azure AD. När programmet verifierar token, startar en ny session med användaren. Den här sessionen gör att användaren kan komma åt programmet tills det upphör att gälla.
+1. När en användare besöker programmet och behöver logga in, omdirigeras de via en inloggningsbegäran till autentiseringens slut punkt i Azure AD.
+1. Användaren loggar in på inloggnings sidan.
+1. Om autentiseringen lyckas skapar Azure AD en autentiseringstoken och returnerar ett inloggnings svar till programmets svars-URL som konfigurerades i Azure Portal. För ett produktions program ska denna svars-URL vara HTTPS. Den returnerade token innehåller anspråk om användaren och Azure AD som krävs av programmet för att validera token.
+1. Programmet verifierar token med hjälp av en offentlig signerings nyckel och information om utfärdare som är tillgänglig i dokumentet för federationsmetadata för Azure AD. När programmet har validerat token startar den en ny session med användaren. Den här sessionen ger användaren åtkomst till programmet tills den upphör att gälla.
 
 ## <a name="code-samples"></a>Kodexempel
 
-Se kodexempel för webbläsarens web Programscenarier. Och kontrollera tillbaka ofta eftersom nya exempel läggs ofta.
+Se exempel på kod exempel för webbläsare till webb program scenarier. Och kom tillbaka ofta när nya exempel läggs till ofta.
 
 ## <a name="app-registration"></a>Appregistrering
 
-Om du vill registrera ett webbprogram, se [registrera en app](quickstart-register-app.md).
+Information om hur du registrerar en webbapp finns i [Registrera en app](quickstart-register-app.md).
 
-* Enskild klient - om du skapar ett program för din organisation kan den registreras i företagets katalog med hjälp av Azure portal.
-* Flera innehavare - om du skapar ett program som kan användas av användare utanför organisationen, det måste vara registrerad i företagets katalog, men även måste registreras i varje organisations katalog som kommer att använda programmet. Du kan inkludera en registreringsprocess för dina kunder som gör det möjligt för dem att godkänna ditt program för att göra programmet tillgängligt i sin katalog. När de registrerar sig för ditt program, kommer de att visas en dialogruta som visar de behörigheter som programmet kräver och sedan alternativet för att godkänna. Beroende på behörigheterna som krävs kanske en administratör i den andra organisationen måste ge ditt medgivande. När användaren eller administratören godkänner, registreras programmet i sin katalog.
+* Enskild klient – om du skapar ett program precis för din organisation måste det registreras i företagets katalog med hjälp av Azure Portal.
+* Flera innehavare – om du skapar ett program som kan användas av användare utanför organisationen måste det registreras i företagets katalog, men måste också registreras i varje organisations katalog som ska använda programmet. Om du vill göra ditt program tillgängligt i sin katalog kan du inkludera en registrerings process för dina kunder som gör det möjligt för dem att godkänna ditt program. När de registrerar sig för ditt program visas en dialog ruta som visar de behörigheter programmet kräver, och sedan alternativet för att godkänna. Beroende på vilka behörigheter som krävs kan en administratör i den andra organisationen behöva ge sitt medgivande. När användaren eller administratören samtycker, registreras programmet i sin katalog.
 
-## <a name="token-expiration"></a>Giltighetstid för token
+## <a name="token-expiration"></a>Förfallo datum för token
 
-Användarens session upphör att gälla när livslängd för token som utfärdas av Azure AD upphör att gälla. Ditt program kan förkorta denna tidsperiod om du vill, till exempel logga ut användare baserat på en period av inaktivitet. När sessionen upphör att gälla, uppmanas användaren att logga in igen.
+Användarens session upphör att gälla när livs längden för token som utfärdas av Azure AD upphör att gälla. Ditt program kan förkorta den här tids perioden om du vill, till exempel Logga ut användare baserat på en period av inaktivitet. När sessionen upphör att gälla uppmanas användaren att logga in igen.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer om andra [programtyper och scenarier](app-types.md)
-* Lär dig mer om Azure AD [grunder](authentication-scenarios.md)
+* Läs mer om andra [program typer och scenarier](app-types.md)
+* Lär dig mer om grunderna i Azure AD- [autentisering](v1-authentication-scenarios.md)

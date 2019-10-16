@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: azure-functions
 ms.custom: mvc
 manager: gwallace
-ms.openlocfilehash: 54d7dc4e57991f6b773169f539a86fdc8451cbba
-ms.sourcegitcommit: 4f7dce56b6e3e3c901ce91115e0c8b7aab26fb72
+ms.openlocfilehash: d4a72edbe762afd2a94962c1440357ce3ad46862
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71950377"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329589"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-image"></a>Skapa en funktion i Linux med en anpassad avbildning
 
@@ -40,7 +40,7 @@ I den här guiden får du lära dig att:
 
 Följande steg kan användas på en Mac-, Windows- eller Linux-dator. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 Innan du kör exemplet måste du ha följande:
 
@@ -106,7 +106,7 @@ docker build --tag <docker-id>/mydockerimage:v1.0.0 .
 När kommandot har slutförts kan du köra den nya behållaren lokalt.
 
 ### <a name="run-the-image-locally"></a>Kör avbildningen lokalt
-Kontrollera att avbildningen du har skapat fungerar genom att köra Docker-avbildningen i en lokal container. Utfärda kommandot [docker run](https://docs.docker.com/engine/reference/commandline/run/) och skicka avbildningens namn och tagg till det. Kom ihåg att ange porten med argumentet `-p`.
+Kontrollera att avbildningen du har skapat fungerar genom att köra Docker-avbildningen i en lokal container. Utfärda kommandot [docker run](https://docs.docker.com/engine/reference/commandline/run/) och skicka avbildningens namn och tagg till det. Se till att ange porten som använder argumentet `-p`.
 
 ```bash
 docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
@@ -195,12 +195,12 @@ AzureWebJobsStorage=$storageConnectionString
 
 <!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
 
-Den HTTP-utlöst funktion som du skapade kräver en [funktions nyckel](functions-bindings-http-webhook.md#authorization-keys) när du anropar slut punkten. För närvarande är det enklaste sättet att hämta funktions webb adressen, inklusive nyckeln, från [Azure Portal]. 
+Den HTTP-utlöst funktion som du skapade kräver en [funktions nyckel](functions-bindings-http-webhook.md#authorization-keys) när du anropar slut punkten. För närvarande är det enklaste sättet att hämta funktions webb adressen, inklusive nyckeln, från [Azure-portalen]. 
 
 > [!TIP]
 > Du kan också hämta funktions nycklar med hjälp av [API: er för nyckel hantering](https://github.com/Azure/azure-functions-host/wiki/Key-management-API), vilket kräver att du presenterar en [Bearer-token för autentisering](/cli/azure/account#az-account-get-access-token).
 
-Leta upp din nya Function-app i [Azure Portal] genom att skriva in namnet på din app i rutan **Sök** högst upp på sidan och välja **App Service** resurs.
+Leta upp din nya Function-app i [Azure-portalen] genom att skriva in namnet på din app i rutan **Sök** högst upp på sidan och välja **App Service** resurs.
 
 Välj funktionen **MyHttpTrigger** , Välj **</> Hämta funktions webb adress** > **standard (funktions nyckel)**  > **kopia**.
 
@@ -365,11 +365,7 @@ docker push <docker-id>/mydockerimage:v1.0.0
 
 Använd samma URL som tidigare från webbläsaren för att utlösa din funktion. Du bör se samma svar. Men den här gången är strängen som du skickar som parametern `name` skriven i lagrings kön `outqueue`.
 
-### <a name="set-the-storage-account-connection"></a>Ange lagrings konto anslutningen
-
 [!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
-
-### <a name="query-the-storage-queue"></a>Fråga lagrings kön
 
 [!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
 
@@ -383,4 +379,4 @@ Nu när du har distribuerat din anpassade behållare till en Function-app i Azur
 + [Skalnings-och värd alternativ](functions-scale.md)
 + [Kubernetes-baserad server lös värd](functions-kubernetes-keda.md)
 
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

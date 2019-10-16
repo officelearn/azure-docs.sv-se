@@ -1,6 +1,6 @@
 ---
-title: Azure SizeSelector UI-element | Microsoft Docs
-description: Beskriver Microsoft.Compute.SizeSelector UI-element för Azure-portalen.
+title: Användar gränssnitts element för Azure SizeSelector | Microsoft Docs
+description: Beskriver användar gränssnitts elementet Microsoft. Compute. SizeSelector för Azure Portal. Används för att välja storlek på en virtuell dator.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,25 +13,25 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: e5be5635964ebeedc7be4d1d1f5403e4d281b55c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 288ea7e887a170c8560b0126fa53c9132da35db6
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64722340"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332670"
 ---
-# <a name="microsoftcomputesizeselector-ui-element"></a>Microsoft.Compute.SizeSelector UI-element
-En kontroll för att välja en storlek för en eller flera instanser av virtuella datorer.
+# <a name="microsoftcomputesizeselector-ui-element"></a>GRÄNSSNITTs element för Microsoft. Compute. SizeSelector
+En kontroll för att välja en storlek för en eller flera virtuella dator instanser.
 
 ## <a name="ui-sample"></a>UI-exempel
 
-Användaren ser en väljare med standardvärden från elementdefinition.
+Användaren ser en selektor med standardvärden från element definitionen.
 
-![Microsoft.Compute.SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
+![Microsoft. Compute. SizeSelector](./media/managed-application-elements/microsoft.compute.sizeselector.png)
 
-När du har valt kontrollen, ser användaren en utökad vy över tillgängliga storlekar.
+När du har valt kontrollen ser användaren en utökad vy av de tillgängliga storlekarna.
 
-![Microsoft.Compute.SizeSelector expanderas](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
+![Microsoft. Compute. SizeSelector utökad](./media/managed-application-elements/microsoft.compute.sizeselector-expanded.png)
 
 ## <a name="schema"></a>Schema
 ```json
@@ -66,14 +66,14 @@ När du har valt kontrollen, ser användaren en utökad vy över tillgängliga s
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- `recommendedSizes` bör ha minst en storlek. Den första rekommenderade storleken används som standard. Listan över tillgängliga storlekar är inte sorteras efter det rekommenderade tillståndet. Användaren kan välja kolumnen att sortera efter rekommenderade tillstånd.
-- Om en rekommenderad storlek inte är tillgängligt på den valda platsen är storleken automatiskt att hoppas över. I stället används nästa Rekommenderad storlek.
-- `constraints.allowedSizes` och `constraints.excludedSizes` båda är valfria, men kan inte användas samtidigt. Listan över tillgängliga storlekar kan fastställas genom att anropa [lista över tillgängliga virtuella datorstorlekar för en prenumeration](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Valfri storlek som inte har angetts i den `constraints.allowedSizes` är dolt och inte har angetts i storlekar `constraints.excludedSizes` visas.
-- `osPlatform` måste anges och kan vara antingen **Windows** eller **Linux**. Den används för att fastställa kostnader för maskinvara för virtuella datorer.
-- `imageReference` tas bort för Förstaparts-avbildningar, men tillhandahållna för tredje parts-avbildningar. Den används för att fastställa kostnader för programvara för virtuella datorer.
-- `count` används för att ange lämplig multiplikatorn för elementet. Den stöder ett statiskt värde som **2**, eller ett dynamiskt värde från ett annat element som `[steps('step1').vmCount]`. Standardvärdet är **1**.
-- Den `numAvailabilityZonesRequired` kan vara 1, 2 eller 3.
-- Som standard `hideDiskTypeFilter` är **FALSKT**. Disk Typfiltret gör det möjligt för användare att se alla disktyper eller endast SSD.
+- `recommendedSizes` måste ha minst en storlek. Den första rekommenderade storleken används som standard. Listan över tillgängliga storlekar sorteras inte efter rekommenderat tillstånd. Användaren kan välja den kolumnen för att sortera efter rekommenderat tillstånd.
+- Om en rekommenderad storlek inte är tillgänglig på den valda platsen hoppas storleken automatiskt över. I stället används nästa rekommenderade storlek.
+- `constraints.allowedSizes` och `constraints.excludedSizes` är båda valfria, men kan inte användas samtidigt. Listan över tillgängliga storlekar kan bestämmas genom att [listan med tillgängliga storlekar för virtuella datorer anropas för en prenumeration](/rest/api/compute/virtualmachines/virtualmachines-list-sizes-region). Alla storlekar som inte anges i `constraints.allowedSizes` är dolda och alla storlekar som inte anges i `constraints.excludedSizes` visas.
+- `osPlatform` måste anges och kan vara antingen **Windows** eller **Linux**. Den används för att fastställa maskin varu kostnaderna för de virtuella datorerna.
+- `imageReference` utelämnas för avbildningar från första part, men tillhandahålls för avbildningar från tredje part. Den används för att fastställa program varu kostnaderna för de virtuella datorerna.
+- `count` används för att ange lämplig multiplikator för elementet. Det har stöd för ett statiskt värde, till exempel **2**, eller ett dynamiskt värde från ett annat element, till exempel `[steps('step1').vmCount]`. Standardvärdet är **1**.
+- @No__t-0 kan vara 1, 2 eller 3.
+- @No__t-0 är som standard **falskt**. Filtret disk typ gör att användaren kan se alla disk typer eller endast SSD.
 
 ## <a name="sample-output"></a>Exempel på utdata
 ```json
@@ -81,5 +81,5 @@ När du har valt kontrollen, ser användaren en utökad vy över tillgängliga s
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

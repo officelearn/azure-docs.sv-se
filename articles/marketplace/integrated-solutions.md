@@ -8,10 +8,10 @@ ms.topic: article
 ms.date: 02/27/2019
 ms.author: ellacroi
 ms.openlocfilehash: b6015ce2d52c140a966636b887d021e76e92990d
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/14/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "70993630"
 ---
 # <a name="integrated-solutions-in-azure-marketplace-and-appsource"></a>Integrerade lösningar i Azure Marketplace och AppSource
@@ -24,9 +24,9 @@ De här lösningarna är byggda för att tillgodose ett bestämt kund behov elle
 
 Fördelarna med en integrerad metod är:
 
-* *Bransch expert kunskaper*: System integrerare som tillhandahåller branschspecifika lösningar och kunskaper
-* *Tid till värde*: Integrerad distributions metod för att hjälpa dig att realisera omedelbara förmåner
-* *Bästa-för-ras-lösningar*: Upptäck den enkla versionen av en integrerad implementering av köp och implementering
+* *Bransch expert kunskaper*: system integrerare som tillhandahåller branschspecifika lösningar och kunskaper
+* *Tid till värde*: integrerad distributions metod för att hjälpa dig att realisera omedelbara förmåner
+* *Bästa-för-ras-lösningar*: Upptäck den enkla versionen av en integrerad metod för att köpa och implementera
 
 ## <a name="next-steps"></a>Nästa steg
 
@@ -35,7 +35,7 @@ Du kan identifiera integrerade lösningar och ansluta till dessa värdefulla par
 * [Kund 360 drivs av Zero2Hero](https://azuremarketplace.microsoft.com/marketplace/consulting-services/bardess.customer-360-powered-by-zero2hero)
 * [Snabb handel](https://azuremarketplace.microsoft.com/marketplace/consulting-services/publicis-sapient.rapid_commerce)
 * [Kredit analys](https://azuremarketplace.microsoft.com/marketplace/consulting-services/rcg-us.rcg-enable-credit-analytics)
-* [Healthcare Cloud Security Stack](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
+* [Säkerhets stack för hälso vårds moln](https://azuremarketplace.microsoft.com/marketplace/consulting-services/xentit.azure-xentit-trendmicro-qualys-hcss-12months)
 * [DevOps accelerations motor](https://azuremarketplace.microsoft.com/marketplace/consulting-services/sirrus7.sirrus7-devops-acceleration-engine?search=devops%20acceleration%20engine&page=1)
 * [Support för Windows Server-Support](https://azuremarketplace.microsoft.com/marketplace/consulting-services/new-signature.eos_appfactory)
 

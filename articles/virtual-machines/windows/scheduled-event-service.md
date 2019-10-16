@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.date: 08/20/2019
 ms.author: sarn
 ms.topic: conceptual
-ms.openlocfilehash: 49c82339e5a3774cd286d700d709371d46cf0571
-ms.sourcegitcommit: bba811bd615077dc0610c7435e4513b184fbed19
+ms.openlocfilehash: d090fb52beb266f006e69688c09f66412f1fe8c2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70051853"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376201"
 ---
 # <a name="monitoring-scheduled-events"></a>Övervaknings Schemalagda händelser
 
@@ -32,7 +32,7 @@ I den här artikeln får du lära dig hur du samlar in underhålls Schemalagda h
 
 ![Diagram över händelsens livs cykel](./media/notifications/events.png)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 I det här exemplet måste du skapa en [virtuell Windows-dator i en tillgänglighets uppsättning](tutorial-availability-sets.md). Schemalagda händelser ange meddelanden om ändringar som kan påverka någon av de virtuella datorerna i din tillgänglighets uppsättning, moln tjänst, skalnings uppsättning för virtuell dator eller fristående virtuella datorer. Vi kommer att köra en [tjänst](https://github.com/microsoft/AzureScheduledEventsService) som avsöker efter schemalagda händelser på en av de virtuella datorer som fungerar som en insamlare, för att hämta händelser för alla andra virtuella datorer i tillgänglighets uppsättningen.    
 
@@ -61,7 +61,7 @@ New-AzVm `
 
 Hämta filen installation. zip för projektet från [GitHub](https://github.com/microsoft/AzureScheduledEventsService/archive/master.zip).
 
-Anslut till **myCollectorVM** och kopiera. zip-filen till den virtuella datorn och extrahera alla filer. Öppna en PowerShell-prompt på den virtuella datorn. Flytta din prompt till mappen som innehåller `SchService.ps1`, till exempel: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>`och konfigurera tjänsten.
+Anslut till **myCollectorVM** och kopiera. zip-filen till den virtuella datorn och extrahera alla filer. Öppna en PowerShell-prompt på den virtuella datorn. Flytta din prompt till mappen som innehåller `SchService.ps1`, till exempel: `PS C:\Users\azureuser\AzureScheduledEventsService-master\AzureScheduledEventsService-master\Powershell>` och konfigurera tjänsten.
 
 ```powershell
 .\SchService.ps1 -Setup
@@ -98,7 +98,7 @@ När händelser samlas in av tjänsten Schemalägg händelse kommer den att logg
 >
 > För vår konfiguration valde vi Windows, men du kan skapa en liknande lösning i Linux.
 
-Du kan när som helst stoppa/ta bort den schemalagda händelse tjänsten med hjälp `–stop` av `–remove`växlarna och.
+Du kan när som helst stoppa/ta bort tjänsten schemalagd händelse genom att använda växlarna `–stop` och `–remove`.
 
 ## <a name="connect-to-the-workspace"></a>Anslut till arbets ytan
 
@@ -158,21 +158,21 @@ När händelserna flyttas till Log Analytics kan du köra följande [fråga](/az
     ![Spara frågan](./media/notifications/save-query.png)
 
 1. Välj **ny aviserings regel**. 
-1. På sidan **Skapa regel** lämnar `collectorworkspace` du som **resurs**.
+1. På sidan **Skapa regel** lämnar du `collectorworkspace` som **resurs**.
 1. Under **villkor**väljer du posten *när kund loggs ökningen är <login undefined>* . Sidan **Konfigurera signal logik** öppnas.
 1. Under **tröskelvärde**anger du *0* och väljer sedan **färdig**.
 1. Under **åtgärder**väljer du **skapa åtgärds grupp**. Sidan **Lägg till åtgärds grupp** öppnas.
 1. I **Åtgärds grupp namn**skriver du *myActionGroup*.
 1. Skriv **myActionGroup**i **kort namn**.
-1. I **resurs grupp**väljer du *myResourceGroupAvailability* *.
+1. I **resurs grupp**väljer du **myResourceGroupAvailability**.
 1. Under åtgärder, under **Åtgärds namn** skriver du **e-post**och väljer sedan **e-post/SMS/push/röst**. Sidan **e-post/SMS/push/Voice** öppnas.
 1. Välj **e**-postadress, Skriv in din e-postadress och välj sedan **OK**.
 1. På sidan **Lägg till åtgärds grupp** väljer du **OK**. 
-1. Skriv aviserings **regelns namn**under **aviserings information**på sidan **Skapa regel** och skriv sedan *e-postavisering* för **beskrivningen**.
+1. Skriv aviserings **regelns namn**under **aviserings information**på sidan **Skapa regel** *och skriv sedan* *e-postavisering* för **beskrivningen**.
 1. När du är färdig väljer du **skapa aviserings regel**.
 1. Starta om en av de virtuella datorerna i tillgänglighets uppsättningen. Inom några minuter bör du få ett e-postmeddelande om att aviseringen har utlösts.
 
-Om du vill hantera dina aviserings regler går du till resurs gruppen , väljer aviseringar på den vänstra menyn och väljer **Hantera aviserings regler** överst på sidan.
+Om du vill hantera dina aviserings regler går du till resurs gruppen, väljer **aviseringar** på den vänstra menyn och väljer **Hantera aviserings regler** överst på sidan.
 
      
 ## <a name="next-steps"></a>Nästa steg

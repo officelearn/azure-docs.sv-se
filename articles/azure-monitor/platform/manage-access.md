@@ -13,30 +13,28 @@ ms.tgt_pltfrm: na
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.author: magoedte
-ms.openlocfilehash: 920e470a8bc06050219d0f603ab842cfc267e6ce
-ms.sourcegitcommit: 8bae7afb0011a98e82cbd76c50bc9f08be9ebe06
+ms.openlocfilehash: 010f7bb2f19eed757da3f62011b69e1f09ddadf0
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71695009"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329416"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Hantera åtkomst till logg data och arbets ytor i Azure Monitor
 
-Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets yta, vilket är i princip en behållare som innehåller data och konfigurations information. Om du vill hantera åtkomst till loggdata utför du olika administrativa uppgifter relaterade till din arbets yta.
+Azure Monitor lagrar [loggdata](data-platform-logs.md) i en Log Analytics arbets yta. En arbets yta är en behållare som innehåller data och konfigurations information. Om du vill hantera åtkomst till loggdata utför du olika administrativa uppgifter relaterade till din arbets yta.
 
-Den här artikeln förklarar hur du hanterar åtkomst till loggar och administrerar de arbets ytor som innehåller dem, inklusive:
+Den här artikeln beskriver hur du hanterar åtkomst till loggar och administrerar de arbets ytor som innehåller dem, inklusive hur du beviljar åtkomst till: 
 
-* Ge åtkomst till användare som behöver åtkomst till loggdata från vissa resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) i Azure.
-
-* Hur du beviljar åtkomst till arbets ytan med hjälp av arbets ytans behörigheter.
-
-* Hur du beviljar åtkomst till användare som behöver åtkomst till loggdata i en speciell tabell i arbets ytan med hjälp av Azure RBAC.
+* Arbets ytan med hjälp av arbets ytans behörigheter.
+* Användare som behöver åtkomst till loggdata från vissa resurser med hjälp av rollbaserad åtkomst kontroll (RBAC) i Azure.
+* Användare som behöver åtkomst till loggdata i en speciell tabell i arbets ytan med hjälp av Azure RBAC.
 
 ## <a name="configure-access-control-mode"></a>Konfigurera åtkomst kontrol läge
 
 Du kan visa åtkomst kontrol läget som kon figurer ATS på en arbets yta från Azure Portal eller med Azure PowerShell.  Du kan ändra den här inställningen med någon av följande metoder som stöds:
 
-* Azure Portal
+* Azure portal
 
 * Azure PowerShell
 
@@ -103,12 +101,12 @@ Set-AzResource -ResourceId $_.ResourceId -Properties $_.Properties -Force
 
 Om du vill konfigurera åtkomst Läget i en Azure Resource Manager mall ställer du in funktions flaggan **enableLogAccessUsingOnlyResourcePermissions** på arbets ytan till något av följande värden.
 
-* **falskt**: Ange arbets ytans kontext behörigheter. Detta är standardinställningen om flaggan inte har angetts.
-* **Sant**: Ange arbets ytan till resurs kontext behörigheter.
+* **false**: Ange arbets ytan till arbets ytans kontext behörigheter. Detta är standardinställningen om flaggan inte har angetts.
+* **True**: Ange arbets ytan till resurs kontext behörigheter.
 
 ## <a name="manage-access-using-workspace-permissions"></a>Hantera åtkomst med hjälp av arbets ytans behörigheter
 
-Varje arbetsyta kan ha flera associerade konton, och varje konto kan ha åtkomst till flera arbetsytor. Åtkomst hanteras med hjälp av [rollbaserad åtkomst i Azure](../../role-based-access-control/role-assignments-portal.md).
+Varje arbets yta kan ha flera associerade konton, och varje konto kan ha åtkomst till flera arbets ytor. Åtkomst hanteras med hjälp av [rollbaserad åtkomst i Azure](../../role-based-access-control/role-assignments-portal.md).
 
 Följande aktiviteter kräver även Azure-behörigheter:
 
@@ -136,41 +134,41 @@ Azure har två inbyggda användar roller för Log Analytics arbets ytor:
 Medlemmar av *Log Analytics Reader*-rollen kan:
 
 * Visa och söka i alla övervakningsdata
-* Visa övervakningsinställningar, även konfiguration av Azure-diagnostik för alla Azure-resurser.
+* Visa övervakningsinställningar, även konfiguration av Azure Diagnostics för alla Azure-resurser.
 
-Läsarroll för Log Analytics innehåller följande Azure åtgärder:
+Rollen Log Analytics läsare innehåller följande Azure-åtgärder:
 
 | Typ    | Behörighet | Beskrivning |
 | ------- | ---------- | ----------- |
-| Åtgärd | `*/read`   | Möjlighet att visa alla Azure-resurser och resurskonfigurationen. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure-diagnostik för resurser <br> Alla egenskaper och inställningar för alla resurser. <br> För arbets ytor ger den fullständig obegränsad behörighet att läsa inställningarna för arbets ytan och köra frågor på data. Se fler detaljerade alternativ ovan. |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
-| Action | `Microsoft.Support/*` | Kan öppna supportärenden |
-|Ingen åtgärd | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Förhindrar läsning av arbetsytenyckeln nyckel som krävs för att använda datasamlings-API och installera agenter. Detta hindrar användaren från att lägga till nya resurser till arbetsytan |
+| Åtgärd | `*/read`   | Möjlighet att visa alla Azure-resurser och resurs konfiguration. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure Diagnostics för resurser <br> Alla egenskaper och inställningar för alla resurser. <br> För arbets ytor ger den fullständig obegränsad behörighet att läsa inställningarna för arbets ytan och köra frågor på data. Se fler detaljerade alternativ ovan. |
+| Åtgärd | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
+| Åtgärd | `Microsoft.OperationalInsights/workspaces/search/action` | Föråldrad, du behöver inte tilldela dem till användarna. |
+| Åtgärd | `Microsoft.Support/*` | Kan öppna supportärenden |
+|Ingen åtgärd | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Förhindrar läsning av arbets ytans nyckel som krävs för att använda API: et för data insamling och för att installera agenter. Detta förhindrar användaren från att lägga till nya resurser i arbets ytan |
 
 Medlemmar av *Log Analytics Contributor*-rollen kan:
 
-* Läsa alla övervakningsdata som Log Analytics Reader
-* Skapa och konfigurera Automation -konton
+* Läs alla övervaknings data som Log Analytics läsaren kan
+* Skapa och konfigurera Automation-konton
 * Lägga till och ta bort hanteringslösningar
 
     > [!NOTE]
-    > För att kunna genomföra de sista två åtgärderna, måste den här behörigheten beviljas resource group eller på prenumerationsnivån.
+    > För att kunna utföra de senaste två åtgärderna måste den här behörigheten beviljas i resurs gruppen eller prenumerations nivån.
 
-* Läsa lagringskontonycklar
-* Konfigurera loggsamlingar från Azure Storage
+* Läs lagrings konto nycklar
+* Konfigurera samling av loggar från Azure Storage
 * Redigera övervakningsinställningar för Azure-resurser, bland annat
   * Lägga till tillägg för virtuell dator i virtuella datorer
-  * Konfigurera Azure-diagnostik på alla Azure-resurser
+  * Konfigurera Azure Diagnostics på alla Azure-resurser
 
 > [!NOTE]
 > Du kan använda möjligheten att lägga till ett virtuellt datortillägg i en virtuell dator för att få fullständig kontroll över datorn.
 
-Rollen Log Analytics Contributor innehåller följande Azure åtgärder:
+Rollen Log Analytics Contributor innehåller följande Azure-åtgärder:
 
 | Behörighet | Beskrivning |
 | ---------- | ----------- |
-| `*/read`     | Kan visa alla resurser och resurskonfigurationer. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure-diagnostik för resurser <br> Alla egenskaper och inställningar för alla resurser. <br> För arbets ytor ger den fullständig obegränsad behörighet att läsa inställningen arbets yta och köra fråga på data. Se fler detaljerade alternativ ovan. |
+| `*/read`     | Kan visa alla resurser och resurskonfigurationer. Detta omfattar visning av: <br> Status för tillägg för virtuell dator <br> Konfiguration av Azure Diagnostics för resurser <br> Alla egenskaper och inställningar för alla resurser. <br> För arbets ytor ger den fullständig obegränsad behörighet att läsa inställningen arbets yta och köra fråga på data. Se fler detaljerade alternativ ovan. |
 | `Microsoft.Automation/automationAccounts/*` | Kan skapa och konfigurera Azure Automation-konton, inklusive lägga till och redigera runbookflöden |
 | `Microsoft.ClassicCompute/virtualMachines/extensions/*` <br> `Microsoft.Compute/virtualMachines/extensions/*` | Lägga till, uppdatera och ta bort virtuella datortillägg, även Microsoft Monitoring Agent-tillägget och OMS Agent for Linux-tillägget |
 | `Microsoft.ClassicStorage/storageAccounts/listKeys/action` <br> `Microsoft.Storage/storageAccounts/listKeys/action` | Visa lagringskontonyckeln. Krävs för att ställa in Log Analytics för läsning av loggar från Azure-lagringskonton |
@@ -291,7 +289,7 @@ Skapa en roll med enbart åtkomst till _SecurityBaseline_ och inga andra tabelle
 
 ### <a name="considerations"></a>Överväganden
 
-* Om en användare beviljas global Läs behörighet med standard läsare eller deltagar roller som innehåller  _\*/Read_ -åtgärden, åsidosätter den åtkomst kontrollen per tabell och ger dem åtkomst till alla loggdata.
+* Om en användare beviljas global Läs behörighet med standard läsare eller deltagar roller som innehåller åtgärden _\*/Läs_ , åsidosätter åtkomst kontrollen per tabell och ger dem åtkomst till alla loggdata.
 * Om en användare beviljas åtkomst per tabell men inga andra behörigheter, skulle de kunna komma åt loggdata från API: et, men inte från Azure Portal. Om du vill ge åtkomst från Azure Portal använder du Log Analytics Reader som bas roll.
 * Administratörer av prenumerationen kommer att ha åtkomst till alla data typer, oavsett andra behörighets inställningar.
 * Arbets ytans ägare behandlas som alla andra användare för åtkomst kontroll per tabell.
@@ -299,6 +297,6 @@ Skapa en roll med enbart åtkomst till _SecurityBaseline_ och inga andra tabelle
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Se [översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) samla in data från datorer i ditt datacenter eller andra moln.
+* Se [Översikt över Log Analytics-agenten](../../azure-monitor/platform/log-analytics-agent.md) för att samla in data från datorer i ditt data Center eller någon annan moln miljö.
 
 * Se [samla in data om virtuella Azure-datorer](../../azure-monitor/learn/quick-collect-azurevm.md) för att konfigurera data insamling från virtuella Azure-datorer.

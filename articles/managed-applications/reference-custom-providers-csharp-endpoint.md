@@ -1,18 +1,18 @@
 ---
 title: RESTful slut C# punkts referens för anpassad Provider – Azure
-description: Den här artikeln är en grundläggande referens för en anpassad C# providers RESTful-slutpunkt.
+description: Innehåller grundläggande referens för en Azure-anpassad C# providers RESTful-slutpunkt. Slut punkten tillhandahålls via en Azure Function-app.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: jobreen
 author: jjbfour
 ms.date: 06/20/2019
-ms.openlocfilehash: 8007c92c832ab7621d0192f924b15abf8bda9262
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 37b7997bc029942a84c9be5743f6ef3c6195fd27
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172913"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332652"
 ---
 # <a name="custom-provider-c-restful-endpoint-reference"></a>RESTful slut C# punkts referens för anpassad Provider
 
@@ -258,6 +258,6 @@ public static async Task<HttpResponseMessage> RemoveCustomResource(HttpRequestMe
 ## <a name="next-steps"></a>Nästa steg
 
 - [Översikt över Azures anpassade resurs leverantörer](./custom-providers-overview.md)
-- [Självstudier: Skapa en Azure-anpassad resurs leverantör och distribuera anpassade resurser](./create-custom-provider.md)
-- [Anvisningar: Lägga till anpassade åtgärder i Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [Förhållande Anpassad Resource cache-referens](./custom-providers-proxy-cache-resource-endpoint-reference.md)
+- [Självstudie: skapa en Azure-anpassad resurs leverantör och distribuera anpassade resurser](./create-custom-provider.md)
+- [Gör så här: lägga till anpassade åtgärder i Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [Referens: anpassad Resource cache-referens](./custom-providers-proxy-cache-resource-endpoint-reference.md)

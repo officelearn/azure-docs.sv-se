@@ -1,6 +1,6 @@
 ---
-title: Azure PasswordBox UI-element | Microsoft Docs
-description: Beskriver Microsoft.Common.PasswordBox UI-element för Azure-portalen.
+title: GRÄNSSNITTs element för Azure-lösenord | Microsoft Docs
+description: Beskriver användar gränssnitts elementet Microsoft. Common. password för Azure Portal. Gör att användarna kan ange ett hemligt värde när de distribuerar hanterade program.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: tomfitz
-ms.openlocfilehash: 944f59da680c3a058a3cd245cca48d903e44ab87
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4a8b760d113e29efb0efacbd41dcaa7432ecdcfd
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64710935"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332808"
 ---
-# <a name="microsoftcommonpasswordbox-ui-element"></a>Microsoft.Common.PasswordBox UI-element
-En kontroll som kan användas för att ange och bekräfta ett lösenord.
+# <a name="microsoftcommonpasswordbox-ui-element"></a>GRÄNSSNITTs element för Microsoft. Common. password
+En kontroll som kan användas för att ange och bekräfta ett lösen ord.
 
 ## <a name="ui-sample"></a>UI-exempel
-![Microsoft.Common.PasswordBox](./media/managed-application-elements/microsoft.common.passwordbox.png)
+![Microsoft. Common. password](./media/managed-application-elements/microsoft.common.passwordbox.png)
 
 ## <a name="schema"></a>Schema
 ```json
@@ -49,9 +49,9 @@ En kontroll som kan användas för att ange och bekräfta ett lösenord.
 ```
 
 ## <a name="remarks"></a>Kommentarer
-- Det här elementet har inte stöd för den `defaultValue` egenskapen.
-- För information om implementering av `constraints`, se [Microsoft.Common.TextBox](microsoft-common-textbox.md).
-- Om `options.hideConfirmation` är inställd på **SANT**, den andra textrutan för att bekräfta användarens lösenord är dold. Standardvärdet är **FALSKT**.
+- Det här elementet har inte stöd för egenskapen `defaultValue`.
+- Information om implementering av `constraints` finns i [Microsoft. Common. text ruta](microsoft-common-textbox.md).
+- Om `options.hideConfirmation` har angetts till **True**är den andra text rutan för att bekräfta användarens lösen ord dold. Standardvärdet är **false**.
 
 ## <a name="sample-output"></a>Exempel på utdata
 ```json
@@ -59,5 +59,5 @@ En kontroll som kan användas för att ange och bekräfta ett lösenord.
 ```
 
 ## <a name="next-steps"></a>Nästa steg
-* En introduktion till att skapa UI-definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
-* En beskrivning av gemensamma egenskaper i UI-element som finns i [CreateUiDefinition element](create-uidefinition-elements.md).
+* En introduktion till att skapa GRÄNSSNITTs definitioner finns i [komma igång med CreateUiDefinition](create-uidefinition-overview.md).
+* En beskrivning av gemensamma egenskaper i UI-element finns i [CreateUiDefinition-element](create-uidefinition-elements.md).

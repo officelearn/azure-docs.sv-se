@@ -5,17 +5,17 @@ services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/26/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
 manager: femila
-ms.openlocfilehash: 26652a956f9f50f82f462c564d6daf0dc37b0722
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: cff1085d14f2f849134b0b6f602e272fbb5bc561
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254965"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329279"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Använd Ethereum blockchain-anslutningen med Azure Logic Apps
 
@@ -219,7 +219,7 @@ Mer information om konto adress och lösen ord finns i [Ethereum-konto](consorti
 
 ## <a name="get-the-contract-abi"></a>Hämta kontrakts ABI
 
-ABI för kontrakt definierar de smarta kontrakts gränssnitten. Den beskriver hur du interagerar med det smarta kontraktet. Du kan hämta kontrakts ABI med hjälp av Azure blockchain Development Kit för Ethereum. Du kan också hämta den från filen med kontraktets metadata i halvledar kompilatorn.
+ABI för kontrakt definierar de smarta kontrakts gränssnitten. Den beskriver hur du interagerar med det smarta kontraktet. Du kan hämta kontrakts ABI med hjälp av Azure blockchain Development Kit för Ethereum. Du kan också hämta den från den kontrakts ETA data fil som skapats av halvledare-kompilatorn.
 
 **Använda utvecklings paketet:**
 

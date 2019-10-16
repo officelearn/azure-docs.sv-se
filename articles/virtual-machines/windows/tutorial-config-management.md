@@ -15,14 +15,14 @@ ms.workload: infrastructure
 ms.date: 12/05/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 013938f37258b5aa8c4e9751bdc8cf1e7b826ef1
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 96e73b228604db519beb5284ee5a8fb8dc4c4f66
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71680038"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376107"
 ---
-# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Självstudier: Övervaka ändringar och uppdatera en virtuell Windows-dator i Azure
+# <a name="tutorial-monitor-changes-and-update-a-windows-virtual-machine-in-azure"></a>Självstudie: övervaka ändringar och uppdatera en virtuell Windows-dator i Azure
 
 Med Azure [ändringsspårning](../../automation/change-tracking.md) kan du enkelt identifiera ändringar och [uppdateringshantering](../../automation/automation-update-management.md) göra det möjligt att hantera operativ system uppdateringar för virtuella Azure Windows-datorer.
 
@@ -34,7 +34,7 @@ I den här guiden får du lära dig att:
 
 ## <a name="launch-azure-cloud-shell"></a>Starta Azure Cloud Shell
 
-Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto. 
+Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den har vanliga Azure-verktyg förinstallerat och har konfigurerats för användning med ditt konto.
 
 Om du vill öppna Cloud Shell väljer du bara **Prova** från det övre högra hörnet i ett kodblock. Du kan också starta Cloud Shell i en separat webbläsarflik genom att gå till [https://shell.azure.com/powershell](https://shell.azure.com/powershell). Kopiera kodblocket genom att välja **Kopiera**, klistra in det i Cloud Shell och kör det genom att trycka på RETUR.
 
@@ -60,7 +60,8 @@ Det tar några minuter att skapa resurserna och den virtuella datorn.
 
 ## <a name="manage-windows-updates"></a>Hantera Windows-uppdateringar
 
-Med Uppdateringshantering kan du hantera uppdateringar och korrigeringar för dina virtuella Azure Windows-datorer. Du kan snabbt se status för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributionsresultat för att verifiera att uppdateringarna har tillämpats på den virtuella datorn, direkt från den virtuella datorn.
+Med Uppdateringshantering kan du hantera uppdateringar och korrigeringar för dina virtuella Azure Windows-datorer.
+Du kan snabbt se status för tillgängliga uppdateringar, schemalägga installation av nödvändiga uppdateringar och granska distributionsresultat för att verifiera att uppdateringarna har tillämpats på den virtuella datorn, direkt från den virtuella datorn.
 
 Pris information finns i avsnittet [om automatiserings priser för uppdaterings hantering](https://azure.microsoft.com/pricing/details/automation/).
 
@@ -110,17 +111,17 @@ Schemalägg en ny uppdateringsdistribution för den virtuella datorn genom att k
 
 Om du vill skapa en ny uppdaterings distribution väljer du **Schemalägg uppdaterings distribution**. Sidan **ny uppdaterings distribution** öppnas. Ange värden för egenskaperna som beskrivs i följande tabell och klicka sedan på **skapa**:
 
-| Egenskap | Description |
+| Egenskap | Beskrivning |
 | --- | --- |
-| Name |Unikt namn som identifierar uppdateringsdistributionen. |
+| Namn |Unikt namn som identifierar uppdateringsdistributionen. |
 |Operativsystem| Linux eller Windows|
-| Grupper att uppdatera |För Azure-datorer definierar du en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i distributionen. </br></br>För datorer som inte är Azure-datorer väljer du en befintlig sparad sökning för att välja en grupp datorer som inte är Azure-datorer att inkludera i distributionen. </br></br>Mer information finns i [Dynamiska grupper](../../automation/automation-update-management.md#using-dynamic-groups)|
+| Grupper att uppdatera |För Azure-datorer definierar du en fråga baserat på en kombination av prenumeration, resurs grupper, platser och taggar för att skapa en dynamisk grupp med virtuella Azure-datorer som ska ingå i distributionen. </br></br>För datorer som inte är Azure-datorer väljer du en befintlig sparad sökning för att välja en grupp datorer som inte är Azure-datorer att inkludera i distributionen. </br></br>Mer information finns i [Dynamiska grupper](../../automation/automation-update-management-groups.md)|
 | Datorer som ska uppdateras |Välj en sparad sökning eller en importerad grupp, eller välj Dator i listrutan och välj enskilda datorer. Om du väljer **Datorer** visas beredskapen för datorn i kolumnen **Uppdatera agentberedskap**.</br> Information om de olika metoderna för att skapa datorgrupper i Azure Monitor-loggar finns i [datorgrupper i Azure Monitor-loggar](../../azure-monitor/platform/computer-groups.md) |
-|Uppdatera klassificeringar|Välj alla uppdaterings klassificeringar som du behöver|
-|Inkludera/exkludera uppdateringar|Då öppnas sidan **Inkludera/exkludera** . Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras och finns i [inkluderingsbeteende](../../automation/automation-update-management.md#inclusion-behavior) |
-|Schemainställningar|Välj tid för start och välj antingen en gång eller återkommande för upprepningen|
+|Uppdaterings klassificeringar|Välj alla uppdaterings klassificeringar som du behöver|
+|Inkludera/exkludera uppdateringar|Då öppnas sidan **Inkludera/exkludera** . Uppdateringar som ska inkluderas eller exkluderas visas på en separat flik. Mer information om hur inkludering hanteras finns i [Schemalägga en uppdaterings distribution](../../automation/automation-tutorial-update-management.md#schedule-an-update-deployment) |
+|Schema inställningar|Välj tid för start och välj antingen en gång eller återkommande för upprepningen|
 | Före skript + efter skript|Välj de skript som ska köras före och efter distributionen|
-| Underhållsperiod |Antal minuter som har angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
+| Underhålls period |Antal minuter som har angetts för uppdateringar. Värdet kan inte vara mindre än 30 minuter och högst 6 timmar |
 | Starta om kontroll| Fastställer hur omstarter ska hanteras. De tillgängliga alternativen är:</br>Starta om vid behov (standard)</br>Starta alltid om</br>Starta aldrig om</br>Endast omstart – uppdateringar installeras inte|
 
 Uppdaterings distributioner kan också skapas program mässigt. Information om hur du skapar en uppdaterings distribution med REST API finns i [program uppdaterings konfiguration – skapa](/rest/api/automation/softwareupdateconfigurations/create). Det finns också en exempel-Runbook som kan användas för att skapa en veckovis uppdaterings distribution. Mer information om denna Runbook finns i [skapa en veckovis uppdaterings distribution för en eller flera virtuella datorer i en resurs grupp](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1).

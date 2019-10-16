@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: d2c84f5b6389ac83206472440d26aa8d81ba76be
-ms.sourcegitcommit: b03516d245c90bca8ffac59eb1db522a098fb5e4
+ms.openlocfilehash: 5d21d3800655cc0be78a2b63d13a3616b1d0f2f8
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71147364"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72372709"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Använd IoT Hub meddelanderoutning för att skicka meddelanden från enheten till molnet till olika slut punkter
 
@@ -79,7 +79,7 @@ Vid routning till Blob Storage rekommenderar vi att du skapar en lista över Blo
 
 Service Bus köer och ämnen som används som IoT Hub slut punkter får inte ha **sessioner** eller **dubblettidentifiering** aktiverade. Om något av dessa alternativ är aktiverat visas slut punkten som **ej nåbar** i Azure Portal.
 
-### <a name="event-hubs"></a>Event Hubs
+### <a name="event-hubs"></a>Händelsehubbar
 
 Förutom den inbyggda-Event Hubs-kompatibla slut punkten kan du också dirigera data till anpassade slut punkter av typen Event Hubs. 
 
@@ -114,6 +114,12 @@ Förutom telemetri, möjliggör meddelanderoutning även sändning av enhets dub
 ## <a name="testing-routes"></a>Testa vägar
 
 När du skapar en ny väg eller redigerar en befintlig väg bör du testa väg frågan med ett exempel meddelande. Du kan testa enskilda vägar eller testa alla vägar samtidigt och inga meddelanden dirigeras till slut punkterna under testet. Azure Portal, Azure Resource Manager, Azure PowerShell och Azure CLI kan användas för testning. Med hjälp av kan du se om exempel meddelandet matchade frågan, meddelandet inte matchade frågan eller eftersom det inte gick att köra testet eftersom exempel meddelandet eller frågesyntaxen är felaktiga. Läs mer i [testa väg](/rest/api/iothub/iothubresource/testroute) och [testa alla vägar](/rest/api/iothub/iothubresource/testallroutes).
+
+## <a name="ordering-guarantees-with-at-least-once-delivery"></a>Beställ garantier med minst en gång
+
+IoT Hub meddelanderoutning garanterar beställd och minst en gång efter leverans av meddelanden till slut punkterna. Det innebär att det kan finnas dubbla meddelanden och en serie meddelanden kan återsändas med den ursprungliga meddelande ordningen. Om den ursprungliga meddelande ordningen exempelvis är [1, 2, 3, 4], kan du få en meddelande sekvens som [1, 2, 1, 2, 3, 1, 2, 3, 4]. Beställnings garantin är att om du någonsin får meddelandet [1], följs det alltid av [2, 3, 4].
+
+För att hantera meddelande kopior rekommenderar vi att du stämplar en unik identifierare i program egenskaperna för meddelandet vid ursprungs punkten, som vanligt vis är en enhet eller en modul. Tjänsten som använder meddelandena kan hantera dubbletter av meddelanden med hjälp av den här identifieraren.
 
 ## <a name="latency"></a>Svarstid
 

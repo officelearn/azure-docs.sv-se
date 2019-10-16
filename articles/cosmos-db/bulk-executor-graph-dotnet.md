@@ -4,16 +4,16 @@ description: Lär dig hur du använder bulk utförar-biblioteket för att import
 author: luisbosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: lbosq
 ms.reviewer: sngun
-ms.openlocfilehash: 51bd14c536e46291c8720e6c22e2e03a30243ddf
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 35f42f3e222767d9d201d9948581151ae3cb5127
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827274"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72327181"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Använda Graph-utförar .NET-bibliotek för att utföra Mass åtgärder i Azure Cosmos DB Gremlin API
 
@@ -113,7 +113,7 @@ e.AddProperty("customProperty", "value");
 
 ## <a name="sample-application"></a>Exempelprogram
 
-### <a name="prerequisites"></a>Förutsättningar
+### <a name="prerequisites"></a>Krav
 * Visual Studio 2019 med arbets belastningen Azure Development. Du kan komma igång med [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) kostnads fritt.
 * En Azure-prenumeration. Du kan skapa [ett kostnadsfritt Azure-konto här](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). Du kan också skapa ett Cosmos Database-konto med [prova Azure Cosmos DB kostnads fritt](https://azure.microsoft.com/try/cosmosdb/) utan en Azure-prenumeration.
 * En Azure Cosmos DB Gremlin API-databas med en **obegränsad samling**. Den här guiden visar hur du kommer igång med [Azure Cosmos DB Gremlin API i .NET](https://docs.microsoft.com/azure/cosmos-db/create-graph-dotnet).

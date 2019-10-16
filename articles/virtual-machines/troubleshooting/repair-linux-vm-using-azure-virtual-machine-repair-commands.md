@@ -15,13 +15,13 @@ ms.devlang: azurecli
 ms.date: 09/10/2019
 ms.author: v-miegge
 ms.openlocfilehash: 56e420f9641638bfa79ff077be73132b00b934ab
-ms.sourcegitcommit: 2ed6e731ffc614f1691f1578ed26a67de46ed9c2
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/19/2019
+ms.lasthandoff: 10/15/2019
 ms.locfileid: "71132096"
 ---
-# <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Linux-dator med hjälp av reparations kommandon för virtuella Azure-datorer
+# <a name="repair-a-linux-vm-by-using-the-azure-virtual-machine-repair-commands"></a>Reparera en virtuell Linux-dator med hjälp av reparationskommandon för virtuella Azure-datorer
 
 Om din virtuella Linux-dator (VM) i Azure påträffar ett start-eller diskfel kan du behöva åtgärda problemet på själva disken. Ett vanligt exempel är en misslyckad program uppdatering som förhindrar att den virtuella datorn kan starta. Den här artikeln beskriver hur du använder reparations kommandon för virtuella Azure-datorer för att ansluta disken till en annan virtuell Linux-dator för att åtgärda eventuella fel och sedan återskapa den ursprungliga virtuella datorn.
 
@@ -48,19 +48,19 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
 
    Azure Cloud Shell är ett interaktivt gränssnitt som du kan använda för att utföra stegen i den här artikeln. Den innehåller vanliga Azure-verktyg förinstallerade och konfigurerade för användning med ditt konto.
 
-   Om du vill öppna Cloud Shell väljer du **testa den** i det övre högra hörnet i ett kodblock. Du kan också öppna Cloud Shell på en separat webbläsare-flik genom att [https://shell.azure.com](https://shell.azure.com)gå till.
+   Om du vill öppna Cloud Shell väljer du **testa den** i det övre högra hörnet i ett kodblock. Du kan också öppna Cloud Shell på en separat flik i webbläsaren genom att gå till [https://shell.azure.com](https://shell.azure.com).
 
    Välj **Kopiera** för att kopiera kod blocken, klistra in koden i Cloud Shell och välj **RETUR** för att köra den.
 
    Om du föredrar att installera och använda detta CLI lokalt måste du köra Azure CLI version 2.0.30 eller senare. Kör ``az --version`` för att hitta versionen. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli).
 
-2. Om detta är första gången du har använt `az vm repair` kommandona, lägger du till tillägget VM-Repair cli.
+2. Om det här är första gången du har använt kommandot `az vm repair` lägger du till CLI-tillägget VM-Repair.
 
    ```azurecli-interactive
    az extension add -n vm-repair
    ```
 
-   Om du tidigare har använt `az vm repair` kommandona använder du eventuella uppdateringar i tillägget VM-Repair.
+   Om du tidigare har använt kommandot `az vm repair`, använder du alla uppdateringar i tillägget VM-Repair.
 
    ```azurecli-interactive
    az extension update -n vm-repair
@@ -82,7 +82,7 @@ Mer dokumentation och instruktioner finns i [AZ VM Repair](https://docs.microsof
 
 ## <a name="verify-and-enable-boot-diagnostics"></a>Verifiera och aktivera startdiagnostik
 
-I följande exempel aktive ras Diagnostic-tillägget på den ``myVMDeployed`` virtuella datorn som heter i ``myResourceGroup``resurs gruppen med namnet:
+I följande exempel aktive ras Diagnostic-tillägget på den virtuella datorn med namnet ``myVMDeployed`` i resurs gruppen med namnet ``myResourceGroup``:
 
 Azure CLI
 

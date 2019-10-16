@@ -1,20 +1,20 @@
 ---
 title: Artefakt referens för Azure Managed Application View definition
-description: Den här artikeln är en referens för att Visa definitions artefakt.
+description: Innehåller ett exempel på visnings definitions artefakt för Azure Managed Applications. Fil namnet är viewDefinition. JSON.
 services: managed-applications
 ms.service: managed-applications
 ms.topic: conceptual
 ms.author: lazinnat
 author: lazinnat
 ms.date: 07/11/2019
-ms.openlocfilehash: e60f26fe0a7144d768bac020d62c61cb92594914
-ms.sourcegitcommit: e9c866e9dad4588f3a361ca6e2888aeef208fc35
+ms.openlocfilehash: 1f56f6c9c519bd29423d92a8dc8b8ce5904b523c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68336548"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332642"
 ---
-# <a name="reference-view-definition-artifact"></a>Referens: Visa definitionsartefakt
+# <a name="reference-view-definition-artifact"></a>Referens: Visa definitions artefakt
 
 Den här artikeln är en referens för en *viewDefinition. JSON* -artefakt i Azure Managed Applications. Mer information om hur du redigerar vyer finns i [Visa definitions artefakt](concepts-view-definition.md).
 
@@ -89,6 +89,6 @@ Följande JSON visar ett exempel på *viewDefinition. JSON* -fil för Azure Mana
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Skapa hanterat program med anpassade åtgärder och resurser](tutorial-create-managed-app-with-custom-provider.md)
-- [Förhållande Artefakt för användar gränssnitts element](reference-createuidefinition-artifact.md)
-- [Förhållande Artefakt för distributions mall](reference-main-template-artifact.md)
+- [Självstudie: skapa ett hanterat program med anpassade åtgärder och resurser](tutorial-create-managed-app-with-custom-provider.md)
+- [Referens: artefakt för användar gränssnitts element](reference-createuidefinition-artifact.md)
+- [Referens: artefakt för distributions mal len](reference-main-template-artifact.md)

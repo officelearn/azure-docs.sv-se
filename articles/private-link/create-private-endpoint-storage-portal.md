@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: kumud
-ms.openlocfilehash: bb0c6e9d20c12df3532a52df1fe4d9574344d4b3
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 8a72f70fbc1ab6052587beb1d949dd73b1ad3559
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71104721"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376154"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Anslut privat till ett lagrings konto med hjälp av Azures privata slut punkt
 Den privata Azure-slutpunkten är det grundläggande Bygg blocket för privat länk i Azure. Den gör det möjligt för Azure-resurser, t. ex. virtuella datorer, att kommunicera privat med privata länk resurser.
@@ -36,12 +36,12 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
     | Inställning | Värde |
     | ------- | ----- |
-    | Name | Ange *MyVirtualNetwork*. |
+    | Namn | Ange *MyVirtualNetwork*. |
     | Adressutrymme | Ange *10.1.0.0/16*. |
-    | Subscription | Välj din prenumeration.|
-    | Resource group | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
-    | Location | Välj **WestCentralUS**.|
-    | Undernät – Namn | Ange *undernät*. |
+    | Prenumeration | Välj din prenumeration.|
+    | Resursgrupp | Välj **Skapa ny**, ange *myResourceGroup* och välj sedan **OK**. |
+    | Plats | Välj **WestCentralUS**.|
+    | Undernät – namn | Ange *undernät*. |
     | Undernät – adressintervall | Ange *10.1.0.0/24*. |
     |||
 1. Lämna resten som standard och välj **skapa**.
@@ -49,24 +49,24 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 
 ### <a name="create-virtual-machine"></a>Skapa en virtuell dator
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **beräknings** > **virtuell dator**.
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **Compute** > **virtuell dator**.
 
 1. I **Skapa en virtuell dator – grunder** anger eller väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
-    | Subscription | Välj din prenumeration. |
-    | Resource group | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
+    | Prenumeration | Välj din prenumeration. |
+    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.  |
     | **INSTANSINFORMATION** |  |
     | Namn på virtuell dator | Ange *myVm*. |
     | Region | Välj **WestCentralUS**. |
     | Alternativ för tillgänglighet | Lämna kvar standardinställningen **Ingen infrastrukturredundans krävs**. |
-    | Image | Välj **Windows Server 2019 Data Center**. |
-    | Size | Lämna kvar standardinställningen **Standard DS1 v2**. |
+    | Bild | Välj **Windows Server 2019 Data Center**. |
+    | Storlek | Lämna kvar standardinställningen **Standard DS1 v2**. |
     | **ADMINISTRATÖRSKONTO** |  |
     | Användarnamn | Ange ett användar namn som du väljer. |
-    | lösenordsinställning | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
+    | Lösenord | Ange ett valfritt lösenord. Lösenordet måste vara minst 12 tecken långt och uppfylla [de definierade kraven på komplexitet](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Bekräfta lösenord | Ange lösenordet igen. |
     | **REGLER FÖR INKOMMANDE PORTAR** |  |
     | Offentliga inkommande portar | Lämna kvar standardinställningen **Ingen**. |
@@ -74,18 +74,18 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
     | Har du redan en Windows-licens? | Lämna kvar standardinställningen **Nej**. |
     |||
 
-1. Välj **Nästa: Diskar**.
+1. Välj **Nästa: diskar**.
 
-1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **nästa: Nätverk**.
+1. Lämna standardvärdena i **skapa en virtuell dator – diskar**och välj **Nästa: nätverk**.
 
 1. I **Skapa en virtuell dator – nätverk** väljer du följande information:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | Virtuellt nätverk | Lämna standard **MyVirtualNetwork**.  |
     | Adressutrymme | Lämna standard **10.1.0.0/24**.|
-    | Subnet | Lämna standard **under nätet (10.1.0.0/24)** .|
-    | Offentlig IP | Lämna standardinställningen **(ny) myVm-ip**. |
+    | Undernät | Lämna standard **under nätet (10.1.0.0/24)** .|
+    | Offentlig IP-adress | Lämna standardinställningen **(ny) myVm-ip**. |
     | Offentliga inkommande portar | Välj **Tillåt valda portar**. |
     | Välj inkommande portar | Välj **HTTP** och **RDP**.|
     ||
@@ -97,48 +97,48 @@ I det här avsnittet ska du skapa ett virtuellt nätverk och under nätet som ä
 ## <a name="create-your-private-endpoint"></a>Skapa din privata slut punkt
 I det här avsnittet ska du skapa ett privat lagrings konto med en privat slut punkt till det. 
 
-1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa ett resurs** > **lagrings** > **lagrings konto**.
+1. På den övre vänstra sidan av skärmen i Azure Portal väljer du **skapa en resurs** > **lagrings** > **lagrings konto**.
 
 1. I **skapa lagrings konto – grunderna**anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
-    | Subscription | Välj din prenumeration. |
-    | Resource group | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
+    | Prenumeration | Välj din prenumeration. |
+    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
     | **INSTANSINFORMATION** |  |
-    | Lagringskontonamn  | Ange *mystorageaccount*. Om det här namnet tas skapar du ett unikt namn. |
+    | Lagringskontots namn  | Ange *mystorageaccount*. Om det här namnet tas skapar du ett unikt namn. |
     | Region | Välj **WestCentralUS**. |
     | Prestanda| Lämna kvar standardinställningen **Standard**. |
     | Typ av konto | Lämna standard **lagrings utrymmet (generell användning v2)** . |
     | Replikering | Välj **Geo-redundant lagring med Läs behörighet (RA-GRS)** . |
     |||
   
-3. Välj **nästa: Nätverk**.
-4. I **skapa ett lagrings konto – nätverk**, anslutnings metod, väljer du **privat slut punkt**.
-5. I **skapa ett lagrings konto – nätverk**väljer du **Lägg till privat slut punkt**. 
-6. I **skapa privat slut punkt**anger eller väljer du den här informationen:
+3. Välj **Nästa: nätverk**.
+4. I **skapa ett lagrings konto – nätverk**, anslutnings metod, väljer du **privat slut punkt**.
+5. I **skapa ett lagrings konto – nätverk**väljer du **Lägg till privat slut punkt**. 
+6. I **skapa privat slut punkt**anger eller väljer du den här informationen:
 
-    | Inställning | Value |
+    | Inställning | Värde |
     | ------- | ----- |
     | **PROJEKTINFORMATION** | |
-    | Subscription | Välj din prenumeration. |
-    | Resource group | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
-    |Location|Välj **WestCentralUS**.|
-    |Name|Ange *myPrivateEndpoint*.  |
-    |Lagrings under resurs|Lämna standard- **bloben**. |
+    | Prenumeration | Välj din prenumeration. |
+    | Resursgrupp | Välj **myResourceGroup**. Du skapade det i föregående avsnitt.|
+    |Plats|Välj **WestCentralUS**.|
+    |Namn|Ange *myPrivateEndpoint*.  |
+    |Lagrings under resurs|Lämna standard- **bloben**. |
     | **NÄTVERK** |  |
     | Virtuellt nätverk  | Välj *MyVirtualNetwork* från resurs gruppen *myResourceGroup*. |
-    | Subnet | Välj *undernät*. |
+    | Undernät | Välj *undernät*. |
     | **PRIVAT DNS-INTEGRERING**|  |
     | Integrera med privat DNS-zon  | Låt standardinställningen vara **Ja**. |
-    | Privat DNS zon  | Lämna standard  ** -privatelink.blob.Core.Windows.net (ny)** . |
+    | Privat DNS-zon  | Lämna standardvärdet * * (New) privatelink.blob.core.windows.net * *. |
     |||
-7. Välj **OK**. 
-8. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
-9. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
+7. Välj **OK**. 
+8. Välj **Granska + skapa**. Du kommer till sidan **Granska + skapa** där Azure verifierar konfigurationen. 
+9. När du ser meddelandet **valideringen har skickats** väljer du **skapa**. 
 10. Bläddra till den lagrings konto resurs som du nyss skapade.
-11. Välj **åtkomst nycklar** på menyn till vänster innehåll.
+11. Välj **åtkomst nycklar** på menyn till vänster innehåll.
 12. Välj **Kopiera** i anslutnings strängen för KEY1.
  
 ## <a name="connect-to-a-vm-from-the-internet"></a>Ansluta till en virtuell dator från Internet
@@ -174,7 +174,7 @@ I det här avsnittet ska du ansluta privat till lagrings kontot med hjälp av de
 > DNS-konfigurationen för Storage kräver en manuell ändring på värd filen för att inkludera det fullständiga domän namnet för det aktuella kontot. ändra följande fil med administratörs behörighet för Windows: c:\Windows\System32\Drivers\etc\hosts eller Linux/etc/hosts Ta med DNS-information för kontot från föregående steg i följande format [privat IP-adress] myaccount.blob.core.windows.net
 
 1. Öppna PowerShell i fjärr skrivbordet för *myVM*.
-2. Ange `nslookup mystorageaccount.blob.core.windows.net` ett meddelande som liknar detta:
+2. Ange @ no__t-0 du får ett meddelande som liknar detta:
     ```azurepowershell
     Server:  UnKnown
     Address:  168.63.129.16
@@ -182,29 +182,30 @@ I det här avsnittet ska du ansluta privat till lagrings kontot med hjälp av de
     Name:    mystorageaccount123123.privatelink.blob.core.windows.net
     Address:  10.0.0.5
     Aliases:  mystorageaccount.blob.core.windows.net
-3. Install [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
-4. Select **Storage accounts** with the right-click.
-5. Select **Connect to an azure storage**.
-6. Select **Use a connection string**.
-7. Select **Next**.
-8. Enter the connection string by pasting the information previously copied.
-9. Select **Next**.
-10. Select **Connect**.
-11. Browse the Blob containers from mystorageaccount 
-12. (Optionally) Create folders and/or upload files to *mystorageaccount*. 
-13. Close the remote desktop connection to *myVM*. 
+    ```
+3. Installera [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows).
+4. Välj **lagrings konton** med högerklickning.
+5. Välj **Anslut till en Azure-lagring**.
+6. Välj **Använd en anslutnings sträng**.
+7. Välj **Nästa**.
+8. Ange anslutnings strängen genom att klistra in informationen som tidigare har kopierats.
+9. Välj **Nästa**.
+10. Välj **Anslut**.
+11. Bläddra bland BLOB-behållarna från mystorageaccount 
+12. Du kan också Skapa mappar och/eller ladda upp filer till *mystorageaccount*. 
+13. Stäng fjärr skrivbords anslutningen till *myVM*. 
 
-Additional options to access the storage account:
-- Microsoft Azure Storage Explorer is a standalone free app from Microsoft that enables you to work visually with Azure storage data on Windows, macOS, and Linux. You can install the application to browse privately the storage account content. 
+Ytterligare alternativ för att komma åt lagrings kontot:
+- Microsoft Azure Storage Explorer är en fristående app från Microsoft som gör det möjligt att arbeta visuellt med Azure Storage-data på Windows, macOS och Linux. Du kan installera programmet om du vill söka i privat lagrings konto innehåll. 
  
-- The AzCopy utility is another option for high-performance scriptable data transfer for Azure storage. Use AzCopy to transfer data to and from Blob, File, and Table storage. 
+- AzCopy-verktyget är ett annat alternativ för högpresterande skript data överföring med hög prestanda för Azure Storage. Använd AzCopy för att överföra data till och från Blob, File och Table Storage. 
 
 
-## Clean up resources 
-When you're done using the Private Endpoint, storage account and the VM, delete the resource group and all of the resources it contains: 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results. 
-2. Select **Delete resource group**. 
-3. Enter *myResourceGroup* for **TYPE THE RESOURCE GROUP NAME** and select **Delete**. 
+## <a name="clean-up-resources"></a>Rensa resurser 
+När du är klar med den privata slut punkten, lagrings kontot och den virtuella datorn tar du bort resurs gruppen och alla resurser den innehåller: 
+1. Ange *myResourceGroup*@no__t – 1in sökrutan överst i portalen och välj *myResourceGroup*@no__t- **4from Sök resultaten** . 
+2. Välj **Ta bort resursgrupp**. 
+3. Skriv *myResourceGroup* FOR **Skriv resurs gruppens namn** och välj **ta bort**. 
 
-## Next steps
-In this Quickstart, you created a VM on a virtual network and storage account and a Private Endpoint. You connected to one VM from the internet and securely communicated to the storage account using Private Link. To learn more about Private Endpoint, see [What is Azure Private Endpoint?](private-endpoint-overview.md).
+## <a name="next-steps"></a>Nästa steg
+I den här snabb starten skapade du en virtuell dator i ett virtuellt nätverk och ett lagrings konto och en privat slut punkt. Du är ansluten till en virtuell dator från Internet och kommunicerat på ett säkert sätt till lagrings kontot med hjälp av en privat länk. Mer information om privata slut punkter finns i [Vad är Azures privata slut punkt?](private-endpoint-overview.md).

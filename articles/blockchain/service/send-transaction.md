@@ -1,21 +1,21 @@
 ---
-title: Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt med Azure blockchain-tjänsten
+title: Använda Visual Studio Code – Azure blockchain service
 description: Självstudie om hur du använder Azure blockchain Development Kit för Ethereum-tillägget i Visual Studio Code för att skapa, bygga och distribuera ett smart kontrakt på Azure blockchain-tjänsten.
 services: azure-blockchain
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/10/2019
+ms.date: 10/14/2019
 ms.topic: tutorial
 ms.service: azure-blockchain
 ms.reviewer: chrisseg
-ms.openlocfilehash: 96fe4d77efdd1fda309d7da021bcc208edd2dfe9
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: 13a5993a14e386dc7d24c7464610bbf1ace4b9cb
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935054"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329247"
 ---
-# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>Självstudier: Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt
+# <a name="tutorial-usevisual-studio-code-to-create-buildanddeploysmartcontracts"></a>Självstudie: Använd Visual Studio Code för att skapa, bygga och distribuera smarta kontrakt
 
 I den här självstudien använder du tillägget Azure blockchain Development Kit for Ethereum i Visual Studio Code för att skapa, bygga och distribuera ett smart kontrakt på Azure blockchain-tjänsten. Du kan också använda Truffle för att köra en smart kontrakts funktion via en transaktion.
 
@@ -29,17 +29,17 @@ Du använder Azure blockchain Development Kit för att Ethereum:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * Slutför [snabb start: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md)
 
 ## <a name="create-a-smart-contract"></a>Skapa ett smart kontrakt
 
-Azure blockchain Development Kit för Ethereum använder Project-mallar och Truffle-verktyg för att hjälpa Autogenerera, bygga och distribuera kontrakt. Innan du börjar måste du slutföra den nödvändiga [snabb starten: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium](connect-vscode.md)-nätverk. Snabb starten guidar dig genom installationen och konfigurationen av Azure blockchain Development Kit för Ethereum.
+Azure blockchain Development Kit för Ethereum använder Project-mallar och Truffle-verktyg för att hjälpa Autogenerera, bygga och distribuera kontrakt. Innan du börjar måste du slutföra den nödvändiga [snabb starten: Använd Visual Studio Code för att ansluta till ett Azure blockchain service Consortium-nätverk](connect-vscode.md). Snabb starten guidar dig genom installationen och konfigurationen av Azure blockchain Development Kit för Ethereum.
 
-1. Från kommando paletten vs Code väljer **du Azure blockchain: Nytt projekt**för massivity.
+1. Från kommando paletten VS Code väljer du **Azure blockchain: nytt projekt för massivhet**.
 1. Välj **skapa Basic-projekt**.
-1. Skapa en ny mapp med `HelloBlockchain` namnet och **Välj ny projekt Sök väg**.
+1. Skapa en ny mapp med namnet `HelloBlockchain` och **Välj ny projekt Sök väg**.
 
 Azure blockchain Development Kit skapar och initierar ett nytt solide-projekt åt dig. Det grundläggande projektet innehåller ett exempel på ett **HelloBlockchain** Smart-kontrakt och alla nödvändiga filer för att bygga och distribuera till din Consortium-medlem i Azure blockchain-tjänsten. Det kan ta flera minuter innan projektet skapas. Du kan övervaka förloppet i VS Codes Terminal-panel genom att välja utdata för Azure-blockchain.
 
@@ -76,7 +76,7 @@ Azure blockchain Development Kit använder Truffle för att köra migrations skr
 
 **HelloBlockchain** -kontraktets **SendRequest** -funktion ändrar variabeln **RequestMessage** State. Att ändra tillstånd för ett blockchain nätverk görs via en transaktion. Du kan skapa ett skript för att köra **SendRequest** -funktionen via en transaktion.
 
-1. Skapa en ny fil i roten av Truffle-projektet och ge den `sendrequest.js`namnet. Lägg till följande Web3 JavaScript-kod i filen.
+1. Skapa en ny fil i roten av Truffle-projektet och ge den namnet `sendrequest.js`. Lägg till följande Web3 JavaScript-kod i filen.
 
     ```javascript
     var HelloBlockchain = artifacts.require("HelloBlockchain");
@@ -104,11 +104,11 @@ Azure blockchain Development Kit använder Truffle för att köra migrations skr
     truffle exec sendrequest.js --network <blockchain network>
     ```
 
-    Ersätt \<blockchain Network\> med namnet på blockchain-nätverket som definierats i **Truffle-config. js**.
+    Ersätt \<blockchain Network @ no__t-1 med namnet på det blockchain-nätverk som definierats i **Truffle-config. js**.
 
 Truffle kör skriptet i ditt blockchain-nätverk.
 
-![Skriptutdata](./media/send-transaction/execute-transaction.png)
+![Skriptets utdata](./media/send-transaction/execute-transaction.png)
 
 När du kör ett kontrakts funktion via en transaktion bearbetas inte transaktionen förrän ett block har skapats. Funktioner som är avsedda att köras via en transaktion returnerar ett transaktions-ID i stället för ett retur värde.
 
@@ -132,7 +132,7 @@ Smarta kontrakt funktioner kan returnera det aktuella värdet för State-variabl
 
 1. Högerklicka på **HelloBlockchain. sol** och välj **Bygg kontrakt** på menyn för att kompilera ändringarna i det smarta kontraktet.
 1. Du distribuerar genom att högerklicka på **HelloBlockchain. sol** och välja **distribuera kontrakt** på menyn. När du uppmanas väljer du ditt Azure blockchain Consortium-nätverk i kommando paletten.
-1. Skapa sedan ett skript som använder för att anropa funktionen **GetMessage** . Skapa en ny fil i roten av Truffle-projektet och ge den `getmessage.js`namnet. Lägg till följande Web3 JavaScript-kod i filen.
+1. Skapa sedan ett skript som använder för att anropa funktionen **GetMessage** . Skapa en ny fil i roten av Truffle-projektet och ge den namnet `getmessage.js`. Lägg till följande Web3 JavaScript-kod i filen.
 
     ```javascript
     var HelloBlockchain = artifacts.require("HelloBlockchain");
@@ -159,23 +159,23 @@ Smarta kontrakt funktioner kan returnera det aktuella värdet för State-variabl
     truffle exec getmessage.js --network <blockchain network>
     ```
 
-    Ersätt \<blockchain Network\> med namnet på blockchain-nätverket som definierats i **Truffle-config. js**.
+    Ersätt \<blockchain Network @ no__t-1 med namnet på det blockchain-nätverk som definierats i **Truffle-config. js**.
 
 Skriptet frågar det smarta kontraktet genom att anropa funktionen getMessage. Det aktuella värdet för **RequestMessage** status-variabeln returneras.
 
-![Skriptutdata](./media/send-transaction/execute-get.png)
+![Skriptets utdata](./media/send-transaction/execute-get.png)
 
 Observera att värdet inte är **Hej, blockchain!** . I stället är det returnerade värdet en plats hållare. När du ändrar och distribuerar kontraktet får kontraktet en ny kontrakts adress och State-variablerna tilldelas värden i konstruktorn för smarta kontrakt. Truffle-exemplet för **2_deploy_contracts. js** distribuerar det smarta kontraktet och skickar ett värde för plats hållare som ett argument. Konstruktorn anger **RequestMessage** tillstånds variabeln till värdet för plats hållaren och det som returneras.
 
 1. Om du vill ställa in **RequestMessage** tillstånds variabel och fråga efter värdet kör du skripten **SendRequest. js** och **GetMessage. js** igen.
 
-    ![Skriptutdata](./media/send-transaction/execute-set-get.png)
+    ![Skriptets utdata](./media/send-transaction/execute-set-get.png)
 
     **SendRequest. js** ställer in **RequestMessage** State-variabeln på **Hej, blockchain!** och **GetMessage. js** frågar kontraktet efter värdet för **RequestMessage** State-variabeln och returnerar **Hej, blockchain!** .
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 
-När de inte längre behövs kan du ta bort resurserna genom att ta `myResourceGroup` bort resurs gruppen som du skapade i snabb starten för att *skapa en blockchain-medlems* krav.
+När de inte längre behövs kan du ta bort resurserna genom att ta bort resurs gruppen `myResourceGroup` som du skapade i snabb starten för att *skapa en blockchain-medlems* krav.
 
 Ta bort resurs gruppen:
 

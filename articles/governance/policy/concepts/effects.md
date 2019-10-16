@@ -6,12 +6,12 @@ ms.author: dacoulte
 ms.date: 09/17/2019
 ms.topic: conceptual
 ms.service: azure-policy
-ms.openlocfilehash: eb15aa3c6dbe0f4db62a2029a3c97b4475ab53a2
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 78a5b180d6e1531ca3ea15fbd6ec040a90d75e5c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255879"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330771"
 ---
 # <a name="understand-azure-policy-effects"></a>Förstå Azure Policys effekter
 
@@ -99,8 +99,7 @@ Exempel 2: ett **fält/värde** -par med ett **[\*]** - [alias](definition-struc
 
 ## <a name="modify"></a>Ändra
 
-Ändra används för att lägga till, uppdatera eller ta bort taggar på en resurs under skapandet eller uppdateringen. Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. En ändra princip ska alltid ha `mode` inställt på _indexerad_. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md).
-En enda ändra-regel kan ha valfritt antal åtgärder.
+Ändra används för att lägga till, uppdatera eller ta bort taggar på en resurs under skapandet eller uppdateringen. Ett vanligt exempel är att uppdatera taggar på resurser som costCenter. En ändra princip ska alltid ha `mode` inställt på _indexerad_ om inte mål resursen är en resurs grupp. Befintliga icke-kompatibla resurser kan åtgärdas med en [reparations uppgift](../how-to/remediate-resources.md). En enda ändra-regel kan ha valfritt antal åtgärder.
 
 > [!IMPORTANT]
 > Ändra är för närvarande endast för användning med-taggar. Om du hanterar Taggar rekommenderar vi att du använder ändra i stället för Lägg till som ändra och ger ytterligare åtgärds typer och möjlighet att åtgärda befintliga resurser. Tillägg rekommenderas dock om du inte kan skapa en hanterad identitet.

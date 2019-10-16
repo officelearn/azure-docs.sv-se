@@ -1,88 +1,88 @@
 ---
-title: Azure Blockchain-tjänsten Consortium
-description: ''
+title: Azure blockchain service Consortium
+description: Förstå hur Azure blockchain service använder ett privat konsortium
 services: azure-blockchain
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 05/02/2019
+ms.date: 10/14/2019
 ms.topic: article
 ms.service: azure-blockchain
 ms.reviewer: zeyadr
 manager: femila
-ms.openlocfilehash: e745a4ee4789ef46a61b5cb0bbf806c41ef631ec
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 04ea4a4ebecec958ba9d9a72711e101adb3690ab
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65027922"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329296"
 ---
-# <a name="azure-blockchain-service-consortium"></a>Azure Blockchain-tjänsten Consortium
+# <a name="azure-blockchain-service-consortium"></a>Azure blockchain service Consortium
 
-Med Azure Blockchain-tjänsten kan kan du skapa privata consortium blockchain nätverk där varje blockchain-nätverket kan begränsas till specifika deltagare i nätverket. Endast deltagare i det privata consortium blockchain-nätverket kan visa och interagera med blockchain. Consortium nätverk i Azure Blockchain-tjänsten kan innehålla två typer av medlem deltagare roller:
+Med Azure blockchain-tjänsten kan du skapa privata konsortier blockchain nätverk där varje blockchain nätverk kan begränsas till särskilda deltagare i nätverket. Endast deltagare i det privata konsortiet blockchain-nätverket kan visa och interagera med blockchain. Konsortiet nätverk i Azure blockchain-tjänsten kan innehålla två typer av medlems deltagar roller:
 
-* **Administratören** -privilegierad deltagare som kan utföra åtgärder för hantering av consortium och kan delta i blockchain transaktioner.
+* **Administratörer** – privilegierade deltagare som kan vidta hanterings åtgärder för konsortiet och kan delta i blockchain transaktioner.
 
-* **Användaren** -deltagare som kan inte vidta några åtgärder för hantering av consortium men kan delta i blockchain transaktioner.
+* **Användare** – deltagare som inte kan vidta någon konsortiums hanterings åtgärd, men som kan delta i blockchain transaktioner.
 
-Consortium nätverk kan vara en blandning av deltagare roller och kan ha ett valfritt antal varje rolltyp. Det måste finnas minst en administratör.
+Konsortier-nätverk kan vara en blandning av deltagar roller och kan ha ett godtyckligt antal varje roll typ. Det måste finnas minst en administratör.
 
-I följande diagram visas ett konsortienätverk med flera deltagare:
+Följande diagram visar ett konsortium-nätverk med flera deltagare:
 
-![Privata consortium nätverksdiagram](./media/consortium/network-diagram.png)
+![Nätverks diagram för privat konsortium](./media/consortium/network-diagram.png)
 
-Med consortium management i Azure Blockchain Service kan hantera du deltagare i consortium network. Hantering av consortium baseras på konsensus-modell för nätverket. I den aktuella förhandsversionen tillhandahåller Azure Blockchain Service en centraliserad konsensus-modell för hantering av consortium. En privilegierad part med en administrera roll kan ta consortium hanteringsåtgärder som att lägga till eller ta bort deltagare från ett nätverk.
+Med hantering av konsortier i Azure blockchain-tjänsten kan du hantera deltagare i konsortiet nätverk. Konsortiets hantering baseras på nätverkets vedertagna modell. I den aktuella för hands versionen tillhandahåller Azure blockchain-tjänsten en centraliserad konsensus modell för hantering av konsortiet. Alla privilegierade deltagare med en administrera-roll kan vidta hanterings åtgärder för konsortiet, till exempel lägga till eller ta bort deltagare från ett nätverk.
 
 ## <a name="roles"></a>Roller
 
-Deltagare i ett konsortium kan vara enskilda personer och organisationer och kan tilldelas en roll eller en administratörsroll. I följande tabell visas de övergripande skillnaderna mellan de två rollerna:
+Deltagare i ett konsortium kan vara individer eller organisationer och kan tilldelas en användar roll eller en administratörs roll. I följande tabell visas skillnaderna på hög nivå mellan de två rollerna:
 
-| Åtgärd | Användarroll | Administratörsroll
+| Åtgärd | Användar roll | Administratörs roll
 |--------|:----:|:------------:|
 | Skapa ny medlem | Ja | Ja |
-| Bjuda in nya medlemmar | Nej | Ja |
-| Ange eller ändra deltagare medlemsroller | Nej | Ja |
-| Ändra visningsnamnet för medlem | Endast för egen medlem | Endast för egen medlem |
+| Bjud in nya medlemmar | Nej | Ja |
+| Ange eller ändra rollen för medlems deltagare | Nej | Ja |
+| Ändra medlems visnings namn | Endast för egen medlem | Endast för egen medlem |
 | Ta bort medlemmar | Endast för egen medlem | Ja |
-| Delta i blockchain-transaktioner | Ja | Ja |
+| Delta i blockchain transaktioner | Ja | Ja |
 
-### <a name="user-role"></a>Användarroll
+### <a name="user-role"></a>Användar roll
 
-Användarna är consortium deltagare med inga administratörsfunktioner. De inte kan ingå i hanteringen av medlemmar till consortium. Användare kan ändra deras medlem visningsnamn och kan ta bort själva från en consortium.
+Användare är konsortiums deltagare utan Administratörs funktioner. De kan inte delta i hantering av medlemmar som är relaterade till konsortiet. Användare kan ändra sina medlems visnings namn och ta bort dem från ett konsortium.
 
 ### <a name="administrator"></a>Administratör
 
-En administratör kan hantera medlemmar i consortium. En administratör kan bjuda in medlemmar, ta bort medlemmar eller uppdatera medlemmar roller i consortium.
-Det måste alltid finnas minst en administratör i en consortium. Den sista administratören måste ange en annan part som administratörsroll innan de lämnar en consortium.
+En administratör kan hantera medlemmar i konsortiet. En administratör kan bjuda in medlemmar, ta bort medlemmar eller uppdatera medlemmar i konsortiet.
+Det måste alltid finnas minst en administratör i ett konsortium. Den senaste administratören måste ange en annan deltagare som administratörs roll innan du lämnar ett konsortium.
 
 ## <a name="managing-members"></a>Hantera medlemmar
 
-Endast administratörer kan bjuda in andra deltagare till consortium. Administratörer bjuda in deltagare med sina Azure-prenumeration-ID.
+Endast administratörer kan bjuda in andra deltagare till konsortiet. Administratörer bjuder in deltagare med sitt ID för Azure-prenumeration.
 
-När du uppmanas, deltagare kan ansluta till blockchain-consortium genom att distribuera en ny medlem i Azure Blockchain-tjänsten. Om du vill visa och delta i den inbjudna consortium, måste du ange samma ID för Azure-prenumeration som används i inbjudan av nätverksadministratören.
+När de har bjudits in kan deltagarna delta i blockchain-konsortiet genom att distribuera en ny medlem i Azure blockchain-tjänsten. Om du vill visa och ansluta till det inbjudna konsortiet måste du ange samma ID för Azure-prenumerationen som används i inbjudan av nätverks administratören.
 
-Administratörer kan ta bort alla deltagare från consortium, inklusive andra administratörer. Medlemmar kan bara avregistrera sig från en consortium.
+Administratörer kan ta bort alla deltagare från konsortiet, inklusive andra administratörer. Medlemmar kan bara ta bort sig själva från ett konsortium.
 
-## <a name="consortium-management-smart-contract"></a>Consortium management smarta kontrakt
+## <a name="consortium-management-smart-contract"></a>Smart kontrakt för konsortiums hantering
 
-Consortium hantering i Azure Blockchain Service görs via consortium management smarta kontrakt. Smarta kontrakt distribueras till noderna automatiskt när du distribuerar en ny blockchain-medlem.
+Hantering av konsortiet i Azure blockchain-tjänsten görs via de smarta avtalen för konsortiet Management. De smarta kontrakten distribueras automatiskt till noderna när du distribuerar en ny blockchain-medlem.
 
-Adressen till roten consortium management smarta kontrakt kan ses i Azure-portalen. Den **RootContract adress** finns i översiktsavsnittet för blockchain medlem.
+Du kan visa adressen till det smarta hanterings avtalet för rot konsortiet i Azure Portal. **RootContract-adressen** finns i avsnittet Översikt över blockchain-medlemmen.
 
-![RootContract adress](./media/consortium/rootcontract-address.png)
+![RootContract-adress](./media/consortium/rootcontract-address.png)
 
-Du kan interagera med det consortium management smarta kontrakt med consortium management [PowerShell-modulen](manage-consortium-powershell.md), Azure portal, eller direkt via den smarta kontrakt med hjälp av tjänsten Azure Blockchain genereras Ethereum konto.
+Du kan interagera med det smarta avtalet för konsortiet Management med PowerShell- [modulen](manage-consortium-powershell.md)för hantering av konsortiet, Azure Portal eller direkt via det smarta kontraktet med hjälp av det genererade Ethereum-kontot i Azure blockchain service.
 
 ## <a name="ethereum-account"></a>Ethereum-konto
 
-När en medlem skapas, skapas en Ethereum-kontonyckel. Azure Blockchain Service använder nyckeln för att skapa transaktioner som rör hantering av consortium. Nyckeln till Ethereum hanteras automatiskt av Azure Blockchain-tjänsten.
+När en medlem skapas skapas en konto nyckel för Ethereum. Azure blockchain-tjänsten använder nyckeln för att skapa transaktioner relaterade till hantering av konsortiet. Konto nyckeln för Ethereum hanteras automatiskt av Azure blockchain-tjänsten.
 
-Medlemskonton kan ses i Azure-portalen. Medlem-kontot finns i översiktsavsnittet för blockchain medlem.
+Medlems kontot kan visas i Azure Portal. Medlems kontot finns i avsnittet Översikt över blockchain-medlemmen.
 
-![Medlemskonto](./media/consortium/member-account.png)
+![Medlems konto](./media/consortium/member-account.png)
 
-Du kan återställa ditt Ethereum-konto genom att klicka på din medlemskonto och ange ett nytt lösenord. Både den Ethereum-adressen för kontot och lösenordet återställs.  
+Du kan återställa ditt Ethereum-konto genom att klicka på ditt medlems konto och ange ett nytt lösen ord. Både Ethereum-kontonamn och lösen ordet kommer att återställas.  
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Hantera medlemmar i Azure Blockchain-tjänsten med hjälp av PowerShell](manage-consortium-powershell.md)
+[Hantera medlemmar i Azure blockchain-tjänsten med hjälp av PowerShell](manage-consortium-powershell.md)

@@ -96,6 +96,9 @@
     - name: Deep learning
       displayName: 'deep learning vs machine learning, deep learning, vs, versus'
       href: concept-deep-learning-vs-machine-learning.md
+    - name: Git-integrering
+      displayName: git github gitlab
+      href: concept-train-model-git-integration.md
 - name: Instruktionsguider
   items:
     - name: Skapa och hantera arbetsytor

@@ -103,7 +103,7 @@
           items:
             - name: Övervaka och finjustera
               href: concepts-monitoring.md
-            - name: Serverloggar
+            - name: Loggar
               href: concepts-server-logs.md
             - name: Granskningsloggar
               href: concepts-audit.md
@@ -207,7 +207,7 @@
               href: howto-auto-grow-storage-portal.md
             - name: Azure CLI
               href: howto-auto-grow-storage-cli.md
-        - name: Åtkomst till serverloggar
+        - name: Åtkomstloggar
           items:
             - name: Azure Portal
               href: howto-configure-server-logs-in-portal.md

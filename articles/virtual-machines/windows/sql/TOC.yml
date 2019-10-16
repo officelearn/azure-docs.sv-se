@@ -102,7 +102,7 @@
           items:
             - name: Med Lagringsdirigering
               href: virtual-machines-windows-portal-sql-create-failover-cluster.md
-            - name: Med premiumfillagring
+            - name: Med premiumfilresurs
               href: virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-storage.md
 - name: Referens
   items:

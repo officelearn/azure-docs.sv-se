@@ -96,22 +96,22 @@
           items:
             - name: Skapa och hantera klassrumslabb
               href: classroom-labs/how-to-manage-classroom-labs.md
-            - name: Konfigurera och publicera mallar
+            - name: 'Konfigurera, anpassa och publicera mallar'
               href: classroom-labs/how-to-create-manage-template.md
-            - name: Konfigurera och kontrollera användning
+            - name: Konfigurera och hantera en pool för virtuella datorer
+              href: classroom-labs/how-to-set-virtual-machine-passwords.md
+            - name: Lägg till och hantera labbanvändare
               href: classroom-labs/how-to-configure-student-usage.md
             - name: Skapa och hantera scheman
               href: classroom-labs/how-to-create-schedules.md
-            - name: Skapa en miljö med flera virtuella datorer i en mall för virtuella datorer
-              href: classroom-labs/how-to-enable-multi-vm-environment.md
             - name: Använda ett delat bildgalleri
               href: classroom-labs/how-to-use-shared-image-gallery.md
             - name: Aktivera anslutning för fjärrskrivbord för Linux
               href: classroom-labs/how-to-enable-remote-desktop-linux.md
-            - name: Ange eller återställa lösenord för virtuella datorer
-              href: classroom-labs/how-to-set-virtual-machine-passwords.md
             - name: Aktivera kapslad virtualisering på en virtuell malldator
               href: classroom-labs/how-to-enable-nested-virtualization-template-vm.md
+            - name: Skapa en miljö med flera virtuella datorer i en mall för virtuella datorer
+              href: classroom-labs/how-to-enable-multi-vm-environment.md
         - name: Ansluta till virtuella datorer i klassrumslabb (elev)
           items:
             - name: Åtkomst till klassrumslabb

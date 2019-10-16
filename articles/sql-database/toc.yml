@@ -22,14 +22,13 @@
               href: sql-database-purchase-models.md
             - name: vCore-baserad modell
               href: sql-database-service-tiers-vcore.md
+              items:
+                - name: Serverlös beräkningsnivå
+                  href: sql-database-serverless.md
+                - name: Förskottsbetalning för reserverad kapacitet
+                  href: sql-database-reserved-capacity.md
             - name: Tjänstnivåer för DTU
               href: sql-database-service-tiers-dtu.md
-            - name: Serverlös beräkningsnivå
-              href: sql-database-serverless.md
-            - name: Förskottsbetalning för reserverad kapacitet
-              href: sql-database-reserved-capacity.md
-            - name: Migrera från Premium RS-tjänstnivån
-              href: sql-database-service-tiers-prs.md
         - name: Beräkning och lagring
           items:
             - name: Översikt
@@ -43,6 +42,8 @@
               href: sql-database-service-tier-hyperscale.md
             - name: Vanliga frågor och svar om hyperskala
               href: sql-database-service-tier-hyperscale-faq.md
+            - name: Migrera från Premium RS-tjänstnivån
+              href: sql-database-service-tiers-prs.md
 - name: Snabbstarter
   expanded: true
   items:
@@ -224,6 +225,8 @@
               href: sql-database-disaster-recovery.md
             - name: Återställningstester
               href: sql-database-disaster-recovery-drills.md
+            - name: Konfigurera redundansgrupp
+              href: sql-database-configure-failover-group.md
     - name: Övervaka och finjustera
       items:
         - name: Övervaka och finjustera dokumentation
@@ -488,7 +491,7 @@
           href: sql-database-active-geo-replication-portal.md
         - name: Konfigurera Azure SQL Data Sync
           href: sql-database-get-started-sql-data-sync.md
-        - name: Lägga till i en redundansgrupp i en elastisk pool
+        - name: Lägga till en elastisk pool till en redundansgrupp
           href: sql-database-elastic-pool-failover-group-tutorial.md
         - name: Konfigurera säkerhet
           href: sql-database-security-tutorial.md
@@ -604,8 +607,6 @@
           href: sql-database-geo-replication-portal.md
         - name: Konfigurera säkerhet för geo-replikering
           href: sql-database-geo-replication-security-config.md
-        - name: Konfigurera redundansgrupp
-          href: sql-database-configure-failover-group.md
         - name: Testa funktioner i minnet
           href: sql-database-in-memory-sample.md
         - name: Aktivera automatisk inställning
@@ -714,6 +715,8 @@
           href: replication-with-sql-database-managed-instance.md
         - name: Konfigurera säkerhet
           href: sql-database-managed-instance-aad-security-tutorial.md
+        - name: Lägga till en hanterad instans till en redundansgrupp
+          href: sql-database-managed-instance-failover-group-tutorial.md
     - name: Begrepp
       items:
         - name: Referens för API för hantering

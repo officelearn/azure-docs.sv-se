@@ -111,7 +111,9 @@
   items:
     - name: Time Series Insights
       items:
-        - name: Allmän tillgänglighet för Azure Time Series Insights
+        - name: Azure Time Series Insights
+          href: /rest/api/time-series-insights/index
+        - name: Dataåtkomst (Allmänt tillgänglig)
           href: /rest/api/time-series-insights/ga
           items:
             - name: Söka i data
@@ -123,17 +125,8 @@
                   href: /rest/api/time-series-insights/ga-query-syntax
             - name: API för referensdata
               href: /rest/api/time-series-insights/ga-reference-data-api
-        - name: Förhandsversion av Azure Time Series Insights
+        - name: Förhandsversion av koncept för dataåtkomst
           href: /rest/api/time-series-insights/preview
-          items:
-            - name: Time Series-fråga
-              href: /rest/api/time-series-insights/preview-query
-            - name: Time Series-modell
-              href: /rest/api/time-series-insights/preview-model
-            - name: API för Time Series-miljö
-              href: /rest/api/time-series-insights/preview-env
-            - name: Time Series-uttryck och -syntax
-              href: /rest/api/time-series-insights/preview-tsx
     - name: Client SDK
       items:
         - name: JavaScript Client SDK

@@ -7,28 +7,34 @@
       href: billing-understand-your-bill.md
     - name: Förstå EA-fakturan
       href: billing-understand-your-bill-ea.md
-    - name: Förstå din faktura – endast Microsoft-kundavtal
+    - name: Förstå din faktura – Microsofts kundavtal
       href: billing-mca-understand-your-bill.md
+    - name: Förstå din faktura – Microsofts partneravtal
+      href: billing-mpa-understand-your-bill.md
     - name: Visa och ladda ned din faktura för Microsoft Azure
       href: billing-download-azure-invoice.md
     - name: Visa och ladda ned information om din användning och dina avgifter för Microsoft Azure
       href: billing-download-azure-daily-usage.md
-    - name: Visa och ladda ned skattedokument för ditt Microsoft-kundavtal
+    - name: Visa och ladda ned skattedokument
       href: billing-mca-download-tax-document.md
     - name: Avgifter för tjänster från tredje part
       href: billing-understand-your-azure-marketplace-charges.md
     - name: Förklaring av användningsvillkor
       href: billing-understand-your-usage.md
-    - name: Förklaring av användningsvillkor – endast Microsoft-kundavtal
+    - name: Förklaring av användningsvillkor – Microsofts kundavtal
       href: billing-mca-understand-your-usage.md
     - name: Förklaring av fakturavillkor
       href: billing-understand-your-invoice.md
-    - name: Förklaring av fakturavillkor – endast Microsoft-kundavtal
+    - name: Förklaring av fakturavillkor – Microsofts kundavtal
       href: billing-mca-understand-your-invoice.md
-    - name: Så här betalar du din faktura – endast Microsofts kundavtal
+    - name: Förklaring av fakturavillkor – Microsofts partneravtal
+      href: billing-mpa-invoice-terms-explained.md
+    - name: Så här betalar du din faktura – Microsofts kundavtal
       href: billing-how-to-pay-bill.md
     - name: Faktureringskonton för Microsoft-kundavtal
       href: billing-mca-overview.md
+    - name: Faktureringskonton för Microsofts partneravtal
+      href: mpa-overview.md
 - name: Hantera kostnader
   items:
     - name: Undvik oväntade kostnader
@@ -115,10 +121,8 @@
           href: billing-avoid-charges-free-account.md
         - name: Kontrollera användning
           href: billing-check-free-service-usage.md
-        - name: Uppgradera prenumeration
+        - name: Uppgradera konto
           href: billing-upgrade-azure-subscription.md
-        - name: Förstå mätarmappning
-          href: billing-understand-free-service-meter-mapping.md
     - name: Redigera profil
       href: billing-how-to-change-azure-account-profile.md
     - name: Open banking och stark kundautentisering
@@ -158,7 +162,7 @@
         - name: EA-uppgifter i Microsoft-kundavtal
           href: billing-mca-enterprise-operations.md
     - name: Konfigurera ett faktureringskonto för Microsoft-kundavtal
-      href: billing-mca-setup-account.md
+      href: mca-setup-account.md
     - name: Logga in med Office 365-konto
       href: billing-use-existing-office-365-account-azure-subscription.md
     - name: Registrera dig för Office 365 med ett Azure-konto
@@ -173,6 +177,8 @@
       href: billing-subscription-transfer.md
     - name: Begära ägarskap – Microsoft-kundavtal
       href: billing-mca-request-billing-ownership.md
+    - name: Begära ägarskap – Microsofts partneravtal
+      href: mpa-request-ownership.md
     - name: Avbryt prenumerationen
       href: billing-how-to-cancel-azure-subscription.md
     - name: Ändra kreditkort

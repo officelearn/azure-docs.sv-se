@@ -195,8 +195,6 @@
       href: ../azure-resource-manager/resource-group-move-resources.md?toc=/azure/billing/TOC.json
     - name: Skapa ytterligare prenumerationer
       href: billing-create-subscription.md
-    - name: Skapa ytterligare prenumeration – Microsoft kundavtal
-      href: billing-mca-create-subscription.md
     - name: Skapa Enterprise-prenumerationer programmässigt
       href: ../azure-resource-manager/programmatically-create-subscription.md?toc=/azure/billing/TOC.json
     - name: Exportera prenumerationsinformation

@@ -50,7 +50,7 @@
           href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Uppgradera ett lagringskonto
           href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-    - name: Redundans
+    - name: Dataredundans
       items:
         - name: Azure-lagringsreplikering
           href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
@@ -62,14 +62,14 @@
           href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
         - name: Geografiskt zonredundant lagring
           href: ../common/storage-redundancy-gzrs.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-        - name: Prestanda och skalning
-          items:
-            - name: Mål för skalbarhet och prestanda
-              href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
-            - name: Checklista för prestanda och skalbarhet
-              href: storage-performance-checklist.md
-            - name: Utforma skalbara och högpresterande tabeller
-              href: table-storage-design.md
+    - name: Prestanda och skalning
+      items:
+        - name: Mål för skalbarhet och prestanda
+          href: ../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Checklista för prestanda och skalbarhet
+          href: storage-performance-checklist.md
+        - name: Utforma skalbara och högpresterande tabeller
+          href: table-storage-design.md
     - name: Riktlinjer för tabelldesign
       href: table-storage-design-guidelines.md
     - name: Utforma för frågor

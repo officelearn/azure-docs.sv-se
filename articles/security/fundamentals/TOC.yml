@@ -3,6 +3,10 @@
 - name: Arkitektur och design
   href: overview.md
   expanded: false
+  items: null
+- name: Arkitektur och design
+  href: overview.md
+  expanded: false
   items:
     - name: Avancerad hotidentifiering
       displayName: 'vulnerability, virus, IDs, incident'
@@ -12,14 +16,7 @@
       href: log-audit.md
     - name: Azure-nätverkssäkerhet
       displayName: 'firewall, ssl, vpn, IDs, gateway, https, application gateway, azure application gateway, ips, waf'
-      href: abstract-network-security.md
-    - name: Säkerhet för Azure-plattform utan server
-      href: abstract-serverless-platform-security.md
-    - name: Containersäkerhet i Azure
-      href: abstract-container-security.md
-    - name: Aktivera driftsäkerhet
-      displayName: 'policy, policies, azure monitor, soc'
-      href: abstract-operational-security.md
+      href: 'https://azure.microsoft.com/resources/azure-network-security/'
     - name: Isolering i Azure-molnet
       displayName: trust boundary
       href: isolation-choices.md
@@ -28,8 +25,6 @@
       href: 'https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Tekniska funktioner för säkerhet
       href: technical-capabilities.md
-    - name: Utveckla säkra appar på Azure
-      href: abstract-develop-secure-apps.md
 - name: Datasäkerhet och kryptering
   href: encryption-overview.md
   items:
@@ -90,8 +85,6 @@
                     - name: Diskkryptering med Azure AD-appen för virtuella Linux-datorer
                       displayName: active directory
                       href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-linux-aad'
-    - name: Azure Storage-säkerhet
-      href: storage-overview.md
     - name: Lagringssäkerhetsguide
       href: 'https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
     - name: Customer Lockbox

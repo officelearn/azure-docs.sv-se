@@ -8,12 +8,13 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 04/10/2018
 ms.author: sngun
-ms.openlocfilehash: 358f55594037f4a468d31265f4e65a6ec4d7ef28
-ms.sourcegitcommit: 80dff35a6ded18fa15bba633bf5b768aa2284fa8
+ms.custom: seo-python-october2019
+ms.openlocfilehash: d4cfba26192eb097d06f82e18acb41c1f9640e66
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70020138"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437352"
 ---
 # <a name="quickstart-build-a-table-api-app-with-python-and-azure-cosmos-db"></a>Snabbstart: Skapa en tabell-API-app med Python och Azure Cosmos DB
 
@@ -28,12 +29,12 @@ Den här snabbstarten visar hur du använder [tabell-API](table-introduction.md)
 
 Azure Cosmos DB är Microsofts globalt distribuerade databastjänst för flera datamodeller. Du kan snabbt skapa och ställa frågor mot databaser med dokument, nyckel/värde-par, breda kolumner och grafer. Du får fördelar av den globala distributionen och den horisontella skalningsförmågan som ligger i grunden hos Azure Cosmos DB. 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
 
-Dessutom:
+Dessutom gäller följande:
 
 * Om du inte redan har Visual Studio 2019 installerat kan du hämta och använda den **kostnads fria** [versionen av Visual Studio 2019 community](https://www.visualstudio.com/downloads/). Se till att du väljer arbetsbelastningarna **Azure-utveckling** och **Python-utveckling** under konfigurationen av Visual Studio.
 * Välj även alternativet Python 2 i arbetsbelastningen **Python-utveckling** eller ladda ned Python 2.7 från [python.org](https://www.python.org/downloads/release/python-2712/).
@@ -50,7 +51,7 @@ Dessutom:
 
 [!INCLUDE [cosmos-db-create-table](../../includes/cosmos-db-create-table.md)]
 
-## <a name="add-sample-data"></a>Lägg till exempeldata
+## <a name="add-sample-data"></a>Lägga till exempeldata
 
 [!INCLUDE [cosmos-db-create-table-add-sample-data](../../includes/cosmos-db-create-table-add-sample-data.md)]
 
@@ -84,7 +85,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 1. På [Azure-portalen](https://portal.azure.com/) väljer du **Anslutningssträng**. 
 
-    ![Visa och kopiera ANSLUTNINGSSTRÄNG i fönstret Anslutningssträng](./media/create-table-python/connection-string.png)
+    ![Visa och kopiera ANSLUTNINGS STRÄNGEN i inställningarna för anslutnings strängen](./media/create-table-python/view-and-copy-connection-string-in-connection-string-settings.png)
 
 2. Kopiera KONTONAMN med knappen till höger.
 
@@ -94,7 +95,7 @@ Gå nu tillbaka till Azure-portalen för att hämta information om din anslutnin
 
 5. Klistra in PRIMÄRNYCKEL från portalen i värdet STORAGE_ACCOUNT_KEY på rad 20.
 
-3. Spara filen config.py.
+6. Spara filen config.py.
 
 ## <a name="run-the-app"></a>Kör appen
 

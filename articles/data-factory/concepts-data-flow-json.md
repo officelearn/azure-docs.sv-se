@@ -7,12 +7,12 @@ ms.review: djpmsft
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 605564ed541c23a9060879706fb25f91e97a8eac
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
-ms.translationtype: HT
+ms.openlocfilehash: fe412e9e682fb55f1664c546e6b6c5a347527adb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326533"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387345"
 ---
 # <a name="mapping-data-flow-json-handling"></a>Mappa JSON-hantering för data flöde
 
@@ -24,11 +24,11 @@ Du kan lägga till en komplex kolumn i ditt data flöde via uttrycks verktyget h
 
 Hovra över en kolumn i fönstret utdata schema och klicka på plus ikonen. Välj **Lägg till under kolumn** för att göra kolumnen till en komplex typ.
 
-![Lägg]till under kolumn(media/data-flow/addsubcolumn.png "Lägg till under kolumn")
+![Lägg till under kolumn](media/data-flow/addsubcolumn.png "Lägg till under kolumn")
 
 Du kan lägga till ytterligare kolumner och under kolumner på samma sätt. För varje icke-komplext fält kan ett uttryck läggas till i uttrycks redigeraren till höger.
 
-Komplex ![kolumn](media/data-flow/complexcolumn.png "komplex kolumn")
+![Komplex kolumn](media/data-flow/complexcolumn.png "Komplex kolumn")
 
 ### <a name="entering-the-json-structure-manually"></a>Ange JSON-strukturen manuellt
 
@@ -86,7 +86,7 @@ Om det här uttrycket angavs för en kolumn med namnet "complexColumn", skrivs d
 
 Genom att använda en JSON-datauppsättning som källa i ditt data flöde kan du ange fem ytterligare inställningar. De här inställningarna finns under inställningen för **JSON-inställningar** på fliken **käll alternativ** .  
 
-JSON(media/data-flow/json-settings.png "-Inställningar för") ![JSON]
+![JSON-inställningar](media/data-flow/json-settings.png "JSON-inställningar")
 
 ### <a name="default"></a>Standard
 

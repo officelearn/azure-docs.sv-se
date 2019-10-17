@@ -14,19 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 44a6261819ee8e880d9a5763e92678bc359f5eff
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: e0baf64c3490dd5b7edd8c3f7d209c135c546ed5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025094"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388434"
 ---
 # <a name="add-authentication-to-your-xamarinandroid-app"></a>Lägg till autentisering i din Xamarin. Android-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 Det här avsnittet visar hur du autentiserar användare av en mobilapp från klient programmet. I den här självstudien lägger du till autentisering i snabb starts projektet med en identitetsprovider som stöds av Azure Mobile Apps. När du har autentiserat och auktoriserat i mobilappen visas värdet för användar-ID.
@@ -46,9 +47,9 @@ Säker autentisering kräver att du definierar ett nytt URL-schema för din app.
 
 3. I de **tillåtna externa omdirigerings-URL: erna**anger du `url_scheme_of_your_app://easyauth.callback`.  **Url_scheme_of_your_app** i den här STRÄNGEN är URL-schemat för det mobila programmet.  Den bör följa normal URL-specifikation för ett protokoll (Använd bara bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer när du behöver justera koden för mobil program med URL-schemat på flera platser.
 
-4. Klicka på **OK**.
+4. Klicka på **OK**
 
-5. Klicka på **Spara**.
+5. Klicka på **Save** (Spara).
 
 ## <a name="permissions"></a>Begränsa behörigheter till autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -131,7 +132,7 @@ Appen uppdateras för att kräva att användare trycker på knappen **Logga in**
 
 6. I Visual Studio eller Xamarin Studio kör du klient projektet på en enhet eller emulator och loggar in med den valda identitets leverantören. När du har loggat in visar appen ditt inloggnings-ID och listan med att göra-objekt, och du kan göra uppdateringar av data.
 
-## <a name="troubleshooting"></a>Felsökning
+## <a name="troubleshooting"></a>Felsöka
 
 **Programmet kraschade med `Java.Lang.NoSuchMethodError: No static method startActivity`**
 

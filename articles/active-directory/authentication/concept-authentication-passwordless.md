@@ -5,28 +5,40 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/08/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfcd46f06035e356f6528a79b749350627541121
-ms.sourcegitcommit: 9858ab651a520c26f0ed18215e650efbf1fc5de9
+ms.openlocfilehash: 89b52f356b112cff51105ed44c79788ee4542c6e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72303519"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430514"
 ---
-# <a name="what-is-passwordless"></a>Vad är lösenordsfritt?
+# <a name="passwordless-authentication-options"></a>Alternativ för lösenordsskyddad autentisering
 
 Multi-Factor Authentication (MFA) är ett bra sätt att skydda din organisation, men användarna kan bli frustrerade med det extra lagret ovanpå att de behöver komma ihåg sina lösen ord. Metoder för lösen ords kryptering är bekvämare eftersom lösen ordet tas bort och ersätts med något som du har, samt något du känner till.
 
 |   | Något du har | Något som du är eller vet |
 | --- | --- | --- |
-| Lösenordsfri | Telefon-eller säkerhets nyckel | Bio metrisk eller PIN-kod |
+| Lösenordsfri | Windows 10-enhet, telefon eller säkerhets nyckel | Bio metrisk eller PIN-kod |
 
-Varje organisation har olika behov när den kommer till autentiseringen. Microsoft erbjuder för närvarande Windows Hello för våra Windows-datorer. Vi lägger till Microsoft Authenticator-appen och FIDO2-säkerhetsnycklarna i den lösenordsskyddade familjen.
+Varje organisation har olika behov när den kommer till autentiseringen. Microsoft erbjuder tre alternativ för lösenordsbaserad autentisering:
+
+- Windows Hello för företag 
+- Microsoft Authenticator-appen 
+- FIDO2 säkerhets nycklar
+
+![Autentisering: säkerhet jämfört med bekvämlighet](./media/concept-authentication-passwordless/passwordless-convenience-security.png)
+
+## <a name="windows-hello-for-business"></a>Windows Hello för företag 
+
+Windows Hello för företag är idealiskt för informations anställda som har sin egen angivna Windows-dator. Bio måttet och PIN-koden är direkt knutna till användarens dator, vilket förhindrar åtkomst från någon annan än ägaren. Med PKI-integrering och inbyggt stöd för enkel inloggning (SSO) är Windows Hello för företag en enkel och smidig metod för sömlös åtkomst till företagets resurser lokalt och i molnet.
+
+[Planerings guiden](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) för Windows Hello för företag kan användas för att fatta beslut om en typ av Windows Hello för företag-distribution och vilka alternativ du behöver tänka på.
 
 ## <a name="microsoft-authenticator-app"></a>Microsoft Authenticator app
 
@@ -44,7 +56,7 @@ För en offentlig för hands version kan anställda använda externa säkerhets 
 
 ![Logga in på Microsoft Edge med en säkerhets nyckel](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
-Även om det finns många nycklar som är FIDO2-certifierade av FIDO Alliance, kräver Microsoft några valfria tillägg till FIDO2 CTAP-specifikationen som ska implementeras av leverantören för att säkerställa maximal säkerhet och bästa möjliga upplevelse.
+Även om det finns många nycklar som är FIDO2-certifierade av FIDO-alliansen, kräver Microsoft vissa valfria tillägg för FIDO2-specifikationen (Client-to-Authenticator Protocol) som ska implementeras av leverantören för att säkerställa maximal säkerhet och bästa möjliga praktik.
 
 En säkerhets nyckel **måste** implementera följande funktioner och tillägg från FIDO2 CTAP-protokollet som ska vara Microsoft-kompatibelt:
 

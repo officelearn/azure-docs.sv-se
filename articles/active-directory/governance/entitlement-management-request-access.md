@@ -16,12 +16,12 @@ ms.date: 04/19/2019
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2aaa58d3027fecdbfdf594e5712cbdbd758380a7
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 86ab995327522ac5dead9b3f944e0760084aedce
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169824"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389092"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management-preview"></a>Begär åtkomst till ett Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -30,7 +30,7 @@ ms.locfileid: "72169824"
 > Den här förhandsversionen tillhandahålls utan serviceavtal och rekommenderas inte för produktionsarbetsbelastningar. Vissa funktioner kanske inte stöds eller kan vara begränsade.
 > Mer information finns i [Kompletterande villkor för användning av Microsoft Azure-förhandsversioner](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Med hantering av Azure AD-behörighet kan du använda åtkomst paket för att konfigurera resurser och principer som automatiskt administrerar åtkomst för åtkomst paketets livs längd. 
+Med hantering av Azure AD-behörighet kan du använda ett Access-paket för att konfigurera resurser och principer som automatiskt administrerar åtkomst för åtkomst paketets livs längd. 
 
 En Access Package Manager kan konfigurera principer för att kräva att användare får åtkomst till paket. En användare som behöver åtkomst till ett Access-paket kan skicka en begäran om att få åtkomst. Den här artikeln beskriver hur du skickar en åtkomstbegäran.
 
@@ -40,7 +40,7 @@ Det första steget är att logga in på min åtkomst portal där du kan begära 
 
 **Nödvändig roll:** Begär Ande
 
-1. Sök efter ett e-postmeddelande eller ett meddelande från projektet eller Business Manager som du arbetar med. E-postmeddelandet ska innehålla en länk till åtkomst paketet som du behöver åtkomst till. Länken börjar med "åtkomst till", innehåller ett katalog tips och slutar med ett Access-paket-ID som liknar följande:
+1. Sök efter ett e-postmeddelande eller ett meddelande från projektet eller Business Manager som du arbetar med. E-postmeddelandet ska innehålla en länk till åtkomst paketet som du behöver åtkomst till. Länken börjar med `myaccess`, innehåller ett katalog tips och slutar med ett Access-paket-ID.
  
     `https://myaccess.microsoft.com/@<directory_hint>#/access-packages/<access_package_id>`
 

@@ -1,6 +1,6 @@
 ---
-title: Alternativ för support och hjälp för utvecklare för Azure AD-appar | Microsoft Docs
-description: Vet hur man få hjälp och support för utveckling frågor och problem när du skapar program som integreras med Microsoft-identiteter (Azure Active Directory och Microsoft-konto)
+title: Support-och hjälp alternativ för Azure AD Apps-utvecklare | Microsoft Docs
+description: Lär dig mer om att få hjälp och support för utvecklings-relaterade frågor och problem när du skapar program som integreras med Microsoft-identiteter (Azure Active Directory och Microsoft-konto)
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -17,87 +17,81 @@ ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efa14e88eeb8ab43f998a32aaa0c14220acab03a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a160f78f69ed559c576147e9758c837d5ae9b77e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66235339"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429981"
 ---
-# <a name="support-and-help-options-for-developers"></a>Support och hjälper dig att alternativ för utvecklare
+# <a name="support-and-help-options-for-developers"></a>Support- och hjälpalternativ för utvecklare
 
-Om du precis har börjat integrera med Azure Active Directory (AD Azure), Microsoft identiteter eller Microsoft Graph API, eller när du implementerar en ny funktion för ditt program, det finns tillfällen när du behöver få hjälp från communityn eller förstå den stöd för alternativ som du har som utvecklare. Den här artikeln hjälper dig att förstå dessa alternativ, inklusive:
+Om du bara börjar integrera med Azure Active Directory (Azure AD), Microsoft-identiteter eller Microsoft Graph API eller när du implementerar en ny funktion för ditt program, finns det tillfällen när du behöver få hjälp från communityn eller förstå Support alternativ som du har som utvecklare. Den här artikeln hjälper dig att förstå dessa alternativ, inklusive:
 
 > [!div class="checklist"]
-> * Hur du söker efter om din fråga inte har besvarats av communityn, eller om en befintlig dokumentationen för funktionen du försöker att implementera redan finns
-> * I vissa fall kan vill du bara använda vår support-verktygen för att felsöka specifika problem
-> * Om du inte hittar svaret som du behöver kan du vilja ställa en fråga på *Stack Overflow*
-> * Om du upptäcker ett problem med en av våra autentiseringsbibliotek, generera en *GitHub* problemet
-> * Slutligen, om du vill tala med någon kan du kanske vill öppna en supportbegäran
+> * Så här söker du efter om din fråga inte har besvarats av communityn eller om en befintlig dokumentation för funktionen som du försöker implementera redan finns
+> * I vissa fall vill du bara använda våra support verktyg för att felsöka ett visst problem
+> * Om du inte hittar det svar du behöver kan du ställa en fråga på *Stack Overflow*
+> * Om du hittar ett problem med ett av våra autentiseringspaket, Utlös ett *GitHub* -problem
+> * Slutligen, om du behöver prata med någon, kanske du vill öppna en support förfrågan
 
-## <a name="search"></a>Search
+## <a name="search"></a>Sök
 
-Om du har en utvecklings-relaterad fråga kan du kanske kan hitta svaret i dokumentationen, [GitHub-exempel](https://github.com/azure-samples), eller svar på [Stack Overflow](https://www.stackoverflow.com) frågor.
+Om du har en utvecklings fråga kanske du kan hitta svaret i dokumentationen, [GitHub-exempel](https://github.com/azure-samples)eller svar på [Stack Overflow](https://www.stackoverflow.com) frågor.
 
-### <a name="scoped-search"></a>Omfattad sökning
+### <a name="scoped-search"></a>Omfattnings sökning
 
-Begränsa sökningen till Stack Overflow, dokumentationen och kodexempel med hjälp av följande fråga i en sökmotor för snabbare resultat:
+För snabbare resultat kan du begränsa sökningen till Stack Overflow, dokumentationen och kod exemplen med hjälp av följande fråga i din favorit sökmotor:
 
 ```
 {Your Search Terms} (site:stackoverflow.com OR site:docs.microsoft.com OR site:github.com/azure-samples OR site:cloudidentity.com OR site:developer.microsoft.com/graph)
 ```
 
-Där *{Your söktermer}* motsvarar dina sökord.
+Där *{dina Sök villkor}* motsvarar dina Sök nyckelord.
 
-## <a name="use-the-development-support-tools"></a>Använd utvecklingsverktyg för support
+## <a name="use-the-development-support-tools"></a>Använd verktyg för utvecklings support
 
-| Verktyget  | Beskrivning  |
+| Verktyg  | Beskrivning  |
 |---------|---------|
-| [jwt.ms](https://jwt.ms) | Klistra in ett ID eller åtkomsttoken att avkoda de anspråk namn och värden. |
-| [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Verktyg som låter dig göra begäranden och se svar mot Microsoft Graph API. |
+| [jwt.ms](https://jwt.ms) | Klistra in ett ID eller en åtkomsttoken för att avkoda anspråks namnen och värdena. |
+| [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Verktyg som du kan använda för att göra förfrågningar och se svar mot Microsoft Graph API. |
 
-## <a name="post-a-question-to-stack-overflow"></a>Ställa en fråga till Stack Overflow
+## <a name="post-a-question-to-stack-overflow"></a>Skicka en fråga till Stack Overflow
 
-Stack Overflow är prioriterade kanalen för utveckling-relaterade frågor. Medlemmar i vårt community för utvecklare och Microsofts gruppmedlemmar är här är direkt inblandade i att hjälpa dig att lösa dina problem.
+Stack Overflow är den föredragna kanalen för utvecklings frågor. Här är medlemmar i utvecklings gruppen och Microsoft-team medlemmar direkt inblandade i att hjälpa dig att lösa dina problem.
 
-Om du inte hittar svar på din fråga via sökning kan skicka en ny fråga att Stack Overflow. Använd någon av följande taggar när du ställer frågor så att communityn identifiera och svara snabbare på din fråga:
+Om du inte hittar ett svar på din fråga via sökning skickar du en ny fråga till Stack Overflow. Använd någon av följande Taggar när du ställer frågor som hjälper communityn att identifiera och besvara din fråga snabbare:
 
-|Komponenten/område  | Tags |
+|Komponent/Area  | Taggar |
 |---------|---------|
-| ADAL-biblioteket | [[adal]](https://stackoverflow.com/questions/tagged/adal) |
-| MSAL bibliotek     | [[msal]](https://stackoverflow.com/questions/tagged/msal) |
-| OWIN-mellanprogrammet  | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
-| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[azure-ad-b2b]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
-| [Azure B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[azure-ad-b2c]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
-| [Microsoft Graph-API](https://developer.microsoft.com/graph/) | [[microsoft-graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
-| Annat område som rör autentisering eller auktorisering ämnen | [[azure-active-directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| ADAL-bibliotek | [ADAL](https://stackoverflow.com/questions/tagged/adal) |
+| MSAL-bibliotek     | [msal](https://stackoverflow.com/questions/tagged/msal) |
+| OWIN mellanprogram  | [[Azure-Active-Directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
+| [Azure B2B](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)  | [[Azure-AD-B2B]](https://stackoverflow.com/questions/tagged/azure-ad-b2b) |
+| [Azure-B2C](https://azure.microsoft.com/services/active-directory-b2c/)  | [[Azure-AD-B2C]](https://stackoverflow.com/questions/tagged/azure-ad-b2c) |
+| [Microsoft Graph-API](https://developer.microsoft.com/graph/) | [[Microsoft-Graph]](https://stackoverflow.com/questions/tagged/microsoft-graph) |
+| Andra områden som rör autentiserings-eller auktoriserings ämnen | [[Azure-Active-Directory]](https://stackoverflow.com/questions/tagged/azure-active-directory) |
 
-I följande inlägg från Stack Overflow innehåller tips om hur du ställer frågor och hur du lägger till källkoden. Följ dessa riktlinjer för att öka risken för community-medlemmar att utvärdera och svara snabbt på din fråga:
+Följande inlägg från Stack Overflow innehåller tips om hur du ställer frågor och hur du lägger till käll koden. Följ dessa rikt linjer för att öka sannolikheten för att community-medlemmar ska kunna utvärdera och svara på din fråga snabbt:
 
-* [Hur jag för att ställa en bra fråga](https://stackoverflow.com/help/how-to-ask)
-* [Så här skapar du en minimal, fullständig och kontrollerbara-exempel](https://stackoverflow.com/help/mcve)
+* [Hur gör jag för att fråga en lämplig fråga](https://stackoverflow.com/help/how-to-ask)
+* [Så här skapar du ett minimalt, komplett och verifierbart exempel](https://stackoverflow.com/help/mcve)
 
-## <a name="create-a-github-issue"></a>Skapa ett GitHub-ärende
+## <a name="create-a-github-issue"></a>Skapa ett GitHub-problem
 
-Om du hittar något fel eller problem som rör våra bibliotek, skapar du ett problem i vår GitHub-lagringsplatser. Eftersom våra bibliotek är öppen källkod, kan du även skicka en pull-begäran.
+Om du hittar ett fel eller problem som rör våra bibliotek kan du generera ett problem i våra GitHub-databaser. Eftersom våra bibliotek är öppna källor kan du också skicka in en pull-begäran.
 
-En lista med bibliotek och deras GitHub-databaser finns i:
+En lista över bibliotek och deras GitHub-databaser finns i följande avsnitt:
 
-* [ADAL](active-directory-authentication-libraries.md) bibliotek och GitHub-lagringsplatser
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android), och [MSAL.obj_c](https://github.com/AzureAD/microsoft-authentication-library-for-objc) bibliotek och GitHub-lagringsplatser
+* [ADAL](active-directory-authentication-libraries.md) -bibliotek och GitHub-databaser
+* [MSAL.net](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) [MSAL. js](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angularjs/README.md), [MSAL. Android](https://github.com/AzureAD/microsoft-authentication-library-for-android)-och [MSAL. obj _C](https://github.com/AzureAD/microsoft-authentication-library-for-objc) -bibliotek och GitHub-databaser
 
 ## <a name="open-a-support-request"></a>Öppna en supportbegäran
 
-Om du vill tala med någon kan öppna du en supportbegäran. Om du är en Azure-kund, finns det flera alternativ för support. Jämförelse mellan planer finns [den här sidan](https://azure.microsoft.com/support/plans/). Developer support är också tillgängligt för Azure-kunder. Information om hur du köper supportavtal för utvecklare finns i [den här sidan](https://azure.microsoft.com/support/plans/developer/).
+Om du behöver prata med någon kan du öppna en support förfrågan. Om du är en Azure-kund finns det flera tillgängliga support alternativ. Information om hur du jämför planer finns på [den här sidan](https://azure.microsoft.com/support/plans/). Support för utvecklare är också tillgängligt för Azure-kunder. Information om hur du köper support avtal för utvecklare finns på [den här sidan](https://azure.microsoft.com/support/plans/developer/).
 
-* Om du redan har en Azure-supportavtalet, [öppna en supportbegäran](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
+* Om du redan har ett support avtal för Azure [öppnar du en support förfrågan här](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)
 
-* Om du inte är Azure-kund kan du också öppna en supportförfrågan med Microsoft via [vår kommersiella support](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
+* Om du inte är en Azure-kund kan du också öppna en supportbegäran med Microsoft via [vår kommersiella support](https://support.microsoft.com/en-us/gp/contactus81?Audience=Commercial).
 
-Du kan också prova en [virtuella agenten](https://support.microsoft.com/contactus/?ws=support) att få support eller ställa frågor.
-
-### <a name="free-chat-support-for-a-limited-time"></a>Kostnadsfria chattsupport under en begränsad tid
-
-Du kan också använda våra chat-supporten är gratis för Microsoft-Partners under en begränsad tid. Om ditt företag inte är en Microsoft-Partner, du kan registrera sig utan kostnad och hämta andra fördelar genom att gå [här](https://partners.microsoft.com/PartnerProgram/simplifiedenrollment.aspx).
-
-Efter att ditt företag, du kan börja chatta begäran [här](https://aka.ms/devchat).
+Du kan också prova en [virtuell agent](https://support.microsoft.com/contactus/?ws=support) för att få support eller ställa frågor.

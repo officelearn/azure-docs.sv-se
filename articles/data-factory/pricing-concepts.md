@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/25/2018
-ms.openlocfilehash: f08dea90e7700082b6eeb708b576451060f81255
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: 168d977b9dc0ea6117796cf98a8562f168258d28
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70140949"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387462"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Förstå Data Factory priser via exempel
 
@@ -45,16 +45,16 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Skapa pipeline | 3 Läs-och skrivbara entiteter (1 för skapande av pipeline, 2 för data uppsättnings referenser) |
 | Hämta pipeline | 1 Läs-/skriv entitet |
 | Kör pipeline | 2 aktivitets körningar (1 för körnings körning, 1 för aktivitets körningar) |
-| Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipeline-antagande: Endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
+| Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure Integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
 
 **Pris för total scenario: $0,16811**
 
 - Data Factory åtgärder = **$0,0001**
-  - Läs/Skriv = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
-  - Övervakning = 2\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
-- &amp; Körning av pipeline-dirigering = **$0,168**
-  - Aktivitet körs = 001\*2 = 0,002 [1 körning = $1/1000 = 0,001]
+  - Läs/Skriv = 10 @ no__t-000001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 2 @ no__t-0000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
+- Pipeline-dirigering &amp; körning = **$0,168**
+  - Aktiviteten körs = 001 @ no__t-02 = 0,002 [1 Run = $1/1000 = 0,001]
   - Data förflyttnings aktiviteter = $0,166 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
 
 ## <a name="copy-data-and-transform-with-azure-databricks-hourly"></a>Kopiera data och transformera med Azure Databricks varje timme
@@ -76,17 +76,17 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Skapa pipeline | 3 Läs-och skrivbara entiteter (1 för skapande av pipeline, 2 för data uppsättnings referenser) |
 | Hämta pipeline | 1 Läs-/skriv entitet |
 | Kör pipeline | 3 aktivitets körningar (1 för körnings körning, 2 för aktivitets körningar) |
-| Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipeline-antagande: Endast 1 körning inträffade | 3 försök att köra poster för övervakning (1 för pipeline-körning, 2 för aktivitets körning) |
+| Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure Integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 3 försök att köra poster för övervakning (1 för pipeline-körning, 2 för aktivitets körning) |
 | Kör Databricks Activity Assumptions: körnings tid = 10 min | 10 min externa pipeline-aktivitets körning |
 
 **Pris för total scenario: $0,16916**
 
 - Data Factory åtgärder = **$0,00012**
-  - Läs/skriv = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
-  - Övervakning = 3\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
-- &amp; Körning av pipeline-dirigering = **$0,16904**
-  - Aktivitet körs = 001\*3 = 0,003 [1 körning = $1/1000 = 0,001]
+  - Läs/skriv = 11 @ no__t-000001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 3 @ no__t-0000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
+- Pipeline-dirigering &amp; körning = **$0,16904**
+  - Aktivitet körs = 001 @ no__t-03 = 0,003 [1 körning = $1/1000 = 0,001]
   - Data förflyttnings aktiviteter = $0,166 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
   - Extern pipeline-aktivitet = $0,000041 (beräknat i 10 minuters körnings tid. $0.00025/timme på Azure Integration Runtime)
 
@@ -110,18 +110,18 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Skapa pipeline | 3 Läs-och skrivbara entiteter (1 för skapande av pipeline, 2 för data uppsättnings referenser) |
 | Hämta pipeline | 1 Läs-/skriv entitet |
 | Kör pipeline | 4 aktivitets körningar (1 för körning av Utlös punkt, 3 för aktivitets körningar) |
-| Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
-| Övervaka pipeline-antagande: Endast 1 körning inträffade | 4 försök att köra poster för övervakning (1 för pipeline-körning, 3 för aktivitets körning) |
+| Kopiera data antagande: körnings tid = 10 min | 10 \* 4 Azure Integration Runtime (standard DIU-inställning = 4) mer information om data integrerings enheter och optimering av kopierings prestanda finns i [den här artikeln](copy-activity-performance.md) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 4 försök att köra poster för övervakning (1 för pipeline-körning, 3 för aktivitets körning) |
 | Kör söknings aktivitets antagande: körnings tid = 1 min | 1 min körning av pipeline-aktivitet |
 | Kör Databricks Activity Assumptions: körnings tid = 10 min | 10 min externa pipeline-aktivitets körning |
 
 **Pris för total scenario: $0,17020**
 
 - Data Factory åtgärder = **$0,00013**
-  - Läs/skriv = 11\*00001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
-  - Övervakning = 4\*000005 = $0,00002 [1 övervakning = $0,25/50000 = 0,000005]
-- &amp; Körning av pipeline-dirigering = **$0,17007**
-  - Aktivitet körs = 001\*4 = 0,004 [1 körning = $1/1000 = 0,001]
+  - Läs/skriv = 11 @ no__t-000001 = $0,00011 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 4 @ no__t-0000005 = $0,00002 [1 övervakning = $0,25/50000 = 0,000005]
+- Pipeline-dirigering &amp; körning = **$0,17007**
+  - Aktiviteten körs = 001 @ no__t-04 = 0,004 [1 Run = $1/1000 = 0,001]
   - Data förflyttnings aktiviteter = $0,166 (beräknat i 10 minuters körnings tid. $0,25/timme på Azure Integration Runtime)
   - Pipeline-aktivitet = $0,00003 (beräknas för 1 minuters körnings tid. $0.002/timme på Azure Integration Runtime)
   - Extern pipeline-aktivitet = $0,000041 (beräknat i 10 minuters körnings tid. $0.00025/timme på Azure Integration Runtime)
@@ -154,15 +154,15 @@ För att uppnå scenariot måste du skapa en pipeline med följande objekt:
 | Hämta pipeline | 1 Läs-/skriv entitet |
 | Kör pipeline | 2 aktivitets körningar (1 för körnings körning, 1 för aktivitets körningar) |
 | Antaganden för data flöde: körnings tid = 10 min + 10 min TTL | 10 \* 8 kärnor i allmän beräkning med TTL på 10 |
-| Övervaka pipeline-antagande: Endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
+| Övervaka pipeline-antagande: endast 1 körning inträffade | 2 nya försök att köra poster (1 för pipeline-körning, 1 för aktivitets körning) |
 
 **Pris för total scenario: $0,3011**
 
 - Data Factory åtgärder = **$0,0001**
-  - Läs/Skriv = 10\*00001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
-  - Övervakning = 2\*000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
-- &amp; Körning av pipeline-dirigering = **$0,301**
-  - Aktivitet körs = 001\*2 = 0,002 [1 körning = $1/1000 = 0,001]
+  - Läs/Skriv = 10 @ no__t-000001 = $0,0001 [1 R/W = $0,50/50000 = 0,00001]
+  - Övervakning = 2 @ no__t-0000005 = $0,00001 [1 övervakning = $0,25/50000 = 0,000005]
+- Pipeline-dirigering &amp; körning = **$0,301**
+  - Aktiviteten körs = 001 @ no__t-02 = 0,002 [1 Run = $1/1000 = 0,001]
   - Data flödes aktiviteter = $0,299 beräknat i 20 minuter (10 minuter körnings tid + 10 minuter TTL). $0.112/timme på Azure Integration Runtime med 8 kärnor allmän beräkning
 
 ## <a name="next-steps"></a>Nästa steg

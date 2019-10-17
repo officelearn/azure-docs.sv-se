@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d27b3613acb2980ff4116825197d018f9c183baa
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: 31fdd85fdcc40b38738d33e2c0c13797db7b1d42
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266865"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390553"
 ---
-## <a name="benefits"></a>Fördelar 
+## <a name="benefits"></a>Erbjudande 
 
 Att reservera hela värden ger följande fördelar:
 
@@ -42,7 +42,7 @@ För hög tillgänglighet bör du distribuera flera virtuella datorer, sprida ö
 
 ### <a name="use-availability-zones-for-fault-isolation"></a>Använd Tillgänglighetszoner för fel isolering
 
-Tillgänglighets zoner är unika fysiska platser inom en Azure-region. Varje zon består av en eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverkstjänster. En värd grupp skapas i en enda tillgänglighets zon. När den har skapats placeras alla värdar i den zonen. Om du vill uppnå hög tillgänglighet i flera zoner måste du skapa flera värd grupper (en per zon) och sprida värdarna efter behov.
+Tillgänglighets zoner är unika fysiska platser inom en Azure-region. Varje zon utgörs av ett eller flera datacenter som är utrustade med oberoende kraft, kylning och nätverk. En värd grupp skapas i en enda tillgänglighets zon. När den har skapats placeras alla värdar i den zonen. Om du vill uppnå hög tillgänglighet i flera zoner måste du skapa flera värd grupper (en per zon) och sprida värdarna efter behov.
 
 Om du tilldelar en värd grupp till en tillgänglighets zon måste alla virtuella datorer som skapas på värden skapas i samma zon.
 
@@ -71,7 +71,7 @@ Med **underhålls kontrollen** får kunderna möjlighet att hoppa över regelbun
 > [!NOTE]
 >  Underhålls kontrollen är för närvarande i ett begränsat för hands versions steg och kräver en onboarding-process. Använd för den här för hands versionen genom att skicka en [betecknings undersökning](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u).
 
-## <a name="capacity-considerations"></a>Överväganden för kapacitet
+## <a name="capacity-considerations"></a>Kapacitets överväganden
 
 När en dedikerad värd har allokerats tilldelar Azure den till den fysiska servern. Detta garanterar att kapaciteten är tillgänglig när du behöver etablera den virtuella datorn. Azure använder hela kapaciteten i regionen (eller zonen) för att välja en fysisk server för värden. Det innebär också att kunderna kan vänta på att kunna utöka sina dedikerade värddatorer utan att det är svårt att köra slut på utrymme i klustret.
 
@@ -82,6 +82,8 @@ Det finns en standard kvot gräns på 3000 virtuella processorer för dedikerade
 ![Skärm bild av sidan användning och kvoter i portalen](./media/virtual-machines-common-dedicated-hosts/quotas.png)
 
 Mer information finns i [vCPU kvoter för virtuella datorer](/azure/virtual-machines/windows/quotas).
+
+Den kostnads fria utvärderings versionen och MSDN-prenumerationen har inte kvot för Azure-dedikerade värdar.
 
 ## <a name="pricing"></a>Prissättning
 
@@ -101,7 +103,7 @@ Olika `types` för samma VM-serie kommer från olika CPU-leverantörer och har o
 
 Mer information hittar du på [prissättnings sidan](https://aka.ms/ADHPricing) för värden.
 
-Under för hands versionen kommer vi att stödja följande värd SKU\types:  DSv3_Type1 och ESv3_Type1
+Under för hands versionen kommer vi att stödja följande värd SKU\types: DSv3_Type1 och ESv3_Type1
 
  
 ## <a name="host-life-cycle"></a>Värd livs cykel
@@ -109,10 +111,10 @@ Under för hands versionen kommer vi att stödja följande värd SKU\types:  DSv
 
 Azure övervakar och hanterar dina värdars hälso status. Följande tillstånd kommer att returneras när du frågar din värd:
 
-| Hälsotillstånd   | Beskrivning       |
+| Hälso tillstånd   | Beskrivning       |
 |----------|----------------|
 | Värd tillgänglig     | Det finns inga kända problem med värden.   |
 | Värd under undersökning  | Vi har problem med värden som vi tittar på. Detta är ett över gångs tillstånd som krävs för att Azure ska kunna testa och identifiera omfattningen och rotor saken för det problem som identifierats. Virtuella datorer som körs på värden kan påverkas. |
-| Väntande värd tilldelning   | Azure kan inte återställa värden till felfritt tillstånd och be dig att distribuera om de virtuella datorerna från den här värden. Om `autoReplaceOnFailure` är aktive rad, är de virtuella datorerna *tjänsten reservad* för maskin vara som är felfri. Annars kanske den virtuella datorn körs på en värd som inte fungerar.|
-| Värden har frigjorts  | Alla virtuella datorer har tagits bort från värden. Du debiteras inte längre för den här värden eftersom maskin varan togs bort från rotationen.   |
+| Väntande värd tilldelning   | Azure kan inte återställa värden till felfritt tillstånd och be dig att distribuera om de virtuella datorerna från den här värden. Om `autoReplaceOnFailure` är aktive rad, är de virtuella datorerna *tjänsten reservad* till felfritt maskin vara. Annars kanske den virtuella datorn körs på en värd som inte fungerar.|
+| Värd friallokerad  | Alla virtuella datorer har tagits bort från värden. Du debiteras inte längre för den här värden eftersom maskin varan togs bort från rotationen.   |
 

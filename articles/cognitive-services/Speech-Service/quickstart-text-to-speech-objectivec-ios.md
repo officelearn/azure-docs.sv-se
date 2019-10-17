@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Syntetiskt tal, målets C-tal-tjänsten'
+title: 'Snabb start: syntetiskt tal, mål-C-tal-tjänsten'
 titleSuffix: Azure Cognitive Services
 description: Lär dig mer om att syntetisera tal i mål-C på iOS med hjälp av talet SDK
 services: cognitive-services
@@ -10,20 +10,20 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 09/20/2019
 ms.author: yulili
-ms.openlocfilehash: 9d7fb4dfef2ac3ab14a8a10eb4d9a7afb91ac71e
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: 099a2f707431827996aa304aa706a9efbe54f589
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71803980"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438835"
 ---
-# <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabbstart: Syntetisera tal i mål-C på iOS med hjälp av tal-SDK
+# <a name="quickstart-synthesize-speech-in-objective-c-on-ios-using-the-speech-sdk"></a>Snabb start: syntetisera tal i mål-C på iOS med hjälp av talet SDK
 
 Snabb Starter är också tillgängliga för [tal igenkänning](quickstart-objectivec-ios.md).
 
 I den här artikeln får du lära dig hur du skapar en iOS-app i mål-C med Cognitive Services Speech SDK för att syntetisera tal från text.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Gå igenom den här listan med förhandskrav innan du sätter igång:
 
@@ -67,7 +67,8 @@ I dialogrutorna som följer gör du följande val:
 ## <a name="add-the-sample-code"></a>Lägga till exempelkoden
 
 1. Öppna arbets ytan `helloworld.xcworkspace` i Xcode.
-1. Ersätt innehållet i den automatiskt genererade `AppDelegate.m`-filen genom att: [!code-objectivec @ no__t-2
+1. Ersätt innehållet i den automatiskt genererade `AppDelegate.m`-filen genom att göra följande:  
+   [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/objectivec-ios/helloworld/helloworld/AppDelegate.m#code)]
 1. Ersätt innehållet i den automatiskt genererade `ViewController.m`-filen genom att göra följande:  
    [!code-objectivec[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/text-to-speech/objectivec-ios/helloworld/helloworld/ViewController.m#code)]
 1. Ersätt strängen `YourSubscriptionKey` med din prenumerationsnyckel.

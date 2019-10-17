@@ -3,15 +3,15 @@ title: Vägledning för begränsade begäranden
 description: Lär dig att skapa bättre frågor för att undvika att förfrågningar till Azure Resource Graph begränsas.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 06/19/2019
+ms.date: 10/18/2019
 ms.topic: conceptual
 ms.service: resource-graph
-ms.openlocfilehash: 85d68beb27ab27a2ada9acbf9482d35dec438c06
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 1bbfd2a64de0b42da19d0a978874d564f1755c59
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71980324"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387619"
 ---
 # <a name="guidance-for-throttled-requests-in-azure-resource-graph"></a>Vägledning för begränsade begär anden i Azure Resource Graph
 
@@ -30,8 +30,8 @@ Azure Resource Graph allokerar kvot nummer för varje användare baserat på ett
 
 I varje fråge svar lägger Azure Resource Graph till två begränsnings rubriker:
 
-- `x-ms-user-quota-remaining` (int): Den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
-- `x-ms-user-quota-resets-after` (hh: mm: SS): Tids åtgången tills en användares kvot förbrukning återställs.
+- `x-ms-user-quota-remaining` (int): den återstående resurs kvoten för användaren. Det här värdet mappar till antal frågor.
+- `x-ms-user-quota-resets-after` (hh: mm: SS): tids perioden tills en användares kvot användning återställs.
 
 För att illustrera hur rubrikerna fungerar, ska vi titta på ett fråge svar som har sidhuvud och värden för `x-ms-user-quota-remaining: 10` och `x-ms-user-quota-resets-after: 00:00:03`.
 
@@ -55,7 +55,7 @@ Batching-frågor av prenumerationen, resurs gruppen eller enskilda resurser är 
   {
       var userQueryRequest = new QueryRequest(
           subscriptions: new[] { subscriptionId },
-          query: "project name, type");
+          query: "Resoures | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -78,7 +78,7 @@ Batching-frågor av prenumerationen, resurs gruppen eller enskilda resurser är 
       var currSubscriptionBatch = subscriptionIds.Skip(i * batchSize).Take(batchSize).ToList();
       var userQueryRequest = new QueryRequest(
           subscriptions: currSubscriptionBatch,
-          query: "project name, type");
+          query: "Resources | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -102,7 +102,7 @@ Batching-frågor av prenumerationen, resurs gruppen eller enskilda resurser är 
           resourceIds.Skip(i * batchSize).Take(batchSize).Select(id => string.Format("'{0}'", id)));
       var userQueryRequest = new QueryRequest(
           subscriptions: subscriptionList,
-          query: $"where id in~ ({resourceIds}) | project name, type");
+          query: $"Resources | where id in~ ({resourceIds}) | project name, type");
 
       var azureOperationResponse = await this.resourceGraphClient
           .ResourcesWithHttpMessagesAsync(userQueryRequest, header)
@@ -196,7 +196,7 @@ Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge sv
   var results = new List<object>();
   var queryRequest = new QueryRequest(
       subscriptions: new[] { mySubscriptionId },
-      query: "project id, name, type | top 5000");
+      query: "Resources | project id, name, type | top 5000");
   var azureOperationResponse = await this.resourceGraphClient
       .ResourcesWithHttpMessagesAsync(queryRequest, header)
       .ConfigureAwait(false);
@@ -218,11 +218,11 @@ Eftersom Azure Resource Graph returnerar högst 1000 poster i ett enda fråge sv
   När du använder antingen Azure CLI eller Azure PowerShell, fylls frågor till Azure Resource Graph automatiskt i för att hämta högst 5000 poster. Frågeresultaten returnerar en kombinerad lista med poster från alla sid brytnings anrop. I det här fallet, beroende på antalet poster i frågeresultatet, kan en enskild sid brytnings fråga förbruka mer än en fråga-kvot. I exemplet nedan kan till exempel en enskild körning av frågan använda upp till fem frågesträng:
 
   ```azurecli-interactive
-  az graph query -q 'project id, name, type' -top 5000
+  az graph query -q 'Resources | project id, name, type' -top 5000
   ```
 
   ```azurepowershell-interactive
-  Search-AzGraph -Query 'project id, name, type' -Top 5000
+  Search-AzGraph -Query 'Resources | project id, name, type' -Top 5000
   ```
 
 ## <a name="still-get-throttled"></a>Är du fortfarande begränsad?

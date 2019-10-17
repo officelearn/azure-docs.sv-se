@@ -1,17 +1,17 @@
 ---
-author: tamram
+author: roygara
 ms.service: storage
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: tamram
-ms.openlocfilehash: 59adee2f1d6a99a0a984b9b63c7201266b6381d4
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.author: rogarana
+ms.openlocfilehash: 55456a6be938411d3c08a0eaa8fdbfb0844e7129
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69984564"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391802"
 ---
-Ändringar som görs i Azure-filresursen med hjälp av Azure Portal eller SMB identifieras inte omedelbart och replikeras som ändringar i Server slut punkten. Azure Files har ännu inte ändrings aviseringar eller journaler, så det finns inget sätt att automatiskt initiera en Sync-session när filerna ändras. På Windows Server använder Azure File Sync [Windows USN](https://msdn.microsoft.com/library/windows/desktop/aa363798.aspx) -journalering för att automatiskt initiera en Sync-session när filer ändras.
+Ändringar som görs i Azure-filresursen med hjälp av Azure Portal eller SMB identifieras inte omedelbart och replikeras som ändringar i Server slut punkten. Azure Files har ännu inte ändrings aviseringar eller journaler, så det finns inget sätt att automatiskt initiera en Sync-session när filerna ändras. På Windows Server använder Azure File Sync [Windows USN-journalering](https://msdn.microsoft.com/library/windows/desktop/aa363798.aspx) för att automatiskt initiera en Sync-session när filer ändras.
 
 För att kunna identifiera ändringar i Azure-filresursen har Azure File Sync ett schemalagt jobb som kallas *ändrings identifierings jobb*. Ett ändrings identifierings jobb räknar upp varje fil i fil resursen och jämför det sedan med Sync-versionen av filen. När ändringen av ändrings identifieringen avgör att filerna har ändrats initierar Azure File Sync en Sync-session. Ändrings identifierings jobbet initieras var 24: e timme. Eftersom ändrings identifierings jobbet fungerar genom att räkna upp varje fil i Azure-filresursen tar ändrings identifieringen längre upp i större namn områden än i mindre namn områden. För stora namn rymder kan det ta längre tid än en gång var 24: e timme att avgöra vilka filer som har ändrats.
 

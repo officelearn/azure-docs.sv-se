@@ -1,5 +1,5 @@
 ---
-title: Skicka meddelanden till Xamarin.Android-appar med Azure Notification Hubs | Microsoft Docs
+title: Skicka push-meddelanden till Xamarin. Android-appar med hjälp av Azure Notification Hubs | Microsoft Docs
 description: I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Xamarin-Android-app.
 author: sethmanheim
 manager: femila
@@ -17,14 +17,14 @@ ms.date: 08/01/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 08/01/2019
-ms.openlocfilehash: cba84b0f07db3a69cc964e47657a3f6b64659e6a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 0e4354fa7466efcf27f430bbce7edb30bb9a304c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213560"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387658"
 ---
-# <a name="tutorial-push-notifications-to-xamarinandroid-apps-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Xamarin.Android-appar med hjälp av Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-xamarinandroid-apps-using-notification-hubs"></a>Självstudie: skicka push-meddelanden till Xamarin. Android-appar med hjälp av Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -40,9 +40,9 @@ I den här självstudien gör du följande:
 > * Skapa en Xamarin.Android-app och anslut den till meddelandehubben
 > * Skicka testmeddelanden från Azure Portal
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * [Visual Studio med Xamarin] på Windows eller [Visual Studio för Mac] på OS X.
 * Aktivt Google-konto
 
@@ -87,12 +87,12 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     ![Paketnamn i GCM](./media/partner-xamarin-notification-hubs-android-get-started/package-name-gcm.png)
 4. Gör så här för att ställa in målets Android-version för projektet på **android 9,0 (cirkel)** : 
     1. Högerklicka på projektet och välj **Egenskaper**. 
-    1. **För kompilering med Android-version: (Mål ramverk)** väljer du **Android 9,0 (cirkel).** 
+    1. I fältet **kompilera med Android-version: (mål ramverk)** väljer du **Android 9,0 (cirkel)** . 
     1. Välj **Ja** i meddelande rutan om du vill fortsätta med att ändra mål ramverket.
 1. Lägg till nödvändiga NuGet-paket i projektet genom att följa dessa steg:
     1. Högerklicka på projektet och välj **Hantera NuGet-paket...** .
     1. Växla till fliken **installerad** , Välj **Xamarin. Android. support. design**och välj **Uppdatera** i den högra rutan för att uppdatera paketet till den senaste versionen.
-    1. Växla till fliken **Bläddra** . Sök efter **Xamarin.GooglePlayServices.Base**. Välj **Xamarin.GooglePlayServices.Base** i resultatlistan. Markera **Installera**.
+    1. Växla till fliken **Bläddra** . Sök efter **Xamarin. GooglePlayServices. Base**. Välj **Xamarin.GooglePlayServices.Base** i resultatlistan. Markera **Installera**.
 
         ![Google Play Services NuGet](./media/partner-xamarin-notification-hubs-android-get-started/google-play-services-nuget.png)
     6. Sök efter **Xamarin.Firebase.Messaging** i fönstret **NuGet Package Manager**. Välj **Xamarin.Firebase.Messaging** i resultatlistan. Markera **Installera**.
@@ -135,8 +135,8 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
 
 3. Samla in följande information för Android-appen och meddelandehubben:
 
-   * **Lyssna anslutningssträng**: På instrumentpanelen i [Azure Portal] väljer du **Visa anslutningssträngar**. Kopiera `DefaultListenSharedAccessSignature`-anslutningssträngen för det här värdet.
-   * **Hubbnamn**: Namnet på hubben från [Azure Portal]. Till exempel *mynotificationhub2*.
+   * **Lyssna anslutningssträng**: På instrumentpanelen på [Azure-portalen] väljer du **Visa anslutningssträngar**. Kopiera `DefaultListenSharedAccessSignature`-anslutningssträngen för det här värdet.
+   * **Hubbnamn**: Namnet på hubben från [Azure-portalen]. Till exempel *mynotificationhub2*.
 4. I **Solution Explorer**-fönstret högerklickar du på ditt **projekt** och väljer **Lägg till** följt av **Klass**.
 5. Skapa en `Constants.cs`-klass för Xamarin-projektet och definiera följande konstantvärden i klassen. Ersätt platshållarna med värdena.
 
@@ -229,7 +229,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     CreateNotificationChannel();
     ```
 
-15. Lägg till en klass `MyFirebaseMessagingService` med namnet på ditt projekt. 
+15. Lägg till en klass med namnet `MyFirebaseMessagingService` i projektet. 
 16. Lägg till följande using-uttryck i `MyFirebaseMessagingService.cs`.
 
     ```csharp
@@ -248,7 +248,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
     public class MyFirebaseMessagingService : FirebaseMessagingService
     ```
 
-18. Lägg till följande kod för `MyFirebaseMessagingService.cs` att bearbeta meddelanden som tas emot. 
+18. Lägg till följande kod i `MyFirebaseMessagingService.cs` för att bearbeta meddelanden som tas emot. 
 
     ```csharp
         const string TAG = "MyFirebaseMsgService";
@@ -318,7 +318,7 @@ Meddelandehubben har konfigurerats för att fungera med FCM och du har anslutnin
 
 ## <a name="send-test-notification-from-the-azure-portal"></a>Skicka ett testmeddelande från Azure Portal
 
-Du kan testa att ta emot meddelanden i appen med alternativet **Skicka test** i [Azure Portal]. Den skickar ett test-push-meddelande till enheten.
+Du kan testa att ta emot meddelanden i appen med alternativet **Skicka test** i [Azure-portalen]. Den skickar ett test-push-meddelande till enheten.
 
 ![Azure Portal – Skicka test](media/partner-xamarin-notification-hubs-android-get-started/send-test-notification.png)
 
@@ -361,7 +361,7 @@ I de här självstudierna har du skickat meddelanden till alla Android-enheter s
 [JavaScript and HTML]: /develop/mobile/tutorials/get-started-with-push-js
 [Visual Studio med Xamarin]: https://docs.microsoft.com/visualstudio/install/install-visual-studio
 [Visual Studio för Mac]: https://www.visualstudio.com/vs/visual-studio-mac/
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [wns object]: https://go.microsoft.com/fwlink/p/?LinkId=260591
 [Notification Hubs Guidance]: https://msdn.microsoft.com/library/jj927170.aspx
 [Notification Hubs How-To for Android]: https://msdn.microsoft.com/library/dn282661.aspx

@@ -1,6 +1,6 @@
 ---
-title: 'Azure Statusövervakare v2 API-referens: Aktivera Instrumentation-motor | Microsoft Docs'
-description: API-referens för Statusövervakare v2. Enable-InstrumentationEngine. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: 'Referens för Azure Application Insights-Agent-API: Aktivera Instrumentation-motor | Microsoft Docs'
+description: Application Insights Agent-API-referens. Enable-InstrumentationEngine. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 3c0f4e015d3e01e86daaf101c15e16857540a520
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 9958121c38b96dc9cfa4dda2812fa9ce2b18d785
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033149"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388292"
 ---
-# <a name="status-monitor-v2-api-enable-instrumentationengine"></a>API för Statusövervakare v2: Aktivera – InstrumentationEngine
+# <a name="application-insights-agent-api-enable-instrumentationengine"></a>Application Insights Agent-API: Enable-InstrumentationEngine
 
 Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -56,7 +56,7 @@ PS C:\> Enable-InstrumentationEngine
 ### <a name="-verbose"></a>– Utförlig
 **Gemensam parameter.** Använd den här växeln för att skriva ut detaljerade loggar.
 
-## <a name="output"></a>Output
+## <a name="output"></a>Resultat
 
 
 #### <a name="example-output-from-successfully-enabling-the-instrumentation-engine"></a>Exempel på utdata från har aktiverat Instrumentation Engine
@@ -75,11 +75,11 @@ Configuring registry for instrumentation engine...
 - [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
  
  Lägg till mer telemetri:
- - [Skapa](monitor-web-app-availability.md) webbtester för att se till att din webbplats hålls Live.
+ - [Skapa webbtester](monitor-web-app-availability.md) för att se till att din webbplats hålls Live.
 - [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
 - [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
  
- Gör mer med Statusövervakare v2:
- - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) statusövervakare v2.
+ Gör mer med Application Insights agent:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.
  - [Hämta konfigurationen](status-monitor-v2-api-get-config.md) för att bekräfta att inställningarna har registrerats korrekt.
  - [Hämta status](status-monitor-v2-api-get-status.md) för att inspektera övervakning.

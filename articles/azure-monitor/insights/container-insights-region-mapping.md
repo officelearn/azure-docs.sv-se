@@ -1,6 +1,6 @@
 ---
-title: Azure Monitor för behållare region mappningar
-description: Den här artikeln beskriver region mappningarna mellan Azure Monitor för behållare, Log Analytics-arbetsytan och anpassade mått.
+title: Azure Monitor för områdes mappningar för behållare
+description: I den här artikeln beskrivs de region mappningar som stöds mellan Azure Monitor för behållare, Log Analytics arbets yta och anpassade mått.
 services: azure-monitor
 ms.service: azure-monitor
 ms.workload: infrastructure-services
@@ -9,70 +9,71 @@ ms.author: magoedte
 ms.date: 06/26/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 481a2a400be4e983e0a2337a200324061494efa1
-ms.sourcegitcommit: 6cb4dd784dd5a6c72edaff56cf6bcdcd8c579ee7
+ms.openlocfilehash: ca77277c8d8d405b8fe81f612a8d7600d3c937ab
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/02/2019
-ms.locfileid: "67518084"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388191"
 ---
-# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Region-mappningar som stöds av Azure Monitor för behållare
+# <a name="region-mappings-supported-by-azure-monitor-for-containers"></a>Region mappningar som stöds av Azure Monitor för behållare
 
- När du aktiverar Azure Monitor för behållare, endast vissa regioner som stöds för att länka en Log Analytics-arbetsyta och ett AKS-kluster och samla in anpassade mått skickas till Azure Monitor.
+ När du aktiverar Azure Monitor för behållare, stöds bara vissa regioner för att länka en Log Analytics arbets yta och ett AKS-kluster och samla in anpassade mått som skickas till Azure Monitor.
 
-## <a name="log-analytics-workspace-supported-mappings"></a>Log Analytics-arbetsytan stöds mappningar
+## <a name="log-analytics-workspace-supported-mappings"></a>Mappningar som stöds av Log Analytics Workspace
 
-AKS-klusterresurser eller Log Analytics-arbetsytan kan finnas i andra regioner och i följande tabell visar våra mappningar.
+AKS-kluster resurserna eller Log Analytics arbets ytan kan finnas i andra regioner och följande tabell visar våra mappningar.
 
-|**Region för AKS-kluster** | **Log Analytics-arbetsyta region** |
+|**AKS-kluster region** | **Region för Log Analytics arbets yta** |
 |-----------------------|------------------------------------|
-|**Afrika** | |
+|**Centralafrika** | |
 |SouthAfricaNorth |Västeuropa |
 |SouthAfricaWest |Västeuropa |
 |**Australien** | |
-|Australien |Australien |
+|AustraliaEast |AustraliaEast |
 |AustraliaCentral |AustraliaCentral |
 |AustraliaCentral2 |AustraliaCentral |
-|Australien |Australien |
+|AustraliaEast |AustraliaEast |
 |**Asien och stillahavsområdet** | |
 |Asienöstra |Asienöstra |
-|SoutheastAsia |SoutheastAsia |
+|Sydostasien |Sydostasien |
 |**Brasilien** | |
-|Brasiliensödra | SouthCentralUS |
+|Centrala | Usasödracentrala |
 |**Kanada** ||
-|CanadaCentral |CanadaCentral |
-|Kanadaöstra |CanadaCentral |
+|Indiensödra |Indiensödra |
+|Indien |Indiensödra |
 |**Europa** | |
 |FranceCentral |FranceCentral |
 |FranceSouth |FranceCentral |
 |Europanorra |Europanorra |
-|Södrastorbritannien |Södrastorbritannien |
-|UKWest |Södrastorbritannien |
+|UKSouth |UKSouth |
+|Västrastorbritannien |UKSouth |
 |Västeuropa |Västeuropa |
 |**Indien** | |
-|Indiencentrala |Indiencentrala |
-|Indiensödra |Indiencentrala |
-|Indienvästra |Indiencentrala |
+|Kanada |Kanada |
+|Australienöstra |Kanada |
+|Usavästracentrala |Kanada |
 |**Japan** | |
-|JapanEast |JapanEast |
-|JapanWest |JapanEast |
+|Japanöstra |Japanöstra |
+|Japanvästra |Japanöstra |
 |**Korea** | |
-|KoreaCentral |KoreaCentral |
-|KoreaSouth |KoreaCentral |
+|Centrala |Centrala |
+|Koreasödra |Centrala |
 |**USA** | |
-|CentralUS |CentralUS|
-|EastUS |EastUS |
+|Centra lus |Centra lus|
+|Platsen eastus |Platsen eastus |
 |EastUS2 |EastUS2 |
 |WestUS |WestUS |
 |WestUS2 |WestUS2 |
-|WestCentralUS<sup>1</sup>|EastUS<sup>1</sup>|
+|WestCentralUS<sup>1</sup>|Östra USA<sup>1</sup>|
+|USA Gov Virginia |USA Gov Virginia |
 
-<sup>1</sup> på grund av begränsningar i kapaciteten, regionen som inte är tillgänglig när du skapar nya resurser. Detta inkluderar en Log Analytics-arbetsyta. Redan befintliga länkade resurser i regionen bör dock fortsätta att fungera.
+<sup>1</sup> på grund av kapacitets begränsningar är regionen inte tillgänglig när du skapar nya resurser. Detta inkluderar en Log Analytics-arbetsyta. Befintliga länkade resurser i regionen bör dock fortsätta att fungera.
 
-## <a name="custom-metrics-supported-regions"></a>Anpassade mått regioner som stöds
+## <a name="custom-metrics-supported-regions"></a>Regioner som stöds för anpassade mått
 
-Samla in mått från Azure Kubernetes Services (AKS) kluster noder och poddar som stöds för publicering som anpassade mått i följande [Azure-regioner](../platform/metrics-custom-overview.md#supported-regions).
+Insamling av mått från Azure Kubernetes Services (AKS)-kluster noder och poddar stöds endast för publicering som anpassade mått i följande [Azure-regioner](../platform/metrics-custom-overview.md#supported-regions).
 
 ## <a name="next-steps"></a>Nästa steg
 
-Om du vill börja övervaka ditt AKS-kluster, granska [så här aktiverar du i Azure Monitor för behållare](container-insights-onboard.md) att förstå de krav och tillgängliga metoder för att aktivera övervakning.  
+Om du vill börja övervaka ditt AKS-kluster läser du [så här aktiverar du Azure Monitor för behållare](container-insights-onboard.md) för att förstå kraven och tillgängliga metoder för att aktivera övervakning.  

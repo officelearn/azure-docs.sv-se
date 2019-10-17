@@ -1,6 +1,6 @@
 ---
-title: Hur du använder symmetriska nycklar för att etablera äldre enheter med Azure IoT Hub Device Provisioning-tjänsten | Microsoft Docs
-description: Hur du använder symmetriska nycklar för att etablera äldre enheter med din device provisioning-tjänstinstans
+title: Använda symmetriska nycklar för att etablera äldre enheter med Azure-IoT Hub Device Provisioning Service | Microsoft Docs
+description: Använda symmetriska nycklar för att etablera äldre enheter med din enhets etablerings tjänst instans
 author: wesmc7777
 ms.author: wesmc
 ms.date: 04/10/2019
@@ -8,42 +8,43 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: 00161f8158ad73591687764528258e1081f81ce2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 13e22d772ef9b90f415f10b65e4a4290a1f7bd81
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65914299"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434827"
 ---
-# <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Hur du etablerar äldre enheter med symmetriska nycklar
+# <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Så här etablerar du äldre enheter med symmetriska nycklar
 
+Ett vanligt problem med många äldre enheter är att de ofta har en identitet som består av en enda del av informationen. Den här identitets informationen är vanligt vis en MAC-adress eller ett serie nummer. Äldre enheter kanske inte har något certifikat, TPM eller någon annan säkerhetsfunktion som kan användas för att identifiera enheten på ett säkert sätt. Enhets etablerings tjänsten för IoT Hub innehåller symmetrisk nyckel attestering. Symmetrisk nyckel attestering kan användas för att identifiera en enhet baserat på information som MAC-adressen eller ett serie nummer.
 
-Ett vanligt problem med många äldre enheter är att de ofta har en identitet som består av en enda typ av information. Den här identitetsinformation är vanligtvis en MAC-adress eller ett serienummer. Äldre enheter kan inte ha ett certifikat, TPM eller andra säkerhetsfunktion som kan användas för att på ett säkert sätt identifiera enheten. Enhetsetableringstjänsten för IoT-hubb innehåller symmetriska nyckelattestering. Symmetrisk nyckelattestering kan användas för att identifiera en enhet som baseras på information, t.ex. MAC-adress eller ett serienummer.
+Om du enkelt kan installera en [maskinvaru-säkerhetsmodul (HSM)](concepts-security.md#hardware-security-module) och ett certifikat kan det vara en bättre metod för att identifiera och etablera dina enheter. Eftersom den metoden kan göra det möjligt att kringgå uppdateringen av koden som distribuerats till alla dina enheter och du inte har en hemlig nyckel inbäddad i enhets avbildningen.
 
-Om du kan enkelt installera en [maskinvarusäkerhetsmodul (HSM)](concepts-security.md#hardware-security-module) och ett certifikat och som kan vara en bättre metod för att identifiera och etablera dina enheter. Eftersom denna metod kan du kringgå uppdaterar den kod som distribueras till alla dina enheter och du behöver inte en hemlig nyckel som är inbäddad i din enhetsavbildning.
+Den här artikeln förutsätter att varken HSM eller ett certifikat är ett lämpligt alternativ. Det förutsätts dock att du har en del metod för att uppdatera enhets koden för att använda enhets etablerings tjänsten för att etablera enheterna. 
 
-Den här artikeln förutsätter att varken en HSM eller ett certifikat är ett genomförbart alternativ. Det antas dock att du har någon metod för att uppdatera enheten kod för att använda Device Provisioning-tjänsten för att etablera dessa enheter. 
-
-Den här artikeln förutsätter också att uppdaterats sker i en säker miljö för att förhindra obehörig åtkomst till den överordnade gruppnyckeln eller härledda enhetsnyckeln.
+Den här artikeln förutsätter också att enhets uppdateringen äger rum i en säker miljö för att förhindra obehörig åtkomst till huvud grupp nyckeln eller den härledda enhets nyckeln.
 
 Den här artikeln riktar sig till en Windows-arbetsstation. Du kan dock utföra procedurerna i Linux. Ett Linux-exempel finns i informationen om att [etablera för flera innehavare](how-to-provision-multitenant.md).
 
+> [!NOTE]
+> Exemplet som används i den här artikeln är skrivet i C. Det finns också en [ C# enhets etablering av symmetriska nyckel exempel](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device/SymmetricKeySample) tillgänglig. Om du vill använda det här exemplet laddar du ned eller klona [Azure-IoT-samples-csharp-](https://github.com/Azure-Samples/azure-iot-samples-csharp) lagringsplatsen och följer de infogade anvisningarna i exempel koden. Du kan följa anvisningarna i den här artikeln för att skapa en grupp för symmetrisk nyckel registrering via portalen och för att hitta ID-omfånget och de sekundära nycklar som krävs för att köra exemplet. Du kan också skapa enskilda registreringar med hjälp av exemplet.
 
 ## <a name="overview"></a>Översikt
 
-En unik registrerings-ID definieras för varje enhet baserat på information som identifierar enheten. Till exempel MAC-adress eller ett serienummer.
+Ett unikt registrerings-ID kommer att definieras för varje enhet baserat på information som identifierar enheten. Till exempel MAC-adressen eller ett serie nummer.
 
-En registreringsgrupp som använder [symmetriska nyckelattestering](concepts-symmetric-key-attestation.md) skapas med Device Provisioning-tjänsten. Registreringsgruppen innehåller en huvudnyckel för gruppen. Denna master-nyckel används för att hash-varje unika registrerings-ID för att generera ett unikt enhets-nyckel för varje enhet. Enheten använder den härledda enhetsnyckeln med dess unika registrerings-ID för att intyga med Device Provisioning-tjänsten och vara tilldelad till en IoT-hubb.
+En registrerings grupp som använder [symmetrisk nyckel attestering](concepts-symmetric-key-attestation.md) skapas med enhets etablerings tjänsten. Registrerings gruppen kommer att innehålla en huvud nyckel för gruppen. Huvud nyckeln kommer att användas för att Hasha varje unik registrerings-ID för att skapa en unik enhets nyckel för varje enhet. Enheten kommer att använda den härledda enhets nyckeln med sitt unika registrerings-ID för att intyga med enhets etablerings tjänsten och tilldelas till en IoT-hubb.
 
-Koden för enheten som visas i den här artikeln följer samma mönster som den [Snabbstart: Etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md). Kod som simulerar en enhet med ett exempel från den [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Den simulerade enheten kommer intyga med en grupp för registrering i stället för en enskild registrering som visas i snabbstarten.
+Enhets koden som visas i den här artikeln följer samma mönster som [snabb starten: etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md). Koden simulerar en enhet med hjälp av ett exempel från [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). Den simulerade enheten kommer att intyga med en registrerings grupp i stället för en enskild registrering som visas i snabb starten.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
-* Slutförandet av den [konfigurera IoT Hub Device Provisioning-tjänsten med Azure portal](./quick-setup-auto-provision.md) Snabbstart.
-* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med den [”utveckling för stationära datorer med C++'](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) arbetsbelastning aktiverat.
+* [Konfigurations IoT Hub Device Provisioning service har](./quick-setup-auto-provision.md) slutförts med snabb starten för Azure Portal.
+* [Visual Studio](https://visualstudio.microsoft.com/vs/) 2015 eller senare med arbets belastningen ["Skriv C++bords utveckling med"](https://www.visualstudio.com/vs/support/selecting-workloads-visual-studio-2017/) aktiverat.
 * Senaste versionen av [Git](https://git-scm.com/download/) installerad.
 
 
@@ -51,9 +52,9 @@ Koden för enheten som visas i den här artikeln följer samma mönster som den 
 
 I det här avsnittet förbereder du en utvecklingsmiljö som används för att skapa [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c). 
 
-SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enheten försöker etablera under enhetens startsekvens.
+SDK innehåller exempel koden för den simulerade enheten. Den här simulerade enheten försöker etablera under enhetens startsekvens.
 
-1. Ladda ned den [CMake-buildsystemet](https://cmake.org/download/).
+1. Ladda ned [cmake build-systemet](https://cmake.org/download/).
 
     Det är viktigt att förutsättningarna för Visual Studio (Visual Studio och arbetsbelastningen ”Desktop development with C++” (Skrivbordsutveckling med C++)) är installerade på datorn **innan** installationen av `CMake` påbörjas. När förutsättningarna är uppfyllda och nedladdningen har verifierats installerar du CMake-byggesystemet.
 
@@ -98,58 +99,58 @@ SDK innehåller exempelkod för den simulerade enheten. Den här simulerade enhe
     ```
 
 
-## <a name="create-a-symmetric-key-enrollment-group"></a>Skapa en symmetrisk nyckel registreringsgrupp
+## <a name="create-a-symmetric-key-enrollment-group"></a>Skapa en grupp för symmetrisk nyckel registrering
 
-1. Logga in på den [Azure-portalen](https://portal.azure.com), och öppna Device Provisioning Service-instans.
+1. Logga in på [Azure Portal](https://portal.azure.com)och öppna din enhets etablerings tjänst instans.
 
-2. Välj den **hantera registreringar** fliken och klicka sedan på den **Lägg till grupp för registrering** längst upp på sidan. 
+2. Välj fliken **Hantera registreringar** och klicka sedan på knappen **Lägg till registrerings grupp** överst på sidan. 
 
-3. På **lägga till Registreringsgruppen**, anger du följande information och klicka på den **spara** knappen.
+3. I **Lägg till registrerings grupp**anger du följande information och klickar på knappen **Spara** .
 
-   - **Gruppnamn**: Ange **mylegacydevices**.
+   - **Grupp namn**: ange **mylegacydevices**.
 
-   - **Typ av attestering**: Välj **symmetrisk nyckel**.
+   - **Attesterings typ**: Välj **symmetrisk nyckel**.
 
    - **Generera nycklar automatiskt**: Markera den här kryssrutan.
 
-   - **Välj hur du vill tilldela enheter till hubs**: Välj **statisk konfiguration** så att du kan tilldela till en specifik hubb.
+   - **Välj hur du vill tilldela enheter till hubbar**: Välj **statisk konfiguration** så att du kan tilldela till en speciell hubb.
 
-   - **Välj IoT-hubbar som den här gruppen kan tilldelas till**: Välj en av dina hubs.
+   - **Välj de IoT-hubbar som gruppen kan tilldelas**: Välj ett av dina nav.
 
-     ![Lägg till grupp för registrering för symmetrisk nyckelattestering](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
+     ![Lägg till registrerings grupp för symmetrisk nyckel attestering](./media/how-to-legacy-device-symm-key/symm-key-enrollment-group.png)
 
-4. När du har sparat din registrering genereras **primärnyckeln** och **sekundärnyckel** och läggs till registreringsposten. Symmetrisk nyckel registreringsgruppen visas som **mylegacydevices** under den *gruppnamn* kolumnen i den *Registreringsgrupper* fliken. 
+4. När du har sparat din registrering genereras **primärnyckeln** och **sekundärnyckel** och läggs till registreringsposten. Din registrerings grupp för symmetrisk nyckel visas som **mylegacydevices** under kolumnen *grupp namn* på fliken *registrerings grupper* . 
 
-    Öppna registreringen och kopiera värdet för din genererade **primärnyckel**. Den här nyckeln är din master gruppnyckel.
+    Öppna registreringen och kopiera värdet för din genererade **primärnyckel**. Den här nyckeln är din huvud grupps nyckel.
 
 
-## <a name="choose-a-unique-registration-id-for-the-device"></a>Välj en unika registrerings-ID för enheten
+## <a name="choose-a-unique-registration-id-for-the-device"></a>Välj ett unikt registrerings-ID för enheten
 
-En unik registrerings-ID måste anges för att identifiera varje enhet. Du kan använda MAC-adressen, serienummer eller unik information från enheten. 
+Ett unikt registrerings-ID måste definieras för att identifiera varje enhet. Du kan använda MAC-adressen, serie numret eller någon unik information från enheten. 
 
-I det här exemplet använder vi en kombination av en MAC-adress och serienummer som utgör följande sträng för ett registrerings-ID.
+I det här exemplet använder vi en kombination av en MAC-adress och ett serie nummer som utgör följande sträng för ett registrerings-ID.
 
 ```
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Skapa en unik registrerings-ID för din enhet. Giltiga tecken är alfanumeriska gemener och bindestreck (”-”).
+Skapa ett unikt registrerings-ID för din enhet. Giltiga tecken är alfanumeriska bokstäver och bindestreck (-).
 
 
-## <a name="derive-a-device-key"></a>Härled en enhetsnyckel 
+## <a name="derive-a-device-key"></a>Härled en enhets nyckel 
 
-Generera enhetsnyckeln genom att använda huvudnyckeln grupp för att beräkna en [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) av unika registrerings-ID för enheten och konvertera resultatet i Base64-format.
+Generera enhets nyckeln genom att använda gruppens huvud nyckel för att beräkna en [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) av det unika registrerings-ID: t för enheten och konvertera resultatet till base64-format.
 
-Ta inte med din grupp huvudnyckel i din kod för enheten.
+Ta inte med din grupp huvud nyckel i enhets koden.
 
 
 #### <a name="linux-workstations"></a>Linux-arbetsstationer
 
-Om du använder en Linux-arbetsstation, kan du använda openssl för att generera härledda enhetsnyckeln som du ser i följande exempel.
+Om du använder en Linux-arbetsstation kan du använda OpenSSL för att generera en härledd enhets nyckel som visas i följande exempel.
 
-Ersätt värdet för **nyckel** med den **primärnyckel** du antecknade tidigare.
+Ersätt värdet för **Key** med den **primära nyckel** du noterade tidigare.
 
-Ersätt värdet för **REG_ID** med registrerings-ID.
+Ersätt värdet för **REG_ID** med ditt registrerings-ID.
 
 ```bash
 KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
@@ -164,13 +165,13 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
 
-#### <a name="windows-based-workstations"></a>Windows-baserade arbetsstationer
+#### <a name="windows-based-workstations"></a>Windows-baserade arbets stationer
 
-Om du använder en Windows-arbetsstation, kan du använda PowerShell för att generera härledda enhetsnyckeln som du ser i följande exempel.
+Om du använder en Windows-baserad arbets Station kan du använda PowerShell för att generera en härledd enhets nyckel som visas i följande exempel.
 
-Ersätt värdet för **nyckel** med den **primärnyckel** du antecknade tidigare.
+Ersätt värdet för **Key** med den **primära nyckel** du noterade tidigare.
 
-Ersätt värdet för **REG_ID** med registrerings-ID.
+Ersätt värdet för **REG_ID** med ditt registrerings-ID.
 
 ```powershell
 $KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
@@ -188,21 +189,21 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 ```
 
 
-Enheten använder härledda enhetsnyckeln med ditt unika registrerings-ID för att utföra symmetriska nyckelattestering med registreringsgruppen under etableringen.
+Enheten kommer att använda den härledda enhets nyckeln med ditt unika registrerings-ID för att utföra symmetrisk nyckel attestering med registrerings gruppen under etableringen.
 
 
 
-## <a name="create-a-device-image-to-provision"></a>Skapa en enhetsavbildning att etablera
+## <a name="create-a-device-image-to-provision"></a>Skapa en enhets avbildning för att etablera
 
-I det här avsnittet ska du uppdaterar ett etablering exempel med namnet **prov\_dev\_klienten\_exempel** finns i Azure IoT C SDK du skapade tidigare. 
+I det här avsnittet ska du uppdatera ett etablerings exempel med namnet **bevisa @ no__t-1dev @ no__t-2client @ no__t-3sample** som finns i Azure IoT C SDK som du har skapat tidigare. 
 
-Den här exempelkoden simulerar en startsekvens för enheten som skickar en begäran om etablering till din instans av Device Provisioning-tjänsten. Startsekvens medför att enheten ska identifieras och tilldelad till IoT-hubben som du har konfigurerat i registreringsgruppen.
+Den här exempel koden simulerar en enhets startsekvens som skickar etablerings förfrågan till din enhets etablerings tjänst instans. Startsekvensen gör att enheten identifieras och tilldelas IoT-hubben som du konfigurerade i registrerings gruppen.
 
 1. I Azure-portalen väljer du fliken **Översikt** för enhetsetableringstjänsten och noterar värdet för **_ID-omfång_** .
 
     ![Extrahera information om enhetsetableringstjänstens slutpunkt från bladet på portalen](./media/quick-create-simulated-device-x509/extract-dps-endpoints.png) 
 
-2. Visual Studio, öppna den **azure_iot_sdks.sln** lösningsfilen som har genererats genom att köra CMake tidigare. Lösningsfilen bör vara på följande plats:
+2. Öppna lösnings filen **azure_iot_sdks. SLN** som genererades genom att köra cmake tidigare i Visual Studio. Lösningsfilen bör vara på följande plats:
 
     ```
     \azure-iot-sdk-c\cmake\azure_iot_sdks.sln
@@ -232,7 +233,7 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     //prov_dev_set_symmetric_key_info("<symm_registration_id>", "<symmetric_Key>");
     ```
 
-    Ta bort kommentarerna funktionsanropet och Ersätt platshållarvärdena (inklusive hakparenteser) med unika registrerings-ID för enheten och härledda enhetsnyckeln som du skapade.
+    Ta bort kommentarer till funktions anropet och ersätt plats hållarnas värden (inklusive vinkelparenteser) med det unika registrerings-ID: t för din enhet och den härledda enhets nyckeln som du skapade.
 
     ```c
     // Set the symmetric key if using they auth type
@@ -262,15 +263,15 @@ Den här exempelkoden simulerar en startsekvens för enheten som skickar en beg�
     Press enter key to exit:
     ```
 
-9. I portalen går du till den IoT-hubb som din simulerade enhet tilldelades och klickar på fliken **IoT-enheter**. Vid lyckad etablering av den simulerade enheten till hubben visas dess enhets-ID på bladet **IoT-enheter** med *STATUS* **aktiverad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
+9. I portalen navigerar du till den IoT-hubb som din simulerade enhet har tilldelats och klickar på fliken **IoT-enheter** . Vid lyckad etablering av den simulerade till hubben visas dess enhets-ID på bladet **IoT-enheter** med *status* **aktive rad**. Du kan behöva klicka på knappen **Uppdatera** längst upp. 
 
     ![Enheten är registrerad på IoT-hubben](./media/how-to-legacy-device-symm-key/hub-registration.png) 
 
 
 
-## <a name="security-concerns"></a>Säkerhetsfrågor
+## <a name="security-concerns"></a>Säkerhets problem
 
-Tänk på att det innebär att den härledda enhetsnyckel som en del av avbildningen, som inte är en rekommenderad säkerhetsåtgärd. Det här är en anledning till varför säkerhet och enkel att använda är kompromisser. 
+Tänk på att detta lämnar den härledda enhets nyckeln som ingår som en del av avbildningen, vilket inte är en rekommenderad säkerhets rutin. Detta är en orsak till att säkerhet och enkel användning är kompromisser. 
 
 
 
@@ -278,9 +279,9 @@ Tänk på att det innebär att den härledda enhetsnyckel som en del av avbildni
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Läs mer Reprovisioning i [reprovisioning koncept för IoT Hub-enhet](concepts-device-reprovision.md) 
-* [Snabbstart: Etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md)
-* Läs mer avetablering i [så ta bort etableringen av enheter som har tidigare Automatisk etablering](how-to-unprovision-devices.md) 
+* Mer information om hur du reetablerar finns i [IoT Hub metoder för att etablera enheter](concepts-device-reprovision.md) 
+* [Snabb start: etablera en simulerad enhet med symmetriska nycklar](quick-create-simulated-device-symm-key.md)
+* Mer information om hur du avetablerar [enheter finns i så här avetablerar du enheter som tidigare var automatiskt etablerade](how-to-unprovision-devices.md) 
 
 
 

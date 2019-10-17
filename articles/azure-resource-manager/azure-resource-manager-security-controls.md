@@ -1,6 +1,6 @@
 ---
 title: Säkerhets kontroller för Azure Resource Manager
-description: En check lista över säkerhets kontroller för utvärdering av Azure Resource Manager
+description: En check lista över inbyggda säkerhets kontroller för utvärdering av Azure Resource Managers tjänsten.
 services: azure-resource-manager
 author: msmbaldwin
 manager: rkarlin
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 97fd6611d7e2a2787b865365c4c7579f89f17d01
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 78f3f41ca2f0aa45d295fd9846cf3aa96cccea72
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70886716"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390467"
 ---
 # <a name="security-controls-for-azure-resource-manager"></a>Säkerhets kontroller för Azure Resource Manager
 
@@ -25,7 +25,7 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar |
 |---|---|--|
-| Kryptering på Server sidan på rest: Microsoft-hanterade nycklar | Ja |  |
+| Kryptering på Server sidan i vila: Microsoft-hanterade nycklar | Ja |  |
 | Kryptering under överföring (till exempel ExpressRoute-kryptering, i VNet-kryptering och VNet-VNet-kryptering)| Ja | HTTPS/TLS. |
 | Kryptering på Server sidan på rest: Kundhanterade nycklar (BYOK) | Gäller inte | Azure Resource Manager lagrar inget kund innehåll, endast kontroll data. |
 | Kryptering på kolumn nivå (Azure Data Services)| Ja | |
@@ -52,8 +52,8 @@ I den här artikeln dokumenteras de säkerhets kontroller som är inbyggda i Azu
 
 | Säkerhets kontroll | Ja/nej | Anteckningar|
 |---|---|--|
-| Authentication| Ja | [Azure Active Directory](/azure/active-directory) baserad.|
-| Authorization| Ja | |
+| Autentisering| Ja | [Azure Active Directory](/azure/active-directory) baserad.|
+| Autentisering| Ja | |
 
 ## <a name="configuration-management"></a>Konfigurationshantering
 

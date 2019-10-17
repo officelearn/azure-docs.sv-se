@@ -14,17 +14,23 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: cynthn
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 440ba2cd7ac9cea19f903dff493790194962e1e8
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.custom:
+- mvc
+- seo-javascript-september2019
+- seo-javascript-october2019
+- seo-python-october2019
+ms.openlocfilehash: 7732320e987e6397dde2aff0f6c4328d551d99b1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299484"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72427917"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-with-the-azure-cli"></a>Snabbstart: Skapa en virtuell Linux-dator med Azure CLI
 
-Den här snabb starten visar hur du använder Azures kommando rads gränssnitt (CLI) för att distribuera en virtuell Linux-dator (VM) i Azure. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript. I den här självstudien installerar vi Ubuntu 16.04 LTS. För att kunna se hur den virtuella datorn fungerar i praktiken ansluter du den till SSH och installerar NGINX-webbservern.
+Den här snabb starten visar hur du använder Azures kommando rads gränssnitt (CLI) för att distribuera en virtuell Linux-dator (VM) i Azure. Azure CLI används för att skapa och hantera Azure-resurser från kommandoraden eller i skript.
+
+I den här självstudien installerar vi Ubuntu 16.04 LTS. För att kunna se hur den virtuella datorn fungerar i praktiken ansluter du den till SSH och installerar NGINX-webbservern.
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 
@@ -107,7 +113,7 @@ När du är klar avslutar du SSH-sessionen genom att skriva `exit`.
 
 Använd valfri webbläsare för att visa välkomstsidan för NGINX. Använd den virtuella datorns offentliga IP-adress som webbadress. Följande exempel visar NGINX-standardwebbplatsen:
 
-![NGINX standard sida för Välkommen](./media/quick-create-cli/nginix-welcome-page.png)
+![Visa NGINX-välkomstsidan](./media/quick-create-cli/view-the-nginx-welcome-page.png)
 
 ## <a name="clean-up-resources"></a>Rensa resurser
 

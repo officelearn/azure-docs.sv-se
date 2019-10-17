@@ -17,14 +17,14 @@ ms.date: 03/22/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 03/22/2019
-ms.openlocfilehash: 57353999ff94aa8fd4499b511c86cd59d24d1f0a
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 4ccf62dd8a249c9ba23bbb4510164b35a58db917
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213379"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387404"
 ---
-# <a name="tutorial-push-localized-notifications-to-windows-apps-by-using-azure-notification-hubs"></a>Självstudier: Skicka lokaliserade meddelanden till Windows-appar med hjälp av Azure Notification Hubs
+# <a name="tutorial-send-localized-push-notifications-to-windows-apps-using-azure-notification-hubs"></a>Självstudie: skicka lokaliserade push-meddelanden till Windows-appar med hjälp av Azure Notification Hubs
 
 > [!div class="op_single_selector"]
 > * [Windows Store C#](notification-hubs-windows-store-dotnet-xplat-localized-wns-push-notification.md)
@@ -32,7 +32,7 @@ ms.locfileid: "71213379"
 
 ## <a name="overview"></a>Översikt
 
-Den här kursen visar hur du kan skicka lokaliserade meddelanden till mobila enheter som registrerats för Notification Hubs-tjänsten. I självstudien uppdaterar du program som har skapats i [Självstudie: Skicka push-meddelanden till specifika enheter (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) för att stödja följande scenarier:
+Den här kursen visar hur du kan skicka lokaliserade meddelanden till mobila enheter som registrerats för Notification Hubs-tjänsten. I kursen uppdaterar du appar som du skapat i [Självstudier: Skicka meddelanden till specifika enheter (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) som stöd för följande scenarier:
 
 - Windows Store-appen tillåter att klientenheter anger ett språk och prenumererar på olika nyhetskategorier.
 - Serverdelsappen skickar meddelanden med hjälp av funktionerna **tag** (tagg) och **template** (mall) i Azure Notification Hubs.
@@ -46,11 +46,11 @@ I den här guiden får du lära dig att:
 > * Uppdatera serverdelsappen så att den skickar lokaliserade meddelanden
 > * Testa appen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Slutför [Självstudie: Skicka meddelanden till specifika enheter (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+Slutför [Självstudier: Skicka meddelanden till specifika enheter (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 
-I [Självstudie: Skicka meddelanden till specifika enheter (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) skapade du en app som använde **taggar** för att prenumerera på meddelanden för olika **kategorier** för nyheter. I den här självstudiekursen använder du **mall**funktion i Notification Hubs till att enkelt leverera **lokaliserade** nyhetsmeddelanden.
+I [Självstudier: Skicka meddelanden till specifika enheter (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md) har du skapat en app som använde **taggar** att prenumerera på meddelanden för olika nyhets**kategorier**. I den här självstudiekursen använder du **mall**funktion i Notification Hubs till att enkelt leverera **lokaliserade** nyhetsmeddelanden.
 
 På en hög nivå är mallar ett sätt att ange i vilket format en specifik enhet bör ta emot ett meddelande. Mallen anger det exakta nyttolastformatet genom att referera till egenskaper som ingår i meddelandet som skickas av appserverdelen. I den här självstudiekursen skickar serverdelsprogrammet ett språkvariantsoberoende meddelande som innehåller alla språk som stöds:
 
@@ -78,7 +78,7 @@ Mer information om mallar finns i avsnittet om [push-mallar](notification-hubs-t
 
 ## <a name="update-windows-app-to-support-locale-information"></a>Uppdatera Windows-appen så att den stödjer språkinformation
 
-1. Öppna den Visual Studio-lösning som du skapade för [Självstudie: Skicka meddelanden till specifika enheter (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
+1. Öppna den Visual Studio-lösning som du slutförde i [Självstudier: Skicka meddelanden till specifika enheter (Universal Windows Platform)](notification-hubs-windows-phone-push-xplat-segmented-mpns-notification.md).
 2. Uppdatera lösningens `MainPage.xaml`-fil till att inkludera en kombinationsruta för nationella inställningar:
 
     ```xml

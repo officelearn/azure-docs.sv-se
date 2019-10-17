@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.author: ajburnle
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1a6d7901368d19cf5ca8221bc00f426980e6f48
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 85479abfd19110703d5ce9f59f545830e84feadb
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72169893"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429603"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management-preview"></a>Skapa och hantera en katalog med resurser i hantering av Azure AD-rättigheter (för hands version)
 
@@ -52,7 +52,7 @@ En katalog är en behållare för resurser och åtkomst paket. Du skapar en kata
 
 1. Om du vill tillåta att användare i valda externa kataloger kan begära åtkomst paket i den här katalogen, ställer du in **aktiverat för externa användare** på **Ja**.
 
-    ![Fönstret ny katalog](./media/entitlement-management-catalog-create/new-catalog.png)
+    ![Fönstret ny katalog](./media/entitlement-management-shared/new-catalog.png)
 
 1. Skapa katalogen genom att klicka på **skapa** .
 
@@ -130,7 +130,9 @@ Du kan redigera namn och beskrivning för en katalog. Användarna ser den här i
 
 1. På sidan **Översikt** för katalogen klickar du på **Redigera**.
 
-1. Redigera katalogens namn eller beskrivning.
+1. Redigera katalogens namn, beskrivning eller aktiverade inställningar.
+
+    ![Redigera katalog inställningar](./media/entitlement-management-shared/catalog-edit.png)
 
 1. Klicka på **Save** (Spara).
 

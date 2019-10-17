@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 3da9fef8c7de248f30100f94724cd5dcdb7db8e3
-ms.sourcegitcommit: 85b3973b104111f536dc5eccf8026749084d8789
+ms.openlocfilehash: a17d98d49d2c653e2498a663829d26e8a171fd74
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/01/2019
-ms.locfileid: "68727064"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433509"
 ---
 # <a name="azure-infrastructure-security"></a>Säkerhet för Azure-infrastruktur
 Microsoft Azure körs i Data Center som hanteras och drivs av Microsoft. Dessa geografiskt spridda Data Center följer viktiga bransch standarder, till exempel ISO/IEC 27001:2013 och NIST SP 800-53, för säkerhet och tillförlitlighet. Data centren hanteras, övervakas och administreras av Microsofts drift personal. Drifts personalen har års erfarenhet av att leverera världens största onlinetjänster med 24 x 7-kontinuitet.
@@ -48,9 +48,9 @@ Du är alltid ansvarig för följande, oavsett typ av distribution:
 - Data
 - Slutpunkter
 - Konto
-- Åtkomst hantering
+- Åtkomsthantering
 
-Se till att du förstår ansvars fördelningen mellan dig och Microsoft i en SaaS-, PaaS-och IaaS-distribution. Mer information finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
+Se till att du förstår ansvars fördelningen mellan dig och Microsoft i en SaaS-, PaaS-och IaaS-distribution. Mer information finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf).
 
 ## <a name="next-steps"></a>Nästa steg
 Mer information om vad Microsoft gör för att skydda Azure-infrastrukturen finns i:

@@ -14,25 +14,26 @@ ms.devlang: javascript
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 410571320e5ffae9cf94c5035079e5b202190863
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 8a22de6b3e518bb3c9392d7fd64411969b32f33f
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027362"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388738"
 ---
 # <a name="how-to-use-the-javascript-client-library-for-azure-mobile-apps"></a>Så här använder du JavaScript-klient biblioteket för Azure Mobile Apps
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 Den här guiden lär dig att utföra vanliga scenarier med hjälp av den senaste [Java Script SDK för Azure Mobile Apps]. Om du är nybörjare på Azure Mobile Apps måste du först slutföra [Azure Mobile Apps Snabbstart] för att skapa en server del och skapa en tabell. I den här hand boken fokuserar vi på att använda mobil Server delen i HTML/Java Script-webbprogram.
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
-Vi begränsar webbläsarens stöd till aktuella och sista versioner av de större webbläsarna:  Google Chrome, Microsoft Edge, Microsoft Internet Explorer och Mozilla Firefox.  Vi förväntar oss att SDK: n ska fungera med en relativt modern webbläsare.
+Vi begränsar webb läsar stödet till de aktuella och sista versionerna av de större webbläsarna: Google Chrome, Microsoft Edge, Microsoft Internet Explorer och Mozilla Firefox.  Vi förväntar oss att SDK: n ska fungera med en relativt modern webbläsare.
 
 Paketet distribueras som en universell JavaScript-modul, så att det stöder globala, AMD-och CommonJS-format.
 
@@ -62,14 +63,14 @@ Du kan också använda en fördefinierad version av SDK genom att ladda ned dire
 
 [!INCLUDE [app-service-mobile-html-js-library](../../includes/app-service-mobile-html-js-library.md)]
 
-## <a name="auth"></a>Hur: Autentisera användare
+## <a name="auth"></a>Gör så här: autentisera användare
 Azure App Service stöder autentisering och auktorisering av App-användare med olika externa identitets leverantörer: Facebook, Google, Microsoft-konto och Twitter. Du kan ange behörigheter för tabeller för att begränsa åtkomsten för vissa åtgärder till endast autentiserade användare. Du kan också använda identiteten för autentiserade användare för att implementera auktoriseringsregler i Server skript. Mer information finns i själv studie kursen [Kom igång med autentisering] .
 
 Två autentiserings flöden stöds: ett Server flöde och ett klient flöde.  Server flödet ger den enklaste autentiseringen, eftersom det förlitar sig på providerns webbautentiserings-gränssnitt. Klient flödet gör det möjligt att integrera djupare med enhetsspecifika funktioner, till exempel enkel inloggning eftersom det förlitar sig på leverantörsspecifika SDK: er.
 
 [!INCLUDE [app-service-mobile-html-js-auth-library](../../includes/app-service-mobile-html-js-auth-library.md)]
 
-### <a name="configure-external-redirect-urls"></a>Hur: Konfigurera mobil App Service för externa omdirigerings-URL: er.
+### <a name="configure-external-redirect-urls"></a>Gör så här: Konfigurera mobil App Service för externa omdirigerings-URL: er.
 Flera typer av JavaScript-program använder en loopback-funktion för att hantera OAuth UI-flöden.  Dessa funktioner är:
 
 * Köra din tjänst lokalt
@@ -78,7 +79,7 @@ Flera typer av JavaScript-program använder en loopback-funktion för att hanter
 
 Att köra lokalt kan orsaka problem eftersom App Service-autentisering som standard bara konfigureras för att tillåta åtkomst från din server del för mobila appar. Använd följande steg för att ändra App Service inställningarna för att aktivera autentisering när servern körs lokalt:
 
-1. Logga in på [Azure Portal]
+1. Logga in på [Azure-portalen]
 2. Navigera till Server delen för mobilappen.
 3. Välj **resurs läsaren** på menyn **utvecklingsverktyg** .
 4. Klicka på **gå** för att öppna resurs läsaren för Server delen för mobilappen på en ny flik eller i ett nytt fönster.
@@ -96,7 +97,7 @@ Att köra lokalt kan orsaka problem eftersom App Service-autentisering som stand
 
 Du måste också lägga till samma loopback-URL: er till CORS vitlista-inställningarna:
 
-1. Gå tillbaka till [Azure Portal].
+1. Gå tillbaka till [Azure-portalen].
 2. Navigera till Server delen för mobilappen.
 3. Klicka på **CORS** i **API** -menyn.
 4. Ange varje URL i text rutan tomma **tillåtna ursprung** .  En ny text ruta skapas.
@@ -109,6 +110,6 @@ Efter uppdateringar av Server delen kommer du att kunna använda de nya loopback
 [Kom igång med autentisering]: app-service-mobile-cordova-get-started-users.md
 [Add authentication to your app]: app-service-mobile-cordova-get-started-users.md
 
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [Java Script SDK för Azure Mobile Apps]: https://www.npmjs.com/package/azure-mobile-apps-client
 [Query object documentation]: https://msdn.microsoft.com/library/azure/jj613353.aspx

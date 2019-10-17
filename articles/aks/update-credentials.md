@@ -1,66 +1,62 @@
 ---
-title: Återställa autentiseringsuppgifterna för ett kluster i Azure Kubernetes Service (AKS)
-description: Lär dig hur uppdateringen eller återställa tjänstens huvudnamn-autentiseringsuppgifter för ett kluster i Azure Kubernetes Service (AKS)
+title: Återställa autentiseringsuppgifterna för ett Azure Kubernetes service-kluster (AKS)
+description: Lär dig hur du uppdaterar eller återställer autentiseringsuppgifter för tjänstens huvud namn för ett kluster i Azure Kubernetes service (AKS)
 services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
 ms.author: mlearned
-ms.openlocfilehash: 5aac941133296d2040d5dd670155b80f5807e1e9
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: bda0ab50b829fa2e6d58e73b51e3a0a0f6c9e2af
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614133"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432917"
 ---
-# <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifter för tjänstens huvudnamn i Azure Kubernetes Service (AKS)
+# <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>Uppdatera eller rotera autentiseringsuppgifterna för ett huvud namn för tjänsten i Azure Kubernetes service (AKS)
 
-Som standard skapas AKS-kluster med ett huvudnamn för tjänsten som har en förfallotid för ett år. Du kan återställa autentiseringsuppgifter för att utöka tjänstens huvudnamn under en ytterligare tid som du nära förfallodatum. Du kanske också vill uppdatera eller rotera autentiseringsuppgifter som en del av en definierad säkerhetsprincip. Den här artikeln beskriver hur du uppdaterar de här autentiseringsuppgifterna för ett AKS-kluster.
+Som standard skapas AKS-kluster med ett huvud namn för tjänsten som har ett års förfallo tid. När du nära förfallo datumet kan du återställa autentiseringsuppgifterna för att utöka tjänstens huvud namn under ytterligare en tids period. Du kanske också vill uppdatera eller rotera autentiseringsuppgifterna som en del av en definierad säkerhets princip. Den här artikeln beskriver hur du uppdaterar autentiseringsuppgifterna för ett AKS-kluster.
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du behöver Azure CLI version 2.0.65 eller senare installerat och konfigurerat. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [installera Azure CLI][install-azure-cli].
+Du behöver Azure CLI-versionen 2.0.65 eller senare installerad och konfigurerad. Kör  `az --version` för att hitta versionen. Om du behöver installera eller uppgradera kan du läsa [Installera Azure CLI][install-azure-cli].
 
-## <a name="choose-to-update-or-create-a-service-principal"></a>Välja att uppdatera eller skapa ett huvudnamn för tjänsten
+## <a name="choose-to-update-or-create-a-service-principal"></a>Välj att uppdatera eller skapa ett huvud namn för tjänsten
 
 När du vill uppdatera autentiseringsuppgifterna för ett AKS-kluster kan du välja att:
 
-* Uppdatera autentiseringsuppgifter för befintliga tjänstens huvudnamn som används av klustret, eller
-* Skapa ett huvudnamn för tjänsten och uppdatera klustret så att de här nya autentiseringsuppgifter.
+* uppdatera autentiseringsuppgifterna för det befintliga tjänst huvud namnet som används av klustret, eller
+* skapa ett huvud namn för tjänsten och uppdatera klustret för att använda dessa nya autentiseringsuppgifter.
 
-Om du vill skapa ett huvudnamn för tjänsten och sedan uppdatera AKS-klustret, hoppa över resten av stegen i det här avsnittet och fortsätta att [skapa ett huvudnamn för tjänsten](#create-a-service-principal). Om du vill uppdatera autentiseringsuppgifterna för den befintliga tjänsten huvudnamn som används av AKS-klustret, fortsätter du med stegen i det här avsnittet.
+### <a name="update-existing-service-principal-expiration"></a>Uppdatera befintlig förfallo datum för tjänstens huvud namn
 
-### <a name="get-the-service-principal-id"></a>Hämta ID för tjänstens huvudnamn
-
-Om du vill uppdatera autentiseringsuppgifterna för den befintliga tjänsten huvudnamn, Hämta ID för tjänstens huvudnamn för ditt kluster med hjälp av den [az aks show][az-aks-show] kommando. I följande exempel hämtar ID för kluster med namnet *myAKSCluster* i den *myResourceGroup* resursgrupp. ID för tjänstens huvudnamn har angetts som en variabel med namnet *SP_ID* för användning i ytterligare kommando.
+Om du vill uppdatera autentiseringsuppgifterna för det befintliga huvud namnet för tjänsten hämtar du tjänstens huvud namn-ID för klustret med hjälp av kommandot [AZ AKS show][az-aks-show] . I följande exempel hämtas ID: t för klustret med namnet *myAKSCluster* i resurs gruppen *myResourceGroup* . Tjänstens huvud namn-ID anges som en variabel med namnet *SP_ID* för användning i ytterligare kommando.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \
     --query servicePrincipalProfile.clientId -o tsv)
 ```
 
-### <a name="update-the-service-principal-credentials"></a>Uppdatera autentiseringsuppgifter för tjänstens huvudnamn
-
-Med en variabel som innehåller ID för tjänstens huvudnamn, Återställ nu autentiseringsuppgifterna med [az ad sp credential återställa][az-ad-sp-credential-reset]. I följande exempel kan Azure-plattformen Generera en ny säker hemlighet för tjänstens huvudnamn. Den här nya säker hemligheten lagras också som en variabel.
+Med en variabel uppsättning som innehåller tjänstens huvud namns-ID, Återställ nu autentiseringsuppgifterna med [AZ AD SP Credential reset][az-ad-sp-credential-reset]. I följande exempel kan Azure-plattformen generera en ny säker hemlighet för tjänstens huvud namn. Den nya säkra hemligheten lagras också som en variabel.
 
 ```azurecli-interactive
 SP_SECRET=$(az ad sp credential reset --name $SP_ID --query password -o tsv)
 ```
 
-Nu fortsätta till [uppdatering AKS-kluster med nya autentiseringsuppgifter](#update-aks-cluster-with-new-credentials).
+Fortsätt nu med att [Uppdatera AKS-kluster med nya autentiseringsuppgifter](#update-aks-cluster-with-new-credentials). Det här steget krävs för att tjänstens huvud namn ska avspeglas i AKS-klustret.
 
-## <a name="create-a-service-principal"></a>Skapa ett huvudnamn för tjänsten
+### <a name="create-a-new-service-principal"></a>Skapa ett nytt huvud namn för tjänsten
 
-Hoppa över det här steget om du har valt att uppdatera de befintliga autentiseringsuppgifterna för tjänstens huvudnamn i föregående avsnitt. Fortsätta att [uppdatering AKS-kluster med nya autentiseringsuppgifter](#update-aks-cluster-with-new-credentials).
+Hoppa över det här steget om du väljer att uppdatera de befintliga autentiseringsuppgifterna för tjänstens huvud namn i föregående avsnitt. Fortsätt att [Uppdatera AKS-kluster med nya autentiseringsuppgifter](#update-aks-cluster-with-new-credentials).
 
-Om du vill skapa ett huvudnamn för tjänsten och sedan uppdaterar AKS-kluster för att använda dessa nya autentiseringsuppgifter, Använd den [az ad sp create-for-rbac][az-ad-sp-create] kommando. I följande exempel visas förhindrar parametern `--skip-assignment` eventuella ytterligare tilldelningar från att göras:
+Om du vill skapa ett huvud namn för tjänsten och sedan uppdatera AKS-klustret för att använda dessa nya autentiseringsuppgifter, använder du kommandot [AZ AD SP Create-for-RBAC][az-ad-sp-create] . I följande exempel visas förhindrar parametern `--skip-assignment` eventuella ytterligare tilldelningar från att göras:
 
 ```azurecli-interactive
 az ad sp create-for-rbac --skip-assignment
 ```
 
-De utdata som genereras påminner om de i följande exempel. Anteckna dina egna `appId` och `password`. De här värdena används i nästa steg.
+De utdata som genereras påminner om de i följande exempel. Anteckna dina egna `appId` och `password`. Dessa värden används i nästa steg.
 
 ```json
 {
@@ -71,16 +67,18 @@ De utdata som genereras påminner om de i följande exempel. Anteckna dina egna 
 }
 ```
 
-Definiera variabler för de service principal-ID och klienthemlighet med utdata från din egen nu [az ad sp create-for-rbac][az-ad-sp-create] kommandot, som visas i följande exempel. Den *SP_ID* är din *appId*, och *SP_SECRET* är din *lösenord*:
+Definiera nu variabler för tjänstens huvud namns-ID och klient hemligheten med hjälp av utdata från ditt eget [AZ AD SP Create-for-RBAC][az-ad-sp-create] -kommando, som visas i följande exempel. *SP_ID* är ditt *appId*och *SP_SECRET* är ditt *lösen ord*:
 
 ```azurecli-interactive
 SP_ID=7d837646-b1f3-443d-874c-fd83c7c739c5
 SP_SECRET=a5ce83c9-9186-426d-9183-614597c7f2f7
 ```
 
+Fortsätt nu med att [Uppdatera AKS-kluster med nya autentiseringsuppgifter](#update-aks-cluster-with-new-credentials). Det här steget krävs för att tjänstens huvud namn ska avspeglas i AKS-klustret.
+
 ## <a name="update-aks-cluster-with-new-credentials"></a>Uppdatera AKS-kluster med nya autentiseringsuppgifter
 
-Oavsett om du väljer att uppdatera autentiseringsuppgifterna för den befintliga tjänsten huvudnamn eller skapa ett huvudnamn för tjänsten, nu du uppdatera AKS-kluster med dina nya autentiseringsuppgifter med hjälp av den [aaz aks update-credentials][az-aks-update-credentials] kommando. Variablerna för den *--huvudnamn för tjänsten* och *--klienthemlighet* används:
+Oavsett om du väljer att uppdatera autentiseringsuppgifterna för det befintliga tjänstens huvud namn eller skapa ett huvud namn för tjänsten, uppdaterar du nu AKS-klustret med dina nya autentiseringsuppgifter med hjälp av kommandot [AZ AKS Update-credentials][az-aks-update-credentials] . Variablerna för *--Service-Principal* och *--client-Secret* används:
 
 ```azurecli-interactive
 az aks update-credentials \
@@ -91,11 +89,11 @@ az aks update-credentials \
     --client-secret $SP_SECRET
 ```
 
-Det tar en liten stund för autentiseringsuppgifter för tjänstens huvudnamn som ska uppdateras i AKS.
+Det tar en stund innan autentiseringsuppgifterna för tjänstens huvud namn uppdateras i AKS.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Tjänstens huvudnamn för själva AKS-klustret har uppdaterats i den här artikeln. Mer information om hur du hanterar identitet för arbetsbelastningar inom ett kluster finns i [bästa praxis för autentisering och auktorisering i AKS][best-practices-identity].
+I den här artikeln har tjänstens huvud namn för AKS-klustret uppdaterats. Mer information om hur du hanterar identitet för arbets belastningar i ett kluster finns i [metod tips för autentisering och auktorisering i AKS][best-practices-identity].
 
 <!-- LINKS - internal -->
 [install-azure-cli]: /cli/azure/install-azure-cli

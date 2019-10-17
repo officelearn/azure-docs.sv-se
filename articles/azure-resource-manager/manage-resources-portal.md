@@ -1,6 +1,6 @@
 ---
-title: Hantera Azure-resurser med hjälp av Azure portal | Microsoft Docs
-description: Använda Azure-portalen och Azure Resource Manager för att hantera dina resurser.
+title: Hantera Azure-resurser med hjälp av Azure Portal | Microsoft Docs
+description: Använd Azure Portal och Azure Resource Manager för att hantera dina resurser. Visar hur du distribuerar och tar bort resurser.
 services: azure-resource-manager,azure-portal
 documentationcenter: ''
 author: mumian
@@ -8,120 +8,120 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: a4ff94a98514041290518e72e1b13c76722b9d4f
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: c52d54ca02436f7224346a65048244a5ec8d104c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205589"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390400"
 ---
-# <a name="manage-azure-resources-by-using-the-azure-portal"></a>Hantera Azure-resurser med hjälp av Azure portal
+# <a name="manage-azure-resources-by-using-the-azure-portal"></a>Hantera Azure-resurser med hjälp av Azure Portal
 
-Lär dig hur du använder den [Azure-portalen](https://portal.azure.com) med [Azure Resource Manager](resource-group-overview.md) att hantera dina Azure-resurser. För att hantera resursgrupper, se [hantera Azure-resursgrupper med hjälp av Azure portal](./manage-resource-groups-portal.md).
+Lär dig hur du använder [Azure Portal](https://portal.azure.com) med [Azure Resource Manager](resource-group-overview.md) för att hantera dina Azure-resurser. Information om hur du hanterar resurs grupper finns i [Hantera Azure-resurs grupper med hjälp av Azure Portal](./manage-resource-groups-portal.md).
 
-Andra artiklar om hur du hanterar resurser:
+Andra artiklar om att hantera resurser:
 
 - [Hantera Azure-resurser med hjälp av Azure CLI](./manage-resources-cli.md)
 - [Hantera Azure-resurser med hjälp av Azure PowerShell](./manage-resources-powershell.md)
 
 [!INCLUDE [Handle personal data](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="deploy-resources-to-a-resource-group"></a>Distribuera resurser till en resursgrupp
+## <a name="deploy-resources-to-a-resource-group"></a>Distribuera resurser till en resurs grupp
 
-När du har skapat en Resource Manager-mall kan kan du använda Azure-portalen för att distribuera dina Azure-resurser. Skapa en mall finns i [snabbstarten: Skapa och distribuera Azure Resource Manager-mallar med hjälp av Azure-portalen](./resource-manager-quickstart-create-templates-use-the-portal.md). Distribuera en mall med hjälp av portalen finns i [distribuera resurser med Resource Manager-mallar och Azure-portalen](resource-group-template-deploy-portal.md).
+När du har skapat en Resource Manager-mall kan du använda Azure Portal för att distribuera dina Azure-resurser. Information om hur du skapar en mall finns i [snabb start: skapa och distribuera Azure Resource Manager mallar med hjälp av Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md). Information om hur du distribuerar en mall med hjälp av portalen finns i [distribuera resurser med Resource Manager-mallar och Azure Portal](resource-group-template-deploy-portal.md).
 
 ## <a name="open-resources"></a>Öppna resurser
 
-Azure-resurser organiseras genom Azure-tjänster och resursgrupper. Följande procedurer visar hur du öppnar ett lagringskonto med namnet **mystorage0207**. Den virtuella datorn finns i en resursgrupp med namnet **mystorage0207rg**.
+Azure-resurser organiseras av Azure-tjänster och resurs grupper. Följande procedurer visar hur du öppnar ett lagrings konto med namnet **mystorage0207**. Den virtuella datorn finns i en resurs grupp med namnet **mystorage0207rg**.
 
-Öppna en resurs av typen service:
+Så här öppnar du en resurs med tjänst typen:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I den vänstra rutan väljer du Azure-tjänsten. I det här fallet **lagringskonton**.  Om du inte ser tjänsten som anges, väljer **alla tjänster**, och välj sedan tjänsttypen.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. I det vänstra fönstret väljer du Azure-tjänsten. I det här fallet **lagrings konton**.  Om tjänsten inte visas i listan väljer du **alla tjänster**och väljer sedan tjänst typen.
 
-    ![Öppna azure-resurs i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
+    ![öppna Azure-resursen i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-service.png)
 
 3. Välj den resurs som du vill öppna.
 
-    ![Öppna azure-resurs i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
+    ![öppna Azure-resursen i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-resource.png)
 
-    Det ser ut som ett storage-konto:
+    Ett lagrings konto ser ut så här:
 
-    ![Öppna azure-resurs i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
+    ![öppna Azure-resursen i portalen](./media/manage-resources-portal/manage-azure-resources-portal-open-resource-storage.png)
 
-Öppna en resurs av resursgrupp:
+Så här öppnar du en resurs per resurs grupp:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
-2. I den vänstra rutan väljer **resursgrupper** att lista resursen i gruppen.
+1. Logga in på [Azure-portalen](https://portal.azure.com).
+2. I det vänstra fönstret väljer du **resurs grupper** för att Visa resursen i gruppen.
 3. Välj den resurs som du vill öppna. 
 
 ## <a name="manage-resources"></a>Hantera resurser
 
-När du visar en resurs i portalen kan se du alternativ för hantering av just den resursen.
+När du visar en resurs i portalen ser du alternativen för att hantera den specifika resursen.
 
 ![Hantera Azure-resurser](./media/manage-resources-portal/manage-azure-resources-portal-manage-resource.png)
 
-Skärmbilden visar hanteringsalternativen för virtuella Azure-datorer. Du kan utföra åtgärder som till exempel starta, starta om och stoppa en virtuell dator.
+Skärm bilden visar hanterings alternativen för en virtuell Azure-dator. Du kan utföra åtgärder som att starta, starta om och stoppa en virtuell dator.
 
 ## <a name="delete-resources"></a>Ta bort resurser
 
-1. Öppna resursen i portalen. Anvisningar, finns i [öppna resurser](#open-resources).
-2. Välj **Ta bort**. I följande skärmbild visas hanteringsalternativ för en virtuell dator.
+1. Öppna resursen i portalen. Anvisningar finns i [Öppna resurser](#open-resources).
+2. Välj **Ta bort**. Följande skärm bild visar hanterings alternativen för en virtuell dator.
 
-    ![ta bort azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
-3. Skriv namnet på resursen att bekräfta borttagningen och välj sedan **ta bort**.
+    ![ta bort Azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-delete-resource.png)
+3. Skriv namnet på resursen för att bekräfta borttagningen och välj sedan **ta bort**.
 
-Mer information om hur Azure Resource Manager beställningar borttagningen av resurser finns i [borttagning av Azure Resource Manager resource](./resource-group-delete.md).
+Mer information om hur Azure Resource Manager beställer borttagningen av resurser finns i [Azure Resource Manager ta bort resurs grupp](./resource-group-delete.md).
 
 ## <a name="move-resources"></a>Flytta resurser
 
-1. Öppna resursen i portalen. Anvisningar, finns i [öppna resurser](#open-resources).
-2. Välj **flytta**. I följande skärmbild visas hanteringsalternativ för ett lagringskonto.
+1. Öppna resursen i portalen. Anvisningar finns i [Öppna resurser](#open-resources).
+2. Välj **Flytta**. Följande skärm bild visar hanterings alternativen för ett lagrings konto.
 
-    ![Flytta azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
-3. Välj **flytta till en annan resursgrupp** eller **Moeve till en annan prenumeration** beroende på dina behov.
+    ![flytta Azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-move-resource.png)
+3. Välj **Flytta till en annan resurs grupp** eller **Flytta till en annan prenumeration** beroende på dina behov.
 
 Mer information finns i [Flytta resurser till en ny resursgrupp eller prenumeration](resource-group-move-resources.md).
 
 ## <a name="lock-resources"></a>Lås resurser
 
-Låsning förhindrar andra användare i din organisation av misstag tar bort eller ändrar kritiska resurser, till exempel Azure-prenumeration, resursgrupp eller resurs. 
+Låsning förhindrar att andra användare i organisationen oavsiktligt tar bort eller ändrar kritiska resurser, t. ex. Azure-prenumeration, resurs grupp eller resurs. 
 
-1. Öppna resursen i portalen. Anvisningar, finns i [öppna resurser](#open-resources).
-2. Välj **låser**. I följande skärmbild visas hanteringsalternativ för ett lagringskonto.
+1. Öppna resursen i portalen. Anvisningar finns i [Öppna resurser](#open-resources).
+2. Välj **Lås**. Följande skärm bild visar hanterings alternativen för ett lagrings konto.
 
-    ![LOCK azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
-3. Välj **Lägg till**, och sedan ange egenskaperna för lås.
+    ![Lås Azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-lock-resource.png)
+3. Välj **Lägg till**och ange sedan Lås egenskaperna.
 
 Mer information finns i [Låsa resurser med Azure Resource Manager](resource-group-lock-resources.md).
 
 ## <a name="tag-resources"></a>Tagga resurser
 
-Taggar hjälper dig att organisera din resursgrupp och resurser logiskt. 
+Taggning hjälper till att organisera resurs gruppen och resurserna logiskt. 
 
-1. Öppna resursen i portalen. Anvisningar, finns i [öppna resurser](#open-resources).
-2. Välj **Taggar**. I följande skärmbild visas hanteringsalternativ för ett lagringskonto.
+1. Öppna resursen i portalen. Anvisningar finns i [Öppna resurser](#open-resources).
+2. Välj **Taggar**. Följande skärm bild visar hanterings alternativen för ett lagrings konto.
 
-    ![taggen azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
-3. Ange egenskaperna för taggen och välj sedan **spara**.
+    ![Tagga Azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-tag-resource.png)
+3. Ange taggens egenskaper och välj sedan **Spara**.
 
-Mer information finns i [med taggar för att organisera Azure-resurser](./resource-group-using-tags.md#portal).
+Mer information finns i [använda taggar för att ordna dina Azure-resurser](./resource-group-using-tags.md#portal).
 
 ## <a name="monitor-resources"></a>Övervaka resurser
 
-När du öppnar en resurs, anger portalen standarddiagram och tabeller för att övervaka den resurstypen. Följande skärmbild visar diagram för en virtuell dator:
+När du öppnar en resurs, visar portalen standard diagram och tabeller för övervakning av resurs typen. Följande skärm bild visar graferna för en virtuell dator:
 
-![övervaka azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png)
+![övervaka Azure-resurs](./media/manage-resources-portal/manage-azure-resources-portal-monitor-resource.png)
 
-Du kan välja fästikonen i det övre högra hörnet av diagrammen för att fästa diagrammet på instrumentpanelen. Läs om hur du arbetar med instrumentpaneler i [skapa och dela instrumentpaneler i Azure-portalen](../azure-portal/azure-portal-dashboards.md).
+Du kan välja ikonen fäst i det övre högra hörnet i graferna för att fästa grafen på instrument panelen. Information om hur du arbetar med instrument paneler finns [i skapa och dela instrument paneler i Azure Portal](../azure-portal/azure-portal-dashboards.md).
 
 ## <a name="manage-access-to-resources"></a>Hantera åtkomst till resurser
 
-[Rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) är sättet som du hantera åtkomst till resurser i Azure. Mer information finns i [hantera åtkomst med RBAC och Azure portal](../role-based-access-control/role-assignments-portal.md).
+[Rollbaserad åtkomstkontroll (RBAC)](../role-based-access-control/overview.md) är sättet som du hantera åtkomst till resurser i Azure. Mer information finns i [Hantera åtkomst med hjälp av RBAC och Azure-portalen](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Nästa steg
 
-- Läs Azure Resource Manager i [översikt över Azure Resource Manager](./resource-group-overview.md).
-- Läs Resource Manager-mallens syntax i [förstå strukturen och syntaxen för Azure Resource Manager-mallar](./resource-group-authoring-templates.md).
-- Läs hur du utvecklar mallar i den [stegvisa självstudier](/azure/azure-resource-manager/).
-- Mallscheman för Azure Resource Manager-finns [mallreferensen](/azure/templates/).
+- Mer information Azure Resource Manager finns [Azure Resource Manager översikt](./resource-group-overview.md).
+- Information om syntaxen för Resource Manager-mallar finns i [förstå strukturen och syntaxen för Azure Resource Manager mallar](./resource-group-authoring-templates.md).
+- Information om hur du utvecklar mallar finns i de [stegvisa självstudierna](/azure/azure-resource-manager/).
+- Om du vill visa scheman för Azure Resource Manager mallar, se [referens för mallar](/azure/templates/).

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/7/2019
 ms.author: haroldw
-ms.openlocfilehash: 80f0ec57aa287bae9b10d9a4cdb013014aab3332
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 2293eac45da6f53b0cd29fda68b0ddc76aea1a6c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082557"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390638"
 ---
 # <a name="openshift-in-azure"></a>OpenShift i Azure
 
@@ -31,7 +31,7 @@ OpenShift innehåller Kubernetes för behållar dirigering och hantering. Det l�
 - Enkel distribution och skalning.
 - Långsiktigt livs cykel underhåll för team och program.
 
-Det finns flera versioner av OpenShift.  I dessa versioner är bara två tillgängliga för kunder som ska distribueras i Azure: OpenShift container Platform och OKD (tidigare OpenShift Origin).
+Det finns flera versioner av OpenShift.  I dessa versioner är bara två tillgängliga idag för kunder som ska distribueras i Azure: OpenShift container Platform och OKD (tidigare OpenShift Origin).
 
 ## <a name="azure-red-hat-openshift"></a>Azure Red Hat OpenShift
 
@@ -49,9 +49,9 @@ OKD är ett överordnat projekt med [öppen källkod](https://www.okd.io/) av Op
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Konfigurera vanliga krav för OpenShift i Azure](./openshift-prerequisites.md)
-- [Distribuera OpenShift container Platform i Azure](./openshift-container-platform.md)
-- [Distribuera OpenShift container Platform-erbjudandet för egen hantering](./openshift-marketplace-self-managed.md)
+- [Konfigurera vanliga krav för OpenShift i Azure](./openshift-container-platform-3x-prerequisites.md)
+- [Distribuera OpenShift container Platform i Azure](./openshift-container-platform-3x.md)
+- [Distribuera OpenShift container Platform-erbjudandet för egen hantering](./openshift-container-platform-3x-marketplace-self-managed.md)
 - [Distribuera OpenShift i Azure Stack](./openshift-azure-stack.md)
-- [Uppgifter efter distribution](./openshift-post-deployment.md)
-- [Felsöka OpenShift-distribution](./openshift-troubleshooting.md)
+- [Uppgifter efter distribution](./openshift-container-platform-3x-post-deployment.md)
+- [Felsöka OpenShift-distribution](./openshift-container-platform-3x-troubleshooting.md)

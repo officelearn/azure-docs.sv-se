@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 01/18/2019
 ms.author: cynthn
-ms.openlocfilehash: ab5af0e5971b91f45cbb12b4d0583caafa5ad504
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: d79cefa9adec403ebbb5105351d2909eac9d02a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079643"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390490"
 ---
 # <a name="create-a-vm-from-a-vhd-by-using-the-azure-portal"></a>Skapa en virtuell dator från en virtuell hård disk med hjälp av Azure Portal
 
@@ -34,6 +34,7 @@ Det finns flera sätt att skapa en virtuell dator (VM) i Azure:
 
 Använd inte en specialiserad disk om du vill skapa flera virtuella datorer. I stället [skapar du en avbildning](capture-image-resource.md) och [använder avbildningen för att skapa flera virtuella datorer](create-vm-generalized-managed.md)i stället för större distributioner.
 
+Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda ögonblicks bild eller virtuell hård disk. 
 
 ## <a name="copy-a-disk"></a>Kopiera en disk
 
@@ -41,7 +42,7 @@ Skapa en ögonblicks bild och skapa sedan en disk från ögonblicks bilden. Med 
 
 1. Välj **alla tjänster**på den vänstra menyn i [Azure Portal](https://portal.azure.com).
 2. I sökrutan **alla tjänster** anger du **diskar** och väljer sedan **diskar** för att visa listan över tillgängliga diskar.
-3. Välj den disk som du vill använda. Disk sidan för disken visas.
+3. Välj den disk som du vill använda. Disk **sidan för** disken visas.
 4. I menyn högst upp väljer du **skapa ögonblicks bild**. 
 5. Ange ett **namn** för ögonblicks bilden.
 6. Välj en **resurs grupp** för ögonblicks bilden. Du kan antingen använda en befintlig resurs grupp eller skapa en ny.
@@ -64,7 +65,7 @@ När du har den virtuella hård disk som du vill använda kan du skapa den virtu
 1. Välj **alla tjänster**på den vänstra menyn i [Azure Portal](https://portal.azure.com).
 2. I sökrutan **alla tjänster** anger du **diskar** och väljer sedan **diskar** för att visa listan över tillgängliga diskar.
 3. Välj den disk som du vill använda. **Disk** sidan för disken öppnas.
-4. På sidan **Översikt** kontrollerar du att **disk tillstånd** visas som frånkopplat. Om den inte är det kan du behöva koppla bort disken från den virtuella datorn eller ta bort den virtuella datorn för att frigöra disken.
+4. På sidan **Översikt** kontrollerar du att **disk tillstånd** visas som **frånkopplat**. Om den inte är det kan du behöva koppla bort disken från den virtuella datorn eller ta bort den virtuella datorn för att frigöra disken.
 4. På menyn längst upp på sidan väljer du **Skapa virtuell dator**.
 5. På sidan **grundläggande** för den nya virtuella datorn anger du ett **namn på den virtuella datorn** och väljer antingen en befintlig **resurs grupp** eller skapar en ny.
 6. I **storlek**väljer du **ändra storlek** för att komma åt sidan **storlek** .
@@ -74,6 +75,7 @@ När du har den virtuella hård disk som du vill använda kan du skapa den virtu
 10. På sidan **gäst konfiguration** lägger du till eventuella tillägg vid behov.
 11. När du är klar väljer du **Granska + skapa**. 
 12. Om den virtuella dator konfigurationen klarar valideringen väljer du **skapa** för att starta distributionen.
+
 
 ## <a name="next-steps"></a>Nästa steg
 

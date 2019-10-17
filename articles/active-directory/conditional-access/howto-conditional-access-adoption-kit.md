@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c75ec0ec212c99e474d13892178acbdc14e5f386
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: c34f59c3e9f679adf8ae410f648cb7de6dba6447
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71075281"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430053"
 ---
 #  <a name="adopting-azure-ad-conditional-access"></a>Anta villkorlig åtkomst för Azure AD
 
@@ -45,14 +45,14 @@ Mer information om kund-och partner upplevelser för villkorlig åtkomst i Azure
 
 ## <a name="announcements"></a>Meddelanden
 
-Azure AD får förbättringar med jämna mellanrum. För att hålla dig uppdaterad med den senaste utvecklingen, se [Vad är nytt i Azure Active Directory?](../fundamentals/whats-new.md)
+Azure AD tar emot förbättringar kontinuerligt. För att hålla dig uppdaterad med den senaste utvecklingen, se [Vad är nytt i Azure Active Directory?](../fundamentals/whats-new.md)
 
 De senaste bloggarna från teknisk community och Microsoft Identity Division:
 
 * 24 september 2018 [Azure Active Directory villkorlig åtkomst i Azure Databricks](https://azure.microsoft.com/updates/azure-active-directory-conditional-access-in-azure-databricks/)
 * 21 september 2018, [anpassade kontroller för villkorlig åtkomst i Azure AD finns i offentlig för hands version](https://azure.microsoft.com/updates/azure-ad-conditional-access-custom-controls-are-in-public-preview/)
 * 21 september 2018 [är Azure AD-stöd för villkorlig åtkomst för begränsad åtkomst med Microsoft Cloud App Security nu tillgängligt](https://azure.microsoft.com/updates/azure-ad-conditional-access-support-for-limited-access-with-microsoft-cloud-app-security-is-now-available/)
-* 21 september 2018, [villkorlig åtkomst för Azure AD: Managed Browser-stöd för iOS/Android-plattformar är nu i för hands version](https://azure.microsoft.com/updates/azure-ad-conditional-access-managed-browser-support-for-ios-android-platforms-now-in-preview/)
+* 21 september 2018, [Azure AD villkorlig åtkomst: Managed Browser-stöd för iOS/Android-plattformar finns nu i för hands version](https://azure.microsoft.com/updates/azure-ad-conditional-access-managed-browser-support-for-ios-android-platforms-now-in-preview/)
 * 21 september 2018 [är Azure AD villkorlig åtkomst för lands koder i offentlig för hands version](https://azure.microsoft.com/updates/azure-ad-conditional-access-for-country-codes-is-in-public-preview/)
 * 21 september 2018 är användnings [villkoren för Azure AD nu tillgängliga](https://azure.microsoft.com/updates/azure-ad-terms-of-use-now-available/)
 
@@ -69,7 +69,6 @@ Följ länkarna nedan för att få en översikt över hur funktioner för villko
 
 Se även följande länkar för vägledning för att skydda åtkomsten till alla tjänster som är integrerade med Azure Active Directory.
 
-* [Vad är baseline Protection (för hands version)?](baseline-protection.md) Med bas linje skydd säkerställs att du har minst säkerhets nivån som är aktive rad i din Azure Active Directorys miljö.
 * [Konfigurationer för identitets-och enhets åtkomst](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations). Beskriver hur du konfigurerar säker åtkomst till moln tjänster genom Enterprise Mobility + Security produkter genom att implementera en rekommenderad miljö och konfiguration, inklusive en före skriven uppsättning principer för villkorlig åtkomst och relaterade funktioner.
 * [Referens för Azure Active Directory villkorlig åtkomst inställningar](technical-reference.md). Mer
    * Vilka appar använder villkorlig åtkomst?
@@ -91,13 +90,13 @@ Se även följande länkar för vägledning för att skydda åtkomsten till alla
 
 Se följande kurser för villkorlig åtkomst med mera på [Pluralsight.com](https://www.pluralsight.com/):
 
-* Pluralsight.com: [Utforma identitets hantering i Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design)
+* Pluralsight.com: [utforma identitets hantering i Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-identity-management-design)
    * "Den här kursen vägleder dig genom de viktigaste objekten du behöver känna till för att utforma din lösning för identitets hantering med Azure AD." Villkorlig åtkomst för Azure AD beskrivs i modulen "using roles and Access Control with Azure AD".
 
-* Pluralsight.com: [Designa autentisering för Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design)
+* Pluralsight.com: [utforma autentisering för Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authentication-design)
    * "Den här kursen förklarar hur du använder Azure AD för att lösa alla dina krav på moln autentisering." Villkorlig åtkomst för Azure AD beskrivs i modulen "autentiseringskrav för olika scenarier".
 
-* Pluralsight.com: [Design auktorisering för Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design)
+* Pluralsight.com: [design-auktorisering för Microsoft Azure](https://www.pluralsight.com/courses/microsoft-azure-authorization-design)
    * "I den här kursen lär du dig tillgängliga alternativ för Azure och Azure AD." Villkorlig åtkomst för Azure AD beskrivs i modulen auktorisering med Azure Resource Manager och Azure AD.
 
 ### <a name="books"></a>Böcker
@@ -108,7 +107,7 @@ Se följande kurser för villkorlig åtkomst med mera på [Pluralsight.com](http
 * Wiley- [mastering Microsoft Azure infrastruktur tjänster](https://www.wiley.com/Mastering+Microsoft+Azure+Infrastructure+Services-p-9781119003298)
    * "Här är allt du behöver för att förstå, utvärdera, distribuera och underhålla miljöer som använder Microsoft Azure."
 
-## <a name="white-papers"></a>White paper-faktablad
+## <a name="white-papers"></a>Whitepapers
 
 * Publicerad den 18 december 2018, [skapa en elastisk åtkomst kontroll hanterings strategi med Azure Active Directory](../authentication/concept-resilient-controls.md)
    * Det här dokumentet ger vägledning om strategier som en organisation kan anta för att ge återhämtning för att minska risken för utelåsning under oförutsedda avbrott.
@@ -116,7 +115,7 @@ Se följande kurser för villkorlig åtkomst med mera på [Pluralsight.com](http
 * Publicerad 18 september 2018, [resurser för att migrera program till Azure Active Directory](../manage-apps/migration-resources.md)
    * Detta whitepaper innehåller en lista över resurser som hjälper dig att migrera program åtkomst och autentisering till Azure Active Directory (Azure AD).
 
-* Publicerad 12 juli 2018 [handlingsplan för säkerhet och efterlevnad i Azure: PaaS webb program som värd för offentliga Storbritannien-arbetsbelastningar](../../security/blueprints/ukofficial-paaswa-overview.md)
+* Publicerad 12 juli 2018 [handlingsplan för säkerhet och efterlevnad i Azure: PaaS webb program värd för offentliga Storbritannien-arbetsbelastningar](../../security/blueprints/ukofficial-paaswa-overview.md)
    * Azure-ritningar består av väglednings dokument och automatiserings mallar som distribuerar molnbaserade arkitekturer för att erbjuda lösningar till scenarier som har ackrediterings-eller efterlevnads krav.
 
 ## <a name="guidance-for-it-administrators"></a>Vägledning för IT-administratörer
@@ -129,26 +128,26 @@ Här är användbara länkar som hjälper dig att komma igång:
 
 * [Metod tips för villkorlig åtkomst i Azure Active Directory](best-practices.md)
 * [Använd åtkomst granskningar i Azure AD för att hantera användare som har uteslutits från principer för villkorlig åtkomst](../governance/conditional-access-exclusion.md)
-* [Anvisningar: Planera distributionen av villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md)
-* [Snabbstart: Kräv MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md)
-* [Snabbstart: Kräv användnings villkor för att godkännas innan du får åtkomst till molnappar](require-tou.md)
-* [Snabbstart: Blockera åtkomst när en sessionsgräns identifieras med Azure Active Directory villkorlig åtkomst](app-sign-in-risk.md)
+* [Gör så här: planera din distribution av villkorlig åtkomst i Azure Active Directory](plan-conditional-access.md)
+* [Snabb start: Kräv MFA för vissa appar med Azure Active Directory villkorlig åtkomst](app-based-mfa.md)
+* [Snabb start: Kräv användnings villkor för att godkännas innan du får åtkomst till molnappar](require-tou.md)
+* [Snabb start: blockera åtkomst när en sessionsgräns identifieras med Azure Active Directory villkorlig åtkomst](app-sign-in-risk.md)
 * [Vanliga frågor och svar om villkorlig åtkomst i Azure AD](faqs.md)
    * Du kan också visa [MSDN-forumet](https://social.msdn.microsoft.com/Forums/home?forum=WindowsAzureAD&sort=relevancedesc&brandIgnore=True&searchTerm=password+reset+azure)för ytterligare frågor.
    * Om du inte hittar svaret på ett problem är våra support team alltid tillgängliga för att hjälpa dig. Använd [kontakta Microsoft-supporten](../authentication/active-directory-passwords-troubleshoot.md#contact-microsoft-support).
 
-### <a name="tutorials"></a>Självstudier
+### <a name="tutorials"></a>Självstudiekurser
 
-* [**Snabbstart: Kräv MFA för vissa appar med Azure Active Directory villkorlig åtkomst**](app-based-mfa.md)
+* [**Snabb start: Kräv MFA för vissa appar med Azure Active Directory villkorlig åtkomst**](app-based-mfa.md)
    * Den här snabb starten visar hur du konfigurerar en princip för villkorlig åtkomst i Azure AD som kräver Multi-Factor Authentication för en vald molnbaserad app i din miljö.
 
-* [**Snabbstart: Kräv användnings villkor för att godkännas innan du får åtkomst till molnappar**](require-tou.md)
+* [**Snabb start: Kräv användnings villkor för att godkännas innan du får åtkomst till molnappar**](require-tou.md)
    * Den här snabb starten visar hur du konfigurerar en princip för villkorlig åtkomst i Azure AD som kräver att en ToU godkänns för en vald molnbaserad app i din miljö.
 
-* [**Snabbstart: Blockera åtkomst när en sessionsgräns identifieras med Azure Active Directory villkorlig åtkomst**](app-sign-in-risk.md)
+* [**Snabb start: blockera åtkomst när en sessionsgräns identifieras med Azure Active Directory villkorlig åtkomst**](app-sign-in-risk.md)
    * Den här snabb starten visar hur du konfigurerar en princip för villkorlig åtkomst som blockerar en inloggning när en konfigurerad risk nivå för inloggning har upptäckts.
 
-* [Självstudier: **Migrera en klassisk princip som kräver Multi-Factor Authentication i Azure Portal**](policy-migration-mfa.md)
+* [Självstudie: **Migrera en klassisk princip som kräver Multi-Factor Authentication i Azure Portal**](policy-migration-mfa.md)
    * Den här självstudien visar hur du migrerar en klassisk princip som kräver Multi-Factor Authentication (MFA) för en molnbaserad app.
 
 ## <a name="end-user-readiness-and-communication"></a>Slut användar beredskap och kommunikation

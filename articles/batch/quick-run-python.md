@@ -12,18 +12,20 @@ ms.author: lahugh
 ms.custom:
 - seo-python-october2019
 - mvc
-ms.openlocfilehash: e5ec131e73c40e72862122d360574bb4ee5d3cda
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 6c9690a74e8dff9978fa4e07883738d062238121
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329362"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437394"
 ---
 # <a name="quickstart-run-your-first-batch-job-with-the-python-api"></a>Snabbstart: Kör ditt första Batch-jobb med Python-API
 
-Denna snabbstart kör ett Azure Batch-jobb från en app som bygger på Azure Batch Python-API: et. Appen överför flera indatafiler till Azure-lagring och skapar sedan en *pool* med Batch-beräkningsnoder (virtuella datorer). Sedan skapar den ett *exempeljobb* som kör *aktiviteter* för att bearbeta varje indatafil på poolen med ett grundläggande kommando. När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
+Denna snabbstart kör ett Azure Batch-jobb från en app som bygger på Azure Batch Python-API: et.  När du har slutfört den här snabbstarten kommer du att förstå huvudbegreppen för Batch-tjänsten och vara redo att testa Batch med mer realistiska arbetsbelastningar i större skala.
+
+Appen överför flera indatafiler till Azure-lagring och skapar sedan en *pool* med Batch-beräkningsnoder (virtuella datorer). Sedan skapar den ett *exempeljobb* som kör *aktiviteter* för att bearbeta varje indatafil på poolen med ett grundläggande kommando.
  
-![Snabbstart för apparbetsflöde](./media/quick-run-python/sampleapp.png)
+![Översikt över Azure Batch arbets flöde](./media/quick-run-python/overview-of-the-azure-batch-workflow.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 

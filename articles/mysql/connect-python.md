@@ -8,15 +8,17 @@ ms.custom: seo-python-october2019
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 08/08/2019
-ms.openlocfilehash: afcf5f3ff5f104a95b700616f7c8bdd0723ac70c
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 9f9d432bc2f7d70396bca5d140f1a66a75fd7231
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331981"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434305"
 ---
-# <a name="azure-database-for-mysql-use-python-to-connect-and-query-data"></a>Azure Database för MySQL: Använda Python för att ansluta och fråga efter data
-Den här artikeln visar hur du använder [python](https://python.org) för att ansluta till en Azure Database for MySQL. SQL-instruktioner används för att fråga, infoga, uppdatera och ta bort data i databasen i Mac OS, Ubuntu Linux och Windows-plattformar. Det här avsnittet förutsätter att du är van att utveckla i Python och att du saknar erfarenhet av Azure Database for MySQL.
+# <a name="quickstart-use-python-to-connect-and-query-data-with-azure-database-for-mysql"></a>Snabb start: Använd python för att ansluta och fråga efter data med Azure Database for MySQL
+Den här artikeln visar hur du använder [python](https://python.org) för att ansluta till en Azure Database for MySQL. SQL-instruktioner används för att fråga, infoga, uppdatera och ta bort data i databasen i Mac OS, Ubuntu Linux och Windows-plattformar. 
+
+Det här avsnittet förutsätter att du är van att utveckla i Python och att du saknar erfarenhet av Azure Database for MySQL.
 
 ## <a name="prerequisites"></a>Krav
 I den här snabbstarten används de resurser som skapades i någon av följande guider som utgångspunkt:
@@ -66,7 +68,7 @@ Skaffa den information som du behöver för att ansluta till Azure Database för
 2. På den vänstra menyn i Azure Portal väljer du **alla resurser**och söker sedan efter den server som du har skapat (till exempel **mydemoserver**).
 3. Välj servernamnet.
 4. På serverpanelen **Översikt** antecknar du **Servernamn** och **Inloggningsnamn för serveradministratören**. Om du glömmer lösenordet kan du även återställa det på den här panelen.
- ![Azure Database för MySQL-servernamn](./media/connect-python/1_server-overview-name-login.png)
+ ![Azure Database för MySQL-servernamn](./media/connect-python/azure-database-for-mysql-server-overview-name-login.png)
 
 ## <a name="run-python-code"></a>Köra Python-kod
 - Klistra in koden i en textfil och spara sedan filen till en projektmapp med filnamnstillägget .py (till exempel C:\pythonmysql\createtable.py eller /home/username/pythonmysql/createtable.py).

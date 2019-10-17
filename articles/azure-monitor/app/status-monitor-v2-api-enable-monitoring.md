@@ -1,6 +1,6 @@
 ---
-title: 'Azure Statusövervakare v2 API-referens: Aktivera övervakning | Microsoft Docs'
-description: API-referens för Statusövervakare v2. Enable-ApplicationInsightsMonitoring. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: 'Referens för Azure Application Insights-agentens API: Aktivera övervakning | Microsoft Docs'
+description: Application Insights Agent-API-referens. Enable-ApplicationInsightsMonitoring. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 8742316697e6d6c8178bb02c8e7288499c655b6b
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: 2a310a83677bffc8843fdb8979ec272f197a8a39
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033133"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389879"
 ---
-# <a name="status-monitor-v2-api-enable-applicationinsightsmonitoring"></a>API för Statusövervakare v2: Aktivera – ApplicationInsightsMonitoring
+# <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>Application Insights Agent-API: Enable-ApplicationInsightsMonitoring
 
 Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -53,11 +53,11 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 
 ### <a name="example-with-an-instrumentation-key-map"></a>Exempel med en instrumentande nyckel karta
 I det här exemplet:
-- `MachineFilter`matchar den aktuella datorn med `'.*'` jokertecken.
-- `AppFilter='WebAppExclude'`tillhandahåller en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
-- `AppFilter='WebAppOne'`tilldelar den angivna appen en unik Instrumentation-nyckel.
-- `AppFilter='WebAppTwo'`tilldelar den angivna appen en unik Instrumentation-nyckel.
-- `AppFilter` Slutligen`'.*'` använder jokertecken jokertecken för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldelar en standard Instrumentation-nyckel.
+- `MachineFilter` matchar den aktuella datorn genom att använda jokertecknet `'.*'`.
+- `AppFilter='WebAppExclude'` har en `null` Instrumentation-nyckel. Den angivna appen instrumenteras inte.
+- `AppFilter='WebAppOne'` tilldelar den angivna appen en unik Instrumentation-nyckel.
+- `AppFilter='WebAppTwo'` tilldelar den angivna appen en unik Instrumentation-nyckel.
+- Slutligen använder `AppFilter` även jokertecknet `'.*'` för att matcha alla webbappar som inte matchar de tidigare reglerna och tilldela en standard Instrumentation-nyckel.
 - Blank steg har lagts till för läsbarhet.
 
 ```powershell
@@ -77,7 +77,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 ### <a name="-instrumentationkeymap"></a>-InstrumentationKeyMap
 **Kunna.** Använd den här parametern för att ange flera instrument nycklar och en mappning av de Instrumentation-nycklar som används av varje app.
-Du kan skapa ett enda installations skript för flera datorer genom att `MachineFilter`ange.
+Du kan skapa ett enda installations skript för flera datorer genom att ange `MachineFilter`.
 
 > [!IMPORTANT]
 > Apparna kommer att matchas mot regler i den ordning som reglerna anges. Därför bör du ange de mest aktuella reglerna först och de mest allmänna reglerna sist.
@@ -115,7 +115,7 @@ Använd den här växeln för att ignorera den här kontrollen och fortsätta in
 ### <a name="-whatif"></a>-WhatIf 
 **Gemensam parameter.** Använd den här växeln för att testa och validera dina indataparametrar utan att aktivera övervakning.
 
-## <a name="output"></a>Output
+## <a name="output"></a>Resultat
 
 
 #### <a name="example-output-from-a-successful-enablement"></a>Exempel på utdata från en lyckad aktivering
@@ -160,11 +160,11 @@ Successfully enabled Application Insights Status Monitor
 - [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
  
  Lägg till mer telemetri:
- - [Skapa](monitor-web-app-availability.md) webbtester för att se till att din webbplats hålls Live.
+ - [Skapa webbtester](monitor-web-app-availability.md) för att se till att din webbplats hålls Live.
 - [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
 - [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
  
- Gör mer med Statusövervakare v2:
- - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) statusövervakare v2.
+ Gör mer med Application Insights agent:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.
  - [Hämta konfigurationen](status-monitor-v2-api-get-config.md) för att bekräfta att inställningarna har registrerats korrekt.
  - [Hämta status](status-monitor-v2-api-get-status.md) för att inspektera övervakning.

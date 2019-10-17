@@ -11,14 +11,14 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5d89c0784c2125f5a7810ff134686645e8314a6
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 3e1024b529bd099c70b870fe8b059d4982f04e40
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960209"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389562"
 ---
-# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Instruktioner: Planera implementeringen av hybrid Azure Active Directorys anslutning
+# <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Gör så här: planera din hybrid Azure Active Directory delta-implementering
 
 På ett liknande sätt som en användare är en enhet en annan kärn identitet som du vill skydda och använda den för att skydda dina resurser när som helst och var som helst. Du kan uppnå det här målet genom att placera och hantera enhets identiteter i Azure AD med någon av följande metoder:
 
@@ -30,7 +30,7 @@ När du börjar använda dina enheter med Azure Active Directory maximerar du an
 
 Om du har en lokal Active Directory (AD)-miljö och vill ansluta till dina AD-domänanslutna datorer till Azure AD kan du göra detta genom att göra en hybrid Azure AD-anslutning. Den här artikeln innehåller relaterade steg för att implementera en hybrid Azure AD-anslutning i din miljö. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Den här artikeln förutsätter att du är bekant med [introduktionen till enhets identitets hantering i Azure Active Directory](../device-management-introduction.md).
 
@@ -43,11 +43,11 @@ För att planera din hybrid Azure AD-implementering bör du bekanta dig med:
 
 |   |   |
 | --- | --- |
-| ![Kontrollera][1] | Granska enheter som stöds |
-| ![Kontrollera][1] | Granska saker du bör känna till |
-| ![Kontrollera][1] | Granska kontrollerad validering av hybrid Azure AD-anslutning |
-| ![Kontrollera][1] | Välj ditt scenario baserat på din identitets infrastruktur |
-| ![Kontrollera][1] | Granska lokala AD UPN-stöd för Hybrid Azure AD-anslutning |
+| ![Markera][1] | Granska enheter som stöds |
+| ![Markera][1] | Granska saker du bör känna till |
+| ![Markera][1] | Granska kontrollerad validering av hybrid Azure AD-anslutning |
+| ![Markera][1] | Välj ditt scenario baserat på din identitets infrastruktur |
+| ![Markera][1] | Granska lokala AD UPN-stöd för Hybrid Azure AD-anslutning |
 
 ## <a name="review-supported-devices"></a>Granska enheter som stöds
 
@@ -97,7 +97,7 @@ Om dina Windows 10-domänanslutna enheter är [registrerade i Azure AD](overview
 
 ## <a name="review-controlled-validation-of-hybrid-azure-ad-join"></a>Granska kontrollerad validering av hybrid Azure AD-anslutning
 
-När alla krav är på plats registreras Windows-enheter automatiskt som enheter i din Azure AD-klient. Status för dessa enhets identiteter i Azure AD kallas för Hybrid Azure AD-anslutning. Mer information om de begrepp som beskrivs i den här artikeln finns i artiklarna [Introduktion till enhets identitets hantering i Azure Active Directory](overview.md) och [Planera hybrid Azure Active Directory Join-implementering](hybrid-azuread-join-plan.md).
+När alla krav är på plats registreras Windows-enheter automatiskt som enheter i din Azure AD-klient. Status för dessa enhets identiteter i Azure AD kallas för Hybrid Azure AD-anslutning. Mer information om de begrepp som beskrivs i den här artikeln finns i artikeln [Introduktion till enhets identitets hantering i Azure Active Directory](overview.md).
 
 Organisationer kan vilja göra en kontrollerad validering av hybrid Azure AD-anslutning innan den aktive ras i hela organisationen samtidigt. Läs igenom artikeln [kontrollerad verifiering av hybrid Azure AD-anslutning](hybrid-azuread-join-control.md) för att förstå hur du utför den.
 
@@ -140,15 +140,15 @@ Baserat på scenariot som matchar din identitets infrastruktur, se:
 
 Ibland kan dina lokala AD-UPN skilja sig från dina Azure AD-UPN. I sådana fall ger Windows 10 hybrid Azure AD Join begränsat stöd för lokala AD-UPN: er baserat på [autentiseringsmetoden](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn), domän typen och Windows 10-versionen. Det finns två typer av lokala AD-UPN: er som kan finnas i din miljö:
 
-- Dirigerbart UPN: Ett dirigerbart UPN har en giltig verifierad domän som har registrerats hos en domän registrator. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso.org den primära domänen i den lokala AD som ägs av Contoso och [verifierats i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
-- Icke-dirigerbart UPN: Ett icke-dirigerbart UPN har ingen verifierad domän. Den kan bara användas inom din organisations privata nätverk. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso. local den primära domänen i den lokala AD-domänen, men är inte en verifierbar domän på Internet och används endast i Contosos nätverk.
+- Dirigerbart UPN: ett dirigerbart UPN har en giltig verifierad domän som är registrerad hos en domän registrator. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso.org den primära domänen i den lokala AD som ägs av Contoso och [verifierats i Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/add-custom-domain)
+- Icke-dirigerbart UPN: ett icke-dirigerbart UPN har ingen verifierad domän. Den kan bara användas inom din organisations privata nätverk. Om contoso.com till exempel är den primära domänen i Azure AD, är contoso. local den primära domänen i den lokala AD-domänen, men är inte en verifierbar domän på Internet och används endast i Contosos nätverk.
 
 Tabellen nedan innehåller information om stöd för dessa lokala AD-UPN i Windows 10 hybrid Azure AD Join
 
-| Typ av lokalt AD-UPN | Domäntyp | Windows 10 version | Beskrivning |
+| Typ av lokalt AD-UPN | Domäntyp | Windows 10-version | Beskrivning |
 | ----- | ----- | ----- | ----- |
-| Dirigera | Federerad | Från 1703-version | Allmänt tillgänglig |
-| Ej dirigerbart | Federerad | Från 1803-version | Allmänt tillgänglig |
+| Dirigera | Externt | Från 1703-version | Allmänt tillgänglig |
+| Ej dirigerbart | Externt | Från 1803-version | Allmänt tillgänglig |
 | Dirigera | Hanterad | Från 1803-version | Azure AD-SSPR på Windows-låsskärm som är allmänt tillgängligt stöds inte |
 | Ej dirigerbart | Hanterad | Stöds inte | |
 

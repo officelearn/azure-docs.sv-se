@@ -1,32 +1,32 @@
 ---
-title: Azure-resurs hittades inte-fel | Microsoft Docs
-description: Beskriver hur du löser fel när en resurs inte kan hittas.
+title: Fel i Azure-resursen hittades inte | Microsoft Docs
+description: Beskriver hur du löser fel när det inte går att hitta en resurs när du distribuerar med en Azure Resource Manager-mall.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 06/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9c999a70ffdbed0c954cfc960b5febdaff06e4ae
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 4db50bbb3073fe98599923843e6afdded3a8ca62
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206194"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390283"
 ---
-# <a name="resolve-not-found-errors-for-azure-resources"></a>Lös hittas inte för Azure-resurser
+# <a name="resolve-not-found-errors-for-azure-resources"></a>Det gick inte att hitta fel för Azure-resurser
 
-Den här artikeln beskriver de fel som du kan se när en resurs går inte att hitta under distributionen.
+I den här artikeln beskrivs de fel som kan uppstå när det inte går att hitta en resurs under distributionen.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
-När mallen innehåller namnet på en resurs som inte kan matchas, visas ett fel som liknar:
+När din mall innehåller namnet på en resurs som inte kan lösas visas ett fel som liknar följande:
 
 ```
 Code=NotFound;
 Message=Cannot find ServerFarm with name exampleplan.
 ```
 
-Om du använder den [referens](resource-group-template-functions-resource.md#reference) eller [Listnycklar](resource-group-template-functions-resource.md#listkeys) funktioner med en resurs som inte kan matchas, du får följande fel:
+Om du använder [referens](resource-group-template-functions-resource.md#reference) -eller [listnycklar](resource-group-template-functions-resource.md#listkeys) -funktionerna med en resurs som inte kan lösas visas följande fel meddelande:
 
 ```
 Code=ResourceNotFound;
@@ -36,11 +36,11 @@ group {resource group name} was not found.
 
 ## <a name="cause"></a>Orsak
 
-Resource Manager behöver hämta egenskaperna för en resurs, men det går inte att identifiera resursen i din prenumeration.
+Resource Manager måste hämta egenskaperna för en resurs, men kan inte identifiera resursen i din prenumeration.
 
 ## <a name="solution-1---set-dependencies"></a>Lösning 1 – ange beroenden
 
-Om du försöker distribuera den saknade resursen i mallen kan du kontrollera om du behöver lägga till ett beroende. Resource Manager optimerar distribution genom att skapa resurser parallellt vid behov. Om en resurs måste distribueras efter en annan resurs, måste du använda den **dependsOn** elementet i mallen. App Service-planen måste till exempel finnas när du distribuerar en webbapp. Om du inte har angett att webbappen är beroende av App Service-planen, skapar Resource Manager båda resurserna på samma gång. Du får ett felmeddelande om att App Service-plan resursen inte kan hittas, eftersom det inte finns ännu vid försök att ange en egenskap för webbappen. Du kan förhindra att det här felet genom att ange beroendet i webbappen.
+Om du försöker distribuera den saknade resursen i mallen kontrollerar du om du behöver lägga till ett beroende. Resource Manager optimerar distributionen genom att skapa resurser parallellt, när så är möjligt. Om en resurs måste distribueras efter en annan resurs måste du använda **dependsOn** -elementet i mallen. Om du till exempel distribuerar en webbapp måste App Service plan finnas. Om du inte har angett att webbappen är beroende av App Service plan, skapar Resource Manager båda resurserna på samma gång. Du får ett fel meddelande om att det inte finns någon App Service plan resurs, eftersom den inte finns ännu vid försök att ange en egenskap för webbappen. Du undviker det här felet genom att ange beroendet i webbappen.
 
 ```json
 {
@@ -53,29 +53,29 @@ Om du försöker distribuera den saknade resursen i mallen kan du kontrollera om
 }
 ```
 
-Men du vill undvika att beroenden som inte behövs. När du har onödiga beroenden kan förlänga varaktigheten för distributionen genom att förhindra att resurser som inte är beroende av varandra från att distribueras parallellt. Du kan dessutom skapa cirkulärt tjänstberoende som blockerar distributionen. Den [referens](resource-group-template-functions-resource.md#reference) funktion och [lista *](resource-group-template-functions-resource.md#list) functions skapar en implicit beroende på den refererade resursen när den här resursen har distribuerats i samma mall och refereras till av sitt namn (inte resurs-ID ). Du kan därför har flera beroenden än beroenden i den **dependsOn** egenskapen. Den [resourceId](resource-group-template-functions-resource.md#resourceid) funktionen inte skapa en implicit beroende eller verifiera att resursen finns. Den [referens](resource-group-template-functions-resource.md#reference) funktion och [lista *](resource-group-template-functions-resource.md#list) funktion inte skapa beroende av ett implicit när resursen är refereras till av dess resurs-ID. Om du vill skapa beroende av ett implicit, skicka namnet på den resurs som har distribuerats i samma mall.
+Men du vill undvika att ange beroenden som inte behövs. När du har onödiga beroenden kan du förlänga varaktigheten för distributionen genom att förhindra att resurser som inte är beroende av varandra distribueras parallellt. Dessutom kan du skapa cirkulära beroenden som blockerar distributionen. Funktionen [Reference](resource-group-template-functions-resource.md#reference) och [list *](resource-group-template-functions-resource.md#list) Functions skapar ett implicit beroende av den refererade resursen när resursen distribueras i samma mall och refereras till av sitt namn (inte resurs-ID). Det kan därför finnas fler beroenden än de beroenden som anges i egenskapen **dependsOn** . Funktionen [resourceId](resource-group-template-functions-resource.md#resourceid) skapar inte ett implicit beroende eller kontrollerar att resursen finns. Funktionen [Reference](resource-group-template-functions-resource.md#reference) och [list *](resource-group-template-functions-resource.md#list) Functions skapar inte ett implicit beroende när resursen refereras till av resurs-ID: t. Om du vill skapa ett implicit beroende skickar du namnet på den resurs som har distribuerats i samma mall.
 
-När du ser beroende problem, måste du få insyn i ordningen på resursdistributionen. Visa ordningen på distributionsåtgärder:
+När du ser beroende problem måste du få insikt i ordningen på resurs distributionen. Så här visar du ordningen på distributions åtgärder:
 
-1. Välj distributionshistoriken för din resursgrupp.
+1. Välj distributions historik för resurs gruppen.
 
-   ![Välj distributionshistoriken](./media/resource-manager-not-found-errors/select-deployment.png)
+   ![Välj distributions historik](./media/resource-manager-not-found-errors/select-deployment.png)
 
-2. Välj en distribution från historiken över och välj **händelser**.
+2. Välj en distribution från historiken och välj **händelser**.
 
-   ![Välj distributionen händelser](./media/resource-manager-not-found-errors/select-deployment-events.png)
+   ![Välj distributions händelser](./media/resource-manager-not-found-errors/select-deployment-events.png)
 
-3. Granska sekvens av händelser för varje resurs. Uppmärksam på status för varje åtgärd. Följande bild visar exempelvis tre lagringskonton som har distribuerat parallellt. Observera att tre lagringskonton har startats på samma gång.
+3. Granska händelse ordningen för varje resurs. Var uppmärksam på status för varje åtgärd. Följande bild visar till exempel tre lagrings konton som distribueras parallellt. Observera att de tre lagrings kontona startas samtidigt.
 
    ![parallell distribution](./media/resource-manager-not-found-errors/deployment-events-parallel.png)
 
-   I nästa bild visas tre lagringskonton som inte är distribuerat parallellt. Andra lagringskonto beror på det första lagringskontot och det tredje storage-kontot är beroende av andra lagringskontot. Det första lagringskontot är igång, accepteras och har slutförts innan nästa startas.
+   Nästa bild visar tre lagrings konton som inte distribueras parallellt. Det andra lagrings kontot är beroende av det första lagrings kontot och det tredje lagrings kontot är beroende av det andra lagrings kontot. Det första lagrings kontot har startats, godkänts och slutförts innan nästa påbörjas.
 
-   ![sekventiellt distributionen](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
+   ![sekventiell distribution](./media/resource-manager-not-found-errors/deployment-events-sequence.png)
 
-## <a name="solution-2---get-resource-from-different-resource-group"></a>Lösning 2 – hämta resursen från en annan resursgrupp
+## <a name="solution-2---get-resource-from-different-resource-group"></a>Lösning 2 – Hämta resurs från en annan resurs grupp
 
-När resursen finns i en annan resursgrupp än den som har distribuerats till, använder den [resourceId funktionen](resource-group-template-functions-resource.md#resourceid) att hämta det fullständigt kvalificerade namnet på resursen.
+När resursen finns i en annan resurs grupp än den som distribueras till, använder du [funktionen resourceId](resource-group-template-functions-resource.md#resourceid) för att hämta det fullständigt kvalificerade namnet på resursen.
 
 ```json
 "properties": {
@@ -84,9 +84,9 @@ När resursen finns i en annan resursgrupp än den som har distribuerats till, a
 }
 ```
 
-## <a name="solution-3---check-reference-function"></a>Lösning 3 – kontrollfunktionen för referens
+## <a name="solution-3---check-reference-function"></a>Lösning 3 – kontrol lera referens funktion
 
-Leta efter ett uttryck som innehåller den [referens](resource-group-template-functions-resource.md#reference) funktion. De värden som du anger varierar beroende på om resursen är i samma mall, resursgrupp och prenumeration. Kontrollera att du etablerar de obligatoriska parametervärdena för ditt scenario. Om resursen finns i en annan resursgrupp, tillhandahåller fullständiga resurs-ID. Till exempel om du vill referera till ett lagringskonto i en annan resursgrupp, använder du:
+Leta efter ett uttryck som innehåller [referens](resource-group-template-functions-resource.md#reference) funktionen. Värdena som du anger varierar beroende på om resursen finns i samma mall, resurs grupp och prenumeration. Dubbel kontroll av att du tillhandahåller de parameter värden som krävs för ditt scenario. Om resursen finns i en annan resurs grupp anger du det fullständiga resurs-ID: t. Om du till exempel vill referera till ett lagrings konto i en annan resurs grupp använder du:
 
 ```json
 "[reference(resourceId('exampleResourceGroup', 'Microsoft.Storage/storageAccounts', 'myStorage'), '2017-06-01')]"

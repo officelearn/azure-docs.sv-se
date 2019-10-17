@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Identifiera tal- C# , (Xamarin) – tal-service'
+title: 'Snabb start: identifiera tal C# , (Xamarin) – tal tjänst'
 titleSuffix: Azure Cognitive Services
 description: I den här artikeln skapar du ett plattforms oberoende C# Xamarin-program för Windows UWP, Android och iOS med hjälp av COGNITIVE Services Speech SDK. Du kan skriva tal i text i real tid från enhetens eller Simulatorns mikrofon. Programmet har skapats med tal SDK NuGet-paketet och Microsoft Visual Studio 2019.
 services: cognitive-services
@@ -11,25 +11,25 @@ ms.topic: quickstart
 ms.date: 09/16/2019
 ms.author: jhakulin
 ms.custom: ''
-ms.openlocfilehash: 02031e8e2800329134eaf34f5f99c93a20b99aac
-ms.sourcegitcommit: 4f3f502447ca8ea9b932b8b7402ce557f21ebe5a
+ms.openlocfilehash: c9467bac8b5998252c021faca4eb4177c42a1736
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71804057"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387390"
 ---
-# <a name="quickstart-recognize-speech-using-cross-platform-xamarin-app-by-using-the-speech-sdk"></a>Snabbstart: Identifiera tal med Xamarin-appen över plattformar med hjälp av tal-SDK
+# <a name="quickstart-recognize-speech-using-cross-platform-xamarin-app-by-using-the-speech-sdk"></a>Snabb start: identifiera tal med Xamarin-appen över plattformar med hjälp av tal-SDK
 
 Snabb Starter är också tillgängliga för [tal till text](quickstart-csharp-uwp.md), [text till tal](quickstart-text-to-speech-csharp-uwp.md) -och [tal översättning](quickstart-translate-speech-uwp.md).
 
 I den här artikeln utvecklar du ett plattforms oberoende C# program med Xamarin för universell Windows-plattform (UWP), Android och iOS med hjälp av [talet SDK](speech-sdk.md). Programmet utvärderar tal till text i real tid från enhetens mikrofon. Programmet har skapats med [tal SDK NuGet-paketet](https://aka.ms/csspeech/nuget) och Microsoft Visual Studio 2019 (alla versioner).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För den här snabbstarten krävs:
 
 * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/).
-* En Azure-prenumerationsnyckel för Speech Service. [Skaffa en kostnadsfritt](get-started.md).
+* En Azure-prenumerationsnyckel för Speech Service. [Skaffa en utan kostnad](get-started.md).
 * En Windows-dator med Windows 10 är Creators Update (10,0; Build 16299) eller senare och med en fungerande mikrofon.
 * [Xamarin-installation till Visual Studio](https://docs.microsoft.com/xamarin/get-started/installation/?pivots=windows).
 * [Xamarin Android-installation i Windows](https://docs.microsoft.com/xamarin/android/get-started/installation/windows).
@@ -54,17 +54,19 @@ Lägg nu till XAML-koden som definierar användar gränssnittet för programmet 
 
    [!code-xml[UI elements](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/MainPage.xaml)]
 
-1. Öppna käll filen bakomliggande kod `MainPage.xaml.cs` i **Solution Explorer**. (Det är grupperat `MainPage.xaml`under.)
+1. Öppna käll filen bakomliggande kod `MainPage.xaml.cs` i **Solution Explorer**. (Den grupperas under `MainPage.xaml`.)
 
 1. Ersätt all kod i den med följande kodfragment:
 
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/MainPage.xaml.cs)]
 
-1. Leta upp strängen `YourSubscriptionKey`i käll `OnRecognitionButtonClicked` filens hanterare och ersätt den med din prenumerations nyckel.
+1. Leta upp strängen `YourSubscriptionKey` i käll filens `OnRecognitionButtonClicked`-hanterare och ersätt den med din prenumerations nyckel.
 
-1. Leta upp strängen `YourServiceRegion` i Hanteraren för `OnRecognitionButtonClicked` och ersätt den med den [region](regions.md) som är associerad med din prenumeration. (Använd `westus` till exempel för den kostnads fria prov prenumerationen.)
+1. Leta upp strängen `YourServiceRegion` i Hanteraren för `OnRecognitionButtonClicked` och ersätt den med den [region](regions.md) som är associerad med din prenumeration. (Använd exempelvis `westus` för den kostnads fria prov prenumerationen.)
 
-1. Därefter måste du skapa en [Xamarin-tjänst](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/)som används för att fråga mikrofon behörigheter från olika plattforms projekt (UWP, Android och iOS). Om du vill göra det lägger du till en ny mapp `Services` under projektet @no__t- C# 1 och skapar en ny källfil under den (högerklicka på `Services`-mapp och **Lägg till** > **nytt objekt** > **kod fil**) och Byt namn på den till `IMicrophoneService.cs` och placera all kod från följande kodfragment i filen: `helloworld`0 @ no__t-11
+1. Därefter måste du skapa en [Xamarin-tjänst](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/)som används för att fråga mikrofon behörigheter från olika plattforms projekt (UWP, Android och iOS). Om du vill göra det lägger du till en ny mapp `Services` under projektet @no__t- C# 1 och skapar en ny källfil under den (högerklicka på `Services`-mapp och **Lägg till** > **nytt objekt** > **kod fil**) och Byt namn på den till `IMicrophoneService.cs` och placera all kod från följande kodfragment i filen:
+
+[!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>Lägg till exempel kod för projektet `helloworld.Android`
 
@@ -120,7 +122,7 @@ Lägg nu till C# den kod som definierar den UWP specifika delen av programmet.
    [!code-csharp[Quickstart Code](~/samples-cognitive-services-speech-sdk/quickstart/csharp-xamarin/helloworld/helloworld.UWP/Services/MicrophoneService.cs)]
 
 1. Nästa gång du dubbelklickar på `Package.appxmanifest`-fil under `helloworld.UWP`-projektet i Visual Studio och under **funktioner** > **mikrofon** är markerat och sparar filen.
-   > Obs! Om du ser varning: Certifikat filen finns inte: HelloWorld. UWP_TemporaryKey. pfx, kontrol lera [tal till text](quickstart-csharp-uwp.md) -exemplet för mer information.
+   > Obs: om du ser varning: certifikat filen finns inte: HelloWorld. UWP_TemporaryKey. pfx, kontrol lera [tal till text](quickstart-csharp-uwp.md) -exemplet för mer information.
 
 1. I meny raden väljer du **arkiv** > **Spara alla** för att spara ändringarna.
 

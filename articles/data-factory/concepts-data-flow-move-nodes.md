@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/04/2018
-ms.openlocfilehash: 853fff955a953052b94ad4e7e1dd55371069c30b
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 2031820843342fb7e6b115865297e08cbee28a0a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030182"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387333"
 ---
 # <a name="mapping-data-flow-move-nodes"></a>Mappa data flöde flytta noder
 
 
 
-Aggregator-(media/data-flow/agghead.png "rubrik") för ![aggregerade omvandlings alternativ]
+![Sammanställda omvandlings alternativ](media/data-flow/agghead.png "aggregator-rubrik")
 
 Den Azure Data Factory data flödets design yta är en "konstruktion"-yta där du skapar data flödar uppifrån och ned, från vänster till höger. Det finns en verktygs låda som är kopplad till varje omvandling med plus tecknet (+). Fokusera på affärs logiken i stället för att ansluta noder via kanter i en kostnads fri form av en DAG miljö.
 

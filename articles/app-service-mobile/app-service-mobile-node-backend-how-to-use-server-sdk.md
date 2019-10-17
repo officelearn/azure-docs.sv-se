@@ -14,20 +14,21 @@ ms.devlang: node
 ms.topic: article
 ms.date: 10/01/2016
 ms.author: crdun
-ms.openlocfilehash: 74a522f8761c2eeaf329c90ae35aef0f44c40254
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: a3883d233bd621607ec724e0c85734b508195340
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027203"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388664"
 ---
 # <a name="how-to-use-the-mobile-apps-nodejs-sdk"></a>Använda Mobile Apps Node. js SDK
 
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+>  Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 Den här artikeln innehåller detaljerad information och exempel som visar hur du arbetar med en Node. js-Server del i Mobile Apps funktionen i Azure App Service.
 
@@ -143,7 +144,7 @@ Visual Studio 2015 kräver ett tillägg för att utveckla Node. js-program i IDE
 
 ### <a name="create-node-backend-portal"></a>Skapa en Node. js-Server del med hjälp av Azure Portal
 
-Du kan skapa en Mobile Apps Server del direkt i [Azure Portal]. Du kan antingen utföra följande steg eller skapa en klient och Server tillsammans genom att följa själv studie kursen [skapa en mobilapp](app-service-mobile-ios-get-started.md) . I självstudien finns en förenklad version av dessa instruktioner och det är bäst att använda POC-projekt.
+Du kan skapa en Mobile Apps Server del direkt i [Azure-portalen]. Du kan antingen utföra följande steg eller skapa en klient och Server tillsammans genom att följa själv studie kursen [skapa en mobilapp](app-service-mobile-ios-get-started.md) . I självstudien finns en förenklad version av dessa instruktioner och det är bäst att använda POC-projekt.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service-classic](../../includes/app-service-mobile-dotnet-backend-create-new-service-classic.md)]
 
@@ -156,7 +157,7 @@ När du skapar en Node. js-Mobile Apps Server delen med hjälp av portalens **sn
 
 I följande procedur används en git-lagringsplats för att ladda ned snabb starts koden:
 
-1. Installera Git om du inte redan gjort det. De steg som krävs för att installera git varierar mellan olika operativ system. Information om distributioner och installations anvisningar för operativ system finns i [Installera git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
+1. Installera git, om du inte redan har gjort det. De steg som krävs för att installera git varierar mellan olika operativ system. Information om distributioner och installations anvisningar för operativ system finns i [Installera git](https://git-scm.com/book/en/Getting-Started-Installing-Git).
 2. Se [förbereda lagrings](../app-service/deploy-local-git.md#prepare-your-repository) platsen för att aktivera git-lagringsplatsen för backend-platsen. Anteckna distributionens användar namn och lösen ord.
 3. I fönstret för Mobile Apps Server del noterar du URL-inställningen för git- **kloningen** .
 4. Kör kommandot `git clone` med hjälp av Git-klon-URL: en. Ange ditt lösen ord vid behov, som i följande exempel:
@@ -340,7 +341,7 @@ Få åtkomst till databasen via en TCP/IP-anslutning. Ange ett användar namn oc
 
 ### <a name="howto-config-localdev"></a>Konfigurera ditt projekt för lokal utveckling
 
-Mobile Apps läser en JavaScript-fil med namnet *azureMobile. js* från det lokala fil systemet. Använd inte den här filen för att konfigurera Mobile Apps SDK i produktion. Använd i stället **appinställningar** i [Azure Portal].
+Mobile Apps läser en JavaScript-fil med namnet *azureMobile. js* från det lokala fil systemet. Använd inte den här filen för att konfigurera Mobile Apps SDK i produktion. Använd i stället **appinställningar** i [Azure-portalen].
 
 AzureMobile. js-filen bör exportera ett konfigurations objekt. De vanligaste inställningarna är:
 
@@ -368,25 +369,25 @@ module.exports = {
 };
 ```
 
-Vi rekommenderar att du lägger till **azureMobile. js** i **. gitignore** -filen (eller annan käll kods kontroll ignorera fil) för att förhindra att lösen ord lagras i molnet. Konfigurera alltid produktions inställningar i **appinställningar** inom [Azure Portal].
+Vi rekommenderar att du lägger till **azureMobile. js** i **. gitignore** -filen (eller annan käll kods kontroll ignorera fil) för att förhindra att lösen ord lagras i molnet. Konfigurera alltid produktions inställningar i **appinställningar** inom [Azure-portalen].
 
 ### <a name="howto-appsettings"></a>Konfigurera appinställningar för mobilappen
 
-De flesta inställningar i filen azureMobile. js har en motsvarande app-inställning i [Azure Portal]. Använd följande lista för att konfigurera din app i **appinställningar**:
+De flesta inställningar i filen azureMobile. js har en motsvarande app-inställning i [Azure-portalen]. Använd följande lista för att konfigurera din app i **appinställningar**:
 
 | App-inställning | azureMobile. js-inställning | Beskrivning | Giltiga värden |
 |:--- |:--- |:--- |:--- |
-| **MS_MobileAppName** |name |Appens namn |sträng |
+| **MS_MobileAppName** |namn |Appens namn |sträng |
 | **MS_MobileLoggingLevel** |loggning. nivå |Lägsta logg nivå för meddelanden som ska loggas |fel, varning, info, verbose, debug, Silly |
-| **MS_DebugMode** |förbigå |Aktiverar eller inaktiverar fel söknings läge |true, false |
-| **MS_TableSchema** |data.schema |Standard schema namn för SQL-tabeller |sträng (standard: dbo) |
-| **MS_DynamicSchema** |data.dynamicSchema |Aktiverar eller inaktiverar fel söknings läge |true, false |
-| **MS_DisableVersionHeader** |version (inställt på odefinierad) |Inaktiverar huvudet X-ZUMO-Server-version |true, false |
-| **MS_SkipVersionCheck** |skipversioncheck |Inaktiverar kontroll av klientens API-version |true, false |
+| **MS_DebugMode** |förbigå |Aktiverar eller inaktiverar fel söknings läge |sant, falskt |
+| **MS_TableSchema** |data. schema |Standard schema namn för SQL-tabeller |sträng (standard: dbo) |
+| **MS_DynamicSchema** |data. dynamicSchema |Aktiverar eller inaktiverar fel söknings läge |sant, falskt |
+| **MS_DisableVersionHeader** |version (inställt på odefinierad) |Inaktiverar huvudet X-ZUMO-Server-version |sant, falskt |
+| **MS_SkipVersionCheck** |skipversioncheck |Inaktiverar kontroll av klientens API-version |sant, falskt |
 
 Ange en app-inställning:
 
-1. Logga in på [Azure Portal].
+1. Logga in på [Azure-portalen].
 1. Välj **alla resurser** eller **app Services**och välj sedan namnet på din mobilapp.
 1. Fönstret **Inställningar** öppnas som standard. Om den inte är det väljer du **Inställningar**.
 1. Välj **program inställningar**på menyn **Allmänt** .
@@ -403,7 +404,7 @@ Om du ändrar de flesta appinställningar måste du starta om tjänsten.
 
 Att använda Azure SQL Database som ett data lager är identiskt för alla Azure App Service program typer. Om du inte redan har gjort det följer du stegen nedan för att skapa en Mobile Apps Server del:
 
-1. Logga in på [Azure Portal].
+1. Logga in på [Azure-portalen].
 1. Klicka på knappen **+ ny** i det övre vänstra hörnet i fönstret för > **webb och mobilt** >- **mobilapp**och ange sedan ett namn för Mobile Apps Server delen.
 1. I rutan **resurs grupp** anger du samma namn som din app.
 1. Standard App Service plan väljs. Om du vill ändra App Service plan:
@@ -441,7 +442,7 @@ Det kan ta några minuter att skapa databasen. Använd **aviserings** området f
 
 ### <a name="howto-tables-auth"></a>Kräv autentisering för åtkomst till tabeller
 
-Om du vill använda App Service autentisering med slut punkten `tables` måste du konfigurera App Service autentisering i [Azure Portal] först. Mer information finns i konfigurations guiden för den identitetsprovider som du tänker använda:
+Om du vill använda App Service autentisering med slut punkten `tables` måste du konfigurera App Service autentisering i [Azure-portalen] först. Mer information finns i konfigurations guiden för den identitetsprovider som du tänker använda:
 
 * [Konfigurera Azure Active Directory autentisering]
 * [Konfigurera Facebook-autentisering]
@@ -752,7 +753,7 @@ När du registrerar dig för push-meddelanden från en autentiserad klient kontr
 
 Förutom data åtkomst-API: et via `/tables`-slutpunkten kan Mobile Apps tillhandahålla anpassad API-täckning. Anpassade API: er definieras på liknande sätt som tabell definitioner och har åtkomst till alla funktioner, inklusive autentisering.
 
-Om du vill använda App Service autentisering med ett anpassat API måste du konfigurera App Service autentisering i [Azure Portal] först. Mer information finns i konfigurations guiden för den identitetsprovider som du tänker använda:
+Om du vill använda App Service autentisering med ett anpassat API måste du konfigurera App Service autentisering i [Azure-portalen] först. Mer information finns i konfigurations guiden för den identitetsprovider som du tänker använda:
 
 * [Konfigurera Azure Active Directory autentisering]
 * [Konfigurera Facebook-autentisering]
@@ -798,7 +799,7 @@ var api = {
 module.exports = api;
 ```
 
-Varje parameter är en av standard RESTful-verben: Hämta, skicka, korrigera eller ta bort. Metoden är en standard [ExpressJS mellanprogram] funktioner som skickar nödvändiga utdata.
+Varje parameter är en av standard RESTful-verben: GET, POST, PATCH eller DELETE. Metoden är en standard [ExpressJS mellanprogram] funktioner som skickar nödvändiga utdata.
 
 ### <a name="howto-customapi-auth"></a>Kräv autentisering för åtkomst till ett anpassat API
 
@@ -906,7 +907,7 @@ Information om hur du kommer igång med fel sökning av Node. js Mobile Apps Ser
 * [Aktivera diagnostisk loggning i Azure App Service]
 * [Felsöka Azure App Service i Visual Studio]
 
-Node. js-program har till gång till en mängd diagnostiska logg verktyg. Internt använder Mobile Apps Node. js SDK [Winston] för diagnostisk loggning. Loggning aktive ras automatiskt när du aktiverar fel söknings läge eller anger appens inställning för `MS_DebugMode` till true i [Azure Portal]. Skapade loggar visas i diagnostikloggar i [Azure Portal].
+Node. js-program har till gång till en mängd diagnostiska logg verktyg. Internt använder Mobile Apps Node. js SDK [Winston] för diagnostisk loggning. Loggning aktive ras automatiskt när du aktiverar fel söknings läge eller anger appens inställning för `MS_DebugMode` till true i [Azure-portalen]. Skapade loggar visas i diagnostikloggar i [Azure-portalen].
 
 <!-- Images -->
 [0]: ./media/app-service-mobile-node-backend-how-to-use-server-sdk/npm-init.png
@@ -942,7 +943,7 @@ Node. js-program har till gång till en mängd diagnostiska logg verktyg. Intern
 [Express]: https://expressjs.com/
 [Swagger]: https://swagger.io/
 
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [OData]: https://www.odata.org
 [Löften]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise
 [basicapp-exempel på GitHub]: https://github.com/azure/azure-mobile-apps-node/tree/master/samples/basic-app

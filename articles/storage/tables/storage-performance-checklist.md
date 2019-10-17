@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.author: tamram
 ms.subservice: tables
-ms.openlocfilehash: d9fe4ee761a7ff9570bf0df61a8990f82640b4f7
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: b36ed2cac7e5009a0581091252b36dcd5af81bd7
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311603"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389982"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Check lista för prestanda och skalbarhet för tabell lagring
 
@@ -65,7 +65,7 @@ Mer information om skalbarhets mål för Table service finns i [Azure Storage sk
 
 ### <a name="maximum-number-of-storage-accounts"></a>Maximalt antal lagrings konton
 
-Om du närmar dig det maximala antalet lagrings konton som tillåts för en viss kombination av prenumerationer och regioner använder du flera lagrings konton för att Shard ska öka ingress, utgående, I/O-åtgärder per sekund (IOPS) eller kapacitet? I det här scenariot rekommenderar Microsoft att du utnyttjar ökade gränser för standard lagrings konton för att minska antalet lagrings konton som krävs för din arbets belastning om det är möjligt. Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) för att begära ökade gränser för ditt lagrings konto. Mer information finns i avsnittet om att [presentera större och högre skalnings lagrings konton](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
+Om du närmar dig det maximala antalet lagrings konton som tillåts för en viss kombination av prenumerationer och regioner använder du flera lagrings konton för att Shard ska öka ingress, utgående, I/O-åtgärder per sekund (IOPS) eller kapacitet? I det här scenariot rekommenderar Microsoft att du utnyttjar ökade gränser för lagrings konton för att minska antalet lagrings konton som krävs för din arbets belastning om det är möjligt. Kontakta [Azure-supporten](https://azure.microsoft.com/support/options/) för att begära ökade gränser för ditt lagrings konto. Mer information finns i avsnittet om att [presentera större och högre skalnings lagrings konton](https://azure.microsoft.com/blog/announcing-larger-higher-scale-storage-accounts/).
 
 ### <a name="capacity-and-transaction-targets"></a>Kapacitets-och transaktions mål
 
@@ -282,6 +282,4 @@ Om du utför batch-infogningar och sedan hämtar intervall av entiteter, bör du
 ## <a name="next-steps"></a>Nästa steg
 
 - [Azure Storage skalbarhets-och prestanda mål för lagrings konton](../common/storage-scalability-targets.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json)
-- [Check lista för prestanda och skalbarhet för Blob Storage](../blobs/storage-performance-checklist.md)
-- [Check lista för prestanda och skalbarhet för Queue Storage](../queues/storage-performance-checklist.md)
 - [Status och felkoder](/rest/api/storageservices/Status-and-Error-Codes2)

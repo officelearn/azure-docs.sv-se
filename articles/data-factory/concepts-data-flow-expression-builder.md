@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 09/30/2019
-ms.openlocfilehash: 9862866d5cddb227d9417ac15db6b8ea851507e6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 872c7ce6a0c39ab19165a5f16ea3e4f6ef8bd6a5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030290"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388053"
 ---
 # <a name="mapping-data-flow-expression-builder"></a>Mappa data flöde uttrycks verktyg
 
@@ -19,37 +19,37 @@ ms.locfileid: "72030290"
 
 I Azure Data Factory mappa data flödet hittar du resultat rutor där du kan ange uttryck för data omvandling. Använd kolumner, fält, variabler, parametrar, funktioner från ditt data flöde i dessa rutor. Om du vill bygga uttrycket använder du uttrycks verktyget, som startas genom att klicka i text rutan uttryck inuti omvandlingen. Ibland kan du också se alternativen för beräknad kolumn när du väljer kolumner för omvandling. När du klickar på den visas även uttrycks verktyget.
 
-![Uttrycks verktyg för uttrycks verktyget](media/data-flow/xpb1.png "")
+![Uttrycks verktyg](media/data-flow/xpb1.png "Uttrycksverktyget")
 
 Uttrycks verktyget standard är standard alternativet text redigerare. funktionen för automatisk komplettering läser från hela Azure Data Factory data flödes objekt modell med syntaxkontroll och markering.
 
-![Uttrycks]automatisk komplettering i uttrycks verktyg(media/data-flow/expb1.png "automatiskt")
+![Slutför uttrycks verktyg automatiskt](media/data-flow/expb1.png "Slutför uttrycks verktyg automatiskt")
 
 ## <a name="build-schemas-in-output-schema-pane"></a>Bygg scheman i fönstret utdata schema
 
-![Lägg till komplexa]kolumner(media/data-flow/complexcolumn.png "Lägg till kolumner")
+![Lägg till komplex kolumn](media/data-flow/complexcolumn.png "Lägg till kolumner")
 
 I fönstret till vänster schema för utdata visas de kolumner som du ändrar och lägger till i schemat. Du kan bygga enkla och komplexa data strukturer interaktivt här. Lägg till ytterligare fält med hjälp av "Lägg till kolumn" och skapa hierarkier med "Lägg till underkolumn".
 
-![Lägg]till under kolumn(media/data-flow/addsubcolumn.png "Lägg till under kolumn")
+![Lägg till under kolumn](media/data-flow/addsubcolumn.png "Lägg till under kolumn")
 
 ## <a name="data-preview-in-debug-mode"></a>Förhandsgranska data i fel söknings läge
 
-(media/data-flow/exp4b.png "Förhands granskning") av ![uttrycks]data
+![Uttrycks verktyg](media/data-flow/exp4b.png "För hands version av uttrycks data")
 
 När du arbetar med dina data flödes uttryck växlar du till fel söknings läge från den Azure Data Factory data flödets design yta, vilket möjliggör en pågående för hands version av data resultaten från det uttryck som du skapar. Direkt fel sökning i real tid har Aktiver ATS för dina uttryck.
 
-(media/data-flow/debugbutton.png "Knappen Felsök") i ![fel söknings läge]
+![Fel söknings läge](media/data-flow/debugbutton.png "Knappen Felsök")
 
 Klicka på Uppdatera om du vill uppdatera resultatet av ditt uttryck mot ett Live-exempel på källan i real tid.
 
-(media/data-flow/exp5.png "Förhands granskning") av ![uttrycks]data
+![Uttrycks verktyg](media/data-flow/exp5.png "För hands version av uttrycks data")
 
-## <a name="comments"></a>Kommentar
+## <a name="comments"></a>Kommentarer
 
 Lägg till kommentarer till dina uttryck med hjälp av en enkel rad och en kommentar med flera rader:
 
-![Kommentarer](media/data-flow/comments.png "")
+![Kommentarer](media/data-flow/comments.png "Kommentarer")
 
 ## <a name="regular-expressions"></a>Reguljära uttryck
 
@@ -71,7 +71,7 @@ regex_replace('100 and 200', '(\\d+)', 'digits')
 
 Med uttrycks funktioner som returnerar matriser, använder du hakparenteser [] för att adressera vissa index inuti det returnerade mat ris objektet. Matrisen är en-baserad.
 
-(media/data-flow/expb2.png "Förhands granskning") av Expression ![Builder mat ris]-data
+![Expression Builder-matris](media/data-flow/expb2.png "För hands version av uttrycks data")
 
 ## <a name="handling-names-with-special-characters"></a>Hantera namn med specialtecken
 

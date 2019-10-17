@@ -16,18 +16,18 @@ ms.author: cephalin
 ms.custom: seo-python-october2019
 experimental: true
 experiment_id: 1e304dc9-5add-4b
-ms.openlocfilehash: 7a0aded07c2cd4da6ada72bdb967b1d485a56b85
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: e8ca84f233b3e6202a4647d15e07b36c2b8f1128
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329976"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433117"
 ---
-# <a name="create-a-python-app-in-azure-app-service-on-linux"></a>Skapa en python-app i Azure App Service på Linux
+# <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Snabb start: skapa en python-app i Azure App Service på Linux
 
 I den här artikeln ska du distribuera en enkel python-app till [app service på Linux](app-service-linux-intro.md), som ger en mycket skalbar och automatisk korrigering av webb värd tjänst. Du kan använda Azures kommando rads gränssnitt ( [Azure CLI](/cli/azure/install-azure-cli)) via interaktiva, webbläsarbaserat Azure Cloud Shell, så du kan följa stegen i använda en Mac-, Linux-eller Windows-dator.
 
-![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
+![Köra en python-app i App Service i Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 ## <a name="prerequisites"></a>Krav
 
@@ -72,7 +72,7 @@ flask run
 
 Du ser meddelandet **Hello World!** från exempelappen på sidan.
 
-![Exempelapp som körs lokalt](media/quickstart-python/hello-world-in-browser.png)
+![Kör en exempel-python-app lokalt](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 Tryck på **Ctrl+C** i terminalfönstret för att avsluta webbservern.
 
@@ -155,7 +155,7 @@ http://<app-name>.azurewebsites.net
 
 Python-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
 
-![Exempelapp som körs i Azure](media/quickstart-python/hello-world-in-browser.png)
+![Köra en python-app i Azure](./media/quickstart-python/run-hello-world-sample-python-app-in-browser.png)
 
 **Grattis!** Du har distribuerat din första Python-app till App Service i Linux.
 
@@ -163,7 +163,7 @@ Python-exempelkoden körs i App Service på Linux med en inbyggd avbildning.
 
 I Cloud Shell anger `code application.py` för att öppna Cloud Shell redigeraren.
 
-![application.py-kod](media/quickstart-python/code-applicationpy.png)
+![Öppna application.py i Cloud Shell redigeraren](./media/quickstart-python/open-application-py-in-the-cloud-shell-editor.png)
 
  Gör en mindre ändring i texten i anropet till `return`:
 
@@ -181,7 +181,7 @@ az webapp up -n <app-name> -l <location-name>
 
 När distributionen är klar går du tillbaka till webbläsarfönstret som öppnades när du skulle **söka efter appen** och klickar på knappen för att uppdatera sidan.
 
-![Uppdaterad exempelapp som körs i Azure](media/quickstart-python/hello-azure-in-browser.png)
+![Köra en uppdaterad exempel-python-app i Azure](./media/quickstart-python/run-updated-hello-world-sample-python-app-in-browser.png)
 
 ## <a name="manage-your-new-azure-app"></a>Hantera din nya Azure-app
 
@@ -189,11 +189,11 @@ Gå till <a href="https://portal.azure.com" target="_blank">Azure-portalen</a> f
 
 Klicka på **App Services** i menyn till vänster och välj sedan namnet på din Azure-app.
 
-![Portalnavigering till Azure-app](./media/quickstart-python/app-service-list.png)
+![Navigera till python-appen i App Services i Azure Portal](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
 Du ser din apps översiktssida. Här kan du utföra grundläggande hanteringsåtgärder som att bläddra, stoppa, starta, starta om och ta bort.
 
-![App Service-sidan på Azure Portal](media/quickstart-python/app-service-detail.png)
+![Hantera din python-app på sidan Översikt i Azure Portal](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
 Menyn till vänster innehåller olika sidor för att konfigurera appen. 
 

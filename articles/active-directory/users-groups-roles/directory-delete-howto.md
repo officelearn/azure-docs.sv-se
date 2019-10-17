@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4fb2019b0298520d6bc2400e9fc2a2732664812
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: b7993810343f6bd925afd54cc38a8302420d6aec
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329904"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439347"
 ---
 # <a name="delete-a-directory-in-azure-active-directory"></a>Ta bort en katalog i Azure Active Directory
 
@@ -69,25 +69,29 @@ Du kan lägga till en prenumeration i **avetablerat** tillstånd för borttagnin
 
 1. Logga in på [Microsoft 365 administrations Center](https://admin.microsoft.com) med ett konto som är en global administratör i din organisation. Om du försöker ta bort katalogen "contoso" som har den inledande standard domänen contoso.onmicrosoft.com loggar du in med ett UPN, till exempel admin@contoso.onmicrosoft.com.
 
-2. Du måste avbryta en prenumeration innan du kan ta bort den. Välj **fakturerings** -och välj **produkter & tjänster**och välj sedan **Avbryt prenumerationen** för den prenumeration som du vill avbryta. Du kommer till en feedback-sida.
+2. Förhandsgranska den nya Microsoft 365 administrations centret genom att se till att **prova den nya administrations Center** -växlingen är aktive rad.
+
+   ![Förhandsgranska den nya M365 administrations Center-upplevelsen](./media/directory-delete-howto/preview-toggle.png)
+
+3. När det nya administrations centret har Aktiver ATS måste du avbryta en prenumeration innan du kan ta bort den. Välj **fakturerings** -och välj **produkter & tjänster**och välj sedan **Avbryt prenumerationen** för den prenumeration som du vill avbryta. Du kommer till en feedback-sida.
 
    ![Välj en prenumeration för att avbryta](./media/directory-delete-howto/cancel-choose-subscription.png)
 
-3. Slutför feedback-formuläret och välj **Avbryt prenumeration** om du vill avbryta prenumerationen.
+4. Slutför feedback-formuläret och välj **Avbryt prenumeration** om du vill avbryta prenumerationen.
 
    ![Avbryt kommando i för hands versionen av prenumerationen](./media/directory-delete-howto/cancel-command.png)
 
-4. Nu kan du ta bort prenumerationen. Välj **ta bort** för den prenumeration som du vill ta bort. Om du inte hittar prenumerationen på sidan **produkter & tjänster** kontrollerar du att **prenumerations status** är inställd på **alla**.
+5. Nu kan du ta bort prenumerationen. Välj **ta bort** för den prenumeration som du vill ta bort. Om du inte hittar prenumerationen på sidan **produkter & tjänster** kontrollerar du att **prenumerations status** är inställd på **alla**.
 
    ![Ta bort länk för borttagning av prenumeration](./media/directory-delete-howto/delete-command.png)
 
-5. Välj **ta bort prenumeration** för att ta bort prenumerationen och godkänn villkoren. Alla data tas bort permanent inom tre dagar. Du kan [återaktivera prenumerationen](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) under den tre dagars perioden om du ändrar dig.
+6. Välj **ta bort prenumeration** för att ta bort prenumerationen och godkänn villkoren. Alla data tas bort permanent inom tre dagar. Du kan [återaktivera prenumerationen](https://docs.microsoft.com/office365/admin/subscriptions-and-billing/reactivate-your-subscription?view=o365-worldwide) under den tre dagars perioden om du ändrar dig.
   
    ![Läs noggrant allmänna villkor](./media/directory-delete-howto/delete-terms.png)
 
-6. Nu har prenumerations statusen ändrats och prenumerationen har marker ATS för borttagning. Prenumerationen går in i **avetablerat** tillstånd 72 timmar senare.
+7. Nu har prenumerations statusen ändrats och prenumerationen har marker ATS för borttagning. Prenumerationen går in i **avetablerat** tillstånd 72 timmar senare.
 
-7. När du har tagit bort en prenumeration i din katalog och 72 timmar har förflutit kan du logga in igen i Azure AD Admin Center igen och det bör inte finnas någon obligatorisk åtgärd och inga prenumerationer blockerar katalog borttagningen. Du bör kunna ta bort Azure AD-katalogen.
+8. När du har tagit bort en prenumeration i din katalog och 72 timmar har förflutit kan du logga in igen i Azure AD Admin Center igen och det bör inte finnas någon obligatorisk åtgärd och inga prenumerationer blockerar katalog borttagningen. Du bör kunna ta bort Azure AD-katalogen.
   
    ![Skicka prenumerations kontroll på borttagnings skärmen](./media/directory-delete-howto/delete-checks-passed.png)
 

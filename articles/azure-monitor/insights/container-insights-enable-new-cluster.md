@@ -1,6 +1,6 @@
 ---
-title: Övervaka ett nytt kluster i Azure Kubernetes Service (AKS) | Microsoft Docs
-description: Lär dig hur du aktiverar övervakning av ett nytt kluster i Azure Kubernetes Service (AKS) med Azure Monitor för behållare prenumerationen.
+title: Övervaka ett nytt Azure Kubernetes service-kluster (AKS) | Microsoft Docs
+description: Lär dig hur du aktiverar övervakning för ett nytt Azure Kubernetes service-kluster (AKS) med Azure Monitor for containers-prenumeration.
 services: azure-monitor
 documentationcenter: ''
 author: mgoedtel
@@ -13,59 +13,58 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: magoedte
-ms.openlocfilehash: d73ab2d5cca4f20f954a0b0e972111d3f395c3c8
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: cff0286e944414d70cffd801620159ffef3db1a5
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65077537"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389813"
 ---
-# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Aktivera övervakning av ett nytt kluster i Azure Kubernetes Service (AKS)
+# <a name="enable-monitoring-of-a-new-azure-kubernetes-service-aks-cluster"></a>Aktivera övervakning av ett nytt Azure Kubernetes service-kluster (AKS)
 
-Den här artikeln beskriver hur du ställer in Azure Monitor för behållare för att övervaka hanterade Kubernetes-kluster som finns på [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/) som du förbereder att distribuera i din prenumeration.
+Den här artikeln beskriver hur du konfigurerar Azure Monitor för behållare för att övervaka hanterade Kubernetes-kluster som finns i [Azure Kubernetes-tjänsten](https://docs.microsoft.com/azure/aks/) som du förbereder att distribuera i din prenumeration.
 
-Du kan aktivera övervakning av ett AKS-kluster med någon av metoderna som stöds:
+Du kan aktivera övervakning av ett AKS-kluster med hjälp av en av de metoder som stöds:
 
 * Azure CLI
 * Terraform
 
 ## <a name="enable-using-azure-cli"></a>Aktivera med hjälp av Azure CLI
 
-Om du vill aktivera övervakning av ett nytt AKS-kluster som skapats med Azure CLI följer du steg i snabbstartsartikeln under avsnittet [skapa AKS-kluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
+Om du vill aktivera övervakning av ett nytt AKS-kluster som skapats med Azure CLI följer du stegen i artikeln snabb start under avsnittet [skapa AKS-kluster](../../aks/kubernetes-walkthrough.md#create-aks-cluster).  
 
 >[!NOTE]
->Om du väljer att använda Azure CLI, måste du först installera och använda CLI lokalt. Du måste köra Azure CLI version 2.0.59 eller senare. För att identifiera din version, kör `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). 
->
+>Om du väljer att använda Azure CLI måste du först installera och använda CLI lokalt. Du måste köra Azure CLI-versionen 2.0.74 eller senare. Du kan identifiera din version genom att köra `az --version`. Om du behöver installera eller uppgradera Azure CLI kan du läsa [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli). Om du har installerat AKS-Preview CLI-tillägget 0.4.12 eller högre, tar du bort alla ändringar som du har gjort för att aktivera ett förhands gransknings tillägg eftersom det kan åsidosätta standard beteendet för Azure CLI eftersom AKS Preview-funktioner inte är tillgängliga i Azure US Governmnet-molnet.
 
-## <a name="enable-using-terraform"></a>Aktivera med hjälp av Terraform
+## <a name="enable-using-terraform"></a>Aktivera med terraform
 
-Om du är [distribuerar en ny AKS-kluster med Terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md), du anger argument som krävs i profilen [att skapa en Log Analytics-arbetsyta](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) om du inte vill ange en befintlig. 
+Om du [distribuerar ett nytt AKS-kluster med terraform](../../terraform/terraform-create-k8s-cluster-with-tf-and-aks.md)anger du de argument som krävs i profilen [för att skapa en Log Analytics arbets yta](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_workspace.html) om du inte väljer att ange en befintlig. 
 
 >[!NOTE]
->Om du väljer att använda Terraform, måste du köra Terraform Azure RM-providern version 1.17.0 eller senare.
+>Om du väljer att använda terraform måste du köra terraform Azure RM-providerns version 1.17.0 eller senare.
 
-Om du vill lägga till Azure Monitor för behållare i arbetsytan, se [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) och slutför profilen genom att inkludera den [ **addon_profile** ](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) och ange **oms_agent**. 
+Om du vill lägga till Azure Monitor för behållare i arbets ytan går du till [azurerm_log_analytics_solution](https://www.terraform.io/docs/providers/azurerm/r/log_analytics_solution.html) och fyller i profilen genom att inkludera [**addon_profile**](https://www.terraform.io/docs/providers/azurerm/r/kubernetes_cluster.html#addon_profile) och ange **oms_agent**. 
 
-När du har aktiverat övervakning och alla åtgärder för konfiguration har slutförts kan övervaka du prestanda för ditt kluster på något av två sätt:
+När du har aktiverat övervakning och alla konfigurations aktiviteter har slutförts kan du övervaka klustrets prestanda på något av två sätt:
 
-* Direkt i AKS-kluster genom att välja **hälsotillstånd** i den vänstra rutan.
-* Genom att välja den **övervakaren behållareinsikter** panel på sidan AKS-kluster för det markerade klustret. I Azure Monitor, i den vänstra rutan väljer **hälsotillstånd**. 
+* Direkt i AKS-klustret genom att välja **hälsa** i det vänstra fönstret.
+* Genom att välja panelen **övervaka behållar insikter** på kluster sidan AKS för det valda klustret. I Azure Monitor i det vänstra fönstret väljer du **hälsa**. 
 
   ![Alternativ för att välja Azure Monitor för behållare i AKS](./media/container-insights-onboard/kubernetes-select-monitoring-01.png)
 
-När du har aktiverat övervakning, kan det ta ungefär 15 minuter innan du kan visa hälsomått för klustret. 
+När du har aktiverat övervakning kan det ta ungefär 15 minuter innan du kan visa hälso mått för klustret. 
 
-## <a name="verify-agent-and-solution-deployment"></a>Kontrollera distributionen av agenten och lösning
-Med agentversion *06072018* eller senare, kan du kontrollera att både agenten och lösningen har distribuerats. Du kan kontrollera endast agentdistribution med tidigare versioner av agenten.
+## <a name="verify-agent-and-solution-deployment"></a>Verifiera distribution av agent och lösning
+Med agent version *06072018* eller senare kan du kontrol lera att både agenten och lösningen har distribuerats. Med tidigare versioner av agenten kan du bara verifiera agent distribution.
 
-### <a name="agent-version-06072018-or-later"></a>Agentversion 06072018 eller senare
-Kör följande kommando för att kontrollera att agenten har distribuerats. 
+### <a name="agent-version-06072018-or-later"></a>Agent version 06072018 eller senare
+Kör följande kommando för att kontrol lera att agenten har distribuerats. 
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-Utdata bör likna följande, vilket betyder att den har distribuerats korrekt:
+Utdata bör likna följande, som anger att den har distribuerats korrekt:
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -73,13 +72,13 @@ NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE SELECTOR 
 omsagent   2         2         2         2            2           beta.kubernetes.io/os=linux   1d
 ```  
 
-Kontrollera distributionen av lösningen genom att köra följande kommando:
+Kör följande kommando för att kontrol lera distributionen av lösningen:
 
 ```
 kubectl get deployment omsagent-rs -n=kube-system
 ```
 
-Utdata bör likna följande, vilket betyder att den har distribuerats korrekt:
+Utdata bör likna följande, som anger att den har distribuerats korrekt:
 
 ```
 User@aksuser:~$ kubectl get deployment omsagent-rs -n=kube-system 
@@ -87,15 +86,15 @@ NAME       DESIRED   CURRENT   UP-TO-DATE   AVAILABLE    AGE
 omsagent   1         1         1            1            3h
 ```
 
-### <a name="agent-version-earlier-than-06072018"></a>Tidigare än 06072018 agentversion
+### <a name="agent-version-earlier-than-06072018"></a>Agent version tidigare än 06072018
 
-Verifiera att agentversionen Log Analytics som publicerades före *06072018* har distribuerats korrekt, kör du följande kommando:  
+Kör följande kommando för att kontrol lera att den Log Analytics agent version som släpptes innan *06072018* distribueras korrekt:  
 
 ```
 kubectl get ds omsagent --namespace=kube-system
 ```
 
-Utdata bör likna följande, vilket betyder att den har distribuerats korrekt:  
+Utdata bör likna följande, som anger att den har distribuerats korrekt:  
 
 ```
 User@aksuser:~$ kubectl get ds omsagent --namespace=kube-system 
@@ -104,13 +103,13 @@ omsagent   2         2         2         2            2           beta.kubernete
 ```  
 
 ## <a name="view-configuration-with-cli"></a>Visa konfiguration med CLI
-Använd den `aks show` för att hämta information om sådana som är den lösning som har aktiverats eller inte, vad är Log Analytics-arbetsyta resourceID och sammanfattningsinformation om klustret.  
+Använd kommandot `aks show` för att få information om t. ex. om lösningen är aktive rad eller inte, vad är inställningen för Log Analytics-arbetsytan och sammanfattande information om klustret.  
 
 ```azurecli
 az aks show -g <resourceGroupofAKSCluster> -n <nameofAksCluster>
 ```
 
-Efter ett par minuter kommandot har slutförts och returnerar JSON-formaterad information om lösningen.  Resultatet av kommandot ska visa övervakning tillägg profilen och liknar följande Exempelutdata:
+Efter några minuter slutförs kommandot och returnerar JSON-formaterad information om lösningen.  Resultatet av kommandot bör visa profilen för övervakning av tilläggsprogram och liknar följande exempel på utdata:
 
 ```
 "addonProfiles": {
@@ -125,6 +124,6 @@ Efter ett par minuter kommandot har slutförts och returnerar JSON-formaterad in
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Om det uppstår problem vid försök att publicera lösningen kan du granska den [felsökningsguide](container-insights-troubleshoot.md)
+* Läs [fel söknings guiden](container-insights-troubleshoot.md) om du får problem när du försöker publicera lösningen
 
-* Med övervakning aktiverat för att avbilda hälsomått för både noder i AKS och poddar är dessa health-mått tillgängliga i Azure-portalen. Läs hur du använder Azure Monitor för behållare i [visa Azure Kubernetes Service health](container-insights-analyze.md).
+* När övervakning har Aktiver ATS för att fånga hälso mått för både AKS-klusternoder och poddar är dessa hälso mått tillgängliga i Azure Portal. Information om hur du använder Azure Monitor för behållare finns i [Visa Azure Kubernetes service Health](container-insights-analyze.md).

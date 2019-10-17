@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 10/10/2018
 ms.author: cynthn
-ms.openlocfilehash: 5dde098277b16c7ec5339aa6b963b04dd608c8ac
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 6adeae69a4ef9e6f2d77588f8071498fd25beb3e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70079676"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390592"
 ---
 # <a name="create-a-windows-vm-from-a-specialized-disk-by-using-powershell"></a>Skapa en virtuell Windows-dator från en specialiserad disk med hjälp av PowerShell
 
@@ -36,7 +36,7 @@ Du kan också använda Azure Portal för att [skapa en ny virtuell dator från e
 
 Den här artikeln visar hur du använder hanterade diskar. Om du har en äldre distribution som kräver att ett lagrings konto används, se [skapa en virtuell dator från en specialiserad virtuell hård disk i ett lagrings konto](sa-create-vm-specialized.md).
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda virtuell hård disk eller en ögonblicks bild. 
 
 ## <a name="option-1-use-an-existing-disk"></a>Alternativ 1: Använd en befintlig disk
 
@@ -102,7 +102,7 @@ Skapa ett lagringskonto.
     ```
 
 ### <a name="upload-the-vhd-to-your-storage-account"></a>Ladda upp den virtuella hård disken till ditt lagrings konto 
-Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp den virtuella hård disken till en behållare i ditt lagrings konto. I det här exemplet överförs filen *myVHD. VHD* från "C:\Users\Public\Documents\Virtual Hard disks\" till ett lagrings konto med namnet *mystorageaccount* i resurs gruppen *myResourceGroup* . Filen lagras i behållaren som heter behållaren och det nya fil namnet kommer att vara *myUploadedVHD. VHD*.
+Använd cmdleten [Add-AzVhd](https://docs.microsoft.com/powershell/module/az.compute/add-azvhd) för att ladda upp den virtuella hård disken till en behållare i ditt lagrings konto. I det här exemplet överförs filen *myVHD. VHD* från "C:\Users\Public\Documents\Virtual Hard disks @ no__t-1 till ett lagrings konto med namnet *mystorageaccount* i resurs gruppen *myResourceGroup* . Filen lagras i behållaren *som heter* behållaren och det nya fil namnet kommer att vara *myUploadedVHD. VHD*.
 
 ```powershell
 $resourceGroupName = "myResourceGroup"
@@ -153,7 +153,7 @@ $osDisk = New-AzDisk -DiskName $osDiskName -Disk `
     -ResourceGroupName $destinationResourceGroup
 ```
 
-## <a name="option-3-copy-an-existing-azure-vm"></a>Alternativ 3: Kopiera en befintlig virtuell Azure-dator
+## <a name="option-3-copy-an-existing-azure-vm"></a>Alternativ 3: kopiera en befintlig virtuell Azure-dator
 
 Du kan skapa en kopia av en virtuell dator som använder hanterade diskar genom att ta en ögonblicks bild av den virtuella datorn och sedan använda ögonblicks bilden för att skapa en ny hanterad disk och en ny virtuell dator.
 
@@ -204,7 +204,7 @@ $snapShot = New-AzSnapshot `
 ```
 
 
-Om du vill använda den här ögonblicks bilden för att skapa en virtuell dator som måste vara hög `-AccountType Premium_LRS` , lägger du till parametern i kommandot New-AzSnapshotConfig. Den här parametern skapar ögonblicks bilden så att den lagras som en Premium-hanterad disk. Premium Managed Disks är dyrare än standard, så se till att du behöver Premium innan du använder den här parametern.
+Om du vill använda den här ögonblicks bilden för att skapa en virtuell dator som måste vara hög, lägger du till parametern `-AccountType Premium_LRS` till kommandot New-AzSnapshotConfig. Den här parametern skapar ögonblicks bilden så att den lagras som en Premium-hanterad disk. Premium Managed Disks är dyrare än standard, så se till att du behöver Premium innan du använder den här parametern.
 
 ### <a name="create-a-new-disk-from-the-snapshot"></a>Skapa en ny disk från ögonblicks bilden
 
@@ -353,7 +353,7 @@ RequestId IsSuccessStatusCode StatusCode ReasonPhrase
 ```
 
 ### <a name="verify-that-the-vm-was-created"></a>Verifiera att den virtuella datorn har skapats
-Du bör se den nyligen skapade virtuella datorn antingen i [Azure Portal](https://portal.azure.com) under **Bläddra** > i**virtuella datorer**eller med hjälp av följande PowerShell-kommandon.
+Du bör se den nyligen skapade virtuella datorn antingen i [Azure Portal](https://portal.azure.com) under **Bläddra** > **virtuella datorer**eller med hjälp av följande PowerShell-kommandon.
 
 ```powershell
 $vmList = Get-AzVM -ResourceGroupName $destinationResourceGroup

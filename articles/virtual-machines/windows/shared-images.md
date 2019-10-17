@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 05/06/2019
 ms.author: cynthn
 ms.custom: ''
-ms.openlocfilehash: 9842f57c7d8d49aa9d1b3d17f82f3519ecead98c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 01e6d9dff0ea2c2b60d8e2ab42e39e36d998be83
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70088594"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390585"
 ---
 # <a name="create-a-shared-image-gallery-with-azure-powershell"></a>Skapa ett galleri för delad avbildning med Azure PowerShell 
 
@@ -32,18 +32,18 @@ Galleriet är en resurs på den översta nivån som ger fullständig rollbaserad
 
 Funktionen för delad bild galleri har flera resurs typer. Vi kommer att använda eller skapa dessa i den här artikeln:
 
-| Resource | Beskrivning|
+| Resurs | Beskrivning|
 |----------|------------|
 | **Hanterad avbildning** | Detta är en grundläggande bild som kan användas separat eller användas för att skapa en **avbildnings version** i ett bild galleri. Hanterade avbildningar skapas från generaliserade virtuella datorer. En hanterad avbildning är en särskild typ av virtuell hård disk som kan användas för att skapa flera virtuella datorer och kan nu användas för att skapa delade avbildnings versioner. |
 | **Bild galleri** | Precis som Azure Marketplace är ett **avbildnings Galleri** en lagrings plats för att hantera och dela bilder, men du styr vem som har åtkomst. |
 | **Bild definition** | Avbildningar definieras i ett galleri och bär information om avbildningen och kraven för att använda den internt. Detta inkluderar om avbildningen är Windows eller Linux, viktig information och minimi-och högsta minnes krav. Det är en definition av en typ av bild. |
 | **Avbildnings version** | En **avbildnings version** är vad du använder för att skapa en virtuell dator när du använder ett galleri. Du kan ha flera versioner av en avbildning efter behov för din miljö. Som en hanterad avbildning används avbildnings versionen för att skapa nya diskar för den virtuella datorn när du använder en **avbildnings version** för att skapa en virtuell dator. Avbildnings versioner kan användas flera gånger. |
 
-[!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
+För varje 20 virtuella datorer som du skapar samtidigt rekommenderar vi att du behåller en replik. Om du till exempel skapar 120 virtuella datorer samtidigt med samma avbildning i en region, rekommenderar vi att du behåller minst 6 repliker av avbildningen. Mer information finns i [skalning](/azure/virtual-machines/windows/shared-image-galleries#scaling).
 
 ## <a name="before-you-begin"></a>Innan du börjar
 
-Du måste ha en befintlig hanterad avbildning för att kunna slutföra exemplet i den här artikeln. Du kan följa [själv studie kursen: Skapa en anpassad avbildning av en virtuell Azure-dator](tutorial-custom-images.md) med Azure PowerShell för att skapa en om det behövs. Om den hanterade avbildningen innehåller en datadisk får data disk storleken inte vara större än 1 TB.
+Du måste ha en befintlig hanterad avbildning för att kunna slutföra exemplet i den här artikeln. Du kan följa [Självstudier: skapa en anpassad avbildning av en virtuell Azure-dator med Azure PowerShell](tutorial-custom-images.md) för att skapa en om det behövs. Om den hanterade avbildningen innehåller en datadisk får data disk storleken inte vara större än 1 TB.
 
 När du arbetar med den här artikeln ersätter du resurs gruppen och VM-namnen där det behövs.
 

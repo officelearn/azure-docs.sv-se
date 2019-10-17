@@ -1,6 +1,6 @@
 ---
-title: Översikt över Azure Statusövervakare v2 | Microsoft Docs
-description: En översikt över Statusövervakare v2. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: Översikt över Azure Application Insights-agent | Microsoft Docs
+description: En översikt över Application Insights-agenten. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,23 +12,28 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: tilee
-ms.openlocfilehash: 7f045a95bcc9d5a61b26036e14e050a597347d1a
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 294b0d2d91650f33f0b92179a069a8c7cd845525
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286439"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389842"
 ---
-# <a name="status-monitor-v2"></a>Statusövervakare v2
+# <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>Distribuera Azure Monitor Application Insights agent för lokala servrar
 
-Statusövervakare v2 är en PowerShell-modul som publiceras på [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
+> [!IMPORTANT]
+> Den här vägledningen rekommenderas för lokala och icke-Azure-moln distributioner av Application Insights agent. Här är den rekommenderade metoden för [distributioner av skalnings uppsättningar för virtuella Azure-datorer och virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
+
+Application Insights agent (tidigare namngiven Statusövervakare v2) är en PowerShell-modul som publiceras till [PowerShell-galleriet](https://www.powershellgallery.com/packages/Az.ApplicationMonitor).
 Den ersätter [statusövervakare](https://docs.microsoft.com/azure/azure-monitor/app/monitor-performance-live-website-now).
-Modulen tillhandahåller kod för kodbaserade instrumentering av .NET-webbappar som är värdbaserade i IIS.
 Telemetri skickas till Azure Portal, där du kan [övervaka](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) din app.
+
+> [!NOTE]
+> Modulen stöder för närvarande inte kodbaserade instrumentering av .NET-webbappar som är värdbaserade i IIS. Använd en SDK för att instrumentera ASP.NET Core-, Java-och Node. js-program.
 
 ## <a name="powershell-gallery"></a>PowerShell-galleriet
 
-Statusövervakare v2 finns här: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
+Application Insights agent finns här: https://www.powershellgallery.com/packages/Az.ApplicationMonitor.
 
 ![PowerShell-galleriet](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
@@ -54,9 +59,9 @@ Statusövervakare v2 finns här: https://www.powershellgallery.com/packages/Az.A
 
 ## <a name="faq"></a>FAQ
 
-- Stöder Statusövervakare v2 proxy-installationer?
+- Stöder Application Insights-agenten proxy-installationer?
 
-  *Ja*. Det finns flera sätt att ladda ned Statusövervakare v2. Om datorn har Internet åtkomst kan du publicera den PowerShell-galleriet med hjälp av `-Proxy` parametrar.
+  *Ja*. Det finns flera sätt att ladda ned Application Insights-agenten. Om datorn har Internet åtkomst kan du publicera den PowerShell-galleriet med hjälp av `-Proxy` parametrar.
 Du kan också hämta modulen manuellt och antingen installera den på datorn eller använda den direkt.
 Vart och ett av dessa alternativ beskrivs i de [detaljerade anvisningarna](status-monitor-v2-detailed-instructions.md).
 

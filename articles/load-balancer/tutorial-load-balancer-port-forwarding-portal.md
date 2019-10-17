@@ -1,5 +1,5 @@
 ---
-title: 'Självstudie: Konfigurera vidarebefordrade portar med Azure Load Balancer med Azure Portal'
+title: 'Självstudie: Konfigurera vidarebefordran av portar i Azure Load Balancer att använda Azure Portal'
 titlesuffix: Azure Load Balancer
 description: Den här kursen visar hur du konfigurerar vidarebefordrade portar med Azure Load Balancer för att skapa en anslutning till virtuella datorer i Azure-nätverk.
 services: load-balancer
@@ -15,14 +15,14 @@ ms.workload: infrastructure-services
 ms.date: 02/26/2019
 ms.author: allensu
 ms.custom: seodec18
-ms.openlocfilehash: ee4ed818364d04f03caedc8b876ea29c41cb59b7
-ms.sourcegitcommit: 9a699d7408023d3736961745c753ca3cec708f23
+ms.openlocfilehash: aa4837ec1fd8ef19eb6d0c77f946ef358becd542
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/16/2019
-ms.locfileid: "68273435"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428220"
 ---
-# <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordrade portar med Azure Load Balancer med portalen
+# <a name="tutorial-configure-port-forwarding-in-azure-load-balancer-using-the-portal"></a>Självstudie: Konfigurera vidarebefordran av portar i Azure Load Balancer med hjälp av portalen
 
 Med portvidarebefordran kan du ansluta till virtuella datorer (VM) i Azure-nätverk med hjälp av en offentliga IP-adress och ett offentligt port nummer för Azure Load Balancer. 
 
@@ -47,13 +47,13 @@ Börja med att skapa en offentlig standardlastbalanserare som kan balansera traf
 1. Längst upp till vänster på skärmen klickar du på **Skapa en resurs** > **Nätverk** > **Lastbalanserare**.
 2. På fliken **Grundläggande inställningar** på sidan **Skapa lastbalanserare** anger eller väljer du följande information, accepterar standardinställningarna för de återstående inställningarna och väljer sedan **Granska + skapa**:
 
-    | Inställning                 | Value                                              |
+    | Inställning                 | Värde                                              |
     | ---                     | ---                                                |
-    | Subscription               | Välj din prenumeration.    |    
-    | Resource group         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
+    | Prenumeration               | Välj din prenumeration.    |    
+    | Resursgrupp         | Välj **Skapa ny** och skriv *MyResourceGroupLB* i textrutan.|
     | Namn                   | *myLoadBalancer*                                   |
     | Region         | Välj **Västeuropa**.                                        |
-    | type          | Välj **Offentligt**.                                        |
+    | Typ          | Välj **Offentligt**.                                        |
     | SKU           | Välj **standard**.                          |
     | Offentlig IP-adress | Välj **Skapa ny**. |
     | Namn på offentlig IP-adress              | Skriv *myPublicIP* i textrutan.   |
@@ -75,8 +75,8 @@ Skapa ett virtuellt nätverk med två virtuella datorer för serverdelspoolen f�
 1. I fönsterrutan **Skapa virtuellt nätverk** skriver eller väljer du dessa värden:
    
    - **Namn**: Skriv *MyVNet*.
-   - **ResourceGroup**: I listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
-   - **Undernät** > **namn**: Skriv *MyBackendSubnet*.
+   - **ResourceGroup**: i listrutan **Välj befintlig** väljer du **MyResourceGroupLB**. 
+   - **Undernät** > **Namn**: Skriv *MyBackendSubnet*.
    
 1. Välj **Skapa**.
 
@@ -87,18 +87,18 @@ Skapa ett virtuellt nätverk med två virtuella datorer för serverdelspoolen f�
 1. Uppe till vänster i portalen väljer du **Skapa en resurs** > **Beräkning** > **Windows Server 2016 Datacenter**. 
    
 1. I **Skapa en virtuell dator** skriver eller väljer du följande värden på fliken **Grundläggande**:
-   - **Prenumeration** > **Resursgrupp**: I listrutan väljer du **MyResourceGroupLB**.
+   - **Prenumeration** > **Resursgrupp**: i listrutan väljer du **MyResourceGroupLB**.
    - **Namn på virtuell dator**: Skriv *MyVM1*.
-   - **Region**: Välj **Västeuropa**. 
-   - **Användarnamn**: Skriv *azureuser*.
-   - **Lösenord**: Skriv *Azure1234567*. 
+   - **Region**: Välj **Europa, västra**. 
+   - **Användar namn**: Skriv *azureuser*.
+   - **Lösen ord**: Skriv *Azure1234567*. 
      Skriv lösenordet på nytt i fältet **Bekräfta lösenord**.
    
-1. Välj fliken **Nätverk** eller välj **Nästa: Diskar** och sedan **Nästa: Nätverk**. 
+1. Välj fliken **Nätverk** eller **Nästa: diskar** och sedan **Nästa: nätverk**. 
    
    Kontrollera att följande har valts:
    - **Virtuellt nätverk**: **MyVNet**
-   - **Undernät**: **myBackendSubnet**
+   - **Undernät**: **MyBackendSubnet**
    
 1. Välj **Skapa ny** och sedan **Standard** för **Offentlig IP-adress** på sidan **Skapa offentlig IP-adress** och välj sedan **OK**. 
    
@@ -143,14 +143,14 @@ Skapa en nätverkssäkerhetsgruppregel för de virtuella datorerna så att inkom
    
 1. I dialogrutan **Lägg till ingående säkerhetsregel** skriver eller väljer du följande:
    
-   - **Källa**: Välj **Service Tag** (Tjänsttagg).  
+   - **Källa**: Välj **Tjänsttagg**.  
    - **Källtjänsttagg**: Välj **Internet**. 
    - **Målportintervall**: Skriv *80*.
    - **Protokoll**: Välj **TCP**. 
    - **Åtgärd**: Välj **Tillåt**.  
    - **Prioritet**: Skriv *100*. 
    - **Namn**: Skriv *MyHTTPRule*. 
-   - **Beskrivning**: Skriv *tillåt HTTP*. 
+   - **Beskrivning**: Skriv *Tillåt HTTP*. 
    
 1. Välj **Lägg till**. 
    
@@ -232,15 +232,16 @@ Skapa en inkommande NAT-regel för lastbalanseraren för att vidarebefordra traf
    
 1. På sidan **Lägg till inkommande NAT-regel** skriver eller väljer du följande värden:
    
-   - **Namn**: Typ *MyNATRuleVM1*.
-   - **Port**: Skriv *4221*.
-   - **Virtuell måldator**: Välj en **MyVM1** i listrutan.
-   - **Portmappning**: Välj **anpassad**.
-   - **Målport**: Skriv *3389*.
+   - **Namn**: Skriv *MyNATRuleVM1*.
+   - **Port**: typ *4221*.
+   - **Virtuell mål dator**: Välj **MyVM1** i list rutan.
+   - **IP-konfiguration för nätverk**: Välj **ipconfig1** i list rutan.
+   - **Port mappning**: Välj **anpassad**.
+   - **Målport**: typ *3389*.
    
 1. Välj **OK**.
    
-1. Upprepa stegen för att lägga till en inkommande NAT-regel med namnet *MyNATRuleVM2* med hjälp av **Port**: *4222* och **Virtuell måldator**: **MyVM2**.
+1. Upprepa stegen för att lägga till en inkommande NAT-regel med namnet *MyNATRuleVM2*, med hjälp av **porten**: *4222* och den **virtuella mål datorn**: **MyVM2**.
 
 ## <a name="test-the-load-balancer"></a>Testa lastbalanseraren
 

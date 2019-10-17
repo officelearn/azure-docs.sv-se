@@ -1,6 +1,6 @@
 ---
-title: 'Azure Statusövervakare v2 API-referens: Hämta status | Microsoft Docs'
-description: API-referens för Statusövervakare v2. Get-ApplicationInsightsMonitoringStatus. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: 'Referens för Azure Application Insights-Agent-API: Hämta status | Microsoft Docs'
+description: Application Insights Agent-API-referens. Get-ApplicationInsightsMonitoringStatus. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: c3982e7eb78c1113c73a8e7e9d7b00ad403ac486
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 6e103e1856e338669224540a991c4b9ea6b10d6d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058258"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389876"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringstatus"></a>API för Statusövervakare v2: Get-ApplicationInsightsMonitoringStatus
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>Application Insights Agent-API: get-ApplicationInsightsMonitoringStatus
 
 Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -34,9 +34,9 @@ Denna cmdlet kommer att rapportera versions information och information om vikti
 
 ## <a name="examples"></a>Exempel
 
-### <a name="example-application-status"></a>Exempel: Program status
+### <a name="example-application-status"></a>Exempel: program status
 
-Kör kommandot `Get-ApplicationInsightsMonitoringStatus` för att Visa övervaknings statusen för webbplatser.
+Kör kommandot `Get-ApplicationInsightsMonitoringStatus` om du vill visa övervaknings statusen för webbplatser.
 
 ```
 PS C:\Windows\system32> Get-ApplicationInsightsMonitoringStatus
@@ -80,9 +80,9 @@ I det här exemplet;
 - **DemoWebApp333** har instrumenterats manuellt med hjälp av Application Insights SDK. Statusövervakare identifierade SDK och övervakar inte den här platsen.
 
 
-### <a name="example-powershell-module-information"></a>Exempel: Information om PowerShell-modul
+### <a name="example-powershell-module-information"></a>Exempel: information om PowerShell-modul
 
-Kör kommandot `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` för att visa information om den aktuella modulen:
+Kör kommandot `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` om du vill visa information om den aktuella modulen:
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
@@ -134,7 +134,7 @@ ApplicationInsightsSdkPath (Exists: True)
 C:\Program Files\WindowsPowerShell\Modules\Az.ApplicationMonitor\content\Runtime\Microsoft.ApplicationInsights.dll
 ```
 
-### <a name="example-runtime-status"></a>Exempel: Körningsstatus
+### <a name="example-runtime-status"></a>Exempel: körnings status
 
 Du kan kontrol lera processen på den instrumenterade datorn för att se om alla DLL-filer har lästs in. Om övervakningen fungerar bör minst 12 DLL-filer läsas in.
 
@@ -193,7 +193,7 @@ Du kan också hämta externa verktyg för att avgöra om de nödvändiga DLL-fil
 
 Om den här processen Miss lyckas av någon anledning kan du köra dessa kommandon manuellt:
 - iisreset. exe/status
-- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p W3wp | Findstr/I "InstrumentationEngine AI. ApplicationInsights"
+- [handle64. exe](https://docs.microsoft.com/sysinternals/downloads/handle) -p W3wp | Findstr/I "InstrumentationEngine AI. ApplicationInsights
 - [listdlls64. exe](https://docs.microsoft.com/sysinternals/downloads/listdlls) W3wp | Findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
@@ -204,5 +204,5 @@ Om den här processen Miss lyckas av någon anledning kan du köra dessa kommand
 
 ## <a name="next-steps"></a>Nästa steg
 
- Gör mer med Statusövervakare v2:
- - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) statusövervakare v2.
+ Gör mer med Application Insights agent:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.

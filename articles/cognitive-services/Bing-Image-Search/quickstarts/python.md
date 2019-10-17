@@ -1,5 +1,5 @@
 ---
-title: 'Snabbstart: Sök efter bilder – API för bildsökning i Bing och Python'
+title: 'Snabb start: Sök efter bilder – Bildsökning i Bing REST API och python'
 titleSuffix: Azure Cognitive Services
 description: Använd den här snabbstarten när du vill skicka bildsökningsbegäranden till REST-API för bildsökning i Bing med hjälp av Python och få JSON-svar.
 services: cognitive-services
@@ -11,16 +11,16 @@ ms.topic: quickstart
 ms.date: 08/26/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 9f43b056275ba83630e711ff1a512cb73e84216a
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 8dc7bc36b3d4b172521b0fbbf9aa09cf4d1a9b29
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034632"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390124"
 ---
-# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Snabbstart: Sök efter bilder med API för bildsökning i Bing och Python
+# <a name="quickstart-search-for-images-using-the-bing-image-search-rest-api-and-python"></a>Snabb start: söka efter bilder med hjälp av Bildsökning i Bing REST API och python
 
-Använd den här snabbstarten till att börja skicka sökbegäranden till API:et för bildsökning i Bing. Python-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Python, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
+Använd den här snabbstarten för att börja skicka sökbegäranden till API för bildsökning i Bing. Python-programmet skickar en sökfråga till API:et och visar webbadressen till den första bilden i resultatet. Även om det här programmet är skrivet i Python, är API:et en RESTful-webbtjänst som är kompatibel med de flesta programmeringsspråk.
 
 Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://mybinder.org) genom att klicka på ikonen för att starta Binder:
 
@@ -30,7 +30,7 @@ Du kan köra det här exemplet som en Jupyter Notebook på [MyBinder](https://my
 Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py) tillsammans med ytterligare felhantering och kommentarer.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * [Python 2.x eller 3.x](https://www.python.org/)
 * [Python Imaging Library (PIL)](https://pillow.readthedocs.io/en/stable/index.html)
@@ -67,12 +67,13 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
     params  = {"q": search_term, "license": "public", "imageType": "photo"}
     ```
 
-2. Använd `requests`-biblioteket för att anropa API:et för bildsökning i Bing. Lägg till rubrik och parametrar i din begäran och returnera svaret som ett JSON-objekt. 
+2. Använd `requests`-biblioteket för att anropa API:et för bildsökning i Bing. Lägg till rubrik och parametrar i din begäran och returnera svaret som ett JSON-objekt. Hämta webb adresserna till flera miniatyr bilder från svarets `thumbnailUrl`-fält.
 
     ```python
     response = requests.get(search_url, headers=headers, params=params)
     response.raise_for_status()
     search_results = response.json()
+    thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
     ```
 
 ## <a name="view-the-response"></a>Visa svaret
@@ -80,6 +81,8 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
 1. Skapa en ny figur med fyra kolumner och fyra rader med hjälp av matplotlib-biblioteket. 
 
 2. Iterera figurens rader och kolumner och använd PIL-bibliotekets `Image.open()`-metod för att lägga till en bildminiatyr i varje område. 
+
+3. Använd `plt.show()` för att rita figuren och visa bilderna.
 
     ```python
     f, axes = plt.subplots(4, 4)
@@ -90,9 +93,9 @@ Källkoden för det här exemplet finns på [GitHub](https://github.com/Azure-Sa
             image = Image.open(BytesIO(image_data.content))        
             axes[i][j].imshow(image)
             axes[i][j].axis("off")
+    plt.show()
     ```
 
-3. Använd `plt.show()` för att rita figuren och visa bilderna.
 
 ## <a name="example-json-response"></a>Exempel på JSON-svar
 
@@ -151,4 +154,4 @@ Svar från API för bildsökning i Bing returneras som JSON. Det här exempelsva
 * [Prissättning](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/) av API:er för Bing-sökning. 
 * [Hämta en kostnadsfri åtkomstnyckel för Cognitive Services](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
 * [Dokumentation om Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
-* [API-referens för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)
+* [Referens för API för bildsökning i Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

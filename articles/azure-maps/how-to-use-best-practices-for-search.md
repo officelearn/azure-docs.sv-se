@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 25615ae8bc9bc8cadbe973f3a1859c2d43b067a9
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: de9e484e43c87375c2fdf9b34dd2efce3bb8aa8c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70915566"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429175"
 ---
 # <a name="best-practices-to-use-azure-maps-search-service"></a>Metod tips för att använda Azure Maps Search Service
 
@@ -25,7 +25,7 @@ Azure Maps [search service](https://docs.microsoft.com/rest/api/maps/search) inn
 * Läs svars strukturen för adress sökning
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Om du vill göra anrop till Maps-tjänstens API: er behöver du ett Maps-konto och nyckel. Om du vill ha information om hur du skapar ett konto följer du anvisningarna i [Hantera konto](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys#create-a-new-account) och följer stegen i [Hämta primär nyckel](./tutorial-search-location.md#getkey) för att hämta en primär prenumerations nyckel för ditt konto.
 
@@ -50,25 +50,25 @@ Se [täcknings täckning](https://docs.microsoft.com/azure/azure-maps/geocoding-
 
    För att geo-bias ska kunna användas i det relevanta området för din användare bör du alltid lägga till maximalt antal indata från den detaljerade platsen. Överväg att lägga till följande typer av indatatyper för att begränsa Sök resultaten:
 
-   1. `countrySet` Ange parametern, till exempel "USA, fr". Standard Sök beteendet är att söka hela världen och eventuellt returnera onödiga resultat. Om frågan inte inkluderar `countrySet` parameter kan sökningen returnera felaktiga resultat. Sök till exempel efter en stad med namnet **Bellevue** kommer att returnera resultat från USA och Frankrike, eftersom det finns städer med namnet **Bellevue** i Frankrike och i USA.
+   1. Ange parametern `countrySet`, till exempel "USA, FR". Standard Sök beteendet är att söka hela världen och eventuellt returnera onödiga resultat. Om din fråga inte innehåller `countrySet`-parameter kan sökningen returnera felaktiga resultat. Sök till exempel efter en stad med namnet **Bellevue** kommer att returnera resultat från USA och Frankrike, eftersom det finns städer med namnet **Bellevue** i Frankrike och i USA.
 
-   2. Du kan använda `btmRight` parametrarna och `topleft` för att ange begränsnings rutan för att begränsa sökningen till ett särskilt område på kartan.
+   2. Du kan använda parametrarna `btmRight` och `topleft` för att ange begränsnings rutan för att begränsa sökningen till ett särskilt område på kartan.
 
-   3. För att påverka det område som är relevant för resultatet kan du definiera `lat`och `lon` koordinera parametrarna och ange radien för sökområdeet med hjälp `radius` av parametern.
+   3. För att påverka det område som är relevant för resultatet kan du definiera parametrarna för `lat`and `lon` och ange radien för sökområdeet med hjälp av parametern `radius`.
 
 
    **Parametrar för fuzzy-sökning**
 
-   1. `minFuzzyLevel` Och`maxFuzzyLevel`hjälp till att returnera relevanta matchningar även om frågeparametrar inte exakt motsvarar den önskade informationen. De flesta Sök frågor är `minFuzzyLevel=1` standard `maxFuzzyLevel=2` för och för att få prestanda och minska ovanliga resultat. Ta ett exempel på en Sök term "restrant", som den matchas till "restaurang" när `maxFuzzyLevel` är inställd på 2. De förvalda fuzzy-nivåerna kan åsidosättas per begäran. 
+   1. @No__t-0 och `maxFuzzyLevel`, hjälp till att returnera relevanta matchningar även om frågeparametrar inte exakt motsvarar den önskade informationen. De flesta Sök frågor standardvärdet `minFuzzyLevel=1` och `maxFuzzyLevel=2` för att få prestanda och minska ovanliga resultat. Ta ett exempel på Sök termen "restrant", den matchas till "restaurang" när `maxFuzzyLevel` har värdet 2. De förvalda fuzzy-nivåerna kan åsidosättas per begäran. 
 
-   2. Du kan också ange den exakta uppsättning av resultat typer som ska returneras med hjälp `idxSet` av parametern. För det här syftet kan du skicka en kommaavgränsad lista över index, men objekt ordningen spelar ingen roll. Följande är de index som stöds:
+   2. Du kan också ange den exakta uppsättning av resultat typer som ska returneras med hjälp av parametern `idxSet`. För det här syftet kan du skicka en kommaavgränsad lista över index, men objekt ordningen spelar ingen roll. Följande är de index som stöds:
 
-       * `Addr` - **Adress intervall**: För vissa gator finns det adress punkter som interpoleras från början och slutet av gatan. dessa punkter visas som adress intervall.
-       * `Geo` - **Geografiska**områden: Områden på en karta som representerar den administrativa indelningen av en mark, det vill säga land, delstat, stad.
-       * `PAD` - **Adress för punkt**:  Punkter på en karta där du kan hitta en speciell adress med ett gatu namn och-nummer i ett index, till exempel Soquel Dr 2501. Det är den högsta möjliga noggrannhets nivån för adresser.  
-       * `POI` - **Intressanta punkter**: Punkter på en karta som är värda och kan vara intressanta.  [Hämta Sök adressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) returnerar inte POI: er.  
-       * `Str` - **Streets**: Representation av gator på kartan.
-       * `XStr` - **Korsa gator/** korsningar:  Representation av Knut punkter; platser där två gator korsar varandra.
+       * `Addr` @ no__t-1**adress intervall**: för vissa gator finns det adress punkter som interpoleras från början och slutet av gatan. dessa punkter visas som adress intervall.
+       * `Geo` @ no__t-1-**geografiska**områden: områden på en karta som representerar den administrativa indelningen av en mark, det vill säga land, delstat, stad.
+       * `PAD` @ no__t-1-**punkt adress**: punkter på en karta där du kan hitta en viss adress med ett gatu namn och-nummer i ett index, till exempel Soquel Dr 2501. Det är den högsta möjliga noggrannhets nivån för adresser.  
+       * `POI` @ no__t-1**punkter av intresse**: punkter på en karta som är värda och kan vara intressanta.  [Hämta Sök adressen](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) returnerar inte POI: er.  
+       * `Str` @ no__t-1**Streets**: representation av Streets på kartan.
+       * `XStr` @ no__t-1**Cross Streets/skärnings punkter**: representation av Knut punkter; platser där två gator korsar varandra.
 
 
        **Användnings exempel**:
@@ -128,14 +128,14 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 
 ### <a name="search-results-language"></a>Sök Resultat språk
 
-Med `language` den här parametern kan du ange i vilka språk Sök resultat ska returneras. Om språket inte är inställt i begäran är Sök tjänsten automatiskt standardvärdet för det vanligaste språket i landet/regionen. När data på det angivna språket inte är tillgängliga används också standard språket. Se [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) för en lista över språk som stöds med avseende på Azure Maps tjänster efter land/region.
+Med parametern `language` kan du ange vilket språk Sök resultat som ska returneras. Om språket inte är inställt i begäran är Sök tjänsten automatiskt standardvärdet för det vanligaste språket i landet/regionen. När data på det angivna språket inte är tillgängliga används också standard språket. Se [språk som stöds](https://docs.microsoft.com/azure/azure-maps/supported-languages) för en lista över språk som stöds med avseende på Azure Maps tjänster efter land/region.
 
 
 ### <a name="predictive-mode-auto-suggest"></a>Förutsägande läge (automatiskt förslag)
 
-Om du vill hitta fler matchningar för `typeahead` partiella frågor ska parametern vara inställd på "true". Frågan kommer att tolkas som en del Indatatyp och sökningen kommer att ange ett förutsägande läge. Annars förutsätter tjänsten att all relevant information har skickats in.
+Om du vill hitta fler matchningar för partiella frågor ska `typeahead`-parametern vara inställd på "true". Frågan kommer att tolkas som en del Indatatyp och sökningen kommer att ange ett förutsägande läge. Annars förutsätter tjänsten att all relevant information har skickats in.
 
-I exempel frågan nedan kan du se att Sök tjänst frågan efter frågas för "mi" med `typeahead` parametern inställt på **True**. Om du ser svaret kan du se att Sök tjänsten tolkade frågan som en partiell fråga och svaret innehåller resultat för den automatiskt föreslagna frågan.
+I exempel frågan nedan kan du se att Sök tjänst frågan efter frågas för "mi" med parametern `typeahead` inställd på **True**. Om du ser svaret kan du se att Sök tjänsten tolkade frågan som en partiell fråga och svaret innehåller resultat för den automatiskt föreslagna frågan.
 
 **Exempelfråga:**
 
@@ -254,7 +254,7 @@ query=1st Avenue & E 111th St, New York
  ska kodas som:
 
 ```
-query"=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
+query=1st%20Avenue%20%26%20E%20111th%20St%2C%20New%20York
 ```
 
 
@@ -265,7 +265,7 @@ Java Script/TypeScript:
 encodeURIComponent(query)
 ```
 
-C#VISUAL
+C#Visual
 ```csharp
 Uri.EscapeDataString(query)
 ```
@@ -292,7 +292,7 @@ PHP:
 urlencode(query)
 ```
 
-Ruby:
+Ruby
 ```Ruby
 CGI::escape(query) 
 ```
@@ -311,7 +311,7 @@ url.QueryEscape(query)
 
 ## <a name="best-practices-for-poi-search"></a>Metod tips för POI-sökning
 
-Med POI-sökningen (Points of Interest) kan du begära POI resultat per namn, till exempel söka efter företag efter namn. Vi rekommenderar starkt att du använder `countrySet` parametern för att ange länder där ditt program behöver täckning, eftersom standard beteendet är att söka hela världen, vilket kan returnera onödiga resultat och/eller leda till längre Sök tider.
+Med POI-sökningen (Points of Interest) kan du begära POI resultat per namn, till exempel söka efter företag efter namn. Vi rekommenderar starkt att du använder parametern `countrySet` för att ange länder där ditt program behöver täckning, eftersom standard beteendet är att söka hela världen, vilket kan returnera onödiga resultat och/eller leda till längre Sök tider.
 
 ### <a name="brand-search"></a>Varumärkes sökning
 
@@ -496,7 +496,7 @@ Om du bara vill hämta POI resultat kring en bestämd plats kan [API: t i närhe
 
 ## <a name="understanding-the-responses"></a>Förstå Svaren
 
-Låt oss göra en Sök-begäran till Azure Maps [Sök tjänsten](https://docs.microsoft.com/rest/api/maps/search) för en adress i Seattle. Om du tittar noggrant på fråge-URL: en nedan har vi ställt `countrySet` in parametern till **oss** för att söka efter adressen i USA i Amerika.
+Låt oss göra en Sök-begäran till Azure Maps [Sök tjänsten](https://docs.microsoft.com/rest/api/maps/search) för en adress i Seattle. Om du tittar noggrant på fråge-URL: en nedan har vi ställt in parametern `countrySet` till **oss** för att söka efter adressen i USA i Amerika.
 
 **Exempelfråga:**
 
@@ -504,7 +504,7 @@ Låt oss göra en Sök-begäran till Azure Maps [Sök tjänsten](https://docs.mi
 https://atlas.microsoft.com/search/address/json?subscription-key={subscription-key}&api-version=1&query=400%20Broad%20Street%2C%20Seattle%2C%20WA&countrySet=US
 ```
 
-Nu ska vi titta på svars strukturen nedan. Resultat typerna för resultat objekt i svaret är olika. Om du ser noggrant kan vi se att vi har tre olika typer av resultat objekt, som är "punkt adress", "gata" och "kors gatan". Observera att adresss ökningen inte returnerar POI: er. `Score` Parametern för varje Response-objekt anger de relativa matchnings poängen till resultat från andra objekt i samma svar. Se [Hämta Sök adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) om du vill veta mer om svars objekt parametrar.
+Nu ska vi titta på svars strukturen nedan. Resultat typerna för resultat objekt i svaret är olika. Om du ser noggrant kan vi se att vi har tre olika typer av resultat objekt, som är "punkt adress", "gata" och "kors gatan". Observera att adresss ökningen inte returnerar POI: er. Parametern `Score` för varje Response-objekt anger det relativa matchnings resultatet till poängen för andra objekt i samma svar. Se [Hämta Sök adress](https://docs.microsoft.com/rest/api/maps/search/getsearchaddress) om du vill veta mer om svars objekt parametrar.
 
 **Resultat typer som stöds:**
 
@@ -512,11 +512,11 @@ Nu ska vi titta på svars strukturen nedan. Resultat typerna för resultat objek
 
 * **Adress intervall:**  För vissa gator finns det adress punkter som interpoleras från början och slutet av gatan. dessa punkter visas som adress intervall. 
 
-* **Placering** Områden på en karta som representerar den administrativa indelningen av en mark, det vill säga land, delstat, stad. 
+* **Geografi:** Områden på en karta som representerar den administrativa indelningen av en mark, det vill säga land, delstat, stad. 
 
 * **POI – (intressanta punkter):** Punkter på en karta som är värda och kan vara intressanta.
 
-* **Gatuadress** Representation av gator på kartan. Adresser matchas mot latitud/longitud-koordinaten för den gata som innehåller adressen. Hus numret kan inte bearbetas. 
+* **Gata:** Representation av gator på kartan. Adresser matchas mot latitud/longitud-koordinaten för den gata som innehåller adressen. Hus numret kan inte bearbetas. 
 
 * **Kors gatan:** Skärnings punkter. Representationer av Knut punkter; platser där två gator korsar varandra.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: search
 ms.topic: conceptual
 ms.date: 10/09/2019
-ms.openlocfilehash: 5dc81f6e35f86c6dee77d44ff5c59c2657434a37
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 192d1a7b3bb10395aa662a4b915fe0189b1306b5
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376270"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434046"
 ---
 # <a name="use-ai-to-understand-blob-data"></a>Använd AI för att förstå BLOB-data
 
@@ -30,7 +30,7 @@ AI-berikning skapar ny information, insamlad som text, lagrad i fält. Efter anv
 
 I den här artikeln visar vi AI-berikning genom en bred lins så att du snabbt kan grepp hela processen, från att omvandla rå data i blobbar, till information som kan sökas i antingen ett sökindex eller i ett kunskaps lager.
 
-## <a name="what-it-means-to-enrich-blob-data"></a>Vad det innebär att "utöka" BLOB-data
+## <a name="what-it-means-to-enrich-blob-data-with-ai"></a>Vad det innebär att "utöka" BLOB-data med AI
 
 *AI-anrikning* är en del av indexerings arkitekturen för Azure Search som integrerar inbyggda AI från Microsoft eller anpassad AI som du anger. Det hjälper dig att implementera scenarier med slut punkt till slut punkt där du behöver bearbeta blobbar (både befintliga och nya som de kommer in eller uppdateras), öppna alla fil format för att extrahera bilder och text, extrahera önskad information med olika AI-funktioner och indexera dem i ett Azure Search-index för snabb sökning, hämtning och utforskning. 
 
@@ -40,33 +40,37 @@ Utdata är alltid ett Azure Search-index som används för snabb texts ökning, 
 
 I between är själva pipeline-arkitekturen. Pipelinen baseras på funktionen *Indexer* , som du kan använda för att tilldela en *färdigheter*, som består av en eller flera *kunskaper* som tillhandahåller AI. Syftet med pipelinen är att skapa *omfattande dokument* som anger som rå innehåll, men som hämtar ytterligare struktur, kontext och information samtidigt som du går igenom pipelinen. Omfattande dokument förbrukas under indexeringen för att skapa inverterade index och andra strukturer som används i full texts ökning eller utforskning och analys.
 
-## <a name="how-to-get-started"></a>Så här kommer du igång
+## <a name="start-with-services-and-data"></a>Börja med tjänster och data
 
-Du kan starta direkt på din Portal sida för lagrings konto. Klicka på **Lägg till Azure Search** och skapa en ny Azure Search tjänst eller Välj en befintlig. Om du redan har en befintlig Sök tjänst i samma prenumeration, klickar du på **Lägg till Azure Search** öppnar guiden Importera data så att du snabbt kan stega igenom indexerings-, beriknings-och index definition.
+Du behöver Azure Search och Azure Blob Storage. I Blob Storage behöver du en behållare som tillhandahåller käll innehåll.
 
-När du lägger till Azure Search i ditt lagrings konto kan du följa standard processen för att utöka data i alla Azure-datakällor. Förutsatt att du redan har BLOB-innehåll kan du använda guiden Importera data i Azure Search för att få en enkel första introduktion till AI-berikning. Den här snabb starten förklarar stegen: [skapa en pipeline för AI-anrikning i portalen](cognitive-search-quickstart-blob.md). 
+Du kan starta direkt på din Portal sida för lagrings konto. På den vänstra navigerings sidan under **BLOB service** klickar du på **Lägg till Azure Search** för att skapa en ny tjänst eller välja en befintlig. 
+
+När du lägger till Azure Search i ditt lagrings konto kan du följa standard processen för att utöka data i alla Azure-datakällor. Vi rekommenderar guiden **Importera data** i Azure Search för en enkel första introduktion till AI-berikning. Den här snabb starten vägleder dig genom stegen: [skapa en pipeline för AI-anrikning i portalen](cognitive-search-quickstart-blob.md). 
 
 I följande avsnitt kommer vi att utforska fler komponenter och begrepp.
 
-## <a name="begin-with-blob-indexers"></a>Börja med BLOB-indexerare
+## <a name="use-a-blob-indexer"></a>Använda en BLOB-indexerare
 
-AI-anrikning är ett tillägg till en indexerings pipeline, och i Azure Search skapas pipelinerna ovanpå en *indexerare*. En indexerare är en data källa medveten under tjänst som är utrustad med intern logik för att sampla data, läsa metadata, hämta data och serialisera data från interna format till JSON-dokument för efterföljande import. Indexerare används ofta av sig själva för import, separat från AI, men om du vill bygga en pipeline för AI-anrikning behöver du en indexerare och en färdigheter för att gå med den. I det här avsnittet ska vi fokusera på själva indexeraren.
+AI-anrikning är ett tillägg till en indexerings pipeline, och i Azure Search skapas pipelinerna ovanpå en *indexerare*. En indexerare är en data källa medveten under tjänst som är utrustad med intern logik för att sampla data, läsa metadata, hämta data och serialisera data från interna format till JSON-dokument för efterföljande import. Indexerare används ofta av sig själva för import, separat från AI, men om du vill bygga en pipeline för AI-anrikning behöver du en indexerare och en färdigheter för att gå med den. I det här avsnittet beskrivs indexeraren. nästa avsnitt fokuserar på färdighetsuppsättningar.
 
-Blobbar i Azure Storage indexeras med hjälp av [Azure Search Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md). Du anropar den här indexeraren genom att ange typ och genom att tillhandahålla anslutnings information som innehåller ett Azure Storage konto tillsammans med en BLOB-behållare. Om du inte tidigare har ordnat blobbar i en virtuell katalog, som du sedan kan skicka som en parameter, hämtas BLOB-indexeraren från hela behållaren.
+Blobbar i Azure Storage indexeras med hjälp av [Azure Search Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md). Du kan anropa denna indexerare med hjälp av guiden **Importera data** , en REST API eller .NET SDK. I kod använder du denna indexerare genom att ange typ och genom att tillhandahålla anslutnings information som innehåller ett Azure Storage konto tillsammans med en BLOB-behållare. Du kan ange en delmängd av Blobbarna genom att skapa en virtuell katalog som du sedan kan skicka som en parameter eller genom att filtrera efter fil typs tillägg.
 
-En indexerare gör "dokument sprickor" och när du har anslutit till data källan är det det första steget i pipelinen. För BLOB-data är detta var PDF, Office-dokument, bild och andra innehålls typer identifieras. Dokument sprickor med text extrahering är ingen kostnad. Dokument sprickor med avbildnings extrahering debiteras enligt de priser som du hittar på [sidan Azure Search priser](https://azure.microsoft.com/pricing/details/search/).
+En indexerare gör "dokument sprickor" och öppnar en BLOB för att granska innehåll. När du har anslutit till data källan är det första steget i pipelinen. För BLOB-data är detta var PDF, Office-dokument, bild och andra innehålls typer identifieras. Dokument sprickor med text extrahering är ingen kostnad. Dokument sprickor med avbildnings extrahering debiteras enligt de priser som du hittar på [sidan Azure Search priser](https://azure.microsoft.com/pricing/details/search/).
 
-Även om alla dokument kommer att bli skadade, sker berikningen bara om du anger de kunskaper du behöver. Om din pipeline exempelvis består av enbart text analys, kommer alla bilder i din behållare eller dina dokument att ignoreras.
+Även om alla dokument kommer att bli skadade, sker berikningen bara om du anger de kunskaper du behöver. Om din pipeline till exempel består av enbart bild analys, ignoreras texten i din behållare eller dina dokument.
 
 BLOB-indexeraren innehåller konfigurations parametrar och stöder ändrings spårning om underliggande data innehåller tillräckligt med information. Du kan lära dig mer om kärn funktionerna i [Azure Search Blob Storage-indexeraren](search-howto-indexing-azure-blob-storage.md).
 
-## <a name="add-ai"></a>Lägg till AI
+## <a name="add-ai-components"></a>Lägg till AI-komponenter
 
-*Färdigheter* är de enskilda komponenterna i AI-bearbetning som du kan använda fristående eller i kombination med andra kunskaper för sekventiell bearbetning. 
+AI-anrikning syftar på moduler som söker efter mönster eller egenskaper och utför sedan en åtgärd enligt detta. Ansikts igenkänning i foton, text beskrivningar av foton, identifiering av nyckel fraser i ett dokument och OCR (eller igenkänning av skriven text i binära filer) är exempel på exempel.
 
-+ Inbyggda kunskaper backas upp av Cognitive Services, med bild analys baserat på Visuellt innehåll och naturlig språk bearbetning baserat på Textanalys. Några exempel är [OCR](cognitive-search-skill-ocr.md), [entitets igenkänning](cognitive-search-skill-entity-recognition.md)och [bild analys](cognitive-search-skill-image-analysis.md). Du kan granska den fullständiga listan med inbyggda kunskaper i [fördefinierade kunskaper för innehålls berikning](cognitive-search-predefined-skills.md).
+I Azure Search är *färdigheter* de enskilda komponenterna i AI-bearbetning som du kan använda fristående eller i kombination med andra kunskaper. 
 
-+ Anpassade kunskaper är anpassad kod, omsluten i en gränssnitts definition som möjliggör integrering i pipelinen. I kund lösningar är det vanligt att använda båda, med anpassade kunskaper som tillhandahåller AI-moduler med öppen källkod, tredje part eller första part.
++ Inbyggda kunskaper backas upp av Cognitive Services, med bild analys baserat på Visuellt innehåll och naturlig språk bearbetning baserat på Textanalys. Du kan granska den fullständiga listan med inbyggda kunskaper i [fördefinierade kunskaper för innehålls berikning](cognitive-search-predefined-skills.md).
+
++ Anpassade kunskaper är anpassad kod, omsluten i en [gränssnitts definition](cognitive-search-custom-skill-interface.md) som möjliggör integrering i pipelinen. I kund lösningar är det vanligt att använda båda, med anpassade kunskaper som tillhandahåller AI-moduler med öppen källkod, tredje part eller första part.
 
 En *färdigheter* är en samling kunskaper som används i en pipeline, och den anropas när dokumentets cracking-fas gör innehåll tillgängligt. En indexerare kan använda exakt en färdigheter, men det färdigheter finns oberoende av en indexerare så att du kan återanvända den i andra scenarier.
 
@@ -90,9 +94,9 @@ For example, given a large blob of unstructured text, a sample order of operatio
 1. Run Entity Recognition, Key Phrase Extraction, or Sentiment Analysis on chunks of text. In this step, new fields are created and populated. Entities might be location, people, organization, dates. Key phrases are short combinations of words that appear to belong together. Sentiment score is a rating on continuum of negative (0) to positive (1) sentiment.
 1. Use Text Merger to reconstitute the document from the smaller chunks. -->
 
-## <a name="how-to-use-ai-enriched-content"></a>Så här använder du AI-berikat innehåll
+## <a name="consume-ai-enriched-output-in-downstream-solutions"></a>Använd AI – berikade utdata i underordnade lösningar
 
-Utdata från AI-anrikning är antingen ett sökindex på Azure Search eller ett kunskaps lager i Azure Storage.
+Utdata från AI-anrikning är antingen ett sökindex på Azure Search eller ett [kunskaps lager](knowledge-store-concept-intro.md) i Azure Storage.
 
 I Azure Search används ett sökindex för interaktiv utforskning med fri text och filtrerade frågor i en klient app. Omfattande dokument som skapats via AI formateras i JSON och indexeras på samma sätt som alla dokument indexeras i Azure Search, vilket utnyttjar alla fördelar som en indexerare tillhandahåller. Vid indexering, till exempel, refererar BLOB-indexeraren till konfigurations parametrar och inställningar för att använda alla fält mappningar eller logik för ändrings identifiering. Sådana inställningar är helt tillgängliga för regelbundna indexering och AI-berikade arbets belastningar. Efter indexeringen, när innehåll lagras på Azure Search, kan du bygga omfattande frågor och filter uttryck för att förstå ditt innehåll.
 

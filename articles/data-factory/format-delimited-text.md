@@ -1,6 +1,6 @@
 ---
-title: Avgränsat textformat i Azure Data Factory | Microsoft Docs
-description: Det här avsnittet beskriver hur du arbetar med avgränsat textformat i Azure Data Factory.
+title: Avgränsat text format i Azure Data Factory | Microsoft Docs
+description: I det här avsnittet beskrivs hur du hanterar avgränsat text format i Azure Data Factory.
 author: linda33wj
 manager: craigg
 ms.reviewer: craigg
@@ -9,38 +9,38 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 407b8ba2fda35d3acbf1b425bb15fe20778613d7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: a545617c9e93a9a5fd0a34acc1dd5e2825917b62
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65146009"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387668"
 ---
-# <a name="delimited-text-format-in-azure-data-factory"></a>Avgränsat textformat i Azure Data Factory
+# <a name="delimited-text-format-in-azure-data-factory"></a>Avgränsat text format i Azure Data Factory
 
-Följ den här artikeln när du vill **parsa avgränsad text-filerna eller skriva data till avgränsat textformat**. 
+Följ den här artikeln när du vill **parsa de avgränsade textfilerna eller skriva data i avgränsat text format**. 
 
-Avgränsat textformat stöds för följande kopplingar: [Amazon S3](connector-amazon-simple-storage-service.md), [Azure Blob](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [Filsystem](connector-file-system.md), [FTP](connector-ftp.md), [Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [HTTP](connector-http.md), och [ SFTP](connector-sftp.md).
+Avgränsat text format stöds för följande anslutningar: [Amazon S3](connector-amazon-simple-storage-service.md), [azure BLOB](connector-azure-blob-storage.md), [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md), [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md), [Azure File Storage](connector-azure-file-storage.md), [fil system](connector-file-system.md), [FTP](connector-ftp.md), [ Google Cloud Storage](connector-google-cloud-storage.md), [HDFS](connector-hdfs.md), [http](connector-http.md)och [SFTP](connector-sftp.md).
 
-## <a name="dataset-properties"></a>Egenskaper för datamängd
+## <a name="dataset-properties"></a>Egenskaper för data mängd
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera datauppsättningar finns i den [datauppsättningar](concepts-datasets-linked-services.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av datauppsättningen avgränsad text.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera data uppsättningar finns i artikeln [data uppsättningar](concepts-datasets-linked-services.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av den avgränsade text data uppsättningen.
 
 | Egenskap         | Beskrivning                                                  | Krävs |
 | ---------------- | ------------------------------------------------------------ | -------- |
-| type             | Type-egenskapen för datauppsättningen måste anges till **DelimitedText**. | Ja      |
-| location         | Platsinställningar för filen eller filerna. Varje filbaserade anslutning har sin egen platstyp och stöds egenskaper under `location`. **Mer information finns i artikeln connector -> datauppsättning egenskapsavsnittet**. | Ja      |
-| columnDelimiter  | Tecken som används för att avgränsa kolumner i en fil. För närvarande stöds endast flera char avgränsare för mappning av dataflöde men inte Kopieringsaktivitet. <br>Standardvärdet är **kommatecken `,`** när kolumnavgränsare definieras som tom sträng, vilket innebär att ingen avgränsare hela raden tas den som en enda kolumn. | Nej       |
-| rowDelimiter     | Enskilt tecken eller ”\r\n” används för att avgränsa rader i en fil.<br>Standardvärdet är något av följande värden **vid läsning: [”\r\n”, ”\r”, ”\n”]** , och **”\n” eller ”\r\n” vid skrivning till** genom att mappa Data flödar och kopiera aktivitet respektive. <br>När `rowDelimiter` är inställd på Ingen avgränsare (tom sträng), den `columnDelimiter` måste anges som inte har avgränsare (tom sträng) som, vilket innebär att behandla hela innehållet som ett enda värde. | Nej       |
-| quoteChar        | Det enskilda tecknet citera kolumnvärdena om den innehåller en avgränsare för kolumnen. <br>Standardvärdet är **dubbla citattecken** `"`. <br>För mappning av dataflöde `quoteChar` får inte vara en tom sträng. <br>För kopieringsaktiviteten när `quoteChar` definieras som tom sträng, innebär det att det finns inga citattecken char och är inte av citattecken kolumnvärde, och `escapeChar` används för att undvika Kolumnavgränsare och sig själv. | Nej       |
-| escapeChar       | Det enskilda tecknet att undvika citattecken inuti ett citerade värde.<br>Standardvärdet är **omvänt snedstreck `\`** . <br>För mappning av dataflöde `escapeChar` får inte vara en tom sträng. <br/>För kopieringsaktiviteten när `escapeChar` definieras som tom sträng, den `quoteChar` måste vara som samt tom sträng, kontrollera då alla kolumnvärdena inte innehåller avgränsare. | Nej       |
-| firstRowAsHeader | Anger om du vill behandla den första raden/Kontrollera som en rubrikrad om du med namnen på kolumnerna.<br>Tillåtna värden är **SANT** och **FALSKT** (standard). | Nej       |
-| nullValue        | Anger den sträng som innehåller null-värde. <br>Standardvärdet är **tom sträng**. | Nej       |
-| encodingName     | Kodningstyp som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: ”UTF-8”, ”UTF-16”, ”UTF-16BE”, ”UTF-32”, ”UTF-32BE”, ”US-ASCII”, ”UTF-7”, ”BIG5”, ”EUC-JP”, ”EUC-KR”, ”GB2312”, ”GB18030”, ”JOHAB”, ”SHIFT-JIS”, ”CP875”, ”CP866”, ”IBM00858”, ”IBM037”, ”IBM273”, ”IBM437”, ”IBM500”, ”IBM737”, ”IBM775”, ”IBM850” ”, IBM852 ”,” IBM855 ”,” IBM857 ”,” IBM860 ”,” IBM861 ”,” IBM863 ”,” IBM864 ”,” IBM865 ”,” IBM869 ”,” IBM870 ”,” IBM01140 ”,” IBM01141 ”,” IBM01142 ”,” IBM01143 ”,” IBM01144 ”,” IBM01145 ”,” IBM01146 ”,” IBM01147 ”,” IBM01148 ”,” IBM01149 ”,” ISO-2022-JP ”,” ISO-2022-KR ”,” ISO-8859-1 ”,” ISO-8859-2 ”,” ISO-8859-3 ”,” ISO-8859-4 ”,” ISO-8859-5 ”,” ISO-8859-6 ”,” ISO-8859-7 ”,” ISO-8859-8 ”,” ISO-8859-9 ”,” ISO-8859-13 ”,” ISO-8859-15 ”,” WINDOWS-874 ”,” WINDOWS-1250 ”,” WINDOWS-1251 ”,” WINDOWS-1252 ”,” WINDOWS-1253 ””, WINDOWS-1254 ”,” WINDOWS-1255 ”,” WINDOWS-1256 ”,” WINDOWS-1257 ”,” WINDOWS-1258 ”.<br>Observera mappning dataflöde inte stöder UTF-7-kodning. | Nej       |
-| compressionCodec | Komprimerings-codec som används för att läsa/skriva textfiler. <br>Tillåtna värden är **bzip2**, **gzip**, **deflate**, **ZipDeflate**, **snappy**, eller **lz4**. att använda när du sparar filen. <br>Observera för närvarande kopieringsaktiviteten inte stöder ”snappy” och ”lz4” och mappa dataflöde stöder inte ”ZipDeflate”. | Nej       |
-| compressionLevel | Komprimeringsförhållandet. <br>Tillåtna värden är **Optimal** eller **snabbast**.<br>- **Snabbaste:** Komprimeringsåtgärden ska slutföras så snabbt som möjligt, även om den resulterande filen inte är optimalt komprimerad.<br>- **Optimal**: Komprimeringsåtgärden ska komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i [komprimeringsnivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) avsnittet. | Nej       |
+| typ             | Data uppsättningens typ-egenskap måste anges till **DelimitedText**. | Ja      |
+| location         | Plats inställningar för filen/filerna. Varje filbaserad koppling har sin egen plats typ och egenskaper som stöds under `location`. **Se information i avsnittet kopplings artikel – egenskaper för > data uppsättning**. | Ja      |
+| columnDelimiter  | De/tecknen som används för att avgränsa kolumner i en fil. För närvarande stöds inte Multi-char-avgränsare för att mappa data flöde, men inte kopiera aktivitet. <br>Standardvärdet är **kommatecken `,`** , när kolumn avgränsaren har definierats som en tom sträng, vilket innebär att ingen avgränsare tas hela raden som en enda kolumn. | Nej       |
+| rowDelimiter     | Det enstaka tecknen eller "\r\n" som används för att avgränsa rader i en fil.<br>Standardvärdet är något av följande värden **vid läsning: ["\r\n", "\r", "\n"]** och **"\n" eller "\r\n" vid skrivning** genom att mappa data flöde och kopiera aktivitet. <br>När `rowDelimiter` har angetts till ingen avgränsare (tom sträng), måste `columnDelimiter` anges som ingen avgränsare (tom sträng), vilket innebär att hela innehållet ska behandlas som ett enda värde. | Nej       |
+| quoteChar        | Det enkla tecknet för att citera kolumn värden om det innehåller kolumn avgränsare. <br>Standardvärdet är **dubbla citat tecken** `"`. <br>@No__t-0 kan inte vara en tom sträng för att mappa data flödet. <br>När `quoteChar` definieras som en tom sträng i kopierings aktiviteten betyder det att det inte finns något citat tecken och kolumnvärdet inte är citerat, och `escapeChar` används för att undanta kolumn avgränsaren och sig själv. | Nej       |
+| escapeChar       | Det enda tecken som ska Escape-citat innanför ett citerat värde.<br>Standardvärdet är **omvänt snedstreck `\`** . <br>@No__t-0 kan inte vara en tom sträng för att mappa data flödet. <br/>För kopierings aktiviteten, när `escapeChar` definieras som en tom sträng, måste `quoteChar` anges som en tom sträng, och i så fall se till att alla kolumn värden inte innehåller avgränsare. | Nej       |
+| firstRowAsHeader | Anger om du vill behandla/skapa den första raden som en rubrik rad med kolumn namn.<br>Tillåtna värden är **True** och **false** (standard). | Nej       |
+| nullValue        | Anger sträng representationen för null-värde. <br>Standardvärdet är en **tom sträng**. | Nej       |
+| encodingName     | Kodnings typen som används för att läsa/skriva testfiler. <br>Tillåtna värden är följande: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", " IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149" , "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13", "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", " WINDOWS-1252 "," WINDOWS-1253 "," WINDOWS-1254 "," WINDOWS-1255 "," WINDOWS-1256 "," WINDOWS-1257 "," WINDOWS-1258 ".<br>Data flödet för antecknings mappning stöder inte UTF-7-kodning. | Nej       |
+| compressionCodec | Komprimerings-codec som används för att läsa/skriva textfiler. <br>Tillåtna värden är **bzip2**, **gzip**, **DEFLATE**, **ZipDeflate**, **fästfunktionen**eller **lz4**. att använda när du sparar filen. <br>Obs! kopierings aktiviteten stöder för närvarande inte "fästfunktionen" & "lz4" och kart data flödet stöder inte "ZipDeflate". | Nej       |
+| compressionLevel | Komprimerings förhållandet. <br>Tillåtna värden är **optimalt** eller **snabbast**.<br>- **snabbast:** komprimerings åtgärden bör utföras så fort som möjligt, även om den resulterande filen inte komprimeras optimalt.<br>- **optimalt**: komprimerings åtgärden bör komprimeras optimalt, även om åtgärden tar längre tid att slutföra. Mer information finns i avsnittet [komprimerings nivå](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | Nej       |
 
-Nedan visas ett exempel på en avgränsad text datamängd på Azure Blob Storage:
+Nedan visas ett exempel på en avgränsad text uppsättning på Azure Blob Storage:
 
 ```json
 {
@@ -69,49 +69,49 @@ Nedan visas ett exempel på en avgränsad text datamängd på Azure Blob Storage
 
 ## <a name="copy-activity-properties"></a>Kopiera egenskaper för aktivitet
 
-En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i den [Pipelines](concepts-pipelines-activities.md) artikeln. Det här avsnittet innehåller en lista över egenskaper som stöds av avgränsad text källa och mottagare.
+En fullständig lista över avsnitt och egenskaper som är tillgängliga för att definiera aktiviteter finns i artikeln om [pipeliner](concepts-pipelines-activities.md) . Det här avsnittet innehåller en lista över egenskaper som stöds av avgränsad text källa och mottagare.
 
 ### <a name="delimited-text-as-source"></a>Avgränsad text som källa 
 
-Följande egenskaper stöds i kopieringsaktiviteten ***\*källa\**** avsnittet.
+Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*source @ no__t-2*** .
 
 | Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DelimitedTextSource**. | Ja      |
-| formatSettings | En grupp egenskaper. Referera till **avgränsad text läsinställningar** tabellen nedan. | Nej       |
-| storeSettings  | En grupp egenskaper för hur du läser data från ett datalager. Varje filbaserade anslutningsprogrammet har sin egen Läs inställningar som stöds under `storeSettings`. **Mer information finns i artikeln connector -> Kopiera aktivitet egenskapsavsnittet**. | Nej       |
+| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSource**. | Ja      |
+| formatSettings | En grupp med egenskaper. Läs **Inställningar för avgränsad text** i tabellen nedan. | Nej       |
+| storeSettings  | En grupp egenskaper för att läsa data från ett data lager. Varje filbaserad koppling har sina egna Läs inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
 
-Stöds **avgränsad text läsinställningar** under `formatSettings`:
+**Läs inställningar för avgränsad text** som stöds under `formatSettings`:
 
 | Egenskap      | Beskrivning                                                  | Krävs |
 | ------------- | ------------------------------------------------------------ | -------- |
-| type          | Vilken typ av formatSettings måste anges till **DelimitedTextReadSetting**. | Ja      |
-| skipLineCount | Anger hur många **icke-tomma** rader att hoppa över vid läsning av data från indatafiler. <br>Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. | Nej       |
+| typ          | Typen för formatSettings måste anges till **DelimitedTextReadSetting**. | Ja      |
+| skipLineCount | Anger antalet **icke-tomma** rader som ska hoppas över vid läsning av data från indatafiler. <br>Om både skipLineCount och firstRowAsHeader anges hoppas raderna över först, varefter rubrikinformationen läses från indatafilen. | Nej       |
 
 ### <a name="delimited-text-as-sink"></a>Avgränsad text som mottagare
 
-Följande egenskaper stöds i kopieringsaktiviteten ***\*mottagare\**** avsnittet.
+Följande egenskaper stöds i avsnittet kopierings aktivitet ***\*sink @ no__t-2*** .
 
 | Egenskap       | Beskrivning                                                  | Krävs |
 | -------------- | ------------------------------------------------------------ | -------- |
-| type           | Type-egenskapen för aktiviteten kopieringskälla måste anges till **DelimitedTextSink**. | Ja      |
-| formatSettings | En grupp egenskaper. Referera till **avgränsad text skriva inställningar** tabellen nedan. |          |
-| storeSettings  | En grupp egenskaper om hur du skriver data till ett datalager. Varje filbaserade anslutning har sin egen stöds skrivning inställningar under `storeSettings`. **Mer information finns i artikeln connector -> Kopiera aktivitet egenskapsavsnittet**. | Nej       |
+| typ           | Typ egenskapen för kopierings aktivitets källan måste anges till **DelimitedTextSink**. | Ja      |
+| formatSettings | En grupp med egenskaper. Se tabellen med **avgränsade text skriv inställningar** nedan. |          |
+| storeSettings  | En grupp egenskaper för hur du skriver data till ett data lager. Varje filbaserad koppling har sina egna Skriv inställningar som stöds under `storeSettings`. **Se information i kopplings artikeln – > avsnittet Egenskaper för kopierings aktivitet**. | Nej       |
 
-Stöds **avgränsad text skriva inställningar** under `formatSettings`:
+**Inställningar för avgränsad text** som stöds under `formatSettings`:
 
 | Egenskap      | Beskrivning                                                  | Krävs                                              |
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
-| type          | Vilken typ av formatSettings måste anges till **DelimitedTextWriteSetting**. | Ja                                                   |
-| fileExtension | Filtillägget som används för att namnge utdatafilerna, t.ex. `.csv`, `.txt`. Det måste vara anges när den `fileName` har inte angetts i utdata DelimitedText datauppsättning. | Ja när filnamnet inte har angetts i datauppsättningen för utdata |
+| typ          | Typen för formatSettings måste anges till **DelimitedTextWriteSetting**. | Ja                                                   |
+| fileExtension | Fil namns tillägget som används för att namnge utdatafilerna, t. ex. `.csv`, `.txt`. Det måste anges om `fileName` inte anges i data uppsättningen utgående DelimitedText. | Ja när fil namnet inte anges i data uppsättningen för utdata |
 
-## <a name="mapping-data-flow-properties"></a>Egenskaper för mappning av dataflöde
+## <a name="mapping-data-flow-properties"></a>Mappa data flödes egenskaper
 
-Få mer detaljerad information från [source omvandling](data-flow-source.md) och [mottagare omvandling](data-flow-sink.md) i mappning dataflöde.
+Lär dig mer om omvandling av [käll omvandling](data-flow-source.md) och [mottagare](data-flow-sink.md) i mappnings data flödet.
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Översikt över Kopieringsaktivitet](copy-activity-overview.md)
-- [Mappning av dataflöde](concepts-data-flow-overview.md)
+- [Översikt över kopierings aktivitet](copy-activity-overview.md)
+- [Mappa data flöde](concepts-data-flow-overview.md)
 - [Sökningsaktivitet](control-flow-lookup-activity.md)
-- [GetMetadata-aktiviteten](control-flow-get-metadata-activity.md)
+- [GetMetadata-aktivitet](control-flow-get-metadata-activity.md)

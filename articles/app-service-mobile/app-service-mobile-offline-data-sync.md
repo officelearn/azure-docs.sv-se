@@ -14,18 +14,19 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 10/30/2016
 ms.author: crdun
-ms.openlocfilehash: 7f5b24915ddb9fd12085583844770dd7587f2394
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: dcab966aed125e43fff49299a46a2e8bbb938d66
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025215"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388600"
 ---
 # <a name="offline-data-sync-in-azure-mobile-apps"></a>Datasynkronisering offline i Azure Mobile Apps
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="what-is-offline-data-sync"></a>Vad är offline-datasynkronisering?
 Datasynkronisering offline är en funktion för klient-och Server-SDK i Azure Mobile Apps som gör det enkelt för utvecklare att skapa appar som fungerar utan någon nätverks anslutning.
@@ -42,13 +43,13 @@ Offline-synkronisering har flera fördelar:
 
 Följande självstudier visar hur du lägger till offline-synkronisering till dina mobila klienter med Azure Mobile Apps:
 
-* [Android: Aktivera offline-synkronisering @ no__t-0
-* [Apache Cordova: Aktivera offline-synkronisering @ no__t-0
-* [iOS: Aktivera offline-synkronisering @ no__t-0
-* [Xamarin iOS: Aktivera offline-synkronisering @ no__t-0
-* [Xamarin Android: Aktivera offline-synkronisering @ no__t-0
-* [Xamarin.Forms: Aktivera offline-synkronisering @ no__t-0
-* [Universal Windows-plattform: Aktivera offline-synkronisering @ no__t-0
+* [Android: Aktivera offline-synkronisering]
+* [Apache Cordova: Aktivera offline-synkronisering](app-service-mobile-cordova-get-started-offline-data.md)
+* [iOS: Aktivera offline-synkronisering]
+* [Xamarin iOS: Aktivera offline-synkronisering]
+* [Xamarin Android: Aktivera offline-synkronisering]
+* [Xamarin. Forms: Aktivera synkronisering offline](app-service-mobile-xamarin-forms-get-started-offline-data.md)
+* [Universell Windows-plattform: Aktivera offline-synkronisering]
 
 ## <a name="what-is-a-sync-table"></a>Vad är en Sync-tabell?
 För att få åtkomst till slut punkten "/tables" tillhandahåller Azure Mobile-klientens SDK gränssnitt som `IMobileServiceTable` (.NET-klient-SDK) eller `MSTable` (iOS-klient). Dessa API: er ansluter direkt till Server delen för Azure Mobile-appen och fungerar inte om klient enheten inte har någon nätverks anslutning.
@@ -58,7 +59,7 @@ Om du vill ha stöd för offlineanvändning bör du i stället använda *Sync Ta
 ## <a name="what-is-a-local-store"></a>Vad är ett lokalt Arkiv?
 Ett lokalt Arkiv är data beständigt skikt på klient enheten. Azure Mobile Apps-klientens SDK: er tillhandahåller en standard implementering av lokal lagring. På Windows, Xamarin och Android baseras det på SQLite. På iOS baseras det på kärn data.
 
-Om du vill använda den SQLite-baserade implementeringen på Windows Phone eller Microsoft Store måste du installera ett SQLite-tillägg. Mer information finns i [Universal Windows-plattform: Aktivera offline-synkronisering @ no__t-0. Android och iOS levereras med en version av SQLite i själva enhetens operativ system, så det är inte nödvändigt att referera till din egen version av SQLite.
+Om du vill använda den SQLite-baserade implementeringen på Windows Phone eller Microsoft Store måste du installera ett SQLite-tillägg. Mer information finns i [universell Windows-plattform: Aktivera offline-synkronisering]. Android och iOS levereras med en version av SQLite i själva enhetens operativ system, så det är inte nödvändigt att referera till din egen version av SQLite.
 
 Utvecklare kan även implementera egna lokala lagrings enheter. Om du till exempel vill lagra data i ett krypterat format på den mobila klienten kan du definiera ett lokalt Arkiv som använder SQLCipher för kryptering.
 
@@ -70,9 +71,9 @@ Ett lokalt lager är kopplat till Sync-kontexten med hjälp av en initierings me
 ## <a name="how-sync-works"></a>Så här fungerar offline-synkronisering
 När du använder Sync-tabeller styr din klient kod när lokala ändringar synkroniseras med en server del för Azure-mobilappar. Inget skickas till Server delen förrän det finns ett anrop för att *Skicka* lokala ändringar. På samma sätt fylls den lokala lagringen med nya data endast när det finns ett anrop för att *Hämta* data.
 
-* **Push**: Push är en åtgärd i Sync-kontexten och skickar alla CUD-ändringar sedan den senaste push-åtgärden. Observera att det inte går att skicka endast en enskild tabells ändringar, eftersom andra åtgärder kan skickas i rätt ordning. Push kör en serie REST-anrop till din Azure Mobile App-backend, som i sin tur ändrar Server databasen.
-* **Hämta**: Pull utförs per tabell och kan anpassas med en fråga för att bara hämta en delmängd av Server data. SDK: erna för Azure Mobile-klienten infogar sedan de resulterande data i det lokala arkivet.
-* **Implicita push**-meddelanden: Om en pull körs mot en tabell som har väntande lokala uppdateringar, kör pull-kommandot en `push()` i Sync-kontexten. Den här push-funktionen hjälper till att minimera konflikter mellan ändringar som redan finns i kö och nya data från servern.
+* **Push**: push är en åtgärd i Sync-kontexten och skickar alla CUD-ändringar sedan den senaste push-åtgärden. Observera att det inte går att skicka endast en enskild tabells ändringar, eftersom andra åtgärder kan skickas i rätt ordning. Push kör en serie REST-anrop till din Azure Mobile App-backend, som i sin tur ändrar Server databasen.
+* **Pull**: pull utförs per tabell och kan anpassas med en fråga för att bara hämta en delmängd av Server data. SDK: erna för Azure Mobile-klienten infogar sedan de resulterande data i det lokala arkivet.
+* **Implicita push**-meddelanden: om en pull körs mot en tabell som har väntande lokala uppdateringar, kör pull-kommandot en `push()` på synkroniseringens kontext. Den här push-funktionen hjälper till att minimera konflikter mellan ändringar som redan finns i kö och nya data från servern.
 * **Stegvis synkronisering**: den första parametern för pull-åtgärden är ett *frågenamn* som endast används på klienten. Om du använder ett frågenamn som inte är null utför Azure Mobile SDK en *stegvis synkronisering*. Varje gången en pull-åtgärd returnerar en uppsättning resultat lagras den senaste `updatedAt`-tidsstämpeln från den resultat uppsättningen i de lokala SDK-system tabellerna. Efterföljande pull-åtgärder hämtar endast poster efter tidsstämpeln.
 
   Om du vill använda stegvis synkronisering måste servern returnera meningsfulla `updatedAt`-värden och måste också ha stöd för sortering med det här fältet. Men eftersom SDK lägger till en egen sortering i fältet updatedAt kan du inte använda en pull-fråga som har en egen `orderBy`-sats.
@@ -87,7 +88,7 @@ När du använder Sync-tabeller styr din klient kod när lokala ändringar synkr
             syncTable.Where(u => u.UserId == userid));
 
   Om du vill välja bort stegvis synkronisering, pass `null` som fråge-ID. I det här fallet hämtas alla poster vid varje anrop till `PullAsync`, vilket kan vara ineffektivt.
-* **Rensa**: Du kan ta bort innehållet i det lokala arkivet med `IMobileServiceSyncTable.PurgeAsync`.
+* **Rensa**: du kan ta bort innehållet i det lokala arkivet med `IMobileServiceSyncTable.PurgeAsync`.
   Du kan behöva rensa om du har inaktuella data i klient databasen eller om du vill ignorera alla väntande ändringar.
 
   En rensning rensar en tabell från det lokala arkivet. Om det finns åtgärder som väntar på synkronisering med Server databasen, genererar rensningen ett undantag om inte parametern *Framtvinga rensning* är inställd.
@@ -95,15 +96,15 @@ När du använder Sync-tabeller styr din klient kod när lokala ändringar synkr
   Som exempel på inaktuella data på klienten, anta att i "att göra lista"-exemplet bara hämtar Device1-objekt som inte har slutförts. En todoitem "Köp mjölk" har marker ATS som slutförd på servern av en annan enhet. Device1 har dock fortfarande "Köp mjölk"-todoitem i det lokala lagret eftersom den bara hämtar objekt som inte har marker ATS som slutförda. En rensning tar bort det inaktuella objektet.
 
 ## <a name="next-steps"></a>Nästa steg
-* [iOS: Aktivera offline-synkronisering @ no__t-0
-* [Xamarin iOS: Aktivera offline-synkronisering @ no__t-0
-* [Xamarin Android: Aktivera offline-synkronisering @ no__t-0
-* [Universal Windows-plattform: Aktivera offline-synkronisering @ no__t-0
+* [iOS: Aktivera offline-synkronisering]
+* [Xamarin iOS: Aktivera offline-synkronisering]
+* [Xamarin Android: Aktivera offline-synkronisering]
+* [Universell Windows-plattform: Aktivera offline-synkronisering]
 
 <!-- Links -->
 [.NET-klient-SDK]: app-service-mobile-dotnet-how-to-use-client-library.md
-[Android: Aktivera offline-synkronisering @ no__t-0
-[iOS: Aktivera offline-synkronisering @ no__t-0
-[Xamarin iOS: Aktivera offline-synkronisering @ no__t-0
-[Xamarin Android: Aktivera offline-synkronisering @ no__t-0
-[Universal Windows-plattform: Aktivera offline-synkronisering @ no__t-0
+[Android: Aktivera offline-synkronisering]: app-service-mobile-android-get-started-offline-data.md
+[iOS: Aktivera offline-synkronisering]: app-service-mobile-ios-get-started-offline-data.md
+[Xamarin iOS: Aktivera offline-synkronisering]: app-service-mobile-xamarin-ios-get-started-offline-data.md
+[Xamarin Android: Aktivera offline-synkronisering]: app-service-mobile-xamarin-android-get-started-offline-data.md
+[Universell Windows-plattform: Aktivera offline-synkronisering]: app-service-mobile-windows-store-dotnet-get-started-offline-data.md

@@ -1,6 +1,6 @@
 ---
 title: Azure Monitor tillägg för virtuell dator för Linux | Microsoft Docs
-description: Distribuera Log Analytics-agenten på Linux-dator med hjälp av tillägg för virtuell dator.
+description: Distribuera Log Analytics agenten på den virtuella Linux-datorn med ett tillägg för virtuell dator.
 services: virtual-machines-linux
 documentationcenter: ''
 author: axayjo
@@ -14,46 +14,46 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/06/2019
 ms.author: akjosh
-ms.openlocfilehash: 95b630342ac2b4bc9cf51f3aa3d8563c4962ce11
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 75f659f9559703cedccef0d8e726b5c8c5bb49be
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71168932"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435841"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Azure Monitor tillägg för virtuell dator för Linux
 
 ## <a name="overview"></a>Översikt
 
-Azure Monitor-loggar tillhandahåller funktioner för övervakning, avisering och aviserings reparation i molnet och lokala till gångar. Tillägget för virtuell dator Log Analytics-agenten för Linux är publicerat och stöds av Microsoft. Tillägget Log Analytics-agenten installeras på virtuella Azure-datorer och registreras virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för Azure Monitor virtuell dators tillägg för Linux.
+Azure Monitor-loggar tillhandahåller funktioner för övervakning, avisering och aviserings reparation i molnet och lokala till gångar. Tillägget för virtuell dator med Log Analytics agent för Linux publiceras och stöds av Microsoft. Tillägget installerar Log Analytics agent på virtuella Azure-datorer och registrerar virtuella datorer i en befintlig Log Analytics-arbetsyta. Det här dokumentet innehåller information om plattformar, konfigurationer och distributions alternativ som stöds för Azure Monitor virtuell dators tillägg för Linux.
 
 >[!NOTE]
->Som en del av pågående övergången från Microsoft Operations Management Suite (OMS) till Azure Monitor betecknas OMS-agenten för Windows eller Linux som Log Analytics-agenten för Windows och Log Analytics-agenten för Linux.
+>Som en del av den pågående över gången från Microsoft Operations Management Suite (OMS) till Azure Monitor, kallas OMS-agenten för Windows eller Linux Log Analytics agent för Windows och Log Analytics agent för Linux.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 ### <a name="operating-system"></a>Operativsystem
 
 Mer information om Linux-distributioner som stöds finns i artikeln [Log Analytics agent översikt](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) .
 
-### <a name="agent-and-vm-extension-version"></a>Version av agenten och tillägg för virtuell dator
-Följande tabell innehåller en mappning av versionen av Azure Monitor VM-tillägget och Log Analytics agent-paketet för varje version. En länk till viktig information om Paketversion för Log Analytics-agenten ingår. Viktig information innehåller information om felkorrigeringar och nya funktioner som är tillgängliga för en viss agent-version.  
+### <a name="agent-and-vm-extension-version"></a>Version för agent och VM-tillägg
+Följande tabell innehåller en mappning av versionen av Azure Monitor VM-tillägget och Log Analytics agent-paketet för varje version. En länk till versions informationen för Log Analytics agents paketets version ingår. Versions information innehåller information om fel korrigeringar och nya funktioner som är tillgängliga för en specifik agent version.  
 
-| Version för Azure Monitor Linux VM-tillägg | Paketversion för log Analytics-agenten | 
+| Version för Azure Monitor Linux VM-tillägg | Log Analytics agent paket version | 
 |--------------------------------|--------------------------|
 | 1.11.15 | [1.11.0 – 9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
-| 1.8.11 | [1.8.1-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
-| 1.8.0 | [1.8.0-256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
+| 1.8.11 | [1.8.1 – 256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.8.1.256)| 
+| 1.8.0 | [1.8.0 – 256](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/1.8.0-256)| 
 | 1.7.9 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
-| 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
-| 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
-| 1.4.58.7 | [14.2 125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
-| 1.4.56.5 | [1.4.2-124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|
+| 1.4.60.2 | [1.4.4 – 210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
+| 1.4.59.1 | [1.4.3 – 174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
+| 1.4.58.7 | [14.2 – 125](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-125)|
+| 1.4.56.5 | [1.4.2 – 124](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.2-124)|
 | 1.4.55.4 | [1.4.1-123](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-123)|
 | 1.4.45.3 | [1.4.1-45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.1-45)|
 | 1.4.45.2 | [1.4.0-45](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.0-45)|
@@ -63,15 +63,15 @@ Följande tabell innehåller en mappning av versionen av Azure Monitor VM-tillä
 
 ### <a name="azure-security-center"></a>Azure Security Center
 
-Azure Security Center automatiskt etablerar Log Analytics-agenten och ansluter den till en standard Log Analytics-arbetsyta som skapats av ASC i din Azure-prenumeration. Om du använder Azure Security Center kan inte köra stegen i det här dokumentet. Gör detta skriver över den konfigurerade arbetsytan och skadar anslutningen med Azure Security Center.
+Azure Security Center etablerar automatiskt Log Analytics agenten och ansluter den till en standard arbets yta för Log Analytics som skapats av ASC i din Azure-prenumeration. Om du använder Azure Security Center ska du inte köra stegen i det här dokumentet. Om du gör det skrivs den konfigurerade arbets ytan över och anslutningen till Azure Security Center bryts.
 
 ### <a name="internet-connectivity"></a>Internetanslutning
 
-Tillägget Log Analytics-agenten för Linux kräver att den virtuella måldatorn är ansluten till internet. 
+Log Analytics agent-tillägget för Linux kräver att den virtuella mål datorn är ansluten till Internet. 
 
 ## <a name="extension-schema"></a>Tilläggsschema
 
-Följande JSON visar schemat för tillägget Log Analytics-agenten. Tillägget kräver arbetsytans ID och arbetsytenyckel från målet Log Analytics-arbetsytan; Dessa värden kan vara [hittades i Log Analytics-arbetsytan](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) i Azure-portalen. Eftersom arbetsytenyckeln ska behandlas som känsliga data, ska den lagras i en skyddad Konfigurationsinställningen. Azure VM-tillägget skyddade inställningsdata krypteras och dekrypteras bara på den virtuella måldatorn. Observera att **workspaceId** och **workspaceKey** är skiftlägeskänsliga.
+Följande JSON visar schemat för Log Analytics agent-tillägget. Tillägget kräver arbetsyte-ID och arbets ytans nyckel från mål Log Analytics arbets ytan. dessa värden [finns i arbets ytan Log Analytics](../../azure-monitor/learn/quick-collect-linux-computer.md#obtain-workspace-id-and-key) i Azure Portal. Eftersom arbets ytans nyckel ska behandlas som känsliga data, bör den lagras i en konfiguration med skyddad konfiguration. Skyddade inställnings data för Azure VM-tillägg krypteras och endast dekrypteras på den virtuella mål datorn. Observera att **workspaceId** och **workspaceKey** är Skift läges känsliga.
 
 ```json
 {
@@ -98,28 +98,28 @@ Följande JSON visar schemat för tillägget Log Analytics-agenten. Tillägget k
 ```
 
 >[!NOTE]
->Enligt schemat ovan förutsätter att den ska placeras på rotnivå för mallen. Om du placerar den i den virtuella datorresursen i mallen den `type` och `name` egenskaper ska ändras enligt [längre ner](#template-deployment).
+>Schemat ovan förutsätter att det kommer att placeras på rot nivån i mallen. Om du antecknar den i den virtuella dator resursen i mallen ska egenskaperna `type` och `name` ändras, vilket beskrivs [närmare](#template-deployment).
 >
 
-### <a name="property-values"></a>Egenskapsvärden
+### <a name="property-values"></a>Egenskaps värden
 
-| Namn | Värdet / exempel |
+| Namn | Värde/exempel |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
-| publisher | Microsoft.EnterpriseCloud.Monitoring |
-| type | OmsAgentForLinux |
-| typeHandlerVersion | 1.7 |
-| workspaceId (t.ex.) | 6f680a37-00c6-41C7-a93f-1437e3462574 |
-| workspaceKey (t.ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+| Förläggare | Microsoft. EnterpriseCloud. Monitoring |
+| typ | OmsAgentForLinux |
+| typeHandlerVersion | 1,7 |
+| workspaceId (t. ex.) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| workspaceKey (t. ex.) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI + rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ = = |
 
 
 ## <a name="template-deployment"></a>Malldistribution
 
-Azure VM-tillägg kan distribueras med Azure Resource Manager-mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av distributions konfiguration, till exempel onboarding till Azure Monitor loggar. En exempel på en Resource Manager-mall som innehåller det virtuella dator tillägget Log Analytics agent finns i [Azure snabb starts galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
+Azure VM-tillägg kan distribueras med Azure Resource Manager mallar. Mallar är idealiska när du distribuerar en eller flera virtuella datorer som kräver konfiguration av distributions konfiguration, till exempel onboarding till Azure Monitor loggar. En exempel på en Resource Manager-mall som innehåller det virtuella dator tillägget Log Analytics agent finns i [Azure snabb starts galleriet](https://github.com/Azure/azure-quickstart-templates/tree/master/201-oms-extension-ubuntu-vm). 
 
-JSON-konfiguration för tillägg för virtuell dator kan kapslas i resursen för virtuella datorer eller placeras i roten eller översta nivån i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resursnamn och typ. Mer information finns i [ange namn och typ för underordnade resurser](../../azure-resource-manager/child-resource-name-type.md). 
+JSON-konfigurationen för ett tillägg för virtuell dator kan kapslas i den virtuella dator resursen eller placeras på rot-eller toppnivå i en Resource Manager JSON-mall. Placeringen av JSON-konfigurationen påverkar värdet för resurs namn och typ. Mer information finns i [Ange namn och typ för underordnade resurser](../../azure-resource-manager/child-resource-name-type.md). 
 
-I följande exempel förutsätter att VM-tillägget är kapslade i den virtuella datorresursen. När kapsla tillägget resursen JSON placeras i den `"resources": []` objekt av den virtuella datorn.
+Följande exempel förutsätter att VM-tillägget är kapslat i den virtuella dator resursen. Vid kapsling av tilläggs resursen placeras JSON i `"resources": []`-objektet på den virtuella datorn.
 
 ```json
 {
@@ -144,7 +144,7 @@ I följande exempel förutsätter att VM-tillägget är kapslade i den virtuella
 }
 ```
 
-När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en referens till den överordnade virtuella datorn och typen återspeglar den kapslade konfigurationen.  
+När du placerar tillägg-JSON i roten för mallen, innehåller resurs namnet en referens till den överordnade virtuella datorn och typen återspeglar den kapslade konfigurationen.  
 
 ```json
 {
@@ -171,7 +171,7 @@ När du monterar tillägget JSON i roten på mallen resursnamnet innehåller en 
 
 ## <a name="azure-cli-deployment"></a>Azure CLI-distribution
 
-Azure CLI kan användas för att distribuera Log Analytics-agenten VM-tillägget till en befintlig virtuell dator. Ersätt den *workspaceId* och *workspaceKey* med de från Log Analytics-arbetsytan. 
+Azure CLI kan användas för att distribuera Log Analytics-agentens VM-tillägg till en befintlig virtuell dator. Ersätt *myWorkspaceKey* -värdet nedan med din arbetsyte nyckel och *myWorkspaceId* -värdet med ditt arbetsyte-ID. Du hittar dessa värden i Log Analytics arbets ytan i Azure Portal under *Avancerade inställningar*. 
 
 ```azurecli
 az vm extension set \
@@ -179,41 +179,41 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.10.1 --protected-settings '{"workspaceKey":"omskey"}' \
-  --settings '{"workspaceId":"omsid"}'
+  --version 1.10.1 --protected-settings '{"workspaceKey":"myWorkspaceKey"}' \
+  --settings '{"workspaceId":"myWorkspaceId"}'
 ```
 
-## <a name="troubleshoot-and-support"></a>Felsökning och support
+## <a name="troubleshoot-and-support"></a>Felsöka och support
 
-### <a name="troubleshoot"></a>Felsöka
+### <a name="troubleshoot"></a>Felsökning
 
-Data om tillståndet för distributioner av tillägget kan hämtas från Azure-portalen och med hjälp av Azure CLI. Om du vill se distributionsstatusen för tillägg för en viss virtuell dator, kör du följande kommando med hjälp av Azure CLI.
+Data om tillstånd för tilläggs distributioner kan hämtas från Azure Portal och med hjälp av Azure CLI. Om du vill se distributions statusen för tillägg för en virtuell dator kör du följande kommando med hjälp av Azure CLI.
 
 ```azurecli
 az vm extension list --resource-group myResourceGroup --vm-name myVM -o table
 ```
 
-Tillägget utförande-utdatan loggas till följande fil:
+Utökning av utdata loggas i följande fil:
 
 ```
 /opt/microsoft/omsagent/bin/stdout
 ```
 
-### <a name="error-codes-and-their-meanings"></a>Felkoder och deras innebörd
+### <a name="error-codes-and-their-meanings"></a>Felkoder och deras betydelser
 
 | Felkod | Betydelse | Möjlig åtgärd |
 | :---: | --- | --- |
-| 9 | Aktivera som kallas för tidigt | [Uppdatera Azure Linux Agent](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) till den senaste tillgängliga versionen. |
-| 10 | Virtuell dator är redan ansluten till en Log Analytics-arbetsyta | Om du vill ansluta den virtuella datorn till arbetsytan som angetts i schemat för tillägget stopOnMultipleConnections inställd på false i offentliga inställningar eller ta bort den här egenskapen. Den här virtuella datorn debiteras när för varje arbetsyta som den är ansluten till. |
-| 11 | Ogiltig konfiguration som angetts för tillägget | Följ föregående exempel för att ange alla egenskapsvärden som krävs för distributionen. |
-| 17 | Logga Analytics paketet installationsfel | 
-| 19 | OMI paketet installationsfel | 
-| 20 | Installationsfel för SCX-paket |
-| 51 | Det här tillägget stöds inte på den Virtuella datorns operativsystem | |
-| 55 | Det går inte att ansluta till Azure Monitor tjänsten eller nödvändiga paket saknas eller så är dpkg Package Manager låst| Kontrollera att datorn är ansluten till Internet eller att en giltig HTTP-proxy har angetts. Dessutom kan kontrollera för arbetsyte-ID och kontrollera curl och tar är installerade. |
+| 9 | Aktivera anropad för tidigt | [Uppdatera Azure Linux-agenten](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) till den senaste tillgängliga versionen. |
+| 10 | Den virtuella datorn är redan ansluten till en Log Analytics-arbetsyta | Om du vill ansluta den virtuella datorn till arbets ytan som anges i tilläggs schemat anger du stopOnMultipleConnections till falskt i offentliga inställningar eller tar bort den här egenskapen. Den här virtuella datorn debiteras en gång för varje arbets yta som den är ansluten till. |
+| 11 | Ogiltig konfiguration angavs för tillägget | Följ de föregående exemplen för att ange alla egenskaps värden som krävs för distribution. |
+| 17 | Installations problem för Log Analytics-paket | 
+| 19 | Installations problem för OMI-paket | 
+| 20 | Installations problem för SCX-paket |
+| 51 | Det här tillägget stöds inte för den virtuella datorns åtgärds system | |
+| 55 | Det går inte att ansluta till Azure Monitor tjänsten eller nödvändiga paket saknas eller så är dpkg Package Manager låst| Kontrol lera att datorn har Internet åtkomst eller att en giltig HTTP-proxy har angetts. Kontrol lera också att arbetsyte-ID: t är korrekt och att du har installerat verktygen för att lösa problemet. |
 
-Ytterligare information kan hittas på den [felsökningsguide för Log Analytics-agenten för Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
+Ytterligare felsöknings information finns i [fel söknings guiden Log Analytics-agent-för-Linux](../../azure-monitor/platform/vmext-troubleshoot.md).
 
 ### <a name="support"></a>Support
 
-Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experter på den [Azure för MSDN och Stack Overflow-forum](https://azure.microsoft.com/support/forums/). Alternativt kan du arkivera en Azure-support-incident. Gå till den [Azure supportwebbplats](https://azure.microsoft.com/support/options/) och väljer Get support. Information om hur du använder Azure-supporten finns i [vanliga frågor om Microsoft Azure-support](https://azure.microsoft.com/support/faq/).
+Om du behöver mer hjälp när som helst i den här artikeln kan du kontakta Azure-experterna i [MSDN Azure och Stack Overflow forum](https://azure.microsoft.com/support/forums/). Du kan också skriva en support incident för Azure. Gå till [Support webbplatsen för Azure](https://azure.microsoft.com/support/options/) och välj få support. Information om hur du använder Azure-support finns i [vanliga frågor och svar om Microsoft Azure support](https://azure.microsoft.com/support/faq/).

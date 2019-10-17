@@ -13,18 +13,19 @@ ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: b67e0eaabe63707455eaa6cd4b235ec828dddff3
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 991f3c8939c0f9e270423ff30282b02f110eb39e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025439"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388917"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Använda Azure Mobile Apps SDK för Android
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 Den här guiden visar hur du använder Android client SDK för Mobile Apps för att implementera vanliga scenarier, till exempel:
 
@@ -201,15 +202,15 @@ public final void setPriority(Integer priority) {
 }
 ```
 
-Information om hur du skapar ytterligare tabeller i Mobile Apps Server del finns i [How till: Definiera en tabell kontroll @ no__t-0 (.NET-Server del) eller [definiera tabeller med ett dynamiskt schema][16] (Node. js-backend).
+Information om hur du skapar ytterligare tabeller i din Mobile Apps Server del finns i [så här gör du: definiera en tabell styrenhet][15] (.NET-Server del) eller [definiera tabeller med hjälp av ett dynamiskt schema][16] (Node. js-backend).
 
 En Azure Mobile Apps-backend-tabell definierar fem särskilda fält, som är fyra av de som är tillgängliga för klienter:
 
-* `String id`: Det globalt unika ID: t för posten.  Vi rekommenderar att du gör ID: t till sträng representationen av ett [UUID][17] -objekt.
-* `DateTimeOffset updatedAt`: Datum/tid för den senaste uppdateringen.  UpdatedAt-fältet anges av servern och ska aldrig anges av klient koden.
-* `DateTimeOffset createdAt`: Datum/tid då objektet skapades.  CreatedAt-fältet anges av servern och ska aldrig anges av klient koden.
-* `byte[] version`: Som vanligt vis visas som en sträng, anges versionen också av-servern.
-* `boolean deleted`: Anger att posten har tagits bort men ännu inte har rensats.  Använd inte `deleted` som en egenskap i klassen.
+* `String id`: postens globalt unika ID.  Vi rekommenderar att du gör ID: t till sträng representationen av ett [UUID][17] -objekt.
+* `DateTimeOffset updatedAt`: datum/tid för den senaste uppdateringen.  UpdatedAt-fältet anges av servern och ska aldrig anges av klient koden.
+* `DateTimeOffset createdAt`: datum/tid då objektet skapades.  CreatedAt-fältet anges av servern och ska aldrig anges av klient koden.
+* `byte[] version`: visas vanligt vis som en sträng, versionen anges också av servern.
+* `boolean deleted`: anger att posten har tagits bort men inte rensats ännu.  Använd inte `deleted` som en egenskap i klassen.
 
 Fältet `id` är obligatoriskt.  Fälten `updatedAt` och `version` används för offlinesynkronisering (för stegvis synkronisering respektive konflikt lösning).  Fältet `createdAt` är ett referens fält och används inte av klienten.  Namnen är "över-namnet" i egenskaperna och är inte justerbara.  Du kan dock skapa en mappning mellan ditt objekt och namnet "över-kabel" med hjälp av [Gson][3] -biblioteket.  Exempel:
 
@@ -458,7 +459,7 @@ En begäran om alla poster som använder den här metoden skapar minst två beg�
 > [!TIP]
 > Att välja rätt sid storlek är en balans mellan minnes användningen medan begäran sker, bandbredds användning och fördröjning när data tas emot fullständigt.  Standard (50 poster) är lämplig för alla enheter.  Om du uteslutande arbetar med större minnes enheter kan du öka upp till 500.  Vi har påträffat att öka sid storleken bortom 500 poster resulterar i oacceptabla fördröjningar och stora minnes problem.
 
-### <a name="chaining"></a>Hur: Sammanfoga fråge metoder
+### <a name="chaining"></a>Gör så här: sammanfoga fråge metoder
 
 De metoder som används för att fråga Server dels tabeller kan sammanfogas. Genom att länka fråge metoder kan du välja vissa kolumner med filtrerade rader som är sorterade och växlade. Du kan skapa komplexa logiska filter.  Varje fråge metod returnerar ett Query-objekt. Anropa metoden **execute** om du vill avsluta en serie metoder och köra frågan. Exempel:
 
@@ -684,7 +685,7 @@ ToDoItem result = mToDoTable
     .get();
 ```
 
-## <a name="untyped"></a>Hur: Arbeta med data utan typ
+## <a name="untyped"></a>Så här gör du: arbeta med data utan typ
 
 Den avskrivna programmerings modellen ger dig exakt kontroll över JSON-serialisering.  Det finns några vanliga scenarier där du kanske vill använda en typ som inte är typ av programmerings modell. Om din server dels tabell till exempel innehåller många kolumner och du bara behöver referera till en delmängd av kolumnerna.  Den inskrivna modellen kräver att du definierar alla kolumner som definierats i Mobile Apps Server del i din data klass.  De flesta API-anrop för att komma åt data liknar de skrivna programmerings anropen. Den största skillnaden är att i den modell utan typ som du anropar metoder i **MobileServiceJsonTable** -objektet, i stället för **MobileServiceTable** -objektet.
 
@@ -779,10 +780,10 @@ Samma uppsättning filtrerings-, filtrerings-och växlings metoder som är tillg
 
 Azure Mobile Apps client SDK implementerar också offline-synkronisering av data genom att använda en SQLite-databas för att lagra en kopia av Server data lokalt.  Åtgärder som utförs på en offline-tabell kräver inte att mobila anslutningar fungerar.  Offline Sync hjälper till med återhämtning och prestanda på bekostnad av mer komplex logik för konflikt lösning.  Azure Mobile Apps client SDK implementerar följande funktioner:
 
-* Stegvis synkronisering: Endast uppdaterade och nya poster har laddats ned, spara bandbredd och minnes användning.
-* Optimistisk samtidighet: Åtgärder antas utföras.  Konflikt lösning uppskjuts tills uppdateringar utförs på servern.
+* Stegvis synkronisering: endast uppdaterade och nya poster hämtas, sparande av bandbredd och minnes användning.
+* Optimistisk samtidighet: åtgärder antas utföras.  Konflikt lösning uppskjuts tills uppdateringar utförs på servern.
 * Konflikt lösning: SDK identifierar när en motstridig ändring har gjorts på servern och ger hookar för att varna användaren.
-* Mjuk borttagning: Borttagna poster har marker ATS som borttagna, så att andra enheter kan uppdatera offline-cacheminnet.
+* Mjuk borttagning: borttagna poster har marker ATS som borttagna, så att andra enheter kan uppdatera offline-cacheminnet.
 
 ### <a name="initialize-offline-sync"></a>Initiera synkronisering offline
 
@@ -919,7 +920,7 @@ Fyra steg krävs för att aktivera autentisering i din app:
 
 Du kan ange behörigheter för tabeller för att begränsa åtkomsten för vissa åtgärder till endast autentiserade användare. Du kan också använda SID: t för en autentiserad användare för att ändra begär Anden.  Mer information finns i [Kom igång med autentisering] och howto-dokumentationen för Server SDK.
 
-### <a name="caching"></a>Anspråksautentisering Server flöde
+### <a name="caching"></a>Autentisering: Server flöde
 
 Följande kod startar en inloggnings process för Server flöde med Google-providern.  Ytterligare konfiguration krävs på grund av säkerhets kraven för Google-providern:
 

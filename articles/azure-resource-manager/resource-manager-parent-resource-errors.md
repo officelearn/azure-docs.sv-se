@@ -1,25 +1,25 @@
 ---
-title: Azure överordnad resurs fel | Microsoft Docs
-description: Beskriver hur du löser fel när du arbetar med en överordnad resurs.
+title: Fel i överordnad Azure-resurs | Microsoft Docs
+description: Beskriver hur du löser fel när du arbetar med en överordnad resurs i en Azure Resource Manager-mall.
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: troubleshooting
 ms.date: 08/01/2018
 ms.author: tomfitz
-ms.openlocfilehash: 6111f9128c56fed97414734275a21612544cccb8
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 197554e16e28b4928cab351838f00e1631c269fd
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67205390"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390237"
 ---
-# <a name="resolve-errors-for-parent-resources"></a>Åtgärda fel för överordnade resurser
+# <a name="resolve-errors-for-parent-resources"></a>Lös fel för överordnade resurser
 
-Den här artikeln beskriver de fel som du kan få när du distribuerar en resurs som är beroende av en överordnad resurs.
+I den här artikeln beskrivs de fel som du kan få när du distribuerar en resurs som är beroende av en överordnad resurs.
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
-När du distribuerar en resurs som är underordnad till en annan resurs kan felmeddelande följande visas:
+När du distribuerar en resurs som är underordnad en annan resurs kan du få följande fel meddelande:
 
 ```
 Code=ParentResourceNotFound;
@@ -28,7 +28,7 @@ Message=Can not perform requested operation on nested resource. Parent resource 
 
 ## <a name="cause"></a>Orsak
 
-När en resurs är en underordnad till en annan resurs, måste den överordnade resursen finnas innan du skapar den underordnade resursen. Namnet på den underordnade resursen definierar anslutningen med den överordnade resursen. Namnet på den underordnade resursen är i formatet `<parent-resource-name>/<child-resource-name>`. Till exempel kan en SQL-databas definieras som:
+När en resurs är underordnad en annan resurs måste den överordnade resursen finnas innan du skapar den underordnade resursen. Namnet på den underordnade resursen definierar anslutningen till den överordnade resursen. Namnet på den underordnade resursen har formatet `<parent-resource-name>/<child-resource-name>`. Till exempel kan en SQL Database definieras som:
 
 ```json
 {
@@ -37,13 +37,13 @@ När en resurs är en underordnad till en annan resurs, måste den överordnade 
   ...
 ```
 
-Om du distribuerar både servern och databasen i samma mall, men inte anger ett beroende på servern, kan databasen distributionen startar innan servern har distribuerats. 
+Om du distribuerar både-servern och-databasen i samma mall, men inte anger ett beroende på servern, kan databas distributionen starta innan servern har distribuerats. 
 
-Om den överordnade resursen redan finns och är inte distribueras i samma mall, får du det här felet när Resource Manager inte kan koppla underordnade resursen överordnade. Det här felet kan inträffa när den underordnade resursen inte finns i rätt format eller den underordnade resursen har distribuerats till en resursgrupp som skiljer sig från resursgruppen för överordnad resurs.
+Om den överordnade resursen redan finns och inte har distribuerats i samma mall får du det här felet när resurs hanteraren inte kan associera den underordnade resursen med överordnad. Det här felet kan inträffa om den underordnade resursen inte har rätt format eller om den underordnade resursen distribueras till en annan resurs grupp än resurs gruppen för den överordnade resursen.
 
 ## <a name="solution"></a>Lösning
 
-För att lösa det här felet när överordnade och underordnade resurser distribueras i samma mall kan du inkludera ett beroende.
+För att lösa det här felet när överordnade och underordnade resurser distribueras i samma mall, ska du inkludera ett beroende.
 
 ```json
 "dependsOn": [
@@ -51,7 +51,7 @@ För att lösa det här felet när överordnade och underordnade resurser distri
 ]
 ```
 
-För att lösa det här felet när den överordnade resursen redan har distribuerats i en annan mall, kan du inte anger ett beroende. Distribuera underordnat till samma resursgrupp och ange namnet på den överordnade resursen istället.
+För att lösa det här felet när den överordnade resursen tidigare har distribuerats i en annan mall, anger du inget beroende. Distribuera i stället det underordnade till samma resurs grupp och ange namnet på den överordnade resursen.
 
 ```json
 {
@@ -81,4 +81,4 @@ För att lösa det här felet när den överordnade resursen redan har distribue
 }
 ```
 
-Mer information finns i [definierar ordningen för att distribuera resurser i Azure Resource Manager-mallar](resource-group-define-dependencies.md).
+Mer information finns i [definiera ordningen för att distribuera resurser i Azure Resource Manager mallar](resource-group-define-dependencies.md).

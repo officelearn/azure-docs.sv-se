@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5b0d182e09a4978a4d9c1184f085e140e5c698bc
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: be639a67f70ab40f8d7dcc0f3793cbbd4a2ec4a3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811716"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436804"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Skapa behållare med stor partitionsnyckel
 
@@ -21,7 +21,7 @@ Stora partitionsuppsättningar stöds med hjälp av funktionerna i en förbättr
 
 ## <a name="create-a-large-partition-key-azure-portal"></a>Skapa en stor partitionsnyckel (Azure Portal)
 
-Om du vill skapa en stor partitionsnyckel samtidigt som du skapar en ny behållare med hjälp av Azure Portal, kontrollerar du att **nyckeln My partition är större än 100-byte-** alternativet. Som standard används alla nya behållare för att använda de stora partitionernas nycklar. Avmarkera kryss rutan om du inte behöver stora partitionerings nycklar eller om du har program som körs på SDK-versioner som är äldre än 1,18.
+Om du vill skapa en stor partitionsnyckel när du skapar en ny behållare med hjälp av Azure Portal, kontrollerar du att **nyckeln My partition är större än 100-byte-** alternativet. Avmarkera kryss rutan om du inte behöver stora partitionerings nycklar eller om du har program som körs på SDK-versioner som är äldre än 1,18.
 
 ![Skapa stora partitionsalternativ med Azure Portal](./media/large-partition-keys/large-partition-key-with-portal.png)
 
@@ -33,7 +33,7 @@ Om du vill skapa en behållare med stöd för stor partitionsnyckel, se,
 
 ## <a name="create-a-large-partition-key-net-sdk"></a>Skapa en stor partitionsnyckel (.NET SDK)
 
-Om du vill skapa en behållare med en stor partitionsnyckel med hjälp av .NET SDK anger `PartitionKeyDefinitionVersion.V2` du egenskapen. I följande exempel visas hur du anger egenskapen version i PartitionKeyDefinition-objektet och anger den till PartitionKeyDefinitionVersion. v2.
+Om du vill skapa en behållare med en stor partitionsnyckel med hjälp av .NET SDK anger du egenskapen `PartitionKeyDefinitionVersion.V2`. I följande exempel visas hur du anger egenskapen version i PartitionKeyDefinition-objektet och anger den till PartitionKeyDefinitionVersion. v2.
 
 ### <a name="v3-net-sdk"></a>v3 .NET SDK
 
@@ -71,7 +71,7 @@ De stora partitionernas nycklar stöds med följande minst SDK-versioner:
 |.Net     |    1,18     |
 |Java-synkronisering     |   2.4.0      |
 |Java async   |  2.5.0        |
-| REST-API | högre version än `2017-05-03` genom att `x-ms-version` använda begär ande huvudet.|
+| REST-API | högre version än `2017-05-03` med hjälp av den `x-ms-version` begär ande rubriken.|
 
 För närvarande kan du inte använda behållare med stor partitionsnyckel i i Power BI och Azure Logic Apps. Du kan använda behållare utan en stor partitionsnyckel från dessa program.
 

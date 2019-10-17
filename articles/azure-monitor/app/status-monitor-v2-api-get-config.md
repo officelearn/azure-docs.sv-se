@@ -1,6 +1,6 @@
 ---
-title: 'Azure Statusövervakare v2 API-referens: Hämta konfiguration | Microsoft Docs'
-description: API-referens för Statusövervakare v2. Get-ApplicationInsightsMonitoringConfig. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: 'Referens för Azure Application Insights-Agent-API: Hämta konfiguration | Microsoft Docs'
+description: Application Insights Agent-API-referens. Get-ApplicationInsightsMonitoringConfig. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 1da24a93a671b388c44d96711bc2fe007f33d197
-ms.sourcegitcommit: 0fab4c4f2940e4c7b2ac5a93fcc52d2d5f7ff367
+ms.openlocfilehash: e0b389dfb27443b9b26b8ed650399c641c55eb86
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71033162"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388274"
 ---
-# <a name="status-monitor-v2-api-get-applicationinsightsmonitoringconfig"></a>API för Statusövervakare v2: Get-ApplicationInsightsMonitoringConfig
+# <a name="application-insights-agent-api-get-applicationinsightsmonitoringconfig"></a>Application Insights Agent-API: get-ApplicationInsightsMonitoringConfig
 
 Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -40,7 +40,7 @@ PS C:\> Get-ApplicationInsightsMonitoringConfig
 
 Inga parametrar krävs.
 
-## <a name="output"></a>Output
+## <a name="output"></a>Resultat
 
 
 #### <a name="example-output-from-reading-the-config-file"></a>Exempel på utdata från att läsa konfigurations filen
@@ -62,10 +62,10 @@ Filters:
 - [Skapa instrument paneler](../../azure-monitor/app/overview-dashboard.md).
  
  Lägg till mer telemetri:
- - [Skapa](monitor-web-app-availability.md) webbtester för att se till att din webbplats hålls Live.
+ - [Skapa webbtester](monitor-web-app-availability.md) för att se till att din webbplats hålls Live.
 - [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
 - [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
  
- Gör mer med Statusövervakare v2:
- - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) statusövervakare v2.
+ Gör mer med Application Insights agent:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.
  - Gör ändringar i konfigurationen med hjälp av cmdleten [set config](status-monitor-v2-api-set-config.md) .

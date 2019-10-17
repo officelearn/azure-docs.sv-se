@@ -10,16 +10,19 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
-ms.date: 05/24/2019
+ms.date: 08/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: ea324d616928b0d517c00dc9cab3e282f1e3415e
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: e7d69e2258036318b736f245f9e3aec3cf5f54de
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67876429"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389932"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrument-webbappar vid körning med Application Insights kod koppling
+
+> [!IMPORTANT]
+> Statusövervakare rekommenderas inte längre för användning. Den har ersatts av Azure Monitor Application Insights agent (tidigare namngiven Statusövervakare v2). Se vår dokumentation om distributioner [av lokala Server-distributioner](https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-overview) eller virtuella [Azure-datorer och skalnings uppsättningar för virtuella datorer](https://docs.microsoft.com/azure/azure-monitor/app/azure-vm-vmss-apps).
 
 Du kan instrumentera en live-webbapp med Azure Application Insights utan att behöva ändra eller omdistribuera din kod. Du behöver en [Microsoft Azure](https://azure.com)-prenumeration.
 
@@ -31,15 +34,15 @@ Statusövervakare används för att instrumentera ett .NET-program som finns i I
 - (Det finns också separata artiklar om instrumentering av [Azure Cloud Services](../../azure-monitor/app/cloudservices.md).)
 
 
-![Skärmbild av App Insights översikt diagram som innehåller information om misslyckade förfrågningar, svarstid för servern och servern för serverbegäranden](./media/monitor-performance-live-website-now/overview-graphs.png)
+![Skärm bild av översikts diagram över App Insights som innehåller information om misslyckade begär Anden, svars tid för servern och server begär Anden](./media/monitor-performance-live-website-now/overview-graphs.png)
 
 Du kan välja mellan två vägar för att tillämpa Application Insights på dina .NET-webb program:
 
-* **Bygg tid:** [Lägg till Application Insights SDK][greenbrown] i din webbapp.
-* **Kör tid:** Instrumentera din webbapp på servern, enligt beskrivningen nedan, utan att behöva bygga om och omdistribuera koden.
+* **Bygg tid:** [Lägg till Application Insights SDK][greenbrown] till din webbapp.
+* **Körtid:** Instrumentera din webbapp på servern, så som beskrivs nedan, utan att behöva bygga om och omdistribuera koden.
 
 > [!NOTE]
-> Om du använder Bygg tids instrumentering fungerar inte körnings tids instrumenten även om den är aktive rad.
+> Om du använder Bygg tids instrumentering fungerar inte kör tids instrumentering även om den är aktive rad.
 
 Här är en sammanfattning av vad du får med respektive väg:
 
@@ -64,7 +67,7 @@ Om din app finns på en IIS-server aktiverar du Application Insights med hjälp 
 2. Om Application Insights Status Monitor inte har installerats [laddar du ned och kör installationsprogrammet](#download).
 3. I statusövervakaren väljer du den installerade webbappen eller en webbplats som du vill övervaka. Logga in med dina Azure autentiseringsuppgifter.
 
-    Konfigurera den resurs där du vill visa resultatet i Application Insights-portalen. (Normalt är det bäst att skapa en ny resurs. Välj en befintlig resurs om du redan har [][availability] webbtester eller [klient övervakning][client] för den här appen.) 
+    Konfigurera den resurs där du vill visa resultatet i Application Insights-portalen. (Normalt är det bäst att skapa en ny resurs. Välj en befintlig resurs om du redan har [webbtester][availability] eller [klient övervakning][client] för den här appen.) 
 
     ![Välj en app och en resurs.](./media/monitor-performance-live-website-now/appinsights-036-configAIC.png)
 
@@ -103,7 +106,7 @@ Dessa är några steg som du kan utföra för att bekräfta att installationen l
   union * | summarize count() by cloud_RoleName, cloud_RoleInstance
   ```
 
-- Om du behöver bekräfta att Application Insights har anslutits kan du köra [Sysinternals](https://docs.microsoft.com/sysinternals/downloads/handle) -handtaget i ett kommando fönster för att bekräfta att applicationinsights. dll har lästs in av IIS.
+- Om du behöver bekräfta att Application Insights har anslutits kan du köra [Sysinternals-handtaget](https://docs.microsoft.com/sysinternals/downloads/handle) i ett kommando fönster för att bekräfta att applicationinsights. dll har lästs in av IIS.
   ```cmd
   handle.exe /p w3wp.exe
   ```
@@ -145,14 +148,14 @@ Vi spårar det här problemet [här](https://github.com/Microsoft/ApplicationIns
   
 ### <a name="detailed-logs"></a>Detaljerade loggar
 
-* Som standard kommer Statusövervakare att utgående diagnostikloggar vid:`C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
+* Som standard returnerar Statusövervakare diagnostikloggar vid: `C:\Program Files\Microsoft Application Insights\Status Monitor\diagnostics.log`
 
-* Ändra konfigurations filen för att mata ut utförliga loggar `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` : och `<add key="TraceLevel" value="All" />` Lägg till `appsettings`i.
+* Om du vill mata ut utförliga loggar ändrar du konfigurations filen: `C:\Program Files\Microsoft Application Insights\Status Monitor\Microsoft.Diagnostics.Agent.StatusMonitor.exe.config` och lägger till `<add key="TraceLevel" value="All" />` till `appsettings`.
 Starta sedan om status övervakaren.
 
 * Som Statusövervakare är ett .NET-program kan du också aktivera [.net-spårning genom att lägga till lämplig diagnostik i konfigurations filen](https://docs.microsoft.com/dotnet/framework/configure-apps/file-schema/trace-debug/system-diagnostics-element). I vissa fall kan det till exempel vara användbart att se vad som händer på nätverks nivå genom att [Konfigurera nätverks spårning](https://docs.microsoft.com/dotnet/framework/network-programming/how-to-configure-network-tracing)
 
-### <a name="insufficient-permissions"></a>Otillräckliga behörigheter
+### <a name="insufficient-permissions"></a>Otillräcklig behörighet
   
 * Om du ser ett meddelande om ”otillräcklig behörighet” på servern provar du följande:
   * I IIS-hanteraren väljer du programpoolen, öppnar **Avancerade inställningar** och noterar identiteten under **Processmodell**.
@@ -189,9 +192,9 @@ Operativsystemstöd för Application Insights Status Monitor på servern:
 
 med senaste SP och .NET Framework 4,5 (Statusövervakare bygger på den här versionen av ramverket)
 
-På klient sidan: Windows 7, 8, 8,1 och 10, återigen med .NET Framework 4,5
+Windows 7, 8, 8.1 och 10 med .NET Framework 4.5 på klientsidan
 
-IIS-supporten är: IIS 7, 7,5, 8, 8,5 (IIS krävs)
+IIS-stöd: IIS 7, 7.5, 8, 8.5 (IIS krävs)
 
 ## <a name="automation-with-powershell"></a>Automatisering med PowerShell
 Du kan starta och stoppa övervakningen med hjälp av PowerShell i din IIS-server.
@@ -208,9 +211,9 @@ Ta reda på vilka appar som övervakas:
 * Visar Application Insights-övervakningsstatusen för varje webbapp (eller den namngivna appen) på den här IIS-servern.
 * Returnerar `ApplicationInsightsApplication` för varje app:
 
-  * `SdkState==EnabledAfterDeployment`: Appen övervakas och instrumenterades vid körnings tillfället, antingen av Statusövervakare verktyget eller av `Start-ApplicationInsightsMonitoring`.
+  * `SdkState==EnabledAfterDeployment`: Appen övervakas, och instrumenterades vid körningstillfället, antingen av verktyget Status Monitor eller med `Start-ApplicationInsightsMonitoring`.
   * `SdkState==Disabled`: Appen har inte instrumenterats för Application Insights. Antingen instrumenterades den aldrig eller så inaktiverades övervakning under körning av verktyget Status Monitor eller med `Stop-ApplicationInsightsMonitoring`.
-  * `SdkState==EnabledByCodeInstrumentation`: Appen instrumenterades genom att SDK lades till i käll koden. Appens SDK kan inte uppdateras eller stoppas.
+  * `SdkState==EnabledByCodeInstrumentation`: Appen instrumenterades genom att SDK lades till i källkoden. Appens SDK kan inte uppdateras eller stoppas.
   * `SdkVersion` visar versionen som används för att övervaka den här appen.
   * `LatestAvailableSdkVersion` visar versionen som för närvarande är tillgänglig i NuGet-galleriet. Om du vill uppgradera appen till den här versionen använder du `Update-ApplicationInsightsMonitoring`.
 
@@ -244,7 +247,7 @@ Ta reda på vilka appar som övervakas:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: Namnet på en webbapp i IIS.
-* `-InstrumentationKey` (Valfritt.) Använd det här om du vill ändra resursen som appens telemetri skickas till.
+* `-InstrumentationKey` (valfritt.) Använd detta för att ändra den resurs som appens telemetri skickas till.
 * Den här cmdleten:
   * Uppgraderar den namngivna appen till den version av SDK som senast laddades ned till datorn. (Fungerar bara om `SdkState==EnabledAfterDeployment`)
   * Om du anger en instrumenteringsnyckel konfigureras den namngivna appen så att den skickar telemetri till resursen med den nyckeln. (Fungerar om `SdkState != Disabled`)
@@ -274,12 +277,12 @@ Den samlar inte in telemetri på egen hand. Den bara konfigurerar webbappar och 
 
 När du har valt en webbapp som Statusövervakaren ska instrumentera gör den följande:
 
-* Laddar ned och placerar Application Insights-sammansättningar och ApplicationInsights.config-filen i webbappens binärfilsmapp.
+* Hämtar och placerar Application Insights sammansättningar och ApplicationInsights. config-filen i webbappens mapp för binärfiler.
 * Aktiverar CLR-profilering för att samla in beroendeanrop.
 
-### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Vilken version av Application Insights SDK installeras statusövervakaren?
+### <a name="what-version-of-application-insights-sdk-does-status-monitor-install"></a>Vilken version av Application Insights SDK Statusövervakare installerar du?
 
-Från och med nu installera statusövervakaren bara Application Insights SDK version 2.3 eller 2.4. 
+Från och med nu kan Statusövervakare bara installera Application Insights SDK-versioner 2,3 eller 2,4. 
 
 Application Insights SDK version 2,4 är den [senaste versionen som stöd för .net 4,0](https://github.com/microsoft/ApplicationInsights-dotnet/releases/tag/v2.5.0-beta1) som var [EOL januari 2016](https://devblogs.microsoft.com/dotnet/support-ending-for-the-net-framework-4-4-5-and-4-5-1/). Därför kan du, från och med nu Statusövervakare, använda för att instrumentera ett .NET 4,0-program. 
 
@@ -326,7 +329,7 @@ Visa telemetrin:
 
 Lägg till mer telemetri:
 
-* [Skapa][availability] webbtester för att se till att din webbplats hålls Live.
+* [Skapa webbtester][availability] för att se till att din webbplats hålls Live.
 * [Lägg till telemetri för webb klienter][usage] om du vill visa undantag från webb sidans kod och låta dig infoga spårnings anrop.
 * [Lägg till Application Insights SDK i koden][greenbrown] så att du kan infoga spårnings-och logg anrop
 

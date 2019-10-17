@@ -12,12 +12,12 @@ ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-ms.openlocfilehash: 111191aa664650fe1ffdfd8de492e13e98349b34
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 65c067792499017a7e00fdbb6199e591981683f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72327441"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429196"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>Snabb start: Distribuera en behållar instans i Azure med hjälp av Azure CLI
 
@@ -25,7 +25,7 @@ Använd Azure Container Instances för att köra Server lös Docker-behållare i
 
 I den här snabb starten använder du Azure CLI för att distribuera en isolerad Docker-behållare och göra dess program tillgängligt med ett fullständigt kvalificerat domän namn (FQDN). Några sekunder efter att du kört ett enda distributions kommando kan du bläddra till programmet som körs i behållaren:
 
-![App som distribuerats via Azure Container Instances visas i webbläsaren][aci-app-browser]
+![Visa en app som distribuerats till Azure Container Instances i webbläsaren][aci-app-browser]
 
 Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt konto][azure-account] innan du börjar.
 
@@ -72,7 +72,7 @@ aci-demo.eastus.azurecontainer.io  Succeeded
 
 Om behållarens `ProvisioningState` har **slutförts**går du till dess FQDN i webbläsaren. Om du ser en webbsida som liknar följande – grattis! Du har distribuerat ett program som körs i en dockercontainer till Azure.
 
-![Skärmbild från webbläsaren som visar ett program som körs i en instans av Azure-containern][aci-app-browser]
+![Visa en app som distribuerats till Azure Container Instances i webbläsaren][aci-app-browser]
 
 Om programmet inte visas direkt kan du behöva vänta några sekunder medan DNS sprids, och sedan uppdatera din webbläsare.
 
@@ -158,7 +158,7 @@ I den här snabb starten skapade du en Azure Container instance med hjälp av en
 Om du vill testa alternativ för att köra behållare i ett Orchestration-system på Azure, se snabb starterna för [Azure Kubernetes service (AKS)][container-service] .
 
 <!-- IMAGES -->
-[aci-app-browser]: ./media/container-instances-quickstart/aci-app-browser.png
+[aci-app-browser]: ./media/container-instances-quickstart/view-an-application-running-in-an-azure-container-instance.png
 
 <!-- LINKS - External -->
 [app-github-repo]: https://github.com/Azure-Samples/aci-helloworld.git

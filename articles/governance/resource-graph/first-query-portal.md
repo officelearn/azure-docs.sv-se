@@ -3,17 +3,17 @@ title: Kör din första fråga med Azure Resource Graph Explorer
 description: Den här artikeln vägleder dig genom stegen för att köra din första fråga från Azure Portal med Azure Resource Graph Explorer.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/29/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: d533d24f9bfe133955c0f503e2458c8fcb0bf1de
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 755556b9ba049da7542494ee580215d29c1eb5f4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71981251"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387608"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabbstart: Kör din första resurs diagram fråga med Azure Resource Graph Explorer
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-resource-graph-explorer"></a>Snabb start: kör din första resurs diagram fråga med Azure Resource Graph Explorer
 
 Azure Resource graphs kraft är tillgängligt direkt i Azure Portal via Azure Resource Graph Explorer. Resurs diagram Utforskaren ger bläddringsbar information om de resurs typer och egenskaper för Azure Resource Manager som du kan fråga. Resurs diagram Utforskaren innehåller också ett rent gränssnitt för att arbeta med flera frågor, utvärdering av resultaten och till och med konvertera resultatet av vissa frågor till ett diagram som kan fästas på en Azure-instrumentpanel.
 
@@ -27,19 +27,19 @@ Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt](https://a
 
 1. Välj **Alla tjänster** i den vänstra rutan. Sök efter och välj **resurs diagram Utforskaren**.
 
-1. I **fråga 1** -delen av fönstret anger du frågan `project name, type | limit 5` och väljer **Kör fråga**.
+1. I **fråga 1** -delen av fönstret anger du frågan `Resources | project name, type | limit 5` och väljer **Kör fråga**.
 
    > [!NOTE]
    > Eftersom den här frågan inte tillhandahåller en sorterings modifierare, till exempel `order by`, kan du köra den här frågan flera gånger för att ge en annan uppsättning resurser per begäran.
 
-1. Granska svaret på frågan på fliken **resultat** . Välj fliken **meddelanden** om du vill visa information om frågan, inklusive antalet resultat och varaktighet för frågan. Eventuella fel visas under den här fliken.
+1. Granska fråge svaret på fliken **resultat** . Välj fliken **meddelanden** om du vill visa information om frågan, inklusive antalet resultat och varaktighet för frågan. Eventuella fel visas under den här fliken.
 
-1. Uppdatera frågan till `order by` egenskapen **namn** : `project name, type | limit 5 | order by name asc`. Välj sedan **Kör fråga**.
+1. Uppdatera frågan till `order by` egenskapen **namn** : `Resources | project name, type | limit 5 | order by name asc`. Välj sedan **Kör fråga**.
 
    > [!NOTE]
    > Om du kör den här frågan flera kommer den, precis som den första frågan, sannolikt att resultera i olika resurser vid varje begäran. Ordningen på frågekommandona är viktig. I det här exemplet kommer `order by` efter `limit`. Det begränsar först frågeresultaten och sorterar sedan dem.
 
-1. Uppdatera frågan till First `order by` egenskapen **Name** och sedan `limit` till de fem främsta resultaten: `project name, type | order by name asc | limit 5`. Välj sedan **Kör fråga**.
+1. Uppdatera frågan till First `order by` egenskapen **Name** och sedan `limit` till de fem främsta resultaten: `Resources | project name, type | order by name asc | limit 5`. Välj sedan **Kör fråga**.
 
 När den slutliga frågan körs flera gånger, förutsatt att ingenting i din miljö ändras, är resultaten som returneras konsekventa och som förväntat – beställt av egenskapen **namn** , men fortfarande begränsat till de fem främsta resultaten.
 
@@ -54,7 +54,8 @@ När du har kört den sista frågan ovan får du ett meddelande om att resultat 
 1. Ange följande fråga i delen med **frågan 1** i fönstret och välj **Kör fråga**.
 
    ```kusto
-   where type =~ 'Microsoft.Compute/virtualMachines'
+   Resources
+   | where type =~ 'Microsoft.Compute/virtualMachines'
    | summarize count() by tostring(properties.storageProfile.osDisk.osType)
    ```
 

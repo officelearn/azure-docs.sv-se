@@ -7,14 +7,14 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/7/2019
-ms.openlocfilehash: 8d0ad794caee8a06c8d403a981037d6560fb3f43
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 37fec388acda78f3d13c8e85ddddf780ad099d69
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030114"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388004"
 ---
-# <a name="what-are-mapping-data-flows"></a>Vad är Mappa dataflöden?
+# <a name="what-are-mapping-data-flows"></a>Vad är det för att mappa data flöden?
 
 Mappning av data flöden är visuellt utformad med data transformationer i Azure Data Factory. Data flöden gör det möjligt för data tekniker att utveckla grafisk data omvandlings logik utan att skriva kod. De resulterande data flödena körs som aktiviteter i Azure Data Factory pipelines med utskalade Spark-kluster. Data flödes aktiviteter kan användas via befintliga Data Factory schemaläggning, styrning, flödes-och övervaknings funktioner.
 
@@ -24,7 +24,7 @@ Genom att mappa data flöden får du en helt visuell upplevelse utan att behöva
 
 Klicka på plus tecknet under fabriks resurser för att skapa ett data flöde. 
 
-nytt data ![flöde](media/data-flow/newdataflow2.png "nytt data flöde")
+![nytt data flöde](media/data-flow/newdataflow2.png "nytt data flöde")
 
 Detta tar dig till data flödes arbets ytan där du kan skapa din omvandlings logik. Klicka på rutan Lägg till källa för att börja konfigurera din käll omvandling. Mer information finns i [käll omvandling](data-flow-source.md).
 
@@ -32,13 +32,13 @@ Detta tar dig till data flödes arbets ytan där du kan skapa din omvandlings lo
 
 Data flödes arbets ytan är uppdelad i tre delar: det översta fältet, grafen och konfigurations panelen. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![Rityta](media/data-flow/canvas1.png "Rityta")
 
 ### <a name="graph"></a>Graph
 
 I diagrammet visas omvandlings strömmen. Den visar härkomst för källdata när den flödar till en eller flera handfat. Om du vill lägga till en ny källa klickar du på rutan Lägg till källa. Lägg till en ny omvandling genom att klicka på plus tecknet längst ned till höger i en befintlig omvandling.
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![Rityta](media/data-flow/canvas2.png "Rityta")
 
 ### <a name="configuration-panel"></a>Konfigurations panel
 
@@ -50,13 +50,13 @@ Varje omvandling har minst fyra konfigurations flikar:
 
 Den första fliken i varje omvandlings konfigurations fönster innehåller inställningar som är speciella för omvandlingen. Mer information finns på den omvandlingens dokumentations sida.
 
-Fliken ![käll inställningar]fliken(media/data-flow/source1.png "käll") inställningar
+![Fliken käll inställningar](media/data-flow/source1.png "Fliken käll inställningar")
 
 #### <a name="optimize"></a>Optimera
 
 Fliken _Optimize_ innehåller inställningar för att konfigurera partitionerings scheman.
 
-![Optimera](media/data-flow/optimize1.png "optimering")
+![Optimize](media/data-flow/optimize1.png "Optimera") (Optimera)
 
 Standardvärdet är "Använd aktuell partitionering", som instruerar Azure Data Factory att använda partitionerings schema som är inbyggt i data flöden som körs på Spark. I de flesta fall är den här inställningen den rekommenderade metoden.
 
@@ -92,7 +92,7 @@ Om du har en god förståelse av kardinalitet för dina data kan nyckel partitio
 
 Fliken _Granska_ visar metadata för den data ström som du transformerar. Du kan se kolumn antal, kolumner ändrade, tillagda kolumner, data typer, kolumn ordning och kolumn referenser. Granska är en skrivskyddad vy av dina metadata. Du behöver inte ha aktiverat fel söknings läge för att se metadata i rutan granska.
 
-![Inspektera](media/data-flow/inspect1.png "inspektera")
+![Allmänt](media/data-flow/inspect1.png "Allmänt")
 
 När du ändrar formen på dina data med hjälp av omvandlingar ser du att metadata-ändringarna flödar genom fönstret Granska. Om det inte finns ett definierat schema i din käll omvandling visas inte metadata i rutan granska. Brist på metadata är vanligt i schema avvikelse scenarier.
 
@@ -104,11 +104,11 @@ Om fel söknings läget är på visar fliken _data förhands granskning_ en inte
 
 Det översta fältet innehåller åtgärder som påverkar hela data flödet, till exempel spara och verifiera. Du kan också växla mellan diagram-och konfigurations lägen med knapparna **Visa graf** och **Dölj diagram** .
 
-![Dölj]graf,(media/data-flow/hideg.png "Dölj graf")
+![Dölj diagram](media/data-flow/hideg.png "Dölj diagram")
 
 Om du döljer grafen kan du gå igenom dina transformationsfiler senare via knapparna **föregående** och **Nästa** .
 
-![Navigera](media/data-flow/showhide.png "navigera")
+![Sökning](media/data-flow/showhide.png "Sökning")
 
 ## <a name="next-steps"></a>Nästa steg
 

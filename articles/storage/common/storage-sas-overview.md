@@ -5,16 +5,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 08/12/2019
+ms.date: 10/14/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 0410da26a2ea5811c5a107ce233f2442b60fd9ca
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: 9623152bdea5cc56e6b9bcb7d9911a730fd7a4a4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71670833"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72382018"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Bevilja begränsad åtkomst till Azure Storage resurser med signaturer för delad åtkomst (SAS)
 
@@ -24,9 +24,17 @@ En signatur för delad åtkomst (SAS) ger säker delegerad åtkomst till resurse
 
 Azure Storage stöder tre typer av signaturer för delad åtkomst:
 
-- **Användarens Delegerings-SAS (för hands version).** En användar Delegerings-sa skyddas med Azure Active Directory (Azure AD)-autentiseringsuppgifter och även av de behörigheter som angetts för SAS. En användar Delegerings-SAS gäller endast för Blob Storage. Om du vill skapa en användar Delegerings-SAS måste du först begära en användar Delegerings nyckel som används för att signera SAS. Mer information om sa för användar delegering finns i [skapa en användar delegering SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
-- **Tjänstens SAS.** En tjänst-SAS skyddas med lagrings konto nyckeln. En tjänst-SAS delegerar åtkomst till en resurs i endast en av de Azure Storage tjänsterna: Blob Storage, Queue Storage, Table Storage eller Azure Files. Mer information om tjänste-SAS finns i [skapa en tjänst SAS (REST API)](/rest/api/storageservices/create-service-sas).
-- **Kontots SAS.** En konto säkerhets Association skyddas med lagrings konto nyckeln. En konto-SAS delegerar åtkomst till resurser i en eller flera av lagringstjänsterna. Alla åtgärder som är tillgängliga via en tjänst eller en användar Delegerings-SAS är också tillgängliga via en konto säkerhets Association. Med kontots SAS kan du dessutom Delegera åtkomst till åtgärder som tillämpas på tjänst nivån, till exempel **Hämta/ange tjänst egenskaper** och **Hämta Service statistik** åtgärder. Du kan också delegera åtkomst till läs-, skriv- och borttagningsåtgärder i blobcontainrar, tabeller, köer och filresurser som inte tillåts med en tjänst-SAS. Om du vill ha mer information om kontots SAS [skapar du ett konto SAS (REST API)](/rest/api/storageservices/create-account-sas).
+- **Användarens Delegerings-SAS (för hands version).** En användar Delegerings-sa skyddas med Azure Active Directory (Azure AD)-autentiseringsuppgifter och även av de behörigheter som angetts för SAS. En användar Delegerings-SAS gäller endast för Blob Storage.
+
+    Mer information om sa för användar delegering finns i [skapa en användar delegering SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
+
+- **Tjänstens SAS.** En tjänst-SAS skyddas med lagrings konto nyckeln. En tjänst-SAS delegerar åtkomst till en resurs i endast en av de Azure Storage tjänsterna: Blob Storage, Queue Storage, Table Storage eller Azure Files. 
+
+    Mer information om tjänste-SAS finns i [skapa en tjänst SAS (REST API)](/rest/api/storageservices/create-service-sas).
+
+- **Kontots SAS.** En konto säkerhets Association skyddas med lagrings konto nyckeln. En konto-SAS delegerar åtkomst till resurser i en eller flera av lagringstjänsterna. Alla åtgärder som är tillgängliga via en tjänst eller en användar Delegerings-SAS är också tillgängliga via en konto säkerhets Association. Med kontots SAS kan du dessutom Delegera åtkomst till åtgärder som tillämpas på tjänst nivån, till exempel **Hämta/ange tjänst egenskaper** och **Hämta Service statistik** åtgärder. Du kan också delegera åtkomst till läs-, skriv- och borttagningsåtgärder i blobcontainrar, tabeller, köer och filresurser som inte tillåts med en tjänst-SAS. 
+
+    Om du vill ha mer information om kontots SAS [skapar du ett konto SAS (REST API)](/rest/api/storageservices/create-account-sas).
 
 > [!NOTE]
 > Microsoft rekommenderar att du använder Azure AD-autentiseringsuppgifter när det är möjligt som en säkerhets åtgärd, i stället för att använda konto nyckeln, vilket kan vara enklare att avslöja. När program designen kräver delade åtkomst-signaturer för att få åtkomst till Blob Storage använder du autentiseringsuppgifter för Azure AD för att skapa en användar Delegerings-sa när det är möjligt för överlägsen säkerhet.
@@ -47,7 +55,7 @@ En signatur för delad åtkomst är en signerad URI som pekar på en eller flera
 
 Du kan signera en SAS på ett av två sätt:
 
-- Med en användar Delegerings nyckel som skapades med Azure Active Directory (autentiseringsuppgifter för Azure AD). En användar Delegerings-SAS är signerad med användar Delegerings nyckeln.
+- Med en *användar Delegerings nyckel* som skapades med Azure Active Directory (autentiseringsuppgifter för Azure AD). En användar Delegerings-SAS är signerad med användar Delegerings nyckeln.
 
     För att hämta användar Delegerings nyckeln och skapa SAS måste ett Azure AD-säkerhetsobjekt tilldelas en rollbaserad åtkomst kontroll (RBAC) roll som innehåller åtgärden **Microsoft. Storage/storageAccounts/blobServices/generateUserDelegationKey** . För detaljerad information om RBAC-roller med behörighet att hämta användar Delegerings nyckeln, se [skapa en användar delegering SAS (REST API)](/rest/api/storageservices/create-user-delegation-sas).
 
@@ -71,7 +79,7 @@ Ett vanligt scenario där en SAS är användbar är en tjänst där användare k
 
 1. Klienterna överför och laddar ned data via en frontend-proxyserver som utför autentisering. Den här frontend-proxyservern har fördelen att tillåta validering av affärs regler, men för stora mängder data eller hög volym transaktioner kan du skapa en tjänst som kan skalas för att matcha efter frågan kan vara kostsam eller svår.
 
-   ![Scenario diagram: Klient dels-proxy tjänst](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
+   ![Scenario diagram: klient delens proxy-tjänst](./media/storage-sas-overview/sas-storage-fe-proxy-service.png)
 
 1. En Lightweight-tjänst autentiserar klienten vid behov och genererar sedan en SAS. När klient programmet tar emot SAS, kan de komma åt lagrings konto resurser direkt med behörigheterna som definieras av SAS och för det intervall som tillåts av SAS. SAS minimerar behovet av att dirigera alla data via frontend-proxyservern.
 

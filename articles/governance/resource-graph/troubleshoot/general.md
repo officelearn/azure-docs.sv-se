@@ -3,15 +3,15 @@ title: Felsöka vanliga fel
 description: Lär dig hur du felsöker problem med frågor till Azure-resurser med Azure Resource Graph.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/21/2019
+ms.date: 10/18/2019
 ms.topic: troubleshooting
 ms.service: resource-graph
-ms.openlocfilehash: abf6d22f2010db9bff97c7a93354c1cf8e1e1644
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: 030fe26a0aa8fc4ed855fb7744e576366f4fd2e2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976613"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389693"
 ---
 # <a name="troubleshoot-errors-using-azure-resource-graph"></a>Felsöka fel med Azure Resource Graph
 
@@ -23,7 +23,7 @@ De flesta fel är resultatet av ett problem när du kör en fråga med Azure Res
 
 ## <a name="general-errors"></a>Allmänna fel
 
-### <a name="toomanysubscription"></a>Situationen För många prenumerationer
+### <a name="toomanysubscription"></a>Scenario: för många prenumerationer
 
 #### <a name="issue"></a>Problem
 
@@ -33,13 +33,13 @@ Kunder med till gång till fler än 1000 prenumerationer, inklusive prenumeratio
 
 Azure CLI och PowerShell vidarebefordrar bara de första 1000 prenumerationerna till Azure Resource Graph. REST API för Azure Resource Graph accepterar maximalt antal prenumerationer som frågan kan utföras på.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Batch-begäranden för frågan med en delmängd av prenumerationerna kvar under prenumerations gränsen på 1000. Lösningen använder **prenumerations** parametern i PowerShell.
 
 ```azurepowershell-interactive
 # Replace this query with your own
-$query = 'project type'
+$query = 'Resources | project type'
 
 # Fetch the full array of subscription IDs
 $subscriptions = Get-AzSubscription
@@ -60,7 +60,7 @@ foreach ($batch in $subscriptionsBatch){ $response += Search-AzGraph -Query $que
 $response
 ```
 
-### <a name="rest-contenttype"></a>Situationen REST-rubriken av innehålls typ stöds inte
+### <a name="rest-contenttype"></a>Scenario: REST-huvud för innehålls typ som inte stöds
 
 #### <a name="issue"></a>Problem
 
@@ -70,10 +70,11 @@ Kunder som frågar Azure Resource Graph REST API får ett _500_ -svar (internt S
 
 Azures resurs diagram REST API bara stöd för en `Content-Type` av **Application/JSON**. Vissa REST verktyg eller agenter som standard är **text/plain**, vilket inte stöds av REST API.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Kontrol lera att verktyget eller agenten som du använder för att fråga Azure Resource Graph har REST API huvud `Content-Type` konfigurerat för **Application/JSON**.
-### <a name="rest-403"></a>Situationen Ingen Läs behörighet för alla prenumerationer i listan
+
+### <a name="rest-403"></a>Scenario: ingen Läs behörighet för alla prenumerationer i listan
 
 #### <a name="issue"></a>Problem
 
@@ -83,7 +84,7 @@ Kunder som uttryckligen skickar en lista över prenumerationer med en Azure-resu
 
 Om kunden inte har Läs behörighet till alla angivna prenumerationer, nekas begäran på grund av brist på rätt behörighet.
 
-#### <a name="resolution"></a>Lösning
+#### <a name="resolution"></a>Upplösning
 
 Inkludera minst en prenumeration i prenumerations listan som kunden som kör frågan har minst Läs behörighet till. Mer information finns i [behörigheter i Azure Resource Graph](../overview.md#permissions-in-azure-resource-graph).
 

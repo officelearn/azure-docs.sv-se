@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05c93c9fe2b34ae3b87c44608cc5c5c8947ecc73
-ms.sourcegitcommit: a0b37e18b8823025e64427c26fae9fb7a3fe355a
+ms.openlocfilehash: 356f2eac06365b90052cab214d9d1ac318710730
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "68499841"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389673"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>Konfigurera hantering av autentisering med villkorlig åtkomst
 
@@ -37,7 +37,7 @@ Inloggnings frekvensen definierar den tids period innan en användare uppmanas a
 
 Standard konfigurationen av Azure Active Directory (Azure AD) för användar inloggnings frekvens är ett rullande fönster på 90 dagar. Att be användare om autentiseringsuppgifter verkar ofta vara lämpligat att göra, men det kan vara refire: användare som har tränats att ange sina autentiseringsuppgifter utan att fundera på att oavsiktligt ange dem till en fråga om obehöriga autentiseringsuppgifter.
 
-Det kan hända att en användare inte uppmanas att logga in igen om 90 dagar, i verkligheten att en överträdelse av IT-principerna återkallar sessionen. Några exempel är (men är inte begränsade till) en lösen ords ändring, en inkompatibel enhet eller inaktivt konto. Du kan även uttryckligen [återkalla användarnas sessioner med hjälp av PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Standard konfigurationen för Azure AD kommer inte att be användarna att ange sina autentiseringsuppgifter om säkerhets position inte har ändrats i sina sessioner.
+Det kan bero på att användaren inte behöver be om en användare att logga in igen, i verkligheten att en överträdelse av IT-principerna återkallar sessionen. Några exempel är (men är inte begränsade till) en lösen ords ändring, en inkompatibel enhet eller inaktivt konto. Du kan även uttryckligen [återkalla användarnas sessioner med hjälp av PowerShell](https://docs.microsoft.com/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0). Standard konfigurationen för Azure AD kommer inte att be användarna att ange sina autentiseringsuppgifter om säkerhets position inte har ändrats i sina sessioner.
 
 Inställningen för inloggnings frekvens fungerar med appar som har implementerat OAUTH2-eller OIDC-protokoll enligt standarderna. De flesta inbyggda Microsoft-appar för Windows, Mac och Mobile följer inställningen.
 
@@ -45,17 +45,17 @@ Inställningen för inloggnings frekvens fungerar med appar som har implementera
 
 Med en beständig webbläsarsession kan användarna vara inloggade när de har stängt och öppnat sina webbläsarfönster igen.
 
-Med Azure AD-beständighet för webbläsarsessionen kan användare på personliga enheter välja om de vill spara sessionen genom att visa en "förbli inloggad?" prompt efter slutförd autentisering. Om webb läsar persisten har kon figurer ATS i AD FS med [hjälp av vägledningen i artikeln](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
-)AD FS inställningar för enkel inloggning, kommer vi att följa principen och även behålla Azure AD-sessionen. Du kan också konfigurera om användare i din klient organisation ska se "förbli inloggad?" genom att ändra lämplig inställning i rutan för företags anpassning i Azure Portal att använda vägledningen i artikeln [Anpassa din inloggnings sida för Azure AD](../fundamentals/customize-branding.md).
+Med Azure AD-beständighet för webbläsarsessionen kan användare på personliga enheter välja om de vill spara sessionen genom att visa en "förbli inloggad?" prompt efter slutförd autentisering. Om webb läsar persisten har kon figurer ATS i AD FS med hjälp av vägledningen i artikeln [AD FS inställningar för enkel inloggning](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-single-sign-on-settings#enable-psso-for-office-365-users-to-access-sharepoint-online
+), kommer vi att följa principen och även behålla Azure AD-sessionen. Du kan också konfigurera om användare i din klient organisation ska se "förbli inloggad?" genom att ändra lämplig inställning i rutan för företags anpassning i Azure Portal att använda vägledningen i artikeln [Anpassa din inloggnings sida för Azure AD](../fundamentals/customize-branding.md).
 
 ## <a name="configuring-authentication-session-controls"></a>Konfigurera kontroller för autentisering av sessionen
 
 Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-licens. Om du vill veta mer om villkorlig åtkomst, se [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md#license-requirements)
 
 > [!WARNING]
-> Observera att vi inte har stöd för att skapa två olika principer för samma användar-eller app-kombination om du använder den [konfigurerbara livs längden](../develop/active-directory-configurable-token-lifetimes.md) för token i en offentlig för hands version. en med den här funktionen och en annan med konfigurerbar token livs längds funktion. Microsoft planerar att dra tillbaka den konfigurerbara livs längden för token den 1 november och ersätta den med funktionen för hantering av autentisering med villkorlig åtkomst.  
+> Observera att vi inte har stöd för att skapa två olika principer för samma användar-eller app-kombination om du använder den [konfigurerbara livs längden för token](../develop/active-directory-configurable-token-lifetimes.md) i en offentlig för hands version. en med den här funktionen och en annan med konfigurerbar token livs längds funktion. Microsoft planerar att dra tillbaka den konfigurerbara livs längden för token den 1 november och ersätta den med funktionen för hantering av autentisering med villkorlig åtkomst.  
 
-### <a name="policy-1-sign-in-frequency-control"></a>Princip 1: Kontroll av inloggnings frekvens
+### <a name="policy-1-sign-in-frequency-control"></a>Princip 1: kontroll för inloggnings frekvens
 
 1. Skapa ny princip
 1. Välj alla nödvändiga villkor för kundens miljö, inklusive mål molnappar.
@@ -63,7 +63,7 @@ Villkorlig åtkomst är en Azure AD Premium funktion och kräver en Premium-lice
    > [!NOTE]
    > Vi rekommenderar att du anger samma frekvens för autentiserings-och körnings frekvensen för viktiga Microsoft Office appar som Exchange Online och SharePoint Online för bästa möjliga användar upplevelse.
 
-1. Gå till **Access Controls** > -**sessionen** och klicka på **inloggnings frekvens**
+1. Gå till **åtkomst kontroller** > **session** och klicka på **inloggnings frekvens**
 1. Ange det obligatoriska värdet för dagar och timmar i den första text rutan
 1. Välj ett värde för **timmar** eller **dagar** från List rutan
 1. Spara principen
@@ -74,7 +74,7 @@ På Azure AD-registrerade Windows-enheter loggar du in på enheten som en uppfr�
 
 Om du har konfigurerat olika inloggnings frekvenser för olika webbappar som körs i samma webbläsarsession, kommer den striktaste principen att tillämpas på båda apparna eftersom alla appar som körs i samma webbläsarsession delar en token för en session.
 
-### <a name="policy-2-persistent-browser-session"></a>Princip 2: Beständig webbläsarsession
+### <a name="policy-2-persistent-browser-session"></a>Princip 2: beständig webbläsarsession
 
 1. Skapa ny princip
 1. Välj alla obligatoriska villkor.
@@ -82,7 +82,7 @@ Om du har konfigurerat olika inloggnings frekvenser för olika webbappar som kö
    > [!NOTE]
    > Observera att den här kontrollen kräver att du väljer alla molnappar som ett villkor. Persistence för webbläsarsessionen styrs av autentiseringstoken för autentisering. Alla flikar i en webbläsarsession delar en token för en session och därför måste alla dela beständiga tillstånd.
 
-1. Gå till **Access Controls** > -**sessionen** och klicka på **beständig** webbläsarsession
+1. Gå till **åtkomst kontroller** > **session** och klicka på **beständig** webbläsarsession
 1. Välj ett värde i list rutan
 1. Spara principen
 

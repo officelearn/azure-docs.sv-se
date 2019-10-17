@@ -12,20 +12,22 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: 1129dffa37df4766b98f39a9efa05f4eb7ed9878
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: fb57d69b4969bcbf66717a8ca29ede23f2ed8e43
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326126"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429116"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-azure-cli-and-event-grid"></a>Snabb start: dirigera anpassade händelser till webb slut punkten med Azure CLI och Event Grid
 
-Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet. Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
+Azure Event Grid är en händelsetjänst för molnet. I den här artikeln använder du Azure CLI för att skapa ett anpassat ämne, prenumerera på det anpassade ämnet och utlösa händelsen för att visa resultatet.
+
+Normalt kan du skicka händelser till en slutpunkt som bearbetar informationen om händelsen och utför åtgärder. Men för att enkelt beskriva den här artikeln kan skicka du händelser till en webbapp som samlar in och visar meddelanden.
 
 När du är klar kan se du att händelsedata som har skickats till webbappen.
 
-![Visa resultat](./media/custom-event-quickstart/view-result.png)
+![Använd Azure Event Grid Viewer för att kontrol lera att händelse data har skickats](./media/custom-event-quickstart/azure-event-grid-viewer-displays-event-data.png)
 
 [!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
 
@@ -96,7 +98,7 @@ az eventgrid event-subscription create \
 
 Visa ditt webbprogram igen och observera att en händelse för verifieringen av prenumerationen har skickats till den. Välj ögonikonen för att utöka informationen om händelsen. Händelserutnätet skickar valideringshändelsen så att slutpunkten kan bekräfta att den vill ta emot händelsedata. Webbappen inkluderar kod för att verifiera prenumerationen.
 
-![Visa prenumerationshändelse](./media/custom-event-quickstart/view-subscription-event.png)
+![Visa prenumerations verifierings koden i Azure Event Grid Viewer](./media/custom-event-quickstart/view-subscription-validation-code-in-azure-event-grid-viewer.png)
 
 ## <a name="send-an-event-to-your-custom-topic"></a>Skicka en händelse till det anpassade ämnet
 

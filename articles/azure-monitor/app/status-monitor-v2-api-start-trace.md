@@ -1,6 +1,6 @@
 ---
-title: 'Azure Statusövervakare v2 API-referens: Starta spårning | Microsoft Docs'
-description: API-referens för Statusövervakare v2. Starta spårning. Samla in ETW-loggar från Statusövervakare och Application Insights SDK.
+title: 'Referens för Azure Application Insights-Agent-API: starta spårning | Microsoft Docs'
+description: Application Insights Agent-API-referens. Starta spårning. Samla in ETW-loggar från Statusövervakare och Application Insights SDK.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: f4c43e6bdb70687606041c2f0859ab072db2b587
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b1c5aa34c46a20631b328abfb061dc2477150c72
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71200371"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389854"
 ---
-# <a name="status-monitor-v2-api-start-applicationinsightsmonitoringtrace"></a>API för Statusövervakare v2: Start-ApplicationInsightsMonitoringTrace
+# <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>Application Insights Agent-API: Start-ApplicationInsightsMonitoringTrace
 
 Den här artikeln beskriver en cmdlet som är medlem i [PowerShell-modulen AZ. ApplicationMonitor](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/).
 
@@ -43,17 +43,17 @@ Normalt skulle vi be dig att samla in händelser för att undersöka varför dit
 Koden för kod bundna bilagor genererar ETW-händelser när IIS startas och när programmet startas.
 
 Så här samlar du in följande händelser:
-1. I en cmd-konsol med administratörs behörighet `iisreset /stop` kör du för att stänga av IIS och alla webbappar.
+1. I en cmd-konsol med administratörs behörighet kör du `iisreset /stop` om du vill stänga av IIS och alla webbappar.
 2. Kör denna cmdlet
-3. I en cmd-konsol med administratörs behörighet `iisreset /start` kör du för att starta IIS.
+3. I en cmd-konsol med administratörs behörighet kör du `iisreset /start` för att starta IIS.
 4. Försök att bläddra till din app.
-5. När din app har slutfört inläsningen kan du stoppa den`Ctrl + C`manuellt () eller vänta tills tids gränsen uppnåddes.
+5. När appen har lästs in kan du stoppa den manuellt (`Ctrl + C`) eller vänta tills tids gränsen har passerats.
 
 ### <a name="what-events-to-collect"></a>Vilka händelser som ska samlas in
 
 Du har tre alternativ när du samlar in händelser:
-1. Använd växeln `-CollectSdkEvents` för att samla in händelser som har avsänts från Application Insights SDK.
-2. Använd växeln `-CollectRedfieldEvents` för att samla in händelser som har avsänts av statusövervakare och Redfield Runtime. Dessa loggar är användbara när du ska diagnostisera IIS och program start.
+1. Använd växeln `-CollectSdkEvents` om du vill samla in händelser som har avsänts från Application Insights SDK.
+2. Använd växeln `-CollectRedfieldEvents` om du vill samla in händelser som avsänts av Statusövervakare och Redfield Runtime. Dessa loggar är användbara när du ska diagnostisera IIS och program start.
 3. Använd båda växlar för att samla in båda händelse typerna.
 4. Som standard, om ingen växel har angetts, kommer båda händelse typerna att samlas in.
 
@@ -78,7 +78,7 @@ Du har tre alternativ när du samlar in händelser:
 
 
 
-## <a name="output"></a>Output
+## <a name="output"></a>Resultat
 
 
 ### <a name="example-of-application-startup-logs"></a>Exempel på program start loggar
@@ -116,12 +116,12 @@ Timeout Reached. Stopping...
 Ytterligare fel sökning:
 
 - Granska ytterligare fel söknings steg här: https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot
-- Läs [API](status-monitor-v2-overview.md#powershell-api-reference) -referensen om du vill veta mer om parametrar som du kan ha missat.
+- Läs [API-referensen](status-monitor-v2-overview.md#powershell-api-reference) om du vill veta mer om parametrar som du kan ha missat.
 - Om du behöver ytterligare hjälp kan du kontakta oss på [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues).
 
 
 
- Gör mer med Statusövervakare v2:
- - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) statusövervakare v2.
+ Gör mer med Application Insights agent:
+ - Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.
  - [Hämta konfigurationen](status-monitor-v2-api-get-config.md) för att bekräfta att inställningarna har registrerats korrekt.
  - [Hämta status](status-monitor-v2-api-get-status.md) för att inspektera övervakning.

@@ -7,12 +7,12 @@ ms.reviewer: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 8c9043db8159e2b7ff6520e9525472048cf73ae1
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 5b618798c74393f3e7d89cfc69c67ba831356ce4
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72031284"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385544"
 ---
 # <a name="transform-data-using-mapping-data-flows"></a>Transformera data med hjälp av mappnings data flöden
 
@@ -29,7 +29,7 @@ I den här självstudien gör du följande:
 > * Testkör pipelinen.
 > * Övervaka en data flödes aktivitet
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * **Azure Storage-konto**. Du använder ADLS-lagring som *käll* -och *mottagar* data lager. Om du inte har ett lagringskonto finns det anvisningar om hur du skapar ett i [Skapa ett Azure Storage-konto](../storage/common/storage-quickstart-create-account.md).
 
@@ -44,9 +44,9 @@ I det här steget skapar du en data fabrik och öppnar Data Factory UX för att 
   
    ![Valet Data Factory i fönstret Nytt](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-3. I fönstret **Ny datafabrik**, under **Namn** anger du **ADFTutorialDataFactory**. 
+3. I fönstret **Ny datafabrik**, under **Namn**, anger du **ADFTutorialDataFactory**. 
  
-   Namnet på Azure Data Factory måste vara *globalt unikt*. Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. (till exempel Dittnamnadftutorialdatafactory). Se artikeln [Namnregler för Data Factory](naming-rules.md) för namnregler för Data Factory-artefakter.
+   Namnet på Azure Data Factory måste vara *globalt unikt*. Ange ett annat namn för datafabriken om du får ett felmeddelande om namnvärdet. (till exempel Dittnamnadftutorialdatafactory). Se artikeln [om namnregler för datafabriker](naming-rules.md) för namnregler för datafabriksartefakter.
         
      ![Ny datafabrik](./media/doc-common-process/name-not-available-error.png)
 4. Välj den Azure-**prenumeration** som du vill skapa den nya datafabriken i. 
@@ -115,7 +115,7 @@ När du har skapat ditt data flöde skickas det automatiskt till data flödets a
     ![Data flödes arbets yta](media/tutorial-data-flow/dataflow5.png)
 1. Namnge filter omvandlingen **FilterYears**. Klicka på uttrycks rutan bredvid **filtrera på** för att öppna uttrycks verktyget. Här anger du filtrerings villkoret. 
     
-    ![Filter](media/tutorial-data-flow/filter1.png)
+    ![Filtrera](media/tutorial-data-flow/filter1.png)
 1. Med uttrycks verktyget Data Flow kan du interaktivt skapa uttryck som ska användas i olika transformationer. Uttryck kan innehålla inbyggda funktioner, kolumner från schemat för indata och användardefinierade parametrar. Mer information om hur du skapar uttryck finns i [uttrycks verktyg för data flöde](concepts-data-flow-expression-builder.md).
     
     I den här självstudien vill du filtrera filmer för Genre-komedi som kommer ut mellan åren 1910 och 2000. Om ett år är för närvarande en sträng måste du konvertera det till ett heltal med hjälp av funktionen ```toInteger()```. Använd den större än eller lika med (> =) och mindre än eller lika med (< =) operatörer för att jämföra med de exakta värdena 1910 och 200-. Union dessa uttryck tillsammans med operatorn och (& &). Uttrycket visas som:
@@ -128,13 +128,13 @@ När du har skapat ditt data flöde skickas det automatiskt till data flödets a
 
     Om du har ett fel söknings kluster aktivt kan du verifiera din logik genom att klicka på **Uppdatera** för att se uttryckets utdata jämfört med de indata som används. Det finns mer än ett rätt svar på hur du kan utföra den här logiken med hjälp av Expression-språket för data flödet.
     
-    ![Filter](media/tutorial-data-flow/filter2.png)
+    ![Filtrera](media/tutorial-data-flow/filter2.png)
 
     Klicka på **Spara och slutför** när du är klar med ditt uttryck.
 
 1. Hämta en **data förhands granskning** för att kontrol lera att filtret fungerar korrekt.
     
-    ![Filter](media/tutorial-data-flow/filter3.png)
+    ![Filtrera](media/tutorial-data-flow/filter3.png)
 1. Nästa omvandling du lägger till är en **sammanställd** omvandling under **schema modifieraren**.
     
     ![Aggregera](media/tutorial-data-flow/agg1.png)

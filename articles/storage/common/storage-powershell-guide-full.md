@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: ac210a03f8b1a0a5f7fff07cbc68b4cd6bc98632
-ms.sourcegitcommit: df7942ba1f28903ff7bef640ecef894e95f7f335
+ms.openlocfilehash: 40fb44857126c3562e01585c3131afec87f01e42
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016350"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430057"
 ---
 # <a name="using-azure-powershell-with-azure-storage"></a>Använda Azure PowerShell med Azure Storage
 
@@ -107,7 +107,7 @@ Skriptet använder följande PowerShell-cmdletar:
 
 *   [Get-AzLocation](/powershell/module/az.resources/get-azlocation) – hämtar en lista över giltiga platser. Exemplet använder `eastus` för plats.
 
-*   [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) – skapar en ny resurs grupp. En resurs grupp är en logisk behållare där dina Azure-resurser distribueras och hanteras. Oss kallas `teststoragerg`för.
+*   [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) – skapar en ny resurs grupp. En resurs grupp är en logisk behållare där dina Azure-resurser distribueras och hanteras. Oss kallas för `teststoragerg`.
 
 *   [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) – skapar lagrings kontot. Exemplet använder `testpshstorage`.
 
@@ -131,15 +131,15 @@ Om du vill ändra inställningarna för ett lagrings konto använder du [set-AzS
 
 * **Taggarna** som har tilldelats lagrings kontot. Taggar används ofta för att kategorisera resurser i fakturerings syfte.
 
-* **SKU: n** är replikeringsinställningarna för lagrings kontot, till exempel LRS för lokalt redundant lagring. Du kan till exempel ändra från standard\_-LRS till standard\_-GRS eller standard\_-RAGRS. Observera att du inte kan ändra\_standard ZRS,\_standard-GZRS\_, standard-RAGZRS\_eller Premium-LRS till andra SKU: er eller ändra andra SKU: er till dessa.
+* **SKU: n** är replikeringsinställningarna för lagrings kontot, till exempel LRS för lokalt redundant lagring. Du kan till exempel ändra från standard @ no__t-0LRS till standard @ no__t-1GRS eller standard @ no__t-2RAGRS. Observera att du inte kan ändra standard @ no__t-0ZRS, standard @ no__t-1GZRS, standard @ no__t-2RAGZRS eller Premium @ no__t-3LRS till andra SKU: er eller ändra andra SKU: er till dessa.
 
-* **Åtkomst nivån** för Blob Storage-konton. Värdet för åtkomst nivån är inställt på frekventeller låg frekvent, och gör att du kan minimera kostnaden genom att välja åtkomst nivån som motsvarar hur du använder lagrings kontot. Mer information finns i lagrings nivåerna frekvent, låg frekvent [och Arkiv lag](../blobs/storage-blob-storage-tiers.md)ring.
+* **Åtkomst nivån** för Blob Storage-konton. Värdet för åtkomst nivån är inställt **på frekvent** eller låg frekvent, och gör att **du kan minimera**kostnaden genom att välja åtkomst nivån som motsvarar hur du använder lagrings kontot. Mer information finns i [lagrings nivåerna frekvent, låg frekvent och Arkiv lag](../blobs/storage-blob-storage-tiers.md)ring.
 
 * Tillåt endast HTTPS-trafik.
 
 ### <a name="manage-the-access-keys"></a>Hantera åtkomst nycklar
 
-Ett Azure Storage konto levereras med två konto nycklar. Hämta nycklarna med [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey). I det här exemplet hämtas den första nyckeln. Om du vill hämta den andra använder `Value[1]` du i `Value[0]`stället för.
+Ett Azure Storage konto levereras med två konto nycklar. Hämta nycklarna med [Get-AzStorageAccountKey](/powershell/module/az.Storage/Get-azStorageAccountKey). I det här exemplet hämtas den första nyckeln. Använd `Value[1]` i stället för `Value[0]` för att hämta den andra.
 
 ```powershell
 $storageAccountKey = `
@@ -156,7 +156,7 @@ New-AzStorageAccountKey -ResourceGroupName $resourceGroup `
   -KeyName key1
 ```
 
-Om du vill återskapa den andra nyckeln använder `key2` du som nyckel namn i stället `key1`för.
+Om du vill återskapa den andra nyckeln använder du `key2` som nyckel namn i stället för `key1`.
 
 Återskapa en av dina nycklar och hämta det sedan igen för att se det nya värdet.
 
@@ -182,7 +182,7 @@ Som standard är alla lagrings konton tillgängliga för alla nätverk som har �
 
 Artikeln visar hur du hanterar dessa inställningar med hjälp av följande PowerShell-cmdletar:
 * [Add-AzStorageAccountNetworkRule](/powershell/module/az.Storage/Add-azStorageAccountNetworkRule)
-* [Update-AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
+* [Uppdatera – AzStorageAccountNetworkRuleSet](/powershell/module/az.storage/update-azstorageaccountnetworkruleset)
 * [Remove-AzStorageAccountNetworkRule](https://docs.microsoft.com/powershell/module/az.storage/remove-azstorageaccountnetworkrule)
 
 ## <a name="use-storage-analytics"></a>Använd Storage Analytics  
@@ -222,9 +222,9 @@ Azure Cosmos DB Tabell-API innehåller Premium funktioner för tabell lagring, t
 
 De flesta människor använder Azures offentliga moln för sin globala Azure-distribution. Det finns också några oberoende distributioner av Microsoft Azure av suveränitets skäl och så vidare. Dessa oberoende distributioner kallas "miljöer". Det här är tillgängliga miljöer:
 
-* [Azure Government Cloud](https://azure.microsoft.com/features/gov/)
+* [Azure Government molnet](https://azure.microsoft.com/features/gov/)
 * [Azure Kina 21Vianet-moln som drivs av 21Vianet i Kina](http://www.windowsazure.cn/)
-* [Azure German Cloud](../../germany/germany-welcome.md)
+* [Azure tyskt-moln](../../germany/germany-welcome.md)
 
 Information om hur du kommer åt dessa moln och deras lagring med PowerShell finns i [Hantera lagring i Azures oberoende moln med PowerShell](storage-powershell-independent-clouds.md).
 
@@ -252,4 +252,4 @@ Den här artikeln innehåller även referenser till flera andra artiklar, t. ex.
 
 * [PowerShell-cmdletar för Azure Storage Control plan](/powershell/module/az.storage/)
 * [PowerShell-cmdletar för Azure Storage data plan](/powershell/module/azure.storage/)
-* [Windows PowerShell-referens](https://msdn.microsoft.com/library/ms714469.aspx)
+* [Windows PowerShell-referens](/powershell/scripting/developer/windows-powershell)

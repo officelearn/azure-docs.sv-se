@@ -1,6 +1,6 @@
 ---
 title: Felsöka Resource Manager-distributioner | Microsoft Docs
-description: Lär dig övervaka och felsöka Resource Manager-distributioner.
+description: Lär dig hur du övervakar och felsöker distributioner av Azure Resource Manager mallar. Visar aktivitets loggar och distributions historik.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: c889c3123160680d96889227d6964ff197dc41cc
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.openlocfilehash: 4ad32ed83d731a26b6bb72fca230d00d5465c45a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "60388666"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390217"
 ---
-# <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Självstudier: Felsöka Resource Manager-malldistributioner
+# <a name="tutorial-troubleshoot-resource-manager-template-deployments"></a>Självstudie: Felsöka distributioner av Resource Manager-mallar
 
 Lär dig hur du felsöker fel i Resource Manager-malldistributioner. I den här självstudien konfigurerar du två fel i en mall och lär dig hur du använder aktivitetsloggar och distributionshistoriken för att lösa problemen.
 
@@ -43,7 +43,7 @@ Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](ht
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -101,7 +101,7 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 
 Distributionsfelet kan hittas i Azure-portalen med följande procedur:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Öppna resursgruppen genom att välja **Resursgrupper** och sedan resursgruppens namn. Du bör se **1 Failed** (misslyckades) under **Distribution**.
 
     ![Självstudie om att felsöka Resource Manager](./media/resource-manager-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
@@ -115,7 +115,7 @@ Distributionsfelet kan hittas i Azure-portalen med följande procedur:
 
 Du kan även hitta felet i aktivitetsloggarna:
 
-1. Logga in på [Azure Portal](https://portal.azure.com).
+1. Logga in på [Azure-portalen](https://portal.azure.com).
 2. Välj **Övervaka** > **Aktivitetslogg**.
 3. Använd filtren för att hitta loggen.
 

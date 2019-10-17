@@ -16,12 +16,12 @@ ms.date: 09/03/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 07a51b9f21d32fb3efdfef7c7f74cb3a1088115a
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: a467856550bf2deaab931b3fe2f54b7986f12f8a
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827143"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430308"
 ---
 # <a name="what-is-azure-ad-entitlement-management-preview"></a>Vad är berättigandehantering i Azure AD? (Förhandsversion)
 
@@ -105,16 +105,6 @@ I följande diagram visas ett exempel på de olika elementen i hantering av rät
 
 ![Översikt över rättighets hantering](./media/entitlement-management-overview/elm-overview.png)
 
-## <a name="external-users"></a>Externa användare
-
-När du använder [Azure AD-inbjudan för Business-to-Business (B2B)](../b2b/what-is-b2b.md) måste du redan känna till e-postadresserna till de externa gäst användare som du vill ta med i resurs katalogen och arbeta med. Detta fungerar bra när du arbetar med ett mindre eller kortsiktigt projekt och du redan känner till alla deltagare, men det är svårare att hantera om du har många användare som du vill arbeta med eller om deltagarna ändras med tiden.  Till exempel kanske du arbetar med en annan organisation och har en kontakt punkt med den organisationen, men över tiden kommer ytterligare användare från organisationen också att ha åtkomst.
-
-Med rättighets hantering kan du definiera en princip som tillåter användare från organisationer som du anger, som också använder Azure AD, för att kunna begära ett Access-paket. Du kan ange om godkännande krävs och ett förfallo datum för åtkomsten. Om godkännande krävs kan du också ange som god kännare för en eller flera användare från den externa organisation som du tidigare bjudit in – eftersom de sannolikt vet vilka externa användare från deras organisation som behöver åtkomst. När du har konfigurerat åtkomst paketet kan du skicka en länk till Access-paketet till din kontakt person i den externa organisationen. Den kontakten kan dela med andra användare i den externa organisationen, och de kan använda den här länken för att begära åtkomst paketet.  Användare från den organisationen som redan har bjudits in till din katalog kan också använda den länken.
-
-När en begäran godkänns, etablerar rättighets hantering användaren med nödvändig åtkomst, vilket kan inkludera inbjudan till användaren om de inte redan finns i katalogen. Azure AD skapar automatiskt ett B2B-konto för dem.  Observera att en administratör kan ha tidigare begränsat vilka organisationer som tillåts för samarbete genom att ställa in en [B2B-lista med eller neka](../b2b/allow-deny-list.md) för att tillåta eller blockera inbjudningar till andra organisationer.  Om användaren inte tillåts av listan Tillåt eller blockera kommer de inte att bjudas in.
-
-Eftersom du inte vill att den externa användarens åtkomst till senaste oändligt, anger du ett förfallo datum i principen, till exempel 180 dagar. Om åtkomsten inte förnyas efter 180 dagar tar rättighets hanteringen bort all åtkomst som är kopplad till det Access-paketet.  Om användaren som har bjudits in via rättighets hantering inte har några andra åtkomst paket tilldelningar, kommer deras B2B-konto att blockeras från att logga in i 30 dagar och därefter tas bort när de förlorar sin senaste tilldelning.  Detta förhindrar spridning av onödiga konton.  
-
 ## <a name="terminology"></a>Terminologi
 
 För att bättre förstå hantering av rättigheter och dess dokumentation bör du läsa följande villkor.
@@ -122,17 +112,17 @@ För att bättre förstå hantering av rättigheter och dess dokumentation bör 
 | Term eller begrepp | Beskrivning |
 | --- | --- |
 | hantering av rättigheter | En tjänst som tilldelar, återkallar och administrerar åtkomst paket. |
-| åtkomstpaket | En samling resurser som ett team eller projekt behöver och som styrs av principer. Ett Access-paket finns alltid i en katalog. |
+| åtkomst paket | En samling resurser som ett team eller projekt behöver och som styrs av principer. Ett Access-paket finns alltid i en katalog. |
 | åtkomstbegäran | En begäran om åtkomst till resurserna i ett Access-paket. En begäran skickas vanligt vis genom ett arbets flöde. |
 | policy | En uppsättning regler som definierar åtkomst livs cykeln, till exempel hur användare får åtkomst, vem som kan godkänna och hur länge användare har åtkomst. Exempel på principer är medarbetarnas åtkomst och extern åtkomst. |
-| catalog | En behållare för relaterade resurser och åtkomst paket. |
+| katalogen | En behållare för relaterade resurser och åtkomst paket. |
 | Allmän katalog | En inbyggd katalog som alltid är tillgänglig. För att lägga till resurser i den allmänna katalogen krävs vissa behörigheter. |
-| resource | En till gång eller tjänst (till exempel en Office-grupp, en säkerhets grupp, ett program eller en SharePoint Online-webbplats) som en användare kan beviljas behörighet till. |
-| resurstyp | Typ av resurs, som omfattar grupper, program och SharePoint Online-webbplatser. |
+| Klusterresursen | En till gång eller tjänst (till exempel en Office-grupp, en säkerhets grupp, ett program eller en SharePoint Online-webbplats) som en användare kan beviljas behörighet till. |
+| Resurs typ | Typ av resurs, som omfattar grupper, program och SharePoint Online-webbplatser. |
 | resurs roll | En samling behörigheter som är kopplade till en resurs. |
 | resurs katalog | En katalog som har en eller flera resurser som ska delas. |
 | tilldelade användare | En tilldelning av ett Access-paket till en användare, så att användaren har alla resurs roller för det åtkomst paketet. |
-| aktivera | Processen för att göra ett åtkomst paket tillgängligt för användare att begära. |
+| Använd | Processen för att göra ett åtkomst paket tillgängligt för användare att begära. |
 
 ## <a name="license-requirements"></a>Licenskrav
 
@@ -154,5 +144,5 @@ Information om hur du tilldelar licenser till dina användare finns i [tilldela 
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Självstudier: Skapa ditt första Access-paket](entitlement-management-access-package-first.md)
+- [Självstudie: skapa ditt första Access-paket](entitlement-management-access-package-first.md)
 - [Vanliga scenarier](entitlement-management-scenarios.md)

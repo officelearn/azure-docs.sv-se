@@ -6,18 +6,18 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/03/2019
-ms.openlocfilehash: d762bddbe098e30cbf9e9c02da3c06073a358b12
-ms.sourcegitcommit: 961468fa0cfe650dc1bec87e032e648486f67651
+ms.openlocfilehash: 25d8588f8e2c968dc2516938263aaa7d6ddcff13
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72249253"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387861"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>Azure Data Factory mappning av data flödes uppslags omvandling
 
 Använd lookup för att lägga till referens data från en annan källa till ditt data flöde. Uppslags transformeringen kräver en definierad källa som pekar på din referens tabell och matchar nyckel fält.
 
-![](media/data-flow/lookup1.png "Sökning efter") omvandling
+![Sök omvandling](media/data-flow/lookup1.png "Sökning")
 
 Välj de nyckel fält som du vill matcha på mellan inkommande data Ströms fält och fälten från referens källan. Du måste först ha skapat en ny källa på data flödets design arbets yta som ska användas som den högra sidan för sökningen.
 
@@ -33,7 +33,7 @@ Efter omvandlingen av sökningar kan du använda efterföljande omvandlingar fö
 
 I Data Factory körs data flöden i uppskalade Spark-miljöer. Om din data uppsättning kan anpassas till arbets ytans minnes utrymme kan vi optimera dina uppslags prestanda.
 
-![Sänd ansluta till](media/data-flow/broadcast.png "sändnings anslutning")
+![Sändnings anslutning](media/data-flow/broadcast.png "Sändnings anslutning")
 
 ### <a name="broadcast-join"></a>Sändnings anslutning
 

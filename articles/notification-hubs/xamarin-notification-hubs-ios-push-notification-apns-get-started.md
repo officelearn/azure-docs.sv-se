@@ -1,5 +1,5 @@
 ---
-title: Skicka meddelanden till Xamarin.iOS-appar med hjälp av Azure Notification Hubs | Microsoft Docs
+title: Skicka push-meddelanden till Xamarin iOS med Azure Notification Hubs | Microsoft Docs
 description: I den här självstudiekursen beskrivs hur du använder Azure Notification Hubs för att skicka push-meddelanden till en Xamarin-iOS-app.
 services: notification-hubs
 keywords: push-meddelanden för ios, push-meddelanden, push-aviseringar, push-avisering
@@ -18,14 +18,14 @@ ms.date: 05/23/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 05/23/2019
-ms.openlocfilehash: 7427421719b44839e766234194640817ea686e3c
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 38a4924cd6bee2f6e2860320d51cfb61aa6fe1bb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213576"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387692"
 ---
-# <a name="tutorial-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Självstudier: Skicka push-meddelanden till Xamarin.iOS-appar med hjälp av Azure Notification Hubs
+# <a name="tutorial-send-push-notifications-to-xamarinios-apps-using-azure-notification-hubs"></a>Självstudie: skicka push-meddelanden till Xamarin. iOS-appar med hjälp av Azure Notification Hubs
 
 [!INCLUDE [notification-hubs-selector-get-started](../../includes/notification-hubs-selector-get-started.md)]
 
@@ -44,9 +44,9 @@ I den här självstudiekursen får du skapa/uppdatera kod för att utföra följ
 > * Konfigurera din meddelandehubb för att skicka push-meddelanden till iOS
 > * Skicka test-push-meddelanden
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-* **Azure-prenumeration**. Om du inte har en Azure-prenumeration skapar du ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
+* **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du skapa ett [kostnadsfritt Azure-konto](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) innan du börjar.
 * Den senaste versionen av [Xcode][Install Xcode]
 * En enhet som är kompatibel med iOS 10 (eller senare version)
 * Medlemskap i [Apple Developer Program](https://developer.apple.com/programs/).
@@ -73,7 +73,7 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
 
     ![Visual Studio – iOS-appkonfiguration][32]
 
-4. I vyn lösning dubbelklickar du `Entitlements.plist` på och kontrollerar att **Aktivera push-meddelanden** är markerat.
+4. I vyn lösning dubbelklickar du på `Entitlements.plist` och kontrollerar att **Aktivera push-meddelanden** är markerat.
 
     ![Visual Studio – konfigurera iOS-berättiganden][33]
 
@@ -206,7 +206,7 @@ Du måste slutföra den här självstudiekursen innan du påbörjar någon annan
 
 ## <a name="send-test-push-notifications"></a>Skicka test-push-meddelanden
 
-Du kan testa att ta emot meddelanden i appen med alternativet *Skicka test* i [Azure Portal]. Den skickar ett test-push-meddelande till enheten.
+Du kan testa att ta emot meddelanden i appen med alternativet *Skicka test* i [Azure-portalen]. Den skickar ett test-push-meddelande till enheten.
 
 ![Azure Portal – Skicka test][30]
 
@@ -238,4 +238,4 @@ I de här självstudierna har du skickat meddelanden till alla iOS-enheter som �
 [Apple Push Notification Service]: https://developer.apple.com/library/content/documentation/NetworkingInternet/Conceptual/RemoteNotificationsPG/APNSOverview.html
 [Apple Push Notification Service fwlink]: https://go.microsoft.com/fwlink/p/?LinkId=272584
 [GitHub]: https://github.com/xamarin/mobile-samples/tree/master/Azure/NotificationHubs
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com

@@ -14,18 +14,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 48f7066f2db96165daa104dcf32fe8e2e2cd55cf
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 89e3fb57f29a6c24b64082db06678b3965ad8517
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025223"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388612"
 ---
 # <a name="getting-started"> </a>Om Mobile Apps i Azure App Service
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 Azure App Service är ett helt hanterat [PaaS](https://azure.microsoft.com/overview/what-is-paas/)-erbjudande (plattform som en tjänst) för professionella utvecklare. Tjänsten ger en omfattande uppsättning funktioner för webb-, mobil- och integrationsscenarier. 
 
@@ -36,10 +37,10 @@ Funktionen Mobile Apps i Azure App Service ger företagsutvecklare och systemint
 ## <a name="why-mobile-apps"></a>Varför Mobile Apps?
 Med Mobile Apps-funktionen kan du:
 
-* **Skapa plattformsspecifika och plattformsoberoende appar**: Oavsett om du bygger appar särskilt för iOS, Android eller Windows eller plattformsoberoende Xamarin- eller Cordova-appar (PhoneGap) kan du använda App Service med plattformsspecifika SDK:er.
-* **Koppla ihop dina affärssystem**: Med Mobile Apps kan du lägga till företagsövergripande inloggning på några minuter och ansluta till resurser som lagras lokalt eller i molnet.
+* **Bygga plattformsspecifika och plattformsoberoende appar**: Oavsett om du bygger appar särskilt för iOS, Android eller Windows eller plattformsoberoende Xamarin- eller Cordova-appar (PhoneGap) kan du använda App Service med plattformsspecifika SDK:er.
+* **Koppla ihop dina affärssystem**: Med Mobile Apps kan du lägga till företagsövergripande inloggning på några minuter och ansluta till resurser som finns lagrade lokalt eller i molnet.
 * **Bygga appar som kan användas offline med datasynkronisering**: Du kan öka personalens produktivitet genom att bygga appar som fungerar offline och synkronisera data i bakgrunden med Mobile Apps när det finns anslutning till någon källa med företagsdata eller Saas-API:er (programvara som en tjänst).
-* **Skicka push-meddelanden till miljontals användare på några sekunder**: Du kan engagera kunderna genom att skicka direkta push-meddelanden anpassade efter deras behov vid precis rätt tidpunkt – oavsett vilken enhet de använder.
+* **Skicka push-meddelanden till miljontals användare på några sekunder**: Du kan engagera kunderna genom att, oavsett vilken enhet de använder, skicka direkta push-meddelanden anpassade efter deras behov vid precis rätt tidpunkt.
 
 ## <a name="mobile-apps-features"></a>Funktioner i Mobile Apps
 Följande funktioner är viktiga för molnkompatibel mobilutveckling:
@@ -48,7 +49,7 @@ Följande funktioner är viktiga för molnkompatibel mobilutveckling:
 
     Läs mer om [autentiseringsfunktionerna].
 
-* **Dataåtkomst**: Mobile Apps erbjuder en mobilvänlig OData v3-datakälla som är kopplad till Azure SQL Database eller en lokal SQL-server. Eftersom här tjänsten kan byggas på Entity Framework kan du lätt kan integrera med andra NoSQL- och SQL-dataleverantörer, till exempel [Azure Table Storage], MongoDB, [Azure Cosmos DB] och SaaS-API-leverantörer som Office 365 och Salesforce.com.
+* **Dataåtkomst**: Mobile Apps erbjuder en mobilvänlig OData v3-datakälla som är kopplad till Azure SQL Database eller en lokal SQL Server. Eftersom här tjänsten kan byggas på Entity Framework kan du lätt kan integrera med andra NoSQL- och SQL-dataleverantörer, till exempel [Azure Table Storage], MongoDB, [Azure Cosmos DB] och SaaS-API-leverantörer som Office 365 och Salesforce.com.
 
 * **Offlinesynkronisering**: Klient-SDK:erna gör det enkelt att bygga robusta mobilappar med kort svarstid som fungerar med en offlinedatamängd. Du kan synkronisera datamängden automatiskt med data på serverdelen, inklusive konfliktlösningsstöd.
 
@@ -58,7 +59,7 @@ Följande funktioner är viktiga för molnkompatibel mobilutveckling:
 
   Läs mer om [push-meddelandefunktionerna].
 
-* **Klient-SDK:er**: Det finns en komplett uppsättning klient-SDK:er för plattformsspecifik utveckling ([iOS], [Android] och [Windows]), plattformsoberoende utveckling ([Xamarin.iOS och Xamarin.Android], [Xamarin.Forms]) samt hybridprogramutveckling ([Apache Cordova]). Alla klient-SDK:er fås med MIT-licens och har öppen källkod.
+* **Klient-SDK:er**: Det finns en komplett uppsättning klient-SDK:er för plattformsspecifik utveckling ([iOS], [Android] och [Windows]), plattformsoberoende utveckling ([Xamarin.iOS och Xamarin.Android], [Xamarin.Forms]) och hybridprogramutveckling ([Apache Cordova]). Alla klient-SDK:er fås med MIT-licens och har öppen källkod.
 
 ## <a name="azure-app-service-features"></a>Funktioner i Azure App Service
 Följande plattformsfunktioner är användbara i produktionsmiljöer för mobilappar:
@@ -67,7 +68,7 @@ Följande plattformsfunktioner är användbara i produktionsmiljöer för mobila
 
   Läs mer om [automatisk skalning].
 
-* **Mellanlagringsmiljöer**: Med App Service kan du köra flera olika versioner av webbplatsen så att du kan genomföra A- och B-testning, testa i produktionsmiljö som en del i en större DevOps-plan och mellanlagra en ny serverdel direkt på plats.
+* **Mellanlagringsmiljöer** – Med App Service kan du köra flera olika versioner av webbplatsen så att du kan genomföra A- och B-testning, testa i produktionsmiljö som en del i en större DevOps-plan och mellanlagra en ny serverdel direkt på plats.
 
   Läs mer om [mellanlagringsmiljöer].
 
@@ -79,7 +80,7 @@ Följande plattformsfunktioner är användbara i produktionsmiljöer för mobila
 
   Läs mer om [hybridanslutningar], [virtuella nätverk] och [ExpressRoute].
 
-* **Isolerade och dedikerade miljöer**: Du kan köra App Service i en helt isolerad och dedikerad miljö för säker körning av Azure App Service-appar. Miljön är perfekt för programarbetsbelastningar som kräver storskalighet, isolering eller säker nätverksåtkomst.
+* **Isolerade/dedikerade miljöer**: Du kan köra App Service i en helt isolerad och dedikerad miljö för säker körning av Azure App Service-appar. Miljön är perfekt för programarbetsbelastningar som kräver storskalighet, isolering eller säker nätverksåtkomst.
 
   Läs mer om [App Service-miljöer].
 
@@ -88,7 +89,7 @@ Följande plattformsfunktioner är användbara i produktionsmiljöer för mobila
 Kom igång med Mobile Apps i Azure App Service genom att slutföra den här [självstudiekursen]. I kursen lär du dig grunderna i hur du skapar en valfri mobil serverdelstjänst och klient. Kursen omfattar också integrering av autentisering, offlinesynkronisering och push-meddelanden. Du kan slutföra kursen flera gånger, en gång för varje klientprogram.
 
 Mer information om Mobile Apps finns i vår [utbildningsväg].
-Mer information om Azure App Service-plattformen finns på [Azure App Service].
+Mer information om Azure App Service-plattformen finns på [Azure Apptjänst].
 
 <!-- URLs. -->
 [Migrate your mobile service to App Service]: app-service-mobile-migrating-from-mobile-services.md
@@ -111,4 +112,4 @@ Mer information om Azure App Service-plattformen finns på [Azure App Service].
 [ExpressRoute]: ../app-service/environment/app-service-app-service-environment-network-configuration-expressroute.md
 [App Service-miljöer]: ../app-service/environment/intro.md
 [utbildningsväg]: https://azure.microsoft.com/documentation/learning-paths/appservice-mobileapps/
-[Azure App Service]: ../app-service/overview.md
+[Azure Apptjänst]: ../app-service/overview.md

@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 10/10/2019
-ms.openlocfilehash: 07591517211d5334b9bf055d778f00b171e7056f
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 0bb3221c201e6dd4dd17cca8ef7e3ed3331de228
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263447"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432658"
 ---
 # <a name="deploy-azure-databricks-in-your-virtual-network"></a>Distribuera Azure Databricks i ditt virtuella nätverk
 
@@ -101,7 +101,7 @@ När du använder den här mallen behöver du inte göra några manuella vit lis
 
 ### <a name="network-security-groups"></a>Nätverkssäkerhetsgrupper
 
-Om du vill skapa nätverks säkerhets grupper med de regler som krävs för ett befintligt virtuellt nätverk använder du [mallen nätverks säkerhets grupp för Databricks VNet-inmatning](https://azure.microsoft.com/resources/templates/101-databricks-nsg-for-vnet-injection).
+Om du vill skapa nätverks säkerhets grupper med de regler som krävs för ett befintligt virtuellt nätverk använder du [mallen nätverks säkerhets grupp för Databricks VNet-inmatning](https://azure.microsoft.com/resources/templates/101-databricks-all-in-one-template-for-vnet-injection/).
 
 När du använder den här mallen behöver du inte göra några manuella vit listning för under näts trafik.
 
@@ -135,30 +135,30 @@ Vitlista under nät trafik med följande IP-adresser. För SQL (metaarkiv) och l
 
 |Azure Databricks region|Tjänst|Offentlig IP-adress|
 |-----------------------|-------|---------|
-|Östra USA|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Östra USA 2|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Norra centrala USA|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Centrala USA|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
-|Södra centrala USA|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
-|Västra USA|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|USA, östra|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|USA, östra 2|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|USA, norra centrala|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|USA, centrala|NAT för kontroll plan </br></br>Webapp|23.101.152.95/32 </br></br>40.70.58.221/32|
+|USA, södra centrala|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
+|USA, västra|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
 |USA, västra 2|NAT för kontroll plan </br></br>Webapp|40.83.178.242/32 </br></br>40.118.174.12/32|
-|Centrala Kanada|NAT för kontroll plan </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
-|Östra Kanada|NAT för kontroll plan </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
+|Kanada, centrala|NAT för kontroll plan </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
+|Kanada, östra|NAT för kontroll plan </br></br>Webapp|40.85.223.25/32 </br></br>13.71.184.74/32|
 |Storbritannien, västra|NAT för kontroll plan </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
 |Storbritannien, södra|NAT för kontroll plan </br></br>Webapp|51.140.203.27/32 </br></br>51.140.204.4/32|
-|Västeuropa|NAT för kontroll plan </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
-|Nordeuropa|NAT för kontroll plan </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
-|Centrala Indien|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
-|Södra Indien|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
-|Västra Indien|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Europa, västra|NAT för kontroll plan </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
+|Europa, norra|NAT för kontroll plan </br></br>Webapp|23.100.0.135/32 </br></br>52.232.19.246/32|
+|Indien, centrala|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Indien, södra|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
+|Indien, västra|NAT för kontroll plan </br></br>Webapp|104.211.89.81/32 </br></br>104.211.101.14/32|
 |Sydostasien|NAT för kontroll plan </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
-|Östasien|NAT för kontroll plan </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
-|Östra Australien|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Sydöstra Australien|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Asien, östra|NAT för kontroll plan </br></br>Webapp|52.187.0.85/32 </br></br>52.187.145.107/32|
+|Australien, östra|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Australien, sydöstra|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
 |Australien, centrala|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Centrala Australien 2|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
-|Östra Japan|NAT för kontroll plan </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
-|Västra Japan|NAT för kontroll plan </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
+|Australien, centrala 2|NAT för kontroll plan </br></br>Webapp|13.70.105.50/32 </br></br>13.75.218.172/32|
+|Japan, östra|NAT för kontroll plan </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
+|Japan, västra|NAT för kontroll plan </br></br>Webapp|13.78.19.235/32 </br></br>52.246.160.72/32|
 
 ## <a name="troubleshooting"></a>Felsöka
 

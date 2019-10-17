@@ -4,12 +4,12 @@ ms.author: robinsh
 ms.service: iot-hub
 ms.topic: include
 ms.date: 10/26/2018
-ms.openlocfilehash: f0de7aedc3883978582da1950e95aaabac9a1695
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: b8d4c2691af8429e7b3a6c1916d12f1af609e744
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72272998"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391797"
 ---
 I följande tabell visas de gränser som är associerade med de olika tjänst nivåerna S1, S2, S3 och F1. Information om kostnaden för varje *enhet* i varje nivå finns i [Azure IoT Hub prissättning](https://azure.microsoft.com/pricing/details/iot-hub/).
 
@@ -56,7 +56,7 @@ I följande tabell visas de begränsningar som gäller för IoT Hub resurser.
 > Kontakta Microsoft Support om du behöver fler än 50 betalda IoT-hubbar i en Azure-prenumeration.
 
 > [!NOTE]
-> För närvarande är det högsta antalet enheter som du kan ansluta till en enda IoT-hubb 1 000 000. Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka den här gränsen.
+> För närvarande är det totala antalet enheter plus moduler som kan registreras för en enda IoT Hub som är ett tak på 1 000 000. Kontakta [Microsoft Support](https://azure.microsoft.com/support/options/)om du vill öka den här gränsen.
 
 IoT Hub begränsnings begär anden när följande kvoter överskrids.
 

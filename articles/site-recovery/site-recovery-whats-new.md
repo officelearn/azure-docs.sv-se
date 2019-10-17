@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 5c449136339a4c31cb1829b53f62e1724caa4736
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
-ms.translationtype: HT
+ms.openlocfilehash: 5e3d226b0f15148c5ac4a9da84462f4a3277e112
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72372260"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383570"
 ---
 # <a name="whats-new-in-site-recovery"></a>Nyheter i Site Recovery
 
@@ -24,8 +24,8 @@ Du kan följa och prenumerera på Site Recovery uppdaterings meddelanden i [Azur
 
 Observera följande för katastrof återställning av virtuella Azure-datorer till en sekundär region eller lokala virtuella VMware-datorer eller fysiska servrar till Azure:
 
-- Från version 9.30. x av mobilitets tjänst tillägget (för virtuella Azure-datorer) och mobilitets tjänst agenten (för VMware/fysiska datorer) måste en del operativ system köra underhålls stack uppdateringen och SHA-2. Information visas i tabellen nedan.
-- Installera uppdateringen och SHA-2 i enlighet med länkat KB.
+- Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget (för virtuella Azure-datorer) och mobilitets tjänst agenten (för VMware/fysiska datorer) måste en del operativ system köra underhålls stack uppdateringen och SHA-2. Information visas i tabellen nedan.
+- Installera uppdateringen och SHA-2 i enlighet med länkat KB. SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget.
 - Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
 
 **Operativsystem** | **Virtuell Azure-dator** | **Virtuell VMware-dator/fysisk dator**

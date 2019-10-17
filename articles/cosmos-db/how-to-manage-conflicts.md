@@ -4,14 +4,14 @@ description: Lär du hur du hanterar konflikter i Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/05/2019
+ms.date: 10/15/2019
 ms.author: mjbrown
-ms.openlocfilehash: c58828fd8ed0de73c03e9e741d14705ad88b1333
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 4c62fcc81eb3b045d3b4233e1bb3770ecb9865b3
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093216"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388088"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Hantera principer för konfliktlösning i Azure Cosmos DB
 
@@ -19,7 +19,7 @@ Om flera regioner skrivs, när flera klienter skriver till samma objekt, kan det
 
 ## <a name="create-a-last-writer-wins-conflict-resolution-policy"></a>Skapa en senaste skrivning vinner-konfliktlösningsprincip
 
-De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standard Sök vägen för senaste Writer-WINS är tidsstämpel-fältet eller `_ts` egenskapen. För SQL API kan detta också anges till en användardefinierad sökväg med en numerisk typ. I en konflikt är det högsta värdet WINS. Om sökvägen inte har angetts eller är ogiltig är den standard `_ts`. Konflikter som lösts med den här principen visas inte i den motstridiga feeden. Den här principen kan användas av alla API: er.
+De här exemplen visar hur du konfigurerar en container med en senaste skrivning vinner-konfliktlösningsprincip. Standard Sök vägen för senaste Writer-WINS är tidsstämpel-fältet eller egenskapen `_ts`. För SQL API kan detta också anges till en användardefinierad sökväg med en numerisk typ. I en konflikt är det högsta värdet WINS. Om sökvägen inte har angetts eller är ogiltig, används `_ts` som standard. Konflikter som lösts med den här principen visas inte i den motstridiga feeden. Den här principen kan användas av alla API: er.
 
 ### <a id="create-custom-conflict-resolution-policy-lww-dotnet"></a>.NET SDK V2
 
@@ -107,15 +107,15 @@ De här exemplen visar hur du konfigurerar en container med en anpassad konflikt
 
 De lagrade procedurerna för anpassad konflikt lösning måste implementeras med hjälp av funktions under skriften som visas nedan. Funktions namnet behöver inte matcha namnet som används för att registrera den lagrade proceduren med behållaren, men det fören klar namngivningen. Här följer en beskrivning av de parametrar som måste implementeras för den här lagrade proceduren.
 
-- **incomingItem**: Objektet som infogas eller uppdateras i commit som genererar konflikterna. Är null för Delete-åtgärder.
-- **existingItem**: Det för tillfället allokerade objektet. Det här värdet är inte null i en uppdatering och null för en infogning eller borttagning.
-- **isTombstone**: Booleskt värde som anger om incomingItem står i konflikt med ett borttaget objekt som redan har tagits bort. När värdet är True är existingItem också null.
-- **conflictingItems**: Matris för allokerad version av alla objekt i behållaren som står i konflikt med incomingItem på ID eller andra unika index egenskaper.
+- **incomingItem**: objektet som infogas eller uppdateras i commit som genererar konflikter. Är null för Delete-åtgärder.
+- **existingItem**: det för tillfället allokerade objektet. Det här värdet är inte null i en uppdatering och null för en infogning eller borttagning.
+- **isTombstone**: booleskt värde som anger om incomingItem står i konflikt med ett borttaget objekt som redan har tagits bort. När värdet är True är existingItem också null.
+- **conflictingItems**: matris för allokerad version av alla objekt i behållaren som står i konflikt med INCOMINGITEM på ID eller andra unika index egenskaper.
 
 > [!IMPORTANT]
 > Precis som med alla lagrade procedurer kan en anpassad lösning för konflikt lösning komma åt alla data med samma partitionsnyckel och kan utföra alla åtgärder för att infoga, uppdatera eller ta bort för att lösa konflikter.
 
-Den här exempel lagrade proceduren löser konflikter genom att välja det lägsta värdet från `/myCustomId` sökvägen.
+Den här exempel lagrade proceduren löser konflikter genom att välja det lägsta värdet från sökvägen `/myCustomId`.
 
 ```javascript
 function resolver(incomingItem, existingItem, isTombstone, conflictingItems) {
@@ -363,7 +363,7 @@ FeedResponse<Conflict> conflicts = await delClient.ReadConflictFeedAsync(this.co
 ### <a id="read-from-conflict-feed-dotnet-v3"></a>.NET SDK V3
 
 ```csharp
-FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictIterator();
+FeedIterator<ConflictProperties> conflictFeed = container.Conflicts.GetConflictQueryIterator();
 while (conflictFeed.HasMoreResults)
 {
     FeedResponse<ConflictProperties> conflicts = await conflictFeed.ReadNextAsync();

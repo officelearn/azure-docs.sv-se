@@ -1,5 +1,5 @@
 ---
-title: 'Självstudier: Azure Active Directory enkel inloggning (SSO) med JIRA SAML SSO från Microsoft | Microsoft Docs'
+title: 'Självstudie: Azure Active Directory enkel inloggning (SSO) med JIRA SAML SSO från Microsoft | Microsoft Docs'
 description: Lär dig hur du konfigurerar enkel inloggning mellan Azure Active Directory och JIRA SAML SSO från Microsoft.
 services: active-directory
 documentationCenter: na
@@ -16,14 +16,14 @@ ms.topic: tutorial
 ms.date: 09/11/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713b43f720e3bccae3b9c6457a3317427fb3fc1a
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: 20d5db9656dbcab31d73e504f1ca67fd577aec8e
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960022"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72439751"
 ---
-# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Självstudier: Azure Active Directory enkel inloggning (SSO) med JIRA SAML SSO från Microsoft
+# <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-jira-saml-sso-by-microsoft"></a>Självstudie: Azure Active Directory enkel inloggning (SSO) med JIRA SAML SSO från Microsoft
 
 I den här självstudien får du lära dig att integrera JIRA SAML SSO från Microsoft med Azure Active Directory (Azure AD). När du integrerar JIRA SAML SSO av Microsoft med Azure AD kan du:
 
@@ -37,7 +37,7 @@ Mer information om SaaS app integration med Azure AD finns i [Vad är program å
 
 Använd ditt Microsoft Azure Active Directory-konto med Atlassian JIRA-servern för att aktivera enkel inloggning. På så sätt kan alla organisations användare använda Azure AD-autentiseringsuppgifterna för att logga in i JIRA-programmet. Det här plugin-programmet använder SAML 2.0 för federation.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 För att konfigurera Azure AD-integrering med JIRA SAML SSO från Microsoft behöver du följande:
 
@@ -55,12 +55,12 @@ För att konfigurera Azure AD-integrering med JIRA SAML SSO från Microsoft beh�
 
 För att komma igång behöver du följande objekt:
 
-* Använd inte din produktionsmiljö, om det inte behövs.
+* Använd inte din produktionsmiljö om det inte behövs.
 * JIRA SAML SSO med Microsoft enkel inloggning (SSO) aktive rad prenumeration.
 
 ## <a name="supported-versions-of-jira"></a>Versioner av JIRA som stöds
 
-* JIRA Core och programvara: 6,4 till 8.2.4
+* JIRA Core och program vara: 6,4 till 8.2.4
 * JIRA Service Desk 3.0.0 till 4.2.1
 * JIRA stöder också 5.2. Om du vill ha mer information klickar du på [Microsoft Azure Active Directory single sign-on for JIRA 5.2](jira52microsoft-tutorial.md) (Microsoft Azure Active Directory enkel inloggning för JIRA 5.2)
 
@@ -120,21 +120,21 @@ Följ de här stegen för att aktivera Azure AD SSO i Azure Portal.
 
 1. På sidan **Konfigurera enkel inloggning med SAML** , i avsnittet **SAML-signeringscertifikat** , klickar du på Kopiera för att kopiera **URL: en för appens Federations-metadata** och spara den på din dator.
 
-    ![Länk för hämtning av certifikat](common/copy-metadataurl.png)
+    ![Länk för nedladdning av certifikatet](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Skapa en Azure AD-testanvändare
 
 I det här avsnittet ska du skapa en test användare i Azure Portal som kallas B. Simon.
 
 1. I den vänstra rutan i Azure Portal väljer du **Azure Active Directory**, väljer **användare**och väljer sedan **alla användare**.
-1. Välj **ny användare** överst på skärmen.
+1. Välj **Ny användare** överst på skärmen.
 1. I **användar** egenskaperna följer du de här stegen:
    1. I **Namn**-fältet skriver du `B.Simon`.  
    1. I fältet **användar namn** anger du username@companydomain.extension. Till exempel `B.Simon@contoso.com`.
    1. Markera kryssrutan **Visa lösenord** och skriv sedan ned det värde som visas i rutan **Lösenord**.
    1. Klicka på **Skapa**.
 
-### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändare
+### <a name="assign-the-azure-ad-test-user"></a>Tilldela Azure AD-testanvändaren
 
 I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning med Azure genom att bevilja åtkomst till JIRA SAML SSO från Microsoft.
 
@@ -142,7 +142,7 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
 1. I programlistan väljer du **JIRA SAML SSO från Microsoft**.
 1. På sidan Översikt för appen letar du reda på avsnittet **Hantera** och väljer **användare och grupper**.
 
-   ![Länken ”användare och grupper”](common/users-groups-blade.png)
+   ![Länken ”Användare och grupper”](common/users-groups-blade.png)
 
 1. Välj **Lägg till användare**och välj sedan **användare och grupper** i dialog rutan **Lägg till tilldelning** .
 
@@ -214,8 +214,8 @@ I det här avsnittet ska du aktivera B. Simon för att använda enkel inloggning
     1. Kryss rutan Aktivera **tvinga Azure-inloggning** om du bara vill logga in via autentiseringsuppgifter för Azure AD.
     
        > [!Note]
-       >Om du vill aktivera standard inloggnings formuläret för inloggning på inloggnings sidan när tvinga Azure-inloggning är aktiverat lägger du till frågeparametern i URL: en för webbläsaren.
-       > `https://<domain:port>/login.action?force_azure_login=false`
+       > Om du vill aktivera standard inloggnings formuläret för inloggning på inloggnings sidan när tvinga Azure-inloggning är aktiverat lägger du till frågeparametern i URL: en för webbläsaren.
+       > `https://<domain:port>/login.jsp?force_azure_login=false`
 
     1. Klicka på knappen **Spara** för att spara inställningarna.
 
@@ -258,9 +258,9 @@ Om du vill att Azure AD-användare ska kunna logga in på en lokal server måste
 
 ## <a name="test-sso"></a>Testa SSO
 
-I det här avsnittet ska testa du Azure AD enkel inloggning för konfigurationen med hjälp av åtkomstpanelen.
+I det här avsnittet testar du konfigurationen för enkel inloggning Azure AD med hjälp av åtkomstpanelen.
 
-När du klickar på JIRA SAML SSO från Microsoft-panelen i åtkomstpanelen bör du automatiskt loggas in på JIRA SAML SSO från Microsoft som du har konfigurerat enkel inloggning för. Mer information om åtkomstpanelen finns i [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+När du klickar på JIRA SAML SSO från Microsoft-panelen i åtkomstpanelen bör du automatiskt loggas in på JIRA SAML SSO från Microsoft som du har konfigurerat enkel inloggning för. I [introduktionen till åtkomstpanelen](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) får du mer information.
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 

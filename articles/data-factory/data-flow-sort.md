@@ -7,18 +7,18 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 10/08/2018
-ms.openlocfilehash: f9d2699c870de21daea9ce421c79f089c04b99fa
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 029ce3c509d3f4d241012d3786e60f0c6e95fdc2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029117"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387178"
 ---
 # <a name="azure-data-factory-data-flow-sort-transformations"></a>Azure Data Factory sorterings omvandlingar för data flöde
 
 
 
-Sorterings ![Inställningar](media/data-flow/sort.png "Sortera")
+![Sorterings inställningar](media/data-flow/sort.png "Sortera")
 
 Med sorterings omvandlingen kan du sortera inkommande rader i den aktuella data strömmen. Utgående rader från sorterings omvandlingen kommer sedan att följa de ordnings regler som du har angett. Du kan välja enskilda kolumner och sortera dem med hjälp av pilen med pilen bredvid respektive fält. Om du behöver ändra kolumnen innan du tillämpar sorteringen klickar du på beräknade kolumner för att starta uttrycks redigeraren. Detta ger möjlighet att skapa ett uttryck för sorterings åtgärden i stället för att helt enkelt använda en kolumn för sorteringen.
 

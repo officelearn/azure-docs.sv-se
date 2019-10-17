@@ -1,5 +1,5 @@
 ---
-title: Vad är åtkomstgranskningar? – Azure Active Directory | Microsoft Docs
+title: Vad är åtkomstgranskningar? - Azure Active Directory | Microsoft Docs
 description: Med hjälp av Azure Active Directory åtkomst granskningar kan du kontrol lera grupp medlemskap och program åtkomst för att möta styrning, riskhantering och regelefterlevnad i din organisation.
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/05/2019
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fe8b50775390d60f75fafeae490e0307912600f
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: 65def17622f026aa4869a4c60e7cb5146d56c5b0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125267"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389532"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Vad är Azure AD-åtkomstgranskningar?
 
@@ -56,13 +56,13 @@ Beroende på vad du vill granska kommer du att skapa din åtkomst granskning i A
 
 | Åtkomst rättigheter för användare | Granskare kan vara | Granskning skapad i | Granskare upplevelse |
 | --- | --- | --- | --- |
-| Medlemmar i säkerhets grupp</br>Office-gruppmedlemmar | Angivna granskare</br>Gruppägare</br>Själv granskning | Azure AD-åtkomstgranskningar</br>Azure AD-grupper | Åtkomstpanelen |
-| Tilldelad till en ansluten app | Angivna granskare</br>Själv granskning | Azure AD-åtkomstgranskningar</br>Azure AD Enterprise-appar (för hands version) | Åtkomstpanelen |
-| Azure AD-roll | Angivna granskare</br>Själv granskning | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
-| Resurs roll för Azure | Angivna granskare</br>Själv granskning | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure Portal |
+| Medlemmar i säkerhets grupp</br>Office-gruppmedlemmar | Angivna granskare</br>Grupp ägare</br>Själv granskning | Azure AD-åtkomstgranskningar</br>Azure AD-grupper | Åtkomstpanel |
+| Tilldelad till en ansluten app | Angivna granskare</br>Själv granskning | Azure AD-åtkomstgranskningar</br>Azure AD Enterprise-appar (för hands version) | Åtkomstpanel |
+| Azure AD-roll | Angivna granskare</br>Själv granskning | [Azure AD PIM](../privileged-identity-management/pim-how-to-start-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
+| Resurs roll för Azure | Angivna granskare</br>Själv granskning | [Azure AD PIM](../privileged-identity-management/pim-resource-roles-start-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json) | Azure portal |
 
 
-## <a name="onboard-access-reviews"></a>Publicera åtkomstgranskningar
+## <a name="onboard-access-reviews"></a>Publicera åtkomst granskningar
 
 Följ dessa steg om du vill ha åtkomst till granskningar.
 
@@ -97,7 +97,7 @@ Om du är redo att distribuera åtkomst granskningar i din organisation följer 
 
 ### <a name="which-users-must-have-licenses"></a>Vilka användare måste ha licenser?
 
-Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens. Exempel:
+Varje användare som interagerar med åtkomst granskningar måste ha en betald Azure AD Premium P2-licens. Till exempel:
 
 - Administratörer som skapar en åtkomst granskning
 - Grupp ägare som utför en åtkomst granskning
@@ -113,7 +113,7 @@ Här följer några exempel scenarier som hjälper dig att avgöra antalet licen
 | En administratör skapar en åtkomst granskning av grupp A med 500-användare. Tilldelar 3 grupp ägare som granskare. | 1 licens för administratörs-och 3-licenser för varje grupp ägare som granskare. | 4 |
 | En administratör skapar en åtkomst granskning av grupp A med 500-användare. Gör det till en själv granskning. | 1 licens för administratör + 500-licenser för varje användare som självgranskare. | 501 |
 | En administratör skapar en åtkomst granskning av grupp B med 5 användare och 25 gäst användare. Gör det till en själv granskning. | 1 licens för administratör + 5-licenser för varje användare som självgranskare.<br/>(gäst användare omfattas av den obligatoriska 1:5-kvoten) | 6 |
-| En administratör skapar en åtkomst granskning av grupp C med 5 användare och 108 gäst användare. Gör det till en själv granskning. | 1 licens för administratör + 5-licenser för varje användare som självgranskare och 16 ytterligare licenser för att se alla 108 gäst användare i det obligatoriska 1:5-förhållandet.<br/>1 + 5 = 6 licenser, som avser 5\*6 = 30 gäst användare. För återstående (108-5\*6) = 78 gäst användare, 78/5 = 16 ytterligare licenser krävs ytterligare licenser. Därför krävs 6 + 16 = 22 licenser. | 22 |
+| En administratör skapar en åtkomst granskning av grupp C med 5 användare och 108 gäst användare. Gör det till en själv granskning. | 1 licens för administratör + 5-licenser för varje användare som självgranskare och 16 ytterligare licenser för att se alla 108 gäst användare i det obligatoriska 1:5-förhållandet.<br/>1 + 5 = 6 licenser, som avser 5 @ no__t-06 = 30 gäst användare. För återstående (108-5 @ no__t-06) = 78 gäst användare, 78/5 = 16 ytterligare licenser krävs. Därför krävs 6 + 16 = 22 licenser. | 22 |
 
 Information om hur du tilldelar licenser till dina användnings områden finns i [tilldela eller ta bort licenser med hjälp av Azure Active Directory portalen](../fundamentals/license-users-groups.md).
 

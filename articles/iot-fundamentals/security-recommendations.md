@@ -9,16 +9,16 @@ ms.topic: article
 ms.date: 09/25/2019
 ms.author: dkshir
 ms.custom: security-recommendations
-ms.openlocfilehash: 51abfd086391d1bed53646d22d93ac1348e566a5
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.openlocfilehash: 2bb81324301ac1f5f4fd4a472942b137a76e9d3c
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71299799"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434418"
 ---
 # <a name="security-recommendations-for-azure-internet-of-things-iot-deployment"></a>Säkerhets rekommendationer för Azure Sakernas Internet-distribution (IoT)
 
-Den här artikeln innehåller säkerhets rekommendationer för IoT. Genom att implementera dessa rekommendationer kan du uppfylla dina säkerhets skyldigheter enligt beskrivningen i vår delade ansvars modell. Mer information om vad Microsoft gör för att uppfylla ansvaret för service leverantörer finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/153019/1/Shared%20responsibilities%20for%20cloud%20computing.pdf).
+Den här artikeln innehåller säkerhets rekommendationer för IoT. Genom att implementera dessa rekommendationer kan du uppfylla dina säkerhets skyldigheter enligt beskrivningen i vår delade ansvars modell. Mer information om vad Microsoft gör för att uppfylla ansvaret för service leverantörer finns i [delade ansvars områden för molnbaserad data behandling](https://gallery.technet.microsoft.com/Shared-Responsibilities-81d0ff91/file/225237/1/Shared%20Responsibilities%20for%20Cloud%20Computing%20(2017-04-03).pdf).
 
 Några av rekommendationerna som ingår i den här artikeln kan övervakas automatiskt av Azure Security Center. Azure Security Center är den första försvars linjen i att skydda dina resurser i Azure. Den analyserar regelbundet säkerhets läget för dina Azure-resurser för att identifiera potentiella säkerhets risker. Sedan får du rekommendationer om hur du kan åtgärda dem.
 
@@ -27,7 +27,7 @@ Några av rekommendationerna som ingår i den här artikeln kan övervakas autom
 
 ## <a name="recommendations"></a>Rekommendationer
 
-| Category | Rekommendation | Kommentar | Stöds av ASC |
+| Kategori | Rekommendation | Kommentarer | Stöds av ASC |
 |-|-|----|--|
 | Allmänt | Håll dig uppdaterad | Använd de senaste versionerna av plattformar som stöds, programmeringsspråk, protokoll och ramverk. | - |
 | Allmänt | Skydda nycklar säkert | Behåll enhets-ID: n och deras autentiseringsinställningar fysiskt säkra efter distributionen. Detta undviker en skadlig enhet som är maskerad som en registrerad enhet. | - |

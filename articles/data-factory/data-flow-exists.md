@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: 8b488a079b2da1bcf0dd064025ed251a1dc25213
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
-ms.translationtype: MT
+ms.openlocfilehash: 6048a6d30d37b9d2b46c3105c5f8eac0a9ca41c0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.translationtype: HT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029388"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387841"
 ---
 # <a name="mapping-data-flow-exists-transformation"></a>Transformering av mappnings data flödet finns
 
@@ -31,7 +31,7 @@ Bredvid varje rad i dina kolumn villkor finns ett +-tecken tillgängligt när du
 
 ## <a name="custom-expression"></a>Anpassat uttryck
 
-![Finns anpassade inställningar]som(media/data-flow/exists1.png "finns anpassade")
+![Finns anpassade inställningar](media/data-flow/exists1.png "finns anpassad")
 
 Du kan klicka på "anpassat uttryck" för att i stället skapa ett kostnads fritt uttryck som villkoret finns eller inte finns. Genom att markera den här rutan kan du ange ett eget uttryck som ett villkor.
 

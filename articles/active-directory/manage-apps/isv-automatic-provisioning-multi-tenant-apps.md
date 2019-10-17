@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: c44006b20f4c0ef186f406e554ff555cda0c1dd8
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: 119c46ac2d1d34d86a6bfb9f75384f262f89219b
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373394"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429462"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>Aktivera automatisk användar etablering för ditt program för flera klienter
 
@@ -81,7 +81,7 @@ För att avgöra vilket integrations alternativ som ska användas för programme
 
 ## <a name="azure-ad-provisioning-service-scim"></a>Azure AD Provisioning-tjänst (SCIM)
 
-Azure AD Provisioning Services använder [SCIM] (https://aka.ms/SCIMOverview, ett protokoll som stöds av många identitets leverantörer (IDP: er). Vi rekommenderar att du använder Azure AD Provisioning-tjänsten om du vill stödja IDP: er utöver Azure AD, eftersom alla SCIM-kompatibla IdP kan ansluta till din SCIM-slutpunkt.
+Azure AD Provisioning Services använder [scim](https://aka.ms/SCIMOverview), en bransch standard för etablering som stöds av många identitets leverantörer (IDP: er) samt program (t. ex. slack, g Suite, Dropbox). Vi rekommenderar att du använder Azure AD Provisioning-tjänsten om du vill stödja IDP: er utöver Azure AD, eftersom alla SCIM-kompatibla IdP kan ansluta till din SCIM-slutpunkt. Genom att skapa en enkel/User-slutpunkt kan du aktivera etablering utan att behöva underhålla din egen synkronisering. 
 
 Mer information om hur Azure AD Provisioning-tjänsten användare SCIM finns i: 
 
@@ -106,16 +106,6 @@ Läs mer om hur du använder Microsoft Graph för etablering:
 * [Översikt över Microsoft Graph auth](https://docs.microsoft.com/graph/auth/)
 
 * [Komma igång med Microsoft Graph](https://developer.microsoft.com/graph/get-started)
-
-* [Använd Microsoft Graph API](https://docs.microsoft.com/graph/use-the-api)
-
-* [Microsoft Graph Explorer](https://aka.ms/ge) 
-
-* [Referens för Microsoft Graph behörigheter](https://docs.microsoft.com/graph/permissions-reference)
-
-* [Metod tips för att arbeta med Microsoft Graph](https://docs.microsoft.com/graph/best-practices-concept)
-
-* [Aktuella scenarier för Microsoft Graph](https://developer.microsoft.com/graph/examples)
 
 ## <a name="using-saml-jit-for-provisioning"></a>Använda SAML JIT för etablering
 

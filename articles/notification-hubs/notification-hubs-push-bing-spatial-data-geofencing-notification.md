@@ -1,9 +1,9 @@
 ---
-title: Push-meddelanden till geografiskt avgränsade områden med Azure Notification Hubs och Bing Spatial Data | Microsoft Docs
+title: Skicka push-meddelanden med data från Azure Notification Hubs och Bing-spatialdata | Microsoft Docs
 description: I den här självstudiekurskursen får lära du dig att leverera platsbaserade push-meddelanden med Azure Notification Hub och Bing Spatial Data.
 services: notification-hubs
 documentationcenter: windows
-keywords: push-meddelande, pushmeddelande
+keywords: push-meddelanden, push-meddelanden
 author: sethmanheim
 manager: femila
 editor: jwargo
@@ -18,14 +18,14 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 84e52feb6e30e0b9b693019b671906fad8c908db
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 510e2648db3076a0e3ee2535c6058f7ed212f558
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71213243"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387488"
 ---
-# <a name="tutorial-push-location-based-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Självstudier: Skicka platsbaserade push-meddelanden med Azure Notification Hub och Bing Spatial Data
+# <a name="tutorial-send-location-based-push-notifications-with-azure-notification-hubs-and-bing-spatial-data"></a>Självstudie: skicka platsbaserade push-meddelanden med Azure Notification Hubs och Bing spatial data
 
 I den här självstudiekurskursen får lära du dig att leverera platsbaserade push-meddelanden med Azure Notification Hub och Bing Spatial Data.
 
@@ -37,7 +37,7 @@ I den här självstudien gör du följande:
 > * Konfigurera serverdelen
 > * Testa push-meddelanden i appen Universal Windows Platform (UWP)
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Azure-prenumeration**. Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt Azure-konto](https://azure.microsoft.com/free/) innan du börjar.
 * [Visual Studio 2015 Update 1](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx) eller senare ([Community Edition](https://go.microsoft.com/fwlink/?LinkId=691978&clcid=0x409)).
@@ -53,7 +53,7 @@ I den här självstudien gör du följande:
 3. Om du inte har någon befintlig datakälla visas en länk genom vilken du kan skapa en datakälla. Välj **Ladda upp data som en datakälla**. Du kan också använda menyn **Datakällor** > **Överföra data**.
 
     ![](./media/notification-hubs-geofence/bing-maps-create-data.png)
-4. Skapa en `NotificationHubsGeofence.pipe`-fil på hårddisken med följande innehåll: I den här självstudien använder du en pipe-baserad exempelfil som omfattar en del av San Franciscos hamnområde:
+4. Skapa en fil `NotificationHubsGeofence.pipe` på hård disken med följande innehåll: i den här självstudien använder du en pipe-baserad fil som ramar ett områden i San Francisco-Waterfront:
 
     ```text
     Bing Spatial Data Services, 1.0, TestBoundaries

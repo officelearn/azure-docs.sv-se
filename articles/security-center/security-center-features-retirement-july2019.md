@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: article
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 6e7263dfa0faf0bf2fd7e8b7d6e050ca6bc95e2a
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: c4fe185f5d203b1b0eba306c80cded14ad82bc98
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202205"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438627"
 ---
 # <a name="retirement-of-security-center-features-july-2019"></a>Dra tillbaka Security Center funktioner (2019 juli)
 
@@ -47,13 +47,13 @@ Security Center använder Microsoft Monitoring Agent för att samla in olika sä
 
 Den instrument panel för händelser som visades när du valde en arbets yta drogs tillbaka:
 
-![Instrumentpanelen för händelser][2]
+![Instrument panel för händelser][2]
 
 ### <a name="events-dashboard---the-new-experience"></a>Instrument panel för händelser – den nya upplevelsen
 
 Vi rekommenderar att du använder de inbyggda funktionerna i Azure Log Analytics för att Visa viktiga händelser på dina arbets ytor.
 
-Om du har skapat anpassade viktiga händelser i Security Center kommer de att vara tillgängliga. I Log Analytics går du till **Välj Sparad arbets yta** > **sparade sökningar**. Dina data går förlorade eller ändras inte. Interna viktiga händelser är också tillgängliga från samma skärm i Log Analytics.
+Om du har skapat anpassade viktiga händelser i Security Center kommer de att vara tillgängliga. I Log Analytics går du till **Välj arbets yta** > **sparade sökningar**. Dina data går förlorade eller ändras inte. Interna viktiga händelser är också tillgängliga från samma skärm i Log Analytics.
 
 ![Sparade sökningar i arbets ytan][3]
 
@@ -115,7 +115,7 @@ Dina befintliga data är tillgängliga i Log Analytics säkerhetslösningen och 
 
 ### <a name="security-events-map---the-new-experience"></a>Säkerhets händelser mappar – den nya upplevelsen
 
-Vi rekommenderar att du använder funktionerna för aviserings mappning som är inbyggda i Security Center: **Översikt över säkerhets aviseringar (för hands version)** . Den här funktionen ger en optimerad upplevelse och fungerar över alla prenumerationer och associerade arbets ytor. Det ger dig en övergripande vy över din miljö och fokuserar inte på en enskild arbets yta.
+Vi rekommenderar att du använder funktionen aviserings mappning inbyggd i Security Center: **säkerhets aviserings mappning (för hands version)** . Den här funktionen ger en optimerad upplevelse och fungerar över alla prenumerationer och associerade arbets ytor. Det ger dig en övergripande vy över din miljö och fokuserar inte på en enskild arbets yta.
 
 ## Anpassade aviserings regler (förhands granskning)<a name="menu_customalerts"></a>
 
@@ -169,7 +169,7 @@ Om du har befintliga anslutna lösningar rekommenderar vi att du flyttar till Az
 
 Azure Security Center övervakar säkerhetskonfigurationer genom att använda en uppsättning av [över 150 rekommenderade regler](https://gallery.technet.microsoft.com/Azure-Security-Center-a789e335) för att härda operativsystemet. Dessa regler gäller brand väggar, granskning, lösen ords principer med mera. Om en sårbar konfiguration hittas på en dator, genererar Security Center en säkerhetsrekommendation. På sidan [Redigera säkerhets konfiguration](https://docs.microsoft.com/azure/security-center/security-center-customize-os-security-config) kan kunderna anpassa standard säkerhets konfigurationen för operativ systemet i Security Center.
 
-Vi drog tillbaka den här förhands gransknings funktionen. Om du vill återställa säkerhetskonfigurationerna till standardvärdena efter indragnings datumet gör du det via API eller PowerShell med hjälp av [följande instruktioner](https://aka.ms/ascresetsecurityconfigurations)
+Vi drog tillbaka den här förhands gransknings funktionen. Om du vill återställa säkerhetskonfigurationerna till standardvärdena efter indragnings datumet gör du det via API eller PowerShell med hjälp av [följande instruktioner](https://github.com/Azure/Azure-Security-Center/tree/master/Powershell%20samples/Reset%20security%20configurations%20customization)
 
 ![Redigera säkerhetskonfigurationer][17]
 

@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/15/2019
-ms.openlocfilehash: c062a75516a1b865c1ff6c35f00d4fbf7c4881c6
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 27d968aa5202fbeb38be9a2416514d2185c1d8b9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029371"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72436736"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>Data omvandlings uttryck i data flöde för mappning 
 
@@ -68,7 +68,13 @@ ___
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
 Hämtar det aktuella datumet då jobbet börjar köras. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
 Hämtar aktuell tidsstämpel när jobbet börjar köras med den lokala tids zonen * ``currentTimestamp() == toTimestamp('2250-12-31 12:12:12') -> false`` @ no__t-1 @ no__t-2<br/><br/>
-Hämtar den aktuella tidsstämpeln som UTC. Om du vill att din aktuella tid ska tolkas i en annan tidszon än din kluster tids zon kan du skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den aktuella tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.htmlTo konvertera UTC-tiden till en annan tidszon använder fromUTC () * ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
+Hämtar den aktuella tidsstämpeln som UTC. Om du vill att din aktuella tid ska tolkas i en annan tidszon än din kluster tids zon kan du skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den aktuella tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. Använd [SimpleDateFormat](https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) för att konvertera UTC-tiden till en annan tidszon använder fromUTC ().
+* ``currentUTC() == toTimestamp('2050-12-12 19:18:12') -> false``
+* ``currentUTC() != toTimestamp('2050-12-12 19:18:12') -> true``
+* ``fromUTC(currentUTC(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
+___
+### <code>dayOfMonth</code>
+<code><b>dayOfMonth(<i>&lt;value1&gt;</i> : datetime) => integer</b></code><br/><br/>
 Hämtar dag i månaden angivet datum * ``dayOfMonth(toDate('2018-06-08')) -> 8`` @ no__t-1 @ no__t-2<br/><br/>
 Hämtar vecko dagen med angivet datum. 1 – söndag, 2 – måndag..., 7-lördag * ``dayOfWeek(toDate('2018-06-08')) -> 6`` @ no__t-1 @ no__t-2<br/><br/>
 Hämtar dag på året angivet datum * ``dayOfYear(toDate('2016-04-09')) -> 100`` @ no__t-1 @ no__t-2<br/><br/>
@@ -84,20 +90,12 @@ Returnerar alltid ett falskt värde. Använd Function-syntaxen (false ()) om det
 Filtrerar element utanför matrisen som inte uppfyller det angivna predikatet. Filter förväntar sig en referens till ett element i predikatet-funktionen som #item * ``filter([1, 2, 3, 4], #item > 2) -> [3, 4]`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Hämtar det första värdet för en kolumn grupp. Om den andra parametern ignoreNulls utelämnas, antas det vara falskt * ``first(sales)`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Returnerar det största heltal som inte är större än antalet * ``floor(-0.1) -> -1`` @ no__t-1 @ no__t-2<br/><br/>
-Konverterar till tidsstämpeln från UTC. Du kan välja att skicka timezone i formatet "GMT", "PST", "UTC", "America/Cayman". Standardvärdet är den aktuella timezoneRefer Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
-* ``fromUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
-___
-### <code>greater</code>
-<code><b>greater(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => boolean</b></code><br/><br/>
+Konverterar till tidsstämpeln från UTC. Du kan välja att skicka timezone i formatet "GMT", "PST", "UTC", "America/Cayman". Standardvärdet är den aktuella timezoneRefer Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``fromUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false`` @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Jämförelse av större operator. Samma som > operatör * ``greater(12, 24) -> false`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Jämförelse av större än eller lika operator. Samma som > = operator * ``greaterOrEqual(12, 12) -> true`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Returnerar det största värdet i listan med värden som indatamängden hoppar över null-värden. Returnerar null om alla indata är null * ``greatest(10, 30, 15, 20) -> 30`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5<br/><br/>
 Söker efter ett kolumn värde efter namn i data strömmen. Du kan skicka ett valfritt Stream-namn som det andra argumentet.  Kolumn namn som är kända i design tid ska bara åtgärdas med deras namn. Beräknade indata stöds inte, men du kan använda parameter ersättningar * ``hasColumn('parent')`` @ no__t-1 @ no__t-2<br/><br/>
-Hämtar timme-värdet för en tidsstämpel. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12``
-* ``hour(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 12``
-___
-### <code>hours</code>
-<code><b>hours(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Hämtar timme-värdet för en tidsstämpel. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``hour(toTimestamp('2009-07-30 12:58:59')) -> 12`` @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Varaktighet i millisekunder för antalet timmar * ``hours(2) -> 7200000L`` @ no__t-1 @ no__t-2<br/><br/>
 Mappar varje element i matrisen till ett nytt element med det angivna uttrycket. Kartan förväntar sig en referens till ett element i uttrycks funktionen som #item och en referens till element indexet som #index * ``iMap([1, 2, 3, 4], #item + 2 + #index) -> [4, 6, 8, 10]`` @ no__t-1 @ no__t-2<br/><br/>
 Baserat på ett villkor gäller ett värde eller det andra. Om inget annat anges anses det vara NULL. Båda värdena måste vara kompatibla (numeriska, sträng...) * ``iif(10 + 20 == 30, 'dumbo', 'gumbo') -> 'dumbo'`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
@@ -145,28 +143,18 @@ Baserat på ett villkor hämtar det maximala värdet för en kolumn * ``maxIf(re
 Beräknar MD5-sammandrag av en uppsättning av varierande primitiva data typer och returnerar en hex-sträng på 32 tecken. Det kan användas för att beräkna ett finger avtryck för en rad * ``md5(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '4ce8a880bd621a1ffad0bca905e1bc5a'`` @ no__t-1 @ no__t-2<br/><br/>
 Hämtar medelvärdet för en kolumns värden. Samma som genomsnittlig * ``mean(sales)`` @ no__t-1 @ no__t-2<br/><br/>
 Baserat på ett villkor hämtas medelvärdet av värden i en kolumn. Samma som avgIf * ``meanIf(region == 'West', sales)`` @ no__t-1 @ no__t-2<br/><br/>
-Hämtar millisekund-värdet för ett datum. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``
-___
-### <code>milliseconds</code>
-<code><b>milliseconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Hämtar millisekund-värdet för ett datum. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``millisecond(toTimestamp('2009-07-30 12:58:59.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871`` @ no__t-2 @ no__t-3<br/><br/>
 Varaktighet i millisekunder för antalet millisekunder * ``seconds(2) -> 2L`` @ no__t-1 @ no__t-2<br/><br/>
 Hämtar det lägsta värdet för en kolumn * ``min(sales)`` @ no__t-1 @ no__t-2<br/><br/>
 Baserat på ett villkor hämtar det lägsta värdet för en kolumn * ``minIf(region == 'West', sales)`` @ no__t-1 @ no__t-2<br/><br/>
 Subtraherar tal. Subtrahera från ett datum antal dagar. Substract varaktighet från en tidsstämpel. Substract två tidsstämplar för att få en skillnad i millisekunder. Samma som operatorn * ``minus(20, 10) -> 10`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7<br/><br/>
-Hämtar minutens värde för en tidsstämpel. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58``
-* ``minute(toTimestamp('2009-07-30 12:58:59'), 'PST') -> 58``
-___
-### <code>minutes</code>
-<code><b>minutes(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Hämtar minutens värde för en tidsstämpel. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``minute(toTimestamp('2009-07-30 12:58:59')) -> 58`` @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Varaktighet i millisekunder för antal minuter * ``minutes(2) -> 120000L`` @ no__t-1 @ no__t-2<br/><br/>
 Modulus av siffer par. Samma som% operator * ``mod(20, 8) -> 4`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Hämtar månad svärdet för ett datum eller en tidsstämpel * ``month(toDate('2012-8-8')) -> 8`` @ no__t-1 @ no__t-2<br/><br/>
-Hämtar antalet månader mellan två datum. Du kan avrunda beräkningen. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677``
-___
-### <code>multiply</code>
-<code><b>multiply(<i>&lt;value1&gt;</i> : any, <i>&lt;value2&gt;</i> : any) => any</b></code><br/><br/>
+Hämtar antalet månader mellan två datum. Du kan avrunda beräkningen. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``monthsBetween(toTimestamp('1997-02-28 10:30:00'), toDate('1996-10-30')) -> 3.94959677`` @ no__t-2 @ no__t-3<br/><br/>
 Multiplicerar siffer paret. Samma som *-operatorn * ``multiply(20, 10) -> 200`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
-Funktionen NTile delar upp raderna för varje partition i `n` buckets från 1 till högst `n`. Bucket-värden kommer att skilja sig från de flesta 1. Om antalet rader i partitionen inte delas jämnt i antalet buckets, distribueras resten av värdena en per Bucket, från den första Bucket. Funktionen NTile är användbar för beräkning av tertiles, kvartilen, deciles och annan gemensam sammanfattnings statistik. Funktionen beräknar två variabler under initieringen: En vanlig Bucket-storlek kommer att ha en extra rad tillagd. Båda variablerna baseras på den aktuella partitionens storlek. Under beräknings processen håller funktionen reda på det aktuella rad numret, aktuellt Bucket-nummer och rad numret som Bucket ska ändras till (bucketThreshold). När det aktuella rad numret når Bucket-tröskelvärdet ökas värdet för Bucket med ett och tröskelvärdet ökas med Bucket-storlek (plus ett extra om den aktuella Bucket är utfylld).
+Funktionen NTile delar upp raderna för varje partition i `n` buckets från 1 till högst `n`. Bucket-värden kommer att skilja sig från de flesta 1. Om antalet rader i partitionen inte delas jämnt i antalet buckets, distribueras resten av värdena en per Bucket, från den första Bucket. Funktionen NTile är användbar för beräkning av tertiles, kvartilen, deciles och annan gemensam sammanfattnings statistik. Funktionen beräknar två variabler under initieringen: storleken på en vanlig Bucket kommer att ha en extra rad tillagd. Båda variablerna baseras på den aktuella partitionens storlek. Under beräknings processen håller funktionen reda på det aktuella rad numret, aktuellt Bucket-nummer och rad numret som Bucket ska ändras till (bucketThreshold). När det aktuella rad numret når Bucket-tröskelvärdet ökas värdet för Bucket med ett och tröskelvärdet ökas med Bucket-storlek (plus ett extra om den aktuella Bucket är utfylld).
 * ``nTile()``
 * ``nTile(numOfBuckets)``
 ___
@@ -200,10 +188,7 @@ Avrundar ett tal till en valfri skala och ett valfritt avrundnings läge. Om ska
 Tilldelar sekventiella rad nummer för rader i ett fönster som börjar med 1 * ``rowNumber()`` @ no__t-1 @ no__t-2<br/><br/>
 Höger pad strängen med den angivna utfyllnaden tills den har en viss längd. Om strängen är lika med eller större än längden, trimmas den till längden * ``rpad('dumbo', 10, '-') -> 'dumbo-----'`` @ no__t-1 @ no__t-2 @ no__t-3rtrim @ no__t-4 @ no__t-5<br/><br/>
 Höger trimmar en sträng med inledande tecken. Om den andra parametern inte anges rensas blank steg. Annars trimmas alla bokstäver som anges i den andra parametern * ``rtrim('  dumbo  ') -> '  dumbo'`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
-Hämtar det andra värdet för ett datum. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59``
-___
-### <code>seconds</code>
-<code><b>seconds(<i>&lt;value1&gt;</i> : integer) => long</b></code><br/><br/>
+Hämtar det andra värdet för ett datum. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Den lokala tids zonen används som standard. Se Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``second(toTimestamp('2009-07-30 12:58:59')) -> 59`` @ no__t-2 @ no__t-3<br/><br/>
 Varaktighet i millisekunder för antal sekunder * ``seconds(2) -> 2000L`` @ no__t-1 @ no__t-2<br/><br/>
 Beräknar SHA-1-sammandrag av uppsättning av varierande primitiva data typer och returnerar en hex-sträng på 40 tecken. Det kan användas för att beräkna ett finger avtryck för en rad * ``sha1(5, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> '46d3b478e8ec4e1f3b453ac3d8e59d5854e282bb'`` @ no__t-1 @ no__t-2<br/><br/>
 Beräknar SHA-2-sammandrag av en uppsättning av varierande primitiva data typer med en bit-längd som bara kan vara av värdena 0 (256), 224, 256, 384, 512. Det kan användas för att beräkna ett finger avtryck för en rad * ``sha2(256, 'gunchus', 8.2, 'bojjus', true, toDate('2010-4-4')) -> 'afe8a553b1761c67d76f8c31ceef7f71b66a1ee6f4e6d3b5478bf68b47d06bd3'`` @ no__t-1 @ no__t-2<br/><br/>
@@ -243,11 +228,7 @@ Konverterar valfri numerisk eller sträng till ett långt värde. Ett valfritt J
 Konverterar alla numeriska eller strängar till ett kort värde. Ett valfritt Java decimal format kan användas för konverteringen. Trunkerar alla heltal, långa, flyttal, dubbla * ``toShort(123) -> 123`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Konverterar en primitiv datatyp till en sträng. För tal och datum kan ett format anges. Om det är ospecificerat har system standard valts. Java decimal format används för tal. Se Java-SimpleDateFormat för alla möjliga datum format; Standardformatet är åååå-MM-DD * ``toString(10) -> '10'`` @ no__t-1 @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6 @ no__t-7 @ no__t-8 @ no__t-9<br/><br/>
 Konverterar en sträng till en tidstämpel som har fått ett valfritt tidsstämpel-format. Se Java-SimpleDateFormat för alla möjliga format. Om tidsstämpeln utelämnas används standard mönstret. åååå-[M] M-[d] d hh: mm: SS [. f...]. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Tidsstämpeln har stöd för upp till millisekunder med värdet 999Refer Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')`` @ no__t-2 @ no__t-3 @ no__t-4 @ no__t-5 @ no__t-6<br/><br/>
-Konverterar tidsstämpeln till UTC. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Standardvärdet är den aktuella timezoneRefer Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false``
-* ``toUTC(currentTimeStamp(), 'Asia/Seoul') != toTimestamp('2050-12-12 19:18:12') -> true``
-___
-### <code>translate</code>
-<code><b>translate(<i>&lt;string to translate&gt;</i> : string, <i>&lt;lookup characters&gt;</i> : string, <i>&lt;replace characters&gt;</i> : string) => string</b></code><br/><br/>
+Konverterar tidsstämpeln till UTC. Du kan skicka en valfri tidszon i formatet "GMT", "PST", "UTC", "America/Cayman". Standardvärdet är den aktuella timezoneRefer Java-SimpleDateFormat för tillgängliga format. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toUTC(currentTimeStamp()) == toTimestamp('2050-12-12 19:18:12') -> false`` @ no__t-2 @ no__t-3 @ no__t-4<br/><br/>
 Ersätt en uppsättning tecken med en annan uppsättning tecken i strängen. Tecken har 1 till 1 ersättning * ``translate('(bojjus)', '()', '[]') -> '[bojjus]'`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Trimmar en sträng med inledande och avslutande tecken. Om den andra parametern inte anges rensas blank steg. Annars trimmas alla bokstäver som anges i den andra parametern * ``trim('  dumbo  ') -> 'dumbo'`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>
 Returnerar alltid ett sant värde. Använd Function-syntaxen (true ()) om det finns en kolumn med namnet "true" * ``(10 + 20 == 30) -> true`` @ no__t-1 @ no__t-2 @ no__t-3<br/><br/>

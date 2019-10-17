@@ -7,12 +7,12 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.openlocfilehash: 48cf9d58c8acd85e545a5bcb5104d7069670e349
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: da6c3c90ebbeffcf468aad3809da097976d8ef0d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72029316"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387227"
 ---
 # <a name="mapping-data-flow-join-transformation"></a>Mappa transformering av data flödes koppling
 
@@ -20,7 +20,7 @@ ms.locfileid: "72029316"
 
 Använd Join för att kombinera data från två tabeller i ditt data flöde. Klicka på den omvandling som ska vara den vänstra relationen och Lägg till en kopplings omvandling från verktygs lådan. Inuti kopplings omvandlingen väljer du en annan data ström från ditt data flöde för att vara rätt relation.
 
-![Koppla omvandlings](media/data-flow/join.png "koppling")
+![Koppla omvandling](media/data-flow/join.png "Slå ihop")
 
 ## <a name="join-types"></a>Kopplings typer
 
@@ -54,9 +54,9 @@ Du måste ange minst 1 (1.. n) kopplings villkor. De kan vara fält som antingen
 
 ## <a name="join-performance-optimizations"></a>Delta i prestanda optimering
 
-Till skillnad från sammanfognings koppling i verktyg som SSIS, är sammanfogning i ADF-dataflöde inte en obligatorisk sammanfognings kopplings åtgärd. Kopplings nycklarna behöver därför inte sorteras först. Kopplings åtgärden sker baserat på den optimala kopplings åtgärden i Spark: Sändnings-/kart sidans anslutning:
+Till skillnad från sammanfognings koppling i verktyg som SSIS, är sammanfogning i ADF-dataflöde inte en obligatorisk sammanfognings kopplings åtgärd. Kopplings nycklarna behöver därför inte sorteras först. Kopplings åtgärden sker baserat på den optimala kopplings åtgärden i Spark: sändning/mappning på kopplings sidan:
 
-![Koppla omvandling optimera](media/data-flow/joinoptimize.png "kopplings optimering")
+![Optimering av kopplings omvandling](media/data-flow/joinoptimize.png "Delta i optimering")
 
 Om din data uppsättning kan anpassas till arbetsnodens minne kan vi optimera dina kopplings prestanda. Du kan också ange partitionering av dina data i Join-åtgärden för att skapa uppsättningar med data som passar bättre i minnet per arbets plats.
 
@@ -64,7 +64,7 @@ Om din data uppsättning kan anpassas till arbetsnodens minne kan vi optimera di
 
 Du kan få självkopplings villkor i ADF-dataflödet genom att använda Välj omvandling för att ange alias för en befintlig data ström. Skapa först en "ny gren" från en data ström och Lägg sedan till en Välj för att ange alias för hela den ursprungliga strömmen.
 
-![](media/data-flow/selfjoin.png "Själv") koppling
+![Själv koppling](media/data-flow/selfjoin.png "Själv koppling")
 
 I diagrammet ovan är Select Transform överst. Allt det gör är att aliasa den ursprungliga strömmen till "OrigSourceBatting". I den markerade kopplings transformeringen nedan kan du se att vi använder den här valda Ali Aset som höger koppling, så att vi kan referera till samma nyckel i både den vänstra & högra sidan av den inre kopplingen.
 

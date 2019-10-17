@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: fc497837792075501bcd92f6ee07ad9ee4fe2dfa
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: fff08b3e046161fbedefdc55f4e6a39a7f965f80
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027017"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387274"
 ---
 # <a name="azure-data-factory-alter-row-transformation"></a>Azure Data Factory Alter Row-transformering
 
@@ -19,7 +19,7 @@ Använd transformeringen Alter Row för att ange INSERT-, DELETE-, Update-och up
 
 
 
-![Ändra rad]inställningar(media/data-flow/alter-row1.png "ändra rad inställningar")
+![Ändra rad inställningar](media/data-flow/alter-row1.png "Ändra rad inställningar")
 
 > [!NOTE]
 > Alter Row-transformeringar fungerar bara på databas handfat i ditt data flöde. De åtgärder som du tilldelar till rader (Insert, Update, DELETE, upsert) sker inte under debug-sessioner. Du måste lägga till en åtgärd för att köra data flöde i en pipeline och använda fel sökning eller utlösare för pipeline för att införa principer för att ändra rad i dina databas tabeller.
@@ -28,7 +28,7 @@ Använd transformeringen Alter Row för att ange INSERT-, DELETE-, Update-och up
 
 Skapa en Alter Row-omvandling och ange en rad princip med villkoret `true()`. Varje rad som inte uppfyller något av de tidigare definierade uttrycken kommer att markeras för den angivna rad principen. Som standard markeras varje rad som inte uppfyller ett villkors uttryck för `Insert`.
 
-![Ändra rad en princip](media/data-flow/alter-row4.png "ändra rad en princip")
+![Ändra rad en princip](media/data-flow/alter-row4.png "Ändra rad en princip")
 
 > [!NOTE]
 > Om du vill markera alla rader med en princip kan du skapa ett villkor för principen och ange villkoret som `true()`.
@@ -37,7 +37,7 @@ Skapa en Alter Row-omvandling och ange en rad princip med villkoret `true()`. Va
 
 Aktivera fel söknings läge för data flöde om du vill visa resultatet av dina Alter Row-principer i data förhands gransknings fönstret. Att köra en Alter-rad i fel söknings läge för data flöde genererar inte DDL-eller DML-åtgärder mot målet. För att kunna utföra dessa åtgärder kan du köra data flödet inuti en aktivitet för att köra data flöde i en pipeline.
 
-![Ändra rad principer](media/data-flow/alter-row3.png "ändra rad principer")
+![Ändra rad principer](media/data-flow/alter-row3.png "Ändra rad principer")
 
 På så sätt kan du verifiera och visa statusen för varje rad baserat på dina villkor. Det finns en ikon för varje INSERT-, Update-, Delete-och upsert-åtgärd som kommer att utföras i ditt data flöde och som anger vilken åtgärd som ska utföras när du kör data flödet inuti en pipeline.
 
@@ -45,7 +45,7 @@ På så sätt kan du verifiera och visa statusen för varje rad baserat på dina
 
 Du måste ha en databas mottagar typ för att Alter Row ska fungera. I mottagar inställningarna bör du ange varje åtgärd som motsvarar dina villkor för Alter-rader som ska tillåtas.
 
-![Ändra]rad mottagare(media/data-flow/alter-row2.png "Alter Row Sink")
+![Ändra rad mottagare](media/data-flow/alter-row2.png "Ändra rad mottagare")
 
 Standard beteendet i ADF-dataflödet med databas handfat är att infoga rader. Om du vill tillåta uppdateringar, upsertar och borttagningar måste du också markera dessa rutor i sinken för att tillåta åtgärderna.
 

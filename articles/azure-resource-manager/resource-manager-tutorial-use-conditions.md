@@ -1,6 +1,6 @@
 ---
 title: Använda villkor i Azure Resource Manager-mallar | Microsoft Docs
-description: Lär dig hur du distribuerar Azure-resurser baserat på villkor.
+description: Lär dig hur du distribuerar Azure-resurser baserat på villkor. Visar hur du antingen distribuerar en ny resurs eller använder en befintlig resurs.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.date: 05/21/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 50c6c2a1f8be979d10b77793adb168e6bd276e49
-ms.sourcegitcommit: 267a9f62af9795698e1958a038feb7ff79e77909
+ms.openlocfilehash: 5fa1db5131f555c92aa12fc01a109469c2cf819e
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70258869"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390193"
 ---
-# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Självstudier: Använda villkor i Azure Resource Manager-mallar
+# <a name="tutorial-use-condition-in-azure-resource-manager-templates"></a>Självstudie: Använda villkor i Azure Resource Manager-mallar
 
 Lär dig hur du distribuerar Azure-resurser baserat på villkor.
 
@@ -36,16 +36,16 @@ Den här självstudien omfattar följande uppgifter:
 > * Distribuera mallen
 > * Rensa resurser
 
-Den här kursen täcker bara ett grundläggande scenario med att använda villkor. Mer information finns i:
+Den här kursen täcker bara ett grundläggande scenario med att använda villkor. Mer information finns här:
 
-* [Mallens fil struktur: Villkor](conditional-resource-deployment.md).
+* [Mallens fil struktur: villkor](conditional-resource-deployment.md).
 * [Distribuera en resurs villkorligt i en Azure Resource Manager-mall](/azure/architecture/building-blocks/extending-templates/conditional-deploy).
-* [Mall-funktion: IF](./resource-group-template-functions-logical.md#if).
+* [Template-funktion: IF](./resource-group-template-functions-logical.md#if).
 * [Jämförelse funktioner för Azure Resource Manager mallar](./resource-group-template-functions-comparison.md)
 
 Om du inte har en Azure-prenumeration kan du [skapa ett kostnadsfritt konto ](https://azure.microsoft.com/free/) innan du börjar.
 
-## <a name="prerequisites"></a>Nödvändiga komponenter
+## <a name="prerequisites"></a>Krav
 
 För att kunna följa stegen i den här artikeln behöver du:
 
@@ -56,7 +56,7 @@ För att kunna följa stegen i den här artikeln behöver du:
     openssl rand -base64 32
     ```
 
-    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid malldistribution i Resource Manager](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
+    Azure Key Vault är utformat för att skydda kryptografiska nycklar och andra hemligheter. Mer information finns i [Självstudie: Integrera Azure Key Vault vid distribution av Resource Manager-mall](./resource-manager-tutorial-use-key-vault.md). Vi rekommenderar även att du uppdaterar ditt lösenord var tredje månad.
 
 ## <a name="open-a-quickstart-template"></a>Öppna en snabbstartsmall
 
@@ -78,7 +78,7 @@ Azure-snabbstartsmallar är en lagringsplats för Resource Manager-mallar. I st�
    * `Microsoft.Network/networkInterfaces`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces).
    * `Microsoft.Compute/virtualMachines`. Se [mallreferensen](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines).
 
-     Det är bra att få viss grundläggande förståelse av mallen innan den anpassas.
+     Det är bra att få lite grundläggande förståelse av mallen innan den anpassas.
 5. Välj **Arkiv**>**Spara som** för att spara en kopia av filen till den lokala datorn med namnet **azuredeploy.json**.
 
 ## <a name="modify-the-template"></a>Ändra mallen

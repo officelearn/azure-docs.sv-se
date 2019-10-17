@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 09/10/2019
+ms.date: 10/03/2019
 ms.author: juliako
-ms.openlocfilehash: 152a767ad1aa2494579f15dd8051c6bc1f718a92
-ms.sourcegitcommit: d70c74e11fa95f70077620b4613bb35d9bf78484
+ms.openlocfilehash: af6542757e75d7d6226c2470adf3c2b51d60875a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70910267"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383521"
 ---
 # <a name="dynamic-packaging"></a>Dynamisk paketering
 
@@ -26,17 +26,17 @@ Microsoft Azure Media Services kan användas för att koda många fil format fö
 
 I Media Services representerar en [slut punkt för direkt uppspelning](streaming-endpoint-concept.md) en dynamisk (just-in-Time)-paketering och ursprungs tjänst som kan leverera Live och på begäran-innehåll direkt till ett klient program med hjälp av ett av de vanliga protokollen för strömmande media som nämns i följande avsnitt. Dynamisk paketering är en funktion som finns som standard på alla slutpunkter för direktuppspelning (Standard eller Premium). 
 
-## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>Förbereda dina källfiler för leverans
+## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>To förbereda dina källfiler för leverans
 
 Om du vill dra nytta av dynamisk paketering måste du [koda](encoding-concept.md) din mezzaninfil (källa) till en uppsättning MP4-filer med flera bit hastigheter (ISO Base 14496-12). Du måste ha en [till gång](assets-concept.md) med de KODAde MP4-filerna och de strömmande konfigurationsfiler som krävs för Media Services dynamisk paketering. Från den här uppsättningen MP4-filer kan du använda dynamisk paketering för att leverera video via följande protokoll för strömmande media:
 
-|Protocol|Exempel|
+|Protokoll|Exempel|
 |---|---|
 |HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
 |HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
 |HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
 |MPEG-STRECK – CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
+|MPEG-STRECK-CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
 |Smooth Streaming| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
 
 Om du planerar att skydda ditt innehåll med hjälp av Media Services dynamisk kryptering, se [strömmande protokoll och krypterings typer](content-protection-overview.md#streaming-protocols-and-encryption-types).
@@ -100,12 +100,12 @@ Dynamisk paketering stöder MP4-filer som innehåller video som är kodad med [H
 > [!NOTE]
 > Upplösningar på upp till 4K och bild hastigheter på upp till 60 bild rutor per sekund har testats med dynamisk paketering. [Premium-kodaren](https://docs.microsoft.com/azure/media-services/previous/media-services-encode-asset#media-encoder-premium-workflow) stöder kodning till H. 265, via äldre v2-API: er. Kontakta amshelp@microsoft.com om du har frågor om det här ämnet. 
 
-## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Ljud-codec som stöds av dynamisk paketering
+## <a name="a-idaudio-codecsaudio-codecs-supported-by-dynamic-packaging"></a><a id="audio-codecs"/>Audio-codecenheter som stöds av dynamisk paketering
 
 Dynamisk paketering stöder ljud som är kodat med följande protokoll:
 
 * [AAC](https://en.wikipedia.org/wiki/Advanced_Audio_Coding) (AAC-LC, HE-AAC v1 eller HE-AAC v2)
-* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (Förbättrad AC-3-eller E-AC3)
+* [Dolby Digital Plus](https://en.wikipedia.org/wiki/Dolby_Digital_Plus) (utökad AC-3 eller E-AC3)
 * Dolby Atmos<br />
    Strömmande Dolby Atmos-innehåll stöds för standarder som MPEG-streck-protokollet med antingen common streaming format (CSF) eller common Media Application format (CMAF), fragmenterade MP4 och via HTTP Live Streaming (HLS) med CMAF.
 
@@ -161,7 +161,7 @@ QualityLevels(3579827)/Manifest(video,format=m3u8-aapl)
 QualityLevels(128041)/Manifest(aac_eng_2_128041_2_1,format=m3u8-aapl)
 ```
 
-#### <a name="mpeg-dash"></a>MPEG-DASH
+#### <a name="mpeg-dash"></a>MPEG-STRECK
 
 Här är ett exempel på en manifest fil för MPEG-streck, även kallat en beskrivning av en MPEG-STRECKs medie presentation (MPD):
 
@@ -220,7 +220,7 @@ Här är ett exempel på en Smooth Streaming manifest fil:
 
 ### <a name="naming-of-tracks-in-the-manifest"></a>Namn på spår i manifestet
 
-Om ett ljud spårs namn anges i. ISM-filen, Media Services lägger till `Label` ett-element `AdaptationSet` i ett för att ange information om textural för det specifika ljud spåret. Ett exempel på utmatnings streck manifestet:
+Om ett ljud spårs namn anges i. ISM-filen, Media Services lägger till ett `Label`-element i en `AdaptationSet` för att ange textural-information för det specifika ljud spåret. Ett exempel på utmatnings streck manifestet:
 
 ```xml
 <AdaptationSet codecs="mp4a.40.2" contentType="audio" lang="en" mimeType="audio/mp4" subsegmentAlignment="true" subsegmentStartsWithSAP="1">
@@ -232,15 +232,34 @@ Om ett ljud spårs namn anges i. ISM-filen, Media Services lägger till `Label` 
 </AdaptationSet>
 ```
 
-Spelaren kan använda `Label` elementet för att visa i sitt användar gränssnitt.
+Spelaren kan använda elementet `Label` för att visa i sitt användar gränssnitt.
 
 ### <a name="signaling-audio-description-tracks"></a>Signalerar ljud beskrivnings spår
 
-En kund kan kommentera ett ljud spår som ljud beskrivning i manifestet. Det gör du genom att lägga till parametrarna "hjälpmedel" och "roll" i. ISM-filen. Media Services identifierar ljud beskrivningen om ett ljud spår har param "hjälpmedel" med värdet "Description" och parametern "Role" med värdet "alternativ". Om Media Services identifierar ljud beskrivningen i. ISM-filen skickas information om ljud beskrivningen till klient manifestet som `Accessibility="description"` och `Role="alternate"` attribut i `StreamIndex` -elementet.
+Du kan lägga till en berättarröst i videon för att hjälpa visuellt synskadade klienter att följa videoinspelningen genom att lyssna på berättarrösten. Du måste kommentera ett ljud spår som ljud beskrivning i manifestet. Det gör du genom att lägga till parametrarna "hjälpmedel" och "roll" i. ISM-filen. Det är ditt ansvar att ange dessa parametrar korrekt för att signalera ljud spår som ljud beskrivning. Lägg till exempel till `<param name="accessibility" value="description" />` och `<param name="role" value="alternate"` till. ISM-filen för ett särskilt ljud spår. 
 
-Om kombinationen av "hjälpmedel" = "Beskrivning" och "roll" = "alternativ" har angetts i. ISM-filen, har streck manifestet och det smidiga manifestet värdena som anges i parametrarna "hjälpmedel" och "roll". Det är kundens ansvar att ange dessa två värden till höger och för att markera ett ljud spår som ljud beskrivning. Per streck-specifikation, "hjälpmedel" = "Beskrivning" och "roll" = "alternativ" tillsammans betyder det att ljud spåret är ljud beskrivning.
+Mer information finns i exempel på [hur du signalerar ett beskrivande ljud spår](signal-descriptive-audio-howto.md) .
 
-För HLS-v7 och över`format=m3u8-cmaf`(), används `CHARACTERISTICS="public.accessibility.describes-video"` spelnings listan bara när kombinationen av "hjälpmedel" = "Beskrivning" och "roll" = "alternativ" är inställd i. ISM-filen. 
+#### <a name="smooth-streaming-manifest"></a>Smooth Streaming manifest
+
+Om du spelar upp en Smooth Streaming data ström skulle manifestet ha värden i `Accessibility`-och `Role`-attribut för ljud spåret. @No__t-2 skulle till exempel läggas till i `StreamIndex`-elementet för att indikera att det är en ljud beskrivning.
+
+#### <a name="dash-manifest"></a>STRECK manifest
+
+För streck manifestet skulle följande två element läggas till för att signalera ljud beskrivningen:
+
+```xml
+<Accessibility schemeIdUri="urn:mpeg:dash:role:2011" value="description"/>
+<Role schemeIdUri="urn:mpeg:dash:role:2011" value="alternate"/>
+```
+
+#### <a name="hls-playlist"></a>HLS-spelnings lista
+
+För HLS v7 och över `(format=m3u8-cmaf)` skulle spelnings listan medföra `AUTOSELECT=YES,CHARACTERISTICS="public.accessibility.describes-video"` när ljud beskrivnings spåret signaleras.
+
+#### <a name="example"></a>Exempel
+
+Mer information finns i [så här signalerar du ljud beskrivnings spår](signal-descriptive-audio-howto.md).
 
 ## <a name="dynamic-manifest"></a>Dynamiskt manifest
 
@@ -248,7 +267,7 @@ Om du vill kontrol lera antalet spår, format, bit hastigheter och presentations
 
 ## <a name="dynamic-encryption"></a>Dynamisk kryptering
 
-Du kan använda *dynamisk kryptering* för att dynamiskt kryptera din direktsända eller på begäran-innehåll med AES-128 eller någon av de tre huvud Digital Rights Managements systemen (DRM): Microsoft PlayReady, Google Widevine och Apple FairPlay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser till auktoriserade klienter. Mer information finns i [dynamisk kryptering](content-protection-overview.md).
+Du kan använda *dynamisk kryptering* för att dynamiskt kryptera din direktsända eller på begäran-innehåll med AES-128 eller någon av de tre större Digital Rights Management-systemen (DRM): Microsoft PlayReady, Google Widevine och Apple Fairplay. Media Services tillhandahåller också en tjänst för att leverera AES-nycklar och DRM-licenser till auktoriserade klienter. Mer information finns i [dynamisk kryptering](content-protection-overview.md).
 
 ## <a name="more-information"></a>Mer information
 

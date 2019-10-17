@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 09/24/2019
+ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a99aa766ed4e6cacbe22933db226b2037d3e736d
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 10a278fdd194b841cbb8620999fe79c3affb4e0b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72170000"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389511"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management-preview"></a>Skapa ett nytt Access-paket i Azure AD-hantering av rättigheter (för hands version)
 
@@ -36,15 +36,31 @@ Med ett Access-paket kan du utföra en enstaka konfiguration av resurser och pri
 
 Alla åtkomst paket måste placeras i en behållare som kallas för en katalog. En katalog definierar vilka resurser du kan lägga till i ditt åtkomst paket. Om du inte anger någon katalog placeras ditt åtkomst paket i den allmänna katalogen. För närvarande kan du inte flytta ett befintligt Access-paket till en annan katalog.
 
-Alla åtkomst paket måste ha minst en princip. Principer anger vem som kan begära åtkomst paketet och även inställningar för godkännande och förfallo datum. När du skapar ett nytt Access-paket kan du skapa en första princip för användare i din katalog, för användare som inte finns i katalogen, endast för administratörs direkta tilldelningar eller så kan du välja att skapa principen senare.
+Om du är en Access Package Manager kan du inte lägga till resurser som du äger i en katalog. Du är begränsad till att använda de resurser som är tillgängliga i katalogen. Om du behöver lägga till resurser i en katalog kan du be katalog ägaren.
 
-Följande diagram visar den övergripande processen för att skapa ett nytt Access-paket.
+Alla åtkomst paket måste ha minst en princip. Principer anger vem som kan begära åtkomst paketet och även godkännande-och livs cykel inställningar. När du skapar ett nytt Access-paket kan du skapa en första princip för användare i din katalog, för användare som inte finns i katalogen, endast för administratörs direkta tilldelningar eller så kan du välja att skapa principen senare.
 
-![Skapa en process för Access-paket](./media/entitlement-management-access-package-create/access-package-process.png)
+![Skapa ett Access-paket](./media/entitlement-management-access-package-create/access-package-create.png)
+
+Här följer de övergripande stegen för att skapa ett nytt Access-paket.
+
+1. Starta processen för att skapa ett nytt Access-paket i identitets styrning.
+
+1. Välj den katalog som du vill skapa åtkomst paketet i.
+
+1. Lägg till resurser från katalogen i ditt Access-paket.
+
+1. Tilldela resurs roller för varje resurs.
+
+1. Ange användare som kan begära åtkomst.
+
+1. Ange inställningar för godkännande.
+
+1. Ange livs cykel inställningar.
 
 ## <a name="start-new-access-package"></a>Starta nytt Access-paket
 
-**Nödvändig roll:** Global administratör, användar administratör eller katalog ägare
+**Nödvändig roll:** Global administratör, användar administratör, katalog ägare eller åtkomst till paket hanteraren
 
 1. Logga in på [Azure-portalen](https://portal.azure.com).
 
@@ -64,20 +80,19 @@ På fliken **grundläggande** ger du åtkomst paketet ett namn och anger vilken 
 
 1. I list rutan **katalog** väljer du den katalog som du vill skapa åtkomst paketet i. Du kan till exempel ha en katalog ägare som hanterar alla marknadsförings resurser som kan begäras. I det här fallet kan du välja marknadsförings katalogen.
 
-    Du ser bara kataloger som du har behörighet att skapa åtkomst paket i. Om du vill skapa ett Access-paket i en befintlig katalog måste du vara minst en global administratör, en användar administratör, katalog ägare i katalogen eller komma åt paket hanteraren i katalogen.
+    Du ser bara kataloger som du har behörighet att skapa åtkomst paket i. Om du vill skapa ett Access-paket i en befintlig katalog måste du vara global administratör eller användar administratör, eller så måste du vara katalog ägare eller åtkomst till paket hanteraren i katalogen.
 
     ![Åtkomst paket – grundläggande information](./media/entitlement-management-access-package-create/basics.png)
 
-    Om du är global administratör eller en användar administratör och vill skapa ditt åtkomst paket i en ny katalog som inte finns med i listan klickar du på **Skapa nytt**. Ange katalogens namn och beskrivning och klicka sedan på **skapa**.
+    Om du är global administratör, en användar administratör eller katalog skapad och du vill skapa ditt åtkomst paket i en ny katalog som inte finns med i listan klickar du på **Skapa ny katalog**. Ange katalogens namn och beskrivning och klicka sedan på **skapa**.
 
     Det åtkomst paket som du skapar och alla resurser som ingår i det kommer att läggas till i den nya katalogen. Du kan också lägga till ytterligare katalog ägare senare.
-
 
 1. Klicka på **Next**.
 
 ## <a name="resource-roles"></a>Resursroller
 
-På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkomst paketet.  Användare som begär och tar emot åtkomst paketet får alla resurs roller i åtkomst paketet.
+På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkomst paketet. Användare som begär och tar emot åtkomst paketet får alla resurs roller i åtkomst paketet.
 
 1. Klicka på den resurs typ som du vill lägga till (**grupper och team**, **program**eller **SharePoint-platser**).
 
@@ -97,19 +112,17 @@ På fliken **resurs roller** väljer du de resurser som du vill ta med i åtkoms
 
 1. Klicka på **Next**.
 
-## <a name="policy"></a>Princip
+## <a name="requests"></a>Begäranden
 
-På fliken **princip** skapar du den första principen för att ange vem som kan begära åtkomst paketet och även inställningar för godkännande och förfallo datum. Senare kan du skapa fler principer för att tillåta att fler grupper av användare begär åtkomst paketet med sina egna inställningar för godkännande och förfallo datum. Du kan också välja att skapa principen senare.
+På fliken **förfrågningar** skapar du den första principen för att ange vem som kan begära åtkomst paketet och även godkännande inställningarna. Senare kan du skapa fler principer för begäran så att fler grupper av användare kan begära åtkomst paketet med sina egna godkännande inställningar.
 
-1. Ange den **första principen** växla till **nu** eller **senare**.
+![Fliken åtkomst paket – begär Anden](./media/entitlement-management-access-package-create/requests.png)
 
-    ![Åtkomst paket – princip](./media/entitlement-management-access-package-create/policy.png)
+Utför stegen i något av följande avsnitt.
 
-1. Om du väljer **senare**går du vidare till avsnittet [Granska + skapa](#review--create) för att skapa ditt åtkomst paket.
+[!INCLUDE [Entitlement management request policy](../../../includes/active-directory-entitlement-management-request-policy.md)]
 
-1. Om du väljer **nu**utför du stegen i någon av följande princip avsnitt.
-
-[!INCLUDE [Entitlement management policy](../../../includes/active-directory-entitlement-management-policy.md)]
+[!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
 ## <a name="review--create"></a>Granska + skapa
 
@@ -125,4 +138,5 @@ På fliken **Granska + skapa** kan du granska dina inställningar och kontrol le
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Redigera och hantera ett befintligt åtkomstpaket](entitlement-management-access-package-edit.md)
+- [Dela länk för att begära ett Access-paket](entitlement-management-access-package-settings.md)
+- [Ändra resurs roller för ett Access-paket](entitlement-management-access-package-resources.md)

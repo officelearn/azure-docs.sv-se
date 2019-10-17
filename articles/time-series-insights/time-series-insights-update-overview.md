@@ -1,5 +1,5 @@
 ---
-title: 'Översikt: Förhandsversion av Azure Time Series Insights | Microsoft Docs'
+title: 'Översikt: Azure Time Series Insights för hands version | Microsoft Docs'
 description: Översikt av Azure Time Series Insights förhandsversion.
 ms.service: time-series-insights
 services: time-series-insights
@@ -11,12 +11,12 @@ ms.workload: big-data
 ms.topic: overview
 ms.date: 09/23/2019
 ms.custom: seodec18
-ms.openlocfilehash: e4a57c6d4a9034d9145058e9137759c2cea19aa6
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: da81d5603eb26ae3b209bbbc01a8d6fc31e1ba3a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71978660"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72381993"
 ---
 # <a name="what-is-azure-time-series-insights-preview"></a>Vad är Azure Time Series Insights (förhandsversion)?
 
@@ -45,7 +45,7 @@ Därför används bara en bråkdel av dessa data för drifts- och affärsbehov. 
 
 Ett typiskt IoT-dataflödet visas i den efterföljande bilden.
 
-  ![IoT-dataflöde][1]
+  [![IoT data flöde](media/v2-update-overview/overview-one.png)](media/v2-update-overview/overview-one.png#lightbox)
 
 ## <a name="azure-time-series-insights-for-industrial-iot"></a>Azure Time Series Insights för industriell IoT
 
@@ -70,7 +70,7 @@ Tillsammans tillhandahålls åtgärdsinformation och datagranskning med en enkel
 
 Det här avancerade dataflödesdiagrammet visar uppdateringarna.
 
-  ![De viktigaste funktionerna][2]
+  [![Key funktioner](media/v2-update-overview/overview-two.png)](media/v2-update-overview/overview-two.png#lightbox)
 
 Med introduktionen av dessa viktiga funktioner för industriell IoT tillhandahåller Time Series Insights följande viktiga fördelar.
 
@@ -94,7 +94,3 @@ Läs mer om användarsituationer:
 
 > [!div class="nextstepaction"]
 > [Användarsituationer i förhandsversionen av Azure Time Series Insights](./time-series-insights-update-use-cases.md)
-
-<!-- Images -->
-[1]: media/v2-update-overview/overview-one.png
-[2]: media/v2-update-overview/overview-two.png

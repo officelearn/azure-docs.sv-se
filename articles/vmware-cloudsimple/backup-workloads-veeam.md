@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 930e482ab85113ac802932929fdbea358ee26035
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 880b31702cf1c0a92ab7ee536cd88e8e6957f6f8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619604"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430847"
 ---
 # <a name="back-up-workload-vms-on-cloudsimple-private-cloud-using-veeam-br"></a>Säkerhetskopiera virtuella arbets belastnings datorer på CloudSimple privata moln med Veeam B & R
 
@@ -54,7 +54,7 @@ För miljöer med mindre än 30 TB som ska säkerhets kopie ras rekommenderar Cl
 
 * Veeam backup server och proxy server installerad på samma virtuella dator i det privata molnet.
 * En Linux-baserad primär säkerhets kopierings databas i Azure som är konfigurerad som mål för säkerhets kopierings jobb.
-* `azcopy`används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
+* `azcopy` används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
 
 ![Grundläggande distributions scenarier](media/veeam-basicdeployment.png)
 
@@ -65,7 +65,7 @@ För miljöer med mer än 30 TB som ska säkerhets kopie ras rekommenderar Cloud
 * En proxyserver per nod i virtuellt San-klustret, som rekommenderas av Veeam.
 * Windows-baserad primär säkerhets kopierings lagring i det privata molnet för att cachelagra fem dagars data för snabb återställning.
 * Linux backup-lagringsplats i Azure som mål för säkerhets kopierings jobb för längre varaktighets kvarhållning. Den här lagrings platsen ska konfigureras som en lagrings plats för säkerhets kopiering.
-* `azcopy`används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
+* `azcopy` används för att kopiera data från den primära säkerhets kopie databasen till en Azure Blob-behållare som replikeras till en annan region.
 
 ![Grundläggande distributions scenarier](media/veeam-advanceddeployment.png)
 
@@ -89,14 +89,14 @@ I följande avsnitt beskrivs hur du installerar och konfigurerar en Veeam backup
 Distributions processen består av följande steg:
 
 1. [vCenter-gränssnitt: Konfigurera infrastruktur tjänster i ditt privata moln](#vcenter-ui-set-up-infrastructure-services-in-your-private-cloud)
-2. [CloudSimple-Portal: Konfigurera nätverk för privata moln för Veeam](#cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam)
-3. [CloudSimple-Portal: Eskalera privilegier](#cloudsimple-private-cloud-escalate-privileges-for-cloudowner)
-4. [Azure-portalen: Anslut det virtuella nätverket till det privata molnet](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-5. [Azure-portalen: Skapa en säkerhets kopierings lagrings plats i Azure](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
-6. [Azure-portalen: Konfigurera Azure Blob Storage för långsiktig data kvarhållning](#configure-azure-blob-storage-for-long-term-data-retention)
-7. [vCenter-gränssnitt för privat moln: Installera Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br)
+2. [CloudSimple-portalen: Konfigurera privata moln nätverk för Veeam](#cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam)
+3. [CloudSimple-portalen: eskalera privilegier](#cloudsimple-private-cloud-escalate-privileges-for-cloudowner)
+4. [Azure Portal: Anslut ditt virtuella nätverk till det privata molnet](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+5. [Azure Portal: skapa en säkerhets kopierings lagrings plats i Azure](#azure-portal-connect-your-virtual-network-to-the-private-cloud)
+6. [Azure Portal: Konfigurera Azure Blob Storage för långsiktig data kvarhållning](#configure-azure-blob-storage-for-long-term-data-retention)
+7. [vCenter-gränssnitt för privat moln: installera Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br)
 8. [Veeam-konsol: Konfigurera Veeam säkerhets kopiering & återställnings program](#veeam-console-install-veeam-backup-and-recovery-software)
-9. [CloudSimple-Portal: Konfigurera Veeam-åtkomst och ta bort behörigheter för att eskalera](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
+9. [CloudSimple-portalen: Konfigurera Veeam-åtkomst och ta bort behörigheter för att eskalera](#cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges)
 
 ### <a name="before-you-begin"></a>Innan du börjar
 
@@ -126,7 +126,7 @@ Konfigurera infrastruktur tjänster i det privata molnet för att göra det enke
   * Du vill använda Azure AD.
 * Om du vill tillhandahålla IP-adressering, IP-adress hantering och namn matchnings tjänster för dina arbets belastningar i det privata molnet konfigurerar du en DHCP-och DNS-server enligt beskrivningen i [Konfigurera DNS och DHCP-program och arbets belastningar i ditt CloudSimple privata moln](dns-dhcp-setup.md).
 
-### <a name="cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam"></a>CloudSimple privat moln: Konfigurera nätverk för privata moln för Veeam
+### <a name="cloudsimple-private-cloud-set-up-private-cloud-networking-for-veeam"></a>CloudSimple privat moln: Konfigurera privata moln nätverk för Veeam
 
 Få åtkomst till CloudSimple-portalen för att konfigurera nätverk för privat moln för Veeam-lösningen.
 
@@ -136,11 +136,11 @@ Skapa brand Väggs regler mellan hanterings under nätet och säkerhets kopierin
 
 Följande tabell innehåller en port lista.
 
-| Ikon | Beskrivning | Ikon | Beskrivning |
+| Icon | Beskrivning | Icon | Beskrivning |
 | ------------ | ------------- | ------------ | ------------- |
 | Backup Server  | vCenter  | HTTPS/TCP  | 443 |
 | Backup Server <br> *Krävs för distribution av Veeam backup & Replication Components* | Säkerhetskopiera proxy  | TCP/UDP  | 135, 137 till 139 och 445 |
-    | Backup Server   | DNS  | UDP  | 53  | 
+    | Backup Server   | DNS  | -  | 53  | 
     | Backup Server   | Veeam uppdaterings aviserings Server  | TCP  | 80  | 
     | Backup Server   | Veeam licens uppdaterings Server  | TCP  | 443  | 
     | Säkerhetskopiera proxy   | vCenter |   |   | 
@@ -155,22 +155,22 @@ Som standard tillhandahåller CloudSimple en 1Gbps ExpressRoute-länk. För stö
 
 Om du vill fortsätta med installationen behöver du en verifierings nyckel och en URI för peer-kretsen och åtkomst till din Azure-prenumeration.  Den här informationen finns på sidan Virtual Network anslutning på CloudSimple-portalen. Instruktioner finns i [Hämta peering-information för Azure Virtual Network till CloudSimple-anslutning](virtual-network-connection.md). [Kontakta supporten](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)om du har problem med att hämta informationen.
 
-### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>CloudSimple privat moln: Eskalera privilegier för cloudowner
+### <a name="cloudsimple-private-cloud-escalate-privileges-for-cloudowner"></a>CloudSimple privat moln: eskalera behörigheter för cloudowner
 
 Standard användaren "cloudowner" har inte tillräckliga privilegier i det privata molnet vCenter för att installera VEEAM, så användarens vCenter-privilegier måste eskaleras. Mer information finns i [eskalera privilegier](escalate-private-cloud-privileges.md).
 
-### <a name="azure-portal-connect-your-virtual-network-to-the-private-cloud"></a>Azure-portalen: Anslut det virtuella nätverket till det privata molnet
+### <a name="azure-portal-connect-your-virtual-network-to-the-private-cloud"></a>Azure Portal: Anslut ditt virtuella nätverk till det privata molnet
 
 Anslut ditt virtuella nätverk till det privata molnet genom att följa anvisningarna i [Azure Virtual Network-anslutning med ExpressRoute](azure-expressroute-connection.md).
 
-### <a name="azure-portal-create-a-backup-repository-vm"></a>Azure-portalen: Skapa en virtuell säkerhets kopia av lagrings platsen
+### <a name="azure-portal-create-a-backup-repository-vm"></a>Azure Portal: skapa en säkerhets kopia av en VM-lagringsplats
 
 1. Skapa en standard-D2 v3-virtuell dator med (2 virtuella processorer och 8 GB minne).
 2. Välj den CentOS 7,4-baserade avbildningen.
 3. Konfigurera en nätverks säkerhets grupp (NSG) för den virtuella datorn. Kontrol lera att den virtuella datorn inte har en offentlig IP-adress och inte går att komma åt från det offentliga Internet.
 4. Skapa ett användar namn och ett lösen ord baserat användar konto för den nya virtuella datorn. Instruktioner finns i [skapa en virtuell Linux-dator i Azure Portal](../virtual-machines/linux/quick-create-portal.md).
 5. Skapa 1x512 GiB standard-HDD och koppla den till den virtuella lagrings platsen.  Instruktioner finns i [så här ansluter du en hanterad datadisk till en virtuell Windows-dator i Azure Portal](../virtual-machines/windows/attach-managed-disk-portal.md).
-6. [Skapa en xfs-volym på den hanterade disken](https://www.digitalocean.com/docs/volumes/how-to/format-and-mount). Logga in på den virtuella datorn med de tidigare nämnda autentiseringsuppgifterna. Kör följande skript för att skapa en logisk volym, Lägg till disken i den, skapa en XFS-filsystem-partition och montera partitionen under/backup1-sökvägen.
+6. [Skapa en xfs-volym på den hanterade disken](https://www.digitalocean.com/docs/volumes/how-to/). Logga in på den virtuella datorn med de tidigare nämnda autentiseringsuppgifterna. Kör följande skript för att skapa en logisk volym, Lägg till disken i den, skapa en XFS-filsystem- [partition](https://www.digitalocean.com/docs/volumes/how-to/partition/) och [montera](https://www.digitalocean.com/docs/volumes/how-to/mount/) partitionen under/backup1-sökvägen.
 
     Exempel skript:
 
@@ -196,7 +196,7 @@ Anslut ditt virtuella nätverk till det privata molnet genom att följa anvisnin
 
 1. Skapa ett allmänt lagrings konto (GPv2) av standard typ och en BLOB-behållare enligt beskrivningen i Microsoft video [komma igång med Azure Storage](https://azure.microsoft.com/en-gb/resources/videos/get-started-with-azure-storage).
 2. Skapa en Azure Storage-behållare enligt beskrivningen i referensen för att [skapa behållare](https://docs.microsoft.com/rest/api/storageservices/create-container) .
-2. `azcopy` Hämta kommando rads verktyget för Linux från Microsoft. Du kan använda följande kommandon i bash-gränssnittet i CentOS 7,5.
+2. Hämta kommando rads verktyget `azcopy` för Linux från Microsoft. Du kan använda följande kommandon i bash-gränssnittet i CentOS 7,5.
 
     ```
     wget -O azcopy.tar.gz https://aka.ms/downloadazcopylinux64
@@ -206,9 +206,9 @@ Anslut ditt virtuella nätverk till det privata molnet genom att följa anvisnin
     sudo yum -y install icu
     ```
 
-3. `azcopy` Använd kommandot för att kopiera säkerhetskopierade filer till och från BLOB-behållaren.  Mer information finns i [överföra data med AZCopy i Linux](../storage/common/storage-use-azcopy-linux.md) för detaljerade kommandon.
+3. Använd kommandot `azcopy` för att kopiera säkerhetskopierade filer till och från BLOB-behållaren.  Mer information finns i [överföra data med AZCopy i Linux](../storage/common/storage-use-azcopy-linux.md) för detaljerade kommandon.
 
-### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>vCenter-konsol för privat moln: Installera Veeam B & R
+### <a name="vcenter-console-of-private-cloud-install-veeam-br"></a>vCenter-konsol för privat moln: installera Veeam B & R
 
 Anslut till vCenter från ditt privata moln för att skapa ett Veeam-tjänstkonto, installera Veeam B & R 9,5 och konfigurera Veeam med hjälp av tjänst kontot.
 
@@ -218,17 +218,17 @@ Anslut till vCenter från ditt privata moln för att skapa ett Veeam-tjänstkont
 
     ![Skapa ett Veeam-tjänstkonto](media/veeam-vcenter01.png)
 
-4. Skapa en distribuerad port grupp i vCenter med säkerhets kopierings nätverkets VLAN. Mer information finns i VMware-videon [skapa en distribuerad port grupp i vSphere-](https://www.youtube.com/watch?v=wpCd5ZbPOpA)webbklienten.
+4. Skapa en distribuerad port grupp i vCenter med säkerhets kopierings nätverkets VLAN. Mer information finns i VMware-videon [skapa en distribuerad port grupp i vSphere-webbklienten](https://www.youtube.com/watch?v=wpCd5ZbPOpA).
 5. Skapa de virtuella datorerna för Veeam-säkerhetskopiering och proxyservrar i vCenter enligt [system kraven för Veeam](https://helpcenter.veeam.com/docs/backup/vsphere/system_requirements.html?ver=95). Du kan använda Windows 2012 R2 eller Linux. Mer information finns i [krav för att använda säkerhets kopierings databaser för Linux](https://www.veeam.com/kb2216).
 6. Montera den installerbara Veeam ISO som en CDROM-enhet i den virtuella datorn med Veeam backup server.
 7. Använd en RDP-session på Windows 2012 R2-datorn (målet för Veeam-installationen), [Installera Veeam B & R 9.5 U3](https://helpcenter.veeam.com/docs/backup/vsphere/install_vbr.html?ver=95) i en virtuell Windows 2012 R2-dator.
 8. Hitta den interna IP-adressen för den virtuella dator som Veeam säkerhets kopierings Server och konfigurera IP-adressen så att den är statisk i DHCP-servern. De exakta stegen som krävs för detta beror på DHCP-servern. Som exempel förklarar artikel <a href="https://www.netgate.com/docs/pfsense/dhcp/dhcp-server.html" target="_blank">statiska DHCP-mappningar</a> i netgrind hur du konfigurerar en DHCP-server med en PFSense-router.
 
-### <a name="veeam-console-install-veeam-backup-and-recovery-software"></a>Veeam-konsol: Installera Veeam för säkerhets kopiering och återställning
+### <a name="veeam-console-install-veeam-backup-and-recovery-software"></a>Veeam-konsol: installera Veeam för säkerhets kopiering och återställning av program vara
 
 Konfigurera säkerhets kopierings-och återställnings program för Veeam med Veeam-konsolen. Mer information finns i [Veeam Backup & Replication v9-installation and Deployment](https://www.youtube.com/watch?v=b4BqC_WXARk).
 
-1. Lägg till VMware vSphere som en hanterad server miljö. När du uppmanas till det anger du autentiseringsuppgifterna för det Veeam-tjänstkonto som du skapade i [början av vCenter-konsolen för det privata molnet: Installera Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br).
+1. Lägg till VMware vSphere som en hanterad server miljö. När du uppmanas till det anger du autentiseringsuppgifterna för Veeam-tjänstkontot som du skapade i början av [vCenter-konsolen för privat moln: installera Veeam B & R](#vcenter-console-of-private-cloud-install-veeam-br).
 
     * Använd standardinställningar för belastnings kontroll och avancerade standardinställningar.
     * Ange att monterings Server platsen ska vara säkerhets kopierings servern.
@@ -253,12 +253,12 @@ Konfigurera säkerhets kopierings-och återställnings program för Veeam med Ve
     * Om du vill konfigurera säkerhets kopierings jobb följer du anvisningarna i videon [skapa ett säkerhets kopierings jobb](https://www.youtube.com/watch?v=LvEHV0_WDWI&t=2s).
     * Aktivera kryptering av säkerhetskopieringsfiler under **Avancerade inställningar > lagring**.
 
-### <a name="cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges"></a>CloudSimple-Portal: Konfigurera Veeam-åtkomst och ta bort behörigheter för att eskalera
+### <a name="cloudsimple-portal-set-up-veeam-access-and-de-escalate-privileges"></a>CloudSimple-portalen: Konfigurera Veeam-åtkomst och ta bort behörigheter för att eskalera
 Skapa en offentlig IP-adress för Veeam-säkerhets kopierings-och återställnings servern. Anvisningar finns i [tilldela offentliga IP-adresser](public-ips.md).
 
 Skapa en brand Väggs regel med hjälp av om du vill att Veeam ska kunna skapa en utgående anslutning till Veeam-webbplatsen för att ladda ned uppdateringar/korrigeringar på TCP-port 80. Instruktioner finns i [Konfigurera brand Väggs tabeller och regler](firewall.md).
 
-För att ta bort privilegier, se aveskalerade [privilegier](escalate-private-cloud-privileges.md#de-escalate-privileges).
+För att ta bort privilegier, se [aveskalerade privilegier](escalate-private-cloud-privileges.md#de-escalate-privileges).
 
 ## <a name="references"></a>Referenser
 

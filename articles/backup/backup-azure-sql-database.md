@@ -7,12 +7,12 @@ ms.service: backup
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: dacurwin
-ms.openlocfilehash: 1482ac4b885507e37ba5972065810682c19bebed
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 202d608e5d994cabd3d7e2e9a0887c8aab75af31
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71958463"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437833"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Om SQL Server-säkerhetskopiering i virtuella Azure-datorer
 
@@ -24,7 +24,7 @@ Den här lösningen utnyttjar SQL-inbyggda API: er för att säkerhetskopiera SQ
 
 * När du har angett SQL Server VM som du vill skydda och fråga efter databaserna i den, kommer Azure Backup-tjänsten att installera ett tillägg för säkerhets kopiering av arbets belastning på den virtuella datorn med namnet `AzureBackupWindowsWorkload`-tillägget.
 * Tillägget består av en koordinator och ett SQL-plugin-program. Även om koordinatorn ansvarar för att utlösa arbets flöden för olika åtgärder som att konfigurera säkerhets kopiering, säkerhets kopiering och återställning, är plugin-programmet ansvarigt för det faktiska data flödet.
-* För att kunna identifiera databaser på den här virtuella datorn skapar Azure Backup kontot `NT SERVICE\AzureWLBackupPluginSvc`. Det här kontot används för säkerhets kopiering och återställning och kräver SQL sysadmin-behörigheter. Azure Backup använder `NT AUTHORITY\SYSTEM`-kontot för databas identifiering/-förfrågan, så det här kontot måste vara en offentlig inloggning på SQL. Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](#set-vm-permissions).
+* För att kunna identifiera databaser på den här virtuella datorn skapar Azure Backup kontot `NT SERVICE\AzureWLBackupPluginSvc`. Det här kontot används för säkerhets kopiering och återställning och kräver SQL sysadmin-behörigheter. Kontot `NT SERVICE\AzureWLBackupPluginSvc` är ett [virtuellt tjänst konto](https://docs.microsoft.com/windows/security/identity-protection/access-control/service-accounts#virtual-accounts)och kräver därför inte någon lösen ords hantering. Azure Backup använder `NT AUTHORITY\SYSTEM`-kontot för databas identifiering/-förfrågan, så det här kontot måste vara en offentlig inloggning på SQL. Om du inte skapade SQL Server-datorn från Azure Marketplace kan det hända att du får felet **UserErrorSQLNoSysadminMembership**. Om det inträffar [följer du de här instruktionerna](#set-vm-permissions).
 * När du har aktiverat konfigurera skydd för de valda databaserna konfigurerar säkerhets kopierings tjänsten koordinatorn med säkerhets kopierings scheman och annan princip information, som tillägget cachelagrar lokalt på den virtuella datorn.
 * Vid den schemalagda tiden kommunicerar koordinatorn med plugin-programmet och börjar strömma säkerhetskopierade data från SQL-servern med VDI.  
 * Plugin-programmet skickar data direkt till Recovery Services-valvet, vilket eliminerar behovet av en mellanlagringsplats. Data krypteras och lagras av Azure Backups tjänsten i lagrings konton.
@@ -62,65 +62,66 @@ Användarna kommer inte att debiteras för den här funktionen förrän den är 
 
 ## <a name="feature-consideration-and-limitations"></a>Funktions överväganden och begränsningar
 
-- SQL Server säkerhets kopiering kan konfigureras i Azure Portal eller **PowerShell**. Vi stöder inte CLI.
-- Lösningen stöds på båda typerna av [distributioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) – Azure Resource Manager virtuella datorer och klassiska virtuella datorer.
-- Virtuell dator som kör SQL Server kräver Internet anslutning för att få åtkomst till offentliga Azure-IP-adresser.
-- SQL Server **-FCI (failover Cluster instance)** och SQL Server Always on Cluster instance stöds inte.
-- Säkerhets kopierings-och återställnings åtgärder för speglings databaser och ögonblicks bilder av databasen stöds inte.
-- Om du använder fler än en säkerhets kopierings lösning för att säkerhetskopiera din fristående SQL Server instans eller SQL Always on-tillgänglighetsgruppen kan det leda till säkerhets kopierings problem. avstå från att göra det.
-- Att säkerhetskopiera två noder i en tillgänglighets grupp individuellt med samma eller olika lösningar, kan också leda till att säkerhets kopieringen Miss lyckas.
-- Azure Backup stöder endast fullständig och endast kopiering av fullständiga säkerhets kopierings typer för **skrivskyddade** databaser
-- Databaser med ett stort antal filer kan inte skyddas. Det maximala antalet filer som stöds är **~ 1000**.  
-- Du kan säkerhetskopiera till **~ 2000** SQL Server databaser i ett valv. Du kan skapa flera valv om du har ett större antal databaser.
-- Du kan konfigurera säkerhets kopiering för upp till **50** databaser i en go; den här begränsningen hjälper till att optimera säkerhets kopierings belastning.
-- Vi har stöd för databaser upp till **2 TB** i storlek. för större storlekar kan prestanda problem uppstå.
-- För att få en uppfattning om hur många databaser som kan skyddas per server måste vi överväga faktorer som bandbredd, VM-storlek, säkerhets kopierings frekvens, databas storlek osv. [Ladda ned](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) resurs planeraren som ger det ungefärliga antalet databaser som du kan ha per server baserat på de virtuella dator resurserna och säkerhets kopierings principen.
-- Om det gäller tillgänglighets grupper tas säkerhets kopiorna från de olika noderna utifrån några faktorer. Säkerhets kopierings beteendet för en tillgänglighets grupp sammanfattas nedan.
+* SQL Server säkerhets kopiering kan konfigureras i Azure Portal eller **PowerShell**. Vi stöder inte CLI.
+* Lösningen stöds på båda typerna av [distributioner](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-model) – Azure Resource Manager virtuella datorer och klassiska virtuella datorer.
+* Virtuell dator som kör SQL Server kräver Internet anslutning för att få åtkomst till offentliga Azure-IP-adresser.
+* SQL Server **-FCI (failover Cluster instance)** och SQL Server Always on Cluster instance stöds inte.
+* Säkerhets kopierings-och återställnings åtgärder för speglings databaser och ögonblicks bilder av databasen stöds inte.
+* Om du använder fler än en säkerhets kopierings lösning för att säkerhetskopiera din fristående SQL Server instans eller SQL Always on-tillgänglighetsgruppen kan det leda till säkerhets kopierings problem. avstå från att göra det.
+* Att säkerhetskopiera två noder i en tillgänglighets grupp individuellt med samma eller olika lösningar, kan också leda till att säkerhets kopieringen Miss lyckas.
+* Azure Backup stöder endast fullständig och endast kopiering av fullständiga säkerhets kopierings typer för **skrivskyddade** databaser
+* Databaser med ett stort antal filer kan inte skyddas. Det maximala antalet filer som stöds är **~ 1000**.  
+* Du kan säkerhetskopiera till **~ 2000** SQL Server databaser i ett valv. Du kan skapa flera valv om du har ett större antal databaser.
+* Du kan konfigurera säkerhets kopiering för upp till **50** databaser i en go; den här begränsningen hjälper till att optimera säkerhets kopierings belastning.
+* Vi har stöd för databaser upp till **2 TB** i storlek. för större storlekar kan prestanda problem uppstå.
+* För att du ska kunna se hur många databaser som kan skyddas per server måste vi överväga faktorer som bandbredd, VM-storlek, säkerhets kopierings frekvens, databas storlek osv. [Ladda ned](https://download.microsoft.com/download/A/B/5/AB5D86F0-DCB7-4DC3-9872-6155C96DE500/SQL%20Server%20in%20Azure%20VM%20Backup%20Scale%20Calculator.xlsx) resurs planeraren som ger det ungefärliga antalet databaser som du kan ha per Server baserat på de virtuella dator resurserna och säkerhets kopierings principen.
+* Om det gäller tillgänglighets grupper tas säkerhets kopiorna från de olika noderna utifrån några faktorer. Säkerhets kopierings beteendet för en tillgänglighets grupp sammanfattas nedan.
 
 ### <a name="back-up-behavior-in-case-of-always-on-availability-groups"></a>Säkerhetskopiera beteende om Always on-tillgänglighetsgrupper
 
 Vi rekommenderar att säkerhets kopian bara konfigureras på en nod i en AG. Säkerhets kopieringen ska alltid konfigureras i samma region som den primära noden. Med andra ord behöver du alltid den primära noden för att finnas i den region där du konfigurerar säkerhets kopieringen. Om alla noder i AG finns i samma region som säkerhets kopian har kon figurer ATS för, finns det inga problem.
 
-**För en AG i flera regioner**
-- Oberoende av säkerhets kopierings inställningen sker inga säkerhets kopieringar från noderna som inte finns i samma region där säkerhets kopian har kon figurer ATS. Detta beror på att det inte finns stöd för säkerhets kopiering mellan regioner. Om du bara har två noder och den sekundära noden finns i den andra regionen, i det här fallet fortsätter säkerhets kopieringarna från den primära noden (om inte säkerhets kopierings inställningen är sekundär).
-- Om ett fel uppstår i en annan region än den där säkerhets kopian har kon figurer ATS, Miss lyckas säkerhets kopieringarna på noderna i den felande regionen.
+#### <a name="for-cross-region-ag"></a>För en AG i flera regioner
+
+* Oberoende av säkerhets kopierings inställningen sker inga säkerhets kopieringar från noderna som inte finns i samma region där säkerhets kopian har kon figurer ATS. Detta beror på att det inte finns stöd för säkerhets kopiering mellan regioner. Om du bara har två noder och den sekundära noden finns i den andra regionen, i det här fallet fortsätter säkerhets kopieringarna från den primära noden (om inte säkerhets kopierings inställningen är sekundär).
+* Om ett fel uppstår i en annan region än den där säkerhets kopian har kon figurer ATS, Miss lyckas säkerhets kopieringarna på noderna i den felande regionen.
 
 Beroende på vilka säkerhets kopierings-och säkerhets kopierings typer (fullständig/differentiell/Logga/kopiera endast fullständig), tas säkerhets kopiorna från en viss nod (primär/sekundär).
 
-- **Backup-preferens: Primär @ no__t-0
+* **Säkerhets kopierings inställning: primär**
 
 **Typ av säkerhets kopiering** | **Node**
     --- | ---
     Fullständig | Primär
     Differentiell | Primär
-    log |  Primär
+    Logg |  Primär
     Fullständig kopia |  Primär
 
-- **Backup-preferens: Endast sekundär @ no__t-0
+* **Inställningar för säkerhets kopiering: endast sekundär**
 
 **Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-log |  Sekundär
+Logg |  Sekundär
 Fullständig kopia |  Sekundär
 
-- **Backup-preferens: Sekundär @ no__t-0
+* **Säkerhets kopierings inställning: sekundär**
 
 **Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-log |  Sekundär
+Logg |  Sekundär
 Fullständig kopia |  Sekundär
 
-- **Ingen säkerhets kopierings inställning**
+* **Ingen säkerhets kopierings inställning**
 
 **Typ av säkerhets kopiering** | **Node**
 --- | ---
 Fullständig | Primär
 Differentiell | Primär
-log |  Sekundär
+Logg |  Sekundär
 Fullständig kopia |  Sekundär
 
 ## <a name="set-vm-permissions"></a>Ange VM-behörigheter
@@ -146,11 +147,11 @@ För alla andra versioner måste du åtgärda behörigheterna med följande steg
 
       ![I dialogrutan Inloggning – ny väljer du Sök](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. Kontot för virtuell Windows-tjänst, **NT SERVICE\AzureWLBackupPluginSvc**, skapades under registreringen av den virtuell datorn och SQL-identifieringsfasen. Ange kontonamnet såsom det visas i **Ange ett objektnamn du vill markera**. Välj **Kontrollera namn** för att matcha namnet. Klicka på **OK**.
+  4. Kontot för virtuell Windows-tjänst, **NT SERVICE\AzureWLBackupPluginSvc**, skapades under registreringen av den virtuell datorn och SQL-identifieringsfasen. Ange kontonamnet såsom det visas i **Ange ett objektnamn du vill markera**. Välj **Kontrollera namn** för att matcha namnet. Klicka på **OK**
 
       ![Välj Kontrollera namn för att matcha det okända tjänstnamnet](./media/backup-azure-sql-database/check-name.png)
 
-  5. I **Serverroller** kontrollerar du att serverrollen **sysadmin** har valts. Klicka på **OK**. De behörigheter som krävs bör nu finnas.
+  5. I **Serverroller** kontrollerar du att serverrollen **sysadmin** har valts. Klicka på **OK** De behörigheter som krävs bör nu finnas.
 
       ![Kontrollera att serverrollen sysadmin har valts](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -189,7 +190,7 @@ Lägg till **NT instans\system** -och **NT Service\AzureWLBackupPluginSvc** -inl
 
 7. Klicka på OK.
 8. Upprepa samma steg (1-7 ovan) för att lägga till NT Service\AzureWLBackupPluginSvc-inloggning till SQL Server-instansen. Om inloggningen redan finns kontrollerar du att den har Server rollen sysadmin och under status har den behörighet att ansluta till databas motorn och logga in som aktive rad.
-9. När du har beviljat behörighet ska du **identifiera databaser** i portalen: Valv **->** säkerhets kopierings infrastruktur **->** arbets belastningar i virtuell Azure-dator:
+9. När du har beviljat behörighet kan du **identifiera databaser** i portalen: valv **->** säkerhets kopierings infrastruktur **->** arbets belastning i virtuell Azure-dator:
 
     ![Identifiera databaser i Azure Portal](media/backup-azure-sql-database/sql-rediscover-dbs.png)
 
@@ -227,7 +228,6 @@ catch
     Write-Host $_.Exception|format-list -force
 }
 ```
-
 
 ## <a name="next-steps"></a>Nästa steg
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/28/2019
 ms.author: mjbrown
-ms.openlocfilehash: 59f1a678b7a2edc64a2079eff0e819e206c2e509
-ms.sourcegitcommit: 80da36d4df7991628fd5a3df4b3aa92d55cc5ade
+ms.openlocfilehash: 06df85c73b6060bf166df37679457715522f80d8
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71811689"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385770"
 ---
 # <a name="manage-azure-cosmos-resources-using-azure-cli"></a>Hantera Azure Cosmos-resurser med Azure CLI
 
@@ -45,7 +45,7 @@ az cosmosdb create \
 Skapa ett Azure Cosmos-konto med två regioner, Lägg till en region och ta bort en region.
 
 > [!NOTE]
-> Du kan inte lägga till eller ta `locations` bort regioner samtidigt och ändra andra egenskaper för ett Azure Cosmos-konto. Ändra regioner måste utföras som en separat åtgärd än andra ändringar i konto resursen.
+> Du kan inte lägga till eller ta bort regioner samtidigt `locations` och ändra andra egenskaper för ett Azure Cosmos-konto. Ändra regioner måste utföras som en separat åtgärd än andra ändringar i konto resursen.
 > [!NOTE]
 > Med det här kommandot kan du lägga till och ta bort regioner, men du kan inte ändra prioriteter för redundans eller utlösa en manuell redundansväxling. Se [ange prioritet för redundans](#set-failover-priority) och [utlösa manuell redundans](#trigger-manual-failover).
 
@@ -156,9 +156,10 @@ Hämta skrivskyddade nycklar för ett Cosmos-konto.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-read-only-keys \
-   -n $accountName \
-   -g $resourceGroupName
+az cosmosdb keys list \
+    -n $accountName \
+    -g $resourceGroupName \
+    --type read-only-keys
 ```
 
 ## <a name="list-connection-strings"></a>Lista anslutnings strängar
@@ -170,9 +171,10 @@ Hämta anslutnings strängarna för ett Cosmos-konto.
 resourceGroupName='MyResourceGroup'
 accountName='mycosmosaccount'
 
-az cosmosdb list-connection-strings \
+az cosmosdb keys list \
     -n $accountName \
-    -g $resourceGroupName
+    -g $resourceGroupName \
+    --type connection-strings
 ```
 
 ## <a name="regenerate-account-key"></a>Återskapa konto nyckel
@@ -182,7 +184,7 @@ az cosmosdb list-connection-strings \
 ```azurecli-interactive
 # Regenerate secondary account keys
 # key-kind values: primary, primaryReadonly, secondary, secondaryReadonly
-az cosmosdb regenerate-key \
+az cosmosdb keys regenerate \
     -n $accountName \
     -g $resourceGroupName \
     --key-kind secondary

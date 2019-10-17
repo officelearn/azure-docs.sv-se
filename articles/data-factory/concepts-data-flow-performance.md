@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.date: 10/07/2019
-ms.openlocfilehash: 9db1b96cb495fd0de452091da79ab61f7ae59118
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 24b0deb60f1047228dc3ff6000d423e7cb6939ca
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72030680"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387326"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Prestanda-och justerings guiden för att mappa data flöden
 
@@ -23,11 +23,11 @@ När du utformar och testar data flöden från ADF-UX måste du växla till fel 
 
 När du skapar mappnings data flöden kan du Unit testa varje omvandling genom att klicka på fliken Data förhands granskning på konfigurations panelen. När du har verifierat din logik kan du testa ditt data flöde från slut punkt till slut punkt som en aktivitet i en pipeline. Lägg till aktiviteten kör data flöde och Använd knappen Felsök för att testa data flödets prestanda. Öppna körnings planen och prestanda profilen för ditt data flöde genom att klicka på glasögon-ikonen under "åtgärder" på fliken utmatning i pipelinen.
 
-Data ![flöde övervaka](media/data-flow/mon002.png "data flöde övervakare 2")
+![Data flödes övervakare](media/data-flow/mon002.png "Data flödes övervakare 2")
 
  Du kan använda den här informationen för att uppskatta prestanda för ditt data flöde mot olika data källor. Mer information finns i [övervaka mappning av data flöden](concepts-data-flow-monitoring.md).
 
-![Övervaknings](media/data-flow/mon003.png "data") flöde övervakning 3 för data flöde
+![Dataflödesövervakning](media/data-flow/mon003.png "Data flödes övervakare 3")
 
  För pipeliniska fel söknings körningar krävs en minut i kluster konfigurations tiden i de övergripande prestanda beräkningarna för ett varmt kluster. Om du initierar standard Azure Integration Runtime kan tiden ta cirka 5 minuter.
 
@@ -37,7 +37,7 @@ En Integration Runtime med fler kärnor ökar antalet noder i beräknings miljö
 * Prova ett **Compute-optimerat** kluster om du vill att din bearbetnings takt ska vara högre än din ingående hastighet
 * Försök med **ett minnesoptimerade** kluster om du vill cachelagra mer data i minnet.
 
-![Ny IR](media/data-flow/ir-new.png "ny IR")
+![Ny IR](media/data-flow/ir-new.png "Ny IR")
 
 Mer information om hur du skapar en Integration Runtime finns [i integration runtime i Azure Data Factory](concepts-integration-runtime.md).
 
@@ -56,7 +56,7 @@ Som standard använder fel söknings programmet standard Azure integration runti
 1. Om du har valt **kolumn**väljer du kolumnen partition.
 1. Om du har valt **fråga**anger du en fråga som matchar partitionerings schemats databas tabell. Med den här frågan kan käll databas motorn utnyttja partition Eli minering. Käll databas tabellerna behöver inte partitioneras. Om källan inte redan är partitionerad använder ADF fortfarande data partitionering i miljön Spark-omvandling baserat på den nyckel som du väljer i käll omvandlingen.
 
-![Käll dels](media/data-flow/sourcepart3.png "källa")
+![Käll del](media/data-flow/sourcepart3.png "Käll del")
 
 ### <a name="source-batch-size-input-and-isolation-level"></a>Käll grupps storlek, Indatatyp och isolerings nivå
 
@@ -66,13 +66,13 @@ Under **käll alternativ** i käll omvandlingen kan följande inställningar på
 * Genom att ställa in en fråga kan du filtrera rader på källan innan de anländer till data flödet för bearbetning. Detta kan göra den första data hämtningen snabbare. Om du använder en fråga kan du lägga till valfria frågeuttryck för din Azure SQL DB, till exempel READ uncommitted.
 * Vid Läs behörighet får du snabbare frågeresultat om käll omvandling
 
-![Käll](media/data-flow/source4.png "källa")
+![Källa](media/data-flow/source4.png "Källa")
 
 ### <a name="sink-batch-size"></a>Grupp storlek för mottagare
 
 Om du vill undvika rad-för-rad-bearbetning av dina data flöden ställer du in **batchstorleken** på fliken Inställningar för Azure SQL DB och Azure SQL DW-mottagare. Om batchstorleken anges, bearbetar ADF databas skrivningar i batchar baserat på den storlek som angetts.
 
-![Mottagar](media/data-flow/sink4.png "mottagare")
+![Sjönk](media/data-flow/sink4.png "Kanalmottagare")
 
 ### <a name="partitioning-on-sink"></a>Partitionering på handfat
 
@@ -101,7 +101,7 @@ Vid varje omvandling kan du ange det partitionerings schema som du vill att Data
 Vid fel sökning i data förhands granskning och fel sökning av pipelinen gäller gräns-och samplings storlekarna för filbaserade käll data uppsättningar endast för det antal rader som returneras, inte antalet rader som läses. Detta kan påverka prestandan för dina fel söknings körningar och möjligen orsaka att flödet slutar fungera.
 * Fel söknings kluster är små kluster med en nod som standard och vi rekommenderar att du använder små exempel filer för fel sökning. Gå till fel söknings inställningar och peka på en liten delmängd av dina data med en temporär fil.
 
-    ![Felsöka inställningar](media/data-flow/debugsettings3.png "") för fel söknings inställningar
+    ![Fel söknings inställningar](media/data-flow/debugsettings3.png "Fel söknings inställningar")
 
 ### <a name="file-naming-options"></a>Fil namns alternativ
 

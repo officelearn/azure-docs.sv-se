@@ -17,14 +17,14 @@ ms.author: yegu
 ms.custom:
 - mvc
 - seo-python-october2019
-ms.openlocfilehash: 87c22d3497765fca6f0dcae445152e6e2923510e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 5367896c931bf7c5f52b0874d49ede2fc78614ab
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329869"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435520"
 ---
-# <a name="quickstart-use-azure-cache-for-redis-with-python"></a>Snabb start: Använd Azure cache för Redis med python
+# <a name="quickstart-create-a-python-app-that-uses-azure-cache-for-redis"></a>Snabb start: skapa en python-app som använder Azure cache för Redis
 
 I den här artikeln införlivar du Azure cache för Redis i en python-app för att få åtkomst till en säker, dedikerad cache som är tillgänglig från alla program i Azure.
 
@@ -48,7 +48,7 @@ I följande exempel används *PIP3* för python3 för att installera Redis-py-pa
     pip3 install redis
 ```
 
-![Installera redis-py](./media/cache-python-get-started/cache-python-install-redis-py.png)
+![Installera Redis-py python-gränssnittet till Azure cache för Redis](./media/cache-python-get-started/cache-python-install-redis-py.png)
 
 
 ## <a name="read-and-write-to-the-cache"></a>Läsa och skriva till cachen
@@ -100,7 +100,7 @@ for c in result:
 
 Kör skriptet med Python.
 
-![Python-testet slutfördes](./media/cache-python-get-started/cache-python-completed.png)
+![Kör Python-skript för att testa cache-åtkomst i Azure cache för Redis](./media/cache-python-get-started/cache-python-completed.png)
 
 
 ## <a name="clean-up-resources"></a>Rensa resurser
@@ -117,7 +117,7 @@ Logga in på [Azure-portalen](https://portal.azure.com) och välj **Resursgruppe
 
 I text rutan **Filtrera efter namn...** anger du namnet på din resurs grupp. Anvisningarna för den här artikeln använde en resursgrupp med namnet *TestResources*. I resurs gruppen i resultat listan väljer du **...** och sedan **ta bort resurs grupp**.
 
-![Ta bort](./media/cache-web-app-howto/cache-delete-resource-group.png)
+![Ta bort din snabb starts resurs grupp för Azure cache för Redis](./media/cache-web-app-howto/delete-your-resource-group-for-azure-cache-for-redis.png)
 
 Du blir ombedd att bekräfta borttagningen av resursgruppen. Ange namnet på resurs gruppen som ska bekräftas och välj **ta bort**.
 

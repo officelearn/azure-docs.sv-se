@@ -1,6 +1,6 @@
 ---
-title: Detaljerade instruktioner för Azure Statusövervakare v2 | Microsoft Docs
-description: Detaljerade anvisningar för att komma igång med Statusövervakare v2. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
+title: Detaljerade instruktioner för Azure Application Insights-agent | Microsoft Docs
+description: Detaljerade anvisningar för att komma igång med Application Insights-agent. Övervaka webbplatsens prestanda utan att omdistribuera webbplatsen. Fungerar med ASP.NET-webbappar som finns lokalt, i virtuella datorer eller på Azure.
 services: application-insights
 documentationcenter: .net
 author: TimothyMothra
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: tilee
-ms.openlocfilehash: 791db3de897231667d184f08ee152705c59a1e35
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: d7a6db65b92ec2d3a3fdcf55aea0523f57012be1
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057857"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388229"
 ---
-# <a name="status-monitor-v2-detailed-instructions"></a>Statusövervakare v2: Detaljerade anvisningar
+# <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights agent (tidigare namngiven Statusövervakare v2): detaljerade anvisningar
 
 Den här artikeln beskriver hur du integrerar till PowerShell-galleriet och laddar ned ApplicationMonitor-modulen.
 Här ingår de vanligaste parametrarna som du måste komma igång med.
@@ -34,11 +34,11 @@ Du behöver en Instrumentation-nyckel för att komma igång. Mer information fin
 ### <a name="run-as-admin"></a>Kör som administratör
 
 PowerShell behöver behörigheter på administratörs nivå för att göra ändringar i datorn.
-### <a name="execution-policy"></a>Körningsprincip
-- Beskrivning: Som standard är körning av PowerShell-skript inaktiverat. Vi rekommenderar att du endast tillåter RemoteSigned-skript för det aktuella omfånget.
-- Referens: [Om körnings principer](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) och [set-](
+### <a name="execution-policy"></a>Körnings princip
+- Beskrivning: som standard är körning av PowerShell-skript inaktiverat. Vi rekommenderar att du endast tillåter RemoteSigned-skript för det aktuella omfånget.
+- Referens: [om körnings principer](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6) och [set-ExecutionPolicy](
 https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-executionpolicy?view=powershell-6
-)ExecutionPolicy.
+).
 - Kommando: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
 - Valfri parameter:
     - `-Force`. Åsidosätter bekräftelse meddelandet.
@@ -57,7 +57,7 @@ https:/go.microsoft.com/fwlink/?LinkID=135170.
 
 ## <a name="prerequisites-for-powershell"></a>Krav för PowerShell
 
-Granska din instans av PowerShell genom att `$PSVersionTable` köra kommandot.
+Granska din instans av PowerShell genom att köra kommandot `$PSVersionTable`.
 Det här kommandot ger följande utdata:
 
 
@@ -87,8 +87,8 @@ De här stegen förbereder servern för att ladda ned moduler från PowerShell-g
 
 1. Kör PowerShell som administratör med en förhöjd körnings princip.
 2. Installera NuGet-paket leverantören.
-    - Beskrivning: Du behöver den här providern för att interagera med NuGet-baserade databaser som PowerShell-galleriet.
-    - Referens: [Install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
+    - Beskrivning: du behöver den här providern för att interagera med NuGet-baserade databaser som PowerShell-galleriet.
+    - Referens: [install-PackageProvider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
     - Kommando: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
     - Valfria parametrar:
         - `-Proxy`. Anger en proxyserver för begäran.
@@ -105,8 +105,8 @@ De här stegen förbereder servern för att ladda ned moduler från PowerShell-g
         [Y] Yes  [N] No  [S] Suspend  [?] Help (default is "Y"):
     
 3. Konfigurera PowerShell-galleriet som ett betrott lager.
-    - Beskrivning: Som standard är PowerShell-galleriet en obetrodd lagrings plats.
-    - Referens: [Set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
+    - Beskrivning: som standard är PowerShell-galleriet ett ej betrott lager.
+    - Referens: [set-PSRepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - Kommando: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
     - Valfri parameter:
         - `-Proxy`. Anger en proxyserver för begäran.
@@ -119,11 +119,11 @@ De här stegen förbereder servern för att ladda ned moduler från PowerShell-g
         'PSGallery'?
         [Y] Yes  [A] Yes to All  [N] No  [L] No to All  [S] Suspend  [?] Help (default is "N"):
 
-    Du kan bekräfta ändringen och granska alla PSRepositories genom att `Get-PSRepository` köra kommandot.
+    Du kan bekräfta ändringen och granska alla PSRepositories genom att köra kommandot `Get-PSRepository`.
 
 4. Installera den senaste versionen av PowerShellGet.
-    - Beskrivning: Den här modulen innehåller verktyg som används för att hämta andra moduler från PowerShell-galleriet. Version 1.0.0.1 levereras med Windows 10 och Windows Server. Version 1.6.0 eller högre krävs. Du kan ta reda på vilken version som är `Get-Command -Module PowerShellGet` installerad genom att köra kommandot.
-    - Referens: [Installerar PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
+    - Beskrivning: den här modulen innehåller verktyg som används för att hämta andra moduler från PowerShell-galleriet. Version 1.0.0.1 levereras med Windows 10 och Windows Server. Version 1.6.0 eller högre krävs. Du kan ta reda på vilken version som är installerad genom att köra kommandot `Get-Command -Module PowerShellGet`.
+    - Referens: [installerar PowerShellGet](https://docs.microsoft.com/powershell/gallery/installing-psget).
     - Kommando: `Install-Module -Name PowerShellGet`.
     - Valfria parametrar:
         - `-Proxy`. Anger en proxyserver för begäran.
@@ -147,7 +147,7 @@ De här stegen hämtar modulen AZ. ApplicationMonitor från PowerShell-galleriet
 1. Se till att alla nödvändiga komponenter för PowerShell-galleriet är uppfyllda.
 2. Kör PowerShell som administratör med en förhöjd körnings princip.
 3. Installera modulen AZ. ApplicationMonitor.
-    - Referens: [Installera-modul](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
+    - Referens: [installera-modul](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
     - Kommando: `Install-Module -Name Az.ApplicationMonitor`.
     - Valfria parametrar:
         - `-Proxy`. Anger en proxyserver för begäran.
@@ -165,15 +165,15 @@ Om du av någon anledning inte kan ansluta till PowerShell-modulen kan du hämta
 2. Välj den senaste versionen av filen i tabellen **versions historik** .
 3. Under **installations alternativ**väljer du **manuell nedladdning**.
 
-### <a name="option-1-install-into-a-powershell-modules-directory"></a>Alternativ 1: Installera i en katalog med PowerShell-moduler
+### <a name="option-1-install-into-a-powershell-modules-directory"></a>Alternativ 1: installera i en katalog med PowerShell-moduler
 Installera den manuellt hämtade PowerShell-modulen i en PowerShell-katalog så att den kan identifieras av PowerShell-sessioner.
 Mer information finns i [installera en PowerShell-modul](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
 
 #### <a name="unzip-nupkg-as-a-zip-file-by-using-expand-archive-v1010"></a>Zippa upp nupkg som en zip-fil med hjälp av Expand-Archive (v 1.0.1.0)
 
-- Beskrivning: Bas versionen av Microsoft. PowerShell. Archive (v 1.0.1.0) kan inte zippa upp nupkg-filer. Byt namn på filen med fil namns tillägget. zip.
-- Referens: [Expandera – arkivera](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
+- Beskrivning: bas versionen av Microsoft. PowerShell. Archive (v 1.0.1.0) kan inte zippa upp nupkg-filer. Byt namn på filen med fil namns tillägget. zip.
+- Referens: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6).
 - Kommandoprompt
 
     ```
@@ -187,7 +187,7 @@ Mer information finns i [installera en PowerShell-modul](https://docs.microsoft.
 #### <a name="unzip-nupkg-by-using-expand-archive-v1100"></a>Zippa upp nupkg med hjälp av Expand-Archive (v 1.1.0.0)
 
 - Beskrivning: Använd en aktuell version av Expand-Archive för att zippa upp nupkg-filer utan att ändra tillägget.
-- Referens: [Expandera – arkivera](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) och [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
+- Referens: [Expand-Archive](https://docs.microsoft.com/powershell/module/microsoft.powershell.archive/expand-archive?view=powershell-6) och [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive/1.1.0.0).
 - Kommandoprompt
 
     ```
@@ -196,7 +196,7 @@ Mer information finns i [installera en PowerShell-modul](https://docs.microsoft.
     Expand-Archive -LiteralPath $pathToNupkg -DestinationPath $pathInstalledModule
     ```
 
-### <a name="option-2-unzip-and-import-nupkg-manually"></a>Alternativ 2: Zippa upp och importera nupkg manuellt
+### <a name="option-2-unzip-and-import-nupkg-manually"></a>Alternativ 2: packa upp och importera nupkg manuellt
 Installera den manuellt hämtade PowerShell-modulen i en PowerShell-katalog så att den kan identifieras av PowerShell-sessioner.
 Mer information finns i [installera en PowerShell-modul](https://docs.microsoft.com/powershell/developer/module/installing-a-powershell-module).
 
@@ -209,24 +209,24 @@ Om du installerar modulen i en annan katalog importerar du modulen manuellt med 
 1. Ändra tillägget till ". zip" och extrahera innehållet i paketet till din avsedda installations katalog.
 2. Hitta sökvägen till filen AZ. ApplicationMonitor. psd1.
 3. Kör PowerShell som administratör med en förhöjd körnings princip.
-4. Läs in modulen med hjälp `Import-Module Az.ApplicationMonitor.psd1` av kommandot.
+4. Läs in modulen med hjälp av kommandot `Import-Module Az.ApplicationMonitor.psd1`.
     
 
 ## <a name="route-traffic-through-a-proxy"></a>Dirigera trafik via en proxy
 
 När du övervakar en dator i ditt privata intranät måste du dirigera HTTP-trafik via en proxy.
 
-PowerShell-kommandon för att hämta och installera AZ. ApplicationMonitor från PowerShell-galleriet stöd för `-Proxy` en parameter.
+PowerShell-kommandon för att hämta och installera AZ. ApplicationMonitor från PowerShell-galleriet stöd för en `-Proxy`-parameter.
 Granska föregående instruktioner när du skriver installations skripten.
 
-Application Insights SDK måste skicka appens telemetri till Microsoft. Vi rekommenderar att du konfigurerar proxyinställningar för din app i din Web. config-fil. Mer information finns i [Application Insights vanliga frågor och svar: Proxy-](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough)genomströmning.
+Application Insights SDK måste skicka appens telemetri till Microsoft. Vi rekommenderar att du konfigurerar proxyinställningar för din app i din Web. config-fil. Mer information finns i [Application Insights FAQ: proxy passthrough](https://docs.microsoft.com/azure/azure-monitor/app/troubleshoot-faq#proxy-passthrough).
 
 
 ## <a name="enable-monitoring"></a>Aktivera övervakning
 
-`Enable-ApplicationInsightsMonitoring` Använd kommandot för att aktivera övervakning.
+Använd kommandot `Enable-ApplicationInsightsMonitoring` för att aktivera övervakning.
 
-En detaljerad beskrivning av hur du använder den här cmdleten finns i [API](status-monitor-v2-api-enable-monitoring.md) -referensen.
+En detaljerad beskrivning av hur du använder den här cmdleten finns i [API-referensen](status-monitor-v2-api-enable-monitoring.md) .
 
 
 
@@ -241,10 +241,10 @@ En detaljerad beskrivning av hur du använder den här cmdleten finns i [API](st
 
  Lägg till mer telemetri:
 
-- [Skapa](monitor-web-app-availability.md) webbtester för att se till att din webbplats hålls Live.
+- [Skapa webbtester](monitor-web-app-availability.md) för att se till att din webbplats hålls Live.
 - [Lägg till telemetri för webb klienter](../../azure-monitor/app/javascript.md) om du vill visa undantag från webb sidans kod och aktivera spårnings anrop.
 - [Lägg till Application Insights SDK till din kod](../../azure-monitor/app/asp-net.md) så att du kan infoga spårnings-och logg anrop.
 
-Gör mer med Statusövervakare v2:
+Gör mer med Application Insights agent:
 
-- Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) statusövervakare v2.
+- Använd vår guide för att [felsöka](status-monitor-v2-troubleshoot.md) Application Insights-agenten.

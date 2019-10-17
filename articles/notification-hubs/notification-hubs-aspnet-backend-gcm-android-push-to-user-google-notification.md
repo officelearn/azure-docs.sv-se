@@ -1,5 +1,5 @@
 ---
-title: Push-meddelanden till användare av specifika Android-program med Azure Notification Hubs | Microsoft Docs
+title: Skicka meddelanden till vissa Android-program med Azure Notification Hubs | Microsoft Docs
 description: Lär dig att använda Azure Notification Hubs till att skicka push-meddelanden till specifika användare.
 documentationcenter: android
 services: notification-hubs
@@ -17,21 +17,21 @@ ms.date: 01/04/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: 1b867d571e97209c4385c1f23b49fe5a03ab94d5
-ms.sourcegitcommit: 3fa4384af35c64f6674f40e0d4128e1274083487
+ms.openlocfilehash: c5c9ec26c9387cd9ae129002697210c2b342ab9b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212073"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72385894"
 ---
-# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudier: Push-meddelande till specifika Android-programanvändare med hjälp av Azure Notification Hubs och Google Cloud Messaging (inaktuell)
+# <a name="tutorial-push-notification-to-specific-android-application-users-by-using-azure-notification-hubs-and-google-cloud-messaging-deprecated"></a>Självstudie: push-meddelanden till specifika Android-programanvändare med hjälp av Azure Notification Hubs och Google Cloud Messaging (inaktuell)
 
 > [!WARNING]
 > Från och med den 10 april 2018 har Google föråldrad Google Cloud Messaging (GCM). GCM-servern och klient-API: erna är inaktuella och tas bort så snart som den 29 maj 2019. Mer information finns i [GCM och FCM vanliga frågor och svar](https://developers.google.com/cloud-messaging/faq).
 
 [!INCLUDE [notification-hubs-selector-aspnet-backend-notify-users](../../includes/notification-hubs-selector-aspnet-backend-notify-users.md)]
 
-Denna självstudie visar hur du använder Azure Notification Hubs till att skicka push-meddelanden till en specifik appanvändare på en specifik enhet. En ASP.NET WebAPI-serverdel används för att autentisera klienter och generera meddelanden, vilket visas i artikeln [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den här självstudien bygger på den meddelandehubb som du skapade i [Självstudie: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
+Denna självstudie visar hur du använder Azure-meddelandehubbar för att skicka push-meddelanden till en specifik app-användare på en viss enhet. En ASP.NET WebAPI-serverdel används för att autentisera klienter och generera meddelanden, vilket visas i artikeln [Registrering från din apps serverdel](notification-hubs-push-notification-registration-management.md#registration-management-from-a-backend). Den här självstudien bygger på den meddelandehubb som du skapade i [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
 
 I den här självstudien gör du följande:
 
@@ -40,15 +40,15 @@ I den här självstudien gör du följande:
 > * Uppdatera Android-programmet.
 > * Testa appen
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-Slutför [Självstudie: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) innan du börjar med den här självstudien.
+Slutför [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md) innan du börjar med den här självstudien.
 
 [!INCLUDE [notification-hubs-aspnet-backend-notifyusers](../../includes/notification-hubs-aspnet-backend-notifyusers.md)]
 
 ## <a name="create-the-android-project"></a>Skapa Android-projektet
 
-Nästa steg är att uppdatera den Android-app som skapas i [Självstudie: Skicka push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
+Nästa steg är att uppdatera Android-programmet som skapades i [Självstudie: Push-meddelanden till Android-enheter med hjälp av Azure Notification Hubs och Google Cloud Messaging](notification-hubs-android-push-notification-google-gcm-get-started.md).
 
 1. Öppna filen `res/layout/activity_main.xml` och ersätt följande innehållsdefinitioner:
 
@@ -406,7 +406,7 @@ Nästa steg är att uppdatera den Android-app som skapas i [Självstudie: Skicka
     }
     ```
 
-    Hanteraren för **inloggnings** knappen genererar en grundläggande autentiseringstoken med hjälp av användar namn och lösen ord (den representerar alla token som används i autentiseringsschemat) och använder `RegisterClient` sedan för att anropa Server delen för registrering `login` .
+    @No__t-0-hanteraren för **inloggnings** knappen genererar en grundläggande autentiseringstoken med hjälp av användar namn och lösen ord (det representerar alla token som används i autentiseringsschemat) och använder sedan `RegisterClient` för att anropa Server delen för registrering.
 
     `sendPush`-metoden anropar serverdelen för att utlösa ett säkert meddelande till användaren baserat på användartaggen. Plattformens meddelandetjänst som `sendPush` har som mål är beroende av `pns`-strängen som skickats.
 

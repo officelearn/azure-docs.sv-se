@@ -1,6 +1,6 @@
 ---
-title: Azure resource provider registreringsfel | Microsoft Docs
-description: Beskriver hur du löser registreringsfel för Azure resource provider.
+title: Registrerings fel för Azure Resource Provider | Microsoft Docs
+description: Beskriver hur du löser registrerings fel i Azure Resource Provider när du distribuerar resurser med Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 02/15/2019
 ms.author: tomfitz
-ms.openlocfilehash: 2f3db5e6260b065c83f0e337306d38dca6e5ff51
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fcdcfdfe736f29f18ea2dc240a66fd7fa6bc404b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60389955"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390265"
 ---
-# <a name="resolve-errors-for-resource-provider-registration"></a>Åtgärda fel för registreringen av resursprovidern
+# <a name="resolve-errors-for-resource-provider-registration"></a>Lösa fel för registrering av resurs leverantör
 
-Den här artikeln beskriver de fel som kan uppstå när du använder en provider för nätverksresurser som du inte tidigare har använt i din prenumeration.
+I den här artikeln beskrivs de fel som kan uppstå när du använder en resurs leverantör som du inte tidigare har använt i din prenumeration.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
-När du distribuerar resurs visas följande felkod och meddelandet:
+När du distribuerar en resurs kan du få följande felkod och meddelande:
 
 ```
 Code: NoRegisteredProviderFound
@@ -36,16 +36,16 @@ Message: No registered resource provider found for location {location}
 and API version {api-version} for type {resource-type}.
 ```
 
-Eller så visas ett meddelande liknande som säger:
+Eller så kan du få ett liknande meddelande som säger:
 
 ```
 Code: MissingSubscriptionRegistration
 Message: The subscription is not registered to use namespace {resource-provider-namespace}
 ```
 
-Felmeddelandet bör ge dig förslag på platser som stöds och API-versioner. Du kan ändra mallen till något av de föreslagna värdena. De flesta leverantörer är registrerade automatiskt av Azure portal eller kommandoradsgränssnittet som du använder, men inte alla. Om du inte har använt en viss resursprovider innan du kan behöva du registrera den providern.
+Fel meddelandet bör ge förslag på platser och API-versioner som stöds. Du kan ändra mallen till ett av de föreslagna värdena. De flesta leverantörer registreras automatiskt av Azure Portal eller kommando rads gränssnittet som du använder, men inte alla. Om du inte har använt en viss resurs leverantör tidigare kan du behöva registrera providern.
 
-Eller när du inaktiverar automatisk avstängning för virtuella datorer, så visas ett felmeddelande som liknar:
+Eller, när du inaktiverar automatisk avstängning för virtuella datorer, kan du få ett fel meddelande som liknar:
 
 ```
 Code: AuthorizationFailed
@@ -54,34 +54,34 @@ Message: The client '<identifier>' with object id '<identifier>' does not have a
 
 ## <a name="cause"></a>Orsak
 
-De här felen visas i något av följande skäl:
+Du får de här felen av någon av följande orsaker:
 
-* Den nödvändiga resursprovidern har inte registrerats för din prenumeration
-* API-versionen stöds inte för resurstypen
-* Plats stöds inte för resurstypen
-* Resursprovidern Microsoft.DevTestLab för automatisk avstängning av virtuella datorer, måste vara registrerad.
+* Den obligatoriska resurs leverantören har inte registrerats för din prenumeration
+* API-versionen stöds inte för resurs typen
+* Platsen stöds inte för resurs typen
+* För automatisk avstängning av virtuella datorer måste Microsoft. DevTestLab-resurs leverantören vara registrerad.
 
 ## <a name="solution-1---powershell"></a>Lösning 1 – PowerShell
 
-Du använder PowerShell använder **Get-AzResourceProvider** att se registreringsstatus för din.
+För PowerShell använder du **Get-AzResourceProvider** för att se din registrerings status.
 
 ```powershell
 Get-AzResourceProvider -ListAvailable
 ```
 
-Registrera en provider **registrera AzResourceProvider** och ange namnet på resursprovidern som du vill registrera.
+Registrera en provider genom att använda **register-AzResourceProvider** och ange namnet på den resurs leverantör som du vill registrera.
 
 ```powershell
 Register-AzResourceProvider -ProviderNamespace Microsoft.Cdn
 ```
 
-Hämta platserna som stöds för en viss typ av resurs med:
+Använd följande för att hämta platser som stöds för en viss typ av resurs:
 
 ```powershell
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).Locations
 ```
 
-Hämta API-versioner som stöds för en viss typ av resurs med:
+Använd följande om du vill hämta API-versioner som stöds för en viss typ av resurs:
 
 ```powershell
 ((Get-AzResourceProvider -ProviderNamespace Microsoft.Web).ResourceTypes | Where-Object ResourceTypeName -eq sites).ApiVersions
@@ -89,29 +89,29 @@ Hämta API-versioner som stöds för en viss typ av resurs med:
 
 ## <a name="solution-2---azure-cli"></a>Lösning 2 – Azure CLI
 
-Om du vill se om providern är registrerad, använda den `az provider list` kommando.
+Om du vill se om providern är registrerad använder du kommandot `az provider list`.
 
 ```azurecli-interactive
 az provider list
 ```
 
-Registrera en resursprovider genom att använda den `az provider register` kommandot och ange den *namnområde* att registrera.
+Registrera en resurs leverantör genom att använda kommandot `az provider register` och ange *namn området* som ska registreras.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.Cdn
 ```
 
-Om du vill se de platser som stöds och API-versioner för en resurstyp, använder du:
+Om du vill se platser och API-versioner som stöds för en resurs typ använder du:
 
 ```azurecli-interactive
 az provider show -n Microsoft.Web --query "resourceTypes[?resourceType=='sites'].locations"
 ```
 
-## <a name="solution-3---azure-portal"></a>Lösning 3 – Azure-portalen
+## <a name="solution-3---azure-portal"></a>Lösning 3 – Azure Portal
 
-Du kan se registreringsstatus och registrerar en resursproviderns namnområde via portalen.
+Du kan se registrerings status och registrera ett namn område för en resurs leverantör via portalen.
 
-1. Från portalen, väljer **alla tjänster**.
+1. Från portalen väljer du **alla tjänster**.
 
    ![Välj alla tjänster](./media/resource-manager-register-provider-errors/select-all-services.png)
 
@@ -119,14 +119,14 @@ Du kan se registreringsstatus och registrerar en resursproviderns namnområde vi
 
    ![Välj prenumerationer](./media/resource-manager-register-provider-errors/select-subscriptions.png)
 
-1. Välj den prenumeration som du vill använda för att registrera resursprovidern i listan över prenumerationer.
+1. I listan över prenumerationer väljer du den prenumeration som du vill använda för att registrera resurs leverantören.
 
-   ![Välj prenumeration för att registrera resursprovidern](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
+   ![Välj en prenumeration för att registrera Resource Provider](./media/resource-manager-register-provider-errors/select-subscription-to-register.png)
 
-1. Din prenumeration, Välj **resursprovidrar**.
+1. För din prenumeration väljer du **resurs leverantörer**.
 
-   ![Välj resursprovidrar](./media/resource-manager-register-provider-errors/select-resource-provider.png)
+   ![Välj resurs leverantörer](./media/resource-manager-register-provider-errors/select-resource-provider.png)
 
-1. Titta på listan över resursprovidrar och om det behövs väljer den **registrera** länk för att registrera resursprovidern för den typ som du försöker distribuera.
+1. Titta på listan över resurs leverantörer och om det behövs väljer du länken **Registrera** för att registrera resurs leverantören av den typ som du försöker distribuera.
 
-   ![Lista resursprovidrar](./media/resource-manager-register-provider-errors/list-resource-providers.png)
+   ![Visa lista över resurs leverantörer](./media/resource-manager-register-provider-errors/list-resource-providers.png)

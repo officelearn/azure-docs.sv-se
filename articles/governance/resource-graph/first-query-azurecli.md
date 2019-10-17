@@ -3,17 +3,17 @@ title: Kör din första fråga med Azure CLI
 description: Den här artikeln vägleder dig igenom stegen för att aktivera Resource Graph-tillägget för Azure CLI och köra din första fråga.
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/26/2019
+ms.date: 10/18/2019
 ms.topic: quickstart
 ms.service: resource-graph
-ms.openlocfilehash: 34325fe8e8fdf7f53eb730818dc57800b65076e2
-ms.sourcegitcommit: d7689ff43ef1395e61101b718501bab181aca1fa
+ms.openlocfilehash: b50a21f9c1a4bae7ced8afd9a49c33cc936983ac
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/06/2019
-ms.locfileid: "71976717"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389741"
 ---
-# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Snabbstart: Köra din första Resource Graph-fråga med hjälp av Azure CLI
+# <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Snabb start: kör din första resurs diagram fråga med Azure CLI
 
 Det första steget till att använda Azure Resource Graph är att kontrollera att tillägget för [Azure CLI](/cli/azure/) är installerat. Denna snabbstart vägleder dig genom processen för att lägga till tillägget i Azure CLI-installationen. Du kan använda tillägget med Azure CLI installerat lokalt eller via [Azure Cloud Shell](https://shell.azure.com).
 
@@ -54,7 +54,7 @@ Nu när Azure CLI-tillägget har lagts till i din valda miljö är det dags att 
    # Login first with az login if not using Cloud Shell
 
    # Run Azure Resource Graph query
-   az graph query -q 'project name, type | limit 5'
+   az graph query -q 'Resources | project name, type | limit 5'
    ```
 
    > [!NOTE]
@@ -64,7 +64,7 @@ Nu när Azure CLI-tillägget har lagts till i din valda miljö är det dags att 
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with 'order by'
-   az graph query -q 'project name, type | limit 5 | order by name asc'
+   az graph query -q 'Resources | project name, type | limit 5 | order by name asc'
    ```
 
    > [!NOTE]
@@ -74,7 +74,7 @@ Nu när Azure CLI-tillägget har lagts till i din valda miljö är det dags att 
 
    ```azurecli-interactive
    # Run Azure Resource Graph query with `order by` first, then with `limit`
-   az graph query -q 'project name, type | order by name asc | limit 5'
+   az graph query -q 'Resources | project name, type | order by name asc | limit 5'
    ```
 
 När den sista frågan har körts flera gånger, och förutsatt att ingenting i din miljö ändras, kommer resultaten som returneras bli konsekventa och som förväntade – sorterade efter **Namn**-egenskapen men fortfarande begränsade till de fem främsta resultaten.

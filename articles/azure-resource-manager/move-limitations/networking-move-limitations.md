@@ -4,14 +4,14 @@ description: Använd Azure Resource Manager för att flytta virtuella nätverk o
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 08/19/2019
+ms.date: 10/16/2019
 ms.author: tomfitz
-ms.openlocfilehash: 6ad7f32704d8cb73999a6e3cf60cb2a238268242
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 14a7cb326a3017b1bdbcad21c8483eaaacd54674
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70034552"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72437817"
 ---
 # <a name="move-guidance-for-networking-resources"></a>Flytta vägledning för nätverks resurser
 
@@ -19,17 +19,19 @@ Den här artikeln beskriver hur du flyttar virtuella nätverk och andra nätverk
 
 ## <a name="dependent-resources"></a>Beroende resurser
 
-När du flyttar ett virtuellt nätverk, måste du även flytta beroende resurser. För VPN-gatewayer måste du flytta IP-adresser, virtuella nätverksgatewayer och alla associerade anslutningsresurser. Lokala nätverksgatewayer kan finnas i en annan resursgrupp.
+När du flyttar ett virtuellt nätverk måste du också flytta dess beroende resurser. För VPN-gatewayer måste du flytta IP-adresser, virtuella nätverks-gatewayer och alla associerade anslutnings resurser. Lokala nätverksgateway kan finnas i en annan resurs grupp.
 
-Om du vill flytta en virtuell dator med ett nätverkskort måste du flytta alla beroende resurser. Flytta det virtuella nätverket för nätverks gränssnitts kortet, alla andra nätverkskort för det virtuella nätverket och VPN-gatewayerna.
+Om du vill flytta en virtuell dator med ett nätverkskort till en ny prenumeration måste du flytta alla beroende resurser. Flytta det virtuella nätverket för nätverks gränssnitts kortet, alla andra nätverkskort för det virtuella nätverket och VPN-gatewayerna.
+
+Mer information finns i [scenario för att flytta mellan prenumerationer](../resource-group-move-resources.md#scenario-for-move-across-subscriptions).
 
 ## <a name="peered-virtual-network"></a>Peer-kopplat virtuellt nätverk
 
-Om du vill flytta en peer-kopplade virtuella nätverket måste du först inaktivera virtuell nätverkspeering. Du kan flytta det virtuella nätverket när inaktiverat. Återaktivera virtuell nätverkspeering efter överflyttningen.
+Om du vill flytta ett peer-kopplat virtuellt nätverk måste du först inaktivera det virtuella nätverkets peering. När du har inaktiverat kan du flytta det virtuella nätverket. När du har flyttat aktiverar du det virtuella nätverkets peering.
 
 ## <a name="subnet-links"></a>Under näts länkar
 
-Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det virtuella nätverket innehåller ett undernät med resursnavigeringslänkar. Om Azure Cache för Redis-resursen har distribuerats i ett undernät har till exempel en resursnavigeringslänken i det undernätet.
+Du kan inte flytta ett virtuellt nätverk till en annan prenumeration om det virtuella nätverket innehåller ett undernät med länkar till resurs navigering. Om till exempel en Azure-cache för Redis-resurs distribueras till ett undernät har det under nätet en resurs navigerings länk.
 
 ## <a name="next-steps"></a>Nästa steg
 

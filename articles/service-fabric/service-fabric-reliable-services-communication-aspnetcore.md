@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 9648307bb7278f36686d8a53be90c2d9ef7159e1
-ms.sourcegitcommit: fe50db9c686d14eec75819f52a8e8d30d8ea725b
+ms.openlocfilehash: 39e6273382133493a77321deed2baec4718bc912
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/14/2019
-ms.locfileid: "69016697"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383670"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core i Azure Service Fabric Reliable Services
 
@@ -27,7 +27,7 @@ ASP.NET Core är ett ramverk med öppen källkod och plattforms oberoende. Det h
 
 Den här artikeln är en djupgående guide för att vara värd för ASP.NET Core tjänster i Service Fabric Reliable Services med hjälp av **Microsoft. ServiceFabric. AspNetCore.** uppsättning NuGet-paket.
 
-En introduktions kurs om ASP.net core i Service Fabric och instruktioner om hur du hämtar utvecklings miljön finns i [Självstudier: Skapa och distribuera ett program med en ASP.NET Core webb-API-frontend-tjänst och en tillstånds känslig Server dels](service-fabric-tutorial-create-dotnet-app.md)tjänst.
+En introduktions kurs om ASP.NET Core i Service Fabric och instruktioner om hur du hämtar utvecklings miljön finns i [självstudie: skapa och distribuera ett program med en ASP.net Core webb-API-frontend-tjänst och en tillstånds känslig Server dels tjänst](service-fabric-tutorial-create-dotnet-app.md).
 
 Resten av den här artikeln förutsätter att du redan är bekant med ASP.NET Core. Om inte, Läs mer i [ASP.net Core grunderna](https://docs.microsoft.com/aspnet/core/fundamentals/index).
 
@@ -48,26 +48,26 @@ Traditionell ASP.NET (upp till MVC 5) är nära kopplad till IIS via system. Web
 Om du vill kombinera en Service Fabric tjänst-och ASP.NET, antingen som en gäst-körbar fil eller i en tillförlitlig tjänst, måste du kunna starta ASP.NET inuti tjänstens värd process. Med ASP.NET Core själv-värdskap kan du göra detta.
 
 ## <a name="hosting-aspnet-core-in-a-reliable-service"></a>Vara värd för ASP.NET Core i en tillförlitlig tjänst
-Vanliga ASP.net Core program för egen värd skapar en webhost i ett programs start punkt, till exempel `static void Main()` metoden i. `Program.cs` I det här fallet är livs cykeln för WebHost kopplad till processens livs cykel.
+Vanligt vis skapar program med egen värd ASP.NET Core en WebHost i ett programs start punkt, till exempel `static void Main()`-metoden i `Program.cs`. I det här fallet är livs cykeln för WebHost kopplad till processens livs cykel.
 
 ![Vara värd för ASP.NET Core i en process][0]
 
 Men program start punkten är inte rätt plats för att skapa en WebHost i en tillförlitlig tjänst. Det beror på att program start punkten bara används för att registrera en tjänst typ med Service Fabric runtime, så att den kan skapa instanser av tjänst typen. WebHost bör skapas i en tillförlitlig tjänst. I tjänstens värd process kan tjänst instanser och/eller repliker gå igenom flera livscykler. 
 
-En tillförlitlig tjänst instans representeras av tjänst klassen som härleds `StatelessService` från `StatefulService`eller. Kommunikations stacken för en tjänst finns i en `ICommunicationListener` implementering i din tjänst klass. NuGet-paketen innehåller implementeringar `ICommunicationListener` av som startar och hanterar ASP.net Core-webhost för antingen Kestrel eller http. sys i en tillförlitlig tjänst. `Microsoft.ServiceFabric.AspNetCore.*`
+En tillförlitlig tjänst instans representeras av tjänst klassen som härleds från `StatelessService` eller `StatefulService`. Kommunikations stacken för en tjänst finns i en `ICommunicationListener`-implementering i din tjänst klass. NuGet-paketen i `Microsoft.ServiceFabric.AspNetCore.*` innehåller implementeringar av `ICommunicationListener` som startar och hanterar ASP.NET Core-WebHost för antingen Kestrel eller HTTP. sys i en tillförlitlig tjänst.
 
 ![Diagram för att vara värd för ASP.NET Core i en tillförlitlig tjänst][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Core ICommunicationListeners
-Implementeringarna för Kestrel och http. sys `Microsoft.ServiceFabric.AspNetCore.*` i NuGet-paketen har liknande användnings mönster. `ICommunicationListener` Men de utför något annorlunda åtgärder som är beroende av varje webb server. 
+@No__t-0-implementeringar för Kestrel och HTTP. sys i `Microsoft.ServiceFabric.AspNetCore.*`-NuGet paket har liknande användnings mönster. Men de utför något annorlunda åtgärder som är beroende av varje webb server. 
 
 Båda kommunikations lyssnarna tillhandahåller en konstruktor som tar följande argument:
- - **`ServiceContext serviceContext`** : Detta är det `ServiceContext` objekt som innehåller information om den aktiva tjänsten.
- - **`string endpointName`** : Detta är namnet på en `Endpoint` konfiguration i ServiceManifest. xml. Det är främst där de två kommunikations lyssnarna skiljer sig. HTTP. sys *kräver* en `Endpoint` konfiguration, medan Kestrel inte är det.
- - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : Detta är ett lambda-tecken som du implementerar, där du kan skapa `IWebHost`och returnera en. Det gör att du kan `IWebHost` konfigurera hur du normalt skulle göra i ett ASP.net Core-program. Lambda-filen innehåller en URL som genereras åt dig, beroende på Service Fabric integrerings alternativ som du använder och `Endpoint` konfigurationen du anger. Du kan sedan ändra eller använda den URL: en för att starta webb servern.
+ - **`ServiceContext serviceContext`** : det här är det `ServiceContext`-objekt som innehåller information om den aktiva tjänsten.
+ - **`string endpointName`** : det här är namnet på en `Endpoint`-konfiguration i ServiceManifest. xml. Det är främst där de två kommunikations lyssnarna skiljer sig. HTTP. sys *kräver* en `Endpoint`-konfiguration medan Kestrel inte är det.
+ - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`** : det här är ett lambda-tecken som du implementerar, där du kan skapa och returnera en `IWebHost`. Det gör att du kan konfigurera `IWebHost` på det sätt som du normalt skulle göra i ett ASP.NET Core program. Lambda-värdet är en URL som genereras åt dig, beroende på Service Fabric integrerings alternativ som du använder och den @no__t 0-konfiguration som du anger. Du kan sedan ändra eller använda den URL: en för att starta webb servern.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric integration mellan
-NuGet-paketet `UseServiceFabricIntegration` innehåller tilläggs metoden i `IWebHostBuilder` som lägger till Service Fabric – medvetna mellanprogram. `Microsoft.ServiceFabric.AspNetCore` Detta mellanprogram konfigurerar Kestrel eller http. sys `ICommunicationListener` för att registrera en unik tjänst-URL med Service Fabric Naming Service. Den verifierar sedan klient begär Anden för att säkerställa att klienterna ansluter till rätt tjänst. 
+NuGet-paketet `Microsoft.ServiceFabric.AspNetCore` innehåller tillägget `UseServiceFabricIntegration` på `IWebHostBuilder` som lägger till Service Fabric-medvetna mellanprogram. Detta mellanprogram konfigurerar Kestrel eller HTTP. sys `ICommunicationListener` för att registrera en unik tjänst-URL med Service Fabric Naming Service. Den verifierar sedan klient begär Anden för att säkerställa att klienterna ansluter till rätt tjänst. 
 
 Det här steget är nödvändigt för att förhindra att klienter kan ansluta till fel tjänst av misstag. Det beror på att i en delad värd miljö, till exempel Service Fabric, kan flera webb program köras på samma fysiska eller virtuella dator, men använder inte unika värdnamn. Det här scenariot beskrivs i detalj i nästa avsnitt.
 
@@ -86,7 +86,7 @@ Detta kan orsaka buggar vid slumpmässiga tidpunkter som kan vara svåra att dia
 ### <a name="using-unique-service-urls"></a>Använda unika tjänst-URL: er
 För att förhindra dessa buggar kan tjänsterna publicera en slut punkt till Naming Service med en unik identifierare och sedan verifiera den unika identifieraren under klient begär Anden. Detta är en samarbets åtgärd mellan tjänster i en icke-filsäker, betrodd miljö. Den ger inte säker tjänst-autentisering i en skydds-och klient miljö.
 
-I en betrodd miljö lägger det mellanliggande programmet som läggs till `UseServiceFabricIntegration` av metoden automatiskt till en unik identifierare till adressen som skickas till Naming Service. Den verifierar den identifieraren på varje begäran. Om identifieraren inte matchar, returnerar mellanprogram omedelbart en svars tid som är HTTP 410.
+I en betrodd miljö lägger det mellanprogram som har lagts till av metoden `UseServiceFabricIntegration` automatiskt till en unik identifierare till adressen som skickas till Naming Service. Den verifierar den identifieraren på varje begäran. Om identifieraren inte matchar, returnerar mellanprogram omedelbart en svars tid som är HTTP 410.
 
 Tjänster som använder en dynamiskt tilldelad port ska använda den här mellanprogram varan.
 
@@ -96,12 +96,12 @@ Följande diagram visar det begärda flödet med mellanliggande aktiverade:
 
 ![Service Fabric ASP.NET Core-integrering][2]
 
-Både Kestrel-och http. `ICommunicationListener` sys-implementeringar använder den här mekanismen på exakt samma sätt. Även om http. sys kan särskilja begär Anden baserat på unika URL-sökvägar med hjälp av den underliggande funktionen för port delning i **http. sys** , används *inte* funktionen av `ICommunicationListener` http. sys-implementeringen. Det beror på att det resulterar i status koder för HTTP 503 och HTTP 404 i det scenario som beskrivs ovan. I sin tur gör det svårt för klienter att fastställa avsikten med felet, eftersom HTTP 503 och HTTP 404 ofta används för att ange andra fel. 
+Både Kestrel-och HTTP. sys-`ICommunicationListener`-implementeringar använder den här mekanismen på exakt samma sätt. Även om HTTP. sys kan särskilja begär Anden baserat på unika URL-sökvägar med hjälp av funktionen för port delning i **http. sys** , används *inte* den funktionen av http. sys-`ICommunicationListener`-implementeringen. Det beror på att det resulterar i status koder för HTTP 503 och HTTP 404 i det scenario som beskrivs ovan. I sin tur gör det svårt för klienter att fastställa avsikten med felet, eftersom HTTP 503 och HTTP 404 ofta används för att ange andra fel. 
 
-Därför är både Kestrel-och http. `ICommunicationListener` sys-implementeringar standardiserade på mellanprogram som `UseServiceFabricIntegration` tillhandahålls av tilläggs metoden. Klienterna behöver därför bara utföra en åtgärd för att lösa tjänst slut punkter på HTTP 410-svar.
+Det innebär att både Kestrel-och HTTP. sys-implementeringar med `ICommunicationListener` är standardiserade på mellanprogram som tillhandahålls av fil namns metoden `UseServiceFabricIntegration`. Klienterna behöver därför bara utföra en åtgärd för att lösa tjänst slut punkter på HTTP 410-svar.
 
 ## <a name="httpsys-in-reliable-services"></a>HTTP. sys i Reliable Services
-Du kan använda HTTP. sys i Reliable Services genom att importera **Microsoft. ServiceFabric. AspNetCore. https** NuGet-paketet. Det här paketet `HttpSysCommunicationListener`innehåller en implementering av `ICommunicationListener`. `HttpSysCommunicationListener`gör att du kan skapa en ASP.NET Core WebHost i en tillförlitlig tjänst genom att använda HTTP. sys som webb server.
+Du kan använda HTTP. sys i Reliable Services genom att importera **Microsoft. ServiceFabric. AspNetCore. https** NuGet-paketet. Det här paketet innehåller `HttpSysCommunicationListener`, en implementering av `ICommunicationListener`. med `HttpSysCommunicationListener` kan du skapa en ASP.NET Core WebHost i en tillförlitlig tjänst genom att använda HTTP. sys som webb server.
 
 HTTP. sys bygger på API: [t för Windows HTTP-servern](https://msdn.microsoft.com/library/windows/desktop/aa364510(v=vs.85).aspx). Detta API använder kernel **-drivrutinen http. sys** för att bearbeta HTTP-begäranden och dirigera dem till processer som kör webb program. På så sätt kan flera processer på samma fysiska eller virtuella dator vara värd för webb program på samma port, disambiguated av antingen en unik URL-sökväg eller ett värdnamn. Dessa funktioner är användbara i Service Fabric för att vara värd för flera webbplatser i samma kluster.
 
@@ -113,7 +113,7 @@ Följande diagram illustrerar hur HTTP. sys använder kernel-drivrutinen för **
 ![HTTP. sys-diagram][3]
 
 ### <a name="httpsys-in-a-stateless-service"></a>HTTP. sys i en tillstånds lös tjänst
-Om du `HttpSys` vill använda i en tillstånds lös tjänst `CreateServiceInstanceListeners` åsidosätter du metoden `HttpSysCommunicationListener` och returnerar en instans:
+Om du vill använda `HttpSys` i en tillstånds lös tjänst åsidosätter du `CreateServiceInstanceListeners`-metoden och returnerar en `HttpSysCommunicationListener`-instans:
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -138,15 +138,15 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HTTP. sys i en tillstånds känslig tjänst
 
-`HttpSysCommunicationListener`är för närvarande inte avsedd för användning i tillstånds känsliga tjänster på grund av komplikationer med den underliggande **http. sys-** port delnings funktionen. Mer information finns i följande avsnitt om dynamisk port tilldelning med HTTP. sys. För tillstånds känsliga tjänster är Kestrel den föreslagna webb servern.
+`HttpSysCommunicationListener` är för närvarande inte avsett för användning i tillstånds känsliga tjänster på grund av komplikationer med den underliggande **http. sys-** port delnings funktionen. Mer information finns i följande avsnitt om dynamisk port tilldelning med HTTP. sys. För tillstånds känsliga tjänster är Kestrel den föreslagna webb servern.
 
 ### <a name="endpoint-configuration"></a>Slut punkts konfiguration
 
-En `Endpoint` konfiguration krävs för webb servrar som använder Windows http server API, inklusive http. sys. Webb servrar som använder Windows HTTP server-API: n måste först reservera sin URL med HTTP. sys (detta utförs vanligt vis med [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) -verktyget). 
+En `Endpoint`-konfiguration krävs för webb servrar som använder Windows HTTP server API, inklusive HTTP. sys. Webb servrar som använder Windows HTTP server-API: n måste först reservera sin URL med HTTP. sys (detta utförs vanligt vis med [netsh](https://msdn.microsoft.com/library/windows/desktop/cc307236(v=vs.85).aspx) -verktyget). 
 
-Den här åtgärden kräver förhöjda privilegier som dina tjänster inte har som standard. Alternativen "http" eller "https" för `Protocol` egenskapen `Endpoint` i konfigurationen i ServiceManifest. xml används specifikt för att instruera Service Fabric körningen att registrera en URL med http. sys för din räkning. Detta görs med hjälp av det [*starka*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) URL-prefixet med stark jokertecken.
+Den här åtgärden kräver förhöjda privilegier som dina tjänster inte har som standard. Alternativen "http" eller "https" för egenskapen `Protocol` i `Endpoint`-konfigurationen i ServiceManifest. xml används specifikt för att instruera Service Fabric runtime att registrera en URL med HTTP. sys för din räkning. Detta görs med hjälp av det starka URL-prefixet med [*stark jokertecken*](https://msdn.microsoft.com/library/windows/desktop/aa364698(v=vs.85).aspx) .
 
-Om du till exempel vill `http://+:80` reservera för en tjänst använder du följande konfiguration i ServiceManifest. XML:
+Om du till exempel vill reservera `http://+:80` för en tjänst använder du följande konfiguration i ServiceManifest. XML:
 
 ```xml
 <ServiceManifest ... >
@@ -160,7 +160,7 @@ Om du till exempel vill `http://+:80` reservera för en tjänst använder du fö
 </ServiceManifest>
 ```
 
-Och slut punkts namnet måste skickas till `HttpSysCommunicationListener` konstruktorn:
+Och slut punkts namnet måste skickas till konstruktorn `HttpSysCommunicationListener`:
 
 ```csharp
  new HttpSysCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) =>
@@ -174,7 +174,7 @@ Och slut punkts namnet måste skickas till `HttpSysCommunicationListener` konstr
 ```
 
 #### <a name="use-httpsys-with-a-static-port"></a>Använda HTTP. sys med en statisk port
-Ange port numret i `Endpoint` konfigurationen om du vill använda en statisk port med http. sys:
+Ange port numret i `Endpoint`-konfigurationen om du vill använda en statisk port med HTTP. sys:
 
 ```xml
   <Resources>
@@ -185,7 +185,7 @@ Ange port numret i `Endpoint` konfigurationen om du vill använda en statisk por
 ```
 
 #### <a name="use-httpsys-with-a-dynamic-port"></a>Använda HTTP. sys med en dynamisk port
-Om du vill använda en dynamiskt tilldelad port med http. `Port` sys utelämnar `Endpoint` du egenskapen i konfigurationen:
+Om du vill använda en dynamiskt tilldelad port med HTTP. sys utelämnar du egenskapen `Port` i konfigurationen för @no__t 1:
 
 ```xml
   <Resources>
@@ -195,17 +195,17 @@ Om du vill använda en dynamiskt tilldelad port med http. `Port` sys utelämnar 
   </Resources>
 ```
 
-En dynamisk port som tilldelas av `Endpoint` en konfiguration tillhandahåller bara en port *per värd process*. Den aktuella Service Fabric värd modellen gör att flera tjänst instanser och/eller repliker kan finnas i samma process. Det innebär att var och en delar samma port när den allokeras `Endpoint` genom konfigurationen. Flera **http. sys-** instanser kan dela en port med hjälp av den underliggande **http. sys-** port delnings funktionen. Men det stöds `HttpSysCommunicationListener` inte på grund av de komplikationer som den introducerar för klient begär Anden. För dynamisk port användning är Kestrel den föreslagna webb servern.
+En dynamisk port som tilldelas av en `Endpoint`-konfiguration tillhandahåller bara en port *per värd process*. Den aktuella Service Fabric värd modellen gör att flera tjänst instanser och/eller repliker kan finnas i samma process. Det innebär att var och en delar samma port när den tilldelas via `Endpoint`-konfigurationen. Flera **http. sys-** instanser kan dela en port med hjälp av den underliggande **http. sys-** port delnings funktionen. Men det stöds inte av `HttpSysCommunicationListener` på grund av de komplikationer den introducerar för klient begär Anden. För dynamisk port användning är Kestrel den föreslagna webb servern.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel i Reliable Services
-Du kan använda Kestrel i Reliable Services genom att importera paketet **Microsoft. ServiceFabric. AspNetCore. Kestrel** NuGet. Det här paketet `KestrelCommunicationListener`innehåller en implementering av `ICommunicationListener`. `KestrelCommunicationListener`gör att du kan skapa en ASP.NET Core WebHost i en tillförlitlig tjänst genom att använda Kestrel som webb server.
+Du kan använda Kestrel i Reliable Services genom att importera paketet **Microsoft. ServiceFabric. AspNetCore. Kestrel** NuGet. Det här paketet innehåller `KestrelCommunicationListener`, en implementering av `ICommunicationListener`. med `KestrelCommunicationListener` kan du skapa en ASP.NET Core WebHost i en tillförlitlig tjänst genom att använda Kestrel som webb server.
 
-Kestrel är en plattforms oberoende webb server för ASP.NET Core baserat på libuv, ett asynkront I/O-bibliotek mellan plattformar. Till skillnad från HTTP. sys använder Kestrel inte en central slut punkts hanterare. Till skillnad från HTTP. sys stöder Kestrel inte port delning mellan flera processer. Varje instans av Kestrel måste använda en unik port.
+Kestrel är en plattforms oberoende webb server för ASP.NET Core. Till skillnad från HTTP. sys använder Kestrel inte en central slut punkts hanterare. Till skillnad från HTTP. sys stöder Kestrel inte port delning mellan flera processer. Varje instans av Kestrel måste använda en unik port. Mer information om Kestrel finns i [implementerings informationen](https://docs.microsoft.com/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
 
 ![Kestrel-diagram][4]
 
 ### <a name="kestrel-in-a-stateless-service"></a>Kestrel i en tillstånds lös tjänst
-Om du `Kestrel` vill använda i en tillstånds lös tjänst `CreateServiceInstanceListeners` åsidosätter du metoden `KestrelCommunicationListener` och returnerar en instans:
+Om du vill använda `Kestrel` i en tillstånds lös tjänst åsidosätter du `CreateServiceInstanceListeners`-metoden och returnerar en `KestrelCommunicationListener`-instans:
 
 ```csharp
 protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceListeners()
@@ -230,7 +230,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 ```
 
 ### <a name="kestrel-in-a-stateful-service"></a>Kestrel i en tillstånds känslig tjänst
-Om du `Kestrel` vill använda i en tillstånds känslig tjänst `CreateServiceReplicaListeners` åsidosätter du metoden `KestrelCommunicationListener` och returnerar en instans:
+Om du vill använda `Kestrel` i en tillstånds känslig tjänst åsidosätter du metoden `CreateServiceReplicaListeners` och returnerar en `KestrelCommunicationListener`-instans:
 
 ```csharp
 protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListeners()
@@ -255,12 +255,12 @@ protected override IEnumerable<ServiceReplicaListener> CreateServiceReplicaListe
 }
 ```
 
-I det här exemplet tillhandahålls en singleton- `IReliableStateManager` instans av till behållaren för webhost-beroende insprutning. Detta är inte absolut nödvändigt, men du kan använda `IReliableStateManager` och pålitliga samlingar i dina åtgärds metoder för MVC-styrenheten.
+I det här exemplet tillhandahålls en singleton-instans av `IReliableStateManager` till behållaren för WebHost-beroende inmatning. Detta är inte absolut nödvändigt, men du kan använda `IReliableStateManager` och pålitliga samlingar i MVC-kontrollens åtgärds metoder.
 
-Inget konfigurations namn har angetts för `KestrelCommunicationListener` i en tillstånds känslig tjänst. `Endpoint` Detta beskrivs mer detaljerat i följande avsnitt.
+Inget `Endpoint`-konfigurations *namn har angetts* för `KestrelCommunicationListener` i en tillstånds känslig tjänst. Detta beskrivs mer detaljerat i följande avsnitt.
 
 ### <a name="configure-kestrel-to-use-https"></a>Konfigurera Kestrel för användning av HTTPS
-När du aktiverar HTTPS med Kestrel i din tjänst måste du ange flera lyssnings alternativ. Uppdatera för att använda en EndpointHttps-slutpunkt och lyssna på en speciell port (till exempel port 443). `ServiceInstanceListener` När du konfigurerar webb värden att använda Kestrel-webbservern måste du konfigurera Kestrel för att lyssna efter IPv6-adresser på alla nätverks gränssnitt: 
+När du aktiverar HTTPS med Kestrel i din tjänst måste du ange flera lyssnings alternativ. Uppdatera `ServiceInstanceListener` om du vill använda en *EndpointHttps* -slutpunkt och lyssna på en speciell port (till exempel port 443). När du konfigurerar webb värden att använda Kestrel-webbservern måste du konfigurera Kestrel för att lyssna efter IPv6-adresser på alla nätverks gränssnitt: 
 
 ```csharp
 new ServiceInstanceListener(
@@ -304,14 +304,14 @@ Ett fullständigt exempel i en själv studie kurs finns i [Konfigurera Kestrel f
 
 
 ### <a name="endpoint-configuration"></a>Slut punkts konfiguration
-Ingen `Endpoint` konfiguration krävs för att använda Kestrel. 
+Ingen `Endpoint`-konfiguration krävs för att använda Kestrel. 
 
-Kestrel är en enkel fristående webb server. Till skillnad från http. sys (eller HttpListener) behöver den inte en `Endpoint` konfiguration i ServiceManifest. XML eftersom den inte kräver URL-registrering innan den startas. 
+Kestrel är en enkel fristående webb server. Till skillnad från HTTP. sys (eller HttpListener) behöver den inte en `Endpoint`-konfiguration i ServiceManifest. XML eftersom den inte kräver URL-registrering innan den startas. 
 
 #### <a name="use-kestrel-with-a-static-port"></a>Använda Kestrel med en statisk port
-Du kan konfigurera en statisk port i `Endpoint` konfigurationen av ServiceManifest. xml för användning med Kestrel. Även om detta inte är absolut nödvändigt erbjuder det två möjliga fördelar:
+Du kan konfigurera en statisk port i `Endpoint`-konfigurationen för ServiceManifest. xml för användning med Kestrel. Även om detta inte är absolut nödvändigt erbjuder det två möjliga fördelar:
  - Om porten inte ligger inom program ports intervallet öppnas den via OS-brandväggen genom att Service Fabric.
- - Den URL som du fick via `KestrelCommunicationListener` kommer att använda den här porten.
+ - Den URL som du får via `KestrelCommunicationListener` använder den här porten.
 
 ```xml
   <Resources>
@@ -321,32 +321,32 @@ Du kan konfigurera en statisk port i `Endpoint` konfigurationen av ServiceManife
   </Resources>
 ```
 
-Om en `Endpoint` har kon figurer ATS måste dess namn skickas `KestrelCommunicationListener` till konstruktorn: 
+Om en `Endpoint` har kon figurer ATS måste dess namn skickas till konstruktorn `KestrelCommunicationListener`: 
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, "ServiceEndpoint", (url, listener) => ...
 ```
 
-Om ServiceManifest. xml inte använder en `Endpoint` konfiguration utelämnar du namnet `KestrelCommunicationListener` i konstruktorn. I det här fallet kommer den att använda en dynamisk port. Mer information om detta finns i nästa avsnitt.
+Om ServiceManifest. xml inte använder en `Endpoint`-konfiguration utelämnar du namnet i konstruktorn `KestrelCommunicationListener`. I det här fallet kommer den att använda en dynamisk port. Mer information om detta finns i nästa avsnitt.
 
 #### <a name="use-kestrel-with-a-dynamic-port"></a>Använda Kestrel med en dynamisk port
-Kestrel kan inte använda den automatiska port tilldelningen `Endpoint` från konfigurationen i ServiceManifest. xml. Det beror på att automatisk port tilldelning från `Endpoint` en konfiguration tilldelar en unik port per *värd process*, och en enda värd process kan innehålla flera Kestrel-instanser. Detta fungerar inte med Kestrel eftersom det inte stöder port delning. Därför måste varje Kestrel-instans öppnas på en unik port.
+Kestrel kan inte använda automatisk port tilldelning från `Endpoint`-konfigurationen i ServiceManifest. xml. Det beror på att automatisk port tilldelning från en `Endpoint`-konfiguration tilldelar en unik port per *värd process*, och en enda värd process kan innehålla flera Kestrel-instanser. Detta fungerar inte med Kestrel eftersom det inte stöder port delning. Därför måste varje Kestrel-instans öppnas på en unik port.
 
-Om du vill använda dynamisk port tilldelning med Kestrel ska `Endpoint` du utelämna konfigurationen i ServiceManifest. xml och inte skicka ett slut punkts namn `KestrelCommunicationListener` till konstruktorn enligt följande:
+Om du vill använda dynamisk port tilldelning med Kestrel ska du utelämna `Endpoint`-konfigurationen i ServiceManifest. xml och inte skicka ett slut punkts namn till konstruktorn `KestrelCommunicationListener`, enligt följande:
 
 ```csharp
 new KestrelCommunicationListener(serviceContext, (url, listener) => ...
 ```
 
-I den här konfigurationen `KestrelCommunicationListener` väljer automatiskt en oanvänd port från program port intervallet.
+I den här konfigurationen väljer `KestrelCommunicationListener` automatiskt en oanvänd port från program port intervallet.
 
 ## <a name="service-fabric-configuration-provider"></a>Service Fabric Konfigurationsprovider
 App-konfigurationen i ASP.NET Core baseras på nyckel/värde-par som skapats av konfigurationsprovidern. Läs [konfiguration i ASP.net Core](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/) om du vill veta mer om allmän ASP.net Core konfigurations stöd.
 
-I det här avsnittet beskrivs hur Service Fabric-konfigurationsprovidern integreras med ASP.net Core-konfiguration genom `Microsoft.ServiceFabric.AspNetCore.Configuration` att importera NuGet-paketet.
+I det här avsnittet beskrivs hur Service Fabric-konfigurationsprovidern integreras med ASP.NET Core-konfiguration genom att importera `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet-paketet.
 
 ### <a name="addservicefabricconfiguration-startup-extensions"></a>AddServiceFabricConfiguration start tillägg
-När du har importerat `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet-paketet måste du registrera Service Fabric konfigurations källa med ASP.net Core Konfigurations-API. Det gör du genom att kontrol lera **AddServiceFabricConfiguration** - `Microsoft.ServiceFabric.AspNetCore.Configuration` tilläggen `IConfigurationBuilder`i namn området mot.
+När du har importerat `Microsoft.ServiceFabric.AspNetCore.Configuration` NuGet-paketet måste du registrera Service Fabric konfigurations källan med ASP.NET Core Konfigurations-API. Det gör du genom att kontrol lera **AddServiceFabricConfiguration** -tilläggen i namn området `Microsoft.ServiceFabric.AspNetCore.Configuration` mot `IConfigurationBuilder`.
 
 ```csharp
 using Microsoft.ServiceFabric.AspNetCore.Configuration;
@@ -380,7 +380,7 @@ Som standard innehåller Service Fabric konfigurationsprovidern paket namn, avsn
 $"{this.PackageName}{ConfigurationPath.KeyDelimiter}{section.Name}{ConfigurationPath.KeyDelimiter}{property.Name}"
 ```
 
-Om du till exempel har ett konfigurations paket med `MyConfigPackage` namnet med följande innehåll är konfiguration svärdet tillgängligt på ASP.net Core `IConfiguration` via *MyConfigPackage: MyConfigSection: parameter*.
+Om du till exempel har ett konfigurations paket med namnet `MyConfigPackage` med följande innehåll, är konfiguration svärdet tillgängligt på ASP.NET Core `IConfiguration` till *MyConfigPackage: MyConfigSection: parameter*.
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
 <Settings xmlns:xsd="https://www.w3.org/2001/XMLSchema" xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">  
@@ -390,10 +390,10 @@ Om du till exempel har ett konfigurations paket med `MyConfigPackage` namnet med
 </Settings>
 ```
 ### <a name="service-fabric-configuration-options"></a>Service Fabric konfigurations alternativ
-Service Fabric-konfigurationsprovidern har också stöd `ServiceFabricConfigurationOptions` för att ändra standard beteendet för nyckel mappning.
+Service Fabric-konfigurationsprovidern stöder också `ServiceFabricConfigurationOptions` för att ändra standard beteendet för nyckel mappning.
 
 #### <a name="encrypted-settings"></a>Krypterade inställningar
-Service Fabric stöder krypterade inställningar, som Service Fabric konfigurationsprovidern. De krypterade inställningarna dekrypteras inte till ASP.net Core `IConfiguration` som standard. De krypterade värdena lagras där i stället. Men om du vill dekryptera värdet för lagring i ASP.net Core IConfiguration, kan du ställa in flaggan *DecryptValue* på false i `AddServiceFabricConfiguration` tillägget enligt följande:
+Service Fabric stöder krypterade inställningar, som Service Fabric konfigurationsprovidern. De krypterade inställningarna dekrypteras inte till ASP.NET Core `IConfiguration` som standard. De krypterade värdena lagras där i stället. Men om du vill dekryptera värdet för lagring i ASP.NET Core IConfiguration, kan du ange flaggan *DecryptValue* till false i tillägget `AddServiceFabricConfiguration`, enligt följande:
 
 ```csharp
 public Startup()
@@ -405,7 +405,7 @@ public Startup()
 }
 ```
 #### <a name="multiple-configuration-packages"></a>Flera konfigurations paket
-Service Fabric stöder flera konfigurations paket. Paket namnet ingår som standard i konfigurations nyckeln. Men du kan ställa in `IncludePackageName` flaggan på false enligt följande:
+Service Fabric stöder flera konfigurations paket. Paket namnet ingår som standard i konfigurations nyckeln. Men du kan ange flaggan `IncludePackageName` till falskt, enligt följande:
 ```csharp
 public Startup()
 {
@@ -417,9 +417,9 @@ public Startup()
 }
 ```
 #### <a name="custom-key-mapping-value-extraction-and-data-population"></a>Anpassad nyckel mappning, värde extrahering och data ifyllning
-Service Fabric-konfigurationsprovidern har också stöd för mer avancerade scenarier för anpassning av nyckel mappningen med `ExtractKeyFunc` och anpassad-extraherar värdena med. `ExtractValueFunc` Du kan till och med ändra hela processen för att fylla i data från Service Fabric konfiguration till ASP.NET Core `ConfigAction`konfiguration med hjälp av.
+Service Fabric-konfigurationsprovidern har också stöd för mer avancerade scenarier för anpassning av nyckel mappningen med `ExtractKeyFunc` och anpassad – extrahera värdena med `ExtractValueFunc`. Du kan till och med ändra hela processen för att fylla i data från Service Fabric konfiguration till ASP.NET Core konfiguration med `ConfigAction`.
 
-Följande exempel visar hur du använder `ConfigAction` för att anpassa data populationen:
+I följande exempel visas hur du använder `ConfigAction` för att anpassa data populationen:
 ```csharp
 public Startup()
 {
@@ -454,7 +454,7 @@ public Startup()
 ```
 
 ### <a name="configuration-updates"></a>Konfigurations uppdateringar
-Service Fabric-konfigurationsprovidern stöder också konfigurations uppdateringar. Du kan använda ASP.net Core `IOptionsMonitor` för att ta emot ändrings meddelanden och `IOptionsSnapshot` sedan använda för att läsa in konfigurations data på nytt. Mer information finns i [ASP.net Core alternativ](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
+Service Fabric-konfigurationsprovidern stöder också konfigurations uppdateringar. Du kan använda ASP.NET Core `IOptionsMonitor` för att ta emot ändrings meddelanden och sedan använda `IOptionsSnapshot` för att läsa in konfigurations data igen. Mer information finns i [ASP.net Core alternativ](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/options).
 
 De här alternativen stöds som standard. Ingen ytterligare kod krävs för att aktivera konfigurations uppdateringar.
 
@@ -479,8 +479,8 @@ När de exponeras för Internet bör en tillstånds lös tjänst använda en vä
 |  |  | **Anteckningar** |
 | --- | --- | --- |
 | Webbserver | Kestrel | Kestrel är den önskade webb servern eftersom den stöds i Windows och Linux. |
-| Port konfiguration | statisk | En välkänd statisk port bör konfigureras i `Endpoints` konfigurationen av ServiceManifest. XML, till exempel 80 för http eller 443 för https. |
-| ServiceFabricIntegrationOptions | Inga | `ServiceFabricIntegrationOptions.None` Använd alternativet när du konfigurerar Service Fabric integration mellanprogram, så att tjänsten inte försöker verifiera inkommande begär Anden för en unik identifierare. Externa användare av programmet vet inte den unika identifierings information som används i mellanprogram. |
+| Port konfiguration | oföränderlig | En välkänd statisk port bör konfigureras i `Endpoints`-konfigurationen för ServiceManifest. XML, till exempel 80 för HTTP eller 443 för HTTPS. |
+| ServiceFabricIntegrationOptions | Inget | Använd alternativet `ServiceFabricIntegrationOptions.None` när du konfigurerar Service Fabric integration mellanprogram, så att tjänsten inte försöker verifiera inkommande begär Anden för en unik identifierare. Externa användare av programmet vet inte den unika identifierings information som används i mellanprogram. |
 | Antal instanser | -1 | I vanliga användnings fall ska inställningen för instans antal anges till *-1*. Detta görs så att en instans är tillgänglig på alla noder som tar emot trafik från en belastningsutjämnare. |
 
 Om flera externt exponerade tjänster delar samma uppsättning noder, kan du använda HTTP. sys med en unik men stabil URL-sökväg. Du kan göra detta genom att ändra den URL som angavs när du konfigurerade IWebHost. Observera att detta endast gäller HTTP. sys.
@@ -506,14 +506,14 @@ Tillstånds lösa tjänster som bara anropas från i klustret bör använda unik
 | Webbserver | Kestrel | Även om du kan använda HTTP. sys för interna tillstånds lösa tjänster är Kestrel den bästa servern för att tillåta flera tjänst instanser att dela en värd.  |
 | Port konfiguration | dynamiskt tilldelad | Flera repliker av en tillstånds känslig tjänst kan dela en värd process eller ett värd operativ system, vilket kräver att unika portar krävs. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Med dynamisk port tilldelning förhindrar den här inställningen förskriven identitets problem som beskrivits tidigare. |
-| InstanceCount | valfri | Inställningen för instans antal kan ställas in på ett värde som krävs för att köra tjänsten. |
+| InstanceCount | Helst | Inställningen för instans antal kan ställas in på ett värde som krävs för att köra tjänsten. |
 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Endast internt tillstånds känslig ASP.NET Core-tjänst
 Tillstånds känsliga tjänster som bara anropas från i klustret bör använda dynamiskt tilldelade portar för att säkerställa samarbetet mellan flera tjänster. Vi rekommenderar följande konfiguration:
 
 |  |  | **Anteckningar** |
 | --- | --- | --- |
-| Webbserver | Kestrel | Är `HttpSysCommunicationListener` inte avsedd att användas av tillstånds känsliga tjänster där repliker delar en värd process. |
+| Webbserver | Kestrel | @No__t-0 har inte utformats för användning av tillstånds känsliga tjänster där repliker delar en värd process. |
 | Port konfiguration | dynamiskt tilldelad | Flera repliker av en tillstånds känslig tjänst kan dela en värd process eller ett värd operativ system, vilket kräver att unika portar krävs. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Med dynamisk port tilldelning förhindrar den här inställningen förskriven identitets problem som beskrivits tidigare. |
 

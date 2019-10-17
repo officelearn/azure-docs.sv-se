@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 8/18/2019
 ms.author: makromer
-ms.openlocfilehash: 9964aaf060c43cc3e9992f515bf272011e795043
-ms.sourcegitcommit: dd69b3cda2d722b7aecce5b9bd3eb9b7fbf9dc0a
+ms.openlocfilehash: d6885e9b30cc71bda822a29574c4d574f2b020a0
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70962117"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387054"
 ---
 # <a name="process-fixed-length-text-files-by-using-data-factory-mapping-data-flows"></a>Bearbeta textfiler med fast längd genom att använda Data Factory mappa data flöden
 
@@ -65,13 +65,13 @@ Genom att använda mappnings data flöden i Microsoft Azure Data Factory kan du 
 
     ```substring(Column_1,1,4)```
 
-    ![Härledd kolumn](media/data-flow/fwderivedcol1.png)
+    ![härledd kolumn](media/data-flow/fwderivedcol1.png)
 
 11. Upprepa steg 10 för alla kolumner som du behöver parsa.
 
 12. Välj fliken **Granska** för att se de nya kolumner som ska genereras:
 
-    ![allmänt](media/data-flow/fwinspect.png)
+    ![Allmänt](media/data-flow/fwinspect.png)
 
 13. Använd Välj transformering för att ta bort alla kolumner som du inte behöver för omvandling:
 

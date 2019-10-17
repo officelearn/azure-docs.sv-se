@@ -1,6 +1,6 @@
 ---
-title: 'Azure SKU: N inte tillgänglig fel | Microsoft Docs'
-description: 'Beskriver hur du felsöker SKU: N inte tillgänglig fel under distributionen.'
+title: Azure SKU-fel som inte är tillgängliga | Microsoft Docs
+description: Beskriver hur du felsöker fel meddelandet SKU är inte tillgängligt när du distribuerar resurser med Azure Resource Manager.
 services: azure-resource-manager
 documentationcenter: ''
 author: tfitzmac
@@ -13,22 +13,22 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 10/19/2018
 ms.author: tomfitz
-ms.openlocfilehash: 1dd0532452c3558e53f0236998953d2055ed328c
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fca028412052a9a1520e1178f5d182a9987a9a85
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60390774"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390223"
 ---
-# <a name="resolve-errors-for-sku-not-available"></a>Åtgärda fel för SKU: N inte tillgänglig
+# <a name="resolve-errors-for-sku-not-available"></a>Lösa fel för SKU: n är inte tillgänglig
 
-Den här artikeln beskriver hur du löser det **SkuNotAvailable** fel. Om det inte går att hitta en lämplig SKU i regionen eller en alternativ region som uppfyller din verksamhet behöver, skicka en [SKU begäran](https://aka.ms/skurestriction) till Azure-supporten.
+Den här artikeln beskriver hur du löser **SkuNotAvailable** -felet. Om du inte kan hitta en lämplig SKU i regionen eller en alternativ region som uppfyller dina affärs behov skickar du en SKU- [begäran](https://aka.ms/skurestriction) till Azure-supporten.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="symptom"></a>Symtom
+## <a name="symptom"></a>Symptom
 
-När du distribuerar en resurs (vanligtvis en virtuell dator) kan få du följande felkod och felmeddelande:
+När du distribuerar en resurs (vanligt vis en virtuell dator) visas följande felkod och fel meddelandet:
 
 ```
 Code: SkuNotAvailable
@@ -38,17 +38,17 @@ for subscription '<subscriptionID>'. Please try another tier or deploy to a diff
 
 ## <a name="cause"></a>Orsak
 
-Du får detta felmeddelande när resursen SKU som du har valt (till exempel VM-storlek) är inte tillgängligt för den plats som du har valt.
+Du får det här felet när resurs-SKU: n som du har valt (till exempel VM-storlek) inte är tillgänglig för den plats som du har valt.
 
 ## <a name="solution-1---powershell"></a>Lösning 1 – PowerShell
 
-Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) kommando. Filtrera resultatet efter plats. Du måste ha den senaste versionen av PowerShell för det här kommandot.
+Använd kommandot [Get-AzComputeResourceSku](/powershell/module/az.compute/get-azcomputeresourcesku) för att avgöra vilka SKU: er som är tillgängliga i en region. Filtrera resultaten efter plats. Du måste ha den senaste versionen av PowerShell för det här kommandot.
 
 ```azurepowershell-interactive
 Get-AzComputeResourceSku | where {$_.Locations -icontains "centralus"}
 ```
 
-Resultatet innehåller en lista över SKU: er för platsen och eventuella begränsningar för SKU: N. Observera att en SKU kan stå som `NotAvailableForSubscription`.
+Resultaten innehåller en lista över SKU: er för platsen och eventuella begränsningar för den SKU: n. Observera att en SKU kan visas som `NotAvailableForSubscription`.
 
 ```powershell
 ResourceType          Name        Locations   Restriction                      Capability           Value
@@ -60,13 +60,13 @@ virtualMachines       Standard_A2 centralus   NotAvailableForSubscription      M
 
 ## <a name="solution-2---azure-cli"></a>Lösning 2 – Azure CLI
 
-Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den `az vm list-skus` kommando. Använd den `--location` parameter för att filtrera utdata till plats som du använder. Använd den `--size` parametern för att söka efter en partiell storleksnamn.
+Använd kommandot `az vm list-skus` för att avgöra vilka SKU: er som är tillgängliga i en region. Använd parametern `--location` för att filtrera utdata till den plats som du använder. Använd parametern `--size` om du vill söka efter ett namn för en partiell storlek.
 
 ```azurecli-interactive
 az vm list-skus --location southcentralus --size Standard_F --output table
 ```
 
-Kommandot returnerar resultat:
+Kommandot returnerar resultat som:
 
 ```azurecli
 ResourceType     Locations       Name              Zones    Capabilities    Restrictions
@@ -78,21 +78,21 @@ virtualMachines  southcentralus  Standard_F4                ...             None
 ```
 
 
-## <a name="solution-3---azure-portal"></a>Lösning 3 – Azure-portalen
+## <a name="solution-3---azure-portal"></a>Lösning 3 – Azure Portal
 
-Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den [portal](https://portal.azure.com). Logga in på portalen och lägga till en resurs via gränssnittet. När du har angett värden visas tillgängliga SKU: er för den resursen. Du behöver inte slutföra distributionen.
+Använd [portalen](https://portal.azure.com)för att avgöra vilka SKU: er som är tillgängliga i en region. Logga in på portalen och Lägg till en resurs via gränssnittet. När du anger värden visas tillgängliga SKU: er för resursen. Du behöver inte slutföra distributionen.
 
-Till exempel starta processen med att skapa en virtuell dator. Om du vill se andra tillgängliga storleken **ändra storleken på**.
+Starta till exempel processen för att skapa en virtuell dator. Välj **ändra storlek**om du vill se annan tillgänglig storlek.
 
 ![Skapa en virtuell dator](./media/resource-manager-sku-not-available-errors/create-vm.png)
 
-Du kan filtrera och bläddra igenom tillgängliga storlekar.
+Du kan filtrera och rulla igenom de tillgängliga storlekarna.
 
 ![Tillgängliga SKU: er](./media/resource-manager-sku-not-available-errors/available-sizes.png)
 
-## <a name="solution-4---rest"></a>Lösningen 4 – REST
+## <a name="solution-4---rest"></a>Lösning 4 – REST
 
-Om du vill ta reda på vilken SKU: er är tillgängliga i en region, Använd den [SKU: er – lista](/rest/api/compute/resourceskus/list) igen.
+För att avgöra vilka SKU: er som är tillgängliga i en region, använder du åtgärden [Resource SKU-List](/rest/api/compute/resourceskus/list) .
 
 Den returnerar tillgängliga SKU: er och regioner i följande format:
 

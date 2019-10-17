@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: 4d801ada8fd8a8b35c71601d3ca274f26afb24f6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 90f3e80c92cd4409a77d4661462ae027c535eaf7
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71262282"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72434297"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Långsamma Query-loggar i Azure Database for MySQL
 I Azure Database for MySQL är den långsamma fråge loggen tillgänglig för användare. Åtkomst till transaktions loggen stöds inte. Den långsamma frågans logg kan användas för att identifiera Flask halsar i prestanda för fel sökning.
@@ -21,7 +21,7 @@ Mer information om den långsamma loggen MySQL finns i [avsnittet om långsam fr
 ## <a name="access-slow-query-logs"></a>Komma åt långsamma Query-loggar
 Du kan visa och hämta Azure Database for MySQL långsamma fråge loggar med hjälp av Azure Portal och Azure CLI.
 
-Välj din Azure Database for MySQL-server i Azure-portalen. Under **övervaknings** rubriken väljer du sidan **Server loggar** .
+I Azure Portal väljer du Azure Database for MySQL-servern. Under **övervaknings** rubriken väljer du sidan **Server loggar** .
 
 Mer information om Azure CLI finns i [Konfigurera och komma åt Server loggar med Azure CLI](howto-configure-server-logs-in-cli.md).
 
@@ -38,7 +38,10 @@ Andra parametrar som du kan justera är:
 - **long_query_time**: om en fråga tar längre tid än long_query_time (i sekunder) som frågan loggas. Standardvärdet är 10 sekunder.
 - **log_slow_admin_statements**: om on innehåller administrativa uttryck som ALTER_TABLE och ANALYZE_TABLE i de uttryck som skrivs till slow_query_log.
 - **log_queries_not_using_indexes**: bestämmer om frågor som inte använder index ska loggas i slow_query_log
-- **log_throttle_queries_not_using_indexes**: Den här parametern begränsar antalet icke-indexfrågor som kan skrivas till den långsamma fråge loggen. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på ON.
+- **log_throttle_queries_not_using_indexes**: den här parametern begränsar antalet icke-index-frågor som kan skrivas till den långsamma frågans logg. Den här parametern börjar gälla när log_queries_not_using_indexes är inställt på ON.
+
+> [!Note]
+> För `sql_text` trunkeras loggen om den innehåller fler än 2048 tecken.
 
 Se [logg dokumentationen för en långsam fråga](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) i MySQL för att få en fullständig beskrivning av logg parametrarna för långsamma frågor.
 
@@ -54,20 +57,20 @@ I följande tabell beskrivs vad som finns i varje logg. Beroende på utmatnings 
 |---|---|
 | `TenantId` | Ditt klient-ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated`UTC | Tidstämpel när loggen registrerades i UTC |
-| `Type` | Loggens typ. Alltid `AzureDiagnostics` |
+| `TimeGenerated` [UTC] | Tidstämpel när loggen registrerades i UTC |
+| `Type` | Loggens typ. Always `AzureDiagnostics` |
 | `SubscriptionId` | GUID för den prenumeration som servern tillhör |
 | `ResourceGroup` | Namnet på den resurs grupp som servern tillhör |
-| `ResourceProvider` | Namnet på resurs leverantören. Alltid `MICROSOFT.DBFORMYSQL` |
+| `ResourceProvider` | Namnet på resurs leverantören. Always `MICROSOFT.DBFORMYSQL` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | Resurs-URI |
 | `Resource` | Namnet på servern |
 | `Category` | `MySqlSlowLogs` |
 | `OperationName` | `LogEvent` |
 | `Logical_server_name_s` | Namnet på servern |
-| `start_time_t`UTC | Tiden då frågan började |
-| `query_time_s` | Total tid som frågan tog att köra |
-| `lock_time_s` | Total tid då frågan låstes |
+| `start_time_t` [UTC] | Tiden då frågan började |
+| `query_time_s` | Total tid i sekunder som frågan tog för att köras |
+| `lock_time_s` | Total tid i sekunder som frågan låstes |
 | `user_host_s` | Användarnamn |
 | `rows_sent_s` | Antal rader som skickats |
 | `rows_examined_s` | Antal rader som granskas |

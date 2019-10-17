@@ -9,12 +9,12 @@ ms.author: robreed
 manager: carmonm
 ms.topic: conceptual
 ms.date: 08/08/2018
-ms.openlocfilehash: 09ba4bc9e5ac496a7d1d65ff145d56818e53116e
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: b44bcf7edeaad07fbe0b3093ba3c7100cb0c24c4
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72243345"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432058"
 ---
 # <a name="configure-servers-to-a-desired-state-and-manage-drift"></a>Konfigurera servrar till önskat tillstånd och hantera drift
 
@@ -34,7 +34,7 @@ För att kunna genomföra den här kursen behöver du följande:
 - Ett Azure Automation-konto. Instruktioner om hur du skapar ett Kör som-konto för Azure Automation finns i [Azure Kör som-konto](automation-sec-configure-azure-runas-account.md).
 - En Azure Resource Manager virtuell dator (inte klassisk) som kör Windows Server 2008 R2 eller senare. Instruktioner om hur du skapar en virtuell dator finns i [Skapa din första virtuella Windows-dator i Azure Portal](../virtual-machines/virtual-machines-windows-hero-tutorial.md)
 - Azure PowerShell modul version 3,6 eller senare. Kör `Get-Module -ListAvailable AzureRM` för att hitta versionen. Om du behöver uppgradera kan du läsa [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps) (Installera Azure PowerShell-modul).
-- Förtrogen med önskad tillstånds konfiguration (DSC). Information om DSC finns i [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overviews)
+- Förtrogen med önskad tillstånds konfiguration (DSC). Information om DSC finns i [Windows PowerShell Desired State Configuration Overview](/powershell/scripting/dsc/overview/overview)
 
 ## <a name="log-in-to-azure"></a>Logga in på Azure
 

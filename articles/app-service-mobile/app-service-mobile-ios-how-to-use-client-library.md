@@ -13,27 +13,28 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 44b3259745877ddb43e643f1fa8307e100ca8b38
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 175351d6bab6cc6aee06b83bdeb8544c2e7c2d24
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025238"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72435392"
 ---
 # <a name="how-to-use-ios-client-library-for-azure-mobile-apps"></a>Så här använder du klient biblioteket för iOS för Azure Mobile Apps
 
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 Den här guiden lär dig att utföra vanliga scenarier med hjälp av den senaste [Azure Mobile Apps iOS SDK][1]. Om du är nybörjare på Azure Mobile Apps måste du först slutföra [Azure Mobile Apps Snabbstart] för att skapa en server del, skapa en tabell och ladda ned ett fördefinierat iOS Xcode-projekt. I den här hand boken fokuserar vi på klient sidans iOS SDK. Mer information om Server sidans SDK för Server delen finns i Server SDK-HOWTOs.
 
 ## <a name="reference-documentation"></a>Referensdokumentation
 
-Referens dokumentationen för iOS client SDK finns här: [Klient referens för Azure Mobile Apps iOS][2].
+Referens dokumentationen för iOS client SDK finns här: [klient referens för Azure Mobile Apps iOS][2].
 
 ## <a name="supported-platforms"></a>Plattformar som stöds
 
@@ -46,7 +47,7 @@ Detta SDK är därför inte lämpligt för bevakade eller liknande enheter.
 
 Den här guiden förutsätter att du har skapat en server del med en tabell. Den här guiden förutsätter att tabellen har samma schema som tabellerna i de här självstudierna. Den här guiden förutsätter också att du refererar `MicrosoftAzureMobile.framework` och importerar `MicrosoftAzureMobile/MicrosoftAzureMobile.h` i din kod.
 
-## <a name="create-client"></a>Hur: Skapa klient
+## <a name="create-client"></a>Gör så här: skapa klient
 
 Skapa en `MSClient` för att få åtkomst till en Azure Mobile Apps Server del i projektet. Ersätt `AppUrl` med appens URL. Du kan lämna `gatewayURLString` och `applicationKey` tomt. Om du konfigurerar en gateway för autentisering fyller du i `gatewayURLString` med Gateway-URL: en.
 
@@ -62,7 +63,7 @@ MSClient *client = [MSClient clientWithApplicationURLString:@"AppUrl"];
 let client = MSClient(applicationURLString: "AppUrl")
 ```
 
-## <a name="table-reference"></a>Hur: Skapa tabell referens
+## <a name="table-reference"></a>Gör så här: skapa tabell referens
 
 För att få åtkomst till eller uppdatera data skapar du en referens till serverdelstabellen. Ersätt `TodoItem` med namnet på tabellen
 
@@ -78,7 +79,7 @@ MSTable *table = [client tableWithName:@"TodoItem"];
 let table = client.tableWithName("TodoItem")
 ```
 
-## <a name="querying"></a>Hur: Fråga efter data
+## <a name="querying"></a>Så här gör du: fråga efter data
 
 Fråga `MSTable`-objektet om du vill skapa en databas fråga. Följande fråga hämtar alla objekt i `TodoItem` och loggar texten för varje objekt.
 
@@ -110,7 +111,7 @@ table.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="filtering"></a>Hur: Filtrera returnerade data
+## <a name="filtering"></a>Gör så här: filtrera returnerade data
 
 Det finns många tillgängliga alternativ för att filtrera resultat.
 
@@ -150,7 +151,7 @@ table.readWithPredicate(predicate) { (result, error) in
 }
 ```
 
-## <a name="query-object"></a>Hur: Använd MSQuery
+## <a name="query-object"></a>Gör så här: använda MSQuery
 
 Om du vill utföra en komplex fråga (inklusive sortering och växling) skapar du ett `MSQuery`-objekt, direkt eller genom att använda ett predikat:
 
@@ -179,7 +180,7 @@ med `MSQuery` kan du styra flera fråge beteenden.
 
 Kör en `MSQuery`-fråga genom att anropa `readWithCompletion` på objektet.
 
-## <a name="sorting"></a>Hur: Sortera data med MSQuery
+## <a name="sorting"></a>Så här gör du: sortera data med MSQuery
 
 För att sortera resultaten ska vi titta på ett exempel. Om du vill sortera efter fält "text", sedan efter "Complete", anropar du `MSQuery` så här:
 
@@ -215,7 +216,7 @@ query.readWithCompletion { (result, error) in
 }
 ```
 
-## <a name="selecting"></a><a name="parameters"></a>Hur: Begränsa fält och expandera Frågesträngs parametrar med MSQuery
+## <a name="selecting"></a><a name="parameters"></a>Så här: begränsa fält och expandera frågeparametrar med MSQuery
 
 Om du vill begränsa vilka fält som ska returneras i en fråga anger du namnen på fälten i egenskapen **selectFields** . I det här exemplet returneras endast fälten text och slutförda:
 
@@ -248,7 +249,7 @@ query.parameters = @{
 query.parameters = ["myKey1": "value1", "myKey2": "value2"]
 ```
 
-## <a name="paging"></a>Hur: Konfigurera sid storlek
+## <a name="paging"></a>Gör så här: Konfigurera sid storlek
 
 Med Azure Mobile Apps kontrollerar sid storleken antalet poster som hämtas i taget från Server dels tabellerna. Ett anrop till `pull`-data skulle sedan skapa data, baserat på den här sid storleken, tills det inte finns några fler poster att hämta.
 
@@ -260,7 +261,7 @@ Den här inställningen styr bara sid storleken på klient sidan. Om klienten fr
 
 Den här inställningen är också *antalet* data poster, inte byte- *storlek*.
 
-Om du ökar klient sidans storlek bör du också öka sid storleken på servern. Se [ "How to: Justera tabellens sid storlek "](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) för att göra detta.
+Om du ökar klient sidans storlek bör du också öka sid storleken på servern. Se ["How to: Restore table sid storlek"](app-service-mobile-dotnet-backend-how-to-use-server-sdk.md) för att göra detta.
 
 **Mål-C**:
 
@@ -285,7 +286,7 @@ table.pullWithQuery(query, queryId:nil, settings: pullSettings) { (error) in
 }
 ```
 
-## <a name="inserting"></a>Hur: Infoga data
+## <a name="inserting"></a>Så här: infoga data
 
 Om du vill infoga en ny tabell rad skapar du en `NSDictionary` och anropar `table insert`. Om [dynamiskt schema] är aktiverat genererar Azure App Service mobil Server del automatiskt nya kolumner baserat på `NSDictionary`.
 
@@ -319,7 +320,7 @@ table.insert(newItem) { (result, error) in
 }
 ```
 
-## <a name="modifying"></a>Hur: Ändra data
+## <a name="modifying"></a>Gör så här: ändra data
 
 Om du vill uppdatera en befintlig rad ändrar du ett objekt och anropar `update`:
 
@@ -380,7 +381,7 @@ table.update(["id": "custom-id", "text": "my EDITED item"]) { (result, error) in
 
 Som minimum måste attributet `id` anges när uppdateringar görs.
 
-## <a name="deleting"></a>Hur: Ta bort data
+## <a name="deleting"></a>Så här gör du: ta bort data
 
 Om du vill ta bort ett objekt, anropa `delete` med objektet:
 
@@ -436,11 +437,11 @@ table.deleteWithId("37BBF396-11F0-4B39-85C8-B319C729AF6D") { (itemId, error) in
 
 Som minimum måste attributet `id` anges när du gör borttagningar.
 
-## <a name="customapi"></a>Hur: Anropa anpassat API
+## <a name="customapi"></a>Gör så här: anropa anpassat API
 
 Med ett anpassat API kan du exponera Server dels funktioner. Den behöver inte mappas till en tabell åtgärd. Om du inte bara får mer kontroll över meddelanden kan du till och med läsa/ange rubriker och ändra text formatet för svar.
 
-Anropa `MSClient.invokeAPI` om du vill anropa en anpassad API. Innehållet i begäran och svaret behandlas som JSON. Om du vill använda andra medie typer [använder du den andra överlagringen för `invokeAPI`][5].  Om du vill göra en `GET`-begäran i stället för en `POST`-begäran anger du parametern `HTTPMethod` till `"GET"` och parametern `body` till `nil` (eftersom GET-begäranden inte har meddelande texter). Om ditt anpassade API har stöd för andra HTTP-verb, ändra `HTTPMethod` på lämpligt sätt.
+Anropa `MSClient.invokeAPI` om du vill anropa en anpassad API. Innehållet i begäran och svaret behandlas som JSON. Om du vill använda andra medie typer [använder du den andra överlagringen för `invokeAPI`][5].  Om du vill göra en `GET`-begäran i stället för en `POST`-begäran anger du parametern `HTTPMethod` till `"GET"` och parametern `body` till `nil` (eftersom GET-begäranden inte har meddelande texter). Om ditt anpassade API stöder andra HTTP-verb ändrar du `HTTPMethod` på lämpligt sätt.
 
 **Mål-C**:
 
@@ -477,7 +478,7 @@ client.invokeAPI("sendEmail",
         }
 ```
 
-## <a name="templates"></a>Hur: Registrera push-mallar för att skicka meddelanden mellan plattformar
+## <a name="templates"></a>Gör så här: registrera push-mallar för att skicka meddelanden mellan plattformar
 
 För att registrera mallar, passa mallar med din **klient. push-registerDeviceToken** -Metod i klient programmet.
 
@@ -517,7 +518,7 @@ let iOSTemplate = ["templateName": ["body": ["aps": ["alert": "$(message)"]]]]
 
 Alla Taggar tas bort från begäran om säkerhet.  Information om hur du lägger till taggar till installationer eller mallar i installationer finns i [arbeta med .NET-Server del Server SDK för Azure Mobile Apps][4].  Om du vill skicka meddelanden med hjälp av dessa registrerade mallar kan du arbeta med [Notification Hubs API: er][3].
 
-## <a name="errors"></a>Hur: Hantera fel
+## <a name="errors"></a>Så här gör du: hantera fel
 
 När du anropar en Azure App Service mobil Server del innehåller slut för ande blocket en `NSError`-parameter. När ett fel inträffar är den här parametern icke-Nil. I din kod bör du kontrol lera den här parametern och hantera felet efter behov, som visas i föregående kodfragment.
 
@@ -549,7 +550,7 @@ if (error.code == MSErrorPreconditionFailed) {
 if (error.code == MSErrorPreconditionFailed) {
 ```
 
-## <a name="adal"></a>Hur: Autentisera användare med Active Directory-autentiseringsbibliotek
+## <a name="adal"></a>Gör så här: autentisera användare med Active Directory-autentiseringsbibliotek
 
 Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga användare i ditt program med Azure Active Directory. Autentisering med klient flöde med hjälp av en Identity Provider SDK är ett bättre sätt att använda metoden `loginWithProvider:completion:`.  Autentisering med klient flöde ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
 
@@ -567,7 +568,7 @@ Du kan använda Active Directory-autentiseringsbibliotek (ADAL) för att logga a
 3. Använd terminalen och kör `pod install` från katalogen som innehåller ditt projekt och öppna sedan den genererade Xcode-arbetsytan (inte projektet).
 4. Lägg till följande kod i programmet, enligt det språk som du använder. I vart och ett, gör du följande ersättningar:
 
-   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure Portal].
+   * Ersätt **insert-Authority – här** visas namnet på den klient där du etablerade ditt program. Formatet ska vara https://login.microsoftonline.com/contoso.onmicrosoft.com. Det här värdet kan kopieras från fliken domän i Azure Active Directory i [Azure-portalen].
    * Ersätt **insert-Resource-ID – här** med klient-ID: t för Server delen för mobilappen. Du kan hämta klient-ID: t från fliken **Avancerat** under **Azure Active Directory inställningar** i portalen.
    * Ersätt **insert-Client-ID – här** med det klient-ID som du kopierade från det interna klient programmet.
    * Ersätt **insert-Redirect-URI – här** med platsens */.auth/login/Done* -slutpunkt, med hjälp av https-schemat. Värdet bör likna *https://contoso.azurewebsites.net/.auth/login/done* .
@@ -636,7 +637,7 @@ func authenticate(parent: UIViewController, completion: (MSUser?, NSError?) -> V
 }
 ```
 
-## <a name="facebook-sdk"></a>Hur: Autentisera användare med Facebook SDK för iOS
+## <a name="facebook-sdk"></a>Gör så här: autentisera användare med Facebook SDK för iOS
 
 Du kan använda Facebook SDK för iOS för att logga användare i ditt program med Facebook.  Användning av en klient flödes autentisering är att föredra att använda metoden `loginWithProvider:completion:`.  Autentiseringen av klient flödet ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
 
@@ -715,7 +716,7 @@ Du kan använda Facebook SDK för iOS för att logga användare i ditt program m
     }
     ```
 
-## <a name="twitter-fabric"></a>Hur: Autentisera användare med Twitter Fabric för iOS
+## <a name="twitter-fabric"></a>Gör så här: autentisera användare med Twitter Fabric för iOS
 
 Du kan använda Fabric för iOS för att logga användare i ditt program med hjälp av Twitter. Autentisering med klient flöde är att föredra att använda metoden `loginWithProvider:completion:`, eftersom den ger en mer enhetlig känsla och möjliggör ytterligare anpassning.
 
@@ -797,7 +798,7 @@ Du kan använda Fabric för iOS för att logga användare i ditt program med hj�
     }
     ```
 
-## <a name="google-sdk"></a>Hur: Autentisera användare med Google-inloggning SDK för iOS
+## <a name="google-sdk"></a>Gör så här: autentisera användare med Google-inloggning SDK för iOS
 
 Du kan använda Google-inloggning SDK för iOS för att logga in användare i ditt program med ett Google-konto.  Google har nyligen lanserat ändringar i sina OAuth-säkerhetsprinciper.  Dessa princip ändringar kräver att Google SDK används i framtiden.
 
@@ -903,13 +904,13 @@ Du kan använda Google-inloggning SDK för iOS för att logga in användare i di
 [Mobile Services SDK]: https://go.microsoft.com/fwLink/p/?LinkID=266533
 [Authentication]: /develop/mobile/tutorials/get-started-with-users-ios
 [iOS SDK]: https://developer.apple.com/xcode
-[Azure Portal]: https://portal.azure.com/
+[Azure-portalen]: https://portal.azure.com/
 [Handling Expired Tokens]: https://go.microsoft.com/fwlink/p/?LinkId=301955
 [Live Connect SDK]: https://go.microsoft.com/fwlink/p/?LinkId=301960
 [Permissions]: https://msdn.microsoft.com/library/windowsazure/jj193161.aspx
 [Service-side Authorization]: mobile-services-javascript-backend-service-side-authorization.md
 [Use scripts to authorize users]: /develop/mobile/tutorials/authorize-users-in-scripts-ios
-[Dynamiskt schema]: https://go.microsoft.com/fwlink/p/?LinkId=296271
+[Dynamiskt schema]: https://github.com/Azure/azure-mobile-apps-node/tree/master/samples/dynamic-schema
 [How to: access custom parameters]: /develop/mobile/how-to-guides/work-with-server-scripts#access-headers
 [Create a table]: https://msdn.microsoft.com/library/windowsazure/jj193162.aspx
 [NSDictionary object]: https://go.microsoft.com/fwlink/p/?LinkId=301965

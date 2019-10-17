@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/02/2019
+ms.date: 10/15/2019
 ms.author: haroldw
-ms.openlocfilehash: fccb77110eafa131733ecea70fb209b2a168436c
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 66d17fb2a96bbb5b1dcb51151242f014b4116b86
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082499"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390533"
 ---
 # <a name="deploy-okd-in-azure"></a>Distribuera OKD i Azure
 
@@ -40,7 +40,7 @@ Några vanliga anpassnings alternativ är, men är inte begränsade till:
 
 [OKD-mallen](https://github.com/Microsoft/openshift-origin) har flera grenar som är tillgängliga för olika versioner av OKD.  Utifrån dina behov kan du distribuera direkt från lagrings platsen eller så kan du använda lagrings platsen och göra anpassade ändringar innan du distribuerar.
 
-Använd värdet från tjänstens huvud namn som du skapade tidigare `aadClientId` för parametern. `appId`
+Använd värdet `appId` från tjänstens huvud namn som du skapade tidigare för parametern `aadClientId`.
 
 Följande är ett exempel på en parameter fil med namnet azuredeploy. Parameters. JSON med alla nödvändiga indata.
 
@@ -124,7 +124,7 @@ Olika versioner kan ha olika parametrar, så kontrol lera de nödvändiga parame
 
 
 > [!NOTE] 
-> Följande kommando kräver Azure CLI 2.0.8 eller senare. Du kan kontrol lera CLI-versionen med `az --version` kommandot. Information om hur du uppdaterar CLI-versionen finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+> Följande kommando kräver Azure CLI 2.0.8 eller senare. Du kan kontrol lera CLI-versionen med kommandot `az --version`. Information om hur du uppdaterar CLI-versionen finns i [Installera Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 I följande exempel distribueras OKD-klustret och alla relaterade resurser till en resurs grupp med namnet openshiftrg, med ett distributions namn på myOpenShiftCluster. Mallen refereras direkt från GitHub-lagrings platsen när en lokal parameter fil med namnet azuredeploy. Parameters. JSON används.
 
@@ -143,11 +143,11 @@ Distributionen tar minst 30 minuter att slutföra, baserat på det totala antale
 }
 ```
 
-Om du inte vill koppla upp kommando raden som väntar på att distributionen ska slutföras, `--no-wait` lägger du till som ett alternativ för grupp distributionen. Utdata från distributionen kan hämtas från Azure Portal i avsnittet distribution för resurs gruppen.
+Om du inte vill koppla upp kommando raden som väntar på att distributionen ska slutföras, lägger du till `--no-wait` som ett av alternativen för grupp distributionen. Utdata från distributionen kan hämtas från Azure Portal i avsnittet distribution för resurs gruppen.
 
 ## <a name="connect-to-the-okd-cluster"></a>Ansluta till OKD-klustret
 
-När distributionen är klar ansluter du till OpenShift-konsolen med webbläsaren med hjälp `OpenShift Console Url`av. Du kan också SSH till OKD-huvudservern. Följande är ett exempel som använder utdata från distributionen:
+När distributionen är klar ansluter du till OpenShift-konsolen med webbläsaren med hjälp av `OpenShift Console Url`. Du kan också SSH till OKD-huvudservern. Följande är ett exempel som använder utdata från distributionen:
 
 ```bash
 $ ssh -p 2200 clusteradmin@myopenshiftmaster.cloudapp.azure.com
@@ -163,6 +163,6 @@ az group delete --name openshiftrg
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppgifter efter distribution](./openshift-post-deployment.md)
-- [Felsöka OpenShift-distribution](./openshift-troubleshooting.md)
+- [Uppgifter efter distribution](./openshift-container-platform-3x-post-deployment.md)
+- [Felsöka OpenShift-distribution](./openshift-container-platform-3x-troubleshooting.md)
 - [Komma igång med OKD](https://docs.okd.io)

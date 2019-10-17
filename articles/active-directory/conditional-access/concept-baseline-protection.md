@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/16/2019
+ms.date: 10/15/2019
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 572371f4abec413be5a2320c7d69d8126f26924f
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: ecd46b8cb734355a8394b7480c6def341cf9700d
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69533066"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430343"
 ---
 # <a name="what-are-baseline-policies"></a>Vad är bas linje principer?
 
@@ -28,12 +28,12 @@ Att hantera anpassade principer för villkorlig åtkomst kräver en Azure AD Pre
 
 ![Bas linje principer för villkorlig åtkomst i Azure Portal](./media/concept-baseline-protection/conditional-access-baseline-policies.png)
 
-Det finns fyra grundläggande principer som organisationer kan aktivera:
+Det finns fyra bas linje principer:
 
-* [Kräv MFA för administratörer (för hands version)](howto-baseline-protect-administrators.md)
-* [Slut användar skydd (för hands version)](howto-baseline-protect-end-users.md)
-* [Blockera äldre autentisering (för hands version)](howto-baseline-protect-legacy-auth.md)
-* [Kräv MFA för Service Management (för hands version)](howto-baseline-protect-azure.md)
+* Kräv MFA för administratörer (för hands version)
+* Slut användar skydd (för hands version)
+* Blockera äldre autentisering (för hands version)
+* Kräv MFA för Service Management (för hands version)
 
 Alla fyra av dessa principer påverkar äldre autentiserings flöden som POP, IMAP och äldre Office-klienter.
 
@@ -41,16 +41,16 @@ Alla fyra av dessa principer påverkar äldre autentiserings flöden som POP, IM
 
 På grund av den kraft och åtkomst som administratörs kontot har måste du behandla dem med särskild omsorg. En gemensam metod för att förbättra skyddet av privilegierade konton är att kräva en starkare form av konto verifiering när de används för att logga in. I Azure Active Directory kan du få en bättre konto verifiering genom att kräva att administratörer registrerar sig för och använder Azure Multi-Factor Authentication.
 
-[KRÄV MFA för administratörer (för hands version)](howto-baseline-protect-administrators.md) är en bas linje princip som kräver Multi-Factor Authentication (MFA) för följande katalog roller, som anses vara de mest privilegierade Azure AD-rollerna:
+Kräv MFA för administratörer (för hands version) är en bas linje princip som kräver Multi-Factor Authentication (MFA) för följande katalog roller, som anses vara de mest privilegierade Azure AD-rollerna:
 
 * Global administratör
 * SharePoint-administratör
 * Exchange-administratör
-* Administratör av villkorsstyrd åtkomst
+* Administratör för villkorlig åtkomst
 * Säkerhetsadministratör
 * Administratör för supportavdelningen/lösen ords administratör
 * Faktureringsadministratör
-* Användaradministratör
+* Användar administratör
 
 Om din organisation har dessa konton som används i skript eller kod kan du ersätta dem med [hanterade identiteter](../managed-identities-azure-resources/overview.md).
 
@@ -65,7 +65,7 @@ Alla användare som tidigare har flaggats för risk blockeras tills lösen ords 
 
 ### <a name="block-legacy-authentication-preview"></a>Blockera äldre autentisering (för hands version)
 
-Bakåtkompatibla autentiseringsprotokoll (t. ex.: IMAP, SMTP, POP3) är protokoll som normalt används av äldre e-postklienter för att autentisera. Äldre protokoll stöder inte Multi-Factor Authentication. Även om du har en princip som kräver Multi-Factor Authentication för din katalog kan en felaktig aktör autentisera med hjälp av ett av dessa äldre protokoll och kringgå Multi-Factor Authentication.
+Bakåtkompatibla autentiseringsprotokoll (t. ex. IMAP, SMTP, POP3) är protokoll som normalt används av äldre e-postklienter för att autentisera sig. Äldre protokoll stöder inte Multi-Factor Authentication. Även om du har en princip som kräver Multi-Factor Authentication för din katalog kan en felaktig aktör autentisera med hjälp av ett av dessa äldre protokoll och kringgå Multi-Factor Authentication.
 
 Det bästa sättet att skydda ditt konto från skadliga autentiseringsbegäranden som görs av äldre protokoll är att blockera dem.
 
@@ -75,7 +75,7 @@ Bas linje principen **blockera äldre autentisering (förhands granskning)** blo
 
 Organisationer använder en mängd olika Azure-tjänster och hanterar dem från Azure Resource Manager baserade verktyg som:
 
-* Azure Portal
+* Azure portal
 * Azure PowerShell
 * Azure CLI
 
@@ -83,23 +83,10 @@ Att använda något av dessa verktyg för att utföra resurs hantering är en h�
 
 För att skydda privilegierade åtgärder kräver detta att multifaktorautentisering **för Service Management (för hands version)** -principen kräver multifaktorautentisering för alla användare som har åtkomst till Azure Portal, Azure PowerShell eller Azure CLI.
 
-## <a name="enable-a-baseline-policy"></a>Aktivera en bas linje princip
-
-Så här aktiverar du en bas linje princip:
-
-1. Logga in på **Azure Portal** som global administratör, säkerhets administratör eller administratör för villkorlig åtkomst.
-1. Bläddra till **Azure Active Directory** > **villkorlig åtkomst**.
-1. I listan med principer väljer du en bas linje princip som du vill aktivera.
-1. Ange **Aktivera princip** till **på**.
-1. Klicka på Spara.
-
 ## <a name="next-steps"></a>Nästa steg
 
-Mer information finns i:
+Mer information finns här:
 
+* [Vanliga principer för villkorlig åtkomst](concept-conditional-access-policy-common.md)
 * [Fem steg för att skydda din identitets infrastruktur](../../security/fundamentals/steps-secure-identity.md)
 * [Vad är villkorlig åtkomst i Azure Active Directory?](overview.md)
-* [Kräv MFA för administratörer (för hands version)](howto-baseline-protect-administrators.md)
-* [Slut användar skydd (för hands version)](howto-baseline-protect-end-users.md)
-* [Blockera äldre autentisering (för hands version)](howto-baseline-protect-legacy-auth.md)
-* [Kräv MFA för Service Management (för hands version)](howto-baseline-protect-azure.md)

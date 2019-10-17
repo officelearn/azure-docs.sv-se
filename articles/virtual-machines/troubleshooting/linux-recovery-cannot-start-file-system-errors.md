@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: 298fd336e87d07f9e65221d5e5f539e255c94993
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72245336"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72432303"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Felsöka virtuella Linux-datorer med start problem på grund av fel i fil systemet
 
@@ -71,7 +71,7 @@ Checking all file systems.
 
 Det här problemet kan inträffa om fil systemet inte har stängts av på ett säkert sätt eller om det är problem med lagringen. Problemen omfattar maskinvaru-eller program varu fel, problem med driv rutiner eller program, skriv fel osv. Det är alltid viktigt att ha en säkerhets kopia av kritiska data. De verktyg som beskrivs i den här artikeln kan hjälpa till att återställa fil system, men det kan fortfarande uppstå data förlust.
 
-Linux har flera kontroll program för fil system tillgängliga. De vanligaste för distributionerna i Azure är: [FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)och [Xfs_repair](https://access.redhat.com/documentation/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
+Linux har flera kontroll program för fil system tillgängliga. De vanligaste för distributionerna i Azure är: [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)och [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
 ## <a name="resolution"></a>Upplösning
 

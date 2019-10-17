@@ -6,18 +6,26 @@ author: Daya-Patil
 manager: carmonm
 ms.topic: article
 ms.service: site-recovery
-ms.date: 07/29/2019
+ms.date: 10/16/2019
 ms.author: dapatil
-ms.openlocfilehash: acce72a5ddfaab56a7fcce92f0153bb06cb1ae71
-ms.sourcegitcommit: 08d3a5827065d04a2dc62371e605d4d89cf6564f
+ms.openlocfilehash: bf32809f426f3bfcabd08ec3bd95e76202aa8f84
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68620113"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72433409"
 ---
 # <a name="azure-site-recovery-deployment-planner-version-history"></a>Distributionshanteraren för Azure Site Recovery versions historik
 
 Den här artikeln innehåller en historik över alla versioner av Distributionshanteraren för Azure Site Recovery tillsammans med korrigeringar, kända begränsningar för varje versions datum.
+
+## <a name="version-251"></a>Version 2,51
+
+**Utgivnings datum: 22 augusti 2019**
+
+**Fixe**
+
+- Fastställde kostnads rekommendations problemet med distributions hanteraren version 2,5
 
 ## <a name="version-25"></a>Version 2,5
 
@@ -28,7 +36,7 @@ Den här artikeln innehåller en historik över alla versioner av Distributionsh
 - För virtuella VMware-datorer och fysiska datorer uppdateras rekommendationen utifrån replikering till Managed Disks.
 - Stöd har lagts till för Windows 10 (x64), Windows 8,1 (x64), Windows 8 (x64), Windows 7 (x64) SP1 eller senare
 
-## <a name="version-24"></a>Version 2.4
+## <a name="version-24"></a>Version 2,4
 
 **Utgivnings datum: 17 april 2019**
 
@@ -42,7 +50,7 @@ Den här artikeln innehåller en historik över alla versioner av Distributionsh
 
 
 
-## <a name="version-23"></a>Version 2.3
+## <a name="version-23"></a>Version 2,3
 
 **Utgivnings datum: 3 december 2018**
 
@@ -50,7 +58,7 @@ Den här artikeln innehåller en historik över alla versioner av Distributionsh
 
 - Ett problem har åtgärd ATS som gjorde att distributions hanteraren inte kunde skapa en rapport med den angivna mål platsen och prenumerationen.
 
-## <a name="version-22"></a>Version 2.2 
+## <a name="version-22"></a>Version 2,2 
 
 **Utgivnings datum: 25 april 2018**
 
@@ -66,7 +74,7 @@ Den här artikeln innehåller en historik över alla versioner av Distributionsh
   - Uppdaterad komprimerings faktorn för den inledande replikeringen (IR) och delta replikeringen (DR).
   - Begränsat stöd för SMB-lagring har lagts till.
 
-## <a name="version-21"></a>Version 2.1
+## <a name="version-21"></a>Version 2,1
 
 **Utgivnings datum: 3 januari 2018**
 
@@ -89,7 +97,7 @@ Den här artikeln innehåller en historik över alla versioner av Distributionsh
 
 - Rekommendationen har lagts till för att optimera nätverks bandbredden.
 
-## <a name="version-20"></a>Version 2.0
+## <a name="version-20"></a>Version 2,0
 
 **Utgivnings datum: 28 november 2017**
 
@@ -101,7 +109,7 @@ Den här artikeln innehåller en historik över alla versioner av Distributionsh
 
 **Kända begränsningar:**
 
-- För haveri beredskap för Hyper-V till Azure kan den virtuella datorn ha ett namn som `,`innehåller de `[`tecken som: ``` ` ``` , `"`, `]`, och som inte stöds. Om profilerat Miss lyckas rapporterar rapportgenerering eller kommer att ha ett felaktigt resultat.
+- För haveri beredskap för Hyper-V till Azure kan virtuella datorer med namn som innehåller de tecken som: `,`, `"`, `[`, `]` och ``` ` ``` inte stödjas. Om profilerat Miss lyckas rapporterar rapportgenerering eller kommer att ha ett felaktigt resultat.
 - För haveri beredskap för VMware till Azure stöds inte VM med namn som innehåller kommatecken. Om profilerade, rapportgenerering, Miss lyckas eller kommer att ha ett felaktigt resultat.
 
 ## <a name="version-131"></a>Version 1.3.1
@@ -113,7 +121,7 @@ Den här artikeln innehåller en historik över alla versioner av Distributionsh
 - Stöd har lagts till för stora diskar (> 1 TB) i rapportgenerering. Nu kan du använda Deployment Planner för att planera replikering för virtuella datorer som har disk storlekar som är större än 1 TB (upp till 4095 GB).
 Läs mer om [stöd för stora diskar i Azure Site Recovery](https://azure.microsoft.com/blog/azure-site-recovery-large-disks/)
 
-## <a name="version-13"></a>Version 1.3
+## <a name="version-13"></a>Version 1,3
 
 **Utgivnings datum: 9 maj 2017**
 
@@ -121,7 +129,7 @@ Läs mer om [stöd för stora diskar i Azure Site Recovery](https://azure.micros
 
 - Stöd har lagts till för hanterad disk i rapportgenerering. Antalet virtuella datorer som kan placeras i ett enda lagrings konto beräknas baserat på om den hanterade disken är vald för redundans/redundanstest.
 
-## <a name="version-12"></a>Version 1.2
+## <a name="version-12"></a>Version 1,2
 
 **Utgivnings datum: 7 april 2017**
 
@@ -133,7 +141,7 @@ Läs mer om [stöd för stora diskar i Azure Site Recovery](https://azure.micros
 - Lade till några fler nödvändiga kontroller för vCenter- och ESXi-Server.
 - Ett problem med fel rapporter som genererades när nationella inställningar är inställt på icke-engelska har åtgärd ATS.
 
-## <a name="version-11"></a>Version 1.1
+## <a name="version-11"></a>Version 1,1
 
 **Utgivnings datum: 9 mars 2017**
 
@@ -142,7 +150,7 @@ Läs mer om [stöd för stora diskar i Azure Site Recovery](https://azure.micros
 - Ett problem har åtgärd ATS som förhindrade profilering av virtuella datorer när det finns två eller flera virtuella datorer med samma namn eller IP-adress över olika vCenter ESXi-värdar.
 - Ett problem som gjorde att kopiering och sökning har inaktiverats för de kompatibla virtuella datorerna och de kompatibla virtuella datorerna har åtgärd ATS.
 
-## <a name="version-10"></a>Version 1.0
+## <a name="version-10"></a>Version 1,0
 
 **Utgivnings datum: 23 februari 2017**
 

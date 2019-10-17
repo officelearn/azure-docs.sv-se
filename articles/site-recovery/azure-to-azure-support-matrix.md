@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 10/15/2019
 ms.author: raynew
-ms.openlocfilehash: 3e62c19454808ad398dfb205eae9de19a671852d
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
-ms.translationtype: HT
+ms.openlocfilehash: 843cac8c7a5e6c80b7663df2a48079dd307b7d5a
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72376337"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72383515"
 ---
 # <a name="support-matrix-for-replicating-azure-vms-from-one-region-to-another"></a>Stödmatris för replikering av virtuella Azure-datorer från en region till en annan
 
@@ -82,18 +82,21 @@ Site Recovery stöder replikering av virtuella Azure-datorer som kör operativ s
 
 ### <a name="windows"></a>Windows
 
+
 **Operativsystem** | **Detaljer**
 --- | ---
 Windows Server 2019 | Stöds för Server Core, server med Skriv bords miljö.
 Windows Server 2016  | Server Core som stöds, server med Skriv bords miljö.
 Windows Server 2012 R2 | Stöds.
 Windows Server 2012 | Stöds.
-Windows Server 2008 R2 med SP1/SP2 | Stöds.<br/><br/> Från version 9.30. x av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows Server 2008 R2 SP1/SP2.  Om uppdateringarna inte är installerade kanske inte agent tillägget installeras/uppgraderas som förväntat. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
-Windows Server 2008 med SP2 | Från version 9.30. x av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update (självbetjänings)](https://support.microsoft.com/help/4493730) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows Server 2008 med SP2.  Om uppdateringarna inte är installerade kanske inte agent tillägget installeras/uppgraderas som förväntat. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
+Windows Server 2008 R2 med SP1/SP2 | Stöds.<br/><br/> Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update-uppdatering (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows Server 2008 R2 SP1/SP2.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
+Windows Server 2008 med SP2 | Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update-uppdatering (självbetjänings)](https://support.microsoft.com/help/4493730) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows Server 2008 med SP2.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
 Windows 10 (x64) | Stöds.
 Windows 8,1 (x64) | Stöds.
 Windows 8 (x64) | Stöds.
-Windows 7 (x64) med SP1 och senare | Från version 9.30. x av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows 7 med SP1.  Om uppdateringarna inte är installerade kanske inte agent tillägget installeras/uppgraderas som förväntat. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
+Windows 7 (x64) med SP1 och senare | Från version 9.30. x (förväntad version från och med den 2019 november) av mobilitets tjänst tillägget för virtuella Azure-datorer måste du installera en Windows [servicing stack Update-uppdatering (självbetjänings)](https://support.microsoft.com/help/4490628) och [SHA-2-uppdatering](https://support.microsoft.com/help/4474419) på datorer som kör Windows 7 med SP1.  SHA-1 stöds inte från september 2019 och om SHA-2-kod signering inte är aktiverat installeras/uppgraderas inte som förväntat i agent tillägget. Läs mer om [SHA-2-uppgradering och krav](https://aka.ms/SHA-2KB).
+
+
 
 #### <a name="linux"></a>Linux
 

@@ -7,16 +7,16 @@ ms.subservice: high-availability
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: jovanpop-msft
+author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
-ms.date: 10/11/2019
-ms.openlocfilehash: 0307a905c1d3d7d9bc707fbda87fb8f3fd6d2aee
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.date: 10/14/2019
+ms.openlocfilehash: 28b702192b41d3b4a8151e3127a4297c28712fa2
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299708"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390704"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hög tillgänglighet och Azure SQL Database
 
@@ -88,6 +88,13 @@ Zonens redundanta version av hög tillgänglighets arkitektur illustreras med f�
 ## <a name="accelerated-database-recovery-adr"></a>Accelererad databas återställning (ADR)
 
 [Accelererad databas återställning (ADR)](sql-database-accelerated-database-recovery.md) är en ny funktion i SQL Database Engine som avsevärt förbättrar databasens tillgänglighet, särskilt i närvaro av tids krävande transaktioner. ADR är för närvarande tillgängligt för enskilda databaser, elastiska pooler och Azure SQL Data Warehouse.
+
+## <a name="testing-database-fault-resiliency"></a>Testar återhämtning av databas fel
+
+Hög tillgänglighet är en fundamenental del av Azure SQL Database-plattformen och fungerar transparent för ditt databas program. Vi känner dock igen att du kanske vill testa hur de automatiska redundansväxlingen som initieras under planerade eller oplanerade händelser skulle påverka programmet innan du distribuerar det för produktion. Du kan anropa ett särskilt API för att starta om databasen eller den elastiska poolen, vilket i sin tur utlöser redundansväxlingen. I händelse av redundanta zoner eller elastiska pooler skulle API-anropet leda till omdirigering av klient anslutningarna till den nya primära i en annan AZ. Förutom att testa hur redundansväxlingen påverkar befintliga Databassessioner, kan du också kontrol lera om den påverkar prestanda från slut punkt till slut punkt. Eftersom omstarten är påträngande och ett stort antal av dem kan belasta plattformen, tillåts bara ett failover-anrop var 30: e minut för varje databas eller elastisk pool. Mer information finns i redundansväxling av [databasen](https://docs.microsoft.com/rest/api/sql/databases(failover)/failover) och [redundansväxlingen av elastisk pool](https://docs.microsoft.com/rest/api/sql/elasticpools(failover)/failover).       
+
+> [!IMPORTANT]
+> Redundans kommandot är för närvarande inte tillgängligt för Hypescale-databaser och hanterade instancses.  
 
 ## <a name="conclusion"></a>Sammanfattning
 

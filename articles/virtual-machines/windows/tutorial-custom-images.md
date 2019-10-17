@@ -15,20 +15,20 @@ ms.workload: infrastructure
 ms.date: 11/30/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 1c216e5a572a36d2306326dd0dd6e1b7ed586de8
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 58f7e530008303f16f2d015e29e60e95480cab2c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71350844"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390559"
 ---
-# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell Azure-dator med Azure PowerShell
+# <a name="tutorial-create-a-custom-image-of-an-azure-vm-with-azure-powershell"></a>Självstudier: Skapa en anpassad avbildning av en virtuell dator i Azure med hjälp av Azure PowerShell
 
 Anpassade avbildningar liknar Marketplace-avbildningar, men du skapar dem själv. Anpassade avbildningar kan användas för att starta distributioner och säkerställa konsekvens mellan flera virtuella datorer. I den här självstudien skapar du en egen anpassad avbildning av en virtuell Azure-dator med hjälp av PowerShell. Lär dig att:
 
 > [!div class="checklist"]
 > * Förbereda systemet med Sysprep och generalisera virtuella datorer
-> * Skapa en anpassad avbildning
+> * Skapa en egen avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning
@@ -135,6 +135,7 @@ New-AzVm `
 
 Vi rekommenderar att du begränsar antalet samtidiga distributioner till 20 virtuella datorer från en enda avbildning. Om du planerar storskaliga, samtidiga distributioner av fler än 20 virtuella datorer från samma anpassade avbildning, bör du använda ett [delat avbildnings Galleri](shared-image-galleries.md) med flera avbildnings repliker. 
 
+
 ## <a name="image-management"></a>Avbildningshantering 
 
 Här följer några exempel på vanliga uppgifter för hanterade avbildningar samt anvisningar som beskriver hur du utför dem med hjälp av PowerShell.
@@ -160,7 +161,7 @@ I självstudien skapade du en anpassad VM-avbildning. Du har lärt dig att:
 
 > [!div class="checklist"]
 > * Förbereda systemet med Sysprep och generalisera virtuella datorer
-> * Skapa en anpassad avbildning
+> * Skapa en egen avbildning
 > * Skapa en virtuell dator från en anpassad avbildning
 > * Göra en lista med alla avbildningar i din prenumeration
 > * Ta bort en avbildning

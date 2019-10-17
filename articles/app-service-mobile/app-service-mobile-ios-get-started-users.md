@@ -14,19 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 674d5f783f43011ba154b668cea4ec41f6a945f5
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 800d86750f091404ee7f940d7cf8f6631e3fbbeb
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025278"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388704"
 ---
 # <a name="add-authentication-to-your-ios-app"></a>Lägg till autentisering i din iOS-app
 [!INCLUDE [app-service-mobile-selector-get-started-users](../../includes/app-service-mobile-selector-get-started-users.md)]
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 I den här självstudien lägger du till autentisering till [snabb start för iOS] projektet för iOS med en identitets leverantör som stöds. Den här självstudien baseras på [snabb start för iOS] guiden för iOS, som du måste slutföra först.
 
@@ -37,7 +38,7 @@ I den här självstudien lägger du till autentisering till [snabb start för iO
 
 Säker autentisering kräver att du definierar ett nytt URL-schema för din app.  Detta gör att Authentication-systemet kan omdirigera tillbaka till din app när autentiseringen är klar.  I den här självstudien använder _vi program_ varan för URL-program i alla.  Du kan dock använda alla URL-scheman du väljer.  Det bör vara unikt för det mobila programmet.  Aktivera omdirigering på Server sidan:
 
-1. I [Azure Portal]väljer du App Service.
+1. I [Azure-portalen]väljer du App Service.
 
 2. Klicka på meny alternativet **autentisering/auktorisering** .
 
@@ -47,9 +48,9 @@ Säker autentisering kräver att du definierar ett nytt URL-schema för din app.
 
 5. I de **tillåtna externa omdirigerings-URL: erna**anger du `appname://easyauth.callback`.  _APPNAME_ i den här STRÄNGEN är URL-schemat för det mobila programmet.  Den bör följa normal URL-specifikation för ett protokoll (Använd bara bokstäver och siffror och börja med en bokstav).  Du bör anteckna den sträng som du väljer när du behöver justera koden för mobil program med URL-schemat på flera platser.
 
-6. Klicka på **OK**.
+6. Klicka på **OK**
 
-7. Klicka på **Spara**.
+7. Klicka på **Save** (Spara).
 
 ## <a name="permissions"></a>Begränsa behörigheter till autentiserade användare
 [!INCLUDE [app-service-mobile-restrict-permissions-dotnet-backend](../../includes/app-service-mobile-restrict-permissions-dotnet-backend.md)]
@@ -221,7 +222,7 @@ App Service autentisering använder kommunikation mellan appar.  Mer information
 
 [1]: https://developers.facebook.com/docs/ios/ios9#whitelist
 [2]: https://developer.apple.com/library/content/documentation/iPhone/Conceptual/iPhoneOSProgrammingGuide/Inter-AppCommunication/Inter-AppCommunication.html
-[Azure Portal]: https://portal.azure.com
+[Azure-portalen]: https://portal.azure.com
 
 [snabb start för iOS]: app-service-mobile-ios-get-started.md
 

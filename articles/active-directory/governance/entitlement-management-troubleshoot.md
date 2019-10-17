@@ -16,12 +16,12 @@ ms.date: 05/30/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 420a7079a7961868277a2d78ffbac4adba240d9f
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: ea979731c27a8d332102c3215e80510994f2ab3f
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68678094"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430233"
 ---
 # <a name="troubleshoot-azure-ad-entitlement-management-preview"></a>Felsöka hantering av Azure AD-berättigande (för hands version)
 
@@ -45,7 +45,7 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
 * SharePoint Online-dokumentbibliotek och enskilda dokument kan inte läggas till som resurser.  Skapa i stället en Azure AD-säkerhetsgrupp, inkludera den gruppen och en plats roll i åtkomst paketet och Använd gruppen i SharePoint Online för att kontrol lera åtkomsten till dokument biblioteket eller dokumentet.
 
-* Om det finns användare som redan har tilldelats till en resurs som du vill hantera med ett Access-paket måste du se till att användarna har tilldelats åtkomst paketet med en lämplig princip. Du kanske till exempel vill inkludera en grupp i ett Access-paket som redan har användare i gruppen. Om användarna i gruppen kräver fortsatt åtkomst måste de ha en lämplig princip för åtkomst paketen så att de inte förlorar åtkomsten till gruppen. Du kan tilldela åtkomst paketet genom att be användarna att begära åtkomst paketet som innehåller resursen, eller genom att direkt tilldela dem till åtkomst paketet. Mer information finns i [Redigera och hantera ett befintligt Access-paket](entitlement-management-access-package-edit.md).
+* Om det finns användare som redan har tilldelats till en resurs som du vill hantera med ett Access-paket måste du se till att användarna har tilldelats åtkomst paketet med en lämplig princip. Du kanske till exempel vill inkludera en grupp i ett Access-paket som redan har användare i gruppen. Om användarna i gruppen kräver fortsatt åtkomst måste de ha en lämplig princip för åtkomst paketen så att de inte förlorar åtkomsten till gruppen. Du kan tilldela åtkomst paketet genom att be användarna att begära åtkomst paketet som innehåller resursen, eller genom att direkt tilldela dem till åtkomst paketet. Mer information finns i [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md).
 
 ## <a name="checklist-for-providing-external-users-access"></a>Check lista för att ge åtkomst till externa användare
 
@@ -55,16 +55,17 @@ Den här artikeln beskriver några objekt som du bör kontrol lera för att hjä
 
 ## <a name="checklist-for-request-issues"></a>Check lista för problem med begäran
 
-* När en användare vill begära åtkomst till ett Access-paket kontrollerar du att de använder **länken min åtkomst Portal** för åtkomst paketet. Mer information finns i [Kopiera min åtkomst Portal länk](entitlement-management-access-package-edit.md#copy-my-access-portal-link).  Om en extern användare besöker **myaccess.Microsoft.com**, kommer de att se de åtkomst paket som är tillgängliga för dem i sin egen organisation.
+* När en användare vill begära åtkomst till ett Access-paket kontrollerar du att de använder **länken min åtkomst Portal** för åtkomst paketet. Mer information finns i [Dela länk för att begära ett Access-paket](entitlement-management-access-package-settings.md).  Om en extern användare besöker **myaccess.Microsoft.com**, kommer de att se de åtkomst paket som är tillgängliga för dem i sin egen organisation.
 
 * När en användare som ännu inte finns i din katalog loggar in på min åtkomst-Portal för att begära ett åtkomst paket, se till att de autentiseras med hjälp av deras organisations konto. Organisations kontot kan antingen vara ett konto i resurs katalogen eller i en katalog som ingår i någon av åtkomst paketets principer. Om användarens konto inte är ett organisations konto eller om den katalog där de autentiserar inte ingår i principen, kommer användaren inte att se åtkomst paketet. Mer information finns i [begäran om åtkomst till ett Access-paket](entitlement-management-request-access.md).
 
 * Om en användare är blockerad från att logga in till resurs katalogen kommer de inte att kunna begära åtkomst i min åtkomst Portal. Innan användaren kan begära åtkomst måste du ta bort inloggnings blocket från användarens profil. Ta bort inloggnings blocket genom att klicka på **Azure Active Directory**i Azure Portal, klicka på **användare**, klicka på användaren och sedan på **profil**. Redigera avsnittet **Inställningar** och ändra **blockera inloggning** till **Nej**. Mer information finns i [lägga till eller uppdatera en användares profil information med hjälp av Azure Active Directory](../fundamentals/active-directory-users-profile-azure-portal.md).  Du kan också kontrol lera om användaren har blockerats på grund av en [identitets skydds princip](../identity-protection/howto-unblock-user.md).
 
-* Om en användare är både en beställare och en god kännare, kommer de inte att se sin begäran om ett åtkomst paket på sidan godkännanden i portalen för åtkomst. Det här beteendet är avsiktligt – en användare kan inte godkänna sin egen begäran. Se till att det åtkomst paket som begärs har ytterligare god kännare konfigurerade i principen. Mer information finns i [Redigera en befintlig princip](entitlement-management-access-package-edit.md#edit-an-existing-policy).
+* Om en användare är både en beställare och en god kännare, kommer de inte att se sin begäran om ett åtkomst paket på sidan **godkännanden** i portalen för åtkomst. Det här beteendet är avsiktligt – en användare kan inte godkänna sin egen begäran. Se till att det åtkomst paket som begärs har ytterligare god kännare konfigurerade i principen. Mer information finns i [Inställningar för ändring av begäran och godkännande för ett Access-paket](entitlement-management-access-package-request-policy.md).
 
 * Om en ny extern användare, som inte tidigare har loggat in i din katalog, tar emot ett Access-paket, inklusive en SharePoint Online-webbplats, så visas deras åtkomst paket som inte fullständigt levererat förrän deras konto har allokerats i SharePoint Online.
 
 ## <a name="next-steps"></a>Nästa steg
 
 - [Visa rapporter om hur användare har åtkomst till hantering av rättigheter](entitlement-management-reports.md)
+- [Styr åtkomsten för externa användare](entitlement-management-external-users.md)

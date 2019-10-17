@@ -8,14 +8,14 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: seo-python-october2019
-ms.openlocfilehash: f5be8d5fd452953f447bbc8b08a852c1f8da94a0
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 8a3f8b5f8944552c92ac5a1c1d5fb2eabffad2c9
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72331799"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430149"
 ---
-# <a name="quickstart-upload-download-and-list-blobs-with-python"></a>Snabbstart: Ladda upp, ladda ned och lista blobar med Python
+# <a name="quickstart-upload-download-and-list-blobs-in-azure-blob-storage-with-python"></a>Snabb start: Ladda upp, ladda ned och lista blobar i Azure Blob Storage med python
 
 I den här artikeln använder du python för att ladda upp, ladda ned och lista block-blobar i en behållare i Azure Blob Storage. Blobbar är bara objekt som kan innehålla stora mängder text eller binära data, inklusive bilder, dokument, strömmande media och Arkiv data. Blobbar i Azure Storage skiljer sig från fil resurser, schema lösa tabeller och meddelande köer.  Mer information finns i [Introduktion till Azure Storage](/azure/storage/common/storage-introduction).
 

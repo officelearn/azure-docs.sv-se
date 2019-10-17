@@ -1,183 +1,175 @@
 ---
-title: Skicka eller ta emot händelser med python-Azure Event Hubs | Microsoft Docs
-description: Den här artikeln innehåller en genom gång av hur du skapar ett python-program som skickar händelser till Azure Event Hubs.
+title: Skicka och ta emot händelser med python – Azure Event Hubs
+description: Den här genom gången visar hur du skapar och kör Python-skript som skickar händelser till eller tar emot händelser från Azure Event Hubs.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: femila
 ms.service: event-hubs
 ms.workload: core
 ms.topic: article
-ms.date: 09/16/2019
+ms.date: 10/11/2019
 ms.author: shvija
-ms.openlocfilehash: 5162c6359c4b6e6bdd53d2778ca247704e2f16be
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 330a7f5dc325c707b5be7ce9f9b3242a1d4c9547
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059146"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72428896"
 ---
-# <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Skicka händelser till eller ta emot händelser från Event Hubs med python
+# <a name="send-and-receive-events-with-event-hubs-using-python"></a>Skicka och ta emot händelser med Event Hubs med python
 
-Azure Event Hubs är en strömningstjänst för stordata och händelseinmatningstjänst som kan ta emot och bearbeta flera miljoner händelser per sekund. Azure Event Hubs kan bearbeta och lagra händelser, data eller telemetri som produceras av distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. En detaljerad översikt över Event Hubs finns i [Översikt över Event Hubs](event-hubs-about.md) och [Event Hubs-funktioner](event-hubs-features.md).
+Azure Event Hubs är en stor data strömnings plattform och händelse inmatnings tjänst som kan ta emot och bearbeta miljon tals händelser per sekund. Event Hubs kan bearbeta och lagra händelser, data eller telemetri från distribuerade program och enheter. Data som skickas till en händelsehubb kan omvandlas och lagras med valfri provider för realtidsanalys eller batchbearbetnings-/lagringsadaptrar. Mer information om Event Hubs finns i [Azure-Event Hubs](event-hubs-about.md) och- [funktioner och terminologi i Azure Event Hubs](event-hubs-features.md).
 
-I den här självstudien beskrivs hur du skapar python-program för att skicka händelser till eller ta emot händelser från en händelsehubben. 
+Den här snabb starten visar hur du skapar python-program som skickar händelser till och tar emot händelser från en händelsehubben. 
 
 > [!NOTE]
-> Du kan ladda ned den här snabbstarten som ett exempel från [GitHub](https://github.com/Azure/azure-event-hubs-python/tree/master/examples). Ersätt strängarna `EventHubConnectionString` och `EventHubName` med värdena för din händelsehubb och kör den. Alternativt kan du följa stegen i den här självstudiekursen och skapa ett eget.
+> I stället för att arbeta via snabb starten kan du ladda ned och köra [exempel apparna](https://github.com/Azure/azure-event-hubs-python/tree/master/examples) från GitHub. Ersätt `EventHubConnectionString`-och `EventHubName`-strängar med Event Hub-värdena. 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
-För att slutföra den här självstudien, finns följande förhandskrav:
+För att slutföra den här snabbstarten, behöver du följande förhandskrav:
 
 - En Azure-prenumeration. Om du inte har ett konto kan du [skapa ett kostnadsfritt konto](https://azure.microsoft.com/free/) innan du börjar.
-- Python 3.4 och senare.
-- Använd [Azure Portal](https://portal.azure.com) för att skapa ett namn område av typen Event Hubs och hämta de autentiseringsuppgifter som programmet behöver för att kommunicera med händelsehubben. Om du vill skapa ett namnområde och en händelsehubb följer du anvisningarna i [i den här artikeln](event-hubs-create.md). Hämta sedan värdet för åtkomst nyckeln för händelsehubben genom att följa anvisningarna i artikeln: [Hämta anslutningssträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Du använder åtkomstnyckeln i koden du skriver senare i den här självstudien. Standard nyckel namnet är: **RootManageSharedAccessKey**.
-
-## <a name="install-python-package"></a>Installera Python-paketet
-
-Öppna en kommandotolk med Python i dess sökväg för att installera Python-paketet för Event Hubs, och sedan köra det här kommandot: 
-
-```bash
-pip install azure-eventhub
-```
+- Ett aktivt Event Hubs-namnområde och händelsehubben som skapats genom att följa anvisningarna i [snabb start: skapa en händelsehubben med Azure Portal](event-hubs-create.md). Anteckna namn området och händelsehubben som ska användas senare i den här genom gången. 
+- Namnet på den delade åtkomst nyckeln och värdet för primär nyckel för din Event Hubs-namnrymd. Hämta namnet och värdet för åtkomst nyckeln genom att följa anvisningarna i [Hämta anslutnings sträng](event-hubs-get-connection-string.md#get-connection-string-from-the-portal). Standard namnet för åtkomst nyckeln är **RootManageSharedAccessKey**. Kopiera nyckel namnet och värdet för primär nyckel som ska användas senare i den här genom gången. 
+- Python 3,4 eller senare, med `pip` installerat och uppdaterat.
+- Python-paketet för Event Hubs. Installera paketet genom att köra det här kommandot i en kommando tolk med python i sökvägen: 
+  
+  ```cmd
+  pip install azure-eventhub
+  ```
+  
+  > [!NOTE]
+  > Koden i den här snabb starten använder den aktuella stabila versionen av 1.3.1 för Event Hubs SDK. Exempel kod som använder för hands versionen av SDK finns i [https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples).
 
 ## <a name="send-events"></a>Skicka händelser
 
-> [!NOTE]
-> Den här koden i det här avsnittet gäller för den aktuella stabila versionen (1.3.1) av Event Hubs SDK. Om du letar efter exempel koden som använder för hands versionen av SDK, se [den här sidan](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhubs/examples).
-
-### <a name="create-a-python-script-to-send-events"></a>Skapa ett Python-skript för att skicka händelser
-
-Skapa sedan ett Python-program som skickar händelser till en händelsehubb:
+Så här skapar du ett python-program som skickar händelser till en Event Hub:
 
 1. Öppna din favorit-eller python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
-2. Skapa ett skript som heter **send.py**. Det här skriptet skickar 100 händelser till din event hub.
-3. Klistra in följande kod i send.py, där du ersätter värdena adress-, ANVÄNDAR- och NYCKELN med de värden som du fick från Azure-portalen i föregående avsnitt: 
+2. Skapa en ny fil med namnet *send.py*. Det här skriptet skickar 100-händelser till händelsehubben.
+3. Klistra in följande kod i *send.py*, och ersätt Event Hubs \<namespace >, \<eventhub >, \<AccessKeyName > och \<primary nyckel värde > med dina värden: 
+   
+   ```python
+   import sys
+   import logging
+   import datetime
+   import time
+   import os
+   
+   from azure.eventhub import EventHubClient, Sender, EventData
+   
+   logger = logging.getLogger("azure")
+   
+   # Address can be in either of these formats:
+   # "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<namespace>.servicebus.windows.net/eventhub"
+   # "amqps://<namespace>.servicebus.windows.net/<eventhub>"
+   # SAS policy and key are not required if they are encoded in the URL
+   
+   ADDRESS = "amqps://<namespace>.servicebus.windows.net/<eventhub>"
+   USER = "<AccessKeyName>"
+   KEY = "<primary key value>"
+   
+   try:
+       if not ADDRESS:
+           raise ValueError("No EventHubs URL supplied.")
+   
+       # Create Event Hubs client
+       client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
+       sender = client.add_sender(partition="0")
+       client.run()
+       try:
+           start_time = time.time()
+           for i in range(100):
+               print("Sending message: {}".format(i))
+               message = "Message {}".format(i)
+               sender.send(EventData(message))
+       except:
+           raise
+       finally:
+           end_time = time.time()
+           client.stop()
+           run_time = end_time - start_time
+           logger.info("Runtime: {} seconds".format(run_time))
+   
+   except KeyboardInterrupt:
+       pass
+   ```
+   
+4. Spara filen. 
 
-```python
-import sys
-import logging
-import datetime
-import time
-import os
+Kör skriptet från katalogen där du sparade *send.py*genom att köra det här kommandot:
 
-from azure.eventhub import EventHubClient, Sender, EventData
-
-logger = logging.getLogger("azure")
-
-# Address can be in either of these formats:
-# "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<mynamespace>.servicebus.windows.net/myeventhub"
-# "amqps://<mynamespace>.servicebus.windows.net/myeventhub"
-# For example:
-ADDRESS = "amqps://<EVENTHUBS NAMESPACE NAME>.servicebus.windows.net/<EVENTHUB NAME>"
-
-# SAS policy and key are not required if they are encoded in the URL
-USER = "RootManageSharedAccessKey"
-KEY = "<SHARED ACCESS KEY FOR THE EVENT HUBS NAMESPACE>"
-
-try:
-    if not ADDRESS:
-        raise ValueError("No EventHubs URL supplied.")
-
-    # Create Event Hubs client
-    client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
-    sender = client.add_sender(partition="0")
-    client.run()
-    try:
-        start_time = time.time()
-        for i in range(100):
-            print("Sending message: {}".format(i))
-            message = "Message {}".format(i)
-            sender.send(EventData(message))
-    except:
-        raise
-    finally:
-        end_time = time.time()
-        client.stop()
-        run_time = end_time - start_time
-        logger.info("Runtime: {} seconds".format(run_time))
-
-except KeyboardInterrupt:
-    pass
-```
-
-### <a name="run-application-to-send-events"></a>Kör programmet för att skicka händelser
-
-Öppna en kommandotolk med Python i dess sökväg för att köra skriptet och kör sedan det här kommandot:
-
-```bash
+```cmd
 start python send.py
 ```
 
-Grattis! Du har nu skickat meddelanden till en händelsehubb.
+Gratulerar! Du har nu skickat meddelanden till en händelsehubb.
 
 ## <a name="receive-events"></a>Ta emot händelser
 
-### <a name="create-a-python-script-to-receive-events"></a>Skapa en pythonskript för att ta emot händelser
+Så här skapar du ett python-program som tar emot händelser från en Event Hub:
 
-Skapa sedan ett Python-program som tar emot händelser från en händelsehubb:
+1. Skapa en fil med namnet *Recv.py*i python-redigeraren.
+2. Klistra in följande kod i *Recv.py*, och ersätt Event Hubs \<namespace >, \<eventhub >, \<AccessKeyName > och \<primary nyckel värde > med dina värden: 
+   
+   ```python
+   import os
+   import sys
+   import logging
+   import time
+   from azure.eventhub import EventHubClient, Receiver, Offset
+   
+   logger = logging.getLogger("azure")
+   
+   # Address can be in either of these formats:
+   # "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<mynamespace>.servicebus.windows.net/myeventhub"
+   # "amqps://<namespace>.servicebus.windows.net/<eventhub>"
+   # SAS policy and key are not required if they are encoded in the URL
+   
+   ADDRESS = "amqps://<namespace>.servicebus.windows.net/<eventhub>"
+   USER = "<AccessKeyName>"
+   KEY = "<primary key value>"
+   
+   
+   CONSUMER_GROUP = "$default"
+   OFFSET = Offset("-1")
+   PARTITION = "0"
+   
+   total = 0
+   last_sn = -1
+   last_offset = "-1"
+   client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
+   try:
+       receiver = client.add_receiver(
+           CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
+       client.run()
+       start_time = time.time()
+       for event_data in receiver.receive(timeout=100):
+           print("Received: {}".format(event_data.body_as_str(encoding='UTF-8')))
+           total += 1
+   
+       end_time = time.time()
+       client.stop()
+       run_time = end_time - start_time
+       print("Received {} messages in {} seconds".format(total, run_time))
+   
+   except KeyboardInterrupt:
+       pass
+   finally:
+       client.stop()
+   ```
+   
+4. Spara filen.
 
-1. Öppna din favorit-eller python-redigerare, till exempel [Visual Studio Code](https://code.visualstudio.com/)
-2. Skapa ett skript som heter **recv.py**.
-3. Klistra in följande kod i recv.py, där du ersätter värdena adress-, ANVÄNDAR- och NYCKELN med de värden som du fick från Azure-portalen i föregående avsnitt: 
+Kör skriptet från katalogen där du sparade *Recv.py*genom att köra det här kommandot:
 
-```python
-import os
-import sys
-import logging
-import time
-from azure.eventhub import EventHubClient, Receiver, Offset
-
-logger = logging.getLogger("azure")
-
-# Address can be in either of these formats:
-# "amqps://<URL-encoded-SAS-policy>:<URL-encoded-SAS-key>@<mynamespace>.servicebus.windows.net/myeventhub"
-# "amqps://<mynamespace>.servicebus.windows.net/myeventhub"
-# For example:
-ADDRESS = "amqps://<EVENTHUBS NAMESPACE NAME>.servicebus.windows.net/<EVENTHUB NAME>"
-
-# SAS policy and key are not required if they are encoded in the URL
-USER = "RootManageSharedAccessKey"
-KEY = "<SHARED ACCESS KEY FOR THE EVENT HUBS NAMESPACE>"
-
-CONSUMER_GROUP = "$default"
-OFFSET = Offset("-1")
-PARTITION = "0"
-
-total = 0
-last_sn = -1
-last_offset = "-1"
-client = EventHubClient(ADDRESS, debug=False, username=USER, password=KEY)
-try:
-    receiver = client.add_receiver(
-        CONSUMER_GROUP, PARTITION, prefetch=5000, offset=OFFSET)
-    client.run()
-    start_time = time.time()
-    for event_data in receiver.receive(timeout=100):
-        print("Received: {}".format(event_data.body_as_str(encoding='UTF-8')))
-        total += 1
-
-    end_time = time.time()
-    client.stop()
-    run_time = end_time - start_time
-    print("Received {} messages in {} seconds".format(total, run_time))
-
-except KeyboardInterrupt:
-    pass
-finally:
-    client.stop()
-```
-
-### <a name="receive-events"></a>Ta emot händelser
-
-Öppna en kommandotolk med Python i dess sökväg för att köra skriptet och kör sedan det här kommandot:
-
-```bash
+```cmd
 start python recv.py
 ```
- 
+
 ## <a name="next-steps"></a>Nästa steg
-Läs följande artiklar:
+Mer information om Event Hubs finns i följande artiklar:
 
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Funktioner och terminologi i Azure Event Hubs](event-hubs-features.md)

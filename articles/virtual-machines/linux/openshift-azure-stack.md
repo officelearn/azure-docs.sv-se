@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 10/23/2018
+ms.date: 10/14/2019
 ms.author: haroldw
-ms.openlocfilehash: f9f1072954e01f718fd3d9f03430b6ed6666bb62
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 97529118d420813cf638f211bdd5559068802c95
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70082598"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390655"
 ---
 # <a name="deploy-openshift-container-platform-or-okd-in-azure-stack"></a>Distribuera OpenShift container Platform eller OKD i Azure Stack
 
@@ -45,7 +45,7 @@ Om du använder Resource Manager-mallen väljer du rätt gren (azurestack-releas
 ```
 
 För alla alternativ krävs en Red Hat-prenumeration. Under distributionen registreras Red Hat Enterprise Linux-instansen till Red Hat-prenumerationen och kopplas till det pool-ID som innehåller rättigheterna för OpenShift container Platform.
-Se till att du har ett giltigt användar namn, lösen ord och pool-ID för Red Hat Subscription Manager (RHSM). Alternativt kan du använda en aktiverings nyckel, ett org-ID och ett pool-ID.  Du kan kontrol lera den här informationen genom att https://access.redhat.com logga in på.
+Se till att du har ett giltigt användar namn, lösen ord och pool-ID för Red Hat Subscription Manager (RHSM). Alternativt kan du använda en aktiverings nyckel, ett org-ID och ett pool-ID.  Du kan kontrol lera den här informationen genom att logga in på https://access.redhat.com.
 
 ## <a name="azure-stack-prerequisites"></a>Azure Stack förutsättningar
 
@@ -66,9 +66,9 @@ Några vanliga anpassnings alternativ är, men är inte begränsade till:
 - OpenShift-kluster, information, modifierad via hosts-filen (deployOpenShift.sh)
 - Referens för RHEL-avbildning (variabel i azuredeploy. JSON)
 
-Om du vill distribuera med hjälp av Azure CLI följer du lämpligt avsnitt i avsnittet [OpenShift container Platform](./openshift-container-platform.md) eller avsnittet [OKD](./openshift-okd.md) .
+Om du vill distribuera med hjälp av Azure CLI följer du lämpligt avsnitt i avsnittet [OpenShift container Platform](./openshift-container-platform-3x.md) eller avsnittet [OKD](./openshift-okd.md) .
 
 ## <a name="next-steps"></a>Nästa steg
 
-- [Uppgifter efter distribution](./openshift-post-deployment.md)
-- [Felsöka OpenShift-distribution i Azure](./openshift-troubleshooting.md)
+- [Uppgifter efter distribution](./openshift-container-platform-3x-post-deployment.md)
+- [Felsöka OpenShift-distribution i Azure](./openshift-container-platform-3x-troubleshooting.md)

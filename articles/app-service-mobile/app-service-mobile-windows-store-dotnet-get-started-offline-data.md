@@ -14,19 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 2ffd80f60543c3136eff2d5774a850347eb68427
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 1f15bd86debd98104a408c00650f5acfab94c526
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027090"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388577"
 ---
 # <a name="enable-offline-sync-for-your-windows-app"></a>Aktivera offlinesynkronisering av Windows-appen
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 Den här självstudien visar hur du lägger till offline-stöd till en Universell Windows-plattform-app (UWP) med hjälp av en Azure-mobilapp. Offline-synkronisering ger slutanvändare möjlighet att interagera med en mobilapp – Visa, lägga till eller ändra data, även om det inte finns någon nätverks anslutning. Ändringarna lagras i en lokal databas. När enheten är online igen synkroniseras de här ändringarna med fjärrservern.
@@ -49,7 +50,7 @@ Offline-funktioner i Azure Mobile Apps gör att du kan interagera med en lokal d
 1. Installera [sqlite-körningen för universell Windows-plattform](https://sqlite.org/2016/sqlite-uwp-3120200.vsix).
 2. I Visual Studio öppnar du NuGet Package Manager för det UWP app-projekt som du har slutfört i själv studie kursen [skapa en Windows-app] .
     Sök efter och installera **Microsoft. Azure. Mobile. client. SQLiteStore** NuGet-paketet.
-3. I Solution Explorer högerklickar du på **referenser** > **Lägg till referens...** > **universella Windows** >- **tillägg**och aktivera sedan både **SQLite för universell Windows-plattform** och **Visual C++ 2015 runtime för universell Windows-plattform appar**.
+3. I Solution Explorer högerklickar du på **referenser** > **Lägg till referens...** > **Universal Windows** >- **tillägg**och aktivera sedan både **sqlite för universell Windows-plattform** och **Visual C++ 2015 Körning för Universell Windows-plattform appar**.
 
     ![Lägg till SQLite UWP-referens][1]
 4. Öppna MainPage.xaml.cs-filen och ta bort kommentaren till `#define OFFLINE_SYNC_ENABLED`-definitionen.

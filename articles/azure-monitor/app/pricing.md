@@ -13,58 +13,47 @@ ms.topic: conceptual
 ms.reviewer: mbullwin
 ms.date: 10/03/2019
 ms.author: dalek
-ms.openlocfilehash: 51caf34d0030fd404cd7f7c1868a0e2945c75b35
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: 55ff134bfa76634250b7495120432d7310b07c06
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72264419"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72431871"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Hantera användning och kostnader för Application Insights
 
 > [!NOTE]
 > Den här artikeln beskriver hur du förstår och styr dina kostnader för Application Insights.  En relaterad artikel, [övervaknings användning och uppskattade kostnader](https://docs.microsoft.com/azure/azure-monitor/platform/usage-estimated-costs) beskriver hur du visar användning och uppskattade kostnader i flera Azure-övervakningsfunktioner för olika pris modeller.
 
-Om du har frågor om hur prissättningen fungerar för Application Insights kan du publicera en fråga i vårt [Forum](https://social.msdn.microsoft.com/Forums/home?forum=ApplicationInsights).
+Application Insights har utformats för att få allt du behöver för att övervaka tillgänglighet, prestanda och användning av dina webb program, oavsett om de finns på Azure eller lokalt. Application Insights stöder populära språk och ramverk, till exempel .NET, Java och Node. js, och kan integreras med DevOps-processer och verktyg som Azure DevOps, JIRA och PagerDuty. Det är viktigt att förstå vad som bestämmer kostnaderna för att övervaka dina program. I den här artikeln granskar vi vad som finns på dina program övervaknings kostnader och hur du kan övervaka och kontrol lera dem proaktivt.
+
+Om du har frågor om hur prissättningen fungerar för Application Insights kan du publicera en fråga i vårt [Forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=ApplicationInsights&filter=alltypes&sort=lastpostdesc).
 
 ## <a name="pricing-model"></a>Prismodell
 
-Priserna för [Azure Application insikter][start] är en modell där du betalar per användning, baserat på data volym inmatad och eventuellt för längre data kvarhållning. Varje Application Insights resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration. 
+Prissättningen för [Azure Application insikter][start] är en modell där **du betalar per** användning baserat på data volym som matas in och eventuellt för längre data kvarhållning. Varje Application Insights resurs debiteras som en separat tjänst och bidrar till fakturan för din Azure-prenumeration. Data volymen mäts som storleken på det okomprimerade JSON-datapaketet som tas emot av Application Insights från ditt program. Det finns ingen data volym avgift för att använda [Live Metrics Stream](../../azure-monitor/app/live-stream.md).
 
-### <a name="data-volume-details"></a>Information om data volym
-
-* Data volym är antalet byte med telemetri som mottagits av Application Insights. Data volymen mäts som storleken på det okomprimerade JSON-datapaketet som tas emot av Application Insights från ditt program. För [tabell data som importeras till Analytics](https://docs.microsoft.com/azure/application-insights/app-insights-analytics-import)mäts data volymen som okomprimerad storlek på filer som skickas till Application Insights.
-* Dina programs data volym kostnader rapporteras nu vid en ny fakturerings mätare med namnet **data inmatning** från och med april 2018. Den nya mätaren delas mellan övervaknings tekniker, till exempel program insikter och Log Analytics och är för närvarande under tjänst namnet **Log Analytics**. 
-* [Live Metrics Stream](../../azure-monitor/app/live-stream.md) data räknas inte i prissättnings syfte.
-
-> [!NOTE]
-> Alla priser som visas i skärm bilder i den här artikeln är till exempel endast avsedda. För aktuella priser i din valuta och region, se [Application Insights priser][pricing].
-
-### <a name="multi-step-web-tests"></a>Flerstegstest för webbplatser
-
-[Webbtester med flera steg](../../azure-monitor/app/availability-multistep.md) debiteras ytterligare en kostnad. Webbtester med flera steg är webbtester som utför en sekvens med åtgärder.
-
-Det finns ingen separat avgift för *ping-test* av en enda sida. Telemetri från ping-test och multi-Step-tester debiteras på samma sätt som andra telemetri från din app.
+[Webbtester med flera steg](../../azure-monitor/app/availability-multistep.md) debiteras ytterligare en kostnad. Webbtester med flera steg är webbtester som utför en sekvens med åtgärder. Det finns ingen separat avgift för *ping-test* av en enda sida. Telemetri från ping-test och multi-Step-tester debiteras på samma sätt som andra telemetri från din app.
 
 ## <a name="estimating-the-costs-to-manage-your-application"></a>Beräkna kostnaderna för att hantera ditt program 
 
 Om du inte använder Application Insights än kan du använda [pris Kalkylatorn för Azure Monitor](https://azure.microsoft.com/pricing/calculator/?service=monitor) för att beräkna kostnaden för att använda Application Insights. Börja med att ange "Azure Monitor" i sökrutan och klicka på den resulterande Azure Monitor panelen. Bläddra nedåt på sidan för att Azure Monitor och välj Application Insights i list rutan typ.  Här kan du ange det antal GB data som du förväntar dig att samla in per månad, så att de är så fråga om hur mycket data som Application Insights Samla in övervakningen av ditt program. 
 
-Det finns två sätt att åtgärda detta: användning av standard övervakning och anpassningsbar sampling som är tillgängligt i ASP.NET SDK eller estimtate du likley data inmatning baserat på vad andra liknande kunder har sett. 
+Det finns två sätt att hantera detta: användning av standard övervakning och anpassningsbar sampling som är tillgängligt i ASP.NET SDK, eller för att beräkna din sannolika data inmatning baserat på vad andra liknande kunder har sett. 
 
 ### <a name="data-collection-when-using-sampling"></a>Data insamling när du använder sampling
 
 Med ASP.NET SDK: s [anpassningsbara sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)justeras data volymen automatiskt så att den behålls inom en angiven högsta trafik hastighet för standard Application Insights övervakning. Om programmet genererar en liten mängd telemetri, till exempel vid fel sökning eller på grund av låg användning, kommer objekten inte att släppas av samplings processorn så länge volymen är lägre än de konfigurerade händelserna per sekund. För ett program med hög volym, med standard tröskelvärdet på 5 händelser per sekund, begränsar adaptiv sampling antalet dagliga händelser till 432 000. Med en typisk genomsnittlig händelse storlek på 1 KB motsvarar detta 13,4 GB telemetri per 31-dagars månad per nod som är värd för ditt program (eftersom samplingen görs lokal för varje nod.) 
 
-För SDK: er som inte stöder anpassningsbar sampling kan du använda [samplings sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) , som kan användas när data receveds av Application Insights baserat på en procent andel av data som ska behållas, eller [sampling med fast pris för ASP.net, ASP.net Core och Java webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) för att minska trafiken som skickas från din webb server och webbläsare
+För SDK: er som inte stöder anpassningsbar sampling kan du använda [provtagnings sampling](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling) som kan användas när data tas emot av Application Insights baserat på en procent andel av data som ska behållas, eller [sampling med fast pris för ASP.net, ASP.net Core och Java webbplatser](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-and-java-websites) för att minska trafiken som skickas från din webb server och webbläsare
 
 ### <a name="learn-from-what-similar-customers-collect"></a>Lär dig från vilka liknande kunder samlar in
 
-I pris Kalkylatorn för Azure-övervakning för Application Insights, om du aktiverar funktionen beräkna data volym baserat på program aktivitet, kan du ange indata om ditt program (begär Anden per månad och sid visningar per månad, om du kommer att samla in telemetri på klient sidan) och visar sedan kalkylatorn information om median och nittionde percentils mängden data som samlas in av liknande program. Dessa Scala sträcker sig naturligtvis över Application Insights konfiguration (t. ex. att vissa har standard [sampling](../../azure-monitor/app/sampling.md), några har ingen sampling osv.), så du har fortfarande kontrollen att minska mängden data som du matar in långt under median nivån med hjälp av sampling. Men det här är en utgångs punkt för att förstå vad andra, liknande kunder ser. 
+I pris Kalkylatorn för Azure-övervakning för Application Insights, om du aktiverar funktionen beräkna data volym baserat på program aktivitet, kan du ange indata om ditt program (begär Anden per månad och sid visningar per månad, om du kommer att samla in telemetri på klient sidan) och visar sedan kalkylatorn information om median och nittionde percentils mängden data som samlas in av liknande program. De här programmen sträcker sig över flera Application Insights-konfiguration (t. ex. att vissa har standard [sampling](../../azure-monitor/app/sampling.md), några har ingen sampling osv.), så du har fortfarande kontrollen att minska mängden data som du matar in långt under median nivån med hjälp av sampling. Men det här är en utgångs punkt för att förstå vad andra, liknande kunder ser. 
 
 ## <a name="understand-your-usage-and-estimate-costs"></a>Förstå din användning och beräkna kostnader
 
-Application Insights är det enkelt att förstå vad dina kostnader sannolikt kommer att baseras på de senaste användnings mönstren. Kom igång genom att gå till sidan **användning och uppskattade kostnader** i Azure Portal för resursen Application Insights:
+Application Insights är det enkelt att förstå vad dina kostnader sannolikt kommer att baseras på de senaste användnings mönstren. Kom igång genom att gå till sidan **användning och uppskattade kostnader** i Azure Portal för resursen Application Insights: 
 
 ![Välj prissättning](./media/pricing/pricing-001.png)
 
@@ -74,6 +63,8 @@ C. Visa data volym trender för den senaste månaden.
 D. Aktivera [sampling](../../azure-monitor/app/sampling.md)av data inmatning.   
 E. Ange daglig data volyms kap.  
 
+(Observera att alla priser som visas i skärm bilder i den här artikeln endast är till exempel syfte. För aktuella priser i din valuta och region, se [Application Insights priser][pricing].)
+
 Om du vill undersöka Application Insightss användningen mer djup, öppnar du sidan **mått** , lägger till måttet "data punkts volym" och väljer sedan alternativet *Använd delning* för att dela data efter "telemetri objekt typ". 
 
 Application Insights avgifter läggs till på din Azure-faktura. Du kan se information om din Azure-faktura i **fakturerings** avsnittet i Azure Portal eller på [Azures fakturerings Portal](https://account.windowsazure.com/Subscriptions). 
@@ -82,7 +73,7 @@ Application Insights avgifter läggs till på din Azure-faktura. Du kan se infor
 
 ## <a name="viewing-application-insights-usage-on-your-azure-bill"></a>Visa Application Insights användning på din Azure-faktura 
 
-Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Genom att lägga till ett filter efter resurs typ (till Microsoft. insikter/komponenter för Application Insights) kan du se spåra dina utgifter.
+Azure ger en fantastisk mängd användbara funktioner i [Azure Cost Management + fakturerings](https://docs.microsoft.com/azure/cost-management/quick-acm-cost-analysis?toc=/azure/billing/TOC.json) hubben. Med funktionen "cost Analysis" kan du till exempel Visa dina utgifter för Azure-resurser. Genom att lägga till ett filter efter resurs typ (till Microsoft. insikter/komponenter för Application Insights) kan du spåra dina utgifter.
 
 Du kan få mer förståelse för din användning genom att [Ladda ned din användning från Azure-portalen](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-in-azure-portal). I det hämtade kalkyl bladet kan du se användning per Azure-resurs per dag. I det här Excel-kalkylbladet kan du hitta användning från dina Application Insights-resurser genom att först filtrera fram kolumnen "mätnings kategori" för att Visa "Application Insights" och "Log Analytics" och sedan lägga till ett filter i kolumnen "instance ID", som är "innehåller Microsoft. Insights/komponenter ".  De flesta Application Insights användningen rapporteras för mätare med Log Analyticss mätar kategori, eftersom det finns en enda loggar Server del för alla Azure Monitor-komponenter.  Endast Application Insights-resurser på äldre pris nivåer och webbtester med flera steg rapporteras med en mätnings kategori av Application Insights.  Användningen visas i kolumnen "Förbrukat antal" och enheten för varje post visas i kolumnen "enhets mått".  Mer information finns för att hjälpa dig att [förstå din Microsoft Azure faktura](https://docs.microsoft.com/azure/billing/billing-understand-your-bill). 
 
@@ -105,9 +96,15 @@ systemEvents
 
 Den här frågan kan användas i en [Azure logg avisering](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-unified-log) för att konfigurera aviseringar på data volymer. 
 
-Mängden data som du skickar kan hanteras på tre sätt:
+Mängden data som du skickar kan hanteras med hjälp av följande tekniker:
 
 * **Sampling**: du kan använda sampling för att minska mängden telemetri som skickas från servern och klientens appar, med minimal snedvridning av mått. Sampling är det primära verktyget som du kan använda för att justera mängden data som du skickar. Lär dig mer om [samplings funktioner](../../azure-monitor/app/sampling.md).
+
+* **Begränsa AJAX-anrop**: du kan [begränsa antalet AJAX-anrop som kan rapporteras](../../azure-monitor/app/javascript.md#configuration) i varje sidvy eller inaktivera Ajax-rapportering.
+
+* **Inaktivera onödiga moduler**: [Redigera ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) för att inaktivera de insamlings moduler som du inte behöver. Du kan till exempel bestämma att prestanda räknare eller beroende data inte är nödvändiga.
+
+* **Föraggregerade mått**: om du lägger till anrop till TrackMetric i din app kan du minska trafiken genom att använda överlagringen som godkänner beräkningen av medelvärdet och standard avvikelsen för en batch med mått. Eller så kan du använda ett [paket för](https://www.myget.org/gallery/applicationinsights-sdk-labs)församlings sammansättning.
  
 * **Dagligt tak**: när du skapar en Application Insights-resurs i Azure Portal anges den dagliga gränsen till 100 GB/dag. När du skapar en Application Insights resurs i Visual Studio är standardvärdet liten (endast 32,3 MB/dag). Standardvärdet för dagligt tak är inställt för att under lätta testning. Det är avsett att användaren får den dagliga gränsen innan du distribuerar appen till produktion. 
 
@@ -120,16 +117,6 @@ Mängden data som du skickar kan hanteras på tre sätt:
     Vi har tagit bort begränsningen för vissa prenumerations typer som har kredit som inte kan användas för Application Insights. Om prenumerationen har en utgifts gräns har den dagliga Cap-dialog rutan instruktioner för att ta bort utgifts gränsen och göra det möjligt att öka den dagliga gränsen för mer än 32,3 MB/dag.
     
 * **Begränsning**: begränsning begränsar data hastigheten till 32 000 händelser per sekund, i genomsnitt över 1 minut per Instrumentation-nyckel. Den data mängd som din app skickar utvärderas varje minut. Om det överstiger den per sekund som genomsnitts priset under minuten, vägrar-servern vissa begär Anden. SDK buffrar data och försöker sedan skicka det igen. Den sprider en överspänning på flera minuter. Om din app kontinuerligt skickar data med mer än begränsnings frekvensen kommer vissa data att tas bort. (ASP.NET-, Java-och JavaScript-SDK: er försöker skicka data på det här sättet igen. andra SDK: er kanske bara släpper begränsade data.) Om det uppstår en begränsning visas en varning om att ett meddelande har inträffat.
-
-## <a name="reduce-your-data-volume"></a>Minska din data volym
-
-Här följer några saker som du kan göra för att minska din data volym:
-
-* Använd [sampling](../../azure-monitor/app/sampling.md). Den här tekniken minskar data hastigheten utan att skeva måtten. Du förlorar inte möjligheten att navigera mellan relaterade objekt i sökningen. I Server appar fungerar samplingen automatiskt.
-* [Begränsa antalet AJAX-anrop som kan rapporteras](../../azure-monitor/app/javascript.md#configuration) i varje sid visning eller inaktivera Ajax-rapportering.
-* [Redigera ApplicationInsights. config](../../azure-monitor/app/configuration-with-applicationinsights-config.md) för att inaktivera de insamlings moduler som du inte behöver. Du kan till exempel bestämma att prestanda räknare eller beroende data inte är nödvändiga.
-* Dela din telemetri mellan separata instrument nycklar. 
-* Föraggregerade mått. Om du skickar anrop till TrackMetric i din app kan du minska trafiken genom att använda överlagringen som godkänner beräkningen av medelvärdet och standard avvikelsen för en batch med mått. Eller så kan du använda ett [paket för](https://www.myget.org/gallery/applicationinsights-sdk-labs)församlings sammansättning.
 
 ## <a name="manage-your-maximum-daily-data-volume"></a>Hantera din maximala dagliga data volym
 
@@ -183,7 +170,7 @@ Om du vill ändra kvarhållning går du till sidan **användning och uppskattade
 
 ![Justera volym begränsningen för daglig telemetri](./media/pricing/pricing-005.png)
 
-Kvarhållning kan också [ställas in program mässigt med PowerShell](https://docs.microsoft.com/azure/azure-monitor/app/powershell/set-the-data-retention) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här rensnings funktionen exponeras bara via ARM och bör användas med extrem noggrannhet. 
+Kvarhållning kan också [ställas in program mässigt med PowerShell](powershell.md) med hjälp av parametern `retentionInDays`. Om du ställer in data kvarhållning på 30 dagar kan du dessutom utlösa en omedelbar rensning av äldre data med hjälp av parametern `immediatePurgeDataOn30Days`, vilket kan vara användbart för kompatibilitets-relaterade scenarier. Den här rensnings funktionen exponeras bara via Azure Resource Manager och bör användas med extrem noggrannhet. 
 
 När faktureringen börjar för längre kvarhållning i början av december 2019 faktureras data som är längre än 90 dagar som samma pris som för närvarande faktureras för Azure Log Analytics data kvarhållning. Läs mer på [sidan Azure Monitor priser](https://azure.microsoft.com/pricing/details/monitor/). Håll dig uppdaterad om varierande behållnings förlopp genom [röstning för det här förslaget](https://feedback.azure.com/forums/357324-azure-monitor-application-insights/suggestions/17454031). 
 

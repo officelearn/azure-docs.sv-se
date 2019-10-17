@@ -14,19 +14,20 @@ ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: emalani
-ms.openlocfilehash: 0c96442de5b8eea2ec969c48e6a815b6ae78b5c4
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: f29a28f9a80b64ef0a6890fa8fc7ecd0ca205e66
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72027291"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388761"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>Aktivera synkronisering offline med iOS-mobilappar
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
 
 > [!NOTE]
-> Visual Studio App Center stöder utveckling av mobila appar från slut punkt till slut punkt och integrerade tjänster. Utvecklare kan använda **bygge**-, **test** -och **distributions** tjänster för att konfigurera kontinuerlig integrering och leverans pipeliner. När appen har distribuerats kan utvecklare övervaka status och användning av appen med hjälp av **analys** -och **diagnos** tjänster och engagera med användare med **push** -tjänsten. Utvecklare kan också utnyttja **auth** för att autentisera sina användare och **data** tjänster för att spara och synkronisera AppData i molnet.
-> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med App Center [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
+> Visual Studio App Center stöder utveckling av slutpunkt till slutpunkt-tjänster och integrerade tjänster som är centrala för utveckling av mobilappar. Utvecklare kan använda tjänsterna för att **bygga**, **testa** och **distribuera** för att skapa en pipeline för kontinuerlig integrering och leverans. När appen har distribuerats kan utvecklarna övervaka status och användning av appen med hjälp av tjänsterna **Analys** och **Diagnostik**, och kommunicera med användarna via **Push**-tjänsten. Utvecklare kan också dra nytta av **Auth** för att autentisera sina användare och tjänsten **Data** för att spara och synkronisera appdata i molnet.
+>
+> Om du vill integrera moln tjänster i ditt mobil program kan du registrera dig med [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc) idag.
 
 ## <a name="overview"></a>Översikt
 I den här självstudien beskrivs offline-synkronisering med Mobile Apps funktionen i Azure App Service för iOS. Med offlinesynkronisering kan slutanvändare interagera med en mobilapp för att visa, lägga till eller ändra data, även om de inte har någon nätverks anslutning. Ändringarna lagras i en lokal databas. När enheten är online igen synkroniseras ändringarna med fjärrservern.
@@ -46,7 +47,7 @@ I **QSTodoService. m** (mål-C) eller **ToDoTableViewController. SWIFT** (SWIFT)
 
 Innan alla tabell åtgärder kan utföras måste det lokala arkivet initieras. Här är den relevanta koden:
 
-* **Objective-C**. I metoden **QSTodoService. init** :
+* **Mål-C**. I metoden **QSTodoService. init** :
 
    ```objc
    MSCoreDataStore *store = [[MSCoreDataStore alloc] initWithManagedObjectContext:context];
@@ -64,7 +65,7 @@ Innan alla tabell åtgärder kan utföras måste det lokala arkivet initieras. H
 
 Nu ska vi utföra den faktiska synkroniseringsåtgärden och hämta data från fjärrservern:
 
-* **Objective-C**. `syncData` skickar först nya ändringar och anropar sedan **pullData** för att hämta data från fjärrservern. I sin tur hämtar metoden **pullData** nya data som matchar en fråga:
+* **Mål-C**. `syncData` skickar först nya ändringar och anropar sedan **pullData** för att hämta data från fjärrservern. I sin tur hämtar metoden **pullData** nya data som matchar en fråga:
 
    ```objc
    -(void)syncData:(QSCompletionBlock)completion
@@ -133,7 +134,7 @@ Eftersom push-åtgärden inte var absolut nödvändig i Swift-versionen, finns d
 
 I både mål-C-och SWIFT-versionerna kan du använda metoden **pullWithQuery** för att ange en fråga för att filtrera de poster som du vill hämta. I det här exemplet hämtar frågan alla poster i den fjärranslutna `TodoItem`-tabellen.
 
-Den andra parametern för **pullWithQuery** är ett fråge-ID som används för *stegvis synkronisering*. Den stegvisa synkroniseringen hämtar endast poster som har ändrats sedan den senaste synkroniseringen, med hjälp av postens `UpdatedAt`-tidstämpel (kallas `updatedAt` i det lokala arkivet). Frågans ID ska vara en beskrivande sträng som är unik för varje logisk fråga i din app. Om du vill välja bort stegvis synkronisering, pass `nil` som fråge-ID. Den här metoden kan vara ineffektiv, eftersom den hämtar alla poster för varje pull-åtgärd.
+Den andra parametern för **pullWithQuery** är ett fråge-ID som används för *stegvis synkronisering*. Med den stegvisa synkroniseringen hämtas endast poster som har ändrats sedan den senaste synkroniseringen, med postens `UpdatedAt`-tidstämpel (kallas `updatedAt` i det lokala arkivet). Frågans ID ska vara en beskrivande sträng som är unik för varje logisk fråga i din app. Om du vill välja bort stegvis synkronisering, pass `nil` som fråge-ID. Den här metoden kan vara ineffektiv, eftersom den hämtar alla poster för varje pull-åtgärd.
 
 Mål-C-appen synkroniseras när du ändrar eller lägger till data, när en användare utför uppdaterings gesten och vid start.
 
@@ -145,10 +146,10 @@ Eftersom appen synkroniseras när data ändras (mål-C) eller när appen startar
 När du använder lagringen för kärn data offline måste du definiera särskilda tabeller och fält i din data modell. Exempel appen innehåller redan en data modell med rätt format. I det här avsnittet går vi igenom dessa tabeller för att visa hur de används.
 
 Öppna **QSDataModel. xcdatamodeld**. Fyra tabeller definieras – tre som används av SDK och en som används för att göra-objekten själva:
-  * MS_TableOperations: Spårar de objekt som måste synkroniseras med-servern.
-  * MS_TableOperationErrors: Spårar eventuella fel som inträffar under offlinesynkronisering.
-  * MS_TableConfig: Spårar den senast uppdaterade tiden för den senaste synkroniseringen för alla hämtnings åtgärder.
-  * TodoItem: Lagrar att göra-objekt. System kolumnerna **createdAt**, **updatedAt**och **version** är valfria system egenskaper.
+  * MS_TableOperations: spårar de objekt som måste synkroniseras med-servern.
+  * MS_TableOperationErrors: spårar eventuella fel som inträffar under offlinesynkronisering.
+  * MS_TableConfig: spårar den senast uppdaterade tiden för den senaste synkroniseringen för alla hämtnings åtgärder.
+  * TodoItem: lagrar att göra-objekt. System kolumnerna **createdAt**, **updatedAt**och **version** är valfria system egenskaper.
 
 > [!NOTE]
 > I Mobile Apps SDK reserveras kolumn namnen som börjar med " **``** ". Använd inte det här prefixet med något annat än system kolumner. Annars ändras kolumn namnen när du använder fjärrservern.
@@ -163,49 +164,49 @@ När du använder funktionen offline-synkronisering definierar du de tre system 
 
 ![MS_TableOperations-tabellattribut][defining-core-data-tableoperations-entity]
 
-| Attribut | type |
+| Attribut | Typ |
 | --- | --- |
-| id | Integer 64 |
+| id | Heltal 64 |
 | itemId | Sträng |
-| properties | Binary Data |
-| table | Sträng |
-| tableKind | Integer 16 |
+| properties | Binära data |
+| Partitionstabell | Sträng |
+| tableKind | Heltal 16 |
 
 
 **MS_TableOperationErrors**
 
  ![MS_TableOperationErrors-tabellattribut][defining-core-data-tableoperationerrors-entity]
 
-| Attribut | type |
+| Attribut | Typ |
 | --- | --- |
 | id |Sträng |
-| operationId |Integer 64 |
-| properties |Binary Data |
-| tableKind |Integer 16 |
+| operationId |Heltal 64 |
+| properties |Binära data |
+| tableKind |Heltal 16 |
 
  **MS_TableConfig**
 
  ![][defining-core-data-tableconfig-entity]
 
-| Attribut | type |
+| Attribut | Typ |
 | --- | --- |
 | id |Sträng |
 | key |Sträng |
-| keyType |Integer 64 |
-| table |Sträng |
-| value |Sträng |
+| keyType |Heltal 64 |
+| Partitionstabell |Sträng |
+| värde |Sträng |
 
 ### <a name="data-table"></a>Data tabell
 
 **TodoItem**
 
-| Attribut | type | Obs! |
+| Attribut | Typ | Obs! |
 | --- | --- | --- |
-| id | String, markeras krävs |Primär nyckel i fjärrarkiv |
+| id | Sträng, markerad som krävs |Primär nyckel i fjärrarkiv |
 | full | Boolesk | Fältet att göra-objekt |
 | text |Sträng |Fältet att göra-objekt |
-| createdAt | Date | valfritt Mappar till **createdAt** system egenskap |
-| updatedAt | Date | valfritt Mappar till **updatedAt** system egenskap |
+| CreatedAt | Datum | valfritt Mappar till **createdAt** system egenskap |
+| updatedAt | Datum | valfritt Mappar till **updatedAt** system egenskap |
 | version | Sträng | valfritt Används för att identifiera konflikter, mappar till version |
 
 ## <a name="setup-sync"></a>Ändra appens synkroniserings beteende
@@ -242,11 +243,11 @@ I det här avsnittet ansluter du till en ogiltig URL för att simulera ett offli
 
 1. Ändra mobil-app-URL: en i **QSTodoService. m** till en ogiltig URL och kör appen igen:
 
-   **Objective-C**. I QSTodoService. m:
+   **Mål-C**. I QSTodoService. m:
    ```objc
    self.client = [MSClient clientWithApplicationURLString:@"https://sitename.azurewebsites.net.fail"];
    ```
-   **Swift**. In ToDoTableViewController.swift:
+   **Swift**. I ToDoTableViewController. SWIFT:
    ```swift
    let client = MSClient(applicationURLString: "https://sitename.azurewebsites.net.fail")
    ```
@@ -276,7 +277,7 @@ När vi synkroniserade det lokala arkivet med servern använde vi metoden **MSSy
 
 ## <a name="additional-resources"></a>Ytterligare resurser
 * [Datasynkronisering offline i Mobile Apps]
-* [Cloud Cover: Offline-synkronisering i Azure Mobile Services @ no__t-0 \(The video är om Mobile Services, men Mobile Apps offlinesynkronisering fungerar på ett liknande sätt. \)
+* [Cloud Cover: offline-synkronisering i Azure Mobile Services] \(The video är ungefär Mobile Services, men Mobile Apps offlinesynkronisering fungerar på ett liknande sätt. \)
 
 <!-- URLs. -->
 
@@ -289,5 +290,5 @@ När vi synkroniserade det lokala arkivet med servern använde vi metoden **MSSy
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Cloud Cover: Offline-synkronisering i Azure Mobile Services @ no__t-0
+[Cloud Cover: offline-synkronisering i Azure Mobile Services]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/

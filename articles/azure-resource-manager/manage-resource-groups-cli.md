@@ -1,6 +1,6 @@
 ---
 title: Hantera Azure Resource Manager grupper med hjälp av Azure CLI | Microsoft Docs
-description: Använd Azure CLI för att hantera dina Azure Resource Manager grupper.
+description: Använd Azure CLI för att hantera dina resurs grupper via Azure Resource Manager. Visar hur du skapar, listar och tar bort resurs grupper.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -8,12 +8,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/11/2019
 ms.author: jgao
-ms.openlocfilehash: 4fdd99b3e9efc108960217cddfc8a397eadf99b6
-ms.sourcegitcommit: be344deef6b37661e2c496f75a6cf14f805d7381
+ms.openlocfilehash: d6a6ea0425bc9dd08e7eedb520b4fa1334ad242f
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/07/2019
-ms.locfileid: "72001581"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72390427"
 ---
 # <a name="manage-azure-resource-manager-resource-groups-by-using-azure-cli"></a>Hantera Azure Resource Manager resurs grupper med hjälp av Azure CLI
 

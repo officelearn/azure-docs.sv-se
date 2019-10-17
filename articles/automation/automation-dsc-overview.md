@@ -10,16 +10,16 @@ ms.author: robreed
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a3a52fbda91d19905bd6add631f536010197c4dd
-ms.sourcegitcommit: 388c8f24434cc96c990f3819d2f38f46ee72c4d8
+ms.openlocfilehash: b0b5e02009ddbb72bb062d341e7d233acfb0ceb3
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/27/2019
-ms.locfileid: "70061387"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429404"
 ---
 # <a name="azure-automation-state-configuration-overview"></a>Översikt över Azure Automation tillstånds konfiguration
 
-Azure Automation tillstånds konfiguration är en Azure-tjänst som gör att du kan skriva, hantera och kompilera PowerShell- [konfigurationer](/powershell/dsc/configurations)(Desired State Configuration), importera [DSC-resurser](/powershell/dsc/resources)och tilldela konfigurationer till mål noder, allt i kunde.
+Azure Automation tillstånds konfiguration är en Azure-tjänst som gör att du kan skriva, hantera och kompilera PowerShell- [konfigurationer](/powershell/scripting/dsc/configurations/configurations)(Desired State Configuration), importera [DSC-resurser](/powershell/scripting/dsc/resources/resources)och tilldela konfigurationer till mål noder, allt i kunde.
 
 ## <a name="why-use-azure-automation-state-configuration"></a>Varför ska du använda konfiguration av Azure Automation tillstånd
 
@@ -27,11 +27,11 @@ Azure Automation tillstånds konfiguration ger flera fördelar jämfört med att
 
 ### <a name="built-in-pull-server"></a>Inbyggd hämtnings Server
 
-Azure Automation tillstånds konfiguration är en DSC-pull-server som liknar [Windows-funktionen DSC-service](/powershell/dsc/pullserver) så att målnoden automatiskt tar emot konfigurationer, överensstämmer med det önskade läget och rapporterar tillbaka till deras kompatibilitet. Den inbyggda hämtnings servern i Azure Automation eliminerar behovet av att konfigurera och underhålla en egen hämtnings Server. Azure Automation kan rikta in virtuella eller fysiska Windows-eller Linux-datorer, i molnet eller lokalt.
+Azure Automation tillstånds konfiguration är en DSC-pull-server som liknar [Windows-funktionen DSC-service](/powershell/scripting/dsc/pull-server/pullserver) så att målnoden automatiskt tar emot konfigurationer, överensstämmer med det önskade läget och rapporterar tillbaka till deras kompatibilitet. Den inbyggda hämtnings servern i Azure Automation eliminerar behovet av att konfigurera och underhålla en egen hämtnings Server. Azure Automation kan rikta in virtuella eller fysiska Windows-eller Linux-datorer, i molnet eller lokalt.
 
 ### <a name="management-of-all-your-dsc-artifacts"></a>Hantering av alla dina DSC-artefakter
 
-Azure Automation tillstånds konfiguration hämtar samma hanterings skikt till [PowerShell Desired State Configuration](/powershell/dsc/overview) som Azure Automation erbjudanden för PowerShell-skript.
+Azure Automation tillstånds konfiguration hämtar samma hanterings skikt till [PowerShell Desired State Configuration](/powershell/scripting/dsc/overview/overview) som Azure Automation erbjudanden för PowerShell-skript.
 
 Från Azure Portal eller från PowerShell kan du hantera alla DSC-konfigurationer, resurser och mål-noder.
 
@@ -41,7 +41,7 @@ Från Azure Portal eller från PowerShell kan du hantera alla DSC-konfiguratione
 
 Noder som hanteras med Azure Automation tillstånds konfiguration Skicka detaljerade rapporterings status data till den inbyggda hämtnings servern. Du kan konfigurera Azure Automation tillstånds konfiguration för att skicka dessa data till Log Analytics-arbetsytan. Information om hur du skickar status data för tillstånds konfiguration till din Log Analytics-arbetsyta finns i [vidarebefordra rapporterings data för Azure Automation tillstånds konfiguration till Azure Monitor loggar](automation-dsc-diagnostics.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Överväg följande krav när du använder Azure Automation State Configuration (DSC).
 
@@ -51,7 +51,7 @@ För noder som kör Windows stöds följande versioner:
 
 - Windows Server 2019
 - Windows Server 2016
-- Windows Server 2012R2
+- Windows Server-2012R2
 - Windows Server 2012
 - Windows Server 2008 R2 SP1
 - Windows 10
@@ -62,7 +62,7 @@ Den fristående produkt-SKU: n för [Microsoft Hyper-V server](/windows-server/v
 
 Följande distributioner/versioner stöds för noder som kör Linux:
 
-DSC Linux-tillägget stöder alla Linux-distributioner som listas under [stödda Linux](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions)-distributioner.
+DSC Linux-tillägget stöder alla Linux-distributioner som listas under [stödda Linux-distributioner](https://github.com/Azure/azure-linux-extensions/tree/master/DSC#4-supported-linux-distributions).
 
 ### <a name="dsc-requirements"></a>DSC-krav
 
@@ -74,10 +74,10 @@ För alla Linux-noder som körs i Azure installeras [POWERSHELL DSC för Linux](
 
 Om noderna finns i ett privat nätverk krävs följande port och URL: er för tillstånds konfigurationen (DSC) för att kommunicera med Automation:
 
-* Lastning Endast TCP 443 krävs för utgående Internet åtkomst.
+* Port: endast TCP 443 krävs för utgående Internet åtkomst.
 * Global URL: *. azure-automation.net
 * Global URL för US Gov, Virginia: *. azure-automation.us
-* Agent tjänst: https://\<workspaceId\>. agentsvc.Azure-Automation.net
+* Agent tjänst: https://@no__t -0workspaceId\>.agentsvc.azure-automation.net
 
 Detta ger nätverks anslutningen för den hanterade noden att kommunicera med Azure Automation.
 Om du använder DSC-resurser som kommunicerar mellan noder, till exempel [waitfor *-resurserna](https://docs.microsoft.com/powershell/dsc/reference/resources/windows/waitForAllResource), måste du också tillåta trafik mellan noderna.
@@ -99,19 +99,19 @@ Om du har ett Automation-konto som har definierats för en viss region kan du be
 
 | **Region** | **DNS-post** |
 | --- | --- |
-| Västra centrala USA | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| Södra centrala USA |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| East US   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
+| USA, västra centrala | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| USA, södra centrala |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| USA, östra   | eus-jobruntimedata-prod-su1.azure-automation.net</br>eus-agentservice-prod-1.azure-automation.net |
 | USA, östra 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
-| Centrala Kanada |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| Västra Europa |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| Norra Europa |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
+| Kanada, centrala |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
+| Europa, västra |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
+| Europa, norra |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
 | Sydostasien |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
 | Indien, centrala |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
-| Östra Japan |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
+| Japan, östra |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Sydöstra Australien |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Storbritannien, södra | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |
-| Virginia (USA-förvaltad region) | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
+| USA Gov Virginia | usge-jobruntimedata-prod-su1.azure-automation.us<br>usge-agentservice-prod-1.azure-automation.us |
 
 Om du vill ha en lista över regions-IP-adresser i stället för region namn laddar du ned XML-filen för [Azure datacenter-IP-adress](https://www.microsoft.com/download/details.aspx?id=41653) från Microsoft Download Center
 

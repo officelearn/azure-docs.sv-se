@@ -150,8 +150,14 @@
     - name: Infrastruktur för automatisering
       href: ../virtual-machines/windows/infrastructure-automation.md
       maintainContext: true
-    - name: Säkerhet och principer
-      href: ../virtual-machines/windows/security-policy.md
+    - name: Säkerhet
+      items:
+        - name: Säkerhet och principer
+          href: ../virtual-machines/windows/security-policy.md
+        - name: Azure Disk Encryption
+          href: disk-encryption-overview.md
+        - name: Inbyggda säkerhetskontroller
+          href: virtual-machine-scale-sets-security-controls.md
       maintainContext: true
     - name: Övervakning
       href: ../virtual-machines/windows/monitor.md
@@ -163,8 +169,6 @@
           maintainContext: true
     - name: Vanliga frågor och svar om skalningsuppsättningar
       href: virtual-machine-scale-sets-faq.md
-    - name: Inbyggda säkerhetskontroller
-      href: virtual-machine-scale-sets-security-controls.md
 - name: Gör så här för att
   items:
     - name: Planera och designa
@@ -212,12 +216,15 @@
         - name: Kryptera diskar i skalningsuppsättningar
           items:
             - name: Använd PowerShell
-              href: virtual-machine-scale-sets-encrypt-disks-ps.md
+              href: disk-encryption-powershell.md
             - name: Använda Azure CLI
-              href: virtual-machine-scale-sets-encrypt-disks-cli.md
+              href: disk-encryption-cli.md
+            - name: Använda Azure Resource Manager-mallar
+              href: disk-encryption-azure-resource-manager.md
             - name: Sekvensering för tillägg
-              href: ../security/azure-security-disk-encryption-extension-sequencing.md
-              maintainContext: true
+              href: disk-encryption-extension-sequencing.md
+            - name: Nyckelvalv för Azure Disk Encryption
+              href: disk-encryption-key-vault.md
         - name: Arbeta med stora skalningsuppsättningar
           href: virtual-machine-scale-sets-placement-groups.md
         - name: Konvertera en skalningsuppsättningsmall för användning av hanterad disk

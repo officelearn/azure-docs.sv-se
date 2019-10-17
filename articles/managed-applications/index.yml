@@ -2,7 +2,7 @@
 documentType: LandingData
 title: Dokumentation om Azure-hanterade program
 metadata:
-  title: 'Dokumentation om Azure-hanterade program – självstudier, API-referens'
+  title: Dokumentation om Azure-hanterade program
   description: Använd Azure-hanterade program för att publicera molnlösningar som är enklare för kunderna att hantera.
   services: managed-applications
   author: tfitzmac

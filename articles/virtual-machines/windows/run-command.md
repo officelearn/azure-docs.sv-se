@@ -1,6 +1,6 @@
 ---
-title: Kör PowerShell-skript i en Windows-dator i Azure
-description: Det här avsnittet beskriver hur du kör PowerShell-skript i en Windows Azure-dator som kör kommandot
+title: Kör PowerShell-skript i en virtuell Windows-dator i Azure
+description: I det här avsnittet beskrivs hur du kör PowerShell-skript i en virtuell Azure Windows-dator med kommandot kör
 services: automation
 ms.service: automation
 author: bobbytreed
@@ -8,87 +8,106 @@ ms.author: robreed
 ms.date: 04/26/2019
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: de45f2fe6230e48c3cffc999e2c84d6ee0a60edc
-ms.sourcegitcommit: f811238c0d732deb1f0892fe7a20a26c993bc4fc
+ms.openlocfilehash: 0a9a5e465e160da34a21f66fd7176a8fea5d1aac
+ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 06/29/2019
-ms.locfileid: "67476775"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72376254"
 ---
-# <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot Kör
+# <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>Kör PowerShell-skript i din virtuella Windows-dator med kommandot kör
 
-Kör kommandot använder VM-agenten för att köra PowerShell-skript i en Windows Azure-dator. Skripten kan användas för allmän dator eller hantering av program och kan användas för att snabbt diagnostisera och åtgärda problem med åtkomst och nätverk av virtuell dator och få den virtuella datorn till ett fungerande tillstånd.
+Kör kommando använder den virtuella dator agenten för att köra PowerShell-skript i en virtuell Azure Windows-dator. De här skripten kan användas för allmän hantering av datorer och program och kan användas för att snabbt diagnostisera och åtgärda åtkomst till virtuella datorer och nätverks problem och återställa den virtuella datorn till ett lyckat tillstånd.
 
 [!INCLUDE [updated-for-az.md](../../../includes/updated-for-az.md)]
 
-## <a name="benefits"></a>Fördelar
+## <a name="benefits"></a>Erbjudande
 
-Det finns flera alternativ som kan användas för att få åtkomst till dina virtuella datorer. Kör kommandot kan köra skript på dina virtuella datorer via fjärranslutning med VM-agenten. Kör kommandot kan användas via Azure-portalen [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand), eller [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) för virtuella Windows-datorer.
+Det finns flera alternativ som kan användas för att få åtkomst till dina virtuella datorer. Kommandot kör kan köra skript på dina virtuella datorer via fjärr anslutning med den virtuella dator agenten. Kommandot kör kan användas via Azure Portal, [REST API](/rest/api/compute/virtual%20machines%20run%20commands/runcommand)eller [PowerShell](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) för virtuella Windows-datorer.
 
-Den här funktionen är användbar i samtliga scenarier där du vill köra ett skript i en virtuella datorer och är ett av de enda sätten att felsöka och åtgärda en virtuell dator som inte har RDP eller SSH-porten som är öppna på grund av felaktig nätverks- eller administrativ användare konfiguration.
+Den här funktionen är användbar i alla scenarier där du vill köra ett skript på en virtuell dator och är ett av de enda sätt som du kan använda för att felsöka och reparera en virtuell dator som inte har RDP-eller SSH-porten öppen på grund av en felaktig nätverks-eller administrativ användare inställningarna.
 
 ## <a name="restrictions"></a>Begränsningar
 
-Följande begränsningar gäller när du kör kommandot:
+Följande begränsningar gäller när du använder Kör kommando:
 
-* Utdata är begränsad till senaste 4096 byte
-* Den minsta tid att köra ett skript är ungefär 20 sekunder
-* Skript som körs som System på Windows
-* Köra ett skript i taget
+* Utdata är begränsade till de senaste 4096 byten
+* Minimi tiden att köra ett skript är ungefär 20 sekunder
+* Skript som körs som system i Windows
+* Ett skript i taget kan köras
 * Skript som efterfrågar information (interaktivt läge) stöds inte.
-* Du kan inte avbryta en som kör skript
-* Den längsta tid som ett skript kan köras är 90 minuter, når tidsgränsen efter som den
-* Utgående anslutning från den virtuella datorn krävs för att returnera resultatet av skriptet.
+* Det går inte att avbryta körning av skript
+* Den längsta tid som ett skript kan köras är 90 minuter, och tids gränsen uppnåddes
+* Utgående anslutningar från den virtuella datorn krävs för att returnera resultatet av skriptet.
 
 > [!NOTE]
-> Ska fungera korrekt måste kräver köra kommandot anslutning (port 443) till Azure offentliga IP-adresser. Om tillägget inte har åtkomst till dessa slutpunkter, kan skripten köras men inte returnera resultat. Om du blockerar trafik på den virtuella datorn, kan du använda [tjänsttaggar](../../virtual-network/security-overview.md#service-tags) att tillåta trafik till Azure offentliga IP-adresser med hjälp av den `AzureCloud` tagg.
+> För att funktionen ska fungera korrekt måste körnings kommandot ansluta (port 443) till offentliga Azure-IP-adresser. Om tillägget inte har åtkomst till dessa slut punkter kan skripten köras, men inga resultat returneras. Om du blockerar trafik på den virtuella datorn kan du använda [service märken](../../virtual-network/security-overview.md#service-tags) för att tillåta trafik till offentliga Azure-IP-adresser med hjälp av taggen `AzureCloud`.
 
-## <a name="run-a-command"></a>Köra ett kommando
+## <a name="available-commands"></a>Tillgängliga kommandon
 
-Navigera till en virtuell dator i [Azure](https://portal.azure.com) och välj **Körningskommando** under **OPERATIONS**. Visas en lista över tillgängliga kommandon ska köras på den virtuella datorn.
+Den här tabellen visar en lista över kommandon som är tillgängliga för virtuella Windows-datorer. Kommandot **RunPowerShellScript** kan användas för att köra anpassade skript som du vill använda. När du använder Azure CLI eller PowerShell för att köra ett kommando måste värdet som du anger för parametern `--command-id` eller `-CommandId` vara ett av värdena i listan nedan. När du anger ett värde som inte är ett tillgängligt kommando får du ett fel meddelande.
 
-![Kör kommandolista](./media/run-command/run-command-list.png)
+```error
+The entity was not found in this Azure location
+```
 
-Välj ett kommando för att köra. Några av kommandona som kan ha valfritt eller obligatoriska indataparametrar. Parametrarna presenteras för de kommandona som textfält som du kan ange värdena som indata. För varje kommando som du kan visa det skript som körs genom att expandera **Visa skript**. **RunPowerShellScript** skiljer sig från de andra kommandon som du kan ange ett eget skript.
-
-> [!NOTE]
-> De inbyggda kommandona som kan inte redigeras.
-
-När kommandot har valts klickar du på **kör** att köra skriptet. Skriptet körs och när du är färdig returnerar utdata och eventuella fel i utdatafönstret. Följande skärmbild visar ett exempel på utdata från att köras i **RDPSettings** kommando.
-
-![Kör skriptet kommandoutdata](./media/run-command/run-command-script-output.png)
-
-## <a name="commands"></a>Kommandon
-
-Den här tabellen visas listan över kommandon som är tillgängliga för virtuella Windows-datorer. Den **RunPowerShellScript** kommando kan användas för att köra alla anpassade skript som du vill.
-
-|**Name**|**Beskrivning**|
+|**Namn**|**Beskrivning**|
 |---|---|
-|**RunPowerShellScript**|Kör ett PowerShell.skript|
-|**EnableRemotePS**|Konfigurerar datorn om du vill aktivera fjärr-PowerShell.|
-|**EnableAdminAccount**|Kontrollerar om det lokala administratörskontot är inaktiverat och fall i så gör det möjligt.|
-|**IPConfig**| Visar detaljerad information om den IP-adress, undernät och standard-gateway för varje nätverkskort som är bundet till TCP/IP.|
-|**RDPSettings**|Kontrollerar registerinställningar och inställningar för domänen. Föreslår åtgärder om datorn tillhör en domän eller ändrar inställningar till standardvärdena.|
-|**ResetRDPCert**|Tar bort SSL-certifikatet som är kopplad till RDP-lyssnaren och återställer RDP listerner säkerhet till standard. Använd det här skriptet om du ser några problem med certifikatet.|
-|**SetRDPPort**|Mängder standard eller användare anges portnummer för anslutning till fjärrskrivbord. Gör det möjligt för brandväggsregel för ingående åtkomst till porten.|
+|**RunPowerShellScript**|Kör ett PowerShell-skript|
+|**EnableRemotePS**|Konfigurerar datorn för att aktivera fjärr-PowerShell.|
+|**EnableAdminAccount**|Kontrollerar om det lokala administratörs kontot är inaktiverat och om så är möjligt.|
+|**Config**| Visar detaljerad information om IP-adressen, nät masken och standard-gatewayen för varje nätverkskort som är kopplat till TCP/IP.|
+|**RDPSettings**|Kontrollerar register inställningar och domän princip inställningar. Föreslår princip åtgärder om datorn tillhör en domän eller ändrar inställningarna till standardvärdena.|
+|**ResetRDPCert**|Tar bort SSL-certifikatet som är kopplat till RDP-lyssnaren och återställer RDP-lyssnings säkerheten till standard. Använd det här skriptet om du ser några problem med certifikatet.|
+|**SetRDPPort**|Ställer in standardvärdet eller det angivna port numret för fjärr skrivbords anslutningar. Aktiverar brand Väggs regel för inkommande åtkomst till porten.|
+
+## <a name="azure-cli"></a>Azure CLI
+
+Följande är ett exempel som använder kommandot [AZ VM Run-Command](/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke) för att köra ett gränssnitts skript på en virtuell Azure Linux-dator.
+
+```azurecli-interactive
+# script.ps1
+#   param(
+#       [string]$arg1,
+#       [string]$arg2
+#   )
+#   Write-Host This is a sample script with parameters $arg1 and $arg2
+
+az vm run-command invoke  --command-id RunPowerShellScript --name win-vm -g my-resource-group \
+    --scripts @script.ps1 --parameters "arg1=somefoo" "arg2=somebar"
+```
+
+## <a name="azure-portal"></a>Azure portal
+
+Navigera till en virtuell dator i [Azure](https://portal.azure.com) och välj **Kör kommando** under **åtgärder**. En lista över tillgängliga kommandon som kan köras på den virtuella datorn visas.
+
+![Kör kommando lista](./media/run-command/run-command-list.png)
+
+Välj ett kommando som ska köras. Några av kommandona kan ha valfria eller obligatoriska indataparametrar. För dessa kommandon visas parametrarna som textfält där du kan ange indatavärden. För varje kommando kan du Visa skriptet som körs genom att expandera **visnings skript**. **RunPowerShellScript** skiljer sig från de andra kommandona så att du kan ange ett eget anpassat skript.
+
+> [!NOTE]
+> De inbyggda kommandona kan inte redige ras.
+
+När kommandot har valts klickar du på **Kör** för att köra skriptet. Skriptet körs och när det är klart returnerar utdata och eventuella fel i fönstret utdata. Följande skärm bild visar ett exempel på utdata från att köra kommandot **RDPSettings** .
+
+![Kör utdata från kommando skript](./media/run-command/run-command-script-output.png)
 
 ## <a name="powershell"></a>PowerShell
 
-Följande är ett exempel med hjälp av den [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) cmdlet för att köra ett PowerShell-skript på en virtuell Azure-dator. Cmdleten förväntar sig skriptet som refereras till i den `-ScriptPath` parameter ska vara lokalt där cmdleten körs.
-
+Följande är ett exempel som använder cmdleten [Invoke-AzVMRunCommand](https://docs.microsoft.com/powershell/module/az.compute/invoke-azvmruncommand) för att köra ett PowerShell-skript på en virtuell Azure-dator. Cmdleten förväntar sig att skriptet som refereras till i parametern `-ScriptPath` ska vara lokalt till den plats där cmdleten körs.
 
 ```azurepowershell-interactive
 Invoke-AzVMRunCommand -ResourceGroupName '<myResourceGroup>' -Name '<myVMName>' -CommandId 'RunPowerShellScript' -ScriptPath '<pathToScript>' -Parameter @{"arg1" = "var1";"arg2" = "var2"}
 ```
 
-## <a name="limiting-access-to-run-command"></a>Begränsa åtkomsten till kommandot Kör
+## <a name="limiting-access-to-run-command"></a>Begränsa åtkomst till Kör kommando
 
-Lista kör kommandon eller som visar information om ett kommando kräver den `Microsoft.Compute/locations/runCommands/read` behörighet på prenumerationsnivån, som inbyggt [läsare](../../role-based-access-control/built-in-roles.md#reader) rollen och ha högre.
+Att ange körnings kommandon eller Visa information om ett kommando kräver behörigheten `Microsoft.Compute/locations/runCommands/read` på prenumerations nivån, som är den inbyggda [läsar](../../role-based-access-control/built-in-roles.md#reader) rollen och högre.
 
-När du kör ett kommando måste den `Microsoft.Compute/virtualMachines/runCommand/action` behörighet på prenumerationsnivån, som den [virtuell Datordeltagare](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) rollen och ha högre.
+Körning av ett kommando kräver behörigheten `Microsoft.Compute/virtualMachines/runCommand/action` på prenumerations nivån, som rollen för den [virtuella datorn](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) och högre har.
 
-Du kan använda en av de [inbyggda](../../role-based-access-control/built-in-roles.md) roller eller skapa en [anpassade](../../role-based-access-control/custom-roles.md) roll som ska användas kör kommandot.
+Du kan använda en av de [inbyggda](../../role-based-access-control/built-in-roles.md) rollerna eller skapa en [anpassad](../../role-based-access-control/custom-roles.md) roll för att använda kör-kommandot.
 
 ## <a name="next-steps"></a>Nästa steg
 
-Se, [köra skript i Windows-VM](run-scripts-in-vm.md) vill veta mer om andra sätt att köra skript och kommandon via fjärranslutning i den virtuella datorn.
+Se [Kör skript i din virtuella Windows-dator](run-scripts-in-vm.md) för att lära dig mer om andra sätt att köra skript och kommandon via fjärr anslutning i den virtuella datorn.

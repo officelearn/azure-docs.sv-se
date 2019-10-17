@@ -1,17 +1,17 @@
 ---
 title: Skapa och Använd en anpassad Provider
-description: Den här självstudien går igenom hur du skapar och använder en anpassad Provider.
+description: Den här självstudien visar hur du skapar och använder en anpassad Azure-Provider. Använd anpassade providers för att ändra arbets flöden i Azure.
 author: jjbfour
 ms.service: managed-applications
 ms.topic: tutorial
 ms.date: 06/19/2019
 ms.author: jobreen
-ms.openlocfilehash: 053cf9fca03bf58cf10c313ae2569ce1918a46b9
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: 6217e9007f20cb365aff0837f58f1a6074a3e6ce
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71172873"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72330063"
 ---
 # <a name="create-and-use-a-custom-provider"></a>Skapa och Använd en anpassad Provider
 
@@ -32,17 +32,17 @@ När du har skapat en slut punkt kan du skapa en anpassad Provider för att gene
 }
 ```
 
-Egenskap | Obligatorisk | Beskrivning
+Egenskap | Krävs | Beskrivning
 ---|---|---
-**name** | Ja | Namnet på slut punkts definitionen. Azure exponerar det här namnet via dess API under/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
+**Namn** | Ja | Namnet på slut punkts definitionen. Azure exponerar det här namnet via dess API under/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders<br>/resourceProviders/{resourceProviderName}/{endpointDefinitionName}
 **routingType** | Nej | Slut punktens kontrakt typ. Om värdet inte anges används "proxy" som standard.
 **Endpoint** | Ja | Slut punkten för att dirigera begär anden till. Den här slut punkten hanterar svaret och eventuella sido effekter i begäran.
 
-Värdet för **slut punkten** är Utlösar-URL: en för Azure Function-appen. Plats hållarna `<funcname>` `<functionkey>` , och måste ersättas med värden för den skapade Function-appen. `<yourapp>`
+Värdet för **slut punkten** är Utlösar-URL: en för Azure Function-appen. Plats hållarna `<yourapp>`, `<funcname>` och @no__t 2 måste ersättas med värden för din skapade Function-app.
 
 ## <a name="define-custom-actions-and-resources"></a>Definiera anpassade åtgärder och resurser
 
-Den anpassade providern innehåller en lista över slut punkts definitioner som modelleras under egenskaperna **Actions** och **resourceTypes** . Egenskapen **åtgärder** mappar till de anpassade åtgärder som exponeras av den anpassade providern och egenskapen **resourceTypes** är anpassade resurser. I den här självstudien har den anpassade providern en `myCustomAction` **Actions** -egenskap med `myCustomResources`namnet och en **resourceTypes** -egenskap med namnet.
+Den anpassade providern innehåller en lista över slut punkts definitioner som modelleras under egenskaperna **Actions** och **resourceTypes** . Egenskapen **åtgärder** mappar till de anpassade åtgärder som exponeras av den anpassade providern och egenskapen **resourceTypes** är anpassade resurser. I den här självstudien har den anpassade providern en **Actions** -egenskap med namnet `myCustomAction` och en **resourceTypes** -egenskap med namnet `myCustomResources`.
 
 ```JSON
 {
@@ -113,7 +113,7 @@ När du har skapat en anpassad Provider kan du använda de nya Azure-API: erna. 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> Du måste ersätta `{subscriptionId}` plats hållarna och `{resourceGroupName}` med den prenumeration och resurs grupp där du har distribuerat den anpassade providern.
+> Du måste ersätta plats hållarna `{subscriptionId}` och `{resourceGroupName}` med den prenumeration och resurs grupp där du har distribuerat den anpassade providern.
 
 ```azurecli-interactive
 az resource invoke-action --action myCustomAction \
@@ -124,7 +124,7 @@ az resource invoke-action --action myCustomAction \
                             }'
 ```
 
-Parameter | Obligatorisk | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
 *tgärd* | Ja | Namnet på åtgärden som definierats i den anpassade providern
 *kompatibilitet* | Ja | Resurs-ID för den anpassade providern
@@ -132,7 +132,7 @@ Parameter | Obligatorisk | Beskrivning
 
 # <a name="templatetabtemplate"></a>[Mall](#tab/template)
 
-Ingen.
+Inget.
 
 ---
 
@@ -141,7 +141,7 @@ Ingen.
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!NOTE]
-> Du måste ersätta `{subscriptionId}` plats hållarna och `{resourceGroupName}` med den prenumeration och resurs grupp där du har distribuerat den anpassade providern.
+> Du måste ersätta plats hållarna `{subscriptionId}` och `{resourceGroupName}` med den prenumeration och resurs grupp där du har distribuerat den anpassade providern.
 
 #### <a name="create-a-custom-resource"></a>Skapa en anpassad resurs
 
@@ -157,11 +157,11 @@ az resource create --is-full-object \
                     }'
 ```
 
-Parameter | Obligatorisk | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
 *är-fullständig-objekt* | Ja | Anger om egenskaps-objektet innehåller andra alternativ som plats, taggar, SKU eller abonnemang.
-*id* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
-*Egenskaper* | Ja | Begär ande texten som ska skickas till slut punkten.
+*identitet* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
+*egenskaperna* | Ja | Begär ande texten som ska skickas till slut punkten.
 
 #### <a name="delete-a-custom-resource"></a>Ta bort en anpassad resurs
 
@@ -169,9 +169,9 @@ Parameter | Obligatorisk | Beskrivning
 az resource delete --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
 ```
 
-Parameter | Obligatorisk | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
-*id* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
+*identitet* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
 
 #### <a name="retrieve-a-custom-resource"></a>Hämta en anpassad resurs
 
@@ -179,9 +179,9 @@ Parameter | Obligatorisk | Beskrivning
 az resource show --id /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.CustomProviders/resourceProviders/myCustomProvider/myCustomResources/myTestResourceName1
 ```
 
-Parameter | Obligatorisk | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
-*id* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
+*identitet* | Ja | Resurs-ID för den anpassade resursen. Detta ID är ett tillägg till resurs-ID för den anpassade providern.
 
 # <a name="templatetabtemplate"></a>[Mall](#tab/template)
 
@@ -205,9 +205,9 @@ Exempel på en Resource Manager-mall:
 }
 ```
 
-Parameter | Obligatorisk | Beskrivning
+Parameter | Krävs | Beskrivning
 ---|---|---
-*resourceTypeName* | Ja | Värdet för egenskapen resourceTypes som definierats i den anpassade providern. `name`
+*resourceTypeName* | Ja | Värdet `name` för **resourceTypes** -egenskapen som definierats i den anpassade providern.
 *resourceProviderName* | Ja | Instans namn för den anpassade providern.
 *customResourceName* | Ja | Namnet på den anpassade resursen.
 
@@ -218,7 +218,7 @@ Parameter | Obligatorisk | Beskrivning
 
 ## <a name="next-steps"></a>Nästa steg
 
-I den här artikeln har du lärt dig om anpassade leverantörer. Mer information finns i:
+I den här artikeln har du lärt dig om anpassade leverantörer. Mer information finns här:
 
-- [Anvisningar: Lägga till anpassade åtgärder i Azure REST API](./custom-providers-action-endpoint-how-to.md)
-- [Anvisningar: Lägga till anpassade resurser i Azure REST API](./custom-providers-resources-endpoint-how-to.md)
+- [Gör så här: lägga till anpassade åtgärder i Azure REST API](./custom-providers-action-endpoint-how-to.md)
+- [Gör så här: lägga till anpassade resurser i Azure REST API](./custom-providers-resources-endpoint-how-to.md)

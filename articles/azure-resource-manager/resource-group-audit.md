@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 05/13/2019
 ms.author: tomfitz
-ms.openlocfilehash: aba06b07fef1cbc5d84d93cf38fec3bd936c1ac8
-ms.sourcegitcommit: e0a1a9e4a5c92d57deb168580e8aa1306bd94723
+ms.openlocfilehash: 25bce613ab45f20f7060447bcfc47f452f4d70f2
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72286114"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72329446"
 ---
 # <a name="view-activity-logs-to-monitor-actions-on-resources"></a>Visa aktivitets loggar för att övervaka åtgärder på resurser
 
@@ -193,7 +193,7 @@ REST-åtgärderna för att arbeta med aktivitets loggen ingår i [insikter REST 
 
 * Azure aktivitets loggar kan användas med Power BI för att få bättre insikter om åtgärder i din prenumeration. Se [Visa och analysera Azure aktivitets loggar i Power BI med mera](https://azure.microsoft.com/blog/analyze-azure-audit-logs-in-powerbi-more/).
 * Information om hur du ställer in säkerhets principer finns i [Azure Role-based Access Control](../role-based-access-control/role-assignments-portal.md).
-* Om du vill visa mer information om ändringarna i dina program från infrastruktur lagret hela vägen till program distributionen, se [använda program ändrings analys i Azure Monitor] (.. /Azure-Monitor/app/Change-Analysis. MD).
+* Om du vill visa mer information om ändringarna i dina program från infrastruktur lagret hela vägen till program distribution, se [Använd program ändrings analys i Azure Monitor](../azure-monitor/app/change-analysis.md).
 * Mer information om kommandon för att Visa distributions åtgärder finns i [Visa distributions åtgärder](resource-manager-deployment-operations.md).
 * Information om hur du förhindrar borttagningar av en resurs för alla användare finns i [låsa resurser med Azure Resource Manager](resource-group-lock-resources.md).
 * Om du vill se en lista över tillgängliga åtgärder för varje Microsoft Azure Resource Manager-Provider, se [Azure Resource Manager Resource Provider-åtgärder](../role-based-access-control/resource-provider-operations.md)

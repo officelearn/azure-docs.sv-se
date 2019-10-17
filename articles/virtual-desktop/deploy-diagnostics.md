@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: helohr
-ms.openlocfilehash: 1bb23e3330f2350572175733445c8ef2c5ea79bb
-ms.sourcegitcommit: 42748f80351b336b7a5b6335786096da49febf6a
+ms.openlocfilehash: 4718ee7943b4130bb977d5eefeb82bb385c71835
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72177769"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332841"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>Distribuera diagnostikverktyget
 
@@ -108,7 +108,7 @@ Så här konfigurerar du de rekommenderade prestanda räknarna manuellt:
 3. I avsnittet **Inställningar** väljer du **Avancerade inställningar**.
 4. Efter det navigerar du till **Data** > **prestanda räknare för Windows** och lägger till följande räknare:
 
-    -   Logisk disk (\*) \|% ledigt utrymme
+    -   Logisk disk (\*) \%Free utrymme
     -   Logisk disk (C:) \\Avg. diskkölängd
     -   Minne (\*) \\Available MB
     -   Processor information (\*) \\Processor tid
@@ -142,7 +142,7 @@ För att se till att din Log Analytics arbets yta har de förkonfigurerade Windo
 3. Därefter går du till **Data** > **prestanda räknare för Windows**.
 4. Kontrol lera att följande räknare är förkonfigurerade:
 
-   - Logisk disk (\*) \|% ledigt utrymme: visar mängden ledigt utrymme för det totala användbara utrymmet på disken som en procent andel.
+   - Logisk disk (\*) \%Free utrymme: visar mängden ledigt utrymme för det totala användbara utrymmet på disken som en procent andel.
    - Logisk disk (C:) \\Avg. diskkölängd: längden på disk överförings förfrågan för enheten C. Värdet får inte överstiga 2 under en kort tids period.
    - Minne (\*) \\Available MB: tillgängligt minne för systemet i megabyte.
    - Processor information (\*) \\Processor tid: procent andelen förfluten tid som processorn ägnat åt att köra en icke-inaktiv tråd.

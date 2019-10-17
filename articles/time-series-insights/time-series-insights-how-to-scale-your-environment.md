@@ -10,18 +10,18 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 08/27/2019
+ms.date: 10/10/2019
 ms.custom: seodec18
-ms.openlocfilehash: 13fa2b892013cf4a3fb96220c901030c6b0aee0b
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: a899de22137decc1eb1578369a2751710c17abda
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129089"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72332852"
 ---
 # <a name="how-to-scale-your-time-series-insights-environment"></a>Så här skalar du Time Series Insightss miljön
 
-I den här artikeln beskrivs hur du ändrar kapaciteten för din miljö Time Series Insights miljö med hjälp av Azure Portal. Kapaciteten är multiplikatorn som tillämpas på ingångs pris, lagrings kapacitet och kostnad som är kopplad till den valda SKU: n.
+I den här artikeln beskrivs hur du ändrar kapaciteten för din Time Series Insights miljö med hjälp av [Azure Portal](https://portal.azure.com). Kapaciteten är multiplikatorn som tillämpas på ingångs pris, lagrings kapacitet och kostnad som är kopplad till den valda SKU: n.
 
 Du kan använda Azure Portal för att öka eller minska kapaciteten inom en specifik pris-SKU.
 
@@ -49,7 +49,7 @@ Kapaciteter skalas linjärt, så en S1-SKU med kapacitet 2 stöder 2 2 000 000 G
 
 1. Välj **Konfigurera**i menyn för din Time Series Insights miljö.
 
-   [![Konfigurera. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
+   [@no__t -1configure. png](media/scale-your-environment/configure.png)](media/scale-your-environment/configure.png#lightbox)
 
 1. Justera skjutreglaget **kapacitet** för att välja den kapacitet som uppfyller kraven för ingångs frekvens och lagrings kapacitet. Observera ingångs **frekvens**, **lagrings kapacitet**och **Beräknad kostnads** uppdatering dynamiskt för att visa effekten av ändringen.
 
@@ -59,6 +59,12 @@ Kapaciteter skalas linjärt, så en S1-SKU med kapacitet 2 stöder 2 2 000 000 G
 
 1. Välj **Spara** för att skala miljön. Förlopps indikatorn visas tills ändringen är genomförd, tillfälligt.
 
+1. Kontrol lera att den nya kapaciteten [räcker för att förhindra begränsning](time-series-insights-diagnose-and-solve-problems.md).
+
 ## <a name="next-steps"></a>Nästa steg
 
-- Kontrol lera att den nya kapaciteten [räcker för att förhindra begränsning](time-series-insights-diagnose-and-solve-problems.md).
+- Mer information finns [i förstå kvarhållning i Time Series Insights](time-series-insights-concepts-retention.md).
+
+- Läs mer om hur du [konfigurerar datakvarhållning i Azure Time Series Insights](time-series-insights-how-to-configure-retention.md).
+
+- Lär dig [att planera ut din miljö](time-series-insights-environment-planning.md).

@@ -10,20 +10,20 @@ ms.topic: conceptual
 ms.date: 03/08/2019
 ms.author: heidist
 ms.custom: seodec2018
-ms.openlocfilehash: 9a73b4664e363e80c514ba4c01f754de3a2eed24
-ms.sourcegitcommit: a19f4b35a0123256e76f2789cd5083921ac73daf
+ms.openlocfilehash: 31b005bd76591d8098f119c7aa9b87a68841658c
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71719870"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72331260"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Tjänst administration för Azure Search i Azure Portal
 > [!div class="op_single_selector"]
 > * [PowerShell](search-manage-powershell.md)
-> * [REST-API](https://docs.microsoft.com/rest/api/searchmanagement/)
+> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
-> * [Portal](search-manage.md)
-> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
+> * [Portalen](search-manage.md)
+> * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)-> 
 
 Azure Search är en fullständigt hanterad, molnbaserad Sök tjänst som används för att skapa en omfattande Sök upplevelse i anpassade appar. Den här artikeln beskriver de tjänst administrations uppgifter som du kan utföra i [Azure Portal](https://portal.azure.com) för en Sök tjänst som du redan har etablerad. Tjänst administration är lätt att utforma, begränsad till följande uppgifter:
 
@@ -34,8 +34,7 @@ Azure Search är en fullständigt hanterad, molnbaserad Sök tjänst som använd
 
 Observera att *uppgraderingen* inte visas som en administrativ uppgift. Eftersom resurser allokeras när tjänsten är etablerade kräver en ny tjänst att flytta till en annan nivå. Mer information finns i [skapa en Azure Search-tjänst](search-create-service-portal.md).
 
-> [!Tip]
-> Behöver du hjälp med att analysera Sök trafik eller fråga prestanda? Du kan övervaka Query Volume, vilka sökord som personsökningen ska utföras på och hur lyckade Sök resultat har GUID-kunder till vissa dokument i ditt index. Mer information finns i [sök Trafikanalys Azure Search](search-traffic-analytics.md), [övervaka användning och fråga mått](search-monitor-usage.md)och [prestanda och optimering](search-performance-optimization.md).
+Du kan övervaka frågans volym och andra mått och använda dessa insikter för att justera tjänsten för snabbare svars tider. Mer information finns i [övervaka användning och fråga mått](search-monitor-usage.md) och [prestanda och optimering](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -55,7 +54,7 @@ När det gäller allmän information om tjänsten kan du hämta information på 
 
 * I portalen, på instrument panelen för tjänsten, via aviseringar, egenskaper och status meddelanden.
 * Använda [PowerShell](search-manage-powershell.md) eller [hanterings REST API](https://docs.microsoft.com/rest/api/searchmanagement/) för att [Hämta tjänst egenskaper](https://docs.microsoft.com/rest/api/searchmanagement/services)eller status för index resursanvändning.
-* Via [Sök trafik analys](search-traffic-analytics.md), som tidigare nämnts.
+
 
 <a id="sub-5"></a>
 
@@ -64,8 +63,8 @@ I instrument panelen är resurs övervakning begränsad till den information som
 
 Med hjälp av Search Service REST API kan du få ett antal dokument och index program mässigt: 
 
-* [Hämta Indexstatistiken](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Antal dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Hämta index statistik](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
+* [Räkna dokument](https://docs.microsoft.com/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Haveri beredskap och drift avbrott
 
@@ -77,7 +76,7 @@ Kunder som använder [indexerare](search-indexer-overview.md) för att fylla i o
 
 Om du inte använder indexerare använder du program koden för att skicka objekt och data till olika Sök tjänster parallellt. Mer information finns i [prestanda och optimering i Azure Search](search-performance-optimization.md).
 
-## <a name="backup-and-restore"></a>Säkerhetskopiering och återställning
+## <a name="backup-and-restore"></a>Säkerhetskopiera och återställ
 
 Eftersom Azure Search inte är en primär data lagrings lösning ger vi inte en formell mekanism för säkerhets kopiering och återställning av självbetjäning. Du kan dock använda exempel koden **index-Backup-Restore** i den här [Azure Search .net-lagrings platsen](https://github.com/Azure-Samples/azure-search-dotnet-samples) för att säkerhetskopiera index definitionen och ögonblicks bilden till en serie JSON-filer och sedan använda filerna för att återställa indexet, om det behövs. Det här verktyget kan också flytta index mellan tjänst nivåer.
 

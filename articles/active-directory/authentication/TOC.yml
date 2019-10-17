@@ -131,6 +131,8 @@
       href: howto-password-smart-lockout.md
     - name: Lösenordsfri
       items:
+        - name: Distribuera lösenordsfritt
+          href: howto-authentication-passwordless-deployment.md
         - name: Lösenordsfria säkerhetsnycklar
           href: howto-authentication-passwordless-security-key.md
         - name: Lösenordslös inloggning via telefon

@@ -10,18 +10,18 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 06/20/2019
 ms.author: metan
-ms.openlocfilehash: b25a002cb1e2563ab97a2081c6b6a05362b66779
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: 1908ed916d61c7a65b1f0061c0fe8d8a08b5e41c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338520"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388098"
 ---
-# <a name="immersive-reader-sdk-reference"></a>Avancerad läsare SDK-referens
+# <a name="immersive-reader-sdk-reference-guide"></a>Referens guide för avancerad läsare SDK
 
 SDK för avancerad läsare är ett JavaScript-bibliotek som gör att du kan integrera den fördjupade läsaren i ditt webb program.
 
-# <a name="functions"></a>Funktioner
+# <a name="functions"></a>Functions
 
 SDK: n visar funktionerna:
 
@@ -41,14 +41,14 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 ### <a name="parameters"></a>Parametrar
 
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | `token` | sträng | Azure AD-autentiseringstoken. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
 | `subdomain` | sträng | Den anpassade under domänen för den fördjupade läsar resursen i Azure. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
 | `content` | [Innehåll](#content) | Ett objekt som innehåller det innehåll som ska visas i den fördjupade läsaren. |
-| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfritt. |
+| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfri. |
 
-### <a name="returns"></a>Returnerar
+### <a name="returns"></a>Avkastning
 
 Returnerar en `Promise<HTMLDivElement>`, som löses när den fördjupade läsaren läses in. @No__t-0 matchar ett `div`-element vars enda underordnade är ett `iframe`-element som innehåller den fördjupade läsar sidan.
 
@@ -80,11 +80,11 @@ renderButtons(options?: RenderButtonsOptions): void;
 
 ### <a name="parameters"></a>Parametrar
 
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
-| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Alternativ för att konfigurera vissa beteenden för funktionen renderButtons. Valfritt. |
+| `options` | [RenderButtonsOptions](#renderbuttonsoptions) | Alternativ för att konfigurera vissa beteenden för funktionen renderButtons. Valfri. |
 
-## <a name="types"></a>Typer
+## <a name="types"></a>Nodtyper
 
 ### <a name="content"></a>Innehåll
 
@@ -168,10 +168,10 @@ Innehåller information om felet.
 
 #### <a name="error-codes"></a>Felkoder
 
-| Kod | Beskrivning |
+| Programmera | Beskrivning |
 | ---- | ----------- |
 | BadArgument | Det angivna argumentet är ogiltigt, se `message` för mer information. |
-| Timeout | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
+| standardvärde | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
 | TokenExpired | Angiven token har upphört att gälla. |
 | Begränsas | Anrops frekvens gränsen har överskridits. |
 
@@ -189,8 +189,8 @@ Använd följande attribut för att konfigurera utseendet och utseendet på knap
 
 | Attribut | Beskrivning |
 | --------- | ----------- |
-| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text`eller. `iconAndText` Som standard `icon`. |
-| `data-locale` | Anger språkvarianten. Till exempel `en-US` eller `fr-FR`. Standardvärdet är engelska `en`. |
+| `data-button-style` | Anger formatet för knappen. Kan vara `icon`, `text` eller `iconAndText`. Standardvärdet är `icon`. |
+| `data-locale` | Anger språkvarianten. Exempel: `en-US` eller `fr-FR`. Standardvärdet är engelska `en`. |
 | `data-icon-px-size` | Anger storleken på ikonen i bild punkter. Standardvärdet är 20px. |
 
 ## <a name="browser-support"></a>Webb läsar stöd
@@ -206,4 +206,4 @@ Använd de senaste versionerna av följande webbläsare för bästa möjliga upp
 ## <a name="next-steps"></a>Nästa steg
 
 * Utforska [SDK för avancerad läsare på GitHub](https://github.com/microsoft/immersive-reader-sdk)
-* [Snabbstart: Skapa en webbapp som startar den fördjupade läsarenC#() ](./quickstart.md)
+* [Snabb start: skapa en webbapp som startar den fördjupadeC#läsaren ()](./quickstart.md)

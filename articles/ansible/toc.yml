@@ -71,6 +71,10 @@
       items:
         - name: Hantera dina Azure-resurser
           href: ./ansible-manage-azure-dynamic-inventories.md
+    - name: Virtuella datorer
+      items:
+        - name: Skapa Shared Image Gallery
+          href: ansible-vm-create-from-shared-generalized-image.md
     - name: Skalningsuppsättningar för virtuella datorer
       items:
         - name: Konfigurera
@@ -81,6 +85,8 @@
           href: ./ansible-auto-scale-vmss.md
         - name: Uppdatera anpassade avbildningar
           href: ./ansible-vmss-update-image.md
+        - name: Skapa Shared Image Gallery
+          href: ansible-vm-create-from-shared-generalized-image.md
     - name: Virtuellt nätverk
       items:
         - name: Konfigurera peering

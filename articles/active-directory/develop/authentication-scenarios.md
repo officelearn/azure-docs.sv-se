@@ -1,6 +1,6 @@
 ---
 title: Autentisering i Microsoft Identity Platform | Azure
-description: Lär dig mer om autentisering i Microsoft Identity Platform, app-modellen, API, etablering och de vanligaste scenarier som stöds av Microsoft Identity Platform.
+description: Lär dig grunderna i autentisering i Microsoft Identity Platform (v 2.0).
 services: active-directory
 documentationcenter: dev-center-name
 author: rwike77
@@ -13,141 +13,163 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/23/2019
+ms.date: 10/15/2019
 ms.author: ryanwi
-ms.reviewer: saeeda, sureshja, hirsin
+ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 76c5214fc26d299c6abb72ed6cd448728903e78f
-ms.sourcegitcommit: a6718e2b0251b50f1228b1e13a42bb65e7bf7ee2
+ms.openlocfilehash: 2201b7701dae90b43a01a6fb45decd94e45bab74
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71272543"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72430005"
 ---
-# <a name="what-is-authentication"></a>Vad är autentisering?
+# <a name="authentication-basics"></a>Grundläggande om autentisering
 
-*Autentisering* innebär att en part måste ange giltiga uppgifter och utgör grunden för att skapa ett säkerhetsobjekt som används för identitets- och åtkomstkontroll. Enklare sagt är det en process där du bevisar att du är den du säger att du är. Autentisering förkortas ibland AuthN.
+## <a name="what-is-authentication"></a>Vad är autentisering
 
-*Auktorisering* innebär att bevilja ett autentiserat säkerhetsobjekt behörighet att göra något. Det anger vilka du data du får åtkomst till och vad du kan gör med dem. Auktorisering förkortas ibland AuthZ.
+Den här artikeln beskriver många av de autentiseringsmetoder du behöver känna till för att skapa skyddade webbappar, webb-API: er eller appar som anropar skyddade webb-API: er.
 
-Microsoft Identity Platform fören klar autentiseringen för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect, samt bibliotek med öppen källkod för olika plattformar för att hjälper dig att snabbt börja koda.
+**Autentisering** är en process för att bevisa att du är den som du säger. Autentisering förkortas ibland AuthN.
 
-Det finns två huvudsakliga användnings fall i programmerings modellen för Microsoft Identity Platform:
+**Auktorisering** innebär att ge en autentiserad part behörighet att göra något. Den anger vilka data du får åtkomst till och vad du kan göra med dessa data. Auktorisering förkortas ibland AuthZ.
 
-* Under ett beviljande flöde för OAuth 2.0-auktorisering – när resursägaren beviljar behörighet för klientprogrammet och tillåter klienten åtkomst till resursägarens resurser.
-* Under resursåtkomst av klienten – enligt implementering av resursservern, med anspråksvärden som finns i åtkomsttoken för att fatta beslut om åtkomstkontroll utifrån dem.
+I stället för att skapa appar som var och en upprätthåller sin egen användar namn och lösen ords information, vilket innebär en hög administrativ börda när du har flera appar och behöver lägga till eller ta bort användare på dem, kan appar delegera det ansvaret till en centraliserad identitetsprovider.
 
-## <a name="authentication-basics-in-microsoft-identity-platform"></a>Grundläggande autentisering i Microsoft Identity Platform
+Azure Active Directory (Azure AD) är en centraliserad identifierings leverantör i molnet. Genom att delegera autentisering och auktorisering till det kan du använda scenarier som principer för villkorlig åtkomst som kräver att en användare befinner sig på en speciell plats, användning av Multi-Factor Authentication, samt att göra det möjligt för en användare att logga in en gång och sedan automatiskt loggat in på alla webbappar som delar samma centrala katalog. Den här funktionen kallas enkel inloggning (SSO).
 
-Föreställ dig det enklaste scenariot där det krävs identitet: en användare i en webbläsare behöver autentiseras för ett webbprogram. Följande diagram visar det här scenariot:
+En centraliserad identitets leverantör är ännu viktigare för appar som har användare som finns i hela världen och som inte nödvändigt vis loggar in från företagets nätverk. Azure AD autentiserar användare och ger åtkomst-token. En åtkomsttoken är en säkerhetstoken som utfärdas av en Authorization Server. Den innehåller information om användaren och appen för vilken token är avsedd, som kan användas för att få åtkomst till webb-API: er och andra skyddade resurser.
 
-![Översikt över inloggning till webbprogram](./media/authentication-scenarios/auth-basics-microsoft-identity-platform.svg)
+Microsoft Identity Platform fören klar autentiseringen för programutvecklare genom att tillhandahålla identitet som en tjänst, med stöd för bransch standard protokoll som OAuth 2,0 och OpenID Connect, samt bibliotek med öppen källkod för olika plattformar som hjälper dig att snabbt börja koda. Den hjälper utvecklare att bygga program som loggar in alla Microsoft-identiteter, får tokens för att anropa Microsoft Graph, andra Microsoft API:er eller API:er som utvecklare har byggt. Mer information finns i [utvecklingen av Microsoft Identity Platform](about-microsoft-identity-platform.md).
 
-Det här behöver du känna till om olika komponenter som visas i diagrammet:
+## <a name="tenants"></a>Klienter
 
-* Microsoft Identity Platform är identitets leverantören. Identitetsprovidern ansvarar för att verifiera identiteten för användare och program som finns i en organisations katalog och utfärdar säkerhetstoken vid utförd autentisering av de användarna och programmen.
-* Ett program som vill kunna utföra autentisering av autentisering till Microsoft Identity Platform måste registreras i Azure Active Directory (Azure AD). Azure AD registrerar och identifierar unikt appen i katalogen.
-* Utvecklare kan använda Microsoft Identity Platform Authentication-bibliotek med öppen källkod för att göra autentiseringen enkel genom att hantera protokoll informationen åt dig. Mer information finns i Microsoft Identity Platform [v 2.0 Authentication libraries](reference-v2-libraries.md) och [v 1.0-autentiseringsinställningar](active-directory-authentication-libraries.md).
-* När en användare har autentiserats måste programmet validera användarens säkerhetstoken för att säkerställa att autentiseringen har utförts. Du hittar snabbstarter, självstudier och kodexempel på flera olika språk och ramverk som visar vad programmet måste göra.
-  * Om du snabbt vill bygga en app och lägga till funktioner som att hämta tokens, uppdatera tokens, logga in en användare, visa användarinformation med mera läser du avsnittet **Snabbstarter** i dokumentationen.
-  * Om du vill ha djupgående, scenariobaserade procedurer för vanliga uppgifter för auktoriseringsutveckling som att hämta åtkomsttoken och använda dem i anrop till Microsoft Graph API och andra API:er, implementera inloggning med Microsoft med en traditionell webbläsarbaserad app som använder OpenID Connect, med mera, läser du avsnittet **Självstudier** i dokumentationen.
-  * Du kan ladda ned kodexempel på [GitHub](https://github.com/Azure-Samples?q=active-directory).
-* Flödet för begäranden och svar för autentiseringsprocessen bestäms av autentiseringsprotokollet som du har använt, till exempel OAuth 2.0, OpenID Connect, WS-Federation eller SAML 2.0. Mer information om protokoll finns i avsnittet **begrepp > Authentication Protocol** i dokumentationen.
+En moln identitets leverantör hanterar många organisationer. För att användarna ska vara åtskilda från olika organisationer är Azure AD partitionerad i klienter, med en klient organisation per organisation.
 
-I exempelscenariot ovan kan du klassificera apparna enligt dessa två roller:
+Klienter håller reda på användare och deras associerade appar. Microsoft Identity Platform stöder även användare som loggar in med personliga Microsoft-konton.
 
-* Appar som behöver säker åtkomst till resurser
-* Appar som har rollen av själva resursen
+Azure AD tillhandahåller också Azure Active Directory B2C så att organisationer kan logga in användare, vanligt vis kunder, med sociala identiteter som ett Google-konto. Mer information finns i [Azure Active Directory B2C-dokumentationen](https://docs.microsoft.com/azure/active-directory-b2c) .
 
-### <a name="how-each-flow-emits-tokens-and-codes"></a>Hur varje flöde avger tokens och koder
+### <a name="security-tokens"></a>Säkerhetstoken
 
-Beroende på hur din klient har skapats kan den använda en (eller flera) av de autentiserings flöden som stöds av Microsoft Identity Platform.  Dessa flöden kan skapa en mängd olika token (id_tokens, Refresh tokens, åtkomsttoken) samt auktoriseringsregler och kräver olika token för att de ska fungera. Det här diagrammet proides en översikt:
+Säkerhetstoken innehåller information om användare och appar. Azure AD använder JSon-baserade token (JWTs) som innehåller anspråk. Ett anspråk ger intyg om en entitet till en annan. Program kan använda anspråk för olika uppgifter, till exempel:
 
-|Flöde | Innebär | id_token | åtkomsttoken | uppdatera token | auktoriseringskod | 
-|-----|----------|----------|--------------|---------------|--------------------|
-|[Flöde för auktoriseringskod](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
-|[Implicit flöde](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
-|[Hybrid OIDC-flöde](v2-protocols-oidc.md#get-access-tokens)| | x  | |          |            x   |
-|[Uppdatera token-inlösen](v2-oauth2-auth-code-flow.md#refresh-the-access-token) | uppdatera token | x | x | x| |
-|[On-Behalf-Of-flöde](v2-oauth2-on-behalf-of-flow.md) | åtkomsttoken| x| x| x| |
-|[Enhets kod flöde](v2-oauth2-device-code.md) | | x| x| x| |
-|[Klientautentiseringsuppgifter](v2-oauth2-client-creds-grant-flow.md) | | | x (endast app-only)| | |
+* Token verifieras
+* Identifiera ämnets katalog klient
+* Visar användar information
+* Avgöra ämnets auktorisering
 
-**Anteckningar**:
+Ett anspråk består av nyckel/värde-par som ger information som:
 
-Token som utfärdas via det implicita läget har en längd begränsning på grund av att de skickas tillbaka till webbläsaren via URL `response_mode` : `query` en `fragment`(där är eller).  Vissa webbläsare har en gräns för storleken på URL: en som kan placeras i webbläsarens fält och inte fungerar när den är för lång.  Detta innebär att dessa tokens inte har eller `groups` `wids` är anspråk. 
+- säkerhetstoken som genererade token.
+- datumet då token genererades.
+- ämnet, t. ex. användaren (förutom daemon).
+- mål gruppen, som är appen för vilken token genererades.
+- appen (klienten) som bad om token. Om det gäller Web Apps kan detta vara samma som mål gruppen.
 
+Mer detaljerad information om anspråk [finns i åtkomsttoken och](access-tokens.md) [ID-token](id-tokens.md).
 
-Nu när du har en översikt över grunderna kan du läsa om hur du kan förstå Identity app-modellen och API, hur etablering fungerar i Microsoft Identity Platform och länkar till detaljerad information om vanliga scenarier som stöds av Microsoft Identity Platform.
+Det är upp till appen för vilken token har skapats, webbappen som signerade användaren eller webb-API: et som anropades för att validera token. Token signeras av säkerhetstokentjänst (STS) med en privat nyckel. STS publicerar motsvarande offentliga nyckel. För att validera en token verifierar appen signaturen med hjälp av den offentliga STS-nyckeln för att verifiera att signaturen skapades med hjälp av den privata nyckeln.
 
-## <a name="application-model"></a>Programmodell
+Tokens är bara giltiga under en begränsad tid. Vanligt vis tillhandahåller STS ett par token: en åtkomsttoken för att få åtkomst till programmet eller den skyddade resursen, och en uppdateringstoken som används för att uppdatera åtkomsttoken när åtkomsttoken ligger nära förfallo datum. 
 
-Microsoft Identity Platform representerar program som följer en speciell modell som är utformad för att uppfylla två huvud funktioner:
+Åtkomsttoken skickas till ett webb-API som Bearer-token i `Authenticate`-huvudet. En app kan tillhandahålla en uppdateringstoken till STS, och om användarens åtkomst till appen inte har återkallats kommer den att få tillbaka en ny åtkomsttoken och en ny uppdateringstoken. Detta är hur scenariot för någon som lämnar företaget hanteras. När STS tar emot uppdateringstoken, utfärdar den ingen annan giltig åtkomsttoken om användaren inte längre är auktoriserad.
 
-* **Identifiera appen enligt de autentiseringsprotokoll den stöder** – Detta innebär uppräkning av alla identifierare, URL:er, hemligheter och relaterad information som behövs vid identifieringen. Här är Microsoft Identity Platform:
+### <a name="applications"></a>Appar
 
-    * Innehåller alla data som krävs för att stödja autentisering vid körning.
-    * Innehåller alla data för att besluta vilka resurser en app kan behöva för åtkomst och om en viss begäran ska uppfyllas och under vilka omständigheter.
-    * Tillhandahåller infrastrukturen för implementering av appetableringen i apputvecklarens klientorganisation och i andra Azure AD-klientorganisationer.
+Program kan logga in användare själva eller delegera inloggning till en identitets leverantör. Se [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md) för att lära dig om inloggnings scenarier som stöds av Azure AD.
 
-* **Hantera användar medgivande under Tokenbegäran och underlättar dynamisk etablering av appar över klient organisationer** – här, Microsoft Identity Platform:
+För en identitets leverantör att veta att en användare har åtkomst till en viss app måste både användaren och programmet vara registrerat hos identitets leverantören. När du registrerar ditt program med Azure AD ger du en identitets konfiguration för ditt program som gör det möjligt att integrera det med Azure AD. Genom att registrera appen kan du också:
 
-    * Möjliggör för användare och administratörer att dynamiskt bevilja eller neka medgivande för appen att få åtkomst till resurser för deras räkning.
-    * Möjliggör för administratörer att i slutänden bestämma vilka appar som tillåts göra vad och vilka användare som kan använda specifika appar samt hur åtkomsten till katalogresurserna går till.
+- anpassa anpassningen av programmet i dialog rutan för inloggning. Detta är viktigt eftersom det är den första upplevelsen som en användare kommer att ha med din app.
+- Bestäm om du bara vill låta användarna logga in om de tillhör din organisation. Detta är ett enda klient program. Eller Tillåt användare att logga in med ett arbets-eller skol konto. Detta är ett program med flera innehavare. Du kan också tillåta personliga Microsoft-konton eller ett socialt konto från länkad, Google och så vidare.
+- begär omfångs behörigheter. Du kan till exempel begära kommandot "User. Read", som ger behörighet att läsa profilen för den inloggade användaren.
+- Definiera omfattningar som definierar åtkomst till ditt webb-API. När en app vill komma åt ditt API måste du vanligt vis begära behörigheter till de omfattningar som du definierar.
+- Dela en hemlighet med Azure AD som visar appens identitet till Azure AD.  Detta är relevant i de fall där appen är ett konfidentiellt klient program. Ett konfidentiellt klient program är ett program som kan lagra autentiseringsuppgifter på ett säkert sätt. De kräver en betrodd backend-server för att lagra autentiseringsuppgifterna.
 
-I Microsoft Identity Platform beskriver ett **program objekt** ett program som en abstrakt entitet. Utvecklare kan arbeta med program. Vid distributions tillfället använder Microsoft Identity Platform ett angivet program objekt som skiss för att skapa ett **huvud namn för tjänsten**som representerar en konkret instans av ett program i en katalog eller klient. Det är tjänstens huvudnamn som definierar vad appen faktiskt kan göra i en specifik målkatalog, vilka som kan använda den, vilka resurser den har åtkomst till och så vidare. Microsoft Identity Platform skapar ett huvud namn för tjänsten från ett program objekt via **medgivande**.
+När programmet har registrerats får du ett GUID som appen delar med Azure AD när den begär token. Om appen är ett konfidentiellt klient program, kommer den också att dela hemligheten eller den offentliga nyckeln, beroende på om certifikat eller hemligheter användes.
 
-Följande diagram visar ett förenklat etablerings flöde för Microsoft Identity Platform som drivs av medgivande.  Det finns två klienter (A och B), där klient organisation A äger programmet och klient B instansierar programmet via ett huvud namn för tjänsten.  
+### <a name="application-model"></a>Programmodell
+
+Microsoft Identity Platform representerar program som använder en modell som uppfyller två huvud funktioner:
+
+**Identifiera appen av de autentiseringsprotokoll som den stöder och ange alla identifierare, URL: er, hemligheter och relaterad information som behövs för att autentisera.**
+Microsoft Identity Platform:
+
+* Innehåller alla data som krävs för att stödja autentisering vid körning.
+* Innehåller alla data för att bestämma vilka resurser som en app kan behöva komma åt och under vilka omständigheter en specifik begäran ska uppfyllas.
+* Innehåller en infrastruktur för att implementera app-etablering i appens utvecklares klient organisation och till en annan Azure AD-klient.
+
+**Hantera användar medgivande under Tokenbegäran och underlättar dynamisk etablering av appar över klient organisationer** Medgivande är processen hos en resurs ägare som beviljar auktorisering till ett klient program för att komma åt skyddade resurser, under specifika behörigheter för resurs ägarens räkning. Microsoft Identity Platform:
+
+* Möjliggör för användare och administratörer att dynamiskt bevilja eller neka medgivande för appen att få åtkomst till resurser för deras räkning.
+* Möjliggör för administratörer att i slutänden bestämma vilka appar som tillåts göra vad och vilka användare som kan använda specifika appar samt hur åtkomsten till katalogresurserna går till.
+
+I Microsoft Identity Platform beskriver ett **program objekt** ett program som en abstrakt entitet. Vid distributions tillfället använder Microsoft Identity Platform programobjektet som en skiss för att skapa ett **huvud namn för tjänsten**som representerar en konkret instans av ett program i en katalog eller klient organisation. Tjänstens huvud namn definierar vad appen faktiskt kan göra i en speciell mål katalog, som kan använda den, vilka resurser den har åtkomst till och så vidare. Microsoft Identity Platform skapar ett huvud namn för tjänsten från ett program objekt via **medgivande**.
+
+Följande diagram visar ett förenklat etablerings flöde för Microsoft Identity Platform som drivs av medgivande. Den visar två klienter (A och B). Klient organisation A äger programmet. Klient B instansierar programmet via ett huvud namn för tjänsten.  
 
 ![Förenklat etableringsflöde som drivs av medgivande](./media/authentication-scenarios/simplified-provisioning-flow-consent-driven.svg)
 
 I det här etableringsflödet sker följande:
 
 1. En användare från klient B försöker logga in med appen. slut punkten för auktorisering begär en token för programmet.
-1. Autentiseringsuppgifterna för användaren förvärvas och verifieras för autentisering
-1. Användaren uppmanas att ange medgivande för appen för att få åtkomst till klient B
-1. Microsoft Identity Platform använder programobjektet i klient organisationen som en skiss för att skapa ett huvud namn för tjänsten i klient B
-1. Användaren får begärd token
+1. Autentiseringsuppgifterna för användaren förvärvas och verifieras för autentisering.
+1. Användaren uppmanas att ange medgivande för appen för att få åtkomst till klient B.
+1. Microsoft Identity Platform använder programobjektet i klient organisationen som en skiss för att skapa ett huvud namn för tjänsten i klient B.
+1. Användaren får en begärd token.
 
-Du kan upprepa den här processen så många gånger du vill för andra klientorganisationer (C, D och så vidare). Klient organisation A behåller skissen för appen (program objekt). Användare och administratörer för alla andra klientorganisationer där appen får medgivande behåller kontrollen över vad programmet tillåts göra genom motsvarande tjänsthuvudobjekt i varje klientorganisation. Mer information finns i [program-och tjänst huvud objekt i Microsoft Identity Platform](app-objects-and-service-principals.md).
+Du kan upprepa den här processen för ytterligare klienter. Klient organisation A behåller skissen för appen (program objekt). Användare och administratörer för alla andra innehavare där appen ges tillåtelse att behålla kontrollen över vad programmet tillåts att göra via motsvarande tjänst huvud objekt i varje klient organisation. Mer information finns i [program-och tjänst huvud objekt i Microsoft Identity Platform](app-objects-and-service-principals.md).
 
-## <a name="claims-in-microsoft-identity-platform-security-tokens"></a>Anspråk i säkerhetstoken för Microsoft Identity Platform
+## <a name="web-app-sign-in-flow-with-azure-ad"></a>Inloggnings flöde för webbapp med Azure AD
 
-Säkerhetstoken (åtkomst-och ID-token) som utfärdats av Microsoft Identity Platform innehåller anspråk eller intyg om information om ämnet som har autentiserats. Program kan använda anspråk för olika uppgifter, till exempel:
+När en användare navigerar i webbläsaren till en webbapp händer följande:
 
-* Validera token
-* Identifiera subjektets katalogklientorganisation
-* Visa användarinformation
-* Fastställa subjektets auktorisering
+- Webb programmet avgör om användaren är autentiserad.
+- Om användaren inte har autentiserats delegerar webbappen till Azure AD för att logga in användaren. Inloggningen är kompatibel med organisationens princip, vilket kan innebära att användaren anger sina autentiseringsuppgifter, använder Multi-Factor Authentication eller inte använder ett lösen ord alls (till exempel med hjälp av Windows Hello).
+- Användaren uppmanas att godkänna åtkomsten som klient appen behöver. Detta är anledningen till att klient program måste registreras med Azure AD, så att Azure AD kan leverera tokens som representerar den åtkomst som användaren har godkänt till.
 
-Anspråk som finns i alla angivna säkerhetstoken beror på typen av token, på typen av autentiseringsuppgift som används för att autentisera användaren och på programkonfigurationen.
+När användaren har autentiserats:
 
-En kort beskrivning av varje typ av anspråk som skickats av Microsoft Identity Platform finns i tabellen nedan. Mer detaljerad information [finns i åtkomsttoken och](access-tokens.md) [ID-token](id-tokens.md) som utfärdats av Microsoft Identity Platform.
+- Azure AD skickar en token till webbappen.
+- En cookie sparas som är kopplad till Azure AD-domänen och som innehåller användarens identitet i webbläsarens jar-jar. Nästa gång en app använder webbläsaren för att navigera till slut punkten för Azure AD-auktorisering, visar webbläsaren cookien så att användaren inte behöver logga in igen. Detta är också det sätt på vilket SSO uppnås. Cookien skapas av Azure AD och kan bara tolkas av Azure AD.
+- Webbappen validerar sedan token. Om verifieringen lyckas visas den skyddade sidan i webbappen och en sessions-cookie sparas i webbläsarens Jar-Jar-form. När användaren navigerar till en annan sida vet webbappen att användaren är autentiserad baserat på sessionens cookie.
 
-| Begäran | Beskrivning |
-| --- | --- |
-| Program-ID:t | Identifierar programmet som använder token. |
-| Målgrupp | Identifierar mottagarresursen som token är avsedd för. |
-| Application Authentication Context Class Reference | Anger hur klienten har autentiserats (offentlig eller konfidentiell klient). |
-| Autentiseringstillfälle | Registrerar datum och tid när autentiseringen inträffade. |
-| Autentiseringsmetod | Anger hur subjektet för token har autentiserats (lösenord, certifikat osv.). |
-| Förnamn | Innehåller förnamnet på användaren som det anges i Azure AD. |
-| Grupper | Innehåller objekt-ID:n för Azure AD-grupper som användaren är medlem i. |
-| Identitetsprovider | Registrerar den identitetsprovider som har autentiserat subjektet för token. |
-| Utfärdad | Registrerar tiden då token utfärdats, används ofta för tokens uppdateringsbarhet. |
-| Utfärdare | Identifierar STS som genererat token samt Azure AD-klientorganisationen. |
-| Efternamn | Innehåller efternamnet på användaren som det anges i Azure AD. |
-| Name | Innehåller ett läsbart värde som identifierar subjektet för token. |
-| Objekt-ID | Innehåller en oföränderlig, unik identifierare för subjektet i Azure AD. |
-| Roller | Innehåller egna namn på Azure AD-programroller som användaren har beviljats. |
-| Omfång | Anger de behörigheter som beviljats för klientprogrammet. |
-| Subjekt | Anger huvudnamnet som token kontrollerar information om. |
-| Klient-ID:t | Innehåller ett oföränderlig, unik identifierare för katalogklientorganisationen som har utfärdat token. |
-| Tokenlivstid | Definierar tidsintervallet då token är giltig. |
-| User Principal Name | Innehåller UPN för subjektet. |
-| Version | Innehåller versionsnumret för token. |
+Följande sekvensdiagram sammanfattar interaktionen:
+
+![autentisering av webbapp](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+
+### <a name="how-a-web-app-determines-if-the-user-is-authenticated"></a>Hur en webbapp fastställer om användaren är autentiserad
+
+Utvecklare av webbappar kan ange om alla eller endast vissa sidor kräver autentisering. I ASP.NET/ASP.NET Core görs detta till exempel genom att lägga till attributet `[Authorize]` till kontroll enheten. 
+
+Det här attributet gör att ASP.NET söker efter en sessions-cookie som innehåller användarens identitet. Om en cookie inte finns omdirigerar ASP.NET autentiseringen till den angivna identitets leverantören. Om identitets leverantören är Azure AD omdirigerar webbappen autentiseringen till https://login.microsoftonline.com, som visar en dialog ruta för inloggning.
+
+### <a name="how-a-web-app-delegates-sign-in-to-azure-ad-and-obtains-a-token"></a>Hur en webbapp delegerar inloggning till Azure AD och hämtar en token
+
+Användarautentisering sker via webbläsaren. OpenID-protokollet använder vanliga HTTP-protokoll meddelanden.
+- Webbappen skickar en HTTP 202 (Omdirigerad) till webbläsaren för att använda Azure AD.
+- När användaren autentiseras skickar Azure AD token till webbappen med hjälp av en omdirigering via webbläsaren.
+- Omdirigeringen tillhandahålls av webb programmet i form av en omdirigerings-URI. Den här omdirigerings-URI: n har registrerats med objektet Azure AD-program. Det kan finnas flera omdirigerings-URI: er eftersom programmet kan distribueras på flera URL: er. Webbappen måste också ange den omdirigerings-URi som ska användas.
+- Azure AD kontrollerar att den omdirigerings-URI som skickas av webbappen är en av de registrerade omdirigerings-URI: erna för appen.
+
+## <a name="generalization-to-desktop-and-mobile-apps"></a>Generalisering till station ära och mobila appar
+
+Flödet som beskrivs ovan gäller, med små skillnader, för Station ära och mobila program.
+
+Skriv bords-och mobil program kan använda en inbäddad webb kontroll eller en system webbläsare för autentisering. Följande diagram visar hur en stationär eller mobilapp använder Microsoft Authentication Library (MSAL) för att hämta åtkomsttoken och anropa webb-API: er.
+
+![Desktop-appen hur det verkar vara](media/authentication-scenarios/web-app-how-it-appears-to-be.png)
+
+MSAL använder en webbläsare för att hämta tokens, och som med Web Apps, delegerar autentiseringen till Azure AD.
+
+Eftersom Azure AD sparar samma identitets-cookie i webbläsaren som den gör för webbappar, kommer den interna eller mobilappen att använda system läsaren omedelbart för att få enkel inloggning med motsvarande webbapp.
+
+Som standard använder MSAL system webbläsare, förutom .NET Framework Skriv bords program där en inbäddad kontroll används för att ge en mer integrerad användar upplevelse.
 
 ## <a name="next-steps"></a>Nästa steg
 
-* Lär dig mer om [program typer och scenarier som stöds i Microsoft Identity Platform](app-types.md)
+Se [ord listan för Microsoft Identity Platform Developer](developer-glossary.md) för att bekanta dig med vanliga villkor.
+Mer information om andra scenarier för autentisering av användare som stöds av Microsoft Identity Platform finns i [autentiserings flöden och program scenarier](authentication-flows-app-scenarios.md) .
+Se [MSAL-bibliotek](msal-overview.md) för att lära dig om de Microsoft-bibliotek som hjälper dig att utveckla program som fungerar med Microsoft-konton, Azure AD-konton och Azure AD B2C användare i en enda, strömlinjeformad programmerings modell.

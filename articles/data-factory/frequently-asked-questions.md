@@ -1,5 +1,5 @@
 ---
-title: 'Azure Data Factory: Vanliga frågor och svar | Microsoft Docs'
+title: 'Azure Data Factory: vanliga frågor och svar | Microsoft Docs'
 description: Få svar på vanliga frågor om Azure Data Factory.
 services: data-factory
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 06/27/2018
-ms.openlocfilehash: c4836d519556e5a031f81279fef4891ba8d47c05
-ms.sourcegitcommit: d200cd7f4de113291fbd57e573ada042a393e545
+ms.openlocfilehash: ee57d943016c2d166f3c8469b403b56b1009385c
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70141571"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387062"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory vanliga frågor och svar
 Den här artikeln innehåller svar på vanliga frågor om Azure Data Factory.  
@@ -48,7 +48,7 @@ Data Factory ger friheten att modellera alla flödes format som krävs för data
 - Delta flöden:
     - Du kan använda parametrar för att definiera ett vatten märke för delta kopian samtidigt som du flyttar dimensions-eller referens tabeller från ett relationellt lager, antingen lokalt eller i molnet, för att läsa in data i sjön. 
 
-Mer information finns i [Självstudie: Kontroll flöden](tutorial-control-flow.md).
+Mer information finns i [Självstudier: styr flöden](tutorial-control-flow.md).
 
 ### <a name="data-transformed-at-scale-with-code-free-pipelines"></a>Data omvandlas i skala med kod fria pipeliner
 Den nya webbläsarbaserade verktygs upplevelsen ger kod fri pipeline-redigering och-distribution med en modern, interaktiv webbaserad upplevelse.
@@ -94,9 +94,9 @@ Eftersom den första offentliga för hands versionen i 2017 har Data Factory lag
 ## <a name="what-is-the-integration-runtime"></a>Vad är integrerings körningen?
 Integrerings körningen är den beräknings infrastruktur som Azure Data Factory använder för att tillhandahålla följande funktioner för data integrering i olika nätverks miljöer:
 
-- **Data förflyttning**: Vid data förflyttning flyttar integration runtime data mellan käll-och mål data lager och ger stöd för inbyggda anslutnings program, format konvertering, kolumn mappning och utförd och skalbar data överföring.
-- **Sändnings aktiviteter**: För omvandling ger integrerings körningen möjlighet att internt köra SSIS-paket.
-- **Kör SSIS-paket**: Integrerings körningen utför internt SSIS-paket i en hanterad Azure Compute-miljö. Integrerings körningen har även stöd för att skicka och övervaka omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure HDInsight, Azure Machine Learning, SQL Database och SQL Server.
+- **Data förflyttning**: vid data förflyttning flyttar integration runtime data mellan käll-och mål data lager, samtidigt som stöd för inbyggda anslutnings program, format konvertering, kolumn mappning och utförd och skalbar data överföring.
+- **Sändnings aktiviteter**: för omvandling ger integrerings körningen möjlighet att internt köra SSIS-paket.
+- **Köra SSIS-paket**: integrerings körningen exekverar internt SSIS-paket i en hanterad Azure Compute-miljö. Integrerings körningen har även stöd för att skicka och övervaka omvandlings aktiviteter som körs på en mängd olika beräknings tjänster, till exempel Azure HDInsight, Azure Machine Learning, SQL Database och SQL Server.
 
 Du kan distribuera en eller flera instanser av integration runtime efter behov för att flytta och transformera data. Integrerings körningen kan köras på ett offentligt Azure-nätverk eller i ett privat nätverk (lokalt, Azure Virtual Network eller Amazon Web Services virtuellt privat moln [VPC]). 
 
@@ -108,7 +108,7 @@ Det finns ingen hård gräns för antalet integration runtime-instanser som du k
 ## <a name="what-are-the-top-level-concepts-of-azure-data-factory"></a>Vilka är de viktigaste begreppen i Azure Data Factory?
 En Azure-prenumeration kan ha en eller flera Azure Data Factory-instanser (eller datafabriker). Azure Data Factory innehåller fyra viktiga komponenter som fungerar tillsammans som en plattform där du kan skapa data drivna arbets flöden med steg för att flytta och transformera data.
 
-### <a name="pipelines"></a>Rörledningar
+### <a name="pipelines"></a>Pipelines
 En datafabrik kan ha en eller flera pipelines. En pipeline är en logisk gruppering av aktiviteter för att utföra en arbets enhet. Aktiviteterna i en pipeline utför en uppgift tillsammans. En pipeline kan till exempel innehålla en grupp med aktiviteter som matar in data från en Azure-blob och sedan kör en Hive-fråga på ett HDInsight-kluster för att partitionera data. Fördelen är att du kan använda en pipeline för att hantera aktiviteterna som en uppsättning i stället för att behöva hantera varje aktivitet individuellt. Du kan kedja samman aktiviteterna i en pipeline för att kunna använda dem i tur och ordning, eller så kan du använda dem oberoende av varandra parallellt.
 
 ### <a name="activities"></a>Aktiviteter
@@ -118,7 +118,7 @@ Aktiviteter representerar ett bearbetningssteg i en pipeline. Du kan till exempe
 Datauppsättningar representerar datastrukturer i datalager som pekar på eller refererar till de data som du vill använda i dina aktiviteter som indata eller utdata. 
 
 ### <a name="linked-services"></a>Länkade tjänster
-Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Tänk på det på det här sättet: En länkad tjänst definierar anslutningen till data källan och en data uppsättning representerar data strukturen. Till exempel anger en länkad tjänst en Azure Storage anslutnings strängen för att ansluta till Azure Storage-kontot. Och en Azure Blob-datauppsättning anger BLOB-behållaren och mappen som innehåller data.
+Länkade tjänster liknar anslutningssträngar som definierar den anslutningsinformation som behövs för att Data Factory ska kunna ansluta till externa resurser. Tänk på det på det här sättet: en länkad tjänst definierar anslutningen till data källan och en data uppsättning representerar data strukturen. Till exempel anger en länkad tjänst en Azure Storage anslutnings strängen för att ansluta till Azure Storage-kontot. Och en Azure Blob-datauppsättning anger BLOB-behållaren och mappen som innehåller data.
 
 Länkade tjänster har två syfte i Data Factory:
 
@@ -170,13 +170,13 @@ Ja, parametrarna är ett första klass koncept på översta nivån i Data Factor
 Ja. Du kan definiera standardvärden för parametrarna i pipelinen. 
 
 ### <a name="can-an-activity-in-a-pipeline-consume-arguments-that-are-passed-to-a-pipeline-run"></a>Kan en aktivitet i en pipeline förbruka argument som skickas till en pipeline-körning? 
-Ja. Varje aktivitet i pipelinen kan använda det parameter värde som skickas till pipelinen och köras med `@parameter` konstruktionen. 
+Ja. Varje aktivitet i pipelinen kan använda det parameter värde som skickas till pipelinen och köras med `@parameter`-konstruktionen. 
 
 ### <a name="can-an-activity-output-property-be-consumed-in-another-activity"></a>Kan en aktivitets utmatnings egenskap användas i en annan aktivitet? 
-Ja. En aktivitets utdata kan förbrukas i en efterföljande aktivitet `@activity` med konstruktionen.
+Ja. En aktivitets utdata kan förbrukas i en efterföljande aktivitet med `@activity`-konstruktionen.
  
 ### <a name="how-do-i-gracefully-handle-null-values-in-an-activity-output"></a>Hur gör jag för att hantera null-värden korrekt i en aktivitets utdata? 
-Du kan använda `@coalesce` konstruktionen i uttrycken för att hantera null-värden på ett smidigt sätt. 
+Du kan använda konstruktionen `@coalesce` i uttrycken för att hantera null-värden på ett smidigt sätt. 
 
 ## <a name="mapping-data-flows"></a>Mappa data flöden
 
@@ -210,5 +210,5 @@ Använd kopierings aktiviteten till att mellanlagra data från någon av de andr
 ## <a name="next-steps"></a>Nästa steg
 Steg-för-steg-instruktioner för att skapa en data fabrik finns i följande Självstudier:
 
-- [Snabbstart: Skapa en data fabrik](quickstart-create-data-factory-dot-net.md)
-- [Självstudier: Kopiera data i molnet](tutorial-copy-data-dot-net.md)
+- [Snabb start: skapa en data fabrik](quickstart-create-data-factory-dot-net.md)
+- [Självstudie: kopiera data i molnet](tutorial-copy-data-dot-net.md)

@@ -6,12 +6,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: 733d3f9c4079193107f22178bdbde3a3ecf0e7ca
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 0a1051d67bf45e96f82833ef8190008204cdc90b
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72028225"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72387540"
 ---
 # <a name="mapping-data-flow-parameters"></a>Mappa data flödes parametrar
 
@@ -32,23 +32,23 @@ Använd den här funktionen för att göra dina data flöden generella, flexibla
 
 Om du vill lägga till parametrar till ditt data flöde, klickar du på den tomma delen av data flödes arbets ytan för att se de allmänna egenskaperna. I fönstret inställningar visas en flik med namnet Parameters. Klicka på knappen Nytt om du vill generera en ny parameter. För varje parameter måste du tilldela ett namn, välja en typ och alternativt ange ett standardvärde.
 
-![Skapa data flödes parametrar](media/data-flow/create-params.png "skapa data flödes parametrar")
+![Skapa data flödes parametrar](media/data-flow/create-params.png "Skapa data flödes parametrar")
 
 Parametrar kan användas i alla data flödes uttryck. Parametrarna börjar med $ och är oföränderliga. Du hittar listan över tillgängliga parametrar inuti uttrycks verktyget under fliken parametrar.
 
-![](media/data-flow/parameter-expression.png "Parameter uttryck") för data flödes parameter uttryck
+![Parameter uttryck för data flöde](media/data-flow/parameter-expression.png "Parameter uttryck för data flöde")
 
 ## <a name="use-parameters-in-your-data-flow"></a>Använda parametrar i ditt data flöde
 
-* Du kan använda parameter värden inuti dina omvandlings uttryck. Parameter listan visas under fliken parametrar i uttrycks verktyget. ![Använd data flödes parametrar](media/data-flow/params9.png "använder data flödes parametrar")
+* Du kan använda parameter värden inuti dina omvandlings uttryck. Parameter listan visas under fliken parametrar i uttrycks verktyget. ![Använd data flödes parametrar](media/data-flow/params9.png "UData flödes parametrar för se)
 
-* Parametrar används också för att konfigurera dynamiska värden för dina omvandlings inställningar för källa och mottagare. När du klickar på i konfigurerbara fält visas länken Lägg till dynamisk contect. Om du klickar på det tas du till ett uttrycks verktyg där du kan använda parametrar för att använda dynamiska värden. (media/data-flow/params6.png "Dynamiskt innehåll") för data flöde för ![dynamiskt innehåll]
+* Parametrar används också för att konfigurera dynamiska värden för dina omvandlings inställningar för källa och mottagare. När du klickar på i konfigurerbara fält visas länken Lägg till dynamisk contect. Om du klickar på det tas du till ett uttrycks verktyg där du kan använda parametrar för att använda dynamiska värden. ![Dynamiskt innehåll för data flöde](media/data-flow/params6.png "Ddynamiskt innehåll i ATA Flow ")
 
 ## <a name="set-mapping-data-flow-parameters-from-pipeline"></a>Ange mappnings data flödes parametrar från pipeline
 
 När du har skapat ditt data flöde med parametrar kan du köra det från en pipeline med aktiviteten kör data flöde. När du har lagt till aktiviteten till din pipeline-arbetsyta visas de tillgängliga data flödes parametrarna på fliken "parametrar" i aktiviteten.
 
-Ange ![en data]flödes parameter inställning för en(media/data-flow/parameter-assign.png "data flödes parameter")
+![Ange en data flödes parameter](media/data-flow/parameter-assign.png "Ange en data flödes parameter")
 
 Om parameter data typen är sträng, när du klickar på text rutan för att ange parameter värden, kan du välja att ange antingen en pipeline eller ett data flödes uttryck. Om du väljer pipeline-uttryck visas uttrycks panelen för pipelinen. Se till att ta med pipeline-funktioner i syntax för String-interpolation med `'@{<expression>}'`, till exempel:
 
@@ -61,7 +61,7 @@ Om parametern inte är av typen sträng visas alltid uttrycks verktyget för dat
 
 Varje mappnings data flöde kan ha valfri kombination av parametrar för pipeline och data flödes uttryck. 
 
-![Data flödes parametrar]exempel på(media/data-flow/parameter-example.png "data flödes parametrar")
+![Exempel på data flödes parametrar](media/data-flow/parameter-example.png "Exempel på data flödes parametrar")
 
 
 

@@ -9,20 +9,20 @@ ms.subservice: immersive-reader
 ms.topic: reference
 ms.date: 08/01/2019
 ms.author: metan
-ms.openlocfilehash: 615c09dd8a7287918bb009ce11854278b21554c1
-ms.sourcegitcommit: d3dced0ff3ba8e78d003060d9dafb56763184d69
+ms.openlocfilehash: 1f85740c358bd0949fed9c954537f0926538995d
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69899418"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388123"
 ---
-# <a name="immersive-reader-sdk-reference"></a>Avancerad läsare SDK-referens
+# <a name="immersive-reader-sdk-reference-for-ios"></a>Avancerad läsare SDK-referens för iOS
 
 Den fördjupade läsaren för iOS SDK är en SWIFT-CocoaPod som gör att du kan integrera den fördjupade läsaren i iOS-programmet.
 
-## <a name="functions"></a>Funktioner
+## <a name="functions"></a>Functions
 
-SDK: `launchImmersiveReader(navController, token, subdomain, content, options, onSuccess, onFailure)`n visar en enskild funktion.
+SDK visar en enskild funktion `launchImmersiveReader(navController, token, subdomain, content, options, onSuccess, onFailure)`.
 
 ### <a name="launchimmersivereader"></a>launchImmersiveReader
 
@@ -34,17 +34,17 @@ public func launchImmersiveReader(navController: UINavigationController, token: 
 
 #### <a name="parameters"></a>Parametrar
 
-| Name | Typ | Beskrivning |
+| Namn | Typ | Beskrivning |
 | ---- | ---- |------------ |
 | `navController` | UINavigationController | Navigerings styrenheten för iOS-programmet som funktionen anropas från. |
 | `token` | Sträng | Azure AD-autentiseringstoken. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
 | `subdomain` | Sträng | Den anpassade under domänen för den fördjupade läsar resursen i Azure. Se [Azure AD-autentiseringen How-to](./azure-active-directory-authentication.md). |
 | `content` | [Innehåll](#content) | Ett objekt som innehåller det innehåll som ska visas i den fördjupade läsaren. |
-| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfritt. |
+| `options` | [Alternativ](#options) | Alternativ för att konfigurera vissa beteenden för den fördjupade läsaren. Valfri. |
 | `onSuccess` | ()-> void | En avslutning som anropas när den fördjupade läsaren har startat. |
-| `onFailure` | (_ fel: [Fel](#error)) -> void | En avslutning som anropas när den fördjupade läsaren inte kan läsas in. Den här stängningen [`Error`](#error) returnerar ett objekt som representerar en felkod och ett fel meddelande som är kopplat till felet. Mer information finns i [fel koderna](#error-codes). |
+| `onFailure` | (_ fel: [fel](#error))-> void | En avslutning som anropas när den fördjupade läsaren inte kan läsas in. Den här stängningen returnerar ett [`Error`-](#error) objekt som representerar en felkod och ett fel meddelande som är kopplat till felet. Mer information finns i [fel koderna](#error-codes). |
 
-## <a name="types"></a>Typer
+## <a name="types"></a>Nodtyper
 
 ### <a name="content"></a>Innehåll
 
@@ -88,13 +88,13 @@ struct Error {
 
 #### <a name="error-codes"></a>Felkoder
 
-| Kod | Beskrivning |
+| Programmera | Beskrivning |
 | ---- | ----------- |
-| BadArgument | Det angivna argumentet är ogiltigt. `message` mer information finns i. |
-| Timeout | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
+| BadArgument | Det angivna argumentet är ogiltigt, se `message` för mer information. |
+| standardvärde | Det gick inte att läsa in den fördjupade läsaren inom den angivna tids gränsen. |
 | TokenExpired | Angiven token har upphört att gälla. |
 | Begränsas | Anrops frekvens gränsen har överskridits. |
-| InternalError | Ett internt fel inträffade i den fördjupade Smartkortsläsarens visnings kontroll. Mer `message` information finns i.|
+| InternalError | Ett internt fel inträffade i den fördjupade Smartkortsläsarens visnings kontroll. Se `message` för mer information.|
 
 ## <a name="os-version-support"></a>OS-versions stöd
 
@@ -103,4 +103,4 @@ Den fördjupade läsaren för iOS SDK stöds för iOS 9,0 eller högre, på iPad
 ## <a name="next-steps"></a>Nästa steg
 
 * Utforska [iOS SDK för avancerad läsare på GitHub](https://github.com/microsoft/immersive-reader-sdk/tree/master/iOS)
-* [Snabbstart: Skapa en iOS-app som startar den fördjupade läsaren (SWIFT)](./ios-quickstart.md)
+* [Snabb start: skapa en iOS-app som startar den fördjupade läsaren (SWIFT)](./ios-quickstart.md)

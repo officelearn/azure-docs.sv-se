@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a8027a1290b4b771c17a1e748c06f3b86fa0bf95
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4e8543f1f6ef2cdf1695340b07dcbc51365a01a5
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244596"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72438133"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Tillägg och funktioner för virtuella datorer för Windows
 
@@ -65,7 +65,7 @@ Vissa tillägg stöds inte för alla operativ system och genererar *felkod 51, O
 
 #### <a name="network-access"></a>Nätverksåtkomst
 
-Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version som [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) av agenterna behöver du inte tillåta åtkomst till Azure Storage i VM-regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation (HostGAPlugin-funktionen via privilegie rad kanal för privat IP-168.63.129.16). Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
+Tilläggs paket laddas ned från Azure Storage förlängnings lagrings plats, och överförings status för tillägg skickas till Azure Storage. Om du använder en version som [stöds](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) av agenterna behöver du inte tillåta åtkomst till Azure Storage i VM-regionen, som kan använda agenten för att omdirigera kommunikationen till Azure Fabric Controller för agent kommunikation (HostGAPlugin-funktionen via privilegie rad kanal för privat IP- [168.63.129.16](https://docs.microsoft.com/en-us/azure/virtual-network/what-is-ip-address-168-63-129-16)). Om du har en version som inte stöds av agenten måste du tillåta utgående åtkomst till Azure Storage i den regionen från den virtuella datorn.
 
 > [!IMPORTANT]
 > Om du har blockerat åtkomst till *168.63.129.16* med hjälp av gäst brand väggen eller med en proxy, kommer tilläggen att fungera oberoende av ovanstående. Portarna 80, 443 och 32526 krävs.

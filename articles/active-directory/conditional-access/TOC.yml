@@ -21,6 +21,8 @@
   items:
     - name: Vanliga principer för villkorlig åtkomst
       href: concept-conditional-access-policy-common.md
+    - name: Standardinställningar för säkerhet
+      href: concept-conditional-access-security-defaults.md
     - name: Komponenter för princip för villkorsstyrd åtkomst
       href: concept-conditional-access-policies.md
     - name: Villkor
@@ -76,16 +78,6 @@
       href: howto-conditional-access-session-lifetime.md
     - name: Migrera klassiska principer
       href: policy-migration.md
-    - name: Baslinjeprinciper
-      items:
-        - name: Kräva MFA för administratörer
-          href: howto-baseline-protect-administrators.md
-        - name: Slutanvändarskydd
-          href: howto-baseline-protect-end-users.md
-        - name: Blockera äldre autentisering
-          href: howto-baseline-protect-legacy-auth.md
-        - name: Kräva MFA för tjänsthantering
-          href: howto-baseline-protect-azure.md
     - name: Använda villkorsstyrd åtkomst
       href: howto-conditional-access-adoption-kit.md
     - name: Felsökning

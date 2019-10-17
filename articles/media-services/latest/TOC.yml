@@ -285,6 +285,8 @@
       items:
         - name: Publicera en tillgång – CLI
           href: cli-publish-asset.md
+        - name: Signalera beskrivande ljud
+          href: signal-descriptive-audio-howto.md
 - name: Referens
   items:
     - name: OpenAPI-specifikation (Swagger)

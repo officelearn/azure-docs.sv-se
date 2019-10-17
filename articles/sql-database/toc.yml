@@ -271,6 +271,8 @@
                   href: sql-database-xevent-code-event-file.md
                 - name: Utökade händelser – ringbuffert
                   href: sql-database-xevent-code-ring-buffer.md
+        - name: Prestandadiagnostik för hyperskala
+          href: sql-database-hyperscale-performance-diagnostics.md
     - name: Skalbarhet
       items:
         - name: Dokumentation om skalbarhet

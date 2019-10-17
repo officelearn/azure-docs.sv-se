@@ -11,12 +11,12 @@ ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1702a0c7ab2d2a76e6ec0e8b217539804a683ff7
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: c9cc6ab0342682bce7befdfe412221ec581312be
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834817"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72389600"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>Restriktioner och begränsningar för omdirigerings-URI/svars-URL
 
@@ -24,25 +24,31 @@ En omdirigerings-URI eller svars-URL är den plats som auktoriseringsservern ski
 
 ## <a name="maximum-number-of-redirect-uris"></a>Maximalt antal omdirigerings-URI: er
 
-Följande tabell visar det maximala antalet omdirigerings-URI: er som du kan lägga till när du registrerar din app. 
+Följande tabell visar det maximala antalet omdirigerings-URI: er som du kan lägga till när du registrerar din app.
 
 | Konton som är inloggade | Maximalt antal omdirigerings-URI: er | Beskrivning |
 |--------------------------|---------------------------------|-------------|
-| Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD) | 256 | `signInAudience`fältet i applikations manifestet har angetts till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs* |
-| Personliga Microsoft-konton och arbets-och skol konton | 100 | `signInAudience`fältet i applikations manifestet har angetts till *AzureADandPersonalMicrosoftAccount* |
+| Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD) | 256 | `signInAudience`-fältet i applikations manifestet anges till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs* |
+| Personliga Microsoft-konton och arbets-och skol konton | 100 | `signInAudience`-fältet i applikations manifestet har angetts till *AzureADandPersonalMicrosoftAccount* |
 
 ## <a name="maximum-uri-length"></a>Maximal URI-längd
 
 Du kan använda högst 256 tecken för varje omdirigerings-URI som du lägger till i en app-registrering.
 
+## <a name="supported-schemes"></a>Scheman som stöds
+Azure AD-programmodellen stöder idag både HTTP-och HTTPS-scheman för appar som loggar in på Microsoft arbets-eller skol konton i en organisations Azure Active Directory-klient (Azure AD). Det är `signInAudience`-fältet i applikations manifestet anges till antingen *AzureADMyOrg* eller *AzureADMultipleOrgs*. För appar som loggar in på personliga Microsoft-konton och arbets-och skol konton (som är `signInAudience` inställt på *AzureADandPersonalMicrosoftAccount*) tillåts bara https-schemat.
+
+> [!NOTE]
+> Med den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön kan utvecklare inte lägga till URI: er med http-schemat i användar gränssnittet. Det går bara att lägga till HTTP-URI: er för appar som loggar in på arbets-eller skol konton via appens manifest redigeraren. Nya appar kommer inte att kunna använda HTTP-scheman i omdirigerings-URI: n. Men äldre appar som innehåller HTTP-scheman i omdirigerings-URI: er fortsätter att fungera. Utvecklare måste använda HTTPS-scheman i omdirigerings-URI: er.
+
 ## <a name="restrictions-using-a-wildcard-in-uris"></a>Begränsningar med jokertecken i URI: er
 
-URI: er med `https://*.contoso.com`jokertecken, till exempel, är praktiska men bör undvikas. Att använda jokertecken i omdirigerings-URI: n har säkerhets effekter. Enligt OAuth 2,0-specifikationen ([Section 3.1.2 i RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)) måste en URI för omdirigerings slut punkt vara en absolut URI. 
+URI: er för jokertecken, till exempel `https://*.contoso.com`, är praktiska men bör undvikas. Att använda jokertecken i omdirigerings-URI: n har säkerhets effekter. Enligt OAuth 2,0-specifikationen ([Section 3.1.2 i RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)) måste en URI för omdirigerings slut punkt vara en absolut URI. 
 
 Azure AD-programmodellen stöder inte URI-jokertecken för appar som är konfigurerade för att logga in på personliga Microsoft-konton och arbets-eller skol konton. URI: er för jokertecken tillåts dock för appar som har kon figurer ATS för att logga in på arbets-eller skol konton i en organisations Azure AD-klient idag. 
  
 > [!NOTE]
-> Med den [](https://go.microsoft.com/fwlink/?linkid=2083908) nya Appregistreringars miljön kan utvecklare inte lägga till jokertecken i användar gränssnittet. Det går bara att lägga till jokertecknet-URI för appar som loggar in på arbets-eller skol konton via appens manifest redigeraren. Nya appar kommer inte att kunna använda jokertecken i omdirigerings-URI: n. Men äldre appar som innehåller jokertecken i omdirigerings-URI: er fortsätter att fungera.
+> Med den nya [Appregistreringars](https://go.microsoft.com/fwlink/?linkid=2083908) miljön kan utvecklare inte lägga till jokertecken i användar gränssnittet. Det går bara att lägga till jokertecknet-URI för appar som loggar in på arbets-eller skol konton via appens manifest redigeraren. Nya appar kommer inte att kunna använda jokertecken i omdirigerings-URI: n. Men äldre appar som innehåller jokertecken i omdirigerings-URI: er fortsätter att fungera.
 
 Om ditt scenario kräver fler omdirigerings-URI: er än max gränsen tillåts, i stället för att lägga till en omdirigerings-URI för jokertecken, bör du överväga någon av
 

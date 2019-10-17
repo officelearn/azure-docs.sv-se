@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/08/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: ca7136f6e1c24d32ff5d6e3e53878c11fb5f1edb
-ms.sourcegitcommit: 7868d1c40f6feb1abcafbffcddca952438a3472d
+ms.openlocfilehash: 961f4595d60e85677d2c7c4a1abd97736d0180ec
+ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71975346"
+ms.lasthandoff: 10/15/2019
+ms.locfileid: "72391799"
 ---
 ## <a name="application-performance-indicators"></a>Program prestanda indikatorer
 
@@ -92,16 +92,16 @@ Det bästa sättet att mäta prestanda kraven för ditt program är att använda
 
 PerfMon-räknarna är tillgängliga för processor, minne och, varje logisk disk och fysisk disk på servern. När du använder Premium Storage-diskar med en virtuell dator är räknarna för fysiska diskar för varje Premium Storage-disk och räknare för logiska diskar för varje volym som skapas på Premium Storage-diskarna. Du måste samla in värdena för diskarna som är värdar för din program arbets belastning. Om det finns en till en mappning mellan logiska och fysiska diskar kan du referera till fysiska disk räknare. Se i övrigt räknare för logiska diskar. I Linux genererar kommandot iostat en processor-och disk användnings rapport. Disk användnings rapporten innehåller statistik per fysisk enhet eller partition. Om du har en databas server med data och loggar på separata diskar samlar du in dessa data för båda diskarna. I tabellen nedan beskrivs räknare för diskar, processorer och minne:
 
-| Räknare | Beskrivning | PerfMon | Iostat |
+| Medelvärde | Beskrivning | PerfMon | Iostat |
 | --- | --- | --- | --- |
-| **IOPS eller transaktioner per sekund** |Antalet I/O-begäranden som har utfärdats till lagrings disken per sekund. |Diskläsningar/sek <br> Diskskrivningar/sek |TPS <br> r/s <br> w/s |
+| **IOPS eller transaktioner per sekund** |Antalet I/O-begäranden som har utfärdats till lagrings disken per sekund. |Disk läsningar/SEK <br> Disk skrivningar/SEK |TPS <br> r/s <br> w/s |
 | **Disk läsningar och skrivningar** |% av Läs-och skriv åtgärder som utförts på disken. |% Disk Läs tid <br> Disk skrivnings tid i procent |r/s <br> w/s |
-| **Dataflöde** |Mängden data som läses från eller skrivs till disken per sekund. |Disk – lästa byte/sek <br> Disk – skrivna byte/sek |kB_read/s <br> kB_wrtn/s |
-| **Svarstid** |Total tid för att slutföra en disk-IO-begäran. |Medel s/disk läsning <br> Medel s/disk skrivning |await <br> svctm |
+| **Dataflöde** |Mängden data som läses från eller skrivs till disken per sekund. |Disk-lästa byte/s <br> Disk-skrivna byte/s |kB_read/s <br> kB_wrtn/s |
+| **Svarstid** |Total tid för att slutföra en disk-IO-begäran. |Medel s/disk läsning <br> Medel s/disk skrivning |sena <br> svctm |
 | **I/o-storlek** |Storleken på I/O-begäranden till lagrings diskarna. |Genomsnittligt antal Disk byte/läsning <br> Genomsnittlig Disk byte/skrivning |avgrq-sz |
 | **Ködjup** |Antal väntande I/O-begäranden som väntar på att läsas från eller skrivas till lagrings disken. |Aktuell diskkölängd |avgqu-sz |
-| **Max. Minne @ no__t-0 |Mängden minne som krävs för att köra programmet smidigt |% Allokerade byte som används |Använd vmstat |
-| **Max. CPU** |PROCESSOR mängd som krävs för att köra programmet smidigt |% Processor tid |% util |
+| **Bekräftat. Minnesoptimerade** |Mängden minne som krävs för att köra programmet smidigt |% Allokerade byte som används |Använd vmstat |
+| **Bekräftat. REGISTRERA** |PROCESSOR mängd som krävs för att köra programmet smidigt |% Processor tid |% util |
 
 Läs mer om [iostat](https://linux.die.net/man/1/iostat) och [perfmon](https://msdn.microsoft.com/library/aa645516.aspx).
 
@@ -156,10 +156,10 @@ Här är ett exempel på hur du kan beräkna IOPS och data flöde/bandbredd för
 
 | Program krav | I/O-storlek | IOPS | Genom strömning/bandbredd |
 | --- | --- | --- | --- |
-| Max IOPS |8 kB |5,000 |40 MB per sekund |
-| Maximalt data flöde |1 024 kB |200 |200 MB per sekund |
-| Maximalt data flöde + hög IOPS |64 kB |3,200 |200 MB per sekund |
-| Högsta IOPS + högt data flöde |32 KB |5,000 |160 MB per sekund |
+| Högsta IOPS |8 kB |5 000 |40 MB per sekund |
+| Maximalt data flöde |1024 KB |200 |200 MB per sekund |
+| Maximalt data flöde + hög IOPS |64 kB |3 200 |200 MB per sekund |
+| Högsta IOPS + högt data flöde |32 KB |5 000 |160 MB per sekund |
 
 Om du vill få IOPS och bandbredd som är högre än det högsta värdet för en enskild Premium Storage-disk, använder du flera Premium diskar stripe tillsammans. Du kan till exempel ta bort två P30 diskar för att få en kombination av IOPS på 10 000 IOPS eller ett kombinerat data flöde på 400 MB per sekund. Som förklaras i nästa avsnitt måste du använda en VM-storlek som stöder den kombinerade diskens IOPS och data flöde.
 
@@ -174,7 +174,7 @@ När du börjar utforma ett program, en av de första saker som du bör göra, v
 
 Virtuella datorer med hög skalning är tillgängliga i olika storlekar med olika antal processor kärnor, minne, OS och temporär disk storlek. Varje VM-storlek har också maximalt antal data diskar som du kan ansluta till den virtuella datorn. Det innebär att den valda virtuella dator storleken påverkar hur mycket bearbetning, minne och lagrings kapacitet som är tillgängligt för ditt program. Det påverkar också beräknings-och lagrings kostnaden. Nedan visas till exempel specifikationerna för den största storleken på virtuella datorer i en DS-serie, DSv2-serien och en GS-serie:
 
-| Storlek på virtuell dator | Processorkärnor | Minne | Disk storlekar för virtuella datorer | Max. data diskar | Cachestorlek | IOPS | IO-gränser för bandbredds cache |
+| VM-storlek | CPU-kärnor | Minne | Disk storlekar för virtuella datorer | Max. data diskar | Cachestorlek | IOPS | IO-gränser för bandbredds cache |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | Standard_DS14 |16 |112 GB |OS = 1023 GB <br> Lokal SSD = 224 GB |32 |576 GB |50 000 IOPS <br> 512 MB per sekund |4 000 IOPS och 33 MB per sekund |
 | Standard_GS5 |32 |448 GB |OS = 1023 GB <br> Lokal SSD = 896 GB |64 |4224 GB |80 000 IOPS <br> 2 000 MB per sekund |5 000 IOPS och 50 MB per sekund |
@@ -199,7 +199,7 @@ I tabellen nedan sammanfattas kostnads nedbrytningen för det här scenariot fö
 | --- | --- | --- |
 | **Kostnad för virtuell dator per månad** |$1 570,58 (standard @ no__t-0D14) |$1 003,66 (standard @ no__t-0DS13) |
 | **Kostnad för diskar per månad** |$1 638,40 (32 x 1 – TB diskar) |$544,34 (4 x P30 diskar) |
-| **Total kostnad per månad** |$3,208.98 |$1,544.34 |
+| **Total kostnad per månad** |$3 208,98 |$1 544,34 |
 
 *Linux-distributioner*  
 
@@ -245,16 +245,16 @@ Det är viktigt att aktivera cache på rätt disk uppsättning. Huruvida du bör
 
 | **Disktyp** | **Standardinställning för cacheminne** |
 | --- | --- |
-| OS-disk |Läs/skriv |
-| Datadisk |Skrivskyddad |
+| OS-disk |ReadWrite |
+| Datadisk |ReadOnly |
 
 Följande är de rekommenderade diskens cacheinställningar för data diskar,
 
 | **Inställning av diskcachelagring** | **rekommendation när du ska använda den här inställningen** |
 | --- | --- |
-| Inga |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
-| Skrivskyddad |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
-| Läs/skriv |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
+| Inget |Konfigurera värd-cachen som ingen för skrivbara och skrivbara diskar. |
+| ReadOnly |Konfigurera Host-cache som skrivskyddat för skrivskyddade och Läs-och skriv diskar. |
+| ReadWrite |Konfigurera Host-cache enbart som ReadWrite om ditt program hanterar skrivningen av cachelagrade data korrekt till beständiga diskar vid behov. |
 
 *ReadOnly*  
 Genom att konfigurera ReadOnly-cachelagring på Premium Storage data diskar kan du få låg Läs fördröjning och få mycket hög Läs-IOPS och data flöde för ditt program. Detta beror på två orsaker,
@@ -292,18 +292,18 @@ Vissa av versionerna kräver de senaste Linux Integration Services (LIS), v 4.0,
 
 | Distribution | Version | Kernel som stöds | Information |
 | --- | --- | --- | --- |
-| Ubuntu | 12.04 | 3.2.0-75.110+ | Ubuntu-12_04_5-LTS-amd64-server-20150119-en-us-30GB |
-| Ubuntu | 14.04 | 3.13.0-44.73+ | Ubuntu-14_04_1-LTS-amd64-server-20150123-en-us-30GB |
-| Debian | 7. x, 8. x | 3.16.7-ckt4-1 + | &nbsp; |
-| SUSE | SLES 12| 3.12.36-38.1+| suse-sles-12-priority-v20150213 <br> suse-sles-12-v20150213 |
-| SUSE | SLES 11 SP4 | 3.0.101-0.63.1+ | &nbsp; |
-| CoreOS | 584.0.0+| 3.18.4+ | 584.0.0 för kärnor |
-| CentOS | 6.5, 6.6, 6.7, 7.0 | &nbsp; | [LIS4 krävs](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se Obs! i nästa avsnitt* |
-| CentOS | 7.1+ | 3.10.0-229.1.2. el7 + | [LIS4 rekommenderas](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se Obs! i nästa avsnitt* |
-| Red Hat Enterprise Linux (RHEL) | 6.8+, 7.2+ | &nbsp; | &nbsp; |
-| Oracle | 6.0+, 7.2+ | &nbsp; | UEK4 eller RHCK |
-| Oracle | 7.0-7.1 | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
-| Oracle | 6.4-6.7 | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Ubuntu | 12,04 eller senare| 3.2.0-75.110 + | Ubuntu-12_04_5-LTS-amd64-Server-20150119-en-US-30 GB |
+| Ubuntu | 14,04 eller senare| 3.13.0-44.73 +  | Ubuntu-14_04_1-LTS-amd64-Server-20150123-en-US-30 GB |
+| Debian | 7. x, 8. x eller senare| 3.16.7-ckt4-1 + | &nbsp; |
+| SUSE | SLES 12 eller senare| 3.12.36-38.1 + | SUSE-SLES-12-Priority-v20150213 <br> SUSE-SLES – 12-v20150213 |
+| SUSE | SLES 11 SP4 eller senare| 3.0.101-0.63.1 + | &nbsp; |
+| CoreOS | 584.0.0 + eller senare| 3.18.4 + | 584.0.0 för kärnor |
+| CentOS | 6,5, 6,6, 6,7, 7,0 eller senare| &nbsp; | [LIS4 krävs](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se Obs! i nästa avsnitt* |
+| CentOS | 7.1 + eller senare| 3.10.0-229.1.2. el7 + | [LIS4 rekommenderas](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) <br> *Se Obs! i nästa avsnitt* |
+| Red Hat Enterprise Linux (RHEL) | 6,8 +, 7.2 + eller senare | &nbsp; | &nbsp; |
+| Oracle | 6.0 +, 7.2 + eller senare | &nbsp; | UEK4 eller RHCK |
+| Oracle | 7.0 – 7.1 eller senare | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
+| Oracle | 6.4-6,7 eller senare | &nbsp; | UEK4 eller RHCK med[Lis 4.1 +](https://go.microsoft.com/fwlink/?LinkID=403033&clcid=0x409) |
 
 ### <a name="lis-drivers-for-openlogic-centos"></a>LIS-drivrutiner för OpenLogic-CentOS
 
@@ -322,7 +322,7 @@ När en virtuell dator med hög skalning är kopplad till flera beständiga disk
 
 I Windows kan du använda lagrings utrymmen för att Stripa diskar tillsammans. Du måste konfigurera en kolumn för varje disk i en pool. Annars kan den övergripande prestandan för stripe-volymer vara lägre än förväntat, på grund av ojämn fördelning av trafik över diskarna.
 
-Viktigt! Med hjälp av Serverhanteraren användar gränssnitt kan du ange det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter fler än åtta diskar använder du PowerShell för att skapa volymen. Med hjälp av PowerShell kan du ange antalet kolumner som motsvarar antalet diskar. Till exempel, om det finns 16 diskar i en enda stripe-uppsättning. Ange 16 kolumner i parametern *NumberOfColumns* för PowerShell-cmdleten *New-VirtualDisk* .
+Viktigt: med Serverhanteraren användar gränssnitt kan du ange det totala antalet kolumner upp till 8 för en stripe-volym. När du ansluter fler än åtta diskar använder du PowerShell för att skapa volymen. Med hjälp av PowerShell kan du ange antalet kolumner som motsvarar antalet diskar. Till exempel, om det finns 16 diskar i en enda stripe-uppsättning. Ange 16 kolumner i parametern *NumberOfColumns* för PowerShell-cmdleten *New-VirtualDisk* .
 
 I Linux använder du MDADM-verktyget för att Stripa diskar tillsammans. Detaljerade anvisningar om hur du tar bort diskar i Linux, se [Konfigurera programvaru-RAID på Linux](../articles/virtual-machines/linux/configure-raid.md).
 

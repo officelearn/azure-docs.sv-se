@@ -345,6 +345,8 @@
               href: active-directory-how-applications-are-added.md
             - name: Restriktioner och begränsningar för omdirigerings-URI/svars-URL
               href: reply-url.md
+            - name: Verifieringsskillnader av kontotyper som stöds
+              href: supported-accounts-validation.md
             - name: Appar för enskild klient eller flera klienter
               href: single-and-multi-tenant-apps.md
         - name: Behörigheter och samtycke

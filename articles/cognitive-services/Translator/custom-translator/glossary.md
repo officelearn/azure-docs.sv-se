@@ -9,21 +9,21 @@ ms.subservice: translator-text
 ms.date: 02/21/2019
 ms.author: swmachan
 ms.topic: reference
-ms.openlocfilehash: b00e38259bc3fe8cb6998c64ec453a17963a5ee5
-ms.sourcegitcommit: fe6b91c5f287078e4b4c7356e0fa597e78361abe
+ms.openlocfilehash: 77e731c1f737b579c68a0eba74fe9918b3f370d3
+ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68595789"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72388141"
 ---
-# <a name="glossary"></a>Ordlista
+# <a name="custom-translator-glossary"></a>Ord lista för anpassad översättare
 
 Ord listan för [anpassad översättare](https://portal.customtranslator.azure.ai) förklarar termer som du kan stöta på när du arbetar med den anpassade översättare.
 
 | **Ord eller fras**       | **Definition**                                                                                                                                                                                                                                                                                                                                                                                                                                                            |
 |--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Källspråk          | Käll språket är det språk som du börjar med och vill konvertera till ett annat språk ("mål").                                                                                                                                                                                                                                                                                                                                                         |
-| Målspråk          | Mål språket är det språk som du vill att maskin översättningen ska tillhandahålla när käll språket har mottagits.                                                                                                                                                                                                                                                                                                                                               |
+| Käll språk          | Käll språket är det språk som du börjar med och vill konvertera till ett annat språk ("mål").                                                                                                                                                                                                                                                                                                                                                         |
+| Mål språk          | Mål språket är det språk som du vill att maskin översättningen ska tillhandahålla när käll språket har mottagits.                                                                                                                                                                                                                                                                                                                                               |
 | Monolingual-fil         | En monolingual-fil har ett enda språk som inte är kopplat till en annan fil med ett annat språk.                                                                                                                                                                                                                                                                                                                                                                 |
 | Parallella filer           | En parallell fil är en kombination av två filer med motsvarande text. En fil har käll språket. Den andra har mål språket.                                                                                                                                                                                                                                                                                                                                         |
 | Menings justering       | Parallel dataset måste ha justerade meningar till meningar som representerar samma text i båda språken. I en parallell käll fil bör till exempel den första meningen i teorin mappa till den första meningen i den parallella mål filen.                                                                                                                                                                                                                               |

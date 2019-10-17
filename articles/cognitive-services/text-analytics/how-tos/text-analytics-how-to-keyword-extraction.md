@@ -10,14 +10,14 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: raymondl
-ms.openlocfilehash: 2d90fe4d40c51b21deea23675d6b51b972429237
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: ec5ff756d7e732430675676868bc754627a2a4a1
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390248"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429026"
 ---
-# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exempel: Så här extraherar du nyckelfraser med textanalys
+# <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Exempel: extrahera viktiga fraser med Textanalys
 
 [API:et för extrahering av nyckelfras](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) utvärderar ostrukturerad text och returnerar en lista med nyckelfraser för varje JSON-dokument.
 
@@ -30,7 +30,7 @@ Mer information finns i [språk som stöds](../text-analytics-supported-language
 
 ## <a name="preparation"></a>Förberedelse
 
-Extrahering av nyckelfraser fungerar bäst när du ger den en större mängd text att arbeta med. Det här är motsatt från känsloanalys som fungerar bättre på mindre mängder text. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata därefter.
+Extrahering av nyckelfraser fungerar bäst när du ger den en större mängd text att arbeta med. Det här är motsatt från känsloanalys som fungerar bättre på mindre mängder text. För att få bästa resultat från båda åtgärder kan du överväga att omstrukturera indata på ett lämpligt sätt.
 
 Du måste ha JSON-dokument i det här formatet: ID, text, språk
 
@@ -74,7 +74,7 @@ Information om definition av begäran finns i [så här anropar du API för text
 
 + Skicka en **POST**-begäran. Läs API-dokumentationen för denna begäran: [API för nyckel fraser](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6).
 
-+ Ange HTTP-slutpunkten för extrahering av nyckel fraser genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste ta `/text/analytics/v2.1/keyPhrases` med i URL: en. Till exempel: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`.
++ Ange HTTP-slutpunkten för extrahering av nyckel fraser genom att antingen använda en Textanalys-resurs på Azure eller en instansierad [textanalys-behållare](text-analytics-how-to-install-containers.md). Du måste inkludera `/text/analytics/v2.1/keyPhrases` i URL: en. Till exempel: `https://<your-custom-subdomain>.api.cognitiveservices.azure.com/text/analytics/v2.1/keyPhrases`.
 
 + Ange ett rubrik för begäran för att inkludera [åtkomst nyckeln](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) för textanalys åtgärder.
 
@@ -91,7 +91,7 @@ Kom ihåg att tjänsten är tillståndslös. Inga data lagras i ditt konto. Resu
 
 ## <a name="step-3-view-results"></a>Steg 3: Visa resultat
 
-Alla POST-begäranden returnerar ett JSON-formaterat svar med ID:n och identifierade egenskaper.
+Alla POST-begäranden returnerar ett JSON-formaterat svar med ID:n och identifierade egenskaper. Ordningen på de returnerade nyckel fraserna fastställs internt av modellen.
 
 Utdata returneras direkt. Du kan strömma resultaten till ett program som stöder JSON eller spara utdata till en fil på den lokala datorn och sedan importera den till ett program som gör så att du kan sortera, söka och hantera data.
 
@@ -150,11 +150,11 @@ Som anges söker analysen och tar bort icke-viktiga ord, och det behåller enkla
 
 ## <a name="summary"></a>Sammanfattning
 
-I den här artikeln har du lärt dig begrepp och arbets flöde för extrahering av nyckel fraser genom att använda Textanalys i Cognitive Services. Sammanfattningsvis:
+I den här artikeln har du lärt dig begrepp och arbets flöde för extrahering av nyckel fraser genom att använda Textanalys i Cognitive Services. Sammanfattning:
 
 + [API för extrahering av nyckelfraser](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c6) är tillgängligt för utvalda språk.
 + JSON-dokument i begär ande texten innehåller ID, text och språkkod.
-+ POST-begäran riktas till en `/keyphrases`-slutpunkt med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som är giltig för din prenumeration.
++ POST-begäran riktas till en `/keyphrases`-slutpunkt, med hjälp av en personligt anpassad [åtkomstnyckel och en slutpunkt](../../cognitive-services-apis-create-account.md#get-the-keys-for-your-resource) som är giltig för prenumerationen.
 + Svars resultatet, som består av viktiga ord och fraser för varje dokument-ID, kan strömmas till alla appar som accepterar JSON, inklusive Microsoft Office Excel och Power BI, för att ge några.
 
 ## <a name="see-also"></a>Se också

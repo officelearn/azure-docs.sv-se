@@ -1,5 +1,5 @@
 ---
-title: Aktiv inlärning – Personanpassare
+title: Aktiva och inaktiva händelser – Personanpassare
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
@@ -10,57 +10,46 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.author: diberry
-ms.openlocfilehash: 8c1579be3d11ae14ca45ee861de2d4f705e5d62c
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: aa6f53901f21dcb0726454d641a4a2a66007f9e0
+ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68663716"
+ms.lasthandoff: 10/16/2019
+ms.locfileid: "72429050"
 ---
-# <a name="active-learning-and-learning-policies"></a>Aktiva principer för inlärning och inlärning 
+# <a name="active-and-inactive-events"></a>Aktiva och inaktiva händelser
 
-När programmet anropar rang-API: et får du en rangordning av innehållet. Affärs logik kan använda den här rangordningen för att avgöra om innehållet ska visas för användaren. När du visar det rankade innehållet, är det ett _aktivt_ rang-händelse. När programmet inte visar det rankade innehållet, är det ett inaktivt rang-händelse. 
+När programmet anropar rang-API: et får du vilken åtgärd programmet ska visa i fältet rewardActionId.  Från och med den tidpunkten förväntar sig personanpassa ett belönings samtal med samma eventId. Belönings poängen kommer att användas för att träna modellen som ska användas för framtida Rangbaserade samtal. Om inget belönings anrop tas emot för eventId kommer en defaul-belöning att tillämpas. Standard förmåner upprättas i Azure-portalen.
 
-Information om aktiva ranknings händelser returneras till Personanpassaren. Den här informationen används för att fortsätta träna modellen genom den aktuella inlärnings principen.
-
-## <a name="active-events"></a>Aktiva händelser
-
-Aktiva händelser bör alltid visas för användaren och belönings anropet ska returneras för att stänga inlärnings slingan. 
-
-### <a name="inactive-events"></a>Inaktiva händelser 
-
-Inaktiva händelser bör inte ändra den underliggande modellen eftersom användaren inte fick möjlighet att välja från det rankade innehållet.
-
-## <a name="dont-train-with-inactive-rank-events"></a>Träna inte med inaktiva ranknings händelser 
-
-För vissa program kan du behöva anropa rang-API: et utan att veta om ditt program kommer att visa resultatet för användaren. 
-
-Detta händer när:
+I vissa fall kan programmet behöva anropa rang diametern även om resultatet ska användas eller visas för användaren. Detta kan inträffa i situationer där exempelvis sid åter givningen av framhävda innehåll skrivs över med en marknadsförings kampanj. Om resultatet av rang anropet aldrig har använts och användaren aldrig kunde se det, skulle det vara fel på att träna det med all belöning, noll eller på annat sätt.
+Detta inträffar vanligt vis när:
 
 * Du kanske för hands återger ett användar gränssnitt som användaren kanske inte kan se. 
 * Ditt program kan göra en förutsägelse anpassning i vilka Rangbaserade anrop görs med mindre real tids sammanhang och deras utdata kan eventuellt inte användas av programmet. 
 
-### <a name="disable-active-learning-for-inactive-rank-events-during-rank-call"></a>Inaktivera aktiv inlärning för inaktiva ranknings händelser under rang anrop
+I dessa fall är det rätt sätt att använda Personanpassaren genom att anropa rangen som begär händelsen som _inaktiv_. Personanpassaren förväntar sig inte en belöning för den här händelsen och kommer inte att tillämpa någon standard belöning. Letr i din affärs logik, om programmet använder informationen från rang anropet, behöver du bara _Aktivera_ händelsen. Från den tidpunkt då händelsen är aktiv förväntar sig Personanpassan en belöning för evenemanget eller använder en standard belöning om inget uttryckligt anrop görs till belönings-API: et.
 
-Om du vill inaktivera automatisk inlärning, anropa `learningEnabled = False`rangordning med.
+## <a name="get-inactive-events"></a>Hämta inaktiva händelser
 
-Inlärningen för en inaktiv händelse aktive ras implicit om du skickar en belöning för rankningen.
+Om du vill inaktivera utbildning för en händelse anropar du rang med `learningEnabled = False`.
 
-## <a name="learning-policies"></a>Utbildnings principer
+Inlärningen för en inaktiv händelse aktive ras implicit om du skickar en belöning för eventId eller anropar `activate`-API: et för eventId.
 
-Inlärnings policyn avgör de speciella *disponeringsparametrarna* för modell träningen. Två modeller av samma data, tränade på olika inlärnings principer, fungerar annorlunda.
+## <a name="learning-settings"></a>Utbildnings inställningar
 
-### <a name="importing-and-exporting-learning-policies"></a>Importera och exportera utbildnings principer
+Inlärnings inställningarna bestämmer de exaktaste *parametrarna* för modell träningen. Två modeller av samma data, som har tränats på olika inlärnings inställningar, kommer att få en annan modell.
+
+### <a name="import-and-export-learning-policies"></a>Importera och exportera utbildnings principer
 
 Du kan importera och exportera learning policy-filer från Azure Portal. På så sätt kan du spara befintliga principer, testa dem, ersätta dem och arkivera dem i käll kods kontrollen som artefakter för framtida referens och granskning.
 
 ### <a name="learning-policy-settings"></a>Policy inställningar för inlärning
 
-Inställningarna i inlärnings **principen** är inte avsedda att ändras. Ändra bara inställningarna när du förstår hur de påverkar Personanpassaren. Om du ändrar inställningar utan den här kunskapen kan det orsaka sido effekter, inklusive invalidering av anpassnings modeller.
+Inställningarna i **inlärnings principen** är inte avsedda att ändras. Ändra bara inställningarna när du förstår hur de påverkar Personanpassaren. Om du ändrar inställningar utan den här kunskapen kan det orsaka sido effekter, inklusive invalidering av anpassnings modeller.
 
 ### <a name="comparing-effectiveness-of-learning-policies"></a>Jämför effektiviteten för utbildnings principer
 
-Du kan jämföra hur olika inlärnings principer har utförts mot tidigare data i personanpassa loggar genom att göra [offline](concepts-offline-evaluation.md)-utvärderingar.
+Du kan jämföra hur olika inlärnings principer har utförts mot tidigare data i personanpassa loggar genom att göra [offline-utvärderingar](concepts-offline-evaluation.md).
 
 [Ladda upp dina egna utbildnings principer](how-to-offline-evaluation.md) för att jämföra med den aktuella inlärnings policyn.
 

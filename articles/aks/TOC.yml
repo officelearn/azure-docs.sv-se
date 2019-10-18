@@ -304,19 +304,33 @@
           href: spark-job.md
         - name: 'Använda GPU:er'
           href: gpu-cluster.md
-        - name: Använda Istio
-          items:
-            - name: Installera och konfigurera
-              href: istio-install.md
-            - name: Intelligenta routnings- och kanarieversioner
-              href: istio-scenario-routing.md
-        - name: Använda Hashicorp Consul Connect
-          items:
-            - name: Installera och konfigurera
-              href: consul-install.md
         - name: Använda Azure Database for PostgreSQL
           href: ../postgresql/concepts-aks.md
           maintainContext: true
+    - name: Välja och distribuera ett tjänstnät
+      items:
+        - name: Om Service Meshes
+          href: servicemesh-about.md
+        - name: Använda Istio
+          items:
+            - name: Om Istio
+              href: servicemesh-istio-about.md
+            - name: Installera och konfigurera
+              href: servicemesh-istio-install.md
+            - name: Scenario – Intelligenta routnings- och kanarieversioner
+              href: servicemesh-istio-scenario-routing.md
+        - name: Använda Linkerd
+          items:
+            - name: Om Linkerd
+              href: servicemesh-linkerd-about.md
+            - name: Installera och konfigurera
+              href: servicemesh-linkerd-install.md
+        - name: Använda Consul
+          items:
+            - name: Om Consul
+              href: servicemesh-consul-about.md
+            - name: Installera och konfigurera
+              href: servicemesh-consul-install.md
     - name: DevOps
       items:
         - name: Använd Ansible för att skapa AKS-kluster

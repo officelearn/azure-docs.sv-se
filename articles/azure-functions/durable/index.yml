@@ -1,0 +1,110 @@
+### YamlMime:Landing
+title: Dokumentation om Azure Durable Functions
+summary: Durable Functions är en utökning av Azure Functions som gör att du kan skriva tillståndskänsliga funktioner i en serverlös beräkningsmiljö.
+metadata:
+  title: Dokumentation om Azure Durable Functions
+  description: Durable Functions är en utökning av Azure Functions som gör att du kan skriva tillståndskänsliga funktioner i en serverlös beräkningsmiljö.
+  ms.service: azure-functions
+  ms.topic: landing-page
+  author: ggailey777
+  ms.author: azfundocs
+  ms.date: 10/04/2019
+  ms.openlocfilehash: f0f47c8d997a3d02ad3bae1bc4634f4c7ad2155c
+  ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+  ms.translationtype: HT
+  ms.contentlocale: sv-SE
+  ms.lasthandoff: 10/17/2019
+  ms.locfileid: "72529694"
+landingContent:
+- title: Om Durable Functions
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Vad är Durable Functions?
+      url: durable-functions-overview.md
+    - text: Jämför serverlösa alternativ
+      url: ../functions-compare-logic-apps-ms-flow-webjobs.md
+  - linkListType: concept
+    links:
+    - text: Typer av varaktiga funktioner
+      url: durable-functions-types-features-overview.md
+  - linkListType: video
+    links:
+    - text: Låt dig inte hindras av serverbegränsningar
+      url: https://azure.microsoft.com/resources/videos/break-through-the-serverless-barriers-with-durable-functions/
+- title: Komma igång
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Skapa en varaktig funktion (C#)
+      url: durable-functions-create-first-csharp.md
+    - text: Skapa din första funktion (JavaScript)
+      url: quickstart-js-vscode.md
+  - linkListType: learn
+    links:
+    - text: Skapa ett långvarigt serverlöst arbetsflöde
+      url: /learn/modules/create-long-running-serverless-workflow-with-durable-functions/
+  - linkListType: video
+    links:
+    - text: Se hur du kommer igång
+      url: https://azure.microsoft.com/resources/videos/azure-friday-durable-functions-in-azure-functions/
+- title: Viktiga begrepp
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Orkestreringar
+      url: durable-functions-orchestrations.md
+    - text: Tillståndskänsliga entiteter
+      url: durable-functions-entities.md
+    - text: HTTP-funktioner
+      url: durable-functions-http-features.md
+    - text: Uppgiftshubbar
+      url: durable-functions-task-hubs.md
+    - text: Versionshantering
+      url: durable-functions-versioning.md
+  - linkListType: video
+    links:
+    - text: Serverlösa entiteter, dirigeringar och tillståndskänsliga funktioner
+      url: https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B206
+- title: Programmönster
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Funktionslänkning
+      url: durable-functions-sequence.md
+    - text: Asynkrona HTTP-API:er
+      url: durable-functions-create-first-csharp.md
+    - text: Förgrening
+      url: durable-functions-cloud-backup.md
+    - text: Övervakare
+      url: durable-functions-monitor.md
+    - text: Mänsklig interaktion
+      url: durable-functions-phone-verification.md
+    - text: Aggregator
+      url: durable-functions-entities.md
+- title: Prestanda och övervakning
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Diagnostik
+      url: durable-functions-diagnostics.md
+  - linkListType: concept
+    links:
+    - text: Övervaka funktioner
+      url: ../functions-monitoring.md
+    - text: Nätverksöverväganden
+      url: ../functions-networking-options.md
+- title: Exempel
+  linkLists:
+  - linkListType: download
+    links:
+    - text: Durable Functions-exempel
+      url: /samples/browse/?products=azure-functions&term=durable
+    - text: Azure Serverless Community Library
+      url: https://www.serverlesslibrary.net/
+    - text: Azure Resource Manager-mallar
+      url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
+  - linkListType: how-to-guide
+    links:
+    - text: Azure CLI-exempel
+      url: ../functions-cli-samples.md

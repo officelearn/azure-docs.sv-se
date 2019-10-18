@@ -35,20 +35,6 @@
       href: policy-samples.md
 - name: Begrepp
   items:
-    - name: NAT Gateway
-      items:
-        - name: Översikt
-          items:
-            - name: Om NAT Gateway
-              href: nat-service-overview.md
-        - name: Snabbstarter
-          items:
-            - name: Skapa en NAT Gateway – Azure CLI
-              href: quickstart-create-nat-gateway-cli.md
-        - name: Självstudier
-          items:
-            - name: Skapa och verifiera en NAT Gateway – Azure CLI
-              href: tutorial-create-validate-nat-gateway-cli.md
     - name: Säkerhetsgrupper
       href: security-overview.md
     - name: Routning
@@ -75,6 +61,8 @@
       href: public-ip-address-prefix.md
     - name: IPv6 för Azure VNet
       href: ipv6-overview.md
+    - name: Prefix för offentlig IPv6-adress
+      href: ipv6-public-ip-address-prefix.md
     - name: DDoS-skydd
       href: ddos-protection-overview.md
     - name: Interoperabilitet för serverdelsanslutning
@@ -248,6 +236,8 @@
           items:
             - name: Undernät
               href: virtual-network-manage-subnet.md
+            - name: Delegering av undernät
+              href: manage-subnet-delegation.md
             - name: Peering-sessioner
               href: virtual-network-manage-peering.md
             - name: DDoS-skydd
@@ -271,6 +261,8 @@
           href: virtual-network-public-ip-address.md
         - name: Offentligt IP-prefix
           href: manage-public-ip-address-prefix.md
+        - name: Prefix för offentlig IPv6-adress
+          href: ipv6-reserve-public-ip-address-prefix.md
     - name: Flytta mellan regioner
       items:
         - name: Nätverkssäkerhetsgrupper – portalen

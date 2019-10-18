@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: kgremban
-ms.openlocfilehash: 9e9028d0c9aeff19dc221b81defa5e2057927fa6
-ms.sourcegitcommit: 18061d0ea18ce2c2ac10652685323c6728fe8d5f
+ms.openlocfilehash: 3cf30b53f950ff18dd6dcde332b7e97e332133aa
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/15/2019
-ms.locfileid: "69034194"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516565"
 ---
 # <a name="use-iot-edge-on-windows-to-run-linux-containers"></a>Använda IoT Edge i Windows för att köra Linux-behållare
 
@@ -24,7 +24,7 @@ I ett produktions scenario ska Windows-enheter endast köra Windows-behållare. 
 
 Den här artikeln innehåller anvisningar för att installera Azure IoT Edge runtime med hjälp av Linux-behållare på ditt Windows x64-system (AMD/Intel). Läs mer om installations programmet för IoT Edge runtime, inklusive information om alla installations parametrar, i [installera Azure IoT Edge runtime i Windows](how-to-install-iot-edge-windows.md).
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 Använd det här avsnittet för att se om din Windows-enhet har stöd för IoT Edge och förbereda den för en behållar motor före installationen. 
 
@@ -47,7 +47,7 @@ Om din IoT Edge enhet är en Windows-dator kontrollerar du att den uppfyller [sy
 ## <a name="install-iot-edge-on-a-new-device"></a>Installera IoT Edge på en ny enhet
 
 >[!NOTE]
->Azure IoT Edge-programvarupaket omfattas licensvillkoren finns i paket (i katalogen licens). Läs igenom licensvillkoren innan du börjar använda paketet. Din installation och användning av paketet kräver att du accepterar dessa villkor. Om du inte samtycker till licensvillkoren, Använd inte paketet.
+>Azure IoT Edge program varu paket omfattas av licens villkoren som finns i paketen (i licens katalogen). Läs licens villkoren innan du använder paketet. Din installation och användning av paketet utgör ditt godkännande av dessa villkor. Om du inte accepterar licens villkoren ska du inte använda paketet.
 
 Ett PowerShell-skript laddar ned och installerar Azure IoT Edge Security daemon. Security daemon startar sedan den första av två körnings moduler, IoT Edge agent, som möjliggör fjärrdistributioner av andra moduler. 
 
@@ -57,7 +57,7 @@ Du kan läsa mer om de olika installations alternativen och parametrarna i artik
 
 1. Registrera en ny IoT Edge enhet och hämta anslutnings strängen för enheten om du inte redan gjort det. Kopiera anslutnings strängen och Använd den senare i det här avsnittet. Du kan utföra det här steget med följande verktyg:
 
-   * [Azure Portal](how-to-register-device-portal.md)
+   * [Azure-portalen](how-to-register-device-portal.md)
    * [Azure CLI](how-to-register-device-cli.md)
    * [Visual Studio Code](how-to-register-device-vscode.md)
 
@@ -88,24 +88,29 @@ Du kan läsa mer om de olika installations alternativen och parametrarna i artik
 
 6. När du uppmanas till det anger du den enhets anslutnings sträng som du hämtade i steg 1. Enhets anslutnings strängen kopplar den fysiska enheten med ett enhets-ID i IoT Hub. 
 
-   Enhets anslutnings strängen har följande format och ska inte innehålla citat tecken:`HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
+   Enhets anslutnings strängen har följande format och ska inte innehålla citat tecken: `HostName={IoT hub name}.azure-devices.net;DeviceId={device name};SharedAccessKey={key}`
 
-## <a name="verify-successful-installation"></a>Verifiera installationen
+## <a name="verify-successful-installation"></a>Verifiera lyckad installation
 
-Kontrollera status för IoT Edge-tjänsten. Den ska visas som körs.  
+Kontrol lera status för den IoT Edge tjänsten: 
 
 ```powershell
 Get-Service iotedge
 ```
 
-Granska loggarna för tjänsten från de senaste 5 minuterna. 
+Undersök tjänst loggar från de senaste 5 minuterna: 
 
 ```powershell
 . {Invoke-WebRequest -useb aka.ms/iotedge-win} | Invoke-Expression; Get-IoTEdgeLog
 ```
 
-Lista med moduler. När en ny installation har slutförts är den enda modul som du bör se **edgeAgent**. När du har [distribuerat IoT Edge moduler](how-to-deploy-modules-portal.md) för första gången, kommer den andra systemmodulen, **edgeHub**, att starta även på enheten. 
+Kör en automatisk kontroll av de vanligaste konfigurations-och nätverks felen: 
 
+```powershell
+iotedge check
+```
+
+Lista med moduler som körs. När en ny installation har slutförts är den enda modul som du bör se **edgeAgent**. När du har [distribuerat IoT Edge moduler](how-to-deploy-modules-portal.md) för första gången, kommer den andra systemmodulen, **edgeHub**, att starta även på enheten. 
 
 ```powershell
 iotedge list
@@ -113,7 +118,7 @@ iotedge list
 
 ## <a name="next-steps"></a>Nästa steg
 
-Nu när du har en IoT Edge-enhet med den som är installerad kan du [distribuera IoT Edge-moduler](how-to-deploy-modules-portal.md).
+Nu när du har en IoT Edge enhet som har installerats med körnings miljön kan du [distribuera IoT Edge moduler](how-to-deploy-modules-portal.md).
 
 Om du har problem med att installera IoT Edge korrekt, kan du kolla in [fel söknings](troubleshoot.md) sidan.
 

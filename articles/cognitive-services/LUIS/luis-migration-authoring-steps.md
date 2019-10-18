@@ -11,18 +11,18 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 09/12/2019
 ms.author: diberry
-ms.openlocfilehash: 7e79d3119f5d2d0fe1894de0ab9535dd988706f8
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.openlocfilehash: e1e89612ee48aaf5ee9bda51f954add426bf6720
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70935206"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516793"
 ---
 # <a name="steps-to-migrate-to-the-azure-authoring-resource"></a>Steg för att migrera till Azure Authoring-resursen
 
 Från Language Understanding-portalen (LUIS) migrerar du alla appar som du äger för att använda Azures redigerings resurs.
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * **Du kan också**säkerhetskopiera apparna från Luis-portalens lista med appar genom att exportera varje app eller använda export- [API: et](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c40).
 * **Du kan också**Spara varje apps collaborator's-lista. Alla medarbetare kan skicka ett e-postmeddelande som en del av migreringsprocessen.
@@ -43,7 +43,7 @@ Migreringsprocessen är tillgänglig om du äger LUIS-appar.
 
     ![Första popup-fönstret i migreringsprocessen väljer du migrera nu.](./media/migrate-authoring-key/migrate-now.png)
 
-1. Om någon av dina appar har medarbetare, uppmanas du att **Skicka ett e-postmeddelande** till dem för att få veta om migreringen. Det här är ett valfritt steg. 
+1. Om någon av dina appar har medarbetare, uppmanas du att **Skicka ett e-postmeddelande** till dem för att få veta om migreringen. Detta är ett valfritt steg. 
 
     När du har migrerat ditt konto till Azure kommer dina appar inte längre att vara tillgängliga för medarbetare.
 
@@ -91,7 +91,7 @@ Migreringsprocessen är tillgänglig om du äger LUIS-appar.
 
     Du behöver inte känna till redigerings resursens nyckel för att fortsätta redigera dina appar i LUIS-portalen. Om du planerar att redigera dina appar program mässigt behöver du redigera nyckel värden. Dessa värden visas på sidan **Hantera-> Azure-resurser** på Luis-portalen och finns också i Azure Portal på resursens **nyckel** sida.  
 
-1. Innan du får åtkomst till dina appar väljer du resursen prenumeration och LUIS Authoring för att se apparna som kan redige ras.
+1. Innan du får åtkomst till dina appar väljer du resursen prenumeration och LUIS Authoring för att se de appar som du kan redigera.
 
     ![Välj prenumerations-och LUIS som skapar resurs för att se vilka appar som kan redigera.](./media/migrate-authoring-key/app-list-by-subscription-and-resource.png)
 
@@ -110,7 +110,7 @@ Lär dig [hur du lägger till bidrags givare](luis-how-to-collaborate.md).
 
 ## <a name="troubleshooting-errors-with-the-migration-process"></a>Felsöka fel med migreringsprocessen
 
-Om du får ett `MissingSubscriptionRegistration` fel i Luis-portalen med ett rött meddelande fält under migreringsprocessen, skapar du en kognitiv tjänst resurs i [Azure Portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) eller [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Läs mer om [orsaker till det här felet](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
+Om du får ett `MissingSubscriptionRegistration` fel i LUIS-portalen med ett rött meddelande fält under migreringsprocessen, skapar du en kognitiv tjänst resurs i [Azure Portal](luis-how-to-azure-subscription.md#create-resources-in-the-azure-portal) eller [Azure CLI](luis-how-to-azure-subscription.md#create-resources-in-azure-cli). Läs mer om [orsaker till det här felet](../../azure-resource-manager/resource-manager-register-provider-errors.md#cause).
 
 ## <a name="next-steps"></a>Nästa steg
 

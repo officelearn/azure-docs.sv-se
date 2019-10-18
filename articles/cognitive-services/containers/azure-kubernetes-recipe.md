@@ -1,5 +1,5 @@
 ---
-title: Kör Kubernetes-tjänsten
+title: Kör Språkidentifiering behållare i Kubernetes-tjänsten
 titleSuffix: Text Analytics -  Azure Cognitive Services
 description: Distribuera behållaren för språk identifiering, med ett exempel som körs, till Azure Kubernetes-tjänsten och testa det i en webbläsare.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 06/26/2019
 ms.author: dapine
-ms.openlocfilehash: 927f5bc191c1bbd3e9f8ea89b9f4171ce82df612
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
-ms.translationtype: HT
+ms.openlocfilehash: e33aa98939eeb5b5394f1f5cc05e28ae8f6ae4f2
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72388145"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515246"
 ---
 # <a name="deploy-the-text-analytics-language-detection-container-to-azure-kubernetes-service"></a>Distribuera Textanalys språk identifierings behållare till Azure Kubernetes-tjänsten
 
@@ -307,7 +307,7 @@ I det här avsnittet används **kubectl** CLI för att kommunicera med Azure Kub
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
     ```
 
-1. Kopiera följande fil och ge den namnet `language.yml`. Filen har ett `service`-avsnitt och ett `deployment`-avsnitt för de två behållar typerna, den `language-frontend` webbplats behållaren och identifierings behållaren för @no__t 3.
+1. Kopiera följande fil och ge den namnet `language.yml`. Filen har en `service`-sektion och ett `deployment`-avsnitt för de två behållar typerna, behållaren för `language-frontend` webbplatsen och `language` identifierings behållaren.
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 

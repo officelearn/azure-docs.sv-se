@@ -1,7 +1,7 @@
 ---
-title: Kör Azure Container Instances
+title: Kör ansikts behållare i Azure Container Instances
 titleSuffix: Azure Cognitive Services
-description: Ansikts-behållaren distribueras till en Azure-Behållarinstans och testa den i en webbläsare.
+description: Distribuera ansikts behållaren till en Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: e67846b6b304b5425f7e8334eb3a4499a029d5ab
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2a596ea1f6f6405078d0e031de00212995342a19
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711597"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516819"
 ---
-# <a name="deploy-the-face-container-to-azure-container-instances"></a>Distribuera Ansikts-behållare till Azure Container Instances
+# <a name="deploy-the-face-container-to-azure-container-instances"></a>Distribuera ansikts behållaren till Azure Container Instances
 
-Lär dig hur du distribuerar Cognitive Services [ansikte](../face-how-to-install-containers.md) behållare till Azure [Behållarinstanser](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar skapandet av ett ansikte i Azure-resurs. Därefter ska vi prata hämta associerade behållaravbildningen. Slutligen kan markerar vi du möjlighet att utöva dirigering av två från en webbläsare. Med hjälp av behållare kan du ändra den utvecklare uppmärksamhet från hantering av infrastruktur för att i stället fokusera på programutveckling.
+Lär dig hur du distribuerar behållaren Cognitive Services [ansikte](../face-how-to-install-containers.md) till Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar hur du skapar en Azure-ansikts resurs. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
+## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
 
 [!INCLUDE [Request access to private container registry](../../../../includes/cognitive-services-containers-request-access.md)]
 

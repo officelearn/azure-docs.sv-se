@@ -1,7 +1,7 @@
 ---
-title: Kör Azure Container Instances
+title: Kör Visuellt innehåll behållare i Azure Container Instances
 titleSuffix: Azure Cognitive Services
-description: Distribuera behållaren för visuellt innehåll till en Azure Container-instans och testa den i en webbläsare.
+description: Distribuera Visuellt innehåll-behållaren till en Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
 author: IEvangelist
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: 859147d23ea78abac2da4a4c2f1fa26a8d976d02
-ms.sourcegitcommit: c105ccb7cfae6ee87f50f099a1c035623a2e239b
+ms.openlocfilehash: 2de879d271ab001e62725424ea72e0604176efb4
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67711619"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72516876"
 ---
-# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Distribuera behållaren för visuellt innehåll till Azure Container Instances
+# <a name="deploy-the-computer-vision-container-to-azure-container-instances"></a>Distribuera Visuellt innehåll-behållaren till Azure Container Instances
 
-Lär dig hur du distribuerar Cognitive Services [visuellt](computer-vision-how-to-install-containers.md) behållare till Azure [Behållarinstanser](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar skapandet av resursen för visuellt innehåll. Därefter ska vi prata hämta associerade behållaravbildningen. Slutligen kan markerar vi du möjlighet att utöva dirigering av två från en webbläsare. Med hjälp av behållare kan du ändra den utvecklare uppmärksamhet från hantering av infrastruktur för att i stället fokusera på programutveckling.
+Lär dig hur du distribuerar Cognitive Services [visuellt innehåll](computer-vision-how-to-install-containers.md) -behållaren till Azure [container instances](https://docs.microsoft.com/azure/container-instances/). Den här proceduren visar att Visuellt innehåll-resursen skapas. Sedan diskuterar vi hämtningen av den tillhör ande behållar avbildningen. Slutligen fokuserar vi på att kunna utnyttja dirigeringen av de två från en webbläsare. Genom att använda behållare kan du byta utvecklares uppmärksamhet från att hantera infrastrukturen i stället för att fokusera på program utveckling.
 
 [!INCLUDE [Prerequisites](../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
+## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access.md)]
 

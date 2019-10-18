@@ -49,16 +49,6 @@
             - name: Om Azure Disk Encryption
               displayName: 'BitLocker, bek'
               href: 'https://docs.microsoft.com/azure/security/azure-security-disk-encryption-overview'
-            - name: Snabbstarter
-              items:
-                - name: Kryptera en virtuell Linux-dator med Azure CLI
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-cli-quickstart'
-                - name: Kryptera en virtuell Linux-dator med Azure PowerShell
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-linux-powershell-quickstart'
-                - name: Kryptera en virtuell Windows-dator med Azure CLI
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-cli-quickstart'
-                - name: Kryptera en virtuell Windows-dator med Azure PowerShell
-                  href: 'https://docs.microsoft.com/azure/security/azure-disk-encryption-windows-powershell-quickstart'
             - name: Azure Disk Encryption
               items:
                 - name: Krav för diskkryptering
@@ -151,8 +141,6 @@
           href: network-best-practices.md
         - name: DDoS Protection
           href: ddos-best-practices.md
-        - name: Gränssäkerhet
-          href: network-best-practices.md
 - name: Program
   items:
     - name: PaaS
@@ -185,9 +173,6 @@
   items:
     - name: Granskning och loggning
       items:
-        - name: Säkerhetshantering
-          displayName: 'vulnerability, incident, virus,'
-          href: 'https://docs.microsoft.com/azure/security-center/security-center-intro?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
         - name: Säkerhet för fjärrhantering
           href: management.md
         - name: Azure-loggintegrering
@@ -199,9 +184,6 @@
             - name: Integrera Azure AD-granskningsloggar
               displayName: active directory
               href: azure-log-integration-ad.md
-            - name: Integrera aviseringar i Security Center
-              displayName: splunk
-              href: 'https://docs.microsoft.com/azure/security-center/security-center-export-data-to-siem?toc=/azure/security/toc.json&bc=/azure/security/breadcrumb/toc.json'
             - name: Integrera loggar från Key Vault
               displayName: keyvault
               href: azure-log-integration-keyvault-eventhub.md

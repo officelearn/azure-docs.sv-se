@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 02/01/2019
+ms.date: 10/16/2019
 ms.author: swmachan
-ms.openlocfilehash: bc03e10e40e90845c8e1a3dd064c4f50fafeac00
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: 24f27dfde34413d1ac98f795eddc07103d3cbf3c
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72299821"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515255"
 ---
 # <a name="translator-text-api-30-translate"></a>Translator Text API 3,0: Översätt
 
@@ -102,7 +102,7 @@ Begärandehuvuden innehåller:
   </tr>
   <tr>
     <td>Content-Type</td>
-    <td><em>Begär ande huvud för begäran</em>.<br/>Anger nytto lastens innehålls typ. Möjliga värden är: <code>application/json</code>.</td>
+    <td><em>Begär ande huvud för begäran</em>.<br/>Anger nytto lastens innehålls typ.<br/> Accepterat värde är <code>application/json; charset=UTF-8</code>.</td>
   </tr>
   <tr>
     <td>Innehålls längd</td>
@@ -153,7 +153,7 @@ Ett lyckat svar är en JSON-matris med ett resultat för varje sträng i den ang
 
       * `text`: en sträng som ger den översatta texten i mål skriptet.
 
-    @No__t-0-objektet tas inte med om transkriberingsspråk inte sker.
+    @No__t_0-objektet tas inte med om transkriberingsspråk inte sker.
 
     * `alignment`: ett objekt med en enskild sträng egenskap med namnet `proj`, som mappar inmatad text till översatt text. Justerings informationen anges bara när parametern för begäran `includeAlignment` är `true`. Justeringen returneras som ett sträng värde av följande format: `[[SourceTextStartIndex]:[SourceTextEndIndex]–[TgtTextStartIndex]:[TgtTextEndIndex]]`.  Kolonet separerar start-och slut index, strecket separerar språken och blank steg separerar orden. Ett ord kan justeras med noll, ett eller flera ord på det andra språket och de justerade orden kan vara icke-sammanhängande. Om ingen justerings information är tillgänglig är justerings elementet tomt. Se [Hämta justerings information](#obtain-alignment-information) för ett exempel och begränsningar.
 
@@ -234,7 +234,7 @@ Om ett fel inträffar returnerar begäran även ett JSON-felsvar. Felkoden är e
 Det här exemplet visar hur du översätter en enskild mening från engelska till förenklad kinesiska.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 Svars texten är:
@@ -256,7 +256,7 @@ Matrisen `translations` innehåller ett-element som innehåller översättningen
 Det här exemplet visar hur du översätter en enskild mening från engelska till förenklad kinesiska. Det angivna språket anges inte i begäran. Automatisk identifiering av käll språket används i stället.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 Svars texten är:
@@ -278,7 +278,7 @@ Svaret liknar svaret från föregående exempel. Eftersom automatisk automatisk 
 Nu ska vi utöka det tidigare exemplet genom att lägga till transkriberingsspråk. Följande begäran ber om en kinesisk översättning som skrivits i det latinska skriptet.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&to=zh-Hans&toScript=Latn" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 Svars texten är:
@@ -305,7 +305,7 @@ Svars texten är:
 Att översätta flera strängar samtidigt är bara en fråga om att ange en sträng mat ris i begär ande texten.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}, {'Text':'I am fine, thank you.'}]"
 ```
 
 Svars texten är:
@@ -330,7 +330,7 @@ Svars texten är:
 Det här exemplet visar hur du översätter samma inaktuella ingångar till flera språk i en begäran.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'Hello, what is your name?'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'Hello, what is your name?'}]"
 ```
 
 Svars texten är:
@@ -374,17 +374,17 @@ Om du inte vill få några svordomar i översättningen, oavsett om det finns sv
     <td>Svordomar ord ersätts med en markör i utdata. Markören är beroende av parametern <code>ProfanityMarker</code>.<br/><br/>
 För <code>ProfanityMarker=Asterisk</code>, kommer svordoms-ord att ersättas med <code>***</code>:<br/>
     <strong>Exempel källa (japanska)</strong>: 彼はジャッカスです från en omfattande<br/>
-    <strong>Exempel översättning (engelska)</strong>: he är en \* @ no__t-2 @ no__t-3.<br/><br/>
-För <code>ProfanityMarker=Tag</code>, kommer svordoms-ord omges av XML-taggar &lt;profanity @ no__t-2 och &lt;/svordoms @ no__t-4:<br/>
+    <strong>Exempel översättning (engelska)</strong>: \* \* \*.<br/><br/>
+För <code>ProfanityMarker=Tag</code> är svordomar ord omgiven av XML-taggar &lt;profanity &gt; och &lt;/Profanity &gt;:<br/>
     <strong>Exempel källa (japanska)</strong>: 彼はジャッカスです från en omfattande<br/>
-    <strong>Exempel översättning (engelska)</strong>: he är en &lt;profanity @ no__t-2jackass @ no__t-3/svordoms @ no__t-4.
+    <strong>Exempel översättning (engelska)</strong>: &lt;profanity &gt;jackass &lt;/Profanity &gt;.
   </tr>
 </table> 
 
 Exempel:
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 Detta returnerar:
 
@@ -401,7 +401,7 @@ Detta returnerar:
 Jämför med:
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'This is a freaking good idea.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de&profanityAction=Marked&profanityMarker=Tag" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'This is a freaking good idea.'}]"
 ```
 
 Den senaste begäran returnerar:
@@ -428,7 +428,7 @@ Det är vanligt att översätta innehåll som innehåller markeringar som inneh�
 Här är en exempel förfrågan som illustreras.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=zh-Hans&textType=html" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'<div class=\"notranslate\">This will not be translated.</div><div>This will be translated.</div>'}]"
 ```
 
 Svaret är:
@@ -448,7 +448,7 @@ Svaret är:
 Om du vill ta emot justerings information anger `includeAlignment=true` i frågesträngen.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeAlignment=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation.'}]"
 ```
 
 Svaret är:
@@ -484,7 +484,7 @@ Observera följande begränsningar:
 Om du vill få information om menings längden i käll texten och översatt text anger du `includeSentenceLength=true` i frågesträngen.
 
 ```curl
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=fr&includeSentenceLength=true" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The answer lies in machine translation. The best machine translation technology cannot always provide translations tailored to a site or users like a human. Simply copy and paste a code snippet anywhere.'}]"
 ```
 
 Svaret är:
@@ -516,7 +516,7 @@ Den markering som ska tillhandahållas använder följande syntax.
 Anta till exempel den engelska meningen "ordet WordOMatic är en ord lista." Om du vill behålla ordet _WordOMatic_ i översättningen skickar du begäran:
 
 ```
-curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
+curl -X POST "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=en&to=de" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json; charset=UTF-8" -d "[{'Text':'The word <mstrans:dictionary translation=\"wordomatic\">word or phrase</mstrans:dictionary> is a dictionary entry.'}]"
 ```
 
 Resultatet är:

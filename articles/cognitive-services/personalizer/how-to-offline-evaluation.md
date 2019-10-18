@@ -1,5 +1,5 @@
 ---
-title: Offline-utvärdering – Personanpassare
+title: Så här gör du en offline-utvärdering – Personanpassare
 titleSuffix: Azure Cognitive Services
 description: Lär dig hur du analyserar din inlärnings slinga med en offline-utvärdering
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: diberry
-ms.openlocfilehash: a157b36ad2b4f5a7f2e50a9609d8acd621efd5a8
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: bd57880b11f56b13b4225652071593d29dcc6280
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70884468"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515223"
 ---
 # <a name="analyze-your-learning-loop-with-an-offline-evaluation"></a>Analysera din inlärnings slinga med en offline-utvärdering
 
@@ -26,7 +26,7 @@ Med offline-utvärdering kan du mäta hur effektiva anpassningar som jämförs m
 Läs om [offline-utvärderingar](concepts-offline-evaluation.md) för mer information.
 
 
-## <a name="prerequisites"></a>Förutsättningar
+## <a name="prerequisites"></a>Krav
 
 * En konfigurerad personanpassa slinga
 * Den personliga slingan måste ha en representativ mängd data – som en ungefärligt rekommenderar vi minst 50 000 händelser i sina loggar för meningsfulla utvärderings resultat. Om du vill kan du också ha tidigare exporterade _Learning-principfiler_ som du kan jämföra och testa i samma utvärdering.
@@ -35,7 +35,7 @@ Läs om [offline-utvärderingar](concepts-offline-evaluation.md) för mer inform
 
 1. Leta upp din anpassnings resurs i [Azure Portal](https://azure.microsoft.com/free/).
 1. I Azure Portal går du till avsnittet **utvärderingar** och väljer **Skapa utvärdering**.
-    ![I Azure Portal går du till avsnittet * * utvärdering * * och väljer * * Skapa utvärdering * *.](./media/offline-evaluation/create-new-offline-evaluation.png)
+    ![In Azure Portal går du till avsnittet * * utvärdering * * och väljer * * Skapa utvärdering * *. ](./media/offline-evaluation/create-new-offline-evaluation.png)
 1. Välj följande inställningar:
 
     * Ett utvärderings namn
@@ -54,11 +54,11 @@ När du är klar kan du välja utvärderingen i listan över utvärderingar.
 
 Jämförelser av inlärnings principer är:
 
-* **Online-princip**: Den aktuella inlärnings principen som används i personanpassa
-* **Bas linje**: Programmets standard (som fastställs av den första åtgärden som skickas i rang anrop).
-* **Slumpmässig princip**: Ett tänkt rangordnings beteende som alltid returnerar slumpmässiga val av åtgärder från de angivna.
-* **Anpassade principer**: Ytterligare inlärnings principer laddades upp när utvärderingen startades.
-* **Optimerad princip**: Om utvärderingen startades med alternativet för att identifiera en optimerad princip, kommer den också att jämföras och du kommer att kunna ladda ned den eller göra den till en online Learning-princip som ersätter den aktuella.
+* **Online princip**: den aktuella inlärnings principen som används i personanpassa
+* **Bas linje**: programmets standard (som fastställs av den första åtgärden som skickas i rang anrop).
+* **Slumpmässig princip**: ett tänkt ranknings beteende som alltid returnerar slumpmässiga val av åtgärder från de angivna.
+* **Anpassade principer**: ytterligare inlärnings principer laddas upp när utvärderingen startades.
+* **Optimerad princip**: om utvärderingen startades med alternativet för att identifiera en optimerad princip kommer den också att jämföras och du kommer att kunna ladda ned den eller göra den till en utbildnings princip som ersätter den aktuella.
 
 ![Resultat diagram över inställningar för offline-utvärdering](./media/offline-evaluation/evaluation-results.png)
 

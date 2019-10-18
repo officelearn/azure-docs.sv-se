@@ -1,5 +1,5 @@
 ---
-title: Offline-utvärdering – Personanpassare
+title: Använd metoden för offline-utvärdering – personanpassa
 titleSuffix: Azure Cognitive Services
 description: Skapa feedback-slinga i C# den här snabb starten med tjänsten personanpassa.
 services: cognitive-services
@@ -10,18 +10,18 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 05/07/2019
 ms.author: diberry
-ms.openlocfilehash: 5e9e745d73623e03e2530e1712a50e6670ee7ed3
-ms.sourcegitcommit: e3b0fb00b27e6d2696acf0b73c6ba05b74efcd85
+ms.openlocfilehash: f382c07dea75cb534632061c986dd8044c4aafa9
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68662852"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515581"
 ---
 # <a name="offline-evaluation"></a>Offlineutvärdering
 
 Offline-utvärdering är en metod som gör att du kan testa och utvärdera effektiviteten hos tjänsten personanpassa utan att ändra din kod eller påverka användar upplevelsen. Offline-utvärdering använder tidigare data som har skickats från ditt program till ranknings-API: et för att jämföra hur olika rankning har utförts.
 
-Offline-utvärdering utförs i ett datum intervall. Intervallet kan sluta så sent som den aktuella tiden. Början av intervallet får inte vara mer än antalet dagar som har angetts för datakvarhållning. [](how-to-settings.md)
+Offline-utvärdering utförs i ett datum intervall. Intervallet kan sluta så sent som den aktuella tiden. Början av intervallet får inte vara mer än antalet dagar som har angetts för [datakvarhållning](how-to-settings.md).
 
 Offline-utvärdering kan hjälpa dig att besvara följande frågor:
 
@@ -98,5 +98,5 @@ Vi rekommenderar att du tittar på funktions utvärderingar och ber:
 
 ## <a name="next-steps"></a>Nästa steg
 
-[Konfigurera](how-to-settings.md)deevaluations för att[köra offline-utvärdering](how-to-offline-evaluation.md) förstå [hur personanpassaren fungerar](how-personalizer-works.md) 
-
+[Konfigurera personanpassa](how-to-settings.md) 
+[körning av offline-utvärdering](how-to-offline-evaluation.md) förstå [hur personanpassa fungerar](how-personalizer-works.md)

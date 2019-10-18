@@ -1,5 +1,5 @@
 ---
-title: Kör Azure Container Instances
+title: Kör avvikelse detektor behållare i Azure Container Instances
 titleSuffix: Azure Cognitive Services
 description: Distribuera avvikelse detektor behållaren till en Azure Container instance och testa den i en webbläsare.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 7/5/2019
 ms.author: dapine
-ms.openlocfilehash: cdcf701c6356303c84d3f79ee4230271f64ace78
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: 52d2e3ed59a7ad71177f34909e37ce885d603297
+ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
 ms.translationtype: MT
 ms.contentlocale: sv-SE
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68854236"
+ms.lasthandoff: 10/17/2019
+ms.locfileid: "72515267"
 ---
 # <a name="deploy-an-anomaly-detector-container-to-azure-container-instances"></a>Distribuera en avvikelse detektor behållare till Azure Container Instances
 
@@ -23,7 +23,7 @@ Lär dig hur du distribuerar Cognitive Services [avvikelse detektor](../anomaly-
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 
-## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till privat behållarregister
+## <a name="request-access-to-the-private-container-registry"></a>Begär åtkomst till registret för privat behållare
 
 Du måste först fylla i och skicka in ett [formulär för avvikelse detektor container](https://aka.ms/adcontainer) för att begära åtkomst till behållaren.
 
@@ -38,5 +38,5 @@ Du måste först fylla i och skicka in ett [formulär för avvikelse detektor co
 ## <a name="next-steps"></a>Nästa steg
 
 * Granska [installations-och körnings behållare](../anomaly-detector-container-configuration.md) för att hämta behållar avbildningen och köra behållaren
-* Granska [konfigurera behållare](../anomaly-detector-container-configuration.md) för konfigurationsinställningar
+* Granska [Konfigurera behållare](../anomaly-detector-container-configuration.md) för konfigurations inställningar
 * [Läs mer om API-tjänsten för avvikelse detektor](https://go.microsoft.com/fwlink/?linkid=2080698&clcid=0x409)

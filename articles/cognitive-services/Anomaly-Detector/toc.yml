@@ -8,14 +8,6 @@
 - name: Snabbstarter
   expanded: true
   items:
-    - name: REST-API
-      items:
-        - name: 'Använd C#'
-          href: quickstarts/detect-data-anomalies-csharp.md
-        - name: Använda Java
-          href: quickstarts/detect-data-anomalies-java.md
-        - name: Använda Python
-          href: quickstarts/detect-data-anomalies-python.md
     - name: Klientbibliotek
       items:
         - name: 'Använd C#'
@@ -24,6 +16,14 @@
           href: quickstarts/detect-data-anomalies-python-sdk.md
         - name: Använda Node.js
           href: quickstarts/detect-data-anomalies-nodejs-sdk.md
+    - name: REST-API
+      items:
+        - name: 'Använd C#'
+          href: quickstarts/detect-data-anomalies-csharp.md
+        - name: Använda Java
+          href: quickstarts/detect-data-anomalies-java.md
+        - name: Använda Python
+          href: quickstarts/detect-data-anomalies-python.md
 - name: Självstudier
   items:
     - name: Visualisera avvikelser som en batch med hjälp av Power BI
